@@ -1,0 +1,21 @@
+#!/usr/bin/env simple
+
+$$ages types::insert_order_table
+
+!ages("Carlo") 47
+!ages("Albert") 23
+!ages("Juan") 19
+!ages("Maria") 45
+!ages("Estefan") 27
+!ages("Jenny") 31
+
+writeln ages("Maria")
+
+writeln "-----"
+for_each ages: (name age) writeln name ": " age
+
+!ages("Juan") 16
+!ages("Estefan") 32
+
+writeln "-----"
+for_each ages: (name age) writeln name ": " age

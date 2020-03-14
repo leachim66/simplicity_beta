@@ -1,0 +1,14 @@
+#!/usr/bin/env simple
+
+$$participants insert_order_set()
+
+!participants("Jeremy") true
+!participants("John") true
+!participants("Ada") true
+!participants("James") true
+!participants("Anne") true
+
+writeln participants("John")
+writeln participants("Jim")
+
+for_each participants: (participant) writeln participant

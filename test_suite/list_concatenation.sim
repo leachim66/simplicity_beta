@@ -1,0 +1,11 @@
+#!/usr/bin/env simple
+
+$$names list("Albert" "Berta" "Carla")
+$more_names list("Gustav" "Heinrich")
+
+push &names "Dorian"
+append &names more_names
+
+writeln length_of(names)
+
+for_each names: (name) writeln name

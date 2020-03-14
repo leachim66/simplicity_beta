@@ -1,0 +1,378 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include errno.h>
+<include stdint.h>
+<include math.h>
+<include time.h>
+
+$std::year_of (!)
+$std::month_of (!)
+$std::day_of (!)
+$std::day_of_week_of (!) # 1: monday, 2: tuesday, ..., 7: sunday
+$std::hour_of (!)
+$std::minute_of (!)
+$std::second_of (!)
+$std::time_shift_of (!)
+
+{
+  <kind node>
+  <name DATE_AND_TIME>
+
+  int64_t seconds;
+  int32_t nanoseconds;
+}
+
+{
+  <kind type>
+  <name types::date_and_time>
+  <node DATE_AND_TIME>
+  <base types::object>
+  <scope global>
+  <argument 0>
+  <argument 0>
+
+  RUNTIME_ERROR("Attempt to call a date and time object as a function!")
+}
+
+{
+  <kind function>
+
+  long types::date_and_time/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<date and time %d.%09d>",
+      node->date_and_time.seconds, node->date_and_time.nanoseconds);
+  }
+}
+
+$std::from_unix_time
+  {
+    CHECK_ARGUMENTS(1)
+    int64_t sec = to_int64(ARGUMENTS(0));
+    RETURN_SINGLE_RESULT(
+      create__types__date_and_time(sec, 0))
+  }
+
+$std::date_and_time
+  {
+    CHECK_ARGUMENTS(6)
+    int year = to_int(ARGUMENTS(0));
+    int month = to_int(ARGUMENTS(1));
+    int day = to_int(ARGUMENTS(2));
+    int hour = to_int(ARGUMENTS(3));
+    int minute = to_int(ARGUMENTS(4));
+    double second = to_double(ARGUMENTS(5));
+    int64_t seconds = floor(second);
+    int32_t nanoseconds = 1000000000*(second-seconds);
+    if (
+      year < 1970 ||
+      month < 1 || month > 12 ||
+      day < 1 ||
+      hour < 0 || hour > 23 ||
+      minute < 0 || minute > 59 ||
+      seconds < 0 || seconds > 59
+    ) RETURN_UNDEFINED
+    int64_t days = 0;
+    year -= 1970;
+    if (year >= 2) {
+      days += 730;
+      year -= 2;
+      days += 1461*(year/4);
+      year %= 4;
+      days += 365*year;
+      if (year > 0) ++days;
+    } else {
+      if (year == 1971) days += 365;
+      year += 2;
+    }
+    int m;
+    for (m = 1; m <= 12; ++m) {
+      int d;
+      switch (m) {
+        case 2:
+          d = year == 0 ? 29 : 28;
+          break;
+        case 4: case 6: case 9: case 11:
+          d = 30;
+          break;
+        default:
+          d = 31;
+      }
+      if (month > m) days += d;
+      if (month == m && day > d) RETURN_UNDEFINED
+    }
+    days += day-1;
+    seconds += 86400*(uint64_t)days+3600*hour+60*minute;
+    RETURN_SINGLE_RESULT(
+      create__types__date_and_time(seconds, nanoseconds))
+  }
+
+# ATTENTION: These algorithms break on January 1st, 2100!
+
+{
+  <kind function>
+
+  void year_month_day(NODE *node, int *year_p, int *month_p, int *day_p) {
+    long days;
+    int year, month, day, quads;
+    int is_a_leap_year;
+    days = ARGUMENTS(0)->date_and_time.seconds/86400;
+    is_a_leap_year = false;
+    if (days < 730) { // 1970, 1971
+      year = days/365;
+      days -= 365*year;
+      year += 1970;
+    } else { // 1972 and later
+      days -= 730;
+      quads = days/1461;
+      days -= 1461*quads;
+      year = 1972+4*quads;
+      if (days >= 1096) {
+        year += 3;
+        days -= 1096;
+      } else if (days >= 731) {
+        year += 2;
+        days -= 731;
+      } else if (days >= 366) {
+        ++year;
+        days -= 366;
+      } else {
+        is_a_leap_year = true;
+      }
+    }
+    month = 1;
+    if (days < 31) goto done; // January
+    days -= 31;
+    ++month;
+    if (is_a_leap_year) {
+      if (days < 29) goto done; // February
+      days -= 29;
+    } else {
+      if (days < 28) goto done; // February
+      days -= 28;
+    }
+    ++month;
+    if (days < 31) goto done; // March
+    days -= 31;
+    ++month;
+    if (days < 30) goto done; // April
+    days -= 30;
+    ++month;
+    if (days < 31) goto done; // May
+    days -= 31;
+    ++month;
+    if (days < 30) goto done; // June
+    days -= 30;
+    ++month;
+    if (days < 31) goto done; // July
+    days -= 31;
+    ++month;
+    if (days < 31) goto done; // August
+    days -= 31;
+    ++month;
+    if (days < 30) goto done; // September
+    days -= 30;
+    ++month;
+    if (days < 31) goto done; // October
+    days -= 31;
+    ++month;
+    if (days < 30) goto done; // November
+    days -= 30;
+    ++month; // December
+    done:
+    if (year_p) *year_p = year;
+    if (month_p) *month_p = month;
+    if (day_p) *day_p = days+1;
+  }
+}
+
+$types::date_and_time/year_of
+  {
+    CHECK_ARGUMENTS(1)
+    int year;
+    year_month_day(ARGUMENTS(0), &year, NULL, NULL);
+    RETURN_SINGLE_RESULT(from_int(year))
+  }
+
+$types::date_and_time/month_of
+  {
+    CHECK_ARGUMENTS(1)
+    int month;
+    year_month_day(ARGUMENTS(0), NULL, &month, NULL);
+    RETURN_SINGLE_RESULT(from_int(month))
+  }
+
+$types::date_and_time/day_of
+  {
+    CHECK_ARGUMENTS(1)
+    int day;
+    year_month_day(ARGUMENTS(0), NULL, NULL, &day);
+    RETURN_SINGLE_RESULT(from_int(day))
+  }
+
+$types::date_and_time/day_of_week_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(
+      from_long(
+        (3+ARGUMENTS(0)->date_and_time.seconds/86400)%7+1))
+  }
+
+$types::date_and_time/hour_of
+  {
+    CHECK_ARGUMENTS(1)
+    int seconds = ARGUMENTS(0)->date_and_time.seconds%86400;
+    RETURN_SINGLE_RESULT(from_int(seconds/3600))
+  }
+
+$types::date_and_time/minute_of
+  {
+    CHECK_ARGUMENTS(1)
+    int seconds = ARGUMENTS(0)->date_and_time.seconds%3600;
+    RETURN_SINGLE_RESULT(from_int(seconds/60))
+  }
+
+$types::date_and_time/second_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(
+      from_double(
+        ARGUMENTS(0)->date_and_time.seconds%60+
+        ARGUMENTS(0)->date_and_time.nanoseconds/1000000000.0))
+  }
+
+$types::date_and_time/plus
+  {
+    CHECK_ARGUMENTS(2)
+    int64_t seconds = ARGUMENTS(0)->date_and_time.seconds;
+    int32_t nanoseconds = ARGUMENTS(0)->date_and_time.nanoseconds;
+    double delta = to_double(ARGUMENTS(1));
+    int64_t delta_seconds = round(delta);
+    int32_t delta_nanoseconds = 1000000000*(delta-delta_seconds);
+    seconds += delta_seconds;
+    nanoseconds += delta_nanoseconds;
+    if (nanoseconds >= 1000000000) {
+      nanoseconds -= 1000000000;
+      ++seconds;
+    }
+    RETURN_SINGLE_RESULT(create__types__date_and_time(seconds, nanoseconds));
+  }
+
+$types::date_and_time/minus
+  {
+    CHECK_ARGUMENTS(2)
+    int64_t seconds = ARGUMENTS(0)->date_and_time.seconds;
+    int32_t nanoseconds = ARGUMENTS(0)->date_and_time.nanoseconds;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::date_and_time)) {
+      int64_t seconds_2 = ARGUMENTS(1)->date_and_time.seconds;
+      int32_t nanoseconds_2 = ARGUMENTS(1)->date_and_time.nanoseconds;
+      RETURN_SINGLE_RESULT(from_double(
+        seconds-seconds_2+(nanoseconds-nanoseconds_2)/1000000000.0))
+    } else {
+      double delta = to_double(ARGUMENTS(1));
+      int64_t delta_seconds = round(delta);
+      int32_t delta_nanoseconds = 1000000000*(delta-delta_seconds);
+      seconds -= delta_seconds;
+      nanoseconds -= delta_nanoseconds;
+      if (nanoseconds < 00) {
+        nanoseconds += 1000000000;
+        --seconds;
+      }
+      RETURN_SINGLE_RESULT(create__types__date_and_time(seconds, nanoseconds));
+    }
+  }
+
+$types::date_and_time/equal
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left, *right;
+    left = ARGUMENTS(0);
+    right = ARGUMENTS(1);
+    if (TYPEOF(ARGUMENTS(1)) != TYPE(types::date_and_time)) RETURN_FALSE
+    RETURN_BOOLEAN(
+      left->date_and_time.seconds == right->date_and_time.seconds &&
+      left->date_and_time.nanoseconds == right->date_and_time.nanoseconds)
+  }
+
+$types::date_and_time/less
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left, *right;
+    left = ARGUMENTS(0);
+    right = ARGUMENTS(1);
+    if (TYPEOF(ARGUMENTS(1)) != TYPE(types::date_and_time)) INVALID_ARGUMENTS_ERROR
+    RETURN_BOOLEAN(
+      left->date_and_time.seconds < right->date_and_time.seconds ||
+      left->date_and_time.seconds == right->date_and_time.seconds &&
+      left->date_and_time.nanoseconds < right->date_and_time.nanoseconds)
+  }
+
+$types::date_and_time/time_shift_of
+  {
+    CHECK_ARGUMENTS(1)
+    // This insane looking sequence of calls correctly computes the time shift!!!
+    struct tm tm;
+    time_t t1 = ARGUMENTS(0)->date_and_time.seconds;
+    localtime_r(&t1, &tm);
+    int isdst = tm.tm_isdst;
+    gmtime_r(&t1, &tm);
+    tm.tm_isdst = isdst;
+    time_t t2 = mktime(&tm);
+    RETURN_SINGLE_RESULT(from_uint64(t1-t2))
+  }
+
+$types::date_and_time/to_string: (self)
+  $ts time_shift_of(self)
+  $t self+ts
+  $second second_of(t)
+  ->
+    string
+      year_of(t)
+      "-"
+      pad_left(month_of(t) 2 "0")
+      "-"
+      pad_left(day_of(t) 2 "0")
+      ' '
+      hour_of(t)
+      ":"
+      pad_left(minute_of(t) 2 "0")
+      ":"
+      pad_left(floor(second) 2 "0")
+      '.'
+      pad_left(floor(1000*(second-floor(second))) 3 "0")
+      " GMT"
+      cond
+	-> ts > 0 -> string("+" ts/3600)
+	-> ts < 0 -> ts/3600
+	-> true -> ""
+
+$std::sleep
+  {
+    CHECK_ARGUMENTS(1)
+    double seconds = to_double(ARGUMENTS(0));
+    if (seconds > 0) {
+      struct timespec req;
+      req.tv_sec = seconds;
+      req.tv_nsec = 1000000000*(seconds-req.tv_sec);
+      while (nanosleep(&req, &req) == -1 && errno == EINTR);
+    }
+    RETURN_NOTHING
+  }

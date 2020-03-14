@@ -1,0 +1,102 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_a_value_range ()
+
+$types::object.is_a_value_range false
+$types::value_range.is_a_value_range true
+
+{
+  <kind node>
+  <name VALUE_RANGE>
+
+  NODE *lower_bound;
+  NODE *upper_bound;
+}
+
+{
+  <kind type>
+  <name types::value_range>
+  <node VALUE_RANGE>
+  <base types::object>
+  <argument NULL>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call a value range as a function!")
+}
+
+$std::value_range
+  {
+    CHECK_ARGUMENTS(2)
+    RETURN_SINGLE_RESULT(create__types__value_range(ARGUMENTS(0), ARGUMENTS(1)))
+  }
+
+$types::value_range/lower_bound_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(ARGUMENTS(0)->value_range.lower_bound)
+  }
+
+$types::value_range/upper_bound_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(ARGUMENTS(0)->value_range.upper_bound)
+  }
+
+{
+  <kind function>
+
+  long types::value_range/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    int i, n, len;
+    n = debug_print_head(&indent, &buf, "value_range");
+    const char *contents_indent = indent_to_string(indent);
+    n += print(&buf, contents_indent);
+    len = debug_string(node->value_range.lower_bound, indent, max_depth-1, buf);
+    if (buf) buf += len;
+    n += len;
+    n += print(&buf, contents_indent);
+    len = debug_string(node->value_range.upper_bound, indent, max_depth-1, buf);
+    if (buf) buf += len;
+    n += len;
+    return n;
+  }
+}
+
+$types::value_range/equal: (left right)
+  ->
+    &&
+      right.is_a_value_range
+      lower_bound_of(left) == lower_bound_of(right)
+      upper_bound_of(left) == upper_bound_of(right)
+
+$types::value_range/contains: (self item)
+  -> item >= lower_bound_of(self) && item <= upper_bound_of(self)
+
+$types::value_range/serialize:
+  (
+    self
+    indent = 0
+  )
+  -> "
+    value_range
+    @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
+    @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)

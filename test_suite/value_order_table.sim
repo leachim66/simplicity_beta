@@ -1,0 +1,21 @@
+#!/usr/bin/env simple
+
+$$cities empty_value_order_table
+!cities("Wien") 0
+!cities("Graz") 199
+!cities("Linz") 210
+!cities("Klagenfurt") 324
+!cities("Villach") 363
+!cities("Graz") 195
+!cities("Wiener Neustadt") 50
+!cities("Linz") 185
+
+writeln cities("Graz")
+writeln cities("Klagenfurt")
+
+for_each cities: (city distance)
+  writeln city ": " distance
+
+while -> not(cities.is_empty):
+  get &cities $city
+  writeln city

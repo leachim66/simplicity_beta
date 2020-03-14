@@ -1,0 +1,1489 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+<require system/stdlib>
+<require ./constants>
+<require ./to_key_code>
+
+<using std>
+<using gui>
+<using key>
+<using microhttpd>
+
+<include inttypes.h>
+<include stdio.h>
+<include sys/select.h>
+<include microhttpd.h>
+<include gcrypt.h>
+
+<link microhttpd>
+<link gcrypt>
+
+$microhttpd::HTTP_GET .
+$microhttpd::WEBSOCKET_TEXT_FRAME .
+$microhttpd::CONNECT .
+$microhttpd::DISCONNECT .
+$microhttpd::GET_RESOURCES .
+$microhttpd::SHORTCUT .
+$microhttpd::ON_SELECT .
+
+$microhttpd::send_response ()
+$switch_to_websockets_protocol ()
+$microhttpd::connection_of (!)
+$microhttpd::headers_of (!)
+$microhttpd::text_of (!)
+$microhttpd::url_of (!)
+$microhttpd::resources_of (!)
+
+$$callback undefined # is invoked from C-code
+$SIZE many(DIGIT), alt("mm" "pt" "px")
+
+# a copy of the definition of FILE_DESCRIPTOR from system/posix.sim
+
+{
+  <kind node>
+  <name FILE_DESCRIPTOR>
+
+  int fd;
+}
+
+{
+  <kind struct>
+  <name MHD_DAEMON>
+
+  struct MHD_Daemon *daemon;
+}
+
+{
+  <kind node>
+  <name DAEMON>
+
+  MHD_DAEMON *data;
+}
+
+{
+  <kind function>
+
+  MHD_DAEMON *collect_mhd_daemon(MHD_DAEMON *data) {
+    if (IS_COLLECTED(data)) {
+      void *new_location = data->daemon;
+      if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+      MHD_DAEMON *new_server = allocate(sizeof(MHD_DAEMON));
+      new_server->daemon = data->daemon;
+      data->daemon = ENCODE_ADDRESS(new_server);
+      return new_server;
+    }
+    return data;
+  }
+}
+
+{
+  <kind type>
+  <name microhttpd_types::daemon>
+  <node DAEMON>
+  <base types::object>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call a web server as a function!")
+}
+
+{
+  <kind struct>
+  <name CONNECTION_DATA>
+
+  struct MHD_Connection *connection;
+  uint64_t id;
+}
+
+{
+  <kind node>
+  <name CONNECTION>
+
+  CONNECTION_DATA *data;
+}
+
+{
+  <kind function>
+
+  CONNECTION_DATA *collect_connection_data(CONNECTION_DATA *data) {
+    if (data && !IS_OLD(data)) MARK(data)
+    return data;
+  }
+}
+
+{
+  <kind function>
+
+  void destruct_connection_data(CONNECTION_DATA *data) {
+    if (data->connection) {
+      SOCKET_INFO **socket_context_p = (SOCKET_INFO **)
+        MHD_get_connection_info(data->connection, MHD_CONNECTION_INFO_SOCKET_CONTEXT);
+      SOCKET_INFO *socket_info = *socket_context_p;
+      socket_info->data = NULL;
+    }
+  }
+}
+
+{
+  <kind type>
+  <name microhttpd_types::connection>
+  <node CONNECTION>
+  <base types::object>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call a connection as a function!")
+}
+
+{
+  <kind function>
+
+  long microhttpd_types::connection/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<connection %" PRIu64 ">", node->connection.data->id);
+  }
+}
+
+$std::to_base64
+  {
+    CHECK_ARGUMENTS(1)
+    long size;
+    void *buf = to_octets(ARGUMENTS(0), &size);
+    char *base64 = to_base64(buf, size);
+    free(buf);
+    NODE *result = from_c_string(base64);
+    free(base64);
+    RETURN_SINGLE_RESULT(result)
+  }
+
+$microhttpd_types::connection/hash
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_uint64(ARGUMENTS(0)->connection.data->id))
+  }
+
+$microhttpd_types::connection/is_valid
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_BOOLEAN(ARGUMENTS(0)->connection.data->connection != NULL)
+  }
+
+$microhttpd_types::connection/equal
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) != TYPEOF(ARGUMENTS(0))) RETURN_FALSE
+    RETURN_BOOLEAN(
+      ARGUMENTS(0)->connection.data->id == ARGUMENTS(1)->connection.data->id)
+  }
+
+$microhttpd_types::connection/less
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) != TYPEOF(ARGUMENTS(0))) INVALID_ARGUMENTS_ERROR
+    RETURN_BOOLEAN(
+      ARGUMENTS(0)->connection.data->id < ARGUMENTS(1)->connection.data->id)
+  }
+
+$microhttpd_types::connection/switch_to_websockets_protocol
+  {
+    CHECK_ARGUMENTS(2)
+    struct MHD_Connection *connection = ARGUMENTS(0)->connection.data->connection;
+    char *key = to_c_string(ARGUMENTS(1));
+    char *buf = allocate_memory(strlen(key)+36+1);
+    sprintf(buf, "%s258EAFA5-E914-47DA-95CA-C5AB0DC85B11", key);
+    const char *checksum = sha1(buf);
+    char *base64 = to_base64(checksum, 20);
+    struct MHD_Response *response =
+      MHD_create_response_from_buffer(0, NULL, MHD_RESPMEM_MUST_COPY);
+    MHD_add_response_header(response, "Upgrade", "websocket");
+    MHD_add_response_header(response, "Connection", "Upgrade");
+    MHD_add_response_header(response, "Sec-WebSocket-Accept", base64);
+    MHD_queue_response(connection, MHD_HTTP_SWITCHING_PROTOCOLS, response);
+    MHD_destroy_response(response);
+    free(base64);
+    free(buf);
+    free(key);
+    RETURN_NOTHING
+  }
+
+$microhttpd_types::connection/send_response
+  {
+    CHECK_ARGUMENTS(3)
+    struct MHD_Connection *connection = ARGUMENTS(0)->connection.data->connection;
+    if (!connection) RUNTIME_ERROR("Attempt to send a response on an invalid connection!")
+    char *page = to_c_string(ARGUMENTS(2));
+    struct MHD_Response *response;
+    response =
+      MHD_create_response_from_buffer(strlen(page), page, MHD_RESPMEM_MUST_FREE);
+    int ret = MHD_queue_response(connection, to_int(ARGUMENTS(1)), response);
+    MHD_destroy_response(response);
+    RETURN_NOTHING
+  }
+
+{
+  <kind function>
+
+  int store_key_and_value(
+    void *iterator_context, enum MHD_ValueKind kind,
+    const char *key, const char *value
+  ) {
+    *(const char **)node_p = key;
+    node_p += sizeof(void *);
+    *(const char **)node_p = value;
+    node_p += sizeof(void *);
+    return MHD_YES;
+  }
+}
+
+{
+  char encoding_table[] = {
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+    'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+    'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+    'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+    'w', 'x', 'y', 'z', '0', '1', '2', '3',
+    '4', '5', '6', '7', '8', '9', '+', '/'
+  };
+
+  int mod_table[] = {0, 2, 1};
+}
+
+{
+  <kind function>
+
+  char *to_base64(const char *data, size_t input_length) {
+    size_t len = 4*((input_length+2)/3);
+
+    char *encoded_data = malloc(len+1);
+    if (encoded_data == NULL) return NULL;
+
+    int i = 0;
+    int j = 0;
+    while (i < input_length) {
+      uint32_t octet_a = i < input_length ? (unsigned char)data[i++] : 0;
+      uint32_t octet_b = i < input_length ? (unsigned char)data[i++] : 0;
+      uint32_t octet_c = i < input_length ? (unsigned char)data[i++] : 0;
+
+      uint32_t triple = (octet_a << 0x10) + (octet_b << 0x08) + octet_c;
+
+      encoded_data[j++] = encoding_table[(triple >> 3 * 6) & 0x3F];
+      encoded_data[j++] = encoding_table[(triple >> 2 * 6) & 0x3F];
+      encoded_data[j++] = encoding_table[(triple >> 1 * 6) & 0x3F];
+      encoded_data[j++] = encoding_table[(triple >> 0 * 6) & 0x3F];
+    }
+
+    for (i = 0; i < mod_table[input_length % 3]; ++i) {
+      encoded_data[len-1-i] = '=';
+    }
+    encoded_data[len] = 0;
+
+    return encoded_data;
+  }
+}
+
+{
+  <kind function>
+
+  char *sha1(char *val) {
+    int msg_length = strlen(val);
+    int hash_length = gcry_md_get_algo_dlen(GCRY_MD_SHA1);
+    char *out = malloc(hash_length);
+    gcry_md_hash_buffer(GCRY_MD_SHA1, out, val, msg_length);
+    return out;
+  }
+}
+
+{
+  uint64_t connection_id = 0;
+
+  typedef struct {
+    CONNECTION_DATA *data;
+    uint64_t id;
+  } SOCKET_INFO;
+}
+
+{
+  <kind function>
+
+  void update_connection_state(
+    void *notification_context,
+    struct MHD_Connection *connection,
+    void **socket_context_p,
+    enum MHD_ConnectionNotificationCode notification_code
+  ) {
+    switch (notification_code) {
+      case MHD_CONNECTION_NOTIFY_STARTED:
+        *socket_context_p = allocate_memory(sizeof(SOCKET_INFO));
+        SOCKET_INFO *socket_info = *(SOCKET_INFO **)socket_context_p;
+        socket_info->data = NULL;
+        socket_info->id = connection_id++;
+        break;
+      case MHD_CONNECTION_NOTIFY_CLOSED: {
+        #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+          uint64_t save_rbx, save_r12, save_r13, save_r14, save_r15;
+          asm("movq %%rbx, %0":"=rm" (save_rbx));
+          asm("movq %%r12, %0":"=rm" (save_r12));
+          asm("movq %%r13, %0":"=rm" (save_r13));
+          asm("movq %%r14, %0":"=rm" (save_r14));
+          asm("movq %%r15, %0":"=rm" (save_r15));
+        #endif
+
+        SOCKET_INFO *socket_info = *(SOCKET_INFO **)socket_context_p;
+        //fprintf(stderr, "socket_info: %p\n", socket_info);
+        //fprintf(stderr, "socket_info->data: %p\n", socket_info->data);
+        //fprintf(stderr, "socket_info->id: %d\n", socket_info->id);
+        if (socket_info->data) {
+          socket_info->data->connection = NULL;
+        }
+
+        if (socket_info->data) {
+          NODE *connection_node =
+            create__microhttpd_types__connection(socket_info->data);
+          NODE *method_node = from_c_string("DISCONNECT");
+
+          START_ARGUMENTS(6)
+          ARGUMENTS(0) = connection_node;
+          ARGUMENTS(1) = UNDEFINED;
+          ARGUMENTS(2) = method_node;
+          ARGUMENTS(3) = UNDEFINED;
+          ARGUMENTS(4) = UNDEFINED;
+          ARGUMENTS(5) = UNDEFINED;
+          invoke_callback(VAR(callback));
+        }
+
+        free(*socket_context_p);
+
+        #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+          asm("movq %0, %%rbx"::"rm" (save_rbx));
+          asm("movq %0, %%r12"::"rm" (save_r12));
+          asm("movq %0, %%r13"::"rm" (save_r13));
+          asm("movq %0, %%r14"::"rm" (save_r14));
+          asm("movq %0, %%r15"::"rm" (save_r15));
+        #endif
+
+        break;
+      }
+    }
+  }
+}
+
+{
+  <kind function>
+
+  int answer_to_connection(
+    void *default_context, struct MHD_Connection *connection,
+    const char *url,
+    const char *method, const char *version,
+    const char *upload_data,
+    size_t *upload_data_size, void **connection_context_p
+  ) {
+    static int dummy;
+
+    int is_http_method = strcmp(method, "WEBSOCKET_TEXT_FRAME");
+
+    if (is_http_method && *connection_context_p != &dummy) {
+      // only the headers have been received - wait for the rest
+      *connection_context_p = &dummy;
+      return MHD_YES;
+    }
+
+    #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+      uint64_t save_rbx, save_r12, save_r13, save_r14, save_r15;
+      asm("movq %%rbx, %0":"=rm" (save_rbx));
+      asm("movq %%r12, %0":"=rm" (save_r12));
+      asm("movq %%r13, %0":"=rm" (save_r13));
+      asm("movq %%r14, %0":"=rm" (save_r14));
+      asm("movq %%r15, %0":"=rm" (save_r15));
+    #endif
+
+    SOCKET_INFO **socket_context_p = (SOCKET_INFO **)
+      MHD_get_connection_info(connection, MHD_CONNECTION_INFO_SOCKET_CONTEXT);
+    SOCKET_INFO *socket_info = *socket_context_p;
+    if (!socket_info->data) {
+      socket_info->data =
+        allocate_fixed_with_destructor(
+          sizeof(SOCKET_INFO), (DESTRUCTOR)destruct_connection_data);
+      socket_info->data->connection = connection;
+      socket_info->data->id = socket_info->id;
+    }
+
+    NODE *connection_node =
+      create__microhttpd_types__connection(socket_info->data);
+    NODE *url_node = UNDEFINED;
+    NODE *method_node = from_c_string(method);
+    NODE *version_node = UNDEFINED;
+    NODE *headers_node = UNDEFINED;
+    NODE *data_node = UNDEFINED;
+
+    if (is_http_method) {
+      url_node = from_c_string(url);
+      version_node = from_c_string(version);
+      void *start = node_p;
+      MHD_get_connection_values(connection, MHD_HEADER_KIND, store_key_and_value, NULL);
+      int n = (const char **)node_p-(const char **)start;
+      int i;
+      for (i = 0; i < n; ++i) {
+        ((NODE **)start)[i] = from_c_string(((const char **)start)[i]);
+      }
+      START_ARGUMENTS(n)
+      for (i = 0; i < n; ++i) {
+        ARGUMENTS(i) = ((NODE **)start)[i];
+      }
+      allocate_arguments();
+      headers_node = from_arguments(0, n);
+    } else {
+      data_node = from_latin_1_string(upload_data, *upload_data_size);
+    }
+
+    START_ARGUMENTS(6)
+    ARGUMENTS(0) = connection_node;
+    ARGUMENTS(1) = url_node;
+    ARGUMENTS(2) = method_node;
+    ARGUMENTS(3) = version_node;
+    ARGUMENTS(4) = headers_node;
+    ARGUMENTS(5) = data_node;
+    invoke_callback(VAR(callback));
+
+    #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+      asm("movq %0, %%rbx"::"rm" (save_rbx));
+      asm("movq %0, %%r12"::"rm" (save_r12));
+      asm("movq %0, %%r13"::"rm" (save_r13));
+      asm("movq %0, %%r14"::"rm" (save_r14));
+      asm("movq %0, %%r15"::"rm" (save_r15));
+    #endif
+
+    return MHD_YES;
+  }
+}
+
+$get_descriptors
+  {
+    CHECK_ARGUMENTS(1)
+    struct MHD_Daemon *daemon = ARGUMENTS(0)->daemon.data->daemon;
+    int last_fd = 0;
+    fd_set read_set, write_set, except_set;
+    FD_ZERO(&read_set);
+    FD_ZERO(&write_set);
+    FD_ZERO(&except_set);
+    MHD_get_fdset(daemon, &read_set, &write_set, &except_set, &last_fd);
+    int read_count = 0;
+    int write_count = 0;
+    int except_count = 0;
+    int i;
+    for (i = 0; i <= last_fd; ++i) {
+      if (FD_ISSET(i, &read_set)) ++read_count;
+      if (FD_ISSET(i, &write_set)) ++write_count;
+      if (FD_ISSET(i, &except_set)) ++except_count;
+    }
+    int n = read_count+write_count+except_count;
+    NODE *input_count = from_int(read_count);
+    NODE *output_count = from_int(write_count);
+    NODE *exception_count = from_int(except_count);
+    NODE **descriptors = allocate(n*sizeof(NODE *));
+    n = 0;
+    if (read_count > 0) {
+      for (i = 0; i <= last_fd; ++i) {
+        if (FD_ISSET(i, &read_set)) descriptors[n++] = from_int(i);
+      }
+    }
+    if (write_count > 0) {
+      for (i = 0; i <= last_fd; ++i) {
+        if (FD_ISSET(i, &write_set)) descriptors[n++] = from_int(i);
+      }
+    }
+    if (except_count > 0) {
+      for (i = 0; i <= last_fd; ++i) {
+        if (FD_ISSET(i, &except_set)) descriptors[n++] = from_int(i);
+      }
+    }
+    START_ARGUMENTS(3+n);
+    ARGUMENTS(0) = input_count;
+    ARGUMENTS(1) = output_count;
+    ARGUMENTS(2) = exception_count;
+    for (i = 0; i < n; ++i) ARGUMENTS(3+i) = descriptors[i];
+    RETURN
+  }
+
+$microhttpd::start
+  #
+    Starts a web server on the specified port.
+
+    An arbitrary number of web servers can be started (on different ports).
+
+    parameter port_no: the TCP port number to use for this server
+
+    see also:
+
+      microhttpd_types::daemon/get_file_descriptors,
+      microhttpd_types::daemon/handle_requests,
+      microhttpd_types::daemon/stop
+
+    example:
+
+    microhttpd::start $web_server 8888
+
+  {
+    CHECK_ARGUMENTS(1)
+    int port_no = to_int(ARGUMENTS(0));
+    struct MHD_Daemon *daemon;
+    daemon =
+      MHD_start_daemon(
+        MHD_NO_FLAG, port_no, NULL, NULL,
+        answer_to_connection, NULL,
+        MHD_OPTION_NOTIFY_CONNECTION, update_connection_state, NULL,
+        MHD_OPTION_END);
+    if (!daemon) {
+      RUNTIME_ERROR("Failed to start web server!")
+    }
+    MHD_DAEMON *data = allocate(sizeof(MHD_DAEMON));
+    data->daemon = daemon;
+    RETURN_SINGLE_RESULT(create__microhttpd_types__daemon(data));
+  }
+
+$microhttpd_types::daemon/get_file_descriptors:
+  #
+    Ask the web server for active file descriptors to use in a call to
+    <posix::wait_for_io>.
+
+    Returns three lists containing the active input-, output- and exception-
+    file descriptors.
+
+    parameter daemon: the web server that is asking for active file descriptors
+
+    see also:
+    posix::wait_for_io
+    microhttpd::start
+    microhttpd_types::daemon/handle_requests
+    microhttpd_types::daemon/stop
+
+    example:
+
+    get_file_descriptors web_server $input_fds $output_fds $exception_fds
+  (
+    self # the web server to ask for active file descriptors
+  )
+  get_descriptors
+    self
+    $input_count
+    $output_count
+    $_exception_count
+    $descriptors*
+  ->
+    map(range(descriptors 1 input_count) posix::create_file_descriptor)
+    map
+      range(descriptors input_count+1 input_count+output_count)
+      posix::create_file_descriptor
+    map
+      range(descriptors input_count+output_count+1 -1)
+      posix::create_file_descriptor
+
+$handle_socket_io
+  #
+    Ask the web server for active file descriptors to use in a call to
+    <posix::wait_for_io>.
+
+    Three lists containing the active input-, output- and exception-
+    file descriptors are returned.
+
+    see also:
+    posix::wait_for_io,
+    microhttpd::start,
+    microhttpd_types::daemon/handle_requests,
+    microhttpd_types::daemon/stop
+
+    parameter daemon:
+      the web server that is ask to handle pending requests
+
+    parameter read_descriptors:
+      a list of file descriptors with pending data to be read
+
+    parameter write_descriptors:
+      a list of ile descriptors that are ready to receive data
+
+    parameter exception_descriptors:
+      a list of file descriptors that have out-of-band-data available
+
+    parameter body:
+      a callback for handling individual client requests
+
+    example:
+
+    handle_requests web_server ready_input_fds ready_output_fds ready_exception_fds:
+      (
+        connection
+        url
+        method
+        version
+        headers
+        upload_data
+      )
+      -> HTTP_OK "<html><body>Hi, folks!</body></html>"
+
+  {
+    CHECK_ARGUMENTS(5)
+    struct MHD_Daemon *daemon = ARGUMENTS(0)->daemon.data->daemon;
+    if (!daemon) {
+      RUNTIME_ERROR("Attempt to handle requests for an already stopped web server!")
+    }
+    NODE *read_descriptors = ARGUMENTS(1);
+    NODE *write_descriptors = ARGUMENTS(2);
+    NODE *except_descriptors = ARGUMENTS(3);
+    VAR(callback) = ARGUMENTS(4);
+    int i, n;
+    fd_set read_set, write_set, except_set;
+    FD_ZERO(&read_set);
+    FD_ZERO(&write_set);
+    FD_ZERO(&except_set);
+    n = length_of(read_descriptors);
+    for (i = 0; i < n; ++i) {
+      NODE *descriptor = get_item_of(read_descriptors, i);
+      if (TYPEOF(descriptor) != TYPEOF(VAR(types::file_descriptor))) INVALID_ARGUMENTS_ERROR
+      int fd = descriptor->file_descriptor.fd;
+      FD_SET(fd, &read_set);
+    }
+    n = length_of(write_descriptors);
+    for (i = 0; i < n; ++i) {
+      NODE *descriptor = get_item_of(write_descriptors, i);
+      if (TYPEOF(descriptor) != TYPEOF(VAR(types::file_descriptor))) INVALID_ARGUMENTS_ERROR
+      int fd = descriptor->file_descriptor.fd;
+      FD_SET(fd, &write_set);
+    }
+    n = length_of(except_descriptors);
+    for (i = 0; i < n; ++i) {
+      NODE *descriptor = get_item_of(except_descriptors, i);
+      if (TYPEOF(descriptor) != TYPEOF(VAR(types::file_descriptor))) INVALID_ARGUMENTS_ERROR
+      int fd = descriptor->file_descriptor.fd;
+      FD_SET(fd, &except_set);
+    }
+    FUNC orig_cont = CONT;
+    if (MHD_run_from_select(daemon, &read_set, &write_set, &except_set) == MHD_NO) {
+      MHD_stop_daemon(daemon);
+      RUNTIME_ERROR("While handling web server requests an unexpected error occured!")
+    }
+    CONT = orig_cont;
+    RETURN_NOTHING
+  }
+
+$microhttpd_types::daemon/handle_requests:
+  (
+    daemon # the web server that is asked to handle pending requests
+    read_descriptors # a list of file descriptors with pending data to be read
+    write_descriptors
+      # a list of file descriptors that are ready to receive data
+    exception_descriptors
+      # a list of file descriptors that have out-of-band-data available
+  )
+  handle_socket_io
+    daemon
+    read_descriptors
+    write_descriptors
+    exception_descriptors
+    : (connection url method _version headers_list upload_data)
+      $$headers empty_insert_order_table
+      if headers_list.is_defined:
+	for_each_pair headers_list: (key value) !headers(key) value
+      case
+	method
+	"GET":
+	  $websocket_key headers("Sec-WebSocket-Key")
+	  if
+	    websocket_key.is_defined:
+	      switch_to_websockets_protocol connection websocket_key
+	    :
+	      create_event
+		types::event
+		  .type_of HTTP_GET
+		  .connection_of connection
+		  .url_of url
+		  .headers_of headers
+	"WEBSOCKET_TEXT_FRAME":
+	  create_event
+	    types::event
+	      .type_of WEBSOCKET_TEXT_FRAME
+	      .connection_of connection
+	      .text_of upload_data.from_utf8
+	"DISCONNECT":
+	  create_event
+	    types::event(.type_of DISCONNECT .connection_of connection)
+
+$microhttpd_types::daemon/stop
+  #
+    Stop (close) the specified web server.
+
+    parameter daemon: the web server that shall be stopped
+
+    see also:
+    microhttpd::start
+
+    example:
+
+    stop web_server
+
+  {
+    CHECK_ARGUMENTS(1)
+    MHD_DAEMON *data = ARGUMENTS(0)->daemon.data;
+    if (!data->daemon) {
+      RUNTIME_ERROR("Attempt to stop an already stopped web server!")
+    }
+    MHD_stop_daemon(data->daemon);
+    data->daemon = NULL;
+    RETURN_NOTHING
+  }
+
+$$resources empty_table
+
+$microhttpd::define_resource: (id resource) !resources(id) resource
+
+$microhttpd::send_page: (connection page) send_response connection HTTP_OK page
+
+$microhttpd::send_error_message: (connection code)
+  send_response connection code "
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8" />
+    </head>
+    <body>
+    <h1>Error @(code)</h1>
+    </body>
+    </html>
+
+$microhttpd::send_text_frame: (connection frame)
+  send_response connection 0x81 frame.to_utf8
+
+$microhttpd::dom_event_preprocessor: (&event)
+  if type_of(event) == WEBSOCKET_TEXT_FRAME:
+    $msg text_of(event).from_json
+    $connection connection_of(event)
+    case
+      msg("type")
+      "CONNECT":
+	!event types::event(.type_of CONNECT .connection_of connection)
+      "KEY_PRESS":
+	$key_code msg.to_key_code
+	if
+	  key_code.is_defined:
+	    !event
+	      types::event
+		.type_of KEY_PRESS
+		.key_code_of key_code
+		.connection_of connection
+	  :
+	    !event undefined
+      "MOUSE_CLICK":
+	$name msg("name")
+	if
+	  name.is_defined:
+	    !event
+	      types::event
+		.type_of MOUSE_CLICK
+		.target_of name
+		.connection_of connection
+		.cursor_position_of msg("cursor_position")
+		.selection_of msg("selection")
+	  :
+	    !event undefined
+      "PASTE":
+	$name msg("name")
+	if
+	  name.is_defined:
+	    !event
+	      types::event
+		.type_of PASTE
+		.target_of name
+		.connection_of connection
+		.cursor_position_of msg("cursor_position")
+		.value_of msg("value")
+	  :
+	    !event undefined
+      "GET_RESOURCES":
+	!event
+	  types::event
+	    .type_of GET_RESOURCES
+	    .resources_of msg("resources")
+	    .connection_of connection
+      :
+	ewriteln msg("type")
+
+$is_no_separator: (chr) -> chr != ' ' && chr != ':'
+
+$attribute_of_tag
+  table
+    "bold" = "font-weight"
+    "italic" = "font-style"
+    "left" = "text-align"
+    "right" = "text-align"
+    "center" = "text-align"
+    "justify" = "text-align"
+
+$to_html: (markup_text)
+  $invalid_markup_text: raise "Invalid markup text encountered!"
+
+  $parse_markup_text:
+    while -> i <= n && markup_text(i) != '>':
+      $chr markup_text(i)
+      inc &i
+      if chr == '<':
+	append &html_text range(markup_text s i-2)
+	$$styles ""
+	do: (-> break)
+	  forever:
+	    $ts i
+	    while -> i <= n && markup_text(i).is_no_separator: inc &i
+	    $$style undefined
+	    $tag range(markup_text ts i-1)
+	    $attribute attribute_of_tag(tag)
+	    if attribute.is_defined: !style "@(attribute):@(tag)"
+	    unless style.is_defined:
+	      $colour decode_colour(tag)
+	      if colour.is_defined: !style "color:@(colour)"
+	    unless style.is_defined invalid_markup_text
+	    append &styles style
+	    if i > n || markup_text(i) != ' ' break
+	    inc &i
+	    append &styles "; "
+	if i > n || markup_text(i) != ':' invalid_markup_text
+	inc &i
+	append &html_text "
+	  <span style="@(styles)@quot;>@
+	!s i
+	parse_markup_text
+	append &html_text "</span>"
+	if i <= n && markup_text(i) != '>' invalid_markup_text
+	inc &i
+	!s i
+    append &html_text range(markup_text s i-1)
+
+  $$i 1
+  $n length_of(markup_text)
+  $$s 1
+  $$html_text ""
+  parse_markup_text
+  if i <= n invalid_markup_text
+  -> html_text
+
+$types::widget/to_json: (self)
+  $$something_written false
+
+  $append_property: (name value)
+    if value.is_defined && false != value:
+      if something_written: push &buf ','
+      append &buf "@quot;@(name)@quot;:@(value.to_json)"
+      !something_written true
+
+  $to_pixels: ($value)
+    if value.is_defined:
+      parse_real value $_dummy $num
+      $is_space value .has_suffix. " space"
+      if is_space: range &value 1 -7
+      cond
+	-> value .has_suffix. "mm": !value ceil(num*96/25.4).to_string
+	-> value .has_suffix. "pt": !value ceil(num*4/3).to_string
+	-> value .has_suffix. "px": !value ceil(num).to_string
+      if is_space: append &value " space"
+    -> value
+
+  $contents
+    if(self.uses_markup (-> contents_of(self).to_html) -> contents_of(self))
+
+  $$buf "{"
+  if type_of(self).is_defined: append_property "type" type_of(self).to_string
+  if column_widths_of(self).is_defined:
+    append_property "column_widths" map(column_widths_of(self) to_pixels)
+  if row_heights_of(self).is_defined:
+    append_property "row_heights" map(row_heights_of(self) to_pixels)
+  append_property "horizontal_spacing" horizontal_spacing_of(self).to_pixels
+  append_property "vertical_spacing" vertical_spacing_of(self).to_pixels
+  append_property "layout_direction" layout_direction_of(self)
+  append_property "alignment" alignment_of(self)
+  append_property "item_alignment" item_alignment_of(self)
+  append_property "column" column_of(self)
+  append_property "row" row_of(self)
+  append_property "column_span" column_span_of(self)
+  append_property "row_span" row_span_of(self)
+  append_property "left_margin" to_pixels(left_margin_of(self))
+  append_property "right_margin" to_pixels(right_margin_of(self))
+  append_property "top_margin" to_pixels(top_margin_of(self))
+  append_property "bottom_margin" to_pixels(bottom_margin_of(self))
+  append_property "width" width_of(self).to_pixels
+  append_property "height" gui::height_of(self).to_pixels
+  append_property "tooltip" tooltip_of(self)
+  if is_default(self): append_property "is_default" true
+  append_property "border-width" border_width_of(self)
+  $text_style text_style_of(self)
+  if text_style.is_defined:
+    for_each split(text_style): (tag)
+      $attribute attribute_of_tag(tag)
+      if
+	attribute.is_defined:
+	  append_property attribute tag
+	:
+	  $colour decode_colour(tag)
+	  if
+	    colour.is_defined:
+	      append_property "color" colour
+	    :
+	      if
+		tag .matches. SIZE:
+		  append_property "font-size" tag
+		:
+		  raise "Invalid tag encountered in text-style attribute!"
+  $background background_of(self)
+  if background.is_defined:
+    $colour decode_colour(background)
+    if
+      colour.is_defined:
+	append_property "background-color" colour
+      :
+	#raise "Invalid tag encountered in background attribute!"
+  append_property "cursor_position" cursor_position_of(self)
+  append_property "selection" selection_of(self)
+  append_property "has_focus" has_focus(self)
+  append_property "html_encoded" uses_markup(self)
+  append_property
+    "contents"
+    if
+      contents.is_defined
+      -> if(self.is_a_password (-> dup("*" length_of(contents))) -> contents)
+      -> tree_nodes_of(self)
+  -> push(buf '}')
+
+$diff: (old new)
+  $$index_table empty_table
+  $old_len length_of(old)
+  from_to 1 old_len-3: (i)
+    $index range(old i i+3)
+    $matches default_value(index_table(index) empty_list)
+    !index_table(index) push(matches i)
+  $all append(old new)
+  $total_length length_of(all)
+  $$out ""
+  do:
+    $$i old_len+1
+    $$s i
+
+    $insert_text: if i > s: write_to &out i-s ":" range(all s i-1)
+
+    while -> i <= total_length-3:
+      $index range(all i i+3)
+      $matches index_table(index)
+      if
+	matches.is_defined:
+	  !index_table(index) push(matches i)
+	  $$best_pos undefined
+	  $$best_len 0
+	  for_each matches: (pos)
+	    $$j i+4
+	    $$k pos+4
+	    while -> k < i && j <= total_length && all(k) == all(j):
+	      !j j+1
+	      !k k+1
+	    $len k-pos
+	    if len >= best_len:
+	      !best_pos pos
+	      !best_len len
+	  insert_text
+	  write_to &out best_len "/" best_pos ";"
+	  !i i+best_len
+	  !s i
+	:
+	  !index_table(index) list(i)
+	  !i i+1
+    !i total_length+1
+    insert_text
+  -> out
+
+#$indent_json: (text)
+  $$buf ""
+  $$indentation 0
+  $$within_quotes false
+  for_each text: (chr)
+    if
+      within_quotes:
+        if chr == '@quot;': !within_quotes false
+        push &buf chr
+      :
+        case
+          chr
+          '@quot;':
+            !within_quotes true
+            push &buf chr
+          ':':
+            push &buf chr
+            push &buf ' '
+          ',':
+            push &buf chr
+            push &buf '@nl;'
+            append &buf dup("  " indentation)
+          '{', '[':
+            inc &indentation
+            push &buf chr
+            push &buf '@nl;'
+            append &buf dup("  " indentation)
+          '}', ']':
+            dec &indentation
+            push &buf '@nl;'
+            append &buf dup("  " indentation)
+            push &buf chr
+          :
+            push &buf chr
+  -> buf
+
+$microhttpd::update_user_interface
+  : (connection user_interface previous_user_interface?)
+    $json tree_nodes_of(user_interface).to_json
+
+    #ewriteln json.indent_json
+
+    if
+      previous_user_interface.is_defined:
+	$prev_json tree_nodes_of(previous_user_interface).to_json
+	if json != prev_json:
+	  send_text_frame connection "update_body @(diff(prev_json json))"
+      :
+	send_text_frame connection "replace_body @(json)"
+
+%microhttpd::current_connection undefined
+%current_continuation undefined
+$$connection_threads empty_table
+
+$microhttpd::dispatch_connection_event:
+  (
+    event
+    -> continuation
+  )
+  case
+    type_of(event)
+    DISCONNECT, KEY_PRESS, MOUSE_CLICK, PASTE, MESSAGE:
+      $thread connection_threads(connection_of(event))
+      if thread.is_defined:
+	%current_continuation continuation
+	thread event
+	continuation true
+    GET_RESOURCES:
+      $$missing_resources empty_table
+      for_each resources_of(event): (resource)
+	!missing_resources(resource) resources(resource)
+      send_text_frame
+	connection_of(event)
+	"add_resources @(missing_resources.to_json)"
+  -> false
+
+$microhttpd::get_connection_event: (-> continuation)
+  !connection_threads(current_connection) continuation
+  if
+    parameter_count_of(current_continuation) == 1:
+      current_continuation false
+    :
+      current_continuation
+
+$microhttpd::post_message: (message)
+  create_event
+    types::event
+      .type_of MESSAGE
+      .connection_of current_connection
+      .text_of message
+
+$microhttpd::broadcast_message: (message)
+  for_each connection_threads: (connection _thread)
+    create_event
+      types::event(.type_of MESSAGE .connection_of connection .text_of message)
+
+$microhttpd::create_widget_tree: (body)
+  %%current_contents types::widget
+  %%current_id 0
+  %current_widget_path empty_list
+  body
+  -> current_contents
+
+$microhttpd::initialize_widget_tree:
+  (
+    &widget_tree
+    data?
+  )
+  $$do_set_focus true
+  update_each_leaf &widget_tree: (&widget)
+    if updater_of(widget).is_defined:
+      $contents
+	if(data.is_defined (-> updater_of(widget)(data)) -> updater_of(widget)())
+
+      !widget.contents_of contents
+      !widget.cursor_position_of length_of(contents)
+    if widget.is_focusable:
+      !widget.has_focus do_set_focus
+      !do_set_focus false
+
+$microhttpd::contains_valid_data:
+  (
+    widget_tree
+    -> return
+  )
+  for_each_leaf widget_tree: (widget)
+    $validator validator_of(widget)
+    if validator.is_defined:
+      # the check might return <undefined> (which means "invalid")
+
+      if validator(contents_of(widget)) != true: return false
+  -> true
+
+$microhttpd::extract_widget_data:
+  (
+    widget_tree
+    &data?
+  )
+  for_each_leaf widget_tree: (widget)
+    if updater_of(widget).is_defined:
+      if
+	data.is_defined:
+	  updater_of(widget) &data contents_of(widget)
+	:
+	  updater_of(widget) contents_of(widget)
+
+$microhttpd::handle_widget_event:
+  (
+    &widget_tree
+    event
+    -> handled
+  )
+  $change_focus: (key)
+    if focused.is_defined: !widget_tree(focused).has_focus false
+    !focused key
+    if focused.is_defined: !widget_tree(focused).has_focus true
+
+  $edit:
+    (
+      &widget
+      key_code
+      -> return
+    )
+    #edump `key_code
+
+    $$text contents_of(widget)
+    $$cursor_position cursor_position_of(widget)
+    $$selection selection_of(widget)
+    $$cursor_column undefined
+
+    $is_multi_line
+      case
+	type_of(widget)
+	MULTI_LINE_EDIT_BOX, EDITABLE_PARAGRAPH
+	-> true
+	-> false
+
+    $delete_selection:
+      if selection < 0:
+	plus &cursor_position selection
+	negate &selection
+      !text
+	string
+	  range(text 1 cursor_position)
+	  range(text cursor_position+selection+1 -1)
+      !selection undefined
+
+    $insert_character: (chr)
+      if selection.is_defined delete_selection
+      !text
+	string
+	  range(text 1 cursor_position)
+	  chr
+	  range(text cursor_position+1 -1)
+      inc &cursor_position
+
+    $start_of_line_position:
+      $$pos 0
+      if is_multi_line:
+	!pos cursor_position
+	while -> pos > 0 && text(pos) != '@nl;': dec &pos
+      -> pos
+
+    $end_of_line_position:
+      $len length_of(text)
+      $$pos len
+      if is_multi_line:
+	!pos cursor_position
+	while -> pos < len && text(pos+1) != '@nl;': inc &pos
+      -> pos
+
+    $compute_cursor_column:
+      $$pos cursor_position
+      while -> pos > 0 && text(pos) != '@nl;': dec &pos
+      !cursor_column cursor_position-pos
+
+    $cursor_left: if cursor_position > 0: dec &cursor_position
+
+    $cursor_right: if cursor_position < length_of(text): inc &cursor_position
+
+    $cursor_up:
+      if is_multi_line:
+	!cursor_column cursor_column_of(widget)
+	if cursor_column.is_undefined compute_cursor_column
+	$pos start_of_line_position()
+	if pos > 0:
+	  !cursor_position pos-1
+	  reduce_to &cursor_position start_of_line_position()+cursor_column
+
+    $cursor_down:
+      if is_multi_line:
+	!cursor_column cursor_column_of(widget)
+	if cursor_column.is_undefined compute_cursor_column
+	$pos end_of_line_position()
+	if pos < length_of(text):
+	  !cursor_position pos+1
+	  !cursor_position
+	    min(cursor_position+cursor_column end_of_line_position())
+
+    $update_selection:
+      !selection
+	cursor_position_of(widget)+default_value(selection 0)-cursor_position
+      if selection == 0: !selection undefined
+
+    if
+      key_code.is_a_character:
+	if
+	  key_code < ' ':
+	    edump `key_code
+	  :
+	    insert_character key_code
+      :
+	case
+	  key_code
+	  FIRST:
+	    !cursor_position start_of_line_position()
+	    !selection undefined
+	  SHIFT_FIRST:
+	    $start_pos start_of_line_position()
+	    if cursor_position > start_pos:
+	      if
+		selection.is_defined:
+		  plus &selection cursor_position-start_pos
+		  if selection == 0: !selection undefined
+		:
+		  !selection cursor_position-start_pos
+	      !cursor_position start_pos
+	  LAST:
+	    !cursor_position end_of_line_position()
+	    !selection undefined
+	  SHIFT_LAST:
+	    $end_pos end_of_line_position()
+	    if cursor_position < end_pos:
+	      if
+		selection.is_defined:
+		  plus &selection cursor_position-end_pos
+		  if selection == 0: !selection undefined
+		:
+		  !selection cursor_position-end_pos
+	      !cursor_position end_pos
+	  CTRL_A:
+	    if length_of(text) > 0:
+	      !cursor_position end_of_line_position()
+	      !selection -cursor_position
+	  LEFT:
+	    cursor_left
+	    !selection undefined
+	  SHIFT_LEFT:
+	    cursor_left
+	    update_selection
+	  RIGHT:
+	    cursor_right
+	    !selection undefined
+	  SHIFT_RIGHT:
+	    cursor_right
+	    update_selection
+	  UP:
+	    cursor_up
+	    !selection undefined
+	  SHIFT_UP:
+	    cursor_up
+	    update_selection
+	  DOWN:
+	    cursor_down
+	    !selection undefined
+	  SHIFT_DOWN:
+	    cursor_down
+	    update_selection
+	  BACKSPACE:
+	    if
+	      selection_of(widget).is_defined:
+		delete_selection
+	      :
+		if cursor_position > 0:
+		  !text
+		    string
+		      range(text 1 cursor_position-1)
+		      range(text cursor_position+1 -1)
+		  dec &cursor_position
+	  ALT_BACKSPACE:
+	    range &text cursor_position+1 -1
+	    !cursor_position 0
+	    !selection undefined
+	  DELETE:
+	    if
+	      selection_of(widget).is_defined:
+		delete_selection
+	      :
+		if cursor_position < length_of(text):
+		  !text
+		    string
+		      range(text 1 cursor_position)
+		      range(text cursor_position+2 -1)
+	  ALT_DELETE:
+	    range &text 1 cursor_position
+	    !selection undefined
+	  RETURN:
+	    if is_multi_line: insert_character '@nl;'
+	  :
+	    edump `key_code
+    $validator validator_of(widget)
+    if validator.is_defined && text != contents_of(widget):
+      $check validator(text)
+      if check.is_undefined: return false
+      !widget.is_acceptable check
+    if
+      ||
+	cursor_position != cursor_position_of(widget)
+	selection != selection_of(widget)
+	text != contents_of(widget)
+      :
+	!widget.contents_of text
+	!widget.cursor_position_of cursor_position
+	!widget.cursor_column_of cursor_column
+	!widget.selection_of selection
+	return true
+      :
+	return false
+
+  $update: post_message "update_gui"
+
+  $handle_callback: (widget)
+    $action action_of(widget)
+    if action.is_defined:
+      if
+	parameter_count_of(action) == 1:
+	  action widget_tree
+	:
+	  action
+
+  $$focused undefined
+  $$default_button undefined
+  $$event_handled true
+  case
+    type_of(event)
+    KEY_PRESS:
+      for_each_leaf widget_tree: (key widget)
+	if focused.is_undefined && widget.is_focusable && widget.has_focus:
+	  !focused key
+	if widget.is_default: !default_button key
+      $key_code key_code_of(event)
+      case
+	key_code
+	TAB:
+	  do: (-> break)
+	    for_each_leaf_from_to widget_tree focused undefined: (key widget)
+	      if widget.is_focusable && key != focused:
+		change_focus key
+		break
+	    for_each_leaf_from_to widget_tree undefined focused: (key widget)
+	      if widget.is_focusable:
+		change_focus key
+		break
+	  update
+	SHIFT_TAB:
+	  do: (-> break)
+	    for_each_leaf_from_down_to
+	      widget_tree
+	      focused
+	      undefined: (key widget)
+		if widget.is_focusable && key != focused:
+		  change_focus key
+		  break
+	    for_each_leaf_from_down_to
+	      widget_tree
+	      undefined
+	      focused: (key widget)
+		if widget.is_focusable:
+		  change_focus key
+		  break
+	  update
+	:
+	  if key_code == RETURN: handle_callback widget_tree(focused)
+	  if edit(&widget_tree(focused) key_code) update:
+	    if key_code == RETURN && default_button.is_defined:
+	      handle_callback widget_tree(default_button)
+    MOUSE_CLICK:
+      $target_key split(target_of(event) '.')
+      $$target_widget widget_tree(target_key)
+      handle_callback target_widget
+      if is_focusable(target_widget):
+	case
+	  type_of(target_widget)
+	  EDIT_BOX, MULTI_LINE_EDIT_BOX, EDITABLE_PARAGRAPH:
+	    !target_widget.cursor_position_of cursor_position_of(event)
+	    !target_widget.selection_of selection_of(event)
+	    !widget_tree(target_key) target_widget
+	change_focus target_key
+	update
+    PASTE:
+      $target_key split(target_of(event) '.')
+      $$target_widget widget_tree(target_key)
+      case
+	type_of(target_widget)
+	EDIT_BOX, MULTI_LINE_EDIT_BOX, EDITABLE_PARAGRAPH:
+	  $text contents_of(target_widget)
+	  $value value_of(event)
+
+	  $cursor_position
+	    min
+	      default_value
+		cursor_position_of(event)
+		cursor_position_of(target_widget)
+	      length_of(text)
+
+	  !target_widget.contents_of
+	    string
+	      range(text 1 cursor_position)
+	      value
+	      range(text cursor_position+1 -1)
+	  !target_widget.cursor_position_of cursor_position+length_of(value)
+	  !target_widget.selection_of undefined
+	  !widget_tree(target_key) target_widget
+	  change_focus target_key
+	  update
+    :
+      !event_handled false
+  if parameter_count_of(handled) == 2: handled event_handled
+
+$microhttpd::handle_connection:
+  (
+    connection
+    body
+    -> continuation
+  )
+  %current_connection connection
+  %current_continuation continuation
+  if
+    parameter_count_of(body) == 1:
+      body connection
+    :
+      body
+  !connection_threads(connection) undefined
+  ewriteln "connection done"

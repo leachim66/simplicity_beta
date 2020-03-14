@@ -1,0 +1,212 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::has_minimum_length ()
+  #
+    checks the length of a stream or collection
+
+    Checks whether the specified stream contains at least the specified number
+    of characters: This function is used by <grammar::match> methods.
+
+    parameter stream: the stream to check
+
+    parameter length: the specified minimum length
+
+    see also: grammar::match
+
+    example:
+
+    $std::END_OF_TEXT/grammar::match: (self stream)
+      if
+        stream .has_minimum_length. 1
+        -> undefined
+        -> 0
+
+$types::object/has_minimum_length
+  : (self len) # default implementation for streams with known length
+    -> length_of(self) >= len
+
+$std::ignore: # ignore the result of a function call
+  (
+    _dummy # the expression whose result shall be ignored
+  )
+  pass
+
+$std::writeln_to:
+  #
+    write a line to a specified destination
+
+    Write the "stringified" arguments and a line feed character to the specified
+    file. The list of arguments can be empty. The stringification is done via
+    a call to <std::to_string>.
+
+    see also: to_string
+  (
+    file_handle
+    arguments*
+  )
+  write_to file_handle arguments* '@nl;'
+
+$std::swap:
+  #
+    swap the values of two destinations
+
+    Can be used to exchange the contents of two variables.
+
+    example:
+
+    swap &first &last
+  (
+    left
+    right
+  )
+  -> right left
+
+$std::pass
+  #
+    do nothing
+
+    This procedure does exactly nothing and is used as a placeholder where a
+    statement is syntactically needed.
+
+    example:
+
+    if
+      everything_alright:
+        pass # not yet impemented
+      :
+        Error "Some error occurred!"
+
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_NOTHING
+  }
+
+$std::eval: (body)
+  body
+      #
+	evaluate a function
+
+	Allows the direct evaluation of a lambda-function.
+
+	example:
+
+	# example taken from the compiler's pretty_printer-module
+
+	$functor
+	  eval
+	    :
+	      %line_width 999999 # force inline output
+	      to_string functor_of(self)
+
+$std::do
+  #
+    This procedure is used to explicitely define a scope or introduce a named
+    continuation.
+
+    example:
+
+    do:
+      $y f(x)
+      writeln y
+    do:
+      $y g(x) # use <y> again
+      writeln y
+
+    do: (-> break) forever:
+      p
+      if f() break
+      q
+
+  {
+    CHECK_ARGUMENTS(1)
+    myself = ARGUMENTS(0);
+    START_ARGUMENTS(0)
+    CHAIN
+  }
+
+$std::assign
+  #
+    assigns source values to destinations
+
+    Parameter values*: the values to assign
+
+    Returns destinations*: the destinations to assign to
+
+    This is a trivial function that implements assignment.
+
+    It has two use cases:
+
+    * parallel assignment
+
+    * assigning the assignment-function to a function variable
+
+    Example 1:
+
+    assign
+      !x y
+      !y z
+      !z x
+
+    Example 2:
+
+    $double: (x) -> 2*x
+
+    $func
+      if
+        f()
+        -> assign
+        -> double
+
+    writeln func(a)
+
+  {
+    RETURN
+  }
+
+$std::goto
+  #
+    call without continuation
+
+    Calls the function specified as the first argument with the rest of
+    the arguments. The caller is *not* supplied any continuation.
+
+    example:
+
+    goto some_function some_argument another_argument
+
+  {
+    MIN_ARGUMENTS(1)
+    myself = ARGUMENTS(0);
+    FRAME *args = arguments;
+    if (ARGUMENT_COUNT > 0) {
+      START_ARGUMENTS(ARGUMENT_COUNT-1)
+      int i;
+      for (i = 0; i < ARGUMENT_COUNT; ++i) {
+        ARGUMENTS(i) = args->slots[i+1];
+      }
+    } else {
+      ARGUMENT_COUNT = 0;
+    }
+    CONT = invalid_continuation;
+    CHAIN
+  }

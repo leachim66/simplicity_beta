@@ -1,0 +1,4 @@
+#!/usr/bin/env simple
+
+writeln "./test.txt" .without_prefix. "./"
+writeln "./test.txt" .without_suffix. ".txt"

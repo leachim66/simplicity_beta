@@ -1,0 +1,146 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_a_boolean ()
+
+$types::object.is_a_boolean false
+$types::true.is_a_boolean true
+$types::false.is_a_boolean true
+
+{
+  <kind type>
+  <name types::true>
+  <node SIMPLE_NODE>
+  <base types::object>
+
+  RUNTIME_ERROR("Attempt to call the boolean value true as a function!")
+}
+
+{
+  <kind object>
+  <name std::true>
+  <type types::true>
+}
+
+{
+  <kind type>
+  <name types::false>
+  <node SIMPLE_NODE>
+  <base types::object>
+
+  RUNTIME_ERROR("Attempt to call the boolean value false as a function!")
+}
+
+{
+  <kind object>
+  <name std::false>
+  <type types::false>
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_bool(int val) {
+    if (val)
+      return VAR(std::true);
+    else
+      return VAR(std::false);
+  }
+}
+
+{
+  <kind function>
+
+  int types::true/to_bool(NODE *node) {
+    return true;
+  }
+}
+
+{
+  <kind function>
+
+  int types::false/to_bool(NODE *node) {
+    return false;
+  }
+}
+
+$types::true/std::to_string: (_self) -> "true"
+
+$types::false/std::to_string: (_self) -> "false"
+
+{
+  <kind function>
+
+  long types::true/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "true");
+  }
+}
+
+{
+  <kind function>
+
+  long types::false/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "false");
+  }
+}
+
+$types::true/equal
+  {
+    CHECK_ARGUMENTS(2)
+    RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::true))
+  }
+
+$types::false/equal
+  {
+    CHECK_ARGUMENTS(2)
+    RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::false))
+  }
+
+$types::true/not: (_self) -> false
+
+$types::false/not: (_self) -> true
+
+$types::true/and: (_left right) -> right()
+
+$types::false/and: (_left _right) -> false
+
+$types::true/or: (_left _right) -> true
+
+$types::false/or: (_left right) -> right()
+
+$types::true/if: (_condition then _else?) then
+
+$types::false/if:
+  (
+    _condition
+    _then
+    else = pass
+  )
+  else
+
+$types::true/unless: (_condition _body) pass
+
+$types::false/unless: (_condition body) body
+
+register_deserializer "true": (text _base_indent) -> text true
+register_deserializer "false": (text _base_indent) -> text false

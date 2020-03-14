@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$square ()
+
+$types::integer/square: (self) -> self*self
+
+writeln square(5)

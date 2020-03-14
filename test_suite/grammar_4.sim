@@ -1,0 +1,12 @@
+#!/usr/bin/env simple
+
+$a_of (!)
+$b_of (!)
+
+$$buf "(blubb)a(gulp)b"
+$A capture(a_of many(LETTER))
+$B capture(b_of some(alt(LETTER DIGIT)))
+$MEAN "(", A, ")", "a", followed_by("(", B, ")", "b")
+match buf MEAN $len $cap
+dump `len
+dump `cap

@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+$x_of (!)
+$y_of (!)
+
+types::object $point
+  .x_of 47
+  .y_of 11
+
+writeln x_of(point) ", " y_of(point)

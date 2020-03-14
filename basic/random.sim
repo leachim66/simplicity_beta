@@ -1,0 +1,47 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  based upon an algorithm from
+
+  http://en.wikipedia.org/wiki/Random_number_generation
+
+$m_w_of (!)
+$m_z_of (!)
+
+$std::marsaglia_random_number_generator: (initial_m_w initial_m_z)
+  ->
+    types::object
+      .m_w_of initial_m_w
+      .m_z_of initial_m_z
+      /next:
+	(
+	  &self
+	  n
+	)
+	$$m_w m_w_of(self)
+	$$m_z m_z_of(self)
+	!m_z 36969*(m_z & 0xffff)+(m_z >> 16) & 0xffffffff
+	!m_w 18000*(m_w & 0xffff)+(m_w >> 16) & 0xffffffff
+	!self.m_w_of m_w
+	!self.m_z_of m_z
+	-> (n*(((m_z & 0xffff) << 16)+m_w & 0xffffffff) .div. 0x100000000)+1

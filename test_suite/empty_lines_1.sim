@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+writeln
+  plus
+
+    2
+    2

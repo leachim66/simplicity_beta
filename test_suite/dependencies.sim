@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$std::a 37
+$std::b c
+$std::c a+13
+
+writeln b

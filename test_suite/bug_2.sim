@@ -1,0 +1,14 @@
+#!/usr/bin/env simple
+
+$contents_of (!)
+$cursor_position_of (!)
+
+$contents
+  types::object
+    .height_of "1/10"
+    #.background_colour_of "#333"
+    #.text_colour_of "#0f0"
+    .contents_of "Hallo alle mitei"
+    .cursor_position_of 16
+
+dump 2 `contents

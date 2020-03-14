@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+$S 1
+$E 77
+
+$$val 4711
+writeln val
+
+from_to S E: (i)
+  !val val << i
+  writeln val
+
+from_down_to E S: (i)
+  !val val >> i
+  writeln val

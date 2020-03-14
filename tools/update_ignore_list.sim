@@ -1,0 +1,13 @@
+#!/usr/bin/env simrun
+
+extern $simple "simple"
+load $buf ".bzrignore"
+$filenames simple("--list-dependencies" "sim2c/simple.sim")
+save "sim2c/simple.deps" filenames
+save
+  ".bzrignore"
+  collect_output
+    :
+      writeln buf .until. "# BEGIN Bootstrap C files"
+      for_each_line filenames: (filename) writeln "!./" filename
+      write buf .from. "# END Bootstrap C files"

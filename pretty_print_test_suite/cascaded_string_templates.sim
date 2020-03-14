@@ -1,0 +1,11 @@
+#!/usr/bin/env simple
+
+$$std::very "very"
+
+$$std::strange "strange"
+
+writeln "This is a very complicated @("and @(very) long and @(strange " line")") and hard to handle for the parser and the pretty printer!"
+
+writeln "This is a very@nl;complicated @("and @(very)@nl;long and @(strange " line")") and hard to handle@nl;for the parser and the pretty printer!"
+
+writeln "This is a very complicated @("and @(very) long and @(strange) line containing a lot of nonsense") and hard to handle for the parser and the pretty printer!"

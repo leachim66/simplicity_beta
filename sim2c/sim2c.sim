@@ -1,0 +1,1046 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  compiles a single source code file
+
+<using std>
+<using sim2c>
+<using node>
+
+$sim2c::print_source: (source)
+  for_each source: (chr)
+    case
+      chr
+      newline:
+	writeln "<newline>"
+      indent_marker:
+	writeln "<indent_marker>"
+      outdent_marker:
+	writeln "<outdent_marker>"
+      :
+	write chr
+
+$sim2c::eprint_source: (source)
+  for_each source: (chr)
+    case
+      chr
+      newline:
+	ewriteln "<newline>"
+      indent_marker:
+	ewriteln "<indent_marker>"
+      outdent_marker:
+	ewriteln "<outdent_marker>"
+      :
+	ewrite chr
+
+$sim2c::privileged_polymorphic_functions
+  table
+    "std__if" = 0
+    "std__is_defined" = 1
+    "std__equal" = 2
+    "std__less" = 3
+    "std__length_of" = 4
+    "std__is_empty" = 5
+    "std__unless" = 6
+
+$sim2c::generate_dispatcher_function: (name)
+  write_to_declarations "
+    static void type__@(name)(void);
+  write_to_functions "
+    static void type__@(name)(void) {
+  $id privileged_polymorphic_functions(name)
+  if
+    id.is_defined:
+      # ATTENTION: do not optimize to get better error messages
+
+      #if
+	id < 8:
+	  write_to_functions "
+	    @
+	      myself = (NODE @
+	    *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)];
+	:
+	  write_to_functions "
+	    @
+	      myself = get_attribute(arguments->slots[0], poly_idx__@(name)); @
+	    // @(id)@nl;@
+
+      write_to_functions "
+	@
+	  myself = get_attribute(arguments->slots[0], poly_idx__@(name)); // @
+	@(id)@nl;@
+    :
+      write_to_functions
+	"  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
+
+  # ATTENTION:
+    attr_of(obj attr) yielding an updated <obj> is an experimental feature!
+
+  write_to_functions "
+      if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+        if (argument_count != 1) {
+          if (argument_count != 2) invalid_arguments_error();
+          NODE *attr = arguments->slots[1];
+          NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+          update_start_p = node_p;
+          set_attribute_value(temp->attributes, poly_idx__@(name), attr);
+          arguments = node_p;
+          argument_count = 1;
+          arguments->slots[0] = temp;
+        } else {
+          arguments = node_p;
+          arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+        }
+        func = frame->cont;
+        frame->cont = invalid_continuation;
+      } else {
+        func = myself->type;
+      }
+    }
+
+$demangled: (name) -> replace_all(name "__" = "::")
+
+$sim2c::update_info:
+  (
+    name
+    curr_info
+    info
+    -> return
+  )
+  if
+    curr_info.is_defined:
+      case
+	variable_kind_of(curr_info)
+	POLYMORPHIC:
+	  case
+	    variable_kind_of(info)
+	    POLYMORPHIC, STATIC_SINGLE:
+	      return undefined
+	    :
+	      Error "
+		The symbol "@(name.demangled)" is used as a polymorphic @
+		function and cannot be used otherwise!@
+	STATIC_SINGLE:
+	  case
+	    variable_kind_of(info)
+	    STATIC_SINGLE:
+	      return undefined
+	    :
+	      return info
+	STATIC_MULTI:
+	  case
+	    variable_kind_of(info)
+	    POLYMORPHIC:
+	      Error "
+		The symbol "@(name.demangled)" is used as a polymorphic @
+		function and id assigned to!@
+	    STATIC_SINGLE, STATIC_MULTI:
+	      return undefined
+	    DYNAMIC_SINGLE:
+	      Error "
+		The symbol "@(name.demangled)" is used as a single-assign @
+		dynamic and is assigned to!@
+	    DYNAMIC_MULTI:
+	      return info
+	DYNAMIC_SINGLE:
+	  case
+	    variable_kind_of(info)
+	    POLYMORPHIC:
+	      Error "
+		The symbol "@(name.demangled)" is used as a polymorphic @
+		function and as a single-assign dynamic!@
+	    STATIC_SINGLE, DYNAMIC_SINGLE:
+	      return undefined
+	    STATIC_MULTI:
+	      Error "
+		The symbol "@(name.demangled)" is used as a single-assign @
+		dynamic and is assigned to!@
+	    DYNAMIC_MULTI:
+	      Error "
+		The symbol "@(name.demangled)" is used as a single-assign @
+		dynamic and as a multi-assign dynamic!@
+	DYNAMIC_MULTI:
+	  case
+	    variable_kind_of(info)
+	    POLYMORPHIC:
+	      Error "
+		The symbol "@(name.demangled)" is used as a polymorphic @
+		function and as a multi-assign dynamic!@
+	    STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI:
+	      return undefined
+	    DYNAMIC_SINGLE:
+	      Error "
+		The symbol "@(name.demangled)" is used as a single-assign @
+		dynamic and as a multi-assign dynamic!@
+	    :
+	      return info
+    :
+      return info
+
+$sim2c::sim2c:
+  (
+    filenames
+      #
+	a module might consist of several source code files; e.g.:
+
+	  system/time-posix.sim
+	  system/time-posix-common.sim
+	  system/time-all-common.sim
+    $is_main = false
+  )
+  $mangle_filename: ($name)
+    if name .has_prefix. "./":
+      if
+	module_name .contains. "__":
+	  !name before(module_name "__" -1) .append. range(name 2 -1)
+	:
+	  !name range(name 3 -1)
+    -> replace_all(name '/' = "__")
+
+  %%sim2c::required_modules empty_insert_order_table
+  %%sim2c::used_namespaces empty_insert_order_set
+  %%sim2c::defined_namespaces empty_insert_order_set
+  %%sim2c::namespace_mappings empty_insert_order_table
+  %%sim2c::included_files empty_insert_order_set
+  %%sim2c::linked_libraries empty_insert_order_set
+  %%sim2c::dependent_data empty_insert_order_set
+  %%sim2c::global_names empty_key_order_table
+  %%sim2c::exported_names empty_key_order_table
+  %%sim2c::needed_names empty_key_order_table
+  %%sim2c::assigned_names empty_set
+  %%sim2c::use_inline_c false # set, if an inline-C expression is encountered
+  %%sim2c::defined_structs set("NODE")
+  %%sim2c::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
+  %%sim2c::defined_functions empty_set
+  %%sim2c::enumeration_count 0
+  $$fragments empty_list
+  $$trees empty_list
+  $$all_defined_names empty_list
+  $$all_used_names empty_list
+  for_each filenames: (no filename)
+    $$buf load(filename)
+    try
+      :
+	from_utf8 &buf
+      :
+	Error "Source file is not in a valid utf-8-encoding!"
+    if do_show_debug_infos:
+      ewrite "
+	load "@(filename)@quot;
+    if do_time_passes: write_timing_info "loading" filename
+    if length_of(buf) == 0: Error "Empty source text!"
+    if buf(1) <= ' ': Error "Whitespace at start of source text!"
+    if buf(-1) != newline: Error "Missing newline at end of source text!"
+    if buf .has_prefix. "#!": !is_main true
+    %sim2c::submodule_no no-1
+    $$submodule_fragments cut_into_fragments(buf)
+    if do_time_passes: write_timing_info "fragmenting" filename
+    update_each &submodule_fragments: (&fragment) tokenize &fragment
+    if do_time_passes: write_timing_info "tokenizing" filename
+    $$first_idx 1
+    do: (-> done)
+      for_each submodule_fragments: (idx fragment)
+	case
+	  source_of(fragment)(1)
+	  '#':
+	    !first_idx idx+1
+	    push &trees parse_statement(fragment)
+	  '<':
+	    !first_idx idx+1
+	    push &trees parse_meta_instruction(fragment)
+	  :
+	    done
+    append &fragments range(submodule_fragments first_idx -1)
+  for_each fragments: (fragment) push &trees parse_statement(fragment)
+  if do_time_passes: write_timing_info "parsing" filenames(1)
+  if do_pretty_print:
+    #if do_show_compiler_debug_infos:
+      $$header_printed false
+      for_each global_names: (name type)
+        unless header_printed:
+          print_line "# Global variables"
+          !header_printed true
+        print_line "  " name
+
+    print_trees trees
+    terminate
+  if is_main: # the main program should terminate cleanly
+    push &trees procedure_call(.functor_of std_identifier("terminate"))
+  update_each &trees: (&tree)
+    %%sim2c::index 1
+    expand_statement &tree
+  if do_time_passes: write_timing_info "expanding" filenames(1)
+  update_each &trees: (&tree)
+    %%sim2c::defined_names empty_list
+    %%sim2c::used_names empty_insert_order_table
+    %%sim2c::index 1
+    annotate_statement &tree
+    push &all_defined_names sim2c::defined_names
+    push &all_used_names sim2c::used_names
+  if do_time_passes: write_timing_info "annotating" filenames(1)
+  $$all_actions empty_list
+
+  $$top_level_names
+    if(do_print_warnings (-> empty_insert_order_table) -> empty_table)
+
+  if required_modules.is_empty && is_main:
+    !required_modules("basic/stdlib") types::grammar_node
+    !required_modules("system/stdlib") types::grammar_node
+  !required_modules("nothing") undefined
+  if used_namespaces.is_empty: !used_namespaces("std") true
+  !used_namespaces("nothing") false
+  for_each all_defined_names: (defined_names)
+    for_each defined_names: (info)
+      $ident identifier_of(info)
+      unless
+	info.is_a_static_single_definition && attribute_of(info).is_defined:
+	  $namespace namespace_of(ident)
+	  $name name_of(ident)
+	  if
+	    namespace.is_defined:
+	      $$namespaces exported_names(name)
+	      unless namespaces.is_defined: !namespaces table()
+	      if namespaces(namespace).is_defined:
+		SyntaxError identifier_of(info) "
+		  An identifier named "@(namespace)::@(name)" was already @
+		  defined@
+	      if used_namespaces(namespace):
+		if global_names(name).is_defined:
+		  SyntaxError identifier_of(info) "
+		    The definition of "@(namespace)::@(name)" clashes with the @
+		    already defined identifier "@(name)@quot;@
+		$info_1 top_level_names(name)
+		if info_1.is_defined:
+		  SyntaxError identifier_of(info) "
+		    The definition of "@(namespace)::@(name)" clashes with the @
+		    definition of "@(namespace_of(identifier_of(info_1)))@
+		    ::@(name)" because both namespaces are used@
+		!top_level_names(name) info
+	      !namespaces(namespace) info
+	      !exported_names(name) namespaces
+	    :
+	      if global_names(name).is_defined:
+		SyntaxError identifier_of(info) "
+		  An identifier named "@(name)" was already defined@
+	      $namespaces exported_names(name)
+	      if namespaces.is_defined:
+		for_each namespaces: (nspace _dummy)
+		  if used_namespaces(nspace):
+		    SyntaxError identifier_of(info) "
+		      The definition of "@(name)" clashes with the already @
+		      defined identifier "@(nspace)::@(name)@quot;@
+	      !global_names(name) info
+	      !top_level_names(name) info
+  if do_print_warnings:
+    $$top_level_used_names empty_insert_order_table
+    for_each all_used_names: (used_names)
+      for_each used_names: (mangled_name info)
+	!top_level_used_names(mangled_name) info
+    check_definitions top_level_names top_level_used_names
+  if do_time_passes: write_timing_info "analyzing" filenames(1)
+  if do_dump_trees:
+    for_each trees: (tree) write debug_string(strip(tree) 0 99)
+    terminate
+  $$all_definitions empty_list
+  $$all_statements empty_list
+  $$max_temp_idx 0
+  for_each trees: (tree)
+    unless tree.is_a_remark || tree.is_a_meta_instruction:
+      %%sim2c::temp_idx 0
+      %%sim2c::actions empty_list
+      %already_defined_names top_level_names
+      %%definitions empty_list
+      %%statements empty_list
+      simplify_statement tree
+      push &all_statements statements
+      push &all_definitions definitions
+      $tmp_idx temp_idx
+      push &actions: extend_to &max_temp_idx tmp_idx
+      push &all_actions actions
+  for_each all_actions: (stmt_actions) for_each stmt_actions: (action) action
+  !all_actions empty_list
+  if do_time_passes: write_timing_info "simplifying" filenames(1)
+  if do_print_simplified_source:
+    for_each all_definitions: (defs)
+      for_each defs: (def)
+	if
+	  def.is_a_key_value_pair:
+	    writeln "_define " key_of(def) ' ' std::value_of(def)
+	  :
+	    writeln "_define " def
+    for_each all_statements: (stmts) print_trees stmts
+    terminate
+
+  $need:
+    (
+      mangled_name
+      info
+      -> return
+    )
+    if
+      mangled_name .contains. "__":
+	$namespace mangled_name .before. "__"
+	$name mangled_name .behind. "__"
+	$namespaces exported_names(name)
+	if namespaces.is_defined && namespaces(namespace).is_defined return
+      :
+	$definition global_names(mangled_name)
+	if definition.is_defined:
+	  check_usage mangled_name definition info
+	  return
+    $updated_info update_info(mangled_name needed_names(mangled_name) info)
+    if updated_info.is_defined: !needed_names(mangled_name) updated_info
+
+  for_each all_used_names: (used_names)
+    for_each used_names: (mangled_name info) need mangled_name info
+  if do_time_passes: write_timing_info "mangling" filenames(1)
+  if do_check_only terminate
+  $$generated_declarations ""
+  $$generated_top_level_variable_names ""
+  $$generated_top_level_variable_declarations ""
+  $$generated_global_variable_declarations ""
+  $$generated_continuation_table ""
+  $$generated_delayed_continuation_table ""
+  $$generated_functions ""
+  $$generated_phase_1 ""
+    #
+      register module information
+      define polymorphic functions
+      define privileged polymorphic functions (with short access paths)
+      define C functions
+      register (use) polymorphic functions
+  $$generated_phase_2 ""
+    #
+      create futures
+      create futures with prototypes
+      create inline-C constructs
+      define single-assign static variables
+      define multi-assign static variables
+      define single-assign dynamic variables
+      define multi-assign dynamic variables
+      define string literals
+      register dynamic variables
+      register (use) unique items
+  $$generated_phase_3 ""
+    #
+      define attributes
+      define methods
+      define type functions
+
+      attributes and methods are not directly added to the type-objects, but to
+      the symbol tree
+
+      at the end of phase 3 <resolve attributes> is called and for every object
+
+      if the object exists and is not a future then all directly defined
+      attributes and methods are added to the object's attribute tree
+
+      if the object does not yet exist then a future is created
+
+      if the object is a future then the directly defined attributes and methods
+      are added to the future's list of pending attributes and methods
+  $$generated_phase_4 ""
+    #
+      create functions
+      define constants
+      assign values # inherit attributes
+      assign variables
+      initialize futures
+      maybe initialize futures
+
+      <assign_value> is responsible for attribute and method inheritance
+
+      if the destination object does not yet exist it is replace by the source
+      object
+
+      if it does exist it must be a future and inheritance takes place
+  $$generated_phase_5 ""
+    #
+      assign values
+  $$generated_code ""
+  $$generated_collections ""
+  $$delayed_statements ""
+  $$used_literals empty_table
+
+  %sim2c::write_to_declarations: (args*)
+    $txt string(args*)
+    push &actions: append &generated_declarations txt
+
+  %sim2c::write_to_top_level_variable_names: (args*)
+    $txt string(args*)
+    push &actions: append &generated_top_level_variable_names txt
+
+  %sim2c::write_to_top_level_variable_declarations: (args*)
+    $txt string(args*)
+    push &actions: append &generated_top_level_variable_declarations txt
+
+  %sim2c::write_to_global_variable_declarations: (args*)
+    $txt string(args*)
+    push &actions: append &generated_global_variable_declarations txt
+
+  %sim2c::write_to_continuation_table: (args*)
+    $txt string(args*)
+    push &actions: append &generated_continuation_table txt
+
+  %sim2c::write_to_delayed_continuation_table: (args*)
+    $txt string(args*)
+    push &actions: append &generated_delayed_continuation_table txt
+
+  %sim2c::write_to_functions: (args*)
+    $txt string(args*)
+    push &actions: append &generated_functions txt
+
+  %sim2c::write_to_phase_1: (args*)
+    $txt string(args*)
+    push &actions: append &generated_phase_1 txt
+
+  %sim2c::write_to_phase_2: (args*)
+    $txt string(args*)
+    push &actions: append &generated_phase_2 txt
+
+  %sim2c::write_to_phase_3: (args*)
+    $txt string(args*)
+    push &actions: append &generated_phase_3 txt
+
+  %sim2c::write_to_phase_4: (args*)
+    $txt string(args*)
+    push &actions: append &generated_phase_4 txt
+
+  %sim2c::write_to_phase_5: (args*)
+    $txt string(args*)
+    push &actions: append &generated_phase_5 txt
+
+  %sim2c::use_literal: (name literal)
+    push &actions: !used_literals(name) literal
+
+  %sim2c::write_to_generated_collections: (args*)
+    $txt string(args*)
+    push &actions: append &generated_collections txt
+
+  %sim2c::write_to_delayed_statements: (args*)
+    $txt string(args*)
+    push &actions: append &delayed_statements txt
+
+  %sim2c::use_identifier: (ident)
+    if ident .has_prefix. "get__":
+      $name range(ident 6 -1)
+      need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
+
+  show_compiler_debug_info "GENERATE DEFINITIONS"
+  for_each all_definitions: (stmt_idx defs)
+    %%sim2c::actions empty_list
+    %%sim2c::delayed_code ""
+    %sim2c::suffix string("__" stmt_idx)
+    %%sim2c::index 0
+    collect_output $code:
+      for_each defs: ($definition)
+	$$source undefined
+	if definition.is_a_key_value_pair:
+	  !source std::value_of(definition)
+	  !definition key_of(definition)
+	if
+	  definition.is_c_code:
+	    define_c_code definition
+	  :
+	    if
+	      source.is_defined && source.is_a_polymorphic_function_constant:
+		define_polymorphic_function definition source.is_a_setter
+	      :
+		case
+		  attribute_kind_of(definition)
+		  ATTRIBUTE_KIND:
+		    define_attribute definition source
+		  METHOD_KIND:
+		    if
+		      attribute_of(definition).is_defined:
+			define_method definition source
+		      :
+			define_type_function definition source
+		  :
+		    define_variable definition source
+    if delayed_code != "": write_to_delayed_statements delayed_code
+    push &actions: append &generated_code code
+    push &all_actions actions
+  show_compiler_debug_info "GENERATE STATEMENTS"
+  %%sim2c::current_continuation_info undefined
+  do:
+    %%sim2c::actions empty_list
+    %%sim2c::delayed_code ""
+    collect_output $code:
+      if
+	is_main:
+	  begin_continuation "main_entry"
+	:
+	  write_to_continuation_table "  {run__@(module_name), NULL, "
+	  write "
+	    static int already_run = false;
+
+	    EXPORT void run__@(module_name)(void) {
+	      if (already_run) {
+	        func = frame->cont;
+	        frame->cont = invalid_continuation;
+	        return;
+	      }
+	      already_run = true;
+	      allocate_initialized_frame_gc(0, 0);
+      for_each required_modules: (name info)
+	write_source_as_remark info
+	write "
+	    func = run__@(mangle_filename(name));
+	    frame->cont = cont__run__@(mangle_filename(name));
+	  }
+	$continuation "cont__run__@(mangle_filename(name))"
+	next_continuation continuation
+    push &actions: append &generated_code code
+    push &all_actions actions
+  $def_count length_of(all_definitions)
+  for_each all_statements: (stmt_idx stmts)
+    %%sim2c::actions empty_list
+    %%sim2c::delayed_code ""
+    %sim2c::suffix string("__" stmt_idx+def_count)
+    %%sim2c::index 0
+    collect_output $code: for_each stmts: (stmt) generate_statement stmt
+    if delayed_code != "": write_to_delayed_statements delayed_code
+    push &actions: append &generated_code code
+    push &all_actions actions
+  do:
+    %%sim2c::actions empty_list
+    collect_output $code:
+      if
+	is_main:
+	  write "
+	      terminate(0); // should never be reached
+	    }
+	:
+	  write "
+	      frame = frame->caller_frame;
+	      func = frame->cont;
+	      frame->cont = invalid_continuation;
+	    }
+      end_continuation
+    push &actions: append &generated_code code
+    push &all_actions actions
+  for_each all_actions: (stmt_actions) for_each stmt_actions: (action) action
+  for_each required_modules: (name _info) writeln "/// require @(name)"
+  for_each linked_libraries: (name) writeln "/// link @(name)"
+  for_each dependent_data: (filemask) writeln "/// data @(filemask)"
+  unless required_modules.is_empty writeln
+  if use_inline_c:
+    !included_files("stdint.h") true
+    !included_files("stdlib.h") true
+  for_each included_files: (name) writeln "#include <@(name)>"
+  write "
+    /**********************
+    D E C L A R A T I O N S
+    **********************/
+
+    #ifndef IMPORT
+      #define IMPORT extern
+    #endif
+
+    #ifndef EXPORT
+      #define EXPORT
+    #endif
+
+    #ifndef NULL
+      #define NULL ((void *)0)
+    #endif
+    #define false 0
+    #define true 1
+  unless included_files("stdint.h"):
+    write "
+      typedef __INT8_TYPE__ int8_t;
+      typedef __INT16_TYPE__ int16_t;
+      typedef __INT32_TYPE__ int32_t;
+      typedef __INT64_TYPE__ int64_t;
+      typedef __INTPTR_TYPE__ intptr_t;
+
+      #ifdef __UINT8_TYPE__
+        typedef __UINT8_TYPE__ uint8_t;
+      #else
+        typedef unsigned __INT8_TYPE__ uint8_t;
+      #endif
+
+      #ifdef __UINT16_TYPE__
+        typedef __UINT16_TYPE__ uint16_t;
+      #else
+        typedef unsigned __INT16_TYPE__ uint16_t;
+      #endif
+
+      #ifdef __UINT32_TYPE__
+        typedef __UINT32_TYPE__ uint32_t;
+      #else
+        typedef unsigned __INT32_TYPE__ uint32_t;
+      #endif
+
+      #ifdef __UINT64_TYPE__
+        typedef __UINT64_TYPE__ uint64_t;
+      #else
+        typedef unsigned __INT64_TYPE__ uint64_t;
+      #endif
+
+      #ifdef __UINTPTR_TYPE__
+        typedef __UINTPTR_TYPE__ uintptr_t;
+      #else
+        typedef unsigned __INTPTR_TYPE__ uintptr_t;
+      #endif
+  unless included_files("stdlib.h") || included_files("stddef.h"):
+    write "
+      typedef __SIZE_TYPE__ size_t;
+  write "
+    // INSERT HERE //
+
+    #if UINTPTR_MAX == 0xffffffffffffffff
+      #define FIRST_INVALID_ADDRESS 0xc000000000000000UL
+      #define SAMPLE_POINTER ((void *)0x123456789abcdef0UL)
+    #else
+      #define FIRST_INVALID_ADDRESS 0xc0000000
+      #define SAMPLE_POINTER ((void *)0x12345678)
+    #endif
+
+    #define MAKE_ATTRIBUTE_VALUE(node) ((NODE *)(((uintptr_t)node)+1))
+    #define RETRIEVE_ATTRIBUTE_VALUE(node) ((NODE *)(((uintptr_t)node)-1))
+    #define CONTAINS_AN_ATTRIBUTE_VALUE(node) (((uintptr_t)node)&1)
+
+    #define ENCODE_ADDRESS(addr) ((void @
+    *)(FIRST_INVALID_ADDRESS|(uintptr_t)(addr) >> 2))
+    #define DECODE_ADDRESS(addr) ((void *)((uintptr_t)(addr) << 2))
+    #define IS_AN_INVALID_ADDRESS(addr) ((void *)(addr) >= (void @
+    *)FIRST_INVALID_ADDRESS)
+
+    #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void @
+    *)(addr)) < coll_node_buf_end)
+    #define IS_OLD(addr) false
+    #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
+
+    #define ALLOCATION_SIZE(size) (((size)+sizeof(void *)-1)&-sizeof(void *))
+    #define TYPEOF(node) (node)->type
+    #define SIZEOF(node) (node)->attributes->vtable->size
+
+    #ifdef WITHIN_LIBRARY
+      #define DEBUG_FILENAME(filename) filename
+    #else
+      #define DEBUG_FILENAME(filename) "./" filename
+    #endif
+
+    #ifdef __CYGWIN__
+      extern FUNC invalid_continuation;
+    #else
+      extern void invalid_continuation(void);
+    #endif
+  from_to 1 max_temp_idx: (idx) writeln "static NODE *temp__@(idx);"
+  for_each needed_names: (name info)
+    if variable_kind_of(info) == POLYMORPHIC:
+      writeln "static int poly_idx__@(name);"
+    writeln "static NODE_GETTER get__@(name);"
+    if variable_kind_of(info) == STATIC_SINGLE:
+      writeln "static NODE_GETTER get_value_or_future__@(name);"
+    case variable_kind_of(info) STATIC_MULTI, DYNAMIC_MULTI:
+      writeln "static NODE_SETTER set__@(name);"
+    case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
+      writeln "static NODE_SETTER define__@(name);"
+  write "
+    static struct {
+  write generated_top_level_variable_declarations
+  write generated_global_variable_declarations
+  write "
+    } var;
+  write "
+    static const char *var_names[] = {
+  if generated_top_level_variable_names != "":
+    writeln range(generated_top_level_variable_names 1 -3)
+  write "};@nl;"
+  write generated_declarations
+
+  #
+    IMPORTANT HINT
+
+    The continuation table should only contain static functions.
+    Otherwise the address space of the functions will not be contiguous!
+
+  if
+    is_main:
+      writeln "static void main_entry(void);"
+    :
+      writeln "void run__@(module_name)(void);"
+  write "
+
+    static CONTINUATION_INFO continuation_info[] = {
+  append &generated_continuation_table generated_delayed_continuation_table
+  if generated_continuation_table != "":
+    writeln range(generated_continuation_table 1 -3)
+  write "
+    };
+    @;
+  write "
+    union NODE {
+      struct {
+        FUNC type;
+        ATTRIBUTES *attributes;
+      };
+      CONTINUATION continuation;
+      CLOSURE closure;
+  if use_inline_c:
+    for_each defined_nodes: (name _node)
+      write "  @(name) @(name.to_lower_case);@nl;"
+  write "};@nl;"
+  write generated_functions
+  for_each used_literals: (name _literal) write "static NODE *@(name);@nl;"
+  write "
+
+    static const char *used_namespaces[] = {
+  for_each used_namespaces: (name) write "  @quot;@(name)@quot;,@nl;"
+  write "
+      NULL
+    };
+
+    static MODULE_INFO module_info = {
+      NULL,
+      "@(module_name)",
+      continuation_info,
+      sizeof(continuation_info)/sizeof(CONTINUATION_INFO),
+      (NODE **)&var,
+      var_names,
+      sizeof(var_names)/sizeof(const char *),
+      used_namespaces,
+      {@
+  $depth count_occurrences(module_name "__")
+  for_each
+    filenames: ($filename)
+      truncate_until &filename '/' -(depth+1)
+      write "
+	DEBUG_FILENAME("@(filename)@quot;)@
+    :
+      write ", "
+  write "
+    }
+    };
+
+    /******
+    C O D E
+    ******/
+    @;
+  for_each required_modules: (name _info)
+    $fname mangle_filename(name)
+    write "
+      IMPORT void collect__@(fname)(void);
+      IMPORT void phase_1__@(fname)(void);
+      IMPORT void phase_2__@(fname)(void);
+      IMPORT void phase_3__@(fname)(void);
+      IMPORT void phase_4__@(fname)(void);
+      IMPORT void phase_5__@(fname)(void);
+      IMPORT void run__@(fname)(void);
+  write generated_code
+  write delayed_statements
+  write "
+    EXPORT void collect__@(module_name)(void) {
+  from_to 1 max_temp_idx: (idx)
+    writeln "  temp__@(idx) = collect_node(temp__@(idx));"
+  write generated_collections
+  for_each used_literals: (name _literal)
+    writeln "  @(name) = collect_node(@(name));"
+  write "}@nl;"
+  if
+    is_main:
+      write "
+
+	int main(int argc, char **argv) {
+	  main_argc = argc;
+	  main_argv = argv;
+	  initialize_runtime();
+
+	  // initialization phase 1
+	@;
+    :
+      write "
+
+	static int already_run_phase_1 = false;
+
+	EXPORT void phase_1__@(module_name)(void) {
+	  if (already_run_phase_1) return;
+	  already_run_phase_1 = true;
+  for_each required_modules: (name _info)
+    $mangled_name mangle_filename(name)
+    writeln "  phase_1__@(mangled_name)();"
+  write "
+    @
+      register_module_info(&module_info);
+  write generated_phase_1
+  if
+    is_main:
+      write "
+	@
+
+	  // initialization phase 2
+
+	  resolve_symbols();
+    :
+      write "
+	}
+
+	static int already_run_phase_2 = false;
+
+	EXPORT void phase_2__@(module_name)(void) {
+	  if (already_run_phase_2) return;
+	  already_run_phase_2 = true;
+  for_each required_modules: (name _info)
+    writeln "  phase_2__@(mangle_filename(name))();"
+  write "
+    @
+      set_module("@(module_name)");
+      set_used_namespaces(used_namespaces);
+  for_each used_literals: (name _literal)
+    # ATTENTION: only necessary if used in an attribute definition!
+
+    writeln "  @(name) = create_future();"
+  write generated_phase_2
+  if
+    is_main:
+      write "
+	@
+
+	  // initialization phase 3
+
+	  initialize_phase_3();
+    :
+      write "
+	}
+
+	static int already_run_phase_3 = false;
+
+	EXPORT void phase_3__@(module_name)(void) {
+	  if (already_run_phase_3) return;
+	  already_run_phase_3 = true;
+  for_each required_modules: (name _info)
+    writeln "  phase_3__@(mangle_filename(name))();"
+  write "
+    @
+      set_module("@(module_name)");
+      set_used_namespaces(used_namespaces);
+  for_each needed_names: (name info)
+    unless global_names(name).is_defined:
+      $namespace
+	if
+	  name .contains. "__"
+	  -> string('@quot;' name .before. "__" '@quot;')
+	  -> "NULL"
+
+      $basename name .truncate_until. "__"
+      case
+	variable_kind_of(info)
+	POLYMORPHIC:
+	  write "
+	    @
+	      use_polymorphic_function(@(namespace), @quot;@(basename)", @
+	    &get__@(name), &poly_idx__@(name));
+	STATIC_SINGLE:
+	  write "
+	    @
+	      use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
+	    &get_value_or_future__@(name));
+	STATIC_MULTI:
+	  write "
+	    @
+	      use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
+	    &set__@(name));
+	DYNAMIC_SINGLE:
+	  write "
+	    @
+	      use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
+	    &get__@(name), &define__@(name));
+	DYNAMIC_MULTI:
+	  write "
+	    @
+	      use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
+	    &get__@(name), &set__@(name), &define__@(name));
+  write generated_phase_3
+  if is_main:
+    write "
+      @
+        resolve_attributes();
+  if
+    is_main:
+      write "
+
+	  // initialization phase 4
+	@;
+    :
+      write "
+	}
+
+	static int already_run_phase_4 = false;
+
+	EXPORT void phase_4__@(module_name)(void) {
+	  if (already_run_phase_4) return;
+	  already_run_phase_4 = true;
+  for_each required_modules: (name _info)
+    writeln "  phase_4__@(mangle_filename(name))();"
+  for_each used_literals: (name literal)
+    write "  assign_value(&@(name), "
+    cond
+      -> literal.is_a_numeric_literal:
+	$value replace_all(node::value_of(literal) '@apos;' = "")
+	if
+	  not(value .has_prefix. "0x") && value .contains. alt('.' 'e' 'E'):
+	    write "
+	      from_double(@(value)));
+	  :
+	    $int_val value.to_integer
+	    cond
+	      -> int_val <= 0xffffffff:
+		write "
+		  from_uint32(@(int_val)U));
+	      -> int_val <= 0xffffffffffffffff:
+		write "
+		  from_uint64(@(int_val)ULL));
+	      :
+		write "
+		  from_digit_string("@(value)"));
+      -> literal.is_a_character_literal:
+	writeln "from_uchar32(@(node::value_of(literal).to_integer)));"
+  write generated_phase_4
+  if
+    is_main:
+      write "
+	  initialize_function_attributes();
+
+	  // initialization phase 5
+	@;
+    :
+      write "
+	}
+
+	static int already_run_phase_5 = false;
+
+	EXPORT void phase_5__@(module_name)(void) {
+	  if (already_run_phase_5) return;
+	  already_run_phase_5 = true;
+  for_each required_modules: (name _info)
+    writeln "  phase_5__@(mangle_filename(name))();"
+  write generated_phase_5
+  writeln "  register_collector(collect__@(module_name));"
+  if is_main:
+    write "
+      @
+        execute(main_entry);
+  write "}@nl;"
+  if do_time_passes: write_timing_info "generating" filenames(1)

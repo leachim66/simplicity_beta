@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+$$sum 0
+from_to 1 1'000'000: (i)
+  $x i+3
+  $y i+5
+  $z i+7
+  !sum sum+x*y/z
+writeln sum

@@ -1,0 +1,769 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include stdio.h>
+<include string.h>
+<include errno.h>
+<include unistd.h>
+<include signal.h>
+<include dirent.h>
+<include sys/types.h>
+<include sys/wait.h>
+<include sys/select.h>
+
+$std::SIGHUP 1
+$std::SIGINT 2
+$std::SIGQUIT 3
+$std::SIGABRT 6
+$std::SIGKILL 9
+$std::SIGUSR1 10
+$std::SIGUSR2 12
+$std::SIGALRM 14
+$std::SIGTERM 15
+
+{
+  <kind function>
+
+  void close_fd(int *fd_p) {
+    if (*fd_p >= 0) {
+      close(*fd_p);
+      *fd_p = -1;
+    }
+  }
+}
+
+$posix_exec
+  {
+    MIN_ARGUMENTS(1)
+    int i;
+    sigset_t set;
+    int ret = sigpending(&set);
+    if (ret != -1) {
+      // cancel all pending signals
+      for (i = 1; i <= 31; ++i) {
+        if (sigismember(&set, i)) {
+          signal(i, SIG_IGN);
+        }
+      }
+    }
+    char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
+    // convert all arguments into C-strings
+    for (i = 0; i < ARGUMENT_COUNT; ++i) {
+      args[i] = to_c_string(ARGUMENTS(i));
+    }
+    args[ARGUMENT_COUNT] = NULL;
+    int err = execvp(args[0], args); // This call should not return!
+    // on failure: free all allocated buffers
+    for (i = 0; i < ARGUMENT_COUNT; ++i) {
+      deallocate_memory(args[i]);
+    }
+    deallocate_memory(args);
+    RETURN_NOTHING
+  }
+
+$posix_launch
+  {
+    MIN_ARGUMENTS(1)
+    int res_cnt = RESULT_COUNT;
+    if (res_cnt < 0) res_cnt = 0;
+    if (res_cnt > 4) res_cnt = 4;
+    int do_redirect_stdout = (res_cnt >= 2);
+    int do_redirect_stdin = (res_cnt >= 3);
+    int do_redirect_stderr = (res_cnt >= 4);
+
+    // initialize all pipe handles to invalid file descriptors
+    struct {
+      int read_fd;
+      int write_fd;
+    } out_pipe = {-1, -1}, in_pipe = {-1, -1}, err_pipe = {-1, -1};
+
+    if (do_redirect_stdout) {
+      if (pipe((int *)&out_pipe) != 0) RESOURCE_ERROR
+    }
+    if (do_redirect_stdin) {
+      if (pipe((int *)&in_pipe) != 0) RESOURCE_ERROR
+    }
+    if (do_redirect_stderr) {
+      if (pipe((int *)&err_pipe) != 0) RESOURCE_ERROR
+    }
+
+    int pid = fork();
+    if (pid == 0) { // child process
+      if (do_redirect_stdout) {
+        //close(out_pipe.read_fd);
+        dup2(out_pipe.write_fd, STDOUT_FILENO);
+        //close(out_pipe.write_fd);
+      }
+      if (do_redirect_stdin) {
+        //close(in_pipe.write_fd);
+        dup2(in_pipe.read_fd, STDIN_FILENO);
+        //close(in_pipe.read_fd);
+      }
+      if (do_redirect_stderr) {
+        //close(err_pipe.read_fd);
+        dup2(err_pipe.write_fd, STDERR_FILENO);
+        //close(err_pipe.write_fd);
+      }
+      char buf[32];
+      sprintf(buf, "/proc/%d/fd", getpid());
+      struct dirent *dp;
+      DIR *dir = opendir(buf);
+      int dfd = dirfd(dir);
+      while ((dp = readdir(dir)) != NULL) {
+        if (dp->d_name[0] != '.') {
+          int fd = atoi(dp->d_name);
+          if (fd >= 3 && fd != dfd && fd < 1024) {
+            // valgrind uses file descriptors 1024 and above,
+            // so we just ignore them
+            close(fd);
+          }
+        }
+      }
+      closedir(dir);
+      char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
+      // convert all arguments into C-strings
+      int i;
+      for (i = 0; i < ARGUMENT_COUNT; ++i) {
+        args[i] = to_c_string(ARGUMENTS(i));
+      }
+      args[ARGUMENT_COUNT] = NULL;
+      execvp(args[0], args);
+      exit(EXIT_FAILURE);
+    }
+
+    // parent process
+
+    if (pid == -1) goto cleanup_and_return; // fork failed
+
+    NODE *out_fd, *in_fd, *err_fd;
+
+    if (do_redirect_stdout) {
+      close_fd(&out_pipe.write_fd);
+      out_fd = from_int(out_pipe.read_fd);
+    }
+
+    if (do_redirect_stdin) {
+      close_fd(&in_pipe.read_fd);
+      in_fd = from_int(in_pipe.write_fd);
+    }
+
+    if (do_redirect_stderr) {
+      close_fd(&err_pipe.write_fd);
+      err_fd = from_int(err_pipe.read_fd);
+    }
+
+    START_ARGUMENTS(res_cnt)
+    switch (res_cnt) {
+      case 4: ARGUMENTS(3) = err_fd;
+      case 3: ARGUMENTS(2) = in_fd;
+      case 2: ARGUMENTS(1) = out_fd;
+      case 1: ARGUMENTS(0) = from_int(pid);
+    }
+    RETURN
+
+    cleanup_and_return:
+
+    close_fd(&out_pipe.read_fd);
+    close_fd(&out_pipe.write_fd);
+    close_fd(&in_pipe.read_fd);
+    close_fd(&in_pipe.write_fd);
+    close_fd(&err_pipe.read_fd);
+    close_fd(&err_pipe.write_fd);
+
+    START_ARGUMENTS(res_cnt)
+    switch (res_cnt) {
+      case 4: ARGUMENTS(3) = UNDEFINED;
+      case 3: ARGUMENTS(2) = UNDEFINED;
+      case 2: ARGUMENTS(1) = UNDEFINED;
+      case 1: ARGUMENTS(0) = UNDEFINED;
+    }
+    RETURN
+  }
+
+$std::launch:
+  (
+    args*
+    -> return
+  )
+  case
+    parameter_count_of(return)
+    0:
+      posix_launch args*
+    1:
+      return posix_launch(args*)
+    2:
+      posix_launch $pid $out args*
+      return pid create_file_descriptor(out)
+    3:
+      posix_launch $pid $out $in args*
+      return pid create_file_descriptor(out) create_file_descriptor(in)
+    4:
+      posix_launch $pid $out $in $err args*
+      return
+	pid
+	create_file_descriptor(out)
+	create_file_descriptor(in)
+	create_file_descriptor(err)
+
+$posix_call
+  {
+    MIN_ARGUMENTS(1)
+    int res_cnt = RESULT_COUNT;
+    if (res_cnt < 0) res_cnt = 0;
+    if (res_cnt > 3) res_cnt = 3;
+    int do_redirect_stdout = (res_cnt >= 1);
+    int do_redirect_stderr = (res_cnt >= 3);
+
+    char *out_buf = NULL;
+    char *err_buf = NULL;
+    size_t out_len = 0;
+    size_t err_len = 0;
+
+    NODE *result = VAR(std::false);
+    NODE *out_str = EMPTY_STRING;
+    NODE *err_str = EMPTY_STRING;
+
+    // initialize all pipe handles to invalid file descriptors
+    struct {
+      int read_fd;
+      int write_fd;
+    } out_pipe = {-1, -1}, err_pipe = {-1, -1};
+
+    if (do_redirect_stdout) {
+      if (pipe((int *)&out_pipe) != 0) RESOURCE_ERROR
+    }
+    if (do_redirect_stderr) {
+      if (pipe((int *)&err_pipe) != 0) RESOURCE_ERROR
+    }
+
+    int pid = fork();
+    if (pid == 0) { // child process
+      if (do_redirect_stdout) {
+        //close(out_pipe.read_fd);
+        dup2(out_pipe.write_fd, STDOUT_FILENO);
+        //close(out_pipe.write_fd);
+      }
+      if (do_redirect_stderr) {
+        //close(err_pipe.read_fd);
+        dup2(err_pipe.write_fd, STDERR_FILENO);
+        //close(err_pipe.write_fd);
+      }
+      char buf[32];
+      sprintf(buf, "/proc/%d/fd", getpid());
+      struct dirent *dp;
+      DIR *dir = opendir(buf);
+      int dfd = dirfd(dir);
+      while ((dp = readdir(dir)) != NULL) {
+        if (dp->d_name[0] != '.') {
+          int fd = atoi(dp->d_name);
+          if (fd >= 3 && fd != dfd) {
+            close(fd);
+          }
+        }
+      }
+      closedir(dir);
+      char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
+      // convert all arguments into C-strings
+      int i;
+      for (i = 0; i < ARGUMENT_COUNT; ++i) {
+        args[i] = to_c_string(ARGUMENTS(i));
+      }
+      args[ARGUMENT_COUNT] = NULL;
+      execvp(args[0], args);
+      exit(EXIT_FAILURE);
+    }
+
+    // parent process
+
+    if (pid == -1) goto cleanup_and_return; // fork failed
+
+    size_t out_buf_size;
+    size_t err_buf_size;
+
+    if (do_redirect_stdout) {
+      close_fd(&out_pipe.write_fd); // MUST be closed before starting reading!!!
+      out_buf_size = 4096;
+      out_buf = allocate_memory(out_buf_size);
+    }
+
+    if (do_redirect_stderr) {
+      close_fd(&err_pipe.write_fd); // MUST be closed before starting reading!!!
+      err_buf_size = 4096;
+      err_buf = allocate_memory(err_buf_size);
+    }
+
+    int do_read_from_stdout = do_redirect_stdout;
+    int do_read_from_stderr = do_redirect_stderr;
+
+    while (do_read_from_stdout || do_read_from_stderr) {
+      int nfds;
+      fd_set rfds;
+      nfds = 0;
+      FD_ZERO(&rfds);
+      if (do_read_from_stdout) {
+        if (out_pipe.read_fd > nfds) {
+          nfds = out_pipe.read_fd;
+        }
+        FD_SET(out_pipe.read_fd, &rfds);
+      }
+      if (do_read_from_stderr) {
+        if (err_pipe.read_fd > out_pipe.read_fd) {
+          nfds = err_pipe.read_fd;
+        }
+        FD_SET(err_pipe.read_fd, &rfds);
+      }
+      ++nfds; // number of highest file descriptor + 1
+
+      int ret;
+      do {
+        ret = select(nfds, &rfds, NULL, NULL, NULL);
+      } while (ret < 0 && errno == EINTR);
+      if (ret < 0) goto cleanup_and_return;
+
+      if (do_read_from_stdout && FD_ISSET(out_pipe.read_fd, &rfds)) {
+        ssize_t bytes_read;
+        do {
+          bytes_read = read(out_pipe.read_fd, out_buf+out_len, out_buf_size-out_len);
+        } while (bytes_read < 0 && errno == EINTR);
+        if (bytes_read < 0) goto cleanup_and_return;
+        if (bytes_read > 0) {
+          out_len += bytes_read;
+          if (out_len > out_buf_size/2) {
+            out_buf_size *= 2;
+            out_buf = reallocate_memory(out_buf, out_buf_size);
+          }
+        } else {
+          do_read_from_stdout = false;
+          close_fd(&out_pipe.read_fd);
+        }
+      }
+
+      if (do_read_from_stderr && FD_ISSET(err_pipe.read_fd, &rfds)) {
+        ssize_t bytes_read;
+        do {
+          bytes_read = read(err_pipe.read_fd, err_buf+err_len, err_buf_size-err_len);
+        } while (bytes_read < 0 && errno == EINTR);
+        if (bytes_read < 0) goto cleanup_and_return;
+        err_len += bytes_read;
+        if (bytes_read > 0) {
+          if (err_len > err_buf_size/2) {
+            err_buf_size *= 2;
+            err_buf = reallocate_memory(err_buf, err_buf_size);
+          }
+        } else {
+          do_read_from_stderr = false;
+          close_fd(&err_pipe.read_fd);
+        }
+      }
+    }
+
+    if (do_redirect_stdout) {
+      out_str = from_latin_1_string(out_buf, out_len);
+    }
+
+    if (do_redirect_stderr) {
+      err_str = from_latin_1_string(err_buf, err_len);
+    }
+
+    int status;
+    retry:;
+    int ret = waitpid(pid, &status, 0);
+    if (ret == -1 && errno == EINTR) goto retry;
+
+    if (ret >= 0 && WEXITSTATUS(status) == 0) result = VAR(std::true);
+
+    cleanup_and_return:
+
+    deallocate_memory(out_buf);
+    deallocate_memory(err_buf);
+    close_fd(&out_pipe.read_fd);
+    close_fd(&out_pipe.write_fd);
+    close_fd(&err_pipe.read_fd);
+    close_fd(&err_pipe.write_fd);
+
+    START_ARGUMENTS(res_cnt)
+    switch (res_cnt) {
+      case 3: ARGUMENTS(1) = err_str;
+      case 2: ARGUMENTS(res_cnt-1) = result;
+      case 1: ARGUMENTS(0) = out_str;
+    }
+
+    RETURN
+  }
+
+$std::kill
+  {
+    MIN_ARGUMENTS(1)
+    MAX_ARGUMENTS(2)
+    kill(to_int(ARGUMENTS(0)), ARGUMENT_COUNT == 2 ? to_int(ARGUMENTS(1)) : SIGKILL);
+    RETURN_NOTHING
+  }
+
+$posix_pipe
+  {
+    MIN_ARGUMENTS(1)
+    MAX_ARGUMENTS(2)
+    int res_cnt = RESULT_COUNT;
+    if (res_cnt < 0) res_cnt = 0;
+    if (res_cnt > 3) res_cnt = 3;
+    int do_redirect_stdin = (ARGUMENT_COUNT == 2);
+    int do_redirect_stdout = (res_cnt >= 1);
+    int do_redirect_stderr = (res_cnt >= 3);
+
+    uint8_t *input = NULL;
+    char *out_buf = NULL;
+    char **err_buf_tab = NULL;
+    size_t out_len = 0;
+    size_t *err_len_tab = NULL;
+
+    NODE *result = VAR(std::false);
+    NODE *out_str = EMPTY_STRING;
+    NODE *err_str = EMPTY_STRING;
+
+    int i;
+
+    NODE *cmds = ARGUMENTS(0);
+    int cmd_cnt = length_of(cmds);
+
+    int *pids;
+    struct {
+      int read_fd;
+      int write_fd;
+    } *out_pipes, *err_pipes;
+
+    pids = allocate_memory(cmd_cnt*sizeof(int));
+    for (i = 0; i < cmd_cnt; ++i) {
+      pids[i] = -1;
+    }
+    out_pipes = allocate_memory((cmd_cnt+1)*sizeof(*out_pipes));
+    if (do_redirect_stdin) {
+      if (pipe((int *)&out_pipes[0]) != 0) RESOURCE_ERROR
+    } else {
+      out_pipes[0].read_fd = -1;
+      out_pipes[0].write_fd = -1;
+    }
+    for (i = 1; i < cmd_cnt; ++i) {
+      if (pipe((int *)&out_pipes[i]) != 0) RESOURCE_ERROR
+    }
+    if (do_redirect_stdout) {
+      if (pipe((int *)&out_pipes[cmd_cnt]) != 0) RESOURCE_ERROR
+    } else {
+      out_pipes[cmd_cnt].read_fd = -1;
+      out_pipes[cmd_cnt].write_fd = -1;
+    }
+
+    err_pipes = allocate_memory(cmd_cnt*sizeof(*err_pipes));
+    if (do_redirect_stderr) {
+      for (i = 0; i < cmd_cnt; ++i) {
+        if (pipe((int *)&err_pipes[i]) != 0) RESOURCE_ERROR
+      }
+    } else {
+      for (i = 0; i < cmd_cnt; ++i) {
+        err_pipes[i].read_fd = -1;
+        err_pipes[i].write_fd = -1;
+      }
+    }
+
+    int pid;
+    int cmd_idx = 0;
+    do {
+      pid = fork();
+      if (pid == 0) { // child process
+        // duplicate all needed handles
+        if (do_redirect_stdin || cmd_idx != 0) {
+          dup2(out_pipes[cmd_idx].read_fd, STDIN_FILENO);
+        }
+        if (do_redirect_stdout || cmd_idx != cmd_cnt-1) {
+          dup2(out_pipes[cmd_idx+1].write_fd, STDOUT_FILENO);
+        }
+        if (do_redirect_stderr) {
+          dup2(err_pipes[cmd_idx].write_fd, STDERR_FILENO);
+        }
+
+        // close all handles created for the parent process or sibling processes
+        /*for (i = 0; i < cmd_cnt; ++i) {
+          close(out_pipes[i].read_fd);
+          close(out_pipes[i].write_fd);
+        }
+        if (do_redirect_stdout) {
+          close(out_pipes[cmd_cnt].read_fd);
+          close(out_pipes[cmd_cnt].write_fd);
+        }
+        if (do_redirect_stderr) {
+          for (i = 0; i < cmd_cnt; ++i) {
+            close(err_pipes[i].read_fd);
+            close(err_pipes[i].write_fd);
+          }
+        }*/
+        char buf[32];
+        sprintf(buf, "/proc/%d/fd", getpid());
+        struct dirent *dp;
+        DIR *dir = opendir(buf);
+        int dfd = dirfd(dir);
+        while ((dp = readdir(dir)) != NULL) {
+          if (dp->d_name[0] != '.') {
+            int fd = atoi(dp->d_name);
+            if (fd >= 3 && fd != dfd && fd < 1024) {
+              // valgrind uses file descriptors 1024 and above,
+              // so we just ignore them
+              close(fd);
+            }
+          }
+        }
+        closedir(dir);
+
+        NODE *cmd = get_item_of(cmds, cmd_idx);
+        long len = length_of(cmd);
+        char **args = allocate_memory((len+1)*sizeof(char *));
+        // convert all arguments into C-strings
+        for (i = 0; i < len; ++i) {
+          args[i] = to_c_string(get_item_of(cmd, i));
+        }
+        args[len] = NULL;
+        execvp(args[0], args);
+        exit(EXIT_FAILURE);
+      }
+      pids[cmd_idx++] = pid;
+    } while (pid > 0 && cmd_idx < cmd_cnt);
+
+    if (pid < 0) goto cleanup_and_return;
+
+    long input_size, s;
+    size_t out_buf_size;
+    size_t *err_buf_size_tab;
+
+    // close all handles created for the child processes
+
+    if (do_redirect_stdin) {
+      close_fd(&out_pipes[0].read_fd);
+      input = to_octets(ARGUMENTS(1), &input_size);
+      s = 0;
+    }
+    for (i = 1; i < cmd_cnt; ++i) {
+      close_fd(&out_pipes[i].read_fd);
+      close_fd(&out_pipes[i].write_fd);
+    }
+
+    if (do_redirect_stdout) {
+      close_fd(&out_pipes[cmd_cnt].write_fd);
+      out_buf_size = 4096;
+      out_buf = allocate_memory(out_buf_size);
+    }
+
+    if (do_redirect_stderr) {
+      for (i = 0; i < cmd_cnt; ++i) {
+        close_fd(&err_pipes[i].write_fd);
+      }
+      err_buf_tab = allocate_memory(cmd_cnt*sizeof(char *));
+      err_buf_size_tab = allocate_memory(cmd_cnt*sizeof(size_t));
+      err_len_tab = allocate_memory(cmd_cnt*sizeof(size_t));
+      for (i = 0; i < cmd_cnt; ++i) {
+        err_buf_tab[i] = allocate_memory(4096);
+        err_buf_size_tab[i] = 4096;
+        err_len_tab[i] = 0;
+      }
+    }
+
+    int do_write_to_stdin = do_redirect_stdin;
+    int do_read_from_stdout = do_redirect_stdout;
+    int do_read_from_stderr = do_redirect_stderr ? cmd_cnt : 0;
+
+    int out_pipe_read_fd = out_pipes[cmd_cnt].read_fd;
+    int in_pipe_write_fd = out_pipes[0].write_fd;
+
+    while (do_write_to_stdin || do_read_from_stdout || do_read_from_stderr) {
+      int nfds;
+      fd_set rfds;
+      fd_set wfds;
+      nfds = 0;
+      FD_ZERO(&rfds);
+      FD_ZERO(&wfds);
+      if (do_write_to_stdin) {
+        if (in_pipe_write_fd > nfds) {
+          nfds = in_pipe_write_fd;
+        }
+        FD_SET(in_pipe_write_fd, &wfds);
+      }
+      if (do_read_from_stdout) {
+        if (out_pipe_read_fd > nfds) {
+          nfds = out_pipe_read_fd;
+        }
+        FD_SET(out_pipe_read_fd, &rfds);
+      }
+      if (do_read_from_stderr) {
+        for (i = 0; i < cmd_cnt; ++i) {
+          if (err_pipes[i].read_fd >= 0) {
+            if (err_pipes[i].read_fd > nfds) nfds = err_pipes[i].read_fd;
+            FD_SET(err_pipes[i].read_fd, &rfds);
+          }
+        }
+      }
+      ++nfds; // number of highest file descriptor + 1
+
+      int ret;
+      do {
+        ret = select(nfds, &rfds, &wfds, NULL, NULL);
+      } while (ret < 0 && errno == EINTR);
+      if (ret < 0) goto cleanup_and_return;
+
+      if (do_write_to_stdin && FD_ISSET(in_pipe_write_fd, &wfds)) {
+        ssize_t bytes_written;
+        do {
+          bytes_written = write(in_pipe_write_fd, input+s, input_size-s);
+        } while (bytes_written < 0 && errno == EINTR);
+        if (bytes_written < 0) goto cleanup_and_return;
+        if (bytes_written > 0) {
+          s += bytes_written;
+        } else {
+          do_write_to_stdin = false;
+          close_fd(&out_pipes[0].write_fd);
+        }
+      }
+
+      if (do_read_from_stdout && FD_ISSET(out_pipe_read_fd, &rfds)) {
+        ssize_t bytes_read;
+        do {
+          bytes_read = read(out_pipe_read_fd, out_buf+out_len, out_buf_size-out_len);
+        } while (bytes_read < 0 && errno == EINTR);
+        if (bytes_read < 0) goto cleanup_and_return;
+        if (bytes_read > 0) {
+          out_len += bytes_read;
+          if (out_len > out_buf_size/2) {
+            out_buf_size *= 2;
+            out_buf = reallocate_memory(out_buf, out_buf_size);
+          }
+        } else {
+          do_read_from_stdout = false;
+          close_fd(&out_pipe_read_fd);
+        }
+      }
+
+      if (do_read_from_stderr) {
+        for (i = 0; i < cmd_cnt; ++i) {
+          if (err_pipes[i].read_fd >= 0 && FD_ISSET(err_pipes[i].read_fd, &rfds)) {
+            ssize_t bytes_read;
+            do {
+              bytes_read =
+                read(
+                  err_pipes[i].read_fd,
+                  err_buf_tab[i]+err_len_tab[i],
+                  err_buf_size_tab[i]-err_len_tab[i]);
+            } while (bytes_read < 0 && errno == EINTR);
+            if (bytes_read < 0) goto cleanup_and_return;
+            err_len_tab[i] += bytes_read;
+            if (bytes_read > 0) {
+              if (err_len_tab[i] > err_buf_size_tab[i]/2) {
+                err_buf_size_tab[i] *= 2;
+                err_buf_tab[i] =
+                  reallocate_memory(err_buf_tab[i], err_buf_size_tab[i]);
+              }
+            } else {
+              --do_read_from_stderr;
+              close_fd(&err_pipes[i].read_fd);
+            }
+          }
+        }
+      }
+    }
+
+    int success = true;
+    int status;
+
+    for (i = 0; i < cmd_cnt; ++i) {
+      retry:;
+      int ret = waitpid(pids[i], &status, 0);
+      if (ret == -1 && errno == EINTR) goto retry;
+      if (ret < 0 || WEXITSTATUS(status) != 0) success = false;
+    }
+
+    if (success) result = VAR(std::true);
+
+    if (do_redirect_stdout) {
+      out_str = from_latin_1_string(out_buf, out_len);
+    }
+
+    if (do_redirect_stderr) {
+      int err_len = 0;
+      for (i = 0; i < cmd_cnt; ++i) {
+        err_len += err_len_tab[i];
+      }
+      char *err_buf = allocate_memory(err_len);
+      err_len = 0;
+      for (i = 0; i < cmd_cnt; ++i) {
+        memcpy(err_buf+err_len, err_buf_tab[i], err_len_tab[i]);
+        err_len += err_len_tab[i];
+      }
+      err_str = from_latin_1_string(err_buf, err_len);
+      deallocate_memory(err_buf);
+    }
+
+    cleanup_and_return:
+
+    deallocate_memory(input);
+    deallocate_memory(out_buf);
+    if (err_buf_tab) {
+      for (i = 0; i < cmd_cnt; ++i) {
+        deallocate_memory(err_buf_tab[i]);
+      }
+      deallocate_memory(err_buf_tab);
+      deallocate_memory(err_buf_size_tab);
+      deallocate_memory(err_len_tab);
+    }
+    for (i = 0; i <= cmd_cnt; ++i) {
+      close_fd(&out_pipes[i].read_fd);
+      close_fd(&out_pipes[i].write_fd);
+    }
+    for (i = 0; i < cmd_cnt; ++i) {
+      close_fd(&err_pipes[i].read_fd);
+      close_fd(&err_pipes[i].write_fd);
+    }
+
+    START_ARGUMENTS(res_cnt)
+    switch (res_cnt) {
+      case 3: ARGUMENTS(1) = err_str;
+      case 2: ARGUMENTS(res_cnt-1) = result;
+      case 1: ARGUMENTS(0) = out_str;
+    }
+
+    RETURN
+  }
+
+$std::exec: ($args*)
+  update_each &args to_string
+  posix_exec args*
+
+$std::call: ($args*)
+  update_each &args to_string
+  posix_call args*
+
+$std::pipe: ($input $cmds*)
+  if input.is_defined: to_string &input
+  if cmds.is_empty: raise "Invalid arguments!"
+  update_each &cmds: (&cmd) cmd !cmd*
+  posix_pipe cmds input?
+
+$std::extern: (options* filename)
+  extract_options options TRIM = false $do_trim
+  if
+    do_trim
+    -> : (args*) -> call(filename args*).trim
+    -> : (args*) call filename args*

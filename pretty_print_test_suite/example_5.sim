@@ -1,0 +1,9 @@
+Write "
+  >>
+  stream
+  @(contents)@
+  endstream
+
+Write "
+  %PDF-1.3
+  %äöüß

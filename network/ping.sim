@@ -1,0 +1,180 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require ./dns_lookup>
+
+<include errno.h>
+<include setjmp.h>
+<include signal.h>
+<include stdint.h>
+<include stdio.h>
+<include string.h>
+<include sys/types.h>
+<include sys/socket.h>
+<include netdb.h>
+<include unistd.h>
+
+{
+  #define ICMP_ECHOREPLY 0
+  #define ICMP_ECHO 8
+
+  jmp_buf timeout_occured;
+
+  typedef struct ICMP {
+    uint8_t type;
+    uint8_t code;
+    uint16_t cksum;
+  } ICMP;
+
+  typedef struct IPHDR {
+    #if __BYTE_ORDER == __LITTLE_ENDIAN
+      unsigned int ihl:4;
+      unsigned int version:4;
+    #elif __BYTE_ORDER == __BIG_ENDIAN
+      unsigned int version:4;
+      unsigned int ihl:4;
+    #else
+      # error "Please fix <bits/endian.h>"
+    #endif
+    u_int8_t tos;
+    u_int16_t tot_len;
+    u_int16_t id;
+    u_int16_t frag_off;
+    u_int8_t ttl;
+    u_int8_t protocol;
+    u_int16_t check;
+    u_int32_t saddr;
+    u_int32_t daddr;
+  } IPHDR;
+}
+
+{
+  <kind function>
+
+  void no_response(int sig) {
+    longjmp(timeout_occured, true);
+  }
+}
+
+{
+  <kind function>
+
+  uint16_t compute_checksum(char *buf, int len) {
+    int nleft = len;
+    int sum = 0;
+    uint16_t *w = (unsigned short *)buf;
+    uint16_t ans = 0;
+
+    while (nleft > 1) {
+      sum += *w++;
+      nleft -= 2;
+    }
+
+    if (nleft == 1) {
+      *(unsigned char *) (&ans) = *(unsigned char *) w;
+      sum += ans;
+    }
+
+    sum = (sum >> 16) + (sum & 0xFFFF);
+    sum += (sum >> 16);
+    ans = ~sum;
+    return ans;
+  }
+}
+
+# ATTENTION: ping needs root privileges!
+
+$std::ping
+  {
+    CHECK_ARGUMENTS(1)
+    int success;
+    ACTION(ping)
+      typedef void (*sighandler_t)(int);
+
+      int ret;
+      struct addrinfo *result = NULL;
+      struct addrinfo hint;
+      char packet[192];
+      success = false;
+      sighandler_t prev_alarm_handler = NULL;
+
+      char *host = to_c_string(ARGUMENTS(0));
+      memset(&hint, 0, sizeof(hint));
+      hint.ai_family = AF_INET;
+      hint.ai_socktype = SOCK_STREAM;
+      ret = getaddrinfo(host, NULL, &hint, &result);
+      if (ret != 0 || result == NULL) RETURN_FALSE
+
+
+      memset(packet, 0, sizeof(packet));
+      ICMP *icmp = (ICMP *)&packet;
+      icmp->type = ICMP_ECHO;
+      icmp->cksum = (uint16_t)compute_checksum(packet, sizeof(packet));
+
+      int sock = socket(AF_INET, SOCK_RAW, 1); // 1: ICMP
+      if (sock < 0) goto cleanup;
+
+      if (setjmp(timeout_occured)) goto cleanup;
+      prev_alarm_handler = signal(SIGALRM, no_response);
+      alarm(1); // 1 second timeout
+
+      ssize_t bytes_sent =
+        sendto(
+          sock, packet, 64, 0,
+          result->ai_addr, sizeof(struct sockaddr));
+      if (bytes_sent < 0) goto cleanup;
+
+      while (true) {
+        struct sockaddr_in from;
+        socklen_t from_len = sizeof(from);
+        ssize_t bytes_received;
+        do {
+          bytes_received =
+            recvfrom(sock, packet, sizeof(packet), 0,
+            (struct sockaddr *)&from, &from_len);
+        } while (bytes_received < 0 && errno == EINTR);
+        if (bytes_received < 0) goto cleanup;
+        if (bytes_received >= 76) { // length of headers
+          IPHDR *iphdr = (struct iphdr *)packet;
+          icmp = (ICMP *)(packet+(iphdr->ihl<<2)); // skip ip header
+          if (icmp->type == ICMP_ECHOREPLY) break;
+        }
+      }
+
+      success = true;
+
+      cleanup:;
+      sigset_t old_sigset;
+      alarm(0); // cancel timeout
+      signal(SIGALRM, prev_alarm_handler);
+      sigset_t sigset;
+      sigemptyset(&sigset);
+      sigaddset(&sigset, SIGALRM);
+      sigprocmask(SIG_UNBLOCK, &sigset, &old_sigset);
+      if (result) freeaddrinfo(result);
+      if (sock >= 0) close(sock);
+      free(host);
+    DATA
+      INT(success, 1)
+    END
+    RETURN_BOOLEAN(success)
+  }

@@ -1,0 +1,12 @@
+#!/usr/bin/env simple
+
+<require basic/stdlib>
+<require system/stdlib>
+<require system/export/html>
+
+<using std>
+<using html>
+
+$name "Peter"
+
+P "background"="yellow" "Hello " name "!"

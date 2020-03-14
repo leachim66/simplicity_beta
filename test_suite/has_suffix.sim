@@ -1,0 +1,4 @@
+#!/usr/bin/env simple
+
+writeln "/dev/loop1p2" .has_suffix. '1'
+writeln "/dev/loop1p2" .has_suffix. '2'

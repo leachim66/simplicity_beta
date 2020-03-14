@@ -1,0 +1,386 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_an_insert_order_table ()
+
+$types::object.is_an_insert_order_table false
+$types::insert_order_table.is_an_insert_order_table true
+
+$NONE .
+$INSERT .
+$UPDATE .
+
+$tree_of (!)
+$first_of (!) # key; in enumeration order
+$last_of (!) # key; in enumeration order
+$key_of (!)
+$value_of (!)
+$left_of (!) # subtree; in key order
+$right_of (!) # subtree; in key order
+$next_of (!) # key; in enumeration order
+$previous_of (!) # key; in enumeration order
+
+$remove_leftmost:
+  (
+    &node
+    !key
+    !value
+  )
+  $$left left_of(node)
+  if
+    left.is_defined:
+      remove_leftmost &left !key !value
+      !node.left_of left
+    :
+      !key key_of(node)
+      !value value_of(node)
+      !node right_of(node)
+
+$remove_rightmost:
+  (
+    &node
+    !key
+    !value
+  )
+  $$right right_of(node)
+  if
+    right.is_defined:
+      remove_rightmost &right !key !value
+      !node.right_of right
+    :
+      !key key_of(node)
+      !value value_of(node)
+      !node left_of(node)
+
+$types::insert_order_table types::generic_table
+$empty_node types::object
+$empty_node.left_of undefined
+$empty_node.right_of undefined
+$empty_node.next_of undefined
+$empty_node.previous_of undefined
+
+$fetch_first: (&myself)
+  #
+    the returned item has still all attributes set -
+    including <left_of> and <right_of>
+
+  $$left left_of(myself)
+  if
+    left.is_defined:
+      fetch_first &left $head
+      !myself.left_of left
+      -> head
+    :
+      $head myself
+      !myself right_of(myself)
+      -> head
+
+$retrieve_item:
+  (
+    myself
+    key
+    -> return
+  )
+  if myself.is_undefined: return undefined
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: return myself
+    -> key < my_key: return retrieve_item(left_of(myself) key)
+    -> key > my_key: return retrieve_item(right_of(myself) key)
+
+$add_item:
+  (
+    myself
+    previous
+    next
+    key
+    value
+    -> return
+  )
+  if myself.is_undefined:
+    return
+      empty_node(.previous_of previous .next_of next .key_of key .value_of value)
+      INSERT
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: return myself(.value_of value) UPDATE
+    -> key < my_key:
+      add_item $left $mode left_of(myself) previous next key value
+      return myself(.left_of left) mode
+    -> key > my_key:
+      add_item $right $mode right_of(myself) previous next key value
+      return myself(.right_of right) mode
+
+$update_item:
+  (
+    &myself
+    key
+    updater
+  )
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: updater &myself
+    -> key < my_key: update_item &myself.left_of key updater
+    -> key > my_key: update_item &myself.right_of key updater
+
+$remove_item:
+  (
+    $myself
+    key
+    -> return
+  )
+  #
+    if the tree does not contain an item with the specified key then
+    <NONE> is returned denoting that no update is necessary
+
+  if myself.is_undefined: return NONE undefined # nothing removed
+  $my_key key_of(myself)
+  cond
+    -> key == my_key:
+      $left left_of(myself)
+      $$right right_of(myself)
+      if
+	left.is_defined:
+	  if
+	    right.is_defined:
+	      fetch_first &right $head
+	      return head(.left_of left .right_of right) myself
+	    :
+	      return left myself
+	:
+	  return right myself
+    -> key < my_key:
+      remove_item $left $removed_item left_of(myself) key
+      if NONE == left: return NONE undefined # nothing removed
+      !myself.left_of left
+      return myself removed_item
+    -> key > my_key:
+      remove_item $right $removed_item right_of(myself) key
+      if NONE == right: return NONE undefined # nothing removed
+      !myself.right_of right
+      return myself removed_item
+
+$types::insert_order_table/private::set_item:
+  (
+    &self
+    key
+    value
+  )
+  if
+    value.is_undefined:
+      remove_item $$new_tree $removed_item tree_of(self) key
+      if NONE != new_tree:
+	$previous previous_of(removed_item)
+	$next next_of(removed_item)
+	if
+	  previous.is_defined:
+	    update_item &new_tree previous: (&item) !item.next_of next
+	  :
+	    !self.first_of next
+	if
+	  next.is_defined:
+	    update_item &new_tree next: (&item) !item.previous_of previous
+	  :
+	    !self.last_of previous
+	!self.tree_of new_tree
+	dec &self.length_of
+    :
+      add_item $$new_tree $mode tree_of(self) last_of(self) undefined key value
+      if mode == INSERT:
+	if
+	  last_of(self).is_defined:
+	    update_item &new_tree last_of(self): (&item) !item.next_of key
+	  :
+	    !self.first_of key
+	!self.last_of key
+	inc &self.length_of
+      !self.tree_of new_tree
+
+$types::insert_order_table/private::get_item: (self key)
+  $item retrieve_item(tree_of(self) key)
+  if item.is_defined (-> value_of(item)) -> undefined
+
+$types::insert_order_table.tree_of undefined
+$types::insert_order_table.first_of undefined
+$types::insert_order_table.last_of undefined
+$types::insert_order_table.length_of 0
+$types::insert_order_table.serialization_tag_of "insert_order_table"
+
+$types::insert_order_table/new_empty_collection: (_self)
+  -> types::insert_order_table
+
+$std::empty_insert_order_table types::insert_order_table
+
+$std::insert_order_table: (initializers*)
+  $$tab types::insert_order_table
+  for_each initializers: (initializer)
+    !tab(std::key_of(initializer)) std::value_of(initializer)
+  -> tab
+
+$types::insert_order_table/for_each: (self body)
+  $tree tree_of(self)
+  if tree.is_defined:
+    $$key first_of(self)
+    while -> key.is_defined:
+      $item retrieve_item(tree key)
+      if
+	parameter_count_of(body) == 2:
+	  body key value_of(item)
+	:
+	  body value_of(item)
+      !key next_of(item)
+
+$types::insert_order_table/for_each_from_to:
+  (
+    self
+    first
+    last
+    body
+    -> return
+  )
+  $tree tree_of(self)
+  if tree.is_defined:
+    $$key if(first.is_defined (-> first) -> first_of(self))
+    while -> key.is_defined:
+      $item retrieve_item(tree key)
+      if
+	parameter_count_of(body) == 2:
+	  body key value_of(item)
+	:
+	  body value_of(item)
+      if key == last return
+      !key next_of(item)
+
+$types::insert_order_table/for_each_from_down_to:
+  (
+    self
+    last
+    first
+    body
+    -> return
+  )
+  $tree tree_of(self)
+  if tree.is_defined:
+    $$key if(last.is_defined (-> last) -> last_of(self))
+    while -> key.is_defined:
+      $item retrieve_item(tree key)
+      if
+	parameter_count_of(body) == 2:
+	  body key value_of(item)
+	:
+	  body value_of(item)
+      if key == first return
+      !key previous_of(item)
+
+$types::insert_order_table/update_each:
+  (
+    &self
+    body
+  )
+  $$tree tree_of(self)
+  if tree.is_defined:
+    $$key first_of(self)
+    while -> key.is_defined:
+      update_item &tree key: (&item)
+	body key &item.value_of
+	!key next_of(item)
+    !self.tree_of tree
+
+$types::insert_order_table/update_each_from_to:
+  (
+    &self
+    first
+    last
+    body
+  )
+  $$tree tree_of(self)
+  if tree.is_defined:
+    $$key if(first.is_defined (-> first) -> first_of(self))
+    do: (-> break)
+      while -> key.is_defined:
+	update_item &tree key: (&item)
+	  body key &item.value_of
+	  if key == last break
+	  !key next_of(item)
+    !self.tree_of tree
+
+$types::insert_order_table/update_each_from_down_to:
+  (
+    &self
+    last
+    first
+    body
+  )
+  $$tree tree_of(self)
+  if tree.is_defined:
+    $$key if(last.is_defined (-> last) -> last_of(self))
+    do: (-> break)
+      while -> key.is_defined:
+	update_item &tree key: (&item)
+	  body key &item.value_of
+	  if key == first break
+	  !key previous_of(item)
+    !self.tree_of tree
+
+$types::insert_order_table/insert_before:
+  (
+    &self
+    key
+    new_key
+    new_value
+  )
+  $$tree tree_of(self)
+  $$before_key undefined
+  update_item &tree key: (&item)
+    !before_key previous_of(item)
+    !item.previous_of new_key
+  if
+    before_key.is_defined:
+      update_item &tree before_key: (&item) !item.next_of new_key
+    :
+      !self.first_of new_key
+  add_item &tree $mode before_key key new_key new_value
+  !self.tree_of tree
+  if mode != INSERT: raise "Invalid tree insert operation!"
+
+$types::insert_order_table/insert_behind:
+  (
+    &self
+    key
+    new_key
+    new_value
+  )
+  $$tree tree_of(self)
+  $$behind_key undefined
+  update_item &tree key: (&item)
+    !behind_key next_of(item)
+    !item.next_of new_key
+  if
+    behind_key.is_defined:
+      update_item &tree behind_key: (&item) !item.previous_of new_key
+    :
+      !self.last_of new_key
+  add_item &tree $mode key behind_key new_key new_value
+  !self.tree_of tree
+  if mode != INSERT: raise "Invalid tree insert operation!"
+
+register_collection_serializer "insert_order_table" empty_insert_order_table

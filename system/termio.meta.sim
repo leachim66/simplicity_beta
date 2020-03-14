@@ -1,0 +1,344 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+
+<using std>
+<using meta>
+
+write "@(lgpl_header("2016" "Dipl.-Ing. Michael Niederle"))@nl;"
+
+$flags
+  list
+    "use_canonical_mode" = "c_lflag", "ICANON"
+    "echo_characters" = "c_lflag", "ECHO"
+    "echo_new_lines" = "c_lflag", "ECHONL"
+    "enable_xon_xoff_for_input" = "c_iflag", "IXOFF"
+    "enable_xon_xoff_for_output" = "c_iflag", "IXON"
+    "restart_output_on_any_character" = "c_iflag", "IXANY"
+    "ignore_cr_on_input" = "c_iflag", "IGNCR"
+    "map_cr_to_lf_on_input" = "c_iflag", "ICRNL"
+    "hangup_on_close" = "c_oflag", "HUPCL"
+    "map_lf_to_crlf_on_output" = "c_oflag", "ONLCR"
+    "minimum_characters_for_canoncial_read" = "c_cc", "VMIN"
+    "timeout_for_reads" = "c_cc", "VTIME"
+    "input_speed" = "ispeed"
+    "output_speed" = "ospeed"
+
+write "
+  <include termios.h>
+
+  $std::get_terminal_attributes ()
+  $std::set_terminal_attributes ()
+  @;
+for_each flags: (flag)
+  $name key_of(flag)
+  $info value_of(flag)
+  if
+    info.is_a_string:
+      write "$std::@(name) () # call cfset@(info)() or cfget@(info)()@nl;"
+    :
+      $field info(1)
+      $bit info(2)
+
+      $remark
+	case(bit "VTIME" (-> "; timeout is converted to/from seconds!") -> "")
+
+      if
+	field == "c_cc":
+	  write "
+	    $std::@(name) () # set or get the value of @(bit) in @(field)@
+	    @(remark)@nl;@
+	:
+	  write "$std::@(name) () # set or clear @(bit) in @(field)@nl;"
+write "
+
+  # a copy of the definition of FILE_DESCRIPTOR from system/posix.sim
+  {
+    <kind node>
+    <name FILE_DESCRIPTOR>
+
+    int fd;
+  }
+
+  {
+    <kind node>
+    <name TERMINAL_ATTRIBUTES>
+
+    struct termios *termios;
+  }
+
+  {
+    <kind type>
+    <name types::terminal_attributes>
+    <node TERMINAL_ATTRIBUTES>
+    <base types::object>
+    <argument NULL>
+
+    RUNTIME_ERROR("Attempt to call terminal attributes as a function!");
+  }
+
+  {
+    <kind function>
+
+    long types::terminal_attributes/debug_string(NODE *node, int indent, int @
+  max_depth, char *buf) {
+      return debug_print(indent, buf, "<terminal_attributes>");
+    }
+  }
+
+  $types::file_descriptor/get_terminal_attributes {
+    CHECK_ARGUMENTS(1)
+
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    struct termios *termios = allocate(sizeof(struct termios));
+    if (tcgetattr(fd, termios) == 0) {
+      RETURN_SINGLE_RESULT(create__types__terminal_attributes(termios))
+    } else {
+      RETURN_UNDEFINED
+    }
+  }
+
+  $types::file_descriptor/set_terminal_attributes {
+    CHECK_ARGUMENTS(2)
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    NODE *attributes = ARGUMENTS(1);
+    if (TYPEOF(attributes) != TYPEOF(VAR(types::terminal_attributes)))
+      INVALID_ARGUMENTS_ERROR
+
+    if (tcsetattr(fd, TCSANOW, attributes->terminal_attributes.termios) == 0) {
+      RETURN_TRUE
+    } else {
+      RETURN_FALSE
+    }
+  }
+for_each flags: (flag)
+  $name key_of(flag)
+  $info value_of(flag)
+  if
+    info.is_a_string:
+      write "
+
+	$types::terminal_attributes/@(name) {
+	  MIN_ARGUMENTS(1)
+	  MAX_ARGUMENTS(2)
+	  struct termios *termios = ARGUMENTS(0)->terminal_attributes.termios;
+	  if (ARGUMENT_COUNT == 1) {
+	    int speed = cfget@(info)(termios);
+	    switch (speed) {
+	      case B0:
+	        speed = 0;
+	        break;
+	      case B50:
+	        speed = 50;
+	        break;
+	      case B75:
+	        speed = 75;
+	        break;
+	      case B110:
+	        speed = 110;
+	        break;
+	      case B134:
+	        speed = 134;
+	        break;
+	      case B150:
+	        speed = 150;
+	        break;
+	      case B200:
+	        speed = 200;
+	        break;
+	      case B300:
+	        speed = 300;
+	        break;
+	      case B600:
+	        speed = 600;
+	        break;
+	      case B1200:
+	        speed = 1200;
+	        break;
+	      case B1800:
+	        speed = 1800;
+	        break;
+	      case B2400:
+	        speed = 2400;
+	        break;
+	      case B4800:
+	        speed = 4800;
+	        break;
+	      case B9600:
+	        speed = 9600;
+	        break;
+	      case B19200:
+	        speed = 19200;
+	        break;
+	      case B38400:
+	        speed = 38400;
+	        break;
+	      case B57600:
+	        speed = 57600;
+	        break;
+	      case B115200:
+	        speed = 115200;
+	        break;
+	      case B230400:
+	        speed = 230400;
+	        break;
+	      default:
+	        speed = -1;
+	    }
+	    if (speed < 0) {
+	      RETURN_UNDEFINED
+	    } else {
+	      RETURN_SINGLE_RESULT(from_int(speed))
+	    }
+	  } else {
+	    int speed = to_int(ARGUMENTS(1));
+	    switch (speed) {
+	      case 0:
+	        speed = B0;
+	        break;
+	      case 50:
+	        speed = B50;
+	        break;
+	      case 75:
+	        speed = B75;
+	        break;
+	      case 110:
+	        speed = B110;
+	        break;
+	      case 134:
+	        speed = B134;
+	        break;
+	      case 150:
+	        speed = B150;
+	        break;
+	      case 200:
+	        speed = B200;
+	        break;
+	      case 300:
+	        speed = B300;
+	        break;
+	      case 600:
+	        speed = B600;
+	        break;
+	      case 1200:
+	        speed = B1200;
+	        break;
+	      case 1800:
+	        speed = B1800;
+	        break;
+	      case 2400:
+	        speed = B2400;
+	        break;
+	      case 4800:
+	        speed = B4800;
+	        break;
+	      case 9600:
+	        speed = B9600;
+	        break;
+	      case 19200:
+	        speed = B19200;
+	        break;
+	      case 38400:
+	        speed = B38400;
+	        break;
+	      case 57600:
+	        speed = B57600;
+	        break;
+	      case 115200:
+	        speed = B115200;
+	        break;
+	      case 230400:
+	        speed = B230400;
+	        break;
+	      default:
+	        INVALID_ARGUMENTS_ERROR
+	    }
+	    struct termios *new_termios = allocate(sizeof(struct termios));
+	    *new_termios = *termios;
+	    cfset@(info)(new_termios, speed);
+	    @
+	RETURN_SINGLE_RESULT(create__types__terminal_attributes(new_termios))
+	  }
+	}
+    :
+      $field info(1)
+      $bit info(2)
+      if
+	field == "c_cc":
+	  $return_expression
+	    case
+	      bit
+	      "VTIME"
+	      -> "from_double((double)termios->@(field)[@(bit)]/10)"
+	      -> "from_int(termios->@(field)[@(bit)])"
+
+	  $get_value
+	    case
+	      bit
+	      "VTIME"
+	      -> "10*to_double(ARGUMENTS(1))"
+	      -> "to_int(ARGUMENTS(1))"
+
+	  write "
+
+	    $types::terminal_attributes/@(name) {
+	      MIN_ARGUMENTS(1)
+	      MAX_ARGUMENTS(2)
+	      struct termios *termios = @
+	    ARGUMENTS(0)->terminal_attributes.termios;
+	      if (ARGUMENT_COUNT == 1) {
+	        RETURN_SINGLE_RESULT(@(return_expression))
+	      } else {
+	        int value = @(get_value);
+	        struct termios *new_termios = allocate(sizeof(struct termios));
+	        *new_termios = *termios;
+	        new_termios->@(field)[@(bit)] = value;
+	        @
+	    RETURN_SINGLE_RESULT(create__types__terminal_attributes(new_termios@
+	    ))
+	      }
+	    }
+	:
+	  write "
+
+	    $types::terminal_attributes/@(name) {
+	      MIN_ARGUMENTS(1)
+	      MAX_ARGUMENTS(2)
+	      struct termios *termios = @
+	    ARGUMENTS(0)->terminal_attributes.termios;
+	      if (ARGUMENT_COUNT == 1) {
+	        RETURN_SINGLE_RESULT(from_bool(termios->@(field) & @(bit)))
+	      } else {
+	        int do_set = to_bool(ARGUMENTS(1));
+	        struct termios *new_termios = allocate(sizeof(struct termios));
+	        *new_termios = *termios;
+	        if (do_set) {
+	          new_termios->@(field) |= @(bit);
+	        } else {
+	          new_termios->@(field) &= ~@(bit);
+	        }
+	        @
+	    RETURN_SINGLE_RESULT(create__types__terminal_attributes(new_termios@
+	    ))
+	      }
+	    }

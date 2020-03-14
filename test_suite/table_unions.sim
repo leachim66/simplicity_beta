@@ -1,0 +1,23 @@
+#!/usr/bin/env simple
+
+$$marks_1 key_order_table()
+$$marks_2 insert_order_table()
+
+!marks_1("Peter") 3
+!marks_1("Susan") 4
+!marks_1("Elliot") 2
+!marks_1("Gerda") 1
+!marks_1("Joseph") 2
+
+!marks_2("Peter") 2
+!marks_2("Susan") 1
+!marks_2("Elliot") 5
+!marks_2("Gunda") 4
+!marks_2("Joseph") 3
+
+writeln serialize(marks_1)
+writeln serialize(marks_2)
+writeln "-----"
+writeln serialize(marks_1 .union. marks_2)
+writeln "-----"
+writeln serialize(marks_2 .union. marks_1)

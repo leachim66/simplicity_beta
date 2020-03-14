@@ -1,0 +1,1149 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$types::string/to_integer:
+  (
+    $self
+    -> return
+  )
+  parse_integer &self $value
+  if self != "": return undefined
+  -> value
+
+$types::string/to_real:
+  (
+    $self
+    -> return
+  )
+  parse_real &self $value
+  if self != "": return undefined
+  -> value
+
+$types::string/parse_number: (self)
+  $$i 1
+  $n length_of(self)
+  if self(1) == '-': inc &i
+  while -> i <= n && self(i).is_a_digit: inc &i
+  if
+    i <= n && self(i) == '.':
+      parse_real self
+    :
+      parse_integer self
+
+$types::string/to_number:
+  (
+    $self
+    -> return
+  )
+  parse_number &self $value
+  if self != "": return undefined
+  -> value
+
+$types::string/put: (self chr) -> append(chr.to_string self)
+
+$types::string/write_to:
+  (
+    &self
+    args*
+  )
+  for_each args: (arg) append &self arg.to_string
+
+$types::string/numerically_less:
+  (
+    left
+    right
+    -> return
+  )
+  $left_len length_of(left)
+  $right_len length_of(right)
+  from_to 1 min(left_len right_len): (i)
+    $left_chr left(i)
+    $right_chr right(i)
+    if left_chr != right_chr:
+      if
+	&&
+	  left_chr >= '1'
+	  left_chr <= '9'
+	  right_chr >= '1'
+	  right_chr <= '9'
+	:
+	  $$j i+1
+	  forever:
+	    if
+	      j <= left_len && left(j).is_a_digit:
+		if
+		  j <= right_len && right(j).is_a_digit:
+		    !j j+1
+		  :
+		    return false
+	      :
+		if
+		  j <= right_len && right(j).is_a_digit:
+		    return true
+		  :
+		    return left_chr < right_chr
+	:
+	  return left_chr < right_chr
+      return left_len < right_len
+
+$types::string/to_list: (self)
+  $$items empty_list
+  for_each self: (item) push &items item
+  -> items
+
+$std::string: (args*)
+  $$buf ""
+  $n length_of(args)
+  from_to 1 n: (i) append &buf to_string(args(i))
+  -> buf
+
+$types::string/dup:
+  # creates a string containing *n* copies of the original string
+  (
+    self
+    n # the duplication count
+    -> return
+  )
+  case
+    n
+    0:
+      return ""
+    1:
+      return self
+    :
+      if n < 0: Error "Negative argument for dup!"
+      $h n .div. 2
+      $str dup(self h)
+      if
+	2*h == n:
+	  return string(str str)
+	:
+	  return string(str str self)
+
+$std::pad_left:
+  #
+    This function creates a string representation of *expr* which is at least
+    *n* characters long. If it would be shorter than it is padded to the left
+    with the pattern stored in *pad*.
+
+    See Also: pad_right, pad_or_truncate, truncate
+  (
+    expr # the expression that is converted into a string
+    n # the length of the resulting string
+    pad = " " # the pattern used to fill up the string
+    -> return
+  )
+  $text expr.to_string
+  $len length_of(text)
+  if len < n:
+    $pad_len length_of(pad)
+    return string(range(dup(pad n-len+pad_len-1 .div. pad_len) 1 n-len) text)
+  -> text
+
+$std::pad_right:
+  #
+    This function creates a string representation of *expr* which is at least
+    *n* characters long. If it would be shorter than it is padded to the right
+    with the pattern stored in *pad*.
+
+    See Also: pad_left, pad_or_truncate, truncate
+  (
+    expr # the expression that is converted into a string
+    n # the length of the resulting string
+    pad = " " # the pattern used to fill up the string
+    -> return
+  )
+  $text expr.to_string
+  $len length_of(text)
+  if len < n:
+    $pad_len length_of(pad)
+    return string(text range(dup(pad n-len+pad_len-1 .div. pad_len) 1 n-len))
+  -> text
+
+$std::truncate:
+  #
+    This function creates a string representation of *expr* which is no longer
+    than *n* characters. Additional characters are truncated.
+
+    See Also: pad_right, pad_left, pad_or_truncate
+  (
+    expr # the expression that is converted into a string
+    n # the length of the resulting string
+  )
+  $text expr.to_string
+  $len length_of(text)
+  if len < n (-> text) -> range(text 1 n)
+
+$std::pad_or_truncate:
+  #
+    This function creates a string representation of *expr* which is exactly
+    *n* characters long. If it would be shorter than it is padded with spaces
+    otherwise it is truncated.
+
+    See Also: pad_right, pad_left, truncate
+  (
+    expr # the expression that is converted into a string
+    n # the length of the resulting string
+  )
+  $text expr.to_string
+  $len length_of(text)
+  if len < n (-> string(text dup(" " n-len))) -> range(text 1 n)
+
+$types::string/match_character: (self chr)
+  if length_of(self) > 0 && self(1) == chr (-> 1) -> undefined
+
+$types::string/grammar::match:
+  (
+    expr
+    stream
+    -> return
+  )
+  $len length_of(expr)
+  unless stream .has_minimum_length. len: return undefined
+  if range(stream 1 len) == expr: return len
+  -> undefined
+
+$types::string/match:
+  (
+    stream
+    expr
+    -> return
+  )
+  %%grammar::current_node types::grammar_node
+  $n grammar::match(expr stream)
+  if parameter_count_of(return) == 2: return n grammar::current_node
+  -> n
+
+$types::string/search_character:
+  (
+    self
+    chr
+    sum = 0
+  )
+  if
+    self .has_minimum_length. 1:
+      if
+	self(1) == chr
+	-> sum+1
+	-> search_character(range(self 2 -1) chr sum+1)
+    -> undefined
+
+$types::string/search: (stream expr)
+  #
+    This function returns the position of the found substring within the string
+    as well as the number of matched characters (two return values!).
+
+    If the expression is *not* found then undefined is returned as the position
+    and also as the length of the match.
+
+  %%grammar::current_node types::grammar_node
+  grammar::search $pos $len expr stream
+  -> pos len
+
+$types::string/before:
+  #
+    returns the substring before the specified expression
+
+    Returns substr: the substring before *expr* or the empty string if *str*
+    does not contain *expr*
+
+    If the expression does not occur within the string then the empty
+    string is returned.
+
+    If called as a procedure then the rear part of the input string
+    (including the part matching *expr*) will be removed. If the expression does
+    not match any part of the input string then the string is replaced with
+    the empty string.
+
+    If *nth* is specified then the nth occurence of the expression *expr*
+    is looked for. If there are not at least *n* matches for *expr* within *str*
+    then the empty string is returned.
+
+    A very similar function is <string/truncate_from>. It behaves differently
+    only when the expression is *not* found.
+
+    See Also: string/truncate_from, string/behind, string/between, string/until
+
+    Example:
+
+    $namespace identifier .before. "::"
+  (
+    str # the input string
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $_len expr str nth
+  if
+    pos.is_defined:
+      return range(str 1 pos-1)
+    :
+      return ""
+
+$types::string/truncate_from:
+  #
+    returns the substring before the specified expression
+
+    Returns str: the part of the input string *str* before *expr* or the
+    unmodified input string *str* if *str* does not contain *expr*
+
+    This function behaves very much like <string/before>.
+
+    The only difference is in the behaviour when the expression *expr* is *not*
+    found. In this case the original string is returned unmodified or - when
+    called as a procedure - nothing will happen.
+
+    See Also: string/before, string/from, string/truncate_behind
+
+    Example:
+
+    $basename filename .truncate_from. '.'
+  (
+    str # the string to truncate
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $_len expr str nth
+  if
+    pos.is_defined:
+      return range(str 1 pos-1)
+    :
+      return str
+
+$types::string/behind:
+  #
+    returns the substring behind the specified expression
+
+    Returns substr: the substring behind *expr* or the empty string if *str* does
+    not contain *expr*
+
+    If the expression does not occur within the string then the empty
+    string is returned.
+
+    If called as a procedure then the front part of the original string
+    will be removed. If the expression does not occur within the string then
+    the string is replaced with the empty string.
+
+    If *nth* is specified then the nth occurence of the expression *expr*
+    is looked for.
+
+    A very similar function is <string/truncate_until>. It behaves differently
+    only when the expression is *not* found.
+
+    See Also: string/truncate_until, string/before, string/between, string/from
+
+    Example:
+
+    $extension filename .behind. '.'
+  (
+    str # the input string
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $len expr str nth
+  if
+    pos.is_defined:
+      return range(str pos+len -1)
+    :
+      return ""
+
+$types::string/truncate_until:
+  #
+    returns the substring behind the specified expression
+
+    Returns str: the part of the input string *str* behind *expr* or the
+    unmodified input string *str* if *str* does not contain *expr*
+
+    This function behaves very much like <string/behind>.
+
+    The only difference is in the behaviour when the expression *expr* is *not*
+    found. In this case the original string is returned unmodified or - when
+    called as a procedure - nothing will happen.
+
+    See Also: string/behind, string/until, string/truncate_before
+
+    Example:
+
+    $name identifier .truncate_until. "::"
+  (
+    str # the string to truncate
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $len expr str nth
+  if
+    pos.is_defined:
+      return range(str pos+len -1)
+    :
+      return str
+
+$types::string/from:
+  #
+    returns the substring starting with the specified expression
+
+    Returns substr: the substring starting with *expr* or the empty string if *str*
+    does not contain *expr*
+
+    If the expression does not occur within the string then the empty
+    string is returned.
+
+    If called as a procedure then the front part of the original string
+    will be removed. If the expression does not occur within the string then
+    the string is replaced with the empty string.
+
+    If *nth* is specified then the nth occurrence of the expression *expr*
+    is looked for.
+
+    A very similar function is <string/truncate_until>. It behaves differently
+    only when the expression is *not* found.
+
+    See Also: string/before, string/from, string/truncate_behind
+  (
+    str # the input string
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $_len expr str nth
+  if
+    pos.is_defined:
+      return range(str pos -1)
+    :
+      return ""
+
+$types::string/truncate_before:
+  #
+    This function behaves very much like <string/from>.
+
+    The only difference is in the behaviour when the expression is *not* found.
+    In this case the original string is returned unchanged or - when called
+    as a procedure - nothing will happen.
+
+    See Also: string/from, string/before, string/truncate_until
+  (
+    str # the string to truncate
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $_len expr str nth
+  if
+    pos.is_defined:
+      return range(str pos -1)
+    :
+      return str
+
+$types::string/until:
+  #
+    This function returns the substring before and including the
+    specified expression. If the expression does not occur within
+    the string then an empty string is returned.
+
+    If called as a procedure then the rear part of the original string
+    will be removed. If the expression does not occur within the string then
+    the string is changed into an empty string.
+
+    If *nth* is specified then the *nth* occurrence of the *expression*
+    is looked for.
+
+    A very similar function is <string.truncate_behind>. It behaves different
+    only when the expression is *not* found.
+
+    See Also: string/truncate_behind, string/from, string/before
+  (
+    str # the input string
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $len expr str nth
+  if
+    pos.is_defined:
+      return range(str 1 pos+len-1)
+    :
+      return ""
+
+$types::string/truncate_behind:
+  #
+    This function behaves very much like <string/until>.
+
+    The only difference is in the behaviour when the expression is *not* found.
+    In this case the original string is returned unchanged or - when called
+    as a procedure - nothing will happen.
+
+    See Also: string/until, string/behind, string/truncate_from
+  (
+    str # the string to truncate
+    expr # the expression to look for
+    nth = 1 # look for the nth occurrence of *expr* instead for the first one
+    -> return
+  )
+  grammar::search $pos $len expr str nth
+  if
+    pos.is_defined:
+      return range(str 1 pos+len-1)
+    :
+      return str
+
+$types::string/between:
+  #
+    Returns the substring between the two specified expressions or
+    nothing if either of the two expression is not found.
+
+    If *nth* is specified then the *nth* occurrence of the *left expression*
+    is used instead of the first one.
+
+    See Also: string/behind, string/before
+  (
+    str # the input string
+    expr_1 # the expression on the left hand side
+    expr_2 # the expression on the right hand side
+    nth = 1 # look for the nth occurrence of *expr_1* instead for the first one
+  )
+  -> behind(str expr_1 nth) .before. expr_2
+
+$types::string/has_prefix:
+  #
+    checks whether the string has *prefix* as a prefix
+
+    See Also: string/has_suffix, string/without_prefix
+  (
+    self
+    prefix # the prefix to check for
+  )
+  -> match(self prefix).is_defined
+
+$types::string/has_suffix:
+  #
+    checks whether the string has *suffix* as a suffix
+
+    See Also: string/has_prefix, string/without_suffix
+  (
+    self
+    suffix # the suffix to check for
+    -> return
+  )
+  $len length_of(self)
+  from_down_to len 1: (i)
+    if match(range(self i -1) suffix) == len-i+1: return true
+  -> false
+
+$types::string/without_prefix:
+  #
+    removes the specified prefix
+
+    See Also: string/has_prefix, string/without_suffix
+  (
+    self
+    prefix
+    -> return
+  )
+  $n match(self prefix)
+  if n.is_defined: return range(self n+1 -1)
+  -> self
+
+$types::string/without_suffix:
+  #
+    removes the specified suffix
+
+    See Also: string/has_suffix, string/without_prefix
+  (
+    self
+    suffix
+    -> return
+  )
+  $len length_of(self)
+  from_to 1 len: (i)
+    if match(range(self i -1) suffix) == len-i+1: return range(self 1 i-1)
+  -> self
+
+$std::trim: (&str) # removes whitespace on both ends of a string
+  $$s 1
+  $$e length_of(str)
+  while -> s <= e && str(s) <= ' ': plus &s 1
+  while -> e >= s && str(e) <= ' ': minus &e 1
+  range &str s e
+
+$std::normalize: (&str)
+  trim &str
+  replace_all &str many(alt(' ' '@ht;' '@nl;' '@cr;')) = " "
+
+$std::split:
+  (
+    $text
+    separator = many(' ')
+  )
+  $$items empty_list
+  do_while:
+    grammar::search $pos $len separator text
+    if pos.is_defined:
+      push &items range(text 1 pos-1)
+      range &text pos+len -1
+    -> pos.is_defined
+  if length_of(text) > 0: push &items text
+  -> items
+
+$std::join:
+  (
+    words
+    separator = " "
+  )
+  $$text ""
+  for_each
+    words: (word)
+      append &text word
+    :
+      append &text separator
+  -> text
+
+$std::count_occurrences: ($text expr)
+  $$n 0
+  do_while:
+    grammar::search $pos $len expr text
+    if pos.is_defined:
+      range &text pos+len -1
+      inc &n
+    -> pos.is_defined
+  -> n
+
+$types::string/matches: (text expr)
+  -> grammar::match(expr text) == length_of(text)
+
+$types::string/contains: (text expr)
+  grammar::search $pos $_len expr text
+  -> pos.is_defined
+
+$umlaut_conversions
+  table
+    ' ' = " "
+    '¡' = "!"
+    '¢' = "(cent)"
+    '£' = "(pound)"
+    '¤' = "?"
+    '¥' = "(yen)"
+    '¦' = "|"
+    '§' = "$"
+    '¨' = "@quot;"
+    '©' = "(c)"
+    'ª' = "a"
+    '«' = "<<"
+    '¬' = "(not)"
+    '­' = "(shy)"
+    '®' = "(r)"
+    '¯' = "~"
+    '°' = "(grad)"
+    '±' = "+/-"
+    '²' = "^2"
+    '³' = "^3"
+    '´' = "'"
+    'µ' = "(mu)"
+    '¶' = "(par)"
+    '·' = "."
+    '¸' = ","
+    '¹' = "^1"
+    'º' = "o"
+    '»' = ">>"
+    '¼' = "1/4"
+    '½' = "1/2"
+    '¾' = "3/4"
+    '¿' = "?"
+    'À' = "A"
+    'Á' = "A"
+    'Â' = "A"
+    'Ã' = "A"
+    'Ä' = "Ae"
+    'Å' = "A"
+    'Æ' = "AE"
+    'Ç' = "C"
+    'È' = "E"
+    'É' = "E"
+    'Ê' = "E"
+    'Ë' = "E"
+    'Ì' = "I"
+    'Í' = "I"
+    'Î' = "I"
+    'Ï' = "I"
+    'Ð' = "D"
+    'Ñ' = "N"
+    'Ò' = "O"
+    'Ó' = "O"
+    'Ô' = "O"
+    'Õ' = "O"
+    'Ö' = "Oe"
+    '×' = "x"
+    'Ø' = "0"
+    'Ù' = "U"
+    'Ú' = "U"
+    'Û' = "U"
+    'Ü' = "Ue"
+    'Ý' = "Y"
+    'Þ' = "p"
+    'ß' = "ss"
+    'à' = "a"
+    'á' = "a"
+    'â' = "a"
+    'ã' = "a"
+    'ä' = "ae"
+    'å' = "a"
+    'æ' = "ae"
+    'ç' = "c"
+    'è' = "e"
+    'é' = "e"
+    'ê' = "e"
+    'ë' = "e"
+    'ì' = "i"
+    'í' = "i"
+    'î' = "i"
+    'ï' = "i"
+    'ð' = "d"
+    'ñ' = "n"
+    'ò' = "o"
+    'ó' = "o"
+    'ô' = "o"
+    'õ' = "o"
+    'ö' = "oe"
+    '÷' = "/"
+    'ø' = "0"
+    'ù' = "u"
+    'ú' = "u"
+    'û' = "u"
+    'ü' = "ue"
+    'ý' = "y"
+    'þ' = "p"
+    'ÿ' = "y"
+    'Ā' = "A"
+    'ā' = "a"
+    'Ă' = "A"
+    'ă' = "a"
+    'Ą' = "A"
+    'ą' = "a"
+    'Ć' = "C"
+    'ć' = "c"
+    'Ĉ' = "C"
+    'ĉ' = "c"
+    'Ċ' = "C"
+    'ċ' = "c"
+    'Č' = "C"
+    'č' = "c"
+    'Ď' = "D"
+    'ď' = "d"
+    'Đ' = "D"
+    'đ' = "d"
+    'Ē' = "E"
+    'ē' = "e"
+    'Ĕ' = "E"
+    'ĕ' = "e"
+    'Ė' = "E"
+    'ė' = "e"
+    'Ę' = "E"
+    'ę' = "e"
+    'Ě' = "E"
+    'ě' = "e"
+    'Ĝ' = "G"
+    'ĝ' = "g"
+    'Ğ' = "G"
+    'ğ' = "g"
+    'Ġ' = "G"
+    'ġ' = "g"
+    'Ģ' = "G"
+    'ģ' = "g"
+    'Ĥ' = "H"
+    'ĥ' = "h"
+    'Ħ' = "H"
+    'ħ' = "h"
+    'Ĩ' = "I"
+    'ĩ' = "i"
+    'Ī' = "I"
+    'ī' = "i"
+    'Ĭ' = "I"
+    'ĭ' = "i"
+    'Į' = "I"
+    'į' = "i"
+    'İ' = "I"
+    'ı' = "i"
+    'Ĳ' = "IJ"
+    'ĳ' = "ij"
+    'Ĵ' = "J"
+    'ĵ' = "j"
+    'Ķ' = "K"
+    'ķ' = "k"
+    'ĸ' = "k"
+    'Ĺ' = "L"
+    'ĺ' = "l"
+    'Ļ' = "L"
+    'ļ' = "l"
+    'Ľ' = "L"
+    'ľ' = "l"
+    'Ŀ' = "L"
+    'ŀ' = "l"
+    'Ł' = "L"
+    'ł' = "l"
+    'Ń' = "N"
+    'ń' = "n"
+    'Ņ' = "N"
+    'ņ' = "n"
+    'Ň' = "N"
+    'ň' = "n"
+    'ŉ' = "n"
+    'Ŋ' = "N"
+    'ŋ' = "n"
+    'Ō' = "O"
+    'ō' = "o"
+    'Ŏ' = "O"
+    'ŏ' = "o"
+    'Ő' = "O"
+    'ő' = "O"
+    'Œ' = "OE"
+    'œ' = "oe"
+    'Ŕ' = "R"
+    'ŕ' = "r"
+    'Ŗ' = "R"
+    'ŗ' = "r"
+    'Ř' = "R"
+    'ř' = "r"
+    'Ś' = "S"
+    'ś' = "s"
+    'Ŝ' = "S"
+    'ŝ' = "s"
+    'Ş' = "S"
+    'ş' = "s"
+    'Š' = "S"
+    'š' = "s"
+    'Ţ' = "T"
+    'ţ' = "t"
+    'Ť' = "T"
+    'ť' = "t"
+    'Ŧ' = "T"
+    'ŧ' = "t"
+    'Ũ' = "U"
+    'ũ' = "u"
+    'Ū' = "U"
+    'ū' = "u"
+    'Ŭ' = "U"
+    'ŭ' = "u"
+    'Ů' = "U"
+    'ů' = "u"
+    'Ű' = "U"
+    'ű' = "u"
+    'Ų' = "U"
+    'ų' = "u"
+    'Ŵ' = "W"
+    'ŵ' = "w"
+    'Ŷ' = "Y"
+    'ŷ' = "y"
+    'Ÿ' = "Y"
+    'Ź' = "Z"
+    'ź' = "z"
+    'Ż' = "Z"
+    'ż' = "z"
+    'Ž' = "Z"
+    'ž' = "z"
+    'ſ' = "s"
+    'ƀ' = "b"
+    'Ɓ' = "B"
+    'Ƃ' = "B"
+    'ƃ' = "b"
+    'Ƅ' = "b"
+    'ƅ' = "b"
+    'Ƈ' = "C"
+    'ƈ' = "c"
+    'Ɖ' = "D"
+    'Ɗ' = "D"
+    'Ƌ' = "D"
+    'ƌ' = "d"
+    'ƍ' = "g"
+    'Ɛ' = "E"
+    'Ƒ' = "F"
+    'ƒ' = "f"
+    'Ɠ' = "G"
+    'Ǆ' = "DZ"
+    'ǅ' = "Dz"
+    'ǆ' = "dz"
+    'Ǉ' = "LJ"
+    'ǈ' = "Lj"
+    'ǉ' = "lj"
+    'Ǌ' = "NJ"
+    'ǋ' = "Nj"
+    'ǌ' = "nj"
+    'Ǎ' = "A"
+    'ǎ' = "a"
+    'Ǐ' = "I"
+    'ǐ' = "i"
+    'Ǒ' = "O"
+    'ǒ' = "o"
+    'Ǔ' = "U"
+    'ǔ' = "u"
+    'Ǖ' = "U"
+    'ǖ' = "u"
+    'Ǘ' = "U"
+    'ǘ' = "u"
+    'Ǚ' = "U"
+    'ǚ' = "u"
+    'Ǜ' = "U"
+    'ǜ' = "u"
+    'Ǟ' = "A"
+    'ǟ' = "a"
+    'Ǡ' = "A"
+    'ǡ' = "a"
+    'Ǣ' = "AE"
+    'ǣ' = "ae"
+    'Ǥ' = "G"
+    'ǥ' = "g"
+    'Ǧ' = "G"
+    'ǧ' = "g"
+    'Ǩ' = "K"
+    'ǩ' = "k"
+    'Ǫ' = "O"
+    'ǫ' = "o"
+    'Ǭ' = "O"
+    'ǭ' = "o"
+    'Ǳ' = "DZ"
+    'ǲ' = "Dz"
+    'ǳ' = "dz"
+    'Ǵ' = "G"
+    'ǵ' = "g"
+    'Ǹ' = "N"
+    'ǹ' = "n"
+    'Ǻ' = "A"
+    'ǻ' = "a"
+    'Ǽ' = "AE"
+    'ǽ' = "ae"
+    'Ǿ' = "O"
+    'ǿ' = "o"
+
+$std::replace_umlauts: (text)
+  $$s 1
+  $$result ""
+
+  $copy: (idx)
+    append &result range(text s idx)
+    !s idx+2
+
+  for_each text: (idx chr)
+    if chr >= '@0x80;':
+      if
+	chr >= ' ':
+	  copy idx-1
+	  $conversion umlaut_conversions(chr)
+	  if
+	    conversion.is_defined:
+	      append &result conversion
+	    :
+	      push &result '?'
+	:
+	  copy idx-1
+	  push &result chr-0x80
+  copy length_of(text)
+  -> result
+
+#$std::replace_all: (&text args*)
+  $do_replace: ($txt expr replacement)
+    $$new_txt ""
+    do: (-> break) forever:
+      grammar::search $pos $len expr txt
+      if pos.is_undefined break
+      append &new_txt range(txt 1 pos-1)
+      if
+        replacement.is_a_string:
+          append &new_txt replacement
+        :
+          append &new_txt replacement(range(txt pos pos+len-1))
+      !txt range(txt pos+len -1)
+    -> append(new_txt txt)
+
+  for_each args: (arg)
+    $expression key_of(arg)
+    $replacement value_of(arg)
+    do_replace &text expression replacement
+
+$std::replace_all: ($text args*)
+  $$new_text ""
+  while -> length_of(text) > 0:
+    do: (-> break)
+      for_each args: (arg)
+	$expression key_of(arg)
+	$replacement value_of(arg)
+	grammar::match $len expression text
+	if len.is_defined:
+	  if
+	    replacement.is_a_string:
+	      append &new_text replacement
+	    :
+	      append &new_text replacement(range(text 1 len))
+	  range &text len+1 -1
+	  break
+      push &new_text text(1)
+      range &text 2 -1
+  -> new_text
+
+$eighty_spaces "
+  @
+                                                                               @
+     @
+
+$std::spaces: (n) if n > 80 (-> dup(" " n)) -> range(eighty_spaces 1 n)
+
+$std::indented: (indent $text)
+  if indent > 0:
+    $indentation spaces(indent)
+    replace_all
+      &text
+      '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
+    unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
+  -> text
+
+$std::for_each_line:
+  (
+    text
+    body
+    body2?
+    no = 1
+  )
+  search text '@nl;' $pos $_len
+  if
+    pos.is_defined:
+      if
+	parameter_count_of(body) == 2:
+	  body no range(text 1 pos-1)
+	:
+	  body range(text 1 pos-1)
+      $rest range(text pos+1 -1)
+      if body2.is_defined && rest .has_minimum_length. 1 body2
+      for_each_line rest body body2 no+1
+    :
+      if length_of(text) > 0:
+	if
+	  parameter_count_of(body) == 2:
+	    body no text
+	  :
+	    body text
+
+$types::string/to_lower_case: (text) -> map(text to_lower_case)
+
+$types::string/to_upper_case: (text) -> map(text to_upper_case)
+
+$types::string/to_title_case: (text)
+  $$out ""
+  $$to_upper true
+  for_each text: (chr)
+    if
+      chr.is_a_letter_character:
+	if
+	  to_upper:
+	    push &out chr.to_upper_case
+	    !to_upper false
+	  :
+	    push &out chr.to_lower_case
+      :
+	push &out chr
+	!to_upper true
+  -> out
+
+#$std::from_utf8: (text)
+  $$out ""
+  $$count 0
+  $$unicode undefined
+  for_each text: (chr)
+    $code chr.to_integer
+    cond
+      -> code >= 0xf0:
+        !count 3
+        !unicode code & 0x07
+      -> code >= 0xe0:
+        !count 2
+        !unicode code & 0x0f
+      -> code >= 0xc0:
+        !count 1
+        !unicode code & 0x1f
+      -> code >= 0x80:
+        !unicode unicode << 6 | code & 0x3f
+        dec &count
+        if count == 0:
+          # ATTENTION: Temporary fix for gcc error messages!
+          case unicode
+            0x2013:
+              push &out '-'
+            0x201c, 0x201e:
+              push &out '@quot;'
+            0x2018, 0x201a, 0x2098, 0x2099:
+              push &out '@apos;'
+            0x2009:
+              pass
+            :
+              if
+                unicode > 255:
+                  #edump `hex(unicode)
+                  push &out '?'
+                :
+                  push &out character(unicode)
+      :
+        push &out chr
+  -> out
+#$std::to_utf8: (text)
+  $$out ""
+  for_each text: (chr)
+    $code
+      if
+        chr == '@0xa4;'
+        -> 0x20ac
+        -> chr.to_integer
+    cond
+      -> code >= 0x10000:
+        push &out character(code >> 18 | 0xf0)
+        push &out character(code >> 12 & 0x3f | 0x80)
+        push &out character(code >> 6 & 0x3f | 0x80)
+        push &out character(code & 0x3f | 0x80)
+      -> code >= 0x800:
+        push &out character(code >> 12 | 0xe0)
+        push &out character(code >> 6 & 0x3f | 0x80)
+        push &out character(code & 0x3f | 0x80)
+      -> code >= 0x80:
+        push &out character(code >> 6 & 0x1f | 0xc0)
+        push &out character(code & 0x3f | 0x80)
+      :
+        push &out chr
+  -> out
+
+$types::octet_string/new_empty_collection: (_self) -> types::octet_string
+
+$types::quad_octet_string/new_empty_collection: (_self) -> types::octet_string
+
+$std::collect_output:
+  (
+    &self = ""
+    body
+  )
+  %std::write: (args*) write_to &self args*
+
+  body
+
+$std::concatenate: (strings func?)
+  $$buf ""
+  if
+    func.is_defined:
+      for_each strings: (str) append &buf func(str)
+    :
+      for_each strings: (str) append &buf str
+  -> buf

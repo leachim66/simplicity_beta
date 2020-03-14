@@ -1,0 +1,139 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::plus () # add two numbers
+$std::minus () # subtract two numbers
+$std::times () # multiply two numbers
+$std::over () # divide two numbers
+$std::div () # divide two integers giving an integer
+$std::mod () # divide two integers and return the modulo
+$std::negate () # negate a number
+$std::equal () # check two objects for equality
+$std::equal_type_and_value () # equal_type_and_value(a b) => hash(a) == hash(b)
+$std::less ()
+  # check whether the first argument is less than the second argument
+$std::numerically_less ()
+  # check whether the first argument is numerically less than the second argument
+$std::not () # negate the boolean expression
+$std::and ()
+$std::or ()
+$std::if ()
+$std::unless ()
+$std::shift_left ()
+$std::shift_right ()
+$std::bit_and ()
+$std::bit_or ()
+$std::bit_xor ()
+$std::parameter_count_of (!)
+$std::is_defined ()
+$std::is_undefined ()
+$std::default_value ()
+$std::is_valid ()
+$std::to_string ()
+$std::to_list ()
+$std::serialize ()
+$std::serialization_tag_of (!)
+$std::to_number ()
+$std::parse_number ()
+$std::to_integer ()
+$std::parse_integer ()
+$std::to_real ()
+$std::parse_real ()
+$std::to_lower_case ()
+$std::to_upper_case ()
+$std::to_title_case ()
+$std::is_empty ()
+$std::length_of (!)
+$std::type_of (!) # the type of an object (e.g. an event's type)
+$std::hash ()
+$std::push () # add a single item at the end of a container
+$std::pop () # remove (and return) the last item of a container
+$std::peek () # return the last item of a container
+$std::drop () # removes a single item from the end of a container
+$std::put () # add a single item at the front of a container
+$std::get () # remove (and return) the first item of a container
+$std::next ()
+$std::append ()
+$std::insert_before ()
+$std::insert_behind ()
+$std::first_index_of (!)
+$std::last_index_of (!)
+$std::delete_at ()
+$std::union ()
+$std::intersection ()
+$std::match_character () # try to match the start of a stream with a character
+$std::match_string () # try to match the start of a stream with a string
+$std::search_character () # search for a specific character within a stream
+$std::search_string () # search for a specific string within a stream
+$std::match ()
+$std::search ()
+$std::matches ()
+$std::contains ()
+$std::has_prefix ()
+$std::has_suffix ()
+$std::without_prefix ()
+$std::without_suffix ()
+$std::before ()
+$std::truncate_from ()
+$std::behind ()
+$std::truncate_until ()
+$std::from ()
+$std::truncate_before ()
+$std::until ()
+$std::truncate_behind ()
+$std::between ()
+$std::range ()
+$std::merge ()
+$std::sort ()
+$std::close ()
+$std::write_some_bytes_to ()
+$std::write_to ()
+$std::flush ()
+$std::read_some_bytes_from ()
+$std::read_from ()
+$std::key_of (!)
+$std::value_of (!)
+$std::keys_of (!)
+$std::values_of (!)
+$std::lower_bound_of (!)
+$std::upper_bound_of (!)
+$std::for_each_from_to ()
+$std::for_each_from_down_to ()
+$std::for_each ()
+$std::for_each_downwards ()
+$std::update_each_from_to ()
+$std::update_each_from_down_to ()
+$std::update_each ()
+$std::update_each_downwards ()
+$std::for_each_pair ()
+$std::new_empty_collection ()
+$std::filter ()
+$std::map ()
+$std::dup ()
+$std::interleave ()
+$std::stop ()
+$std::get_file_descriptors ()
+$std::handle_requests ()
+$std::select () # select items from a collection
+$std::delete () # delete items from a collection
+$std::update () # update items in a collection
+$std::call_command () # call a (possibly remote) command

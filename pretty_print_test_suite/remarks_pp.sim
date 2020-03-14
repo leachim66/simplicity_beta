@@ -1,0 +1,196 @@
+#!/usr/bin/env simple
+
+  Copyright (C) 2019 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+####
+# Meta Instructions
+
+<require blank>
+<require basic> # the basic library
+<require system>
+  # the system library - its meta-modules can access the basic library
+<require something_else>
+  #
+    a fictive library
+    just for testing
+
+<using std>
+<using something_else> # a fictive namespace
+
+####
+# Remarks
+
+writeln
+
+# adjacent
+# remarks
+
+writeln
+
+####
+# String Literals & String Templates
+
+writeln "Hello, world!" # the classic hello-message
+writeln "
+  a very long string to test the pretty printer and force consideration of the @
+  string layout@
+writeln
+  # a long string
+
+  "
+    a very long string to test the pretty printer and force consideration of @
+    the string layout@
+writeln "
+  a very long string template @(insert_something_here) to test the pretty @
+  printer@
+writeln
+  # a long template
+
+  "
+    a very long string template @(insert_something_here) to test the pretty @
+    printer@
+
+####
+# Lambda Functions
+
+$p: (a) pass
+
+$p:
+  (
+    a # a's remark
+  )
+  pass
+
+$p:
+  (
+    a # a's remark
+    b # b's remark
+    c # c's remark
+  )
+  pass
+
+$p: # p's remark
+  (
+    a # a's remark
+    b # b's remark
+    c # c's remark
+  )
+  pass
+
+$p: # p's remark
+  (
+    a # a's remark
+    b # b's remark
+    c # c's remark
+  )
+  pass
+
+$p:
+  #
+    p's multi-line
+    remark
+  (
+    a
+      #
+	a's multi-line
+	remark
+    b
+      #
+	b's multi-line
+	remark
+    c
+      #
+	c's multi-line
+	remark
+  )
+  pass
+
+# single, complex parameter
+
+$p:
+  (
+    -> return # a continuation
+  )
+  juhu
+
+$p:
+  (
+    myself^ # the function itself
+  )
+  myself
+
+####
+# Procedure & Function Calls
+
+p a b f(x y) # p's remark
+p a b f(x y) # f(x y)'s remark
+p # p's remark
+p
+  #
+    p's multi-line
+    remark
+
+  a
+  b
+p
+  # p's remark
+
+  :
+    pass
+p
+  # p's remark
+
+  a # a's remark
+  b # b's remark
+  f
+    # f's remark
+    x # x's remark
+    y # y's remark
+  g(z) # g's remark
+p:
+  q
+    #
+      q's multi-line
+      remark
+
+    a
+    b
+    f(x y) # f(x y)'s remark
+p
+  # p's remark
+
+  a
+  b
+  f(x y) # f(x y)'s remark
+p
+  a
+    #
+      a's multi-line
+      remark
+
+####
+# Miscellaneous
+
+writeln "miscellaneous"
+
+#
+
+writeln "things"

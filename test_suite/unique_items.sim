@@ -1,0 +1,21 @@
+#!/usr/bin/env simple
+
+$RED .
+$GREEN .
+$BLUE .
+
+$colours list(GREEN BLUE RED)
+$idx 1+0
+if
+  colours(idx) == RED:
+    writeln "red"
+  :
+    if
+      colours(idx) == GREEN:
+	writeln "green"
+      :
+	if
+	  colours(idx) == BLUE:
+	    writeln "blue"
+	  :
+	    writeln "???"

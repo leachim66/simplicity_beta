@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$a_of (!)
+$b_of (!)
+
+$$buf "(clong)b"
+
+$B
+ capture(b_of some(alt(LETTER DIGIT)))
+
+$MEAN
+  not_followed_by
+    "(", B, ")", "b"
+
+match buf MEAN $len $cap
+dump `len
+dump `cap

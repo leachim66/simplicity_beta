@@ -1,0 +1,28 @@
+key_order_table
+  "Elliot" = 2
+  "Gerda" = 1
+  "Joseph" = 2
+  "Peter" = 3
+  "Susan" = 4
+insert_order_table
+  "Peter" = 2
+  "Susan" = 1
+  "Elliot" = 5
+  "Gunda" = 4
+  "Joseph" = 3
+-----
+key_order_table
+  "Elliot" = 5
+  "Gerda" = 1
+  "Gunda" = 4
+  "Joseph" = 3
+  "Peter" = 2
+  "Susan" = 1
+-----
+insert_order_table
+  "Peter" = 3
+  "Susan" = 4
+  "Elliot" = 2
+  "Gunda" = 4
+  "Joseph" = 2
+  "Gerda" = 1

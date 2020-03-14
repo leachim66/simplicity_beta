@@ -1,0 +1,6 @@
+do:
+  do:
+    push
+      types::object
+	.timestamp_of timestamp
+	.dt_of if(previous_timestamp != 0 (-> timestamp-previous_timestamp) (-> 1))

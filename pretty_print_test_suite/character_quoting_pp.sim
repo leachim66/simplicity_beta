@@ -1,0 +1,19 @@
+#!/usr/bin/env simple
+
+writeln '@cr;' '@nl;'
+writeln "
+  Das ist ein Text.
+writeln "@ht;eingerückter Text"
+write "
+  "'"'"'"
+  '"'"'"'
+writeln "@quot;'"
+writeln '@quot;'
+writeln '@apos;'
+writeln "@0x3b1;² @0x1f600;"
+writeln '@0x3b1;'
+writeln '²'
+writeln '@0x1f600;'
+writeln "ʯ@0x2b0;"
+writeln 'ʯ'
+writeln '@0x2b0;'

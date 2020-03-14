@@ -1,0 +1,11 @@
+#!/usr/bin/env simple
+
+$p: (a)
+  check_case a contains
+    LETTER -> "letter" "a-z"
+    DIGIT -> "digit" "0-9"
+    -> "special characters" "()+-*/..."
+
+for_each "abc", "27", "++": (x)
+  p x $a $b
+  dump `x `a `b

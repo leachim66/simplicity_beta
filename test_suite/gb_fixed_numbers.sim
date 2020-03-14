@@ -1,0 +1,21 @@
+#!/usr/bin/env simple
+
+<require basic/stdlib>
+<require system/stdlib>
+<require ./gb/fixed_numbers>
+
+$test: (type)
+  writeln type("12")
+  writeln type("12.3")
+  writeln type("12.34")
+  writeln type("123.5")
+  writeln type("1234.5")
+  writeln type("12356.7")
+  writeln type("123567.89")
+
+$f number_g68077f6l15rpxmt45h0wnc49::fixed
+$t f(2 10 3 '.' ',')
+test t
+test f(4 16 4 '.' ',')
+test f(3 36 3 '.' ',')
+writeln -t("1.1") + t("3.4")

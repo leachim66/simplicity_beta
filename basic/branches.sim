@@ -1,0 +1,193 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::cond:
+  #
+    The conditions are evaluated one after the other until a condition
+    evaluates to true. If a condition evaluates to true its corresponding
+    statement-sequence is executed and no more conditions are considered.
+
+    If there is an odd number of arguments the last argument specifies a
+    default statement-sequence that is executed if no condition evaluates
+    to true.
+
+    Topics: Control Flow, Branches
+
+    See Also: if, case
+
+    Example:
+
+    cond
+      -> chr >= 'a' && chr <= 'z':
+        writeln "lower case character"
+      -> chr >= 'A' && chr <= 'Z':
+        writeln "upper case character"
+      -> chr == '_':
+        writeln "underscore"
+      -> chr >= '0' && chr <= '9':
+        writeln "digit"
+      :
+        writeln "neither character nor digit nor underscore"
+  (
+    args* # a sequence of conditions and statement sequences
+  )
+  cond_list args
+
+$cond_list: (args)
+  unless args.is_empty:
+    args(1) $cond_or_body? $body?
+    if cond_or_body.is_defined: # if not it's the default case
+      if
+	body.is_defined:
+	  if cond_or_body body: cond_list range(args 2 -1)
+	:
+	  cond_or_body
+
+$std::case:
+  #
+    multi-branch conditional
+
+    Depending on the value of *expr* the statement-sequence
+    associated with the matching case is executed.
+
+    The last argument can be a single statement-sequence without a preceding
+    value. It is executed if no case matches the expression.
+
+    Topics: Control Flow, Branches
+
+    See Also: if, cond, check_case
+
+    Example:
+
+    case chr
+      'a' .. 'z':
+        writeln "lower case character"
+      'A' .. 'Z':
+        writeln "upper case character"
+      '_':
+        writeln "underscore"
+      '0' .. '9':
+        writeln "digit"
+      :
+        writeln "neither character nor digit nor underscore"
+  (
+    expr # the expression to check
+    values_and_bodies*
+      # an alternating sequence of case-values and statement sequences
+  )
+  $recursive_case: (args)
+    $len length_of(args)
+    if len > 0:
+      if
+	len == 1:
+	  $body args(1)
+	  body
+	:
+	  $value args(1)
+	  $body args(2)
+	  $$success false
+	  if
+	    value.is_defined:
+	      cond
+		-> value.is_a_sequence:
+		  do: (-> break)
+		    for_each value: (sub_value)
+		      if
+			sub_value.is_defined && sub_value.is_a_value_range:
+			  if
+			    &&
+			      expr >= lower_bound_of(sub_value)
+			      expr <= upper_bound_of(sub_value)
+			    :
+			      !success true
+			      break
+			:
+			  if sub_value == expr:
+			    !success true
+			    break
+		-> value.is_a_value_range:
+		  if
+		    &&
+		      expr >= lower_bound_of(value)
+		      expr <= upper_bound_of(value)
+		    :
+		      !success true
+		:
+		  if value == expr: !success true
+	    :
+	      if expr.is_undefined: !success true
+	  if success body: recursive_case range(args 3 -1)
+
+  recursive_case values_and_bodies
+
+$std::check_case:
+  #
+    If calling the check function with the specified expression as
+    its first and a value from the case list as its second argument returns
+    *true* then the corresponding statement sequence is executed. After a
+    check succeeds no more alternatives are considered.
+
+    The last argument can be a single statement sequence without a preceding
+    value. It is executed if no check is successful.
+
+    Topics: Control Flow, Branches
+
+    See Also: if, cond, check
+
+    Example:
+
+    check_case text matches
+      many(LETTER):
+        writeln "word"
+      many(DIGIT):
+        writeln "number"
+      :
+        writeln "neither word nor number"
+  (
+    expr # the expression to check
+    check # the check function
+    values_and_bodies*
+      # an alternating sequence of case-values and statement sequences
+  )
+  $recursive_check_case: (args)
+    $len length_of(args)
+    if len > 0:
+      if
+	len == 1:
+	  $body args(1)
+	  body
+	:
+	  $value args(1)
+	  $body args(2)
+	  $$success false
+	  if
+	    value.is_a_sequence:
+	      do: (-> break)
+		for_each value: (sub_value)
+		  if check(expr sub_value):
+		    !success true
+		    break
+	    :
+	      if check(expr value): !success true
+	  if success body: recursive_check_case range(args 3 -1)
+
+  recursive_check_case values_and_bodies

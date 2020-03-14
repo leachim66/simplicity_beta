@@ -1,0 +1,5 @@
+#!/usr/bin/env simple
+
+$names "Albert", "Berta", "Carla", "Dora", "Earl"
+writeln length_of(names)
+for_each names: (name) writeln name

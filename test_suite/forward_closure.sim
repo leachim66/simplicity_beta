@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+$p:
+  $$x 3
+  q
+
+  $q:
+    writeln x
+
+p

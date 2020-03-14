@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$a_of (!)
+
+$$buf "(blubb)a(gulp)a(mean)b"
+$A multi_capture(a_of some(LETTER))
+
+$MEAN
+  sequence
+    modify_node
+      : (&node)
+	!node.a_of list()
+    some("(", A, ")", "a")
+
+match buf MEAN $len $cap
+dump `len
+dump 2 `cap

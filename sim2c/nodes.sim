@@ -1,0 +1,512 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  defines the prototypes for grammar nodes;
+  defines polymorphic functions and unique items used in grammar nodes
+
+<using std>
+<using sim2c>
+<using node>
+
+#####
+# UNIQUE ITEMS
+#####
+
+$sim2c::NONE .
+$sim2c::ATTRIBUTE_KIND .
+$sim2c::METHOD_KIND .
+$sim2c::NO_PARAMETER .
+$sim2c::IN_PARAMETER .
+$sim2c::IN_OUT_PARAMETER .
+$sim2c::OUT_PARAMETER .
+$sim2c::MYSELF_PARAMETER .
+$sim2c::CONTINUATION_PARAMETER .
+$sim2c::LEFT .
+$sim2c::RIGHT .
+$sim2c::POLYMORPHIC .
+$sim2c::STATIC_SINGLE .
+$sim2c::STATIC_MULTI .
+$sim2c::DYNAMIC_SINGLE .
+$sim2c::DYNAMIC_MULTI .
+$sim2c::C_NODE .
+
+#####
+# POLYMORPHIC FUNCTIONS
+#####
+
+$node::argument_of (!)
+$node::arguments_of (!)
+$node::attribute_kind_of (!)
+$node::attribute_of (!)
+$node::base_of (!)
+$node::default_value_of (!)
+$node::defined_names_of (!)
+$node::definitions_of (!)
+$node::destination_of (!)
+$node::end_position_of (!)
+$node::enumeration_no_of (!)
+$node::expression_of (!)
+$node::filemask_of (!)
+$node::filename_of (!)
+$node::fragment_of (!)
+$node::full_name_of (!)
+$node::functor_of (!)
+$node::identifier_of (!)
+$node::inherited_names_of (!)
+$node::is_a_constant ()
+$node::is_a_dynamic_definition ()
+$node::is_a_method_definition ()
+$node::is_a_multi_assign_definition ()
+$node::is_an_expanded_item ()
+$node::is_an_optional_item ()
+$node::is_a_setter ()
+$node::is_a_single_assign_definition ()
+$node::is_a_static_definition ()
+$node::is_a_string_template ()
+$node::is_an_attribute_access ()
+$node::is_an_initialization ()
+$node::is_in_infix_notation ()
+$node::is_mutable ()
+$node::is_not_used ()
+$node::kind_of (!)
+$node::last_line_end_specifier_of (!)
+$node::line_end_specifier_of (!)
+$node::lowest_precedence_of (!)
+$node::mangled_name_of (!)
+$node::max_length_of (!)
+$node::message_of (!)
+$node::name_of (!)
+$node::namespace_of (!)
+$node::namespace_alias_of (!)
+$node::node_of (!)
+$node::operators_of (!)
+$node::output_arguments_of (!)
+$node::parameter_kind_of (!)
+$node::parameters_of (!)
+$node::parent_of (!)
+$node::result_count_of (!)
+$node::continuation_of (!)
+$node::source_position_of (!)
+$node::temporary_count_of (!)
+$node::remark_lines_of ()
+$node::remark_lines_behind_of ()
+$node::scope_of (!)
+$node::section_of (!)
+$node::statements_of (!)
+$node::submodule_no_of (!)
+$node::text_of (!)
+$node::type_of (!)
+$node::used_names_of (!)
+$node::value_of (!)
+$node::variable_kind_of (!)
+
+#####
+# NODES
+#####
+###
+# DEFAULT GRAMMAR NODE
+
+$types::grammar_node.remark_lines_of empty_list
+$types::grammar_node.remark_lines_behind_of empty_list
+$types::grammar_node.is_a_constant false
+$types::grammar_node.is_a_single_assign_definition false
+$types::grammar_node.is_a_multi_assign_definition false
+$types::grammar_node.is_a_static_definition false
+$types::grammar_node.is_a_dynamic_definition false
+$types::grammar_node.is_an_initialization false
+$types::grammar_node.is_an_expanded_item false
+$types::grammar_node.is_an_optional_item false
+
+###
+# META INSTRUCTION
+
+$node::is_a_meta_instruction ()
+
+$types::grammar_node.is_a_meta_instruction false
+$sim2c::meta_instruction.is_a_meta_instruction true
+$sim2c::meta_instruction types::grammar_node
+
+###
+# REQUIRE INSTRUCTION
+
+$sim2c::require_instruction sim2c::meta_instruction
+
+###
+# NAMESPACE INSTRUCTION
+
+$sim2c::namespace_instruction sim2c::meta_instruction
+
+###
+# USING INSTRUCTION
+
+$sim2c::using_instruction sim2c::meta_instruction
+
+###
+# INCLUDE INSTRUCTION
+
+$sim2c::include_instruction sim2c::meta_instruction
+
+###
+# LINK INSTRUCTION
+
+$sim2c::link_instruction sim2c::meta_instruction
+
+###
+# DATA INSTRUCTION
+
+$sim2c::data_instruction sim2c::meta_instruction
+
+###
+# REMARK_STATEMENT
+
+$node::is_a_remark ()
+
+$types::grammar_node.is_a_remark false
+$sim2c::remark_statement.is_a_remark true
+$sim2c::remark_statement sim2c::statement
+
+###
+# BODY
+
+$node::is_a_body ()
+
+$types::grammar_node.is_a_body false
+$sim2c::body.is_a_body true
+
+$node::defines_a_dynamic ()
+
+$sim2c::body types::grammar_node
+$sim2c::body.is_a_constant true
+$sim2c::body.defines_a_dynamic false
+$sim2c::body.definitions_of empty_list
+$sim2c::body.statements_of empty_list
+$sim2c::body.parameters_of empty_list
+$sim2c::body.defined_names_of types::insert_order_table
+$sim2c::body.inherited_names_of types::insert_order_table
+$sim2c::body.used_names_of types::insert_order_table
+$sim2c::body.arguments_of empty_list # for remarks!
+
+###
+# STATEMENT
+
+$sim2c::statement types::grammar_node
+
+###
+# CALL
+
+$node::is_a_call ()
+
+$types::grammar_node.is_a_call false
+$sim2c::call.is_a_call true
+$sim2c::call sim2c::statement
+$sim2c::call.output_arguments_of empty_list
+$sim2c::call.arguments_of empty_list
+
+###
+# PROCEDURE CALL
+
+$node::is_a_procedure_call ()
+
+$sim2c::call.is_a_procedure_call false
+$sim2c::procedure_call.is_a_procedure_call true
+$sim2c::procedure_call sim2c::call
+
+###
+# RETURN STATEMENT
+
+$node::is_a_return ()
+
+$types::grammar_node.is_a_return false
+$sim2c::return_statement.is_a_return true
+$sim2c::return_statement sim2c::call
+
+###
+# ASSIGNMENT
+
+$node::is_an_assignment ()
+
+$sim2c::call.is_an_assignment false
+$sim2c::assignment.is_an_assignment true
+$sim2c::assignment sim2c::call
+
+###
+# DEFINITION
+
+$node::is_a_definition ()
+
+$types::grammar_node.is_a_definition false
+$sim2c::definition.is_a_definition true
+$sim2c::definition types::grammar_node
+$sim2c::definition.attribute_kind_of NONE
+$sim2c::definition.parameter_kind_of NO_PARAMETER
+
+###
+# DEFINE STATIC SINGLE
+
+$node::is_a_static_single_definition ()
+
+$types::grammar_node.is_a_static_single_definition false
+$sim2c::define_static_single.is_a_static_single_definition true
+$sim2c::define_static_single sim2c::definition
+$sim2c::define_static_single.is_a_single_assign_definition true
+$sim2c::define_static_single.is_a_static_definition true
+$sim2c::define_static_single.variable_kind_of STATIC_SINGLE
+
+###
+# DEFINE STATIC MULTI
+
+$node::is_a_static_multi_definition ()
+
+$types::grammar_node.is_a_static_multi_definition false
+$sim2c::define_static_multi.is_a_static_multi_definition true
+$sim2c::define_static_multi sim2c::definition
+$sim2c::define_static_multi.is_a_multi_assign_definition true
+$sim2c::define_static_multi.is_a_static_definition true
+$sim2c::define_static_multi.variable_kind_of STATIC_MULTI
+
+###
+# DEFINE DYNAMIC SINGLE
+
+$node::is_a_dynamic_single_definition ()
+
+$types::grammar_node.is_a_dynamic_single_definition false
+$sim2c::define_dynamic_single.is_a_dynamic_single_definition true
+$sim2c::define_dynamic_single sim2c::definition
+$sim2c::define_dynamic_single.is_a_single_assign_definition true
+$sim2c::define_dynamic_single.is_a_dynamic_definition true
+$sim2c::define_dynamic_single.variable_kind_of DYNAMIC_SINGLE
+
+###
+# DEFINE DYNAMIC MULTI
+
+$node::is_a_dynamic_multi_definition ()
+
+$types::grammar_node.is_a_dynamic_multi_definition false
+$sim2c::define_dynamic_multi.is_a_dynamic_multi_definition true
+$sim2c::define_dynamic_multi sim2c::definition
+$sim2c::define_dynamic_multi.is_a_multi_assign_definition true
+$sim2c::define_dynamic_multi.is_a_dynamic_definition true
+$sim2c::define_dynamic_multi.variable_kind_of DYNAMIC_MULTI
+
+###
+# FUNCTION CALL
+
+$node::is_a_function_call ()
+
+$types::grammar_node.is_a_function_call false
+$sim2c::function_call.is_a_function_call true
+$sim2c::function_call types::grammar_node
+$sim2c::function_call.is_a_method_definition false
+$sim2c::function_call.is_an_attribute_access false
+$sim2c::function_call.is_in_infix_notation false
+$sim2c::function_call.is_a_string_template false
+$sim2c::function_call.arguments_of empty_list
+$sim2c::function_call.output_arguments_of empty_list
+
+###
+# EXPRESSION
+# This is a temporary node that will not occur in the generated syntax tree.
+
+$node::is_an_expression ()
+
+$types::grammar_node.is_an_expression false
+$sim2c::expression.is_an_expression true
+$sim2c::expression types::grammar_node
+$sim2c::expression.arguments_of empty_list
+$sim2c::expression.operators_of empty_list
+
+###
+# BACKQUOTED
+
+$node::is_a_backquoted_expression ()
+
+$types::grammar_node.is_a_backquoted_expression false
+$sim2c::backquoted.is_a_backquoted_expression true
+$sim2c::backquoted types::grammar_node
+
+###
+# ATTRIBUTE VALUE PAIR
+
+$node::is_an_attribute_value_pair ()
+
+$types::grammar_node.is_an_attribute_value_pair false
+$sim2c::attribute_value_pair.is_an_attribute_value_pair true
+$sim2c::attribute_value_pair types::grammar_node
+$sim2c::attribute_value_pair.arguments_of empty_list
+
+###
+# ATTRIBUTE FUNCTION PAIR
+
+$node::is_an_attribute_function_pair ()
+
+$types::grammar_node.is_an_attribute_function_pair false
+$sim2c::attribute_function_pair.is_an_attribute_function_pair true
+$sim2c::attribute_function_pair sim2c::attribute_value_pair
+
+###
+# NUMERIC LITERAL
+
+$node::is_a_numeric_literal ()
+
+$types::grammar_node.is_a_numeric_literal false
+$sim2c::numeric_literal.is_a_numeric_literal true
+$sim2c::numeric_literal types::grammar_node
+$sim2c::numeric_literal.is_a_constant true
+
+$sim2c::numeric_literal/mangled_name_of: (self)
+  -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+
+###
+# CHARACTER LITERAL
+
+$node::is_a_character_literal ()
+
+$types::grammar_node.is_a_character_literal false
+$sim2c::character_literal.is_a_character_literal true
+$sim2c::character_literal types::grammar_node
+$sim2c::character_literal.is_a_constant true
+
+###
+# STRING LITERAL
+
+$node::is_a_string_literal ()
+
+$types::grammar_node.is_a_string_literal false
+$sim2c::string_literal.is_a_string_literal true
+$sim2c::string_literal types::grammar_node
+$sim2c::string_literal.is_a_constant true
+$sim2c::string_literal.node::text_of ""
+$sim2c::string_literal.arguments_of empty_list
+
+###
+# MULTI-LINE STRING
+
+$sim2c::multi_line_string sim2c::string_literal
+$sim2c::multi_line_string.node::line_end_specifier_of "@nl;"
+$sim2c::multi_line_string.node::last_line_end_specifier_of "@nl;"
+
+###
+# UNIQUE ITEM
+
+$node::is_a_unique_item_constant ()
+
+$types::grammar_node.is_a_unique_item_constant false
+$sim2c::unique_item.is_a_unique_item_constant true
+$sim2c::unique_item types::grammar_node
+$sim2c::unique_item.is_a_constant true
+
+###
+# POLYMORPHIC FUNCTION
+
+$node::is_a_polymorphic_function_constant ()
+
+$types::grammar_node.is_a_polymorphic_function_constant false
+$sim2c::polymorphic_function.is_a_polymorphic_function_constant true
+$sim2c::polymorphic_function types::grammar_node
+$sim2c::polymorphic_function.is_a_constant true
+$sim2c::polymorphic_function.is_a_setter false
+
+###
+# POLYMORPHIC FUNCTION WITH SETTER
+
+$sim2c::polymorphic_function_with_setter sim2c::polymorphic_function
+$sim2c::polymorphic_function_with_setter.is_a_setter true
+
+###
+# IDENTIFIER
+
+$node::is_an_identifier ()
+
+$types::grammar_node.is_an_identifier false
+$sim2c::identifier.is_an_identifier true
+
+$node::is_a_destination ()
+
+$types::grammar_node.is_a_destination false
+
+$node::is_used_as_a_polymorphic_function ()
+
+$sim2c::identifier.is_used_as_a_polymorphic_function false
+$sim2c::identifier.is_not_used false
+$sim2c::identifier types::grammar_node
+
+$sim2c::identifier/full_name_of: (self)
+  ->
+    string
+      if
+	namespace_of(self).is_defined
+	-> string(namespace_of(self) "::")
+	-> ""
+      name_of(self)
+
+$sim2c::identifier/mangled_name_of: (self)
+  ->
+    string
+      if
+	namespace_of(self).is_defined
+	-> string(namespace_of(self) "__")
+	-> ""
+      name_of(self)
+
+###
+# TEMPORARY
+
+$node::is_a_temporary ()
+
+$types::grammar_node.is_a_temporary false
+$sim2c::temporary.is_a_temporary true
+$sim2c::temporary sim2c::identifier
+
+###
+# OPERATOR SYMBOL
+
+$node::is_an_operator_symbol ()
+
+$types::grammar_node.is_an_operator_symbol false
+$sim2c::operator_symbol.is_an_operator_symbol true
+$sim2c::operator_symbol sim2c::identifier
+
+###
+# C-CODE
+
+$node::is_c_code ()
+
+$types::grammar_node.is_c_code false
+$sim2c::c_code.is_c_code true
+$sim2c::c_code types::grammar_node
+$sim2c::c_code.scope_of "local"
+$sim2c::c_code.arguments_of empty_list
+
+###
+# C-BODY
+
+$node::is_a_c_body ()
+
+$types::grammar_node.is_a_c_body false
+$sim2c::c_body.is_a_c_body true
+$sim2c::c_body sim2c::c_code
+$sim2c::c_body.is_a_constant true
+
+###
+# Test Functions
+
+$sim2c::is_a_parameter: (self) -> parameter_kind_of(self) != NO_PARAMETER

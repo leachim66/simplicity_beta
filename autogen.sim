@@ -1,0 +1,106 @@
+#!/usr/bin/env simrun
+
+  Copyright (C) 2015 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+# update all dependency files, bootstrap information and version numbers
+
+extern $simple "sim2c/simple"
+$WHITESPACE many(' ')
+
+$save_dependencies: (prefix c_files)
+  ewriteln prefix
+  ewriteln c_files
+  $$library_files empty_insert_order_table
+  $$include_files empty_insert_order_table
+  for_each_line c_files: (c_file)
+    $filename c_file .truncate_from. WHITESPACE
+    $platforms c_file .behind. '#' .split. (WHITESPACE, '#')
+    load $c_buf filename
+    do: (-> break)
+      for_each_line c_buf: ($line)
+	cond
+	  -> line == "" pass
+	  -> line .has_prefix. "/// ":
+	    behind &line ' '
+	    trim &line
+	    $command line .truncate_from. WHITESPACE
+	    $library_filename line .behind. WHITESPACE
+	    case command "link":
+	      $$library_platforms library_files(library_filename)
+
+	      # an empty set denotes a library file used for *all* platforms
+
+	      unless library_platforms.is_defined && library_platforms.is_empty:
+		if
+		  platforms.is_empty:
+		    # force dependency for all platforms
+
+		    !library_platforms empty_insert_order_set
+		  :
+		    if library_platforms.is_undefined:
+		      !library_platforms empty_insert_order_set
+		    for_each platforms: (platform)
+		      !library_platforms(platform) true
+		!library_files(library_filename) library_platforms
+	  -> line .has_prefix. "#include ":
+	    $include_filename between(line '<' '>')
+	    $$include_platforms include_files(include_filename)
+
+	    # an empty set denotes an include file used for *all* platforms
+
+	    unless include_platforms.is_defined && include_platforms.is_empty:
+	      if
+		platforms.is_empty:
+		  # force dependency for all platforms
+
+		  !include_platforms empty_insert_order_set
+		:
+		  if include_platforms.is_undefined:
+		    !include_platforms empty_insert_order_set
+		  for_each platforms: (platform)
+		    !include_platforms(platform) true
+	      !include_files(include_filename) include_platforms
+	  break
+  collect_output $LIBRARIES:
+    for_each library_files: (filename platforms)
+      write filename
+      for_each platforms: (platform) write " #" platform
+      writeln
+  collect_output $INCLUDES:
+    for_each include_files: (filename platforms)
+      write filename
+      for_each platforms: (platform) write " #" platform
+      writeln
+  save "@(prefix)LIBRARIES" LIBRARIES
+  save "@(prefix)INCLUDES" INCLUDES
+
+$$libraries empty_list
+for_each_line load("configure"): (line)
+  if
+    line .has_prefix. "BASIC_LIBRARIES=" || line .has_prefix. "MORE_LIBRARIES=":
+      append &libraries between(line '@apos;' '@apos;').split
+do:
+  $C_FILES simple("--list-dependencies" "sim2c/simple.sim")
+  save "sim2c/C_FILES" C_FILES
+  save_dependencies "sim2c/" C_FILES
+for_each libraries: (library)
+  $C_FILES simple("--list-dependencies" library)
+  save_dependencies "@(library)/" C_FILES

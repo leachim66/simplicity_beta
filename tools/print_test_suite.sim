@@ -1,0 +1,71 @@
+#!/usr/bin/env simrun
+
+extern $sim2c "sim2c/simple"
+$PATH "pretty_print_test_suite"
+$$prints 0
+$$successful_prints 0
+$$successful_print_compares 0
+$$reprints 0
+$$successful_reprints 0
+$$successful_reprint_compares 0
+
+$print: (filename) pass
+
+$$original empty_list
+$$printed empty_list
+for_each directory(std::key_value_pair(SORT std::true) PATH): (entry)
+  unless entry.is_a_directory:
+    $filename filename_of(entry)
+    if filename .has_suffix. ".sim":
+      if
+	filename .has_suffix. "_pp.sim":
+	  push &printed filename
+	:
+	  push &original filename
+
+$test:
+  (
+    filenames
+    &total
+    &successful
+    &successful_compares
+  )
+  for_each filenames: (filename)
+    inc &total
+    write "printing " filename " ... "
+    if
+      sim2c($out $err "--pretty-print" string(PATH '/' filename)):
+	inc &successful
+
+	$orig_filename
+	  string(filename .without_suffix. alt(".sim" "_pp.sim") "_pp.sim")
+
+	$orig load(string(PATH '/' orig_filename))
+	if
+	  orig.is_defined:
+	    if
+	      out == orig:
+		inc &successful_compares
+		writeln "printed and compared successfully"
+	      :
+		writeln "printed BUT COMPARISON FAILED"
+	  :
+	    writeln "PRINTED BUT NO PREVIOUS OUTPUT TO COMPARE WITH"
+	    writeln "saving " orig_filename " ..."
+	    save string(PATH '/' orig_filename) out
+      :
+	writeln "FAILED TO PRINT"
+  writeln
+
+test original &prints &successful_prints &successful_print_compares
+test printed &reprints &successful_reprints &successful_reprint_compares
+write "
+  Source files:
+
+  prints:   @(successful_prints) of @(prints) succeeded
+  compares: @(successful_print_compares) of @(successful_prints) succeeded
+
+  Printed files:
+
+  prints:   @(successful_reprints) of @(reprints) succeeded
+  compares: @(successful_reprint_compares) of @(successful_reprints) succeeded

@@ -1,0 +1,38 @@
+#!/usr/bin/env simple
+
+$alpha '@0x3b1;'
+$beta '@0x3b2;'
+$abc "abc"
+
+$str push(alpha.to_string beta)
+$str2 push(beta.to_string alpha)
+write debug_string(str)
+
+writeln append(str abc)
+writeln append(abc str)
+
+writeln abc < str
+writeln str < str
+writeln str < abc
+writeln str < str2
+writeln str2 < str
+
+$mixed append(dup(str 5) dup(abc 3))
+
+writeln mixed
+writeln range(mixed 3 7)
+writeln range(mixed 8 14)
+writeln range(mixed 12 17)
+
+do:
+  $$ustr ""
+  push &ustr '@0x3b1;'
+  push &ustr ' '
+  push &ustr '@0x2260;'
+  push &ustr ' '
+  push &ustr '@0x3a9;'
+  writeln ustr
+
+do:
+  $ustr "@0x3b1; @0x2260; @0x3a9;"
+  writeln ustr

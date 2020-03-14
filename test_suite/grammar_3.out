@@ -1,0 +1,7 @@
+len: 15
+cap:
+  object
+    _grammar_3::a_of:
+      list
+	"blubb"
+	"gulp"

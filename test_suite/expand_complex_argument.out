@@ -1,0 +1,5 @@
+-lm
+-lgmp
+a.o
+b.o
+c.o

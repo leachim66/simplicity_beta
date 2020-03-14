@@ -1,0 +1,10 @@
+To install Simplicity from scratch run the following commands:
+
+./configure
+make
+sudo make install
+
+If you add or remove files from the compiler and/or a standard library
+run the following command when *everything has already been built*:
+
+./autogen.sim

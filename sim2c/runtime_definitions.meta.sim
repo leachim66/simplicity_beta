@@ -1,0 +1,133 @@
+#!/usr/bin/env simrun
+
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+
+<using std>
+<using meta>
+
+<data runtime/common.h>
+<data runtime/linker.h>
+<data runtime/debugger.c>
+<data runtime/memory.c>
+<data runtime/linker.c>
+
+write "
+  @(gpl_header("2020" "Dipl.-Ing. Michael Niederle"))
+  $sim2c::runtime_symbols
+    table
+      "ASM" = "
+        #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+          #define ASM(x) asm(x)
+        #else
+          #define ASM(x)
+        #endif
+      "REGISTER" = "
+        #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+          #define REGISTER register
+        #else
+          #define REGISTER IMPORT
+        #endif
+$WITHIN_PARENTHESES some(not_followed_by(')'), ANY_CHARACTER)
+$WITHIN_BRACES some(not_followed_by('}'), ANY_CHARACTER)
+
+$DECLARATION
+  some
+    sequence
+      not_followed_by(';')
+      alt('(', WITHIN_PARENTHESES, ')' '{', WITHIN_BRACES, '}' ANY_CHARACTER)
+
+$is_an_id_character: (chr) -> chr.is_a_letter || chr.is_a_digit || chr == '_'
+
+$extract_name: (str)
+  $n length_of(str)
+  $$s 1
+  while -> s < n && not(str(s).is_an_id_character): inc &s
+  $$e s
+  while -> e < n && str(e+1).is_an_id_character: inc &e
+  -> range(str s e)
+
+$SIMDATAPATH environment("SIMDATAPATH")
+
+$simdatapaths
+  if
+    SIMDATAPATH.is_defined
+    -> split(SIMDATAPATH ':')
+    -> list("/usr/local/share/simplicity" "/usr/share/simplicity")
+
+$$runtime_path undefined
+do: (-> break)
+  for_each simdatapaths: ($path)
+    append &path "/runtime"
+    if file_exists(path):
+      !runtime_path path
+      break
+unless runtime_path.is_defined: Error "Cannot locate runtime source code files!"
+for_each directory(runtime_path): (entry)
+  if filename_of(entry) .has_suffix. alt(".c" ".h"):
+    load $buf fullname_of(entry)
+    do:
+      $$p buf
+      do: (-> break)
+	forever:
+	  from &p "
+
+	    typedef@
+	  if p.is_empty break
+	  match $len p DECLARATION
+	  if len.is_undefined: Error "Invalid typedef!"
+	  $declaration range(p 2 len)
+
+	  $name
+	    extract_name
+	      truncate_until
+		truncate_from(truncate_until(declaration '}' -1) '(' -1)
+		' '
+		-1
+
+	  write "
+	    @
+	        "@(name)" = "
+	  writeln indented(6 declaration) ";"
+	  range &p len+1 -1
+    do:
+      $$p buf
+      do: (-> break)
+	forever:
+	  behind &p "
+
+	    EXPORT@
+	  if p.is_empty break
+	  $declaration (range(p 2 -1) .truncate_from. alt(';' '{' '=')).trim
+
+	  $name
+	    extract_name
+	      truncate_until
+		trim(truncate_from(truncate_from(declaration "ASM" -1) '(' -1))
+		' '
+		-1
+
+	  write "
+	    @
+	        "@(name)" = "
+	  writeln indented(6 declaration) ";"
+	  range &p length_of(declaration)+1 -1

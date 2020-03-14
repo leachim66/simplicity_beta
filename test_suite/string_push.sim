@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+$$buf ""
+
+repeat 10:
+  from_to 'a' 'z': (chr)
+    push &buf chr
+
+writeln buf

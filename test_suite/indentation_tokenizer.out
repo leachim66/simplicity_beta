@@ -1,0 +1,22 @@
+==========(1)
+#<INDENT>
+   This is a<NEWLINE>
+multiline<NEWLINE>
+    remark<OUTDENT>
+<NEWLINE>
+<NEWLINE>
+==========(6)
+$p: (x y -> return)<INDENT>
+write "-<INDENT>
+     a multiline<NEWLINE>
+string constant<OUTDENT>
+<NEWLINE>
+if<INDENT>
+x > y:<INDENT>
+return 2*x+y<OUTDENT>
+<NEWLINE>
+:<INDENT>
+return 3*x-y<OUTDENT>
+<OUTDENT>
+<OUTDENT>
+<NEWLINE>

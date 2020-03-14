@@ -1,0 +1,18 @@
+#!/usr/bin/env simple
+
+$x_of (!)
+$y_of (!)
+$z_of (!)
+
+$set: (obj set_attr val)
+  -> set_attr(obj val)
+
+$$a types::object
+
+set &a x_of 2
+set &a y_of 3
+z_of &a 5
+
+writeln x_of(a)
+writeln y_of(a)
+writeln z_of(a)

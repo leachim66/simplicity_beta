@@ -1,0 +1,12 @@
+#!/usr/bin/env simple
+
+$enumerate: (-> caller)
+  $$results empty_list
+  from_to 1 parameter_count_of(caller): (i) push &results i
+  -> results*
+
+enumerate $a $b $c
+dump `a `b `c
+
+enumerate.(4+1) $numbers*
+dump `numbers

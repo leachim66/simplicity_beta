@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+$$z 25
+%%std::x 45
+%y "a"
+do:
+  %%x 74
+  %y "b"
+  writeln x
+  do:
+    %y "c"
+    !x 89
+  writeln x y
+writeln x
+writeln z

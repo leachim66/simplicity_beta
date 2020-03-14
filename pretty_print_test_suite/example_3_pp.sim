@@ -1,0 +1,21 @@
+p
+  types::object
+    .m_w_of initial_m_w
+    .m_z_of initial_m_z
+    .text_of "
+      This is a multi-line
+      text, that can't be displayed on a single line because it's too long!
+    /next:
+      (
+	&self
+	n
+      )
+      $$m_w m_w_of(self)
+      $$m_z m_z_of(self)
+      !m_z 36969*(m_z & 0xffff)+(m_z >> 16) & 0xffffffff
+      !m_w 18000*(m_w & 0xffff)+(m_w >> 16) & 0xffffffff
+      !self.m_w_of m_w
+      !self.m_z_of m_z
+      -> (n*(((m_z & 0xffff) << 16)+m_w & 0xffffffff) .div. 0x100000000)+1
+    /: (myself^)
+      writeln "My name is " first_name_of(myself) " " family_name_of(myself) "."

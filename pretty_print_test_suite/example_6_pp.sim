@@ -1,0 +1,2 @@
+$std::numerically_less ()
+  # check whether the first argument is numerically less than the second argument

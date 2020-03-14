@@ -1,0 +1,11 @@
+#!/usr/bin/env simple
+
+<using std>
+<using test>
+
+$test::namespaced_attribute_of (!)
+$test::namespaced_name_of (!)
+
+$namespaced_attribute_of.namespaced_name_of "namespaced_attribute_of"
+
+writeln namespaced_name_of(namespaced_attribute_of)

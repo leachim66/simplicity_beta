@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+$p:
+  (
+    x
+  )
+
+  writeln x
+
+p 47

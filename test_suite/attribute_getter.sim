@@ -1,0 +1,13 @@
+#!/usr/bin/env simple
+
+$x ()
+$y ()
+
+$obj
+  types::object
+    .x 47
+    .y 11
+
+$getter y
+
+writeln getter(obj)

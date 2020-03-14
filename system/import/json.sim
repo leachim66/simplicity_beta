@@ -1,0 +1,160 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$separator_of (!)
+
+###
+# KEY_AND_VALUE
+
+$types::key_and_value types::grammar_object
+
+$types::key_and_value/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $$outer_node grammar::current_node
+  $$len undefined
+  do:
+    $key_len grammar::match(key_of(self) stream)
+    unless key_len.is_defined: return undefined
+    $sep_len grammar::match(separator_of(self) range(stream key_len+1 -1))
+    unless sep_len.is_defined: return undefined
+    %%grammar::current_node types::grammar_node
+    $val_len grammar::match(value_of(self) range(stream key_len+sep_len+1 -1))
+    unless val_len.is_defined: return undefined
+    !len key_len+sep_len+val_len
+    !outer_node(range(stream 1 key_len)) grammar::current_node
+  !grammar::current_node outer_node
+  -> len
+
+$std::key_and_value: (key separator value)
+  -> types::key_and_value(.key_of key .separator_of separator .value_of value)
+
+$STRING_CHARACTER alt("\@quot;" ANY_CHARACTER)
+$STRING_CHARACTERS some(not_followed_by('@quot;'), STRING_CHARACTER)
+
+$STRING
+  sequence
+    '@quot;'
+    capture(STRING_CHARACTERS)
+    '@quot;'
+    modify_node
+      : (capture)
+	$$str ""
+	$$s 1
+	$$i 1
+	$n length_of(capture)
+	while -> i <= n:
+	  if
+	    capture(i) == '\':
+	      append &str range(capture s i-1)
+	      inc &i
+	      if i <= n:
+		$chr capture(i)
+		inc &i
+		case
+		  chr
+		  'b':
+		    push &str '@bs;'
+		  'f':
+		    push &str '@ff;'
+		  'n':
+		    push &str '@nl;'
+		  'r':
+		    push &str '@cr;'
+		  't':
+		    push &str '@ht;'
+		  'u':
+		    if i+3 <= n:
+		      $code range(capture i i+3).to_integer
+		      if code.is_defined: push &str character(code)
+		      plus &i 4
+		  :
+		    push &str chr
+	      !s i
+	    :
+	      inc &i
+	-> append(str range(capture s -1))
+
+$FLOAT
+  sequence
+    capture
+      sequence
+	optional('-')
+	alt('0' '1' .. '9', some(DIGIT))
+	'.', many(DIGIT)
+	optional(alt('e' 'E'), optional(alt('+' '-')), many(DIGIT))
+    modify_node
+      : (node)
+	-> node.to_real
+
+$INTEGER
+  sequence
+    capture(sequence(optional('-') alt('0' '1' .. '9', some(DIGIT))))
+    modify_node
+      : (node)
+	-> node.to_integer
+
+$NUMBER alt(FLOAT INTEGER)
+
+$TRUE
+  sequence
+    "true"
+    modify_node
+      : (&node)
+	!node true
+
+$FALSE
+  sequence
+    "false"
+    modify_node
+      : (&node)
+	!node false
+
+$UNDEFINED
+  sequence
+    "null"
+    modify_node
+      : (&node)
+	!node undefined
+
+$VALUE alt(STRING COMPOUND ARRAY NUMBER TRUE FALSE UNDEFINED)
+$ITEM '@quot;', key_and_value(STRING_CHARACTERS "@quot;:" VALUE)
+$ARRAY_ITEM multi_span(VALUE)
+
+$ARRAY
+  sequence
+    '['
+    set_node(empty_list)
+    optional(ARRAY_ITEM, some(',', ARRAY_ITEM))
+    ']'
+
+$COMPOUND
+  sequence
+    '{'
+    set_node(empty_insert_order_table)
+    optional(ITEM, some(',', ITEM))
+    '}'
+
+$std::from_json: (text) -> match(text COMPOUND $_len)

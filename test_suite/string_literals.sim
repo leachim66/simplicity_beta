@@ -1,0 +1,32 @@
+#!/usr/bin/env simple
+
+write "
+  start
+
+write "
+
+
+  two heading and trailing empty lines
+  @;
+  @;
+
+write "
+  {
+    (
+      [
+
+
+write "
+  @
+	several indented
+	lines
+
+write "
+  @;
+
+	and indented line with two heading empty lines
+
+write "
+      ]
+    )
+  }

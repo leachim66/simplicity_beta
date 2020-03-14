@@ -1,0 +1,14 @@
+#!/usr/bin/env simple
+
+$$map multi_dimensional_table(types::key_order_table types::key_order_table)
+
+!map(3 7) 'x'
+!map(9 1) 'y'
+!map(2 6) 'z'
+!map(3 5) 'u'
+
+dump `map(1 1)
+dump `map(2 6)
+dump `map(2 7)
+
+for_each map: (x y value) writeln x ", " y ": " value

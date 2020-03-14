@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$numbers list(1 3 5)
+
+$square: (x) -> x*x
+
+writeln fold(0 plus map(numbers square))

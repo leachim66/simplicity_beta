@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+$$persons list("Albert" "Berta" "Clara" "Dorian")
+
+$some_persons range(persons 2 -2)
+dump `some_persons
+
+$no_persons range(persons 3 -3)
+dump `no_persons

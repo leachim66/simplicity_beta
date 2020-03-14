@@ -1,0 +1,473 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::from_to:
+  #
+    a loop iterating over a sequence of values
+
+    The starting value is incremented by one after each invocation of *body*.
+
+    The type of the first and last value need not be integers but can be
+    of arbitrary types that support adding the integer value 1.
+
+    The loop terminates as soon as the current value is greater than *last*.
+    (The *body* will only be called for values that are less than or equal to
+    *last*.)
+
+    If *first* is greater than *last* then the loop body will *not* be called at
+    all!
+
+    If there are two or more iterations and *body2* is defined it will be called
+    between every two calls to *body*.
+
+    While *body* is called with a single argument (the current value) *body2*
+    is called without any arguments.
+
+    Topics: Control Flow, Loops
+
+    See Also: from_to_by, from_down_to, from_down_to_by, repeat, forever, while
+
+    Example:
+
+    from_to 1 10: (i)
+      writeln i " x " i " = " i*i
+
+    Output:
+
+    1 x 1 = 1
+    2 x 2 = 4
+    3 x 3 = 9
+    4 x 4 = 16
+    5 x 5 = 25
+    6 x 6 = 36
+    7 x 7 = 49
+    8 x 8 = 64
+    9 x 9 = 81
+    10 x 10 = 100
+
+    Example:
+
+    from_to 'a' 'f'
+      : (letter)
+        write letter
+      :
+        write ':'
+    writeln
+
+    Output:
+
+    a:b:c:d:e:f
+  (
+    first # the value to use for the first invocation of *body*
+    last # the value to use for the last invocation of *body*
+    body # the statement sequence to call for each value
+    body2? # a statement sequence to call between two value-calls
+  )
+  if
+    body2.is_defined:
+      if first <= last: body first
+      from_to_2 first+1 last body body2
+    :
+      from_to_1 first last body
+
+$from_to_1: (s e body)
+  if s <= e:
+    body s
+    from_to_1 s+1 e body
+
+$from_to_2: (s e body body2)
+  if s <= e:
+    body2
+    body s
+    from_to_2 s+1 e body body2
+
+$std::from_to_by:
+  #
+    a loop iterating over a sequence of values
+
+    The starting value is incremented by *step* after each invocation of *body*.
+
+    The types of *first*, *last* and *step* should be compatible to each other
+    and support addition (<plus>) as well as comparison (<less>).
+
+    The loop terminates as soon as the current value is greater than *last*.
+    (The *body* will only be called for values that are less than or equal to
+    *last*.)
+
+    If *first* is greater than *last* then the loop body will *not* be called at
+    all!
+
+    If there are two or more iterations and *body2* is defined it will be called
+    between every two calls to *body*.
+
+    While *body* is called with a single argument (the current value) *body2*
+    is called without any arguments.
+
+    Topics: Control Flow, Loops
+
+    See Also: from_to, from_down_to, from_down_to_by, repeat, forever, while
+
+    Example:
+
+    from_to_by 1 10 2: (i)
+      writeln i " x " i " = " i*i
+
+    Output:
+
+    1 x 1 = 1
+    3 x 3 = 9
+    5 x 5 = 25
+    7 x 7 = 49
+    9 x 9 = 81
+
+    Example:
+
+    from_to_by 'a' 'h' 2
+      : (letter)
+        write letter
+      :
+        write ':'
+    writeln
+
+    Output:
+
+    a:c:e:g
+  (
+    first # the value to use for the first invocation of *body*
+    last # the value to use for the last invocation of *body*
+    step # the increment to add to the current value after each iteration
+    body # the statement sequence to call for each value
+    body2? # a statement sequence to call between two value-calls
+  )
+  if
+    body2.is_defined:
+      if first <= last: body first
+      from_to_by_2 first+step last step body body2
+    :
+      from_to_by_1 first last step body
+
+$from_to_by_1: (s e step body)
+  if s <= e:
+    body s
+    from_to_by_1 s+step e step body
+
+$from_to_by_2: (s e step body body2)
+  if s <= e:
+    body2
+    body s
+    from_to_by_2 s+step e step body body2
+
+$std::from_down_to:
+  #
+    a loop iterating over a sequence of values
+
+    The starting value is decremented by one after each invocation of *body*.
+
+    The type of the first and last value need not be integers but can be
+    of arbitrary types that support subtracting the integer value 1.
+
+    The loop terminates as soon as the current value is less than *last*.
+    (The *body* will only be called for values that are greater than or equal to
+    *last*.)
+
+    If *first* is less than *last* then the loop body will *not* be called at
+    all!
+
+    If there are two or more iterations and *body2* is defined it will be called
+    between every two calls to *body*.
+
+    While *body* is called with a single argument (the current value) *body2*
+    is called without any arguments.
+
+    Topics: Control Flow, Loops
+
+    See Also: from_down_to_by, from_to, from_to_by, repeat, forever, while
+
+    Example:
+
+    writeln "Countdown starts"
+    from_down_to 10 1: (seconds_left)
+      writeln seconds_left
+    writeln "Lift off!"
+
+    Output:
+
+    Countdown starts
+    10
+    9
+    8
+    7
+    6
+    5
+    4
+    3
+    2
+    1
+    Lift off!
+  (
+    first # the value to use for the first invocation of *body*
+    last # the value to use for the last invocation of *body*
+    body # the statement sequence to call for each value
+    body2? # a statement sequence to call between two value-calls
+  )
+  if
+    body2.is_defined:
+      if first >= last: body first
+      from_down_to_2 first+1 last body body2
+    :
+      from_down_to_1 first last body
+
+$from_down_to_1: (s e body)
+  if s >= e:
+    body s
+    from_down_to_1 s-1 e body
+
+$from_down_to_2: (s e body body2)
+  if s >= e:
+    body2
+    body s
+    from_to_2 s-1 e body body2
+
+$std::from_down_to_by:
+  #
+    a loop iterating over a sequence of values
+
+    The starting value is decremented by *step* after each invocation of *body*.
+
+    The types of *first*, *last* and *step* should be compatible to each other
+    and support subtraction (<minus>) as well as comparison (<less>).
+
+    The loop terminates as soon as the current value is less than *last*.
+    (The *body* will only be called for values that are greater than or equal to
+    *last*.)
+
+    If *first* is less than *last* then the loop body will *not* be called at
+    all!
+
+    If there are two or more iterations and *body2* is defined it will be called
+    between every two calls to *body*.
+
+    While *body* is called with a single argument (the current value) *body2*
+    is called without any arguments.
+
+    Topics: Control Flow, Loops
+
+    See Also: from_down_to, from_to, from_to_by, repeat, forever, while
+
+    Example:
+
+    from_down_to_by 2010 1900 10: (year)
+    writeln year "..." year+9
+
+    Output:
+
+    2010...2019
+    2000...2009
+    1990...1999
+    1980...1989
+    1970...1979
+    1960...1969
+    1950...1959
+    1940...1949
+    1930...1939
+    1920...1929
+    1910...1919
+    1900...1909
+  (
+    first # the value to use for the first invocation of *body*
+    last # the value to use for the last invocation of *body*
+    step # the increment to subtract from the current value after each iteration
+    body # the statement sequence to call for each value
+    body2? # a statement sequence to call between two value-calls
+  )
+  if
+    body2.is_defined:
+      if first >= last: body first
+      from_down_to_by_2 first+step last step body body2
+    :
+      from_down_to_by_1 first last step body
+
+$from_down_to_by_1: (s e step body)
+  if s >= e:
+    body s
+    from_down_to_by_1 s-step e step body
+
+$from_down_to_by_2: (s e step body body2)
+  if s >= e:
+    body2
+    body s
+    from_down_to_by_2 s-step e step body body2
+
+$std::repeat:
+  #
+    invoke a statement sequence for a specific number of times
+
+    The statement sequence *body* is invoked exactly *n* times.
+
+    *n* must be a numeric value. If it is less than 1 than *body* will not be
+    called at all. *n* might also be a negative number (in which case *body*
+    will not be called) or a noninteger number (in which case *n* will be
+    rounded down to the next integer).
+
+    Topics: Control Flow, Loops
+
+    See Also: forever, from_to, while
+
+    Example:
+
+    repeat 10: write '*'
+    writeln
+
+    Output:
+
+    **********
+  (
+    n # how often to invoke *body*
+    body # the statement sequence to invoke
+  )
+  if n >= 1:
+    body
+    repeat n-1 body
+
+$std::forever:
+  #
+    repeat a statement sequence forever
+
+    The statement sequence *body* ist repeated for an infinite number of times.
+    The only way to leave this loop is to call a continuation to an outer
+    destination from within the statement sequence.
+
+    Topics: Control Flow, Loops
+
+    See Also: repeat, from_to, while
+
+    Example:
+
+    $$i 1
+    do: (-> break)
+      forever:
+        writeln "starting iteration @(i)"
+        if i == 5 break # exit from the middle of the loop
+        writeln "ending iteration @(i)"
+        !i i+1
+    writeln "exited from loop"
+
+    Output:
+
+    starting iteration 1
+    ending iteration 1
+    starting iteration 2
+    ending iteration 2
+    starting iteration 3
+    ending iteration 3
+    starting iteration 4
+    ending iteration 4
+    starting iteration 5
+    exited from loop
+  (
+    body # the statement sequence to repeat endlessly
+  )
+  body
+  forever body
+
+$std::while:
+  #
+    repeat a statement sequence while a condition evaluates to true
+
+    Before each entry to the loop's statement sequence the condition is
+    checked.
+
+    If the condition evaluates to <true> then the statement sequence will be
+    invoked and the whole process is repeated.
+
+    If the condition evaluates to <false> then the statement sequence will not
+    be invoked and the loop is terminated.
+
+    If the condition evaluates to anything else then an error will be raised!
+
+    This is a pre-checked loop. If the condition does not evaluate to <true>
+    for at least one time then the statement sequence is not invoked at all.
+
+    Technical Details: The single argument *cond_and_body* is called before
+    each iteration of the loop. Its first result is the condition that is
+    checked for truthness and its second result is the statement sequence to
+    execute.
+
+    Topics: Control Flow, Loops
+
+    See Also: do_while, do_until, repeat, forever, from_to
+
+    Example:
+
+    $$i 1
+    while -> i < 10:
+      writeln i
+      !i i+1
+
+    Output:
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+  (
+    cond_and_body # condition and statement sequence share a single argument!
+  )
+  cond_and_body $cond $body
+  if cond:
+    body
+    while cond_and_body
+
+$std::do_while:
+  #
+    repeat a statement sequence as long as a condition evaluates to true
+
+    This is a post-checked loop. Even if the condition does not evaluate to
+    <true> for at least one time then the statement sequence is invoked once.
+
+    Topics: Control Flow, Loops
+
+    See Also: while, do_until, from_to, repeat, forever
+  (
+    body # the statement sequence to execute within the loop
+  )
+  if body(): do_while body
+
+$std::do_until:
+  #
+    repeat a statement sequence as long as a condition does not evaluate to true
+
+    This is a post-checked loop. Even if the first test of the condition
+    evaluates to <true> the statement sequence is invoked once.
+
+    Topics: Control Flow, Loops
+
+    See Also: do_while, while, from_to, repeat, forever
+  (
+    body # the statement sequence to execute within the loop
+  )
+  unless body(): do_until body

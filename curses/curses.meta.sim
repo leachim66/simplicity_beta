@@ -1,0 +1,115 @@
+#!/usr/bin/env simrun
+
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+
+<using std>
+<using meta>
+
+<data ./ncurses.h>
+
+extern $cpp "cpp"
+extern $gcc "gcc"
+
+# don't forget to set TERM to "xterm-256color" or "linux"
+
+write "
+  @(lgpl_header("2015" "Dipl.-Ing. Michael Niederle"))
+  <include locale.h>
+  <include ncurses.h>
+
+  <link ncursesw>
+$WHITESPACE many(alt(' ' '@ht;'))
+do:
+  %wrapper_namespace "curses"
+  %known_c_types set("void" "bool" "char" "int" "long" "WINDOW")
+  writeln
+  write wrapper_pointer_type("WINDOW")
+  for_each_line load("ncurses.h"): ($line)
+    truncate_from &line "/*"
+    trim &line
+    if line .has_prefix. "extern NCURSES_EXPORT(":
+      replace_all
+	&line
+	"chtype" = "long"
+	"NCURSES_ATTR_T" = "long"
+	"NCURSES_PAIRS_T" = "int"
+	"NCURSES_COLOR_T" = "int"
+	"short" = "int"
+	"const" = ""
+      unless
+	||
+	  line .contains. "void *"
+	  line .contains. "void*"
+	  line .contains. "chtype *"
+	  line .contains. "int *"
+	  line .contains. "int*"
+	  line .contains. "long *"
+	:
+	  $type between(line '(' ')').trim
+	  $name_and_arguments (line .behind. ')').trim
+	  unless name_and_arguments .has_prefix. "NCURSES_SP_NAME(":
+	    $declaration string(type " " name_and_arguments)
+	    parse_c_function_declaration $cap declaration
+	    if cap.is_defined:
+	      $name name_of(cap)
+	      if name(1) != '_' && name != "trace":
+		writeln
+		write
+		  wrapper_function
+		    cap
+		    if
+		      name == "initscr"
+		      -> "
+			setlocale(LC_ALL, "");
+		      -> undefined
+  $$curses_defines_c ""
+  for_each_line cpp("-dM" "ncurses.h"): (line)
+    if line .has_prefix. "#define":
+      $name between(line WHITESPACE WHITESPACE)
+      unless name .contains. '(':
+	if name .has_prefix. alt("A_" "COLOR_" "KEY_"):
+	  if
+	    name == "KEY_F0":
+	      from_to 1 12: (i)
+		write_to &curses_defines_c "
+		  printf("$curses::KEY_F@(i) 0x%x\n", KEY_F(@(i)));
+	    :
+	      write_to &curses_defines_c "
+		printf("$curses::@(name) 0x%x\n", @(name));
+  write "
+    $curses::COLORS {
+      RETURN_SINGLE_RESULT(from_int(COLORS))
+    }
+
+    $curses::COLOR_PAIRS {
+      RETURN_SINGLE_RESULT(from_int(COLOR_PAIRS))
+    }
+  save "/tmp/curses_defines.c" "
+    #include <stdio.h>
+    #include <ncurses.h>
+    int main() {
+    @(curses_defines_c)@nl;}
+  gcc "/tmp/curses_defines.c" "-o" "/tmp/curses_defines"
+  writeln
+  write call("/tmp/curses_defines")

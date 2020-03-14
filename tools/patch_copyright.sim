@@ -1,0 +1,76 @@
+#!/usr/bin/env simrun
+
+$GPL "
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$LGPL "
+  Copyright (C) 2015 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$patch: (path license)
+  for_each directory(path): (entry)
+    if
+      entry.is_a_directory:
+	patch fullname_of(entry) license
+      :
+	if filename_of(entry) .has_suffix. ".sim":
+	  load $buf fullname_of(entry)
+	  cond
+	    -> buf .has_prefix. "#@nl;":
+	      collect_output $new_buf:
+		writeln '#'
+		write indented(2 license)
+		write range(buf 2 -1) .from. ("@nl;", NON_SPACE_CHARACTER)
+	      if buf != new_buf:
+		ewrite "
+		  updating @(fullname_of(entry)) ...
+		save fullname_of(entry) new_buf
+	    -> buf .has_prefix. "#!":
+	      collect_output $new_buf:
+		writeln "
+		  #!/usr/bin/env simrun
+		write indented(2 license)
+		write range(buf 2 -1) .from. ("@nl;", NON_SPACE_CHARACTER)
+	      if buf != new_buf:
+		ewrite "
+		  updating @(fullname_of(entry)) ...
+		save fullname_of(entry) new_buf
+
+patch "sim2c" GPL
+patch "system" LGPL

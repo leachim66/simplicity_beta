@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+writeln a+b-c+d-e+f
+writeln a+b-(c+d)-(e+f)
+writeln x && y && z
+writeln (x && y) && z
+writeln x+(y+z)
+writeln x+y+z

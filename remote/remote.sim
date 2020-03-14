@@ -1,0 +1,214 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<using std>
+<using console>
+
+# Supported Operating Systems
+
+$DEBIAN .
+$FEDORA .
+$GENTOO .
+$MINT .
+$REDHAT .
+$UBUNTU .
+$LINUX .
+$FREEBSD .
+$CYGWIN .
+
+# Supported Hardware
+
+$X86_32 .
+$X86_64 .
+$ARM_32 .
+$ARM_64 .
+$GENERIC .
+
+# Basic Remote Commands
+
+%remote::sh:
+  #
+    Executes the specified command on the current remote server.
+  (
+    _args* # the command and its arguments
+  )
+  display_error_message "
+    Attempt to execute a remote shell command outside a valid context!
+
+%remote::remote_user:
+  #
+    Returns the name of the remote user.
+
+  remote::sh "echo $USER"
+
+%remote::remote_shell:
+  #
+    Returns the name of the remote shell.
+
+  remote::sh "echo $SHELL"
+
+%remote::remote_operating_system:
+  #
+    Returns the name and version of the remote operating system;
+    e.g. "Debian Linux 8.6".
+
+  display_error_message "
+    Attempt to retrieve the name of a remote operating system outside
+    a valid context!
+
+%remote::remote_hardware_architecture:
+  #
+    Returns the hardware architecture the remote operating system is running on;
+    e.g. "x86-64".
+
+  display_error_message "
+    Attempt to retrieve the name of a remote operating system outside
+    a valid context!
+
+$display_error_message: (args*) writeln RED trim(string(args*)) NORMAL
+
+$delete_escape_sequences: (&text)
+  replace_all &text "@esc;[", DIGIT, DIGIT, 'm' = ""
+
+$os_to_string: (os)
+  case
+    os
+    DEBIAN
+    -> "Debian Linux"
+    FEDORA
+    -> "Fedora Linux"
+    GENTOO
+    -> "Gentoo Linux"
+    MINT
+    -> "Linux Mint"
+    REDHAT
+    -> "RedHat Linux"
+    UBUNTU
+    -> "Ubuntu Linux"
+    LINUX
+    -> "Linux"
+    FREEBSD
+    -> "FreeBSD"
+    CYGWIN
+    -> "CygWin"
+    -> "unknown"
+
+$hw_to_string: (os)
+  case
+    os
+    X86_32
+    -> "x86-32"
+    X86_64
+    -> "x86-64"
+    ARM_32
+    -> "ARM-32"
+    ARM_64
+    -> "ARM-64"
+    -> "unknown"
+
+$remote::do_on_remote_server:
+  #
+    Opens an ssh-connection to the specified remote server to execute
+    commands remotely. After the last command has been executed the connection
+    is closed again.
+  (
+    server # the name of the remote server
+    body # the commands to execute on the remote server
+  )
+  if
+    open_ssh_connection($conn server):
+      %remote::sh:
+	(
+	  args*
+	  -> return
+	)
+	case
+	  parameter_count_of(return)
+	  2:
+	    call_command $$out $ret conn args*
+	    trim &out
+	    delete_escape_sequences &out
+	    return out ret
+	  1:
+	    call_command $$out conn args*
+	    trim &out
+	    delete_escape_sequences &out
+	    return out
+	  :
+	    call_command conn args*
+
+      %remote::remote_operating_system -> os_to_string(os)
+
+      %remote::remote_hardware_architecture -> hw_to_string(hw)
+
+      $os_name remote::sh("uname").to_lower_case
+      $hw_name remote::sh("uname -m").to_lower_case
+
+      # detect operating system in more detail
+
+      $$os GENERIC
+      cond
+	-> os_name .contains. "linux":
+	  do: (-> break)
+	    if
+	      remote::sh("ls /etc/*-release" $entries) == 0:
+		for_each_line entries: (filename)
+		  $info remote::sh("cat" filename).to_lower_case
+		  cond
+		    -> info .contains. "debian":
+		      !os DEBIAN
+		      break
+		    -> info .contains. "fedora":
+		      !os FEDORA
+		      break
+		    -> info .contains. "gentoo":
+		      !os GENTOO
+		      break
+	      :
+		if remote::sh("stat /etc/debian_version" $_dummy) == 0:
+		  !os DEBIAN
+	-> os_name .contains. "cygwin": !os CYGWIN
+	-> os_name .contains. "freebsd": !os FREEBSD
+
+      # detect hardware in more detail
+
+      $$hw GENERIC
+      cond
+	-> hw_name .contains. "x86" || hw_name .contains. "amd":
+	  if
+	    hw_name .contains. "64":
+	      !hw X86_64
+	    :
+	      !hw X86_32
+	-> hw_name .has_prefix. ("i", DIGIT, "86"): !hw X86_32
+	-> hw_name .contains. "arm":
+	  $$version os_name .behind. "v"
+	  if
+	    parse_integer(&version) > 7:
+	      !hw ARM_64
+	    :
+	      !hw ARM_32
+      body
+      close conn
+    :
+      display_error_message "
+	Unable to connect to remote host "@(server)@quot;!

@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+for_each filenames: (filename a_very_long_name another_very_looooooooooong_name)
+  writeln "  " filename ": " matches(filename rule).to_string
+
+for_each filenames: (filename a_very_long_name another_very_looooooooooooong_name)
+  writeln "  " filename ": " matches(filename rule).to_string
+
+for_each filenames
+  : (filename a_very_long_name another_very_long_name and_another_looooong_name)
+    writeln "  " filename ": " matches(filename rule).to_string
+
+for_each filenames
+  : (filename a_very_long_name another_very_long_name and_another_looooooong_name)
+    writeln "  " filename ": " matches(filename rule).to_string

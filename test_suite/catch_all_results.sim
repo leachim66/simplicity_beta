@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+$sum_diff: (a b)
+  -> a+b a-b
+
+do:
+  sum_diff $results* 3 9
+  writeln length_of(results)
+  dump `results

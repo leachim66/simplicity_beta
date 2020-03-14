@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$str "abd dsfacafar ef"
+
+$split: ($text separator = many(' '))
+  $$items empty_list
+  do_while:
+    grammar::search $pos $len separator text
+    if pos.is_defined:
+      push &items range(text 1 pos-1)
+      range &text pos+len -1
+    -> pos.is_defined
+  if length_of(text) > 0: push &items text
+  -> items
+
+for_each split(str): (txt) writeln txt
+for_each split(str 'a'): (txt) writeln txt

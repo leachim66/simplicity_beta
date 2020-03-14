@@ -1,0 +1,4 @@
+locale.h
+ncurses.h
+stdint.h
+stdlib.h

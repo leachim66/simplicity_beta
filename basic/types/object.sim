@@ -1,0 +1,103 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include string.h>
+
+{
+  <kind type>
+  <name types::object>
+  <node SIMPLE_NODE>
+
+  RUNTIME_ERROR("Attempt to call an object as a function!")
+}
+
+$types::object.is_defined true
+$types::object.is_undefined false
+
+$types::object/default_value: (self _default) -> self
+
+{
+  int has_prefix(const char *str, const char *prefix)
+  {
+    size_t prefix_len = strlen(prefix);
+    size_t str_len = strlen(str);
+    return str_len < prefix_len ? false : strncmp(prefix, str, prefix_len) == 0;
+  }
+}
+
+{
+  <kind function>
+
+  long types::object/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    if (max_depth == 0) {
+      return debug_print(indent, buf, "<object>");
+    } else {
+      int i, n, len;
+      n = debug_print_head(&indent, &buf, "object");
+      const char *contents_indent = indent_to_string(indent);
+      int count = POLY_COUNT > POLY_WITH_SETTER_COUNT ? POLY_COUNT : POLY_WITH_SETTER_COUNT;
+      for (i = 0; i < count; ++i) {
+        NODE *attr = get_attribute(node, i);
+        NODE *attr_addr = (NODE *)((long)attr-1);
+        if (
+          (long)attr & 1 &&
+          TYPEOF(attr_addr) != TYPEOF(UNDEFINED) &&
+          strncmp(polymorphic_function_names[i], "std::is_", 8) != 0 &&
+          strcmp(polymorphic_function_names[i], "_basic__exceptions::retain_id_of") != 0 &&
+          strcmp(polymorphic_function_names[i], "_basic__types__tree::table_of") != 0 &&
+          //!has_prefix(polymorphic_function_names[i], "_basic__") &&
+          //!has_prefix(polymorphic_function_names[i], "_system__") &&
+          (
+            attr_addr == VAR(std::true) ||
+            strstr(polymorphic_function_names[i], "::is_") == NULL
+          ) &&
+          strcmp(polymorphic_function_names[i], "std::parameter_count_of") != 0
+        ) {
+          n += print(&buf, contents_indent);
+          n += print(&buf, "%s:", polymorphic_function_names[i]);
+          len = debug_string(attr_addr, -indent-2, max_depth-1, buf);
+          if (buf) buf += len;
+          n += len;
+        }
+      }
+      return n;
+    }
+  }
+}
+
+$types::object/serialize: (self _indent?) -> self.to_string
+
+$types::object/equal_type_and_value: (a b) -> equal(a b)
+
+$std::current_address_of
+  #
+    a debug function
+
+    Returns the machine specific and very short lived (due to garbage
+    collection) memory address of its argument.
+
+    Parameter obj: the object of which to get the memory address
+
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_long((long)ARGUMENTS(0)))
+  }

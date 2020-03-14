@@ -1,0 +1,1752 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include netdb.h>
+<include stddef.h>
+<include string.h>
+<include dirent.h>
+<include errno.h>
+<include fcntl.h>
+<include math.h>
+<include unistd.h>
+<include arpa/inet.h>
+<include sys/ioctl.h>
+<include sys/stat.h>
+<include sys/socket.h>
+<include sys/types.h>
+<include sys/wait.h>
+
+$std::MODE . # mkdir
+$std::PARENTS . # mkdir, save
+
+extern $wget "wget"
+
+$std::ioctl ()
+$std::get_terminal_size ()
+$std::device_of (!)
+  #
+    returns the device on which a file is stored
+
+    Used in <types::stat> to store the device number of the device on which the
+    file is stored.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat
+$std::inode_of (!)
+  #
+    returns the inode no. of a file
+
+    Used in <types::stat> to store the inode number of the file.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat
+$std::mode_of (!)
+  #
+    returns the mode of a file
+
+    Used in <types::stat> to store the kind of the file
+    (regular file, directory, ...).
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat,
+    std::UNKNOWN, std::FIFO, std::CHARACTER_DEVICE, std::DIRECTORY,
+    std::BLOCK_DEVICE, std::REGULAR_FILE, std::LINK, std::SOCKET
+$std::link_count_of (!)
+  #
+    returns the link count of a file
+
+    Used in <types::stat> to store the number of filenames that refer to the
+    file.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat
+$std::user_id_of (!)
+  #
+    returns the user id of a file
+
+    Used in <types::stat> to store the id of the owner of the specified file.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat
+$std::group_id_of (!)
+  #
+    returns the group id of a file
+
+    Used in <types::stat> to store the id of the group that is associated with the specified file.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat
+$std::size_of (!)
+  #
+    returns the size (of a file)
+
+    Used in <types::stat> to store the size of the specified file in bytes.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat, sector_count_of
+$std::block_size_of (!)
+  #
+    returns the block size (of a file)
+
+    Used in <types::stat> to store the block size of the file.
+
+    Each file consists of one or more blocks. This function returns
+    the size of one such block.
+
+    **The size of a block can differ from the size of a sector!**
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat
+$std::sector_count_of (!)
+  #
+    returns the sector count of a file
+
+    Used in <types::stat> to store the number of sectors occupied by the file.
+
+    **The size of a sector can differ from the size of a block!**
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat, std::size_of
+$std::access_time_of (!)
+  #
+    returns the access time of a file
+
+    Used in <types::stat> to store the access time of the file.
+
+    A timestamp <types::date_and_time> that tells the date and time of the
+    least recent access (reading or writing) to the specified file.
+
+    **Not all file systems update this value!**
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat,
+    std::modification_time_of, std::status_change_time_of
+$std::modification_time_of (!)
+  #
+    returns the modification time of a file
+
+    Used in <types::stat> to store the modification time of the file.
+
+    A timestamp <types::date_and_time> that tells the date and time of the
+    least recent write access to the specified file.
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat, std::access_time_of, std::status_change_time_of
+$std::status_change_time_of (!)
+  #
+    returns the change time of a file
+
+    Used in <types::stat> to store the change time of the file.
+
+
+    A timestamp <types::date_and_time> that tells the date and time of the
+    least recent change to the file's metadata (e.g. owner, access rights, etc.).
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat, std::access_time_of, std::modification_time_of
+$std::creation_time_of (!)
+  #
+    returns the creation time of a file
+
+    Used in <types::stat> to store the creation time of the file.
+
+    A timestamp <types::date_and_time> that tells when the file was originally
+    created.
+
+    **Usually not supported by POSIX-filesystems!**
+
+    parameter stat: the status-object to be queried
+
+    see also: std::stat, std::modification_time_of
+$std::filename_of (!)
+  #
+    returns the name of a file
+$std::file_type_of (!)
+$std::pathname_of (!)
+$std::fullname_of (!)
+$std::is_a_directory ()
+$std::is_a_regular_file ()
+$std::is_a_link ()
+$std::listen () # listen for new incoming network connections
+$std::accept () # accept an incoming network connection
+$std::connect () # connect to a specific network address and port
+
+#
+  family (identical to protocol)
+
+  AF_INET 2
+  AF_INET6 10
+
+#
+  type
+
+  SOCK_STREAM 1
+  SOCK_DGRAM 2
+
+#
+  protocol
+
+  IPPROTO_ICMP  1 # Internet Control Message Protocol
+  IPPROTO_IGMP  2 # Internet Group Management Protocol
+  IPPROTO_IPIP  4 # IPIP tunnels
+  IPPROTO_TCP   6 # Transmission Control Protocol
+  IPPROTO_EGP   8 # Exterior Gateway Protocol
+  IPPROTO_PUP  12 # PUP protocol
+  IPPROTO_UDP  17 # User Datagram Protocol
+  IPPROTO_IPV6 41 # IPv6 header
+
+$std::O_RDONLY 0o00
+$std::O_WRONLY 0o01
+$std::O_RDWR 0o02
+$std::O_CREAT 0o100
+$std::O_EXCL 0o200
+$std::O_NOCTTY 0o400
+$std::O_TRUNC 0o1000
+$std::O_APPEND 0o2000
+$std::O_NONBLOCK 0o4000
+$std::O_ASYNC 0o20000
+$std::UNKNOWN 0
+$std::FIFO 1 # pipe
+$std::CHARACTER_DEVICE 2
+$std::DIRECTORY 4
+$std::BLOCK_DEVICE 6
+$std::REGULAR_FILE 8
+$std::LINK 10
+$std::SOCKET 12
+$std::EPERM 1 # Operation not permitted
+$std::ENOENT 2 # No such file or directory
+$std::ESRCH 3 # No such process
+$std::EINTR 4 # Interrupted system call
+$std::EIO 5 # I/O error
+$std::ENXIO 6 # No such device or address
+$std::E2BIG 7 # Argument list too long
+$std::ENOEXEC 8 # Exec format error
+$std::EBADF 9 # Bad file number
+$std::ECHILD 10 # No child processes
+$std::EAGAIN 11 # Try again
+$std::ENOMEM 12 # Out of memory
+$std::EACCES 13 # Permission denied
+$std::EFAULT 14 # Bad address
+$std::ENOTBLK 15 # Block device required
+$std::EBUSY 16 # Device or resource busy
+$std::EEXIST 17 # File exists
+$std::EXDEV 18 # Cross-device link
+$std::ENODEV 19 # No such device
+$std::ENOTDIR 20 # Not a directory
+$std::EISDIR 21 # Is a directory
+$std::EINVAL 22 # Invalid argument
+$std::ENFILE 23 # File table overflow
+$std::EMFILE 24 # Too many open files
+$std::ENOTTY 25 # Not a typewriter
+$std::ETXTBSY 26 # Text file busy
+$std::EFBIG 27 # File too large
+$std::ENOSPC 28 # No space left on device
+$std::ESPIPE 29 # Illegal seek
+$std::EROFS 30 # Read-only file system
+$std::EMLINK 31 # Too many links
+$std::EPIPE 32 # Broken pipe
+$std::EDOM 33 # Math argument out of domain of func
+$std::ERANGE 34 # Math result not representable
+
+$std::raise_error: (cmd args*)
+  $$info ""
+  for_each args: (arg) write_to &info "@(key_of(arg)) = @(value_of(arg))@nl;"
+  raise "@(cmd) failed: @(std::strerror(std::errno()))!@nl;@(info)"
+
+$std::check_error: (err args*) if err < 0 raise_error args*
+
+$std::errno
+  #
+    Returns the POSIX error code for the last executed POSIX function.
+
+    If no error occured (the function call was successful) then the integer
+    value 0 is returned.
+
+    see also: std::strerror
+
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_int(errno));
+  }
+
+$std::strerror
+  #
+    Converts a POSIX error code into a human readable error message text.
+
+    parameter err: the error code
+
+    see also: std::errno
+
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_c_string(strerror(to_int(ARGUMENTS(0)))))
+  }
+
+{
+  <kind struct>
+  <name STAT_BUFFER>
+
+  void *new_location;
+  struct stat stat;
+}
+
+{
+  <kind function>
+
+  STAT_BUFFER *collect_stat_buffer(STAT_BUFFER *buf) {
+    if (!IS_COLLECTED(buf)) return buf;
+    void *new_location = buf->new_location;
+    if (new_location) return new_location;
+    STAT_BUFFER *new_buf = copy(buf, sizeof(STAT_BUFFER));
+    new_buf->new_location = NULL;
+    buf->new_location = new_buf;
+    return new_buf;
+  }
+}
+
+{
+  #if defined(__APPLE__) && defined(__MACH__)
+    #define st_atim st_atimespec
+    #define st_ctim st_ctimespec
+    #define st_mtim st_mtimespec
+  #endif
+}
+
+{
+  <kind node>
+  <name STAT>
+
+  STAT_BUFFER *buf;
+}
+
+{
+  <kind type>
+  <name types::stat>
+  <node STAT>
+  <base types::object>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call a file status object as a function!")
+}
+
+{
+  <kind function>
+
+  long types::stat/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<stat buffer - inode %ld>",
+      from_long(node->stat.buf->stat.st_ino));
+  }
+}
+
+{
+  extern NODE *create__types__date_and_time(int64_t seconds, int32_t nanoseconds);
+}
+
+$std::stat
+  #
+    Retrieves status information about the specified file.
+
+    If a file with the specified name exists a status-object <types::stat> is
+    returned which can be queried using functions like <std::size_of>.
+
+    If no such file exists then the value <std::undefined> is returned.
+
+    see also:
+    std::device_of, std::inode_of, std::mode_of, std::link_count_of,
+    std::user_id_of, std::group_id_of,
+    std::size_of, std::block_size_of, std::sector_count_of,
+    std::access_time_of, std::modification_time_of,
+    std::status_change_time_of,
+    std::is_a_directory, std::is_a_regular_file, std::is_a_link
+
+  {
+    CHECK_ARGUMENTS(1)
+    char *filename = to_c_string(ARGUMENTS(0));
+    STAT_BUFFER *buf = allocate(sizeof(STAT_BUFFER));
+    int err = stat(filename, &buf->stat);
+    deallocate_memory(filename);
+    if (err != 0) RETURN_UNDEFINED
+    buf->new_location = NULL;
+    RETURN_SINGLE_RESULT(create__types__stat(buf))
+  }
+
+$std::file_exists
+  #
+    Checks whether the specified file exists. The type of the file is *not*
+    checked - it could as well be a directory or a special file.
+
+    parameter filename: the name of the file to check
+
+  {
+    CHECK_ARGUMENTS(1)
+    char *filename = to_c_string(ARGUMENTS(0));
+    struct stat buf;
+    int err = stat(filename, &buf);
+    deallocate_memory(filename);
+    RETURN_BOOLEAN(err == 0)
+  }
+
+$types::stat/device_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->stat.buf->stat.st_dev))
+  }
+
+$types::stat/inode_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->stat.buf->stat.st_ino))
+  }
+
+$types::stat/mode_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->stat.buf->stat.st_mode))
+  }
+
+$types::stat/link_count_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->stat.buf->stat.st_nlink))
+  }
+
+$types::stat/user_id_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->stat.buf->stat.st_uid))
+  }
+
+$types::stat/group_id_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->stat.buf->stat.st_gid))
+  }
+
+$types::stat/size_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->stat.buf->stat.st_size))
+  }
+
+$types::stat/block_size_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->stat.buf->stat.st_blksize))
+  }
+
+$types::stat/sector_count_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->stat.buf->stat.st_blocks))
+  }
+
+$types::stat/access_time_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(
+      create__types__date_and_time(
+        ARGUMENTS(0)->stat.buf->stat.st_atim.tv_sec,
+        ARGUMENTS(0)->stat.buf->stat.st_atim.tv_nsec))
+  }
+
+$types::stat/modification_time_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(
+      create__types__date_and_time(
+        ARGUMENTS(0)->stat.buf->stat.st_mtim.tv_sec,
+        ARGUMENTS(0)->stat.buf->stat.st_mtim.tv_nsec))
+  }
+
+$types::stat/status_change_time_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(
+      create__types__date_and_time(
+        ARGUMENTS(0)->stat.buf->stat.st_ctim.tv_sec,
+        ARGUMENTS(0)->stat.buf->stat.st_ctim.tv_nsec))
+  }
+
+$types::stat/is_a_directory
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_bool(S_ISDIR(ARGUMENTS(0)->stat.buf->stat.st_mode)))
+  }
+
+$types::stat/is_a_regular_file
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_bool(S_ISREG(ARGUMENTS(0)->stat.buf->stat.st_mode)))
+  }
+
+$types::stat/is_a_link
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_bool(S_ISLNK(ARGUMENTS(0)->stat.buf->stat.st_mode)))
+  }
+
+{
+  <kind node>
+  <name FILE_DESCRIPTOR>
+
+  int fd;
+}
+
+{
+  <kind type>
+  <name types::file_descriptor>
+  <node FILE_DESCRIPTOR>
+  <base types::object>
+  <scope extern>
+  <argument -1>
+
+  RUNTIME_ERROR("Attempt to call a file_descriptor as a function!")
+}
+
+{
+  <kind function>
+
+  long types::file_descriptor/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<file_descriptor %d>", node->file_descriptor.fd);
+  }
+}
+
+{
+  <kind object>
+  <name std::STDIN_FILENO>
+  <type types::file_descriptor>
+  <argument STDIN_FILENO>
+}
+
+{
+  <kind object>
+  <name std::STDOUT_FILENO>
+  <type types::file_descriptor>
+  <argument STDOUT_FILENO>
+}
+
+{
+  <kind object>
+  <name std::STDERR_FILENO>
+  <type types::file_descriptor>
+  <argument STDERR_FILENO>
+}
+
+$std::create_file_descriptor
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(create__types__file_descriptor(to_int(ARGUMENTS(0))))
+  }
+
+$types::file_descriptor/equal
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *right = ARGUMENTS(1);
+    if (TYPEOF(right) != TYPE(types::file_descriptor)) RETURN_FALSE
+    RETURN_SINGLE_RESULT(
+      from_bool(ARGUMENTS(0)->file_descriptor.fd == right->file_descriptor.fd))
+  }
+
+$types::file_descriptor/less
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *right = ARGUMENTS(1);
+    if (TYPEOF(right) != TYPE(types::file_descriptor)) RETURN_TRUE
+    RETURN_SINGLE_RESULT(
+      from_bool(ARGUMENTS(0)->file_descriptor.fd < right->file_descriptor.fd))
+  }
+
+$types::file_descriptor/hash
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->file_descriptor.fd+0xfdec))
+  }
+
+$posix_open
+  {
+    MIN_ARGUMENTS(2)
+    MAX_ARGUMENTS(3)
+    int fd;
+    int flags = to_int(ARGUMENTS(1));
+    mode_t mode = 0644;
+    if (ARGUMENT_COUNT == 3) mode = to_uint32(ARGUMENTS(2));
+    EVENT(posix_open)
+      char *filename = to_c_string(ARGUMENTS(0));
+      do {
+        fd = open(filename, flags, mode);
+      } while (fd == -1 && errno == EINTR);
+      deallocate_memory(filename);
+    INFO
+      INT(fd)
+      INT(flags)
+      INT(mode)
+    DATA
+      INT(fd)
+    END
+    if (fd == -1) RETURN_UNDEFINED
+    RETURN_SINGLE_RESULT(create__types__file_descriptor(fd))
+  }
+
+$std::open_file_for_reading:
+  #
+    Opens a file in read-only mode.
+
+    On success a valid file descriptor is returned.
+
+    On failure <std::undefined> is returned.
+
+    This function relies on posix-functions if available. So there will
+    be no buffering.
+
+    see also: std::open_file_for_writing,
+              std::open_file_for_reading_and_writing,std::close, std::read
+
+    example:
+
+    open_file_for_reading $fd "my_file.txt"
+    read_from fd $text 1024
+    close fd
+  (
+    filename # the name of the file to open
+  )
+  posix_open filename std::O_RDONLY
+
+$std::open_file_for_writing:
+  #
+    Opens a file in write-only mode.
+
+    On success a valid file descriptor is returned.
+
+    On failure <std::undefined> is returned.
+
+    This function relies on posix-functions if available. So there will
+    be no buffering.
+
+    see also: std::open_file_for_reading,
+              std::open_file_for_reading_and_writingstd::close, std::read
+
+    example:
+
+    open_file_for_writing $fd "my_file.txt"
+    write_to fd "Hello, world!"
+    close fd
+  (
+    filename # the name of the file to open
+  )
+  posix_open filename std::O_WRONLY
+
+$std::open_file_for_reading_and_writing:
+  #
+    Opens a file in read-write mode.
+
+    On success a valid file descriptor is returned.
+
+    On failure <std::undefined> is returned.
+
+    This function relies on posix-functions if available. So there will
+    be no buffering.
+
+    see also: std::open_file_for_reading, std::open_file_for_writing
+              std::close, std::read, std::write
+
+    example:
+
+    open $fd "my_file.dat"
+    read fd $first_page 4096
+    seek fd 0
+    write fd new_page
+    close fd
+  (
+    filename # the name of the file to open
+  )
+  posix_open filename std::O_RDWR
+
+$std::create_file: (filename)
+  posix_open filename std::O_CREAT | std::O_TRUNC | std::O_RDWR
+
+$types::file_descriptor/close
+  {
+    CHECK_ARGUMENTS(1)
+    int err;
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    ACTION(posix_close)
+      do {
+        struct stat statbuf;
+        fstat(fd, &statbuf);
+        if (S_ISSOCK(statbuf.st_mode)) {
+          shutdown(fd, SHUT_RDWR);
+        }
+        err = close(fd);
+      } while (err == -1 && errno == EINTR);
+    INFO
+      INT(fd)
+    DATA
+      INT(err, 0)
+    END
+    if (result_count == 0) {
+      if (err != 0) RUNTIME_ERROR("Failed to close file!")
+      RETURN_NOTHING
+    }
+    RETURN_BOOLEAN(err == 0)
+  }
+
+$types::file_descriptor/read_some_bytes_from
+  {
+    CHECK_ARGUMENTS(2)
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    long size = to_long(ARGUMENTS(1));
+    uint8_t *buf = allocate_memory(size);
+    long bytes_read;
+    EVENT(read_some_bytes_from)
+      do {
+        bytes_read = read(fd, buf, size);
+      } while (bytes_read == -1 && errno == EINTR);
+    DATA
+      MEMORY(buf, bytes_read)
+    END
+    NODE *result = UNDEFINED;
+    if (bytes_read >= 0) result = from_latin_1_string((const char *)buf, bytes_read);
+    deallocate_memory(buf);
+    RETURN_SINGLE_RESULT(result)
+  }
+
+$types::file_descriptor/read_from:
+  #
+    Reads the specified number of bytes from the specified file.
+
+    This call will not return until the specified number of bytes has been read
+    or the end of the file is reached.
+
+    If no length ist specified then as many bytes as readily available will
+    be read - but at least one byte will be read.
+
+    There might be an upper limit for the number of readily available bytes
+    depending on the implementation! This limit must not be less than 1 MiB.
+
+    example:
+
+    read $buf fd 1024 # waits until 1024 bytes are available
+    read $line fd # reads as many bytes as are readily available
+  (
+    fd # the descriptor of the file to read from
+    $amount? # the number ob bytes to read
+    -> return
+  )
+  if amount.is_defined:
+    $$buf ""
+    while -> amount > 0:
+      wait_to_read_from fd
+      read_some_bytes_from $some_bytes fd amount
+      $len length_of(some_bytes)
+      if len == 0: return buf
+      append &buf some_bytes
+      minus &amount len
+    return buf
+  wait_to_read_from fd
+  read_some_bytes_from fd 0x1000000 # 16 MiB limit
+
+$types::file_descriptor/write_some_bytes_to
+  {
+    CHECK_ARGUMENTS(2)
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    long size;
+    uint8_t *buf = to_octets(ARGUMENTS(1), &size);
+    long bytes_written;
+    ACTION(write_some_bytes_to)
+      do {
+        bytes_written = write(fd, buf, size);
+      } while (bytes_written == -1 && errno == EINTR);
+    INFO
+      INT(fd)
+      MEMORY(buf, bytes_written)
+    DATA
+      LONG(bytes_written, size)
+    END
+    deallocate_memory(buf);
+    RETURN_SINGLE_RESULT(from_long(bytes_written))
+  }
+
+$types::file_descriptor/write_to:
+  (
+    fd
+    args*
+    -> return
+  )
+  $$data string(args*)
+  while -> length_of(data) > 0:
+    wait_to_write_to fd
+    write_some_bytes_to fd data $bytes_written
+    if bytes_written < 0:
+      if parameter_count_of(return) == 0: raise "Failed to write to file!"
+      return false
+    range &data bytes_written+1 -1
+  if parameter_count_of(return) == 1: return true
+
+$std::atomic_write_to:
+  (
+    fd
+    args*
+    -> return
+  )
+  $$data string(args*)
+  while -> length_of(data) > 0:
+    write_some_bytes_to fd data $bytes_written
+    if bytes_written < 0:
+      if parameter_count_of(return) == 0: raise "Failed to write to file!"
+      return false
+    range &data bytes_written+1 -1
+  if parameter_count_of(return) == 1: return true
+
+$std::load_file:
+  #
+    Loads and returns the contents of the specified file.
+
+    On failure <std::undefined> is returned.
+
+    see also: std::save_file,
+              std::open_file_for_reading,
+              std::read_from,
+              std::close
+
+    example:
+
+    load $settings "my_settings.conf"
+  (
+    filename # the name of the file to load
+  )
+  open_file_for_reading $fd filename
+  if
+    fd.is_defined:
+      $$buf ""
+      do: (-> break)
+	forever:
+	  read_from fd $some_bytes
+	  if length_of(some_bytes) == 0 break
+	  append &buf some_bytes
+      close fd
+      -> buf
+    -> undefined
+
+$std::save_file:
+  #
+    Saves the specified data to a newly created file.
+
+    Unless a result is requested an exception is raised on failure.
+
+    If a result is requested it will be <std::true> for success and
+    <std::false> for failure.
+
+    see also: std::load_file,
+              std::open_file_for_reading_and_writing,
+              std::write_to,
+              std::close
+
+    example:
+
+    save "my_settings.conf" settings
+  (
+    filename # the name of file to be created
+    data # the data to save
+    -> return
+  )
+  create_file $fd filename
+  if
+    fd.is_defined:
+      if
+	parameter_count_of(return) == 0:
+	  write_to fd data
+	  close fd
+	:
+	  return write_to(fd data) && close(fd)
+    :
+      if parameter_count_of(return) == 0:
+	raise "
+	  Failed to save file "@(filename)@quot;@
+      return false
+
+$types::file_descriptor/flush
+  {
+    CHECK_ARGUMENTS(1)
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    if (result_count == 1) {
+      int err;
+      ACTION(flush)
+        err = fsync(fd);
+      DATA
+        INT(err, 0)
+      END
+      RETURN_SINGLE_RESULT(from_int(err))
+    } else {
+      fsync(fd);
+      RETURN_NOTHING
+    }
+  }
+
+$ioctl_value
+  {
+    CHECK_ARGUMENTS(3)
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    long request = to_long(ARGUMENTS(1));
+    long value = to_long(ARGUMENTS(2));
+    int err;
+    ACTION(ioctl_value)
+      err = ioctl(fd, request, value);
+    DATA
+      INT(err, 0)
+    END
+    RETURN_SINGLE_RESULT(from_int(err))
+  }
+
+$types::file_descriptor/std::ioctl:
+  (
+    fd
+    request
+    value = 0
+    -> return
+  )
+  if
+    parameter_count_of(return) == 0:
+      if ioctl_value(fd request value) != 0:
+	raise "
+	  IOCTL failed!
+    :
+      return ioctl_value(fd request value)
+
+$types::file_descriptor/std::get_terminal_size
+  {
+    CHECK_ARGUMENTS(1)
+
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    int width, height;
+    struct winsize winsize;
+
+    EVENT(get_terminal_size)
+      ioctl(fd, TIOCGWINSZ, &winsize);
+      width = winsize.ws_col;
+      height = winsize.ws_row;
+    DATA
+      INT(width)
+      INT(height)
+    END
+    NODE *width_node = from_int(width);
+    NODE *height_node = from_int(height);
+    START_ARGUMENTS(2);
+    ARGUMENTS(0) = width_node;
+    ARGUMENTS(1) = height_node;
+    RETURN
+  }
+
+$posix_unlink
+  {
+    CHECK_ARGUMENTS(1)
+    char *filename = to_c_string(ARGUMENTS(0));
+    int err;
+    ACTION(unlink)
+      err = unlink(filename);
+    DATA
+      INT(err, 0)
+    END
+    deallocate_memory(filename);
+    RETURN_SINGLE_RESULT(from_int(err))
+  }
+
+$std::delete_file:
+  (
+    filename
+    -> return
+  )
+  if
+    parameter_count_of(return) == 0:
+      if posix_unlink(filename) != 0:
+	raise "
+	  Failed to delete file "@(filename)@quot;!
+    :
+      return posix_unlink(filename) == 0
+
+$wait_for_io_ready
+  {
+    CHECK_ARGUMENTS(4)
+    NODE *read_descriptors = ARGUMENTS(0);
+    NODE *write_descriptors = ARGUMENTS(1);
+    NODE *except_descriptors = ARGUMENTS(2);
+    double timeout = 0.0;
+    struct timespec timeout_data;
+    struct timespec *timeout_ptr = NULL;
+
+    if (TYPEOF(ARGUMENTS(3)) != TYPEOF(undefined)) {
+      timeout = to_double(ARGUMENTS(3));
+      timeout_data.tv_sec = timeout;
+      timeout_data.tv_nsec = 1000000000*(timeout-floor(timeout));
+      timeout_ptr = &timeout_data;
+    }
+    retry:;
+    int i, n;
+    fd_set read_set, write_set, except_set;
+    int last_fd = 0;
+    FD_ZERO(&read_set);
+    FD_ZERO(&write_set);
+    FD_ZERO(&except_set);
+    n = length_of(read_descriptors);
+    for (i = 0; i < n; ++i) {
+      NODE *descriptor = get_item_of(read_descriptors, i);
+      if (TYPEOF(descriptor) != TYPE(types::file_descriptor)) INVALID_ARGUMENTS_ERROR
+      int fd = descriptor->file_descriptor.fd;
+      FD_SET(fd, &read_set);
+      if (fd > last_fd) last_fd = fd;
+    }
+    n = length_of(write_descriptors);
+    for (i = 0; i < n; ++i) {
+      NODE *descriptor = get_item_of(write_descriptors, i);
+      if (TYPEOF(descriptor) != TYPE(types::file_descriptor)) INVALID_ARGUMENTS_ERROR
+      int fd = descriptor->file_descriptor.fd;
+      FD_SET(fd, &write_set);
+      if (fd > last_fd) last_fd = fd;
+    }
+    n = length_of(except_descriptors);
+    for (i = 0; i < n; ++i) {
+      NODE *descriptor = get_item_of(except_descriptors, i);
+      if (TYPEOF(descriptor) != TYPE(types::file_descriptor)) INVALID_ARGUMENTS_ERROR
+      int fd = descriptor->file_descriptor.fd;
+      FD_SET(fd, &except_set);
+      if (fd > last_fd) last_fd = fd;
+    }
+    int ret;
+    int chld_changed_state = false;
+    int win_changed_size = false;
+    int read_count = 0;
+    int write_count = 0;
+    int except_count = 0;
+    int descriptor_count = 0;
+    int *descriptors = NULL;
+    EVENT(wait_for_io)
+      sigset_t set;
+      sigprocmask(SIG_BLOCK, NULL, &set);
+      sigdelset(&set, SIGCHLD);
+      sigdelset(&set, SIGWINCH);
+      ret = pselect(last_fd+1, &read_set, &write_set, &except_set, timeout_ptr, &set);
+      if (ret < 0 && errno == EINTR) {
+        if (child_changed_state) {
+          child_changed_state = false;
+          chld_changed_state = true;
+        } else if (window_changed_size) {
+          window_changed_size = false;
+          win_changed_size = true;
+        } else {
+          goto retry;
+        }
+      }
+      if (ret > 0) { // success
+        int fd;
+        for (fd = 0; fd <= last_fd; ++fd) {
+          if (FD_ISSET(fd, &read_set)) ++read_count;
+          if (FD_ISSET(fd, &write_set)) ++write_count;
+          if (FD_ISSET(fd, &except_set)) ++except_count;
+        }
+        descriptor_count = read_count+write_count+except_count;
+        descriptors = allocate_memory(descriptor_count*sizeof(int));
+        n = 0;
+        if (read_count > 0) {
+          for (fd = 0; fd <= last_fd; ++fd) {
+            if (FD_ISSET(fd, &read_set)) {
+              descriptors[n++] = fd;
+            }
+          }
+        }
+        if (write_count > 0) {
+          for (fd = 0; fd <= last_fd; ++fd) {
+            if (FD_ISSET(fd, &write_set)) {
+              // set file descriptor to nonblocking
+              int flags = fcntl(fd, F_GETFL, 0);
+              if (flags == -1) flags = 0;
+              fcntl(fd, F_SETFL, flags|O_NONBLOCK);
+              descriptors[n++] = fd;
+            }
+          }
+        }
+        if (except_count > 0) {
+          for (fd = 0; fd <= last_fd; ++fd) {
+            if (FD_ISSET(fd, &except_set)) {
+              descriptors[n++] = fd;
+            }
+          }
+        }
+      }
+    DATA
+      INT(ret)
+      INT(chld_changed_state)
+      INT(win_changed_size)
+      INT(read_count)
+      INT(write_count)
+      INT(except_count)
+      INT_ARRAY(descriptors, descriptor_count)
+    END
+    if (chld_changed_state || win_changed_size) {
+      NODE *child_change_state_node = from_bool(chld_changed_state);
+      NODE *window_changed_size_node = from_bool(win_changed_size);
+      START_ARGUMENTS(6);
+      ARGUMENTS(0) = TRUE;
+      ARGUMENTS(1) = child_change_state_node;
+      ARGUMENTS(2) = window_changed_size_node;
+      ARGUMENTS(3) = ZERO;
+      ARGUMENTS(4) = ZERO;
+      ARGUMENTS(5) = ZERO;
+      RETURN
+    } else if (ret > 0) { // success
+      int i;
+      NODE *input_count = from_int(read_count);
+      NODE *output_count = from_int(write_count);
+      NODE *exception_count = from_int(except_count);
+      NODE **descriptor_nodes = allocate(descriptor_count*sizeof(NODE *));
+      for (i = 0; i < descriptor_count; ++i) {
+        descriptor_nodes[i] = create__types__file_descriptor(descriptors[i]);
+      }
+      deallocate_memory(descriptors);
+      START_ARGUMENTS(6+descriptor_count);
+      ARGUMENTS(0) = TRUE;
+      ARGUMENTS(1) = FALSE;
+      ARGUMENTS(2) = FALSE;
+      ARGUMENTS(3) = input_count;
+      ARGUMENTS(4) = output_count;
+      ARGUMENTS(5) = exception_count;
+      for (i = 0; i < descriptor_count; ++i) {
+        ARGUMENTS(6+i) = descriptor_nodes[i];
+      }
+      RETURN
+    } else if (ret == 0) { // timeout occured
+      START_ARGUMENTS(6);
+      ARGUMENTS(0) = FALSE;
+      ARGUMENTS(1) = FALSE;
+      ARGUMENTS(2) = FALSE;
+      ARGUMENTS(3) = ZERO;
+      ARGUMENTS(4) = ZERO;
+      ARGUMENTS(5) = ZERO;
+      RETURN
+    } else { // error
+      RUNTIME_ERROR("Unexpected I/O-error (%s) during select!", strerror(errno))
+    }
+  }
+
+$std::get_pid
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_int(getpid()))
+  }
+
+$std::wait_pid
+  #
+    ARGUMENTS:
+      pid     # the pid of the process (or -1) for all children
+      no_hang # if true the call returns immediately
+
+  {
+    CHECK_ARGUMENTS(2)
+    int pid = to_int(ARGUMENTS(0));
+    int no_hang = to_bool(ARGUMENTS(1));
+    int status;
+    int ret = waitpid(pid, &status, no_hang ? WNOHANG : 0);
+    NODE *child_status = from_int(WEXITSTATUS(status));
+    NODE *child_pid = from_int(ret);
+    START_ARGUMENTS(2);
+    ARGUMENTS(0) = child_status;
+    ARGUMENTS(1) = child_pid;
+    RETURN
+  }
+
+$std::wait_for_io
+  : (read_descriptors write_descriptors except_descriptors timeout?)
+    wait_for_io_ready
+      read_descriptors
+      write_descriptors
+      except_descriptors
+      timeout
+      $success
+      $child_changed_state
+      $window_changed_size
+      $input_count
+      $output_count
+      $_exception_count
+      $descriptors*
+    ->
+      child_changed_state
+      window_changed_size
+      range(descriptors 1 input_count)
+      range(descriptors input_count+1 input_count+output_count)
+      range(descriptors input_count+output_count+1 -1)
+      success
+
+$std::current_path
+  {
+    CHECK_ARGUMENTS(0)
+    char *buf = NULL;
+    char *ret;
+    long size = 0x80;
+    do {
+      size += size;
+      buf = reallocate_memory(buf, size);
+      ret = getcwd(buf, size);
+    } while (!ret && errno == ERANGE && size < 0x1000);
+    NODE *result;
+    if (ret) {
+      result = from_c_string(buf);
+    } else {
+      result = UNDEFINED;
+    }
+    deallocate_memory(buf);
+    RETURN_SINGLE_RESULT(result)
+  }
+
+$std::chdir
+  {
+    CHECK_ARGUMENTS(1)
+    char *path = to_c_string(ARGUMENTS(0));
+    int err;
+    ACTION(chdir)
+      err = chdir(path);
+    DATA
+      INT(err, 0)
+    END
+    deallocate_memory(path);
+    RETURN_SINGLE_RESULT(from_int(err))
+  }
+
+$std::change_directory: (path)
+  if std::chdir(path) != 0:
+    Error "
+      Failed to change current directory to "@(path)@quot;!@
+
+$std::clib_mkdir
+  {
+    CHECK_ARGUMENTS(2)
+    char *path = to_c_string(ARGUMENTS(0));
+    int mode = to_int(ARGUMENTS(1));
+    int err;
+    ACTION(mkdir)
+      err = mkdir(path, mode);
+    DATA
+      INT(err, 0)
+    END
+    deallocate_memory(path);
+    RETURN_SINGLE_RESULT(from_int(err))
+  }
+
+$std::mkdir: (options* $path)
+  extract_options
+    options
+    MODE = 0o755
+    $mode
+    PARENTS = false
+    $do_create_parent_folders
+
+  $fail:
+    raise_error
+      "mkdir"
+      "MODE" = string("0o" oct(mode))
+      "PARENTS" = do_create_parent_folders
+      "path" = path
+
+  $create_parent_folders: ($partial_path)
+    before &partial_path '/' -1
+    if partial_path != "":
+      create_parent_folders partial_path
+      if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
+
+  without_suffix &path '/'
+  if do_create_parent_folders: create_parent_folders path
+  if clib_mkdir(path mode) < 0:
+    unless do_create_parent_folders && errno() == EEXIST fail
+
+$std::create_directory:
+  (
+    path
+    mode = 0o755
+  )
+  if clib_mkdir(path mode) != 0:
+    Error "
+      Failed to create directory "@(path)@quot;!@
+
+$std::fullname: ($pathname)
+  unless pathname .has_prefix. '/':
+    !pathname string(current_path() "/" pathname)
+  unless pathname .has_suffix. '/': push &pathname '/'
+  replace_all &pathname many("//") = "/"
+  replace_all &pathname "/./" = "/"
+  do: (-> break)
+    forever:
+      $orig_pathname pathname
+      replace_all &pathname "/", some(not_followed_by('/')), '/', "../" = "/"
+      if pathname == orig_pathname break
+  unless pathname == "/": range &pathname 1 -2
+  -> pathname
+
+{
+  <kind node>
+  <name DIRECTORY_HANDLE>
+
+  DIR *dir;
+}
+
+{
+  <kind type>
+  <name types::DIR>
+  <node DIRECTORY_HANDLE>
+  <base types::object>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call a DIR object as a function!")
+}
+
+{
+  <kind function>
+
+  long types::DIR/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<directory>");
+  }
+}
+
+{
+  <kind struct>
+  <name DIRENT_DATA>
+
+  void *new_location;
+  ino_t d_ino; // inode number
+  unsigned char d_type; //type of file; not supported by all filesystem types
+  char d_name[0]; // filename
+}
+
+{
+  <kind function>
+
+  DIRENT_DATA *collect_dirent_data(DIRENT_DATA *buf) {
+    if (!IS_COLLECTED(buf)) return buf;
+    void *new_location = buf->new_location;
+    if (new_location) return new_location;
+    DIRENT_DATA *new_buf =
+      copy(
+        buf,
+        ALLOCATION_SIZE(offsetof(DIRENT_DATA, d_name)+strlen(buf->d_name)+1));
+    new_buf->new_location = NULL;
+    buf->new_location = new_buf;
+    return new_buf;
+  }
+}
+
+{
+  <kind node>
+  <name DIRENT>
+
+  DIRENT_DATA *dirent;
+}
+
+{
+  <kind type>
+  <name types::dirent>
+  <node DIRENT>
+  <base types::object>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call a dirent object as a function!")
+}
+
+{
+  <kind function>
+
+  long types::dirent/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<directory entry \"%s\">",
+      node->dirent.dirent->d_name);
+  }
+}
+
+$std::opendir
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *pathname_node = ARGUMENTS(0);
+    char *pathname = to_c_string(pathname_node);
+    DIR *dir = opendir(pathname);
+    if (!dir) RUNTIME_ERROR("Failed to open directory \"%s\"!", pathname)
+    deallocate_memory(pathname);
+    NODE *result = create__types__DIR(dir);
+    result->attributes = copy(result->attributes, sizeof(ATTRIBUTES));
+    update_start_p = node_p;
+    set_attribute_value(result->attributes, POLY_IDX(std::pathname_of), pathname_node);
+    RETURN_SINGLE_RESULT(result)
+  }
+
+$types::DIR/close
+  {
+    CHECK_ARGUMENTS(1)
+    int err;
+    do {
+      err = closedir(ARGUMENTS(0)->directory_handle.dir);
+    } while (err == -1 && errno == EINTR);
+    if (result_count == 0) {
+      if (err != 0) RUNTIME_ERROR("Failed to close directory!")
+      RETURN_NOTHING
+    }
+    RETURN_SINGLE_RESULT(from_int(err))
+  }
+
+$types::DIR/get
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *dir_node = ARGUMENTS(0);
+    struct dirent *dirent = readdir(dir_node->directory_handle.dir);
+    if (!dirent) RETURN_UNDEFINED
+    DIRENT_DATA *data =
+      allocate(
+        ALLOCATION_SIZE(offsetof(DIRENT_DATA, d_name)+strlen(dirent->d_name)+1));
+    data->new_location = NULL;
+    data->d_ino = dirent->d_ino;
+    data->d_type = dirent->d_type;
+    strcpy(data->d_name, dirent->d_name);
+    NODE *pathname_node = get_attribute(dir_node, POLY_IDX(std::pathname_of));
+    NODE *result = create__types__dirent(data);
+    result->attributes = copy(result->attributes, sizeof(ATTRIBUTES));
+    update_start_p = node_p;
+    set_attribute(
+      result->attributes, POLY_IDX(std::pathname_of), pathname_node);
+    RETURN_SINGLE_RESULT(result)
+  }
+
+$types::dirent/filename_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_c_string(ARGUMENTS(0)->dirent.dirent->d_name))
+  }
+
+$types::dirent/inode_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->dirent.dirent->d_ino))
+  }
+
+$types::dirent/file_type_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->dirent.dirent->d_type))
+  }
+
+$types::dirent/fullname_of: (self)
+  -> string(pathname_of(self) "/" filename_of(self))
+
+$types::dirent/is_a_directory: (self) -> file_type_of(self) == std::DIRECTORY
+
+$types::dirent/is_a_regular_file: (self)
+  -> file_type_of(self) == std::REGULAR_FILE
+
+$types::dirent/is_a_link: (self) -> file_type_of(self) == std::LINK
+
+$std::directory: (options* pathname)
+  extract_options options SORT = false $do_sort
+  $$entries list()
+  $dir std::opendir(fullname(pathname))
+  do: (-> break)
+    forever:
+      $entry get(dir)
+      unless entry.is_defined break
+      case
+	filename_of(entry)
+	".", "..":
+	  pass
+	:
+	  push &entries entry
+  close dir
+  if do_sort:
+    sort &entries: (left right) -> filename_of(left) < filename_of(right)
+  -> entries
+
+{
+  <kind struct>
+  <name LIST_DATA>
+
+  long size;
+  long length;
+  NODE **items;
+}
+
+{
+  <scope extern>
+
+  NODE *create__types__list(long length, LIST_DATA *data);
+}
+
+{
+  <kind struct>
+  <name ADDRINFO_DATA>
+
+  void *new_location;
+  int family;
+    // e.g. AF_INET or AF_INET6
+  int type;
+    // e.g. SOCK_STREAM or SOCK_DGRAM
+  int protocol;
+    // this is the same number which appears on the protocol field in the
+    // IP header of a packet
+  struct sockaddr sockaddr;
+}
+
+{
+  <kind function>
+
+  ADDRINFO_DATA *collect_addrinfo_data(ADDRINFO_DATA *buf) {
+    if (!IS_COLLECTED(buf)) return buf;
+    void *new_location = buf->new_location;
+    if (new_location) return new_location;
+    ADDRINFO_DATA *new_buf = copy(buf, sizeof(ADDRINFO_DATA));
+    new_buf->new_location = NULL;
+    buf->new_location = new_buf;
+    return new_buf;
+  }
+}
+
+{
+  <kind node>
+  <name ADDRINFO>
+
+  ADDRINFO_DATA *data;
+}
+
+{
+  <kind type>
+  <name types::addrinfo>
+  <node ADDRINFO>
+  <base types::object>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call an addrinfo object as a function!")
+}
+
+{
+  <kind function>
+
+  long types::addrinfo/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    char description[64];
+    ADDRINFO_DATA *data = node->addrinfo.data;
+    void *ptr;
+    switch (data->family) {
+      case AF_INET:
+        ptr = &((struct sockaddr_in *)&data->sockaddr)->sin_addr;
+        break;
+      case AF_INET6:
+        ptr = &((struct sockaddr_in6 *)&data->sockaddr)->sin6_addr;
+        break;
+      default:
+        ptr = NULL;
+      }
+    if (
+      ptr &&
+      inet_ntop(data->family, ptr, description, sizeof(description))
+    ) {
+      return debug_print(indent, buf, "<addrinfo %s>", description);
+    } else {
+      return debug_print(indent, buf, "<addrinfo>");
+    }
+  }
+}
+
+$std::get_network_addresses
+  {
+    // get all network addresses
+
+    CHECK_ARGUMENTS(1)
+    struct addrinfo *first;
+    char *name = to_c_string(ARGUMENTS(0));
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_flags = 0;
+    hints.ai_family = AF_INET; // only IPv4
+    hints.ai_socktype = SOCK_STREAM; // only TCP
+    hints.ai_protocol = 0;
+    getaddrinfo(name, NULL, &hints, &first);
+    deallocate_memory(name);
+    struct addrinfo *info = first;
+    int len = 0;
+    while (info) {
+      ++len;
+      info = info->ai_next;
+    }
+    LIST_DATA *list_data = allocate_large(sizeof(LIST_DATA)+len*sizeof(NODE *));
+    list_data->size = len;
+    list_data->length = len;
+    list_data->items = (void *)(list_data+1);
+    len = 0;
+    info = first;
+    while (info) {
+      ADDRINFO_DATA *data = allocate(ALLOCATION_SIZE(sizeof(ADDRINFO_DATA)));
+      data->family = info->ai_family;
+      data->type = info->ai_socktype;
+      data->protocol = info->ai_protocol;
+      data->sockaddr = *info->ai_addr;
+      list_data->items[len] = create__types__addrinfo(data);
+      ++len;
+      info = info->ai_next;
+    }
+    freeaddrinfo(first);
+    RETURN_SINGLE_RESULT(create__types__list(len, list_data))
+  }
+
+$std::get_network_address
+  {
+    // get one network address
+
+    CHECK_ARGUMENTS(1)
+    struct addrinfo *first;
+    char *name = to_c_string(ARGUMENTS(0));
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_flags = 0;
+    hints.ai_family = AF_INET; // only IPv4
+    hints.ai_socktype = SOCK_STREAM; // only TCP
+    hints.ai_protocol = 0;
+    getaddrinfo(name, NULL, &hints, &first);
+    deallocate_memory(name);
+    NODE *node;
+    if (first) {
+      ADDRINFO_DATA *data = allocate(ALLOCATION_SIZE(sizeof(ADDRINFO_DATA)));
+      data->family = first->ai_family;
+      data->type = first->ai_socktype;
+      data->protocol = first->ai_protocol;
+      data->sockaddr = *first->ai_addr;
+      node = create__types__addrinfo(data);
+    } else {
+      node = UNDEFINED;
+    }
+    freeaddrinfo(first);
+    RETURN_SINGLE_RESULT(node)
+  }
+
+$types::addrinfo/connect
+  {
+    CHECK_ARGUMENTS(2)
+    ADDRINFO_DATA *data = ARGUMENTS(0)->addrinfo.data;
+    int port = to_int(ARGUMENTS(1));
+    int sd = socket(data->family, data->type, data->protocol);
+    if (sd == -1) RETURN_UNDEFINED
+    ((struct sockaddr_in *)&data->sockaddr)->sin_port = htons(port);
+    if (connect(sd, &data->sockaddr, sizeof(data->sockaddr)) == 0) {
+      RETURN_SINGLE_RESULT(create__types__file_descriptor(sd))
+    } else {
+      close(sd);
+      RETURN_UNDEFINED
+    }
+  }
+
+$types::string/connect: (uri port) connect get_network_address(uri) port
+
+$types::addrinfo/listen
+  {
+    CHECK_ARGUMENTS(2)
+    ADDRINFO_DATA *data = ARGUMENTS(0)->addrinfo.data;
+    int port = to_int(ARGUMENTS(1));
+    int sd = socket(data->family, data->type, data->protocol);
+    if (sd == -1) RETURN_UNDEFINED
+    int enable = 1;
+    setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int));
+    struct sockaddr_in sockaddr;
+    memset(&sockaddr, 0, sizeof sockaddr);
+    sockaddr.sin_family = data->family;
+    sockaddr.sin_port = htons(port);
+    sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    if (bind(sd, (struct sockaddr *)&sockaddr, sizeof(sockaddr)) == -1) {
+      close(sd);
+      RETURN_UNDEFINED
+    }
+    if (listen(sd, 10) == -1) {
+      close(sd);
+      RETURN_UNDEFINED
+    }
+    RETURN_SINGLE_RESULT(create__types__file_descriptor(sd))
+  }
+
+$types::string/listen: (uri port) listen get_network_address(uri) port
+
+$types::file_descriptor/accept
+  {
+    CHECK_ARGUMENTS(1)
+    int fd = ARGUMENTS(0)->file_descriptor.fd;
+    int new_fd = accept(fd, NULL, NULL);
+    if (new_fd == -1) {
+      RETURN_UNDEFINED
+    } else {
+      RETURN_SINGLE_RESULT(create__types__file_descriptor(new_fd))
+    }
+  }
+
+%std::write: (args*) write_to STDOUT_FILENO string(args*).to_utf8
+
+$std::writeln: (args*) write args* "@nl;"
+
+%std::ewrite: (args*) atomic_write_to STDERR_FILENO string(args*).to_utf8
+
+$std::ewriteln: (args*) ewrite args* "@nl;"
+
+%std::read: (n) read_from STDIN_FILENO n
+
+$std::readln: (-> return)
+  $$buf ""
+  forever:
+    read $chr 1
+    if chr == "@nl;" || chr == "": return buf
+    append &buf chr
+
+$std::load: (filename)
+  if
+    filename .has_prefix. "http://":
+      if wget($buf "-q" "-O" "-" filename) (-> buf):
+	raise "
+	  Load error ("@(filename)@quot;)!@
+    :
+      load_file filename
+
+$std::save: (options* filename data)
+  extract_options options PARENTS = false $do_create_directory
+  if do_create_directory:
+    $path before(filename '/' -1)
+    if path != "": mkdir std::key_value_pair(PARENTS std::true) path
+  save_file filename data.to_string

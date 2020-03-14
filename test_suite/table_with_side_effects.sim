@@ -1,0 +1,29 @@
+#!/usr/bin/env simple
+
+$e empty_table
+
+$NONE .
+
+$e/:
+  (
+    $myself^
+    key
+    value = NONE
+    -> return
+  )
+  if
+    NONE == value:
+      private::get_item myself key
+    :
+      writeln key ": " value
+      private::set_item myself key value
+
+$$env e
+
+!env("x") "a"
+!env("y") "b"
+!env("z") "c"
+
+writeln env("x")
+writeln env("z")
+writeln env("y")

@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+$$text "That's for testing only!"
+
+writeln text .has_prefix. "That"
+
+writeln text .before. 'o'
+writeln text .until. 'o'
+writeln text .behind. 'o'
+writeln text .from. 'o'
+
+writeln text .before. "st"
+writeln text .until. "st"
+writeln text .behind. "st"
+writeln text .from. "st"

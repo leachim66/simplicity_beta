@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+write call("expr" 2 '*' 3)
+$success call($out $err "expr" 4 '+' 2 '*' 7)
+writeln "success: " success
+writeln "out: " out
+writeln "err: " err

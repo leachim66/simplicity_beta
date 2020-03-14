@@ -1,0 +1,414 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$do_log false
+
+$characters_of ()
+$text_colours_of ()
+$background_colours_of ()
+$current_row_of ()
+$current_column_of ()
+$current_text_colour_of ()
+$current_background_colour_of ()
+
+$INVALID_COLOUR '@0xffffffff;'
+$types::screen types::object
+get_terminal_size STDIN_FILENO $terminal_width $terminal_height
+
+$log: (args*) if do_log: ewriteln args*
+
+$std::create_screen:
+  (
+    text_colour = '@nul;'
+    background_colour = '@0xffffff;'
+    row = 1
+    column = 1
+  )
+  $row_count terminal_height
+  $column_count terminal_width
+  ->
+    types::screen
+      .height_of row_count
+      .width_of column_count
+      .current_row_of row
+      .current_column_of column
+      .current_text_colour_of text_colour
+      .current_background_colour_of background_colour
+      .characters_of dup(list(dup(" " column_count)) row_count)
+      .text_colours_of
+	dup(list(dup(text_colour.to_string column_count)) row_count)
+      .background_colours_of
+	dup(list(dup(background_colour.to_string column_count)) row_count)
+
+$std::update_terminal:
+  $$output ""
+  $$current_row current_row_of(terminal)
+  $$current_column current_column_of(terminal)
+  $$current_text_colour undefined
+  $$current_background_colour undefined
+
+  $emit_command: (args*)
+    append &output "@esc;["
+    for_each args: (arg) append &output arg.to_string
+
+  $move_to: (row column)
+    if
+      row != current_row:
+	if
+	  column != current_column:
+	    emit_command row ';' column 'H'
+	    log "move cursor to @(row), @(column)"
+	    !current_column column
+	  :
+	    if
+	      row > current_row:
+		$delta row-current_row
+		if
+		  delta > 1:
+		    log "move cursor down by " delta
+		    emit_command delta 'B'
+		  :
+		    log "move cursor down"
+		    emit_command 'B'
+	      :
+		$delta current_row-row
+		if
+		  delta > 1:
+		    log "move cursor up by " delta
+		    emit_command delta 'A'
+		  :
+		    log "move cursor up"
+		    emit_command 'A'
+	!current_row row
+      :
+	if
+	  column != current_column:
+	    if
+	      column > current_column:
+		$delta column-current_column
+		if
+		  delta > 1:
+		    log "move cursor right by " delta
+		    emit_command delta 'C'
+		  :
+		    log "move cursor right"
+		    emit_command 'C'
+	      :
+		$delta current_column-column
+		if
+		  delta > 1:
+		    log "move cursor left by " delta
+		    emit_command delta 'D'
+		  :
+		    log "move cursor left"
+		    emit_command 'D'
+	    !current_column column
+	  :
+	    log "no cursor move"
+
+  $use_text_colour: (colour)
+    if colour != current_text_colour:
+      !current_text_colour colour
+      $colour_value colour.to_integer
+      $red colour_value >> 16
+      $green colour_value >> 8 & 0xff
+      $blue colour_value & 0xff
+      log "set text colour to @(red), @(green), @(blue)"
+      emit_command "38;2;@(red);@(green);@(blue)m"
+
+  $use_background_colour: (colour)
+    if colour != current_background_colour:
+      !current_background_colour colour
+      $colour_value colour.to_integer
+      $red colour_value >> 16
+      $green colour_value >> 8 & 0xff
+      $blue colour_value & 0xff
+      log "set background colour to @(red), @(green), @(blue)"
+      emit_command "48;2;@(red);@(green);@(blue)m"
+
+  $emit_character: (chr)
+    log "print " debug_string(chr).trim
+    inc &current_column
+    if current_column > terminal_width:
+      !current_column 1
+      inc &current_row
+    push &output chr
+
+  $screen_characters characters_of(current_screen)
+  $screen_text_colours text_colours_of(current_screen)
+  $screen_background_colours background_colours_of(current_screen)
+  $terminal_characters characters_of(terminal)
+  $terminal_text_colours text_colours_of(terminal)
+  $terminal_background_colours background_colours_of(terminal)
+  from_to 1 terminal_height: (row)
+    $screen_line_characters screen_characters(row)
+    $screen_line_text_colours screen_text_colours(row)
+    $screen_line_background_colours screen_background_colours(row)
+    $terminal_line_characters terminal_characters(row)
+    $terminal_line_text_colours terminal_text_colours(row)
+    $terminal_line_background_colours terminal_background_colours(row)
+    from_to 1 terminal_width: (column)
+      $new_chr screen_line_characters(column)
+      $new_text_colour screen_line_text_colours(column)
+      $new_background_colour screen_line_background_colours(column)
+      if
+	||
+	  new_chr != terminal_line_characters(column)
+	  new_text_colour != terminal_line_text_colours(column)
+	  new_background_colour != terminal_line_background_colours(column)
+	:
+	  move_to row column
+	  use_text_colour new_text_colour
+	  use_background_colour new_background_colour
+	  emit_character new_chr
+  !terminal.current_row_of current_row
+  !terminal.current_column_of current_column
+  write output
+
+$std::at: (x y)
+  !current_screen
+    .current_row_of y
+    .current_column_of x
+
+$std::set_text_colour: (colour) !current_screen.current_text_colour_of colour
+
+$std::set_background_colour: (colour)
+  !current_screen.current_background_colour_of colour
+
+$std::draw_text:
+  (
+    $text
+    -> return
+  )
+  $row current_row_of(current_screen)
+  $$column current_column_of(current_screen)
+  $width width_of(current_screen)
+  plus &current_screen.current_column_of length_of(text)
+  if column > width return
+  if column < 1:
+    if length_of(text) <= 1-column return
+    range &text 2-column -1
+  if column > width return
+  if length_of(text) > width-column+1: range &text 1 width-column+1
+  $current_text_colour current_text_colour_of(current_screen)
+  $current_background_colour current_background_colour_of(current_screen)
+  for_each text: (chr)
+    !current_screen.characters_of(row)(column) chr
+    if current_text_colour.is_defined:
+      !current_screen.text_colours_of(row)(column) current_text_colour
+    if current_background_colour.is_defined:
+      !current_screen.background_colours_of(row)(column)
+	current_background_colour
+    inc &column
+
+$std::draw_line: (x1 y1 x2 y2)
+  $min_x min(x1 x2)
+  $max_x max(x1 x2)
+  $min_y min(y1 y2)
+  $max_y max(y1 y2)
+  $width width_of(current_screen)
+  $height height_of(current_screen)
+  if min_x < 1 || max_x > width || min_y < 1 || max_y > height:
+    raise "invalid arguments"
+  $current_text_colour current_text_colour_of(current_screen)
+  $current_background_colour current_background_colour_of(current_screen)
+  cond
+    -> min_x == max_x:
+      if min_y == max_y: raise "invalid arguments"
+
+      $draw_vertical_line: (x y crossing)
+	$character_left:
+	  if x > 1 (-> current_screen.characters_of(y)(x-1)) -> ' '
+
+	$character_right:
+	  if x < width (-> current_screen.characters_of(y)(x+1)) -> ' '
+
+	$prev_chr current_screen.characters_of(y)(x)
+	$$chr '@0x2502;'
+	case
+	  prev_chr
+	  '@0x2500;':
+	    $left character_left()
+	    $right character_right()
+	    cond
+	      -> left == '@0x2500;' && right != '@0x2500;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x2524;'
+		  '@0x252c;':
+		    !chr '@0x2510;'
+		  '@0x2534;':
+		    !chr '@0x2518;'
+	      -> right == '@0x2500;' && left != '@0x2500;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x251c;'
+		  '@0x252c;':
+		    !chr '@0x250c;'
+		  '@0x2534;':
+		    !chr '@0x2514;'
+	      -> true: !chr crossing
+	  '@0x250c;':
+	    if
+	      crossing == '@0x252c;':
+		!chr '@0x250c;'
+	      :
+		!chr '@0x251c;'
+	  '@0x251c;':
+	    !chr '@0x251c;'
+	  '@0x2514;':
+	    if
+	      crossing == '@0x2534;':
+		!chr '@0x2514;'
+	      :
+		!chr '@0x251c;'
+	  '@0x2510;':
+	    if
+	      crossing == '@0x252c;':
+		!chr '@0x2510;'
+	      :
+		!chr '@0x2524;'
+	  '@0x2524;':
+	    !chr '@0x2524;'
+	  '@0x2518;':
+	    if
+	      crossing == '@0x2534;':
+		!chr '@0x2518;'
+	      :
+		!chr '@0x2524;'
+	  '@0x252c;':
+	    if
+	      crossing == '@0x252c;':
+		!chr '@0x252c;'
+	      :
+		!chr '@0x253c;'
+	  '@0x2534;':
+	    if
+	      crossing == '@0x2534;':
+		!chr '@0x2534;'
+	      :
+		!chr '@0x2524;'
+	    !chr '@0x253c;'
+	!current_screen.characters_of(y)(x) chr
+	if current_text_colour.is_defined:
+	  !current_screen.text_colours_of(y)(x) current_text_colour
+	if current_background_colour.is_defined:
+	  !current_screen.background_colours_of(y)(x) current_background_colour
+
+      draw_vertical_line min_x min_y '@0x252c;'
+      from_to min_y+1 max_y-1: (y) draw_vertical_line min_x y '@0x253c;'
+      draw_vertical_line min_x max_y '@0x2534;'
+    -> min_y == max_y:
+      $draw_horizontal_line: (x y crossing)
+	$character_above:
+	  if y > 1 (-> current_screen.characters_of(y-1)(x)) -> ' '
+
+	$character_below:
+	  if y < height (-> current_screen.characters_of(y+1)(x)) -> ' '
+
+	$prev_chr current_screen.characters_of(y)(x)
+	$$chr '@0x2500;'
+	case
+	  prev_chr
+	  '@0x2502;':
+	    $above character_above()
+	    $below character_below()
+	    cond
+	      -> above == '@0x2502;' && below != '@0x2502;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x2534;'
+		  '@0x251c;':
+		    !chr '@0x2514;'
+		  '@0x2524;':
+		    !chr '@0x2518;'
+	      -> below == '@0x2502;' && above != '@0x2502;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x252c;'
+		  '@0x251c;':
+		    !chr '@0x250c;'
+		  '@0x2524;':
+		    !chr '@0x2510;'
+	      -> true: !chr crossing
+	  '@0x250c;':
+	    if
+	      crossing == '@0x251c;':
+		!chr '@0x250c;'
+	      :
+		!chr '@0x252c;'
+	  '@0x252c;':
+	    !chr '@0x252c;'
+	  '@0x2510;':
+	    if
+	      crossing == '@0x2524;':
+		!chr '@0x2510;'
+	      :
+		!chr '@0x252c;'
+	  '@0x2514;':
+	    if
+	      crossing == '@0x251c;':
+		!chr '@0x2514;'
+	      :
+		!chr '@0x2534;'
+	  '@0x2534;':
+	    !chr '@0x2534;'
+	  '@0x2518;':
+	    if
+	      crossing == '@0x2524;':
+		!chr '@0x2518;'
+	      :
+		!chr '@0x2534;'
+	  '@0x251c;':
+	    if
+	      crossing == '@0x251c;':
+		!chr '@0x251c;'
+	      :
+		!chr '@0x253c;'
+	  '@0x2524;':
+	    if
+	      crossing == '@0x2524;':
+		!chr '@0x2524;'
+	      :
+		!chr '@0x253c;'
+	!current_screen.characters_of(y)(x) chr
+	if current_text_colour.is_defined:
+	  !current_screen.text_colours_of(y)(x) current_text_colour
+	if current_background_colour.is_defined:
+	  !current_screen.background_colours_of(y)(x) current_background_colour
+
+      draw_horizontal_line min_x min_y '@0x251c;'
+      from_to min_x+1 max_x-1: (x) draw_horizontal_line x min_y '@0x253c;'
+      draw_horizontal_line max_x min_y '@0x2524;'
+    -> true: raise "invalid arguments"
+
+create_screen $$terminal INVALID_COLOUR INVALID_COLOUR undefined undefined
+create_screen %%std::current_screen
+
+$std::draw_rectangle: (x1 y1 x2 y2)
+  draw_line x1 y1 x1 y2
+  draw_line x1 y2 x2 y2
+  draw_line x2 y2 x2 y1
+  draw_line x2 y1 x1 y1

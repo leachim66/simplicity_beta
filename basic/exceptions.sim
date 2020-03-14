@@ -1,0 +1,182 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include stdlib.h>
+
+$std::CLEANUP .
+$std::ERROR_MESSAGE .
+
+$resource_id_of (!)
+$retain_id_of (!)
+
+$types::object.retain_id_of undefined
+%first_resource_id undefined
+$$next_resource_id 0
+$$resources empty_list
+
+$std::register_resource: (&resource)
+  !resource.resource_id_of next_resource_id
+  inc &next_resource_id
+  push &resources resource
+
+$std::deregister_resource:
+  (
+    resource
+    -> return
+  )
+  $resource_id resource_id_of(resource)
+  $$n length_of(resources)
+  while -> n > 0:
+    if resource_id_of(resources(n)) == resource_id:
+      delete_at &resources n
+      return
+    dec &n
+
+#$std::try_external: (options* cmd -> return)
+  extract_options options
+    --TRIM $do_trim
+    ERROR_MESSAGE = "Something went wrong!" $err_msg
+    CLEANUP = undefined $cleanup_handler
+  if cmd($out $err) != 0:
+    ErrorMessage err_msg
+    cleanup false
+    exit 1
+  if cleanup_handler.is_defined: push &resources cleanup_handler
+  if parameter_count_of(return) == 1:
+    if
+      do_trim:
+        return out.trim
+      :
+        return out
+
+$cleanup_till: (id)
+  do: (repeat_me^)
+    $$i length_of(resources)
+    do: (-> break)
+      while -> i > 0 && resource_id_of(resources(i)) >= id:
+	$resource resources(i)
+	if
+	  retain_id_of(resource).is_undefined || retain_id_of(resource) > id
+	  break
+	dec &i
+    if i > 0:
+      $resource resources(i)
+      delete_at &resources i
+      close resource
+      repeat_me
+
+$cleanup:
+  while -> not(resources.is_empty):
+    pop &resources $resource
+    close resource
+
+$clib_exit
+  {
+    CHECK_ARGUMENTS(1)
+    terminate(to_int(ARGUMENTS(0)));
+  }
+
+$$exit_functions empty_list
+
+$std::at_exit: (func) push &exit_functions func
+
+$std::exit: (status)
+  for_each exit_functions: (func) func
+  cleanup
+  clib_exit status
+
+$std::terminate: exit 0
+
+$std::ErrorMessage: (args*)
+  $$msg string(args*)
+  unless msg(-1) == '@nl;': push &msg '@nl;'
+  flush STDOUT_FILENO
+  ewrite msg
+
+$std::Error: (args*)
+  cleanup
+  ErrorMessage args*
+  exit 1
+
+$crash_dump
+  {
+    CHECK_ARGUMENTS(0)
+    crash_dump();
+    RETURN_NOTHING
+  }
+
+$RuntimeError: (args*)
+  cleanup
+  ewrite "RUNTIME ERROR: "
+  ErrorMessage args*
+  crash_dump
+  exit 1
+
+%std::raise RuntimeError
+
+$std::try:
+  (
+    $bodies*
+    -> return
+  )
+  $outer_raise raise
+  do:
+    %raise: (args*)
+      $handler if(bodies.is_empty (-> outer_raise) -> get(&bodies))
+      if
+	parameter_count_of(handler) == 0:
+	  handler
+	  return
+	:
+	  handler args*
+	  return
+
+    $body get(&bodies)
+    if bodies.is_empty: push &bodies: (_args*) pass
+    body
+
+$std::transaction: (body)
+  inc &next_resource_id # prevent that two transactions have the same id
+  $first_id next_resource_id
+  %first_resource_id first_id
+  try body: (args*)
+    cleanup_till first_id
+    raise args*
+
+$std::retain: (resource)
+  if first_resource_id.is_undefined:
+    raise "Attempt to retain a resource outside a transaction!"
+  $id resource_id_of(resource)
+  $$s 1
+  $$e length_of(resources)
+  while -> e > s:
+    $i s+e+1 .div. 2
+    if
+      id >= resource_id_of(resources(i)):
+	!s i
+      :
+	!e i-i
+  if e == 0 || resource_id_of(resources(s)) != id:
+    raise "Attempt to retain an nonexistant resource!"
+  $retain_id retain_id_of(resources(s))
+  if retain_id.is_undefined || first_resource_id < retain_id:
+    !resources(s).retain_id_of first_resource_id

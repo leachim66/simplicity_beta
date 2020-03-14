@@ -1,0 +1,222 @@
+#!/usr/bin/env simrun
+
+extern $sim2c "sim2c/simple"
+extern $gcc "gcc"
+!environment("LD_LIBRARY_PATH") "." # use the freshly built libraries
+$prefix_len length_of(current_path())
+$$total_compilations 0
+$$successful_compilations 0
+$$total_syntax_error_checks 0
+$$successful_syntax_error_detections 0
+
+$remove_object_files: (path)
+  for_each directory(path): (entry)
+    if
+      entry.is_a_directory:
+	remove_object_files fullname_of(entry)
+      :
+	if
+	  filename_of(entry) .contains. '.':
+	    if filename_of(entry) .has_suffix. alt(".o" ".c"):
+	      #writeln "rm @(fullname_of(entry))"
+
+	      delete_file fullname_of(entry)
+	  :
+	    #writeln "rm @(fullname_of(entry))"
+
+	    delete_file fullname_of(entry)
+
+$compile:
+  (
+    path
+    prefix?
+    expect_failure = false
+  )
+  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+    if
+      entry.is_a_directory:
+	if
+	  prefix.is_defined:
+	    compile fullname_of(entry) string(prefix "/" filename_of(entry))
+	  :
+	    compile fullname_of(entry) filename_of(entry)
+      :
+	if filename_of(entry) .has_suffix. ".sim":
+	  $filename range(fullname_of(entry) prefix_len+2 -1)
+	  $plainname filename .without_suffix. ".sim"
+	  writeln "compiling " filename " ..."
+
+	  $options
+	    if
+	      prefix.is_defined
+	      -> list("--module-prefix" prefix)
+	      -> empty_list
+
+	  sim2c $out $err $success "--print-c" options* filename
+	  if
+	    expect_failure:
+	      inc &total_syntax_error_checks
+	      if
+		success:
+		  writeln "  SYNTACTIC INVALID SOURCE COMPILED"
+		:
+		  $err_filename string(plainname ".err")
+		  if
+		    file_exists(err_filename):
+		      load $orig err_filename
+		      if
+			err == orig:
+			  writeln "  passed"
+			  inc &successful_syntax_error_detections
+			:
+			  writeln
+			    "  COMPARISON WITH EXPECTED ERROR MESSAGE FAILED"
+		    :
+		      writeln
+			"WARNING: NO PREVIOUS ERROR MESSAGE TO COMPARE WITH!"
+		      save err_filename err
+	    :
+	      inc &total_compilations
+	      if
+		success:
+		  save string(plainname ".c") out
+		  inc &successful_compilations
+		:
+		  writeln "  FAILED TO COMPILE"
+
+#remove_object_files "system"
+
+remove_object_files "test_suite"
+
+#compile "system" "system"
+
+compile "test_suite"
+$$total_c_compilations 0
+$$attempted_c_compilations 0
+$$successful_c_compilations 0
+
+$gcc_options
+  list
+    "-Wall"
+    "-Wno-unused-function"
+    "-Wno-unused-variable"
+    "-Wno-parentheses"
+    "-Wno-switch"
+    "-Wno-maybe-uninitialized"
+    "-Werror"
+
+    #"-O1"
+
+$c_compile:
+  (
+    path
+    expect_failure = false
+  )
+  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+    if
+      entry.is_a_directory:
+	c_compile fullname_of(entry)
+      :
+	if filename_of(entry) .has_suffix. ".sim":
+	  $plainname fullname_of(entry) .without_suffix. ".sim"
+	  $c_filename string(plainname ".c")
+	  if file_exists(c_filename):
+	    $o_filename string(plainname ".o")
+	    inc &attempted_c_compilations
+	    writeln "gcc -c " range(c_filename prefix_len+2 -1) " ..."
+	    gcc $out $err $success gcc_options* "-c" c_filename "-o" o_filename
+	    inc &total_c_compilations
+	    if
+	      success:
+		inc &successful_c_compilations
+	      :
+		writeln "  FAILED TO COMPILE C-CODE"
+		writeln err
+
+#c_compile "system"
+
+c_compile "test_suite"
+$$entries empty_list
+for_each directory(std::key_value_pair(SORT std::true) "test_suite"): (entry)
+  unless entry.is_a_directory:
+    if filename_of(entry) .has_suffix. ".sim":
+      push &entries filename_of(entry) .without_suffix. ".sim"
+$$total_program_builds 0
+$$attempted_program_builds 0
+$$successful_program_builds 0
+for_each entries: (name)
+  $filename "test_suite/@(name)"
+  inc &total_program_builds
+  $object_filename string(filename ".o")
+  writeln "generating program for " name " ..."
+  if
+    file_exists(object_filename):
+      sim2c $sg_out $sg_err $sg_success string(filename ".sim")
+      inc &attempted_program_builds
+      if
+	sg_success:
+	  inc &successful_program_builds
+	:
+	  writeln "  FAILED TO BUILD PROGRAM"
+    :
+      writeln "  NOT ATTEMPTED"
+$$total_runs 0
+$$attempted_runs 0
+$$successful_runs 0
+for_each entries: (name)
+  $filename "test_suite/@(name)"
+  inc &total_runs
+  $bin_filename filename
+  writeln "running " bin_filename " ..."
+  if
+    file_exists(bin_filename):
+      call $out $err $success bin_filename
+      inc &attempted_runs
+      if
+	success:
+	  if
+	    file_exists(string(filename ".out")):
+	      load $orig string(filename ".out")
+	      if
+		out == orig:
+		  writeln "  passed"
+		  inc &successful_runs
+		:
+		  writeln "  COMPARISON WITH EXPECTED OUTPUT FAILED"
+	    :
+	      writeln "WARNING: NO PREVIOUS RESULTS TO COMPARE WITH!"
+	      save string(filename ".out") out
+	:
+	  writeln "  THE COMPILED C-CODE FAILED TO RUN"
+    :
+      writeln "  NOT ATTEMPTED"
+
+#compile "test_syntax_errors" true
+
+writeln
+write "
+  Simplicity module compilations: @(successful_compilations) of @
+  @(total_compilations) succeeded
+write "
+  C source file compilations: @(successful_c_compilations) of @
+  @(total_c_compilations) succeeded@
+if attempted_c_compilations < total_c_compilations:
+  write " (only " attempted_c_compilations " attempted)"
+writeln
+write "
+  Program builds: @(successful_program_builds) of @(total_program_builds) @
+  succeeded@
+if attempted_program_builds < total_program_builds:
+  write " (only " attempted_program_builds " attempted)"
+writeln
+write "Runs: @(successful_runs) of @(total_runs) succeeded"
+if attempted_runs < total_runs: write " (only " attempted_runs " attempted)"
+writeln
+
+#write "
+  Syntax error checks: @(successful_syntax_error_detections) of @
+  @(total_syntax_error_checks) succeeded@
+#writeln
+
+writeln
+writeln "There are more programs than modules and C source files!"

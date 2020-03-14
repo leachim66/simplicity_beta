@@ -1,0 +1,291 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include stdio.h>
+<include string.h>
+<include readline/readline.h>
+<include readline/history.h>
+
+<link readline>
+
+{
+  typedef struct ARGUMENT_TABLE {
+    int ref_cnt;
+    char **arguments; // an array of arguments
+  } ARGUMENT_TABLE;
+  typedef struct SPECIFIC_ARGUMENTS {
+    struct SPECIFIC_ARGUMENTS *link;
+    char *command;
+    ARGUMENT_TABLE *argument_table;
+  } SPECIFIC_ARGUMENTS;
+  char **commands;
+  char **default_arguments;
+  char **completion_arguments;
+  SPECIFIC_ARGUMENTS *specific_arguments;
+}
+
+{
+  <kind function>
+
+  char **allocate_string_table(NODE *args) {
+    int cnt = length_of(args);
+    char **tab = allocate_memory((cnt+1)*sizeof(char *));
+    int i;
+    for (i = 0; i < cnt; ++i) {
+      tab[i] = to_c_string(get_item_of(args, i));
+    }
+    tab[i] = NULL;
+    return tab;
+  }
+}
+
+{
+  <kind function>
+
+  void deallocate_string_table(char **tab) {
+    char **p = tab;
+    while (*p) {
+      deallocate_memory(*p++);
+    }
+    deallocate_memory(tab);
+  }
+}
+
+{
+  <kind function>
+
+  int is_id_character(char chr) {
+    return
+      chr >= 'a' && chr <= 'z' || chr >= 'A' && chr <= 'Z' ||
+      chr == '_' || chr >= '0' && chr <= '9';
+  }
+}
+
+{
+  <kind function>
+
+  char *complete_argument(const char *text, int state) {
+    static int idx;
+    static int match_len;
+    const char *argument;
+    //fprintf(stderr, "state: %d\ntext: %s\n", state, text);
+    if (state == 0) {
+      idx = 0;
+      match_len = strlen(text);
+    }
+    while (argument = completion_arguments[idx++]) {
+      if (strncmp(text, argument, match_len) == 0) {
+        return strdup(argument);
+      }
+    }
+    rl_attempted_completion_over = true;
+    return NULL;
+  }
+}
+
+{
+  <kind function>
+
+  char **completion(const char *text, int start, int end) {
+    if (start == 0) {
+      completion_arguments = commands;
+    } else {
+      completion_arguments = NULL;
+      if (specific_arguments) {
+        /*fprintf(stderr, "start: %d\nend: %d\nline buffer: %s\ntext: %s\n",
+          start, end, rl_line_buffer, text);*/
+        char *e = rl_line_buffer;
+        while (is_id_character(*e)) ++e;
+        char c = *e;
+        *e = 0;
+        SPECIFIC_ARGUMENTS *spec_args = specific_arguments;
+        do {
+          int res = strcmp(rl_line_buffer, spec_args->command);
+          if (res == 0) {
+            completion_arguments = spec_args->argument_table->arguments;
+            break;
+          }
+          spec_args = spec_args->link;
+        } while (spec_args);
+        *e = c;
+      }
+      if (!completion_arguments) {
+        completion_arguments = default_arguments;
+      }
+    }
+    if (completion_arguments) {
+      return rl_completion_matches(text, complete_argument);
+    }
+    rl_attempted_completion_over = true;
+    return NULL;
+  }
+}
+
+$std::readline
+  {
+    CHECK_ARGUMENTS(1)
+    char *line;
+    EVENT(readline)
+      if (commands || default_arguments || specific_arguments) {
+        rl_attempted_completion_function = completion;
+      }
+      char *prompt = to_c_string(ARGUMENTS(0));
+      line = readline(prompt);
+      deallocate_memory(prompt);
+    DATA
+      C_STRING(line)
+    END
+    if (line) {
+      NODE *result = from_c_string(line);
+      deallocate_memory(line);
+      RETURN_SINGLE_RESULT(result)
+    }
+    RETURN_UNDEFINED
+  }
+
+$std::add_to_history
+  {
+    CHECK_ARGUMENTS(1)
+    ACTION(add_to_history)
+      char *line = to_c_string(ARGUMENTS(0));
+      add_history(line);
+      deallocate_memory(line);
+    END
+    RETURN_NOTHING
+  }
+
+$define_commands
+  {
+    CHECK_ARGUMENTS(1)
+    ACTION(define_commands)
+      if (commands) {
+        char **p = commands;
+        while (*p) {
+          deallocate_memory(*p++);
+        }
+        deallocate_memory(commands);
+      }
+      NODE *cmds = ARGUMENTS(0);
+      int cmd_cnt = length_of(cmds);
+      commands = allocate_memory((cmd_cnt+1)*sizeof(char *));
+      int i;
+      for (i = 0; i < cmd_cnt; ++i) {
+        commands[i] = to_c_string(get_item_of(cmds, i));
+      }
+      commands[i] = NULL;
+    END
+    RETURN_NOTHING
+  }
+
+$define_default_arguments
+  {
+    CHECK_ARGUMENTS(1)
+    ACTION(define_default_arguments)
+      if (commands) deallocate_string_table(default_arguments);
+      default_arguments = allocate_string_table(ARGUMENTS(0));
+    END
+    RETURN_NOTHING
+  }
+
+$define_specific_arguments
+  {
+    CHECK_ARGUMENTS(2)
+    ACTION(define_specific_arguments)
+      NODE *cmds = ARGUMENTS(0);
+      int cmd_cnt = length_of(cmds);
+      ARGUMENT_TABLE *arg_tab = allocate_memory(sizeof(ARGUMENT_TABLE));
+      arg_tab->ref_cnt = cmd_cnt;
+      arg_tab->arguments = allocate_string_table(ARGUMENTS(1));
+      SPECIFIC_ARGUMENTS **spec_args_p = &specific_arguments;
+      int i;
+      for (i = 0; i < cmd_cnt; ++i) {
+        char *cmd = to_c_string(get_item_of(cmds, i));
+        check_next_entry:
+        if (*spec_args_p) {
+          SPECIFIC_ARGUMENTS *spec_args = *spec_args_p;
+          int res = strcmp(cmd, spec_args->command);
+          if (res > 0) {
+            spec_args_p = &spec_args->link;
+            goto check_next_entry;
+          } else if (res == 0) {
+            if (--spec_args->argument_table->ref_cnt == 0) {
+              deallocate_string_table(spec_args->argument_table->arguments);
+              deallocate_memory(spec_args->argument_table);
+            }
+            deallocate_memory(cmd);
+            spec_args->argument_table = arg_tab;
+          } else {
+            SPECIFIC_ARGUMENTS *new_spec_args =
+              allocate_memory(sizeof(SPECIFIC_ARGUMENTS));
+            new_spec_args->link = spec_args;
+            new_spec_args->command = cmd;
+            new_spec_args->argument_table = arg_tab;
+            *spec_args_p = &new_spec_args->link;
+          }
+        } else {
+          SPECIFIC_ARGUMENTS *spec_args =
+            allocate_memory(sizeof(SPECIFIC_ARGUMENTS));
+          spec_args->link = NULL;
+          spec_args->command = cmd;
+          spec_args->argument_table = arg_tab;
+          *spec_args_p = spec_args;
+          spec_args_p = &spec_args->link;
+        }
+      }
+    END
+    RETURN_NOTHING
+  }
+
+$std::define_readline_commands:
+  #
+    defines a list of possible completions for the first word of the input line
+
+    Any successive call to this function replaces the list of possible
+    completions.
+  (
+    commands # a list of commands
+  )
+  define_commands commands.to_list
+
+$std::define_readline_arguments:
+  #
+    defines a list of possible completions for all words (but the first) of the
+    input line
+
+    Optionally these completions will be used only for the specified command(s)
+
+    Any successive call to this function replaces the set of possible
+    completions (for the specified command(s)).
+
+    The default argument completions (no command specified) apply only to
+    commands for which no specific completion list were defined
+  (
+    $commands? # the command(s) to which these completions apply
+    arguments # a list of possible argument completions
+  )
+  if
+    commands.is_defined:
+      if commands.is_a_string: list &commands
+      sort &commands
+      define_specific_arguments commands arguments.to_list
+    :
+      define_default_arguments arguments.to_list

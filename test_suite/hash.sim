@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+writeln hash(7)
+writeln hash(-7)
+writeln hash("abc")
+writeln hash("abcdefghijklmnopqrstuvwxyz")
+writeln hash("abcdefghijklpqrstuvwxyz")
+writeln hash("abcdefghijkltuvwxyz")

@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+$ARRAY_VALUE .
+
+$array_node types::grammar_node
+$array_node.type_of ARRAY_VALUE
+
+dump `array_node

@@ -1,0 +1,1599 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  converts fragments into abstract syntax trees;
+  builds "global" tables for required modules and used namespaces
+
+<using std>
+<using sim2c>
+<using node>
+
+$sim2c::std_identifier: (name) -> identifier(.namespace_of "std" .name_of name)
+
+#
+  remarks are assigned to
+
+  * meta-instructions, procedure calls and assignments
+
+  * function calls
+
+  * arguments
+
+  remarks are never assigned to
+
+  * functors
+
+#####
+# GRAMMAR OBJECTS
+#####
+###
+# SYNTAX ERROR
+
+$print_message: (fragment offset msg_type $msg)
+  $$source sim2c::source_of(fragment)
+  $pos length_of(source)-offset+1
+  $$line_no line_no_of(fragment)
+
+  $line_offset
+    count_occurrences(range(source 1 pos-1) alt(newline indent_marker))
+
+  plus &line_no line_offset
+  if line_offset > 0: behind &source alt(newline indent_marker) line_offset
+  $$n length_of(source)-offset
+  while -> n > 0 && source(n) < ' ': dec &n
+  $text sim2c::text_of(fragment)
+  $rest if(line_offset > 0 (-> behind(text '@nl;' line_offset)) -> text)
+  $line replace_all(rest .truncate_from. alt('@cr;' '@nl;') '@ht;' = "        ")
+  do: (-> break)
+    for_each line: (chr)
+      if chr != ' ' break
+      inc &n
+  to_upper_case &msg(1)
+  if
+    do_show_brief_messages:
+      ewrite "@(module_name):@(line_no):@(n+1): @(msg)@nl;"
+    :
+      ewrite "
+	____________________________________
+	@(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
+      ewriteln line
+      ewriteln dup(" " n) "^"
+
+$sim2c::Warning: (obj msg)
+  print_message fragment_of(obj) source_position_of(obj) "WARNING" msg
+
+$ExitWithSyntaxError: (fragment offset msg)
+  print_message fragment offset "SYNTAX ERROR" msg
+  exit 1
+
+$sim2c::SyntaxError: (obj msg)
+  ExitWithSyntaxError fragment_of(obj) source_position_of(obj) msg
+
+$ParseError: (stream msg)
+  ExitWithSyntaxError current_fragment length_of(stream) msg
+
+$types::syntax_error types::grammar_object
+
+$types::syntax_error/grammar::match: (self stream)
+  ParseError stream message_of(self)
+
+$syntax_error: (message) -> types::syntax_error(.message_of message)
+
+###
+# UNEXPECTED INPUT ERROR
+
+$types::unexpected_input_error types::grammar_object
+
+$types::unexpected_input_error/grammar::match: (self stream)
+  $expression expression_of(self)
+  if
+    expression.is_a_character || expression.is_a_string:
+      case
+	expression
+	newline:
+	  ParseError stream "newline expected"
+	indent_marker:
+	  ParseError stream "indent expected"
+	outdent_marker:
+	  ParseError stream "unexpected input"
+	:
+	  ParseError stream "
+	    @quot;@(expression)" expected@
+    :
+      ParseError stream "unexpected input"
+
+$unexpected_input_error: (expression)
+  -> types::unexpected_input_error(.expression_of expression)
+
+###
+# PRINT
+# for debugging purposes
+
+$types::print types::grammar_object
+
+$types::print/grammar::match: (self _stream)
+  ewriteln message_of(self)
+  -> 0
+
+$print: (message) -> types::print(.message_of message)
+
+###
+# DUMP STREAM
+# for debugging purposes
+
+$dump_stream types::grammar_object
+
+$dump_stream/grammar::match: (_self stream)
+  ewriteln "<<<<<<<<<<"
+  eprint_source truncate_behind(stream '@nl;' 2)
+  ewriteln ">>>>>>>>>>"
+  -> 0
+
+###
+# DUMP NODE
+# for debugging purposes
+
+$sim2c::strip: (&node)
+  !node.fragment_of undefined
+  !node.source_position_of undefined
+  !node.end_position_of undefined
+  !node.inherited_names_of undefined
+  !node.defined_names_of undefined
+  !node.used_names_of undefined
+  if functor_of(node).is_defined: strip &node.functor_of
+  if attribute_of(node).is_defined: strip &node.attribute_of
+  if statements_of(node).is_defined:
+    update_each &node.statements_of: (&statement) strip &statement
+  if parameters_of(node).is_defined:
+    update_each &node.parameters_of: (&parameter) strip &parameter
+  if output_arguments_of(node).is_defined:
+    update_each &node.output_arguments_of: (&argument) strip &argument
+  if arguments_of(node).is_defined:
+    update_each &node.arguments_of: (&argument) strip &argument
+  if parent_of(node).is_defined: strip &node.parent_of
+  if identifier_of(node).is_defined: strip &node.identifier_of
+
+$dump types::grammar_object
+
+$dump/grammar::match: (_self _stream)
+  edump `strip(grammar::current_node)
+  -> 0
+
+$dump3 types::grammar_object
+
+$dump3/grammar::match: (_self _stream)
+  edump 3 `strip(grammar::current_node)
+  -> 0
+
+$dump5 types::grammar_object
+
+$dump5/grammar::match: (_self _stream)
+  edump 5 `strip(grammar::current_node)
+  -> 0
+
+#####
+# GRAMMAR
+#####
+
+$sim2c::HIGHEST_PRECEDENCE 99
+$sim2c::INFIX_PRECEDENCE 6
+
+$precedence_table
+  table
+    "*" = 14
+    "/" = 14
+    "+" = 13
+    "-" = 13
+    "<<" = 12
+    ">>" = 12
+    "&" = 11
+    "^" = 10
+    "|" = 9
+    "<=" = 8
+    "<" = 8
+    ">=" = 8
+    ">" = 8
+    "==" = 7
+    "!=" = 7
+    "&&" = 5
+    "||" = 4
+    ".." = 3
+    "," = 2
+    "=" = 1
+
+$sim2c::precedence: (op)
+  if op.is_a_string (-> precedence_table(op)) -> INFIX_PRECEDENCE
+
+$sim2c::is_left_associative: (prec) -> prec > 5
+
+$is_right_associative: (prec) -> prec <= 5
+
+$infix_operator: (operator)
+  -> alt(operator sim2c::WHITESPACE, operator, sim2c::WHITESPACE)
+
+$interleaved: (expression separator) -> expression, some(separator, expression)
+
+###
+# INLINE
+
+%within_inline_expression false
+$types::inline types::grammar_object
+
+$types::inline/grammar::match: (self stream)
+  %within_inline_expression true
+  grammar::match expression_of(self) stream
+
+$inline: (expression) -> types::inline(.expression_of expression)
+
+$NOT_INLINE
+  check_node
+    : (_node stream)
+      if within_inline_expression:
+	ParseError stream "
+	  ")" expected@
+      -> true
+
+$NEWLINE followed_by(newline), NOT_INLINE, newline
+$INDENT followed_by(indent_marker), NOT_INLINE, indent_marker
+$OUTDENT followed_by(outdent_marker), NOT_INLINE, outdent_marker
+$HASHTAG followed_by('#'), NOT_INLINE, '#'
+
+$expect: (expression description?)
+  if
+    description.is_defined
+    -> alt(expression syntax_error("@(description) expected"))
+    -> alt(expression unexpected_input_error(expression))
+
+$ENUMERATE
+  modify_node
+    : (&node)
+      #
+	On a first look there seem to be too many enumeration numbers used,
+	but single nested nodes are flattened later on and there is no need
+	for enumeration numbers to be dense.
+
+      inc &enumeration_count
+      !node.enumeration_no_of enumeration_count
+
+$MAKE_A_DESTINATION
+  modify_node
+    : (&node)
+      !node.is_a_destination true
+
+$sim2c::arguments_span: (expression)
+  -> multi_span(arguments_of expression, ENUMERATE)
+
+$sim2c::output_arguments_span: (expression)
+  -> multi_span(output_arguments_of expression, ENUMERATE, MAKE_A_DESTINATION)
+
+$sim2c::WHITESPACE many(' ')
+$SEPARATOR alt(sim2c::WHITESPACE followed_by(':'))
+$NEWLINES many(NEWLINE)
+$NEXT_LINE ARGUMENT_LINE_END_REMARK, NEWLINES
+
+$STORE_POSITION
+  modify_node
+    :
+      (
+	&node
+	stream
+      )
+      !node.source_position_of length_of(stream)
+      !node.fragment_of current_fragment
+
+$STORE_POSITION_MINUS_1
+  modify_node
+    :
+      (
+	&node
+	stream
+      )
+      !node.source_position_of length_of(stream)+1
+      !node.fragment_of current_fragment
+
+$STORE_POSITION_MINUS_2
+  modify_node
+    :
+      (
+	&node
+	stream
+      )
+      !node.source_position_of length_of(stream)+2
+      !node.fragment_of current_fragment
+
+$STORE_END_POSITION
+  modify_node
+    :
+      (
+	&node
+	stream
+      )
+      !node.end_position_of length_of(stream)
+
+$IDENTIFIER
+  sequence
+    set_node(identifier)
+    STORE_POSITION
+    capture(name_of NAME)
+    optional
+      sequence
+	"::"
+	modify_node
+	  : (&node)
+	    !node.namespace_of node.name_of
+	capture(name_of NAME)
+    STORE_END_POSITION
+
+$DEFINE_IDENTIFIER
+  sequence
+    set_node(identifier)
+    STORE_POSITION
+    optional(NOT_USED)
+    capture(name_of NAME)
+    optional
+      sequence
+	"::"
+	modify_node
+	  : (&node)
+	    if node.is_not_used:
+	      SyntaxError node "namespace must not start with an underscore"
+	    !node.namespace_of node.name_of
+	capture(name_of NAME)
+    STORE_END_POSITION
+
+$NAMESPACED_IDENTIFIER
+  sequence
+    set_node(identifier)
+    STORE_POSITION
+    capture(namespace_of NAME)
+    expect("::")
+    capture(name_of NAME)
+
+###
+# META INSTRUCTIONS
+
+$FILENAME optional("./"), NAME, some("/", NAME)
+
+$REQUIRE
+  sequence
+    "<require"
+    set_node(require_instruction)
+    STORE_POSITION
+    sim2c::WHITESPACE
+    capture(node::filename_of FILENAME)
+    ">"
+    STORE_END_POSITION
+    inspect_node
+      : (node stream)
+	$filename node::filename_of(node)
+	if required_modules(filename).is_defined:
+	  ParseError stream "
+	    the module "@(filename)" is required twice@
+	!required_modules(filename) node
+
+$NAMESPACE
+  sequence
+    "<namespace"
+    sim2c::WHITESPACE
+    set_node(namespace_instruction)
+    capture(namespace_of NAME)
+    optional
+      sequence
+	infix_operator("=")
+	modify_node
+	  : (&node)
+	    !node.namespace_alias_of node.namespace_of
+	capture(namespace_of NAME)
+    ">"
+    inspect_node
+      : (node stream)
+	$namespace namespace_of(node)
+	if defined_namespaces(namespace):
+	  ParseError stream "
+	    the namespace "@(namespace)" is defined twice@
+	!defined_namespaces(namespace) true
+	$alias namespace_alias_of(node)
+	if alias.is_defined:
+	  if namespace_mappings(alias).is_defined:
+	    ParseError stream "
+	      the namespace alias "@(alias)" is defined twice@
+	  !namespace_mappings(alias) namespace
+
+$USING
+  sequence
+    "<using"
+    sim2c::WHITESPACE
+    set_node(using_instruction)
+    capture(namespace_of NAME)
+    ">"
+    inspect_node
+      : (node stream)
+	$namespace namespace_of(node)
+	if used_namespaces(namespace):
+	  ParseError stream "
+	    the namespace "@(namespace)" is used twice@
+	!used_namespaces(namespace) true
+
+$BASENAME many(alt(LETTER DIGIT '_' '.'))
+$C_FILENAME alt('/' "./" some("../")), BASENAME, some('/', BASENAME)
+
+$INCLUDE
+  sequence
+    "<include"
+    sim2c::WHITESPACE
+    set_node(include_instruction)
+    capture(node::filename_of C_FILENAME)
+    ">"
+    inspect_node
+      : (node stream)
+	$filename node::filename_of(node)
+	if included_files(filename):
+	  ParseError stream "
+	    the file "@(filename)" is included twice@
+	!included_files(filename) true
+
+$LINK
+  sequence
+    "<link"
+    sim2c::WHITESPACE
+    set_node(link_instruction)
+    capture(node::filename_of C_FILENAME)
+    ">"
+    inspect_node
+      : (node stream)
+	$filename node::filename_of(node)
+	if linked_libraries(filename):
+	  ParseError stream "
+	    the library "@(filename)" is linked twice@
+	!linked_libraries(filename) true
+
+$MASK many(alt(LETTER DIGIT '_' '.' '*' '?'))
+$FILEMASK alt('/' "./" some("../")), MASK, some('/', MASK)
+
+$DATA
+  sequence
+    "<data"
+    sim2c::WHITESPACE
+    set_node(data_instruction)
+    capture(node::filemask_of FILEMASK)
+    ">"
+    inspect_node
+      : (node stream)
+	$filemask node::filemask_of(node)
+	if dependent_data(filemask):
+	  ParseError stream "
+	    the data dependency "@(filemask)" is defined twice@
+	!dependent_data(filemask) true
+
+$META_INSTRUCTION
+  sequence
+    alt(REQUIRE NAMESPACE USING INCLUDE LINK DATA)
+    optional(alt(NEW_LINE_END_REMARK NEXT_LINE_REMARK, expect(outdent_marker)))
+
+###
+# REMARK_STATEMENT
+
+$REMARK_LINE multi_capture(remark_lines_of some(PRINTABLE_CHARACTER))
+
+$REMARK_LINES
+  sequence
+    REMARK_LINE
+    optional(INDENT, interleaved(REMARK_LINE NEWLINE), expect(outdent_marker))
+
+$SINGLE_REMARK_STATEMENT HASHTAG, set_node(remark_statement), REMARK_LINES
+  # used for top-level statements (fragments)
+$REMARK_STATEMENT multi_span(statements_of SINGLE_REMARK_STATEMENT)
+$REMARK HASHTAG, REMARK_LINES
+
+$REMARK_BEHIND
+  sequence
+    REMARK
+    modify_node
+      : (&node)
+	unless node.is_a_definition || node.is_a_meta_instruction:
+	  $remark_lines remark_lines_of(node)
+	  if
+	    arguments_of(node).is_empty:
+	      !node.remark_lines_behind_of remark_lines
+	    :
+	      append &node.arguments_of(-1).remark_lines_behind_of remark_lines
+	  !node.remark_lines_of empty_list
+
+$REMARK_FIRST
+  sequence
+    REMARK
+    modify_node
+      :
+	(
+	  &node
+	  stream
+	)
+	unless stream(1) == OUTDENT: # very dirty fix
+	  !node.remark_lines_behind_of remark_lines_of(node)
+	  !node.remark_lines_of empty_list
+
+$LINE_END_REMARK optional(sim2c::WHITESPACE, HASHTAG, REMARK_LINE)
+
+$ARGUMENT_LINE_END_REMARK
+  optional
+    sequence
+      sim2c::WHITESPACE
+      HASHTAG
+      REMARK_LINE
+      modify_node
+	: (&node)
+	  unless node.is_a_definition:
+	    $n length_of(arguments_of(node))
+	    if n > 0:
+	      push
+		&node.arguments_of(n).remark_lines_of
+		remark_lines_of(node)(-1)
+	      range &node.remark_lines_of 1 -2
+
+$ARGUMENT_REMARK
+  sequence
+    HASHTAG
+    REMARK_LINE
+    modify_node
+      : (&node)
+	unless node.is_a_definition:
+	  $n length_of(arguments_of(node))
+	  if n > 0:
+	    push &node.arguments_of(n).remark_lines_of remark_lines_of(node)(-1)
+	    range &node.remark_lines_of 1 -2
+
+$NEW_LINE_END_REMARK sim2c::WHITESPACE, HASHTAG, REMARK_LINE
+$NEXT_LINE_REMARK INDENT, REMARK
+
+###
+# EXPRESSIONS
+
+$FUNCTION_CALL
+  sequence
+    '('
+    modify_node
+      : (node)
+	->
+	  function_call
+	    .functor_of node
+	    .fragment_of fragment_of(node)
+	    .source_position_of source_position_of(node)
+    inline(optional(alt(ARGUMENTS INLINE_ATTRIBUTE_VALUE_PAIRS)))
+    expect(')')
+    STORE_END_POSITION
+
+$MAKE_ATTRIBUTE_ACCESS
+  modify_node
+    : (&node)
+      !node
+	function_call
+	  .arguments_of list(node)
+	  .is_an_attribute_access true
+	  .fragment_of fragment_of(node)
+	  .source_position_of source_position_of(node)
+
+$ATTRIBUTE_ACCESS
+  sequence
+    '.'
+    MAKE_ATTRIBUTE_ACCESS
+    span(functor_of IDENTIFIER)
+    STORE_END_POSITION
+
+$ATTRIBUTE_WRITE
+  sequence
+    '.'
+    MAKE_ATTRIBUTE_ACCESS
+    span(functor_of NAME_OF_POLYMORPHIC)
+    STORE_END_POSITION
+
+$EXTENSIONS some(alt(FUNCTION_CALL ATTRIBUTE_ACCESS))
+$READ_WRITE_EXTENSIONS some(alt(FUNCTION_CALL ATTRIBUTE_WRITE))
+$IDENTIFIER_OR_FUNCTION_CALL IDENTIFIER, EXTENSIONS
+
+$READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL
+  IDENTIFIER, set_field(is_a_destination true), READ_WRITE_EXTENSIONS
+
+$DECIMAL_NUMBER
+  sequence
+    interleaved(many(DIGIT) '@apos;')
+    optional('.', many(DIGIT))
+    optional(alt('e' 'E'), optional(alt('+' '-')), many(DIGIT))
+
+$BINARY_DIGIT alt('0' '1')
+$BINARY_NUMBER "0b", interleaved(many(BINARY_DIGIT) '@apos;')
+$OCTAL_DIGIT '0' .. '7'
+$OCTAL_NUMBER "0o", interleaved(many(OCTAL_DIGIT) '@apos;')
+$HEX_DIGIT alt(DIGIT 'a' .. 'f' 'A' .. 'F')
+$HEX_NUMBER "0x", interleaved(many(HEX_DIGIT) '@apos;')
+
+$NUMBER
+  sequence
+    set_node(numeric_literal)
+    STORE_POSITION
+    capture
+      node::value_of
+      alt(HEX_NUMBER OCTAL_NUMBER BINARY_NUMBER DECIMAL_NUMBER)
+    STORE_END_POSITION
+
+$SIMPLE_CHARACTER
+  sequence
+    capture(node::value_of PRINTABLE_CHARACTER)
+    modify_node
+      : (&node)
+	!node.node::value_of node::value_of(node)(1)
+
+$AT_CHARACTER
+  sequence
+    '@@'
+    modify_node
+      : (&node)
+	!node.node::value_of '@@'
+
+$NAMED_CHARACTER
+  sequence
+    capture(node::value_of NAME)
+    ';'
+    modify_node
+      :
+	(
+	  &node
+	  stream
+	)
+	$chr character_names(node::value_of(node))
+	unless chr.is_defined: ParseError stream "invalid character name"
+	!node.node::value_of chr
+
+$NUMERIC_CHARACTER
+  sequence
+    capture
+      node::value_of
+      alt
+	"0b", many(BINARY_DIGIT)
+	"0o", many(OCTAL_DIGIT)
+	"0x", many(HEX_DIGIT)
+	many(DIGIT)
+    ';'
+    modify_node
+      : (&node)
+	!node.node::value_of character(node::value_of(node).to_integer)
+
+$SPECIAL_CHARACTER
+  alt
+    AT_CHARACTER
+    NAMED_CHARACTER
+    NUMERIC_CHARACTER
+    syntax_error("invalid special character")
+
+$CHARACTER_SYMBOL alt('@@', SPECIAL_CHARACTER SIMPLE_CHARACTER)
+
+$CHARACTER
+  sequence
+    '@apos;'
+    set_node(character_literal)
+    STORE_POSITION_MINUS_1
+    CHARACTER_SYMBOL
+    expect('@apos;')
+    STORE_END_POSITION
+
+$STRING_CHARACTER
+  alt
+    "@@;"
+    sequence
+      CHARACTER_SYMBOL
+      modify_node
+	: (&node)
+	  push &node.node::text_of node::value_of(node)
+
+$STRING_INSERTION
+  sequence
+    "@@("
+    modify_node
+      : (&node)
+	if node::text_of(node) != "":
+	  push &node.arguments_of node(.arguments_of undefined)
+	!node.node::text_of ""
+    interleaved(arguments_span(EXPRESSION) sim2c::WHITESPACE)
+    expect(')')
+
+$CHECK_INSERTIONS
+  modify_node
+    : (&node)
+      if length_of(arguments_of(node)) > 0:
+	if node::text_of(node) != "":
+	  push &node.arguments_of node(.arguments_of undefined)
+	!node
+	  function_call
+	    .functor_of std_identifier("string")
+	    .arguments_of arguments_of(node)
+	    .is_a_string_template true
+	    .fragment_of fragment_of(node)
+	    .source_position_of source_position_of(node)
+	    .end_position_of end_position_of(node)
+
+$STRING
+  # This code has an astonishing capability to flatten template expressions!
+
+  sequence
+    '@quot;'
+    set_node(string_literal)
+    STORE_POSITION_MINUS_1
+    some(not_followed_by('@quot;'), alt(STRING_INSERTION STRING_CHARACTER))
+    '@quot;'
+    STORE_END_POSITION
+    CHECK_INSERTIONS
+
+$STRING_LINE
+  optional
+    alt
+      followed_by('@@', OUTDENT)
+      '@@', NEWLINE, STRING_LINE
+      STRING_INSERTION, STRING_LINE
+      STRING_CHARACTER, STRING_LINE
+
+$ADD_LINE_END
+  modify_node
+    : (&node)
+      append &node.node::text_of line_end_specifier_of(node)
+
+$MULTI_LINE_STRING
+  sequence
+    '@quot;'
+    set_node(multi_line_string)
+    STORE_POSITION_MINUS_1
+    INDENT
+    STRING_LINE
+    some(NEWLINE, ADD_LINE_END, STRING_LINE)
+    alt('@@', OUTDENT expect(outdent_marker), ADD_LINE_END)
+    STORE_END_POSITION
+    CHECK_INSERTIONS
+
+$UNIQUE_ITEM '.', not_followed_by(LETTER), set_node(unique_item)
+
+$PARENTHESED_EXPRESSION
+  sequence
+    '('
+    inline(alt(EXPRESSION BODY syntax_error("expression expected")))
+    expect(')')
+
+$OPTION
+  sequence
+    "--"
+    IDENTIFIER
+    modify_node
+      : (node)
+	->
+	  function_call
+	    .functor_of std_identifier("key_value_pair")
+	    .arguments_of list(node std_identifier("true"))
+	    .fragment_of fragment_of(node)
+	    .source_position_of source_position_of(node)+2
+    STORE_END_POSITION
+
+$NEGATION
+  sequence
+    '-'
+    STORE_POSITION_MINUS_1
+    OPERAND
+    modify_node
+      : (node)
+	->
+	  function_call
+	    .functor_of operator_symbol(.name_of "-")
+	    .arguments_of list(node)
+	    .fragment_of fragment_of(node)
+	    .source_position_of source_position_of(node)
+    STORE_END_POSITION
+
+$SIMPLE_OPERAND
+  alt(NUMBER CHARACTER STRING UNIQUE_ITEM PARENTHESED_EXPRESSION OPTION NEGATION)
+
+$OPERAND alt(IDENTIFIER_OR_FUNCTION_CALL SIMPLE_OPERAND, some(ATTRIBUTE_ACCESS))
+
+$INFIX_OPERATOR_SYMBOL
+  alt
+    '*'
+    '/'
+    '+'
+    '-'
+    "<<"
+    "<="
+    "<"
+    ">>"
+    ">="
+    ">"
+    "&&"
+    '&'
+    '^'
+    "||"
+    '|'
+    "=="
+    '='
+    "!="
+    ".."
+
+$SYMBOLIC_OPERATOR
+  infix_operator(multi_capture(operators_of INFIX_OPERATOR_SYMBOL))
+
+$COMMA_OPERATOR multi_capture(operators_of ','), sim2c::WHITESPACE
+
+$NAMED_OPERATOR
+  sequence
+    sim2c::WHITESPACE
+    '.'
+    multi_span(operators_of IDENTIFIER)
+    '.'
+    expect(sim2c::WHITESPACE)
+
+$INFIX_OPERATOR
+  sequence
+    alt(SYMBOLIC_OPERATOR COMMA_OPERATOR NAMED_OPERATOR)
+    modify_node
+      : (&node)
+	$operator_precedence precedence(operators_of(node)(-1))
+	$lowest_precedence lowest_precedence_of(node)
+	if
+	  ||
+	    lowest_precedence.is_undefined
+	    operator_precedence < lowest_precedence
+	  :
+	    !node.lowest_precedence_of operator_precedence
+
+$EXTEND_EXPRESSION
+  modify_node
+    : (&node)
+      $parent parent_of(node)
+      $arguments arguments_of(node)
+      $n length_of(arguments)
+      if
+	n == 1:
+	  !node arguments(1)
+	: # build syntax tree according to operator precedences
+	  $operators operators_of(node)
+	  $$operand_stack list(arguments(1))
+	  $$operator_stack list(operators(1))
+
+	  $update_stack: ($right next_operator)
+	    $next_prec
+	      if(next_operator.is_defined (-> precedence(next_operator)) -> 0)
+
+	    do: (-> break)
+	      forever:
+		$operator peek(operator_stack)
+		$prec precedence(operator)
+		if next_prec > prec break
+		if next_prec == prec && is_right_associative(prec) break
+
+		$functor
+		  if
+		    operator.is_a_string
+		    -> operator_symbol(.name_of operator)
+		    -> operator
+
+		$left pop(&operand_stack)
+		!right
+		  function_call
+		    .functor_of functor
+		    .arguments_of list(left right)
+		    .is_in_infix_notation true
+		    .enumeration_no_of enumeration_no_of(left)
+		    .fragment_of fragment_of(left)
+		    .source_position_of source_position_of(left)
+		    .end_position_of end_position_of(right)
+		pop &operator_stack $_dummy
+		if length_of(operator_stack) == 0 break
+	    push &operand_stack right
+	    push &operator_stack next_operator
+
+	  from_to 2 n: (i)
+	    update_stack arguments(i) if(i < n (-> operators(i)) -> undefined)
+	  !node peek(operand_stack)
+      if parent.is_defined:
+	!node parent(.arguments_of push(arguments_of(parent) node))
+
+$EXPRESSION
+  sequence
+    set_node(expression)
+    arguments_span(OPERAND)
+    alt
+      infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
+      some(INFIX_OPERATOR, arguments_span(OPERAND))
+    EXTEND_EXPRESSION
+
+$DEFINED_VARIABLE expect(span(identifier_of DEFINE_IDENTIFIER) "identifier")
+
+$NAME_OF_POLYMORPHIC
+  IDENTIFIER, set_field(is_used_as_a_polymorphic_function true)
+
+$DEFINED_VARIABLE_OR_ATTRIBUTE
+  sequence
+    DEFINED_VARIABLE
+    optional
+      sequence
+	alt
+	  sequence
+	    '.'
+	    set_field(attribute_kind_of ATTRIBUTE_KIND)
+	    span(attribute_of NAME_OF_POLYMORPHIC)
+	  sequence('/' followed_by(':') set_field(attribute_kind_of METHOD_KIND))
+	  sequence
+	    '/'
+	    set_field(attribute_kind_of METHOD_KIND)
+	    span(attribute_of NAME_OF_POLYMORPHIC)
+
+$DEFINE_STATIC_SINGLE
+  '$', set_node(define_static_single), DEFINED_VARIABLE_OR_ATTRIBUTE
+
+$DEFINE_STATIC_MULTI "$$", set_node(define_static_multi), DEFINED_VARIABLE
+$DEFINE_DYNAMIC_SINGLE '%', set_node(define_dynamic_single), DEFINED_VARIABLE
+$DEFINE_DYNAMIC_MULTI "%%", set_node(define_dynamic_multi), DEFINED_VARIABLE
+
+$METHOD_DEFINITION
+  sequence
+    '/'
+    modify_node
+      : (&node)
+	!node
+	  function_call
+	    .arguments_of list(node)
+	    .is_an_attribute_access true
+	    .is_a_method_definition true
+	    .fragment_of fragment_of(node)
+	    .source_position_of source_position_of(node)
+    alt(followed_by(':') span(functor_of NAME_OF_POLYMORPHIC))
+    STORE_END_POSITION
+
+$ASSIGN '!', READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL, optional(METHOD_DEFINITION)
+
+$DESTINATION
+  alt
+    DEFINE_STATIC_MULTI
+    DEFINE_STATIC_SINGLE
+    DEFINE_DYNAMIC_MULTI
+    DEFINE_DYNAMIC_SINGLE
+    ASSIGN
+
+$BACKQUOTED
+  sequence
+    '`'
+    set_node(backquoted)
+    capture(node::text_of span(expression_of alt(OPERAND DESTINATION)))
+
+$INPUT_ARGUMENT arguments_span(alt(EXPRESSION BODY))
+
+$EXPANSION
+  alt
+    '?', set_field(is_an_optional_item true)
+    '*', set_field(is_an_expanded_item true)
+
+$OUTPUT_ARGUMENT output_arguments_span(DESTINATION, optional(EXPANSION))
+
+$INPUT_OUTPUT_ARGUMENT
+  output_arguments_span
+    '&', READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL, optional(EXPANSION)
+
+$COPY_OUTPUT
+  #
+    copy an input-output argument as an additional input argument
+
+  modify_node
+    : (&node)
+      push
+	&node.arguments_of
+	output_arguments_of(node)(-1)(.is_a_destination false)
+
+$MAYBE_SPLIT_INPUT
+  #
+    split things like
+
+    `$var
+
+    into an input and an output argument
+
+  modify_node
+    : (&node)
+      $argument arguments_of(node)(-1)
+      $expression expression_of(argument)
+      if expression.is_a_definition || expression.is_a_destination:
+	push &node.output_arguments_of expression
+	!node.arguments_of(-1)
+	  string_literal(.node::text_of node::text_of(argument))
+
+$SIMPLE_ARGUMENT
+  alt
+    arguments_span(EXPRESSION, optional(EXPANSION))
+    OUTPUT_ARGUMENT
+    INPUT_OUTPUT_ARGUMENT, COPY_OUTPUT
+    arguments_span(BACKQUOTED), MAYBE_SPLIT_INPUT
+
+$INLINE_ATTRIBUTE_VALUE_PAIR
+  alt
+    sequence
+      '.'
+      arguments_span
+	sequence
+	  set_node(attribute_value_pair)
+	  span(identifier_of NAME_OF_POLYMORPHIC)
+	  sim2c::WHITESPACE
+	  INPUT_ARGUMENT
+    sequence
+      '/'
+      followed_by(':')
+      arguments_span
+	set_node(attribute_function_pair), SEPARATOR, INPUT_ARGUMENT
+    sequence
+      '/'
+      arguments_span
+	sequence
+	  set_node(attribute_function_pair)
+	  span(identifier_of NAME_OF_POLYMORPHIC)
+	  SEPARATOR
+	  INPUT_ARGUMENT
+
+$ATTRIBUTE_VALUE_PAIR
+  sequence
+    some(REMARK_BEHIND, NEWLINES)
+    alt
+      sequence
+	'.'
+	arguments_span
+	  sequence
+	    set_node(attribute_value_pair)
+	    span(identifier_of NAME_OF_POLYMORPHIC)
+	    SINGLE_INPUT_ARGUMENT
+      sequence
+	'/'
+	followed_by(':')
+	arguments_span(set_node(attribute_function_pair), SINGLE_INPUT_ARGUMENT)
+      sequence
+	'/'
+	arguments_span
+	  sequence
+	    set_node(attribute_function_pair)
+	    span(identifier_of NAME_OF_POLYMORPHIC)
+	    SINGLE_INPUT_ARGUMENT
+
+$INLINE_ATTRIBUTE_VALUE_PAIRS
+  interleaved(INLINE_ATTRIBUTE_VALUE_PAIR sim2c::WHITESPACE)
+
+$INDENTED_ATTRIBUTE_VALUE_PAIRS
+  INDENT, interleaved(ATTRIBUTE_VALUE_PAIR NEXT_LINE), expect(outdent_marker)
+
+$SINGLE_EXPRESSION_LINE
+  alt(LINE_START_ARGUMENT, ARGUMENT_LINE_END_REMARK LINE_END_EXPRESSION)
+
+$PROCEDURE_ARGUMENTS
+  optional
+    alt
+      sequence
+	SEPARATOR
+	alt(LINE_END_EXPRESSION SIMPLE_ARGUMENT, PROCEDURE_ARGUMENTS)
+      sequence
+	LINE_END_REMARK
+	optional
+	  sequence
+	    INDENT
+	    some(NEWLINE)
+	    FIRST_LINE_START_ARGUMENTS
+	    expect(outdent_marker)
+
+$ARGUMENTS
+  alt
+    sequence
+      LINE_END_EXPRESSION
+      optional(SEPARATOR, ARGUMENT_REMARK)
+      optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
+    sequence
+      SIMPLE_ARGUMENT
+      alt(SEPARATOR, ARGUMENTS optional(NEWLINES, MORE_LINE_START_ARGUMENTS))
+    sequence(ARGUMENT_REMARK optional(NEWLINES, MORE_LINE_START_ARGUMENTS))
+
+$OPERATORS_AND_OPERANDS
+  alt
+    sequence(INFIX_OPERATOR arguments_span(OPERAND) OPERATORS_AND_OPERANDS)
+    EXTEND_EXPRESSION
+
+$MULTI_LINE_FUNCTION_CALL
+  # store the current node in the parent slot for later retrieval
+
+  sequence
+    modify_node
+      : (node)
+	-> function_call(.parent_of node)
+    alt(LINE_START_ARGUMENTS interleaved(ATTRIBUTE_VALUE_PAIR NEXT_LINE))
+    STORE_END_POSITION
+    expect(outdent_marker)
+    modify_node
+      : (node)
+	# rotate the subnodes to generate the correct function call argument
+
+	$top_level_node parent_of(node)
+	$top_level_arguments arguments_of(top_level_node)
+	$functor top_level_arguments(-1)
+
+	$new_arguments
+	  push
+	    range(top_level_arguments 1 -2)
+	    function_call
+	      .functor_of
+		functor(.enumeration_no_of undefined .remark_lines_of empty_list)
+	      .arguments_of arguments_of(node)
+	      .output_arguments_of output_arguments_of(node)
+	      .enumeration_no_of enumeration_no_of(functor)
+	      .remark_lines_of remark_lines_of(functor)
+	      .fragment_of fragment_of(functor)
+	      .source_position_of source_position_of(functor)
+	      .end_position_of end_position_of(node)
+
+	-> top_level_node(.arguments_of new_arguments)
+
+$original_remark_lines_of ()
+
+$INDENTED_FUNCTION_CALL_OR_REMARK
+  alt
+    sequence
+      # ATTENTION: very dirty fix!
+      modify_node
+	: (&node)
+	  !node.original_remark_lines_of remark_lines_of(node)
+	  !node.remark_lines_of empty_list
+      REMARK
+      modify_node
+	: (&node)
+	  $n length_of(arguments_of(node))
+	  if n > 0:
+	    append &node.arguments_of(n).remark_lines_of remark_lines_of(node)
+	    !node.remark_lines_of empty_list
+	  !node.remark_lines_of original_remark_lines_of(node)
+	  !node.original_remark_lines_of undefined
+      alt(sequence(NEWLINES INDENTED_FUNCTION_CALL_OR_REMARK) OUTDENT)
+    MULTI_LINE_FUNCTION_CALL
+
+$MULTI_LINE_FUNCTION_CALL_OR_INDENTED_REMARK
+  INDENT, some(NEWLINE), INDENTED_FUNCTION_CALL_OR_REMARK
+
+$ARGUMENT_EXPANSION
+  alt('?' '*', followed_by(alt(sim2c::WHITESPACE NEWLINE OUTDENT END_OF_TEXT)))
+
+$MULTI_LINE_EXPRESSION
+  sequence
+    set_node(operator_symbol)
+    STORE_POSITION
+    capture(name_of INFIX_OPERATOR_SYMBOL)
+    modify_node
+      : (node)
+	->
+	  function_call
+	    .functor_of node
+	    .fragment_of fragment_of(node)
+	    .source_position_of source_position_of(node)
+    INDENT
+    LINE_START_ARGUMENTS
+    STORE_END_POSITION
+    expect(outdent_marker)
+    modify_node
+      :
+	(
+	  &node
+	  stream
+	  -> return
+	)
+	$$arguments arguments_of(node)
+	if length_of(arguments) < 2:
+	  ParseError stream "too few arguments in multi-line expression"
+	if length_of(arguments) > 2:
+	  $functor functor_of(node)
+	  if
+	    precedence(name_of(functor)).is_left_associative:
+	      forever:
+		!node
+		  function_call
+		    .functor_of functor
+		    .arguments_of range(arguments 1 2)
+		if length_of(arguments) == 2 return
+		!arguments put(range(arguments 3 -1) node)
+	    :
+	      forever:
+		!node
+		  function_call
+		    .functor_of functor
+		    .arguments_of range(arguments -2 -1)
+		if length_of(arguments) == 2 return
+		!arguments push(range(arguments 1 -3) node)
+
+$LINE_START_ARGUMENT
+  alt
+    sequence
+      arguments_span
+	IDENTIFIER_OR_FUNCTION_CALL, not_followed_by(ARGUMENT_EXPANSION)
+      optional
+	alt
+	  sequence
+	    followed_by
+	      alt
+		optional(sim2c::WHITESPACE), INFIX_OPERATOR_SYMBOL
+		','
+		sim2c::WHITESPACE, '.'
+		NAME, '.'
+	    modify_node
+	      : (node)
+		# store the current node in the parent slot for later retrieval
+
+		->
+		  expression
+		    .parent_of
+		      node(.arguments_of range(arguments_of(node) 1 -2))
+		    .arguments_of list(arguments_of(node)(-1))
+	    OPERATORS_AND_OPERANDS
+	  sequence
+	    MULTI_LINE_FUNCTION_CALL_OR_INDENTED_REMARK
+	    optional(NEXT_LINE, LINE_START_ARGUMENTS)
+    arguments_span(EXPRESSION, not_followed_by(ARGUMENT_EXPANSION))
+    arguments_span(MULTI_LINE_EXPRESSION)
+
+$LINE_START_ARGUMENTS
+  alt
+    LINE_END_EXPRESSION, optional(NEXT_LINE, MORE_LINE_START_ARGUMENTS)
+    sequence
+      alt(LINE_START_ARGUMENT SIMPLE_ARGUMENT)
+      alt(SEPARATOR, ARGUMENTS optional(NEWLINES, MORE_LINE_START_ARGUMENTS))
+
+$MORE_LINE_START_ARGUMENTS
+  alt
+    REMARK_BEHIND, optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
+    LINE_START_ARGUMENTS
+
+$FIRST_LINE_START_ARGUMENTS
+  alt
+    REMARK_FIRST, optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
+    LINE_START_ARGUMENTS
+
+$SINGLE_INPUT_ARGUMENT
+  alt
+    sim2c::WHITESPACE, INPUT_ARGUMENT, LINE_END_REMARK
+    SEPARATOR, LINE_END_EXPRESSION
+    sequence
+      LINE_END_REMARK
+      INDENT
+      some(REMARK, NEWLINES)
+      alt(SINGLE_EXPRESSION_LINE INPUT_ARGUMENT)
+      expect(outdent_marker)
+
+$PARAMETER_MODE
+  optional
+    alt
+      sequence
+	'$'
+	set_node(define_static_multi)
+	set_field(parameter_kind_of IN_PARAMETER)
+      sequence
+	'!'
+	set_node(define_static_multi)
+	set_field(parameter_kind_of OUT_PARAMETER)
+      sequence
+	'&'
+	set_node(define_static_multi)
+	set_field(parameter_kind_of IN_OUT_PARAMETER)
+      set_node(define_static_single), set_field(parameter_kind_of IN_PARAMETER)
+
+$PARAMETER_COUNT_OR_MYSELF
+  optional
+    alt
+      EXPANSION
+      sequence
+	infix_operator('=')
+	set_field(is_an_optional_item true)
+	span(default_value_of EXPRESSION)
+      '^', set_field(parameter_kind_of MYSELF_PARAMETER)
+
+$NOT_USED
+  sequence
+    '_'
+    modify_node
+      : (&node)
+	!node.is_not_used true
+
+$PARAMETER_NAME
+  span
+    identifier_of
+    sequence
+      set_node(identifier)
+      STORE_POSITION
+      optional(NOT_USED)
+      capture(name_of NAME)
+      STORE_END_POSITION
+
+$PARAMETER PARAMETER_MODE, PARAMETER_NAME, PARAMETER_COUNT_OR_MYSELF
+
+$MULTI_LINE_PARAMETER
+  PARAMETER, ARGUMENT_LINE_END_REMARK, optional(INDENT, REMARK, OUTDENT)
+
+$CONTINUATION
+  sequence
+    "->"
+    sim2c::WHITESPACE
+    set_node(define_static_single)
+    set_field(parameter_kind_of CONTINUATION_PARAMETER)
+    PARAMETER_NAME
+
+$MULTI_LINE_CONTINUATION
+  CONTINUATION, ARGUMENT_LINE_END_REMARK, optional(INDENT, REMARK, OUTDENT)
+
+$INLINE_PARAMETERS
+  sequence
+    '('
+    optional
+      alt
+	sequence
+	  interleaved(multi_span(parameters_of PARAMETER) sim2c::WHITESPACE)
+	  optional(sim2c::WHITESPACE, multi_span(parameters_of CONTINUATION))
+	multi_span(parameters_of CONTINUATION)
+    expect(')')
+
+$MULTI_LINE_PARAMETERS
+  sequence
+    '('
+    INDENT
+    alt
+      sequence
+	interleaved(multi_span(parameters_of MULTI_LINE_PARAMETER) NEWLINE)
+	optional(NEWLINE, multi_span(parameters_of MULTI_LINE_CONTINUATION))
+      multi_span(parameters_of MULTI_LINE_CONTINUATION)
+    expect(outdent_marker)
+    expect(newline)
+    expect(')')
+
+$COMPLETE_BODY
+  sequence
+    ':'
+    set_node(body)
+    STORE_POSITION_MINUS_1
+    optional(NEW_LINE_END_REMARK)
+    sequence
+      alt
+	sequence
+	  INDENT
+	  some(REMARK, NEWLINES)
+	  MULTI_LINE_PARAMETERS
+	  NEWLINES
+	  STATEMENTS
+	  expect(outdent_marker)
+	sequence
+	  optional(sim2c::WHITESPACE, INLINE_PARAMETERS)
+	  LINE_END_REMARK
+	  alt
+	    INDENT, optional(NEWLINES), STATEMENTS, expect(outdent_marker)
+	    sequence
+	      sim2c::WHITESPACE
+	      alt(STATEMENT RETURN_STATEMENT syntax_error("statement expected"))
+	    syntax_error("statement expected")
+	syntax_error("statement expected")
+    STORE_END_POSITION
+
+$RETURN_EXPRESSION
+  sequence
+    followed_by("->")
+    set_node(body)
+    STORE_POSITION
+    RETURN_STATEMENT
+    STORE_END_POSITION
+
+$BODY alt(COMPLETE_BODY RETURN_EXPRESSION)
+
+$C_BODY
+  sequence
+    '{'
+    set_node(c_body)
+    STORE_POSITION_MINUS_1
+    expect(indent_marker)
+    capture(source_of some(not_followed_by(OUTDENT), ANY_CHARACTER))
+    expect(outdent_marker)
+    expect(newline)
+    expect('}')
+    STORE_END_POSITION
+
+$LINE_END_EXPRESSION arguments_span(alt(BODY C_BODY MULTI_LINE_STRING))
+$POLYMORPHIC_FUNCTION_WITHOUT_SETTER "()", set_node(polymorphic_function)
+
+$POLYMORPHIC_FUNCTION_WITH_SETTER
+  "(!)", set_node(polymorphic_function_with_setter)
+
+$POLYMORPHIC_FUNCTION
+  sequence
+    sim2c::WHITESPACE
+    arguments_span
+      alt(POLYMORPHIC_FUNCTION_WITHOUT_SETTER POLYMORPHIC_FUNCTION_WITH_SETTER)
+    LINE_END_REMARK
+
+$ASSIGNMENT
+  sequence
+    set_node(assignment)
+    STORE_POSITION
+    alt
+      output_arguments_span(DEFINE_STATIC_MULTI), SINGLE_INPUT_ARGUMENT
+      sequence
+	output_arguments_span(DEFINE_STATIC_SINGLE)
+	alt(POLYMORPHIC_FUNCTION SINGLE_INPUT_ARGUMENT)
+      output_arguments_span(DEFINE_DYNAMIC_MULTI), SINGLE_INPUT_ARGUMENT
+      output_arguments_span(DEFINE_DYNAMIC_SINGLE), SINGLE_INPUT_ARGUMENT
+      sequence
+	output_arguments_span(ASSIGN)
+	alt(SINGLE_INPUT_ARGUMENT INDENTED_ATTRIBUTE_VALUE_PAIRS)
+    STORE_END_POSITION
+
+$FUNCTOR span(functor_of IDENTIFIER_OR_FUNCTION_CALL)
+
+$RESULT_COUNT_OR_CONTINUATION
+  alt
+    ".(", span(result_count_of EXPRESSION), ')'
+    '/', span(continuation_of IDENTIFIER)
+
+$PROCEDURE_CALL
+  sequence
+    set_node(procedure_call)
+    STORE_POSITION
+    FUNCTOR
+    optional(RESULT_COUNT_OR_CONTINUATION)
+    alt
+      sequence
+	sim2c::WHITESPACE
+	OUTPUT_ARGUMENT
+	alt
+	  sequence
+	    sim2c::WHITESPACE
+	    INLINE_ATTRIBUTE_VALUE_PAIRS
+	    optional(INDENTED_ATTRIBUTE_VALUE_PAIRS)
+	  INDENTED_ATTRIBUTE_VALUE_PAIRS
+	  PROCEDURE_ARGUMENTS
+      PROCEDURE_ARGUMENTS
+    STORE_END_POSITION
+
+$INDENTED_REMARKS INDENT, interleaved(REMARK NEWLINES), OUTDENT
+
+$SINGLE_STATEMENT
+  # used for top-level statements (fragments)
+
+  alt
+    alt(ASSIGNMENT PROCEDURE_CALL), optional(INDENTED_REMARKS)
+    SINGLE_REMARK_STATEMENT
+
+$STATEMENT multi_span(statements_of SINGLE_STATEMENT)
+
+$RETURN_STATEMENT
+  sequence
+    "->"
+    multi_span
+      statements_of
+      sequence
+	set_node(return_statement)
+	STORE_POSITION_MINUS_2
+	PROCEDURE_ARGUMENTS
+	STORE_END_POSITION
+
+$STATEMENTS
+  sequence
+    alt
+      interleaved(STATEMENT NEXT_LINE), optional(NEXT_LINE, RETURN_STATEMENT)
+      RETURN_STATEMENT
+      syntax_error("statement expected")
+    some(NEXT_LINE, REMARK_STATEMENT)
+
+$BUILTIN_NAME
+  span
+    identifier_of
+    set_node(identifier), capture(name_of NAME, many("__", NAME))
+
+$C_EXPRESSION many(not_followed_by('>'), ANY_CHARACTER)
+
+$ARGUMENT_ANNOTATION
+  sequence
+    "argument"
+    expect(sim2c::WHITESPACE, multi_capture(arguments_of C_EXPRESSION))
+
+$BASE_ANNOTATION
+  "base", expect(sim2c::WHITESPACE, span(base_of NAMESPACED_IDENTIFIER))
+
+$KIND_ANNOTATION "kind", expect(sim2c::WHITESPACE, capture(kind_of NAME))
+
+$NAME_ANNOTATION
+  sequence
+    "name"
+    expect(sim2c::WHITESPACE, alt(BUILTIN_NAME DEFINED_VARIABLE_OR_ATTRIBUTE))
+
+$NODE_ANNOTATION "node", expect(sim2c::WHITESPACE, capture(node_of NAME))
+
+$SCOPE_ANNOTATION
+  sequence
+    "scope"
+    expect
+      sequence
+	sim2c::WHITESPACE
+	capture(node::scope_of alt("runtime" "global" "local" "extern"))
+
+$TYPE_ANNOTATION
+  "type", expect(sim2c::WHITESPACE, span(node::type_of NAMESPACED_IDENTIFIER))
+
+$ANNOTATION_ITEM
+  alt
+    ARGUMENT_ANNOTATION
+    BASE_ANNOTATION
+    KIND_ANNOTATION
+    NAME_ANNOTATION
+    NODE_ANNOTATION
+    SCOPE_ANNOTATION
+    TYPE_ANNOTATION
+    syntax_error("invalid annotation tag")
+
+$ANNOTATION '<', ANNOTATION_ITEM, expect('>')
+$ANNOTATIONS interleaved(ANNOTATION NEWLINES)
+$C_CODE_REMARK "//", REMARK_LINE
+$C_CODE_REMARKS some(C_CODE_REMARK, NEWLINES)
+
+$SOURCE
+  sequence
+    C_CODE_REMARKS
+    capture(source_of some(not_followed_by(OUTDENT), ANY_CHARACTER))
+
+$C_CODE
+  sequence
+    '{'
+    set_node(c_code)
+    expect(indent_marker)
+    alt(ANNOTATIONS, optional(NEWLINES, SOURCE) SOURCE)
+    expect(outdent_marker)
+    expect(newline)
+    expect('}')
+
+$META_FRAGMENT META_INSTRUCTION, expect(newline, END_OF_TEXT)
+
+$FRAGMENT
+  sequence
+    alt
+      SINGLE_REMARK_STATEMENT
+      SINGLE_STATEMENT
+      C_CODE
+      syntax_error("top-level statement expected")
+    expect(newline, END_OF_TEXT)
+
+###
+# PARSER
+
+$sim2c::parse_meta_instruction: (fragment)
+  %sim2c::current_fragment fragment # used to generate meaningful error messages
+  $source sim2c::source_of(fragment)
+  match source META_FRAGMENT $len $cap
+  if len != length_of(source): ParseError source "invalid meta instruction"
+  -> cap
+
+$sim2c::parse_statement: (fragment)
+  %sim2c::current_fragment fragment # used to generate meaningful error messages
+  $source sim2c::source_of(fragment)
+  match source FRAGMENT $len $cap
+  if
+    len.is_defined:
+      if len != length_of(source):
+	ParseError source "superficious input at end of expression"
+    :
+      ewriteln "________________________________________"
+      eprint_source source
+      ewriteln "no match"
+      exit 1
+  -> cap

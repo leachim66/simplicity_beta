@@ -1,0 +1,86 @@
+#!/usr/bin/env simrun
+
+<require basic/stdlib_v2>
+
+<using std>
+
+$rule_text "**/do*/emil"
+
+# some test data
+
+$filenames
+  list
+    "x/dora/emil"
+    "x/y/dora/emil"
+    "x/y/albert/berta"
+    "x/ydora/emil"
+    "z/dorian/emil"
+
+$ANY_FOLDERS:
+  expect "**/"
+  expect NAME $name
+  -> some_and_then(ANY_CHARACTER '/', name)
+
+$LOWER_CASE_LETTER 'a' .. 'z'
+$UPPER_CASE_LETTER 'A' .. 'Z'
+$DIGIT '0' .. '9'
+
+$RANGE
+  alt
+    LOWER_CASE_LETTER, '-', LOWER_CASE_LETTER
+    UPPER_CASE_LETTER, '-', UPPER_CASE_LETTER
+    DIGIT, '-', DIGIT
+
+$RANGE_OR_CHARACTER alt(RANGE ANY_CHARACTER)
+
+$CHARACTER_PATTERN
+  sequence
+    '['
+    optional('!')
+    RANGE_OR_CHARACTER
+    some(not_followed_by(']'), RANGE_OR_CHARACTER)
+    ']'
+
+$MATCH_SPECIFIC_CHARACTER: capture ANY_CHARACTER
+
+$MATCH_ANY_CHARACTER:
+  expect '?'
+  -> not_followed_by('/'), ANY_CHARACTER
+
+$MATCH_ANY_CHARACTERS:
+  expect '*'
+  -> some(not_followed_by('/'), ANY_CHARACTER)
+
+#$JOKER
+  alt
+    #CHARACTER_PATTERN
+
+$NAME_CHARACTER
+  sequence
+    not_followed_by('/')
+    alt(MATCH_ANY_CHARACTER MATCH_ANY_CHARACTERS MATCH_SPECIFIC_CHARACTER)
+
+$NAME many(NAME_CHARACTER)
+
+$END_OF_RULE:
+  expect END_OF_TEXT
+  -> END_OF_TEXT
+
+$MORE_NAMES:
+  expect '/'
+  expect RULE $rule
+  -> '/', rule
+
+$RULE sequence(alt(ANY_FOLDERS NAME) alt(END_OF_RULE MORE_NAMES))
+$PATTERN sequence(some_and_then(ANY_CHARACTER "/dora/emil") END_OF_TEXT)
+do:
+  if
+    match(rule_text RULE $rule) == length_of(rule_text):
+      #dump 10 `rule
+
+      writeln rule_text
+      for_each filenames: (filename)
+	writeln "  " filename ": " matches(filename rule).to_string
+    :
+      Error "
+	Failed to match "@(rule)@quot;!

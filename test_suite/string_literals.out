@@ -1,0 +1,17 @@
+start
+
+
+two heading and trailing empty lines
+
+
+{
+  (
+    [
+      several indented
+      lines
+
+
+      and indented line with two heading empty lines
+    ]
+  )
+}

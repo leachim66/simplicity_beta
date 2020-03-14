@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+$write_declaration: (type name)
+  write "
+    @;  @(type if(type(-1) == '*' (-> "") (-> " ")) name);
+
+write_declaration "int" "count"
+write_declaration "char *" "name"

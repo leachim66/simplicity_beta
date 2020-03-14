@@ -1,0 +1,20 @@
+#!/usr/bin/env simple
+
+$ages
+  key_order_table
+    "Stefan" = 18
+    "Doris" = 29
+    "Herbert" = 26
+    "Carla" = 4
+    "Kurt" = 21
+
+for_each_from_to ages "Doris" "Kurt": (name age)
+  writeln name ": " age
+writeln "----------"
+
+for_each_from_to ages "Doris" undefined: (name age)
+  writeln name ": " age
+writeln "----------"
+
+for_each_from_to ages undefined "Kurt": (name age)
+  writeln name ": " age

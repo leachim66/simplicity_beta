@@ -1,0 +1,1220 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include string.h>
+<include fnmatch.h>
+
+$std::is_a_string ()
+
+$types::object.is_a_string false
+$types::string.is_a_string true
+
+$std::count_character_occurrences ()
+$std::to_utf8 () # creates an octet string
+$std::is_a_latin_1_string ()
+  #
+    checks whether the string contains only character codes in the
+    range 0 .. 255
+
+$types::string types::generic_list
+  #
+    a sequence of zero or more characters
+
+    This is one of the most fundamental types. It behaves like a scalar as
+    well as a collection (of characters).
+
+    The characters in the string can be indexed by integers ranging from
+    1 to the total length of the string.
+
+    In addition they can also be indexed in reverse order using indices from
+    -1 (for the last character in the string) to -*length* (for the first
+    character in the string).
+
+    A character is an unsigned 32-bit integer. To be used in the context
+    of files a string must only contain 8-bit characters. The utf8-conversion
+    functions can convert characters up to 32-bit (not limited by the Unicode
+    21-bit limit).
+
+    The language provides support for string literals.
+
+{
+  <kind struct>
+  <name OCTET_DATA>
+
+  long size; // in octets
+  long length; // in 8-bit-characters (which is the same as octets)
+  uint8_t buffer[0];
+}
+
+{
+  <kind struct>
+  <name QUAD_OCTET_DATA>
+
+  long size; // in octets
+  long length;  // in 32-bit-characters
+  uint32_t buffer[0];
+}
+
+{
+  <kind function>
+
+  OCTET_DATA *collect_octet_data(OCTET_DATA *data) {
+    if (IS_COLLECTED(data)) {
+      void *new_location = *(void **)data;
+      if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+      long length = data->length;
+      long size = ALLOCATION_SIZE(length);
+      OCTET_DATA *new_data = allocate(sizeof(OCTET_DATA)+size);
+      *(void **)data = ENCODE_ADDRESS(new_data);
+      new_data->size = size;
+      new_data->length = length;
+      memcpy(new_data->buffer, data->buffer, length);
+      return new_data;
+    } else if (data && !IS_OLD(data)) {
+      MARK(data)
+    }
+    return data;
+  }
+}
+
+{
+  <kind function>
+
+  QUAD_OCTET_DATA *collect_quad_octet_data(QUAD_OCTET_DATA *data) {
+    if (IS_COLLECTED(data)) {
+      void *new_location = *(void **)data;
+      if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+      long length = data->length;
+      long size = ALLOCATION_SIZE(4*length);
+      QUAD_OCTET_DATA *new_data = allocate(sizeof(QUAD_OCTET_DATA)+size);
+      *(void **)data = ENCODE_ADDRESS(new_data);
+      new_data->size = size;
+      new_data->length = length;
+      memcpy(new_data->buffer, data->buffer, 4*length);
+      return new_data;
+    } else if (data && !IS_OLD(data)) {
+      MARK(data)
+    }
+    return data;
+  }
+}
+
+{
+  <kind node>
+  <name OCTET_STRING>
+
+  long offset; // usually zero
+  long length;
+  OCTET_DATA *data;
+}
+
+{
+  <kind node>
+  <name QUAD_OCTET_STRING>
+
+  long offset; // usually zero
+  long length;
+  QUAD_OCTET_DATA *data;
+}
+
+{
+  <kind type>
+  <name types::octet_string>
+  <node OCTET_STRING>
+  <base types::string>
+  <argument 0>
+  <argument 0>
+  <argument NULL>
+
+  // a sequence of zero or more 8-bit characters
+  // the type function supports positive and negative indices from
+  // 1 to the length of the sequence starting at the left or form -1 to
+  // -length of the sequence starting at the right
+  // replacing any character of the sequence  with a 32-bit value will
+  // produce a <quad_octet_string>
+
+  MIN_ARGUMENTS(1)
+  MAX_ARGUMENTS(2)
+  long idx = to_long(ARGUMENTS(0));
+  long length = myself->octet_string.length;
+  if (idx < 0) idx = length+idx+1;
+  if (idx < 1 || idx > length) INVALID_INDEX_ERROR
+  if (ARGUMENT_COUNT == 1)
+    RETURN_SINGLE_RESULT(
+      from_uchar32(
+        myself->octet_string.data->buffer[myself->octet_string.offset+idx-1]))
+
+  uint32_t chr = to_uchar32(ARGUMENTS(1));
+  long start_offset = myself->octet_string.offset;
+  OCTET_DATA *data = myself->octet_string.data;
+  if (data->buffer[idx-1] == chr) RETURN_SINGLE_RESULT(myself)
+  if (chr > 0xff) {
+    long size = ALLOCATION_SIZE(4*length);
+    QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+size);
+    long i;
+    for (i = 0; i < length; ++i) {
+      new_data->buffer[i] = data->buffer[start_offset+i];
+    }
+    new_data->size = size;
+    new_data->length = length;
+    new_data->buffer[idx-1] = chr;
+    RETURN_SINGLE_RESULT(create__types__quad_octet_string(0, length, new_data))
+  } else {
+    long size = ALLOCATION_SIZE(length);
+    OCTET_DATA *new_data = allocate_large(sizeof(OCTET_DATA)+size);
+    memcpy(new_data->buffer, data->buffer+start_offset, length);
+    new_data->size = size;
+    new_data->length = length;
+    new_data->buffer[idx-1] = chr;
+    RETURN_SINGLE_RESULT(create__types__octet_string(0, length, new_data))
+  }
+}
+
+{
+  <kind type>
+  <name types::quad_octet_string>
+  <node QUAD_OCTET_STRING>
+  <base types::string>
+  <argument 0>
+  <argument 0>
+  <argument NULL>
+
+  MIN_ARGUMENTS(1)
+  MAX_ARGUMENTS(2)
+  long idx = to_long(ARGUMENTS(0));
+  long length = myself->quad_octet_string.length;
+  if (idx < 0) idx = length+idx+1;
+  if (idx < 1 || idx > length) INVALID_INDEX_ERROR
+  if (ARGUMENT_COUNT == 1)
+    RETURN_SINGLE_RESULT(
+      from_uchar32(
+        myself->quad_octet_string.data->buffer[myself->quad_octet_string.offset+idx-1]))
+
+  uint32_t chr = to_uchar32(ARGUMENTS(1));
+  long start_offset = myself->quad_octet_string.offset;
+  QUAD_OCTET_DATA *data = myself->quad_octet_string.data;
+  if (data->buffer[idx-1] == chr) RETURN_SINGLE_RESULT(myself)
+  if (chr <= 0xff && data->buffer[start_offset+idx-1] > 0xff) {
+    long i;
+    for (i = 0; i < length; ++i) {
+      if (i != idx-1 && data->buffer[start_offset+i] > 0xff) goto quad;
+    }
+    long size = ALLOCATION_SIZE(length);
+    OCTET_DATA *new_data = allocate_large(sizeof(OCTET_DATA)+size);
+    for (i = 0; i < length; ++i) {
+      new_data->buffer[i] = data->buffer[start_offset+i];
+    }
+    new_data->size = size;
+    new_data->length = length;
+    new_data->buffer[idx-1] = chr;
+    RETURN_SINGLE_RESULT(create__types__octet_string(0, length, new_data))
+  }
+  quad:;
+  long size = ALLOCATION_SIZE(4*length);
+  QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+size);
+  memcpy(new_data->buffer, data->buffer+start_offset, 4*length);
+  new_data->size = size;
+  new_data->length = length;
+  new_data->buffer[idx-1] = chr;
+  RETURN_SINGLE_RESULT(create__types__quad_octet_string(0, length, new_data))
+}
+
+{
+  <kind object>
+  <name std::empty_string>
+  <type types::octet_string>
+  <scope global>
+  <argument 0>
+  <argument 0>
+  <argument NULL>
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_latin_1_string(const char *str, long len) {
+    long size = ALLOCATION_SIZE(len);
+    OCTET_DATA *data = allocate_large(sizeof(OCTET_DATA)+size);
+    data->size = size;
+    data->length = len;
+    memcpy(data->buffer, str, len);
+    return create__types__octet_string(0, len, data);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_uint32_string(const uint32_t *str, long len) {
+    long size = ALLOCATION_SIZE(4*len);
+    QUAD_OCTET_DATA *data = allocate_large(sizeof(QUAD_OCTET_DATA)+size);
+    data->size = size;
+    data->length = len;
+    memcpy(data->buffer, str, 4*len);
+    return create__types__quad_octet_string(0, len, data);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_c_string(const char *str) {
+    long len = strlen(str);
+    long size = ALLOCATION_SIZE(len);
+    OCTET_DATA *data = allocate_large(sizeof(OCTET_DATA)+size);
+    data->size = size;
+    data->length = len;
+    memcpy(data->buffer, str, len);
+    return create__types__octet_string(0, len, data);
+  }
+}
+
+{
+  <kind function>
+
+  char *types::octet_string/to_c_string(NODE *node) {
+    long offset = node->octet_string.offset;
+    long size = node->octet_string.length;
+    char *buf = allocate_memory(size+1);
+    memcpy(buf, node->octet_string.data->buffer+offset, size);
+    buf[size] = 0;
+    return buf;
+  }
+}
+
+{
+  <kind function>
+
+  uint8_t *types::octet_string/to_octets(NODE *node, long *size_p) {
+    long offset = node->octet_string.offset;
+    long size = node->octet_string.length;
+    uint8_t *buf = allocate_memory(size);
+    memcpy(buf, node->octet_string.data->buffer+offset, size);
+    *size_p = size;
+    return buf;
+  }
+}
+
+{
+  <kind function>
+
+  long types::octet_string/length_of(NODE *node) {
+    return node->octet_string.length;
+  }
+}
+
+{
+  <kind function>
+
+  long types::quad_octet_string/length_of(NODE *node) {
+    return node->quad_octet_string.length;
+  }
+}
+
+$types::octet_string/length_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->octet_string.length))
+  }
+
+$types::quad_octet_string/length_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->quad_octet_string.length))
+  }
+
+$types::octet_string/equal
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left = ARGUMENTS(0);
+    NODE *right = ARGUMENTS(1);
+    if (left == right) RETURN_TRUE
+    if (TYPEOF(right) != TYPE(types::octet_string)) RETURN_FALSE
+    OCTET_DATA *left_data = left->octet_string.data;
+    OCTET_DATA *right_data = right->octet_string.data;
+    long left_offset = left->octet_string.offset;
+    long right_offset = right->octet_string.offset;
+    long len = left->octet_string.length;
+    if (len != right->octet_string.length) RETURN_FALSE
+    if (left_offset == right_offset && left_data == right_data) RETURN_TRUE
+    long i;
+    for (i = 0; i < len; ++i) {
+      if (left_data->buffer[left_offset+i] != right_data->buffer[right_offset+i]) RETURN_FALSE
+    }
+    if (left_offset == right_offset) {
+      // join the two versions of the string data to simplify future comparisons
+      join_nodes(&left->octet_string.data, &right->octet_string.data);
+    }
+    RETURN_TRUE
+  }
+
+$types::quad_octet_string/equal
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left = ARGUMENTS(0);
+    NODE *right = ARGUMENTS(1);
+    if (left == right) RETURN_TRUE
+    if (TYPEOF(right) != TYPE(types::quad_octet_string)) RETURN_FALSE
+    QUAD_OCTET_DATA *left_data = left->quad_octet_string.data;
+    QUAD_OCTET_DATA *right_data = right->quad_octet_string.data;
+    long left_offset = left->quad_octet_string.offset;
+    long right_offset = right->quad_octet_string.offset;
+    long len = left->quad_octet_string.length;
+    if (len != right->quad_octet_string.length) RETURN_FALSE
+    if (left_offset == right_offset && left_data == right_data) RETURN_TRUE
+    long i;
+    for (i = 0; i < len; ++i) {
+      if (left_data->buffer[left_offset+i] != right_data->buffer[right_offset+i]) RETURN_FALSE
+    }
+    if (left_offset == right_offset) {
+      // join the two versions of the string data to simplify future comparisons
+      join_nodes(&left->quad_octet_string.data, &right->quad_octet_string.data);
+    }
+    RETURN_TRUE
+  }
+
+$types::octet_string/count_character_occurrences
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *string = ARGUMENTS(0);
+    uint8_t chr = (uint8_t)to_uchar32(ARGUMENTS(1));
+    long count = 0;
+    OCTET_DATA *data = string->octet_string.data;
+    long offset = string->octet_string.offset;
+    long len = string->octet_string.length;
+    while (--len >= 0) {
+      if (data->buffer[offset++] == chr) ++count;
+    }
+    RETURN_SINGLE_RESULT(from_long(count))
+  }
+
+$types::quad_octet_string/count_character_occurrences
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *string = ARGUMENTS(0);
+    uint32_t chr = to_uchar32(ARGUMENTS(1));
+    long count = 0;
+    QUAD_OCTET_DATA *data = string->quad_octet_string.data;
+    long offset = string->quad_octet_string.offset;
+    long len = string->quad_octet_string.length;
+    while (--len >= 0) {
+      if (data->buffer[offset++] == chr) ++count;
+    }
+    RETURN_SINGLE_RESULT(from_long(count))
+  }
+
+$types::octet_string/less
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left = ARGUMENTS(0);
+    NODE *right = ARGUMENTS(1);
+    if (left == right) RETURN_FALSE
+    if (TYPEOF(right) == TYPE(types::octet_string)) {
+      OCTET_DATA *left_data = left->octet_string.data;
+      OCTET_DATA *right_data = right->octet_string.data;
+      long left_offset = left->octet_string.offset;
+      long right_offset = right->octet_string.offset;
+      long left_len = left->octet_string.length;
+      long right_len = right->octet_string.length;
+      if (left_offset == right_offset && left_len == right_len && left_data == right_data)
+        RETURN_FALSE
+      long len = left_len;
+      if (right_len < len) len = right_len;
+      long i;
+      for (i = 0; i < len; ++i) {
+        uint8_t left_chr = left_data->buffer[left_offset+i];
+        uint8_t right_chr = right_data->buffer[right_offset+i];
+        if (left_chr < right_chr) RETURN_TRUE
+        if (left_chr > right_chr) RETURN_FALSE
+      }
+      if (left_len < right_len) RETURN_TRUE
+      if (left_offset == right_offset && left_len == right_len) { // both strings are equal!
+        // join the two versions of the string data to simplify future comparisons
+        join_nodes(&left->octet_string.data, &right->octet_string.data);
+      }
+      RETURN_FALSE
+    } else if (TYPEOF(right) == TYPE(types::quad_octet_string)) {
+      OCTET_DATA *left_data = left->octet_string.data;
+      QUAD_OCTET_DATA *right_data = right->quad_octet_string.data;
+      long left_offset = left->octet_string.offset;
+      long right_offset = right->quad_octet_string.offset;
+      long left_len = left->octet_string.length;
+      long right_len = right->quad_octet_string.length;
+      long len = left_len;
+      if (right_len < len) len = right_len;
+      long i;
+      for (i = 0; i < len; ++i) {
+        uint32_t left_chr = left_data->buffer[left_offset+i];
+        uint32_t right_chr = right_data->buffer[right_offset+i];
+        if (left_chr < right_chr) RETURN_TRUE
+        if (left_chr > right_chr) RETURN_FALSE
+      }
+      if (left_len < right_len) RETURN_TRUE
+      RETURN_FALSE
+    } else {
+      INVALID_ARGUMENTS_ERROR
+    }
+  }
+
+$types::quad_octet_string/less
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left = ARGUMENTS(0);
+    NODE *right = ARGUMENTS(1);
+    if (left == right) RETURN_FALSE
+    if (TYPEOF(right) == TYPE(types::octet_string)) {
+      QUAD_OCTET_DATA *left_data = left->quad_octet_string.data;
+      OCTET_DATA *right_data = right->octet_string.data;
+      long left_offset = left->quad_octet_string.offset;
+      long right_offset = right->octet_string.offset;
+      long left_len = left->quad_octet_string.length;
+      long right_len = right->octet_string.length;
+      long len = left_len;
+      if (right_len < len) len = right_len;
+      long i;
+      for (i = 0; i < len; ++i) {
+        uint32_t left_chr = left_data->buffer[left_offset+i];
+        uint32_t right_chr = right_data->buffer[right_offset+i];
+        if (left_chr < right_chr) RETURN_TRUE
+        if (left_chr > right_chr) RETURN_FALSE
+      }
+      if (left_len < right_len) RETURN_TRUE
+      RETURN_FALSE
+    } else if (TYPEOF(right) == TYPE(types::quad_octet_string)) {
+      QUAD_OCTET_DATA *left_data = left->quad_octet_string.data;
+      QUAD_OCTET_DATA *right_data = right->quad_octet_string.data;
+      long left_offset = left->quad_octet_string.offset;
+      long right_offset = right->quad_octet_string.offset;
+      long left_len = left->quad_octet_string.length;
+      long right_len = right->quad_octet_string.length;
+      if (left_offset == right_offset && left_len == right_len && left_data == right_data)
+        RETURN_FALSE
+      long len = left_len;
+      if (right_len < len) len = right_len;
+      long i;
+      for (i = 0; i < len; ++i) {
+        uint32_t left_chr = left_data->buffer[left_offset+i];
+        uint32_t right_chr = right_data->buffer[right_offset+i];
+        if (left_chr < right_chr) RETURN_TRUE
+        if (left_chr > right_chr) RETURN_FALSE
+      }
+      if (left_len < right_len) RETURN_TRUE
+      if (left_offset == right_offset && left_len == right_len) { // both strings are equal!
+        // join the two versions of the string data to simplify future comparisons
+        join_nodes(&left->octet_string.data, &right->octet_string.data);
+      }
+      RETURN_FALSE
+    } else {
+      INVALID_ARGUMENTS_ERROR
+    }
+  }
+
+$types::octet_string/hash
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *self = ARGUMENTS(0);
+    uint8_t *buf = self->octet_string.data->buffer+self->octet_string.offset;
+    long len = self->octet_string.length;
+    uint32_t hash = 0x7890abcd;
+    long i;
+    if (len > 16) {
+      for (i = len-8; i < len; ++i) {
+        hash = (hash << 7) | (hash >> 25);
+        hash ^= buf[i];
+      }
+      len = 8;
+    }
+    for (i = 0; i < len; ++i) {
+      hash = (hash << 7) | (hash >> 25);
+      hash ^= buf[i];
+    }
+    hash *= 234256597;
+    hash ^= hash >> 26 | hash << 6;
+    RETURN_SINGLE_RESULT(from_uint32(hash))
+  }
+
+$types::quad_octet_string/hash
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *self = ARGUMENTS(0);
+    uint32_t *buf = self->quad_octet_string.data->buffer+self->quad_octet_string.offset;
+    long len = self->quad_octet_string.length;
+    uint32_t hash = 0x3456789a;
+    long i;
+    if (len > 16) {
+      for (i = len-8; i < len; ++i) {
+        hash = (hash << 13) | (hash >> 19);
+        hash ^= buf[i];
+      }
+      len = 8;
+    }
+    for (i = 0; i < len; ++i) {
+      hash = (hash << 13) | (hash >> 19);
+      hash ^= buf[i];
+    }
+    hash *= 234256597;
+    hash ^= hash >> 22 | hash << 10;
+    RETURN_SINGLE_RESULT(from_uint32(hash))
+  }
+
+$types::string/to_string: (self) -> self
+
+$types::string/serialize: (self _indent?)
+  $$buf "@quot;"
+  $$s 1
+  for_each self: (idx chr)
+    if
+      ||
+	chr < ' '
+	chr > '~'
+	chr == '@@'
+	chr == '@quot;'
+	chr == '@apos;'
+      :
+	append &buf range(self s idx-1)
+	append &buf string("@@0x" hex(chr.to_integer) ';')
+	!s idx+1
+  append &buf range(self s -1)
+  -> push(buf '@quot;')
+
+$types::string/parse_integer:
+  (
+    $self
+    -> return
+  )
+  $$val 0
+  $$negate false
+  if self .has_prefix. '-':
+    range &self 2 -1
+    !negate true
+  do: (-> break)
+    cond
+      -> self .has_prefix. "0b":
+	for_each_from_to self 3 -1: (idx chr)
+	  case
+	    chr
+	    '0' .. '1':
+	      !val (val << 1)+(chr-'0')
+	    :
+	      if idx <= 3: return self undefined
+	      range &self idx -1
+	      break
+      -> self .has_prefix. "0o":
+	for_each_from_to self 3 -1: (idx chr)
+	  case
+	    chr
+	    '0' .. '7':
+	      !val (val << 3)+(chr-'0')
+	    :
+	      if idx <= 3: return self undefined
+	      range &self idx -1
+	      break
+      -> self .has_prefix. "0x":
+	for_each_from_to self 3 -1: (idx chr)
+	  case
+	    chr
+	    '0' .. '9':
+	      !val (val << 4)+(chr-'0')
+	    'a' .. 'f':
+	      !val (val << 4)+(chr-'a')+10
+	    'A' .. 'F':
+	      !val (val << 4)+(chr-'A')+10
+	    :
+	      if idx <= 3: return self undefined
+	      range &self idx -1
+	      break
+      :
+	for_each self: (idx chr)
+	  case
+	    chr
+	    '0' .. '9':
+	      !val 10*val+(chr-'0')
+	    :
+	      if idx <= 1: return self undefined
+	      range &self idx -1
+	      break
+    !self ""
+  -> self if(negate (-> -val) -> val)
+
+{
+  <kind function>
+
+  long types::octet_string/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    long len = 0;
+    if (indent < 0) {
+      if (buf) *buf++ = ' ';
+      ++len;
+    }
+    if (buf) *buf++ = '\"';
+    ++len;
+    long i;
+    long s = node->octet_string.offset;
+    long e = s+node->octet_string.length;
+    for (i = s; i < e; ++i) {
+      uint8_t chr = node->octet_string.data->buffer[i];
+      if (chr >= 0x20 && chr <= 0x7e || chr >= 0xa0 && chr < 0xff) {
+        if (chr == '\"') {
+          len += print(&buf, "@quot;");
+        } else if (chr == '@') {
+          len += print(&buf, "@@");
+        } else {
+          if (buf) *buf++ = chr;
+          ++len;
+        }
+      } else {
+        len += print(&buf, "@0x%x;", chr);
+      }
+    }
+    len += print(&buf, "\"\n");
+    return len;
+  }
+}
+
+{
+  <kind function>
+
+  long types::quad_octet_string/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    long len = 0;
+    if (indent < 0) {
+      if (buf) *buf++ = ' ';
+      ++len;
+    }
+    if (buf) *buf++ = '\"';
+    ++len;
+    long i;
+    long s = node->quad_octet_string.offset;
+    long e = s+node->quad_octet_string.length;
+    for (i = s; i < e; ++i) {
+      uint32_t chr = node->quad_octet_string.data->buffer[i];
+      if (chr >= 0x20 && chr <= 0x7e || chr >= 0xa0 && chr < 0xff) {
+        if (chr == '\"') {
+          len += print(&buf, "@quot;");
+        } else if (chr == '@') {
+          len += print(&buf, "@@");
+        } else {
+          if (buf) *buf++ = chr;
+          ++len;
+        }
+      } else {
+        len += print(&buf, "@0x%x;", chr);
+      }
+    }
+    len += print(&buf, "\"\n");
+    return len;
+  }
+}
+
+$types::octet_string/push
+  {
+    CHECK_ARGUMENTS(2)
+    uint32_t chr_code = to_uchar32(ARGUMENTS(1));
+    NODE *left = ARGUMENTS(0);
+    long left_start_offset = left->octet_string.offset;
+    long left_length = left->octet_string.length;
+    long left_end_offset = left_start_offset+left_length;
+    long new_length = left_length+1;
+    OCTET_DATA *data = left->octet_string.data;
+    if (chr_code <= 0xff) {
+      if (!data || data->size < left_end_offset+1 || data->length != left_end_offset) {
+        long new_size = ALLOCATION_SIZE(2*new_length);
+        OCTET_DATA *new_data = allocate_large(sizeof(OCTET_DATA)+new_size);
+        if (data) {
+          memcpy(
+            new_data->buffer,
+            data->buffer+left_start_offset,
+            left_length);
+        }
+        left_start_offset = 0;
+        left_end_offset = left_length;
+        new_data->size = new_size;
+        data = new_data;
+      }
+      data->buffer[left_end_offset] = (uint8_t)chr_code;
+      data->length = left_end_offset+1;
+      RETURN_SINGLE_RESULT(create__types__octet_string(left_start_offset, new_length, data))
+    } else {
+      long new_size = ALLOCATION_SIZE(4*2*new_length);
+      QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+new_size);
+      new_data->size = new_size;
+      new_data->length = new_length;
+      if (data) {
+        long idx;
+        for (idx = 0; idx < left_length; ++idx) {
+          new_data->buffer[idx] = data->buffer[left_start_offset+idx];
+        }
+      }
+      new_data->buffer[left_length] = chr_code;
+      RETURN_SINGLE_RESULT(create__types__quad_octet_string(0, new_length, new_data))
+    }
+  }
+
+$types::quad_octet_string/push
+  {
+    CHECK_ARGUMENTS(2)
+    uint32_t chr_code = to_uchar32(ARGUMENTS(1));
+    NODE *left = ARGUMENTS(0);
+    long left_start_offset = left->quad_octet_string.offset;
+    long left_length = left->quad_octet_string.length;
+    long left_end_offset = left_start_offset+left_length;
+    long new_length = left_length+1;
+    QUAD_OCTET_DATA *data = left->quad_octet_string.data;
+    if (!data || data->size < 4*(left_end_offset+1) || data->length != left_end_offset) {
+      long new_size = ALLOCATION_SIZE(4*2*new_length);
+      QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+new_size);
+      if (data) {
+        memcpy(
+          new_data->buffer,
+          data->buffer+left_start_offset,
+          4*left_length);
+      }
+      left_start_offset = 0;
+      left_end_offset = left_length;
+      new_data->size = new_size;
+      data = new_data;
+    }
+    data->buffer[left_end_offset] = chr_code;
+    data->length = left_end_offset+1;
+    RETURN_SINGLE_RESULT(create__types__quad_octet_string(left_start_offset, new_length, data))
+  }
+
+$types::octet_string/append
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left = ARGUMENTS(0);
+    NODE *right = ARGUMENTS(1);
+    long left_offset = left->octet_string.offset;
+    long left_length = left->octet_string.length;
+    long right_length = right->octet_string.length;
+    long new_length = left_length+right_length;
+    OCTET_DATA *data = left->octet_string.data;
+    if (TYPEOF(right) == TYPE(types::octet_string)) {
+      if (left_length == 0) RETURN_SINGLE_RESULT(right)
+      if (right_length == 0) RETURN_SINGLE_RESULT(left)
+      if (data->size < left_offset+new_length || data->length != left_offset+left_length) {
+        long new_size = ALLOCATION_SIZE(2*new_length);
+        OCTET_DATA *new_data = allocate_large(sizeof(OCTET_DATA)+new_size);
+        memcpy(new_data->buffer, data->buffer+left_offset, left_length);
+        left_offset = 0;
+        new_data->size = new_size;
+        data = new_data;
+      }
+      memcpy(
+        data->buffer+left_offset+left_length,
+        right->octet_string.data->buffer+right->octet_string.offset,
+        right_length);
+      data->length = left_offset+new_length;
+      RETURN_SINGLE_RESULT(create__types__octet_string(left_offset, new_length, data))
+    } else if (TYPEOF(right) == TYPE(types::quad_octet_string)) {
+      if (left_length == 0) RETURN_SINGLE_RESULT(right)
+      long new_size = ALLOCATION_SIZE(4*2*new_length);
+      QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+new_size);
+      new_data->size = new_size;
+      new_data->length = new_length;
+      long idx;
+      for (idx = 0; idx < left_length; ++idx) {
+        new_data->buffer[idx] = data->buffer[left_offset+idx];
+      }
+      memcpy(
+        new_data->buffer+left_length,
+        right->quad_octet_string.data->buffer+right->quad_octet_string.offset,
+        4*right_length);
+      RETURN_SINGLE_RESULT(create__types__quad_octet_string(0, new_length, new_data))
+    } else {
+      INVALID_ARGUMENTS_ERROR
+    }
+  }
+
+$types::quad_octet_string/append
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *left = ARGUMENTS(0);
+    NODE *right = ARGUMENTS(1);
+    long left_offset = left->quad_octet_string.offset;
+    long left_length = left->quad_octet_string.length;
+    long right_length = right->quad_octet_string.length;
+    long new_length = left_length+right_length;
+    QUAD_OCTET_DATA *data = left->quad_octet_string.data;
+    if (TYPEOF(right) == TYPE(types::octet_string)) {
+      if (right_length == 0) RETURN_SINGLE_RESULT(left)
+      if (data->size < 4*(left_offset+new_length) || data->length != left_offset+left_length) {
+        long new_size = ALLOCATION_SIZE(4*2*new_length);
+        QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+new_size);
+        memcpy(new_data->buffer, data->buffer+left_offset, 4*left_length);
+        left_offset = 0;
+        new_data->size = new_size;
+        data = new_data;
+      }
+      long src_idx = left_offset+left_length;
+      long dest_idx = right->octet_string.offset;
+      while (--right_length >= 0) {
+        data->buffer[src_idx++] = right->octet_string.data->buffer[dest_idx++];
+      }
+      data->length = left_offset+new_length;
+      RETURN_SINGLE_RESULT(create__types__quad_octet_string(left_offset, new_length, data))
+    } else if (TYPEOF(right) == TYPE(types::quad_octet_string)) {
+      if (data->size < 4*(left_offset+new_length) || data->length != left_offset+left_length) {
+        long new_size = ALLOCATION_SIZE(4*2*new_length);
+        QUAD_OCTET_DATA *new_data = allocate_large(sizeof(QUAD_OCTET_DATA)+new_size);
+        memcpy(new_data->buffer, data->buffer+left_offset, 4*left_length);
+        left_offset = 0;
+        new_data->size = new_size;
+        data = new_data;
+      }
+      memcpy(
+        data->buffer+left_offset+left_length,
+        right->quad_octet_string.data->buffer+right->quad_octet_string.offset,
+        4*right_length);
+      data->length = left_offset+new_length;
+      RETURN_SINGLE_RESULT(create__types__quad_octet_string(left_offset, new_length, data))
+    } else {
+      INVALID_ARGUMENTS_ERROR
+    }
+  }
+
+$types::string/parse_real
+  {
+    CHECK_ARGUMENTS(1)
+    char *str = to_c_string(ARGUMENTS(0));
+    char *end;
+    double result = strtod(str, &end);
+    NODE *value = from_double(result);
+    NODE *remaining_str = from_c_string(end);
+    deallocate_memory(str);
+    START_ARGUMENTS(2)
+    ARGUMENTS(0) = remaining_str;
+    ARGUMENTS(1) = value;
+    RETURN
+  }
+
+$types::octet_string/range
+  {
+    CHECK_ARGUMENTS(3)
+    NODE *self = ARGUMENTS(0);
+    long first_idx = to_long(ARGUMENTS(1));
+    long last_idx = to_long(ARGUMENTS(2));
+    long len = self->octet_string.length;
+    if (first_idx < 0) first_idx = len+first_idx+1;
+    if (last_idx < 0) last_idx = len+last_idx+1;
+    if (first_idx < 1 || first_idx > len+1) INVALID_INDEX_ERROR
+    if (last_idx < 0 || last_idx > len) INVALID_INDEX_ERROR
+    if (first_idx > last_idx+1) INVALID_ARGUMENTS_ERROR
+    if (first_idx == 1 && last_idx == len) RETURN_SINGLE_RESULT(self)
+    long new_len = last_idx-first_idx+1;
+    if (new_len == 0) RETURN_SINGLE_RESULT(EMPTY_STRING)
+    RETURN_SINGLE_RESULT(
+      create__types__octet_string(
+        self->octet_string.offset+first_idx-1, new_len, self->octet_string.data))
+  }
+
+$types::quad_octet_string/range
+  {
+    CHECK_ARGUMENTS(3)
+    NODE *self = ARGUMENTS(0);
+    long first_idx = to_long(ARGUMENTS(1));
+    long last_idx = to_long(ARGUMENTS(2));
+    long len = self->octet_string.length;
+    if (first_idx < 0) first_idx = len+first_idx+1;
+    if (last_idx < 0) last_idx = len+last_idx+1;
+    if (first_idx < 1 || first_idx > len+1) INVALID_INDEX_ERROR
+    if (last_idx < 0 || last_idx > len) INVALID_INDEX_ERROR
+    if (first_idx > last_idx+1) INVALID_ARGUMENTS_ERROR
+    if (first_idx == 1 && last_idx == len) RETURN_SINGLE_RESULT(self)
+    long new_len = last_idx-first_idx+1;
+    if (new_len == 0) RETURN_SINGLE_RESULT(EMPTY_STRING)
+    long idx;
+    long offset = self->quad_octet_string.offset;
+    QUAD_OCTET_DATA *data = self->quad_octet_string.data;
+    for (idx = first_idx-1; idx < last_idx; ++idx) {
+      if (data->buffer[offset+idx] > 0xff) {
+        RETURN_SINGLE_RESULT(
+          create__types__quad_octet_string(offset+first_idx-1, new_len, data))
+      }
+    }
+    long new_size = ALLOCATION_SIZE(new_len);
+    OCTET_DATA *new_data = allocate_large(sizeof(OCTET_DATA)+new_size);
+    new_data->size = new_size;
+    new_data->length = new_len;
+    offset += first_idx-1;
+    for (idx = 0; idx < new_len; ++idx) {
+      new_data->buffer[idx] = data->buffer[idx+offset];
+    }
+    RETURN_SINGLE_RESULT(create__types__octet_string(0, new_len, new_data))
+  }
+
+$std::matches_file_pattern
+  {
+    CHECK_ARGUMENTS(2)
+    char *filename = to_c_string(ARGUMENTS(0));
+    char *pattern = to_c_string(ARGUMENTS(1));
+    int ret = fnmatch(pattern, filename, 0);
+    deallocate_memory(pattern);
+    deallocate_memory(filename);
+    RETURN_BOOLEAN(ret == 0);
+  }
+
+$types::octet_string/is_a_latin_1_string
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_TRUE
+  }
+
+$types::quad_octet_string/is_a_latin_1_string
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_FALSE
+  }
+
+$std::from_utf8
+  {
+    CHECK_ARGUMENTS(1)
+    uint8_t *buf = (unsigned char *)to_c_string(ARGUMENTS(0));
+    long length = 0;
+    long src_idx, dest_idx;
+    int is_latin_1 = true;
+    uint8_t chr;
+    // check vor valid utf-8 encoding
+    // the allowed maximum size is 32 bits instead of 21 bits!
+    src_idx = 0;
+    while (chr = buf[src_idx++]) {
+      int n; // number of continuation octets
+      if (chr >= 0x80) {
+        if ((chr & 0xe0) == 0xc0) { // 2 byte code
+          if (chr & 0x3c) is_latin_1 = false; // more than 8 bits
+          n = 1;
+        } else if ((chr & 0xf0) == 0xe0) { // 3 byte code
+          is_latin_1 = false;
+          n = 2;
+        } else if ((chr & 0xf8) == 0xf0) { // 4 byte code
+          is_latin_1 = false;
+          n = 3;
+        } else if ((chr & 0xfc) == 0xf8) { // 5 byte code
+          is_latin_1 = false;
+          n = 4;
+        } else if ((chr & 0xfe) == 0xfc) { // 6 byte code
+          is_latin_1 = false;
+          n = 5;
+        } else if (chr == 0xfe) { // 7 byte code
+          if (buf[src_idx] & 0x3e) INVALID_ARGUMENTS_ERROR // more than 32 bits
+          is_latin_1 = false;
+          n = 6;
+        } else INVALID_ARGUMENTS_ERROR
+        while (--n >= 0) {
+          chr = buf[src_idx++];
+          if ((chr & 0xc0) != 0x80) INVALID_ARGUMENTS_ERROR
+        }
+      }
+      ++length;
+    }
+    if (is_latin_1) {
+      long size = ALLOCATION_SIZE(length);
+      OCTET_DATA *data = allocate_large(sizeof(OCTET_DATA)+size);
+      data->size = size;
+      data->length = length;
+      src_idx = 0;
+      for (dest_idx = 0; dest_idx < length; ++dest_idx) {
+        uint8_t chr;
+        chr = buf[src_idx++];
+        if (chr >= 0x80) {
+          chr = ((chr & 0x1f) << 6) | (buf[src_idx++] & 0x3f);
+        }
+        data->buffer[dest_idx] = chr;
+      }
+      deallocate_memory(buf);
+      RETURN_SINGLE_RESULT(create__types__octet_string(0, length, data))
+    } else {
+      long size = ALLOCATION_SIZE(4*length);
+      QUAD_OCTET_DATA *data = allocate_large(sizeof(QUAD_OCTET_DATA)+size);
+      data->size = size;
+      data->length = length;
+      src_idx = 0;
+      for (dest_idx = 0; dest_idx < length; ++dest_idx) {
+        uint32_t chr;
+        chr = buf[src_idx++];
+        if (chr >= 0x80) {
+          int n; // number of continuation octets
+          if ((chr & 0xe0) == 0xc0) { // 2 byte code
+            chr &= 0x1f;
+            n = 1;
+          } else if ((chr & 0xf0) == 0xe0) { // 3 byte code
+            chr &= 0x0f;
+            n = 2;
+          } else if ((chr & 0xf8) == 0xf0) { // 4 byte code
+            chr &= 0x07;
+            n = 3;
+          } else if ((chr & 0xfc) == 0xf8) { // 5 byte code
+            chr &= 0x03;
+            n = 4;
+          } else if ((chr & 0xfe) == 0xfc) { // 6 byte code
+            chr &= 0x01;
+            n = 5;
+          } else { // 7 byte code
+            chr = 0;
+            n = 6;
+          }
+          while (--n >= 0) {
+            chr = (chr << 6) | (buf[src_idx++] & 0x3f);
+          }
+        }
+        data->buffer[dest_idx] = chr;
+      }
+      deallocate_memory(buf);
+      RETURN_SINGLE_RESULT(create__types__quad_octet_string(0, length, data))
+    }
+  }
+
+$types::octet_string/to_utf8
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *self = ARGUMENTS(0);
+    long offset = self->octet_string.offset;
+    long len = self->octet_string.length;
+    long new_len = len;
+    uint8_t *src = self->octet_string.data->buffer+offset;
+    long i;
+    for(i = 0; i < len; ++i) {
+      uint8_t chr = src[i];
+      if (chr >= 0x80) {
+        ++new_len;
+      }
+    }
+    long size = ALLOCATION_SIZE(new_len);
+    OCTET_DATA *data = allocate_large(sizeof(OCTET_DATA)+size);
+    data->size = size;
+    data->length = new_len;
+    uint8_t *dst = data->buffer;
+    for(i = 0; i < len; ++i) {
+      uint8_t chr = src[i];
+      if (chr >= 0x80) {
+        *dst++ = chr >> 6 | 0xc0;
+        *dst++ = chr & 0x3f | 0x80;
+      } else {
+        *dst++ = chr;
+      }
+    }
+    RETURN_SINGLE_RESULT(create__types__octet_string(0, new_len, data))
+  }
+
+#
+  encoding:
+
+  7 bit:  0xxxxxxx
+  11 bit: 110xxxxx 10xxxxxx
+  16 bit: 1110xxxx 10xxxxxx 10xxxxxx
+  21 bit: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+  26 bit: 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+  31 bit: 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+  36 bit: 11111110 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+
+$types::quad_octet_string/to_utf8
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *self = ARGUMENTS(0);
+    long offset = self->quad_octet_string.offset;
+    long len = self->quad_octet_string.length;
+    long new_len = len;
+    uint32_t *src = self->quad_octet_string.data->buffer+offset;
+    long i;
+    for(i = 0; i < len; ++i) {
+      uint32_t chr = src[i];
+      if (chr >= 0x80) {
+        if (chr >= 0x800) {
+          if (chr >= 0x10000) {
+            if (chr >= 0x200000) {
+              if (chr >= 0x4000000) {
+                if (chr >= 0x80000000) {
+                  new_len += 6;
+                } else {
+                  new_len += 5;
+                }
+              } else {
+                new_len += 4;
+              }
+            } else {
+              new_len += 3;
+            }
+          } else {
+            new_len += 2;
+          }
+        } else {
+          ++new_len;
+        }
+      }
+    }
+    long size = ALLOCATION_SIZE(new_len);
+    OCTET_DATA *data = allocate_large(sizeof(OCTET_DATA)+size);
+    data->size = size;
+    data->length = new_len;
+    uint8_t *dst = data->buffer;
+    for(i = 0; i < len; ++i) {
+      uint32_t chr = src[i];
+      if (chr >= 0x80) {
+        if (chr >= 0x800) {
+          if (chr >= 0x10000) {
+            if (chr >= 0x200000) {
+              if (chr >= 0x4000000) {
+                if (chr >= 0x80000000) {
+                  *dst++ = 0xfe;
+                  *dst++ = (chr >> 30) & 0x3f | 0x80;
+                  *dst++ = (chr >> 24) & 0x3f | 0x80;
+                  *dst++ = (chr >> 18) & 0x3f | 0x80;
+                  *dst++ = (chr >> 12) & 0x3f | 0x80;
+                  *dst++ = (chr >> 6) & 0x3f | 0x80;
+                  *dst++ = chr & 0x3f | 0x80;
+                } else {
+                  *dst++ = chr >> 30 | 0xfc0;
+                  *dst++ = (chr >> 24) & 0x3f | 0x80;
+                  *dst++ = (chr >> 18) & 0x3f | 0x80;
+                  *dst++ = (chr >> 12) & 0x3f | 0x80;
+                  *dst++ = (chr >> 6) & 0x3f | 0x80;
+                  *dst++ = chr & 0x3f | 0x80;
+                }
+              } else {
+                *dst++ = chr >> 24 | 0xf8;
+                *dst++ = (chr >> 18) & 0x3f | 0x80;
+                *dst++ = (chr >> 12) & 0x3f | 0x80;
+                *dst++ = (chr >> 6) & 0x3f | 0x80;
+                *dst++ = chr & 0x3f | 0x80;
+              }
+            } else {
+              *dst++ = chr >> 18 | 0xf0;
+              *dst++ = (chr >> 12) & 0x3f | 0x80;
+              *dst++ = (chr >> 6) & 0x3f | 0x80;
+              *dst++ = chr & 0x3f | 0x80;
+            }
+          } else {
+            *dst++ = chr >> 12 | 0xe0;
+            *dst++ = (chr >> 6) & 0x3f | 0x80;
+            *dst++ = chr & 0x3f | 0x80;
+          }
+        } else {
+          *dst++ = chr >> 6 | 0xc0;
+          *dst++ = chr & 0x3f | 0x80;
+        }
+      } else {
+        *dst++ = chr;
+      }
+    }
+    RETURN_SINGLE_RESULT(create__types__octet_string(0, new_len, data))
+  }

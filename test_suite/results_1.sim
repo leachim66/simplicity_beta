@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+$p: (!x)
+  !x 3
+  -> 5
+
+p $a $b
+
+writeln a
+writeln b

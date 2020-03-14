@@ -1,0 +1,14 @@
+#!/usr/bin/env simple
+
+%y 1
+
+$p: (!x)
+  !x 3
+  %y 7
+  -> 5
+
+p $a $b
+
+writeln a
+writeln b
+writeln y

@@ -1,0 +1,39 @@
+#!/usr/bin/env simrun
+
+<require basic/stdlib>
+<require system/stdlib>
+
+$width width_of(current_screen)
+$height height_of(current_screen)
+
+$COLOUR: (red green blue) -> character(red << 16 | green << 8 | blue)
+
+$$red_steps bresenham(width 0 255)
+$$green_steps bresenham(height 0 255)
+for_each green_steps: (row green)
+  at 1 row
+  for_each red_steps: (red)
+    set_background_colour COLOUR(red green 0)
+    draw_text " "
+set_background_colour undefined
+draw_rectangle 20 40 50 70
+draw_rectangle 10 50 20 60
+draw_rectangle 30 70 40 80
+draw_rectangle 50 50 60 60
+draw_rectangle 30 30 40 40
+draw_rectangle 20 25 30 20
+draw_rectangle 20 25 30 20
+
+#draw_line 30 49 30 64
+#draw_line 10 55 49 55
+#draw_line 10 80 50 80
+#draw_line 20 80 20 85
+
+update_terminal
+
+#for_each red_steps: (red)
+  writeln red
+#at 10 47
+#set_text_colour '@0xff0000;'
+#set_background_colour '@0xffff00;'
+#draw_text "Hello, world!"

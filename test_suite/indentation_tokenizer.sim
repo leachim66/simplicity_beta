@@ -1,0 +1,141 @@
+#!/usr/bin/env simple
+
+$line_no_of (!)
+$text_of (!)
+$source_of (!)
+
+$INDENT '@soh;'
+$OUTDENT '@stx;'
+$NEWLINE '@nl;'
+
+$buf "
+  #
+       This is a
+    multiline
+        remark
+
+  $p: (x y -> return)
+    write "-
+           a multiline
+      string constant
+    if
+      x > y:
+        return 2*x+y
+      :
+        return 3*x-y
+
+if length_of(buf) == 0: Error "Empty source text!"
+if buf(1) <= ' ': Error "Whitespace at start of source text!"
+if buf(-1) != NEWLINE: Error "Missing newline at end of source text!"
+$$fragments list()
+do: # cut into top-level source fragments
+  $$start_idx 1
+  $$start_no 1
+  $$no 1
+  for_each buf: (idx chr)
+    if chr == '@nl;':
+      inc &no
+      if idx == length_of(buf) || buf(idx+1) > ' ':
+	push
+	  &fragments
+	  types::object(.line_no_of start_no .text_of range(buf start_idx idx))
+	!start_no no
+	!start_idx idx+1
+
+# insert INDENT and OUTDENT tokens
+
+$is_a_line_end_specifier: (chr) -> chr >= 'a' && chr <= 'z' || chr == '-'
+
+$text_to_source: (text)
+  $$i 1
+  $$s 1
+  $$new_text ""
+
+  $skip_line: while -> text(i) != NEWLINE: inc &i
+
+  $get_indent: (-> return)
+    if i == length_of(text): return -1
+    inc &i
+    $$indent 0
+    while -> text(i) == '@ht;':
+	inc &i
+	plus &indent 8
+    while -> text(i) == ' ':
+	inc &i
+	inc &indent
+    -> indent
+
+  $convert:
+    (
+      current_indent
+      -> return
+    )
+    forever:
+      $is_a_remark text(i) == '#'
+      skip_line
+
+      $is_a_multi_line_string
+	||
+	  i > 1 && text(i-1) == '@quot;'
+	  &&
+	    is_a_line_end_specifier(text(i-1))
+	    ||
+	      i > 2 && text(i-2) == '@quot;'
+	      &&
+		is_a_line_end_specifier(text(i-2))
+		i > 3
+		text(i-3) == '@quot;'
+
+      append &new_text range(text s i-1)
+      get_indent $$indent
+      !s i
+      if indent > current_indent:
+	if
+	  is_a_remark || is_a_multi_line_string: # maybe irregular indentations
+	    $rs i
+	    $$least_indent indent
+	    do: (-> break)
+	      forever:
+		skip_line
+		get_indent $next_indent
+		if next_indent <= current_indent break
+		reduce_to &least_indent next_indent
+	    push &new_text INDENT
+	    !i rs
+	    do: (-> break)
+	      forever:
+		skip_line
+		repeat indent-least_indent: push &new_text ' '
+		append &new_text range(text s i-1)
+		get_indent !indent
+		!s i
+		if indent <= current_indent break
+		push &new_text NEWLINE
+	    push &new_text OUTDENT
+	  :
+	    push &new_text INDENT
+	    !indent convert(indent)
+	    if indent > current_indent: Error "Invalid indentation!"
+	    push &new_text OUTDENT
+      if indent < current_indent: return indent
+      push &new_text NEWLINE
+
+  ignore convert(0)
+  push &new_text NEWLINE
+  -> new_text
+
+update_each &fragments: (&fragment)
+  !fragment.source_of text_to_source(text_of(fragment))
+for_each fragments: (fragment)
+  writeln "==========(" line_no_of(fragment) ")"
+  for_each source_of(fragment): (chr)
+    case
+      chr
+      NEWLINE:
+	writeln "<NEWLINE>"
+      INDENT:
+	writeln "<INDENT>"
+      OUTDENT:
+	writeln "<OUTDENT>"
+      :
+	write chr

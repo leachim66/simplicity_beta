@@ -1,0 +1,23 @@
+#!/usr/bin/env simple
+
+$$participants_1 key_order_set()
+$$participants_2 insert_order_set()
+
+!participants_1("Peter") true
+!participants_1("Susan") true
+!participants_1("Elliot") true
+!participants_1("Gerda") true
+!participants_1("Joseph") true
+
+!participants_2("Peter") true
+!participants_2("Susan") true
+!participants_2("Elliot") true
+!participants_2("Gunda") true
+!participants_2("Jenny") true
+
+writeln serialize(participants_1)
+writeln serialize(participants_2)
+writeln "-----"
+writeln serialize(participants_1 .union. participants_2)
+writeln "-----"
+writeln serialize(participants_2 .union. participants_1)

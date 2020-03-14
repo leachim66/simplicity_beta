@@ -1,0 +1,108 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::any_of:
+  #
+    filters item of a collection
+
+    Returns <std::true> if at least one item of the specified *collection*
+    passes the specified *test*-function; <std::false> otherwise.
+  (
+    collection
+    test
+    -> return
+  )
+  for_each collection: (item) if test(item): return true
+  -> false
+
+$std::all_of:
+  #
+    filters item of a collection
+
+    Returns <std::true> if all items of the specified *collection* pass the
+    specified *test*-function; <std::false> otherwise.
+  (
+    collection
+    test
+    -> return
+  )
+  for_each collection: (item) unless test(item): return false
+  -> true
+
+$std::fold:
+  #
+    computes a sort of sum from a collection
+
+    This is a left-fold.
+
+    example:
+
+    fold(plus list(1 2 3))
+
+    # equals
+
+    plus(plus(1 2) 3)
+
+    # ---
+
+    fold(0 plus list(1 2 3))
+
+    # equals
+
+    plus(0 plus(plus(1 2) 3))
+  (
+    base?
+    func
+    collection
+  )
+  $$result base
+  for_each collection: (item)
+    if
+      result.is_defined:
+	!result func(result item)
+      :
+	!result item
+  -> result
+
+$std::find_first:
+  #
+    find an item within a collection
+
+    Looks for an element for which the *test*-function returns true and
+    returns this element. If no matching element is found then <std::undefined>
+    is returned.
+
+    If the caller expectes two results then the index of the found element
+    and the element itself is returned. If no matching element is found then
+    <std::undefined> is returned as index and as item.
+  (
+    collection
+    test
+    -> return
+  )
+  if
+    parameter_count_of(return) == 2:
+      for_each collection: (idx item) if test(item): return idx item
+      return undefined undefined
+    :
+      for_each collection: (item) if test(item): return item
+      return undefined

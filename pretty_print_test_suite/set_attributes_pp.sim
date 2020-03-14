@@ -1,0 +1,7 @@
+$std::at: (x y)
+  !current_screen
+    .current_row_of y
+    .current_column_of x
+
+!obj
+  /length_of compute_length

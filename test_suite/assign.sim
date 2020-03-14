@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+assign
+  $a 3
+  $b 12
+
+writeln a+b

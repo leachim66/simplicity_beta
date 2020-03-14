@@ -1,0 +1,5 @@
+#!/usr/bin/env simple
+
+writeln a
+
+$std::a 37

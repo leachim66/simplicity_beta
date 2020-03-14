@@ -1,0 +1,69 @@
+#!/usr/bin/env simple
+
+$plus_six 6'000'000'000'000*1'000'000'000'000
+$minus_six -6'000'000'000'000*1'000'000'000'000
+$plus_seven 7'000'000'000'000*1'000'000'000'000
+$minus_seven -7'000'000'000'000*1'000'000'000'000
+
+writeln 6 + 7
+writeln 6 + -7
+writeln 6 + plus_seven
+writeln 6 + minus_seven
+writeln
+writeln 6 - 7
+writeln 6 - -7
+writeln 6 - plus_seven
+writeln 6 - minus_seven
+writeln
+writeln 6 * 7
+writeln 6 * -7
+writeln 6 * plus_seven
+writeln 6 * minus_seven
+
+writeln "----------"
+writeln -6 + 7
+writeln -6 + -7
+writeln -6 + plus_seven
+writeln -6 + minus_seven
+writeln
+writeln -6 - 7
+writeln -6 - -7
+writeln -6 - plus_seven
+writeln -6 - minus_seven
+writeln
+writeln -6 * 7
+writeln -6 * -7
+writeln -6 * plus_seven
+writeln -6 * minus_seven
+
+writeln "----------"
+writeln plus_six + 7
+writeln plus_six + -7
+writeln plus_six + plus_seven
+writeln plus_six + minus_seven
+writeln
+writeln plus_six - 7
+writeln plus_six - -7
+writeln plus_six - plus_seven
+writeln plus_six - minus_seven
+writeln
+writeln plus_six * 7
+writeln plus_six * -7
+writeln plus_six * plus_seven
+writeln plus_six * minus_seven
+
+writeln "----------"
+writeln minus_six + 7
+writeln minus_six + -7
+writeln minus_six + plus_seven
+writeln minus_six + minus_seven
+writeln
+writeln minus_six - 7
+writeln minus_six - -7
+writeln minus_six - plus_seven
+writeln minus_six - minus_seven
+writeln
+writeln minus_six * 7
+writeln minus_six * -7
+writeln minus_six * plus_seven
+writeln minus_six * minus_seven

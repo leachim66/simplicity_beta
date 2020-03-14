@@ -1,0 +1,92 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_a_key_value_pair ()
+
+$types::object.is_a_key_value_pair false
+$types::key_value_pair.is_a_key_value_pair true
+
+{
+  <kind node>
+  <name KEY_VALUE_PAIR>
+
+  NODE *key;
+  NODE *value;
+}
+
+{
+  <kind type>
+  <name types::key_value_pair>
+  <node KEY_VALUE_PAIR>
+  <base types::object>
+  <argument NULL>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call an option value as a function!")
+}
+
+$std::key_value_pair
+  {
+    CHECK_ARGUMENTS(2)
+    RETURN_SINGLE_RESULT(create__types__key_value_pair(ARGUMENTS(0), ARGUMENTS(1)))
+  }
+
+$types::key_value_pair/key_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(ARGUMENTS(0)->key_value_pair.key)
+  }
+
+$types::key_value_pair/value_of
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(ARGUMENTS(0)->key_value_pair.value)
+  }
+
+{
+  <kind function>
+
+  long types::key_value_pair/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    int i, n, len;
+    n = debug_print_head(&indent, &buf, "key_value_pair");
+    const char *contents_indent = indent_to_string(indent);
+    n += print(&buf, contents_indent);
+    len = debug_string(node->key_value_pair.key, indent, max_depth-1, buf);
+    if (buf) buf += len;
+    n += len;
+    n += print(&buf, contents_indent);
+    len = debug_string(node->key_value_pair.value, indent, max_depth-1, buf);
+    if (buf) buf += len;
+    n += len;
+    return n;
+  }
+}
+
+$types::key_value_pair/serialize:
+  (
+    self
+    indent = 0
+  )
+  -> "
+    key_value_pair
+    @(spaces(indent+2))@(serialize(key_of(self) indent+4))@
+    @nl;@(spaces(indent+2))@(serialize(value_of(self) indent+4))@

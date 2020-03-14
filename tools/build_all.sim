@@ -1,0 +1,49 @@
+#!/usr/bin/env simrun
+
+$step: (msg args*)
+  ewriteln "start @(msg) ..."
+  unless call($out args*): Error string(msg.to_upper_case " FAILED!")
+  ewriteln "@(msg) successfull"
+
+step
+  "first self compilation"
+  "sim2c/simple"
+  "--static"
+  "--rebuild"
+  "sim2c/simple.sim"
+step
+  "second self compilation"
+  "sim2c/simple"
+  "--static"
+  "--rebuild"
+  "sim2c/simple.sim"
+step "copying binaries" "cp" "sim2c/simple" "sim2c/simple.orig"
+step
+  "third self compilation"
+  "sim2c/simple"
+  "--static"
+  "--rebuild"
+  "sim2c/simple.sim"
+step "comparison of binaries" "cmp" "sim2c/simple" "sim2c/simple.orig"
+step "installation of compiler" "sudo" "cp" "sim2c/simple" "/usr/local/bin/"
+$libraries list("system" "readline" "curses" "platform")
+for_each libraries: (library)
+  step "compilation of @(library)-library" "simple" "--rebuild" library
+  step
+    "removing @(library)-library"
+    "sudo"
+    "rm"
+    "/usr/local/lib/libsim-@(library).so.0.0.0"
+  step
+    "installation of @(library)-library"
+    "sudo"
+    "cp"
+    "libsim-@(library).so.0.0.0"
+    "/usr/local/lib/"
+step
+  "compilation of test-suite script"
+  "simple"
+  "--static"
+  "--rebuild"
+  "run_test_suite_with_new_compiler.sim"
+call "./run_test_suite_with_new_compiler.sim"

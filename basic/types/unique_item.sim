@@ -1,0 +1,101 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_a_unique_item ()
+
+$types::object.is_a_unique_item false
+$types::unique_item.is_a_unique_item true
+
+{
+  long unique_idx = 1;
+  const char **my_unique_item_names;
+}
+
+{
+  <kind node>
+  <name UNIQUE_ITEM>
+
+  long id;
+}
+
+{
+  <kind function>
+
+  int is_a_power_of_two(int n) {
+    return ((n != 0) && !(n & (n - 1)));
+  }
+}
+
+{
+  <kind type>
+  <name types::unique_item>
+  <node UNIQUE_ITEM>
+  <base types::object>
+  <argument 0>
+
+  RUNTIME_ERROR("Attempt to call a unique item as a function!")
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *register_unique_item(const char *name) {
+    if (unique_idx == 0) {
+      my_unique_item_names = allocate_memory(sizeof(const char *));
+    } else if (is_a_power_of_two(unique_idx)) {
+      my_unique_item_names =
+        reallocate_memory(
+          my_unique_item_names,
+          2*unique_idx*sizeof(const char *));
+    }
+    my_unique_item_names[unique_idx] = name;
+    return create__types__unique_item(unique_idx++);
+  }
+}
+
+$types::unique_item/equal
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *right = ARGUMENTS(1);
+    if (TYPEOF(right) != TYPE(types::unique_item)) RETURN_FALSE
+    RETURN_SINGLE_RESULT(
+      from_bool(ARGUMENTS(0)->unique_item.id == right->unique_item.id))
+  }
+
+$types::unique_item/hash
+  {
+    CHECK_ARGUMENTS(1)
+    uint32_t hash = ARGUMENTS(0)->unique_item.id;
+    hash *= 1893456841;
+    hash ^= hash >> 25 | hash << 7;
+    RETURN_SINGLE_RESULT(from_uint32(hash));
+  }
+
+{
+  <kind function>
+
+  long types::unique_item/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(
+      indent, buf, my_unique_item_names[node->unique_item.id]);
+  }
+}

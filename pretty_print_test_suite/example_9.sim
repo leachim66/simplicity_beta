@@ -1,0 +1,6 @@
+# cascaded string templates
+
+$compute_source_text_info:
+  $continuation_info "
+    @(line_no), @(last_line_no), @(column_no), @(last_column_no)@
+    @(if(submodule_no != 0 (-> ", @(submodule_no_of(fragment))") (-> "")))@

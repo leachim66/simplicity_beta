@@ -1,0 +1,407 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<using std>
+<using xml>
+
+$xml::contents_of (!)
+$xml::declaration_of (!)
+$xml::tag_of (!)
+$xml::closing_tag_of (!)
+$xml::attributes_of (!)
+
+$types::xml_element types::object
+$types::xml_element.xml::declaration_of undefined
+$types::xml_element.xml::tag_of undefined
+$types::xml_element.xml::attributes_of empty_insert_order_table
+$types::xml_element.xml::contents_of empty_list
+
+%xml::is_a_text_element
+  #
+    checks whether the element specified by the tag contains text or not
+
+    by default no element contains text
+
+  : (_tag)
+    -> false
+
+$serialize_tag: (tag indent)
+  if tag.is_defined (-> "@nl;@(spaces(indent))tag: @(tag)") -> ""
+
+$serialize_attributes: (attributes indent)
+  if
+    attributes.is_defined && not(attributes.is_empty):
+      $$buf "@nl;@(spaces(indent))attributes:"
+      for_each attributes: (key value)
+	write_to &buf '@nl;' spaces(indent+2) key ':'
+	write_to &buf '@nl;' spaces(indent+4) serialize(value indent+6)
+      -> buf
+    -> ""
+
+$types::xml_element/serialize:
+  (
+    self
+    indent = 0
+  )
+  $$buf "xml_element"
+  append &buf serialize_tag(tag_of(self) indent+2)
+  $declaration declaration_of(self)
+  if declaration.is_defined:
+    write_to &buf '@nl;' spaces(indent+2) "declaration:"
+    append &buf serialize_tag(tag_of(declaration) indent+4)
+    append &buf serialize_attributes(attributes_of(declaration) indent+4)
+  append &buf serialize_attributes(attributes_of(self) indent+2)
+  write_to
+    &buf
+    '@nl;'
+    spaces(indent+2)
+    "
+      contents:
+    spaces(indent+4)
+    serialize(contents_of(self) indent+4)
+  -> buf
+
+$message_of (!)
+
+$types::print types::grammar_object
+
+$types::print/grammar::match: (self _stream)
+  ewriteln message_of(self)
+  -> 0
+
+###
+# PRINT
+# for debugging purposes
+
+#$print: (message) -> types::print(.message_of message)
+
+###
+# DUMP STREAM
+# for debugging purposes
+
+$dump_stream types::grammar_object
+
+$dump_stream/grammar::match: (_self stream)
+  ewrite truncate_behind(stream '@nl;' 2)
+  -> 0
+
+$WHITESPACE many(WHITESPACE_CHARACTER)
+$REMARK "<!--", some(not_followed_by("-->"), ANY_CHARACTER), "-->"
+$OPTIONAL_WHITESPACE some(WHITESPACE_CHARACTER)
+
+$OPTIONAL_WHITESPACE_OR_REMARK
+  OPTIONAL_WHITESPACE, some(REMARK, OPTIONAL_WHITESPACE)
+
+$TAG capture(tag_of many(alt(LETTER DIGIT '-' ':')))
+
+$CLOSING_TAG
+  sequence
+    capture(closing_tag_of many(alt(LETTER DIGIT '-' ':')))
+    check_node
+      : (node)
+	if closing_tag_of(node) != tag_of(node):
+	  raise "
+	    The closing tag "@(closing_tag_of(node))" does not match the @
+	    opening tag @(tag_of(node))@quot;!@
+	-> true
+
+$CDATA
+  sequence
+    "<![CDATA["
+    capture(contents_of some(not_followed_by("]]>"), ANY_CHARACTER))
+    "]]>"
+
+$IS_A_TEXT_ELEMENT
+  check_node
+    : (node)
+      -> tag_of(node).is_defined && tag_of(node).is_a_text_element
+
+$TEXT
+  sequence
+    alt(not_followed_by('@nl;') IS_A_TEXT_ELEMENT)
+    many(not_followed_by('<'), ANY_CHARACTER)
+
+$CONTENTS optional(alt(ELEMENTS CDATA)), OPTIONAL_WHITESPACE_OR_REMARK
+$KEY capture(key_of many(alt(LETTER DIGIT '-' ':')))
+
+$VALUE
+  alt
+    sequence
+      '@quot;'
+      capture(value_of some(not_followed_by('@quot;'), ANY_CHARACTER))
+      '@quot;'
+    sequence
+      '@apos;'
+      capture(value_of some(not_followed_by('@apos;'), ANY_CHARACTER))
+      '@apos;'
+
+$ATTRIBUTE
+  sequence
+    KEY
+    OPTIONAL_WHITESPACE
+    '='
+    OPTIONAL_WHITESPACE
+    VALUE
+    modify_node
+      : (&node)
+	!node.attributes_of(key_of(node)) value_of(node)
+	!node.key_of undefined
+	!node.value_of undefined
+
+$ELEMENT
+  sequence
+    '<'
+    set_node(types::xml_element)
+    TAG
+    some(WHITESPACE, ATTRIBUTE)
+    OPTIONAL_WHITESPACE
+    alt("/>" '>', CONTENTS, "</", CLOSING_TAG, '>')
+
+$ELEMENTS
+  sequence
+    not_followed_by("</")
+    some
+      sequence
+	alt
+	  multi_capture(contents_of TEXT)
+	  OPTIONAL_WHITESPACE_OR_REMARK, multi_span(contents_of ELEMENT)
+
+$XML_DECLARATION
+  sequence
+    "<?xml"
+    set_node(types::xml_element)
+    modify_node
+      : (&node)
+	!node.tag_of "xml"
+    some(WHITESPACE, ATTRIBUTE)
+    OPTIONAL_WHITESPACE
+    "?>"
+
+$XML
+  sequence
+    set_node(types::xml_element)
+    optional
+      span(declaration_of XML_DECLARATION), OPTIONAL_WHITESPACE_OR_REMARK
+    ELEMENTS
+    OPTIONAL_WHITESPACE
+
+$std::from_xml: (text)
+  match text XML $len $node
+  if len != length_of(text): raise "Invalid XML text encountered!"
+  -> node
+
+$attributes_to_xml: (attributes)
+  if
+    attributes.is_defined && not(attributes.is_empty):
+      $$buf ""
+      for_each attributes: (key value)
+	write_to &buf ' ' key "=@quot;" value '@quot;'
+      -> buf
+    -> ""
+
+$std::to_xml:
+  (
+    self
+    indent = 0
+  )
+  $$buf ""
+  $contents contents_of(self)
+  $declaration declaration_of(self)
+  if
+    declaration.is_defined:
+      $tag tag_of(declaration)
+      write_to &buf "<?" tag
+      append &buf attributes_to_xml(attributes_of(declaration))
+      append &buf "?>@nl;"
+      for_each contents: (item)
+	write_to &buf '@nl;' item.to_xml # always on top level
+    :
+      $tag tag_of(self)
+      if
+	contents.is_empty:
+	  write_to &buf "<" tag
+	  append &buf attributes_to_xml(attributes_of(self))
+	  append &buf "/>"
+	:
+	  write_to &buf "<" tag
+	  append &buf attributes_to_xml(attributes_of(self))
+	  append &buf ">"
+	  if
+	    tag.is_a_text_element || any_of(contents is_a_string):
+	      # there is at least one string subelement
+
+	      for_each contents: (item)
+		if
+		  item.is_a_string:
+		    append &buf item
+		  :
+		    append &buf item.to_xml # must not have subelements
+	      write_to &buf "</" tag '>'
+	    :
+	      # there is no string subelement
+
+	      for_each contents: (item)
+		write_to &buf '@nl;' spaces(indent+2) to_xml(item indent+2)
+	      write_to &buf '@nl;' spaces(indent) "</" tag '>'
+  -> buf
+
+$check_sets:
+  (
+    element
+    clauses_sets
+    -> return
+  )
+  $tag tag_of(element)
+  if tag.is_undefined: return false # don't check the top-level node
+  $attributes attributes_of(element)
+
+  $check: (clause)
+    cond
+      -> clause.is_a_key_value_pair:
+	$key key_of(clause)
+	$value value_of(clause)
+	$attribute attributes(key)
+	cond
+	  -> value.is_undefined -> attribute.is_undefined
+	  -> value.is_a_string -> attribute == value
+	  ->
+	    true
+	    -> # value should be a function
+	    value(attribute)
+      -> clause.is_a_string -> tag == clause
+      ->
+	true
+	-> # clause should be a function
+	clause(element)
+
+  for_each clauses_sets: (clauses)
+    if
+      clauses.is_a_sequence: (-> fail)
+	for_each clauses: (clause) unless check(clause) fail
+	return true # all clauses of a set succeeded
+      :
+	if check(clauses): return true # it's a single clause
+
+  -> # all sets of clauses failed
+    false
+
+$types::xml_element/select:
+  #
+    returns a list of all subtrees that match at least one set of clauses
+
+    there are three kinds of clauses:
+
+    * value
+
+     matches the tag with the specified value
+
+    * attribute = value
+
+      matches the specified attribute with the specified value
+
+    * test function
+
+      returns <true> for a match and <false> for a nonmatch
+  (
+    self # the xml-tree to search
+    clauses_sets* # specifies the subtrees that shall be returned
+  )
+  if check_sets(self clauses_sets) (-> list(self)):
+    $$results empty_list
+    $contents contents_of(self)
+    if contents.is_defined:
+      for_each contents: (element)
+	unless element.is_a_string:
+	  append &results select(element clauses_sets*)
+    -> results
+
+$types::xml_element/delete:
+  #
+    deletes all subtrees that match at least one set of clauses
+
+    there are three kinds of clauses:
+
+    * value
+
+     matches the tag with the specified value
+
+    * attribute = value
+
+      matches the specified attribute with the specified value
+
+    * test function
+
+      returns <true> for a match and <false> for a nonmatch
+  (
+    &self # the xml-tree to update
+    clauses_sets* # specifies the subtrees that shall be deleted
+  )
+  if
+    check_sets(self clauses_sets):
+      !self undefined
+    :
+      $contents contents_of(self)
+      if contents.is_defined:
+	$$new_contents empty_list
+	for_each contents: ($element)
+	  unless element.is_a_string: delete &element clauses_sets*
+	  if element.is_defined: push &new_contents element
+	!self.contents_of new_contents
+
+$types::xml_element/update:
+  #
+    updates all subtrees that match at least one set of clauses
+
+    if the <updater> returns <undefined> then the subtree is deleted
+
+    there are three kinds of clauses:
+
+    * value
+
+     matches the tag with the specified value
+
+    * attribute = value
+
+      matches the specified attribute with the specified value
+
+    * test function
+
+      returns <true> for a match and <false> for a nonmatch
+  (
+    &self # the xml-tree to update
+    clauses_sets* # specifies the subtrees that shall be updated
+    updater # the code that will update the selected subtrees
+  )
+  if
+    check_sets(self clauses_sets):
+      updater &self
+    :
+      $contents contents_of(self)
+      if contents.is_defined:
+	$$new_contents empty_list
+	for_each contents: ($element)
+	  unless element.is_a_string: update &element clauses_sets* updater
+	  if element.is_defined: push &new_contents element
+	!self.contents_of new_contents
+
+#$types::xml_element/insert_before:
+#$types::xml_element/insert_behind:

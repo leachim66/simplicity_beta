@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+$attribute_of (!)
+$name_of (!)
+
+$attribute_of.name_of "attribute_of"
+
+writeln name_of(attribute_of)

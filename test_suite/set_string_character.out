@@ -1,0 +1,3 @@
+"abcαbcabc".is_a_latin_1_string: false
+"abcabcabc".is_a_latin_1_string: true
+"abcaβcabc".is_a_latin_1_string: false

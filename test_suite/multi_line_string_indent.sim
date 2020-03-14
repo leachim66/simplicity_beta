@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+$x 47
+
+write "
+  abc
+    @(x)
+  ghi

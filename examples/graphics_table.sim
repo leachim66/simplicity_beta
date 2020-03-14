@@ -1,0 +1,13 @@
+#!/usr/bin/env simrun
+
+$$idx 0
+from_to '@0x2500;' '@0x257f;': (chr)
+  write chr
+  inc &idx
+  if
+    idx < 0x10:
+      write ' '
+    :
+      writeln
+      writeln
+      !idx 0

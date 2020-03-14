@@ -1,0 +1,226 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include limits.h>
+
+$std::is_a_character ()
+
+$types::object.is_a_character false
+$types::character.is_a_character true
+
+{
+  <kind node>
+  <name CHARACTER>
+
+  uint32_t code;
+}
+
+{
+  <kind type>
+  <name types::character>
+  <node CHARACTER>
+  <base types::object>
+  <argument 0>
+
+  RUNTIME_ERROR("Attempt to call a character value as a function!")
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_uchar32(uint32_t code) {
+    return create__types__character(code);
+  }
+}
+
+{
+  <kind function>
+
+  uint32_t types::character/to_uchar32(NODE *node) {
+    return node->character.code;
+  }
+}
+
+$std::character
+  {
+    CHECK_ARGUMENTS(1)
+    uint64_t code = to_uint64(ARGUMENTS(0));
+    if (code >= 0x100000000LL) INVALID_ARGUMENTS_ERROR
+    RETURN_SINGLE_RESULT(create__types__character((uint32_t)code))
+  }
+
+$types::character/plus
+  {
+    CHECK_ARGUMENTS(2)
+    long code = (long)ARGUMENTS(0)->character.code+to_long(ARGUMENTS(1));
+    if (code >= 0x100000000LL || code < 0) INVALID_ARGUMENTS_ERROR
+    RETURN_SINGLE_RESULT(create__types__character((uint32_t)code))
+  }
+
+$types::character/minus
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::character)) {
+      RETURN_SINGLE_RESULT(
+        from_long(
+          (long)ARGUMENTS(0)->character.code-(long)ARGUMENTS(1)->character.code));
+    } else {
+      long code = (long)ARGUMENTS(0)->character.code-to_long(ARGUMENTS(1));
+      if (code >= 0x100000000LL || code < 0) INVALID_ARGUMENTS_ERROR
+      RETURN_SINGLE_RESULT(create__types__character((uint32_t)code))
+    }
+  }
+
+$types::character/equal
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::character)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->character.code == ARGUMENTS(1)->character.code)
+    }
+    RETURN_FALSE
+  }
+
+$types::character/less
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::character)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->character.code < ARGUMENTS(1)->character.code)
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::character/hash
+  {
+    CHECK_ARGUMENTS(1)
+    uint32_t hash = ARGUMENTS(0)->character.code;
+    hash *= 179234567;
+    hash ^= hash >> 27 | hash << 5;
+    RETURN_SINGLE_RESULT(from_uint32(hash));
+  }
+
+$types::character/to_string
+  {
+    CHECK_ARGUMENTS(1)
+    if (ARGUMENTS(0)->character.code <= 0xff) {
+      char buf[1];
+      buf[0] = ARGUMENTS(0)->character.code;
+      RETURN_SINGLE_RESULT(from_latin_1_string(buf, 1))
+    } else {
+      RETURN_SINGLE_RESULT(from_uint32_string(&ARGUMENTS(0)->character.code, 1))
+    }
+  }
+
+$types::character/to_integer
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_uint32(ARGUMENTS(0)->character.code))
+  }
+
+{
+  <kind function>
+
+  long types::character/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    if (node->character.code == '@') {
+      return debug_print(indent, buf, "'@@'");
+    } else if (node->character.code == '\'') {
+      return debug_print(indent, buf, "'@apos;'");
+    } else if (
+      node->character.code >= 0x20 && node->character.code < 0x7f /*||
+      node->character.code >= 0xa0 && node->character.code < 0x100*/
+    ) {
+      return debug_print(indent, buf, "'%c'", node->character.code);
+    } else {
+      return debug_print(indent, buf, "'@0x%x;'", node->character.code);
+    }
+  }
+}
+
+$std::is_a_whitespace_character: (chr)
+  -> chr == ' ' || chr == '@nl;' || chr == '@cr;' || chr == '@ht;'
+
+$std::is_a_digit: (chr) -> chr >= '0' && chr <= '9'
+
+$std::is_a_letter: (chr) -> chr >= 'a' && chr <= 'z' || chr >= 'A' && chr <= 'Z'
+
+$std::is_a_lower_case_letter: (chr) -> chr >= 'a' && chr <= 'z'
+
+$std::is_an_upper_case_letter: (chr) -> chr >= 'A' && chr <= 'Z'
+
+$std::is_a_letter_character: (chr)
+  ->
+    ||
+      chr >= 'a' && chr <= 'z'
+      chr >= 'A' && chr <= 'Z'
+      chr >= 'À' && chr <= 'ÿ' && chr != '×' && chr != '÷'
+
+$std::is_a_lower_case_letter_character: (chr)
+  ->
+    ||
+      chr >= 'a' && chr <= 'z'
+      chr >= 'à' && chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
+
+$std::is_an_uppper_case_letter_character: (chr)
+  ->
+    ||
+      chr >= 'A' && chr <= 'Z'
+      chr >= 'À' && chr <= 'ß' && chr != '×' && chr != 'ß'
+
+$types::character/to_lower_case:
+  (
+    chr
+    -> return
+  )
+  if
+    chr.is_an_uppper_case_letter_character:
+      return chr+0x20
+    :
+      return chr
+
+$types::character/to_upper_case:
+  (
+    chr
+    -> return
+  )
+  if
+    chr.is_a_lower_case_letter_character:
+      return chr-0x20
+    :
+      return chr
+
+$std::is_a_vowel: (chr)
+  case chr 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' (-> true) -> false
+
+$types::character/serialize: (self _indent?)
+  $$buf "'"
+  if
+    ||
+      self < ' '
+      self > '~'
+      self == '@@'
+      self == '@quot;'
+      self == '@apos;'
+    :
+      append &buf string("@@0x" hex(self.to_integer) ';')
+    :
+      push &buf self
+  -> push(buf '@apos;')

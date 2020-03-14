@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$p:
+
+  writeln 81
+
+p

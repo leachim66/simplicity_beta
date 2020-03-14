@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+writeln 'a'-'z'
+writeln 'z'-'a'
+writeln 'a'+3
+writeln 'h'-5
+writeln 'A' == 65
+writeln 'A' == '@65;'
+writeln 'A' > '@0x20;'

@@ -1,0 +1,2072 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include gmp.h>
+<include inttypes.h>
+<include math.h>
+<include limits.h>
+<include stdio.h>
+<include string.h>
+
+<link gmp>
+<link m>
+
+# double dispatch methods
+
+$std::integer_plus_me ()
+$std::integer_minus_me ()
+$std::integer_times_me ()
+$std::integer_over_me ()
+$std::real_plus_me ()
+$std::real_minus_me ()
+$std::real_times_me ()
+$std::real_over_me ()
+$std::is_a_number ()
+$std::is_an_integer ()
+$std::is_a_real ()
+$std::floor ()
+$std::ceil ()
+$std::round ()
+$std::ln ()
+
+$types::object.is_a_number false
+$types::number.is_a_number true
+$types::object.is_an_integer false
+$types::integer.is_an_integer true
+$types::object.is_a_real false
+$types::real.is_a_real true
+
+# ATTENTION: Currently there is no way to declare an abstract type!
+
+{
+  <kind type>
+  <name types::number>
+  <node SIMPLE_NODE>
+  <base types::object>
+
+  RUNTIME_ERROR("Attempt to call a numeric value as a function!")
+}
+
+{
+  <kind type>
+  <name types::integer>
+  <node SIMPLE_NODE>
+  <base types::number>
+
+  RUNTIME_ERROR("Attempt to call an integer value as a function!")
+}
+
+{
+  <kind node>
+  <name INTEGER>
+
+  uint64_t value;
+}
+
+{
+  <kind struct>
+  <name LARGE_INTEGER_DATA>
+
+  long size;
+  mp_limb_t limbs[0];
+}
+
+{
+  <kind function>
+
+  LARGE_INTEGER_DATA *collect_large_integer_data(LARGE_INTEGER_DATA *data) {
+    if (!IS_COLLECTED(data)) return data;
+    void *new_location = *(void **)data;
+    if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+    long size = data->size;
+    LARGE_INTEGER_DATA *new_data =
+      allocate(sizeof(LARGE_INTEGER_DATA)+size*sizeof(mp_limb_t));
+    *(void **)data = ENCODE_ADDRESS(new_data);
+    new_data->size = size;
+    memcpy(new_data->limbs, data->limbs, size*sizeof(mp_limb_t));
+    return new_data;
+  }
+}
+
+{
+  <kind node>
+  <name LARGE_INTEGER>
+
+  LARGE_INTEGER_DATA *data;
+}
+
+{
+  <kind node>
+  <name REAL>
+
+  double value;
+}
+
+{
+  <scope extern>
+
+  #define mpn_get_d __MPN(get_d)
+  double mpn_get_d(mp_srcptr up, mp_size_t size, mp_size_t sign, long exp);
+}
+
+{
+  #if GMP_LIMB_BITS == 32
+    #define LIMBS_PER_INT64 2
+    #define INTEGER_TO_LARGE_INTEGER(value, limbs, size) \
+      size = ((value) >> 32 ? 2 : 1); \
+      limbs = (mp_limb_t *)&(value);
+  #else
+    #define LIMBS_PER_INT64 1
+    #define INTEGER_TO_LARGE_INTEGER(value, limbs, size) \
+      size = 1; \
+      limbs = (mp_limb_t *)&(value);
+  #endif
+}
+
+{
+  <kind type>
+  <name types::positive_integer>
+  <node INTEGER>
+  <base types::integer>
+  <argument 1>
+
+  RUNTIME_ERROR("Attempt to call an integer value as a function!")
+}
+
+{
+  <kind object>
+  <name std::zero>
+  <type types::positive_integer>
+  <scope global>
+  <argument 0>
+}
+
+{
+  <kind type>
+  <name types::negative_integer>
+  <node INTEGER>
+  <base types::integer>
+  <argument 1>
+
+  RUNTIME_ERROR("Attempt to call an integer value as a function!")
+}
+
+# explicit constructor
+
+{
+  <kind function>
+
+  NODE *create__types__negative_integer(uint64_t value) {
+    NODE *node = allocate(sizeof(INTEGER));
+    if (value == 0) {
+      node->type = TYPE(types::positive_integer);
+      node->attributes = &attributes__types__positive_integer;
+    } else {
+      node->type = TYPE(types::negative_integer);
+      node->attributes = &attributes__types__negative_integer;
+    }
+    node->integer.value = value;
+    return node;
+  }
+}
+
+{
+  <kind type>
+  <name types::positive_large_integer>
+  <node LARGE_INTEGER>
+  <base types::integer>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call an integer value as a function!")
+}
+
+{
+  <kind type>
+  <name types::negative_large_integer>
+  <node LARGE_INTEGER>
+  <base types::integer>
+  <argument NULL>
+
+  RUNTIME_ERROR("Attempt to call an integer value as a function!")
+}
+
+{
+  <kind type>
+  <name types::real>
+  <node REAL>
+  <base types::number>
+  <argument 0.0>
+
+  RUNTIME_ERROR("Attempt to call a real value as a function!")
+}
+
+{
+  <kind function>
+
+  NODE *from_uint8(char value) {
+    return create__types__positive_integer(value);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_uint32(uint32_t value) {
+    return create__types__positive_integer(value);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_int(int value) {
+    if (value >= 0)
+      return create__types__positive_integer(value);
+    else
+      return create__types__negative_integer(-value);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_long(long value) {
+    if (value >= 0)
+      return create__types__positive_integer(value);
+    else
+      return create__types__negative_integer(-value);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_int64(int64_t value) {
+    if (value >= 0) {
+      return create__types__positive_integer(value);
+    } else {
+      return create__types__negative_integer(-value);
+    }
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_uint64(uint64_t value) {
+    return create__types__positive_integer(value);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_digit_string(const char *str) {
+    long len = strlen(str);
+    char *value = copy(str, ALLOCATION_SIZE(len));
+    int i;
+    for (i = 0; i < len; ++i) value[i] -= '0';
+    LARGE_INTEGER_DATA *data =
+      allocate(sizeof(LARGE_INTEGER_DATA)+ALLOCATION_SIZE(len >> 1));
+    data->size = mpn_set_str(data->limbs, (unsigned char *)value, len, 10);
+    return create__types__positive_large_integer(data);
+  }
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *from_double(double value) {
+    return create__types__real(value);
+  }
+}
+
+{
+  <kind function>
+
+  int types::positive_integer/to_int(NODE *node) {
+    if (node->integer.value > INT_MAX) {
+      RUNTIME_ERROR("Conversion of integer value to \"int\" failed!")
+    }
+    return node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  int types::negative_integer/to_int(NODE *node) {
+    if (node->integer.value > -(uint64_t)INT_MAX) {
+      RUNTIME_ERROR("Conversion of integer value to \"int\" failed!")
+    }
+    return -node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  uint8_t types::positive_integer/to_uint8(NODE *node) {
+    if (node->integer.value > 0xff) {
+      RUNTIME_ERROR("Conversion of integer value to \"uint8\" failed!")
+    }
+    return node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  uint32_t types::positive_integer/to_uint32(NODE *node) {
+    if (node->integer.value <= 0xffffffff) {
+      return node->integer.value;
+    } else {
+      RUNTIME_ERROR("Conversion of integer value to \"uint32\" failed!")
+    }
+  }
+}
+
+{
+  <kind function>
+
+  uint64_t types::positive_integer/to_uint64(NODE *node) {
+    return node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  long types::positive_integer/to_long(NODE *node) {
+    if (node->integer.value > LONG_MAX) {
+      RUNTIME_ERROR("Conversion of integer value to \"long\" failed!")
+    }
+    return node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  long types::negative_integer/to_long(NODE *node) {
+    if (node->integer.value > -(uint64_t)LONG_MIN) {
+      RUNTIME_ERROR("Conversion of integer value to \"long\" failed!")
+    }
+    return -node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  double types::positive_integer/to_double(NODE *node) {
+    return node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  double types::negative_integer/to_double(NODE *node) {
+    return -node->integer.value;
+  }
+}
+
+{
+  <kind function>
+
+  double types::positive_large_integer/to_double(NODE *node) {
+    mp_limb_t *limbs = node->large_integer.data->limbs;
+    long size = node->large_integer.data->size;
+    return mpn_get_d(limbs, size, 1, 0);
+  }
+}
+
+{
+  <kind function>
+
+  double types::negative_large_integer/to_double(NODE *node) {
+    mp_limb_t *limbs = node->large_integer.data->limbs;
+    long size = node->large_integer.data->size;
+    return mpn_get_d(limbs, size, -1, 0);
+  }
+}
+
+{
+  <kind function>
+
+  double types::real/to_double(NODE *node) {
+    return node->real.value;
+  }
+}
+
+$types::positive_integer/negate
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(
+      create__types__negative_integer(ARGUMENTS(0)->integer.value))
+  }
+
+$types::negative_integer/negate
+  {
+    CHECK_ARGUMENTS(1)
+    if (ARGUMENTS(0)->integer.value == 0) RETURN
+    RETURN_SINGLE_RESULT(
+      create__types__positive_integer(ARGUMENTS(0)->integer.value))
+  }
+
+$types::positive_large_integer/negate
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(
+      create__types__negative_large_integer(ARGUMENTS(0)->large_integer.data))
+  }
+
+$types::negative_large_integer/negate
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(
+      create__types__positive_large_integer(ARGUMENTS(0)->large_integer.data))
+  }
+
+$types::real/negate
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(create__types__real(-ARGUMENTS(0)->real.value))
+  }
+
+{
+  <kind function>
+
+  NODE *positive_integer_sum(void) {
+    uint64_t left_integer = ARGUMENTS(0)->integer.value;
+    uint64_t right_integer = ARGUMENTS(1)->integer.value;
+    uint64_t sum = left_integer+right_integer;
+    if (sum >= left_integer) return create__types__positive_integer(sum);
+    LARGE_INTEGER_DATA *result =
+    #if LIMBS_PER_INT64 == 1
+      allocate(sizeof(LARGE_INTEGER_DATA)+2*sizeof(mp_limb_t));
+      result->size = 2;
+    #else
+      allocate(sizeof(LARGE_INTEGER_DATA)+3*sizeof(mp_limb_t));
+      result->size = 3;
+    #endif
+    *(uint64_t *)result->limbs = sum;
+    result->limbs[LIMBS_PER_INT64] = 1;
+    return create__types__positive_large_integer(result);
+  }
+}
+
+{
+  <kind function>
+
+  NODE *negative_integer_sum(void) {
+    uint64_t left_integer = ARGUMENTS(0)->integer.value;
+    uint64_t right_integer = ARGUMENTS(1)->integer.value;
+    uint64_t sum = left_integer+right_integer;
+    if (sum >= left_integer) return create__types__negative_integer(sum);
+    LARGE_INTEGER_DATA *result =
+    #if LIMBS_PER_INT64 == 1
+      allocate(sizeof(LARGE_INTEGER_DATA)+2*sizeof(mp_limb_t));
+      result->size = 2;
+    #else
+      allocate(sizeof(LARGE_INTEGER_DATA)+3*sizeof(mp_limb_t));
+      result->size = 3;
+    #endif
+    *(uint64_t *)result->limbs = sum;
+    result->limbs[LIMBS_PER_INT64] = 1;
+    return create__types__negative_large_integer(result);
+  }
+}
+
+{
+  <kind function>
+
+  NODE *integer_difference(uint64_t left_integer, uint64_t right_integer) {
+    if (left_integer >= right_integer)
+      return create__types__positive_integer(left_integer-right_integer);
+    else
+      return create__types__negative_integer(right_integer-left_integer);
+  }
+}
+
+$types::positive_integer/plus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(positive_integer_sum())
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(
+        integer_difference(
+          ARGUMENTS(0)->integer.value, ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->integer.value+ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_integer/minus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        integer_difference(
+          ARGUMENTS(0)->integer.value, ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(positive_integer_sum())
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->integer.value-ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_integer/plus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        integer_difference(
+          ARGUMENTS(1)->integer.value, ARGUMENTS(0)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(negative_integer_sum())
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(1)->real.value-ARGUMENTS(0)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_integer/minus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(negative_integer_sum())
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(
+        integer_difference(
+          ARGUMENTS(1)->integer.value, ARGUMENTS(0)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(-(ARGUMENTS(1)->real.value+ARGUMENTS(0)->integer.value)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+{
+  <kind function>
+
+  NODE *large_integer_sum(
+    mp_limb_t *left_limbs, long left_size,
+    mp_limb_t *right_limbs, long right_size,
+    int sign
+  ) {
+    if (right_size > left_size) {
+      long tmp_size = left_size;
+      left_size = right_size;
+      right_size = tmp_size;
+      mp_limb_t *tmp_limbs = left_limbs;
+      left_limbs = right_limbs;
+      right_limbs = tmp_limbs;
+    }
+    LARGE_INTEGER_DATA *result =
+      allocate(sizeof(LARGE_INTEGER_DATA)+(left_size+1)*sizeof(mp_limb_t));
+    if (
+      mpn_add(result->limbs, left_limbs, left_size, right_limbs, right_size)
+    ) result->limbs[left_size++] = 1;
+    result->size = left_size;
+    if (sign > 0)
+      return create__types__positive_large_integer(result);
+    else
+      return create__types__negative_large_integer(result);
+  }
+}
+
+{
+  <kind function>
+
+  NODE *large_difference(
+    mp_limb_t *left_limbs, long left_size,
+    mp_limb_t *right_limbs, long right_size,
+    int sign
+  ) {
+    if (right_size > left_size) {
+      long tmp_size = left_size;
+      left_size = right_size;
+      right_size = tmp_size;
+      mp_limb_t *tmp_limbs = left_limbs;
+      left_limbs = right_limbs;
+      right_limbs = tmp_limbs;
+      sign = -sign;
+    }
+    LARGE_INTEGER_DATA *result =
+      allocate(sizeof(LARGE_INTEGER_DATA)+left_size*sizeof(mp_limb_t));
+    if (
+      mpn_sub(result->limbs, left_limbs, left_size, right_limbs, right_size)
+    ) {
+      mpn_sub(result->limbs, right_limbs, right_size, left_limbs, left_size);
+      sign = -sign;
+    }
+    while (left_size > 0 && result->limbs[left_size-1] == 0) --left_size;
+    if (left_size <= LIMBS_PER_INT64) {
+      uint64_t left_integer = *(uint64_t *)result->limbs;
+      if (sign > 0)
+        return create__types__positive_integer(left_integer);
+      else
+        return create__types__negative_integer(left_integer);
+    } else {
+      result->size = left_size;
+      if (sign > 0)
+        return create__types__positive_large_integer(result);
+      else
+        return create__types__negative_large_integer(result);
+    }
+  }
+}
+
+$types::positive_large_integer/plus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, 1, 0)+ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_large_integer/minus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, 1, 0)-ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_large_integer/plus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, -1, 0)+ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_large_integer/minus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_sum(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_difference(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, -1, 0)-ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::real/plus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value+ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value+ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value-ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value+mpn_get_d(right_limbs, right_size, 1, 0)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value+mpn_get_d(right_limbs, right_size, -1, 0)))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::real/minus
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value-ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value-ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value+ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value-mpn_get_d(right_limbs, right_size, 1, 0)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value-mpn_get_d(right_limbs, right_size, -1, 0)))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+{
+  <kind function>
+
+  NODE *integer_product(int sign) {
+    uint64_t left_integer = ARGUMENTS(0)->integer.value;
+    uint64_t right_integer = ARGUMENTS(1)->integer.value;
+    if (right_integer > left_integer) {
+      uint64_t tmp = left_integer;
+      left_integer = right_integer;
+      right_integer = tmp;
+    }
+    if (right_integer >> 32 == 0) {
+      uint32_t right_low = right_integer;
+      uint32_t left_low = left_integer;
+      uint32_t left_high = left_integer >> 32;
+      uint64_t product_high = (uint64_t)right_low*left_high;
+      if (product_high >> 32 == 0) {
+        product_high <<= 32;
+        uint64_t product = (uint64_t)right_low*left_low + product_high;
+        if (product >= product_high) {
+          if (sign > 0)
+            return create__types__positive_integer(product);
+          else
+            return create__types__negative_integer(product);
+        }
+      }
+    }
+    {
+      mp_limb_t *left_limbs, *right_limbs;
+      long left_size, right_size;
+      INTEGER_TO_LARGE_INTEGER(left_integer, left_limbs, left_size)
+      INTEGER_TO_LARGE_INTEGER(right_integer, right_limbs, right_size)
+      return
+        large_integer_product(left_limbs, left_size, right_limbs, right_size, sign);
+    }
+  }
+}
+
+$types::positive_integer/times
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(integer_product(1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(integer_product(-1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->integer.value*ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_integer/times
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(integer_product(-1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(integer_product(1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(-(ARGUMENTS(0)->integer.value*ARGUMENTS(1)->real.value)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(0)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+{
+  <kind function>
+
+  NODE *large_integer_product(
+    mp_limb_t *left_limbs, long left_size,
+    mp_limb_t *right_limbs, long right_size,
+    int sign
+  ) {
+    if (right_size > left_size) {
+      long tmp_size = left_size;
+      left_size = right_size;
+      right_size = tmp_size;
+      mp_limb_t *tmp_limbs = left_limbs;
+      left_limbs = right_limbs;
+      right_limbs = tmp_limbs;
+    }
+    long result_size = left_size+right_size;
+    LARGE_INTEGER_DATA *result =
+      allocate(sizeof(LARGE_INTEGER_DATA)+result_size*sizeof(mp_limb_t));
+    if (
+      mpn_mul(result->limbs, left_limbs, left_size, right_limbs, right_size) == 0
+    ) --result_size;
+    result->size = result_size;
+    if (sign > 0)
+      return create__types__positive_large_integer(result);
+    else
+      return create__types__negative_large_integer(result);
+  }
+}
+
+$types::positive_large_integer/times
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, 1, 0)*ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_large_integer/times
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_product(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, -1, 0)+ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::real/times
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value*ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value*ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(-ARGUMENTS(0)->real.value*ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value*mpn_get_d(right_limbs, right_size, 1, 0)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value*mpn_get_d(right_limbs, right_size, -1, 0)))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+{
+  <kind function>
+
+  NODE *integer_quotient(int sign) {
+    uint64_t left_integer = ARGUMENTS(0)->integer.value;
+    uint64_t right_integer = ARGUMENTS(1)->integer.value;
+    if (right_integer == 0LL) DIVIDE_BY_ZERO_ERROR
+    int64_t quotient = left_integer/right_integer;
+    if (quotient*right_integer == left_integer)
+      if (sign > 0)
+        return create__types__positive_integer(quotient);
+      else
+        return create__types__negative_integer(quotient);
+    return create__types__real(sign*((double)left_integer/right_integer));
+  }
+}
+
+$types::positive_integer/over
+  {
+    CHECK_ARGUMENTS(2)
+    int sign;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(integer_quotient(1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(integer_quotient(-1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->integer.value/ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      sign = 1;
+      div_large_positive:;
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->integer.value/mpn_get_d(right_limbs, right_size, sign, 0)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      sign = -1;
+      goto div_large_positive;
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_integer/over
+  {
+    CHECK_ARGUMENTS(2)
+    int sign;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(integer_quotient(-1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(integer_quotient(1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(-(ARGUMENTS(0)->integer.value/ARGUMENTS(1)->real.value)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      sign = -1;
+      div_large_negative:;
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->integer.value/mpn_get_d(right_limbs, right_size, sign, 0)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      sign = 1;
+      goto div_large_negative;
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+{
+  <kind function>
+
+  NODE *large_integer_quotient(
+    mp_limb_t *left_limbs, long left_size,
+    mp_limb_t *right_limbs, long right_size,
+    int sign
+  ) {
+    if (
+      right_size > left_size ||
+      right_size == left_size && right_limbs[right_size-1] > left_limbs[left_size-1]
+    ) {
+      large_integer_inexact_division:
+      return
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, sign, 0) /
+          mpn_get_d(right_limbs, right_size, 1, 0));
+    }
+    long quotient_size = left_size+1-right_size;
+    LARGE_INTEGER_DATA *quotient =
+      allocate(sizeof(LARGE_INTEGER_DATA)+quotient_size*sizeof(mp_limb_t));
+    mp_limb_t *remainder = allocate(right_size*sizeof(mp_limb_t));
+    mpn_tdiv_qr(
+      quotient->limbs, remainder, 0,
+      left_limbs, left_size, right_limbs, right_size);
+    int i;
+    for (i = 0; i < right_size; ++i) {
+      if (remainder[i] != 0) goto large_integer_inexact_division;
+    }
+    if (quotient->limbs[quotient_size-1] == 0L) --quotient_size;
+    if (quotient_size <= LIMBS_PER_INT64) {
+      uint64_t left_integer = *(uint64_t *)quotient->limbs;
+      if (sign > 0)
+        return create__types__positive_integer(left_integer);
+      else
+        return create__types__negative_integer(left_integer);
+    }
+    quotient->size = quotient_size;
+    if (sign > 0)
+      return create__types__positive_large_integer(quotient);
+    else
+      return create__types__negative_large_integer(quotient);
+  }
+}
+
+$types::positive_large_integer/over
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, 1, 0)/ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_large_integer/over
+  {
+    CHECK_ARGUMENTS(2)
+    long right_size;
+    mp_limb_t *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, -1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      INTEGER_TO_LARGE_INTEGER(ARGUMENTS(1)->integer.value, right_limbs, right_size)
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          right_limbs, right_size, 1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_SINGLE_RESULT(
+        large_integer_quotient(
+          ARGUMENTS(0)->large_integer.data->limbs, ARGUMENTS(0)->large_integer.data->size,
+          ARGUMENTS(1)->large_integer.data->limbs, ARGUMENTS(1)->large_integer.data->size,
+          1))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      mp_limb_t *left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      long left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          mpn_get_d(left_limbs, left_size, -1, 0)+ARGUMENTS(1)->real.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::real/over
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value/ARGUMENTS(1)->real.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(ARGUMENTS(0)->real.value/ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__real(-ARGUMENTS(0)->real.value/ARGUMENTS(1)->integer.value))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value/mpn_get_d(right_limbs, right_size, 1, 0)))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_SINGLE_RESULT(
+        create__types__real(
+          ARGUMENTS(0)->real.value/mpn_get_d(right_limbs, right_size, -1, 0)))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_integer/div
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__positive_integer(
+          ARGUMENTS(0)->integer.value / ARGUMENTS(1)->integer.value))
+    }
+    NOT_YET_IMPLEMENTED_ERROR
+  }
+
+$types::positive_integer/mod
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__positive_integer(
+          ARGUMENTS(0)->integer.value % ARGUMENTS(1)->integer.value))
+    }
+    NOT_YET_IMPLEMENTED_ERROR
+  }
+
+$types::positive_integer/equal
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value == ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value == ARGUMENTS(1)->real.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::positive_integer/equal_type_and_value
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value == ARGUMENTS(1)->integer.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::negative_integer/equal
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value == ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value == -ARGUMENTS(1)->real.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::negative_integer/equal_type_and_value
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value == ARGUMENTS(1)->integer.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::positive_large_integer/equal
+  {
+    CHECK_ARGUMENTS(2)
+    long left_size, right_size;
+    mp_limb_t *left_limbs, *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      if (left_size != right_size) RETURN_FALSE
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_BOOLEAN(mpn_cmp(left_limbs, right_limbs, left_size) == 0)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        mpn_get_d(left_limbs, left_size, 1, 0) == ARGUMENTS(1)->real.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::positive_large_integer/equal_type_and_value
+  {
+    CHECK_ARGUMENTS(2)
+    long left_size, right_size;
+    mp_limb_t *left_limbs, *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      if (left_size != right_size) RETURN_FALSE
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_BOOLEAN(mpn_cmp(left_limbs, right_limbs, left_size) == 0)
+    }
+    RETURN_FALSE
+  }
+
+$types::negative_large_integer/equal
+  {
+    CHECK_ARGUMENTS(2)
+    long left_size, right_size;
+    mp_limb_t *left_limbs, *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      if (left_size != right_size) RETURN_FALSE
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_BOOLEAN(mpn_cmp(left_limbs, right_limbs, left_size) == 0)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      RETURN_BOOLEAN(
+        mpn_get_d(left_limbs, left_size, -1, 0) == ARGUMENTS(1)->real.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::negative_large_integer/equal_type_and_value
+  {
+    CHECK_ARGUMENTS(2)
+    long left_size, right_size;
+    mp_limb_t *left_limbs, *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      if (left_size != right_size) RETURN_FALSE
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_BOOLEAN(mpn_cmp(left_limbs, right_limbs, left_size) == 0)
+    }
+    RETURN_FALSE
+  }
+
+$types::real/equal
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->real.value == ARGUMENTS(1)->real.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->real.value == ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_BOOLEAN(-ARGUMENTS(0)->real.value == ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        ARGUMENTS(0)->real.value == mpn_get_d(right_limbs, right_size, 1, 0))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        ARGUMENTS(0)->real.value == mpn_get_d(right_limbs, right_size, -1, 0))
+    }
+    RETURN_FALSE
+  }
+
+$types::real/equal_type_and_value
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->real.value == ARGUMENTS(1)->real.value)
+    }
+    RETURN_FALSE
+  }
+
+$types::positive_integer/less
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_BOOLEAN(
+        ARGUMENTS(0)->integer.value < ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value < ARGUMENTS(1)->real.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      RETURN_TRUE
+    } else if (
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer) ||
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)
+    ) {
+      RETURN_FALSE
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_integer/less
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_BOOLEAN(
+        ARGUMENTS(0)->integer.value > ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->integer.value > -ARGUMENTS(1)->real.value)
+    } else if (
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer) ||
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)
+    ) {
+      RETURN_TRUE
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      RETURN_FALSE
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_large_integer/less
+  {
+    CHECK_ARGUMENTS(2)
+    long left_size, right_size;
+    mp_limb_t *left_limbs, *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      if (left_size < right_size) RETURN_TRUE
+      if (left_size > right_size) RETURN_FALSE
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_BOOLEAN(mpn_cmp(left_limbs, right_limbs, left_size) < 0)
+    } else if (
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer) ||
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer) ||
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)
+    ) {
+      RETURN_FALSE
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        mpn_get_d(left_limbs, left_size, 1, 0) < ARGUMENTS(1)->real.value)
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::negative_large_integer/less
+  {
+    CHECK_ARGUMENTS(2)
+    long left_size, right_size;
+    mp_limb_t *left_limbs, *right_limbs;
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      right_size = ARGUMENTS(1)->large_integer.data->size;
+      if (left_size > right_size) RETURN_TRUE
+      if (left_size < right_size) RETURN_FALSE
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      RETURN_BOOLEAN(mpn_cmp(left_limbs, right_limbs, left_size) > 0)
+    } else if (
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer) ||
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer) ||
+      TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)
+    ) {
+      RETURN_TRUE
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      left_limbs = ARGUMENTS(0)->large_integer.data->limbs;
+      left_size = ARGUMENTS(0)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        mpn_get_d(left_limbs, left_size, -1, 0) < ARGUMENTS(1)->real.value)
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::real/less
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->real.value < ARGUMENTS(1)->real.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_BOOLEAN(ARGUMENTS(0)->real.value < ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
+      RETURN_BOOLEAN(-ARGUMENTS(0)->real.value > ARGUMENTS(1)->integer.value)
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        ARGUMENTS(0)->real.value < mpn_get_d(right_limbs, right_size, 1, 0))
+    } else if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_large_integer)) {
+      mp_limb_t *right_limbs = ARGUMENTS(1)->large_integer.data->limbs;
+      long right_size = ARGUMENTS(1)->large_integer.data->size;
+      RETURN_BOOLEAN(
+        ARGUMENTS(0)->real.value < mpn_get_d(right_limbs, right_size, -1, 0))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+{
+  <kind function>
+
+  mp_limb_t lshift(
+    mp_limb_t *rp, const mp_limb_t *src_ptr,
+    mp_size_t src_size, unsigned long int count
+  ) {
+    if (count != 0) return mpn_lshift(rp, src_ptr, src_size, count);
+    memcpy(rp, src_ptr, src_size*sizeof(mp_limb_t));
+    return 0;
+  }
+}
+
+{
+  <kind function>
+
+  mp_limb_t rshift(
+    mp_limb_t *rp, const mp_limb_t *src_ptr,
+    mp_size_t src_size, unsigned long int count
+  ) {
+    if (count != 0) return mpn_rshift(rp, src_ptr, src_size, count);
+    memcpy(rp, src_ptr, src_size*sizeof(mp_limb_t));
+    return 0;
+  }
+}
+
+$types::positive_integer/shift_left
+  {
+    CHECK_ARGUMENTS(2)
+    uint32_t shift = to_uint32(ARGUMENTS(1));
+    uint64_t value = ARGUMENTS(0)->integer.value;
+    if (value == 0 || shift == 0) RETURN_SINGLE_RESULT(ARGUMENTS(0))
+    if (value <= 0xffffffff && shift <= 32) {
+      value <<= shift;
+    } else if (shift < 64) {
+      int n = shift;
+      do {
+        uint64_t old_value = value;
+        value <<= 1;
+        if (value < old_value) goto shift_overflow;
+      } while (--n > 0);
+    } else {
+      shift_overflow:;
+      int zero_limb_count = shift/GMP_LIMB_BITS;
+      shift %= GMP_LIMB_BITS;
+      long size = zero_limb_count+LIMBS_PER_INT64+1;
+      LARGE_INTEGER_DATA *data =
+        allocate(sizeof(LARGE_INTEGER_DATA)+size*sizeof(mp_limb_t));
+      int i = 0;
+      while (i < zero_limb_count) {
+        data->limbs[i++] = 0;
+      }
+      value = ARGUMENTS(0)->integer.value;
+      #if GMP_LIMB_BITS == 32
+        data->limbs[i] = value & 0xffffffff;
+        data->limbs[i+1] = value>>32;
+        data->limbs[i+2] = lshift(data->limbs+i, data->limbs+i, 2, shift);
+        while (data->limbs[size-1] == 0) {
+          --size;
+        }
+      #else
+        data->limbs[i] = value;
+        data->limbs[i+1] = lshift(data->limbs+i, data->limbs+i, 1, shift);
+      #endif
+      data->size = size;
+      RETURN_SINGLE_RESULT(create__types__positive_large_integer(data))
+    }
+    RETURN_SINGLE_RESULT(create__types__positive_integer(value))
+  }
+
+$types::positive_large_integer/shift_left
+  {
+    CHECK_ARGUMENTS(2)
+    uint32_t shift = to_uint32(ARGUMENTS(1));
+    if (shift == 0) RETURN_SINGLE_RESULT(ARGUMENTS(0))
+    int zero_limb_count = shift/GMP_LIMB_BITS;
+    shift %= GMP_LIMB_BITS;
+    LARGE_INTEGER_DATA *data = ARGUMENTS(0)->large_integer.data;
+    long size = data->size;
+    long new_size = zero_limb_count+size+(shift == 0 ? 0 : 1);
+    LARGE_INTEGER_DATA *new_data =
+      allocate(sizeof(LARGE_INTEGER_DATA)+new_size*sizeof(mp_limb_t));
+    int i = 0;
+    while (i < zero_limb_count) {
+      new_data->limbs[i++] = 0;
+    }
+    mp_limb_t overflow = lshift(new_data->limbs+i, data->limbs, size, shift);
+    if (overflow != 0) {
+      new_data->limbs[new_size-1] = overflow;
+    } else if (shift != 0) {
+      --new_size;
+    }
+    new_data->size = new_size;
+    RETURN_SINGLE_RESULT(create__types__positive_large_integer(new_data))
+  }
+
+$types::positive_integer/shift_right
+  {
+    CHECK_ARGUMENTS(2)
+    uint32_t shift = to_uint32(ARGUMENTS(1));
+    if (shift >= 64) RETURN_ZERO
+    RETURN_SINGLE_RESULT(
+      create__types__positive_integer(ARGUMENTS(0)->integer.value >> shift))
+  }
+
+$types::positive_large_integer/shift_right
+  {
+    CHECK_ARGUMENTS(2)
+    uint32_t shift = to_uint32(ARGUMENTS(1));
+    if (shift == 0) RETURN_SINGLE_RESULT(ARGUMENTS(0))
+    int limb_count = shift/GMP_LIMB_BITS;
+    shift %= GMP_LIMB_BITS;
+    LARGE_INTEGER_DATA *data = ARGUMENTS(0)->large_integer.data;
+    long size = data->size;
+    long new_size = size-limb_count;
+    if (new_size <= 0) RETURN_ZERO
+    if (new_size > LIMBS_PER_INT64) {
+      LARGE_INTEGER_DATA *new_data =
+        allocate(sizeof(LARGE_INTEGER_DATA)+new_size*sizeof(mp_limb_t));
+      rshift(new_data->limbs, data->limbs+limb_count, new_size, shift);
+      if (new_data->limbs[new_size-1] == 0) {
+        --new_size;
+      }
+      if (new_size > LIMBS_PER_INT64) {
+        new_data->size = new_size;
+        RETURN_SINGLE_RESULT(create__types__positive_large_integer(new_data))
+      } else {
+        uint64_t value = new_data->limbs[0];
+        #if GMP_LIMB_BITS == 32
+          if (new_size > 1) {
+            value |= ((uint64_t)new_data->limbs[1])<<32;
+          }
+        #endif
+        RETURN_SINGLE_RESULT(create__types__positive_integer(value))
+      }
+    } else {
+      uint64_t value = data->limbs[limb_count];
+      #if GMP_LIMB_BITS == 32
+        if (new_size > 1) {
+          value |= ((uint64_t)data->limbs[limb_count+1])<<32;
+        }
+      #endif
+      RETURN_SINGLE_RESULT(create__types__positive_integer(value>>shift))
+    }
+  }
+
+$types::positive_integer/bit_or
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__positive_integer(
+          ARGUMENTS(0)->integer.value | ARGUMENTS(1)->integer.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_integer/bit_and
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__positive_integer(
+          ARGUMENTS(0)->integer.value & ARGUMENTS(1)->integer.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_integer/bit_xor
+  {
+    CHECK_ARGUMENTS(2)
+    if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
+      RETURN_SINGLE_RESULT(
+        create__types__positive_integer(
+          ARGUMENTS(0)->integer.value ^ ARGUMENTS(1)->integer.value))
+    }
+    INVALID_ARGUMENTS_ERROR
+  }
+
+$types::positive_integer/hash
+  {
+    CHECK_ARGUMENTS(1)
+    uint32_t hash =
+      (uint32_t)ARGUMENTS(0)->integer.value ^ (ARGUMENTS(0)->integer.value >> 32);
+    hash *= 179234567;
+    hash ^= hash >> 27 | hash << 5;
+    //hash *= 257913241;
+    //hash ^= hash >> 21 | hash << 11;
+    RETURN_SINGLE_RESULT(from_uint32(hash))
+  }
+
+$types::negative_integer/hash
+  {
+    CHECK_ARGUMENTS(1)
+    uint32_t hash =
+      (uint32_t)ARGUMENTS(0)->integer.value ^ (ARGUMENTS(0)->integer.value >> 32);
+    hash *= 179234567;
+    hash ^= hash >> 27 | hash << 5;
+    //hash *= 326987239;
+    //hash ^= hash >> 21 | hash << 11;
+    RETURN_SINGLE_RESULT(from_uint32(hash))
+  }
+
+$types::positive_integer/to_string
+  {
+    CHECK_ARGUMENTS(1)
+    char buf[24];
+    sprintf(buf, "%" PRIu64, ARGUMENTS(0)->integer.value);
+    RETURN_SINGLE_RESULT(from_c_string(buf))
+  }
+
+{
+  <kind function>
+
+  long types::positive_integer/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "%" PRIu64, node->integer.value);
+  }
+}
+
+$types::negative_integer/to_string
+  {
+    CHECK_ARGUMENTS(1)
+    char buf[24];
+    sprintf(buf, "-%" PRIu64, ARGUMENTS(0)->integer.value);
+    RETURN_SINGLE_RESULT(from_c_string(buf))
+  }
+
+{
+  <kind function>
+
+  long types::negative_integer/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "-%" PRIu64, node->integer.value);
+  }
+}
+
+{
+  <kind function>
+
+  NODE *large_integer_to_string(int sign) {
+    long size = ARGUMENTS(0)->large_integer.data->size;
+    mp_limb_t *limbs =
+      copy(ARGUMENTS(0)->large_integer.data->limbs, size*sizeof(mp_limb_t));
+    /*if (size <= LIMBS_PER_INT64 || limbs[size-1] == 0) {
+      RUNTIME_ERROR("Invalid large integer!")
+    }*/
+    char *buf = allocate(ALLOCATION_SIZE(3*size*sizeof(mp_limb_t)))+1;
+    size_t buf_size = mpn_get_str((unsigned char *)buf, 10, limbs, size);
+    int i = 0;
+    while (i < buf_size-1 && buf[i] == 0) ++i;
+    buf += i;
+    buf_size -= i;
+    for (i = 0; i < buf_size; ++i) {
+      buf[i] += '0';
+    }
+    if (sign < 0) {
+      --buf;
+      ++buf_size;
+      *buf = '-';
+    }
+    return from_latin_1_string(buf, buf_size);
+  }
+}
+
+$types::positive_large_integer/to_string
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(large_integer_to_string(1))
+  }
+
+{
+  <kind function>
+
+  long types::positive_large_integer/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<positive large integer>");
+  }
+}
+
+$types::negative_large_integer/to_string
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(large_integer_to_string(-1))
+  }
+
+{
+  <kind function>
+
+  long types::negetive_large_integer/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "<negative large integer>");
+  }
+}
+
+$types::real/to_string
+  {
+    CHECK_ARGUMENTS(1)
+    char buf[24];
+    sprintf(buf, "%.15g", ARGUMENTS(0)->real.value);
+    RETURN_SINGLE_RESULT(from_c_string(buf))
+  }
+
+{
+  <kind function>
+
+  long types::real/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    return debug_print(indent, buf, "%.15g", node->real.value);
+  }
+}
+
+$std::is_odd: (n) -> n & 1 == 1
+
+$std::is_even: (n) -> n & 1 == 0
+
+$std::bin:
+  (
+    $val
+    size?
+    -> return
+  )
+  if val == 0:
+    if
+      size.is_defined:
+	return dup("0" size)
+      :
+	return "0"
+  $$str ""
+  while -> val > 0:
+    put &str '0'+(val & 1)
+    !val val >> 1
+  if size.is_defined: return pad_left(str size "0")
+  -> str
+
+$std::oct:
+  (
+    $val
+    size?
+    -> return
+  )
+  if val == 0:
+    if
+      size.is_defined:
+	return dup("0" size)
+      :
+	return "0"
+  $$str ""
+  while -> val > 0:
+    put &str '0'+(val & 0x07)
+    !val val >> 3
+  if size.is_defined: return pad_left(str size "0")
+  -> str
+
+$std::hex:
+  (
+    $val
+    size?
+    -> return
+  )
+  if val == 0:
+    if
+      size.is_defined:
+	return dup("0" size)
+      :
+	return "0"
+  $$str ""
+  while -> val > 0:
+    $$hex_digit val & 0x0f
+    if
+      hex_digit >= 10:
+	!hex_digit 'a'+hex_digit-10
+      :
+	!hex_digit '0'+hex_digit
+    put &str hex_digit
+    !val val >> 4
+  if size.is_defined: return pad_left(str size "0")
+  -> str
+
+$types::integer/to_integer: (value) -> value
+
+$types::real/to_integer
+  {
+    CHECK_ARGUMENTS(1)
+    long val = floor(ARGUMENTS(0)->real.value);
+    RETURN_SINGLE_RESULT(from_long(val))
+  }
+
+$types::number/floor: (self) -> self
+
+$types::number/ceil: (self) -> self
+
+$types::number/round: (self) -> self
+
+$types::real/floor
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(create__types__real(floor(ARGUMENTS(0)->real.value)))
+  }
+
+$types::real/ceil
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(create__types__real(ceil(ARGUMENTS(0)->real.value)))
+  }
+
+$types::real/round
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(create__types__real(round(ARGUMENTS(0)->real.value)))
+  }
+
+$types::real/ln
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(create__types__real(log(ARGUMENTS(0)->real.value)))
+  }

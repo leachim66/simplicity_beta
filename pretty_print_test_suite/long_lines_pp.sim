@@ -1,0 +1,161 @@
+#!/usr/bin/env simple
+
+writeln (2+a)*(b-3)
+writeln 2 << a | b >> 3
+writeln a*(b*c)*d
+writeln x && y && z
+writeln x && y && z
+writeln (x && y) && z
+writeln
+  +
+    *
+      345320954832456783495672496572967296729676727629367296
+      2344275918574357324965743296792435
+    23471295749453745398739245723547213598327592376923769247569435769
+writeln
+  +
+    345320954832456783495672496572967296729676727629367296
+    *
+      2344275918574357324965743296792435
+      23471295749453745398739245723547213598327592376923769247569435769
+writeln
+  +
+    *
+      3453209548324567834956724965729676727629367296
+      2344275918574357324965743296792435
+    *
+      2347129574945374539873924759237647569435769
+      23457981759875923576289024362467920325325025
+writeln
+  *
+    3453209548324567834956724965729676727629367296
+    2344275918574357324965743296792435
+    2347129574945374539873924759237647569435769
+    23457981759875923576289024362467920325325025
+p
+  *
+    aaaaaaaaaaaaaaa
+    bbbbbbbbbbbbbbbbbbbbbbb+cccccccccccccccc
+    dddddddddddddddddddd
+p
+  &&
+    aaaaaaaaaaaaaaa
+    bbbbbbbbbbbbbbbbbbbbbbb || cccccccccccccccc
+    dddddddddddddddddddd
+writeln
+  *
+    3453209548324567834956724965729676727629367296
+    *
+      2344275918574357324965743296792435
+      2347129574945374539873924759237647569435769
+    23457981759875923576289024362467920325325025
+writeln
+  *
+    3453209548324567834956724965729676727629367296
+    234427591857435324965743296792435*234712957495374539873924759237647569435769
+    23457981759875923576289024362467920325325025
+writeln
+  *
+    3453209548324567834956724965729676727629367296
+    2344275918574357324965743296792435
+    *
+      2347129574945374539873924759237647569435769
+      23457981759875923576289024362467920325325025
+
+$square: (x) -> x*x
+
+for_each items: (item) writeln item
+if a > 5: writeln a
+writeln square(3)
+
+$test: (alpha beta gamma delta)
+  writeln
+    +
+      alpha*11*22*33
+      44*55*66
+      77*88*99
+      beta*11*22*33
+      44*55*66
+      77*88*99
+      gamma*11*22*33
+      44*55*66
+      77*88*99
+      delta*11*22*33
+      44*55*66
+      77*88*99
+
+$test1: (alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu)
+  writeln alpha+beta+gamma+delta+epsilon+zeta+eta+theta+iota+kappa+lambda+mu+nu
+
+$test1a: (alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu)
+  writeln alpha+beta+gamma+delta+epsilon+zeta+eta+theta+iota+kappa+lambda+mu+nu
+
+$test1a2
+  : (alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu)
+    writeln
+      alpha+beta+gamma+delta+epsilon+zeta+eta+theta+iota+kappa+lambda+mu+nu
+
+$test2
+  : (alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi22)
+    writeln
+      alpha+beta+gamma+delta+epsilon+zeta+eta+theta+iota+kappa+lambda+mu+nu+xi22
+
+$test2a:
+  (
+    alpha
+    beta
+    gamma
+    delta
+    epsilon
+    zeta
+    eta
+    theta
+    iota
+    kappa
+    lambda
+    mu
+    nu
+    xi333
+  )
+  writeln
+    alpha+beta+gamma+delta+epsilon+zeta+eta+theta+iota+kappa+lambda+mu+nu+xi333
+
+$test3:
+  (
+    alpha
+    beta
+    gamma
+    delta
+    epsilon
+    zeta
+    eta
+    theta
+    iota
+    kappa
+    lambda
+    mu
+    nu
+    xi
+    omicron
+  )
+  writeln
+    +
+      alpha
+      beta
+      gamma
+      delta
+      epsilon
+      zeta
+      eta
+      theta
+      iota
+      kappa
+      lambda
+      mu
+      nu
+      xi
+      omicron
+
+writeln test(1 2 3 4)
+$$result undefined
+plus 1 !result 2

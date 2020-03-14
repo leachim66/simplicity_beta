@@ -1,0 +1,43 @@
+#!/usr/bin/env simple
+
+$$tab empty_insert_order_table
+
+$show:
+  if
+    length_of(tab) == 1:
+      writeln "1 entry"
+    :
+      writeln length_of(tab) " entries"
+  for_each tab: (key value)
+    writeln key ": " value
+  writeln "__________"
+
+$add: (entries*)
+  for_each entries: (entry)
+    $key key_of(entry)
+    $value value_of(entry)
+    writeln "adding " key " with value " value
+    !tab(key) value
+    show
+
+$remove: (keys*)
+  for_each keys: (key)
+    writeln "removing " key
+    !tab(key) undefined
+    show
+
+show
+
+add
+  "Max" = 47
+  "Moritz" = 11
+  "Miriam" = 8
+  "Maja" = 15
+
+remove
+  "Dunja"
+  "Moritz"
+  "Max"
+  "Moritz"
+  "Miriam"
+  "Maja"

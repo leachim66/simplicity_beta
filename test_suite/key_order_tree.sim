@@ -1,0 +1,38 @@
+#!/usr/bin/env simple
+
+$$contents empty_key_order_tree
+
+!contents("div1") 47
+!contents("div3") 11
+!contents("div2") 36
+!contents("div2", "p1") 84
+!contents("div2", "p1", "span") 39
+!contents("div3", "p1") 15
+
+writeln contents("div1")
+writeln contents("div2")
+writeln contents("div2", "p1")
+writeln contents("div2", "p1", "span")
+writeln contents("div3")
+writeln contents("div3", "p1")
+
+write "
+  --------------------
+writeln "node count: " node_count_of(contents)
+writeln "subnode count: " subnode_count_of(contents)
+writeln "leaf count: " leaf_count_of(contents)
+
+write "
+  --------------------
+  all nodes:
+for_each_node contents: (key value) writeln key.serialize ": " value
+
+write "
+  --------------------
+  all subnodes:
+for_each_subnode contents: (key value) writeln key.serialize ": " value
+
+write "
+  --------------------
+  all leaves:
+for_each_leaf contents: (key value) writeln key.serialize ": " value

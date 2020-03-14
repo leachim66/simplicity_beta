@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+$$a list(2 3 5 7 11)
+$$i 2
+
+$p -> 1 4
+
+p !a(i) !i
+
+dump `a

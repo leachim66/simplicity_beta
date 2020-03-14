@@ -1,0 +1,18 @@
+#!/usr/bin/env simple
+
+$x_of (!)
+
+$$sum 0
+
+$q:
+  repeat 100: pass
+
+$p:
+  $a.x_of 1
+  q
+  $a 2+2
+  plus &sum x_of(a)
+
+repeat 100'000 p
+
+writeln sum

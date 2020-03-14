@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="simple" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="debug">
+				<Option output="bin/debug/simple" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="/home/leachim/source/cmds/rc_simplicity" />
+				<Option object_output="obj/debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="s10.sim --rebuild" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="rt" />
+			<Add library="gmp" />
+			<Add library="m" />
+		</Linker>
+		<Unit filename="../../basic/branches.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/debug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/deserialize.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/environment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/event.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/exceptions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/exec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/functional.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/grammar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/loops.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/math.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/options.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/parameters.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/polymorphic_functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/primitives.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/runtime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/serialize.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/boolean.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/character.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/continuation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/coroutine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/date_and_time-posix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/function.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/insert_order_set.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/insert_order_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/key_order_set.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/key_order_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/key_value_pair.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/multi_dimensional_set.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/multi_dimensional_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/number.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/set.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/string.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/string_primitives.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/undefined.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/unique_item.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/unordered_set.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/unordered_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../basic/types/value_range.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../platform/hardware_architecture.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../platform/platform-linux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../runtime/common.h" />
+		<Unit filename="../../runtime/debugger.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../runtime/linker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../runtime/linker.h" />
+		<Unit filename="../../runtime/memory.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/export/html.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../annotater.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bash_code_generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../c_code_generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../character_names.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../expander.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../extractor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../fragments.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../js_code_generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../macros.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nodes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../parser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../pretty_printer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../runtime_definitions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../shared_variables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../sim2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../simple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../simplifier.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../tokenizer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,121 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+
+<using std>
+<using meta>
+
+<data ./gd.h>
+
+write "
+  @(lgpl_header("2016" "Dipl.-Ing. Michael Niederle"))
+  <include gd.h>
+
+  <link gd>
+
+  {
+    extern FILE *to_FILE_pointer(NODE *node);
+  }
+do:
+  %wrapper_namespace "gd"
+  %remove_prefix "gd"
+  %known_c_types set("void" "bool" "char" "int" "long" "float" "double")
+
+  %known_pointer_types
+    set("gdErrorMethod" "gdImage" "gdSource" "gdFont" "gdPoint" "gdRect" "FILE")
+
+  %pointer_type_aliases
+    table
+      "gdErrorMethod" = "gdErrorMethod *"
+      "gdImagePtr" = "gdImage *"
+      "gdSourcePtr" = "gdSource *"
+      "gdFontPtr" = "gdFont *"
+      "gdPointPtr" = "gdPoint *"
+      "gdRectPtr" = "gdRect *"
+
+  writeln
+  for_each pointer_type_aliases: (_pointer_type base_type)
+    write wrapper_pointer_type(base_type .before. ' ')
+
+  $headers
+    replace_all
+      load("gd.h")
+      '@nl;', many('@ht;'), some(' ') = " "
+      '@nl;', many(' ') = " "
+
+  for_each_line headers: ($line)
+    trim &line
+    if line .has_prefix. "BGD_DECLARE(":
+      unless
+	||
+	  line .contains. '['
+	  line .contains. "int *"
+	  line .contains. "gdIOCtx"
+	  line .contains. "gdIOCtxPtr"
+	  line .contains. "gdImageString16"
+	  line .contains. "gdImageStringUp16"
+	  line .contains. "gdFTStringExtraPtr"
+	  line .contains. "gdCallbackImageColor"
+	  line .contains. "gdSinkPtr"
+	  line .contains. "gdScatterPtr"
+	  line .contains. "gdInterpolationMethod"
+	:
+	  !line string(between(line '(' ')') line .behind. ')')
+	  parse_c_function_declaration $cap line
+	  unless
+	    ||
+	      name_of(cap) .has_suffix. "Ptr"
+	      name_of(cap) .has_suffix. "PtrEx"
+	      name_of(cap) == "gdFree"
+	    :
+	      writeln
+	      write wrapper_function(cap)
+write "
+  $gd::ImageStringFT {
+    CHECK_ARGUMENTS(8)
+    gdImagePtr im = to_gdImage_pointer(ARGUMENTS(0));
+    int color = to_int(ARGUMENTS(1));
+    char *font = to_c_string(ARGUMENTS(2));
+    double size = to_double(ARGUMENTS(3));
+    double angle = to_double(ARGUMENTS(4));
+    int x = to_int(ARGUMENTS(5));
+    int y = to_int(ARGUMENTS(6));
+    char *text = to_c_string(ARGUMENTS(7));
+    char *err = gdImageStringFT(im, NULL, color, font, size, angle, x, y, text);
+    deallocate_memory(font);
+    deallocate_memory(text);
+    if (err) RUNTIME_ERROR(err)
+    RETURN_NOTHING
+  }
+
+  $gd::ImageSX {
+    CHECK_ARGUMENTS(1)
+    gdImagePtr im = to_gdImage_pointer(ARGUMENTS(0));
+    RETURN_SINGLE_RESULT(from_int(gdImageSX(im)))
+  }
+
+  $gd::ImageSY {
+    CHECK_ARGUMENTS(1)
+    gdImagePtr im = to_gdImage_pointer(ARGUMENTS(0));
+    RETURN_SINGLE_RESULT(from_int(gdImageSY(im)))
+  }

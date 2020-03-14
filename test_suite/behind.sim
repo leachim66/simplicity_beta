@@ -1,0 +1,8 @@
+#!/usr/bin/env simple
+
+$WHITESPACE
+  many(alt(' ' '@ht;'))
+
+$line "  root simply1 -wi-ao---  1073741824B"
+
+writeln behind(line WHITESPACE -1)

@@ -1,0 +1,8 @@
+#!/usr/bin/env simrun
+
+$$str "abc@alpha;bcabc"
+writeln '@quot;' str "@quot;.is_a_latin_1_string: " str.is_a_latin_1_string
+!str(4) 'a'
+writeln '@quot;' str "@quot;.is_a_latin_1_string: " str.is_a_latin_1_string
+!str(5) '@beta;'
+writeln '@quot;' str "@quot;.is_a_latin_1_string: " str.is_a_latin_1_string

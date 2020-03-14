@@ -1,0 +1,135 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$private::set_item ()
+  #
+    set (modify or add) an item in any kind of table
+
+    To delete an item set the value to <undefined>.
+
+    This function shall only be used in derived types that change the behaviour
+    of the main accessor function and need access to the base functionality.
+$private::get_item ()
+  #
+    get (retrieve) an item from any kind of table
+
+    This function shall only be used in derived types that change the behaviour
+    of the main accessor function and need access to the base functionality.
+
+$types::generic_table types::object
+
+$NONE .
+
+$types::generic_table/:
+  (
+    myself^
+    key
+    value = NONE
+  )
+  if
+    NONE == value:
+      private::get_item myself key
+    :
+      private::set_item myself key value
+
+$types::generic_table/union:
+  (
+    &left
+    right
+  )
+  for_each right: (key value) !left(key) value
+
+$types::generic_table/map: (self func)
+  $$new_table new_empty_collection(self)
+  for_each self: (key value) !new_table(key) func(value)
+  -> new_table
+
+$types::generic_table/serialize:
+  (
+    self
+    indent = 0
+    -> return
+  )
+  $tag serialization_tag_of(self)
+  if self.is_empty: return "@(tag)()"
+  $$buf tag
+  for_each self: (key value)
+    write_to
+      &buf
+      '@nl;'
+      spaces(indent+2)
+      serialize(key indent+2)
+      " = "
+      serialize(value indent+4)
+  -> buf
+
+$types::generic_table/keys_of: (self)
+  $$keys empty_list
+  for_each self: (key _value) push &keys key
+  -> keys
+
+$types::generic_table/values_of: (self)
+  $$values empty_list
+  for_each self: (_key value) push &values value
+  -> values
+
+$types::generic_table/is_empty: (self) -> length_of(self) == 0
+
+$std::is_a_table ()
+
+$types::object.is_a_table false
+$types::generic_table.is_a_table true
+$types::table types::unordered_table
+$types::table.serialization_tag_of "table"
+$std::empty_table types::table
+
+$std::table: (args*)
+  $$tab types::table
+  for_each args: (arg) !tab(std::key_of(arg)) std::value_of(arg)
+  -> tab
+
+$std::register_collection_serializer: (name empty_collection)
+  register_deserializer name:
+    (
+      $text
+      base_indent
+      -> return
+    )
+    $invalid_table_error:
+      raise "Invalid @(name) object encountered during deserialisation!"
+
+    if text .has_prefix. "()": return range(text 3 -1) empty_table
+    if text(1) != '@nl;' invalid_table_error
+    $$obj empty_collection
+    forever:
+      if length_of(text) == 0 || text(1) != '@nl;': return text obj
+      get_deserialization_indent $remaining_text $indent text
+      if indent <= base_indent: return text obj
+      !text remaining_text
+      $key deserialize_item(&text indent)
+      while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
+      if length_of(text) == 0 || text(1) != '=' invalid_table_error
+      range &text 2 -1
+      $value deserialize_item(&text indent)
+      !obj(key) value
+
+register_collection_serializer "table" empty_table

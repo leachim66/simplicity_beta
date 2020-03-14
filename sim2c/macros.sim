@@ -1,0 +1,500 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  implements "macro replacement" for inline-C code
+
+<using std>
+<using sim2c>
+<using node>
+
+$EVENT .
+$ACTION .
+$INFO .
+$DATA .
+
+%%event_name undefined
+%%event_kind undefined
+%%event_phase undefined
+%%data_variables undefined
+%%info_variables undefined
+$$macro_replacements empty_table
+
+$define_macro: (name replacement) !macro_replacements(name) replacement
+
+define_macro "ARGC" "main_argc"
+define_macro "ARGV" "main_argv"
+define_macro "POLY_IDX" "poly_idx__$1"
+define_macro "POLY_COUNT" "polymorphic_function_count"
+define_macro "POLY_WITH_SETTER_COUNT" "polymorphic_function_with_setter_count"
+define_macro "POLY_NAMES" "polymorphic_function_names"
+define_macro "UNIQUE_NAMES" "unique_item_names"
+define_macro "ARGUMENT_COUNT" "argument_count"
+define_macro "CONT" "frame->cont"
+define_macro "CHECK_ARGUMENTS" "
+  if (argument_count != $1) {
+    invalid_arguments_error();
+    return;
+  }@
+define_macro "MIN_ARGUMENTS" "
+  if (argument_count < $1) {
+    too_few_arguments_error();
+    return;
+  }@
+define_macro "MAX_ARGUMENTS" "
+  if (argument_count > $1) {
+    too_many_arguments_error();
+    return;
+  }@
+define_macro "RESULT_COUNT" "result_count"
+define_macro "VAR": (arguments)
+  $name arguments(1)
+  if
+    global_names(name).is_defined
+    -> if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
+    -> "get__@(name)()"
+define_macro "EVENT": (arguments)
+  !event_name arguments(1)
+  !event_kind EVENT
+  -> "if (event__mode != EM__REPLAY) {"
+define_macro "ACTION": (arguments)
+  !event_name arguments(1)
+  !event_kind ACTION
+  -> "if (event__mode != EM__REPLAY) {"
+define_macro "INFO":
+  !event_phase INFO
+  -> ""
+define_macro "DATA":
+  !event_phase DATA
+  if
+    event_kind == EVENT
+    -> "
+      @
+        if (event__mode == EM__RECORD) {
+          record__event("@(event_name)@quot;);@
+    -> "  if (event__mode == EM__RECORD) {"
+define_macro "INT": (arguments)
+  $name arguments(1)
+  case
+    event_phase
+    DATA:
+      push &data_variables put(arguments "integer")
+      if event_kind == EVENT (-> "  store__integer(@(name));") -> "
+	@
+	  if (@(name) == @(arguments(2))) {
+	      successful__action("@(event_name)");
+	    } else {
+	      failed__action("@(event_name)");
+	      store__integer(@(name));
+	    }@
+    INFO:
+      push &info_variables put(arguments "integer")
+      -> ""
+define_macro "LONG": (arguments)
+  $name arguments(1)
+  case
+    event_phase
+    DATA:
+      push &data_variables put(arguments "long_integer")
+      if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
+	@
+	  if (@(name) == @(arguments(2))) {
+	      successful__action("@(event_name)");
+	    } else {
+	      failed__action("@(event_name)");
+	      store__long_integer(@(name));
+	    }@
+    INFO:
+      push &info_variables put(arguments "long_integer")
+      -> ""
+define_macro "POINTER": (arguments)
+  $name arguments(1)
+  case
+    event_phase
+    DATA:
+      push &data_variables put(arguments "pointer")
+      if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
+	@
+	  if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+	      successful__action("@(event_name)");
+	    } else {
+	      failed__action("@(event_name)");
+	      store__pointer(@(name));
+	    }@
+    INFO:
+      push &info_variables put(arguments "pointer")
+      -> ""
+define_macro "INT_ARRAY": (arguments)
+  $name arguments(1)
+  $length arguments(2)
+  case
+    event_phase
+    DATA:
+      push &data_variables put(arguments "int_array")
+      -> "  store__int_array(@(name), @(length));"
+    INFO:
+      push &info_variables put(arguments "int_array")
+      -> ""
+define_macro "MEMORY": (arguments)
+  $name arguments(1)
+  $length arguments(2)
+  case
+    event_phase
+    DATA:
+      push &data_variables put(arguments "memory")
+      -> "  store__memory(@(name), @(length));"
+    INFO:
+      push &info_variables put(arguments "memory")
+      -> ""
+define_macro "C_STRING": (arguments)
+  $name arguments(1)
+  case
+    event_phase
+    DATA:
+      push &data_variables put(arguments "c_string")
+      -> "  store__c_string(@(name));"
+    INFO:
+      push &info_variables put(arguments "c_string")
+      -> ""
+define_macro "END":
+  $retrieve_variables:
+    $indent if(event_kind == ACTION (-> "      ") -> "  ")
+    for_each data_variables: (var)
+      $type var(1)
+      $name var(2)
+      case
+	type
+	"pointer":
+	  writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+	"int_array":
+	  writeln_to
+	    &buf
+	    indent
+	    "@(var(3)) = retrieve__int_array((int **)&@(name));"
+	"memory":
+	  writeln_to
+	    &buf
+	    indent
+	    "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
+	:
+	  writeln_to &buf indent "retrieve__@(type)(&@(name));"
+
+  $print_variables:
+    $indent if(event_kind == ACTION (-> "      ") -> "  ")
+    for_each info_variables: (var)
+      $type var(1)
+      $name var(2)
+      case
+	type
+	"pointer":
+	  writeln_to &buf indent "print__pointer(@(name));"
+	"int_array":
+	  writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
+	"memory":
+	  writeln_to &buf indent "print__memory(@(name), @(var(3)));"
+	:
+	  writeln_to &buf indent "print__@(type)(@(name));"
+
+  $$buf ""
+  cond
+    -> event_kind == EVENT:
+      write_to &buf "
+	  }
+	} else {
+      write_to &buf "
+	@
+	  replay__event("@(event_name)");
+      retrieve_variables
+      unless info_variables.is_empty:
+	write_to &buf "
+	  @
+	    report__event("@(event_name)");
+	print_variables
+    -> length_of(data_variables) > 0:
+      write_to &buf "
+	@
+	    }
+	  } else {
+      write_to &buf "
+	@
+	    if (replay__action("@(event_name)")) {
+      retrieve_variables
+      writeln_to &buf "  } else {"
+      $var data_variables(1)
+      $type var(1)
+      $name var(2)
+      $default if(type == "pointer" (-> "SAMPLE_POINTER") -> var(3))
+      write_to &buf "
+	@
+	      @(name) = @(default);
+	  }
+      unless info_variables.is_empty:
+	write_to &buf "
+	  @
+	      report__event("@(event_name)");
+	print_variables
+  write_to &buf '}'
+  -> buf
+define_macro "UNDEFINED" "undefined"
+define_macro "ZERO" "zero"
+define_macro "TRUE" "boolean_true"
+define_macro "FALSE" "boolean_false"
+define_macro "EMPTY_STRING" "empty_string"
+define_macro "ARGUMENTS" "arguments->slots[$1]"
+define_macro "TYPE" "type__$1"
+define_macro "TYPEOF" "($1)->type"
+define_macro "SIZEOF" "($1)->attributes->vtable->size"
+define_macro "RETURN_NOTHING" "
+  {
+    argument_count = 0;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "RETURN_SINGLE_RESULT" "
+  {
+    NODE *result__node = (NODE *)($1);
+    arguments = node_p;
+    arguments->slots[0] = result__node;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "RETURN_BOOLEAN" "RETURN_SINGLE_RESULT(from_bool($1))"
+define_macro "RETURN_UNDEFINED" "
+  {
+    arguments = node_p;
+    arguments->slots[0] = undefined;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "RETURN_TRUE" "
+  {
+    arguments = node_p;
+    arguments->slots[0] = boolean_true;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "RETURN_FALSE" "
+  {
+    arguments = node_p;
+    arguments->slots[0] = boolean_false;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "RETURN_ZERO" "
+  {
+    arguments = node_p;
+    arguments->slots[0] = zero;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "START_ARGUMENTS" "
+  argument_count = $1;
+  arguments = node_p;@
+define_macro "RETURN" "
+  {
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }@
+define_macro "CHAIN" "
+  {
+    func = myself->type;
+    return;
+  }@
+
+# Unrecoverable Errors
+
+define_macro "UNRECOVERABLE_ERROR" "unrecoverable_error($*);"
+define_macro "OUT_OF_MEMORY_ERROR" "out_of_memory_error();"
+
+# Catchable Runtime Errors
+
+define_macro "RUNTIME_ERROR" "
+  {
+    runtime_error($*);
+  }@
+define_macro "TOO_FEW_ARGUMENTS_ERROR" "
+  {
+    too_few_arguments_error();
+  }@
+define_macro "TOO_MANY_ARGUMENTS_ERROR" "
+  {
+    too_many_arguments_error();
+  }@
+define_macro "INVALID_ARGUMENTS_ERROR" "
+  {
+    invalid_arguments_error();
+  }@
+define_macro "TOO_FEW_RESULTS_ERROR" "
+  {
+    too_few_results_error();
+  }@
+define_macro "TOO_MANY_RESULTS_ERROR" "
+  {
+    too_many_results_error();
+  }@
+define_macro "INVALID_RESULTS_ERROR" "
+  {
+    invalid_results_error();
+  }@
+define_macro "INVALID_INDEX_ERROR" "
+  {
+    invalid_index_error();
+  }@
+define_macro "DIVIDE_BY_ZERO_ERROR" "
+  {
+    divide_by_zero_error();
+  }@
+define_macro "NOT_YET_IMPLEMENTED_ERROR" "
+  {
+    not_yet_implemented_error();
+  }@
+define_macro "NO_SUCH_FUNCTION_ERROR" "
+  {
+    no_such_function_error();
+  }@
+define_macro "RESOURCE_ERROR" "
+  {
+    resource_error();
+  }@
+define_macro "IO_ERROR" "
+  {
+    io_error();
+  }@
+
+$sim2c::converted: ($code)
+  %%event_name undefined
+  %%event_kind undefined
+  %%data_variables empty_list
+  %%info_variables empty_list
+  push &code '@nl;' # add sentinel
+  $$new_code ""
+  $$start 1
+  $$within_string false
+  $$s undefined
+  $$i 1
+  $len length_of(code)
+  while -> i <= len:
+    if
+      within_string:
+	case code(i) '@quot;': if code(i-1) != '\': !within_string false
+	inc &i
+      :
+	$chr code(i)
+	case
+	  chr
+	  '_', 'a' .. 'z', 'A' .. 'Z':
+	    unless s.is_defined: !s i
+	  '0' .. '9':
+	    pass
+	  '@quot;':
+	    !s undefined
+	    if code(i-1) != '\': !within_string true
+	  :
+	    if s.is_defined:
+	      if
+		chr == ':' && code(i+1) == ':':
+		  inc &i
+		:
+		  $$identifier range(code s i-1)
+		  $$replacement macro_replacements(identifier)
+		  if
+		    replacement.is_defined:
+		      append &new_code range(code start s-1)
+		      if
+			code(i) == '(':
+			  $$arguments list()
+			  inc &i
+			  $$a i
+			  $$level 1
+			  do: (-> break)
+			    while -> i <= len:
+			      case
+				code(i)
+				',':
+				  if level == 1:
+				    push &arguments trim(range(code a i-1))
+				    !a i+1
+				'(':
+				  inc &level
+				')':
+				  dec &level
+				  if level == 0:
+				    push &arguments trim(range(code a i-1))
+				    inc &i
+				    break
+			      inc &i
+			  if
+			    replacement.is_a_string:
+			      $$r 1
+			      $$j 1
+			      $m length_of(replacement)
+			      $$new_replacement ""
+			      while -> j <= m:
+				if replacement(j) == '$':
+				  append
+				    &new_replacement
+				    range(replacement r j-1)
+				  inc &j
+				  $var_no replacement(j)
+				  if
+				    var_no == '*':
+				      append
+					&new_replacement
+					join(arguments ", ")
+				    :
+				      $idx var_no-'0'
+				      append &new_replacement arguments(idx)
+				  !r j+1
+				inc &j
+			      !replacement
+				append(new_replacement range(replacement r -1))
+			    :
+			      !replacement replacement(arguments)
+			:
+			  unless replacement.is_a_string:
+			    !replacement replacement()
+		      append &new_code replacement.converted
+		      !start i
+		    :
+		      if identifier .contains. ':':
+			replace_all &identifier "::" = "__"
+			append &new_code range(code start s-1)
+			append &new_code identifier
+			!start i
+		      use_identifier identifier
+		  !s undefined
+	inc &i
+  if
+    new_code != ""
+    -> append(new_code range(code start -2))
+    -> range(code 1 -2)

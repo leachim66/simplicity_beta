@@ -1,0 +1,8 @@
+<pre>
+$types::circle/area_of: (self)
+  $r radius_of(self)
+  -> r*r*PI
+</pre>
+<pre>
+: (x) -> x*x <i># the square function</i>
+</pre>

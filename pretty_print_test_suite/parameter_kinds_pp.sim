@@ -1,0 +1,27 @@
+#!/usr/bin/env simple
+
+$p:
+  (
+    myself^
+    &updater
+    !out
+    $modify
+    optional?
+    rest*
+    -> return
+  )
+  pass
+
+$p: (myself^) pass
+
+$p: (&updater) pass
+
+$p: (!out) pass
+
+$p: ($modify) pass
+
+$p: (optional?) pass
+
+$p: (rest*) pass
+
+$p: (-> return) pass

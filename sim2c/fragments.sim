@@ -1,0 +1,48 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  cuts a source code into multiple fragments;
+  each fragments represents an indented block which starts at the beginning of a
+  line
+
+<using std>
+<using sim2c>
+<using node>
+
+$sim2c::cut_into_fragments: (buf)
+  $$fragments list()
+  $$start_idx 1
+  $$start_no 1
+  $$no 1
+  for_each buf: (idx chr)
+    if chr == '@nl;':
+      inc &no
+      if idx == length_of(buf) || buf(idx+1) > ' ' && buf(idx+1) != '}':
+	push
+	  &fragments
+	  types::object
+	    .submodule_no_of submodule_no
+	    .line_no_of start_no
+	    .sim2c::text_of range(buf start_idx idx)
+	!start_no no
+	!start_idx idx+1
+  -> fragments

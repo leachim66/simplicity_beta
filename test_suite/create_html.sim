@@ -1,0 +1,16 @@
+#!/usr/bin/env simple
+
+<require basic/stdlib>
+<require system/stdlib>
+<require system/export/html>
+
+<using std>
+<using html>
+
+PRE "
+  $types::circle/area_of: (self)
+    $r radius_of(self)
+    -> r\*r\*PI
+
+PRE "
+  : (x) -> x\*x *# the square function*

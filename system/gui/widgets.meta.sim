@@ -1,0 +1,284 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+
+<using std>
+<using meta>
+
+$$tags ""
+$$creators ""
+$$dialog_widgets ""
+
+# Widgets
+
+widget "paragraph"
+widget "editable_paragraph" std::key_value_pair(HAS_UPDATER std::true)
+widget "label"
+widget "picture"
+widget "filler" std::key_value_pair(HAS_NO_CONTENTS std::true)
+widget
+  "edit_box"
+  std::key_value_pair(HAS_UPDATER std::true)
+  std::key_value_pair(SUPPORTS_PASSWORD std::true)
+widget "multi_line_edit_box" std::key_value_pair(HAS_UPDATER std::true)
+widget "button" std::key_value_pair(SUPPORTS_ACTION std::true)
+widget
+  "grid"
+  std::key_value_pair(HAS_CHILDREN std::true)
+  std::key_value_pair(IS_A_GRID std::true)
+widget "group" std::key_value_pair(HAS_CHILDREN std::true)
+widget "page" std::key_value_pair(HAS_CHILDREN std::true)
+
+# Meta Code
+
+$HAS_UPDATER .
+$HAS_CHILDREN .
+$IS_A_GRID .
+$HAS_NO_CONTENTS .
+$SUPPORTS_PASSWORD .
+$SUPPORTS_ACTION .
+
+$widget: (name options*)
+  extract_options
+    options
+    HAS_CHILDREN = false
+    $has_children
+    IS_A_GRID = false
+    $is_a_grid
+    HAS_UPDATER = false
+    $has_updater
+    HAS_NO_CONTENTS = false
+    $has_no_contents
+    SUPPORTS_ACTION = false
+    $supports_action
+    SUPPORTS_PASSWORD = false
+    $supports_password
+  $NAME name.to_upper_case
+
+  $parameter
+    cond
+      -> has_updater -> "updater"
+      -> has_children -> "body"
+      -> has_no_contents -> undefined
+      -> true -> "contents"
+
+  write_to &tags "
+
+    $gui::@(NAME) .
+    $gui::@(NAME).to_string "@(name)@quot;
+  write_to &creators "
+
+    $gui::create_@(name): (args*)
+      extract_options args
+        gui::ID = undefined $_id # not used on the widget itself!
+        gui::STYLE = undefined $style
+        gui::WIDTH = undefined $width
+        gui::HEIGHT = undefined $height
+        gui::ALIGNMENT = undefined $alignment
+        gui::COLUMN = undefined $column
+        gui::ROW = undefined $row
+        gui::COLUMN_SPAN = undefined $column_span
+        gui::ROW_SPAN = undefined $row_span
+        gui::LEFT_MARGIN = undefined $left_margin
+        gui::RIGHT_MARGIN = undefined $right_margin
+        gui::TOP_MARGIN = undefined $top_margin
+        gui::BOTTOM_MARGIN = undefined $bottom_margin
+        gui::HORIZONTAL_MARGIN = undefined $horizontal_margin
+        gui::VERTICAL_MARGIN = undefined $vertical_margin
+        gui::MARGIN = undefined $margin
+        gui::BORDER_WIDTH = undefined $border_width
+  if has_children:
+    write_to &creators "
+      @
+          gui::HORIZONTAL_SPACING = undefined $horizontal_spacing
+          gui::VERTICAL_SPACING = undefined $vertical_spacing
+          gui::SPACING = undefined $spacing
+          gui::LAYOUT_DIRECTION = undefined $layout_direction
+          gui::ITEM_ALIGNMENT = undefined $item_alignment
+    if is_a_grid:
+      write_to &creators "
+	@
+	    gui::COLUMN_WIDTHS = undefined $column_widths
+	    gui::ROW_HEIGHTS = undefined $row_heights
+  unless has_children || has_no_contents:
+    write_to &creators "
+      @
+          gui::TOOLTIP = undefined $tooltip
+          gui::MARKUP = false $markup
+  if supports_action:
+    writeln_to &creators "    gui::ACTION = undefined $action"
+    writeln_to &creators "    gui::DEFAULT = false $default"
+  if has_updater:
+    writeln_to &creators "    gui::VALIDATE = undefined $validator"
+  if supports_password:
+    writeln_to &creators "    gui::PASSWORD = false $is_password"
+  if parameter.is_defined: writeln_to &creators "    $@(parameter)"
+
+  $$constructor "
+    types::widget
+      .type_of gui::@(NAME)
+      .gui::style_of style
+      .gui::width_of width
+      .gui::height_of height
+      .gui::alignment_of alignment
+      .gui::row_of row
+      .gui::column_of column
+      .gui::row_span_of row_span
+      .gui::column_span_of column_span
+      .gui::left_margin_of
+        cond
+          -> left_margin.is_defined -> left_margin
+          -> horizontal_margin.is_defined -> horizontal_margin
+          -> true -> margin
+      .gui::right_margin_of
+        cond
+          -> right_margin.is_defined -> right_margin
+          -> horizontal_margin.is_defined -> horizontal_margin
+          -> true -> margin
+      .gui::top_margin_of
+        cond
+          -> top_margin.is_defined -> top_margin
+          -> vertical_margin.is_defined -> vertical_margin
+          -> true -> margin
+      .gui::bottom_margin_of
+        cond
+          -> bottom_margin.is_defined -> bottom_margin
+          -> vertical_margin.is_defined -> vertical_margin
+          -> true -> margin
+      .gui::border_width_of border_width
+
+  if has_children:
+    write_to &constructor "
+      @
+        .gui::layout_direction_of layout_direction
+        .gui::item_alignment_of item_alignment
+    if
+      is_a_grid:
+	write_to &constructor "
+	  @
+	    .gui::column_widths_of column_widths
+	    .gui::row_heights_of row_heights
+	    .gui::horizontal_spacing_of default_value(horizontal_spacing @
+	  spacing)
+	    .gui::vertical_spacing_of default_value(vertical_spacing spacing)
+	    .gui::layout_direction_of layout_direction
+	    .gui::item_alignment_of item_alignment
+      : # group
+	write_to &constructor "
+	  @
+	    .gui::horizontal_spacing_of default_value(horizontal_spacing @
+	  spacing)
+	    .gui::vertical_spacing_of default_value(vertical_spacing spacing)
+  trim &constructor
+  if
+    has_children:
+      write_to &creators "
+	  %%gui::current_contents
+	@(indented(4 constructor))
+	  body
+	  -> gui::current_contents
+    :
+      #if has_updater:
+	write_to &creators
+	  "
+	    @
+	      $contents updater()
+	      $acceptable
+	        if
+	          validator.is_defined
+	          -> validator(contents)
+	          -> undefined
+
+      write_to &creators "
+	  ->
+	@(indented(4 constructor))
+      unless has_no_contents:
+	unless has_updater:
+	  write_to &creators "
+	    @
+	          .gui::contents_of contents
+	write_to &creators "
+	  @
+	        .gui::tooltip_of tooltip
+	        .gui::uses_markup markup
+      if supports_password:
+	write_to &creators "
+	  @
+	        .gui::is_a_password is_password
+      if has_updater:
+	write_to &creators "
+	  @
+	        .gui::updater_of updater
+
+	#        .gui::cursor_position_of length_of(contents)
+      if supports_action:
+	write_to &creators "
+	  @
+	        .gui::action_of action
+	        .gui::is_default default
+      if has_updater:
+	write_to &creators "
+	  @
+	        .gui::validator_of validator
+
+	#        .gui::is_acceptable acceptable
+      if has_updater || supports_action:
+	write_to &creators "
+	  @
+	        .gui::is_focusable true
+  write_to &dialog_widgets "
+
+    $gui::@(name): ($args*)
+      extract_some_options &args
+        gui::ID = undefined $id
+      $name
+        if
+          id.is_defined
+          -> id
+          :
+            inc &gui::current_id
+            -> string("p" gui::current_id)
+  if
+    has_children:
+      write_to &dialog_widgets "
+	@
+	  $outer_widget_path gui::current_widget_path
+	  do:
+	    %gui::current_widget_path push(outer_widget_path name)
+	    !gui::current_contents(name) gui::create_@(name)(args*)
+    :
+      write_to &dialog_widgets "
+	@
+	  !gui::current_contents(name) gui::create_@(name)(args*)
+
+write "
+  @(lgpl_header("2015" "Dipl.-Ing. Michael Niederle"))
+
+  # Widget Tags
+  @(tags)
+
+  # Widget Creators
+  @(creators)
+
+  # Dialog Widgets
+  @(dialog_widgets)@

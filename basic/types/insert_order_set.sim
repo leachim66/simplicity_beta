@@ -1,0 +1,84 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_an_insert_order_set ()
+
+$types::object.is_an_insert_order_set false
+$types::insert_order_set.is_an_insert_order_set true
+
+$NONE .
+
+$index_table_of (!)
+$keys_of (!)
+
+$types::insert_order_set.index_table_of empty_table
+$types::insert_order_set.keys_of empty_list
+$types::insert_order_set types::generic_set
+
+$types::insert_order_set/:
+  (
+    $myself^
+    key
+    value = NONE
+  )
+  $idx index_table_of(myself)(key)
+  case
+    value
+    NONE
+    -> idx.is_defined
+    true:
+      unless idx.is_defined:
+	push &myself.keys_of key
+	!myself.index_table_of(key) length_of(keys_of(myself))
+      -> myself
+    false:
+      if idx.is_defined:
+	delete_at &myself.keys_of idx
+	!myself.index_table_of(key) undefined
+      -> myself
+    :
+      Error "Attempt to set a set element to a nonboolean value!"
+
+$types::insert_order_set.serialization_tag_of "insert_order_set"
+
+$types::insert_order_set/is_empty: (self) -> keys_of(self).is_empty
+
+$types::insert_order_set/first_index_of: (self)
+  if self.is_empty (-> undefined) -> keys_of(self)(1)
+
+$types::insert_order_set/last_index_of: (self)
+  if self.is_empty (-> undefined) -> keys_of(self)(-1)
+
+$types::insert_order_set/for_each: (self body)
+  for_each keys_of(self): (idx value)
+    if
+      parameter_count_of(body) == 2:
+	body idx value
+      :
+	body value
+
+$std::empty_insert_order_set types::insert_order_set
+
+$std::insert_order_set: (args*)
+  $$tab types::insert_order_set
+  for_each args: (key) !tab(key) true
+  -> tab

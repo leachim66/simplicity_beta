@@ -1,0 +1,44 @@
+#!/usr/bin/env simple
+
+$p: (args*)
+  for_each args: (arg) writeln arg
+  writeln "passed"
+
+$f: (args*) -> length_of(args)
+
+$x 39
+
+p # remark
+
+p
+  1
+  # remark
+
+p
+  2
+  # remark
+  3
+
+p
+  # remark
+  4
+
+p
+  x
+    # remark
+
+p
+  f
+    1
+    # remark
+
+p
+  f
+    2
+    # remark
+    3
+
+p
+  f
+    # remark
+    4

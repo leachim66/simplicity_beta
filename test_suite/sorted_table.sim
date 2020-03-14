@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$$prices key_order_table()
+
+!prices("apples") 1.95
+!prices("pears") 2.29
+!prices("tomatoes") 1.49
+!prices("potatoes") 0.89
+!prices("oranges") 2.40
+!prices("grapes") 2.59
+
+writeln prices("apples")
+writeln prices("oranges")
+writeln prices("pears")
+
+for_each prices: (name price)
+  writeln name ": " price

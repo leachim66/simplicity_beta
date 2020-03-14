@@ -1,0 +1,331 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::is_a_key_order_table ()
+
+$types::object.is_a_key_order_table false
+$types::key_order_table.is_a_key_order_table true
+
+$NONE .
+$INSERT .
+$UPDATE .
+
+$tree_of (!)
+$key_of (!)
+$value_of (!)
+$left_of (!)
+$right_of (!)
+
+$remove_leftmost:
+  (
+    &node
+    !key
+    !value
+  )
+  $$left left_of(node)
+  if
+    left.is_defined:
+      remove_leftmost &left !key !value
+      !node.left_of left
+    :
+      !key key_of(node)
+      !value value_of(node)
+      !node right_of(node)
+
+$remove_rightmost:
+  (
+    &node
+    !key
+    !value
+  )
+  $$right right_of(node)
+  if
+    right.is_defined:
+      remove_rightmost &right !key !value
+      !node.right_of right
+    :
+      !key key_of(node)
+      !value value_of(node)
+      !node left_of(node)
+
+$types::key_order_table types::generic_table
+
+# ATTENTION: BUG BUG BUG!!!
+
+#types::object $empty_node
+  .left_of undefined
+  .right_of undefined
+
+# THIS *SHOULD* BE IDENTICAL TO:
+
+$empty_node types::object
+$empty_node.left_of undefined
+$empty_node.right_of undefined
+
+$fetch_first:
+  (
+    &myself
+    -> return
+  )
+  $$left left_of(myself)
+  if
+    left.is_defined:
+      fetch_first &left $key $value
+      !myself.left_of left
+      return key value
+    :
+      $key key_of(myself)
+      $value value_of(myself)
+      !myself right_of(myself)
+      return key value
+
+$retrieve_item:
+  (
+    myself
+    key
+    -> return
+  )
+  if myself.is_undefined: return undefined
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: return value_of(myself)
+    -> key < my_key: return retrieve_item(left_of(myself) key)
+    -> key > my_key: return retrieve_item(right_of(myself) key)
+
+$add_item:
+  (
+    myself
+    key
+    value
+    -> return
+  )
+  if myself.is_undefined: return empty_node(.key_of key .value_of value) INSERT
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: return myself(.value_of value) UPDATE
+    -> key < my_key:
+      add_item $left $mode left_of(myself) key value
+      return myself(.left_of left) mode
+    -> key > my_key:
+      add_item $right $mode right_of(myself) key value
+      return myself(.right_of right) mode
+
+$remove_item:
+  (
+    $myself
+    key
+    -> return
+  )
+  if myself.is_undefined: return NONE # nothing removed
+  $my_key key_of(myself)
+  cond
+    -> key == my_key:
+      $left left_of(myself)
+      $$right right_of(myself)
+      if
+	left.is_defined:
+	  if
+	    right.is_defined:
+	      fetch_first &right $head_key $head_value
+	      return
+		types::object
+		  .key_of head_key
+		  .value_of head_value
+		  .left_of left
+		  .right_of right
+	    :
+	      return left
+	:
+	  return right
+    -> key < my_key:
+      $left remove_item(left_of(myself) key)
+      if NONE == left: return NONE # nothing removed
+      !myself.left_of left
+      return myself
+    -> key > my_key:
+      $right remove_item(right_of(myself) key)
+      if NONE == right: return NONE # nothing removed
+      !myself.right_of right
+      return myself
+
+$types::key_order_table/private::set_item:
+  (
+    &self
+    key
+    value
+  )
+  if
+    value.is_undefined:
+      $new_tree remove_item(tree_of(self) key)
+      if NONE != new_tree:
+	!self.tree_of new_tree
+	dec &self.length_of
+    :
+      add_item $new_tree $mode tree_of(self) key value
+      !self.tree_of new_tree
+      if mode == INSERT: inc &self.length_of
+
+$types::key_order_table/private::get_item: (self key)
+  retrieve_item tree_of(self) key
+
+$types::key_order_table.tree_of undefined
+$types::key_order_table.length_of 0
+$types::key_order_table.serialization_tag_of "key_order_table"
+
+$types::key_order_table/new_empty_collection: (_self) -> types::key_order_table
+
+$std::empty_key_order_table types::key_order_table
+
+$std::key_order_table: (initializers*)
+  $$tab types::key_order_table
+  for_each initializers: (initializer)
+    !tab(std::key_of(initializer)) std::value_of(initializer)
+  -> tab
+
+$for_each_item: (myself body)
+  if myself.is_defined:
+    for_each_item left_of(myself) body
+    if
+      parameter_count_of(body) == 2:
+	body key_of(myself) value_of(myself)
+      :
+	body value_of(myself)
+    for_each_item right_of(myself) body
+
+$types::key_order_table/for_each: (self body)
+  $tree tree_of(self)
+  if tree.is_defined: for_each_item tree body
+
+$for_each_item_from_to: (myself first last body)
+  if myself.is_defined:
+    $key key_of(myself)
+    if first.is_undefined || first < key:
+      for_each_item_from_to left_of(myself) first last body
+    if
+      (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+      :
+	if
+	  parameter_count_of(body) == 2:
+	    body key value_of(myself)
+	  :
+	    body value_of(myself)
+    if last.is_undefined || last > key:
+      for_each_item_from_to right_of(myself) first last body
+
+$types::key_order_table/for_each_from_to: (self first last body)
+  $tree tree_of(self)
+  if tree.is_defined: for_each_item_from_to tree first last body
+
+$for_each_item_from_down_to: (myself last first body)
+  if myself.is_defined:
+    $key key_of(myself)
+    if last.is_undefined || last > key:
+      for_each_item_from_down_to right_of(myself) last first body
+    if
+      (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+      :
+	if
+	  parameter_count_of(body) == 2:
+	    body key value_of(myself)
+	  :
+	    body value_of(myself)
+    if first.is_undefined || first < key:
+      for_each_item_from_down_to left_of(myself) last first body
+
+$types::key_order_table/for_each_from_down_to: (self last first body)
+  $tree tree_of(self)
+  if tree.is_defined: for_each_item_from_down_to tree last first body
+
+$update_each_item:
+  (
+    &myself
+    body
+  )
+  if myself.is_defined:
+    update_each_item &myself.left_of body
+    body key_of(myself) &myself.value_of
+    update_each_item &myself.right_of body
+
+$update_each_item_from_to:
+  (
+    &myself
+    first
+    last
+    body
+  )
+  if myself.is_defined:
+    $key key_of(myself)
+    if first.is_undefined || first < key:
+      update_each_item_from_to &myself.left_of first last body
+    if
+      (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+      :
+	body key &myself.value_of
+    if last.is_undefined || last > key:
+      update_each_item_from_to &myself.right_of first last body
+
+$types::key_order_table/update_each_from_to:
+  (
+    &self
+    first
+    last
+    body
+  )
+  if tree_of(self).is_defined:
+    update_each_item_from_to &self.tree_of first last body
+
+$update_each_item_from_down_to:
+  (
+    &myself
+    last
+    first
+    body
+  )
+  if myself.is_defined:
+    $key key_of(myself)
+    if last.is_undefined || last > key:
+      update_each_item_from_down_to &myself.right_of last first body
+    if
+      (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+      :
+	body key &myself.value_of
+    if first.is_undefined || first < key:
+      update_each_item_from_down_to &myself.left_of last first body
+
+$types::key_order_table/update_each_from_down_to:
+  (
+    &self
+    last
+    first
+    body
+  )
+  if tree_of(self).is_defined:
+    update_each_item_from_down_to &self.tree_of last first body
+
+$types::key_order_table/update_each:
+  (
+    &self
+    body
+  )
+  if tree_of(self).is_defined: update_each_item &self.tree_of body
+
+register_collection_serializer "key_order_table" empty_key_order_table

@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$x 47
+$y "abc"
+
+write "
+  {@(x y x+2)}

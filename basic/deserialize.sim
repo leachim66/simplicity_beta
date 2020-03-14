@@ -1,0 +1,160 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::NAME LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
+$std::IDENTIFIER NAME, optional("::", NAME)
+$$deserializers empty_table
+
+$std::register_deserializer: (tag deserializer) !deserializers(tag) deserializer
+
+$std::get_deserialization_indent: (&text)
+  $$i 2
+  $n length_of(text)
+  $$indent 0
+  while -> i <= n && text(i) == '@ht;':
+    inc &i
+    plus &indent 8
+  while -> i <= n && text(i) == ' ':
+    inc &i
+    inc &indent
+  range &text i -1
+  -> indent
+
+$std::deserialize_item: ($text base_indent)
+  if
+    length_of(text) >= 1 && text(1) == '@nl;':
+      $indent get_deserialization_indent(&text)
+      if
+	indent > base_indent:
+	  deserialize_stream text indent
+	-> undefined undefined
+    :
+      while -> text(1) == ' ': range &text 2 -1
+      deserialize_stream text base_indent
+
+$std::create_deserializer: (name prototype attributes*)
+  $$attribute_setters empty_table
+  for_each_pair attributes: (attribute_name attribute_setter)
+    !attribute_setters(range(attribute_name 3 -1)) attribute_setter
+  -> :
+    (
+      $text
+      base_indent
+      -> return
+    )
+    if text .has_prefix. "()": return range(text 3 -1) prototype
+    if text(1) != '@nl;':
+      raise "Invalid @(name) object encountered during deserialisation!"
+    $$obj prototype
+    forever:
+      if length_of(text) == 0 || text(1) != '@nl;': return text obj
+      get_deserialization_indent $remaining_text $indent text
+      if indent <= base_indent: return text obj
+      !text remaining_text
+      match text IDENTIFIER $len
+      if len.is_undefined || text(len+1) != ':':
+	raise "Encountered invalid @(name) component during deserialisation!"
+      $tag range(text 1 len)
+      $attribute_setter attribute_setters(tag)
+      if attribute_setter.is_undefined:
+	raise "Encountered unknown @(name) component during deserialisation!"
+      range &text len+2 -1
+      attribute_setter &obj deserialize_item(&text indent)
+
+$deserialize_stream:
+  (
+    $text
+    indent
+    -> return
+  )
+  case
+    text(1)
+    '@quot;':
+      $$str ""
+      $$i 2
+      $n length_of(text)
+      while -> i <= n:
+	$chr text(i)
+	case
+	  chr
+	  '@quot;':
+	    return range(text i+1 -1) str
+	  '@@':
+	    $escape_text range(text i+1 -1)
+	    parse_integer escape_text $rest_text $value
+	    plus &i 1+length_of(escape_text)-length_of(rest_text)
+	    if value.is_undefined || i > n || text(i) != ';':
+	      raise "Invalid string escape encountered during deserialization!"
+	    push &str character(value)
+	  :
+	    push &str chr
+	inc &i
+      raise "Unterminated string encountered during deserialization!"
+    '@apos;':
+      $n length_of(text)
+      if n < 3:
+	raise "Invalid character constant encountered during deserialization!"
+      $chr text(2)
+      if
+	chr == '@@':
+	  $escape_text range(text 3 -1)
+	  parse_integer escape_text $rest_text $value
+	  $i 3+length_of(escape_text)-length_of(rest_text)
+	  if
+	    ||
+	      value.is_undefined
+	      i+1 > n
+	      text(i) != ';'
+	      text(i+1) != '@apos;'
+	    :
+	      raise
+		"Invalid character escape encountered during deserialization!"
+	  return range(text i+2 -1) character(value)
+	:
+	  if text(3) != '@apos;':
+	    raise
+	      "Invalid character constant encountered during deserialization!"
+	  return range(text 4 -1) chr
+    '0' .. '9':
+      $val parse_number(&text)
+      if val.is_undefined:
+	raise "Invalid numeric constant encountered during deserialization!"
+      return text val
+    :
+      match text IDENTIFIER $len
+      if
+	len.is_defined:
+	  $tag range(text 1 len)
+	  $deserializer deserializers(tag)
+	  if
+	    deserializer.is_defined:
+	      range &text len+1 -1
+	      deserializer text indent
+	    :
+	      raise "
+		No deserializer defined for "@(tag)@quot;!@
+	:
+	  raise "No valid tag found while attempting to deserialize text!"
+
+$std::deserialize: (text)
+  deserialize_stream text 0 $remaining_text $obj
+  -> if(remaining_text == "" (-> obj) -> undefined)

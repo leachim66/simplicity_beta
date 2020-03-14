@@ -1,0 +1,18 @@
+#!/usr/bin/env simple
+
+$$values list()
+
+push &values 29
+push &values 35
+push &values 42
+$orig_values values
+dump `values
+pop &values $a
+dump `values
+dump `a
+pop &values $b
+dump `values
+dump `b
+push &values 69
+dump `values
+dump `orig_values

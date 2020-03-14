@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+$Verbose .
+$Title .
+
+$page: (options*)
+  for_each options: (option)
+    if option.is_a_key_value_pair:
+      case key_of(option)
+	Verbose:
+	  writeln "verbose: " value_of(option)
+	Title:
+	  writeln "title: " value_of(option)
+
+page --Verbose Title = "Hello!"

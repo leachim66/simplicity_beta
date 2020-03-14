@@ -1,0 +1,68 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$json_encode: (str)
+  $$buf ""
+  for_each str: (chr)
+    case
+      chr
+      '@nl;':
+	write_to &buf "\u000a"
+      '@quot;':
+	write_to &buf "\u0022"
+      :
+	push &buf chr
+  -> buf
+
+$std::to_json ()
+
+$types::string/to_json: (self) -> string('@quot;' json_encode(self) '@quot;')
+
+$types::number/to_json: (self) -> self.to_string
+
+$types::true/to_json: (_self) -> "true"
+
+$types::false/to_json: (_self) -> "false"
+
+$types::undefined/to_json: (_self) -> "null"
+
+$types::generic_list/to_json: (self)
+  $$buf "["
+  for_each
+    self: (item)
+      append &buf item.to_json
+    :
+      push &buf ','
+  push &buf ']'
+  -> buf
+
+$types::generic_table/to_json: (self)
+  $$buf "{"
+  $$print_comma false
+  for_each self: (key value)
+    if print_comma: push &buf ','
+    write_to &buf key.to_json ':' value.to_json
+    !print_comma true
+  push &buf '}'
+  -> buf
+
+$std::to_html_text: (text) -> replace_all(text '<' = "&lt;")

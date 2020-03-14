@@ -1,0 +1,372 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::WRITE_TO .
+$std::READ_FROM .
+
+$std::file_descriptor_of (!)
+
+$std::TERMINATE .
+
+$std::pid_of (!)
+$std::status_of (!)
+
+$std::SCREEN_SIZE_CHANGE .
+
+$std::width_of (!)
+$std::height_of (!)
+
+$std::KEY_PRESS .
+
+$std::key_code_of (!)
+
+$std::MOUSE_CLICK .
+
+$std::target_of (!)
+
+$std::PASTE .
+$std::MESSAGE .
+
+$types::event types::object
+$$std::events empty_list
+$$wanted_output_fds empty_set
+$$wanted_input_fds empty_set
+
+$std::want_to_write_to:
+  #
+    Tells the event handling system that it should generate an event as soon
+    as it is possible to write to the specified file descriptor.
+
+    see also: no_longer_want_to_write_to, wait_to_write_to, want_to_read_from
+  (
+    fd # the file descriptor to watch
+  )
+  !wanted_output_fds(fd) true
+
+$std::no_longer_want_to_write_to:
+  #
+    Tells the event handling system that it should no longer generate events
+    when it is possible to write to the specified file descriptor.
+
+    see also: want_to_write_to, wait_to_write_to, no_longer_want_to_read_from
+  (
+    fd # the file descriptor no longer to be watched
+  )
+  !wanted_output_fds(fd) false
+
+$std::want_to_read_from:
+  #
+    Tells the event handling system that it should generate an event as soon
+    as it is possible to read from the specified file descriptor.
+
+    see also: no_longer_want_to_read_from, wait_to_read_from, want_to_write_to
+  (
+    fd # the file descriptor to watch
+  )
+  !wanted_input_fds(fd) true
+
+$std::no_longer_want_to_read_from:
+  #
+    Tells the event handling system that it should no longer generate events
+    when it is possible to read from the specified file descriptor.
+
+    see also: want_to_read_from, wait_to_read_from, no_longer_want_to_write_to
+  (
+    fd # the file descriptor no longer to be watched
+  )
+  !wanted_input_fds(fd) false
+
+$std::wanting_to_write_to:
+  #
+    Returns true if somebody wants to write to the specified file
+    descriptor.
+
+    see also: want_to_write_to, no_longer_want_to_write_to, wanting_to_read_from
+  (
+    fd # the file descriptor to inspect
+  )
+  -> fd.is_defined && wanted_output_fds(fd)
+
+$std::wanting_to_read_from:
+  #
+    Returns true if somebody wants to read from the specified file
+    descriptor.
+
+    see also: want_to_read_from, no_longer_want_to_read_from, wanting_to_write_to
+  (
+    fd # the file descriptor to inspect
+  )
+  -> fd.is_defined && wanted_input_fds(fd)
+
+$$readers empty_key_order_table
+
+$std::wait_to_read_from:
+  #
+    Waits until it is possible to read from the specified file descriptor.
+
+    see also: want_to_read_from, wait_to_write_to, wait_for_termination
+  (
+    fd # the file descriptor to watch
+    -> continuation
+  )
+  want_to_read_from fd
+  !readers(fd) continuation
+  process_events # will never return directly
+
+$$writers empty_key_order_table
+
+$std::wait_to_write_to:
+  #
+    Waits until it is possible to write to the specified file descriptor.
+
+    see also: want_to_write_to, wait_to_read_from, wait_for_termination
+  (
+    fd # the file descriptor to watch
+    -> continuation
+  )
+  want_to_write_to fd
+  !writers(fd) continuation
+  process_events # will never return directly
+
+$$terminators empty_key_order_table
+
+$std::wait_for_termination:
+  #
+    Waits until the specified process terminates.
+
+    see also: wait_to_write_to, wait_to_read_from
+  (
+    pid # the process identifier to watch
+    -> continuation
+  )
+  !terminators(pid) continuation
+  process_events # will never return directly
+
+$std::discard:
+  (
+    fd
+    -> return
+  )
+  if fd.is_defined:
+    no_longer_want_to_read_from fd
+    no_longer_want_to_write_to fd
+    close fd
+
+    # remove all associated events
+
+    $$new_events empty_list
+    $$s 1
+    for_each events: (idx event)
+      case type_of(event) WRITE_TO, READ_FROM:
+	if file_descriptor_of(event) == fd:
+	  append &new_events range(events s idx-1)
+	  !s idx+1
+    if s > 1:
+      append &new_events range(events s -1)
+      !events new_events
+  if parameter_count_of(return) == 1: return undefined
+
+$std::create_event:
+  #
+    Pushes an event onto the event queue.
+  (
+    event # the event to push
+  )
+  push &events event
+
+$get_low_level_events: (for_readers_and_writers_only)
+  $$output_fds_list empty_list
+  $$input_fds_list empty_list
+  $exception_fds_list empty_list
+  if
+    for_readers_and_writers_only:
+      for_each writers: (output_fd _continuation)
+	push &output_fds_list output_fd
+      for_each readers: (input_fd _continuation) push &input_fds_list input_fd
+    :
+      for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
+      for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
+  if
+    wait_for_io
+      $child_changed_state
+      $window_changed_size
+      $ready_input_fds_list
+      input_fds_list
+      $ready_output_fds_list
+      output_fds_list
+      $ready_exception_fds_list
+      exception_fds_list
+    :
+      if child_changed_state:
+	do: (-> break)
+	  forever:
+	    wait_pid $status $pid -1 true
+	    if pid <= 0 break
+	    create_event
+	      types::event(.type_of TERMINATE .pid_of pid .status_of status)
+      if window_changed_size:
+	get_terminal_size STDIN_FILENO $width $height
+	create_event
+	  types::event
+	    .type_of SCREEN_SIZE_CHANGE
+	    .width_of width
+	    .height_of height
+      $$ready_input_fds_set empty_set
+      $$ready_output_fds_set empty_set
+      $$ready_exception_fds_set empty_set
+      for_each ready_input_fds_list: (ready_input_fd)
+	!ready_input_fds_set(ready_input_fd) true
+      for_each ready_output_fds_list: (ready_output_fd)
+	!ready_output_fds_set(ready_output_fd) true
+      for_each ready_exception_fds_list: (ready_exception_fd)
+	!ready_exception_fds_set(ready_exception_fd) true
+      for_each ready_input_fds_set: (input_fd)
+	if wanted_input_fds(input_fd):
+	  create_event
+	    types::event(.type_of READ_FROM .file_descriptor_of input_fd)
+      for_each ready_output_fds_set: (output_fd)
+	if wanted_output_fds(output_fd):
+	  create_event
+	    types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+
+$get_event_handler:
+  (
+    event
+    -> return
+  )
+  case
+    type_of(event)
+    READ_FROM:
+      $fd file_descriptor_of(event)
+      $reader readers(fd)
+      if reader.is_defined:
+	no_longer_want_to_read_from fd
+	!readers(fd) undefined
+	return reader
+    WRITE_TO:
+      $fd file_descriptor_of(event)
+      $writer writers(fd)
+      if writer.is_defined:
+	no_longer_want_to_write_to fd
+	!writers(fd) undefined
+	return writer
+    TERMINATE:
+      $pid pid_of(event)
+      $terminator terminators(pid)
+      if terminator.is_defined:
+	!terminators(pid) undefined
+	return terminator
+  -> undefined
+
+$std::get_event:
+  #
+    If there are already events in the event queue then the first event in the
+    queue is removed from the event queue and returned.
+
+    Otherwise the caller is blocked until an event arrives which is then
+    returned to the caller.
+
+    see also: get_raw_event
+  (
+    -> return
+  )
+  forever: (myself^)
+    if
+      length_of(events) > 0:
+	$event get(&events)
+	$handler get_event_handler(event)
+	if handler.is_defined:
+	  put &waiting_tasks myself
+	  if
+	    parameter_count_of(handler) == 1:
+	      handler event
+	    :
+	      handler
+	  raise "invalid continuation"
+	return event
+      :
+	get_low_level_events false
+
+$$waiting_tasks empty_list
+
+$std::process_events:
+  #
+    Run tasks until all tasks block then wait to process events and eventually
+    call registered continuations.
+
+  while -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
+  if readers.is_empty && writers.is_empty terminate
+  $$i 1
+  forever:
+    $n length_of(events)
+    while -> i <= n:
+      $event events(i)
+      $handler get_event_handler(event)
+      if handler.is_defined:
+	delete_at &events i
+	if
+	  parameter_count_of(handler) == 1:
+	    handler event
+	  :
+	    handler
+	raise "invalid continuation"
+      inc &i
+    get_low_level_events true
+
+$std::wait_to:
+  #
+    Run tasks until all tasks block then wait for any of the specified events
+    to happen.
+
+    Returns the event in the case one of the specified events has happend.
+  (
+    args*
+  )
+  do $event: (-> continuation)
+    for_each_pair args: (type fd_or_pid)
+      case
+	type
+	READ_FROM:
+	  want_to_read_from fd_or_pid
+	  !readers(fd_or_pid) continuation
+	WRITE_TO:
+	  want_to_write_to fd_or_pid
+	  !writers(fd_or_pid) continuation
+	TERMINATE:
+	  !terminators(fd_or_pid) continuation
+    process_events # will never return directly
+  for_each_pair args: (type fd_or_pid)
+    case
+      type
+      READ_FROM:
+	no_longer_want_to_read_from fd_or_pid
+	!readers(fd_or_pid) undefined
+      WRITE_TO:
+	no_longer_want_to_write_to fd_or_pid
+	!writers(fd_or_pid) undefined
+      TERMINATE:
+	!terminators(fd_or_pid) undefined
+  -> event
+
+$std::par: (tasks*)
+  append &waiting_tasks tasks
+  process_events

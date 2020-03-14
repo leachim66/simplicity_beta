@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$$names list("Gustav" "Albert" "Heinrich" "Georg")
+
+sort &names
+
+dump `names

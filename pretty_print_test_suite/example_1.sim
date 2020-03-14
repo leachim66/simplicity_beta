@@ -1,0 +1,46 @@
+#!/usr/bin/env simple
+
+# the original code
+
+$types::string.convert_from_percent_encoding
+  : # converts a percent encoded string into iso-8859-1
+    (
+      &self
+    )
+    replace_all &self "+" = " "
+    replace_all
+      &self
+      =
+	"%", hex_digit, hex_digit
+	: (capture)
+	  -> character(16*hex_digit_value(capture(2))+hex_digit_value(capture(3)))
+
+# one character less
+
+$types::string.convert_from_percent_encoding
+  : # converts a percent encoded string into iso-8859-1
+    (
+      &self
+    )
+    replace_all &self "+" = " "
+    replace_all
+      &self
+      =
+	"%", hex_digit, hex_digit
+	: (capture)
+	  -> characte(16*hex_digit_value(capture(2))+hex_digit_value(capture(3)))
+
+# two characters less
+
+$types::string.convert_from_percent_encoding
+  : # converts a percent encoded string into iso-8859-1
+    (
+      &self
+    )
+    replace_all &self "+" = " "
+    replace_all
+      &self
+      =
+	"%", hex_digit, hex_digit
+	: (capture)
+	  -> charact(16*hex_digit_value(capture(2))+hex_digit_value(capture(3)))

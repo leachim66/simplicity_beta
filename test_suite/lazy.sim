@@ -1,0 +1,26 @@
+#!/usr/bin/env simple
+
+$lazy: (expr)
+  $$eval:
+    $val expr()
+    !eval -> val
+    -> val
+  ->
+    : (dummy) -> eval()
+
+$x_of (!)
+
+$f: (x y)
+  writeln "computing f"
+  -> x*y
+
+$obj
+  types::object
+    /x_of lazy(-> f(a b))
+
+$a 2*5
+$b a+1
+
+writeln "start"
+writeln x_of(obj)
+writeln x_of(obj)

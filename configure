@@ -1,0 +1,741 @@
+#!/bin/sh
+
+#  Copyright (C) 2018 by
+#  Guenther Brunthaler and Dipl.-Ing. Michael Niederle
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License, version 2, or
+#  (at your option) version 3.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+
+#  For details of the GNU General Public License see the accompanying
+#  files GPLv2.txt and GLPv3.txt or
+#  http://www.gnu.org/licenses/gpl-2.0.html
+#  http://www.gnu.org/licenses/gpl-3.0.html
+#  or write to the
+#  Free Software Foundation, Inc.,
+#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+
+# in the case a command returns an error we report failure
+set -e
+cleanup() {
+  if test $? != 0
+  then
+    echo "$0 failed!" >&2
+  fi
+}
+trap cleanup 0
+
+PREFIX='/usr/local'
+  # the default installation prefix
+
+# parse configure options ...
+while true
+do
+  case $1 in
+    --) shift; break;;
+    --prefix=*) PREFIX=${1#*=};;
+    -*) echo "Unsupported option '$1'!" >&2; false || exit;;
+    *) break
+  esac
+  shift
+done
+
+# ... and arguments
+while test $# != 0
+do
+  case $1 in
+    CC=*) CC=${1#*=};;
+    CFLAGS=*) CFLAGS=${1#*=};;
+    LDFLAGS=*) LDFLAGS=${1#*=};;
+    LIBS=*) LIBS=${1#*=};;
+    CPPFLAGS=*) CPPFLAGS=${1#*=};;
+    *) echo "Unsupported variable assignment '$1'!" >&2; false || exit;;
+  esac
+  shift
+done
+
+# to include special characters in echo-output
+TAB=`printf '\t:'`; TAB=${TAB%:}
+NL=`printf '\n:'`; NL=${NL%:}
+
+OS='POSIX'
+  # default platform (= Operating System)
+
+ARCHITECTURE='unknown'
+  # default architecture (= kind of CPU)
+
+UNAME=`uname`
+MACHINE=`uname -m`
+
+BASIC_LIBRARIES='basic platform'
+  # basic libraries do not depend on any other libraries
+
+MORE_LIBRARIES='system readline curses network remote microhttpd gd'
+  # these none-essential libraries may depend on the basic libraries
+  # for executing meta-files
+
+LIBRARIES="$BASIC_LIBRARIES $MORE_LIBRARIES"
+
+STATIC_FILES='
+  AUTHORS COPYING INSTALL README
+  GPLv2.txt GPLv3.txt LGPLv2.txt LGPLv3.txt
+  configure'
+  # additional files belonging to this package
+
+DEPENDENCY_FILES='sim2c/C_FILES'
+  # these files describe the dependencies to foreign include and library files
+
+for LIBNAME in sim2c $LIBRARIES
+do
+  DEPENDENCY_FILES="$DEPENDENCY_FILES $LIBNAME/INCLUDES $LIBNAME/LIBRARIES"
+done
+
+RUNTIME_MAJOR_VERSION=`cat runtime/linker.c | grep '^#define RUNTIME_MAJOR_VERSION' | cut -d ' ' -f 3`
+  # denotes a runtime API change
+
+RUNTIME_MINOR_VERSION=`cat runtime/linker.c | grep '^#define RUNTIME_MINOR_VERSION' | cut -d ' ' -f 3`
+  # denotes a runtime API extension
+
+RUNTIME_REVISION=`cat runtime/linker.c | grep '^#define RUNTIME_REVISION' | cut -d ' ' -f 3`
+  # denotes an internal change in the runtime library
+
+BUILD_NO=0
+  # increased for each change that is visible in the distribution package
+
+RUNTIME_VERSION="$RUNTIME_MAJOR_VERSION.$RUNTIME_MINOR_VERSION.$RUNTIME_REVISION"
+  # version of the Simplicity runtime DLL (e.g. libsim.so)
+
+DLL_VERSION="$RUNTIME_MAJOR_VERSION"
+  # runtime-DLL version *required* by Simplicity executables
+  # and used for all DLLs built for Simplicity libraries
+  # they don't care about the runtime revision
+
+PACKAGE_VERSION="$RUNTIME_VERSION.$BUILD_NO"
+  # the version used for creating distribution packages
+
+BASEDIR="simplicity-$PACKAGE_VERSION"
+  # the base directory for the distribution package
+
+# check on which platform we are running
+if test 0 -ne `echo $OSTYPE | awk '{print match(toupper($0), /LINUX/)}'`
+then
+  OS='linux'
+elif test 0 -ne `echo $UNAME | awk '{print match(toupper($0), /LINUX/)}'`
+then
+  OS='linux'
+elif test 0 -ne `echo $OSTYPE | awk '{print match(toupper($0), /CYGWIN/)}'`
+then
+  OS='cygwin'
+elif test 0 -ne `echo $UNAME | awk '{print match(toupper($0), /CYGWIN/)}'`
+then
+  OS='cygwin'
+elif test 0 -ne `echo $OSTYPE | awk '{print match(toupper($0), /DARWIN/)}'`
+then
+  OS='darwin'
+elif test 0 -ne `echo $UNAME | awk '{print match(toupper($0), /DARWIN/)}'`
+then
+  OS='darwin'
+fi
+
+# check on which hardware architecture we are running
+if test x$MACHINE = xx86_64
+then
+  ARCHITECTURE=x86_64
+elif test x$MACHINE = xi686
+then
+  ARCHITECTURE=x86_32
+elif test x`expr substr $MACHINE 1 3` = xarm
+then
+  ARCHITECTURE=arm_32
+fi
+
+# set platform specific settings
+if test $OS = 'cygwin'
+then
+  PLATFORMS='cygwin posix all'
+  LIBRARY_EXTENSIONS='.dll.a .a'
+elif test $OS = 'darwin'
+then
+  PLATFORMS='darwin posix all'
+  LIBRARY_EXTENSIONS='.dylib'
+else # probably some POSIX conform system
+  PLATFORMS='posix all'
+  LIBRARY_EXTENSIONS='.so'
+fi
+
+# check for several tools needed to build this package
+if test -z "$CC"
+then
+  echo 'checking for C compiler' >&2
+  if which gcc >/dev/null 2>&1
+  then
+    CC=gcc
+  else
+    if which cc >/dev/null 2>&1
+    then
+      CC=cc
+    else
+      echo '*** No C compiler found (neither gcc nor cc)!' >&2
+      false || exit
+    fi
+  fi
+fi
+
+echo 'checking for C preprocessor' >&2
+if ! which cpp >/dev/null 2>&1
+then
+  echo '*** No C preprocessor found (cpp)!' >&2
+  false || exit
+fi
+
+# compute the include paths used on this platform
+INCLUDE_PATHS=`echo | cpp -Wp,-v 2>&1 | grep '^\s*/'`
+
+# compute the library paths used on this platform;
+# this path list is used for checking installed libraries;
+# additional paths can be supplied (colon delimited) in the environment
+# variable LD_LIBRARY_PATH
+if test $OS = 'darwin'
+then
+  LIBRARY_PATHS='/usr/lib /usr/local/lib'
+else
+  echo 'checking for linker' >&2
+  if ! which ld >/dev/null 2>&1
+  then
+    echo '*** No linker found (ld)!' >&2
+    false || exit
+  fi
+  LIBRARY_PATHS=`
+    ld --verbose | sed '/^SEARCH_DIR/ b 1; d; :1 s/SEARCH_DIR("=\?//g; s/");//g'
+  `
+fi
+ADDITIONAL_LIBRARY_PATHS=`echo $LD_LIBRARY_PATH | sed 's/:/ /g'`
+LIBRARY_PATHS="$ADDITIONAL_LIBRARY_PATHS $LIBRARY_PATHS"
+ADDITIONAL_LINK_OPTIONS=''
+  # the additional link options are used to link the bootstrap compiler
+for LIBRARY_PATH in $ADDITIONAL_LIBRARY_PATHS
+do
+  ADDITIONAL_LINK_OPTIONS="$ADDITIONAL_LINK_OPTIONS -L $LIBRARY_PATH"
+done
+
+INSTALLED_LIBRARIES=''
+  # the set of libraries within MORE_LIBRARIES that is actually installed
+
+OMITTED_LIBRARIES=''
+  # the set of libraries within MORE_LIBRARIES that is not installed due to
+  # missing prerequisites
+
+FATAL_ERROR=0
+
+check_dependencies () {
+  LIBNAME=$1
+  ESSENTIAL=$2
+  echo "check dependencies for $LIBNAME"
+  FILENAMES=`cat $LIBNAME/INCLUDES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1`
+
+  # check whether all needed include and library files are available
+  MISSING=0
+  for FILENAME in $FILENAMES
+  do
+    echo "  checking include file $FILENAME" >&2
+    FOUND=0
+    for INCLUDE_PATH in $INCLUDE_PATHS
+    do
+      if test -e $INCLUDE_PATH/$FILENAME
+      then
+	FOUND=1
+	break
+      fi
+    done
+    if test $FOUND = 0
+    then
+      echo "  *** Missing include file $FILENAME!" >&2
+      MISSING=`expr $MISSING + 1`
+    fi
+  done
+  FILENAMES=`cat $LIBNAME/LIBRARIES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1`
+  for FILENAME in $FILENAMES
+  do
+    echo "  checking library file $FILENAME" >&2
+    FOUND=0
+    for LIBRARY_PATH in $LIBRARY_PATHS
+    do
+      for LIBRARY_EXTENSION in $LIBRARY_EXTENSIONS
+      do
+	if test -e $LIBRARY_PATH/lib$FILENAME$LIBRARY_EXTENSION
+	then
+	  FOUND=1
+	  break
+	fi
+      done
+      if test FOUND = 1
+      then
+	break
+      fi
+    done
+    if test $FOUND = 0
+    then
+      echo "  *** Missing library file $FILENAME!" >&2
+      MISSING=`expr $MISSING + 1`
+    fi
+  done
+  if test $MISSING -gt 0
+  then
+    echo "  *** $MISSING file(s) missing!" >&2
+    if test $ESSENTIAL = 1
+    then
+      FATAL_ERROR=1
+    else
+      OMITTED_LIBRARIES=$OMITTED_LIBRARIES${OMITTED_LIBRARIES:+ }$LIBNAME
+    fi
+  else
+    if test $ESSENTIAL = 0
+    then
+      INSTALLED_LIBRARIES=$INSTALLED_LIBRARIES${INSTALLED_LIBRARIES:+ }$LIBNAME
+    fi
+  fi
+}
+
+check_dependencies sim2c 1
+
+for LIBNAME in $BASIC_LIBRARIES
+do
+  check_dependencies $LIBNAME 1
+done
+
+for LIBNAME in $MORE_LIBRARIES
+do
+  check_dependencies $LIBNAME 0
+done
+
+if test $FATAL_ERROR -gt 0
+then
+  echo "*** ESSENTIAL PREREQUISITES ARE MISSING!" >&2
+  false || exit
+fi
+
+ALL_LIBRARIES="$BASIC_LIBRARIES $INSTALLED_LIBRARIES"
+
+echo
+if test ! -z "$INSTALLED_LIBRARIES"
+then
+  echo "THE FOLLOWING OPTIONAL LIBRARIES WILL BE INSTALLED:"
+  echo "  $INSTALLED_LIBRARIES"
+fi
+if test ! -z "$OMITTED_LIBRARIES"
+then
+  echo "THE FOLLOWING OPTIONAL LIBRARIES WILL BE OMITTED:"
+  echo "  $OMITTED_LIBRARIES"
+fi
+
+# redirect standard output to the generated Makefile
+exec >Makefile
+
+echo "# This file is automatically generated by 'configure' - do not edit manually!"
+echo
+echo CC = $CC
+
+CC_OPTIONS="-O1 -fno-stack-protector -falign-functions=16 -falign-labels=16 -Wno-trigraphs"
+if test $ARCHITECTURE = 'x86_32'
+then
+  CC_OPTIONS="$CC_OPTIONS -msse2 -mfpmath=sse"
+elif test $ARCHITECTURE = 'x86_64'
+then
+  CC_OPTIONS="$CC_OPTIONS -msse2 -mfpmath=sse"
+fi
+
+# set more platform specific settings
+if test $OS = 'cygwin'
+then
+  EXE_EXTENSION='.exe'
+  DLL_EXTENSION="-$DLL_VERSION.dll"
+  RUNTIME_DLL_EXTENSION="-$RUNTIME_VERSION.dll"
+  echo "DLL_CC_OPTIONS = $CC_OPTIONS"
+  echo "EXE_CC_OPTIONS = $CC_OPTIONS"
+  echo "RUNTIME_DLL_OPTIONS = -shared -Wl,-soname,libsim-$RUNTIME_MAJOR_VERSION.dll"
+  echo 'LIBRARIES = -lgmp'
+elif test $OS = 'darwin'
+then
+  EXE_EXTENSION=''
+  DLL_EXTENSION="-$DLL_VERSION.dylib"
+  RUNTIME_DLL_EXTENSION="-$RUNTIME_VERSION.dylib"
+  echo "DLL_CC_OPTIONS = $CC_OPTIONS"
+  echo "EXE_CC_OPTIONS = $CC_OPTIONS"
+  echo "RUNTIME_DLL_OPTIONS = -dynamiclib -Wl,-install_name,libsim-$RUNTIME_MAJOR_VERSION.dylib"
+  echo 'LIBRARIES = -lgmp -lm'
+else # probably some POSIX conform system
+  EXE_EXTENSION=''
+  DLL_EXTENSION=".so.$DLL_VERSION"
+  RUNTIME_DLL_EXTENSION=".so.$RUNTIME_VERSION"
+  echo "DLL_CC_OPTIONS = -fPIC $CC_OPTIONS"
+  echo "EXE_CC_OPTIONS = $CC_OPTIONS"
+  echo "RUNTIME_DLL_OPTIONS = -shared -Wl,-soname,libsim.so.$RUNTIME_MAJOR_VERSION"
+  echo 'LIBRARIES = -lrt -lgmp -lm'
+fi
+
+# generate several lists for files included in this package
+echo
+printf 'DIST_STATIC_FILES ='
+for FILENAME in $STATIC_FILES
+do
+  echo ' \'
+  printf "  $BASEDIR/$FILENAME"
+done
+echo
+
+echo
+printf 'DIST_DEPENDENCY_FILES ='
+for FILENAME in $DEPENDENCY_FILES
+do
+  echo ' \'
+  printf "  $BASEDIR/$FILENAME"
+done
+echo
+
+echo
+printf 'DIST_VERSION_FILES ='
+for LIBNAME in $LIBRARIES
+do
+  echo ' \'
+  printf "  $BASEDIR/$LIBNAME/VERSION"
+done
+echo
+
+echo
+printf 'DIST_DATA_FILES ='
+for LIBNAME in sim2c $LIBRARIES
+do
+  find $LIBNAME -type f -name "*.meta.sim" | \
+  while read FILENAME
+  do
+    cat $FILENAME | grep '^<data \./' | \
+    while read DATA
+    do
+      DATA2=${DATA#'<data ./'}
+      DATA_FILENAME=${DATA2%'>'}
+      echo ' \'
+      printf "  $BASEDIR/${FILENAME%/*}/$DATA_FILENAME"
+    done
+  done
+done
+echo
+
+echo
+printf 'DIST_SIM_FILES ='
+for LIBNAME in sim2c $LIBRARIES
+do
+  find $LIBNAME -type f -name "*.sim" | \
+  while read FILENAME
+  do
+    METANAME=${FILENAME%.sim}.meta.sim
+    if test ! -e $METANAME
+    then
+      echo ' \'
+      printf "  $BASEDIR/$FILENAME"
+    fi
+  done
+done
+echo
+
+echo
+printf 'DIST_H_FILES ='
+find runtime -type f -name "*.h" | \
+while read FILENAME
+do
+  echo ' \'
+  printf "  $BASEDIR/$FILENAME"
+done
+echo
+
+echo
+printf 'DIST_C_FILES ='
+cat sim2c/C_FILES | cut -d ' ' -f 1 |
+while read FILENAME
+do
+  echo ' \'
+  printf "  $BASEDIR/$FILENAME"
+done
+echo
+
+echo
+echo 'DIST_FILES = \'
+echo '  $(DIST_STATIC_FILES) \'
+echo '  $(DIST_DEPENDENCY_FILES) \'
+echo '  $(DIST_VERSION_FILES) \'
+echo '  $(DIST_DATA_FILES) \'
+echo '  $(DIST_SIM_FILES) \'
+echo '  $(DIST_H_FILES) \'
+echo '  $(DIST_C_FILES) \'
+
+# generate several lists for files created by this package
+echo
+printf 'runtime_OBJECTS ='
+for FILENAME in runtime/*.c
+do
+  BASENAME=${FILENAME%.c}
+  OBJNAME=$BASENAME.lib.o
+  echo ' \'
+  printf "  $OBJNAME"
+done
+echo
+
+echo
+printf 'simple_OBJECTS ='
+cat sim2c/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
+while read FILENAME
+do
+  BASENAME=${FILENAME%.c}
+  OBJNAME=${BASENAME%-*}.o
+  echo ' \'
+  printf "  $OBJNAME"
+done
+echo
+
+# generate make-targets
+echo
+echo '.PHONY: all'
+printf 'all: runtime simple'
+for LIBNAME in $ALL_LIBRARIES
+do
+  printf " $LIBNAME"
+done
+echo
+
+echo
+echo '.PHONY: clean'
+echo 'clean:'
+find sim2c -type f -name "*.meta.sim" | \
+while read FILENAME
+do
+  BASENAME=${FILENAME%.meta.sim}
+  echo "${TAB}rm -f $BASENAME.meta.c"
+  echo "${TAB}rm -f $BASENAME.meta"
+  echo "${TAB}rm -f $BASENAME.sim"
+done
+for LIBNAME in $ALL_LIBRARIES
+do
+  find $LIBNAME -type f -name "*.sim" | LC_COLLATE=C sort | \
+  while read FILENAME
+  do
+    C_FILENAME=${FILENAME%.sim}.c
+    if ! grep -q $C_FILENAME sim2c/C_FILES
+    then
+      echo "${TAB}rm -f $C_FILENAME"
+    fi
+    if [ -z ${FILENAME##*.meta.sim} ]
+    then
+      BASENAME=${FILENAME%.meta.sim}
+      echo "${TAB}rm -f $BASENAME.meta"
+      echo "${TAB}rm -f $BASENAME.sim"
+      if [ ! -f $BASENAME.sim ]
+      then
+	echo "${TAB}rm -f $BASENAME.c"
+      fi
+    fi
+  done
+done
+echo "${TAB}rm -f sim2c/*.o"
+for LIBNAME in $ALL_LIBRARIES
+do
+  find $LIBNAME -type d | LC_COLLATE=C sort | \
+  while read DIRNAME
+  do
+    echo "${TAB}rm -f $DIRNAME/*.o"
+  done
+done
+echo "${TAB}rm -f sim2c/simple$EXE_EXTENSION"
+echo "${TAB}rm -f libsim$RUNTIME_DLL_EXTENSION"
+if test $OS = 'linux'
+then
+  echo "${TAB}rm -f libsim.so.$RUNTIME_MAJOR_VERSION"
+elif test $OS = 'darwin'
+then
+  echo "${TAB}rm -f libsim-$RUNTIME_MAJOR_VERSION.dylib"
+elif test $OS = 'cygwin'
+then
+  echo "${TAB}rm -f libsim-$RUNTIME_MAJOR_VERSION.dll"
+fi
+
+for LIBNAME in $ALL_LIBRARIES
+do
+  VERSION=`cat $LIBNAME/VERSION`
+  echo "${TAB}rm -f libsim-$LIBNAME$DLL_EXTENSION"
+  echo "${TAB}rm -f libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
+  echo "${TAB}rm -f libsim-$LIBNAME-$VERSION$DLL_EXTENSION"
+done
+
+echo
+echo '.PHONY: install'
+echo 'install: all'
+echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/bin/\""
+echo "${TAB}cp --remove-destination sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/\""
+echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\"; ln -fs simple simrun"
+echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/lib/\""
+echo "${TAB}cp --remove-destination libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
+if test $OS = 'linux'
+then
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
+elif test $OS = 'darwin'
+then
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dylib"
+elif test $OS = 'cygwin'
+then
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dll"
+fi
+for LIBNAME in $ALL_LIBRARIES
+do
+  VERSION=`cat $LIBNAME/VERSION`
+  echo "${TAB}cp --remove-destination libsim-$LIBNAME-$VERSION$DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
+done
+for LIBNAME in sim2c $ALL_LIBRARIES
+do
+  find $LIBNAME -type d | LC_COLLATE=C sort | \
+  while read DIRNAME
+  do
+    if test ${DIRNAME%.*} = $DIRNAME
+    then
+      echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/$DIRNAME\""
+      echo "${TAB}cp $DIRNAME/*.sim \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/$DIRNAME/\""
+    fi
+  done
+done
+if test $OS = 'linux'
+then
+  echo "${TAB}@echo '+++ It might be necessary to run ldconfig! +++'"
+fi
+
+echo
+echo '.PHONY: uninstall'
+echo 'uninstall:'
+echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simrun\""
+echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simple$EXE_EXTENSION\""
+if test $OS = 'linux'
+then
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim.so.$RUNTIME_MAJOR_VERSION\""
+elif test $OS = 'darwin'
+then
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$RUNTIME_MAJOR_VERSION.dylib\""
+elif test $OS = 'cygwin'
+then
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$RUNTIME_MAJOR_VERSION.dll\""
+fi
+echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim$RUNTIME_DLL_EXTENSION\""
+for LIBNAME in $ALL_LIBRARIES
+do
+  VERSION=`cat $LIBNAME/VERSION`
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME$DLL_EXTENSION\""
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION\""
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-$VERSION$DLL_EXTENSION\""
+done
+for LIBNAME in sim2c $ALL_LIBRARIES
+do
+  find $LIBNAME -depth -type d | LC_COLLATE=C sort | \
+  while read DIRNAME
+  do
+    if test ${DIRNAME%.*} = $DIRNAME
+    then
+      echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/$DIRNAME\"/*.sim"
+      echo "${TAB}rmdir \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/$DIRNAME\" || true"
+    fi
+  done
+done
+echo "${TAB}rmdir \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION\" || true"
+
+echo
+echo '.PHONY: dist'
+echo 'dist:'
+echo "${TAB}ln -s . $BASEDIR"
+echo "${TAB}tar -czf $BASEDIR.tar.gz \$(DIST_FILES)"
+echo "${TAB}rm $BASEDIR"
+
+echo
+echo '.PHONY: runtime'
+echo "runtime: libsim$RUNTIME_DLL_EXTENSION"
+
+echo
+echo '.PHONY: simple'
+echo "simple: sim2c/simple$EXE_EXTENSION"
+
+echo
+echo "libsim$RUNTIME_DLL_EXTENSION: \$(runtime_OBJECTS)"
+echo "${TAB}\$(CC) \$(RUNTIME_DLL_OPTIONS)" $LDFLAGS "\$(runtime_OBJECTS)" $LIBS "-o libsim$RUNTIME_DLL_EXTENSION"
+if test $OS = 'linux'
+then
+  echo "${TAB}ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
+elif test $OS = 'darwin'
+then
+  echo "${TAB}ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dylib"
+elif test $OS = 'cygwin'
+then
+  echo "${TAB}ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dll"
+fi
+
+echo
+echo "sim2c/simple$EXE_EXTENSION: \$(simple_OBJECTS)"
+echo "${TAB}\$(CC)" $LDFLAGS "\$(simple_OBJECTS) \$(LIBRARIES)" $ADDITIONAL_LINK_OPTIONS $LIBS " -o sim2c/simple$EXE_EXTENSION"
+
+# generate make-targets for all libraries
+for LIBNAME in $BASIC_LIBRARIES
+do
+  echo
+  echo ".PHONY: $LIBNAME"
+  echo "$LIBNAME: simple"
+  echo "${TAB}LD_LIBRARY_PATH=`pwd`:\$\$LD_LIBRARY_PATH; \\"
+  echo "${TAB}LD_LIBRARY_PATH=\$\${LD_LIBRARY_PATH%:}; \\"
+  echo "${TAB}sim2c/simple $LIBNAME"
+  VERSION=`cat $LIBNAME/VERSION`
+  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
+  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
+done
+
+for LIBNAME in $INSTALLED_LIBRARIES
+do
+  echo
+  echo ".PHONY: $LIBNAME"
+  echo "$LIBNAME: simple $BASIC_LIBRARIES"
+  echo "${TAB}PATH=`pwd`/sim2c:\$\$PATH; \\"
+  echo "${TAB}LD_LIBRARY_PATH=`pwd`:\$\$LD_LIBRARY_PATH; \\"
+  echo "${TAB}LD_LIBRARY_PATH=\$\${LD_LIBRARY_PATH%:}; \\"
+  echo "${TAB}export LD_LIBRARY_PATH; \\"
+  if test $OS = 'darwin'
+  then
+    echo "${TAB}DYLD_LIBRARY_PATH=`pwd`:\$\$DYLD_LIBRARY_PATH; \\"
+    echo "${TAB}DYLD_LIBRARY_PATH=\$\${DYLD_LIBRARY_PATH%:}; \\"
+    echo "${TAB}export DYLD_LIBRARY_PATH; \\"
+  elif test $OS = 'cygwin'
+  then
+    echo "${TAB}PATH=`pwd`:\$\$PATH; \\"
+  fi
+  echo "${TAB}SIMLIBPATH= SIMDATAPATH= sim2c/simple $LIBNAME"
+  VERSION=`cat $LIBNAME/VERSION`
+  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
+  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
+done
+
+#generate make-targets for all bootstrap object files
+echo
+for FILENAME in runtime/*.c
+do
+  BASENAME=${FILENAME%.c}
+  OBJNAME=$BASENAME.lib.o
+  echo $OBJNAME: $FILENAME
+  echo "$TAB"'$(CC) $(DLL_CC_OPTIONS)' $CPPFLAGS $CFLAGS '-c' $FILENAME '-o' $OBJNAME
+done
+
+echo
+cat sim2c/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
+while read FILENAME
+do
+  BASENAME=${FILENAME%.c}
+  OBJNAME=${BASENAME%-*}.o
+  echo $OBJNAME: $FILENAME
+  echo "$TAB"'$(CC) $(EXE_CC_OPTIONS)' $CPPFLAGS $CFLAGS '-c' $FILENAME '-o' $OBJNAME
+done

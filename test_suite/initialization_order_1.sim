@@ -1,0 +1,23 @@
+#!/usr/bin/env simple
+
+$x_of (!)
+$y_of (!)
+
+$types::number.x_of 47
+$types::number.y_of 11
+
+$a 7
+$b a
+
+$a.x_of 8
+
+$b.x_of 19
+$b.y_of 20
+
+writeln x_of(a)
+writeln y_of(a)
+writeln x_of(b)
+writeln y_of(b)
+
+writeln x_of(7)
+writeln y_of(7)

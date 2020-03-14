@@ -1,0 +1,364 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require ./colours>
+<require ./widgets>
+
+$gui::style_of (!)
+$gui::foreground_colour_of (!)
+$gui::background_colour_of (!)
+$gui::border_colour_of (!)
+$gui::shadow_colour_of (!)
+$gui::contents_of (!)
+  #
+    stores subwidgets
+
+    One of <text_of> or <text_lines_of> or <contents_of> must be defined for
+    each widget.
+$gui::tooltip_of (!)
+$gui::uses_markup ()
+$gui::updater_of (!)
+$gui::width_of (!)
+$gui::height_of (!)
+$gui::column_widths_of (!)
+$gui::row_heights_of (!)
+$gui::horizontal_spacing_of (!)
+$gui::vertical_spacing_of (!)
+$gui::layout_direction_of (!)
+$gui::alignment_of (!)
+$gui::item_alignment_of (!)
+$gui::column_of (!)
+$gui::row_of (!)
+$gui::column_span_of (!)
+$gui::row_span_of (!)
+$gui::background_of (!)
+$gui::action_of (!)
+$gui::validator_of (!)
+$gui::is_acceptable ()
+$gui::is_default ()
+$gui::left_margin_of (!)
+$gui::right_margin_of (!)
+$gui::top_margin_of (!)
+$gui::bottom_margin_of (!)
+$gui::border_width_of (!)
+
+%%gui::current_contents undefined
+%%gui::current_id undefined
+%gui::current_widget_path undefined
+
+###
+# Widgets
+
+$types::widget types::object # The prototype for all widgets.
+
+$types::style
+  # The prototype for all widget styles.
+
+  types::object
+    .gui::foreground_colour_of gui::BLACK
+    .gui::background_colour_of gui::WHITE
+    .gui::border_colour_of undefined
+    .gui::shadow_colour_of undefined
+
+$gui::WINDOW .
+$gui::TEXT_WIDGET .
+  #
+    A simple widget containing multiple lines of text without any decorations.
+
+    see also:
+
+    gui::text_lines_of
+$gui::TEXT_WINDOW .
+  #
+    A text window has a title, stored in the <gui::title_of>-attribute and
+    contains several lines of text stored in the attribute <gui::text_lines_of>.
+
+    see also:
+
+    gui::text_lines_of
+    gui::title_of
+$gui::STATUS_LINE .
+  #
+    A status line has a title, stored in the <gui::title_of>-attribute and is
+    displayed using a single line of text.
+
+    see also:
+
+    gui::title_of
+$gui::TOOLTIP .
+  #
+    This option sets a widget's tooltip that is shown when hovering with the
+    mouse cursor over the widget.
+$gui::MARKUP .
+  #
+    If <std::true> then the widget's contents may contain markup.
+$gui::WIDTH .
+  #
+    This option allows setting the width of a widget to an absolute length
+    in inch ("inch"), millimeter ("mm") or point ("pt").
+$gui::HEIGHT .
+  #
+    This option allows setting the height of a widget to an absolute length
+    in inch ("inch"), millimeter ("mm") or point ("pt").
+$gui::COLUMN_WIDTHS .
+  #
+    This option allows setting the widths of a grid's columns to a specific
+    ratio (e.g. "1/3"), percentage (e.g. "45%"), an absolute length in "inch",
+    "mm" or "pt" or to "auto".
+
+    If more columns are necessary then specified then additional columns
+    with "auto"-width are added automatically.
+
+    If neither <gui::COLUMN_WIDTHS> nor <gui::COLUMN_COUNT> is set then
+    the default is two columns with "auto"-size.
+$gui::COLUMN_COUNT .
+  #
+    This option sets the widths of all columns of a grid to "auto". Setting
+    the column count is only necessary for grids with the (default) "left-right"
+    layout.
+
+    If neither <gui::COLUMN_WIDTHS> nor <gui::COLUMN_COUNT> is set then
+    the default is two columns with "auto"-size.
+$gui::ROW_HEIGHTS .
+  #
+    This option allows setting the heights of a grid's columns to a specific
+    ratio (e.g. "1/3"), percentage (e.g. "45%"), an absolute length in "inch",
+    "mm" or "pt" or to "auto".
+
+    If more rows are necessary then specified then additional rows
+    with "auto"-height are added automatically.
+
+    If neither <gui::ROW_HEIGHTS> nor <gui::ROW_COUNT> is set then
+    the default is as many rows as necessary - all with "auto"-height.
+$gui::ROW_COUNT .
+  #
+    This option sets the heights of all rows of a grid to "auto". Setting
+    the row count is only necessary for grids with "top-down" layout.
+
+    If neither <gui::ROW_HEIGHTS> nor <gui::ROW_COUNT> is set then
+    the default is as many rows as necessary - all with "auto"-height.
+$gui::COLUMN .
+  #
+    Sets the (start) column of a widget within a grid. Further widgets will
+    start at the next position within the grid (unless gui::COLUMN_SPAN or
+    gui::ROW_SPAN are set, too)
+$gui::ROW .
+  #
+    Sets the (start) row of a widget within a grid. Further widgets will
+    start at the next position within the grid (unless gui::COLUMN_SPAN or
+    gui::ROW_SPAN are set, too)
+$gui::COLUMN_SPAN .
+  #
+    Sets the number of columns a widget spans. Widgets with a column span
+    will not alter the current position within the grid.
+$gui::ROW_SPAN .
+  #
+    Sets the number of rows a widget spans. Widgets with a row span
+    will not alter the current position within the grid.
+$gui::LAYOUT_DIRECTION .
+  #
+    This is either "left-right" (default) or "top-down".
+$gui::ACTION .
+  #
+    This option allows setting the action of a widget.
+$gui::VALIDATE .
+  #
+    This option allows setting a contents validation function for a widget.
+
+    A validation function returns <std::true> if the content is in an acceptable
+    state, it returns <std::false> if the content is in an intermediate
+    state (not yet acceptable, but further input might yield an acceptable
+    state) and it returns <std::undefined> if the content is definitely
+    unacceptable (e.g. contains invalid characters).
+$gui::PASSWORD . # This option hides user input.
+$gui::DEFAULT .
+  #
+    If set on a button, the button's action is triggered if the user presses
+    the "return" (or "enter") key in a widget that does not handle "return"
+    (or "enter") by itself.
+$gui::HORIZONTAL_SPACING .
+  #
+    Sets the spacing used between grid columns or within a line in a group.
+$gui::VERTICAL_SPACING .
+  #
+
+    Sets the spacing used between grid rows or between lines in a group.
+$gui::SPACING .
+  # Sets the horizontal and the vertical spacing (to the same value).
+$gui::ALIGNMENT .
+  #
+    This specifies the horizontal as well as the vertical alignment of a
+    widget in relation to its container.
+
+    Horizontal alignment options: "left", "right", "center", "stretch".
+
+    Vertical alignment options: "top", "bottom", "middle", "grow".
+$gui::ITEM_ALIGNMENT .
+  #
+    This specifies the horizontal as well as the vertical alignment of a grid's
+    item within their grid cell. This can be overruled by setting
+    <gui::ALIGNMENT> on the item.
+
+    Horizontal alignment options: "left", "right", "center", "stretch".
+
+    Vertical alignment options: "top", "bottom", "middle", "grow".
+$gui::MARGIN . # sets TOP_MARGIN, BOTTOM_MARGIN, LEFT_MARGIN and RIGHT_MARGIN
+$gui::HORIZONTAL_MARGIN . # sets LEFT_MARGIN and RIGHT_MARGIN
+$gui::VERTICAL_MARGIN . # sets TOP_MARGIN and BOTTOM_MARGIN
+$gui::LEFT_MARGIN .
+$gui::RIGHT_MARGIN .
+$gui::TOP_MARGIN .
+$gui::BOTTOM_MARGIN .
+$gui::BORDER_WIDTH .
+$gui::BACKGROUND .
+$gui::STYLE .
+
+$gui::is_a_password () # The widget contains a password.
+
+#$gui::type_of (!)
+  #
+    The type of a widget or event; e.g. <gui::TEXT_WINDOW> or <gui::KEY_EVENT>.
+
+    see also:
+
+    gui::TEXT_WINDOW
+    gui::WINDOW
+    gui::KEY_EVENT
+
+$types::widget.type_of undefined
+
+$gui::title_of (!) # A string describing the title of the widget.
+$gui::text_of (!)
+  #
+    A single- or multi-line text.
+
+    One of <text_of> or <text_lines_of> or <contents_of> must be defined for
+    each widget.
+$gui::text_lines_of (!)
+  #
+    A list of strings, each string describing a single line of text.
+
+    One of <text_of> or <text_lines_of> or <contents_of> must be defined for
+    each widget.
+$gui::cursor_position_of (!)
+  #
+    A list of two entries, describing the current cursor position.
+
+    example:
+
+    .cursor_position_of list(cursor_line cursor_column)
+$gui::cursor_column_of (!)
+  #
+    The (maybe virtual) column of the cursor in a multi-line edit box
+$gui::is_focusable ()
+$gui::has_focus ()
+$gui::selection_of (!)
+  #
+    A list of four entries, describing the current selection.
+
+    example:
+
+    .selection_of list(start_line start_column end_line end_column)
+
+$types::widget.gui::width_of undefined
+$types::widget.gui::height_of undefined
+$types::widget.gui::column_widths_of undefined
+$types::widget.gui::row_heights_of undefined
+$types::widget.gui::layout_direction_of undefined
+$types::widget.gui::horizontal_spacing_of undefined
+$types::widget.gui::vertical_spacing_of undefined
+$types::widget.gui::row_of undefined
+$types::widget.gui::column_of undefined
+$types::widget.gui::row_span_of undefined
+$types::widget.gui::column_span_of undefined
+$types::widget.gui::alignment_of undefined
+$types::widget.gui::item_alignment_of undefined
+$types::widget.gui::left_margin_of undefined
+$types::widget.gui::right_margin_of undefined
+$types::widget.gui::top_margin_of undefined
+$types::widget.gui::bottom_margin_of undefined
+$types::widget.gui::border_width_of undefined
+$types::widget.gui::style_of types::style
+$types::widget.gui::background_of undefined
+$types::widget.gui::action_of undefined
+$types::widget.gui::validator_of undefined
+$types::widget.gui::title_of undefined
+$types::widget.gui::tooltip_of undefined
+$types::widget.gui::contents_of undefined
+$types::widget.gui::text_of undefined
+$types::widget.gui::text_lines_of undefined
+$types::widget.gui::uses_markup false
+$types::widget.gui::is_acceptable undefined
+$types::widget.gui::is_a_password false
+$types::widget.gui::is_default false
+$types::widget.gui::updater_of undefined
+$types::widget.gui::cursor_position_of undefined
+$types::widget.gui::cursor_column_of undefined
+$types::widget.gui::selection_of undefined
+$types::widget.gui::is_focusable false
+$types::widget.gui::has_focus undefined
+
+$gui::ID .
+
+###
+# Events
+
+#$types::event types::object
+  # The prototype for all events.
+
+$gui::KEY_EVENT .
+
+#$gui::key_code_of (!)
+  #
+    A character code or a unique item. For nonkey events it is set to
+    <std::undefined>.
+#$types::event.gui::key_code_of undefined
+
+$gui::focused_widget_of (!) # The name of the currently focused widget.
+
+$types::event.gui::focused_widget_of undefined
+
+$gui::windows_of (!) # The current windows table.
+
+#$types::event.gui::windows_of undefined
+
+$types::colour types::object
+
+$gui::red_component_of (!) # 0.0 .. 1.0
+$gui::green_component_of (!) # 0.0 .. 1.0
+$gui::blue_component_of (!) # 0.0 .. 1.0
+
+$gui::COLOUR: (red green blue)
+  ->
+    types::colour
+      .gui::red_component_of red
+      .gui::green_component_of green
+      .gui::blue_component_of blue
+
+$gui::BLACK gui::COLOUR(0 0 0)
+$gui::WHITE gui::COLOUR(1 1 1)
+$gui::RED gui::COLOUR(1 0 0)
+$gui::GREEN gui::COLOUR(0 1 0)
+$gui::BLUE gui::COLOUR(0 0 1)
+$gui::CYAN gui::COLOUR(0 1 1)
+$gui::MAGENTA gui::COLOUR(1 0 1)
+$gui::YELLOW gui::COLOUR(1 1 0)

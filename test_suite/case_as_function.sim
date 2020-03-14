@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+from_to 1 5: (i)
+  writeln
+    case
+      i
+      1, 2 -> "small"
+      3 .. 4 -> "medium"
+      -> "large"

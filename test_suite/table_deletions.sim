@@ -1,0 +1,25 @@
+#!/usr/bin/env simple
+
+$$items table()
+
+$sort_lines: (text)
+  $$lines split(text .behind. '@nl;' '@nl;')
+  sort &lines numerically_less
+  ->
+    string
+      text .truncate_behind. '@nl;'
+      join(lines "@nl;")
+
+$$x 47
+repeat 10:
+  !x (x+19) .mod. 63
+  !items(x) x*x
+  writeln "added " x ": " sort_lines(serialize(items))
+writeln "total length: " length_of(items)
+
+!x 47
+repeat 10:
+  !x (x+19) .mod. 63
+  !items(x) undefined
+  writeln "removed " x ": " sort_lines(serialize(items))
+writeln "total length: " length_of(items)

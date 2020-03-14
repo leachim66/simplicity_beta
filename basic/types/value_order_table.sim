@@ -1,0 +1,72 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$table_of (!)
+$key_table_of (!)
+
+$types::value_order_table types::generic_table
+$types::value_order_table.table_of empty_table
+$types::value_order_table.key_table_of empty_key_order_table
+$types::value_order_table.serialization_tag_of "value_order_table"
+$types::value_order_table.length_of 0
+
+$types::value_order_table/private::set_item:
+  (
+    &self
+    key
+    value
+  )
+  $old_value table_of(self)(key)
+  if old_value.is_defined:
+    $keys key_table_of(self)(old_value)
+    !self.key_table_of(old_value) keys(key false)
+    dec &self.length_of
+  if value.is_defined:
+    !self.table_of(key) value
+    $keys default_value(key_table_of(self)(value) empty_insert_order_set)
+    !self.key_table_of(value) keys(key true)
+    inc &self.length_of
+
+$types::value_order_table/private::get_item: (self key) table_of(self) key
+
+$types::value_order_table/get:
+  (
+    &self
+    -> return
+  )
+  if length_of(self) == 0:
+    Error("Attempt to get an element from an empty value_order_table!")
+  for_each self: (key _value)
+    !self(key) undefined
+    return key
+
+$types::value_order_table/for_each: (self body)
+  for_each key_table_of(self): (value keys)
+    for_each keys: (key)
+      if
+	parameter_count_of(body) == 2:
+	  body key value
+	:
+	  body value
+
+$std::empty_value_order_table types::value_order_table
+register_collection_serializer "value_order_table" empty_value_order_table

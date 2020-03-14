@@ -1,0 +1,7 @@
+#!/usr/bin/env simple
+
+$$x 47
+
+$getter (-> x)
+
+writeln getter()

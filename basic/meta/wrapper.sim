@@ -1,0 +1,302 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<using std>
+<using meta>
+
+$meta::gpl_header: (year name)
+  -> "
+    #
+      Copyright (C) @(year) by
+      @(name)
+
+      This program is free software; you can redistribute it and/or modify
+      it under the terms of the GNU General Public License, version 2, or
+      (at your option) version 3.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+      GNU General Public License for more details.
+
+      For details of the GNU General Public License see the accompanying
+      files GPLv2.txt and GLPv3.txt or
+      http://www.gnu.org/licenses/gpl-2.0.html
+      http://www.gnu.org/licenses/gpl-3.0.html
+      or write to the
+      Free Software Foundation, Inc.,
+      51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$meta::lgpl_header: (year name)
+  -> "
+    #
+      Copyright (C) @(year) by
+      @(name)
+
+      This program is free software; you can redistribute it and/or modify
+      it under the terms of the GNU Library General Public License, version 2, @
+    or
+      (at your option) under the terms of the GNU Lesser General Public License,
+      version 3.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+      GNU Lesser (Library) General Public License for more details.
+
+      For details of the GNU General Public License see the accompanying
+      files LGPLv2.txt and LGLPv3.txt or
+      http://www.gnu.org/licenses/lgpl-2.0.html
+      http://www.gnu.org/licenses/lgpl-3.0.html
+      or write to the
+      Free Software Foundation, Inc.,
+      51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$c_types set("void" "bool" "char" "int" "long")
+%meta::known_c_types c_types
+  # ATTENTION: Workaround for a bug in the language specification!
+%meta::known_pointer_types empty_set
+%meta::pointer_type_aliases empty_table
+%meta::wrapper_namespace "std"
+%meta::remove_prefix undefined
+
+%meta::is_a_valid_type: ($type)
+  truncate_from &type '*'
+  trim &type
+  ->
+    ||
+      known_c_types(type)
+      known_pointer_types(type)
+      pointer_type_aliases(type).is_defined
+
+$meta::name_of (!)
+$meta::type_of (!)
+$meta::qualifier_of (!)
+$meta::parameters_of (!)
+
+$function_declaration types::grammar_node
+$function_declaration.qualifier_of undefined
+$function_declaration.parameters_of empty_list
+$function_parameter types::grammar_node
+$function_parameter.name_of undefined
+$function_parameter.qualifier_of undefined
+
+$interleaved: (expr separator) -> expr, some(separator, expr)
+
+$WHITESPACE many(alt(' ' '@ht;'))
+$C_LETTER alt(LETTER '_')
+$IDENTIFIER C_LETTER, some(alt(C_LETTER DIGIT))
+
+$TYPE
+  sequence
+    optional
+      sequence
+	"const"
+	WHITESPACE
+	modify_node
+	  : (&node)
+	    !node.qualifier_of "const"
+    optional
+      sequence
+	"unsigned"
+	WHITESPACE
+	modify_node
+	  : (&node)
+	    !node.qualifier_of "unsigned"
+    sequence
+      capture
+	meta::type_of
+	IDENTIFIER, optional(optional(WHITESPACE), many('*'))
+      modify_node
+	: (&node)
+	  replace_all
+	    &node.meta::type_of
+	    =
+	      alt(C_LETTER DIGIT), '*'
+	      : (str)
+		-> string(str(1) ' ' str(2))
+    check_node
+      : (node)
+	-> is_a_valid_type(meta::type_of(node))
+
+$NAME capture(name_of IDENTIFIER)
+
+$FUNCTION_DECLARATION
+  sequence
+    set_node(function_declaration)
+    TYPE
+    optional(WHITESPACE)
+    NAME
+    optional(WHITESPACE)
+    '('
+    alt
+      optional(WHITESPACE), "void", optional(WHITESPACE), ')'
+      sequence
+	interleaved
+	  sequence
+	    optional(WHITESPACE)
+	    multi_span
+	      parameters_of
+	      sequence
+		set_node(function_parameter)
+		TYPE
+		optional(optional(WHITESPACE), NAME)
+	    optional(WHITESPACE)
+	  ','
+	')'
+    optional(WHITESPACE)
+    ';'
+
+$meta::parse_c_function_declaration:
+  (
+    !cap
+    declaration
+  )
+  match declaration $len !cap FUNCTION_DECLARATION
+  if len.is_undefined: !cap undefined
+
+$to_type: (type node)
+  $to_pointer_type: (pointer_type)
+    $base_type trim(pointer_type .before. '*')
+    if base_type == "char" (-> "to_c_string") -> "to_@(base_type)_pointer"
+
+  $alias pointer_type_aliases(type)
+
+  $function_name
+    cond
+      -> alias.is_defined -> to_pointer_type(alias)
+      -> type .has_suffix. '*' -> to_pointer_type(type)
+      -> type == "char" -> "to_uchar32"
+      -> type == "float" -> "(float)to_double"
+      -> true -> "to_@(type)"
+
+  -> string(function_name "(" node ")")
+
+$from_type: (type var)
+  $from_pointer_type: (pointer_type)
+    $base_type trim(pointer_type .before. '*')
+    if base_type == "char" (-> "from_c_string") -> "from_@(base_type)_pointer"
+
+  $alias pointer_type_aliases(type)
+
+  $function_name
+    cond
+      -> alias.is_defined -> from_pointer_type(alias)
+      -> type .has_suffix. '*' -> from_pointer_type(type)
+      -> type == "char" -> "from_uchar32"
+      -> true -> "from_@(type)"
+
+  -> string(function_name "(" var ")")
+
+$meta::wrapper_function: (cap prefix?)
+  $function_name name_of(cap)
+
+  $wrapped_function_name
+    if
+      remove_prefix.is_defined
+      -> function_name .without_prefix. remove_prefix
+      -> function_name
+
+  $result_type meta::type_of(cap)
+  $parameters parameters_of(cap)
+  collect_output $buf:
+    write "
+      $@(wrapper_namespace)::@(wrapped_function_name) {
+        CHECK_ARGUMENTS(@(length_of(parameters)))
+    if prefix.is_defined: write indented(2 prefix)
+    $$parameters_to_be_freed empty_list
+    for_each parameters: (idx parameter)
+      $qualifier qualifier_of(parameter)
+      $type meta::type_of(parameter)
+      $$name name_of(parameter)
+      if name.is_undefined: !name "param_@(idx)"
+      write "  "
+      if qualifier.is_defined: write qualifier " "
+      write type
+      if type(-1) != '*': write " "
+      write name " = "
+      if qualifier.is_defined: write "(" qualifier ' ' type ")"
+      writeln to_type(type "ARGUMENTS(@(idx-1))") ";"
+      if type == "char *": push &parameters_to_be_freed name
+    write "  "
+    if result_type != "void":
+      if qualifier_of(cap).is_defined: write qualifier_of(cap) " "
+      write result_type if(result_type(-1) == '*' (-> "") -> " ") "result = "
+    write function_name "("
+    for_each
+      parameters: (idx parameter)
+	$name name_of(parameter)
+	if
+	  name.is_defined:
+	    write name
+	  :
+	    write "param_@(idx)"
+      :
+	write ", "
+    writeln ");"
+    for_each parameters_to_be_freed: (name)
+      writeln "  deallocate_memory(" name ");"
+    if
+      result_type == "void":
+	writeln "  RETURN_NOTHING"
+      :
+	writeln "  RETURN_SINGLE_RESULT(@(from_type(result_type "result")))"
+    write "}@nl;"
+  -> buf
+
+$meta::wrapper_pointer_type: (base_type)
+  $name "@(base_type)_pointer"
+  $type_declaration "@(base_type) *"
+  -> "
+    {
+      <kind node>
+      <name @(name.to_upper_case)>
+
+      @(type_declaration)ptr;
+    }
+
+    {
+      <kind type>
+      <name @(name)>
+      <node @(name.to_upper_case)>
+      <base types::object>
+      <argument NULL>
+
+      RUNTIME_ERROR("Attempt to call a @(base_type) pointer as a function!")
+    }
+
+    {
+      <kind function>
+
+      NODE *from_@(name)(@(type_declaration)ptr) {
+        return create__@(name)(ptr);
+      }
+    }
+
+    {
+      <kind function>
+
+      @(type_declaration)to_@(name)(NODE *node) {
+        return node->@(name.to_lower_case).ptr;
+      }
+    }
+    @;

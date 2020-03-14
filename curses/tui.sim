@@ -1,0 +1,860 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require system/gui/gui>
+<require ./curses>
+
+<using std>
+<using key>
+<using gui>
+<using curses>
+
+$$desktop_win undefined
+
+$window_tags_of (!)
+  # a list of all windows tags in the order of appearance (position order)
+$window_positions_of (!) # position of each window (indexed by window tag)
+$window_y_coordinates_of (!)
+  # y-coordinate of each window (indexed by window tag)
+$window_heights_of (!) # height of each window (indexed by window tag)
+$minimum_window_heights_of (!)
+  # minimum height for each window (indexed by window tag)
+$desired_window_heights_of (!)
+  # desired height for each window (indexed by window tag)
+$window_text_widths_of (!) # text width of each window (indexed by window tag)
+$first_visible_window_lines_of (!)
+  # first_visible line of each window (indexed by window tag)
+$first_visible_window_columns_of (!)
+  # first_visible column of each window (indexed by window tag)
+$focused_widget_of (!) # tag of the focused window
+
+$$desired_heights empty_table
+$$desired_widths empty_table
+$$minimum_heights empty_table
+$$minimum_widths empty_table
+$$state undefined
+
+$get_width_and_height: (widget)
+  $$width 0
+  $$height 0
+  case
+    type_of(widget)
+    TEXT_WIDGET:
+      $text text_of(widget)
+      $text_lines text_lines_of(widget)
+      cond
+	-> text.is_defined:
+	  $$s 0
+	  for_each text: (idx chr)
+	    if chr == '@nl;':
+	      extend_to &width idx-1-s
+	      !s idx
+	      inc &height
+	  $len length_of(text)
+	  if len > s:
+	    extend_to &width len-s
+	    inc &height
+	-> text_lines.is_defined:
+	  for_each text_lines: (line)
+	    extend_to &width length_of(line)
+	    inc &height
+      -> width height max(width 20) max(height 4)
+    GROUP:
+      $contents contents_of(widget)
+      for_each contents: (tag item)
+	get_width_and_height
+	  item
+	  !desired_widths(tag)
+	  !desired_heights(tag)
+	  !minimum_widths(tag)
+	  !minimum_heights(tag)
+      $$minimum_width 0
+      $$minimum_height 0
+      for_each contents: (tag _item)
+	plus &height desired_heights(tag)
+	extend_to &width desired_widths(tag)
+	plus &minimum_height minimum_heights(tag)
+	extend_to &minimum_width minimum_widths(tag)
+      -> width height minimum_width minimum_height
+
+$$next_pair_idx 1
+$$colour_pairs empty_table
+
+$use_colours: (fg_idx bg_idx)
+  $hash (fg_idx << 16)+bg_idx
+  $$idx colour_pairs(hash)
+  if idx.is_undefined:
+    !idx next_pair_idx
+    inc &next_pair_idx
+
+    #ewriteln "init_pair @(idx) @(fg_idx) @(bg_idx)"
+
+    ignore init_pair(idx fg_idx bg_idx)
+    !colour_pairs(hash) idx
+
+  #ewriteln "use pair: @(idx)"
+
+  ignore attrset(COLOR_PAIR(idx))
+
+$to_permille: (value) -> round(1'000*value).to_integer
+
+$$next_colour_idx 1
+$$palette_colours empty_table
+
+$colour_to_index: (colour)
+  $red to_permille(red_component_of(colour))
+  $green to_permille(green_component_of(colour))
+  $blue to_permille(blue_component_of(colour))
+  $hash 1'000'000*red+1'000*green+blue
+  $idx palette_colours(hash)
+  if idx.is_defined (-> idx):
+    $new_idx next_colour_idx
+    inc &next_colour_idx
+
+    #ewriteln "init_color @(new_idx) @(red) @(green) @(blue)"
+
+    ignore init_color(new_idx red green blue)
+    !palette_colours(hash) new_idx
+    -> new_idx
+
+$set_fg_on_bg: (fg_colour bg_colour)
+  use_colours colour_to_index(fg_colour) colour_to_index(bg_colour)
+
+$print_at: (x y text)
+  ignore move(y x)
+  ignore addstr(text.to_utf8)
+
+$spaces dup("          " 100)
+
+$draw: (widget x $y width _height)
+  case
+    type_of(widget)
+    TEXT_WIDGET:
+      $style style_of(widget)
+      set_fg_on_bg foreground_colour_of(style) background_colour_of(style)
+      $text text_of(widget)
+      $text_lines text_lines_of(widget)
+
+      $print_line: ($line)
+	$len length_of(line)
+	if len > width: range &line 1 len
+	print_at x y line
+	if len < width: print_at x+len y range(spaces 1 width-len)
+	inc &y
+
+      cond
+	-> text.is_defined: for_each_line text: (line) print_line line
+	-> text_lines.is_defined: for_each text_lines: (line) print_line line
+    GROUP:
+      $contents contents_of(widget)
+      for_each contents: (tag item)
+	$item_width desired_widths(tag)
+	$item_height desired_heights(tag)
+	draw item x y item_width item_height
+	plus &y item_height
+
+$gui::display: (widget)
+  if desktop_win.is_undefined:
+    initscr !desktop_win
+    ignore start_color()
+    ignore cbreak()
+    ignore noecho()
+    ignore curs_set(0)
+    ignore keypad(desktop_win true)
+    ignore use_default_colors()
+    $$handle types::object(/close: (_self) endwin $_success)
+    register_resource &handle
+  get_width_and_height
+    widget
+    $desired_width
+    $desired_height
+    $_minimum_width
+    $_minimum_height
+  $x 0
+  $y 0
+  draw widget x y desired_width desired_height
+
+  #for_each windows: (tag widget)
+    $width desired_widths(tag)
+    $height desired_heights(tag)
+    draw widget x y width height
+    plus &y height
+
+  do: refresh $_success
+
+#
+  $$previous_windows empty_table
+  $$window_tags empty_list
+  $$window_positions empty_table
+  $$window_y_coordinates empty_table
+  $$window_heights empty_table
+  $$minimum_window_heights empty_table
+  $$desired_window_heights empty_table
+  $$window_text_widths empty_table
+  $$window_text_lines empty_table
+  $$window_selections empty_table
+  $$first_visible_window_lines empty_table
+  $$first_visible_window_columns empty_table
+  $$focused_widget undefined
+
+  if state.is_defined:
+    !previous_windows windows_of(state)
+    !window_tags window_tags_of(state)
+    !window_positions window_positions_of(state)
+    !window_y_coordinates window_y_coordinates_of(state)
+    !window_heights window_heights_of(state)
+    !minimum_window_heights minimum_window_heights_of(state)
+    !desired_window_heights desired_window_heights_of(state)
+    !window_text_widths window_text_widths_of(state)
+    !window_text_lines window_text_lines_of(state)
+    !window_selections window_selections_of(state)
+    !first_visible_window_lines first_visible_window_lines_of(state)
+    !first_visible_window_columns first_visible_window_columns_of(state)
+    !focused_widget focused_widget_of(state)
+
+  if desktop_win.is_undefined:
+    initscr !desktop_win
+    do: cbreak $success
+    do: noecho $success
+    do: curs_set $success 0
+    do: start_color $success
+    do: keypad $success desktop_win true
+    do: use_default_colors $success
+    initialize_color_pair TEXT_COLOR COLOR_WHITE COLOR_BLACK
+    initialize_color_pair TITLE_COLOR COLOR_BLACK COLOR_YELLOW
+    initialize_color_pair FOCUSED_TITLE_COLOR COLOR_BLACK COLOR_GREEN
+    initialize_color_pair SELECTION_COLOR COLOR_WHITE COLOR_BLUE
+
+    $$handle
+      types::object
+        /close: (self) endwin $success
+    register_resource &handle
+
+  $term_width getmaxx(desktop_win)
+  $term_height getmaxy(desktop_win)
+
+  $total_windows_count length_of(windows)
+  $$known_windows_count 0
+  $$known_windows_total_height 0
+
+  if focused_widget.is_defined && windows(focused_widget).is_undefined:
+    !focused_widget undefined
+
+  $$previous_window_positions
+    std::filter(window_tags: (tag) -> windows(tag).is_defined)
+
+  $$is_delayed empty_set
+
+  !window_tags empty_list
+  !minimum_window_heights empty_table
+  !desired_window_heights empty_table
+  for_each windows: (tag window)
+    !minimum_window_heights(tag)
+      case
+        type_of(window)
+        STATUS_LINE, EDIT_BOX, BUTTON -> 1
+        -> 4
+    !desired_window_heights(tag)
+      case
+        type_of(window)
+        STATUS_LINE, EDIT_BOX, BUTTON -> 1
+        -> max(min(length_of(text_lines_of(window))+1 term_height) 4)
+    $previous_window previous_windows(tag)
+
+    $initialize_view:
+      !window_text_widths(tag) fold(0 max map(text_lines_of(window) length_of))
+      !first_visible_window_lines(tag) 1
+      !first_visible_window_columns(tag) 1
+
+    if
+      previous_window.is_defined:
+        if text_lines_of(window) != text_lines_of(previous_window) initialize_view
+        inc &known_windows_count
+        plus &known_windows_total_height window_heights(tag)
+        !is_delayed(tag) true
+        while ->
+          length_of(previous_window_positions) > 0 &&
+          previous_window_positions(1).is_delayed:
+            push &window_tags get(&previous_window_positions)
+      :
+        push &window_tags tag
+        initialize_view
+
+    if focused_widget.is_undefined: !focused_widget tag
+
+  if
+    known_windows_count < length_of(windows) ||
+    known_windows_total_height != term_height:
+      for_each window_tags: (tag) !window_heights(tag) undefined
+      $$step_count length_of(windows)
+      $$available_height term_height
+      do_while:
+        $$something_changed false
+        for_each window_tags: (tag)
+          if window_heights(tag).is_undefined && step_count > 1:
+            # Don't shrink the last available window!
+            $average_height available_height .div. step_count
+            $desired_height desired_window_heights(tag)
+            if desired_height < average_height:
+              !window_heights(tag) desired_height
+              dec &step_count
+              minus &available_height desired_height
+              !something_changed true
+        -> something_changed
+      $$current_step 0
+      $$y 1
+      for_each window_tags: (pos tag)
+        !window_y_coordinates(tag) y
+        if window_heights(tag).is_undefined:
+          plus &current_step available_height
+          $height current_step .div. step_count
+          !window_heights(tag) height
+          mod &current_step step_count
+        plus &y window_heights(tag)
+
+  for_each window_tags: (pos tag)
+    $print_line: ($text color line_no? -> return)
+      $print_simple_part: (len text_colour)
+        if len > 0:
+          do: attrset $success COLOR_PAIR(text_colour)
+          do: addstr $success range(text 1 len).to_utf8
+          range &text len+1 -1
+
+      $print_part: (len text_colour)
+        if
+          line_no.is_defined && line_no == cursor_line &&
+          cursor_column >= col && cursor_column < col+len:
+            print_simple_part cursor_column-col text_colour
+            print_simple_part 1 text_colour+reverse_offset
+            print_simple_part len-(cursor_column-col)-1 text_colour
+          :
+            print_simple_part len text_colour
+        plus &col len
+
+      $print_rest: (text_colour)
+        print_part length_of(text) text_colour
+        return
+
+      $$col 1
+
+      do: move $success current_y 0
+      inc &current_y
+      if type_of(window) == TEXT_WINDOW && line_no.is_defined:
+        if
+          first_visible_column > length_of(text):
+            !text ""
+          :
+            range &text first_visible_column -1
+      pad_or_truncate &text term_width
+      if
+        line_no.is_defined && selection.is_defined:
+          $first_selected_line selection(1)
+          $last_selected_line selection(3)
+          if line_no >= first_selected_line && line_no <= last_selected_line:
+            $first_selected_column
+              max
+                selection(2)-first_visible_column+1
+                1
+            $last_selected_column selection(4)-first_visible_column+1
+            cond
+              -> first_selected_line == last_selected_line:
+                if
+                  first_selected_column < length_of(text) &&
+                  last_selected_column > 0:
+                    print_part first_selected_column-1 color
+                    $selected_width last_selected_column-first_selected_column+1
+                    if
+                      selected_width < length_of(text):
+                        print_part selected_width SELECTION_COLOR
+                        print_rest color
+                      :
+                        print_rest SELECTION_COLOR
+              -> line_no == first_selected_line:
+                if first_selected_column < length_of(text):
+                  print_part first_selected_column-1 color
+                  print_rest SELECTION_COLOR
+              -> line_no == last_selected_line:
+                if last_selected_column > 0:
+                  if
+                    last_selected_column < length_of(text):
+                      print_part last_selected_column SELECTION_COLOR
+                      print_rest color
+                    :
+                      print_rest SELECTION_COLOR
+              :
+                print_rest SELECTION_COLOR
+
+      print_rest color
+
+    !window_positions(tag) pos
+    $window windows(tag)
+    $height window_heights(tag)
+    $text_height length_of(text_lines_of(window))
+
+    $selection selection_of(window)
+    if selection != window_selections(tag):
+      $first_selected_line selection(1)
+      $last_selected_line selection(3)
+      $selection_height last_selected_line-first_selected_line
+      !first_visible_window_lines(tag)
+        cond
+          -> selection_height > height -> first_selected_line
+          -> text_height <= height -> 1
+          -> true -> max(first_selected_line-((height-selection_height) .div. 2) 1)
+    !window_selections(tag) selection
+
+    $cursor_position cursor_position_of(window)
+    $cursor_line
+      if
+        cursor_position.is_defined
+        -> cursor_position(1)
+        -> undefined
+    if cursor_position.is_defined:
+      cond
+        -> cursor_line < first_visible_window_lines(tag):
+          !first_visible_window_lines(tag) cursor_line
+        -> cursor_line > first_visible_window_lines(tag)+(height-2):
+          !first_visible_window_lines(tag) cursor_line-(height-2)
+      cond
+        -> cursor_position(2) < first_visible_window_columns(tag):
+          !first_visible_window_columns(tag) cursor_position(2)
+        -> cursor_position(2) > first_visible_window_columns(tag)+term_width-1:
+          !first_visible_window_columns(tag) cursor_position(2)-(term_width-1)
+    $first_visible_column first_visible_window_columns(tag)
+    $cursor_column
+      if
+        cursor_position.is_defined
+        -> cursor_position(2)-first_visible_column+1
+        -> undefined
+
+    $s first_visible_window_lines(tag)
+    $e_t text_height
+    $e_w
+      first_visible_window_lines(tag) + height -
+      if(type_of(window) == TEXT_WIDGET (-> 1) (-> 2))
+    $e min(e_t e_w)
+    $$current_y window_y_coordinates(tag)-1
+    if type_of(window) != TEXT_WIDGET:
+      $title
+        if
+          type_of(window) == TEXT_WINDOW
+          ->
+            string
+              title_of(window)
+              " | "
+              "lines: "
+              s "-"
+              min(s+height-2 text_height)
+              "/" text_height
+              "; columns: "
+              first_visible_column "-" first_visible_column+term_width-1
+              "/" window_text_widths(tag)
+          -> title_of(window)
+      print_line "=== @(title) ==="
+        if(tag == focused_widget (-> FOCUSED_TITLE_COLOR) (-> TITLE_COLOR))
+    for_each_from_to text_lines_of(window) s e: (line_no line)
+      print_line line TEXT_COLOR line_no
+    repeat e_w-e: print_line "" TEXT_COLOR
+
+  do: refresh $success
+
+  ->
+    types::object
+      .windows_of windows
+      .window_tags_of window_tags
+      .window_positions_of window_positions
+      .window_y_coordinates_of window_y_coordinates
+      .window_heights_of window_heights
+      .minimum_window_heights_of minimum_window_heights
+      .desired_window_heights_of desired_window_heights
+      .window_text_widths_of window_text_widths
+      .window_text_lines_of window_text_lines
+      .window_selections_of window_selections
+      .first_visible_window_lines_of first_visible_window_lines
+      .first_visible_window_columns_of first_visible_window_columns
+      .focused_widget_of focused_widget
+
+$gui::display_width -> getmaxx(desktop_win)
+
+$gui::display_height -> getmaxy(desktop_win)
+
+$gui::handle_keyboard_input:
+  getch $raw_key
+
+  $key
+    case
+      raw_key
+      KEY_BTAB
+      -> SHIFT_TAB
+      KEY_UP
+      -> UP
+      KEY_SR
+      -> SHIFT_UP
+      0x236
+      -> CTRL_UP
+      0x234
+      -> ALT_UP
+      KEY_DOWN
+      -> DOWN
+      KEY_SF
+      -> SHIFT_DOWN
+      0x20d
+      -> CTRL_DOWN
+      0x20b
+      -> ALT_DOWN
+      KEY_LEFT
+      -> LEFT
+      KEY_SLEFT
+      -> SHIFT_LEFT
+      0x221
+      -> CTRL_LEFT
+      0x21f
+      -> ALT_LEFT
+      KEY_RIGHT
+      -> RIGHT
+      KEY_SRIGHT
+      -> SHIFT_RIGHT
+      0x230
+      -> CTRL_RIGHT
+      0x22e
+      -> ALT_RIGHT
+      KEY_PPAGE
+      -> PAGE_UP
+      KEY_NPAGE
+      -> PAGE_DOWN
+      KEY_HOME
+      -> FIRST
+      KEY_END
+      -> LAST
+      KEY_BACKSPACE
+      -> BACKSPACE
+      KEY_DC
+      -> DELETE
+      KEY_SDC
+      -> SHIFT_DELETE
+      0x207
+      -> CTRL_DELETE
+      0x205
+      -> ALT_DELETE
+      KEY_F1
+      -> F1
+      KEY_F2
+      -> F2
+      KEY_F3
+      -> F3
+      KEY_F4
+      -> F4
+      KEY_F5
+      -> F5
+      KEY_F6
+      -> F6
+      KEY_F7
+      -> F7
+      KEY_F8
+      -> F8
+      KEY_F9
+      -> F9
+      KEY_F10
+      -> F10
+      KEY_F11
+      -> F11
+      KEY_F12
+      -> F12
+      :
+	if raw_key < 0x7f (-> character(raw_key)) -> undefined
+
+  if key.is_defined:
+    create_event types::event(.type_of KEY_PRESS .key_code_of key)
+
+$gui::apply_key_press:
+  (
+    &windows
+    key
+    -> return
+  )
+  $focused_widget focused_widget_of(state)
+  $$window windows(focused_widget)
+  $idx window_positions_of(state)(focused_widget)
+  case
+    #KEY_RESIZE:
+      display previous_windows
+
+    key
+    TAB:
+      # switch focus to next window
+
+      $next_idx (idx .mod. length_of(windows))+1
+      !state.focused_widget_of window_tags_of(state)(next_idx)
+      return true
+    SHIFT_TAB:
+      # switch focus to previous window
+
+      $prev_idx if(idx == 1 (-> length_of(windows)) -> idx-1)
+      !state.focused_widget_of window_tags_of(state)(prev_idx)
+      return true
+    UP:
+      # scroll contents of focused window one line down
+
+      if type_of(window) == TEXT_WINDOW:
+	if
+	  cursor_position_of(window).is_defined:
+	    if cursor_position_of(window)(1) > 1:
+	      dec &window.cursor_position_of(1)
+	      !windows(focused_widget) window
+	      return true
+	  :
+	    if first_visible_window_lines_of(state)(focused_widget) > 1:
+	      dec &state.first_visible_window_lines_of(focused_widget)
+	      return true
+    DOWN:
+      # scroll contents of focused window one line up
+
+      if type_of(window) == TEXT_WINDOW:
+	$text_height length_of(text_lines_of(window))
+	if
+	  cursor_position_of(window).is_defined:
+	    if cursor_position_of(window)(1) < text_height:
+	      inc &window.cursor_position_of(1)
+	      !windows(focused_widget) window
+	      return true
+	  :
+	    if
+	      <
+		-
+		  +
+		    first_visible_window_lines_of(state)(focused_widget)
+		    window_heights_of(state)(focused_widget)
+		  2
+		text_height
+	      :
+		inc &state.first_visible_window_lines_of(focused_widget)
+		return true
+    PAGE_DOWN:
+      # scroll contents of focused window one page up
+
+      if type_of(window) == TEXT_WINDOW:
+	$text_height length_of(text_lines_of(window))
+	if
+	  cursor_position_of(window).is_defined:
+	    plus
+	      &window.cursor_position_of(1)
+	      window_heights_of(state)(focused_widget)-1
+	    reduce_to &window.cursor_position_of(1) text_height
+	    !windows(focused_widget) window
+	    return true
+	  :
+	    if
+	      <
+		-
+		  +
+		    first_visible_window_lines_of(state)(focused_widget)
+		    window_heights_of(state)(focused_widget)
+		  2
+		text_height
+	      :
+		plus
+		  &state.first_visible_window_lines_of(focused_widget)
+		  window_heights_of(state)(focused_widget)-1
+		reduce_to
+		  &state.first_visible_window_lines_of(focused_widget)
+		  text_height-(window_heights_of(state)(focused_widget)-2)
+		return true
+    PAGE_UP:
+      # scroll contents of focused window one page down
+
+      if type_of(window) == TEXT_WINDOW:
+	if
+	  cursor_position_of(window).is_defined:
+	    minus
+	      &window.cursor_position_of(1)
+	      window_heights_of(state)(focused_widget)-1
+	    extend_to &window.cursor_position_of(1) 1
+	    !windows(focused_widget) window
+	    return true
+	  :
+	    minus
+	      &state.first_visible_window_lines_of(focused_widget)
+	      window_heights_of(state)(focused_widget)-1
+	    extend_to &state.first_visible_window_lines_of(focused_widget) 1
+	    return true
+    LEFT:
+      if type_of(window) == TEXT_WINDOW:
+	if
+	  cursor_position_of(window).is_defined:
+	    if cursor_position_of(window)(2) > 1:
+	      dec &window.cursor_position_of(2)
+	      !windows(focused_widget) window
+	      return true
+	  :
+	    if first_visible_window_columns_of(state)(focused_widget) > 1:
+	      dec &state.first_visible_window_columns_of(focused_widget)
+	      return true
+    RIGHT:
+      if type_of(window) == TEXT_WINDOW:
+	if
+	  cursor_position_of(window).is_defined:
+	    if
+	      <
+		cursor_position_of(window)(2)
+		window_text_widths_of(state)(focused_widget)
+	      :
+		inc &window.cursor_position_of(2)
+		!windows(focused_widget) window
+		return true
+	  :
+	    $term_width getmaxx(desktop_win)
+	    if
+	      <
+		-
+		  +
+		    first_visible_window_columns_of(state)(focused_widget)
+		    term_width
+		  1
+		window_text_widths_of(state)(focused_widget)
+	      :
+		inc &state.first_visible_window_columns_of(focused_widget)
+		return true
+    FIRST:
+      if type_of(window) == TEXT_WINDOW:
+	if
+	  cursor_position_of(window).is_defined:
+	    !window.cursor_position_of(2) 1
+	    !windows(focused_widget) window
+	    return true
+	  :
+	    !state.first_visible_window_columns_of(focused_widget) 1
+	    return true
+    LAST:
+      if type_of(window) == TEXT_WINDOW:
+	if
+	  cursor_position_of(window).is_defined:
+	    !window.cursor_position_of(2)
+	      max
+		length_of(text_lines_of(window)(cursor_position_of(window)(1)))
+		1
+	    !windows(focused_widget) window
+	    return true
+	  :
+	    $term_width getmaxx(desktop_win)
+	    !state.first_visible_window_columns_of(focused_widget)
+	      max(window_text_widths_of(state)(focused_widget)-(term_width-1) 1)
+	    return true
+    SHIFT_DOWN:
+      # increase height of focused window
+
+      $$other_idx idx
+      while -> other_idx < length_of(windows):
+	inc &other_idx
+	$other_window window_tags_of(state)(other_idx)
+	if
+	  >
+	    window_heights_of(state)(other_window)
+	    minimum_window_heights_of(state)(other_window)
+	  :
+	    inc &state.window_heights_of(focused_widget)
+	    from_to idx+1 other_idx: (mid_idx)
+	      inc &state.window_y_coordinates_of(window_tags_of(state)(mid_idx))
+	    dec &state.window_heights_of(other_window)
+	    return true
+      !other_idx idx
+      while -> other_idx > 1:
+	dec &other_idx
+	$other_window window_tags_of(state)(other_idx)
+	if
+	  >
+	    window_heights_of(state)(other_window)
+	    minimum_window_heights_of(state)(other_window)
+	  :
+	    inc &state.window_heights_of(focused_widget)
+	    from_to other_idx+1 idx: (mid_idx)
+	      dec &state.window_y_coordinates_of(window_tags_of(state)(mid_idx))
+	    dec &state.window_heights_of(other_window)
+	    return true
+    SHIFT_UP:
+      # decrease height of focused window
+
+      if
+	>
+	  window_heights_of(state)(focused_widget)
+	  minimum_window_heights_of(state)(focused_widget)
+	:
+	  $$other_idx idx
+	  while -> other_idx < length_of(windows):
+	    inc &other_idx
+	    $other_window window_tags_of(state)(other_idx)
+	    if
+	      <
+		window_heights_of(state)(other_window)
+		desired_window_heights_of(state)(other_window)
+	      :
+		dec &state.window_heights_of(focused_widget)
+		from_to idx+1 other_idx: (mid_idx)
+		  dec
+		    &state.window_y_coordinates_of(window_tags_of(state)(mid_idx))
+		inc &state.window_heights_of(other_window)
+		return true
+	  !other_idx idx
+	  while -> other_idx > 1:
+	    dec &other_idx
+	    $other_window window_tags_of(state)(other_idx)
+	    if
+	      >
+		window_heights_of(state)(other_window)
+		minimum_window_heights_of(state)(other_window)
+	      :
+		inc &state.window_heights_of(other_window)
+		from_to other_idx+1 idx: (mid_idx)
+		  inc
+		    &state.window_y_coordinates_of(window_tags_of(state)(mid_idx))
+		dec &state.window_heights_of(focused_widget)
+		return true
+    ALT_DOWN:
+      # move focused window behind next window
+
+      if idx < length_of(windows):
+	$other_window window_tags_of(state)(idx+1)
+	!state.window_positions_of(focused_widget) idx+1
+	!state.window_positions_of(other_window) idx
+	!state.window_tags_of(idx) other_window
+	!state.window_tags_of(idx+1) focused_widget
+	!state.window_y_coordinates_of(other_window)
+	  window_y_coordinates_of(state)(focused_widget)
+	plus
+	  &state.window_y_coordinates_of(focused_widget)
+	  window_heights_of(state)(other_window)
+	return true
+    ALT_UP:
+      # move focused window before previous window
+
+      if idx > 1:
+	$other_window window_tags_of(state)(idx-1)
+	!state.window_positions_of(focused_widget) idx-1
+	!state.window_positions_of(other_window) idx
+	!state.window_tags_of(idx) other_window
+	!state.window_tags_of(idx-1) focused_widget
+	!state.window_y_coordinates_of(focused_widget)
+	  window_y_coordinates_of(state)(other_window)
+	plus
+	  &state.window_y_coordinates_of(other_window)
+	  window_heights_of(state)(focused_widget)
+	return true
+  -> false

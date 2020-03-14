@@ -1,0 +1,46 @@
+# character encoding failure
+
+$gui::apply_key_press:
+  (
+    &windows
+    key
+    -> return
+  )
+  case key SHIFT_UP:
+    # decrease height of focused window
+
+    if
+      >
+	window_heights_of(state)(focused_widget)
+	minimum_window_heights_of(state)(focused_widget)
+      :
+	$$other_idx idx
+	while -> other_idx < length_of(windows):
+	  inc &other_idx
+	  $other_window window_tags_of(state)(other_idx)
+	  if
+	    <
+	      window_heights_of(state)(other_window)
+	      desired_window_heights_of(state)(other_window)
+	    :
+	      dec &state.window_heights_of(focused_widget)
+	      from_to idx+1 other_idx: (mid_idx)
+		dec
+		  &state.window_y_coordinates_of(window_tags_of(state)(mid_idx))
+	      inc &state.window_heights_of(other_window)
+	      return true
+	!other_idx idx
+	while -> other_idx > 1:
+	  dec &other_idx
+	  $other_window window_tags_of(state)(other_idx)
+	  if
+	    >
+	      window_heights_of(state)(other_window)
+	      minimum_window_heights_of(state)(other_window)
+	    :
+	      inc &state.window_heights_of(other_window)
+	      from_to other_idx+1 idx: (mid_idx)
+		inc
+		  &state.window_y_coordinates_of(window_tags_of(state)(mid_idx))
+	      dec &state.window_heights_of(focused_widget)
+	      return true

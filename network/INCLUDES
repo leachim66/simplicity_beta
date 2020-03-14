@@ -1,0 +1,11 @@
+stdint.h
+stdio.h
+sys/types.h
+sys/socket.h
+netdb.h
+stdlib.h
+errno.h
+setjmp.h
+signal.h
+string.h
+unistd.h

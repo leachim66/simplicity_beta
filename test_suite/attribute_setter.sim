@@ -1,0 +1,12 @@
+#!/usr/bin/env simple
+
+$attribute_of (!)
+
+$$x types::object
+
+$p: (set)
+  set &x 7
+
+p attribute_of
+
+writeln attribute_of(x)

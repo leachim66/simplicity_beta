@@ -1,0 +1,5 @@
+contents:
+  object
+    std::height_of: "1/10"
+    _bug_2::contents_of: "Hallo alle mitei"
+    _bug_2::cursor_position_of: 16

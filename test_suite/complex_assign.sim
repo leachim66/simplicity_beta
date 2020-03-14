@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+$b ()
+
+$$a
+  list
+    45
+    "abc"
+    types::object
+      .b list(21 23 29 31 33)
+
+writeln a(3).b(4)
+
+!a(3).b(4) 5
+writeln a(3).b(4)

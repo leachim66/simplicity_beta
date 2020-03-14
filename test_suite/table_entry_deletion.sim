@@ -1,0 +1,21 @@
+#!/usr/bin/env simple
+
+$sort_lines: (text)
+  $$lines split(text .behind. '@nl;' '@nl;')
+  sort &lines numerically_less
+  ->
+    string
+      text .truncate_behind. '@nl;'
+      join(lines "@nl;")
+
+$$ages types::table
+
+!ages("John") 26
+!ages("Mary") 24
+!ages("Carl") 39
+
+writeln sort_lines(serialize(ages))
+
+!ages("John") undefined
+
+writeln sort_lines(serialize(ages))

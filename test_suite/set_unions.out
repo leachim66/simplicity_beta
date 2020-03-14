@@ -1,0 +1,30 @@
+key_order_set
+  "Elliot"
+  "Gerda"
+  "Joseph"
+  "Peter"
+  "Susan"
+insert_order_set
+  "Peter"
+  "Susan"
+  "Elliot"
+  "Gunda"
+  "Jenny"
+-----
+key_order_set
+  "Elliot"
+  "Gerda"
+  "Gunda"
+  "Jenny"
+  "Joseph"
+  "Peter"
+  "Susan"
+-----
+insert_order_set
+  "Peter"
+  "Susan"
+  "Elliot"
+  "Gunda"
+  "Jenny"
+  "Gerda"
+  "Joseph"

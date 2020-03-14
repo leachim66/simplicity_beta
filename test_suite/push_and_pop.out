@@ -1,0 +1,23 @@
+values:
+  list
+    29
+    35
+    42
+values:
+  list
+    29
+    35
+a: 42
+values:
+  list
+    29
+b: 35
+values:
+  list
+    29
+    69
+orig_values:
+  list
+    29
+    35
+    42

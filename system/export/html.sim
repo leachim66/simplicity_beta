@@ -1,0 +1,264 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<using builtin>
+<using std>
+<using html>
+
+$convert_from_percent_encoding ()
+
+$html::SIMPLE .
+$html::SINGLE_LINE .
+$html::MULTI_LINE .
+$html::MULTI_PARAGRAPH .
+$html::NORMAL .
+$html::VOID .
+$html::FOREIGN .
+
+# category: HTML generator
+
+%html::emit: (args*) for_each args: (arg) write arg
+
+%html::encode: (txt _tag _arg_str) emit txt
+
+$html::TEXT: (args*) html::encode string(args*) undefined undefined
+
+$hex_digit_value:
+  (
+    chr
+    -> return
+  )
+  cond
+    -> chr >= '0' && chr <= '9': return chr-'0'
+    -> chr >= 'a' && chr <= 'f': return chr-'a'+10
+    -> chr >= 'A' && chr <= 'F': return chr-'A'+10
+    :
+      raise "invalid hex digit"
+
+$hex_digit alt('0' .. '9' 'a' .. 'f' 'A' .. 'F')
+
+$types::string.convert_from_percent_encoding
+  : (&self) # converts a percent encoded string into iso-8859-1
+    replace_all &self "+" = " "
+    replace_all
+      &self
+      =
+	"%", hex_digit, hex_digit
+	: (capture)
+	  ->
+	    character
+	      16*hex_digit_value(capture(2))+hex_digit_value(capture(3))
+
+$html::define_tag:
+  # define a function to create HTML-code for a specific HTML-tag
+  (
+    name
+      #
+	the name to use for the tag in the output text
+    mode
+      #
+	SIMPLE:      ...<tag>...</tag> ...
+	SINGLE_LINE  ...<tag>...</tag>
+	             ...
+	MULTI_LINE   ...<tag>
+	             ...
+	             </tag>
+	             ...
+	MULTI_PARAGRAPH
+	  similar to MULTI_LINE but generates multiple tags if the text
+	  contains empty lines
+    tag_mode = html::NORMAL
+      #
+	NORMAL:      ...<tag></tag>... (if no contents)
+	VOID:        ...<tag>...       (if no contents)
+	FOREIGN:     ...<tag/>...      (if no contents)
+  )
+  -> : (args*)
+    $$i 1
+    $n length_of(args)
+    $$arg_str ""
+    do: (-> break)
+      forever:
+	if i > n break
+	$arg args(i)
+	unless arg.is_a_key_value_pair break
+	append
+	  &arg_str
+	  string
+	    " "
+	    replace_all(key_of(arg).to_string '_' = "-")
+	    "=@quot;"
+	    replace_all(value_of(arg).to_string '@quot;' = "&quot;")
+	    '@quot;'
+	inc &i
+    $$contents undefined
+    cond
+      -> i < n: !contents string(range(args i n)*)
+      -> i == n: !contents args(i)
+
+    $emit_tag: (cts)
+      emit "<" name arg_str
+      if
+	cts.is_defined:
+	  emit ">"
+	  if mode == MULTI_LINE: emit '@nl;'
+	  if
+	    cts.is_a_function:
+	      cts
+	    :
+	      encode cts.to_string name arg_str
+	  emit "</" name ">"
+	:
+	  case
+	    tag_mode
+	    html::NORMAL:
+	      emit "></" name ">"
+	    VOID:
+	      emit ">"
+	    FOREIGN:
+	      emit "/>"
+      unless mode == SIMPLE: emit '@nl;'
+
+    if
+      contents.is_defined && contents.is_a_string && name != "script":
+	for_each split(contents "@nl;@nl;"): ($field)
+	  $convert: (&line)
+	    replace_all
+	      &line
+	      "<|>" = "<br>"
+	      '<' = "&lt;"
+	      "\*" = "*"
+	      "\<" = "<"
+	      "\[" = "["
+	      =
+		'*', many(not_followed_by('*'), ANY_CHARACTER), '*'
+		: (text)
+		  -> string("<i>" range(text 2 -2) "</i>")
+	      =
+		"**", many(not_followed_by("**"), ANY_CHARACTER), "**"
+		: (text)
+		  -> string("<b>" range(text 3 -3) "</b>")
+	      =
+		sequence
+		  '['
+		  many(not_followed_by(']'), ANY_CHARACTER)
+		  ']'
+		  '('
+		  many(not_followed_by(')'), ANY_CHARACTER)
+		  ')'
+		: (reference)
+		  $link between(reference '(' ')')
+		  $text between(reference '[' ']')
+		  -> "
+		    <a href="@(link)@quot;>@(text)</a>@
+
+	  if
+	    field .has_prefix. "* ":
+	      !field string("<ul><li>" convert(range(field 3 -1)) "</ul>")
+	    :
+	      convert &field
+	  emit_tag field
+      :
+	emit_tag contents
+
+define_tag $html::HTML "html" MULTI_LINE
+define_tag $html::HEAD "head" MULTI_LINE
+define_tag $html::META "meta" SINGLE_LINE
+define_tag $html::TITLE "title" SINGLE_LINE
+define_tag $html::STYLE "style" MULTI_LINE
+define_tag $html::SCRIPT "script" MULTI_LINE
+define_tag $html::BODY "body" MULTI_LINE
+define_tag $html::A "a" SIMPLE
+define_tag $html::H1 "h1" SINGLE_LINE
+define_tag $html::H2 "h2" SINGLE_LINE
+define_tag $html::H3 "h3" SINGLE_LINE
+define_tag $html::H4 "h4" SINGLE_LINE
+define_tag $html::H5 "h5" SINGLE_LINE
+define_tag $html::H6 "h6" SINGLE_LINE
+define_tag $html::DIV "div" MULTI_PARAGRAPH
+define_tag $html::P "p" MULTI_PARAGRAPH
+define_tag $html::SPAN "span" SIMPLE
+define_tag $html::HR "hr" SIMPLE VOID
+define_tag $html::BR "br" SINGLE_LINE VOID
+define_tag $html::NOBR "nobr" MULTI_PARAGRAPH
+define_tag $html::OL "ol" MULTI_LINE
+define_tag $html::UL "ul" MULTI_LINE
+define_tag $html::LI "li" SINGLE_LINE
+define_tag $html::TABLE "table" MULTI_LINE
+define_tag $html::TR "tr" MULTI_LINE
+define_tag $html::TH "th" MULTI_LINE
+define_tag $html::TD "td" SINGLE_LINE
+define_tag $html::DL "dl" MULTI_LINE
+define_tag $html::DT "dt" SINGLE_LINE
+define_tag $html::DD "dd" MULTI_LINE
+define_tag $html::FORM "form" MULTI_LINE
+define_tag $html::FIELDSET "fieldset" MULTI_LINE
+define_tag $html::LEGEND "legend" SINGLE_LINE
+define_tag $html::INPUT "input" SIMPLE VOID
+define_tag $html::TEXTAREA "textarea" SINGLE_LINE
+define_tag $html::SELECT "select" MULTI_PARAGRAPH
+define_tag $html::OPTION "option" MULTI_LINE
+define_tag $html::BUTTON "button" SINGLE_LINE
+define_tag $html::CODE "code" SINGLE_LINE
+define_tag $html::PRE "pre" MULTI_LINE
+define_tag $html::B "b" SIMPLE
+define_tag $html::EM "em" SIMPLE
+define_tag $html::CENTER "center" SIMPLE
+define_tag $html::LINK "link" SINGLE_LINE
+define_tag $html::IMG "img" SIMPLE VOID
+define_tag $html::FIGURE "figure" MULTI_PARAGRAPH
+define_tag $html::FIGCAPTION "figcaption" MULTI_PARAGRAPH
+define_tag $html::VIDEO "video" MULTI_PARAGRAPH
+define_tag $html::SOURCE "source" SIMPLE VOID
+define_tag $html::CANVAS "canvas" MULTI_PARAGRAPH
+
+$html::HTTP_HEADER:
+  write "
+    Content-type: text/html; charset=utf-8
+    @;
+
+$html::HTML_HEADER: writeln "<!doctype html>"
+
+$html::ERROR_PAGE: (msg details?)
+  HTTP_HEADER
+  HTML_HEADER
+  HTML:
+    HEAD: TITLE msg
+    HTML:
+      H1 msg
+      if details.is_defined: P details
+
+$html::DUMP_PAGE:
+  #
+    create an html-page (including an http-header) from a simple text message
+
+    see also: html::ERROR_PAGE, html::HTTP_HEADER, html::HTML_HEADER
+  (
+    msg # a simple text message
+  )
+  HTTP_HEADER
+  HTML_HEADER
+  HTML:
+    HEAD: TITLE "dump"
+    HTML:
+      H1 "dump"
+      PRE msg

@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+$libraries list("m" "gmp")
+$object_files list("a.o" "b.o" "c.o")
+
+$p: (args*) for_each args: (arg) writeln arg
+
+p
+  map(libraries: (name) -> "-l@(name)")*
+  object_files*

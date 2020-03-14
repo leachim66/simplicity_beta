@@ -1,0 +1,14 @@
+#!/usr/bin/env simple
+
+$attribute_of (!)
+
+$$x types::object
+
+$p: (update)
+  update &x update(x)+3
+
+!x.attribute_of 6
+
+p attribute_of
+
+writeln attribute_of(x)

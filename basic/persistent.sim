@@ -1,0 +1,49 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$filename_of (!)
+$getter_of (!)
+
+$$persistent_vars empty_list
+
+$std::persistent: (filename updater)
+  $$buf undefined
+  try:
+    load !buf filename
+    trim &buf
+  if buf.is_defined: updater deserialize(buf)
+  push &persistent_vars types::object(.filename_of filename .getter_of updater)
+
+$std::save_persistent:
+  (
+    filename
+    -> return
+  )
+  for_each persistent_vars: (info)
+    if filename_of(info) == filename:
+      save filename push(serialize(getter_of(info)()) '@nl;')
+      return
+  raise "Invalid filename specified in call to <save_persistent>!"
+
+at_exit:
+  for_each persistent_vars: (info)
+    save filename_of(info) push(serialize(getter_of(info)()) '@nl;')

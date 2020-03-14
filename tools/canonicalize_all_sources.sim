@@ -1,0 +1,55 @@
+#!/usr/bin/env simrun
+
+extern $sim2c "./sim2c/simple"
+$$source_filenames empty_list
+$$destination_filenames empty_list
+
+$collect_all_sources: (path)
+  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+    if
+      entry.is_a_directory:
+	collect_all_sources fullname_of(entry)
+      :
+	if filename_of(entry) .has_suffix. ".sim":
+	  push &source_filenames fullname_of(entry)
+
+collect_all_sources "."
+$source_path current_path()
+$destination_path "/tmp/canonicalized_sources"
+$$successful_prints_count 0
+for_each source_filenames: (source_filename)
+  $base_filename source_filename .without_prefix. source_path
+  $destination_filename string(destination_path base_filename)
+  write "printing original " base_filename " ... "
+  sim2c $out $err $successful "--pretty-print" source_filename
+  if
+    successful:
+      writeln "success"
+      inc &successful_prints_count
+      save std::key_value_pair(PARENTS std::true) destination_filename out
+      push &destination_filenames destination_filename
+    :
+      writeln "FAILED TO PRINT"
+write "
+  @nl;@(successful_prints_count) of @(length_of(source_filenames)) printed @
+  successfully
+  @;
+$$successful_reprints_count 0
+for_each destination_filenames: (destination_filename)
+  $base_filename destination_filename .without_prefix. destination_path
+  write "printing canonicalized " base_filename " ... "
+  sim2c $out $err $successful "--pretty-print" destination_filename
+  if
+    successful:
+      $orig load(destination_filename)
+      if
+	out == orig:
+	  inc &successful_reprints_count
+	  writeln "success"
+	:
+	  writeln "printed BUT COMPARISON FAILED"
+    :
+      writeln " FAILED TO PRINT"
+write "
+  @nl;@(successful_reprints_count) of @(length_of(destination_filenames)) @
+  reprinted successfully

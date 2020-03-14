@@ -1,0 +1,11 @@
+#!/usr/bin/env simple
+
+$test:
+  (
+    a = b
+    b?
+  )
+  dump `b
+  dump `a
+
+test

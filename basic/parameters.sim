@@ -1,0 +1,463 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$BOOLEAN_OPTION .
+$std::VALUED_OPTION .
+$std::MULTI_VALUED_OPTION .
+$std::MANDATORY_PARAMETER .
+$std::OPTIONAL_PARAMETER .
+$std::SOME_PARAMETERS .
+$std::MANY_PARAMETERS .
+
+$$program_version undefined
+$$program_copyright undefined
+
+$std::copyright: (msg) !program_copyright msg
+
+$std::version: (no) !program_version no
+
+$std::extract_options: ($options templates*)
+  $$results empty_list
+  $$parameters empty_list
+  do:
+    $$idx 1
+    for_each options: (option)
+      if
+	option.is_a_key_value_pair:
+	  inc &idx
+	:
+	  push &parameters option
+	  delete_at &options idx
+  for_each templates: (template)
+    $$result value_of(template)
+    $$idx 1
+    if
+      result == SOME_PARAMETERS:
+	!result empty_list
+	for_each options: (option)
+	  if
+	    key_of(option) == key_of(template):
+	      delete_at &options idx
+	      push &result value_of(option)
+	    :
+	      inc &idx
+      :
+	for_each options: (option)
+	  if
+	    key_of(option) == key_of(template):
+	      delete_at &options idx
+	      !result value_of(option)
+	    :
+	      inc &idx
+    push &results result
+  unless options.is_empty:
+    Error "Invalid option @(range(debug_string(key_of(options(1))) 1 -2))!"
+  -> results* parameters*
+
+$std::extract_some_options:
+  (
+    &options
+    templates*
+  )
+  $$results empty_list
+  for_each templates: (template)
+    $$result value_of(template)
+    $$idx 1
+    if
+      result == SOME_PARAMETERS:
+	!result empty_list
+	for_each options: (option)
+	  if
+	    key_of(option) == key_of(template):
+	      delete_at &options idx
+	      push &result value_of(option)
+	    :
+	      inc &idx
+      :
+	for_each options: (option)
+	  if
+	    option.is_a_key_value_pair && key_of(option) == key_of(template):
+	      delete_at &options idx
+	      !result value_of(option)
+	    :
+	      inc &idx
+    push &results result
+  -> results*
+
+$display_table: (tab)
+  $$first_column_width 0
+  for_each tab: (entry) extend_to &first_column_width length_of(entry(1))
+  plus &first_column_width 2
+  for_each tab: (entry)
+    ewrite "  " pad_right(entry(1) first_column_width)
+    for_each_line entry(2): (idx line)
+      if idx != 1: ewrite " " .dup. 2+first_column_width
+      ewriteln line
+
+$$command_id undefined
+$$command_id_count 0
+$$command_names empty_list
+$$command_descriptions empty_list
+
+$show_version: (command_name)
+  ewrite "@(command_name) @(program_version)@nl;@nl;"
+
+$show_copyright: ewrite program_copyright
+
+$check_arguments: (command? $arguments templates)
+  $$results empty_list
+  $$options empty_key_order_table
+  $$parameters empty_insert_order_table
+  $$names empty_list
+  $$kinds empty_list
+  $$possible_values empty_list
+  $$default_values empty_list
+  $$conversions empty_list
+  $$help_messages empty_list
+  $command_name truncate_until(program_name '/' -1)
+  map &arguments from_utf8
+
+  $help_message: (idx)
+    $$message help_messages(idx)
+    $possible_value possible_values(idx)
+    if possible_value.is_defined:
+      append &message "valid values:"
+      for_each possible_value: (value) write_to &message ' ' value ','
+      !message(-1) '@nl;'
+    -> message
+
+  $show_usage:
+    $parameter_name: (parameter idx)
+      $$buf parameter.to_upper_case
+      case
+	kinds(idx)
+	OPTIONAL_PARAMETER:
+	  push &buf '?'
+	SOME_PARAMETERS:
+	  push &buf '*'
+	MANY_PARAMETERS:
+	  push &buf '+'
+      -> buf
+
+    if program_version.is_defined: show_version command_name
+    if command_id.is_defined:
+      ewriteln command_name ' ' command
+      ewriteln indented(2 command_descriptions(command_id))
+    ewriteln "Usage:"
+    unless command.is_defined:
+      if program_copyright.is_defined: ewriteln "  " command_name " --copyright"
+      ewriteln "  " command_name " --help"
+    ewrite
+      "  "
+      command_name
+      if(command.is_defined (-> string(' ' command)) -> "")
+    for_each parameters: (parameter idx)
+      ewrite " " parameter_name(parameter idx)
+    ewriteln
+    ewrite "
+
+      Parameters:
+    do:
+      $$tab empty_list
+      for_each parameters: (parameter idx)
+	push &tab list(parameter_name(parameter idx) help_message(idx))
+      display_table tab
+    unless options.is_empty:
+      ewrite "
+
+	Options:
+      do:
+	$$tab empty_list
+	for_each options: (option idx)
+	  $option_name:
+	    $$buf string("--" option)
+	    case
+	      kinds(idx)
+	      VALUED_OPTION:
+		append &buf " VALUE"
+	      MULTI_VALUED_OPTION:
+		append &buf " VALUES"
+	    -> buf
+
+	  push &tab list(option_name() help_messages(idx))
+	display_table tab
+
+  $too_few_arguments_error:
+    if
+      command.is_defined:
+	ewriteln "
+	  Too few arguments for @(command)-command!
+      :
+	ewriteln "
+	  Too few arguments!
+    show_usage
+    exit 1
+
+  $too_many_arguments_error:
+    ewriteln "
+      Too many arguments!
+    show_usage
+    exit 1
+
+  for_each templates: (idx template)
+    template $$option $name? $default_value? $conversion? $help
+    if
+      option.is_a_key_value_pair:
+	push &possible_values value_of(option)
+	!option key_of(option)
+      :
+	push &possible_values undefined
+    push &names if(name.is_defined (-> name) -> option)
+    push &kinds option
+    push &default_values default_value
+    push &conversions conversion
+    push &help_messages help
+    cond
+      -> option.is_a_string:
+	push &results false
+	!options(option) idx
+	!kinds(idx) BOOLEAN_OPTION
+      -> option == VALUED_OPTION:
+	push &results undefined
+	!options(name) idx
+      -> option == MULTI_VALUED_OPTION:
+	push &results empty_list
+	!options(name) idx
+      -> option == SOME_PARAMETERS || option == MANY_PARAMETERS:
+	push &results empty_list
+	!parameters(name) idx
+      :
+	push &results undefined
+	!parameters(name) idx
+  if length_of(arguments) >= 1:
+    if arguments(1) == "--help":
+      show_usage
+      terminate
+    if program_copyright.is_defined && arguments(1) == "--copyright":
+      show_copyright
+      terminate
+    if program_version.is_defined && arguments(1) == "--version":
+      show_version command_name
+      terminate
+  do:
+    $$idx 1
+    $$fetch_option_value false
+    $$option_idx undefined
+    do: (-> break)
+      for_each arguments: (argument)
+	if argument == "--":
+	  delete_at &arguments idx
+	  break
+	if
+	  fetch_option_value:
+	    !fetch_option_value false
+	    delete_at &arguments idx
+	    case
+	      kinds(option_idx)
+	      VALUED_OPTION:
+		!results(option_idx) argument
+	      MULTI_VALUED_OPTION:
+		push &results(option_idx) argument
+	  :
+	    if
+	      argument .has_prefix. "--":
+		!option_idx options(range(argument 3 -1))
+		if option_idx.is_undefined: Error "Invalid option: @(argument)!"
+		if
+		  kinds(option_idx) == BOOLEAN_OPTION:
+		    !results(option_idx) true
+		  :
+		    !fetch_option_value true
+		delete_at &arguments idx
+	      :
+		inc &idx
+  $$last_idx -1
+  do: (-> break)
+    for_each_from_down_to templates -1 1: (idx template)
+      template $$option $_name? $_default_value? $_conversion? $_help
+      if option.is_a_key_value_pair: !option key_of(option)
+      case
+	option
+	MANDATORY_PARAMETER:
+	  if arguments.is_empty too_few_arguments_error
+	  pop &arguments !results(idx)
+	  !last_idx idx-1
+	OPTIONAL_PARAMETER, SOME_PARAMETERS, MANY_PARAMETERS:
+	  break
+  for_each_from_to templates 1 last_idx: (idx template)
+    template $$option $_name? $_default_value? $_conversion? $_help
+    if option.is_a_key_value_pair: !option key_of(option)
+    case
+      option
+      MANDATORY_PARAMETER:
+	if length_of(arguments) == 0 too_few_arguments_error
+	get &arguments !results(idx)
+      OPTIONAL_PARAMETER:
+	if length_of(arguments) > 0: get &arguments !results(idx)
+      SOME_PARAMETERS:
+	!results(idx) arguments
+	!arguments empty_list
+      MANY_PARAMETERS:
+	if length_of(arguments) == 0 too_few_arguments_error
+	!results(idx) arguments
+	!arguments empty_list
+  unless arguments.is_empty too_many_arguments_error
+  for_each results: (idx result)
+    if
+      result.is_undefined && default_values(idx).is_defined:
+	!results(idx) default_values(idx)
+      :
+	$possible_value possible_values(idx)
+
+	$check: (value)
+	  unless possible_value(value):
+	    ewriteln
+	      "Invalid argument value for @(names(idx).to_upper_case)!@nl;"
+	    show_usage
+	    exit 1
+
+	if possible_value.is_defined:
+	  if
+	    result.is_a_list:
+	      for_each result: (item) check item
+	    :
+	      check result
+	$conversion conversions(idx)
+	if conversion.is_defined:
+	  if
+	    result.is_a_list:
+	      $$new_result empty_list
+	      for_each result: (item) push &new_result conversion(item)
+	      !results(idx) new_result
+	    :
+	      !results(idx) conversion(result)
+  -> results*
+
+$std::program_commands: (commands*)
+  $$command_ids empty_list
+  for_each commands: (command)
+    $name key_of(command)
+    $description value_of(command)
+    push &command_names name
+    push &command_descriptions description
+    inc &command_id_count
+    push &command_ids command_id_count
+  -> command_ids*
+
+$std::command_parameters: (id templates*)
+  if
+    command_line_arguments.is_empty
+    -> dup(list(undefined) length_of(templates))*
+    :
+      $command command_line_arguments(1).from_utf8
+      cond
+	->
+	  &&
+	    command == "help"
+	    length_of(command_line_arguments) == 2
+	    command_line_arguments(2).from_utf8 == command_names(id)
+	  :
+	    check_arguments command_names(id) list("--help") templates
+	-> command == command_names(id):
+	  !command_id id
+	  check_arguments command range(command_line_arguments 2 -1) templates
+	-> true -> dup(list(undefined) length_of(templates))*
+
+$show_commands:
+  if program_version.is_defined:
+    show_version truncate_until(program_name '/' -1)
+  ewriteln "Available commands:"
+  $$tab list(list("help" "display help for the specified command"))
+  for_each command_names: (idx command_name)
+    push &tab list(command_name command_descriptions(idx))
+  if program_copyright.is_defined:
+    push &tab list("copyright" "display the copyright message")
+  if program_version.is_defined:
+    push &tab list("version" "display the version number")
+  display_table tab
+
+$std::program_parameters: (templates*)
+  if
+    command_id_count > 0:
+      if command_id.is_defined (-> command_id):
+	if
+	  command_line_arguments.is_empty:
+	    ewriteln "
+	      No command specified!
+	    show_commands
+	    exit 1
+	  :
+	    case
+	      command_line_arguments(1)
+	      "copyright":
+		if program_copyright.is_defined:
+		  show_copyright
+		  terminate
+	      "help":
+		case
+		  length_of(command_line_arguments)
+		  1:
+		    show_commands
+		    terminate
+		  2:
+		    case
+		      command_line_arguments(2)
+		      "copyright":
+			if program_copyright.is_defined:
+			  ewrite "
+			    Usage:
+			      sigi copyright
+			  terminate
+		      "help":
+			ewrite "
+			  Usage:
+			    sigi help COMMAND
+
+			  Parameter:
+			    COMMAND  the command for which to retrieve help
+			terminate
+		      "version":
+			if program_version.is_defined:
+			  ewrite "
+			    Usage:
+			      sigi version
+			  terminate
+		    ewriteln "
+		      Invalid command name!
+		    show_commands
+		    exit 1
+		  :
+		    ewriteln "
+		      Too many arguments!
+		    show_commands
+		    exit 1
+	      "version":
+		if program_version.is_defined:
+		  $command_name truncate_until(program_name '/' -1)
+		  show_version command_name
+		  terminate
+	    ewriteln "
+	      Invalid arguments!
+	    show_commands
+	    exit 1
+    :
+      check_arguments command_line_arguments templates

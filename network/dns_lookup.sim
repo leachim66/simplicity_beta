@@ -1,0 +1,63 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include stdint.h>
+<include stdio.h>
+<include sys/types.h>
+<include sys/socket.h>
+<include netdb.h>
+
+{
+  <kind function>
+
+  NODE *sockaddr_to_string(struct sockaddr *sa) {
+    char host[128];
+    char serv[16];
+    int ret;
+    socklen_t sa_len;
+
+    sa_len = sizeof(struct sockaddr);
+    if (sa->sa_family == AF_INET) {
+      sa_len = sizeof(struct sockaddr_in);
+    } else if (sa->sa_family == AF_INET6) {
+      sa_len = sizeof(struct sockaddr_in6);
+    }
+    ret = getnameinfo(
+      sa, sa_len, host, sizeof(host),
+      serv, sizeof(serv), NI_NUMERICSERV);
+    if (ret == 0) return from_c_string(host);
+    return UNDEFINED;
+  }
+}
+
+$std::dns_lookup
+  {
+    CHECK_ARGUMENTS(1)
+    char *hostname = to_c_string(ARGUMENTS(0));
+    struct addrinfo *result;
+    int ret = getaddrinfo(hostname, NULL, NULL, &result);
+    free(hostname);
+    if (ret != 0 || result == NULL) RETURN_UNDEFINED
+    NODE *address = sockaddr_to_string(result->ai_addr);
+    freeaddrinfo(result);
+    RETURN_SINGLE_RESULT(address)
+  }

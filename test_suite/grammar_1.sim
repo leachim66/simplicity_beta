@@ -1,0 +1,43 @@
+#!/usr/bin/env simple
+
+$name_of (!)
+$functor_of (!)
+$std::arguments_of (!)
+
+$types::grammar_node.arguments_of types::list
+
+$identifier_node types::grammar_node
+$identifier_node/to_string: (self) -> name_of(self)
+
+$txt "f47(x y z)"
+
+$WS
+  many(' ')
+
+$NAME
+  LETTER, some(alt(LETTER DIGIT))
+
+$IDENTIFIER
+  set_node(identifier_node), capture(name_of NAME)
+
+$ARGUMENT
+  multi_span(arguments_of IDENTIFIER)
+
+$ARGUMENTS
+  ARGUMENT, some(WS, ARGUMENT)
+
+$PROGRAM
+  sequence
+    span(functor_of IDENTIFIER)
+    '(' ARGUMENTS ')'
+
+match txt PROGRAM $len $cap
+
+if
+  len.is_defined:
+    writeln "matched " len " character(s)"
+    writeln "captured functor " functor_of(cap)
+    for_each arguments_of(cap): (argument)
+      writeln "captured argument " argument
+  :
+    writeln "no match"

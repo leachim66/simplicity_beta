@@ -1,0 +1,13 @@
+<include stdio.h>
+
+$std::dump {
+  CHECK_ARGUMENTS(1)
+
+  NODE *node = ARGUMENT(0);
+  long len = debug_string(node, 0, 20, NULL);
+  char *buf = allocate_memory(len+1); // obey terminating null-byte
+  len = debug_string(node, 0, 20, buf);
+  fwrite(buf, 1, len, stdout);
+  deallocate_memory(buf);
+  RETURN_NOTHING
+}

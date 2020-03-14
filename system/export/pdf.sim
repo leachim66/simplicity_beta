@@ -1,0 +1,404 @@
+#
+  Copyright (C) 2020-2016 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see
+  http://www.gnu.org/copyleft/gpl.html
+  or write to the
+  Free Software Foundation, Inc.,
+  59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+$ascender_of (!)
+$descender_of (!)
+$point_size_of (!)
+$line_height_of (!)
+$commands_of (!)
+$name_of (!)
+$dump ()
+$is_a_pdf_object ()
+
+$types::object.is_a_pdf_object false
+$pdf_object types::object
+$pdf_object.is_a_pdf_object true
+
+$INVALID .
+%markup::CLASS .
+%markup::TEXT_ALIGN .
+%markup::LEFT .
+%markup::RIGHT .
+%markup::CENTER .
+%markup::JUSTIFY .
+%markup::SMALL .
+%markup::NORMAL .
+%markup::BIG .
+%markup::HUGE .
+
+$types::object.dump undefined
+%markup::PAGE undefined
+%markup::BOX undefined
+%markup::P undefined
+%markup::LINE undefined
+$DPI 600
+$F 1/(64*DPI/25.4)
+
+$character_width: (font chr)
+  $f case(chr ' ', 'i' (-> 0.8) 'W' (-> 2) -> 1)
+  case point_size_of(font) 8 (-> 1.28*f) 12 (-> 2*f) 16 (-> 2.8*f) 24 -> 3.85*f
+
+$factor_of: (font) case point_size_of(font) 8 (-> 2) 12 (-> 3) 16 (-> 4) 24 -> 6
+
+$load_font: (_filename point_size)
+  ->
+    types::object
+      .ascender_of 1
+      .descender_of 1
+      .point_size_of point_size
+      .line_height_of 2
+
+$std::PDF: (pdf_body)
+  $$fonts empty_table
+  $$current_font undefined
+  $$xrefs empty_list
+  $$pages empty_list
+  $page_width 210
+  $page_height 297
+  $left_margin 20
+  $right_margin 20
+  $top_margin 20
+  $bottom_margin 20
+  $$box_x undefined
+  $$box_y undefined
+  $$box_width undefined
+  $$box_height undefined
+
+  $set_page_box:
+    !box_x left_margin
+    !box_y top_margin
+    !box_width page_width-left_margin-right_margin
+    !box_height page_height-top_margin-bottom_margin
+
+  $mm_to_pt: (mm) -> round(mm*72000/254)/100
+
+  $X mm_to_pt
+
+  $Y: (y) -> mm_to_pt(page_height-y)
+
+  $$page_commands ""
+  $$text_lines empty_list
+
+  $set_font:
+    (
+      font_name
+      -> return
+    )
+    if current_font.is_defined && name_of(current_font) == font_name:
+      return false
+    !current_font fonts(font_name)
+    if current_font.is_undefined:
+      $size to_number(font_name .behind. '-')
+      !current_font load_font("/usr/share/fonts/corefonts/times.ttf" size)
+      !current_font.name_of font_name
+      !fonts(font_name) current_font
+    -> true
+
+  $add_text_block:
+    if length_of(text_lines) > 0:
+      write_to &page_commands "
+	BT@nl;@(X(box_x)) @(Y(box_y)) TD
+      for_each text_lines: (line_no text_line)
+	unless line_no == 1: write_to &page_commands "0 -18 Td"
+	write_to &page_commands commands_of(text_line)
+      writeln_to &page_commands "ET"
+      !text_lines empty_list
+      !current_font undefined
+
+  $add_page:
+    add_text_block
+    $contents_id Write_object(stream(page_commands))
+    $$contents undefined
+    !contents ref(contents_id)
+    push
+      &pages
+      Write_object
+	dictionary
+	  "Type"
+	  "/Page"
+	  "Parent"
+	  ref(1)
+	  "MediaBox"
+	  "[0 0 @(mm_to_pt(page_width)) @(mm_to_pt(page_height))]"
+	  "Resources"
+	  dictionary
+	    "Font"
+	    dictionary("times" ref(times_id))
+	    "XObject"
+	    dictionary(images*)
+	  "Contents"
+	  contents
+
+  $ref: (id) -> "@(id) 0 R"
+
+  %markup::PAGE: (page_body)
+    page_body
+    add_page
+    !current_font undefined
+    !text_lines list()
+    !page_commands ""
+
+  %markup::BOX:
+    (
+      x
+      y
+      width = page_width-right_margin-x
+      height = page_height-bottom_margin-y
+      box_body
+    )
+    add_text_block
+    !box_x x
+    !box_y y
+    !box_width width
+    !box_height height
+    box_body
+
+  %markup::P: (options* $text)
+    extract_options
+      options
+      markup::CLASS = markup::NORMAL
+      $class
+      markup::TEXT_ALIGN = markup::LEFT
+      $text_align
+    to_string &text
+    $font_name "times"
+
+    $font_size
+      case
+	class
+	markup::SMALL
+	-> 8
+	markup::NORMAL
+	-> 12
+	markup::BIG
+	-> 16
+	markup::HUGE
+	-> 24
+
+    trim &text
+    replace_all &text WHITESPACE = " "
+    if text != "":
+      $$commands ""
+      if set_font("@(font_name)-@(font_size)"): # font changed
+	write_to &commands "
+	  /times @(font_size) Tf
+      $line_height line_height_of(current_font)
+      $ascender ascender_of(current_font)
+      $descender descender_of(current_font)
+
+      $show_text:
+	(
+	  txt
+	  txt_width
+	  is_last_line = false
+	)
+	cond
+	  -> text_align == markup::RIGHT:
+	    $indent txt_width-box_width
+	    write_to &commands "
+	      [@(round(indent/(factor_of(current_font)*F*2.048))) (@(txt))] TJ
+	  -> text_align == markup::CENTER:
+	    $indent (txt_width-box_width)/2
+	    write_to &commands "
+	      [@(round(indent/(factor_of(current_font)*F*2.048))) (@(txt))] TJ
+	  -> text_align == markup::JUSTIFY && not(is_last_line):
+	    # MAYBE SET THE SPACE WIDTH INSTEAD!
+
+	    $extra_space txt_width-box_width
+	    $n count_character_occurrences(txt ' ')
+
+	    ### ATTENTION ###
+	    ### THIS IS A CRAZY FIX (FACTOR 1.3)!!!
+	    ### THE FONT SEEMS TO CONTAIN NO KERNING INFO - MAYBE THIS IS
+	    ### THE CAUSE OF THE BUG!
+
+	    $space_width 1.3*extra_space/n-character_width(current_font ' ')
+	    write_to &commands "["
+	    for_each
+	      split(txt): (word)
+		write_to &commands "(" word ")"
+	      :
+		write_to
+		  &commands
+		  " "
+		  round(space_width/(factor_of(current_font)*F*2.048))
+		  " "
+	    write_to &commands "] TJ"
+	  :
+	    write_to &commands "
+	      (@(txt)) Tj
+
+      $add_text_line:
+	push
+	  &text_lines
+	  types::object
+	    .line_height_of line_height
+	    .ascender_of ascender
+	    .descender_of descender
+	    .commands_of commands
+	!commands ""
+
+      $$width 0
+      $$gap_idx undefined
+      $$gap_x undefined
+      $s 1
+      for_each text: (idx chr)
+	if chr == ' ':
+	  !gap_idx idx
+	  !gap_x width
+	plus &width character_width(current_font chr)
+
+	#if width > box_width:
+	  show_text range(text s gap_idx-1) gap_x
+	  add_text_line
+	  !s gap_idx+1
+	  minus &width gap_x-character_width(current_font ' ')
+      if s <= length_of(text):
+	show_text range(text s -1) width true
+	add_text_line
+
+  %markup::LINE: (sx sy args*)
+    add_text_block
+    write_to &page_commands "@(X(sx)) @(Y(sy)) m@nl;"
+    for_each_pair args: (x y) write_to &page_commands "@(X(x)) @(Y(y)) l@nl;"
+    writeln_to &page_commands 'S'
+
+  $$images empty_list
+  $$position 0
+
+  $Write: (args*)
+    $str string(args*)
+    write str
+    plus &position length_of(str)
+
+  $Writeln: (args*) Write args* "@nl;"
+
+  $dictionary: (args*)
+    $$self pdf_object
+
+    !self/dump: (_dummy)
+      Writeln "<<"
+      $$i 1
+      $n length_of(args)
+      while -> i < n:
+	if
+	  args(i+1).is_a_pdf_object:
+	    Writeln "/" args(i)
+	    dump args(i+1)
+	  :
+	    Writeln "/" args(i) " " args(i+1)
+	plus &i 2
+      Writeln ">>"
+
+    -> self
+
+  $stream: (args* contents)
+    $$self pdf_object
+
+    !self/dump: (_dummy)
+      Write "
+	<<
+	/Length @(length_of(contents))
+      $$i 1
+      $n length_of(args)
+      while -> i < n:
+	if
+	  args(i+1).is_a_pdf_object:
+	    Writeln "/" args(i)
+	    dump args(i+1)
+	  :
+	    Writeln "/" args(i) " " args(i+1)
+	plus &i 2
+      Write "
+	>>
+	stream
+	@(contents)endstream
+
+    -> self
+
+  $ref_array: (tab)
+    $$self pdf_object
+
+    !self/dump: (_dummy)
+      Writeln "["
+      for_each tab: (entry) Writeln ref(entry)
+      Writeln "]"
+
+    -> self
+
+  $Write_object:
+    (
+      $id?
+      dict
+      -> return
+    )
+    if
+      id.is_defined:
+	!xrefs(id) position
+      :
+	push &xrefs position
+	!id length_of(xrefs)
+    Writeln "@(id) 0 obj"
+    dump dict
+    Writeln "endobj"
+    if parameter_count_of(return) == 1: return id
+
+  Write "
+    %PDF-1.3
+    %äöüß
+  push &xrefs INVALID
+
+  $times_id
+    Write_object
+      dictionary
+	"Type"
+	"/Font"
+	"Subtype"
+	"/Type1"
+	"BaseFont"
+	"/Times-Roman"
+	"Encoding"
+	"/WinAnsiEncoding"
+
+  set_page_box
+  pdf_body
+
+  # documents without explicit PAGE-instructions consist of a single page
+
+  if length_of(pages) == 0: add_page
+  Write_object
+    1
+    dictionary("Type" "/Pages" "Count" length_of(pages) "Kids" ref_array(pages))
+  $catalog_id Write_object(dictionary("Type" "/Catalog" "Pages" ref(1)))
+  $xref_start position
+  Write "
+    xref
+    0 @(length_of(xrefs)+1)
+    0000000000 65535 f
+  for_each xrefs: (xref)
+    Write "
+      @(pad_left(xref 10 "0")) 00000 n
+  Write "
+    trailer
+    <<
+    /Size @(length_of(xrefs)+1)
+    /Root @(ref(catalog_id))
+    >>
+    startxref
+    @(xref_start)
+    %%EOF

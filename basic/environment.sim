@@ -1,0 +1,104 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include stdlib.h>
+
+$argv
+  {
+    CHECK_ARGUMENTS(1)
+    int idx = to_int(ARGUMENTS(0));
+    if (idx < 0 || idx >= ARGC) INVALID_INDEX_ERROR
+    RETURN_SINGLE_RESULT(from_c_string(ARGV[idx]));
+  }
+
+$argc
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_int(ARGC));
+  }
+
+{
+  extern char **environ;
+  int ENVC = 0;
+}
+
+$envv
+  {
+    CHECK_ARGUMENTS(1)
+    char *entry;
+    EVENT(envv)
+      int idx = to_int(ARGUMENTS(0));
+      if (idx < 1 || idx > ENVC) INVALID_INDEX_ERROR
+      entry = environ[idx-1];
+    DATA
+      C_STRING(entry)
+    END
+    RETURN_SINGLE_RESULT(from_c_string(entry))
+  }
+
+$envc
+  {
+    CHECK_ARGUMENTS(0)
+    EVENT(envc)
+      if (ENVC == 0) while (environ[ENVC]) ++ENVC;
+    DATA
+      INT(ENVC)
+    END
+    RETURN_SINGLE_RESULT(from_int(ENVC));
+  }
+
+$std::program_name argv(0)
+$$arguments empty_list
+from_to 1 argc()-1: (i) push &arguments argv(i)
+$std::command_line_arguments arguments
+$$env_1 empty_table
+from_to 1 envc(): (i)
+  $str envv(i).from_utf8
+  !env_1(str .before. '=') str .behind. '='
+
+$putenv
+  {
+    CHECK_ARGUMENTS(1)
+    putenv(to_c_string(ARGUMENTS(0)));
+    RETURN_NOTHING
+  }
+
+$NONE .
+
+$env_2 env_1
+
+$env_2/:
+  (
+    myself^
+    key
+    value = NONE
+  )
+  if
+    NONE == value:
+      private::get_item myself key
+    :
+      #ewriteln key ": " value
+
+      putenv "@(key)=@(value)"
+      private::set_item myself key value
+
+$$std::environment env_2

@@ -1,0 +1,13 @@
+#!/usr/bin/env simple
+
+$fac: (n -> return)
+  if
+    n > 1:
+      return n*fac(n-1)
+    :
+      return 1
+
+$$i 1
+while -> i <= 200:
+  writeln i "! = " fac(i)
+  !i i+1

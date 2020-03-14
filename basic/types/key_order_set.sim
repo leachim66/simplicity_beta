@@ -1,0 +1,167 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$NONE .
+
+$tree_of (!)
+$left_of (!)
+$right_of (!)
+
+$types::key_order_set types::generic_set
+
+# ATTENTION: BUG BUG BUG!!!
+
+#types::object $empty_node
+  .left_of undefined
+  .right_of undefined
+
+# THIS *SHOULD* BE IDENTICAL TO:
+
+$empty_node types::object
+$empty_node.left_of undefined
+$empty_node.right_of undefined
+
+$fetch_first:
+  (
+    &myself
+    -> return
+  )
+  $$left left_of(myself)
+  if
+    left.is_defined:
+      $key fetch_first(&left)
+      !myself.left_of left
+      return key
+    :
+      $key key_of(myself)
+      !myself right_of(myself)
+      return key
+
+$get_item:
+  (
+    myself
+    key
+    -> return
+  )
+  if myself.is_undefined: return false
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: return true
+    -> key < my_key: return get_item(left_of(myself) key)
+    -> key > my_key: return get_item(right_of(myself) key)
+
+$add_item:
+  (
+    $myself
+    key
+    -> return
+  )
+  if myself.is_undefined: return empty_node(.key_of key)
+  $my_key key_of(myself)
+  cond
+    -> key == my_key: return NONE
+    -> key < my_key:
+      $left add_item(left_of(myself) key)
+      if NONE == left: return NONE # nothing added
+      !myself.left_of left
+      return myself
+    -> key > my_key:
+      $right add_item(right_of(myself) key)
+      if NONE == right: return NONE # nothing added
+      !myself.right_of right
+      return myself
+
+$remove_item:
+  (
+    $myself
+    key
+    -> return
+  )
+  if myself.is_undefined: return NONE # nothing removed
+  $my_key key_of(myself)
+  cond
+    -> key == my_key:
+      $left left_of(myself)
+      $$right right_of(myself)
+      if
+	left.is_defined:
+	  if
+	    right.is_defined:
+	      $head fetch_first(&right)
+	      return types::object(.key_of head .left_of left .right_of right)
+	    :
+	      return left
+	:
+	  return right
+    -> key < my_key:
+      $left remove_item(left_of(myself) key)
+      if NONE == left: return NONE # nothing removed
+      !myself.left_of left
+      return myself
+    -> key > my_key:
+      $right remove_item(right_of(myself) key)
+      if NONE == right: return NONE # nothing removed
+      !myself.right_of right
+      return myself
+
+$types::key_order_set/:
+  (
+    $myself^
+    key
+    value = NONE
+    -> return
+  )
+  case
+    value
+    NONE:
+      return get_item(tree_of(myself) key)
+    true:
+      $new_tree add_item(tree_of(myself) key)
+      if NONE != new_tree:
+	!myself.tree_of new_tree
+	inc &myself.length_of
+      return myself
+    false:
+      $new_tree remove_item(tree_of(myself) key)
+      if NONE != new_tree:
+	!myself.tree_of new_tree
+	dec &myself.length_of
+      return myself
+    :
+      Error "Attempt to set a set element to a nonboolean value!"
+
+$types::key_order_set.tree_of undefined
+$types::key_order_set.length_of 0
+$types::key_order_set.serialization_tag_of "key_order_set"
+$std::empty_key_order_set types::key_order_set
+
+$std::key_order_set -> types::key_order_set
+
+$for_each_item: (myself body)
+  if myself.is_defined:
+    for_each_item left_of(myself) body
+    body key_of(myself)
+    for_each_item right_of(myself) body
+
+$types::key_order_set/for_each: (self body)
+  $tree tree_of(self)
+  if tree.is_defined: for_each_item tree body

@@ -1,0 +1,1881 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  generates C-code from the abstract syntax tree;
+  the generated code is continuation based, so every call is converted
+  into a return to the global dispatcher function, which then dispatches
+  the "called" function
+
+<using std>
+<using sim2c>
+<using node>
+
+$sim2c::to_c ()
+
+%sim2c::suffix undefined
+%level 1
+%current_locals empty_table
+%current_frame undefined
+%is_a_shared_local empty_set
+%temporary_offset undefined
+%%sim2c::delayed_code undefined
+
+$var_name: (name) if name .contains. "__" (-> name) -> string('_' name)
+
+$var_entry: (name)
+  if name .contains. "__" (-> string("var." name)) -> string("var._" name)
+
+$insert_delayed:
+  write delayed_code
+  !delayed_code ""
+
+$delayed: (body)
+  $$cont_tab_entries ""
+  do:
+    %%sim2c::current_continuation_info undefined
+
+    %write_to_continuation_table: (args*) write_to &cont_tab_entries args*
+
+    collect_output $output body
+    append &delayed_code output
+  write_to_delayed_continuation_table cont_tab_entries
+
+$sim2c::begin_continuation: (name)
+  write_to_declarations "
+    static void @(name)(void);
+  insert_delayed
+  write "
+    static void @(name)(void) {
+  write_to_continuation_table "  {@(name), "
+  write_to_continuation_table
+    if(current_frame.is_defined (-> "&@(current_frame), ") -> "NULL, ")
+
+$sim2c::end_continuation:
+  if
+    current_continuation_info.is_defined:
+      write_to_continuation_table "@(current_continuation_info)},@nl;"
+      !current_continuation_info undefined
+    :
+      write_to_continuation_table "},@nl;"
+
+$sim2c::next_continuation: (name)
+  end_continuation
+  begin_continuation name
+
+$count_arguments:
+  (
+    arguments
+    -> return
+  )
+  $$inputs_count 0
+  for_each arguments: (argument)
+    if
+      argument.is_an_expanded_item || argument.is_an_optional_item:
+	return undefined
+      :
+	inc &inputs_count
+  -> inputs_count
+
+$generate_c_arguments:
+  (
+    arguments
+    within_exit_function = false
+  )
+  $inputs_count count_arguments(arguments)
+  if
+    within_exit_function:
+      if inputs_count.is_defined:
+	write "  argument_count += @(inputs_count);@nl;"
+    :
+      write "
+	@
+	  argument_count = @(default_value(inputs_count 0));
+	  arguments = node_p;
+  $$idx 0
+  for_each arguments: (argument)
+    $src argument.to_c
+    cond
+      -> argument.is_an_optional_item: write "  optional_item(@(src));@nl;"
+      -> argument.is_an_expanded_item: write "  unfold(@(src));@nl;"
+      :
+	$slot_idx if(inputs_count.is_defined (-> idx) -> "argument_count++")
+	write "  arguments->slots[@(slot_idx)] = @(src);@nl;"
+	inc &idx
+
+$get_func_and_myself: (functor cont insertion_line?)
+  $insertion: (indent)
+    if
+      insertion_line.is_defined
+      -> indented(indent string('@nl;' insertion_line))
+      -> ""
+
+  if functor.is_an_identifier:
+    #$id privileged_polymorphic_functions(mangled_name)
+
+    # ATTENTION: do not optimize to get better error messages
+
+    #if id.is_defined && id < 8:
+      write "
+        @
+          myself = (NODE @
+        *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)]; // @
+        @(mangled_name)
+          if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+            if (argument_count != 1) {
+              invalid_arguments_error();
+              return;
+            }
+            arguments = node_p;
+            arguments->slots[0] = @
+        RETRIEVE_ATTRIBUTE_VALUE(myself);@(insertion(4))
+            func = @(cont);
+            frame->cont = invalid_continuation;
+          } else {
+            func = myself->type;@(insertion(4))
+            frame->cont = @(cont);
+          }
+      return
+  write "
+    @
+      myself = @(functor.to_c);
+      func = myself->type;@(insertion(2))
+      frame->cont = @(cont);
+
+$sim2c::assignment_to_c:
+  (
+    prefix = "  "
+    destination
+    src
+    -> return
+  )
+  if destination.is_a_definition:
+    case
+      variable_kind_of(destination)
+      STATIC_SINGLE:
+	if
+	  destination.is_an_initialization:
+	    return
+	      "@(prefix)initialize_future(@(destination.to_c), @(src));@nl;"
+	  :
+	    return "@(prefix)@(destination.to_c) = @(src);@nl;"
+      DYNAMIC_SINGLE:
+	if
+	  destination.is_an_initialization:
+	    return
+	      "@(prefix)initialize_future(@(destination.to_c), @(src));@nl;"
+	  :
+	    $mangled_name mangled_name_of(identifier_of(destination))
+	    return "@(prefix)define__@(mangled_name)(@(src));@nl;"
+      DYNAMIC_MULTI:
+	$mangled_name mangled_name_of(identifier_of(destination))
+	if
+	  destination.is_an_initialization:
+	    return "@(prefix)set__@(mangled_name)(@(src));@nl;"
+	  :
+	    return "@(prefix)define__@(mangled_name)(@(src));@nl;"
+  $dest destination.to_c
+  if
+    dest .has_prefix. "get_"
+    -> "@(prefix)set_@(range(dest 5 -3))(@(src));@nl;"
+    -> "@(prefix)@(dest) = @(src);@nl;"
+
+$assign_argument_or_result:
+  (
+    prefix = "  "
+    kind # "arguments" or "results"
+    destination
+    src
+  )
+  if
+    destination.is_a_multi_assign_definition && kind == "arguments":
+      $name name_of(identifier_of(destination))
+      write "
+	@(prefix)frame->slots[@(current_locals(name))] /* @(name) */ = @
+	create_cell_with_contents(@(src));@nl;@
+    :
+      write assignment_to_c(prefix destination src)
+
+$extract:
+  (
+    kind # "arguments" or "results"
+    outputs
+  )
+  $$fixed_count 0
+  $$total_count 0
+  $$right_count 0
+  $$unlimited false
+  $$has_complex_default_values false
+  for_each outputs: (output)
+    cond
+      -> output.is_an_optional_item:
+	inc &total_count
+	$default_value default_value_of(output)
+	if default_value.is_defined && default_value.is_a_function_call:
+	  !has_complex_default_values true
+      -> output.is_an_expanded_item: !unlimited true
+      :
+	inc &fixed_count
+	inc &total_count
+	if unlimited || total_count > fixed_count: inc &right_count
+  if
+    unlimited || total_count > fixed_count:
+      if fixed_count > 0:
+	write "
+	  @
+	    if (argument_count < @(fixed_count)) {
+	      too_few_@(kind)_error();
+	      return;
+	    }
+      unless unlimited:
+	write "
+	  @
+	    if (argument_count > @(total_count)) {
+	      too_many_@(kind)_error();
+	      return;
+	    }
+    :
+      write "
+	@
+	  if (argument_count != @(fixed_count)) {
+	    invalid_@(kind)_error();
+	    return;
+	  }
+  if kind == "results" && unlimited: writeln "  allocate_arguments();"
+
+  # extract left fixed arguments
+
+  from_to 1 fixed_count-right_count: (idx)
+    $output outputs(idx)
+    if
+      ||
+	kind == "results"
+	output.is_a_multi_assign_definition
+	unlimited
+	has_complex_default_values
+      :
+	assign_argument_or_result kind output "arguments->slots[@(idx-1)]"
+
+  # extract right fixed arguments (do this *before* initializing optional arguments)
+
+  from_to 1 right_count: (idx)
+    assign_argument_or_result
+      kind
+      outputs(-idx)
+      "arguments->slots[argument_count@(-idx)]"
+
+  # extract rest argument
+
+  if unlimited:
+    assign_argument_or_result kind outputs(total_count-right_count+1) "
+      from_arguments(@(total_count-right_count), argument_count-@(total_count))@
+
+  # extract optional arguments
+
+  if total_count > fixed_count:
+    write "
+      @
+        switch(argument_count) {
+    from_down_to total_count-right_count fixed_count-right_count+1: (idx)
+      $n idx+right_count
+      $cnt if(n == total_count (-> "default") -> "case @(n)")
+      assign_argument_or_result
+	"    @(cnt): "
+	kind
+	outputs(idx)
+	"arguments->slots[@(idx-1)]"
+    write "
+      @
+          case @(fixed_count):;
+        }
+        switch(argument_count) {
+    $$indices empty_table
+    if
+      has_complex_default_values:
+	from_down_to total_count-right_count fixed_count-right_count+1: (idx)
+	  $n idx+right_count
+	  $cnt if(n == total_count (-> "default") -> "case @(n)")
+	  inc &index
+	  !indices(n) index
+	  write "
+	    @
+	        @(cnt):
+	          func = cont@(suffix)_@(index);
+	          return;
+	write "
+	  @
+	      case @(fixed_count):;
+	    }
+	from_to fixed_count-right_count+1 total_count-right_count: (idx)
+	  $output outputs(idx)
+	  $default_value default_value_of(output)
+	  if
+	    default_value.is_defined:
+	      if
+		default_value.is_a_function_call:
+		  for_each statements_of(output): (statement)
+		    generate_statement statement
+		:
+		  assign_argument_or_result kind output default_value.to_c
+	    :
+	      assign_argument_or_result kind output "undefined"
+	  $cont_idx indices(idx+right_count)
+	  write "
+	      func = cont@(suffix)_@(cont_idx);
+	    }
+	  next_continuation "cont@(suffix)_@(cont_idx)"
+      :
+	from_to fixed_count-right_count+1 total_count-right_count: (idx)
+	  $output outputs(idx)
+	  $default_value default_value_of(output)
+
+	  $value
+	    if(default_value.is_defined (-> default_value.to_c) -> "undefined")
+
+	  assign_argument_or_result
+	    "    case @(idx+right_count-1): "
+	    kind
+	    output
+	    value
+	write "
+	  @
+	    }
+
+$write_as_remark: (str)
+  writeln
+    "  // "
+    replace_all
+      str
+      =
+	'@nl;'
+	"
+	  @
+
+	    // @
+
+$compute_column_no: (str)
+  $$i -1
+  while -> str(i) != newline && str(i) != indent_marker: dec &i
+  -> -i
+
+$compute_source_text_info:
+  (
+    node
+    print_remark = false
+    is_an_exit = false
+  )
+  $fragment fragment_of(node)
+  $fragment_source source_of(fragment)
+  $offset source_position_of(node)
+  $pos length_of(fragment_source)-offset+1
+  $prefix range(fragment_source 1 pos-1)
+  $fragment_line_no line_no_of(fragment)
+  $indents indents_of(fragment)
+
+  $$line_no
+    +
+      count_character_occurrences(prefix newline)
+      count_character_occurrences(prefix indent_marker)
+
+  $$column_no
+    if
+      line_no > 0
+      -> compute_column_no(prefix)+indents(line_no)
+      -> length_of(prefix)+1
+
+  $$source range(fragment_source -offset -1)
+  range &source 1 -(1+end_position_of(node))
+
+  $$last_line_no
+    +
+      line_no
+      count_character_occurrences(source newline)
+      count_character_occurrences(source indent_marker)
+
+  $last_column_no
+    -
+      if
+	last_line_no > line_no
+	-> compute_column_no(source)+indents(last_line_no)-1
+	-> column_no+length_of(source)
+      1
+
+  plus &line_no fragment_line_no
+  plus &last_line_no fragment_line_no
+  $submodule_no submodule_no_of(fragment)
+  if is_an_exit:
+    !line_no last_line_no
+    !column_no last_column_no
+
+  $continuation_info "
+    @(line_no), @(last_line_no), @(column_no), @(last_column_no)@
+    @(if(submodule_no != 0 (-> ", @(submodule_no_of(fragment))") -> ""))@
+
+  if print_remark:
+    $$indent 0
+    $$do_print_dots false
+    if last_line_no > line_no+9:
+      !last_line_no line_no+9
+      !do_print_dots true
+    $width length_of(to_string(last_line_no))
+    if
+      &&
+	length_of(prefix) > 0
+	prefix(-1) != newline
+	prefix(-1) != indent_marker
+      :
+	append "... " &source
+    unless source(-1) == newline: push &source newline
+
+    $write_line_start:
+      write "  // @(pad_left(line_no width)): " dup("  " max(indent 0))
+      inc &line_no
+
+    write_line_start
+    do: (-> break)
+      for_each source: (_idx chr)
+	case
+	  chr
+	  newline, indent_marker:
+	    if chr == indent_marker: inc &indent
+	    writeln
+	    if
+	      line_no <= last_line_no:
+		write_line_start
+	      :
+		if do_print_dots: writeln "  // ..."
+		break
+	  outdent_marker:
+	    dec &indent
+	  :
+	    write chr
+  -> continuation_info
+
+$sim2c::write_source_as_remark: (node)
+  if end_position_of(node).is_defined:
+    compute_source_text_info !current_continuation_info node true
+
+$EARLY .
+$STANDARD .
+$UNKNOWN .
+
+$get_kind:
+  (
+    source
+    -> return
+  )
+  cond
+    -> source.is_a_constant: return EARLY
+    -> source.is_a_temporary: return STANDARD
+    :
+      $name mangled_name_of(source)
+      cond
+	-> current_locals(name).is_defined:
+	  return if(name.is_a_shared_local (-> STANDARD) -> EARLY)
+	-> needed_names(name).is_defined:
+	  case
+	    variable_kind_of(needed_names(name))
+	    STATIC_SINGLE:
+	      return UNKNOWN
+	    POLYMORPHIC, DYNAMIC_SINGLE:
+	      return EARLY
+	    :
+	      return STANDARD
+	:
+	  $variable_kind
+	    if
+	      namespace_of(source).is_defined
+	      ->
+		variable_kind_of
+		  exported_names(name_of(source))(namespace_of(source))
+	      -> variable_kind_of(global_names(name))
+
+	  case
+	    variable_kind
+	    STATIC_MULTI, DYNAMIC_MULTI:
+	      return STANDARD
+	    :
+	      return EARLY
+  -> UNKNOWN
+
+###
+# DEFAULT GRAMMAR NODE
+
+$types::grammar_node/to_c: (_self)
+  show_compiler_debug_info "generate expression"
+  -> "???"
+
+###
+# BODY
+
+$sim2c::body/to_c:
+  (
+    self
+    -> return
+  )
+  show_compiler_debug_info "generate body"
+  $outer_level level
+  $parent_locals current_locals
+  $is_an_inherited_shared_local is_a_shared_local
+  inc &index
+  $body_suffix string(suffix '_' index)
+  $$par_count undefined
+  delayed:
+    %level outer_level+1
+    $$slot_idx 0
+    $$locals empty_insert_order_table
+    $$is_shared empty_set
+    $$min_par_cnt 0
+    $$max_par_cnt 0
+    $$right_par_cnt 0
+    $$has_rest_parameter false
+    $$has_complex_default_values false
+    $$myself_parameter undefined
+    $$continuation_parameter undefined
+    $$input_parameters empty_list
+    $$output_parameters empty_list
+    $$implicit_parameters empty_list
+    for_each parameters_of(self): (parameter)
+      $kind parameter_kind_of(parameter)
+      $default_value default_value_of(parameter)
+      if default_value.is_defined && default_value.is_a_function_call:
+	!has_complex_default_values true
+      case
+	kind
+	OUT_PARAMETER:
+	  push &output_parameters parameter
+	IN_OUT_PARAMETER:
+	  push &input_parameters parameter
+	  push &output_parameters parameter
+	MYSELF_PARAMETER, CONTINUATION_PARAMETER:
+	  push &implicit_parameters parameter
+	:
+	  push &input_parameters parameter
+
+    # parameters first
+
+    for_each input_parameters: (parameter)
+      $name name_of(identifier_of(parameter))
+      cond
+	-> parameter.is_an_optional_item: inc &max_par_cnt
+	-> parameter.is_an_expanded_item: !has_rest_parameter true
+	:
+	  inc &min_par_cnt
+	  inc &max_par_cnt
+	  if max_par_cnt > min_par_cnt: inc &right_par_cnt
+      !locals(name) slot_idx
+      !is_shared(name) parameter.is_a_multi_assign_definition
+      inc &slot_idx
+    for_each implicit_parameters: (parameter)
+      $name name_of(identifier_of(parameter))
+      case
+	parameter_kind_of(parameter)
+	MYSELF_PARAMETER:
+	  !myself_parameter parameter
+	CONTINUATION_PARAMETER:
+	  !continuation_parameter parameter
+      !locals(name) slot_idx
+      !is_shared(name) parameter.is_a_multi_assign_definition
+      inc &slot_idx
+    !par_count
+      if(has_rest_parameter || max_par_cnt != min_par_cnt (-> -1) -> max_par_cnt)
+
+    # then the inherited variables
+
+    for_each inherited_names_of(self): (name _info)
+      !locals(name) slot_idx
+      !is_shared(name) is_an_inherited_shared_local(name)
+      inc &slot_idx
+    $locals_idx slot_idx
+
+    # finally the variables declared within this body
+
+    for_each defined_names_of(self): (name info)
+      unless info.is_a_parameter && parameter_kind_of(info) != OUT_PARAMETER:
+	!locals(name) slot_idx
+	!is_shared(name) info.is_a_multi_assign_definition
+	inc &slot_idx
+    $total_slots slot_idx+temporary_count_of(self)
+    %current_locals locals
+    %is_a_shared_local is_shared
+    %temporary_offset slot_idx
+    write_to_declarations "static NODE *func@(body_suffix);@nl;"
+    do:
+      %current_frame undefined
+      begin_continuation "entry@(body_suffix)"
+    if has_rest_parameter || has_complex_default_values:
+      write "
+	@
+	  allocate_arguments();
+    if
+      &&
+	continuation_parameter.is_defined
+	continuation_parameter.is_a_multi_assign_definition
+      :
+	write "
+	  @
+	    caller_frame = frame;
+    write "  allocate_initialized_frame_gc(@(locals_idx), @(total_slots));@nl;"
+    writeln "  // slot allocations:"
+    write_to_declarations
+      "static FRAME_INFO frame@(body_suffix) = {@(length_of(current_locals)), {"
+    for_each current_locals: (name slot)
+      writeln "  // @(name): @(slot)"
+      if slot != 0: write_to_declarations ", "
+      write_to_declarations "@quot;@(name)@quot;"
+    write_to_declarations "
+      }};
+    %current_frame "frame@(body_suffix)"
+    if continuation_parameter.is_defined:
+      assign_argument_or_result
+	"arguments"
+	continuation_parameter
+	if
+	  output_parameters.is_empty
+	  -> "create_continuation()"
+	  :
+	    write_to_declarations "
+	      static void exit@(body_suffix)(void);
+	    -> "create_continuation_with_exit(exit@(body_suffix))"
+    for_each inherited_names_of(self): (name _info)
+      write "
+	@
+	  frame->slots[@(current_locals(name))] = @
+	myself->closure.frame->slots[@(parent_locals(name))]; /* @(name) */
+
+    $extract_destination_and_source: (definition)
+      $destination
+	if(definition.is_a_key_value_pair (-> key_of(definition)) -> definition)
+
+      $source
+	if
+	  definition.is_a_key_value_pair
+	  -> std::value_of(definition)
+	  -> undefined
+
+      -> destination source
+
+    $extract_source_or_create_future: (source)
+      if source.is_undefined (-> "create_future()"):
+	case
+	  get_kind(source)
+	  UNKNOWN
+	  -> "get_value_or_future__@(mangled_name_of(source))()"
+	  STANDARD
+	  -> "create_future()"
+	  -> source.to_c
+
+    for_each definitions_of(self): (definition)
+      extract_destination_and_source $destination $source definition
+      if source.is_defined:
+	write_as_remark
+	  "_define @(key_of(definition)) @(std::value_of(definition))"
+      case
+	variable_kind_of(destination)
+	STATIC_SINGLE, DYNAMIC_SINGLE:
+	  if attribute_kind_of(destination) == NONE:
+	    extract_source_or_create_future $src source
+	    write assignment_to_c(destination src)
+	STATIC_MULTI:
+	  $name name_of(identifier_of(destination))
+	  write "
+	    @
+	      frame->slots[@(locals(name))] /* @(name) */ = create_cell();
+	DYNAMIC_MULTI:
+	  write assignment_to_c(destination "undefined")
+    for_each definitions_of(self): (definition)
+      extract_destination_and_source $destination $source definition
+      if
+	&&
+	  variable_kind_of(destination) == STATIC_SINGLE
+	  attribute_kind_of(destination) != NONE
+	:
+	  case
+	    attribute_kind_of(destination)
+	    ATTRIBUTE_KIND:
+	      extract_source_or_create_future $src source
+	      $attribute_name mangled_name_of(attribute_of(destination))
+	      $dest identifier_of(destination).to_c
+	      write "
+		@
+		  update_start_p = node_p;
+		  def_attribute(&@(dest), poly_idx__@(attribute_name), @
+		MAKE_ATTRIBUTE_VALUE(@(src)));
+	    METHOD_KIND:
+	      if
+		attribute_of(destination).is_defined:
+		  extract_source_or_create_future $src source
+		  $attribute_name mangled_name_of(attribute_of(destination))
+		  $dest identifier_of(destination).to_c
+		  write "
+		    @
+		      update_start_p = node_p;
+		      def_attribute(&@(dest), poly_idx__@(attribute_name), @
+		    @(src));
+		:
+		  to_c $entry $_fun_par_count source
+
+		  #ewriteln name "/:"
+
+		  $dest identifier_of(destination).to_c
+		  write "
+		    @
+		      update_start_p = node_p;
+		      def_attribute(&@(dest), -1, @(entry));
+    do:
+      collect_output $code: extract "arguments" input_parameters
+      write code
+    if myself_parameter.is_defined:
+      assign_argument_or_result "arguments" myself_parameter "myself"
+    for_each output_parameters: (parameter)
+      unless parameter_kind_of(parameter) == IN_OUT_PARAMETER:
+	$name name_of(identifier_of(parameter))
+	write "
+	  @
+	    frame->slots[@(locals(name))] /* @(name) */ = create_cell();
+    $statements statements_of(self)
+
+    $generate_exit:
+      if
+	||
+	  self.defines_a_dynamic
+	  &&
+	    continuation_parameter.is_defined
+	    variable_kind_of(continuation_parameter) == STATIC_MULTI
+	:
+	  write "
+	    @
+	      argument_count = 0;
+	      arguments = node_p;
+	      myself = @(continuation_parameter.to_c);
+	      func = myself->type;
+	      frame->cont = invalid_continuation;
+	:
+	  compute_source_text_info self false true !current_continuation_info
+	  generate_c_arguments output_parameters
+	  write "
+	    @
+	      frame = frame->caller_frame;
+	      func = frame->cont;
+	      frame->cont = invalid_continuation;
+
+    for_each_from_to statements 1 -2: (statement) generate_statement statement
+    if
+      is_empty(statements): # there might be only definitions
+	generate_exit
+      :
+	$statement statements(-1)
+	cond
+	  -> statement.is_a_return:
+	    write_source_as_remark statement
+
+	    #if
+	      continuation_parameter.is_defined &&
+	      (
+	        not(output_parameters.is_empty) ||
+	        variable_kind_of(continuation_parameter) == STATIC_MULTI
+	      ):
+
+	    if
+	      continuation_parameter.is_defined:
+		generate_c_arguments arguments_of(statement)
+		write "
+		  @
+		    myself = @(continuation_parameter.to_c);
+		    func = myself->type;
+		    frame->cont = invalid_continuation;
+	      :
+		generate_c_arguments
+		  append(output_parameters arguments_of(statement))
+		write "
+		  @
+		    frame = frame->caller_frame;
+		    func = frame->cont;
+		    frame->cont = invalid_continuation;
+	  ->
+	    &&
+	      statement.is_a_procedure_call
+	      output_arguments_of(statement).is_empty
+	    :
+	      write_source_as_remark statement
+	      $functor functor_of(statement)
+	      $input_arguments arguments_of(statement)
+	      $result_count count_arguments(output_parameters)
+	      generate_c_arguments input_arguments
+	      if
+		continuation_of(statement).is_defined:
+		  get_func_and_myself functor "continuation_trampoline"
+		  write "
+		    @
+		      frame->slots[0] = @(continuation_of(statement).to_c);
+		      if (frame->slots[0]->type != continuation_type_function)
+		        invalid_continuation_error();
+		      frame->slot_count = 1;
+		      frame->caller_frame = NULL;
+		      result_count = frame->slots[0]->continuation.result_count;
+		:
+		  case
+		    result_count
+		    undefined:
+		      write "
+			@
+			  result_count = -1;
+		    0:
+		      write "
+			@
+			  result_count = frame->caller_result_count;
+		    :
+		      write "
+			@
+			  result_count =
+			    frame->caller_result_count >= @(result_count) ?
+			    frame->caller_result_count-@(result_count) : -1;
+		  cond
+		    -> continuation_parameter.is_defined:
+		      inc &index
+		      get_func_and_myself functor "cont@(suffix)_@(index)"
+		      write "}@nl;"
+		      next_continuation "cont@(suffix)_@(index)"
+		      compute_source_text_info
+			statement
+			false
+			true
+			!current_continuation_info
+		      write "
+			@
+			  myself = @(continuation_parameter.to_c);
+			  func = myself->type;
+			  frame->cont = invalid_continuation;
+		    -> not(output_parameters.is_empty):
+		      inc &index
+		      get_func_and_myself functor "cont@(suffix)_@(index)"
+		      write "}@nl;"
+		      next_continuation "cont@(suffix)_@(index)"
+		      $n count_arguments(output_parameters)
+		      if
+			n.is_defined:
+			  write "
+			    @
+			      int i = argument_count;
+			      while (--i >= 0) {
+			        arguments->slots[i+@(n)] = arguments->slots[i];
+			      }
+			  generate_c_arguments output_parameters true
+			:
+			  write "
+			    @
+			      int i;
+			      int n = argument_count;
+			      FRAME *return_arguments = arguments;
+			      allocate_arguments();
+			  generate_c_arguments output_parameters
+			  write "
+			    @
+			      for (i = 0; i < n; ++i) {
+			        arguments->slots[argument_count++] = @
+			    return_arguments->slots[i];
+			      }
+		      write "
+			@
+			  frame = frame->caller_frame;
+			  func = frame->cont;
+			  frame->cont = invalid_continuation;
+		    :
+		      get_func_and_myself
+			functor
+			"frame->cont"
+			"frame = frame->caller_frame;"
+	  :
+	    generate_statement statement
+	    generate_exit
+    write "}@nl;"
+    end_continuation
+    if continuation_parameter.is_defined && not(output_parameters.is_empty):
+      # create an exit-function as a helper for the continuation parameter
+
+      write "
+	static void exit@(body_suffix)(void) {
+	  frame = ((CONTINUATION *)myself)->exit_frame;
+      $n count_arguments(output_parameters)
+      if
+	n.is_defined:
+	  write "
+	    @
+	      int i = argument_count;
+	      while (--i >= 0) {
+	        arguments->slots[i+@(n)] = arguments->slots[i];
+	      }
+	  generate_c_arguments output_parameters true
+	:
+	  write "
+	    @
+	      int i;
+	      int n = argument_count;
+	      FRAME *return_arguments = arguments;
+	      allocate_arguments();
+	  generate_c_arguments output_parameters
+	  write "
+	    @
+	      for (i = 0; i < n; ++i) {
+	        arguments->slots[argument_count++] = return_arguments->slots[i];
+	      }
+      write "
+	  func = continuation_type_function;
+	}
+  if parameter_count_of(return) == 2: # type function
+    return "entry@(body_suffix)" par_count
+  if
+    inherited_names_of(self).is_empty:
+      write_to_phase_2 "
+	@
+	  func@(body_suffix) = create_future();
+      write_to_phase_5 "
+	@
+	  assign_value(&func@(body_suffix), create_function(entry@(body_suffix)@
+	, @(par_count)));
+      write_to_generated_collections
+	"  func@(body_suffix) = collect_node(func@(body_suffix));@nl;"
+      return "func@(body_suffix)"
+    : # it's a closure
+      return "create_closure(entry@(body_suffix), @(par_count))"
+
+###
+# DEFINITION
+
+$sim2c::definition/to_c:
+  (
+    self
+    -> return
+  )
+  show_compiler_debug_info "generate definition"
+  if attribute_kind_of(self) != NONE:
+    return
+      string
+	"var."
+	mangled_name_of(identifier_of(self))
+	"__"
+	mangled_name_of(attribute_of(self))
+  -> identifier_of(self).to_c
+
+###
+# ATTRIBUTE VALUE PAIR
+
+$sim2c::attribute_value_pair/to_c: (self)
+  show_compiler_debug_info "generate attribute-value pair"
+  -> generate_c_arguments(arguments_of(self))
+
+###
+# ATTRIBUTE FUNCTION PAIR
+
+$sim2c::attribute_function_pair/to_c: (self)
+  show_compiler_debug_info "generate attribute-function pair"
+  -> generate_c_arguments(arguments_of(self))
+
+###
+# NUMERIC LITERAL
+
+$sim2c::numeric_literal/to_c: (self)
+  show_compiler_debug_info "generate numeric literal"
+  $name "number__@(mangled_name_of(self))"
+  use_literal name self
+  -> name
+
+###
+# CHARACTER LITERAL
+
+$sim2c::character_literal/to_c: (self)
+  show_compiler_debug_info "generate character literal"
+  $name "character__@(node::value_of(self).to_integer)"
+  use_literal name self
+  -> name
+
+###
+# STRING LITERAL
+
+$to_c_string: (str)
+  $$buf ""
+  $$s 1
+  for_each str: (idx chr)
+    if chr < ' ' || chr > '~' || chr == '@quot;' || chr == '\':
+      append &buf range(str s idx-1)
+      write_to &buf "\" pad_left(oct(chr.to_integer) 3 "0")
+      !s idx+1
+  if s <= length_of(str): append &buf range(str s -1)
+  -> buf
+
+$register_string: (str)
+  $len length_of(str)
+  if len == 0 (-> "empty_string"):
+    inc &index
+    $name "string@(suffix)_@(index)"
+    write_to_declarations "static NODE *@(name);@nl;"
+    if
+      str.is_a_latin_1_string:
+	write_to_phase_2 "
+	  @
+	    @(name) = from_latin_1_string("@(to_c_string(str))@quot;, @(len));
+      :
+	write_to_phase_2 "  uint32_t @(name)_literal[@(len)] = {"
+	for_each
+	  str: (chr)
+	    if
+	      ||
+		&&
+		  chr >= ' '
+		  chr <= '~'
+		  chr != '@apos;'
+		  chr != '@quot;'
+		  chr != '\'
+		chr >= ' ' && chr <= 'ÿ'
+	      :
+		write_to_phase_2 '@apos;' chr '@apos;'
+	      :
+		write_to_phase_2 "0x" hex(chr.to_integer)
+	  :
+	    write_to_phase_2 ", "
+	write_to_phase_2 "};@nl;"
+	write_to_phase_2
+	  "  @(name) = from_uint32_string(@(name)_literal, @(len));@nl;"
+    write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
+    -> name
+
+$sim2c::string_literal/to_c: (self)
+  show_compiler_debug_info "generate string literal"
+  -> register_string(node::text_of(self))
+
+###
+# UNIQUE ITEM
+
+$sim2c::unique_item/to_c: (self)
+  show_compiler_debug_info "generate unique item"
+  inc &index
+  $name string("unique" suffix "_" index)
+  $reg_name if(name_of(self).is_defined (-> name_of(self)) -> name)
+  write_to_declarations "static NODE *@(name);@nl;"
+  write_to_phase_2 "
+    @
+      @(name) = register_unique_item("@(reg_name)");
+  write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
+  -> name
+
+###
+# IDENTIFIER
+
+$sim2c::identifier/to_c: (self)
+  show_compiler_debug_info "generate identifier " self
+  $name mangled_name_of(self)
+  cond
+    -> self.is_a_temporary ->
+      if
+	temporary_offset.is_defined:
+	  $idx temporary_offset+behind(name "__").to_integer-1
+	  -> "frame->slots[@(idx)] /* @(name) */"
+	-> name
+    -> current_locals(name).is_defined ->
+      if
+	name.is_a_shared_local
+	-> "
+	  ((CELL *)frame->slots[@(current_locals(name))])->contents /* @(name) @
+	  */@
+	-> "frame->slots[@(current_locals(name))] /* @(name) */"
+    -> needed_names(name).is_defined -> "get__@(name)()"
+    -> true:
+      $variable_kind
+	if
+	  namespace_of(self).is_defined
+	  -> variable_kind_of(exported_names(name_of(self))(namespace_of(self)))
+	  -> variable_kind_of(global_names(name))
+
+      ->
+	case
+	  variable_kind
+	  DYNAMIC_SINGLE, DYNAMIC_MULTI
+	  -> "get__@(name)()"
+	  -> var_entry(name)
+
+###
+# C-BODY
+
+$sim2c::c_body/to_c: (self)
+  show_compiler_debug_info "generate C-body"
+  inc &index
+  $body_suffix string(suffix '_' index)
+  $$continuation_info undefined
+  if end_position_of(self).is_defined:
+    compute_source_text_info !continuation_info self
+  delayed:
+    $par_count
+      if
+	source_of(self) .has_prefix. "CHECK_ARGUMENTS"
+	-> between(source_of(self) '(' ')')
+	-> -1
+
+    write_to_declarations "
+      static void entry@(body_suffix)(void);
+      static NODE *func@(body_suffix);
+    if continuation_info.is_defined:
+      write_to_continuation_table
+	"  {entry@(body_suffix), NULL, @(continuation_info)},@nl;"
+    write "
+      static void entry@(body_suffix)(void) {
+      @(indented(2 source_of(self).converted))@nl;}
+    write_to_phase_2 "
+      @
+        func@(body_suffix) = create_future();
+    write_to_phase_5 "
+      @
+        assign_value(&func@(body_suffix), create_function(entry@(body_suffix), @
+      @(par_count)));
+  -> "func@(body_suffix)"
+
+####################
+
+$extract_destination: (destination)
+  $identifier identifier_of(destination)
+  -> namespace_of(identifier) name_of(identifier) mangled_name_of(identifier)
+
+$sim2c::is_single_assign:
+  (
+    expr
+    -> return
+  )
+  unless expr.is_an_identifier && not(expr.is_a_temporary): return false
+
+  $info
+    if
+      namespace_of(expr).is_defined:
+	$namespaces exported_names(name_of(expr))
+	->
+	  if
+	    namespaces.is_defined
+	    -> namespaces(namespace_of(expr))
+	    -> undefined
+      -> global_names(name_of(expr))
+
+  -> info.is_defined && info.is_a_single_assign_definition
+
+$sim2c::might_be_constant:
+  (
+    expr
+    -> return
+  )
+  unless expr.is_an_identifier && not(expr.is_a_temporary): return false
+
+  $info
+    if
+      namespace_of(expr).is_defined:
+	$namespaces exported_names(name_of(expr))
+	->
+	  if
+	    namespaces.is_defined
+	    -> namespaces(namespace_of(expr))
+	    -> undefined
+      -> global_names(name_of(expr))
+
+  -> info.is_undefined
+
+$assign: (dest src)
+  cond
+    -> src .has_prefix. alt("var." "func__"):
+      write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+    -> src .has_prefix. "unique__":
+      # was originally assigned in phase 5, but in some cases this is to late
+
+      write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+    :
+      write_to_phase_4 "  assign_value(&@(dest), @(src));@nl;"
+
+$sim2c::define_variable: (definition source)
+  extract_destination definition $namespace $name $mangled_name
+  if definition.is_a_static_definition:
+    write_to_generated_collections "
+      @
+        @(var_entry(mangled_name)) = collect_node(@(var_entry(mangled_name))@
+      );@nl;@
+  $kind variable_kind_of(definition)
+  if source.is_defined && kind == STATIC_SINGLE:
+    assign var_entry(mangled_name) source.to_c
+
+    #if
+      source.is_a_constant:
+        assign var_entry(mangled_name) source.to_c
+      :
+        if source.is_an_identifier:
+          #write_to_phase_2 "
+            @
+              @(var_entry(mangled_name)) = create_future();
+          if
+            source.might_be_constant:
+              write_to_phase_4 "
+                @
+                  maybe_initialize_future(@(var_entry(mangled_name)), @(source.to_c));
+            :
+              write_to_phase_4 "
+                @
+                  assign_variable(&@(var_entry(mangled_name)), &@(source.to_c));
+  if
+    namespace.is_defined:
+      case
+	kind
+	STATIC_SINGLE:
+	  write_to_global_variable_declarations
+	    string("  NODE *" mangled_name ";@nl;")
+	  write_to_declarations "
+	    static NODE *get__@(namespace)__@(name)(void) {
+	      return var.@(namespace)__@(name);
+	    }
+	  write_to_phase_2 "
+	    @
+	      define_single_assign_static("@(namespace)", "@(name)", @
+	    get__@(mangled_name), &@(var_entry(mangled_name)));
+	STATIC_MULTI:
+	  write_to_global_variable_declarations
+	    string("  NODE *" mangled_name ";@nl;")
+	  write_to_declarations "
+	    static NODE *get__@(namespace)__@(name)(void) {
+	      return var.@(namespace)__@(name);
+	    }
+	    static void set__@(namespace)__@(name)(NODE *val) {
+	      var.@(namespace)__@(name) = val;
+	    }
+	  write_to_phase_2 "
+	    @
+	      define_multi_assign_static("@(namespace)", "@(name)", @
+	    get__@(mangled_name), set__@(mangled_name));
+	DYNAMIC_SINGLE:
+	  write_to_declarations "
+	    static int dyna_idx__@(mangled_name);
+	    static NODE *get__@(mangled_name)(void) {
+	      return get_dynamic_slot(dyna_idx__@(mangled_name));
+	    }
+	    static void define__@(mangled_name)(NODE *node) {
+	      define_dynamic_slot(dyna_idx__@(mangled_name), node);
+	    }
+	  write_to_phase_2 "
+	    @
+	      define_single_assign_dynamic("@(namespace)", "@(name)", @
+	    get__@(mangled_name), define__@(mangled_name), @
+	    &dyna_idx__@(mangled_name));
+	DYNAMIC_MULTI:
+	  write_to_declarations "
+	    static int dyna_idx__@(mangled_name);
+	    static NODE *get__@(mangled_name)(void) {
+	      return get_dynamic_cell(dyna_idx__@(mangled_name));
+	    }
+	    static void set__@(mangled_name)(NODE *node) {
+	      set_dynamic_cell(dyna_idx__@(mangled_name), node);
+	    }
+	    static void define__@(mangled_name)(NODE *node) {
+	      define_dynamic_cell(dyna_idx__@(mangled_name), node);
+	    }
+	  write_to_phase_2 "
+	    @
+	      define_multi_assign_dynamic("@(namespace)", "@(name)", @
+	    get__@(mangled_name), set__@(mangled_name), define__@(mangled_name)@
+	    , &dyna_idx__@(mangled_name));
+	      define__@(mangled_name)(undefined);
+    :
+      case
+	kind
+	STATIC_SINGLE:
+	  write_to_top_level_variable_names "  @quot;@(mangled_name)@quot;,@nl;"
+	  write_to_top_level_variable_declarations
+	    string("  NODE *" var_name(mangled_name) ";@nl;")
+	  unless source.is_defined:
+	    write_to_phase_2 "
+	      @
+	        @(var_entry(name)) = create_future();
+	STATIC_MULTI:
+	  write_to_top_level_variable_names "  @quot;@(mangled_name)@quot;,@nl;"
+	  write_to_top_level_variable_declarations
+	    string("  NODE *" var_name(mangled_name) ";@nl;")
+	DYNAMIC_SINGLE:
+	  write_to_declarations "
+	    static int dyna_idx__@(name);
+	    static NODE *get__@(name)(void) {
+	      return get_dynamic_slot(dyna_idx__@(name));
+	    }
+	    static void define__@(name)(NODE *node) {
+	      define_dynamic_slot(dyna_idx__@(name), node);
+	    }
+	  write_to_phase_2 "  register_dynamic(&dyna_idx__@(name));@nl;"
+	  unless source.is_defined:
+	    write_to_phase_2 "
+	      @
+	        define__@(name)(create_future());
+	DYNAMIC_MULTI:
+	  write_to_declarations "
+	    static int dyna_idx__@(name);
+	    static NODE *get__@(name)(void) {
+	      return get_dynamic_cell(dyna_idx__@(name));
+	    }
+	    static void set__@(name)(NODE *node) {
+	      set_dynamic_cell(dyna_idx__@(name), node);
+	    }
+	    static void define__@(name)(NODE *node) {
+	      define_dynamic_cell(dyna_idx__@(name), node);
+	    }
+	  write_to_phase_2 "
+	    @
+	      register_dynamic(&dyna_idx__@(name));
+	      define__@(name)(undefined);
+  if source.is_defined && kind == DYNAMIC_SINGLE:
+    if
+      source.is_a_constant:
+	write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+      :
+	if source.is_an_identifier:
+	  write_to_phase_2 "
+	    @
+	      define__@(mangled_name)(create_future());
+	  if
+	    source.might_be_constant:
+	      write_to_phase_4 "
+		@
+		  maybe_initialize_future(get__@(mangled_name)(), @
+		@(source.to_c));@nl;@
+	    :
+	      write_to_phase_4 "
+		@
+		  initialize_future(get__@(mangled_name)(), @(source.to_c)@
+		);@nl;@
+
+$namespace_argument: (namespace)
+  if namespace.is_defined (-> "@quot;@(namespace)@quot;") -> "NULL"
+
+$sim2c::define_attribute: (definition source)
+  extract_destination definition $namespace $name $mangled_name
+  $attribute_name mangled_name_of(attribute_of(definition))
+  $$src undefined
+  if
+    source.is_defined:
+      !src source.to_c
+    :
+      !src string("var__" mangled_name "__" attribute_name)
+      write_to_declarations "static NODE *@(src);@nl;"
+
+      #write_to_phase_2 "
+	@
+	  @(src) = create_future();
+  if
+    namespace.is_defined || needed_names(name).is_defined:
+      write_to_phase_3 "
+	@
+	  define_attribute(@(namespace_argument(namespace)), @quot;@(name)", @
+	poly_idx__@(attribute_name), @(src));
+    :
+      write_to_phase_3 "
+	@
+	  update_start_p = node_p;
+	  def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
+	MAKE_ATTRIBUTE_VALUE(@(src)));
+
+$sim2c::define_method: (definition source)
+  extract_destination definition $namespace $name $mangled_name
+  $attribute_name mangled_name_of(attribute_of(definition))
+  $$src undefined
+  if
+    source.is_defined:
+      !src source.to_c
+    :
+      !src string("var__" mangled_name "__" attribute_name)
+      write_to_declarations "static NODE *@(src);@nl;"
+
+      #write_to_phase_2 "
+	@
+	  @(src) = create_future();
+  if
+    namespace.is_defined || needed_names(name).is_defined:
+      write_to_phase_3 "
+	@
+	  define_method(@(namespace_argument(namespace)), @quot;@(name)", @
+	poly_idx__@(attribute_name), @(src));
+    :
+      write_to_phase_3 "
+	@
+	  update_start_p = node_p;
+	  def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
+	@(src));
+
+$sim2c::define_type_function: (definition source)
+  extract_destination definition $namespace $name $_mangled_name
+  to_c source $entry $par_count
+  if
+    namespace.is_defined || needed_names(name).is_defined:
+      write_to_phase_3 "
+	@
+	  define_type_function(@(namespace_argument(namespace)), @quot;@(name)@
+	@quot;, @(entry), @(par_count));@nl;@
+    :
+      write_to_phase_3 "
+	@
+	  update_start_p = node_p;
+	  def_attribute(&@(var_entry(name)), -1, @(entry));
+
+$sim2c::define_polymorphic_function: (definition is_a_setter)
+  $with_setter: if is_a_setter (-> "_with_setter") -> ""
+
+  extract_destination definition $namespace $name $mangled_name
+  if
+    namespace.is_defined:
+      write_to_global_variable_declarations
+	string("  NODE *" mangled_name ";@nl;")
+    :
+      write_to_top_level_variable_names "  @quot;@(mangled_name)@quot;,@nl;"
+      write_to_top_level_variable_declarations
+	string("  NODE *" var_name(mangled_name) ";@nl;")
+  $id privileged_polymorphic_functions(mangled_name)
+  write_to_declarations "
+    static int poly_idx__@(mangled_name)@
+    @(if(id.is_defined (-> " = @(id)") -> ""));@nl;@
+  write_to_generated_collections "
+    @
+      @(var_entry(mangled_name)) = collect_node(@(var_entry(mangled_name))@
+    );@nl;@
+  compute_source_text_info $info identifier_of(definition)
+  write_to_continuation_table "  {type__@(mangled_name), NULL, @(info)},@nl;"
+  generate_dispatcher_function mangled_name
+
+  #write_to_phase_2 "
+    @
+      @(var_entry(mangled_name)) = create_future();
+
+  write_to_phase_4 "
+    @
+      assign_value(&@(var_entry(mangled_name)), @
+    create_function(type__@(mangled_name), -1));
+  if
+    namespace.is_defined:
+      write_to_declarations "
+	static NODE *get__@(namespace)__@(name)(void) {
+	  return var.@(namespace)__@(name);
+	}
+      if
+	id.is_defined:
+	  write_to_phase_1 "
+	    @
+	      define_privileged_polymorphic_function("@(namespace)", "@(name)@
+	    ", get__@(mangled_name), @(id), &@(var_entry(mangled_name)));
+	:
+	  write_to_phase_1 "
+	    @
+	      define_polymorphic_function@(with_setter())(@quot;@(namespace)", @
+	    "@(name)", get__@(mangled_name), &poly_idx__@(mangled_name), @
+	    &@(var_entry(mangled_name)));
+    :
+      write_to_phase_1 "
+	@
+	  register_polymorphic_function@(with_setter())(@quot;_@(module_name)@
+	::@(name)", &poly_idx__@(name));
+
+$sim2c::define_c_code: (self)
+  show_compiler_debug_info "define C-code"
+  delayed:
+    $kind kind_of(self)
+    $source source_of(self)
+
+    $scope
+      case
+	scope_of(self)
+	"runtime"
+	-> ""
+	"global"
+	-> ""
+	"extern"
+	-> "extern "
+	-> "static "
+
+    #$scope
+      if
+        scope_of(self) == "extern"
+        -> "extern "
+        -> "static "
+
+    $identifier identifier_of(self)
+
+    $namespace
+      if(identifier.is_defined (-> namespace_of(identifier)) -> undefined)
+
+    $name if(identifier.is_defined (-> name_of(identifier)) -> undefined)
+
+    $mangled_name
+      if
+	identifier.is_defined
+	-> mangled_name_of(identifier_of(self))
+	-> undefined
+
+    $type
+      if
+	node::type_of(self).is_defined
+	-> mangled_name_of(node::type_of(self))
+	-> undefined
+
+    $initialize_object:
+      (
+	obj_type
+	as_a_future = false
+      )
+      $$arguments ""
+      for_each
+	arguments_of(self): (argument)
+	  write_to &arguments argument
+	:
+	  append &arguments ", "
+      if
+	mangled_name .contains. "__":
+	  write_to_global_variable_declarations
+	    string("  NODE *" mangled_name ";@nl;")
+	:
+	  write_to_top_level_variable_names "  @quot;@(mangled_name)@quot;,@nl;"
+	  write_to_top_level_variable_declarations
+	    string("  NODE *" var_name(mangled_name) ";@nl;")
+      write_to_generated_collections "
+	@
+	  @(var_entry(mangled_name)) = collect_node(@(var_entry(mangled_name))@
+	);@nl;@
+      if
+	as_a_future:
+	  write_to_phase_2 "
+	    @
+	      @(var_entry(mangled_name)) = @
+	    create_future_with_prototype(create__@(obj_type)(@(arguments)));
+	:
+	  write_to_phase_2 "
+	    @
+	      @(var_entry(mangled_name)) = create__@(obj_type)(@(arguments)@
+	    );@nl;@
+      if namespace.is_defined:
+	write_to_declarations "
+	  static NODE *get__@(mangled_name)(void) {
+	    return @(var_entry(mangled_name));
+	  }
+
+    case
+      kind
+      "struct":
+	write_to_declarations "
+
+	  typedef struct @(mangled_name) @(mangled_name);
+	  struct @(mangled_name) {@nl;@(indented(2 source))
+	  };
+      "node":
+	write_to_declarations "
+
+	  typedef struct {
+	    void *type;
+	    ATTRIBUTES *attributes;
+	  @(indented(2 source))@nl;} @(mangled_name);
+	$collector_name "collect_@(mangled_name.to_lower_case)"
+	unless defined_functions(collector_name):
+	  write "
+	    @(scope)void *@(collector_name)(@(mangled_name) *node) {
+	      @(mangled_name) *new_node = allocate(sizeof(@(mangled_name)));
+	      new_node->type = node->type;
+	      *(void **)node = ENCODE_ADDRESS(new_node);
+	      new_node->attributes = collect_attributes(node->attributes);
+	  for_each_line source: ($line)
+	    truncate_from &line "//"
+	    normalize &line
+	    $field_type trim(truncate_behind(line alt(' ' '*') -1))
+
+	    $field_name
+	      trim(truncate_until(line alt(' ' '*') -1) .without_suffix. ';')
+
+	    $base_type
+	      cond
+		-> field_type .has_suffix. " *" -> range(field_type 1 -3)
+		-> field_type .has_suffix. '*' -> range(field_type 1 -2)
+		-> true -> undefined
+
+	    if
+	      base_type.is_defined && defined_structs(base_type):
+		write "
+		  @
+		    new_node->@(field_name) = @
+		  collect_@(base_type.to_lower_case)(node->@(field_name));@nl;@
+	      :
+		write "  new_node->@(field_name) = node->@(field_name);@nl;"
+	  write "
+	      return new_node;
+	    }
+      "type":
+	$node_name node_of(self)
+	$node defined_nodes(node_name)
+	unless node.is_defined:
+	  Error "
+	    Missing definition for a node named "@(node_name)@quot;!@
+	if
+	  base_of(self).is_defined:
+	    initialize_object mangled_name true
+	    assign var_entry(mangled_name) base_of(self).to_c
+	  :
+	    initialize_object mangled_name
+	if namespace.is_defined:
+	  write_to_phase_2 "
+	    @
+	      define_single_assign_static("@(namespace)", "@(name)", @
+	    get__@(mangled_name), &@(var_entry(mangled_name)));
+	$$arguments ""
+	$$initializers ""
+	for_each_line
+	  source_of(node): ($line)
+	    truncate_from &line "//"
+	    normalize &line
+	    $field_type trim(truncate_behind(line alt(' ' '*') -1))
+
+	    $field_name
+	      trim(truncate_until(line alt(' ' '*') -1) .without_suffix. ';')
+
+	    append &arguments field_type
+	    unless field_type .has_suffix. '*': push &arguments ' '
+	    append &arguments field_name
+	    write_to &initializers "
+	      @
+	        node->@(node_name.to_lower_case).@(field_name) = @(field_name)@
+	      ;@nl;@
+	  :
+	    append &arguments ", "
+
+	$$attributes_declaration "
+
+	  static VTABLE vtable__@(mangled_name) = {
+	    sizeof(@(node_of(self))),
+	    (COLLECTOR *)&collect_@(node_of(self).to_lower_case),
+
+	for_each
+	  vtable_entries: (entry)
+	    $func_name
+	      string
+		if(namespace.is_defined (-> "@(namespace)::") -> "")
+		name
+		'/'
+		entry
+
+	    if
+	      defined_functions(func_name):
+		write_to
+		  &attributes_declaration
+		  "  &func__"
+		  mangled_name
+		  "___"
+		  entry
+	      :
+		append &attributes_declaration "  (void *)no_such_function"
+	  :
+	    append &attributes_declaration ",@nl;"
+	append &attributes_declaration "
+
+	  };
+	if
+	  mangled_name == "types__undefined":
+	    append &attributes_declaration "
+
+	      static ATTRIBUTES attributes__types__undefined = {
+	        &vtable__types__undefined,
+	        {
+	          &no_attributes_level_1, &no_attributes_level_2,
+	          &no_attributes_level_3, &no_attributes_level_4,
+	          &no_attributes_level_5, &no_attributes_level_6,
+	          &no_attributes_level_7
+	        }
+	      };
+	  :
+	    append &attributes_declaration "
+
+	      static ATTRIBUTES attributes__@(mangled_name) = {
+	        &vtable__@(mangled_name),
+	        {
+	          &undefined_attributes_level_1, &undefined_attributes_level_2,
+	          &undefined_attributes_level_3, &undefined_attributes_level_4,
+	          &undefined_attributes_level_5, &undefined_attributes_level_6,
+	          &undefined_attributes_level_7
+	        }
+	      };
+	write attributes_declaration
+	write_to_generated_collections
+	  "  collect_static_attributes(&attributes__@(mangled_name));@nl;"
+	write "
+	  @nl;@(scope)void type__@(mangled_name)(void) {
+	  @(indented(2 source.converted))@nl;}
+	$constructor_name "create__@(mangled_name)"
+	unless defined_functions(constructor_name):
+	  write_to_declarations
+	    "@(scope)NODE *@(constructor_name)(@(arguments));@nl;"
+	  if
+	    node_name == "SIMPLE_NODE":
+	      write "
+		SIMPLE_NODE @(mangled_name)__node =
+		  {
+		    type__@(mangled_name),
+		    &attributes__@(mangled_name)
+		  };
+
+		@(scope)NODE *@(constructor_name)(@(arguments)) {
+		  return (NODE *)&@(mangled_name)__node;
+		}
+	    :
+	      write "
+		@(scope)NODE *@(constructor_name)(@(arguments)) {
+		  NODE *node = allocate(sizeof(@(node_name)));
+		  node->type = type__@(mangled_name);
+		  node->attributes = &attributes__@(mangled_name)@
+		;@nl;@(initializers)  return node;
+		}
+      "object":
+	initialize_object type
+	if namespace.is_defined:
+	  write_to_phase_2 "
+	    @
+	      define_single_assign_static("@(namespace)", "@(name)", @
+	    get__@(mangled_name), &@(var_entry(mangled_name)));
+      "function":
+	$raw_declaration source .until. ')'
+	$type_and_name raw_declaration .before. '('
+	$function_name behind(type_and_name alt(' ' '*') -1)
+
+	$mangled_function_name
+	  if
+	    scope_of(self) == "runtime"
+	    -> string("runtime__" function_name)
+	    -> function_name
+
+	$function_type range(type_and_name 1 -length_of(function_name)-1)
+	$arguments raw_declaration .from. '('
+
+	$declaration
+	  string
+	    function_type
+	    if(function_name .contains. "::" (-> "func__") -> "")
+	    replace_all(mangled_function_name "::" = "__" '/' = "___")
+	    arguments
+
+	if
+	  scope_of(self) == "runtime":
+	    write_to_phase_1 "
+	      @
+	        define_c_function("@(function_name)@quot;, @
+	      @(mangled_function_name));
+	  :
+	    write_to_declarations "@nl;@(scope)@(declaration);@nl;"
+	write "@nl;@(scope)@(declaration)@((source .behind. ')').converted)@nl;"
+      undefined:
+	write_to_declarations '@nl;'
+	for_each_line source: (line)
+	  if line .has_suffix. ';' && line(1) > ' ':
+	    unless line .has_prefix. alt("typedef" "static " "extern " '}'):
+	      write_to_declarations scope
+	  write_to_declarations line.converted '@nl;'
+      :
+	Error "
+	  Unknown kind ("@(kind)") in C-code declaration!@
+
+$assign_attributes: (destination source attributes)
+  write "
+    @
+      {
+        NODE *temp = clone_object_and_attributes(@(source.to_c));
+        update_start_p = node_p;
+  for_each attributes: (attribute)
+    $identifier identifier_of(attribute)
+    $value arguments_of(attribute)(1).to_c
+    if
+      identifier.is_defined:
+	$kind if(attribute.is_an_attribute_function_pair (-> "") -> "_value")
+	write "
+	  @
+	      set_attribute@(kind)(temp->attributes, @
+	  poly_idx__@(mangled_name_of(identifier)), @(value));@nl;@
+      :
+	write "
+	  @
+	      temp->type = @(value)->type;
+  $code assignment_to_c(destination "temp")
+  write "
+    @
+      @(code)
+      }
+
+$sim2c::generate_statement: (statement)
+  # not used for tail calls!
+
+  if do_show_compiler_debug_infos:
+    cond
+      -> statement.is_a_procedure_call: ewriteln "generate procedure call"
+      -> statement.is_an_assignment: ewriteln "generate assignment"
+      :
+	ewriteln "generate unknown statement"
+  write_source_as_remark statement
+  $functor functor_of(statement)
+  $input_arguments arguments_of(statement)
+  $output_arguments output_arguments_of(statement)
+  if
+    &&
+      length_of(input_arguments) >= 1
+      input_arguments(-1).is_an_attribute_value_pair
+    :
+      $destination output_arguments_of(statement)(1)
+      $source if(functor.is_defined (-> functor) -> destination)
+      assign_attributes destination source input_arguments
+    :
+      if
+	functor.is_defined:
+	  generate_c_arguments input_arguments
+	  cond
+	    -> result_count_of(statement).is_defined:
+	      writeln
+		"  result_count = to_int(@(result_count_of(statement).to_c));"
+	    -> continuation_of(statement).is_defined:
+	      # This makes no sense because we're not in a tail-call position!
+
+	      SyntaxError
+		statement
+		"Call with continuation followed by another statement"
+	    :
+	      $result_count count_arguments(output_arguments)
+	      case
+		result_count
+		undefined:
+		  writeln "  result_count = -1;"
+		:
+		  writeln "  result_count = @(result_count);"
+	  inc &index
+	  get_func_and_myself functor "cont@(suffix)_@(index)"
+	  if do_use_goto:
+	    write "
+	      @
+	        goto *(func+4);
+	  write "}@nl;"
+	  next_continuation "cont@(suffix)_@(index)"
+	  extract "results" output_arguments
+	: # assignment
+	  $destination output_arguments(1)
+	  $source input_arguments(1)
+	  if
+	    &&
+	      destination.is_a_single_assign_definition
+	      source.might_be_constant
+	    :
+	      write "
+		@
+		  initialize_maybe_future(@(destination.to_c), @(source.to_c)@
+		);@nl;@
+	    :
+	      write assignment_to_c(destination source.to_c)

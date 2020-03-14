@@ -1,0 +1,3 @@
+#!/usr/bin/env simple
+
+exec "expr" 2 '*' 3

@@ -1,0 +1,3 @@
+#!/usr/bin/env simple
+
+writeln "abcdefgh".length_of

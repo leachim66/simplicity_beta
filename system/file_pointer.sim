@@ -1,0 +1,95 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<include stdio.h>
+
+{
+  <kind node>
+  <name FILE_POINTER>
+
+  FILE *fp;
+}
+
+{
+  <kind type>
+  <name types::file_pointer>
+  <node FILE_POINTER>
+  <base types::object>
+  <argument -1>
+
+  RUNTIME_ERROR("Attempt to call a file_pointer as a function!")
+}
+
+$std::fopen
+  {
+    CHECK_ARGUMENTS(2)
+    char *filename;
+    char *mode;
+    FILE *fp;
+    EVENT(fopen)
+      filename = to_c_string(ARGUMENTS(0));
+      mode = to_c_string(ARGUMENTS(1));
+      fp = fopen(filename, mode);
+      deallocate_memory(filename);
+      deallocate_memory(mode);
+    INFO
+      C_STRING(filename)
+      C_STRING(mode)
+      POINTER(fp)
+    DATA
+      POINTER(fp)
+    END
+    if (fp == NULL) RETURN_UNDEFINED
+    RETURN_SINGLE_RESULT(create__types__file_pointer(fp))
+  }
+
+$types::file_pointer/close
+  {
+    CHECK_ARGUMENTS(1)
+    int err;
+    FILE *fp = ARGUMENTS(0)->file_pointer.fp;
+    ACTION(fclose)
+      err = fclose(fp);
+    INFO
+      POINTER(fp)
+    DATA
+      INT(err, 0)
+    END
+    if (result_count == 0) {
+      if (err != 0) RUNTIME_ERROR("Failed to close file!")
+      RETURN_NOTHING
+    }
+    RETURN_BOOLEAN(err == 0)
+  }
+
+{
+  <kind function>
+  <scope global>
+
+  FILE *to_FILE_pointer(NODE *node) {
+    if (node->type != type__types__file_pointer) {
+      unrecoverable_error(
+        "Attempt to convert something that is not a file_pointer to a FILE *!");
+    }
+    return node->file_pointer.fp;
+  }
+}

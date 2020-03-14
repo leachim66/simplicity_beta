@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$first_name_of (!)
+$family_name_of (!)
+$hello ()
+
+do:
+  types::object $john
+    .first_name_of "John"
+    .family_name_of "Doe"
+    /hello: (self) writeln "Hi, I'm " first_name_of(self) "!"
+    /: (myself^)
+      writeln "My name is " first_name_of(myself) " " family_name_of(myself) "."
+
+  writeln first_name_of(john) " " family_name_of(john)
+  hello john
+  john

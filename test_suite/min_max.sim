@@ -1,0 +1,16 @@
+#!/usr/bin/env simple
+
+$min_max: (a b)
+  if
+    a < b:
+      -> a b
+    :
+      -> b a
+
+do:
+  min_max 7 2 $min $max
+  writeln min ", " max
+
+do:
+  min_max 3 9 $min $max
+  writeln min ", " max

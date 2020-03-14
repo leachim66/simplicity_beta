@@ -1,0 +1,153 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::debug_string
+  #
+    Returns a string represenation of its (first) argument for debugging
+    purposes. The string can contain multiple lines and is always terminated
+    with a line feed.
+
+    See also: dump, edump
+
+    Parameter obj:
+      the object from which to retrieve a string representation
+
+    Parameter indent = 0:
+      the number of spaces to use for indenting all lines of the string
+      representation;
+      a negative indent is the same as a positive indent; but for multi-line
+      results the result string starts with a line feed
+
+    Example:
+
+    $SYMBOL .
+    write debug_string(SYMBOL)
+
+  {
+    MIN_ARGUMENTS(1)
+    MAX_ARGUMENTS(3)
+
+    NODE *node = ARGUMENTS(0);
+    int indent = 0;
+    int depth = 1;
+    if (ARGUMENT_COUNT >= 2) {
+      indent = to_int(ARGUMENTS(1));
+    }
+    if (ARGUMENT_COUNT >= 3) {
+      depth = to_int(ARGUMENTS(2));
+    }
+    long len = debug_string(node, indent, depth, NULL);
+    char *buf = allocate_memory(len+1); // obey terminating null-byte
+    len = debug_string(node, indent, depth, buf);
+    NODE *result = from_latin_1_string(buf, len);
+    deallocate_memory(buf);
+    RETURN_SINGLE_RESULT(result);
+  }
+
+$std::dump:
+  #
+    Dumps its arguments consisting of an alternating sequence of
+    expression names and expression values using <write>. The expression values
+    are converted into strings using <debug_string>.
+
+    The depth to which debug strings shall be generated can be provided as an
+    optional first argument; the default depth is 1.
+
+    See also: edump, debug_string
+
+    Example:
+
+    dump `value_1 `value_2 `2*f(x)
+  (
+    $args* # an alternating sequence of names and values
+  )
+  $$depth 1
+  if length_of(args).is_odd:
+    !depth args(1)
+    range &args 2 -1
+  for_each_pair args: (name expr) write name ":" debug_string(expr -2 depth)
+
+$std::edump:
+  #
+    Dumps its arguments consisting of an alternating sequence of
+    expression names and expression values using <ewrite>. The expression values
+    are converted into strings using <debug_string>.
+
+    The depth to which debug strings shall be generated can be provided as an
+    optional first argument; the default depth is 1.
+
+    See also: dump, debug_string
+
+    Example:
+
+    edump `value_1 `value_2 `2*f(x)
+  (
+    $args* # an alternating sequence of names and values
+  )
+  $$depth 1
+  if length_of(args).is_odd:
+    !depth args(1)
+    range &args 2 -1
+  for_each_pair args: (name expr) ewrite name ":" debug_string(expr -2 depth)
+
+$std::collect_garbage
+  {
+    CHECK_ARGUMENTS(0)
+    collect_garbage();
+    RETURN_NOTHING
+  }
+
+#$std::total_amount_of_used_memory {
+  CHECK_ARGUMENTS(0)
+  RETURN_SINGLE_RESULT(from_long(node_p-node_buf))
+#}
+
+$std::instruction_counter
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_uint64(instruction_counter))
+  }
+
+$std::total_garbage_collections
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_int(total_garbage_collections))
+  }
+
+$std::hexdump: (str)
+  $len length_of(str)
+  $$pos 0
+  while -> pos < len:
+    $n min(len-pos 16)
+    $line range(str pos+1 pos+n)
+    write pad_left(hex(pos) 8 "0") ":"
+    from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+    write dup("   " 16-n) "  "
+    from_to 1 n: (i)
+      $chr line(i)
+      if
+	chr >= ' ' && chr < '@del;':
+	  write chr
+	:
+	  write "."
+    writeln
+    plus &pos n

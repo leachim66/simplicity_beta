@@ -1,0 +1,956 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+
+$NONE .
+
+#
+  all hash set entries with equal keys share an *identical* key to be able
+  to find obsolete entries during the garbage collection phase
+  (the equal-function like any other function cannot be called during the
+  garbage collection phase)
+
+# the REFERRED_REVISION is used during the garbage collection
+
+{
+  typedef struct REFERRED_REVISION REFERRED_REVISION;
+  struct REFERRED_REVISION {
+    REFERRED_REVISION *link;
+    long rev_no;
+  };
+}
+
+{
+  <kind struct>
+  <name UNORDERED_SET_REVISION>
+
+  UNORDERED_SET_REVISION *link;
+  long rev_no; // the revision no. the value has been inserted or changed
+  int value; // "false" must be stored to override "true" in older revisions
+}
+
+{
+  <kind struct>
+  <name UNORDERED_SET_KEY_COLLISION>
+
+  UNORDERED_SET_KEY_COLLISION *link;
+  NODE *key; // this need not be the original key used to store the entry
+             // but might be another but equal key
+  UNORDERED_SET_REVISION *revisions;
+}
+
+{
+  <kind struct>
+  <name UNORDERED_SET_HASH_COLLISION>
+
+  UNORDERED_SET_HASH_COLLISION *link;
+  long hash; // the hash value of the entry's key
+  UNORDERED_SET_KEY_COLLISION *key_collisions;
+}
+
+{
+  <kind struct>
+  <name UNORDERED_SET_DATA>
+
+  long rev_no; // the newest revision stored within the set
+  long size; // the total number of entries
+  union {
+    long used; // the total number of used entries
+    REFERRED_REVISION *referrers; // used during the garbage collection
+  };
+  UNORDERED_SET_HASH_COLLISION **entries;
+}
+
+{
+  <kind node>
+  <name UNORDERED_SET>
+
+  long rev_no;
+  UNORDERED_SET_DATA *data;
+}
+
+{
+  <kind function>
+
+  void collect_unordered_set_data_phase_2(
+    void *old_data
+  ) {
+    //fprintf(stderr, "collect_unordered_set_data_phase_2 (%p)\n", old_data);
+    UNORDERED_SET_DATA *data = DECODE_ADDRESS(*(void **)old_data);
+    /*REFERRED_REVISION *referrer = data->referrers;
+    while (referrer) {
+      fprintf(stderr, "rev_no: %ld\n", referrer->rev_no);
+      referrer = referrer->link;
+    }*/
+    long size = data->size;
+    long idx;
+    //fprintf(stderr, "size: %ld\n", size);
+
+    UNORDERED_SET_HASH_COLLISION **new_entries =
+      allocate_and_clear(size*sizeof(UNORDERED_SET_HASH_COLLISION *));
+
+    for (idx = 0; idx < size; ++idx) {
+      UNORDERED_SET_HASH_COLLISION *hash_collision =
+        data->entries[idx];
+
+      if ((long)hash_collision & 1) {
+        hash_collision = (void *)((long)hash_collision & -2);
+        //fprintf(stderr, "idx: %ld\n", idx);
+        //fprintf(stderr, "  %p\n", hash_collision);
+
+        UNORDERED_SET_HASH_COLLISION **hash_collision_p = new_entries+idx;
+
+        while (hash_collision) {
+          UNORDERED_SET_KEY_COLLISION *key_collision =
+            hash_collision->key_collisions;
+
+          if ((long)key_collision & 1) {
+            key_collision = (void *)((long)key_collision & -2);
+
+            UNORDERED_SET_HASH_COLLISION *new_hash_collision =
+              allocate(sizeof(UNORDERED_SET_HASH_COLLISION));
+
+            new_hash_collision->link = NULL;
+            new_hash_collision->hash = hash_collision->hash;
+            new_hash_collision->key_collisions = NULL;
+
+            *hash_collision_p = new_hash_collision;
+            hash_collision_p = &new_hash_collision->link;
+
+            //fprintf(stderr, "    %p\n", key_collision);
+
+            UNORDERED_SET_KEY_COLLISION **key_collision_p =
+              &new_hash_collision->key_collisions;
+
+            while (key_collision) {
+              if ((long)key_collision->key & 1) {
+                UNORDERED_SET_KEY_COLLISION *new_key_collision =
+                  allocate(sizeof(UNORDERED_SET_KEY_COLLISION));
+
+                new_key_collision->link = NULL;
+                new_key_collision->key = (void *)((long)key_collision->key & -2);
+                new_key_collision->revisions = NULL;
+
+                *key_collision_p = new_key_collision;
+                key_collision_p = &new_key_collision->link;
+
+                UNORDERED_SET_REVISION **revision_p =
+                  &new_key_collision->revisions;
+
+                UNORDERED_SET_REVISION *revision = key_collision->revisions;
+                while (revision) {
+                  if (revision->value & 2) { // is marked?
+                    //fprintf(stderr, "      rev_no: %ld\n", revision->rev_no);
+
+                    UNORDERED_SET_REVISION *new_revision =
+                      allocate(sizeof(UNORDERED_SET_REVISION));
+
+                    new_revision->link = NULL;
+                    new_revision->rev_no = revision->rev_no;
+                    new_revision->value = revision->value & 1; // remove mark
+
+                    *revision_p = new_revision;
+                    revision_p = &new_revision->link;
+                  }
+                  revision = revision->link;
+                }
+              }
+              key_collision = key_collision->link;
+            }
+          }
+          hash_collision = hash_collision->link;
+        }
+      }
+    }
+    data->entries = new_entries;
+    //fprintf(stderr, "collection phase 2 done (%p)\n", old_data);
+  }
+}
+
+{
+  <kind function>
+
+  UNORDERED_SET_DATA *collect_unordered_set_data(
+    UNORDERED_SET_DATA *data, long rev_no,
+    REFERRED_REVISION *referred_revision
+  ) {
+    if (IS_COLLECTED(data)) {
+      void *new_location = *(void **)data;
+
+      //fprintf(stderr, "GC-%ld\n", rev_no);
+
+      if (IS_AN_INVALID_ADDRESS(new_location)) {
+        data = DECODE_ADDRESS(new_location);
+
+        // don't mark twice
+        REFERRED_REVISION *referrer = data->referrers;
+        while (referrer) {
+          if (referrer->rev_no == rev_no) return data;
+          referrer = referrer->link;
+        }
+      } else {
+        UNORDERED_SET_DATA *new_data =
+          allocate(sizeof(UNORDERED_SET_DATA));
+        new_data->rev_no = data->rev_no;
+        new_data->size = data->size;
+        new_data->referrers = NULL;
+        new_data->entries = data->entries;
+
+        //fprintf(stderr, "register phase 2 collector\n");
+        ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_set_data_phase_2;
+        register_phase_2_collector(data);
+
+        *(void **)data = ENCODE_ADDRESS(new_data);
+        data = new_data;
+      }
+
+      referred_revision->link = data->referrers;
+      referred_revision->rev_no = rev_no;
+      data->referrers = referred_revision;
+
+      // the key order within the hash collisions must not be changed
+
+      UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+      long idx;
+      long size = data->size;
+      //fprintf(stderr, "mark used entries (%ld)\n", size);
+      for (idx = 0; idx < size; ++idx) {
+        UNORDERED_SET_HASH_COLLISION *hash_collision =
+          (void *)((long)entries[idx] & -2);
+        int hash_collisions_used = false;
+        while (hash_collision) {
+          UNORDERED_SET_KEY_COLLISION *key_collision =
+            (void *)((long)hash_collision->key_collisions & -2);
+          int key_collisions_used = false;
+          while (key_collision) {
+            UNORDERED_SET_REVISION *revision = key_collision->revisions;
+            int revision_used = false;
+            while (revision) {
+              if (revision->rev_no <= rev_no) {
+                if (!(revision->value & 2)) { // is not marked?
+                  revision->value |= 2; // mark it!
+                  revision_used = true;
+                }
+                break;
+              }
+              revision = revision->link;
+            }
+            if (revision_used) {
+              key_collision->key =
+                (void *)((long)collect_node(key_collision->key) | 1);
+              key_collisions_used = true;
+            }
+            key_collision = key_collision->link;
+          }
+          if (key_collisions_used) {
+            hash_collision->key_collisions =
+              (void *)((long)hash_collision->key_collisions | 1);
+            hash_collisions_used = true;
+          }
+          hash_collision = hash_collision->link;
+        }
+        if (hash_collisions_used) {
+          entries[idx] = (void *)((long)entries[idx] | 1);
+        }
+      }
+      //fprintf(stderr, "marked used entries\n");
+    } /*else if (data) {
+      fprintf(stderr, "data: %p\n", data);
+      fprintf(stderr, "???\n");
+      exit(1);
+    }*/
+    return data;
+  }
+}
+
+{
+  <kind function>
+
+  void *collect_unordered_set(UNORDERED_SET *node) {
+    //fprintf(stderr, "collect unordered_set (%p)\n", node->data);
+    UNORDERED_SET *new_node = allocate(sizeof(UNORDERED_SET));
+    new_node->type = node->type;
+    *(void **)node = ENCODE_ADDRESS(new_node);
+    new_node->attributes = collect_attributes(node->attributes);
+    new_node->rev_no = node->rev_no;
+    new_node->data =
+      collect_unordered_set_data(
+        node->data, node->rev_no, (REFERRED_REVISION *)&node->rev_no);
+    return new_node;
+  }
+}
+
+$insert_item
+  {
+    CHECK_ARGUMENTS(5)
+
+    UNORDERED_SET *myself = (UNORDERED_SET *)ARGUMENTS(0);
+    uint32_t hash = to_uint32(ARGUMENTS(1));
+    NODE *cmp_key = ARGUMENTS(2); // NONE or a key returned from a previous call
+    NODE *key = ARGUMENTS(3);
+    int value = to_bool(ARGUMENTS(4));
+
+    long rev_no = myself->rev_no;
+    UNORDERED_SET_DATA *data = myself->data;
+    UNORDERED_SET_HASH_COLLISION **entries;
+    long size;
+    if (!data) { // we must allocate a data record
+      size = 32; // the initial size for the set
+      data = allocate(sizeof(UNORDERED_SET_DATA));
+      // the empty set does *not* get a reference to the newly allocated data!
+      data->rev_no = 0; // initial revision number is 0
+      // no need to set <rev_no> - it must be 0
+      data->size = size; // the maximum number of entries the set can hold without reallocation
+      data->used = 0; // no entries are used yet
+      data->entries = entries =
+        allocate_and_clear(size*sizeof(UNORDERED_SET_HASH_COLLISION *));
+    } else {
+      size = data->size;
+      entries = data->entries;
+    }
+
+    UNORDERED_SET_DATA *new_data = NULL;
+
+    if (data->rev_no != rev_no) { // we must clone the set (data and entries)
+      //fprintf(stderr, "clone (our rev_no: %ld; set's rev_no: %ld)\n", rev_no, data->rev_no);
+      new_data = allocate(sizeof(UNORDERED_SET_DATA));
+      new_data->rev_no = rev_no;
+      new_data->size = size;
+      new_data->used = data->used;
+      new_data->entries =
+        allocate(size*sizeof(UNORDERED_SET_HASH_COLLISION *));
+
+      long idx;
+      for (idx = 0; idx < size; ++idx) {
+        //fprintf(stderr, "idx: %ld\n", idx);
+        UNORDERED_SET_HASH_COLLISION *hash_collision = entries[idx];
+        UNORDERED_SET_HASH_COLLISION *new_hash_collisions = NULL;
+        UNORDERED_SET_HASH_COLLISION **new_hash_collisions_p =
+          &new_hash_collisions;
+        while (hash_collision) {
+          UNORDERED_SET_KEY_COLLISION *key_collision =
+            hash_collision->key_collisions;
+          UNORDERED_SET_KEY_COLLISION *new_key_collisions = NULL;
+          UNORDERED_SET_KEY_COLLISION **new_key_collisions_p =
+            &new_key_collisions;
+          while (key_collision) {
+            UNORDERED_SET_REVISION *revision = key_collision->revisions;
+            UNORDERED_SET_REVISION *new_revisions = NULL;
+            UNORDERED_SET_REVISION **new_revision_p = &new_revisions;
+            while (revision) {
+              if (revision->rev_no <= rev_no) {
+                UNORDERED_SET_REVISION *new_revision =
+                  allocate(sizeof(UNORDERED_SET_REVISION));
+                new_revision->link = NULL;
+                new_revision->rev_no = revision->rev_no;
+                new_revision->value = revision->value;
+                *new_revision_p = new_revision;
+                new_revision_p = &new_revision->link;
+              }
+              revision = revision->link;
+            }
+            if (new_revisions) {
+              UNORDERED_SET_KEY_COLLISION *new_key_collision =
+                allocate(sizeof(UNORDERED_SET_KEY_COLLISION));
+              new_key_collision->link = NULL;
+              new_key_collision->key = key_collision->key;
+              new_key_collision->revisions = new_revisions;
+              *new_key_collisions_p = new_key_collision;
+              new_key_collisions_p = &new_key_collision->link;
+            }
+            key_collision = key_collision->link;
+          }
+          if (new_key_collisions) {
+            UNORDERED_SET_HASH_COLLISION *new_hash_collision =
+              allocate(sizeof(UNORDERED_SET_HASH_COLLISION));
+            new_hash_collision->link = NULL;
+            new_hash_collision->hash = hash_collision->hash;
+            new_hash_collision->key_collisions = new_key_collisions;
+            *new_hash_collisions_p = new_hash_collision;
+            new_hash_collisions_p = &new_hash_collision->link;
+          }
+          hash_collision = hash_collision->link;
+        }
+        new_data->entries[idx] = new_hash_collisions;
+      }
+
+      data = new_data;
+      entries = new_data->entries;
+    }
+
+    NODE *key_node = var._NONE; // default: item has been inserted
+
+    long idx = hash % size;
+    //fprintf(stderr, "insert into slot %ld\n", idx);
+
+    UNORDERED_SET_HASH_COLLISION *hash_collision = entries[idx];
+    while (hash_collision) {
+      if (hash_collision->hash == hash) goto found_identical_hash;
+      hash_collision = hash_collision->link;
+    }
+    //fprintf(stderr, "create new hash collision entry\n");
+    hash_collision = allocate(sizeof(UNORDERED_SET_HASH_COLLISION));
+    hash_collision->link = entries[idx];
+    hash_collision->hash = hash;
+    hash_collision->key_collisions = NULL;
+    entries[idx] = hash_collision;
+
+    found_identical_hash:;
+
+    //fprintf(stderr, "key: %p\n", key);
+    //fprintf(stderr, "cmp_key: %p\n", cmp_key);
+
+    UNORDERED_SET_KEY_COLLISION *key_collision = hash_collision->key_collisions;
+
+    if (cmp_key == key) {
+      // the caller has already checked the cmp_key and forces the insert
+
+      //fprintf(stderr, "force insert\n");
+      while (key_collision) {
+        if (key_collision->key == key) goto insert_new_revision;
+        key_collision = key_collision->link;
+      }
+
+      // fall through
+      // the key is no longer present - must be removed by a garbage collection
+      // so insert a new key collision entry
+    } else if (cmp_key == var._NONE) {
+      // first call to attempt to insert the new key and value
+
+      while (key_collision) {
+        if (key_collision->key == key) goto insert_new_revision;
+
+        // we found a nonidentical key with the same 32-bit hash value
+        // this key might be another key-value (with the same hash) or (probably)
+        // another object for the same key-value
+        // we delegate the decision to the caller unless we find an identical key
+
+        if (cmp_key == var._NONE) {
+          // let's store this key for later check by the caller
+
+          cmp_key = key_collision->key;
+        }
+
+        key_collision = key_collision->link;
+      }
+
+      if (cmp_key != var._NONE) {
+        // let the caller check this key
+
+        //fprintf(stderr, "let the caller check this key\n");
+        key_node = cmp_key;
+        if (new_data) goto update_myself;
+        goto leave;
+      }
+
+      // fall through - insert a new key_collision entry
+    } else {
+      // look for the cmp_key
+
+      //fprintf(stderr, "look for another key\n");
+      while (key_collision) {
+        //fprintf(stderr, "key_collision->key: %p\n", key_collision->key);
+        if (key_collision->key == cmp_key) {
+          if (key_collision->link) {
+            // let the caller check the next key
+
+            key_node = key_collision->link->key;
+            if (new_data) goto update_myself; // can this ever occur?
+            goto leave;
+          } else {
+            // it's a unique new key
+
+            goto insert_new_key;
+          }
+        }
+        key_collision = key_collision->link;
+      }
+
+      // the cmp_key has been removed (by a garbage collection) ...
+
+      key_collision = hash_collision->key_collisions;
+      if (key_collision) {
+        // ... so we have to start probing keys again
+
+        key_node = key_collision->key;
+        if (new_data) goto update_myself; // can this ever occur?
+        goto leave;
+      }
+
+      // fall through - there are no more rivaling keys
+
+    }
+
+    insert_new_key:
+
+    //fprintf(stderr, "create new key collision entry\n");
+    key_collision = allocate(sizeof(UNORDERED_SET_KEY_COLLISION));
+    key_collision->link = hash_collision->key_collisions;
+    key_collision->key = key;
+    key_collision->revisions = NULL;
+    hash_collision->key_collisions = key_collision;
+
+    insert_new_revision:;
+
+    //fprintf(stderr, "create new revision entry\n");
+
+    ++rev_no;
+
+    UNORDERED_SET_REVISION *revision = allocate(sizeof(UNORDERED_SET_REVISION));
+    revision->link = key_collision->revisions;
+    revision->rev_no = rev_no;
+    revision->value = value;
+    key_collision->revisions = revision;
+
+    data->rev_no = rev_no;
+
+    update_myself:;
+
+    NODE *new_set = create__types__unordered_set(rev_no, data);
+    new_set->type = myself->type;
+    new_set->attributes = myself->attributes;
+    myself = (UNORDERED_SET *)new_set;
+
+    leave:;
+
+    START_ARGUMENTS(2)
+    ARGUMENTS(0) = (NODE *)myself;
+    ARGUMENTS(1) = key_node;
+    RETURN
+  }
+
+$retrieve_item
+  {
+    CHECK_ARGUMENTS(3)
+
+    UNORDERED_SET *myself = (UNORDERED_SET *)ARGUMENTS(0);
+    uint32_t hash = to_uint32(ARGUMENTS(1));
+    NODE *cmp_key = ARGUMENTS(2);
+
+    long rev_no = myself->rev_no;
+    UNORDERED_SET_DATA *data = myself->data;
+
+    NODE *key_node = var._NONE;
+    int value = false;
+    if (!data) goto leave;
+
+    long size = data->size;
+    UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+
+    long idx = hash % size;
+    //fprintf(stderr, "idx: %ld\n", idx);
+
+    UNORDERED_SET_HASH_COLLISION *hash_collision = entries[idx];
+    while (hash_collision) {
+      if (hash_collision->hash == hash) goto found_identical_hash;
+      hash_collision = hash_collision->link;
+    }
+    goto leave;
+
+    found_identical_hash:;
+
+    //fprintf(stderr, "found identical hash\n");
+    UNORDERED_SET_KEY_COLLISION *key_collision = hash_collision->key_collisions;
+
+    if (cmp_key == var._NONE) {
+      if (key_collision) goto found_matching_key;
+      goto leave;
+    }
+
+    while (key_collision) {
+      if (key_collision->key == cmp_key) {
+        if (key_collision->link) {
+          // let the caller check the next key
+
+          key_node = key_collision->link->key;
+          value = key_collision->link->revisions->value;
+        }
+        goto leave;
+      }
+      key_collision = key_collision->link;
+    }
+
+    // the cmp_key has been removed (by a garbage collection) ...
+    // so let's start again
+
+    key_collision = hash_collision->key_collisions;
+
+    found_matching_key:;
+    //fprintf(stderr, "found matching key\n");
+    key_node = key_collision->key;
+
+    UNORDERED_SET_REVISION *revision = key_collision->revisions;
+    while (revision && revision->rev_no > rev_no) {
+      revision = revision->link;
+    }
+
+    if (revision) {
+      value = key_collision->revisions->value;
+    }
+
+    leave:;
+    if (!value) {
+      key_node = var._NONE;
+    }
+    RETURN_SINGLE_RESULT(key_node)
+  }
+
+{
+  <kind type>
+  <name types::unordered_set>
+  <node UNORDERED_SET>
+  <base types::generic_set>
+  <argument 0>
+  <argument NULL>
+
+  // Dummy implementation - will be reimplemented below in Simplicity!
+
+  CHECK_ARGUMENTS(0)
+  RETURN_SINGLE_RESULT(create__types__unordered_set(0, NULL))
+}
+
+$types::unordered_set/length_of
+  {
+    CHECK_ARGUMENTS(1)
+
+    UNORDERED_SET *myself = (UNORDERED_SET *)ARGUMENTS(0);
+
+    long len = 0;
+
+    UNORDERED_SET_DATA *data = myself->data;
+
+    if (data) {
+      long rev_no = data->rev_no;
+      UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+      long size = data->size;
+      long idx;
+      for (idx = 0; idx < size; ++idx) {
+        UNORDERED_SET_HASH_COLLISION *hash_collision = entries[idx];
+        while (hash_collision) {
+          UNORDERED_SET_KEY_COLLISION *key_collision =
+            hash_collision->key_collisions;
+          while (key_collision) {
+            UNORDERED_SET_REVISION *revision = key_collision->revisions;
+            while (revision) {
+              if (revision->rev_no <= rev_no) {
+              if (revision->value) ++len;
+                break;
+              }
+              revision = revision->link;
+            }
+            key_collision = key_collision->link;
+          }
+          hash_collision = hash_collision->link;
+        }
+      }
+    }
+
+    RETURN_SINGLE_RESULT(from_long(len))
+  }
+
+$next_key
+  {
+    CHECK_ARGUMENTS(3)
+    UNORDERED_SET *myself = (UNORDERED_SET *)ARGUMENTS(0);
+    uint32_t hash = to_uint32(ARGUMENTS(1));
+    NODE *cmp_key = ARGUMENTS(2);
+
+    NODE *key_node = var._NONE; // default: no more key and value found
+
+    UNORDERED_SET_DATA *data = myself->data;
+    if (data) {
+      long rev_no = data->rev_no;
+      UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+      long size = data->size;
+      long idx;
+      UNORDERED_SET_HASH_COLLISION *hash_collision;
+      UNORDERED_SET_KEY_COLLISION *key_collision;
+      UNORDERED_SET_REVISION *revision;
+      if (cmp_key == var._NONE) {
+        // find first key
+        for (idx = 0; idx < size; ++idx) {
+          hash_collision = entries[idx];
+          while (hash_collision) {
+            key_collision = hash_collision->key_collisions;
+            while (key_collision) {
+              revision = key_collision->revisions;
+              while (revision) {
+                if (revision->rev_no <= rev_no) {
+                  if (!revision->value) goto find_next;
+                  key_node = key_collision->key;
+                  goto leave;
+                }
+                revision = revision->link;
+              }
+              find_next:
+              key_collision = key_collision->link;
+            }
+            hash_collision = hash_collision->link;
+          }
+        }
+      } else {
+        // find key
+        idx = hash % size;
+
+        hash_collision = entries[idx];
+        while (hash_collision) {
+          if (hash_collision->hash == hash) {
+            key_collision = hash_collision->key_collisions;
+            while (key_collision) {
+              if (key_collision->key == cmp_key) {
+                goto find_next;
+              }
+              key_collision = key_collision->link;
+            }
+          }
+          hash_collision = hash_collision->link;
+        }
+        INVALID_INDEX_ERROR
+      }
+    }
+
+    leave:;
+    RETURN_SINGLE_RESULT(key_node)
+  }
+
+$previous_key
+  {
+    CHECK_ARGUMENTS(3)
+    UNORDERED_SET *myself = (UNORDERED_SET *)ARGUMENTS(0);
+    uint32_t hash = to_uint32(ARGUMENTS(1));
+    NODE *cmp_key = ARGUMENTS(2);
+
+    NODE *key_node = var._NONE; // default: no more key and value found
+
+    UNORDERED_SET_DATA *data = myself->data;
+    if (data) {
+      long rev_no = data->rev_no;
+      UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+      long size = data->size;
+      long idx;
+      UNORDERED_SET_HASH_COLLISION *hash_collision;
+      UNORDERED_SET_KEY_COLLISION *key_collision;
+      UNORDERED_SET_REVISION *revision;
+      if (cmp_key == var._NONE) {
+        // find last key
+        idx = size-1;
+      } else {
+        // find key
+        idx = hash % size;
+      }
+      while (idx >= 0) {
+        hash_collision = entries[idx];
+        while (hash_collision) {
+          key_collision = hash_collision->key_collisions;
+          while (key_collision) {
+            revision = key_collision->revisions;
+            while (revision) {
+              if (revision->rev_no <= rev_no) {
+                if (!revision->value) goto skip;
+                if (key_collision->key == cmp_key) {
+                  if (key_node != var._NONE) goto leave;
+                  cmp_key = var._NONE;
+                  goto find_previous;
+                }
+                key_node = key_collision->key;
+                break;
+              }
+              revision = revision->link;
+            }
+            skip:
+            key_collision = key_collision->link;
+          }
+          hash_collision = hash_collision->link;
+        }
+        if (key_node != var._NONE) goto leave;
+        find_previous:
+        --idx;
+      }
+    }
+
+    leave:;
+    RETURN_SINGLE_RESULT(key_node)
+  }
+
+$types::unordered_set/private::set_item:
+  (
+    $self
+    $key
+    value
+    -> return
+  )
+  if key.is_undefined: !key undefined
+  $h hash(key)
+
+  #
+    MUST NOT use single assignment variables to prevent the use of
+    futures by the compilers - the use of futures could change the
+    address of the value!
+
+  $$cmp_key NONE
+    #
+      start looking for possibly matching keys at the first key with
+      identical hash
+  forever:
+    insert_item &self h &cmp_key key value
+    if cmp_key == NONE: return self
+    if cmp_key .equal_type_and_value. key:
+      !key cmp_key # force the use of the already stored (and equal) key
+
+$types::unordered_set/private::get_item:
+  (
+    self
+    key
+    -> return
+  )
+  $h hash(key)
+
+  #
+    MUST NOT use single assignment variables to prevent the use of
+    futures by the compilers - the use of futures could change the
+    address of the value!
+
+  $$cmp_key NONE
+    #
+      start the search with the first key with a matching hash value
+  forever:
+    retrieve_item self h &cmp_key
+
+    #ewriteln "___"
+    #edump `cmp_key
+
+    if cmp_key == NONE: return false
+    if cmp_key .equal_type_and_value. key: return true
+
+    #
+      retry starting from the <cmp_key> if it was not deleted by a
+      garbage collection
+      or restart again at the first key with a matching hash value if the
+      <cmp_key> was deleted by a garbage collection
+
+#
+  ATTENTION:
+
+  MUST BE BUG. Exactly the same implementation *SHOULD* be inherited from
+  <generic_set> but does *NOT* work!
+
+$types::unordered_set/:
+  (
+    myself^
+    key
+    value = NONE
+  )
+  if
+    NONE == value:
+      private::get_item myself key
+    :
+      private::set_item myself key value
+
+$types::unordered_set.serialization_tag_of "unordered_set"
+
+$types::unordered_set/new_empty_collection: (_self) -> types::unordered_set
+
+$std::empty_unordered_set types::unordered_set
+
+$std::unordered_set: (initializers*)
+  $$tab types::unordered_set
+  for_each initializers: (initializer)
+    !tab(std::key_of(initializer)) std::value_of(initializer)
+  -> tab
+
+$types::unordered_set/for_each:
+  (
+    self
+    body
+    -> return
+  )
+  #
+    MUST NOT use single assignment variables to prevent the use of
+    futures by the compilers - the use of futures could change the
+    address of the value!
+
+  $$key NONE
+  forever:
+    next_key self hash(key) &key
+    if key == NONE return
+    body key
+
+$types::unordered_set/for_each_from_to:
+  (
+    self
+    first
+    last
+    body
+    -> return
+  )
+  #
+    We cannot retrieve the first item directly - we need the key object that
+    is actually stored in the set!
+
+  $$key first
+  $h hash(key)
+  retrieve_item self h &key
+  if key == NONE: Error "Invalid index error!"
+  forever:
+    body key
+    if key == last return
+    next_key self hash(key) &key
+    if key == NONE return
+
+$types::unordered_set/for_each_downwards:
+  (
+    self
+    body
+    -> return
+  )
+  #
+    MUST NOT use single assignment variables to prevent the use of
+    futures by the compilers - the use of futures could change the
+    address of the value!
+
+  $$key NONE
+  forever:
+    previous_key self hash(key) &key
+    if key == NONE return
+    body key
+
+$types::unordered_set/for_each_from_down_to:
+  (
+    self
+    last
+    first
+    body
+    -> return
+  )
+  #
+    We cannot retrieve the first item directly - we need the key object that
+    is actually stored in the set!
+
+  $$key last
+  $h hash(key)
+  retrieve_item self h &key
+  if key == NONE: Error "Invalid index error!"
+  forever:
+    body key
+    if key == first return
+    previous_key self hash(key) &key
+    if key == NONE return
+
+register_collection_serializer "unordered_set" empty_unordered_set

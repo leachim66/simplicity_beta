@@ -1,0 +1,11 @@
+#!/usr/bin/env simple
+
+%x 1
+$p: writeln x
+do:
+  writeln x # writes "2"
+  %x 2
+  do:
+    p # writes "3"
+    %x 3
+writeln x # writes "1"

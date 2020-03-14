@@ -1,0 +1,16 @@
+#!/usr/bin/env simple
+
+$assign {
+  RETURN
+}
+
+%y 1
+
+$p:
+  %y 7
+  assign 5
+
+p $a
+
+writeln a
+writeln y

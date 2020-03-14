@@ -1,0 +1,141 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  converts the indentation of a fragment into tokens for indent_marker, outdent_marker and
+  newline;
+  if there are multiple successive OUTDENTS, only the last one is followed by a
+  newline
+
+<using std>
+<using sim2c>
+
+$sim2c::indent_marker '@soh;'
+$sim2c::outdent_marker '@stx;'
+$sim2c::newline '@nl;'
+
+$sim2c::tokenize: (&fragment)
+  !fragment.indents_of empty_list
+  $text text_of(fragment)
+  $$i 1
+  $$s 1
+  $$new_text ""
+  $$pending_newlines 0
+  $$quote_count undefined
+
+  $TokenizationError: ($msg)
+    $$line_no line_no_of(fragment)
+    plus &line_no count_occurrences(range(text 1 i-1) newline)
+    to_upper_case &msg(1)
+    ewrite "
+      ____________________________________
+      TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
+    exit 1
+
+  $skip_line:
+    !quote_count 0
+    while -> text(i) != newline:
+      case
+	text(i)
+	'@quot;':
+	  inc &quote_count
+	'@ht;':
+	  TokenizationError "tabulator character within line detected"
+      inc &i
+
+  $get_indent: (-> return)
+    !pending_newlines 0
+    do: (-> break)
+      forever:
+	if i == length_of(text): return -1
+	if text(i) != newline break
+	inc &i
+	inc &pending_newlines
+    $$indent 0
+    while -> text(i) == '@ht;':
+      inc &i
+      plus &indent 8
+    while -> text(i) == ' ':
+      inc &i
+      inc &indent
+    if indent > 0 && text(i) == newline:
+      TokenizationError "empty line contains whitespace"
+    -> indent
+
+  $convert:
+    (
+      current_indent
+      -> return
+    )
+    forever:
+      $add_newline:
+	repeat pending_newlines:
+	  push &new_text newline
+	  push &fragment.indents_of indent
+
+      $add_indent:
+	push &new_text indent_marker
+	push &fragment.indents_of indent
+	dec &pending_newlines
+	add_newline
+
+      $is_a_remark text(i) == '#'
+      skip_line
+      $is_a_multi_line_string quote_count.is_odd
+      $is_inline_C i > 1 && text(i-1) == '{'
+      append &new_text range(text s i-1)
+      get_indent $$indent
+      !s i
+      if indent > current_indent:
+	add_indent
+	if
+	  is_a_remark || is_a_multi_line_string || is_inline_C:
+	    # maybe irregular indentations
+
+	    $rs i
+	    $$least_indent indent
+	    do: (-> break)
+	      forever:
+		skip_line
+		get_indent $next_indent
+		if next_indent <= current_indent break
+		reduce_to &least_indent next_indent
+	    !i rs
+	    do: (-> break)
+	      forever:
+		skip_line
+		repeat indent-least_indent: push &new_text ' '
+		append &new_text range(text s i-1)
+		get_indent !indent
+		!s i
+		if indent <= current_indent break
+		add_newline
+	    push &new_text outdent_marker
+	  :
+	    !indent convert(indent)
+	    if indent > current_indent: TokenizationError "invalid indentation"
+	    push &new_text outdent_marker
+      if indent < current_indent: return indent
+      add_newline
+
+  ignore convert(0)
+  push &new_text newline
+  !fragment.source_of new_text

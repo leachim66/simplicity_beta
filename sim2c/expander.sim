@@ -1,0 +1,193 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  expand operator expressions into function calls
+
+<using std>
+<using sim2c>
+<using node>
+
+$sim2c::expand_statement ()
+$sim2c::expand_expression ()
+
+$expand_arguments: (arguments)
+  $$new_arguments empty_list
+  for_each arguments: (argument)
+    if
+      argument.is_a_backquoted_expression:
+	push
+	  &new_arguments
+	  string_literal(.node::text_of node::text_of(argument))
+	push &new_arguments expand_expression(expression_of(argument))
+      :
+	push &new_arguments expand_expression(argument)
+  -> new_arguments
+
+###
+# DEFAULT GRAMMAR NODE
+
+$types::grammar_node/expand_statement: (&_self)
+  show_compiler_debug_info "expand statement"
+
+$types::grammar_node/expand_expression: (&_self)
+  show_compiler_debug_info "expand expression"
+
+###
+# BODY
+
+$sim2c::body/expand_expression: (&self)
+  show_compiler_debug_info "expand body"
+  update_each &self.parameters_of: (&parameter)
+    if default_value_of(parameter).is_defined:
+      expand_expression &parameter.default_value_of
+  update_each &self.statements_of: (&stmt) expand_statement &stmt
+
+###
+# CALL
+
+$sim2c::call/expand_statement: (&self)
+  show_compiler_debug_info "expand statement"
+  if functor_of(self).is_defined:
+    if result_count_of(self).is_defined: expand_expression &self.result_count_of
+    expand_expression &self.functor_of
+  expand_arguments &self.arguments_of
+  expand_arguments &self.output_arguments_of
+
+###
+# FUNCTION CALL
+
+$sim2c::expand_operator_call: (&self)
+  $make_right_argument_lazy:
+    $right arguments_of(self)(2)
+    !self.arguments_of(2)
+      body
+	.statements_of
+	  list
+	    return_statement
+	      .arguments_of list(right)
+	      .fragment_of fragment_of(right)
+	      .source_position_of source_position_of(right)
+	      .end_position_of end_position_of(right)
+	.fragment_of fragment_of(right)
+	.source_position_of source_position_of(right)
+	.end_position_of end_position_of(right)
+
+  $$functor functor_of(self)
+  if functor.is_an_operator_symbol:
+    $$do_insert_not false
+    case
+      name_of(functor)
+      "*":
+	!functor std_identifier("times")
+      "/":
+	!functor std_identifier("over")
+      "+":
+	!functor std_identifier("plus")
+      "-":
+	if
+	  length_of(arguments_of(self)) == 1:
+	    !functor std_identifier("negate")
+	  :
+	    !functor std_identifier("minus")
+      "<<":
+	!functor std_identifier("shift_left")
+      ">>":
+	!functor std_identifier("shift_right")
+      "&":
+	!functor std_identifier("bit_and")
+      "^":
+	!functor std_identifier("bit_xor")
+      "|":
+	!functor std_identifier("bit_or")
+      "<=":
+	!functor std_identifier("less")
+	swap &self.arguments_of(1) &self.arguments_of(2)
+	!do_insert_not true
+      "<":
+	!functor std_identifier("less")
+      ">=":
+	!functor std_identifier("less")
+	!do_insert_not true
+      ">":
+	!functor std_identifier("less")
+	swap &self.arguments_of(1) &self.arguments_of(2)
+      "==":
+	!functor std_identifier("equal")
+      "!=":
+	!functor std_identifier("equal")
+	!do_insert_not true
+      "&&":
+	!functor std_identifier("and")
+	make_right_argument_lazy
+      "||":
+	!functor std_identifier("or")
+	make_right_argument_lazy
+      "..":
+	!functor std_identifier("value_range")
+      "=":
+	!functor std_identifier("key_value_pair")
+    !self.functor_of functor
+    if do_insert_not:
+      !self
+	function_call
+	  .functor_of std_identifier("not")
+	  .arguments_of list(self)
+	  .fragment_of fragment_of(self)
+	  .source_position_of source_position_of(self)
+	  .end_position_of end_position_of(self)
+
+$sim2c::function_call/expand_expression: (&self)
+  show_compiler_debug_info "expand function call"
+
+  # type-functions construct function calls without a functor!!!
+
+  if functor_of(self).is_defined:
+    expand_expression &self.functor_of
+    $functor functor_of(self)
+    if
+      functor.is_an_operator_symbol && name_of(functor) == ",":
+	$$arguments list(arguments_of(self)(1))
+	$$right arguments_of(self)(2)
+	while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+	  $right_arguments arguments_of(right)
+	  push &arguments right_arguments(1)
+	  !right right_arguments(2)
+	push &arguments right
+	!self.functor_of std_identifier("sequence")
+	!self.arguments_of expand_arguments(arguments)
+      :
+	expand_arguments &self.arguments_of
+	expand_operator_call &self
+
+###
+# ATTRIBUTE VALUE PAIR
+
+$sim2c::attribute_value_pair/expand_expression: (&self)
+  show_compiler_debug_info "expand attribute-value pair"
+  expand_arguments &self.arguments_of
+
+###
+# ATTRIBUTE FUNCTION PAIR
+
+$sim2c::attribute_function_pair/expand_expression: (&self)
+  show_compiler_debug_info "expand attribute-function pair"
+  expand_arguments &self.arguments_of

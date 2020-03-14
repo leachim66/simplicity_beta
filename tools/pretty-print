@@ -1,0 +1,12 @@
+#!/bin/bash
+
+tee /tmp/source.sim >/dev/null
+simple --pretty-print --brief /tmp/source.sim \
+  >/tmp/pretty-printed-source.sim 2>/tmp/pretty-printed-source.err
+if [ "$?" == "0" ]
+then
+  cat /tmp/pretty-printed-source.sim
+else
+  cat /tmp/pretty-printed-source.err | tr -d '\n' 1>&2
+  exit 1
+fi

@@ -1,0 +1,17 @@
+%meta::known_c_types c_types # ATTENTION: Workaround for a bug in the language specification!
+
+%meta::known_c_types
+  c_types # ATTENTION: Workaround for a bug in the language specification!
+
+%meta::known_c_types
+  c_types
+    # ATTENTION: Workaround for a bug in the language specification!
+
+%meta::known_c_types
+  c_types
+    #
+      ATTENTION: Workaround for a bug in the language specification!
+      another line
+
+%meta::known_c_types c_types
+  # ATTENTION: Workaround for a bug in the language specification!

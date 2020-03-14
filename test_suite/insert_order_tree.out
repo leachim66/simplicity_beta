@@ -1,0 +1,44 @@
+47
+36
+84
+39
+11
+15
+--------------------
+node count: 6
+subnode count: 3
+leaf count: 3
+--------------------
+all nodes:
+list
+  "div1": 47
+list
+  "div3": 11
+list
+  "div3"
+  "p1": 15
+list
+  "div2": 36
+list
+  "div2"
+  "p1": 84
+list
+  "div2"
+  "p1"
+  "span": 39
+--------------------
+all subnodes:
+"div1": 47
+"div3": 11
+"div2": 36
+--------------------
+all leaves:
+list
+  "div1": 47
+list
+  "div3"
+  "p1": 15
+list
+  "div2"
+  "p1"
+  "span": 39

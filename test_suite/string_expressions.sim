@@ -1,0 +1,6 @@
+#!/usr/bin/env simple
+
+$$x 47
+$$a 11
+
+writeln "@(x)@0x41;@@@quot;x@;@(a)!"

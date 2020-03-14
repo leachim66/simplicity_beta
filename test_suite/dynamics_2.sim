@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$x_of (!)
+
+%%cap types::object
+
+!cap.x_of 47
+writeln x_of(cap)
+do:
+  %%cap types::object
+  !cap.x_of 29
+  writeln x_of(cap)
+  do:
+    !cap.x_of 35
+    writeln x_of(cap)
+  writeln x_of(cap)
+writeln x_of(cap)

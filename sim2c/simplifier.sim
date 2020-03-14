@@ -1,0 +1,459 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  converts an abstract syntax tree into its canonical form;
+  the generated syntax tree consists only of calls with simple arguments
+
+<using std>
+<using sim2c>
+<using node>
+
+$sim2c::simplify_statement ()
+$sim2c::simplify_expression ()
+
+%defined_names empty_table
+%inherited_names empty_table
+
+$temporary_identifier:
+  inc &temp_idx
+  $id temporary(.name_of "temp__@(temp_idx)")
+  -> id
+
+$simplify_arguments: (&self)
+  $$arguments arguments_of(self)
+  update_each &arguments: (&argument)
+    cond
+      -> argument.is_an_optional_item:
+	!argument.is_an_optional_item false
+	simplify_expression &argument
+	!argument.is_an_optional_item true
+      -> argument.is_an_expanded_item:
+	!argument.is_an_expanded_item false
+	simplify_expression &argument
+	!argument.is_an_expanded_item true
+      :
+	simplify_expression &argument
+  !self.arguments_of arguments
+
+  # the evaluation order must not be changed!
+  # check whether temporaries are necessary
+
+  $$final_destinations undefined
+  $$output_arguments output_arguments_of(self)
+  if output_arguments.is_defined:
+    $$first_temporary_index undefined
+    do: (-> break)
+      for_each output_arguments: (idx argument)
+	unless
+	  ||
+	    argument.is_an_identifier
+	    &&
+	      argument.is_a_single_assign_definition
+	      length_of(output_arguments) == 1
+	    argument.is_a_multi_assign_definition
+	  :
+	    !first_temporary_index idx
+	    break
+    if first_temporary_index.is_defined:
+      !final_destinations empty_list
+      update_each &output_arguments:
+	(
+	  idx
+	  &argument
+	)
+	if
+	  idx < first_temporary_index || argument.is_a_temporary:
+	    push &final_destinations undefined
+	  :
+	    $$temp temporary_identifier()
+	    cond
+	      -> argument.is_an_optional_item:
+		!argument.is_an_optional_item false
+		!temp.is_an_optional_item true
+	      -> argument.is_an_expanded_item:
+		!argument.is_an_expanded_item false
+		!temp.is_an_expanded_item true
+	    push &final_destinations argument
+	    !argument temp
+    !self.output_arguments_of output_arguments
+  -> final_destinations
+
+$sim2c::check_usage: (name definition info)
+  case
+    variable_kind_of(definition)
+    STATIC_SINGLE, POLYMORPHIC:
+      case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI:
+	SyntaxError identifier_of(info) "
+	  Invalid access to read-only variable "@(name)@quot;@
+    STATIC_MULTI:
+      case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
+	SyntaxError identifier_of(info) "
+	  Invalid access to static read-write variable "@(name)@quot;@
+    DYNAMIC_SINGLE:
+      case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI:
+	SyntaxError identifier_of(info) "
+	  Invalid access to dynamic read-only variable "@(name)@quot;@
+    DYNAMIC_MULTI:
+      case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE:
+	SyntaxError identifier_of(info) "
+	  Invalid access to dynamic read-write variable "@(name)@quot;@
+
+###
+# DEFAULT GRAMMAR NODE
+
+$types::grammar_node/simplify_statement: (self)
+  show_compiler_debug_info "simplify statement (default)"
+  push &statements self
+
+$types::grammar_node/simplify_expression: (&_self)
+  show_compiler_debug_info "simplify expression (default)"
+
+###
+# BODY
+
+$sim2c::body/simplify_expression: (&self)
+  show_compiler_debug_info "simplify body"
+  $$all_defined_names already_defined_names
+  for_each defined_names_of(self): (name info)
+    $outer_info already_defined_names(name)
+    if
+      outer_info.is_defined:
+	SyntaxError identifier_of(info) "
+	  An identifier named "@(name)" was already defined in an outer scope @
+	  or in a used namespace@
+      :
+	!all_defined_names(name) info
+  for_each used_names_of(self): (name info)
+    $definition all_defined_names(name)
+    if definition.is_defined:
+      check_usage name definition info
+      if defined_names(name).is_defined || inherited_names(name).is_defined:
+	!self.inherited_names_of(name) info
+  do:
+    %defined_names defined_names_of(self)
+    %inherited_names inherited_names_of(self)
+    %already_defined_names all_defined_names
+    %%definitions empty_list
+    %%statements empty_list
+    $$max_temp_idx 0
+    update_each &self.parameters_of: (&parameter)
+      $$default_value default_value_of(parameter)
+      if default_value.is_defined:
+	if
+	  default_value.is_a_function_call:
+	    %%statements empty_list
+	    %%sim2c::temp_idx 0
+	    $identifier identifier_of(parameter)
+	    simplify_statement
+	      assignment
+		.output_arguments_of list(parameter(.is_an_optional_item false))
+		.arguments_of list(default_value)
+		.fragment_of fragment_of(identifier)
+		.source_position_of source_position_of(identifier)
+		.end_position_of end_position_of(identifier)
+	    extend_to &max_temp_idx temp_idx
+	    !parameter.statements_of statements
+	  :
+	    simplify_expression &default_value
+	    !parameter.default_value_of default_value
+
+    # first add all constant definitions
+
+    for_each statements_of(self): (statement)
+      unless statement.is_a_remark:
+	if
+	  &&
+	    statement.is_an_assignment
+	    output_arguments_of(statement)(1).is_a_static_single_definition
+	    arguments_of(statement)(1).is_a_constant
+	  :
+	    %%sim2c::temp_idx 0
+	    simplify_statement statement
+	    extend_to &max_temp_idx temp_idx
+
+    # then add all other statements
+
+    for_each statements_of(self): (statement)
+      unless statement.is_a_remark:
+	unless
+	  &&
+	    statement.is_an_assignment
+	    output_arguments_of(statement)(1).is_a_static_single_definition
+	    arguments_of(statement)(1).is_a_constant
+	  :
+	    %%sim2c::temp_idx 0
+	    simplify_statement statement
+	    extend_to &max_temp_idx temp_idx
+    !self.definitions_of definitions
+    !self.statements_of statements
+    !self.temporary_count_of max_temp_idx
+  unless inherited_names_of(self).is_empty:
+    #
+      a closure must be created in a separate step because it is not really
+      a constant
+
+    $temp temporary_identifier()
+    push
+      &statements
+      assignment
+	.output_arguments_of list(temp)
+	.arguments_of list(self)
+	.fragment_of fragment_of(self)
+	.source_position_of source_position_of(self)
+	.end_position_of end_position_of(self)
+    !self temp
+
+###
+# CALL
+
+$do_store: (functor $arguments $result rest $infos)
+  pop &infos $info
+  if
+    arguments.is_a_list: # container access
+      update_each &arguments: (&argument) simplify_expression &argument
+      if length_of(rest) > 0:
+	$temp temporary_identifier()
+	push
+	  &statements
+	  procedure_call
+	    .functor_of functor
+	    .arguments_of arguments
+	    .output_arguments_of list(temp)
+	    .fragment_of fragment_of(info)
+	    .source_position_of source_position_of(info)
+	    .end_position_of end_position_of(info)
+	do_store temp rest.peek result rest.drop infos
+	!result temp
+      push
+	&statements
+	procedure_call
+	  .functor_of functor
+	  .arguments_of push(arguments result)
+	  .output_arguments_of list(functor)
+	  .fragment_of fragment_of(info)
+	  .source_position_of source_position_of(info)+1
+	  .end_position_of end_position_of(info)
+    : # attribute value or attribute function definition
+      if length_of(rest) > 0:
+	$temp temporary_identifier()
+	push
+	  &statements
+	  procedure_call
+	    .functor_of functor_of(arguments)
+	    .arguments_of list(functor)
+	    .output_arguments_of list(temp)
+	    .fragment_of fragment_of(info)
+	    .source_position_of source_position_of(info)
+	    .end_position_of end_position_of(info)
+	do_store temp rest.peek result rest.drop infos
+	!result temp
+
+      $attribute_pair
+	if
+	  arguments.is_a_method_definition
+	  -> attribute_function_pair
+	  -> attribute_value_pair
+
+      push
+	&statements
+	assignment
+	  .output_arguments_of list(functor)
+	  .arguments_of
+	    list
+	      attribute_pair
+		.identifier_of functor_of(arguments)
+		.arguments_of list(result)
+	  .fragment_of fragment_of(info)
+	  .source_position_of source_position_of(info)+1
+	  .end_position_of end_position_of(info)
+
+$store_result:
+  (
+    destination
+    result
+    rest = empty_list
+    $infos = empty_list
+  )
+  push &infos destination
+  $arguments arguments_of(destination)
+  if
+    destination.is_an_attribute_access:
+      if
+	arguments(1).is_an_identifier:
+	  do_store arguments(1) destination result rest infos
+	:
+	  store_result arguments(1) result push(rest destination) infos
+    :
+      $functor functor_of(destination)
+      if
+	functor.is_an_identifier:
+	  do_store functor arguments result rest infos
+	:
+	  store_result functor result push(rest arguments) infos
+
+$sim2c::call/simplify_statement:
+  (
+    $self
+    -> return
+  )
+  show_compiler_debug_info "simplify statement"
+  if self.is_an_assignment && length_of(arguments_of(self)) == 1:
+    $source arguments_of(self)(1)
+    if source.is_a_function_call:
+      !self
+	procedure_call
+	  .functor_of functor_of(source)
+	  .output_arguments_of
+	    push(output_arguments_of(source) output_arguments_of(self)(1))
+	  .arguments_of arguments_of(source)
+	  .fragment_of fragment_of(self)
+	  .source_position_of source_position_of(self)
+	  .end_position_of end_position_of(self)
+  $final_destinations simplify_arguments(&self)
+  if functor_of(self).is_defined:
+    if result_count_of(self).is_defined:
+      simplify_expression &self.result_count_of
+    if continuation_of(self).is_defined:
+      simplify_expression &self.continuation_of
+    simplify_expression &self.functor_of
+  if
+    self.is_an_assignment:
+      $destination output_arguments_of(self)(1)
+      if destination.is_a_definition:
+	if
+	  destination.is_a_single_assign_definition:
+	    $source arguments_of(self)(1)
+	    if attribute_kind_of(destination) != NONE:
+	      push &definitions destination = source
+	      return
+	    cond
+	      -> source.is_a_constant || source.is_single_assign:
+		push &definitions destination = source
+		return
+	      -> source.might_be_constant:
+		push &definitions destination = source
+		!self.output_arguments_of(1).is_an_initialization true
+	      :
+		push &definitions destination
+		!self.output_arguments_of(1).is_an_initialization true
+	  :
+	    push &definitions destination
+	    !self.output_arguments_of(1).is_an_initialization true
+    :
+      update_each &self.output_arguments_of: (&argument)
+	if argument.is_a_definition:
+	  push &definitions argument
+	  !argument.is_an_initialization true
+  push &statements self
+  if final_destinations.is_defined:
+    for_each final_destinations: (idx destination)
+      if destination.is_defined:
+	$result
+	  output_arguments_of(self)(idx)
+	    .is_an_optional_item false
+	    .is_an_expanded_item false
+
+	if
+	  destination.is_a_function_call:
+	    store_result destination result
+	  :
+	    #
+	      ATTENTION: strange - only two source code files have destinations
+	      that actually are identifier nodes - maybe an error in the AST?
+
+	    $identifier
+	      if
+		destination.is_an_identifier
+		-> destination
+		-> identifier_of(destination)
+
+	    simplify_statement
+	      assignment
+		.output_arguments_of list(destination)
+		.arguments_of list(result)
+		.fragment_of fragment_of(identifier)
+		.source_position_of source_position_of(identifier)
+		.end_position_of end_position_of(identifier)
+
+###
+# FUNCTION CALL
+
+$sim2c::function_call/simplify_expression: (self)
+  show_compiler_debug_info "simplify function call"
+  $temp temporary_identifier()
+  simplify_statement
+    procedure_call
+      .functor_of functor_of(self)
+      .output_arguments_of push(output_arguments_of(self) temp)
+      .arguments_of arguments_of(self)
+      .fragment_of fragment_of(self)
+      .source_position_of source_position_of(self)
+      .end_position_of end_position_of(self)
+  -> temp
+
+###
+# ATTRIBUTE VALUE PAIR
+
+$sim2c::attribute_value_pair/simplify_expression: (&self)
+  show_compiler_debug_info "simplify attribute-value pair"
+  simplify_arguments
+    # There must not be any output arguments!!!
+
+    &self
+    $_dummy_destinations
+
+###
+# ATTRIBUTE FUNCTION PAIR
+
+$sim2c::attribute_function_pair/simplify_expression: (&self)
+  show_compiler_debug_info "simplify attribute-function pair"
+  simplify_arguments
+    # There must not be any output arguments!!!
+
+    &self
+    $_dummy_destinations
+
+###
+# C-CODE
+
+$sim2c::c_code/simplify_statement: (self)
+  show_compiler_debug_info "simplify C-code"
+  push &actions: !use_inline_c true
+  case
+    kind_of(self)
+    "struct":
+      $name name_of(identifier_of(self))
+      push &actions: !defined_structs(name) true
+    "node":
+      $name name_of(identifier_of(self))
+      push &actions: !defined_nodes(name) self
+    "function":
+      $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+      push &actions: !defined_functions(name) true
+  push &definitions self
+
+###
+# C-BODY
+
+$sim2c::c_body/simplify_expression: (&_self)
+  show_compiler_debug_info "simplify C-body"
+  push &actions: !use_inline_c true

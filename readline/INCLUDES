@@ -1,0 +1,6 @@
+stdio.h
+string.h
+readline/readline.h
+readline/history.h
+stdint.h
+stdlib.h

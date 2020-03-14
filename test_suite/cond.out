@@ -1,0 +1,91 @@
+' ': unclassified
+'!': unclassified
+'"': unclassified
+'#': unclassified
+'$': unclassified
+'%': unclassified
+'&': unclassified
+''': unclassified
+'(': unclassified
+')': unclassified
+'*': unclassified
+'+': unclassified
+',': unclassified
+'-': unclassified
+'.': unclassified
+'/': unclassified
+'0': digit
+'1': digit
+'2': digit
+'3': digit
+'4': digit
+'5': digit
+'6': digit
+'7': digit
+'8': digit
+'9': digit
+':': unclassified
+';': unclassified
+'<': unclassified
+'=': unclassified
+'>': unclassified
+'?': unclassified
+'@': unclassified
+'A': upper case character
+'B': upper case character
+'C': upper case character
+'D': upper case character
+'E': upper case character
+'F': upper case character
+'G': upper case character
+'H': upper case character
+'I': upper case character
+'J': upper case character
+'K': upper case character
+'L': upper case character
+'M': upper case character
+'N': upper case character
+'O': upper case character
+'P': upper case character
+'Q': upper case character
+'R': upper case character
+'S': upper case character
+'T': upper case character
+'U': upper case character
+'V': upper case character
+'W': upper case character
+'X': upper case character
+'Y': upper case character
+'Z': upper case character
+'[': unclassified
+'\': unclassified
+']': unclassified
+'^': unclassified
+'_': unclassified
+'`': unclassified
+'a': lower case character
+'b': lower case character
+'c': lower case character
+'d': lower case character
+'e': lower case character
+'f': lower case character
+'g': lower case character
+'h': lower case character
+'i': lower case character
+'j': lower case character
+'k': lower case character
+'l': lower case character
+'m': lower case character
+'n': lower case character
+'o': lower case character
+'p': lower case character
+'q': lower case character
+'r': lower case character
+'s': lower case character
+'t': lower case character
+'u': lower case character
+'v': lower case character
+'w': lower case character
+'x': lower case character
+'y': lower case character
+'z': lower case character

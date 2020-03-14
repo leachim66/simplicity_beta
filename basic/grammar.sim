@@ -1,0 +1,548 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$grammar::match ()
+$grammar::search ()
+
+$types::grammar_object types::object # an object used for matching strings
+$types::grammar_node types::object
+%%grammar::current_node undefined
+
+$expr_of (!)
+$alternatives_of (!)
+$setter_of (!)
+$node_of (!)
+$function_of (!)
+
+###
+# OPTIONAL
+
+$types::optional types::grammar_object
+
+$types::optional/grammar::match: (self stream)
+  -> grammar::match(expr_of(self) stream) .default_value. 0
+
+$std::optional: (expr) -> types::optional(.expr_of expr)
+
+###
+# MANY
+
+$types::many types::grammar_object
+
+$types::many/grammar::match:
+  (
+    self
+    $stream
+    -> return
+  )
+  $$len undefined
+  forever:
+    $n grammar::match(expr_of(self) stream)
+    unless n.is_defined: return len
+    if
+      len.is_defined:
+	plus &len n
+      :
+	!len n
+    if n == 0: return len
+    range &stream n+1 -1
+
+$std::many: (expr) -> types::many(.expr_of expr)
+
+###
+# SOME
+
+$types::some types::grammar_object
+
+$types::some/grammar::match:
+  (
+    self
+    $stream
+    -> return
+  )
+  $$len 0
+  forever:
+    $n grammar::match(expr_of(self) stream)
+    unless n.is_defined: return len
+    if
+      len.is_defined:
+	plus &len n
+      :
+	!len n
+    if n == 0: return len
+    range &stream n+1 -1
+
+$std::some: (expr) -> types::some(.expr_of expr)
+
+###
+# ALT
+
+$types::alt types::grammar_object
+
+$types::alt/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $alternatives alternatives_of(self)
+  for_each alternatives: (alternative)
+    $n grammar::match(alternative stream)
+    if n.is_defined: return n
+  -> undefined
+
+$std::alt: (alternatives*) -> types::alt(.alternatives_of alternatives)
+
+###
+# FOLLOWED BY
+
+$types::followed_by types::grammar_object
+
+$types::followed_by/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $original_node grammar::current_node
+  if
+    grammar::match(expr_of(self) stream).is_defined:
+      !grammar::current_node original_node
+      return 0
+    :
+      return undefined
+
+$std::followed_by: (expr) -> types::followed_by(.expr_of expr)
+
+###
+# NOT FOLLOWED BY
+
+$types::not_followed_by types::grammar_object
+
+$types::not_followed_by/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $original_node grammar::current_node
+  if
+    grammar::match(expr_of(self) stream).is_defined:
+      !grammar::current_node original_node
+      return undefined
+    :
+      return 0
+
+$std::not_followed_by: (expr) -> types::not_followed_by(.expr_of expr)
+
+###
+# CAPTURE
+
+$types::capture types::grammar_object
+
+$types::capture/grammar::match: (self stream)
+  $len grammar::match(expr_of(self) stream)
+  if len.is_defined:
+    $setter setter_of(self)
+    $value range(stream 1 len)
+    if
+      setter.is_defined:
+	setter &grammar::current_node value
+      :
+	!grammar::current_node value
+  -> len
+
+$std::capture: (setter? expr) -> types::capture(.setter_of setter .expr_of expr)
+
+###
+# MULTI-CAPTURE
+
+$types::multi_capture types::grammar_object
+
+$types::multi_capture/grammar::match: (self stream)
+  $len grammar::match(expr_of(self) stream)
+  if len.is_defined:
+    $setter setter_of(self)
+    $value range(stream 1 len)
+    if
+      setter.is_defined:
+	setter
+	  &grammar::current_node
+	  push(setter_of(self)(grammar::current_node) value)
+      :
+	push &grammar::current_node value
+  -> len
+
+$std::multi_capture: (setter? expr)
+  -> types::multi_capture(.setter_of setter .expr_of expr)
+
+###
+# SPAN
+
+$types::span types::grammar_object
+
+$types::span/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $$outer_node grammar::current_node
+  $$len undefined
+  do:
+    %%grammar::current_node types::grammar_node
+    !len grammar::match(expr_of(self) stream)
+    unless len.is_defined: return undefined
+    setter_of(self) &outer_node grammar::current_node
+  !grammar::current_node outer_node
+  -> len
+
+$std::span: (setter expr) -> types::span(.setter_of setter .expr_of expr)
+
+###
+# MULTI-SPAN
+
+$types::multi_span types::grammar_object
+
+$types::multi_span/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $$outer_node grammar::current_node
+  $$len undefined
+  do:
+    %%grammar::current_node types::grammar_node
+    !len grammar::match(expr_of(self) stream)
+    unless len.is_defined: return undefined
+    $setter setter_of(self)
+    if
+      setter.is_defined:
+	setter &outer_node push(setter(outer_node) grammar::current_node)
+      :
+	push &outer_node grammar::current_node
+  !grammar::current_node outer_node
+  -> len
+
+$std::multi_span: (setter? expr)
+  -> types::multi_span(.setter_of setter .expr_of expr)
+
+###
+# SET NODE
+
+$types::set_node types::grammar_object
+
+$types::set_node/grammar::match: (self _stream)
+  !grammar::current_node node_of(self)
+  -> 0
+
+$std::set_node: (node) -> types::set_node(.node_of node)
+
+###
+# INSPECT NODE
+
+$types::inspect_node types::grammar_object
+
+$types::inspect_node/grammar::match: (self stream)
+  $func function_of(self)
+  if
+    parameter_count_of(func) == 2:
+      func grammar::current_node stream
+    :
+      func grammar::current_node
+  -> 0
+
+$std::inspect_node: (func) -> types::inspect_node(.function_of func)
+
+###
+# MODIFY NODE
+
+$types::modify_node types::grammar_object
+
+$types::modify_node/grammar::match: (self stream)
+  $func function_of(self)
+  if
+    parameter_count_of(func) == 2:
+      func &grammar::current_node stream
+    :
+      func &grammar::current_node
+  -> 0
+
+$std::modify_node: (func) -> types::modify_node(.function_of func)
+
+###
+# CHECK NODE
+
+$types::check_node types::grammar_object
+
+$types::check_node/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  $func function_of(self)
+  if
+    parameter_count_of(func) == 2:
+      unless func(grammar::current_node stream): return undefined
+    :
+      unless func(grammar::current_node): return undefined
+  -> 0
+
+$std::check_node: (func) -> types::check_node(.function_of func)
+
+###
+# GRAMMAR ACTION
+
+$types::grammar_action types::grammar_object
+
+$types::grammar_action/grammar::match: (self stream)
+  -> function_of(self)(stream)
+
+$std::grammar_action: (func) -> types::grammar_action(.function_of func)
+
+###
+# SET FIELD
+
+$types::set_field types::grammar_object
+
+$types::set_field/grammar::match: (self _stream)
+  setter_of(self) &grammar::current_node expr_of(self)
+  -> 0
+
+$std::set_field: (setter expr)
+  -> types::set_field(.setter_of setter .expr_of expr)
+
+###
+# END_OF_TEXT
+
+$std::END_OF_TEXT types::grammar_object
+
+$std::END_OF_TEXT/grammar::match: (_self stream)
+  if stream .has_minimum_length. 1 (-> undefined) -> 0
+
+###
+# LETTER
+
+$std::LETTER types::grammar_object
+
+$std::LETTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  if
+    stream(1) >= 'a' && stream(1) <= 'z' || stream(1) >= 'A' && stream(1) <= 'Z'
+    :
+      return 1
+  -> undefined
+
+###
+# UPPER_CASE_LETTER
+
+$std::UPPER_CASE_LETTER types::grammar_object
+
+$std::UPPER_CASE_LETTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  if stream(1) >= 'A' && stream(1) <= 'Z': return 1
+  -> undefined
+
+###
+# LOWER_CASE_LETTER
+
+$std::LOWER_CASE_LETTER types::grammar_object
+
+$std::LOWER_CASE_LETTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  if stream(1) >= 'a' && stream(1) <= 'z': return 1
+  -> undefined
+
+###
+# DIGIT
+
+$std::DIGIT types::grammar_object
+
+$std::DIGIT/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  if stream(1) >= '0' && stream(1) <= '9': return 1
+  -> undefined
+
+###
+# WHITESPACE CHARACTER
+
+$std::WHITESPACE_CHARACTER types::grammar_object
+
+$std::WHITESPACE_CHARACTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  $chr stream(1)
+  if chr <= ' ' || chr == '@del;': return 1
+  -> undefined
+
+###
+# WHITESPACE
+
+$std::WHITESPACE many(WHITESPACE_CHARACTER)
+
+###
+# PRINTABLE CHARACTER
+
+$std::PRINTABLE_CHARACTER types::grammar_object
+
+$std::PRINTABLE_CHARACTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  $chr stream(1)
+  if chr >= ' ' && chr < '@del;' || chr >= ' ': return 1
+  -> undefined
+
+###
+# NON-SPACE CHARACTER
+
+$std::NON_SPACE_CHARACTER types::grammar_object
+
+$std::NON_SPACE_CHARACTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  $chr stream(1)
+  if chr > ' ' && chr < '@del;' || chr >= ' ': return 1
+  -> undefined
+
+###
+# ANY CHARACTER
+
+$std::ANY_CHARACTER types::grammar_object
+
+$std::ANY_CHARACTER/grammar::match:
+  (
+    _self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  -> 1
+
+###
+# GRAMMAR FUNCTIONS
+
+$types::character/grammar::match: (chr stream) match_character stream chr
+
+$types::value_range/grammar::match:
+  (
+    self
+    stream
+    -> return
+  )
+  unless stream .has_minimum_length. 1: return undefined
+  $chr stream(1)
+  if chr >= lower_bound_of(self) && chr <= upper_bound_of(self): return 1
+  -> undefined
+
+$types::list/grammar::match:
+  (
+    self
+    $stream
+    -> return
+  )
+  $$len 0
+  $original_node grammar::current_node
+  for_each self: (expr)
+    $n grammar::match(expr stream)
+    unless n.is_defined:
+      !grammar::current_node original_node
+      return undefined
+    range &stream n+1 -1
+    plus &len n
+  -> len
+
+$types::object/grammar::search:
+  (
+    expr
+    stream
+    $nth = 1
+    -> return
+  )
+  $$pos 1
+  $$s stream
+  if
+    nth > 0:
+      forever:
+	$len grammar::match(expr s)
+	if len.is_defined:
+	  if nth == 1: return pos len
+	  if len > 0:
+	    plus &pos len-1
+	    range &s len -1
+	  minus &nth 1
+	unless s .has_minimum_length. 1: return undefined undefined
+	plus &pos 1
+	range &s 2 -1
+    :
+      negate &nth
+      $$positions empty_list
+      $$lengths empty_list
+      forever:
+	$len grammar::match(expr s)
+	if len.is_defined:
+	  if length_of(positions) >= nth:
+	    range &positions 2 -1
+	    range &lengths 2 -1
+	  push &positions pos
+	  push &lengths len
+	  if len > 0:
+	    plus &pos len-1
+	    range &s len -1
+	unless s .has_minimum_length. 1:
+	  if length_of(positions) < nth: return undefined undefined
+	  return positions(1) lengths(1)
+	plus &pos 1
+	range &s 2 -1

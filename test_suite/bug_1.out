@@ -1,0 +1,3 @@
+array_node:
+  object
+    std::type_of: ARRAY_VALUE

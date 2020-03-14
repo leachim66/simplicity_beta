@@ -1,0 +1,74 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require ./exceptions>
+<require ./serialize>
+<require ./deserialize>
+<require ./persistent>
+<require ./branches>
+<require ./constants>
+<require ./debug>
+<require ./environment>
+<require ./event>
+<require ./exec>
+<require ./functional>
+<require ./grammar>
+<require ./io>
+<require ./locale>
+<require ./logical>
+<require ./loops>
+<require ./machine_info>
+<require ./math>
+<require ./options>
+<require ./parameters>
+<require ./polymorphic_functions>
+<require ./primitives>
+<require ./random>
+<require ./types/boolean>
+<require ./types/bresenham>
+<require ./types/character>
+<require ./types/continuation>
+<require ./types/date_and_time>
+<require ./types/function>
+<require ./types/insert_order_set>
+<require ./types/insert_order_table>
+<require ./types/iterator>
+<require ./types/key_order_set>
+<require ./types/list>
+<require ./types/multi_dimensional_set>
+<require ./types/multi_dimensional_table>
+<require ./types/number>
+<require ./types/object>
+<require ./types/key_order_table>
+<require ./types/key_value_pair>
+<require ./types/set>
+<require ./types/string_primitives>
+<require ./types/string>
+<require ./types/table>
+<require ./types/tree>
+<require ./types/undefined>
+<require ./types/unique_item>
+<require ./types/unordered_set>
+<require ./types/unordered_table>
+<require ./types/value_order_table>
+<require ./types/value_range>
+<require ./meta/wrapper>

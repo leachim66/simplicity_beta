@@ -1,0 +1,114 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<require basic/stdlib>
+
+<using std>
+<using meta>
+
+write "
+  @(lgpl_header("2015" "Dipl.-Ing. Michael Niederle"))
+
+  <using std>
+  <using key>
+  <using microhttpd>
+
+  $ctrl_tab
+    table
+from_to '0' '9': (chr) writeln "    '@(chr)' = CTRL_@(chr)"
+from_to 'a' 'z': (chr)
+  writeln "    '@(chr)' = CTRL_@(string(chr).to_upper_case)"
+write "
+
+  $alt_tab
+    table
+from_to '0' '9': (chr) writeln "    '@(chr)' = ALT_@(chr)"
+from_to 'a' 'z': (chr) writeln "    '@(chr)' = ALT_@(string(chr).to_upper_case)"
+write "
+
+  $$microhttpd::to_key_code: (msg -> return)
+    $key msg("key")
+    $shift msg("shiftKey")
+    $ctrl msg("ctrlKey")
+    $alt msg("altKey")
+
+    if length_of(key) == 1:
+      $chr key(1)
+      if ctrl:
+        $code ctrl_tab(chr)
+        if code.is_defined: return code
+      if alt:
+        $code alt_tab(chr)
+        if code.is_defined: return code
+      return key(1)
+
+    $return_key: (normal_key shift_key ctrl_key alt_key)
+      if
+        shift:
+          if ctrl || alt: return undefined
+          return shift_key
+        :
+          if ctrl && alt: return undefined
+          if ctrl: return ctrl_key
+          if alt: return alt_key
+          return normal_key
+
+    case key
+for_each
+  sequence
+    "ArrowLeft"
+    "ArrowRight"
+    "ArrowUp"
+    "ArrowDown"
+    "PageUp"
+    "PageDown"
+    "Home"
+    "End"
+    "Enter"
+    "Tab"
+    "Escape"
+    "Insert"
+    "Delete"
+    "Backspace"
+  : (name)
+    $key
+      cond
+	-> name .has_prefix. "Arrow" -> to_upper_case(name .behind. "Arrow")
+	->
+	  name .has_prefix. "Page"
+	  -> string("PAGE_" to_upper_case(name .behind. "Page"))
+	-> name == "Enter" -> "RETURN"
+	-> name == "Home" -> "FIRST"
+	-> name == "End" -> "LAST"
+	-> true -> to_upper_case(name)
+
+    write "
+      @
+          "@(name)":
+            return_key @(key) SHIFT_@(key) CTRL_@(key) ALT_@(key)
+from_to 1 12: (no)
+  write "
+    @
+        "F@(no)": return_key F@(no) SHIFT_F@(no) CTRL_F@(no) ALT_F@(no)
+write "
+  @
+      : return undefined

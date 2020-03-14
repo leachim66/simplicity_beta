@@ -1,0 +1,37 @@
+#!/usr/bin/env simple
+
+$numbers list(4 6 9 3 2)
+
+$any_of: (collection test -> return)
+  for_each collection: (item)
+    if test(item): return true
+  -> false
+
+$all_of: (collection test -> return)
+  for_each collection: (item)
+    unless test(item): return false
+  -> true
+
+if
+  any_of(numbers is_odd):
+    writeln "at least one number is odd"
+  :
+    writeln "no odd numbers found"
+
+if
+  all_of(numbers is_odd):
+    writeln "all numbers are odd"
+  :
+    writeln "at least one number isn't odd"
+
+if
+  any_of(numbers: (x) -> x > 5):
+    writeln "at least one number is greater than 5"
+  :
+    writeln "all numbers are less than or equal to 5"
+
+if
+  all_of(numbers: (x) -> x > 5):
+    writeln "all numbers are greater than 5"
+  :
+    writeln "at least one number is less than or equal to 5"

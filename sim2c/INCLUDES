@@ -1,0 +1,26 @@
+stdlib.h
+stdint.h
+stdio.h
+string.h
+errno.h
+unistd.h
+signal.h
+dirent.h
+sys/types.h
+sys/wait.h
+sys/select.h
+netdb.h
+stddef.h
+fcntl.h
+math.h
+arpa/inet.h
+sys/ioctl.h
+sys/stat.h
+sys/socket.h
+limits.h
+mach/clock.h #darwin
+mach/mach.h #darwin
+time.h #darwin #bsd #cygwin #linux #posix
+gmp.h
+inttypes.h
+fnmatch.h

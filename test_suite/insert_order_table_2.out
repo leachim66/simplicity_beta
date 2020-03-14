@@ -1,0 +1,54 @@
+0 entries
+__________
+adding Max with value 47
+1 entry
+Max: 47
+__________
+adding Moritz with value 11
+2 entries
+Max: 47
+Moritz: 11
+__________
+adding Miriam with value 8
+3 entries
+Max: 47
+Moritz: 11
+Miriam: 8
+__________
+adding Maja with value 15
+4 entries
+Max: 47
+Moritz: 11
+Miriam: 8
+Maja: 15
+__________
+removing Dunja
+4 entries
+Max: 47
+Moritz: 11
+Miriam: 8
+Maja: 15
+__________
+removing Moritz
+3 entries
+Max: 47
+Miriam: 8
+Maja: 15
+__________
+removing Max
+2 entries
+Miriam: 8
+Maja: 15
+__________
+removing Moritz
+2 entries
+Miriam: 8
+Maja: 15
+__________
+removing Miriam
+1 entry
+Maja: 15
+__________
+removing Maja
+0 entries
+__________

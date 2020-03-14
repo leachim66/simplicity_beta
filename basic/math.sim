@@ -1,0 +1,114 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::inc: (&var) plus &var 1
+
+$std::dec: (&var) minus &var 1
+
+$std::extend_to:
+  (
+    &var
+    val
+  )
+  if val > var: !var val
+
+$std::reduce_to:
+  (
+    &var
+    val
+  )
+  if val < var: !var val
+
+$std::abs: (&var) if var < 0: negate &var
+
+$std::sgn: (x) cond (-> x > 0 -> 1) (-> x < 0 -> -1) -> true -> 0
+
+$std::sqr: (var) -> var*var
+
+$std::min: (args*)
+  $$result args(1)
+  for_each_from_to args 2 -1: (arg) if arg < result: !result arg
+  -> result
+
+$std::max: (args*)
+  $$result args(1)
+  for_each_from_to args 2 -1: (arg) if arg > result: !result arg
+  -> result
+
+$std::pow: (x n)
+  cond
+    -> n == 0 -> 1
+    -> is_odd(n) -> x*sqr(pow(x n >> 1))
+    -> true -> sqr(pow(x n >> 1))
+
+$std::sqrt: (x)
+  $$low 0
+  $$high x
+  repeat 50:
+    $mid (high+low)/2
+    if
+      sqr(mid) > x:
+	!high mid
+      :
+	!low mid
+  -> low
+
+$std::PI 3.1415926535897932
+
+$std::sin: (alpha)
+  $$p 1
+  $$s alpha
+  $$t alpha
+  repeat 13:
+    !t -t*alpha*alpha/(2*p*(2*p+1))
+    plus &s t
+    inc &p
+  -> s
+
+$std::cos: (alpha)
+  $$p 0
+  $$s 1
+  $$t 1
+  repeat 13:
+    inc &p
+    !t -t*alpha*alpha/((2*p-1)*(2*p))
+    plus &s t
+  -> s
+
+$std::tan: (alpha) -> sin(alpha)/cos(alpha)
+
+$std::atan: (x) if x > 0 (-> atan2(x)) -> -atan2(-x)
+
+$atan2: (x) if x > 1 (-> PI/2-atan3(1/x)) -> atan3(x)
+
+$atan3: (x)
+  if x > 2-sqrt(3) (-> PI/6+atan4((sqrt(3)*x-1)/(sqrt(3)+x))) -> atan4(x)
+
+$atan4: (x)
+  $$sum 0
+  $$s 1
+  $$p x
+  from_to_by 1 23 2: (i)
+    plus &sum s*p/i
+    !p p*x*x
+    !s -s
+  -> sum

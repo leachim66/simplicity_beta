@@ -1,0 +1,73 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$UTF8_BYTE_ORDER_MARKER "ï»¿"
+
+$parse_line: (line separator)
+  $$fields empty_list
+  $$i 1
+  $n length_of(line)
+  while -> i <= n:
+    if
+      line(i) == '@quot;':
+	inc &i
+	$s i
+	while -> i <= n && line(i) != '@quot;': inc &i
+	push &fields range(line s i-1)
+	if line(i) == '@quot;': inc &i
+      :
+	$s i
+	while -> i <= n && line(i) != separator: inc &i
+	push &fields range(line s i-1)
+    if i <= n && line(i) == separator: inc &i
+  -> fields
+
+$extract: (buf fields separator)
+  $$entries empty_list
+  for_each_line buf: (line)
+    $$entry empty_insert_order_table
+    $data parse_line(line separator)
+    for_each fields: (idx key)
+      if key.is_defined && idx <= length_of(data): !entry(key) data(idx)
+    push &entries entry
+  -> entries
+
+$std::load_csv: (options* filename)
+  extract_options options ENCODING = UTF8 $encoding SEPARATOR = ';' $separator
+  load $$buf filename
+  if buf.is_undefined (-> undefined):
+    if buf .has_prefix. UTF8_BYTE_ORDER_MARKER:
+      without_prefix &buf UTF8_BYTE_ORDER_MARKER
+    if encoding == UTF8: from_utf8 &buf
+    replace_all &buf '@cr;' = ""
+    $header parse_line(buf .before. '@nl;' separator)
+    extract buf .behind. '@nl;' header separator
+
+$std::load_dif: (fields options* filename)
+  extract_options options ENCODING = UTF8 $encoding SEPARATOR = ';' $separator
+  load $$buf filename
+  if buf.is_undefined (-> undefined):
+    if buf .has_prefix. UTF8_BYTE_ORDER_MARKER:
+      without_prefix &buf UTF8_BYTE_ORDER_MARKER
+    if encoding == UTF8: from_utf8 &buf
+    replace_all &buf '@cr;' = ""
+    extract buf fields separator

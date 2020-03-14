@@ -1,0 +1,255 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$types::html_element types::object
+
+$IDENTIFIER: capture LETTER some(alt(LETTER DIGIT '-' '_' '.' ':'))
+
+$is_a_void_element
+  set
+    "area"
+    "base"
+    "br"
+    "col"
+    "embed"
+    "hr"
+    "img"
+    "input"
+    "keygen"
+    "link"
+    "meta"
+    "param"
+    "source"
+    "track"
+    "wbr"
+
+$html::tag_of (!)
+$html::attributes_of (!)
+$html::contents_of (!)
+
+$insist: (expr)
+  expect
+    alt
+      expr:
+	if
+	  expr == '@quot;':
+	    syntax_error "quotation mark expected" match_position
+	  :
+	    syntax_error
+	      "
+		@quot;@(expr)" expected@
+	      match_position
+
+$VALUE:
+  expect
+    alt
+      :
+	expect '@quot;'
+	capture $value
+	  some
+	    :
+	      not_followed_by '@quot;'
+	    ANY_CHARACTER
+	insist '@quot;'
+	-> value
+      :
+	capture
+	  some
+	    :
+	      not_followed_by alt('>' '/' WHITESPACE_CHARACTER)
+	    ANY_CHARACTER
+
+$OPEN_TAG:
+  expect '<'
+  IDENTIFIER $tag
+  $$attributes empty_insert_order_table
+  $$key undefined
+  expect
+    some
+      WHITESPACE:
+	IDENTIFIER !key
+      OPTIONAL_WHITESPACE:
+	insist '='
+      OPTIONAL_WHITESPACE:
+	VALUE $value
+	!attributes(key) value
+  expect OPTIONAL_WHITESPACE
+  -> tag attributes
+
+$CLOSE_TAG: (tag)
+  expect "</"
+  expect tag
+  insist '>'
+
+$TEXT_CONTENTS:
+  capture
+    many
+      :
+	not_followed_by '<'
+      ANY_CHARACTER
+
+$SCRIPT_CONTENTS:
+  capture
+    some
+      :
+	not_followed_by "</script"
+      ANY_CHARACTER
+
+$ELEMENT:
+  OPEN_TAG $tag $attributes
+  $$contents undefined
+  expect
+    alt
+      "/>":
+	insist '>'
+	unless is_a_void_element(tag):
+	  if
+	    tag == "script":
+	      SCRIPT_CONTENTS $script_contents
+	      !contents list(script_contents)
+	    :
+	      CONTENTS !contents
+	  CLOSE_TAG tag
+  ->
+    types::html_element
+      .html::tag_of tag
+      .html::attributes_of attributes
+      .html::contents_of contents
+
+$COMMENT
+  sequence
+    "<!--"
+    some
+      :
+	not_followed_by "-->"
+      ANY_CHARACTER
+    "-->"
+
+$CONTENTS:
+  $$elements empty_list
+  expect
+    some
+      OPTIONAL_WHITESPACE
+      alt
+	:
+	  ELEMENT $element
+	  push &elements element
+	COMMENT:
+	  TEXT_CONTENTS $text
+	  push &elements text
+  expect OPTIONAL_WHITESPACE
+  expect
+    alt
+      :
+	followed_by "</"
+      END_OF_TEXT:
+	syntax_error "invalid input" match_position
+  -> elements
+
+$DOCUMENT_TYPE:
+  $$document_type undefined
+  expect
+    optional
+      "<!DOCTYPE"
+      WHITESPACE:
+	capture !document_type
+	  many
+	    :
+	      not_followed_by '>'
+	    ANY_CHARACTER
+      '>'
+  -> document_type
+
+$PAGE:
+  DOCUMENT_TYPE $document_type
+  CONTENTS $contents
+  expect
+    alt
+      END_OF_TEXT:
+	syntax_error "unexpected input after last element" match_position
+  -> document_type contents
+
+%syntax_error undefined
+
+$std::from_html: (text)
+  %syntax_error: (msg $pos)
+    $line_no count_occurrences(range(text 1 pos-1) '@nl;')+1
+    ewrite "
+      ____________________________________
+      SYNTAX ERROR IN LINE @(line_no)@nl;@(msg)!
+    $$s 1
+    $$i 1
+    while -> i < line_no:
+      if text(s) == '@nl;': inc &i
+      inc &s
+    $line range(text s -1) .truncate_from. '@nl;'
+    minus &pos s
+    $$offset 0
+    for_each range(line 1 pos): (chr) if chr == '@ht;': plus &offset 7
+    if
+      length_of(line) < 100:
+	ewriteln line
+	ewriteln dup(" " pos+offset) "^"
+      :
+	ewriteln range(line 1 pos) "    ###^###    " range(line pos+1 -1)
+    terminate
+
+  match text PAGE $_document_type $page $_n
+  -> page
+
+$types::html_element/select:
+  (
+    self
+    clauses*
+    -> return
+  )
+  $tag html::tag_of(self)
+  $attributes html::attributes_of(self)
+  do: (-> fail)
+    for_each clauses:
+      (
+	clause
+	-> succeed
+      )
+      if
+	clause.is_a_key_value_pair:
+	  $key key_of(clause)
+	  $value value_of(clause)
+	  $attribute attributes(key)
+	  cond
+	    -> value.is_undefined: if attribute.is_defined fail
+	    -> value.is_a_list:
+	      for_each value: (alternative) if attribute == alternative succeed
+	      fail
+	    -> value.is_a_string: if attribute != value fail
+	    : # value should be a function
+	      unless value(attribute) fail
+	:
+	  if
+	    clause.is_a_list:
+	      for_each clause: (alternative) if tag == alternative succeed
+	      fail
+	    :
+	      if tag != clause fail
+    return list(self)
+  $contents html::contents_of(self)
+  if contents.is_defined (-> select(contents clauses*)) -> empty_list

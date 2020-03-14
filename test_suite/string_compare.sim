@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+writeln "abc" == "def"
+writeln "abc" == "abc"
+writeln "abc" == "abcd"
+writeln "-----"
+writeln "abc" < "def"
+writeln "abc" < "abc"
+writeln "abc" < "abcd"

@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+try
+  :
+    writeln "start"
+    raise "badong"
+    writeln "this should never be printed"
+  : (args*)
+    writeln "caught: " args*

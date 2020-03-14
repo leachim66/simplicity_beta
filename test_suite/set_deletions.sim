@@ -1,0 +1,17 @@
+#!/usr/bin/env simple
+
+$$items key_order_set()
+
+$$x 47
+repeat 10:
+  !x (x+19) .mod. 63
+  !items(x) true
+  writeln "added " x ": " serialize(items)
+writeln "total length: " length_of(items)
+
+!x 47
+repeat 10:
+  !x (x+19) .mod. 63
+  !items(x) false
+  writeln "removed " x ": " serialize(items)
+writeln "total length: " length_of(items)

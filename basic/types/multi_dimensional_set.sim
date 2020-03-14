@@ -1,0 +1,77 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$dimensions_of (!)
+$table_of (!)
+
+$insert_into: ($table dimensions args)
+  unless table.is_defined: !table dimensions(1)
+  $idx args(1)
+  if
+    length_of(dimensions) > 1:
+      !table(idx)
+	insert_into(table(idx) range(dimensions 2 -1) range(args 2 -1))
+    :
+      !table(idx) args(2)
+  -> table
+
+$get_item:
+  (
+    table
+    indices
+    -> return
+  )
+  if table.is_undefined: return false
+  if
+    length_of(indices) > 0
+    -> get_item(table(indices(1)) range(indices 2 -1))
+    -> table
+
+$types::multi_dimensional_set:
+  (
+    $myself^
+    args*
+  )
+  $dimensions dimensions_of(myself)
+  $n length_of(dimensions)
+  if
+    length_of(args) > n: # insert
+      !myself.table_of insert_into(table_of(myself) dimensions args)
+      -> myself
+    -> get_item(table_of(myself) args)
+
+$types::multi_dimensional_set.table_of undefined
+
+$std::multi_dimensional_set: (dimensions*)
+  -> types::multi_dimensional_set(.dimensions_of dimensions)
+
+$for_each_dimension: (table depth indices body)
+  if table.is_defined:
+    for_each table: (idx value?)
+      if
+	depth > 1:
+	  for_each_dimension value depth-1 push(indices idx) body
+	:
+	  body indices* idx
+
+$types::multi_dimensional_set/for_each: (self body)
+  for_each_dimension table_of(self) length_of(dimensions_of(self)) list() body

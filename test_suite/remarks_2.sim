@@ -1,0 +1,13 @@
+#!/usr/bin/env simple
+
+$p:
+  ->
+    1 2 3
+
+  # remark
+
+  # remark
+
+p $a $b $c
+
+writeln a+b+c

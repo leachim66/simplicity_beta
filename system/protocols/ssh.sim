@@ -1,0 +1,256 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+<using std>
+<using console>
+
+extern $uuidgen std::key_value_pair(TRIM std::true) "uuidgen"
+%std::do_log_ssh_commands false
+%std::do_log_ssh_output false
+$PROMPT "> "
+
+$KSH .
+$CSH .
+
+$input_file_descriptor_of (!)
+$output_file_descriptor_of (!)
+$error_file_descriptor_of (!)
+$shell_of (!)
+$uuid_of (!)
+
+$types::ssh_connection types::object
+
+$std::open_ssh_connection:
+  (
+    url
+    -> return
+  )
+  launch $pid $fd_out $fd_in $fd_err
+    "ssh"
+    "-tt"
+    "-o"
+    "ConnectTimeout=5"
+    "-o"
+    "ServerAliveInterval=30"
+    url
+  do:
+    wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
+    case
+      type_of(event)
+      READ_FROM:
+	case
+	  file_descriptor_of(event)
+	  fd_out:
+	    ignore read_from(fd_out)
+	  fd_err:
+	    if parameter_count_of(return) == 2: return undefined false
+	    raise read_from(fd_err)
+      TERMINATE:
+	return undefined false
+
+  $send_command: (cmd)
+    if do_log_ssh_commands: ewrite BLUE cmd NORMAL
+    write_to fd_in cmd
+
+  $$shell KSH
+  send_command "
+    echo #`expr 1230 + 4`#"$SHELL"#`expr 4320 + 1`#
+  do:
+    $$out ""
+    $$err ""
+    do: (-> break)
+      forever:
+	wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
+	case
+	  type_of(event)
+	  READ_FROM:
+	    $fd file_descriptor_of(event)
+	    case
+	      fd
+	      fd_out:
+		$text read_from(fd)
+		if do_log_ssh_output: ewrite text
+		if
+		  text == "":
+		    return undefined false
+		  :
+		    append &out text
+		    if out .contains. "#4321#" break
+	      fd_err:
+		append &err read_from(fd)
+	  TERMINATE:
+	    return undefined false
+    case truncate_until(between(out "#1234#" "#4321#") '/' -1) "csh": !shell CSH
+  if
+    shell == KSH:
+      send_command "
+	PROMPT_COMMAND=
+	PS1="@(PROMPT)@quot;
+    :
+      send_command "
+	set prompt="@(PROMPT)@quot;
+  do:
+    $$out ""
+    $$err ""
+    do: (-> break)
+      forever:
+	wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
+	case
+	  type_of(event)
+	  READ_FROM:
+	    $fd file_descriptor_of(event)
+	    case
+	      fd
+	      fd_out:
+		$text read_from(fd)
+		if do_log_ssh_output: ewrite text
+		if
+		  text == "":
+		    return undefined false
+		  :
+		    append &out text
+		    if count_occurrences(out PROMPT) >= 2: break
+	      fd_err:
+		append &err read_from(fd)
+	  TERMINATE:
+	    return undefined false
+
+  $conn
+    types::ssh_connection
+      .pid_of pid
+      .input_file_descriptor_of fd_in
+      .output_file_descriptor_of fd_out
+      .error_file_descriptor_of fd_err
+      .shell_of shell
+      .uuid_of uuidgen()
+
+  if parameter_count_of(return) == 2: return conn true
+  -> conn
+
+$types::ssh_connection/call_command:
+  (
+    conn
+    $command
+    args*
+    -> return
+  )
+  for_each args: (arg) write_to &command ' ' arg
+
+  $execution_failed:
+    raise "
+      Execution of remote command "@(command)" failed!@
+
+  $send_command: (cmd)
+    if do_log_ssh_commands: ewriteln BLUE cmd NORMAL
+    write_to input_file_descriptor_of(conn) cmd
+
+  $retrieve_output:
+    $$out ""
+    $$err ""
+    do: (-> break)
+      forever:
+	wait_to $event
+	  READ_FROM
+	  output_file_descriptor_of(conn)
+	  READ_FROM
+	  error_file_descriptor_of(conn)
+	  TERMINATE
+	  pid_of(conn)
+	case
+	  type_of(event)
+	  READ_FROM:
+	    $fd file_descriptor_of(event)
+	    case
+	      fd
+	      output_file_descriptor_of(conn):
+		$text read_from(fd)
+		if do_log_ssh_output: ewrite text
+		if
+		  text == "":
+		    execution_failed
+		  :
+		    append &out text
+		    if out .contains. "#7654321#" break
+	      error_file_descriptor_of(conn):
+		append &err read_from(fd)
+	  TERMINATE:
+	    execution_failed
+    -> between(out "#1234567#" "#7654321#")
+
+  $retrieve_variable: (var)
+    send_command "
+      echo #`expr 1234560 + 7`#"$@(var)"#`expr 7654320 + 1`#
+    -> retrieve_output()
+
+  $retrieve_stream: (stream)
+    if
+      ||
+	parameter_count_of(return) < 1
+	&&
+	  stream == "err"
+	  parameter_count_of(return) < 3 || shell_of(conn) == CSH
+      -> ""
+      :
+	send_command "
+	  echo #`expr 1234560 + 7`#;cat /tmp/@(stream)_@(uuid_of(conn));echo @
+	  #`expr 7654320 + 1`#
+	-> retrieve_output()
+
+  send_command
+    cond
+      -> shell_of(conn) == KSH && parameter_count_of(return) == 3 ->
+	"@(command) >/tmp/out_@(uuid_of(conn)) 2>/tmp/err_@(uuid_of(conn))@nl;"
+      ->
+	parameter_count_of(return) >= 1
+	-> "@(command) >/tmp/out_@(uuid_of(conn))@nl;"
+      -> true -> "@(command)@nl;"
+  $ret retrieve_variable("?").to_integer
+  $$c_out retrieve_stream("out")
+  $$c_err retrieve_stream("err")
+  replace_all &c_out '@cr;' = ""
+  replace_all &c_err '@cr;' = ""
+  case
+    parameter_count_of(return)
+    3:
+      return c_out ret c_err
+    2:
+      return c_out ret
+    1:
+      if
+	ret == 0:
+	  return c_out
+	:
+	  execution_failed
+    0:
+      if
+	ret == 0:
+	  write c_out
+	  return
+	:
+	  execution_failed
+
+$types::ssh_connection/close: (conn)
+  try: call_command conn "exit"
+  discard input_file_descriptor_of(conn)
+  discard output_file_descriptor_of(conn)
+  discard error_file_descriptor_of(conn)
+  kill pid_of(conn)

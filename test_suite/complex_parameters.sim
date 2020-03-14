@@ -1,0 +1,19 @@
+#!/usr/bin/env simple
+
+$strings list("abc" "xyz" "ABC" "DEF")
+
+$emit: (a b="<b>" c=length_of(b) args* d)
+  writeln a
+  writeln b
+  writeln c
+  writeln length_of(args) ": " args*
+  writeln d
+
+$$x undefined
+$$y 39
+
+emit 8 15
+writeln "----------"
+emit "X" "Y" "Z"
+writeln "----------"
+emit strings* x? y?

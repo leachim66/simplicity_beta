@@ -1,0 +1,52 @@
+#!/usr/bin/env simple
+
+write ""
+writeln "  "
+
+#
+
+write "
+  @
+    f(
+write "
+  @
+    )
+write "
+    );
+  )@
+write "@nl;@nl;@nl;"
+write "
+  abc
+
+  @;
+write "
+
+
+
+  def@
+write "
+      c
+    b
+  a
+write "
+  This is a nice text to test the formatting capabilities of the pretty printer!
+write "
+  This is a nice text to test the formatting capabilities of the    pretty     @
+     printer!
+write "
+  This is a nice text to test the formatting capabilities of the pretty @
+  printer!@
+write "
+  This is a nicer text to test the formatting capabilities of the pretty @
+  printer!
+write "
+  This is a very nice text to test the formatting capabilities of the pretty @
+  printer!
+write
+  "
+    This is a very nice text to test the formatting capabilities of the pretty @
+    printer!
+  "
+    This is a another very nice text to test the formatting capabilities of @
+    the pretty printer!
+writeln "@0x3b1;@ht;@@"

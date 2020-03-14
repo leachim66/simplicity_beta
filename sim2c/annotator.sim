@@ -1,0 +1,291 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  annotates bodies with defined and used symbols;
+  marks bodies that define dynamic symbols;
+  resolves namespace aliases
+
+<using std>
+<using sim2c>
+<using node>
+
+%%defines_dynamics undefined
+
+$sim2c::annotate_statement ()
+$sim2c::annotate_expression ()
+
+$annotate_output_arguments: (&arguments)
+  update_each &arguments: (&argument)
+    annotate_expression &argument
+    if do_print_warnings:
+      $$destination argument
+      unless destination.is_a_definition:
+	while -> destination.is_a_function_call:
+	  if
+	    destination.is_an_attribute_access:
+	      !destination arguments_of(destination)(1)
+	    :
+	      !destination functor_of(destination)
+	$name mangled_name_of(destination)
+	!assigned_names(name) true
+
+$annotate_arguments: (&arguments)
+  update_each &arguments: (&argument) annotate_expression &argument
+
+###
+# DEFAULT GRAMMAR NODE
+
+$types::grammar_node/annotate_statement: (&_self)
+  show_compiler_debug_info "annotate statement"
+
+$types::grammar_node/annotate_expression: (&_self)
+  show_compiler_debug_info "annotate expression"
+
+###
+# BODY
+
+$sim2c::check_definitions: (defined_names used_names)
+  # create warnings for strangely used symbols
+
+  for_each defined_names: (name info)
+    $identifier identifier_of(info)
+    unless namespace_of(identifier).is_defined:
+      if
+	used_names(name).is_undefined:
+	  unless identifier.is_not_used:
+	    Warning identifier "
+	      the identifier "@(name)" is defined but not used@
+	:
+	  if
+	    &&
+	      info.is_a_multi_assign_definition
+	      parameter_kind_of(info) != IN_OUT_PARAMETER
+	      not(assigned_names(name))
+	    :
+	      Warning identifier "
+		the identifier "@(name)" is defined as a read-write variable, @
+		but there is no actual assignment@
+  for_each used_names: (name info)
+    $defined_name defined_names(name)
+    if defined_name.is_defined:
+      if do_print_warnings && identifier_of(defined_name).is_not_used:
+	Warning identifier_of(info) "
+	  attempt to use the identifier "@(name)" that is marked as not being @
+	  used@
+
+$sim2c::body/annotate_expression: (&self)
+  show_compiler_debug_info "annotate body"
+  $$locally_assigned_names undefined
+  do:
+    %%sim2c::defined_names empty_list
+    %%sim2c::used_names empty_insert_order_table
+    %%sim2c::assigned_names empty_set
+    %%defines_dynamics false
+    update_each &self.parameters_of: (&parameter)
+      push &defined_names parameter
+      if
+	parameter.is_an_optional_item && default_value_of(parameter).is_defined:
+	  annotate_expression &parameter.default_value_of
+    update_each &self.statements_of: (&stmt) annotate_statement &stmt
+    $$local_definitions empty_insert_order_table
+    for_each defined_names: (info)
+      case
+	variable_kind_of(info)
+	STATIC_SINGLE, STATIC_MULTI:
+	  $ident identifier_of(info)
+	  if namespace_of(ident).is_defined:
+	    SyntaxError ident "
+	      attempt to define a namespaced entity (@(full_name_of(ident))) @
+	      in an inner scope@
+	  $name name_of(ident)
+	  if local_definitions(name).is_defined:
+	    SyntaxError ident "
+	      Attempt to define a variable twice within a single scope (@(name)@
+	      )@
+	  !local_definitions(name) info
+	DYNAMIC_SINGLE, DYNAMIC_MULTI:
+	  !used_names(mangled_name_of(identifier_of(info))) info
+    !self.defined_names_of local_definitions
+    !self.used_names_of used_names
+    if defines_dynamics: # then add a continuation parameter if not present
+      !self.defines_a_dynamic true
+      $parameters parameters_of(self)
+      if
+	||
+	  parameters.is_empty
+	  parameter_kind_of(parameters(-1)) != CONTINUATION_PARAMETER
+	:
+	  $return identifier(.name_of "return__@(index)")
+	  inc &index
+	  push
+	    &self.parameters_of
+	    define_static_single
+	      .identifier_of return
+	      .parameter_kind_of CONTINUATION_PARAMETER
+    if do_print_warnings:
+      check_definitions local_definitions used_names
+      !locally_assigned_names assigned_names
+  for_each used_names_of(self): (name info)
+    unless defined_names_of(self)(name).is_defined:
+      $updated_info update_info(name used_names(name) info)
+      if updated_info.is_defined: !used_names(name) updated_info
+  if do_print_warnings:
+    for_each locally_assigned_names: (name) !assigned_names(name) true
+
+###
+# CALL
+
+$sim2c::call/annotate_statement: (&self)
+  show_compiler_debug_info "annotate statement"
+  if
+    functor_of(self).is_defined:
+      if result_count_of(self).is_defined:
+	annotate_expression &self.result_count_of
+      if continuation_of(self).is_defined:
+	annotate_expression &self.continuation_of
+      annotate_expression &self.functor_of
+    :
+      unless output_arguments_of(self).is_empty:
+	$destination output_arguments_of(self)(1)
+	if
+	  &&
+	    destination.is_a_definition
+	    arguments_of(self)(1).is_a_unique_item_constant
+	  :
+	    !self.arguments_of(1).name_of
+	      mangled_name_of(identifier_of(destination))
+  annotate_output_arguments &self.output_arguments_of
+  annotate_arguments &self.arguments_of
+
+###
+# C-CODE
+
+$sim2c::c_code/annotate_statement: (&self)
+  show_compiler_debug_info "annotate C-code"
+  case kind_of(self) "type", "object":
+    push
+      &defined_names
+      self(.variable_kind_of STATIC_SINGLE .is_a_single_assign_definition true)
+  if base_of(self).is_defined: annotate_expression &self.base_of
+
+###
+# DEFINE STATIC SINGLE
+
+$sim2c::define_static_single/annotate_expression: (&self)
+  show_compiler_debug_info "annotate define static single"
+  if
+    attribute_kind_of(self) == NONE:
+      push &defined_names self
+    :
+      if attribute_of(self).is_defined: annotate_expression &self.attribute_of
+      annotate_expression &self.identifier_of
+
+###
+# DEFINE STATIC MULTI
+
+$sim2c::define_static_multi/annotate_expression: (&self)
+  show_compiler_debug_info "annotate define static multi"
+  push &defined_names self
+
+###
+# DEFINE DYNAMIC SINGLE
+
+$sim2c::define_dynamic_single/annotate_expression: (&self)
+  show_compiler_debug_info "annotate define dynamic single"
+  !defines_dynamics true
+  push &defined_names self
+
+###
+# DEFINE DYNAMIC MULTI
+
+$sim2c::define_dynamic_multi/annotate_expression: (&self)
+  show_compiler_debug_info "annotate define dynamic multi"
+  !defines_dynamics true
+  push &defined_names self
+
+###
+# FUNCTION CALL
+
+$sim2c::function_call/annotate_expression: (&self)
+  show_compiler_debug_info "annotate function call"
+  if functor_of(self).is_defined:
+    annotate_expression &self.functor_of
+    annotate_output_arguments &self.output_arguments_of
+    annotate_arguments &self.arguments_of
+
+###
+# ATTRIBUTE VALUE PAIR
+
+$sim2c::attribute_value_pair/annotate_expression: (&self)
+  show_compiler_debug_info "annotate attribute-value pair"
+  annotate_expression &self.identifier_of
+  annotate_arguments &self.arguments_of
+
+###
+# ATTRIBUTE FUNCTION PAIR
+
+$sim2c::attribute_function_pair/annotate_expression: (&self)
+  show_compiler_debug_info "annotate attribute-function pair"
+  if identifier_of(self).is_defined: annotate_expression &self.identifier_of
+  annotate_arguments &self.arguments_of
+
+###
+# IDENTIFIER
+
+$sim2c::identifier/annotate_expression: (&self)
+  show_compiler_debug_info "annotate identifier " self
+  unless self.is_an_operator_symbol:
+    $namespace namespace_of(self)
+    if namespace.is_defined:
+      $mapped_namespace namespace_mappings(namespace)
+      if mapped_namespace.is_defined: !self.namespace_of mapped_namespace
+    $name mangled_name_of(self)
+    $info used_names(name)
+    cond
+      -> self.is_a_destination:
+	if
+	  info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
+	    !used_names(name)
+	      types::grammar_node
+		.identifier_of self
+		.variable_kind_of STATIC_MULTI
+	  :
+	    if variable_kind_of(info) == POLYMORPHIC:
+	      SyntaxError self "
+		Incompatible use of identifier "@(name)@quot;@
+      -> self.is_used_as_a_polymorphic_function:
+	if
+	  info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
+	    !used_names(name)
+	      types::grammar_node
+		.identifier_of self
+		.variable_kind_of POLYMORPHIC
+	  :
+	    unless variable_kind_of(info) == POLYMORPHIC:
+	      SyntaxError self "
+		Incompatible use of identifier "@(name)@quot;@
+      :
+	if info.is_undefined:
+	  !used_names(name)
+	    types::grammar_node
+	      .identifier_of self
+	      .variable_kind_of STATIC_SINGLE

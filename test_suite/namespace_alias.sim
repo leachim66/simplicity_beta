@@ -1,0 +1,10 @@
+#!/usr/bin/env simple
+
+<namespace t = types>
+
+$rotate ()
+
+$t::string/rotate: (self)
+  -> push(range(self 2 -1) self(1))
+
+writeln rotate("abcde")

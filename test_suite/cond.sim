@@ -1,0 +1,13 @@
+#!/usr/bin/env simple
+
+from_to ' ' 'z': (chr)
+  write "'@(chr)': "
+  cond
+    -> chr >= '0' && chr <= '9':
+      writeln "digit"
+    -> chr >= 'a' && chr <= 'z':
+      writeln "lower case character"
+    -> chr >= 'A' && chr <= 'Z':
+      writeln "upper case character"
+    :
+      writeln "unclassified"

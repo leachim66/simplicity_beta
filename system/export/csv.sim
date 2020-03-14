@@ -1,0 +1,51 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$std::save_csv: (options* filename entries)
+  extract_options
+    options
+    ENCODING = UTF8
+    $encoding
+    SEPARATOR = ','
+    $separator
+    KEYS = undefined
+    $$keys
+  unless keys.is_defined: # extract keys from first entry
+    !keys empty_list
+    for_each entries(1): (key _value) push &keys key
+  $$buf ""
+  for_each
+    keys: (key)
+      append &buf key
+    :
+      push &buf ';'
+  push &buf '@nl;'
+  for_each entries: (entry)
+    for_each
+      keys: (key)
+	$item entry(key)
+	append &buf if(item.is_defined (-> item.to_string) -> "")
+      :
+	push &buf separator
+    push &buf '@nl;'
+  if encoding == UTF8: to_utf8 &buf
+  save filename buf
