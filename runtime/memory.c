@@ -331,7 +331,9 @@ static void *allocate_pool() {
   size_of_new_pool = size_of_unused_pool;
   if (addr) return addr;
   if (runtime_debug_level > 0) {
-    fprintf(stderr, "malloc pool of size %ld for process %d\n", pool_size, getpid());
+    fprintf(
+      stderr, "%lu: malloc pool of size %ld for process %d\n",
+      instruction_counter, pool_size, getpid());
   }
   addr = malloc(pool_size);
   size_of_new_pool = pool_size;
@@ -353,7 +355,9 @@ static void deallocate_pool(void *pool) {
     size_of_unused_pool = size_of_current_pool;
   } else {
     if (runtime_debug_level > 0) {
-      fprintf(stderr, "free pool of size %ld for process %d\n", size_of_current_pool, getpid());
+      fprintf(
+	stderr, "%lu: free pool of size %ld for process %d\n",
+	instruction_counter, size_of_current_pool, getpid());
     }
     free(pool);
     unused_pool = NULL;
@@ -947,7 +951,9 @@ EXPORT void collect_garbage() {
   int i;
   ++total_garbage_collections;
   if (runtime_debug_level > 1) {
-    fprintf(stderr, "COLLECTION #%d\n", total_garbage_collections);
+    fprintf(
+      stderr, "%lu: collection #%d\n",
+      instruction_counter, total_garbage_collections);
   }
   if (within_garbage_collection) {
     runtime_error(
@@ -1039,7 +1045,9 @@ EXPORT void collect_garbage() {
   deallocate_pool(coll_node_buf);
   update_start_p = node_p;
   if (runtime_debug_level > 1) {
-    fprintf(stderr, "memory usage %d / %d\n", node_p-node_buf, pool_size);
+    fprintf(
+      stderr, "%lu: memory usage %d / %d\n",
+      instruction_counter, node_p-node_buf, pool_size);
   }
 
   within_garbage_collection = false;
