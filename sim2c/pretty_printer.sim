@@ -610,7 +610,7 @@ $arguments_to_string:
 		  plus &total_length 2 # needs parentheses
 		if total_length > available_width: !do_use_multiple_lines true
 	      : # last argument
-		if mode == PROC && str(1) != ':':
+		if (mode == PROC || idx > 1) && str(1) != ':':
 		  inc &total_length # separating space
 		plus &total_length length_of(str)
 		if total_length > available_width: !do_use_multiple_lines true
@@ -627,7 +627,6 @@ $arguments_to_string:
       &&
 	mode == PROC
 	remark_lines_of(self).is_empty || not(do_use_multiple_lines)
-	remark_lines_behind_of(self).is_empty
       mode == FUNC && remark_lines_behind_of(functor_of(self)).is_empty
     :
       put &strings "@nl;" # prepend an empty line
@@ -707,19 +706,27 @@ $sim2c::call/to_string: ($self)
   $outer_line_end_expression_width line_end_expression_width
   if
     self.is_a_return:
+      $has_no_remarks
+	remark_lines_of(self).is_empty && remark_lines_behind_of(self).is_empty
+
       %expression_indent
-	if(outer_line_end_expression_width > 0 (-> indent) -> indent+2)
+	if
+	  outer_line_end_expression_width > 0 && has_no_remarks
+	  -> indent
+	  -> indent+2
 
       %line_end_expression_width line_width-indent-2 # "->"
       $$arguments arguments_to_string(self PROC line_end_expression_width)
-      $remark_lines append(remark_lines_of(self) remark_lines_behind_of(self))
       if
-	remark_lines.is_empty:
+	has_no_remarks:
 	  if
 	    arguments(1) == '@nl;'
 	    -> string("->" arguments)
 	    -> string("-> " arguments)
 	:
+	  $remark_lines
+	    append(remark_lines_of(self) remark_lines_behind_of(self))
+
 	  %expression_indent indent
 	  if
 	    arguments .contains. '@nl;':
@@ -789,7 +796,10 @@ $sim2c::call/to_string: ($self)
 	    -> true:
 	      %expression_indent indent
 	      ->
-		add_remark_lines(string(functor ' ' arguments) remark_lines true)
+		add_remark_lines
+		  string(functor ' ' arguments)
+		  remark_lines
+		  true
 
 $definition_to_string: (prefix definition)
   $$buf ""
@@ -888,9 +898,11 @@ $sim2c::function_call/to_string: (self)
 
   # Yes, there are function calls without a functor in the AST ...
 
-  $$functor
+  $functor functor_of(self)
+
+  $$functor_string
     if
-      functor_of(self).is_defined:
+      functor.is_defined:
 	%line_width UNLIMITED # force inline output
 	to_string functor_of(self)
       -> undefined
@@ -898,8 +910,11 @@ $sim2c::function_call/to_string: (self)
   $default_call:
     %expression_indent indent+2
 
-    $arguments
-      arguments_to_string(self FUNC line_width-indent-length_of(functor)-2)
+    $arguments_string
+      arguments_to_string
+	self
+	FUNC
+	line_width-indent-length_of(functor_string)-2
 
     $remark_lines
       append(remark_lines_of(self) remark_lines_behind_of(functor_of(self)))
@@ -907,48 +922,58 @@ $sim2c::function_call/to_string: (self)
     if
       remark_lines.is_empty:
 	if
-	  arguments .contains. '@nl;'
-	  -> string('@nl;' spaces(indent) functor arguments)
-	  -> string(functor '(' arguments ')')
+	  arguments_string .contains. '@nl;'
+	  -> string('@nl;' spaces(indent) functor_string arguments_string)
+	  -> string(functor_string '(' arguments_string ')')
       :
 	if
-	  arguments .contains. '@nl;':
+	  arguments_string .contains. '@nl;':
 	    $$remark add_remark_lines("" remark_lines)
 	    unless remark(1) == '@nl;':
 	      !remark string('@nl;' spaces(expression_indent) remark)
-	    -> string('@nl;' spaces(indent) functor remark arguments)
+	    ->
+	      string
+		'@nl;'
+		spaces(indent)
+		functor_string
+		remark
+		arguments_string
 	  :
 	    %expression_indent indent
-	    -> add_remark_lines(string(functor '(' arguments ')') remark_lines)
+	    ->
+	      add_remark_lines
+		string(functor_string '(' arguments_string ')')
+		remark_lines
 
+  $arguments arguments_of(self)
   cond
     -> self.is_a_method_definition:
       %line_width UNLIMITED # force inline output
-      $argument arguments_of(self)(1)
+      $argument arguments(1)
       if
-	functor.is_defined
-	-> string(argument '/' functor)
+	functor_string.is_defined
+	-> string(argument '/' functor_string)
 	-> string(argument '/')
     -> self.is_an_attribute_access:
-      $$argument arguments_of(self)(1)
+      $$argument arguments(1)
       if precedence_of(argument) < HIGHEST_PRECEDENCE:
 	!argument string('(' argument ')')
-      -> string(argument '.' functor)
-    -> any_of(functor is_a_letter):
+      -> string(argument '.' functor_string)
+    -> any_of(functor_string is_a_letter):
       cond
 	-> self.is_in_infix_notation:
-	  $left_argument arguments_of(self)(1)
-	  $right_argument arguments_of(self)(2)
+	  $left_argument arguments(1)
+	  $right_argument arguments(2)
 	  $$left left_argument.to_string
 	  $$right right_argument.to_string
 	  if precedence_of(left_argument) < INFIX_PRECEDENCE:
 	    !left string('(' left ')')
 	  if precedence_of(right_argument) <= INFIX_PRECEDENCE:
 	    !right string('(' right ')')
-	  $length length_of(left)+length_of(functor)+length_of(right)+4
+	  $length length_of(left)+length_of(functor_string)+length_of(right)+4
 	  if
 	    expression_indent+length <= line_width
-	    -> add_remark(self string(left " ." functor ". " right))
+	    -> add_remark(self string(left " ." functor_string ". " right))
 	    default_call
 	-> self.is_a_string_template:
 	  if
@@ -957,20 +982,30 @@ $sim2c::function_call/to_string: (self)
 	    :
 	      %line_width UNLIMITED # force inline output
 	      add_remark self string_template_to_string(self)
+	->
+	  &&
+	    functor.is_an_identifier
+	    namespace_of(functor) == "std"
+	    name_of(functor) == "key_value_pair"
+	    length_of(arguments) == 2
+	    arguments(1).is_an_identifier
+	    arguments(2).is_an_identifier
+	    namespace_of(arguments(2)) == "std"
+	    name_of(arguments(2)) == "true"
+	  -> "--@(arguments(1))"
 	-> true default_call
     -> true: # operator symbols
       %expression_indent indent+2
-      $arguments arguments_of(self)
       if
 	length_of(arguments) == 1:
 	  $argument arguments(1)
 	  if
 	    precedence_of(argument) < HIGHEST_PRECEDENCE
-	    -> string(functor '(' argument ')')
-	    -> string(functor argument)
+	    -> string(functor_string '(' argument ')')
+	    -> string(functor_string argument)
 	:
 	  %line_end_expression_width 0
-	  $prec precedence(functor)
+	  $prec precedence(functor_string)
 	  $$left arguments(1)
 	  $$right arguments(2)
 
@@ -992,14 +1027,14 @@ $sim2c::function_call/to_string: (self)
 	  if
 	    prec.is_left_associative:
 	      put &strings stringify_le(right)
-	      while -> operator_of(left) == functor:
+	      while -> operator_of(left) == functor_string:
 		$left_operands arguments_of(left)
 		put &strings stringify_le(left_operands(2))
 		!left left_operands(1)
 	      put &strings stringify_lt(left)
 	    : # no two right associative operatores have the same precedence
 	      push &strings stringify_le(left)
-	      while -> operator_of(right) == functor:
+	      while -> operator_of(right) == functor_string:
 		$right_operands arguments_of(right)
 		push &strings stringify_le(right_operands(1))
 		!right right_operands(2)
@@ -1016,12 +1051,12 @@ $sim2c::function_call/to_string: (self)
 	  if total_width.is_defined:
 	    !inline_functor
 	      case
-		functor
+		functor_string
 		"+", "-", "*", "/"
-		-> functor
+		-> functor_string
 		","
-		-> string(functor ' ')
-		-> string(' ' functor ' ')
+		-> string(functor_string ' ')
+		-> string(' ' functor_string ' ')
 	    plus &total_width (length_of(strings)-1)*length_of(inline_functor)
 	    if indent+total_width > line_width: !total_width undefined
 	  $$buf ""
@@ -1035,9 +1070,9 @@ $sim2c::function_call/to_string: (self)
 		:
 		  append &buf inline_functor
 	    : # multi-line
-	      case functor ",": !functor "sequence"
+	      case functor_string ",": !functor_string "sequence"
 	      $indentation spaces(expression_indent)
-	      !buf string('@nl;' spaces(indent) functor)
+	      !buf string('@nl;' spaces(indent) functor_string)
 	      for_each strings: (str)
 		unless str(1) == '@nl;':
 		  push &buf '@nl;'

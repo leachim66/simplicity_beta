@@ -158,7 +158,7 @@ $get_func_and_myself: (functor cont insertion_line?)
     @
       myself = @(functor.to_c);
       func = myself->type;@(insertion(2))
-      frame->cont = @(cont);
+  if cont != "frame->cont": write "  frame->cont = @(cont);@nl;"
 
 $sim2c::assignment_to_c:
   (
@@ -596,7 +596,10 @@ $sim2c::body/to_c:
       !is_shared(name) parameter.is_a_multi_assign_definition
       inc &slot_idx
     !par_count
-      if(has_rest_parameter || max_par_cnt != min_par_cnt (-> -1) -> max_par_cnt)
+      if
+	has_rest_parameter || max_par_cnt != min_par_cnt
+	-> -1
+	-> max_par_cnt
 
     # then the inherited variables
 

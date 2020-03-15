@@ -1125,7 +1125,10 @@ $microhttpd::initialize_widget_tree:
   update_each_leaf &widget_tree: (&widget)
     if updater_of(widget).is_defined:
       $contents
-	if(data.is_defined (-> updater_of(widget)(data)) -> updater_of(widget)())
+	if
+	  data.is_defined
+	  -> updater_of(widget)(data)
+	  -> updater_of(widget)()
 
       !widget.contents_of contents
       !widget.cursor_position_of length_of(contents)

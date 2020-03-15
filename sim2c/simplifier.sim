@@ -415,22 +415,16 @@ $sim2c::function_call/simplify_expression: (self)
 
 $sim2c::attribute_value_pair/simplify_expression: (&self)
   show_compiler_debug_info "simplify attribute-value pair"
-  simplify_arguments
+  simplify_arguments &self $_dummy_destinations
     # There must not be any output arguments!!!
-
-    &self
-    $_dummy_destinations
 
 ###
 # ATTRIBUTE FUNCTION PAIR
 
 $sim2c::attribute_function_pair/simplify_expression: (&self)
   show_compiler_debug_info "simplify attribute-function pair"
-  simplify_arguments
+  simplify_arguments &self $_dummy_destinations
     # There must not be any output arguments!!!
-
-    &self
-    $_dummy_destinations
 
 ###
 # C-CODE

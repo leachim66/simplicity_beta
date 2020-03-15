@@ -283,15 +283,11 @@ $check_sets:
 	cond
 	  -> value.is_undefined -> attribute.is_undefined
 	  -> value.is_a_string -> attribute == value
-	  ->
-	    true
-	    -> # value should be a function
-	    value(attribute)
+	  -> true -> value(attribute)
+	      # value should be a function
       -> clause.is_a_string -> tag == clause
-      ->
-	true
-	-> # clause should be a function
-	clause(element)
+      -> true -> clause(element)
+	  # clause should be a function
 
   for_each clauses_sets: (clauses)
     if
@@ -300,9 +296,8 @@ $check_sets:
 	return true # all clauses of a set succeeded
       :
 	if check(clauses): return true # it's a single clause
-
-  -> # all sets of clauses failed
-    false
+  -> false
+    # all sets of clauses failed
 
 $types::xml_element/select:
   #

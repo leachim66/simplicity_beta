@@ -1748,5 +1748,5 @@ $std::save: (options* filename data)
   extract_options options PARENTS = false $do_create_directory
   if do_create_directory:
     $path before(filename '/' -1)
-    if path != "": mkdir std::key_value_pair(PARENTS std::true) path
+    if path != "": mkdir --PARENTS path
   save_file filename data.to_string

@@ -27,7 +27,7 @@ $$total 0
 $$updated 0
 
 $pretty_print: (folder)
-  for_each directory(std::key_value_pair(SORT std::true) folder): (entry)
+  for_each directory(--SORT folder): (entry)
     $filename string(folder '/' filename_of(entry))
     if
       entry.is_a_directory:
@@ -52,7 +52,7 @@ $pretty_print: (folder)
 	      :
 		writeln " FAILED"
 
-$$folders list("sim2c" "tools" "apps" "examples")
+$$folders list("sim2c" "tools" "benchmarks" "examples")
 for_each_line load("configure"): (line)
   if
     line .has_prefix. "BASIC_LIBRARIES=" || line .has_prefix. "MORE_LIBRARIES=":

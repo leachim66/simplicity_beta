@@ -1001,7 +1001,6 @@ static void entry__4_25(void) {
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_27(void) {
   if (argument_count != 0) {
@@ -1303,7 +1302,6 @@ static void cont__4_15(void) {
   myself = get__exit();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__4_16(void) {
   allocate_initialized_frame_gc(4, 5);
@@ -1346,7 +1344,6 @@ static void entry__4_16(void) {
   myself = get__while();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__4_29(void) {
   allocate_initialized_frame_gc(5, 10);
@@ -1518,7 +1515,6 @@ static void cont__4_35(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_36(void) {
   if (argument_count != 0) {
@@ -2002,7 +1998,6 @@ static void entry__4_64(void) {
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_66(void) {
   if (argument_count != 0) {
@@ -2260,7 +2255,6 @@ static void entry__4_69(void) {
   myself = get__repeat();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__4_74(void) {
   allocate_initialized_frame_gc(5, 7);
@@ -2356,7 +2350,6 @@ static void cont__4_78(void) {
   myself = frame->slots[4] /* add_newline */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_79(void) {
   if (argument_count != 1) {
@@ -3143,7 +3136,6 @@ static void cont__4_124(void) {
   myself = frame->slots[10] /* add_newline */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_125(void) {
   myself = frame->slots[0] /* break */;
@@ -3254,7 +3246,6 @@ static void entry__4_131(void) {
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_133(void) {
   if (argument_count != 0) {
@@ -3442,7 +3433,6 @@ static void cont__4_99(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_135(void) {
   if (argument_count != 0) {
@@ -3496,7 +3486,6 @@ static void entry__4_137(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_138(void) {
   if (argument_count != 0) {
@@ -3510,7 +3499,6 @@ static void cont__4_138(void) {
   myself = frame->slots[13] /* add_newline */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_139(void) {
   myself = frame->slots[1] /* return */;

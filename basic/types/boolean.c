@@ -858,7 +858,6 @@ static void entry__24_1(void) {
   myself = frame->slots[1] /* then */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__25_1(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -888,7 +887,6 @@ static void entry__25_1(void) {
   myself = frame->slots[2] /* else */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__26_1(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -906,7 +904,6 @@ static void entry__26_1(void) {
   myself = get__pass();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__27_1(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -924,7 +921,6 @@ static void entry__27_1(void) {
   myself = frame->slots[1] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 EXPORT void collect__basic__types__boolean(void) {
   var.std__is_a_boolean = collect_node(var.std__is_a_boolean);

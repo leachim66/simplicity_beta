@@ -1854,7 +1854,6 @@ static void entry__17_9(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__17_10(void) {
   if (argument_count != 0) {
@@ -1890,7 +1889,6 @@ static void cont__17_11(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__17_13(void) {
   myself = frame->slots[3] /* return */;
@@ -1979,7 +1977,6 @@ static void entry__18_9(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__18_3(void) {
   allocate_initialized_frame_gc(5, 10);
@@ -2102,7 +2099,6 @@ static void cont__18_8(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__18_10(void) {
   myself = frame->slots[2] /* return */;
@@ -2129,7 +2125,6 @@ static void entry__19_3(void) {
   myself = get__private__get_item();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__19_4(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -2154,7 +2149,6 @@ static void entry__19_4(void) {
   myself = get__private__set_item();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__19_1(void) {
   allocate_initialized_frame_gc(3, 6);
@@ -2214,7 +2208,6 @@ static void cont__19_2(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__21_1(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -2393,7 +2386,6 @@ static void entry__24_9(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__24_10(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -2414,7 +2406,6 @@ static void entry__24_10(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__24_2(void) {
   allocate_initialized_frame_gc(4, 9);
@@ -2550,7 +2541,6 @@ static void cont__24_8(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__24_11(void) {
   myself = frame->slots[2] /* return */;
@@ -2654,7 +2644,6 @@ static void entry__25_5(void) {
   myself = get__Error();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__25_7(void) {
   if (argument_count != 0) {
@@ -2781,7 +2770,6 @@ static void entry__25_11(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__25_12(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -2802,7 +2790,6 @@ static void entry__25_12(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__25_13(void) {
   if (argument_count != 0) {
@@ -2898,7 +2885,6 @@ static void cont__25_18(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__25_19(void) {
   myself = frame->slots[4] /* return */;
@@ -2967,7 +2953,6 @@ static void entry__26_9(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__26_10(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -2988,7 +2973,6 @@ static void entry__26_10(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__26_2(void) {
   allocate_initialized_frame_gc(4, 9);
@@ -3124,7 +3108,6 @@ static void cont__26_8(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__26_11(void) {
   myself = frame->slots[2] /* return */;
@@ -3228,7 +3211,6 @@ static void entry__27_5(void) {
   myself = get__Error();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__27_7(void) {
   if (argument_count != 0) {
@@ -3355,7 +3337,6 @@ static void entry__27_11(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__27_12(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -3376,7 +3357,6 @@ static void entry__27_12(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__27_13(void) {
   if (argument_count != 0) {
@@ -3472,7 +3452,6 @@ static void cont__27_18(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__27_19(void) {
   myself = frame->slots[4] /* return */;
@@ -3750,7 +3729,6 @@ static void entry__29_5(void) {
   myself = get__Error();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__29_7(void) {
   if (argument_count != 0) {
@@ -3922,7 +3900,6 @@ static void cont__29_15(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__29_16(void) {
   myself = frame->slots[4] /* return */;
@@ -4210,7 +4187,6 @@ static void entry__31_5(void) {
   myself = get__Error();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__31_7(void) {
   if (argument_count != 0) {
@@ -4382,7 +4358,6 @@ static void cont__31_15(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__31_16(void) {
   myself = frame->slots[4] /* return */;

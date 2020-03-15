@@ -669,7 +669,6 @@ static void cont__3_6(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__3_7(void) {
   if (argument_count != 0) {

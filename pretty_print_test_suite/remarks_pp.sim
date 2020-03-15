@@ -143,13 +143,10 @@ $p:
 p a b f(x y) # p's remark
 p a b f(x y) # f(x y)'s remark
 p # p's remark
-p
+p a b
   #
     p's multi-line
     remark
-
-  a
-  b
 p
   # p's remark
 

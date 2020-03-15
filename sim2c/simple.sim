@@ -314,7 +314,7 @@ $add_module_infos:
 	"system/types/" or ""
     -> return
   )
-  $entries directory(std::key_value_pair(SORT std::true) path)
+  $entries directory(--SORT path)
   $$filenames empty_set
   $$directories empty_list
   $$modules empty_key_order_set
@@ -663,9 +663,8 @@ $library_paths_and_file_list:
 	->
 	  if
 	    library .contains. '.'
-
-	    -> # Linux only
-	      "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+	    -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+	      # Linux only
 	    -> "-l@(library)"
   append library_paths append(object_files library_files)
 

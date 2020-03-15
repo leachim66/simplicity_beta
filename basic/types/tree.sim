@@ -212,9 +212,8 @@ $types::insert_order_tree/insert_behind:
       insert_behind &self.table_of key new_key new_value
 
 $std::tree_nodes_of: (self)
-
-  -> # allows only read-access
-    table_of(self)
+  -> table_of(self)
+    # allows only read-access
 
 $total_node_count_of: (self)
   $$n 1

@@ -32,22 +32,16 @@ $$dialog_widgets ""
 # Widgets
 
 widget "paragraph"
-widget "editable_paragraph" std::key_value_pair(HAS_UPDATER std::true)
+widget "editable_paragraph" --HAS_UPDATER
 widget "label"
 widget "picture"
-widget "filler" std::key_value_pair(HAS_NO_CONTENTS std::true)
-widget
-  "edit_box"
-  std::key_value_pair(HAS_UPDATER std::true)
-  std::key_value_pair(SUPPORTS_PASSWORD std::true)
-widget "multi_line_edit_box" std::key_value_pair(HAS_UPDATER std::true)
-widget "button" std::key_value_pair(SUPPORTS_ACTION std::true)
-widget
-  "grid"
-  std::key_value_pair(HAS_CHILDREN std::true)
-  std::key_value_pair(IS_A_GRID std::true)
-widget "group" std::key_value_pair(HAS_CHILDREN std::true)
-widget "page" std::key_value_pair(HAS_CHILDREN std::true)
+widget "filler" --HAS_NO_CONTENTS
+widget "edit_box" --HAS_UPDATER --SUPPORTS_PASSWORD
+widget "multi_line_edit_box" --HAS_UPDATER
+widget "button" --SUPPORTS_ACTION
+widget "grid" --HAS_CHILDREN --IS_A_GRID
+widget "group" --HAS_CHILDREN
+widget "page" --HAS_CHILDREN
 
 # Meta Code
 

@@ -602,7 +602,6 @@ static void cont__1_12(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__1_2(void) {
   allocate_initialized_frame_gc(5, 10);
@@ -707,7 +706,6 @@ static void cont__1_6(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__1_18(void) {
   if (argument_count != 0) {

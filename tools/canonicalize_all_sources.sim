@@ -5,7 +5,7 @@ $$source_filenames empty_list
 $$destination_filenames empty_list
 
 $collect_all_sources: (path)
-  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+  for_each directory(--SORT path): (entry)
     if
       entry.is_a_directory:
 	collect_all_sources fullname_of(entry)
@@ -26,7 +26,7 @@ for_each source_filenames: (source_filename)
     successful:
       writeln "success"
       inc &successful_prints_count
-      save std::key_value_pair(PARENTS std::true) destination_filename out
+      save --PARENTS destination_filename out
       push &destination_filenames destination_filename
     :
       writeln "FAILED TO PRINT"

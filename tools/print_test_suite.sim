@@ -13,7 +13,7 @@ $print: (filename) pass
 
 $$original empty_list
 $$printed empty_list
-for_each directory(std::key_value_pair(SORT std::true) PATH): (entry)
+for_each directory(--SORT PATH): (entry)
   unless entry.is_a_directory:
     $filename filename_of(entry)
     if filename .has_suffix. ".sim":

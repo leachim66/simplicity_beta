@@ -118,7 +118,11 @@ $add_item:
   )
   if myself.is_undefined:
     return
-      empty_node(.previous_of previous .next_of next .key_of key .value_of value)
+      empty_node
+	.previous_of previous
+	.next_of next
+	.key_of key
+	.value_of value
       INSERT
   $my_key key_of(myself)
   cond

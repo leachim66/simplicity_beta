@@ -286,7 +286,7 @@ $extract_documentation_from_file: (filename)
 		    !definitions(iname) definition
 
 $extract_documentation_from_directory: (path)
-  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+  for_each directory(--SORT path): (entry)
     $name fullname_of(entry)
     cond
       -> entry.is_a_directory: extract_documentation_from_directory name
@@ -322,7 +322,14 @@ $mangled: (name) -> replace_all(name "::" = "__" '/' = "___")
 
 $ordered_name: (namespace name)
   ->
-    string(name.to_lower_case '/' namespace.to_lower_case '/' name '/' namespace)
+    string
+      name.to_lower_case
+      '/'
+      namespace.to_lower_case
+      '/'
+      name
+      '/'
+      namespace
 
 $link_bar:
   P:

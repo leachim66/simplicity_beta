@@ -23,7 +23,7 @@
 <using std>
 <using console>
 
-extern $uuidgen std::key_value_pair(TRIM std::true) "uuidgen"
+extern $uuidgen --TRIM "uuidgen"
 %std::do_log_ssh_commands false
 %std::do_log_ssh_output false
 $PROMPT "> "

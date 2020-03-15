@@ -25,7 +25,7 @@ $$total 0
 $$updated 0
 
 $update: (folder)
-  for_each directory(std::key_value_pair(SORT std::true) folder): (entry)
+  for_each directory(--SORT folder): (entry)
     $filename string(folder '/' filename_of(entry))
     if
       entry.is_a_directory:

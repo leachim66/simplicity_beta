@@ -613,7 +613,6 @@ static void cont__2_11(void) {
   myself = get__write();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__2_1(void) {
   allocate_arguments();
@@ -751,7 +750,6 @@ static void cont__2_8(void) {
   myself = get__for_each_pair();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__3_9(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -806,7 +804,6 @@ static void cont__3_11(void) {
   myself = get__ewrite();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__3_1(void) {
   allocate_arguments();
@@ -944,7 +941,6 @@ static void cont__3_8(void) {
   myself = get__for_each_pair();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__4_1(void) {
   if (argument_count != 0) {
@@ -1228,7 +1224,6 @@ static void cont__7_21(void) {
   myself = get__write();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__7_23(void) {
   if (argument_count != 0) {
@@ -1324,7 +1319,6 @@ static void entry__7_36(void) {
   myself = get__write();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__7_37(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -1341,7 +1335,6 @@ static void entry__7_37(void) {
   myself = get__write();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__7_29(void) {
   allocate_initialized_frame_gc(2, 8);
@@ -1469,7 +1462,6 @@ static void cont__7_35(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__7_39(void) {
   if (argument_count != 0) {
@@ -1630,7 +1622,6 @@ static void cont__7_2(void) {
   myself = get__while();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 EXPORT void collect__basic__debug(void) {
   var.std__debug_string = collect_node(var.std__debug_string);

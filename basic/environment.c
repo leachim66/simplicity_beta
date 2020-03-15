@@ -793,7 +793,6 @@ static void entry__15_3(void) {
   myself = get__private__get_item();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__15_4(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -849,7 +848,6 @@ static void cont__15_7(void) {
   myself = get__private__set_item();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__15_1(void) {
   allocate_initialized_frame_gc(3, 6);
@@ -915,7 +913,6 @@ static void cont__15_2(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 EXPORT void collect__basic__environment(void) {
   temp__1 = collect_node(temp__1);

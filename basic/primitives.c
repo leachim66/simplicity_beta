@@ -472,7 +472,6 @@ static void entry__3_1(void) {
   myself = get__pass();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__4_1(void) {
   allocate_arguments();
@@ -496,7 +495,6 @@ static void entry__4_1(void) {
   myself = get__write_to();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__5_1(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -553,7 +551,6 @@ static void entry__7_1(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__8_1(void) {
   if (argument_count != 1) {

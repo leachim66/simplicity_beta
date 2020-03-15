@@ -811,7 +811,6 @@ static void entry__13_3(void) {
   myself = var._posix_launch;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__13_4(void) {
   allocate_initialized_frame_gc(2, 3);
@@ -847,7 +846,6 @@ static void cont__13_5(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__13_6(void) {
   allocate_initialized_frame_gc(2, 6);
@@ -908,7 +906,6 @@ static void cont__13_8(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__13_9(void) {
   allocate_initialized_frame_gc(2, 8);
@@ -990,7 +987,6 @@ static void cont__13_12(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__13_13(void) {
   allocate_initialized_frame_gc(2, 10);
@@ -1097,7 +1093,6 @@ static void cont__13_17(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__13_18(void) {
   myself = frame->slots[1] /* return */;
@@ -1693,7 +1688,6 @@ static void cont__17_2(void) {
   myself = var._posix_exec;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__18_1(void) {
   allocate_arguments();
@@ -1725,7 +1719,6 @@ static void cont__18_2(void) {
   myself = var._posix_call;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__19_1(void) {
   allocate_arguments();
@@ -1841,7 +1834,6 @@ static void entry__19_7(void) {
   myself = get__raise();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__19_9(void) {
   if (argument_count != 0) {
@@ -1900,7 +1892,6 @@ static void cont__19_12(void) {
   myself = var._posix_pipe;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__20_9(void) {
   allocate_arguments();
@@ -1919,7 +1910,6 @@ static void entry__20_9(void) {
   myself = get__call();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__20_5(void) {
   allocate_arguments();
@@ -2069,7 +2059,6 @@ static void cont__20_3(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 EXPORT void collect__basic__exec(void) {
   var.std__SIGHUP = collect_node(var.std__SIGHUP);

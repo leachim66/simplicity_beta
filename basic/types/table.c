@@ -835,7 +835,6 @@ static void entry__5_3(void) {
   myself = var.private__get_item;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__5_4(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -860,7 +859,6 @@ static void entry__5_4(void) {
   myself = var.private__set_item;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__5_1(void) {
   allocate_initialized_frame_gc(3, 6);
@@ -920,7 +918,6 @@ static void cont__5_2(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__6_1(void) {
   allocate_initialized_frame_gc(2, 3);
@@ -1196,7 +1193,6 @@ static void cont__8_6(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__8_7(void) {
   if (argument_count != 0) {
@@ -1738,7 +1734,6 @@ static void cont__19_6(void) {
   myself = get__raise();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__19_8(void) {
   if (argument_count != 1) {
@@ -1810,7 +1805,6 @@ static void cont__19_11(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__19_12(void) {
   if (argument_count != 0) {
@@ -2082,7 +2076,6 @@ static void entry__19_25(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__19_26(void) {
   if (argument_count != 0) {
@@ -2174,7 +2167,6 @@ static void entry__19_30(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__19_31(void) {
   if (argument_count != 0) {
@@ -2644,7 +2636,6 @@ static void entry__19_1(void) {
   myself = get__register_deserializer();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 EXPORT void collect__basic__types__table(void) {
   var.private__set_item = collect_node(var.private__set_item);

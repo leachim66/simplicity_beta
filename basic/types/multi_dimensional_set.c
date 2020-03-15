@@ -974,7 +974,6 @@ static void entry__4_3(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__4_4(void) {
   if (argument_count != 0) {
@@ -1353,7 +1352,6 @@ static void cont__5_5(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__7_1(void) {
   allocate_arguments();
@@ -1437,7 +1435,6 @@ static void cont__8_8(void) {
   myself = var._for_each_dimension;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__8_9(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -1461,7 +1458,6 @@ static void entry__8_9(void) {
   myself = frame->slots[0] /* body */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__8_4(void) {
   allocate_initialized_frame_gc(5, 8);
@@ -1525,7 +1521,6 @@ static void cont__8_5(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__8_3(void) {
   allocate_initialized_frame_gc(4, 5);
@@ -1563,7 +1558,6 @@ static void entry__8_3(void) {
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__8_1(void) {
   allocate_initialized_frame_gc(4, 6);
@@ -1614,7 +1608,6 @@ static void cont__8_2(void) {
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__9_1(void) {
   allocate_initialized_frame_gc(2, 6);
@@ -1695,7 +1688,6 @@ static void cont__9_5(void) {
   myself = var._for_each_dimension;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 EXPORT void collect__basic__types__multi_dimensional_set(void) {
   var._dimensions_of = collect_node(var._dimensions_of);

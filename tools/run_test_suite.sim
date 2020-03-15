@@ -32,7 +32,7 @@ $compile:
     prefix?
     expect_failure = false
   )
-  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+  for_each directory(--SORT path): (entry)
     if
       entry.is_a_directory:
 	if
@@ -112,7 +112,7 @@ $c_compile:
     path
     expect_failure = false
   )
-  for_each directory(std::key_value_pair(SORT std::true) path): (entry)
+  for_each directory(--SORT path): (entry)
     if
       entry.is_a_directory:
 	c_compile fullname_of(entry)
@@ -137,7 +137,7 @@ $c_compile:
 
 c_compile "test_suite"
 $$entries empty_list
-for_each directory(std::key_value_pair(SORT std::true) "test_suite"): (entry)
+for_each directory(--SORT "test_suite"): (entry)
   unless entry.is_a_directory:
     if filename_of(entry) .has_suffix. ".sim":
       push &entries filename_of(entry) .without_suffix. ".sim"

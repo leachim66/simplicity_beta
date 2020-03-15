@@ -3319,7 +3319,6 @@ static void cont__25_4(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__25_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -3340,7 +3339,6 @@ static void entry__25_5(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__25_6(void) {
   myself = frame->slots[1] /* return */;
@@ -3428,7 +3426,6 @@ static void cont__26_4(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__26_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -3449,7 +3446,6 @@ static void entry__26_5(void) {
   myself = frame->slots[0] /* return */;
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void cont__26_6(void) {
   myself = frame->slots[1] /* return */;
@@ -3529,7 +3525,6 @@ static void cont__27_2(void) {
   myself = get__case();
   func = myself->type;
   frame = frame->caller_frame;
-  frame->cont = frame->cont;
 }
 static void entry__28_1(void) {
   allocate_initialized_frame_gc(2, 8);

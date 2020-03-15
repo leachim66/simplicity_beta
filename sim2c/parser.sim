@@ -114,7 +114,9 @@ $types::unexpected_input_error/grammar::match: (self stream)
 	indent_marker:
 	  ParseError stream "indent expected"
 	outdent_marker:
-	  ParseError stream "unexpected input"
+	  ParseError stream "outdent expected"
+	'@quot;':
+	  ParseError stream "closing quotation mark expected"
 	:
 	  ParseError stream "
 	    @quot;@(expression)" expected@
@@ -518,19 +520,6 @@ $REMARK_BEHIND
 	      append &node.arguments_of(-1).remark_lines_behind_of remark_lines
 	  !node.remark_lines_of empty_list
 
-$REMARK_FIRST
-  sequence
-    REMARK
-    modify_node
-      :
-	(
-	  &node
-	  stream
-	)
-	unless stream(1) == OUTDENT: # very dirty fix
-	  !node.remark_lines_behind_of remark_lines_of(node)
-	  !node.remark_lines_of empty_list
-
 $LINE_END_REMARK optional(sim2c::WHITESPACE, HASHTAG, REMARK_LINE)
 
 $ARGUMENT_LINE_END_REMARK
@@ -734,10 +723,11 @@ $STRING
 
   sequence
     '@quot;'
+    not_followed_by(indent_marker)
     set_node(string_literal)
     STORE_POSITION_MINUS_1
     some(not_followed_by('@quot;'), alt(STRING_INSERTION STRING_CHARACTER))
-    '@quot;'
+    expect('@quot;')
     STORE_END_POSITION
     CHECK_INSERTIONS
 
@@ -804,7 +794,14 @@ $NEGATION
     STORE_END_POSITION
 
 $SIMPLE_OPERAND
-  alt(NUMBER CHARACTER STRING UNIQUE_ITEM PARENTHESED_EXPRESSION OPTION NEGATION)
+  alt
+    NUMBER
+    CHARACTER
+    STRING
+    UNIQUE_ITEM
+    PARENTHESED_EXPRESSION
+    OPTION
+    NEGATION
 
 $OPERAND alt(IDENTIFIER_OR_FUNCTION_CALL SIMPLE_OPERAND, some(ATTRIBUTE_ACCESS))
 
@@ -933,7 +930,10 @@ $DEFINED_VARIABLE_OR_ATTRIBUTE
 	    '.'
 	    set_field(attribute_kind_of ATTRIBUTE_KIND)
 	    span(attribute_of NAME_OF_POLYMORPHIC)
-	  sequence('/' followed_by(':') set_field(attribute_kind_of METHOD_KIND))
+	  sequence
+	    '/'
+	    followed_by(':')
+	    set_field(attribute_kind_of METHOD_KIND)
 	  sequence
 	    '/'
 	    set_field(attribute_kind_of METHOD_KIND)
@@ -1134,7 +1134,9 @@ $MULTI_LINE_FUNCTION_CALL
 	    range(top_level_arguments 1 -2)
 	    function_call
 	      .functor_of
-		functor(.enumeration_no_of undefined .remark_lines_of empty_list)
+		functor
+		  .enumeration_no_of undefined
+		  .remark_lines_of empty_list
 	      .arguments_of arguments_of(node)
 	      .output_arguments_of output_arguments_of(node)
 	      .enumeration_no_of enumeration_no_of(functor)
@@ -1263,7 +1265,7 @@ $MORE_LINE_START_ARGUMENTS
 
 $FIRST_LINE_START_ARGUMENTS
   alt
-    REMARK_FIRST, optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
+    REMARK, optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
     LINE_START_ARGUMENTS
 
 $SINGLE_INPUT_ARGUMENT
@@ -1486,6 +1488,11 @@ $RETURN_STATEMENT
 	set_node(return_statement)
 	STORE_POSITION_MINUS_2
 	PROCEDURE_ARGUMENTS
+	check_node
+	  : (node)
+	    if arguments_of(node).is_empty:
+	      SyntaxError node "return statement needs at least one argument"
+	    -> true
 	STORE_END_POSITION
 
 $STATEMENTS
