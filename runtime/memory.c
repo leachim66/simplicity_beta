@@ -586,13 +586,14 @@ extern const char **polymorphic_function_names;
 long debug_string(NODE *node, int indent, int max_depth, char *buf);
 
 EXPORT void no_such_attribute(void) {
+  int attr_idx = last_attr_idx;
   long len = debug_string(last_node, 0, 1, NULL);
   char *buf = malloc(len);
   debug_string(last_node, 0, 1, buf);
   buf[len-1] = 0;
   runtime_error(
     "Attempt to access the undefined attribute <%s> of\n%s",
-    polymorphic_function_names[last_attr_idx], buf);
+    polymorphic_function_names[attr_idx], buf);
 }
 
 EXPORT void resource_error(void) {
