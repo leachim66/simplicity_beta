@@ -457,33 +457,33 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__13_1, NULL, 208, 208, 5, 30},
   {cont__13_2, &frame__13_1, 207, 225, 3, 37},
   {cont__13_18, &frame__13_1, 225, 225, 37, 37},
-  {entry__14_1, NULL, 228, 411, 3, 2},
-  {entry__15_1, NULL, 414, 419, 3, 2},
-  {entry__16_1, NULL, 422, 748, 3, 2},
-  {entry__17_1, NULL, 751, 751, 3, 29},
-  {cont__17_2, &frame__17_1, 752, 752, 3, 18},
-  {entry__18_1, NULL, 755, 755, 3, 29},
-  {cont__18_2, &frame__18_1, 756, 756, 3, 18},
-  {entry__19_3, NULL, 759, 759, 24, 39},
-  {cont__19_4, &frame__19_3, 759, 759, 39, 39},
-  {entry__19_7, NULL, 760, 760, 21, 46},
-  {entry__19_10, NULL, 761, 761, 29, 37},
-  {cont__19_11, &frame__19_10, 761, 761, 37, 37},
-  {entry__19_1, NULL, 759, 759, 6, 21},
-  {cont__19_2, &frame__19_1, 759, 759, 3, 39},
-  {cont__19_5, &frame__19_1, 760, 760, 6, 18},
-  {cont__19_6, &frame__19_1, 760, 760, 3, 46},
-  {cont__19_9, &frame__19_1, 761, 761, 3, 37},
-  {cont__19_12, &frame__19_1, 762, 762, 3, 24},
-  {entry__20_5, NULL, 768, 768, 21, 40},
-  {cont__20_6, &frame__20_5, 768, 768, 21, 45},
-  {cont__20_7, &frame__20_5, 768, 768, 18, 45},
-  {entry__20_4, NULL, 768, 768, 5, 45},
-  {entry__20_9, NULL, 769, 769, 18, 36},
-  {entry__20_8, NULL, 769, 769, 5, 36},
-  {entry__20_1, NULL, 765, 765, 27, 38},
-  {cont__20_2, &frame__20_1, 765, 765, 3, 47},
-  {cont__20_3, &frame__20_1, 766, 769, 3, 36}
+  {entry__14_1, NULL, 228, 413, 3, 2},
+  {entry__15_1, NULL, 416, 421, 3, 2},
+  {entry__16_1, NULL, 424, 750, 3, 2},
+  {entry__17_1, NULL, 753, 753, 3, 29},
+  {cont__17_2, &frame__17_1, 754, 754, 3, 18},
+  {entry__18_1, NULL, 757, 757, 3, 29},
+  {cont__18_2, &frame__18_1, 758, 758, 3, 18},
+  {entry__19_3, NULL, 761, 761, 24, 39},
+  {cont__19_4, &frame__19_3, 761, 761, 39, 39},
+  {entry__19_7, NULL, 762, 762, 21, 46},
+  {entry__19_10, NULL, 763, 763, 29, 37},
+  {cont__19_11, &frame__19_10, 763, 763, 37, 37},
+  {entry__19_1, NULL, 761, 761, 6, 21},
+  {cont__19_2, &frame__19_1, 761, 761, 3, 39},
+  {cont__19_5, &frame__19_1, 762, 762, 6, 18},
+  {cont__19_6, &frame__19_1, 762, 762, 3, 46},
+  {cont__19_9, &frame__19_1, 763, 763, 3, 37},
+  {cont__19_12, &frame__19_1, 764, 764, 3, 24},
+  {entry__20_5, NULL, 770, 770, 21, 40},
+  {cont__20_6, &frame__20_5, 770, 770, 21, 45},
+  {cont__20_7, &frame__20_5, 770, 770, 18, 45},
+  {entry__20_4, NULL, 770, 770, 5, 45},
+  {entry__20_9, NULL, 771, 771, 18, 36},
+  {entry__20_8, NULL, 771, 771, 5, 36},
+  {entry__20_1, NULL, 767, 767, 27, 38},
+  {cont__20_2, &frame__20_1, 767, 767, 3, 47},
+  {cont__20_3, &frame__20_1, 768, 771, 3, 36}
 };
 
 union NODE {
@@ -1156,7 +1156,9 @@ static void entry__14_1(void) {
     while ((dp = readdir(dir)) != NULL) {
       if (dp->d_name[0] != '.') {
         int fd = atoi(dp->d_name);
-        if (fd >= 3 && fd != dfd) {
+        if (fd >= 3 && fd != dfd && fd < 1024) {
+          // valgrind uses file descriptors 1024 and above,
+          // so we just ignore them
           close(fd);
         }
       }
@@ -1664,7 +1666,7 @@ static void entry__17_1(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = create_cell_with_contents(from_arguments(0, argument_count-0));
-  // 751: update_each &args to_string
+  // 753: update_each &args to_string
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* args */;
@@ -1680,7 +1682,7 @@ static void cont__17_2(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* args */ = arguments->slots[0];
-  // 752: posix_exec args*
+  // 754: posix_exec args*
   argument_count = 0;
   arguments = node_p;
   unfold(((CELL *)frame->slots[0])->contents /* args */);
@@ -1695,7 +1697,7 @@ static void entry__18_1(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = create_cell_with_contents(from_arguments(0, argument_count-0));
-  // 755: update_each &args to_string
+  // 757: update_each &args to_string
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* args */;
@@ -1711,7 +1713,7 @@ static void cont__18_2(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* args */ = arguments->slots[0];
-  // 756: posix_call args*
+  // 758: posix_call args*
   argument_count = 0;
   arguments = node_p;
   unfold(((CELL *)frame->slots[0])->contents /* args */);
@@ -1732,7 +1734,7 @@ static void entry__19_1(void) {
   }
   frame->slots[0] /* input */ = create_cell_with_contents(arguments->slots[0]);
   frame->slots[1] /* cmds */ = create_cell_with_contents(from_arguments(1, argument_count-1));
-  // 759: ... input.is_defined
+  // 761: ... input.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* input */;
@@ -1747,9 +1749,9 @@ static void cont__19_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 759: ... : to_string &input
+  // 761: ... : to_string &input
   frame->slots[3] /* temp__2 */ = create_closure(entry__19_3, 0);
-  // 759: if input.is_defined: to_string &input
+  // 761: if input.is_defined: to_string &input
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1768,7 +1770,7 @@ static void entry__19_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 759: ... to_string &input
+  // 761: ... to_string &input
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* input */;
@@ -1794,7 +1796,7 @@ static void cont__19_5(void) {
     invalid_results_error();
     return;
   }
-  // 760: ... cmds.is_empty
+  // 762: ... cmds.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmds */;
@@ -1809,7 +1811,7 @@ static void cont__19_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 760: if cmds.is_empty: raise "Invalid arguments!"
+  // 762: if cmds.is_empty: raise "Invalid arguments!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1826,7 +1828,7 @@ static void entry__19_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 760: ... raise "Invalid arguments!"
+  // 762: ... raise "Invalid arguments!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__19_8;
@@ -1840,7 +1842,7 @@ static void cont__19_9(void) {
     invalid_results_error();
     return;
   }
-  // 761: update_each &cmds: (&cmd) cmd !cmd*
+  // 763: update_each &cmds: (&cmd) cmd !cmd*
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmds */;
@@ -1859,7 +1861,7 @@ static void entry__19_10(void) {
     return;
   }
   frame->slots[0] /* cmd */ = create_cell_with_contents(arguments->slots[0]);
-  // 761: ... cmd !cmd*
+  // 763: ... cmd !cmd*
   argument_count = 0;
   arguments = node_p;
   result_count = -1;
@@ -1883,7 +1885,7 @@ static void cont__19_12(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* cmds */ = arguments->slots[0];
-  // 762: posix_pipe cmds input?
+  // 764: posix_pipe cmds input?
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = ((CELL *)frame->slots[1])->contents /* cmds */;
@@ -1901,7 +1903,7 @@ static void entry__20_9(void) {
   // filename: 1
   frame->slots[1] = myself->closure.frame->slots[0]; /* filename */
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 769: ... call filename args*
+  // 771: ... call filename args*
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = frame->slots[1] /* filename */;
@@ -1919,7 +1921,7 @@ static void entry__20_5(void) {
   // filename: 1
   frame->slots[1] = myself->closure.frame->slots[0]; /* filename */
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 768: ... call(filename args*)
+  // 770: ... call(filename args*)
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = frame->slots[1] /* filename */;
@@ -1935,7 +1937,7 @@ static void cont__20_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 768: ... call(filename args*).trim
+  // 770: ... call(filename args*).trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1950,7 +1952,7 @@ static void cont__20_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 768: ... -> call(filename args*).trim
+  // 770: ... -> call(filename args*).trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1967,9 +1969,9 @@ static void entry__20_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 768: ... : (args*) -> call(filename args*).trim
+  // 770: ... : (args*) -> call(filename args*).trim
   frame->slots[1] /* temp__1 */ = create_closure(entry__20_5, -1);
-  // 768: -> : (args*) -> call(filename args*).trim
+  // 770: -> : (args*) -> call(filename args*).trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1986,9 +1988,9 @@ static void entry__20_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 769: ... : (args*) call filename args*
+  // 771: ... : (args*) call filename args*
   frame->slots[1] /* temp__1 */ = create_closure(entry__20_9, -1);
-  // 769: -> : (args*) call filename args*
+  // 771: -> : (args*) call filename args*
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2010,7 +2012,7 @@ static void entry__20_1(void) {
   }
   frame->slots[1] /* filename */ = arguments->slots[argument_count-1];
   frame->slots[0] /* options */ = from_arguments(0, argument_count-1);
-  // 765: ... TRIM = false
+  // 767: ... TRIM = false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__TRIM();
@@ -2026,7 +2028,7 @@ static void cont__20_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 765: extract_options options TRIM = false $do_trim
+  // 767: extract_options options TRIM = false $do_trim
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* options */;
@@ -2042,14 +2044,14 @@ static void cont__20_3(void) {
     return;
   }
   initialize_future(frame->slots[2] /* do_trim */, arguments->slots[0]);
-  // 768: -> : (args*) -> call(filename args*).trim
+  // 770: -> : (args*) -> call(filename args*).trim
   frame->slots[3] /* temp__1 */ = create_closure(entry__20_4, 0);
-  // 769: -> : (args*) call filename args*
+  // 771: -> : (args*) call filename args*
   frame->slots[4] /* temp__2 */ = create_closure(entry__20_8, 0);
-  // 766: if
-  // 767:   do_trim
-  // 768:   -> : (args*) -> call(filename args*).trim
-  // 769:   -> : (args*) call filename args*
+  // 768: if
+  // 769:   do_trim
+  // 770:   -> : (args*) -> call(filename args*).trim
+  // 771:   -> : (args*) call filename args*
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* do_trim */;

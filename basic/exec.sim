@@ -275,7 +275,9 @@ $posix_call
       while ((dp = readdir(dir)) != NULL) {
         if (dp->d_name[0] != '.') {
           int fd = atoi(dp->d_name);
-          if (fd >= 3 && fd != dfd) {
+          if (fd >= 3 && fd != dfd && fd < 1024) {
+            // valgrind uses file descriptors 1024 and above,
+            // so we just ignore them
             close(fd);
           }
         }
