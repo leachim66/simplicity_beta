@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <setjmp.h>
+#include <inttypes.h>
 
 #include "common.h"
 
@@ -332,7 +333,7 @@ static void *allocate_pool() {
   if (addr) return addr;
   if (runtime_debug_level > 0) {
     fprintf(
-      stderr, "%lu: malloc pool of size %ld for process %d\n",
+      stderr, "%" PRIu64 ": malloc pool of size %ld for process %d\n",
       instruction_counter, pool_size, getpid());
   }
   addr = malloc(pool_size);
@@ -356,7 +357,7 @@ static void deallocate_pool(void *pool) {
   } else {
     if (runtime_debug_level > 0) {
       fprintf(
-	stderr, "%lu: free pool of size %ld for process %d\n",
+	stderr, "%" PRIu64 ": free pool of size %ld for process %d\n",
 	instruction_counter, size_of_current_pool, getpid());
     }
     free(pool);
@@ -953,7 +954,7 @@ EXPORT void collect_garbage() {
   ++total_garbage_collections;
   if (runtime_debug_level > 1) {
     fprintf(
-      stderr, "%lu: collection #%d\n",
+      stderr, "%" PRIu64 ": collection #%d\n",
       instruction_counter, total_garbage_collections);
   }
   if (within_garbage_collection) {
@@ -1047,7 +1048,7 @@ EXPORT void collect_garbage() {
   update_start_p = node_p;
   if (runtime_debug_level > 1) {
     fprintf(
-      stderr, "%lu: memory usage %d / %d\n",
+      stderr, "%" PRIu64 ": memory usage %d / %d\n",
       instruction_counter, node_p-node_buf, pool_size);
   }
 
