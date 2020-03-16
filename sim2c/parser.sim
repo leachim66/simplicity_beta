@@ -910,9 +910,9 @@ $EXPRESSION
   sequence
     set_node(expression)
     arguments_span(OPERAND)
-    alt
+    some(INFIX_OPERATOR, arguments_span(OPERAND))
+    optional
       infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
-      some(INFIX_OPERATOR, arguments_span(OPERAND))
     EXTEND_EXPRESSION
 
 $DEFINED_VARIABLE expect(span(identifier_of DEFINE_IDENTIFIER) "identifier")

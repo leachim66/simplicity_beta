@@ -3206,13 +3206,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__328_15, NULL, 857, 907, 1, 70},
   {cont__329_63, NULL, 911, 911, 5, 24},
   {cont__330_1, NULL, 912, 912, 5, 27},
-  {cont__330_2, NULL, 914, 914, 22, 52},
-  {cont__330_3, NULL, 914, 914, 7, 53},
-  {cont__330_4, NULL, 914, 914, 7, 74},
-  {cont__330_5, NULL, 915, 915, 28, 50},
-  {cont__330_6, NULL, 915, 915, 12, 50},
-  {cont__330_7, NULL, 915, 915, 7, 51},
-  {cont__330_8, NULL, 913, 915, 5, 50},
+  {cont__330_2, NULL, 913, 913, 26, 48},
+  {cont__330_3, NULL, 913, 913, 10, 48},
+  {cont__330_4, NULL, 913, 913, 5, 49},
+  {cont__330_5, NULL, 915, 915, 22, 52},
+  {cont__330_6, NULL, 915, 915, 7, 53},
+  {cont__330_7, NULL, 915, 915, 7, 74},
+  {cont__330_8, NULL, 914, 915, 5, 73},
   {cont__330_9, NULL, 909, 916, 1, 22},
   {cont__330_10, NULL, 918, 918, 26, 62},
   {cont__331_1, NULL, 918, 918, 1, 76},
@@ -14647,13 +14647,12 @@ static void cont__330_2(void) {
     return;
   }
   temp__2 = arguments->slots[0];
-  // 914: ... multi_capture(operators_of '=')
-  argument_count = 2;
+  // 913: ... arguments_span(OPERAND)
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = get__operators_of();
-  arguments->slots[1] = character__61;
+  arguments->slots[0] = var._OPERAND;
   result_count = 1;
-  myself = get__multi_capture();
+  myself = get__arguments_span();
   func = myself->type;
   frame->cont = cont__330_3;
 }
@@ -14662,13 +14661,14 @@ static void cont__330_3(void) {
     invalid_results_error();
     return;
   }
-  temp__6 = arguments->slots[0];
-  // 914: infix_operator(multi_capture(operators_of '='))
-  argument_count = 1;
+  temp__5 = arguments->slots[0];
+  // 913: ... INFIX_OPERATOR, arguments_span(OPERAND)
+  argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__6;
+  arguments->slots[0] = var._INFIX_OPERATOR;
+  arguments->slots[1] = temp__5;
   result_count = 1;
-  myself = var._infix_operator;
+  myself = get__std__sequence();
   func = myself->type;
   frame->cont = cont__330_4;
 }
@@ -14677,14 +14677,13 @@ static void cont__330_4(void) {
     invalid_results_error();
     return;
   }
-  temp__5 = arguments->slots[0];
-  // 914: infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
-  argument_count = 2;
+  temp__4 = arguments->slots[0];
+  // 913: some(INFIX_OPERATOR, arguments_span(OPERAND))
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__5;
-  arguments->slots[1] = var._LINE_END_EXPRESSION;
+  arguments->slots[0] = temp__4;
   result_count = 1;
-  myself = get__std__sequence();
+  myself = get__some();
   func = myself->type;
   frame->cont = cont__330_5;
 }
@@ -14693,13 +14692,14 @@ static void cont__330_5(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
-  // 915: ... arguments_span(OPERAND)
-  argument_count = 1;
+  temp__3 = arguments->slots[0];
+  // 915: ... multi_capture(operators_of '=')
+  argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._OPERAND;
+  arguments->slots[0] = get__operators_of();
+  arguments->slots[1] = character__61;
   result_count = 1;
-  myself = get__arguments_span();
+  myself = get__multi_capture();
   func = myself->type;
   frame->cont = cont__330_6;
 }
@@ -14709,13 +14709,12 @@ static void cont__330_6(void) {
     return;
   }
   temp__9 = arguments->slots[0];
-  // 915: ... INFIX_OPERATOR, arguments_span(OPERAND)
-  argument_count = 2;
+  // 915: infix_operator(multi_capture(operators_of '='))
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = var._INFIX_OPERATOR;
-  arguments->slots[1] = temp__9;
+  arguments->slots[0] = temp__9;
   result_count = 1;
-  myself = get__std__sequence();
+  myself = var._infix_operator;
   func = myself->type;
   frame->cont = cont__330_7;
 }
@@ -14725,12 +14724,13 @@ static void cont__330_7(void) {
     return;
   }
   temp__8 = arguments->slots[0];
-  // 915: some(INFIX_OPERATOR, arguments_span(OPERAND))
-  argument_count = 1;
+  // 915: infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
+  argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = temp__8;
+  arguments->slots[1] = var._LINE_END_EXPRESSION;
   result_count = 1;
-  myself = get__some();
+  myself = get__std__sequence();
   func = myself->type;
   frame->cont = cont__330_8;
 }
@@ -14740,15 +14740,13 @@ static void cont__330_8(void) {
     return;
   }
   temp__7 = arguments->slots[0];
-  // 913: alt
-  // 914:   infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
-  // 915:   some(INFIX_OPERATOR, arguments_span(OPERAND))
-  argument_count = 2;
+  // 914: optional
+  // 915:   infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__4;
-  arguments->slots[1] = temp__7;
+  arguments->slots[0] = temp__7;
   result_count = 1;
-  myself = get__alt();
+  myself = get__optional();
   func = myself->type;
   frame->cont = cont__330_9;
 }
@@ -14757,21 +14755,22 @@ static void cont__330_9(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  temp__6 = arguments->slots[0];
   // 909: $EXPRESSION
   // 910:   sequence
   // 911:     set_node(expression)
   // 912:     arguments_span(OPERAND)
-  // 913:     alt
-  // 914:       infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
-  // 915:       some(INFIX_OPERATOR, arguments_span(OPERAND))
+  // 913:     some(INFIX_OPERATOR, arguments_span(OPERAND))
+  // 914:     optional
+  // 915:       infix_operator(multi_capture(operators_of '=')), LINE_END_EXPRESSION
   // 916:     EXTEND_EXPRESSION
-  argument_count = 4;
+  argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = temp__1;
   arguments->slots[1] = temp__2;
   arguments->slots[2] = temp__3;
-  arguments->slots[3] = var._EXTEND_EXPRESSION;
+  arguments->slots[3] = temp__6;
+  arguments->slots[4] = var._EXTEND_EXPRESSION;
   result_count = 1;
   myself = get__sequence();
   func = myself->type;
