@@ -540,6 +540,7 @@ do
     fi
   done
 done
+echo "${TAB}rm -f runtime/*.o"
 echo "${TAB}rm -f sim2c/*.o"
 for LIBNAME in $ALL_LIBRARIES
 do
