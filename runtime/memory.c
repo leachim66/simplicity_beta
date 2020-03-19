@@ -31,6 +31,8 @@
 #include <string.h>
 #include <setjmp.h>
 #include <inttypes.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "common.h"
 
@@ -1600,6 +1602,10 @@ static void *collect_function(FUNCTION *node) {
   return new_node;
 }
 
+extern int retrieve_continuation_info(
+  FUNC func, const char **filename_p, CONTINUATION_INFO **info_p
+);
+
 static long func__types__function___debug_string(
   NODE *node, int indent, int max_depth, char *buf
 ) {
@@ -1683,10 +1689,6 @@ static CONTINUATION *collect_continuation(CONTINUATION *node) {
   new_node->exit_frame = collect_frame(node->exit_frame);
   return new_node;
 }
-
-extern int retrieve_continuation_info(
-  FUNC func, const char **filename_p, CONTINUATION_INFO **info_p
-);
 
 static long func__types__continuation___debug_string(
   NODE *node, int indent, int max_depth, char *buf
@@ -2183,7 +2185,7 @@ static void skip_argument(void) {
 
 extern void debug(FUNC entry);
 
-static open_log_file(void) {
+static void open_log_file(void) {
   skip_argument();
   const char *s = main_argv[0];
   const char *p = s;

@@ -102,6 +102,8 @@ EXPORT void set_used_namespaces(const char **namespaces) {
 
 #define rol(val, shift) ((((unsigned)(val))<<(shift))|(((unsigned)(val))>>(32-(shift))))
 
+__attribute__ ((noreturn)) void unrecoverable_error(const char *msg, ...);
+
 void *allocate_linktime(size_t size) {
   void *p = malloc(size);
   if (!p) unrecoverable_error("OUT OF MEMORY WHILE LINKING!");

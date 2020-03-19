@@ -28,6 +28,9 @@
 #include <string.h>
 #include <sys/mman.h>
 #include <setjmp.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 #include "common.h"
 #include "linker.h"
