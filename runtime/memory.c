@@ -1341,7 +1341,7 @@ static int digit_value(char chr) {
   return chr-'0';
 }
 
-static long get_number(terminator) {
+static long get_number(void) {
   long val = 0;
   int do_negate = false;
   char chr;
