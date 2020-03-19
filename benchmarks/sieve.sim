@@ -1,6 +1,6 @@
 #!/usr/bin/env simrun
 
-$N 200'000
+$N 100'000
 $ROOT floor(sqrt(N))
 $$prime empty_table
 

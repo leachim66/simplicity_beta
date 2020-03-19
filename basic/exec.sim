@@ -255,6 +255,17 @@ $posix_call
       if (pipe((int *)&err_pipe) != 0) RESOURCE_ERROR
     }
 
+    // check the arguments **before** the fork!!!
+    // otherwise the child process could raise a Simplicity error message!
+
+    char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
+    // convert all arguments into C-strings
+    int i;
+    for (i = 0; i < ARGUMENT_COUNT; ++i) {
+      args[i] = to_c_string(ARGUMENTS(i));
+    }
+    args[ARGUMENT_COUNT] = NULL;
+
     int pid = fork();
     if (pid == 0) { // child process
       if (do_redirect_stdout) {
@@ -283,18 +294,17 @@ $posix_call
         }
       }
       closedir(dir);
-      char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
-      // convert all arguments into C-strings
-      int i;
-      for (i = 0; i < ARGUMENT_COUNT; ++i) {
-        args[i] = to_c_string(ARGUMENTS(i));
-      }
-      args[ARGUMENT_COUNT] = NULL;
       execvp(args[0], args);
       exit(EXIT_FAILURE);
     }
 
     // parent process
+
+    // free the arguments in the parent process
+    for (i = 0; i < ARGUMENT_COUNT; ++i) {
+      deallocate_memory(args[i]);
+    }
+    deallocate_memory(args);
 
     if (pid == -1) goto cleanup_and_return; // fork failed
 
@@ -391,7 +401,9 @@ $posix_call
     int ret = waitpid(pid, &status, 0);
     if (ret == -1 && errno == EINTR) goto retry;
 
-    if (ret >= 0 && WEXITSTATUS(status) == 0) result = VAR(std::true);
+    // it's essential to check whether the program exited normally!
+    int successful = (WIFEXITED(status) && WEXITSTATUS(status) == 0);
+    if (successful) result = VAR(std::true);
 
     cleanup_and_return:
 
@@ -406,9 +418,14 @@ $posix_call
     switch (res_cnt) {
       case 3: ARGUMENTS(1) = err_str;
       case 2: ARGUMENTS(res_cnt-1) = result;
-      case 1: ARGUMENTS(0) = out_str;
+      case 1:
+	if (successful || res_cnt > 1) {
+	  ARGUMENTS(0) = out_str;
+	} else {
+	  // do not silently ignore an error!
+	  ARGUMENTS(0) = UNDEFINED;
+	}
     }
-
     RETURN
   }
 
@@ -767,5 +784,10 @@ $std::extern: (options* filename)
   extract_options options TRIM = false $do_trim
   if
     do_trim
-    -> : (args*) -> call(filename args*).trim
+    -> : (args*)
+      call $result filename args*
+      if
+	result.is_defined
+	-> result.trim
+	-> result
     -> : (args*) call filename args*

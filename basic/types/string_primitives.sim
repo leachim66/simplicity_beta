@@ -281,13 +281,7 @@ $types::string types::generic_list
   <scope runtime>
 
   NODE *from_c_string(const char *str) {
-    long len = strlen(str);
-    long size = ALLOCATION_SIZE(len);
-    OCTET_DATA *data = allocate_large(sizeof(OCTET_DATA)+size);
-    data->size = size;
-    data->length = len;
-    memcpy(data->buffer, str, len);
-    return create__types__octet_string(0, len, data);
+    return from_latin_1_string(str, strlen(str));
   }
 }
 

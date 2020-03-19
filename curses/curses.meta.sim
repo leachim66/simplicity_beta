@@ -109,7 +109,9 @@ do:
     #include <stdio.h>
     #include <ncurses.h>
     int main() {
-    @(curses_defines_c)@nl;}
+    @(curses_defines_c)
+    return 0;
+    }
   gcc "/tmp/curses_defines.c" "-o" "/tmp/curses_defines"
   writeln
   write call("/tmp/curses_defines")
