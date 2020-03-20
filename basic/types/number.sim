@@ -96,11 +96,11 @@ $types::real.is_a_real true
   LARGE_INTEGER_DATA *collect_large_integer_data(LARGE_INTEGER_DATA *data) {
     if (!IS_COLLECTED(data)) return data;
     void *new_location = *(void **)data;
-    if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+    if (IS_AN_INVALID_LENGTH(new_location)) return DECODE_FROM_LENGTH(new_location);
     long size = data->size;
     LARGE_INTEGER_DATA *new_data =
       allocate(sizeof(LARGE_INTEGER_DATA)+size*sizeof(mp_limb_t));
-    *(void **)data = ENCODE_ADDRESS(new_data);
+    *(void **)data = ENCODE_TO_LENGTH(new_data);
     new_data->size = size;
     memcpy(new_data->limbs, data->limbs, size*sizeof(mp_limb_t));
     return new_data;

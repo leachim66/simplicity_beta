@@ -53,9 +53,9 @@
   #define SAMPLE_POINTER ((void *)0x12345678)
 #endif
 
-#define ENCODE_ADDRESS(addr) ((void *)(FIRST_INVALID_ADDRESS|(uintptr_t)(addr) >> 2))
-#define DECODE_ADDRESS(addr) ((void *)((uintptr_t)(addr) << 2))
-#define IS_AN_INVALID_ADDRESS(addr) ((void *)(addr) >= (void *)FIRST_INVALID_ADDRESS)
+#define ENCODE_ADDRESS(addr) ((void *)((uintptr_t)addr | 2))
+#define DECODE_ADDRESS(addr) ((void *)((uintptr_t)addr & -3))
+#define IS_AN_INVALID_ADDRESS(addr) ((uintptr_t)addr & 2)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
 //#define IS_OLD(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)

@@ -97,6 +97,10 @@ $$successful_c_compilations 0
 
 $gcc_options
   list
+    "-O1"
+    "-fno-stack-protector"
+    "-falign-functions=16" # this is essential or the garbage collector will crash!!!
+    "-falign-labels=16"
     "-Wall"
     "-Wno-unused-function"
     "-Wno-unused-variable"
@@ -104,8 +108,6 @@ $gcc_options
     "-Wno-switch"
     "-Wno-maybe-uninitialized"
     "-Werror"
-
-    #"-O1"
 
 $c_compile:
   (

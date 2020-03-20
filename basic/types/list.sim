@@ -55,10 +55,10 @@ $types::list.is_a_list true
   LIST_DATA *collect_list_data(LIST_DATA *data) {
     if (IS_COLLECTED(data)) {
       void *new_location = *(void **)data;
-      if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+      if (IS_AN_INVALID_LENGTH(new_location)) return DECODE_FROM_LENGTH(new_location);
       LIST_DATA *new_data = allocate(sizeof(LIST_DATA));
       long n = data->length;
-      *(void **)data = ENCODE_ADDRESS(new_data);
+      *(void **)data = ENCODE_TO_LENGTH(new_data);
       new_data->size = n;
       new_data->length = n;
       new_data->items = allocate(n*sizeof(NODE *));

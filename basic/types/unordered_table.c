@@ -238,9 +238,14 @@ IMPORT void register_collector(FUNC collector);
 #define RETRIEVE_ATTRIBUTE_VALUE(node) ((NODE *)(((uintptr_t)node)-1))
 #define CONTAINS_AN_ATTRIBUTE_VALUE(node) (((uintptr_t)node)&1)
 
-#define ENCODE_ADDRESS(addr) ((void *)(FIRST_INVALID_ADDRESS|(uintptr_t)(addr) >> 2))
-#define DECODE_ADDRESS(addr) ((void *)((uintptr_t)(addr) << 2))
-#define IS_AN_INVALID_ADDRESS(addr) ((void *)(addr) >= (void *)FIRST_INVALID_ADDRESS)
+#define ENCODE_ADDRESS(addr) ((void *)((uintptr_t)addr | 2))
+#define DECODE_ADDRESS(addr) ((void *)((uintptr_t)addr & -3))
+#define IS_AN_INVALID_ADDRESS(addr) ((uintptr_t)addr & 2)
+
+#define MSB (1L << (8*sizeof(void *)-1))
+#define ENCODE_TO_LENGTH(addr) ((void *)(((uintptr_t)addr >> 1) | MSB))
+#define DECODE_FROM_LENGTH(addr) ((void *)((uintptr_t)addr << 1))
+#define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
 #define IS_OLD(addr) false
@@ -868,7 +873,7 @@ static void collect_unordered_table_data_phase_2(
   void *old_data
 ) {
   //fprintf(stderr, "collect_unordered_table_data_phase_2 (%p)\n", old_data);
-  UNORDERED_TABLE_DATA *data = DECODE_ADDRESS(*(void **)old_data);
+  UNORDERED_TABLE_DATA *data = DECODE_FROM_LENGTH(*(void **)old_data);
   /*REFERRED_REVISION *referrer = data->referrers;
   while (referrer) {
     fprintf(stderr, "rev_no: %ld\n", referrer->rev_no);
@@ -967,8 +972,8 @@ static UNORDERED_TABLE_DATA *collect_unordered_table_data(
 
     //fprintf(stderr, "GC-%ld\n", rev_no);
 
-    if (IS_AN_INVALID_ADDRESS(new_location)) {
-      data = DECODE_ADDRESS(new_location);
+    if (IS_AN_INVALID_LENGTH(new_location)) {
+      data = DECODE_FROM_LENGTH(new_location);
 
       // don't mark twice
       REFERRED_REVISION *referrer = data->referrers;
@@ -988,7 +993,7 @@ static UNORDERED_TABLE_DATA *collect_unordered_table_data(
       ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_table_data_phase_2;
       register_phase_2_collector(data);
 
-      *(void **)data = ENCODE_ADDRESS(new_data);
+      *(void **)data = ENCODE_TO_LENGTH(new_data);
       data = new_data;
     }
 

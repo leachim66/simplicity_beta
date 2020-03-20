@@ -248,9 +248,14 @@ IMPORT void register_collector(FUNC collector);
 #define RETRIEVE_ATTRIBUTE_VALUE(node) ((NODE *)(((uintptr_t)node)-1))
 #define CONTAINS_AN_ATTRIBUTE_VALUE(node) (((uintptr_t)node)&1)
 
-#define ENCODE_ADDRESS(addr) ((void *)(FIRST_INVALID_ADDRESS|(uintptr_t)(addr) >> 2))
-#define DECODE_ADDRESS(addr) ((void *)((uintptr_t)(addr) << 2))
-#define IS_AN_INVALID_ADDRESS(addr) ((void *)(addr) >= (void *)FIRST_INVALID_ADDRESS)
+#define ENCODE_ADDRESS(addr) ((void *)((uintptr_t)addr | 2))
+#define DECODE_ADDRESS(addr) ((void *)((uintptr_t)addr & -3))
+#define IS_AN_INVALID_ADDRESS(addr) ((uintptr_t)addr & 2)
+
+#define MSB (1L << (8*sizeof(void *)-1))
+#define ENCODE_TO_LENGTH(addr) ((void *)(((uintptr_t)addr >> 1) | MSB))
+#define DECODE_FROM_LENGTH(addr) ((void *)((uintptr_t)addr << 1))
+#define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
 #define IS_OLD(addr) false
@@ -1013,11 +1018,11 @@ EXPORT void run__basic__types__string_primitives(void) {
 static OCTET_DATA *collect_octet_data(OCTET_DATA *data) {
   if (IS_COLLECTED(data)) {
     void *new_location = *(void **)data;
-    if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+    if (IS_AN_INVALID_LENGTH(new_location)) return DECODE_FROM_LENGTH(new_location);
     long length = data->length;
     long size = ALLOCATION_SIZE(length);
     OCTET_DATA *new_data = allocate(sizeof(OCTET_DATA)+size);
-    *(void **)data = ENCODE_ADDRESS(new_data);
+    *(void **)data = ENCODE_TO_LENGTH(new_data);
     new_data->size = size;
     new_data->length = length;
     memcpy(new_data->buffer, data->buffer, length);
@@ -1031,11 +1036,11 @@ static OCTET_DATA *collect_octet_data(OCTET_DATA *data) {
 static QUAD_OCTET_DATA *collect_quad_octet_data(QUAD_OCTET_DATA *data) {
   if (IS_COLLECTED(data)) {
     void *new_location = *(void **)data;
-    if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+    if (IS_AN_INVALID_LENGTH(new_location)) return DECODE_FROM_LENGTH(new_location);
     long length = data->length;
     long size = ALLOCATION_SIZE(4*length);
     QUAD_OCTET_DATA *new_data = allocate(sizeof(QUAD_OCTET_DATA)+size);
-    *(void **)data = ENCODE_ADDRESS(new_data);
+    *(void **)data = ENCODE_TO_LENGTH(new_data);
     new_data->size = size;
     new_data->length = length;
     memcpy(new_data->buffer, data->buffer, 4*length);

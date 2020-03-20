@@ -80,11 +80,11 @@ $types::string types::generic_list
   OCTET_DATA *collect_octet_data(OCTET_DATA *data) {
     if (IS_COLLECTED(data)) {
       void *new_location = *(void **)data;
-      if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+      if (IS_AN_INVALID_LENGTH(new_location)) return DECODE_FROM_LENGTH(new_location);
       long length = data->length;
       long size = ALLOCATION_SIZE(length);
       OCTET_DATA *new_data = allocate(sizeof(OCTET_DATA)+size);
-      *(void **)data = ENCODE_ADDRESS(new_data);
+      *(void **)data = ENCODE_TO_LENGTH(new_data);
       new_data->size = size;
       new_data->length = length;
       memcpy(new_data->buffer, data->buffer, length);
@@ -102,11 +102,11 @@ $types::string types::generic_list
   QUAD_OCTET_DATA *collect_quad_octet_data(QUAD_OCTET_DATA *data) {
     if (IS_COLLECTED(data)) {
       void *new_location = *(void **)data;
-      if (IS_AN_INVALID_ADDRESS(new_location)) return DECODE_ADDRESS(new_location);
+      if (IS_AN_INVALID_LENGTH(new_location)) return DECODE_FROM_LENGTH(new_location);
       long length = data->length;
       long size = ALLOCATION_SIZE(4*length);
       QUAD_OCTET_DATA *new_data = allocate(sizeof(QUAD_OCTET_DATA)+size);
-      *(void **)data = ENCODE_ADDRESS(new_data);
+      *(void **)data = ENCODE_TO_LENGTH(new_data);
       new_data->size = size;
       new_data->length = length;
       memcpy(new_data->buffer, data->buffer, 4*length);

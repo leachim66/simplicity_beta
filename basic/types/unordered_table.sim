@@ -94,7 +94,7 @@ $NONE .
     void *old_data
   ) {
     //fprintf(stderr, "collect_unordered_table_data_phase_2 (%p)\n", old_data);
-    UNORDERED_TABLE_DATA *data = DECODE_ADDRESS(*(void **)old_data);
+    UNORDERED_TABLE_DATA *data = DECODE_FROM_LENGTH(*(void **)old_data);
     /*REFERRED_REVISION *referrer = data->referrers;
     while (referrer) {
       fprintf(stderr, "rev_no: %ld\n", referrer->rev_no);
@@ -197,8 +197,8 @@ $NONE .
 
       //fprintf(stderr, "GC-%ld\n", rev_no);
 
-      if (IS_AN_INVALID_ADDRESS(new_location)) {
-        data = DECODE_ADDRESS(new_location);
+      if (IS_AN_INVALID_LENGTH(new_location)) {
+        data = DECODE_FROM_LENGTH(new_location);
 
         // don't mark twice
         REFERRED_REVISION *referrer = data->referrers;
@@ -218,7 +218,7 @@ $NONE .
         ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_table_data_phase_2;
         register_phase_2_collector(data);
 
-        *(void **)data = ENCODE_ADDRESS(new_data);
+        *(void **)data = ENCODE_TO_LENGTH(new_data);
         data = new_data;
       }
 
