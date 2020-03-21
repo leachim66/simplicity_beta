@@ -194,10 +194,10 @@ IMPORT void *update_start_p;
 IMPORT void set_attribute_value(ATTRIBUTES *attributes, int idx, void *attr);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -956,14 +956,10 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__fragments(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("fragments");
-  set_used_namespaces(used_namespaces);
   character__10 = from_uchar32(10);
   character__32 = from_uchar32(32);
   character__125 = from_uchar32(125);
   number__1 = from_uint32(1U);
-  func__1_1 = create_future();
-  define_single_assign_static("sim2c", "cut_into_fragments", get__sim2c__cut_into_fragments, &var.sim2c__cut_into_fragments);
 }
 
 static int already_run_phase_3 = false;
@@ -971,6 +967,17 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__fragments(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("fragments");
+  set_used_namespaces(used_namespaces);
+  func__1_1 = create_future();
+  define_single_assign_static("sim2c", "cut_into_fragments", get__sim2c__cut_into_fragments, &var.sim2c__cut_into_fragments);
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__fragments(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("fragments");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "for_each", &get__for_each, &get_value_or_future__for_each);
@@ -993,19 +1000,19 @@ EXPORT void phase_3__fragments(void) {
   use_read_only("types", "object", &get__types__object, &get_value_or_future__types__object);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__fragments(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_variable(&var.sim2c__cut_into_fragments, &func__1_1);
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__fragments(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_variable(&var.sim2c__cut_into_fragments, &func__1_1);
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__fragments(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, 1));
   register_collector(collect__fragments);
 }

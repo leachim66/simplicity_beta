@@ -204,9 +204,9 @@ IMPORT NODE *undefined;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -1728,11 +1728,18 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__multi_dimensional_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__multi_dimensional_set");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__multi_dimensional_set(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__multi_dimensional_set");
+  set_used_namespaces(used_namespaces);
   func__3_1 = create_future();
   func__4_1 = create_future();
   func__5_1 = create_future();
@@ -1743,11 +1750,11 @@ EXPORT void phase_2__basic__types__multi_dimensional_set(void) {
   func__9_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__multi_dimensional_set(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__multi_dimensional_set(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__multi_dimensional_set");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "false", &get__false, &get_value_or_future__false);
@@ -1768,11 +1775,11 @@ EXPORT void phase_3__basic__types__multi_dimensional_set(void) {
   define_method("types", "multi_dimensional_set", poly_idx__for_each, func__9_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__multi_dimensional_set(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__multi_dimensional_set(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var._dimensions_of, create_function(type__dimensions_of, -1));
   assign_value(&var._table_of, create_function(type__table_of, -1));
   assign_variable(&var._insert_into, &func__3_1);
@@ -1782,11 +1789,11 @@ EXPORT void phase_4__basic__types__multi_dimensional_set(void) {
   assign_variable(&var._for_each_dimension, &func__8_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__multi_dimensional_set(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__multi_dimensional_set(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__3_1, create_function(entry__3_1, 3));
   assign_value(&func__4_1, create_function(entry__4_1, 2));
   assign_value(&func__5_1, create_function(entry__5_1, -1));

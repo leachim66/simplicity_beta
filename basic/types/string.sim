@@ -637,6 +637,7 @@ $types::string/contains: (text expr)
 
 $umlaut_conversions
   table
+    '@nbsp;' = " "
     '¡' = "!"
     '¢' = "(cent)"
     '£' = "(pound)"
@@ -943,7 +944,7 @@ $std::replace_umlauts: (text)
   for_each text: (idx chr)
     if chr >= '@0x80;':
       if
-	chr >= ' ':
+	chr >= '@nbsp;':
 	  copy idx-1
 	  $conversion umlaut_conversions(chr)
 	  if

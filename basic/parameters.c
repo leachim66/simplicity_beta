@@ -204,17 +204,17 @@ IMPORT void terminate(int exit_code);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -12112,8 +12112,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__parameters(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__parameters");
-  set_used_namespaces(used_namespaces);
   character__47 = from_uchar32(47);
   character__63 = from_uchar32(63);
   character__10 = from_uchar32(10);
@@ -12125,6 +12123,69 @@ EXPORT void phase_2__basic__parameters(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
+  string__12_45 = from_latin_1_string("Invalid option ", 15);
+  string__12_46 = from_latin_1_string("!", 1);
+  string__14_11 = from_latin_1_string("  ", 2);
+  string__14_19 = from_latin_1_string(" ", 1);
+  string__19_2 = from_latin_1_string(" ", 1);
+  string__19_3 = from_latin_1_string("\012\012", 2);
+  string__21_7 = from_latin_1_string("valid values:", 13);
+  string__21_35 = from_latin_1_string("Usage:", 6);
+  string__21_41 = from_latin_1_string("  ", 2);
+  string__21_42 = from_latin_1_string(" --copyright", 12);
+  string__21_44 = from_latin_1_string("  ", 2);
+  string__21_45 = from_latin_1_string(" --help", 7);
+  string__21_52 = from_latin_1_string("  ", 2);
+  string__21_56 = from_latin_1_string(" ", 1);
+  string__21_59 = from_latin_1_string("\012Parameters:\012", 13);
+  string__21_71 = from_latin_1_string("\012Options:\012", 10);
+  string__21_76 = from_latin_1_string("--", 2);
+  string__21_80 = from_latin_1_string(" VALUE", 6);
+  string__21_83 = from_latin_1_string(" VALUES", 7);
+  string__21_94 = from_latin_1_string("Too few arguments for ", 22);
+  string__21_95 = from_latin_1_string("-command!\012", 10);
+  string__21_98 = from_latin_1_string("Too few arguments!\012", 19);
+  string__21_102 = from_latin_1_string("Too many arguments!\012", 20);
+  string__21_160 = from_latin_1_string("--help", 6);
+  string__21_168 = from_latin_1_string("--copyright", 11);
+  string__21_177 = from_latin_1_string("--version", 9);
+  string__21_186 = from_latin_1_string("--", 2);
+  string__21_201 = from_latin_1_string("--", 2);
+  string__21_209 = from_latin_1_string("Invalid option: ", 16);
+  string__21_210 = from_latin_1_string("!", 1);
+  string__21_286 = from_latin_1_string("Invalid argument value for ", 27);
+  string__21_287 = from_latin_1_string("!\012", 2);
+  string__23_11 = from_latin_1_string("help", 4);
+  string__23_25 = from_latin_1_string("--help", 6);
+  string__24_7 = from_latin_1_string("Available commands:", 19);
+  string__24_9 = from_latin_1_string("help", 4);
+  string__24_10 = from_latin_1_string("display help for the specified command", 38);
+  string__24_20 = from_latin_1_string("copyright", 9);
+  string__24_21 = from_latin_1_string("display the copyright message", 29);
+  string__24_27 = from_latin_1_string("version", 7);
+  string__24_28 = from_latin_1_string("display the version number", 26);
+  string__25_10 = from_latin_1_string("No command specified!\012", 22);
+  string__25_15 = from_latin_1_string("copyright", 9);
+  string__25_20 = from_latin_1_string("help", 4);
+  string__25_27 = from_latin_1_string("copyright", 9);
+  string__25_31 = from_latin_1_string("Usage:\012  sigi copyright\012", 24);
+  string__25_33 = from_latin_1_string("help", 4);
+  string__25_35 = from_latin_1_string("Usage:\012  sigi help COMMAND\012\012Parameter:\012  COMMAND  the command for which to retrieve help\012", 89);
+  string__25_37 = from_latin_1_string("version", 7);
+  string__25_41 = from_latin_1_string("Usage:\012  sigi version\012", 22);
+  string__25_44 = from_latin_1_string("Invalid command name!\012", 22);
+  string__25_48 = from_latin_1_string("Too many arguments!\012", 20);
+  string__25_51 = from_latin_1_string("version", 7);
+  string__25_59 = from_latin_1_string("Invalid arguments!\012", 19);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__parameters(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__parameters");
+  set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("BOOLEAN_OPTION");
   assign_value(&var._BOOLEAN_OPTION, unique__1_1);
   unique__2_1 = register_unique_item("std__VALUED_OPTION");
@@ -12149,92 +12210,38 @@ EXPORT void phase_2__basic__parameters(void) {
   define_single_assign_static("std", "copyright", get__std__copyright, &var.std__copyright);
   func__11_1 = create_future();
   define_single_assign_static("std", "version", get__std__version, &var.std__version);
-  string__12_45 = from_latin_1_string("Invalid option ", 15);
-  string__12_46 = from_latin_1_string("!", 1);
   func__12_1 = create_future();
   define_single_assign_static("std", "extract_options", get__std__extract_options, &var.std__extract_options);
   func__13_1 = create_future();
   define_single_assign_static("std", "extract_some_options", get__std__extract_some_options, &var.std__extract_some_options);
-  string__14_11 = from_latin_1_string("  ", 2);
-  string__14_19 = from_latin_1_string(" ", 1);
   func__14_1 = create_future();
-  string__19_2 = from_latin_1_string(" ", 1);
-  string__19_3 = from_latin_1_string("\012\012", 2);
   func__19_1 = create_future();
   func__20_1 = create_future();
-  string__21_7 = from_latin_1_string("valid values:", 13);
-  string__21_35 = from_latin_1_string("Usage:", 6);
-  string__21_41 = from_latin_1_string("  ", 2);
-  string__21_42 = from_latin_1_string(" --copyright", 12);
-  string__21_44 = from_latin_1_string("  ", 2);
-  string__21_45 = from_latin_1_string(" --help", 7);
   func__21_50 = create_future();
-  string__21_52 = from_latin_1_string("  ", 2);
-  string__21_56 = from_latin_1_string(" ", 1);
-  string__21_59 = from_latin_1_string("\012Parameters:\012", 13);
-  string__21_71 = from_latin_1_string("\012Options:\012", 10);
-  string__21_76 = from_latin_1_string("--", 2);
-  string__21_80 = from_latin_1_string(" VALUE", 6);
-  string__21_83 = from_latin_1_string(" VALUES", 7);
-  string__21_94 = from_latin_1_string("Too few arguments for ", 22);
-  string__21_95 = from_latin_1_string("-command!\012", 10);
-  string__21_98 = from_latin_1_string("Too few arguments!\012", 19);
   func__21_97 = create_future();
-  string__21_102 = from_latin_1_string("Too many arguments!\012", 20);
-  string__21_160 = from_latin_1_string("--help", 6);
-  string__21_168 = from_latin_1_string("--copyright", 11);
   func__21_171 = create_future();
-  string__21_177 = from_latin_1_string("--version", 9);
-  string__21_186 = from_latin_1_string("--", 2);
-  string__21_201 = from_latin_1_string("--", 2);
-  string__21_209 = from_latin_1_string("Invalid option: ", 16);
-  string__21_210 = from_latin_1_string("!", 1);
-  string__21_286 = from_latin_1_string("Invalid argument value for ", 27);
-  string__21_287 = from_latin_1_string("!\012", 2);
   func__21_1 = create_future();
   func__22_1 = create_future();
   define_single_assign_static("std", "program_commands", get__std__program_commands, &var.std__program_commands);
-  string__23_11 = from_latin_1_string("help", 4);
-  string__23_25 = from_latin_1_string("--help", 6);
   func__23_1 = create_future();
   define_single_assign_static("std", "command_parameters", get__std__command_parameters, &var.std__command_parameters);
   func__24_3 = create_future();
-  string__24_7 = from_latin_1_string("Available commands:", 19);
-  string__24_9 = from_latin_1_string("help", 4);
-  string__24_10 = from_latin_1_string("display help for the specified command", 38);
-  string__24_20 = from_latin_1_string("copyright", 9);
-  string__24_21 = from_latin_1_string("display the copyright message", 29);
-  string__24_27 = from_latin_1_string("version", 7);
-  string__24_28 = from_latin_1_string("display the version number", 26);
   func__24_1 = create_future();
   func__25_6 = create_future();
-  string__25_10 = from_latin_1_string("No command specified!\012", 22);
   func__25_9 = create_future();
-  string__25_15 = from_latin_1_string("copyright", 9);
   func__25_18 = create_future();
   func__25_16 = create_future();
-  string__25_20 = from_latin_1_string("help", 4);
   func__25_23 = create_future();
-  string__25_27 = from_latin_1_string("copyright", 9);
-  string__25_31 = from_latin_1_string("Usage:\012  sigi copyright\012", 24);
   func__25_30 = create_future();
   func__25_28 = create_future();
-  string__25_33 = from_latin_1_string("help", 4);
-  string__25_35 = from_latin_1_string("Usage:\012  sigi help COMMAND\012\012Parameter:\012  COMMAND  the command for which to retrieve help\012", 89);
   func__25_34 = create_future();
-  string__25_37 = from_latin_1_string("version", 7);
-  string__25_41 = from_latin_1_string("Usage:\012  sigi version\012", 22);
   func__25_40 = create_future();
   func__25_38 = create_future();
-  string__25_44 = from_latin_1_string("Invalid command name!\012", 22);
   func__25_25 = create_future();
-  string__25_48 = from_latin_1_string("Too many arguments!\012", 20);
   func__25_47 = create_future();
   func__25_21 = create_future();
-  string__25_51 = from_latin_1_string("version", 7);
   func__25_54 = create_future();
   func__25_52 = create_future();
-  string__25_59 = from_latin_1_string("Invalid arguments!\012", 19);
   func__25_13 = create_future();
   func__25_7 = create_future();
   func__25_4 = create_future();
@@ -12242,11 +12249,11 @@ EXPORT void phase_2__basic__parameters(void) {
   define_single_assign_static("std", "program_parameters", get__std__program_parameters, &var.std__program_parameters);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__parameters(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__parameters(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__parameters");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "Error", &get__Error, &get_value_or_future__Error);
@@ -12319,11 +12326,11 @@ EXPORT void phase_3__basic__parameters(void) {
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__parameters(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__parameters(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var.std__copyright, &func__10_1);
   assign_variable(&var.std__version, &func__11_1);
   assign_variable(&var.std__extract_options, &func__12_1);
@@ -12338,11 +12345,11 @@ EXPORT void phase_4__basic__parameters(void) {
   assign_variable(&var.std__program_parameters, &func__25_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__parameters(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__parameters(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__10_1, create_function(entry__10_1, 1));
   assign_value(&func__11_1, create_function(entry__11_1, 1));
   assign_value(&func__12_1, create_function(entry__12_1, -1));

@@ -368,7 +368,7 @@ IMPORT void *allocate_fixed_with_destructor(long size, DESTRUCTOR destructor);
 IMPORT void *allocate_large(long size);
 IMPORT void deallocate_memory(void *buf);
 IMPORT void *copy(const void *buf, long size);
-IMPORT void register_phase_2_collector(void *data);
+IMPORT void register_phase_3_collector(void *data);
 IMPORT int child_changed_state;
 IMPORT int window_changed_size;
 IMPORT NODE *from_printf(const char *msg, ...);
@@ -387,6 +387,7 @@ IMPORT void resource_error(void);
 IMPORT void io_error(void);
 IMPORT void initialize_runtime(void);
 IMPORT void initialize_phase_3(void);
+IMPORT void initialize_phase_4(void);
 IMPORT void join_nodes(void *left_node_pp, void *right_node_pp);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void register_collector(FUNC collector);
@@ -1243,7 +1244,10 @@ static void cont__2_717(void);
 static NODE *string__2_718;
 static NODE *string__2_719;
 static void cont__2_720(void);
-static void cont__2_721(void);
+static NODE *string__2_721;
+static NODE *string__2_722;
+static void cont__2_723(void);
+static void cont__2_724(void);
 void run__runtime_definitions(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -1395,100 +1399,101 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__2_435, NULL, 482, 483, 5, 26},
   {cont__2_438, NULL, 484, 485, 5, 36},
   {cont__2_441, NULL, 486, 487, 5, 36},
-  {cont__2_444, NULL, 488, 489, 5, 24},
-  {cont__2_447, NULL, 490, 491, 5, 63},
-  {cont__2_450, NULL, 492, 493, 5, 52},
-  {cont__2_453, NULL, 494, 495, 5, 46},
-  {cont__2_456, NULL, 496, 497, 5, 37},
-  {cont__2_459, NULL, 498, 499, 5, 61},
+  {cont__2_444, NULL, 488, 489, 5, 36},
+  {cont__2_447, NULL, 490, 491, 5, 24},
+  {cont__2_450, NULL, 492, 493, 5, 63},
+  {cont__2_453, NULL, 494, 495, 5, 52},
+  {cont__2_456, NULL, 496, 497, 5, 46},
+  {cont__2_459, NULL, 498, 499, 5, 37},
   {cont__2_462, NULL, 500, 501, 5, 61},
-  {cont__2_465, NULL, 502, 503, 5, 51},
-  {cont__2_468, NULL, 504, 505, 5, 36},
-  {cont__2_471, NULL, 506, 507, 5, 29},
-  {cont__2_474, NULL, 508, 509, 5, 47},
-  {cont__2_477, NULL, 510, 511, 5, 55},
-  {cont__2_480, NULL, 512, 513, 5, 70},
-  {cont__2_483, NULL, 514, 515, 5, 81},
-  {cont__2_486, NULL, 516, 517, 5, 35},
-  {cont__2_489, NULL, 518, 519, 5, 36},
+  {cont__2_465, NULL, 502, 503, 5, 61},
+  {cont__2_468, NULL, 504, 505, 5, 51},
+  {cont__2_471, NULL, 506, 507, 5, 36},
+  {cont__2_474, NULL, 508, 509, 5, 29},
+  {cont__2_477, NULL, 510, 511, 5, 47},
+  {cont__2_480, NULL, 512, 513, 5, 55},
+  {cont__2_483, NULL, 514, 515, 5, 70},
+  {cont__2_486, NULL, 516, 517, 5, 81},
+  {cont__2_489, NULL, 518, 519, 5, 35},
   {cont__2_492, NULL, 520, 521, 5, 36},
   {cont__2_495, NULL, 522, 523, 5, 36},
   {cont__2_498, NULL, 524, 525, 5, 36},
-  {cont__2_501, NULL, 526, 527, 5, 37},
+  {cont__2_501, NULL, 526, 527, 5, 36},
   {cont__2_504, NULL, 528, 529, 5, 37},
   {cont__2_507, NULL, 530, 531, 5, 37},
-  {cont__2_510, NULL, 532, 533, 5, 38},
-  {cont__2_513, NULL, 534, 535, 5, 30},
-  {cont__2_516, NULL, 536, 537, 5, 29},
-  {cont__2_519, NULL, 538, 539, 5, 31},
-  {cont__2_522, NULL, 540, 541, 5, 35},
-  {cont__2_525, NULL, 542, 543, 5, 36},
-  {cont__2_528, NULL, 544, 545, 5, 51},
-  {cont__2_531, NULL, 546, 547, 5, 46},
-  {cont__2_534, NULL, 548, 549, 5, 33},
-  {cont__2_537, NULL, 550, 551, 5, 30},
-  {cont__2_540, NULL, 552, 553, 5, 74},
-  {cont__2_543, NULL, 554, 555, 5, 37},
-  {cont__2_546, NULL, 556, 557, 5, 47},
-  {cont__2_549, NULL, 558, 559, 5, 39},
-  {cont__2_552, NULL, 560, 561, 5, 70},
-  {cont__2_555, NULL, 562, 563, 5, 76},
-  {cont__2_558, NULL, 564, 565, 5, 43},
-  {cont__2_561, NULL, 566, 567, 5, 48},
-  {cont__2_564, NULL, 568, 569, 5, 44},
-  {cont__2_567, NULL, 570, 571, 5, 43},
+  {cont__2_510, NULL, 532, 533, 5, 37},
+  {cont__2_513, NULL, 534, 535, 5, 38},
+  {cont__2_516, NULL, 536, 537, 5, 30},
+  {cont__2_519, NULL, 538, 539, 5, 29},
+  {cont__2_522, NULL, 540, 541, 5, 31},
+  {cont__2_525, NULL, 542, 543, 5, 35},
+  {cont__2_528, NULL, 544, 545, 5, 36},
+  {cont__2_531, NULL, 546, 547, 5, 51},
+  {cont__2_534, NULL, 548, 549, 5, 46},
+  {cont__2_537, NULL, 550, 551, 5, 33},
+  {cont__2_540, NULL, 552, 553, 5, 30},
+  {cont__2_543, NULL, 554, 555, 5, 74},
+  {cont__2_546, NULL, 556, 557, 5, 37},
+  {cont__2_549, NULL, 558, 559, 5, 47},
+  {cont__2_552, NULL, 560, 561, 5, 39},
+  {cont__2_555, NULL, 562, 563, 5, 70},
+  {cont__2_558, NULL, 564, 565, 5, 76},
+  {cont__2_561, NULL, 566, 567, 5, 43},
+  {cont__2_564, NULL, 568, 569, 5, 48},
+  {cont__2_567, NULL, 570, 571, 5, 44},
   {cont__2_570, NULL, 572, 573, 5, 43},
   {cont__2_573, NULL, 574, 575, 5, 43},
-  {cont__2_576, NULL, 576, 577, 5, 37},
+  {cont__2_576, NULL, 576, 577, 5, 43},
   {cont__2_579, NULL, 578, 579, 5, 37},
-  {cont__2_582, NULL, 580, 581, 5, 43},
-  {cont__2_585, NULL, 582, 583, 5, 35},
+  {cont__2_582, NULL, 580, 581, 5, 37},
+  {cont__2_585, NULL, 582, 583, 5, 43},
   {cont__2_588, NULL, 584, 585, 5, 35},
-  {cont__2_591, NULL, 586, 587, 5, 41},
+  {cont__2_591, NULL, 586, 587, 5, 35},
   {cont__2_594, NULL, 588, 589, 5, 41},
   {cont__2_597, NULL, 590, 591, 5, 41},
-  {cont__2_600, NULL, 592, 593, 5, 47},
-  {cont__2_603, NULL, 594, 595, 5, 54},
+  {cont__2_600, NULL, 592, 593, 5, 41},
+  {cont__2_603, NULL, 594, 595, 5, 47},
   {cont__2_606, NULL, 596, 597, 5, 54},
-  {cont__2_609, NULL, 598, 599, 5, 44},
-  {cont__2_612, NULL, 600, 601, 5, 55},
+  {cont__2_609, NULL, 598, 599, 5, 54},
+  {cont__2_612, NULL, 600, 601, 5, 44},
   {cont__2_615, NULL, 602, 603, 5, 55},
-  {cont__2_618, NULL, 604, 605, 5, 45},
-  {cont__2_621, NULL, 606, 607, 5, 44},
+  {cont__2_618, NULL, 604, 605, 5, 55},
+  {cont__2_621, NULL, 606, 607, 5, 45},
   {cont__2_624, NULL, 608, 609, 5, 44},
   {cont__2_627, NULL, 610, 611, 5, 44},
-  {cont__2_630, NULL, 612, 613, 5, 54},
-  {cont__2_633, NULL, 614, 615, 5, 53},
-  {cont__2_636, NULL, 616, 617, 5, 44},
-  {cont__2_639, NULL, 618, 619, 5, 41},
-  {cont__2_642, NULL, 620, 621, 5, 38},
-  {cont__2_645, NULL, 622, 623, 5, 58},
-  {cont__2_648, NULL, 624, 625, 5, 48},
-  {cont__2_651, NULL, 626, 627, 5, 32},
-  {cont__2_654, NULL, 628, 629, 5, 58},
-  {cont__2_657, NULL, 630, 631, 5, 51},
-  {cont__2_660, NULL, 632, 633, 5, 57},
+  {cont__2_630, NULL, 612, 613, 5, 44},
+  {cont__2_633, NULL, 614, 615, 5, 54},
+  {cont__2_636, NULL, 616, 617, 5, 53},
+  {cont__2_639, NULL, 618, 619, 5, 44},
+  {cont__2_642, NULL, 620, 621, 5, 41},
+  {cont__2_645, NULL, 622, 623, 5, 38},
+  {cont__2_648, NULL, 624, 625, 5, 58},
+  {cont__2_651, NULL, 626, 627, 5, 48},
+  {cont__2_654, NULL, 628, 629, 5, 32},
+  {cont__2_657, NULL, 630, 631, 5, 58},
+  {cont__2_660, NULL, 632, 633, 5, 51},
   {cont__2_663, NULL, 634, 635, 5, 57},
-  {cont__2_666, NULL, 636, 637, 5, 48},
-  {cont__2_669, NULL, 638, 639, 5, 54},
-  {cont__2_672, NULL, 640, 641, 5, 60},
-  {cont__2_675, NULL, 642, 643, 5, 30},
-  {cont__2_678, NULL, 644, 645, 5, 54},
-  {cont__2_681, NULL, 646, 647, 5, 37},
+  {cont__2_666, NULL, 636, 637, 5, 57},
+  {cont__2_669, NULL, 638, 639, 5, 48},
+  {cont__2_672, NULL, 640, 641, 5, 54},
+  {cont__2_675, NULL, 642, 643, 5, 60},
+  {cont__2_678, NULL, 644, 645, 5, 30},
+  {cont__2_681, NULL, 646, 647, 5, 54},
   {cont__2_684, NULL, 648, 649, 5, 37},
-  {cont__2_687, NULL, 650, 651, 5, 48},
-  {cont__2_690, NULL, 652, 653, 5, 51},
+  {cont__2_687, NULL, 650, 651, 5, 37},
+  {cont__2_690, NULL, 652, 653, 5, 48},
   {cont__2_693, NULL, 654, 655, 5, 51},
-  {cont__2_696, NULL, 656, 657, 5, 36},
-  {cont__2_699, NULL, 658, 659, 5, 58},
-  {cont__2_702, NULL, 660, 661, 5, 43},
-  {cont__2_705, NULL, 662, 663, 5, 66},
-  {cont__2_708, NULL, 664, 669, 5, 22},
-  {cont__2_711, NULL, 670, 675, 5, 20},
-  {cont__2_714, NULL, 676, 679, 5, 8},
-  {cont__2_717, NULL, 680, 681, 5, 28},
-  {cont__2_720, NULL, 22, 681, 1, 30},
-  {cont__2_721, NULL, }
+  {cont__2_696, NULL, 656, 657, 5, 51},
+  {cont__2_699, NULL, 658, 659, 5, 36},
+  {cont__2_702, NULL, 660, 661, 5, 58},
+  {cont__2_705, NULL, 662, 663, 5, 43},
+  {cont__2_708, NULL, 664, 665, 5, 66},
+  {cont__2_711, NULL, 666, 671, 5, 22},
+  {cont__2_714, NULL, 672, 677, 5, 20},
+  {cont__2_717, NULL, 678, 681, 5, 8},
+  {cont__2_720, NULL, 682, 683, 5, 28},
+  {cont__2_723, NULL, 22, 683, 1, 30},
+  {cont__2_724, NULL, }
 };
 
 union NODE {
@@ -1530,7 +1535,7 @@ EXPORT void run__runtime_definitions(void) {
     return;
   }
   already_run = true;
-  allocate_initialized_frame_gc(0, 240);
+  allocate_initialized_frame_gc(0, 241);
   // 24: "ASM" = "
   // 25:   #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
   // 26:     #define ASM(x) asm(x)
@@ -3861,8 +3866,8 @@ static void cont__2_384(void) {
     return;
   }
   frame->slots[127] /* temp__128 */ = arguments->slots[0];
-  // 448: "register_phase_2_collector" = "
-  // 449:   void register_phase_2_collector(void *data);
+  // 448: "register_phase_3_collector" = "
+  // 449:   void register_phase_3_collector(void *data);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_385;
@@ -4201,8 +4206,8 @@ static void cont__2_444(void) {
     return;
   }
   frame->slots[147] /* temp__148 */ = arguments->slots[0];
-  // 488: "current_mark" = "
-  // 489:   long current_mark;
+  // 488: "initialize_phase_4" = "
+  // 489:   void initialize_phase_4(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_445;
@@ -4218,8 +4223,8 @@ static void cont__2_447(void) {
     return;
   }
   frame->slots[148] /* temp__149 */ = arguments->slots[0];
-  // 490: "join_nodes" = "
-  // 491:   void join_nodes(void *left_node_pp, void *right_node_pp);
+  // 490: "current_mark" = "
+  // 491:   long current_mark;
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_448;
@@ -4235,8 +4240,8 @@ static void cont__2_450(void) {
     return;
   }
   frame->slots[149] /* temp__150 */ = arguments->slots[0];
-  // 492: "clone_object_and_attributes" = "
-  // 493:   NODE *clone_object_and_attributes(NODE *node);
+  // 492: "join_nodes" = "
+  // 493:   void join_nodes(void *left_node_pp, void *right_node_pp);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_451;
@@ -4252,8 +4257,8 @@ static void cont__2_453(void) {
     return;
   }
   frame->slots[150] /* temp__151 */ = arguments->slots[0];
-  // 494: "register_collector" = "
-  // 495:   void register_collector(FUNC collector);
+  // 494: "clone_object_and_attributes" = "
+  // 495:   NODE *clone_object_and_attributes(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_454;
@@ -4269,8 +4274,8 @@ static void cont__2_456(void) {
     return;
   }
   frame->slots[151] /* temp__152 */ = arguments->slots[0];
-  // 496: "collect_node" = "
-  // 497:   NODE *collect_node(NODE *node);
+  // 496: "register_collector" = "
+  // 497:   void register_collector(FUNC collector);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_457;
@@ -4286,8 +4291,8 @@ static void cont__2_459(void) {
     return;
   }
   frame->slots[152] /* temp__153 */ = arguments->slots[0];
-  // 498: "collect_static_attributes" = "
-  // 499:   void collect_static_attributes(ATTRIBUTES *attributes);
+  // 498: "collect_node" = "
+  // 499:   NODE *collect_node(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_460;
@@ -4303,8 +4308,8 @@ static void cont__2_462(void) {
     return;
   }
   frame->slots[153] /* temp__154 */ = arguments->slots[0];
-  // 500: "collect_attributes" = "
-  // 501:   ATTRIBUTES *collect_attributes(ATTRIBUTES *attributes);
+  // 500: "collect_static_attributes" = "
+  // 501:   void collect_static_attributes(ATTRIBUTES *attributes);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_463;
@@ -4320,8 +4325,8 @@ static void cont__2_465(void) {
     return;
   }
   frame->slots[154] /* temp__155 */ = arguments->slots[0];
-  // 502: "collect_simple_node" = "
-  // 503:   void *collect_simple_node(SIMPLE_NODE *node);
+  // 502: "collect_attributes" = "
+  // 503:   ATTRIBUTES *collect_attributes(ATTRIBUTES *attributes);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_466;
@@ -4337,8 +4342,8 @@ static void cont__2_468(void) {
     return;
   }
   frame->slots[155] /* temp__156 */ = arguments->slots[0];
-  // 504: "total_garbage_collections" = "
-  // 505:   int total_garbage_collections;
+  // 504: "collect_simple_node" = "
+  // 505:   void *collect_simple_node(SIMPLE_NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_469;
@@ -4354,8 +4359,8 @@ static void cont__2_471(void) {
     return;
   }
   frame->slots[156] /* temp__157 */ = arguments->slots[0];
-  // 506: "collect_garbage" = "
-  // 507:   void collect_garbage();
+  // 506: "total_garbage_collections" = "
+  // 507:   int total_garbage_collections;
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_472;
@@ -4371,8 +4376,8 @@ static void cont__2_474(void) {
     return;
   }
   frame->slots[157] /* temp__158 */ = arguments->slots[0];
-  // 508: "indent_to_string" = "
-  // 509:   const char *indent_to_string(int indent);
+  // 508: "collect_garbage" = "
+  // 509:   void collect_garbage();
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_475;
@@ -4388,8 +4393,8 @@ static void cont__2_477(void) {
     return;
   }
   frame->slots[158] /* temp__159 */ = arguments->slots[0];
-  // 510: "print" = "
-  // 511:   int print(char **buf_p, const char *format, ...);
+  // 510: "indent_to_string" = "
+  // 511:   const char *indent_to_string(int indent);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_478;
@@ -4405,8 +4410,8 @@ static void cont__2_480(void) {
     return;
   }
   frame->slots[159] /* temp__160 */ = arguments->slots[0];
-  // 512: "debug_print" = "
-  // 513:   int debug_print(int indent, char *buf, const char *format, ...);
+  // 512: "print" = "
+  // 513:   int print(char **buf_p, const char *format, ...);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_481;
@@ -4422,8 +4427,8 @@ static void cont__2_483(void) {
     return;
   }
   frame->slots[160] /* temp__161 */ = arguments->slots[0];
-  // 514: "debug_print_head" = "
-  // 515:   int debug_print_head(int *indent_p, char **buf_p, const char *format, ...);
+  // 514: "debug_print" = "
+  // 515:   int debug_print(int indent, char *buf, const char *format, ...);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_484;
@@ -4439,8 +4444,8 @@ static void cont__2_486(void) {
     return;
   }
   frame->slots[161] /* temp__162 */ = arguments->slots[0];
-  // 516: "to_int8" = "
-  // 517:   uint32_t to_int8(NODE *node);
+  // 516: "debug_print_head" = "
+  // 517:   int debug_print_head(int *indent_p, char **buf_p, const char *format, ...);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_487;
@@ -4456,8 +4461,8 @@ static void cont__2_489(void) {
     return;
   }
   frame->slots[162] /* temp__163 */ = arguments->slots[0];
-  // 518: "to_int16" = "
-  // 519:   uint64_t to_int16(NODE *node);
+  // 518: "to_int8" = "
+  // 519:   uint32_t to_int8(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_490;
@@ -4473,8 +4478,8 @@ static void cont__2_492(void) {
     return;
   }
   frame->slots[163] /* temp__164 */ = arguments->slots[0];
-  // 520: "to_int32" = "
-  // 521:   uint32_t to_int32(NODE *node);
+  // 520: "to_int16" = "
+  // 521:   uint64_t to_int16(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_493;
@@ -4490,8 +4495,8 @@ static void cont__2_495(void) {
     return;
   }
   frame->slots[164] /* temp__165 */ = arguments->slots[0];
-  // 522: "to_int64" = "
-  // 523:   uint64_t to_int64(NODE *node);
+  // 522: "to_int32" = "
+  // 523:   uint32_t to_int32(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_496;
@@ -4507,8 +4512,8 @@ static void cont__2_498(void) {
     return;
   }
   frame->slots[165] /* temp__166 */ = arguments->slots[0];
-  // 524: "to_uint8" = "
-  // 525:   uint32_t to_uint8(NODE *node);
+  // 524: "to_int64" = "
+  // 525:   uint64_t to_int64(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_499;
@@ -4524,8 +4529,8 @@ static void cont__2_501(void) {
     return;
   }
   frame->slots[166] /* temp__167 */ = arguments->slots[0];
-  // 526: "to_uint16" = "
-  // 527:   uint64_t to_uint16(NODE *node);
+  // 526: "to_uint8" = "
+  // 527:   uint32_t to_uint8(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_502;
@@ -4541,8 +4546,8 @@ static void cont__2_504(void) {
     return;
   }
   frame->slots[167] /* temp__168 */ = arguments->slots[0];
-  // 528: "to_uint32" = "
-  // 529:   uint32_t to_uint32(NODE *node);
+  // 528: "to_uint16" = "
+  // 529:   uint64_t to_uint16(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_505;
@@ -4558,8 +4563,8 @@ static void cont__2_507(void) {
     return;
   }
   frame->slots[168] /* temp__169 */ = arguments->slots[0];
-  // 530: "to_uint64" = "
-  // 531:   uint64_t to_uint64(NODE *node);
+  // 530: "to_uint32" = "
+  // 531:   uint32_t to_uint32(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_508;
@@ -4575,8 +4580,8 @@ static void cont__2_510(void) {
     return;
   }
   frame->slots[169] /* temp__170 */ = arguments->slots[0];
-  // 532: "to_uchar32" = "
-  // 533:   uint32_t to_uchar32(NODE *node);
+  // 532: "to_uint64" = "
+  // 533:   uint64_t to_uint64(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_511;
@@ -4592,8 +4597,8 @@ static void cont__2_513(void) {
     return;
   }
   frame->slots[170] /* temp__171 */ = arguments->slots[0];
-  // 534: "to_bool" = "
-  // 535:   int to_bool(NODE *node);
+  // 534: "to_uchar32" = "
+  // 535:   uint32_t to_uchar32(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_514;
@@ -4609,8 +4614,8 @@ static void cont__2_516(void) {
     return;
   }
   frame->slots[171] /* temp__172 */ = arguments->slots[0];
-  // 536: "to_int" = "
-  // 537:   int to_int(NODE *node);
+  // 536: "to_bool" = "
+  // 537:   int to_bool(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_517;
@@ -4626,8 +4631,8 @@ static void cont__2_519(void) {
     return;
   }
   frame->slots[172] /* temp__173 */ = arguments->slots[0];
-  // 538: "to_long" = "
-  // 539:   long to_long(NODE *node);
+  // 538: "to_int" = "
+  // 539:   int to_int(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_520;
@@ -4643,8 +4648,8 @@ static void cont__2_522(void) {
     return;
   }
   frame->slots[173] /* temp__174 */ = arguments->slots[0];
-  // 540: "to_double" = "
-  // 541:   double to_double(NODE *node);
+  // 540: "to_long" = "
+  // 541:   long to_long(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_523;
@@ -4660,8 +4665,8 @@ static void cont__2_525(void) {
     return;
   }
   frame->slots[174] /* temp__175 */ = arguments->slots[0];
-  // 542: "to_c_string" = "
-  // 543:   char *to_c_string(NODE *node);
+  // 542: "to_double" = "
+  // 543:   double to_double(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_526;
@@ -4677,8 +4682,8 @@ static void cont__2_528(void) {
     return;
   }
   frame->slots[175] /* temp__176 */ = arguments->slots[0];
-  // 544: "to_octets" = "
-  // 545:   uint8_t *to_octets(NODE *node, long *size_p);
+  // 544: "to_c_string" = "
+  // 545:   char *to_c_string(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_529;
@@ -4694,8 +4699,8 @@ static void cont__2_531(void) {
     return;
   }
   frame->slots[176] /* temp__177 */ = arguments->slots[0];
-  // 546: "get_item_of" = "
-  // 547:   NODE *get_item_of(NODE *node, long idx);
+  // 546: "to_octets" = "
+  // 547:   uint8_t *to_octets(NODE *node, long *size_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_532;
@@ -4711,8 +4716,8 @@ static void cont__2_534(void) {
     return;
   }
   frame->slots[177] /* temp__178 */ = arguments->slots[0];
-  // 548: "length_of" = "
-  // 549:   long length_of(NODE *node);
+  // 548: "get_item_of" = "
+  // 549:   NODE *get_item_of(NODE *node, long idx);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_535;
@@ -4728,8 +4733,8 @@ static void cont__2_537(void) {
     return;
   }
   frame->slots[178] /* temp__179 */ = arguments->slots[0];
-  // 550: "unfold" = "
-  // 551:   void unfold(NODE *node);
+  // 550: "length_of" = "
+  // 551:   long length_of(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_538;
@@ -4745,8 +4750,8 @@ static void cont__2_540(void) {
     return;
   }
   frame->slots[179] /* temp__180 */ = arguments->slots[0];
-  // 552: "debug_string" = "
-  // 553:   long debug_string(NODE *node, int indent, int max_depth, char *buf);
+  // 552: "unfold" = "
+  // 553:   void unfold(NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_541;
@@ -4762,8 +4767,8 @@ static void cont__2_543(void) {
     return;
   }
   frame->slots[180] /* temp__181 */ = arguments->slots[0];
-  // 554: "optional_item" = "
-  // 555:   void optional_item(NODE *item);
+  // 554: "debug_string" = "
+  // 555:   long debug_string(NODE *node, int indent, int max_depth, char *buf);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_544;
@@ -4779,8 +4784,8 @@ static void cont__2_546(void) {
     return;
   }
   frame->slots[181] /* temp__182 */ = arguments->slots[0];
-  // 556: "get_attribute" = "
-  // 557:   NODE *get_attribute(NODE *node, int idx);
+  // 556: "optional_item" = "
+  // 557:   void optional_item(NODE *item);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_547;
@@ -4796,8 +4801,8 @@ static void cont__2_549(void) {
     return;
   }
   frame->slots[182] /* temp__183 */ = arguments->slots[0];
-  // 558: "polymorph_dispatch" = "
-  // 559:   void polymorph_dispatch(int idx);
+  // 558: "get_attribute" = "
+  // 559:   NODE *get_attribute(NODE *node, int idx);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_550;
@@ -4813,8 +4818,8 @@ static void cont__2_552(void) {
     return;
   }
   frame->slots[183] /* temp__184 */ = arguments->slots[0];
-  // 560: "set_attribute" = "
-  // 561:   void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);
+  // 560: "polymorph_dispatch" = "
+  // 561:   void polymorph_dispatch(int idx);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_553;
@@ -4830,8 +4835,8 @@ static void cont__2_555(void) {
     return;
   }
   frame->slots[184] /* temp__185 */ = arguments->slots[0];
-  // 562: "set_attribute_value" = "
-  // 563:   void set_attribute_value(ATTRIBUTES *attributes, int idx, void *attr);
+  // 562: "set_attribute" = "
+  // 563:   void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_556;
@@ -4847,8 +4852,8 @@ static void cont__2_558(void) {
     return;
   }
   frame->slots[185] /* temp__186 */ = arguments->slots[0];
-  // 564: "record__event" = "
-  // 565:   void record__event(const char *name);
+  // 564: "set_attribute_value" = "
+  // 565:   void set_attribute_value(ATTRIBUTES *attributes, int idx, void *attr);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_559;
@@ -4864,8 +4869,8 @@ static void cont__2_561(void) {
     return;
   }
   frame->slots[186] /* temp__187 */ = arguments->slots[0];
-  // 566: "successful__action" = "
-  // 567:   void successful__action(const char *name);
+  // 566: "record__event" = "
+  // 567:   void record__event(const char *name);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_562;
@@ -4881,8 +4886,8 @@ static void cont__2_564(void) {
     return;
   }
   frame->slots[187] /* temp__188 */ = arguments->slots[0];
-  // 568: "failed__action" = "
-  // 569:   void failed__action(const char *name);
+  // 568: "successful__action" = "
+  // 569:   void successful__action(const char *name);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_565;
@@ -4898,8 +4903,8 @@ static void cont__2_567(void) {
     return;
   }
   frame->slots[188] /* temp__189 */ = arguments->slots[0];
-  // 570: "replay__event" = "
-  // 571:   void replay__event(const char *name);
+  // 570: "failed__action" = "
+  // 571:   void failed__action(const char *name);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_568;
@@ -4915,8 +4920,8 @@ static void cont__2_570(void) {
     return;
   }
   frame->slots[189] /* temp__190 */ = arguments->slots[0];
-  // 572: "replay__action" = "
-  // 573:   int replay__action(const char *name);
+  // 572: "replay__event" = "
+  // 573:   void replay__event(const char *name);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_571;
@@ -4932,8 +4937,8 @@ static void cont__2_573(void) {
     return;
   }
   frame->slots[190] /* temp__191 */ = arguments->slots[0];
-  // 574: "report__event" = "
-  // 575:   void report__event(const char *name);
+  // 574: "replay__action" = "
+  // 575:   int replay__action(const char *name);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_574;
@@ -4949,8 +4954,8 @@ static void cont__2_576(void) {
     return;
   }
   frame->slots[191] /* temp__192 */ = arguments->slots[0];
-  // 576: "print__pointer" = "
-  // 577:   void print__pointer(void *ptr);
+  // 576: "report__event" = "
+  // 577:   void report__event(const char *name);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_577;
@@ -4966,8 +4971,8 @@ static void cont__2_579(void) {
     return;
   }
   frame->slots[192] /* temp__193 */ = arguments->slots[0];
-  // 578: "store__pointer" = "
-  // 579:   void store__pointer(void *ptr);
+  // 578: "print__pointer" = "
+  // 579:   void print__pointer(void *ptr);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_580;
@@ -4983,8 +4988,8 @@ static void cont__2_582(void) {
     return;
   }
   frame->slots[193] /* temp__194 */ = arguments->slots[0];
-  // 580: "retrieve__pointer" = "
-  // 581:   void retrieve__pointer(void **ptr_p);
+  // 580: "store__pointer" = "
+  // 581:   void store__pointer(void *ptr);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_583;
@@ -5000,8 +5005,8 @@ static void cont__2_585(void) {
     return;
   }
   frame->slots[194] /* temp__195 */ = arguments->slots[0];
-  // 582: "print__integer" = "
-  // 583:   void print__integer(int val);
+  // 582: "retrieve__pointer" = "
+  // 583:   void retrieve__pointer(void **ptr_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_586;
@@ -5017,8 +5022,8 @@ static void cont__2_588(void) {
     return;
   }
   frame->slots[195] /* temp__196 */ = arguments->slots[0];
-  // 584: "store__integer" = "
-  // 585:   void store__integer(int val);
+  // 584: "print__integer" = "
+  // 585:   void print__integer(int val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_589;
@@ -5034,8 +5039,8 @@ static void cont__2_591(void) {
     return;
   }
   frame->slots[196] /* temp__197 */ = arguments->slots[0];
-  // 586: "retrieve__integer" = "
-  // 587:   void retrieve__integer(int *val_p);
+  // 586: "store__integer" = "
+  // 587:   void store__integer(int val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_592;
@@ -5051,8 +5056,8 @@ static void cont__2_594(void) {
     return;
   }
   frame->slots[197] /* temp__198 */ = arguments->slots[0];
-  // 588: "print__long_integer" = "
-  // 589:   void print__long_integer(long val);
+  // 588: "retrieve__integer" = "
+  // 589:   void retrieve__integer(int *val_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_595;
@@ -5068,8 +5073,8 @@ static void cont__2_597(void) {
     return;
   }
   frame->slots[198] /* temp__199 */ = arguments->slots[0];
-  // 590: "store__long_integer" = "
-  // 591:   void store__long_integer(long val);
+  // 590: "print__long_integer" = "
+  // 591:   void print__long_integer(long val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_598;
@@ -5085,8 +5090,8 @@ static void cont__2_600(void) {
     return;
   }
   frame->slots[199] /* temp__200 */ = arguments->slots[0];
-  // 592: "retrieve__long_integer" = "
-  // 593:   void retrieve__long_integer(long *val_p);
+  // 592: "store__long_integer" = "
+  // 593:   void store__long_integer(long val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_601;
@@ -5102,8 +5107,8 @@ static void cont__2_603(void) {
     return;
   }
   frame->slots[200] /* temp__201 */ = arguments->slots[0];
-  // 594: "print__int_array" = "
-  // 595:   void print__int_array(const int *buf, long len);
+  // 594: "retrieve__long_integer" = "
+  // 595:   void retrieve__long_integer(long *val_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_604;
@@ -5119,8 +5124,8 @@ static void cont__2_606(void) {
     return;
   }
   frame->slots[201] /* temp__202 */ = arguments->slots[0];
-  // 596: "store__int_array" = "
-  // 597:   void store__int_array(const int *buf, long len);
+  // 596: "print__int_array" = "
+  // 597:   void print__int_array(const int *buf, long len);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_607;
@@ -5136,8 +5141,8 @@ static void cont__2_609(void) {
     return;
   }
   frame->slots[202] /* temp__203 */ = arguments->slots[0];
-  // 598: "retrieve__int_array" = "
-  // 599:   long retrieve__int_array(int **buf_p);
+  // 598: "store__int_array" = "
+  // 599:   void store__int_array(const int *buf, long len);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_610;
@@ -5153,8 +5158,8 @@ static void cont__2_612(void) {
     return;
   }
   frame->slots[203] /* temp__204 */ = arguments->slots[0];
-  // 600: "print__memory" = "
-  // 601:   void print__memory(const uint8_t *buf, long len);
+  // 600: "retrieve__int_array" = "
+  // 601:   long retrieve__int_array(int **buf_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_613;
@@ -5170,8 +5175,8 @@ static void cont__2_615(void) {
     return;
   }
   frame->slots[204] /* temp__205 */ = arguments->slots[0];
-  // 602: "store__memory" = "
-  // 603:   void store__memory(const uint8_t *buf, long len);
+  // 602: "print__memory" = "
+  // 603:   void print__memory(const uint8_t *buf, long len);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_616;
@@ -5187,8 +5192,8 @@ static void cont__2_618(void) {
     return;
   }
   frame->slots[205] /* temp__206 */ = arguments->slots[0];
-  // 604: "retrieve__memory" = "
-  // 605:   long retrieve__memory(uint8_t **buf_p);
+  // 604: "store__memory" = "
+  // 605:   void store__memory(const uint8_t *buf, long len);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_619;
@@ -5204,8 +5209,8 @@ static void cont__2_621(void) {
     return;
   }
   frame->slots[206] /* temp__207 */ = arguments->slots[0];
-  // 606: "print__c_string" = "
-  // 607:   void print__c_string(const char *buf);
+  // 606: "retrieve__memory" = "
+  // 607:   long retrieve__memory(uint8_t **buf_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_622;
@@ -5221,8 +5226,8 @@ static void cont__2_624(void) {
     return;
   }
   frame->slots[207] /* temp__208 */ = arguments->slots[0];
-  // 608: "store__c_string" = "
-  // 609:   void store__c_string(const char *buf);
+  // 608: "print__c_string" = "
+  // 609:   void print__c_string(const char *buf);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_625;
@@ -5238,8 +5243,8 @@ static void cont__2_627(void) {
     return;
   }
   frame->slots[208] /* temp__209 */ = arguments->slots[0];
-  // 610: "retrieve__c_string" = "
-  // 611:   void retrieve__c_string(char **buf_p);
+  // 610: "store__c_string" = "
+  // 611:   void store__c_string(const char *buf);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_628;
@@ -5255,8 +5260,8 @@ static void cont__2_630(void) {
     return;
   }
   frame->slots[209] /* temp__210 */ = arguments->slots[0];
-  // 612: "create_function" = "
-  // 613:   NODE *create_function(FUNC func, int par_count);
+  // 612: "retrieve__c_string" = "
+  // 613:   void retrieve__c_string(char **buf_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_631;
@@ -5272,8 +5277,8 @@ static void cont__2_633(void) {
     return;
   }
   frame->slots[210] /* temp__211 */ = arguments->slots[0];
-  // 614: "create_closure" = "
-  // 615:   NODE *create_closure(FUNC type, int par_count);
+  // 614: "create_function" = "
+  // 615:   NODE *create_function(FUNC func, int par_count);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_634;
@@ -5289,8 +5294,8 @@ static void cont__2_636(void) {
     return;
   }
   frame->slots[211] /* temp__212 */ = arguments->slots[0];
-  // 616: "continuation_type_function" = "
-  // 617:   void continuation_type_function(void);
+  // 616: "create_closure" = "
+  // 617:   NODE *create_closure(FUNC type, int par_count);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_637;
@@ -5306,8 +5311,8 @@ static void cont__2_639(void) {
     return;
   }
   frame->slots[212] /* temp__213 */ = arguments->slots[0];
-  // 618: "continuation_trampoline" = "
-  // 619:   void continuation_trampoline(void);
+  // 618: "continuation_type_function" = "
+  // 619:   void continuation_type_function(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_640;
@@ -5323,8 +5328,8 @@ static void cont__2_642(void) {
     return;
   }
   frame->slots[213] /* temp__214 */ = arguments->slots[0];
-  // 620: "create_continuation" = "
-  // 621:   NODE *create_continuation(void);
+  // 620: "continuation_trampoline" = "
+  // 621:   void continuation_trampoline(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_643;
@@ -5340,8 +5345,8 @@ static void cont__2_645(void) {
     return;
   }
   frame->slots[214] /* temp__215 */ = arguments->slots[0];
-  // 622: "create_continuation_with_exit" = "
-  // 623:   NODE *create_continuation_with_exit(FUNC exit_func);
+  // 622: "create_continuation" = "
+  // 623:   NODE *create_continuation(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_646;
@@ -5357,8 +5362,8 @@ static void cont__2_648(void) {
     return;
   }
   frame->slots[215] /* temp__216 */ = arguments->slots[0];
-  // 624: "initialize_function_attributes" = "
-  // 625:   void initialize_function_attributes(void);
+  // 624: "create_continuation_with_exit" = "
+  // 625:   NODE *create_continuation_with_exit(FUNC exit_func);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_649;
@@ -5374,8 +5379,8 @@ static void cont__2_651(void) {
     return;
   }
   frame->slots[216] /* temp__217 */ = arguments->slots[0];
-  // 626: "create_future" = "
-  // 627:   NODE *create_future(void);
+  // 626: "initialize_function_attributes" = "
+  // 627:   void initialize_function_attributes(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_652;
@@ -5391,8 +5396,8 @@ static void cont__2_654(void) {
     return;
   }
   frame->slots[217] /* temp__218 */ = arguments->slots[0];
-  // 628: "create_future_with_prototype" = "
-  // 629:   NODE *create_future_with_prototype(NODE *prototype);
+  // 628: "create_future" = "
+  // 629:   NODE *create_future(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_655;
@@ -5408,8 +5413,8 @@ static void cont__2_657(void) {
     return;
   }
   frame->slots[218] /* temp__219 */ = arguments->slots[0];
-  // 630: "initialize_future" = "
-  // 631:   void initialize_future(NODE *var, NODE *val);
+  // 630: "create_future_with_prototype" = "
+  // 631:   NODE *create_future_with_prototype(NODE *prototype);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_658;
@@ -5425,8 +5430,8 @@ static void cont__2_660(void) {
     return;
   }
   frame->slots[219] /* temp__220 */ = arguments->slots[0];
-  // 632: "maybe_initialize_future" = "
-  // 633:   void maybe_initialize_future(NODE *var, NODE *val);
+  // 632: "initialize_future" = "
+  // 633:   void initialize_future(NODE *var, NODE *val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_661;
@@ -5442,8 +5447,8 @@ static void cont__2_663(void) {
     return;
   }
   frame->slots[220] /* temp__221 */ = arguments->slots[0];
-  // 634: "initialize_maybe_future" = "
-  // 635:   void initialize_maybe_future(NODE *var, NODE *val);
+  // 634: "maybe_initialize_future" = "
+  // 635:   void maybe_initialize_future(NODE *var, NODE *val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_664;
@@ -5459,8 +5464,8 @@ static void cont__2_666(void) {
     return;
   }
   frame->slots[221] /* temp__222 */ = arguments->slots[0];
-  // 636: "assign_value" = "
-  // 637:   void assign_value(NODE **dest, NODE *val);
+  // 636: "initialize_maybe_future" = "
+  // 637:   void initialize_maybe_future(NODE *var, NODE *val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_667;
@@ -5476,8 +5481,8 @@ static void cont__2_669(void) {
     return;
   }
   frame->slots[222] /* temp__223 */ = arguments->slots[0];
-  // 638: "assign_variable" = "
-  // 639:   void assign_variable(NODE **dest, NODE **var_p);
+  // 638: "assign_value" = "
+  // 639:   void assign_value(NODE **dest, NODE *val);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_670;
@@ -5493,8 +5498,8 @@ static void cont__2_672(void) {
     return;
   }
   frame->slots[223] /* temp__224 */ = arguments->slots[0];
-  // 640: "def_attribute" = "
-  // 641:   void def_attribute(NODE **var_p, int idx, void *attr);
+  // 640: "assign_variable" = "
+  // 641:   void assign_variable(NODE **dest, NODE **var_p);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_673;
@@ -5510,8 +5515,8 @@ static void cont__2_675(void) {
     return;
   }
   frame->slots[224] /* temp__225 */ = arguments->slots[0];
-  // 642: "create_cell" = "
-  // 643:   NODE *create_cell(void);
+  // 642: "def_attribute" = "
+  // 643:   void def_attribute(NODE **var_p, int idx, void *attr);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_676;
@@ -5527,8 +5532,8 @@ static void cont__2_678(void) {
     return;
   }
   frame->slots[225] /* temp__226 */ = arguments->slots[0];
-  // 644: "create_cell_with_contents" = "
-  // 645:   NODE *create_cell_with_contents(NODE *contents);
+  // 644: "create_cell" = "
+  // 645:   NODE *create_cell(void);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_679;
@@ -5544,8 +5549,8 @@ static void cont__2_681(void) {
     return;
   }
   frame->slots[226] /* temp__227 */ = arguments->slots[0];
-  // 646: "get_dynamic_slot" = "
-  // 647:   NODE *get_dynamic_slot(int id);
+  // 646: "create_cell_with_contents" = "
+  // 647:   NODE *create_cell_with_contents(NODE *contents);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_682;
@@ -5561,8 +5566,8 @@ static void cont__2_684(void) {
     return;
   }
   frame->slots[227] /* temp__228 */ = arguments->slots[0];
-  // 648: "get_dynamic_cell" = "
-  // 649:   NODE *get_dynamic_cell(int id);
+  // 648: "get_dynamic_slot" = "
+  // 649:   NODE *get_dynamic_slot(int id);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_685;
@@ -5578,8 +5583,8 @@ static void cont__2_687(void) {
     return;
   }
   frame->slots[228] /* temp__229 */ = arguments->slots[0];
-  // 650: "set_dynamic_cell" = "
-  // 651:   void set_dynamic_cell(int id, NODE *node);
+  // 650: "get_dynamic_cell" = "
+  // 651:   NODE *get_dynamic_cell(int id);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_688;
@@ -5595,8 +5600,8 @@ static void cont__2_690(void) {
     return;
   }
   frame->slots[229] /* temp__230 */ = arguments->slots[0];
-  // 652: "define_dynamic_slot" = "
-  // 653:   void define_dynamic_slot(int id, NODE *node);
+  // 652: "set_dynamic_cell" = "
+  // 653:   void set_dynamic_cell(int id, NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_691;
@@ -5612,8 +5617,8 @@ static void cont__2_693(void) {
     return;
   }
   frame->slots[230] /* temp__231 */ = arguments->slots[0];
-  // 654: "define_dynamic_cell" = "
-  // 655:   void define_dynamic_cell(int id, NODE *node);
+  // 654: "define_dynamic_slot" = "
+  // 655:   void define_dynamic_slot(int id, NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_694;
@@ -5629,8 +5634,8 @@ static void cont__2_696(void) {
     return;
   }
   frame->slots[231] /* temp__232 */ = arguments->slots[0];
-  // 656: "terminate" = "
-  // 657:   void terminate(int exit_code);
+  // 656: "define_dynamic_cell" = "
+  // 657:   void define_dynamic_cell(int id, NODE *node);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_697;
@@ -5646,8 +5651,8 @@ static void cont__2_699(void) {
     return;
   }
   frame->slots[232] /* temp__233 */ = arguments->slots[0];
-  // 658: "execute" = "
-  // 659:   __attribute__ ((noreturn)) void execute(FUNC entry);
+  // 658: "terminate" = "
+  // 659:   void terminate(int exit_code);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_700;
@@ -5663,8 +5668,8 @@ static void cont__2_702(void) {
     return;
   }
   frame->slots[233] /* temp__234 */ = arguments->slots[0];
-  // 660: "invoke_callback" = "
-  // 661:   void invoke_callback(NODE *callback);
+  // 660: "execute" = "
+  // 661:   __attribute__ ((noreturn)) void execute(FUNC entry);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_703;
@@ -5680,8 +5685,8 @@ static void cont__2_705(void) {
     return;
   }
   frame->slots[234] /* temp__235 */ = arguments->slots[0];
-  // 662: "COMPARE_FUNCTION" = "
-  // 663:   typedef int (*COMPARE_FUNCTION)(const void *, const void *);
+  // 662: "invoke_callback" = "
+  // 663:   void invoke_callback(NODE *callback);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_706;
@@ -5697,12 +5702,8 @@ static void cont__2_708(void) {
     return;
   }
   frame->slots[235] /* temp__236 */ = arguments->slots[0];
-  // 664: "DEBUG_COMMAND" = "
-  // 665:   typedef enum {
-  // 666:     SHOW_PROMPT,
-  // 667:     LOG_LAST_INSTRUCTION,
-  // 668:     GOTO_INSTRUCTION
-  // 669:   } DEBUG_COMMAND;
+  // 664: "COMPARE_FUNCTION" = "
+  // 665:   typedef int (*COMPARE_FUNCTION)(const void *, const void *);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_709;
@@ -5718,12 +5719,12 @@ static void cont__2_711(void) {
     return;
   }
   frame->slots[236] /* temp__237 */ = arguments->slots[0];
-  // 670: "SHARED_DATA" = "
-  // 671:   typedef struct {
-  // 672:     DEBUG_COMMAND command;
-  // 673:     uint64_t instruction_counter;
-  // 674:     int depth;
-  // 675:   } SHARED_DATA;
+  // 666: "DEBUG_COMMAND" = "
+  // 667:   typedef enum {
+  // 668:     SHOW_PROMPT,
+  // 669:     LOG_LAST_INSTRUCTION,
+  // 670:     GOTO_INSTRUCTION
+  // 671:   } DEBUG_COMMAND;
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_712;
@@ -5739,10 +5740,12 @@ static void cont__2_714(void) {
     return;
   }
   frame->slots[237] /* temp__238 */ = arguments->slots[0];
-  // 676: "retrieve_continuation_info" = "
-  // 677:   int retrieve_continuation_info(
-  // 678:     FUNC func, const char **filename_p, CONTINUATION_INFO **info_p
-  // 679:   );
+  // 672: "SHARED_DATA" = "
+  // 673:   typedef struct {
+  // 674:     DEBUG_COMMAND command;
+  // 675:     uint64_t instruction_counter;
+  // 676:     int depth;
+  // 677:   } SHARED_DATA;
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_715;
@@ -5758,8 +5761,10 @@ static void cont__2_717(void) {
     return;
   }
   frame->slots[238] /* temp__239 */ = arguments->slots[0];
-  // 680: "crash_dump" = "
-  // 681:   void crash_dump(void);
+  // 678: "retrieve_continuation_info" = "
+  // 679:   int retrieve_continuation_info(
+  // 680:     FUNC func, const char **filename_p, CONTINUATION_INFO **info_p
+  // 681:   );
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_718;
@@ -5775,6 +5780,23 @@ static void cont__2_720(void) {
     return;
   }
   frame->slots[239] /* temp__240 */ = arguments->slots[0];
+  // 682: "crash_dump" = "
+  // 683:   void crash_dump(void);
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = string__2_721;
+  arguments->slots[1] = string__2_722;
+  result_count = 1;
+  myself = get__std__key_value_pair();
+  func = myself->type;
+  frame->cont = cont__2_723;
+}
+static void cont__2_723(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[240] /* temp__241 */ = arguments->slots[0];
   // 22: $sim2c::runtime_symbols
   // 23:   table
   // 24:     "ASM" = "
@@ -5786,7 +5808,7 @@ static void cont__2_720(void) {
   // 30:     "REGISTER" = "
   // 31:       #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
   // ...
-  argument_count = 240;
+  argument_count = 241;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = frame->slots[1] /* temp__2 */;
@@ -6028,12 +6050,13 @@ static void cont__2_720(void) {
   arguments->slots[237] = frame->slots[237] /* temp__238 */;
   arguments->slots[238] = frame->slots[238] /* temp__239 */;
   arguments->slots[239] = frame->slots[239] /* temp__240 */;
+  arguments->slots[240] = frame->slots[240] /* temp__241 */;
   result_count = 1;
   myself = get__table();
   func = myself->type;
-  frame->cont = cont__2_721;
+  frame->cont = cont__2_724;
 }
-static void cont__2_721(void) {
+static void cont__2_724(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6525,6 +6548,8 @@ EXPORT void collect__runtime_definitions(void) {
   string__2_716 = collect_node(string__2_716);
   string__2_718 = collect_node(string__2_718);
   string__2_719 = collect_node(string__2_719);
+  string__2_721 = collect_node(string__2_721);
+  string__2_722 = collect_node(string__2_722);
 }
 
 static int already_run_phase_1 = false;
@@ -6540,9 +6565,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__runtime_definitions(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("runtime_definitions");
-  set_used_namespaces(used_namespaces);
-  define_single_assign_static("sim2c", "runtime_symbols", get__sim2c__runtime_symbols, &var.sim2c__runtime_symbols);
   string__2_1 = from_latin_1_string("ASM", 3);
   string__2_2 = from_latin_1_string("#if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)\012  #define ASM(x) asm(x)\012#else\012  #define ASM(x)\012#endif\012", 120);
   string__2_4 = from_latin_1_string("REGISTER", 8);
@@ -6799,8 +6821,8 @@ EXPORT void phase_2__runtime_definitions(void) {
   string__2_380 = from_latin_1_string("void deallocate_memory(void *buf);\012", 35);
   string__2_382 = from_latin_1_string("copy", 4);
   string__2_383 = from_latin_1_string("void *copy(const void *buf, long size);\012", 40);
-  string__2_385 = from_latin_1_string("register_phase_2_collector", 26);
-  string__2_386 = from_latin_1_string("void register_phase_2_collector(void *data);\012", 45);
+  string__2_385 = from_latin_1_string("register_phase_3_collector", 26);
+  string__2_386 = from_latin_1_string("void register_phase_3_collector(void *data);\012", 45);
   string__2_388 = from_latin_1_string("child_changed_state", 19);
   string__2_389 = from_latin_1_string("int child_changed_state;\012", 25);
   string__2_391 = from_latin_1_string("window_changed_size", 19);
@@ -6839,190 +6861,192 @@ EXPORT void phase_2__runtime_definitions(void) {
   string__2_440 = from_latin_1_string("void initialize_runtime(void);\012", 31);
   string__2_442 = from_latin_1_string("initialize_phase_3", 18);
   string__2_443 = from_latin_1_string("void initialize_phase_3(void);\012", 31);
-  string__2_445 = from_latin_1_string("current_mark", 12);
-  string__2_446 = from_latin_1_string("long current_mark;\012", 19);
-  string__2_448 = from_latin_1_string("join_nodes", 10);
-  string__2_449 = from_latin_1_string("void join_nodes(void *left_node_pp, void *right_node_pp);\012", 58);
-  string__2_451 = from_latin_1_string("clone_object_and_attributes", 27);
-  string__2_452 = from_latin_1_string("NODE *clone_object_and_attributes(NODE *node);\012", 47);
-  string__2_454 = from_latin_1_string("register_collector", 18);
-  string__2_455 = from_latin_1_string("void register_collector(FUNC collector);\012", 41);
-  string__2_457 = from_latin_1_string("collect_node", 12);
-  string__2_458 = from_latin_1_string("NODE *collect_node(NODE *node);\012", 32);
-  string__2_460 = from_latin_1_string("collect_static_attributes", 25);
-  string__2_461 = from_latin_1_string("void collect_static_attributes(ATTRIBUTES *attributes);\012", 56);
-  string__2_463 = from_latin_1_string("collect_attributes", 18);
-  string__2_464 = from_latin_1_string("ATTRIBUTES *collect_attributes(ATTRIBUTES *attributes);\012", 56);
-  string__2_466 = from_latin_1_string("collect_simple_node", 19);
-  string__2_467 = from_latin_1_string("void *collect_simple_node(SIMPLE_NODE *node);\012", 46);
-  string__2_469 = from_latin_1_string("total_garbage_collections", 25);
-  string__2_470 = from_latin_1_string("int total_garbage_collections;\012", 31);
-  string__2_472 = from_latin_1_string("collect_garbage", 15);
-  string__2_473 = from_latin_1_string("void collect_garbage();\012", 24);
-  string__2_475 = from_latin_1_string("indent_to_string", 16);
-  string__2_476 = from_latin_1_string("const char *indent_to_string(int indent);\012", 42);
-  string__2_478 = from_latin_1_string("print", 5);
-  string__2_479 = from_latin_1_string("int print(char **buf_p, const char *format, ...);\012", 50);
-  string__2_481 = from_latin_1_string("debug_print", 11);
-  string__2_482 = from_latin_1_string("int debug_print(int indent, char *buf, const char *format, ...);\012", 65);
-  string__2_484 = from_latin_1_string("debug_print_head", 16);
-  string__2_485 = from_latin_1_string("int debug_print_head(int *indent_p, char **buf_p, const char *format, ...);\012", 76);
-  string__2_487 = from_latin_1_string("to_int8", 7);
-  string__2_488 = from_latin_1_string("uint32_t to_int8(NODE *node);\012", 30);
-  string__2_490 = from_latin_1_string("to_int16", 8);
-  string__2_491 = from_latin_1_string("uint64_t to_int16(NODE *node);\012", 31);
-  string__2_493 = from_latin_1_string("to_int32", 8);
-  string__2_494 = from_latin_1_string("uint32_t to_int32(NODE *node);\012", 31);
-  string__2_496 = from_latin_1_string("to_int64", 8);
-  string__2_497 = from_latin_1_string("uint64_t to_int64(NODE *node);\012", 31);
-  string__2_499 = from_latin_1_string("to_uint8", 8);
-  string__2_500 = from_latin_1_string("uint32_t to_uint8(NODE *node);\012", 31);
-  string__2_502 = from_latin_1_string("to_uint16", 9);
-  string__2_503 = from_latin_1_string("uint64_t to_uint16(NODE *node);\012", 32);
-  string__2_505 = from_latin_1_string("to_uint32", 9);
-  string__2_506 = from_latin_1_string("uint32_t to_uint32(NODE *node);\012", 32);
-  string__2_508 = from_latin_1_string("to_uint64", 9);
-  string__2_509 = from_latin_1_string("uint64_t to_uint64(NODE *node);\012", 32);
-  string__2_511 = from_latin_1_string("to_uchar32", 10);
-  string__2_512 = from_latin_1_string("uint32_t to_uchar32(NODE *node);\012", 33);
-  string__2_514 = from_latin_1_string("to_bool", 7);
-  string__2_515 = from_latin_1_string("int to_bool(NODE *node);\012", 25);
-  string__2_517 = from_latin_1_string("to_int", 6);
-  string__2_518 = from_latin_1_string("int to_int(NODE *node);\012", 24);
-  string__2_520 = from_latin_1_string("to_long", 7);
-  string__2_521 = from_latin_1_string("long to_long(NODE *node);\012", 26);
-  string__2_523 = from_latin_1_string("to_double", 9);
-  string__2_524 = from_latin_1_string("double to_double(NODE *node);\012", 30);
-  string__2_526 = from_latin_1_string("to_c_string", 11);
-  string__2_527 = from_latin_1_string("char *to_c_string(NODE *node);\012", 31);
-  string__2_529 = from_latin_1_string("to_octets", 9);
-  string__2_530 = from_latin_1_string("uint8_t *to_octets(NODE *node, long *size_p);\012", 46);
-  string__2_532 = from_latin_1_string("get_item_of", 11);
-  string__2_533 = from_latin_1_string("NODE *get_item_of(NODE *node, long idx);\012", 41);
-  string__2_535 = from_latin_1_string("length_of", 9);
-  string__2_536 = from_latin_1_string("long length_of(NODE *node);\012", 28);
-  string__2_538 = from_latin_1_string("unfold", 6);
-  string__2_539 = from_latin_1_string("void unfold(NODE *node);\012", 25);
-  string__2_541 = from_latin_1_string("debug_string", 12);
-  string__2_542 = from_latin_1_string("long debug_string(NODE *node, int indent, int max_depth, char *buf);\012", 69);
-  string__2_544 = from_latin_1_string("optional_item", 13);
-  string__2_545 = from_latin_1_string("void optional_item(NODE *item);\012", 32);
-  string__2_547 = from_latin_1_string("get_attribute", 13);
-  string__2_548 = from_latin_1_string("NODE *get_attribute(NODE *node, int idx);\012", 42);
-  string__2_550 = from_latin_1_string("polymorph_dispatch", 18);
-  string__2_551 = from_latin_1_string("void polymorph_dispatch(int idx);\012", 34);
-  string__2_553 = from_latin_1_string("set_attribute", 13);
-  string__2_554 = from_latin_1_string("void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);\012", 65);
-  string__2_556 = from_latin_1_string("set_attribute_value", 19);
-  string__2_557 = from_latin_1_string("void set_attribute_value(ATTRIBUTES *attributes, int idx, void *attr);\012", 71);
-  string__2_559 = from_latin_1_string("record__event", 13);
-  string__2_560 = from_latin_1_string("void record__event(const char *name);\012", 38);
-  string__2_562 = from_latin_1_string("successful__action", 18);
-  string__2_563 = from_latin_1_string("void successful__action(const char *name);\012", 43);
-  string__2_565 = from_latin_1_string("failed__action", 14);
-  string__2_566 = from_latin_1_string("void failed__action(const char *name);\012", 39);
-  string__2_568 = from_latin_1_string("replay__event", 13);
-  string__2_569 = from_latin_1_string("void replay__event(const char *name);\012", 38);
-  string__2_571 = from_latin_1_string("replay__action", 14);
-  string__2_572 = from_latin_1_string("int replay__action(const char *name);\012", 38);
-  string__2_574 = from_latin_1_string("report__event", 13);
-  string__2_575 = from_latin_1_string("void report__event(const char *name);\012", 38);
-  string__2_577 = from_latin_1_string("print__pointer", 14);
-  string__2_578 = from_latin_1_string("void print__pointer(void *ptr);\012", 32);
-  string__2_580 = from_latin_1_string("store__pointer", 14);
-  string__2_581 = from_latin_1_string("void store__pointer(void *ptr);\012", 32);
-  string__2_583 = from_latin_1_string("retrieve__pointer", 17);
-  string__2_584 = from_latin_1_string("void retrieve__pointer(void **ptr_p);\012", 38);
-  string__2_586 = from_latin_1_string("print__integer", 14);
-  string__2_587 = from_latin_1_string("void print__integer(int val);\012", 30);
-  string__2_589 = from_latin_1_string("store__integer", 14);
-  string__2_590 = from_latin_1_string("void store__integer(int val);\012", 30);
-  string__2_592 = from_latin_1_string("retrieve__integer", 17);
-  string__2_593 = from_latin_1_string("void retrieve__integer(int *val_p);\012", 36);
-  string__2_595 = from_latin_1_string("print__long_integer", 19);
-  string__2_596 = from_latin_1_string("void print__long_integer(long val);\012", 36);
-  string__2_598 = from_latin_1_string("store__long_integer", 19);
-  string__2_599 = from_latin_1_string("void store__long_integer(long val);\012", 36);
-  string__2_601 = from_latin_1_string("retrieve__long_integer", 22);
-  string__2_602 = from_latin_1_string("void retrieve__long_integer(long *val_p);\012", 42);
-  string__2_604 = from_latin_1_string("print__int_array", 16);
-  string__2_605 = from_latin_1_string("void print__int_array(const int *buf, long len);\012", 49);
-  string__2_607 = from_latin_1_string("store__int_array", 16);
-  string__2_608 = from_latin_1_string("void store__int_array(const int *buf, long len);\012", 49);
-  string__2_610 = from_latin_1_string("retrieve__int_array", 19);
-  string__2_611 = from_latin_1_string("long retrieve__int_array(int **buf_p);\012", 39);
-  string__2_613 = from_latin_1_string("print__memory", 13);
-  string__2_614 = from_latin_1_string("void print__memory(const uint8_t *buf, long len);\012", 50);
-  string__2_616 = from_latin_1_string("store__memory", 13);
-  string__2_617 = from_latin_1_string("void store__memory(const uint8_t *buf, long len);\012", 50);
-  string__2_619 = from_latin_1_string("retrieve__memory", 16);
-  string__2_620 = from_latin_1_string("long retrieve__memory(uint8_t **buf_p);\012", 40);
-  string__2_622 = from_latin_1_string("print__c_string", 15);
-  string__2_623 = from_latin_1_string("void print__c_string(const char *buf);\012", 39);
-  string__2_625 = from_latin_1_string("store__c_string", 15);
-  string__2_626 = from_latin_1_string("void store__c_string(const char *buf);\012", 39);
-  string__2_628 = from_latin_1_string("retrieve__c_string", 18);
-  string__2_629 = from_latin_1_string("void retrieve__c_string(char **buf_p);\012", 39);
-  string__2_631 = from_latin_1_string("create_function", 15);
-  string__2_632 = from_latin_1_string("NODE *create_function(FUNC func, int par_count);\012", 49);
-  string__2_634 = from_latin_1_string("create_closure", 14);
-  string__2_635 = from_latin_1_string("NODE *create_closure(FUNC type, int par_count);\012", 48);
-  string__2_637 = from_latin_1_string("continuation_type_function", 26);
-  string__2_638 = from_latin_1_string("void continuation_type_function(void);\012", 39);
-  string__2_640 = from_latin_1_string("continuation_trampoline", 23);
-  string__2_641 = from_latin_1_string("void continuation_trampoline(void);\012", 36);
-  string__2_643 = from_latin_1_string("create_continuation", 19);
-  string__2_644 = from_latin_1_string("NODE *create_continuation(void);\012", 33);
-  string__2_646 = from_latin_1_string("create_continuation_with_exit", 29);
-  string__2_647 = from_latin_1_string("NODE *create_continuation_with_exit(FUNC exit_func);\012", 53);
-  string__2_649 = from_latin_1_string("initialize_function_attributes", 30);
-  string__2_650 = from_latin_1_string("void initialize_function_attributes(void);\012", 43);
-  string__2_652 = from_latin_1_string("create_future", 13);
-  string__2_653 = from_latin_1_string("NODE *create_future(void);\012", 27);
-  string__2_655 = from_latin_1_string("create_future_with_prototype", 28);
-  string__2_656 = from_latin_1_string("NODE *create_future_with_prototype(NODE *prototype);\012", 53);
-  string__2_658 = from_latin_1_string("initialize_future", 17);
-  string__2_659 = from_latin_1_string("void initialize_future(NODE *var, NODE *val);\012", 46);
-  string__2_661 = from_latin_1_string("maybe_initialize_future", 23);
-  string__2_662 = from_latin_1_string("void maybe_initialize_future(NODE *var, NODE *val);\012", 52);
-  string__2_664 = from_latin_1_string("initialize_maybe_future", 23);
-  string__2_665 = from_latin_1_string("void initialize_maybe_future(NODE *var, NODE *val);\012", 52);
-  string__2_667 = from_latin_1_string("assign_value", 12);
-  string__2_668 = from_latin_1_string("void assign_value(NODE **dest, NODE *val);\012", 43);
-  string__2_670 = from_latin_1_string("assign_variable", 15);
-  string__2_671 = from_latin_1_string("void assign_variable(NODE **dest, NODE **var_p);\012", 49);
-  string__2_673 = from_latin_1_string("def_attribute", 13);
-  string__2_674 = from_latin_1_string("void def_attribute(NODE **var_p, int idx, void *attr);\012", 55);
-  string__2_676 = from_latin_1_string("create_cell", 11);
-  string__2_677 = from_latin_1_string("NODE *create_cell(void);\012", 25);
-  string__2_679 = from_latin_1_string("create_cell_with_contents", 25);
-  string__2_680 = from_latin_1_string("NODE *create_cell_with_contents(NODE *contents);\012", 49);
-  string__2_682 = from_latin_1_string("get_dynamic_slot", 16);
-  string__2_683 = from_latin_1_string("NODE *get_dynamic_slot(int id);\012", 32);
-  string__2_685 = from_latin_1_string("get_dynamic_cell", 16);
-  string__2_686 = from_latin_1_string("NODE *get_dynamic_cell(int id);\012", 32);
-  string__2_688 = from_latin_1_string("set_dynamic_cell", 16);
-  string__2_689 = from_latin_1_string("void set_dynamic_cell(int id, NODE *node);\012", 43);
-  string__2_691 = from_latin_1_string("define_dynamic_slot", 19);
-  string__2_692 = from_latin_1_string("void define_dynamic_slot(int id, NODE *node);\012", 46);
-  string__2_694 = from_latin_1_string("define_dynamic_cell", 19);
-  string__2_695 = from_latin_1_string("void define_dynamic_cell(int id, NODE *node);\012", 46);
-  string__2_697 = from_latin_1_string("terminate", 9);
-  string__2_698 = from_latin_1_string("void terminate(int exit_code);\012", 31);
-  string__2_700 = from_latin_1_string("execute", 7);
-  string__2_701 = from_latin_1_string("__attribute__ ((noreturn)) void execute(FUNC entry);\012", 53);
-  string__2_703 = from_latin_1_string("invoke_callback", 15);
-  string__2_704 = from_latin_1_string("void invoke_callback(NODE *callback);\012", 38);
-  string__2_706 = from_latin_1_string("COMPARE_FUNCTION", 16);
-  string__2_707 = from_latin_1_string("typedef int (*COMPARE_FUNCTION)(const void *, const void *);\012", 61);
-  string__2_709 = from_latin_1_string("DEBUG_COMMAND", 13);
-  string__2_710 = from_latin_1_string("typedef enum {\012  SHOW_PROMPT,\012  LOG_LAST_INSTRUCTION,\012  GOTO_INSTRUCTION\012} DEBUG_COMMAND;\012", 90);
-  string__2_712 = from_latin_1_string("SHARED_DATA", 11);
-  string__2_713 = from_latin_1_string("typedef struct {\012  DEBUG_COMMAND command;\012  uint64_t instruction_counter;\012  int depth;\012} SHARED_DATA;\012", 102);
-  string__2_715 = from_latin_1_string("retrieve_continuation_info", 26);
-  string__2_716 = from_latin_1_string("int retrieve_continuation_info(\012  FUNC func, const char **filename_p, CONTINUATION_INFO **info_p\012);\012", 100);
-  string__2_718 = from_latin_1_string("crash_dump", 10);
-  string__2_719 = from_latin_1_string("void crash_dump(void);\012", 23);
+  string__2_445 = from_latin_1_string("initialize_phase_4", 18);
+  string__2_446 = from_latin_1_string("void initialize_phase_4(void);\012", 31);
+  string__2_448 = from_latin_1_string("current_mark", 12);
+  string__2_449 = from_latin_1_string("long current_mark;\012", 19);
+  string__2_451 = from_latin_1_string("join_nodes", 10);
+  string__2_452 = from_latin_1_string("void join_nodes(void *left_node_pp, void *right_node_pp);\012", 58);
+  string__2_454 = from_latin_1_string("clone_object_and_attributes", 27);
+  string__2_455 = from_latin_1_string("NODE *clone_object_and_attributes(NODE *node);\012", 47);
+  string__2_457 = from_latin_1_string("register_collector", 18);
+  string__2_458 = from_latin_1_string("void register_collector(FUNC collector);\012", 41);
+  string__2_460 = from_latin_1_string("collect_node", 12);
+  string__2_461 = from_latin_1_string("NODE *collect_node(NODE *node);\012", 32);
+  string__2_463 = from_latin_1_string("collect_static_attributes", 25);
+  string__2_464 = from_latin_1_string("void collect_static_attributes(ATTRIBUTES *attributes);\012", 56);
+  string__2_466 = from_latin_1_string("collect_attributes", 18);
+  string__2_467 = from_latin_1_string("ATTRIBUTES *collect_attributes(ATTRIBUTES *attributes);\012", 56);
+  string__2_469 = from_latin_1_string("collect_simple_node", 19);
+  string__2_470 = from_latin_1_string("void *collect_simple_node(SIMPLE_NODE *node);\012", 46);
+  string__2_472 = from_latin_1_string("total_garbage_collections", 25);
+  string__2_473 = from_latin_1_string("int total_garbage_collections;\012", 31);
+  string__2_475 = from_latin_1_string("collect_garbage", 15);
+  string__2_476 = from_latin_1_string("void collect_garbage();\012", 24);
+  string__2_478 = from_latin_1_string("indent_to_string", 16);
+  string__2_479 = from_latin_1_string("const char *indent_to_string(int indent);\012", 42);
+  string__2_481 = from_latin_1_string("print", 5);
+  string__2_482 = from_latin_1_string("int print(char **buf_p, const char *format, ...);\012", 50);
+  string__2_484 = from_latin_1_string("debug_print", 11);
+  string__2_485 = from_latin_1_string("int debug_print(int indent, char *buf, const char *format, ...);\012", 65);
+  string__2_487 = from_latin_1_string("debug_print_head", 16);
+  string__2_488 = from_latin_1_string("int debug_print_head(int *indent_p, char **buf_p, const char *format, ...);\012", 76);
+  string__2_490 = from_latin_1_string("to_int8", 7);
+  string__2_491 = from_latin_1_string("uint32_t to_int8(NODE *node);\012", 30);
+  string__2_493 = from_latin_1_string("to_int16", 8);
+  string__2_494 = from_latin_1_string("uint64_t to_int16(NODE *node);\012", 31);
+  string__2_496 = from_latin_1_string("to_int32", 8);
+  string__2_497 = from_latin_1_string("uint32_t to_int32(NODE *node);\012", 31);
+  string__2_499 = from_latin_1_string("to_int64", 8);
+  string__2_500 = from_latin_1_string("uint64_t to_int64(NODE *node);\012", 31);
+  string__2_502 = from_latin_1_string("to_uint8", 8);
+  string__2_503 = from_latin_1_string("uint32_t to_uint8(NODE *node);\012", 31);
+  string__2_505 = from_latin_1_string("to_uint16", 9);
+  string__2_506 = from_latin_1_string("uint64_t to_uint16(NODE *node);\012", 32);
+  string__2_508 = from_latin_1_string("to_uint32", 9);
+  string__2_509 = from_latin_1_string("uint32_t to_uint32(NODE *node);\012", 32);
+  string__2_511 = from_latin_1_string("to_uint64", 9);
+  string__2_512 = from_latin_1_string("uint64_t to_uint64(NODE *node);\012", 32);
+  string__2_514 = from_latin_1_string("to_uchar32", 10);
+  string__2_515 = from_latin_1_string("uint32_t to_uchar32(NODE *node);\012", 33);
+  string__2_517 = from_latin_1_string("to_bool", 7);
+  string__2_518 = from_latin_1_string("int to_bool(NODE *node);\012", 25);
+  string__2_520 = from_latin_1_string("to_int", 6);
+  string__2_521 = from_latin_1_string("int to_int(NODE *node);\012", 24);
+  string__2_523 = from_latin_1_string("to_long", 7);
+  string__2_524 = from_latin_1_string("long to_long(NODE *node);\012", 26);
+  string__2_526 = from_latin_1_string("to_double", 9);
+  string__2_527 = from_latin_1_string("double to_double(NODE *node);\012", 30);
+  string__2_529 = from_latin_1_string("to_c_string", 11);
+  string__2_530 = from_latin_1_string("char *to_c_string(NODE *node);\012", 31);
+  string__2_532 = from_latin_1_string("to_octets", 9);
+  string__2_533 = from_latin_1_string("uint8_t *to_octets(NODE *node, long *size_p);\012", 46);
+  string__2_535 = from_latin_1_string("get_item_of", 11);
+  string__2_536 = from_latin_1_string("NODE *get_item_of(NODE *node, long idx);\012", 41);
+  string__2_538 = from_latin_1_string("length_of", 9);
+  string__2_539 = from_latin_1_string("long length_of(NODE *node);\012", 28);
+  string__2_541 = from_latin_1_string("unfold", 6);
+  string__2_542 = from_latin_1_string("void unfold(NODE *node);\012", 25);
+  string__2_544 = from_latin_1_string("debug_string", 12);
+  string__2_545 = from_latin_1_string("long debug_string(NODE *node, int indent, int max_depth, char *buf);\012", 69);
+  string__2_547 = from_latin_1_string("optional_item", 13);
+  string__2_548 = from_latin_1_string("void optional_item(NODE *item);\012", 32);
+  string__2_550 = from_latin_1_string("get_attribute", 13);
+  string__2_551 = from_latin_1_string("NODE *get_attribute(NODE *node, int idx);\012", 42);
+  string__2_553 = from_latin_1_string("polymorph_dispatch", 18);
+  string__2_554 = from_latin_1_string("void polymorph_dispatch(int idx);\012", 34);
+  string__2_556 = from_latin_1_string("set_attribute", 13);
+  string__2_557 = from_latin_1_string("void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);\012", 65);
+  string__2_559 = from_latin_1_string("set_attribute_value", 19);
+  string__2_560 = from_latin_1_string("void set_attribute_value(ATTRIBUTES *attributes, int idx, void *attr);\012", 71);
+  string__2_562 = from_latin_1_string("record__event", 13);
+  string__2_563 = from_latin_1_string("void record__event(const char *name);\012", 38);
+  string__2_565 = from_latin_1_string("successful__action", 18);
+  string__2_566 = from_latin_1_string("void successful__action(const char *name);\012", 43);
+  string__2_568 = from_latin_1_string("failed__action", 14);
+  string__2_569 = from_latin_1_string("void failed__action(const char *name);\012", 39);
+  string__2_571 = from_latin_1_string("replay__event", 13);
+  string__2_572 = from_latin_1_string("void replay__event(const char *name);\012", 38);
+  string__2_574 = from_latin_1_string("replay__action", 14);
+  string__2_575 = from_latin_1_string("int replay__action(const char *name);\012", 38);
+  string__2_577 = from_latin_1_string("report__event", 13);
+  string__2_578 = from_latin_1_string("void report__event(const char *name);\012", 38);
+  string__2_580 = from_latin_1_string("print__pointer", 14);
+  string__2_581 = from_latin_1_string("void print__pointer(void *ptr);\012", 32);
+  string__2_583 = from_latin_1_string("store__pointer", 14);
+  string__2_584 = from_latin_1_string("void store__pointer(void *ptr);\012", 32);
+  string__2_586 = from_latin_1_string("retrieve__pointer", 17);
+  string__2_587 = from_latin_1_string("void retrieve__pointer(void **ptr_p);\012", 38);
+  string__2_589 = from_latin_1_string("print__integer", 14);
+  string__2_590 = from_latin_1_string("void print__integer(int val);\012", 30);
+  string__2_592 = from_latin_1_string("store__integer", 14);
+  string__2_593 = from_latin_1_string("void store__integer(int val);\012", 30);
+  string__2_595 = from_latin_1_string("retrieve__integer", 17);
+  string__2_596 = from_latin_1_string("void retrieve__integer(int *val_p);\012", 36);
+  string__2_598 = from_latin_1_string("print__long_integer", 19);
+  string__2_599 = from_latin_1_string("void print__long_integer(long val);\012", 36);
+  string__2_601 = from_latin_1_string("store__long_integer", 19);
+  string__2_602 = from_latin_1_string("void store__long_integer(long val);\012", 36);
+  string__2_604 = from_latin_1_string("retrieve__long_integer", 22);
+  string__2_605 = from_latin_1_string("void retrieve__long_integer(long *val_p);\012", 42);
+  string__2_607 = from_latin_1_string("print__int_array", 16);
+  string__2_608 = from_latin_1_string("void print__int_array(const int *buf, long len);\012", 49);
+  string__2_610 = from_latin_1_string("store__int_array", 16);
+  string__2_611 = from_latin_1_string("void store__int_array(const int *buf, long len);\012", 49);
+  string__2_613 = from_latin_1_string("retrieve__int_array", 19);
+  string__2_614 = from_latin_1_string("long retrieve__int_array(int **buf_p);\012", 39);
+  string__2_616 = from_latin_1_string("print__memory", 13);
+  string__2_617 = from_latin_1_string("void print__memory(const uint8_t *buf, long len);\012", 50);
+  string__2_619 = from_latin_1_string("store__memory", 13);
+  string__2_620 = from_latin_1_string("void store__memory(const uint8_t *buf, long len);\012", 50);
+  string__2_622 = from_latin_1_string("retrieve__memory", 16);
+  string__2_623 = from_latin_1_string("long retrieve__memory(uint8_t **buf_p);\012", 40);
+  string__2_625 = from_latin_1_string("print__c_string", 15);
+  string__2_626 = from_latin_1_string("void print__c_string(const char *buf);\012", 39);
+  string__2_628 = from_latin_1_string("store__c_string", 15);
+  string__2_629 = from_latin_1_string("void store__c_string(const char *buf);\012", 39);
+  string__2_631 = from_latin_1_string("retrieve__c_string", 18);
+  string__2_632 = from_latin_1_string("void retrieve__c_string(char **buf_p);\012", 39);
+  string__2_634 = from_latin_1_string("create_function", 15);
+  string__2_635 = from_latin_1_string("NODE *create_function(FUNC func, int par_count);\012", 49);
+  string__2_637 = from_latin_1_string("create_closure", 14);
+  string__2_638 = from_latin_1_string("NODE *create_closure(FUNC type, int par_count);\012", 48);
+  string__2_640 = from_latin_1_string("continuation_type_function", 26);
+  string__2_641 = from_latin_1_string("void continuation_type_function(void);\012", 39);
+  string__2_643 = from_latin_1_string("continuation_trampoline", 23);
+  string__2_644 = from_latin_1_string("void continuation_trampoline(void);\012", 36);
+  string__2_646 = from_latin_1_string("create_continuation", 19);
+  string__2_647 = from_latin_1_string("NODE *create_continuation(void);\012", 33);
+  string__2_649 = from_latin_1_string("create_continuation_with_exit", 29);
+  string__2_650 = from_latin_1_string("NODE *create_continuation_with_exit(FUNC exit_func);\012", 53);
+  string__2_652 = from_latin_1_string("initialize_function_attributes", 30);
+  string__2_653 = from_latin_1_string("void initialize_function_attributes(void);\012", 43);
+  string__2_655 = from_latin_1_string("create_future", 13);
+  string__2_656 = from_latin_1_string("NODE *create_future(void);\012", 27);
+  string__2_658 = from_latin_1_string("create_future_with_prototype", 28);
+  string__2_659 = from_latin_1_string("NODE *create_future_with_prototype(NODE *prototype);\012", 53);
+  string__2_661 = from_latin_1_string("initialize_future", 17);
+  string__2_662 = from_latin_1_string("void initialize_future(NODE *var, NODE *val);\012", 46);
+  string__2_664 = from_latin_1_string("maybe_initialize_future", 23);
+  string__2_665 = from_latin_1_string("void maybe_initialize_future(NODE *var, NODE *val);\012", 52);
+  string__2_667 = from_latin_1_string("initialize_maybe_future", 23);
+  string__2_668 = from_latin_1_string("void initialize_maybe_future(NODE *var, NODE *val);\012", 52);
+  string__2_670 = from_latin_1_string("assign_value", 12);
+  string__2_671 = from_latin_1_string("void assign_value(NODE **dest, NODE *val);\012", 43);
+  string__2_673 = from_latin_1_string("assign_variable", 15);
+  string__2_674 = from_latin_1_string("void assign_variable(NODE **dest, NODE **var_p);\012", 49);
+  string__2_676 = from_latin_1_string("def_attribute", 13);
+  string__2_677 = from_latin_1_string("void def_attribute(NODE **var_p, int idx, void *attr);\012", 55);
+  string__2_679 = from_latin_1_string("create_cell", 11);
+  string__2_680 = from_latin_1_string("NODE *create_cell(void);\012", 25);
+  string__2_682 = from_latin_1_string("create_cell_with_contents", 25);
+  string__2_683 = from_latin_1_string("NODE *create_cell_with_contents(NODE *contents);\012", 49);
+  string__2_685 = from_latin_1_string("get_dynamic_slot", 16);
+  string__2_686 = from_latin_1_string("NODE *get_dynamic_slot(int id);\012", 32);
+  string__2_688 = from_latin_1_string("get_dynamic_cell", 16);
+  string__2_689 = from_latin_1_string("NODE *get_dynamic_cell(int id);\012", 32);
+  string__2_691 = from_latin_1_string("set_dynamic_cell", 16);
+  string__2_692 = from_latin_1_string("void set_dynamic_cell(int id, NODE *node);\012", 43);
+  string__2_694 = from_latin_1_string("define_dynamic_slot", 19);
+  string__2_695 = from_latin_1_string("void define_dynamic_slot(int id, NODE *node);\012", 46);
+  string__2_697 = from_latin_1_string("define_dynamic_cell", 19);
+  string__2_698 = from_latin_1_string("void define_dynamic_cell(int id, NODE *node);\012", 46);
+  string__2_700 = from_latin_1_string("terminate", 9);
+  string__2_701 = from_latin_1_string("void terminate(int exit_code);\012", 31);
+  string__2_703 = from_latin_1_string("execute", 7);
+  string__2_704 = from_latin_1_string("__attribute__ ((noreturn)) void execute(FUNC entry);\012", 53);
+  string__2_706 = from_latin_1_string("invoke_callback", 15);
+  string__2_707 = from_latin_1_string("void invoke_callback(NODE *callback);\012", 38);
+  string__2_709 = from_latin_1_string("COMPARE_FUNCTION", 16);
+  string__2_710 = from_latin_1_string("typedef int (*COMPARE_FUNCTION)(const void *, const void *);\012", 61);
+  string__2_712 = from_latin_1_string("DEBUG_COMMAND", 13);
+  string__2_713 = from_latin_1_string("typedef enum {\012  SHOW_PROMPT,\012  LOG_LAST_INSTRUCTION,\012  GOTO_INSTRUCTION\012} DEBUG_COMMAND;\012", 90);
+  string__2_715 = from_latin_1_string("SHARED_DATA", 11);
+  string__2_716 = from_latin_1_string("typedef struct {\012  DEBUG_COMMAND command;\012  uint64_t instruction_counter;\012  int depth;\012} SHARED_DATA;\012", 102);
+  string__2_718 = from_latin_1_string("retrieve_continuation_info", 26);
+  string__2_719 = from_latin_1_string("int retrieve_continuation_info(\012  FUNC func, const char **filename_p, CONTINUATION_INFO **info_p\012);\012", 100);
+  string__2_721 = from_latin_1_string("crash_dump", 10);
+  string__2_722 = from_latin_1_string("void crash_dump(void);\012", 23);
 }
 
 static int already_run_phase_3 = false;
@@ -7032,8 +7056,7 @@ EXPORT void phase_3__runtime_definitions(void) {
   already_run_phase_3 = true;
   set_module("runtime_definitions");
   set_used_namespaces(used_namespaces);
-  use_read_only("std", "key_value_pair", &get__std__key_value_pair, &get_value_or_future__std__key_value_pair);
-  use_read_only(NULL, "table", &get__table, &get_value_or_future__table);
+  define_single_assign_static("sim2c", "runtime_symbols", get__sim2c__runtime_symbols, &var.sim2c__runtime_symbols);
 }
 
 static int already_run_phase_4 = false;
@@ -7041,6 +7064,10 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__runtime_definitions(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
+  set_module("runtime_definitions");
+  set_used_namespaces(used_namespaces);
+  use_read_only("std", "key_value_pair", &get__std__key_value_pair, &get_value_or_future__std__key_value_pair);
+  use_read_only(NULL, "table", &get__table, &get_value_or_future__table);
 }
 
 static int already_run_phase_5 = false;
@@ -7048,5 +7075,12 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__runtime_definitions(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__runtime_definitions(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   register_collector(collect__runtime_definitions);
 }

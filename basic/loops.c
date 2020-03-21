@@ -190,9 +190,9 @@ IMPORT NODE *create_future(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -2817,9 +2817,16 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__loops(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  number__1 = from_uint32(1U);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__loops(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__loops");
   set_used_namespaces(used_namespaces);
-  number__1 = from_uint32(1U);
   func__1_1 = create_future();
   define_single_assign_static("std", "from_to", get__std__from_to, &var.std__from_to);
   func__2_1 = create_future();
@@ -2848,11 +2855,11 @@ EXPORT void phase_2__basic__loops(void) {
   define_single_assign_static("std", "do_until", get__std__do_until, &var.std__do_until);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__loops(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__loops(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__loops");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "do_until", &get__do_until, &get_value_or_future__do_until);
@@ -2869,11 +2876,11 @@ EXPORT void phase_3__basic__loops(void) {
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__loops(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__loops(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var.std__from_to, &func__1_1);
   assign_variable(&var._from_to_1, &func__2_1);
   assign_variable(&var._from_to_2, &func__3_1);
@@ -2893,11 +2900,11 @@ EXPORT void phase_4__basic__loops(void) {
   assign_variable(&var.std__do_until, &func__17_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__loops(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__loops(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, -1));
   assign_value(&func__2_1, create_function(entry__2_1, 3));
   assign_value(&func__3_1, create_function(entry__3_1, 4));

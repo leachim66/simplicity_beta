@@ -158,7 +158,7 @@ typedef struct PHASE_2_COLLECTOR {
   void *next_collector;
   void (*collector)(void *data);
 } PHASE_2_COLLECTOR;
-IMPORT void register_phase_2_collector(void *data);
+IMPORT void register_phase_3_collector(void *data);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT ATTRIBUTES *collect_attributes(ATTRIBUTES *attributes);
 IMPORT void invalid_arguments_error(void);
@@ -192,9 +192,10 @@ IMPORT NODE *create_continuation_with_exit(FUNC exit_func);
 IMPORT void continuation_type_function(void);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -202,7 +203,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -387,7 +387,7 @@ typedef struct {
   UNORDERED_TABLE_DATA *data;
 } UNORDERED_TABLE;
 
-static void collect_unordered_table_data_phase_2(
+static void collect_unordered_table_data_phase_3(
   void *old_data
 );
 
@@ -869,10 +869,10 @@ static void cont__64_2(void) {
   frame->cont = invalid_continuation;
 }
 
-static void collect_unordered_table_data_phase_2(
+static void collect_unordered_table_data_phase_3(
   void *old_data
 ) {
-  //fprintf(stderr, "collect_unordered_table_data_phase_2 (%p)\n", old_data);
+  //fprintf(stderr, "collect_unordered_table_data_phase_3 (%p)\n", old_data);
   UNORDERED_TABLE_DATA *data = DECODE_FROM_LENGTH(*(void **)old_data);
   /*REFERRED_REVISION *referrer = data->referrers;
   while (referrer) {
@@ -990,8 +990,8 @@ static UNORDERED_TABLE_DATA *collect_unordered_table_data(
       new_data->entries = data->entries;
 
       //fprintf(stderr, "register phase 2 collector\n");
-      ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_table_data_phase_2;
-      register_phase_2_collector(data);
+      ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_table_data_phase_3;
+      register_phase_3_collector(data);
 
       *(void **)data = ENCODE_TO_LENGTH(new_data);
       data = new_data;
@@ -4428,9 +4428,22 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unordered_table(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  number__2 = from_uint32(2U);
+  string__20_1 = from_latin_1_string("unordered_table", 15);
+  string__25_6 = from_latin_1_string("Invalid index error!", 20);
+  string__27_6 = from_latin_1_string("Invalid index error!", 20);
+  string__29_6 = from_latin_1_string("Invalid index error!", 20);
+  string__31_6 = from_latin_1_string("Invalid index error!", 20);
+  string__64_1 = from_latin_1_string("unordered_table", 15);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__unordered_table(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__types__unordered_table");
   set_used_namespaces(used_namespaces);
-  number__2 = from_uint32(2U);
   unique__1_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__1_1);
   func__11_1 = create_future();
@@ -4442,35 +4455,29 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   func__16_1 = create_future();
   func__17_1 = create_future();
   func__18_1 = create_future();
-  string__20_1 = from_latin_1_string("unordered_table", 15);
   func__21_1 = create_future();
   define_single_assign_static("std", "empty_unordered_table", get__std__empty_unordered_table, &var.std__empty_unordered_table);
   func__23_1 = create_future();
   define_single_assign_static("std", "unordered_table", get__std__unordered_table, &var.std__unordered_table);
   func__24_1 = create_future();
-  string__25_6 = from_latin_1_string("Invalid index error!", 20);
   func__25_5 = create_future();
   func__25_1 = create_future();
   func__26_1 = create_future();
-  string__27_6 = from_latin_1_string("Invalid index error!", 20);
   func__27_5 = create_future();
   func__27_1 = create_future();
   func__28_1 = create_future();
-  string__29_6 = from_latin_1_string("Invalid index error!", 20);
   func__29_5 = create_future();
   func__29_1 = create_future();
   func__30_1 = create_future();
-  string__31_6 = from_latin_1_string("Invalid index error!", 20);
   func__31_5 = create_future();
   func__31_1 = create_future();
-  string__64_1 = from_latin_1_string("unordered_table", 15);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__unordered_table(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__unordered_table(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__unordered_table");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "Error", &get__Error, &get_value_or_future__Error);
@@ -4517,11 +4524,11 @@ EXPORT void phase_3__basic__types__unordered_table(void) {
   define_method("types", "unordered_table", poly_idx__update_each_from_down_to, func__31_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__unordered_table(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__unordered_table(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var._insert_item, &func__11_1);
   assign_variable(&var._retrieve_item, &func__12_1);
   assign_value(&var.types__unordered_table, get__types__generic_table());
@@ -4531,11 +4538,11 @@ EXPORT void phase_4__basic__types__unordered_table(void) {
   assign_variable(&var.std__unordered_table, &func__23_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__unordered_table(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__unordered_table(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__11_1, create_function(entry__11_1, 5));
   assign_value(&func__12_1, create_function(entry__12_1, 3));
   assign_value(&func__14_1, create_function(entry__14_1, 1));

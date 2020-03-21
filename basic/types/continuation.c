@@ -409,10 +409,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__continuation(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__continuation");
-  set_used_namespaces(used_namespaces);
-  var.types__continuation = create_future_with_prototype(create__types__continuation());
-  define_single_assign_static("types", "continuation", get__types__continuation, &var.types__continuation);
 }
 
 static int already_run_phase_3 = false;
@@ -420,6 +416,17 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__basic__types__continuation(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("basic__types__continuation");
+  set_used_namespaces(used_namespaces);
+  var.types__continuation = create_future_with_prototype(create__types__continuation());
+  define_single_assign_static("types", "continuation", get__types__continuation, &var.types__continuation);
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__basic__types__continuation(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__continuation");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "false", &get__false, &get_value_or_future__false);
@@ -431,19 +438,19 @@ EXPORT void phase_3__basic__types__continuation(void) {
   define_attribute("types", "continuation", poly_idx__is_a_continuation, get__true());
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__basic__types__continuation(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_value(&var.std__is_a_continuation, create_function(type__std__is_a_continuation, -1));
-  assign_value(&var.types__continuation, get__types__function());
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__basic__types__continuation(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_value(&var.std__is_a_continuation, create_function(type__std__is_a_continuation, -1));
+  assign_value(&var.types__continuation, get__types__function());
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__types__continuation(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   register_collector(collect__basic__types__continuation);
 }

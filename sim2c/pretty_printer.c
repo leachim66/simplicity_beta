@@ -214,10 +214,11 @@ IMPORT void continuation_type_function(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function(const char *name, int *id_p);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_dynamic(
@@ -230,7 +231,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -2861,10 +2861,15 @@ static FRAME_INFO frame__62_2 = {2, {"name", "chr"}};
 static void cont__62_3(void);
 static NODE *func__62_4;
 static void entry__62_4(void);
-static FRAME_INFO frame__62_4 = {2, {"chr", "name"}};
+static FRAME_INFO frame__62_4 = {1, {"chr"}};
 static void cont__62_5(void);
 static void cont__62_6(void);
-static void cont__62_7(void);
+static NODE *func__62_7;
+static void entry__62_7(void);
+static FRAME_INFO frame__62_7 = {2, {"chr", "name"}};
+static void cont__62_8(void);
+static void cont__62_9(void);
+static void cont__62_10(void);
 static NODE *func__63_1;
 static void entry__63_1(void);
 static FRAME_INFO frame__63_1 = {2, {"chr", "name"}};
@@ -2905,17 +2910,18 @@ static FRAME_INFO frame__63_21 = {1, {"chr"}};
 static void cont__63_22(void);
 static void cont__63_23(void);
 static void cont__63_24(void);
-static NODE *func__63_25;
-static void entry__63_25(void);
-static FRAME_INFO frame__63_25 = {1, {"chr"}};
-static void cont__63_26(void);
+static void cont__63_25(void);
+static NODE *func__63_26;
+static void entry__63_26(void);
+static FRAME_INFO frame__63_26 = {1, {"chr"}};
 static void cont__63_27(void);
-static NODE *string__63_28;
-static void cont__63_29(void);
-static NODE *func__63_30;
-static void entry__63_30(void);
-static FRAME_INFO frame__63_30 = {1, {"chr"}};
-static void cont__63_31(void);
+static void cont__63_28(void);
+static NODE *string__63_29;
+static void cont__63_30(void);
+static NODE *func__63_31;
+static void entry__63_31(void);
+static FRAME_INFO frame__63_31 = {1, {"chr"}};
+static void cont__63_32(void);
 static NODE *func__64_1;
 static void entry__64_1(void);
 static FRAME_INFO frame__64_1 = {1, {"self"}};
@@ -4915,34 +4921,38 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__59_1, NULL, 1125, 1125, 51, 73},
   {entry__60_1, NULL, 1130, 1130, 59, 78},
   {cont__60_2, &frame__60_1, 1130, 1130, 43, 78},
-  {entry__62_4, NULL, 1140, 1140, 24, 46},
-  {cont__62_5, &frame__62_4, 1140, 1140, 51, 51},
+  {entry__62_4, NULL, 1140, 1140, 26, 40},
+  {cont__62_5, &frame__62_4, 1140, 1140, 26, 40},
+  {entry__62_7, NULL, 1140, 1140, 43, 65},
+  {cont__62_8, &frame__62_7, 1140, 1140, 70, 70},
   {entry__62_2, NULL, 1140, 1140, 8, 21},
-  {cont__62_3, &frame__62_2, 1140, 1140, 5, 51},
-  {entry__62_1, NULL, 1139, 1140, 3, 51},
-  {cont__62_6, &frame__62_1, 1144, 1144, 3, 25},
-  {cont__62_7, &frame__62_1, 1144, 1144, 35, 35},
+  {cont__62_3, &frame__62_2, 1140, 1140, 8, 40},
+  {cont__62_6, &frame__62_2, 1140, 1140, 5, 70},
+  {entry__62_1, NULL, 1139, 1140, 3, 70},
+  {cont__62_9, &frame__62_1, 1144, 1144, 3, 25},
+  {cont__62_10, &frame__62_1, 1144, 1144, 35, 35},
   {entry__63_7, NULL, 1155, 1155, 52, 72},
   {cont__63_8, &frame__63_7, 1155, 1155, 49, 72},
   {entry__63_10, NULL, 1155, 1155, 23, 31},
   {entry__63_13, NULL, 1155, 1155, 41, 46},
   {entry__63_6, NULL, 1155, 1155, 7, 72},
-  {entry__63_21, NULL, 1158, 1158, 48, 56},
-  {cont__63_22, &frame__63_21, 1158, 1158, 48, 56},
+  {entry__63_21, NULL, 1158, 1158, 48, 62},
+  {cont__63_22, &frame__63_21, 1158, 1158, 48, 62},
+  {cont__63_23, &frame__63_21, 1158, 1158, 48, 62},
   {entry__63_18, NULL, 1158, 1158, 29, 43},
   {cont__63_19, &frame__63_18, 1158, 1158, 29, 43},
-  {cont__63_20, &frame__63_18, 1158, 1158, 29, 56},
-  {cont__63_23, &frame__63_18, 1158, 1158, 29, 56},
-  {entry__63_25, NULL, 1159, 1159, 30, 43},
-  {cont__63_26, &frame__63_25, 1159, 1159, 26, 44},
-  {cont__63_27, &frame__63_25, 1159, 1159, 12, 49},
-  {cont__63_29, &frame__63_25, 1159, 1159, 9, 49},
-  {entry__63_30, NULL, 1160, 1160, 12, 24},
-  {cont__63_31, &frame__63_30, 1160, 1160, 9, 24},
+  {cont__63_20, &frame__63_18, 1158, 1158, 29, 62},
+  {cont__63_24, &frame__63_18, 1158, 1158, 29, 62},
+  {entry__63_26, NULL, 1159, 1159, 30, 43},
+  {cont__63_27, &frame__63_26, 1159, 1159, 26, 44},
+  {cont__63_28, &frame__63_26, 1159, 1159, 12, 49},
+  {cont__63_30, &frame__63_26, 1159, 1159, 9, 49},
+  {entry__63_31, NULL, 1160, 1160, 12, 24},
+  {cont__63_32, &frame__63_31, 1160, 1160, 9, 24},
   {entry__63_15, NULL, 1158, 1158, 9, 24},
   {cont__63_16, &frame__63_15, 1158, 1158, 9, 24},
-  {cont__63_17, &frame__63_15, 1158, 1158, 9, 56},
-  {cont__63_24, &frame__63_15, 1157, 1160, 7, 24},
+  {cont__63_17, &frame__63_15, 1158, 1158, 9, 62},
+  {cont__63_25, &frame__63_15, 1157, 1160, 7, 24},
   {entry__63_1, NULL, 1151, 1151, 10, 37},
   {cont__63_2, &frame__63_1, 1151, 1151, 3, 60},
   {cont__63_3, &frame__63_1, 1152, 1152, 3, 30},
@@ -29900,7 +29910,7 @@ static void entry__62_1(void) {
   // 1138: !character_to_name empty_table
   var._character_to_name = get__empty_table();
   // 1139: for_each character_names: (name chr)
-  // 1140:   if chr < '@0x80;': !character_to_name(chr) name
+  // 1140:   if chr < '@0x80;' || chr == '@nbsp;': !character_to_name(chr) name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__character_names();
@@ -29908,9 +29918,9 @@ static void entry__62_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__62_6;
+  frame->cont = cont__62_9;
 }
-static void entry__62_4(void) {
+static void entry__62_7(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // chr: 0
@@ -29931,9 +29941,9 @@ static void entry__62_4(void) {
   result_count = 1;
   myself = var._character_to_name;
   func = myself->type;
-  frame->cont = cont__62_5;
+  frame->cont = cont__62_8;
 }
-static void cont__62_5(void) {
+static void cont__62_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -29946,7 +29956,7 @@ static void cont__62_5(void) {
   frame->cont = invalid_continuation;
 }
 static void entry__62_2(void) {
-  allocate_initialized_frame_gc(2, 4);
+  allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // name: 0
   // chr: 1
@@ -29969,20 +29979,71 @@ static void cont__62_3(void) {
     invalid_results_error();
     return;
   }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 1140: ... chr == '@nbsp;'
+  frame->slots[4] /* temp__3 */ = create_closure(entry__62_4, 0);
+  // 1140: ... chr < '@0x80;' || chr == '@nbsp;'
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__2 */;
+  arguments->slots[1] = frame->slots[4] /* temp__3 */;
+  result_count = 1;
+  myself = get__std__or();
+  func = myself->type;
+  frame->cont = cont__62_6;
+}
+static void entry__62_4(void) {
+  allocate_initialized_frame_gc(1, 2);
+  // slot allocations:
+  // chr: 0
+  frame->slots[0] = myself->closure.frame->slots[1]; /* chr */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 1140: ... chr == '@nbsp;'
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* chr */;
+  arguments->slots[1] = character__160;
+  result_count = 1;
+  myself = get__std__equal();
+  func = myself->type;
+  frame->cont = cont__62_5;
+}
+static void cont__62_5(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 1140: ... chr == '@nbsp;'
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__62_6(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1140: ... : !character_to_name(chr) name
-  frame->slots[3] /* temp__2 */ = create_closure(entry__62_4, 0);
-  // 1140: if chr < '@0x80;': !character_to_name(chr) name
+  frame->slots[5] /* temp__4 */ = create_closure(entry__62_7, 0);
+  // 1140: if chr < '@0x80;' || chr == '@nbsp;': !character_to_name(chr) name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[3] /* temp__2 */;
+  arguments->slots[1] = frame->slots[5] /* temp__4 */;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__62_6(void) {
+static void cont__62_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -29997,9 +30058,9 @@ static void cont__62_6(void) {
   result_count = 1;
   myself = var._character_to_name;
   func = myself->type;
-  frame->cont = cont__62_7;
+  frame->cont = cont__62_10;
 }
-static void cont__62_7(void) {
+static void cont__62_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30011,7 +30072,7 @@ static void cont__62_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__63_25(void) {
+static void entry__63_26(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -30027,9 +30088,9 @@ static void entry__63_25(void) {
   result_count = 1;
   myself = get__to_integer();
   func = myself->type;
-  frame->cont = cont__63_26;
+  frame->cont = cont__63_27;
 }
-static void cont__63_26(void) {
+static void cont__63_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30042,9 +30103,9 @@ static void cont__63_26(void) {
   result_count = 1;
   myself = get__hex();
   func = myself->type;
-  frame->cont = cont__63_27;
+  frame->cont = cont__63_28;
 }
-static void cont__63_27(void) {
+static void cont__63_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30053,15 +30114,15 @@ static void cont__63_27(void) {
   // 1159: ... string("@@0x" hex(chr.to_integer) ';')
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__63_28;
+  arguments->slots[0] = string__63_29;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
   arguments->slots[2] = character__59;
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__63_29;
+  frame->cont = cont__63_30;
 }
-static void cont__63_29(void) {
+static void cont__63_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30075,7 +30136,7 @@ static void cont__63_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__63_30(void) {
+static void entry__63_31(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
@@ -30091,9 +30152,9 @@ static void entry__63_30(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__63_31;
+  frame->cont = cont__63_32;
 }
-static void cont__63_31(void) {
+static void cont__63_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30236,9 +30297,9 @@ static void cont__63_17(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1158: ... chr >= '@0x80;' && chr < ' '
+  // 1158: ... chr >= '@0x80;' && chr <= '@nbsp;'
   frame->slots[4] /* temp__4 */ = create_closure(entry__63_18, 0);
-  // 1158: chr >= '@0x2b0;' || chr >= '@0x80;' && chr < ' '
+  // 1158: chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -30246,7 +30307,7 @@ static void cont__63_17(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__63_24;
+  frame->cont = cont__63_25;
 }
 static void entry__63_18(void) {
   allocate_initialized_frame_gc(1, 5);
@@ -30288,9 +30349,9 @@ static void cont__63_20(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1158: ... chr < ' '
+  // 1158: ... chr <= '@nbsp;'
   frame->slots[4] /* temp__4 */ = create_closure(entry__63_21, 0);
-  // 1158: ... chr >= '@0x80;' && chr < ' '
+  // 1158: ... chr >= '@0x80;' && chr <= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -30298,10 +30359,10 @@ static void cont__63_20(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__63_23;
+  frame->cont = cont__63_24;
 }
 static void entry__63_21(void) {
-  allocate_initialized_frame_gc(1, 2);
+  allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
   frame->slots[0] = myself->closure.frame->slots[0]; /* chr */
@@ -30309,11 +30370,11 @@ static void entry__63_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 1158: ... chr < ' '
+  // 1158: ... chr <= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* chr */;
-  arguments->slots[1] = character__160;
+  arguments->slots[0] = character__160;
+  arguments->slots[1] = frame->slots[0] /* chr */;
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
@@ -30324,14 +30385,15 @@ static void cont__63_22(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1158: ... chr < ' '
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 1158: ... chr <= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  result_count = 1;
+  myself = get__std__not();
+  func = myself->type;
+  frame->cont = cont__63_23;
 }
 static void cont__63_23(void) {
   if (argument_count != 1) {
@@ -30339,7 +30401,7 @@ static void cont__63_23(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1158: ... chr >= '@0x80;' && chr < ' '
+  // 1158: ... chr <= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -30353,12 +30415,26 @@ static void cont__63_24(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 1158: ... chr >= '@0x80;' && chr <= '@nbsp;'
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__63_25(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 1159: -> string("@@0x" hex(chr.to_integer) ';')
-  frame->slots[5] /* temp__5 */ = create_closure(entry__63_25, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__63_26, 0);
   // 1160: -> chr.to_string
-  frame->slots[6] /* temp__6 */ = create_closure(entry__63_30, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__63_31, 0);
   // 1157: if
-  // 1158:   chr >= '@0x2b0;' || chr >= '@0x80;' && chr < ' '
+  // 1158:   chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
   // 1159:   -> string("@@0x" hex(chr.to_integer) ';')
   // 1160:   -> chr.to_string
   argument_count = 3;
@@ -30446,7 +30522,7 @@ static void cont__63_5(void) {
   frame->slots[3] /* temp__2 */ = create_closure(entry__63_6, 0);
   // 1156: :
   // 1157:   if
-  // 1158:     chr >= '@0x2b0;' || chr >= '@0x80;' && chr < ' '
+  // 1158:     chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
   // 1159:     -> string("@@0x" hex(chr.to_integer) ';')
   // 1160:     -> chr.to_string
   frame->slots[4] /* temp__3 */ = create_closure(entry__63_15, 0);
@@ -30455,7 +30531,7 @@ static void cont__63_5(void) {
   // 1155:     case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
   // 1156:   :
   // 1157:     if
-  // 1158:       chr >= '@0x2b0;' || chr >= '@0x80;' && chr < ' '
+  // 1158:       chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
   // 1159:       -> string("@@0x" hex(chr.to_integer) ';')
   // 1160:       -> chr.to_string
   argument_count = 3;
@@ -38853,7 +38929,7 @@ EXPORT void collect__pretty_printer(void) {
   string__63_12 = collect_node(string__63_12);
   string__63_14 = collect_node(string__63_14);
   func__63_13 = collect_node(func__63_13);
-  string__63_28 = collect_node(string__63_28);
+  string__63_29 = collect_node(string__63_29);
   func__63_1 = collect_node(func__63_1);
   func__64_1 = collect_node(func__64_1);
   var._analyze_string_literal = collect_node(var._analyze_string_literal);
@@ -38962,8 +39038,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__pretty_printer(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("pretty_printer");
-  set_used_namespaces(used_namespaces);
   character__9 = from_uchar32(9);
   number__6 = from_uint32(6U);
   character__35 = from_uchar32(35);
@@ -39002,6 +39076,114 @@ EXPORT void phase_2__pretty_printer(void) {
   number__20 = from_uint32(20U);
   character__42 = from_uchar32(42);
   character__128 = from_uchar32(128);
+  string__29_2 = from_latin_1_string("\012", 1);
+  string__30_4 = from_latin_1_string("#", 1);
+  string__30_6 = from_latin_1_string(" #", 2);
+  string__30_24 = from_latin_1_string(":", 1);
+  string__30_46 = from_latin_1_string(":", 1);
+  string__34_2 = from_latin_1_string("<???>", 5);
+  string__35_3 = from_latin_1_string("<require ", 9);
+  string__35_4 = from_latin_1_string(">", 1);
+  string__36_7 = from_latin_1_string("<namespace ", 11);
+  string__36_8 = from_latin_1_string(" = ", 3);
+  string__36_9 = from_latin_1_string(">", 1);
+  string__36_13 = from_latin_1_string("<namespace ", 11);
+  string__36_14 = from_latin_1_string(">", 1);
+  string__37_3 = from_latin_1_string("<using ", 7);
+  string__37_4 = from_latin_1_string(">", 1);
+  string__38_3 = from_latin_1_string("<include ", 9);
+  string__38_4 = from_latin_1_string(">", 1);
+  string__39_3 = from_latin_1_string("<link ", 6);
+  string__39_4 = from_latin_1_string(">", 1);
+  string__40_3 = from_latin_1_string("<data ", 6);
+  string__40_4 = from_latin_1_string(">", 1);
+  string__42_32 = from_latin_1_string(":", 1);
+  string__42_35 = from_latin_1_string("\012", 1);
+  string__42_39 = from_latin_1_string(": (", 3);
+  string__42_61 = from_latin_1_string("\012", 1);
+  string__42_75 = from_latin_1_string("(", 1);
+  string__42_122 = from_latin_1_string("...\012", 4);
+  string__45_73 = from_latin_1_string("->", 2);
+  string__45_113 = from_latin_1_string("\012", 1);
+  string__45_135 = from_latin_1_string("\012", 1);
+  string__45_215 = from_latin_1_string("->", 2);
+  string__45_236 = from_latin_1_string("->", 2);
+  string__47_24 = from_latin_1_string("->", 2);
+  string__47_27 = from_latin_1_string("-> ", 3);
+  string__47_35 = from_latin_1_string("->", 2);
+  string__47_42 = from_latin_1_string("\012\012", 2);
+  string__47_63 = from_latin_1_string("-> ", 3);
+  string__47_66 = from_latin_1_string("-> ", 3);
+  string__48_5 = from_latin_1_string("-> ", 3);
+  string__48_26 = from_latin_1_string(" = ", 3);
+  string__49_6 = from_latin_1_string("$", 1);
+  string__50_5 = from_latin_1_string("$", 1);
+  string__50_7 = from_latin_1_string("!", 1);
+  string__50_9 = from_latin_1_string("&", 1);
+  string__50_11 = from_latin_1_string("$$", 2);
+  string__51_2 = from_latin_1_string("%", 1);
+  string__52_2 = from_latin_1_string("%%", 2);
+  string__55_96 = from_latin_1_string(" .", 2);
+  string__55_97 = from_latin_1_string(". ", 2);
+  string__55_114 = from_latin_1_string("std", 3);
+  string__55_118 = from_latin_1_string("key_value_pair", 14);
+  string__55_132 = from_latin_1_string("std", 3);
+  string__55_137 = from_latin_1_string("true", 4);
+  string__55_148 = from_latin_1_string("--", 2);
+  string__55_228 = from_latin_1_string("+", 1);
+  string__55_229 = from_latin_1_string("-", 1);
+  string__55_230 = from_latin_1_string("*", 1);
+  string__55_231 = from_latin_1_string("/", 1);
+  string__55_238 = from_latin_1_string(",", 1);
+  string__55_264 = from_latin_1_string("sequence", 8);
+  string__55_265 = from_latin_1_string(",", 1);
+  string__57_21 = from_latin_1_string(" ", 1);
+  string__63_9 = from_latin_1_string("at", 2);
+  string__63_11 = from_latin_1_string("@@", 2);
+  string__63_12 = from_latin_1_string("amp", 3);
+  string__63_14 = from_latin_1_string("&", 1);
+  string__63_29 = from_latin_1_string("@0x", 3);
+  string__65_10 = from_latin_1_string("@nl;", 4);
+  string__65_26 = from_latin_1_string("@nl;", 4);
+  string__65_37 = from_latin_1_string("@quot;", 6);
+  string__65_45 = from_latin_1_string("@@", 2);
+  string__66_127 = from_latin_1_string("@", 1);
+  string__66_134 = from_latin_1_string("@;", 2);
+  string__66_141 = from_latin_1_string("\042", 1);
+  string__67_59 = from_latin_1_string("@(", 2);
+  string__67_65 = from_latin_1_string("@nl;@", 5);
+  string__69_2 = from_latin_1_string(".", 1);
+  string__70_4 = from_latin_1_string("(!)", 3);
+  string__70_6 = from_latin_1_string("()", 2);
+  string__71_8 = from_latin_1_string("::", 2);
+  string__72_6 = from_latin_1_string("{\012", 2);
+  string__72_9 = from_latin_1_string("{\012", 2);
+  string__72_17 = from_latin_1_string("<kind ", 6);
+  string__72_18 = from_latin_1_string(">", 1);
+  string__72_26 = from_latin_1_string("<name ", 6);
+  string__72_27 = from_latin_1_string(">", 1);
+  string__72_35 = from_latin_1_string("<node ", 6);
+  string__72_36 = from_latin_1_string(">", 1);
+  string__72_44 = from_latin_1_string("<type ", 6);
+  string__72_45 = from_latin_1_string(">", 1);
+  string__72_53 = from_latin_1_string("<base ", 6);
+  string__72_54 = from_latin_1_string(">", 1);
+  string__72_62 = from_latin_1_string("local", 5);
+  string__72_68 = from_latin_1_string("<scope ", 7);
+  string__72_69 = from_latin_1_string(">", 1);
+  string__72_75 = from_latin_1_string("<argument ", 10);
+  string__72_76 = from_latin_1_string(">", 1);
+  string__72_86 = from_latin_1_string("//", 2);
+  string__72_105 = from_latin_1_string("{...}", 5);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__pretty_printer(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("pretty_printer");
+  set_used_namespaces(used_namespaces);
   unique__2_1 = register_unique_item("ALWAYS");
   assign_value(&var._ALWAYS, unique__2_1);
   unique__3_1 = register_unique_item("SHEBANG");
@@ -39049,40 +39231,19 @@ EXPORT void phase_2__pretty_printer(void) {
   func__28_2 = create_future();
   func__28_1 = create_future();
   define_single_assign_static("sim2c", "print_trees", get__sim2c__print_trees, &var.sim2c__print_trees);
-  string__29_2 = from_latin_1_string("\012", 1);
   func__29_1 = create_future();
-  string__30_4 = from_latin_1_string("#", 1);
   func__30_3 = create_future();
-  string__30_6 = from_latin_1_string(" #", 2);
   func__30_5 = create_future();
-  string__30_24 = from_latin_1_string(":", 1);
-  string__30_46 = from_latin_1_string(":", 1);
   func__30_1 = create_future();
   func__31_1 = create_future();
   func__32_1 = create_future();
   func__33_1 = create_future();
-  string__34_2 = from_latin_1_string("<???>", 5);
   func__34_1 = create_future();
-  string__35_3 = from_latin_1_string("<require ", 9);
-  string__35_4 = from_latin_1_string(">", 1);
   func__35_1 = create_future();
-  string__36_7 = from_latin_1_string("<namespace ", 11);
-  string__36_8 = from_latin_1_string(" = ", 3);
-  string__36_9 = from_latin_1_string(">", 1);
-  string__36_13 = from_latin_1_string("<namespace ", 11);
-  string__36_14 = from_latin_1_string(">", 1);
   func__36_1 = create_future();
-  string__37_3 = from_latin_1_string("<using ", 7);
-  string__37_4 = from_latin_1_string(">", 1);
   func__37_1 = create_future();
-  string__38_3 = from_latin_1_string("<include ", 9);
-  string__38_4 = from_latin_1_string(">", 1);
   func__38_1 = create_future();
-  string__39_3 = from_latin_1_string("<link ", 6);
-  string__39_4 = from_latin_1_string(">", 1);
   func__39_1 = create_future();
-  string__40_3 = from_latin_1_string("<data ", 6);
-  string__40_4 = from_latin_1_string(">", 1);
   func__40_1 = create_future();
   func__41_6 = create_future();
   func__41_23 = create_future();
@@ -39090,57 +39251,31 @@ EXPORT void phase_2__pretty_printer(void) {
   func__41_29 = create_future();
   func__41_28 = create_future();
   func__41_1 = create_future();
-  string__42_32 = from_latin_1_string(":", 1);
-  string__42_35 = from_latin_1_string("\012", 1);
-  string__42_39 = from_latin_1_string(": (", 3);
-  string__42_61 = from_latin_1_string("\012", 1);
-  string__42_75 = from_latin_1_string("(", 1);
   func__42_99 = create_future();
   func__42_111 = create_future();
-  string__42_122 = from_latin_1_string("...\012", 4);
   func__42_1 = create_future();
   func__43_1 = create_future();
   func__44_11 = create_future();
   func__44_1 = create_future();
   func__45_38 = create_future();
-  string__45_73 = from_latin_1_string("->", 2);
-  string__45_113 = from_latin_1_string("\012", 1);
-  string__45_135 = from_latin_1_string("\012", 1);
-  string__45_215 = from_latin_1_string("->", 2);
-  string__45_236 = from_latin_1_string("->", 2);
   func__45_1 = create_future();
   func__46_1 = create_future();
-  string__47_24 = from_latin_1_string("->", 2);
-  string__47_27 = from_latin_1_string("-> ", 3);
-  string__47_35 = from_latin_1_string("->", 2);
-  string__47_42 = from_latin_1_string("\012\012", 2);
-  string__47_63 = from_latin_1_string("-> ", 3);
-  string__47_66 = from_latin_1_string("-> ", 3);
   func__47_84 = create_future();
   func__47_87 = create_future();
   func__47_90 = create_future();
   func__47_103 = create_future();
   func__47_134 = create_future();
   func__47_1 = create_future();
-  string__48_5 = from_latin_1_string("-> ", 3);
-  string__48_26 = from_latin_1_string(" = ", 3);
   func__48_1 = create_future();
   func__49_4 = create_future();
-  string__49_6 = from_latin_1_string("$", 1);
   func__49_5 = create_future();
   func__49_1 = create_future();
-  string__50_5 = from_latin_1_string("$", 1);
   func__50_4 = create_future();
-  string__50_7 = from_latin_1_string("!", 1);
   func__50_6 = create_future();
-  string__50_9 = from_latin_1_string("&", 1);
   func__50_8 = create_future();
-  string__50_11 = from_latin_1_string("$$", 2);
   func__50_10 = create_future();
   func__50_1 = create_future();
-  string__51_2 = from_latin_1_string("%", 1);
   func__51_1 = create_future();
-  string__52_2 = from_latin_1_string("%%", 2);
   func__52_1 = create_future();
   func__53_17 = create_future();
   func__53_18 = create_future();
@@ -39149,24 +39284,9 @@ EXPORT void phase_2__pretty_printer(void) {
   func__54_15 = create_future();
   func__54_1 = create_future();
   func__55_42 = create_future();
-  string__55_96 = from_latin_1_string(" .", 2);
-  string__55_97 = from_latin_1_string(". ", 2);
-  string__55_114 = from_latin_1_string("std", 3);
-  string__55_118 = from_latin_1_string("key_value_pair", 14);
-  string__55_132 = from_latin_1_string("std", 3);
-  string__55_137 = from_latin_1_string("true", 4);
-  string__55_148 = from_latin_1_string("--", 2);
-  string__55_228 = from_latin_1_string("+", 1);
-  string__55_229 = from_latin_1_string("-", 1);
-  string__55_230 = from_latin_1_string("*", 1);
-  string__55_231 = from_latin_1_string("/", 1);
-  string__55_238 = from_latin_1_string(",", 1);
-  string__55_264 = from_latin_1_string("sequence", 8);
-  string__55_265 = from_latin_1_string(",", 1);
   func__55_1 = create_future();
   func__56_1 = create_future();
   func__57_19 = create_future();
-  string__57_21 = from_latin_1_string(" ", 1);
   func__57_20 = create_future();
   func__57_1 = create_future();
   func__58_1 = create_future();
@@ -39174,71 +39294,34 @@ EXPORT void phase_2__pretty_printer(void) {
   func__60_1 = create_future();
   func__62_2 = create_future();
   func__62_1 = create_future();
-  string__63_9 = from_latin_1_string("at", 2);
-  string__63_11 = from_latin_1_string("@@", 2);
   func__63_10 = create_future();
-  string__63_12 = from_latin_1_string("amp", 3);
-  string__63_14 = from_latin_1_string("&", 1);
   func__63_13 = create_future();
-  string__63_28 = from_latin_1_string("@0x", 3);
   func__63_1 = create_future();
   func__64_1 = create_future();
-  string__65_10 = from_latin_1_string("@nl;", 4);
-  string__65_26 = from_latin_1_string("@nl;", 4);
-  string__65_37 = from_latin_1_string("@quot;", 6);
-  string__65_45 = from_latin_1_string("@@", 2);
   func__65_69 = create_future();
   func__65_70 = create_future();
   func__65_1 = create_future();
   func__66_23 = create_future();
   func__66_24 = create_future();
-  string__66_127 = from_latin_1_string("@", 1);
-  string__66_134 = from_latin_1_string("@;", 2);
-  string__66_141 = from_latin_1_string("\042", 1);
   func__66_1 = create_future();
-  string__67_59 = from_latin_1_string("@(", 2);
-  string__67_65 = from_latin_1_string("@nl;@", 5);
   func__67_1 = create_future();
   func__68_1 = create_future();
-  string__69_2 = from_latin_1_string(".", 1);
   func__69_1 = create_future();
-  string__70_4 = from_latin_1_string("(!)", 3);
   func__70_3 = create_future();
-  string__70_6 = from_latin_1_string("()", 2);
   func__70_5 = create_future();
   func__70_1 = create_future();
-  string__71_8 = from_latin_1_string("::", 2);
   func__71_1 = create_future();
-  string__72_6 = from_latin_1_string("{\012", 2);
   func__72_4 = create_future();
-  string__72_9 = from_latin_1_string("{\012", 2);
   func__72_8 = create_future();
-  string__72_17 = from_latin_1_string("<kind ", 6);
-  string__72_18 = from_latin_1_string(">", 1);
-  string__72_26 = from_latin_1_string("<name ", 6);
-  string__72_27 = from_latin_1_string(">", 1);
-  string__72_35 = from_latin_1_string("<node ", 6);
-  string__72_36 = from_latin_1_string(">", 1);
-  string__72_44 = from_latin_1_string("<type ", 6);
-  string__72_45 = from_latin_1_string(">", 1);
-  string__72_53 = from_latin_1_string("<base ", 6);
-  string__72_54 = from_latin_1_string(">", 1);
-  string__72_62 = from_latin_1_string("local", 5);
-  string__72_68 = from_latin_1_string("<scope ", 7);
-  string__72_69 = from_latin_1_string(">", 1);
-  string__72_75 = from_latin_1_string("<argument ", 10);
-  string__72_76 = from_latin_1_string(">", 1);
-  string__72_86 = from_latin_1_string("//", 2);
-  string__72_105 = from_latin_1_string("{...}", 5);
   func__72_104 = create_future();
   func__72_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__pretty_printer(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__pretty_printer(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("pretty_printer");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "ATTRIBUTE_KIND", &get__ATTRIBUTE_KIND, &get_value_or_future__ATTRIBUTE_KIND);
@@ -39423,11 +39506,11 @@ EXPORT void phase_3__pretty_printer(void) {
   define_method("sim2c", "c_code", poly_idx__to_string, func__72_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__pretty_printer(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__pretty_printer(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var._needs_parenthesis, create_function(type__needs_parenthesis, -1));
   maybe_initialize_future(get__sim2c__hide_body_statements(), get__false());
   assign_value(&var._UNLIMITED, number__999999);
@@ -39458,11 +39541,11 @@ EXPORT void phase_4__pretty_printer(void) {
   assign_variable(&var._string_template_to_string, &func__67_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__pretty_printer(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__pretty_printer(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__24_13, create_function(entry__24_13, 0));
   assign_value(&func__24_14, create_function(entry__24_14, 0));
   assign_value(&func__24_1, create_function(entry__24_1, 2));

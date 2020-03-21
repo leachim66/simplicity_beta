@@ -65,7 +65,7 @@ $sim2c::character_names
     "at" = '@@'
     "del" = '@del;'
     "csi" = '@0x9b;'
-    "nbsp" = ' '
+    "nbsp" = '@nbsp;'
     "iexcl" = '¡'
     "cent" = '¢'
     "pound" = '£'

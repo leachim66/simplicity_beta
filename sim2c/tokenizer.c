@@ -201,15 +201,15 @@ IMPORT NODE *empty_string;
 IMPORT NODE *undefined;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -3626,8 +3626,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__tokenizer(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("tokenizer");
-  set_used_namespaces(used_namespaces);
   character__9 = from_uchar32(9);
   character__35 = from_uchar32(35);
   character__10 = from_uchar32(10);
@@ -3639,17 +3637,12 @@ EXPORT void phase_2__tokenizer(void) {
   character__32 = from_uchar32(32);
   character__1 = from_uchar32(1);
   number__1 = from_uint32(1U);
-  define_single_assign_static("sim2c", "indent_marker", get__sim2c__indent_marker, &var.sim2c__indent_marker);
-  define_single_assign_static("sim2c", "outdent_marker", get__sim2c__outdent_marker, &var.sim2c__outdent_marker);
-  define_single_assign_static("sim2c", "newline", get__sim2c__newline, &var.sim2c__newline);
   string__4_11 = from_latin_1_string("____________________________________\012TOKENIZATION ERROR IN LINE ", 64);
   string__4_12 = from_latin_1_string(":\012", 2);
   string__4_13 = from_latin_1_string("!\012", 2);
   string__4_26 = from_latin_1_string("tabulator character within line detected", 40);
   string__4_65 = from_latin_1_string("empty line contains whitespace", 30);
   string__4_132 = from_latin_1_string("invalid indentation", 19);
-  func__4_1 = create_future();
-  define_single_assign_static("sim2c", "tokenize", get__sim2c__tokenize, &var.sim2c__tokenize);
 }
 
 static int already_run_phase_3 = false;
@@ -3657,6 +3650,20 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__tokenizer(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("tokenizer");
+  set_used_namespaces(used_namespaces);
+  define_single_assign_static("sim2c", "indent_marker", get__sim2c__indent_marker, &var.sim2c__indent_marker);
+  define_single_assign_static("sim2c", "outdent_marker", get__sim2c__outdent_marker, &var.sim2c__outdent_marker);
+  define_single_assign_static("sim2c", "newline", get__sim2c__newline, &var.sim2c__newline);
+  func__4_1 = create_future();
+  define_single_assign_static("sim2c", "tokenize", get__sim2c__tokenize, &var.sim2c__tokenize);
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__tokenizer(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("tokenizer");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "append", &get__append, &get_value_or_future__append);
@@ -3698,22 +3705,22 @@ EXPORT void phase_3__tokenizer(void) {
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__tokenizer(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__tokenizer(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.sim2c__indent_marker, character__1);
   assign_value(&var.sim2c__outdent_marker, character__2);
   assign_value(&var.sim2c__newline, character__10);
   assign_variable(&var.sim2c__tokenize, &func__4_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__tokenizer(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__tokenizer(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__4_1, create_function(entry__4_1, 1));
   register_collector(collect__tokenizer);
 }

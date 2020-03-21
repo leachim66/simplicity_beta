@@ -438,7 +438,7 @@ $std::PRINTABLE_CHARACTER/grammar::match:
   )
   unless stream .has_minimum_length. 1: return undefined
   $chr stream(1)
-  if chr >= ' ' && chr < '@del;' || chr >= ' ': return 1
+  if chr >= ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
   -> undefined
 
 ###
@@ -454,7 +454,7 @@ $std::NON_SPACE_CHARACTER/grammar::match:
   )
   unless stream .has_minimum_length. 1: return undefined
   $chr stream(1)
-  if chr > ' ' && chr < '@del;' || chr >= ' ': return 1
+  if chr > ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
   -> undefined
 
 ###

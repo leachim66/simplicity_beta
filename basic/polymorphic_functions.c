@@ -3880,8 +3880,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__polymorphic_functions(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__polymorphic_functions");
-  set_used_namespaces(used_namespaces);
 }
 
 static int already_run_phase_3 = false;
@@ -3898,6 +3896,15 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__polymorphic_functions(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
+  set_module("basic__polymorphic_functions");
+  set_used_namespaces(used_namespaces);
+}
+
+static int already_run_phase_5 = false;
+
+EXPORT void phase_5__basic__polymorphic_functions(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__plus, create_function(type__std__plus, -1));
   assign_value(&var.std__minus, create_function(type__std__minus, -1));
   assign_value(&var.std__times, create_function(type__std__times, -1));
@@ -4015,10 +4022,10 @@ EXPORT void phase_4__basic__polymorphic_functions(void) {
   assign_value(&var.std__call_command, create_function(type__std__call_command, -1));
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__polymorphic_functions(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__polymorphic_functions(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   register_collector(collect__basic__polymorphic_functions);
 }

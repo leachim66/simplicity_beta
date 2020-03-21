@@ -185,14 +185,14 @@ IMPORT void *copy(const void *buf, long size);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -849,7 +849,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__2_76, NULL, 65, 65, 5, 15},
   {cont__2_78, NULL, 66, 66, 5, 19},
   {cont__2_80, NULL, 67, 67, 5, 20},
-  {cont__2_82, NULL, 68, 68, 5, 16},
+  {cont__2_82, NULL, 68, 68, 5, 21},
   {cont__2_84, NULL, 69, 69, 5, 17},
   {cont__2_86, NULL, 70, 70, 5, 16},
   {cont__2_88, NULL, 71, 71, 5, 17},
@@ -2058,7 +2058,7 @@ static void cont__2_82(void) {
     return;
   }
   frame->slots[40] /* temp__41 */ = arguments->slots[0];
-  // 68: "nbsp" = ' '
+  // 68: "nbsp" = '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2_83;
@@ -6689,8 +6689,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__character_names(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("character_names");
-  set_used_namespaces(used_namespaces);
   character__8211 = from_uchar32(8211);
   character__962 = from_uchar32(962);
   character__916 = from_uchar32(916);
@@ -6965,7 +6963,6 @@ EXPORT void phase_2__character_names(void) {
   character__183 = from_uchar32(183);
   character__161 = from_uchar32(161);
   character__31 = from_uchar32(31);
-  define_single_assign_static("sim2c", "character_names", get__sim2c__character_names, &var.sim2c__character_names);
   string__2_1 = from_latin_1_string("nul", 3);
   string__2_3 = from_latin_1_string("soh", 3);
   string__2_5 = from_latin_1_string("stx", 3);
@@ -7251,8 +7248,7 @@ EXPORT void phase_3__character_names(void) {
   already_run_phase_3 = true;
   set_module("character_names");
   set_used_namespaces(used_namespaces);
-  use_read_only("std", "key_value_pair", &get__std__key_value_pair, &get_value_or_future__std__key_value_pair);
-  use_read_only(NULL, "table", &get__table, &get_value_or_future__table);
+  define_single_assign_static("sim2c", "character_names", get__sim2c__character_names, &var.sim2c__character_names);
 }
 
 static int already_run_phase_4 = false;
@@ -7260,6 +7256,10 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__character_names(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
+  set_module("character_names");
+  set_used_namespaces(used_namespaces);
+  use_read_only("std", "key_value_pair", &get__std__key_value_pair, &get_value_or_future__std__key_value_pair);
+  use_read_only(NULL, "table", &get__table, &get_value_or_future__table);
 }
 
 static int already_run_phase_5 = false;
@@ -7267,5 +7267,12 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__character_names(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__character_names(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   register_collector(collect__character_names);
 }

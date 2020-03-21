@@ -213,10 +213,10 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -1469,33 +1469,33 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__73_3, NULL, 439, 439, 41, 56},
   {entry__73_8, NULL, 441, 441, 20, 32},
   {cont__73_9, &frame__73_8, 441, 441, 20, 32},
-  {entry__73_11, NULL, 441, 441, 37, 46},
-  {cont__73_12, &frame__73_11, 441, 441, 37, 46},
-  {cont__73_13, &frame__73_11, 441, 441, 37, 46},
-  {entry__73_15, NULL, 441, 441, 49, 56},
+  {entry__73_11, NULL, 441, 441, 37, 51},
+  {cont__73_12, &frame__73_11, 441, 441, 37, 51},
+  {cont__73_13, &frame__73_11, 441, 441, 37, 51},
+  {entry__73_15, NULL, 441, 441, 54, 61},
   {entry__73_1, NULL, 439, 439, 10, 38},
   {cont__73_2, &frame__73_1, 439, 439, 3, 56},
   {cont__73_4, &frame__73_1, 440, 440, 3, 16},
   {cont__73_5, &frame__73_1, 441, 441, 6, 15},
   {cont__73_6, &frame__73_1, 441, 441, 6, 15},
   {cont__73_7, &frame__73_1, 441, 441, 6, 32},
-  {cont__73_10, &frame__73_1, 441, 441, 6, 46},
-  {cont__73_14, &frame__73_1, 441, 441, 3, 56},
+  {cont__73_10, &frame__73_1, 441, 441, 6, 51},
+  {cont__73_14, &frame__73_1, 441, 441, 3, 61},
   {cont__73_16, &frame__73_1, 442, 442, 3, 14},
   {entry__75_3, NULL, 455, 455, 41, 56},
   {entry__75_7, NULL, 457, 457, 19, 31},
   {cont__75_8, &frame__75_7, 457, 457, 19, 31},
-  {entry__75_10, NULL, 457, 457, 36, 45},
-  {cont__75_11, &frame__75_10, 457, 457, 36, 45},
-  {cont__75_12, &frame__75_10, 457, 457, 36, 45},
-  {entry__75_14, NULL, 457, 457, 48, 55},
+  {entry__75_10, NULL, 457, 457, 36, 50},
+  {cont__75_11, &frame__75_10, 457, 457, 36, 50},
+  {cont__75_12, &frame__75_10, 457, 457, 36, 50},
+  {entry__75_14, NULL, 457, 457, 53, 60},
   {entry__75_1, NULL, 455, 455, 10, 38},
   {cont__75_2, &frame__75_1, 455, 455, 3, 56},
   {cont__75_4, &frame__75_1, 456, 456, 3, 16},
   {cont__75_5, &frame__75_1, 457, 457, 6, 14},
   {cont__75_6, &frame__75_1, 457, 457, 6, 31},
-  {cont__75_9, &frame__75_1, 457, 457, 6, 45},
-  {cont__75_13, &frame__75_1, 457, 457, 3, 55},
+  {cont__75_9, &frame__75_1, 457, 457, 6, 50},
+  {cont__75_13, &frame__75_1, 457, 457, 3, 60},
   {cont__75_15, &frame__75_1, 458, 458, 3, 14},
   {entry__77_3, NULL, 471, 471, 41, 56},
   {entry__77_1, NULL, 471, 471, 10, 38},
@@ -6612,9 +6612,9 @@ static void cont__73_10(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 441: ... chr >= ' '
+  // 441: ... chr >= '@nbsp;'
   frame->slots[9] /* temp__6 */ = create_closure(entry__73_11, 0);
-  // 441: ... chr >= ' ' && chr < '@del;' || chr >= ' '
+  // 441: ... chr >= ' ' && chr < '@del;' || chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -6633,7 +6633,7 @@ static void entry__73_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 441: ... chr >= ' '
+  // 441: ... chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6649,7 +6649,7 @@ static void cont__73_12(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 441: ... chr >= ' '
+  // 441: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -6664,7 +6664,7 @@ static void cont__73_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 441: ... chr >= ' '
+  // 441: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6680,7 +6680,7 @@ static void cont__73_14(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 441: ... : return 1
   frame->slots[10] /* temp__7 */ = create_closure(entry__73_15, 0);
-  // 441: if chr >= ' ' && chr < '@del;' || chr >= ' ': return 1
+  // 441: if chr >= ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6867,9 +6867,9 @@ static void cont__75_9(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 457: ... chr >= ' '
+  // 457: ... chr >= '@nbsp;'
   frame->slots[8] /* temp__5 */ = create_closure(entry__75_10, 0);
-  // 457: ... chr > ' ' && chr < '@del;' || chr >= ' '
+  // 457: ... chr > ' ' && chr < '@del;' || chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -6888,7 +6888,7 @@ static void entry__75_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 457: ... chr >= ' '
+  // 457: ... chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6904,7 +6904,7 @@ static void cont__75_11(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 457: ... chr >= ' '
+  // 457: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -6919,7 +6919,7 @@ static void cont__75_12(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 457: ... chr >= ' '
+  // 457: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6935,7 +6935,7 @@ static void cont__75_13(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 457: ... : return 1
   frame->slots[9] /* temp__6 */ = create_closure(entry__75_14, 0);
-  // 457: if chr > ' ' && chr < '@del;' || chr >= ' ': return 1
+  // 457: if chr > ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -8896,8 +8896,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__grammar(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__grammar");
-  set_used_namespaces(used_namespaces);
   character__90 = from_uchar32(90);
   character__122 = from_uchar32(122);
   character__57 = from_uchar32(57);
@@ -8910,6 +8908,15 @@ EXPORT void phase_2__basic__grammar(void) {
   character__97 = from_uchar32(97);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__grammar(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__grammar");
+  set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "grammar_object", get__types__grammar_object, &var.types__grammar_object);
   define_single_assign_static("types", "grammar_node", get__types__grammar_node, &var.types__grammar_node);
   define_multi_assign_dynamic("grammar", "current_node", get__grammar__current_node, set__grammar__current_node, define__grammar__current_node, &dyna_idx__grammar__current_node);
@@ -9005,11 +9012,11 @@ EXPORT void phase_2__basic__grammar(void) {
   func__81_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__grammar(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__grammar(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__grammar");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "WHITESPACE_CHARACTER", &get__WHITESPACE_CHARACTER, &get_value_or_future__WHITESPACE_CHARACTER);
@@ -9077,11 +9084,11 @@ EXPORT void phase_3__basic__grammar(void) {
   define_method("types", "object", poly_idx__grammar__search, func__81_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__grammar(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__grammar(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.grammar__match, create_function(type__grammar__match, -1));
   assign_value(&var.grammar__search, create_function(type__grammar__search, -1));
   assign_value(&var.types__grammar_object, get__types__object());
@@ -9134,11 +9141,11 @@ EXPORT void phase_4__basic__grammar(void) {
   assign_variable(&var.std__ANY_CHARACTER, &var.types__grammar_object);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__grammar(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__grammar(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__12_1, create_function(entry__12_1, 2));
   assign_value(&func__13_1, create_function(entry__13_1, 1));
   assign_value(&func__15_1, create_function(entry__15_1, 2));

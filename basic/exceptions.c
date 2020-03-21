@@ -179,10 +179,11 @@ IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -190,7 +191,6 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT void register_dynamic(int *id_p);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_dynamic(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER definer,
@@ -3506,12 +3506,22 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__exceptions(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__exceptions");
-  set_used_namespaces(used_namespaces);
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
+  string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
+  string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__exceptions(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__exceptions");
+  set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("std__CLEANUP");
   assign_value(&var.std__CLEANUP, unique__1_1);
   define_single_assign_static("std", "CLEANUP", get__std__CLEANUP, &var.std__CLEANUP);
@@ -3541,7 +3551,6 @@ EXPORT void phase_2__basic__exceptions(void) {
   func__19_1 = create_future();
   define_single_assign_static("std", "Error", get__std__Error, &var.std__Error);
   func__20_1 = create_future();
-  string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   func__21_1 = create_future();
   define_single_assign_dynamic("std", "raise", get__std__raise, define__std__raise, &dyna_idx__std__raise);
   define__std__raise(create_future());
@@ -3550,19 +3559,17 @@ EXPORT void phase_2__basic__exceptions(void) {
   define_single_assign_static("std", "try", get__std__try, &var.std__try);
   func__24_1 = create_future();
   define_single_assign_static("std", "transaction", get__std__transaction, &var.std__transaction);
-  string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
   func__25_3 = create_future();
-  string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   func__25_29 = create_future();
   func__25_1 = create_future();
   define_single_assign_static("std", "retain", get__std__retain, &var.std__retain);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__exceptions(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__exceptions(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__exceptions");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "ErrorMessage", &get__ErrorMessage, &get_value_or_future__ErrorMessage);
@@ -3606,11 +3613,11 @@ EXPORT void phase_3__basic__exceptions(void) {
   define_attribute("types", "object", poly_idx__retain_id_of, get__undefined());
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__exceptions(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__exceptions(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var._resource_id_of, create_function(type__resource_id_of, -1));
   assign_value(&var._retain_id_of, create_function(type__retain_id_of, -1));
   maybe_initialize_future(get__first_resource_id(), get__undefined());
@@ -3632,11 +3639,11 @@ EXPORT void phase_4__basic__exceptions(void) {
   assign_variable(&var.std__retain, &func__25_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__exceptions(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__exceptions(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__9_1, create_function(entry__9_1, 1));
   assign_value(&func__10_1, create_function(entry__10_1, 1));
   assign_value(&func__11_1, create_function(entry__11_1, 1));

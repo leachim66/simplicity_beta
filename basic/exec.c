@@ -186,9 +186,9 @@ typedef struct CELL {
 IMPORT void optional_item(NODE *item);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -487,18 +487,18 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__19_6, &frame__19_1, 779, 779, 3, 46},
   {cont__19_9, &frame__19_1, 780, 780, 3, 37},
   {cont__19_12, &frame__19_1, 781, 781, 3, 24},
-  {entry__20_8, NULL, 791, 791, 12, 22},
-  {cont__20_9, &frame__20_8, 791, 791, 9, 22},
-  {entry__20_10, NULL, 792, 792, 9, 17},
+  {entry__20_8, NULL, 789, 789, 32, 42},
+  {cont__20_9, &frame__20_8, 789, 789, 29, 42},
+  {entry__20_10, NULL, 789, 789, 45, 53},
   {entry__20_5, NULL, 788, 788, 7, 33},
-  {cont__20_6, &frame__20_5, 790, 790, 9, 25},
-  {cont__20_7, &frame__20_5, 789, 792, 7, 17},
-  {entry__20_4, NULL, 787, 792, 5, 18},
-  {entry__20_12, NULL, 793, 793, 18, 36},
-  {entry__20_11, NULL, 793, 793, 5, 36},
+  {cont__20_6, &frame__20_5, 789, 789, 10, 26},
+  {cont__20_7, &frame__20_5, 789, 789, 7, 53},
+  {entry__20_4, NULL, 787, 789, 5, 53},
+  {entry__20_12, NULL, 790, 790, 18, 36},
+  {entry__20_11, NULL, 790, 790, 5, 36},
   {entry__20_1, NULL, 784, 784, 27, 38},
   {cont__20_2, &frame__20_1, 784, 784, 3, 47},
-  {cont__20_3, &frame__20_1, 785, 793, 3, 36}
+  {cont__20_3, &frame__20_1, 785, 790, 3, 36}
 };
 
 union NODE {
@@ -1935,7 +1935,7 @@ static void entry__20_12(void) {
   // filename: 1
   frame->slots[1] = myself->closure.frame->slots[0]; /* filename */
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 793: ... call filename args*
+  // 790: ... call filename args*
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = frame->slots[1] /* filename */;
@@ -1954,7 +1954,7 @@ static void entry__20_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 791: ... result.trim
+  // 789: ... result.trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* result */;
@@ -1969,7 +1969,7 @@ static void cont__20_9(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 791: -> result.trim
+  // 789: ... -> result.trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1986,7 +1986,7 @@ static void entry__20_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 792: -> result
+  // 789: ... -> result
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* result */;
@@ -2020,7 +2020,7 @@ static void cont__20_6(void) {
     return;
   }
   initialize_future(frame->slots[2] /* result */, arguments->slots[0]);
-  // 790: result.is_defined
+  // 789: ... result.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* result */;
@@ -2035,14 +2035,11 @@ static void cont__20_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 791: -> result.trim
+  // 789: ... -> result.trim
   frame->slots[4] /* temp__2 */ = create_closure(entry__20_8, 0);
-  // 792: -> result
+  // 789: ... -> result
   frame->slots[5] /* temp__3 */ = create_closure(entry__20_10, 0);
-  // 789: if
-  // 790:   result.is_defined
-  // 791:   -> result.trim
-  // 792:   -> result
+  // 789: if result.is_defined (-> result.trim) -> result
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2064,17 +2061,11 @@ static void entry__20_4(void) {
   }
   // 787: ... : (args*)
   // 788:   call $result filename args*
-  // 789:   if
-  // 790:     result.is_defined
-  // 791:     -> result.trim
-  // 792:     -> result
+  // 789:   if result.is_defined (-> result.trim) -> result
   frame->slots[1] /* temp__1 */ = create_closure(entry__20_5, -1);
   // 787: -> : (args*)
   // 788:   call $result filename args*
-  // 789:   if
-  // 790:     result.is_defined
-  // 791:     -> result.trim
-  // 792:     -> result
+  // 789:   if result.is_defined (-> result.trim) -> result
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2091,9 +2082,9 @@ static void entry__20_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 793: ... : (args*) call filename args*
+  // 790: ... : (args*) call filename args*
   frame->slots[1] /* temp__1 */ = create_closure(entry__20_12, -1);
-  // 793: -> : (args*) call filename args*
+  // 790: -> : (args*) call filename args*
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2149,22 +2140,16 @@ static void cont__20_3(void) {
   initialize_future(frame->slots[2] /* do_trim */, arguments->slots[0]);
   // 787: -> : (args*)
   // 788:   call $result filename args*
-  // 789:   if
-  // 790:     result.is_defined
-  // 791:     -> result.trim
-  // 792:     -> result
+  // 789:   if result.is_defined (-> result.trim) -> result
   frame->slots[3] /* temp__1 */ = create_closure(entry__20_4, 0);
-  // 793: -> : (args*) call filename args*
+  // 790: -> : (args*) call filename args*
   frame->slots[4] /* temp__2 */ = create_closure(entry__20_11, 0);
   // 785: if
   // 786:   do_trim
   // 787:   -> : (args*)
   // 788:     call $result filename args*
-  // 789:     if
-  // 790:       result.is_defined
-  // 791:       -> result.trim
-  // 792:       -> result
-  // 793:   -> : (args*) call filename args*
+  // 789:     if result.is_defined (-> result.trim) -> result
+  // 790:   -> : (args*) call filename args*
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* do_trim */;
@@ -2229,8 +2214,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__exec(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__exec");
-  set_used_namespaces(used_namespaces);
   number__6 = from_uint32(6U);
   number__15 = from_uint32(15U);
   number__12 = from_uint32(12U);
@@ -2242,6 +2225,16 @@ EXPORT void phase_2__basic__exec(void) {
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
   number__14 = from_uint32(14U);
+  string__19_8 = from_latin_1_string("Invalid arguments!", 18);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__exec(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__exec");
+  set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "SIGHUP", get__std__SIGHUP, &var.std__SIGHUP);
   define_single_assign_static("std", "SIGINT", get__std__SIGINT, &var.std__SIGINT);
   define_single_assign_static("std", "SIGQUIT", get__std__SIGQUIT, &var.std__SIGQUIT);
@@ -2263,7 +2256,6 @@ EXPORT void phase_2__basic__exec(void) {
   define_single_assign_static("std", "exec", get__std__exec, &var.std__exec);
   func__18_1 = create_future();
   define_single_assign_static("std", "call", get__std__call, &var.std__call);
-  string__19_8 = from_latin_1_string("Invalid arguments!", 18);
   func__19_7 = create_future();
   func__19_10 = create_future();
   func__19_1 = create_future();
@@ -2272,11 +2264,11 @@ EXPORT void phase_2__basic__exec(void) {
   define_single_assign_static("std", "extern", get__std__extern, &var.std__extern);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__exec(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__exec(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__exec");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "TRIM", &get__TRIM, &get_value_or_future__TRIM);
@@ -2298,11 +2290,11 @@ EXPORT void phase_3__basic__exec(void) {
   use_read_only(NULL, "update_each", &get__update_each, &get_value_or_future__update_each);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__exec(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__exec(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__SIGHUP, number__1);
   assign_value(&var.std__SIGINT, number__2);
   assign_value(&var.std__SIGQUIT, number__3);
@@ -2324,11 +2316,11 @@ EXPORT void phase_4__basic__exec(void) {
   assign_variable(&var.std__extern, &func__20_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__exec(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__exec(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__11_1, create_function(entry__11_1, -1));
   assign_value(&func__12_1, create_function(entry__12_1, -1));
   assign_value(&func__13_1, create_function(entry__13_1, -1));

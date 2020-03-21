@@ -167,6 +167,7 @@ IMPORT int debug_print(int indent, char *buf, const char *format, ...);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -174,7 +175,6 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future(void);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -492,6 +492,14 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__undefined(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  string__16_1 = from_latin_1_string("undefined", 9);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__undefined(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__types__undefined");
   set_used_namespaces(used_namespaces);
   var.types__undefined = create__types__undefined();
@@ -500,15 +508,14 @@ EXPORT void phase_2__basic__types__undefined(void) {
   define_single_assign_static("std", "undefined", get__std__undefined, &var.std__undefined);
   func__5_1 = create_future();
   func__6_1 = create_future();
-  string__16_1 = from_latin_1_string("undefined", 9);
   func__16_2 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__undefined(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__undefined(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__undefined");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "default_value", &get__default_value, &poly_idx__default_value);
@@ -525,18 +532,18 @@ EXPORT void phase_3__basic__types__undefined(void) {
   define_method("types", "undefined", poly_idx__default_value, func__6_1);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__basic__types__undefined(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__basic__types__undefined(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__types__undefined(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__5_1, create_function(entry__5_1, 2));
   assign_value(&func__6_1, create_function(entry__6_1, 2));
   assign_value(&func__16_2, create_function(entry__16_2, 2));

@@ -319,6 +319,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__options(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__options(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__options");
   set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("std__VERBOSE");
@@ -332,20 +339,13 @@ EXPORT void phase_2__basic__options(void) {
   define_single_assign_static("std", "TRIM", get__std__TRIM, &var.std__TRIM);
 }
 
-static int already_run_phase_3 = false;
-
-EXPORT void phase_3__basic__options(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
-  set_module("basic__options");
-  set_used_namespaces(used_namespaces);
-}
-
 static int already_run_phase_4 = false;
 
 EXPORT void phase_4__basic__options(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
+  set_module("basic__options");
+  set_used_namespaces(used_namespaces);
 }
 
 static int already_run_phase_5 = false;
@@ -353,5 +353,12 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__options(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__options(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   register_collector(collect__basic__options);
 }

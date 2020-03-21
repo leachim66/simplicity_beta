@@ -475,11 +475,11 @@ typedef struct PHASE_2_COLLECTOR {
   void (*collector)(void *data);
 } PHASE_2_COLLECTOR;
 
-PHASE_2_COLLECTOR *phase_2_collectors;
+PHASE_2_COLLECTOR *phase_3_collectors;
 
-EXPORT void register_phase_2_collector(void *data) {
-  ((PHASE_2_COLLECTOR *)data)->next_collector = phase_2_collectors;
-  phase_2_collectors = (PHASE_2_COLLECTOR *)data;
+EXPORT void register_phase_3_collector(void *data) {
+  ((PHASE_2_COLLECTOR *)data)->next_collector = phase_3_collectors;
+  phase_3_collectors = (PHASE_2_COLLECTOR *)data;
 }
 
 extern void set_module(const char *name);
@@ -670,6 +670,20 @@ EXPORT void initialize_runtime(void) {
 }
 
 EXPORT void initialize_phase_3(void) {
+  /*fprintf(
+    stderr, "length of literals: %ld (pool size: %ld)\n",
+    node_p-node_buf, pool_size);*/
+
+  // throw away the current pool that contains mostly (only?) literals
+
+  /*node_buf = allocate_pool();
+  node_buf_end = (char *)node_buf+pool_size;
+  node_buf_hard_limit = (char *)node_buf_end-MEMORY_HARD_LIMIT;
+  node_buf_soft_limit = (char *)node_buf_end-MEMORY_SOFT_LIMIT;
+  node_p = node_buf;*/
+}
+
+EXPORT void initialize_phase_4(void) {
   NODE_GETTER getter, dummy;
   use_read_only("std", "undefined", &getter, &dummy);
   undefined = getter();
@@ -974,7 +988,7 @@ EXPORT void collect_garbage() {
 
   within_garbage_collection = true;
 
-  phase_2_collectors = NULL;
+  phase_3_collectors = NULL;
 
   coll_node_buf = node_buf;
   coll_node_buf_end = node_buf_end;
@@ -1012,9 +1026,9 @@ EXPORT void collect_garbage() {
     arguments = collect_frame(arguments);
   }
 
-  while (phase_2_collectors) {
-    phase_2_collectors->collector(phase_2_collectors);
-    phase_2_collectors = phase_2_collectors->next_collector;
+  while (phase_3_collectors) {
+    phase_3_collectors->collector(phase_3_collectors);
+    phase_3_collectors = phase_3_collectors->next_collector;
   }
 
 

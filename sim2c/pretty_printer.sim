@@ -1137,7 +1137,7 @@ $$character_to_name undefined
 $create_character_table:
   !character_to_name empty_table
   for_each character_names: (name chr)
-    if chr < '@0x80;': !character_to_name(chr) name
+    if chr < '@0x80;' || chr == '@nbsp;': !character_to_name(chr) name
 
   # undefine common characters
 
@@ -1155,7 +1155,7 @@ $escaped_character: (chr)
       case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
     :
       if
-	chr >= '@0x2b0;' || chr >= '@0x80;' && chr < ' '
+	chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
 	-> string("@@0x" hex(chr.to_integer) ';')
 	-> chr.to_string
 

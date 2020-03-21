@@ -348,6 +348,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__runtime(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__runtime(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__runtime");
   set_used_namespaces(used_namespaces);
   func__1_1 = create_future();
@@ -358,23 +365,13 @@ EXPORT void phase_2__basic__runtime(void) {
   define_single_assign_static("std", "runtime_revision", get__std__runtime_revision, &var.std__runtime_revision);
 }
 
-static int already_run_phase_3 = false;
-
-EXPORT void phase_3__basic__runtime(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
-  set_module("basic__runtime");
-  set_used_namespaces(used_namespaces);
-}
-
 static int already_run_phase_4 = false;
 
 EXPORT void phase_4__basic__runtime(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_variable(&var.std__runtime_major_version, &func__1_1);
-  assign_variable(&var.std__runtime_minor_version, &func__2_1);
-  assign_variable(&var.std__runtime_revision, &func__3_1);
+  set_module("basic__runtime");
+  set_used_namespaces(used_namespaces);
 }
 
 static int already_run_phase_5 = false;
@@ -382,6 +379,16 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__runtime(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_variable(&var.std__runtime_major_version, &func__1_1);
+  assign_variable(&var.std__runtime_minor_version, &func__2_1);
+  assign_variable(&var.std__runtime_revision, &func__3_1);
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__runtime(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, 0));
   assign_value(&func__2_1, create_function(entry__2_1, 0));
   assign_value(&func__3_1, create_function(entry__3_1, 0));

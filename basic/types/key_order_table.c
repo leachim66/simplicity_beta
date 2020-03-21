@@ -210,16 +210,16 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -8206,10 +8206,19 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__key_order_table(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__key_order_table");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  string__26_1 = from_latin_1_string("key_order_table", 15);
+  string__84_1 = from_latin_1_string("key_order_table", 15);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__key_order_table(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__key_order_table");
+  set_used_namespaces(used_namespaces);
   unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
   unique__5_1 = register_unique_item("INSERT");
@@ -8225,7 +8234,6 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   func__21_1 = create_future();
   func__22_1 = create_future();
   func__23_1 = create_future();
-  string__26_1 = from_latin_1_string("key_order_table", 15);
   func__27_1 = create_future();
   define_single_assign_static("std", "empty_key_order_table", get__std__empty_key_order_table, &var.std__empty_key_order_table);
   func__29_1 = create_future();
@@ -8242,14 +8250,13 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   func__39_1 = create_future();
   func__40_1 = create_future();
   func__41_1 = create_future();
-  string__84_1 = from_latin_1_string("key_order_table", 15);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__key_order_table(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__key_order_table(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__key_order_table");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
@@ -8305,11 +8312,11 @@ EXPORT void phase_3__basic__types__key_order_table(void) {
   define_method("types", "key_order_table", poly_idx__update_each, func__41_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__key_order_table(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__key_order_table(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__is_a_key_order_table, create_function(type__std__is_a_key_order_table, -1));
   assign_value(&var._tree_of, create_function(type__tree_of, -1));
   assign_value(&var._key_of, create_function(type__key_of, -1));
@@ -8334,11 +8341,11 @@ EXPORT void phase_4__basic__types__key_order_table(void) {
   assign_variable(&var._update_each_item_from_down_to, &func__39_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__key_order_table(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__key_order_table(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__12_1, create_function(entry__12_1, 1));
   assign_value(&func__13_1, create_function(entry__13_1, 1));
   assign_value(&func__18_1, create_function(entry__18_1, 1));

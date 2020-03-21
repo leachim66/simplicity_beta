@@ -199,16 +199,16 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_future(void);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
@@ -4367,10 +4367,23 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__nodes(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("nodes");
-  set_used_namespaces(used_namespaces);
   character__39 = from_uchar32(39);
   character__46 = from_uchar32(46);
+  string__208_3 = from_latin_1_string("_", 1);
+  string__222_1 = from_latin_1_string("\012", 1);
+  string__223_1 = from_latin_1_string("\012", 1);
+  string__246_6 = from_latin_1_string("::", 2);
+  string__247_6 = from_latin_1_string("__", 2);
+  string__260_1 = from_latin_1_string("local", 5);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__nodes(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("nodes");
+  set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("sim2c__NONE");
   assign_value(&var.sim2c__NONE, unique__1_1);
   define_single_assign_static("sim2c", "NONE", get__sim2c__NONE, &var.sim2c__NONE);
@@ -4447,37 +4460,31 @@ EXPORT void phase_2__nodes(void) {
   define_single_assign_static("sim2c", "attribute_value_pair", get__sim2c__attribute_value_pair, &var.sim2c__attribute_value_pair);
   define_single_assign_static("sim2c", "attribute_function_pair", get__sim2c__attribute_function_pair, &var.sim2c__attribute_function_pair);
   define_single_assign_static("sim2c", "numeric_literal", get__sim2c__numeric_literal, &var.sim2c__numeric_literal);
-  string__208_3 = from_latin_1_string("_", 1);
   func__208_1 = create_future();
   define_single_assign_static("sim2c", "character_literal", get__sim2c__character_literal, &var.sim2c__character_literal);
   define_single_assign_static("sim2c", "string_literal", get__sim2c__string_literal, &var.sim2c__string_literal);
   define_single_assign_static("sim2c", "multi_line_string", get__sim2c__multi_line_string, &var.sim2c__multi_line_string);
-  string__222_1 = from_latin_1_string("\012", 1);
-  string__223_1 = from_latin_1_string("\012", 1);
   define_single_assign_static("sim2c", "unique_item", get__sim2c__unique_item, &var.sim2c__unique_item);
   define_single_assign_static("sim2c", "polymorphic_function", get__sim2c__polymorphic_function, &var.sim2c__polymorphic_function);
   define_single_assign_static("sim2c", "polymorphic_function_with_setter", get__sim2c__polymorphic_function_with_setter, &var.sim2c__polymorphic_function_with_setter);
   define_single_assign_static("sim2c", "identifier", get__sim2c__identifier, &var.sim2c__identifier);
-  string__246_6 = from_latin_1_string("::", 2);
   func__246_8 = create_future();
   func__246_1 = create_future();
-  string__247_6 = from_latin_1_string("__", 2);
   func__247_8 = create_future();
   func__247_1 = create_future();
   define_single_assign_static("sim2c", "temporary", get__sim2c__temporary, &var.sim2c__temporary);
   define_single_assign_static("sim2c", "operator_symbol", get__sim2c__operator_symbol, &var.sim2c__operator_symbol);
   define_single_assign_static("sim2c", "c_code", get__sim2c__c_code, &var.sim2c__c_code);
-  string__260_1 = from_latin_1_string("local", 5);
   define_single_assign_static("sim2c", "c_body", get__sim2c__c_body, &var.sim2c__c_body);
   func__267_1 = create_future();
   define_single_assign_static("sim2c", "is_a_parameter", get__sim2c__is_a_parameter, &var.sim2c__is_a_parameter);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__nodes(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__nodes(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("nodes");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "DYNAMIC_MULTI", &get__DYNAMIC_MULTI, &get_value_or_future__DYNAMIC_MULTI);
@@ -4681,11 +4688,11 @@ EXPORT void phase_3__nodes(void) {
   define_attribute("sim2c", "c_body", poly_idx__is_a_constant, get__true());
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__nodes(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__nodes(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.node__argument_of, create_function(type__node__argument_of, -1));
   assign_value(&var.node__arguments_of, create_function(type__node__arguments_of, -1));
   assign_value(&var.node__attribute_kind_of, create_function(type__node__attribute_kind_of, -1));
@@ -4820,11 +4827,11 @@ EXPORT void phase_4__nodes(void) {
   assign_variable(&var.sim2c__is_a_parameter, &func__267_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__nodes(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__nodes(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__208_1, create_function(entry__208_1, 1));
   assign_value(&func__246_8, create_function(entry__246_8, 0));
   assign_value(&func__246_1, create_function(entry__246_1, 1));

@@ -573,6 +573,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__object(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__object(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__types__object");
   set_used_namespaces(used_namespaces);
   var.types__object = create__types__object();
@@ -584,11 +591,11 @@ EXPORT void phase_2__basic__types__object(void) {
   define_single_assign_static("std", "current_address_of", get__std__current_address_of, &var.std__current_address_of);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__object(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__object(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__object");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "default_value", &get__default_value, &poly_idx__default_value);
@@ -608,19 +615,19 @@ EXPORT void phase_3__basic__types__object(void) {
   define_method("types", "object", poly_idx__equal_type_and_value, func__8_1);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__basic__types__object(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_variable(&var.std__current_address_of, &func__9_1);
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__basic__types__object(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_variable(&var.std__current_address_of, &func__9_1);
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__types__object(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__4_1, create_function(entry__4_1, 2));
   assign_value(&func__7_1, create_function(entry__7_1, -1));
   assign_value(&func__8_1, create_function(entry__8_1, 2));

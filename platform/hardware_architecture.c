@@ -312,10 +312,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__platform__hardware_architecture(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("platform__hardware_architecture");
-  set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
-  define_single_assign_static("std", "hardware_architecture", get__std__hardware_architecture, &var.std__hardware_architecture);
 }
 
 static int already_run_phase_3 = false;
@@ -325,6 +321,8 @@ EXPORT void phase_3__platform__hardware_architecture(void) {
   already_run_phase_3 = true;
   set_module("platform__hardware_architecture");
   set_used_namespaces(used_namespaces);
+  func__1_1 = create_future();
+  define_single_assign_static("std", "hardware_architecture", get__std__hardware_architecture, &var.std__hardware_architecture);
 }
 
 static int already_run_phase_4 = false;
@@ -332,7 +330,8 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__platform__hardware_architecture(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_variable(&var.std__hardware_architecture, &func__1_1);
+  set_module("platform__hardware_architecture");
+  set_used_namespaces(used_namespaces);
 }
 
 static int already_run_phase_5 = false;
@@ -340,6 +339,14 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__platform__hardware_architecture(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_variable(&var.std__hardware_architecture, &func__1_1);
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__platform__hardware_architecture(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, 0));
   register_collector(collect__platform__hardware_architecture);
 }

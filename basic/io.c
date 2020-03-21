@@ -252,10 +252,10 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -10607,8 +10607,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__io(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__io");
-  set_used_namespaces(used_namespaces);
   number__6 = from_uint32(6U);
   number__0o4000 = from_uint32(2048U);
   number__0o400 = from_uint32(256U);
@@ -10657,6 +10655,57 @@ EXPORT void phase_2__basic__io(void) {
   number__30 = from_uint32(30U);
   number__24 = from_uint32(24U);
   number__14 = from_uint32(14U);
+  string__81_5 = from_latin_1_string(" = ", 3);
+  string__81_6 = from_latin_1_string("\012", 1);
+  string__81_12 = from_latin_1_string(" failed: ", 9);
+  string__81_13 = from_latin_1_string("!\012", 2);
+  string__128_14 = from_latin_1_string("Failed to write to file!", 24);
+  string__129_13 = from_latin_1_string("Failed to write to file!", 24);
+  string__131_18 = from_latin_1_string("Failed to save file \042", 21);
+  string__131_19 = from_latin_1_string("\042", 1);
+  string__134_9 = from_latin_1_string("IOCTL failed!\012", 14);
+  string__137_9 = from_latin_1_string("Failed to delete file \042", 23);
+  string__137_10 = from_latin_1_string("\042!\012", 3);
+  string__144_6 = from_latin_1_string("Failed to change current directory to \042", 39);
+  string__144_7 = from_latin_1_string("\042!", 2);
+  string__146_4 = from_latin_1_string("0o", 2);
+  string__146_6 = from_latin_1_string("MODE", 4);
+  string__146_8 = from_latin_1_string("PARENTS", 7);
+  string__146_10 = from_latin_1_string("path", 4);
+  string__146_12 = from_latin_1_string("mkdir", 5);
+  string__147_6 = from_latin_1_string("Failed to create directory \042", 28);
+  string__147_7 = from_latin_1_string("\042!", 2);
+  string__148_5 = from_latin_1_string("/", 1);
+  string__148_12 = from_latin_1_string("//", 2);
+  string__148_14 = from_latin_1_string("/", 1);
+  string__148_17 = from_latin_1_string("/./", 3);
+  string__148_18 = from_latin_1_string("/", 1);
+  string__148_25 = from_latin_1_string("/", 1);
+  string__148_26 = from_latin_1_string("../", 3);
+  string__148_28 = from_latin_1_string("/", 1);
+  string__148_34 = from_latin_1_string("/", 1);
+  string__163_4 = from_latin_1_string("/", 1);
+  string__167_13 = from_latin_1_string(".", 1);
+  string__167_14 = from_latin_1_string("..", 2);
+  string__183_2 = from_latin_1_string("\012", 1);
+  string__185_2 = from_latin_1_string("\012", 1);
+  string__187_4 = from_latin_1_string("\012", 1);
+  string__188_2 = from_latin_1_string("http://", 7);
+  string__188_5 = from_latin_1_string("-q", 2);
+  string__188_6 = from_latin_1_string("-O", 2);
+  string__188_7 = from_latin_1_string("-", 1);
+  string__188_11 = from_latin_1_string("Load error (\042", 13);
+  string__188_12 = from_latin_1_string("\042)!", 3);
+  string__192_1 = from_latin_1_string("wget", 4);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__io(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__io");
+  set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("std__MODE");
   assign_value(&var.std__MODE, unique__1_1);
   define_single_assign_static("std", "MODE", get__std__MODE, &var.std__MODE);
@@ -10716,10 +10765,6 @@ EXPORT void phase_2__basic__io(void) {
   define_single_assign_static("std", "EPIPE", get__std__EPIPE, &var.std__EPIPE);
   define_single_assign_static("std", "EDOM", get__std__EDOM, &var.std__EDOM);
   define_single_assign_static("std", "ERANGE", get__std__ERANGE, &var.std__ERANGE);
-  string__81_5 = from_latin_1_string(" = ", 3);
-  string__81_6 = from_latin_1_string("\012", 1);
-  string__81_12 = from_latin_1_string(" failed: ", 9);
-  string__81_13 = from_latin_1_string("!\012", 2);
   func__81_1 = create_future();
   define_single_assign_static("std", "raise_error", get__std__raise_error, &var.std__raise_error);
   func__82_1 = create_future();
@@ -10775,29 +10820,22 @@ EXPORT void phase_2__basic__io(void) {
   func__125_1 = create_future();
   func__126_1 = create_future();
   func__127_1 = create_future();
-  string__128_14 = from_latin_1_string("Failed to write to file!", 24);
   func__128_13 = create_future();
   func__128_1 = create_future();
-  string__129_13 = from_latin_1_string("Failed to write to file!", 24);
   func__129_12 = create_future();
   func__129_1 = create_future();
   define_single_assign_static("std", "atomic_write_to", get__std__atomic_write_to, &var.std__atomic_write_to);
   func__130_15 = create_future();
   func__130_1 = create_future();
   define_single_assign_static("std", "load_file", get__std__load_file, &var.std__load_file);
-  string__131_18 = from_latin_1_string("Failed to save file \042", 21);
-  string__131_19 = from_latin_1_string("\042", 1);
   func__131_1 = create_future();
   define_single_assign_static("std", "save_file", get__std__save_file, &var.std__save_file);
   func__132_1 = create_future();
   func__133_1 = create_future();
-  string__134_9 = from_latin_1_string("IOCTL failed!\012", 14);
   func__134_8 = create_future();
   func__134_1 = create_future();
   func__135_1 = create_future();
   func__136_1 = create_future();
-  string__137_9 = from_latin_1_string("Failed to delete file \042", 23);
-  string__137_10 = from_latin_1_string("\042!\012", 3);
   func__137_1 = create_future();
   define_single_assign_static("std", "delete_file", get__std__delete_file, &var.std__delete_file);
   func__138_1 = create_future();
@@ -10811,34 +10849,16 @@ EXPORT void phase_2__basic__io(void) {
   define_single_assign_static("std", "current_path", get__std__current_path, &var.std__current_path);
   func__143_1 = create_future();
   define_single_assign_static("std", "chdir", get__std__chdir, &var.std__chdir);
-  string__144_6 = from_latin_1_string("Failed to change current directory to \042", 39);
-  string__144_7 = from_latin_1_string("\042!", 2);
   func__144_1 = create_future();
   define_single_assign_static("std", "change_directory", get__std__change_directory, &var.std__change_directory);
   func__145_1 = create_future();
   define_single_assign_static("std", "clib_mkdir", get__std__clib_mkdir, &var.std__clib_mkdir);
-  string__146_4 = from_latin_1_string("0o", 2);
-  string__146_6 = from_latin_1_string("MODE", 4);
-  string__146_8 = from_latin_1_string("PARENTS", 7);
-  string__146_10 = from_latin_1_string("path", 4);
-  string__146_12 = from_latin_1_string("mkdir", 5);
   func__146_22 = create_future();
   func__146_36 = create_future();
   func__146_1 = create_future();
   define_single_assign_static("std", "mkdir", get__std__mkdir, &var.std__mkdir);
-  string__147_6 = from_latin_1_string("Failed to create directory \042", 28);
-  string__147_7 = from_latin_1_string("\042!", 2);
   func__147_1 = create_future();
   define_single_assign_static("std", "create_directory", get__std__create_directory, &var.std__create_directory);
-  string__148_5 = from_latin_1_string("/", 1);
-  string__148_12 = from_latin_1_string("//", 2);
-  string__148_14 = from_latin_1_string("/", 1);
-  string__148_17 = from_latin_1_string("/./", 3);
-  string__148_18 = from_latin_1_string("/", 1);
-  string__148_25 = from_latin_1_string("/", 1);
-  string__148_26 = from_latin_1_string("../", 3);
-  string__148_28 = from_latin_1_string("/", 1);
-  string__148_34 = from_latin_1_string("/", 1);
   func__148_1 = create_future();
   define_single_assign_static("std", "fullname", get__std__fullname, &var.std__fullname);
   var.types__DIR = create_future_with_prototype(create__types__DIR(NULL));
@@ -10852,13 +10872,10 @@ EXPORT void phase_2__basic__io(void) {
   func__160_1 = create_future();
   func__161_1 = create_future();
   func__162_1 = create_future();
-  string__163_4 = from_latin_1_string("/", 1);
   func__163_1 = create_future();
   func__164_1 = create_future();
   func__165_1 = create_future();
   func__166_1 = create_future();
-  string__167_13 = from_latin_1_string(".", 1);
-  string__167_14 = from_latin_1_string("..", 2);
   func__167_18 = create_future();
   func__167_23 = create_future();
   func__167_1 = create_future();
@@ -10876,37 +10893,27 @@ EXPORT void phase_2__basic__io(void) {
   func__181_1 = create_future();
   define_single_assign_dynamic("std", "write", get__std__write, define__std__write, &dyna_idx__std__write);
   func__182_1 = create_future();
-  string__183_2 = from_latin_1_string("\012", 1);
   func__183_1 = create_future();
   define_single_assign_static("std", "writeln", get__std__writeln, &var.std__writeln);
   define_single_assign_dynamic("std", "ewrite", get__std__ewrite, define__std__ewrite, &dyna_idx__std__ewrite);
   func__184_1 = create_future();
-  string__185_2 = from_latin_1_string("\012", 1);
   func__185_1 = create_future();
   define_single_assign_static("std", "ewriteln", get__std__ewriteln, &var.std__ewriteln);
   define_single_assign_dynamic("std", "read", get__std__read, define__std__read, &dyna_idx__std__read);
   func__186_1 = create_future();
-  string__187_4 = from_latin_1_string("\012", 1);
   func__187_1 = create_future();
   define_single_assign_static("std", "readln", get__std__readln, &var.std__readln);
-  string__188_2 = from_latin_1_string("http://", 7);
-  string__188_5 = from_latin_1_string("-q", 2);
-  string__188_6 = from_latin_1_string("-O", 2);
-  string__188_7 = from_latin_1_string("-", 1);
-  string__188_11 = from_latin_1_string("Load error (\042", 13);
-  string__188_12 = from_latin_1_string("\042)!", 3);
   func__188_1 = create_future();
   define_single_assign_static("std", "load", get__std__load, &var.std__load);
   func__189_1 = create_future();
   define_single_assign_static("std", "save", get__std__save, &var.std__save);
-  string__192_1 = from_latin_1_string("wget", 4);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__io(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__io(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__io");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "EEXIST", &get__EEXIST, &get_value_or_future__EEXIST);
@@ -11059,11 +11066,11 @@ EXPORT void phase_3__basic__io(void) {
   define_method("types", "file_descriptor", poly_idx__accept, func__181_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__io(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__io(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__ioctl, create_function(type__std__ioctl, -1));
   assign_value(&var.std__get_terminal_size, create_function(type__std__get_terminal_size, -1));
   assign_value(&var.std__device_of, create_function(type__std__device_of, -1));
@@ -11189,11 +11196,11 @@ EXPORT void phase_4__basic__io(void) {
   assign_variable(&var.std__save, &func__189_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__io(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__io(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__81_1, create_function(entry__81_1, -1));
   assign_value(&func__82_1, create_function(entry__82_1, -1));
   assign_value(&func__83_1, create_function(entry__83_1, 0));

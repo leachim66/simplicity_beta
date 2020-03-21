@@ -190,16 +190,16 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -1910,8 +1910,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__date_and_time(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__date_and_time");
-  set_used_namespaces(used_namespaces);
   number__3600 = from_uint32(3600U);
   number__0 = from_uint32(0U);
   number__1000 = from_uint32(1000U);
@@ -1919,6 +1917,26 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   character__32 = from_uchar32(32);
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
+  string__28_7 = from_latin_1_string("0", 1);
+  string__28_10 = from_latin_1_string("0", 1);
+  string__28_14 = from_latin_1_string("0", 1);
+  string__28_17 = from_latin_1_string("0", 1);
+  string__28_23 = from_latin_1_string("0", 1);
+  string__28_29 = from_latin_1_string("+", 1);
+  string__28_38 = from_latin_1_string("-", 1);
+  string__28_39 = from_latin_1_string("-", 1);
+  string__28_40 = from_latin_1_string(":", 1);
+  string__28_41 = from_latin_1_string(":", 1);
+  string__28_42 = from_latin_1_string(" GMT", 4);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__date_and_time(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__date_and_time");
+  set_used_namespaces(used_namespaces);
   func__1_1 = create_future();
   define_single_assign_static("std", "current_time", get__std__current_time, &var.std__current_time);
   var.types__date_and_time = create_future_with_prototype(create__types__date_and_time(0, 0));
@@ -1939,29 +1957,18 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   func__25_1 = create_future();
   func__26_1 = create_future();
   func__27_1 = create_future();
-  string__28_7 = from_latin_1_string("0", 1);
-  string__28_10 = from_latin_1_string("0", 1);
-  string__28_14 = from_latin_1_string("0", 1);
-  string__28_17 = from_latin_1_string("0", 1);
-  string__28_23 = from_latin_1_string("0", 1);
-  string__28_29 = from_latin_1_string("+", 1);
   func__28_36 = create_future();
   func__28_35 = create_future();
-  string__28_38 = from_latin_1_string("-", 1);
-  string__28_39 = from_latin_1_string("-", 1);
-  string__28_40 = from_latin_1_string(":", 1);
-  string__28_41 = from_latin_1_string(":", 1);
-  string__28_42 = from_latin_1_string(" GMT", 4);
   func__28_1 = create_future();
   func__29_1 = create_future();
   define_single_assign_static("std", "sleep", get__std__sleep, &var.std__sleep);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__date_and_time(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__date_and_time(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__date_and_time");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
@@ -2003,11 +2010,11 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   define_method("types", "date_and_time", poly_idx__to_string, func__28_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__date_and_time(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__date_and_time(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var.std__current_time, &func__1_1);
   assign_value(&var.std__year_of, create_function(type__std__year_of, -1));
   assign_value(&var.std__month_of, create_function(type__std__month_of, -1));
@@ -2023,11 +2030,11 @@ EXPORT void phase_4__basic__types__date_and_time(void) {
   assign_variable(&var.std__sleep, &func__29_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__date_and_time(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__date_and_time(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, 0));
   assign_value(&func__13_1, create_function(entry__13_1, 1));
   assign_value(&func__14_1, create_function(entry__14_1, 6));

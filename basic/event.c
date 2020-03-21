@@ -210,9 +210,10 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -223,7 +224,6 @@ IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER setter
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -5365,10 +5365,19 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__event(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__event");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
+  string__36_16 = from_latin_1_string("invalid continuation", 20);
+  string__38_29 = from_latin_1_string("invalid continuation", 20);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__event(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__event");
+  set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("std__WRITE_TO");
   assign_value(&var.std__WRITE_TO, unique__1_1);
   define_single_assign_static("std", "WRITE_TO", get__std__WRITE_TO, &var.std__WRITE_TO);
@@ -5424,14 +5433,12 @@ EXPORT void phase_2__basic__event(void) {
   func__34_43 = create_future();
   func__34_1 = create_future();
   func__35_1 = create_future();
-  string__36_16 = from_latin_1_string("invalid continuation", 20);
   func__36_18 = create_future();
   func__36_1 = create_future();
   define_single_assign_static("std", "get_event", get__std__get_event, &var.std__get_event);
   func__38_5 = create_future();
   func__38_2 = create_future();
   func__38_9 = create_future();
-  string__38_29 = from_latin_1_string("invalid continuation", 20);
   func__38_1 = create_future();
   define_single_assign_static("std", "process_events", get__std__process_events, &var.std__process_events);
   func__39_15 = create_future();
@@ -5441,11 +5448,11 @@ EXPORT void phase_2__basic__event(void) {
   define_single_assign_static("std", "par", get__std__par, &var.std__par);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__event(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__event(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__event");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "READ_FROM", &get__READ_FROM, &get_value_or_future__READ_FROM);
@@ -5507,11 +5514,11 @@ EXPORT void phase_3__basic__event(void) {
   use_polymorphic_function(NULL, "width_of", &get__width_of, &poly_idx__width_of);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__event(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__event(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__file_descriptor_of, create_function(type__std__file_descriptor_of, -1));
   assign_value(&var.std__pid_of, create_function(type__std__pid_of, -1));
   assign_value(&var.std__status_of, create_function(type__std__status_of, -1));
@@ -5539,11 +5546,11 @@ EXPORT void phase_4__basic__event(void) {
   assign_variable(&var.std__par, &func__40_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__event(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__event(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__20_1, create_function(entry__20_1, 1));
   assign_value(&func__21_1, create_function(entry__21_1, 1));
   assign_value(&func__22_1, create_function(entry__22_1, 1));

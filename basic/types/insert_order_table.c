@@ -208,16 +208,16 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -8717,10 +8717,21 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__insert_order_table(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__insert_order_table");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  string__35_1 = from_latin_1_string("insert_order_table", 18);
+  string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  string__46_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  string__94_1 = from_latin_1_string("insert_order_table", 18);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__insert_order_table(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__insert_order_table");
+  set_used_namespaces(used_namespaces);
   unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
   unique__5_1 = register_unique_item("INSERT");
@@ -8738,7 +8749,6 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   func__29_1 = create_future();
   func__30_7 = create_future();
   func__30_1 = create_future();
-  string__35_1 = from_latin_1_string("insert_order_table", 18);
   func__36_1 = create_future();
   define_single_assign_static("std", "empty_insert_order_table", get__std__empty_insert_order_table, &var.std__empty_insert_order_table);
   func__38_1 = create_future();
@@ -8749,20 +8759,17 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   func__42_1 = create_future();
   func__43_1 = create_future();
   func__44_1 = create_future();
-  string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
   func__45_15 = create_future();
   func__45_1 = create_future();
-  string__46_16 = from_latin_1_string("Invalid tree insert operation!", 30);
   func__46_15 = create_future();
   func__46_1 = create_future();
-  string__94_1 = from_latin_1_string("insert_order_table", 18);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__insert_order_table(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__insert_order_table(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__insert_order_table");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
@@ -8829,11 +8836,11 @@ EXPORT void phase_3__basic__types__insert_order_table(void) {
   define_method("types", "insert_order_table", poly_idx__insert_behind, func__46_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__insert_order_table(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__insert_order_table(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__is_an_insert_order_table, create_function(type__std__is_an_insert_order_table, -1));
   assign_value(&var._tree_of, create_function(type__tree_of, -1));
   assign_value(&var._first_of, create_function(type__first_of, -1));
@@ -8857,11 +8864,11 @@ EXPORT void phase_4__basic__types__insert_order_table(void) {
   assign_variable(&var.std__insert_order_table, &func__38_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__insert_order_table(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__insert_order_table(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__16_1, create_function(entry__16_1, 1));
   assign_value(&func__17_1, create_function(entry__17_1, 1));
   assign_value(&func__24_1, create_function(entry__24_1, 1));

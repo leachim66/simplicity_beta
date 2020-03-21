@@ -208,17 +208,17 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -2694,8 +2694,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__table(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__table");
-  set_used_namespaces(used_namespaces);
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__3 = from_uint32(3U);
@@ -2704,27 +2702,12 @@ EXPORT void phase_2__basic__types__table(void) {
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
-  unique__4_1 = register_unique_item("NONE");
-  assign_value(&var._NONE, unique__4_1);
-  func__6_1 = create_future();
-  func__7_1 = create_future();
   string__8_5 = from_latin_1_string("()", 2);
   string__8_15 = from_latin_1_string(" = ", 3);
-  func__8_1 = create_future();
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_1 = create_future();
-  define_single_assign_static("types", "table", get__types__table, &var.types__table);
   string__16_1 = from_latin_1_string("table", 5);
-  define_single_assign_static("std", "empty_table", get__std__empty_table, &var.std__empty_table);
-  func__18_1 = create_future();
-  define_single_assign_static("std", "table", get__std__table, &var.std__table);
   string__19_4 = from_latin_1_string("Invalid ", 8);
   string__19_5 = from_latin_1_string(" object encountered during deserialisation!", 43);
   string__19_7 = from_latin_1_string("()", 2);
-  func__19_1 = create_future();
-  define_single_assign_static("std", "register_collection_serializer", get__std__register_collection_serializer, &var.std__register_collection_serializer);
   string__40_1 = from_latin_1_string("table", 5);
 }
 
@@ -2733,6 +2716,30 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__basic__types__table(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("basic__types__table");
+  set_used_namespaces(used_namespaces);
+  define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
+  unique__4_1 = register_unique_item("NONE");
+  assign_value(&var._NONE, unique__4_1);
+  func__6_1 = create_future();
+  func__7_1 = create_future();
+  func__8_1 = create_future();
+  func__9_1 = create_future();
+  func__10_1 = create_future();
+  func__11_1 = create_future();
+  define_single_assign_static("types", "table", get__types__table, &var.types__table);
+  define_single_assign_static("std", "empty_table", get__std__empty_table, &var.std__empty_table);
+  func__18_1 = create_future();
+  define_single_assign_static("std", "table", get__std__table, &var.std__table);
+  func__19_1 = create_future();
+  define_single_assign_static("std", "register_collection_serializer", get__std__register_collection_serializer, &var.std__register_collection_serializer);
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__basic__types__table(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__table");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "deserialize_item", &get__deserialize_item, &get_value_or_future__deserialize_item);
@@ -2787,11 +2794,11 @@ EXPORT void phase_3__basic__types__table(void) {
   define_attribute("types", "table", poly_idx__serialization_tag_of, string__16_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__table(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__table(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.private__set_item, create_function(type__private__set_item, -1));
   assign_value(&var.private__get_item, create_function(type__private__get_item, -1));
   assign_value(&var.types__generic_table, get__types__object());
@@ -2802,11 +2809,11 @@ EXPORT void phase_4__basic__types__table(void) {
   assign_variable(&var.std__register_collection_serializer, &func__19_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__table(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__table(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__6_1, create_function(entry__6_1, 2));
   assign_value(&func__7_1, create_function(entry__7_1, 2));
   assign_value(&func__8_1, create_function(entry__8_1, -1));

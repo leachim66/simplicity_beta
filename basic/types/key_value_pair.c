@@ -179,16 +179,16 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future(void);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -767,20 +767,11 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__key_value_pair(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__key_value_pair");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__4 = from_uint32(4U);
   number__2 = from_uint32(2U);
-  var.types__key_value_pair = create_future_with_prototype(create__types__key_value_pair(NULL, NULL));
-  define_single_assign_static("types", "key_value_pair", get__types__key_value_pair, &var.types__key_value_pair);
-  func__6_1 = create_future();
-  define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
-  func__7_1 = create_future();
-  func__8_1 = create_future();
   string__10_12 = from_latin_1_string("key_value_pair\012", 15);
   string__10_13 = from_latin_1_string("\012", 1);
-  func__10_1 = create_future();
 }
 
 static int already_run_phase_3 = false;
@@ -788,6 +779,22 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__basic__types__key_value_pair(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("basic__types__key_value_pair");
+  set_used_namespaces(used_namespaces);
+  var.types__key_value_pair = create_future_with_prototype(create__types__key_value_pair(NULL, NULL));
+  define_single_assign_static("types", "key_value_pair", get__types__key_value_pair, &var.types__key_value_pair);
+  func__6_1 = create_future();
+  define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
+  func__7_1 = create_future();
+  func__8_1 = create_future();
+  func__10_1 = create_future();
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__basic__types__key_value_pair(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__key_value_pair");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "false", &get__false, &get_value_or_future__false);
@@ -807,21 +814,21 @@ EXPORT void phase_3__basic__types__key_value_pair(void) {
   define_method("types", "key_value_pair", poly_idx__serialize, func__10_1);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__basic__types__key_value_pair(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_value(&var.std__is_a_key_value_pair, create_function(type__std__is_a_key_value_pair, -1));
-  assign_value(&var.types__key_value_pair, get__types__object());
-  assign_variable(&var.std__key_value_pair, &func__6_1);
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__basic__types__key_value_pair(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_value(&var.std__is_a_key_value_pair, create_function(type__std__is_a_key_value_pair, -1));
+  assign_value(&var.types__key_value_pair, get__types__object());
+  assign_variable(&var.std__key_value_pair, &func__6_1);
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__types__key_value_pair(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__6_1, create_function(entry__6_1, 2));
   assign_value(&func__7_1, create_function(entry__7_1, 1));
   assign_value(&func__8_1, create_function(entry__8_1, 1));

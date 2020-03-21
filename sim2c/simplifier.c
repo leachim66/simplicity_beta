@@ -210,12 +210,12 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT void register_dynamic(int *id_p);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT void register_dynamic(int *id_p);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -10584,21 +10584,12 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__simplifier(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("simplifier");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   character__40 = from_uchar32(40);
   character__32 = from_uchar32(32);
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
-  register_dynamic(&dyna_idx__defined_names);
-  define__defined_names(create_future());
-  register_dynamic(&dyna_idx__inherited_names);
-  define__inherited_names(create_future());
   string__5_3 = from_latin_1_string("temp__", 6);
-  func__5_1 = create_future();
-  func__6_3 = create_future();
-  func__6_1 = create_future();
   string__7_9 = from_latin_1_string("Invalid access to read-only variable \042", 38);
   string__7_10 = from_latin_1_string("\042", 1);
   string__7_17 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
@@ -10607,39 +10598,20 @@ EXPORT void phase_2__simplifier(void) {
   string__7_26 = from_latin_1_string("\042", 1);
   string__7_33 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
   string__7_34 = from_latin_1_string("\042", 1);
-  func__7_1 = create_future();
-  define_single_assign_static("sim2c", "check_usage", get__sim2c__check_usage, &var.sim2c__check_usage);
   string__8_2 = from_latin_1_string("simplify statement (default)", 28);
-  func__8_1 = create_future();
   string__9_2 = from_latin_1_string("simplify expression (default)", 29);
-  func__9_1 = create_future();
   string__10_2 = from_latin_1_string("simplify body", 13);
   string__10_10 = from_latin_1_string("An identifier named \042", 21);
   string__10_11 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
-  func__10_1 = create_future();
-  func__11_5 = create_future();
-  func__11_45 = create_future();
-  func__11_46 = create_future();
-  func__11_1 = create_future();
-  func__12_1 = create_future();
   string__13_2 = from_latin_1_string("simplify statement", 18);
-  func__13_89 = create_future();
-  func__13_1 = create_future();
   string__14_2 = from_latin_1_string("simplify function call", 22);
-  func__14_1 = create_future();
   string__15_2 = from_latin_1_string("simplify attribute-value pair", 29);
-  func__15_1 = create_future();
   string__16_2 = from_latin_1_string("simplify attribute-function pair", 32);
-  func__16_1 = create_future();
   string__17_2 = from_latin_1_string("simplify C-code", 15);
-  func__17_4 = create_future();
   string__17_28 = from_latin_1_string("struct", 6);
   string__17_29 = from_latin_1_string("node", 4);
   string__17_30 = from_latin_1_string("function", 8);
-  func__17_1 = create_future();
   string__18_2 = from_latin_1_string("simplify C-body", 15);
-  func__18_4 = create_future();
-  func__18_1 = create_future();
 }
 
 static int already_run_phase_3 = false;
@@ -10647,6 +10619,41 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__simplifier(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("simplifier");
+  set_used_namespaces(used_namespaces);
+  register_dynamic(&dyna_idx__defined_names);
+  define__defined_names(create_future());
+  register_dynamic(&dyna_idx__inherited_names);
+  define__inherited_names(create_future());
+  func__5_1 = create_future();
+  func__6_3 = create_future();
+  func__6_1 = create_future();
+  func__7_1 = create_future();
+  define_single_assign_static("sim2c", "check_usage", get__sim2c__check_usage, &var.sim2c__check_usage);
+  func__8_1 = create_future();
+  func__9_1 = create_future();
+  func__10_1 = create_future();
+  func__11_5 = create_future();
+  func__11_45 = create_future();
+  func__11_46 = create_future();
+  func__11_1 = create_future();
+  func__12_1 = create_future();
+  func__13_89 = create_future();
+  func__13_1 = create_future();
+  func__14_1 = create_future();
+  func__15_1 = create_future();
+  func__16_1 = create_future();
+  func__17_4 = create_future();
+  func__17_1 = create_future();
+  func__18_4 = create_future();
+  func__18_1 = create_future();
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__simplifier(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("simplifier");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "DYNAMIC_MULTI", &get__DYNAMIC_MULTI, &get_value_or_future__DYNAMIC_MULTI);
@@ -10769,11 +10776,11 @@ EXPORT void phase_3__simplifier(void) {
   define_method("sim2c", "c_body", poly_idx__simplify_expression, func__18_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__simplifier(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__simplifier(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.sim2c__simplify_statement, create_function(type__sim2c__simplify_statement, -1));
   assign_value(&var.sim2c__simplify_expression, create_function(type__sim2c__simplify_expression, -1));
   maybe_initialize_future(get__defined_names(), get__empty_table());
@@ -10785,11 +10792,11 @@ EXPORT void phase_4__simplifier(void) {
   assign_variable(&var._store_result, &func__12_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__simplifier(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__simplifier(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__5_1, create_function(entry__5_1, 0));
   assign_value(&func__6_3, create_function(entry__6_3, 1));
   assign_value(&func__6_1, create_function(entry__6_1, 1));

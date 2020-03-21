@@ -208,15 +208,15 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -1025,22 +1025,11 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__set");
-  set_used_namespaces(used_namespaces);
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
-  define_single_assign_static("types", "generic_set", get__types__generic_set, &var.types__generic_set);
-  func__2_1 = create_future();
   string__3_5 = from_latin_1_string("()", 2);
-  func__3_1 = create_future();
-  func__4_1 = create_future();
-  func__5_1 = create_future();
-  define_single_assign_static("types", "set", get__types__set, &var.types__set);
   string__10_1 = from_latin_1_string("set", 3);
-  define_single_assign_static("std", "empty_set", get__std__empty_set, &var.std__empty_set);
-  func__12_1 = create_future();
-  define_single_assign_static("std", "set", get__std__set, &var.std__set);
 }
 
 static int already_run_phase_3 = false;
@@ -1048,6 +1037,24 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__basic__types__set(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("basic__types__set");
+  set_used_namespaces(used_namespaces);
+  define_single_assign_static("types", "generic_set", get__types__generic_set, &var.types__generic_set);
+  func__2_1 = create_future();
+  func__3_1 = create_future();
+  func__4_1 = create_future();
+  func__5_1 = create_future();
+  define_single_assign_static("types", "set", get__types__set, &var.types__set);
+  define_single_assign_static("std", "empty_set", get__std__empty_set, &var.std__empty_set);
+  func__12_1 = create_future();
+  define_single_assign_static("std", "set", get__std__set, &var.std__set);
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__basic__types__set(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__set");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "empty_list", &get__empty_list, &get_value_or_future__empty_list);
@@ -1079,11 +1086,11 @@ EXPORT void phase_3__basic__types__set(void) {
   define_attribute("types", "set", poly_idx__serialization_tag_of, string__10_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__set(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__set(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.types__generic_set, get__types__object());
   assign_value(&var.std__is_a_set, create_function(type__std__is_a_set, -1));
   assign_value(&var.types__set, get__types__unordered_set());
@@ -1091,11 +1098,11 @@ EXPORT void phase_4__basic__types__set(void) {
   assign_variable(&var.std__set, &func__12_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__set(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__set(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__2_1, create_function(entry__2_1, 2));
   assign_value(&func__3_1, create_function(entry__3_1, -1));
   assign_value(&func__4_1, create_function(entry__4_1, 1));

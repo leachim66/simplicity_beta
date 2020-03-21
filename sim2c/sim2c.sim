@@ -430,6 +430,10 @@ $sim2c::sim2c:
       register (use) polymorphic functions
   $$generated_phase_2 ""
     #
+      define literals (numeric, character, string)
+  $$generated_phase_3 ""
+    #
+      reassign memory pool to save literals from garbage collection
       create futures
       create futures with prototypes
       create inline-C constructs
@@ -437,10 +441,7 @@ $sim2c::sim2c:
       define multi-assign static variables
       define single-assign dynamic variables
       define multi-assign dynamic variables
-      define string literals
-      register dynamic variables
-      register (use) unique items
-  $$generated_phase_3 ""
+  $$generated_phase_4 ""
     #
       define attributes
       define methods
@@ -458,7 +459,7 @@ $sim2c::sim2c:
 
       if the object is a future then the directly defined attributes and methods
       are added to the future's list of pending attributes and methods
-  $$generated_phase_4 ""
+  $$generated_phase_5 ""
     #
       create functions
       define constants
@@ -473,7 +474,7 @@ $sim2c::sim2c:
       object
 
       if it does exist it must be a future and inheritance takes place
-  $$generated_phase_5 ""
+  $$generated_phase_6 ""
     #
       assign values
   $$generated_code ""
@@ -528,6 +529,10 @@ $sim2c::sim2c:
   %sim2c::write_to_phase_5: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_5 txt
+
+  %sim2c::write_to_phase_6: (args*)
+    $txt string(args*)
+    push &actions: append &generated_phase_6 txt
 
   %sim2c::use_literal: (name literal)
     push &actions: !used_literals(name) literal
@@ -852,6 +857,7 @@ $sim2c::sim2c:
       IMPORT void phase_3__@(fname)(void);
       IMPORT void phase_4__@(fname)(void);
       IMPORT void phase_5__@(fname)(void);
+      IMPORT void phase_6__@(fname)(void);
       IMPORT void run__@(fname)(void);
   write generated_code
   write delayed_statements
@@ -893,8 +899,6 @@ $sim2c::sim2c:
 	@
 
 	  // initialization phase 2
-
-	  resolve_symbols();
     :
       write "
 	}
@@ -906,10 +910,6 @@ $sim2c::sim2c:
 	  already_run_phase_2 = true;
   for_each required_modules: (name _info)
     writeln "  phase_2__@(mangle_filename(name))();"
-  write "
-    @
-      set_module("@(module_name)");
-      set_used_namespaces(used_namespaces);
   for_each used_literals: (name literal)
     write "  @(name) = "
     cond
@@ -917,8 +917,7 @@ $sim2c::sim2c:
 	$value replace_all(node::value_of(literal) '@apos;' = "")
 	if
 	  not(value .has_prefix. "0x") && value .contains. alt('.' 'e' 'E'):
-	    write "
-	      from_double(@(value));
+	    write "from_double(@(value));@nl;"
 	  :
 	    $int_val value.to_integer
 	    cond
@@ -942,6 +941,7 @@ $sim2c::sim2c:
 	  // initialization phase 3
 
 	  initialize_phase_3();
+	  resolve_symbols();
     :
       write "
 	}
@@ -953,6 +953,30 @@ $sim2c::sim2c:
 	  already_run_phase_3 = true;
   for_each required_modules: (name _info)
     writeln "  phase_3__@(mangle_filename(name))();"
+  write "
+    @
+      set_module("@(module_name)");
+      set_used_namespaces(used_namespaces);
+  write generated_phase_3
+  if
+    is_main:
+      write "
+	@
+
+	  // initialization phase 4
+
+	  initialize_phase_4();
+    :
+      write "
+	}
+
+	static int already_run_phase_4 = false;
+
+	EXPORT void phase_4__@(module_name)(void) {
+	  if (already_run_phase_4) return;
+	  already_run_phase_4 = true;
+  for_each required_modules: (name _info)
+    writeln "  phase_4__@(mangle_filename(name))();"
   write "
     @
       set_module("@(module_name)");
@@ -993,7 +1017,7 @@ $sim2c::sim2c:
 	    @
 	      use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
 	    &get__@(name), &set__@(name), &define__@(name));
-  write generated_phase_3
+  write generated_phase_4
   if is_main:
     write "
       @
@@ -1001,25 +1025,6 @@ $sim2c::sim2c:
   if
     is_main:
       write "
-
-	  // initialization phase 4
-	@;
-    :
-      write "
-	}
-
-	static int already_run_phase_4 = false;
-
-	EXPORT void phase_4__@(module_name)(void) {
-	  if (already_run_phase_4) return;
-	  already_run_phase_4 = true;
-  for_each required_modules: (name _info)
-    writeln "  phase_4__@(mangle_filename(name))();"
-  write generated_phase_4
-  if
-    is_main:
-      write "
-	  initialize_function_attributes();
 
 	  // initialization phase 5
 	@;
@@ -1035,6 +1040,25 @@ $sim2c::sim2c:
   for_each required_modules: (name _info)
     writeln "  phase_5__@(mangle_filename(name))();"
   write generated_phase_5
+  if
+    is_main:
+      write "
+	  initialize_function_attributes();
+
+	  // initialization phase 6
+	@;
+    :
+      write "
+	}
+
+	static int already_run_phase_6 = false;
+
+	EXPORT void phase_6__@(module_name)(void) {
+	  if (already_run_phase_6) return;
+	  already_run_phase_6 = true;
+  for_each required_modules: (name _info)
+    writeln "  phase_6__@(mangle_filename(name))();"
+  write generated_phase_6
   writeln "  register_collector(collect__@(module_name));"
   if is_main:
     write "

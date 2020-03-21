@@ -89,10 +89,10 @@ $NONE .
 {
   <kind function>
 
-  void collect_unordered_set_data_phase_2(
+  void collect_unordered_set_data_phase_3(
     void *old_data
   ) {
-    //fprintf(stderr, "collect_unordered_set_data_phase_2 (%p)\n", old_data);
+    //fprintf(stderr, "collect_unordered_set_data_phase_3 (%p)\n", old_data);
     UNORDERED_SET_DATA *data = DECODE_FROM_LENGTH(*(void **)old_data);
     /*REFERRED_REVISION *referrer = data->referrers;
     while (referrer) {
@@ -214,8 +214,8 @@ $NONE .
         new_data->entries = data->entries;
 
         //fprintf(stderr, "register phase 2 collector\n");
-        ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_set_data_phase_2;
-        register_phase_2_collector(data);
+        ((PHASE_2_COLLECTOR *)data)->collector = collect_unordered_set_data_phase_3;
+        register_phase_3_collector(data);
 
         *(void **)data = ENCODE_TO_LENGTH(new_data);
         data = new_data;

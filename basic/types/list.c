@@ -201,16 +201,16 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT void define_c_function(const char *name, void *func);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -8559,13 +8559,27 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__list(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__list");
-  set_used_namespaces(used_namespaces);
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
+  string__34_4 = from_latin_1_string("list()", 6);
+  string__34_6 = from_latin_1_string("list", 4);
+  string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
+  string__94_1 = from_latin_1_string("list", 4);
+  string__94_3 = from_latin_1_string("()", 2);
+  string__94_13 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__list(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__list");
+  set_used_namespaces(used_namespaces);
   var.types__generic_list = create_future_with_prototype(create__types__generic_list());
   define_single_assign_static("types", "generic_list", get__types__generic_list, &var.types__generic_list);
   var.types__list = create_future_with_prototype(create__types__list(0, NULL));
@@ -8591,20 +8605,16 @@ EXPORT void phase_2__basic__types__list(void) {
   func__28_1 = create_future();
   func__29_1 = create_future();
   func__30_1 = create_future();
-  string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
   func__31_4 = create_future();
   func__31_1 = create_future();
   func__32_1 = create_future();
   func__33_1 = create_future();
-  string__34_4 = from_latin_1_string("list()", 6);
-  string__34_6 = from_latin_1_string("list", 4);
   func__34_1 = create_future();
   func__35_1 = create_future();
   func__37_1 = create_future();
   func__38_1 = create_future();
   func__39_1 = create_future();
   func__40_1 = create_future();
-  string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
   func__41_5 = create_future();
   func__41_15 = create_future();
   func__41_1 = create_future();
@@ -8613,18 +8623,15 @@ EXPORT void phase_2__basic__types__list(void) {
   func__46_3 = create_future();
   func__46_1 = create_future();
   define_single_assign_static("std", "sequence", get__std__sequence, &var.std__sequence);
-  string__94_1 = from_latin_1_string("list", 4);
-  string__94_3 = from_latin_1_string("()", 2);
-  string__94_13 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
   func__94_12 = create_future();
   func__94_2 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__list(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__list(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__list");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "append", &get__append, &poly_idx__append);
@@ -8723,11 +8730,11 @@ EXPORT void phase_3__basic__types__list(void) {
   define_attribute("types", "object", poly_idx__is_a_sequence, get__false());
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__list(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__list(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__is_a_list, create_function(type__std__is_a_list, -1));
   assign_value(&var.types__generic_list, get__types__object());
   assign_variable(&var.types__list, &var.types__generic_list);
@@ -8737,11 +8744,11 @@ EXPORT void phase_4__basic__types__list(void) {
   assign_variable(&var.std__sequence, &func__46_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__list(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__list(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__14_1, create_function(entry__14_1, 1));
   assign_value(&func__15_1, create_function(entry__15_1, -1));
   assign_value(&func__16_1, create_function(entry__16_1, 1));

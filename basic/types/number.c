@@ -214,9 +214,9 @@ IMPORT NODE *from_int64(int64_t val);
 IMPORT NODE *from_uint64(uint64_t val);
 IMPORT NODE *from_digit_string(const char *str);
 IMPORT NODE *from_double(double val);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -6542,8 +6542,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__number(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__number");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__3 = from_uint32(3U);
   character__48 = from_uchar32(48);
@@ -6553,6 +6551,24 @@ EXPORT void phase_2__basic__types__number(void) {
   number__1 = from_uint32(1U);
   number__10 = from_uint32(10U);
   number__0x07 = from_uint32(7U);
+  string__133_6 = from_latin_1_string("0", 1);
+  string__133_9 = from_latin_1_string("0", 1);
+  string__133_21 = from_latin_1_string("0", 1);
+  string__134_6 = from_latin_1_string("0", 1);
+  string__134_9 = from_latin_1_string("0", 1);
+  string__134_21 = from_latin_1_string("0", 1);
+  string__135_6 = from_latin_1_string("0", 1);
+  string__135_9 = from_latin_1_string("0", 1);
+  string__135_28 = from_latin_1_string("0", 1);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__number(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__number");
+  set_used_namespaces(used_namespaces);
   var.types__number = create_future_with_prototype(create__types__number());
   define_single_assign_static("types", "number", get__types__number, &var.types__number);
   var.types__integer = create_future_with_prototype(create__types__integer());
@@ -6629,19 +6645,10 @@ EXPORT void phase_2__basic__types__number(void) {
   define_single_assign_static("std", "is_odd", get__std__is_odd, &var.std__is_odd);
   func__132_1 = create_future();
   define_single_assign_static("std", "is_even", get__std__is_even, &var.std__is_even);
-  string__133_6 = from_latin_1_string("0", 1);
-  string__133_9 = from_latin_1_string("0", 1);
-  string__133_21 = from_latin_1_string("0", 1);
   func__133_1 = create_future();
   define_single_assign_static("std", "bin", get__std__bin, &var.std__bin);
-  string__134_6 = from_latin_1_string("0", 1);
-  string__134_9 = from_latin_1_string("0", 1);
-  string__134_21 = from_latin_1_string("0", 1);
   func__134_1 = create_future();
   define_single_assign_static("std", "oct", get__std__oct, &var.std__oct);
-  string__135_6 = from_latin_1_string("0", 1);
-  string__135_9 = from_latin_1_string("0", 1);
-  string__135_28 = from_latin_1_string("0", 1);
   func__135_1 = create_future();
   define_single_assign_static("std", "hex", get__std__hex, &var.std__hex);
   func__136_1 = create_future();
@@ -6655,11 +6662,11 @@ EXPORT void phase_2__basic__types__number(void) {
   func__144_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__number(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__number(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__number");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "bit_and", &get__bit_and, &poly_idx__bit_and);
@@ -6776,11 +6783,11 @@ EXPORT void phase_3__basic__types__number(void) {
   define_method("types", "real", poly_idx__ln, func__144_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__number(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__number(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__integer_plus_me, create_function(type__std__integer_plus_me, -1));
   assign_value(&var.std__integer_minus_me, create_function(type__std__integer_minus_me, -1));
   assign_value(&var.std__integer_times_me, create_function(type__std__integer_times_me, -1));
@@ -6810,11 +6817,11 @@ EXPORT void phase_4__basic__types__number(void) {
   assign_variable(&var.std__hex, &func__135_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__number(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__number(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__58_1, create_function(entry__58_1, 1));
   assign_value(&func__59_1, create_function(entry__59_1, 1));
   assign_value(&func__60_1, create_function(entry__60_1, 1));

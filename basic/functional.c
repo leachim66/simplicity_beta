@@ -195,9 +195,9 @@ typedef struct CELL {
 } CELL;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -1086,9 +1086,16 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__functional(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  number__2 = from_uint32(2U);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__functional(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__functional");
   set_used_namespaces(used_namespaces);
-  number__2 = from_uint32(2U);
   func__1_1 = create_future();
   define_single_assign_static("std", "any_of", get__std__any_of, &var.std__any_of);
   func__2_1 = create_future();
@@ -1099,11 +1106,11 @@ EXPORT void phase_2__basic__functional(void) {
   define_single_assign_static("std", "find_first", get__std__find_first, &var.std__find_first);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__functional(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__functional(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__functional");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "false", &get__false, &get_value_or_future__false);
@@ -1117,22 +1124,22 @@ EXPORT void phase_3__basic__functional(void) {
   use_read_only(NULL, "unless", &get__unless, &get_value_or_future__unless);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__functional(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__functional(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var.std__any_of, &func__1_1);
   assign_variable(&var.std__all_of, &func__2_1);
   assign_variable(&var.std__fold, &func__3_1);
   assign_variable(&var.std__find_first, &func__4_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__functional(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__functional(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, 2));
   assign_value(&func__2_1, create_function(entry__2_1, 2));
   assign_value(&func__3_1, create_function(entry__3_1, -1));

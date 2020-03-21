@@ -419,12 +419,12 @@ $posix_call
       case 3: ARGUMENTS(1) = err_str;
       case 2: ARGUMENTS(res_cnt-1) = result;
       case 1:
-	if (successful || res_cnt > 1) {
-	  ARGUMENTS(0) = out_str;
-	} else {
-	  // do not silently ignore an error!
-	  ARGUMENTS(0) = UNDEFINED;
-	}
+        if (successful || res_cnt > 1) {
+          ARGUMENTS(0) = out_str;
+        } else {
+          // do not silently ignore an error!
+          ARGUMENTS(0) = UNDEFINED;
+        }
     }
     RETURN
   }
@@ -786,8 +786,5 @@ $std::extern: (options* filename)
     do_trim
     -> : (args*)
       call $result filename args*
-      if
-	result.is_defined
-	-> result.trim
-	-> result
+      if result.is_defined (-> result.trim) -> result
     -> : (args*) call filename args*

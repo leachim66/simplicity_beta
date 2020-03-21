@@ -4011,8 +4011,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__character(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__character");
-  set_used_namespaces(used_namespaces);
   character__224 = from_uchar32(224);
   character__9 = from_uchar32(9);
   character__90 = from_uchar32(90);
@@ -4043,6 +4041,17 @@ EXPORT void phase_2__basic__types__character(void) {
   number__0x20 = from_uint32(32U);
   character__223 = from_uchar32(223);
   character__79 = from_uchar32(79);
+  string__28_2 = from_latin_1_string("'", 1);
+  string__28_19 = from_latin_1_string("@0x", 3);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__character(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__character");
+  set_used_namespaces(used_namespaces);
   var.types__character = create_future_with_prototype(create__types__character(0));
   define_single_assign_static("types", "character", get__types__character, &var.types__character);
   func__8_1 = create_future();
@@ -4076,16 +4085,14 @@ EXPORT void phase_2__basic__types__character(void) {
   func__27_4 = create_future();
   func__27_1 = create_future();
   define_single_assign_static("std", "is_a_vowel", get__std__is_a_vowel, &var.std__is_a_vowel);
-  string__28_2 = from_latin_1_string("'", 1);
-  string__28_19 = from_latin_1_string("@0x", 3);
   func__28_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__character(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__character(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__character");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "append", &get__append, &get_value_or_future__append);
@@ -4132,11 +4139,11 @@ EXPORT void phase_3__basic__types__character(void) {
   define_method("types", "character", poly_idx__serialize, func__28_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__character(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__character(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__is_a_character, create_function(type__std__is_a_character, -1));
   assign_value(&var.types__character, get__types__object());
   assign_variable(&var.std__character, &func__8_1);
@@ -4151,11 +4158,11 @@ EXPORT void phase_4__basic__types__character(void) {
   assign_variable(&var.std__is_a_vowel, &func__27_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__character(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__character(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__8_1, create_function(entry__8_1, 1));
   assign_value(&func__9_1, create_function(entry__9_1, 2));
   assign_value(&func__10_1, create_function(entry__10_1, 2));

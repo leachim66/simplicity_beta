@@ -176,17 +176,17 @@ IMPORT void too_many_arguments_error(void);
 IMPORT NODE *create_closure(FUNC type, int par_count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 typedef void (*NODE_SETTER)(NODE *);
 IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
@@ -952,11 +952,19 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__environment(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__environment");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
+  string__15_5 = from_latin_1_string("=", 1);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__environment(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__environment");
+  set_used_namespaces(used_namespaces);
   func__1_1 = create_future();
   func__2_1 = create_future();
   func__4_1 = create_future();
@@ -967,17 +975,16 @@ EXPORT void phase_2__basic__environment(void) {
   unique__13_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__13_1);
   var._env_2 = create_future();
-  string__15_5 = from_latin_1_string("=", 1);
   define_multi_assign_static("std", "environment", get__std__environment, set__std__environment);
   func__24_3 = create_future();
   func__27_2 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__environment(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__environment(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__environment");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "before", &get__before, &get_value_or_future__before);
@@ -997,11 +1004,11 @@ EXPORT void phase_3__basic__environment(void) {
   def_attribute(&var._env_2, -1, entry__15_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__environment(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__environment(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var._argv, &func__1_1);
   assign_variable(&var._argc, &func__2_1);
   assign_variable(&var._envv, &func__4_1);
@@ -1009,11 +1016,11 @@ EXPORT void phase_4__basic__environment(void) {
   assign_variable(&var._putenv, &func__12_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__environment(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__environment(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, 1));
   assign_value(&func__2_1, create_function(entry__2_1, 0));
   assign_value(&func__4_1, create_function(entry__4_1, 1));

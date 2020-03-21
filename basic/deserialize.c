@@ -200,15 +200,15 @@ IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *empty_string;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -5327,8 +5327,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__deserialize(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__deserialize");
-  set_used_namespaces(used_namespaces);
   character__9 = from_uchar32(9);
   character__57 = from_uchar32(57);
   character__10 = from_uchar32(10);
@@ -5346,6 +5344,32 @@ EXPORT void phase_2__basic__deserialize(void) {
   character__59 = from_uchar32(59);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  string__7_8 = from_latin_1_string("()", 2);
+  string__7_18 = from_latin_1_string("Invalid ", 8);
+  string__7_19 = from_latin_1_string(" object encountered during deserialisation!", 43);
+  string__7_46 = from_latin_1_string("Encountered invalid ", 20);
+  string__7_47 = from_latin_1_string(" component during deserialisation!", 34);
+  string__7_54 = from_latin_1_string("Encountered unknown ", 20);
+  string__7_55 = from_latin_1_string(" component during deserialisation!", 34);
+  string__8_34 = from_latin_1_string("Invalid string escape encountered during deserialization!", 57);
+  string__8_43 = from_latin_1_string("Unterminated string encountered during deserialization!", 55);
+  string__8_48 = from_latin_1_string("Invalid character constant encountered during deserialization!", 62);
+  string__8_77 = from_latin_1_string("Invalid character escape encountered during deserialization!", 60);
+  string__8_88 = from_latin_1_string("Invalid character constant encountered during deserialization!", 62);
+  string__8_97 = from_latin_1_string("Invalid numeric constant encountered during deserialization!", 60);
+  string__8_111 = from_latin_1_string("No deserializer defined for \042", 29);
+  string__8_112 = from_latin_1_string("\042!", 2);
+  string__8_115 = from_latin_1_string("No valid tag found while attempting to deserialize text!", 56);
+  string__11_1 = from_latin_1_string("::", 2);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__deserialize(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__deserialize");
+  set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "NAME", get__std__NAME, &var.std__NAME);
   define_single_assign_static("std", "IDENTIFIER", get__std__IDENTIFIER, &var.std__IDENTIFIER);
   func__4_1 = create_future();
@@ -5355,42 +5379,25 @@ EXPORT void phase_2__basic__deserialize(void) {
   func__6_13 = create_future();
   func__6_1 = create_future();
   define_single_assign_static("std", "deserialize_item", get__std__deserialize_item, &var.std__deserialize_item);
-  string__7_8 = from_latin_1_string("()", 2);
-  string__7_18 = from_latin_1_string("Invalid ", 8);
-  string__7_19 = from_latin_1_string(" object encountered during deserialisation!", 43);
-  string__7_46 = from_latin_1_string("Encountered invalid ", 20);
-  string__7_47 = from_latin_1_string(" component during deserialisation!", 34);
-  string__7_54 = from_latin_1_string("Encountered unknown ", 20);
-  string__7_55 = from_latin_1_string(" component during deserialisation!", 34);
   func__7_1 = create_future();
   define_single_assign_static("std", "create_deserializer", get__std__create_deserializer, &var.std__create_deserializer);
-  string__8_34 = from_latin_1_string("Invalid string escape encountered during deserialization!", 57);
   func__8_33 = create_future();
-  string__8_43 = from_latin_1_string("Unterminated string encountered during deserialization!", 55);
-  string__8_48 = from_latin_1_string("Invalid character constant encountered during deserialization!", 62);
   func__8_47 = create_future();
-  string__8_77 = from_latin_1_string("Invalid character escape encountered during deserialization!", 60);
   func__8_76 = create_future();
-  string__8_88 = from_latin_1_string("Invalid character constant encountered during deserialization!", 62);
   func__8_87 = create_future();
-  string__8_97 = from_latin_1_string("Invalid numeric constant encountered during deserialization!", 60);
   func__8_96 = create_future();
-  string__8_111 = from_latin_1_string("No deserializer defined for \042", 29);
-  string__8_112 = from_latin_1_string("\042!", 2);
-  string__8_115 = from_latin_1_string("No valid tag found while attempting to deserialize text!", 56);
   func__8_114 = create_future();
   func__8_1 = create_future();
   func__9_5 = create_future();
   func__9_1 = create_future();
   define_single_assign_static("std", "deserialize", get__std__deserialize, &var.std__deserialize);
-  string__11_1 = from_latin_1_string("::", 2);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__deserialize(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__deserialize(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__deserialize");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "DIGIT", &get__DIGIT, &get_value_or_future__DIGIT);
@@ -5436,11 +5443,11 @@ EXPORT void phase_3__basic__deserialize(void) {
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__deserialize(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__deserialize(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var.std__register_deserializer, &func__4_1);
   assign_variable(&var.std__get_deserialization_indent, &func__5_1);
   assign_variable(&var.std__deserialize_item, &func__6_1);
@@ -5449,11 +5456,11 @@ EXPORT void phase_4__basic__deserialize(void) {
   assign_variable(&var.std__deserialize, &func__9_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__deserialize(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__deserialize(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__4_1, create_function(entry__4_1, 2));
   assign_value(&func__5_1, create_function(entry__5_1, 1));
   assign_value(&func__6_13, create_function(entry__6_13, 0));

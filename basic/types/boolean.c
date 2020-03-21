@@ -179,6 +179,7 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT void define_c_function(const char *name, void *func);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -186,7 +187,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
@@ -970,6 +970,17 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__boolean(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  string__12_2 = from_latin_1_string("true", 4);
+  string__13_2 = from_latin_1_string("false", 5);
+  string__57_1 = from_latin_1_string("true", 4);
+  string__58_1 = from_latin_1_string("false", 5);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__boolean(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__types__boolean");
   set_used_namespaces(used_namespaces);
   var.types__true = create_future_with_prototype(create__types__true());
@@ -980,9 +991,7 @@ EXPORT void phase_2__basic__types__boolean(void) {
   define_single_assign_static("types", "false", get__types__false, &var.types__false);
   var.std__false = create__types__false();
   define_single_assign_static("std", "false", get__std__false, &var.std__false);
-  string__12_2 = from_latin_1_string("true", 4);
   func__12_1 = create_future();
-  string__13_2 = from_latin_1_string("false", 5);
   func__13_1 = create_future();
   func__16_1 = create_future();
   func__17_1 = create_future();
@@ -996,17 +1005,15 @@ EXPORT void phase_2__basic__types__boolean(void) {
   func__25_1 = create_future();
   func__26_1 = create_future();
   func__27_1 = create_future();
-  string__57_1 = from_latin_1_string("true", 4);
   func__57_2 = create_future();
-  string__58_1 = from_latin_1_string("false", 5);
   func__58_2 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__boolean(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__boolean(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__boolean");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "and", &get__and, &poly_idx__and);
@@ -1041,21 +1048,21 @@ EXPORT void phase_3__basic__types__boolean(void) {
   define_method("types", "false", poly_idx__unless, func__27_1);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__basic__types__boolean(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_value(&var.std__is_a_boolean, create_function(type__std__is_a_boolean, -1));
-  assign_value(&var.types__true, get__types__object());
-  assign_value(&var.types__false, get__types__object());
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__basic__types__boolean(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_value(&var.std__is_a_boolean, create_function(type__std__is_a_boolean, -1));
+  assign_value(&var.types__true, get__types__object());
+  assign_value(&var.types__false, get__types__object());
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__types__boolean(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__12_1, create_function(entry__12_1, 1));
   assign_value(&func__13_1, create_function(entry__13_1, 1));
   assign_value(&func__16_1, create_function(entry__16_1, 2));

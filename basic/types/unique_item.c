@@ -509,6 +509,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unique_item(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__unique_item(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__types__unique_item");
   set_used_namespaces(used_namespaces);
   var.types__unique_item = create_future_with_prototype(create__types__unique_item(0));
@@ -517,11 +524,11 @@ EXPORT void phase_2__basic__types__unique_item(void) {
   func__10_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__unique_item(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__unique_item(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__unique_item");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "equal", &get__equal, &poly_idx__equal);
@@ -536,20 +543,20 @@ EXPORT void phase_3__basic__types__unique_item(void) {
   define_method("types", "unique_item", poly_idx__hash, func__10_1);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__basic__types__unique_item(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_value(&var.std__is_a_unique_item, create_function(type__std__is_a_unique_item, -1));
-  assign_value(&var.types__unique_item, get__types__object());
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__basic__types__unique_item(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_value(&var.std__is_a_unique_item, create_function(type__std__is_a_unique_item, -1));
+  assign_value(&var.types__unique_item, get__types__object());
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__basic__types__unique_item(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__9_1, create_function(entry__9_1, 2));
   assign_value(&func__10_1, create_function(entry__10_1, 1));
   register_collector(collect__basic__types__unique_item);

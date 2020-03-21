@@ -947,10 +947,10 @@ $sim2c::body/to_c:
     return "entry@(body_suffix)" par_count
   if
     inherited_names_of(self).is_empty:
-      write_to_phase_2 "
+      write_to_phase_3 "
 	@
 	  func@(body_suffix) = create_future();
-      write_to_phase_5 "
+      write_to_phase_6 "
 	@
 	  assign_value(&func@(body_suffix), create_function(entry@(body_suffix)@
 	, @(par_count)));
@@ -1047,7 +1047,7 @@ $register_string: (str)
 		  chr != '@apos;'
 		  chr != '@quot;'
 		  chr != '\'
-		chr >= ' ' && chr <= 'ÿ'
+		chr >= '@nbsp;' && chr <= 'ÿ'
 	      :
 		write_to_phase_2 '@apos;' chr '@apos;'
 	      :
@@ -1073,7 +1073,7 @@ $sim2c::unique_item/to_c: (self)
   $name string("unique" suffix "_" index)
   $reg_name if(name_of(self).is_defined (-> name_of(self)) -> name)
   write_to_declarations "static NODE *@(name);@nl;"
-  write_to_phase_2 "
+  write_to_phase_3 "
     @
       @(name) = register_unique_item("@(reg_name)");
   write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
@@ -1140,10 +1140,10 @@ $sim2c::c_body/to_c: (self)
     write "
       static void entry@(body_suffix)(void) {
       @(indented(2 source_of(self).converted))@nl;}
-    write_to_phase_2 "
+    write_to_phase_3 "
       @
         func@(body_suffix) = create_future();
-    write_to_phase_5 "
+    write_to_phase_6 "
       @
         assign_value(&func@(body_suffix), create_function(entry@(body_suffix), @
       @(par_count)));
@@ -1198,13 +1198,13 @@ $sim2c::might_be_constant:
 $assign: (dest src)
   cond
     -> src .has_prefix. alt("var." "func__"):
-      write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+      write_to_phase_5 "  assign_variable(&@(dest), &@(src));@nl;"
     -> src .has_prefix. "unique__":
       # was originally assigned in phase 5, but in some cases this is to late
 
-      write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+      write_to_phase_3 "  assign_value(&@(dest), @(src));@nl;"
     :
-      write_to_phase_4 "  assign_value(&@(dest), @(src));@nl;"
+      write_to_phase_5 "  assign_value(&@(dest), @(src));@nl;"
 
 $sim2c::define_variable: (definition source)
   extract_destination definition $namespace $name $mangled_name
@@ -1222,16 +1222,16 @@ $sim2c::define_variable: (definition source)
         assign var_entry(mangled_name) source.to_c
       :
         if source.is_an_identifier:
-          #write_to_phase_2 "
+          #write_to_phase_3 "
             @
               @(var_entry(mangled_name)) = create_future();
           if
             source.might_be_constant:
-              write_to_phase_4 "
+              write_to_phase_5 "
                 @
                   maybe_initialize_future(@(var_entry(mangled_name)), @(source.to_c));
             :
-              write_to_phase_4 "
+              write_to_phase_5 "
                 @
                   assign_variable(&@(var_entry(mangled_name)), &@(source.to_c));
   if
@@ -1245,7 +1245,7 @@ $sim2c::define_variable: (definition source)
 	    static NODE *get__@(namespace)__@(name)(void) {
 	      return var.@(namespace)__@(name);
 	    }
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define_single_assign_static("@(namespace)", "@(name)", @
 	    get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -1259,7 +1259,7 @@ $sim2c::define_variable: (definition source)
 	    static void set__@(namespace)__@(name)(NODE *val) {
 	      var.@(namespace)__@(name) = val;
 	    }
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define_multi_assign_static("@(namespace)", "@(name)", @
 	    get__@(mangled_name), set__@(mangled_name));
@@ -1272,7 +1272,7 @@ $sim2c::define_variable: (definition source)
 	    static void define__@(mangled_name)(NODE *node) {
 	      define_dynamic_slot(dyna_idx__@(mangled_name), node);
 	    }
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define_single_assign_dynamic("@(namespace)", "@(name)", @
 	    get__@(mangled_name), define__@(mangled_name), @
@@ -1289,7 +1289,7 @@ $sim2c::define_variable: (definition source)
 	    static void define__@(mangled_name)(NODE *node) {
 	      define_dynamic_cell(dyna_idx__@(mangled_name), node);
 	    }
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define_multi_assign_dynamic("@(namespace)", "@(name)", @
 	    get__@(mangled_name), set__@(mangled_name), define__@(mangled_name)@
@@ -1303,7 +1303,7 @@ $sim2c::define_variable: (definition source)
 	  write_to_top_level_variable_declarations
 	    string("  NODE *" var_name(mangled_name) ";@nl;")
 	  unless source.is_defined:
-	    write_to_phase_2 "
+	    write_to_phase_3 "
 	      @
 	        @(var_entry(name)) = create_future();
 	STATIC_MULTI:
@@ -1319,9 +1319,9 @@ $sim2c::define_variable: (definition source)
 	    static void define__@(name)(NODE *node) {
 	      define_dynamic_slot(dyna_idx__@(name), node);
 	    }
-	  write_to_phase_2 "  register_dynamic(&dyna_idx__@(name));@nl;"
+	  write_to_phase_3 "  register_dynamic(&dyna_idx__@(name));@nl;"
 	  unless source.is_defined:
-	    write_to_phase_2 "
+	    write_to_phase_3 "
 	      @
 	        define__@(name)(create_future());
 	DYNAMIC_MULTI:
@@ -1336,27 +1336,27 @@ $sim2c::define_variable: (definition source)
 	    static void define__@(name)(NODE *node) {
 	      define_dynamic_cell(dyna_idx__@(name), node);
 	    }
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      register_dynamic(&dyna_idx__@(name));
 	      define__@(name)(undefined);
   if source.is_defined && kind == DYNAMIC_SINGLE:
     if
       source.is_a_constant:
-	write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+	write_to_phase_5 "  define__@(mangled_name)(@(source.to_c));@nl;"
       :
 	if source.is_an_identifier:
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define__@(mangled_name)(create_future());
 	  if
 	    source.might_be_constant:
-	      write_to_phase_4 "
+	      write_to_phase_5 "
 		@
 		  maybe_initialize_future(get__@(mangled_name)(), @
 		@(source.to_c));@nl;@
 	    :
-	      write_to_phase_4 "
+	      write_to_phase_5 "
 		@
 		  initialize_future(get__@(mangled_name)(), @(source.to_c)@
 		);@nl;@
@@ -1375,17 +1375,17 @@ $sim2c::define_attribute: (definition source)
       !src string("var__" mangled_name "__" attribute_name)
       write_to_declarations "static NODE *@(src);@nl;"
 
-      #write_to_phase_2 "
+      #write_to_phase_3 "
 	@
 	  @(src) = create_future();
   if
     namespace.is_defined || needed_names(name).is_defined:
-      write_to_phase_3 "
+      write_to_phase_4 "
 	@
 	  define_attribute(@(namespace_argument(namespace)), @quot;@(name)", @
 	poly_idx__@(attribute_name), @(src));
     :
-      write_to_phase_3 "
+      write_to_phase_4 "
 	@
 	  update_start_p = node_p;
 	  def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
@@ -1402,17 +1402,17 @@ $sim2c::define_method: (definition source)
       !src string("var__" mangled_name "__" attribute_name)
       write_to_declarations "static NODE *@(src);@nl;"
 
-      #write_to_phase_2 "
+      #write_to_phase_3 "
 	@
 	  @(src) = create_future();
   if
     namespace.is_defined || needed_names(name).is_defined:
-      write_to_phase_3 "
+      write_to_phase_4 "
 	@
 	  define_method(@(namespace_argument(namespace)), @quot;@(name)", @
 	poly_idx__@(attribute_name), @(src));
     :
-      write_to_phase_3 "
+      write_to_phase_4 "
 	@
 	  update_start_p = node_p;
 	  def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
@@ -1423,12 +1423,12 @@ $sim2c::define_type_function: (definition source)
   to_c source $entry $par_count
   if
     namespace.is_defined || needed_names(name).is_defined:
-      write_to_phase_3 "
+      write_to_phase_4 "
 	@
 	  define_type_function(@(namespace_argument(namespace)), @quot;@(name)@
 	@quot;, @(entry), @(par_count));@nl;@
     :
-      write_to_phase_3 "
+      write_to_phase_4 "
 	@
 	  update_start_p = node_p;
 	  def_attribute(&@(var_entry(name)), -1, @(entry));
@@ -1457,11 +1457,11 @@ $sim2c::define_polymorphic_function: (definition is_a_setter)
   write_to_continuation_table "  {type__@(mangled_name), NULL, @(info)},@nl;"
   generate_dispatcher_function mangled_name
 
-  #write_to_phase_2 "
+  #write_to_phase_3 "
     @
       @(var_entry(mangled_name)) = create_future();
 
-  write_to_phase_4 "
+  write_to_phase_5 "
     @
       assign_value(&@(var_entry(mangled_name)), @
     create_function(type__@(mangled_name), -1));
@@ -1556,12 +1556,12 @@ $sim2c::define_c_code: (self)
 	);@nl;@
       if
 	as_a_future:
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      @(var_entry(mangled_name)) = @
 	    create_future_with_prototype(create__@(obj_type)(@(arguments)));
 	:
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      @(var_entry(mangled_name)) = create__@(obj_type)(@(arguments)@
 	    );@nl;@
@@ -1632,7 +1632,7 @@ $sim2c::define_c_code: (self)
 	  :
 	    initialize_object mangled_name
 	if namespace.is_defined:
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define_single_assign_static("@(namespace)", "@(name)", @
 	    get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -1745,7 +1745,7 @@ $sim2c::define_c_code: (self)
       "object":
 	initialize_object type
 	if namespace.is_defined:
-	  write_to_phase_2 "
+	  write_to_phase_3 "
 	    @
 	      define_single_assign_static("@(namespace)", "@(name)", @
 	    get__@(mangled_name), &@(var_entry(mangled_name)));

@@ -289,10 +289,10 @@ IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -746,6 +746,8 @@ static NODE_GETTER get__write_to_phase_4;
 static NODE_GETTER get_value_or_future__write_to_phase_4;
 static NODE_GETTER get__write_to_phase_5;
 static NODE_GETTER get_value_or_future__write_to_phase_5;
+static NODE_GETTER get__write_to_phase_6;
+static NODE_GETTER get_value_or_future__write_to_phase_6;
 static NODE_GETTER get__write_to_top_level_variable_declarations;
 static NODE_GETTER get_value_or_future__write_to_top_level_variable_declarations;
 static NODE_GETTER get__write_to_top_level_variable_names;
@@ -5198,13 +5200,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__38_31, &frame__38_30, 1046, 1046, 19, 28},
   {cont__38_32, &frame__38_30, },
   {cont__38_44, &frame__38_30, },
-  {entry__38_49, NULL, 1050, 1050, 31, 40},
-  {cont__38_50, &frame__38_49, 1050, 1050, 31, 40},
-  {cont__38_51, &frame__38_49, 1050, 1050, 31, 40},
-  {entry__38_46, NULL, 1050, 1050, 17, 26},
-  {cont__38_47, &frame__38_46, 1050, 1050, 17, 26},
-  {cont__38_48, &frame__38_46, 1050, 1050, 17, 40},
-  {cont__38_52, &frame__38_46, 1050, 1050, 17, 40},
+  {entry__38_49, NULL, 1050, 1050, 36, 45},
+  {cont__38_50, &frame__38_49, 1050, 1050, 36, 45},
+  {cont__38_51, &frame__38_49, 1050, 1050, 36, 45},
+  {entry__38_46, NULL, 1050, 1050, 17, 31},
+  {cont__38_47, &frame__38_46, 1050, 1050, 17, 31},
+  {cont__38_48, &frame__38_46, 1050, 1050, 17, 45},
+  {cont__38_52, &frame__38_46, 1050, 1050, 17, 45},
   {entry__38_54, NULL, 1052, 1052, 17, 54},
   {entry__38_55, NULL, 1054, 1054, 43, 56},
   {cont__38_56, &frame__38_55, 1054, 1054, 39, 57},
@@ -5212,7 +5214,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__38_27, NULL, 1045, 1045, 19, 28},
   {cont__38_28, &frame__38_27, 1045, 1045, 19, 28},
   {cont__38_29, &frame__38_27, },
-  {cont__38_45, &frame__38_27, 1043, 1050, 15, 39},
+  {cont__38_45, &frame__38_27, 1043, 1050, 15, 44},
   {cont__38_53, &frame__38_27, 1042, 1054, 13, 58},
   {entry__38_59, NULL, 1056, 1056, 13, 33},
   {entry__38_21, NULL, 1039, 1039, 26, 65},
@@ -22768,10 +22770,10 @@ static void cont__31_464(void) {
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 949: ... :
-  // 950:   write_to_phase_2 "
+  // 950:   write_to_phase_3 "
   // 951:     @
   // 952:       func@(body_suffix) = create_future();
-  // 953:   write_to_phase_5 "
+  // 953:   write_to_phase_6 "
   // 954:     @
   // 955:       assign_value(&func@(body_suffix), create_function(entry@(body_suffix)@
   // 956:     , @(par_count)));
@@ -22784,10 +22786,10 @@ static void cont__31_464(void) {
   frame->slots[10] /* temp__4 */ = create_closure(entry__31_483, 0);
   // 948: if
   // 949:   inherited_names_of(self).is_empty:
-  // 950:     write_to_phase_2 "
+  // 950:     write_to_phase_3 "
   // 951:       @
   // 952:         func@(body_suffix) = create_future();
-  // 953:     write_to_phase_5 "
+  // 953:     write_to_phase_6 "
   // 954:       @
   // 955:         assign_value(&func@(body_suffix), create_function(entry@(body_suffix)@
   // 956:       , @(par_count)));
@@ -22835,14 +22837,14 @@ static void cont__31_468(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 950: write_to_phase_2 "
+  // 950: write_to_phase_3 "
   // 951:   @
   // 952:     func@(body_suffix) = create_future();
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame->cont = cont__31_469;
 }
@@ -22875,7 +22877,7 @@ static void cont__31_474(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 953: write_to_phase_5 "
+  // 953: write_to_phase_6 "
   // 954:   @
   // 955:     assign_value(&func@(body_suffix), create_function(entry@(body_suffix)@
   // 956:   , @(par_count)));
@@ -22883,7 +22885,7 @@ static void cont__31_474(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_5();
+  myself = get__write_to_phase_6();
   func = myself->type;
   frame->cont = cont__31_475;
 }
@@ -24686,7 +24688,7 @@ static void cont__38_45(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1050: chr >= ' ' && chr <= 'ÿ'
+  // 1050: chr >= '@nbsp;' && chr <= 'ÿ'
   frame->slots[6] /* temp__6 */ = create_closure(entry__38_46, 0);
   // 1043: ||
   // 1044:   &&
@@ -24695,7 +24697,7 @@ static void cont__38_45(void) {
   // 1047:     chr != '@apos;'
   // 1048:     chr != '@quot;'
   // 1049:     chr != '\'
-  // 1050:   chr >= ' ' && chr <= 'ÿ'
+  // 1050:   chr >= '@nbsp;' && chr <= 'ÿ'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -24714,7 +24716,7 @@ static void entry__38_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 1050: chr >= ' '
+  // 1050: chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -24730,7 +24732,7 @@ static void cont__38_47(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1050: chr >= ' '
+  // 1050: chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -24747,7 +24749,7 @@ static void cont__38_48(void) {
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 1050: ... chr <= 'ÿ'
   frame->slots[4] /* temp__4 */ = create_closure(entry__38_49, 0);
-  // 1050: chr >= ' ' && chr <= 'ÿ'
+  // 1050: chr >= '@nbsp;' && chr <= 'ÿ'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -24811,7 +24813,7 @@ static void cont__38_52(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1050: chr >= ' ' && chr <= 'ÿ'
+  // 1050: chr >= '@nbsp;' && chr <= 'ÿ'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -24839,7 +24841,7 @@ static void cont__38_53(void) {
   // 1047:       chr != '@apos;'
   // 1048:       chr != '@quot;'
   // 1049:       chr != '\'
-  // 1050:     chr >= ' ' && chr <= 'ÿ'
+  // 1050:     chr >= '@nbsp;' && chr <= 'ÿ'
   // 1051:   :
   // ...
   argument_count = 3;
@@ -25324,14 +25326,14 @@ static void cont__40_21(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1076: write_to_phase_2 "
+  // 1076: write_to_phase_3 "
   // 1077:   @
   // 1078:     @(name) = register_unique_item("@(reg_name)");
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame->cont = cont__40_22;
 }
@@ -26924,14 +26926,14 @@ static void cont__42_43(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1143: write_to_phase_2 "
+  // 1143: write_to_phase_3 "
   // 1144:   @
   // 1145:     func@(body_suffix) = create_future();
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame->cont = cont__42_44;
 }
@@ -26964,7 +26966,7 @@ static void cont__42_49(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1146: write_to_phase_5 "
+  // 1146: write_to_phase_6 "
   // 1147:   @
   // 1148:     assign_value(&func@(body_suffix), create_function(entry@(body_suffix), @
   // 1149:   @(par_count)));
@@ -26972,7 +26974,7 @@ static void cont__42_49(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_5();
+  myself = get__write_to_phase_6();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -27999,12 +28001,12 @@ static void cont__46_19(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1205: write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+  // 1205: write_to_phase_3 "  assign_value(&@(dest), @(src));@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -28038,12 +28040,12 @@ static void cont__46_11(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1201: write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+  // 1201: write_to_phase_5 "  assign_variable(&@(dest), &@(src));@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_4();
+  myself = get__write_to_phase_5();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -28091,10 +28093,10 @@ static void cont__46_6(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1200: ... :
-  // 1201:   write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+  // 1201:   write_to_phase_5 "  assign_variable(&@(dest), &@(src));@nl;"
   frame->slots[4] /* temp__3 */ = create_closure(entry__46_7, 0);
   // 1200: -> src .has_prefix. alt("var." "func__"):
-  // 1201:   write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+  // 1201:   write_to_phase_5 "  assign_variable(&@(dest), &@(src));@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -28133,12 +28135,12 @@ static void cont__46_14(void) {
   // 1202: ... :
   // 1203:   # was originally assigned in phase 5, but in some cases this is to late
   // 1204:   
-  // 1205:   write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+  // 1205:   write_to_phase_3 "  assign_value(&@(dest), @(src));@nl;"
   frame->slots[3] /* temp__2 */ = create_closure(entry__46_15, 0);
   // 1202: -> src .has_prefix. "unique__":
   // 1203:   # was originally assigned in phase 5, but in some cases this is to late
   // 1204:   
-  // 1205:   write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+  // 1205:   write_to_phase_3 "  assign_value(&@(dest), @(src));@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -28177,12 +28179,12 @@ static void cont__46_24(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1207: write_to_phase_4 "  assign_value(&@(dest), @(src));@nl;"
+  // 1207: write_to_phase_5 "  assign_value(&@(dest), @(src));@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_4();
+  myself = get__write_to_phase_5();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -28196,25 +28198,25 @@ static void entry__46_1(void) {
     return;
   }
   // 1200: -> src .has_prefix. alt("var." "func__"):
-  // 1201:   write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+  // 1201:   write_to_phase_5 "  assign_variable(&@(dest), &@(src));@nl;"
   frame->slots[2] /* temp__1 */ = create_closure(entry__46_2, 0);
   // 1202: -> src .has_prefix. "unique__":
   // 1203:   # was originally assigned in phase 5, but in some cases this is to late
   // 1204:   
-  // 1205:   write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+  // 1205:   write_to_phase_3 "  assign_value(&@(dest), @(src));@nl;"
   frame->slots[3] /* temp__2 */ = create_closure(entry__46_12, 0);
   // 1206: :
-  // 1207:   write_to_phase_4 "  assign_value(&@(dest), @(src));@nl;"
+  // 1207:   write_to_phase_5 "  assign_value(&@(dest), @(src));@nl;"
   frame->slots[4] /* temp__3 */ = create_closure(entry__46_20, 0);
   // 1199: cond
   // 1200:   -> src .has_prefix. alt("var." "func__"):
-  // 1201:     write_to_phase_4 "  assign_variable(&@(dest), &@(src));@nl;"
+  // 1201:     write_to_phase_5 "  assign_variable(&@(dest), &@(src));@nl;"
   // 1202:   -> src .has_prefix. "unique__":
   // 1203:     # was originally assigned in phase 5, but in some cases this is to late
   // 1204:     
-  // 1205:     write_to_phase_2 "  assign_value(&@(dest), @(src));@nl;"
+  // 1205:     write_to_phase_3 "  assign_value(&@(dest), @(src));@nl;"
   // 1206:   :
-  // 1207:     write_to_phase_4 "  assign_value(&@(dest), @(src));@nl;"
+  // 1207:     write_to_phase_5 "  assign_value(&@(dest), @(src));@nl;"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -28273,7 +28275,7 @@ static void cont__47_185(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1354: write_to_phase_4 "
+  // 1354: write_to_phase_5 "
   // 1355:   @
   // 1356:     maybe_initialize_future(get__@(mangled_name)(), @
   // 1357:   @(source.to_c));@nl;@
@@ -28281,7 +28283,7 @@ static void cont__47_185(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_4();
+  myself = get__write_to_phase_5();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -28333,7 +28335,7 @@ static void cont__47_191(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1359: write_to_phase_4 "
+  // 1359: write_to_phase_5 "
   // 1360:   @
   // 1361:     initialize_future(get__@(mangled_name)(), @(source.to_c)@
   // 1362:   );@nl;@
@@ -28341,7 +28343,7 @@ static void cont__47_191(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_4();
+  myself = get__write_to_phase_5();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -28375,14 +28377,14 @@ static void cont__47_177(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1349: write_to_phase_2 "
+  // 1349: write_to_phase_3 "
   // 1350:   @
   // 1351:     define__@(mangled_name)(create_future());
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame->cont = cont__47_178;
 }
@@ -28407,25 +28409,25 @@ static void cont__47_179(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1353: ... :
-  // 1354:   write_to_phase_4 "
+  // 1354:   write_to_phase_5 "
   // 1355:     @
   // 1356:       maybe_initialize_future(get__@(mangled_name)(), @
   // 1357:     @(source.to_c));@nl;@
   frame->slots[3] /* temp__2 */ = create_closure(entry__47_180, 0);
   // 1358: :
-  // 1359:   write_to_phase_4 "
+  // 1359:   write_to_phase_5 "
   // 1360:     @
   // 1361:       initialize_future(get__@(mangled_name)(), @(source.to_c)@
   // 1362:     );@nl;@
   frame->slots[4] /* temp__3 */ = create_closure(entry__47_186, 0);
   // 1352: if
   // 1353:   source.might_be_constant:
-  // 1354:     write_to_phase_4 "
+  // 1354:     write_to_phase_5 "
   // 1355:       @
   // 1356:         maybe_initialize_future(get__@(mangled_name)(), @
   // 1357:       @(source.to_c));@nl;@
   // 1358:   :
-  // 1359:     write_to_phase_4 "
+  // 1359:     write_to_phase_5 "
   // 1360:       @
   // 1361:         initialize_future(get__@(mangled_name)(), @(source.to_c)@
   // ...
@@ -28484,12 +28486,12 @@ static void cont__47_171(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1346: write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+  // 1346: write_to_phase_5 "  define__@(mangled_name)(@(source.to_c));@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_4();
+  myself = get__write_to_phase_5();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -28520,24 +28522,24 @@ static void cont__47_173(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1348: ... :
-  // 1349:   write_to_phase_2 "
+  // 1349:   write_to_phase_3 "
   // 1350:     @
   // 1351:       define__@(mangled_name)(create_future());
   // 1352:   if
   // 1353:     source.might_be_constant:
-  // 1354:       write_to_phase_4 "
+  // 1354:       write_to_phase_5 "
   // 1355:         @
   // 1356:           maybe_initialize_future(get__@(mangled_name)(), @
   // 1357:         @(source.to_c));@nl;@
   // ...
   frame->slots[3] /* temp__2 */ = create_closure(entry__47_174, 0);
   // 1348: if source.is_an_identifier:
-  // 1349:   write_to_phase_2 "
+  // 1349:   write_to_phase_3 "
   // 1350:     @
   // 1351:       define__@(mangled_name)(create_future());
   // 1352:   if
   // 1353:     source.might_be_constant:
-  // 1354:       write_to_phase_4 "
+  // 1354:       write_to_phase_5 "
   // 1355:         @
   // 1356:           maybe_initialize_future(get__@(mangled_name)(), @
   // 1357:         @(source.to_c));@nl;@
@@ -28578,26 +28580,26 @@ static void cont__47_165(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1345: ... :
-  // 1346:   write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+  // 1346:   write_to_phase_5 "  define__@(mangled_name)(@(source.to_c));@nl;"
   frame->slots[3] /* temp__2 */ = create_closure(entry__47_166, 0);
   // 1347: :
   // 1348:   if source.is_an_identifier:
-  // 1349:     write_to_phase_2 "
+  // 1349:     write_to_phase_3 "
   // 1350:       @
   // 1351:         define__@(mangled_name)(create_future());
   // 1352:     if
   // 1353:       source.might_be_constant:
-  // 1354:         write_to_phase_4 "
+  // 1354:         write_to_phase_5 "
   // 1355:           @
   // 1356:             maybe_initialize_future(get__@(mangled_name)(), @
   // ...
   frame->slots[4] /* temp__3 */ = create_closure(entry__47_172, 0);
   // 1344: if
   // 1345:   source.is_a_constant:
-  // 1346:     write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+  // 1346:     write_to_phase_5 "  define__@(mangled_name)(@(source.to_c));@nl;"
   // 1347:   :
   // 1348:     if source.is_an_identifier:
-  // 1349:       write_to_phase_2 "
+  // 1349:       write_to_phase_3 "
   // 1350:         @
   // 1351:           define__@(mangled_name)(create_future());
   // 1352:       if
@@ -28855,7 +28857,7 @@ static void cont__47_16(void) {
   // 1222:       assign var_entry(mangled_name) source.to_c
   // 1223:     :
   // 1224:       if source.is_an_identifier:
-  // 1225:         #write_to_phase_2 "
+  // 1225:         #write_to_phase_3 "
   // 1226:           @
   // ...
   frame->slots[9] /* temp__4 */ = create_closure(entry__47_17, 0);
@@ -28867,7 +28869,7 @@ static void cont__47_16(void) {
   // 1222:       assign var_entry(mangled_name) source.to_c
   // 1223:     :
   // 1224:       if source.is_an_identifier:
-  // 1225:         #write_to_phase_2 "
+  // 1225:         #write_to_phase_3 "
   // 1226:           @
   // ...
   argument_count = 2;
@@ -28970,7 +28972,7 @@ static void cont__47_21(void) {
   // 1303:       write_to_top_level_variable_declarations
   // 1304:         string("  NODE *" var_name(mangled_name) ";@nl;")
   // 1305:       unless source.is_defined:
-  // 1306:         write_to_phase_2 "
+  // 1306:         write_to_phase_3 "
   // 1307:           @
   // ...
   frame->slots[8] /* temp__3 */ = create_closure(entry__47_100, 0);
@@ -29023,14 +29025,14 @@ static void cont__47_143(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1324: write_to_phase_2 "
+  // 1324: write_to_phase_3 "
   // 1325:   @
   // 1326:     define__@(name)(create_future());
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -29077,14 +29079,14 @@ static void cont__47_116(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1306: write_to_phase_2 "
+  // 1306: write_to_phase_3 "
   // 1307:   @
   // 1308:     @(var_entry(name)) = create_future();
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -29195,12 +29197,12 @@ static void cont__47_111(void) {
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1305: ... :
-  // 1306:   write_to_phase_2 "
+  // 1306:   write_to_phase_3 "
   // 1307:     @
   // 1308:       @(var_entry(name)) = create_future();
   frame->slots[4] /* temp__2 */ = create_closure(entry__47_112, 0);
   // 1305: unless source.is_defined:
-  // 1306:   write_to_phase_2 "
+  // 1306:   write_to_phase_3 "
   // 1307:     @
   // 1308:       @(var_entry(name)) = create_future();
   argument_count = 2;
@@ -29375,12 +29377,12 @@ static void cont__47_137(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1322: write_to_phase_2 "  register_dynamic(&dyna_idx__@(name));@nl;"
+  // 1322: write_to_phase_3 "  register_dynamic(&dyna_idx__@(name));@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame->cont = cont__47_138;
 }
@@ -29405,12 +29407,12 @@ static void cont__47_139(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1323: ... :
-  // 1324:   write_to_phase_2 "
+  // 1324:   write_to_phase_3 "
   // 1325:     @
   // 1326:       define__@(name)(create_future());
   frame->slots[3] /* temp__2 */ = create_closure(entry__47_140, 0);
   // 1323: unless source.is_defined:
-  // 1324:   write_to_phase_2 "
+  // 1324:   write_to_phase_3 "
   // 1325:     @
   // 1326:       define__@(name)(create_future());
   argument_count = 2;
@@ -29516,7 +29518,7 @@ static void cont__47_158(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1339: write_to_phase_2 "
+  // 1339: write_to_phase_3 "
   // 1340:   @
   // 1341:     register_dynamic(&dyna_idx__@(name));
   // 1342:     define__@(name)(undefined);
@@ -29524,7 +29526,7 @@ static void cont__47_158(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -29657,7 +29659,7 @@ static void cont__47_41(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1248: write_to_phase_2 "
+  // 1248: write_to_phase_3 "
   // 1249:   @
   // 1250:     define_single_assign_static("@(namespace)", "@(name)", @
   // 1251:   get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -29665,7 +29667,7 @@ static void cont__47_41(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -29797,7 +29799,7 @@ static void cont__47_63(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1262: write_to_phase_2 "
+  // 1262: write_to_phase_3 "
   // 1263:   @
   // 1264:     define_multi_assign_static("@(namespace)", "@(name)", @
   // 1265:   get__@(mangled_name), set__@(mangled_name));
@@ -29805,7 +29807,7 @@ static void cont__47_63(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -29904,7 +29906,7 @@ static void cont__47_79(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1275: write_to_phase_2 "
+  // 1275: write_to_phase_3 "
   // 1276:   @
   // 1277:     define_single_assign_dynamic("@(namespace)", "@(name)", @
   // 1278:   get__@(mangled_name), define__@(mangled_name), @
@@ -29913,7 +29915,7 @@ static void cont__47_79(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -30027,7 +30029,7 @@ static void cont__47_99(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1292: write_to_phase_2 "
+  // 1292: write_to_phase_3 "
   // 1293:   @
   // 1294:     define_multi_assign_dynamic("@(namespace)", "@(name)", @
   // 1295:   get__@(mangled_name), set__@(mangled_name), define__@(mangled_name)@
@@ -30037,7 +30039,7 @@ static void cont__47_99(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -30063,7 +30065,7 @@ static void entry__47_22(void) {
   // 1245:     static NODE *get__@(namespace)__@(name)(void) {
   // 1246:       return var.@(namespace)__@(name);
   // 1247:     }
-  // 1248:   write_to_phase_2 "
+  // 1248:   write_to_phase_3 "
   // 1249:     @
   // 1250:       define_single_assign_static("@(namespace)", "@(name)", @
   // ...
@@ -30089,7 +30091,7 @@ static void entry__47_22(void) {
   // 1272:     static void define__@(mangled_name)(NODE *node) {
   // 1273:       define_dynamic_slot(dyna_idx__@(mangled_name), node);
   // 1274:     }
-  // 1275:   write_to_phase_2 "
+  // 1275:   write_to_phase_3 "
   // ...
   frame->slots[6] /* temp__3 */ = create_closure(entry__47_64, 0);
   // 1280: ... :
@@ -30113,7 +30115,7 @@ static void entry__47_22(void) {
   // 1245:       static NODE *get__@(namespace)__@(name)(void) {
   // 1246:         return var.@(namespace)__@(name);
   // 1247:       }
-  // 1248:     write_to_phase_2 "
+  // 1248:     write_to_phase_3 "
   // ...
   argument_count = 9;
   arguments = node_p;
@@ -30151,7 +30153,7 @@ static void entry__47_100(void) {
   // 1303:   write_to_top_level_variable_declarations
   // 1304:     string("  NODE *" var_name(mangled_name) ";@nl;")
   // 1305:   unless source.is_defined:
-  // 1306:     write_to_phase_2 "
+  // 1306:     write_to_phase_3 "
   // 1307:       @
   // 1308:         @(var_entry(name)) = create_future();
   frame->slots[4] /* temp__1 */ = create_closure(entry__47_101, 0);
@@ -30169,7 +30171,7 @@ static void entry__47_100(void) {
   // 1319:     static void define__@(name)(NODE *node) {
   // 1320:       define_dynamic_slot(dyna_idx__@(name), node);
   // 1321:     }
-  // 1322:   write_to_phase_2 "  register_dynamic(&dyna_idx__@(name));@nl;"
+  // 1322:   write_to_phase_3 "  register_dynamic(&dyna_idx__@(name));@nl;"
   // ...
   frame->slots[6] /* temp__3 */ = create_closure(entry__47_126, 0);
   // 1327: ... :
@@ -30191,7 +30193,7 @@ static void entry__47_100(void) {
   // 1303:     write_to_top_level_variable_declarations
   // 1304:       string("  NODE *" var_name(mangled_name) ";@nl;")
   // 1305:     unless source.is_defined:
-  // 1306:       write_to_phase_2 "
+  // 1306:       write_to_phase_3 "
   // 1307:         @
   // 1308:           @(var_entry(name)) = create_future();
   // ...
@@ -30285,10 +30287,10 @@ static void cont__47_163(void) {
   // 1343: ... :
   // 1344:   if
   // 1345:     source.is_a_constant:
-  // 1346:       write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+  // 1346:       write_to_phase_5 "  define__@(mangled_name)(@(source.to_c));@nl;"
   // 1347:     :
   // 1348:       if source.is_an_identifier:
-  // 1349:         write_to_phase_2 "
+  // 1349:         write_to_phase_3 "
   // 1350:           @
   // 1351:             define__@(mangled_name)(create_future());
   // 1352:         if
@@ -30297,10 +30299,10 @@ static void cont__47_163(void) {
   // 1343: if source.is_defined && kind == DYNAMIC_SINGLE:
   // 1344:   if
   // 1345:     source.is_a_constant:
-  // 1346:       write_to_phase_4 "  define__@(mangled_name)(@(source.to_c));@nl;"
+  // 1346:       write_to_phase_5 "  define__@(mangled_name)(@(source.to_c));@nl;"
   // 1347:     :
   // 1348:       if source.is_an_identifier:
-  // 1349:         write_to_phase_2 "
+  // 1349:         write_to_phase_3 "
   // 1350:           @
   // 1351:             define__@(mangled_name)(create_future());
   // 1352:         if
@@ -30455,7 +30457,7 @@ static void cont__49_28(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1383: write_to_phase_3 "
+  // 1383: write_to_phase_4 "
   // 1384:   @
   // 1385:     define_attribute(@(namespace_argument(namespace)), @quot;@(name)", @
   // 1386:   poly_idx__@(attribute_name), @(src));
@@ -30463,7 +30465,7 @@ static void cont__49_28(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_3();
+  myself = get__write_to_phase_4();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -30520,7 +30522,7 @@ static void cont__49_35(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1388: write_to_phase_3 "
+  // 1388: write_to_phase_4 "
   // 1389:   @
   // 1390:     update_start_p = node_p;
   // 1391:     def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
@@ -30529,7 +30531,7 @@ static void cont__49_35(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_3();
+  myself = get__write_to_phase_4();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -30629,7 +30631,7 @@ static void cont__49_5(void) {
   // 1375:   !src string("var__" mangled_name "__" attribute_name)
   // 1376:   write_to_declarations "static NODE *@(src);@nl;"
   // 1377:   
-  // 1378:   #write_to_phase_2 "
+  // 1378:   #write_to_phase_3 "
   // 1379:     @
   // 1380:       @(src) = create_future();
   frame->slots[9] /* temp__3 */ = create_closure(entry__49_8, 0);
@@ -30640,7 +30642,7 @@ static void cont__49_5(void) {
   // 1375:     !src string("var__" mangled_name "__" attribute_name)
   // 1376:     write_to_declarations "static NODE *@(src);@nl;"
   // 1377:     
-  // 1378:     #write_to_phase_2 "
+  // 1378:     #write_to_phase_3 "
   // 1379:       @
   // 1380:         @(src) = create_future();
   argument_count = 3;
@@ -30828,13 +30830,13 @@ static void cont__49_20(void) {
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 1382: ... :
-  // 1383:   write_to_phase_3 "
+  // 1383:   write_to_phase_4 "
   // 1384:     @
   // 1385:       define_attribute(@(namespace_argument(namespace)), @quot;@(name)", @
   // 1386:     poly_idx__@(attribute_name), @(src));
   frame->slots[10] /* temp__4 */ = create_closure(entry__49_21, 0);
   // 1387: :
-  // 1388:   write_to_phase_3 "
+  // 1388:   write_to_phase_4 "
   // 1389:     @
   // 1390:       update_start_p = node_p;
   // 1391:       def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
@@ -30842,12 +30844,12 @@ static void cont__49_20(void) {
   frame->slots[11] /* temp__5 */ = create_closure(entry__49_29, 0);
   // 1381: if
   // 1382:   namespace.is_defined || needed_names(name).is_defined:
-  // 1383:     write_to_phase_3 "
+  // 1383:     write_to_phase_4 "
   // 1384:       @
   // 1385:         define_attribute(@(namespace_argument(namespace)), @quot;@(name)", @
   // 1386:       poly_idx__@(attribute_name), @(src));
   // 1387:   :
-  // 1388:     write_to_phase_3 "
+  // 1388:     write_to_phase_4 "
   // 1389:       @
   // 1390:         update_start_p = node_p;
   // ...
@@ -30917,7 +30919,7 @@ static void cont__50_28(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1410: write_to_phase_3 "
+  // 1410: write_to_phase_4 "
   // 1411:   @
   // 1412:     define_method(@(namespace_argument(namespace)), @quot;@(name)", @
   // 1413:   poly_idx__@(attribute_name), @(src));
@@ -30925,7 +30927,7 @@ static void cont__50_28(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_3();
+  myself = get__write_to_phase_4();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -30982,7 +30984,7 @@ static void cont__50_35(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1415: write_to_phase_3 "
+  // 1415: write_to_phase_4 "
   // 1416:   @
   // 1417:     update_start_p = node_p;
   // 1418:     def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
@@ -30991,7 +30993,7 @@ static void cont__50_35(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_3();
+  myself = get__write_to_phase_4();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -31091,7 +31093,7 @@ static void cont__50_5(void) {
   // 1402:   !src string("var__" mangled_name "__" attribute_name)
   // 1403:   write_to_declarations "static NODE *@(src);@nl;"
   // 1404:   
-  // 1405:   #write_to_phase_2 "
+  // 1405:   #write_to_phase_3 "
   // 1406:     @
   // 1407:       @(src) = create_future();
   frame->slots[9] /* temp__3 */ = create_closure(entry__50_8, 0);
@@ -31102,7 +31104,7 @@ static void cont__50_5(void) {
   // 1402:     !src string("var__" mangled_name "__" attribute_name)
   // 1403:     write_to_declarations "static NODE *@(src);@nl;"
   // 1404:     
-  // 1405:     #write_to_phase_2 "
+  // 1405:     #write_to_phase_3 "
   // 1406:       @
   // 1407:         @(src) = create_future();
   argument_count = 3;
@@ -31290,13 +31292,13 @@ static void cont__50_20(void) {
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 1409: ... :
-  // 1410:   write_to_phase_3 "
+  // 1410:   write_to_phase_4 "
   // 1411:     @
   // 1412:       define_method(@(namespace_argument(namespace)), @quot;@(name)", @
   // 1413:     poly_idx__@(attribute_name), @(src));
   frame->slots[10] /* temp__4 */ = create_closure(entry__50_21, 0);
   // 1414: :
-  // 1415:   write_to_phase_3 "
+  // 1415:   write_to_phase_4 "
   // 1416:     @
   // 1417:       update_start_p = node_p;
   // 1418:       def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
@@ -31304,12 +31306,12 @@ static void cont__50_20(void) {
   frame->slots[11] /* temp__5 */ = create_closure(entry__50_29, 0);
   // 1408: if
   // 1409:   namespace.is_defined || needed_names(name).is_defined:
-  // 1410:     write_to_phase_3 "
+  // 1410:     write_to_phase_4 "
   // 1411:       @
   // 1412:         define_method(@(namespace_argument(namespace)), @quot;@(name)", @
   // 1413:       poly_idx__@(attribute_name), @(src));
   // 1414:   :
-  // 1415:     write_to_phase_3 "
+  // 1415:     write_to_phase_4 "
   // 1416:       @
   // 1417:         update_start_p = node_p;
   // ...
@@ -31379,7 +31381,7 @@ static void cont__51_16(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1426: write_to_phase_3 "
+  // 1426: write_to_phase_4 "
   // 1427:   @
   // 1428:     define_type_function(@(namespace_argument(namespace)), @quot;@(name)@
   // 1429:   @quot;, @(entry), @(par_count));@nl;@
@@ -31387,7 +31389,7 @@ static void cont__51_16(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_3();
+  myself = get__write_to_phase_4();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -31439,7 +31441,7 @@ static void cont__51_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1431: write_to_phase_3 "
+  // 1431: write_to_phase_4 "
   // 1432:   @
   // 1433:     update_start_p = node_p;
   // 1434:     def_attribute(&@(var_entry(name)), -1, @(entry));
@@ -31447,7 +31449,7 @@ static void cont__51_22(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_3();
+  myself = get__write_to_phase_4();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -31594,25 +31596,25 @@ static void cont__51_8(void) {
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 1425: ... :
-  // 1426:   write_to_phase_3 "
+  // 1426:   write_to_phase_4 "
   // 1427:     @
   // 1428:       define_type_function(@(namespace_argument(namespace)), @quot;@(name)@
   // 1429:     @quot;, @(entry), @(par_count));@nl;@
   frame->slots[10] /* temp__4 */ = create_closure(entry__51_9, 0);
   // 1430: :
-  // 1431:   write_to_phase_3 "
+  // 1431:   write_to_phase_4 "
   // 1432:     @
   // 1433:       update_start_p = node_p;
   // 1434:       def_attribute(&@(var_entry(name)), -1, @(entry));
   frame->slots[11] /* temp__5 */ = create_closure(entry__51_17, 0);
   // 1424: if
   // 1425:   namespace.is_defined || needed_names(name).is_defined:
-  // 1426:     write_to_phase_3 "
+  // 1426:     write_to_phase_4 "
   // 1427:       @
   // 1428:         define_type_function(@(namespace_argument(namespace)), @quot;@(name)@
   // 1429:       @quot;, @(entry), @(par_count));@nl;@
   // 1430:   :
-  // 1431:     write_to_phase_3 "
+  // 1431:     write_to_phase_4 "
   // 1432:       @
   // 1433:         update_start_p = node_p;
   // ...
@@ -32535,7 +32537,7 @@ static void cont__52_52(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1464: write_to_phase_4 "
+  // 1464: write_to_phase_5 "
   // 1465:   @
   // 1466:     assign_value(&@(var_entry(mangled_name)), @
   // 1467:   create_function(type__@(mangled_name), -1));
@@ -32543,7 +32545,7 @@ static void cont__52_52(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
   result_count = 0;
-  myself = get__write_to_phase_4();
+  myself = get__write_to_phase_5();
   func = myself->type;
   frame->cont = cont__52_53;
 }
@@ -32875,7 +32877,7 @@ static void cont__53_321(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1748: write_to_phase_2 "
+  // 1748: write_to_phase_3 "
   // 1749:   @
   // 1750:     define_single_assign_static("@(namespace)", "@(name)", @
   // 1751:   get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -32883,7 +32885,7 @@ static void cont__53_321(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -34375,13 +34377,13 @@ static void cont__53_185(void) {
   }
   frame->slots[13] /* temp__1 */ = arguments->slots[0];
   // 1634: ... :
-  // 1635:   write_to_phase_2 "
+  // 1635:   write_to_phase_3 "
   // 1636:     @
   // 1637:       define_single_assign_static("@(namespace)", "@(name)", @
   // 1638:     get__@(mangled_name), &@(var_entry(mangled_name)));
   frame->slots[14] /* temp__2 */ = create_closure(entry__53_186, 0);
   // 1634: if namespace.is_defined:
-  // 1635:   write_to_phase_2 "
+  // 1635:   write_to_phase_3 "
   // 1636:     @
   // 1637:       define_single_assign_static("@(namespace)", "@(name)", @
   // 1638:     get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -34448,7 +34450,7 @@ static void cont__53_193(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1635: write_to_phase_2 "
+  // 1635: write_to_phase_3 "
   // 1636:   @
   // 1637:     define_single_assign_static("@(namespace)", "@(name)", @
   // 1638:   get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -34456,7 +34458,7 @@ static void cont__53_193(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -35717,13 +35719,13 @@ static void cont__53_313(void) {
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 1747: ... :
-  // 1748:   write_to_phase_2 "
+  // 1748:   write_to_phase_3 "
   // 1749:     @
   // 1750:       define_single_assign_static("@(namespace)", "@(name)", @
   // 1751:     get__@(mangled_name), &@(var_entry(mangled_name)));
   frame->slots[6] /* temp__2 */ = create_closure(entry__53_314, 0);
   // 1747: if namespace.is_defined:
-  // 1748:   write_to_phase_2 "
+  // 1748:   write_to_phase_3 "
   // 1749:     @
   // 1750:       define_single_assign_static("@(namespace)", "@(name)", @
   // 1751:     get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -36938,25 +36940,25 @@ static void cont__53_35(void) {
     return;
   }
   // 1558: ... :
-  // 1559:   write_to_phase_2 "
+  // 1559:   write_to_phase_3 "
   // 1560:     @
   // 1561:       @(var_entry(mangled_name)) = @
   // 1562:     create_future_with_prototype(create__@(obj_type)(@(arguments)));
   frame->slots[6] /* temp__1 */ = create_closure(entry__53_36, 0);
   // 1563: :
-  // 1564:   write_to_phase_2 "
+  // 1564:   write_to_phase_3 "
   // 1565:     @
   // 1566:       @(var_entry(mangled_name)) = create__@(obj_type)(@(arguments)@
   // 1567:     );@nl;@
   frame->slots[7] /* temp__2 */ = create_closure(entry__53_43, 0);
   // 1557: if
   // 1558:   as_a_future:
-  // 1559:     write_to_phase_2 "
+  // 1559:     write_to_phase_3 "
   // 1560:       @
   // 1561:         @(var_entry(mangled_name)) = @
   // 1562:       create_future_with_prototype(create__@(obj_type)(@(arguments)));
   // 1563:   :
-  // 1564:     write_to_phase_2 "
+  // 1564:     write_to_phase_3 "
   // 1565:       @
   // 1566:         @(var_entry(mangled_name)) = create__@(obj_type)(@(arguments)@
   // ...
@@ -37022,7 +37024,7 @@ static void cont__53_42(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1559: write_to_phase_2 "
+  // 1559: write_to_phase_3 "
   // 1560:   @
   // 1561:     @(var_entry(mangled_name)) = @
   // 1562:   create_future_with_prototype(create__@(obj_type)(@(arguments)));
@@ -37030,7 +37032,7 @@ static void cont__53_42(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -37086,7 +37088,7 @@ static void cont__53_49(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1564: write_to_phase_2 "
+  // 1564: write_to_phase_3 "
   // 1565:   @
   // 1566:     @(var_entry(mangled_name)) = create__@(obj_type)(@(arguments)@
   // 1567:   );@nl;@
@@ -37094,7 +37096,7 @@ static void cont__53_49(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_2();
+  myself = get__write_to_phase_3();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -37692,7 +37694,7 @@ static void cont__53_94(void) {
   // 1745: ... :
   // 1746:   initialize_object type
   // 1747:   if namespace.is_defined:
-  // 1748:     write_to_phase_2 "
+  // 1748:     write_to_phase_3 "
   // 1749:       @
   // 1750:         define_single_assign_static("@(namespace)", "@(name)", @
   // 1751:       get__@(mangled_name), &@(var_entry(mangled_name)));
@@ -40479,8 +40481,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__c_code_generator(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("c_code_generator");
-  set_used_namespaces(used_namespaces);
   character__92 = from_uchar32(92);
   character__47 = from_uchar32(47);
   character__160 = from_uchar32(160);
@@ -40502,26 +40502,10 @@ EXPORT void phase_2__c_code_generator(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
-  define_single_assign_dynamic("sim2c", "suffix", get__sim2c__suffix, define__sim2c__suffix, &dyna_idx__sim2c__suffix);
-  define__sim2c__suffix(create_future());
-  register_dynamic(&dyna_idx__level);
-  register_dynamic(&dyna_idx__current_locals);
-  define__current_locals(create_future());
-  register_dynamic(&dyna_idx__current_frame);
-  define__current_frame(create_future());
-  register_dynamic(&dyna_idx__is_a_shared_local);
-  define__is_a_shared_local(create_future());
-  register_dynamic(&dyna_idx__temporary_offset);
-  define_multi_assign_dynamic("sim2c", "delayed_code", get__sim2c__delayed_code, set__sim2c__delayed_code, define__sim2c__delayed_code, &dyna_idx__sim2c__delayed_code);
-  define__sim2c__delayed_code(undefined);
   string__9_2 = from_latin_1_string("__", 2);
-  func__9_1 = create_future();
   string__10_2 = from_latin_1_string("__", 2);
   string__10_5 = from_latin_1_string("var.", 4);
   string__10_8 = from_latin_1_string("var._", 5);
-  func__10_1 = create_future();
-  func__11_1 = create_future();
-  func__12_1 = create_future();
   string__13_2 = from_latin_1_string("static void ", 12);
   string__13_3 = from_latin_1_string("(void);\012", 8);
   string__13_7 = from_latin_1_string("static void ", 12);
@@ -40530,20 +40514,9 @@ EXPORT void phase_2__c_code_generator(void) {
   string__13_12 = from_latin_1_string(", ", 2);
   string__13_17 = from_latin_1_string("&", 1);
   string__13_18 = from_latin_1_string(", ", 2);
-  func__13_16 = create_future();
   string__13_21 = from_latin_1_string("NULL, ", 6);
-  func__13_20 = create_future();
-  func__13_1 = create_future();
-  define_single_assign_static("sim2c", "begin_continuation", get__sim2c__begin_continuation, &var.sim2c__begin_continuation);
   string__14_4 = from_latin_1_string("},\012", 3);
-  func__14_3 = create_future();
   string__14_8 = from_latin_1_string("},\012", 3);
-  func__14_7 = create_future();
-  func__14_1 = create_future();
-  define_single_assign_static("sim2c", "end_continuation", get__sim2c__end_continuation, &var.sim2c__end_continuation);
-  func__15_1 = create_future();
-  define_single_assign_static("sim2c", "next_continuation", get__sim2c__next_continuation, &var.sim2c__next_continuation);
-  func__16_1 = create_future();
   string__17_6 = from_latin_1_string("  argument_count += ", 20);
   string__17_7 = from_latin_1_string(";\012", 2);
   string__17_11 = from_latin_1_string("  argument_count = ", 19);
@@ -40553,20 +40526,15 @@ EXPORT void phase_2__c_code_generator(void) {
   string__17_26 = from_latin_1_string("  unfold(", 9);
   string__17_27 = from_latin_1_string(");\012", 3);
   string__17_33 = from_latin_1_string("argument_count++", 16);
-  func__17_32 = create_future();
   string__17_35 = from_latin_1_string("  arguments->slots[", 19);
   string__17_36 = from_latin_1_string("] = ", 4);
   string__17_37 = from_latin_1_string(";\012", 2);
-  func__17_1 = create_future();
-  func__18_7 = create_future();
-  func__18_9 = create_future();
   string__18_13 = from_latin_1_string("  myself = ", 11);
   string__18_14 = from_latin_1_string(";\012  func = myself->type;", 24);
   string__18_15 = from_latin_1_string("\012", 1);
   string__18_18 = from_latin_1_string("frame->cont", 11);
   string__18_22 = from_latin_1_string("  frame->cont = ", 16);
   string__18_23 = from_latin_1_string(";\012", 2);
-  func__18_1 = create_future();
   string__19_2 = from_latin_1_string("  ", 2);
   string__19_10 = from_latin_1_string("initialize_future(", 18);
   string__19_11 = from_latin_1_string(", ", 2);
@@ -40591,15 +40559,12 @@ EXPORT void phase_2__c_code_generator(void) {
   string__19_57 = from_latin_1_string(");\012", 3);
   string__19_60 = from_latin_1_string(" = ", 3);
   string__19_61 = from_latin_1_string(";\012", 2);
-  func__19_1 = create_future();
-  define_single_assign_static("sim2c", "assignment_to_c", get__sim2c__assignment_to_c, &var.sim2c__assignment_to_c);
   string__20_2 = from_latin_1_string("  ", 2);
   string__20_5 = from_latin_1_string("arguments", 9);
   string__20_12 = from_latin_1_string("frame->slots[", 13);
   string__20_13 = from_latin_1_string("] /* ", 5);
   string__20_14 = from_latin_1_string(" */ = create_cell_with_contents(", 32);
   string__20_15 = from_latin_1_string(");\012", 3);
-  func__20_1 = create_future();
   string__21_31 = from_latin_1_string("  if (argument_count < ", 23);
   string__21_32 = from_latin_1_string(") {\012    too_few_", 16);
   string__21_33 = from_latin_1_string("_error();\012    return;\012  }\012", 26);
@@ -40611,7 +40576,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__21_44 = from_latin_1_string("_error();\012    return;\012  }\012", 26);
   string__21_47 = from_latin_1_string("results", 7);
   string__21_52 = from_latin_1_string("  allocate_arguments();", 23);
-  func__21_51 = create_future();
   string__21_57 = from_latin_1_string("results", 7);
   string__21_68 = from_latin_1_string("arguments->slots[", 17);
   string__21_69 = from_latin_1_string("]", 1);
@@ -40623,7 +40587,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__21_92 = from_latin_1_string("  switch(argument_count) {\012", 27);
   string__21_101 = from_latin_1_string("case ", 5);
   string__21_104 = from_latin_1_string("default", 7);
-  func__21_103 = create_future();
   string__21_106 = from_latin_1_string("    ", 4);
   string__21_107 = from_latin_1_string(": ", 2);
   string__21_111 = from_latin_1_string("arguments->slots[", 17);
@@ -40632,14 +40595,12 @@ EXPORT void phase_2__c_code_generator(void) {
   string__21_116 = from_latin_1_string(":;\012  }\012  switch(argument_count) {\012", 34);
   string__21_127 = from_latin_1_string("case ", 5);
   string__21_130 = from_latin_1_string("default", 7);
-  func__21_129 = create_future();
   string__21_134 = from_latin_1_string("    ", 4);
   string__21_135 = from_latin_1_string(":\012      func = cont", 19);
   string__21_136 = from_latin_1_string("_", 1);
   string__21_137 = from_latin_1_string(";\012      return;\012", 16);
   string__21_140 = from_latin_1_string("    case ", 9);
   string__21_141 = from_latin_1_string(":;\012  }\012", 7);
-  func__21_155 = create_future();
   string__21_159 = from_latin_1_string("undefined", 9);
   string__21_163 = from_latin_1_string("  func = cont", 13);
   string__21_164 = from_latin_1_string("_", 1);
@@ -40647,17 +40608,12 @@ EXPORT void phase_2__c_code_generator(void) {
   string__21_168 = from_latin_1_string("cont", 4);
   string__21_169 = from_latin_1_string("_", 1);
   string__21_182 = from_latin_1_string("undefined", 9);
-  func__21_181 = create_future();
   string__21_186 = from_latin_1_string("    case ", 9);
   string__21_187 = from_latin_1_string(": ", 2);
   string__21_190 = from_latin_1_string("  }\012", 4);
-  func__21_1 = create_future();
   string__22_2 = from_latin_1_string("\012  // ", 6);
   string__22_5 = from_latin_1_string("  // ", 5);
-  func__22_1 = create_future();
-  func__23_1 = create_future();
   string__24_55 = from_latin_1_string(", ", 2);
-  func__24_57 = create_future();
   string__24_59 = from_latin_1_string(", ", 2);
   string__24_60 = from_latin_1_string(", ", 2);
   string__24_61 = from_latin_1_string(", ", 2);
@@ -40666,43 +40622,21 @@ EXPORT void phase_2__c_code_generator(void) {
   string__24_70 = from_latin_1_string("  ", 2);
   string__24_96 = from_latin_1_string("... ", 4);
   string__24_120 = from_latin_1_string("  // ...", 8);
-  func__24_119 = create_future();
-  func__24_1 = create_future();
-  func__25_1 = create_future();
-  define_single_assign_static("sim2c", "write_source_as_remark", get__sim2c__write_source_as_remark, &var.sim2c__write_source_as_remark);
-  unique__26_1 = register_unique_item("EARLY");
-  assign_value(&var._EARLY, unique__26_1);
-  unique__27_1 = register_unique_item("STANDARD");
-  assign_value(&var._STANDARD, unique__27_1);
-  unique__28_1 = register_unique_item("UNKNOWN");
-  assign_value(&var._UNKNOWN, unique__28_1);
-  func__29_15 = create_future();
-  func__29_16 = create_future();
-  func__29_1 = create_future();
   string__30_2 = from_latin_1_string("generate expression", 19);
   string__30_4 = from_latin_1_string("???", 3);
-  func__30_1 = create_future();
   string__31_2 = from_latin_1_string("generate body", 13);
-  func__31_16 = create_future();
-  func__31_7 = create_future();
   string__31_24 = from_latin_1_string("get_value_or_future__", 21);
   string__31_25 = from_latin_1_string("()", 2);
   string__31_30 = from_latin_1_string("create_future()", 15);
-  func__31_29 = create_future();
   string__31_32 = from_latin_1_string("create_future()", 15);
-  func__31_31 = create_future();
-  func__31_18 = create_future();
   string__31_44 = from_latin_1_string("  argument_count = 0;\012  arguments = node_p;\012  myself = ", 55);
   string__31_45 = from_latin_1_string(";\012  func = myself->type;\012  frame->cont = invalid_continuation;\012", 63);
   string__31_50 = from_latin_1_string("  frame = frame->caller_frame;\012  func = frame->cont;\012  frame->cont = invalid_continuation;\012", 91);
-  func__31_112 = create_future();
   string__31_138 = from_latin_1_string("static NODE *func", 17);
   string__31_139 = from_latin_1_string(";\012", 2);
   string__31_143 = from_latin_1_string("entry", 5);
   string__31_150 = from_latin_1_string("  allocate_arguments();\012", 24);
-  func__31_149 = create_future();
   string__31_157 = from_latin_1_string("  caller_frame = frame;\012", 24);
-  func__31_156 = create_future();
   string__31_159 = from_latin_1_string("  allocate_initialized_frame_gc(", 32);
   string__31_160 = from_latin_1_string(", ", 2);
   string__31_161 = from_latin_1_string(");\012", 3);
@@ -40713,10 +40647,8 @@ EXPORT void phase_2__c_code_generator(void) {
   string__31_173 = from_latin_1_string("  // ", 5);
   string__31_174 = from_latin_1_string(": ", 2);
   string__31_180 = from_latin_1_string(", ", 2);
-  func__31_179 = create_future();
   string__31_182 = from_latin_1_string("\042", 1);
   string__31_183 = from_latin_1_string("\042", 1);
-  func__31_172 = create_future();
   string__31_186 = from_latin_1_string("}};\012", 4);
   string__31_188 = from_latin_1_string("frame", 5);
   string__31_194 = from_latin_1_string("static void exit", 16);
@@ -40724,7 +40656,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__31_198 = from_latin_1_string("create_continuation_with_exit(exit", 34);
   string__31_199 = from_latin_1_string(")", 1);
   string__31_202 = from_latin_1_string("create_continuation()", 21);
-  func__31_201 = create_future();
   string__31_204 = from_latin_1_string("arguments", 9);
   string__31_210 = from_latin_1_string("  frame->slots[", 15);
   string__31_211 = from_latin_1_string("] = myself->closure.frame->slots[", 33);
@@ -40753,7 +40684,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__31_310 = from_latin_1_string("  frame->slots[", 15);
   string__31_311 = from_latin_1_string("] /* ", 5);
   string__31_312 = from_latin_1_string(" */ = create_cell();\012", 21);
-  func__31_317 = create_future();
   string__31_333 = from_latin_1_string("  myself = ", 11);
   string__31_334 = from_latin_1_string(";\012  func = myself->type;\012  frame->cont = invalid_continuation;\012", 63);
   string__31_340 = from_latin_1_string("  frame = frame->caller_frame;\012  func = frame->cont;\012  frame->cont = invalid_continuation;\012", 91);
@@ -40764,9 +40694,7 @@ EXPORT void phase_2__c_code_generator(void) {
   string__31_366 = from_latin_1_string(" ?\012    frame->caller_result_count-", 34);
   string__31_367 = from_latin_1_string(" : -1;\012", 7);
   string__31_370 = from_latin_1_string("  result_count = -1;\012", 21);
-  func__31_369 = create_future();
   string__31_372 = from_latin_1_string("  result_count = frame->caller_result_count;\012", 45);
-  func__31_371 = create_future();
   string__31_378 = from_latin_1_string("cont", 4);
   string__31_379 = from_latin_1_string("_", 1);
   string__31_382 = from_latin_1_string("}\012", 2);
@@ -40808,24 +40736,17 @@ EXPORT void phase_2__c_code_generator(void) {
   string__31_484 = from_latin_1_string("create_closure(entry", 20);
   string__31_485 = from_latin_1_string(", ", 2);
   string__31_486 = from_latin_1_string(")", 1);
-  func__31_1 = create_future();
   string__32_2 = from_latin_1_string("generate definition", 19);
   string__32_12 = from_latin_1_string("var.", 4);
   string__32_13 = from_latin_1_string("__", 2);
-  func__32_1 = create_future();
   string__33_2 = from_latin_1_string("generate attribute-value pair", 29);
-  func__33_1 = create_future();
   string__34_2 = from_latin_1_string("generate attribute-function pair", 32);
-  func__34_1 = create_future();
   string__35_2 = from_latin_1_string("generate numeric literal", 24);
   string__35_5 = from_latin_1_string("number__", 8);
-  func__35_1 = create_future();
   string__36_2 = from_latin_1_string("generate character literal", 26);
   string__36_6 = from_latin_1_string("character__", 11);
-  func__36_1 = create_future();
   string__37_19 = from_latin_1_string("0", 1);
   string__37_21 = from_latin_1_string("\134", 1);
-  func__37_1 = create_future();
   string__38_6 = from_latin_1_string("string", 6);
   string__38_7 = from_latin_1_string("_", 1);
   string__38_9 = from_latin_1_string("static NODE *", 13);
@@ -40838,9 +40759,7 @@ EXPORT void phase_2__c_code_generator(void) {
   string__38_23 = from_latin_1_string("_literal[", 9);
   string__38_24 = from_latin_1_string("] = {", 5);
   string__38_58 = from_latin_1_string("0x", 2);
-  func__38_27 = create_future();
   string__38_60 = from_latin_1_string(", ", 2);
-  func__38_59 = create_future();
   string__38_62 = from_latin_1_string("};\012", 3);
   string__38_64 = from_latin_1_string("  ", 2);
   string__38_65 = from_latin_1_string(" = from_uint32_string(", 22);
@@ -40850,10 +40769,7 @@ EXPORT void phase_2__c_code_generator(void) {
   string__38_71 = from_latin_1_string(" = collect_node(", 16);
   string__38_72 = from_latin_1_string(");\012", 3);
   string__38_76 = from_latin_1_string("empty_string", 12);
-  func__38_75 = create_future();
-  func__38_1 = create_future();
   string__39_2 = from_latin_1_string("generate string literal", 23);
-  func__39_1 = create_future();
   string__40_2 = from_latin_1_string("generate unique item", 20);
   string__40_5 = from_latin_1_string("unique", 6);
   string__40_6 = from_latin_1_string("_", 1);
@@ -40865,7 +40781,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__40_23 = from_latin_1_string("  ", 2);
   string__40_24 = from_latin_1_string(" = collect_node(", 16);
   string__40_25 = from_latin_1_string(");\012", 3);
-  func__40_1 = create_future();
   string__41_2 = from_latin_1_string("generate identifier ", 20);
   string__41_10 = from_latin_1_string("__", 2);
   string__41_15 = from_latin_1_string("frame->slots[", 13);
@@ -40881,10 +40796,8 @@ EXPORT void phase_2__c_code_generator(void) {
   string__41_44 = from_latin_1_string("()", 2);
   string__41_62 = from_latin_1_string("get__", 5);
   string__41_63 = from_latin_1_string("()", 2);
-  func__41_1 = create_future();
   string__42_2 = from_latin_1_string("generate C-body", 15);
   string__42_13 = from_latin_1_string("CHECK_ARGUMENTS", 15);
-  func__42_18 = create_future();
   string__42_21 = from_latin_1_string("static void entry", 17);
   string__42_22 = from_latin_1_string("(void);\012static NODE *func", 25);
   string__42_23 = from_latin_1_string(";\012", 2);
@@ -40901,14 +40814,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__42_47 = from_latin_1_string(", ", 2);
   string__42_48 = from_latin_1_string("));\012", 4);
   string__42_51 = from_latin_1_string("func", 4);
-  func__42_1 = create_future();
-  func__43_1 = create_future();
-  func__44_18 = create_future();
-  func__44_1 = create_future();
-  define_single_assign_static("sim2c", "is_single_assign", get__sim2c__is_single_assign, &var.sim2c__is_single_assign);
-  func__45_18 = create_future();
-  func__45_1 = create_future();
-  define_single_assign_static("sim2c", "might_be_constant", get__sim2c__might_be_constant, &var.sim2c__might_be_constant);
   string__46_3 = from_latin_1_string("var.", 4);
   string__46_4 = from_latin_1_string("func__", 6);
   string__46_8 = from_latin_1_string("  assign_variable(&", 19);
@@ -40921,7 +40826,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__46_21 = from_latin_1_string("  assign_value(&", 16);
   string__46_22 = from_latin_1_string(", ", 2);
   string__46_23 = from_latin_1_string(");\012", 3);
-  func__46_1 = create_future();
   string__47_7 = from_latin_1_string("  ", 2);
   string__47_8 = from_latin_1_string(" = collect_node(", 16);
   string__47_9 = from_latin_1_string(");\012", 3);
@@ -41023,13 +40927,9 @@ EXPORT void phase_2__c_code_generator(void) {
   string__47_188 = from_latin_1_string("  initialize_future(get__", 25);
   string__47_189 = from_latin_1_string("(), ", 4);
   string__47_190 = from_latin_1_string(");\012", 3);
-  func__47_1 = create_future();
-  define_single_assign_static("sim2c", "define_variable", get__sim2c__define_variable, &var.sim2c__define_variable);
   string__48_4 = from_latin_1_string("\042", 1);
   string__48_5 = from_latin_1_string("\042", 1);
   string__48_8 = from_latin_1_string("NULL", 4);
-  func__48_7 = create_future();
-  func__48_1 = create_future();
   string__49_9 = from_latin_1_string("var__", 5);
   string__49_10 = from_latin_1_string("__", 2);
   string__49_12 = from_latin_1_string("static NODE *", 13);
@@ -41043,8 +40943,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__49_32 = from_latin_1_string(", poly_idx__", 12);
   string__49_33 = from_latin_1_string(", MAKE_ATTRIBUTE_VALUE(", 23);
   string__49_34 = from_latin_1_string("));\012", 4);
-  func__49_1 = create_future();
-  define_single_assign_static("sim2c", "define_attribute", get__sim2c__define_attribute, &var.sim2c__define_attribute);
   string__50_9 = from_latin_1_string("var__", 5);
   string__50_10 = from_latin_1_string("__", 2);
   string__50_12 = from_latin_1_string("static NODE *", 13);
@@ -41058,8 +40956,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__50_32 = from_latin_1_string(", poly_idx__", 12);
   string__50_33 = from_latin_1_string(", ", 2);
   string__50_34 = from_latin_1_string(");\012", 3);
-  func__50_1 = create_future();
-  define_single_assign_static("sim2c", "define_method", get__sim2c__define_method, &var.sim2c__define_method);
   string__51_11 = from_latin_1_string("  define_type_function(", 23);
   string__51_12 = from_latin_1_string(", \042", 3);
   string__51_13 = from_latin_1_string("\042, ", 3);
@@ -41068,11 +40964,7 @@ EXPORT void phase_2__c_code_generator(void) {
   string__51_19 = from_latin_1_string("  update_start_p = node_p;\012  def_attribute(&", 44);
   string__51_20 = from_latin_1_string(", -1, ", 6);
   string__51_21 = from_latin_1_string(");\012", 3);
-  func__51_1 = create_future();
-  define_single_assign_static("sim2c", "define_type_function", get__sim2c__define_type_function, &var.sim2c__define_type_function);
   string__52_4 = from_latin_1_string("_with_setter", 12);
-  func__52_3 = create_future();
-  func__52_5 = create_future();
   string__52_9 = from_latin_1_string("  NODE *", 8);
   string__52_10 = from_latin_1_string(";\012", 2);
   string__52_13 = from_latin_1_string("  \042", 3);
@@ -41080,7 +40972,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__52_18 = from_latin_1_string("  NODE *", 8);
   string__52_19 = from_latin_1_string(";\012", 2);
   string__52_25 = from_latin_1_string(" = ", 3);
-  func__52_27 = create_future();
   string__52_29 = from_latin_1_string("static int poly_idx__", 21);
   string__52_30 = from_latin_1_string(";\012", 2);
   string__52_35 = from_latin_1_string("  ", 2);
@@ -41115,8 +41006,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__52_88 = from_latin_1_string("::", 2);
   string__52_89 = from_latin_1_string("\042, &poly_idx__", 14);
   string__52_90 = from_latin_1_string(");\012", 3);
-  func__52_1 = create_future();
-  define_single_assign_static("sim2c", "define_polymorphic_function", get__sim2c__define_polymorphic_function, &var.sim2c__define_polymorphic_function);
   string__53_2 = from_latin_1_string("define C-code", 13);
   string__53_10 = from_latin_1_string(", ", 2);
   string__53_13 = from_latin_1_string("__", 2);
@@ -41141,18 +41030,10 @@ EXPORT void phase_2__c_code_generator(void) {
   string__53_55 = from_latin_1_string("(void) {\012  return ", 18);
   string__53_56 = from_latin_1_string(";\012}\012", 4);
   string__53_61 = from_latin_1_string("runtime", 7);
-  func__53_62 = create_future();
   string__53_63 = from_latin_1_string("global", 6);
-  func__53_64 = create_future();
   string__53_65 = from_latin_1_string("extern", 6);
   string__53_67 = from_latin_1_string("extern ", 7);
-  func__53_66 = create_future();
   string__53_69 = from_latin_1_string("static ", 7);
-  func__53_68 = create_future();
-  func__53_75 = create_future();
-  func__53_80 = create_future();
-  func__53_86 = create_future();
-  func__53_93 = create_future();
   string__53_97 = from_latin_1_string("\012typedef struct ", 16);
   string__53_98 = from_latin_1_string(" ", 1);
   string__53_99 = from_latin_1_string(";\012struct ", 9);
@@ -41169,8 +41050,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__53_119 = from_latin_1_string("));\012  new_node->type = node->type;\012  *(void **)node = ENCODE_ADDRESS(new_node);\012  new_node->attributes = collect_attributes(node->attributes);\012", 143);
   string__53_123 = from_latin_1_string("//", 2);
   string__53_136 = from_latin_1_string(" *", 2);
-  func__53_147 = create_future();
-  func__53_146 = create_future();
   string__53_155 = from_latin_1_string("  new_node->", 12);
   string__53_156 = from_latin_1_string(" = collect_", 11);
   string__53_157 = from_latin_1_string("(node->", 7);
@@ -41178,7 +41057,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__53_161 = from_latin_1_string("  new_node->", 12);
   string__53_162 = from_latin_1_string(" = node->", 9);
   string__53_163 = from_latin_1_string(";\012", 2);
-  func__53_122 = create_future();
   string__53_166 = from_latin_1_string("  return new_node;\012}\012", 21);
   string__53_172 = from_latin_1_string("Missing definition for a node named \042", 37);
   string__53_173 = from_latin_1_string("\042!", 2);
@@ -41198,7 +41076,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__53_231 = from_latin_1_string("),\012  (COLLECTOR *)&collect_", 27);
   string__53_232 = from_latin_1_string(",\012", 2);
   string__53_237 = from_latin_1_string("::", 2);
-  func__53_239 = create_future();
   string__53_244 = from_latin_1_string("  &func__", 9);
   string__53_245 = from_latin_1_string("___", 3);
   string__53_248 = from_latin_1_string("  (void *)no_such_function", 26);
@@ -41244,8 +41121,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__53_332 = from_latin_1_string("runtime__", 9);
   string__53_341 = from_latin_1_string("::", 2);
   string__53_344 = from_latin_1_string("func__", 6);
-  func__53_343 = create_future();
-  func__53_345 = create_future();
   string__53_347 = from_latin_1_string("::", 2);
   string__53_348 = from_latin_1_string("__", 2);
   string__53_350 = from_latin_1_string("___", 3);
@@ -41267,41 +41142,30 @@ EXPORT void phase_2__c_code_generator(void) {
   string__53_395 = from_latin_1_string("type", 4);
   string__53_396 = from_latin_1_string("object", 6);
   string__53_397 = from_latin_1_string("function", 8);
-  func__53_1 = create_future();
-  define_single_assign_static("sim2c", "define_c_code", get__sim2c__define_c_code, &var.sim2c__define_c_code);
   string__54_3 = from_latin_1_string("  {\012    NODE *temp = clone_object_and_attributes(", 49);
   string__54_4 = from_latin_1_string(");\012    update_start_p = node_p;\012", 32);
-  func__54_15 = create_future();
   string__54_17 = from_latin_1_string("_value", 6);
-  func__54_16 = create_future();
   string__54_20 = from_latin_1_string("    set_attribute", 17);
   string__54_21 = from_latin_1_string("(temp->attributes, poly_idx__", 29);
   string__54_22 = from_latin_1_string(", ", 2);
   string__54_23 = from_latin_1_string(");\012", 3);
   string__54_26 = from_latin_1_string("    temp->type = ", 17);
   string__54_27 = from_latin_1_string("->type;\012", 8);
-  func__54_7 = create_future();
   string__54_30 = from_latin_1_string("temp", 4);
   string__54_32 = from_latin_1_string("  ", 2);
   string__54_33 = from_latin_1_string("\012  }\012", 5);
-  func__54_1 = create_future();
   string__55_6 = from_latin_1_string("generate procedure call", 23);
-  func__55_5 = create_future();
   string__55_10 = from_latin_1_string("generate assignment", 19);
-  func__55_9 = create_future();
   string__55_12 = from_latin_1_string("generate unknown statement", 26);
-  func__55_11 = create_future();
   string__55_43 = from_latin_1_string("  result_count = to_int(", 24);
   string__55_44 = from_latin_1_string(");", 2);
   string__55_50 = from_latin_1_string("Call with continuation followed by another statement", 52);
   string__55_54 = from_latin_1_string("  result_count = ", 17);
   string__55_55 = from_latin_1_string(";", 1);
   string__55_58 = from_latin_1_string("  result_count = -1;", 20);
-  func__55_57 = create_future();
   string__55_61 = from_latin_1_string("cont", 4);
   string__55_62 = from_latin_1_string("_", 1);
   string__55_66 = from_latin_1_string("  goto *(func+4);\012", 18);
-  func__55_65 = create_future();
   string__55_68 = from_latin_1_string("}\012", 2);
   string__55_70 = from_latin_1_string("cont", 4);
   string__55_71 = from_latin_1_string("_", 1);
@@ -41309,8 +41173,6 @@ EXPORT void phase_2__c_code_generator(void) {
   string__55_85 = from_latin_1_string("  initialize_maybe_future(", 26);
   string__55_86 = from_latin_1_string(", ", 2);
   string__55_87 = from_latin_1_string(");\012", 3);
-  func__55_1 = create_future();
-  define_single_assign_static("sim2c", "generate_statement", get__sim2c__generate_statement, &var.sim2c__generate_statement);
 }
 
 static int already_run_phase_3 = false;
@@ -41318,6 +41180,153 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__c_code_generator(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("c_code_generator");
+  set_used_namespaces(used_namespaces);
+  define_single_assign_dynamic("sim2c", "suffix", get__sim2c__suffix, define__sim2c__suffix, &dyna_idx__sim2c__suffix);
+  define__sim2c__suffix(create_future());
+  register_dynamic(&dyna_idx__level);
+  register_dynamic(&dyna_idx__current_locals);
+  define__current_locals(create_future());
+  register_dynamic(&dyna_idx__current_frame);
+  define__current_frame(create_future());
+  register_dynamic(&dyna_idx__is_a_shared_local);
+  define__is_a_shared_local(create_future());
+  register_dynamic(&dyna_idx__temporary_offset);
+  define_multi_assign_dynamic("sim2c", "delayed_code", get__sim2c__delayed_code, set__sim2c__delayed_code, define__sim2c__delayed_code, &dyna_idx__sim2c__delayed_code);
+  define__sim2c__delayed_code(undefined);
+  func__9_1 = create_future();
+  func__10_1 = create_future();
+  func__11_1 = create_future();
+  func__12_1 = create_future();
+  func__13_16 = create_future();
+  func__13_20 = create_future();
+  func__13_1 = create_future();
+  define_single_assign_static("sim2c", "begin_continuation", get__sim2c__begin_continuation, &var.sim2c__begin_continuation);
+  func__14_3 = create_future();
+  func__14_7 = create_future();
+  func__14_1 = create_future();
+  define_single_assign_static("sim2c", "end_continuation", get__sim2c__end_continuation, &var.sim2c__end_continuation);
+  func__15_1 = create_future();
+  define_single_assign_static("sim2c", "next_continuation", get__sim2c__next_continuation, &var.sim2c__next_continuation);
+  func__16_1 = create_future();
+  func__17_32 = create_future();
+  func__17_1 = create_future();
+  func__18_7 = create_future();
+  func__18_9 = create_future();
+  func__18_1 = create_future();
+  func__19_1 = create_future();
+  define_single_assign_static("sim2c", "assignment_to_c", get__sim2c__assignment_to_c, &var.sim2c__assignment_to_c);
+  func__20_1 = create_future();
+  func__21_51 = create_future();
+  func__21_103 = create_future();
+  func__21_129 = create_future();
+  func__21_155 = create_future();
+  func__21_181 = create_future();
+  func__21_1 = create_future();
+  func__22_1 = create_future();
+  func__23_1 = create_future();
+  func__24_57 = create_future();
+  func__24_119 = create_future();
+  func__24_1 = create_future();
+  func__25_1 = create_future();
+  define_single_assign_static("sim2c", "write_source_as_remark", get__sim2c__write_source_as_remark, &var.sim2c__write_source_as_remark);
+  unique__26_1 = register_unique_item("EARLY");
+  assign_value(&var._EARLY, unique__26_1);
+  unique__27_1 = register_unique_item("STANDARD");
+  assign_value(&var._STANDARD, unique__27_1);
+  unique__28_1 = register_unique_item("UNKNOWN");
+  assign_value(&var._UNKNOWN, unique__28_1);
+  func__29_15 = create_future();
+  func__29_16 = create_future();
+  func__29_1 = create_future();
+  func__30_1 = create_future();
+  func__31_16 = create_future();
+  func__31_7 = create_future();
+  func__31_29 = create_future();
+  func__31_31 = create_future();
+  func__31_18 = create_future();
+  func__31_112 = create_future();
+  func__31_149 = create_future();
+  func__31_156 = create_future();
+  func__31_179 = create_future();
+  func__31_172 = create_future();
+  func__31_201 = create_future();
+  func__31_317 = create_future();
+  func__31_369 = create_future();
+  func__31_371 = create_future();
+  func__31_1 = create_future();
+  func__32_1 = create_future();
+  func__33_1 = create_future();
+  func__34_1 = create_future();
+  func__35_1 = create_future();
+  func__36_1 = create_future();
+  func__37_1 = create_future();
+  func__38_27 = create_future();
+  func__38_59 = create_future();
+  func__38_75 = create_future();
+  func__38_1 = create_future();
+  func__39_1 = create_future();
+  func__40_1 = create_future();
+  func__41_1 = create_future();
+  func__42_18 = create_future();
+  func__42_1 = create_future();
+  func__43_1 = create_future();
+  func__44_18 = create_future();
+  func__44_1 = create_future();
+  define_single_assign_static("sim2c", "is_single_assign", get__sim2c__is_single_assign, &var.sim2c__is_single_assign);
+  func__45_18 = create_future();
+  func__45_1 = create_future();
+  define_single_assign_static("sim2c", "might_be_constant", get__sim2c__might_be_constant, &var.sim2c__might_be_constant);
+  func__46_1 = create_future();
+  func__47_1 = create_future();
+  define_single_assign_static("sim2c", "define_variable", get__sim2c__define_variable, &var.sim2c__define_variable);
+  func__48_7 = create_future();
+  func__48_1 = create_future();
+  func__49_1 = create_future();
+  define_single_assign_static("sim2c", "define_attribute", get__sim2c__define_attribute, &var.sim2c__define_attribute);
+  func__50_1 = create_future();
+  define_single_assign_static("sim2c", "define_method", get__sim2c__define_method, &var.sim2c__define_method);
+  func__51_1 = create_future();
+  define_single_assign_static("sim2c", "define_type_function", get__sim2c__define_type_function, &var.sim2c__define_type_function);
+  func__52_3 = create_future();
+  func__52_5 = create_future();
+  func__52_27 = create_future();
+  func__52_1 = create_future();
+  define_single_assign_static("sim2c", "define_polymorphic_function", get__sim2c__define_polymorphic_function, &var.sim2c__define_polymorphic_function);
+  func__53_62 = create_future();
+  func__53_64 = create_future();
+  func__53_66 = create_future();
+  func__53_68 = create_future();
+  func__53_75 = create_future();
+  func__53_80 = create_future();
+  func__53_86 = create_future();
+  func__53_93 = create_future();
+  func__53_147 = create_future();
+  func__53_146 = create_future();
+  func__53_122 = create_future();
+  func__53_239 = create_future();
+  func__53_343 = create_future();
+  func__53_345 = create_future();
+  func__53_1 = create_future();
+  define_single_assign_static("sim2c", "define_c_code", get__sim2c__define_c_code, &var.sim2c__define_c_code);
+  func__54_15 = create_future();
+  func__54_16 = create_future();
+  func__54_7 = create_future();
+  func__54_1 = create_future();
+  func__55_5 = create_future();
+  func__55_9 = create_future();
+  func__55_11 = create_future();
+  func__55_57 = create_future();
+  func__55_65 = create_future();
+  func__55_1 = create_future();
+  define_single_assign_static("sim2c", "generate_statement", get__sim2c__generate_statement, &var.sim2c__generate_statement);
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__c_code_generator(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("c_code_generator");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "ATTRIBUTE_KIND", &get__ATTRIBUTE_KIND, &get_value_or_future__ATTRIBUTE_KIND);
@@ -41515,6 +41524,7 @@ EXPORT void phase_3__c_code_generator(void) {
   use_read_only(NULL, "write_to_phase_3", &get__write_to_phase_3, &get_value_or_future__write_to_phase_3);
   use_read_only(NULL, "write_to_phase_4", &get__write_to_phase_4, &get_value_or_future__write_to_phase_4);
   use_read_only(NULL, "write_to_phase_5", &get__write_to_phase_5, &get_value_or_future__write_to_phase_5);
+  use_read_only(NULL, "write_to_phase_6", &get__write_to_phase_6, &get_value_or_future__write_to_phase_6);
   use_read_only(NULL, "write_to_top_level_variable_declarations", &get__write_to_top_level_variable_declarations, &get_value_or_future__write_to_top_level_variable_declarations);
   use_read_only(NULL, "write_to_top_level_variable_names", &get__write_to_top_level_variable_names, &get_value_or_future__write_to_top_level_variable_names);
   use_read_only(NULL, "writeln", &get__writeln, &get_value_or_future__writeln);
@@ -41531,11 +41541,11 @@ EXPORT void phase_3__c_code_generator(void) {
   define_method("sim2c", "c_body", poly_idx__to_c, func__42_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__c_code_generator(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__c_code_generator(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.sim2c__to_c, create_function(type__sim2c__to_c, -1));
   maybe_initialize_future(get__sim2c__suffix(), get__undefined());
   define__level(number__1);
@@ -41578,11 +41588,11 @@ EXPORT void phase_4__c_code_generator(void) {
   assign_variable(&var.sim2c__generate_statement, &func__55_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__c_code_generator(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__c_code_generator(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__9_1, create_function(entry__9_1, 1));
   assign_value(&func__10_1, create_function(entry__10_1, 1));
   assign_value(&func__11_1, create_function(entry__11_1, 0));

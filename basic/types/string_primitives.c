@@ -5218,8 +5218,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__string_primitives(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__string_primitives");
-  set_used_namespaces(used_namespaces);
   character__57 = from_uchar32(57);
   character__55 = from_uchar32(55);
   character__65 = from_uchar32(65);
@@ -5241,6 +5239,20 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   character__49 = from_uchar32(49);
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
+  string__35_2 = from_latin_1_string("\042", 1);
+  string__35_23 = from_latin_1_string("@0x", 3);
+  string__36_9 = from_latin_1_string("0b", 2);
+  string__36_27 = from_latin_1_string("0o", 2);
+  string__36_45 = from_latin_1_string("0x", 2);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__types__string_primitives(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__types__string_primitives");
+  set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "string", get__types__string, &var.types__string);
   var.types__octet_string = create_future_with_prototype(create__types__octet_string(0, 0, NULL));
   define_single_assign_static("types", "octet_string", get__types__octet_string, &var.types__octet_string);
@@ -5259,12 +5271,7 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   func__32_1 = create_future();
   func__33_1 = create_future();
   func__34_1 = create_future();
-  string__35_2 = from_latin_1_string("\042", 1);
-  string__35_23 = from_latin_1_string("@0x", 3);
   func__35_1 = create_future();
-  string__36_9 = from_latin_1_string("0b", 2);
-  string__36_27 = from_latin_1_string("0o", 2);
-  string__36_45 = from_latin_1_string("0x", 2);
   func__36_1 = create_future();
   func__39_1 = create_future();
   func__40_1 = create_future();
@@ -5283,11 +5290,11 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   func__51_1 = create_future();
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__types__string_primitives(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__types__string_primitives(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__string_primitives");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "append", &get__append, &poly_idx__append);
@@ -5358,11 +5365,11 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   define_method("types", "quad_octet_string", poly_idx__to_utf8, func__51_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__string_primitives(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__string_primitives(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__is_a_string, create_function(type__std__is_a_string, -1));
   assign_value(&var.std__count_character_occurrences, create_function(type__std__count_character_occurrences, -1));
   assign_value(&var.std__to_utf8, create_function(type__std__to_utf8, -1));
@@ -5374,11 +5381,11 @@ EXPORT void phase_4__basic__types__string_primitives(void) {
   assign_variable(&var.std__from_utf8, &func__49_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__string_primitives(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__string_primitives(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__24_1, create_function(entry__24_1, 1));
   assign_value(&func__25_1, create_function(entry__25_1, 1));
   assign_value(&func__26_1, create_function(entry__26_1, 2));

@@ -165,9 +165,9 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -632,9 +632,16 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__primitives(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  character__10 = from_uchar32(10);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__primitives(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("basic__primitives");
   set_used_namespaces(used_namespaces);
-  character__10 = from_uchar32(10);
   func__2_1 = create_future();
   func__3_1 = create_future();
   define_single_assign_static("std", "ignore", get__std__ignore, &var.std__ignore);
@@ -654,11 +661,11 @@ EXPORT void phase_2__basic__primitives(void) {
   define_single_assign_static("std", "goto", get__std__goto, &var.std__goto);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__primitives(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__primitives(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__primitives");
   set_used_namespaces(used_namespaces);
   use_polymorphic_function(NULL, "has_minimum_length", &get__has_minimum_length, &poly_idx__has_minimum_length);
@@ -671,11 +678,11 @@ EXPORT void phase_3__basic__primitives(void) {
   define_method("types", "object", poly_idx__has_minimum_length, func__2_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__primitives(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__primitives(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.std__has_minimum_length, create_function(type__std__has_minimum_length, -1));
   assign_variable(&var.std__ignore, &func__3_1);
   assign_variable(&var.std__writeln_to, &func__4_1);
@@ -687,11 +694,11 @@ EXPORT void phase_4__basic__primitives(void) {
   assign_variable(&var.std__goto, &func__10_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__primitives(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__primitives(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__2_1, create_function(entry__2_1, 2));
   assign_value(&func__3_1, create_function(entry__3_1, 1));
   assign_value(&func__4_1, create_function(entry__4_1, -1));

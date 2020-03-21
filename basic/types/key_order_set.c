@@ -205,16 +205,16 @@ IMPORT void too_many_arguments_error(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -3407,24 +3407,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__key_order_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__types__key_order_set");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
-  unique__1_1 = register_unique_item("NONE");
-  assign_value(&var._NONE, unique__1_1);
-  define_single_assign_static("types", "key_order_set", get__types__key_order_set, &var.types__key_order_set);
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_1 = create_future();
-  func__12_1 = create_future();
   string__13_24 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
-  func__13_23 = create_future();
   string__16_1 = from_latin_1_string("key_order_set", 13);
-  define_single_assign_static("std", "empty_key_order_set", get__std__empty_key_order_set, &var.std__empty_key_order_set);
-  func__18_1 = create_future();
-  define_single_assign_static("std", "key_order_set", get__std__key_order_set, &var.std__key_order_set);
-  func__19_1 = create_future();
-  func__20_1 = create_future();
 }
 
 static int already_run_phase_3 = false;
@@ -3432,6 +3417,28 @@ static int already_run_phase_3 = false;
 EXPORT void phase_3__basic__types__key_order_set(void) {
   if (already_run_phase_3) return;
   already_run_phase_3 = true;
+  set_module("basic__types__key_order_set");
+  set_used_namespaces(used_namespaces);
+  unique__1_1 = register_unique_item("NONE");
+  assign_value(&var._NONE, unique__1_1);
+  define_single_assign_static("types", "key_order_set", get__types__key_order_set, &var.types__key_order_set);
+  func__9_1 = create_future();
+  func__10_1 = create_future();
+  func__11_1 = create_future();
+  func__12_1 = create_future();
+  func__13_23 = create_future();
+  define_single_assign_static("std", "empty_key_order_set", get__std__empty_key_order_set, &var.std__empty_key_order_set);
+  func__18_1 = create_future();
+  define_single_assign_static("std", "key_order_set", get__std__key_order_set, &var.std__key_order_set);
+  func__19_1 = create_future();
+  func__20_1 = create_future();
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__basic__types__key_order_set(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__types__key_order_set");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "Error", &get__Error, &get_value_or_future__Error);
@@ -3465,11 +3472,11 @@ EXPORT void phase_3__basic__types__key_order_set(void) {
   define_method("types", "key_order_set", poly_idx__for_each, func__20_1);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__types__key_order_set(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__types__key_order_set(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var._tree_of, create_function(type__tree_of, -1));
   assign_value(&var._left_of, create_function(type__left_of, -1));
   assign_value(&var._right_of, create_function(type__right_of, -1));
@@ -3484,11 +3491,11 @@ EXPORT void phase_4__basic__types__key_order_set(void) {
   assign_variable(&var._for_each_item, &func__19_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__types__key_order_set(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__types__key_order_set(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__9_1, create_function(entry__9_1, 1));
   assign_value(&func__10_1, create_function(entry__10_1, 2));
   assign_value(&func__11_1, create_function(entry__11_1, 2));

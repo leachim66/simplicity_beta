@@ -199,9 +199,9 @@ IMPORT NODE *create_continuation(void);
 IMPORT void too_few_arguments_error(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -2901,12 +2901,19 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__branches(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("basic__branches");
-  set_used_namespaces(used_namespaces);
   number__0 = from_uint32(0U);
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__basic__branches(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("basic__branches");
+  set_used_namespaces(used_namespaces);
   func__1_1 = create_future();
   define_single_assign_static("std", "cond", get__std__cond, &var.std__cond);
   func__2_1 = create_future();
@@ -2916,11 +2923,11 @@ EXPORT void phase_2__basic__branches(void) {
   define_single_assign_static("std", "check_case", get__std__check_case, &var.std__check_case);
 }
 
-static int already_run_phase_3 = false;
+static int already_run_phase_4 = false;
 
-EXPORT void phase_3__basic__branches(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
+EXPORT void phase_4__basic__branches(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
   set_module("basic__branches");
   set_used_namespaces(used_namespaces);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
@@ -2946,22 +2953,22 @@ EXPORT void phase_3__basic__branches(void) {
   use_read_only(NULL, "upper_bound_of", &get__upper_bound_of, &get_value_or_future__upper_bound_of);
 }
 
-static int already_run_phase_4 = false;
+static int already_run_phase_5 = false;
 
-EXPORT void phase_4__basic__branches(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
+EXPORT void phase_5__basic__branches(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_variable(&var.std__cond, &func__1_1);
   assign_variable(&var._cond_list, &func__2_1);
   assign_variable(&var.std__case, &func__3_1);
   assign_variable(&var.std__check_case, &func__4_1);
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__basic__branches(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__basic__branches(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, -1));
   assign_value(&func__2_1, create_function(entry__2_1, 1));
   assign_value(&func__3_1, create_function(entry__3_1, -1));

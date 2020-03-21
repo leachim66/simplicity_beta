@@ -245,14 +245,14 @@ IMPORT NODE *create_continuation(void);
 IMPORT NODE *create_cell_with_contents(NODE *contents);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void set_module(const char *name);
-IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT void set_module(const char *name);
+IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_dynamic(int *id_p);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -9857,8 +9857,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__macros(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  set_module("macros");
-  set_used_namespaces(used_namespaces);
   character__92 = from_uchar32(92);
   character__90 = from_uchar32(90);
   character__122 = from_uchar32(122);
@@ -9880,31 +9878,9 @@ EXPORT void phase_2__macros(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
-  unique__1_1 = register_unique_item("EVENT");
-  assign_value(&var._EVENT, unique__1_1);
-  unique__2_1 = register_unique_item("ACTION");
-  assign_value(&var._ACTION, unique__2_1);
-  unique__3_1 = register_unique_item("INFO");
-  assign_value(&var._INFO, unique__3_1);
-  unique__4_1 = register_unique_item("DATA");
-  assign_value(&var._DATA, unique__4_1);
-  register_dynamic(&dyna_idx__event_name);
-  define__event_name(undefined);
-  register_dynamic(&dyna_idx__event_kind);
-  define__event_kind(undefined);
-  register_dynamic(&dyna_idx__event_phase);
-  define__event_phase(undefined);
-  register_dynamic(&dyna_idx__data_variables);
-  define__data_variables(undefined);
-  register_dynamic(&dyna_idx__info_variables);
-  define__info_variables(undefined);
-  func__11_1 = create_future();
   string__71_104 = from_latin_1_string(", ", 2);
   string__71_131 = from_latin_1_string("::", 2);
   string__71_132 = from_latin_1_string("__", 2);
-  func__71_141 = create_future();
-  func__71_1 = create_future();
-  define_single_assign_static("sim2c", "converted", get__sim2c__converted, &var.sim2c__converted);
   string__83_1 = from_latin_1_string("ARGC", 4);
   string__83_2 = from_latin_1_string("main_argc", 9);
   string__84_1 = from_latin_1_string("ARGV", 4);
@@ -9937,22 +9913,15 @@ EXPORT void phase_2__macros(void) {
   string__96_13 = from_latin_1_string("var._", 5);
   string__96_17 = from_latin_1_string("get__", 5);
   string__96_18 = from_latin_1_string("()", 2);
-  func__96_2 = create_future();
   string__97_1 = from_latin_1_string("EVENT", 5);
   string__97_4 = from_latin_1_string("if (event__mode != EM__REPLAY) {", 32);
-  func__97_2 = create_future();
   string__98_1 = from_latin_1_string("ACTION", 6);
   string__98_4 = from_latin_1_string("if (event__mode != EM__REPLAY) {", 32);
-  func__98_2 = create_future();
   string__99_1 = from_latin_1_string("INFO", 4);
-  func__99_2 = create_future();
   string__100_1 = from_latin_1_string("DATA", 4);
   string__100_5 = from_latin_1_string("  if (event__mode == EM__RECORD) {\012    record__event(\042", 54);
   string__100_6 = from_latin_1_string("\042);", 3);
-  func__100_4 = create_future();
   string__100_9 = from_latin_1_string("  if (event__mode == EM__RECORD) {", 34);
-  func__100_8 = create_future();
-  func__100_2 = create_future();
   string__101_1 = from_latin_1_string("INT", 3);
   string__101_5 = from_latin_1_string("integer", 7);
   string__101_10 = from_latin_1_string("  store__integer(", 17);
@@ -9964,7 +9933,6 @@ EXPORT void phase_2__macros(void) {
   string__101_19 = from_latin_1_string("\042);\012      store__integer(", 25);
   string__101_20 = from_latin_1_string(");\012    }", 8);
   string__101_23 = from_latin_1_string("integer", 7);
-  func__101_2 = create_future();
   string__102_1 = from_latin_1_string("LONG", 4);
   string__102_5 = from_latin_1_string("long_integer", 12);
   string__102_10 = from_latin_1_string("  store__long_integer(", 22);
@@ -9976,7 +9944,6 @@ EXPORT void phase_2__macros(void) {
   string__102_19 = from_latin_1_string("\042);\012      store__long_integer(", 30);
   string__102_20 = from_latin_1_string(");\012    }", 8);
   string__102_23 = from_latin_1_string("long_integer", 12);
-  func__102_2 = create_future();
   string__103_1 = from_latin_1_string("POINTER", 7);
   string__103_5 = from_latin_1_string("pointer", 7);
   string__103_10 = from_latin_1_string("  store__pointer(", 17);
@@ -9988,32 +9955,26 @@ EXPORT void phase_2__macros(void) {
   string__103_18 = from_latin_1_string("\042);\012      store__pointer(", 25);
   string__103_19 = from_latin_1_string(");\012    }", 8);
   string__103_22 = from_latin_1_string("pointer", 7);
-  func__103_2 = create_future();
   string__104_1 = from_latin_1_string("INT_ARRAY", 9);
   string__104_6 = from_latin_1_string("int_array", 9);
   string__104_9 = from_latin_1_string("  store__int_array(", 19);
   string__104_10 = from_latin_1_string(", ", 2);
   string__104_11 = from_latin_1_string(");", 2);
   string__104_14 = from_latin_1_string("int_array", 9);
-  func__104_2 = create_future();
   string__105_1 = from_latin_1_string("MEMORY", 6);
   string__105_6 = from_latin_1_string("memory", 6);
   string__105_9 = from_latin_1_string("  store__memory(", 16);
   string__105_10 = from_latin_1_string(", ", 2);
   string__105_11 = from_latin_1_string(");", 2);
   string__105_14 = from_latin_1_string("memory", 6);
-  func__105_2 = create_future();
   string__106_1 = from_latin_1_string("C_STRING", 8);
   string__106_5 = from_latin_1_string("c_string", 8);
   string__106_8 = from_latin_1_string("  store__c_string(", 18);
   string__106_9 = from_latin_1_string(");", 2);
   string__106_12 = from_latin_1_string("c_string", 8);
-  func__106_2 = create_future();
   string__107_1 = from_latin_1_string("END", 3);
   string__107_6 = from_latin_1_string("      ", 6);
-  func__107_5 = create_future();
   string__107_8 = from_latin_1_string("  ", 2);
-  func__107_7 = create_future();
   string__107_14 = from_latin_1_string("retrieve__pointer((void **)&", 28);
   string__107_15 = from_latin_1_string(");", 2);
   string__107_20 = from_latin_1_string(" = retrieve__int_array((int **)&", 32);
@@ -10027,9 +9988,7 @@ EXPORT void phase_2__macros(void) {
   string__107_37 = from_latin_1_string("int_array", 9);
   string__107_38 = from_latin_1_string("memory", 6);
   string__107_42 = from_latin_1_string("      ", 6);
-  func__107_41 = create_future();
   string__107_44 = from_latin_1_string("  ", 2);
-  func__107_43 = create_future();
   string__107_50 = from_latin_1_string("print__pointer(", 15);
   string__107_51 = from_latin_1_string(");", 2);
   string__107_56 = from_latin_1_string("print__int_array(", 17);
@@ -10055,13 +10014,11 @@ EXPORT void phase_2__macros(void) {
   string__107_104 = from_latin_1_string("  } else {", 10);
   string__107_109 = from_latin_1_string("pointer", 7);
   string__107_114 = from_latin_1_string("SAMPLE_POINTER", 14);
-  func__107_113 = create_future();
   string__107_116 = from_latin_1_string("      ", 6);
   string__107_117 = from_latin_1_string(" = ", 3);
   string__107_118 = from_latin_1_string(";\012  }\012", 6);
   string__107_123 = from_latin_1_string("    report__event(\042", 19);
   string__107_124 = from_latin_1_string("\042);\012", 4);
-  func__107_2 = create_future();
   string__108_1 = from_latin_1_string("UNDEFINED", 9);
   string__108_2 = from_latin_1_string("undefined", 9);
   string__109_1 = from_latin_1_string("ZERO", 4);
@@ -10139,6 +10096,56 @@ EXPORT void phase_3__macros(void) {
   already_run_phase_3 = true;
   set_module("macros");
   set_used_namespaces(used_namespaces);
+  unique__1_1 = register_unique_item("EVENT");
+  assign_value(&var._EVENT, unique__1_1);
+  unique__2_1 = register_unique_item("ACTION");
+  assign_value(&var._ACTION, unique__2_1);
+  unique__3_1 = register_unique_item("INFO");
+  assign_value(&var._INFO, unique__3_1);
+  unique__4_1 = register_unique_item("DATA");
+  assign_value(&var._DATA, unique__4_1);
+  register_dynamic(&dyna_idx__event_name);
+  define__event_name(undefined);
+  register_dynamic(&dyna_idx__event_kind);
+  define__event_kind(undefined);
+  register_dynamic(&dyna_idx__event_phase);
+  define__event_phase(undefined);
+  register_dynamic(&dyna_idx__data_variables);
+  define__data_variables(undefined);
+  register_dynamic(&dyna_idx__info_variables);
+  define__info_variables(undefined);
+  func__11_1 = create_future();
+  func__71_141 = create_future();
+  func__71_1 = create_future();
+  define_single_assign_static("sim2c", "converted", get__sim2c__converted, &var.sim2c__converted);
+  func__96_2 = create_future();
+  func__97_2 = create_future();
+  func__98_2 = create_future();
+  func__99_2 = create_future();
+  func__100_4 = create_future();
+  func__100_8 = create_future();
+  func__100_2 = create_future();
+  func__101_2 = create_future();
+  func__102_2 = create_future();
+  func__103_2 = create_future();
+  func__104_2 = create_future();
+  func__105_2 = create_future();
+  func__106_2 = create_future();
+  func__107_5 = create_future();
+  func__107_7 = create_future();
+  func__107_41 = create_future();
+  func__107_43 = create_future();
+  func__107_113 = create_future();
+  func__107_2 = create_future();
+}
+
+static int already_run_phase_4 = false;
+
+EXPORT void phase_4__macros(void) {
+  if (already_run_phase_4) return;
+  already_run_phase_4 = true;
+  set_module("macros");
+  set_used_namespaces(used_namespaces);
   use_read_only(NULL, "append", &get__append, &get_value_or_future__append);
   use_read_only(NULL, "case", &get__case, &get_value_or_future__case);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
@@ -10185,20 +10192,20 @@ EXPORT void phase_3__macros(void) {
   use_read_only(NULL, "writeln_to", &get__writeln_to, &get_value_or_future__writeln_to);
 }
 
-static int already_run_phase_4 = false;
-
-EXPORT void phase_4__macros(void) {
-  if (already_run_phase_4) return;
-  already_run_phase_4 = true;
-  assign_variable(&var._define_macro, &func__11_1);
-  assign_variable(&var.sim2c__converted, &func__71_1);
-}
-
 static int already_run_phase_5 = false;
 
 EXPORT void phase_5__macros(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  assign_variable(&var._define_macro, &func__11_1);
+  assign_variable(&var.sim2c__converted, &func__71_1);
+}
+
+static int already_run_phase_6 = false;
+
+EXPORT void phase_6__macros(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   assign_value(&func__11_1, create_function(entry__11_1, 2));
   assign_value(&func__71_141, create_function(entry__71_141, 0));
   assign_value(&func__71_1, create_function(entry__71_1, 1));

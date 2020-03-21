@@ -200,6 +200,7 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 typedef void (*NODE_SETTER)(NODE *);
@@ -218,7 +219,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -557,6 +557,13 @@ static NODE *get__sim2c__write_to_phase_5(void) {
 static void define__sim2c__write_to_phase_5(NODE *node) {
   define_dynamic_slot(dyna_idx__sim2c__write_to_phase_5, node);
 }
+static int dyna_idx__sim2c__write_to_phase_6;
+static NODE *get__sim2c__write_to_phase_6(void) {
+  return get_dynamic_slot(dyna_idx__sim2c__write_to_phase_6);
+}
+static void define__sim2c__write_to_phase_6(NODE *node) {
+  define_dynamic_slot(dyna_idx__sim2c__write_to_phase_6, node);
+}
 static int dyna_idx__sim2c__use_literal;
 static NODE *get__sim2c__use_literal(void) {
   return get_dynamic_slot(dyna_idx__sim2c__use_literal);
@@ -685,26 +692,26 @@ static void define__sim2c__current_continuation_info(NODE *node) {
 static NODE *get__sim2c__vtable_entries(void) {
   return var.sim2c__vtable_entries;
 }
-static NODE *string__98_1;
-static NODE *string__98_2;
-static NODE *string__98_3;
-static NODE *string__98_4;
-static NODE *string__98_5;
-static NODE *string__98_6;
-static NODE *string__98_7;
-static NODE *string__98_8;
-static NODE *string__98_9;
-static NODE *string__98_10;
-static NODE *string__98_11;
-static NODE *string__98_12;
-static NODE *string__98_13;
-static NODE *string__98_14;
-static NODE *string__98_15;
-static NODE *string__98_16;
-static NODE *string__98_17;
-static NODE *string__98_18;
-static NODE *string__98_19;
-static void cont__98_20(void);
+static NODE *string__100_1;
+static NODE *string__100_2;
+static NODE *string__100_3;
+static NODE *string__100_4;
+static NODE *string__100_5;
+static NODE *string__100_6;
+static NODE *string__100_7;
+static NODE *string__100_8;
+static NODE *string__100_9;
+static NODE *string__100_10;
+static NODE *string__100_11;
+static NODE *string__100_12;
+static NODE *string__100_13;
+static NODE *string__100_14;
+static NODE *string__100_15;
+static NODE *string__100_16;
+static NODE *string__100_17;
+static NODE *string__100_18;
+static NODE *string__100_19;
+static void cont__100_20(void);
 void run__shared_variables(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -712,8 +719,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__sim2c__text_of, NULL, 32, 32, 2, 15},
   {type__sim2c__source_of, NULL, 33, 33, 2, 17},
   {type__sim2c__indents_of, NULL, 34, 34, 2, 18},
-  {run__shared_variables, NULL, 107, 127, 1, 19},
-  {cont__98_20, NULL, }
+  {run__shared_variables, NULL, 108, 128, 1, 19},
+  {cont__100_20, NULL, }
 };
 
 union NODE {
@@ -906,72 +913,74 @@ EXPORT void run__shared_variables(void) {
   initialize_maybe_future(get__sim2c__write_to_phase_4(), get__undefined());
   // 79: %sim2c::write_to_phase_5 undefined
   initialize_maybe_future(get__sim2c__write_to_phase_5(), get__undefined());
-  // 80: %sim2c::use_literal undefined
+  // 80: %sim2c::write_to_phase_6 undefined
+  initialize_maybe_future(get__sim2c__write_to_phase_6(), get__undefined());
+  // 81: %sim2c::use_literal undefined
   initialize_maybe_future(get__sim2c__use_literal(), get__undefined());
-  // 84: %sim2c::module_name undefined # the name of the current compilation unit
+  // 85: %sim2c::module_name undefined # the name of the current compilation unit
   initialize_maybe_future(get__sim2c__module_name(), get__undefined());
-  // 85: %sim2c::submodule_no undefined
+  // 86: %sim2c::submodule_no undefined
   initialize_maybe_future(get__sim2c__submodule_no(), get__undefined());
-  // 87: %%sim2c::index undefined # used for enumerating expanded source code items
+  // 88: %%sim2c::index undefined # used for enumerating expanded source code items
   set__sim2c__index(get__undefined());
-  // 88: %%sim2c::definitions undefined # a list of key-value pairs
+  // 89: %%sim2c::definitions undefined # a list of key-value pairs
   set__sim2c__definitions(get__undefined());
-  // 89: %%sim2c::statements undefined # a list of statements
+  // 90: %%sim2c::statements undefined # a list of statements
   set__sim2c__statements(get__undefined());
-  // 90: %%sim2c::actions undefined # a list of deferred actions (closures)
+  // 91: %%sim2c::actions undefined # a list of deferred actions (closures)
   set__sim2c__actions(get__undefined());
-  // 91: %%sim2c::temp_idx undefined
+  // 92: %%sim2c::temp_idx undefined
   set__sim2c__temp_idx(get__undefined());
-  // 93: %sim2c::current_fragment undefined # used for generating error messages
+  // 94: %sim2c::current_fragment undefined # used for generating error messages
   initialize_maybe_future(get__sim2c__current_fragment(), get__undefined());
-  // 94: %sim2c::already_defined_names undefined
+  // 95: %sim2c::already_defined_names undefined
   initialize_maybe_future(get__sim2c__already_defined_names(), get__undefined());
-  // 96: %%sim2c::defined_names undefined # used for collecting defined symbols
+  // 97: %%sim2c::defined_names undefined # used for collecting defined symbols
   set__sim2c__defined_names(get__undefined());
-  // 97: %%sim2c::used_names undefined # used for collecting usages of symbols
+  // 98: %%sim2c::used_names undefined # used for collecting usages of symbols
   set__sim2c__used_names(get__undefined());
-  // 98: %%sim2c::assigned_names undefined
+  // 99: %%sim2c::assigned_names undefined
   set__sim2c__assigned_names(get__undefined());
-  // 102: %%sim2c::current_continuation_info undefined
+  // 103: %%sim2c::current_continuation_info undefined
   set__sim2c__current_continuation_info(get__undefined());
-  // 107: $sim2c::vtable_entries
-  // 108:   list
-  // 109:     "to_int8"
-  // 110:     "to_int16"
-  // 111:     "to_int32"
-  // 112:     "to_int64"
-  // 113:     "to_uint8"
-  // 114:     "to_uint16"
-  // 115:     "to_uint32"
-  // 116:     "to_uint64"
+  // 108: $sim2c::vtable_entries
+  // 109:   list
+  // 110:     "to_int8"
+  // 111:     "to_int16"
+  // 112:     "to_int32"
+  // 113:     "to_int64"
+  // 114:     "to_uint8"
+  // 115:     "to_uint16"
+  // 116:     "to_uint32"
+  // 117:     "to_uint64"
   // ...
   argument_count = 19;
   arguments = node_p;
-  arguments->slots[0] = string__98_1;
-  arguments->slots[1] = string__98_2;
-  arguments->slots[2] = string__98_3;
-  arguments->slots[3] = string__98_4;
-  arguments->slots[4] = string__98_5;
-  arguments->slots[5] = string__98_6;
-  arguments->slots[6] = string__98_7;
-  arguments->slots[7] = string__98_8;
-  arguments->slots[8] = string__98_9;
-  arguments->slots[9] = string__98_10;
-  arguments->slots[10] = string__98_11;
-  arguments->slots[11] = string__98_12;
-  arguments->slots[12] = string__98_13;
-  arguments->slots[13] = string__98_14;
-  arguments->slots[14] = string__98_15;
-  arguments->slots[15] = string__98_16;
-  arguments->slots[16] = string__98_17;
-  arguments->slots[17] = string__98_18;
-  arguments->slots[18] = string__98_19;
+  arguments->slots[0] = string__100_1;
+  arguments->slots[1] = string__100_2;
+  arguments->slots[2] = string__100_3;
+  arguments->slots[3] = string__100_4;
+  arguments->slots[4] = string__100_5;
+  arguments->slots[5] = string__100_6;
+  arguments->slots[6] = string__100_7;
+  arguments->slots[7] = string__100_8;
+  arguments->slots[8] = string__100_9;
+  arguments->slots[9] = string__100_10;
+  arguments->slots[10] = string__100_11;
+  arguments->slots[11] = string__100_12;
+  arguments->slots[12] = string__100_13;
+  arguments->slots[13] = string__100_14;
+  arguments->slots[14] = string__100_15;
+  arguments->slots[15] = string__100_16;
+  arguments->slots[16] = string__100_17;
+  arguments->slots[17] = string__100_18;
+  arguments->slots[18] = string__100_19;
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__98_20;
+  frame->cont = cont__100_20;
 }
-static void cont__98_20(void) {
+static void cont__100_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -987,25 +996,25 @@ EXPORT void collect__shared_variables(void) {
   var.sim2c__source_of = collect_node(var.sim2c__source_of);
   var.sim2c__indents_of = collect_node(var.sim2c__indents_of);
   var.sim2c__vtable_entries = collect_node(var.sim2c__vtable_entries);
-  string__98_1 = collect_node(string__98_1);
-  string__98_2 = collect_node(string__98_2);
-  string__98_3 = collect_node(string__98_3);
-  string__98_4 = collect_node(string__98_4);
-  string__98_5 = collect_node(string__98_5);
-  string__98_6 = collect_node(string__98_6);
-  string__98_7 = collect_node(string__98_7);
-  string__98_8 = collect_node(string__98_8);
-  string__98_9 = collect_node(string__98_9);
-  string__98_10 = collect_node(string__98_10);
-  string__98_11 = collect_node(string__98_11);
-  string__98_12 = collect_node(string__98_12);
-  string__98_13 = collect_node(string__98_13);
-  string__98_14 = collect_node(string__98_14);
-  string__98_15 = collect_node(string__98_15);
-  string__98_16 = collect_node(string__98_16);
-  string__98_17 = collect_node(string__98_17);
-  string__98_18 = collect_node(string__98_18);
-  string__98_19 = collect_node(string__98_19);
+  string__100_1 = collect_node(string__100_1);
+  string__100_2 = collect_node(string__100_2);
+  string__100_3 = collect_node(string__100_3);
+  string__100_4 = collect_node(string__100_4);
+  string__100_5 = collect_node(string__100_5);
+  string__100_6 = collect_node(string__100_6);
+  string__100_7 = collect_node(string__100_7);
+  string__100_8 = collect_node(string__100_8);
+  string__100_9 = collect_node(string__100_9);
+  string__100_10 = collect_node(string__100_10);
+  string__100_11 = collect_node(string__100_11);
+  string__100_12 = collect_node(string__100_12);
+  string__100_13 = collect_node(string__100_13);
+  string__100_14 = collect_node(string__100_14);
+  string__100_15 = collect_node(string__100_15);
+  string__100_16 = collect_node(string__100_16);
+  string__100_17 = collect_node(string__100_17);
+  string__100_18 = collect_node(string__100_18);
+  string__100_19 = collect_node(string__100_19);
 }
 
 static int already_run_phase_1 = false;
@@ -1025,6 +1034,32 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__shared_variables(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  string__100_1 = from_latin_1_string("to_int8", 7);
+  string__100_2 = from_latin_1_string("to_int16", 8);
+  string__100_3 = from_latin_1_string("to_int32", 8);
+  string__100_4 = from_latin_1_string("to_int64", 8);
+  string__100_5 = from_latin_1_string("to_uint8", 8);
+  string__100_6 = from_latin_1_string("to_uint16", 9);
+  string__100_7 = from_latin_1_string("to_uint32", 9);
+  string__100_8 = from_latin_1_string("to_uint64", 9);
+  string__100_9 = from_latin_1_string("to_uchar32", 10);
+  string__100_10 = from_latin_1_string("to_bool", 7);
+  string__100_11 = from_latin_1_string("to_int", 6);
+  string__100_12 = from_latin_1_string("to_long", 7);
+  string__100_13 = from_latin_1_string("to_double", 9);
+  string__100_14 = from_latin_1_string("to_c_string", 11);
+  string__100_15 = from_latin_1_string("to_octets", 9);
+  string__100_16 = from_latin_1_string("get_item_of", 11);
+  string__100_17 = from_latin_1_string("length_of", 9);
+  string__100_18 = from_latin_1_string("unfold", 6);
+  string__100_19 = from_latin_1_string("debug_string", 12);
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__shared_variables(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
   set_module("shared_variables");
   set_used_namespaces(used_namespaces);
   define_multi_assign_dynamic("sim2c", "required_modules", get__sim2c__required_modules, set__sim2c__required_modules, define__sim2c__required_modules, &dyna_idx__sim2c__required_modules);
@@ -1087,6 +1122,8 @@ EXPORT void phase_2__shared_variables(void) {
   define__sim2c__write_to_phase_4(create_future());
   define_single_assign_dynamic("sim2c", "write_to_phase_5", get__sim2c__write_to_phase_5, define__sim2c__write_to_phase_5, &dyna_idx__sim2c__write_to_phase_5);
   define__sim2c__write_to_phase_5(create_future());
+  define_single_assign_dynamic("sim2c", "write_to_phase_6", get__sim2c__write_to_phase_6, define__sim2c__write_to_phase_6, &dyna_idx__sim2c__write_to_phase_6);
+  define__sim2c__write_to_phase_6(create_future());
   define_single_assign_dynamic("sim2c", "use_literal", get__sim2c__use_literal, define__sim2c__use_literal, &dyna_idx__sim2c__use_literal);
   define__sim2c__use_literal(create_future());
   define_single_assign_dynamic("sim2c", "module_name", get__sim2c__module_name, define__sim2c__module_name, &dyna_idx__sim2c__module_name);
@@ -1116,36 +1153,6 @@ EXPORT void phase_2__shared_variables(void) {
   define_multi_assign_dynamic("sim2c", "current_continuation_info", get__sim2c__current_continuation_info, set__sim2c__current_continuation_info, define__sim2c__current_continuation_info, &dyna_idx__sim2c__current_continuation_info);
   define__sim2c__current_continuation_info(undefined);
   define_single_assign_static("sim2c", "vtable_entries", get__sim2c__vtable_entries, &var.sim2c__vtable_entries);
-  string__98_1 = from_latin_1_string("to_int8", 7);
-  string__98_2 = from_latin_1_string("to_int16", 8);
-  string__98_3 = from_latin_1_string("to_int32", 8);
-  string__98_4 = from_latin_1_string("to_int64", 8);
-  string__98_5 = from_latin_1_string("to_uint8", 8);
-  string__98_6 = from_latin_1_string("to_uint16", 9);
-  string__98_7 = from_latin_1_string("to_uint32", 9);
-  string__98_8 = from_latin_1_string("to_uint64", 9);
-  string__98_9 = from_latin_1_string("to_uchar32", 10);
-  string__98_10 = from_latin_1_string("to_bool", 7);
-  string__98_11 = from_latin_1_string("to_int", 6);
-  string__98_12 = from_latin_1_string("to_long", 7);
-  string__98_13 = from_latin_1_string("to_double", 9);
-  string__98_14 = from_latin_1_string("to_c_string", 11);
-  string__98_15 = from_latin_1_string("to_octets", 9);
-  string__98_16 = from_latin_1_string("get_item_of", 11);
-  string__98_17 = from_latin_1_string("length_of", 9);
-  string__98_18 = from_latin_1_string("unfold", 6);
-  string__98_19 = from_latin_1_string("debug_string", 12);
-}
-
-static int already_run_phase_3 = false;
-
-EXPORT void phase_3__shared_variables(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
-  set_module("shared_variables");
-  set_used_namespaces(used_namespaces);
-  use_read_only(NULL, "list", &get__list, &get_value_or_future__list);
-  use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
 }
 
 static int already_run_phase_4 = false;
@@ -1153,6 +1160,17 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__shared_variables(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
+  set_module("shared_variables");
+  set_used_namespaces(used_namespaces);
+  use_read_only(NULL, "list", &get__list, &get_value_or_future__list);
+  use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
+}
+
+static int already_run_phase_5 = false;
+
+EXPORT void phase_5__shared_variables(void) {
+  if (already_run_phase_5) return;
+  already_run_phase_5 = true;
   assign_value(&var.sim2c__line_no_of, create_function(type__sim2c__line_no_of, -1));
   assign_value(&var.sim2c__text_of, create_function(type__sim2c__text_of, -1));
   assign_value(&var.sim2c__source_of, create_function(type__sim2c__source_of, -1));
@@ -1172,6 +1190,7 @@ EXPORT void phase_4__shared_variables(void) {
   maybe_initialize_future(get__sim2c__write_to_phase_3(), get__undefined());
   maybe_initialize_future(get__sim2c__write_to_phase_4(), get__undefined());
   maybe_initialize_future(get__sim2c__write_to_phase_5(), get__undefined());
+  maybe_initialize_future(get__sim2c__write_to_phase_6(), get__undefined());
   maybe_initialize_future(get__sim2c__use_literal(), get__undefined());
   maybe_initialize_future(get__sim2c__module_name(), get__undefined());
   maybe_initialize_future(get__sim2c__submodule_no(), get__undefined());
@@ -1179,10 +1198,10 @@ EXPORT void phase_4__shared_variables(void) {
   maybe_initialize_future(get__sim2c__already_defined_names(), get__undefined());
 }
 
-static int already_run_phase_5 = false;
+static int already_run_phase_6 = false;
 
-EXPORT void phase_5__shared_variables(void) {
-  if (already_run_phase_5) return;
-  already_run_phase_5 = true;
+EXPORT void phase_6__shared_variables(void) {
+  if (already_run_phase_6) return;
+  already_run_phase_6 = true;
   register_collector(collect__shared_variables);
 }
