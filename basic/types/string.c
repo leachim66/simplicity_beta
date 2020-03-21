@@ -574,7 +574,6 @@ static NODE *temp__291;
 static NODE *temp__292;
 static NODE *temp__293;
 static NODE *temp__294;
-static NODE *temp__295;
 static NODE_GETTER get__END_OF_TEXT;
 static NODE_GETTER get_value_or_future__END_OF_TEXT;
 static NODE_GETTER get__Error;
@@ -2342,51 +2341,49 @@ static NODE *string__93_585;
 static void cont__93_586(void);
 static NODE *string__93_587;
 static void cont__93_588(void);
-static NODE *string__93_589;
-static void cont__93_590(void);
-static void cont__93_591(void);
+static void cont__93_589(void);
 void run__basic__types__string(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__string, NULL, 640, 640, 5, 13},
-  {cont__93_2, NULL, 641, 641, 5, 13},
-  {cont__93_4, NULL, 642, 642, 5, 18},
-  {cont__93_6, NULL, 643, 643, 5, 19},
-  {cont__93_8, NULL, 644, 644, 5, 13},
-  {cont__93_10, NULL, 645, 645, 5, 17},
+  {cont__93_2, NULL, 641, 641, 5, 18},
+  {cont__93_4, NULL, 642, 642, 5, 19},
+  {cont__93_6, NULL, 643, 643, 5, 13},
+  {cont__93_8, NULL, 644, 644, 5, 17},
+  {cont__93_10, NULL, 645, 645, 5, 13},
   {cont__93_12, NULL, 646, 646, 5, 13},
-  {cont__93_14, NULL, 647, 647, 5, 13},
-  {cont__93_16, NULL, 648, 648, 5, 18},
-  {cont__93_18, NULL, 649, 649, 5, 15},
-  {cont__93_20, NULL, 650, 650, 5, 13},
-  {cont__93_22, NULL, 651, 651, 5, 14},
+  {cont__93_14, NULL, 647, 647, 5, 18},
+  {cont__93_16, NULL, 648, 648, 5, 15},
+  {cont__93_18, NULL, 649, 649, 5, 13},
+  {cont__93_20, NULL, 650, 650, 5, 14},
+  {cont__93_22, NULL, 651, 651, 5, 17},
   {cont__93_24, NULL, 652, 652, 5, 17},
-  {cont__93_26, NULL, 653, 653, 5, 17},
-  {cont__93_28, NULL, 654, 654, 5, 15},
-  {cont__93_30, NULL, 655, 655, 5, 13},
-  {cont__93_32, NULL, 656, 656, 5, 18},
-  {cont__93_34, NULL, 657, 657, 5, 15},
+  {cont__93_26, NULL, 653, 653, 5, 15},
+  {cont__93_28, NULL, 654, 654, 5, 13},
+  {cont__93_30, NULL, 655, 655, 5, 18},
+  {cont__93_32, NULL, 656, 656, 5, 15},
+  {cont__93_34, NULL, 657, 657, 5, 14},
   {cont__93_36, NULL, 658, 658, 5, 14},
-  {cont__93_38, NULL, 659, 659, 5, 14},
-  {cont__93_40, NULL, 660, 660, 5, 13},
-  {cont__93_42, NULL, 661, 661, 5, 16},
-  {cont__93_44, NULL, 662, 662, 5, 17},
+  {cont__93_38, NULL, 659, 659, 5, 13},
+  {cont__93_40, NULL, 660, 660, 5, 16},
+  {cont__93_42, NULL, 661, 661, 5, 17},
+  {cont__93_44, NULL, 662, 662, 5, 13},
   {cont__93_46, NULL, 663, 663, 5, 13},
-  {cont__93_48, NULL, 664, 664, 5, 13},
-  {cont__93_50, NULL, 665, 665, 5, 14},
-  {cont__93_52, NULL, 666, 666, 5, 13},
-  {cont__93_54, NULL, 667, 667, 5, 14},
+  {cont__93_48, NULL, 664, 664, 5, 14},
+  {cont__93_50, NULL, 665, 665, 5, 13},
+  {cont__93_52, NULL, 666, 666, 5, 14},
+  {cont__93_54, NULL, 667, 667, 5, 15},
   {cont__93_56, NULL, 668, 668, 5, 15},
   {cont__93_58, NULL, 669, 669, 5, 15},
-  {cont__93_60, NULL, 670, 670, 5, 15},
+  {cont__93_60, NULL, 670, 670, 5, 13},
   {cont__93_62, NULL, 671, 671, 5, 13},
   {cont__93_64, NULL, 672, 672, 5, 13},
   {cont__93_66, NULL, 673, 673, 5, 13},
   {cont__93_68, NULL, 674, 674, 5, 13},
-  {cont__93_70, NULL, 675, 675, 5, 13},
-  {cont__93_72, NULL, 676, 676, 5, 14},
-  {cont__93_74, NULL, 677, 677, 5, 13},
-  {cont__93_76, NULL, 678, 678, 5, 14},
+  {cont__93_70, NULL, 675, 675, 5, 14},
+  {cont__93_72, NULL, 676, 676, 5, 13},
+  {cont__93_74, NULL, 677, 677, 5, 14},
+  {cont__93_76, NULL, 678, 678, 5, 13},
   {cont__93_78, NULL, 679, 679, 5, 13},
   {cont__93_80, NULL, 680, 680, 5, 13},
   {cont__93_82, NULL, 681, 681, 5, 13},
@@ -2401,24 +2398,24 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_100, NULL, 690, 690, 5, 13},
   {cont__93_102, NULL, 691, 691, 5, 13},
   {cont__93_104, NULL, 692, 692, 5, 13},
-  {cont__93_106, NULL, 693, 693, 5, 13},
-  {cont__93_108, NULL, 694, 694, 5, 14},
+  {cont__93_106, NULL, 693, 693, 5, 14},
+  {cont__93_108, NULL, 694, 694, 5, 13},
   {cont__93_110, NULL, 695, 695, 5, 13},
   {cont__93_112, NULL, 696, 696, 5, 13},
   {cont__93_114, NULL, 697, 697, 5, 13},
   {cont__93_116, NULL, 698, 698, 5, 13},
-  {cont__93_118, NULL, 699, 699, 5, 13},
-  {cont__93_120, NULL, 700, 700, 5, 14},
+  {cont__93_118, NULL, 699, 699, 5, 14},
+  {cont__93_120, NULL, 700, 700, 5, 13},
   {cont__93_122, NULL, 701, 701, 5, 13},
-  {cont__93_124, NULL, 702, 702, 5, 13},
-  {cont__93_126, NULL, 703, 703, 5, 14},
+  {cont__93_124, NULL, 702, 702, 5, 14},
+  {cont__93_126, NULL, 703, 703, 5, 13},
   {cont__93_128, NULL, 704, 704, 5, 13},
   {cont__93_130, NULL, 705, 705, 5, 13},
   {cont__93_132, NULL, 706, 706, 5, 13},
-  {cont__93_134, NULL, 707, 707, 5, 13},
-  {cont__93_136, NULL, 708, 708, 5, 14},
-  {cont__93_138, NULL, 709, 709, 5, 13},
-  {cont__93_140, NULL, 710, 710, 5, 14},
+  {cont__93_134, NULL, 707, 707, 5, 14},
+  {cont__93_136, NULL, 708, 708, 5, 13},
+  {cont__93_138, NULL, 709, 709, 5, 14},
+  {cont__93_140, NULL, 710, 710, 5, 13},
   {cont__93_142, NULL, 711, 711, 5, 13},
   {cont__93_144, NULL, 712, 712, 5, 13},
   {cont__93_146, NULL, 713, 713, 5, 13},
@@ -2433,14 +2430,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_164, NULL, 722, 722, 5, 13},
   {cont__93_166, NULL, 723, 723, 5, 13},
   {cont__93_168, NULL, 724, 724, 5, 13},
-  {cont__93_170, NULL, 725, 725, 5, 13},
-  {cont__93_172, NULL, 726, 726, 5, 14},
+  {cont__93_170, NULL, 725, 725, 5, 14},
+  {cont__93_172, NULL, 726, 726, 5, 13},
   {cont__93_174, NULL, 727, 727, 5, 13},
   {cont__93_176, NULL, 728, 728, 5, 13},
   {cont__93_178, NULL, 729, 729, 5, 13},
   {cont__93_180, NULL, 730, 730, 5, 13},
-  {cont__93_182, NULL, 731, 731, 5, 13},
-  {cont__93_184, NULL, 732, 732, 5, 14},
+  {cont__93_182, NULL, 731, 731, 5, 14},
+  {cont__93_184, NULL, 732, 732, 5, 13},
   {cont__93_186, NULL, 733, 733, 5, 13},
   {cont__93_188, NULL, 734, 734, 5, 13},
   {cont__93_190, NULL, 735, 735, 5, 13},
@@ -2493,9 +2490,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_284, NULL, 782, 782, 5, 13},
   {cont__93_286, NULL, 783, 783, 5, 13},
   {cont__93_288, NULL, 784, 784, 5, 13},
-  {cont__93_290, NULL, 785, 785, 5, 13},
+  {cont__93_290, NULL, 785, 785, 5, 14},
   {cont__93_292, NULL, 786, 786, 5, 14},
-  {cont__93_294, NULL, 787, 787, 5, 14},
+  {cont__93_294, NULL, 787, 787, 5, 13},
   {cont__93_296, NULL, 788, 788, 5, 13},
   {cont__93_298, NULL, 789, 789, 5, 13},
   {cont__93_300, NULL, 790, 790, 5, 13},
@@ -2525,9 +2522,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_348, NULL, 814, 814, 5, 13},
   {cont__93_350, NULL, 815, 815, 5, 13},
   {cont__93_352, NULL, 816, 816, 5, 13},
-  {cont__93_354, NULL, 817, 817, 5, 13},
+  {cont__93_354, NULL, 817, 817, 5, 14},
   {cont__93_356, NULL, 818, 818, 5, 14},
-  {cont__93_358, NULL, 819, 819, 5, 14},
+  {cont__93_358, NULL, 819, 819, 5, 13},
   {cont__93_360, NULL, 820, 820, 5, 13},
   {cont__93_362, NULL, 821, 821, 5, 13},
   {cont__93_364, NULL, 822, 822, 5, 13},
@@ -2588,7 +2585,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_474, NULL, 877, 877, 5, 13},
   {cont__93_476, NULL, 878, 878, 5, 13},
   {cont__93_478, NULL, 879, 879, 5, 13},
-  {cont__93_480, NULL, 880, 880, 5, 13},
+  {cont__93_480, NULL, 880, 880, 5, 14},
   {cont__93_482, NULL, 881, 881, 5, 14},
   {cont__93_484, NULL, 882, 882, 5, 14},
   {cont__93_486, NULL, 883, 883, 5, 14},
@@ -2597,7 +2594,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_492, NULL, 886, 886, 5, 14},
   {cont__93_494, NULL, 887, 887, 5, 14},
   {cont__93_496, NULL, 888, 888, 5, 14},
-  {cont__93_498, NULL, 889, 889, 5, 14},
+  {cont__93_498, NULL, 889, 889, 5, 13},
   {cont__93_500, NULL, 890, 890, 5, 13},
   {cont__93_502, NULL, 891, 891, 5, 13},
   {cont__93_504, NULL, 892, 892, 5, 13},
@@ -2617,9 +2614,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_532, NULL, 906, 906, 5, 13},
   {cont__93_534, NULL, 907, 907, 5, 13},
   {cont__93_536, NULL, 908, 908, 5, 13},
-  {cont__93_538, NULL, 909, 909, 5, 13},
+  {cont__93_538, NULL, 909, 909, 5, 14},
   {cont__93_540, NULL, 910, 910, 5, 14},
-  {cont__93_542, NULL, 911, 911, 5, 14},
+  {cont__93_542, NULL, 911, 911, 5, 13},
   {cont__93_544, NULL, 912, 912, 5, 13},
   {cont__93_546, NULL, 913, 913, 5, 13},
   {cont__93_548, NULL, 914, 914, 5, 13},
@@ -2629,22 +2626,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_556, NULL, 918, 918, 5, 13},
   {cont__93_558, NULL, 919, 919, 5, 13},
   {cont__93_560, NULL, 920, 920, 5, 13},
-  {cont__93_562, NULL, 921, 921, 5, 13},
+  {cont__93_562, NULL, 921, 921, 5, 14},
   {cont__93_564, NULL, 922, 922, 5, 14},
   {cont__93_566, NULL, 923, 923, 5, 14},
-  {cont__93_568, NULL, 924, 924, 5, 14},
+  {cont__93_568, NULL, 924, 924, 5, 13},
   {cont__93_570, NULL, 925, 925, 5, 13},
   {cont__93_572, NULL, 926, 926, 5, 13},
   {cont__93_574, NULL, 927, 927, 5, 13},
   {cont__93_576, NULL, 928, 928, 5, 13},
   {cont__93_578, NULL, 929, 929, 5, 13},
-  {cont__93_580, NULL, 930, 930, 5, 13},
+  {cont__93_580, NULL, 930, 930, 5, 14},
   {cont__93_582, NULL, 931, 931, 5, 14},
-  {cont__93_584, NULL, 932, 932, 5, 14},
+  {cont__93_584, NULL, 932, 932, 5, 13},
   {cont__93_586, NULL, 933, 933, 5, 13},
-  {cont__93_588, NULL, 934, 934, 5, 13},
-  {cont__93_590, NULL, 638, 934, 1, 14},
-  {cont__93_591, NULL, },
+  {cont__93_588, NULL, 638, 933, 1, 14},
+  {cont__93_589, NULL, },
   {entry__1_5, NULL, 29, 29, 18, 33},
   {entry__1_1, NULL, 28, 28, 3, 28},
   {cont__1_2, &frame__1_1, 29, 29, 6, 15},
@@ -3050,151 +3046,151 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__39_1, NULL, 635, 635, 3, 38},
   {cont__39_2, &frame__39_1, 636, 636, 6, 19},
   {cont__39_3, &frame__39_1, 636, 636, 3, 19},
-  {entry__41_2, NULL, 941, 941, 20, 36},
-  {cont__41_3, &frame__41_2, 941, 941, 5, 36},
-  {cont__41_4, &frame__41_2, 942, 942, 5, 12},
-  {cont__41_5, &frame__41_2, 942, 942, 12, 12},
-  {entry__41_17, NULL, 952, 952, 15, 39},
-  {cont__41_18, &frame__41_17, 952, 952, 39, 39},
-  {entry__41_19, NULL, 954, 954, 15, 30},
-  {cont__41_20, &frame__41_19, 954, 954, 30, 30},
-  {entry__41_12, NULL, 948, 948, 16, 20},
-  {cont__41_13, &frame__41_12, 948, 948, 11, 20},
-  {cont__41_14, &frame__41_12, 949, 949, 11, 45},
-  {cont__41_15, &frame__41_12, 951, 951, 13, 33},
-  {cont__41_16, &frame__41_12, 950, 954, 11, 31},
-  {entry__41_21, NULL, 956, 956, 16, 20},
-  {cont__41_22, &frame__41_21, 956, 956, 11, 20},
-  {cont__41_23, &frame__41_21, 957, 957, 24, 31},
-  {cont__41_24, &frame__41_21, 957, 957, 11, 31},
-  {cont__41_25, &frame__41_21, 957, 957, 31, 31},
-  {entry__41_9, NULL, 947, 947, 9, 18},
-  {cont__41_10, &frame__41_9, 947, 947, 9, 18},
-  {cont__41_11, &frame__41_9, 946, 957, 7, 32},
-  {entry__41_6, NULL, 945, 945, 8, 22},
-  {cont__41_7, &frame__41_6, 945, 945, 8, 22},
-  {cont__41_8, &frame__41_6, 945, 957, 5, 33},
-  {entry__41_1, NULL, 944, 957, 3, 34},
-  {cont__41_26, &frame__41_1, 958, 958, 8, 22},
-  {cont__41_27, &frame__41_1, 958, 958, 3, 22},
-  {cont__41_28, &frame__41_1, 959, 959, 3, 11},
-  {entry__42_14, NULL, 992, 992, 15, 42},
-  {cont__42_15, &frame__42_14, 992, 992, 42, 42},
-  {entry__42_16, NULL, 994, 994, 44, 60},
-  {cont__42_17, &frame__42_16, 994, 994, 32, 61},
-  {cont__42_18, &frame__42_16, 994, 994, 15, 61},
-  {cont__42_19, &frame__42_16, 994, 994, 61, 61},
-  {entry__42_12, NULL, 991, 991, 13, 35},
-  {cont__42_13, &frame__42_12, 990, 994, 11, 62},
-  {cont__42_20, &frame__42_12, 995, 995, 23, 27},
-  {cont__42_21, &frame__42_12, 995, 995, 30, 30},
-  {cont__42_22, &frame__42_12, 995, 995, 11, 30},
-  {cont__42_23, &frame__42_12, 996, 996, 11, 15},
-  {entry__42_7, NULL, 986, 986, 9, 31},
-  {cont__42_8, &frame__42_7, 987, 987, 9, 34},
-  {cont__42_9, &frame__42_7, 988, 988, 9, 43},
-  {cont__42_10, &frame__42_7, 989, 989, 12, 25},
-  {cont__42_11, &frame__42_7, 989, 996, 9, 15},
-  {entry__42_6, NULL, 985, 996, 7, 16},
-  {cont__42_24, &frame__42_6, 997, 997, 22, 28},
-  {cont__42_25, &frame__42_6, 997, 997, 7, 28},
-  {cont__42_26, &frame__42_6, 998, 998, 22, 22},
-  {cont__42_27, &frame__42_6, 998, 998, 7, 22},
-  {cont__42_28, &frame__42_6, 998, 998, 22, 22},
-  {entry__42_5, NULL, 984, 998, 5, 22},
-  {entry__42_2, NULL, 983, 983, 12, 26},
-  {cont__42_3, &frame__42_2, 983, 983, 12, 30},
-  {cont__42_4, &frame__42_2, 983, 998, 9, 23},
-  {entry__42_1, NULL, 983, 998, 3, 23},
-  {cont__42_29, &frame__42_1, 999, 999, 3, 13},
-  {entry__44_3, NULL, 1006, 1006, 33, 42},
-  {cont__44_5, &frame__44_3, 1006, 1006, 30, 42},
-  {entry__44_6, NULL, 1006, 1006, 48, 71},
-  {cont__44_7, &frame__44_6, 1006, 1006, 45, 71},
-  {entry__44_1, NULL, 1006, 1006, 22, 27},
-  {cont__44_2, &frame__44_1, 1006, 1006, 19, 71},
-  {entry__45_14, NULL, 1014, 1014, 36, 42},
-  {cont__45_15, &frame__45_14, 1014, 1014, 36, 52},
-  {cont__45_16, &frame__45_14, 1014, 1014, 36, 52},
-  {entry__45_18, NULL, 1014, 1014, 55, 78},
-  {cont__45_19, &frame__45_18, 1014, 1014, 78, 78},
-  {entry__45_3, NULL, 1010, 1010, 5, 31},
-  {cont__45_4, &frame__45_3, 1013, 1013, 31, 53},
-  {cont__45_5, &frame__45_3, 1013, 1013, 15, 54},
-  {cont__45_6, &frame__45_3, 1013, 1013, 7, 54},
-  {cont__45_7, &frame__45_3, 1013, 1013, 58, 77},
-  {cont__45_9, &frame__45_3, 1013, 1013, 7, 77},
-  {cont__45_10, &frame__45_3, 1011, 1013, 5, 77},
-  {cont__45_11, &frame__45_3, 1014, 1014, 12, 26},
-  {cont__45_12, &frame__45_3, 1014, 1014, 12, 31},
-  {cont__45_13, &frame__45_3, 1014, 1014, 12, 52},
-  {cont__45_17, &frame__45_3, 1014, 1014, 5, 78},
-  {entry__45_1, NULL, 1009, 1009, 6, 15},
-  {cont__45_2, &frame__45_1, 1009, 1014, 3, 78},
-  {cont__45_20, &frame__45_1, 1015, 1015, 3, 9},
-  {entry__46_7, NULL, 1029, 1029, 32, 36},
-  {cont__46_8, &frame__46_7, 1029, 1029, 19, 37},
-  {cont__46_9, &frame__46_7, 1029, 1029, 11, 37},
-  {entry__46_10, NULL, 1031, 1031, 29, 33},
-  {cont__46_11, &frame__46_10, 1031, 1031, 16, 34},
-  {cont__46_12, &frame__46_10, 1031, 1031, 11, 34},
-  {entry__46_18, NULL, 1033, 1033, 30, 56},
-  {cont__46_19, &frame__46_18, 1033, 1033, 30, 56},
-  {entry__46_4, NULL, 1028, 1028, 9, 32},
-  {cont__46_5, &frame__46_4, 1028, 1028, 9, 37},
-  {cont__46_6, &frame__46_4, 1027, 1031, 7, 35},
-  {cont__46_13, &frame__46_4, 1032, 1032, 24, 28},
-  {cont__46_14, &frame__46_4, 1032, 1032, 31, 31},
-  {cont__46_15, &frame__46_4, 1032, 1032, 7, 32},
-  {cont__46_16, &frame__46_4, 1033, 1033, 10, 25},
-  {cont__46_17, &frame__46_4, 1033, 1033, 10, 56},
-  {cont__46_20, &frame__46_4, 1033, 1033, 7, 62},
-  {cont__46_21, &frame__46_4, 1034, 1034, 37, 40},
-  {cont__46_22, &frame__46_4, 1034, 1034, 7, 40},
-  {entry__46_29, NULL, 1039, 1039, 13, 24},
-  {entry__46_30, NULL, 1041, 1041, 13, 21},
-  {entry__46_26, NULL, 1038, 1038, 11, 34},
-  {cont__46_27, &frame__46_26, 1038, 1038, 11, 39},
-  {cont__46_28, &frame__46_26, 1037, 1041, 9, 22},
-  {entry__46_23, NULL, 1036, 1036, 10, 24},
-  {cont__46_24, &frame__46_23, 1036, 1036, 10, 28},
-  {cont__46_25, &frame__46_23, 1036, 1041, 7, 23},
-  {entry__46_1, NULL, 1024, 1024, 3, 31},
-  {cont__46_2, &frame__46_1, 1026, 1026, 5, 18},
-  {cont__46_3, &frame__46_1, 1025, 1041, 3, 25},
-  {entry__47_1, NULL, 1043, 1043, 41, 63},
-  {cont__47_2, &frame__47_1, 1043, 1043, 38, 63},
-  {entry__48_1, NULL, 1045, 1045, 41, 63},
-  {cont__48_2, &frame__48_1, 1045, 1045, 38, 63},
-  {entry__49_5, NULL, 1055, 1055, 23, 39},
-  {cont__49_6, &frame__49_5, 1055, 1055, 13, 39},
-  {cont__49_7, &frame__49_5, 1056, 1056, 27, 27},
-  {entry__49_8, NULL, 1058, 1058, 23, 39},
-  {cont__49_9, &frame__49_8, 1058, 1058, 13, 39},
-  {cont__49_10, &frame__49_8, 1058, 1058, 39, 39},
-  {entry__49_4, NULL, 1053, 1058, 9, 40},
-  {entry__49_11, NULL, 1060, 1060, 9, 21},
-  {cont__49_12, &frame__49_11, 1061, 1061, 22, 22},
-  {entry__49_2, NULL, 1052, 1052, 7, 31},
-  {cont__49_3, &frame__49_2, 1051, 1061, 5, 23},
-  {entry__49_1, NULL, 1050, 1061, 3, 24},
-  {cont__49_13, &frame__49_1, 1062, 1062, 3, 8},
-  {entry__50_1, NULL, 1129, 1129, 52, 73},
-  {entry__51_1, NULL, 1131, 1131, 57, 78},
-  {entry__52_2, NULL, 1138, 1138, 24, 43},
-  {cont__52_3, &frame__52_2, 1138, 1138, 43, 43},
-  {entry__52_1, NULL, 1140, 1140, 3, 6},
-  {cont__52_4, &frame__52_1, 1140, 1140, 6, 6},
-  {entry__53_4, NULL, 1146, 1146, 43, 51},
-  {cont__53_5, &frame__53_4, 1146, 1146, 31, 51},
-  {cont__53_6, &frame__53_4, 1146, 1146, 51, 51},
-  {entry__53_3, NULL, 1146, 1146, 7, 51},
-  {entry__53_8, NULL, 1148, 1148, 31, 45},
-  {cont__53_9, &frame__53_8, 1148, 1148, 45, 45},
-  {entry__53_7, NULL, 1148, 1148, 7, 45},
-  {entry__53_1, NULL, 1145, 1145, 5, 19},
-  {cont__53_2, &frame__53_1, 1144, 1148, 3, 46},
-  {cont__53_10, &frame__53_1, 1149, 1149, 3, 8}
+  {entry__41_2, NULL, 940, 940, 20, 36},
+  {cont__41_3, &frame__41_2, 940, 940, 5, 36},
+  {cont__41_4, &frame__41_2, 941, 941, 5, 12},
+  {cont__41_5, &frame__41_2, 941, 941, 12, 12},
+  {entry__41_17, NULL, 951, 951, 15, 39},
+  {cont__41_18, &frame__41_17, 951, 951, 39, 39},
+  {entry__41_19, NULL, 953, 953, 15, 30},
+  {cont__41_20, &frame__41_19, 953, 953, 30, 30},
+  {entry__41_12, NULL, 947, 947, 16, 20},
+  {cont__41_13, &frame__41_12, 947, 947, 11, 20},
+  {cont__41_14, &frame__41_12, 948, 948, 11, 45},
+  {cont__41_15, &frame__41_12, 950, 950, 13, 33},
+  {cont__41_16, &frame__41_12, 949, 953, 11, 31},
+  {entry__41_21, NULL, 955, 955, 16, 20},
+  {cont__41_22, &frame__41_21, 955, 955, 11, 20},
+  {cont__41_23, &frame__41_21, 956, 956, 24, 31},
+  {cont__41_24, &frame__41_21, 956, 956, 11, 31},
+  {cont__41_25, &frame__41_21, 956, 956, 31, 31},
+  {entry__41_9, NULL, 946, 946, 9, 18},
+  {cont__41_10, &frame__41_9, 946, 946, 9, 18},
+  {cont__41_11, &frame__41_9, 945, 956, 7, 32},
+  {entry__41_6, NULL, 944, 944, 8, 22},
+  {cont__41_7, &frame__41_6, 944, 944, 8, 22},
+  {cont__41_8, &frame__41_6, 944, 956, 5, 33},
+  {entry__41_1, NULL, 943, 956, 3, 34},
+  {cont__41_26, &frame__41_1, 957, 957, 8, 22},
+  {cont__41_27, &frame__41_1, 957, 957, 3, 22},
+  {cont__41_28, &frame__41_1, 958, 958, 3, 11},
+  {entry__42_14, NULL, 991, 991, 15, 42},
+  {cont__42_15, &frame__42_14, 991, 991, 42, 42},
+  {entry__42_16, NULL, 993, 993, 44, 60},
+  {cont__42_17, &frame__42_16, 993, 993, 32, 61},
+  {cont__42_18, &frame__42_16, 993, 993, 15, 61},
+  {cont__42_19, &frame__42_16, 993, 993, 61, 61},
+  {entry__42_12, NULL, 990, 990, 13, 35},
+  {cont__42_13, &frame__42_12, 989, 993, 11, 62},
+  {cont__42_20, &frame__42_12, 994, 994, 23, 27},
+  {cont__42_21, &frame__42_12, 994, 994, 30, 30},
+  {cont__42_22, &frame__42_12, 994, 994, 11, 30},
+  {cont__42_23, &frame__42_12, 995, 995, 11, 15},
+  {entry__42_7, NULL, 985, 985, 9, 31},
+  {cont__42_8, &frame__42_7, 986, 986, 9, 34},
+  {cont__42_9, &frame__42_7, 987, 987, 9, 43},
+  {cont__42_10, &frame__42_7, 988, 988, 12, 25},
+  {cont__42_11, &frame__42_7, 988, 995, 9, 15},
+  {entry__42_6, NULL, 984, 995, 7, 16},
+  {cont__42_24, &frame__42_6, 996, 996, 22, 28},
+  {cont__42_25, &frame__42_6, 996, 996, 7, 28},
+  {cont__42_26, &frame__42_6, 997, 997, 22, 22},
+  {cont__42_27, &frame__42_6, 997, 997, 7, 22},
+  {cont__42_28, &frame__42_6, 997, 997, 22, 22},
+  {entry__42_5, NULL, 983, 997, 5, 22},
+  {entry__42_2, NULL, 982, 982, 12, 26},
+  {cont__42_3, &frame__42_2, 982, 982, 12, 30},
+  {cont__42_4, &frame__42_2, 982, 997, 9, 23},
+  {entry__42_1, NULL, 982, 997, 3, 23},
+  {cont__42_29, &frame__42_1, 998, 998, 3, 13},
+  {entry__44_3, NULL, 1005, 1005, 33, 42},
+  {cont__44_5, &frame__44_3, 1005, 1005, 30, 42},
+  {entry__44_6, NULL, 1005, 1005, 48, 71},
+  {cont__44_7, &frame__44_6, 1005, 1005, 45, 71},
+  {entry__44_1, NULL, 1005, 1005, 22, 27},
+  {cont__44_2, &frame__44_1, 1005, 1005, 19, 71},
+  {entry__45_14, NULL, 1013, 1013, 36, 42},
+  {cont__45_15, &frame__45_14, 1013, 1013, 36, 52},
+  {cont__45_16, &frame__45_14, 1013, 1013, 36, 52},
+  {entry__45_18, NULL, 1013, 1013, 55, 78},
+  {cont__45_19, &frame__45_18, 1013, 1013, 78, 78},
+  {entry__45_3, NULL, 1009, 1009, 5, 31},
+  {cont__45_4, &frame__45_3, 1012, 1012, 31, 53},
+  {cont__45_5, &frame__45_3, 1012, 1012, 15, 54},
+  {cont__45_6, &frame__45_3, 1012, 1012, 7, 54},
+  {cont__45_7, &frame__45_3, 1012, 1012, 58, 77},
+  {cont__45_9, &frame__45_3, 1012, 1012, 7, 77},
+  {cont__45_10, &frame__45_3, 1010, 1012, 5, 77},
+  {cont__45_11, &frame__45_3, 1013, 1013, 12, 26},
+  {cont__45_12, &frame__45_3, 1013, 1013, 12, 31},
+  {cont__45_13, &frame__45_3, 1013, 1013, 12, 52},
+  {cont__45_17, &frame__45_3, 1013, 1013, 5, 78},
+  {entry__45_1, NULL, 1008, 1008, 6, 15},
+  {cont__45_2, &frame__45_1, 1008, 1013, 3, 78},
+  {cont__45_20, &frame__45_1, 1014, 1014, 3, 9},
+  {entry__46_7, NULL, 1028, 1028, 32, 36},
+  {cont__46_8, &frame__46_7, 1028, 1028, 19, 37},
+  {cont__46_9, &frame__46_7, 1028, 1028, 11, 37},
+  {entry__46_10, NULL, 1030, 1030, 29, 33},
+  {cont__46_11, &frame__46_10, 1030, 1030, 16, 34},
+  {cont__46_12, &frame__46_10, 1030, 1030, 11, 34},
+  {entry__46_18, NULL, 1032, 1032, 30, 56},
+  {cont__46_19, &frame__46_18, 1032, 1032, 30, 56},
+  {entry__46_4, NULL, 1027, 1027, 9, 32},
+  {cont__46_5, &frame__46_4, 1027, 1027, 9, 37},
+  {cont__46_6, &frame__46_4, 1026, 1030, 7, 35},
+  {cont__46_13, &frame__46_4, 1031, 1031, 24, 28},
+  {cont__46_14, &frame__46_4, 1031, 1031, 31, 31},
+  {cont__46_15, &frame__46_4, 1031, 1031, 7, 32},
+  {cont__46_16, &frame__46_4, 1032, 1032, 10, 25},
+  {cont__46_17, &frame__46_4, 1032, 1032, 10, 56},
+  {cont__46_20, &frame__46_4, 1032, 1032, 7, 62},
+  {cont__46_21, &frame__46_4, 1033, 1033, 37, 40},
+  {cont__46_22, &frame__46_4, 1033, 1033, 7, 40},
+  {entry__46_29, NULL, 1038, 1038, 13, 24},
+  {entry__46_30, NULL, 1040, 1040, 13, 21},
+  {entry__46_26, NULL, 1037, 1037, 11, 34},
+  {cont__46_27, &frame__46_26, 1037, 1037, 11, 39},
+  {cont__46_28, &frame__46_26, 1036, 1040, 9, 22},
+  {entry__46_23, NULL, 1035, 1035, 10, 24},
+  {cont__46_24, &frame__46_23, 1035, 1035, 10, 28},
+  {cont__46_25, &frame__46_23, 1035, 1040, 7, 23},
+  {entry__46_1, NULL, 1023, 1023, 3, 31},
+  {cont__46_2, &frame__46_1, 1025, 1025, 5, 18},
+  {cont__46_3, &frame__46_1, 1024, 1040, 3, 25},
+  {entry__47_1, NULL, 1042, 1042, 41, 63},
+  {cont__47_2, &frame__47_1, 1042, 1042, 38, 63},
+  {entry__48_1, NULL, 1044, 1044, 41, 63},
+  {cont__48_2, &frame__48_1, 1044, 1044, 38, 63},
+  {entry__49_5, NULL, 1054, 1054, 23, 39},
+  {cont__49_6, &frame__49_5, 1054, 1054, 13, 39},
+  {cont__49_7, &frame__49_5, 1055, 1055, 27, 27},
+  {entry__49_8, NULL, 1057, 1057, 23, 39},
+  {cont__49_9, &frame__49_8, 1057, 1057, 13, 39},
+  {cont__49_10, &frame__49_8, 1057, 1057, 39, 39},
+  {entry__49_4, NULL, 1052, 1057, 9, 40},
+  {entry__49_11, NULL, 1059, 1059, 9, 21},
+  {cont__49_12, &frame__49_11, 1060, 1060, 22, 22},
+  {entry__49_2, NULL, 1051, 1051, 7, 31},
+  {cont__49_3, &frame__49_2, 1050, 1060, 5, 23},
+  {entry__49_1, NULL, 1049, 1060, 3, 24},
+  {cont__49_13, &frame__49_1, 1061, 1061, 3, 8},
+  {entry__50_1, NULL, 1128, 1128, 52, 73},
+  {entry__51_1, NULL, 1130, 1130, 57, 78},
+  {entry__52_2, NULL, 1137, 1137, 24, 43},
+  {cont__52_3, &frame__52_2, 1137, 1137, 43, 43},
+  {entry__52_1, NULL, 1139, 1139, 3, 6},
+  {cont__52_4, &frame__52_1, 1139, 1139, 6, 6},
+  {entry__53_4, NULL, 1145, 1145, 43, 51},
+  {cont__53_5, &frame__53_4, 1145, 1145, 31, 51},
+  {cont__53_6, &frame__53_4, 1145, 1145, 51, 51},
+  {entry__53_3, NULL, 1145, 1145, 7, 51},
+  {entry__53_8, NULL, 1147, 1147, 31, 45},
+  {cont__53_9, &frame__53_8, 1147, 1147, 45, 45},
+  {entry__53_7, NULL, 1147, 1147, 7, 45},
+  {entry__53_1, NULL, 1144, 1144, 5, 19},
+  {cont__53_2, &frame__53_1, 1143, 1147, 3, 46},
+  {cont__53_10, &frame__53_1, 1148, 1148, 3, 8}
 };
 
 union NODE {
@@ -3547,10 +3543,10 @@ EXPORT void run__basic__types__string(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 640: ' ' = " "
+  // 640: '¡' = "!"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__160;
+  arguments->slots[0] = character__161;
   arguments->slots[1] = string__93_1;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3563,10 +3559,10 @@ static void cont__93_2(void) {
     return;
   }
   temp__1 = arguments->slots[0];
-  // 641: '¡' = "!"
+  // 641: '¢' = "(cent)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__161;
+  arguments->slots[0] = character__162;
   arguments->slots[1] = string__93_3;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3579,10 +3575,10 @@ static void cont__93_4(void) {
     return;
   }
   temp__2 = arguments->slots[0];
-  // 642: '¢' = "(cent)"
+  // 642: '£' = "(pound)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__162;
+  arguments->slots[0] = character__163;
   arguments->slots[1] = string__93_5;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3595,10 +3591,10 @@ static void cont__93_6(void) {
     return;
   }
   temp__3 = arguments->slots[0];
-  // 643: '£' = "(pound)"
+  // 643: '¤' = "?"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__163;
+  arguments->slots[0] = character__164;
   arguments->slots[1] = string__93_7;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3611,10 +3607,10 @@ static void cont__93_8(void) {
     return;
   }
   temp__4 = arguments->slots[0];
-  // 644: '¤' = "?"
+  // 644: '¥' = "(yen)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__164;
+  arguments->slots[0] = character__165;
   arguments->slots[1] = string__93_9;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3627,10 +3623,10 @@ static void cont__93_10(void) {
     return;
   }
   temp__5 = arguments->slots[0];
-  // 645: '¥' = "(yen)"
+  // 645: '¦' = "|"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__165;
+  arguments->slots[0] = character__166;
   arguments->slots[1] = string__93_11;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3643,10 +3639,10 @@ static void cont__93_12(void) {
     return;
   }
   temp__6 = arguments->slots[0];
-  // 646: '¦' = "|"
+  // 646: '§' = "$"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__166;
+  arguments->slots[0] = character__167;
   arguments->slots[1] = string__93_13;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3659,10 +3655,10 @@ static void cont__93_14(void) {
     return;
   }
   temp__7 = arguments->slots[0];
-  // 647: '§' = "$"
+  // 647: '¨' = "@quot;"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__167;
+  arguments->slots[0] = character__168;
   arguments->slots[1] = string__93_15;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3675,10 +3671,10 @@ static void cont__93_16(void) {
     return;
   }
   temp__8 = arguments->slots[0];
-  // 648: '¨' = "@quot;"
+  // 648: '©' = "(c)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__168;
+  arguments->slots[0] = character__169;
   arguments->slots[1] = string__93_17;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3691,10 +3687,10 @@ static void cont__93_18(void) {
     return;
   }
   temp__9 = arguments->slots[0];
-  // 649: '©' = "(c)"
+  // 649: 'ª' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__169;
+  arguments->slots[0] = character__170;
   arguments->slots[1] = string__93_19;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3707,10 +3703,10 @@ static void cont__93_20(void) {
     return;
   }
   temp__10 = arguments->slots[0];
-  // 650: 'ª' = "a"
+  // 650: '«' = "<<"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__170;
+  arguments->slots[0] = character__171;
   arguments->slots[1] = string__93_21;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3723,10 +3719,10 @@ static void cont__93_22(void) {
     return;
   }
   temp__11 = arguments->slots[0];
-  // 651: '«' = "<<"
+  // 651: '¬' = "(not)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__171;
+  arguments->slots[0] = character__172;
   arguments->slots[1] = string__93_23;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3739,10 +3735,10 @@ static void cont__93_24(void) {
     return;
   }
   temp__12 = arguments->slots[0];
-  // 652: '¬' = "(not)"
+  // 652: '­' = "(shy)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__172;
+  arguments->slots[0] = character__173;
   arguments->slots[1] = string__93_25;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3755,10 +3751,10 @@ static void cont__93_26(void) {
     return;
   }
   temp__13 = arguments->slots[0];
-  // 653: '­' = "(shy)"
+  // 653: '®' = "(r)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__173;
+  arguments->slots[0] = character__174;
   arguments->slots[1] = string__93_27;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3771,10 +3767,10 @@ static void cont__93_28(void) {
     return;
   }
   temp__14 = arguments->slots[0];
-  // 654: '®' = "(r)"
+  // 654: '¯' = "~"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__174;
+  arguments->slots[0] = character__175;
   arguments->slots[1] = string__93_29;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3787,10 +3783,10 @@ static void cont__93_30(void) {
     return;
   }
   temp__15 = arguments->slots[0];
-  // 655: '¯' = "~"
+  // 655: '°' = "(grad)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__175;
+  arguments->slots[0] = character__176;
   arguments->slots[1] = string__93_31;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3803,10 +3799,10 @@ static void cont__93_32(void) {
     return;
   }
   temp__16 = arguments->slots[0];
-  // 656: '°' = "(grad)"
+  // 656: '±' = "+/-"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__176;
+  arguments->slots[0] = character__177;
   arguments->slots[1] = string__93_33;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3819,10 +3815,10 @@ static void cont__93_34(void) {
     return;
   }
   temp__17 = arguments->slots[0];
-  // 657: '±' = "+/-"
+  // 657: '²' = "^2"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__177;
+  arguments->slots[0] = character__178;
   arguments->slots[1] = string__93_35;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3835,10 +3831,10 @@ static void cont__93_36(void) {
     return;
   }
   temp__18 = arguments->slots[0];
-  // 658: '²' = "^2"
+  // 658: '³' = "^3"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__178;
+  arguments->slots[0] = character__179;
   arguments->slots[1] = string__93_37;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3851,10 +3847,10 @@ static void cont__93_38(void) {
     return;
   }
   temp__19 = arguments->slots[0];
-  // 659: '³' = "^3"
+  // 659: '´' = "'"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__179;
+  arguments->slots[0] = character__180;
   arguments->slots[1] = string__93_39;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3867,10 +3863,10 @@ static void cont__93_40(void) {
     return;
   }
   temp__20 = arguments->slots[0];
-  // 660: '´' = "'"
+  // 660: 'µ' = "(mu)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__180;
+  arguments->slots[0] = character__181;
   arguments->slots[1] = string__93_41;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3883,10 +3879,10 @@ static void cont__93_42(void) {
     return;
   }
   temp__21 = arguments->slots[0];
-  // 661: 'µ' = "(mu)"
+  // 661: '¶' = "(par)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__181;
+  arguments->slots[0] = character__182;
   arguments->slots[1] = string__93_43;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3899,10 +3895,10 @@ static void cont__93_44(void) {
     return;
   }
   temp__22 = arguments->slots[0];
-  // 662: '¶' = "(par)"
+  // 662: '·' = "."
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__182;
+  arguments->slots[0] = character__183;
   arguments->slots[1] = string__93_45;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3915,10 +3911,10 @@ static void cont__93_46(void) {
     return;
   }
   temp__23 = arguments->slots[0];
-  // 663: '·' = "."
+  // 663: '¸' = ","
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__183;
+  arguments->slots[0] = character__184;
   arguments->slots[1] = string__93_47;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3931,10 +3927,10 @@ static void cont__93_48(void) {
     return;
   }
   temp__24 = arguments->slots[0];
-  // 664: '¸' = ","
+  // 664: '¹' = "^1"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__184;
+  arguments->slots[0] = character__185;
   arguments->slots[1] = string__93_49;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3947,10 +3943,10 @@ static void cont__93_50(void) {
     return;
   }
   temp__25 = arguments->slots[0];
-  // 665: '¹' = "^1"
+  // 665: 'º' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__185;
+  arguments->slots[0] = character__186;
   arguments->slots[1] = string__93_51;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3963,10 +3959,10 @@ static void cont__93_52(void) {
     return;
   }
   temp__26 = arguments->slots[0];
-  // 666: 'º' = "o"
+  // 666: '»' = ">>"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__186;
+  arguments->slots[0] = character__187;
   arguments->slots[1] = string__93_53;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3979,10 +3975,10 @@ static void cont__93_54(void) {
     return;
   }
   temp__27 = arguments->slots[0];
-  // 667: '»' = ">>"
+  // 667: '¼' = "1/4"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__187;
+  arguments->slots[0] = character__188;
   arguments->slots[1] = string__93_55;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -3995,10 +3991,10 @@ static void cont__93_56(void) {
     return;
   }
   temp__28 = arguments->slots[0];
-  // 668: '¼' = "1/4"
+  // 668: '½' = "1/2"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__188;
+  arguments->slots[0] = character__189;
   arguments->slots[1] = string__93_57;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4011,10 +4007,10 @@ static void cont__93_58(void) {
     return;
   }
   temp__29 = arguments->slots[0];
-  // 669: '½' = "1/2"
+  // 669: '¾' = "3/4"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__189;
+  arguments->slots[0] = character__190;
   arguments->slots[1] = string__93_59;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4027,10 +4023,10 @@ static void cont__93_60(void) {
     return;
   }
   temp__30 = arguments->slots[0];
-  // 670: '¾' = "3/4"
+  // 670: '¿' = "?"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__190;
+  arguments->slots[0] = character__191;
   arguments->slots[1] = string__93_61;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4043,10 +4039,10 @@ static void cont__93_62(void) {
     return;
   }
   temp__31 = arguments->slots[0];
-  // 671: '¿' = "?"
+  // 671: 'À' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__191;
+  arguments->slots[0] = character__192;
   arguments->slots[1] = string__93_63;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4059,10 +4055,10 @@ static void cont__93_64(void) {
     return;
   }
   temp__32 = arguments->slots[0];
-  // 672: 'À' = "A"
+  // 672: 'Á' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__192;
+  arguments->slots[0] = character__193;
   arguments->slots[1] = string__93_65;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4075,10 +4071,10 @@ static void cont__93_66(void) {
     return;
   }
   temp__33 = arguments->slots[0];
-  // 673: 'Á' = "A"
+  // 673: 'Â' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__193;
+  arguments->slots[0] = character__194;
   arguments->slots[1] = string__93_67;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4091,10 +4087,10 @@ static void cont__93_68(void) {
     return;
   }
   temp__34 = arguments->slots[0];
-  // 674: 'Â' = "A"
+  // 674: 'Ã' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__194;
+  arguments->slots[0] = character__195;
   arguments->slots[1] = string__93_69;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4107,10 +4103,10 @@ static void cont__93_70(void) {
     return;
   }
   temp__35 = arguments->slots[0];
-  // 675: 'Ã' = "A"
+  // 675: 'Ä' = "Ae"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__195;
+  arguments->slots[0] = character__196;
   arguments->slots[1] = string__93_71;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4123,10 +4119,10 @@ static void cont__93_72(void) {
     return;
   }
   temp__36 = arguments->slots[0];
-  // 676: 'Ä' = "Ae"
+  // 676: 'Å' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__196;
+  arguments->slots[0] = character__197;
   arguments->slots[1] = string__93_73;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4139,10 +4135,10 @@ static void cont__93_74(void) {
     return;
   }
   temp__37 = arguments->slots[0];
-  // 677: 'Å' = "A"
+  // 677: 'Æ' = "AE"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__197;
+  arguments->slots[0] = character__198;
   arguments->slots[1] = string__93_75;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4155,10 +4151,10 @@ static void cont__93_76(void) {
     return;
   }
   temp__38 = arguments->slots[0];
-  // 678: 'Æ' = "AE"
+  // 678: 'Ç' = "C"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__198;
+  arguments->slots[0] = character__199;
   arguments->slots[1] = string__93_77;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4171,10 +4167,10 @@ static void cont__93_78(void) {
     return;
   }
   temp__39 = arguments->slots[0];
-  // 679: 'Ç' = "C"
+  // 679: 'È' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__199;
+  arguments->slots[0] = character__200;
   arguments->slots[1] = string__93_79;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4187,10 +4183,10 @@ static void cont__93_80(void) {
     return;
   }
   temp__40 = arguments->slots[0];
-  // 680: 'È' = "E"
+  // 680: 'É' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__200;
+  arguments->slots[0] = character__201;
   arguments->slots[1] = string__93_81;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4203,10 +4199,10 @@ static void cont__93_82(void) {
     return;
   }
   temp__41 = arguments->slots[0];
-  // 681: 'É' = "E"
+  // 681: 'Ê' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__201;
+  arguments->slots[0] = character__202;
   arguments->slots[1] = string__93_83;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4219,10 +4215,10 @@ static void cont__93_84(void) {
     return;
   }
   temp__42 = arguments->slots[0];
-  // 682: 'Ê' = "E"
+  // 682: 'Ë' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__202;
+  arguments->slots[0] = character__203;
   arguments->slots[1] = string__93_85;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4235,10 +4231,10 @@ static void cont__93_86(void) {
     return;
   }
   temp__43 = arguments->slots[0];
-  // 683: 'Ë' = "E"
+  // 683: 'Ì' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__203;
+  arguments->slots[0] = character__204;
   arguments->slots[1] = string__93_87;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4251,10 +4247,10 @@ static void cont__93_88(void) {
     return;
   }
   temp__44 = arguments->slots[0];
-  // 684: 'Ì' = "I"
+  // 684: 'Í' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__204;
+  arguments->slots[0] = character__205;
   arguments->slots[1] = string__93_89;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4267,10 +4263,10 @@ static void cont__93_90(void) {
     return;
   }
   temp__45 = arguments->slots[0];
-  // 685: 'Í' = "I"
+  // 685: 'Î' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__205;
+  arguments->slots[0] = character__206;
   arguments->slots[1] = string__93_91;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4283,10 +4279,10 @@ static void cont__93_92(void) {
     return;
   }
   temp__46 = arguments->slots[0];
-  // 686: 'Î' = "I"
+  // 686: 'Ï' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__206;
+  arguments->slots[0] = character__207;
   arguments->slots[1] = string__93_93;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4299,10 +4295,10 @@ static void cont__93_94(void) {
     return;
   }
   temp__47 = arguments->slots[0];
-  // 687: 'Ï' = "I"
+  // 687: 'Ð' = "D"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__207;
+  arguments->slots[0] = character__208;
   arguments->slots[1] = string__93_95;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4315,10 +4311,10 @@ static void cont__93_96(void) {
     return;
   }
   temp__48 = arguments->slots[0];
-  // 688: 'Ð' = "D"
+  // 688: 'Ñ' = "N"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__208;
+  arguments->slots[0] = character__209;
   arguments->slots[1] = string__93_97;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4331,10 +4327,10 @@ static void cont__93_98(void) {
     return;
   }
   temp__49 = arguments->slots[0];
-  // 689: 'Ñ' = "N"
+  // 689: 'Ò' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__209;
+  arguments->slots[0] = character__210;
   arguments->slots[1] = string__93_99;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4347,10 +4343,10 @@ static void cont__93_100(void) {
     return;
   }
   temp__50 = arguments->slots[0];
-  // 690: 'Ò' = "O"
+  // 690: 'Ó' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__210;
+  arguments->slots[0] = character__211;
   arguments->slots[1] = string__93_101;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4363,10 +4359,10 @@ static void cont__93_102(void) {
     return;
   }
   temp__51 = arguments->slots[0];
-  // 691: 'Ó' = "O"
+  // 691: 'Ô' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__211;
+  arguments->slots[0] = character__212;
   arguments->slots[1] = string__93_103;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4379,10 +4375,10 @@ static void cont__93_104(void) {
     return;
   }
   temp__52 = arguments->slots[0];
-  // 692: 'Ô' = "O"
+  // 692: 'Õ' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__212;
+  arguments->slots[0] = character__213;
   arguments->slots[1] = string__93_105;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4395,10 +4391,10 @@ static void cont__93_106(void) {
     return;
   }
   temp__53 = arguments->slots[0];
-  // 693: 'Õ' = "O"
+  // 693: 'Ö' = "Oe"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__213;
+  arguments->slots[0] = character__214;
   arguments->slots[1] = string__93_107;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4411,10 +4407,10 @@ static void cont__93_108(void) {
     return;
   }
   temp__54 = arguments->slots[0];
-  // 694: 'Ö' = "Oe"
+  // 694: '×' = "x"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__214;
+  arguments->slots[0] = character__215;
   arguments->slots[1] = string__93_109;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4427,10 +4423,10 @@ static void cont__93_110(void) {
     return;
   }
   temp__55 = arguments->slots[0];
-  // 695: '×' = "x"
+  // 695: 'Ø' = "0"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__215;
+  arguments->slots[0] = character__216;
   arguments->slots[1] = string__93_111;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4443,10 +4439,10 @@ static void cont__93_112(void) {
     return;
   }
   temp__56 = arguments->slots[0];
-  // 696: 'Ø' = "0"
+  // 696: 'Ù' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__216;
+  arguments->slots[0] = character__217;
   arguments->slots[1] = string__93_113;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4459,10 +4455,10 @@ static void cont__93_114(void) {
     return;
   }
   temp__57 = arguments->slots[0];
-  // 697: 'Ù' = "U"
+  // 697: 'Ú' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__217;
+  arguments->slots[0] = character__218;
   arguments->slots[1] = string__93_115;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4475,10 +4471,10 @@ static void cont__93_116(void) {
     return;
   }
   temp__58 = arguments->slots[0];
-  // 698: 'Ú' = "U"
+  // 698: 'Û' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__218;
+  arguments->slots[0] = character__219;
   arguments->slots[1] = string__93_117;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4491,10 +4487,10 @@ static void cont__93_118(void) {
     return;
   }
   temp__59 = arguments->slots[0];
-  // 699: 'Û' = "U"
+  // 699: 'Ü' = "Ue"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__219;
+  arguments->slots[0] = character__220;
   arguments->slots[1] = string__93_119;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4507,10 +4503,10 @@ static void cont__93_120(void) {
     return;
   }
   temp__60 = arguments->slots[0];
-  // 700: 'Ü' = "Ue"
+  // 700: 'Ý' = "Y"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__220;
+  arguments->slots[0] = character__221;
   arguments->slots[1] = string__93_121;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4523,10 +4519,10 @@ static void cont__93_122(void) {
     return;
   }
   temp__61 = arguments->slots[0];
-  // 701: 'Ý' = "Y"
+  // 701: 'Þ' = "p"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__221;
+  arguments->slots[0] = character__222;
   arguments->slots[1] = string__93_123;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4539,10 +4535,10 @@ static void cont__93_124(void) {
     return;
   }
   temp__62 = arguments->slots[0];
-  // 702: 'Þ' = "p"
+  // 702: 'ß' = "ss"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__222;
+  arguments->slots[0] = character__223;
   arguments->slots[1] = string__93_125;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4555,10 +4551,10 @@ static void cont__93_126(void) {
     return;
   }
   temp__63 = arguments->slots[0];
-  // 703: 'ß' = "ss"
+  // 703: 'à' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__223;
+  arguments->slots[0] = character__224;
   arguments->slots[1] = string__93_127;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4571,10 +4567,10 @@ static void cont__93_128(void) {
     return;
   }
   temp__64 = arguments->slots[0];
-  // 704: 'à' = "a"
+  // 704: 'á' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__224;
+  arguments->slots[0] = character__225;
   arguments->slots[1] = string__93_129;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4587,10 +4583,10 @@ static void cont__93_130(void) {
     return;
   }
   temp__65 = arguments->slots[0];
-  // 705: 'á' = "a"
+  // 705: 'â' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__225;
+  arguments->slots[0] = character__226;
   arguments->slots[1] = string__93_131;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4603,10 +4599,10 @@ static void cont__93_132(void) {
     return;
   }
   temp__66 = arguments->slots[0];
-  // 706: 'â' = "a"
+  // 706: 'ã' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__226;
+  arguments->slots[0] = character__227;
   arguments->slots[1] = string__93_133;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4619,10 +4615,10 @@ static void cont__93_134(void) {
     return;
   }
   temp__67 = arguments->slots[0];
-  // 707: 'ã' = "a"
+  // 707: 'ä' = "ae"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__227;
+  arguments->slots[0] = character__228;
   arguments->slots[1] = string__93_135;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4635,10 +4631,10 @@ static void cont__93_136(void) {
     return;
   }
   temp__68 = arguments->slots[0];
-  // 708: 'ä' = "ae"
+  // 708: 'å' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__228;
+  arguments->slots[0] = character__229;
   arguments->slots[1] = string__93_137;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4651,10 +4647,10 @@ static void cont__93_138(void) {
     return;
   }
   temp__69 = arguments->slots[0];
-  // 709: 'å' = "a"
+  // 709: 'æ' = "ae"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__229;
+  arguments->slots[0] = character__230;
   arguments->slots[1] = string__93_139;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4667,10 +4663,10 @@ static void cont__93_140(void) {
     return;
   }
   temp__70 = arguments->slots[0];
-  // 710: 'æ' = "ae"
+  // 710: 'ç' = "c"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__230;
+  arguments->slots[0] = character__231;
   arguments->slots[1] = string__93_141;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4683,10 +4679,10 @@ static void cont__93_142(void) {
     return;
   }
   temp__71 = arguments->slots[0];
-  // 711: 'ç' = "c"
+  // 711: 'è' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__231;
+  arguments->slots[0] = character__232;
   arguments->slots[1] = string__93_143;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4699,10 +4695,10 @@ static void cont__93_144(void) {
     return;
   }
   temp__72 = arguments->slots[0];
-  // 712: 'è' = "e"
+  // 712: 'é' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__232;
+  arguments->slots[0] = character__233;
   arguments->slots[1] = string__93_145;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4715,10 +4711,10 @@ static void cont__93_146(void) {
     return;
   }
   temp__73 = arguments->slots[0];
-  // 713: 'é' = "e"
+  // 713: 'ê' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__233;
+  arguments->slots[0] = character__234;
   arguments->slots[1] = string__93_147;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4731,10 +4727,10 @@ static void cont__93_148(void) {
     return;
   }
   temp__74 = arguments->slots[0];
-  // 714: 'ê' = "e"
+  // 714: 'ë' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__234;
+  arguments->slots[0] = character__235;
   arguments->slots[1] = string__93_149;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4747,10 +4743,10 @@ static void cont__93_150(void) {
     return;
   }
   temp__75 = arguments->slots[0];
-  // 715: 'ë' = "e"
+  // 715: 'ì' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__235;
+  arguments->slots[0] = character__236;
   arguments->slots[1] = string__93_151;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4763,10 +4759,10 @@ static void cont__93_152(void) {
     return;
   }
   temp__76 = arguments->slots[0];
-  // 716: 'ì' = "i"
+  // 716: 'í' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__236;
+  arguments->slots[0] = character__237;
   arguments->slots[1] = string__93_153;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4779,10 +4775,10 @@ static void cont__93_154(void) {
     return;
   }
   temp__77 = arguments->slots[0];
-  // 717: 'í' = "i"
+  // 717: 'î' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__237;
+  arguments->slots[0] = character__238;
   arguments->slots[1] = string__93_155;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4795,10 +4791,10 @@ static void cont__93_156(void) {
     return;
   }
   temp__78 = arguments->slots[0];
-  // 718: 'î' = "i"
+  // 718: 'ï' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__238;
+  arguments->slots[0] = character__239;
   arguments->slots[1] = string__93_157;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4811,10 +4807,10 @@ static void cont__93_158(void) {
     return;
   }
   temp__79 = arguments->slots[0];
-  // 719: 'ï' = "i"
+  // 719: 'ð' = "d"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__239;
+  arguments->slots[0] = character__240;
   arguments->slots[1] = string__93_159;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4827,10 +4823,10 @@ static void cont__93_160(void) {
     return;
   }
   temp__80 = arguments->slots[0];
-  // 720: 'ð' = "d"
+  // 720: 'ñ' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__240;
+  arguments->slots[0] = character__241;
   arguments->slots[1] = string__93_161;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4843,10 +4839,10 @@ static void cont__93_162(void) {
     return;
   }
   temp__81 = arguments->slots[0];
-  // 721: 'ñ' = "n"
+  // 721: 'ò' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__241;
+  arguments->slots[0] = character__242;
   arguments->slots[1] = string__93_163;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4859,10 +4855,10 @@ static void cont__93_164(void) {
     return;
   }
   temp__82 = arguments->slots[0];
-  // 722: 'ò' = "o"
+  // 722: 'ó' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__242;
+  arguments->slots[0] = character__243;
   arguments->slots[1] = string__93_165;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4875,10 +4871,10 @@ static void cont__93_166(void) {
     return;
   }
   temp__83 = arguments->slots[0];
-  // 723: 'ó' = "o"
+  // 723: 'ô' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__243;
+  arguments->slots[0] = character__244;
   arguments->slots[1] = string__93_167;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4891,10 +4887,10 @@ static void cont__93_168(void) {
     return;
   }
   temp__84 = arguments->slots[0];
-  // 724: 'ô' = "o"
+  // 724: 'õ' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__244;
+  arguments->slots[0] = character__245;
   arguments->slots[1] = string__93_169;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4907,10 +4903,10 @@ static void cont__93_170(void) {
     return;
   }
   temp__85 = arguments->slots[0];
-  // 725: 'õ' = "o"
+  // 725: 'ö' = "oe"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__245;
+  arguments->slots[0] = character__246;
   arguments->slots[1] = string__93_171;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4923,10 +4919,10 @@ static void cont__93_172(void) {
     return;
   }
   temp__86 = arguments->slots[0];
-  // 726: 'ö' = "oe"
+  // 726: '÷' = "/"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__246;
+  arguments->slots[0] = character__247;
   arguments->slots[1] = string__93_173;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4939,10 +4935,10 @@ static void cont__93_174(void) {
     return;
   }
   temp__87 = arguments->slots[0];
-  // 727: '÷' = "/"
+  // 727: 'ø' = "0"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__247;
+  arguments->slots[0] = character__248;
   arguments->slots[1] = string__93_175;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4955,10 +4951,10 @@ static void cont__93_176(void) {
     return;
   }
   temp__88 = arguments->slots[0];
-  // 728: 'ø' = "0"
+  // 728: 'ù' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__248;
+  arguments->slots[0] = character__249;
   arguments->slots[1] = string__93_177;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4971,10 +4967,10 @@ static void cont__93_178(void) {
     return;
   }
   temp__89 = arguments->slots[0];
-  // 729: 'ù' = "u"
+  // 729: 'ú' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__249;
+  arguments->slots[0] = character__250;
   arguments->slots[1] = string__93_179;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4987,10 +4983,10 @@ static void cont__93_180(void) {
     return;
   }
   temp__90 = arguments->slots[0];
-  // 730: 'ú' = "u"
+  // 730: 'û' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__250;
+  arguments->slots[0] = character__251;
   arguments->slots[1] = string__93_181;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5003,10 +4999,10 @@ static void cont__93_182(void) {
     return;
   }
   temp__91 = arguments->slots[0];
-  // 731: 'û' = "u"
+  // 731: 'ü' = "ue"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__251;
+  arguments->slots[0] = character__252;
   arguments->slots[1] = string__93_183;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5019,10 +5015,10 @@ static void cont__93_184(void) {
     return;
   }
   temp__92 = arguments->slots[0];
-  // 732: 'ü' = "ue"
+  // 732: 'ý' = "y"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__252;
+  arguments->slots[0] = character__253;
   arguments->slots[1] = string__93_185;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5035,10 +5031,10 @@ static void cont__93_186(void) {
     return;
   }
   temp__93 = arguments->slots[0];
-  // 733: 'ý' = "y"
+  // 733: 'þ' = "p"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__253;
+  arguments->slots[0] = character__254;
   arguments->slots[1] = string__93_187;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5051,10 +5047,10 @@ static void cont__93_188(void) {
     return;
   }
   temp__94 = arguments->slots[0];
-  // 734: 'þ' = "p"
+  // 734: 'ÿ' = "y"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__254;
+  arguments->slots[0] = character__255;
   arguments->slots[1] = string__93_189;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5067,10 +5063,10 @@ static void cont__93_190(void) {
     return;
   }
   temp__95 = arguments->slots[0];
-  // 735: 'ÿ' = "y"
+  // 735: 'Ā' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__255;
+  arguments->slots[0] = character__256;
   arguments->slots[1] = string__93_191;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5083,10 +5079,10 @@ static void cont__93_192(void) {
     return;
   }
   temp__96 = arguments->slots[0];
-  // 736: 'Ā' = "A"
+  // 736: 'ā' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__256;
+  arguments->slots[0] = character__257;
   arguments->slots[1] = string__93_193;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5099,10 +5095,10 @@ static void cont__93_194(void) {
     return;
   }
   temp__97 = arguments->slots[0];
-  // 737: 'ā' = "a"
+  // 737: 'Ă' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__257;
+  arguments->slots[0] = character__258;
   arguments->slots[1] = string__93_195;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5115,10 +5111,10 @@ static void cont__93_196(void) {
     return;
   }
   temp__98 = arguments->slots[0];
-  // 738: 'Ă' = "A"
+  // 738: 'ă' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__258;
+  arguments->slots[0] = character__259;
   arguments->slots[1] = string__93_197;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5131,10 +5127,10 @@ static void cont__93_198(void) {
     return;
   }
   temp__99 = arguments->slots[0];
-  // 739: 'ă' = "a"
+  // 739: 'Ą' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__259;
+  arguments->slots[0] = character__260;
   arguments->slots[1] = string__93_199;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5147,10 +5143,10 @@ static void cont__93_200(void) {
     return;
   }
   temp__100 = arguments->slots[0];
-  // 740: 'Ą' = "A"
+  // 740: 'ą' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__260;
+  arguments->slots[0] = character__261;
   arguments->slots[1] = string__93_201;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5163,10 +5159,10 @@ static void cont__93_202(void) {
     return;
   }
   temp__101 = arguments->slots[0];
-  // 741: 'ą' = "a"
+  // 741: 'Ć' = "C"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__261;
+  arguments->slots[0] = character__262;
   arguments->slots[1] = string__93_203;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5179,10 +5175,10 @@ static void cont__93_204(void) {
     return;
   }
   temp__102 = arguments->slots[0];
-  // 742: 'Ć' = "C"
+  // 742: 'ć' = "c"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__262;
+  arguments->slots[0] = character__263;
   arguments->slots[1] = string__93_205;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5195,10 +5191,10 @@ static void cont__93_206(void) {
     return;
   }
   temp__103 = arguments->slots[0];
-  // 743: 'ć' = "c"
+  // 743: 'Ĉ' = "C"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__263;
+  arguments->slots[0] = character__264;
   arguments->slots[1] = string__93_207;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5211,10 +5207,10 @@ static void cont__93_208(void) {
     return;
   }
   temp__104 = arguments->slots[0];
-  // 744: 'Ĉ' = "C"
+  // 744: 'ĉ' = "c"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__264;
+  arguments->slots[0] = character__265;
   arguments->slots[1] = string__93_209;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5227,10 +5223,10 @@ static void cont__93_210(void) {
     return;
   }
   temp__105 = arguments->slots[0];
-  // 745: 'ĉ' = "c"
+  // 745: 'Ċ' = "C"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__265;
+  arguments->slots[0] = character__266;
   arguments->slots[1] = string__93_211;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5243,10 +5239,10 @@ static void cont__93_212(void) {
     return;
   }
   temp__106 = arguments->slots[0];
-  // 746: 'Ċ' = "C"
+  // 746: 'ċ' = "c"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__266;
+  arguments->slots[0] = character__267;
   arguments->slots[1] = string__93_213;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5259,10 +5255,10 @@ static void cont__93_214(void) {
     return;
   }
   temp__107 = arguments->slots[0];
-  // 747: 'ċ' = "c"
+  // 747: 'Č' = "C"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__267;
+  arguments->slots[0] = character__268;
   arguments->slots[1] = string__93_215;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5275,10 +5271,10 @@ static void cont__93_216(void) {
     return;
   }
   temp__108 = arguments->slots[0];
-  // 748: 'Č' = "C"
+  // 748: 'č' = "c"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__268;
+  arguments->slots[0] = character__269;
   arguments->slots[1] = string__93_217;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5291,10 +5287,10 @@ static void cont__93_218(void) {
     return;
   }
   temp__109 = arguments->slots[0];
-  // 749: 'č' = "c"
+  // 749: 'Ď' = "D"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__269;
+  arguments->slots[0] = character__270;
   arguments->slots[1] = string__93_219;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5307,10 +5303,10 @@ static void cont__93_220(void) {
     return;
   }
   temp__110 = arguments->slots[0];
-  // 750: 'Ď' = "D"
+  // 750: 'ď' = "d"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__270;
+  arguments->slots[0] = character__271;
   arguments->slots[1] = string__93_221;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5323,10 +5319,10 @@ static void cont__93_222(void) {
     return;
   }
   temp__111 = arguments->slots[0];
-  // 751: 'ď' = "d"
+  // 751: 'Đ' = "D"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__271;
+  arguments->slots[0] = character__272;
   arguments->slots[1] = string__93_223;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5339,10 +5335,10 @@ static void cont__93_224(void) {
     return;
   }
   temp__112 = arguments->slots[0];
-  // 752: 'Đ' = "D"
+  // 752: 'đ' = "d"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__272;
+  arguments->slots[0] = character__273;
   arguments->slots[1] = string__93_225;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5355,10 +5351,10 @@ static void cont__93_226(void) {
     return;
   }
   temp__113 = arguments->slots[0];
-  // 753: 'đ' = "d"
+  // 753: 'Ē' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__273;
+  arguments->slots[0] = character__274;
   arguments->slots[1] = string__93_227;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5371,10 +5367,10 @@ static void cont__93_228(void) {
     return;
   }
   temp__114 = arguments->slots[0];
-  // 754: 'Ē' = "E"
+  // 754: 'ē' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__274;
+  arguments->slots[0] = character__275;
   arguments->slots[1] = string__93_229;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5387,10 +5383,10 @@ static void cont__93_230(void) {
     return;
   }
   temp__115 = arguments->slots[0];
-  // 755: 'ē' = "e"
+  // 755: 'Ĕ' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__275;
+  arguments->slots[0] = character__276;
   arguments->slots[1] = string__93_231;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5403,10 +5399,10 @@ static void cont__93_232(void) {
     return;
   }
   temp__116 = arguments->slots[0];
-  // 756: 'Ĕ' = "E"
+  // 756: 'ĕ' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__276;
+  arguments->slots[0] = character__277;
   arguments->slots[1] = string__93_233;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5419,10 +5415,10 @@ static void cont__93_234(void) {
     return;
   }
   temp__117 = arguments->slots[0];
-  // 757: 'ĕ' = "e"
+  // 757: 'Ė' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__277;
+  arguments->slots[0] = character__278;
   arguments->slots[1] = string__93_235;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5435,10 +5431,10 @@ static void cont__93_236(void) {
     return;
   }
   temp__118 = arguments->slots[0];
-  // 758: 'Ė' = "E"
+  // 758: 'ė' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__278;
+  arguments->slots[0] = character__279;
   arguments->slots[1] = string__93_237;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5451,10 +5447,10 @@ static void cont__93_238(void) {
     return;
   }
   temp__119 = arguments->slots[0];
-  // 759: 'ė' = "e"
+  // 759: 'Ę' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__279;
+  arguments->slots[0] = character__280;
   arguments->slots[1] = string__93_239;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5467,10 +5463,10 @@ static void cont__93_240(void) {
     return;
   }
   temp__120 = arguments->slots[0];
-  // 760: 'Ę' = "E"
+  // 760: 'ę' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__280;
+  arguments->slots[0] = character__281;
   arguments->slots[1] = string__93_241;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5483,10 +5479,10 @@ static void cont__93_242(void) {
     return;
   }
   temp__121 = arguments->slots[0];
-  // 761: 'ę' = "e"
+  // 761: 'Ě' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__281;
+  arguments->slots[0] = character__282;
   arguments->slots[1] = string__93_243;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5499,10 +5495,10 @@ static void cont__93_244(void) {
     return;
   }
   temp__122 = arguments->slots[0];
-  // 762: 'Ě' = "E"
+  // 762: 'ě' = "e"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__282;
+  arguments->slots[0] = character__283;
   arguments->slots[1] = string__93_245;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5515,10 +5511,10 @@ static void cont__93_246(void) {
     return;
   }
   temp__123 = arguments->slots[0];
-  // 763: 'ě' = "e"
+  // 763: 'Ĝ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__283;
+  arguments->slots[0] = character__284;
   arguments->slots[1] = string__93_247;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5531,10 +5527,10 @@ static void cont__93_248(void) {
     return;
   }
   temp__124 = arguments->slots[0];
-  // 764: 'Ĝ' = "G"
+  // 764: 'ĝ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__284;
+  arguments->slots[0] = character__285;
   arguments->slots[1] = string__93_249;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5547,10 +5543,10 @@ static void cont__93_250(void) {
     return;
   }
   temp__125 = arguments->slots[0];
-  // 765: 'ĝ' = "g"
+  // 765: 'Ğ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__285;
+  arguments->slots[0] = character__286;
   arguments->slots[1] = string__93_251;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5563,10 +5559,10 @@ static void cont__93_252(void) {
     return;
   }
   temp__126 = arguments->slots[0];
-  // 766: 'Ğ' = "G"
+  // 766: 'ğ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__286;
+  arguments->slots[0] = character__287;
   arguments->slots[1] = string__93_253;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5579,10 +5575,10 @@ static void cont__93_254(void) {
     return;
   }
   temp__127 = arguments->slots[0];
-  // 767: 'ğ' = "g"
+  // 767: 'Ġ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__287;
+  arguments->slots[0] = character__288;
   arguments->slots[1] = string__93_255;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5595,10 +5591,10 @@ static void cont__93_256(void) {
     return;
   }
   temp__128 = arguments->slots[0];
-  // 768: 'Ġ' = "G"
+  // 768: 'ġ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__288;
+  arguments->slots[0] = character__289;
   arguments->slots[1] = string__93_257;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5611,10 +5607,10 @@ static void cont__93_258(void) {
     return;
   }
   temp__129 = arguments->slots[0];
-  // 769: 'ġ' = "g"
+  // 769: 'Ģ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__289;
+  arguments->slots[0] = character__290;
   arguments->slots[1] = string__93_259;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5627,10 +5623,10 @@ static void cont__93_260(void) {
     return;
   }
   temp__130 = arguments->slots[0];
-  // 770: 'Ģ' = "G"
+  // 770: 'ģ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__290;
+  arguments->slots[0] = character__291;
   arguments->slots[1] = string__93_261;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5643,10 +5639,10 @@ static void cont__93_262(void) {
     return;
   }
   temp__131 = arguments->slots[0];
-  // 771: 'ģ' = "g"
+  // 771: 'Ĥ' = "H"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__291;
+  arguments->slots[0] = character__292;
   arguments->slots[1] = string__93_263;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5659,10 +5655,10 @@ static void cont__93_264(void) {
     return;
   }
   temp__132 = arguments->slots[0];
-  // 772: 'Ĥ' = "H"
+  // 772: 'ĥ' = "h"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__292;
+  arguments->slots[0] = character__293;
   arguments->slots[1] = string__93_265;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5675,10 +5671,10 @@ static void cont__93_266(void) {
     return;
   }
   temp__133 = arguments->slots[0];
-  // 773: 'ĥ' = "h"
+  // 773: 'Ħ' = "H"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__293;
+  arguments->slots[0] = character__294;
   arguments->slots[1] = string__93_267;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5691,10 +5687,10 @@ static void cont__93_268(void) {
     return;
   }
   temp__134 = arguments->slots[0];
-  // 774: 'Ħ' = "H"
+  // 774: 'ħ' = "h"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__294;
+  arguments->slots[0] = character__295;
   arguments->slots[1] = string__93_269;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5707,10 +5703,10 @@ static void cont__93_270(void) {
     return;
   }
   temp__135 = arguments->slots[0];
-  // 775: 'ħ' = "h"
+  // 775: 'Ĩ' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__295;
+  arguments->slots[0] = character__296;
   arguments->slots[1] = string__93_271;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5723,10 +5719,10 @@ static void cont__93_272(void) {
     return;
   }
   temp__136 = arguments->slots[0];
-  // 776: 'Ĩ' = "I"
+  // 776: 'ĩ' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__296;
+  arguments->slots[0] = character__297;
   arguments->slots[1] = string__93_273;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5739,10 +5735,10 @@ static void cont__93_274(void) {
     return;
   }
   temp__137 = arguments->slots[0];
-  // 777: 'ĩ' = "i"
+  // 777: 'Ī' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__297;
+  arguments->slots[0] = character__298;
   arguments->slots[1] = string__93_275;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5755,10 +5751,10 @@ static void cont__93_276(void) {
     return;
   }
   temp__138 = arguments->slots[0];
-  // 778: 'Ī' = "I"
+  // 778: 'ī' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__298;
+  arguments->slots[0] = character__299;
   arguments->slots[1] = string__93_277;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5771,10 +5767,10 @@ static void cont__93_278(void) {
     return;
   }
   temp__139 = arguments->slots[0];
-  // 779: 'ī' = "i"
+  // 779: 'Ĭ' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__299;
+  arguments->slots[0] = character__300;
   arguments->slots[1] = string__93_279;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5787,10 +5783,10 @@ static void cont__93_280(void) {
     return;
   }
   temp__140 = arguments->slots[0];
-  // 780: 'Ĭ' = "I"
+  // 780: 'ĭ' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__300;
+  arguments->slots[0] = character__301;
   arguments->slots[1] = string__93_281;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5803,10 +5799,10 @@ static void cont__93_282(void) {
     return;
   }
   temp__141 = arguments->slots[0];
-  // 781: 'ĭ' = "i"
+  // 781: 'Į' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__301;
+  arguments->slots[0] = character__302;
   arguments->slots[1] = string__93_283;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5819,10 +5815,10 @@ static void cont__93_284(void) {
     return;
   }
   temp__142 = arguments->slots[0];
-  // 782: 'Į' = "I"
+  // 782: 'į' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__302;
+  arguments->slots[0] = character__303;
   arguments->slots[1] = string__93_285;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5835,10 +5831,10 @@ static void cont__93_286(void) {
     return;
   }
   temp__143 = arguments->slots[0];
-  // 783: 'į' = "i"
+  // 783: 'İ' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__303;
+  arguments->slots[0] = character__304;
   arguments->slots[1] = string__93_287;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5851,10 +5847,10 @@ static void cont__93_288(void) {
     return;
   }
   temp__144 = arguments->slots[0];
-  // 784: 'İ' = "I"
+  // 784: 'ı' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__304;
+  arguments->slots[0] = character__305;
   arguments->slots[1] = string__93_289;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5867,10 +5863,10 @@ static void cont__93_290(void) {
     return;
   }
   temp__145 = arguments->slots[0];
-  // 785: 'ı' = "i"
+  // 785: 'Ĳ' = "IJ"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__305;
+  arguments->slots[0] = character__306;
   arguments->slots[1] = string__93_291;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5883,10 +5879,10 @@ static void cont__93_292(void) {
     return;
   }
   temp__146 = arguments->slots[0];
-  // 786: 'Ĳ' = "IJ"
+  // 786: 'ĳ' = "ij"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__306;
+  arguments->slots[0] = character__307;
   arguments->slots[1] = string__93_293;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5899,10 +5895,10 @@ static void cont__93_294(void) {
     return;
   }
   temp__147 = arguments->slots[0];
-  // 787: 'ĳ' = "ij"
+  // 787: 'Ĵ' = "J"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__307;
+  arguments->slots[0] = character__308;
   arguments->slots[1] = string__93_295;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5915,10 +5911,10 @@ static void cont__93_296(void) {
     return;
   }
   temp__148 = arguments->slots[0];
-  // 788: 'Ĵ' = "J"
+  // 788: 'ĵ' = "j"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__308;
+  arguments->slots[0] = character__309;
   arguments->slots[1] = string__93_297;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5931,10 +5927,10 @@ static void cont__93_298(void) {
     return;
   }
   temp__149 = arguments->slots[0];
-  // 789: 'ĵ' = "j"
+  // 789: 'Ķ' = "K"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__309;
+  arguments->slots[0] = character__310;
   arguments->slots[1] = string__93_299;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5947,10 +5943,10 @@ static void cont__93_300(void) {
     return;
   }
   temp__150 = arguments->slots[0];
-  // 790: 'Ķ' = "K"
+  // 790: 'ķ' = "k"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__310;
+  arguments->slots[0] = character__311;
   arguments->slots[1] = string__93_301;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5963,10 +5959,10 @@ static void cont__93_302(void) {
     return;
   }
   temp__151 = arguments->slots[0];
-  // 791: 'ķ' = "k"
+  // 791: 'ĸ' = "k"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__311;
+  arguments->slots[0] = character__312;
   arguments->slots[1] = string__93_303;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5979,10 +5975,10 @@ static void cont__93_304(void) {
     return;
   }
   temp__152 = arguments->slots[0];
-  // 792: 'ĸ' = "k"
+  // 792: 'Ĺ' = "L"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__312;
+  arguments->slots[0] = character__313;
   arguments->slots[1] = string__93_305;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5995,10 +5991,10 @@ static void cont__93_306(void) {
     return;
   }
   temp__153 = arguments->slots[0];
-  // 793: 'Ĺ' = "L"
+  // 793: 'ĺ' = "l"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__313;
+  arguments->slots[0] = character__314;
   arguments->slots[1] = string__93_307;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6011,10 +6007,10 @@ static void cont__93_308(void) {
     return;
   }
   temp__154 = arguments->slots[0];
-  // 794: 'ĺ' = "l"
+  // 794: 'Ļ' = "L"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__314;
+  arguments->slots[0] = character__315;
   arguments->slots[1] = string__93_309;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6027,10 +6023,10 @@ static void cont__93_310(void) {
     return;
   }
   temp__155 = arguments->slots[0];
-  // 795: 'Ļ' = "L"
+  // 795: 'ļ' = "l"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__315;
+  arguments->slots[0] = character__316;
   arguments->slots[1] = string__93_311;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6043,10 +6039,10 @@ static void cont__93_312(void) {
     return;
   }
   temp__156 = arguments->slots[0];
-  // 796: 'ļ' = "l"
+  // 796: 'Ľ' = "L"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__316;
+  arguments->slots[0] = character__317;
   arguments->slots[1] = string__93_313;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6059,10 +6055,10 @@ static void cont__93_314(void) {
     return;
   }
   temp__157 = arguments->slots[0];
-  // 797: 'Ľ' = "L"
+  // 797: 'ľ' = "l"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__317;
+  arguments->slots[0] = character__318;
   arguments->slots[1] = string__93_315;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6075,10 +6071,10 @@ static void cont__93_316(void) {
     return;
   }
   temp__158 = arguments->slots[0];
-  // 798: 'ľ' = "l"
+  // 798: 'Ŀ' = "L"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__318;
+  arguments->slots[0] = character__319;
   arguments->slots[1] = string__93_317;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6091,10 +6087,10 @@ static void cont__93_318(void) {
     return;
   }
   temp__159 = arguments->slots[0];
-  // 799: 'Ŀ' = "L"
+  // 799: 'ŀ' = "l"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__319;
+  arguments->slots[0] = character__320;
   arguments->slots[1] = string__93_319;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6107,10 +6103,10 @@ static void cont__93_320(void) {
     return;
   }
   temp__160 = arguments->slots[0];
-  // 800: 'ŀ' = "l"
+  // 800: 'Ł' = "L"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__320;
+  arguments->slots[0] = character__321;
   arguments->slots[1] = string__93_321;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6123,10 +6119,10 @@ static void cont__93_322(void) {
     return;
   }
   temp__161 = arguments->slots[0];
-  // 801: 'Ł' = "L"
+  // 801: 'ł' = "l"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__321;
+  arguments->slots[0] = character__322;
   arguments->slots[1] = string__93_323;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6139,10 +6135,10 @@ static void cont__93_324(void) {
     return;
   }
   temp__162 = arguments->slots[0];
-  // 802: 'ł' = "l"
+  // 802: 'Ń' = "N"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__322;
+  arguments->slots[0] = character__323;
   arguments->slots[1] = string__93_325;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6155,10 +6151,10 @@ static void cont__93_326(void) {
     return;
   }
   temp__163 = arguments->slots[0];
-  // 803: 'Ń' = "N"
+  // 803: 'ń' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__323;
+  arguments->slots[0] = character__324;
   arguments->slots[1] = string__93_327;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6171,10 +6167,10 @@ static void cont__93_328(void) {
     return;
   }
   temp__164 = arguments->slots[0];
-  // 804: 'ń' = "n"
+  // 804: 'Ņ' = "N"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__324;
+  arguments->slots[0] = character__325;
   arguments->slots[1] = string__93_329;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6187,10 +6183,10 @@ static void cont__93_330(void) {
     return;
   }
   temp__165 = arguments->slots[0];
-  // 805: 'Ņ' = "N"
+  // 805: 'ņ' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__325;
+  arguments->slots[0] = character__326;
   arguments->slots[1] = string__93_331;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6203,10 +6199,10 @@ static void cont__93_332(void) {
     return;
   }
   temp__166 = arguments->slots[0];
-  // 806: 'ņ' = "n"
+  // 806: 'Ň' = "N"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__326;
+  arguments->slots[0] = character__327;
   arguments->slots[1] = string__93_333;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6219,10 +6215,10 @@ static void cont__93_334(void) {
     return;
   }
   temp__167 = arguments->slots[0];
-  // 807: 'Ň' = "N"
+  // 807: 'ň' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__327;
+  arguments->slots[0] = character__328;
   arguments->slots[1] = string__93_335;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6235,10 +6231,10 @@ static void cont__93_336(void) {
     return;
   }
   temp__168 = arguments->slots[0];
-  // 808: 'ň' = "n"
+  // 808: 'ŉ' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__328;
+  arguments->slots[0] = character__329;
   arguments->slots[1] = string__93_337;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6251,10 +6247,10 @@ static void cont__93_338(void) {
     return;
   }
   temp__169 = arguments->slots[0];
-  // 809: 'ŉ' = "n"
+  // 809: 'Ŋ' = "N"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__329;
+  arguments->slots[0] = character__330;
   arguments->slots[1] = string__93_339;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6267,10 +6263,10 @@ static void cont__93_340(void) {
     return;
   }
   temp__170 = arguments->slots[0];
-  // 810: 'Ŋ' = "N"
+  // 810: 'ŋ' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__330;
+  arguments->slots[0] = character__331;
   arguments->slots[1] = string__93_341;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6283,10 +6279,10 @@ static void cont__93_342(void) {
     return;
   }
   temp__171 = arguments->slots[0];
-  // 811: 'ŋ' = "n"
+  // 811: 'Ō' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__331;
+  arguments->slots[0] = character__332;
   arguments->slots[1] = string__93_343;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6299,10 +6295,10 @@ static void cont__93_344(void) {
     return;
   }
   temp__172 = arguments->slots[0];
-  // 812: 'Ō' = "O"
+  // 812: 'ō' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__332;
+  arguments->slots[0] = character__333;
   arguments->slots[1] = string__93_345;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6315,10 +6311,10 @@ static void cont__93_346(void) {
     return;
   }
   temp__173 = arguments->slots[0];
-  // 813: 'ō' = "o"
+  // 813: 'Ŏ' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__333;
+  arguments->slots[0] = character__334;
   arguments->slots[1] = string__93_347;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6331,10 +6327,10 @@ static void cont__93_348(void) {
     return;
   }
   temp__174 = arguments->slots[0];
-  // 814: 'Ŏ' = "O"
+  // 814: 'ŏ' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__334;
+  arguments->slots[0] = character__335;
   arguments->slots[1] = string__93_349;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6347,10 +6343,10 @@ static void cont__93_350(void) {
     return;
   }
   temp__175 = arguments->slots[0];
-  // 815: 'ŏ' = "o"
+  // 815: 'Ő' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__335;
+  arguments->slots[0] = character__336;
   arguments->slots[1] = string__93_351;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6363,10 +6359,10 @@ static void cont__93_352(void) {
     return;
   }
   temp__176 = arguments->slots[0];
-  // 816: 'Ő' = "O"
+  // 816: 'ő' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__336;
+  arguments->slots[0] = character__337;
   arguments->slots[1] = string__93_353;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6379,10 +6375,10 @@ static void cont__93_354(void) {
     return;
   }
   temp__177 = arguments->slots[0];
-  // 817: 'ő' = "O"
+  // 817: 'Œ' = "OE"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__337;
+  arguments->slots[0] = character__338;
   arguments->slots[1] = string__93_355;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6395,10 +6391,10 @@ static void cont__93_356(void) {
     return;
   }
   temp__178 = arguments->slots[0];
-  // 818: 'Œ' = "OE"
+  // 818: 'œ' = "oe"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__338;
+  arguments->slots[0] = character__339;
   arguments->slots[1] = string__93_357;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6411,10 +6407,10 @@ static void cont__93_358(void) {
     return;
   }
   temp__179 = arguments->slots[0];
-  // 819: 'œ' = "oe"
+  // 819: 'Ŕ' = "R"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__339;
+  arguments->slots[0] = character__340;
   arguments->slots[1] = string__93_359;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6427,10 +6423,10 @@ static void cont__93_360(void) {
     return;
   }
   temp__180 = arguments->slots[0];
-  // 820: 'Ŕ' = "R"
+  // 820: 'ŕ' = "r"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__340;
+  arguments->slots[0] = character__341;
   arguments->slots[1] = string__93_361;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6443,10 +6439,10 @@ static void cont__93_362(void) {
     return;
   }
   temp__181 = arguments->slots[0];
-  // 821: 'ŕ' = "r"
+  // 821: 'Ŗ' = "R"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__341;
+  arguments->slots[0] = character__342;
   arguments->slots[1] = string__93_363;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6459,10 +6455,10 @@ static void cont__93_364(void) {
     return;
   }
   temp__182 = arguments->slots[0];
-  // 822: 'Ŗ' = "R"
+  // 822: 'ŗ' = "r"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__342;
+  arguments->slots[0] = character__343;
   arguments->slots[1] = string__93_365;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6475,10 +6471,10 @@ static void cont__93_366(void) {
     return;
   }
   temp__183 = arguments->slots[0];
-  // 823: 'ŗ' = "r"
+  // 823: 'Ř' = "R"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__343;
+  arguments->slots[0] = character__344;
   arguments->slots[1] = string__93_367;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6491,10 +6487,10 @@ static void cont__93_368(void) {
     return;
   }
   temp__184 = arguments->slots[0];
-  // 824: 'Ř' = "R"
+  // 824: 'ř' = "r"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__344;
+  arguments->slots[0] = character__345;
   arguments->slots[1] = string__93_369;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6507,10 +6503,10 @@ static void cont__93_370(void) {
     return;
   }
   temp__185 = arguments->slots[0];
-  // 825: 'ř' = "r"
+  // 825: 'Ś' = "S"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__345;
+  arguments->slots[0] = character__346;
   arguments->slots[1] = string__93_371;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6523,10 +6519,10 @@ static void cont__93_372(void) {
     return;
   }
   temp__186 = arguments->slots[0];
-  // 826: 'Ś' = "S"
+  // 826: 'ś' = "s"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__346;
+  arguments->slots[0] = character__347;
   arguments->slots[1] = string__93_373;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6539,10 +6535,10 @@ static void cont__93_374(void) {
     return;
   }
   temp__187 = arguments->slots[0];
-  // 827: 'ś' = "s"
+  // 827: 'Ŝ' = "S"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__347;
+  arguments->slots[0] = character__348;
   arguments->slots[1] = string__93_375;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6555,10 +6551,10 @@ static void cont__93_376(void) {
     return;
   }
   temp__188 = arguments->slots[0];
-  // 828: 'Ŝ' = "S"
+  // 828: 'ŝ' = "s"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__348;
+  arguments->slots[0] = character__349;
   arguments->slots[1] = string__93_377;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6571,10 +6567,10 @@ static void cont__93_378(void) {
     return;
   }
   temp__189 = arguments->slots[0];
-  // 829: 'ŝ' = "s"
+  // 829: 'Ş' = "S"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__349;
+  arguments->slots[0] = character__350;
   arguments->slots[1] = string__93_379;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6587,10 +6583,10 @@ static void cont__93_380(void) {
     return;
   }
   temp__190 = arguments->slots[0];
-  // 830: 'Ş' = "S"
+  // 830: 'ş' = "s"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__350;
+  arguments->slots[0] = character__351;
   arguments->slots[1] = string__93_381;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6603,10 +6599,10 @@ static void cont__93_382(void) {
     return;
   }
   temp__191 = arguments->slots[0];
-  // 831: 'ş' = "s"
+  // 831: 'Š' = "S"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__351;
+  arguments->slots[0] = character__352;
   arguments->slots[1] = string__93_383;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6619,10 +6615,10 @@ static void cont__93_384(void) {
     return;
   }
   temp__192 = arguments->slots[0];
-  // 832: 'Š' = "S"
+  // 832: 'š' = "s"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__352;
+  arguments->slots[0] = character__353;
   arguments->slots[1] = string__93_385;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6635,10 +6631,10 @@ static void cont__93_386(void) {
     return;
   }
   temp__193 = arguments->slots[0];
-  // 833: 'š' = "s"
+  // 833: 'Ţ' = "T"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__353;
+  arguments->slots[0] = character__354;
   arguments->slots[1] = string__93_387;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6651,10 +6647,10 @@ static void cont__93_388(void) {
     return;
   }
   temp__194 = arguments->slots[0];
-  // 834: 'Ţ' = "T"
+  // 834: 'ţ' = "t"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__354;
+  arguments->slots[0] = character__355;
   arguments->slots[1] = string__93_389;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6667,10 +6663,10 @@ static void cont__93_390(void) {
     return;
   }
   temp__195 = arguments->slots[0];
-  // 835: 'ţ' = "t"
+  // 835: 'Ť' = "T"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__355;
+  arguments->slots[0] = character__356;
   arguments->slots[1] = string__93_391;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6683,10 +6679,10 @@ static void cont__93_392(void) {
     return;
   }
   temp__196 = arguments->slots[0];
-  // 836: 'Ť' = "T"
+  // 836: 'ť' = "t"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__356;
+  arguments->slots[0] = character__357;
   arguments->slots[1] = string__93_393;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6699,10 +6695,10 @@ static void cont__93_394(void) {
     return;
   }
   temp__197 = arguments->slots[0];
-  // 837: 'ť' = "t"
+  // 837: 'Ŧ' = "T"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__357;
+  arguments->slots[0] = character__358;
   arguments->slots[1] = string__93_395;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6715,10 +6711,10 @@ static void cont__93_396(void) {
     return;
   }
   temp__198 = arguments->slots[0];
-  // 838: 'Ŧ' = "T"
+  // 838: 'ŧ' = "t"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__358;
+  arguments->slots[0] = character__359;
   arguments->slots[1] = string__93_397;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6731,10 +6727,10 @@ static void cont__93_398(void) {
     return;
   }
   temp__199 = arguments->slots[0];
-  // 839: 'ŧ' = "t"
+  // 839: 'Ũ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__359;
+  arguments->slots[0] = character__360;
   arguments->slots[1] = string__93_399;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6747,10 +6743,10 @@ static void cont__93_400(void) {
     return;
   }
   temp__200 = arguments->slots[0];
-  // 840: 'Ũ' = "U"
+  // 840: 'ũ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__360;
+  arguments->slots[0] = character__361;
   arguments->slots[1] = string__93_401;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6763,10 +6759,10 @@ static void cont__93_402(void) {
     return;
   }
   temp__201 = arguments->slots[0];
-  // 841: 'ũ' = "u"
+  // 841: 'Ū' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__361;
+  arguments->slots[0] = character__362;
   arguments->slots[1] = string__93_403;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6779,10 +6775,10 @@ static void cont__93_404(void) {
     return;
   }
   temp__202 = arguments->slots[0];
-  // 842: 'Ū' = "U"
+  // 842: 'ū' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__362;
+  arguments->slots[0] = character__363;
   arguments->slots[1] = string__93_405;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6795,10 +6791,10 @@ static void cont__93_406(void) {
     return;
   }
   temp__203 = arguments->slots[0];
-  // 843: 'ū' = "u"
+  // 843: 'Ŭ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__363;
+  arguments->slots[0] = character__364;
   arguments->slots[1] = string__93_407;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6811,10 +6807,10 @@ static void cont__93_408(void) {
     return;
   }
   temp__204 = arguments->slots[0];
-  // 844: 'Ŭ' = "U"
+  // 844: 'ŭ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__364;
+  arguments->slots[0] = character__365;
   arguments->slots[1] = string__93_409;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6827,10 +6823,10 @@ static void cont__93_410(void) {
     return;
   }
   temp__205 = arguments->slots[0];
-  // 845: 'ŭ' = "u"
+  // 845: 'Ů' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__365;
+  arguments->slots[0] = character__366;
   arguments->slots[1] = string__93_411;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6843,10 +6839,10 @@ static void cont__93_412(void) {
     return;
   }
   temp__206 = arguments->slots[0];
-  // 846: 'Ů' = "U"
+  // 846: 'ů' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__366;
+  arguments->slots[0] = character__367;
   arguments->slots[1] = string__93_413;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6859,10 +6855,10 @@ static void cont__93_414(void) {
     return;
   }
   temp__207 = arguments->slots[0];
-  // 847: 'ů' = "u"
+  // 847: 'Ű' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__367;
+  arguments->slots[0] = character__368;
   arguments->slots[1] = string__93_415;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6875,10 +6871,10 @@ static void cont__93_416(void) {
     return;
   }
   temp__208 = arguments->slots[0];
-  // 848: 'Ű' = "U"
+  // 848: 'ű' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__368;
+  arguments->slots[0] = character__369;
   arguments->slots[1] = string__93_417;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6891,10 +6887,10 @@ static void cont__93_418(void) {
     return;
   }
   temp__209 = arguments->slots[0];
-  // 849: 'ű' = "u"
+  // 849: 'Ų' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__369;
+  arguments->slots[0] = character__370;
   arguments->slots[1] = string__93_419;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6907,10 +6903,10 @@ static void cont__93_420(void) {
     return;
   }
   temp__210 = arguments->slots[0];
-  // 850: 'Ų' = "U"
+  // 850: 'ų' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__370;
+  arguments->slots[0] = character__371;
   arguments->slots[1] = string__93_421;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6923,10 +6919,10 @@ static void cont__93_422(void) {
     return;
   }
   temp__211 = arguments->slots[0];
-  // 851: 'ų' = "u"
+  // 851: 'Ŵ' = "W"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__371;
+  arguments->slots[0] = character__372;
   arguments->slots[1] = string__93_423;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6939,10 +6935,10 @@ static void cont__93_424(void) {
     return;
   }
   temp__212 = arguments->slots[0];
-  // 852: 'Ŵ' = "W"
+  // 852: 'ŵ' = "w"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__372;
+  arguments->slots[0] = character__373;
   arguments->slots[1] = string__93_425;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6955,10 +6951,10 @@ static void cont__93_426(void) {
     return;
   }
   temp__213 = arguments->slots[0];
-  // 853: 'ŵ' = "w"
+  // 853: 'Ŷ' = "Y"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__373;
+  arguments->slots[0] = character__374;
   arguments->slots[1] = string__93_427;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6971,10 +6967,10 @@ static void cont__93_428(void) {
     return;
   }
   temp__214 = arguments->slots[0];
-  // 854: 'Ŷ' = "Y"
+  // 854: 'ŷ' = "y"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__374;
+  arguments->slots[0] = character__375;
   arguments->slots[1] = string__93_429;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -6987,10 +6983,10 @@ static void cont__93_430(void) {
     return;
   }
   temp__215 = arguments->slots[0];
-  // 855: 'ŷ' = "y"
+  // 855: 'Ÿ' = "Y"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__375;
+  arguments->slots[0] = character__376;
   arguments->slots[1] = string__93_431;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7003,10 +6999,10 @@ static void cont__93_432(void) {
     return;
   }
   temp__216 = arguments->slots[0];
-  // 856: 'Ÿ' = "Y"
+  // 856: 'Ź' = "Z"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__376;
+  arguments->slots[0] = character__377;
   arguments->slots[1] = string__93_433;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7019,10 +7015,10 @@ static void cont__93_434(void) {
     return;
   }
   temp__217 = arguments->slots[0];
-  // 857: 'Ź' = "Z"
+  // 857: 'ź' = "z"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__377;
+  arguments->slots[0] = character__378;
   arguments->slots[1] = string__93_435;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7035,10 +7031,10 @@ static void cont__93_436(void) {
     return;
   }
   temp__218 = arguments->slots[0];
-  // 858: 'ź' = "z"
+  // 858: 'Ż' = "Z"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__378;
+  arguments->slots[0] = character__379;
   arguments->slots[1] = string__93_437;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7051,10 +7047,10 @@ static void cont__93_438(void) {
     return;
   }
   temp__219 = arguments->slots[0];
-  // 859: 'Ż' = "Z"
+  // 859: 'ż' = "z"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__379;
+  arguments->slots[0] = character__380;
   arguments->slots[1] = string__93_439;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7067,10 +7063,10 @@ static void cont__93_440(void) {
     return;
   }
   temp__220 = arguments->slots[0];
-  // 860: 'ż' = "z"
+  // 860: 'Ž' = "Z"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__380;
+  arguments->slots[0] = character__381;
   arguments->slots[1] = string__93_441;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7083,10 +7079,10 @@ static void cont__93_442(void) {
     return;
   }
   temp__221 = arguments->slots[0];
-  // 861: 'Ž' = "Z"
+  // 861: 'ž' = "z"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__381;
+  arguments->slots[0] = character__382;
   arguments->slots[1] = string__93_443;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7099,10 +7095,10 @@ static void cont__93_444(void) {
     return;
   }
   temp__222 = arguments->slots[0];
-  // 862: 'ž' = "z"
+  // 862: 'ſ' = "s"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__382;
+  arguments->slots[0] = character__383;
   arguments->slots[1] = string__93_445;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7115,10 +7111,10 @@ static void cont__93_446(void) {
     return;
   }
   temp__223 = arguments->slots[0];
-  // 863: 'ſ' = "s"
+  // 863: 'ƀ' = "b"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__383;
+  arguments->slots[0] = character__384;
   arguments->slots[1] = string__93_447;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7131,10 +7127,10 @@ static void cont__93_448(void) {
     return;
   }
   temp__224 = arguments->slots[0];
-  // 864: 'ƀ' = "b"
+  // 864: 'Ɓ' = "B"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__384;
+  arguments->slots[0] = character__385;
   arguments->slots[1] = string__93_449;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7147,10 +7143,10 @@ static void cont__93_450(void) {
     return;
   }
   temp__225 = arguments->slots[0];
-  // 865: 'Ɓ' = "B"
+  // 865: 'Ƃ' = "B"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__385;
+  arguments->slots[0] = character__386;
   arguments->slots[1] = string__93_451;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7163,10 +7159,10 @@ static void cont__93_452(void) {
     return;
   }
   temp__226 = arguments->slots[0];
-  // 866: 'Ƃ' = "B"
+  // 866: 'ƃ' = "b"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__386;
+  arguments->slots[0] = character__387;
   arguments->slots[1] = string__93_453;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7179,10 +7175,10 @@ static void cont__93_454(void) {
     return;
   }
   temp__227 = arguments->slots[0];
-  // 867: 'ƃ' = "b"
+  // 867: 'Ƅ' = "b"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__387;
+  arguments->slots[0] = character__388;
   arguments->slots[1] = string__93_455;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7195,10 +7191,10 @@ static void cont__93_456(void) {
     return;
   }
   temp__228 = arguments->slots[0];
-  // 868: 'Ƅ' = "b"
+  // 868: 'ƅ' = "b"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__388;
+  arguments->slots[0] = character__389;
   arguments->slots[1] = string__93_457;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7211,10 +7207,10 @@ static void cont__93_458(void) {
     return;
   }
   temp__229 = arguments->slots[0];
-  // 869: 'ƅ' = "b"
+  // 869: 'Ƈ' = "C"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__389;
+  arguments->slots[0] = character__391;
   arguments->slots[1] = string__93_459;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7227,10 +7223,10 @@ static void cont__93_460(void) {
     return;
   }
   temp__230 = arguments->slots[0];
-  // 870: 'Ƈ' = "C"
+  // 870: 'ƈ' = "c"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__391;
+  arguments->slots[0] = character__392;
   arguments->slots[1] = string__93_461;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7243,10 +7239,10 @@ static void cont__93_462(void) {
     return;
   }
   temp__231 = arguments->slots[0];
-  // 871: 'ƈ' = "c"
+  // 871: 'Ɖ' = "D"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__392;
+  arguments->slots[0] = character__393;
   arguments->slots[1] = string__93_463;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7259,10 +7255,10 @@ static void cont__93_464(void) {
     return;
   }
   temp__232 = arguments->slots[0];
-  // 872: 'Ɖ' = "D"
+  // 872: 'Ɗ' = "D"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__393;
+  arguments->slots[0] = character__394;
   arguments->slots[1] = string__93_465;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7275,10 +7271,10 @@ static void cont__93_466(void) {
     return;
   }
   temp__233 = arguments->slots[0];
-  // 873: 'Ɗ' = "D"
+  // 873: 'Ƌ' = "D"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__394;
+  arguments->slots[0] = character__395;
   arguments->slots[1] = string__93_467;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7291,10 +7287,10 @@ static void cont__93_468(void) {
     return;
   }
   temp__234 = arguments->slots[0];
-  // 874: 'Ƌ' = "D"
+  // 874: 'ƌ' = "d"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__395;
+  arguments->slots[0] = character__396;
   arguments->slots[1] = string__93_469;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7307,10 +7303,10 @@ static void cont__93_470(void) {
     return;
   }
   temp__235 = arguments->slots[0];
-  // 875: 'ƌ' = "d"
+  // 875: 'ƍ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__396;
+  arguments->slots[0] = character__397;
   arguments->slots[1] = string__93_471;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7323,10 +7319,10 @@ static void cont__93_472(void) {
     return;
   }
   temp__236 = arguments->slots[0];
-  // 876: 'ƍ' = "g"
+  // 876: 'Ɛ' = "E"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__397;
+  arguments->slots[0] = character__400;
   arguments->slots[1] = string__93_473;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7339,10 +7335,10 @@ static void cont__93_474(void) {
     return;
   }
   temp__237 = arguments->slots[0];
-  // 877: 'Ɛ' = "E"
+  // 877: 'Ƒ' = "F"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__400;
+  arguments->slots[0] = character__401;
   arguments->slots[1] = string__93_475;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7355,10 +7351,10 @@ static void cont__93_476(void) {
     return;
   }
   temp__238 = arguments->slots[0];
-  // 878: 'Ƒ' = "F"
+  // 878: 'ƒ' = "f"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__401;
+  arguments->slots[0] = character__402;
   arguments->slots[1] = string__93_477;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7371,10 +7367,10 @@ static void cont__93_478(void) {
     return;
   }
   temp__239 = arguments->slots[0];
-  // 879: 'ƒ' = "f"
+  // 879: 'Ɠ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__402;
+  arguments->slots[0] = character__403;
   arguments->slots[1] = string__93_479;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7387,10 +7383,10 @@ static void cont__93_480(void) {
     return;
   }
   temp__240 = arguments->slots[0];
-  // 880: 'Ɠ' = "G"
+  // 880: 'Ǆ' = "DZ"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__403;
+  arguments->slots[0] = character__452;
   arguments->slots[1] = string__93_481;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7403,10 +7399,10 @@ static void cont__93_482(void) {
     return;
   }
   temp__241 = arguments->slots[0];
-  // 881: 'Ǆ' = "DZ"
+  // 881: 'ǅ' = "Dz"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__452;
+  arguments->slots[0] = character__453;
   arguments->slots[1] = string__93_483;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7419,10 +7415,10 @@ static void cont__93_484(void) {
     return;
   }
   temp__242 = arguments->slots[0];
-  // 882: 'ǅ' = "Dz"
+  // 882: 'ǆ' = "dz"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__453;
+  arguments->slots[0] = character__454;
   arguments->slots[1] = string__93_485;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7435,10 +7431,10 @@ static void cont__93_486(void) {
     return;
   }
   temp__243 = arguments->slots[0];
-  // 883: 'ǆ' = "dz"
+  // 883: 'Ǉ' = "LJ"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__454;
+  arguments->slots[0] = character__455;
   arguments->slots[1] = string__93_487;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7451,10 +7447,10 @@ static void cont__93_488(void) {
     return;
   }
   temp__244 = arguments->slots[0];
-  // 884: 'Ǉ' = "LJ"
+  // 884: 'ǈ' = "Lj"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__455;
+  arguments->slots[0] = character__456;
   arguments->slots[1] = string__93_489;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7467,10 +7463,10 @@ static void cont__93_490(void) {
     return;
   }
   temp__245 = arguments->slots[0];
-  // 885: 'ǈ' = "Lj"
+  // 885: 'ǉ' = "lj"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__456;
+  arguments->slots[0] = character__457;
   arguments->slots[1] = string__93_491;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7483,10 +7479,10 @@ static void cont__93_492(void) {
     return;
   }
   temp__246 = arguments->slots[0];
-  // 886: 'ǉ' = "lj"
+  // 886: 'Ǌ' = "NJ"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__457;
+  arguments->slots[0] = character__458;
   arguments->slots[1] = string__93_493;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7499,10 +7495,10 @@ static void cont__93_494(void) {
     return;
   }
   temp__247 = arguments->slots[0];
-  // 887: 'Ǌ' = "NJ"
+  // 887: 'ǋ' = "Nj"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__458;
+  arguments->slots[0] = character__459;
   arguments->slots[1] = string__93_495;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7515,10 +7511,10 @@ static void cont__93_496(void) {
     return;
   }
   temp__248 = arguments->slots[0];
-  // 888: 'ǋ' = "Nj"
+  // 888: 'ǌ' = "nj"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__459;
+  arguments->slots[0] = character__460;
   arguments->slots[1] = string__93_497;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7531,10 +7527,10 @@ static void cont__93_498(void) {
     return;
   }
   temp__249 = arguments->slots[0];
-  // 889: 'ǌ' = "nj"
+  // 889: 'Ǎ' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__460;
+  arguments->slots[0] = character__461;
   arguments->slots[1] = string__93_499;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7547,10 +7543,10 @@ static void cont__93_500(void) {
     return;
   }
   temp__250 = arguments->slots[0];
-  // 890: 'Ǎ' = "A"
+  // 890: 'ǎ' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__461;
+  arguments->slots[0] = character__462;
   arguments->slots[1] = string__93_501;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7563,10 +7559,10 @@ static void cont__93_502(void) {
     return;
   }
   temp__251 = arguments->slots[0];
-  // 891: 'ǎ' = "a"
+  // 891: 'Ǐ' = "I"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__462;
+  arguments->slots[0] = character__463;
   arguments->slots[1] = string__93_503;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7579,10 +7575,10 @@ static void cont__93_504(void) {
     return;
   }
   temp__252 = arguments->slots[0];
-  // 892: 'Ǐ' = "I"
+  // 892: 'ǐ' = "i"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__463;
+  arguments->slots[0] = character__464;
   arguments->slots[1] = string__93_505;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7595,10 +7591,10 @@ static void cont__93_506(void) {
     return;
   }
   temp__253 = arguments->slots[0];
-  // 893: 'ǐ' = "i"
+  // 893: 'Ǒ' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__464;
+  arguments->slots[0] = character__465;
   arguments->slots[1] = string__93_507;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7611,10 +7607,10 @@ static void cont__93_508(void) {
     return;
   }
   temp__254 = arguments->slots[0];
-  // 894: 'Ǒ' = "O"
+  // 894: 'ǒ' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__465;
+  arguments->slots[0] = character__466;
   arguments->slots[1] = string__93_509;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7627,10 +7623,10 @@ static void cont__93_510(void) {
     return;
   }
   temp__255 = arguments->slots[0];
-  // 895: 'ǒ' = "o"
+  // 895: 'Ǔ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__466;
+  arguments->slots[0] = character__467;
   arguments->slots[1] = string__93_511;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7643,10 +7639,10 @@ static void cont__93_512(void) {
     return;
   }
   temp__256 = arguments->slots[0];
-  // 896: 'Ǔ' = "U"
+  // 896: 'ǔ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__467;
+  arguments->slots[0] = character__468;
   arguments->slots[1] = string__93_513;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7659,10 +7655,10 @@ static void cont__93_514(void) {
     return;
   }
   temp__257 = arguments->slots[0];
-  // 897: 'ǔ' = "u"
+  // 897: 'Ǖ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__468;
+  arguments->slots[0] = character__469;
   arguments->slots[1] = string__93_515;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7675,10 +7671,10 @@ static void cont__93_516(void) {
     return;
   }
   temp__258 = arguments->slots[0];
-  // 898: 'Ǖ' = "U"
+  // 898: 'ǖ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__469;
+  arguments->slots[0] = character__470;
   arguments->slots[1] = string__93_517;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7691,10 +7687,10 @@ static void cont__93_518(void) {
     return;
   }
   temp__259 = arguments->slots[0];
-  // 899: 'ǖ' = "u"
+  // 899: 'Ǘ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__470;
+  arguments->slots[0] = character__471;
   arguments->slots[1] = string__93_519;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7707,10 +7703,10 @@ static void cont__93_520(void) {
     return;
   }
   temp__260 = arguments->slots[0];
-  // 900: 'Ǘ' = "U"
+  // 900: 'ǘ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__471;
+  arguments->slots[0] = character__472;
   arguments->slots[1] = string__93_521;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7723,10 +7719,10 @@ static void cont__93_522(void) {
     return;
   }
   temp__261 = arguments->slots[0];
-  // 901: 'ǘ' = "u"
+  // 901: 'Ǚ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__472;
+  arguments->slots[0] = character__473;
   arguments->slots[1] = string__93_523;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7739,10 +7735,10 @@ static void cont__93_524(void) {
     return;
   }
   temp__262 = arguments->slots[0];
-  // 902: 'Ǚ' = "U"
+  // 902: 'ǚ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__473;
+  arguments->slots[0] = character__474;
   arguments->slots[1] = string__93_525;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7755,10 +7751,10 @@ static void cont__93_526(void) {
     return;
   }
   temp__263 = arguments->slots[0];
-  // 903: 'ǚ' = "u"
+  // 903: 'Ǜ' = "U"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__474;
+  arguments->slots[0] = character__475;
   arguments->slots[1] = string__93_527;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7771,10 +7767,10 @@ static void cont__93_528(void) {
     return;
   }
   temp__264 = arguments->slots[0];
-  // 904: 'Ǜ' = "U"
+  // 904: 'ǜ' = "u"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__475;
+  arguments->slots[0] = character__476;
   arguments->slots[1] = string__93_529;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7787,10 +7783,10 @@ static void cont__93_530(void) {
     return;
   }
   temp__265 = arguments->slots[0];
-  // 905: 'ǜ' = "u"
+  // 905: 'Ǟ' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__476;
+  arguments->slots[0] = character__478;
   arguments->slots[1] = string__93_531;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7803,10 +7799,10 @@ static void cont__93_532(void) {
     return;
   }
   temp__266 = arguments->slots[0];
-  // 906: 'Ǟ' = "A"
+  // 906: 'ǟ' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__478;
+  arguments->slots[0] = character__479;
   arguments->slots[1] = string__93_533;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7819,10 +7815,10 @@ static void cont__93_534(void) {
     return;
   }
   temp__267 = arguments->slots[0];
-  // 907: 'ǟ' = "a"
+  // 907: 'Ǡ' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__479;
+  arguments->slots[0] = character__480;
   arguments->slots[1] = string__93_535;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7835,10 +7831,10 @@ static void cont__93_536(void) {
     return;
   }
   temp__268 = arguments->slots[0];
-  // 908: 'Ǡ' = "A"
+  // 908: 'ǡ' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__480;
+  arguments->slots[0] = character__481;
   arguments->slots[1] = string__93_537;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7851,10 +7847,10 @@ static void cont__93_538(void) {
     return;
   }
   temp__269 = arguments->slots[0];
-  // 909: 'ǡ' = "a"
+  // 909: 'Ǣ' = "AE"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__481;
+  arguments->slots[0] = character__482;
   arguments->slots[1] = string__93_539;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7867,10 +7863,10 @@ static void cont__93_540(void) {
     return;
   }
   temp__270 = arguments->slots[0];
-  // 910: 'Ǣ' = "AE"
+  // 910: 'ǣ' = "ae"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__482;
+  arguments->slots[0] = character__483;
   arguments->slots[1] = string__93_541;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7883,10 +7879,10 @@ static void cont__93_542(void) {
     return;
   }
   temp__271 = arguments->slots[0];
-  // 911: 'ǣ' = "ae"
+  // 911: 'Ǥ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__483;
+  arguments->slots[0] = character__484;
   arguments->slots[1] = string__93_543;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7899,10 +7895,10 @@ static void cont__93_544(void) {
     return;
   }
   temp__272 = arguments->slots[0];
-  // 912: 'Ǥ' = "G"
+  // 912: 'ǥ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__484;
+  arguments->slots[0] = character__485;
   arguments->slots[1] = string__93_545;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7915,10 +7911,10 @@ static void cont__93_546(void) {
     return;
   }
   temp__273 = arguments->slots[0];
-  // 913: 'ǥ' = "g"
+  // 913: 'Ǧ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__485;
+  arguments->slots[0] = character__486;
   arguments->slots[1] = string__93_547;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7931,10 +7927,10 @@ static void cont__93_548(void) {
     return;
   }
   temp__274 = arguments->slots[0];
-  // 914: 'Ǧ' = "G"
+  // 914: 'ǧ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__486;
+  arguments->slots[0] = character__487;
   arguments->slots[1] = string__93_549;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7947,10 +7943,10 @@ static void cont__93_550(void) {
     return;
   }
   temp__275 = arguments->slots[0];
-  // 915: 'ǧ' = "g"
+  // 915: 'Ǩ' = "K"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__487;
+  arguments->slots[0] = character__488;
   arguments->slots[1] = string__93_551;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7963,10 +7959,10 @@ static void cont__93_552(void) {
     return;
   }
   temp__276 = arguments->slots[0];
-  // 916: 'Ǩ' = "K"
+  // 916: 'ǩ' = "k"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__488;
+  arguments->slots[0] = character__489;
   arguments->slots[1] = string__93_553;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7979,10 +7975,10 @@ static void cont__93_554(void) {
     return;
   }
   temp__277 = arguments->slots[0];
-  // 917: 'ǩ' = "k"
+  // 917: 'Ǫ' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__489;
+  arguments->slots[0] = character__490;
   arguments->slots[1] = string__93_555;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7995,10 +7991,10 @@ static void cont__93_556(void) {
     return;
   }
   temp__278 = arguments->slots[0];
-  // 918: 'Ǫ' = "O"
+  // 918: 'ǫ' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__490;
+  arguments->slots[0] = character__491;
   arguments->slots[1] = string__93_557;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8011,10 +8007,10 @@ static void cont__93_558(void) {
     return;
   }
   temp__279 = arguments->slots[0];
-  // 919: 'ǫ' = "o"
+  // 919: 'Ǭ' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__491;
+  arguments->slots[0] = character__492;
   arguments->slots[1] = string__93_559;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8027,10 +8023,10 @@ static void cont__93_560(void) {
     return;
   }
   temp__280 = arguments->slots[0];
-  // 920: 'Ǭ' = "O"
+  // 920: 'ǭ' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__492;
+  arguments->slots[0] = character__493;
   arguments->slots[1] = string__93_561;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8043,10 +8039,10 @@ static void cont__93_562(void) {
     return;
   }
   temp__281 = arguments->slots[0];
-  // 921: 'ǭ' = "o"
+  // 921: 'Ǳ' = "DZ"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__493;
+  arguments->slots[0] = character__497;
   arguments->slots[1] = string__93_563;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8059,10 +8055,10 @@ static void cont__93_564(void) {
     return;
   }
   temp__282 = arguments->slots[0];
-  // 922: 'Ǳ' = "DZ"
+  // 922: 'ǲ' = "Dz"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__497;
+  arguments->slots[0] = character__498;
   arguments->slots[1] = string__93_565;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8075,10 +8071,10 @@ static void cont__93_566(void) {
     return;
   }
   temp__283 = arguments->slots[0];
-  // 923: 'ǲ' = "Dz"
+  // 923: 'ǳ' = "dz"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__498;
+  arguments->slots[0] = character__499;
   arguments->slots[1] = string__93_567;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8091,10 +8087,10 @@ static void cont__93_568(void) {
     return;
   }
   temp__284 = arguments->slots[0];
-  // 924: 'ǳ' = "dz"
+  // 924: 'Ǵ' = "G"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__499;
+  arguments->slots[0] = character__500;
   arguments->slots[1] = string__93_569;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8107,10 +8103,10 @@ static void cont__93_570(void) {
     return;
   }
   temp__285 = arguments->slots[0];
-  // 925: 'Ǵ' = "G"
+  // 925: 'ǵ' = "g"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__500;
+  arguments->slots[0] = character__501;
   arguments->slots[1] = string__93_571;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8123,10 +8119,10 @@ static void cont__93_572(void) {
     return;
   }
   temp__286 = arguments->slots[0];
-  // 926: 'ǵ' = "g"
+  // 926: 'Ǹ' = "N"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__501;
+  arguments->slots[0] = character__504;
   arguments->slots[1] = string__93_573;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8139,10 +8135,10 @@ static void cont__93_574(void) {
     return;
   }
   temp__287 = arguments->slots[0];
-  // 927: 'Ǹ' = "N"
+  // 927: 'ǹ' = "n"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__504;
+  arguments->slots[0] = character__505;
   arguments->slots[1] = string__93_575;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8155,10 +8151,10 @@ static void cont__93_576(void) {
     return;
   }
   temp__288 = arguments->slots[0];
-  // 928: 'ǹ' = "n"
+  // 928: 'Ǻ' = "A"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__505;
+  arguments->slots[0] = character__506;
   arguments->slots[1] = string__93_577;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8171,10 +8167,10 @@ static void cont__93_578(void) {
     return;
   }
   temp__289 = arguments->slots[0];
-  // 929: 'Ǻ' = "A"
+  // 929: 'ǻ' = "a"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__506;
+  arguments->slots[0] = character__507;
   arguments->slots[1] = string__93_579;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8187,10 +8183,10 @@ static void cont__93_580(void) {
     return;
   }
   temp__290 = arguments->slots[0];
-  // 930: 'ǻ' = "a"
+  // 930: 'Ǽ' = "AE"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__507;
+  arguments->slots[0] = character__508;
   arguments->slots[1] = string__93_581;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8203,10 +8199,10 @@ static void cont__93_582(void) {
     return;
   }
   temp__291 = arguments->slots[0];
-  // 931: 'Ǽ' = "AE"
+  // 931: 'ǽ' = "ae"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__508;
+  arguments->slots[0] = character__509;
   arguments->slots[1] = string__93_583;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8219,10 +8215,10 @@ static void cont__93_584(void) {
     return;
   }
   temp__292 = arguments->slots[0];
-  // 932: 'ǽ' = "ae"
+  // 932: 'Ǿ' = "O"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__509;
+  arguments->slots[0] = character__510;
   arguments->slots[1] = string__93_585;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8235,10 +8231,10 @@ static void cont__93_586(void) {
     return;
   }
   temp__293 = arguments->slots[0];
-  // 933: 'Ǿ' = "O"
+  // 933: 'ǿ' = "o"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__510;
+  arguments->slots[0] = character__511;
   arguments->slots[1] = string__93_587;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -8251,34 +8247,18 @@ static void cont__93_588(void) {
     return;
   }
   temp__294 = arguments->slots[0];
-  // 934: 'ǿ' = "o"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = character__511;
-  arguments->slots[1] = string__93_589;
-  result_count = 1;
-  myself = get__std__key_value_pair();
-  func = myself->type;
-  frame->cont = cont__93_590;
-}
-static void cont__93_590(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  temp__295 = arguments->slots[0];
   // 638: $umlaut_conversions
   // 639:   table
-  // 640:     ' ' = " "
-  // 641:     '¡' = "!"
-  // 642:     '¢' = "(cent)"
-  // 643:     '£' = "(pound)"
-  // 644:     '¤' = "?"
-  // 645:     '¥' = "(yen)"
-  // 646:     '¦' = "|"
-  // 647:     '§' = "$"
+  // 640:     '¡' = "!"
+  // 641:     '¢' = "(cent)"
+  // 642:     '£' = "(pound)"
+  // 643:     '¤' = "?"
+  // 644:     '¥' = "(yen)"
+  // 645:     '¦' = "|"
+  // 646:     '§' = "$"
+  // 647:     '¨' = "@quot;"
   // ...
-  argument_count = 295;
+  argument_count = 294;
   arguments = node_p;
   arguments->slots[0] = temp__1;
   arguments->slots[1] = temp__2;
@@ -8574,13 +8554,12 @@ static void cont__93_590(void) {
   arguments->slots[291] = temp__292;
   arguments->slots[292] = temp__293;
   arguments->slots[293] = temp__294;
-  arguments->slots[294] = temp__295;
   result_count = 1;
   myself = get__table();
   func = myself->type;
-  frame->cont = cont__93_591;
+  frame->cont = cont__93_589;
 }
-static void cont__93_591(void) {
+static void cont__93_589(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16163,40 +16142,40 @@ static void entry__41_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 940: ... : (idx)
-  // 941:   append &result range(text s idx)
-  // 942:   !s idx+2
+  // 939: ... : (idx)
+  // 940:   append &result range(text s idx)
+  // 941:   !s idx+2
   frame->slots[4] /* temp__1 */ = create_closure(entry__41_2, 1);
-  // 940: $copy: (idx)
-  // 941:   append &result range(text s idx)
-  // 942:   !s idx+2
+  // 939: $copy: (idx)
+  // 940:   append &result range(text s idx)
+  // 941:   !s idx+2
   initialize_future(frame->slots[3] /* copy */, frame->slots[4] /* temp__1 */);
-  // 937: $$s 1
+  // 936: $$s 1
   ((CELL *)frame->slots[1])->contents /* s */ = number__1;
-  // 938: $$result ""
+  // 937: $$result ""
   ((CELL *)frame->slots[2])->contents /* result */ = empty_string;
-  // 944: ... : (idx chr)
-  // 945:   if chr >= '@0x80;':
-  // 946:     if
-  // 947:       chr >= ' ':
-  // 948:         copy idx-1
-  // 949:         $conversion umlaut_conversions(chr)
-  // 950:         if
-  // 951:           conversion.is_defined:
-  // 952:             append &result conversion
-  // 953:           :
+  // 943: ... : (idx chr)
+  // 944:   if chr >= '@0x80;':
+  // 945:     if
+  // 946:       chr >= ' ':
+  // 947:         copy idx-1
+  // 948:         $conversion umlaut_conversions(chr)
+  // 949:         if
+  // 950:           conversion.is_defined:
+  // 951:             append &result conversion
+  // 952:           :
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__41_6, 2);
-  // 944: for_each text: (idx chr)
-  // 945:   if chr >= '@0x80;':
-  // 946:     if
-  // 947:       chr >= ' ':
-  // 948:         copy idx-1
-  // 949:         $conversion umlaut_conversions(chr)
-  // 950:         if
-  // 951:           conversion.is_defined:
-  // 952:             append &result conversion
-  // 953:           :
+  // 943: for_each text: (idx chr)
+  // 944:   if chr >= '@0x80;':
+  // 945:     if
+  // 946:       chr >= ' ':
+  // 947:         copy idx-1
+  // 948:         $conversion umlaut_conversions(chr)
+  // 949:         if
+  // 950:           conversion.is_defined:
+  // 951:             append &result conversion
+  // 952:           :
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -16218,7 +16197,7 @@ static void entry__41_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 952: append &result conversion
+  // 951: append &result conversion
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* result */;
@@ -16249,7 +16228,7 @@ static void entry__41_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 954: push &result '?'
+  // 953: push &result '?'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* result */;
@@ -16288,7 +16267,7 @@ static void entry__41_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 948: ... idx-1
+  // 947: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* idx */;
@@ -16304,7 +16283,7 @@ static void cont__41_13(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 948: copy idx-1
+  // 947: copy idx-1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -16318,7 +16297,7 @@ static void cont__41_14(void) {
     invalid_results_error();
     return;
   }
-  // 949: $conversion umlaut_conversions(chr)
+  // 948: $conversion umlaut_conversions(chr)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* chr */;
@@ -16333,7 +16312,7 @@ static void cont__41_15(void) {
     return;
   }
   initialize_future(frame->slots[4] /* conversion */, arguments->slots[0]);
-  // 951: conversion.is_defined
+  // 950: conversion.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* conversion */;
@@ -16348,17 +16327,17 @@ static void cont__41_16(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 951: ... :
-  // 952:   append &result conversion
+  // 950: ... :
+  // 951:   append &result conversion
   frame->slots[6] /* temp__2 */ = create_closure(entry__41_17, 0);
-  // 953: :
-  // 954:   push &result '?'
+  // 952: :
+  // 953:   push &result '?'
   frame->slots[7] /* temp__3 */ = create_closure(entry__41_19, 0);
-  // 950: if
-  // 951:   conversion.is_defined:
-  // 952:     append &result conversion
-  // 953:   :
-  // 954:     push &result '?'
+  // 949: if
+  // 950:   conversion.is_defined:
+  // 951:     append &result conversion
+  // 952:   :
+  // 953:     push &result '?'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -16384,7 +16363,7 @@ static void entry__41_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 956: ... idx-1
+  // 955: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* idx */;
@@ -16400,7 +16379,7 @@ static void cont__41_22(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 956: copy idx-1
+  // 955: copy idx-1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16414,7 +16393,7 @@ static void cont__41_23(void) {
     invalid_results_error();
     return;
   }
-  // 957: ... chr-0x80
+  // 956: ... chr-0x80
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* chr */;
@@ -16430,7 +16409,7 @@ static void cont__41_24(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 957: push &result chr-0x80
+  // 956: push &result chr-0x80
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* result */;
@@ -16467,7 +16446,7 @@ static void entry__41_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 947: chr >= ' '
+  // 946: chr >= ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -16483,7 +16462,7 @@ static void cont__41_10(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 947: chr >= ' '
+  // 946: chr >= ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -16498,29 +16477,29 @@ static void cont__41_11(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 947: ... :
-  // 948:   copy idx-1
-  // 949:   $conversion umlaut_conversions(chr)
-  // 950:   if
-  // 951:     conversion.is_defined:
-  // 952:       append &result conversion
-  // 953:     :
-  // 954:       push &result '?'
+  // 946: ... :
+  // 947:   copy idx-1
+  // 948:   $conversion umlaut_conversions(chr)
+  // 949:   if
+  // 950:     conversion.is_defined:
+  // 951:       append &result conversion
+  // 952:     :
+  // 953:       push &result '?'
   frame->slots[6] /* temp__3 */ = create_closure(entry__41_12, 0);
-  // 955: :
-  // 956:   copy idx-1
-  // 957:   push &result chr-0x80
+  // 954: :
+  // 955:   copy idx-1
+  // 956:   push &result chr-0x80
   frame->slots[7] /* temp__4 */ = create_closure(entry__41_21, 0);
-  // 946: if
-  // 947:   chr >= ' ':
-  // 948:     copy idx-1
-  // 949:     $conversion umlaut_conversions(chr)
-  // 950:     if
-  // 951:       conversion.is_defined:
-  // 952:         append &result conversion
-  // 953:       :
-  // 954:         push &result '?'
-  // 955:   :
+  // 945: if
+  // 946:   chr >= ' ':
+  // 947:     copy idx-1
+  // 948:     $conversion umlaut_conversions(chr)
+  // 949:     if
+  // 950:       conversion.is_defined:
+  // 951:         append &result conversion
+  // 952:       :
+  // 953:         push &result '?'
+  // 954:   :
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -16546,7 +16525,7 @@ static void entry__41_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 941: ... range(text s idx)
+  // 940: ... range(text s idx)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* text */;
@@ -16563,7 +16542,7 @@ static void cont__41_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 941: append &result range(text s idx)
+  // 940: append &result range(text s idx)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* result */;
@@ -16579,7 +16558,7 @@ static void cont__41_4(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* result */ = arguments->slots[0];
-  // 942: !s idx+2
+  // 941: !s idx+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* idx */;
@@ -16614,7 +16593,7 @@ static void entry__41_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 945: ... chr >= '@0x80;'
+  // 944: ... chr >= '@0x80;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* chr */;
@@ -16630,7 +16609,7 @@ static void cont__41_7(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 945: ... chr >= '@0x80;'
+  // 944: ... chr >= '@0x80;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -16645,28 +16624,28 @@ static void cont__41_8(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 945: ... :
-  // 946:   if
-  // 947:     chr >= ' ':
-  // 948:       copy idx-1
-  // 949:       $conversion umlaut_conversions(chr)
-  // 950:       if
-  // 951:         conversion.is_defined:
-  // 952:           append &result conversion
-  // 953:         :
-  // 954:           push &result '?'
+  // 944: ... :
+  // 945:   if
+  // 946:     chr >= ' ':
+  // 947:       copy idx-1
+  // 948:       $conversion umlaut_conversions(chr)
+  // 949:       if
+  // 950:         conversion.is_defined:
+  // 951:           append &result conversion
+  // 952:         :
+  // 953:           push &result '?'
   // ...
   frame->slots[6] /* temp__3 */ = create_closure(entry__41_9, 0);
-  // 945: if chr >= '@0x80;':
-  // 946:   if
-  // 947:     chr >= ' ':
-  // 948:       copy idx-1
-  // 949:       $conversion umlaut_conversions(chr)
-  // 950:       if
-  // 951:         conversion.is_defined:
-  // 952:           append &result conversion
-  // 953:         :
-  // 954:           push &result '?'
+  // 944: if chr >= '@0x80;':
+  // 945:   if
+  // 946:     chr >= ' ':
+  // 947:       copy idx-1
+  // 948:       $conversion umlaut_conversions(chr)
+  // 949:       if
+  // 950:         conversion.is_defined:
+  // 951:           append &result conversion
+  // 952:         :
+  // 953:           push &result '?'
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -16682,7 +16661,7 @@ static void cont__41_26(void) {
     invalid_results_error();
     return;
   }
-  // 958: ... length_of(text)
+  // 957: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -16697,7 +16676,7 @@ static void cont__41_27(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 958: copy length_of(text)
+  // 957: copy length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16711,7 +16690,7 @@ static void cont__41_28(void) {
     invalid_results_error();
     return;
   }
-  // 959: -> result
+  // 958: -> result
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* result */;
@@ -16733,30 +16712,30 @@ static void entry__42_1(void) {
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
   frame->slots[1] /* args */ = from_arguments(1, argument_count-1);
-  // 982: $$new_text ""
+  // 981: $$new_text ""
   ((CELL *)frame->slots[2])->contents /* new_text */ = empty_string;
-  // 983: ... -> length_of(text) > 0:
-  // 984:   do: (-> break)
-  // 985:     for_each args: (arg)
-  // 986:       $expression key_of(arg)
-  // 987:       $replacement value_of(arg)
-  // 988:       grammar::match $len expression text
-  // 989:       if len.is_defined:
-  // 990:         if
-  // 991:           replacement.is_a_string:
-  // 992:             append &new_text replacement
+  // 982: ... -> length_of(text) > 0:
+  // 983:   do: (-> break)
+  // 984:     for_each args: (arg)
+  // 985:       $expression key_of(arg)
+  // 986:       $replacement value_of(arg)
+  // 987:       grammar::match $len expression text
+  // 988:       if len.is_defined:
+  // 989:         if
+  // 990:           replacement.is_a_string:
+  // 991:             append &new_text replacement
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__42_2, 0);
-  // 983: while -> length_of(text) > 0:
-  // 984:   do: (-> break)
-  // 985:     for_each args: (arg)
-  // 986:       $expression key_of(arg)
-  // 987:       $replacement value_of(arg)
-  // 988:       grammar::match $len expression text
-  // 989:       if len.is_defined:
-  // 990:         if
-  // 991:           replacement.is_a_string:
-  // 992:             append &new_text replacement
+  // 982: while -> length_of(text) > 0:
+  // 983:   do: (-> break)
+  // 984:     for_each args: (arg)
+  // 985:       $expression key_of(arg)
+  // 986:       $replacement value_of(arg)
+  // 987:       grammar::match $len expression text
+  // 988:       if len.is_defined:
+  // 989:         if
+  // 990:           replacement.is_a_string:
+  // 991:             append &new_text replacement
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -16781,28 +16760,28 @@ static void entry__42_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 985: ... : (arg)
-  // 986:   $expression key_of(arg)
-  // 987:   $replacement value_of(arg)
-  // 988:   grammar::match $len expression text
-  // 989:   if len.is_defined:
-  // 990:     if
-  // 991:       replacement.is_a_string:
-  // 992:         append &new_text replacement
-  // 993:       :
-  // 994:         append &new_text replacement(range(text 1 len))
+  // 984: ... : (arg)
+  // 985:   $expression key_of(arg)
+  // 986:   $replacement value_of(arg)
+  // 987:   grammar::match $len expression text
+  // 988:   if len.is_defined:
+  // 989:     if
+  // 990:       replacement.is_a_string:
+  // 991:         append &new_text replacement
+  // 992:       :
+  // 993:         append &new_text replacement(range(text 1 len))
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__42_7, 1);
-  // 985: for_each args: (arg)
-  // 986:   $expression key_of(arg)
-  // 987:   $replacement value_of(arg)
-  // 988:   grammar::match $len expression text
-  // 989:   if len.is_defined:
-  // 990:     if
-  // 991:       replacement.is_a_string:
-  // 992:         append &new_text replacement
-  // 993:       :
-  // 994:         append &new_text replacement(range(text 1 len))
+  // 984: for_each args: (arg)
+  // 985:   $expression key_of(arg)
+  // 986:   $replacement value_of(arg)
+  // 987:   grammar::match $len expression text
+  // 988:   if len.is_defined:
+  // 989:     if
+  // 990:       replacement.is_a_string:
+  // 991:         append &new_text replacement
+  // 992:       :
+  // 993:         append &new_text replacement(range(text 1 len))
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -16830,7 +16809,7 @@ static void entry__42_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 991: replacement.is_a_string
+  // 990: replacement.is_a_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* replacement */;
@@ -16845,17 +16824,17 @@ static void cont__42_13(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 991: ... :
-  // 992:   append &new_text replacement
+  // 990: ... :
+  // 991:   append &new_text replacement
   frame->slots[6] /* temp__2 */ = create_closure(entry__42_14, 0);
-  // 993: :
-  // 994:   append &new_text replacement(range(text 1 len))
+  // 992: :
+  // 993:   append &new_text replacement(range(text 1 len))
   frame->slots[7] /* temp__3 */ = create_closure(entry__42_16, 0);
-  // 990: if
-  // 991:   replacement.is_a_string:
-  // 992:     append &new_text replacement
-  // 993:   :
-  // 994:     append &new_text replacement(range(text 1 len))
+  // 989: if
+  // 990:   replacement.is_a_string:
+  // 991:     append &new_text replacement
+  // 992:   :
+  // 993:     append &new_text replacement(range(text 1 len))
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -16877,7 +16856,7 @@ static void entry__42_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 992: append &new_text replacement
+  // 991: append &new_text replacement
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_text */;
@@ -16914,7 +16893,7 @@ static void entry__42_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 994: ... range(text 1 len)
+  // 993: ... range(text 1 len)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* text */;
@@ -16931,7 +16910,7 @@ static void cont__42_17(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 994: ... replacement(range(text 1 len))
+  // 993: ... replacement(range(text 1 len))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -16946,7 +16925,7 @@ static void cont__42_18(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 994: append &new_text replacement(range(text 1 len))
+  // 993: append &new_text replacement(range(text 1 len))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_text */;
@@ -16973,7 +16952,7 @@ static void cont__42_20(void) {
     invalid_results_error();
     return;
   }
-  // 995: ... len+1
+  // 994: ... len+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* len */;
@@ -16989,7 +16968,7 @@ static void cont__42_21(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 995: ... 1
+  // 994: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -17004,7 +16983,7 @@ static void cont__42_22(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 995: range &text len+1 -1
+  // 994: range &text len+1 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* text */;
@@ -17021,7 +17000,7 @@ static void cont__42_23(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* text */ = arguments->slots[0];
-  // 996: break
+  // 995: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -17049,7 +17028,7 @@ static void entry__42_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 986: $expression key_of(arg)
+  // 985: $expression key_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -17064,7 +17043,7 @@ static void cont__42_8(void) {
     return;
   }
   initialize_future(frame->slots[4] /* expression */, arguments->slots[0]);
-  // 987: $replacement value_of(arg)
+  // 986: $replacement value_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -17079,7 +17058,7 @@ static void cont__42_9(void) {
     return;
   }
   initialize_future(frame->slots[5] /* replacement */, arguments->slots[0]);
-  // 988: grammar::match $len expression text
+  // 987: grammar::match $len expression text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* expression */;
@@ -17095,7 +17074,7 @@ static void cont__42_10(void) {
     return;
   }
   initialize_future(frame->slots[6] /* len */, arguments->slots[0]);
-  // 989: ... len.is_defined
+  // 988: ... len.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* len */;
@@ -17110,23 +17089,23 @@ static void cont__42_11(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 989: ... :
-  // 990:   if
-  // 991:     replacement.is_a_string:
-  // 992:       append &new_text replacement
-  // 993:     :
-  // 994:       append &new_text replacement(range(text 1 len))
-  // 995:   range &text len+1 -1
-  // 996:   break
+  // 988: ... :
+  // 989:   if
+  // 990:     replacement.is_a_string:
+  // 991:       append &new_text replacement
+  // 992:     :
+  // 993:       append &new_text replacement(range(text 1 len))
+  // 994:   range &text len+1 -1
+  // 995:   break
   frame->slots[8] /* temp__2 */ = create_closure(entry__42_12, 0);
-  // 989: if len.is_defined:
-  // 990:   if
-  // 991:     replacement.is_a_string:
-  // 992:       append &new_text replacement
-  // 993:     :
-  // 994:       append &new_text replacement(range(text 1 len))
-  // 995:   range &text len+1 -1
-  // 996:   break
+  // 988: if len.is_defined:
+  // 989:   if
+  // 990:     replacement.is_a_string:
+  // 991:       append &new_text replacement
+  // 992:     :
+  // 993:       append &new_text replacement(range(text 1 len))
+  // 994:   range &text len+1 -1
+  // 995:   break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -17141,7 +17120,7 @@ static void cont__42_24(void) {
     invalid_results_error();
     return;
   }
-  // 997: ... text(1)
+  // 996: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -17156,7 +17135,7 @@ static void cont__42_25(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 997: push &new_text text(1)
+  // 996: push &new_text text(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* new_text */;
@@ -17172,7 +17151,7 @@ static void cont__42_26(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* new_text */ = arguments->slots[0];
-  // 998: ... 1
+  // 997: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -17187,7 +17166,7 @@ static void cont__42_27(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 998: range &text 2 -1
+  // 997: range &text 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* text */;
@@ -17223,28 +17202,28 @@ static void entry__42_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 984: ... : (-> break)
-  // 985:   for_each args: (arg)
-  // 986:     $expression key_of(arg)
-  // 987:     $replacement value_of(arg)
-  // 988:     grammar::match $len expression text
-  // 989:     if len.is_defined:
-  // 990:       if
-  // 991:         replacement.is_a_string:
-  // 992:           append &new_text replacement
-  // 993:         :
+  // 983: ... : (-> break)
+  // 984:   for_each args: (arg)
+  // 985:     $expression key_of(arg)
+  // 986:     $replacement value_of(arg)
+  // 987:     grammar::match $len expression text
+  // 988:     if len.is_defined:
+  // 989:       if
+  // 990:         replacement.is_a_string:
+  // 991:           append &new_text replacement
+  // 992:         :
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__42_6, 0);
-  // 984: do: (-> break)
-  // 985:   for_each args: (arg)
-  // 986:     $expression key_of(arg)
-  // 987:     $replacement value_of(arg)
-  // 988:     grammar::match $len expression text
-  // 989:     if len.is_defined:
-  // 990:       if
-  // 991:         replacement.is_a_string:
-  // 992:           append &new_text replacement
-  // 993:         :
+  // 983: do: (-> break)
+  // 984:   for_each args: (arg)
+  // 985:     $expression key_of(arg)
+  // 986:     $replacement value_of(arg)
+  // 987:     grammar::match $len expression text
+  // 988:     if len.is_defined:
+  // 989:       if
+  // 990:         replacement.is_a_string:
+  // 991:           append &new_text replacement
+  // 992:         :
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -17267,7 +17246,7 @@ static void entry__42_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 983: ... length_of(text)
+  // 982: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -17282,7 +17261,7 @@ static void cont__42_3(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 983: ... length_of(text) > 0
+  // 982: ... length_of(text) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -17298,28 +17277,28 @@ static void cont__42_4(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 983: ... :
-  // 984:   do: (-> break)
-  // 985:     for_each args: (arg)
-  // 986:       $expression key_of(arg)
-  // 987:       $replacement value_of(arg)
-  // 988:       grammar::match $len expression text
-  // 989:       if len.is_defined:
-  // 990:         if
-  // 991:           replacement.is_a_string:
-  // 992:             append &new_text replacement
+  // 982: ... :
+  // 983:   do: (-> break)
+  // 984:     for_each args: (arg)
+  // 985:       $expression key_of(arg)
+  // 986:       $replacement value_of(arg)
+  // 987:       grammar::match $len expression text
+  // 988:       if len.is_defined:
+  // 989:         if
+  // 990:           replacement.is_a_string:
+  // 991:             append &new_text replacement
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__42_5, 0);
-  // 983: ... -> length_of(text) > 0:
-  // 984:   do: (-> break)
-  // 985:     for_each args: (arg)
-  // 986:       $expression key_of(arg)
-  // 987:       $replacement value_of(arg)
-  // 988:       grammar::match $len expression text
-  // 989:       if len.is_defined:
-  // 990:         if
-  // 991:           replacement.is_a_string:
-  // 992:             append &new_text replacement
+  // 982: ... -> length_of(text) > 0:
+  // 983:   do: (-> break)
+  // 984:     for_each args: (arg)
+  // 985:       $expression key_of(arg)
+  // 986:       $replacement value_of(arg)
+  // 987:       grammar::match $len expression text
+  // 988:       if len.is_defined:
+  // 989:         if
+  // 990:           replacement.is_a_string:
+  // 991:             append &new_text replacement
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -17334,7 +17313,7 @@ static void cont__42_29(void) {
     invalid_results_error();
     return;
   }
-  // 999: -> new_text
+  // 998: -> new_text
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* new_text */;
@@ -17351,7 +17330,7 @@ static void entry__44_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 1006: ... dup(" " n)
+  // 1005: ... dup(" " n)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__44_4;
@@ -17367,7 +17346,7 @@ static void cont__44_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1006: ... -> dup(" " n)
+  // 1005: ... -> dup(" " n)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -17384,7 +17363,7 @@ static void entry__44_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 1006: ... range(eighty_spaces 1 n)
+  // 1005: ... range(eighty_spaces 1 n)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = var._eighty_spaces;
@@ -17401,7 +17380,7 @@ static void cont__44_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1006: ... -> range(eighty_spaces 1 n)
+  // 1005: ... -> range(eighty_spaces 1 n)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -17417,7 +17396,7 @@ static void entry__44_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1006: ... n > 80
+  // 1005: ... n > 80
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__80;
@@ -17433,11 +17412,11 @@ static void cont__44_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1006: ... -> dup(" " n)
+  // 1005: ... -> dup(" " n)
   frame->slots[2] /* temp__2 */ = create_closure(entry__44_3, 0);
-  // 1006: ... -> range(eighty_spaces 1 n)
+  // 1005: ... -> range(eighty_spaces 1 n)
   frame->slots[3] /* temp__3 */ = create_closure(entry__44_6, 0);
-  // 1006: ... if n > 80 (-> dup(" " n)) -> range(eighty_spaces 1 n)
+  // 1005: ... if n > 80 (-> dup(" " n)) -> range(eighty_spaces 1 n)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -17458,7 +17437,7 @@ static void entry__45_1(void) {
     return;
   }
   frame->slots[1] /* text */ = create_cell_with_contents(arguments->slots[1]);
-  // 1009: ... indent > 0
+  // 1008: ... indent > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -17474,19 +17453,19 @@ static void cont__45_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1009: ... :
-  // 1010:   $indentation spaces(indent)
-  // 1011:   replace_all
-  // 1012:     &text
-  // 1013:     '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
-  // 1014:   unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
+  // 1008: ... :
+  // 1009:   $indentation spaces(indent)
+  // 1010:   replace_all
+  // 1011:     &text
+  // 1012:     '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
+  // 1013:   unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
   frame->slots[3] /* temp__2 */ = create_closure(entry__45_3, 0);
-  // 1009: if indent > 0:
-  // 1010:   $indentation spaces(indent)
-  // 1011:   replace_all
-  // 1012:     &text
-  // 1013:     '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
-  // 1014:   unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
+  // 1008: if indent > 0:
+  // 1009:   $indentation spaces(indent)
+  // 1010:   replace_all
+  // 1011:     &text
+  // 1012:     '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
+  // 1013:   unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -17507,7 +17486,7 @@ static void entry__45_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 1014: ... append indentation &text
+  // 1013: ... append indentation &text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indentation */;
@@ -17542,7 +17521,7 @@ static void entry__45_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 1010: $indentation spaces(indent)
+  // 1009: $indentation spaces(indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* indent */;
@@ -17557,7 +17536,7 @@ static void cont__45_4(void) {
     return;
   }
   initialize_future(frame->slots[2] /* indentation */, arguments->slots[0]);
-  // 1013: ... alt('@nl;' END_OF_TEXT)
+  // 1012: ... alt('@nl;' END_OF_TEXT)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__10;
@@ -17573,7 +17552,7 @@ static void cont__45_5(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 1013: ... not_followed_by(alt('@nl;' END_OF_TEXT))
+  // 1012: ... not_followed_by(alt('@nl;' END_OF_TEXT))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -17588,7 +17567,7 @@ static void cont__45_6(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 1013: '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT))
+  // 1012: '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__10;
@@ -17604,7 +17583,7 @@ static void cont__45_7(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1013: ... "@nl;@(indentation)"
+  // 1012: ... "@nl;@(indentation)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__45_8;
@@ -17620,7 +17599,7 @@ static void cont__45_9(void) {
     return;
   }
   frame->slots[7] /* temp__5 */ = arguments->slots[0];
-  // 1013: '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
+  // 1012: '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -17636,9 +17615,9 @@ static void cont__45_10(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1011: replace_all
-  // 1012:   &text
-  // 1013:   '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
+  // 1010: replace_all
+  // 1011:   &text
+  // 1012:   '@nl;', not_followed_by(alt('@nl;' END_OF_TEXT)) = "@nl;@(indentation)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -17654,7 +17633,7 @@ static void cont__45_11(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* text */ = arguments->slots[0];
-  // 1014: ... length_of(text)
+  // 1013: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -17669,7 +17648,7 @@ static void cont__45_12(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 1014: ... length_of(text) == 0
+  // 1013: ... length_of(text) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -17685,9 +17664,9 @@ static void cont__45_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1014: ... text(1) == '@nl;'
+  // 1013: ... text(1) == '@nl;'
   frame->slots[6] /* temp__4 */ = create_closure(entry__45_14, 0);
-  // 1014: ... length_of(text) == 0 || text(1) == '@nl;'
+  // 1013: ... length_of(text) == 0 || text(1) == '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -17706,7 +17685,7 @@ static void entry__45_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 1014: ... text(1)
+  // 1013: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -17721,7 +17700,7 @@ static void cont__45_15(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1014: ... text(1) == '@nl;'
+  // 1013: ... text(1) == '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -17737,7 +17716,7 @@ static void cont__45_16(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1014: ... text(1) == '@nl;'
+  // 1013: ... text(1) == '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -17751,9 +17730,9 @@ static void cont__45_17(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1014: ... : append indentation &text
+  // 1013: ... : append indentation &text
   frame->slots[7] /* temp__5 */ = create_closure(entry__45_18, 0);
-  // 1014: unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
+  // 1013: unless length_of(text) == 0 || text(1) == '@nl;': append indentation &text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -17768,7 +17747,7 @@ static void cont__45_20(void) {
     invalid_results_error();
     return;
   }
-  // 1015: -> text
+  // 1014: -> text
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -17789,7 +17768,7 @@ static void entry__46_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 1039: body no text
+  // 1038: body no text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* no */;
@@ -17810,7 +17789,7 @@ static void entry__46_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 1041: body text
+  // 1040: body text
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -17832,7 +17811,7 @@ static void entry__46_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 1038: parameter_count_of(body)
+  // 1037: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -17847,7 +17826,7 @@ static void cont__46_27(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1038: parameter_count_of(body) == 2
+  // 1037: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -17863,17 +17842,17 @@ static void cont__46_28(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1038: ... :
-  // 1039:   body no text
+  // 1037: ... :
+  // 1038:   body no text
   frame->slots[5] /* temp__3 */ = create_closure(entry__46_29, 0);
-  // 1040: :
-  // 1041:   body text
+  // 1039: :
+  // 1040:   body text
   frame->slots[6] /* temp__4 */ = create_closure(entry__46_30, 0);
-  // 1037: if
-  // 1038:   parameter_count_of(body) == 2:
-  // 1039:     body no text
-  // 1040:   :
-  // 1041:     body text
+  // 1036: if
+  // 1037:   parameter_count_of(body) == 2:
+  // 1038:     body no text
+  // 1039:   :
+  // 1040:     body text
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -17903,7 +17882,7 @@ static void entry__46_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1028: parameter_count_of(body)
+  // 1027: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -17918,7 +17897,7 @@ static void cont__46_5(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1028: parameter_count_of(body) == 2
+  // 1027: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -17934,17 +17913,17 @@ static void cont__46_6(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1028: ... :
-  // 1029:   body no range(text 1 pos-1)
+  // 1027: ... :
+  // 1028:   body no range(text 1 pos-1)
   frame->slots[8] /* temp__3 */ = create_closure(entry__46_7, 0);
-  // 1030: :
-  // 1031:   body range(text 1 pos-1)
+  // 1029: :
+  // 1030:   body range(text 1 pos-1)
   frame->slots[9] /* temp__4 */ = create_closure(entry__46_10, 0);
-  // 1027: if
-  // 1028:   parameter_count_of(body) == 2:
-  // 1029:     body no range(text 1 pos-1)
-  // 1030:   :
-  // 1031:     body range(text 1 pos-1)
+  // 1026: if
+  // 1027:   parameter_count_of(body) == 2:
+  // 1028:     body no range(text 1 pos-1)
+  // 1029:   :
+  // 1030:     body range(text 1 pos-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -17970,7 +17949,7 @@ static void entry__46_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1029: ... pos-1
+  // 1028: ... pos-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* pos */;
@@ -17986,7 +17965,7 @@ static void cont__46_8(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1029: ... range(text 1 pos-1)
+  // 1028: ... range(text 1 pos-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* text */;
@@ -18003,7 +17982,7 @@ static void cont__46_9(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1029: body no range(text 1 pos-1)
+  // 1028: body no range(text 1 pos-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* no */;
@@ -18026,7 +18005,7 @@ static void entry__46_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 1031: ... pos-1
+  // 1030: ... pos-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* pos */;
@@ -18042,7 +18021,7 @@ static void cont__46_11(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1031: ... range(text 1 pos-1)
+  // 1030: ... range(text 1 pos-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -18059,7 +18038,7 @@ static void cont__46_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1031: body range(text 1 pos-1)
+  // 1030: body range(text 1 pos-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -18073,7 +18052,7 @@ static void cont__46_13(void) {
     invalid_results_error();
     return;
   }
-  // 1032: ... pos+1
+  // 1031: ... pos+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* pos */;
@@ -18089,7 +18068,7 @@ static void cont__46_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1032: ... 1
+  // 1031: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -18104,7 +18083,7 @@ static void cont__46_15(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1032: $rest range(text pos+1 -1)
+  // 1031: $rest range(text pos+1 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* text */;
@@ -18121,7 +18100,7 @@ static void cont__46_16(void) {
     return;
   }
   initialize_future(frame->slots[5] /* rest */, arguments->slots[0]);
-  // 1033: ... body2.is_defined
+  // 1032: ... body2.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* body2 */;
@@ -18136,9 +18115,9 @@ static void cont__46_17(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1033: ... rest .has_minimum_length. 1
+  // 1032: ... rest .has_minimum_length. 1
   frame->slots[8] /* temp__3 */ = create_closure(entry__46_18, 0);
-  // 1033: ... body2.is_defined && rest .has_minimum_length. 1
+  // 1032: ... body2.is_defined && rest .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -18157,7 +18136,7 @@ static void entry__46_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 1033: ... rest .has_minimum_length. 1
+  // 1032: ... rest .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* rest */;
@@ -18173,7 +18152,7 @@ static void cont__46_19(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1033: ... rest .has_minimum_length. 1
+  // 1032: ... rest .has_minimum_length. 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18187,7 +18166,7 @@ static void cont__46_20(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1033: if body2.is_defined && rest .has_minimum_length. 1 body2
+  // 1032: if body2.is_defined && rest .has_minimum_length. 1 body2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -18202,7 +18181,7 @@ static void cont__46_21(void) {
     invalid_results_error();
     return;
   }
-  // 1034: ... no+1
+  // 1033: ... no+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* no */;
@@ -18218,7 +18197,7 @@ static void cont__46_22(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1034: for_each_line rest body body2 no+1
+  // 1033: for_each_line rest body body2 no+1
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* rest */;
@@ -18243,7 +18222,7 @@ static void entry__46_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 1036: ... length_of(text)
+  // 1035: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -18258,7 +18237,7 @@ static void cont__46_24(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1036: ... length_of(text) > 0
+  // 1035: ... length_of(text) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -18274,19 +18253,19 @@ static void cont__46_25(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1036: ... :
-  // 1037:   if
-  // 1038:     parameter_count_of(body) == 2:
-  // 1039:       body no text
-  // 1040:     :
-  // 1041:       body text
+  // 1035: ... :
+  // 1036:   if
+  // 1037:     parameter_count_of(body) == 2:
+  // 1038:       body no text
+  // 1039:     :
+  // 1040:       body text
   frame->slots[5] /* temp__3 */ = create_closure(entry__46_26, 0);
-  // 1036: if length_of(text) > 0:
-  // 1037:   if
-  // 1038:     parameter_count_of(body) == 2:
-  // 1039:       body no text
-  // 1040:     :
-  // 1041:       body text
+  // 1035: if length_of(text) > 0:
+  // 1036:   if
+  // 1037:     parameter_count_of(body) == 2:
+  // 1038:       body no text
+  // 1039:     :
+  // 1040:       body text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -18324,7 +18303,7 @@ static void entry__46_1(void) {
     case 2: frame->slots[2] /* body2 */ = undefined;
     case 3: frame->slots[3] /* no */ = number__1;
   }
-  // 1024: search text '@nl;' $pos $_len
+  // 1023: search text '@nl;' $pos $_len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -18341,11 +18320,11 @@ static void cont__46_2(void) {
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   frame->slots[7] /* temp__2 */ = arguments->slots[1];
-  // 1024: ... pos
+  // 1023: ... pos
   initialize_future(frame->slots[4] /* pos */, frame->slots[6] /* temp__1 */);
-  // 1024: ... _len
+  // 1023: ... _len
   initialize_future(frame->slots[5] /* len */, frame->slots[7] /* temp__2 */);
-  // 1026: pos.is_defined
+  // 1025: pos.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* pos */;
@@ -18360,34 +18339,34 @@ static void cont__46_3(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1026: ... :
-  // 1027:   if
-  // 1028:     parameter_count_of(body) == 2:
-  // 1029:       body no range(text 1 pos-1)
-  // 1030:     :
-  // 1031:       body range(text 1 pos-1)
-  // 1032:   $rest range(text pos+1 -1)
-  // 1033:   if body2.is_defined && rest .has_minimum_length. 1 body2
-  // 1034:   for_each_line rest body body2 no+1
+  // 1025: ... :
+  // 1026:   if
+  // 1027:     parameter_count_of(body) == 2:
+  // 1028:       body no range(text 1 pos-1)
+  // 1029:     :
+  // 1030:       body range(text 1 pos-1)
+  // 1031:   $rest range(text pos+1 -1)
+  // 1032:   if body2.is_defined && rest .has_minimum_length. 1 body2
+  // 1033:   for_each_line rest body body2 no+1
   frame->slots[7] /* temp__2 */ = create_closure(entry__46_4, 0);
-  // 1035: :
-  // 1036:   if length_of(text) > 0:
-  // 1037:     if
-  // 1038:       parameter_count_of(body) == 2:
-  // 1039:         body no text
-  // 1040:       :
-  // 1041:         body text
+  // 1034: :
+  // 1035:   if length_of(text) > 0:
+  // 1036:     if
+  // 1037:       parameter_count_of(body) == 2:
+  // 1038:         body no text
+  // 1039:       :
+  // 1040:         body text
   frame->slots[8] /* temp__3 */ = create_closure(entry__46_23, 0);
-  // 1025: if
-  // 1026:   pos.is_defined:
-  // 1027:     if
-  // 1028:       parameter_count_of(body) == 2:
-  // 1029:         body no range(text 1 pos-1)
-  // 1030:       :
-  // 1031:         body range(text 1 pos-1)
-  // 1032:     $rest range(text pos+1 -1)
-  // 1033:     if body2.is_defined && rest .has_minimum_length. 1 body2
-  // 1034:     for_each_line rest body body2 no+1
+  // 1024: if
+  // 1025:   pos.is_defined:
+  // 1026:     if
+  // 1027:       parameter_count_of(body) == 2:
+  // 1028:         body no range(text 1 pos-1)
+  // 1029:       :
+  // 1030:         body range(text 1 pos-1)
+  // 1031:     $rest range(text pos+1 -1)
+  // 1032:     if body2.is_defined && rest .has_minimum_length. 1 body2
+  // 1033:     for_each_line rest body body2 no+1
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -18407,7 +18386,7 @@ static void entry__47_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1043: ... map(text to_lower_case)
+  // 1042: ... map(text to_lower_case)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -18423,7 +18402,7 @@ static void cont__47_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1043: ... -> map(text to_lower_case)
+  // 1042: ... -> map(text to_lower_case)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18439,7 +18418,7 @@ static void entry__48_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1045: ... map(text to_upper_case)
+  // 1044: ... map(text to_upper_case)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -18455,7 +18434,7 @@ static void cont__48_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1045: ... -> map(text to_upper_case)
+  // 1044: ... -> map(text to_upper_case)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18475,32 +18454,32 @@ static void entry__49_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1048: $$out ""
+  // 1047: $$out ""
   ((CELL *)frame->slots[1])->contents /* out */ = empty_string;
-  // 1049: $$to_upper true
+  // 1048: $$to_upper true
   ((CELL *)frame->slots[2])->contents /* to_upper */ = get__true();
-  // 1050: ... : (chr)
-  // 1051:   if
-  // 1052:     chr.is_a_letter_character:
-  // 1053:       if
-  // 1054:         to_upper:
-  // 1055:           push &out chr.to_upper_case
-  // 1056:           !to_upper false
-  // 1057:         :
-  // 1058:           push &out chr.to_lower_case
-  // 1059:     :
+  // 1049: ... : (chr)
+  // 1050:   if
+  // 1051:     chr.is_a_letter_character:
+  // 1052:       if
+  // 1053:         to_upper:
+  // 1054:           push &out chr.to_upper_case
+  // 1055:           !to_upper false
+  // 1056:         :
+  // 1057:           push &out chr.to_lower_case
+  // 1058:     :
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__49_2, 1);
-  // 1050: for_each text: (chr)
-  // 1051:   if
-  // 1052:     chr.is_a_letter_character:
-  // 1053:       if
-  // 1054:         to_upper:
-  // 1055:           push &out chr.to_upper_case
-  // 1056:           !to_upper false
-  // 1057:         :
-  // 1058:           push &out chr.to_lower_case
-  // 1059:     :
+  // 1049: for_each text: (chr)
+  // 1050:   if
+  // 1051:     chr.is_a_letter_character:
+  // 1052:       if
+  // 1053:         to_upper:
+  // 1054:           push &out chr.to_upper_case
+  // 1055:           !to_upper false
+  // 1056:         :
+  // 1057:           push &out chr.to_lower_case
+  // 1058:     :
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -18524,7 +18503,7 @@ static void entry__49_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1055: ... chr.to_upper_case
+  // 1054: ... chr.to_upper_case
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* chr */;
@@ -18539,7 +18518,7 @@ static void cont__49_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1055: push &out chr.to_upper_case
+  // 1054: push &out chr.to_upper_case
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* out */;
@@ -18555,7 +18534,7 @@ static void cont__49_7(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* out */ = arguments->slots[0];
-  // 1056: !to_upper false
+  // 1055: !to_upper false
   ((CELL *)frame->slots[2])->contents /* to_upper */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -18574,7 +18553,7 @@ static void entry__49_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 1058: ... chr.to_lower_case
+  // 1057: ... chr.to_lower_case
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* chr */;
@@ -18589,7 +18568,7 @@ static void cont__49_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1058: push &out chr.to_lower_case
+  // 1057: push &out chr.to_lower_case
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* out */;
@@ -18624,19 +18603,19 @@ static void entry__49_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1054: ... :
-  // 1055:   push &out chr.to_upper_case
-  // 1056:   !to_upper false
+  // 1053: ... :
+  // 1054:   push &out chr.to_upper_case
+  // 1055:   !to_upper false
   frame->slots[3] /* temp__1 */ = create_closure(entry__49_5, 0);
-  // 1057: :
-  // 1058:   push &out chr.to_lower_case
+  // 1056: :
+  // 1057:   push &out chr.to_lower_case
   frame->slots[4] /* temp__2 */ = create_closure(entry__49_8, 0);
-  // 1053: if
-  // 1054:   to_upper:
-  // 1055:     push &out chr.to_upper_case
-  // 1056:     !to_upper false
-  // 1057:   :
-  // 1058:     push &out chr.to_lower_case
+  // 1052: if
+  // 1053:   to_upper:
+  // 1054:     push &out chr.to_upper_case
+  // 1055:     !to_upper false
+  // 1056:   :
+  // 1057:     push &out chr.to_lower_case
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* to_upper */;
@@ -18660,7 +18639,7 @@ static void entry__49_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 1060: push &out chr
+  // 1059: push &out chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* out */;
@@ -18676,7 +18655,7 @@ static void cont__49_12(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* out */ = arguments->slots[0];
-  // 1061: !to_upper true
+  // 1060: !to_upper true
   ((CELL *)frame->slots[2])->contents /* to_upper */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -18696,7 +18675,7 @@ static void entry__49_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1052: chr.is_a_letter_character
+  // 1051: chr.is_a_letter_character
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -18711,28 +18690,28 @@ static void cont__49_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1052: ... :
-  // 1053:   if
-  // 1054:     to_upper:
-  // 1055:       push &out chr.to_upper_case
-  // 1056:       !to_upper false
-  // 1057:     :
-  // 1058:       push &out chr.to_lower_case
+  // 1051: ... :
+  // 1052:   if
+  // 1053:     to_upper:
+  // 1054:       push &out chr.to_upper_case
+  // 1055:       !to_upper false
+  // 1056:     :
+  // 1057:       push &out chr.to_lower_case
   frame->slots[4] /* temp__2 */ = create_closure(entry__49_4, 0);
-  // 1059: :
-  // 1060:   push &out chr
-  // 1061:   !to_upper true
+  // 1058: :
+  // 1059:   push &out chr
+  // 1060:   !to_upper true
   frame->slots[5] /* temp__3 */ = create_closure(entry__49_11, 0);
-  // 1051: if
-  // 1052:   chr.is_a_letter_character:
-  // 1053:     if
-  // 1054:       to_upper:
-  // 1055:         push &out chr.to_upper_case
-  // 1056:         !to_upper false
-  // 1057:       :
-  // 1058:         push &out chr.to_lower_case
-  // 1059:   :
-  // 1060:     push &out chr
+  // 1050: if
+  // 1051:   chr.is_a_letter_character:
+  // 1052:     if
+  // 1053:       to_upper:
+  // 1054:         push &out chr.to_upper_case
+  // 1055:         !to_upper false
+  // 1056:       :
+  // 1057:         push &out chr.to_lower_case
+  // 1058:   :
+  // 1059:     push &out chr
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -18749,7 +18728,7 @@ static void cont__49_13(void) {
     invalid_results_error();
     return;
   }
-  // 1062: -> out
+  // 1061: -> out
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* out */;
@@ -18765,7 +18744,7 @@ static void entry__50_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1129: ... -> types::octet_string
+  // 1128: ... -> types::octet_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__types__octet_string();
@@ -18781,7 +18760,7 @@ static void entry__51_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1131: ... -> types::octet_string
+  // 1130: ... -> types::octet_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__types__octet_string();
@@ -18813,11 +18792,11 @@ static void entry__52_1(void) {
   switch(argument_count) {
     case 1: frame->slots[0] /* self */ = create_cell_with_contents(empty_string);
   }
-  // 1138: ... : (args*) write_to &self args*
+  // 1137: ... : (args*) write_to &self args*
   frame->slots[3] /* temp__1 */ = create_closure(entry__52_2, -1);
-  // 1138: %std::write: (args*) write_to &self args*
+  // 1137: %std::write: (args*) write_to &self args*
   initialize_future(get__std__write(), frame->slots[3] /* temp__1 */);
-  // 1140: body
+  // 1139: body
   argument_count = 0;
   arguments = node_p;
   result_count = -1;
@@ -18833,7 +18812,7 @@ static void entry__52_2(void) {
   // self: 1
   frame->slots[1] = myself->closure.frame->slots[0]; /* self */
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 1138: ... write_to &self args*
+  // 1137: ... write_to &self args*
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -18896,9 +18875,9 @@ static void entry__53_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* func */ = undefined;
   }
-  // 1143: $$buf ""
+  // 1142: $$buf ""
   ((CELL *)frame->slots[2])->contents /* buf */ = empty_string;
-  // 1145: func.is_defined
+  // 1144: func.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* func */;
@@ -18913,17 +18892,17 @@ static void cont__53_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1145: ... :
-  // 1146:   for_each strings: (str) append &buf func(str)
+  // 1144: ... :
+  // 1145:   for_each strings: (str) append &buf func(str)
   frame->slots[4] /* temp__2 */ = create_closure(entry__53_3, 0);
-  // 1147: :
-  // 1148:   for_each strings: (str) append &buf str
+  // 1146: :
+  // 1147:   for_each strings: (str) append &buf str
   frame->slots[5] /* temp__3 */ = create_closure(entry__53_7, 0);
-  // 1144: if
-  // 1145:   func.is_defined:
-  // 1146:     for_each strings: (str) append &buf func(str)
-  // 1147:   :
-  // 1148:     for_each strings: (str) append &buf str
+  // 1143: if
+  // 1144:   func.is_defined:
+  // 1145:     for_each strings: (str) append &buf func(str)
+  // 1146:   :
+  // 1147:     for_each strings: (str) append &buf str
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -18944,7 +18923,7 @@ static void entry__53_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 1148: ... append &buf str
+  // 1147: ... append &buf str
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -18978,7 +18957,7 @@ static void entry__53_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1146: ... func(str)
+  // 1145: ... func(str)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* str */;
@@ -18993,7 +18972,7 @@ static void cont__53_5(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1146: ... append &buf func(str)
+  // 1145: ... append &buf func(str)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -19028,9 +19007,9 @@ static void entry__53_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 1146: ... : (str) append &buf func(str)
+  // 1145: ... : (str) append &buf func(str)
   frame->slots[3] /* temp__1 */ = create_closure(entry__53_4, 1);
-  // 1146: for_each strings: (str) append &buf func(str)
+  // 1145: for_each strings: (str) append &buf func(str)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* strings */;
@@ -19051,9 +19030,9 @@ static void entry__53_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1148: ... : (str) append &buf str
+  // 1147: ... : (str) append &buf str
   frame->slots[2] /* temp__1 */ = create_closure(entry__53_8, 1);
-  // 1148: for_each strings: (str) append &buf str
+  // 1147: for_each strings: (str) append &buf str
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* strings */;
@@ -19068,7 +19047,7 @@ static void cont__53_10(void) {
     invalid_results_error();
     return;
   }
-  // 1149: -> buf
+  // 1148: -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* buf */;
@@ -19371,7 +19350,6 @@ EXPORT void collect__basic__types__string(void) {
   temp__292 = collect_node(temp__292);
   temp__293 = collect_node(temp__293);
   temp__294 = collect_node(temp__294);
-  temp__295 = collect_node(temp__295);
   func__1_1 = collect_node(func__1_1);
   func__2_1 = collect_node(func__2_1);
   func__3_1 = collect_node(func__3_1);
@@ -19749,7 +19727,6 @@ EXPORT void collect__basic__types__string(void) {
   string__93_583 = collect_node(string__93_583);
   string__93_585 = collect_node(string__93_585);
   string__93_587 = collect_node(string__93_587);
-  string__93_589 = collect_node(string__93_589);
   character__506 = collect_node(character__506);
   character__343 = collect_node(character__343);
   character__338 = collect_node(character__338);
@@ -20469,301 +20446,300 @@ EXPORT void phase_2__basic__types__string(void) {
   define_single_assign_static("std", "collect_output", get__std__collect_output, &var.std__collect_output);
   func__53_1 = create_future();
   define_single_assign_static("std", "concatenate", get__std__concatenate, &var.std__concatenate);
-  string__93_1 = from_latin_1_string(" ", 1);
-  string__93_3 = from_latin_1_string("!", 1);
-  string__93_5 = from_latin_1_string("(cent)", 6);
-  string__93_7 = from_latin_1_string("(pound)", 7);
-  string__93_9 = from_latin_1_string("?", 1);
-  string__93_11 = from_latin_1_string("(yen)", 5);
-  string__93_13 = from_latin_1_string("|", 1);
-  string__93_15 = from_latin_1_string("$", 1);
-  string__93_17 = from_latin_1_string("\042", 1);
-  string__93_19 = from_latin_1_string("(c)", 3);
-  string__93_21 = from_latin_1_string("a", 1);
-  string__93_23 = from_latin_1_string("<<", 2);
-  string__93_25 = from_latin_1_string("(not)", 5);
-  string__93_27 = from_latin_1_string("(shy)", 5);
-  string__93_29 = from_latin_1_string("(r)", 3);
-  string__93_31 = from_latin_1_string("~", 1);
-  string__93_33 = from_latin_1_string("(grad)", 6);
-  string__93_35 = from_latin_1_string("+/-", 3);
-  string__93_37 = from_latin_1_string("^2", 2);
-  string__93_39 = from_latin_1_string("^3", 2);
-  string__93_41 = from_latin_1_string("'", 1);
-  string__93_43 = from_latin_1_string("(mu)", 4);
-  string__93_45 = from_latin_1_string("(par)", 5);
-  string__93_47 = from_latin_1_string(".", 1);
-  string__93_49 = from_latin_1_string(",", 1);
-  string__93_51 = from_latin_1_string("^1", 2);
-  string__93_53 = from_latin_1_string("o", 1);
-  string__93_55 = from_latin_1_string(">>", 2);
-  string__93_57 = from_latin_1_string("1/4", 3);
-  string__93_59 = from_latin_1_string("1/2", 3);
-  string__93_61 = from_latin_1_string("3/4", 3);
-  string__93_63 = from_latin_1_string("?", 1);
+  string__93_1 = from_latin_1_string("!", 1);
+  string__93_3 = from_latin_1_string("(cent)", 6);
+  string__93_5 = from_latin_1_string("(pound)", 7);
+  string__93_7 = from_latin_1_string("?", 1);
+  string__93_9 = from_latin_1_string("(yen)", 5);
+  string__93_11 = from_latin_1_string("|", 1);
+  string__93_13 = from_latin_1_string("$", 1);
+  string__93_15 = from_latin_1_string("\042", 1);
+  string__93_17 = from_latin_1_string("(c)", 3);
+  string__93_19 = from_latin_1_string("a", 1);
+  string__93_21 = from_latin_1_string("<<", 2);
+  string__93_23 = from_latin_1_string("(not)", 5);
+  string__93_25 = from_latin_1_string("(shy)", 5);
+  string__93_27 = from_latin_1_string("(r)", 3);
+  string__93_29 = from_latin_1_string("~", 1);
+  string__93_31 = from_latin_1_string("(grad)", 6);
+  string__93_33 = from_latin_1_string("+/-", 3);
+  string__93_35 = from_latin_1_string("^2", 2);
+  string__93_37 = from_latin_1_string("^3", 2);
+  string__93_39 = from_latin_1_string("'", 1);
+  string__93_41 = from_latin_1_string("(mu)", 4);
+  string__93_43 = from_latin_1_string("(par)", 5);
+  string__93_45 = from_latin_1_string(".", 1);
+  string__93_47 = from_latin_1_string(",", 1);
+  string__93_49 = from_latin_1_string("^1", 2);
+  string__93_51 = from_latin_1_string("o", 1);
+  string__93_53 = from_latin_1_string(">>", 2);
+  string__93_55 = from_latin_1_string("1/4", 3);
+  string__93_57 = from_latin_1_string("1/2", 3);
+  string__93_59 = from_latin_1_string("3/4", 3);
+  string__93_61 = from_latin_1_string("?", 1);
+  string__93_63 = from_latin_1_string("A", 1);
   string__93_65 = from_latin_1_string("A", 1);
   string__93_67 = from_latin_1_string("A", 1);
   string__93_69 = from_latin_1_string("A", 1);
-  string__93_71 = from_latin_1_string("A", 1);
-  string__93_73 = from_latin_1_string("Ae", 2);
-  string__93_75 = from_latin_1_string("A", 1);
-  string__93_77 = from_latin_1_string("AE", 2);
-  string__93_79 = from_latin_1_string("C", 1);
+  string__93_71 = from_latin_1_string("Ae", 2);
+  string__93_73 = from_latin_1_string("A", 1);
+  string__93_75 = from_latin_1_string("AE", 2);
+  string__93_77 = from_latin_1_string("C", 1);
+  string__93_79 = from_latin_1_string("E", 1);
   string__93_81 = from_latin_1_string("E", 1);
   string__93_83 = from_latin_1_string("E", 1);
   string__93_85 = from_latin_1_string("E", 1);
-  string__93_87 = from_latin_1_string("E", 1);
+  string__93_87 = from_latin_1_string("I", 1);
   string__93_89 = from_latin_1_string("I", 1);
   string__93_91 = from_latin_1_string("I", 1);
   string__93_93 = from_latin_1_string("I", 1);
-  string__93_95 = from_latin_1_string("I", 1);
-  string__93_97 = from_latin_1_string("D", 1);
-  string__93_99 = from_latin_1_string("N", 1);
+  string__93_95 = from_latin_1_string("D", 1);
+  string__93_97 = from_latin_1_string("N", 1);
+  string__93_99 = from_latin_1_string("O", 1);
   string__93_101 = from_latin_1_string("O", 1);
   string__93_103 = from_latin_1_string("O", 1);
   string__93_105 = from_latin_1_string("O", 1);
-  string__93_107 = from_latin_1_string("O", 1);
-  string__93_109 = from_latin_1_string("Oe", 2);
-  string__93_111 = from_latin_1_string("x", 1);
-  string__93_113 = from_latin_1_string("0", 1);
+  string__93_107 = from_latin_1_string("Oe", 2);
+  string__93_109 = from_latin_1_string("x", 1);
+  string__93_111 = from_latin_1_string("0", 1);
+  string__93_113 = from_latin_1_string("U", 1);
   string__93_115 = from_latin_1_string("U", 1);
   string__93_117 = from_latin_1_string("U", 1);
-  string__93_119 = from_latin_1_string("U", 1);
-  string__93_121 = from_latin_1_string("Ue", 2);
-  string__93_123 = from_latin_1_string("Y", 1);
-  string__93_125 = from_latin_1_string("p", 1);
-  string__93_127 = from_latin_1_string("ss", 2);
+  string__93_119 = from_latin_1_string("Ue", 2);
+  string__93_121 = from_latin_1_string("Y", 1);
+  string__93_123 = from_latin_1_string("p", 1);
+  string__93_125 = from_latin_1_string("ss", 2);
+  string__93_127 = from_latin_1_string("a", 1);
   string__93_129 = from_latin_1_string("a", 1);
   string__93_131 = from_latin_1_string("a", 1);
   string__93_133 = from_latin_1_string("a", 1);
-  string__93_135 = from_latin_1_string("a", 1);
-  string__93_137 = from_latin_1_string("ae", 2);
-  string__93_139 = from_latin_1_string("a", 1);
-  string__93_141 = from_latin_1_string("ae", 2);
-  string__93_143 = from_latin_1_string("c", 1);
+  string__93_135 = from_latin_1_string("ae", 2);
+  string__93_137 = from_latin_1_string("a", 1);
+  string__93_139 = from_latin_1_string("ae", 2);
+  string__93_141 = from_latin_1_string("c", 1);
+  string__93_143 = from_latin_1_string("e", 1);
   string__93_145 = from_latin_1_string("e", 1);
   string__93_147 = from_latin_1_string("e", 1);
   string__93_149 = from_latin_1_string("e", 1);
-  string__93_151 = from_latin_1_string("e", 1);
+  string__93_151 = from_latin_1_string("i", 1);
   string__93_153 = from_latin_1_string("i", 1);
   string__93_155 = from_latin_1_string("i", 1);
   string__93_157 = from_latin_1_string("i", 1);
-  string__93_159 = from_latin_1_string("i", 1);
-  string__93_161 = from_latin_1_string("d", 1);
-  string__93_163 = from_latin_1_string("n", 1);
+  string__93_159 = from_latin_1_string("d", 1);
+  string__93_161 = from_latin_1_string("n", 1);
+  string__93_163 = from_latin_1_string("o", 1);
   string__93_165 = from_latin_1_string("o", 1);
   string__93_167 = from_latin_1_string("o", 1);
   string__93_169 = from_latin_1_string("o", 1);
-  string__93_171 = from_latin_1_string("o", 1);
-  string__93_173 = from_latin_1_string("oe", 2);
-  string__93_175 = from_latin_1_string("/", 1);
-  string__93_177 = from_latin_1_string("0", 1);
+  string__93_171 = from_latin_1_string("oe", 2);
+  string__93_173 = from_latin_1_string("/", 1);
+  string__93_175 = from_latin_1_string("0", 1);
+  string__93_177 = from_latin_1_string("u", 1);
   string__93_179 = from_latin_1_string("u", 1);
   string__93_181 = from_latin_1_string("u", 1);
-  string__93_183 = from_latin_1_string("u", 1);
-  string__93_185 = from_latin_1_string("ue", 2);
-  string__93_187 = from_latin_1_string("y", 1);
-  string__93_189 = from_latin_1_string("p", 1);
-  string__93_191 = from_latin_1_string("y", 1);
-  string__93_193 = from_latin_1_string("A", 1);
-  string__93_195 = from_latin_1_string("a", 1);
-  string__93_197 = from_latin_1_string("A", 1);
-  string__93_199 = from_latin_1_string("a", 1);
-  string__93_201 = from_latin_1_string("A", 1);
-  string__93_203 = from_latin_1_string("a", 1);
-  string__93_205 = from_latin_1_string("C", 1);
-  string__93_207 = from_latin_1_string("c", 1);
-  string__93_209 = from_latin_1_string("C", 1);
-  string__93_211 = from_latin_1_string("c", 1);
-  string__93_213 = from_latin_1_string("C", 1);
-  string__93_215 = from_latin_1_string("c", 1);
-  string__93_217 = from_latin_1_string("C", 1);
-  string__93_219 = from_latin_1_string("c", 1);
-  string__93_221 = from_latin_1_string("D", 1);
-  string__93_223 = from_latin_1_string("d", 1);
-  string__93_225 = from_latin_1_string("D", 1);
-  string__93_227 = from_latin_1_string("d", 1);
-  string__93_229 = from_latin_1_string("E", 1);
-  string__93_231 = from_latin_1_string("e", 1);
-  string__93_233 = from_latin_1_string("E", 1);
-  string__93_235 = from_latin_1_string("e", 1);
-  string__93_237 = from_latin_1_string("E", 1);
-  string__93_239 = from_latin_1_string("e", 1);
-  string__93_241 = from_latin_1_string("E", 1);
-  string__93_243 = from_latin_1_string("e", 1);
-  string__93_245 = from_latin_1_string("E", 1);
-  string__93_247 = from_latin_1_string("e", 1);
-  string__93_249 = from_latin_1_string("G", 1);
-  string__93_251 = from_latin_1_string("g", 1);
-  string__93_253 = from_latin_1_string("G", 1);
-  string__93_255 = from_latin_1_string("g", 1);
-  string__93_257 = from_latin_1_string("G", 1);
-  string__93_259 = from_latin_1_string("g", 1);
-  string__93_261 = from_latin_1_string("G", 1);
-  string__93_263 = from_latin_1_string("g", 1);
-  string__93_265 = from_latin_1_string("H", 1);
-  string__93_267 = from_latin_1_string("h", 1);
-  string__93_269 = from_latin_1_string("H", 1);
-  string__93_271 = from_latin_1_string("h", 1);
-  string__93_273 = from_latin_1_string("I", 1);
-  string__93_275 = from_latin_1_string("i", 1);
-  string__93_277 = from_latin_1_string("I", 1);
-  string__93_279 = from_latin_1_string("i", 1);
-  string__93_281 = from_latin_1_string("I", 1);
-  string__93_283 = from_latin_1_string("i", 1);
-  string__93_285 = from_latin_1_string("I", 1);
-  string__93_287 = from_latin_1_string("i", 1);
-  string__93_289 = from_latin_1_string("I", 1);
-  string__93_291 = from_latin_1_string("i", 1);
-  string__93_293 = from_latin_1_string("IJ", 2);
-  string__93_295 = from_latin_1_string("ij", 2);
-  string__93_297 = from_latin_1_string("J", 1);
-  string__93_299 = from_latin_1_string("j", 1);
-  string__93_301 = from_latin_1_string("K", 1);
+  string__93_183 = from_latin_1_string("ue", 2);
+  string__93_185 = from_latin_1_string("y", 1);
+  string__93_187 = from_latin_1_string("p", 1);
+  string__93_189 = from_latin_1_string("y", 1);
+  string__93_191 = from_latin_1_string("A", 1);
+  string__93_193 = from_latin_1_string("a", 1);
+  string__93_195 = from_latin_1_string("A", 1);
+  string__93_197 = from_latin_1_string("a", 1);
+  string__93_199 = from_latin_1_string("A", 1);
+  string__93_201 = from_latin_1_string("a", 1);
+  string__93_203 = from_latin_1_string("C", 1);
+  string__93_205 = from_latin_1_string("c", 1);
+  string__93_207 = from_latin_1_string("C", 1);
+  string__93_209 = from_latin_1_string("c", 1);
+  string__93_211 = from_latin_1_string("C", 1);
+  string__93_213 = from_latin_1_string("c", 1);
+  string__93_215 = from_latin_1_string("C", 1);
+  string__93_217 = from_latin_1_string("c", 1);
+  string__93_219 = from_latin_1_string("D", 1);
+  string__93_221 = from_latin_1_string("d", 1);
+  string__93_223 = from_latin_1_string("D", 1);
+  string__93_225 = from_latin_1_string("d", 1);
+  string__93_227 = from_latin_1_string("E", 1);
+  string__93_229 = from_latin_1_string("e", 1);
+  string__93_231 = from_latin_1_string("E", 1);
+  string__93_233 = from_latin_1_string("e", 1);
+  string__93_235 = from_latin_1_string("E", 1);
+  string__93_237 = from_latin_1_string("e", 1);
+  string__93_239 = from_latin_1_string("E", 1);
+  string__93_241 = from_latin_1_string("e", 1);
+  string__93_243 = from_latin_1_string("E", 1);
+  string__93_245 = from_latin_1_string("e", 1);
+  string__93_247 = from_latin_1_string("G", 1);
+  string__93_249 = from_latin_1_string("g", 1);
+  string__93_251 = from_latin_1_string("G", 1);
+  string__93_253 = from_latin_1_string("g", 1);
+  string__93_255 = from_latin_1_string("G", 1);
+  string__93_257 = from_latin_1_string("g", 1);
+  string__93_259 = from_latin_1_string("G", 1);
+  string__93_261 = from_latin_1_string("g", 1);
+  string__93_263 = from_latin_1_string("H", 1);
+  string__93_265 = from_latin_1_string("h", 1);
+  string__93_267 = from_latin_1_string("H", 1);
+  string__93_269 = from_latin_1_string("h", 1);
+  string__93_271 = from_latin_1_string("I", 1);
+  string__93_273 = from_latin_1_string("i", 1);
+  string__93_275 = from_latin_1_string("I", 1);
+  string__93_277 = from_latin_1_string("i", 1);
+  string__93_279 = from_latin_1_string("I", 1);
+  string__93_281 = from_latin_1_string("i", 1);
+  string__93_283 = from_latin_1_string("I", 1);
+  string__93_285 = from_latin_1_string("i", 1);
+  string__93_287 = from_latin_1_string("I", 1);
+  string__93_289 = from_latin_1_string("i", 1);
+  string__93_291 = from_latin_1_string("IJ", 2);
+  string__93_293 = from_latin_1_string("ij", 2);
+  string__93_295 = from_latin_1_string("J", 1);
+  string__93_297 = from_latin_1_string("j", 1);
+  string__93_299 = from_latin_1_string("K", 1);
+  string__93_301 = from_latin_1_string("k", 1);
   string__93_303 = from_latin_1_string("k", 1);
-  string__93_305 = from_latin_1_string("k", 1);
-  string__93_307 = from_latin_1_string("L", 1);
-  string__93_309 = from_latin_1_string("l", 1);
-  string__93_311 = from_latin_1_string("L", 1);
-  string__93_313 = from_latin_1_string("l", 1);
-  string__93_315 = from_latin_1_string("L", 1);
-  string__93_317 = from_latin_1_string("l", 1);
-  string__93_319 = from_latin_1_string("L", 1);
-  string__93_321 = from_latin_1_string("l", 1);
-  string__93_323 = from_latin_1_string("L", 1);
-  string__93_325 = from_latin_1_string("l", 1);
-  string__93_327 = from_latin_1_string("N", 1);
-  string__93_329 = from_latin_1_string("n", 1);
-  string__93_331 = from_latin_1_string("N", 1);
-  string__93_333 = from_latin_1_string("n", 1);
-  string__93_335 = from_latin_1_string("N", 1);
+  string__93_305 = from_latin_1_string("L", 1);
+  string__93_307 = from_latin_1_string("l", 1);
+  string__93_309 = from_latin_1_string("L", 1);
+  string__93_311 = from_latin_1_string("l", 1);
+  string__93_313 = from_latin_1_string("L", 1);
+  string__93_315 = from_latin_1_string("l", 1);
+  string__93_317 = from_latin_1_string("L", 1);
+  string__93_319 = from_latin_1_string("l", 1);
+  string__93_321 = from_latin_1_string("L", 1);
+  string__93_323 = from_latin_1_string("l", 1);
+  string__93_325 = from_latin_1_string("N", 1);
+  string__93_327 = from_latin_1_string("n", 1);
+  string__93_329 = from_latin_1_string("N", 1);
+  string__93_331 = from_latin_1_string("n", 1);
+  string__93_333 = from_latin_1_string("N", 1);
+  string__93_335 = from_latin_1_string("n", 1);
   string__93_337 = from_latin_1_string("n", 1);
-  string__93_339 = from_latin_1_string("n", 1);
-  string__93_341 = from_latin_1_string("N", 1);
-  string__93_343 = from_latin_1_string("n", 1);
-  string__93_345 = from_latin_1_string("O", 1);
-  string__93_347 = from_latin_1_string("o", 1);
-  string__93_349 = from_latin_1_string("O", 1);
-  string__93_351 = from_latin_1_string("o", 1);
+  string__93_339 = from_latin_1_string("N", 1);
+  string__93_341 = from_latin_1_string("n", 1);
+  string__93_343 = from_latin_1_string("O", 1);
+  string__93_345 = from_latin_1_string("o", 1);
+  string__93_347 = from_latin_1_string("O", 1);
+  string__93_349 = from_latin_1_string("o", 1);
+  string__93_351 = from_latin_1_string("O", 1);
   string__93_353 = from_latin_1_string("O", 1);
-  string__93_355 = from_latin_1_string("O", 1);
-  string__93_357 = from_latin_1_string("OE", 2);
-  string__93_359 = from_latin_1_string("oe", 2);
-  string__93_361 = from_latin_1_string("R", 1);
-  string__93_363 = from_latin_1_string("r", 1);
-  string__93_365 = from_latin_1_string("R", 1);
-  string__93_367 = from_latin_1_string("r", 1);
-  string__93_369 = from_latin_1_string("R", 1);
-  string__93_371 = from_latin_1_string("r", 1);
-  string__93_373 = from_latin_1_string("S", 1);
-  string__93_375 = from_latin_1_string("s", 1);
-  string__93_377 = from_latin_1_string("S", 1);
-  string__93_379 = from_latin_1_string("s", 1);
-  string__93_381 = from_latin_1_string("S", 1);
-  string__93_383 = from_latin_1_string("s", 1);
-  string__93_385 = from_latin_1_string("S", 1);
-  string__93_387 = from_latin_1_string("s", 1);
-  string__93_389 = from_latin_1_string("T", 1);
-  string__93_391 = from_latin_1_string("t", 1);
-  string__93_393 = from_latin_1_string("T", 1);
-  string__93_395 = from_latin_1_string("t", 1);
-  string__93_397 = from_latin_1_string("T", 1);
-  string__93_399 = from_latin_1_string("t", 1);
-  string__93_401 = from_latin_1_string("U", 1);
-  string__93_403 = from_latin_1_string("u", 1);
-  string__93_405 = from_latin_1_string("U", 1);
-  string__93_407 = from_latin_1_string("u", 1);
-  string__93_409 = from_latin_1_string("U", 1);
-  string__93_411 = from_latin_1_string("u", 1);
-  string__93_413 = from_latin_1_string("U", 1);
-  string__93_415 = from_latin_1_string("u", 1);
-  string__93_417 = from_latin_1_string("U", 1);
-  string__93_419 = from_latin_1_string("u", 1);
-  string__93_421 = from_latin_1_string("U", 1);
-  string__93_423 = from_latin_1_string("u", 1);
-  string__93_425 = from_latin_1_string("W", 1);
-  string__93_427 = from_latin_1_string("w", 1);
-  string__93_429 = from_latin_1_string("Y", 1);
-  string__93_431 = from_latin_1_string("y", 1);
-  string__93_433 = from_latin_1_string("Y", 1);
-  string__93_435 = from_latin_1_string("Z", 1);
-  string__93_437 = from_latin_1_string("z", 1);
-  string__93_439 = from_latin_1_string("Z", 1);
-  string__93_441 = from_latin_1_string("z", 1);
-  string__93_443 = from_latin_1_string("Z", 1);
-  string__93_445 = from_latin_1_string("z", 1);
-  string__93_447 = from_latin_1_string("s", 1);
-  string__93_449 = from_latin_1_string("b", 1);
+  string__93_355 = from_latin_1_string("OE", 2);
+  string__93_357 = from_latin_1_string("oe", 2);
+  string__93_359 = from_latin_1_string("R", 1);
+  string__93_361 = from_latin_1_string("r", 1);
+  string__93_363 = from_latin_1_string("R", 1);
+  string__93_365 = from_latin_1_string("r", 1);
+  string__93_367 = from_latin_1_string("R", 1);
+  string__93_369 = from_latin_1_string("r", 1);
+  string__93_371 = from_latin_1_string("S", 1);
+  string__93_373 = from_latin_1_string("s", 1);
+  string__93_375 = from_latin_1_string("S", 1);
+  string__93_377 = from_latin_1_string("s", 1);
+  string__93_379 = from_latin_1_string("S", 1);
+  string__93_381 = from_latin_1_string("s", 1);
+  string__93_383 = from_latin_1_string("S", 1);
+  string__93_385 = from_latin_1_string("s", 1);
+  string__93_387 = from_latin_1_string("T", 1);
+  string__93_389 = from_latin_1_string("t", 1);
+  string__93_391 = from_latin_1_string("T", 1);
+  string__93_393 = from_latin_1_string("t", 1);
+  string__93_395 = from_latin_1_string("T", 1);
+  string__93_397 = from_latin_1_string("t", 1);
+  string__93_399 = from_latin_1_string("U", 1);
+  string__93_401 = from_latin_1_string("u", 1);
+  string__93_403 = from_latin_1_string("U", 1);
+  string__93_405 = from_latin_1_string("u", 1);
+  string__93_407 = from_latin_1_string("U", 1);
+  string__93_409 = from_latin_1_string("u", 1);
+  string__93_411 = from_latin_1_string("U", 1);
+  string__93_413 = from_latin_1_string("u", 1);
+  string__93_415 = from_latin_1_string("U", 1);
+  string__93_417 = from_latin_1_string("u", 1);
+  string__93_419 = from_latin_1_string("U", 1);
+  string__93_421 = from_latin_1_string("u", 1);
+  string__93_423 = from_latin_1_string("W", 1);
+  string__93_425 = from_latin_1_string("w", 1);
+  string__93_427 = from_latin_1_string("Y", 1);
+  string__93_429 = from_latin_1_string("y", 1);
+  string__93_431 = from_latin_1_string("Y", 1);
+  string__93_433 = from_latin_1_string("Z", 1);
+  string__93_435 = from_latin_1_string("z", 1);
+  string__93_437 = from_latin_1_string("Z", 1);
+  string__93_439 = from_latin_1_string("z", 1);
+  string__93_441 = from_latin_1_string("Z", 1);
+  string__93_443 = from_latin_1_string("z", 1);
+  string__93_445 = from_latin_1_string("s", 1);
+  string__93_447 = from_latin_1_string("b", 1);
+  string__93_449 = from_latin_1_string("B", 1);
   string__93_451 = from_latin_1_string("B", 1);
-  string__93_453 = from_latin_1_string("B", 1);
+  string__93_453 = from_latin_1_string("b", 1);
   string__93_455 = from_latin_1_string("b", 1);
   string__93_457 = from_latin_1_string("b", 1);
-  string__93_459 = from_latin_1_string("b", 1);
-  string__93_461 = from_latin_1_string("C", 1);
-  string__93_463 = from_latin_1_string("c", 1);
+  string__93_459 = from_latin_1_string("C", 1);
+  string__93_461 = from_latin_1_string("c", 1);
+  string__93_463 = from_latin_1_string("D", 1);
   string__93_465 = from_latin_1_string("D", 1);
   string__93_467 = from_latin_1_string("D", 1);
-  string__93_469 = from_latin_1_string("D", 1);
-  string__93_471 = from_latin_1_string("d", 1);
-  string__93_473 = from_latin_1_string("g", 1);
-  string__93_475 = from_latin_1_string("E", 1);
-  string__93_477 = from_latin_1_string("F", 1);
-  string__93_479 = from_latin_1_string("f", 1);
-  string__93_481 = from_latin_1_string("G", 1);
-  string__93_483 = from_latin_1_string("DZ", 2);
-  string__93_485 = from_latin_1_string("Dz", 2);
-  string__93_487 = from_latin_1_string("dz", 2);
-  string__93_489 = from_latin_1_string("LJ", 2);
-  string__93_491 = from_latin_1_string("Lj", 2);
-  string__93_493 = from_latin_1_string("lj", 2);
-  string__93_495 = from_latin_1_string("NJ", 2);
-  string__93_497 = from_latin_1_string("Nj", 2);
-  string__93_499 = from_latin_1_string("nj", 2);
-  string__93_501 = from_latin_1_string("A", 1);
-  string__93_503 = from_latin_1_string("a", 1);
-  string__93_505 = from_latin_1_string("I", 1);
-  string__93_507 = from_latin_1_string("i", 1);
-  string__93_509 = from_latin_1_string("O", 1);
-  string__93_511 = from_latin_1_string("o", 1);
-  string__93_513 = from_latin_1_string("U", 1);
-  string__93_515 = from_latin_1_string("u", 1);
-  string__93_517 = from_latin_1_string("U", 1);
-  string__93_519 = from_latin_1_string("u", 1);
-  string__93_521 = from_latin_1_string("U", 1);
-  string__93_523 = from_latin_1_string("u", 1);
-  string__93_525 = from_latin_1_string("U", 1);
-  string__93_527 = from_latin_1_string("u", 1);
-  string__93_529 = from_latin_1_string("U", 1);
-  string__93_531 = from_latin_1_string("u", 1);
-  string__93_533 = from_latin_1_string("A", 1);
-  string__93_535 = from_latin_1_string("a", 1);
-  string__93_537 = from_latin_1_string("A", 1);
-  string__93_539 = from_latin_1_string("a", 1);
-  string__93_541 = from_latin_1_string("AE", 2);
-  string__93_543 = from_latin_1_string("ae", 2);
-  string__93_545 = from_latin_1_string("G", 1);
-  string__93_547 = from_latin_1_string("g", 1);
-  string__93_549 = from_latin_1_string("G", 1);
-  string__93_551 = from_latin_1_string("g", 1);
-  string__93_553 = from_latin_1_string("K", 1);
-  string__93_555 = from_latin_1_string("k", 1);
-  string__93_557 = from_latin_1_string("O", 1);
-  string__93_559 = from_latin_1_string("o", 1);
-  string__93_561 = from_latin_1_string("O", 1);
-  string__93_563 = from_latin_1_string("o", 1);
-  string__93_565 = from_latin_1_string("DZ", 2);
-  string__93_567 = from_latin_1_string("Dz", 2);
-  string__93_569 = from_latin_1_string("dz", 2);
-  string__93_571 = from_latin_1_string("G", 1);
-  string__93_573 = from_latin_1_string("g", 1);
-  string__93_575 = from_latin_1_string("N", 1);
-  string__93_577 = from_latin_1_string("n", 1);
-  string__93_579 = from_latin_1_string("A", 1);
-  string__93_581 = from_latin_1_string("a", 1);
-  string__93_583 = from_latin_1_string("AE", 2);
-  string__93_585 = from_latin_1_string("ae", 2);
-  string__93_587 = from_latin_1_string("O", 1);
-  string__93_589 = from_latin_1_string("o", 1);
+  string__93_469 = from_latin_1_string("d", 1);
+  string__93_471 = from_latin_1_string("g", 1);
+  string__93_473 = from_latin_1_string("E", 1);
+  string__93_475 = from_latin_1_string("F", 1);
+  string__93_477 = from_latin_1_string("f", 1);
+  string__93_479 = from_latin_1_string("G", 1);
+  string__93_481 = from_latin_1_string("DZ", 2);
+  string__93_483 = from_latin_1_string("Dz", 2);
+  string__93_485 = from_latin_1_string("dz", 2);
+  string__93_487 = from_latin_1_string("LJ", 2);
+  string__93_489 = from_latin_1_string("Lj", 2);
+  string__93_491 = from_latin_1_string("lj", 2);
+  string__93_493 = from_latin_1_string("NJ", 2);
+  string__93_495 = from_latin_1_string("Nj", 2);
+  string__93_497 = from_latin_1_string("nj", 2);
+  string__93_499 = from_latin_1_string("A", 1);
+  string__93_501 = from_latin_1_string("a", 1);
+  string__93_503 = from_latin_1_string("I", 1);
+  string__93_505 = from_latin_1_string("i", 1);
+  string__93_507 = from_latin_1_string("O", 1);
+  string__93_509 = from_latin_1_string("o", 1);
+  string__93_511 = from_latin_1_string("U", 1);
+  string__93_513 = from_latin_1_string("u", 1);
+  string__93_515 = from_latin_1_string("U", 1);
+  string__93_517 = from_latin_1_string("u", 1);
+  string__93_519 = from_latin_1_string("U", 1);
+  string__93_521 = from_latin_1_string("u", 1);
+  string__93_523 = from_latin_1_string("U", 1);
+  string__93_525 = from_latin_1_string("u", 1);
+  string__93_527 = from_latin_1_string("U", 1);
+  string__93_529 = from_latin_1_string("u", 1);
+  string__93_531 = from_latin_1_string("A", 1);
+  string__93_533 = from_latin_1_string("a", 1);
+  string__93_535 = from_latin_1_string("A", 1);
+  string__93_537 = from_latin_1_string("a", 1);
+  string__93_539 = from_latin_1_string("AE", 2);
+  string__93_541 = from_latin_1_string("ae", 2);
+  string__93_543 = from_latin_1_string("G", 1);
+  string__93_545 = from_latin_1_string("g", 1);
+  string__93_547 = from_latin_1_string("G", 1);
+  string__93_549 = from_latin_1_string("g", 1);
+  string__93_551 = from_latin_1_string("K", 1);
+  string__93_553 = from_latin_1_string("k", 1);
+  string__93_555 = from_latin_1_string("O", 1);
+  string__93_557 = from_latin_1_string("o", 1);
+  string__93_559 = from_latin_1_string("O", 1);
+  string__93_561 = from_latin_1_string("o", 1);
+  string__93_563 = from_latin_1_string("DZ", 2);
+  string__93_565 = from_latin_1_string("Dz", 2);
+  string__93_567 = from_latin_1_string("dz", 2);
+  string__93_569 = from_latin_1_string("G", 1);
+  string__93_571 = from_latin_1_string("g", 1);
+  string__93_573 = from_latin_1_string("N", 1);
+  string__93_575 = from_latin_1_string("n", 1);
+  string__93_577 = from_latin_1_string("A", 1);
+  string__93_579 = from_latin_1_string("a", 1);
+  string__93_581 = from_latin_1_string("AE", 2);
+  string__93_583 = from_latin_1_string("ae", 2);
+  string__93_585 = from_latin_1_string("O", 1);
+  string__93_587 = from_latin_1_string("o", 1);
 }
 
 static int already_run_phase_3 = false;

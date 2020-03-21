@@ -637,7 +637,6 @@ $types::string/contains: (text expr)
 
 $umlaut_conversions
   table
-    ' ' = " "
     '¡' = "!"
     '¢' = "(cent)"
     '£' = "(pound)"

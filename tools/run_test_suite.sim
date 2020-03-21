@@ -100,7 +100,6 @@ $gcc_options
     "-O1"
     "-fno-stack-protector"
     "-falign-functions=16" # this is essential or the garbage collector will crash!!!
-    "-falign-labels=16"
     "-Wall"
     "-Wno-unused-function"
     "-Wno-unused-variable"
