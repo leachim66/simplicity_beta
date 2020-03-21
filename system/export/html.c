@@ -1462,7 +1462,7 @@ EXPORT void run__system__export__html(void) {
     return;
   }
   already_run = true;
-  allocate_initialized_frame_gc(0, 0);
+  allocate_initialized_frame_gc(0, 3);
   // 57: ... '0' .. '9'
   argument_count = 2;
   arguments = node_p;
@@ -1478,7 +1478,7 @@ static void cont__82_1(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 57: ... 'a' .. 'f'
   argument_count = 2;
   arguments = node_p;
@@ -1494,7 +1494,7 @@ static void cont__82_2(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 57: ... 'A' .. 'F'
   argument_count = 2;
   arguments = node_p;
@@ -1510,13 +1510,13 @@ static void cont__82_3(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 57: $hex_digit alt('0' .. '9' 'a' .. 'f' 'A' .. 'F')
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
-  arguments->slots[1] = temp__2;
-  arguments->slots[2] = temp__3;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* temp__2 */;
+  arguments->slots[2] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__alt();
   func = myself->type;

@@ -259,12 +259,6 @@ IMPORT void register_collector(FUNC collector);
 #else
   extern void invalid_continuation(void);
 #endif
-static NODE *temp__1;
-static NODE *temp__2;
-static NODE *temp__3;
-static NODE *temp__4;
-static NODE *temp__5;
-static NODE *temp__6;
 static NODE_GETTER get__DIGIT;
 static NODE_GETTER get_value_or_future__DIGIT;
 static NODE_GETTER get__IDENTIFIER;
@@ -1032,7 +1026,7 @@ EXPORT void run__basic__deserialize(void) {
     return;
   }
   already_run = true;
-  allocate_initialized_frame_gc(0, 0);
+  allocate_initialized_frame_gc(0, 6);
   // 23: ... alt(LETTER DIGIT)
   argument_count = 2;
   arguments = node_p;
@@ -1048,11 +1042,11 @@ static void cont__10_1(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 23: ... some(alt(LETTER DIGIT))
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__2;
+  arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -1063,7 +1057,7 @@ static void cont__10_2(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 23: ... alt(LETTER DIGIT)
   argument_count = 2;
   arguments = node_p;
@@ -1079,11 +1073,11 @@ static void cont__10_3(void) {
     invalid_results_error();
     return;
   }
-  temp__6 = arguments->slots[0];
+  frame->slots[5] /* temp__6 */ = arguments->slots[0];
   // 23: ... many(alt(LETTER DIGIT))
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__6;
+  arguments->slots[0] = frame->slots[5] /* temp__6 */;
   result_count = 1;
   myself = get__many();
   func = myself->type;
@@ -1094,12 +1088,12 @@ static void cont__10_4(void) {
     invalid_results_error();
     return;
   }
-  temp__5 = arguments->slots[0];
+  frame->slots[4] /* temp__5 */ = arguments->slots[0];
   // 23: ... '_', many(alt(LETTER DIGIT))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__95;
-  arguments->slots[1] = temp__5;
+  arguments->slots[1] = frame->slots[4] /* temp__5 */;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -1110,11 +1104,11 @@ static void cont__10_5(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
+  frame->slots[3] /* temp__4 */ = arguments->slots[0];
   // 23: ... some('_', many(alt(LETTER DIGIT)))
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__4;
+  arguments->slots[0] = frame->slots[3] /* temp__4 */;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -1125,13 +1119,13 @@ static void cont__10_6(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 23: $std::NAME LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__LETTER();
-  arguments->slots[1] = temp__1;
-  arguments->slots[2] = temp__3;
+  arguments->slots[1] = frame->slots[0] /* temp__1 */;
+  arguments->slots[2] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -1158,11 +1152,11 @@ static void cont__11_2(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 24: ... optional("::", NAME)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__2;
+  arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
   myself = get__optional();
   func = myself->type;
@@ -1173,12 +1167,12 @@ static void cont__11_3(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 24: $std::IDENTIFIER NAME, optional("::", NAME)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__NAME();
-  arguments->slots[1] = temp__1;
+  arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -5261,12 +5255,6 @@ static void cont__9_6(void) {
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__basic__deserialize(void) {
-  temp__1 = collect_node(temp__1);
-  temp__2 = collect_node(temp__2);
-  temp__3 = collect_node(temp__3);
-  temp__4 = collect_node(temp__4);
-  temp__5 = collect_node(temp__5);
-  temp__6 = collect_node(temp__6);
   var.std__NAME = collect_node(var.std__NAME);
   var.std__IDENTIFIER = collect_node(var.std__IDENTIFIER);
   var._deserializers = collect_node(var._deserializers);

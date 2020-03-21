@@ -589,6 +589,8 @@ $sim2c::sim2c:
       if
 	is_main:
 	  begin_continuation "main_entry"
+	  if max_temp_idx > 0:
+	    writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
 	:
 	  write_to_continuation_table "  {run__@(module_name), NULL, "
 	  write "
@@ -601,7 +603,7 @@ $sim2c::sim2c:
 	        return;
 	      }
 	      already_run = true;
-	      allocate_initialized_frame_gc(0, 0);
+	      allocate_initialized_frame_gc(0, @(max_temp_idx));
       for_each required_modules: (name info)
 	write_source_as_remark info
 	write "
@@ -750,7 +752,6 @@ $sim2c::sim2c:
     #else
       extern void invalid_continuation(void);
     #endif
-  from_to 1 max_temp_idx: (idx) writeln "static NODE *temp__@(idx);"
   for_each needed_names: (name info)
     if variable_kind_of(info) == POLYMORPHIC:
       writeln "static int poly_idx__@(name);"
@@ -856,8 +857,6 @@ $sim2c::sim2c:
   write delayed_statements
   write "
     EXPORT void collect__@(module_name)(void) {
-  from_to 1 max_temp_idx: (idx)
-    writeln "  temp__@(idx) = collect_node(temp__@(idx));"
   write generated_collections
   for_each used_literals: (name _literal)
     writeln "  @(name) = collect_node(@(name));"

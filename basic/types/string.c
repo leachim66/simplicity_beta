@@ -280,300 +280,6 @@ IMPORT void register_collector(FUNC collector);
 #else
   extern void invalid_continuation(void);
 #endif
-static NODE *temp__1;
-static NODE *temp__2;
-static NODE *temp__3;
-static NODE *temp__4;
-static NODE *temp__5;
-static NODE *temp__6;
-static NODE *temp__7;
-static NODE *temp__8;
-static NODE *temp__9;
-static NODE *temp__10;
-static NODE *temp__11;
-static NODE *temp__12;
-static NODE *temp__13;
-static NODE *temp__14;
-static NODE *temp__15;
-static NODE *temp__16;
-static NODE *temp__17;
-static NODE *temp__18;
-static NODE *temp__19;
-static NODE *temp__20;
-static NODE *temp__21;
-static NODE *temp__22;
-static NODE *temp__23;
-static NODE *temp__24;
-static NODE *temp__25;
-static NODE *temp__26;
-static NODE *temp__27;
-static NODE *temp__28;
-static NODE *temp__29;
-static NODE *temp__30;
-static NODE *temp__31;
-static NODE *temp__32;
-static NODE *temp__33;
-static NODE *temp__34;
-static NODE *temp__35;
-static NODE *temp__36;
-static NODE *temp__37;
-static NODE *temp__38;
-static NODE *temp__39;
-static NODE *temp__40;
-static NODE *temp__41;
-static NODE *temp__42;
-static NODE *temp__43;
-static NODE *temp__44;
-static NODE *temp__45;
-static NODE *temp__46;
-static NODE *temp__47;
-static NODE *temp__48;
-static NODE *temp__49;
-static NODE *temp__50;
-static NODE *temp__51;
-static NODE *temp__52;
-static NODE *temp__53;
-static NODE *temp__54;
-static NODE *temp__55;
-static NODE *temp__56;
-static NODE *temp__57;
-static NODE *temp__58;
-static NODE *temp__59;
-static NODE *temp__60;
-static NODE *temp__61;
-static NODE *temp__62;
-static NODE *temp__63;
-static NODE *temp__64;
-static NODE *temp__65;
-static NODE *temp__66;
-static NODE *temp__67;
-static NODE *temp__68;
-static NODE *temp__69;
-static NODE *temp__70;
-static NODE *temp__71;
-static NODE *temp__72;
-static NODE *temp__73;
-static NODE *temp__74;
-static NODE *temp__75;
-static NODE *temp__76;
-static NODE *temp__77;
-static NODE *temp__78;
-static NODE *temp__79;
-static NODE *temp__80;
-static NODE *temp__81;
-static NODE *temp__82;
-static NODE *temp__83;
-static NODE *temp__84;
-static NODE *temp__85;
-static NODE *temp__86;
-static NODE *temp__87;
-static NODE *temp__88;
-static NODE *temp__89;
-static NODE *temp__90;
-static NODE *temp__91;
-static NODE *temp__92;
-static NODE *temp__93;
-static NODE *temp__94;
-static NODE *temp__95;
-static NODE *temp__96;
-static NODE *temp__97;
-static NODE *temp__98;
-static NODE *temp__99;
-static NODE *temp__100;
-static NODE *temp__101;
-static NODE *temp__102;
-static NODE *temp__103;
-static NODE *temp__104;
-static NODE *temp__105;
-static NODE *temp__106;
-static NODE *temp__107;
-static NODE *temp__108;
-static NODE *temp__109;
-static NODE *temp__110;
-static NODE *temp__111;
-static NODE *temp__112;
-static NODE *temp__113;
-static NODE *temp__114;
-static NODE *temp__115;
-static NODE *temp__116;
-static NODE *temp__117;
-static NODE *temp__118;
-static NODE *temp__119;
-static NODE *temp__120;
-static NODE *temp__121;
-static NODE *temp__122;
-static NODE *temp__123;
-static NODE *temp__124;
-static NODE *temp__125;
-static NODE *temp__126;
-static NODE *temp__127;
-static NODE *temp__128;
-static NODE *temp__129;
-static NODE *temp__130;
-static NODE *temp__131;
-static NODE *temp__132;
-static NODE *temp__133;
-static NODE *temp__134;
-static NODE *temp__135;
-static NODE *temp__136;
-static NODE *temp__137;
-static NODE *temp__138;
-static NODE *temp__139;
-static NODE *temp__140;
-static NODE *temp__141;
-static NODE *temp__142;
-static NODE *temp__143;
-static NODE *temp__144;
-static NODE *temp__145;
-static NODE *temp__146;
-static NODE *temp__147;
-static NODE *temp__148;
-static NODE *temp__149;
-static NODE *temp__150;
-static NODE *temp__151;
-static NODE *temp__152;
-static NODE *temp__153;
-static NODE *temp__154;
-static NODE *temp__155;
-static NODE *temp__156;
-static NODE *temp__157;
-static NODE *temp__158;
-static NODE *temp__159;
-static NODE *temp__160;
-static NODE *temp__161;
-static NODE *temp__162;
-static NODE *temp__163;
-static NODE *temp__164;
-static NODE *temp__165;
-static NODE *temp__166;
-static NODE *temp__167;
-static NODE *temp__168;
-static NODE *temp__169;
-static NODE *temp__170;
-static NODE *temp__171;
-static NODE *temp__172;
-static NODE *temp__173;
-static NODE *temp__174;
-static NODE *temp__175;
-static NODE *temp__176;
-static NODE *temp__177;
-static NODE *temp__178;
-static NODE *temp__179;
-static NODE *temp__180;
-static NODE *temp__181;
-static NODE *temp__182;
-static NODE *temp__183;
-static NODE *temp__184;
-static NODE *temp__185;
-static NODE *temp__186;
-static NODE *temp__187;
-static NODE *temp__188;
-static NODE *temp__189;
-static NODE *temp__190;
-static NODE *temp__191;
-static NODE *temp__192;
-static NODE *temp__193;
-static NODE *temp__194;
-static NODE *temp__195;
-static NODE *temp__196;
-static NODE *temp__197;
-static NODE *temp__198;
-static NODE *temp__199;
-static NODE *temp__200;
-static NODE *temp__201;
-static NODE *temp__202;
-static NODE *temp__203;
-static NODE *temp__204;
-static NODE *temp__205;
-static NODE *temp__206;
-static NODE *temp__207;
-static NODE *temp__208;
-static NODE *temp__209;
-static NODE *temp__210;
-static NODE *temp__211;
-static NODE *temp__212;
-static NODE *temp__213;
-static NODE *temp__214;
-static NODE *temp__215;
-static NODE *temp__216;
-static NODE *temp__217;
-static NODE *temp__218;
-static NODE *temp__219;
-static NODE *temp__220;
-static NODE *temp__221;
-static NODE *temp__222;
-static NODE *temp__223;
-static NODE *temp__224;
-static NODE *temp__225;
-static NODE *temp__226;
-static NODE *temp__227;
-static NODE *temp__228;
-static NODE *temp__229;
-static NODE *temp__230;
-static NODE *temp__231;
-static NODE *temp__232;
-static NODE *temp__233;
-static NODE *temp__234;
-static NODE *temp__235;
-static NODE *temp__236;
-static NODE *temp__237;
-static NODE *temp__238;
-static NODE *temp__239;
-static NODE *temp__240;
-static NODE *temp__241;
-static NODE *temp__242;
-static NODE *temp__243;
-static NODE *temp__244;
-static NODE *temp__245;
-static NODE *temp__246;
-static NODE *temp__247;
-static NODE *temp__248;
-static NODE *temp__249;
-static NODE *temp__250;
-static NODE *temp__251;
-static NODE *temp__252;
-static NODE *temp__253;
-static NODE *temp__254;
-static NODE *temp__255;
-static NODE *temp__256;
-static NODE *temp__257;
-static NODE *temp__258;
-static NODE *temp__259;
-static NODE *temp__260;
-static NODE *temp__261;
-static NODE *temp__262;
-static NODE *temp__263;
-static NODE *temp__264;
-static NODE *temp__265;
-static NODE *temp__266;
-static NODE *temp__267;
-static NODE *temp__268;
-static NODE *temp__269;
-static NODE *temp__270;
-static NODE *temp__271;
-static NODE *temp__272;
-static NODE *temp__273;
-static NODE *temp__274;
-static NODE *temp__275;
-static NODE *temp__276;
-static NODE *temp__277;
-static NODE *temp__278;
-static NODE *temp__279;
-static NODE *temp__280;
-static NODE *temp__281;
-static NODE *temp__282;
-static NODE *temp__283;
-static NODE *temp__284;
-static NODE *temp__285;
-static NODE *temp__286;
-static NODE *temp__287;
-static NODE *temp__288;
-static NODE *temp__289;
-static NODE *temp__290;
-static NODE *temp__291;
-static NODE *temp__292;
-static NODE *temp__293;
-static NODE *temp__294;
 static NODE_GETTER get__END_OF_TEXT;
 static NODE_GETTER get_value_or_future__END_OF_TEXT;
 static NODE_GETTER get__Error;
@@ -3542,7 +3248,7 @@ EXPORT void run__basic__types__string(void) {
     return;
   }
   already_run = true;
-  allocate_initialized_frame_gc(0, 0);
+  allocate_initialized_frame_gc(0, 294);
   // 640: '¡' = "!"
   argument_count = 2;
   arguments = node_p;
@@ -3558,7 +3264,7 @@ static void cont__93_2(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 641: '¢' = "(cent)"
   argument_count = 2;
   arguments = node_p;
@@ -3574,7 +3280,7 @@ static void cont__93_4(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 642: '£' = "(pound)"
   argument_count = 2;
   arguments = node_p;
@@ -3590,7 +3296,7 @@ static void cont__93_6(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 643: '¤' = "?"
   argument_count = 2;
   arguments = node_p;
@@ -3606,7 +3312,7 @@ static void cont__93_8(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
+  frame->slots[3] /* temp__4 */ = arguments->slots[0];
   // 644: '¥' = "(yen)"
   argument_count = 2;
   arguments = node_p;
@@ -3622,7 +3328,7 @@ static void cont__93_10(void) {
     invalid_results_error();
     return;
   }
-  temp__5 = arguments->slots[0];
+  frame->slots[4] /* temp__5 */ = arguments->slots[0];
   // 645: '¦' = "|"
   argument_count = 2;
   arguments = node_p;
@@ -3638,7 +3344,7 @@ static void cont__93_12(void) {
     invalid_results_error();
     return;
   }
-  temp__6 = arguments->slots[0];
+  frame->slots[5] /* temp__6 */ = arguments->slots[0];
   // 646: '§' = "$"
   argument_count = 2;
   arguments = node_p;
@@ -3654,7 +3360,7 @@ static void cont__93_14(void) {
     invalid_results_error();
     return;
   }
-  temp__7 = arguments->slots[0];
+  frame->slots[6] /* temp__7 */ = arguments->slots[0];
   // 647: '¨' = "@quot;"
   argument_count = 2;
   arguments = node_p;
@@ -3670,7 +3376,7 @@ static void cont__93_16(void) {
     invalid_results_error();
     return;
   }
-  temp__8 = arguments->slots[0];
+  frame->slots[7] /* temp__8 */ = arguments->slots[0];
   // 648: '©' = "(c)"
   argument_count = 2;
   arguments = node_p;
@@ -3686,7 +3392,7 @@ static void cont__93_18(void) {
     invalid_results_error();
     return;
   }
-  temp__9 = arguments->slots[0];
+  frame->slots[8] /* temp__9 */ = arguments->slots[0];
   // 649: 'ª' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -3702,7 +3408,7 @@ static void cont__93_20(void) {
     invalid_results_error();
     return;
   }
-  temp__10 = arguments->slots[0];
+  frame->slots[9] /* temp__10 */ = arguments->slots[0];
   // 650: '«' = "<<"
   argument_count = 2;
   arguments = node_p;
@@ -3718,7 +3424,7 @@ static void cont__93_22(void) {
     invalid_results_error();
     return;
   }
-  temp__11 = arguments->slots[0];
+  frame->slots[10] /* temp__11 */ = arguments->slots[0];
   // 651: '¬' = "(not)"
   argument_count = 2;
   arguments = node_p;
@@ -3734,7 +3440,7 @@ static void cont__93_24(void) {
     invalid_results_error();
     return;
   }
-  temp__12 = arguments->slots[0];
+  frame->slots[11] /* temp__12 */ = arguments->slots[0];
   // 652: '­' = "(shy)"
   argument_count = 2;
   arguments = node_p;
@@ -3750,7 +3456,7 @@ static void cont__93_26(void) {
     invalid_results_error();
     return;
   }
-  temp__13 = arguments->slots[0];
+  frame->slots[12] /* temp__13 */ = arguments->slots[0];
   // 653: '®' = "(r)"
   argument_count = 2;
   arguments = node_p;
@@ -3766,7 +3472,7 @@ static void cont__93_28(void) {
     invalid_results_error();
     return;
   }
-  temp__14 = arguments->slots[0];
+  frame->slots[13] /* temp__14 */ = arguments->slots[0];
   // 654: '¯' = "~"
   argument_count = 2;
   arguments = node_p;
@@ -3782,7 +3488,7 @@ static void cont__93_30(void) {
     invalid_results_error();
     return;
   }
-  temp__15 = arguments->slots[0];
+  frame->slots[14] /* temp__15 */ = arguments->slots[0];
   // 655: '°' = "(grad)"
   argument_count = 2;
   arguments = node_p;
@@ -3798,7 +3504,7 @@ static void cont__93_32(void) {
     invalid_results_error();
     return;
   }
-  temp__16 = arguments->slots[0];
+  frame->slots[15] /* temp__16 */ = arguments->slots[0];
   // 656: '±' = "+/-"
   argument_count = 2;
   arguments = node_p;
@@ -3814,7 +3520,7 @@ static void cont__93_34(void) {
     invalid_results_error();
     return;
   }
-  temp__17 = arguments->slots[0];
+  frame->slots[16] /* temp__17 */ = arguments->slots[0];
   // 657: '²' = "^2"
   argument_count = 2;
   arguments = node_p;
@@ -3830,7 +3536,7 @@ static void cont__93_36(void) {
     invalid_results_error();
     return;
   }
-  temp__18 = arguments->slots[0];
+  frame->slots[17] /* temp__18 */ = arguments->slots[0];
   // 658: '³' = "^3"
   argument_count = 2;
   arguments = node_p;
@@ -3846,7 +3552,7 @@ static void cont__93_38(void) {
     invalid_results_error();
     return;
   }
-  temp__19 = arguments->slots[0];
+  frame->slots[18] /* temp__19 */ = arguments->slots[0];
   // 659: '´' = "'"
   argument_count = 2;
   arguments = node_p;
@@ -3862,7 +3568,7 @@ static void cont__93_40(void) {
     invalid_results_error();
     return;
   }
-  temp__20 = arguments->slots[0];
+  frame->slots[19] /* temp__20 */ = arguments->slots[0];
   // 660: 'µ' = "(mu)"
   argument_count = 2;
   arguments = node_p;
@@ -3878,7 +3584,7 @@ static void cont__93_42(void) {
     invalid_results_error();
     return;
   }
-  temp__21 = arguments->slots[0];
+  frame->slots[20] /* temp__21 */ = arguments->slots[0];
   // 661: '¶' = "(par)"
   argument_count = 2;
   arguments = node_p;
@@ -3894,7 +3600,7 @@ static void cont__93_44(void) {
     invalid_results_error();
     return;
   }
-  temp__22 = arguments->slots[0];
+  frame->slots[21] /* temp__22 */ = arguments->slots[0];
   // 662: '·' = "."
   argument_count = 2;
   arguments = node_p;
@@ -3910,7 +3616,7 @@ static void cont__93_46(void) {
     invalid_results_error();
     return;
   }
-  temp__23 = arguments->slots[0];
+  frame->slots[22] /* temp__23 */ = arguments->slots[0];
   // 663: '¸' = ","
   argument_count = 2;
   arguments = node_p;
@@ -3926,7 +3632,7 @@ static void cont__93_48(void) {
     invalid_results_error();
     return;
   }
-  temp__24 = arguments->slots[0];
+  frame->slots[23] /* temp__24 */ = arguments->slots[0];
   // 664: '¹' = "^1"
   argument_count = 2;
   arguments = node_p;
@@ -3942,7 +3648,7 @@ static void cont__93_50(void) {
     invalid_results_error();
     return;
   }
-  temp__25 = arguments->slots[0];
+  frame->slots[24] /* temp__25 */ = arguments->slots[0];
   // 665: 'º' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -3958,7 +3664,7 @@ static void cont__93_52(void) {
     invalid_results_error();
     return;
   }
-  temp__26 = arguments->slots[0];
+  frame->slots[25] /* temp__26 */ = arguments->slots[0];
   // 666: '»' = ">>"
   argument_count = 2;
   arguments = node_p;
@@ -3974,7 +3680,7 @@ static void cont__93_54(void) {
     invalid_results_error();
     return;
   }
-  temp__27 = arguments->slots[0];
+  frame->slots[26] /* temp__27 */ = arguments->slots[0];
   // 667: '¼' = "1/4"
   argument_count = 2;
   arguments = node_p;
@@ -3990,7 +3696,7 @@ static void cont__93_56(void) {
     invalid_results_error();
     return;
   }
-  temp__28 = arguments->slots[0];
+  frame->slots[27] /* temp__28 */ = arguments->slots[0];
   // 668: '½' = "1/2"
   argument_count = 2;
   arguments = node_p;
@@ -4006,7 +3712,7 @@ static void cont__93_58(void) {
     invalid_results_error();
     return;
   }
-  temp__29 = arguments->slots[0];
+  frame->slots[28] /* temp__29 */ = arguments->slots[0];
   // 669: '¾' = "3/4"
   argument_count = 2;
   arguments = node_p;
@@ -4022,7 +3728,7 @@ static void cont__93_60(void) {
     invalid_results_error();
     return;
   }
-  temp__30 = arguments->slots[0];
+  frame->slots[29] /* temp__30 */ = arguments->slots[0];
   // 670: '¿' = "?"
   argument_count = 2;
   arguments = node_p;
@@ -4038,7 +3744,7 @@ static void cont__93_62(void) {
     invalid_results_error();
     return;
   }
-  temp__31 = arguments->slots[0];
+  frame->slots[30] /* temp__31 */ = arguments->slots[0];
   // 671: 'À' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -4054,7 +3760,7 @@ static void cont__93_64(void) {
     invalid_results_error();
     return;
   }
-  temp__32 = arguments->slots[0];
+  frame->slots[31] /* temp__32 */ = arguments->slots[0];
   // 672: 'Á' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -4070,7 +3776,7 @@ static void cont__93_66(void) {
     invalid_results_error();
     return;
   }
-  temp__33 = arguments->slots[0];
+  frame->slots[32] /* temp__33 */ = arguments->slots[0];
   // 673: 'Â' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -4086,7 +3792,7 @@ static void cont__93_68(void) {
     invalid_results_error();
     return;
   }
-  temp__34 = arguments->slots[0];
+  frame->slots[33] /* temp__34 */ = arguments->slots[0];
   // 674: 'Ã' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -4102,7 +3808,7 @@ static void cont__93_70(void) {
     invalid_results_error();
     return;
   }
-  temp__35 = arguments->slots[0];
+  frame->slots[34] /* temp__35 */ = arguments->slots[0];
   // 675: 'Ä' = "Ae"
   argument_count = 2;
   arguments = node_p;
@@ -4118,7 +3824,7 @@ static void cont__93_72(void) {
     invalid_results_error();
     return;
   }
-  temp__36 = arguments->slots[0];
+  frame->slots[35] /* temp__36 */ = arguments->slots[0];
   // 676: 'Å' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -4134,7 +3840,7 @@ static void cont__93_74(void) {
     invalid_results_error();
     return;
   }
-  temp__37 = arguments->slots[0];
+  frame->slots[36] /* temp__37 */ = arguments->slots[0];
   // 677: 'Æ' = "AE"
   argument_count = 2;
   arguments = node_p;
@@ -4150,7 +3856,7 @@ static void cont__93_76(void) {
     invalid_results_error();
     return;
   }
-  temp__38 = arguments->slots[0];
+  frame->slots[37] /* temp__38 */ = arguments->slots[0];
   // 678: 'Ç' = "C"
   argument_count = 2;
   arguments = node_p;
@@ -4166,7 +3872,7 @@ static void cont__93_78(void) {
     invalid_results_error();
     return;
   }
-  temp__39 = arguments->slots[0];
+  frame->slots[38] /* temp__39 */ = arguments->slots[0];
   // 679: 'È' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -4182,7 +3888,7 @@ static void cont__93_80(void) {
     invalid_results_error();
     return;
   }
-  temp__40 = arguments->slots[0];
+  frame->slots[39] /* temp__40 */ = arguments->slots[0];
   // 680: 'É' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -4198,7 +3904,7 @@ static void cont__93_82(void) {
     invalid_results_error();
     return;
   }
-  temp__41 = arguments->slots[0];
+  frame->slots[40] /* temp__41 */ = arguments->slots[0];
   // 681: 'Ê' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -4214,7 +3920,7 @@ static void cont__93_84(void) {
     invalid_results_error();
     return;
   }
-  temp__42 = arguments->slots[0];
+  frame->slots[41] /* temp__42 */ = arguments->slots[0];
   // 682: 'Ë' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -4230,7 +3936,7 @@ static void cont__93_86(void) {
     invalid_results_error();
     return;
   }
-  temp__43 = arguments->slots[0];
+  frame->slots[42] /* temp__43 */ = arguments->slots[0];
   // 683: 'Ì' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -4246,7 +3952,7 @@ static void cont__93_88(void) {
     invalid_results_error();
     return;
   }
-  temp__44 = arguments->slots[0];
+  frame->slots[43] /* temp__44 */ = arguments->slots[0];
   // 684: 'Í' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -4262,7 +3968,7 @@ static void cont__93_90(void) {
     invalid_results_error();
     return;
   }
-  temp__45 = arguments->slots[0];
+  frame->slots[44] /* temp__45 */ = arguments->slots[0];
   // 685: 'Î' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -4278,7 +3984,7 @@ static void cont__93_92(void) {
     invalid_results_error();
     return;
   }
-  temp__46 = arguments->slots[0];
+  frame->slots[45] /* temp__46 */ = arguments->slots[0];
   // 686: 'Ï' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -4294,7 +4000,7 @@ static void cont__93_94(void) {
     invalid_results_error();
     return;
   }
-  temp__47 = arguments->slots[0];
+  frame->slots[46] /* temp__47 */ = arguments->slots[0];
   // 687: 'Ð' = "D"
   argument_count = 2;
   arguments = node_p;
@@ -4310,7 +4016,7 @@ static void cont__93_96(void) {
     invalid_results_error();
     return;
   }
-  temp__48 = arguments->slots[0];
+  frame->slots[47] /* temp__48 */ = arguments->slots[0];
   // 688: 'Ñ' = "N"
   argument_count = 2;
   arguments = node_p;
@@ -4326,7 +4032,7 @@ static void cont__93_98(void) {
     invalid_results_error();
     return;
   }
-  temp__49 = arguments->slots[0];
+  frame->slots[48] /* temp__49 */ = arguments->slots[0];
   // 689: 'Ò' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -4342,7 +4048,7 @@ static void cont__93_100(void) {
     invalid_results_error();
     return;
   }
-  temp__50 = arguments->slots[0];
+  frame->slots[49] /* temp__50 */ = arguments->slots[0];
   // 690: 'Ó' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -4358,7 +4064,7 @@ static void cont__93_102(void) {
     invalid_results_error();
     return;
   }
-  temp__51 = arguments->slots[0];
+  frame->slots[50] /* temp__51 */ = arguments->slots[0];
   // 691: 'Ô' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -4374,7 +4080,7 @@ static void cont__93_104(void) {
     invalid_results_error();
     return;
   }
-  temp__52 = arguments->slots[0];
+  frame->slots[51] /* temp__52 */ = arguments->slots[0];
   // 692: 'Õ' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -4390,7 +4096,7 @@ static void cont__93_106(void) {
     invalid_results_error();
     return;
   }
-  temp__53 = arguments->slots[0];
+  frame->slots[52] /* temp__53 */ = arguments->slots[0];
   // 693: 'Ö' = "Oe"
   argument_count = 2;
   arguments = node_p;
@@ -4406,7 +4112,7 @@ static void cont__93_108(void) {
     invalid_results_error();
     return;
   }
-  temp__54 = arguments->slots[0];
+  frame->slots[53] /* temp__54 */ = arguments->slots[0];
   // 694: '×' = "x"
   argument_count = 2;
   arguments = node_p;
@@ -4422,7 +4128,7 @@ static void cont__93_110(void) {
     invalid_results_error();
     return;
   }
-  temp__55 = arguments->slots[0];
+  frame->slots[54] /* temp__55 */ = arguments->slots[0];
   // 695: 'Ø' = "0"
   argument_count = 2;
   arguments = node_p;
@@ -4438,7 +4144,7 @@ static void cont__93_112(void) {
     invalid_results_error();
     return;
   }
-  temp__56 = arguments->slots[0];
+  frame->slots[55] /* temp__56 */ = arguments->slots[0];
   // 696: 'Ù' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -4454,7 +4160,7 @@ static void cont__93_114(void) {
     invalid_results_error();
     return;
   }
-  temp__57 = arguments->slots[0];
+  frame->slots[56] /* temp__57 */ = arguments->slots[0];
   // 697: 'Ú' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -4470,7 +4176,7 @@ static void cont__93_116(void) {
     invalid_results_error();
     return;
   }
-  temp__58 = arguments->slots[0];
+  frame->slots[57] /* temp__58 */ = arguments->slots[0];
   // 698: 'Û' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -4486,7 +4192,7 @@ static void cont__93_118(void) {
     invalid_results_error();
     return;
   }
-  temp__59 = arguments->slots[0];
+  frame->slots[58] /* temp__59 */ = arguments->slots[0];
   // 699: 'Ü' = "Ue"
   argument_count = 2;
   arguments = node_p;
@@ -4502,7 +4208,7 @@ static void cont__93_120(void) {
     invalid_results_error();
     return;
   }
-  temp__60 = arguments->slots[0];
+  frame->slots[59] /* temp__60 */ = arguments->slots[0];
   // 700: 'Ý' = "Y"
   argument_count = 2;
   arguments = node_p;
@@ -4518,7 +4224,7 @@ static void cont__93_122(void) {
     invalid_results_error();
     return;
   }
-  temp__61 = arguments->slots[0];
+  frame->slots[60] /* temp__61 */ = arguments->slots[0];
   // 701: 'Þ' = "p"
   argument_count = 2;
   arguments = node_p;
@@ -4534,7 +4240,7 @@ static void cont__93_124(void) {
     invalid_results_error();
     return;
   }
-  temp__62 = arguments->slots[0];
+  frame->slots[61] /* temp__62 */ = arguments->slots[0];
   // 702: 'ß' = "ss"
   argument_count = 2;
   arguments = node_p;
@@ -4550,7 +4256,7 @@ static void cont__93_126(void) {
     invalid_results_error();
     return;
   }
-  temp__63 = arguments->slots[0];
+  frame->slots[62] /* temp__63 */ = arguments->slots[0];
   // 703: 'à' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -4566,7 +4272,7 @@ static void cont__93_128(void) {
     invalid_results_error();
     return;
   }
-  temp__64 = arguments->slots[0];
+  frame->slots[63] /* temp__64 */ = arguments->slots[0];
   // 704: 'á' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -4582,7 +4288,7 @@ static void cont__93_130(void) {
     invalid_results_error();
     return;
   }
-  temp__65 = arguments->slots[0];
+  frame->slots[64] /* temp__65 */ = arguments->slots[0];
   // 705: 'â' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -4598,7 +4304,7 @@ static void cont__93_132(void) {
     invalid_results_error();
     return;
   }
-  temp__66 = arguments->slots[0];
+  frame->slots[65] /* temp__66 */ = arguments->slots[0];
   // 706: 'ã' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -4614,7 +4320,7 @@ static void cont__93_134(void) {
     invalid_results_error();
     return;
   }
-  temp__67 = arguments->slots[0];
+  frame->slots[66] /* temp__67 */ = arguments->slots[0];
   // 707: 'ä' = "ae"
   argument_count = 2;
   arguments = node_p;
@@ -4630,7 +4336,7 @@ static void cont__93_136(void) {
     invalid_results_error();
     return;
   }
-  temp__68 = arguments->slots[0];
+  frame->slots[67] /* temp__68 */ = arguments->slots[0];
   // 708: 'å' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -4646,7 +4352,7 @@ static void cont__93_138(void) {
     invalid_results_error();
     return;
   }
-  temp__69 = arguments->slots[0];
+  frame->slots[68] /* temp__69 */ = arguments->slots[0];
   // 709: 'æ' = "ae"
   argument_count = 2;
   arguments = node_p;
@@ -4662,7 +4368,7 @@ static void cont__93_140(void) {
     invalid_results_error();
     return;
   }
-  temp__70 = arguments->slots[0];
+  frame->slots[69] /* temp__70 */ = arguments->slots[0];
   // 710: 'ç' = "c"
   argument_count = 2;
   arguments = node_p;
@@ -4678,7 +4384,7 @@ static void cont__93_142(void) {
     invalid_results_error();
     return;
   }
-  temp__71 = arguments->slots[0];
+  frame->slots[70] /* temp__71 */ = arguments->slots[0];
   // 711: 'è' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -4694,7 +4400,7 @@ static void cont__93_144(void) {
     invalid_results_error();
     return;
   }
-  temp__72 = arguments->slots[0];
+  frame->slots[71] /* temp__72 */ = arguments->slots[0];
   // 712: 'é' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -4710,7 +4416,7 @@ static void cont__93_146(void) {
     invalid_results_error();
     return;
   }
-  temp__73 = arguments->slots[0];
+  frame->slots[72] /* temp__73 */ = arguments->slots[0];
   // 713: 'ê' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -4726,7 +4432,7 @@ static void cont__93_148(void) {
     invalid_results_error();
     return;
   }
-  temp__74 = arguments->slots[0];
+  frame->slots[73] /* temp__74 */ = arguments->slots[0];
   // 714: 'ë' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -4742,7 +4448,7 @@ static void cont__93_150(void) {
     invalid_results_error();
     return;
   }
-  temp__75 = arguments->slots[0];
+  frame->slots[74] /* temp__75 */ = arguments->slots[0];
   // 715: 'ì' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -4758,7 +4464,7 @@ static void cont__93_152(void) {
     invalid_results_error();
     return;
   }
-  temp__76 = arguments->slots[0];
+  frame->slots[75] /* temp__76 */ = arguments->slots[0];
   // 716: 'í' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -4774,7 +4480,7 @@ static void cont__93_154(void) {
     invalid_results_error();
     return;
   }
-  temp__77 = arguments->slots[0];
+  frame->slots[76] /* temp__77 */ = arguments->slots[0];
   // 717: 'î' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -4790,7 +4496,7 @@ static void cont__93_156(void) {
     invalid_results_error();
     return;
   }
-  temp__78 = arguments->slots[0];
+  frame->slots[77] /* temp__78 */ = arguments->slots[0];
   // 718: 'ï' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -4806,7 +4512,7 @@ static void cont__93_158(void) {
     invalid_results_error();
     return;
   }
-  temp__79 = arguments->slots[0];
+  frame->slots[78] /* temp__79 */ = arguments->slots[0];
   // 719: 'ð' = "d"
   argument_count = 2;
   arguments = node_p;
@@ -4822,7 +4528,7 @@ static void cont__93_160(void) {
     invalid_results_error();
     return;
   }
-  temp__80 = arguments->slots[0];
+  frame->slots[79] /* temp__80 */ = arguments->slots[0];
   // 720: 'ñ' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -4838,7 +4544,7 @@ static void cont__93_162(void) {
     invalid_results_error();
     return;
   }
-  temp__81 = arguments->slots[0];
+  frame->slots[80] /* temp__81 */ = arguments->slots[0];
   // 721: 'ò' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -4854,7 +4560,7 @@ static void cont__93_164(void) {
     invalid_results_error();
     return;
   }
-  temp__82 = arguments->slots[0];
+  frame->slots[81] /* temp__82 */ = arguments->slots[0];
   // 722: 'ó' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -4870,7 +4576,7 @@ static void cont__93_166(void) {
     invalid_results_error();
     return;
   }
-  temp__83 = arguments->slots[0];
+  frame->slots[82] /* temp__83 */ = arguments->slots[0];
   // 723: 'ô' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -4886,7 +4592,7 @@ static void cont__93_168(void) {
     invalid_results_error();
     return;
   }
-  temp__84 = arguments->slots[0];
+  frame->slots[83] /* temp__84 */ = arguments->slots[0];
   // 724: 'õ' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -4902,7 +4608,7 @@ static void cont__93_170(void) {
     invalid_results_error();
     return;
   }
-  temp__85 = arguments->slots[0];
+  frame->slots[84] /* temp__85 */ = arguments->slots[0];
   // 725: 'ö' = "oe"
   argument_count = 2;
   arguments = node_p;
@@ -4918,7 +4624,7 @@ static void cont__93_172(void) {
     invalid_results_error();
     return;
   }
-  temp__86 = arguments->slots[0];
+  frame->slots[85] /* temp__86 */ = arguments->slots[0];
   // 726: '÷' = "/"
   argument_count = 2;
   arguments = node_p;
@@ -4934,7 +4640,7 @@ static void cont__93_174(void) {
     invalid_results_error();
     return;
   }
-  temp__87 = arguments->slots[0];
+  frame->slots[86] /* temp__87 */ = arguments->slots[0];
   // 727: 'ø' = "0"
   argument_count = 2;
   arguments = node_p;
@@ -4950,7 +4656,7 @@ static void cont__93_176(void) {
     invalid_results_error();
     return;
   }
-  temp__88 = arguments->slots[0];
+  frame->slots[87] /* temp__88 */ = arguments->slots[0];
   // 728: 'ù' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -4966,7 +4672,7 @@ static void cont__93_178(void) {
     invalid_results_error();
     return;
   }
-  temp__89 = arguments->slots[0];
+  frame->slots[88] /* temp__89 */ = arguments->slots[0];
   // 729: 'ú' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -4982,7 +4688,7 @@ static void cont__93_180(void) {
     invalid_results_error();
     return;
   }
-  temp__90 = arguments->slots[0];
+  frame->slots[89] /* temp__90 */ = arguments->slots[0];
   // 730: 'û' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -4998,7 +4704,7 @@ static void cont__93_182(void) {
     invalid_results_error();
     return;
   }
-  temp__91 = arguments->slots[0];
+  frame->slots[90] /* temp__91 */ = arguments->slots[0];
   // 731: 'ü' = "ue"
   argument_count = 2;
   arguments = node_p;
@@ -5014,7 +4720,7 @@ static void cont__93_184(void) {
     invalid_results_error();
     return;
   }
-  temp__92 = arguments->slots[0];
+  frame->slots[91] /* temp__92 */ = arguments->slots[0];
   // 732: 'ý' = "y"
   argument_count = 2;
   arguments = node_p;
@@ -5030,7 +4736,7 @@ static void cont__93_186(void) {
     invalid_results_error();
     return;
   }
-  temp__93 = arguments->slots[0];
+  frame->slots[92] /* temp__93 */ = arguments->slots[0];
   // 733: 'þ' = "p"
   argument_count = 2;
   arguments = node_p;
@@ -5046,7 +4752,7 @@ static void cont__93_188(void) {
     invalid_results_error();
     return;
   }
-  temp__94 = arguments->slots[0];
+  frame->slots[93] /* temp__94 */ = arguments->slots[0];
   // 734: 'ÿ' = "y"
   argument_count = 2;
   arguments = node_p;
@@ -5062,7 +4768,7 @@ static void cont__93_190(void) {
     invalid_results_error();
     return;
   }
-  temp__95 = arguments->slots[0];
+  frame->slots[94] /* temp__95 */ = arguments->slots[0];
   // 735: 'Ā' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -5078,7 +4784,7 @@ static void cont__93_192(void) {
     invalid_results_error();
     return;
   }
-  temp__96 = arguments->slots[0];
+  frame->slots[95] /* temp__96 */ = arguments->slots[0];
   // 736: 'ā' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -5094,7 +4800,7 @@ static void cont__93_194(void) {
     invalid_results_error();
     return;
   }
-  temp__97 = arguments->slots[0];
+  frame->slots[96] /* temp__97 */ = arguments->slots[0];
   // 737: 'Ă' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -5110,7 +4816,7 @@ static void cont__93_196(void) {
     invalid_results_error();
     return;
   }
-  temp__98 = arguments->slots[0];
+  frame->slots[97] /* temp__98 */ = arguments->slots[0];
   // 738: 'ă' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -5126,7 +4832,7 @@ static void cont__93_198(void) {
     invalid_results_error();
     return;
   }
-  temp__99 = arguments->slots[0];
+  frame->slots[98] /* temp__99 */ = arguments->slots[0];
   // 739: 'Ą' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -5142,7 +4848,7 @@ static void cont__93_200(void) {
     invalid_results_error();
     return;
   }
-  temp__100 = arguments->slots[0];
+  frame->slots[99] /* temp__100 */ = arguments->slots[0];
   // 740: 'ą' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -5158,7 +4864,7 @@ static void cont__93_202(void) {
     invalid_results_error();
     return;
   }
-  temp__101 = arguments->slots[0];
+  frame->slots[100] /* temp__101 */ = arguments->slots[0];
   // 741: 'Ć' = "C"
   argument_count = 2;
   arguments = node_p;
@@ -5174,7 +4880,7 @@ static void cont__93_204(void) {
     invalid_results_error();
     return;
   }
-  temp__102 = arguments->slots[0];
+  frame->slots[101] /* temp__102 */ = arguments->slots[0];
   // 742: 'ć' = "c"
   argument_count = 2;
   arguments = node_p;
@@ -5190,7 +4896,7 @@ static void cont__93_206(void) {
     invalid_results_error();
     return;
   }
-  temp__103 = arguments->slots[0];
+  frame->slots[102] /* temp__103 */ = arguments->slots[0];
   // 743: 'Ĉ' = "C"
   argument_count = 2;
   arguments = node_p;
@@ -5206,7 +4912,7 @@ static void cont__93_208(void) {
     invalid_results_error();
     return;
   }
-  temp__104 = arguments->slots[0];
+  frame->slots[103] /* temp__104 */ = arguments->slots[0];
   // 744: 'ĉ' = "c"
   argument_count = 2;
   arguments = node_p;
@@ -5222,7 +4928,7 @@ static void cont__93_210(void) {
     invalid_results_error();
     return;
   }
-  temp__105 = arguments->slots[0];
+  frame->slots[104] /* temp__105 */ = arguments->slots[0];
   // 745: 'Ċ' = "C"
   argument_count = 2;
   arguments = node_p;
@@ -5238,7 +4944,7 @@ static void cont__93_212(void) {
     invalid_results_error();
     return;
   }
-  temp__106 = arguments->slots[0];
+  frame->slots[105] /* temp__106 */ = arguments->slots[0];
   // 746: 'ċ' = "c"
   argument_count = 2;
   arguments = node_p;
@@ -5254,7 +4960,7 @@ static void cont__93_214(void) {
     invalid_results_error();
     return;
   }
-  temp__107 = arguments->slots[0];
+  frame->slots[106] /* temp__107 */ = arguments->slots[0];
   // 747: 'Č' = "C"
   argument_count = 2;
   arguments = node_p;
@@ -5270,7 +4976,7 @@ static void cont__93_216(void) {
     invalid_results_error();
     return;
   }
-  temp__108 = arguments->slots[0];
+  frame->slots[107] /* temp__108 */ = arguments->slots[0];
   // 748: 'č' = "c"
   argument_count = 2;
   arguments = node_p;
@@ -5286,7 +4992,7 @@ static void cont__93_218(void) {
     invalid_results_error();
     return;
   }
-  temp__109 = arguments->slots[0];
+  frame->slots[108] /* temp__109 */ = arguments->slots[0];
   // 749: 'Ď' = "D"
   argument_count = 2;
   arguments = node_p;
@@ -5302,7 +5008,7 @@ static void cont__93_220(void) {
     invalid_results_error();
     return;
   }
-  temp__110 = arguments->slots[0];
+  frame->slots[109] /* temp__110 */ = arguments->slots[0];
   // 750: 'ď' = "d"
   argument_count = 2;
   arguments = node_p;
@@ -5318,7 +5024,7 @@ static void cont__93_222(void) {
     invalid_results_error();
     return;
   }
-  temp__111 = arguments->slots[0];
+  frame->slots[110] /* temp__111 */ = arguments->slots[0];
   // 751: 'Đ' = "D"
   argument_count = 2;
   arguments = node_p;
@@ -5334,7 +5040,7 @@ static void cont__93_224(void) {
     invalid_results_error();
     return;
   }
-  temp__112 = arguments->slots[0];
+  frame->slots[111] /* temp__112 */ = arguments->slots[0];
   // 752: 'đ' = "d"
   argument_count = 2;
   arguments = node_p;
@@ -5350,7 +5056,7 @@ static void cont__93_226(void) {
     invalid_results_error();
     return;
   }
-  temp__113 = arguments->slots[0];
+  frame->slots[112] /* temp__113 */ = arguments->slots[0];
   // 753: 'Ē' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -5366,7 +5072,7 @@ static void cont__93_228(void) {
     invalid_results_error();
     return;
   }
-  temp__114 = arguments->slots[0];
+  frame->slots[113] /* temp__114 */ = arguments->slots[0];
   // 754: 'ē' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -5382,7 +5088,7 @@ static void cont__93_230(void) {
     invalid_results_error();
     return;
   }
-  temp__115 = arguments->slots[0];
+  frame->slots[114] /* temp__115 */ = arguments->slots[0];
   // 755: 'Ĕ' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -5398,7 +5104,7 @@ static void cont__93_232(void) {
     invalid_results_error();
     return;
   }
-  temp__116 = arguments->slots[0];
+  frame->slots[115] /* temp__116 */ = arguments->slots[0];
   // 756: 'ĕ' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -5414,7 +5120,7 @@ static void cont__93_234(void) {
     invalid_results_error();
     return;
   }
-  temp__117 = arguments->slots[0];
+  frame->slots[116] /* temp__117 */ = arguments->slots[0];
   // 757: 'Ė' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -5430,7 +5136,7 @@ static void cont__93_236(void) {
     invalid_results_error();
     return;
   }
-  temp__118 = arguments->slots[0];
+  frame->slots[117] /* temp__118 */ = arguments->slots[0];
   // 758: 'ė' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -5446,7 +5152,7 @@ static void cont__93_238(void) {
     invalid_results_error();
     return;
   }
-  temp__119 = arguments->slots[0];
+  frame->slots[118] /* temp__119 */ = arguments->slots[0];
   // 759: 'Ę' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -5462,7 +5168,7 @@ static void cont__93_240(void) {
     invalid_results_error();
     return;
   }
-  temp__120 = arguments->slots[0];
+  frame->slots[119] /* temp__120 */ = arguments->slots[0];
   // 760: 'ę' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -5478,7 +5184,7 @@ static void cont__93_242(void) {
     invalid_results_error();
     return;
   }
-  temp__121 = arguments->slots[0];
+  frame->slots[120] /* temp__121 */ = arguments->slots[0];
   // 761: 'Ě' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -5494,7 +5200,7 @@ static void cont__93_244(void) {
     invalid_results_error();
     return;
   }
-  temp__122 = arguments->slots[0];
+  frame->slots[121] /* temp__122 */ = arguments->slots[0];
   // 762: 'ě' = "e"
   argument_count = 2;
   arguments = node_p;
@@ -5510,7 +5216,7 @@ static void cont__93_246(void) {
     invalid_results_error();
     return;
   }
-  temp__123 = arguments->slots[0];
+  frame->slots[122] /* temp__123 */ = arguments->slots[0];
   // 763: 'Ĝ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -5526,7 +5232,7 @@ static void cont__93_248(void) {
     invalid_results_error();
     return;
   }
-  temp__124 = arguments->slots[0];
+  frame->slots[123] /* temp__124 */ = arguments->slots[0];
   // 764: 'ĝ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -5542,7 +5248,7 @@ static void cont__93_250(void) {
     invalid_results_error();
     return;
   }
-  temp__125 = arguments->slots[0];
+  frame->slots[124] /* temp__125 */ = arguments->slots[0];
   // 765: 'Ğ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -5558,7 +5264,7 @@ static void cont__93_252(void) {
     invalid_results_error();
     return;
   }
-  temp__126 = arguments->slots[0];
+  frame->slots[125] /* temp__126 */ = arguments->slots[0];
   // 766: 'ğ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -5574,7 +5280,7 @@ static void cont__93_254(void) {
     invalid_results_error();
     return;
   }
-  temp__127 = arguments->slots[0];
+  frame->slots[126] /* temp__127 */ = arguments->slots[0];
   // 767: 'Ġ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -5590,7 +5296,7 @@ static void cont__93_256(void) {
     invalid_results_error();
     return;
   }
-  temp__128 = arguments->slots[0];
+  frame->slots[127] /* temp__128 */ = arguments->slots[0];
   // 768: 'ġ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -5606,7 +5312,7 @@ static void cont__93_258(void) {
     invalid_results_error();
     return;
   }
-  temp__129 = arguments->slots[0];
+  frame->slots[128] /* temp__129 */ = arguments->slots[0];
   // 769: 'Ģ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -5622,7 +5328,7 @@ static void cont__93_260(void) {
     invalid_results_error();
     return;
   }
-  temp__130 = arguments->slots[0];
+  frame->slots[129] /* temp__130 */ = arguments->slots[0];
   // 770: 'ģ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -5638,7 +5344,7 @@ static void cont__93_262(void) {
     invalid_results_error();
     return;
   }
-  temp__131 = arguments->slots[0];
+  frame->slots[130] /* temp__131 */ = arguments->slots[0];
   // 771: 'Ĥ' = "H"
   argument_count = 2;
   arguments = node_p;
@@ -5654,7 +5360,7 @@ static void cont__93_264(void) {
     invalid_results_error();
     return;
   }
-  temp__132 = arguments->slots[0];
+  frame->slots[131] /* temp__132 */ = arguments->slots[0];
   // 772: 'ĥ' = "h"
   argument_count = 2;
   arguments = node_p;
@@ -5670,7 +5376,7 @@ static void cont__93_266(void) {
     invalid_results_error();
     return;
   }
-  temp__133 = arguments->slots[0];
+  frame->slots[132] /* temp__133 */ = arguments->slots[0];
   // 773: 'Ħ' = "H"
   argument_count = 2;
   arguments = node_p;
@@ -5686,7 +5392,7 @@ static void cont__93_268(void) {
     invalid_results_error();
     return;
   }
-  temp__134 = arguments->slots[0];
+  frame->slots[133] /* temp__134 */ = arguments->slots[0];
   // 774: 'ħ' = "h"
   argument_count = 2;
   arguments = node_p;
@@ -5702,7 +5408,7 @@ static void cont__93_270(void) {
     invalid_results_error();
     return;
   }
-  temp__135 = arguments->slots[0];
+  frame->slots[134] /* temp__135 */ = arguments->slots[0];
   // 775: 'Ĩ' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -5718,7 +5424,7 @@ static void cont__93_272(void) {
     invalid_results_error();
     return;
   }
-  temp__136 = arguments->slots[0];
+  frame->slots[135] /* temp__136 */ = arguments->slots[0];
   // 776: 'ĩ' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -5734,7 +5440,7 @@ static void cont__93_274(void) {
     invalid_results_error();
     return;
   }
-  temp__137 = arguments->slots[0];
+  frame->slots[136] /* temp__137 */ = arguments->slots[0];
   // 777: 'Ī' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -5750,7 +5456,7 @@ static void cont__93_276(void) {
     invalid_results_error();
     return;
   }
-  temp__138 = arguments->slots[0];
+  frame->slots[137] /* temp__138 */ = arguments->slots[0];
   // 778: 'ī' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -5766,7 +5472,7 @@ static void cont__93_278(void) {
     invalid_results_error();
     return;
   }
-  temp__139 = arguments->slots[0];
+  frame->slots[138] /* temp__139 */ = arguments->slots[0];
   // 779: 'Ĭ' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -5782,7 +5488,7 @@ static void cont__93_280(void) {
     invalid_results_error();
     return;
   }
-  temp__140 = arguments->slots[0];
+  frame->slots[139] /* temp__140 */ = arguments->slots[0];
   // 780: 'ĭ' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -5798,7 +5504,7 @@ static void cont__93_282(void) {
     invalid_results_error();
     return;
   }
-  temp__141 = arguments->slots[0];
+  frame->slots[140] /* temp__141 */ = arguments->slots[0];
   // 781: 'Į' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -5814,7 +5520,7 @@ static void cont__93_284(void) {
     invalid_results_error();
     return;
   }
-  temp__142 = arguments->slots[0];
+  frame->slots[141] /* temp__142 */ = arguments->slots[0];
   // 782: 'į' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -5830,7 +5536,7 @@ static void cont__93_286(void) {
     invalid_results_error();
     return;
   }
-  temp__143 = arguments->slots[0];
+  frame->slots[142] /* temp__143 */ = arguments->slots[0];
   // 783: 'İ' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -5846,7 +5552,7 @@ static void cont__93_288(void) {
     invalid_results_error();
     return;
   }
-  temp__144 = arguments->slots[0];
+  frame->slots[143] /* temp__144 */ = arguments->slots[0];
   // 784: 'ı' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -5862,7 +5568,7 @@ static void cont__93_290(void) {
     invalid_results_error();
     return;
   }
-  temp__145 = arguments->slots[0];
+  frame->slots[144] /* temp__145 */ = arguments->slots[0];
   // 785: 'Ĳ' = "IJ"
   argument_count = 2;
   arguments = node_p;
@@ -5878,7 +5584,7 @@ static void cont__93_292(void) {
     invalid_results_error();
     return;
   }
-  temp__146 = arguments->slots[0];
+  frame->slots[145] /* temp__146 */ = arguments->slots[0];
   // 786: 'ĳ' = "ij"
   argument_count = 2;
   arguments = node_p;
@@ -5894,7 +5600,7 @@ static void cont__93_294(void) {
     invalid_results_error();
     return;
   }
-  temp__147 = arguments->slots[0];
+  frame->slots[146] /* temp__147 */ = arguments->slots[0];
   // 787: 'Ĵ' = "J"
   argument_count = 2;
   arguments = node_p;
@@ -5910,7 +5616,7 @@ static void cont__93_296(void) {
     invalid_results_error();
     return;
   }
-  temp__148 = arguments->slots[0];
+  frame->slots[147] /* temp__148 */ = arguments->slots[0];
   // 788: 'ĵ' = "j"
   argument_count = 2;
   arguments = node_p;
@@ -5926,7 +5632,7 @@ static void cont__93_298(void) {
     invalid_results_error();
     return;
   }
-  temp__149 = arguments->slots[0];
+  frame->slots[148] /* temp__149 */ = arguments->slots[0];
   // 789: 'Ķ' = "K"
   argument_count = 2;
   arguments = node_p;
@@ -5942,7 +5648,7 @@ static void cont__93_300(void) {
     invalid_results_error();
     return;
   }
-  temp__150 = arguments->slots[0];
+  frame->slots[149] /* temp__150 */ = arguments->slots[0];
   // 790: 'ķ' = "k"
   argument_count = 2;
   arguments = node_p;
@@ -5958,7 +5664,7 @@ static void cont__93_302(void) {
     invalid_results_error();
     return;
   }
-  temp__151 = arguments->slots[0];
+  frame->slots[150] /* temp__151 */ = arguments->slots[0];
   // 791: 'ĸ' = "k"
   argument_count = 2;
   arguments = node_p;
@@ -5974,7 +5680,7 @@ static void cont__93_304(void) {
     invalid_results_error();
     return;
   }
-  temp__152 = arguments->slots[0];
+  frame->slots[151] /* temp__152 */ = arguments->slots[0];
   // 792: 'Ĺ' = "L"
   argument_count = 2;
   arguments = node_p;
@@ -5990,7 +5696,7 @@ static void cont__93_306(void) {
     invalid_results_error();
     return;
   }
-  temp__153 = arguments->slots[0];
+  frame->slots[152] /* temp__153 */ = arguments->slots[0];
   // 793: 'ĺ' = "l"
   argument_count = 2;
   arguments = node_p;
@@ -6006,7 +5712,7 @@ static void cont__93_308(void) {
     invalid_results_error();
     return;
   }
-  temp__154 = arguments->slots[0];
+  frame->slots[153] /* temp__154 */ = arguments->slots[0];
   // 794: 'Ļ' = "L"
   argument_count = 2;
   arguments = node_p;
@@ -6022,7 +5728,7 @@ static void cont__93_310(void) {
     invalid_results_error();
     return;
   }
-  temp__155 = arguments->slots[0];
+  frame->slots[154] /* temp__155 */ = arguments->slots[0];
   // 795: 'ļ' = "l"
   argument_count = 2;
   arguments = node_p;
@@ -6038,7 +5744,7 @@ static void cont__93_312(void) {
     invalid_results_error();
     return;
   }
-  temp__156 = arguments->slots[0];
+  frame->slots[155] /* temp__156 */ = arguments->slots[0];
   // 796: 'Ľ' = "L"
   argument_count = 2;
   arguments = node_p;
@@ -6054,7 +5760,7 @@ static void cont__93_314(void) {
     invalid_results_error();
     return;
   }
-  temp__157 = arguments->slots[0];
+  frame->slots[156] /* temp__157 */ = arguments->slots[0];
   // 797: 'ľ' = "l"
   argument_count = 2;
   arguments = node_p;
@@ -6070,7 +5776,7 @@ static void cont__93_316(void) {
     invalid_results_error();
     return;
   }
-  temp__158 = arguments->slots[0];
+  frame->slots[157] /* temp__158 */ = arguments->slots[0];
   // 798: 'Ŀ' = "L"
   argument_count = 2;
   arguments = node_p;
@@ -6086,7 +5792,7 @@ static void cont__93_318(void) {
     invalid_results_error();
     return;
   }
-  temp__159 = arguments->slots[0];
+  frame->slots[158] /* temp__159 */ = arguments->slots[0];
   // 799: 'ŀ' = "l"
   argument_count = 2;
   arguments = node_p;
@@ -6102,7 +5808,7 @@ static void cont__93_320(void) {
     invalid_results_error();
     return;
   }
-  temp__160 = arguments->slots[0];
+  frame->slots[159] /* temp__160 */ = arguments->slots[0];
   // 800: 'Ł' = "L"
   argument_count = 2;
   arguments = node_p;
@@ -6118,7 +5824,7 @@ static void cont__93_322(void) {
     invalid_results_error();
     return;
   }
-  temp__161 = arguments->slots[0];
+  frame->slots[160] /* temp__161 */ = arguments->slots[0];
   // 801: 'ł' = "l"
   argument_count = 2;
   arguments = node_p;
@@ -6134,7 +5840,7 @@ static void cont__93_324(void) {
     invalid_results_error();
     return;
   }
-  temp__162 = arguments->slots[0];
+  frame->slots[161] /* temp__162 */ = arguments->slots[0];
   // 802: 'Ń' = "N"
   argument_count = 2;
   arguments = node_p;
@@ -6150,7 +5856,7 @@ static void cont__93_326(void) {
     invalid_results_error();
     return;
   }
-  temp__163 = arguments->slots[0];
+  frame->slots[162] /* temp__163 */ = arguments->slots[0];
   // 803: 'ń' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -6166,7 +5872,7 @@ static void cont__93_328(void) {
     invalid_results_error();
     return;
   }
-  temp__164 = arguments->slots[0];
+  frame->slots[163] /* temp__164 */ = arguments->slots[0];
   // 804: 'Ņ' = "N"
   argument_count = 2;
   arguments = node_p;
@@ -6182,7 +5888,7 @@ static void cont__93_330(void) {
     invalid_results_error();
     return;
   }
-  temp__165 = arguments->slots[0];
+  frame->slots[164] /* temp__165 */ = arguments->slots[0];
   // 805: 'ņ' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -6198,7 +5904,7 @@ static void cont__93_332(void) {
     invalid_results_error();
     return;
   }
-  temp__166 = arguments->slots[0];
+  frame->slots[165] /* temp__166 */ = arguments->slots[0];
   // 806: 'Ň' = "N"
   argument_count = 2;
   arguments = node_p;
@@ -6214,7 +5920,7 @@ static void cont__93_334(void) {
     invalid_results_error();
     return;
   }
-  temp__167 = arguments->slots[0];
+  frame->slots[166] /* temp__167 */ = arguments->slots[0];
   // 807: 'ň' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -6230,7 +5936,7 @@ static void cont__93_336(void) {
     invalid_results_error();
     return;
   }
-  temp__168 = arguments->slots[0];
+  frame->slots[167] /* temp__168 */ = arguments->slots[0];
   // 808: 'ŉ' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -6246,7 +5952,7 @@ static void cont__93_338(void) {
     invalid_results_error();
     return;
   }
-  temp__169 = arguments->slots[0];
+  frame->slots[168] /* temp__169 */ = arguments->slots[0];
   // 809: 'Ŋ' = "N"
   argument_count = 2;
   arguments = node_p;
@@ -6262,7 +5968,7 @@ static void cont__93_340(void) {
     invalid_results_error();
     return;
   }
-  temp__170 = arguments->slots[0];
+  frame->slots[169] /* temp__170 */ = arguments->slots[0];
   // 810: 'ŋ' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -6278,7 +5984,7 @@ static void cont__93_342(void) {
     invalid_results_error();
     return;
   }
-  temp__171 = arguments->slots[0];
+  frame->slots[170] /* temp__171 */ = arguments->slots[0];
   // 811: 'Ō' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -6294,7 +6000,7 @@ static void cont__93_344(void) {
     invalid_results_error();
     return;
   }
-  temp__172 = arguments->slots[0];
+  frame->slots[171] /* temp__172 */ = arguments->slots[0];
   // 812: 'ō' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -6310,7 +6016,7 @@ static void cont__93_346(void) {
     invalid_results_error();
     return;
   }
-  temp__173 = arguments->slots[0];
+  frame->slots[172] /* temp__173 */ = arguments->slots[0];
   // 813: 'Ŏ' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -6326,7 +6032,7 @@ static void cont__93_348(void) {
     invalid_results_error();
     return;
   }
-  temp__174 = arguments->slots[0];
+  frame->slots[173] /* temp__174 */ = arguments->slots[0];
   // 814: 'ŏ' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -6342,7 +6048,7 @@ static void cont__93_350(void) {
     invalid_results_error();
     return;
   }
-  temp__175 = arguments->slots[0];
+  frame->slots[174] /* temp__175 */ = arguments->slots[0];
   // 815: 'Ő' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -6358,7 +6064,7 @@ static void cont__93_352(void) {
     invalid_results_error();
     return;
   }
-  temp__176 = arguments->slots[0];
+  frame->slots[175] /* temp__176 */ = arguments->slots[0];
   // 816: 'ő' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -6374,7 +6080,7 @@ static void cont__93_354(void) {
     invalid_results_error();
     return;
   }
-  temp__177 = arguments->slots[0];
+  frame->slots[176] /* temp__177 */ = arguments->slots[0];
   // 817: 'Œ' = "OE"
   argument_count = 2;
   arguments = node_p;
@@ -6390,7 +6096,7 @@ static void cont__93_356(void) {
     invalid_results_error();
     return;
   }
-  temp__178 = arguments->slots[0];
+  frame->slots[177] /* temp__178 */ = arguments->slots[0];
   // 818: 'œ' = "oe"
   argument_count = 2;
   arguments = node_p;
@@ -6406,7 +6112,7 @@ static void cont__93_358(void) {
     invalid_results_error();
     return;
   }
-  temp__179 = arguments->slots[0];
+  frame->slots[178] /* temp__179 */ = arguments->slots[0];
   // 819: 'Ŕ' = "R"
   argument_count = 2;
   arguments = node_p;
@@ -6422,7 +6128,7 @@ static void cont__93_360(void) {
     invalid_results_error();
     return;
   }
-  temp__180 = arguments->slots[0];
+  frame->slots[179] /* temp__180 */ = arguments->slots[0];
   // 820: 'ŕ' = "r"
   argument_count = 2;
   arguments = node_p;
@@ -6438,7 +6144,7 @@ static void cont__93_362(void) {
     invalid_results_error();
     return;
   }
-  temp__181 = arguments->slots[0];
+  frame->slots[180] /* temp__181 */ = arguments->slots[0];
   // 821: 'Ŗ' = "R"
   argument_count = 2;
   arguments = node_p;
@@ -6454,7 +6160,7 @@ static void cont__93_364(void) {
     invalid_results_error();
     return;
   }
-  temp__182 = arguments->slots[0];
+  frame->slots[181] /* temp__182 */ = arguments->slots[0];
   // 822: 'ŗ' = "r"
   argument_count = 2;
   arguments = node_p;
@@ -6470,7 +6176,7 @@ static void cont__93_366(void) {
     invalid_results_error();
     return;
   }
-  temp__183 = arguments->slots[0];
+  frame->slots[182] /* temp__183 */ = arguments->slots[0];
   // 823: 'Ř' = "R"
   argument_count = 2;
   arguments = node_p;
@@ -6486,7 +6192,7 @@ static void cont__93_368(void) {
     invalid_results_error();
     return;
   }
-  temp__184 = arguments->slots[0];
+  frame->slots[183] /* temp__184 */ = arguments->slots[0];
   // 824: 'ř' = "r"
   argument_count = 2;
   arguments = node_p;
@@ -6502,7 +6208,7 @@ static void cont__93_370(void) {
     invalid_results_error();
     return;
   }
-  temp__185 = arguments->slots[0];
+  frame->slots[184] /* temp__185 */ = arguments->slots[0];
   // 825: 'Ś' = "S"
   argument_count = 2;
   arguments = node_p;
@@ -6518,7 +6224,7 @@ static void cont__93_372(void) {
     invalid_results_error();
     return;
   }
-  temp__186 = arguments->slots[0];
+  frame->slots[185] /* temp__186 */ = arguments->slots[0];
   // 826: 'ś' = "s"
   argument_count = 2;
   arguments = node_p;
@@ -6534,7 +6240,7 @@ static void cont__93_374(void) {
     invalid_results_error();
     return;
   }
-  temp__187 = arguments->slots[0];
+  frame->slots[186] /* temp__187 */ = arguments->slots[0];
   // 827: 'Ŝ' = "S"
   argument_count = 2;
   arguments = node_p;
@@ -6550,7 +6256,7 @@ static void cont__93_376(void) {
     invalid_results_error();
     return;
   }
-  temp__188 = arguments->slots[0];
+  frame->slots[187] /* temp__188 */ = arguments->slots[0];
   // 828: 'ŝ' = "s"
   argument_count = 2;
   arguments = node_p;
@@ -6566,7 +6272,7 @@ static void cont__93_378(void) {
     invalid_results_error();
     return;
   }
-  temp__189 = arguments->slots[0];
+  frame->slots[188] /* temp__189 */ = arguments->slots[0];
   // 829: 'Ş' = "S"
   argument_count = 2;
   arguments = node_p;
@@ -6582,7 +6288,7 @@ static void cont__93_380(void) {
     invalid_results_error();
     return;
   }
-  temp__190 = arguments->slots[0];
+  frame->slots[189] /* temp__190 */ = arguments->slots[0];
   // 830: 'ş' = "s"
   argument_count = 2;
   arguments = node_p;
@@ -6598,7 +6304,7 @@ static void cont__93_382(void) {
     invalid_results_error();
     return;
   }
-  temp__191 = arguments->slots[0];
+  frame->slots[190] /* temp__191 */ = arguments->slots[0];
   // 831: 'Š' = "S"
   argument_count = 2;
   arguments = node_p;
@@ -6614,7 +6320,7 @@ static void cont__93_384(void) {
     invalid_results_error();
     return;
   }
-  temp__192 = arguments->slots[0];
+  frame->slots[191] /* temp__192 */ = arguments->slots[0];
   // 832: 'š' = "s"
   argument_count = 2;
   arguments = node_p;
@@ -6630,7 +6336,7 @@ static void cont__93_386(void) {
     invalid_results_error();
     return;
   }
-  temp__193 = arguments->slots[0];
+  frame->slots[192] /* temp__193 */ = arguments->slots[0];
   // 833: 'Ţ' = "T"
   argument_count = 2;
   arguments = node_p;
@@ -6646,7 +6352,7 @@ static void cont__93_388(void) {
     invalid_results_error();
     return;
   }
-  temp__194 = arguments->slots[0];
+  frame->slots[193] /* temp__194 */ = arguments->slots[0];
   // 834: 'ţ' = "t"
   argument_count = 2;
   arguments = node_p;
@@ -6662,7 +6368,7 @@ static void cont__93_390(void) {
     invalid_results_error();
     return;
   }
-  temp__195 = arguments->slots[0];
+  frame->slots[194] /* temp__195 */ = arguments->slots[0];
   // 835: 'Ť' = "T"
   argument_count = 2;
   arguments = node_p;
@@ -6678,7 +6384,7 @@ static void cont__93_392(void) {
     invalid_results_error();
     return;
   }
-  temp__196 = arguments->slots[0];
+  frame->slots[195] /* temp__196 */ = arguments->slots[0];
   // 836: 'ť' = "t"
   argument_count = 2;
   arguments = node_p;
@@ -6694,7 +6400,7 @@ static void cont__93_394(void) {
     invalid_results_error();
     return;
   }
-  temp__197 = arguments->slots[0];
+  frame->slots[196] /* temp__197 */ = arguments->slots[0];
   // 837: 'Ŧ' = "T"
   argument_count = 2;
   arguments = node_p;
@@ -6710,7 +6416,7 @@ static void cont__93_396(void) {
     invalid_results_error();
     return;
   }
-  temp__198 = arguments->slots[0];
+  frame->slots[197] /* temp__198 */ = arguments->slots[0];
   // 838: 'ŧ' = "t"
   argument_count = 2;
   arguments = node_p;
@@ -6726,7 +6432,7 @@ static void cont__93_398(void) {
     invalid_results_error();
     return;
   }
-  temp__199 = arguments->slots[0];
+  frame->slots[198] /* temp__199 */ = arguments->slots[0];
   // 839: 'Ũ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -6742,7 +6448,7 @@ static void cont__93_400(void) {
     invalid_results_error();
     return;
   }
-  temp__200 = arguments->slots[0];
+  frame->slots[199] /* temp__200 */ = arguments->slots[0];
   // 840: 'ũ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -6758,7 +6464,7 @@ static void cont__93_402(void) {
     invalid_results_error();
     return;
   }
-  temp__201 = arguments->slots[0];
+  frame->slots[200] /* temp__201 */ = arguments->slots[0];
   // 841: 'Ū' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -6774,7 +6480,7 @@ static void cont__93_404(void) {
     invalid_results_error();
     return;
   }
-  temp__202 = arguments->slots[0];
+  frame->slots[201] /* temp__202 */ = arguments->slots[0];
   // 842: 'ū' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -6790,7 +6496,7 @@ static void cont__93_406(void) {
     invalid_results_error();
     return;
   }
-  temp__203 = arguments->slots[0];
+  frame->slots[202] /* temp__203 */ = arguments->slots[0];
   // 843: 'Ŭ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -6806,7 +6512,7 @@ static void cont__93_408(void) {
     invalid_results_error();
     return;
   }
-  temp__204 = arguments->slots[0];
+  frame->slots[203] /* temp__204 */ = arguments->slots[0];
   // 844: 'ŭ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -6822,7 +6528,7 @@ static void cont__93_410(void) {
     invalid_results_error();
     return;
   }
-  temp__205 = arguments->slots[0];
+  frame->slots[204] /* temp__205 */ = arguments->slots[0];
   // 845: 'Ů' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -6838,7 +6544,7 @@ static void cont__93_412(void) {
     invalid_results_error();
     return;
   }
-  temp__206 = arguments->slots[0];
+  frame->slots[205] /* temp__206 */ = arguments->slots[0];
   // 846: 'ů' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -6854,7 +6560,7 @@ static void cont__93_414(void) {
     invalid_results_error();
     return;
   }
-  temp__207 = arguments->slots[0];
+  frame->slots[206] /* temp__207 */ = arguments->slots[0];
   // 847: 'Ű' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -6870,7 +6576,7 @@ static void cont__93_416(void) {
     invalid_results_error();
     return;
   }
-  temp__208 = arguments->slots[0];
+  frame->slots[207] /* temp__208 */ = arguments->slots[0];
   // 848: 'ű' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -6886,7 +6592,7 @@ static void cont__93_418(void) {
     invalid_results_error();
     return;
   }
-  temp__209 = arguments->slots[0];
+  frame->slots[208] /* temp__209 */ = arguments->slots[0];
   // 849: 'Ų' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -6902,7 +6608,7 @@ static void cont__93_420(void) {
     invalid_results_error();
     return;
   }
-  temp__210 = arguments->slots[0];
+  frame->slots[209] /* temp__210 */ = arguments->slots[0];
   // 850: 'ų' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -6918,7 +6624,7 @@ static void cont__93_422(void) {
     invalid_results_error();
     return;
   }
-  temp__211 = arguments->slots[0];
+  frame->slots[210] /* temp__211 */ = arguments->slots[0];
   // 851: 'Ŵ' = "W"
   argument_count = 2;
   arguments = node_p;
@@ -6934,7 +6640,7 @@ static void cont__93_424(void) {
     invalid_results_error();
     return;
   }
-  temp__212 = arguments->slots[0];
+  frame->slots[211] /* temp__212 */ = arguments->slots[0];
   // 852: 'ŵ' = "w"
   argument_count = 2;
   arguments = node_p;
@@ -6950,7 +6656,7 @@ static void cont__93_426(void) {
     invalid_results_error();
     return;
   }
-  temp__213 = arguments->slots[0];
+  frame->slots[212] /* temp__213 */ = arguments->slots[0];
   // 853: 'Ŷ' = "Y"
   argument_count = 2;
   arguments = node_p;
@@ -6966,7 +6672,7 @@ static void cont__93_428(void) {
     invalid_results_error();
     return;
   }
-  temp__214 = arguments->slots[0];
+  frame->slots[213] /* temp__214 */ = arguments->slots[0];
   // 854: 'ŷ' = "y"
   argument_count = 2;
   arguments = node_p;
@@ -6982,7 +6688,7 @@ static void cont__93_430(void) {
     invalid_results_error();
     return;
   }
-  temp__215 = arguments->slots[0];
+  frame->slots[214] /* temp__215 */ = arguments->slots[0];
   // 855: 'Ÿ' = "Y"
   argument_count = 2;
   arguments = node_p;
@@ -6998,7 +6704,7 @@ static void cont__93_432(void) {
     invalid_results_error();
     return;
   }
-  temp__216 = arguments->slots[0];
+  frame->slots[215] /* temp__216 */ = arguments->slots[0];
   // 856: 'Ź' = "Z"
   argument_count = 2;
   arguments = node_p;
@@ -7014,7 +6720,7 @@ static void cont__93_434(void) {
     invalid_results_error();
     return;
   }
-  temp__217 = arguments->slots[0];
+  frame->slots[216] /* temp__217 */ = arguments->slots[0];
   // 857: 'ź' = "z"
   argument_count = 2;
   arguments = node_p;
@@ -7030,7 +6736,7 @@ static void cont__93_436(void) {
     invalid_results_error();
     return;
   }
-  temp__218 = arguments->slots[0];
+  frame->slots[217] /* temp__218 */ = arguments->slots[0];
   // 858: 'Ż' = "Z"
   argument_count = 2;
   arguments = node_p;
@@ -7046,7 +6752,7 @@ static void cont__93_438(void) {
     invalid_results_error();
     return;
   }
-  temp__219 = arguments->slots[0];
+  frame->slots[218] /* temp__219 */ = arguments->slots[0];
   // 859: 'ż' = "z"
   argument_count = 2;
   arguments = node_p;
@@ -7062,7 +6768,7 @@ static void cont__93_440(void) {
     invalid_results_error();
     return;
   }
-  temp__220 = arguments->slots[0];
+  frame->slots[219] /* temp__220 */ = arguments->slots[0];
   // 860: 'Ž' = "Z"
   argument_count = 2;
   arguments = node_p;
@@ -7078,7 +6784,7 @@ static void cont__93_442(void) {
     invalid_results_error();
     return;
   }
-  temp__221 = arguments->slots[0];
+  frame->slots[220] /* temp__221 */ = arguments->slots[0];
   // 861: 'ž' = "z"
   argument_count = 2;
   arguments = node_p;
@@ -7094,7 +6800,7 @@ static void cont__93_444(void) {
     invalid_results_error();
     return;
   }
-  temp__222 = arguments->slots[0];
+  frame->slots[221] /* temp__222 */ = arguments->slots[0];
   // 862: 'ſ' = "s"
   argument_count = 2;
   arguments = node_p;
@@ -7110,7 +6816,7 @@ static void cont__93_446(void) {
     invalid_results_error();
     return;
   }
-  temp__223 = arguments->slots[0];
+  frame->slots[222] /* temp__223 */ = arguments->slots[0];
   // 863: 'ƀ' = "b"
   argument_count = 2;
   arguments = node_p;
@@ -7126,7 +6832,7 @@ static void cont__93_448(void) {
     invalid_results_error();
     return;
   }
-  temp__224 = arguments->slots[0];
+  frame->slots[223] /* temp__224 */ = arguments->slots[0];
   // 864: 'Ɓ' = "B"
   argument_count = 2;
   arguments = node_p;
@@ -7142,7 +6848,7 @@ static void cont__93_450(void) {
     invalid_results_error();
     return;
   }
-  temp__225 = arguments->slots[0];
+  frame->slots[224] /* temp__225 */ = arguments->slots[0];
   // 865: 'Ƃ' = "B"
   argument_count = 2;
   arguments = node_p;
@@ -7158,7 +6864,7 @@ static void cont__93_452(void) {
     invalid_results_error();
     return;
   }
-  temp__226 = arguments->slots[0];
+  frame->slots[225] /* temp__226 */ = arguments->slots[0];
   // 866: 'ƃ' = "b"
   argument_count = 2;
   arguments = node_p;
@@ -7174,7 +6880,7 @@ static void cont__93_454(void) {
     invalid_results_error();
     return;
   }
-  temp__227 = arguments->slots[0];
+  frame->slots[226] /* temp__227 */ = arguments->slots[0];
   // 867: 'Ƅ' = "b"
   argument_count = 2;
   arguments = node_p;
@@ -7190,7 +6896,7 @@ static void cont__93_456(void) {
     invalid_results_error();
     return;
   }
-  temp__228 = arguments->slots[0];
+  frame->slots[227] /* temp__228 */ = arguments->slots[0];
   // 868: 'ƅ' = "b"
   argument_count = 2;
   arguments = node_p;
@@ -7206,7 +6912,7 @@ static void cont__93_458(void) {
     invalid_results_error();
     return;
   }
-  temp__229 = arguments->slots[0];
+  frame->slots[228] /* temp__229 */ = arguments->slots[0];
   // 869: 'Ƈ' = "C"
   argument_count = 2;
   arguments = node_p;
@@ -7222,7 +6928,7 @@ static void cont__93_460(void) {
     invalid_results_error();
     return;
   }
-  temp__230 = arguments->slots[0];
+  frame->slots[229] /* temp__230 */ = arguments->slots[0];
   // 870: 'ƈ' = "c"
   argument_count = 2;
   arguments = node_p;
@@ -7238,7 +6944,7 @@ static void cont__93_462(void) {
     invalid_results_error();
     return;
   }
-  temp__231 = arguments->slots[0];
+  frame->slots[230] /* temp__231 */ = arguments->slots[0];
   // 871: 'Ɖ' = "D"
   argument_count = 2;
   arguments = node_p;
@@ -7254,7 +6960,7 @@ static void cont__93_464(void) {
     invalid_results_error();
     return;
   }
-  temp__232 = arguments->slots[0];
+  frame->slots[231] /* temp__232 */ = arguments->slots[0];
   // 872: 'Ɗ' = "D"
   argument_count = 2;
   arguments = node_p;
@@ -7270,7 +6976,7 @@ static void cont__93_466(void) {
     invalid_results_error();
     return;
   }
-  temp__233 = arguments->slots[0];
+  frame->slots[232] /* temp__233 */ = arguments->slots[0];
   // 873: 'Ƌ' = "D"
   argument_count = 2;
   arguments = node_p;
@@ -7286,7 +6992,7 @@ static void cont__93_468(void) {
     invalid_results_error();
     return;
   }
-  temp__234 = arguments->slots[0];
+  frame->slots[233] /* temp__234 */ = arguments->slots[0];
   // 874: 'ƌ' = "d"
   argument_count = 2;
   arguments = node_p;
@@ -7302,7 +7008,7 @@ static void cont__93_470(void) {
     invalid_results_error();
     return;
   }
-  temp__235 = arguments->slots[0];
+  frame->slots[234] /* temp__235 */ = arguments->slots[0];
   // 875: 'ƍ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -7318,7 +7024,7 @@ static void cont__93_472(void) {
     invalid_results_error();
     return;
   }
-  temp__236 = arguments->slots[0];
+  frame->slots[235] /* temp__236 */ = arguments->slots[0];
   // 876: 'Ɛ' = "E"
   argument_count = 2;
   arguments = node_p;
@@ -7334,7 +7040,7 @@ static void cont__93_474(void) {
     invalid_results_error();
     return;
   }
-  temp__237 = arguments->slots[0];
+  frame->slots[236] /* temp__237 */ = arguments->slots[0];
   // 877: 'Ƒ' = "F"
   argument_count = 2;
   arguments = node_p;
@@ -7350,7 +7056,7 @@ static void cont__93_476(void) {
     invalid_results_error();
     return;
   }
-  temp__238 = arguments->slots[0];
+  frame->slots[237] /* temp__238 */ = arguments->slots[0];
   // 878: 'ƒ' = "f"
   argument_count = 2;
   arguments = node_p;
@@ -7366,7 +7072,7 @@ static void cont__93_478(void) {
     invalid_results_error();
     return;
   }
-  temp__239 = arguments->slots[0];
+  frame->slots[238] /* temp__239 */ = arguments->slots[0];
   // 879: 'Ɠ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -7382,7 +7088,7 @@ static void cont__93_480(void) {
     invalid_results_error();
     return;
   }
-  temp__240 = arguments->slots[0];
+  frame->slots[239] /* temp__240 */ = arguments->slots[0];
   // 880: 'Ǆ' = "DZ"
   argument_count = 2;
   arguments = node_p;
@@ -7398,7 +7104,7 @@ static void cont__93_482(void) {
     invalid_results_error();
     return;
   }
-  temp__241 = arguments->slots[0];
+  frame->slots[240] /* temp__241 */ = arguments->slots[0];
   // 881: 'ǅ' = "Dz"
   argument_count = 2;
   arguments = node_p;
@@ -7414,7 +7120,7 @@ static void cont__93_484(void) {
     invalid_results_error();
     return;
   }
-  temp__242 = arguments->slots[0];
+  frame->slots[241] /* temp__242 */ = arguments->slots[0];
   // 882: 'ǆ' = "dz"
   argument_count = 2;
   arguments = node_p;
@@ -7430,7 +7136,7 @@ static void cont__93_486(void) {
     invalid_results_error();
     return;
   }
-  temp__243 = arguments->slots[0];
+  frame->slots[242] /* temp__243 */ = arguments->slots[0];
   // 883: 'Ǉ' = "LJ"
   argument_count = 2;
   arguments = node_p;
@@ -7446,7 +7152,7 @@ static void cont__93_488(void) {
     invalid_results_error();
     return;
   }
-  temp__244 = arguments->slots[0];
+  frame->slots[243] /* temp__244 */ = arguments->slots[0];
   // 884: 'ǈ' = "Lj"
   argument_count = 2;
   arguments = node_p;
@@ -7462,7 +7168,7 @@ static void cont__93_490(void) {
     invalid_results_error();
     return;
   }
-  temp__245 = arguments->slots[0];
+  frame->slots[244] /* temp__245 */ = arguments->slots[0];
   // 885: 'ǉ' = "lj"
   argument_count = 2;
   arguments = node_p;
@@ -7478,7 +7184,7 @@ static void cont__93_492(void) {
     invalid_results_error();
     return;
   }
-  temp__246 = arguments->slots[0];
+  frame->slots[245] /* temp__246 */ = arguments->slots[0];
   // 886: 'Ǌ' = "NJ"
   argument_count = 2;
   arguments = node_p;
@@ -7494,7 +7200,7 @@ static void cont__93_494(void) {
     invalid_results_error();
     return;
   }
-  temp__247 = arguments->slots[0];
+  frame->slots[246] /* temp__247 */ = arguments->slots[0];
   // 887: 'ǋ' = "Nj"
   argument_count = 2;
   arguments = node_p;
@@ -7510,7 +7216,7 @@ static void cont__93_496(void) {
     invalid_results_error();
     return;
   }
-  temp__248 = arguments->slots[0];
+  frame->slots[247] /* temp__248 */ = arguments->slots[0];
   // 888: 'ǌ' = "nj"
   argument_count = 2;
   arguments = node_p;
@@ -7526,7 +7232,7 @@ static void cont__93_498(void) {
     invalid_results_error();
     return;
   }
-  temp__249 = arguments->slots[0];
+  frame->slots[248] /* temp__249 */ = arguments->slots[0];
   // 889: 'Ǎ' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -7542,7 +7248,7 @@ static void cont__93_500(void) {
     invalid_results_error();
     return;
   }
-  temp__250 = arguments->slots[0];
+  frame->slots[249] /* temp__250 */ = arguments->slots[0];
   // 890: 'ǎ' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -7558,7 +7264,7 @@ static void cont__93_502(void) {
     invalid_results_error();
     return;
   }
-  temp__251 = arguments->slots[0];
+  frame->slots[250] /* temp__251 */ = arguments->slots[0];
   // 891: 'Ǐ' = "I"
   argument_count = 2;
   arguments = node_p;
@@ -7574,7 +7280,7 @@ static void cont__93_504(void) {
     invalid_results_error();
     return;
   }
-  temp__252 = arguments->slots[0];
+  frame->slots[251] /* temp__252 */ = arguments->slots[0];
   // 892: 'ǐ' = "i"
   argument_count = 2;
   arguments = node_p;
@@ -7590,7 +7296,7 @@ static void cont__93_506(void) {
     invalid_results_error();
     return;
   }
-  temp__253 = arguments->slots[0];
+  frame->slots[252] /* temp__253 */ = arguments->slots[0];
   // 893: 'Ǒ' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -7606,7 +7312,7 @@ static void cont__93_508(void) {
     invalid_results_error();
     return;
   }
-  temp__254 = arguments->slots[0];
+  frame->slots[253] /* temp__254 */ = arguments->slots[0];
   // 894: 'ǒ' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -7622,7 +7328,7 @@ static void cont__93_510(void) {
     invalid_results_error();
     return;
   }
-  temp__255 = arguments->slots[0];
+  frame->slots[254] /* temp__255 */ = arguments->slots[0];
   // 895: 'Ǔ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -7638,7 +7344,7 @@ static void cont__93_512(void) {
     invalid_results_error();
     return;
   }
-  temp__256 = arguments->slots[0];
+  frame->slots[255] /* temp__256 */ = arguments->slots[0];
   // 896: 'ǔ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -7654,7 +7360,7 @@ static void cont__93_514(void) {
     invalid_results_error();
     return;
   }
-  temp__257 = arguments->slots[0];
+  frame->slots[256] /* temp__257 */ = arguments->slots[0];
   // 897: 'Ǖ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -7670,7 +7376,7 @@ static void cont__93_516(void) {
     invalid_results_error();
     return;
   }
-  temp__258 = arguments->slots[0];
+  frame->slots[257] /* temp__258 */ = arguments->slots[0];
   // 898: 'ǖ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -7686,7 +7392,7 @@ static void cont__93_518(void) {
     invalid_results_error();
     return;
   }
-  temp__259 = arguments->slots[0];
+  frame->slots[258] /* temp__259 */ = arguments->slots[0];
   // 899: 'Ǘ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -7702,7 +7408,7 @@ static void cont__93_520(void) {
     invalid_results_error();
     return;
   }
-  temp__260 = arguments->slots[0];
+  frame->slots[259] /* temp__260 */ = arguments->slots[0];
   // 900: 'ǘ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -7718,7 +7424,7 @@ static void cont__93_522(void) {
     invalid_results_error();
     return;
   }
-  temp__261 = arguments->slots[0];
+  frame->slots[260] /* temp__261 */ = arguments->slots[0];
   // 901: 'Ǚ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -7734,7 +7440,7 @@ static void cont__93_524(void) {
     invalid_results_error();
     return;
   }
-  temp__262 = arguments->slots[0];
+  frame->slots[261] /* temp__262 */ = arguments->slots[0];
   // 902: 'ǚ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -7750,7 +7456,7 @@ static void cont__93_526(void) {
     invalid_results_error();
     return;
   }
-  temp__263 = arguments->slots[0];
+  frame->slots[262] /* temp__263 */ = arguments->slots[0];
   // 903: 'Ǜ' = "U"
   argument_count = 2;
   arguments = node_p;
@@ -7766,7 +7472,7 @@ static void cont__93_528(void) {
     invalid_results_error();
     return;
   }
-  temp__264 = arguments->slots[0];
+  frame->slots[263] /* temp__264 */ = arguments->slots[0];
   // 904: 'ǜ' = "u"
   argument_count = 2;
   arguments = node_p;
@@ -7782,7 +7488,7 @@ static void cont__93_530(void) {
     invalid_results_error();
     return;
   }
-  temp__265 = arguments->slots[0];
+  frame->slots[264] /* temp__265 */ = arguments->slots[0];
   // 905: 'Ǟ' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -7798,7 +7504,7 @@ static void cont__93_532(void) {
     invalid_results_error();
     return;
   }
-  temp__266 = arguments->slots[0];
+  frame->slots[265] /* temp__266 */ = arguments->slots[0];
   // 906: 'ǟ' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -7814,7 +7520,7 @@ static void cont__93_534(void) {
     invalid_results_error();
     return;
   }
-  temp__267 = arguments->slots[0];
+  frame->slots[266] /* temp__267 */ = arguments->slots[0];
   // 907: 'Ǡ' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -7830,7 +7536,7 @@ static void cont__93_536(void) {
     invalid_results_error();
     return;
   }
-  temp__268 = arguments->slots[0];
+  frame->slots[267] /* temp__268 */ = arguments->slots[0];
   // 908: 'ǡ' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -7846,7 +7552,7 @@ static void cont__93_538(void) {
     invalid_results_error();
     return;
   }
-  temp__269 = arguments->slots[0];
+  frame->slots[268] /* temp__269 */ = arguments->slots[0];
   // 909: 'Ǣ' = "AE"
   argument_count = 2;
   arguments = node_p;
@@ -7862,7 +7568,7 @@ static void cont__93_540(void) {
     invalid_results_error();
     return;
   }
-  temp__270 = arguments->slots[0];
+  frame->slots[269] /* temp__270 */ = arguments->slots[0];
   // 910: 'ǣ' = "ae"
   argument_count = 2;
   arguments = node_p;
@@ -7878,7 +7584,7 @@ static void cont__93_542(void) {
     invalid_results_error();
     return;
   }
-  temp__271 = arguments->slots[0];
+  frame->slots[270] /* temp__271 */ = arguments->slots[0];
   // 911: 'Ǥ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -7894,7 +7600,7 @@ static void cont__93_544(void) {
     invalid_results_error();
     return;
   }
-  temp__272 = arguments->slots[0];
+  frame->slots[271] /* temp__272 */ = arguments->slots[0];
   // 912: 'ǥ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -7910,7 +7616,7 @@ static void cont__93_546(void) {
     invalid_results_error();
     return;
   }
-  temp__273 = arguments->slots[0];
+  frame->slots[272] /* temp__273 */ = arguments->slots[0];
   // 913: 'Ǧ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -7926,7 +7632,7 @@ static void cont__93_548(void) {
     invalid_results_error();
     return;
   }
-  temp__274 = arguments->slots[0];
+  frame->slots[273] /* temp__274 */ = arguments->slots[0];
   // 914: 'ǧ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -7942,7 +7648,7 @@ static void cont__93_550(void) {
     invalid_results_error();
     return;
   }
-  temp__275 = arguments->slots[0];
+  frame->slots[274] /* temp__275 */ = arguments->slots[0];
   // 915: 'Ǩ' = "K"
   argument_count = 2;
   arguments = node_p;
@@ -7958,7 +7664,7 @@ static void cont__93_552(void) {
     invalid_results_error();
     return;
   }
-  temp__276 = arguments->slots[0];
+  frame->slots[275] /* temp__276 */ = arguments->slots[0];
   // 916: 'ǩ' = "k"
   argument_count = 2;
   arguments = node_p;
@@ -7974,7 +7680,7 @@ static void cont__93_554(void) {
     invalid_results_error();
     return;
   }
-  temp__277 = arguments->slots[0];
+  frame->slots[276] /* temp__277 */ = arguments->slots[0];
   // 917: 'Ǫ' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -7990,7 +7696,7 @@ static void cont__93_556(void) {
     invalid_results_error();
     return;
   }
-  temp__278 = arguments->slots[0];
+  frame->slots[277] /* temp__278 */ = arguments->slots[0];
   // 918: 'ǫ' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -8006,7 +7712,7 @@ static void cont__93_558(void) {
     invalid_results_error();
     return;
   }
-  temp__279 = arguments->slots[0];
+  frame->slots[278] /* temp__279 */ = arguments->slots[0];
   // 919: 'Ǭ' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -8022,7 +7728,7 @@ static void cont__93_560(void) {
     invalid_results_error();
     return;
   }
-  temp__280 = arguments->slots[0];
+  frame->slots[279] /* temp__280 */ = arguments->slots[0];
   // 920: 'ǭ' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -8038,7 +7744,7 @@ static void cont__93_562(void) {
     invalid_results_error();
     return;
   }
-  temp__281 = arguments->slots[0];
+  frame->slots[280] /* temp__281 */ = arguments->slots[0];
   // 921: 'Ǳ' = "DZ"
   argument_count = 2;
   arguments = node_p;
@@ -8054,7 +7760,7 @@ static void cont__93_564(void) {
     invalid_results_error();
     return;
   }
-  temp__282 = arguments->slots[0];
+  frame->slots[281] /* temp__282 */ = arguments->slots[0];
   // 922: 'ǲ' = "Dz"
   argument_count = 2;
   arguments = node_p;
@@ -8070,7 +7776,7 @@ static void cont__93_566(void) {
     invalid_results_error();
     return;
   }
-  temp__283 = arguments->slots[0];
+  frame->slots[282] /* temp__283 */ = arguments->slots[0];
   // 923: 'ǳ' = "dz"
   argument_count = 2;
   arguments = node_p;
@@ -8086,7 +7792,7 @@ static void cont__93_568(void) {
     invalid_results_error();
     return;
   }
-  temp__284 = arguments->slots[0];
+  frame->slots[283] /* temp__284 */ = arguments->slots[0];
   // 924: 'Ǵ' = "G"
   argument_count = 2;
   arguments = node_p;
@@ -8102,7 +7808,7 @@ static void cont__93_570(void) {
     invalid_results_error();
     return;
   }
-  temp__285 = arguments->slots[0];
+  frame->slots[284] /* temp__285 */ = arguments->slots[0];
   // 925: 'ǵ' = "g"
   argument_count = 2;
   arguments = node_p;
@@ -8118,7 +7824,7 @@ static void cont__93_572(void) {
     invalid_results_error();
     return;
   }
-  temp__286 = arguments->slots[0];
+  frame->slots[285] /* temp__286 */ = arguments->slots[0];
   // 926: 'Ǹ' = "N"
   argument_count = 2;
   arguments = node_p;
@@ -8134,7 +7840,7 @@ static void cont__93_574(void) {
     invalid_results_error();
     return;
   }
-  temp__287 = arguments->slots[0];
+  frame->slots[286] /* temp__287 */ = arguments->slots[0];
   // 927: 'ǹ' = "n"
   argument_count = 2;
   arguments = node_p;
@@ -8150,7 +7856,7 @@ static void cont__93_576(void) {
     invalid_results_error();
     return;
   }
-  temp__288 = arguments->slots[0];
+  frame->slots[287] /* temp__288 */ = arguments->slots[0];
   // 928: 'Ǻ' = "A"
   argument_count = 2;
   arguments = node_p;
@@ -8166,7 +7872,7 @@ static void cont__93_578(void) {
     invalid_results_error();
     return;
   }
-  temp__289 = arguments->slots[0];
+  frame->slots[288] /* temp__289 */ = arguments->slots[0];
   // 929: 'ǻ' = "a"
   argument_count = 2;
   arguments = node_p;
@@ -8182,7 +7888,7 @@ static void cont__93_580(void) {
     invalid_results_error();
     return;
   }
-  temp__290 = arguments->slots[0];
+  frame->slots[289] /* temp__290 */ = arguments->slots[0];
   // 930: 'Ǽ' = "AE"
   argument_count = 2;
   arguments = node_p;
@@ -8198,7 +7904,7 @@ static void cont__93_582(void) {
     invalid_results_error();
     return;
   }
-  temp__291 = arguments->slots[0];
+  frame->slots[290] /* temp__291 */ = arguments->slots[0];
   // 931: 'ǽ' = "ae"
   argument_count = 2;
   arguments = node_p;
@@ -8214,7 +7920,7 @@ static void cont__93_584(void) {
     invalid_results_error();
     return;
   }
-  temp__292 = arguments->slots[0];
+  frame->slots[291] /* temp__292 */ = arguments->slots[0];
   // 932: 'Ǿ' = "O"
   argument_count = 2;
   arguments = node_p;
@@ -8230,7 +7936,7 @@ static void cont__93_586(void) {
     invalid_results_error();
     return;
   }
-  temp__293 = arguments->slots[0];
+  frame->slots[292] /* temp__293 */ = arguments->slots[0];
   // 933: 'ǿ' = "o"
   argument_count = 2;
   arguments = node_p;
@@ -8246,7 +7952,7 @@ static void cont__93_588(void) {
     invalid_results_error();
     return;
   }
-  temp__294 = arguments->slots[0];
+  frame->slots[293] /* temp__294 */ = arguments->slots[0];
   // 638: $umlaut_conversions
   // 639:   table
   // 640:     '¡' = "!"
@@ -8260,300 +7966,300 @@ static void cont__93_588(void) {
   // ...
   argument_count = 294;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
-  arguments->slots[1] = temp__2;
-  arguments->slots[2] = temp__3;
-  arguments->slots[3] = temp__4;
-  arguments->slots[4] = temp__5;
-  arguments->slots[5] = temp__6;
-  arguments->slots[6] = temp__7;
-  arguments->slots[7] = temp__8;
-  arguments->slots[8] = temp__9;
-  arguments->slots[9] = temp__10;
-  arguments->slots[10] = temp__11;
-  arguments->slots[11] = temp__12;
-  arguments->slots[12] = temp__13;
-  arguments->slots[13] = temp__14;
-  arguments->slots[14] = temp__15;
-  arguments->slots[15] = temp__16;
-  arguments->slots[16] = temp__17;
-  arguments->slots[17] = temp__18;
-  arguments->slots[18] = temp__19;
-  arguments->slots[19] = temp__20;
-  arguments->slots[20] = temp__21;
-  arguments->slots[21] = temp__22;
-  arguments->slots[22] = temp__23;
-  arguments->slots[23] = temp__24;
-  arguments->slots[24] = temp__25;
-  arguments->slots[25] = temp__26;
-  arguments->slots[26] = temp__27;
-  arguments->slots[27] = temp__28;
-  arguments->slots[28] = temp__29;
-  arguments->slots[29] = temp__30;
-  arguments->slots[30] = temp__31;
-  arguments->slots[31] = temp__32;
-  arguments->slots[32] = temp__33;
-  arguments->slots[33] = temp__34;
-  arguments->slots[34] = temp__35;
-  arguments->slots[35] = temp__36;
-  arguments->slots[36] = temp__37;
-  arguments->slots[37] = temp__38;
-  arguments->slots[38] = temp__39;
-  arguments->slots[39] = temp__40;
-  arguments->slots[40] = temp__41;
-  arguments->slots[41] = temp__42;
-  arguments->slots[42] = temp__43;
-  arguments->slots[43] = temp__44;
-  arguments->slots[44] = temp__45;
-  arguments->slots[45] = temp__46;
-  arguments->slots[46] = temp__47;
-  arguments->slots[47] = temp__48;
-  arguments->slots[48] = temp__49;
-  arguments->slots[49] = temp__50;
-  arguments->slots[50] = temp__51;
-  arguments->slots[51] = temp__52;
-  arguments->slots[52] = temp__53;
-  arguments->slots[53] = temp__54;
-  arguments->slots[54] = temp__55;
-  arguments->slots[55] = temp__56;
-  arguments->slots[56] = temp__57;
-  arguments->slots[57] = temp__58;
-  arguments->slots[58] = temp__59;
-  arguments->slots[59] = temp__60;
-  arguments->slots[60] = temp__61;
-  arguments->slots[61] = temp__62;
-  arguments->slots[62] = temp__63;
-  arguments->slots[63] = temp__64;
-  arguments->slots[64] = temp__65;
-  arguments->slots[65] = temp__66;
-  arguments->slots[66] = temp__67;
-  arguments->slots[67] = temp__68;
-  arguments->slots[68] = temp__69;
-  arguments->slots[69] = temp__70;
-  arguments->slots[70] = temp__71;
-  arguments->slots[71] = temp__72;
-  arguments->slots[72] = temp__73;
-  arguments->slots[73] = temp__74;
-  arguments->slots[74] = temp__75;
-  arguments->slots[75] = temp__76;
-  arguments->slots[76] = temp__77;
-  arguments->slots[77] = temp__78;
-  arguments->slots[78] = temp__79;
-  arguments->slots[79] = temp__80;
-  arguments->slots[80] = temp__81;
-  arguments->slots[81] = temp__82;
-  arguments->slots[82] = temp__83;
-  arguments->slots[83] = temp__84;
-  arguments->slots[84] = temp__85;
-  arguments->slots[85] = temp__86;
-  arguments->slots[86] = temp__87;
-  arguments->slots[87] = temp__88;
-  arguments->slots[88] = temp__89;
-  arguments->slots[89] = temp__90;
-  arguments->slots[90] = temp__91;
-  arguments->slots[91] = temp__92;
-  arguments->slots[92] = temp__93;
-  arguments->slots[93] = temp__94;
-  arguments->slots[94] = temp__95;
-  arguments->slots[95] = temp__96;
-  arguments->slots[96] = temp__97;
-  arguments->slots[97] = temp__98;
-  arguments->slots[98] = temp__99;
-  arguments->slots[99] = temp__100;
-  arguments->slots[100] = temp__101;
-  arguments->slots[101] = temp__102;
-  arguments->slots[102] = temp__103;
-  arguments->slots[103] = temp__104;
-  arguments->slots[104] = temp__105;
-  arguments->slots[105] = temp__106;
-  arguments->slots[106] = temp__107;
-  arguments->slots[107] = temp__108;
-  arguments->slots[108] = temp__109;
-  arguments->slots[109] = temp__110;
-  arguments->slots[110] = temp__111;
-  arguments->slots[111] = temp__112;
-  arguments->slots[112] = temp__113;
-  arguments->slots[113] = temp__114;
-  arguments->slots[114] = temp__115;
-  arguments->slots[115] = temp__116;
-  arguments->slots[116] = temp__117;
-  arguments->slots[117] = temp__118;
-  arguments->slots[118] = temp__119;
-  arguments->slots[119] = temp__120;
-  arguments->slots[120] = temp__121;
-  arguments->slots[121] = temp__122;
-  arguments->slots[122] = temp__123;
-  arguments->slots[123] = temp__124;
-  arguments->slots[124] = temp__125;
-  arguments->slots[125] = temp__126;
-  arguments->slots[126] = temp__127;
-  arguments->slots[127] = temp__128;
-  arguments->slots[128] = temp__129;
-  arguments->slots[129] = temp__130;
-  arguments->slots[130] = temp__131;
-  arguments->slots[131] = temp__132;
-  arguments->slots[132] = temp__133;
-  arguments->slots[133] = temp__134;
-  arguments->slots[134] = temp__135;
-  arguments->slots[135] = temp__136;
-  arguments->slots[136] = temp__137;
-  arguments->slots[137] = temp__138;
-  arguments->slots[138] = temp__139;
-  arguments->slots[139] = temp__140;
-  arguments->slots[140] = temp__141;
-  arguments->slots[141] = temp__142;
-  arguments->slots[142] = temp__143;
-  arguments->slots[143] = temp__144;
-  arguments->slots[144] = temp__145;
-  arguments->slots[145] = temp__146;
-  arguments->slots[146] = temp__147;
-  arguments->slots[147] = temp__148;
-  arguments->slots[148] = temp__149;
-  arguments->slots[149] = temp__150;
-  arguments->slots[150] = temp__151;
-  arguments->slots[151] = temp__152;
-  arguments->slots[152] = temp__153;
-  arguments->slots[153] = temp__154;
-  arguments->slots[154] = temp__155;
-  arguments->slots[155] = temp__156;
-  arguments->slots[156] = temp__157;
-  arguments->slots[157] = temp__158;
-  arguments->slots[158] = temp__159;
-  arguments->slots[159] = temp__160;
-  arguments->slots[160] = temp__161;
-  arguments->slots[161] = temp__162;
-  arguments->slots[162] = temp__163;
-  arguments->slots[163] = temp__164;
-  arguments->slots[164] = temp__165;
-  arguments->slots[165] = temp__166;
-  arguments->slots[166] = temp__167;
-  arguments->slots[167] = temp__168;
-  arguments->slots[168] = temp__169;
-  arguments->slots[169] = temp__170;
-  arguments->slots[170] = temp__171;
-  arguments->slots[171] = temp__172;
-  arguments->slots[172] = temp__173;
-  arguments->slots[173] = temp__174;
-  arguments->slots[174] = temp__175;
-  arguments->slots[175] = temp__176;
-  arguments->slots[176] = temp__177;
-  arguments->slots[177] = temp__178;
-  arguments->slots[178] = temp__179;
-  arguments->slots[179] = temp__180;
-  arguments->slots[180] = temp__181;
-  arguments->slots[181] = temp__182;
-  arguments->slots[182] = temp__183;
-  arguments->slots[183] = temp__184;
-  arguments->slots[184] = temp__185;
-  arguments->slots[185] = temp__186;
-  arguments->slots[186] = temp__187;
-  arguments->slots[187] = temp__188;
-  arguments->slots[188] = temp__189;
-  arguments->slots[189] = temp__190;
-  arguments->slots[190] = temp__191;
-  arguments->slots[191] = temp__192;
-  arguments->slots[192] = temp__193;
-  arguments->slots[193] = temp__194;
-  arguments->slots[194] = temp__195;
-  arguments->slots[195] = temp__196;
-  arguments->slots[196] = temp__197;
-  arguments->slots[197] = temp__198;
-  arguments->slots[198] = temp__199;
-  arguments->slots[199] = temp__200;
-  arguments->slots[200] = temp__201;
-  arguments->slots[201] = temp__202;
-  arguments->slots[202] = temp__203;
-  arguments->slots[203] = temp__204;
-  arguments->slots[204] = temp__205;
-  arguments->slots[205] = temp__206;
-  arguments->slots[206] = temp__207;
-  arguments->slots[207] = temp__208;
-  arguments->slots[208] = temp__209;
-  arguments->slots[209] = temp__210;
-  arguments->slots[210] = temp__211;
-  arguments->slots[211] = temp__212;
-  arguments->slots[212] = temp__213;
-  arguments->slots[213] = temp__214;
-  arguments->slots[214] = temp__215;
-  arguments->slots[215] = temp__216;
-  arguments->slots[216] = temp__217;
-  arguments->slots[217] = temp__218;
-  arguments->slots[218] = temp__219;
-  arguments->slots[219] = temp__220;
-  arguments->slots[220] = temp__221;
-  arguments->slots[221] = temp__222;
-  arguments->slots[222] = temp__223;
-  arguments->slots[223] = temp__224;
-  arguments->slots[224] = temp__225;
-  arguments->slots[225] = temp__226;
-  arguments->slots[226] = temp__227;
-  arguments->slots[227] = temp__228;
-  arguments->slots[228] = temp__229;
-  arguments->slots[229] = temp__230;
-  arguments->slots[230] = temp__231;
-  arguments->slots[231] = temp__232;
-  arguments->slots[232] = temp__233;
-  arguments->slots[233] = temp__234;
-  arguments->slots[234] = temp__235;
-  arguments->slots[235] = temp__236;
-  arguments->slots[236] = temp__237;
-  arguments->slots[237] = temp__238;
-  arguments->slots[238] = temp__239;
-  arguments->slots[239] = temp__240;
-  arguments->slots[240] = temp__241;
-  arguments->slots[241] = temp__242;
-  arguments->slots[242] = temp__243;
-  arguments->slots[243] = temp__244;
-  arguments->slots[244] = temp__245;
-  arguments->slots[245] = temp__246;
-  arguments->slots[246] = temp__247;
-  arguments->slots[247] = temp__248;
-  arguments->slots[248] = temp__249;
-  arguments->slots[249] = temp__250;
-  arguments->slots[250] = temp__251;
-  arguments->slots[251] = temp__252;
-  arguments->slots[252] = temp__253;
-  arguments->slots[253] = temp__254;
-  arguments->slots[254] = temp__255;
-  arguments->slots[255] = temp__256;
-  arguments->slots[256] = temp__257;
-  arguments->slots[257] = temp__258;
-  arguments->slots[258] = temp__259;
-  arguments->slots[259] = temp__260;
-  arguments->slots[260] = temp__261;
-  arguments->slots[261] = temp__262;
-  arguments->slots[262] = temp__263;
-  arguments->slots[263] = temp__264;
-  arguments->slots[264] = temp__265;
-  arguments->slots[265] = temp__266;
-  arguments->slots[266] = temp__267;
-  arguments->slots[267] = temp__268;
-  arguments->slots[268] = temp__269;
-  arguments->slots[269] = temp__270;
-  arguments->slots[270] = temp__271;
-  arguments->slots[271] = temp__272;
-  arguments->slots[272] = temp__273;
-  arguments->slots[273] = temp__274;
-  arguments->slots[274] = temp__275;
-  arguments->slots[275] = temp__276;
-  arguments->slots[276] = temp__277;
-  arguments->slots[277] = temp__278;
-  arguments->slots[278] = temp__279;
-  arguments->slots[279] = temp__280;
-  arguments->slots[280] = temp__281;
-  arguments->slots[281] = temp__282;
-  arguments->slots[282] = temp__283;
-  arguments->slots[283] = temp__284;
-  arguments->slots[284] = temp__285;
-  arguments->slots[285] = temp__286;
-  arguments->slots[286] = temp__287;
-  arguments->slots[287] = temp__288;
-  arguments->slots[288] = temp__289;
-  arguments->slots[289] = temp__290;
-  arguments->slots[290] = temp__291;
-  arguments->slots[291] = temp__292;
-  arguments->slots[292] = temp__293;
-  arguments->slots[293] = temp__294;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* temp__2 */;
+  arguments->slots[2] = frame->slots[2] /* temp__3 */;
+  arguments->slots[3] = frame->slots[3] /* temp__4 */;
+  arguments->slots[4] = frame->slots[4] /* temp__5 */;
+  arguments->slots[5] = frame->slots[5] /* temp__6 */;
+  arguments->slots[6] = frame->slots[6] /* temp__7 */;
+  arguments->slots[7] = frame->slots[7] /* temp__8 */;
+  arguments->slots[8] = frame->slots[8] /* temp__9 */;
+  arguments->slots[9] = frame->slots[9] /* temp__10 */;
+  arguments->slots[10] = frame->slots[10] /* temp__11 */;
+  arguments->slots[11] = frame->slots[11] /* temp__12 */;
+  arguments->slots[12] = frame->slots[12] /* temp__13 */;
+  arguments->slots[13] = frame->slots[13] /* temp__14 */;
+  arguments->slots[14] = frame->slots[14] /* temp__15 */;
+  arguments->slots[15] = frame->slots[15] /* temp__16 */;
+  arguments->slots[16] = frame->slots[16] /* temp__17 */;
+  arguments->slots[17] = frame->slots[17] /* temp__18 */;
+  arguments->slots[18] = frame->slots[18] /* temp__19 */;
+  arguments->slots[19] = frame->slots[19] /* temp__20 */;
+  arguments->slots[20] = frame->slots[20] /* temp__21 */;
+  arguments->slots[21] = frame->slots[21] /* temp__22 */;
+  arguments->slots[22] = frame->slots[22] /* temp__23 */;
+  arguments->slots[23] = frame->slots[23] /* temp__24 */;
+  arguments->slots[24] = frame->slots[24] /* temp__25 */;
+  arguments->slots[25] = frame->slots[25] /* temp__26 */;
+  arguments->slots[26] = frame->slots[26] /* temp__27 */;
+  arguments->slots[27] = frame->slots[27] /* temp__28 */;
+  arguments->slots[28] = frame->slots[28] /* temp__29 */;
+  arguments->slots[29] = frame->slots[29] /* temp__30 */;
+  arguments->slots[30] = frame->slots[30] /* temp__31 */;
+  arguments->slots[31] = frame->slots[31] /* temp__32 */;
+  arguments->slots[32] = frame->slots[32] /* temp__33 */;
+  arguments->slots[33] = frame->slots[33] /* temp__34 */;
+  arguments->slots[34] = frame->slots[34] /* temp__35 */;
+  arguments->slots[35] = frame->slots[35] /* temp__36 */;
+  arguments->slots[36] = frame->slots[36] /* temp__37 */;
+  arguments->slots[37] = frame->slots[37] /* temp__38 */;
+  arguments->slots[38] = frame->slots[38] /* temp__39 */;
+  arguments->slots[39] = frame->slots[39] /* temp__40 */;
+  arguments->slots[40] = frame->slots[40] /* temp__41 */;
+  arguments->slots[41] = frame->slots[41] /* temp__42 */;
+  arguments->slots[42] = frame->slots[42] /* temp__43 */;
+  arguments->slots[43] = frame->slots[43] /* temp__44 */;
+  arguments->slots[44] = frame->slots[44] /* temp__45 */;
+  arguments->slots[45] = frame->slots[45] /* temp__46 */;
+  arguments->slots[46] = frame->slots[46] /* temp__47 */;
+  arguments->slots[47] = frame->slots[47] /* temp__48 */;
+  arguments->slots[48] = frame->slots[48] /* temp__49 */;
+  arguments->slots[49] = frame->slots[49] /* temp__50 */;
+  arguments->slots[50] = frame->slots[50] /* temp__51 */;
+  arguments->slots[51] = frame->slots[51] /* temp__52 */;
+  arguments->slots[52] = frame->slots[52] /* temp__53 */;
+  arguments->slots[53] = frame->slots[53] /* temp__54 */;
+  arguments->slots[54] = frame->slots[54] /* temp__55 */;
+  arguments->slots[55] = frame->slots[55] /* temp__56 */;
+  arguments->slots[56] = frame->slots[56] /* temp__57 */;
+  arguments->slots[57] = frame->slots[57] /* temp__58 */;
+  arguments->slots[58] = frame->slots[58] /* temp__59 */;
+  arguments->slots[59] = frame->slots[59] /* temp__60 */;
+  arguments->slots[60] = frame->slots[60] /* temp__61 */;
+  arguments->slots[61] = frame->slots[61] /* temp__62 */;
+  arguments->slots[62] = frame->slots[62] /* temp__63 */;
+  arguments->slots[63] = frame->slots[63] /* temp__64 */;
+  arguments->slots[64] = frame->slots[64] /* temp__65 */;
+  arguments->slots[65] = frame->slots[65] /* temp__66 */;
+  arguments->slots[66] = frame->slots[66] /* temp__67 */;
+  arguments->slots[67] = frame->slots[67] /* temp__68 */;
+  arguments->slots[68] = frame->slots[68] /* temp__69 */;
+  arguments->slots[69] = frame->slots[69] /* temp__70 */;
+  arguments->slots[70] = frame->slots[70] /* temp__71 */;
+  arguments->slots[71] = frame->slots[71] /* temp__72 */;
+  arguments->slots[72] = frame->slots[72] /* temp__73 */;
+  arguments->slots[73] = frame->slots[73] /* temp__74 */;
+  arguments->slots[74] = frame->slots[74] /* temp__75 */;
+  arguments->slots[75] = frame->slots[75] /* temp__76 */;
+  arguments->slots[76] = frame->slots[76] /* temp__77 */;
+  arguments->slots[77] = frame->slots[77] /* temp__78 */;
+  arguments->slots[78] = frame->slots[78] /* temp__79 */;
+  arguments->slots[79] = frame->slots[79] /* temp__80 */;
+  arguments->slots[80] = frame->slots[80] /* temp__81 */;
+  arguments->slots[81] = frame->slots[81] /* temp__82 */;
+  arguments->slots[82] = frame->slots[82] /* temp__83 */;
+  arguments->slots[83] = frame->slots[83] /* temp__84 */;
+  arguments->slots[84] = frame->slots[84] /* temp__85 */;
+  arguments->slots[85] = frame->slots[85] /* temp__86 */;
+  arguments->slots[86] = frame->slots[86] /* temp__87 */;
+  arguments->slots[87] = frame->slots[87] /* temp__88 */;
+  arguments->slots[88] = frame->slots[88] /* temp__89 */;
+  arguments->slots[89] = frame->slots[89] /* temp__90 */;
+  arguments->slots[90] = frame->slots[90] /* temp__91 */;
+  arguments->slots[91] = frame->slots[91] /* temp__92 */;
+  arguments->slots[92] = frame->slots[92] /* temp__93 */;
+  arguments->slots[93] = frame->slots[93] /* temp__94 */;
+  arguments->slots[94] = frame->slots[94] /* temp__95 */;
+  arguments->slots[95] = frame->slots[95] /* temp__96 */;
+  arguments->slots[96] = frame->slots[96] /* temp__97 */;
+  arguments->slots[97] = frame->slots[97] /* temp__98 */;
+  arguments->slots[98] = frame->slots[98] /* temp__99 */;
+  arguments->slots[99] = frame->slots[99] /* temp__100 */;
+  arguments->slots[100] = frame->slots[100] /* temp__101 */;
+  arguments->slots[101] = frame->slots[101] /* temp__102 */;
+  arguments->slots[102] = frame->slots[102] /* temp__103 */;
+  arguments->slots[103] = frame->slots[103] /* temp__104 */;
+  arguments->slots[104] = frame->slots[104] /* temp__105 */;
+  arguments->slots[105] = frame->slots[105] /* temp__106 */;
+  arguments->slots[106] = frame->slots[106] /* temp__107 */;
+  arguments->slots[107] = frame->slots[107] /* temp__108 */;
+  arguments->slots[108] = frame->slots[108] /* temp__109 */;
+  arguments->slots[109] = frame->slots[109] /* temp__110 */;
+  arguments->slots[110] = frame->slots[110] /* temp__111 */;
+  arguments->slots[111] = frame->slots[111] /* temp__112 */;
+  arguments->slots[112] = frame->slots[112] /* temp__113 */;
+  arguments->slots[113] = frame->slots[113] /* temp__114 */;
+  arguments->slots[114] = frame->slots[114] /* temp__115 */;
+  arguments->slots[115] = frame->slots[115] /* temp__116 */;
+  arguments->slots[116] = frame->slots[116] /* temp__117 */;
+  arguments->slots[117] = frame->slots[117] /* temp__118 */;
+  arguments->slots[118] = frame->slots[118] /* temp__119 */;
+  arguments->slots[119] = frame->slots[119] /* temp__120 */;
+  arguments->slots[120] = frame->slots[120] /* temp__121 */;
+  arguments->slots[121] = frame->slots[121] /* temp__122 */;
+  arguments->slots[122] = frame->slots[122] /* temp__123 */;
+  arguments->slots[123] = frame->slots[123] /* temp__124 */;
+  arguments->slots[124] = frame->slots[124] /* temp__125 */;
+  arguments->slots[125] = frame->slots[125] /* temp__126 */;
+  arguments->slots[126] = frame->slots[126] /* temp__127 */;
+  arguments->slots[127] = frame->slots[127] /* temp__128 */;
+  arguments->slots[128] = frame->slots[128] /* temp__129 */;
+  arguments->slots[129] = frame->slots[129] /* temp__130 */;
+  arguments->slots[130] = frame->slots[130] /* temp__131 */;
+  arguments->slots[131] = frame->slots[131] /* temp__132 */;
+  arguments->slots[132] = frame->slots[132] /* temp__133 */;
+  arguments->slots[133] = frame->slots[133] /* temp__134 */;
+  arguments->slots[134] = frame->slots[134] /* temp__135 */;
+  arguments->slots[135] = frame->slots[135] /* temp__136 */;
+  arguments->slots[136] = frame->slots[136] /* temp__137 */;
+  arguments->slots[137] = frame->slots[137] /* temp__138 */;
+  arguments->slots[138] = frame->slots[138] /* temp__139 */;
+  arguments->slots[139] = frame->slots[139] /* temp__140 */;
+  arguments->slots[140] = frame->slots[140] /* temp__141 */;
+  arguments->slots[141] = frame->slots[141] /* temp__142 */;
+  arguments->slots[142] = frame->slots[142] /* temp__143 */;
+  arguments->slots[143] = frame->slots[143] /* temp__144 */;
+  arguments->slots[144] = frame->slots[144] /* temp__145 */;
+  arguments->slots[145] = frame->slots[145] /* temp__146 */;
+  arguments->slots[146] = frame->slots[146] /* temp__147 */;
+  arguments->slots[147] = frame->slots[147] /* temp__148 */;
+  arguments->slots[148] = frame->slots[148] /* temp__149 */;
+  arguments->slots[149] = frame->slots[149] /* temp__150 */;
+  arguments->slots[150] = frame->slots[150] /* temp__151 */;
+  arguments->slots[151] = frame->slots[151] /* temp__152 */;
+  arguments->slots[152] = frame->slots[152] /* temp__153 */;
+  arguments->slots[153] = frame->slots[153] /* temp__154 */;
+  arguments->slots[154] = frame->slots[154] /* temp__155 */;
+  arguments->slots[155] = frame->slots[155] /* temp__156 */;
+  arguments->slots[156] = frame->slots[156] /* temp__157 */;
+  arguments->slots[157] = frame->slots[157] /* temp__158 */;
+  arguments->slots[158] = frame->slots[158] /* temp__159 */;
+  arguments->slots[159] = frame->slots[159] /* temp__160 */;
+  arguments->slots[160] = frame->slots[160] /* temp__161 */;
+  arguments->slots[161] = frame->slots[161] /* temp__162 */;
+  arguments->slots[162] = frame->slots[162] /* temp__163 */;
+  arguments->slots[163] = frame->slots[163] /* temp__164 */;
+  arguments->slots[164] = frame->slots[164] /* temp__165 */;
+  arguments->slots[165] = frame->slots[165] /* temp__166 */;
+  arguments->slots[166] = frame->slots[166] /* temp__167 */;
+  arguments->slots[167] = frame->slots[167] /* temp__168 */;
+  arguments->slots[168] = frame->slots[168] /* temp__169 */;
+  arguments->slots[169] = frame->slots[169] /* temp__170 */;
+  arguments->slots[170] = frame->slots[170] /* temp__171 */;
+  arguments->slots[171] = frame->slots[171] /* temp__172 */;
+  arguments->slots[172] = frame->slots[172] /* temp__173 */;
+  arguments->slots[173] = frame->slots[173] /* temp__174 */;
+  arguments->slots[174] = frame->slots[174] /* temp__175 */;
+  arguments->slots[175] = frame->slots[175] /* temp__176 */;
+  arguments->slots[176] = frame->slots[176] /* temp__177 */;
+  arguments->slots[177] = frame->slots[177] /* temp__178 */;
+  arguments->slots[178] = frame->slots[178] /* temp__179 */;
+  arguments->slots[179] = frame->slots[179] /* temp__180 */;
+  arguments->slots[180] = frame->slots[180] /* temp__181 */;
+  arguments->slots[181] = frame->slots[181] /* temp__182 */;
+  arguments->slots[182] = frame->slots[182] /* temp__183 */;
+  arguments->slots[183] = frame->slots[183] /* temp__184 */;
+  arguments->slots[184] = frame->slots[184] /* temp__185 */;
+  arguments->slots[185] = frame->slots[185] /* temp__186 */;
+  arguments->slots[186] = frame->slots[186] /* temp__187 */;
+  arguments->slots[187] = frame->slots[187] /* temp__188 */;
+  arguments->slots[188] = frame->slots[188] /* temp__189 */;
+  arguments->slots[189] = frame->slots[189] /* temp__190 */;
+  arguments->slots[190] = frame->slots[190] /* temp__191 */;
+  arguments->slots[191] = frame->slots[191] /* temp__192 */;
+  arguments->slots[192] = frame->slots[192] /* temp__193 */;
+  arguments->slots[193] = frame->slots[193] /* temp__194 */;
+  arguments->slots[194] = frame->slots[194] /* temp__195 */;
+  arguments->slots[195] = frame->slots[195] /* temp__196 */;
+  arguments->slots[196] = frame->slots[196] /* temp__197 */;
+  arguments->slots[197] = frame->slots[197] /* temp__198 */;
+  arguments->slots[198] = frame->slots[198] /* temp__199 */;
+  arguments->slots[199] = frame->slots[199] /* temp__200 */;
+  arguments->slots[200] = frame->slots[200] /* temp__201 */;
+  arguments->slots[201] = frame->slots[201] /* temp__202 */;
+  arguments->slots[202] = frame->slots[202] /* temp__203 */;
+  arguments->slots[203] = frame->slots[203] /* temp__204 */;
+  arguments->slots[204] = frame->slots[204] /* temp__205 */;
+  arguments->slots[205] = frame->slots[205] /* temp__206 */;
+  arguments->slots[206] = frame->slots[206] /* temp__207 */;
+  arguments->slots[207] = frame->slots[207] /* temp__208 */;
+  arguments->slots[208] = frame->slots[208] /* temp__209 */;
+  arguments->slots[209] = frame->slots[209] /* temp__210 */;
+  arguments->slots[210] = frame->slots[210] /* temp__211 */;
+  arguments->slots[211] = frame->slots[211] /* temp__212 */;
+  arguments->slots[212] = frame->slots[212] /* temp__213 */;
+  arguments->slots[213] = frame->slots[213] /* temp__214 */;
+  arguments->slots[214] = frame->slots[214] /* temp__215 */;
+  arguments->slots[215] = frame->slots[215] /* temp__216 */;
+  arguments->slots[216] = frame->slots[216] /* temp__217 */;
+  arguments->slots[217] = frame->slots[217] /* temp__218 */;
+  arguments->slots[218] = frame->slots[218] /* temp__219 */;
+  arguments->slots[219] = frame->slots[219] /* temp__220 */;
+  arguments->slots[220] = frame->slots[220] /* temp__221 */;
+  arguments->slots[221] = frame->slots[221] /* temp__222 */;
+  arguments->slots[222] = frame->slots[222] /* temp__223 */;
+  arguments->slots[223] = frame->slots[223] /* temp__224 */;
+  arguments->slots[224] = frame->slots[224] /* temp__225 */;
+  arguments->slots[225] = frame->slots[225] /* temp__226 */;
+  arguments->slots[226] = frame->slots[226] /* temp__227 */;
+  arguments->slots[227] = frame->slots[227] /* temp__228 */;
+  arguments->slots[228] = frame->slots[228] /* temp__229 */;
+  arguments->slots[229] = frame->slots[229] /* temp__230 */;
+  arguments->slots[230] = frame->slots[230] /* temp__231 */;
+  arguments->slots[231] = frame->slots[231] /* temp__232 */;
+  arguments->slots[232] = frame->slots[232] /* temp__233 */;
+  arguments->slots[233] = frame->slots[233] /* temp__234 */;
+  arguments->slots[234] = frame->slots[234] /* temp__235 */;
+  arguments->slots[235] = frame->slots[235] /* temp__236 */;
+  arguments->slots[236] = frame->slots[236] /* temp__237 */;
+  arguments->slots[237] = frame->slots[237] /* temp__238 */;
+  arguments->slots[238] = frame->slots[238] /* temp__239 */;
+  arguments->slots[239] = frame->slots[239] /* temp__240 */;
+  arguments->slots[240] = frame->slots[240] /* temp__241 */;
+  arguments->slots[241] = frame->slots[241] /* temp__242 */;
+  arguments->slots[242] = frame->slots[242] /* temp__243 */;
+  arguments->slots[243] = frame->slots[243] /* temp__244 */;
+  arguments->slots[244] = frame->slots[244] /* temp__245 */;
+  arguments->slots[245] = frame->slots[245] /* temp__246 */;
+  arguments->slots[246] = frame->slots[246] /* temp__247 */;
+  arguments->slots[247] = frame->slots[247] /* temp__248 */;
+  arguments->slots[248] = frame->slots[248] /* temp__249 */;
+  arguments->slots[249] = frame->slots[249] /* temp__250 */;
+  arguments->slots[250] = frame->slots[250] /* temp__251 */;
+  arguments->slots[251] = frame->slots[251] /* temp__252 */;
+  arguments->slots[252] = frame->slots[252] /* temp__253 */;
+  arguments->slots[253] = frame->slots[253] /* temp__254 */;
+  arguments->slots[254] = frame->slots[254] /* temp__255 */;
+  arguments->slots[255] = frame->slots[255] /* temp__256 */;
+  arguments->slots[256] = frame->slots[256] /* temp__257 */;
+  arguments->slots[257] = frame->slots[257] /* temp__258 */;
+  arguments->slots[258] = frame->slots[258] /* temp__259 */;
+  arguments->slots[259] = frame->slots[259] /* temp__260 */;
+  arguments->slots[260] = frame->slots[260] /* temp__261 */;
+  arguments->slots[261] = frame->slots[261] /* temp__262 */;
+  arguments->slots[262] = frame->slots[262] /* temp__263 */;
+  arguments->slots[263] = frame->slots[263] /* temp__264 */;
+  arguments->slots[264] = frame->slots[264] /* temp__265 */;
+  arguments->slots[265] = frame->slots[265] /* temp__266 */;
+  arguments->slots[266] = frame->slots[266] /* temp__267 */;
+  arguments->slots[267] = frame->slots[267] /* temp__268 */;
+  arguments->slots[268] = frame->slots[268] /* temp__269 */;
+  arguments->slots[269] = frame->slots[269] /* temp__270 */;
+  arguments->slots[270] = frame->slots[270] /* temp__271 */;
+  arguments->slots[271] = frame->slots[271] /* temp__272 */;
+  arguments->slots[272] = frame->slots[272] /* temp__273 */;
+  arguments->slots[273] = frame->slots[273] /* temp__274 */;
+  arguments->slots[274] = frame->slots[274] /* temp__275 */;
+  arguments->slots[275] = frame->slots[275] /* temp__276 */;
+  arguments->slots[276] = frame->slots[276] /* temp__277 */;
+  arguments->slots[277] = frame->slots[277] /* temp__278 */;
+  arguments->slots[278] = frame->slots[278] /* temp__279 */;
+  arguments->slots[279] = frame->slots[279] /* temp__280 */;
+  arguments->slots[280] = frame->slots[280] /* temp__281 */;
+  arguments->slots[281] = frame->slots[281] /* temp__282 */;
+  arguments->slots[282] = frame->slots[282] /* temp__283 */;
+  arguments->slots[283] = frame->slots[283] /* temp__284 */;
+  arguments->slots[284] = frame->slots[284] /* temp__285 */;
+  arguments->slots[285] = frame->slots[285] /* temp__286 */;
+  arguments->slots[286] = frame->slots[286] /* temp__287 */;
+  arguments->slots[287] = frame->slots[287] /* temp__288 */;
+  arguments->slots[288] = frame->slots[288] /* temp__289 */;
+  arguments->slots[289] = frame->slots[289] /* temp__290 */;
+  arguments->slots[290] = frame->slots[290] /* temp__291 */;
+  arguments->slots[291] = frame->slots[291] /* temp__292 */;
+  arguments->slots[292] = frame->slots[292] /* temp__293 */;
+  arguments->slots[293] = frame->slots[293] /* temp__294 */;
   result_count = 1;
   myself = get__table();
   func = myself->type;
@@ -19056,300 +18762,6 @@ static void cont__53_10(void) {
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__basic__types__string(void) {
-  temp__1 = collect_node(temp__1);
-  temp__2 = collect_node(temp__2);
-  temp__3 = collect_node(temp__3);
-  temp__4 = collect_node(temp__4);
-  temp__5 = collect_node(temp__5);
-  temp__6 = collect_node(temp__6);
-  temp__7 = collect_node(temp__7);
-  temp__8 = collect_node(temp__8);
-  temp__9 = collect_node(temp__9);
-  temp__10 = collect_node(temp__10);
-  temp__11 = collect_node(temp__11);
-  temp__12 = collect_node(temp__12);
-  temp__13 = collect_node(temp__13);
-  temp__14 = collect_node(temp__14);
-  temp__15 = collect_node(temp__15);
-  temp__16 = collect_node(temp__16);
-  temp__17 = collect_node(temp__17);
-  temp__18 = collect_node(temp__18);
-  temp__19 = collect_node(temp__19);
-  temp__20 = collect_node(temp__20);
-  temp__21 = collect_node(temp__21);
-  temp__22 = collect_node(temp__22);
-  temp__23 = collect_node(temp__23);
-  temp__24 = collect_node(temp__24);
-  temp__25 = collect_node(temp__25);
-  temp__26 = collect_node(temp__26);
-  temp__27 = collect_node(temp__27);
-  temp__28 = collect_node(temp__28);
-  temp__29 = collect_node(temp__29);
-  temp__30 = collect_node(temp__30);
-  temp__31 = collect_node(temp__31);
-  temp__32 = collect_node(temp__32);
-  temp__33 = collect_node(temp__33);
-  temp__34 = collect_node(temp__34);
-  temp__35 = collect_node(temp__35);
-  temp__36 = collect_node(temp__36);
-  temp__37 = collect_node(temp__37);
-  temp__38 = collect_node(temp__38);
-  temp__39 = collect_node(temp__39);
-  temp__40 = collect_node(temp__40);
-  temp__41 = collect_node(temp__41);
-  temp__42 = collect_node(temp__42);
-  temp__43 = collect_node(temp__43);
-  temp__44 = collect_node(temp__44);
-  temp__45 = collect_node(temp__45);
-  temp__46 = collect_node(temp__46);
-  temp__47 = collect_node(temp__47);
-  temp__48 = collect_node(temp__48);
-  temp__49 = collect_node(temp__49);
-  temp__50 = collect_node(temp__50);
-  temp__51 = collect_node(temp__51);
-  temp__52 = collect_node(temp__52);
-  temp__53 = collect_node(temp__53);
-  temp__54 = collect_node(temp__54);
-  temp__55 = collect_node(temp__55);
-  temp__56 = collect_node(temp__56);
-  temp__57 = collect_node(temp__57);
-  temp__58 = collect_node(temp__58);
-  temp__59 = collect_node(temp__59);
-  temp__60 = collect_node(temp__60);
-  temp__61 = collect_node(temp__61);
-  temp__62 = collect_node(temp__62);
-  temp__63 = collect_node(temp__63);
-  temp__64 = collect_node(temp__64);
-  temp__65 = collect_node(temp__65);
-  temp__66 = collect_node(temp__66);
-  temp__67 = collect_node(temp__67);
-  temp__68 = collect_node(temp__68);
-  temp__69 = collect_node(temp__69);
-  temp__70 = collect_node(temp__70);
-  temp__71 = collect_node(temp__71);
-  temp__72 = collect_node(temp__72);
-  temp__73 = collect_node(temp__73);
-  temp__74 = collect_node(temp__74);
-  temp__75 = collect_node(temp__75);
-  temp__76 = collect_node(temp__76);
-  temp__77 = collect_node(temp__77);
-  temp__78 = collect_node(temp__78);
-  temp__79 = collect_node(temp__79);
-  temp__80 = collect_node(temp__80);
-  temp__81 = collect_node(temp__81);
-  temp__82 = collect_node(temp__82);
-  temp__83 = collect_node(temp__83);
-  temp__84 = collect_node(temp__84);
-  temp__85 = collect_node(temp__85);
-  temp__86 = collect_node(temp__86);
-  temp__87 = collect_node(temp__87);
-  temp__88 = collect_node(temp__88);
-  temp__89 = collect_node(temp__89);
-  temp__90 = collect_node(temp__90);
-  temp__91 = collect_node(temp__91);
-  temp__92 = collect_node(temp__92);
-  temp__93 = collect_node(temp__93);
-  temp__94 = collect_node(temp__94);
-  temp__95 = collect_node(temp__95);
-  temp__96 = collect_node(temp__96);
-  temp__97 = collect_node(temp__97);
-  temp__98 = collect_node(temp__98);
-  temp__99 = collect_node(temp__99);
-  temp__100 = collect_node(temp__100);
-  temp__101 = collect_node(temp__101);
-  temp__102 = collect_node(temp__102);
-  temp__103 = collect_node(temp__103);
-  temp__104 = collect_node(temp__104);
-  temp__105 = collect_node(temp__105);
-  temp__106 = collect_node(temp__106);
-  temp__107 = collect_node(temp__107);
-  temp__108 = collect_node(temp__108);
-  temp__109 = collect_node(temp__109);
-  temp__110 = collect_node(temp__110);
-  temp__111 = collect_node(temp__111);
-  temp__112 = collect_node(temp__112);
-  temp__113 = collect_node(temp__113);
-  temp__114 = collect_node(temp__114);
-  temp__115 = collect_node(temp__115);
-  temp__116 = collect_node(temp__116);
-  temp__117 = collect_node(temp__117);
-  temp__118 = collect_node(temp__118);
-  temp__119 = collect_node(temp__119);
-  temp__120 = collect_node(temp__120);
-  temp__121 = collect_node(temp__121);
-  temp__122 = collect_node(temp__122);
-  temp__123 = collect_node(temp__123);
-  temp__124 = collect_node(temp__124);
-  temp__125 = collect_node(temp__125);
-  temp__126 = collect_node(temp__126);
-  temp__127 = collect_node(temp__127);
-  temp__128 = collect_node(temp__128);
-  temp__129 = collect_node(temp__129);
-  temp__130 = collect_node(temp__130);
-  temp__131 = collect_node(temp__131);
-  temp__132 = collect_node(temp__132);
-  temp__133 = collect_node(temp__133);
-  temp__134 = collect_node(temp__134);
-  temp__135 = collect_node(temp__135);
-  temp__136 = collect_node(temp__136);
-  temp__137 = collect_node(temp__137);
-  temp__138 = collect_node(temp__138);
-  temp__139 = collect_node(temp__139);
-  temp__140 = collect_node(temp__140);
-  temp__141 = collect_node(temp__141);
-  temp__142 = collect_node(temp__142);
-  temp__143 = collect_node(temp__143);
-  temp__144 = collect_node(temp__144);
-  temp__145 = collect_node(temp__145);
-  temp__146 = collect_node(temp__146);
-  temp__147 = collect_node(temp__147);
-  temp__148 = collect_node(temp__148);
-  temp__149 = collect_node(temp__149);
-  temp__150 = collect_node(temp__150);
-  temp__151 = collect_node(temp__151);
-  temp__152 = collect_node(temp__152);
-  temp__153 = collect_node(temp__153);
-  temp__154 = collect_node(temp__154);
-  temp__155 = collect_node(temp__155);
-  temp__156 = collect_node(temp__156);
-  temp__157 = collect_node(temp__157);
-  temp__158 = collect_node(temp__158);
-  temp__159 = collect_node(temp__159);
-  temp__160 = collect_node(temp__160);
-  temp__161 = collect_node(temp__161);
-  temp__162 = collect_node(temp__162);
-  temp__163 = collect_node(temp__163);
-  temp__164 = collect_node(temp__164);
-  temp__165 = collect_node(temp__165);
-  temp__166 = collect_node(temp__166);
-  temp__167 = collect_node(temp__167);
-  temp__168 = collect_node(temp__168);
-  temp__169 = collect_node(temp__169);
-  temp__170 = collect_node(temp__170);
-  temp__171 = collect_node(temp__171);
-  temp__172 = collect_node(temp__172);
-  temp__173 = collect_node(temp__173);
-  temp__174 = collect_node(temp__174);
-  temp__175 = collect_node(temp__175);
-  temp__176 = collect_node(temp__176);
-  temp__177 = collect_node(temp__177);
-  temp__178 = collect_node(temp__178);
-  temp__179 = collect_node(temp__179);
-  temp__180 = collect_node(temp__180);
-  temp__181 = collect_node(temp__181);
-  temp__182 = collect_node(temp__182);
-  temp__183 = collect_node(temp__183);
-  temp__184 = collect_node(temp__184);
-  temp__185 = collect_node(temp__185);
-  temp__186 = collect_node(temp__186);
-  temp__187 = collect_node(temp__187);
-  temp__188 = collect_node(temp__188);
-  temp__189 = collect_node(temp__189);
-  temp__190 = collect_node(temp__190);
-  temp__191 = collect_node(temp__191);
-  temp__192 = collect_node(temp__192);
-  temp__193 = collect_node(temp__193);
-  temp__194 = collect_node(temp__194);
-  temp__195 = collect_node(temp__195);
-  temp__196 = collect_node(temp__196);
-  temp__197 = collect_node(temp__197);
-  temp__198 = collect_node(temp__198);
-  temp__199 = collect_node(temp__199);
-  temp__200 = collect_node(temp__200);
-  temp__201 = collect_node(temp__201);
-  temp__202 = collect_node(temp__202);
-  temp__203 = collect_node(temp__203);
-  temp__204 = collect_node(temp__204);
-  temp__205 = collect_node(temp__205);
-  temp__206 = collect_node(temp__206);
-  temp__207 = collect_node(temp__207);
-  temp__208 = collect_node(temp__208);
-  temp__209 = collect_node(temp__209);
-  temp__210 = collect_node(temp__210);
-  temp__211 = collect_node(temp__211);
-  temp__212 = collect_node(temp__212);
-  temp__213 = collect_node(temp__213);
-  temp__214 = collect_node(temp__214);
-  temp__215 = collect_node(temp__215);
-  temp__216 = collect_node(temp__216);
-  temp__217 = collect_node(temp__217);
-  temp__218 = collect_node(temp__218);
-  temp__219 = collect_node(temp__219);
-  temp__220 = collect_node(temp__220);
-  temp__221 = collect_node(temp__221);
-  temp__222 = collect_node(temp__222);
-  temp__223 = collect_node(temp__223);
-  temp__224 = collect_node(temp__224);
-  temp__225 = collect_node(temp__225);
-  temp__226 = collect_node(temp__226);
-  temp__227 = collect_node(temp__227);
-  temp__228 = collect_node(temp__228);
-  temp__229 = collect_node(temp__229);
-  temp__230 = collect_node(temp__230);
-  temp__231 = collect_node(temp__231);
-  temp__232 = collect_node(temp__232);
-  temp__233 = collect_node(temp__233);
-  temp__234 = collect_node(temp__234);
-  temp__235 = collect_node(temp__235);
-  temp__236 = collect_node(temp__236);
-  temp__237 = collect_node(temp__237);
-  temp__238 = collect_node(temp__238);
-  temp__239 = collect_node(temp__239);
-  temp__240 = collect_node(temp__240);
-  temp__241 = collect_node(temp__241);
-  temp__242 = collect_node(temp__242);
-  temp__243 = collect_node(temp__243);
-  temp__244 = collect_node(temp__244);
-  temp__245 = collect_node(temp__245);
-  temp__246 = collect_node(temp__246);
-  temp__247 = collect_node(temp__247);
-  temp__248 = collect_node(temp__248);
-  temp__249 = collect_node(temp__249);
-  temp__250 = collect_node(temp__250);
-  temp__251 = collect_node(temp__251);
-  temp__252 = collect_node(temp__252);
-  temp__253 = collect_node(temp__253);
-  temp__254 = collect_node(temp__254);
-  temp__255 = collect_node(temp__255);
-  temp__256 = collect_node(temp__256);
-  temp__257 = collect_node(temp__257);
-  temp__258 = collect_node(temp__258);
-  temp__259 = collect_node(temp__259);
-  temp__260 = collect_node(temp__260);
-  temp__261 = collect_node(temp__261);
-  temp__262 = collect_node(temp__262);
-  temp__263 = collect_node(temp__263);
-  temp__264 = collect_node(temp__264);
-  temp__265 = collect_node(temp__265);
-  temp__266 = collect_node(temp__266);
-  temp__267 = collect_node(temp__267);
-  temp__268 = collect_node(temp__268);
-  temp__269 = collect_node(temp__269);
-  temp__270 = collect_node(temp__270);
-  temp__271 = collect_node(temp__271);
-  temp__272 = collect_node(temp__272);
-  temp__273 = collect_node(temp__273);
-  temp__274 = collect_node(temp__274);
-  temp__275 = collect_node(temp__275);
-  temp__276 = collect_node(temp__276);
-  temp__277 = collect_node(temp__277);
-  temp__278 = collect_node(temp__278);
-  temp__279 = collect_node(temp__279);
-  temp__280 = collect_node(temp__280);
-  temp__281 = collect_node(temp__281);
-  temp__282 = collect_node(temp__282);
-  temp__283 = collect_node(temp__283);
-  temp__284 = collect_node(temp__284);
-  temp__285 = collect_node(temp__285);
-  temp__286 = collect_node(temp__286);
-  temp__287 = collect_node(temp__287);
-  temp__288 = collect_node(temp__288);
-  temp__289 = collect_node(temp__289);
-  temp__290 = collect_node(temp__290);
-  temp__291 = collect_node(temp__291);
-  temp__292 = collect_node(temp__292);
-  temp__293 = collect_node(temp__293);
-  temp__294 = collect_node(temp__294);
   func__1_1 = collect_node(func__1_1);
   func__2_1 = collect_node(func__2_1);
   func__3_1 = collect_node(func__3_1);

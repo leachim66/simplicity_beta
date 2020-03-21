@@ -6067,8 +6067,6 @@ EXPORT void run__c_code_generator(void) {
   initialize_maybe_future(get__current_frame(), get__undefined());
   // 38: %is_a_shared_local empty_set
   initialize_maybe_future(get__is_a_shared_local(), get__empty_set());
-  // 39: %temporary_offset undefined
-  initialize_maybe_future(get__temporary_offset(), get__undefined());
   // 40: %%sim2c::delayed_code undefined
   set__sim2c__delayed_code(get__undefined());
   frame = frame->caller_frame;
@@ -40552,7 +40550,6 @@ EXPORT void phase_2__c_code_generator(void) {
   register_dynamic(&dyna_idx__is_a_shared_local);
   define__is_a_shared_local(create_future());
   register_dynamic(&dyna_idx__temporary_offset);
-  define__temporary_offset(create_future());
   define_multi_assign_dynamic("sim2c", "delayed_code", get__sim2c__delayed_code, set__sim2c__delayed_code, define__sim2c__delayed_code, &dyna_idx__sim2c__delayed_code);
   define__sim2c__delayed_code(undefined);
   string__9_2 = from_latin_1_string("__", 2);
@@ -41606,7 +41603,7 @@ EXPORT void phase_4__c_code_generator(void) {
   maybe_initialize_future(get__current_locals(), get__empty_table());
   maybe_initialize_future(get__current_frame(), get__undefined());
   maybe_initialize_future(get__is_a_shared_local(), get__empty_set());
-  maybe_initialize_future(get__temporary_offset(), get__undefined());
+  define__temporary_offset(number__0);
   assign_variable(&var._var_name, &func__9_1);
   assign_variable(&var._var_entry, &func__10_1);
   assign_variable(&var._insert_delayed, &func__11_1);

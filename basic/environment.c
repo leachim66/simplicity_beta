@@ -243,8 +243,6 @@ IMPORT void register_collector(FUNC collector);
 #else
   extern void invalid_continuation(void);
 #endif
-static NODE *temp__1;
-static NODE *temp__2;
 static NODE_GETTER get__before;
 static NODE_GETTER get_value_or_future__before;
 static NODE_GETTER get__behind;
@@ -429,7 +427,7 @@ EXPORT void run__basic__environment(void) {
     return;
   }
   already_run = true;
-  allocate_initialized_frame_gc(0, 0);
+  allocate_initialized_frame_gc(0, 2);
   // 69: $std::program_name argv(0)
   argument_count = 1;
   arguments = node_p;
@@ -460,11 +458,11 @@ static void cont__24_1(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 71: ... argc()-1
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__2;
+  arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = number__1;
   result_count = 1;
   myself = get__std__minus();
@@ -476,12 +474,12 @@ static void cont__24_2(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 71: from_to 1 argc()-1: (i) push &arguments argv(i)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
-  arguments->slots[1] = temp__1;
+  arguments->slots[1] = frame->slots[0] /* temp__1 */;
   arguments->slots[2] = func__24_3;
   result_count = 0;
   myself = get__from_to();
@@ -555,14 +553,14 @@ static void cont__27_1(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 74: from_to 1 envc(): (i)
   // 75:   $str envv(i).from_utf8
   // 76:   !env_1(str .before. '=') str .behind. '='
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
-  arguments->slots[1] = temp__1;
+  arguments->slots[1] = frame->slots[0] /* temp__1 */;
   arguments->slots[2] = func__27_2;
   result_count = 0;
   myself = get__from_to();
@@ -920,8 +918,6 @@ static void cont__15_2(void) {
   frame = frame->caller_frame;
 }
 EXPORT void collect__basic__environment(void) {
-  temp__1 = collect_node(temp__1);
-  temp__2 = collect_node(temp__2);
   var._argv = collect_node(var._argv);
   var._argc = collect_node(var._argc);
   var._envv = collect_node(var._envv);

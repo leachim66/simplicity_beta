@@ -3163,7 +3163,7 @@ EXPORT void run__extractor(void) {
     return;
   }
   already_run = true;
-  allocate_initialized_frame_gc(0, 0);
+  allocate_initialized_frame_gc(0, 6);
   // 36: $$polymorphic_functions
   // 37:   multi_dimensional_set(types::key_order_table types::key_order_set)
   argument_count = 2;
@@ -3201,12 +3201,12 @@ static void cont__44_1(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 53: alt('=' sim2c::WHITESPACE, '=', sim2c::WHITESPACE)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__61;
-  arguments->slots[1] = temp__3;
+  arguments->slots[1] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__alt();
   func = myself->type;
@@ -3217,7 +3217,7 @@ static void cont__44_2(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 54: ... not_followed_by(':')
   argument_count = 1;
   arguments = node_p;
@@ -3232,11 +3232,11 @@ static void cont__44_3(void) {
     invalid_results_error();
     return;
   }
-  temp__6 = arguments->slots[0];
+  frame->slots[5] /* temp__6 */ = arguments->slots[0];
   // 54: ... not_followed_by(':'), ANY_CHARACTER
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__6;
+  arguments->slots[0] = frame->slots[5] /* temp__6 */;
   arguments->slots[1] = get__ANY_CHARACTER();
   result_count = 1;
   myself = get__std__sequence();
@@ -3248,11 +3248,11 @@ static void cont__44_4(void) {
     invalid_results_error();
     return;
   }
-  temp__5 = arguments->slots[0];
+  frame->slots[4] /* temp__5 */ = arguments->slots[0];
   // 54: many(not_followed_by(':'), ANY_CHARACTER)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__5;
+  arguments->slots[0] = frame->slots[4] /* temp__5 */;
   result_count = 1;
   myself = get__many();
   func = myself->type;
@@ -3263,14 +3263,14 @@ static void cont__44_5(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
+  frame->slots[3] /* temp__4 */ = arguments->slots[0];
   // 52: sequence
   // 53:   alt('=' sim2c::WHITESPACE, '=', sim2c::WHITESPACE)
   // 54:   many(not_followed_by(':'), ANY_CHARACTER)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__2;
-  arguments->slots[1] = temp__4;
+  arguments->slots[0] = frame->slots[1] /* temp__2 */;
+  arguments->slots[1] = frame->slots[3] /* temp__4 */;
   result_count = 1;
   myself = get__sequence();
   func = myself->type;
@@ -3281,7 +3281,7 @@ static void cont__44_6(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 48: $PARAMETER_COUNT_OR_MYSELF
   // 49:   alt
   // 50:     '*'
@@ -3293,7 +3293,7 @@ static void cont__44_6(void) {
   arguments = node_p;
   arguments->slots[0] = character__42;
   arguments->slots[1] = character__63;
-  arguments->slots[2] = temp__1;
+  arguments->slots[2] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__alt();
   func = myself->type;
@@ -3345,11 +3345,11 @@ static void cont__56_3(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 357: $TOPIC alt("Topics" "Topic"), ':'
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = character__58;
   result_count = 1;
   myself = get__std__sequence();
@@ -3377,7 +3377,7 @@ static void cont__57_3(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 358: ... not_followed_by(':')
   argument_count = 1;
   arguments = node_p;
@@ -3392,11 +3392,11 @@ static void cont__57_4(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
+  frame->slots[3] /* temp__4 */ = arguments->slots[0];
   // 358: ... not_followed_by(':'), ANY_CHARACTER
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__4;
+  arguments->slots[0] = frame->slots[3] /* temp__4 */;
   arguments->slots[1] = get__ANY_CHARACTER();
   result_count = 1;
   myself = get__std__sequence();
@@ -3408,11 +3408,11 @@ static void cont__57_5(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 358: ... some(not_followed_by(':'), ANY_CHARACTER)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__3;
+  arguments->slots[0] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -3423,12 +3423,12 @@ static void cont__57_6(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 358: $EXAMPLE alt("Example" "Output"), some(not_followed_by(':'), ANY_CHARACTER), ':'
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
-  arguments->slots[1] = temp__2;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* temp__2 */;
   arguments->slots[2] = character__58;
   result_count = 1;
   myself = get__std__sequence();

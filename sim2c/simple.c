@@ -230,6 +230,7 @@ typedef struct MODULE_INFO {
   const char **used_namespaces;
   const char *filenames[];
 } MODULE_INFO;
+IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
 #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
   #define REGISTER register
 #else
@@ -252,7 +253,6 @@ IMPORT int runtime_major_version(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT int runtime_minor_version(void);
 IMPORT int runtime_revision(void);
-IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *create_closure(FUNC type, int par_count);
@@ -4273,6 +4273,7 @@ IMPORT void phase_4__runtime_definitions(void);
 IMPORT void phase_5__runtime_definitions(void);
 IMPORT void run__runtime_definitions(void);
 static void main_entry(void) {
+  allocate_initialized_frame_gc(0, 7);
   // 7: ...  basic/exceptions>
   func = run__basic__exceptions;
   frame->cont = cont__run__basic__exceptions;
@@ -4659,11 +4660,11 @@ static void cont__95_4(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 96: version "@(MAJOR).@(MINOR).@(REVISION).@(BUILD)"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   result_count = 0;
   myself = get__version();
   func = myself->type;
@@ -4748,7 +4749,7 @@ static void cont__100_1(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 102: $simlibpaths
   // 103:   if
   // 104:     SIMLIBPATH.is_defined
@@ -4756,7 +4757,7 @@ static void cont__100_1(void) {
   // 106:     -> list("/usr/local/share/simplicity" "/usr/share/simplicity")
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = func__100_2;
   arguments->slots[2] = func__100_4;
   result_count = 1;
@@ -4846,7 +4847,7 @@ static void cont__101_1(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 108: $simdatapaths
   // 109:   if
   // 110:     SIMDATAPATH.is_defined
@@ -4854,7 +4855,7 @@ static void cont__101_1(void) {
   // 112:     -> list("/usr/local/share/simplicity" "/usr/share/simplicity")
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = func__101_2;
   arguments->slots[2] = func__101_4;
   result_count = 1;
@@ -4945,7 +4946,7 @@ static void cont__103_3(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 119: "cygwin" = "posix"
   argument_count = 2;
   arguments = node_p;
@@ -4961,7 +4962,7 @@ static void cont__103_6(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 120: "darwin" = "posix"
   argument_count = 2;
   arguments = node_p;
@@ -4977,7 +4978,7 @@ static void cont__103_9(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 121: "linux" = "posix"
   argument_count = 2;
   arguments = node_p;
@@ -4993,7 +4994,7 @@ static void cont__103_12(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
+  frame->slots[3] /* temp__4 */ = arguments->slots[0];
   // 122: "posix" = "all"
   argument_count = 2;
   arguments = node_p;
@@ -5009,7 +5010,7 @@ static void cont__103_15(void) {
     invalid_results_error();
     return;
   }
-  temp__5 = arguments->slots[0];
+  frame->slots[4] /* temp__5 */ = arguments->slots[0];
   // 123: "win" = "all"
   argument_count = 2;
   arguments = node_p;
@@ -5025,7 +5026,7 @@ static void cont__103_18(void) {
     invalid_results_error();
     return;
   }
-  temp__6 = arguments->slots[0];
+  frame->slots[5] /* temp__6 */ = arguments->slots[0];
   // 124: "all" = NONE
   argument_count = 2;
   arguments = node_p;
@@ -5041,7 +5042,7 @@ static void cont__103_20(void) {
     invalid_results_error();
     return;
   }
-  temp__7 = arguments->slots[0];
+  frame->slots[6] /* temp__7 */ = arguments->slots[0];
   // 116: $supported_platforms
   // 117:   key_order_table
   // 118:     "bsd" = "posix"
@@ -5053,13 +5054,13 @@ static void cont__103_20(void) {
   // 124:     "all" = NONE
   argument_count = 7;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
-  arguments->slots[1] = temp__2;
-  arguments->slots[2] = temp__3;
-  arguments->slots[3] = temp__4;
-  arguments->slots[4] = temp__5;
-  arguments->slots[5] = temp__6;
-  arguments->slots[6] = temp__7;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* temp__2 */;
+  arguments->slots[2] = frame->slots[2] /* temp__3 */;
+  arguments->slots[3] = frame->slots[3] /* temp__4 */;
+  arguments->slots[4] = frame->slots[4] /* temp__5 */;
+  arguments->slots[5] = frame->slots[5] /* temp__6 */;
+  arguments->slots[6] = frame->slots[6] /* temp__7 */;
   result_count = 1;
   myself = get__key_order_table();
   func = myself->type;
@@ -5372,13 +5373,13 @@ static void cont__130_1(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 162: $action truncate_until(program_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__program_name();
   arguments->slots[1] = character__47;
-  arguments->slots[2] = temp__1;
+  arguments->slots[2] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
@@ -5405,7 +5406,7 @@ static void cont__131_2(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 163: if
   // 164:   action == "simrun":
   // 165:     if command_line_arguments.is_empty: Error "Missing command line arguments!"
@@ -5419,7 +5420,7 @@ static void cont__131_2(void) {
   // ...
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = func__131_3;
   arguments->slots[2] = func__131_9;
   result_count = 0;
@@ -6073,12 +6074,12 @@ static void cont__142_3(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 273: "x86_32" = list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__142_4;
-  arguments->slots[1] = temp__2;
+  arguments->slots[1] = frame->slots[1] /* temp__2 */;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -6089,7 +6090,7 @@ static void cont__142_5(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 274: ... list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
@@ -6105,12 +6106,12 @@ static void cont__142_8(void) {
     invalid_results_error();
     return;
   }
-  temp__4 = arguments->slots[0];
+  frame->slots[3] /* temp__4 */ = arguments->slots[0];
   // 274: "x86_64" = list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__142_9;
-  arguments->slots[1] = temp__4;
+  arguments->slots[1] = frame->slots[3] /* temp__4 */;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -6121,15 +6122,15 @@ static void cont__142_10(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 271: $gcc_hardware_specific_options
   // 272:   table
   // 273:     "x86_32" = list("-msse2" "-mfpmath=sse")
   // 274:     "x86_64" = list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
-  arguments->slots[1] = temp__3;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__table();
   func = myself->type;
@@ -6154,11 +6155,11 @@ static void cont__143_1(void) {
     invalid_results_error();
     return;
   }
-  temp__3 = arguments->slots[0];
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 280: gcc_hardware_specific_options(hardware_architecture())
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = temp__3;
+  arguments->slots[0] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = var._gcc_hardware_specific_options;
   func = myself->type;
@@ -6169,13 +6170,13 @@ static void cont__143_2(void) {
     invalid_results_error();
     return;
   }
-  temp__2 = arguments->slots[0];
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 279: default_value
   // 280:   gcc_hardware_specific_options(hardware_architecture())
   // 281:   empty_list
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__2;
+  arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = get__empty_list();
   result_count = 1;
   myself = get__default_value();
@@ -6187,7 +6188,7 @@ static void cont__143_3(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 276: $gcc_options
   // 277:   append
   // 278:     gcc_basic_options
@@ -6197,7 +6198,7 @@ static void cont__143_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._gcc_basic_options;
-  arguments->slots[1] = temp__1;
+  arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -6239,13 +6240,13 @@ static void cont__161_1(void) {
     invalid_results_error();
     return;
   }
-  temp__1 = arguments->slots[0];
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
   // 633: if main_info.is_undefined:
   // 634:   Error "
   // 635:     Source file "@(main_filename)" does not exist!@
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = temp__1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = func__161_2;
   result_count = 0;
   myself = get__if();
