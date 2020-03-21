@@ -201,7 +201,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *create_future(void);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -209,6 +209,7 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_future(void);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -224,7 +225,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -4369,8 +4369,8 @@ EXPORT void phase_2__nodes(void) {
   already_run_phase_2 = true;
   set_module("nodes");
   set_used_namespaces(used_namespaces);
-  character__39 = create_future();
-  character__46 = create_future();
+  character__39 = from_uchar32(39);
+  character__46 = from_uchar32(46);
   unique__1_1 = register_unique_item("sim2c__NONE");
   assign_value(&var.sim2c__NONE, unique__1_1);
   define_single_assign_static("sim2c", "NONE", get__sim2c__NONE, &var.sim2c__NONE);
@@ -4686,8 +4686,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__nodes(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__39, from_uchar32(39));
-  assign_value(&character__46, from_uchar32(46));
   assign_value(&var.node__argument_of, create_function(type__node__argument_of, -1));
   assign_value(&var.node__arguments_of, create_function(type__node__arguments_of, -1));
   assign_value(&var.node__attribute_kind_of, create_function(type__node__attribute_kind_of, -1));

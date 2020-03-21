@@ -193,6 +193,8 @@ IMPORT void define_polymorphic_function_with_setter(
 );
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -210,10 +212,8 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
@@ -1916,13 +1916,13 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   already_run_phase_2 = true;
   set_module("basic__types__date_and_time");
   set_used_namespaces(used_namespaces);
-  number__3600 = create_future();
-  number__0 = create_future();
-  number__1000 = create_future();
-  number__3 = create_future();
-  character__32 = create_future();
-  character__46 = create_future();
-  number__2 = create_future();
+  number__3600 = from_uint32(3600U);
+  number__0 = from_uint32(0U);
+  number__1000 = from_uint32(1000U);
+  number__3 = from_uint32(3U);
+  character__32 = from_uchar32(32);
+  character__46 = from_uchar32(46);
+  number__2 = from_uint32(2U);
   func__1_1 = create_future();
   define_single_assign_static("std", "current_time", get__std__current_time, &var.std__current_time);
   var.types__date_and_time = create_future_with_prototype(create__types__date_and_time(0, 0));
@@ -2012,13 +2012,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__types__date_and_time(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__3600, from_uint32(3600U));
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__1000, from_uint32(1000U));
-  assign_value(&number__3, from_uint32(3U));
-  assign_value(&character__32, from_uchar32(32));
-  assign_value(&character__46, from_uchar32(46));
-  assign_value(&number__2, from_uint32(2U));
   assign_variable(&var.std__current_time, &func__1_1);
   assign_value(&var.std__year_of, create_function(type__std__year_of, -1));
   assign_value(&var.std__month_of, create_function(type__std__month_of, -1));

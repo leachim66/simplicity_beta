@@ -215,6 +215,8 @@ IMPORT void define_polymorphic_function(
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -234,8 +236,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -8898,18 +8898,18 @@ EXPORT void phase_2__basic__grammar(void) {
   already_run_phase_2 = true;
   set_module("basic__grammar");
   set_used_namespaces(used_namespaces);
-  character__90 = create_future();
-  character__122 = create_future();
-  character__57 = create_future();
-  character__160 = create_future();
-  character__65 = create_future();
-  number__0 = create_future();
-  character__48 = create_future();
-  character__32 = create_future();
-  character__127 = create_future();
-  character__97 = create_future();
-  number__1 = create_future();
-  number__2 = create_future();
+  character__90 = from_uchar32(90);
+  character__122 = from_uchar32(122);
+  character__57 = from_uchar32(57);
+  character__160 = from_uchar32(160);
+  character__65 = from_uchar32(65);
+  number__0 = from_uint32(0U);
+  character__48 = from_uchar32(48);
+  character__32 = from_uchar32(32);
+  character__127 = from_uchar32(127);
+  character__97 = from_uchar32(97);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
   define_single_assign_static("types", "grammar_object", get__types__grammar_object, &var.types__grammar_object);
   define_single_assign_static("types", "grammar_node", get__types__grammar_node, &var.types__grammar_node);
   define_multi_assign_dynamic("grammar", "current_node", get__grammar__current_node, set__grammar__current_node, define__grammar__current_node, &dyna_idx__grammar__current_node);
@@ -9082,18 +9082,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__grammar(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__90, from_uchar32(90));
-  assign_value(&character__122, from_uchar32(122));
-  assign_value(&character__57, from_uchar32(57));
-  assign_value(&character__160, from_uchar32(160));
-  assign_value(&character__65, from_uchar32(65));
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&character__48, from_uchar32(48));
-  assign_value(&character__32, from_uchar32(32));
-  assign_value(&character__127, from_uchar32(127));
-  assign_value(&character__97, from_uchar32(97));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
   assign_value(&var.grammar__match, create_function(type__grammar__match, -1));
   assign_value(&var.grammar__search, create_function(type__grammar__search, -1));
   assign_value(&var.types__grammar_object, get__types__object());

@@ -212,6 +212,8 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void register_dynamic(int *id_p);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
@@ -242,8 +244,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
@@ -10586,11 +10586,11 @@ EXPORT void phase_2__simplifier(void) {
   already_run_phase_2 = true;
   set_module("simplifier");
   set_used_namespaces(used_namespaces);
-  number__0 = create_future();
-  character__40 = create_future();
-  character__32 = create_future();
-  number__1 = create_future();
-  character__42 = create_future();
+  number__0 = from_uint32(0U);
+  character__40 = from_uchar32(40);
+  character__32 = from_uchar32(32);
+  number__1 = from_uint32(1U);
+  character__42 = from_uchar32(42);
   register_dynamic(&dyna_idx__defined_names);
   define__defined_names(create_future());
   register_dynamic(&dyna_idx__inherited_names);
@@ -10774,11 +10774,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__simplifier(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&character__40, from_uchar32(40));
-  assign_value(&character__32, from_uchar32(32));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&character__42, from_uchar32(42));
   assign_value(&var.sim2c__simplify_statement, create_function(type__sim2c__simplify_statement, -1));
   assign_value(&var.sim2c__simplify_expression, create_function(type__sim2c__simplify_expression, -1));
   maybe_initialize_future(get__defined_names(), get__empty_table());

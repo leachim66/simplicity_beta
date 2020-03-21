@@ -206,6 +206,8 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -217,8 +219,6 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
@@ -12114,17 +12114,17 @@ EXPORT void phase_2__basic__parameters(void) {
   already_run_phase_2 = true;
   set_module("basic__parameters");
   set_used_namespaces(used_namespaces);
-  character__47 = create_future();
-  character__63 = create_future();
-  character__10 = create_future();
-  character__44 = create_future();
-  number__0 = create_future();
-  number__3 = create_future();
-  character__32 = create_future();
-  character__43 = create_future();
-  number__1 = create_future();
-  number__2 = create_future();
-  character__42 = create_future();
+  character__47 = from_uchar32(47);
+  character__63 = from_uchar32(63);
+  character__10 = from_uchar32(10);
+  character__44 = from_uchar32(44);
+  number__0 = from_uint32(0U);
+  number__3 = from_uint32(3U);
+  character__32 = from_uchar32(32);
+  character__43 = from_uchar32(43);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
+  character__42 = from_uchar32(42);
   unique__1_1 = register_unique_item("BOOLEAN_OPTION");
   assign_value(&var._BOOLEAN_OPTION, unique__1_1);
   unique__2_1 = register_unique_item("std__VALUED_OPTION");
@@ -12324,17 +12324,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__parameters(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__47, from_uchar32(47));
-  assign_value(&character__63, from_uchar32(63));
-  assign_value(&character__10, from_uchar32(10));
-  assign_value(&character__44, from_uchar32(44));
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__3, from_uint32(3U));
-  assign_value(&character__32, from_uchar32(32));
-  assign_value(&character__43, from_uchar32(43));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
-  assign_value(&character__42, from_uchar32(42));
   assign_variable(&var.std__copyright, &func__10_1);
   assign_variable(&var.std__version, &func__11_1);
   assign_variable(&var.std__extract_options, &func__12_1);

@@ -181,6 +181,8 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -206,8 +208,6 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
@@ -3508,10 +3508,10 @@ EXPORT void phase_2__basic__exceptions(void) {
   already_run_phase_2 = true;
   set_module("basic__exceptions");
   set_used_namespaces(used_namespaces);
-  character__10 = create_future();
-  number__0 = create_future();
-  number__1 = create_future();
-  number__2 = create_future();
+  character__10 = from_uchar32(10);
+  number__0 = from_uint32(0U);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
   unique__1_1 = register_unique_item("std__CLEANUP");
   assign_value(&var.std__CLEANUP, unique__1_1);
   define_single_assign_static("std", "CLEANUP", get__std__CLEANUP, &var.std__CLEANUP);
@@ -3611,10 +3611,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__exceptions(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__10, from_uchar32(10));
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
   assign_value(&var._resource_id_of, create_function(type__resource_id_of, -1));
   assign_value(&var._retain_id_of, create_function(type__retain_id_of, -1));
   maybe_initialize_future(get__first_resource_id(), get__undefined());

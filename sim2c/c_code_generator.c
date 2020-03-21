@@ -291,6 +291,8 @@ IMPORT void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -310,8 +312,6 @@ IMPORT void use_single_assign_dynamic(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_SETTER *definer
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -40519,27 +40519,27 @@ EXPORT void phase_2__c_code_generator(void) {
   already_run_phase_2 = true;
   set_module("c_code_generator");
   set_used_namespaces(used_namespaces);
-  character__92 = create_future();
-  character__47 = create_future();
-  character__160 = create_future();
-  character__10 = create_future();
-  number__0 = create_future();
-  number__3 = create_future();
-  character__126 = create_future();
-  character__95 = create_future();
-  character__40 = create_future();
-  character__34 = create_future();
-  character__255 = create_future();
-  number__5 = create_future();
-  character__39 = create_future();
-  character__32 = create_future();
-  number__9 = create_future();
-  character__125 = create_future();
-  character__41 = create_future();
-  character__59 = create_future();
-  number__1 = create_future();
-  number__2 = create_future();
-  character__42 = create_future();
+  character__92 = from_uchar32(92);
+  character__47 = from_uchar32(47);
+  character__160 = from_uchar32(160);
+  character__10 = from_uchar32(10);
+  number__0 = from_uint32(0U);
+  number__3 = from_uint32(3U);
+  character__126 = from_uchar32(126);
+  character__95 = from_uchar32(95);
+  character__40 = from_uchar32(40);
+  character__34 = from_uchar32(34);
+  character__255 = from_uchar32(255);
+  number__5 = from_uint32(5U);
+  character__39 = from_uchar32(39);
+  character__32 = from_uchar32(32);
+  number__9 = from_uint32(9U);
+  character__125 = from_uchar32(125);
+  character__41 = from_uchar32(41);
+  character__59 = from_uchar32(59);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
+  character__42 = from_uchar32(42);
   define_single_assign_dynamic("sim2c", "suffix", get__sim2c__suffix, define__sim2c__suffix, &dyna_idx__sim2c__suffix);
   define__sim2c__suffix(create_future());
   register_dynamic(&dyna_idx__level);
@@ -41576,27 +41576,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__c_code_generator(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__92, from_uchar32(92));
-  assign_value(&character__47, from_uchar32(47));
-  assign_value(&character__160, from_uchar32(160));
-  assign_value(&character__10, from_uchar32(10));
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__3, from_uint32(3U));
-  assign_value(&character__126, from_uchar32(126));
-  assign_value(&character__95, from_uchar32(95));
-  assign_value(&character__40, from_uchar32(40));
-  assign_value(&character__34, from_uchar32(34));
-  assign_value(&character__255, from_uchar32(255));
-  assign_value(&number__5, from_uint32(5U));
-  assign_value(&character__39, from_uchar32(39));
-  assign_value(&character__32, from_uchar32(32));
-  assign_value(&number__9, from_uint32(9U));
-  assign_value(&character__125, from_uchar32(125));
-  assign_value(&character__41, from_uchar32(41));
-  assign_value(&character__59, from_uchar32(59));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
-  assign_value(&character__42, from_uchar32(42));
   assign_value(&var.sim2c__to_c, create_function(type__sim2c__to_c, -1));
   maybe_initialize_future(get__sim2c__suffix(), get__undefined());
   define__level(number__1);

@@ -178,6 +178,8 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -196,8 +198,6 @@ IMPORT void use_read_only(
 );
 IMPORT void *update_start_p;
 IMPORT void def_attribute(NODE **var_p, int idx, void *attr);
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
@@ -954,9 +954,9 @@ EXPORT void phase_2__basic__environment(void) {
   already_run_phase_2 = true;
   set_module("basic__environment");
   set_used_namespaces(used_namespaces);
-  number__0 = create_future();
-  character__61 = create_future();
-  number__1 = create_future();
+  number__0 = from_uint32(0U);
+  character__61 = from_uchar32(61);
+  number__1 = from_uint32(1U);
   func__1_1 = create_future();
   func__2_1 = create_future();
   func__4_1 = create_future();
@@ -1002,9 +1002,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__environment(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&character__61, from_uchar32(61));
-  assign_value(&number__1, from_uint32(1U));
   assign_variable(&var._argv, &func__1_1);
   assign_variable(&var._argc, &func__2_1);
   assign_variable(&var._envv, &func__4_1);

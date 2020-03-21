@@ -210,6 +210,8 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function(const char *name, int *id_p);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -231,8 +233,6 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -278,9 +278,6 @@ IMPORT void register_collector(FUNC collector);
 #else
   extern void invalid_continuation(void);
 #endif
-static NODE *temp__1;
-static NODE *temp__2;
-static NODE *temp__3;
 static NODE_GETTER get__ANY_CHARACTER;
 static NODE_GETTER get_value_or_future__ANY_CHARACTER;
 static NODE_GETTER get__FOREIGN;
@@ -5790,9 +5787,6 @@ static void cont__69_3(void) {
   frame = frame->caller_frame;
 }
 EXPORT void collect__system__export__html(void) {
-  temp__1 = collect_node(temp__1);
-  temp__2 = collect_node(temp__2);
-  temp__3 = collect_node(temp__3);
   var._convert_from_percent_encoding = collect_node(var._convert_from_percent_encoding);
   var.html__SIMPLE = collect_node(var.html__SIMPLE);
   unique__2_1 = collect_node(unique__2_1);
@@ -6020,26 +6014,26 @@ EXPORT void phase_2__system__export__html(void) {
   already_run_phase_2 = true;
   set_module("system__export__html");
   set_used_namespaces(used_namespaces);
-  character__57 = create_future();
-  character__65 = create_future();
-  character__10 = create_future();
-  number__3 = create_future();
-  character__70 = create_future();
-  character__48 = create_future();
-  character__102 = create_future();
-  character__60 = create_future();
-  character__95 = create_future();
-  number__16 = create_future();
-  character__40 = create_future();
-  character__34 = create_future();
-  character__93 = create_future();
-  character__91 = create_future();
-  character__41 = create_future();
-  number__1 = create_future();
-  character__97 = create_future();
-  number__2 = create_future();
-  character__42 = create_future();
-  number__10 = create_future();
+  character__57 = from_uchar32(57);
+  character__65 = from_uchar32(65);
+  character__10 = from_uchar32(10);
+  number__3 = from_uint32(3U);
+  character__70 = from_uchar32(70);
+  character__48 = from_uchar32(48);
+  character__102 = from_uchar32(102);
+  character__60 = from_uchar32(60);
+  character__95 = from_uchar32(95);
+  number__16 = from_uint32(16U);
+  character__40 = from_uchar32(40);
+  character__34 = from_uchar32(34);
+  character__93 = from_uchar32(93);
+  character__91 = from_uchar32(91);
+  character__41 = from_uchar32(41);
+  number__1 = from_uint32(1U);
+  character__97 = from_uchar32(97);
+  number__2 = from_uint32(2U);
+  character__42 = from_uchar32(42);
+  number__10 = from_uint32(10U);
   unique__2_1 = register_unique_item("html__SIMPLE");
   assign_value(&var.html__SIMPLE, unique__2_1);
   define_single_assign_static("html", "SIMPLE", get__html__SIMPLE, &var.html__SIMPLE);
@@ -6316,26 +6310,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__system__export__html(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__57, from_uchar32(57));
-  assign_value(&character__65, from_uchar32(65));
-  assign_value(&character__10, from_uchar32(10));
-  assign_value(&number__3, from_uint32(3U));
-  assign_value(&character__70, from_uchar32(70));
-  assign_value(&character__48, from_uchar32(48));
-  assign_value(&character__102, from_uchar32(102));
-  assign_value(&character__60, from_uchar32(60));
-  assign_value(&character__95, from_uchar32(95));
-  assign_value(&number__16, from_uint32(16U));
-  assign_value(&character__40, from_uchar32(40));
-  assign_value(&character__34, from_uchar32(34));
-  assign_value(&character__93, from_uchar32(93));
-  assign_value(&character__91, from_uchar32(91));
-  assign_value(&character__41, from_uchar32(41));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&character__97, from_uchar32(97));
-  assign_value(&number__2, from_uint32(2U));
-  assign_value(&character__42, from_uchar32(42));
-  assign_value(&number__10, from_uint32(10U));
   assign_value(&var._convert_from_percent_encoding, create_function(type__convert_from_percent_encoding, -1));
   define__html__emit(func__9_1);
   define__html__encode(func__10_1);

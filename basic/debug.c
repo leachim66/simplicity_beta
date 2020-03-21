@@ -178,6 +178,8 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -186,10 +188,8 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
@@ -1673,13 +1673,13 @@ EXPORT void phase_2__basic__debug(void) {
   already_run_phase_2 = true;
   set_module("basic__debug");
   set_used_namespaces(used_namespaces);
-  number__0 = create_future();
-  number__8 = create_future();
-  number__16 = create_future();
-  character__32 = create_future();
-  character__127 = create_future();
-  number__1 = create_future();
-  number__2 = create_future();
+  number__0 = from_uint32(0U);
+  number__8 = from_uint32(8U);
+  number__16 = from_uint32(16U);
+  character__32 = from_uchar32(32);
+  character__127 = from_uchar32(127);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
   func__1_1 = create_future();
   define_single_assign_static("std", "debug_string", get__std__debug_string, &var.std__debug_string);
   string__2_12 = from_latin_1_string(":", 1);
@@ -1743,13 +1743,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__debug(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__8, from_uint32(8U));
-  assign_value(&number__16, from_uint32(16U));
-  assign_value(&character__32, from_uchar32(32));
-  assign_value(&character__127, from_uchar32(127));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
   assign_variable(&var.std__debug_string, &func__1_1);
   assign_variable(&var.std__dump, &func__2_1);
   assign_variable(&var.std__edump, &func__3_1);

@@ -198,6 +198,8 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_double(double val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -206,10 +208,8 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_double(double val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
@@ -3322,15 +3322,15 @@ EXPORT void phase_2__basic__math(void) {
   already_run_phase_2 = true;
   set_module("basic__math");
   set_used_namespaces(used_namespaces);
-  number__50 = create_future();
-  number__6 = create_future();
-  number__3_1415926535897932 = create_future();
-  number__0 = create_future();
-  number__3 = create_future();
-  number__13 = create_future();
-  number__23 = create_future();
-  number__1 = create_future();
-  number__2 = create_future();
+  number__50 = from_uint32(50U);
+  number__6 = from_uint32(6U);
+  number__3_1415926535897932 = from_double(3.1415926535897932);
+  number__0 = from_uint32(0U);
+  number__3 = from_uint32(3U);
+  number__13 = from_uint32(13U);
+  number__23 = from_uint32(23U);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
   func__1_1 = create_future();
   define_single_assign_static("std", "inc", get__std__inc, &var.std__inc);
   func__2_1 = create_future();
@@ -3411,15 +3411,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__math(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__50, from_uint32(50U));
-  assign_value(&number__6, from_uint32(6U));
-  assign_value(&number__3_1415926535897932, from_double(3.1415926535897932));
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__3, from_uint32(3U));
-  assign_value(&number__13, from_uint32(13U));
-  assign_value(&number__23, from_uint32(23U));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
   assign_variable(&var.std__inc, &func__1_1);
   assign_variable(&var.std__dec, &func__2_1);
   assign_variable(&var.std__extend_to, &func__3_1);

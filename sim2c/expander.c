@@ -204,6 +204,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -221,7 +222,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -4517,8 +4517,8 @@ EXPORT void phase_2__expander(void) {
   already_run_phase_2 = true;
   set_module("expander");
   set_used_namespaces(used_namespaces);
-  number__1 = create_future();
-  number__2 = create_future();
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
   func__3_1 = create_future();
   string__4_2 = from_latin_1_string("expand statement", 16);
   func__4_1 = create_future();
@@ -4650,8 +4650,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__expander(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__2, from_uint32(2U));
   assign_value(&var.sim2c__expand_statement, create_function(type__sim2c__expand_statement, -1));
   assign_value(&var.sim2c__expand_expression, create_function(type__sim2c__expand_expression, -1));
   assign_variable(&var._expand_arguments, &func__3_1);

@@ -194,6 +194,7 @@ IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -220,7 +221,6 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
@@ -4430,7 +4430,7 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   already_run_phase_2 = true;
   set_module("basic__types__unordered_table");
   set_used_namespaces(used_namespaces);
-  number__2 = create_future();
+  number__2 = from_uint32(2U);
   unique__1_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__1_1);
   func__11_1 = create_future();
@@ -4522,7 +4522,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__types__unordered_table(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__2, from_uint32(2U));
   assign_variable(&var._insert_item, &func__11_1);
   assign_variable(&var._retrieve_item, &func__12_1);
   assign_value(&var.types__unordered_table, get__types__generic_table());

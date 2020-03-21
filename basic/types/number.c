@@ -216,12 +216,13 @@ IMPORT NODE *from_digit_string(const char *str);
 IMPORT NODE *from_double(double val);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *create_future(void);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -238,7 +239,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -6544,15 +6544,15 @@ EXPORT void phase_2__basic__types__number(void) {
   already_run_phase_2 = true;
   set_module("basic__types__number");
   set_used_namespaces(used_namespaces);
-  number__0 = create_future();
-  number__3 = create_future();
-  character__48 = create_future();
-  number__4 = create_future();
-  number__0x0f = create_future();
-  character__97 = create_future();
-  number__1 = create_future();
-  number__10 = create_future();
-  number__0x07 = create_future();
+  number__0 = from_uint32(0U);
+  number__3 = from_uint32(3U);
+  character__48 = from_uchar32(48);
+  number__4 = from_uint32(4U);
+  number__0x0f = from_uint32(15U);
+  character__97 = from_uchar32(97);
+  number__1 = from_uint32(1U);
+  number__10 = from_uint32(10U);
+  number__0x07 = from_uint32(7U);
   var.types__number = create_future_with_prototype(create__types__number());
   define_single_assign_static("types", "number", get__types__number, &var.types__number);
   var.types__integer = create_future_with_prototype(create__types__integer());
@@ -6781,15 +6781,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__basic__types__number(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&number__0, from_uint32(0U));
-  assign_value(&number__3, from_uint32(3U));
-  assign_value(&character__48, from_uchar32(48));
-  assign_value(&number__4, from_uint32(4U));
-  assign_value(&number__0x0f, from_uint32(15U));
-  assign_value(&character__97, from_uchar32(97));
-  assign_value(&number__1, from_uint32(1U));
-  assign_value(&number__10, from_uint32(10U));
-  assign_value(&number__0x07, from_uint32(7U));
   assign_value(&var.std__integer_plus_me, create_function(type__std__integer_plus_me, -1));
   assign_value(&var.std__integer_minus_me, create_function(type__std__integer_minus_me, -1));
   assign_value(&var.std__integer_times_me, create_function(type__std__integer_times_me, -1));

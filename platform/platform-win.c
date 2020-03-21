@@ -186,7 +186,7 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *create_future(void);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -197,7 +197,6 @@ IMPORT void use_read_only(
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -363,8 +362,8 @@ EXPORT void phase_2__platform__platform(void) {
   already_run_phase_2 = true;
   set_module("platform__platform");
   set_used_namespaces(used_namespaces);
-  character__92 = create_future();
-  character__59 = create_future();
+  character__92 = from_uchar32(92);
+  character__59 = from_uchar32(59);
   string__1_1 = from_latin_1_string("win", 3);
   define_single_assign_static("std", "current_platform", get__std__current_platform, &var.std__current_platform);
   define_single_assign_static("std", "current_platforms", get__std__current_platforms, &var.std__current_platforms);
@@ -389,8 +388,6 @@ static int already_run_phase_4 = false;
 EXPORT void phase_4__platform__platform(void) {
   if (already_run_phase_4) return;
   already_run_phase_4 = true;
-  assign_value(&character__92, from_uchar32(92));
-  assign_value(&character__59, from_uchar32(59));
   assign_value(&var.std__current_platform, string__1_1);
   assign_value(&var.std__current_directory_separator, character__92);
   assign_value(&var.std__current_path_separator, character__59);

@@ -910,10 +910,29 @@ $sim2c::sim2c:
     @
       set_module("@(module_name)");
       set_used_namespaces(used_namespaces);
-  for_each used_literals: (name _literal)
-    # ATTENTION: only necessary if used in an attribute definition!
-
-    writeln "  @(name) = create_future();"
+  for_each used_literals: (name literal)
+    write "  @(name) = "
+    cond
+      -> literal.is_a_numeric_literal:
+	$value replace_all(node::value_of(literal) '@apos;' = "")
+	if
+	  not(value .has_prefix. "0x") && value .contains. alt('.' 'e' 'E'):
+	    write "
+	      from_double(@(value));
+	  :
+	    $int_val value.to_integer
+	    cond
+	      -> int_val <= 0xffffffff:
+		write "
+		  from_uint32(@(int_val)U);
+	      -> int_val <= 0xffffffffffffffff:
+		write "
+		  from_uint64(@(int_val)ULL);
+	      :
+		write "
+		  from_digit_string("@(value)");
+      -> literal.is_a_character_literal:
+	writeln "from_uchar32(@(node::value_of(literal).to_integer));"
   write generated_phase_2
   if
     is_main:
@@ -996,29 +1015,6 @@ $sim2c::sim2c:
 	  already_run_phase_4 = true;
   for_each required_modules: (name _info)
     writeln "  phase_4__@(mangle_filename(name))();"
-  for_each used_literals: (name literal)
-    write "  assign_value(&@(name), "
-    cond
-      -> literal.is_a_numeric_literal:
-	$value replace_all(node::value_of(literal) '@apos;' = "")
-	if
-	  not(value .has_prefix. "0x") && value .contains. alt('.' 'e' 'E'):
-	    write "
-	      from_double(@(value)));
-	  :
-	    $int_val value.to_integer
-	    cond
-	      -> int_val <= 0xffffffff:
-		write "
-		  from_uint32(@(int_val)U));
-	      -> int_val <= 0xffffffffffffffff:
-		write "
-		  from_uint64(@(int_val)ULL));
-	      :
-		write "
-		  from_digit_string("@(value)"));
-      -> literal.is_a_character_literal:
-	writeln "from_uchar32(@(node::value_of(literal).to_integer)));"
   write generated_phase_4
   if
     is_main:
