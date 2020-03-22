@@ -498,7 +498,7 @@ $build_dependencies:
 	      :
 		compile_module resolve_filename(argument) argument
 	      :
-		if do_compile_c:
+		if do_compile_c && not(do_build_static_executable):
 		  !libraries(string("sim-" argument .truncate_from. '/')) true
       "link":
 	if do_compile_c: !libraries(argument .truncate_from. '/') true
@@ -636,6 +636,8 @@ if main_info.is_undefined:
 
 $show_file_list:
   if do_show_debug_infos:
+    $path environment("LD_LIBRARY_PATH")
+    if path.is_defined: ewriteln "LD_LIBRARY_PATH=@(path)"
     ewriteln "included object files: " serialize(objects)
     ewriteln "needed libraries: " serialize(libraries)
 
