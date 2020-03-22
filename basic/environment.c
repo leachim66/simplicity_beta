@@ -178,7 +178,6 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -188,6 +187,7 @@ IMPORT void define_single_assign_static(
 );
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 typedef void (*NODE_SETTER)(NODE *);
 IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
@@ -932,11 +932,6 @@ EXPORT void collect__basic__environment(void) {
   var._env_2 = collect_node(var._env_2);
   string__15_5 = collect_node(string__15_5);
   var.std__environment = collect_node(var.std__environment);
-  func__24_3 = collect_node(func__24_3);
-  func__27_2 = collect_node(func__27_2);
-  number__0 = collect_node(number__0);
-  character__61 = collect_node(character__61);
-  number__1 = collect_node(number__1);
 }
 
 static int already_run_phase_1 = false;
@@ -955,7 +950,6 @@ EXPORT void phase_2__basic__environment(void) {
   number__0 = from_uint32(0U);
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
-  string__15_5 = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
   func__27_2 = create_function(entry__27_2, 1);
 }
@@ -977,6 +971,7 @@ EXPORT void phase_3__basic__environment(void) {
   unique__13_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__13_1);
   var._env_2 = create_future();
+  string__15_5 = from_latin_1_string("=", 1);
   define_multi_assign_static("std", "environment", get__std__environment, set__std__environment);
 }
 

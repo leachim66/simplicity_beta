@@ -203,7 +203,6 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -211,6 +210,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -3599,18 +3599,6 @@ EXPORT void collect__tokenizer(void) {
   string__4_26 = collect_node(string__4_26);
   string__4_65 = collect_node(string__4_65);
   string__4_132 = collect_node(string__4_132);
-  func__4_1 = collect_node(func__4_1);
-  character__9 = collect_node(character__9);
-  character__35 = collect_node(character__35);
-  character__10 = collect_node(character__10);
-  number__0 = collect_node(number__0);
-  number__8 = collect_node(number__8);
-  character__2 = collect_node(character__2);
-  character__34 = collect_node(character__34);
-  character__123 = collect_node(character__123);
-  character__32 = collect_node(character__32);
-  character__1 = collect_node(character__1);
-  number__1 = collect_node(number__1);
 }
 
 static int already_run_phase_1 = false;
@@ -3637,12 +3625,6 @@ EXPORT void phase_2__tokenizer(void) {
   character__32 = from_uchar32(32);
   character__1 = from_uchar32(1);
   number__1 = from_uint32(1U);
-  string__4_11 = from_latin_1_string("____________________________________\012TOKENIZATION ERROR IN LINE ", 64);
-  string__4_12 = from_latin_1_string(":\012", 2);
-  string__4_13 = from_latin_1_string("!\012", 2);
-  string__4_26 = from_latin_1_string("tabulator character within line detected", 40);
-  string__4_65 = from_latin_1_string("empty line contains whitespace", 30);
-  string__4_132 = from_latin_1_string("invalid indentation", 19);
   func__4_1 = create_function(entry__4_1, 1);
 }
 
@@ -3656,6 +3638,12 @@ EXPORT void phase_3__tokenizer(void) {
   define_single_assign_static("sim2c", "indent_marker", get__sim2c__indent_marker, &var.sim2c__indent_marker);
   define_single_assign_static("sim2c", "outdent_marker", get__sim2c__outdent_marker, &var.sim2c__outdent_marker);
   define_single_assign_static("sim2c", "newline", get__sim2c__newline, &var.sim2c__newline);
+  string__4_11 = from_latin_1_string("____________________________________\012TOKENIZATION ERROR IN LINE ", 64);
+  string__4_12 = from_latin_1_string(":\012", 2);
+  string__4_13 = from_latin_1_string("!\012", 2);
+  string__4_26 = from_latin_1_string("tabulator character within line detected", 40);
+  string__4_65 = from_latin_1_string("empty line contains whitespace", 30);
+  string__4_132 = from_latin_1_string("invalid indentation", 19);
   define_single_assign_static("sim2c", "tokenize", get__sim2c__tokenize, &var.sim2c__tokenize);
 }
 

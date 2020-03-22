@@ -3255,56 +3255,24 @@ static void cont__19_9(void) {
 }
 EXPORT void collect__basic__math(void) {
   var.std__inc = collect_node(var.std__inc);
-  func__1_1 = collect_node(func__1_1);
   var.std__dec = collect_node(var.std__dec);
-  func__2_1 = collect_node(func__2_1);
   var.std__extend_to = collect_node(var.std__extend_to);
-  func__3_1 = collect_node(func__3_1);
   var.std__reduce_to = collect_node(var.std__reduce_to);
-  func__4_1 = collect_node(func__4_1);
   var.std__abs = collect_node(var.std__abs);
-  func__5_1 = collect_node(func__5_1);
   var.std__sgn = collect_node(var.std__sgn);
-  func__6_4 = collect_node(func__6_4);
-  func__6_7 = collect_node(func__6_7);
-  func__6_10 = collect_node(func__6_10);
-  func__6_9 = collect_node(func__6_9);
-  func__6_1 = collect_node(func__6_1);
   var.std__sqr = collect_node(var.std__sqr);
-  func__7_1 = collect_node(func__7_1);
   var.std__min = collect_node(var.std__min);
-  func__8_1 = collect_node(func__8_1);
   var.std__max = collect_node(var.std__max);
-  func__9_1 = collect_node(func__9_1);
   var.std__pow = collect_node(var.std__pow);
-  func__10_4 = collect_node(func__10_4);
-  func__10_1 = collect_node(func__10_1);
   var.std__sqrt = collect_node(var.std__sqrt);
-  func__11_1 = collect_node(func__11_1);
   var.std__PI = collect_node(var.std__PI);
   var.std__sin = collect_node(var.std__sin);
-  func__13_1 = collect_node(func__13_1);
   var.std__cos = collect_node(var.std__cos);
-  func__14_1 = collect_node(func__14_1);
   var.std__tan = collect_node(var.std__tan);
-  func__15_1 = collect_node(func__15_1);
   var.std__atan = collect_node(var.std__atan);
-  func__16_1 = collect_node(func__16_1);
   var._atan2 = collect_node(var._atan2);
-  func__17_1 = collect_node(func__17_1);
   var._atan3 = collect_node(var._atan3);
-  func__18_1 = collect_node(func__18_1);
   var._atan4 = collect_node(var._atan4);
-  func__19_1 = collect_node(func__19_1);
-  number__50 = collect_node(number__50);
-  number__6 = collect_node(number__6);
-  number__3_1415926535897932 = collect_node(number__3_1415926535897932);
-  number__0 = collect_node(number__0);
-  number__3 = collect_node(number__3);
-  number__13 = collect_node(number__13);
-  number__23 = collect_node(number__23);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;

@@ -1686,19 +1686,10 @@ EXPORT void collect__basic__types__multi_dimensional_table(void) {
   var._dimensions_of = collect_node(var._dimensions_of);
   var._table_of = collect_node(var._table_of);
   var._insert_into = collect_node(var._insert_into);
-  func__3_1 = collect_node(func__3_1);
   var._get_item = collect_node(var._get_item);
-  func__4_1 = collect_node(func__4_1);
   var.types__multi_dimensional_table = collect_node(var.types__multi_dimensional_table);
-  func__5_1 = collect_node(func__5_1);
   var.std__multi_dimensional_table = collect_node(var.std__multi_dimensional_table);
-  func__7_1 = collect_node(func__7_1);
   var._for_each_dimension = collect_node(var._for_each_dimension);
-  func__8_1 = collect_node(func__8_1);
-  func__9_1 = collect_node(func__9_1);
-  number__0 = collect_node(number__0);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;

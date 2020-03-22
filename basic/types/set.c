@@ -211,13 +211,13 @@ IMPORT void define_polymorphic_function(
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -995,20 +995,12 @@ static void cont__12_4(void) {
 }
 EXPORT void collect__basic__types__set(void) {
   var.types__generic_set = collect_node(var.types__generic_set);
-  func__2_1 = collect_node(func__2_1);
   string__3_5 = collect_node(string__3_5);
-  func__3_1 = collect_node(func__3_1);
-  func__4_1 = collect_node(func__4_1);
-  func__5_1 = collect_node(func__5_1);
   var.std__is_a_set = collect_node(var.std__is_a_set);
   var.types__set = collect_node(var.types__set);
   string__10_1 = collect_node(string__10_1);
   var.std__empty_set = collect_node(var.std__empty_set);
   var.std__set = collect_node(var.std__set);
-  func__12_1 = collect_node(func__12_1);
-  character__10 = collect_node(character__10);
-  number__0 = collect_node(number__0);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -1029,11 +1021,9 @@ EXPORT void phase_2__basic__types__set(void) {
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
   func__2_1 = create_function(entry__2_1, 2);
-  string__3_5 = from_latin_1_string("()", 2);
   func__3_1 = create_function(entry__3_1, -1);
   func__4_1 = create_function(entry__4_1, 1);
   func__5_1 = create_function(entry__5_1, 1);
-  string__10_1 = from_latin_1_string("set", 3);
   func__12_1 = create_function(entry__12_1, -1);
 }
 
@@ -1045,7 +1035,9 @@ EXPORT void phase_3__basic__types__set(void) {
   set_module("basic__types__set");
   set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "generic_set", get__types__generic_set, &var.types__generic_set);
+  string__3_5 = from_latin_1_string("()", 2);
   define_single_assign_static("types", "set", get__types__set, &var.types__set);
+  string__10_1 = from_latin_1_string("set", 3);
   define_single_assign_static("std", "empty_set", get__std__empty_set, &var.std__empty_set);
   define_single_assign_static("std", "set", get__std__set, &var.std__set);
 }

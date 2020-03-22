@@ -182,7 +182,6 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -191,6 +190,7 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future(void);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -1155,14 +1155,9 @@ EXPORT void collect__basic__types__value_range(void) {
   var.types__value_range = collect_node(var.types__value_range);
   collect_static_attributes(&attributes__types__value_range);
   var.std__value_range = collect_node(var.std__value_range);
-  func__10_1 = collect_node(func__10_1);
-  func__11_1 = collect_node(func__11_1);
   string__12_12 = collect_node(string__12_12);
   string__12_13 = collect_node(string__12_13);
   string__12_14 = collect_node(string__12_14);
-  func__12_1 = collect_node(func__12_1);
-  number__0 = collect_node(number__0);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -1183,9 +1178,6 @@ EXPORT void phase_2__basic__types__value_range(void) {
   number__2 = from_uint32(2U);
   func__10_1 = create_function(entry__10_1, 2);
   func__11_1 = create_function(entry__11_1, 2);
-  string__12_12 = from_latin_1_string("value_range\012", 12);
-  string__12_13 = from_latin_1_string("\012", 1);
-  string__12_14 = from_latin_1_string("\012", 1);
   func__12_1 = create_function(entry__12_1, -1);
 }
 
@@ -1202,6 +1194,9 @@ EXPORT void phase_3__basic__types__value_range(void) {
   define_single_assign_static("std", "value_range", get__std__value_range, &var.std__value_range);
   func__7_1 = create_future();
   func__8_1 = create_future();
+  string__12_12 = from_latin_1_string("value_range\012", 12);
+  string__12_13 = from_latin_1_string("\012", 1);
+  string__12_14 = from_latin_1_string("\012", 1);
 }
 
 static int already_run_phase_4 = false;

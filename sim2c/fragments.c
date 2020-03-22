@@ -934,11 +934,6 @@ static void cont__1_24(void) {
 }
 EXPORT void collect__fragments(void) {
   var.sim2c__cut_into_fragments = collect_node(var.sim2c__cut_into_fragments);
-  func__1_1 = collect_node(func__1_1);
-  character__10 = collect_node(character__10);
-  character__32 = collect_node(character__32);
-  character__125 = collect_node(character__125);
-  number__1 = collect_node(number__1);
 }
 
 static int already_run_phase_1 = false;

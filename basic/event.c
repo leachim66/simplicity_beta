@@ -212,7 +212,6 @@ IMPORT void define_polymorphic_function_with_setter(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -225,6 +224,7 @@ IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER setter
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -5292,57 +5292,28 @@ EXPORT void collect__basic__event(void) {
   var._wanted_output_fds = collect_node(var._wanted_output_fds);
   var._wanted_input_fds = collect_node(var._wanted_input_fds);
   var.std__want_to_write_to = collect_node(var.std__want_to_write_to);
-  func__20_1 = collect_node(func__20_1);
   var.std__no_longer_want_to_write_to = collect_node(var.std__no_longer_want_to_write_to);
-  func__21_1 = collect_node(func__21_1);
   var.std__want_to_read_from = collect_node(var.std__want_to_read_from);
-  func__22_1 = collect_node(func__22_1);
   var.std__no_longer_want_to_read_from = collect_node(var.std__no_longer_want_to_read_from);
-  func__23_1 = collect_node(func__23_1);
   var.std__wanting_to_write_to = collect_node(var.std__wanting_to_write_to);
-  func__24_1 = collect_node(func__24_1);
   var.std__wanting_to_read_from = collect_node(var.std__wanting_to_read_from);
-  func__25_1 = collect_node(func__25_1);
   var._readers = collect_node(var._readers);
   var.std__wait_to_read_from = collect_node(var.std__wait_to_read_from);
-  func__27_1 = collect_node(func__27_1);
   var._writers = collect_node(var._writers);
   var.std__wait_to_write_to = collect_node(var.std__wait_to_write_to);
-  func__29_1 = collect_node(func__29_1);
   var._terminators = collect_node(var._terminators);
   var.std__wait_for_termination = collect_node(var.std__wait_for_termination);
-  func__31_1 = collect_node(func__31_1);
   var.std__discard = collect_node(var.std__discard);
-  func__32_1 = collect_node(func__32_1);
   var.std__create_event = collect_node(var.std__create_event);
-  func__33_1 = collect_node(func__33_1);
   var._get_low_level_events = collect_node(var._get_low_level_events);
-  func__34_18 = collect_node(func__34_18);
-  func__34_17 = collect_node(func__34_17);
-  func__34_27 = collect_node(func__34_27);
-  func__34_39 = collect_node(func__34_39);
-  func__34_43 = collect_node(func__34_43);
-  func__34_1 = collect_node(func__34_1);
   var._get_event_handler = collect_node(var._get_event_handler);
-  func__35_1 = collect_node(func__35_1);
   var.std__get_event = collect_node(var.std__get_event);
   string__36_16 = collect_node(string__36_16);
-  func__36_18 = collect_node(func__36_18);
-  func__36_1 = collect_node(func__36_1);
   var._waiting_tasks = collect_node(var._waiting_tasks);
   var.std__process_events = collect_node(var.std__process_events);
-  func__38_5 = collect_node(func__38_5);
-  func__38_2 = collect_node(func__38_2);
-  func__38_9 = collect_node(func__38_9);
   string__38_29 = collect_node(string__38_29);
-  func__38_1 = collect_node(func__38_1);
   var.std__wait_to = collect_node(var.std__wait_to);
-  func__39_15 = collect_node(func__39_15);
-  func__39_1 = collect_node(func__39_1);
   var.std__par = collect_node(var.std__par);
-  func__40_1 = collect_node(func__40_1);
-  number__0 = collect_node(number__0);
-  number__1 = collect_node(number__1);
 }
 
 static int already_run_phase_1 = false;
@@ -5385,13 +5356,11 @@ EXPORT void phase_2__basic__event(void) {
   func__34_43 = create_function(entry__34_43, 1);
   func__34_1 = create_function(entry__34_1, 1);
   func__35_1 = create_function(entry__35_1, 1);
-  string__36_16 = from_latin_1_string("invalid continuation", 20);
   func__36_18 = create_function(entry__36_18, 0);
   func__36_1 = create_function(entry__36_1, 0);
   func__38_5 = create_function(entry__38_5, 0);
   func__38_2 = create_function(entry__38_2, 0);
   func__38_9 = create_function(entry__38_9, 0);
-  string__38_29 = from_latin_1_string("invalid continuation", 20);
   func__38_1 = create_function(entry__38_1, 0);
   func__39_15 = create_function(entry__39_15, 2);
   func__39_1 = create_function(entry__39_1, -1);
@@ -5442,7 +5411,9 @@ EXPORT void phase_3__basic__event(void) {
   define_single_assign_static("std", "wait_for_termination", get__std__wait_for_termination, &var.std__wait_for_termination);
   define_single_assign_static("std", "discard", get__std__discard, &var.std__discard);
   define_single_assign_static("std", "create_event", get__std__create_event, &var.std__create_event);
+  string__36_16 = from_latin_1_string("invalid continuation", 20);
   define_single_assign_static("std", "get_event", get__std__get_event, &var.std__get_event);
+  string__38_29 = from_latin_1_string("invalid continuation", 20);
   define_single_assign_static("std", "process_events", get__std__process_events, &var.std__process_events);
   define_single_assign_static("std", "wait_to", get__std__wait_to, &var.std__wait_to);
   define_single_assign_static("std", "par", get__std__par, &var.std__par);

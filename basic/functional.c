@@ -1061,14 +1061,9 @@ static void cont__4_14(void) {
 }
 EXPORT void collect__basic__functional(void) {
   var.std__any_of = collect_node(var.std__any_of);
-  func__1_1 = collect_node(func__1_1);
   var.std__all_of = collect_node(var.std__all_of);
-  func__2_1 = collect_node(func__2_1);
   var.std__fold = collect_node(var.std__fold);
-  func__3_1 = collect_node(func__3_1);
   var.std__find_first = collect_node(var.std__find_first);
-  func__4_1 = collect_node(func__4_1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;

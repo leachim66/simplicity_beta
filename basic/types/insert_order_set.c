@@ -210,7 +210,6 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -220,6 +219,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -1596,19 +1596,9 @@ EXPORT void collect__basic__types__insert_order_set(void) {
   var._keys_of = collect_node(var._keys_of);
   var.types__insert_order_set = collect_node(var.types__insert_order_set);
   string__10_25 = collect_node(string__10_25);
-  func__10_24 = collect_node(func__10_24);
   string__11_1 = collect_node(string__11_1);
-  func__12_1 = collect_node(func__12_1);
-  func__13_6 = collect_node(func__13_6);
-  func__13_1 = collect_node(func__13_1);
-  func__14_7 = collect_node(func__14_7);
-  func__14_1 = collect_node(func__14_1);
-  func__15_1 = collect_node(func__15_1);
   var.std__empty_insert_order_set = collect_node(var.std__empty_insert_order_set);
   var.std__insert_order_set = collect_node(var.std__insert_order_set);
-  func__17_1 = collect_node(func__17_1);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -1629,9 +1619,7 @@ EXPORT void phase_2__basic__types__insert_order_set(void) {
   already_run_phase_2 = true;
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  string__10_25 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__10_24 = create_function(entry__10_24, 0);
-  string__11_1 = from_latin_1_string("insert_order_set", 16);
   func__12_1 = create_function(entry__12_1, 1);
   func__13_6 = create_function(entry__13_6, 0);
   func__13_1 = create_function(entry__13_1, 1);
@@ -1651,6 +1639,8 @@ EXPORT void phase_3__basic__types__insert_order_set(void) {
   unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
   define_single_assign_static("types", "insert_order_set", get__types__insert_order_set, &var.types__insert_order_set);
+  string__10_25 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
+  string__11_1 = from_latin_1_string("insert_order_set", 16);
   define_single_assign_static("std", "empty_insert_order_set", get__std__empty_insert_order_set, &var.std__empty_insert_order_set);
   define_single_assign_static("std", "insert_order_set", get__std__insert_order_set, &var.std__insert_order_set);
 }

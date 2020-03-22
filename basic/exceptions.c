@@ -182,7 +182,6 @@ IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -192,6 +191,7 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT void register_dynamic(int *id_p);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_dynamic(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER definer,
@@ -3448,47 +3448,24 @@ EXPORT void collect__basic__exceptions(void) {
   var._next_resource_id = collect_node(var._next_resource_id);
   var._resources = collect_node(var._resources);
   var.std__register_resource = collect_node(var.std__register_resource);
-  func__9_1 = collect_node(func__9_1);
   var.std__deregister_resource = collect_node(var.std__deregister_resource);
-  func__10_1 = collect_node(func__10_1);
   var._cleanup_till = collect_node(var._cleanup_till);
-  func__11_1 = collect_node(func__11_1);
   var._cleanup = collect_node(var._cleanup);
-  func__12_5 = collect_node(func__12_5);
-  func__12_2 = collect_node(func__12_2);
-  func__12_1 = collect_node(func__12_1);
   var._clib_exit = collect_node(var._clib_exit);
   var._exit_functions = collect_node(var._exit_functions);
   var.std__at_exit = collect_node(var.std__at_exit);
-  func__15_1 = collect_node(func__15_1);
   var.std__exit = collect_node(var.std__exit);
-  func__16_2 = collect_node(func__16_2);
-  func__16_1 = collect_node(func__16_1);
   var.std__terminate = collect_node(var.std__terminate);
-  func__17_1 = collect_node(func__17_1);
   var.std__ErrorMessage = collect_node(var.std__ErrorMessage);
-  func__18_1 = collect_node(func__18_1);
   var.std__Error = collect_node(var.std__Error);
-  func__19_1 = collect_node(func__19_1);
   var._crash_dump = collect_node(var._crash_dump);
   var._RuntimeError = collect_node(var._RuntimeError);
   string__21_3 = collect_node(string__21_3);
-  func__21_1 = collect_node(func__21_1);
   var.std__try = collect_node(var.std__try);
-  func__23_18 = collect_node(func__23_18);
-  func__23_1 = collect_node(func__23_1);
   var.std__transaction = collect_node(var.std__transaction);
-  func__24_1 = collect_node(func__24_1);
   var.std__retain = collect_node(var.std__retain);
   string__25_4 = collect_node(string__25_4);
-  func__25_3 = collect_node(func__25_3);
   string__25_30 = collect_node(string__25_30);
-  func__25_29 = collect_node(func__25_29);
-  func__25_1 = collect_node(func__25_1);
-  character__10 = collect_node(character__10);
-  number__0 = collect_node(number__0);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -3522,14 +3499,11 @@ EXPORT void phase_2__basic__exceptions(void) {
   func__17_1 = create_function(entry__17_1, 0);
   func__18_1 = create_function(entry__18_1, -1);
   func__19_1 = create_function(entry__19_1, -1);
-  string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   func__21_1 = create_function(entry__21_1, -1);
   func__23_18 = create_function(entry__23_18, -1);
   func__23_1 = create_function(entry__23_1, -1);
   func__24_1 = create_function(entry__24_1, 1);
-  string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
   func__25_3 = create_function(entry__25_3, 0);
-  string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   func__25_29 = create_function(entry__25_29, 0);
   func__25_1 = create_function(entry__25_1, 1);
 }
@@ -3558,10 +3532,13 @@ EXPORT void phase_3__basic__exceptions(void) {
   define_single_assign_static("std", "ErrorMessage", get__std__ErrorMessage, &var.std__ErrorMessage);
   define_single_assign_static("std", "Error", get__std__Error, &var.std__Error);
   func__20_1 = create_future();
+  string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   define_single_assign_dynamic("std", "raise", get__std__raise, define__std__raise, &dyna_idx__std__raise);
   define__std__raise(create_future());
   define_single_assign_static("std", "try", get__std__try, &var.std__try);
   define_single_assign_static("std", "transaction", get__std__transaction, &var.std__transaction);
+  string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
+  string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   define_single_assign_static("std", "retain", get__std__retain, &var.std__retain);
 }
 

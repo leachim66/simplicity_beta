@@ -2874,17 +2874,9 @@ static void entry__4_1(void) {
 }
 EXPORT void collect__basic__branches(void) {
   var.std__cond = collect_node(var.std__cond);
-  func__1_1 = collect_node(func__1_1);
   var._cond_list = collect_node(var._cond_list);
-  func__2_1 = collect_node(func__2_1);
   var.std__case = collect_node(var.std__case);
-  func__3_1 = collect_node(func__3_1);
   var.std__check_case = collect_node(var.std__check_case);
-  func__4_1 = collect_node(func__4_1);
-  number__0 = collect_node(number__0);
-  number__3 = collect_node(number__3);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;

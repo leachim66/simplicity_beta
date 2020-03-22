@@ -198,10 +198,10 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -793,10 +793,6 @@ EXPORT void collect__basic__serialize(void) {
   string__1_9 = collect_node(string__1_9);
   string__1_10 = collect_node(string__1_10);
   string__1_21 = collect_node(string__1_21);
-  func__1_1 = collect_node(func__1_1);
-  character__10 = collect_node(character__10);
-  number__4 = collect_node(number__4);
-  character__32 = collect_node(character__32);
 }
 
 static int already_run_phase_1 = false;
@@ -815,9 +811,6 @@ EXPORT void phase_2__basic__serialize(void) {
   character__10 = from_uchar32(10);
   number__4 = from_uint32(4U);
   character__32 = from_uchar32(32);
-  string__1_9 = from_latin_1_string("\012  ", 3);
-  string__1_10 = from_latin_1_string(":", 1);
-  string__1_21 = from_latin_1_string("()", 2);
   func__1_1 = create_function(entry__1_1, -1);
 }
 
@@ -828,6 +821,9 @@ EXPORT void phase_3__basic__serialize(void) {
   already_run_phase_3 = true;
   set_module("basic__serialize");
   set_used_namespaces(used_namespaces);
+  string__1_9 = from_latin_1_string("\012  ", 3);
+  string__1_10 = from_latin_1_string(":", 1);
+  string__1_21 = from_latin_1_string("()", 2);
   define_single_assign_static("std", "serialize_object", get__std__serialize_object, &var.std__serialize_object);
 }
 

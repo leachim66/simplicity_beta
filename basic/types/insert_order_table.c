@@ -210,7 +210,6 @@ IMPORT void define_polymorphic_function(
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -219,6 +218,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -8654,44 +8654,20 @@ EXPORT void collect__basic__types__insert_order_table(void) {
   var._next_of = collect_node(var._next_of);
   var._previous_of = collect_node(var._previous_of);
   var._remove_leftmost = collect_node(var._remove_leftmost);
-  func__16_1 = collect_node(func__16_1);
   var._remove_rightmost = collect_node(var._remove_rightmost);
-  func__17_1 = collect_node(func__17_1);
   var.types__insert_order_table = collect_node(var.types__insert_order_table);
   var._empty_node = collect_node(var._empty_node);
   var._fetch_first = collect_node(var._fetch_first);
-  func__24_1 = collect_node(func__24_1);
   var._retrieve_item = collect_node(var._retrieve_item);
-  func__25_1 = collect_node(func__25_1);
   var._add_item = collect_node(var._add_item);
-  func__26_1 = collect_node(func__26_1);
   var._update_item = collect_node(var._update_item);
-  func__27_1 = collect_node(func__27_1);
   var._remove_item = collect_node(var._remove_item);
-  func__28_1 = collect_node(func__28_1);
-  func__29_1 = collect_node(func__29_1);
-  func__30_7 = collect_node(func__30_7);
-  func__30_1 = collect_node(func__30_1);
   string__35_1 = collect_node(string__35_1);
-  func__36_1 = collect_node(func__36_1);
   var.std__empty_insert_order_table = collect_node(var.std__empty_insert_order_table);
   var.std__insert_order_table = collect_node(var.std__insert_order_table);
-  func__38_1 = collect_node(func__38_1);
-  func__39_1 = collect_node(func__39_1);
-  func__40_1 = collect_node(func__40_1);
-  func__41_1 = collect_node(func__41_1);
-  func__42_1 = collect_node(func__42_1);
-  func__43_1 = collect_node(func__43_1);
-  func__44_1 = collect_node(func__44_1);
   string__45_16 = collect_node(string__45_16);
-  func__45_15 = collect_node(func__45_15);
-  func__45_1 = collect_node(func__45_1);
   string__46_16 = collect_node(string__46_16);
-  func__46_15 = collect_node(func__46_15);
-  func__46_1 = collect_node(func__46_1);
   string__94_1 = collect_node(string__94_1);
-  number__0 = collect_node(number__0);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -8729,7 +8705,6 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   func__29_1 = create_function(entry__29_1, 3);
   func__30_7 = create_function(entry__30_7, 0);
   func__30_1 = create_function(entry__30_1, 2);
-  string__35_1 = from_latin_1_string("insert_order_table", 18);
   func__36_1 = create_function(entry__36_1, 1);
   func__38_1 = create_function(entry__38_1, -1);
   func__39_1 = create_function(entry__39_1, 2);
@@ -8738,13 +8713,10 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   func__42_1 = create_function(entry__42_1, 2);
   func__43_1 = create_function(entry__43_1, 4);
   func__44_1 = create_function(entry__44_1, 4);
-  string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
   func__45_15 = create_function(entry__45_15, 0);
   func__45_1 = create_function(entry__45_1, 4);
-  string__46_16 = from_latin_1_string("Invalid tree insert operation!", 30);
   func__46_15 = create_function(entry__46_15, 0);
   func__46_1 = create_function(entry__46_1, 4);
-  string__94_1 = from_latin_1_string("insert_order_table", 18);
 }
 
 static int already_run_phase_3 = false;
@@ -8761,8 +8733,12 @@ EXPORT void phase_3__basic__types__insert_order_table(void) {
   unique__6_1 = register_unique_item("UPDATE");
   assign_value(&var._UPDATE, unique__6_1);
   define_single_assign_static("types", "insert_order_table", get__types__insert_order_table, &var.types__insert_order_table);
+  string__35_1 = from_latin_1_string("insert_order_table", 18);
   define_single_assign_static("std", "empty_insert_order_table", get__std__empty_insert_order_table, &var.std__empty_insert_order_table);
   define_single_assign_static("std", "insert_order_table", get__std__insert_order_table, &var.std__insert_order_table);
+  string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  string__46_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  string__94_1 = from_latin_1_string("insert_order_table", 18);
 }
 
 static int already_run_phase_4 = false;

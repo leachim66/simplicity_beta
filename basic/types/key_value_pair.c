@@ -180,7 +180,6 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -190,6 +189,7 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future(void);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -747,10 +747,6 @@ EXPORT void collect__basic__types__key_value_pair(void) {
   var.std__key_value_pair = collect_node(var.std__key_value_pair);
   string__10_12 = collect_node(string__10_12);
   string__10_13 = collect_node(string__10_13);
-  func__10_1 = collect_node(func__10_1);
-  number__0 = collect_node(number__0);
-  number__4 = collect_node(number__4);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -770,8 +766,6 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   number__0 = from_uint32(0U);
   number__4 = from_uint32(4U);
   number__2 = from_uint32(2U);
-  string__10_12 = from_latin_1_string("key_value_pair\012", 15);
-  string__10_13 = from_latin_1_string("\012", 1);
   func__10_1 = create_function(entry__10_1, -1);
 }
 
@@ -788,6 +782,8 @@ EXPORT void phase_3__basic__types__key_value_pair(void) {
   define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
   func__7_1 = create_future();
   func__8_1 = create_future();
+  string__10_12 = from_latin_1_string("key_value_pair\012", 15);
+  string__10_13 = from_latin_1_string("\012", 1);
 }
 
 static int already_run_phase_4 = false;

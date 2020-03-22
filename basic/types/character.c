@@ -3940,60 +3940,16 @@ EXPORT void collect__basic__types__character(void) {
   collect_static_attributes(&attributes__types__character);
   var.std__character = collect_node(var.std__character);
   var.std__is_a_whitespace_character = collect_node(var.std__is_a_whitespace_character);
-  func__17_1 = collect_node(func__17_1);
   var.std__is_a_digit = collect_node(var.std__is_a_digit);
-  func__18_1 = collect_node(func__18_1);
   var.std__is_a_letter = collect_node(var.std__is_a_letter);
-  func__19_1 = collect_node(func__19_1);
   var.std__is_a_lower_case_letter = collect_node(var.std__is_a_lower_case_letter);
-  func__20_1 = collect_node(func__20_1);
   var.std__is_an_upper_case_letter = collect_node(var.std__is_an_upper_case_letter);
-  func__21_1 = collect_node(func__21_1);
   var.std__is_a_letter_character = collect_node(var.std__is_a_letter_character);
-  func__22_1 = collect_node(func__22_1);
   var.std__is_a_lower_case_letter_character = collect_node(var.std__is_a_lower_case_letter_character);
-  func__23_1 = collect_node(func__23_1);
   var.std__is_an_uppper_case_letter_character = collect_node(var.std__is_an_uppper_case_letter_character);
-  func__24_1 = collect_node(func__24_1);
-  func__25_1 = collect_node(func__25_1);
-  func__26_1 = collect_node(func__26_1);
   var.std__is_a_vowel = collect_node(var.std__is_a_vowel);
-  func__27_3 = collect_node(func__27_3);
-  func__27_4 = collect_node(func__27_4);
-  func__27_1 = collect_node(func__27_1);
   string__28_2 = collect_node(string__28_2);
   string__28_19 = collect_node(string__28_19);
-  func__28_1 = collect_node(func__28_1);
-  character__224 = collect_node(character__224);
-  character__9 = collect_node(character__9);
-  character__90 = collect_node(character__90);
-  character__122 = collect_node(character__122);
-  character__57 = collect_node(character__57);
-  character__65 = collect_node(character__65);
-  character__73 = collect_node(character__73);
-  character__10 = collect_node(character__10);
-  character__48 = collect_node(character__48);
-  character__13 = collect_node(character__13);
-  character__85 = collect_node(character__85);
-  character__126 = collect_node(character__126);
-  character__64 = collect_node(character__64);
-  character__215 = collect_node(character__215);
-  character__34 = collect_node(character__34);
-  character__111 = collect_node(character__111);
-  character__247 = collect_node(character__247);
-  character__255 = collect_node(character__255);
-  character__39 = collect_node(character__39);
-  character__105 = collect_node(character__105);
-  character__192 = collect_node(character__192);
-  character__32 = collect_node(character__32);
-  character__117 = collect_node(character__117);
-  character__101 = collect_node(character__101);
-  character__59 = collect_node(character__59);
-  character__97 = collect_node(character__97);
-  character__69 = collect_node(character__69);
-  number__0x20 = collect_node(number__0x20);
-  character__223 = collect_node(character__223);
-  character__79 = collect_node(character__79);
 }
 
 static int already_run_phase_1 = false;
@@ -4054,8 +4010,6 @@ EXPORT void phase_2__basic__types__character(void) {
   func__27_3 = create_function(entry__27_3, 0);
   func__27_4 = create_function(entry__27_4, 0);
   func__27_1 = create_function(entry__27_1, 1);
-  string__28_2 = from_latin_1_string("'", 1);
-  string__28_19 = from_latin_1_string("@0x", 3);
   func__28_1 = create_function(entry__28_1, -1);
 }
 
@@ -4086,6 +4040,8 @@ EXPORT void phase_3__basic__types__character(void) {
   define_single_assign_static("std", "is_a_lower_case_letter_character", get__std__is_a_lower_case_letter_character, &var.std__is_a_lower_case_letter_character);
   define_single_assign_static("std", "is_an_uppper_case_letter_character", get__std__is_an_uppper_case_letter_character, &var.std__is_an_uppper_case_letter_character);
   define_single_assign_static("std", "is_a_vowel", get__std__is_a_vowel, &var.std__is_a_vowel);
+  string__28_2 = from_latin_1_string("'", 1);
+  string__28_19 = from_latin_1_string("@0x", 3);
 }
 
 static int already_run_phase_4 = false;

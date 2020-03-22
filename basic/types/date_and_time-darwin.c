@@ -193,7 +193,6 @@ IMPORT void define_polymorphic_function_with_setter(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -202,6 +201,7 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -1875,22 +1875,12 @@ EXPORT void collect__basic__types__date_and_time(void) {
   string__28_17 = collect_node(string__28_17);
   string__28_23 = collect_node(string__28_23);
   string__28_29 = collect_node(string__28_29);
-  func__28_36 = collect_node(func__28_36);
-  func__28_35 = collect_node(func__28_35);
   string__28_38 = collect_node(string__28_38);
   string__28_39 = collect_node(string__28_39);
   string__28_40 = collect_node(string__28_40);
   string__28_41 = collect_node(string__28_41);
   string__28_42 = collect_node(string__28_42);
-  func__28_1 = collect_node(func__28_1);
   var.std__sleep = collect_node(var.std__sleep);
-  number__3600 = collect_node(number__3600);
-  number__0 = collect_node(number__0);
-  number__1000 = collect_node(number__1000);
-  number__3 = collect_node(number__3);
-  character__32 = collect_node(character__32);
-  character__46 = collect_node(character__46);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -1921,19 +1911,8 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   character__32 = from_uchar32(32);
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
-  string__28_7 = from_latin_1_string("0", 1);
-  string__28_10 = from_latin_1_string("0", 1);
-  string__28_14 = from_latin_1_string("0", 1);
-  string__28_17 = from_latin_1_string("0", 1);
-  string__28_23 = from_latin_1_string("0", 1);
-  string__28_29 = from_latin_1_string("+", 1);
   func__28_36 = create_function(entry__28_36, 0);
   func__28_35 = create_function(entry__28_35, 0);
-  string__28_38 = from_latin_1_string("-", 1);
-  string__28_39 = from_latin_1_string("-", 1);
-  string__28_40 = from_latin_1_string(":", 1);
-  string__28_41 = from_latin_1_string(":", 1);
-  string__28_42 = from_latin_1_string(" GMT", 4);
   func__28_1 = create_function(entry__28_1, 1);
 }
 
@@ -1964,6 +1943,17 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   func__25_1 = create_future();
   func__26_1 = create_future();
   func__27_1 = create_future();
+  string__28_7 = from_latin_1_string("0", 1);
+  string__28_10 = from_latin_1_string("0", 1);
+  string__28_14 = from_latin_1_string("0", 1);
+  string__28_17 = from_latin_1_string("0", 1);
+  string__28_23 = from_latin_1_string("0", 1);
+  string__28_29 = from_latin_1_string("+", 1);
+  string__28_38 = from_latin_1_string("-", 1);
+  string__28_39 = from_latin_1_string("-", 1);
+  string__28_40 = from_latin_1_string(":", 1);
+  string__28_41 = from_latin_1_string(":", 1);
+  string__28_42 = from_latin_1_string(" GMT", 4);
   func__29_1 = create_future();
   define_single_assign_static("std", "sleep", get__std__sleep, &var.std__sleep);
 }

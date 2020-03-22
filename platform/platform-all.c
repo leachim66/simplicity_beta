@@ -184,9 +184,9 @@ IMPORT void invalid_results_error(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -342,8 +342,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__platform__platform(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  string__1_1 = from_latin_1_string("all", 3);
-  string__4_1 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_3 = false;
@@ -353,8 +351,10 @@ EXPORT void phase_3__platform__platform(void) {
   already_run_phase_3 = true;
   set_module("platform__platform");
   set_used_namespaces(used_namespaces);
+  string__1_1 = from_latin_1_string("all", 3);
   define_single_assign_static("std", "platform", get__std__platform, &var.std__platform);
   define_single_assign_static("std", "platforms", get__std__platforms, &var.std__platforms);
+  string__4_1 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_4 = false;

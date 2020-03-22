@@ -200,7 +200,6 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 typedef void (*NODE_SETTER)(NODE *);
@@ -219,6 +218,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -1034,25 +1034,6 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__shared_variables(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  string__100_1 = from_latin_1_string("to_int8", 7);
-  string__100_2 = from_latin_1_string("to_int16", 8);
-  string__100_3 = from_latin_1_string("to_int32", 8);
-  string__100_4 = from_latin_1_string("to_int64", 8);
-  string__100_5 = from_latin_1_string("to_uint8", 8);
-  string__100_6 = from_latin_1_string("to_uint16", 9);
-  string__100_7 = from_latin_1_string("to_uint32", 9);
-  string__100_8 = from_latin_1_string("to_uint64", 9);
-  string__100_9 = from_latin_1_string("to_uchar32", 10);
-  string__100_10 = from_latin_1_string("to_bool", 7);
-  string__100_11 = from_latin_1_string("to_int", 6);
-  string__100_12 = from_latin_1_string("to_long", 7);
-  string__100_13 = from_latin_1_string("to_double", 9);
-  string__100_14 = from_latin_1_string("to_c_string", 11);
-  string__100_15 = from_latin_1_string("to_octets", 9);
-  string__100_16 = from_latin_1_string("get_item_of", 11);
-  string__100_17 = from_latin_1_string("length_of", 9);
-  string__100_18 = from_latin_1_string("unfold", 6);
-  string__100_19 = from_latin_1_string("debug_string", 12);
 }
 
 static int already_run_phase_3 = false;
@@ -1153,6 +1134,25 @@ EXPORT void phase_3__shared_variables(void) {
   define_multi_assign_dynamic("sim2c", "current_continuation_info", get__sim2c__current_continuation_info, set__sim2c__current_continuation_info, define__sim2c__current_continuation_info, &dyna_idx__sim2c__current_continuation_info);
   define__sim2c__current_continuation_info(undefined);
   define_single_assign_static("sim2c", "vtable_entries", get__sim2c__vtable_entries, &var.sim2c__vtable_entries);
+  string__100_1 = from_latin_1_string("to_int8", 7);
+  string__100_2 = from_latin_1_string("to_int16", 8);
+  string__100_3 = from_latin_1_string("to_int32", 8);
+  string__100_4 = from_latin_1_string("to_int64", 8);
+  string__100_5 = from_latin_1_string("to_uint8", 8);
+  string__100_6 = from_latin_1_string("to_uint16", 9);
+  string__100_7 = from_latin_1_string("to_uint32", 9);
+  string__100_8 = from_latin_1_string("to_uint64", 9);
+  string__100_9 = from_latin_1_string("to_uchar32", 10);
+  string__100_10 = from_latin_1_string("to_bool", 7);
+  string__100_11 = from_latin_1_string("to_int", 6);
+  string__100_12 = from_latin_1_string("to_long", 7);
+  string__100_13 = from_latin_1_string("to_double", 9);
+  string__100_14 = from_latin_1_string("to_c_string", 11);
+  string__100_15 = from_latin_1_string("to_octets", 9);
+  string__100_16 = from_latin_1_string("get_item_of", 11);
+  string__100_17 = from_latin_1_string("length_of", 9);
+  string__100_18 = from_latin_1_string("unfold", 6);
+  string__100_19 = from_latin_1_string("debug_string", 12);
 }
 
 static int already_run_phase_4 = false;

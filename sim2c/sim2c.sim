@@ -430,17 +430,22 @@ $sim2c::sim2c:
       register (use) polymorphic functions
   $$generated_phase_2 ""
     #
-      define literals (numeric, character, string)
+      define non-garbage-collected objects:
+	numeric literals
+	character literals
+	function literals
   $$generated_phase_3 ""
     #
       reassign memory pool to save literals from garbage collection
       create futures
       create futures with prototypes
       create inline-C constructs
-      define single-assign static variables
-      define multi-assign static variables
-      define single-assign dynamic variables
-      define multi-assign dynamic variables
+      define garbage-collectec objects:
+	string literals
+	single-assign static variables
+	multi-assign static variables
+	single-assign dynamic variables
+	multi-assign dynamic variables
   $$generated_phase_4 ""
     #
       define attributes
@@ -864,7 +869,7 @@ $sim2c::sim2c:
   write "
     EXPORT void collect__@(module_name)(void) {
   write generated_collections
-  for_each used_literals: (name _literal)
+  #for_each used_literals: (name _literal)
     writeln "  @(name) = collect_node(@(name));"
   write "}@nl;"
   if

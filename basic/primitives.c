@@ -602,20 +602,14 @@ static void entry__10_1(void) {
 }
 EXPORT void collect__basic__primitives(void) {
   var.std__has_minimum_length = collect_node(var.std__has_minimum_length);
-  func__2_1 = collect_node(func__2_1);
   var.std__ignore = collect_node(var.std__ignore);
-  func__3_1 = collect_node(func__3_1);
   var.std__writeln_to = collect_node(var.std__writeln_to);
-  func__4_1 = collect_node(func__4_1);
   var.std__swap = collect_node(var.std__swap);
-  func__5_1 = collect_node(func__5_1);
   var.std__pass = collect_node(var.std__pass);
   var.std__eval = collect_node(var.std__eval);
-  func__7_1 = collect_node(func__7_1);
   var.std__do = collect_node(var.std__do);
   var.std__assign = collect_node(var.std__assign);
   var.std__goto = collect_node(var.std__goto);
-  character__10 = collect_node(character__10);
 }
 
 static int already_run_phase_1 = false;

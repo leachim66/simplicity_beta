@@ -554,9 +554,6 @@ static void entry__9_1(void) {
 EXPORT void collect__basic__types__object(void) {
   var.types__object = collect_node(var.types__object);
   collect_static_attributes(&attributes__types__object);
-  func__4_1 = collect_node(func__4_1);
-  func__7_1 = collect_node(func__7_1);
-  func__8_1 = collect_node(func__8_1);
   var.std__current_address_of = collect_node(var.std__current_address_of);
 }
 

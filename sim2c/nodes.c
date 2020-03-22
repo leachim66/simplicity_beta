@@ -200,7 +200,6 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -210,6 +209,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -4220,7 +4220,6 @@ EXPORT void collect__nodes(void) {
   var.node__is_a_numeric_literal = collect_node(var.node__is_a_numeric_literal);
   var.sim2c__numeric_literal = collect_node(var.sim2c__numeric_literal);
   string__208_3 = collect_node(string__208_3);
-  func__208_1 = collect_node(func__208_1);
   var.node__is_a_character_literal = collect_node(var.node__is_a_character_literal);
   var.sim2c__character_literal = collect_node(var.sim2c__character_literal);
   var.node__is_a_string_literal = collect_node(var.node__is_a_string_literal);
@@ -4238,11 +4237,7 @@ EXPORT void collect__nodes(void) {
   var.node__is_used_as_a_polymorphic_function = collect_node(var.node__is_used_as_a_polymorphic_function);
   var.sim2c__identifier = collect_node(var.sim2c__identifier);
   string__246_6 = collect_node(string__246_6);
-  func__246_8 = collect_node(func__246_8);
-  func__246_1 = collect_node(func__246_1);
   string__247_6 = collect_node(string__247_6);
-  func__247_8 = collect_node(func__247_8);
-  func__247_1 = collect_node(func__247_1);
   var.node__is_a_temporary = collect_node(var.node__is_a_temporary);
   var.sim2c__temporary = collect_node(var.sim2c__temporary);
   var.node__is_an_operator_symbol = collect_node(var.node__is_an_operator_symbol);
@@ -4253,9 +4248,6 @@ EXPORT void collect__nodes(void) {
   var.node__is_a_c_body = collect_node(var.node__is_a_c_body);
   var.sim2c__c_body = collect_node(var.sim2c__c_body);
   var.sim2c__is_a_parameter = collect_node(var.sim2c__is_a_parameter);
-  func__267_1 = collect_node(func__267_1);
-  character__39 = collect_node(character__39);
-  character__46 = collect_node(character__46);
 }
 
 static int already_run_phase_1 = false;
@@ -4368,17 +4360,11 @@ EXPORT void phase_2__nodes(void) {
   already_run_phase_2 = true;
   character__39 = from_uchar32(39);
   character__46 = from_uchar32(46);
-  string__208_3 = from_latin_1_string("_", 1);
   func__208_1 = create_function(entry__208_1, 1);
-  string__222_1 = from_latin_1_string("\012", 1);
-  string__223_1 = from_latin_1_string("\012", 1);
-  string__246_6 = from_latin_1_string("::", 2);
   func__246_8 = create_function(entry__246_8, 0);
   func__246_1 = create_function(entry__246_1, 1);
-  string__247_6 = from_latin_1_string("__", 2);
   func__247_8 = create_function(entry__247_8, 0);
   func__247_1 = create_function(entry__247_1, 1);
-  string__260_1 = from_latin_1_string("local", 5);
   func__267_1 = create_function(entry__267_1, 1);
 }
 
@@ -4465,16 +4451,22 @@ EXPORT void phase_3__nodes(void) {
   define_single_assign_static("sim2c", "attribute_value_pair", get__sim2c__attribute_value_pair, &var.sim2c__attribute_value_pair);
   define_single_assign_static("sim2c", "attribute_function_pair", get__sim2c__attribute_function_pair, &var.sim2c__attribute_function_pair);
   define_single_assign_static("sim2c", "numeric_literal", get__sim2c__numeric_literal, &var.sim2c__numeric_literal);
+  string__208_3 = from_latin_1_string("_", 1);
   define_single_assign_static("sim2c", "character_literal", get__sim2c__character_literal, &var.sim2c__character_literal);
   define_single_assign_static("sim2c", "string_literal", get__sim2c__string_literal, &var.sim2c__string_literal);
   define_single_assign_static("sim2c", "multi_line_string", get__sim2c__multi_line_string, &var.sim2c__multi_line_string);
+  string__222_1 = from_latin_1_string("\012", 1);
+  string__223_1 = from_latin_1_string("\012", 1);
   define_single_assign_static("sim2c", "unique_item", get__sim2c__unique_item, &var.sim2c__unique_item);
   define_single_assign_static("sim2c", "polymorphic_function", get__sim2c__polymorphic_function, &var.sim2c__polymorphic_function);
   define_single_assign_static("sim2c", "polymorphic_function_with_setter", get__sim2c__polymorphic_function_with_setter, &var.sim2c__polymorphic_function_with_setter);
   define_single_assign_static("sim2c", "identifier", get__sim2c__identifier, &var.sim2c__identifier);
+  string__246_6 = from_latin_1_string("::", 2);
+  string__247_6 = from_latin_1_string("__", 2);
   define_single_assign_static("sim2c", "temporary", get__sim2c__temporary, &var.sim2c__temporary);
   define_single_assign_static("sim2c", "operator_symbol", get__sim2c__operator_symbol, &var.sim2c__operator_symbol);
   define_single_assign_static("sim2c", "c_code", get__sim2c__c_code, &var.sim2c__c_code);
+  string__260_1 = from_latin_1_string("local", 5);
   define_single_assign_static("sim2c", "c_body", get__sim2c__c_body, &var.sim2c__c_body);
   define_single_assign_static("sim2c", "is_a_parameter", get__sim2c__is_a_parameter, &var.sim2c__is_a_parameter);
 }

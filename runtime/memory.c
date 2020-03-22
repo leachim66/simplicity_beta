@@ -676,11 +676,11 @@ EXPORT void initialize_phase_3(void) {
 
   // throw away the current pool that contains mostly (only?) literals
 
-  /*node_buf = allocate_pool();
+  node_buf = allocate_pool();
   node_buf_end = (char *)node_buf+pool_size;
   node_buf_hard_limit = (char *)node_buf_end-MEMORY_HARD_LIMIT;
   node_buf_soft_limit = (char *)node_buf_end-MEMORY_SOFT_LIMIT;
-  node_p = node_buf;*/
+  node_p = node_buf;
 }
 
 EXPORT void initialize_phase_4(void) {

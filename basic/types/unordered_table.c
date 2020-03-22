@@ -194,7 +194,6 @@ IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -204,6 +203,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -4388,31 +4388,14 @@ EXPORT void collect__basic__types__unordered_table(void) {
   collect_static_attributes(&attributes__types__unordered_table);
   var._next_key_and_value = collect_node(var._next_key_and_value);
   var._previous_key_and_value = collect_node(var._previous_key_and_value);
-  func__17_1 = collect_node(func__17_1);
-  func__18_1 = collect_node(func__18_1);
   string__20_1 = collect_node(string__20_1);
-  func__21_1 = collect_node(func__21_1);
   var.std__empty_unordered_table = collect_node(var.std__empty_unordered_table);
   var.std__unordered_table = collect_node(var.std__unordered_table);
-  func__23_1 = collect_node(func__23_1);
-  func__24_1 = collect_node(func__24_1);
   string__25_6 = collect_node(string__25_6);
-  func__25_5 = collect_node(func__25_5);
-  func__25_1 = collect_node(func__25_1);
-  func__26_1 = collect_node(func__26_1);
   string__27_6 = collect_node(string__27_6);
-  func__27_5 = collect_node(func__27_5);
-  func__27_1 = collect_node(func__27_1);
-  func__28_1 = collect_node(func__28_1);
   string__29_6 = collect_node(string__29_6);
-  func__29_5 = collect_node(func__29_5);
-  func__29_1 = collect_node(func__29_1);
-  func__30_1 = collect_node(func__30_1);
   string__31_6 = collect_node(string__31_6);
-  func__31_5 = collect_node(func__31_5);
-  func__31_1 = collect_node(func__31_1);
   string__64_1 = collect_node(string__64_1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -4431,26 +4414,20 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   number__2 = from_uint32(2U);
   func__17_1 = create_function(entry__17_1, 3);
   func__18_1 = create_function(entry__18_1, 2);
-  string__20_1 = from_latin_1_string("unordered_table", 15);
   func__21_1 = create_function(entry__21_1, 1);
   func__23_1 = create_function(entry__23_1, -1);
   func__24_1 = create_function(entry__24_1, 2);
-  string__25_6 = from_latin_1_string("Invalid index error!", 20);
   func__25_5 = create_function(entry__25_5, 0);
   func__25_1 = create_function(entry__25_1, 4);
   func__26_1 = create_function(entry__26_1, 2);
-  string__27_6 = from_latin_1_string("Invalid index error!", 20);
   func__27_5 = create_function(entry__27_5, 0);
   func__27_1 = create_function(entry__27_1, 4);
   func__28_1 = create_function(entry__28_1, 2);
-  string__29_6 = from_latin_1_string("Invalid index error!", 20);
   func__29_5 = create_function(entry__29_5, 0);
   func__29_1 = create_function(entry__29_1, 4);
   func__30_1 = create_function(entry__30_1, 2);
-  string__31_6 = from_latin_1_string("Invalid index error!", 20);
   func__31_5 = create_function(entry__31_5, 0);
   func__31_1 = create_function(entry__31_1, 4);
-  string__64_1 = from_latin_1_string("unordered_table", 15);
 }
 
 static int already_run_phase_3 = false;
@@ -4469,8 +4446,14 @@ EXPORT void phase_3__basic__types__unordered_table(void) {
   func__14_1 = create_future();
   func__15_1 = create_future();
   func__16_1 = create_future();
+  string__20_1 = from_latin_1_string("unordered_table", 15);
   define_single_assign_static("std", "empty_unordered_table", get__std__empty_unordered_table, &var.std__empty_unordered_table);
   define_single_assign_static("std", "unordered_table", get__std__unordered_table, &var.std__unordered_table);
+  string__25_6 = from_latin_1_string("Invalid index error!", 20);
+  string__27_6 = from_latin_1_string("Invalid index error!", 20);
+  string__29_6 = from_latin_1_string("Invalid index error!", 20);
+  string__31_6 = from_latin_1_string("Invalid index error!", 20);
+  string__64_1 = from_latin_1_string("unordered_table", 15);
 }
 
 static int already_run_phase_4 = false;

@@ -2173,32 +2173,14 @@ EXPORT void collect__basic__exec(void) {
   var._posix_exec = collect_node(var._posix_exec);
   var._posix_launch = collect_node(var._posix_launch);
   var.std__launch = collect_node(var.std__launch);
-  func__13_1 = collect_node(func__13_1);
   var._posix_call = collect_node(var._posix_call);
   var.std__kill = collect_node(var.std__kill);
   var._posix_pipe = collect_node(var._posix_pipe);
   var.std__exec = collect_node(var.std__exec);
-  func__17_1 = collect_node(func__17_1);
   var.std__call = collect_node(var.std__call);
-  func__18_1 = collect_node(func__18_1);
   var.std__pipe = collect_node(var.std__pipe);
   string__19_8 = collect_node(string__19_8);
-  func__19_7 = collect_node(func__19_7);
-  func__19_10 = collect_node(func__19_10);
-  func__19_1 = collect_node(func__19_1);
   var.std__extern = collect_node(var.std__extern);
-  func__20_1 = collect_node(func__20_1);
-  number__6 = collect_node(number__6);
-  number__15 = collect_node(number__15);
-  number__12 = collect_node(number__12);
-  number__0 = collect_node(number__0);
-  number__3 = collect_node(number__3);
-  number__4 = collect_node(number__4);
-  number__9 = collect_node(number__9);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
-  number__10 = collect_node(number__10);
-  number__14 = collect_node(number__14);
 }
 
 static int already_run_phase_1 = false;
@@ -2228,7 +2210,6 @@ EXPORT void phase_2__basic__exec(void) {
   func__13_1 = create_function(entry__13_1, -1);
   func__17_1 = create_function(entry__17_1, -1);
   func__18_1 = create_function(entry__18_1, -1);
-  string__19_8 = from_latin_1_string("Invalid arguments!", 18);
   func__19_7 = create_function(entry__19_7, 0);
   func__19_10 = create_function(entry__19_10, 1);
   func__19_1 = create_function(entry__19_1, -1);
@@ -2260,6 +2241,7 @@ EXPORT void phase_3__basic__exec(void) {
   func__16_1 = create_future();
   define_single_assign_static("std", "exec", get__std__exec, &var.std__exec);
   define_single_assign_static("std", "call", get__std__call, &var.std__call);
+  string__19_8 = from_latin_1_string("Invalid arguments!", 18);
   define_single_assign_static("std", "pipe", get__std__pipe, &var.std__pipe);
   define_single_assign_static("std", "extern", get__std__extern, &var.std__extern);
 }

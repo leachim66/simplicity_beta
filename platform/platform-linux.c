@@ -185,9 +185,9 @@ IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -346,8 +346,6 @@ EXPORT void collect__platform__platform(void) {
   string__6_1 = collect_node(string__6_1);
   string__6_2 = collect_node(string__6_2);
   string__6_3 = collect_node(string__6_3);
-  character__47 = collect_node(character__47);
-  character__58 = collect_node(character__58);
 }
 
 static int already_run_phase_1 = false;
@@ -365,10 +363,6 @@ EXPORT void phase_2__platform__platform(void) {
   already_run_phase_2 = true;
   character__47 = from_uchar32(47);
   character__58 = from_uchar32(58);
-  string__1_1 = from_latin_1_string("linux", 5);
-  string__6_1 = from_latin_1_string("linux", 5);
-  string__6_2 = from_latin_1_string("posix", 5);
-  string__6_3 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_3 = false;
@@ -378,10 +372,14 @@ EXPORT void phase_3__platform__platform(void) {
   already_run_phase_3 = true;
   set_module("platform__platform");
   set_used_namespaces(used_namespaces);
+  string__1_1 = from_latin_1_string("linux", 5);
   define_single_assign_static("std", "current_platform", get__std__current_platform, &var.std__current_platform);
   define_single_assign_static("std", "current_platforms", get__std__current_platforms, &var.std__current_platforms);
   define_single_assign_static("std", "current_directory_separator", get__std__current_directory_separator, &var.std__current_directory_separator);
   define_single_assign_static("std", "current_path_separator", get__std__current_path_separator, &var.std__current_path_separator);
+  string__6_1 = from_latin_1_string("linux", 5);
+  string__6_2 = from_latin_1_string("posix", 5);
+  string__6_3 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_4 = false;

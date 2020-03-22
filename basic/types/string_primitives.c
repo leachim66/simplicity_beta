@@ -5165,37 +5165,13 @@ EXPORT void collect__basic__types__string_primitives(void) {
   var.types__quad_octet_string = collect_node(var.types__quad_octet_string);
   collect_static_attributes(&attributes__types__quad_octet_string);
   var.std__empty_string = collect_node(var.std__empty_string);
-  func__34_1 = collect_node(func__34_1);
   string__35_2 = collect_node(string__35_2);
   string__35_23 = collect_node(string__35_23);
-  func__35_1 = collect_node(func__35_1);
   string__36_9 = collect_node(string__36_9);
   string__36_27 = collect_node(string__36_27);
   string__36_45 = collect_node(string__36_45);
-  func__36_1 = collect_node(func__36_1);
   var.std__matches_file_pattern = collect_node(var.std__matches_file_pattern);
   var.std__from_utf8 = collect_node(var.std__from_utf8);
-  character__57 = collect_node(character__57);
-  character__55 = collect_node(character__55);
-  character__65 = collect_node(character__65);
-  character__45 = collect_node(character__45);
-  number__0 = collect_node(number__0);
-  character__70 = collect_node(character__70);
-  number__3 = collect_node(number__3);
-  character__48 = collect_node(character__48);
-  character__102 = collect_node(character__102);
-  number__4 = collect_node(number__4);
-  character__126 = collect_node(character__126);
-  character__64 = collect_node(character__64);
-  character__34 = collect_node(character__34);
-  character__39 = collect_node(character__39);
-  character__32 = collect_node(character__32);
-  character__97 = collect_node(character__97);
-  character__59 = collect_node(character__59);
-  number__1 = collect_node(number__1);
-  character__49 = collect_node(character__49);
-  number__2 = collect_node(number__2);
-  number__10 = collect_node(number__10);
 }
 
 static int already_run_phase_1 = false;
@@ -5240,12 +5216,7 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
   func__34_1 = create_function(entry__34_1, 1);
-  string__35_2 = from_latin_1_string("\042", 1);
-  string__35_23 = from_latin_1_string("@0x", 3);
   func__35_1 = create_function(entry__35_1, -1);
-  string__36_9 = from_latin_1_string("0b", 2);
-  string__36_27 = from_latin_1_string("0o", 2);
-  string__36_45 = from_latin_1_string("0x", 2);
   func__36_1 = create_function(entry__36_1, 1);
 }
 
@@ -5273,6 +5244,11 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   func__31_1 = create_future();
   func__32_1 = create_future();
   func__33_1 = create_future();
+  string__35_2 = from_latin_1_string("\042", 1);
+  string__35_23 = from_latin_1_string("@0x", 3);
+  string__36_9 = from_latin_1_string("0b", 2);
+  string__36_27 = from_latin_1_string("0o", 2);
+  string__36_45 = from_latin_1_string("0x", 2);
   func__39_1 = create_future();
   func__40_1 = create_future();
   func__41_1 = create_future();

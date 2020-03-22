@@ -191,7 +191,6 @@ IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -201,6 +200,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -2873,21 +2873,11 @@ EXPORT void collect__basic__types__unordered_set(void) {
   collect_static_attributes(&attributes__types__unordered_set);
   var._next_key = collect_node(var._next_key);
   var._previous_key = collect_node(var._previous_key);
-  func__17_1 = collect_node(func__17_1);
-  func__18_1 = collect_node(func__18_1);
   string__20_1 = collect_node(string__20_1);
-  func__21_1 = collect_node(func__21_1);
   var.std__empty_unordered_set = collect_node(var.std__empty_unordered_set);
   var.std__unordered_set = collect_node(var.std__unordered_set);
-  func__23_1 = collect_node(func__23_1);
-  func__24_1 = collect_node(func__24_1);
   string__25_6 = collect_node(string__25_6);
-  func__25_5 = collect_node(func__25_5);
-  func__25_1 = collect_node(func__25_1);
-  func__26_1 = collect_node(func__26_1);
   string__27_6 = collect_node(string__27_6);
-  func__27_5 = collect_node(func__27_5);
-  func__27_1 = collect_node(func__27_1);
   string__56_1 = collect_node(string__56_1);
 }
 
@@ -2906,18 +2896,14 @@ EXPORT void phase_2__basic__types__unordered_set(void) {
   already_run_phase_2 = true;
   func__17_1 = create_function(entry__17_1, 3);
   func__18_1 = create_function(entry__18_1, 2);
-  string__20_1 = from_latin_1_string("unordered_set", 13);
   func__21_1 = create_function(entry__21_1, 1);
   func__23_1 = create_function(entry__23_1, -1);
   func__24_1 = create_function(entry__24_1, 2);
-  string__25_6 = from_latin_1_string("Invalid index error!", 20);
   func__25_5 = create_function(entry__25_5, 0);
   func__25_1 = create_function(entry__25_1, 4);
   func__26_1 = create_function(entry__26_1, 2);
-  string__27_6 = from_latin_1_string("Invalid index error!", 20);
   func__27_5 = create_function(entry__27_5, 0);
   func__27_1 = create_function(entry__27_1, 4);
-  string__56_1 = from_latin_1_string("unordered_set", 13);
 }
 
 static int already_run_phase_3 = false;
@@ -2936,8 +2922,12 @@ EXPORT void phase_3__basic__types__unordered_set(void) {
   func__14_1 = create_future();
   func__15_1 = create_future();
   func__16_1 = create_future();
+  string__20_1 = from_latin_1_string("unordered_set", 13);
   define_single_assign_static("std", "empty_unordered_set", get__std__empty_unordered_set, &var.std__empty_unordered_set);
   define_single_assign_static("std", "unordered_set", get__std__unordered_set, &var.std__unordered_set);
+  string__25_6 = from_latin_1_string("Invalid index error!", 20);
+  string__27_6 = from_latin_1_string("Invalid index error!", 20);
+  string__56_1 = from_latin_1_string("unordered_set", 13);
 }
 
 static int already_run_phase_4 = false;

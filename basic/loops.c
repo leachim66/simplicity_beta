@@ -2767,40 +2767,22 @@ static void cont__17_2(void) {
 }
 EXPORT void collect__basic__loops(void) {
   var.std__from_to = collect_node(var.std__from_to);
-  func__1_1 = collect_node(func__1_1);
   var._from_to_1 = collect_node(var._from_to_1);
-  func__2_1 = collect_node(func__2_1);
   var._from_to_2 = collect_node(var._from_to_2);
-  func__3_1 = collect_node(func__3_1);
   var.std__from_to_by = collect_node(var.std__from_to_by);
-  func__4_1 = collect_node(func__4_1);
   var._from_to_by_1 = collect_node(var._from_to_by_1);
-  func__5_1 = collect_node(func__5_1);
   var._from_to_by_2 = collect_node(var._from_to_by_2);
-  func__6_1 = collect_node(func__6_1);
   var.std__from_down_to = collect_node(var.std__from_down_to);
-  func__7_1 = collect_node(func__7_1);
   var._from_down_to_1 = collect_node(var._from_down_to_1);
-  func__8_1 = collect_node(func__8_1);
   var._from_down_to_2 = collect_node(var._from_down_to_2);
-  func__9_1 = collect_node(func__9_1);
   var.std__from_down_to_by = collect_node(var.std__from_down_to_by);
-  func__10_1 = collect_node(func__10_1);
   var._from_down_to_by_1 = collect_node(var._from_down_to_by_1);
-  func__11_1 = collect_node(func__11_1);
   var._from_down_to_by_2 = collect_node(var._from_down_to_by_2);
-  func__12_1 = collect_node(func__12_1);
   var.std__repeat = collect_node(var.std__repeat);
-  func__13_1 = collect_node(func__13_1);
   var.std__forever = collect_node(var.std__forever);
-  func__14_1 = collect_node(func__14_1);
   var.std__while = collect_node(var.std__while);
-  func__15_1 = collect_node(func__15_1);
   var.std__do_while = collect_node(var.std__do_while);
-  func__16_1 = collect_node(func__16_1);
   var.std__do_until = collect_node(var.std__do_until);
-  func__17_1 = collect_node(func__17_1);
-  number__1 = collect_node(number__1);
 }
 
 static int already_run_phase_1 = false;

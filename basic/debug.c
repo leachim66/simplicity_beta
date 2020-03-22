@@ -1632,10 +1632,8 @@ EXPORT void collect__basic__debug(void) {
   var.std__debug_string = collect_node(var.std__debug_string);
   var.std__dump = collect_node(var.std__dump);
   string__2_12 = collect_node(string__2_12);
-  func__2_1 = collect_node(func__2_1);
   var.std__edump = collect_node(var.std__edump);
   string__3_12 = collect_node(string__3_12);
-  func__3_1 = collect_node(func__3_1);
   var.std__collect_garbage = collect_node(var.std__collect_garbage);
   var.std__instruction_counter = collect_node(var.std__instruction_counter);
   var.std__total_garbage_collections = collect_node(var.std__total_garbage_collections);
@@ -1647,15 +1645,6 @@ EXPORT void collect__basic__debug(void) {
   string__7_25 = collect_node(string__7_25);
   string__7_27 = collect_node(string__7_27);
   string__7_38 = collect_node(string__7_38);
-  func__7_37 = collect_node(func__7_37);
-  func__7_1 = collect_node(func__7_1);
-  number__0 = collect_node(number__0);
-  number__8 = collect_node(number__8);
-  number__16 = collect_node(number__16);
-  character__32 = collect_node(character__32);
-  character__127 = collect_node(character__127);
-  number__1 = collect_node(number__1);
-  number__2 = collect_node(number__2);
 }
 
 static int already_run_phase_1 = false;
@@ -1678,17 +1667,8 @@ EXPORT void phase_2__basic__debug(void) {
   character__127 = from_uchar32(127);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  string__2_12 = from_latin_1_string(":", 1);
   func__2_1 = create_function(entry__2_1, -1);
-  string__3_12 = from_latin_1_string(":", 1);
   func__3_1 = create_function(entry__3_1, -1);
-  string__7_12 = from_latin_1_string("0", 1);
-  string__7_14 = from_latin_1_string(":", 1);
-  string__7_20 = from_latin_1_string("0", 1);
-  string__7_22 = from_latin_1_string(" ", 1);
-  string__7_25 = from_latin_1_string("   ", 3);
-  string__7_27 = from_latin_1_string("  ", 2);
-  string__7_38 = from_latin_1_string(".", 1);
   func__7_37 = create_function(entry__7_37, 0);
   func__7_1 = create_function(entry__7_1, 1);
 }
@@ -1702,7 +1682,9 @@ EXPORT void phase_3__basic__debug(void) {
   set_used_namespaces(used_namespaces);
   func__1_1 = create_future();
   define_single_assign_static("std", "debug_string", get__std__debug_string, &var.std__debug_string);
+  string__2_12 = from_latin_1_string(":", 1);
   define_single_assign_static("std", "dump", get__std__dump, &var.std__dump);
+  string__3_12 = from_latin_1_string(":", 1);
   define_single_assign_static("std", "edump", get__std__edump, &var.std__edump);
   func__4_1 = create_future();
   define_single_assign_static("std", "collect_garbage", get__std__collect_garbage, &var.std__collect_garbage);
@@ -1710,6 +1692,13 @@ EXPORT void phase_3__basic__debug(void) {
   define_single_assign_static("std", "instruction_counter", get__std__instruction_counter, &var.std__instruction_counter);
   func__6_1 = create_future();
   define_single_assign_static("std", "total_garbage_collections", get__std__total_garbage_collections, &var.std__total_garbage_collections);
+  string__7_12 = from_latin_1_string("0", 1);
+  string__7_14 = from_latin_1_string(":", 1);
+  string__7_20 = from_latin_1_string("0", 1);
+  string__7_22 = from_latin_1_string(" ", 1);
+  string__7_25 = from_latin_1_string("   ", 3);
+  string__7_27 = from_latin_1_string("  ", 2);
+  string__7_38 = from_latin_1_string(".", 1);
   define_single_assign_static("std", "hexdump", get__std__hexdump, &var.std__hexdump);
 }
 

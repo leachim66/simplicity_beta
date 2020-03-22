@@ -6565,6 +6565,16 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__runtime_definitions(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+}
+
+static int already_run_phase_3 = false;
+
+EXPORT void phase_3__runtime_definitions(void) {
+  if (already_run_phase_3) return;
+  already_run_phase_3 = true;
+  set_module("runtime_definitions");
+  set_used_namespaces(used_namespaces);
+  define_single_assign_static("sim2c", "runtime_symbols", get__sim2c__runtime_symbols, &var.sim2c__runtime_symbols);
   string__2_1 = from_latin_1_string("ASM", 3);
   string__2_2 = from_latin_1_string("#if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)\012  #define ASM(x) asm(x)\012#else\012  #define ASM(x)\012#endif\012", 120);
   string__2_4 = from_latin_1_string("REGISTER", 8);
@@ -7047,16 +7057,6 @@ EXPORT void phase_2__runtime_definitions(void) {
   string__2_719 = from_latin_1_string("int retrieve_continuation_info(\012  FUNC func, const char **filename_p, CONTINUATION_INFO **info_p\012);\012", 100);
   string__2_721 = from_latin_1_string("crash_dump", 10);
   string__2_722 = from_latin_1_string("void crash_dump(void);\012", 23);
-}
-
-static int already_run_phase_3 = false;
-
-EXPORT void phase_3__runtime_definitions(void) {
-  if (already_run_phase_3) return;
-  already_run_phase_3 = true;
-  set_module("runtime_definitions");
-  set_used_namespaces(used_namespaces);
-  define_single_assign_static("sim2c", "runtime_symbols", get__sim2c__runtime_symbols, &var.sim2c__runtime_symbols);
 }
 
 static int already_run_phase_4 = false;
