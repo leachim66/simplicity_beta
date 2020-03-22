@@ -201,6 +201,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -209,7 +210,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -225,7 +225,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -4370,11 +4369,17 @@ EXPORT void phase_2__nodes(void) {
   character__39 = from_uchar32(39);
   character__46 = from_uchar32(46);
   string__208_3 = from_latin_1_string("_", 1);
+  func__208_1 = create_function(entry__208_1, 1);
   string__222_1 = from_latin_1_string("\012", 1);
   string__223_1 = from_latin_1_string("\012", 1);
   string__246_6 = from_latin_1_string("::", 2);
+  func__246_8 = create_function(entry__246_8, 0);
+  func__246_1 = create_function(entry__246_1, 1);
   string__247_6 = from_latin_1_string("__", 2);
+  func__247_8 = create_function(entry__247_8, 0);
+  func__247_1 = create_function(entry__247_1, 1);
   string__260_1 = from_latin_1_string("local", 5);
+  func__267_1 = create_function(entry__267_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4460,7 +4465,6 @@ EXPORT void phase_3__nodes(void) {
   define_single_assign_static("sim2c", "attribute_value_pair", get__sim2c__attribute_value_pair, &var.sim2c__attribute_value_pair);
   define_single_assign_static("sim2c", "attribute_function_pair", get__sim2c__attribute_function_pair, &var.sim2c__attribute_function_pair);
   define_single_assign_static("sim2c", "numeric_literal", get__sim2c__numeric_literal, &var.sim2c__numeric_literal);
-  func__208_1 = create_future();
   define_single_assign_static("sim2c", "character_literal", get__sim2c__character_literal, &var.sim2c__character_literal);
   define_single_assign_static("sim2c", "string_literal", get__sim2c__string_literal, &var.sim2c__string_literal);
   define_single_assign_static("sim2c", "multi_line_string", get__sim2c__multi_line_string, &var.sim2c__multi_line_string);
@@ -4468,15 +4472,10 @@ EXPORT void phase_3__nodes(void) {
   define_single_assign_static("sim2c", "polymorphic_function", get__sim2c__polymorphic_function, &var.sim2c__polymorphic_function);
   define_single_assign_static("sim2c", "polymorphic_function_with_setter", get__sim2c__polymorphic_function_with_setter, &var.sim2c__polymorphic_function_with_setter);
   define_single_assign_static("sim2c", "identifier", get__sim2c__identifier, &var.sim2c__identifier);
-  func__246_8 = create_future();
-  func__246_1 = create_future();
-  func__247_8 = create_future();
-  func__247_1 = create_future();
   define_single_assign_static("sim2c", "temporary", get__sim2c__temporary, &var.sim2c__temporary);
   define_single_assign_static("sim2c", "operator_symbol", get__sim2c__operator_symbol, &var.sim2c__operator_symbol);
   define_single_assign_static("sim2c", "c_code", get__sim2c__c_code, &var.sim2c__c_code);
   define_single_assign_static("sim2c", "c_body", get__sim2c__c_body, &var.sim2c__c_body);
-  func__267_1 = create_future();
   define_single_assign_static("sim2c", "is_a_parameter", get__sim2c__is_a_parameter, &var.sim2c__is_a_parameter);
 }
 
@@ -4832,11 +4831,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__nodes(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__208_1, create_function(entry__208_1, 1));
-  assign_value(&func__246_8, create_function(entry__246_8, 0));
-  assign_value(&func__246_1, create_function(entry__246_1, 1));
-  assign_value(&func__247_8, create_function(entry__247_8, 0));
-  assign_value(&func__247_1, create_function(entry__247_1, 1));
-  assign_value(&func__267_1, create_function(entry__267_1, 1));
   register_collector(collect__nodes);
 }

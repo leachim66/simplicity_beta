@@ -214,6 +214,7 @@ IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -241,7 +242,6 @@ IMPORT void use_read_write(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_SETTER *setter
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -15443,30 +15443,30 @@ static void entry__30_1(void) {
   // return__1: 1
   frame->slots[1] /* return__1 */ = create_continuation();
   // _define %html::encode 
-  // : ($text tag _arg_str)
-  // std::equal temp__1 tag "p"
+  // : ($text tag _arg_str)
+  //   std::equal temp__1 tag "p"
   // 
-  // temp__2:
-  // std::sequence temp__2 "&lt;" NAME "::" NAME '>'
-  // std::key_value_pair temp__1 temp__2: (capture)
-  // std::negate temp__2 2
-  // range temp__1 capture 5 temp__2
-  // resolve_reference temp__1 $reference
-  // mangled temp__2 reference
-  // std::string
-  // temp__1
-  // "
-  // <a href="@
-  // temp__2
-  // "
-  // .html">@
-  // reference
-  // "</a>"
-  // -> temp__1
-  // replace_all &text temp__1
+  //   temp__2:
+  //     std::sequence temp__2 "&lt;" NAME "::" NAME '>'
+  //     std::key_value_pair temp__1 temp__2: (capture)
+  //       std::negate temp__2 2
+  //       range temp__1 capture 5 temp__2
+  //       resolve_reference temp__1 $reference
+  //       mangled temp__2 reference
+  //       std::string
+  //         temp__1
+  //         "
+  //           <a href="@
+  //         temp__2
+  //         "
+  //           .html">@
+  //         reference
+  //         "</a>"
+  //       -> temp__1
+  //     replace_all &text temp__1
   // 
-  // if temp__1 temp__2
-  // emit text
+  //   if temp__1 temp__2
+  //   emit text
   define__html__encode(func__30_2);
   if (argument_count != 1) {
     invalid_arguments_error();
@@ -19760,27 +19760,45 @@ EXPORT void phase_2__extractor(void) {
   character__42 = from_uchar32(42);
   character__62 = from_uchar32(62);
   string__16_5 = from_latin_1_string("body {\012  background-color: white;\012  font-family: Times New Roman, Times;\012  font-size: 12pt;\012  color: #222;\012}\012h1 {\012  font-family: Arial, Helvetica;\012  font-size: 20pt;\012  color: #333;\012  margin-top: 0pt;\012  margin-bottom: 8pt;\012}\012h2 {\012  font-family: Arial, Helvetica;\012  font-size: 16pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 5pt;\012}\012h3 {\012  font-family: Arial, Helvetica;\012  font-size: 14pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 3pt;\012}\012h4 {\012  font-family: Arial, Helvetica;\012  font-size: 13pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 2pt;\012}\012dt {\012  font-style: italic;\012  margin-bottom: 4pt;\012}\012dd {\012  padding-left: 0pt;\012  margin-left: 16pt;\012  margin-top: 0pt;\012  margin-bottom: 0pt;\012}\012p {\012  margin-top: 0pt;\012  margin-bottom: 8pt;\012}\012a {\012  text-decoration: none;\012}\012div.Example {\012  background-color: #ffc;\012  border: solid 1pt;\012  margin-top: 6pt;\012  margin-bottom: 8pt;\012}\012div.Output {\012  background-color: #cff;\012  border: solid 1pt;\012  margin-top: 6pt;\012  margin-bottom: 8pt;\012}\012div.footer {\012  padding-top: 10pt;\012  font-size: 10pt;\012}\012pre {\012  font-family: Courier New, Courier;\012  font-size: 12pt;\012  padding-top: 0pt;\012  padding-bottom: 0pt;\012  margin-top: 2pt;\012  margin-bottom: 2pt;\012}\012td.remark {\012  padding-left: 10pt;\012}\012", 1234);
+  func__16_4 = create_function(entry__16_4, 0);
+  func__16_1 = create_function(entry__16_1, 2);
   string__18_2 = from_latin_1_string("extracting documentation from ", 30);
   string__18_3 = from_latin_1_string("\012", 1);
   string__18_11 = from_latin_1_string("Empty source text!", 18);
+  func__18_10 = create_function(entry__18_10, 0);
   string__18_17 = from_latin_1_string("Whitespace at start of source text!", 35);
+  func__18_16 = create_function(entry__18_16, 0);
   string__18_24 = from_latin_1_string("Missing newline at end of source text!", 38);
+  func__18_23 = create_function(entry__18_23, 0);
   string__18_26 = from_latin_1_string(".sim", 4);
   string__18_28 = from_latin_1_string("__", 2);
+  func__18_32 = create_function(entry__18_32, 1);
   string__18_55 = from_latin_1_string("std", 3);
+  func__18_54 = create_function(entry__18_54, 0);
+  func__18_61 = create_function(entry__18_61, 0);
+  func__18_64 = create_function(entry__18_64, 0);
+  func__18_87 = create_function(entry__18_87, 0);
   string__18_92 = from_latin_1_string("type", 4);
+  func__18_105 = create_function(entry__18_105, 0);
   string__18_135 = from_latin_1_string("types::function", 15);
+  func__18_1 = create_function(entry__18_1, 1);
   string__19_10 = from_latin_1_string(".sim", 4);
+  func__19_4 = create_function(entry__19_4, 1);
+  func__19_1 = create_function(entry__19_1, 1);
   string__20_14 = from_latin_1_string("The attribute \042", 15);
   string__20_15 = from_latin_1_string("\042 cannot be uniquely resolved!\012", 31);
   string__20_21 = from_latin_1_string("The attribute \042", 15);
   string__20_22 = from_latin_1_string("\042 cannot be resolved!\012", 22);
   string__20_25 = from_latin_1_string("::", 2);
+  func__20_1 = create_function(entry__20_1, 1);
   string__21_2 = from_latin_1_string("::", 2);
   string__21_4 = from_latin_1_string("::", 2);
+  func__21_1 = create_function(entry__21_1, 2);
   string__22_2 = from_latin_1_string("::", 2);
   string__22_3 = from_latin_1_string("__", 2);
   string__22_5 = from_latin_1_string("___", 3);
+  func__22_1 = create_function(entry__22_1, 1);
+  func__23_1 = create_function(entry__23_1, 2);
   string__24_3 = from_latin_1_string("href", 4);
   string__24_4 = from_latin_1_string("index.html", 10);
   string__24_6 = from_latin_1_string("Home", 4);
@@ -19800,12 +19818,16 @@ EXPORT void phase_2__extractor(void) {
   string__24_31 = from_latin_1_string("href", 4);
   string__24_32 = from_latin_1_string("topic_index.html", 16);
   string__24_34 = from_latin_1_string("Topic Index", 11);
+  func__24_2 = create_function(entry__24_2, 0);
+  func__24_1 = create_function(entry__24_1, 0);
   string__25_6 = from_latin_1_string("::", 2);
   string__25_9 = from_latin_1_string("types::", 7);
   string__25_12 = from_latin_1_string("::", 2);
   string__25_15 = from_latin_1_string("std::", 5);
   string__25_20 = from_latin_1_string("::", 2);
   string__25_23 = from_latin_1_string("std::", 5);
+  func__25_1 = create_function(entry__25_1, 1);
+  func__28_1 = create_function(entry__28_1, 1);
   string__29_5 = from_latin_1_string("html/", 5);
   string__29_6 = from_latin_1_string(".html", 5);
   string__29_16 = from_latin_1_string("](", 2);
@@ -19825,17 +19847,25 @@ EXPORT void phase_2__extractor(void) {
   string__29_138 = from_latin_1_string("[", 1);
   string__29_139 = from_latin_1_string("](", 2);
   string__29_140 = from_latin_1_string(".html)", 6);
+  func__29_133 = create_function(entry__29_133, 1);
   string__29_172 = from_latin_1_string(" (optional; default value: ", 27);
   string__29_173 = from_latin_1_string(")", 1);
   string__29_176 = from_latin_1_string(" (optional)", 11);
   string__29_181 = from_latin_1_string(" (zero or more arguments)", 25);
+  func__29_191 = create_function(entry__29_191, 0);
+  func__29_195 = create_function(entry__29_195, 0);
   string__29_202 = from_latin_1_string("Parameters", 10);
+  func__29_205 = create_function(entry__29_205, 1);
   string__29_213 = from_latin_1_string("Returns", 7);
+  func__29_216 = create_function(entry__29_216, 1);
   string__29_224 = from_latin_1_string("Description", 11);
+  func__29_226 = create_function(entry__29_226, 1);
   string__29_230 = from_latin_1_string("Technical Details", 17);
+  func__29_232 = create_function(entry__29_232, 1);
   string__29_236 = from_latin_1_string("See Also", 8);
   string__29_242 = from_latin_1_string(".html", 5);
   string__29_244 = from_latin_1_string("href", 4);
+  func__29_239 = create_function(entry__29_239, 1);
   string__29_251 = from_latin_1_string("Implemented by", 14);
   string__29_260 = from_latin_1_string(".html", 5);
   string__29_262 = from_latin_1_string("href", 4);
@@ -19851,43 +19881,57 @@ EXPORT void phase_2__extractor(void) {
   string__29_298 = from_latin_1_string("href", 4);
   string__29_302 = from_latin_1_string("::", 2);
   string__29_310 = from_latin_1_string("class", 5);
+  func__29_317 = create_function(entry__29_317, 1);
   string__29_319 = from_latin_1_string("**", 2);
   string__29_320 = from_latin_1_string("**", 2);
   string__29_325 = from_latin_1_string("class", 5);
   string__29_326 = from_latin_1_string("footer", 6);
   string__29_330 = from_latin_1_string("(defined in ", 12);
   string__29_331 = from_latin_1_string(")\012", 2);
+  func__29_1 = create_function(entry__29_1, 2);
   string__30_3 = from_latin_1_string("p", 1);
   string__30_6 = from_latin_1_string("&lt;", 4);
   string__30_7 = from_latin_1_string("::", 2);
   string__30_14 = from_latin_1_string("<a href=\042", 9);
   string__30_15 = from_latin_1_string(".html\042>", 7);
   string__30_16 = from_latin_1_string("</a>", 4);
+  func__30_9 = create_function(entry__30_9, 1);
+  func__30_2 = create_function(entry__30_2, 3);
   string__30_34 = from_latin_1_string("::", 2);
   string__30_43 = from_latin_1_string("::", 2);
   string__30_45 = from_latin_1_string("::", 2);
+  func__30_24 = create_function(entry__30_24, 2);
   string__30_59 = from_latin_1_string("html/type_index.html", 20);
   string__30_68 = from_latin_1_string("&nbsp;&nbsp;&nbsp;", 18);
   string__30_72 = from_latin_1_string(".html", 5);
   string__30_74 = from_latin_1_string("href", 4);
   string__30_91 = from_latin_1_string("Type Index", 10);
+  func__30_60 = create_function(entry__30_60, 0);
   string__30_103 = from_latin_1_string("html/symbol_index.html", 22);
   string__30_106 = from_latin_1_string("id", 2);
   string__30_107 = from_latin_1_string("index", 5);
   string__30_109 = from_latin_1_string("Symbol Index", 12);
   string__30_112 = from_latin_1_string("#", 1);
   string__30_114 = from_latin_1_string("href", 4);
+  func__30_111 = create_function(entry__30_111, 1);
   string__30_118 = from_latin_1_string(" ", 1);
+  func__30_117 = create_function(entry__30_117, 0);
   string__30_129 = from_latin_1_string("colspan", 7);
   string__30_132 = from_latin_1_string("id", 2);
   string__30_137 = from_latin_1_string("href", 4);
   string__30_138 = from_latin_1_string("#index", 6);
   string__30_140 = from_latin_1_string("&nbsp;&#x2302;", 14);
   string__30_155 = from_latin_1_string("function", 8);
+  func__30_154 = create_function(entry__30_154, 0);
   string__30_157 = from_latin_1_string("inline-C function", 17);
+  func__30_156 = create_function(entry__30_156, 0);
   string__30_159 = from_latin_1_string("polymorphic function", 20);
+  func__30_158 = create_function(entry__30_158, 0);
   string__30_161 = from_latin_1_string("unique item", 11);
+  func__30_160 = create_function(entry__30_160, 0);
   string__30_163 = from_latin_1_string("type", 4);
+  func__30_162 = create_function(entry__30_162, 0);
+  func__30_164 = create_function(entry__30_164, 0);
   string__30_170 = from_latin_1_string(" (", 2);
   string__30_171 = from_latin_1_string(")", 1);
   string__30_181 = from_latin_1_string("align", 5);
@@ -19898,7 +19942,10 @@ EXPORT void phase_2__extractor(void) {
   string__30_193 = from_latin_1_string("::", 2);
   string__30_196 = from_latin_1_string("class", 5);
   string__30_197 = from_latin_1_string("remark", 6);
+  func__30_121 = create_function(entry__30_121, 0);
+  func__30_104 = create_function(entry__30_104, 0);
   string__30_209 = from_latin_1_string("/", 1);
+  func__30_200 = create_function(entry__30_200, 2);
   string__30_212 = from_latin_1_string("html/topic_index.html", 21);
   string__30_215 = from_latin_1_string("id", 2);
   string__30_216 = from_latin_1_string("index", 5);
@@ -19906,6 +19953,9 @@ EXPORT void phase_2__extractor(void) {
   string__30_223 = from_latin_1_string("_", 1);
   string__30_226 = from_latin_1_string(".html", 5);
   string__30_230 = from_latin_1_string("href", 4);
+  func__30_221 = create_function(entry__30_221, 2);
+  func__30_220 = create_function(entry__30_220, 0);
+  func__30_213 = create_function(entry__30_213, 0);
   string__30_235 = from_latin_1_string("_", 1);
   string__30_238 = from_latin_1_string("html/", 5);
   string__30_239 = from_latin_1_string(".html", 5);
@@ -19913,20 +19963,28 @@ EXPORT void phase_2__extractor(void) {
   string__30_244 = from_latin_1_string("index", 5);
   string__30_252 = from_latin_1_string(".html", 5);
   string__30_254 = from_latin_1_string("href", 4);
+  func__30_248 = create_function(entry__30_248, 1);
+  func__30_233 = create_function(entry__30_233, 2);
   string__30_257 = from_latin_1_string("html/index.html", 15);
   string__30_259 = from_latin_1_string("Simplicity", 10);
   string__30_262 = from_latin_1_string("href", 4);
   string__30_263 = from_latin_1_string("manual.html", 11);
   string__30_265 = from_latin_1_string("Manual", 6);
+  func__30_261 = create_function(entry__30_261, 0);
   string__30_268 = from_latin_1_string("href", 4);
   string__30_269 = from_latin_1_string("type_index.html", 15);
   string__30_271 = from_latin_1_string("Type Index", 10);
+  func__30_267 = create_function(entry__30_267, 0);
   string__30_274 = from_latin_1_string("href", 4);
   string__30_275 = from_latin_1_string("symbol_index.html", 17);
   string__30_277 = from_latin_1_string("Symbol Index", 12);
+  func__30_273 = create_function(entry__30_273, 0);
   string__30_280 = from_latin_1_string("href", 4);
   string__30_281 = from_latin_1_string("topic_index.html", 16);
   string__30_283 = from_latin_1_string("Topic Index", 11);
+  func__30_279 = create_function(entry__30_279, 0);
+  func__30_258 = create_function(entry__30_258, 0);
+  func__30_1 = create_function(entry__30_1, 1);
   string__56_1 = from_latin_1_string("Topics", 6);
   string__56_2 = from_latin_1_string("Topic", 5);
   string__57_1 = from_latin_1_string("Example", 7);
@@ -19951,67 +20009,9 @@ EXPORT void phase_3__extractor(void) {
   unique__13_1 = register_unique_item("UNIQUE_ITEM");
   assign_value(&var._UNIQUE_ITEM, unique__13_1);
   var._PARAMETER_COUNT_OR_MYSELF = create_future();
-  func__16_4 = create_future();
-  func__16_1 = create_future();
   var._symbol_info = create_future();
-  func__18_10 = create_future();
-  func__18_16 = create_future();
-  func__18_23 = create_future();
-  func__18_32 = create_future();
-  func__18_54 = create_future();
-  func__18_61 = create_future();
-  func__18_64 = create_future();
-  func__18_87 = create_future();
-  func__18_105 = create_future();
-  func__18_1 = create_future();
-  func__19_4 = create_future();
-  func__19_1 = create_future();
-  func__20_1 = create_future();
-  func__21_1 = create_future();
-  func__22_1 = create_future();
-  func__23_1 = create_future();
-  func__24_2 = create_future();
-  func__24_1 = create_future();
-  func__25_1 = create_future();
   var._TOPIC = create_future();
   var._EXAMPLE = create_future();
-  func__28_1 = create_future();
-  func__29_133 = create_future();
-  func__29_191 = create_future();
-  func__29_195 = create_future();
-  func__29_205 = create_future();
-  func__29_216 = create_future();
-  func__29_226 = create_future();
-  func__29_232 = create_future();
-  func__29_239 = create_future();
-  func__29_317 = create_future();
-  func__29_1 = create_future();
-  func__30_9 = create_future();
-  func__30_2 = create_future();
-  func__30_24 = create_future();
-  func__30_60 = create_future();
-  func__30_111 = create_future();
-  func__30_117 = create_future();
-  func__30_154 = create_future();
-  func__30_156 = create_future();
-  func__30_158 = create_future();
-  func__30_160 = create_future();
-  func__30_162 = create_future();
-  func__30_164 = create_future();
-  func__30_121 = create_future();
-  func__30_104 = create_future();
-  func__30_200 = create_future();
-  func__30_221 = create_future();
-  func__30_220 = create_future();
-  func__30_213 = create_future();
-  func__30_248 = create_future();
-  func__30_233 = create_future();
-  func__30_261 = create_future();
-  func__30_267 = create_future();
-  func__30_273 = create_future();
-  func__30_279 = create_future();
-  func__30_258 = create_future();
-  func__30_1 = create_future();
   define_single_assign_static("sim2c", "extract_documentation", get__sim2c__extract_documentation, &var.sim2c__extract_documentation);
 }
 
@@ -20203,63 +20203,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__extractor(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__16_4, create_function(entry__16_4, 0));
-  assign_value(&func__16_1, create_function(entry__16_1, 2));
-  assign_value(&func__18_10, create_function(entry__18_10, 0));
-  assign_value(&func__18_16, create_function(entry__18_16, 0));
-  assign_value(&func__18_23, create_function(entry__18_23, 0));
-  assign_value(&func__18_32, create_function(entry__18_32, 1));
-  assign_value(&func__18_54, create_function(entry__18_54, 0));
-  assign_value(&func__18_61, create_function(entry__18_61, 0));
-  assign_value(&func__18_64, create_function(entry__18_64, 0));
-  assign_value(&func__18_87, create_function(entry__18_87, 0));
-  assign_value(&func__18_105, create_function(entry__18_105, 0));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_4, create_function(entry__19_4, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 1));
-  assign_value(&func__20_1, create_function(entry__20_1, 1));
-  assign_value(&func__21_1, create_function(entry__21_1, 2));
-  assign_value(&func__22_1, create_function(entry__22_1, 1));
-  assign_value(&func__23_1, create_function(entry__23_1, 2));
-  assign_value(&func__24_2, create_function(entry__24_2, 0));
-  assign_value(&func__24_1, create_function(entry__24_1, 0));
-  assign_value(&func__25_1, create_function(entry__25_1, 1));
-  assign_value(&func__28_1, create_function(entry__28_1, 1));
-  assign_value(&func__29_133, create_function(entry__29_133, 1));
-  assign_value(&func__29_191, create_function(entry__29_191, 0));
-  assign_value(&func__29_195, create_function(entry__29_195, 0));
-  assign_value(&func__29_205, create_function(entry__29_205, 1));
-  assign_value(&func__29_216, create_function(entry__29_216, 1));
-  assign_value(&func__29_226, create_function(entry__29_226, 1));
-  assign_value(&func__29_232, create_function(entry__29_232, 1));
-  assign_value(&func__29_239, create_function(entry__29_239, 1));
-  assign_value(&func__29_317, create_function(entry__29_317, 1));
-  assign_value(&func__29_1, create_function(entry__29_1, 2));
-  assign_value(&func__30_9, create_function(entry__30_9, 1));
-  assign_value(&func__30_2, create_function(entry__30_2, 3));
-  assign_value(&func__30_24, create_function(entry__30_24, 2));
-  assign_value(&func__30_60, create_function(entry__30_60, 0));
-  assign_value(&func__30_111, create_function(entry__30_111, 1));
-  assign_value(&func__30_117, create_function(entry__30_117, 0));
-  assign_value(&func__30_154, create_function(entry__30_154, 0));
-  assign_value(&func__30_156, create_function(entry__30_156, 0));
-  assign_value(&func__30_158, create_function(entry__30_158, 0));
-  assign_value(&func__30_160, create_function(entry__30_160, 0));
-  assign_value(&func__30_162, create_function(entry__30_162, 0));
-  assign_value(&func__30_164, create_function(entry__30_164, 0));
-  assign_value(&func__30_121, create_function(entry__30_121, 0));
-  assign_value(&func__30_104, create_function(entry__30_104, 0));
-  assign_value(&func__30_200, create_function(entry__30_200, 2));
-  assign_value(&func__30_221, create_function(entry__30_221, 2));
-  assign_value(&func__30_220, create_function(entry__30_220, 0));
-  assign_value(&func__30_213, create_function(entry__30_213, 0));
-  assign_value(&func__30_248, create_function(entry__30_248, 1));
-  assign_value(&func__30_233, create_function(entry__30_233, 2));
-  assign_value(&func__30_261, create_function(entry__30_261, 0));
-  assign_value(&func__30_267, create_function(entry__30_267, 0));
-  assign_value(&func__30_273, create_function(entry__30_273, 0));
-  assign_value(&func__30_279, create_function(entry__30_279, 0));
-  assign_value(&func__30_258, create_function(entry__30_258, 0));
-  assign_value(&func__30_1, create_function(entry__30_1, 1));
   register_collector(collect__extractor);
 }

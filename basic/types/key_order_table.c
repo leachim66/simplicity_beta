@@ -211,6 +211,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -236,7 +237,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -8208,7 +8208,29 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  func__12_1 = create_function(entry__12_1, 1);
+  func__13_1 = create_function(entry__13_1, 1);
+  func__18_1 = create_function(entry__18_1, 1);
+  func__19_1 = create_function(entry__19_1, 2);
+  func__20_1 = create_function(entry__20_1, 3);
+  func__21_1 = create_function(entry__21_1, 2);
+  func__22_1 = create_function(entry__22_1, 3);
+  func__23_1 = create_function(entry__23_1, 2);
   string__26_1 = from_latin_1_string("key_order_table", 15);
+  func__27_1 = create_function(entry__27_1, 1);
+  func__29_1 = create_function(entry__29_1, -1);
+  func__30_1 = create_function(entry__30_1, 2);
+  func__31_1 = create_function(entry__31_1, 2);
+  func__32_1 = create_function(entry__32_1, 4);
+  func__33_1 = create_function(entry__33_1, 4);
+  func__34_1 = create_function(entry__34_1, 4);
+  func__35_1 = create_function(entry__35_1, 4);
+  func__36_1 = create_function(entry__36_1, 2);
+  func__37_1 = create_function(entry__37_1, 4);
+  func__38_1 = create_function(entry__38_1, 4);
+  func__39_1 = create_function(entry__39_1, 4);
+  func__40_1 = create_function(entry__40_1, 4);
+  func__41_1 = create_function(entry__41_1, 2);
   string__84_1 = from_latin_1_string("key_order_table", 15);
 }
 
@@ -8225,31 +8247,9 @@ EXPORT void phase_3__basic__types__key_order_table(void) {
   assign_value(&var._INSERT, unique__5_1);
   unique__6_1 = register_unique_item("UPDATE");
   assign_value(&var._UPDATE, unique__6_1);
-  func__12_1 = create_future();
-  func__13_1 = create_future();
   define_single_assign_static("types", "key_order_table", get__types__key_order_table, &var.types__key_order_table);
-  func__18_1 = create_future();
-  func__19_1 = create_future();
-  func__20_1 = create_future();
-  func__21_1 = create_future();
-  func__22_1 = create_future();
-  func__23_1 = create_future();
-  func__27_1 = create_future();
   define_single_assign_static("std", "empty_key_order_table", get__std__empty_key_order_table, &var.std__empty_key_order_table);
-  func__29_1 = create_future();
   define_single_assign_static("std", "key_order_table", get__std__key_order_table, &var.std__key_order_table);
-  func__30_1 = create_future();
-  func__31_1 = create_future();
-  func__32_1 = create_future();
-  func__33_1 = create_future();
-  func__34_1 = create_future();
-  func__35_1 = create_future();
-  func__36_1 = create_future();
-  func__37_1 = create_future();
-  func__38_1 = create_future();
-  func__39_1 = create_future();
-  func__40_1 = create_future();
-  func__41_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -8346,27 +8346,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__key_order_table(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__12_1, create_function(entry__12_1, 1));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 2));
-  assign_value(&func__20_1, create_function(entry__20_1, 3));
-  assign_value(&func__21_1, create_function(entry__21_1, 2));
-  assign_value(&func__22_1, create_function(entry__22_1, 3));
-  assign_value(&func__23_1, create_function(entry__23_1, 2));
-  assign_value(&func__27_1, create_function(entry__27_1, 1));
-  assign_value(&func__29_1, create_function(entry__29_1, -1));
-  assign_value(&func__30_1, create_function(entry__30_1, 2));
-  assign_value(&func__31_1, create_function(entry__31_1, 2));
-  assign_value(&func__32_1, create_function(entry__32_1, 4));
-  assign_value(&func__33_1, create_function(entry__33_1, 4));
-  assign_value(&func__34_1, create_function(entry__34_1, 4));
-  assign_value(&func__35_1, create_function(entry__35_1, 4));
-  assign_value(&func__36_1, create_function(entry__36_1, 2));
-  assign_value(&func__37_1, create_function(entry__37_1, 4));
-  assign_value(&func__38_1, create_function(entry__38_1, 4));
-  assign_value(&func__39_1, create_function(entry__39_1, 4));
-  assign_value(&func__40_1, create_function(entry__40_1, 4));
-  assign_value(&func__41_1, create_function(entry__41_1, 2));
   register_collector(collect__basic__types__key_order_table);
 }

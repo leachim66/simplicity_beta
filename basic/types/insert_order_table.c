@@ -209,6 +209,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -234,7 +235,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -8719,9 +8719,31 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  func__16_1 = create_function(entry__16_1, 1);
+  func__17_1 = create_function(entry__17_1, 1);
+  func__24_1 = create_function(entry__24_1, 1);
+  func__25_1 = create_function(entry__25_1, 2);
+  func__26_1 = create_function(entry__26_1, 5);
+  func__27_1 = create_function(entry__27_1, 3);
+  func__28_1 = create_function(entry__28_1, 2);
+  func__29_1 = create_function(entry__29_1, 3);
+  func__30_7 = create_function(entry__30_7, 0);
+  func__30_1 = create_function(entry__30_1, 2);
   string__35_1 = from_latin_1_string("insert_order_table", 18);
+  func__36_1 = create_function(entry__36_1, 1);
+  func__38_1 = create_function(entry__38_1, -1);
+  func__39_1 = create_function(entry__39_1, 2);
+  func__40_1 = create_function(entry__40_1, 4);
+  func__41_1 = create_function(entry__41_1, 4);
+  func__42_1 = create_function(entry__42_1, 2);
+  func__43_1 = create_function(entry__43_1, 4);
+  func__44_1 = create_function(entry__44_1, 4);
   string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  func__45_15 = create_function(entry__45_15, 0);
+  func__45_1 = create_function(entry__45_1, 4);
   string__46_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  func__46_15 = create_function(entry__46_15, 0);
+  func__46_1 = create_function(entry__46_1, 4);
   string__94_1 = from_latin_1_string("insert_order_table", 18);
 }
 
@@ -8738,31 +8760,9 @@ EXPORT void phase_3__basic__types__insert_order_table(void) {
   assign_value(&var._INSERT, unique__5_1);
   unique__6_1 = register_unique_item("UPDATE");
   assign_value(&var._UPDATE, unique__6_1);
-  func__16_1 = create_future();
-  func__17_1 = create_future();
   define_single_assign_static("types", "insert_order_table", get__types__insert_order_table, &var.types__insert_order_table);
-  func__24_1 = create_future();
-  func__25_1 = create_future();
-  func__26_1 = create_future();
-  func__27_1 = create_future();
-  func__28_1 = create_future();
-  func__29_1 = create_future();
-  func__30_7 = create_future();
-  func__30_1 = create_future();
-  func__36_1 = create_future();
   define_single_assign_static("std", "empty_insert_order_table", get__std__empty_insert_order_table, &var.std__empty_insert_order_table);
-  func__38_1 = create_future();
   define_single_assign_static("std", "insert_order_table", get__std__insert_order_table, &var.std__insert_order_table);
-  func__39_1 = create_future();
-  func__40_1 = create_future();
-  func__41_1 = create_future();
-  func__42_1 = create_future();
-  func__43_1 = create_future();
-  func__44_1 = create_future();
-  func__45_15 = create_future();
-  func__45_1 = create_future();
-  func__46_15 = create_future();
-  func__46_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -8869,27 +8869,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__insert_order_table(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_1, create_function(entry__17_1, 1));
-  assign_value(&func__24_1, create_function(entry__24_1, 1));
-  assign_value(&func__25_1, create_function(entry__25_1, 2));
-  assign_value(&func__26_1, create_function(entry__26_1, 5));
-  assign_value(&func__27_1, create_function(entry__27_1, 3));
-  assign_value(&func__28_1, create_function(entry__28_1, 2));
-  assign_value(&func__29_1, create_function(entry__29_1, 3));
-  assign_value(&func__30_7, create_function(entry__30_7, 0));
-  assign_value(&func__30_1, create_function(entry__30_1, 2));
-  assign_value(&func__36_1, create_function(entry__36_1, 1));
-  assign_value(&func__38_1, create_function(entry__38_1, -1));
-  assign_value(&func__39_1, create_function(entry__39_1, 2));
-  assign_value(&func__40_1, create_function(entry__40_1, 4));
-  assign_value(&func__41_1, create_function(entry__41_1, 4));
-  assign_value(&func__42_1, create_function(entry__42_1, 2));
-  assign_value(&func__43_1, create_function(entry__43_1, 4));
-  assign_value(&func__44_1, create_function(entry__44_1, 4));
-  assign_value(&func__45_15, create_function(entry__45_15, 0));
-  assign_value(&func__45_1, create_function(entry__45_1, 4));
-  assign_value(&func__46_15, create_function(entry__46_15, 0));
-  assign_value(&func__46_1, create_function(entry__46_1, 4));
   register_collector(collect__basic__types__insert_order_table);
 }

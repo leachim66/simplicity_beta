@@ -203,6 +203,7 @@ IMPORT void define_polymorphic_function(
 IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -227,7 +228,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -8564,13 +8564,41 @@ EXPORT void phase_2__basic__types__list(void) {
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__14_1 = create_function(entry__14_1, 1);
+  func__23_1 = create_function(entry__23_1, -1);
+  func__24_1 = create_function(entry__24_1, 2);
+  func__25_1 = create_function(entry__25_1, 1);
+  func__26_1 = create_function(entry__26_1, -1);
+  func__27_1 = create_function(entry__27_1, -1);
+  func__28_1 = create_function(entry__28_1, -1);
+  func__29_1 = create_function(entry__29_1, 2);
+  func__30_1 = create_function(entry__30_1, 2);
   string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
+  func__31_4 = create_function(entry__31_4, 0);
+  func__31_1 = create_function(entry__31_1, 1);
+  func__32_1 = create_function(entry__32_1, 2);
+  func__33_1 = create_function(entry__33_1, -1);
   string__34_4 = from_latin_1_string("list()", 6);
   string__34_6 = from_latin_1_string("list", 4);
+  func__34_1 = create_function(entry__34_1, -1);
+  func__35_1 = create_function(entry__35_1, -1);
+  func__37_1 = create_function(entry__37_1, 1);
+  func__38_1 = create_function(entry__38_1, 2);
+  func__39_1 = create_function(entry__39_1, 2);
+  func__40_1 = create_function(entry__40_1, 2);
   string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
+  func__41_5 = create_function(entry__41_5, 0);
+  func__41_15 = create_function(entry__41_15, 0);
+  func__41_1 = create_function(entry__41_1, 2);
+  func__42_1 = create_function(entry__42_1, -1);
+  func__43_1 = create_function(entry__43_1, 2);
+  func__46_3 = create_function(entry__46_3, 2);
+  func__46_1 = create_function(entry__46_1, -1);
   string__94_1 = from_latin_1_string("list", 4);
   string__94_3 = from_latin_1_string("()", 2);
   string__94_13 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
+  func__94_12 = create_function(entry__94_12, 0);
+  func__94_2 = create_function(entry__94_2, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -8586,7 +8614,6 @@ EXPORT void phase_3__basic__types__list(void) {
   define_single_assign_static("types", "list", get__types__list, &var.types__list);
   var.std__empty_list = create__types__list(0, NULL);
   define_single_assign_static("std", "empty_list", get__std__empty_list, &var.std__empty_list);
-  func__14_1 = create_future();
   func__15_1 = create_future();
   define_single_assign_static("std", "list", get__std__list, &var.std__list);
   func__16_1 = create_future();
@@ -8596,35 +8623,8 @@ EXPORT void phase_3__basic__types__list(void) {
   func__20_1 = create_future();
   func__21_1 = create_future();
   func__22_1 = create_future();
-  func__23_1 = create_future();
-  func__24_1 = create_future();
   define_single_assign_static("std", "normalized_index", get__std__normalized_index, &var.std__normalized_index);
-  func__25_1 = create_future();
-  func__26_1 = create_future();
-  func__27_1 = create_future();
-  func__28_1 = create_future();
-  func__29_1 = create_future();
-  func__30_1 = create_future();
-  func__31_4 = create_future();
-  func__31_1 = create_future();
-  func__32_1 = create_future();
-  func__33_1 = create_future();
-  func__34_1 = create_future();
-  func__35_1 = create_future();
-  func__37_1 = create_future();
-  func__38_1 = create_future();
-  func__39_1 = create_future();
-  func__40_1 = create_future();
-  func__41_5 = create_future();
-  func__41_15 = create_future();
-  func__41_1 = create_future();
-  func__42_1 = create_future();
-  func__43_1 = create_future();
-  func__46_3 = create_future();
-  func__46_1 = create_future();
   define_single_assign_static("std", "sequence", get__std__sequence, &var.std__sequence);
-  func__94_12 = create_future();
-  func__94_2 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -8749,7 +8749,6 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__list(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__14_1, create_function(entry__14_1, 1));
   assign_value(&func__15_1, create_function(entry__15_1, -1));
   assign_value(&func__16_1, create_function(entry__16_1, 1));
   assign_value(&func__17_1, create_function(entry__17_1, 2));
@@ -8758,32 +8757,5 @@ EXPORT void phase_6__basic__types__list(void) {
   assign_value(&func__20_1, create_function(entry__20_1, 1));
   assign_value(&func__21_1, create_function(entry__21_1, 2));
   assign_value(&func__22_1, create_function(entry__22_1, 3));
-  assign_value(&func__23_1, create_function(entry__23_1, -1));
-  assign_value(&func__24_1, create_function(entry__24_1, 2));
-  assign_value(&func__25_1, create_function(entry__25_1, 1));
-  assign_value(&func__26_1, create_function(entry__26_1, -1));
-  assign_value(&func__27_1, create_function(entry__27_1, -1));
-  assign_value(&func__28_1, create_function(entry__28_1, -1));
-  assign_value(&func__29_1, create_function(entry__29_1, 2));
-  assign_value(&func__30_1, create_function(entry__30_1, 2));
-  assign_value(&func__31_4, create_function(entry__31_4, 0));
-  assign_value(&func__31_1, create_function(entry__31_1, 1));
-  assign_value(&func__32_1, create_function(entry__32_1, 2));
-  assign_value(&func__33_1, create_function(entry__33_1, -1));
-  assign_value(&func__34_1, create_function(entry__34_1, -1));
-  assign_value(&func__35_1, create_function(entry__35_1, -1));
-  assign_value(&func__37_1, create_function(entry__37_1, 1));
-  assign_value(&func__38_1, create_function(entry__38_1, 2));
-  assign_value(&func__39_1, create_function(entry__39_1, 2));
-  assign_value(&func__40_1, create_function(entry__40_1, 2));
-  assign_value(&func__41_5, create_function(entry__41_5, 0));
-  assign_value(&func__41_15, create_function(entry__41_15, 0));
-  assign_value(&func__41_1, create_function(entry__41_1, 2));
-  assign_value(&func__42_1, create_function(entry__42_1, -1));
-  assign_value(&func__43_1, create_function(entry__43_1, 2));
-  assign_value(&func__46_3, create_function(entry__46_3, 2));
-  assign_value(&func__46_1, create_function(entry__46_1, -1));
-  assign_value(&func__94_12, create_function(entry__94_12, 0));
-  assign_value(&func__94_2, create_function(entry__94_2, 2));
   register_collector(collect__basic__types__list);
 }

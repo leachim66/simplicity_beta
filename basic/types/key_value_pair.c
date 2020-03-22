@@ -181,6 +181,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -205,7 +206,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -772,6 +772,7 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   number__2 = from_uint32(2U);
   string__10_12 = from_latin_1_string("key_value_pair\012", 15);
   string__10_13 = from_latin_1_string("\012", 1);
+  func__10_1 = create_function(entry__10_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -787,7 +788,6 @@ EXPORT void phase_3__basic__types__key_value_pair(void) {
   define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
   func__7_1 = create_future();
   func__8_1 = create_future();
-  func__10_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -832,6 +832,5 @@ EXPORT void phase_6__basic__types__key_value_pair(void) {
   assign_value(&func__6_1, create_function(entry__6_1, 2));
   assign_value(&func__7_1, create_function(entry__7_1, 1));
   assign_value(&func__8_1, create_function(entry__8_1, 1));
-  assign_value(&func__10_1, create_function(entry__10_1, -1));
   register_collector(collect__basic__types__key_value_pair);
 }

@@ -178,6 +178,7 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -190,7 +191,6 @@ IMPORT void use_read_only(
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1679,7 +1679,9 @@ EXPORT void phase_2__basic__debug(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   string__2_12 = from_latin_1_string(":", 1);
+  func__2_1 = create_function(entry__2_1, -1);
   string__3_12 = from_latin_1_string(":", 1);
+  func__3_1 = create_function(entry__3_1, -1);
   string__7_12 = from_latin_1_string("0", 1);
   string__7_14 = from_latin_1_string(":", 1);
   string__7_20 = from_latin_1_string("0", 1);
@@ -1687,6 +1689,8 @@ EXPORT void phase_2__basic__debug(void) {
   string__7_25 = from_latin_1_string("   ", 3);
   string__7_27 = from_latin_1_string("  ", 2);
   string__7_38 = from_latin_1_string(".", 1);
+  func__7_37 = create_function(entry__7_37, 0);
+  func__7_1 = create_function(entry__7_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1698,9 +1702,7 @@ EXPORT void phase_3__basic__debug(void) {
   set_used_namespaces(used_namespaces);
   func__1_1 = create_future();
   define_single_assign_static("std", "debug_string", get__std__debug_string, &var.std__debug_string);
-  func__2_1 = create_future();
   define_single_assign_static("std", "dump", get__std__dump, &var.std__dump);
-  func__3_1 = create_future();
   define_single_assign_static("std", "edump", get__std__edump, &var.std__edump);
   func__4_1 = create_future();
   define_single_assign_static("std", "collect_garbage", get__std__collect_garbage, &var.std__collect_garbage);
@@ -1708,8 +1710,6 @@ EXPORT void phase_3__basic__debug(void) {
   define_single_assign_static("std", "instruction_counter", get__std__instruction_counter, &var.std__instruction_counter);
   func__6_1 = create_future();
   define_single_assign_static("std", "total_garbage_collections", get__std__total_garbage_collections, &var.std__total_garbage_collections);
-  func__7_37 = create_future();
-  func__7_1 = create_future();
   define_single_assign_static("std", "hexdump", get__std__hexdump, &var.std__hexdump);
 }
 
@@ -1765,12 +1765,8 @@ EXPORT void phase_6__basic__debug(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
   assign_value(&func__1_1, create_function(entry__1_1, -1));
-  assign_value(&func__2_1, create_function(entry__2_1, -1));
-  assign_value(&func__3_1, create_function(entry__3_1, -1));
   assign_value(&func__4_1, create_function(entry__4_1, 0));
   assign_value(&func__5_1, create_function(entry__5_1, 0));
   assign_value(&func__6_1, create_function(entry__6_1, 0));
-  assign_value(&func__7_37, create_function(entry__7_37, 0));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
   register_collector(collect__basic__debug);
 }

@@ -167,6 +167,7 @@ IMPORT int debug_print(int indent, char *buf, const char *format, ...);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -174,7 +175,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -190,8 +190,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -492,7 +490,10 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__undefined(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  func__5_1 = create_function(entry__5_1, 2);
+  func__6_1 = create_function(entry__6_1, 2);
   string__16_1 = from_latin_1_string("undefined", 9);
+  func__16_2 = create_function(entry__16_2, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -506,9 +507,6 @@ EXPORT void phase_3__basic__types__undefined(void) {
   define_single_assign_static("types", "undefined", get__types__undefined, &var.types__undefined);
   var.std__undefined = create__types__undefined();
   define_single_assign_static("std", "undefined", get__std__undefined, &var.std__undefined);
-  func__5_1 = create_future();
-  func__6_1 = create_future();
-  func__16_2 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -544,8 +542,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__undefined(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__5_1, create_function(entry__5_1, 2));
-  assign_value(&func__6_1, create_function(entry__6_1, 2));
-  assign_value(&func__16_2, create_function(entry__16_2, 2));
   register_collector(collect__basic__types__undefined);
 }

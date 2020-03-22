@@ -947,13 +947,19 @@ $sim2c::body/to_c:
     return "entry@(body_suffix)" par_count
   if
     inherited_names_of(self).is_empty:
-      write_to_phase_3 "
+      write_to_phase_2 "
+	@
+	  func@(body_suffix) = create_function(entry@(body_suffix), @
+	@(par_count));@nl;@
+
+      #write_to_phase_3 "
 	@
 	  func@(body_suffix) = create_future();
-      write_to_phase_6 "
+      #write_to_phase_6 "
 	@
 	  assign_value(&func@(body_suffix), create_function(entry@(body_suffix)@
 	, @(par_count)));
+
       write_to_generated_collections
 	"  func@(body_suffix) = collect_node(func@(body_suffix));@nl;"
       return "func@(body_suffix)"

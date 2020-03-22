@@ -213,6 +213,7 @@ IMPORT void define_polymorphic_function(
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void register_dynamic(int *id_p);
@@ -244,7 +245,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -10590,6 +10590,9 @@ EXPORT void phase_2__simplifier(void) {
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
   string__5_3 = from_latin_1_string("temp__", 6);
+  func__5_1 = create_function(entry__5_1, 0);
+  func__6_3 = create_function(entry__6_3, 1);
+  func__6_1 = create_function(entry__6_1, 1);
   string__7_9 = from_latin_1_string("Invalid access to read-only variable \042", 38);
   string__7_10 = from_latin_1_string("\042", 1);
   string__7_17 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
@@ -10598,20 +10601,38 @@ EXPORT void phase_2__simplifier(void) {
   string__7_26 = from_latin_1_string("\042", 1);
   string__7_33 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
   string__7_34 = from_latin_1_string("\042", 1);
+  func__7_1 = create_function(entry__7_1, 3);
   string__8_2 = from_latin_1_string("simplify statement (default)", 28);
+  func__8_1 = create_function(entry__8_1, 1);
   string__9_2 = from_latin_1_string("simplify expression (default)", 29);
+  func__9_1 = create_function(entry__9_1, 1);
   string__10_2 = from_latin_1_string("simplify body", 13);
   string__10_10 = from_latin_1_string("An identifier named \042", 21);
   string__10_11 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
+  func__10_1 = create_function(entry__10_1, 1);
+  func__11_5 = create_function(entry__11_5, 1);
+  func__11_45 = create_function(entry__11_45, 0);
+  func__11_46 = create_function(entry__11_46, 0);
+  func__11_1 = create_function(entry__11_1, 5);
+  func__12_1 = create_function(entry__12_1, -1);
   string__13_2 = from_latin_1_string("simplify statement", 18);
+  func__13_89 = create_function(entry__13_89, 1);
+  func__13_1 = create_function(entry__13_1, 1);
   string__14_2 = from_latin_1_string("simplify function call", 22);
+  func__14_1 = create_function(entry__14_1, 1);
   string__15_2 = from_latin_1_string("simplify attribute-value pair", 29);
+  func__15_1 = create_function(entry__15_1, 1);
   string__16_2 = from_latin_1_string("simplify attribute-function pair", 32);
+  func__16_1 = create_function(entry__16_1, 1);
   string__17_2 = from_latin_1_string("simplify C-code", 15);
+  func__17_4 = create_function(entry__17_4, 0);
   string__17_28 = from_latin_1_string("struct", 6);
   string__17_29 = from_latin_1_string("node", 4);
   string__17_30 = from_latin_1_string("function", 8);
+  func__17_1 = create_function(entry__17_1, 1);
   string__18_2 = from_latin_1_string("simplify C-body", 15);
+  func__18_4 = create_function(entry__18_4, 0);
+  func__18_1 = create_function(entry__18_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -10625,28 +10646,7 @@ EXPORT void phase_3__simplifier(void) {
   define__defined_names(create_future());
   register_dynamic(&dyna_idx__inherited_names);
   define__inherited_names(create_future());
-  func__5_1 = create_future();
-  func__6_3 = create_future();
-  func__6_1 = create_future();
-  func__7_1 = create_future();
   define_single_assign_static("sim2c", "check_usage", get__sim2c__check_usage, &var.sim2c__check_usage);
-  func__8_1 = create_future();
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_5 = create_future();
-  func__11_45 = create_future();
-  func__11_46 = create_future();
-  func__11_1 = create_future();
-  func__12_1 = create_future();
-  func__13_89 = create_future();
-  func__13_1 = create_future();
-  func__14_1 = create_future();
-  func__15_1 = create_future();
-  func__16_1 = create_future();
-  func__17_4 = create_future();
-  func__17_1 = create_future();
-  func__18_4 = create_future();
-  func__18_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -10797,26 +10797,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__simplifier(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__5_1, create_function(entry__5_1, 0));
-  assign_value(&func__6_3, create_function(entry__6_3, 1));
-  assign_value(&func__6_1, create_function(entry__6_1, 1));
-  assign_value(&func__7_1, create_function(entry__7_1, 3));
-  assign_value(&func__8_1, create_function(entry__8_1, 1));
-  assign_value(&func__9_1, create_function(entry__9_1, 1));
-  assign_value(&func__10_1, create_function(entry__10_1, 1));
-  assign_value(&func__11_5, create_function(entry__11_5, 1));
-  assign_value(&func__11_45, create_function(entry__11_45, 0));
-  assign_value(&func__11_46, create_function(entry__11_46, 0));
-  assign_value(&func__11_1, create_function(entry__11_1, 5));
-  assign_value(&func__12_1, create_function(entry__12_1, -1));
-  assign_value(&func__13_89, create_function(entry__13_89, 1));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__14_1, create_function(entry__14_1, 1));
-  assign_value(&func__15_1, create_function(entry__15_1, 1));
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_4, create_function(entry__17_4, 0));
-  assign_value(&func__17_1, create_function(entry__17_1, 1));
-  assign_value(&func__18_4, create_function(entry__18_4, 0));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
   register_collector(collect__simplifier);
 }

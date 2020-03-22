@@ -203,6 +203,7 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -222,7 +223,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -4517,10 +4517,17 @@ EXPORT void phase_2__expander(void) {
   already_run_phase_2 = true;
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__3_1 = create_function(entry__3_1, 1);
   string__4_2 = from_latin_1_string("expand statement", 16);
+  func__4_1 = create_function(entry__4_1, 1);
   string__5_2 = from_latin_1_string("expand expression", 17);
+  func__5_1 = create_function(entry__5_1, 1);
   string__6_2 = from_latin_1_string("expand body", 11);
+  func__6_5 = create_function(entry__6_5, 1);
+  func__6_14 = create_function(entry__6_14, 1);
+  func__6_1 = create_function(entry__6_1, 1);
   string__7_2 = from_latin_1_string("expand statement", 16);
+  func__7_1 = create_function(entry__7_1, 1);
   string__8_20 = from_latin_1_string("times", 5);
   string__8_23 = from_latin_1_string("over", 4);
   string__8_26 = from_latin_1_string("plus", 4);
@@ -4561,12 +4568,16 @@ EXPORT void phase_2__expander(void) {
   string__8_118 = from_latin_1_string("..", 2);
   string__8_119 = from_latin_1_string("=", 1);
   string__8_122 = from_latin_1_string("not", 3);
+  func__8_1 = create_function(entry__8_1, 1);
   string__9_2 = from_latin_1_string("expand function call", 20);
   string__9_13 = from_latin_1_string(",", 1);
   string__9_27 = from_latin_1_string(",", 1);
   string__9_37 = from_latin_1_string("sequence", 8);
+  func__9_1 = create_function(entry__9_1, 1);
   string__10_2 = from_latin_1_string("expand attribute-value pair", 27);
+  func__10_1 = create_function(entry__10_1, 1);
   string__11_2 = from_latin_1_string("expand attribute-function pair", 30);
+  func__11_1 = create_function(entry__11_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4576,18 +4587,7 @@ EXPORT void phase_3__expander(void) {
   already_run_phase_3 = true;
   set_module("expander");
   set_used_namespaces(used_namespaces);
-  func__3_1 = create_future();
-  func__4_1 = create_future();
-  func__5_1 = create_future();
-  func__6_5 = create_future();
-  func__6_14 = create_future();
-  func__6_1 = create_future();
-  func__7_1 = create_future();
-  func__8_1 = create_future();
   define_single_assign_static("sim2c", "expand_operator_call", get__sim2c__expand_operator_call, &var.sim2c__expand_operator_call);
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -4668,16 +4668,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__expander(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__3_1, create_function(entry__3_1, 1));
-  assign_value(&func__4_1, create_function(entry__4_1, 1));
-  assign_value(&func__5_1, create_function(entry__5_1, 1));
-  assign_value(&func__6_5, create_function(entry__6_5, 1));
-  assign_value(&func__6_14, create_function(entry__6_14, 1));
-  assign_value(&func__6_1, create_function(entry__6_1, 1));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
-  assign_value(&func__8_1, create_function(entry__8_1, 1));
-  assign_value(&func__9_1, create_function(entry__9_1, 1));
-  assign_value(&func__10_1, create_function(entry__10_1, 1));
-  assign_value(&func__11_1, create_function(entry__11_1, 1));
   register_collector(collect__expander);
 }

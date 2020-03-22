@@ -211,6 +211,7 @@ IMPORT void define_polymorphic_function_with_setter(
   NODE **var_p
 );
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -235,7 +236,6 @@ IMPORT void use_read_write(
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -5367,8 +5367,35 @@ EXPORT void phase_2__basic__event(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
+  func__20_1 = create_function(entry__20_1, 1);
+  func__21_1 = create_function(entry__21_1, 1);
+  func__22_1 = create_function(entry__22_1, 1);
+  func__23_1 = create_function(entry__23_1, 1);
+  func__24_1 = create_function(entry__24_1, 1);
+  func__25_1 = create_function(entry__25_1, 1);
+  func__27_1 = create_function(entry__27_1, 1);
+  func__29_1 = create_function(entry__29_1, 1);
+  func__31_1 = create_function(entry__31_1, 1);
+  func__32_1 = create_function(entry__32_1, 1);
+  func__33_1 = create_function(entry__33_1, 1);
+  func__34_18 = create_function(entry__34_18, 0);
+  func__34_17 = create_function(entry__34_17, 0);
+  func__34_27 = create_function(entry__34_27, 0);
+  func__34_39 = create_function(entry__34_39, 1);
+  func__34_43 = create_function(entry__34_43, 1);
+  func__34_1 = create_function(entry__34_1, 1);
+  func__35_1 = create_function(entry__35_1, 1);
   string__36_16 = from_latin_1_string("invalid continuation", 20);
+  func__36_18 = create_function(entry__36_18, 0);
+  func__36_1 = create_function(entry__36_1, 0);
+  func__38_5 = create_function(entry__38_5, 0);
+  func__38_2 = create_function(entry__38_2, 0);
+  func__38_9 = create_function(entry__38_9, 0);
   string__38_29 = from_latin_1_string("invalid continuation", 20);
+  func__38_1 = create_function(entry__38_1, 0);
+  func__39_15 = create_function(entry__39_15, 2);
+  func__39_1 = create_function(entry__39_1, -1);
+  func__40_1 = create_function(entry__40_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -5404,47 +5431,20 @@ EXPORT void phase_3__basic__event(void) {
   define_single_assign_static("std", "MESSAGE", get__std__MESSAGE, &var.std__MESSAGE);
   define_single_assign_static("types", "event", get__types__event, &var.types__event);
   define_multi_assign_static("std", "events", get__std__events, set__std__events);
-  func__20_1 = create_future();
   define_single_assign_static("std", "want_to_write_to", get__std__want_to_write_to, &var.std__want_to_write_to);
-  func__21_1 = create_future();
   define_single_assign_static("std", "no_longer_want_to_write_to", get__std__no_longer_want_to_write_to, &var.std__no_longer_want_to_write_to);
-  func__22_1 = create_future();
   define_single_assign_static("std", "want_to_read_from", get__std__want_to_read_from, &var.std__want_to_read_from);
-  func__23_1 = create_future();
   define_single_assign_static("std", "no_longer_want_to_read_from", get__std__no_longer_want_to_read_from, &var.std__no_longer_want_to_read_from);
-  func__24_1 = create_future();
   define_single_assign_static("std", "wanting_to_write_to", get__std__wanting_to_write_to, &var.std__wanting_to_write_to);
-  func__25_1 = create_future();
   define_single_assign_static("std", "wanting_to_read_from", get__std__wanting_to_read_from, &var.std__wanting_to_read_from);
-  func__27_1 = create_future();
   define_single_assign_static("std", "wait_to_read_from", get__std__wait_to_read_from, &var.std__wait_to_read_from);
-  func__29_1 = create_future();
   define_single_assign_static("std", "wait_to_write_to", get__std__wait_to_write_to, &var.std__wait_to_write_to);
-  func__31_1 = create_future();
   define_single_assign_static("std", "wait_for_termination", get__std__wait_for_termination, &var.std__wait_for_termination);
-  func__32_1 = create_future();
   define_single_assign_static("std", "discard", get__std__discard, &var.std__discard);
-  func__33_1 = create_future();
   define_single_assign_static("std", "create_event", get__std__create_event, &var.std__create_event);
-  func__34_18 = create_future();
-  func__34_17 = create_future();
-  func__34_27 = create_future();
-  func__34_39 = create_future();
-  func__34_43 = create_future();
-  func__34_1 = create_future();
-  func__35_1 = create_future();
-  func__36_18 = create_future();
-  func__36_1 = create_future();
   define_single_assign_static("std", "get_event", get__std__get_event, &var.std__get_event);
-  func__38_5 = create_future();
-  func__38_2 = create_future();
-  func__38_9 = create_future();
-  func__38_1 = create_future();
   define_single_assign_static("std", "process_events", get__std__process_events, &var.std__process_events);
-  func__39_15 = create_future();
-  func__39_1 = create_future();
   define_single_assign_static("std", "wait_to", get__std__wait_to, &var.std__wait_to);
-  func__40_1 = create_future();
   define_single_assign_static("std", "par", get__std__par, &var.std__par);
 }
 
@@ -5551,32 +5551,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__event(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__20_1, create_function(entry__20_1, 1));
-  assign_value(&func__21_1, create_function(entry__21_1, 1));
-  assign_value(&func__22_1, create_function(entry__22_1, 1));
-  assign_value(&func__23_1, create_function(entry__23_1, 1));
-  assign_value(&func__24_1, create_function(entry__24_1, 1));
-  assign_value(&func__25_1, create_function(entry__25_1, 1));
-  assign_value(&func__27_1, create_function(entry__27_1, 1));
-  assign_value(&func__29_1, create_function(entry__29_1, 1));
-  assign_value(&func__31_1, create_function(entry__31_1, 1));
-  assign_value(&func__32_1, create_function(entry__32_1, 1));
-  assign_value(&func__33_1, create_function(entry__33_1, 1));
-  assign_value(&func__34_18, create_function(entry__34_18, 0));
-  assign_value(&func__34_17, create_function(entry__34_17, 0));
-  assign_value(&func__34_27, create_function(entry__34_27, 0));
-  assign_value(&func__34_39, create_function(entry__34_39, 1));
-  assign_value(&func__34_43, create_function(entry__34_43, 1));
-  assign_value(&func__34_1, create_function(entry__34_1, 1));
-  assign_value(&func__35_1, create_function(entry__35_1, 1));
-  assign_value(&func__36_18, create_function(entry__36_18, 0));
-  assign_value(&func__36_1, create_function(entry__36_1, 0));
-  assign_value(&func__38_5, create_function(entry__38_5, 0));
-  assign_value(&func__38_2, create_function(entry__38_2, 0));
-  assign_value(&func__38_9, create_function(entry__38_9, 0));
-  assign_value(&func__38_1, create_function(entry__38_1, 0));
-  assign_value(&func__39_15, create_function(entry__39_15, 2));
-  assign_value(&func__39_1, create_function(entry__39_1, -1));
-  assign_value(&func__40_1, create_function(entry__40_1, -1));
   register_collector(collect__basic__event);
 }

@@ -181,6 +181,7 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -208,7 +209,6 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -3510,9 +3510,28 @@ EXPORT void phase_2__basic__exceptions(void) {
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__9_1 = create_function(entry__9_1, 1);
+  func__10_1 = create_function(entry__10_1, 1);
+  func__11_1 = create_function(entry__11_1, 1);
+  func__12_5 = create_function(entry__12_5, 0);
+  func__12_2 = create_function(entry__12_2, 0);
+  func__12_1 = create_function(entry__12_1, 0);
+  func__15_1 = create_function(entry__15_1, 1);
+  func__16_2 = create_function(entry__16_2, 1);
+  func__16_1 = create_function(entry__16_1, 1);
+  func__17_1 = create_function(entry__17_1, 0);
+  func__18_1 = create_function(entry__18_1, -1);
+  func__19_1 = create_function(entry__19_1, -1);
   string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
+  func__21_1 = create_function(entry__21_1, -1);
+  func__23_18 = create_function(entry__23_18, -1);
+  func__23_1 = create_function(entry__23_1, -1);
+  func__24_1 = create_function(entry__24_1, 1);
   string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
+  func__25_3 = create_function(entry__25_3, 0);
   string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
+  func__25_29 = create_function(entry__25_29, 0);
+  func__25_1 = create_function(entry__25_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3530,38 +3549,19 @@ EXPORT void phase_3__basic__exceptions(void) {
   define_single_assign_static("std", "ERROR_MESSAGE", get__std__ERROR_MESSAGE, &var.std__ERROR_MESSAGE);
   register_dynamic(&dyna_idx__first_resource_id);
   define__first_resource_id(create_future());
-  func__9_1 = create_future();
   define_single_assign_static("std", "register_resource", get__std__register_resource, &var.std__register_resource);
-  func__10_1 = create_future();
   define_single_assign_static("std", "deregister_resource", get__std__deregister_resource, &var.std__deregister_resource);
-  func__11_1 = create_future();
-  func__12_5 = create_future();
-  func__12_2 = create_future();
-  func__12_1 = create_future();
   func__13_1 = create_future();
-  func__15_1 = create_future();
   define_single_assign_static("std", "at_exit", get__std__at_exit, &var.std__at_exit);
-  func__16_2 = create_future();
-  func__16_1 = create_future();
   define_single_assign_static("std", "exit", get__std__exit, &var.std__exit);
-  func__17_1 = create_future();
   define_single_assign_static("std", "terminate", get__std__terminate, &var.std__terminate);
-  func__18_1 = create_future();
   define_single_assign_static("std", "ErrorMessage", get__std__ErrorMessage, &var.std__ErrorMessage);
-  func__19_1 = create_future();
   define_single_assign_static("std", "Error", get__std__Error, &var.std__Error);
   func__20_1 = create_future();
-  func__21_1 = create_future();
   define_single_assign_dynamic("std", "raise", get__std__raise, define__std__raise, &dyna_idx__std__raise);
   define__std__raise(create_future());
-  func__23_18 = create_future();
-  func__23_1 = create_future();
   define_single_assign_static("std", "try", get__std__try, &var.std__try);
-  func__24_1 = create_future();
   define_single_assign_static("std", "transaction", get__std__transaction, &var.std__transaction);
-  func__25_3 = create_future();
-  func__25_29 = create_future();
-  func__25_1 = create_future();
   define_single_assign_static("std", "retain", get__std__retain, &var.std__retain);
 }
 
@@ -3644,26 +3644,7 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__exceptions(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__9_1, create_function(entry__9_1, 1));
-  assign_value(&func__10_1, create_function(entry__10_1, 1));
-  assign_value(&func__11_1, create_function(entry__11_1, 1));
-  assign_value(&func__12_5, create_function(entry__12_5, 0));
-  assign_value(&func__12_2, create_function(entry__12_2, 0));
-  assign_value(&func__12_1, create_function(entry__12_1, 0));
   assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__15_1, create_function(entry__15_1, 1));
-  assign_value(&func__16_2, create_function(entry__16_2, 1));
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_1, create_function(entry__17_1, 0));
-  assign_value(&func__18_1, create_function(entry__18_1, -1));
-  assign_value(&func__19_1, create_function(entry__19_1, -1));
   assign_value(&func__20_1, create_function(entry__20_1, 0));
-  assign_value(&func__21_1, create_function(entry__21_1, -1));
-  assign_value(&func__23_18, create_function(entry__23_18, -1));
-  assign_value(&func__23_1, create_function(entry__23_1, -1));
-  assign_value(&func__24_1, create_function(entry__24_1, 1));
-  assign_value(&func__25_3, create_function(entry__25_3, 0));
-  assign_value(&func__25_29, create_function(entry__25_29, 0));
-  assign_value(&func__25_1, create_function(entry__25_1, 1));
   register_collector(collect__basic__exceptions);
 }

@@ -209,6 +209,7 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -237,7 +238,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -7342,36 +7342,57 @@ EXPORT void phase_2__annotator(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__1 = from_uint32(1U);
+  func__4_2 = create_function(entry__4_2, 1);
+  func__4_1 = create_function(entry__4_1, 1);
+  func__5_2 = create_function(entry__5_2, 1);
+  func__5_1 = create_function(entry__5_1, 1);
   string__6_2 = from_latin_1_string("annotate statement", 18);
+  func__6_1 = create_function(entry__6_1, 1);
   string__7_2 = from_latin_1_string("annotate expression", 19);
+  func__7_1 = create_function(entry__7_1, 1);
   string__8_12 = from_latin_1_string("the identifier \042", 16);
   string__8_13 = from_latin_1_string("\042 is defined but not used", 25);
   string__8_27 = from_latin_1_string("the identifier \042", 16);
   string__8_28 = from_latin_1_string("\042 is defined as a read-write variable, but there is no actual assignment", 72);
   string__8_41 = from_latin_1_string("attempt to use the identifier \042", 31);
   string__8_42 = from_latin_1_string("\042 that is marked as not being used", 34);
+  func__8_1 = create_function(entry__8_1, 2);
   string__9_2 = from_latin_1_string("annotate body", 13);
+  func__9_6 = create_function(entry__9_6, 1);
+  func__9_19 = create_function(entry__9_19, 1);
   string__9_31 = from_latin_1_string("attempt to define a namespaced entity (", 39);
   string__9_32 = from_latin_1_string(") in an inner scope", 19);
   string__9_39 = from_latin_1_string("Attempt to define a variable twice within a single scope (", 58);
   string__9_40 = from_latin_1_string(")", 1);
   string__9_61 = from_latin_1_string("return__", 8);
+  func__9_84 = create_function(entry__9_84, 1);
+  func__9_1 = create_function(entry__9_1, 1);
   string__10_2 = from_latin_1_string("annotate statement", 18);
+  func__10_1 = create_function(entry__10_1, 1);
   string__11_2 = from_latin_1_string("annotate C-code", 15);
   string__11_5 = from_latin_1_string("type", 4);
   string__11_6 = from_latin_1_string("object", 6);
+  func__11_1 = create_function(entry__11_1, 1);
   string__12_2 = from_latin_1_string("annotate define static single", 29);
+  func__12_1 = create_function(entry__12_1, 1);
   string__13_2 = from_latin_1_string("annotate define static multi", 28);
+  func__13_1 = create_function(entry__13_1, 1);
   string__14_2 = from_latin_1_string("annotate define dynamic single", 30);
+  func__14_1 = create_function(entry__14_1, 1);
   string__15_2 = from_latin_1_string("annotate define dynamic multi", 29);
+  func__15_1 = create_function(entry__15_1, 1);
   string__16_2 = from_latin_1_string("annotate function call", 22);
+  func__16_1 = create_function(entry__16_1, 1);
   string__17_2 = from_latin_1_string("annotate attribute-value pair", 29);
+  func__17_1 = create_function(entry__17_1, 1);
   string__18_2 = from_latin_1_string("annotate attribute-function pair", 32);
+  func__18_1 = create_function(entry__18_1, 1);
   string__19_2 = from_latin_1_string("annotate identifier ", 20);
   string__19_29 = from_latin_1_string("Incompatible use of identifier \042", 32);
   string__19_30 = from_latin_1_string("\042", 1);
   string__19_46 = from_latin_1_string("Incompatible use of identifier \042", 32);
   string__19_47 = from_latin_1_string("\042", 1);
+  func__19_1 = create_function(entry__19_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -7383,28 +7404,7 @@ EXPORT void phase_3__annotator(void) {
   set_used_namespaces(used_namespaces);
   register_dynamic(&dyna_idx__defines_dynamics);
   define__defines_dynamics(undefined);
-  func__4_2 = create_future();
-  func__4_1 = create_future();
-  func__5_2 = create_future();
-  func__5_1 = create_future();
-  func__6_1 = create_future();
-  func__7_1 = create_future();
-  func__8_1 = create_future();
   define_single_assign_static("sim2c", "check_definitions", get__sim2c__check_definitions, &var.sim2c__check_definitions);
-  func__9_6 = create_future();
-  func__9_19 = create_future();
-  func__9_84 = create_future();
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_1 = create_future();
-  func__12_1 = create_future();
-  func__13_1 = create_future();
-  func__14_1 = create_future();
-  func__15_1 = create_future();
-  func__16_1 = create_future();
-  func__17_1 = create_future();
-  func__18_1 = create_future();
-  func__19_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -7544,26 +7544,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__annotator(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__4_2, create_function(entry__4_2, 1));
-  assign_value(&func__4_1, create_function(entry__4_1, 1));
-  assign_value(&func__5_2, create_function(entry__5_2, 1));
-  assign_value(&func__5_1, create_function(entry__5_1, 1));
-  assign_value(&func__6_1, create_function(entry__6_1, 1));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
-  assign_value(&func__8_1, create_function(entry__8_1, 2));
-  assign_value(&func__9_6, create_function(entry__9_6, 1));
-  assign_value(&func__9_19, create_function(entry__9_19, 1));
-  assign_value(&func__9_84, create_function(entry__9_84, 1));
-  assign_value(&func__9_1, create_function(entry__9_1, 1));
-  assign_value(&func__10_1, create_function(entry__10_1, 1));
-  assign_value(&func__11_1, create_function(entry__11_1, 1));
-  assign_value(&func__12_1, create_function(entry__12_1, 1));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__14_1, create_function(entry__14_1, 1));
-  assign_value(&func__15_1, create_function(entry__15_1, 1));
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_1, create_function(entry__17_1, 1));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 1));
   register_collector(collect__annotator);
 }

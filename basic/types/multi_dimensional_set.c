@@ -205,6 +205,7 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -227,7 +228,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -1731,6 +1731,12 @@ EXPORT void phase_2__basic__types__multi_dimensional_set(void) {
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__3_1 = create_function(entry__3_1, 3);
+  func__4_1 = create_function(entry__4_1, 2);
+  func__5_1 = create_function(entry__5_1, -1);
+  func__7_1 = create_function(entry__7_1, -1);
+  func__8_1 = create_function(entry__8_1, 4);
+  func__9_1 = create_function(entry__9_1, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -1740,14 +1746,8 @@ EXPORT void phase_3__basic__types__multi_dimensional_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__multi_dimensional_set");
   set_used_namespaces(used_namespaces);
-  func__3_1 = create_future();
-  func__4_1 = create_future();
-  func__5_1 = create_future();
   define_single_assign_static("types", "multi_dimensional_set", get__types__multi_dimensional_set, &var.types__multi_dimensional_set);
-  func__7_1 = create_future();
   define_single_assign_static("std", "multi_dimensional_set", get__std__multi_dimensional_set, &var.std__multi_dimensional_set);
-  func__8_1 = create_future();
-  func__9_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -1794,11 +1794,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__multi_dimensional_set(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__3_1, create_function(entry__3_1, 3));
-  assign_value(&func__4_1, create_function(entry__4_1, 2));
-  assign_value(&func__5_1, create_function(entry__5_1, -1));
-  assign_value(&func__7_1, create_function(entry__7_1, -1));
-  assign_value(&func__8_1, create_function(entry__8_1, 4));
-  assign_value(&func__9_1, create_function(entry__9_1, 2));
   register_collector(collect__basic__types__multi_dimensional_set);
 }

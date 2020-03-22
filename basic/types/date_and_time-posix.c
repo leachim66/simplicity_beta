@@ -193,6 +193,7 @@ IMPORT void define_polymorphic_function_with_setter(
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -213,7 +214,6 @@ IMPORT void define_method(
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1923,11 +1923,14 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   string__28_17 = from_latin_1_string("0", 1);
   string__28_23 = from_latin_1_string("0", 1);
   string__28_29 = from_latin_1_string("+", 1);
+  func__28_36 = create_function(entry__28_36, 0);
+  func__28_35 = create_function(entry__28_35, 0);
   string__28_38 = from_latin_1_string("-", 1);
   string__28_39 = from_latin_1_string("-", 1);
   string__28_40 = from_latin_1_string(":", 1);
   string__28_41 = from_latin_1_string(":", 1);
   string__28_42 = from_latin_1_string(" GMT", 4);
+  func__28_1 = create_function(entry__28_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1957,9 +1960,6 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   func__25_1 = create_future();
   func__26_1 = create_future();
   func__27_1 = create_future();
-  func__28_36 = create_future();
-  func__28_35 = create_future();
-  func__28_1 = create_future();
   func__29_1 = create_future();
   define_single_assign_static("std", "sleep", get__std__sleep, &var.std__sleep);
 }
@@ -2050,9 +2050,6 @@ EXPORT void phase_6__basic__types__date_and_time(void) {
   assign_value(&func__25_1, create_function(entry__25_1, 2));
   assign_value(&func__26_1, create_function(entry__26_1, 2));
   assign_value(&func__27_1, create_function(entry__27_1, 1));
-  assign_value(&func__28_36, create_function(entry__28_36, 0));
-  assign_value(&func__28_35, create_function(entry__28_35, 0));
-  assign_value(&func__28_1, create_function(entry__28_1, 1));
   assign_value(&func__29_1, create_function(entry__29_1, 1));
   register_collector(collect__basic__types__date_and_time);
 }

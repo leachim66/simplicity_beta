@@ -180,6 +180,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -204,7 +205,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -971,9 +971,23 @@ EXPORT void phase_2__basic__types__boolean(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   string__12_2 = from_latin_1_string("true", 4);
+  func__12_1 = create_function(entry__12_1, 1);
   string__13_2 = from_latin_1_string("false", 5);
+  func__13_1 = create_function(entry__13_1, 1);
+  func__18_1 = create_function(entry__18_1, 1);
+  func__19_1 = create_function(entry__19_1, 1);
+  func__20_1 = create_function(entry__20_1, 2);
+  func__21_1 = create_function(entry__21_1, 2);
+  func__22_1 = create_function(entry__22_1, 2);
+  func__23_1 = create_function(entry__23_1, 2);
+  func__24_1 = create_function(entry__24_1, -1);
+  func__25_1 = create_function(entry__25_1, -1);
+  func__26_1 = create_function(entry__26_1, 2);
+  func__27_1 = create_function(entry__27_1, 2);
   string__57_1 = from_latin_1_string("true", 4);
+  func__57_2 = create_function(entry__57_2, 2);
   string__58_1 = from_latin_1_string("false", 5);
+  func__58_2 = create_function(entry__58_2, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -991,22 +1005,8 @@ EXPORT void phase_3__basic__types__boolean(void) {
   define_single_assign_static("types", "false", get__types__false, &var.types__false);
   var.std__false = create__types__false();
   define_single_assign_static("std", "false", get__std__false, &var.std__false);
-  func__12_1 = create_future();
-  func__13_1 = create_future();
   func__16_1 = create_future();
   func__17_1 = create_future();
-  func__18_1 = create_future();
-  func__19_1 = create_future();
-  func__20_1 = create_future();
-  func__21_1 = create_future();
-  func__22_1 = create_future();
-  func__23_1 = create_future();
-  func__24_1 = create_future();
-  func__25_1 = create_future();
-  func__26_1 = create_future();
-  func__27_1 = create_future();
-  func__57_2 = create_future();
-  func__58_2 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -1063,21 +1063,7 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__boolean(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__12_1, create_function(entry__12_1, 1));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
   assign_value(&func__16_1, create_function(entry__16_1, 2));
   assign_value(&func__17_1, create_function(entry__17_1, 2));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 1));
-  assign_value(&func__20_1, create_function(entry__20_1, 2));
-  assign_value(&func__21_1, create_function(entry__21_1, 2));
-  assign_value(&func__22_1, create_function(entry__22_1, 2));
-  assign_value(&func__23_1, create_function(entry__23_1, 2));
-  assign_value(&func__24_1, create_function(entry__24_1, -1));
-  assign_value(&func__25_1, create_function(entry__25_1, -1));
-  assign_value(&func__26_1, create_function(entry__26_1, 2));
-  assign_value(&func__27_1, create_function(entry__27_1, 2));
-  assign_value(&func__57_2, create_function(entry__57_2, 2));
-  assign_value(&func__58_2, create_function(entry__58_2, 2));
   register_collector(collect__basic__types__boolean);
 }

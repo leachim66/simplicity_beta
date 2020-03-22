@@ -196,9 +196,9 @@ typedef struct CELL {
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -208,8 +208,6 @@ IMPORT void use_read_only(
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1087,6 +1085,10 @@ EXPORT void phase_2__basic__functional(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__2 = from_uint32(2U);
+  func__1_1 = create_function(entry__1_1, 2);
+  func__2_1 = create_function(entry__2_1, 2);
+  func__3_1 = create_function(entry__3_1, -1);
+  func__4_1 = create_function(entry__4_1, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -1096,13 +1098,9 @@ EXPORT void phase_3__basic__functional(void) {
   already_run_phase_3 = true;
   set_module("basic__functional");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
   define_single_assign_static("std", "any_of", get__std__any_of, &var.std__any_of);
-  func__2_1 = create_future();
   define_single_assign_static("std", "all_of", get__std__all_of, &var.std__all_of);
-  func__3_1 = create_future();
   define_single_assign_static("std", "fold", get__std__fold, &var.std__fold);
-  func__4_1 = create_future();
   define_single_assign_static("std", "find_first", get__std__find_first, &var.std__find_first);
 }
 
@@ -1140,9 +1138,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__functional(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, 2));
-  assign_value(&func__2_1, create_function(entry__2_1, 2));
-  assign_value(&func__3_1, create_function(entry__3_1, -1));
-  assign_value(&func__4_1, create_function(entry__4_1, 2));
   register_collector(collect__basic__functional);
 }

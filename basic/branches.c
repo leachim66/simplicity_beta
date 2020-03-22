@@ -200,6 +200,7 @@ IMPORT void too_few_arguments_error(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -211,8 +212,6 @@ IMPORT void use_read_only(
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -2905,6 +2904,10 @@ EXPORT void phase_2__basic__branches(void) {
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__1_1 = create_function(entry__1_1, -1);
+  func__2_1 = create_function(entry__2_1, 1);
+  func__3_1 = create_function(entry__3_1, -1);
+  func__4_1 = create_function(entry__4_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -2914,12 +2917,8 @@ EXPORT void phase_3__basic__branches(void) {
   already_run_phase_3 = true;
   set_module("basic__branches");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
   define_single_assign_static("std", "cond", get__std__cond, &var.std__cond);
-  func__2_1 = create_future();
-  func__3_1 = create_future();
   define_single_assign_static("std", "case", get__std__case, &var.std__case);
-  func__4_1 = create_future();
   define_single_assign_static("std", "check_case", get__std__check_case, &var.std__check_case);
 }
 
@@ -2969,9 +2968,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__branches(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, -1));
-  assign_value(&func__2_1, create_function(entry__2_1, 1));
-  assign_value(&func__3_1, create_function(entry__3_1, -1));
-  assign_value(&func__4_1, create_function(entry__4_1, -1));
   register_collector(collect__basic__branches);
 }

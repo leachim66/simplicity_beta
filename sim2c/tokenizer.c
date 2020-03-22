@@ -204,6 +204,7 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -219,7 +220,6 @@ IMPORT void use_polymorphic_function(
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -3643,6 +3643,7 @@ EXPORT void phase_2__tokenizer(void) {
   string__4_26 = from_latin_1_string("tabulator character within line detected", 40);
   string__4_65 = from_latin_1_string("empty line contains whitespace", 30);
   string__4_132 = from_latin_1_string("invalid indentation", 19);
+  func__4_1 = create_function(entry__4_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3655,7 +3656,6 @@ EXPORT void phase_3__tokenizer(void) {
   define_single_assign_static("sim2c", "indent_marker", get__sim2c__indent_marker, &var.sim2c__indent_marker);
   define_single_assign_static("sim2c", "outdent_marker", get__sim2c__outdent_marker, &var.sim2c__outdent_marker);
   define_single_assign_static("sim2c", "newline", get__sim2c__newline, &var.sim2c__newline);
-  func__4_1 = create_future();
   define_single_assign_static("sim2c", "tokenize", get__sim2c__tokenize, &var.sim2c__tokenize);
 }
 
@@ -3721,6 +3721,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__tokenizer(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__4_1, create_function(entry__4_1, 1));
   register_collector(collect__tokenizer);
 }

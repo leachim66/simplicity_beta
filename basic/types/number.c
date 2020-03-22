@@ -215,6 +215,7 @@ IMPORT NODE *from_uint64(uint64_t val);
 IMPORT NODE *from_digit_string(const char *str);
 IMPORT NODE *from_double(double val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -239,7 +240,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -6551,15 +6551,24 @@ EXPORT void phase_2__basic__types__number(void) {
   number__1 = from_uint32(1U);
   number__10 = from_uint32(10U);
   number__0x07 = from_uint32(7U);
+  func__131_1 = create_function(entry__131_1, 1);
+  func__132_1 = create_function(entry__132_1, 1);
   string__133_6 = from_latin_1_string("0", 1);
   string__133_9 = from_latin_1_string("0", 1);
   string__133_21 = from_latin_1_string("0", 1);
+  func__133_1 = create_function(entry__133_1, -1);
   string__134_6 = from_latin_1_string("0", 1);
   string__134_9 = from_latin_1_string("0", 1);
   string__134_21 = from_latin_1_string("0", 1);
+  func__134_1 = create_function(entry__134_1, -1);
   string__135_6 = from_latin_1_string("0", 1);
   string__135_9 = from_latin_1_string("0", 1);
   string__135_28 = from_latin_1_string("0", 1);
+  func__135_1 = create_function(entry__135_1, -1);
+  func__136_1 = create_function(entry__136_1, 1);
+  func__138_1 = create_function(entry__138_1, 1);
+  func__139_1 = create_function(entry__139_1, 1);
+  func__140_1 = create_function(entry__140_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -6641,21 +6650,12 @@ EXPORT void phase_3__basic__types__number(void) {
   func__125_1 = create_future();
   func__127_1 = create_future();
   func__129_1 = create_future();
-  func__131_1 = create_future();
   define_single_assign_static("std", "is_odd", get__std__is_odd, &var.std__is_odd);
-  func__132_1 = create_future();
   define_single_assign_static("std", "is_even", get__std__is_even, &var.std__is_even);
-  func__133_1 = create_future();
   define_single_assign_static("std", "bin", get__std__bin, &var.std__bin);
-  func__134_1 = create_future();
   define_single_assign_static("std", "oct", get__std__oct, &var.std__oct);
-  func__135_1 = create_future();
   define_single_assign_static("std", "hex", get__std__hex, &var.std__hex);
-  func__136_1 = create_future();
   func__137_1 = create_future();
-  func__138_1 = create_future();
-  func__139_1 = create_future();
-  func__140_1 = create_future();
   func__141_1 = create_future();
   func__142_1 = create_future();
   func__143_1 = create_future();
@@ -6878,16 +6878,7 @@ EXPORT void phase_6__basic__types__number(void) {
   assign_value(&func__125_1, create_function(entry__125_1, 1));
   assign_value(&func__127_1, create_function(entry__127_1, 1));
   assign_value(&func__129_1, create_function(entry__129_1, 1));
-  assign_value(&func__131_1, create_function(entry__131_1, 1));
-  assign_value(&func__132_1, create_function(entry__132_1, 1));
-  assign_value(&func__133_1, create_function(entry__133_1, -1));
-  assign_value(&func__134_1, create_function(entry__134_1, -1));
-  assign_value(&func__135_1, create_function(entry__135_1, -1));
-  assign_value(&func__136_1, create_function(entry__136_1, 1));
   assign_value(&func__137_1, create_function(entry__137_1, 1));
-  assign_value(&func__138_1, create_function(entry__138_1, 1));
-  assign_value(&func__139_1, create_function(entry__139_1, 1));
-  assign_value(&func__140_1, create_function(entry__140_1, 1));
   assign_value(&func__141_1, create_function(entry__141_1, 1));
   assign_value(&func__142_1, create_function(entry__142_1, 1));
   assign_value(&func__143_1, create_function(entry__143_1, 1));

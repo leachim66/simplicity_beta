@@ -166,13 +166,14 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -185,7 +186,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -633,6 +633,11 @@ EXPORT void phase_2__basic__primitives(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   character__10 = from_uchar32(10);
+  func__2_1 = create_function(entry__2_1, 2);
+  func__3_1 = create_function(entry__3_1, 1);
+  func__4_1 = create_function(entry__4_1, -1);
+  func__5_1 = create_function(entry__5_1, 2);
+  func__7_1 = create_function(entry__7_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -642,16 +647,11 @@ EXPORT void phase_3__basic__primitives(void) {
   already_run_phase_3 = true;
   set_module("basic__primitives");
   set_used_namespaces(used_namespaces);
-  func__2_1 = create_future();
-  func__3_1 = create_future();
   define_single_assign_static("std", "ignore", get__std__ignore, &var.std__ignore);
-  func__4_1 = create_future();
   define_single_assign_static("std", "writeln_to", get__std__writeln_to, &var.std__writeln_to);
-  func__5_1 = create_future();
   define_single_assign_static("std", "swap", get__std__swap, &var.std__swap);
   func__6_1 = create_future();
   define_single_assign_static("std", "pass", get__std__pass, &var.std__pass);
-  func__7_1 = create_future();
   define_single_assign_static("std", "eval", get__std__eval, &var.std__eval);
   func__8_1 = create_future();
   define_single_assign_static("std", "do", get__std__do, &var.std__do);
@@ -699,12 +699,7 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__primitives(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__2_1, create_function(entry__2_1, 2));
-  assign_value(&func__3_1, create_function(entry__3_1, 1));
-  assign_value(&func__4_1, create_function(entry__4_1, -1));
-  assign_value(&func__5_1, create_function(entry__5_1, 2));
   assign_value(&func__6_1, create_function(entry__6_1, 0));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
   assign_value(&func__8_1, create_function(entry__8_1, 1));
   assign_value(&func__9_1, create_function(entry__9_1, -1));
   assign_value(&func__10_1, create_function(entry__10_1, -1));

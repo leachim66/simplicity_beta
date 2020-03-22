@@ -198,6 +198,7 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_double(double val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -210,7 +211,6 @@ IMPORT void use_read_only(
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -3329,6 +3329,29 @@ EXPORT void phase_2__basic__math(void) {
   number__23 = from_uint32(23U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__1_1 = create_function(entry__1_1, 1);
+  func__2_1 = create_function(entry__2_1, 1);
+  func__3_1 = create_function(entry__3_1, 2);
+  func__4_1 = create_function(entry__4_1, 2);
+  func__5_1 = create_function(entry__5_1, 1);
+  func__6_4 = create_function(entry__6_4, 0);
+  func__6_7 = create_function(entry__6_7, 0);
+  func__6_10 = create_function(entry__6_10, 0);
+  func__6_9 = create_function(entry__6_9, 0);
+  func__6_1 = create_function(entry__6_1, 1);
+  func__7_1 = create_function(entry__7_1, 1);
+  func__8_1 = create_function(entry__8_1, -1);
+  func__9_1 = create_function(entry__9_1, -1);
+  func__10_4 = create_function(entry__10_4, 0);
+  func__10_1 = create_function(entry__10_1, 2);
+  func__11_1 = create_function(entry__11_1, 1);
+  func__13_1 = create_function(entry__13_1, 1);
+  func__14_1 = create_function(entry__14_1, 1);
+  func__15_1 = create_function(entry__15_1, 1);
+  func__16_1 = create_function(entry__16_1, 1);
+  func__17_1 = create_function(entry__17_1, 1);
+  func__18_1 = create_function(entry__18_1, 1);
+  func__19_1 = create_function(entry__19_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3338,45 +3361,22 @@ EXPORT void phase_3__basic__math(void) {
   already_run_phase_3 = true;
   set_module("basic__math");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
   define_single_assign_static("std", "inc", get__std__inc, &var.std__inc);
-  func__2_1 = create_future();
   define_single_assign_static("std", "dec", get__std__dec, &var.std__dec);
-  func__3_1 = create_future();
   define_single_assign_static("std", "extend_to", get__std__extend_to, &var.std__extend_to);
-  func__4_1 = create_future();
   define_single_assign_static("std", "reduce_to", get__std__reduce_to, &var.std__reduce_to);
-  func__5_1 = create_future();
   define_single_assign_static("std", "abs", get__std__abs, &var.std__abs);
-  func__6_4 = create_future();
-  func__6_7 = create_future();
-  func__6_10 = create_future();
-  func__6_9 = create_future();
-  func__6_1 = create_future();
   define_single_assign_static("std", "sgn", get__std__sgn, &var.std__sgn);
-  func__7_1 = create_future();
   define_single_assign_static("std", "sqr", get__std__sqr, &var.std__sqr);
-  func__8_1 = create_future();
   define_single_assign_static("std", "min", get__std__min, &var.std__min);
-  func__9_1 = create_future();
   define_single_assign_static("std", "max", get__std__max, &var.std__max);
-  func__10_4 = create_future();
-  func__10_1 = create_future();
   define_single_assign_static("std", "pow", get__std__pow, &var.std__pow);
-  func__11_1 = create_future();
   define_single_assign_static("std", "sqrt", get__std__sqrt, &var.std__sqrt);
   define_single_assign_static("std", "PI", get__std__PI, &var.std__PI);
-  func__13_1 = create_future();
   define_single_assign_static("std", "sin", get__std__sin, &var.std__sin);
-  func__14_1 = create_future();
   define_single_assign_static("std", "cos", get__std__cos, &var.std__cos);
-  func__15_1 = create_future();
   define_single_assign_static("std", "tan", get__std__tan, &var.std__tan);
-  func__16_1 = create_future();
   define_single_assign_static("std", "atan", get__std__atan, &var.std__atan);
-  func__17_1 = create_future();
-  func__18_1 = create_future();
-  func__19_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -3444,28 +3444,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__math(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, 1));
-  assign_value(&func__2_1, create_function(entry__2_1, 1));
-  assign_value(&func__3_1, create_function(entry__3_1, 2));
-  assign_value(&func__4_1, create_function(entry__4_1, 2));
-  assign_value(&func__5_1, create_function(entry__5_1, 1));
-  assign_value(&func__6_4, create_function(entry__6_4, 0));
-  assign_value(&func__6_7, create_function(entry__6_7, 0));
-  assign_value(&func__6_10, create_function(entry__6_10, 0));
-  assign_value(&func__6_9, create_function(entry__6_9, 0));
-  assign_value(&func__6_1, create_function(entry__6_1, 1));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
-  assign_value(&func__8_1, create_function(entry__8_1, -1));
-  assign_value(&func__9_1, create_function(entry__9_1, -1));
-  assign_value(&func__10_4, create_function(entry__10_4, 0));
-  assign_value(&func__10_1, create_function(entry__10_1, 2));
-  assign_value(&func__11_1, create_function(entry__11_1, 1));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__14_1, create_function(entry__14_1, 1));
-  assign_value(&func__15_1, create_function(entry__15_1, 1));
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_1, create_function(entry__17_1, 1));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 1));
   register_collector(collect__basic__math);
 }

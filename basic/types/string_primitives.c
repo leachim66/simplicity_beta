@@ -207,6 +207,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *from_uint32_string(const uint32_t *str, long len);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -231,7 +232,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -5239,11 +5239,14 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   character__49 = from_uchar32(49);
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
+  func__34_1 = create_function(entry__34_1, 1);
   string__35_2 = from_latin_1_string("\042", 1);
   string__35_23 = from_latin_1_string("@0x", 3);
+  func__35_1 = create_function(entry__35_1, -1);
   string__36_9 = from_latin_1_string("0b", 2);
   string__36_27 = from_latin_1_string("0o", 2);
   string__36_45 = from_latin_1_string("0x", 2);
+  func__36_1 = create_function(entry__36_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -5270,9 +5273,6 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   func__31_1 = create_future();
   func__32_1 = create_future();
   func__33_1 = create_future();
-  func__34_1 = create_future();
-  func__35_1 = create_future();
-  func__36_1 = create_future();
   func__39_1 = create_future();
   func__40_1 = create_future();
   func__41_1 = create_future();
@@ -5396,9 +5396,6 @@ EXPORT void phase_6__basic__types__string_primitives(void) {
   assign_value(&func__31_1, create_function(entry__31_1, 2));
   assign_value(&func__32_1, create_function(entry__32_1, 1));
   assign_value(&func__33_1, create_function(entry__33_1, 1));
-  assign_value(&func__34_1, create_function(entry__34_1, 1));
-  assign_value(&func__35_1, create_function(entry__35_1, -1));
-  assign_value(&func__36_1, create_function(entry__36_1, 1));
   assign_value(&func__39_1, create_function(entry__39_1, 2));
   assign_value(&func__40_1, create_function(entry__40_1, 2));
   assign_value(&func__41_1, create_function(entry__41_1, 2));

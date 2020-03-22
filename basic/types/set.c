@@ -210,6 +210,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -233,7 +234,6 @@ IMPORT void define_attribute(
   int id, NODE *attribute
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -1028,8 +1028,13 @@ EXPORT void phase_2__basic__types__set(void) {
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  func__2_1 = create_function(entry__2_1, 2);
   string__3_5 = from_latin_1_string("()", 2);
+  func__3_1 = create_function(entry__3_1, -1);
+  func__4_1 = create_function(entry__4_1, 1);
+  func__5_1 = create_function(entry__5_1, 1);
   string__10_1 = from_latin_1_string("set", 3);
+  func__12_1 = create_function(entry__12_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1040,13 +1045,8 @@ EXPORT void phase_3__basic__types__set(void) {
   set_module("basic__types__set");
   set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "generic_set", get__types__generic_set, &var.types__generic_set);
-  func__2_1 = create_future();
-  func__3_1 = create_future();
-  func__4_1 = create_future();
-  func__5_1 = create_future();
   define_single_assign_static("types", "set", get__types__set, &var.types__set);
   define_single_assign_static("std", "empty_set", get__std__empty_set, &var.std__empty_set);
-  func__12_1 = create_future();
   define_single_assign_static("std", "set", get__std__set, &var.std__set);
 }
 
@@ -1103,10 +1103,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__set(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__2_1, create_function(entry__2_1, 2));
-  assign_value(&func__3_1, create_function(entry__3_1, -1));
-  assign_value(&func__4_1, create_function(entry__4_1, 1));
-  assign_value(&func__5_1, create_function(entry__5_1, 1));
-  assign_value(&func__12_1, create_function(entry__12_1, -1));
   register_collector(collect__basic__types__set);
 }

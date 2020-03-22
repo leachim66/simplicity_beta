@@ -151,7 +151,6 @@ $INDENTATION/grammar::match: (_self stream)
     if a statement sets a tag then it will be surrounded by blank lines;
     two consecutive lines with the same tag (with the exception of <ALWAYS>)
     will not be separated by a blank line
-
 %spaces std::spaces
 
 $indentation_string: ($indent)

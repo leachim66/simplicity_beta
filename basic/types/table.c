@@ -210,6 +210,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -237,7 +238,6 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -2702,12 +2702,20 @@ EXPORT void phase_2__basic__types__table(void) {
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__6_1 = create_function(entry__6_1, 2);
+  func__7_1 = create_function(entry__7_1, 2);
   string__8_5 = from_latin_1_string("()", 2);
   string__8_15 = from_latin_1_string(" = ", 3);
+  func__8_1 = create_function(entry__8_1, -1);
+  func__9_1 = create_function(entry__9_1, 1);
+  func__10_1 = create_function(entry__10_1, 1);
+  func__11_1 = create_function(entry__11_1, 1);
   string__16_1 = from_latin_1_string("table", 5);
+  func__18_1 = create_function(entry__18_1, -1);
   string__19_4 = from_latin_1_string("Invalid ", 8);
   string__19_5 = from_latin_1_string(" object encountered during deserialisation!", 43);
   string__19_7 = from_latin_1_string("()", 2);
+  func__19_1 = create_function(entry__19_1, 2);
   string__40_1 = from_latin_1_string("table", 5);
 }
 
@@ -2721,17 +2729,9 @@ EXPORT void phase_3__basic__types__table(void) {
   define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
   unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
-  func__6_1 = create_future();
-  func__7_1 = create_future();
-  func__8_1 = create_future();
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_1 = create_future();
   define_single_assign_static("types", "table", get__types__table, &var.types__table);
   define_single_assign_static("std", "empty_table", get__std__empty_table, &var.std__empty_table);
-  func__18_1 = create_future();
   define_single_assign_static("std", "table", get__std__table, &var.std__table);
-  func__19_1 = create_future();
   define_single_assign_static("std", "register_collection_serializer", get__std__register_collection_serializer, &var.std__register_collection_serializer);
 }
 
@@ -2814,13 +2814,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__table(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__6_1, create_function(entry__6_1, 2));
-  assign_value(&func__7_1, create_function(entry__7_1, 2));
-  assign_value(&func__8_1, create_function(entry__8_1, -1));
-  assign_value(&func__9_1, create_function(entry__9_1, 1));
-  assign_value(&func__10_1, create_function(entry__10_1, 1));
-  assign_value(&func__11_1, create_function(entry__11_1, 1));
-  assign_value(&func__18_1, create_function(entry__18_1, -1));
-  assign_value(&func__19_1, create_function(entry__19_1, 2));
   register_collector(collect__basic__types__table);
 }

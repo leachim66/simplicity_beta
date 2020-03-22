@@ -190,6 +190,7 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -219,7 +220,6 @@ IMPORT void define_attribute(
   int id, NODE *attribute
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -2904,9 +2904,19 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unordered_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  func__17_1 = create_function(entry__17_1, 3);
+  func__18_1 = create_function(entry__18_1, 2);
   string__20_1 = from_latin_1_string("unordered_set", 13);
+  func__21_1 = create_function(entry__21_1, 1);
+  func__23_1 = create_function(entry__23_1, -1);
+  func__24_1 = create_function(entry__24_1, 2);
   string__25_6 = from_latin_1_string("Invalid index error!", 20);
+  func__25_5 = create_function(entry__25_5, 0);
+  func__25_1 = create_function(entry__25_1, 4);
+  func__26_1 = create_function(entry__26_1, 2);
   string__27_6 = from_latin_1_string("Invalid index error!", 20);
+  func__27_5 = create_function(entry__27_5, 0);
+  func__27_1 = create_function(entry__27_1, 4);
   string__56_1 = from_latin_1_string("unordered_set", 13);
 }
 
@@ -2926,18 +2936,8 @@ EXPORT void phase_3__basic__types__unordered_set(void) {
   func__14_1 = create_future();
   func__15_1 = create_future();
   func__16_1 = create_future();
-  func__17_1 = create_future();
-  func__18_1 = create_future();
-  func__21_1 = create_future();
   define_single_assign_static("std", "empty_unordered_set", get__std__empty_unordered_set, &var.std__empty_unordered_set);
-  func__23_1 = create_future();
   define_single_assign_static("std", "unordered_set", get__std__unordered_set, &var.std__unordered_set);
-  func__24_1 = create_future();
-  func__25_5 = create_future();
-  func__25_1 = create_future();
-  func__26_1 = create_future();
-  func__27_5 = create_future();
-  func__27_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -3007,15 +3007,5 @@ EXPORT void phase_6__basic__types__unordered_set(void) {
   assign_value(&func__14_1, create_function(entry__14_1, 1));
   assign_value(&func__15_1, create_function(entry__15_1, 3));
   assign_value(&func__16_1, create_function(entry__16_1, 3));
-  assign_value(&func__17_1, create_function(entry__17_1, 3));
-  assign_value(&func__18_1, create_function(entry__18_1, 2));
-  assign_value(&func__21_1, create_function(entry__21_1, 1));
-  assign_value(&func__23_1, create_function(entry__23_1, -1));
-  assign_value(&func__24_1, create_function(entry__24_1, 2));
-  assign_value(&func__25_5, create_function(entry__25_5, 0));
-  assign_value(&func__25_1, create_function(entry__25_1, 4));
-  assign_value(&func__26_1, create_function(entry__26_1, 2));
-  assign_value(&func__27_5, create_function(entry__27_5, 0));
-  assign_value(&func__27_1, create_function(entry__27_1, 4));
   register_collector(collect__basic__types__unordered_set);
 }
