@@ -152,12 +152,7 @@ $INDENTATION/grammar::match: (_self stream)
     two consecutive lines with the same tag (with the exception of <ALWAYS>)
     will not be separated by a blank line
 
-$spaces: (indent)
-  #
-    write an indentation marker at the start of each line;
-    this prevents confusion with leading spaces in multi-line remarks or strings
-
-  -> string(INDENTATION_MARKER+(indent >> 1))
+%spaces std::spaces
 
 $indentation_string: ($indent)
   # create an indendation string constisting of tabulator and space characters
@@ -169,6 +164,13 @@ $indentation_string: ($indent)
   append indentation std::spaces(indent)
 
 $sim2c::print_trees: (trees)
+  %spaces: (indent)
+    #
+      write an indentation marker at the start of each line;
+      this prevents confusion with leading spaces in multi-line remarks or strings
+
+    -> string(INDENTATION_MARKER+(indent >> 1))
+
   for_each trees: (idx tree)
     $previous_statement_tag statement_tag
     !statement_tag undefined
