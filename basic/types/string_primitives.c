@@ -215,7 +215,6 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
-IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -5215,9 +5214,32 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   character__49 = from_uchar32(49);
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
+  func__24_1 = create_function(entry__24_1, 1);
+  func__25_1 = create_function(entry__25_1, 1);
+  func__26_1 = create_function(entry__26_1, 2);
+  func__27_1 = create_function(entry__27_1, 2);
+  func__28_1 = create_function(entry__28_1, 2);
+  func__29_1 = create_function(entry__29_1, 2);
+  func__30_1 = create_function(entry__30_1, 2);
+  func__31_1 = create_function(entry__31_1, 2);
+  func__32_1 = create_function(entry__32_1, 1);
+  func__33_1 = create_function(entry__33_1, 1);
   func__34_1 = create_function(entry__34_1, 1);
   func__35_1 = create_function(entry__35_1, -1);
   func__36_1 = create_function(entry__36_1, 1);
+  func__39_1 = create_function(entry__39_1, 2);
+  func__40_1 = create_function(entry__40_1, 2);
+  func__41_1 = create_function(entry__41_1, 2);
+  func__42_1 = create_function(entry__42_1, 2);
+  func__43_1 = create_function(entry__43_1, 1);
+  func__44_1 = create_function(entry__44_1, 3);
+  func__45_1 = create_function(entry__45_1, 3);
+  func__46_1 = create_function(entry__46_1, 2);
+  func__47_1 = create_function(entry__47_1, 1);
+  func__48_1 = create_function(entry__48_1, 1);
+  func__49_1 = create_function(entry__49_1, 1);
+  func__50_1 = create_function(entry__50_1, 1);
+  func__51_1 = create_function(entry__51_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -5234,36 +5256,13 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   define_single_assign_static("types", "quad_octet_string", get__types__quad_octet_string, &var.types__quad_octet_string);
   var.std__empty_string = create__types__octet_string(0, 0, NULL);
   define_single_assign_static("std", "empty_string", get__std__empty_string, &var.std__empty_string);
-  func__24_1 = create_future();
-  func__25_1 = create_future();
-  func__26_1 = create_future();
-  func__27_1 = create_future();
-  func__28_1 = create_future();
-  func__29_1 = create_future();
-  func__30_1 = create_future();
-  func__31_1 = create_future();
-  func__32_1 = create_future();
-  func__33_1 = create_future();
   string__35_2 = from_latin_1_string("\042", 1);
   string__35_23 = from_latin_1_string("@0x", 3);
   string__36_9 = from_latin_1_string("0b", 2);
   string__36_27 = from_latin_1_string("0o", 2);
   string__36_45 = from_latin_1_string("0x", 2);
-  func__39_1 = create_future();
-  func__40_1 = create_future();
-  func__41_1 = create_future();
-  func__42_1 = create_future();
-  func__43_1 = create_future();
-  func__44_1 = create_future();
-  func__45_1 = create_future();
-  func__46_1 = create_future();
   define_single_assign_static("std", "matches_file_pattern", get__std__matches_file_pattern, &var.std__matches_file_pattern);
-  func__47_1 = create_future();
-  func__48_1 = create_future();
-  func__49_1 = create_future();
   define_single_assign_static("std", "from_utf8", get__std__from_utf8, &var.std__from_utf8);
-  func__50_1 = create_future();
-  func__51_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -5362,28 +5361,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__string_primitives(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__24_1, create_function(entry__24_1, 1));
-  assign_value(&func__25_1, create_function(entry__25_1, 1));
-  assign_value(&func__26_1, create_function(entry__26_1, 2));
-  assign_value(&func__27_1, create_function(entry__27_1, 2));
-  assign_value(&func__28_1, create_function(entry__28_1, 2));
-  assign_value(&func__29_1, create_function(entry__29_1, 2));
-  assign_value(&func__30_1, create_function(entry__30_1, 2));
-  assign_value(&func__31_1, create_function(entry__31_1, 2));
-  assign_value(&func__32_1, create_function(entry__32_1, 1));
-  assign_value(&func__33_1, create_function(entry__33_1, 1));
-  assign_value(&func__39_1, create_function(entry__39_1, 2));
-  assign_value(&func__40_1, create_function(entry__40_1, 2));
-  assign_value(&func__41_1, create_function(entry__41_1, 2));
-  assign_value(&func__42_1, create_function(entry__42_1, 2));
-  assign_value(&func__43_1, create_function(entry__43_1, 1));
-  assign_value(&func__44_1, create_function(entry__44_1, 3));
-  assign_value(&func__45_1, create_function(entry__45_1, 3));
-  assign_value(&func__46_1, create_function(entry__46_1, 2));
-  assign_value(&func__47_1, create_function(entry__47_1, 1));
-  assign_value(&func__48_1, create_function(entry__48_1, 1));
-  assign_value(&func__49_1, create_function(entry__49_1, 1));
-  assign_value(&func__50_1, create_function(entry__50_1, 1));
-  assign_value(&func__51_1, create_function(entry__51_1, 1));
   register_collector(collect__basic__types__string_primitives);
 }

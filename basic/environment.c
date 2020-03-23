@@ -950,6 +950,11 @@ EXPORT void phase_2__basic__environment(void) {
   number__0 = from_uint32(0U);
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
+  func__1_1 = create_function(entry__1_1, 1);
+  func__2_1 = create_function(entry__2_1, 0);
+  func__4_1 = create_function(entry__4_1, 1);
+  func__5_1 = create_function(entry__5_1, 0);
+  func__12_1 = create_function(entry__12_1, 1);
   func__24_3 = create_function(entry__24_3, 1);
   func__27_2 = create_function(entry__27_2, 1);
 }
@@ -961,13 +966,8 @@ EXPORT void phase_3__basic__environment(void) {
   already_run_phase_3 = true;
   set_module("basic__environment");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
-  func__2_1 = create_future();
-  func__4_1 = create_future();
-  func__5_1 = create_future();
   define_single_assign_static("std", "program_name", get__std__program_name, &var.std__program_name);
   define_single_assign_static("std", "command_line_arguments", get__std__command_line_arguments, &var.std__command_line_arguments);
-  func__12_1 = create_future();
   unique__13_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__13_1);
   var._env_2 = create_future();
@@ -1016,10 +1016,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__environment(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, 1));
-  assign_value(&func__2_1, create_function(entry__2_1, 0));
-  assign_value(&func__4_1, create_function(entry__4_1, 1));
-  assign_value(&func__5_1, create_function(entry__5_1, 0));
-  assign_value(&func__12_1, create_function(entry__12_1, 1));
   register_collector(collect__basic__environment);
 }

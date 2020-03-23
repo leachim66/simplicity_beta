@@ -1907,9 +1907,25 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   character__32 = from_uchar32(32);
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
+  func__1_1 = create_function(entry__1_1, 0);
+  func__13_1 = create_function(entry__13_1, 1);
+  func__14_1 = create_function(entry__14_1, 6);
+  func__16_1 = create_function(entry__16_1, 1);
+  func__17_1 = create_function(entry__17_1, 1);
+  func__18_1 = create_function(entry__18_1, 1);
+  func__19_1 = create_function(entry__19_1, 1);
+  func__20_1 = create_function(entry__20_1, 1);
+  func__21_1 = create_function(entry__21_1, 1);
+  func__22_1 = create_function(entry__22_1, 1);
+  func__23_1 = create_function(entry__23_1, 2);
+  func__24_1 = create_function(entry__24_1, 2);
+  func__25_1 = create_function(entry__25_1, 2);
+  func__26_1 = create_function(entry__26_1, 2);
+  func__27_1 = create_function(entry__27_1, 1);
   func__28_36 = create_function(entry__28_36, 0);
   func__28_35 = create_function(entry__28_35, 0);
   func__28_1 = create_function(entry__28_1, 1);
+  func__29_1 = create_function(entry__29_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1919,26 +1935,11 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   already_run_phase_3 = true;
   set_module("basic__types__date_and_time");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
   define_single_assign_static("std", "current_time", get__std__current_time, &var.std__current_time);
   var.types__date_and_time = create_future_with_prototype(create__types__date_and_time(0, 0));
   define_single_assign_static("types", "date_and_time", get__types__date_and_time, &var.types__date_and_time);
-  func__13_1 = create_future();
   define_single_assign_static("std", "from_unix_time", get__std__from_unix_time, &var.std__from_unix_time);
-  func__14_1 = create_future();
   define_single_assign_static("std", "date_and_time", get__std__date_and_time, &var.std__date_and_time);
-  func__16_1 = create_future();
-  func__17_1 = create_future();
-  func__18_1 = create_future();
-  func__19_1 = create_future();
-  func__20_1 = create_future();
-  func__21_1 = create_future();
-  func__22_1 = create_future();
-  func__23_1 = create_future();
-  func__24_1 = create_future();
-  func__25_1 = create_future();
-  func__26_1 = create_future();
-  func__27_1 = create_future();
   string__28_7 = from_latin_1_string("0", 1);
   string__28_10 = from_latin_1_string("0", 1);
   string__28_14 = from_latin_1_string("0", 1);
@@ -1950,7 +1951,6 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   string__28_40 = from_latin_1_string(":", 1);
   string__28_41 = from_latin_1_string(":", 1);
   string__28_42 = from_latin_1_string(" GMT", 4);
-  func__29_1 = create_future();
   define_single_assign_static("std", "sleep", get__std__sleep, &var.std__sleep);
 }
 
@@ -2025,21 +2025,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__date_and_time(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, 0));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__14_1, create_function(entry__14_1, 6));
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_1, create_function(entry__17_1, 1));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 1));
-  assign_value(&func__20_1, create_function(entry__20_1, 1));
-  assign_value(&func__21_1, create_function(entry__21_1, 1));
-  assign_value(&func__22_1, create_function(entry__22_1, 1));
-  assign_value(&func__23_1, create_function(entry__23_1, 2));
-  assign_value(&func__24_1, create_function(entry__24_1, 2));
-  assign_value(&func__25_1, create_function(entry__25_1, 2));
-  assign_value(&func__26_1, create_function(entry__26_1, 2));
-  assign_value(&func__27_1, create_function(entry__27_1, 1));
-  assign_value(&func__29_1, create_function(entry__29_1, 1));
   register_collector(collect__basic__types__date_and_time);
 }

@@ -8532,6 +8532,14 @@ EXPORT void phase_2__basic__types__list(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   func__14_1 = create_function(entry__14_1, 1);
+  func__15_1 = create_function(entry__15_1, -1);
+  func__16_1 = create_function(entry__16_1, 1);
+  func__17_1 = create_function(entry__17_1, 2);
+  func__18_1 = create_function(entry__18_1, 1);
+  func__19_1 = create_function(entry__19_1, 1);
+  func__20_1 = create_function(entry__20_1, 1);
+  func__21_1 = create_function(entry__21_1, 2);
+  func__22_1 = create_function(entry__22_1, 3);
   func__23_1 = create_function(entry__23_1, -1);
   func__24_1 = create_function(entry__24_1, 2);
   func__25_1 = create_function(entry__25_1, 1);
@@ -8574,15 +8582,7 @@ EXPORT void phase_3__basic__types__list(void) {
   define_single_assign_static("types", "list", get__types__list, &var.types__list);
   var.std__empty_list = create__types__list(0, NULL);
   define_single_assign_static("std", "empty_list", get__std__empty_list, &var.std__empty_list);
-  func__15_1 = create_future();
   define_single_assign_static("std", "list", get__std__list, &var.std__list);
-  func__16_1 = create_future();
-  func__17_1 = create_future();
-  func__18_1 = create_future();
-  func__19_1 = create_future();
-  func__20_1 = create_future();
-  func__21_1 = create_future();
-  func__22_1 = create_future();
   define_single_assign_static("std", "normalized_index", get__std__normalized_index, &var.std__normalized_index);
   string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
   string__34_4 = from_latin_1_string("list()", 6);
@@ -8716,13 +8716,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__list(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__15_1, create_function(entry__15_1, -1));
-  assign_value(&func__16_1, create_function(entry__16_1, 1));
-  assign_value(&func__17_1, create_function(entry__17_1, 2));
-  assign_value(&func__18_1, create_function(entry__18_1, 1));
-  assign_value(&func__19_1, create_function(entry__19_1, 1));
-  assign_value(&func__20_1, create_function(entry__20_1, 1));
-  assign_value(&func__21_1, create_function(entry__21_1, 2));
-  assign_value(&func__22_1, create_function(entry__22_1, 3));
   register_collector(collect__basic__types__list);
 }

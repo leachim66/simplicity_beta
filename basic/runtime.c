@@ -154,17 +154,15 @@ IMPORT int runtime_minor_version(void);
 IMPORT int runtime_revision(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *create_future(void);
 typedef NODE *(*NODE_GETTER)(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -348,6 +346,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__runtime(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  func__1_1 = create_function(entry__1_1, 0);
+  func__2_1 = create_function(entry__2_1, 0);
+  func__3_1 = create_function(entry__3_1, 0);
 }
 
 static int already_run_phase_3 = false;
@@ -357,11 +358,8 @@ EXPORT void phase_3__basic__runtime(void) {
   already_run_phase_3 = true;
   set_module("basic__runtime");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
   define_single_assign_static("std", "runtime_major_version", get__std__runtime_major_version, &var.std__runtime_major_version);
-  func__2_1 = create_future();
   define_single_assign_static("std", "runtime_minor_version", get__std__runtime_minor_version, &var.std__runtime_minor_version);
-  func__3_1 = create_future();
   define_single_assign_static("std", "runtime_revision", get__std__runtime_revision, &var.std__runtime_revision);
 }
 
@@ -389,8 +387,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__runtime(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, 0));
-  assign_value(&func__2_1, create_function(entry__2_1, 0));
-  assign_value(&func__3_1, create_function(entry__3_1, 0));
   register_collector(collect__basic__runtime);
 }

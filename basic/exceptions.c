@@ -3493,12 +3493,14 @@ EXPORT void phase_2__basic__exceptions(void) {
   func__12_5 = create_function(entry__12_5, 0);
   func__12_2 = create_function(entry__12_2, 0);
   func__12_1 = create_function(entry__12_1, 0);
+  func__13_1 = create_function(entry__13_1, 1);
   func__15_1 = create_function(entry__15_1, 1);
   func__16_2 = create_function(entry__16_2, 1);
   func__16_1 = create_function(entry__16_1, 1);
   func__17_1 = create_function(entry__17_1, 0);
   func__18_1 = create_function(entry__18_1, -1);
   func__19_1 = create_function(entry__19_1, -1);
+  func__20_1 = create_function(entry__20_1, 0);
   func__21_1 = create_function(entry__21_1, -1);
   func__23_18 = create_function(entry__23_18, -1);
   func__23_1 = create_function(entry__23_1, -1);
@@ -3525,13 +3527,11 @@ EXPORT void phase_3__basic__exceptions(void) {
   define__first_resource_id(create_future());
   define_single_assign_static("std", "register_resource", get__std__register_resource, &var.std__register_resource);
   define_single_assign_static("std", "deregister_resource", get__std__deregister_resource, &var.std__deregister_resource);
-  func__13_1 = create_future();
   define_single_assign_static("std", "at_exit", get__std__at_exit, &var.std__at_exit);
   define_single_assign_static("std", "exit", get__std__exit, &var.std__exit);
   define_single_assign_static("std", "terminate", get__std__terminate, &var.std__terminate);
   define_single_assign_static("std", "ErrorMessage", get__std__ErrorMessage, &var.std__ErrorMessage);
   define_single_assign_static("std", "Error", get__std__Error, &var.std__Error);
-  func__20_1 = create_future();
   string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   define_single_assign_dynamic("std", "raise", get__std__raise, define__std__raise, &dyna_idx__std__raise);
   define__std__raise(create_future());
@@ -3621,7 +3621,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__exceptions(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__20_1, create_function(entry__20_1, 0));
   register_collector(collect__basic__exceptions);
 }

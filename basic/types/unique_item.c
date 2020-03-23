@@ -180,6 +180,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *register_unique_item(const char *name);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -187,7 +188,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -204,7 +204,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -509,6 +508,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unique_item(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  func__9_1 = create_function(entry__9_1, 2);
+  func__10_1 = create_function(entry__10_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -520,8 +521,6 @@ EXPORT void phase_3__basic__types__unique_item(void) {
   set_used_namespaces(used_namespaces);
   var.types__unique_item = create_future_with_prototype(create__types__unique_item(0));
   define_single_assign_static("types", "unique_item", get__types__unique_item, &var.types__unique_item);
-  func__9_1 = create_future();
-  func__10_1 = create_future();
 }
 
 static int already_run_phase_4 = false;
@@ -557,7 +556,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__unique_item(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__9_1, create_function(entry__9_1, 2));
-  assign_value(&func__10_1, create_function(entry__10_1, 1));
   register_collector(collect__basic__types__unique_item);
 }

@@ -189,7 +189,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
@@ -1176,6 +1175,9 @@ EXPORT void phase_2__basic__types__value_range(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  func__6_1 = create_function(entry__6_1, 2);
+  func__7_1 = create_function(entry__7_1, 1);
+  func__8_1 = create_function(entry__8_1, 1);
   func__10_1 = create_function(entry__10_1, 2);
   func__11_1 = create_function(entry__11_1, 2);
   func__12_1 = create_function(entry__12_1, -1);
@@ -1190,10 +1192,7 @@ EXPORT void phase_3__basic__types__value_range(void) {
   set_used_namespaces(used_namespaces);
   var.types__value_range = create_future_with_prototype(create__types__value_range(NULL, NULL));
   define_single_assign_static("types", "value_range", get__types__value_range, &var.types__value_range);
-  func__6_1 = create_future();
   define_single_assign_static("std", "value_range", get__std__value_range, &var.std__value_range);
-  func__7_1 = create_future();
-  func__8_1 = create_future();
   string__12_12 = from_latin_1_string("value_range\012", 12);
   string__12_13 = from_latin_1_string("\012", 1);
   string__12_14 = from_latin_1_string("\012", 1);
@@ -1246,8 +1245,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__value_range(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__6_1, create_function(entry__6_1, 2));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
-  assign_value(&func__8_1, create_function(entry__8_1, 1));
   register_collector(collect__basic__types__value_range);
 }

@@ -203,7 +203,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -3997,6 +3996,14 @@ EXPORT void phase_2__basic__types__character(void) {
   number__0x20 = from_uint32(32U);
   character__223 = from_uchar32(223);
   character__79 = from_uchar32(79);
+  func__8_1 = create_function(entry__8_1, 1);
+  func__9_1 = create_function(entry__9_1, 2);
+  func__10_1 = create_function(entry__10_1, 2);
+  func__11_1 = create_function(entry__11_1, 2);
+  func__12_1 = create_function(entry__12_1, 2);
+  func__13_1 = create_function(entry__13_1, 1);
+  func__14_1 = create_function(entry__14_1, 1);
+  func__15_1 = create_function(entry__15_1, 1);
   func__17_1 = create_function(entry__17_1, 1);
   func__18_1 = create_function(entry__18_1, 1);
   func__19_1 = create_function(entry__19_1, 1);
@@ -4022,15 +4029,7 @@ EXPORT void phase_3__basic__types__character(void) {
   set_used_namespaces(used_namespaces);
   var.types__character = create_future_with_prototype(create__types__character(0));
   define_single_assign_static("types", "character", get__types__character, &var.types__character);
-  func__8_1 = create_future();
   define_single_assign_static("std", "character", get__std__character, &var.std__character);
-  func__9_1 = create_future();
-  func__10_1 = create_future();
-  func__11_1 = create_future();
-  func__12_1 = create_future();
-  func__13_1 = create_future();
-  func__14_1 = create_future();
-  func__15_1 = create_future();
   define_single_assign_static("std", "is_a_whitespace_character", get__std__is_a_whitespace_character, &var.std__is_a_whitespace_character);
   define_single_assign_static("std", "is_a_digit", get__std__is_a_digit, &var.std__is_a_digit);
   define_single_assign_static("std", "is_a_letter", get__std__is_a_letter, &var.std__is_a_letter);
@@ -4119,13 +4118,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__character(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__8_1, create_function(entry__8_1, 1));
-  assign_value(&func__9_1, create_function(entry__9_1, 2));
-  assign_value(&func__10_1, create_function(entry__10_1, 2));
-  assign_value(&func__11_1, create_function(entry__11_1, 2));
-  assign_value(&func__12_1, create_function(entry__12_1, 2));
-  assign_value(&func__13_1, create_function(entry__13_1, 1));
-  assign_value(&func__14_1, create_function(entry__14_1, 1));
-  assign_value(&func__15_1, create_function(entry__15_1, 1));
   register_collector(collect__basic__types__character);
 }

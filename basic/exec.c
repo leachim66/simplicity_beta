@@ -2207,7 +2207,12 @@ EXPORT void phase_2__basic__exec(void) {
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
   number__14 = from_uint32(14U);
+  func__11_1 = create_function(entry__11_1, -1);
+  func__12_1 = create_function(entry__12_1, -1);
   func__13_1 = create_function(entry__13_1, -1);
+  func__14_1 = create_function(entry__14_1, -1);
+  func__15_1 = create_function(entry__15_1, -1);
+  func__16_1 = create_function(entry__16_1, -1);
   func__17_1 = create_function(entry__17_1, -1);
   func__18_1 = create_function(entry__18_1, -1);
   func__19_7 = create_function(entry__19_7, 0);
@@ -2232,13 +2237,8 @@ EXPORT void phase_3__basic__exec(void) {
   define_single_assign_static("std", "SIGUSR2", get__std__SIGUSR2, &var.std__SIGUSR2);
   define_single_assign_static("std", "SIGALRM", get__std__SIGALRM, &var.std__SIGALRM);
   define_single_assign_static("std", "SIGTERM", get__std__SIGTERM, &var.std__SIGTERM);
-  func__11_1 = create_future();
-  func__12_1 = create_future();
   define_single_assign_static("std", "launch", get__std__launch, &var.std__launch);
-  func__14_1 = create_future();
-  func__15_1 = create_future();
   define_single_assign_static("std", "kill", get__std__kill, &var.std__kill);
-  func__16_1 = create_future();
   define_single_assign_static("std", "exec", get__std__exec, &var.std__exec);
   define_single_assign_static("std", "call", get__std__call, &var.std__call);
   string__19_8 = from_latin_1_string("Invalid arguments!", 18);
@@ -2303,10 +2303,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__exec(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__11_1, create_function(entry__11_1, -1));
-  assign_value(&func__12_1, create_function(entry__12_1, -1));
-  assign_value(&func__14_1, create_function(entry__14_1, -1));
-  assign_value(&func__15_1, create_function(entry__15_1, -1));
-  assign_value(&func__16_1, create_function(entry__16_1, -1));
   register_collector(collect__basic__exec);
 }

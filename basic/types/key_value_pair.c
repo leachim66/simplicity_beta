@@ -188,7 +188,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
@@ -766,6 +765,9 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   number__0 = from_uint32(0U);
   number__4 = from_uint32(4U);
   number__2 = from_uint32(2U);
+  func__6_1 = create_function(entry__6_1, 2);
+  func__7_1 = create_function(entry__7_1, 1);
+  func__8_1 = create_function(entry__8_1, 1);
   func__10_1 = create_function(entry__10_1, -1);
 }
 
@@ -778,10 +780,7 @@ EXPORT void phase_3__basic__types__key_value_pair(void) {
   set_used_namespaces(used_namespaces);
   var.types__key_value_pair = create_future_with_prototype(create__types__key_value_pair(NULL, NULL));
   define_single_assign_static("types", "key_value_pair", get__types__key_value_pair, &var.types__key_value_pair);
-  func__6_1 = create_future();
   define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
-  func__7_1 = create_future();
-  func__8_1 = create_future();
   string__10_12 = from_latin_1_string("key_value_pair\012", 15);
   string__10_13 = from_latin_1_string("\012", 1);
 }
@@ -825,8 +824,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__key_value_pair(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__6_1, create_function(entry__6_1, 2));
-  assign_value(&func__7_1, create_function(entry__7_1, 1));
-  assign_value(&func__8_1, create_function(entry__8_1, 1));
   register_collector(collect__basic__types__key_value_pair);
 }

@@ -4412,6 +4412,11 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__2 = from_uint32(2U);
+  func__11_1 = create_function(entry__11_1, 5);
+  func__12_1 = create_function(entry__12_1, 3);
+  func__14_1 = create_function(entry__14_1, 1);
+  func__15_1 = create_function(entry__15_1, 3);
+  func__16_1 = create_function(entry__16_1, 3);
   func__17_1 = create_function(entry__17_1, 3);
   func__18_1 = create_function(entry__18_1, 2);
   func__21_1 = create_function(entry__21_1, 1);
@@ -4439,13 +4444,8 @@ EXPORT void phase_3__basic__types__unordered_table(void) {
   set_used_namespaces(used_namespaces);
   unique__1_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__1_1);
-  func__11_1 = create_future();
-  func__12_1 = create_future();
   var.types__unordered_table = create_future_with_prototype(create__types__unordered_table(0, NULL));
   define_single_assign_static("types", "unordered_table", get__types__unordered_table, &var.types__unordered_table);
-  func__14_1 = create_future();
-  func__15_1 = create_future();
-  func__16_1 = create_future();
   string__20_1 = from_latin_1_string("unordered_table", 15);
   define_single_assign_static("std", "empty_unordered_table", get__std__empty_unordered_table, &var.std__empty_unordered_table);
   define_single_assign_static("std", "unordered_table", get__std__unordered_table, &var.std__unordered_table);
@@ -4526,10 +4526,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__types__unordered_table(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__11_1, create_function(entry__11_1, 5));
-  assign_value(&func__12_1, create_function(entry__12_1, 3));
-  assign_value(&func__14_1, create_function(entry__14_1, 1));
-  assign_value(&func__15_1, create_function(entry__15_1, 3));
-  assign_value(&func__16_1, create_function(entry__16_1, 3));
   register_collector(collect__basic__types__unordered_table);
 }

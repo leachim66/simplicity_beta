@@ -190,7 +190,6 @@ IMPORT void use_read_only(
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1667,8 +1666,12 @@ EXPORT void phase_2__basic__debug(void) {
   character__127 = from_uchar32(127);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  func__1_1 = create_function(entry__1_1, -1);
   func__2_1 = create_function(entry__2_1, -1);
   func__3_1 = create_function(entry__3_1, -1);
+  func__4_1 = create_function(entry__4_1, 0);
+  func__5_1 = create_function(entry__5_1, 0);
+  func__6_1 = create_function(entry__6_1, 0);
   func__7_37 = create_function(entry__7_37, 0);
   func__7_1 = create_function(entry__7_1, 1);
 }
@@ -1680,17 +1683,13 @@ EXPORT void phase_3__basic__debug(void) {
   already_run_phase_3 = true;
   set_module("basic__debug");
   set_used_namespaces(used_namespaces);
-  func__1_1 = create_future();
   define_single_assign_static("std", "debug_string", get__std__debug_string, &var.std__debug_string);
   string__2_12 = from_latin_1_string(":", 1);
   define_single_assign_static("std", "dump", get__std__dump, &var.std__dump);
   string__3_12 = from_latin_1_string(":", 1);
   define_single_assign_static("std", "edump", get__std__edump, &var.std__edump);
-  func__4_1 = create_future();
   define_single_assign_static("std", "collect_garbage", get__std__collect_garbage, &var.std__collect_garbage);
-  func__5_1 = create_future();
   define_single_assign_static("std", "instruction_counter", get__std__instruction_counter, &var.std__instruction_counter);
-  func__6_1 = create_future();
   define_single_assign_static("std", "total_garbage_collections", get__std__total_garbage_collections, &var.std__total_garbage_collections);
   string__7_12 = from_latin_1_string("0", 1);
   string__7_14 = from_latin_1_string(":", 1);
@@ -1753,9 +1752,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__debug(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__1_1, create_function(entry__1_1, -1));
-  assign_value(&func__4_1, create_function(entry__4_1, 0));
-  assign_value(&func__5_1, create_function(entry__5_1, 0));
-  assign_value(&func__6_1, create_function(entry__6_1, 0));
   register_collector(collect__basic__debug);
 }

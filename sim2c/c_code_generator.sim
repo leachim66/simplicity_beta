@@ -1138,13 +1138,10 @@ $sim2c::c_body/to_c: (self)
     write "
       static void entry@(body_suffix)(void) {
       @(indented(2 source_of(self).converted))@nl;}
-    write_to_phase_3 "
+    write_to_phase_2 "
       @
-        func@(body_suffix) = create_future();
-    write_to_phase_6 "
-      @
-        assign_value(&func@(body_suffix), create_function(entry@(body_suffix), @
-      @(par_count)));
+        func@(body_suffix) = create_function(entry@(body_suffix), @
+      @(par_count));
   -> "func@(body_suffix)"
 
 ####################

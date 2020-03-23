@@ -173,7 +173,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -631,7 +630,11 @@ EXPORT void phase_2__basic__primitives(void) {
   func__3_1 = create_function(entry__3_1, 1);
   func__4_1 = create_function(entry__4_1, -1);
   func__5_1 = create_function(entry__5_1, 2);
+  func__6_1 = create_function(entry__6_1, 0);
   func__7_1 = create_function(entry__7_1, 1);
+  func__8_1 = create_function(entry__8_1, 1);
+  func__9_1 = create_function(entry__9_1, -1);
+  func__10_1 = create_function(entry__10_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -644,14 +647,10 @@ EXPORT void phase_3__basic__primitives(void) {
   define_single_assign_static("std", "ignore", get__std__ignore, &var.std__ignore);
   define_single_assign_static("std", "writeln_to", get__std__writeln_to, &var.std__writeln_to);
   define_single_assign_static("std", "swap", get__std__swap, &var.std__swap);
-  func__6_1 = create_future();
   define_single_assign_static("std", "pass", get__std__pass, &var.std__pass);
   define_single_assign_static("std", "eval", get__std__eval, &var.std__eval);
-  func__8_1 = create_future();
   define_single_assign_static("std", "do", get__std__do, &var.std__do);
-  func__9_1 = create_future();
   define_single_assign_static("std", "assign", get__std__assign, &var.std__assign);
-  func__10_1 = create_future();
   define_single_assign_static("std", "goto", get__std__goto, &var.std__goto);
 }
 
@@ -693,9 +692,5 @@ static int already_run_phase_6 = false;
 EXPORT void phase_6__basic__primitives(void) {
   if (already_run_phase_6) return;
   already_run_phase_6 = true;
-  assign_value(&func__6_1, create_function(entry__6_1, 0));
-  assign_value(&func__8_1, create_function(entry__8_1, 1));
-  assign_value(&func__9_1, create_function(entry__9_1, -1));
-  assign_value(&func__10_1, create_function(entry__10_1, -1));
   register_collector(collect__basic__primitives);
 }

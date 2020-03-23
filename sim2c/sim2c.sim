@@ -434,12 +434,12 @@ $sim2c::sim2c:
 	numeric literals
 	character literals
 	function literals
+	inline-C functions
   $$generated_phase_3 ""
     #
       reassign memory pool to save literals from garbage collection
       create futures
       create futures with prototypes
-      create inline-C constructs
       define garbage-collectec objects:
 	string literals
 	single-assign static variables
