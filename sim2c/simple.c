@@ -1101,28 +1101,15 @@ static FRAME_INFO frame__67_2 = {0, {}};
 static void cont__67_3(void);
 static NODE *func__67_4;
 static void entry__67_4(void);
-static FRAME_INFO frame__67_4 = {2, {"c_filename", "o_filename"}};
-static NODE *func__67_5;
-static void entry__67_5(void);
-static FRAME_INFO frame__67_5 = {5, {"c_filename", "o_filename", "out", "err", "success"}};
+static FRAME_INFO frame__67_4 = {5, {"c_filename", "o_filename", "out", "err", "success"}};
+static NODE *string__67_5;
 static NODE *string__67_6;
-static NODE *string__67_7;
-static void cont__67_8(void);
-static NODE *func__67_9;
-static void entry__67_9(void);
-static FRAME_INFO frame__67_9 = {1, {"err"}};
+static void cont__67_7(void);
+static NODE *func__67_8;
+static void entry__67_8(void);
+static FRAME_INFO frame__67_8 = {1, {"err"}};
+static void cont__67_9(void);
 static void cont__67_10(void);
-static NODE *func__67_11;
-static void entry__67_11(void);
-static FRAME_INFO frame__67_11 = {5, {"c_filename", "o_filename", "out", "err", "success"}};
-static NODE *string__67_12;
-static NODE *string__67_13;
-static void cont__67_14(void);
-static NODE *func__67_15;
-static void entry__67_15(void);
-static FRAME_INFO frame__67_15 = {1, {"err"}};
-static void cont__67_16(void);
-static void cont__67_17(void);
 static NODE *func__68_1;
 static void entry__68_1(void);
 static FRAME_INFO frame__68_1 = {3, {"mod_filename", "mod_name", "meta_level"}};
@@ -1447,105 +1434,96 @@ static NODE *string__70_80;
 static NODE *string__70_81;
 static void cont__70_82(void);
 static void cont__70_83(void);
-static void cont__70_84(void);
-static NODE *func__70_85;
-static void entry__70_85(void);
-static FRAME_INFO frame__70_85 = {0, {}};
-static NODE *string__70_86;
-static NODE *func__70_87;
-static void entry__70_87(void);
-static FRAME_INFO frame__70_87 = {0, {}};
-static NODE *string__70_88;
+static NODE *string__70_84;
+static void cont__70_85(void);
+static void cont__70_86(void);
+static void cont__70_87(void);
+static void cont__70_88(void);
 static void cont__70_89(void);
-static void cont__70_90(void);
+static NODE *func__70_90;
+static void entry__70_90(void);
+static FRAME_INFO frame__70_90 = {3, {"compile_submodule", "mod_name", "mod_filename"}};
 static void cont__70_91(void);
 static void cont__70_92(void);
 static void cont__70_93(void);
 static void cont__70_94(void);
 static NODE *func__70_95;
 static void entry__70_95(void);
-static FRAME_INFO frame__70_95 = {3, {"compile_submodule", "mod_name", "mod_filename"}};
+static FRAME_INFO frame__70_95 = {1, {"mod_filename"}};
 static void cont__70_96(void);
 static void cont__70_97(void);
-static void cont__70_98(void);
-static void cont__70_99(void);
+static NODE *func__70_98;
+static void entry__70_98(void);
+static FRAME_INFO frame__70_98 = {3, {"mod_info", "compile_submodule", "mod_filename"}};
+static NODE *func__70_99;
+static void entry__70_99(void);
+static FRAME_INFO frame__70_99 = {4, {"mod_info", "compile_submodule", "best_platform", "best_priority"}};
 static NODE *func__70_100;
 static void entry__70_100(void);
-static FRAME_INFO frame__70_100 = {1, {"mod_filename"}};
+static FRAME_INFO frame__70_100 = {5, {"platform", "filenames", "best_priority", "best_platform", "priority"}};
 static void cont__70_101(void);
 static void cont__70_102(void);
 static NODE *func__70_103;
 static void entry__70_103(void);
-static FRAME_INFO frame__70_103 = {3, {"mod_info", "compile_submodule", "mod_filename"}};
-static NODE *func__70_104;
-static void entry__70_104(void);
-static FRAME_INFO frame__70_104 = {4, {"mod_info", "compile_submodule", "best_platform", "best_priority"}};
-static NODE *func__70_105;
-static void entry__70_105(void);
-static FRAME_INFO frame__70_105 = {5, {"platform", "filenames", "best_priority", "best_platform", "priority"}};
-static void cont__70_106(void);
+static FRAME_INFO frame__70_103 = {2, {"priority", "best_priority"}};
+static void cont__70_104(void);
+static void cont__70_105(void);
+static NODE *func__70_106;
+static void entry__70_106(void);
+static FRAME_INFO frame__70_106 = {4, {"best_platform", "platform", "best_priority", "priority"}};
 static void cont__70_107(void);
 static NODE *func__70_108;
 static void entry__70_108(void);
-static FRAME_INFO frame__70_108 = {2, {"priority", "best_priority"}};
+static FRAME_INFO frame__70_108 = {4, {"platform", "filenames", "compile_submodule", "best_platform"}};
 static void cont__70_109(void);
 static void cont__70_110(void);
-static NODE *func__70_111;
-static void entry__70_111(void);
-static FRAME_INFO frame__70_111 = {4, {"best_platform", "platform", "best_priority", "priority"}};
-static void cont__70_112(void);
+static void cont__70_111(void);
+static NODE *func__70_112;
+static void entry__70_112(void);
+static FRAME_INFO frame__70_112 = {3, {"mod_info", "mod_filename", "used_by"}};
 static NODE *func__70_113;
 static void entry__70_113(void);
-static FRAME_INFO frame__70_113 = {4, {"platform", "filenames", "compile_submodule", "best_platform"}};
-static void cont__70_114(void);
+static FRAME_INFO frame__70_113 = {6, {"supported_platform", "parent_platform", "mod_info", "used_by", "best_platform", "best_priority"}};
+static NODE *func__70_114;
+static void entry__70_114(void);
+static FRAME_INFO frame__70_114 = {6, {"platform", "filenames", "supported_platform", "best_priority", "best_platform", "priority"}};
 static void cont__70_115(void);
 static void cont__70_116(void);
 static NODE *func__70_117;
 static void entry__70_117(void);
-static FRAME_INFO frame__70_117 = {3, {"mod_info", "mod_filename", "used_by"}};
-static NODE *func__70_118;
-static void entry__70_118(void);
-static FRAME_INFO frame__70_118 = {6, {"supported_platform", "parent_platform", "mod_info", "used_by", "best_platform", "best_priority"}};
-static NODE *func__70_119;
-static void entry__70_119(void);
-static FRAME_INFO frame__70_119 = {6, {"platform", "filenames", "supported_platform", "best_priority", "best_platform", "priority"}};
-static void cont__70_120(void);
+static FRAME_INFO frame__70_117 = {2, {"priority", "best_priority"}};
+static void cont__70_118(void);
+static void cont__70_119(void);
+static NODE *func__70_120;
+static void entry__70_120(void);
+static FRAME_INFO frame__70_120 = {4, {"best_platform", "platform", "best_priority", "priority"}};
 static void cont__70_121(void);
-static NODE *func__70_122;
-static void entry__70_122(void);
-static FRAME_INFO frame__70_122 = {2, {"priority", "best_priority"}};
-static void cont__70_123(void);
+static void cont__70_122(void);
+static NODE *func__70_123;
+static void entry__70_123(void);
+static FRAME_INFO frame__70_123 = {4, {"used_by", "best_platform", "supported_platform", "ub"}};
 static void cont__70_124(void);
-static NODE *func__70_125;
-static void entry__70_125(void);
-static FRAME_INFO frame__70_125 = {4, {"best_platform", "platform", "best_priority", "priority"}};
+static void cont__70_125(void);
 static void cont__70_126(void);
 static void cont__70_127(void);
-static NODE *func__70_128;
-static void entry__70_128(void);
-static FRAME_INFO frame__70_128 = {4, {"used_by", "best_platform", "supported_platform", "ub"}};
-static void cont__70_129(void);
+static void cont__70_128(void);
+static NODE *func__70_129;
+static void entry__70_129(void);
+static FRAME_INFO frame__70_129 = {6, {"platform", "filenames", "mod_filename", "used_by", "dependency", "platforms"}};
 static void cont__70_130(void);
 static void cont__70_131(void);
 static void cont__70_132(void);
-static void cont__70_133(void);
+static NODE *func__70_133;
+static void entry__70_133(void);
+static FRAME_INFO frame__70_133 = {2, {"platforms", "dependency"}};
 static NODE *func__70_134;
 static void entry__70_134(void);
-static FRAME_INFO frame__70_134 = {6, {"platform", "filenames", "mod_filename", "used_by", "dependency", "platforms"}};
-static void cont__70_135(void);
+static FRAME_INFO frame__70_134 = {2, {"plat", "dependency"}};
+static NODE *string__70_135;
 static void cont__70_136(void);
 static void cont__70_137(void);
-static NODE *func__70_138;
-static void entry__70_138(void);
-static FRAME_INFO frame__70_138 = {2, {"platforms", "dependency"}};
-static NODE *func__70_139;
-static void entry__70_139(void);
-static FRAME_INFO frame__70_139 = {2, {"plat", "dependency"}};
-static NODE *string__70_140;
-static void cont__70_141(void);
-static void cont__70_142(void);
-static void cont__70_143(void);
-static void cont__70_144(void);
+static void cont__70_138(void);
+static void cont__70_139(void);
 static NODE *func__71_1;
 static void entry__71_1(void);
 static FRAME_INFO frame__71_1 = {4, {"path", "mod_path", "directories", "modules"}};
@@ -2659,7 +2637,8 @@ static NODE *string__141_7;
 static NODE *string__141_8;
 static NODE *string__141_9;
 static NODE *string__141_10;
-static void cont__141_11(void);
+static NODE *string__141_11;
+static void cont__141_12(void);
 static NODE *string__142_1;
 static NODE *string__142_2;
 static void cont__142_3(void);
@@ -2810,869 +2789,860 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__132_1, NULL, 245, 245, 1, 30},
   {cont__133_1, NULL, 247, 247, 1, 37},
   {cont__135_2, NULL, 256, 256, 1, 21},
-  {cont__140_1, NULL, 258, 269, 1, 27},
-  {cont__141_11, NULL, 273, 273, 16, 44},
-  {cont__142_3, NULL, 273, 273, 5, 44},
-  {cont__142_5, NULL, 274, 274, 16, 44},
-  {cont__142_6, NULL, 274, 274, 5, 44},
-  {cont__142_8, NULL, 271, 274, 1, 45},
-  {cont__142_9, NULL, 280, 280, 37, 59},
-  {cont__143_1, NULL, 280, 280, 7, 60},
-  {cont__143_2, NULL, 279, 281, 5, 15},
-  {cont__143_3, NULL, 276, 281, 1, 18},
-  {cont__143_4, NULL, 633, 633, 4, 25},
-  {cont__161_1, NULL, 633, 635, 1, 52},
-  {cont__161_6, NULL, 1071, 1071, 1, 36},
-  {cont__176_3, NULL, 1072, 1084, 1, 18},
+  {cont__140_1, NULL, 258, 270, 1, 27},
+  {cont__141_12, NULL, 274, 274, 16, 44},
+  {cont__142_3, NULL, 274, 274, 5, 44},
+  {cont__142_5, NULL, 275, 275, 16, 44},
+  {cont__142_6, NULL, 275, 275, 5, 44},
+  {cont__142_8, NULL, 272, 275, 1, 45},
+  {cont__142_9, NULL, 281, 281, 37, 59},
+  {cont__143_1, NULL, 281, 281, 7, 60},
+  {cont__143_2, NULL, 280, 282, 5, 15},
+  {cont__143_3, NULL, 277, 282, 1, 18},
+  {cont__143_4, NULL, 621, 621, 4, 25},
+  {cont__161_1, NULL, 621, 623, 1, 52},
+  {cont__161_6, NULL, 1059, 1059, 1, 36},
+  {cont__176_3, NULL, 1060, 1072, 1, 18},
   {cont__177_13, NULL, },
   {cont__178_1, NULL, },
   {entry__47_2, NULL, 250, 250, 36, 49},
   {entry__47_1, NULL, 250, 250, 3, 49},
-  {entry__63_11, NULL, 299, 299, 35, 78},
-  {cont__63_12, &frame__63_11, 299, 299, 35, 59},
-  {cont__63_13, &frame__63_11, 299, 299, 78, 78},
-  {entry__63_8, NULL, 298, 298, 11, 39},
-  {cont__63_9, &frame__63_8, 299, 299, 14, 32},
-  {cont__63_10, &frame__63_8, 299, 299, 11, 78},
-  {entry__63_6, NULL, 297, 297, 12, 31},
-  {cont__63_7, &frame__63_6, 297, 299, 9, 78},
-  {entry__63_4, NULL, 296, 296, 16, 30},
-  {cont__63_5, &frame__63_4, 296, 299, 7, 79},
-  {entry__63_3, NULL, 295, 299, 5, 80},
-  {entry__63_18, NULL, 303, 304, 11, 57},
-  {cont__63_21, &frame__63_18, 303, 304, 5, 57},
-  {entry__63_1, NULL, 293, 293, 6, 36},
-  {cont__63_2, &frame__63_1, 293, 299, 3, 81},
-  {cont__63_14, &frame__63_1, 300, 300, 3, 32},
-  {cont__63_15, &frame__63_1, 301, 301, 3, 38},
-  {cont__63_16, &frame__63_1, 302, 302, 6, 25},
-  {cont__63_17, &frame__63_1, 302, 304, 3, 58},
-  {cont__63_22, &frame__63_1, 305, 305, 21, 39},
-  {cont__63_23, &frame__63_1, 305, 305, 6, 40},
-  {cont__63_24, &frame__63_1, 305, 305, 3, 40},
-  {entry__64_10, NULL, 323, 323, 56, 77},
-  {cont__64_11, &frame__64_10, 323, 323, 77, 77},
-  {entry__64_8, NULL, 323, 323, 35, 53},
-  {cont__64_9, &frame__64_8, 323, 323, 32, 77},
-  {entry__64_6, NULL, 323, 323, 10, 29},
-  {cont__64_7, &frame__64_6, 323, 323, 7, 77},
-  {entry__64_28, NULL, 329, 329, 41, 65},
-  {cont__64_29, &frame__64_28, 329, 329, 41, 65},
-  {entry__64_31, NULL, 330, 330, 11, 38},
-  {cont__64_32, &frame__64_31, 330, 330, 49, 49},
-  {entry__64_15, NULL, 325, 325, 48, 60},
-  {cont__64_17, &frame__64_15, 325, 325, 48, 68},
-  {cont__64_18, &frame__64_15, 325, 325, 9, 69},
-  {cont__64_19, &frame__64_15, 326, 326, 9, 34},
-  {cont__64_20, &frame__64_15, 327, 327, 22, 36},
-  {cont__64_21, &frame__64_15, 327, 327, 38, 62},
-  {cont__64_22, &frame__64_15, 327, 327, 22, 62},
-  {cont__64_23, &frame__64_15, 327, 327, 22, 64},
-  {cont__64_24, &frame__64_15, 327, 327, 9, 67},
-  {cont__64_25, &frame__64_15, 328, 328, 9, 49},
-  {cont__64_26, &frame__64_15, 329, 329, 12, 36},
-  {cont__64_27, &frame__64_15, 329, 329, 12, 65},
-  {cont__64_30, &frame__64_15, 329, 330, 9, 49},
-  {cont__64_33, &frame__64_15, 331, 331, 9, 52},
-  {cont__64_34, &frame__64_15, 332, 332, 9, 26},
-  {cont__64_35, &frame__64_15, 333, 333, 9, 43},
-  {cont__64_36, &frame__64_15, 334, 334, 9, 30},
-  {cont__64_37, &frame__64_15, 334, 334, 52, 52},
-  {entry__64_12, NULL, 324, 324, 10, 33},
-  {cont__64_14, &frame__64_12, 324, 334, 7, 52},
-  {entry__64_4, NULL, 321, 321, 5, 33},
-  {cont__64_5, &frame__64_4, 322, 334, 5, 53},
-  {entry__64_49, NULL, 340, 340, 38, 60},
-  {cont__64_50, &frame__64_49, 340, 340, 60, 60},
-  {entry__64_45, NULL, 339, 339, 11, 54},
-  {cont__64_47, &frame__64_45, 340, 340, 14, 35},
-  {cont__64_48, &frame__64_45, 340, 340, 11, 60},
-  {entry__64_57, NULL, 347, 348, 17, 57},
-  {cont__64_60, &frame__64_57, 347, 348, 11, 57},
-  {entry__64_67, NULL, 352, 352, 11, 34},
-  {cont__64_68, &frame__64_67, 353, 353, 11, 45},
-  {cont__64_69, &frame__64_67, 353, 353, 45, 45},
-  {entry__64_64, NULL, 351, 351, 18, 31},
-  {cont__64_65, &frame__64_64, 351, 351, 18, 31},
-  {cont__64_66, &frame__64_64, 351, 353, 15, 45},
-  {entry__64_44, NULL, 342, 342, 9, 35},
-  {cont__64_51, &frame__64_44, 343, 343, 35, 58},
-  {cont__64_52, &frame__64_44, 343, 343, 9, 59},
-  {cont__64_53, &frame__64_44, 344, 344, 9, 39},
-  {cont__64_54, &frame__64_44, 345, 345, 9, 46},
-  {cont__64_55, &frame__64_44, 346, 346, 16, 32},
-  {cont__64_56, &frame__64_44, 346, 348, 9, 58},
-  {cont__64_61, &frame__64_44, 349, 349, 9, 30},
-  {cont__64_62, &frame__64_44, 350, 350, 9, 34},
-  {cont__64_63, &frame__64_44, 351, 353, 9, 45},
-  {cont__64_70, &frame__64_44, 354, 354, 10, 30},
-  {cont__64_71, &frame__64_44, 354, 354, 9, 40},
-  {cont__64_72, &frame__64_44, 354, 354, 9, 30},
-  {cont__64_73, &frame__64_44, 354, 354, 46, 46},
-  {entry__64_41, NULL, 337, 337, 14, 44},
-  {cont__64_43, &frame__64_41, 337, 354, 7, 46},
-  {entry__64_39, NULL, 336, 336, 8, 30},
-  {cont__64_40, &frame__64_39, 336, 354, 5, 47},
-  {entry__64_77, NULL, 355, 355, 39, 64},
-  {entry__64_1, NULL, 316, 316, 22, 27},
-  {cont__64_2, &frame__64_1, 316, 316, 3, 33},
-  {cont__64_3, &frame__64_1, 320, 334, 3, 54},
-  {cont__64_38, &frame__64_1, 335, 354, 3, 48},
-  {cont__64_74, &frame__64_1, 355, 355, 6, 31},
-  {cont__64_75, &frame__64_1, 355, 355, 6, 36},
-  {cont__64_76, &frame__64_1, 355, 355, 3, 64},
-  {cont__64_78, &frame__64_1, 355, 355, 64, 64},
-  {entry__65_4, NULL, 366, 366, 23, 29},
-  {entry__65_5, NULL, 367, 367, 47, 47},
-  {cont__65_6, &frame__65_5, 367, 367, 22, 48},
-  {cont__65_7, &frame__65_5, 367, 367, 70, 70},
-  {cont__65_8, &frame__65_5, 367, 367, 50, 71},
-  {cont__65_9, &frame__65_5, 367, 367, 5, 71},
-  {cont__65_10, &frame__65_5, 368, 368, 8, 28},
-  {cont__65_11, &frame__65_5, 368, 368, 5, 28},
-  {entry__65_1, NULL, 365, 365, 3, 29},
-  {cont__65_2, &frame__65_1, 366, 366, 6, 20},
-  {cont__65_3, &frame__65_1, 366, 368, 3, 28},
-  {entry__66_2, NULL, 371, 371, 43, 52},
-  {cont__66_3, &frame__66_2, 371, 371, 27, 52},
-  {entry__66_1, NULL, 371, 371, 3, 52},
-  {cont__66_5, &frame__66_1, 372, 372, 3, 11},
-  {entry__67_2, NULL, 375, 375, 41, 60},
-  {entry__67_9, NULL, 380, 380, 31, 43},
-  {cont__67_10, &frame__67_9, 380, 380, 25, 43},
-  {entry__67_5, NULL, 379, 379, 9, 76},
-  {cont__67_8, &frame__67_5, 380, 380, 9, 43},
-  {entry__67_15, NULL, 390, 390, 31, 43},
-  {cont__67_16, &frame__67_15, 390, 390, 25, 43},
-  {entry__67_11, NULL, 382, 389, 9, 20},
-  {cont__67_14, &frame__67_11, 390, 390, 9, 43},
-  {entry__67_4, NULL, 376, 390, 5, 44},
-  {cont__67_17, &frame__67_4, 391, 391, 17, 17},
-  {entry__67_1, NULL, 375, 375, 10, 60},
-  {cont__67_3, &frame__67_1, 375, 391, 3, 17},
-  {entry__68_25, NULL, 418, 418, 45, 74},
-  {cont__68_26, &frame__68_25, 418, 418, 9, 41},
-  {cont__68_27, &frame__68_25, 418, 418, 9, 74},
-  {cont__68_28, &frame__68_25, 418, 418, 9, 74},
-  {entry__68_21, NULL, 417, 417, 43, 75},
-  {cont__68_22, &frame__68_21, 417, 417, 9, 39},
-  {cont__68_23, &frame__68_21, 417, 417, 9, 75},
-  {cont__68_24, &frame__68_21, 418, 418, 9, 74},
+  {entry__63_11, NULL, 300, 300, 35, 78},
+  {cont__63_12, &frame__63_11, 300, 300, 35, 59},
+  {cont__63_13, &frame__63_11, 300, 300, 78, 78},
+  {entry__63_8, NULL, 299, 299, 11, 39},
+  {cont__63_9, &frame__63_8, 300, 300, 14, 32},
+  {cont__63_10, &frame__63_8, 300, 300, 11, 78},
+  {entry__63_6, NULL, 298, 298, 12, 31},
+  {cont__63_7, &frame__63_6, 298, 300, 9, 78},
+  {entry__63_4, NULL, 297, 297, 16, 30},
+  {cont__63_5, &frame__63_4, 297, 300, 7, 79},
+  {entry__63_3, NULL, 296, 300, 5, 80},
+  {entry__63_18, NULL, 304, 305, 11, 57},
+  {cont__63_21, &frame__63_18, 304, 305, 5, 57},
+  {entry__63_1, NULL, 294, 294, 6, 36},
+  {cont__63_2, &frame__63_1, 294, 300, 3, 81},
+  {cont__63_14, &frame__63_1, 301, 301, 3, 32},
+  {cont__63_15, &frame__63_1, 302, 302, 3, 38},
+  {cont__63_16, &frame__63_1, 303, 303, 6, 25},
+  {cont__63_17, &frame__63_1, 303, 305, 3, 58},
+  {cont__63_22, &frame__63_1, 306, 306, 21, 39},
+  {cont__63_23, &frame__63_1, 306, 306, 6, 40},
+  {cont__63_24, &frame__63_1, 306, 306, 3, 40},
+  {entry__64_10, NULL, 324, 324, 56, 77},
+  {cont__64_11, &frame__64_10, 324, 324, 77, 77},
+  {entry__64_8, NULL, 324, 324, 35, 53},
+  {cont__64_9, &frame__64_8, 324, 324, 32, 77},
+  {entry__64_6, NULL, 324, 324, 10, 29},
+  {cont__64_7, &frame__64_6, 324, 324, 7, 77},
+  {entry__64_28, NULL, 330, 330, 41, 65},
+  {cont__64_29, &frame__64_28, 330, 330, 41, 65},
+  {entry__64_31, NULL, 331, 331, 11, 38},
+  {cont__64_32, &frame__64_31, 331, 331, 49, 49},
+  {entry__64_15, NULL, 326, 326, 48, 60},
+  {cont__64_17, &frame__64_15, 326, 326, 48, 68},
+  {cont__64_18, &frame__64_15, 326, 326, 9, 69},
+  {cont__64_19, &frame__64_15, 327, 327, 9, 34},
+  {cont__64_20, &frame__64_15, 328, 328, 22, 36},
+  {cont__64_21, &frame__64_15, 328, 328, 38, 62},
+  {cont__64_22, &frame__64_15, 328, 328, 22, 62},
+  {cont__64_23, &frame__64_15, 328, 328, 22, 64},
+  {cont__64_24, &frame__64_15, 328, 328, 9, 67},
+  {cont__64_25, &frame__64_15, 329, 329, 9, 49},
+  {cont__64_26, &frame__64_15, 330, 330, 12, 36},
+  {cont__64_27, &frame__64_15, 330, 330, 12, 65},
+  {cont__64_30, &frame__64_15, 330, 331, 9, 49},
+  {cont__64_33, &frame__64_15, 332, 332, 9, 52},
+  {cont__64_34, &frame__64_15, 333, 333, 9, 26},
+  {cont__64_35, &frame__64_15, 334, 334, 9, 43},
+  {cont__64_36, &frame__64_15, 335, 335, 9, 30},
+  {cont__64_37, &frame__64_15, 335, 335, 52, 52},
+  {entry__64_12, NULL, 325, 325, 10, 33},
+  {cont__64_14, &frame__64_12, 325, 335, 7, 52},
+  {entry__64_4, NULL, 322, 322, 5, 33},
+  {cont__64_5, &frame__64_4, 323, 335, 5, 53},
+  {entry__64_49, NULL, 341, 341, 38, 60},
+  {cont__64_50, &frame__64_49, 341, 341, 60, 60},
+  {entry__64_45, NULL, 340, 340, 11, 54},
+  {cont__64_47, &frame__64_45, 341, 341, 14, 35},
+  {cont__64_48, &frame__64_45, 341, 341, 11, 60},
+  {entry__64_57, NULL, 348, 349, 17, 57},
+  {cont__64_60, &frame__64_57, 348, 349, 11, 57},
+  {entry__64_67, NULL, 353, 353, 11, 34},
+  {cont__64_68, &frame__64_67, 354, 354, 11, 45},
+  {cont__64_69, &frame__64_67, 354, 354, 45, 45},
+  {entry__64_64, NULL, 352, 352, 18, 31},
+  {cont__64_65, &frame__64_64, 352, 352, 18, 31},
+  {cont__64_66, &frame__64_64, 352, 354, 15, 45},
+  {entry__64_44, NULL, 343, 343, 9, 35},
+  {cont__64_51, &frame__64_44, 344, 344, 35, 58},
+  {cont__64_52, &frame__64_44, 344, 344, 9, 59},
+  {cont__64_53, &frame__64_44, 345, 345, 9, 39},
+  {cont__64_54, &frame__64_44, 346, 346, 9, 46},
+  {cont__64_55, &frame__64_44, 347, 347, 16, 32},
+  {cont__64_56, &frame__64_44, 347, 349, 9, 58},
+  {cont__64_61, &frame__64_44, 350, 350, 9, 30},
+  {cont__64_62, &frame__64_44, 351, 351, 9, 34},
+  {cont__64_63, &frame__64_44, 352, 354, 9, 45},
+  {cont__64_70, &frame__64_44, 355, 355, 10, 30},
+  {cont__64_71, &frame__64_44, 355, 355, 9, 40},
+  {cont__64_72, &frame__64_44, 355, 355, 9, 30},
+  {cont__64_73, &frame__64_44, 355, 355, 46, 46},
+  {entry__64_41, NULL, 338, 338, 14, 44},
+  {cont__64_43, &frame__64_41, 338, 355, 7, 46},
+  {entry__64_39, NULL, 337, 337, 8, 30},
+  {cont__64_40, &frame__64_39, 337, 355, 5, 47},
+  {entry__64_77, NULL, 356, 356, 39, 64},
+  {entry__64_1, NULL, 317, 317, 22, 27},
+  {cont__64_2, &frame__64_1, 317, 317, 3, 33},
+  {cont__64_3, &frame__64_1, 321, 335, 3, 54},
+  {cont__64_38, &frame__64_1, 336, 355, 3, 48},
+  {cont__64_74, &frame__64_1, 356, 356, 6, 31},
+  {cont__64_75, &frame__64_1, 356, 356, 6, 36},
+  {cont__64_76, &frame__64_1, 356, 356, 3, 64},
+  {cont__64_78, &frame__64_1, 356, 356, 64, 64},
+  {entry__65_4, NULL, 367, 367, 23, 29},
+  {entry__65_5, NULL, 368, 368, 47, 47},
+  {cont__65_6, &frame__65_5, 368, 368, 22, 48},
+  {cont__65_7, &frame__65_5, 368, 368, 70, 70},
+  {cont__65_8, &frame__65_5, 368, 368, 50, 71},
+  {cont__65_9, &frame__65_5, 368, 368, 5, 71},
+  {cont__65_10, &frame__65_5, 369, 369, 8, 28},
+  {cont__65_11, &frame__65_5, 369, 369, 5, 28},
+  {entry__65_1, NULL, 366, 366, 3, 29},
+  {cont__65_2, &frame__65_1, 367, 367, 6, 20},
+  {cont__65_3, &frame__65_1, 367, 369, 3, 28},
+  {entry__66_2, NULL, 372, 372, 43, 52},
+  {cont__66_3, &frame__66_2, 372, 372, 27, 52},
+  {entry__66_1, NULL, 372, 372, 3, 52},
+  {cont__66_5, &frame__66_1, 373, 373, 3, 11},
+  {entry__67_2, NULL, 376, 376, 41, 60},
+  {entry__67_8, NULL, 378, 378, 27, 39},
+  {cont__67_9, &frame__67_8, 378, 378, 21, 39},
+  {entry__67_4, NULL, 377, 377, 5, 72},
+  {cont__67_7, &frame__67_4, 378, 378, 5, 39},
+  {cont__67_10, &frame__67_4, 379, 379, 17, 17},
+  {entry__67_1, NULL, 376, 376, 10, 60},
+  {cont__67_3, &frame__67_1, 376, 379, 3, 17},
+  {entry__68_25, NULL, 406, 406, 45, 74},
+  {cont__68_26, &frame__68_25, 406, 406, 9, 41},
+  {cont__68_27, &frame__68_25, 406, 406, 9, 74},
+  {cont__68_28, &frame__68_25, 406, 406, 9, 74},
+  {entry__68_21, NULL, 405, 405, 43, 75},
+  {cont__68_22, &frame__68_21, 405, 405, 9, 39},
+  {cont__68_23, &frame__68_21, 405, 405, 9, 75},
+  {cont__68_24, &frame__68_21, 406, 406, 9, 74},
   {cont__68_29, &frame__68_21, },
-  {entry__68_19, NULL, 416, 416, 9, 32},
+  {entry__68_19, NULL, 404, 404, 9, 32},
   {cont__68_20, &frame__68_19, },
   {cont__68_30, &frame__68_19, },
-  {entry__68_17, NULL, 415, 415, 9, 29},
+  {entry__68_17, NULL, 403, 403, 9, 29},
   {cont__68_18, &frame__68_17, },
   {cont__68_31, &frame__68_17, },
-  {entry__68_41, NULL, 430, 430, 17, 47},
-  {cont__68_42, &frame__68_41, 430, 430, 17, 67},
-  {cont__68_43, &frame__68_41, 430, 430, 17, 67},
-  {entry__68_45, NULL, 433, 433, 17, 21},
-  {entry__68_38, NULL, 426, 426, 13, 42},
-  {cont__68_39, &frame__68_38, 429, 429, 17, 38},
-  {cont__68_40, &frame__68_38, 428, 430, 15, 66},
-  {cont__68_44, &frame__68_38, 427, 433, 13, 22},
-  {entry__68_58, NULL, 443, 443, 58, 58},
-  {cont__68_59, &frame__68_58, 443, 443, 40, 59},
-  {cont__68_60, &frame__68_58, 443, 443, 23, 60},
-  {cont__68_61, &frame__68_58, 443, 443, 17, 60},
-  {entry__68_63, NULL, 445, 445, 53, 77},
-  {cont__68_64, &frame__68_63, 445, 445, 47, 77},
-  {entry__68_62, NULL, 445, 445, 17, 77},
-  {entry__68_55, NULL, 442, 442, 15, 40},
-  {cont__68_57, &frame__68_55, 441, 445, 13, 78},
-  {entry__68_37, NULL, 435, 435, 18, 41},
-  {cont__68_47, &frame__68_37, 435, 435, 11, 47},
-  {cont__68_48, &frame__68_37, 436, 436, 11, 26},
-  {cont__68_49, &frame__68_37, 437, 437, 11, 20},
-  {cont__68_50, &frame__68_37, 438, 438, 11, 50},
-  {cont__68_51, &frame__68_37, 439, 439, 11, 44},
-  {cont__68_52, &frame__68_37, 440, 440, 14, 30},
-  {cont__68_54, &frame__68_37, 440, 445, 11, 79},
-  {entry__68_36, NULL, 424, 445, 9, 80},
-  {cont__68_65, &frame__68_36, 445, 445, 80, 80},
-  {entry__68_33, NULL, 421, 421, 7, 55},
-  {cont__68_34, &frame__68_33, 422, 422, 7, 38},
-  {cont__68_35, &frame__68_33, 423, 445, 7, 81},
-  {entry__68_74, NULL, 460, 460, 29, 41},
-  {cont__68_75, &frame__68_74, 460, 460, 23, 41},
-  {entry__68_67, NULL, 454, 454, 7, 36},
-  {cont__68_68, &frame__68_67, 455, 455, 7, 22},
-  {cont__68_69, &frame__68_67, 456, 456, 7, 31},
-  {cont__68_70, &frame__68_67, 457, 457, 7, 32},
-  {cont__68_71, &frame__68_67, 458, 458, 7, 43},
-  {cont__68_72, &frame__68_67, 459, 459, 7, 32},
-  {cont__68_73, &frame__68_67, 460, 460, 7, 41},
-  {cont__68_76, &frame__68_67, 461, 461, 25, 35},
-  {cont__68_77, &frame__68_67, 461, 461, 7, 35},
-  {cont__68_78, &frame__68_67, 461, 461, 35, 35},
-  {entry__68_2, NULL, 403, 403, 48, 48},
-  {cont__68_3, &frame__68_2, 403, 403, 5, 49},
-  {cont__68_4, &frame__68_2, 404, 404, 35, 57},
-  {cont__68_5, &frame__68_2, 404, 404, 5, 58},
-  {cont__68_6, &frame__68_2, 405, 405, 5, 42},
-  {cont__68_7, &frame__68_2, 406, 406, 42, 64},
-  {cont__68_8, &frame__68_2, 406, 406, 5, 70},
-  {cont__68_10, &frame__68_2, 407, 407, 51, 62},
-  {cont__68_11, &frame__68_2, 407, 407, 39, 63},
-  {cont__68_12, &frame__68_2, 407, 407, 5, 71},
-  {cont__68_13, &frame__68_2, 408, 408, 5, 34},
-  {cont__68_14, &frame__68_2, 409, 409, 5, 32},
-  {cont__68_15, &frame__68_2, 410, 410, 5, 38},
-  {cont__68_16, &frame__68_2, 412, 418, 5, 75},
-  {cont__68_32, &frame__68_2, 420, 445, 5, 82},
-  {cont__68_66, &frame__68_2, 446, 461, 5, 35},
-  {cont__68_79, &frame__68_2, 462, 462, 5, 19},
-  {cont__68_80, &frame__68_2, 463, 463, 8, 21},
-  {cont__68_81, &frame__68_2, 463, 463, 5, 21},
-  {entry__68_1, NULL, 402, 463, 3, 21},
-  {entry__69_13, NULL, 488, 488, 43, 43},
-  {cont__69_14, &frame__69_13, 488, 488, 15, 44},
-  {cont__69_15, &frame__69_13, 490, 490, 48, 48},
-  {cont__69_16, &frame__69_13, 490, 490, 24, 49},
-  {cont__69_17, &frame__69_13, 490, 490, 17, 59},
-  {cont__69_18, &frame__69_13, 491, 491, 44, 44},
-  {cont__69_19, &frame__69_13, 491, 491, 24, 45},
-  {cont__69_20, &frame__69_13, 491, 491, 17, 55},
-  {cont__69_21, &frame__69_13, 489, 491, 15, 55},
-  {entry__69_11, NULL, 487, 487, 16, 26},
-  {cont__69_12, &frame__69_11, 487, 491, 13, 56},
-  {entry__69_24, NULL, 497, 497, 17, 36},
+  {entry__68_41, NULL, 418, 418, 17, 47},
+  {cont__68_42, &frame__68_41, 418, 418, 17, 67},
+  {cont__68_43, &frame__68_41, 418, 418, 17, 67},
+  {entry__68_45, NULL, 421, 421, 17, 21},
+  {entry__68_38, NULL, 414, 414, 13, 42},
+  {cont__68_39, &frame__68_38, 417, 417, 17, 38},
+  {cont__68_40, &frame__68_38, 416, 418, 15, 66},
+  {cont__68_44, &frame__68_38, 415, 421, 13, 22},
+  {entry__68_58, NULL, 431, 431, 58, 58},
+  {cont__68_59, &frame__68_58, 431, 431, 40, 59},
+  {cont__68_60, &frame__68_58, 431, 431, 23, 60},
+  {cont__68_61, &frame__68_58, 431, 431, 17, 60},
+  {entry__68_63, NULL, 433, 433, 53, 77},
+  {cont__68_64, &frame__68_63, 433, 433, 47, 77},
+  {entry__68_62, NULL, 433, 433, 17, 77},
+  {entry__68_55, NULL, 430, 430, 15, 40},
+  {cont__68_57, &frame__68_55, 429, 433, 13, 78},
+  {entry__68_37, NULL, 423, 423, 18, 41},
+  {cont__68_47, &frame__68_37, 423, 423, 11, 47},
+  {cont__68_48, &frame__68_37, 424, 424, 11, 26},
+  {cont__68_49, &frame__68_37, 425, 425, 11, 20},
+  {cont__68_50, &frame__68_37, 426, 426, 11, 50},
+  {cont__68_51, &frame__68_37, 427, 427, 11, 44},
+  {cont__68_52, &frame__68_37, 428, 428, 14, 30},
+  {cont__68_54, &frame__68_37, 428, 433, 11, 79},
+  {entry__68_36, NULL, 412, 433, 9, 80},
+  {cont__68_65, &frame__68_36, 433, 433, 80, 80},
+  {entry__68_33, NULL, 409, 409, 7, 55},
+  {cont__68_34, &frame__68_33, 410, 410, 7, 38},
+  {cont__68_35, &frame__68_33, 411, 433, 7, 81},
+  {entry__68_74, NULL, 448, 448, 29, 41},
+  {cont__68_75, &frame__68_74, 448, 448, 23, 41},
+  {entry__68_67, NULL, 442, 442, 7, 36},
+  {cont__68_68, &frame__68_67, 443, 443, 7, 22},
+  {cont__68_69, &frame__68_67, 444, 444, 7, 31},
+  {cont__68_70, &frame__68_67, 445, 445, 7, 32},
+  {cont__68_71, &frame__68_67, 446, 446, 7, 43},
+  {cont__68_72, &frame__68_67, 447, 447, 7, 32},
+  {cont__68_73, &frame__68_67, 448, 448, 7, 41},
+  {cont__68_76, &frame__68_67, 449, 449, 25, 35},
+  {cont__68_77, &frame__68_67, 449, 449, 7, 35},
+  {cont__68_78, &frame__68_67, 449, 449, 35, 35},
+  {entry__68_2, NULL, 391, 391, 48, 48},
+  {cont__68_3, &frame__68_2, 391, 391, 5, 49},
+  {cont__68_4, &frame__68_2, 392, 392, 35, 57},
+  {cont__68_5, &frame__68_2, 392, 392, 5, 58},
+  {cont__68_6, &frame__68_2, 393, 393, 5, 42},
+  {cont__68_7, &frame__68_2, 394, 394, 42, 64},
+  {cont__68_8, &frame__68_2, 394, 394, 5, 70},
+  {cont__68_10, &frame__68_2, 395, 395, 51, 62},
+  {cont__68_11, &frame__68_2, 395, 395, 39, 63},
+  {cont__68_12, &frame__68_2, 395, 395, 5, 71},
+  {cont__68_13, &frame__68_2, 396, 396, 5, 34},
+  {cont__68_14, &frame__68_2, 397, 397, 5, 32},
+  {cont__68_15, &frame__68_2, 398, 398, 5, 38},
+  {cont__68_16, &frame__68_2, 400, 406, 5, 75},
+  {cont__68_32, &frame__68_2, 408, 433, 5, 82},
+  {cont__68_66, &frame__68_2, 434, 449, 5, 35},
+  {cont__68_79, &frame__68_2, 450, 450, 5, 19},
+  {cont__68_80, &frame__68_2, 451, 451, 8, 21},
+  {cont__68_81, &frame__68_2, 451, 451, 5, 21},
+  {entry__68_1, NULL, 390, 451, 3, 21},
+  {entry__69_13, NULL, 476, 476, 43, 43},
+  {cont__69_14, &frame__69_13, 476, 476, 15, 44},
+  {cont__69_15, &frame__69_13, 478, 478, 48, 48},
+  {cont__69_16, &frame__69_13, 478, 478, 24, 49},
+  {cont__69_17, &frame__69_13, 478, 478, 17, 59},
+  {cont__69_18, &frame__69_13, 479, 479, 44, 44},
+  {cont__69_19, &frame__69_13, 479, 479, 24, 45},
+  {cont__69_20, &frame__69_13, 479, 479, 17, 55},
+  {cont__69_21, &frame__69_13, 477, 479, 15, 55},
+  {entry__69_11, NULL, 475, 475, 16, 26},
+  {cont__69_12, &frame__69_11, 475, 479, 13, 56},
+  {entry__69_24, NULL, 485, 485, 17, 36},
   {entry__69_23, NULL, },
   {cont__69_25, &frame__69_23, },
-  {entry__69_27, NULL, 499, 499, 32, 57},
-  {cont__69_28, &frame__69_27, 499, 499, 17, 66},
-  {entry__69_30, NULL, 501, 501, 36, 66},
-  {cont__69_31, &frame__69_30, 501, 501, 36, 66},
-  {entry__69_33, NULL, 502, 502, 44, 71},
-  {cont__69_34, &frame__69_33, 502, 502, 30, 72},
-  {cont__69_36, &frame__69_33, 502, 502, 19, 73},
-  {cont__69_37, &frame__69_33, 502, 502, 78, 78},
-  {entry__69_29, NULL, 501, 501, 20, 66},
-  {cont__69_32, &frame__69_29, 501, 502, 17, 78},
+  {entry__69_27, NULL, 487, 487, 32, 57},
+  {cont__69_28, &frame__69_27, 487, 487, 17, 66},
+  {entry__69_30, NULL, 489, 489, 36, 66},
+  {cont__69_31, &frame__69_30, 489, 489, 36, 66},
+  {entry__69_33, NULL, 490, 490, 44, 71},
+  {cont__69_34, &frame__69_33, 490, 490, 30, 72},
+  {cont__69_36, &frame__69_33, 490, 490, 19, 73},
+  {cont__69_37, &frame__69_33, 490, 490, 78, 78},
+  {entry__69_29, NULL, 489, 489, 20, 66},
+  {cont__69_32, &frame__69_29, 489, 490, 17, 78},
   {entry__69_22, NULL, },
-  {cont__69_26, &frame__69_22, 493, 502, 13, 80},
-  {entry__69_9, NULL, 486, 486, 11, 36},
-  {cont__69_10, &frame__69_9, 485, 502, 9, 82},
-  {entry__69_39, NULL, 504, 504, 37, 64},
-  {cont__69_40, &frame__69_39, 504, 504, 26, 65},
-  {cont__69_41, &frame__69_39, 504, 504, 70, 70},
-  {entry__69_38, NULL, 504, 504, 9, 70},
-  {entry__69_2, NULL, 477, 477, 12, 35},
-  {cont__69_3, &frame__69_2, 477, 477, 5, 42},
-  {cont__69_4, &frame__69_2, 478, 478, 5, 20},
-  {cont__69_5, &frame__69_2, 479, 479, 5, 14},
-  {cont__69_6, &frame__69_2, 480, 480, 5, 44},
-  {cont__69_7, &frame__69_2, 481, 481, 5, 38},
-  {cont__69_8, &frame__69_2, 482, 504, 5, 71},
-  {entry__69_1, NULL, 476, 504, 3, 72},
-  {cont__69_44, &frame__69_1, 504, 504, 72, 72},
-  {entry__70_9, NULL, 526, 526, 28, 44},
-  {cont__70_10, &frame__70_9, 526, 526, 28, 44},
-  {entry__70_12, NULL, 527, 527, 9, 72},
-  {entry__70_18, NULL, 534, 534, 11, 40},
-  {cont__70_19, &frame__70_18, 534, 534, 11, 60},
-  {cont__70_20, &frame__70_18, 534, 534, 11, 60},
-  {entry__70_22, NULL, 536, 536, 11, 59},
-  {cont__70_23, &frame__70_22, 536, 536, 59, 59},
-  {entry__70_3, NULL, 524, 524, 7, 45},
-  {cont__70_4, &frame__70_3, 525, 525, 58, 58},
-  {cont__70_5, &frame__70_3, 525, 525, 34, 59},
-  {cont__70_6, &frame__70_3, 525, 525, 7, 75},
-  {cont__70_7, &frame__70_3, 526, 526, 10, 23},
-  {cont__70_8, &frame__70_3, 526, 526, 10, 44},
-  {cont__70_11, &frame__70_3, 526, 527, 7, 72},
-  {cont__70_13, &frame__70_3, 528, 528, 7, 53},
-  {cont__70_14, &frame__70_3, 529, 529, 7, 38},
-  {cont__70_15, &frame__70_3, 530, 530, 7, 34},
-  {cont__70_16, &frame__70_3, 533, 533, 11, 40},
-  {cont__70_17, &frame__70_3, 532, 534, 9, 59},
-  {cont__70_21, &frame__70_3, 531, 536, 7, 60},
-  {entry__70_27, NULL, 539, 539, 22, 43},
-  {cont__70_28, &frame__70_27, 539, 539, 48, 48},
-  {entry__70_32, NULL, 545, 545, 29, 56},
-  {cont__70_33, &frame__70_32, 545, 545, 9, 56},
-  {cont__70_34, &frame__70_32, 545, 545, 9, 56},
-  {entry__70_30, NULL, 544, 544, 9, 27},
-  {cont__70_31, &frame__70_30, 545, 545, 9, 56},
+  {cont__69_26, &frame__69_22, 481, 490, 13, 80},
+  {entry__69_9, NULL, 474, 474, 11, 36},
+  {cont__69_10, &frame__69_9, 473, 490, 9, 82},
+  {entry__69_39, NULL, 492, 492, 37, 64},
+  {cont__69_40, &frame__69_39, 492, 492, 26, 65},
+  {cont__69_41, &frame__69_39, 492, 492, 70, 70},
+  {entry__69_38, NULL, 492, 492, 9, 70},
+  {entry__69_2, NULL, 465, 465, 12, 35},
+  {cont__69_3, &frame__69_2, 465, 465, 5, 42},
+  {cont__69_4, &frame__69_2, 466, 466, 5, 20},
+  {cont__69_5, &frame__69_2, 467, 467, 5, 14},
+  {cont__69_6, &frame__69_2, 468, 468, 5, 44},
+  {cont__69_7, &frame__69_2, 469, 469, 5, 38},
+  {cont__69_8, &frame__69_2, 470, 492, 5, 71},
+  {entry__69_1, NULL, 464, 492, 3, 72},
+  {cont__69_44, &frame__69_1, 492, 492, 72, 72},
+  {entry__70_9, NULL, 514, 514, 28, 44},
+  {cont__70_10, &frame__70_9, 514, 514, 28, 44},
+  {entry__70_12, NULL, 515, 515, 9, 72},
+  {entry__70_18, NULL, 522, 522, 11, 40},
+  {cont__70_19, &frame__70_18, 522, 522, 11, 60},
+  {cont__70_20, &frame__70_18, 522, 522, 11, 60},
+  {entry__70_22, NULL, 524, 524, 11, 59},
+  {cont__70_23, &frame__70_22, 524, 524, 59, 59},
+  {entry__70_3, NULL, 512, 512, 7, 45},
+  {cont__70_4, &frame__70_3, 513, 513, 58, 58},
+  {cont__70_5, &frame__70_3, 513, 513, 34, 59},
+  {cont__70_6, &frame__70_3, 513, 513, 7, 75},
+  {cont__70_7, &frame__70_3, 514, 514, 10, 23},
+  {cont__70_8, &frame__70_3, 514, 514, 10, 44},
+  {cont__70_11, &frame__70_3, 514, 515, 7, 72},
+  {cont__70_13, &frame__70_3, 516, 516, 7, 53},
+  {cont__70_14, &frame__70_3, 517, 517, 7, 38},
+  {cont__70_15, &frame__70_3, 518, 518, 7, 34},
+  {cont__70_16, &frame__70_3, 521, 521, 11, 40},
+  {cont__70_17, &frame__70_3, 520, 522, 9, 59},
+  {cont__70_21, &frame__70_3, 519, 524, 7, 60},
+  {entry__70_27, NULL, 527, 527, 22, 43},
+  {cont__70_28, &frame__70_27, 527, 527, 48, 48},
+  {entry__70_32, NULL, 533, 533, 29, 56},
+  {cont__70_33, &frame__70_32, 533, 533, 9, 56},
+  {cont__70_34, &frame__70_32, 533, 533, 9, 56},
+  {entry__70_30, NULL, 532, 532, 9, 27},
+  {cont__70_31, &frame__70_30, 533, 533, 9, 56},
   {cont__70_35, &frame__70_30, },
-  {entry__70_43, NULL, 551, 551, 25, 79},
-  {entry__70_42, NULL, 551, 551, 13, 79},
-  {entry__70_46, NULL, 553, 553, 25, 75},
-  {entry__70_45, NULL, 553, 553, 13, 75},
-  {entry__70_49, NULL, 554, 554, 35, 53},
-  {entry__70_51, NULL, 555, 555, 32, 54},
-  {entry__70_55, NULL, 557, 557, 26, 56},
-  {entry__70_37, NULL, 547, 547, 50, 59},
-  {cont__70_39, &frame__70_37, 547, 547, 61, 70},
-  {cont__70_40, &frame__70_37, 547, 547, 9, 71},
-  {cont__70_41, &frame__70_37, 548, 553, 9, 76},
-  {cont__70_48, &frame__70_37, 554, 554, 9, 53},
-  {cont__70_50, &frame__70_37, 555, 555, 9, 54},
-  {cont__70_52, &frame__70_37, 556, 556, 25, 37},
-  {cont__70_53, &frame__70_37, 556, 556, 9, 37},
-  {cont__70_54, &frame__70_37, 557, 557, 9, 56},
-  {cont__70_56, &frame__70_37, 557, 557, 56, 56},
-  {entry__70_61, NULL, 564, 564, 44, 71},
-  {cont__70_62, &frame__70_61, 564, 564, 13, 40},
-  {cont__70_63, &frame__70_61, 564, 564, 13, 71},
-  {cont__70_64, &frame__70_61, 564, 564, 13, 71},
-  {entry__70_67, NULL, 566, 566, 30, 60},
-  {entry__70_66, NULL, 566, 566, 13, 60},
-  {entry__70_70, NULL, 571, 571, 17, 44},
-  {cont__70_71, &frame__70_70, 571, 571, 17, 69},
-  {cont__70_72, &frame__70_70, 571, 571, 17, 69},
-  {entry__70_74, NULL, 573, 573, 17, 68},
-  {cont__70_75, &frame__70_74, 573, 573, 68, 68},
-  {entry__70_68, NULL, 570, 570, 17, 51},
-  {cont__70_69, &frame__70_68, 569, 571, 15, 68},
-  {cont__70_73, &frame__70_68, 568, 573, 13, 69},
-  {entry__70_57, NULL, 559, 559, 9, 30},
-  {cont__70_58, &frame__70_57, 560, 560, 9, 32},
-  {cont__70_59, &frame__70_57, 563, 563, 13, 31},
-  {cont__70_60, &frame__70_57, 562, 564, 11, 70},
-  {cont__70_65, &frame__70_57, 561, 573, 9, 71},
-  {entry__70_2, NULL, 523, 536, 5, 61},
-  {cont__70_24, &frame__70_2, 537, 537, 5, 48},
-  {cont__70_25, &frame__70_2, 538, 538, 5, 28},
-  {cont__70_26, &frame__70_2, 539, 539, 5, 48},
-  {cont__70_29, &frame__70_2, 540, 540, 5, 21},
-  {cont__70_36, &frame__70_2, 541, 573, 5, 73},
-  {cont__70_76, &frame__70_2, 574, 574, 5, 63},
-  {entry__70_79, NULL, 578, 579, 11, 56},
-  {cont__70_82, &frame__70_79, 578, 579, 5, 56},
-  {entry__70_85, NULL, 580, 580, 51, 61},
-  {entry__70_87, NULL, 580, 580, 64, 70},
-  {entry__70_100, NULL, 586, 586, 51, 75},
-  {cont__70_101, &frame__70_100, 586, 586, 32, 75},
-  {cont__70_102, &frame__70_100, 586, 586, 75, 75},
-  {entry__70_95, NULL, 585, 585, 59, 59},
-  {cont__70_96, &frame__70_95, 585, 585, 30, 60},
-  {cont__70_97, &frame__70_95, 585, 585, 25, 61},
-  {cont__70_98, &frame__70_95, 585, 585, 7, 61},
-  {cont__70_99, &frame__70_95, 586, 586, 7, 75},
-  {entry__70_108, NULL, 593, 593, 37, 60},
-  {cont__70_109, &frame__70_108, 593, 593, 37, 60},
-  {entry__70_111, NULL, 595, 595, 35, 35},
-  {entry__70_105, NULL, 592, 592, 11, 47},
-  {cont__70_106, &frame__70_105, 593, 593, 14, 32},
-  {cont__70_107, &frame__70_105, 593, 593, 14, 60},
-  {cont__70_110, &frame__70_105, 593, 595, 11, 35},
-  {entry__70_113, NULL, 599, 599, 13, 37},
-  {cont__70_114, &frame__70_113, 600, 600, 13, 32},
-  {cont__70_115, &frame__70_113, 597, 600, 11, 32},
-  {entry__70_104, NULL, 591, 595, 9, 36},
-  {cont__70_112, &frame__70_104, 596, 600, 9, 33},
-  {entry__70_122, NULL, 608, 608, 39, 62},
-  {cont__70_123, &frame__70_122, 608, 608, 39, 62},
-  {entry__70_125, NULL, 610, 610, 37, 37},
-  {entry__70_119, NULL, 607, 607, 13, 77},
-  {cont__70_120, &frame__70_119, 608, 608, 16, 34},
-  {cont__70_121, &frame__70_119, 608, 608, 16, 62},
-  {cont__70_124, &frame__70_119, 608, 610, 13, 37},
-  {entry__70_128, NULL, 612, 612, 32, 53},
-  {cont__70_129, &frame__70_128, 612, 612, 13, 65},
-  {cont__70_130, &frame__70_128, 613, 613, 13, 39},
-  {cont__70_131, &frame__70_128, 614, 614, 13, 35},
-  {cont__70_132, &frame__70_128, 614, 614, 38, 38},
-  {entry__70_118, NULL, 606, 610, 11, 38},
-  {cont__70_126, &frame__70_118, 611, 611, 14, 37},
-  {cont__70_127, &frame__70_118, 611, 614, 11, 38},
-  {entry__70_139, NULL, 619, 619, 40, 69},
-  {cont__70_141, &frame__70_139, 619, 619, 69, 69},
-  {entry__70_138, NULL, 619, 619, 13, 69},
-  {entry__70_134, NULL, 616, 616, 11, 61},
-  {cont__70_135, &frame__70_134, 617, 617, 11, 38},
-  {cont__70_136, &frame__70_134, 618, 618, 14, 33},
-  {cont__70_137, &frame__70_134, 618, 619, 11, 69},
-  {cont__70_142, &frame__70_134, 620, 620, 11, 39},
-  {cont__70_143, &frame__70_134, 620, 620, 39, 39},
-  {entry__70_117, NULL, 603, 614, 9, 39},
-  {cont__70_133, &frame__70_117, 615, 620, 9, 39},
-  {entry__70_103, NULL, 588, 600, 7, 34},
-  {cont__70_116, &frame__70_103, 601, 620, 7, 40},
-  {entry__70_1, NULL, 576, 576, 3, 40},
-  {cont__70_77, &frame__70_1, 577, 577, 10, 28},
-  {cont__70_78, &frame__70_1, 577, 579, 3, 57},
-  {cont__70_83, &frame__70_1, 580, 580, 38, 48},
-  {cont__70_84, &frame__70_1, 580, 580, 35, 71},
-  {cont__70_89, &frame__70_1, 580, 580, 3, 72},
-  {cont__70_90, &frame__70_1, 581, 581, 6, 24},
-  {cont__70_91, &frame__70_1, 581, 581, 3, 31},
-  {cont__70_92, &frame__70_1, 582, 582, 3, 22},
-  {cont__70_93, &frame__70_1, 584, 584, 5, 21},
-  {cont__70_94, &frame__70_1, 583, 620, 3, 42},
-  {cont__70_144, &frame__70_1, 620, 620, 42, 42},
-  {entry__71_4, NULL, 629, 629, 21, 41},
-  {cont__71_5, &frame__71_4, 629, 629, 43, 67},
-  {cont__71_6, &frame__71_4, 629, 629, 5, 67},
-  {entry__71_8, NULL, 631, 631, 20, 40},
-  {cont__71_9, &frame__71_8, 631, 631, 42, 66},
-  {cont__71_10, &frame__71_8, 631, 631, 5, 66},
-  {entry__71_1, NULL, 627, 627, 47, 66},
-  {cont__71_2, &frame__71_1, 627, 627, 3, 66},
-  {cont__71_3, &frame__71_1, 628, 629, 3, 67},
-  {cont__71_7, &frame__71_1, 630, 631, 3, 66},
-  {entry__73_6, NULL, 640, 640, 34, 58},
-  {cont__73_8, &frame__73_6, 640, 640, 25, 58},
-  {entry__73_2, NULL, 639, 639, 5, 40},
-  {cont__73_4, &frame__73_2, 640, 640, 8, 22},
-  {cont__73_5, &frame__73_2, 640, 640, 5, 58},
-  {cont__73_9, &frame__73_2, 641, 641, 40, 57},
-  {cont__73_10, &frame__73_2, 641, 641, 5, 57},
-  {cont__73_12, &frame__73_2, 642, 642, 35, 54},
-  {cont__73_13, &frame__73_2, 642, 642, 5, 54},
-  {entry__73_1, NULL, 638, 642, 3, 54},
-  {entry__74_7, NULL, 651, 651, 60, 70},
-  {cont__74_9, &frame__74_7, 651, 651, 40, 70},
-  {cont__74_10, &frame__74_7, 651, 651, 70, 70},
-  {entry__74_5, NULL, 651, 651, 14, 30},
-  {cont__74_6, &frame__74_5, 651, 651, 5, 70},
-  {entry__74_12, NULL, 652, 652, 54, 77},
-  {cont__74_13, &frame__74_12, 652, 652, 27, 77},
-  {entry__74_16, NULL, 653, 653, 30, 54},
-  {cont__74_17, &frame__74_16, 653, 653, 54, 54},
-  {entry__74_24, NULL, 662, 662, 16, 45},
-  {cont__74_27, &frame__74_24, 662, 662, 13, 45},
-  {entry__74_28, NULL, 663, 663, 16, 38},
-  {cont__74_30, &frame__74_28, 663, 663, 13, 38},
-  {entry__74_21, NULL, 661, 661, 13, 39},
-  {cont__74_23, &frame__74_21, 660, 663, 11, 37},
-  {cont__74_31, &frame__74_21, 659, 663, 9, 39},
-  {entry__74_34, NULL, 667, 667, 25, 44},
-  {cont__74_35, &frame__74_34, 667, 667, 52, 71},
-  {cont__74_36, &frame__74_34, 667, 667, 16, 73},
-  {cont__74_37, &frame__74_34, 667, 668, 13, 26},
-  {entry__74_38, NULL, 669, 669, 16, 29},
-  {cont__74_39, &frame__74_38, 669, 669, 13, 29},
-  {entry__74_32, NULL, 666, 666, 13, 34},
-  {cont__74_33, &frame__74_32, 665, 669, 11, 28},
-  {cont__74_40, &frame__74_32, 664, 669, 9, 30},
-  {entry__74_19, NULL, 658, 658, 9, 35},
-  {cont__74_20, &frame__74_19, 657, 669, 7, 30},
-  {cont__74_41, &frame__74_19, 655, 669, 5, 32},
-  {cont__74_42, &frame__74_19, 669, 669, 33, 33},
-  {entry__74_1, NULL, 645, 645, 3, 16},
-  {cont__74_2, &frame__74_1, 649, 649, 3, 39},
-  {cont__74_3, &frame__74_1, 650, 650, 6, 21},
-  {cont__74_4, &frame__74_1, 650, 651, 3, 70},
-  {cont__74_11, &frame__74_1, 652, 652, 3, 77},
-  {cont__74_15, &frame__74_1, 653, 653, 3, 54},
-  {cont__74_18, &frame__74_1, 654, 669, 3, 33},
-  {cont__74_43, &frame__74_1, 670, 670, 24, 57},
-  {cont__74_44, &frame__74_1, 670, 670, 3, 57},
-  {entry__75_9, NULL, 680, 680, 51, 64},
-  {cont__75_10, &frame__75_9, 680, 680, 51, 64},
-  {entry__75_7, NULL, 680, 680, 37, 46},
-  {cont__75_8, &frame__75_7, 680, 680, 37, 64},
-  {cont__75_11, &frame__75_7, 680, 680, 37, 64},
-  {entry__75_29, NULL, 691, 691, 25, 59},
-  {cont__75_31, &frame__75_29, 691, 691, 21, 60},
-  {cont__75_32, &frame__75_29, 691, 691, 21, 60},
-  {entry__75_25, NULL, 690, 690, 25, 58},
-  {cont__75_27, &frame__75_25, 690, 690, 21, 59},
-  {cont__75_28, &frame__75_25, 691, 691, 21, 60},
+  {entry__70_43, NULL, 539, 539, 25, 79},
+  {entry__70_42, NULL, 539, 539, 13, 79},
+  {entry__70_46, NULL, 541, 541, 25, 75},
+  {entry__70_45, NULL, 541, 541, 13, 75},
+  {entry__70_49, NULL, 542, 542, 35, 53},
+  {entry__70_51, NULL, 543, 543, 32, 54},
+  {entry__70_55, NULL, 545, 545, 26, 56},
+  {entry__70_37, NULL, 535, 535, 50, 59},
+  {cont__70_39, &frame__70_37, 535, 535, 61, 70},
+  {cont__70_40, &frame__70_37, 535, 535, 9, 71},
+  {cont__70_41, &frame__70_37, 536, 541, 9, 76},
+  {cont__70_48, &frame__70_37, 542, 542, 9, 53},
+  {cont__70_50, &frame__70_37, 543, 543, 9, 54},
+  {cont__70_52, &frame__70_37, 544, 544, 25, 37},
+  {cont__70_53, &frame__70_37, 544, 544, 9, 37},
+  {cont__70_54, &frame__70_37, 545, 545, 9, 56},
+  {cont__70_56, &frame__70_37, 545, 545, 56, 56},
+  {entry__70_61, NULL, 552, 552, 44, 71},
+  {cont__70_62, &frame__70_61, 552, 552, 13, 40},
+  {cont__70_63, &frame__70_61, 552, 552, 13, 71},
+  {cont__70_64, &frame__70_61, 552, 552, 13, 71},
+  {entry__70_67, NULL, 554, 554, 30, 60},
+  {entry__70_66, NULL, 554, 554, 13, 60},
+  {entry__70_70, NULL, 559, 559, 17, 44},
+  {cont__70_71, &frame__70_70, 559, 559, 17, 69},
+  {cont__70_72, &frame__70_70, 559, 559, 17, 69},
+  {entry__70_74, NULL, 561, 561, 17, 68},
+  {cont__70_75, &frame__70_74, 561, 561, 68, 68},
+  {entry__70_68, NULL, 558, 558, 17, 51},
+  {cont__70_69, &frame__70_68, 557, 559, 15, 68},
+  {cont__70_73, &frame__70_68, 556, 561, 13, 69},
+  {entry__70_57, NULL, 547, 547, 9, 30},
+  {cont__70_58, &frame__70_57, 548, 548, 9, 32},
+  {cont__70_59, &frame__70_57, 551, 551, 13, 31},
+  {cont__70_60, &frame__70_57, 550, 552, 11, 70},
+  {cont__70_65, &frame__70_57, 549, 561, 9, 71},
+  {entry__70_2, NULL, 511, 524, 5, 61},
+  {cont__70_24, &frame__70_2, 525, 525, 5, 48},
+  {cont__70_25, &frame__70_2, 526, 526, 5, 28},
+  {cont__70_26, &frame__70_2, 527, 527, 5, 48},
+  {cont__70_29, &frame__70_2, 528, 528, 5, 21},
+  {cont__70_36, &frame__70_2, 529, 561, 5, 73},
+  {cont__70_76, &frame__70_2, 562, 562, 5, 63},
+  {entry__70_79, NULL, 566, 567, 11, 56},
+  {cont__70_82, &frame__70_79, 566, 567, 5, 56},
+  {entry__70_95, NULL, 574, 574, 51, 75},
+  {cont__70_96, &frame__70_95, 574, 574, 32, 75},
+  {cont__70_97, &frame__70_95, 574, 574, 75, 75},
+  {entry__70_90, NULL, 573, 573, 59, 59},
+  {cont__70_91, &frame__70_90, 573, 573, 30, 60},
+  {cont__70_92, &frame__70_90, 573, 573, 25, 61},
+  {cont__70_93, &frame__70_90, 573, 573, 7, 61},
+  {cont__70_94, &frame__70_90, 574, 574, 7, 75},
+  {entry__70_103, NULL, 581, 581, 37, 60},
+  {cont__70_104, &frame__70_103, 581, 581, 37, 60},
+  {entry__70_106, NULL, 583, 583, 35, 35},
+  {entry__70_100, NULL, 580, 580, 11, 47},
+  {cont__70_101, &frame__70_100, 581, 581, 14, 32},
+  {cont__70_102, &frame__70_100, 581, 581, 14, 60},
+  {cont__70_105, &frame__70_100, 581, 583, 11, 35},
+  {entry__70_108, NULL, 587, 587, 13, 37},
+  {cont__70_109, &frame__70_108, 588, 588, 13, 32},
+  {cont__70_110, &frame__70_108, 585, 588, 11, 32},
+  {entry__70_99, NULL, 579, 583, 9, 36},
+  {cont__70_107, &frame__70_99, 584, 588, 9, 33},
+  {entry__70_117, NULL, 596, 596, 39, 62},
+  {cont__70_118, &frame__70_117, 596, 596, 39, 62},
+  {entry__70_120, NULL, 598, 598, 37, 37},
+  {entry__70_114, NULL, 595, 595, 13, 77},
+  {cont__70_115, &frame__70_114, 596, 596, 16, 34},
+  {cont__70_116, &frame__70_114, 596, 596, 16, 62},
+  {cont__70_119, &frame__70_114, 596, 598, 13, 37},
+  {entry__70_123, NULL, 600, 600, 32, 53},
+  {cont__70_124, &frame__70_123, 600, 600, 13, 65},
+  {cont__70_125, &frame__70_123, 601, 601, 13, 39},
+  {cont__70_126, &frame__70_123, 602, 602, 13, 35},
+  {cont__70_127, &frame__70_123, 602, 602, 38, 38},
+  {entry__70_113, NULL, 594, 598, 11, 38},
+  {cont__70_121, &frame__70_113, 599, 599, 14, 37},
+  {cont__70_122, &frame__70_113, 599, 602, 11, 38},
+  {entry__70_134, NULL, 607, 607, 40, 69},
+  {cont__70_136, &frame__70_134, 607, 607, 69, 69},
+  {entry__70_133, NULL, 607, 607, 13, 69},
+  {entry__70_129, NULL, 604, 604, 11, 61},
+  {cont__70_130, &frame__70_129, 605, 605, 11, 38},
+  {cont__70_131, &frame__70_129, 606, 606, 14, 33},
+  {cont__70_132, &frame__70_129, 606, 607, 11, 69},
+  {cont__70_137, &frame__70_129, 608, 608, 11, 39},
+  {cont__70_138, &frame__70_129, 608, 608, 39, 39},
+  {entry__70_112, NULL, 591, 602, 9, 39},
+  {cont__70_128, &frame__70_112, 603, 608, 9, 39},
+  {entry__70_98, NULL, 576, 588, 7, 34},
+  {cont__70_111, &frame__70_98, 589, 608, 7, 40},
+  {entry__70_1, NULL, 564, 564, 3, 40},
+  {cont__70_77, &frame__70_1, 565, 565, 10, 28},
+  {cont__70_78, &frame__70_1, 565, 567, 3, 57},
+  {cont__70_83, &frame__70_1, 568, 568, 3, 39},
+  {cont__70_85, &frame__70_1, 569, 569, 6, 24},
+  {cont__70_86, &frame__70_1, 569, 569, 3, 31},
+  {cont__70_87, &frame__70_1, 570, 570, 3, 22},
+  {cont__70_88, &frame__70_1, 572, 572, 5, 21},
+  {cont__70_89, &frame__70_1, 571, 608, 3, 42},
+  {cont__70_139, &frame__70_1, 608, 608, 42, 42},
+  {entry__71_4, NULL, 617, 617, 21, 41},
+  {cont__71_5, &frame__71_4, 617, 617, 43, 67},
+  {cont__71_6, &frame__71_4, 617, 617, 5, 67},
+  {entry__71_8, NULL, 619, 619, 20, 40},
+  {cont__71_9, &frame__71_8, 619, 619, 42, 66},
+  {cont__71_10, &frame__71_8, 619, 619, 5, 66},
+  {entry__71_1, NULL, 615, 615, 47, 66},
+  {cont__71_2, &frame__71_1, 615, 615, 3, 66},
+  {cont__71_3, &frame__71_1, 616, 617, 3, 67},
+  {cont__71_7, &frame__71_1, 618, 619, 3, 66},
+  {entry__73_6, NULL, 628, 628, 34, 58},
+  {cont__73_8, &frame__73_6, 628, 628, 25, 58},
+  {entry__73_2, NULL, 627, 627, 5, 40},
+  {cont__73_4, &frame__73_2, 628, 628, 8, 22},
+  {cont__73_5, &frame__73_2, 628, 628, 5, 58},
+  {cont__73_9, &frame__73_2, 629, 629, 40, 57},
+  {cont__73_10, &frame__73_2, 629, 629, 5, 57},
+  {cont__73_12, &frame__73_2, 630, 630, 35, 54},
+  {cont__73_13, &frame__73_2, 630, 630, 5, 54},
+  {entry__73_1, NULL, 626, 630, 3, 54},
+  {entry__74_7, NULL, 639, 639, 60, 70},
+  {cont__74_9, &frame__74_7, 639, 639, 40, 70},
+  {cont__74_10, &frame__74_7, 639, 639, 70, 70},
+  {entry__74_5, NULL, 639, 639, 14, 30},
+  {cont__74_6, &frame__74_5, 639, 639, 5, 70},
+  {entry__74_12, NULL, 640, 640, 54, 77},
+  {cont__74_13, &frame__74_12, 640, 640, 27, 77},
+  {entry__74_16, NULL, 641, 641, 30, 54},
+  {cont__74_17, &frame__74_16, 641, 641, 54, 54},
+  {entry__74_24, NULL, 650, 650, 16, 45},
+  {cont__74_27, &frame__74_24, 650, 650, 13, 45},
+  {entry__74_28, NULL, 651, 651, 16, 38},
+  {cont__74_30, &frame__74_28, 651, 651, 13, 38},
+  {entry__74_21, NULL, 649, 649, 13, 39},
+  {cont__74_23, &frame__74_21, 648, 651, 11, 37},
+  {cont__74_31, &frame__74_21, 647, 651, 9, 39},
+  {entry__74_34, NULL, 655, 655, 25, 44},
+  {cont__74_35, &frame__74_34, 655, 655, 52, 71},
+  {cont__74_36, &frame__74_34, 655, 655, 16, 73},
+  {cont__74_37, &frame__74_34, 655, 656, 13, 26},
+  {entry__74_38, NULL, 657, 657, 16, 29},
+  {cont__74_39, &frame__74_38, 657, 657, 13, 29},
+  {entry__74_32, NULL, 654, 654, 13, 34},
+  {cont__74_33, &frame__74_32, 653, 657, 11, 28},
+  {cont__74_40, &frame__74_32, 652, 657, 9, 30},
+  {entry__74_19, NULL, 646, 646, 9, 35},
+  {cont__74_20, &frame__74_19, 645, 657, 7, 30},
+  {cont__74_41, &frame__74_19, 643, 657, 5, 32},
+  {cont__74_42, &frame__74_19, 657, 657, 33, 33},
+  {entry__74_1, NULL, 633, 633, 3, 16},
+  {cont__74_2, &frame__74_1, 637, 637, 3, 39},
+  {cont__74_3, &frame__74_1, 638, 638, 6, 21},
+  {cont__74_4, &frame__74_1, 638, 639, 3, 70},
+  {cont__74_11, &frame__74_1, 640, 640, 3, 77},
+  {cont__74_15, &frame__74_1, 641, 641, 3, 54},
+  {cont__74_18, &frame__74_1, 642, 657, 3, 33},
+  {cont__74_43, &frame__74_1, 658, 658, 24, 57},
+  {cont__74_44, &frame__74_1, 658, 658, 3, 57},
+  {entry__75_9, NULL, 668, 668, 51, 64},
+  {cont__75_10, &frame__75_9, 668, 668, 51, 64},
+  {entry__75_7, NULL, 668, 668, 37, 46},
+  {cont__75_8, &frame__75_7, 668, 668, 37, 64},
+  {cont__75_11, &frame__75_7, 668, 668, 37, 64},
+  {entry__75_29, NULL, 679, 679, 25, 59},
+  {cont__75_31, &frame__75_29, 679, 679, 21, 60},
+  {cont__75_32, &frame__75_29, 679, 679, 21, 60},
+  {entry__75_25, NULL, 678, 678, 25, 58},
+  {cont__75_27, &frame__75_25, 678, 678, 21, 59},
+  {cont__75_28, &frame__75_25, 679, 679, 21, 60},
   {cont__75_33, &frame__75_25, },
-  {entry__75_38, NULL, 695, 695, 46, 80},
-  {cont__75_39, &frame__75_38, 695, 695, 46, 80},
-  {entry__75_41, NULL, 697, 697, 44, 74},
-  {cont__75_42, &frame__75_41, 697, 697, 23, 74},
-  {entry__75_35, NULL, 695, 695, 21, 34},
-  {cont__75_36, &frame__75_35, 695, 695, 21, 41},
-  {cont__75_37, &frame__75_35, 695, 695, 21, 80},
-  {cont__75_40, &frame__75_35, 694, 697, 19, 75},
-  {entry__75_49, NULL, 700, 700, 60, 60},
-  {cont__75_50, &frame__75_49, 700, 700, 44, 61},
-  {cont__75_51, &frame__75_49, 700, 700, 23, 61},
-  {entry__75_46, NULL, 699, 699, 35, 62},
-  {cont__75_47, &frame__75_46, 699, 699, 35, 67},
-  {cont__75_48, &frame__75_46, 699, 700, 21, 61},
-  {entry__75_43, NULL, 698, 698, 22, 62},
-  {cont__75_45, &frame__75_43, 698, 700, 19, 62},
-  {entry__75_52, NULL, 702, 702, 21, 52},
-  {entry__75_54, NULL, 703, 703, 31, 45},
-  {entry__75_21, NULL, 689, 689, 21, 34},
-  {cont__75_22, &frame__75_21, 689, 689, 21, 41},
-  {cont__75_23, &frame__75_21, 689, 689, 21, 41},
-  {cont__75_24, &frame__75_21, 687, 691, 17, 61},
-  {cont__75_34, &frame__75_21, 693, 702, 17, 53},
-  {cont__75_53, &frame__75_21, 703, 703, 17, 45},
-  {cont__75_56, &frame__75_21, 704, 704, 17, 33},
-  {entry__75_17, NULL, 684, 684, 15, 38},
-  {cont__75_18, &frame__75_17, 685, 685, 15, 50},
-  {cont__75_19, &frame__75_17, 686, 686, 18, 39},
-  {cont__75_20, &frame__75_17, 686, 704, 15, 33},
-  {entry__75_13, NULL, 681, 681, 33, 37},
-  {cont__75_14, &frame__75_13, 681, 681, 13, 38},
-  {cont__75_15, &frame__75_13, 683, 683, 20, 42},
-  {cont__75_16, &frame__75_13, 683, 704, 13, 34},
-  {entry__75_5, NULL, 680, 680, 18, 32},
-  {cont__75_6, &frame__75_5, 680, 680, 18, 64},
-  {cont__75_12, &frame__75_5, 680, 704, 11, 35},
-  {entry__75_59, NULL, 706, 706, 33, 42},
-  {cont__75_60, &frame__75_59, 706, 706, 33, 42},
-  {entry__75_62, NULL, 706, 706, 50, 50},
-  {entry__75_57, NULL, 706, 706, 14, 28},
-  {cont__75_58, &frame__75_57, 706, 706, 14, 42},
-  {cont__75_61, &frame__75_57, 706, 706, 11, 50},
-  {entry__75_3, NULL, 679, 679, 9, 20},
-  {cont__75_4, &frame__75_3, 678, 706, 7, 51},
-  {entry__75_2, NULL, 677, 706, 5, 52},
-  {entry__75_63, NULL, 708, 708, 28, 54},
-  {entry__75_74, NULL, 713, 713, 22, 59},
-  {entry__75_1, NULL, 708, 708, 3, 54},
-  {cont__75_64, &frame__75_1, 709, 709, 3, 49},
-  {cont__75_66, &frame__75_1, 710, 710, 3, 18},
-  {cont__75_67, &frame__75_1, 711, 711, 3, 15},
-  {cont__75_68, &frame__75_1, 712, 712, 22, 42},
-  {cont__75_69, &frame__75_1, 712, 712, 22, 45},
-  {cont__75_70, &frame__75_1, 712, 712, 48, 48},
-  {cont__75_71, &frame__75_1, 712, 712, 9, 49},
-  {cont__75_72, &frame__75_1, 712, 712, 3, 49},
-  {cont__75_73, &frame__75_1, 713, 713, 3, 59},
-  {entry__76_3, NULL, 716, 716, 32, 67},
-  {entry__76_7, NULL, 718, 719, 5, 57},
-  {entry__76_1, NULL, 716, 716, 6, 29},
-  {cont__76_2, &frame__76_1, 716, 716, 3, 67},
-  {cont__76_5, &frame__76_1, 717, 717, 10, 42},
-  {cont__76_6, &frame__76_1, 717, 719, 3, 58},
-  {cont__76_9, &frame__76_1, 721, 721, 3, 53},
-  {cont__76_10, &frame__76_1, 722, 722, 46, 46},
-  {cont__76_11, &frame__76_1, 722, 722, 3, 47},
-  {cont__76_12, &frame__76_1, 723, 723, 3, 28},
-  {cont__76_13, &frame__76_1, 723, 723, 28, 28},
-  {entry__77_2, NULL, 728, 728, 11, 29},
-  {cont__77_3, &frame__77_2, 728, 728, 5, 29},
-  {cont__77_4, &frame__77_2, 728, 728, 29, 29},
-  {entry__77_1, NULL, 726, 728, 3, 29},
-  {entry__78_4, NULL, 732, 732, 41, 65},
-  {cont__78_5, &frame__78_4, 732, 732, 34, 75},
-  {cont__78_6, &frame__78_4, 732, 732, 75, 75},
-  {entry__78_8, NULL, 734, 734, 48, 57},
-  {cont__78_9, &frame__78_8, 734, 734, 59, 68},
-  {cont__78_10, &frame__78_8, 734, 734, 7, 69},
-  {cont__78_11, &frame__78_8, 735, 735, 13, 31},
-  {cont__78_12, &frame__78_8, 735, 735, 7, 31},
-  {cont__78_13, &frame__78_8, 735, 735, 31, 31},
-  {entry__78_15, NULL, 736, 736, 28, 50},
-  {entry__78_18, NULL, 738, 738, 24, 59},
-  {entry__78_2, NULL, 732, 732, 8, 31},
-  {cont__78_3, &frame__78_2, 732, 732, 5, 75},
-  {cont__78_7, &frame__78_2, 733, 735, 5, 31},
-  {cont__78_14, &frame__78_2, 736, 736, 5, 50},
-  {cont__78_16, &frame__78_2, 737, 737, 5, 15},
-  {cont__78_17, &frame__78_2, 738, 738, 5, 59},
-  {entry__78_1, NULL, 731, 738, 3, 59},
-  {entry__79_5, NULL, 747, 747, 9, 43},
-  {cont__79_6, &frame__79_5, 748, 748, 12, 28},
-  {cont__79_7, &frame__79_5, 748, 748, 9, 34},
-  {cont__79_8, &frame__79_5, 749, 749, 9, 21},
-  {cont__79_9, &frame__79_5, 750, 750, 9, 64},
-  {cont__79_10, &frame__79_5, 751, 751, 12, 23},
-  {cont__79_11, &frame__79_5, 751, 751, 9, 29},
-  {cont__79_12, &frame__79_5, 752, 752, 22, 22},
-  {entry__79_4, NULL, 746, 752, 7, 22},
-  {cont__79_13, &frame__79_4, 752, 752, 22, 22},
-  {entry__79_3, NULL, 745, 752, 5, 23},
-  {entry__79_17, NULL, 756, 756, 19, 65},
-  {entry__79_16, NULL, 756, 756, 7, 65},
-  {cont__79_19, &frame__79_16, 757, 757, 63, 63},
-  {cont__79_20, &frame__79_16, 757, 757, 37, 64},
-  {cont__79_21, &frame__79_16, 757, 757, 7, 64},
-  {cont__79_22, &frame__79_16, 757, 757, 64, 64},
-  {entry__79_25, NULL, 760, 760, 21, 66},
-  {entry__79_24, NULL, 760, 760, 9, 66},
-  {cont__79_26, &frame__79_24, 761, 761, 9, 44},
-  {entry__79_23, NULL, 759, 761, 7, 44},
-  {cont__79_27, &frame__79_23, 762, 762, 7, 32},
-  {cont__79_29, &frame__79_23, 763, 763, 7, 32},
-  {cont__79_31, &frame__79_23, 764, 764, 7, 34},
-  {entry__79_35, NULL, 767, 767, 5, 40},
-  {cont__79_36, &frame__79_35, 768, 768, 5, 32},
-  {cont__79_37, &frame__79_35, 769, 769, 5, 20},
-  {entry__79_1, NULL, 741, 741, 3, 80},
-  {cont__79_2, &frame__79_1, 742, 752, 3, 24},
-  {cont__79_14, &frame__79_1, 754, 754, 5, 28},
-  {cont__79_15, &frame__79_1, 753, 764, 3, 35},
-  {cont__79_33, &frame__79_1, 765, 765, 3, 29},
-  {cont__79_34, &frame__79_1, 766, 769, 3, 20},
-  {entry__80_7, NULL, 776, 777, 14, 58},
-  {cont__80_10, &frame__80_7, 776, 777, 7, 58},
-  {entry__80_12, NULL, 778, 778, 17, 73},
-  {entry__80_34, NULL, 810, 812, 21, 49},
-  {cont__80_37, &frame__80_34, 810, 812, 7, 49},
-  {cont__80_38, &frame__80_34, 812, 812, 50, 50},
-  {entry__80_48, NULL, 832, 832, 7, 42},
-  {cont__80_49, &frame__80_48, 833, 833, 7, 34},
-  {cont__80_50, &frame__80_48, 834, 839, 21, 23},
-  {cont__80_53, &frame__80_48, 834, 839, 7, 23},
-  {cont__80_54, &frame__80_48, 839, 839, 24, 24},
-  {entry__80_2, NULL, 773, 773, 5, 55},
-  {cont__80_4, &frame__80_2, 774, 774, 5, 31},
-  {cont__80_5, &frame__80_2, 775, 775, 8, 22},
-  {cont__80_6, &frame__80_2, 775, 777, 5, 59},
-  {cont__80_11, &frame__80_2, 778, 778, 5, 73},
-  {cont__80_14, &frame__80_2, 779, 779, 5, 40},
-  {cont__80_15, &frame__80_2, 780, 780, 5, 18},
-  {cont__80_16, &frame__80_2, 781, 781, 49, 49},
-  {cont__80_17, &frame__80_2, 781, 781, 15, 50},
-  {cont__80_18, &frame__80_2, 781, 781, 5, 74},
-  {cont__80_19, &frame__80_2, 782, 782, 5, 31},
-  {cont__80_20, &frame__80_2, 783, 783, 30, 73},
-  {cont__80_21, &frame__80_2, 783, 783, 5, 78},
-  {cont__80_22, &frame__80_2, 784, 784, 5, 33},
-  {cont__80_24, &frame__80_2, 785, 785, 5, 61},
-  {cont__80_27, &frame__80_2, 786, 786, 5, 25},
-  {cont__80_28, &frame__80_2, 788, 808, 19, 22},
-  {cont__80_32, &frame__80_2, 788, 808, 5, 22},
-  {cont__80_33, &frame__80_2, 809, 812, 5, 50},
-  {cont__80_39, &frame__80_2, 813, 830, 19, 21},
-  {cont__80_46, &frame__80_2, 813, 830, 5, 21},
-  {cont__80_47, &frame__80_2, 831, 839, 5, 24},
-  {cont__80_55, &frame__80_2, 840, 846, 5, 32},
-  {cont__80_57, &frame__80_2, 847, 847, 5, 25},
-  {entry__80_1, NULL, 772, 847, 3, 25},
-  {entry__81_4, NULL, 850, 850, 26, 56},
-  {entry__81_7, NULL, 854, 854, 7, 41},
-  {entry__81_12, NULL, 860, 860, 29, 50},
-  {cont__81_13, &frame__81_12, 860, 860, 29, 55},
-  {cont__81_14, &frame__81_12, 860, 860, 9, 56},
-  {cont__81_15, &frame__81_12, 861, 861, 9, 47},
-  {cont__81_16, &frame__81_12, 861, 861, 47, 47},
-  {entry__81_20, NULL, 868, 868, 53, 66},
-  {cont__81_21, &frame__81_20, 868, 868, 14, 67},
-  {cont__81_23, &frame__81_20, 868, 868, 11, 67},
-  {entry__81_24, NULL, 870, 870, 53, 67},
-  {cont__81_26, &frame__81_24, 870, 870, 14, 68},
-  {cont__81_27, &frame__81_24, 870, 870, 11, 68},
-  {entry__81_28, NULL, 872, 872, 53, 69},
-  {cont__81_30, &frame__81_28, 872, 872, 14, 70},
-  {cont__81_31, &frame__81_28, 872, 872, 11, 70},
-  {entry__81_32, NULL, 873, 873, 14, 50},
-  {cont__81_34, &frame__81_32, 873, 873, 11, 50},
-  {entry__81_38, NULL, 875, 875, 19, 56},
-  {entry__81_47, NULL, 882, 882, 38, 63},
-  {cont__81_48, &frame__81_47, 882, 882, 13, 63},
-  {cont__81_49, &frame__81_47, 882, 882, 13, 63},
-  {entry__81_51, NULL, 884, 884, 25, 25},
-  {entry__81_44, NULL, 878, 878, 9, 32},
-  {cont__81_45, &frame__81_44, 881, 881, 13, 29},
-  {cont__81_46, &frame__81_44, 880, 882, 11, 62},
-  {cont__81_50, &frame__81_44, 879, 884, 9, 26},
-  {entry__81_54, NULL, 886, 886, 21, 54},
-  {entry__81_63, NULL, 896, 896, 35, 47},
-  {cont__81_64, &frame__81_63, 896, 896, 29, 47},
-  {entry__81_57, NULL, 892, 892, 15, 76},
-  {cont__81_59, &frame__81_57, 893, 893, 15, 43},
-  {cont__81_60, &frame__81_57, 890, 895, 13, 26},
-  {cont__81_62, &frame__81_57, 896, 896, 13, 47},
-  {entry__81_70, NULL, 904, 904, 35, 47},
-  {cont__81_71, &frame__81_70, 904, 904, 29, 47},
-  {entry__81_65, NULL, 900, 900, 15, 43},
-  {cont__81_66, &frame__81_65, 901, 901, 15, 30},
-  {cont__81_68, &frame__81_65, 898, 903, 13, 26},
-  {cont__81_69, &frame__81_65, 904, 904, 13, 47},
-  {entry__81_79, NULL, 915, 915, 35, 47},
-  {cont__81_80, &frame__81_79, 915, 915, 29, 47},
-  {entry__81_72, NULL, 908, 910, 15, 23},
-  {cont__81_74, &frame__81_72, 911, 911, 15, 43},
-  {cont__81_75, &frame__81_72, 912, 912, 15, 30},
-  {cont__81_76, &frame__81_72, 906, 914, 13, 26},
-  {cont__81_78, &frame__81_72, 915, 915, 13, 47},
-  {entry__81_84, NULL, 922, 922, 35, 47},
-  {cont__81_85, &frame__81_84, 922, 922, 29, 47},
-  {entry__81_81, NULL, 919, 919, 15, 43},
-  {cont__81_82, &frame__81_81, 917, 921, 13, 26},
-  {cont__81_83, &frame__81_81, 922, 922, 13, 47},
-  {entry__81_53, NULL, 886, 886, 9, 54},
-  {cont__81_56, &frame__81_53, 887, 922, 9, 48},
-  {entry__81_8, NULL, 858, 858, 7, 56},
-  {cont__81_10, &frame__81_8, 859, 859, 10, 38},
-  {cont__81_11, &frame__81_8, 859, 861, 7, 47},
-  {cont__81_17, &frame__81_8, 862, 862, 56, 56},
-  {cont__81_18, &frame__81_8, 862, 862, 7, 57},
-  {cont__81_19, &frame__81_8, 864, 873, 7, 51},
-  {cont__81_37, &frame__81_8, 875, 875, 7, 56},
-  {cont__81_40, &frame__81_8, 876, 876, 63, 63},
-  {cont__81_41, &frame__81_8, 876, 876, 37, 64},
-  {cont__81_42, &frame__81_8, 876, 876, 7, 64},
-  {cont__81_43, &frame__81_8, 877, 884, 7, 27},
-  {cont__81_52, &frame__81_8, 885, 922, 7, 49},
-  {entry__81_1, NULL, 850, 850, 6, 23},
-  {cont__81_3, &frame__81_1, 850, 850, 3, 56},
-  {cont__81_6, &frame__81_1, 852, 922, 3, 51},
-  {cont__81_86, &frame__81_1, 922, 922, 51, 51},
-  {entry__82_6, NULL, 929, 930, 11, 42},
-  {cont__82_9, &frame__82_6, 929, 930, 5, 42},
-  {entry__82_13, NULL, 935, 935, 38, 65},
-  {cont__82_14, &frame__82_13, 935, 935, 7, 34},
-  {cont__82_15, &frame__82_13, 935, 935, 7, 65},
-  {cont__82_16, &frame__82_13, 935, 935, 7, 65},
-  {entry__82_19, NULL, 937, 937, 28, 65},
-  {cont__82_21, &frame__82_19, 937, 937, 19, 65},
-  {entry__82_18, NULL, 937, 937, 7, 65},
-  {cont__82_22, &frame__82_18, 938, 938, 7, 37},
-  {entry__82_1, NULL, 925, 925, 3, 35},
-  {cont__82_2, &frame__82_1, 926, 926, 3, 35},
-  {cont__82_3, &frame__82_1, 927, 927, 3, 26},
-  {cont__82_4, &frame__82_1, 928, 928, 6, 24},
-  {cont__82_5, &frame__82_1, 928, 930, 3, 43},
-  {cont__82_10, &frame__82_1, 931, 931, 3, 26},
-  {cont__82_11, &frame__82_1, 934, 934, 7, 25},
-  {cont__82_12, &frame__82_1, 933, 935, 5, 64},
-  {cont__82_17, &frame__82_1, 932, 938, 3, 38},
-  {entry__84_11, NULL, 954, 954, 39, 41},
-  {cont__84_12, &frame__84_11, 954, 954, 36, 41},
-  {cont__84_13, &frame__84_11, 954, 954, 28, 43},
-  {cont__84_15, &frame__84_11, 954, 954, 21, 48},
-  {cont__84_16, &frame__84_11, 954, 954, 48, 48},
-  {entry__84_6, NULL, 953, 953, 13, 26},
-  {cont__84_7, &frame__84_6, 953, 953, 9, 28},
-  {cont__84_8, &frame__84_6, 954, 954, 16, 18},
-  {cont__84_9, &frame__84_6, 954, 954, 12, 18},
-  {cont__84_10, &frame__84_6, 954, 954, 9, 48},
-  {cont__84_17, &frame__84_6, 955, 955, 9, 13},
-  {entry__84_4, NULL, 952, 952, 10, 19},
-  {cont__84_5, &frame__84_4, 952, 955, 7, 13},
-  {entry__84_3, NULL, 951, 955, 5, 14},
-  {cont__84_18, &frame__84_3, 955, 955, 14, 14},
-  {entry__84_21, NULL, 958, 958, 27, 30},
-  {cont__84_22, &frame__84_21, 958, 958, 19, 31},
-  {cont__84_24, &frame__84_21, 958, 958, 7, 31},
-  {cont__84_25, &frame__84_21, 958, 958, 31, 31},
-  {entry__84_28, NULL, 960, 960, 33, 36},
-  {cont__84_29, &frame__84_28, 960, 960, 33, 38},
-  {cont__84_30, &frame__84_28, 960, 960, 33, 39},
-  {cont__84_31, &frame__84_28, 960, 960, 18, 39},
-  {cont__84_32, &frame__84_28, 960, 960, 39, 39},
-  {entry__84_26, NULL, 960, 960, 10, 15},
-  {cont__84_27, &frame__84_26, 960, 960, 7, 39},
-  {entry__84_1, NULL, 948, 948, 3, 16},
-  {cont__84_2, &frame__84_1, 950, 955, 3, 15},
-  {cont__84_19, &frame__84_1, 957, 957, 5, 10},
-  {cont__84_20, &frame__84_1, 956, 960, 3, 40},
-  {cont__84_33, &frame__84_1, 961, 961, 3, 8},
-  {entry__85_4, NULL, 967, 967, 37, 37},
-  {cont__85_5, &frame__85_4, 967, 967, 7, 37},
-  {cont__85_6, &frame__85_4, 973, 973, 20, 41},
-  {cont__85_7, &frame__85_4, 973, 973, 17, 41},
-  {cont__85_8, &frame__85_4, 973, 973, 9, 42},
-  {cont__85_9, &frame__85_4, 974, 974, 23, 29},
-  {cont__85_10, &frame__85_4, 974, 974, 9, 34},
-  {cont__85_11, &frame__85_4, 968, 975, 7, 12},
-  {entry__85_13, NULL, 977, 977, 47, 53},
-  {cont__85_14, &frame__85_13, 977, 977, 33, 58},
-  {cont__85_15, &frame__85_13, 977, 977, 7, 63},
-  {entry__85_1, NULL, 964, 964, 3, 23},
-  {cont__85_2, &frame__85_1, 966, 966, 5, 23},
-  {cont__85_3, &frame__85_1, 965, 977, 3, 64},
-  {cont__85_17, &frame__85_1, 978, 978, 3, 19},
-  {cont__85_18, &frame__85_1, 978, 978, 19, 19},
-  {entry__86_4, NULL, 985, 985, 12, 38},
-  {cont__86_6, &frame__86_4, 985, 985, 9, 38},
-  {entry__86_7, NULL, 986, 986, 9, 23},
-  {entry__86_9, NULL, 988, 988, 17, 57},
-  {entry__86_19, NULL, 999, 999, 42, 69},
-  {cont__86_20, &frame__86_19, 999, 999, 9, 38},
-  {cont__86_21, &frame__86_19, 999, 999, 9, 69},
-  {cont__86_22, &frame__86_19, 999, 999, 9, 69},
-  {entry__86_17, NULL, 998, 998, 9, 27},
-  {cont__86_18, &frame__86_17, 999, 999, 9, 69},
+  {entry__75_38, NULL, 683, 683, 46, 80},
+  {cont__75_39, &frame__75_38, 683, 683, 46, 80},
+  {entry__75_41, NULL, 685, 685, 44, 74},
+  {cont__75_42, &frame__75_41, 685, 685, 23, 74},
+  {entry__75_35, NULL, 683, 683, 21, 34},
+  {cont__75_36, &frame__75_35, 683, 683, 21, 41},
+  {cont__75_37, &frame__75_35, 683, 683, 21, 80},
+  {cont__75_40, &frame__75_35, 682, 685, 19, 75},
+  {entry__75_49, NULL, 688, 688, 60, 60},
+  {cont__75_50, &frame__75_49, 688, 688, 44, 61},
+  {cont__75_51, &frame__75_49, 688, 688, 23, 61},
+  {entry__75_46, NULL, 687, 687, 35, 62},
+  {cont__75_47, &frame__75_46, 687, 687, 35, 67},
+  {cont__75_48, &frame__75_46, 687, 688, 21, 61},
+  {entry__75_43, NULL, 686, 686, 22, 62},
+  {cont__75_45, &frame__75_43, 686, 688, 19, 62},
+  {entry__75_52, NULL, 690, 690, 21, 52},
+  {entry__75_54, NULL, 691, 691, 31, 45},
+  {entry__75_21, NULL, 677, 677, 21, 34},
+  {cont__75_22, &frame__75_21, 677, 677, 21, 41},
+  {cont__75_23, &frame__75_21, 677, 677, 21, 41},
+  {cont__75_24, &frame__75_21, 675, 679, 17, 61},
+  {cont__75_34, &frame__75_21, 681, 690, 17, 53},
+  {cont__75_53, &frame__75_21, 691, 691, 17, 45},
+  {cont__75_56, &frame__75_21, 692, 692, 17, 33},
+  {entry__75_17, NULL, 672, 672, 15, 38},
+  {cont__75_18, &frame__75_17, 673, 673, 15, 50},
+  {cont__75_19, &frame__75_17, 674, 674, 18, 39},
+  {cont__75_20, &frame__75_17, 674, 692, 15, 33},
+  {entry__75_13, NULL, 669, 669, 33, 37},
+  {cont__75_14, &frame__75_13, 669, 669, 13, 38},
+  {cont__75_15, &frame__75_13, 671, 671, 20, 42},
+  {cont__75_16, &frame__75_13, 671, 692, 13, 34},
+  {entry__75_5, NULL, 668, 668, 18, 32},
+  {cont__75_6, &frame__75_5, 668, 668, 18, 64},
+  {cont__75_12, &frame__75_5, 668, 692, 11, 35},
+  {entry__75_59, NULL, 694, 694, 33, 42},
+  {cont__75_60, &frame__75_59, 694, 694, 33, 42},
+  {entry__75_62, NULL, 694, 694, 50, 50},
+  {entry__75_57, NULL, 694, 694, 14, 28},
+  {cont__75_58, &frame__75_57, 694, 694, 14, 42},
+  {cont__75_61, &frame__75_57, 694, 694, 11, 50},
+  {entry__75_3, NULL, 667, 667, 9, 20},
+  {cont__75_4, &frame__75_3, 666, 694, 7, 51},
+  {entry__75_2, NULL, 665, 694, 5, 52},
+  {entry__75_63, NULL, 696, 696, 28, 54},
+  {entry__75_74, NULL, 701, 701, 22, 59},
+  {entry__75_1, NULL, 696, 696, 3, 54},
+  {cont__75_64, &frame__75_1, 697, 697, 3, 49},
+  {cont__75_66, &frame__75_1, 698, 698, 3, 18},
+  {cont__75_67, &frame__75_1, 699, 699, 3, 15},
+  {cont__75_68, &frame__75_1, 700, 700, 22, 42},
+  {cont__75_69, &frame__75_1, 700, 700, 22, 45},
+  {cont__75_70, &frame__75_1, 700, 700, 48, 48},
+  {cont__75_71, &frame__75_1, 700, 700, 9, 49},
+  {cont__75_72, &frame__75_1, 700, 700, 3, 49},
+  {cont__75_73, &frame__75_1, 701, 701, 3, 59},
+  {entry__76_3, NULL, 704, 704, 32, 67},
+  {entry__76_7, NULL, 706, 707, 5, 57},
+  {entry__76_1, NULL, 704, 704, 6, 29},
+  {cont__76_2, &frame__76_1, 704, 704, 3, 67},
+  {cont__76_5, &frame__76_1, 705, 705, 10, 42},
+  {cont__76_6, &frame__76_1, 705, 707, 3, 58},
+  {cont__76_9, &frame__76_1, 709, 709, 3, 53},
+  {cont__76_10, &frame__76_1, 710, 710, 46, 46},
+  {cont__76_11, &frame__76_1, 710, 710, 3, 47},
+  {cont__76_12, &frame__76_1, 711, 711, 3, 28},
+  {cont__76_13, &frame__76_1, 711, 711, 28, 28},
+  {entry__77_2, NULL, 716, 716, 11, 29},
+  {cont__77_3, &frame__77_2, 716, 716, 5, 29},
+  {cont__77_4, &frame__77_2, 716, 716, 29, 29},
+  {entry__77_1, NULL, 714, 716, 3, 29},
+  {entry__78_4, NULL, 720, 720, 41, 65},
+  {cont__78_5, &frame__78_4, 720, 720, 34, 75},
+  {cont__78_6, &frame__78_4, 720, 720, 75, 75},
+  {entry__78_8, NULL, 722, 722, 48, 57},
+  {cont__78_9, &frame__78_8, 722, 722, 59, 68},
+  {cont__78_10, &frame__78_8, 722, 722, 7, 69},
+  {cont__78_11, &frame__78_8, 723, 723, 13, 31},
+  {cont__78_12, &frame__78_8, 723, 723, 7, 31},
+  {cont__78_13, &frame__78_8, 723, 723, 31, 31},
+  {entry__78_15, NULL, 724, 724, 28, 50},
+  {entry__78_18, NULL, 726, 726, 24, 59},
+  {entry__78_2, NULL, 720, 720, 8, 31},
+  {cont__78_3, &frame__78_2, 720, 720, 5, 75},
+  {cont__78_7, &frame__78_2, 721, 723, 5, 31},
+  {cont__78_14, &frame__78_2, 724, 724, 5, 50},
+  {cont__78_16, &frame__78_2, 725, 725, 5, 15},
+  {cont__78_17, &frame__78_2, 726, 726, 5, 59},
+  {entry__78_1, NULL, 719, 726, 3, 59},
+  {entry__79_5, NULL, 735, 735, 9, 43},
+  {cont__79_6, &frame__79_5, 736, 736, 12, 28},
+  {cont__79_7, &frame__79_5, 736, 736, 9, 34},
+  {cont__79_8, &frame__79_5, 737, 737, 9, 21},
+  {cont__79_9, &frame__79_5, 738, 738, 9, 64},
+  {cont__79_10, &frame__79_5, 739, 739, 12, 23},
+  {cont__79_11, &frame__79_5, 739, 739, 9, 29},
+  {cont__79_12, &frame__79_5, 740, 740, 22, 22},
+  {entry__79_4, NULL, 734, 740, 7, 22},
+  {cont__79_13, &frame__79_4, 740, 740, 22, 22},
+  {entry__79_3, NULL, 733, 740, 5, 23},
+  {entry__79_17, NULL, 744, 744, 19, 65},
+  {entry__79_16, NULL, 744, 744, 7, 65},
+  {cont__79_19, &frame__79_16, 745, 745, 63, 63},
+  {cont__79_20, &frame__79_16, 745, 745, 37, 64},
+  {cont__79_21, &frame__79_16, 745, 745, 7, 64},
+  {cont__79_22, &frame__79_16, 745, 745, 64, 64},
+  {entry__79_25, NULL, 748, 748, 21, 66},
+  {entry__79_24, NULL, 748, 748, 9, 66},
+  {cont__79_26, &frame__79_24, 749, 749, 9, 44},
+  {entry__79_23, NULL, 747, 749, 7, 44},
+  {cont__79_27, &frame__79_23, 750, 750, 7, 32},
+  {cont__79_29, &frame__79_23, 751, 751, 7, 32},
+  {cont__79_31, &frame__79_23, 752, 752, 7, 34},
+  {entry__79_35, NULL, 755, 755, 5, 40},
+  {cont__79_36, &frame__79_35, 756, 756, 5, 32},
+  {cont__79_37, &frame__79_35, 757, 757, 5, 20},
+  {entry__79_1, NULL, 729, 729, 3, 80},
+  {cont__79_2, &frame__79_1, 730, 740, 3, 24},
+  {cont__79_14, &frame__79_1, 742, 742, 5, 28},
+  {cont__79_15, &frame__79_1, 741, 752, 3, 35},
+  {cont__79_33, &frame__79_1, 753, 753, 3, 29},
+  {cont__79_34, &frame__79_1, 754, 757, 3, 20},
+  {entry__80_7, NULL, 764, 765, 14, 58},
+  {cont__80_10, &frame__80_7, 764, 765, 7, 58},
+  {entry__80_12, NULL, 766, 766, 17, 73},
+  {entry__80_34, NULL, 798, 800, 21, 49},
+  {cont__80_37, &frame__80_34, 798, 800, 7, 49},
+  {cont__80_38, &frame__80_34, 800, 800, 50, 50},
+  {entry__80_48, NULL, 820, 820, 7, 42},
+  {cont__80_49, &frame__80_48, 821, 821, 7, 34},
+  {cont__80_50, &frame__80_48, 822, 827, 21, 23},
+  {cont__80_53, &frame__80_48, 822, 827, 7, 23},
+  {cont__80_54, &frame__80_48, 827, 827, 24, 24},
+  {entry__80_2, NULL, 761, 761, 5, 55},
+  {cont__80_4, &frame__80_2, 762, 762, 5, 31},
+  {cont__80_5, &frame__80_2, 763, 763, 8, 22},
+  {cont__80_6, &frame__80_2, 763, 765, 5, 59},
+  {cont__80_11, &frame__80_2, 766, 766, 5, 73},
+  {cont__80_14, &frame__80_2, 767, 767, 5, 40},
+  {cont__80_15, &frame__80_2, 768, 768, 5, 18},
+  {cont__80_16, &frame__80_2, 769, 769, 49, 49},
+  {cont__80_17, &frame__80_2, 769, 769, 15, 50},
+  {cont__80_18, &frame__80_2, 769, 769, 5, 74},
+  {cont__80_19, &frame__80_2, 770, 770, 5, 31},
+  {cont__80_20, &frame__80_2, 771, 771, 30, 73},
+  {cont__80_21, &frame__80_2, 771, 771, 5, 78},
+  {cont__80_22, &frame__80_2, 772, 772, 5, 33},
+  {cont__80_24, &frame__80_2, 773, 773, 5, 61},
+  {cont__80_27, &frame__80_2, 774, 774, 5, 25},
+  {cont__80_28, &frame__80_2, 776, 796, 19, 22},
+  {cont__80_32, &frame__80_2, 776, 796, 5, 22},
+  {cont__80_33, &frame__80_2, 797, 800, 5, 50},
+  {cont__80_39, &frame__80_2, 801, 818, 19, 21},
+  {cont__80_46, &frame__80_2, 801, 818, 5, 21},
+  {cont__80_47, &frame__80_2, 819, 827, 5, 24},
+  {cont__80_55, &frame__80_2, 828, 834, 5, 32},
+  {cont__80_57, &frame__80_2, 835, 835, 5, 25},
+  {entry__80_1, NULL, 760, 835, 3, 25},
+  {entry__81_4, NULL, 838, 838, 26, 56},
+  {entry__81_7, NULL, 842, 842, 7, 41},
+  {entry__81_12, NULL, 848, 848, 29, 50},
+  {cont__81_13, &frame__81_12, 848, 848, 29, 55},
+  {cont__81_14, &frame__81_12, 848, 848, 9, 56},
+  {cont__81_15, &frame__81_12, 849, 849, 9, 47},
+  {cont__81_16, &frame__81_12, 849, 849, 47, 47},
+  {entry__81_20, NULL, 856, 856, 53, 66},
+  {cont__81_21, &frame__81_20, 856, 856, 14, 67},
+  {cont__81_23, &frame__81_20, 856, 856, 11, 67},
+  {entry__81_24, NULL, 858, 858, 53, 67},
+  {cont__81_26, &frame__81_24, 858, 858, 14, 68},
+  {cont__81_27, &frame__81_24, 858, 858, 11, 68},
+  {entry__81_28, NULL, 860, 860, 53, 69},
+  {cont__81_30, &frame__81_28, 860, 860, 14, 70},
+  {cont__81_31, &frame__81_28, 860, 860, 11, 70},
+  {entry__81_32, NULL, 861, 861, 14, 50},
+  {cont__81_34, &frame__81_32, 861, 861, 11, 50},
+  {entry__81_38, NULL, 863, 863, 19, 56},
+  {entry__81_47, NULL, 870, 870, 38, 63},
+  {cont__81_48, &frame__81_47, 870, 870, 13, 63},
+  {cont__81_49, &frame__81_47, 870, 870, 13, 63},
+  {entry__81_51, NULL, 872, 872, 25, 25},
+  {entry__81_44, NULL, 866, 866, 9, 32},
+  {cont__81_45, &frame__81_44, 869, 869, 13, 29},
+  {cont__81_46, &frame__81_44, 868, 870, 11, 62},
+  {cont__81_50, &frame__81_44, 867, 872, 9, 26},
+  {entry__81_54, NULL, 874, 874, 21, 54},
+  {entry__81_63, NULL, 884, 884, 35, 47},
+  {cont__81_64, &frame__81_63, 884, 884, 29, 47},
+  {entry__81_57, NULL, 880, 880, 15, 76},
+  {cont__81_59, &frame__81_57, 881, 881, 15, 43},
+  {cont__81_60, &frame__81_57, 878, 883, 13, 26},
+  {cont__81_62, &frame__81_57, 884, 884, 13, 47},
+  {entry__81_70, NULL, 892, 892, 35, 47},
+  {cont__81_71, &frame__81_70, 892, 892, 29, 47},
+  {entry__81_65, NULL, 888, 888, 15, 43},
+  {cont__81_66, &frame__81_65, 889, 889, 15, 30},
+  {cont__81_68, &frame__81_65, 886, 891, 13, 26},
+  {cont__81_69, &frame__81_65, 892, 892, 13, 47},
+  {entry__81_79, NULL, 903, 903, 35, 47},
+  {cont__81_80, &frame__81_79, 903, 903, 29, 47},
+  {entry__81_72, NULL, 896, 898, 15, 23},
+  {cont__81_74, &frame__81_72, 899, 899, 15, 43},
+  {cont__81_75, &frame__81_72, 900, 900, 15, 30},
+  {cont__81_76, &frame__81_72, 894, 902, 13, 26},
+  {cont__81_78, &frame__81_72, 903, 903, 13, 47},
+  {entry__81_84, NULL, 910, 910, 35, 47},
+  {cont__81_85, &frame__81_84, 910, 910, 29, 47},
+  {entry__81_81, NULL, 907, 907, 15, 43},
+  {cont__81_82, &frame__81_81, 905, 909, 13, 26},
+  {cont__81_83, &frame__81_81, 910, 910, 13, 47},
+  {entry__81_53, NULL, 874, 874, 9, 54},
+  {cont__81_56, &frame__81_53, 875, 910, 9, 48},
+  {entry__81_8, NULL, 846, 846, 7, 56},
+  {cont__81_10, &frame__81_8, 847, 847, 10, 38},
+  {cont__81_11, &frame__81_8, 847, 849, 7, 47},
+  {cont__81_17, &frame__81_8, 850, 850, 56, 56},
+  {cont__81_18, &frame__81_8, 850, 850, 7, 57},
+  {cont__81_19, &frame__81_8, 852, 861, 7, 51},
+  {cont__81_37, &frame__81_8, 863, 863, 7, 56},
+  {cont__81_40, &frame__81_8, 864, 864, 63, 63},
+  {cont__81_41, &frame__81_8, 864, 864, 37, 64},
+  {cont__81_42, &frame__81_8, 864, 864, 7, 64},
+  {cont__81_43, &frame__81_8, 865, 872, 7, 27},
+  {cont__81_52, &frame__81_8, 873, 910, 7, 49},
+  {entry__81_1, NULL, 838, 838, 6, 23},
+  {cont__81_3, &frame__81_1, 838, 838, 3, 56},
+  {cont__81_6, &frame__81_1, 840, 910, 3, 51},
+  {cont__81_86, &frame__81_1, 910, 910, 51, 51},
+  {entry__82_6, NULL, 917, 918, 11, 42},
+  {cont__82_9, &frame__82_6, 917, 918, 5, 42},
+  {entry__82_13, NULL, 923, 923, 38, 65},
+  {cont__82_14, &frame__82_13, 923, 923, 7, 34},
+  {cont__82_15, &frame__82_13, 923, 923, 7, 65},
+  {cont__82_16, &frame__82_13, 923, 923, 7, 65},
+  {entry__82_19, NULL, 925, 925, 28, 65},
+  {cont__82_21, &frame__82_19, 925, 925, 19, 65},
+  {entry__82_18, NULL, 925, 925, 7, 65},
+  {cont__82_22, &frame__82_18, 926, 926, 7, 37},
+  {entry__82_1, NULL, 913, 913, 3, 35},
+  {cont__82_2, &frame__82_1, 914, 914, 3, 35},
+  {cont__82_3, &frame__82_1, 915, 915, 3, 26},
+  {cont__82_4, &frame__82_1, 916, 916, 6, 24},
+  {cont__82_5, &frame__82_1, 916, 918, 3, 43},
+  {cont__82_10, &frame__82_1, 919, 919, 3, 26},
+  {cont__82_11, &frame__82_1, 922, 922, 7, 25},
+  {cont__82_12, &frame__82_1, 921, 923, 5, 64},
+  {cont__82_17, &frame__82_1, 920, 926, 3, 38},
+  {entry__84_11, NULL, 942, 942, 39, 41},
+  {cont__84_12, &frame__84_11, 942, 942, 36, 41},
+  {cont__84_13, &frame__84_11, 942, 942, 28, 43},
+  {cont__84_15, &frame__84_11, 942, 942, 21, 48},
+  {cont__84_16, &frame__84_11, 942, 942, 48, 48},
+  {entry__84_6, NULL, 941, 941, 13, 26},
+  {cont__84_7, &frame__84_6, 941, 941, 9, 28},
+  {cont__84_8, &frame__84_6, 942, 942, 16, 18},
+  {cont__84_9, &frame__84_6, 942, 942, 12, 18},
+  {cont__84_10, &frame__84_6, 942, 942, 9, 48},
+  {cont__84_17, &frame__84_6, 943, 943, 9, 13},
+  {entry__84_4, NULL, 940, 940, 10, 19},
+  {cont__84_5, &frame__84_4, 940, 943, 7, 13},
+  {entry__84_3, NULL, 939, 943, 5, 14},
+  {cont__84_18, &frame__84_3, 943, 943, 14, 14},
+  {entry__84_21, NULL, 946, 946, 27, 30},
+  {cont__84_22, &frame__84_21, 946, 946, 19, 31},
+  {cont__84_24, &frame__84_21, 946, 946, 7, 31},
+  {cont__84_25, &frame__84_21, 946, 946, 31, 31},
+  {entry__84_28, NULL, 948, 948, 33, 36},
+  {cont__84_29, &frame__84_28, 948, 948, 33, 38},
+  {cont__84_30, &frame__84_28, 948, 948, 33, 39},
+  {cont__84_31, &frame__84_28, 948, 948, 18, 39},
+  {cont__84_32, &frame__84_28, 948, 948, 39, 39},
+  {entry__84_26, NULL, 948, 948, 10, 15},
+  {cont__84_27, &frame__84_26, 948, 948, 7, 39},
+  {entry__84_1, NULL, 936, 936, 3, 16},
+  {cont__84_2, &frame__84_1, 938, 943, 3, 15},
+  {cont__84_19, &frame__84_1, 945, 945, 5, 10},
+  {cont__84_20, &frame__84_1, 944, 948, 3, 40},
+  {cont__84_33, &frame__84_1, 949, 949, 3, 8},
+  {entry__85_4, NULL, 955, 955, 37, 37},
+  {cont__85_5, &frame__85_4, 955, 955, 7, 37},
+  {cont__85_6, &frame__85_4, 961, 961, 20, 41},
+  {cont__85_7, &frame__85_4, 961, 961, 17, 41},
+  {cont__85_8, &frame__85_4, 961, 961, 9, 42},
+  {cont__85_9, &frame__85_4, 962, 962, 23, 29},
+  {cont__85_10, &frame__85_4, 962, 962, 9, 34},
+  {cont__85_11, &frame__85_4, 956, 963, 7, 12},
+  {entry__85_13, NULL, 965, 965, 47, 53},
+  {cont__85_14, &frame__85_13, 965, 965, 33, 58},
+  {cont__85_15, &frame__85_13, 965, 965, 7, 63},
+  {entry__85_1, NULL, 952, 952, 3, 23},
+  {cont__85_2, &frame__85_1, 954, 954, 5, 23},
+  {cont__85_3, &frame__85_1, 953, 965, 3, 64},
+  {cont__85_17, &frame__85_1, 966, 966, 3, 19},
+  {cont__85_18, &frame__85_1, 966, 966, 19, 19},
+  {entry__86_4, NULL, 973, 973, 12, 38},
+  {cont__86_6, &frame__86_4, 973, 973, 9, 38},
+  {entry__86_7, NULL, 974, 974, 9, 23},
+  {entry__86_9, NULL, 976, 976, 17, 57},
+  {entry__86_19, NULL, 987, 987, 42, 69},
+  {cont__86_20, &frame__86_19, 987, 987, 9, 38},
+  {cont__86_21, &frame__86_19, 987, 987, 9, 69},
+  {cont__86_22, &frame__86_19, 987, 987, 9, 69},
+  {entry__86_17, NULL, 986, 986, 9, 27},
+  {cont__86_18, &frame__86_17, 987, 987, 9, 69},
   {cont__86_23, &frame__86_17, },
-  {entry__86_28, NULL, 1002, 1002, 21, 61},
-  {entry__86_31, NULL, 1003, 1003, 41, 59},
-  {cont__86_32, &frame__86_31, 1003, 1003, 35, 64},
-  {entry__86_34, NULL, 1004, 1004, 32, 54},
-  {entry__86_38, NULL, 1006, 1006, 28, 64},
-  {entry__86_42, NULL, 1008, 1008, 28, 67},
-  {entry__86_25, NULL, 1001, 1001, 55, 67},
-  {cont__86_26, &frame__86_25, 1001, 1001, 9, 67},
-  {cont__86_27, &frame__86_25, 1002, 1002, 9, 61},
-  {cont__86_30, &frame__86_25, 1003, 1003, 9, 64},
-  {cont__86_33, &frame__86_25, 1004, 1004, 9, 54},
-  {cont__86_35, &frame__86_25, 1005, 1005, 25, 37},
-  {cont__86_36, &frame__86_25, 1005, 1005, 9, 37},
-  {cont__86_37, &frame__86_25, 1006, 1006, 9, 64},
-  {cont__86_40, &frame__86_25, 1007, 1007, 9, 39},
-  {cont__86_41, &frame__86_25, 1008, 1008, 9, 67},
-  {cont__86_44, &frame__86_25, 1008, 1008, 67, 67},
-  {entry__86_49, NULL, 1015, 1015, 44, 71},
-  {cont__86_50, &frame__86_49, 1015, 1015, 13, 40},
-  {cont__86_51, &frame__86_49, 1015, 1015, 13, 71},
-  {cont__86_52, &frame__86_49, 1015, 1015, 13, 71},
-  {entry__86_54, NULL, 1017, 1017, 13, 43},
-  {entry__86_55, NULL, 1019, 1019, 13, 64},
-  {cont__86_56, &frame__86_55, 1019, 1019, 64, 64},
-  {entry__86_45, NULL, 1010, 1010, 9, 30},
-  {cont__86_46, &frame__86_45, 1011, 1011, 9, 32},
-  {cont__86_47, &frame__86_45, 1014, 1014, 13, 31},
-  {cont__86_48, &frame__86_45, 1013, 1015, 11, 70},
-  {cont__86_53, &frame__86_45, 1012, 1019, 9, 65},
-  {entry__86_64, NULL, 1024, 1024, 11, 39},
-  {entry__86_59, NULL, 1023, 1023, 9, 62},
-  {cont__86_63, &frame__86_59, 1022, 1024, 7, 40},
-  {entry__86_71, NULL, 1032, 1032, 38, 63},
-  {cont__86_72, &frame__86_71, 1032, 1032, 13, 63},
-  {cont__86_73, &frame__86_71, 1032, 1032, 13, 63},
-  {entry__86_69, NULL, 1031, 1031, 13, 45},
-  {cont__86_70, &frame__86_69, 1030, 1032, 11, 62},
-  {cont__86_74, &frame__86_69, 1030, 1032, 11, 62},
-  {entry__86_76, NULL, 1034, 1034, 23, 23},
-  {entry__86_66, NULL, 1026, 1026, 7, 30},
-  {cont__86_67, &frame__86_66, 1029, 1029, 11, 27},
-  {cont__86_68, &frame__86_66, 1028, 1032, 9, 63},
-  {cont__86_75, &frame__86_66, 1027, 1034, 7, 24},
-  {entry__86_80, NULL, 1037, 1037, 28, 75},
-  {cont__86_82, &frame__86_80, 1037, 1037, 75, 75},
-  {entry__86_85, NULL, 1040, 1040, 23, 58},
-  {entry__86_92, NULL, 1048, 1048, 33, 45},
-  {cont__86_93, &frame__86_92, 1048, 1048, 27, 45},
-  {entry__86_84, NULL, 1040, 1040, 11, 58},
-  {cont__86_87, &frame__86_84, 1041, 1047, 11, 24},
-  {cont__86_91, &frame__86_84, 1048, 1048, 11, 45},
-  {entry__86_95, NULL, 1050, 1050, 23, 51},
-  {entry__86_99, NULL, 1055, 1055, 18, 40},
-  {cont__86_101, &frame__86_99, 1055, 1055, 15, 40},
-  {entry__86_102, NULL, 1056, 1056, 18, 33},
-  {cont__86_103, &frame__86_102, 1056, 1056, 15, 33},
-  {entry__86_106, NULL, 1059, 1059, 33, 45},
-  {cont__86_107, &frame__86_106, 1059, 1059, 27, 45},
-  {entry__86_94, NULL, 1050, 1050, 11, 51},
-  {cont__86_97, &frame__86_94, 1054, 1054, 15, 41},
-  {cont__86_98, &frame__86_94, 1053, 1056, 13, 32},
-  {cont__86_104, &frame__86_94, 1051, 1058, 11, 24},
-  {cont__86_105, &frame__86_94, 1059, 1059, 11, 45},
-  {entry__86_78, NULL, 1036, 1036, 7, 52},
-  {cont__86_79, &frame__86_78, 1037, 1037, 7, 75},
-  {cont__86_83, &frame__86_78, 1038, 1059, 7, 46},
-  {entry__86_111, NULL, 1061, 1061, 24, 41},
-  {cont__86_112, &frame__86_111, 1061, 1061, 24, 41},
-  {entry__86_116, NULL, 1065, 1065, 11, 25},
-  {entry__86_117, NULL, 1066, 1066, 14, 38},
-  {cont__86_118, &frame__86_117, 1066, 1066, 11, 38},
-  {entry__86_114, NULL, 1064, 1064, 11, 39},
-  {cont__86_115, &frame__86_114, 1063, 1066, 9, 37},
-  {cont__86_119, &frame__86_114, 1062, 1069, 7, 44},
-  {entry__86_2, NULL, 984, 984, 9, 36},
-  {cont__86_3, &frame__86_2, 982, 986, 5, 24},
-  {cont__86_8, &frame__86_2, 988, 988, 5, 57},
-  {cont__86_11, &frame__86_2, 989, 989, 5, 41},
-  {cont__86_12, &frame__86_2, 990, 990, 5, 41},
-  {cont__86_13, &frame__86_2, 991, 991, 5, 33},
-  {cont__86_14, &frame__86_2, 992, 992, 5, 28},
-  {cont__86_15, &frame__86_2, 994, 994, 5, 24},
+  {entry__86_28, NULL, 990, 990, 21, 61},
+  {entry__86_31, NULL, 991, 991, 41, 59},
+  {cont__86_32, &frame__86_31, 991, 991, 35, 64},
+  {entry__86_34, NULL, 992, 992, 32, 54},
+  {entry__86_38, NULL, 994, 994, 28, 64},
+  {entry__86_42, NULL, 996, 996, 28, 67},
+  {entry__86_25, NULL, 989, 989, 55, 67},
+  {cont__86_26, &frame__86_25, 989, 989, 9, 67},
+  {cont__86_27, &frame__86_25, 990, 990, 9, 61},
+  {cont__86_30, &frame__86_25, 991, 991, 9, 64},
+  {cont__86_33, &frame__86_25, 992, 992, 9, 54},
+  {cont__86_35, &frame__86_25, 993, 993, 25, 37},
+  {cont__86_36, &frame__86_25, 993, 993, 9, 37},
+  {cont__86_37, &frame__86_25, 994, 994, 9, 64},
+  {cont__86_40, &frame__86_25, 995, 995, 9, 39},
+  {cont__86_41, &frame__86_25, 996, 996, 9, 67},
+  {cont__86_44, &frame__86_25, 996, 996, 67, 67},
+  {entry__86_49, NULL, 1003, 1003, 44, 71},
+  {cont__86_50, &frame__86_49, 1003, 1003, 13, 40},
+  {cont__86_51, &frame__86_49, 1003, 1003, 13, 71},
+  {cont__86_52, &frame__86_49, 1003, 1003, 13, 71},
+  {entry__86_54, NULL, 1005, 1005, 13, 43},
+  {entry__86_55, NULL, 1007, 1007, 13, 64},
+  {cont__86_56, &frame__86_55, 1007, 1007, 64, 64},
+  {entry__86_45, NULL, 998, 998, 9, 30},
+  {cont__86_46, &frame__86_45, 999, 999, 9, 32},
+  {cont__86_47, &frame__86_45, 1002, 1002, 13, 31},
+  {cont__86_48, &frame__86_45, 1001, 1003, 11, 70},
+  {cont__86_53, &frame__86_45, 1000, 1007, 9, 65},
+  {entry__86_64, NULL, 1012, 1012, 11, 39},
+  {entry__86_59, NULL, 1011, 1011, 9, 62},
+  {cont__86_63, &frame__86_59, 1010, 1012, 7, 40},
+  {entry__86_71, NULL, 1020, 1020, 38, 63},
+  {cont__86_72, &frame__86_71, 1020, 1020, 13, 63},
+  {cont__86_73, &frame__86_71, 1020, 1020, 13, 63},
+  {entry__86_69, NULL, 1019, 1019, 13, 45},
+  {cont__86_70, &frame__86_69, 1018, 1020, 11, 62},
+  {cont__86_74, &frame__86_69, 1018, 1020, 11, 62},
+  {entry__86_76, NULL, 1022, 1022, 23, 23},
+  {entry__86_66, NULL, 1014, 1014, 7, 30},
+  {cont__86_67, &frame__86_66, 1017, 1017, 11, 27},
+  {cont__86_68, &frame__86_66, 1016, 1020, 9, 63},
+  {cont__86_75, &frame__86_66, 1015, 1022, 7, 24},
+  {entry__86_80, NULL, 1025, 1025, 28, 75},
+  {cont__86_82, &frame__86_80, 1025, 1025, 75, 75},
+  {entry__86_85, NULL, 1028, 1028, 23, 58},
+  {entry__86_92, NULL, 1036, 1036, 33, 45},
+  {cont__86_93, &frame__86_92, 1036, 1036, 27, 45},
+  {entry__86_84, NULL, 1028, 1028, 11, 58},
+  {cont__86_87, &frame__86_84, 1029, 1035, 11, 24},
+  {cont__86_91, &frame__86_84, 1036, 1036, 11, 45},
+  {entry__86_95, NULL, 1038, 1038, 23, 51},
+  {entry__86_99, NULL, 1043, 1043, 18, 40},
+  {cont__86_101, &frame__86_99, 1043, 1043, 15, 40},
+  {entry__86_102, NULL, 1044, 1044, 18, 33},
+  {cont__86_103, &frame__86_102, 1044, 1044, 15, 33},
+  {entry__86_106, NULL, 1047, 1047, 33, 45},
+  {cont__86_107, &frame__86_106, 1047, 1047, 27, 45},
+  {entry__86_94, NULL, 1038, 1038, 11, 51},
+  {cont__86_97, &frame__86_94, 1042, 1042, 15, 41},
+  {cont__86_98, &frame__86_94, 1041, 1044, 13, 32},
+  {cont__86_104, &frame__86_94, 1039, 1046, 11, 24},
+  {cont__86_105, &frame__86_94, 1047, 1047, 11, 45},
+  {entry__86_78, NULL, 1024, 1024, 7, 52},
+  {cont__86_79, &frame__86_78, 1025, 1025, 7, 75},
+  {cont__86_83, &frame__86_78, 1026, 1047, 7, 46},
+  {entry__86_111, NULL, 1049, 1049, 24, 41},
+  {cont__86_112, &frame__86_111, 1049, 1049, 24, 41},
+  {entry__86_116, NULL, 1053, 1053, 11, 25},
+  {entry__86_117, NULL, 1054, 1054, 14, 38},
+  {cont__86_118, &frame__86_117, 1054, 1054, 11, 38},
+  {entry__86_114, NULL, 1052, 1052, 11, 39},
+  {cont__86_115, &frame__86_114, 1051, 1054, 9, 37},
+  {cont__86_119, &frame__86_114, 1050, 1057, 7, 44},
+  {entry__86_2, NULL, 972, 972, 9, 36},
+  {cont__86_3, &frame__86_2, 970, 974, 5, 24},
+  {cont__86_8, &frame__86_2, 976, 976, 5, 57},
+  {cont__86_11, &frame__86_2, 977, 977, 5, 41},
+  {cont__86_12, &frame__86_2, 978, 978, 5, 41},
+  {cont__86_13, &frame__86_2, 979, 979, 5, 33},
+  {cont__86_14, &frame__86_2, 980, 980, 5, 28},
+  {cont__86_15, &frame__86_2, 982, 982, 5, 24},
   {cont__86_16, &frame__86_2, },
-  {cont__86_24, &frame__86_2, 995, 1019, 5, 67},
-  {cont__86_57, &frame__86_2, 1020, 1020, 5, 50},
-  {cont__86_58, &frame__86_2, 1021, 1024, 5, 41},
-  {cont__86_65, &frame__86_2, 1025, 1034, 5, 25},
-  {cont__86_77, &frame__86_2, 1035, 1059, 5, 47},
-  {cont__86_108, &frame__86_2, 1060, 1060, 41, 41},
-  {cont__86_109, &frame__86_2, 1060, 1060, 5, 42},
-  {cont__86_110, &frame__86_2, 1061, 1061, 8, 41},
-  {cont__86_113, &frame__86_2, 1061, 1069, 5, 45},
-  {entry__86_1, NULL, 981, 1069, 3, 46},
+  {cont__86_24, &frame__86_2, 983, 1007, 5, 67},
+  {cont__86_57, &frame__86_2, 1008, 1008, 5, 50},
+  {cont__86_58, &frame__86_2, 1009, 1012, 5, 41},
+  {cont__86_65, &frame__86_2, 1013, 1022, 5, 25},
+  {cont__86_77, &frame__86_2, 1023, 1047, 5, 47},
+  {cont__86_108, &frame__86_2, 1048, 1048, 41, 41},
+  {cont__86_109, &frame__86_2, 1048, 1048, 5, 42},
+  {cont__86_110, &frame__86_2, 1049, 1049, 8, 41},
+  {cont__86_113, &frame__86_2, 1049, 1057, 5, 45},
+  {entry__86_1, NULL, 969, 1057, 3, 46},
   {entry__100_2, NULL, 105, 105, 8, 28},
   {cont__100_3, &frame__100_2, 105, 105, 5, 28},
   {entry__100_4, NULL, 106, 106, 8, 66},
@@ -3721,22 +3691,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__131_8, NULL, 168, 243, 5, 47},
   {cont__131_72, &frame__131_8, 243, 243, 48, 48},
   {entry__135_1, NULL, 247, 247, 37, 37},
-  {entry__161_2, NULL, 634, 635, 9, 51},
-  {cont__161_5, &frame__161_2, 634, 635, 3, 51},
-  {entry__176_1, NULL, 1071, 1071, 20, 36},
-  {cont__176_2, &frame__176_1, 1071, 1071, 36, 36},
-  {entry__177_4, NULL, 1078, 1078, 7, 32},
+  {entry__161_2, NULL, 622, 623, 9, 51},
+  {cont__161_5, &frame__161_2, 622, 623, 3, 51},
+  {entry__176_1, NULL, 1059, 1059, 20, 36},
+  {cont__176_2, &frame__176_1, 1059, 1059, 36, 36},
+  {entry__177_4, NULL, 1066, 1066, 7, 32},
   {entry__177_3, NULL, },
   {cont__177_5, &frame__177_3, },
   {entry__177_2, NULL, },
   {cont__177_6, &frame__177_2, },
   {entry__177_1, NULL, },
-  {cont__177_7, &frame__177_1, 1073, 1079, 3, 24},
-  {entry__177_8, NULL, 1080, 1080, 3, 23},
-  {entry__177_9, NULL, 1081, 1081, 3, 43},
-  {entry__177_10, NULL, 1082, 1082, 3, 57},
-  {entry__177_11, NULL, 1083, 1083, 6, 29},
-  {cont__177_12, &frame__177_11, 1083, 1083, 3, 43}
+  {cont__177_7, &frame__177_1, 1061, 1067, 3, 24},
+  {entry__177_8, NULL, 1068, 1068, 3, 23},
+  {entry__177_9, NULL, 1069, 1069, 3, 43},
+  {entry__177_10, NULL, 1070, 1070, 3, 57},
+  {entry__177_11, NULL, 1071, 1071, 6, 29},
+  {cont__177_12, &frame__177_11, 1071, 1071, 3, 43}
 };
 
 union NODE {
@@ -6033,7 +6003,7 @@ static void cont__140_1(void) {
   // 266:     "-Wno-trigraphs"
   // 267:     "-O1"
   // ...
-  argument_count = 10;
+  argument_count = 11;
   arguments = node_p;
   arguments->slots[0] = string__141_1;
   arguments->slots[1] = string__141_2;
@@ -6045,18 +6015,19 @@ static void cont__140_1(void) {
   arguments->slots[7] = string__141_8;
   arguments->slots[8] = string__141_9;
   arguments->slots[9] = string__141_10;
+  arguments->slots[10] = string__141_11;
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__141_11;
+  frame->cont = cont__141_12;
 }
-static void cont__141_11(void) {
+static void cont__141_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(var._gcc_basic_options, arguments->slots[0]);
-  // 273: ... list("-msse2" "-mfpmath=sse")
+  // 274: ... list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__142_1;
@@ -6072,7 +6043,7 @@ static void cont__142_3(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 273: "x86_32" = list("-msse2" "-mfpmath=sse")
+  // 274: "x86_32" = list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__142_4;
@@ -6088,7 +6059,7 @@ static void cont__142_5(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 274: ... list("-msse2" "-mfpmath=sse")
+  // 275: ... list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__142_1;
@@ -6104,7 +6075,7 @@ static void cont__142_6(void) {
     return;
   }
   frame->slots[3] /* temp__4 */ = arguments->slots[0];
-  // 274: "x86_64" = list("-msse2" "-mfpmath=sse")
+  // 275: "x86_64" = list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__142_7;
@@ -6120,10 +6091,10 @@ static void cont__142_8(void) {
     return;
   }
   frame->slots[2] /* temp__3 */ = arguments->slots[0];
-  // 271: $gcc_hardware_specific_options
-  // 272:   table
-  // 273:     "x86_32" = list("-msse2" "-mfpmath=sse")
-  // 274:     "x86_64" = list("-msse2" "-mfpmath=sse")
+  // 272: $gcc_hardware_specific_options
+  // 273:   table
+  // 274:     "x86_32" = list("-msse2" "-mfpmath=sse")
+  // 275:     "x86_64" = list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -6139,7 +6110,7 @@ static void cont__142_9(void) {
     return;
   }
   initialize_future(var._gcc_hardware_specific_options, arguments->slots[0]);
-  // 280: ... hardware_architecture()
+  // 281: ... hardware_architecture()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -6153,7 +6124,7 @@ static void cont__143_1(void) {
     return;
   }
   frame->slots[2] /* temp__3 */ = arguments->slots[0];
-  // 280: gcc_hardware_specific_options(hardware_architecture())
+  // 281: gcc_hardware_specific_options(hardware_architecture())
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__3 */;
@@ -6168,9 +6139,9 @@ static void cont__143_2(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 279: default_value
-  // 280:   gcc_hardware_specific_options(hardware_architecture())
-  // 281:   empty_list
+  // 280: default_value
+  // 281:   gcc_hardware_specific_options(hardware_architecture())
+  // 282:   empty_list
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -6186,12 +6157,12 @@ static void cont__143_3(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 276: $gcc_options
-  // 277:   append
-  // 278:     gcc_basic_options
-  // 279:     default_value
-  // 280:       gcc_hardware_specific_options(hardware_architecture())
-  // 281:       empty_list
+  // 277: $gcc_options
+  // 278:   append
+  // 279:     gcc_basic_options
+  // 280:     default_value
+  // 281:       gcc_hardware_specific_options(hardware_architecture())
+  // 282:       empty_list
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._gcc_basic_options;
@@ -6207,23 +6178,23 @@ static void cont__143_4(void) {
     return;
   }
   initialize_future(var._gcc_options, arguments->slots[0]);
-  // 283: %on_top_level true # set to false while building meta-files
+  // 284: %on_top_level true # set to false while building meta-files
   initialize_maybe_future(get__on_top_level(), get__true());
-  // 284: %%objects empty_insert_order_set
+  // 285: %%objects empty_insert_order_set
   set__objects(get__empty_insert_order_set());
-  // 285: %%libraries empty_insert_order_set # contains "-lsim-..."-entries
+  // 286: %%libraries empty_insert_order_set # contains "-lsim-..."-entries
   set__libraries(get__empty_insert_order_set());
-  // 286: %%do_link false
+  // 287: %%do_link false
   set__do_link(get__false());
-  // 287: %%last_modification_time undefined
+  // 288: %%last_modification_time undefined
   set__last_modification_time(get__undefined());
-  // 288: $$c_sources empty_insert_order_set
+  // 289: $$c_sources empty_insert_order_set
   var._c_sources = get__empty_insert_order_set();
-  // 289: $$dependencies empty_list
+  // 290: $$dependencies empty_list
   var._dependencies = get__empty_list();
-  // 290: $$resolved_libraries undefined
+  // 291: $$resolved_libraries undefined
   var._resolved_libraries = get__undefined();
-  // 633: ... main_info.is_undefined
+  // 621: ... main_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_info();
@@ -6238,9 +6209,9 @@ static void cont__161_1(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 633: if main_info.is_undefined:
-  // 634:   Error "
-  // 635:     Source file "@(main_filename)" does not exist!@
+  // 621: if main_info.is_undefined:
+  // 622:   Error "
+  // 623:     Source file "@(main_filename)" does not exist!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -6257,8 +6228,8 @@ static void entry__161_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 634: ... "
-  // 635:   Source file "@(main_filename)" does not exist!@
+  // 622: ... "
+  // 623:   Source file "@(main_filename)" does not exist!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__161_3;
@@ -6275,8 +6246,8 @@ static void cont__161_5(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 634: Error "
-  // 635:   Source file "@(main_filename)" does not exist!@
+  // 622: Error "
+  // 623:   Source file "@(main_filename)" does not exist!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -6290,9 +6261,9 @@ static void cont__161_6(void) {
     invalid_results_error();
     return;
   }
-  // 940: $$t undefined
+  // 928: $$t undefined
   var._t = get__undefined();
-  // 1071: if do_time_passes: !t current_time()
+  // 1059: if do_time_passes: !t current_time()
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -6309,7 +6280,7 @@ static void entry__176_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1071: ... !t current_time()
+  // 1059: ... !t current_time()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -6334,16 +6305,16 @@ static void cont__176_3(void) {
     invalid_results_error();
     return;
   }
-  // 1072: cond
-  // 1073:   ->
-  // 1074:     ||
-  // 1075:       do_check_only
-  // 1076:       do_dump_trees
-  // 1077:       do_pretty_print
-  // 1078:       do_print_simplified_source
-  // 1079:     dump_source_or_check
-  // 1080:   -> do_print_c print_c
-  // 1081:   -> do_list_dependencies list_dependencies
+  // 1060: cond
+  // 1061:   ->
+  // 1062:     ||
+  // 1063:       do_check_only
+  // 1064:       do_dump_trees
+  // 1065:       do_pretty_print
+  // 1066:       do_print_simplified_source
+  // 1067:     dump_source_or_check
+  // 1068:   -> do_print_c print_c
+  // 1069:   -> do_list_dependencies list_dependencies
   // ...
   argument_count = 6;
   arguments = node_p;
@@ -6413,7 +6384,7 @@ static void entry__177_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1078: do_print_simplified_source
+  // 1066: do_print_simplified_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__do_print_simplified_source();
@@ -6453,13 +6424,13 @@ static void cont__177_7(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1073: ->
-  // 1074:   ||
-  // 1075:     do_check_only
-  // 1076:     do_dump_trees
-  // 1077:     do_pretty_print
-  // 1078:     do_print_simplified_source
-  // 1079:   dump_source_or_check
+  // 1061: ->
+  // 1062:   ||
+  // 1063:     do_check_only
+  // 1064:     do_dump_trees
+  // 1065:     do_pretty_print
+  // 1066:     do_print_simplified_source
+  // 1067:   dump_source_or_check
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -6475,7 +6446,7 @@ static void entry__177_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 1080: -> do_print_c print_c
+  // 1068: -> do_print_c print_c
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_print_c;
@@ -6491,7 +6462,7 @@ static void entry__177_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 1081: -> do_list_dependencies list_dependencies
+  // 1069: -> do_list_dependencies list_dependencies
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_list_dependencies;
@@ -6507,7 +6478,7 @@ static void entry__177_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 1082: -> do_build_codeblocks_project build_codeblocks_project
+  // 1070: -> do_build_codeblocks_project build_codeblocks_project
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_build_codeblocks_project;
@@ -6523,7 +6494,7 @@ static void entry__177_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 1083: ... main_info.is_a_directory
+  // 1071: ... main_info.is_a_directory
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_info();
@@ -6538,7 +6509,7 @@ static void cont__177_12(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1083: -> main_info.is_a_directory build_library
+  // 1071: -> main_info.is_a_directory build_library
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -6614,7 +6585,7 @@ static void entry__63_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 293: ... resolved_libraries.is_undefined
+  // 294: ... resolved_libraries.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._resolved_libraries;
@@ -6629,13 +6600,13 @@ static void cont__63_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 293: if resolved_libraries.is_undefined:
-  // 294:   !resolved_libraries empty_table
-  // 295:   for_each simlibpaths: (path)
-  // 296:     for_each directory(path): (entry)
-  // 297:       if entry.is_a_directory:
-  // 298:         $name std::filename_of(entry)
-  // 299:         if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  // 294: if resolved_libraries.is_undefined:
+  // 295:   !resolved_libraries empty_table
+  // 296:   for_each simlibpaths: (path)
+  // 297:     for_each directory(path): (entry)
+  // 298:       if entry.is_a_directory:
+  // 299:         $name std::filename_of(entry)
+  // 300:         if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6656,7 +6627,7 @@ static void entry__63_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 299: ... !resolved_libraries(name) fullname_of(entry)
+  // 300: ... !resolved_libraries(name) fullname_of(entry)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* entry */;
@@ -6671,7 +6642,7 @@ static void cont__63_12(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 299: ... !resolved_libraries(name)
+  // 300: ... !resolved_libraries(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -6704,7 +6675,7 @@ static void entry__63_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 298: $name std::filename_of(entry)
+  // 299: $name std::filename_of(entry)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* entry */;
@@ -6719,7 +6690,7 @@ static void cont__63_9(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 299: ... name .matches. NAME
+  // 300: ... name .matches. NAME
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* name */;
@@ -6735,9 +6706,9 @@ static void cont__63_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 299: ... : !resolved_libraries(name) fullname_of(entry)
+  // 300: ... : !resolved_libraries(name) fullname_of(entry)
   frame->slots[3] /* temp__2 */ = create_closure(entry__63_11, 0);
-  // 299: if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  // 300: if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6755,7 +6726,7 @@ static void entry__63_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 297: ... entry.is_a_directory
+  // 298: ... entry.is_a_directory
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* entry */;
@@ -6770,13 +6741,13 @@ static void cont__63_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 297: ... :
-  // 298:   $name std::filename_of(entry)
-  // 299:   if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  // 298: ... :
+  // 299:   $name std::filename_of(entry)
+  // 300:   if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   frame->slots[2] /* temp__2 */ = create_closure(entry__63_8, 0);
-  // 297: if entry.is_a_directory:
-  // 298:   $name std::filename_of(entry)
-  // 299:   if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  // 298: if entry.is_a_directory:
+  // 299:   $name std::filename_of(entry)
+  // 300:   if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6794,7 +6765,7 @@ static void entry__63_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 296: ... directory(path)
+  // 297: ... directory(path)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
@@ -6809,10 +6780,10 @@ static void cont__63_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 296: for_each directory(path): (entry)
-  // 297:   if entry.is_a_directory:
-  // 298:     $name std::filename_of(entry)
-  // 299:     if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  // 297: for_each directory(path): (entry)
+  // 298:   if entry.is_a_directory:
+  // 299:     $name std::filename_of(entry)
+  // 300:     if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6829,13 +6800,13 @@ static void entry__63_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 294: !resolved_libraries empty_table
+  // 295: !resolved_libraries empty_table
   var._resolved_libraries = get__empty_table();
-  // 295: for_each simlibpaths: (path)
-  // 296:   for_each directory(path): (entry)
-  // 297:     if entry.is_a_directory:
-  // 298:       $name std::filename_of(entry)
-  // 299:       if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  // 296: for_each simlibpaths: (path)
+  // 297:   for_each directory(path): (entry)
+  // 298:     if entry.is_a_directory:
+  // 299:       $name std::filename_of(entry)
+  // 300:       if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._simlibpaths;
@@ -6850,7 +6821,7 @@ static void cont__63_14(void) {
     invalid_results_error();
     return;
   }
-  // 300: $libname filename .before. '/'
+  // 301: $libname filename .before. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -6866,7 +6837,7 @@ static void cont__63_15(void) {
     return;
   }
   initialize_future(frame->slots[1] /* libname */, arguments->slots[0]);
-  // 301: $libpath resolved_libraries(libname)
+  // 302: $libpath resolved_libraries(libname)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* libname */;
@@ -6881,7 +6852,7 @@ static void cont__63_16(void) {
     return;
   }
   initialize_future(frame->slots[2] /* libpath */, arguments->slots[0]);
-  // 302: ... libpath.is_undefined
+  // 303: ... libpath.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* libpath */;
@@ -6896,13 +6867,13 @@ static void cont__63_17(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 302: ... :
-  // 303:   Error "
-  // 304:     Cannot resolve required library "@(libname)@quot;!@
+  // 303: ... :
+  // 304:   Error "
+  // 305:     Cannot resolve required library "@(libname)@quot;!@
   frame->slots[4] /* temp__2 */ = create_closure(entry__63_18, 0);
-  // 302: if libpath.is_undefined:
-  // 303:   Error "
-  // 304:     Cannot resolve required library "@(libname)@quot;!@
+  // 303: if libpath.is_undefined:
+  // 304:   Error "
+  // 305:     Cannot resolve required library "@(libname)@quot;!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6921,8 +6892,8 @@ static void entry__63_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 303: ... "
-  // 304:   Cannot resolve required library "@(libname)@quot;!@
+  // 304: ... "
+  // 305:   Cannot resolve required library "@(libname)@quot;!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__63_19;
@@ -6939,8 +6910,8 @@ static void cont__63_21(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 303: Error "
-  // 304:   Cannot resolve required library "@(libname)@quot;!@
+  // 304: Error "
+  // 305:   Cannot resolve required library "@(libname)@quot;!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6954,7 +6925,7 @@ static void cont__63_22(void) {
     invalid_results_error();
     return;
   }
-  // 305: ... filename .from. '/'
+  // 306: ... filename .from. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -6970,7 +6941,7 @@ static void cont__63_23(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 305: ... string(libpath filename .from. '/')
+  // 306: ... string(libpath filename .from. '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* libpath */;
@@ -6986,7 +6957,7 @@ static void cont__63_24(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 305: -> string(libpath filename .from. '/')
+  // 306: -> string(libpath filename .from. '/')
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -7013,7 +6984,7 @@ static void entry__64_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 316: ... --SORT
+  // 317: ... --SORT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__SORT();
@@ -7029,7 +7000,7 @@ static void cont__64_2(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 316: $entries directory(--SORT path)
+  // 317: $entries directory(--SORT path)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -7045,34 +7016,34 @@ static void cont__64_3(void) {
     return;
   }
   initialize_future(frame->slots[3] /* entries */, arguments->slots[0]);
-  // 317: $$filenames empty_set
+  // 318: $$filenames empty_set
   ((CELL *)frame->slots[4])->contents /* filenames */ = get__empty_set();
-  // 318: $$directories empty_list
+  // 319: $$directories empty_list
   ((CELL *)frame->slots[5])->contents /* directories */ = get__empty_list();
-  // 319: $$modules empty_key_order_set
+  // 320: $$modules empty_key_order_set
   ((CELL *)frame->slots[6])->contents /* modules */ = get__empty_key_order_set();
-  // 320: ... : (entry)
-  // 321:   $name std::filename_of(entry)
-  // 322:   cond
-  // 323:     -> entry.is_a_directory: if name .matches. NAME: push &directories name
-  // 324:     -> name .has_suffix. ".sim":
-  // 325:       $submodule_name name .without_suffix. (some(".meta"), ".sim")
-  // 326:       !filenames(submodule_name) true
-  // 327:       $meta_level (length_of(name)-length_of(submodule_name)-4)/5
-  // 328:       $stored_level meta_levels(submodule_name)
-  // 329:       if stored_level.is_undefined || meta_level > stored_level:
+  // 321: ... : (entry)
+  // 322:   $name std::filename_of(entry)
+  // 323:   cond
+  // 324:     -> entry.is_a_directory: if name .matches. NAME: push &directories name
+  // 325:     -> name .has_suffix. ".sim":
+  // 326:       $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 327:       !filenames(submodule_name) true
+  // 328:       $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 329:       $stored_level meta_levels(submodule_name)
+  // 330:       if stored_level.is_undefined || meta_level > stored_level:
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__64_4, 1);
-  // 320: for_each entries: (entry)
-  // 321:   $name std::filename_of(entry)
-  // 322:   cond
-  // 323:     -> entry.is_a_directory: if name .matches. NAME: push &directories name
-  // 324:     -> name .has_suffix. ".sim":
-  // 325:       $submodule_name name .without_suffix. (some(".meta"), ".sim")
-  // 326:       !filenames(submodule_name) true
-  // 327:       $meta_level (length_of(name)-length_of(submodule_name)-4)/5
-  // 328:       $stored_level meta_levels(submodule_name)
-  // 329:       if stored_level.is_undefined || meta_level > stored_level:
+  // 321: for_each entries: (entry)
+  // 322:   $name std::filename_of(entry)
+  // 323:   cond
+  // 324:     -> entry.is_a_directory: if name .matches. NAME: push &directories name
+  // 325:     -> name .has_suffix. ".sim":
+  // 326:       $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 327:       !filenames(submodule_name) true
+  // 328:       $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 329:       $stored_level meta_levels(submodule_name)
+  // 330:       if stored_level.is_undefined || meta_level > stored_level:
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7108,7 +7079,7 @@ static void entry__64_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 325: ... some(".meta")
+  // 326: ... some(".meta")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__64_16;
@@ -7123,7 +7094,7 @@ static void cont__64_17(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 325: ... some(".meta"), ".sim"
+  // 326: ... some(".meta"), ".sim"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -7139,7 +7110,7 @@ static void cont__64_18(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 325: $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 326: $submodule_name name .without_suffix. (some(".meta"), ".sim")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -7155,9 +7126,9 @@ static void cont__64_19(void) {
     return;
   }
   initialize_future(frame->slots[4] /* submodule_name */, arguments->slots[0]);
-  // 326: !filenames(submodule_name) true
+  // 327: !filenames(submodule_name) true
   frame->slots[9] /* temp__1 */ = get__true();
-  // 326: !filenames(submodule_name)
+  // 327: !filenames(submodule_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* submodule_name */;
@@ -7173,7 +7144,7 @@ static void cont__64_20(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* filenames */ = arguments->slots[0];
-  // 327: ... length_of(name)
+  // 328: ... length_of(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -7188,7 +7159,7 @@ static void cont__64_21(void) {
     return;
   }
   frame->slots[11] /* temp__3 */ = arguments->slots[0];
-  // 327: ... length_of(submodule_name)
+  // 328: ... length_of(submodule_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* submodule_name */;
@@ -7203,7 +7174,7 @@ static void cont__64_22(void) {
     return;
   }
   frame->slots[12] /* temp__4 */ = arguments->slots[0];
-  // 327: ... length_of(name)-length_of(submodule_name)
+  // 328: ... length_of(name)-length_of(submodule_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__3 */;
@@ -7219,7 +7190,7 @@ static void cont__64_23(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 327: ... length_of(name)-length_of(submodule_name)-4
+  // 328: ... length_of(name)-length_of(submodule_name)-4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -7235,7 +7206,7 @@ static void cont__64_24(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 327: $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 328: $meta_level (length_of(name)-length_of(submodule_name)-4)/5
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -7251,7 +7222,7 @@ static void cont__64_25(void) {
     return;
   }
   initialize_future(frame->slots[5] /* meta_level */, arguments->slots[0]);
-  // 328: $stored_level meta_levels(submodule_name)
+  // 329: $stored_level meta_levels(submodule_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* submodule_name */;
@@ -7266,7 +7237,7 @@ static void cont__64_26(void) {
     return;
   }
   initialize_future(frame->slots[6] /* stored_level */, arguments->slots[0]);
-  // 329: ... stored_level.is_undefined
+  // 330: ... stored_level.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* stored_level */;
@@ -7281,9 +7252,9 @@ static void cont__64_27(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 329: ... meta_level > stored_level
+  // 330: ... meta_level > stored_level
   frame->slots[11] /* temp__3 */ = create_closure(entry__64_28, 0);
-  // 329: ... stored_level.is_undefined || meta_level > stored_level
+  // 330: ... stored_level.is_undefined || meta_level > stored_level
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -7304,7 +7275,7 @@ static void entry__64_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 329: ... meta_level > stored_level
+  // 330: ... meta_level > stored_level
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stored_level */;
@@ -7320,7 +7291,7 @@ static void cont__64_29(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 329: ... meta_level > stored_level
+  // 330: ... meta_level > stored_level
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7334,11 +7305,11 @@ static void cont__64_30(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 329: ... :
-  // 330:   !meta_levels(submodule_name) meta_level
+  // 330: ... :
+  // 331:   !meta_levels(submodule_name) meta_level
   frame->slots[12] /* temp__4 */ = create_closure(entry__64_31, 0);
-  // 329: if stored_level.is_undefined || meta_level > stored_level:
-  // 330:   !meta_levels(submodule_name) meta_level
+  // 330: if stored_level.is_undefined || meta_level > stored_level:
+  // 331:   !meta_levels(submodule_name) meta_level
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -7359,9 +7330,9 @@ static void entry__64_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 330: !meta_levels(submodule_name) meta_level
+  // 331: !meta_levels(submodule_name) meta_level
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* meta_level */;
-  // 330: !meta_levels(submodule_name)
+  // 331: !meta_levels(submodule_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* submodule_name */;
@@ -7388,7 +7359,7 @@ static void cont__64_33(void) {
     invalid_results_error();
     return;
   }
-  // 331: $basename submodule_name .truncate_from. '-'
+  // 332: $basename submodule_name .truncate_from. '-'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* submodule_name */;
@@ -7404,9 +7375,9 @@ static void cont__64_34(void) {
     return;
   }
   initialize_future(frame->slots[7] /* basename */, arguments->slots[0]);
-  // 332: !modules(basename) true
+  // 333: !modules(basename) true
   frame->slots[9] /* temp__1 */ = get__true();
-  // 332: !modules(basename)
+  // 333: !modules(basename)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* basename */;
@@ -7422,7 +7393,7 @@ static void cont__64_35(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* modules */ = arguments->slots[0];
-  // 333: $mod_name string(mod_path basename)
+  // 334: $mod_name string(mod_path basename)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* mod_path */;
@@ -7438,9 +7409,9 @@ static void cont__64_36(void) {
     return;
   }
   initialize_future(frame->slots[8] /* mod_name */, arguments->slots[0]);
-  // 334: !module_info(mod_name) empty_key_order_table
+  // 335: !module_info(mod_name) empty_key_order_table
   frame->slots[9] /* temp__1 */ = get__empty_key_order_table();
-  // 334: !module_info(mod_name)
+  // 335: !module_info(mod_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* mod_name */;
@@ -7473,7 +7444,7 @@ static void entry__64_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 323: ... push &directories name
+  // 324: ... push &directories name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* directories */;
@@ -7506,7 +7477,7 @@ static void entry__64_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 323: ... name .matches. NAME
+  // 324: ... name .matches. NAME
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -7522,9 +7493,9 @@ static void cont__64_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 323: ... : push &directories name
+  // 324: ... : push &directories name
   frame->slots[3] /* temp__2 */ = create_closure(entry__64_10, 0);
-  // 323: ... if name .matches. NAME: push &directories name
+  // 324: ... if name .matches. NAME: push &directories name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7547,7 +7518,7 @@ static void entry__64_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 323: ... entry.is_a_directory
+  // 324: ... entry.is_a_directory
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* entry */;
@@ -7562,9 +7533,9 @@ static void cont__64_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 323: ... : if name .matches. NAME: push &directories name
+  // 324: ... : if name .matches. NAME: push &directories name
   frame->slots[4] /* temp__2 */ = create_closure(entry__64_8, 0);
-  // 323: -> entry.is_a_directory: if name .matches. NAME: push &directories name
+  // 324: -> entry.is_a_directory: if name .matches. NAME: push &directories name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -7588,7 +7559,7 @@ static void entry__64_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 324: ... name .has_suffix. ".sim"
+  // 325: ... name .has_suffix. ".sim"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -7604,28 +7575,28 @@ static void cont__64_14(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 324: ... :
-  // 325:   $submodule_name name .without_suffix. (some(".meta"), ".sim")
-  // 326:   !filenames(submodule_name) true
-  // 327:   $meta_level (length_of(name)-length_of(submodule_name)-4)/5
-  // 328:   $stored_level meta_levels(submodule_name)
-  // 329:   if stored_level.is_undefined || meta_level > stored_level:
-  // 330:     !meta_levels(submodule_name) meta_level
-  // 331:   $basename submodule_name .truncate_from. '-'
-  // 332:   !modules(basename) true
-  // 333:   $mod_name string(mod_path basename)
+  // 325: ... :
+  // 326:   $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 327:   !filenames(submodule_name) true
+  // 328:   $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 329:   $stored_level meta_levels(submodule_name)
+  // 330:   if stored_level.is_undefined || meta_level > stored_level:
+  // 331:     !meta_levels(submodule_name) meta_level
+  // 332:   $basename submodule_name .truncate_from. '-'
+  // 333:   !modules(basename) true
+  // 334:   $mod_name string(mod_path basename)
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__64_15, 0);
-  // 324: -> name .has_suffix. ".sim":
-  // 325:   $submodule_name name .without_suffix. (some(".meta"), ".sim")
-  // 326:   !filenames(submodule_name) true
-  // 327:   $meta_level (length_of(name)-length_of(submodule_name)-4)/5
-  // 328:   $stored_level meta_levels(submodule_name)
-  // 329:   if stored_level.is_undefined || meta_level > stored_level:
-  // 330:     !meta_levels(submodule_name) meta_level
-  // 331:   $basename submodule_name .truncate_from. '-'
-  // 332:   !modules(basename) true
-  // 333:   $mod_name string(mod_path basename)
+  // 325: -> name .has_suffix. ".sim":
+  // 326:   $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 327:   !filenames(submodule_name) true
+  // 328:   $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 329:   $stored_level meta_levels(submodule_name)
+  // 330:   if stored_level.is_undefined || meta_level > stored_level:
+  // 331:     !meta_levels(submodule_name) meta_level
+  // 332:   $basename submodule_name .truncate_from. '-'
+  // 333:   !modules(basename) true
+  // 334:   $mod_name string(mod_path basename)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7653,7 +7624,7 @@ static void entry__64_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 321: $name std::filename_of(entry)
+  // 322: $name std::filename_of(entry)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* entry */;
@@ -7668,30 +7639,30 @@ static void cont__64_5(void) {
     return;
   }
   initialize_future(frame->slots[5] /* name */, arguments->slots[0]);
-  // 323: -> entry.is_a_directory: if name .matches. NAME: push &directories name
+  // 324: -> entry.is_a_directory: if name .matches. NAME: push &directories name
   frame->slots[6] /* temp__1 */ = create_closure(entry__64_6, 0);
-  // 324: -> name .has_suffix. ".sim":
-  // 325:   $submodule_name name .without_suffix. (some(".meta"), ".sim")
-  // 326:   !filenames(submodule_name) true
-  // 327:   $meta_level (length_of(name)-length_of(submodule_name)-4)/5
-  // 328:   $stored_level meta_levels(submodule_name)
-  // 329:   if stored_level.is_undefined || meta_level > stored_level:
-  // 330:     !meta_levels(submodule_name) meta_level
-  // 331:   $basename submodule_name .truncate_from. '-'
-  // 332:   !modules(basename) true
-  // 333:   $mod_name string(mod_path basename)
+  // 325: -> name .has_suffix. ".sim":
+  // 326:   $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 327:   !filenames(submodule_name) true
+  // 328:   $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 329:   $stored_level meta_levels(submodule_name)
+  // 330:   if stored_level.is_undefined || meta_level > stored_level:
+  // 331:     !meta_levels(submodule_name) meta_level
+  // 332:   $basename submodule_name .truncate_from. '-'
+  // 333:   !modules(basename) true
+  // 334:   $mod_name string(mod_path basename)
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__64_12, 0);
-  // 322: cond
-  // 323:   -> entry.is_a_directory: if name .matches. NAME: push &directories name
-  // 324:   -> name .has_suffix. ".sim":
-  // 325:     $submodule_name name .without_suffix. (some(".meta"), ".sim")
-  // 326:     !filenames(submodule_name) true
-  // 327:     $meta_level (length_of(name)-length_of(submodule_name)-4)/5
-  // 328:     $stored_level meta_levels(submodule_name)
-  // 329:     if stored_level.is_undefined || meta_level > stored_level:
-  // 330:       !meta_levels(submodule_name) meta_level
-  // 331:     $basename submodule_name .truncate_from. '-'
+  // 323: cond
+  // 324:   -> entry.is_a_directory: if name .matches. NAME: push &directories name
+  // 325:   -> name .has_suffix. ".sim":
+  // 326:     $submodule_name name .without_suffix. (some(".meta"), ".sim")
+  // 327:     !filenames(submodule_name) true
+  // 328:     $meta_level (length_of(name)-length_of(submodule_name)-4)/5
+  // 329:     $stored_level meta_levels(submodule_name)
+  // 330:     if stored_level.is_undefined || meta_level > stored_level:
+  // 331:       !meta_levels(submodule_name) meta_level
+  // 332:     $basename submodule_name .truncate_from. '-'
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7707,28 +7678,28 @@ static void cont__64_38(void) {
     invalid_results_error();
     return;
   }
-  // 335: ... : (filename)
-  // 336:   if filename .contains. '-':
-  // 337:     unless filename .has_suffix. "-common":
-  // 338:       $maybe_push_common: (plat)
-  // 339:         $common_name string(name "-" plat "-common")
-  // 340:         if filenames(common_name): push &files common_name
-  // 341:       
-  // 342:       $name filename .before. '-'
-  // 343:       $mod_name string(mod_path name .truncate_from. '-')
-  // 344:       $platform filename .behind. '-'
+  // 336: ... : (filename)
+  // 337:   if filename .contains. '-':
+  // 338:     unless filename .has_suffix. "-common":
+  // 339:       $maybe_push_common: (plat)
+  // 340:         $common_name string(name "-" plat "-common")
+  // 341:         if filenames(common_name): push &files common_name
+  // 342:       
+  // 343:       $name filename .before. '-'
+  // 344:       $mod_name string(mod_path name .truncate_from. '-')
+  // 345:       $platform filename .behind. '-'
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__64_39, 1);
-  // 335: for_each filenames: (filename)
-  // 336:   if filename .contains. '-':
-  // 337:     unless filename .has_suffix. "-common":
-  // 338:       $maybe_push_common: (plat)
-  // 339:         $common_name string(name "-" plat "-common")
-  // 340:         if filenames(common_name): push &files common_name
-  // 341:       
-  // 342:       $name filename .before. '-'
-  // 343:       $mod_name string(mod_path name .truncate_from. '-')
-  // 344:       $platform filename .behind. '-'
+  // 336: for_each filenames: (filename)
+  // 337:   if filename .contains. '-':
+  // 338:     unless filename .has_suffix. "-common":
+  // 339:       $maybe_push_common: (plat)
+  // 340:         $common_name string(name "-" plat "-common")
+  // 341:         if filenames(common_name): push &files common_name
+  // 342:       
+  // 343:       $name filename .before. '-'
+  // 344:       $mod_name string(mod_path name .truncate_from. '-')
+  // 345:       $platform filename .behind. '-'
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7764,15 +7735,15 @@ static void entry__64_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 338: ... : (plat)
-  // 339:   $common_name string(name "-" plat "-common")
-  // 340:   if filenames(common_name): push &files common_name
+  // 339: ... : (plat)
+  // 340:   $common_name string(name "-" plat "-common")
+  // 341:   if filenames(common_name): push &files common_name
   frame->slots[9] /* temp__1 */ = create_closure(entry__64_45, 1);
-  // 338: $maybe_push_common: (plat)
-  // 339:   $common_name string(name "-" plat "-common")
-  // 340:   if filenames(common_name): push &files common_name
+  // 339: $maybe_push_common: (plat)
+  // 340:   $common_name string(name "-" plat "-common")
+  // 341:   if filenames(common_name): push &files common_name
   initialize_future(frame->slots[3] /* maybe_push_common */, frame->slots[9] /* temp__1 */);
-  // 342: $name filename .before. '-'
+  // 343: $name filename .before. '-'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* filename */;
@@ -7793,7 +7764,7 @@ static void entry__64_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 340: ... push &files common_name
+  // 341: ... push &files common_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* files */;
@@ -7831,7 +7802,7 @@ static void entry__64_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 339: $common_name string(name "-" plat "-common")
+  // 340: $common_name string(name "-" plat "-common")
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* name */;
@@ -7849,7 +7820,7 @@ static void cont__64_47(void) {
     return;
   }
   initialize_future(frame->slots[4] /* common_name */, arguments->slots[0]);
-  // 340: ... filenames(common_name)
+  // 341: ... filenames(common_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* common_name */;
@@ -7864,9 +7835,9 @@ static void cont__64_48(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 340: ... : push &files common_name
+  // 341: ... : push &files common_name
   frame->slots[6] /* temp__2 */ = create_closure(entry__64_49, 0);
-  // 340: if filenames(common_name): push &files common_name
+  // 341: if filenames(common_name): push &files common_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7882,7 +7853,7 @@ static void cont__64_51(void) {
     return;
   }
   initialize_future(frame->slots[4] /* name */, arguments->slots[0]);
-  // 343: ... name .truncate_from. '-'
+  // 344: ... name .truncate_from. '-'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* name */;
@@ -7898,7 +7869,7 @@ static void cont__64_52(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 343: $mod_name string(mod_path name .truncate_from. '-')
+  // 344: $mod_name string(mod_path name .truncate_from. '-')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_path */;
@@ -7914,7 +7885,7 @@ static void cont__64_53(void) {
     return;
   }
   initialize_future(frame->slots[5] /* mod_name */, arguments->slots[0]);
-  // 344: $platform filename .behind. '-'
+  // 345: $platform filename .behind. '-'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* filename */;
@@ -7930,7 +7901,7 @@ static void cont__64_54(void) {
     return;
   }
   initialize_future(frame->slots[6] /* platform */, arguments->slots[0]);
-  // 345: $$parent supported_platforms(platform)
+  // 346: $$parent supported_platforms(platform)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* platform */;
@@ -7945,7 +7916,7 @@ static void cont__64_55(void) {
     return;
   }
   ((CELL *)frame->slots[7])->contents /* parent */ = arguments->slots[0];
-  // 346: ... parent.is_defined
+  // 347: ... parent.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* parent */;
@@ -7960,13 +7931,13 @@ static void cont__64_56(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 346: ... :
-  // 347:   Error "
-  // 348:     The platform "@(platform)" is not supported!@
+  // 347: ... :
+  // 348:   Error "
+  // 349:     The platform "@(platform)" is not supported!@
   frame->slots[10] /* temp__2 */ = create_closure(entry__64_57, 0);
-  // 346: unless parent.is_defined:
-  // 347:   Error "
-  // 348:     The platform "@(platform)" is not supported!@
+  // 347: unless parent.is_defined:
+  // 348:   Error "
+  // 349:     The platform "@(platform)" is not supported!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -7985,8 +7956,8 @@ static void entry__64_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 347: ... "
-  // 348:   The platform "@(platform)" is not supported!@
+  // 348: ... "
+  // 349:   The platform "@(platform)" is not supported!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__64_58;
@@ -8003,8 +7974,8 @@ static void cont__64_60(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 347: Error "
-  // 348:   The platform "@(platform)" is not supported!@
+  // 348: Error "
+  // 349:   The platform "@(platform)" is not supported!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8018,7 +7989,7 @@ static void cont__64_61(void) {
     invalid_results_error();
     return;
   }
-  // 349: $$files list(filename)
+  // 350: $$files list(filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* filename */;
@@ -8033,7 +8004,7 @@ static void cont__64_62(void) {
     return;
   }
   ((CELL *)frame->slots[8])->contents /* files */ = arguments->slots[0];
-  // 350: maybe_push_common platform
+  // 351: maybe_push_common platform
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* platform */;
@@ -8047,13 +8018,13 @@ static void cont__64_63(void) {
     invalid_results_error();
     return;
   }
-  // 351: ... -> parent != NONE:
-  // 352:   maybe_push_common parent
-  // 353:   !parent supported_platforms(parent)
+  // 352: ... -> parent != NONE:
+  // 353:   maybe_push_common parent
+  // 354:   !parent supported_platforms(parent)
   frame->slots[9] /* temp__1 */ = create_closure(entry__64_64, 0);
-  // 351: while -> parent != NONE:
-  // 352:   maybe_push_common parent
-  // 353:   !parent supported_platforms(parent)
+  // 352: while -> parent != NONE:
+  // 353:   maybe_push_common parent
+  // 354:   !parent supported_platforms(parent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -8073,7 +8044,7 @@ static void entry__64_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 352: maybe_push_common parent
+  // 353: maybe_push_common parent
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* parent */;
@@ -8087,7 +8058,7 @@ static void cont__64_68(void) {
     invalid_results_error();
     return;
   }
-  // 353: !parent supported_platforms(parent)
+  // 354: !parent supported_platforms(parent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* parent */;
@@ -8119,7 +8090,7 @@ static void entry__64_64(void) {
     invalid_arguments_error();
     return;
   }
-  // 351: ... parent != NONE
+  // 352: ... parent != NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* parent */;
@@ -8135,7 +8106,7 @@ static void cont__64_65(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 351: ... parent != NONE
+  // 352: ... parent != NONE
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -8150,13 +8121,13 @@ static void cont__64_66(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 351: ... :
-  // 352:   maybe_push_common parent
-  // 353:   !parent supported_platforms(parent)
+  // 352: ... :
+  // 353:   maybe_push_common parent
+  // 354:   !parent supported_platforms(parent)
   frame->slots[4] /* temp__3 */ = create_closure(entry__64_67, 0);
-  // 351: ... -> parent != NONE:
-  // 352:   maybe_push_common parent
-  // 353:   !parent supported_platforms(parent)
+  // 352: ... -> parent != NONE:
+  // 353:   maybe_push_common parent
+  // 354:   !parent supported_platforms(parent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8170,9 +8141,9 @@ static void cont__64_70(void) {
     invalid_results_error();
     return;
   }
-  // 354: !module_info(mod_name)(platform) files
+  // 355: !module_info(mod_name)(platform) files
   frame->slots[9] /* temp__1 */ = ((CELL *)frame->slots[8])->contents /* files */;
-  // 354: ... module_info(mod_name)
+  // 355: ... module_info(mod_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* mod_name */;
@@ -8187,7 +8158,7 @@ static void cont__64_71(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 354: !module_info(mod_name)(platform)
+  // 355: !module_info(mod_name)(platform)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* platform */;
@@ -8203,7 +8174,7 @@ static void cont__64_72(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 354: !module_info(mod_name)
+  // 355: !module_info(mod_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* mod_name */;
@@ -8238,7 +8209,7 @@ static void entry__64_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 337: ... filename .has_suffix. "-common"
+  // 338: ... filename .has_suffix. "-common"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -8254,28 +8225,28 @@ static void cont__64_43(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 337: ... :
-  // 338:   $maybe_push_common: (plat)
-  // 339:     $common_name string(name "-" plat "-common")
-  // 340:     if filenames(common_name): push &files common_name
-  // 341:   
-  // 342:   $name filename .before. '-'
-  // 343:   $mod_name string(mod_path name .truncate_from. '-')
-  // 344:   $platform filename .behind. '-'
-  // 345:   $$parent supported_platforms(platform)
-  // 346:   unless parent.is_defined:
+  // 338: ... :
+  // 339:   $maybe_push_common: (plat)
+  // 340:     $common_name string(name "-" plat "-common")
+  // 341:     if filenames(common_name): push &files common_name
+  // 342:   
+  // 343:   $name filename .before. '-'
+  // 344:   $mod_name string(mod_path name .truncate_from. '-')
+  // 345:   $platform filename .behind. '-'
+  // 346:   $$parent supported_platforms(platform)
+  // 347:   unless parent.is_defined:
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__64_44, 0);
-  // 337: unless filename .has_suffix. "-common":
-  // 338:   $maybe_push_common: (plat)
-  // 339:     $common_name string(name "-" plat "-common")
-  // 340:     if filenames(common_name): push &files common_name
-  // 341:   
-  // 342:   $name filename .before. '-'
-  // 343:   $mod_name string(mod_path name .truncate_from. '-')
-  // 344:   $platform filename .behind. '-'
-  // 345:   $$parent supported_platforms(platform)
-  // 346:   unless parent.is_defined:
+  // 338: unless filename .has_suffix. "-common":
+  // 339:   $maybe_push_common: (plat)
+  // 340:     $common_name string(name "-" plat "-common")
+  // 341:     if filenames(common_name): push &files common_name
+  // 342:   
+  // 343:   $name filename .before. '-'
+  // 344:   $mod_name string(mod_path name .truncate_from. '-')
+  // 345:   $platform filename .behind. '-'
+  // 346:   $$parent supported_platforms(platform)
+  // 347:   unless parent.is_defined:
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -8298,7 +8269,7 @@ static void entry__64_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 336: ... filename .contains. '-'
+  // 337: ... filename .contains. '-'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -8314,28 +8285,28 @@ static void cont__64_40(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 336: ... :
-  // 337:   unless filename .has_suffix. "-common":
-  // 338:     $maybe_push_common: (plat)
-  // 339:       $common_name string(name "-" plat "-common")
-  // 340:       if filenames(common_name): push &files common_name
-  // 341:     
-  // 342:     $name filename .before. '-'
-  // 343:     $mod_name string(mod_path name .truncate_from. '-')
-  // 344:     $platform filename .behind. '-'
-  // 345:     $$parent supported_platforms(platform)
+  // 337: ... :
+  // 338:   unless filename .has_suffix. "-common":
+  // 339:     $maybe_push_common: (plat)
+  // 340:       $common_name string(name "-" plat "-common")
+  // 341:       if filenames(common_name): push &files common_name
+  // 342:     
+  // 343:     $name filename .before. '-'
+  // 344:     $mod_name string(mod_path name .truncate_from. '-')
+  // 345:     $platform filename .behind. '-'
+  // 346:     $$parent supported_platforms(platform)
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__64_41, 0);
-  // 336: if filename .contains. '-':
-  // 337:   unless filename .has_suffix. "-common":
-  // 338:     $maybe_push_common: (plat)
-  // 339:       $common_name string(name "-" plat "-common")
-  // 340:       if filenames(common_name): push &files common_name
-  // 341:     
-  // 342:     $name filename .before. '-'
-  // 343:     $mod_name string(mod_path name .truncate_from. '-')
-  // 344:     $platform filename .behind. '-'
-  // 345:     $$parent supported_platforms(platform)
+  // 337: if filename .contains. '-':
+  // 338:   unless filename .has_suffix. "-common":
+  // 339:     $maybe_push_common: (plat)
+  // 340:       $common_name string(name "-" plat "-common")
+  // 341:       if filenames(common_name): push &files common_name
+  // 342:     
+  // 343:     $name filename .before. '-'
+  // 344:     $mod_name string(mod_path name .truncate_from. '-')
+  // 345:     $platform filename .behind. '-'
+  // 346:     $$parent supported_platforms(platform)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -8351,7 +8322,7 @@ static void cont__64_74(void) {
     invalid_results_error();
     return;
   }
-  // 355: ... parameter_count_of(return)
+  // 356: ... parameter_count_of(return)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* return */;
@@ -8366,7 +8337,7 @@ static void cont__64_75(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 355: ... parameter_count_of(return) == 2
+  // 356: ... parameter_count_of(return) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -8382,9 +8353,9 @@ static void cont__64_76(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 355: ... : return directories modules
+  // 356: ... : return directories modules
   frame->slots[9] /* temp__3 */ = create_closure(entry__64_77, 0);
-  // 355: if parameter_count_of(return) == 2: return directories modules
+  // 356: if parameter_count_of(return) == 2: return directories modules
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -8407,7 +8378,7 @@ static void entry__64_77(void) {
     invalid_arguments_error();
     return;
   }
-  // 355: ... return directories modules
+  // 356: ... return directories modules
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* directories */;
@@ -8431,7 +8402,7 @@ static void entry__65_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 366: ... -> info
+  // 367: ... -> info
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -8450,7 +8421,7 @@ static void entry__65_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 367: ... 1
+  // 368: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8465,7 +8436,7 @@ static void cont__65_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 367: ... before(mod_filename '/' -1)
+  // 368: ... before(mod_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -8482,7 +8453,7 @@ static void cont__65_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 367: ... 1
+  // 368: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8497,7 +8468,7 @@ static void cont__65_8(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 367: ... until(mod_name '/' -1)
+  // 368: ... until(mod_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -8514,7 +8485,7 @@ static void cont__65_9(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 367: add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
+  // 368: add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8529,7 +8500,7 @@ static void cont__65_10(void) {
     invalid_results_error();
     return;
   }
-  // 368: ... module_info(mod_name)
+  // 369: ... module_info(mod_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -8544,7 +8515,7 @@ static void cont__65_11(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 368: -> module_info(mod_name)
+  // 369: -> module_info(mod_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8563,7 +8534,7 @@ static void entry__65_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 365: $info module_info(mod_name)
+  // 366: $info module_info(mod_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -8578,7 +8549,7 @@ static void cont__65_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* info */, arguments->slots[0]);
-  // 366: ... info.is_defined
+  // 367: ... info.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -8593,15 +8564,15 @@ static void cont__65_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 366: ... -> info
+  // 367: ... -> info
   frame->slots[4] /* temp__2 */ = create_closure(entry__65_4, 0);
-  // 366: ... :
-  // 367:   add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
-  // 368:   -> module_info(mod_name)
+  // 367: ... :
+  // 368:   add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
+  // 369:   -> module_info(mod_name)
   frame->slots[5] /* temp__3 */ = create_closure(entry__65_5, 0);
-  // 366: if info.is_defined (-> info):
-  // 367:   add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
-  // 368:   -> module_info(mod_name)
+  // 367: if info.is_defined (-> info):
+  // 368:   add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
+  // 369:   -> module_info(mod_name)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -8618,9 +8589,9 @@ static void entry__66_1(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 371: ... : ewriteln "gcc " join(args)
+  // 372: ... : ewriteln "gcc " join(args)
   frame->slots[1] /* temp__1 */ = create_closure(entry__66_2, 0);
-  // 371: if do_show_debug_infos: ewriteln "gcc " join(args)
+  // 372: if do_show_debug_infos: ewriteln "gcc " join(args)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_show_debug_infos();
@@ -8639,7 +8610,7 @@ static void entry__66_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 371: ... join(args)
+  // 372: ... join(args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -8654,7 +8625,7 @@ static void cont__66_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 371: ... ewriteln "gcc " join(args)
+  // 372: ... ewriteln "gcc " join(args)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__66_4;
@@ -8669,7 +8640,7 @@ static void cont__66_5(void) {
     invalid_results_error();
     return;
   }
-  // 372: gcc args*
+  // 373: gcc args*
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
@@ -8679,112 +8650,86 @@ static void cont__66_5(void) {
   frame = frame->caller_frame;
 }
 static void entry__67_4(void) {
-  allocate_initialized_frame_gc(2, 4);
+  allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // c_filename: 0
   // o_filename: 1
+  // out: 2
+  // err: 3
+  // success: 4
   frame->slots[0] = myself->closure.frame->slots[0]; /* c_filename */
   frame->slots[1] = myself->closure.frame->slots[1]; /* o_filename */
+  frame->slots[2] /* out */ = create_future();
+  frame->slots[3] /* err */ = create_future();
+  frame->slots[4] /* success */ = create_future();
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 378: ... :
-  // 379:   Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-  // 380:   unless success: Error err.from_utf8
-  frame->slots[2] /* temp__1 */ = create_closure(entry__67_5, 0);
-  // 381: ... :
-  // 382:   Gcc $_out $err $success
-  // 383:     "-DWITHIN_LIBRARY"
-  // 384:     gcc_options*
-  // 385:     "-fPIC"
-  // 386:     "-c"
-  // 387:     c_filename
-  // 388:     "-o"
-  // 389:     o_filename
-  // 390:   unless success: Error err.from_utf8
-  frame->slots[3] /* temp__2 */ = create_closure(entry__67_11, 0);
-  // 376: case
-  // 377:   mode
-  // 378:   EXE:
-  // 379:     Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-  // 380:     unless success: Error err.from_utf8
-  // 381:   LIB:
-  // 382:     Gcc $_out $err $success
-  // 383:       "-DWITHIN_LIBRARY"
-  // 384:       gcc_options*
-  // 385:       "-fPIC"
-  // ...
-  argument_count = 5;
+  // 377: Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+  argument_count = 0;
   arguments = node_p;
-  arguments->slots[0] = get__mode();
-  arguments->slots[1] = var._EXE;
-  arguments->slots[2] = frame->slots[2] /* temp__1 */;
-  arguments->slots[3] = var._LIB;
-  arguments->slots[4] = frame->slots[3] /* temp__2 */;
-  result_count = 0;
-  myself = get__case();
+  unfold(var._gcc_options);
+  arguments->slots[argument_count++] = string__67_5;
+  arguments->slots[argument_count++] = frame->slots[0] /* c_filename */;
+  arguments->slots[argument_count++] = string__67_6;
+  arguments->slots[argument_count++] = frame->slots[1] /* o_filename */;
+  result_count = 3;
+  myself = var._Gcc;
   func = myself->type;
-  frame->cont = cont__67_17;
+  frame->cont = cont__67_7;
 }
-static void entry__67_15(void) {
-  allocate_initialized_frame_gc(1, 2);
-  // slot allocations:
-  // err: 0
-  frame->slots[0] = myself->closure.frame->slots[3]; /* err */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 390: ... err.from_utf8
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* err */;
-  result_count = 1;
-  myself = get__from_utf8();
-  func = myself->type;
-  frame->cont = cont__67_16;
-}
-static void cont__67_16(void) {
-  if (argument_count != 1) {
+static void cont__67_7(void) {
+  if (argument_count != 3) {
     invalid_results_error();
     return;
   }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 390: ... Error err.from_utf8
-  argument_count = 1;
+  frame->slots[5] /* temp__1 */ = arguments->slots[0];
+  frame->slots[6] /* temp__2 */ = arguments->slots[1];
+  frame->slots[7] /* temp__3 */ = arguments->slots[2];
+  // 377: ... _out
+  initialize_future(frame->slots[2] /* out */, frame->slots[5] /* temp__1 */);
+  // 377: ... err
+  initialize_future(frame->slots[3] /* err */, frame->slots[6] /* temp__2 */);
+  // 377: ... success
+  initialize_future(frame->slots[4] /* success */, frame->slots[7] /* temp__3 */);
+  // 378: ... : Error err.from_utf8
+  frame->slots[5] /* temp__1 */ = create_closure(entry__67_8, 0);
+  // 378: unless success: Error err.from_utf8
+  argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  result_count = frame->caller_result_count;
-  myself = get__Error();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__67_9(void) {
-  allocate_initialized_frame_gc(1, 2);
-  // slot allocations:
-  // err: 0
-  frame->slots[0] = myself->closure.frame->slots[3]; /* err */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 380: ... err.from_utf8
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* err */;
-  result_count = 1;
-  myself = get__from_utf8();
+  arguments->slots[0] = frame->slots[4] /* success */;
+  arguments->slots[1] = frame->slots[5] /* temp__1 */;
+  result_count = 0;
+  myself = get__unless();
   func = myself->type;
   frame->cont = cont__67_10;
 }
-static void cont__67_10(void) {
+static void entry__67_8(void) {
+  allocate_initialized_frame_gc(1, 2);
+  // slot allocations:
+  // err: 0
+  frame->slots[0] = myself->closure.frame->slots[3]; /* err */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 378: ... err.from_utf8
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* err */;
+  result_count = 1;
+  myself = get__from_utf8();
+  func = myself->type;
+  frame->cont = cont__67_9;
+}
+static void cont__67_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 380: ... Error err.from_utf8
+  // 378: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8793,133 +8738,12 @@ static void cont__67_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__67_5(void) {
-  allocate_initialized_frame_gc(2, 8);
-  // slot allocations:
-  // c_filename: 0
-  // o_filename: 1
-  // out: 2
-  // err: 3
-  // success: 4
-  frame->slots[0] = myself->closure.frame->slots[0]; /* c_filename */
-  frame->slots[1] = myself->closure.frame->slots[1]; /* o_filename */
-  frame->slots[2] /* out */ = create_future();
-  frame->slots[3] /* err */ = create_future();
-  frame->slots[4] /* success */ = create_future();
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 379: Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-  argument_count = 0;
-  arguments = node_p;
-  unfold(var._gcc_options);
-  arguments->slots[argument_count++] = string__67_6;
-  arguments->slots[argument_count++] = frame->slots[0] /* c_filename */;
-  arguments->slots[argument_count++] = string__67_7;
-  arguments->slots[argument_count++] = frame->slots[1] /* o_filename */;
-  result_count = 3;
-  myself = var._Gcc;
-  func = myself->type;
-  frame->cont = cont__67_8;
-}
-static void cont__67_8(void) {
-  if (argument_count != 3) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  frame->slots[6] /* temp__2 */ = arguments->slots[1];
-  frame->slots[7] /* temp__3 */ = arguments->slots[2];
-  // 379: ... _out
-  initialize_future(frame->slots[2] /* out */, frame->slots[5] /* temp__1 */);
-  // 379: ... err
-  initialize_future(frame->slots[3] /* err */, frame->slots[6] /* temp__2 */);
-  // 379: ... success
-  initialize_future(frame->slots[4] /* success */, frame->slots[7] /* temp__3 */);
-  // 380: ... : Error err.from_utf8
-  frame->slots[5] /* temp__1 */ = create_closure(entry__67_9, 0);
-  // 380: unless success: Error err.from_utf8
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* success */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
-  result_count = frame->caller_result_count;
-  myself = get__unless();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__67_11(void) {
-  allocate_initialized_frame_gc(2, 8);
-  // slot allocations:
-  // c_filename: 0
-  // o_filename: 1
-  // out: 2
-  // err: 3
-  // success: 4
-  frame->slots[0] = myself->closure.frame->slots[0]; /* c_filename */
-  frame->slots[1] = myself->closure.frame->slots[1]; /* o_filename */
-  frame->slots[2] /* out */ = create_future();
-  frame->slots[3] /* err */ = create_future();
-  frame->slots[4] /* success */ = create_future();
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 382: Gcc $_out $err $success
-  // 383:   "-DWITHIN_LIBRARY"
-  // 384:   gcc_options*
-  // 385:   "-fPIC"
-  // 386:   "-c"
-  // 387:   c_filename
-  // 388:   "-o"
-  // 389:   o_filename
-  argument_count = 0;
-  arguments = node_p;
-  arguments->slots[argument_count++] = string__67_12;
-  unfold(var._gcc_options);
-  arguments->slots[argument_count++] = string__67_13;
-  arguments->slots[argument_count++] = string__67_6;
-  arguments->slots[argument_count++] = frame->slots[0] /* c_filename */;
-  arguments->slots[argument_count++] = string__67_7;
-  arguments->slots[argument_count++] = frame->slots[1] /* o_filename */;
-  result_count = 3;
-  myself = var._Gcc;
-  func = myself->type;
-  frame->cont = cont__67_14;
-}
-static void cont__67_14(void) {
-  if (argument_count != 3) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  frame->slots[6] /* temp__2 */ = arguments->slots[1];
-  frame->slots[7] /* temp__3 */ = arguments->slots[2];
-  // 382: ... _out
-  initialize_future(frame->slots[2] /* out */, frame->slots[5] /* temp__1 */);
-  // 382: ... err
-  initialize_future(frame->slots[3] /* err */, frame->slots[6] /* temp__2 */);
-  // 382: ... success
-  initialize_future(frame->slots[4] /* success */, frame->slots[7] /* temp__3 */);
-  // 390: ... : Error err.from_utf8
-  frame->slots[5] /* temp__1 */ = create_closure(entry__67_15, 0);
-  // 390: unless success: Error err.from_utf8
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* success */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
-  result_count = frame->caller_result_count;
-  myself = get__unless();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void cont__67_17(void) {
+static void cont__67_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 391: !do_link true
+  // 379: !do_link true
   set__do_link(get__true());
   argument_count = 0;
   arguments = node_p;
@@ -8936,7 +8760,7 @@ static void entry__67_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 375: ... do_build_codeblocks_project || do_list_dependencies
+  // 376: ... do_build_codeblocks_project || do_list_dependencies
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_build_codeblocks_project;
@@ -8953,7 +8777,7 @@ static void entry__67_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 375: ... do_list_dependencies
+  // 376: ... do_list_dependencies
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._do_list_dependencies;
@@ -8967,29 +8791,15 @@ static void cont__67_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 375: ... :
-  // 376:   case
-  // 377:     mode
-  // 378:     EXE:
-  // 379:       Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-  // 380:       unless success: Error err.from_utf8
-  // 381:     LIB:
-  // 382:       Gcc $_out $err $success
-  // 383:         "-DWITHIN_LIBRARY"
-  // 384:         gcc_options*
-  // ...
+  // 376: ... :
+  // 377:   Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+  // 378:   unless success: Error err.from_utf8
+  // 379:   !do_link true
   frame->slots[3] /* temp__2 */ = create_closure(entry__67_4, 0);
-  // 375: unless do_build_codeblocks_project || do_list_dependencies:
-  // 376:   case
-  // 377:     mode
-  // 378:     EXE:
-  // 379:       Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-  // 380:       unless success: Error err.from_utf8
-  // 381:     LIB:
-  // 382:       Gcc $_out $err $success
-  // 383:         "-DWITHIN_LIBRARY"
-  // 384:         gcc_options*
-  // ...
+  // 376: unless do_build_codeblocks_project || do_list_dependencies:
+  // 377:   Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+  // 378:   unless success: Error err.from_utf8
+  // 379:   !do_link true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -9028,7 +8838,7 @@ static void entry__68_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 403: ... 1
+  // 391: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9043,7 +8853,7 @@ static void cont__68_3(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 403: $meta_path truncate_from(mod_filename '/' -1)
+  // 391: $meta_path truncate_from(mod_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -9060,7 +8870,7 @@ static void cont__68_4(void) {
     return;
   }
   initialize_future(frame->slots[2] /* meta_path */, arguments->slots[0]);
-  // 404: ... dup(".meta" meta_level)
+  // 392: ... dup(".meta" meta_level)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__64_16;
@@ -9076,7 +8886,7 @@ static void cont__68_5(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 404: $filename string(mod_filename dup(".meta" meta_level))
+  // 392: $filename string(mod_filename dup(".meta" meta_level))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -9092,7 +8902,7 @@ static void cont__68_6(void) {
     return;
   }
   initialize_future(frame->slots[3] /* filename */, arguments->slots[0]);
-  // 405: $meta_filename string(filename ".sim")
+  // 393: $meta_filename string(filename ".sim")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* filename */;
@@ -9108,7 +8918,7 @@ static void cont__68_7(void) {
     return;
   }
   initialize_future(frame->slots[4] /* meta_filename */, arguments->slots[0]);
-  // 406: ... dup(".meta" meta_level)
+  // 394: ... dup(".meta" meta_level)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__64_16;
@@ -9124,7 +8934,7 @@ static void cont__68_8(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 406: $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
+  // 394: $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -9141,7 +8951,7 @@ static void cont__68_10(void) {
     return;
   }
   initialize_future(frame->slots[5] /* meta_c_filename */, arguments->slots[0]);
-  // 407: ... meta_level-1
+  // 395: ... meta_level-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* meta_level */;
@@ -9157,7 +8967,7 @@ static void cont__68_11(void) {
     return;
   }
   frame->slots[12] /* temp__2 */ = arguments->slots[0];
-  // 407: ... dup(".meta" meta_level-1)
+  // 395: ... dup(".meta" meta_level-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__64_16;
@@ -9173,7 +8983,7 @@ static void cont__68_12(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 407: $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
+  // 395: $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -9190,7 +9000,7 @@ static void cont__68_13(void) {
     return;
   }
   initialize_future(frame->slots[6] /* sim_filename */, arguments->slots[0]);
-  // 408: $meta_info stat(meta_filename)
+  // 396: $meta_info stat(meta_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* meta_filename */;
@@ -9205,7 +9015,7 @@ static void cont__68_14(void) {
     return;
   }
   initialize_future(frame->slots[7] /* meta_info */, arguments->slots[0]);
-  // 409: $sim_info stat(sim_filename)
+  // 397: $sim_info stat(sim_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* sim_filename */;
@@ -9220,7 +9030,7 @@ static void cont__68_15(void) {
     return;
   }
   initialize_future(frame->slots[8] /* sim_info */, arguments->slots[0]);
-  // 410: $meta_c_info stat(meta_c_filename)
+  // 398: $meta_c_info stat(meta_c_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* meta_c_filename */;
@@ -9236,13 +9046,13 @@ static void cont__68_16(void) {
   }
   initialize_future(frame->slots[9] /* meta_c_info */, arguments->slots[0]);
   frame->slots[11] /* temp__1 */ = create_closure(entry__68_17, 0);
-  // 412: $$force_rebuild
-  // 413:   ||
-  // 414:     do_rebuild
-  // 415:     sim_info.is_undefined
-  // 416:     meta_c_info.is_undefined
-  // 417:     modification_time_of(meta_info) > modification_time_of(meta_c_info)
-  // 418:     modification_time_of(meta_c_info) > modification_time_of(sim_info)
+  // 400: $$force_rebuild
+  // 401:   ||
+  // 402:     do_rebuild
+  // 403:     sim_info.is_undefined
+  // 404:     meta_c_info.is_undefined
+  // 405:     modification_time_of(meta_info) > modification_time_of(meta_c_info)
+  // 406:     modification_time_of(meta_c_info) > modification_time_of(sim_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_rebuild;
@@ -9265,7 +9075,7 @@ static void entry__68_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 415: sim_info.is_undefined
+  // 403: sim_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sim_info */;
@@ -9303,7 +9113,7 @@ static void entry__68_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 416: meta_c_info.is_undefined
+  // 404: meta_c_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* meta_c_info */;
@@ -9341,7 +9151,7 @@ static void entry__68_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 417: ... modification_time_of(meta_c_info)
+  // 405: ... modification_time_of(meta_c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* meta_c_info */;
@@ -9356,7 +9166,7 @@ static void cont__68_22(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 417: modification_time_of(meta_info)
+  // 405: modification_time_of(meta_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* meta_info */;
@@ -9371,7 +9181,7 @@ static void cont__68_23(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 417: modification_time_of(meta_info) > modification_time_of(meta_c_info)
+  // 405: modification_time_of(meta_info) > modification_time_of(meta_c_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -9387,7 +9197,7 @@ static void cont__68_24(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 418: modification_time_of(meta_c_info) > modification_time_of(sim_info)
+  // 406: modification_time_of(meta_c_info) > modification_time_of(sim_info)
   frame->slots[7] /* temp__5 */ = create_closure(entry__68_25, 0);
   argument_count = 2;
   arguments = node_p;
@@ -9409,7 +9219,7 @@ static void entry__68_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 418: ... modification_time_of(sim_info)
+  // 406: ... modification_time_of(sim_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sim_info */;
@@ -9424,7 +9234,7 @@ static void cont__68_26(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 418: modification_time_of(meta_c_info)
+  // 406: modification_time_of(meta_c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* meta_c_info */;
@@ -9439,7 +9249,7 @@ static void cont__68_27(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 418: modification_time_of(meta_c_info) > modification_time_of(sim_info)
+  // 406: modification_time_of(meta_c_info) > modification_time_of(sim_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -9455,7 +9265,7 @@ static void cont__68_28(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 418: modification_time_of(meta_c_info) > modification_time_of(sim_info)
+  // 406: modification_time_of(meta_c_info) > modification_time_of(sim_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -9508,28 +9318,28 @@ static void cont__68_32(void) {
     return;
   }
   ((CELL *)frame->slots[10])->contents /* force_rebuild */ = arguments->slots[0];
-  // 420: ... :
-  // 421:   $modification_time modification_time_of(sim_info)
-  // 422:   load $meta_c_buf meta_c_filename
-  // 423:   do: (-> break)
-  // 424:     for_each_line meta_c_buf: ($line)
-  // 425:       $check: (data_filename)
-  // 426:         $data_info stat(data_filename)
-  // 427:         if
-  // 428:           ||
-  // 429:             data_info.is_undefined
+  // 408: ... :
+  // 409:   $modification_time modification_time_of(sim_info)
+  // 410:   load $meta_c_buf meta_c_filename
+  // 411:   do: (-> break)
+  // 412:     for_each_line meta_c_buf: ($line)
+  // 413:       $check: (data_filename)
+  // 414:         $data_info stat(data_filename)
+  // 415:         if
+  // 416:           ||
+  // 417:             data_info.is_undefined
   // ...
   frame->slots[11] /* temp__1 */ = create_closure(entry__68_33, 0);
-  // 420: unless force_rebuild:
-  // 421:   $modification_time modification_time_of(sim_info)
-  // 422:   load $meta_c_buf meta_c_filename
-  // 423:   do: (-> break)
-  // 424:     for_each_line meta_c_buf: ($line)
-  // 425:       $check: (data_filename)
-  // 426:         $data_info stat(data_filename)
-  // 427:         if
-  // 428:           ||
-  // 429:             data_info.is_undefined
+  // 408: unless force_rebuild:
+  // 409:   $modification_time modification_time_of(sim_info)
+  // 410:   load $meta_c_buf meta_c_filename
+  // 411:   do: (-> break)
+  // 412:     for_each_line meta_c_buf: ($line)
+  // 413:       $check: (data_filename)
+  // 414:         $data_info stat(data_filename)
+  // 415:         if
+  // 416:           ||
+  // 417:             data_info.is_undefined
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -9557,28 +9367,28 @@ static void entry__68_36(void) {
     invalid_arguments_error();
     return;
   }
-  // 424: ... : ($line)
-  // 425:   $check: (data_filename)
-  // 426:     $data_info stat(data_filename)
-  // 427:     if
-  // 428:       ||
-  // 429:         data_info.is_undefined
-  // 430:         modification_time_of(data_info) > modification_time
-  // 431:       :
-  // 432:         !force_rebuild true
-  // 433:         break
+  // 412: ... : ($line)
+  // 413:   $check: (data_filename)
+  // 414:     $data_info stat(data_filename)
+  // 415:     if
+  // 416:       ||
+  // 417:         data_info.is_undefined
+  // 418:         modification_time_of(data_info) > modification_time
+  // 419:       :
+  // 420:         !force_rebuild true
+  // 421:         break
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__68_37, 1);
-  // 424: for_each_line meta_c_buf: ($line)
-  // 425:   $check: (data_filename)
-  // 426:     $data_info stat(data_filename)
-  // 427:     if
-  // 428:       ||
-  // 429:         data_info.is_undefined
-  // 430:         modification_time_of(data_info) > modification_time
-  // 431:       :
-  // 432:         !force_rebuild true
-  // 433:         break
+  // 412: for_each_line meta_c_buf: ($line)
+  // 413:   $check: (data_filename)
+  // 414:     $data_info stat(data_filename)
+  // 415:     if
+  // 416:       ||
+  // 417:         data_info.is_undefined
+  // 418:         modification_time_of(data_info) > modification_time
+  // 419:       :
+  // 420:         !force_rebuild true
+  // 421:         break
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -9601,7 +9411,7 @@ static void entry__68_63(void) {
     invalid_arguments_error();
     return;
   }
-  // 445: ... string(path '/' argument)
+  // 433: ... string(path '/' argument)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
@@ -9618,7 +9428,7 @@ static void cont__68_64(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 445: ... check string(path '/' argument)
+  // 433: ... check string(path '/' argument)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9640,7 +9450,7 @@ static void entry__68_58(void) {
     invalid_arguments_error();
     return;
   }
-  // 443: ... 1
+  // 431: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9655,7 +9465,7 @@ static void cont__68_59(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 443: ... range(argument 2 -1)
+  // 431: ... range(argument 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* argument */;
@@ -9672,7 +9482,7 @@ static void cont__68_60(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 443: ... string(meta_path range(argument 2 -1))
+  // 431: ... string(meta_path range(argument 2 -1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* meta_path */;
@@ -9688,7 +9498,7 @@ static void cont__68_61(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 443: check string(meta_path range(argument 2 -1))
+  // 431: check string(meta_path range(argument 2 -1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9708,9 +9518,9 @@ static void entry__68_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 445: ... : (path) check string(path '/' argument)
+  // 433: ... : (path) check string(path '/' argument)
   frame->slots[2] /* temp__1 */ = create_closure(entry__68_63, 1);
-  // 445: for_each simdatapaths: (path) check string(path '/' argument)
+  // 433: for_each simdatapaths: (path) check string(path '/' argument)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._simdatapaths;
@@ -9733,7 +9543,7 @@ static void entry__68_55(void) {
     invalid_arguments_error();
     return;
   }
-  // 442: argument .has_prefix. "./"
+  // 430: argument .has_prefix. "./"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -9749,17 +9559,17 @@ static void cont__68_57(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 442: ... :
-  // 443:   check string(meta_path range(argument 2 -1))
+  // 430: ... :
+  // 431:   check string(meta_path range(argument 2 -1))
   frame->slots[4] /* temp__2 */ = create_closure(entry__68_58, 0);
-  // 444: :
-  // 445:   for_each simdatapaths: (path) check string(path '/' argument)
+  // 432: :
+  // 433:   for_each simdatapaths: (path) check string(path '/' argument)
   frame->slots[5] /* temp__3 */ = create_closure(entry__68_62, 0);
-  // 441: if
-  // 442:   argument .has_prefix. "./":
-  // 443:     check string(meta_path range(argument 2 -1))
-  // 444:   :
-  // 445:     for_each simdatapaths: (path) check string(path '/' argument)
+  // 429: if
+  // 430:   argument .has_prefix. "./":
+  // 431:     check string(meta_path range(argument 2 -1))
+  // 432:   :
+  // 433:     for_each simdatapaths: (path) check string(path '/' argument)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9793,27 +9603,27 @@ static void entry__68_37(void) {
     return;
   }
   frame->slots[0] /* line */ = create_cell_with_contents(arguments->slots[0]);
-  // 425: ... : (data_filename)
-  // 426:   $data_info stat(data_filename)
-  // 427:   if
-  // 428:     ||
-  // 429:       data_info.is_undefined
-  // 430:       modification_time_of(data_info) > modification_time
-  // 431:     :
-  // 432:       !force_rebuild true
-  // 433:       break
+  // 413: ... : (data_filename)
+  // 414:   $data_info stat(data_filename)
+  // 415:   if
+  // 416:     ||
+  // 417:       data_info.is_undefined
+  // 418:       modification_time_of(data_info) > modification_time
+  // 419:     :
+  // 420:       !force_rebuild true
+  // 421:       break
   frame->slots[8] /* temp__1 */ = create_closure(entry__68_38, 1);
-  // 425: $check: (data_filename)
-  // 426:   $data_info stat(data_filename)
-  // 427:   if
-  // 428:     ||
-  // 429:       data_info.is_undefined
-  // 430:       modification_time_of(data_info) > modification_time
-  // 431:     :
-  // 432:       !force_rebuild true
-  // 433:       break
+  // 413: $check: (data_filename)
+  // 414:   $data_info stat(data_filename)
+  // 415:   if
+  // 416:     ||
+  // 417:       data_info.is_undefined
+  // 418:       modification_time_of(data_info) > modification_time
+  // 419:     :
+  // 420:       !force_rebuild true
+  // 421:       break
   initialize_future(frame->slots[5] /* check */, frame->slots[8] /* temp__1 */);
-  // 435: ... line .has_prefix. "/// "
+  // 423: ... line .has_prefix. "/// "
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -9834,9 +9644,9 @@ static void entry__68_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 432: !force_rebuild true
+  // 420: !force_rebuild true
   ((CELL *)frame->slots[0])->contents /* force_rebuild */ = get__true();
-  // 433: break
+  // 421: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -9860,7 +9670,7 @@ static void entry__68_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 426: $data_info stat(data_filename)
+  // 414: $data_info stat(data_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* data_filename */;
@@ -9875,7 +9685,7 @@ static void cont__68_39(void) {
     return;
   }
   initialize_future(frame->slots[4] /* data_info */, arguments->slots[0]);
-  // 429: data_info.is_undefined
+  // 417: data_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* data_info */;
@@ -9890,11 +9700,11 @@ static void cont__68_40(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 430: modification_time_of(data_info) > modification_time
+  // 418: modification_time_of(data_info) > modification_time
   frame->slots[7] /* temp__3 */ = create_closure(entry__68_41, 0);
-  // 428: ||
-  // 429:   data_info.is_undefined
-  // 430:   modification_time_of(data_info) > modification_time
+  // 416: ||
+  // 417:   data_info.is_undefined
+  // 418:   modification_time_of(data_info) > modification_time
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -9915,7 +9725,7 @@ static void entry__68_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 430: modification_time_of(data_info)
+  // 418: modification_time_of(data_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* data_info */;
@@ -9930,7 +9740,7 @@ static void cont__68_42(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 430: modification_time_of(data_info) > modification_time
+  // 418: modification_time_of(data_info) > modification_time
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* modification_time */;
@@ -9946,7 +9756,7 @@ static void cont__68_43(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 430: modification_time_of(data_info) > modification_time
+  // 418: modification_time_of(data_info) > modification_time
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -9960,17 +9770,17 @@ static void cont__68_44(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 431: :
-  // 432:   !force_rebuild true
-  // 433:   break
+  // 419: :
+  // 420:   !force_rebuild true
+  // 421:   break
   frame->slots[8] /* temp__4 */ = create_closure(entry__68_45, 0);
-  // 427: if
-  // 428:   ||
-  // 429:     data_info.is_undefined
-  // 430:     modification_time_of(data_info) > modification_time
-  // 431:   :
-  // 432:     !force_rebuild true
-  // 433:     break
+  // 415: if
+  // 416:   ||
+  // 417:     data_info.is_undefined
+  // 418:     modification_time_of(data_info) > modification_time
+  // 419:   :
+  // 420:     !force_rebuild true
+  // 421:     break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -9986,7 +9796,7 @@ static void cont__68_47(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 435: unless line .has_prefix. "/// " break
+  // 423: unless line .has_prefix. "/// " break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -10001,7 +9811,7 @@ static void cont__68_48(void) {
     invalid_results_error();
     return;
   }
-  // 436: behind &line ' '
+  // 424: behind &line ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -10017,7 +9827,7 @@ static void cont__68_49(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* line */ = arguments->slots[0];
-  // 437: trim &line
+  // 425: trim &line
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -10032,7 +9842,7 @@ static void cont__68_50(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* line */ = arguments->slots[0];
-  // 438: $command line .truncate_from. WHITESPACE
+  // 426: $command line .truncate_from. WHITESPACE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -10048,7 +9858,7 @@ static void cont__68_51(void) {
     return;
   }
   initialize_future(frame->slots[6] /* command */, arguments->slots[0]);
-  // 439: $argument line .behind. WHITESPACE
+  // 427: $argument line .behind. WHITESPACE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -10064,7 +9874,7 @@ static void cont__68_52(void) {
     return;
   }
   initialize_future(frame->slots[7] /* argument */, arguments->slots[0]);
-  // 440: ... command == "data"
+  // 428: ... command == "data"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* command */;
@@ -10080,19 +9890,19 @@ static void cont__68_54(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 440: ... :
-  // 441:   if
-  // 442:     argument .has_prefix. "./":
-  // 443:       check string(meta_path range(argument 2 -1))
-  // 444:     :
-  // 445:       for_each simdatapaths: (path) check string(path '/' argument)
+  // 428: ... :
+  // 429:   if
+  // 430:     argument .has_prefix. "./":
+  // 431:       check string(meta_path range(argument 2 -1))
+  // 432:     :
+  // 433:       for_each simdatapaths: (path) check string(path '/' argument)
   frame->slots[9] /* temp__2 */ = create_closure(entry__68_55, 0);
-  // 440: if command == "data":
-  // 441:   if
-  // 442:     argument .has_prefix. "./":
-  // 443:       check string(meta_path range(argument 2 -1))
-  // 444:     :
-  // 445:       for_each simdatapaths: (path) check string(path '/' argument)
+  // 428: if command == "data":
+  // 429:   if
+  // 430:     argument .has_prefix. "./":
+  // 431:       check string(meta_path range(argument 2 -1))
+  // 432:     :
+  // 433:       for_each simdatapaths: (path) check string(path '/' argument)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -10126,7 +9936,7 @@ static void entry__68_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 421: $modification_time modification_time_of(sim_info)
+  // 409: $modification_time modification_time_of(sim_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sim_info */;
@@ -10141,7 +9951,7 @@ static void cont__68_34(void) {
     return;
   }
   initialize_future(frame->slots[4] /* modification_time */, arguments->slots[0]);
-  // 422: load $meta_c_buf meta_c_filename
+  // 410: load $meta_c_buf meta_c_filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* meta_c_filename */;
@@ -10156,28 +9966,28 @@ static void cont__68_35(void) {
     return;
   }
   initialize_future(frame->slots[5] /* meta_c_buf */, arguments->slots[0]);
-  // 423: ... : (-> break)
-  // 424:   for_each_line meta_c_buf: ($line)
-  // 425:     $check: (data_filename)
-  // 426:       $data_info stat(data_filename)
-  // 427:       if
-  // 428:         ||
-  // 429:           data_info.is_undefined
-  // 430:           modification_time_of(data_info) > modification_time
-  // 431:         :
-  // 432:           !force_rebuild true
+  // 411: ... : (-> break)
+  // 412:   for_each_line meta_c_buf: ($line)
+  // 413:     $check: (data_filename)
+  // 414:       $data_info stat(data_filename)
+  // 415:       if
+  // 416:         ||
+  // 417:           data_info.is_undefined
+  // 418:           modification_time_of(data_info) > modification_time
+  // 419:         :
+  // 420:           !force_rebuild true
   // ...
   frame->slots[6] /* temp__1 */ = create_closure(entry__68_36, 0);
-  // 423: do: (-> break)
-  // 424:   for_each_line meta_c_buf: ($line)
-  // 425:     $check: (data_filename)
-  // 426:       $data_info stat(data_filename)
-  // 427:       if
-  // 428:         ||
-  // 429:           data_info.is_undefined
-  // 430:           modification_time_of(data_info) > modification_time
-  // 431:         :
-  // 432:           !force_rebuild true
+  // 411: do: (-> break)
+  // 412:   for_each_line meta_c_buf: ($line)
+  // 413:     $check: (data_filename)
+  // 414:       $data_info stat(data_filename)
+  // 415:       if
+  // 416:         ||
+  // 417:           data_info.is_undefined
+  // 418:           modification_time_of(data_info) > modification_time
+  // 419:         :
+  // 420:           !force_rebuild true
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -10192,28 +10002,28 @@ static void cont__68_66(void) {
     invalid_results_error();
     return;
   }
-  // 446: ... :
-  // 447:   %on_top_level false
-  // 448:   %%objects empty_insert_order_set
-  // 449:   %%libraries empty_insert_order_set
-  // 450:   %%do_link false
-  // 451:   %%last_modification_time undefined
-  // 452:   %do_build_static_executable false
-  // 453:   %main_filename meta_filename
-  // 454:   %main_info stat(main_filename)
-  // 455:   build_executable
+  // 434: ... :
+  // 435:   %on_top_level false
+  // 436:   %%objects empty_insert_order_set
+  // 437:   %%libraries empty_insert_order_set
+  // 438:   %%do_link false
+  // 439:   %%last_modification_time undefined
+  // 440:   %do_build_static_executable false
+  // 441:   %main_filename meta_filename
+  // 442:   %main_info stat(main_filename)
+  // 443:   build_executable
   // ...
   frame->slots[11] /* temp__1 */ = create_closure(entry__68_67, 0);
-  // 446: if force_rebuild:
-  // 447:   %on_top_level false
-  // 448:   %%objects empty_insert_order_set
-  // 449:   %%libraries empty_insert_order_set
-  // 450:   %%do_link false
-  // 451:   %%last_modification_time undefined
-  // 452:   %do_build_static_executable false
-  // 453:   %main_filename meta_filename
-  // 454:   %main_info stat(main_filename)
-  // 455:   build_executable
+  // 434: if force_rebuild:
+  // 435:   %on_top_level false
+  // 436:   %%objects empty_insert_order_set
+  // 437:   %%libraries empty_insert_order_set
+  // 438:   %%do_link false
+  // 439:   %%last_modification_time undefined
+  // 440:   %do_build_static_executable false
+  // 441:   %main_filename meta_filename
+  // 442:   %main_info stat(main_filename)
+  // 443:   build_executable
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -10260,21 +10070,21 @@ static void entry__68_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 447: %on_top_level false
+  // 435: %on_top_level false
   initialize_maybe_future(get__on_top_level(), get__false());
-  // 448: %%objects empty_insert_order_set
+  // 436: %%objects empty_insert_order_set
   set__objects(get__empty_insert_order_set());
-  // 449: %%libraries empty_insert_order_set
+  // 437: %%libraries empty_insert_order_set
   set__libraries(get__empty_insert_order_set());
-  // 450: %%do_link false
+  // 438: %%do_link false
   set__do_link(get__false());
-  // 451: %%last_modification_time undefined
+  // 439: %%last_modification_time undefined
   set__last_modification_time(get__undefined());
-  // 452: %do_build_static_executable false
+  // 440: %do_build_static_executable false
   initialize_maybe_future(get__do_build_static_executable(), get__false());
-  // 453: %main_filename meta_filename
+  // 441: %main_filename meta_filename
   initialize_maybe_future(get__main_filename(), frame->slots[1] /* meta_filename */);
-  // 454: %main_info stat(main_filename)
+  // 442: %main_info stat(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -10289,7 +10099,7 @@ static void cont__68_68(void) {
     return;
   }
   initialize_future(get__main_info(), arguments->slots[0]);
-  // 455: build_executable
+  // 443: build_executable
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -10302,7 +10112,7 @@ static void cont__68_69(void) {
     invalid_results_error();
     return;
   }
-  // 456: $orig_path current_path()
+  // 444: $orig_path current_path()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -10316,7 +10126,7 @@ static void cont__68_70(void) {
     return;
   }
   initialize_future(frame->slots[5] /* orig_path */, arguments->slots[0]);
-  // 457: change_directory meta_path
+  // 445: change_directory meta_path
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* meta_path */;
@@ -10330,7 +10140,7 @@ static void cont__68_71(void) {
     invalid_results_error();
     return;
   }
-  // 458: std::call $out $err $success filename
+  // 446: std::call $out $err $success filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* filename */;
@@ -10347,13 +10157,13 @@ static void cont__68_72(void) {
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   frame->slots[10] /* temp__2 */ = arguments->slots[1];
   frame->slots[11] /* temp__3 */ = arguments->slots[2];
-  // 458: ... out
+  // 446: ... out
   initialize_future(frame->slots[6] /* out */, frame->slots[9] /* temp__1 */);
-  // 458: ... err
+  // 446: ... err
   initialize_future(frame->slots[7] /* err */, frame->slots[10] /* temp__2 */);
-  // 458: ... success
+  // 446: ... success
   initialize_future(frame->slots[8] /* success */, frame->slots[11] /* temp__3 */);
-  // 459: change_directory orig_path
+  // 447: change_directory orig_path
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* orig_path */;
@@ -10367,9 +10177,9 @@ static void cont__68_73(void) {
     invalid_results_error();
     return;
   }
-  // 460: ... : Error err.from_utf8
+  // 448: ... : Error err.from_utf8
   frame->slots[9] /* temp__1 */ = create_closure(entry__68_74, 0);
-  // 460: unless success: Error err.from_utf8
+  // 448: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* success */;
@@ -10388,7 +10198,7 @@ static void entry__68_74(void) {
     invalid_arguments_error();
     return;
   }
-  // 460: ... err.from_utf8
+  // 448: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -10403,7 +10213,7 @@ static void cont__68_75(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 460: ... Error err.from_utf8
+  // 448: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10417,7 +10227,7 @@ static void cont__68_76(void) {
     invalid_results_error();
     return;
   }
-  // 461: ... out.to_utf8
+  // 449: ... out.to_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* out */;
@@ -10432,7 +10242,7 @@ static void cont__68_77(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 461: save sim_filename out.to_utf8
+  // 449: save sim_filename out.to_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* sim_filename */;
@@ -10452,7 +10262,7 @@ static void cont__68_79(void) {
     invalid_results_error();
     return;
   }
-  // 462: dec &meta_level
+  // 450: dec &meta_level
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* meta_level */;
@@ -10467,7 +10277,7 @@ static void cont__68_80(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* meta_level */ = arguments->slots[0];
-  // 463: ... meta_level > 0
+  // 451: ... meta_level > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -10483,7 +10293,7 @@ static void cont__68_81(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 463: -> meta_level > 0
+  // 451: -> meta_level > 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__1 */;
@@ -10502,28 +10312,28 @@ static void entry__68_1(void) {
     return;
   }
   frame->slots[2] /* meta_level */ = create_cell_with_contents(arguments->slots[2]);
-  // 402: ... :
-  // 403:   $meta_path truncate_from(mod_filename '/' -1)
-  // 404:   $filename string(mod_filename dup(".meta" meta_level))
-  // 405:   $meta_filename string(filename ".sim")
-  // 406:   $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
-  // 407:   $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
-  // 408:   $meta_info stat(meta_filename)
-  // 409:   $sim_info stat(sim_filename)
-  // 410:   $meta_c_info stat(meta_c_filename)
-  // 411:   
+  // 390: ... :
+  // 391:   $meta_path truncate_from(mod_filename '/' -1)
+  // 392:   $filename string(mod_filename dup(".meta" meta_level))
+  // 393:   $meta_filename string(filename ".sim")
+  // 394:   $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
+  // 395:   $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
+  // 396:   $meta_info stat(meta_filename)
+  // 397:   $sim_info stat(sim_filename)
+  // 398:   $meta_c_info stat(meta_c_filename)
+  // 399:   
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__68_2, 0);
-  // 402: do_while:
-  // 403:   $meta_path truncate_from(mod_filename '/' -1)
-  // 404:   $filename string(mod_filename dup(".meta" meta_level))
-  // 405:   $meta_filename string(filename ".sim")
-  // 406:   $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
-  // 407:   $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
-  // 408:   $meta_info stat(meta_filename)
-  // 409:   $sim_info stat(sim_filename)
-  // 410:   $meta_c_info stat(meta_c_filename)
-  // 411:   
+  // 390: do_while:
+  // 391:   $meta_path truncate_from(mod_filename '/' -1)
+  // 392:   $filename string(mod_filename dup(".meta" meta_level))
+  // 393:   $meta_filename string(filename ".sim")
+  // 394:   $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
+  // 395:   $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
+  // 396:   $meta_info stat(meta_filename)
+  // 397:   $sim_info stat(sim_filename)
+  // 398:   $meta_c_info stat(meta_c_filename)
+  // 399:   
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -10557,28 +10367,28 @@ static void entry__69_1(void) {
   switch(argument_count) {
     case 3: frame->slots[3] /* do_compile_c */ = get__true();
   }
-  // 476: ... : ($line)
-  // 477:   unless line .has_prefix. "/// " return
-  // 478:   behind &line ' '
-  // 479:   trim &line
-  // 480:   $command line .truncate_from. WHITESPACE
-  // 481:   $argument line .behind. WHITESPACE
-  // 482:   case
-  // 483:     command
-  // 484:     "require":
-  // 485:       if
+  // 464: ... : ($line)
+  // 465:   unless line .has_prefix. "/// " return
+  // 466:   behind &line ' '
+  // 467:   trim &line
+  // 468:   $command line .truncate_from. WHITESPACE
+  // 469:   $argument line .behind. WHITESPACE
+  // 470:   case
+  // 471:     command
+  // 472:     "require":
+  // 473:       if
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__69_2, 1);
-  // 476: for_each_line c_buf: ($line)
-  // 477:   unless line .has_prefix. "/// " return
-  // 478:   behind &line ' '
-  // 479:   trim &line
-  // 480:   $command line .truncate_from. WHITESPACE
-  // 481:   $argument line .behind. WHITESPACE
-  // 482:   case
-  // 483:     command
-  // 484:     "require":
-  // 485:       if
+  // 464: for_each_line c_buf: ($line)
+  // 465:   unless line .has_prefix. "/// " return
+  // 466:   behind &line ' '
+  // 467:   trim &line
+  // 468:   $command line .truncate_from. WHITESPACE
+  // 469:   $argument line .behind. WHITESPACE
+  // 470:   case
+  // 471:     command
+  // 472:     "require":
+  // 473:       if
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -10598,9 +10408,9 @@ static void entry__69_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 504: ... !libraries(argument .truncate_from. '/') true
+  // 492: ... !libraries(argument .truncate_from. '/') true
   frame->slots[1] /* temp__1 */ = get__true();
-  // 504: ... argument .truncate_from. '/'
+  // 492: ... argument .truncate_from. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -10616,7 +10426,7 @@ static void cont__69_40(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 504: ... !libraries(argument .truncate_from. '/')
+  // 492: ... !libraries(argument .truncate_from. '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10647,9 +10457,9 @@ static void entry__69_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 502: !libraries(string("sim-" argument .truncate_from. '/')) true
+  // 490: !libraries(string("sim-" argument .truncate_from. '/')) true
   frame->slots[1] /* temp__1 */ = get__true();
-  // 502: ... argument .truncate_from. '/'
+  // 490: ... argument .truncate_from. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -10665,7 +10475,7 @@ static void cont__69_34(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 502: ... string("sim-" argument .truncate_from. '/')
+  // 490: ... string("sim-" argument .truncate_from. '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__69_35;
@@ -10681,7 +10491,7 @@ static void cont__69_36(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 502: !libraries(string("sim-" argument .truncate_from. '/'))
+  // 490: !libraries(string("sim-" argument .truncate_from. '/'))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10712,7 +10522,7 @@ static void entry__69_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 499: ... resolve_filename(argument)
+  // 487: ... resolve_filename(argument)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -10727,7 +10537,7 @@ static void cont__69_28(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 499: compile_module resolve_filename(argument) argument
+  // 487: compile_module resolve_filename(argument) argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10748,7 +10558,7 @@ static void entry__69_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 501: ... do_compile_c && not(do_build_static_executable)
+  // 489: ... do_compile_c && not(do_build_static_executable)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* do_compile_c */;
@@ -10765,7 +10575,7 @@ static void entry__69_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 501: ... not(do_build_static_executable)
+  // 489: ... not(do_build_static_executable)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__do_build_static_executable();
@@ -10780,7 +10590,7 @@ static void cont__69_31(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 501: ... not(do_build_static_executable)
+  // 489: ... not(do_build_static_executable)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -10794,11 +10604,11 @@ static void cont__69_32(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 501: ... :
-  // 502:   !libraries(string("sim-" argument .truncate_from. '/')) true
+  // 489: ... :
+  // 490:   !libraries(string("sim-" argument .truncate_from. '/')) true
   frame->slots[3] /* temp__2 */ = create_closure(entry__69_33, 0);
-  // 501: if do_compile_c && not(do_build_static_executable):
-  // 502:   !libraries(string("sim-" argument .truncate_from. '/')) true
+  // 489: if do_compile_c && not(do_build_static_executable):
+  // 490:   !libraries(string("sim-" argument .truncate_from. '/')) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10823,7 +10633,7 @@ static void entry__69_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 488: ... 1
+  // 476: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10838,7 +10648,7 @@ static void cont__69_14(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 488: $req_name range(argument 3 -1)
+  // 476: $req_name range(argument 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -10855,7 +10665,7 @@ static void cont__69_15(void) {
     return;
   }
   initialize_future(frame->slots[3] /* req_name */, arguments->slots[0]);
-  // 490: ... 1
+  // 478: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10870,7 +10680,7 @@ static void cont__69_16(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 490: ... until(mod_filename '/' -1)
+  // 478: ... until(mod_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_filename */;
@@ -10887,7 +10697,7 @@ static void cont__69_17(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 490: string(until(mod_filename '/' -1) req_name)
+  // 478: string(until(mod_filename '/' -1) req_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -10903,7 +10713,7 @@ static void cont__69_18(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 491: ... 1
+  // 479: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10918,7 +10728,7 @@ static void cont__69_19(void) {
     return;
   }
   frame->slots[9] /* temp__6 */ = arguments->slots[0];
-  // 491: ... until(mod_name '/' -1)
+  // 479: ... until(mod_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_name */;
@@ -10935,7 +10745,7 @@ static void cont__69_20(void) {
     return;
   }
   frame->slots[8] /* temp__5 */ = arguments->slots[0];
-  // 491: string(until(mod_name '/' -1) req_name)
+  // 479: string(until(mod_name '/' -1) req_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__5 */;
@@ -10951,9 +10761,9 @@ static void cont__69_21(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 489: compile_module
-  // 490:   string(until(mod_filename '/' -1) req_name)
-  // 491:   string(until(mod_name '/' -1) req_name)
+  // 477: compile_module
+  // 478:   string(until(mod_filename '/' -1) req_name)
+  // 479:   string(until(mod_name '/' -1) req_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -10976,7 +10786,7 @@ static void entry__69_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 487: ... mode == EXE
+  // 475: ... mode == EXE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__mode();
@@ -10992,17 +10802,17 @@ static void cont__69_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 487: ... :
-  // 488:   $req_name range(argument 3 -1)
-  // 489:   compile_module
-  // 490:     string(until(mod_filename '/' -1) req_name)
-  // 491:     string(until(mod_name '/' -1) req_name)
+  // 475: ... :
+  // 476:   $req_name range(argument 3 -1)
+  // 477:   compile_module
+  // 478:     string(until(mod_filename '/' -1) req_name)
+  // 479:     string(until(mod_name '/' -1) req_name)
   frame->slots[4] /* temp__2 */ = create_closure(entry__69_13, 0);
-  // 487: if mode == EXE:
-  // 488:   $req_name range(argument 3 -1)
-  // 489:   compile_module
-  // 490:     string(until(mod_filename '/' -1) req_name)
-  // 491:     string(until(mod_name '/' -1) req_name)
+  // 475: if mode == EXE:
+  // 476:   $req_name range(argument 3 -1)
+  // 477:   compile_module
+  // 478:     string(until(mod_filename '/' -1) req_name)
+  // 479:     string(until(mod_name '/' -1) req_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -11055,7 +10865,7 @@ static void entry__69_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 497: do_list_dependencies
+  // 485: do_list_dependencies
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._do_list_dependencies;
@@ -11082,23 +10892,23 @@ static void cont__69_26(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 498: :
-  // 499:   compile_module resolve_filename(argument) argument
+  // 486: :
+  // 487:   compile_module resolve_filename(argument) argument
   frame->slots[3] /* temp__2 */ = create_closure(entry__69_27, 0);
-  // 500: :
-  // 501:   if do_compile_c && not(do_build_static_executable):
-  // 502:     !libraries(string("sim-" argument .truncate_from. '/')) true
+  // 488: :
+  // 489:   if do_compile_c && not(do_build_static_executable):
+  // 490:     !libraries(string("sim-" argument .truncate_from. '/')) true
   frame->slots[4] /* temp__3 */ = create_closure(entry__69_29, 0);
-  // 493: if
-  // 494:   ||
-  // 495:     do_build_static_executable
-  // 496:     do_build_codeblocks_project
-  // 497:     do_list_dependencies
-  // 498:   :
-  // 499:     compile_module resolve_filename(argument) argument
-  // 500:   :
-  // 501:     if do_compile_c && not(do_build_static_executable):
-  // 502:       !libraries(string("sim-" argument .truncate_from. '/')) true
+  // 481: if
+  // 482:   ||
+  // 483:     do_build_static_executable
+  // 484:     do_build_codeblocks_project
+  // 485:     do_list_dependencies
+  // 486:   :
+  // 487:     compile_module resolve_filename(argument) argument
+  // 488:   :
+  // 489:     if do_compile_c && not(do_build_static_executable):
+  // 490:       !libraries(string("sim-" argument .truncate_from. '/')) true
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -11124,7 +10934,7 @@ static void entry__69_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 486: argument .has_prefix. "./"
+  // 474: argument .has_prefix. "./"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -11140,35 +10950,35 @@ static void cont__69_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 486: ... :
-  // 487:   if mode == EXE:
-  // 488:     $req_name range(argument 3 -1)
-  // 489:     compile_module
-  // 490:       string(until(mod_filename '/' -1) req_name)
-  // 491:       string(until(mod_name '/' -1) req_name)
+  // 474: ... :
+  // 475:   if mode == EXE:
+  // 476:     $req_name range(argument 3 -1)
+  // 477:     compile_module
+  // 478:       string(until(mod_filename '/' -1) req_name)
+  // 479:       string(until(mod_name '/' -1) req_name)
   frame->slots[5] /* temp__2 */ = create_closure(entry__69_11, 0);
-  // 492: :
-  // 493:   if
-  // 494:     ||
-  // 495:       do_build_static_executable
-  // 496:       do_build_codeblocks_project
-  // 497:       do_list_dependencies
-  // 498:     :
-  // 499:       compile_module resolve_filename(argument) argument
-  // 500:     :
-  // 501:       if do_compile_c && not(do_build_static_executable):
+  // 480: :
+  // 481:   if
+  // 482:     ||
+  // 483:       do_build_static_executable
+  // 484:       do_build_codeblocks_project
+  // 485:       do_list_dependencies
+  // 486:     :
+  // 487:       compile_module resolve_filename(argument) argument
+  // 488:     :
+  // 489:       if do_compile_c && not(do_build_static_executable):
   // ...
   frame->slots[6] /* temp__3 */ = create_closure(entry__69_22, 0);
-  // 485: if
-  // 486:   argument .has_prefix. "./":
-  // 487:     if mode == EXE:
-  // 488:       $req_name range(argument 3 -1)
-  // 489:       compile_module
-  // 490:         string(until(mod_filename '/' -1) req_name)
-  // 491:         string(until(mod_name '/' -1) req_name)
-  // 492:   :
-  // 493:     if
-  // 494:       ||
+  // 473: if
+  // 474:   argument .has_prefix. "./":
+  // 475:     if mode == EXE:
+  // 476:       $req_name range(argument 3 -1)
+  // 477:       compile_module
+  // 478:         string(until(mod_filename '/' -1) req_name)
+  // 479:         string(until(mod_name '/' -1) req_name)
+  // 480:   :
+  // 481:     if
+  // 482:       ||
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -11191,9 +11001,9 @@ static void entry__69_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 504: ... : !libraries(argument .truncate_from. '/') true
+  // 492: ... : !libraries(argument .truncate_from. '/') true
   frame->slots[2] /* temp__1 */ = create_closure(entry__69_39, 0);
-  // 504: if do_compile_c: !libraries(argument .truncate_from. '/') true
+  // 492: if do_compile_c: !libraries(argument .truncate_from. '/') true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* do_compile_c */;
@@ -11224,7 +11034,7 @@ static void entry__69_2(void) {
     return;
   }
   frame->slots[0] /* line */ = create_cell_with_contents(arguments->slots[0]);
-  // 477: ... line .has_prefix. "/// "
+  // 465: ... line .has_prefix. "/// "
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -11240,7 +11050,7 @@ static void cont__69_3(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 477: unless line .has_prefix. "/// " return
+  // 465: unless line .has_prefix. "/// " return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -11255,7 +11065,7 @@ static void cont__69_4(void) {
     invalid_results_error();
     return;
   }
-  // 478: behind &line ' '
+  // 466: behind &line ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -11271,7 +11081,7 @@ static void cont__69_5(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* line */ = arguments->slots[0];
-  // 479: trim &line
+  // 467: trim &line
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -11286,7 +11096,7 @@ static void cont__69_6(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* line */ = arguments->slots[0];
-  // 480: $command line .truncate_from. WHITESPACE
+  // 468: $command line .truncate_from. WHITESPACE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -11302,7 +11112,7 @@ static void cont__69_7(void) {
     return;
   }
   initialize_future(frame->slots[5] /* command */, arguments->slots[0]);
-  // 481: $argument line .behind. WHITESPACE
+  // 469: $argument line .behind. WHITESPACE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -11318,31 +11128,31 @@ static void cont__69_8(void) {
     return;
   }
   initialize_future(frame->slots[6] /* argument */, arguments->slots[0]);
-  // 484: ... :
-  // 485:   if
-  // 486:     argument .has_prefix. "./":
-  // 487:       if mode == EXE:
-  // 488:         $req_name range(argument 3 -1)
-  // 489:         compile_module
-  // 490:           string(until(mod_filename '/' -1) req_name)
-  // 491:           string(until(mod_name '/' -1) req_name)
-  // 492:     :
-  // 493:       if
+  // 472: ... :
+  // 473:   if
+  // 474:     argument .has_prefix. "./":
+  // 475:       if mode == EXE:
+  // 476:         $req_name range(argument 3 -1)
+  // 477:         compile_module
+  // 478:           string(until(mod_filename '/' -1) req_name)
+  // 479:           string(until(mod_name '/' -1) req_name)
+  // 480:     :
+  // 481:       if
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__69_9, 0);
-  // 503: ... :
-  // 504:   if do_compile_c: !libraries(argument .truncate_from. '/') true
+  // 491: ... :
+  // 492:   if do_compile_c: !libraries(argument .truncate_from. '/') true
   frame->slots[8] /* temp__2 */ = create_closure(entry__69_38, 0);
-  // 482: case
-  // 483:   command
-  // 484:   "require":
-  // 485:     if
-  // 486:       argument .has_prefix. "./":
-  // 487:         if mode == EXE:
-  // 488:           $req_name range(argument 3 -1)
-  // 489:           compile_module
-  // 490:             string(until(mod_filename '/' -1) req_name)
-  // 491:             string(until(mod_name '/' -1) req_name)
+  // 470: case
+  // 471:   command
+  // 472:   "require":
+  // 473:     if
+  // 474:       argument .has_prefix. "./":
+  // 475:         if mode == EXE:
+  // 476:           $req_name range(argument 3 -1)
+  // 477:           compile_module
+  // 478:             string(until(mod_filename '/' -1) req_name)
+  // 479:             string(until(mod_name '/' -1) req_name)
   // ...
   argument_count = 5;
   arguments = node_p;
@@ -11378,31 +11188,31 @@ static void entry__70_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 515: ... :
-  // 516:   (
-  // 517:     submodule_names # no paths; no extensions
-  // 518:     do_compile_c = true
-  // 519:     suffix = "" # a hyphen followed by the platform name
-  // 520:   )
-  // 521:   $$modification_time undefined
-  // 522:   $$sim_filenames empty_list
-  // 523:   for_each submodule_names: (submodule_name)
-  // 524:     $meta_level meta_levels(submodule_name)
+  // 503: ... :
+  // 504:   (
+  // 505:     submodule_names # no paths; no extensions
+  // 506:     do_compile_c = true
+  // 507:     suffix = "" # a hyphen followed by the platform name
+  // 508:   )
+  // 509:   $$modification_time undefined
+  // 510:   $$sim_filenames empty_list
+  // 511:   for_each submodule_names: (submodule_name)
+  // 512:     $meta_level meta_levels(submodule_name)
   // ...
   frame->slots[6] /* temp__1 */ = create_closure(entry__70_2, -1);
-  // 515: $compile_submodule:
-  // 516:   (
-  // 517:     submodule_names # no paths; no extensions
-  // 518:     do_compile_c = true
-  // 519:     suffix = "" # a hyphen followed by the platform name
-  // 520:   )
-  // 521:   $$modification_time undefined
-  // 522:   $$sim_filenames empty_list
-  // 523:   for_each submodule_names: (submodule_name)
-  // 524:     $meta_level meta_levels(submodule_name)
+  // 503: $compile_submodule:
+  // 504:   (
+  // 505:     submodule_names # no paths; no extensions
+  // 506:     do_compile_c = true
+  // 507:     suffix = "" # a hyphen followed by the platform name
+  // 508:   )
+  // 509:   $$modification_time undefined
+  // 510:   $$sim_filenames empty_list
+  // 511:   for_each submodule_names: (submodule_name)
+  // 512:     $meta_level meta_levels(submodule_name)
   // ...
   initialize_future(frame->slots[3] /* compile_submodule */, frame->slots[6] /* temp__1 */);
-  // 576: lookup $mod_info mod_filename mod_name
+  // 564: lookup $mod_info mod_filename mod_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -11451,32 +11261,32 @@ static void entry__70_2(void) {
     case 1: frame->slots[1] /* do_compile_c */ = get__true();
     case 2: frame->slots[2] /* suffix */ = empty_string;
   }
-  // 521: $$modification_time undefined
+  // 509: $$modification_time undefined
   ((CELL *)frame->slots[6])->contents /* modification_time */ = get__undefined();
-  // 522: $$sim_filenames empty_list
+  // 510: $$sim_filenames empty_list
   ((CELL *)frame->slots[7])->contents /* sim_filenames */ = get__empty_list();
-  // 523: ... : (submodule_name)
-  // 524:   $meta_level meta_levels(submodule_name)
-  // 525:   $submodule_filename string(until(mod_filename '/' -1) submodule_name)
-  // 526:   if meta_level > 0 && not(do_omit_meta):
-  // 527:     compile_meta_module submodule_filename submodule_name meta_level
-  // 528:   $sim_filename string(submodule_filename ".sim")
-  // 529:   push &sim_filenames sim_filename
-  // 530:   $sim_info stat(sim_filename)
-  // 531:   if
-  // 532:     ||
+  // 511: ... : (submodule_name)
+  // 512:   $meta_level meta_levels(submodule_name)
+  // 513:   $submodule_filename string(until(mod_filename '/' -1) submodule_name)
+  // 514:   if meta_level > 0 && not(do_omit_meta):
+  // 515:     compile_meta_module submodule_filename submodule_name meta_level
+  // 516:   $sim_filename string(submodule_filename ".sim")
+  // 517:   push &sim_filenames sim_filename
+  // 518:   $sim_info stat(sim_filename)
+  // 519:   if
+  // 520:     ||
   // ...
   frame->slots[11] /* temp__1 */ = create_closure(entry__70_3, 1);
-  // 523: for_each submodule_names: (submodule_name)
-  // 524:   $meta_level meta_levels(submodule_name)
-  // 525:   $submodule_filename string(until(mod_filename '/' -1) submodule_name)
-  // 526:   if meta_level > 0 && not(do_omit_meta):
-  // 527:     compile_meta_module submodule_filename submodule_name meta_level
-  // 528:   $sim_filename string(submodule_filename ".sim")
-  // 529:   push &sim_filenames sim_filename
-  // 530:   $sim_info stat(sim_filename)
-  // 531:   if
-  // 532:     ||
+  // 511: for_each submodule_names: (submodule_name)
+  // 512:   $meta_level meta_levels(submodule_name)
+  // 513:   $submodule_filename string(until(mod_filename '/' -1) submodule_name)
+  // 514:   if meta_level > 0 && not(do_omit_meta):
+  // 515:     compile_meta_module submodule_filename submodule_name meta_level
+  // 516:   $sim_filename string(submodule_filename ".sim")
+  // 517:   push &sim_filenames sim_filename
+  // 518:   $sim_info stat(sim_filename)
+  // 519:   if
+  // 520:     ||
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -11498,7 +11308,7 @@ static void entry__70_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 536: !modification_time modification_time_of(sim_info)
+  // 524: !modification_time modification_time_of(sim_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* sim_info */;
@@ -11541,7 +11351,7 @@ static void entry__70_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 524: $meta_level meta_levels(submodule_name)
+  // 512: $meta_level meta_levels(submodule_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* submodule_name */;
@@ -11556,7 +11366,7 @@ static void cont__70_4(void) {
     return;
   }
   initialize_future(frame->slots[4] /* meta_level */, arguments->slots[0]);
-  // 525: ... 1
+  // 513: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11571,7 +11381,7 @@ static void cont__70_5(void) {
     return;
   }
   frame->slots[9] /* temp__2 */ = arguments->slots[0];
-  // 525: ... until(mod_filename '/' -1)
+  // 513: ... until(mod_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_filename */;
@@ -11588,7 +11398,7 @@ static void cont__70_6(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 525: $submodule_filename string(until(mod_filename '/' -1) submodule_name)
+  // 513: $submodule_filename string(until(mod_filename '/' -1) submodule_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -11604,7 +11414,7 @@ static void cont__70_7(void) {
     return;
   }
   initialize_future(frame->slots[5] /* submodule_filename */, arguments->slots[0]);
-  // 526: ... meta_level > 0
+  // 514: ... meta_level > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -11620,7 +11430,7 @@ static void cont__70_8(void) {
     return;
   }
   frame->slots[9] /* temp__2 */ = arguments->slots[0];
-  // 526: ... meta_level > 0 && not(do_omit_meta)
+  // 514: ... meta_level > 0 && not(do_omit_meta)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__2 */;
@@ -11637,7 +11447,7 @@ static void entry__70_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 526: ... not(do_omit_meta)
+  // 514: ... not(do_omit_meta)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._do_omit_meta;
@@ -11652,7 +11462,7 @@ static void cont__70_10(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 526: ... not(do_omit_meta)
+  // 514: ... not(do_omit_meta)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11666,11 +11476,11 @@ static void cont__70_11(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 526: ... :
-  // 527:   compile_meta_module submodule_filename submodule_name meta_level
+  // 514: ... :
+  // 515:   compile_meta_module submodule_filename submodule_name meta_level
   frame->slots[10] /* temp__3 */ = create_closure(entry__70_12, 0);
-  // 526: if meta_level > 0 && not(do_omit_meta):
-  // 527:   compile_meta_module submodule_filename submodule_name meta_level
+  // 514: if meta_level > 0 && not(do_omit_meta):
+  // 515:   compile_meta_module submodule_filename submodule_name meta_level
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -11693,7 +11503,7 @@ static void entry__70_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 527: compile_meta_module submodule_filename submodule_name meta_level
+  // 515: compile_meta_module submodule_filename submodule_name meta_level
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* submodule_filename */;
@@ -11709,7 +11519,7 @@ static void cont__70_13(void) {
     invalid_results_error();
     return;
   }
-  // 528: $sim_filename string(submodule_filename ".sim")
+  // 516: $sim_filename string(submodule_filename ".sim")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* submodule_filename */;
@@ -11725,7 +11535,7 @@ static void cont__70_14(void) {
     return;
   }
   initialize_future(frame->slots[6] /* sim_filename */, arguments->slots[0]);
-  // 529: push &sim_filenames sim_filename
+  // 517: push &sim_filenames sim_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* sim_filenames */;
@@ -11741,7 +11551,7 @@ static void cont__70_15(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* sim_filenames */ = arguments->slots[0];
-  // 530: $sim_info stat(sim_filename)
+  // 518: $sim_info stat(sim_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* sim_filename */;
@@ -11756,7 +11566,7 @@ static void cont__70_16(void) {
     return;
   }
   initialize_future(frame->slots[7] /* sim_info */, arguments->slots[0]);
-  // 533: modification_time.is_undefined
+  // 521: modification_time.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* modification_time */;
@@ -11771,11 +11581,11 @@ static void cont__70_17(void) {
     return;
   }
   frame->slots[9] /* temp__2 */ = arguments->slots[0];
-  // 534: modification_time_of(sim_info) > modification_time
+  // 522: modification_time_of(sim_info) > modification_time
   frame->slots[10] /* temp__3 */ = create_closure(entry__70_18, 0);
-  // 532: ||
-  // 533:   modification_time.is_undefined
-  // 534:   modification_time_of(sim_info) > modification_time
+  // 520: ||
+  // 521:   modification_time.is_undefined
+  // 522:   modification_time_of(sim_info) > modification_time
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__2 */;
@@ -11796,7 +11606,7 @@ static void entry__70_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 534: modification_time_of(sim_info)
+  // 522: modification_time_of(sim_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* sim_info */;
@@ -11811,7 +11621,7 @@ static void cont__70_19(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 534: modification_time_of(sim_info) > modification_time
+  // 522: modification_time_of(sim_info) > modification_time
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* modification_time */;
@@ -11827,7 +11637,7 @@ static void cont__70_20(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 534: modification_time_of(sim_info) > modification_time
+  // 522: modification_time_of(sim_info) > modification_time
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -11841,15 +11651,15 @@ static void cont__70_21(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 535: :
-  // 536:   !modification_time modification_time_of(sim_info)
+  // 523: :
+  // 524:   !modification_time modification_time_of(sim_info)
   frame->slots[11] /* temp__4 */ = create_closure(entry__70_22, 0);
-  // 531: if
-  // 532:   ||
-  // 533:     modification_time.is_undefined
-  // 534:     modification_time_of(sim_info) > modification_time
-  // 535:   :
-  // 536:     !modification_time modification_time_of(sim_info)
+  // 519: if
+  // 520:   ||
+  // 521:     modification_time.is_undefined
+  // 522:     modification_time_of(sim_info) > modification_time
+  // 523:   :
+  // 524:     !modification_time modification_time_of(sim_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -11864,7 +11674,7 @@ static void cont__70_24(void) {
     invalid_results_error();
     return;
   }
-  // 537: $c_filename string(mod_filename suffix ".c")
+  // 525: $c_filename string(mod_filename suffix ".c")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* mod_filename */;
@@ -11881,7 +11691,7 @@ static void cont__70_25(void) {
     return;
   }
   initialize_future(frame->slots[8] /* c_filename */, arguments->slots[0]);
-  // 538: $c_info stat(c_filename)
+  // 526: $c_info stat(c_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* c_filename */;
@@ -11896,9 +11706,9 @@ static void cont__70_26(void) {
     return;
   }
   initialize_future(frame->slots[9] /* c_info */, arguments->slots[0]);
-  // 539: ... : !c_sources(c_filename) true
+  // 527: ... : !c_sources(c_filename) true
   frame->slots[11] /* temp__1 */ = create_closure(entry__70_27, 0);
-  // 539: if do_compile_c: !c_sources(c_filename) true
+  // 527: if do_compile_c: !c_sources(c_filename) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* do_compile_c */;
@@ -11917,9 +11727,9 @@ static void entry__70_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 539: ... !c_sources(c_filename) true
+  // 527: ... !c_sources(c_filename) true
   frame->slots[1] /* temp__1 */ = get__true();
-  // 539: ... !c_sources(c_filename)
+  // 527: ... !c_sources(c_filename)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_filename */;
@@ -11946,7 +11756,7 @@ static void cont__70_29(void) {
     invalid_results_error();
     return;
   }
-  // 540: $$c_buf undefined
+  // 528: $$c_buf undefined
   ((CELL *)frame->slots[10])->contents /* c_buf */ = get__undefined();
   frame->slots[12] /* temp__2 */ = create_closure(entry__70_30, 0);
   argument_count = 2;
@@ -11969,7 +11779,7 @@ static void entry__70_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 544: c_info.is_undefined
+  // 532: c_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_info */;
@@ -11984,7 +11794,7 @@ static void cont__70_31(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 545: modification_time > modification_time_of(c_info)
+  // 533: modification_time > modification_time_of(c_info)
   frame->slots[4] /* temp__3 */ = create_closure(entry__70_32, 0);
   argument_count = 2;
   arguments = node_p;
@@ -12006,7 +11816,7 @@ static void entry__70_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 545: ... modification_time_of(c_info)
+  // 533: ... modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_info */;
@@ -12021,7 +11831,7 @@ static void cont__70_33(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 545: modification_time > modification_time_of(c_info)
+  // 533: modification_time > modification_time_of(c_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -12037,7 +11847,7 @@ static void cont__70_34(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 545: modification_time > modification_time_of(c_info)
+  // 533: modification_time > modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -12064,40 +11874,40 @@ static void cont__70_36(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 546: :
-  // 547:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
-  // 548:   case
-  // 549:     mode
-  // 550:     EXE:
-  // 551:       if verbose: ewriteln "build application module " module_name suffix
-  // 552:     LIB:
-  // 553:       if verbose: ewriteln "build library module " module_name suffix
-  // 554:   collect_output $c_source: sim2c sim_filenames
-  // 555:   collect_output !c_buf: create_imports c_source
+  // 534: :
+  // 535:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 536:   case
+  // 537:     mode
+  // 538:     EXE:
+  // 539:       if verbose: ewriteln "build application module " module_name suffix
+  // 540:     LIB:
+  // 541:       if verbose: ewriteln "build library module " module_name suffix
+  // 542:   collect_output $c_source: sim2c sim_filenames
+  // 543:   collect_output !c_buf: create_imports c_source
   // ...
   frame->slots[13] /* temp__3 */ = create_closure(entry__70_37, 0);
-  // 558: :
-  // 559:   load !c_buf c_filename
-  // 560:   $o_info stat(o_filename)
-  // 561:   if
-  // 562:     ||
-  // 563:       o_info.is_undefined
-  // 564:       modification_time_of(c_info) > modification_time_of(o_info)
-  // 565:     :
-  // 566:       if do_compile_c: compile_c c_filename o_filename
-  // 567:     :
+  // 546: :
+  // 547:   load !c_buf c_filename
+  // 548:   $o_info stat(o_filename)
+  // 549:   if
+  // 550:     ||
+  // 551:       o_info.is_undefined
+  // 552:       modification_time_of(c_info) > modification_time_of(o_info)
+  // 553:     :
+  // 554:       if do_compile_c: compile_c c_filename o_filename
+  // 555:     :
   // ...
   frame->slots[14] /* temp__4 */ = create_closure(entry__70_57, 0);
-  // 541: if
-  // 542:   ||
-  // 543:     do_rebuild
-  // 544:     c_info.is_undefined
-  // 545:     modification_time > modification_time_of(c_info)
-  // 546:   :
-  // 547:     %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
-  // 548:     case
-  // 549:       mode
-  // 550:       EXE:
+  // 529: if
+  // 530:   ||
+  // 531:     do_rebuild
+  // 532:     c_info.is_undefined
+  // 533:     modification_time > modification_time_of(c_info)
+  // 534:   :
+  // 535:     %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 536:     case
+  // 537:       mode
+  // 538:       EXE:
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -12118,7 +11928,7 @@ static void entry__70_74(void) {
     invalid_arguments_error();
     return;
   }
-  // 573: !last_modification_time modification_time_of(o_info)
+  // 561: !last_modification_time modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* o_info */;
@@ -12150,7 +11960,7 @@ static void entry__70_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 566: ... compile_c c_filename o_filename
+  // 554: ... compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_filename */;
@@ -12173,9 +11983,9 @@ static void entry__70_66(void) {
     invalid_arguments_error();
     return;
   }
-  // 566: ... : compile_c c_filename o_filename
+  // 554: ... : compile_c c_filename o_filename
   frame->slots[3] /* temp__1 */ = create_closure(entry__70_67, 0);
-  // 566: if do_compile_c: compile_c c_filename o_filename
+  // 554: if do_compile_c: compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* do_compile_c */;
@@ -12194,7 +12004,7 @@ static void entry__70_68(void) {
     invalid_arguments_error();
     return;
   }
-  // 570: last_modification_time.is_undefined
+  // 558: last_modification_time.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__last_modification_time();
@@ -12209,11 +12019,11 @@ static void cont__70_69(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 571: modification_time_of(o_info) > last_modification_time
+  // 559: modification_time_of(o_info) > last_modification_time
   frame->slots[3] /* temp__3 */ = create_closure(entry__70_70, 0);
-  // 569: ||
-  // 570:   last_modification_time.is_undefined
-  // 571:   modification_time_of(o_info) > last_modification_time
+  // 557: ||
+  // 558:   last_modification_time.is_undefined
+  // 559:   modification_time_of(o_info) > last_modification_time
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -12232,7 +12042,7 @@ static void entry__70_70(void) {
     invalid_arguments_error();
     return;
   }
-  // 571: modification_time_of(o_info)
+  // 559: modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* o_info */;
@@ -12247,7 +12057,7 @@ static void cont__70_71(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 571: modification_time_of(o_info) > last_modification_time
+  // 559: modification_time_of(o_info) > last_modification_time
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__last_modification_time();
@@ -12263,7 +12073,7 @@ static void cont__70_72(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 571: modification_time_of(o_info) > last_modification_time
+  // 559: modification_time_of(o_info) > last_modification_time
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -12277,15 +12087,15 @@ static void cont__70_73(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 572: :
-  // 573:   !last_modification_time modification_time_of(o_info)
+  // 560: :
+  // 561:   !last_modification_time modification_time_of(o_info)
   frame->slots[4] /* temp__4 */ = create_closure(entry__70_74, 0);
-  // 568: if
-  // 569:   ||
-  // 570:     last_modification_time.is_undefined
-  // 571:     modification_time_of(o_info) > last_modification_time
-  // 572:   :
-  // 573:     !last_modification_time modification_time_of(o_info)
+  // 556: if
+  // 557:   ||
+  // 558:     last_modification_time.is_undefined
+  // 559:     modification_time_of(o_info) > last_modification_time
+  // 560:   :
+  // 561:     !last_modification_time modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -12321,7 +12131,7 @@ static void entry__70_37(void) {
     invalid_arguments_error();
     return;
   }
-  // 547: ... '/' = "__"
+  // 535: ... '/' = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -12337,7 +12147,7 @@ static void cont__70_39(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 547: ... '.' = "__"
+  // 535: ... '.' = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
@@ -12353,7 +12163,7 @@ static void cont__70_40(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 547: %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 535: %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -12370,18 +12180,18 @@ static void cont__70_41(void) {
     return;
   }
   initialize_future(get__sim2c__module_name(), arguments->slots[0]);
-  // 550: ... :
-  // 551:   if verbose: ewriteln "build application module " module_name suffix
+  // 538: ... :
+  // 539:   if verbose: ewriteln "build application module " module_name suffix
   frame->slots[9] /* temp__1 */ = create_closure(entry__70_42, 0);
-  // 552: ... :
-  // 553:   if verbose: ewriteln "build library module " module_name suffix
+  // 540: ... :
+  // 541:   if verbose: ewriteln "build library module " module_name suffix
   frame->slots[10] /* temp__2 */ = create_closure(entry__70_45, 0);
-  // 548: case
-  // 549:   mode
-  // 550:   EXE:
-  // 551:     if verbose: ewriteln "build application module " module_name suffix
-  // 552:   LIB:
-  // 553:     if verbose: ewriteln "build library module " module_name suffix
+  // 536: case
+  // 537:   mode
+  // 538:   EXE:
+  // 539:     if verbose: ewriteln "build application module " module_name suffix
+  // 540:   LIB:
+  // 541:     if verbose: ewriteln "build library module " module_name suffix
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__mode();
@@ -12403,7 +12213,7 @@ static void entry__70_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 553: ... ewriteln "build library module " module_name suffix
+  // 541: ... ewriteln "build library module " module_name suffix
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__70_47;
@@ -12423,7 +12233,7 @@ static void entry__70_43(void) {
     invalid_arguments_error();
     return;
   }
-  // 551: ... ewriteln "build application module " module_name suffix
+  // 539: ... ewriteln "build application module " module_name suffix
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__70_44;
@@ -12443,9 +12253,9 @@ static void entry__70_42(void) {
     invalid_arguments_error();
     return;
   }
-  // 551: ... : ewriteln "build application module " module_name suffix
+  // 539: ... : ewriteln "build application module " module_name suffix
   frame->slots[1] /* temp__1 */ = create_closure(entry__70_43, 0);
-  // 551: if verbose: ewriteln "build application module " module_name suffix
+  // 539: if verbose: ewriteln "build application module " module_name suffix
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -12464,9 +12274,9 @@ static void entry__70_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 553: ... : ewriteln "build library module " module_name suffix
+  // 541: ... : ewriteln "build library module " module_name suffix
   frame->slots[1] /* temp__1 */ = create_closure(entry__70_46, 0);
-  // 553: if verbose: ewriteln "build library module " module_name suffix
+  // 541: if verbose: ewriteln "build library module " module_name suffix
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -12481,9 +12291,9 @@ static void cont__70_48(void) {
     invalid_results_error();
     return;
   }
-  // 554: ... : sim2c sim_filenames
+  // 542: ... : sim2c sim_filenames
   frame->slots[9] /* temp__1 */ = create_closure(entry__70_49, 0);
-  // 554: collect_output $c_source: sim2c sim_filenames
+  // 542: collect_output $c_source: sim2c sim_filenames
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -12501,7 +12311,7 @@ static void entry__70_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 554: ... sim2c sim_filenames
+  // 542: ... sim2c sim_filenames
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* sim_filenames */;
@@ -12516,9 +12326,9 @@ static void cont__70_50(void) {
     return;
   }
   initialize_future(frame->slots[8] /* c_source */, arguments->slots[0]);
-  // 555: ... : create_imports c_source
+  // 543: ... : create_imports c_source
   frame->slots[9] /* temp__1 */ = create_closure(entry__70_51, 0);
-  // 555: collect_output !c_buf: create_imports c_source
+  // 543: collect_output !c_buf: create_imports c_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -12536,7 +12346,7 @@ static void entry__70_51(void) {
     invalid_arguments_error();
     return;
   }
-  // 555: ... create_imports c_source
+  // 543: ... create_imports c_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_source */;
@@ -12551,7 +12361,7 @@ static void cont__70_52(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* c_buf */ = arguments->slots[0];
-  // 556: ... c_buf.to_utf8
+  // 544: ... c_buf.to_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* c_buf */;
@@ -12566,7 +12376,7 @@ static void cont__70_53(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 556: save c_filename c_buf.to_utf8
+  // 544: save c_filename c_buf.to_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* c_filename */;
@@ -12581,9 +12391,9 @@ static void cont__70_54(void) {
     invalid_results_error();
     return;
   }
-  // 557: ... : compile_c c_filename o_filename
+  // 545: ... : compile_c c_filename o_filename
   frame->slots[9] /* temp__1 */ = create_closure(entry__70_55, 0);
-  // 557: if do_compile_c: compile_c c_filename o_filename
+  // 545: if do_compile_c: compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* do_compile_c */;
@@ -12604,7 +12414,7 @@ static void entry__70_55(void) {
     invalid_arguments_error();
     return;
   }
-  // 557: ... compile_c c_filename o_filename
+  // 545: ... compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_filename */;
@@ -12638,7 +12448,7 @@ static void entry__70_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 559: load !c_buf c_filename
+  // 547: load !c_buf c_filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_filename */;
@@ -12653,7 +12463,7 @@ static void cont__70_58(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* c_buf */ = arguments->slots[0];
-  // 560: $o_info stat(o_filename)
+  // 548: $o_info stat(o_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* o_filename */;
@@ -12668,7 +12478,7 @@ static void cont__70_59(void) {
     return;
   }
   initialize_future(frame->slots[5] /* o_info */, arguments->slots[0]);
-  // 563: o_info.is_undefined
+  // 551: o_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* o_info */;
@@ -12683,11 +12493,11 @@ static void cont__70_60(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 564: modification_time_of(c_info) > modification_time_of(o_info)
+  // 552: modification_time_of(c_info) > modification_time_of(o_info)
   frame->slots[8] /* temp__3 */ = create_closure(entry__70_61, 0);
-  // 562: ||
-  // 563:   o_info.is_undefined
-  // 564:   modification_time_of(c_info) > modification_time_of(o_info)
+  // 550: ||
+  // 551:   o_info.is_undefined
+  // 552:   modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -12708,7 +12518,7 @@ static void entry__70_61(void) {
     invalid_arguments_error();
     return;
   }
-  // 564: ... modification_time_of(o_info)
+  // 552: ... modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* o_info */;
@@ -12723,7 +12533,7 @@ static void cont__70_62(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 564: modification_time_of(c_info)
+  // 552: modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_info */;
@@ -12738,7 +12548,7 @@ static void cont__70_63(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 564: modification_time_of(c_info) > modification_time_of(o_info)
+  // 552: modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -12754,7 +12564,7 @@ static void cont__70_64(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 564: modification_time_of(c_info) > modification_time_of(o_info)
+  // 552: modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -12768,27 +12578,27 @@ static void cont__70_65(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 565: :
-  // 566:   if do_compile_c: compile_c c_filename o_filename
+  // 553: :
+  // 554:   if do_compile_c: compile_c c_filename o_filename
   frame->slots[9] /* temp__4 */ = create_closure(entry__70_66, 0);
-  // 567: :
-  // 568:   if
-  // 569:     ||
-  // 570:       last_modification_time.is_undefined
-  // 571:       modification_time_of(o_info) > last_modification_time
-  // 572:     :
-  // 573:       !last_modification_time modification_time_of(o_info)
+  // 555: :
+  // 556:   if
+  // 557:     ||
+  // 558:       last_modification_time.is_undefined
+  // 559:       modification_time_of(o_info) > last_modification_time
+  // 560:     :
+  // 561:       !last_modification_time modification_time_of(o_info)
   frame->slots[10] /* temp__5 */ = create_closure(entry__70_68, 0);
-  // 561: if
-  // 562:   ||
-  // 563:     o_info.is_undefined
-  // 564:     modification_time_of(c_info) > modification_time_of(o_info)
-  // 565:   :
-  // 566:     if do_compile_c: compile_c c_filename o_filename
-  // 567:   :
-  // 568:     if
-  // 569:       ||
-  // 570:         last_modification_time.is_undefined
+  // 549: if
+  // 550:   ||
+  // 551:     o_info.is_undefined
+  // 552:     modification_time_of(c_info) > modification_time_of(o_info)
+  // 553:   :
+  // 554:     if do_compile_c: compile_c c_filename o_filename
+  // 555:   :
+  // 556:     if
+  // 557:       ||
+  // 558:         last_modification_time.is_undefined
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -12805,7 +12615,7 @@ static void cont__70_76(void) {
     invalid_results_error();
     return;
   }
-  // 574: build_dependencies mod_filename mod_name c_buf do_compile_c
+  // 562: build_dependencies mod_filename mod_name c_buf do_compile_c
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* mod_filename */;
@@ -12823,7 +12633,7 @@ static void cont__70_77(void) {
     return;
   }
   initialize_future(frame->slots[4] /* mod_info */, arguments->slots[0]);
-  // 577: ... mod_info.is_defined
+  // 565: ... mod_info.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* mod_info */;
@@ -12838,13 +12648,13 @@ static void cont__70_78(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 577: ... :
-  // 578:   Error "
-  // 579:     No source file(s) for module "@(mod_name)" found!@
+  // 565: ... :
+  // 566:   Error "
+  // 567:     No source file(s) for module "@(mod_name)" found!@
   frame->slots[7] /* temp__2 */ = create_closure(entry__70_79, 0);
-  // 577: unless mod_info.is_defined:
-  // 578:   Error "
-  // 579:     No source file(s) for module "@(mod_name)" found!@
+  // 565: unless mod_info.is_defined:
+  // 566:   Error "
+  // 567:     No source file(s) for module "@(mod_name)" found!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -12863,8 +12673,8 @@ static void entry__70_79(void) {
     invalid_arguments_error();
     return;
   }
-  // 578: ... "
-  // 579:   No source file(s) for module "@(mod_name)" found!@
+  // 566: ... "
+  // 567:   No source file(s) for module "@(mod_name)" found!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__70_80;
@@ -12881,8 +12691,8 @@ static void cont__70_82(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 578: Error "
-  // 579:   No source file(s) for module "@(mod_name)" found!@
+  // 566: Error "
+  // 567:   No source file(s) for module "@(mod_name)" found!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -12896,101 +12706,38 @@ static void cont__70_83(void) {
     invalid_results_error();
     return;
   }
-  // 580: ... mode == LIB
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = get__mode();
-  arguments->slots[1] = var._LIB;
-  result_count = 1;
-  myself = get__std__equal();
-  func = myself->type;
-  frame->cont = cont__70_84;
-}
-static void cont__70_84(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 580: ... if(mode == LIB (-> ".lib.o") -> ".o")
-  argument_count = 3;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[7] /* temp__2 */;
-  arguments->slots[1] = func__70_85;
-  arguments->slots[2] = func__70_87;
-  result_count = 1;
-  myself = get__if();
-  func = myself->type;
-  frame->cont = cont__70_89;
-}
-static void entry__70_85(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 580: ... -> ".lib.o"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = string__70_86;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void entry__70_87(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 580: ... -> ".o"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = string__70_88;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void cont__70_89(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 580: $o_filename append(mod_filename if(mode == LIB (-> ".lib.o") -> ".o"))
+  // 568: $o_filename append(mod_filename ".o")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = frame->slots[6] /* temp__1 */;
+  arguments->slots[1] = string__70_84;
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__70_90;
+  frame->cont = cont__70_85;
 }
-static void cont__70_90(void) {
+static void cont__70_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[5] /* o_filename */, arguments->slots[0]);
-  // 581: ... objects(o_filename)
+  // 569: ... objects(o_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* o_filename */;
   result_count = 1;
   myself = get__objects();
   func = myself->type;
-  frame->cont = cont__70_91;
+  frame->cont = cont__70_86;
 }
-static void cont__70_91(void) {
+static void cont__70_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 581: if objects(o_filename) return
+  // 569: if objects(o_filename) return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -12998,16 +12745,16 @@ static void cont__70_91(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__70_92;
+  frame->cont = cont__70_87;
 }
-static void cont__70_92(void) {
+static void cont__70_87(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 582: !objects(o_filename) true
+  // 570: !objects(o_filename) true
   frame->slots[6] /* temp__1 */ = get__true();
-  // 582: !objects(o_filename)
+  // 570: !objects(o_filename)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* o_filename */;
@@ -13015,55 +12762,55 @@ static void cont__70_92(void) {
   result_count = 1;
   myself = get__objects();
   func = myself->type;
-  frame->cont = cont__70_93;
+  frame->cont = cont__70_88;
 }
-static void cont__70_93(void) {
+static void cont__70_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__objects(arguments->slots[0]);
-  // 584: mod_info.is_empty
+  // 572: mod_info.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* mod_info */;
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__70_94;
+  frame->cont = cont__70_89;
 }
-static void cont__70_94(void) {
+static void cont__70_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 584: ... :
-  // 585:   compile_submodule list(truncate_until(mod_name '/' -1))
-  // 586:   if do_list_dependencies: push &dependencies string(mod_filename ".c")
-  frame->slots[7] /* temp__2 */ = create_closure(entry__70_95, 0);
-  // 587: :
-  // 588:   do:
-  // 589:     $$best_platform undefined
-  // 590:     $$best_priority 999
-  // 591:     for_each mod_info: (platform _filenames)
-  // 592:       $priority platform_priority(platform)
-  // 593:       if priority.is_defined && priority < best_priority:
-  // 594:         !best_platform platform
-  // 595:         !best_priority priority
-  // 596:     for_each mod_info: (platform filenames)
+  // 572: ... :
+  // 573:   compile_submodule list(truncate_until(mod_name '/' -1))
+  // 574:   if do_list_dependencies: push &dependencies string(mod_filename ".c")
+  frame->slots[7] /* temp__2 */ = create_closure(entry__70_90, 0);
+  // 575: :
+  // 576:   do:
+  // 577:     $$best_platform undefined
+  // 578:     $$best_priority 999
+  // 579:     for_each mod_info: (platform _filenames)
+  // 580:       $priority platform_priority(platform)
+  // 581:       if priority.is_defined && priority < best_priority:
+  // 582:         !best_platform platform
+  // 583:         !best_priority priority
+  // 584:     for_each mod_info: (platform filenames)
   // ...
-  frame->slots[8] /* temp__3 */ = create_closure(entry__70_103, 0);
-  // 583: if
-  // 584:   mod_info.is_empty:
-  // 585:     compile_submodule list(truncate_until(mod_name '/' -1))
-  // 586:     if do_list_dependencies: push &dependencies string(mod_filename ".c")
-  // 587:   :
-  // 588:     do:
-  // 589:       $$best_platform undefined
-  // 590:       $$best_priority 999
-  // 591:       for_each mod_info: (platform _filenames)
-  // 592:         $priority platform_priority(platform)
+  frame->slots[8] /* temp__3 */ = create_closure(entry__70_98, 0);
+  // 571: if
+  // 572:   mod_info.is_empty:
+  // 573:     compile_submodule list(truncate_until(mod_name '/' -1))
+  // 574:     if do_list_dependencies: push &dependencies string(mod_filename ".c")
+  // 575:   :
+  // 576:     do:
+  // 577:       $$best_platform undefined
+  // 578:       $$best_priority 999
+  // 579:       for_each mod_info: (platform _filenames)
+  // 580:         $priority platform_priority(platform)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -13073,9 +12820,9 @@ static void cont__70_94(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__70_144;
+  frame->cont = cont__70_139;
 }
-static void entry__70_134(void) {
+static void entry__70_129(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // platform: 0
@@ -13092,7 +12839,7 @@ static void entry__70_134(void) {
     invalid_arguments_error();
     return;
   }
-  // 616: $$dependency string(mod_filename "-" platform ".c")
+  // 604: $$dependency string(mod_filename "-" platform ".c")
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_filename */;
@@ -13102,49 +12849,49 @@ static void entry__70_134(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__70_135;
+  frame->cont = cont__70_130;
 }
-static void cont__70_135(void) {
+static void cont__70_130(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[4])->contents /* dependency */ = arguments->slots[0];
-  // 617: $platforms used_by(platform)
+  // 605: $platforms used_by(platform)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* platform */;
   result_count = 1;
   myself = ((CELL *)frame->slots[3])->contents /* used_by */;
   func = myself->type;
-  frame->cont = cont__70_136;
+  frame->cont = cont__70_131;
 }
-static void cont__70_136(void) {
+static void cont__70_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[5] /* platforms */, arguments->slots[0]);
-  // 618: ... platforms.is_defined
+  // 606: ... platforms.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* platforms */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__70_137;
+  frame->cont = cont__70_132;
 }
-static void cont__70_137(void) {
+static void cont__70_132(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 618: ... :
-  // 619:   for_each platforms: (plat) write_to &dependency " #" plat
-  frame->slots[7] /* temp__2 */ = create_closure(entry__70_138, 0);
-  // 618: if platforms.is_defined:
-  // 619:   for_each platforms: (plat) write_to &dependency " #" plat
+  // 606: ... :
+  // 607:   for_each platforms: (plat) write_to &dependency " #" plat
+  frame->slots[7] /* temp__2 */ = create_closure(entry__70_133, 0);
+  // 606: if platforms.is_defined:
+  // 607:   for_each platforms: (plat) write_to &dependency " #" plat
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -13152,9 +12899,9 @@ static void cont__70_137(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__70_142;
+  frame->cont = cont__70_137;
 }
-static void entry__70_139(void) {
+static void entry__70_134(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // plat: 0
@@ -13164,18 +12911,18 @@ static void entry__70_139(void) {
     invalid_arguments_error();
     return;
   }
-  // 619: ... write_to &dependency " #" plat
+  // 607: ... write_to &dependency " #" plat
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* dependency */;
-  arguments->slots[1] = string__70_140;
+  arguments->slots[1] = string__70_135;
   arguments->slots[2] = frame->slots[0] /* plat */;
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__70_141;
+  frame->cont = cont__70_136;
 }
-static void cont__70_141(void) {
+static void cont__70_136(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13187,7 +12934,7 @@ static void cont__70_141(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__70_138(void) {
+static void entry__70_133(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // platforms: 0
@@ -13198,9 +12945,9 @@ static void entry__70_138(void) {
     invalid_arguments_error();
     return;
   }
-  // 619: ... : (plat) write_to &dependency " #" plat
-  frame->slots[2] /* temp__1 */ = create_closure(entry__70_139, 1);
-  // 619: for_each platforms: (plat) write_to &dependency " #" plat
+  // 607: ... : (plat) write_to &dependency " #" plat
+  frame->slots[2] /* temp__1 */ = create_closure(entry__70_134, 1);
+  // 607: for_each platforms: (plat) write_to &dependency " #" plat
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* platforms */;
@@ -13210,12 +12957,12 @@ static void entry__70_138(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__70_142(void) {
+static void cont__70_137(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 620: push &dependencies dependency
+  // 608: push &dependencies dependency
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._dependencies;
@@ -13223,9 +12970,9 @@ static void cont__70_142(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__70_143;
+  frame->cont = cont__70_138;
 }
-static void cont__70_143(void) {
+static void cont__70_138(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13237,7 +12984,7 @@ static void cont__70_143(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__70_117(void) {
+static void entry__70_112(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // mod_info: 0
@@ -13250,30 +12997,30 @@ static void entry__70_117(void) {
     invalid_arguments_error();
     return;
   }
-  // 602: $$used_by empty_table
+  // 590: $$used_by empty_table
   ((CELL *)frame->slots[2])->contents /* used_by */ = get__empty_table();
-  // 603: ... : (supported_platform _parent_platform)
-  // 604:   $$best_platform undefined
-  // 605:   $$best_priority 999
-  // 606:   for_each mod_info: (platform _filenames)
-  // 607:     $priority platform_specific_priority(supported_platform platform)
-  // 608:     if priority.is_defined && priority < best_priority:
-  // 609:       !best_platform platform
-  // 610:       !best_priority priority
-  // 611:   if best_platform.is_defined:
-  // 612:     $$ub default_value(used_by(best_platform) empty_list)
+  // 591: ... : (supported_platform _parent_platform)
+  // 592:   $$best_platform undefined
+  // 593:   $$best_priority 999
+  // 594:   for_each mod_info: (platform _filenames)
+  // 595:     $priority platform_specific_priority(supported_platform platform)
+  // 596:     if priority.is_defined && priority < best_priority:
+  // 597:       !best_platform platform
+  // 598:       !best_priority priority
+  // 599:   if best_platform.is_defined:
+  // 600:     $$ub default_value(used_by(best_platform) empty_list)
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__70_118, 2);
-  // 603: for_each supported_platforms: (supported_platform _parent_platform)
-  // 604:   $$best_platform undefined
-  // 605:   $$best_priority 999
-  // 606:   for_each mod_info: (platform _filenames)
-  // 607:     $priority platform_specific_priority(supported_platform platform)
-  // 608:     if priority.is_defined && priority < best_priority:
-  // 609:       !best_platform platform
-  // 610:       !best_priority priority
-  // 611:   if best_platform.is_defined:
-  // 612:     $$ub default_value(used_by(best_platform) empty_list)
+  frame->slots[3] /* temp__1 */ = create_closure(entry__70_113, 2);
+  // 591: for_each supported_platforms: (supported_platform _parent_platform)
+  // 592:   $$best_platform undefined
+  // 593:   $$best_priority 999
+  // 594:   for_each mod_info: (platform _filenames)
+  // 595:     $priority platform_specific_priority(supported_platform platform)
+  // 596:     if priority.is_defined && priority < best_priority:
+  // 597:       !best_platform platform
+  // 598:       !best_priority priority
+  // 599:   if best_platform.is_defined:
+  // 600:     $$ub default_value(used_by(best_platform) empty_list)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -13282,9 +13029,9 @@ static void entry__70_117(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__70_133;
+  frame->cont = cont__70_128;
 }
-static void entry__70_128(void) {
+static void entry__70_123(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // used_by: 0
@@ -13299,22 +13046,22 @@ static void entry__70_128(void) {
     invalid_arguments_error();
     return;
   }
-  // 612: ... used_by(best_platform)
+  // 600: ... used_by(best_platform)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* best_platform */;
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* used_by */;
   func = myself->type;
-  frame->cont = cont__70_129;
+  frame->cont = cont__70_124;
 }
-static void cont__70_129(void) {
+static void cont__70_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 612: $$ub default_value(used_by(best_platform) empty_list)
+  // 600: $$ub default_value(used_by(best_platform) empty_list)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -13322,15 +13069,15 @@ static void cont__70_129(void) {
   result_count = 1;
   myself = get__default_value();
   func = myself->type;
-  frame->cont = cont__70_130;
+  frame->cont = cont__70_125;
 }
-static void cont__70_130(void) {
+static void cont__70_125(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[3])->contents /* ub */ = arguments->slots[0];
-  // 613: push &ub supported_platform
+  // 601: push &ub supported_platform
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* ub */;
@@ -13338,17 +13085,17 @@ static void cont__70_130(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__70_131;
+  frame->cont = cont__70_126;
 }
-static void cont__70_131(void) {
+static void cont__70_126(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[3])->contents /* ub */ = arguments->slots[0];
-  // 614: !used_by(best_platform) ub
+  // 602: !used_by(best_platform) ub
   frame->slots[4] /* temp__1 */ = ((CELL *)frame->slots[3])->contents /* ub */;
-  // 614: !used_by(best_platform)
+  // 602: !used_by(best_platform)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* best_platform */;
@@ -13356,9 +13103,9 @@ static void cont__70_131(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* used_by */;
   func = myself->type;
-  frame->cont = cont__70_132;
+  frame->cont = cont__70_127;
 }
-static void cont__70_132(void) {
+static void cont__70_127(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13370,7 +13117,7 @@ static void cont__70_132(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__70_118(void) {
+static void entry__70_113(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // supported_platform: 0
@@ -13387,21 +13134,21 @@ static void entry__70_118(void) {
     invalid_arguments_error();
     return;
   }
-  // 604: $$best_platform undefined
+  // 592: $$best_platform undefined
   ((CELL *)frame->slots[4])->contents /* best_platform */ = get__undefined();
-  // 605: $$best_priority 999
+  // 593: $$best_priority 999
   ((CELL *)frame->slots[5])->contents /* best_priority */ = number__999;
-  // 606: ... : (platform _filenames)
-  // 607:   $priority platform_specific_priority(supported_platform platform)
-  // 608:   if priority.is_defined && priority < best_priority:
-  // 609:     !best_platform platform
-  // 610:     !best_priority priority
-  frame->slots[6] /* temp__1 */ = create_closure(entry__70_119, 2);
-  // 606: for_each mod_info: (platform _filenames)
-  // 607:   $priority platform_specific_priority(supported_platform platform)
-  // 608:   if priority.is_defined && priority < best_priority:
-  // 609:     !best_platform platform
-  // 610:     !best_priority priority
+  // 594: ... : (platform _filenames)
+  // 595:   $priority platform_specific_priority(supported_platform platform)
+  // 596:   if priority.is_defined && priority < best_priority:
+  // 597:     !best_platform platform
+  // 598:     !best_priority priority
+  frame->slots[6] /* temp__1 */ = create_closure(entry__70_114, 2);
+  // 594: for_each mod_info: (platform _filenames)
+  // 595:   $priority platform_specific_priority(supported_platform platform)
+  // 596:   if priority.is_defined && priority < best_priority:
+  // 597:     !best_platform platform
+  // 598:     !best_priority priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_info */;
@@ -13409,9 +13156,9 @@ static void entry__70_118(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__70_126;
+  frame->cont = cont__70_121;
 }
-static void entry__70_125(void) {
+static void entry__70_120(void) {
   allocate_initialized_frame_gc(4, 4);
   // slot allocations:
   // best_platform: 0
@@ -13426,9 +13173,9 @@ static void entry__70_125(void) {
     invalid_arguments_error();
     return;
   }
-  // 609: !best_platform platform
+  // 597: !best_platform platform
   ((CELL *)frame->slots[0])->contents /* best_platform */ = frame->slots[1] /* platform */;
-  // 610: !best_priority priority
+  // 598: !best_priority priority
   ((CELL *)frame->slots[2])->contents /* best_priority */ = frame->slots[3] /* priority */;
   argument_count = 0;
   arguments = node_p;
@@ -13436,7 +13183,7 @@ static void entry__70_125(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__70_119(void) {
+static void entry__70_114(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // platform: 0
@@ -13453,7 +13200,7 @@ static void entry__70_119(void) {
     invalid_arguments_error();
     return;
   }
-  // 607: $priority platform_specific_priority(supported_platform platform)
+  // 595: $priority platform_specific_priority(supported_platform platform)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* supported_platform */;
@@ -13461,32 +13208,32 @@ static void entry__70_119(void) {
   result_count = 1;
   myself = var._platform_specific_priority;
   func = myself->type;
-  frame->cont = cont__70_120;
+  frame->cont = cont__70_115;
 }
-static void cont__70_120(void) {
+static void cont__70_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[5] /* priority */, arguments->slots[0]);
-  // 608: ... priority.is_defined
+  // 596: ... priority.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* priority */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__70_121;
+  frame->cont = cont__70_116;
 }
-static void cont__70_121(void) {
+static void cont__70_116(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 608: ... priority < best_priority
-  frame->slots[8] /* temp__3 */ = create_closure(entry__70_122, 0);
-  // 608: ... priority.is_defined && priority < best_priority
+  // 596: ... priority < best_priority
+  frame->slots[8] /* temp__3 */ = create_closure(entry__70_117, 0);
+  // 596: ... priority.is_defined && priority < best_priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -13494,9 +13241,9 @@ static void cont__70_121(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__70_124;
+  frame->cont = cont__70_119;
 }
-static void entry__70_122(void) {
+static void entry__70_117(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // priority: 0
@@ -13507,7 +13254,7 @@ static void entry__70_122(void) {
     invalid_arguments_error();
     return;
   }
-  // 608: ... priority < best_priority
+  // 596: ... priority < best_priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* priority */;
@@ -13515,15 +13262,15 @@ static void entry__70_122(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__70_123;
+  frame->cont = cont__70_118;
 }
-static void cont__70_123(void) {
+static void cont__70_118(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 608: ... priority < best_priority
+  // 596: ... priority < best_priority
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -13531,19 +13278,19 @@ static void cont__70_123(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__70_124(void) {
+static void cont__70_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 608: ... :
-  // 609:   !best_platform platform
-  // 610:   !best_priority priority
-  frame->slots[9] /* temp__4 */ = create_closure(entry__70_125, 0);
-  // 608: if priority.is_defined && priority < best_priority:
-  // 609:   !best_platform platform
-  // 610:   !best_priority priority
+  // 596: ... :
+  // 597:   !best_platform platform
+  // 598:   !best_priority priority
+  frame->slots[9] /* temp__4 */ = create_closure(entry__70_120, 0);
+  // 596: if priority.is_defined && priority < best_priority:
+  // 597:   !best_platform platform
+  // 598:   !best_priority priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -13553,35 +13300,35 @@ static void cont__70_124(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__70_126(void) {
+static void cont__70_121(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 611: ... best_platform.is_defined
+  // 599: ... best_platform.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* best_platform */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__70_127;
+  frame->cont = cont__70_122;
 }
-static void cont__70_127(void) {
+static void cont__70_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 611: ... :
-  // 612:   $$ub default_value(used_by(best_platform) empty_list)
-  // 613:   push &ub supported_platform
-  // 614:   !used_by(best_platform) ub
-  frame->slots[7] /* temp__2 */ = create_closure(entry__70_128, 0);
-  // 611: if best_platform.is_defined:
-  // 612:   $$ub default_value(used_by(best_platform) empty_list)
-  // 613:   push &ub supported_platform
-  // 614:   !used_by(best_platform) ub
+  // 599: ... :
+  // 600:   $$ub default_value(used_by(best_platform) empty_list)
+  // 601:   push &ub supported_platform
+  // 602:   !used_by(best_platform) ub
+  frame->slots[7] /* temp__2 */ = create_closure(entry__70_123, 0);
+  // 599: if best_platform.is_defined:
+  // 600:   $$ub default_value(used_by(best_platform) empty_list)
+  // 601:   push &ub supported_platform
+  // 602:   !used_by(best_platform) ub
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -13591,24 +13338,24 @@ static void cont__70_127(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__70_133(void) {
+static void cont__70_128(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 615: ... : (platform _filenames)
-  // 616:   $$dependency string(mod_filename "-" platform ".c")
-  // 617:   $platforms used_by(platform)
-  // 618:   if platforms.is_defined:
-  // 619:     for_each platforms: (plat) write_to &dependency " #" plat
-  // 620:   push &dependencies dependency
-  frame->slots[3] /* temp__1 */ = create_closure(entry__70_134, 2);
-  // 615: for_each mod_info: (platform _filenames)
-  // 616:   $$dependency string(mod_filename "-" platform ".c")
-  // 617:   $platforms used_by(platform)
-  // 618:   if platforms.is_defined:
-  // 619:     for_each platforms: (plat) write_to &dependency " #" plat
-  // 620:   push &dependencies dependency
+  // 603: ... : (platform _filenames)
+  // 604:   $$dependency string(mod_filename "-" platform ".c")
+  // 605:   $platforms used_by(platform)
+  // 606:   if platforms.is_defined:
+  // 607:     for_each platforms: (plat) write_to &dependency " #" plat
+  // 608:   push &dependencies dependency
+  frame->slots[3] /* temp__1 */ = create_closure(entry__70_129, 2);
+  // 603: for_each mod_info: (platform _filenames)
+  // 604:   $$dependency string(mod_filename "-" platform ".c")
+  // 605:   $platforms used_by(platform)
+  // 606:   if platforms.is_defined:
+  // 607:     for_each platforms: (plat) write_to &dependency " #" plat
+  // 608:   push &dependencies dependency
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_info */;
@@ -13618,7 +13365,7 @@ static void cont__70_133(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__70_100(void) {
+static void entry__70_95(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // mod_filename: 0
@@ -13627,7 +13374,7 @@ static void entry__70_100(void) {
     invalid_arguments_error();
     return;
   }
-  // 586: ... string(mod_filename ".c")
+  // 574: ... string(mod_filename ".c")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -13635,15 +13382,15 @@ static void entry__70_100(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__70_101;
+  frame->cont = cont__70_96;
 }
-static void cont__70_101(void) {
+static void cont__70_96(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 586: ... push &dependencies string(mod_filename ".c")
+  // 574: ... push &dependencies string(mod_filename ".c")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._dependencies;
@@ -13651,9 +13398,9 @@ static void cont__70_101(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__70_102;
+  frame->cont = cont__70_97;
 }
-static void cont__70_102(void) {
+static void cont__70_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13665,7 +13412,7 @@ static void cont__70_102(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__70_95(void) {
+static void entry__70_90(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // compile_submodule: 0
@@ -13678,22 +13425,22 @@ static void entry__70_95(void) {
     invalid_arguments_error();
     return;
   }
-  // 585: ... 1
+  // 573: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__70_96;
+  frame->cont = cont__70_91;
 }
-static void cont__70_96(void) {
+static void cont__70_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 585: ... truncate_until(mod_name '/' -1)
+  // 573: ... truncate_until(mod_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -13702,46 +13449,46 @@ static void cont__70_96(void) {
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
-  frame->cont = cont__70_97;
+  frame->cont = cont__70_92;
 }
-static void cont__70_97(void) {
+static void cont__70_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 585: ... list(truncate_until(mod_name '/' -1))
+  // 573: ... list(truncate_until(mod_name '/' -1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__70_98;
+  frame->cont = cont__70_93;
 }
-static void cont__70_98(void) {
+static void cont__70_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 585: compile_submodule list(truncate_until(mod_name '/' -1))
+  // 573: compile_submodule list(truncate_until(mod_name '/' -1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   result_count = 0;
   myself = frame->slots[0] /* compile_submodule */;
   func = myself->type;
-  frame->cont = cont__70_99;
+  frame->cont = cont__70_94;
 }
-static void cont__70_99(void) {
+static void cont__70_94(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 586: ... : push &dependencies string(mod_filename ".c")
-  frame->slots[3] /* temp__1 */ = create_closure(entry__70_100, 0);
-  // 586: if do_list_dependencies: push &dependencies string(mod_filename ".c")
+  // 574: ... : push &dependencies string(mod_filename ".c")
+  frame->slots[3] /* temp__1 */ = create_closure(entry__70_95, 0);
+  // 574: if do_list_dependencies: push &dependencies string(mod_filename ".c")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_list_dependencies;
@@ -13751,7 +13498,7 @@ static void cont__70_99(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__70_103(void) {
+static void entry__70_98(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // mod_info: 0
@@ -13764,28 +13511,28 @@ static void entry__70_103(void) {
     invalid_arguments_error();
     return;
   }
-  // 588: ... :
-  // 589:   $$best_platform undefined
-  // 590:   $$best_priority 999
-  // 591:   for_each mod_info: (platform _filenames)
-  // 592:     $priority platform_priority(platform)
-  // 593:     if priority.is_defined && priority < best_priority:
-  // 594:       !best_platform platform
-  // 595:       !best_priority priority
-  // 596:   for_each mod_info: (platform filenames)
-  // 597:     compile_submodule
+  // 576: ... :
+  // 577:   $$best_platform undefined
+  // 578:   $$best_priority 999
+  // 579:   for_each mod_info: (platform _filenames)
+  // 580:     $priority platform_priority(platform)
+  // 581:     if priority.is_defined && priority < best_priority:
+  // 582:       !best_platform platform
+  // 583:       !best_priority priority
+  // 584:   for_each mod_info: (platform filenames)
+  // 585:     compile_submodule
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__70_104, 0);
-  // 588: do:
-  // 589:   $$best_platform undefined
-  // 590:   $$best_priority 999
-  // 591:   for_each mod_info: (platform _filenames)
-  // 592:     $priority platform_priority(platform)
-  // 593:     if priority.is_defined && priority < best_priority:
-  // 594:       !best_platform platform
-  // 595:       !best_priority priority
-  // 596:   for_each mod_info: (platform filenames)
-  // 597:     compile_submodule
+  frame->slots[3] /* temp__1 */ = create_closure(entry__70_99, 0);
+  // 576: do:
+  // 577:   $$best_platform undefined
+  // 578:   $$best_priority 999
+  // 579:   for_each mod_info: (platform _filenames)
+  // 580:     $priority platform_priority(platform)
+  // 581:     if priority.is_defined && priority < best_priority:
+  // 582:       !best_platform platform
+  // 583:       !best_priority priority
+  // 584:   for_each mod_info: (platform filenames)
+  // 585:     compile_submodule
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -13793,9 +13540,9 @@ static void entry__70_103(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__70_116;
+  frame->cont = cont__70_111;
 }
-static void entry__70_113(void) {
+static void entry__70_108(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // platform: 0
@@ -13808,7 +13555,7 @@ static void entry__70_113(void) {
     invalid_arguments_error();
     return;
   }
-  // 599: platform == best_platform
+  // 587: platform == best_platform
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* platform */;
@@ -13816,15 +13563,15 @@ static void entry__70_113(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__70_114;
+  frame->cont = cont__70_109;
 }
-static void cont__70_114(void) {
+static void cont__70_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 600: string("-" platform)
+  // 588: string("-" platform)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__64_46;
@@ -13832,18 +13579,18 @@ static void cont__70_114(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__70_115;
+  frame->cont = cont__70_110;
 }
-static void cont__70_115(void) {
+static void cont__70_110(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 597: compile_submodule
-  // 598:   filenames
-  // 599:   platform == best_platform
-  // 600:   string("-" platform)
+  // 585: compile_submodule
+  // 586:   filenames
+  // 587:   platform == best_platform
+  // 588:   string("-" platform)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* filenames */;
@@ -13854,7 +13601,7 @@ static void cont__70_115(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__70_104(void) {
+static void entry__70_99(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // mod_info: 0
@@ -13869,21 +13616,21 @@ static void entry__70_104(void) {
     invalid_arguments_error();
     return;
   }
-  // 589: $$best_platform undefined
+  // 577: $$best_platform undefined
   ((CELL *)frame->slots[2])->contents /* best_platform */ = get__undefined();
-  // 590: $$best_priority 999
+  // 578: $$best_priority 999
   ((CELL *)frame->slots[3])->contents /* best_priority */ = number__999;
-  // 591: ... : (platform _filenames)
-  // 592:   $priority platform_priority(platform)
-  // 593:   if priority.is_defined && priority < best_priority:
-  // 594:     !best_platform platform
-  // 595:     !best_priority priority
-  frame->slots[4] /* temp__1 */ = create_closure(entry__70_105, 2);
-  // 591: for_each mod_info: (platform _filenames)
-  // 592:   $priority platform_priority(platform)
-  // 593:   if priority.is_defined && priority < best_priority:
-  // 594:     !best_platform platform
-  // 595:     !best_priority priority
+  // 579: ... : (platform _filenames)
+  // 580:   $priority platform_priority(platform)
+  // 581:   if priority.is_defined && priority < best_priority:
+  // 582:     !best_platform platform
+  // 583:     !best_priority priority
+  frame->slots[4] /* temp__1 */ = create_closure(entry__70_100, 2);
+  // 579: for_each mod_info: (platform _filenames)
+  // 580:   $priority platform_priority(platform)
+  // 581:   if priority.is_defined && priority < best_priority:
+  // 582:     !best_platform platform
+  // 583:     !best_priority priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_info */;
@@ -13891,9 +13638,9 @@ static void entry__70_104(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__70_112;
+  frame->cont = cont__70_107;
 }
-static void entry__70_111(void) {
+static void entry__70_106(void) {
   allocate_initialized_frame_gc(4, 4);
   // slot allocations:
   // best_platform: 0
@@ -13908,9 +13655,9 @@ static void entry__70_111(void) {
     invalid_arguments_error();
     return;
   }
-  // 594: !best_platform platform
+  // 582: !best_platform platform
   ((CELL *)frame->slots[0])->contents /* best_platform */ = frame->slots[1] /* platform */;
-  // 595: !best_priority priority
+  // 583: !best_priority priority
   ((CELL *)frame->slots[2])->contents /* best_priority */ = frame->slots[3] /* priority */;
   argument_count = 0;
   arguments = node_p;
@@ -13918,7 +13665,7 @@ static void entry__70_111(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__70_105(void) {
+static void entry__70_100(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // platform: 0
@@ -13933,39 +13680,39 @@ static void entry__70_105(void) {
     invalid_arguments_error();
     return;
   }
-  // 592: $priority platform_priority(platform)
+  // 580: $priority platform_priority(platform)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* platform */;
   result_count = 1;
   myself = var._platform_priority;
   func = myself->type;
-  frame->cont = cont__70_106;
+  frame->cont = cont__70_101;
 }
-static void cont__70_106(void) {
+static void cont__70_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[4] /* priority */, arguments->slots[0]);
-  // 593: ... priority.is_defined
+  // 581: ... priority.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* priority */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__70_107;
+  frame->cont = cont__70_102;
 }
-static void cont__70_107(void) {
+static void cont__70_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 593: ... priority < best_priority
-  frame->slots[7] /* temp__3 */ = create_closure(entry__70_108, 0);
-  // 593: ... priority.is_defined && priority < best_priority
+  // 581: ... priority < best_priority
+  frame->slots[7] /* temp__3 */ = create_closure(entry__70_103, 0);
+  // 581: ... priority.is_defined && priority < best_priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -13973,9 +13720,9 @@ static void cont__70_107(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__70_110;
+  frame->cont = cont__70_105;
 }
-static void entry__70_108(void) {
+static void entry__70_103(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // priority: 0
@@ -13986,7 +13733,7 @@ static void entry__70_108(void) {
     invalid_arguments_error();
     return;
   }
-  // 593: ... priority < best_priority
+  // 581: ... priority < best_priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* priority */;
@@ -13994,15 +13741,15 @@ static void entry__70_108(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__70_109;
+  frame->cont = cont__70_104;
 }
-static void cont__70_109(void) {
+static void cont__70_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 593: ... priority < best_priority
+  // 581: ... priority < best_priority
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -14010,19 +13757,19 @@ static void cont__70_109(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__70_110(void) {
+static void cont__70_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 593: ... :
-  // 594:   !best_platform platform
-  // 595:   !best_priority priority
-  frame->slots[8] /* temp__4 */ = create_closure(entry__70_111, 0);
-  // 593: if priority.is_defined && priority < best_priority:
-  // 594:   !best_platform platform
-  // 595:   !best_priority priority
+  // 581: ... :
+  // 582:   !best_platform platform
+  // 583:   !best_priority priority
+  frame->slots[8] /* temp__4 */ = create_closure(entry__70_106, 0);
+  // 581: if priority.is_defined && priority < best_priority:
+  // 582:   !best_platform platform
+  // 583:   !best_priority priority
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -14032,22 +13779,22 @@ static void cont__70_110(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__70_112(void) {
+static void cont__70_107(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 596: ... : (platform filenames)
-  // 597:   compile_submodule
-  // 598:     filenames
-  // 599:     platform == best_platform
-  // 600:     string("-" platform)
-  frame->slots[4] /* temp__1 */ = create_closure(entry__70_113, 2);
-  // 596: for_each mod_info: (platform filenames)
-  // 597:   compile_submodule
-  // 598:     filenames
-  // 599:     platform == best_platform
-  // 600:     string("-" platform)
+  // 584: ... : (platform filenames)
+  // 585:   compile_submodule
+  // 586:     filenames
+  // 587:     platform == best_platform
+  // 588:     string("-" platform)
+  frame->slots[4] /* temp__1 */ = create_closure(entry__70_108, 2);
+  // 584: for_each mod_info: (platform filenames)
+  // 585:   compile_submodule
+  // 586:     filenames
+  // 587:     platform == best_platform
+  // 588:     string("-" platform)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_info */;
@@ -14057,33 +13804,33 @@ static void cont__70_112(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__70_116(void) {
+static void cont__70_111(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 601: ... :
-  // 602:   $$used_by empty_table
-  // 603:   for_each supported_platforms: (supported_platform _parent_platform)
-  // 604:     $$best_platform undefined
-  // 605:     $$best_priority 999
-  // 606:     for_each mod_info: (platform _filenames)
-  // 607:       $priority platform_specific_priority(supported_platform platform)
-  // 608:       if priority.is_defined && priority < best_priority:
-  // 609:         !best_platform platform
-  // 610:         !best_priority priority
+  // 589: ... :
+  // 590:   $$used_by empty_table
+  // 591:   for_each supported_platforms: (supported_platform _parent_platform)
+  // 592:     $$best_platform undefined
+  // 593:     $$best_priority 999
+  // 594:     for_each mod_info: (platform _filenames)
+  // 595:       $priority platform_specific_priority(supported_platform platform)
+  // 596:       if priority.is_defined && priority < best_priority:
+  // 597:         !best_platform platform
+  // 598:         !best_priority priority
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__70_117, 0);
-  // 601: if do_list_dependencies:
-  // 602:   $$used_by empty_table
-  // 603:   for_each supported_platforms: (supported_platform _parent_platform)
-  // 604:     $$best_platform undefined
-  // 605:     $$best_priority 999
-  // 606:     for_each mod_info: (platform _filenames)
-  // 607:       $priority platform_specific_priority(supported_platform platform)
-  // 608:       if priority.is_defined && priority < best_priority:
-  // 609:         !best_platform platform
-  // 610:         !best_priority priority
+  frame->slots[3] /* temp__1 */ = create_closure(entry__70_112, 0);
+  // 589: if do_list_dependencies:
+  // 590:   $$used_by empty_table
+  // 591:   for_each supported_platforms: (supported_platform _parent_platform)
+  // 592:     $$best_platform undefined
+  // 593:     $$best_priority 999
+  // 594:     for_each mod_info: (platform _filenames)
+  // 595:       $priority platform_specific_priority(supported_platform platform)
+  // 596:       if priority.is_defined && priority < best_priority:
+  // 597:         !best_platform platform
+  // 598:         !best_priority priority
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -14094,7 +13841,7 @@ static void cont__70_116(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__70_144(void) {
+static void cont__70_139(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -14111,7 +13858,7 @@ static void entry__71_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 631: ... string(path '/' name)
+  // 619: ... string(path '/' name)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* path */;
@@ -14128,7 +13875,7 @@ static void cont__71_9(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 631: ... string(mod_path '/' name)
+  // 619: ... string(mod_path '/' name)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_path */;
@@ -14145,7 +13892,7 @@ static void cont__71_10(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 631: compile_module string(path '/' name) string(mod_path '/' name)
+  // 619: compile_module string(path '/' name) string(mod_path '/' name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -14168,7 +13915,7 @@ static void entry__71_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 627: ... string(mod_path '/')
+  // 615: ... string(mod_path '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_path */;
@@ -14184,7 +13931,7 @@ static void cont__71_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 627: add_module_infos $directories $modules path string(mod_path '/')
+  // 615: add_module_infos $directories $modules path string(mod_path '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
@@ -14201,15 +13948,15 @@ static void cont__71_3(void) {
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
   frame->slots[6] /* temp__3 */ = arguments->slots[1];
-  // 627: ... directories
+  // 615: ... directories
   initialize_future(frame->slots[2] /* directories */, frame->slots[5] /* temp__2 */);
-  // 627: ... modules
+  // 615: ... modules
   initialize_future(frame->slots[3] /* modules */, frame->slots[6] /* temp__3 */);
-  // 628: ... : (name)
-  // 629:   compile_modules string(path '/' name) string(mod_path '/' name)
+  // 616: ... : (name)
+  // 617:   compile_modules string(path '/' name) string(mod_path '/' name)
   frame->slots[4] /* temp__1 */ = create_closure(entry__71_4, 1);
-  // 628: for_each directories: (name)
-  // 629:   compile_modules string(path '/' name) string(mod_path '/' name)
+  // 616: for_each directories: (name)
+  // 617:   compile_modules string(path '/' name) string(mod_path '/' name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* directories */;
@@ -14231,7 +13978,7 @@ static void entry__71_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 629: ... string(path '/' name)
+  // 617: ... string(path '/' name)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* path */;
@@ -14248,7 +13995,7 @@ static void cont__71_5(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 629: ... string(mod_path '/' name)
+  // 617: ... string(mod_path '/' name)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_path */;
@@ -14265,7 +14012,7 @@ static void cont__71_6(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 629: compile_modules string(path '/' name) string(mod_path '/' name)
+  // 617: compile_modules string(path '/' name) string(mod_path '/' name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -14280,11 +14027,11 @@ static void cont__71_7(void) {
     invalid_results_error();
     return;
   }
-  // 630: ... : (name)
-  // 631:   compile_module string(path '/' name) string(mod_path '/' name)
+  // 618: ... : (name)
+  // 619:   compile_module string(path '/' name) string(mod_path '/' name)
   frame->slots[4] /* temp__1 */ = create_closure(entry__71_8, 1);
-  // 630: for_each modules: (name)
-  // 631:   compile_module string(path '/' name) string(mod_path '/' name)
+  // 618: for_each modules: (name)
+  // 619:   compile_module string(path '/' name) string(mod_path '/' name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* modules */;
@@ -14303,7 +14050,7 @@ static void entry__73_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 639: $path environment("LD_LIBRARY_PATH")
+  // 627: $path environment("LD_LIBRARY_PATH")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__73_3;
@@ -14318,7 +14065,7 @@ static void cont__73_4(void) {
     return;
   }
   initialize_future(frame->slots[0] /* path */, arguments->slots[0]);
-  // 640: ... path.is_defined
+  // 628: ... path.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
@@ -14333,9 +14080,9 @@ static void cont__73_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 640: ... : ewriteln "LD_LIBRARY_PATH=@(path)"
+  // 628: ... : ewriteln "LD_LIBRARY_PATH=@(path)"
   frame->slots[2] /* temp__2 */ = create_closure(entry__73_6, 0);
-  // 640: if path.is_defined: ewriteln "LD_LIBRARY_PATH=@(path)"
+  // 628: if path.is_defined: ewriteln "LD_LIBRARY_PATH=@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14354,7 +14101,7 @@ static void entry__73_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 640: ... "LD_LIBRARY_PATH=@(path)"
+  // 628: ... "LD_LIBRARY_PATH=@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__73_7;
@@ -14370,7 +14117,7 @@ static void cont__73_8(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 640: ... ewriteln "LD_LIBRARY_PATH=@(path)"
+  // 628: ... ewriteln "LD_LIBRARY_PATH=@(path)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14384,7 +14131,7 @@ static void cont__73_9(void) {
     invalid_results_error();
     return;
   }
-  // 641: ... serialize(objects)
+  // 629: ... serialize(objects)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__objects();
@@ -14399,7 +14146,7 @@ static void cont__73_10(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 641: ewriteln "included object files: " serialize(objects)
+  // 629: ewriteln "included object files: " serialize(objects)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__73_11;
@@ -14414,7 +14161,7 @@ static void cont__73_12(void) {
     invalid_results_error();
     return;
   }
-  // 642: ... serialize(libraries)
+  // 630: ... serialize(libraries)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__libraries();
@@ -14429,7 +14176,7 @@ static void cont__73_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 642: ewriteln "needed libraries: " serialize(libraries)
+  // 630: ewriteln "needed libraries: " serialize(libraries)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__73_14;
@@ -14446,11 +14193,11 @@ static void entry__73_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 638: if do_show_debug_infos:
-  // 639:   $path environment("LD_LIBRARY_PATH")
-  // 640:   if path.is_defined: ewriteln "LD_LIBRARY_PATH=@(path)"
-  // 641:   ewriteln "included object files: " serialize(objects)
-  // 642:   ewriteln "needed libraries: " serialize(libraries)
+  // 626: if do_show_debug_infos:
+  // 627:   $path environment("LD_LIBRARY_PATH")
+  // 628:   if path.is_defined: ewriteln "LD_LIBRARY_PATH=@(path)"
+  // 629:   ewriteln "included object files: " serialize(objects)
+  // 630:   ewriteln "needed libraries: " serialize(libraries)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_show_debug_infos();
@@ -14475,7 +14222,7 @@ static void entry__74_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 645: show_file_list
+  // 633: show_file_list
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -14488,13 +14235,13 @@ static void cont__74_2(void) {
     invalid_results_error();
     return;
   }
-  // 646: $$library_paths empty_list
+  // 634: $$library_paths empty_list
   ((CELL *)frame->slots[0])->contents /* library_paths */ = get__empty_list();
-  // 647: $$object_files empty_list
+  // 635: $$object_files empty_list
   ((CELL *)frame->slots[1])->contents /* object_files */ = get__empty_list();
-  // 648: $$library_files empty_list
+  // 636: $$library_files empty_list
   ((CELL *)frame->slots[2])->contents /* library_files */ = get__empty_list();
-  // 649: $paths environment("LD_LIBRARY_PATH")
+  // 637: $paths environment("LD_LIBRARY_PATH")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__73_3;
@@ -14509,7 +14256,7 @@ static void cont__74_3(void) {
     return;
   }
   initialize_future(frame->slots[3] /* paths */, arguments->slots[0]);
-  // 650: ... paths.is_defined
+  // 638: ... paths.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* paths */;
@@ -14524,11 +14271,11 @@ static void cont__74_4(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 650: ... :
-  // 651:   for_each paths .split. ':': (path) push &library_paths "-L@(path)"
+  // 638: ... :
+  // 639:   for_each paths .split. ':': (path) push &library_paths "-L@(path)"
   frame->slots[5] /* temp__2 */ = create_closure(entry__74_5, 0);
-  // 650: if paths.is_defined:
-  // 651:   for_each paths .split. ':': (path) push &library_paths "-L@(path)"
+  // 638: if paths.is_defined:
+  // 639:   for_each paths .split. ':': (path) push &library_paths "-L@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -14548,7 +14295,7 @@ static void entry__74_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 651: ... "-L@(path)"
+  // 639: ... "-L@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__74_8;
@@ -14564,7 +14311,7 @@ static void cont__74_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 651: ... push &library_paths "-L@(path)"
+  // 639: ... push &library_paths "-L@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* library_paths */;
@@ -14597,7 +14344,7 @@ static void entry__74_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 651: ... paths .split. ':'
+  // 639: ... paths .split. ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* paths */;
@@ -14613,9 +14360,9 @@ static void cont__74_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 651: ... : (path) push &library_paths "-L@(path)"
+  // 639: ... : (path) push &library_paths "-L@(path)"
   frame->slots[3] /* temp__2 */ = create_closure(entry__74_7, 1);
-  // 651: for_each paths .split. ':': (path) push &library_paths "-L@(path)"
+  // 639: for_each paths .split. ':': (path) push &library_paths "-L@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -14630,9 +14377,9 @@ static void cont__74_11(void) {
     invalid_results_error();
     return;
   }
-  // 652: ... : ewriteln "library paths: " serialize(library_paths)
+  // 640: ... : ewriteln "library paths: " serialize(library_paths)
   frame->slots[4] /* temp__1 */ = create_closure(entry__74_12, 0);
-  // 652: if do_show_debug_infos: ewriteln "library paths: " serialize(library_paths)
+  // 640: if do_show_debug_infos: ewriteln "library paths: " serialize(library_paths)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_show_debug_infos();
@@ -14651,7 +14398,7 @@ static void entry__74_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 652: ... serialize(library_paths)
+  // 640: ... serialize(library_paths)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* library_paths */;
@@ -14666,7 +14413,7 @@ static void cont__74_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 652: ... ewriteln "library paths: " serialize(library_paths)
+  // 640: ... ewriteln "library paths: " serialize(library_paths)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__74_14;
@@ -14681,9 +14428,9 @@ static void cont__74_15(void) {
     invalid_results_error();
     return;
   }
-  // 653: ... : (object) push &object_files object
+  // 641: ... : (object) push &object_files object
   frame->slots[4] /* temp__1 */ = create_closure(entry__74_16, 1);
-  // 653: for_each objects: (object) push &object_files object
+  // 641: for_each objects: (object) push &object_files object
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__objects();
@@ -14703,7 +14450,7 @@ static void entry__74_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 653: ... push &object_files object
+  // 641: ... push &object_files object
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* object_files */;
@@ -14730,28 +14477,28 @@ static void cont__74_18(void) {
     invalid_results_error();
     return;
   }
-  // 654: ... : (library)
-  // 655:   push
-  // 656:     &library_files
-  // 657:     if
-  // 658:       library .has_prefix. "sim-"
-  // 659:       ->
-  // 660:         if
-  // 661:           current_platform == "linux"
-  // 662:           -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:           -> "-l@(library)-@(MAJOR)"
+  // 642: ... : (library)
+  // 643:   push
+  // 644:     &library_files
+  // 645:     if
+  // 646:       library .has_prefix. "sim-"
+  // 647:       ->
+  // 648:         if
+  // 649:           current_platform == "linux"
+  // 650:           -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:           -> "-l@(library)-@(MAJOR)"
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__74_19, 1);
-  // 654: for_each libraries: (library)
-  // 655:   push
-  // 656:     &library_files
-  // 657:     if
-  // 658:       library .has_prefix. "sim-"
-  // 659:       ->
-  // 660:         if
-  // 661:           current_platform == "linux"
-  // 662:           -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:           -> "-l@(library)-@(MAJOR)"
+  // 642: for_each libraries: (library)
+  // 643:   push
+  // 644:     &library_files
+  // 645:     if
+  // 646:       library .has_prefix. "sim-"
+  // 647:       ->
+  // 648:         if
+  // 649:           current_platform == "linux"
+  // 650:           -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:           -> "-l@(library)-@(MAJOR)"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -14772,7 +14519,7 @@ static void entry__74_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 658: library .has_prefix. "sim-"
+  // 646: library .has_prefix. "sim-"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* library */;
@@ -14788,29 +14535,29 @@ static void cont__74_20(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 659: ->
-  // 660:   if
-  // 661:     current_platform == "linux"
-  // 662:     -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:     -> "-l@(library)-@(MAJOR)"
+  // 647: ->
+  // 648:   if
+  // 649:     current_platform == "linux"
+  // 650:     -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:     -> "-l@(library)-@(MAJOR)"
   frame->slots[4] /* temp__3 */ = create_closure(entry__74_21, 0);
-  // 664: ->
-  // 665:   if
-  // 666:     library .contains. '.'
-  // 667:     -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
-  // 668:       # Linux only
-  // 669:     -> "-l@(library)"
+  // 652: ->
+  // 653:   if
+  // 654:     library .contains. '.'
+  // 655:     -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+  // 656:       # Linux only
+  // 657:     -> "-l@(library)"
   frame->slots[5] /* temp__4 */ = create_closure(entry__74_32, 0);
-  // 657: if
-  // 658:   library .has_prefix. "sim-"
-  // 659:   ->
-  // 660:     if
-  // 661:       current_platform == "linux"
-  // 662:       -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:       -> "-l@(library)-@(MAJOR)"
-  // 664:   ->
-  // 665:     if
-  // 666:       library .contains. '.'
+  // 645: if
+  // 646:   library .has_prefix. "sim-"
+  // 647:   ->
+  // 648:     if
+  // 649:       current_platform == "linux"
+  // 650:       -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:       -> "-l@(library)-@(MAJOR)"
+  // 652:   ->
+  // 653:     if
+  // 654:       library .contains. '.'
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -14831,7 +14578,7 @@ static void entry__74_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 661: current_platform == "linux"
+  // 649: current_platform == "linux"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__current_platform();
@@ -14847,14 +14594,14 @@ static void cont__74_23(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 662: -> "-l:lib@(library).so.@(MAJOR)"
+  // 650: -> "-l:lib@(library).so.@(MAJOR)"
   frame->slots[3] /* temp__3 */ = create_closure(entry__74_24, 0);
-  // 663: -> "-l@(library)-@(MAJOR)"
+  // 651: -> "-l@(library)-@(MAJOR)"
   frame->slots[4] /* temp__4 */ = create_closure(entry__74_28, 0);
-  // 660: if
-  // 661:   current_platform == "linux"
-  // 662:   -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:   -> "-l@(library)-@(MAJOR)"
+  // 648: if
+  // 649:   current_platform == "linux"
+  // 650:   -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:   -> "-l@(library)-@(MAJOR)"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -14874,7 +14621,7 @@ static void entry__74_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 662: ... "-l:lib@(library).so.@(MAJOR)"
+  // 650: ... "-l:lib@(library).so.@(MAJOR)"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__74_25;
@@ -14892,7 +14639,7 @@ static void cont__74_27(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 662: -> "-l:lib@(library).so.@(MAJOR)"
+  // 650: -> "-l:lib@(library).so.@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14909,7 +14656,7 @@ static void entry__74_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 663: ... "-l@(library)-@(MAJOR)"
+  // 651: ... "-l@(library)-@(MAJOR)"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__74_29;
@@ -14927,7 +14674,7 @@ static void cont__74_30(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 663: -> "-l@(library)-@(MAJOR)"
+  // 651: -> "-l@(library)-@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14941,11 +14688,11 @@ static void cont__74_31(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 659: ->
-  // 660:   if
-  // 661:     current_platform == "linux"
-  // 662:     -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:     -> "-l@(library)-@(MAJOR)"
+  // 647: ->
+  // 648:   if
+  // 649:     current_platform == "linux"
+  // 650:     -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:     -> "-l@(library)-@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14962,7 +14709,7 @@ static void entry__74_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 666: library .contains. '.'
+  // 654: library .contains. '.'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* library */;
@@ -14978,16 +14725,16 @@ static void cont__74_33(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 667: -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
-  // 668:   # Linux only
+  // 655: -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+  // 656:   # Linux only
   frame->slots[3] /* temp__3 */ = create_closure(entry__74_34, 0);
-  // 669: -> "-l@(library)"
+  // 657: -> "-l@(library)"
   frame->slots[4] /* temp__4 */ = create_closure(entry__74_38, 0);
-  // 665: if
-  // 666:   library .contains. '.'
-  // 667:   -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
-  // 668:     # Linux only
-  // 669:   -> "-l@(library)"
+  // 653: if
+  // 654:   library .contains. '.'
+  // 655:   -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+  // 656:     # Linux only
+  // 657:   -> "-l@(library)"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -15007,7 +14754,7 @@ static void entry__74_34(void) {
     invalid_arguments_error();
     return;
   }
-  // 667: ... library .before. '.'
+  // 655: ... library .before. '.'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* library */;
@@ -15023,7 +14770,7 @@ static void cont__74_35(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 667: ... library .behind. '.'
+  // 655: ... library .behind. '.'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* library */;
@@ -15039,7 +14786,7 @@ static void cont__74_36(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 667: ... "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+  // 655: ... "-l:lib@(library .before. '.').so.@(library .behind. '.')"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__74_25;
@@ -15057,8 +14804,8 @@ static void cont__74_37(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 667: -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
-  // 668:   # Linux only
+  // 655: -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+  // 656:   # Linux only
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15075,7 +14822,7 @@ static void entry__74_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 669: ... "-l@(library)"
+  // 657: ... "-l@(library)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__74_29;
@@ -15091,7 +14838,7 @@ static void cont__74_39(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 669: -> "-l@(library)"
+  // 657: -> "-l@(library)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15105,12 +14852,12 @@ static void cont__74_40(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 664: ->
-  // 665:   if
-  // 666:     library .contains. '.'
-  // 667:     -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
-  // 668:       # Linux only
-  // 669:     -> "-l@(library)"
+  // 652: ->
+  // 653:   if
+  // 654:     library .contains. '.'
+  // 655:     -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+  // 656:       # Linux only
+  // 657:     -> "-l@(library)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15124,16 +14871,16 @@ static void cont__74_41(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 655: push
-  // 656:   &library_files
-  // 657:   if
-  // 658:     library .has_prefix. "sim-"
-  // 659:     ->
-  // 660:       if
-  // 661:         current_platform == "linux"
-  // 662:         -> "-l:lib@(library).so.@(MAJOR)"
-  // 663:         -> "-l@(library)-@(MAJOR)"
-  // 664:     ->
+  // 643: push
+  // 644:   &library_files
+  // 645:   if
+  // 646:     library .has_prefix. "sim-"
+  // 647:     ->
+  // 648:       if
+  // 649:         current_platform == "linux"
+  // 650:         -> "-l:lib@(library).so.@(MAJOR)"
+  // 651:         -> "-l@(library)-@(MAJOR)"
+  // 652:     ->
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -15161,7 +14908,7 @@ static void cont__74_43(void) {
     invalid_results_error();
     return;
   }
-  // 670: ... append(object_files library_files)
+  // 658: ... append(object_files library_files)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* object_files */;
@@ -15177,7 +14924,7 @@ static void cont__74_44(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 670: append library_paths append(object_files library_files)
+  // 658: append library_paths append(object_files library_files)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* library_paths */;
@@ -15194,7 +14941,7 @@ static void entry__75_74(void) {
     invalid_arguments_error();
     return;
   }
-  // 713: ... write_timing_info "collecting imports"
+  // 701: ... write_timing_info "collecting imports"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__75_75;
@@ -15219,35 +14966,35 @@ static void entry__75_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 675: ... : (buf)
-  // 676:   $$s undefined
-  // 677:   for_each buf: (idx chr)
-  // 678:     if
-  // 679:       s.is_defined:
-  // 680:         unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:           $symbol range(buf s idx-1)
-  // 682:           !s undefined
-  // 683:           unless already_checked(symbol):
-  // 684:             !already_checked(symbol) true
+  // 663: ... : (buf)
+  // 664:   $$s undefined
+  // 665:   for_each buf: (idx chr)
+  // 666:     if
+  // 667:       s.is_defined:
+  // 668:         unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:           $symbol range(buf s idx-1)
+  // 670:           !s undefined
+  // 671:           unless already_checked(symbol):
+  // 672:             !already_checked(symbol) true
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__75_2, 1);
-  // 675: $collect_declarations: (buf)
-  // 676:   $$s undefined
-  // 677:   for_each buf: (idx chr)
-  // 678:     if
-  // 679:       s.is_defined:
-  // 680:         unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:           $symbol range(buf s idx-1)
-  // 682:           !s undefined
-  // 683:           unless already_checked(symbol):
-  // 684:             !already_checked(symbol) true
+  // 663: $collect_declarations: (buf)
+  // 664:   $$s undefined
+  // 665:   for_each buf: (idx chr)
+  // 666:     if
+  // 667:       s.is_defined:
+  // 668:         unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:           $symbol range(buf s idx-1)
+  // 670:           !s undefined
+  // 671:           unless already_checked(symbol):
+  // 672:             !already_checked(symbol) true
   // ...
   initialize_future(frame->slots[2] /* collect_declarations */, frame->slots[5] /* temp__1 */);
-  // 673: $$already_checked empty_set
+  // 661: $$already_checked empty_set
   ((CELL *)frame->slots[1])->contents /* already_checked */ = get__empty_set();
-  // 708: ... : collect_declarations source
+  // 696: ... : collect_declarations source
   frame->slots[5] /* temp__1 */ = create_closure(entry__75_63, 0);
-  // 708: collect_output $imports: collect_declarations source
+  // 696: collect_output $imports: collect_declarations source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -15267,7 +15014,7 @@ static void entry__75_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 706: ... !s idx
+  // 694: ... !s idx
   ((CELL *)frame->slots[0])->contents /* s */ = frame->slots[1] /* idx */;
   argument_count = 0;
   arguments = node_p;
@@ -15288,7 +15035,7 @@ static void entry__75_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 689: declaration(1)
+  // 677: declaration(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -15303,7 +15050,7 @@ static void cont__75_22(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 689: declaration(1) != '#'
+  // 677: declaration(1) != '#'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -15319,7 +15066,7 @@ static void cont__75_23(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 689: declaration(1) != '#'
+  // 677: declaration(1) != '#'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -15335,11 +15082,11 @@ static void cont__75_24(void) {
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   frame->slots[6] /* temp__4 */ = create_closure(entry__75_25, 0);
-  // 687: $do_import
-  // 688:   &&
-  // 689:     declaration(1) != '#'
-  // 690:     not(declaration .has_prefix. "typedef")
-  // 691:     not(declaration .has_prefix. "REGISTER")
+  // 675: $do_import
+  // 676:   &&
+  // 677:     declaration(1) != '#'
+  // 678:     not(declaration .has_prefix. "typedef")
+  // 679:     not(declaration .has_prefix. "REGISTER")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -15358,7 +15105,7 @@ static void entry__75_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 690: ... declaration .has_prefix. "typedef"
+  // 678: ... declaration .has_prefix. "typedef"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
@@ -15374,7 +15121,7 @@ static void cont__75_27(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 690: not(declaration .has_prefix. "typedef")
+  // 678: not(declaration .has_prefix. "typedef")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -15389,7 +15136,7 @@ static void cont__75_28(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 691: not(declaration .has_prefix. "REGISTER")
+  // 679: not(declaration .has_prefix. "REGISTER")
   frame->slots[4] /* temp__4 */ = create_closure(entry__75_29, 0);
   argument_count = 2;
   arguments = node_p;
@@ -15409,7 +15156,7 @@ static void entry__75_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 691: ... declaration .has_prefix. "REGISTER"
+  // 679: ... declaration .has_prefix. "REGISTER"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
@@ -15425,7 +15172,7 @@ static void cont__75_31(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 691: not(declaration .has_prefix. "REGISTER")
+  // 679: not(declaration .has_prefix. "REGISTER")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -15440,7 +15187,7 @@ static void cont__75_32(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 691: not(declaration .has_prefix. "REGISTER")
+  // 679: not(declaration .has_prefix. "REGISTER")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15467,28 +15214,28 @@ static void cont__75_34(void) {
     return;
   }
   initialize_future(frame->slots[2] /* do_import */, arguments->slots[0]);
-  // 694: ->
-  // 695:   declaration(1) == '#' || declaration .has_prefix. "REGISTER"
-  // 696:   :
-  // 697:     collect_declarations declaration .truncate_from. '{'
+  // 682: ->
+  // 683:   declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+  // 684:   :
+  // 685:     collect_declarations declaration .truncate_from. '{'
   frame->slots[3] /* temp__1 */ = create_closure(entry__75_35, 0);
-  // 698: -> declaration .has_prefix. "typedef struct":
-  // 699:   for_each_line between(declaration '{' '}').trim: (line)
-  // 700:     collect_declarations until(line ' ' -1)
+  // 686: -> declaration .has_prefix. "typedef struct":
+  // 687:   for_each_line between(declaration '{' '}').trim: (line)
+  // 688:     collect_declarations until(line ' ' -1)
   frame->slots[4] /* temp__2 */ = create_closure(entry__75_43, 0);
-  // 701: :
-  // 702:   collect_declarations declaration
+  // 689: :
+  // 690:   collect_declarations declaration
   frame->slots[5] /* temp__3 */ = create_closure(entry__75_52, 0);
-  // 693: cond
-  // 694:   ->
-  // 695:     declaration(1) == '#' || declaration .has_prefix. "REGISTER"
-  // 696:     :
-  // 697:       collect_declarations declaration .truncate_from. '{'
-  // 698:   -> declaration .has_prefix. "typedef struct":
-  // 699:     for_each_line between(declaration '{' '}').trim: (line)
-  // 700:       collect_declarations until(line ' ' -1)
-  // 701:   :
-  // 702:     collect_declarations declaration
+  // 681: cond
+  // 682:   ->
+  // 683:     declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+  // 684:     :
+  // 685:       collect_declarations declaration .truncate_from. '{'
+  // 686:   -> declaration .has_prefix. "typedef struct":
+  // 687:     for_each_line between(declaration '{' '}').trim: (line)
+  // 688:       collect_declarations until(line ' ' -1)
+  // 689:   :
+  // 690:     collect_declarations declaration
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -15509,7 +15256,7 @@ static void entry__75_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 700: ... 1
+  // 688: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -15524,7 +15271,7 @@ static void cont__75_50(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 700: ... until(line ' ' -1)
+  // 688: ... until(line ' ' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* line */;
@@ -15541,7 +15288,7 @@ static void cont__75_51(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 700: collect_declarations until(line ' ' -1)
+  // 688: collect_declarations until(line ' ' -1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15561,7 +15308,7 @@ static void entry__75_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 699: ... between(declaration '{' '}')
+  // 687: ... between(declaration '{' '}')
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
@@ -15578,7 +15325,7 @@ static void cont__75_47(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 699: ... between(declaration '{' '}').trim
+  // 687: ... between(declaration '{' '}').trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -15593,11 +15340,11 @@ static void cont__75_48(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 699: ... : (line)
-  // 700:   collect_declarations until(line ' ' -1)
+  // 687: ... : (line)
+  // 688:   collect_declarations until(line ' ' -1)
   frame->slots[4] /* temp__3 */ = create_closure(entry__75_49, 1);
-  // 699: for_each_line between(declaration '{' '}').trim: (line)
-  // 700:   collect_declarations until(line ' ' -1)
+  // 687: for_each_line between(declaration '{' '}').trim: (line)
+  // 688:   collect_declarations until(line ' ' -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15618,7 +15365,7 @@ static void entry__75_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 697: ... declaration .truncate_from. '{'
+  // 685: ... declaration .truncate_from. '{'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* declaration */;
@@ -15634,7 +15381,7 @@ static void cont__75_42(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 697: collect_declarations declaration .truncate_from. '{'
+  // 685: collect_declarations declaration .truncate_from. '{'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15654,7 +15401,7 @@ static void entry__75_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 695: declaration(1)
+  // 683: declaration(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -15669,7 +15416,7 @@ static void cont__75_36(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 695: declaration(1) == '#'
+  // 683: declaration(1) == '#'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -15685,9 +15432,9 @@ static void cont__75_37(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 695: ... declaration .has_prefix. "REGISTER"
+  // 683: ... declaration .has_prefix. "REGISTER"
   frame->slots[5] /* temp__4 */ = create_closure(entry__75_38, 0);
-  // 695: declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+  // 683: declaration(1) == '#' || declaration .has_prefix. "REGISTER"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -15706,7 +15453,7 @@ static void entry__75_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 695: ... declaration .has_prefix. "REGISTER"
+  // 683: ... declaration .has_prefix. "REGISTER"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
@@ -15722,7 +15469,7 @@ static void cont__75_39(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 695: ... declaration .has_prefix. "REGISTER"
+  // 683: ... declaration .has_prefix. "REGISTER"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15736,13 +15483,13 @@ static void cont__75_40(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 696: :
-  // 697:   collect_declarations declaration .truncate_from. '{'
+  // 684: :
+  // 685:   collect_declarations declaration .truncate_from. '{'
   frame->slots[6] /* temp__5 */ = create_closure(entry__75_41, 0);
-  // 694: ->
-  // 695:   declaration(1) == '#' || declaration .has_prefix. "REGISTER"
-  // 696:   :
-  // 697:     collect_declarations declaration .truncate_from. '{'
+  // 682: ->
+  // 683:   declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+  // 684:   :
+  // 685:     collect_declarations declaration .truncate_from. '{'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15762,7 +15509,7 @@ static void entry__75_43(void) {
     invalid_arguments_error();
     return;
   }
-  // 698: ... declaration .has_prefix. "typedef struct"
+  // 686: ... declaration .has_prefix. "typedef struct"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
@@ -15778,13 +15525,13 @@ static void cont__75_45(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 698: ... :
-  // 699:   for_each_line between(declaration '{' '}').trim: (line)
-  // 700:     collect_declarations until(line ' ' -1)
+  // 686: ... :
+  // 687:   for_each_line between(declaration '{' '}').trim: (line)
+  // 688:     collect_declarations until(line ' ' -1)
   frame->slots[3] /* temp__2 */ = create_closure(entry__75_46, 0);
-  // 698: -> declaration .has_prefix. "typedef struct":
-  // 699:   for_each_line between(declaration '{' '}').trim: (line)
-  // 700:     collect_declarations until(line ' ' -1)
+  // 686: -> declaration .has_prefix. "typedef struct":
+  // 687:   for_each_line between(declaration '{' '}').trim: (line)
+  // 688:     collect_declarations until(line ' ' -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15804,7 +15551,7 @@ static void entry__75_52(void) {
     invalid_arguments_error();
     return;
   }
-  // 702: collect_declarations declaration
+  // 690: collect_declarations declaration
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* declaration */;
@@ -15818,7 +15565,7 @@ static void cont__75_53(void) {
     invalid_results_error();
     return;
   }
-  // 703: if do_import: write "IMPORT "
+  // 691: if do_import: write "IMPORT "
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* do_import */;
@@ -15835,7 +15582,7 @@ static void entry__75_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 703: ... write "IMPORT "
+  // 691: ... write "IMPORT "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__75_55;
@@ -15849,7 +15596,7 @@ static void cont__75_56(void) {
     invalid_results_error();
     return;
   }
-  // 704: write declaration
+  // 692: write declaration
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
@@ -15873,9 +15620,9 @@ static void entry__75_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 684: !already_checked(symbol) true
+  // 672: !already_checked(symbol) true
   frame->slots[4] /* temp__1 */ = get__true();
-  // 684: !already_checked(symbol)
+  // 672: !already_checked(symbol)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* symbol */;
@@ -15891,7 +15638,7 @@ static void cont__75_18(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* already_checked */ = arguments->slots[0];
-  // 685: $declaration runtime_symbols(symbol)
+  // 673: $declaration runtime_symbols(symbol)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* symbol */;
@@ -15906,7 +15653,7 @@ static void cont__75_19(void) {
     return;
   }
   initialize_future(frame->slots[3] /* declaration */, arguments->slots[0]);
-  // 686: ... declaration.is_defined
+  // 674: ... declaration.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* declaration */;
@@ -15921,28 +15668,28 @@ static void cont__75_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 686: ... :
-  // 687:   $do_import
-  // 688:     &&
-  // 689:       declaration(1) != '#'
-  // 690:       not(declaration .has_prefix. "typedef")
-  // 691:       not(declaration .has_prefix. "REGISTER")
-  // 692:   
-  // 693:   cond
-  // 694:     ->
-  // 695:       declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+  // 674: ... :
+  // 675:   $do_import
+  // 676:     &&
+  // 677:       declaration(1) != '#'
+  // 678:       not(declaration .has_prefix. "typedef")
+  // 679:       not(declaration .has_prefix. "REGISTER")
+  // 680:   
+  // 681:   cond
+  // 682:     ->
+  // 683:       declaration(1) == '#' || declaration .has_prefix. "REGISTER"
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__75_21, 0);
-  // 686: if declaration.is_defined:
-  // 687:   $do_import
-  // 688:     &&
-  // 689:       declaration(1) != '#'
-  // 690:       not(declaration .has_prefix. "typedef")
-  // 691:       not(declaration .has_prefix. "REGISTER")
-  // 692:   
-  // 693:   cond
-  // 694:     ->
-  // 695:       declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+  // 674: if declaration.is_defined:
+  // 675:   $do_import
+  // 676:     &&
+  // 677:       declaration(1) != '#'
+  // 678:       not(declaration .has_prefix. "typedef")
+  // 679:       not(declaration .has_prefix. "REGISTER")
+  // 680:   
+  // 681:   cond
+  // 682:     ->
+  // 683:       declaration(1) == '#' || declaration .has_prefix. "REGISTER"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -15972,7 +15719,7 @@ static void entry__75_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 681: ... idx-1
+  // 669: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* idx */;
@@ -15988,7 +15735,7 @@ static void cont__75_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 681: $symbol range(buf s idx-1)
+  // 669: $symbol range(buf s idx-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* buf */;
@@ -16005,9 +15752,9 @@ static void cont__75_15(void) {
     return;
   }
   initialize_future(frame->slots[5] /* symbol */, arguments->slots[0]);
-  // 682: !s undefined
+  // 670: !s undefined
   ((CELL *)frame->slots[1])->contents /* s */ = get__undefined();
-  // 683: ... already_checked(symbol)
+  // 671: ... already_checked(symbol)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* symbol */;
@@ -16022,28 +15769,28 @@ static void cont__75_16(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 683: ... :
-  // 684:   !already_checked(symbol) true
-  // 685:   $declaration runtime_symbols(symbol)
-  // 686:   if declaration.is_defined:
-  // 687:     $do_import
-  // 688:       &&
-  // 689:         declaration(1) != '#'
-  // 690:         not(declaration .has_prefix. "typedef")
-  // 691:         not(declaration .has_prefix. "REGISTER")
-  // 692:     
+  // 671: ... :
+  // 672:   !already_checked(symbol) true
+  // 673:   $declaration runtime_symbols(symbol)
+  // 674:   if declaration.is_defined:
+  // 675:     $do_import
+  // 676:       &&
+  // 677:         declaration(1) != '#'
+  // 678:         not(declaration .has_prefix. "typedef")
+  // 679:         not(declaration .has_prefix. "REGISTER")
+  // 680:     
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__75_17, 0);
-  // 683: unless already_checked(symbol):
-  // 684:   !already_checked(symbol) true
-  // 685:   $declaration runtime_symbols(symbol)
-  // 686:   if declaration.is_defined:
-  // 687:     $do_import
-  // 688:       &&
-  // 689:         declaration(1) != '#'
-  // 690:         not(declaration .has_prefix. "typedef")
-  // 691:         not(declaration .has_prefix. "REGISTER")
-  // 692:     
+  // 671: unless already_checked(symbol):
+  // 672:   !already_checked(symbol) true
+  // 673:   $declaration runtime_symbols(symbol)
+  // 674:   if declaration.is_defined:
+  // 675:     $do_import
+  // 676:       &&
+  // 677:         declaration(1) != '#'
+  // 678:         not(declaration .has_prefix. "typedef")
+  // 679:         not(declaration .has_prefix. "REGISTER")
+  // 680:     
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -16073,7 +15820,7 @@ static void entry__75_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 680: ... chr.is_a_letter
+  // 668: ... chr.is_a_letter
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -16088,9 +15835,9 @@ static void cont__75_6(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 680: ... chr == '_' || chr.is_a_digit
+  // 668: ... chr == '_' || chr.is_a_digit
   frame->slots[8] /* temp__3 */ = create_closure(entry__75_7, 0);
-  // 680: ... chr.is_a_letter || chr == '_' || chr.is_a_digit
+  // 668: ... chr.is_a_letter || chr == '_' || chr.is_a_digit
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -16109,7 +15856,7 @@ static void entry__75_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 680: ... chr == '_'
+  // 668: ... chr == '_'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -16125,9 +15872,9 @@ static void cont__75_8(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 680: ... chr.is_a_digit
+  // 668: ... chr.is_a_digit
   frame->slots[3] /* temp__3 */ = create_closure(entry__75_9, 0);
-  // 680: ... chr == '_' || chr.is_a_digit
+  // 668: ... chr == '_' || chr.is_a_digit
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -16146,7 +15893,7 @@ static void entry__75_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 680: ... chr.is_a_digit
+  // 668: ... chr.is_a_digit
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -16161,7 +15908,7 @@ static void cont__75_10(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 680: ... chr.is_a_digit
+  // 668: ... chr.is_a_digit
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -16175,7 +15922,7 @@ static void cont__75_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 680: ... chr == '_' || chr.is_a_digit
+  // 668: ... chr == '_' || chr.is_a_digit
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -16189,28 +15936,28 @@ static void cont__75_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 680: ... :
-  // 681:   $symbol range(buf s idx-1)
-  // 682:   !s undefined
-  // 683:   unless already_checked(symbol):
-  // 684:     !already_checked(symbol) true
-  // 685:     $declaration runtime_symbols(symbol)
-  // 686:     if declaration.is_defined:
-  // 687:       $do_import
-  // 688:         &&
-  // 689:           declaration(1) != '#'
+  // 668: ... :
+  // 669:   $symbol range(buf s idx-1)
+  // 670:   !s undefined
+  // 671:   unless already_checked(symbol):
+  // 672:     !already_checked(symbol) true
+  // 673:     $declaration runtime_symbols(symbol)
+  // 674:     if declaration.is_defined:
+  // 675:       $do_import
+  // 676:         &&
+  // 677:           declaration(1) != '#'
   // ...
   frame->slots[9] /* temp__4 */ = create_closure(entry__75_13, 0);
-  // 680: unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:   $symbol range(buf s idx-1)
-  // 682:   !s undefined
-  // 683:   unless already_checked(symbol):
-  // 684:     !already_checked(symbol) true
-  // 685:     $declaration runtime_symbols(symbol)
-  // 686:     if declaration.is_defined:
-  // 687:       $do_import
-  // 688:         &&
-  // 689:           declaration(1) != '#'
+  // 668: unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:   $symbol range(buf s idx-1)
+  // 670:   !s undefined
+  // 671:   unless already_checked(symbol):
+  // 672:     !already_checked(symbol) true
+  // 673:     $declaration runtime_symbols(symbol)
+  // 674:     if declaration.is_defined:
+  // 675:       $do_import
+  // 676:         &&
+  // 677:           declaration(1) != '#'
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -16234,7 +15981,7 @@ static void entry__75_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 706: ... chr.is_a_letter
+  // 694: ... chr.is_a_letter
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -16249,9 +15996,9 @@ static void cont__75_58(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 706: ... chr == '_'
+  // 694: ... chr == '_'
   frame->slots[5] /* temp__3 */ = create_closure(entry__75_59, 0);
-  // 706: ... chr.is_a_letter || chr == '_'
+  // 694: ... chr.is_a_letter || chr == '_'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -16270,7 +16017,7 @@ static void entry__75_59(void) {
     invalid_arguments_error();
     return;
   }
-  // 706: ... chr == '_'
+  // 694: ... chr == '_'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -16286,7 +16033,7 @@ static void cont__75_60(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 706: ... chr == '_'
+  // 694: ... chr == '_'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -16300,9 +16047,9 @@ static void cont__75_61(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 706: ... : !s idx
+  // 694: ... : !s idx
   frame->slots[6] /* temp__4 */ = create_closure(entry__75_62, 0);
-  // 706: if chr.is_a_letter || chr == '_': !s idx
+  // 694: if chr.is_a_letter || chr == '_': !s idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -16329,7 +16076,7 @@ static void entry__75_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 679: s.is_defined
+  // 667: s.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* s */;
@@ -16344,31 +16091,31 @@ static void cont__75_4(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 679: ... :
-  // 680:   unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:     $symbol range(buf s idx-1)
-  // 682:     !s undefined
-  // 683:     unless already_checked(symbol):
-  // 684:       !already_checked(symbol) true
-  // 685:       $declaration runtime_symbols(symbol)
-  // 686:       if declaration.is_defined:
-  // 687:         $do_import
-  // 688:           &&
+  // 667: ... :
+  // 668:   unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:     $symbol range(buf s idx-1)
+  // 670:     !s undefined
+  // 671:     unless already_checked(symbol):
+  // 672:       !already_checked(symbol) true
+  // 673:       $declaration runtime_symbols(symbol)
+  // 674:       if declaration.is_defined:
+  // 675:         $do_import
+  // 676:           &&
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__75_5, 0);
-  // 705: :
-  // 706:   if chr.is_a_letter || chr == '_': !s idx
+  // 693: :
+  // 694:   if chr.is_a_letter || chr == '_': !s idx
   frame->slots[8] /* temp__3 */ = create_closure(entry__75_57, 0);
-  // 678: if
-  // 679:   s.is_defined:
-  // 680:     unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:       $symbol range(buf s idx-1)
-  // 682:       !s undefined
-  // 683:       unless already_checked(symbol):
-  // 684:         !already_checked(symbol) true
-  // 685:         $declaration runtime_symbols(symbol)
-  // 686:         if declaration.is_defined:
-  // 687:           $do_import
+  // 666: if
+  // 667:   s.is_defined:
+  // 668:     unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:       $symbol range(buf s idx-1)
+  // 670:       !s undefined
+  // 671:       unless already_checked(symbol):
+  // 672:         !already_checked(symbol) true
+  // 673:         $declaration runtime_symbols(symbol)
+  // 674:         if declaration.is_defined:
+  // 675:           $do_import
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -16394,30 +16141,30 @@ static void entry__75_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 676: $$s undefined
+  // 664: $$s undefined
   ((CELL *)frame->slots[3])->contents /* s */ = get__undefined();
-  // 677: ... : (idx chr)
-  // 678:   if
-  // 679:     s.is_defined:
-  // 680:       unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:         $symbol range(buf s idx-1)
-  // 682:         !s undefined
-  // 683:         unless already_checked(symbol):
-  // 684:           !already_checked(symbol) true
-  // 685:           $declaration runtime_symbols(symbol)
-  // 686:           if declaration.is_defined:
+  // 665: ... : (idx chr)
+  // 666:   if
+  // 667:     s.is_defined:
+  // 668:       unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:         $symbol range(buf s idx-1)
+  // 670:         !s undefined
+  // 671:         unless already_checked(symbol):
+  // 672:           !already_checked(symbol) true
+  // 673:           $declaration runtime_symbols(symbol)
+  // 674:           if declaration.is_defined:
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__75_3, 2);
-  // 677: for_each buf: (idx chr)
-  // 678:   if
-  // 679:     s.is_defined:
-  // 680:       unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
-  // 681:         $symbol range(buf s idx-1)
-  // 682:         !s undefined
-  // 683:         unless already_checked(symbol):
-  // 684:           !already_checked(symbol) true
-  // 685:           $declaration runtime_symbols(symbol)
-  // 686:           if declaration.is_defined:
+  // 665: for_each buf: (idx chr)
+  // 666:   if
+  // 667:     s.is_defined:
+  // 668:       unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+  // 669:         $symbol range(buf s idx-1)
+  // 670:         !s undefined
+  // 671:         unless already_checked(symbol):
+  // 672:           !already_checked(symbol) true
+  // 673:           $declaration runtime_symbols(symbol)
+  // 674:           if declaration.is_defined:
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -16439,7 +16186,7 @@ static void entry__75_63(void) {
     invalid_arguments_error();
     return;
   }
-  // 708: ... collect_declarations source
+  // 696: ... collect_declarations source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* source */;
@@ -16454,7 +16201,7 @@ static void cont__75_64(void) {
     return;
   }
   initialize_future(frame->slots[3] /* imports */, arguments->slots[0]);
-  // 709: $first_part source .before. "// INSERT HERE //"
+  // 697: $first_part source .before. "// INSERT HERE //"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -16470,7 +16217,7 @@ static void cont__75_66(void) {
     return;
   }
   initialize_future(frame->slots[4] /* first_part */, arguments->slots[0]);
-  // 710: write first_part
+  // 698: write first_part
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* first_part */;
@@ -16484,7 +16231,7 @@ static void cont__75_67(void) {
     invalid_results_error();
     return;
   }
-  // 711: write imports
+  // 699: write imports
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* imports */;
@@ -16498,7 +16245,7 @@ static void cont__75_68(void) {
     invalid_results_error();
     return;
   }
-  // 712: ... length_of(first_part)
+  // 700: ... length_of(first_part)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* first_part */;
@@ -16513,7 +16260,7 @@ static void cont__75_69(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 712: ... length_of(first_part)+18
+  // 700: ... length_of(first_part)+18
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -16529,7 +16276,7 @@ static void cont__75_70(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 712: ... 1
+  // 700: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -16544,7 +16291,7 @@ static void cont__75_71(void) {
     return;
   }
   frame->slots[8] /* temp__4 */ = arguments->slots[0];
-  // 712: ... range(source length_of(first_part)+18 -1)
+  // 700: ... range(source length_of(first_part)+18 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -16561,7 +16308,7 @@ static void cont__75_72(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 712: write range(source length_of(first_part)+18 -1)
+  // 700: write range(source length_of(first_part)+18 -1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -16575,7 +16322,7 @@ static void cont__75_73(void) {
     invalid_results_error();
     return;
   }
-  // 713: if do_time_passes: write_timing_info "collecting imports"
+  // 701: if do_time_passes: write_timing_info "collecting imports"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -16601,7 +16348,7 @@ static void entry__76_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 716: ... main_info.is_a_directory
+  // 704: ... main_info.is_a_directory
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_info();
@@ -16616,7 +16363,7 @@ static void cont__76_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 716: if main_info.is_a_directory: Error "Expected a source code file!"
+  // 704: if main_info.is_a_directory: Error "Expected a source code file!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16633,7 +16380,7 @@ static void entry__76_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 716: ... Error "Expected a source code file!"
+  // 704: ... Error "Expected a source code file!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__76_4;
@@ -16647,7 +16394,7 @@ static void cont__76_5(void) {
     invalid_results_error();
     return;
   }
-  // 717: ... main_filename .has_suffix. ".sim"
+  // 705: ... main_filename .has_suffix. ".sim"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -16663,9 +16410,9 @@ static void cont__76_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 717: unless main_filename .has_suffix. ".sim":
-  // 718:   Error "
-  // 719:     Expected ".sim" file extension in source filename!@
+  // 705: unless main_filename .has_suffix. ".sim":
+  // 706:   Error "
+  // 707:     Expected ".sim" file extension in source filename!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16682,8 +16429,8 @@ static void entry__76_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 718: Error "
-  // 719:   Expected ".sim" file extension in source filename!@
+  // 706: Error "
+  // 707:   Expected ".sim" file extension in source filename!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__76_8;
@@ -16697,7 +16444,7 @@ static void cont__76_9(void) {
     invalid_results_error();
     return;
   }
-  // 721: $mod_filename main_filename .without_suffix. ".sim"
+  // 709: $mod_filename main_filename .without_suffix. ".sim"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -16713,7 +16460,7 @@ static void cont__76_10(void) {
     return;
   }
   initialize_future(frame->slots[2] /* mod_filename */, arguments->slots[0]);
-  // 722: ... 1
+  // 710: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -16728,7 +16475,7 @@ static void cont__76_11(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 722: $mod_name truncate_until(mod_filename '/' -1)
+  // 710: $mod_name truncate_until(mod_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_filename */;
@@ -16745,7 +16492,7 @@ static void cont__76_12(void) {
     return;
   }
   initialize_future(frame->slots[3] /* mod_name */, arguments->slots[0]);
-  // 723: body mod_filename mod_name
+  // 711: body mod_filename mod_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_filename */;
@@ -16773,9 +16520,9 @@ static void entry__77_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 727: %sim2c::module_name mod_name
+  // 715: %sim2c::module_name mod_name
   initialize_maybe_future(get__sim2c__module_name(), frame->slots[1] /* mod_name */);
-  // 728: ... list(main_filename)
+  // 716: ... list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -16790,7 +16537,7 @@ static void cont__77_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 728: sim2c list(main_filename)
+  // 716: sim2c list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -16811,9 +16558,9 @@ static void entry__77_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 726: compile_exe: (_mod_filename mod_name)
-  // 727:   %sim2c::module_name mod_name
-  // 728:   sim2c list(main_filename)
+  // 714: compile_exe: (_mod_filename mod_name)
+  // 715:   %sim2c::module_name mod_name
+  // 716:   sim2c list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__77_2;
@@ -16829,7 +16576,7 @@ static void entry__78_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 738: ... write_timing_info "writing C-source"
+  // 726: ... write_timing_info "writing C-source"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__78_19;
@@ -16852,7 +16599,7 @@ static void entry__78_2(void) {
     return;
   }
   frame->slots[1] /* mod_name */ = create_cell_with_contents(arguments->slots[1]);
-  // 732: ... module_prefix.is_defined
+  // 720: ... module_prefix.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._module_prefix;
@@ -16867,9 +16614,9 @@ static void cont__78_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 732: ... : append string(module_prefix '/') &mod_name
+  // 720: ... : append string(module_prefix '/') &mod_name
   frame->slots[5] /* temp__2 */ = create_closure(entry__78_4, 0);
-  // 732: if module_prefix.is_defined: append string(module_prefix '/') &mod_name
+  // 720: if module_prefix.is_defined: append string(module_prefix '/') &mod_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16888,7 +16635,7 @@ static void entry__78_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 732: ... string(module_prefix '/')
+  // 720: ... string(module_prefix '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._module_prefix;
@@ -16904,7 +16651,7 @@ static void cont__78_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 732: ... append string(module_prefix '/') &mod_name
+  // 720: ... append string(module_prefix '/') &mod_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -16931,13 +16678,13 @@ static void cont__78_7(void) {
     invalid_results_error();
     return;
   }
-  // 733: ... :
-  // 734:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
-  // 735:   sim2c list(main_filename)
+  // 721: ... :
+  // 722:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 723:   sim2c list(main_filename)
   frame->slots[4] /* temp__1 */ = create_closure(entry__78_8, 0);
-  // 733: collect_output $c_source:
-  // 734:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
-  // 735:   sim2c list(main_filename)
+  // 721: collect_output $c_source:
+  // 722:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 723:   sim2c list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16958,7 +16705,7 @@ static void entry__78_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 734: ... '/' = "__"
+  // 722: ... '/' = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -16974,7 +16721,7 @@ static void cont__78_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 734: ... '.' = "__"
+  // 722: ... '.' = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
@@ -16990,7 +16737,7 @@ static void cont__78_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 734: %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 722: %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* mod_name */;
@@ -17007,7 +16754,7 @@ static void cont__78_11(void) {
     return;
   }
   initialize_future(get__sim2c__module_name(), arguments->slots[0]);
-  // 735: ... list(main_filename)
+  // 723: ... list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -17022,7 +16769,7 @@ static void cont__78_12(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 735: sim2c list(main_filename)
+  // 723: sim2c list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -17042,9 +16789,9 @@ static void cont__78_14(void) {
     return;
   }
   initialize_future(frame->slots[2] /* c_source */, arguments->slots[0]);
-  // 736: ... : create_imports c_source
+  // 724: ... : create_imports c_source
   frame->slots[4] /* temp__1 */ = create_closure(entry__78_15, 0);
-  // 736: collect_output $c_buf: create_imports c_source
+  // 724: collect_output $c_buf: create_imports c_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -17062,7 +16809,7 @@ static void entry__78_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 736: ... create_imports c_source
+  // 724: ... create_imports c_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_source */;
@@ -17077,7 +16824,7 @@ static void cont__78_16(void) {
     return;
   }
   initialize_future(frame->slots[3] /* c_buf */, arguments->slots[0]);
-  // 737: write c_buf
+  // 725: write c_buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* c_buf */;
@@ -17091,7 +16838,7 @@ static void cont__78_17(void) {
     invalid_results_error();
     return;
   }
-  // 738: if do_time_passes: write_timing_info "writing C-source"
+  // 726: if do_time_passes: write_timing_info "writing C-source"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -17108,14 +16855,14 @@ static void entry__78_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 731: compile_exe: (_mod_filename $mod_name)
-  // 732:   if module_prefix.is_defined: append string(module_prefix '/') &mod_name
-  // 733:   collect_output $c_source:
-  // 734:     %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
-  // 735:     sim2c list(main_filename)
-  // 736:   collect_output $c_buf: create_imports c_source
-  // 737:   write c_buf
-  // 738:   if do_time_passes: write_timing_info "writing C-source"
+  // 719: compile_exe: (_mod_filename $mod_name)
+  // 720:   if module_prefix.is_defined: append string(module_prefix '/') &mod_name
+  // 721:   collect_output $c_source:
+  // 722:     %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 723:     sim2c list(main_filename)
+  // 724:   collect_output $c_buf: create_imports c_source
+  // 725:   write c_buf
+  // 726:   if do_time_passes: write_timing_info "writing C-source"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__78_2;
@@ -17135,7 +16882,7 @@ static void entry__79_35(void) {
     return;
   }
   frame->slots[0] /* filename */ = create_cell_with_contents(arguments->slots[0]);
-  // 767: without_prefix &filename prefix_path
+  // 755: without_prefix &filename prefix_path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -17151,7 +16898,7 @@ static void cont__79_36(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* filename */ = arguments->slots[0];
-  // 768: without_prefix &filename '/'
+  // 756: without_prefix &filename '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -17167,7 +16914,7 @@ static void cont__79_37(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* filename */ = arguments->slots[0];
-  // 769: writeln filename
+  // 757: writeln filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -17185,7 +16932,7 @@ static void entry__79_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 741: !platform_specific_priority multi_dimensional_table(types::table types::table)
+  // 729: !platform_specific_priority multi_dimensional_table(types::table types::table)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__types__table();
@@ -17201,16 +16948,16 @@ static void cont__79_2(void) {
     return;
   }
   var._platform_specific_priority = arguments->slots[0];
-  // 742: for_each supported_platforms: (supported_platform _parent_platform)
-  // 743:   $$platform supported_platform
-  // 744:   $$priority 0
-  // 745:   do: (-> break)
-  // 746:     forever:
-  // 747:       $plat supported_platforms(platform)
-  // 748:       if plat.is_undefined break
-  // 749:       inc &priority
-  // 750:       !platform_specific_priority(supported_platform platform) priority
-  // 751:       if plat == NONE break
+  // 730: for_each supported_platforms: (supported_platform _parent_platform)
+  // 731:   $$platform supported_platform
+  // 732:   $$priority 0
+  // 733:   do: (-> break)
+  // 734:     forever:
+  // 735:       $plat supported_platforms(platform)
+  // 736:       if plat.is_undefined break
+  // 737:       inc &priority
+  // 738:       !platform_specific_priority(supported_platform platform) priority
+  // 739:       if plat == NONE break
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -17236,21 +16983,21 @@ static void entry__79_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 746: ... :
-  // 747:   $plat supported_platforms(platform)
-  // 748:   if plat.is_undefined break
-  // 749:   inc &priority
-  // 750:   !platform_specific_priority(supported_platform platform) priority
-  // 751:   if plat == NONE break
-  // 752:   !platform plat
+  // 734: ... :
+  // 735:   $plat supported_platforms(platform)
+  // 736:   if plat.is_undefined break
+  // 737:   inc &priority
+  // 738:   !platform_specific_priority(supported_platform platform) priority
+  // 739:   if plat == NONE break
+  // 740:   !platform plat
   frame->slots[4] /* temp__1 */ = create_closure(entry__79_5, 0);
-  // 746: forever:
-  // 747:   $plat supported_platforms(platform)
-  // 748:   if plat.is_undefined break
-  // 749:   inc &priority
-  // 750:   !platform_specific_priority(supported_platform platform) priority
-  // 751:   if plat == NONE break
-  // 752:   !platform plat
+  // 734: forever:
+  // 735:   $plat supported_platforms(platform)
+  // 736:   if plat.is_undefined break
+  // 737:   inc &priority
+  // 738:   !platform_specific_priority(supported_platform platform) priority
+  // 739:   if plat == NONE break
+  // 740:   !platform plat
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -17276,7 +17023,7 @@ static void entry__79_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 747: $plat supported_platforms(platform)
+  // 735: $plat supported_platforms(platform)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* platform */;
@@ -17291,7 +17038,7 @@ static void cont__79_6(void) {
     return;
   }
   initialize_future(frame->slots[4] /* plat */, arguments->slots[0]);
-  // 748: ... plat.is_undefined
+  // 736: ... plat.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* plat */;
@@ -17306,7 +17053,7 @@ static void cont__79_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 748: if plat.is_undefined break
+  // 736: if plat.is_undefined break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -17321,7 +17068,7 @@ static void cont__79_8(void) {
     invalid_results_error();
     return;
   }
-  // 749: inc &priority
+  // 737: inc &priority
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* priority */;
@@ -17336,9 +17083,9 @@ static void cont__79_9(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* priority */ = arguments->slots[0];
-  // 750: !platform_specific_priority(supported_platform platform) priority
+  // 738: !platform_specific_priority(supported_platform platform) priority
   frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[2])->contents /* priority */;
-  // 750: !platform_specific_priority(supported_platform platform)
+  // 738: !platform_specific_priority(supported_platform platform)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* supported_platform */;
@@ -17355,7 +17102,7 @@ static void cont__79_10(void) {
     return;
   }
   var._platform_specific_priority = arguments->slots[0];
-  // 751: ... plat == NONE
+  // 739: ... plat == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* plat */;
@@ -17371,7 +17118,7 @@ static void cont__79_11(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 751: if plat == NONE break
+  // 739: if plat == NONE break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -17386,7 +17133,7 @@ static void cont__79_12(void) {
     invalid_results_error();
     return;
   }
-  // 752: !platform plat
+  // 740: !platform plat
   ((CELL *)frame->slots[0])->contents /* platform */ = frame->slots[4] /* plat */;
   argument_count = 0;
   arguments = node_p;
@@ -17412,27 +17159,27 @@ static void entry__79_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 743: $$platform supported_platform
+  // 731: $$platform supported_platform
   ((CELL *)frame->slots[2])->contents /* platform */ = frame->slots[0] /* supported_platform */;
-  // 744: $$priority 0
+  // 732: $$priority 0
   ((CELL *)frame->slots[3])->contents /* priority */ = number__0;
-  // 745: ... : (-> break)
-  // 746:   forever:
-  // 747:     $plat supported_platforms(platform)
-  // 748:     if plat.is_undefined break
-  // 749:     inc &priority
-  // 750:     !platform_specific_priority(supported_platform platform) priority
-  // 751:     if plat == NONE break
-  // 752:     !platform plat
+  // 733: ... : (-> break)
+  // 734:   forever:
+  // 735:     $plat supported_platforms(platform)
+  // 736:     if plat.is_undefined break
+  // 737:     inc &priority
+  // 738:     !platform_specific_priority(supported_platform platform) priority
+  // 739:     if plat == NONE break
+  // 740:     !platform plat
   frame->slots[4] /* temp__1 */ = create_closure(entry__79_4, 0);
-  // 745: do: (-> break)
-  // 746:   forever:
-  // 747:     $plat supported_platforms(platform)
-  // 748:     if plat.is_undefined break
-  // 749:     inc &priority
-  // 750:     !platform_specific_priority(supported_platform platform) priority
-  // 751:     if plat == NONE break
-  // 752:     !platform plat
+  // 733: do: (-> break)
+  // 734:   forever:
+  // 735:     $plat supported_platforms(platform)
+  // 736:     if plat.is_undefined break
+  // 737:     inc &priority
+  // 738:     !platform_specific_priority(supported_platform platform) priority
+  // 739:     if plat == NONE break
+  // 740:     !platform plat
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -17446,7 +17193,7 @@ static void cont__79_14(void) {
     invalid_results_error();
     return;
   }
-  // 754: main_info.is_a_directory
+  // 742: main_info.is_a_directory
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_info();
@@ -17461,16 +17208,16 @@ static void cont__79_15(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 753: if
-  // 754:   main_info.is_a_directory:
-  // 755:     %mode LIB
-  // 756:     if verbose: ewriteln "list dependencies for " main_filename
-  // 757:     compile_modules main_filename behind(main_filename '/' -1)
-  // 758:   :
-  // 759:     compile_exe: (mod_filename mod_name)
-  // 760:       if verbose: ewriteln "list dependencies for " mod_filename
-  // 761:       compile_module mod_filename mod_name
-  // 762:     writeln "runtime/linker.c"
+  // 741: if
+  // 742:   main_info.is_a_directory:
+  // 743:     %mode LIB
+  // 744:     if verbose: ewriteln "list dependencies for " main_filename
+  // 745:     compile_modules main_filename behind(main_filename '/' -1)
+  // 746:   :
+  // 747:     compile_exe: (mod_filename mod_name)
+  // 748:       if verbose: ewriteln "list dependencies for " mod_filename
+  // 749:       compile_module mod_filename mod_name
+  // 750:     writeln "runtime/linker.c"
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -17493,7 +17240,7 @@ static void entry__79_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 756: if verbose: ewriteln "list dependencies for " main_filename
+  // 744: if verbose: ewriteln "list dependencies for " main_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -17510,7 +17257,7 @@ static void entry__79_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 756: ... ewriteln "list dependencies for " main_filename
+  // 744: ... ewriteln "list dependencies for " main_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__79_18;
@@ -17525,7 +17272,7 @@ static void cont__79_19(void) {
     invalid_results_error();
     return;
   }
-  // 757: ... 1
+  // 745: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -17540,7 +17287,7 @@ static void cont__79_20(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 757: ... behind(main_filename '/' -1)
+  // 745: ... behind(main_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -17557,7 +17304,7 @@ static void cont__79_21(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 757: compile_modules main_filename behind(main_filename '/' -1)
+  // 745: compile_modules main_filename behind(main_filename '/' -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -17579,9 +17326,9 @@ static void entry__79_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 759: compile_exe: (mod_filename mod_name)
-  // 760:   if verbose: ewriteln "list dependencies for " mod_filename
-  // 761:   compile_module mod_filename mod_name
+  // 747: compile_exe: (mod_filename mod_name)
+  // 748:   if verbose: ewriteln "list dependencies for " mod_filename
+  // 749:   compile_module mod_filename mod_name
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__79_24;
@@ -17599,9 +17346,9 @@ static void entry__79_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 760: ... : ewriteln "list dependencies for " mod_filename
+  // 748: ... : ewriteln "list dependencies for " mod_filename
   frame->slots[2] /* temp__1 */ = create_closure(entry__79_25, 0);
-  // 760: if verbose: ewriteln "list dependencies for " mod_filename
+  // 748: if verbose: ewriteln "list dependencies for " mod_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -17620,7 +17367,7 @@ static void entry__79_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 760: ... ewriteln "list dependencies for " mod_filename
+  // 748: ... ewriteln "list dependencies for " mod_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__79_18;
@@ -17635,7 +17382,7 @@ static void cont__79_26(void) {
     invalid_results_error();
     return;
   }
-  // 761: compile_module mod_filename mod_name
+  // 749: compile_module mod_filename mod_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -17650,7 +17397,7 @@ static void cont__79_27(void) {
     invalid_results_error();
     return;
   }
-  // 762: writeln "runtime/linker.c"
+  // 750: writeln "runtime/linker.c"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__79_28;
@@ -17664,7 +17411,7 @@ static void cont__79_29(void) {
     invalid_results_error();
     return;
   }
-  // 763: writeln "runtime/memory.c"
+  // 751: writeln "runtime/memory.c"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__79_30;
@@ -17678,7 +17425,7 @@ static void cont__79_31(void) {
     invalid_results_error();
     return;
   }
-  // 764: writeln "runtime/debugger.c"
+  // 752: writeln "runtime/debugger.c"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__79_32;
@@ -17692,7 +17439,7 @@ static void cont__79_33(void) {
     invalid_results_error();
     return;
   }
-  // 765: $prefix_path current_path()
+  // 753: $prefix_path current_path()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -17706,15 +17453,15 @@ static void cont__79_34(void) {
     return;
   }
   initialize_future(frame->slots[0] /* prefix_path */, arguments->slots[0]);
-  // 766: ... : ($filename)
-  // 767:   without_prefix &filename prefix_path
-  // 768:   without_prefix &filename '/'
-  // 769:   writeln filename
+  // 754: ... : ($filename)
+  // 755:   without_prefix &filename prefix_path
+  // 756:   without_prefix &filename '/'
+  // 757:   writeln filename
   frame->slots[1] /* temp__1 */ = create_closure(entry__79_35, 1);
-  // 766: for_each dependencies: ($filename)
-  // 767:   without_prefix &filename prefix_path
-  // 768:   without_prefix &filename '/'
-  // 769:   writeln filename
+  // 754: for_each dependencies: ($filename)
+  // 755:   without_prefix &filename prefix_path
+  // 756:   without_prefix &filename '/'
+  // 757:   writeln filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._dependencies;
@@ -17749,7 +17496,7 @@ static void entry__80_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 773: $codeblocks_path string(mod_filename ".codeblocks")
+  // 761: $codeblocks_path string(mod_filename ".codeblocks")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -17765,7 +17512,7 @@ static void cont__80_4(void) {
     return;
   }
   initialize_future(frame->slots[2] /* codeblocks_path */, arguments->slots[0]);
-  // 774: $info stat(codeblocks_path)
+  // 762: $info stat(codeblocks_path)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* codeblocks_path */;
@@ -17780,7 +17527,7 @@ static void cont__80_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* info */, arguments->slots[0]);
-  // 775: ... info.is_defined
+  // 763: ... info.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -17795,13 +17542,13 @@ static void cont__80_6(void) {
     return;
   }
   frame->slots[10] /* temp__1 */ = arguments->slots[0];
-  // 775: ... :
-  // 776:   ewrite "
-  // 777:     The directory "@(codeblocks_path)" already exists!
+  // 763: ... :
+  // 764:   ewrite "
+  // 765:     The directory "@(codeblocks_path)" already exists!
   frame->slots[11] /* temp__2 */ = create_closure(entry__80_7, 0);
-  // 775: if info.is_defined:
-  // 776:   ewrite "
-  // 777:     The directory "@(codeblocks_path)" already exists!
+  // 763: if info.is_defined:
+  // 764:   ewrite "
+  // 765:     The directory "@(codeblocks_path)" already exists!
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__1 */;
@@ -17820,8 +17567,8 @@ static void entry__80_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 776: ... "
-  // 777:   The directory "@(codeblocks_path)" already exists!
+  // 764: ... "
+  // 765:   The directory "@(codeblocks_path)" already exists!
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__80_8;
@@ -17838,8 +17585,8 @@ static void cont__80_10(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 776: ewrite "
-  // 777:   The directory "@(codeblocks_path)" already exists!
+  // 764: ewrite "
+  // 765:   The directory "@(codeblocks_path)" already exists!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -17853,9 +17600,9 @@ static void cont__80_11(void) {
     invalid_results_error();
     return;
   }
-  // 778: ... : ewriteln "build Code::Blocks project in " codeblocks_path
+  // 766: ... : ewriteln "build Code::Blocks project in " codeblocks_path
   frame->slots[10] /* temp__1 */ = create_closure(entry__80_12, 0);
-  // 778: if verbose: ewriteln "build Code::Blocks project in " codeblocks_path
+  // 766: if verbose: ewriteln "build Code::Blocks project in " codeblocks_path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -17874,7 +17621,7 @@ static void entry__80_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 778: ... ewriteln "build Code::Blocks project in " codeblocks_path
+  // 766: ... ewriteln "build Code::Blocks project in " codeblocks_path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__80_13;
@@ -17889,7 +17636,7 @@ static void cont__80_14(void) {
     invalid_results_error();
     return;
   }
-  // 779: compile_module mod_filename mod_name
+  // 767: compile_module mod_filename mod_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -17904,7 +17651,7 @@ static void cont__80_15(void) {
     invalid_results_error();
     return;
   }
-  // 780: show_file_list
+  // 768: show_file_list
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -17917,7 +17664,7 @@ static void cont__80_16(void) {
     invalid_results_error();
     return;
   }
-  // 781: ... 1
+  // 769: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -17932,7 +17679,7 @@ static void cont__80_17(void) {
     return;
   }
   frame->slots[11] /* temp__2 */ = arguments->slots[0];
-  // 781: ... truncate_until(main_filename '/' -1)
+  // 769: ... truncate_until(main_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -17949,7 +17696,7 @@ static void cont__80_18(void) {
     return;
   }
   frame->slots[10] /* temp__1 */ = arguments->slots[0];
-  // 781: $basename truncate_until(main_filename '/' -1) .without_suffix. ".sim"
+  // 769: $basename truncate_until(main_filename '/' -1) .without_suffix. ".sim"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__1 */;
@@ -17965,7 +17712,7 @@ static void cont__80_19(void) {
     return;
   }
   initialize_future(frame->slots[4] /* basename */, arguments->slots[0]);
-  // 782: $prefix_path current_path()
+  // 770: $prefix_path current_path()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -17979,7 +17726,7 @@ static void cont__80_20(void) {
     return;
   }
   initialize_future(frame->slots[5] /* prefix_path */, arguments->slots[0]);
-  // 783: ... codeblocks_path .without_prefix. prefix_path
+  // 771: ... codeblocks_path .without_prefix. prefix_path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* codeblocks_path */;
@@ -17995,7 +17742,7 @@ static void cont__80_21(void) {
     return;
   }
   frame->slots[10] /* temp__1 */ = arguments->slots[0];
-  // 783: $depth count_occurrences(codeblocks_path .without_prefix. prefix_path '/')
+  // 771: $depth count_occurrences(codeblocks_path .without_prefix. prefix_path '/')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__1 */;
@@ -18011,7 +17758,7 @@ static void cont__80_22(void) {
     return;
   }
   initialize_future(frame->slots[6] /* depth */, arguments->slots[0]);
-  // 784: $path_prefix dup("../" depth)
+  // 772: $path_prefix dup("../" depth)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__80_23;
@@ -18027,7 +17774,7 @@ static void cont__80_24(void) {
     return;
   }
   initialize_future(frame->slots[7] /* path_prefix */, arguments->slots[0]);
-  // 785: $cbp_filename string(codeblocks_path "/" basename ".cbp")
+  // 773: $cbp_filename string(codeblocks_path "/" basename ".cbp")
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* codeblocks_path */;
@@ -18045,7 +17792,7 @@ static void cont__80_27(void) {
     return;
   }
   initialize_future(frame->slots[8] /* cbp_filename */, arguments->slots[0]);
-  // 786: mkdir codeblocks_path
+  // 774: mkdir codeblocks_path
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* codeblocks_path */;
@@ -18059,18 +17806,18 @@ static void cont__80_28(void) {
     invalid_results_error();
     return;
   }
-  // 787: $$buf ""
+  // 775: $$buf ""
   ((CELL *)frame->slots[9])->contents /* buf */ = empty_string;
-  // 788: ... "
-  // 789:   <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-  // 790:   <CodeBlocks_project_file>
-  // 791:     <FileVersion major="1" minor="6" />
-  // 792:     <Project>
-  // 793:       <Option title="@(basename)" />
-  // 794:       <Option pch_mode="2" />
-  // 795:       <Option compiler="gcc" />
-  // 796:       <Build>
-  // 797:         <Target title="debug">
+  // 776: ... "
+  // 777:   <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  // 778:   <CodeBlocks_project_file>
+  // 779:     <FileVersion major="1" minor="6" />
+  // 780:     <Project>
+  // 781:       <Option title="@(basename)" />
+  // 782:       <Option pch_mode="2" />
+  // 783:       <Option compiler="gcc" />
+  // 784:       <Build>
+  // 785:         <Target title="debug">
   // ...
   argument_count = 5;
   arguments = node_p;
@@ -18090,16 +17837,16 @@ static void cont__80_32(void) {
     return;
   }
   frame->slots[10] /* temp__1 */ = arguments->slots[0];
-  // 788: write_to &buf "
-  // 789:   <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-  // 790:   <CodeBlocks_project_file>
-  // 791:     <FileVersion major="1" minor="6" />
-  // 792:     <Project>
-  // 793:       <Option title="@(basename)" />
-  // 794:       <Option pch_mode="2" />
-  // 795:       <Option compiler="gcc" />
-  // 796:       <Build>
-  // 797:         <Target title="debug">
+  // 776: write_to &buf "
+  // 777:   <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  // 778:   <CodeBlocks_project_file>
+  // 779:     <FileVersion major="1" minor="6" />
+  // 780:     <Project>
+  // 781:       <Option title="@(basename)" />
+  // 782:       <Option pch_mode="2" />
+  // 783:       <Option compiler="gcc" />
+  // 784:       <Build>
+  // 785:         <Target title="debug">
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -18116,15 +17863,15 @@ static void cont__80_33(void) {
     return;
   }
   ((CELL *)frame->slots[9])->contents /* buf */ = arguments->slots[0];
-  // 809: ... : (filename)
-  // 810:   write_to &buf "
-  // 811:     @
-  // 812:           <Add library="@(filename)" />
+  // 797: ... : (filename)
+  // 798:   write_to &buf "
+  // 799:     @
+  // 800:           <Add library="@(filename)" />
   frame->slots[10] /* temp__1 */ = create_closure(entry__80_34, 1);
-  // 809: for_each libraries: (filename)
-  // 810:   write_to &buf "
-  // 811:     @
-  // 812:           <Add library="@(filename)" />
+  // 797: for_each libraries: (filename)
+  // 798:   write_to &buf "
+  // 799:     @
+  // 800:           <Add library="@(filename)" />
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__libraries();
@@ -18144,9 +17891,9 @@ static void entry__80_34(void) {
     invalid_arguments_error();
     return;
   }
-  // 810: ... "
-  // 811:   @
-  // 812:         <Add library="@(filename)" />
+  // 798: ... "
+  // 799:   @
+  // 800:         <Add library="@(filename)" />
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__80_35;
@@ -18163,9 +17910,9 @@ static void cont__80_37(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 810: write_to &buf "
-  // 811:   @
-  // 812:         <Add library="@(filename)" />
+  // 798: write_to &buf "
+  // 799:   @
+  // 800:         <Add library="@(filename)" />
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -18192,16 +17939,16 @@ static void cont__80_39(void) {
     invalid_results_error();
     return;
   }
-  // 813: ... "
-  // 814:   @
-  // 815:   
-  // 816:       </Linker>
-  // 817:       <Compiler>
-  // 818:         <Add option="-Wall" />
-  // 819:       </Compiler>
-  // 820:       <Unit filename="@(path_prefix)runtime/common.h" />
-  // 821:       <Unit filename="@(path_prefix)runtime/linker.h" />
-  // 822:       <Unit filename="@(path_prefix)runtime/memory.c">
+  // 801: ... "
+  // 802:   @
+  // 803:   
+  // 804:       </Linker>
+  // 805:       <Compiler>
+  // 806:         <Add option="-Wall" />
+  // 807:       </Compiler>
+  // 808:       <Unit filename="@(path_prefix)runtime/common.h" />
+  // 809:       <Unit filename="@(path_prefix)runtime/linker.h" />
+  // 810:       <Unit filename="@(path_prefix)runtime/memory.c">
   // ...
   argument_count = 11;
   arguments = node_p;
@@ -18227,16 +17974,16 @@ static void cont__80_46(void) {
     return;
   }
   frame->slots[10] /* temp__1 */ = arguments->slots[0];
-  // 813: write_to &buf "
-  // 814:   @
-  // 815:   
-  // 816:       </Linker>
-  // 817:       <Compiler>
-  // 818:         <Add option="-Wall" />
-  // 819:       </Compiler>
-  // 820:       <Unit filename="@(path_prefix)runtime/common.h" />
-  // 821:       <Unit filename="@(path_prefix)runtime/linker.h" />
-  // 822:       <Unit filename="@(path_prefix)runtime/memory.c">
+  // 801: write_to &buf "
+  // 802:   @
+  // 803:   
+  // 804:       </Linker>
+  // 805:       <Compiler>
+  // 806:         <Add option="-Wall" />
+  // 807:       </Compiler>
+  // 808:       <Unit filename="@(path_prefix)runtime/common.h" />
+  // 809:       <Unit filename="@(path_prefix)runtime/linker.h" />
+  // 810:       <Unit filename="@(path_prefix)runtime/memory.c">
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -18253,25 +18000,25 @@ static void cont__80_47(void) {
     return;
   }
   ((CELL *)frame->slots[9])->contents /* buf */ = arguments->slots[0];
-  // 831: ... : ($filename)
-  // 832:   without_prefix &filename prefix_path
-  // 833:   without_prefix &filename '/'
-  // 834:   write_to &buf "
-  // 835:     @
-  // 836:     
-  // 837:         <Unit filename="@(path_prefix)@(filename)">
-  // 838:           <Option compilerVar="CC" />
-  // 839:         </Unit>
+  // 819: ... : ($filename)
+  // 820:   without_prefix &filename prefix_path
+  // 821:   without_prefix &filename '/'
+  // 822:   write_to &buf "
+  // 823:     @
+  // 824:     
+  // 825:         <Unit filename="@(path_prefix)@(filename)">
+  // 826:           <Option compilerVar="CC" />
+  // 827:         </Unit>
   frame->slots[10] /* temp__1 */ = create_closure(entry__80_48, 1);
-  // 831: for_each c_sources: ($filename)
-  // 832:   without_prefix &filename prefix_path
-  // 833:   without_prefix &filename '/'
-  // 834:   write_to &buf "
-  // 835:     @
-  // 836:     
-  // 837:         <Unit filename="@(path_prefix)@(filename)">
-  // 838:           <Option compilerVar="CC" />
-  // 839:         </Unit>
+  // 819: for_each c_sources: ($filename)
+  // 820:   without_prefix &filename prefix_path
+  // 821:   without_prefix &filename '/'
+  // 822:   write_to &buf "
+  // 823:     @
+  // 824:     
+  // 825:         <Unit filename="@(path_prefix)@(filename)">
+  // 826:           <Option compilerVar="CC" />
+  // 827:         </Unit>
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._c_sources;
@@ -18296,7 +18043,7 @@ static void entry__80_48(void) {
     return;
   }
   frame->slots[0] /* filename */ = create_cell_with_contents(arguments->slots[0]);
-  // 832: without_prefix &filename prefix_path
+  // 820: without_prefix &filename prefix_path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -18312,7 +18059,7 @@ static void cont__80_49(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* filename */ = arguments->slots[0];
-  // 833: without_prefix &filename '/'
+  // 821: without_prefix &filename '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -18328,12 +18075,12 @@ static void cont__80_50(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* filename */ = arguments->slots[0];
-  // 834: ... "
-  // 835:   @
-  // 836:   
-  // 837:       <Unit filename="@(path_prefix)@(filename)">
-  // 838:         <Option compilerVar="CC" />
-  // 839:       </Unit>
+  // 822: ... "
+  // 823:   @
+  // 824:   
+  // 825:       <Unit filename="@(path_prefix)@(filename)">
+  // 826:         <Option compilerVar="CC" />
+  // 827:       </Unit>
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__80_51;
@@ -18351,12 +18098,12 @@ static void cont__80_53(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 834: write_to &buf "
-  // 835:   @
-  // 836:   
-  // 837:       <Unit filename="@(path_prefix)@(filename)">
-  // 838:         <Option compilerVar="CC" />
-  // 839:       </Unit>
+  // 822: write_to &buf "
+  // 823:   @
+  // 824:   
+  // 825:       <Unit filename="@(path_prefix)@(filename)">
+  // 826:         <Option compilerVar="CC" />
+  // 827:       </Unit>
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* buf */;
@@ -18383,13 +18130,13 @@ static void cont__80_55(void) {
     invalid_results_error();
     return;
   }
-  // 840: write_to &buf "
-  // 841:       <Extensions>
-  // 842:         <code_completion />
-  // 843:         <debugger />
-  // 844:       </Extensions>
-  // 845:     </Project>
-  // 846:   </CodeBlocks_project_file>
+  // 828: write_to &buf "
+  // 829:       <Extensions>
+  // 830:         <code_completion />
+  // 831:         <debugger />
+  // 832:       </Extensions>
+  // 833:     </Project>
+  // 834:   </CodeBlocks_project_file>
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[9])->contents /* buf */;
@@ -18405,7 +18152,7 @@ static void cont__80_57(void) {
     return;
   }
   ((CELL *)frame->slots[9])->contents /* buf */ = arguments->slots[0];
-  // 847: save cbp_filename buf
+  // 835: save cbp_filename buf
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* cbp_filename */;
@@ -18422,16 +18169,16 @@ static void entry__80_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 772: compile_exe: (mod_filename mod_name)
-  // 773:   $codeblocks_path string(mod_filename ".codeblocks")
-  // 774:   $info stat(codeblocks_path)
-  // 775:   if info.is_defined:
-  // 776:     ewrite "
-  // 777:       The directory "@(codeblocks_path)" already exists!
-  // 778:   if verbose: ewriteln "build Code::Blocks project in " codeblocks_path
-  // 779:   compile_module mod_filename mod_name
-  // 780:   show_file_list
-  // 781:   $basename truncate_until(main_filename '/' -1) .without_suffix. ".sim"
+  // 760: compile_exe: (mod_filename mod_name)
+  // 761:   $codeblocks_path string(mod_filename ".codeblocks")
+  // 762:   $info stat(codeblocks_path)
+  // 763:   if info.is_defined:
+  // 764:     ewrite "
+  // 765:       The directory "@(codeblocks_path)" already exists!
+  // 766:   if verbose: ewriteln "build Code::Blocks project in " codeblocks_path
+  // 767:   compile_module mod_filename mod_name
+  // 768:   show_file_list
+  // 769:   $basename truncate_until(main_filename '/' -1) .without_suffix. ".sim"
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -18452,7 +18199,7 @@ static void entry__81_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 850: ... action == "simrun"
+  // 838: ... action == "simrun"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._action;
@@ -18468,7 +18215,7 @@ static void cont__81_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 850: if action == "simrun": Error "Cannot run a directory!"
+  // 838: if action == "simrun": Error "Cannot run a directory!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18485,7 +18232,7 @@ static void entry__81_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 850: ... Error "Cannot run a directory!"
+  // 838: ... Error "Cannot run a directory!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__81_5;
@@ -18499,16 +18246,16 @@ static void cont__81_6(void) {
     invalid_results_error();
     return;
   }
-  // 852: if
-  // 853:   do_extract_documentation:
-  // 854:     extract_documentation main_filename
-  // 855:   :
-  // 856:     $$version ""
-  // 857:     $$so_version ""
-  // 858:     $version_filename string(main_filename "/VERSION")
-  // 859:     if file_exists(version_filename):
-  // 860:       !version string('-' load(version_filename).trim)
-  // 861:       !so_version version .truncate_from. '.'
+  // 840: if
+  // 841:   do_extract_documentation:
+  // 842:     extract_documentation main_filename
+  // 843:   :
+  // 844:     $$version ""
+  // 845:     $$so_version ""
+  // 846:     $version_filename string(main_filename "/VERSION")
+  // 847:     if file_exists(version_filename):
+  // 848:       !version string('-' load(version_filename).trim)
+  // 849:       !so_version version .truncate_from. '.'
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -18529,7 +18276,7 @@ static void entry__81_84(void) {
     invalid_arguments_error();
     return;
   }
-  // 922: ... err.from_utf8
+  // 910: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -18544,7 +18291,7 @@ static void cont__81_85(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 922: ... Error err.from_utf8
+  // 910: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18562,7 +18309,7 @@ static void entry__81_79(void) {
     invalid_arguments_error();
     return;
   }
-  // 915: ... err.from_utf8
+  // 903: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -18577,7 +18324,7 @@ static void cont__81_80(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 915: ... Error err.from_utf8
+  // 903: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18595,7 +18342,7 @@ static void entry__81_70(void) {
     invalid_arguments_error();
     return;
   }
-  // 904: ... err.from_utf8
+  // 892: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -18610,7 +18357,7 @@ static void cont__81_71(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 904: ... Error err.from_utf8
+  // 892: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18628,7 +18375,7 @@ static void entry__81_63(void) {
     invalid_arguments_error();
     return;
   }
-  // 896: ... err.from_utf8
+  // 884: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -18643,7 +18390,7 @@ static void cont__81_64(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 896: ... Error err.from_utf8
+  // 884: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -18671,7 +18418,7 @@ static void entry__81_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 892: "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+  // 880: "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__81_58;
@@ -18690,7 +18437,7 @@ static void cont__81_59(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 893: library_paths_and_file_list()
+  // 881: library_paths_and_file_list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -18704,18 +18451,18 @@ static void cont__81_60(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 890: Gcc $_out $err $success
-  // 891:   "-shared"
-  // 892:   "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
-  // 893:   library_paths_and_file_list()*
-  // 894:   "-o"
-  // 895:   lib_filename
+  // 878: Gcc $_out $err $success
+  // 879:   "-shared"
+  // 880:   "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+  // 881:   library_paths_and_file_list()*
+  // 882:   "-o"
+  // 883:   lib_filename
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = string__81_61;
   arguments->slots[argument_count++] = frame->slots[6] /* temp__1 */;
   unfold(frame->slots[7] /* temp__2 */);
-  arguments->slots[argument_count++] = string__67_7;
+  arguments->slots[argument_count++] = string__67_6;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
   myself = var._Gcc;
@@ -18730,15 +18477,15 @@ static void cont__81_62(void) {
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
   frame->slots[9] /* temp__4 */ = arguments->slots[1];
   frame->slots[10] /* temp__5 */ = arguments->slots[2];
-  // 890: ... _out
+  // 878: ... _out
   initialize_future(frame->slots[3] /* out */, frame->slots[8] /* temp__3 */);
-  // 890: ... err
+  // 878: ... err
   initialize_future(frame->slots[4] /* err */, frame->slots[9] /* temp__4 */);
-  // 890: ... success
+  // 878: ... success
   initialize_future(frame->slots[5] /* success */, frame->slots[10] /* temp__5 */);
-  // 896: ... : Error err.from_utf8
+  // 884: ... : Error err.from_utf8
   frame->slots[6] /* temp__1 */ = create_closure(entry__81_63, 0);
-  // 896: unless success: Error err.from_utf8
+  // 884: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* success */;
@@ -18763,7 +18510,7 @@ static void entry__81_65(void) {
     invalid_arguments_error();
     return;
   }
-  // 900: library_paths_and_file_list()
+  // 888: library_paths_and_file_list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -18777,7 +18524,7 @@ static void cont__81_66(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 901: "-lsim-@(MAJOR)"
+  // 889: "-lsim-@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__81_67;
@@ -18793,18 +18540,18 @@ static void cont__81_68(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 898: Gcc $_out $err $success
-  // 899:   "-shared"
-  // 900:   library_paths_and_file_list()*
-  // 901:   "-lsim-@(MAJOR)"
-  // 902:   "-o"
-  // 903:   lib_filename
+  // 886: Gcc $_out $err $success
+  // 887:   "-shared"
+  // 888:   library_paths_and_file_list()*
+  // 889:   "-lsim-@(MAJOR)"
+  // 890:   "-o"
+  // 891:   lib_filename
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = string__81_61;
   unfold(frame->slots[4] /* temp__1 */);
   arguments->slots[argument_count++] = frame->slots[5] /* temp__2 */;
-  arguments->slots[argument_count++] = string__67_7;
+  arguments->slots[argument_count++] = string__67_6;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
   myself = var._Gcc;
@@ -18819,15 +18566,15 @@ static void cont__81_69(void) {
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
   frame->slots[7] /* temp__4 */ = arguments->slots[1];
   frame->slots[8] /* temp__5 */ = arguments->slots[2];
-  // 898: ... _out
+  // 886: ... _out
   initialize_future(frame->slots[1] /* out */, frame->slots[6] /* temp__3 */);
-  // 898: ... err
+  // 886: ... err
   initialize_future(frame->slots[2] /* err */, frame->slots[7] /* temp__4 */);
-  // 898: ... success
+  // 886: ... success
   initialize_future(frame->slots[3] /* success */, frame->slots[8] /* temp__5 */);
-  // 904: ... : Error err.from_utf8
+  // 892: ... : Error err.from_utf8
   frame->slots[4] /* temp__1 */ = create_closure(entry__81_70, 0);
-  // 904: unless success: Error err.from_utf8
+  // 892: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* success */;
@@ -18856,9 +18603,9 @@ static void entry__81_72(void) {
     invalid_arguments_error();
     return;
   }
-  // 908: "
-  // 909:   -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
-  // 910:   .dylib@
+  // 896: "
+  // 897:   -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
+  // 898:   .dylib@
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = string__81_73;
@@ -18878,7 +18625,7 @@ static void cont__81_74(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 911: library_paths_and_file_list()
+  // 899: library_paths_and_file_list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -18892,7 +18639,7 @@ static void cont__81_75(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 912: "-lsim-@(MAJOR)"
+  // 900: "-lsim-@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__81_67;
@@ -18908,22 +18655,22 @@ static void cont__81_76(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 906: Gcc $_out $err $success
-  // 907:   "-dynamiclib"
-  // 908:   "
-  // 909:     -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
-  // 910:     .dylib@
-  // 911:   library_paths_and_file_list()*
-  // 912:   "-lsim-@(MAJOR)"
-  // 913:   "-o"
-  // 914:   lib_filename
+  // 894: Gcc $_out $err $success
+  // 895:   "-dynamiclib"
+  // 896:   "
+  // 897:     -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
+  // 898:     .dylib@
+  // 899:   library_paths_and_file_list()*
+  // 900:   "-lsim-@(MAJOR)"
+  // 901:   "-o"
+  // 902:   lib_filename
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = string__81_77;
   arguments->slots[argument_count++] = frame->slots[6] /* temp__1 */;
   unfold(frame->slots[7] /* temp__2 */);
   arguments->slots[argument_count++] = frame->slots[8] /* temp__3 */;
-  arguments->slots[argument_count++] = string__67_7;
+  arguments->slots[argument_count++] = string__67_6;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
   myself = var._Gcc;
@@ -18938,15 +18685,15 @@ static void cont__81_78(void) {
   frame->slots[9] /* temp__4 */ = arguments->slots[0];
   frame->slots[10] /* temp__5 */ = arguments->slots[1];
   frame->slots[11] /* temp__6 */ = arguments->slots[2];
-  // 906: ... _out
+  // 894: ... _out
   initialize_future(frame->slots[3] /* out */, frame->slots[9] /* temp__4 */);
-  // 906: ... err
+  // 894: ... err
   initialize_future(frame->slots[4] /* err */, frame->slots[10] /* temp__5 */);
-  // 906: ... success
+  // 894: ... success
   initialize_future(frame->slots[5] /* success */, frame->slots[11] /* temp__6 */);
-  // 915: ... : Error err.from_utf8
+  // 903: ... : Error err.from_utf8
   frame->slots[6] /* temp__1 */ = create_closure(entry__81_79, 0);
-  // 915: unless success: Error err.from_utf8
+  // 903: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* success */;
@@ -18971,7 +18718,7 @@ static void entry__81_81(void) {
     invalid_arguments_error();
     return;
   }
-  // 919: library_paths_and_file_list()
+  // 907: library_paths_and_file_list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -18985,16 +18732,16 @@ static void cont__81_82(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 917: Gcc $_out $err $success
-  // 918:   "-shared"
-  // 919:   library_paths_and_file_list()*
-  // 920:   "-o"
-  // 921:   lib_filename
+  // 905: Gcc $_out $err $success
+  // 906:   "-shared"
+  // 907:   library_paths_and_file_list()*
+  // 908:   "-o"
+  // 909:   lib_filename
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = string__81_61;
   unfold(frame->slots[4] /* temp__1 */);
-  arguments->slots[argument_count++] = string__67_7;
+  arguments->slots[argument_count++] = string__67_6;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
   myself = var._Gcc;
@@ -19009,15 +18756,15 @@ static void cont__81_83(void) {
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
   frame->slots[6] /* temp__3 */ = arguments->slots[1];
   frame->slots[7] /* temp__4 */ = arguments->slots[2];
-  // 917: ... _out
+  // 905: ... _out
   initialize_future(frame->slots[1] /* out */, frame->slots[5] /* temp__2 */);
-  // 917: ... err
+  // 905: ... err
   initialize_future(frame->slots[2] /* err */, frame->slots[6] /* temp__3 */);
-  // 917: ... success
+  // 905: ... success
   initialize_future(frame->slots[3] /* success */, frame->slots[7] /* temp__4 */);
-  // 922: ... : Error err.from_utf8
+  // 910: ... : Error err.from_utf8
   frame->slots[4] /* temp__1 */ = create_closure(entry__81_84, 0);
-  // 922: unless success: Error err.from_utf8
+  // 910: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* success */;
@@ -19040,7 +18787,7 @@ static void entry__81_53(void) {
     invalid_arguments_error();
     return;
   }
-  // 886: if verbose: ewriteln "linking dynamic library"
+  // 874: if verbose: ewriteln "linking dynamic library"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -19057,7 +18804,7 @@ static void entry__81_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 886: ... ewriteln "linking dynamic library"
+  // 874: ... ewriteln "linking dynamic library"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__81_55;
@@ -19071,54 +18818,54 @@ static void cont__81_56(void) {
     invalid_results_error();
     return;
   }
-  // 889: ... :
-  // 890:   Gcc $_out $err $success
-  // 891:     "-shared"
-  // 892:     "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
-  // 893:     library_paths_and_file_list()*
-  // 894:     "-o"
-  // 895:     lib_filename
-  // 896:   unless success: Error err.from_utf8
+  // 877: ... :
+  // 878:   Gcc $_out $err $success
+  // 879:     "-shared"
+  // 880:     "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+  // 881:     library_paths_and_file_list()*
+  // 882:     "-o"
+  // 883:     lib_filename
+  // 884:   unless success: Error err.from_utf8
   frame->slots[3] /* temp__1 */ = create_closure(entry__81_57, 0);
-  // 897: ... :
-  // 898:   Gcc $_out $err $success
-  // 899:     "-shared"
-  // 900:     library_paths_and_file_list()*
-  // 901:     "-lsim-@(MAJOR)"
-  // 902:     "-o"
-  // 903:     lib_filename
-  // 904:   unless success: Error err.from_utf8
+  // 885: ... :
+  // 886:   Gcc $_out $err $success
+  // 887:     "-shared"
+  // 888:     library_paths_and_file_list()*
+  // 889:     "-lsim-@(MAJOR)"
+  // 890:     "-o"
+  // 891:     lib_filename
+  // 892:   unless success: Error err.from_utf8
   frame->slots[4] /* temp__2 */ = create_closure(entry__81_65, 0);
-  // 905: ... :
-  // 906:   Gcc $_out $err $success
-  // 907:     "-dynamiclib"
-  // 908:     "
-  // 909:       -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
-  // 910:       .dylib@
-  // 911:     library_paths_and_file_list()*
-  // 912:     "-lsim-@(MAJOR)"
-  // 913:     "-o"
-  // 914:     lib_filename
+  // 893: ... :
+  // 894:   Gcc $_out $err $success
+  // 895:     "-dynamiclib"
+  // 896:     "
+  // 897:       -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
+  // 898:       .dylib@
+  // 899:     library_paths_and_file_list()*
+  // 900:     "-lsim-@(MAJOR)"
+  // 901:     "-o"
+  // 902:     lib_filename
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__81_72, 0);
-  // 916: :
-  // 917:   Gcc $_out $err $success
-  // 918:     "-shared"
-  // 919:     library_paths_and_file_list()*
-  // 920:     "-o"
-  // 921:     lib_filename
-  // 922:   unless success: Error err.from_utf8
+  // 904: :
+  // 905:   Gcc $_out $err $success
+  // 906:     "-shared"
+  // 907:     library_paths_and_file_list()*
+  // 908:     "-o"
+  // 909:     lib_filename
+  // 910:   unless success: Error err.from_utf8
   frame->slots[6] /* temp__4 */ = create_closure(entry__81_81, 0);
-  // 887: case
-  // 888:   current_platform
-  // 889:   "linux":
-  // 890:     Gcc $_out $err $success
-  // 891:       "-shared"
-  // 892:       "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
-  // 893:       library_paths_and_file_list()*
-  // 894:       "-o"
-  // 895:       lib_filename
-  // 896:     unless success: Error err.from_utf8
+  // 875: case
+  // 876:   current_platform
+  // 877:   "linux":
+  // 878:     Gcc $_out $err $success
+  // 879:       "-shared"
+  // 880:       "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+  // 881:       library_paths_and_file_list()*
+  // 882:       "-o"
+  // 883:       lib_filename
+  // 884:     unless success: Error err.from_utf8
   // ...
   argument_count = 8;
   arguments = node_p;
@@ -19142,7 +18889,7 @@ static void entry__81_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 854: extract_documentation main_filename
+  // 842: extract_documentation main_filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -19168,11 +18915,11 @@ static void entry__81_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 856: $$version ""
+  // 844: $$version ""
   ((CELL *)frame->slots[0])->contents /* version */ = empty_string;
-  // 857: $$so_version ""
+  // 845: $$so_version ""
   ((CELL *)frame->slots[1])->contents /* so_version */ = empty_string;
-  // 858: $version_filename string(main_filename "/VERSION")
+  // 846: $version_filename string(main_filename "/VERSION")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -19188,7 +18935,7 @@ static void cont__81_10(void) {
     return;
   }
   initialize_future(frame->slots[2] /* version_filename */, arguments->slots[0]);
-  // 859: ... file_exists(version_filename)
+  // 847: ... file_exists(version_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* version_filename */;
@@ -19203,13 +18950,13 @@ static void cont__81_11(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 859: ... :
-  // 860:   !version string('-' load(version_filename).trim)
-  // 861:   !so_version version .truncate_from. '.'
+  // 847: ... :
+  // 848:   !version string('-' load(version_filename).trim)
+  // 849:   !so_version version .truncate_from. '.'
   frame->slots[6] /* temp__2 */ = create_closure(entry__81_12, 0);
-  // 859: if file_exists(version_filename):
-  // 860:   !version string('-' load(version_filename).trim)
-  // 861:   !so_version version .truncate_from. '.'
+  // 847: if file_exists(version_filename):
+  // 848:   !version string('-' load(version_filename).trim)
+  // 849:   !so_version version .truncate_from. '.'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -19232,7 +18979,7 @@ static void entry__81_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 860: ... load(version_filename)
+  // 848: ... load(version_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* version_filename */;
@@ -19247,7 +18994,7 @@ static void cont__81_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 860: ... load(version_filename).trim
+  // 848: ... load(version_filename).trim
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -19262,7 +19009,7 @@ static void cont__81_14(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 860: !version string('-' load(version_filename).trim)
+  // 848: !version string('-' load(version_filename).trim)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__45;
@@ -19278,7 +19025,7 @@ static void cont__81_15(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* version */ = arguments->slots[0];
-  // 861: !so_version version .truncate_from. '.'
+  // 849: !so_version version .truncate_from. '.'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* version */;
@@ -19305,7 +19052,7 @@ static void cont__81_17(void) {
     invalid_results_error();
     return;
   }
-  // 862: ... 1
+  // 850: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -19320,7 +19067,7 @@ static void cont__81_18(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 862: $base_filename truncate_until(main_filename '/' -1)
+  // 850: $base_filename truncate_until(main_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -19337,24 +19084,24 @@ static void cont__81_19(void) {
     return;
   }
   initialize_future(frame->slots[3] /* base_filename */, arguments->slots[0]);
-  // 868: -> string("libsim-" base_filename version ".so.@(MAJOR)")
+  // 856: -> string("libsim-" base_filename version ".so.@(MAJOR)")
   frame->slots[5] /* temp__1 */ = create_closure(entry__81_20, 0);
-  // 870: -> string("libsim-" base_filename version "-@(MAJOR).dll")
+  // 858: -> string("libsim-" base_filename version "-@(MAJOR).dll")
   frame->slots[6] /* temp__2 */ = create_closure(entry__81_24, 0);
-  // 872: -> string("libsim-" base_filename version "-@(MAJOR).dylib")
+  // 860: -> string("libsim-" base_filename version "-@(MAJOR).dylib")
   frame->slots[7] /* temp__3 */ = create_closure(entry__81_28, 0);
-  // 873: -> string("libsim-" base_filename ".so")
+  // 861: -> string("libsim-" base_filename ".so")
   frame->slots[8] /* temp__4 */ = create_closure(entry__81_32, 0);
-  // 864: $lib_filename
-  // 865:   case
-  // 866:     current_platform
-  // 867:     "linux"
-  // 868:     -> string("libsim-" base_filename version ".so.@(MAJOR)")
-  // 869:     "cygwin"
-  // 870:     -> string("libsim-" base_filename version "-@(MAJOR).dll")
-  // 871:     "darwin"
-  // 872:     -> string("libsim-" base_filename version "-@(MAJOR).dylib")
-  // 873:     -> string("libsim-" base_filename ".so")
+  // 852: $lib_filename
+  // 853:   case
+  // 854:     current_platform
+  // 855:     "linux"
+  // 856:     -> string("libsim-" base_filename version ".so.@(MAJOR)")
+  // 857:     "cygwin"
+  // 858:     -> string("libsim-" base_filename version "-@(MAJOR).dll")
+  // 859:     "darwin"
+  // 860:     -> string("libsim-" base_filename version "-@(MAJOR).dylib")
+  // 861:     -> string("libsim-" base_filename ".so")
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = get__current_platform();
@@ -19381,7 +19128,7 @@ static void entry__81_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 868: ... ".so.@(MAJOR)"
+  // 856: ... ".so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__74_26;
@@ -19397,7 +19144,7 @@ static void cont__81_21(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 868: ... string("libsim-" base_filename version ".so.@(MAJOR)")
+  // 856: ... string("libsim-" base_filename version ".so.@(MAJOR)")
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__81_22;
@@ -19415,7 +19162,7 @@ static void cont__81_23(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 868: -> string("libsim-" base_filename version ".so.@(MAJOR)")
+  // 856: -> string("libsim-" base_filename version ".so.@(MAJOR)")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -19434,7 +19181,7 @@ static void entry__81_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 870: ... "-@(MAJOR).dll"
+  // 858: ... "-@(MAJOR).dll"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__64_46;
@@ -19451,7 +19198,7 @@ static void cont__81_26(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 870: ... string("libsim-" base_filename version "-@(MAJOR).dll")
+  // 858: ... string("libsim-" base_filename version "-@(MAJOR).dll")
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__81_22;
@@ -19469,7 +19216,7 @@ static void cont__81_27(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 870: -> string("libsim-" base_filename version "-@(MAJOR).dll")
+  // 858: -> string("libsim-" base_filename version "-@(MAJOR).dll")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -19488,7 +19235,7 @@ static void entry__81_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 872: ... "-@(MAJOR).dylib"
+  // 860: ... "-@(MAJOR).dylib"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__64_46;
@@ -19505,7 +19252,7 @@ static void cont__81_30(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 872: ... string("libsim-" base_filename version "-@(MAJOR).dylib")
+  // 860: ... string("libsim-" base_filename version "-@(MAJOR).dylib")
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__81_22;
@@ -19523,7 +19270,7 @@ static void cont__81_31(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 872: -> string("libsim-" base_filename version "-@(MAJOR).dylib")
+  // 860: -> string("libsim-" base_filename version "-@(MAJOR).dylib")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -19540,7 +19287,7 @@ static void entry__81_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 873: ... string("libsim-" base_filename ".so")
+  // 861: ... string("libsim-" base_filename ".so")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__81_22;
@@ -19557,7 +19304,7 @@ static void cont__81_34(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 873: -> string("libsim-" base_filename ".so")
+  // 861: -> string("libsim-" base_filename ".so")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -19571,9 +19318,9 @@ static void cont__81_37(void) {
     return;
   }
   initialize_future(frame->slots[4] /* lib_filename */, arguments->slots[0]);
-  // 875: ... : ewriteln "build library " lib_filename
+  // 863: ... : ewriteln "build library " lib_filename
   frame->slots[5] /* temp__1 */ = create_closure(entry__81_38, 0);
-  // 875: if verbose: ewriteln "build library " lib_filename
+  // 863: if verbose: ewriteln "build library " lib_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -19592,7 +19339,7 @@ static void entry__81_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 875: ... ewriteln "build library " lib_filename
+  // 863: ... ewriteln "build library " lib_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__81_39;
@@ -19607,7 +19354,7 @@ static void cont__81_40(void) {
     invalid_results_error();
     return;
   }
-  // 876: ... 1
+  // 864: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -19622,7 +19369,7 @@ static void cont__81_41(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 876: ... behind(main_filename '/' -1)
+  // 864: ... behind(main_filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -19639,7 +19386,7 @@ static void cont__81_42(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 876: compile_modules main_filename behind(main_filename '/' -1)
+  // 864: compile_modules main_filename behind(main_filename '/' -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -19654,23 +19401,23 @@ static void cont__81_43(void) {
     invalid_results_error();
     return;
   }
-  // 877: ... :
-  // 878:   $info stat(lib_filename)
-  // 879:   if
-  // 880:     ||
-  // 881:       info.is_undefined
-  // 882:       last_modification_time > modification_time_of(info)
-  // 883:     :
-  // 884:       !do_link true
+  // 865: ... :
+  // 866:   $info stat(lib_filename)
+  // 867:   if
+  // 868:     ||
+  // 869:       info.is_undefined
+  // 870:       last_modification_time > modification_time_of(info)
+  // 871:     :
+  // 872:       !do_link true
   frame->slots[5] /* temp__1 */ = create_closure(entry__81_44, 0);
-  // 877: unless do_link:
-  // 878:   $info stat(lib_filename)
-  // 879:   if
-  // 880:     ||
-  // 881:       info.is_undefined
-  // 882:       last_modification_time > modification_time_of(info)
-  // 883:     :
-  // 884:       !do_link true
+  // 865: unless do_link:
+  // 866:   $info stat(lib_filename)
+  // 867:   if
+  // 868:     ||
+  // 869:       info.is_undefined
+  // 870:       last_modification_time > modification_time_of(info)
+  // 871:     :
+  // 872:       !do_link true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_link();
@@ -19687,7 +19434,7 @@ static void entry__81_51(void) {
     invalid_arguments_error();
     return;
   }
-  // 884: !do_link true
+  // 872: !do_link true
   set__do_link(get__true());
   argument_count = 0;
   arguments = node_p;
@@ -19706,7 +19453,7 @@ static void entry__81_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 878: $info stat(lib_filename)
+  // 866: $info stat(lib_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* lib_filename */;
@@ -19721,7 +19468,7 @@ static void cont__81_45(void) {
     return;
   }
   initialize_future(frame->slots[1] /* info */, arguments->slots[0]);
-  // 881: info.is_undefined
+  // 869: info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
@@ -19736,11 +19483,11 @@ static void cont__81_46(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 882: last_modification_time > modification_time_of(info)
+  // 870: last_modification_time > modification_time_of(info)
   frame->slots[4] /* temp__3 */ = create_closure(entry__81_47, 0);
-  // 880: ||
-  // 881:   info.is_undefined
-  // 882:   last_modification_time > modification_time_of(info)
+  // 868: ||
+  // 869:   info.is_undefined
+  // 870:   last_modification_time > modification_time_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -19759,7 +19506,7 @@ static void entry__81_47(void) {
     invalid_arguments_error();
     return;
   }
-  // 882: ... modification_time_of(info)
+  // 870: ... modification_time_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -19774,7 +19521,7 @@ static void cont__81_48(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 882: last_modification_time > modification_time_of(info)
+  // 870: last_modification_time > modification_time_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -19790,7 +19537,7 @@ static void cont__81_49(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 882: last_modification_time > modification_time_of(info)
+  // 870: last_modification_time > modification_time_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -19804,12 +19551,12 @@ static void cont__81_50(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 879: if
-  // 880:   ||
-  // 881:     info.is_undefined
-  // 882:     last_modification_time > modification_time_of(info)
-  // 883:   :
-  // 884:     !do_link true
+  // 867: if
+  // 868:   ||
+  // 869:     info.is_undefined
+  // 870:     last_modification_time > modification_time_of(info)
+  // 871:   :
+  // 872:     !do_link true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -19824,28 +19571,28 @@ static void cont__81_52(void) {
     invalid_results_error();
     return;
   }
-  // 885: ... :
-  // 886:   if verbose: ewriteln "linking dynamic library"
-  // 887:   case
-  // 888:     current_platform
-  // 889:     "linux":
-  // 890:       Gcc $_out $err $success
-  // 891:         "-shared"
-  // 892:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
-  // 893:         library_paths_and_file_list()*
-  // 894:         "-o"
+  // 873: ... :
+  // 874:   if verbose: ewriteln "linking dynamic library"
+  // 875:   case
+  // 876:     current_platform
+  // 877:     "linux":
+  // 878:       Gcc $_out $err $success
+  // 879:         "-shared"
+  // 880:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+  // 881:         library_paths_and_file_list()*
+  // 882:         "-o"
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__81_53, 0);
-  // 885: if do_link:
-  // 886:   if verbose: ewriteln "linking dynamic library"
-  // 887:   case
-  // 888:     current_platform
-  // 889:     "linux":
-  // 890:       Gcc $_out $err $success
-  // 891:         "-shared"
-  // 892:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
-  // 893:         library_paths_and_file_list()*
-  // 894:         "-o"
+  // 873: if do_link:
+  // 874:   if verbose: ewriteln "linking dynamic library"
+  // 875:   case
+  // 876:     current_platform
+  // 877:     "linux":
+  // 878:       Gcc $_out $err $success
+  // 879:         "-shared"
+  // 880:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+  // 881:         library_paths_and_file_list()*
+  // 882:         "-o"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -19874,9 +19621,9 @@ static void entry__82_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 937: ... : ewriteln "compiling runtime module @(filename)"
+  // 925: ... : ewriteln "compiling runtime module @(filename)"
   frame->slots[3] /* temp__1 */ = create_closure(entry__82_19, 0);
-  // 937: if verbose: ewriteln "compiling runtime module @(filename)"
+  // 925: if verbose: ewriteln "compiling runtime module @(filename)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -19895,7 +19642,7 @@ static void entry__82_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 937: ... "compiling runtime module @(filename)"
+  // 925: ... "compiling runtime module @(filename)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__82_20;
@@ -19911,7 +19658,7 @@ static void cont__82_21(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 937: ... ewriteln "compiling runtime module @(filename)"
+  // 925: ... ewriteln "compiling runtime module @(filename)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -19925,7 +19672,7 @@ static void cont__82_22(void) {
     invalid_results_error();
     return;
   }
-  // 938: compile_c c_filename o_filename
+  // 926: compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_filename */;
@@ -19951,7 +19698,7 @@ static void entry__82_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 925: $c_filename string(filename ".c")
+  // 913: $c_filename string(filename ".c")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -19967,11 +19714,11 @@ static void cont__82_2(void) {
     return;
   }
   initialize_future(frame->slots[1] /* c_filename */, arguments->slots[0]);
-  // 926: $o_filename string(filename ".o")
+  // 914: $o_filename string(filename ".o")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
-  arguments->slots[1] = string__70_88;
+  arguments->slots[1] = string__70_84;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -19983,7 +19730,7 @@ static void cont__82_3(void) {
     return;
   }
   initialize_future(frame->slots[2] /* o_filename */, arguments->slots[0]);
-  // 927: $c_info stat(c_filename)
+  // 915: $c_info stat(c_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_filename */;
@@ -19998,7 +19745,7 @@ static void cont__82_4(void) {
     return;
   }
   initialize_future(frame->slots[3] /* c_info */, arguments->slots[0]);
-  // 928: ... c_info.is_undefined
+  // 916: ... c_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* c_info */;
@@ -20013,13 +19760,13 @@ static void cont__82_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 928: ... :
-  // 929:   Error "
-  // 930:     @quot;@(c_filename)" does not exist!
+  // 916: ... :
+  // 917:   Error "
+  // 918:     @quot;@(c_filename)" does not exist!
   frame->slots[6] /* temp__2 */ = create_closure(entry__82_6, 0);
-  // 928: if c_info.is_undefined:
-  // 929:   Error "
-  // 930:     @quot;@(c_filename)" does not exist!
+  // 916: if c_info.is_undefined:
+  // 917:   Error "
+  // 918:     @quot;@(c_filename)" does not exist!
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -20038,8 +19785,8 @@ static void entry__82_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 929: ... "
-  // 930:   @quot;@(c_filename)" does not exist!
+  // 917: ... "
+  // 918:   @quot;@(c_filename)" does not exist!
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__82_7;
@@ -20056,8 +19803,8 @@ static void cont__82_9(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 929: Error "
-  // 930:   @quot;@(c_filename)" does not exist!
+  // 917: Error "
+  // 918:   @quot;@(c_filename)" does not exist!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -20071,7 +19818,7 @@ static void cont__82_10(void) {
     invalid_results_error();
     return;
   }
-  // 931: $o_info stat(o_filename)
+  // 919: $o_info stat(o_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* o_filename */;
@@ -20086,7 +19833,7 @@ static void cont__82_11(void) {
     return;
   }
   initialize_future(frame->slots[4] /* o_info */, arguments->slots[0]);
-  // 934: o_info.is_undefined
+  // 922: o_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* o_info */;
@@ -20101,11 +19848,11 @@ static void cont__82_12(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 935: modification_time_of(c_info) > modification_time_of(o_info)
+  // 923: modification_time_of(c_info) > modification_time_of(o_info)
   frame->slots[7] /* temp__3 */ = create_closure(entry__82_13, 0);
-  // 933: ||
-  // 934:   o_info.is_undefined
-  // 935:   modification_time_of(c_info) > modification_time_of(o_info)
+  // 921: ||
+  // 922:   o_info.is_undefined
+  // 923:   modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -20126,7 +19873,7 @@ static void entry__82_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 935: ... modification_time_of(o_info)
+  // 923: ... modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* o_info */;
@@ -20141,7 +19888,7 @@ static void cont__82_14(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 935: modification_time_of(c_info)
+  // 923: modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_info */;
@@ -20156,7 +19903,7 @@ static void cont__82_15(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 935: modification_time_of(c_info) > modification_time_of(o_info)
+  // 923: modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -20172,7 +19919,7 @@ static void cont__82_16(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 935: modification_time_of(c_info) > modification_time_of(o_info)
+  // 923: modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -20186,17 +19933,17 @@ static void cont__82_17(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 936: :
-  // 937:   if verbose: ewriteln "compiling runtime module @(filename)"
-  // 938:   compile_c c_filename o_filename
+  // 924: :
+  // 925:   if verbose: ewriteln "compiling runtime module @(filename)"
+  // 926:   compile_c c_filename o_filename
   frame->slots[8] /* temp__4 */ = create_closure(entry__82_18, 0);
-  // 932: if
-  // 933:   ||
-  // 934:     o_info.is_undefined
-  // 935:     modification_time_of(c_info) > modification_time_of(o_info)
-  // 936:   :
-  // 937:     if verbose: ewriteln "compiling runtime module @(filename)"
-  // 938:     compile_c c_filename o_filename
+  // 920: if
+  // 921:   ||
+  // 922:     o_info.is_undefined
+  // 923:     modification_time_of(c_info) > modification_time_of(o_info)
+  // 924:   :
+  // 925:     if verbose: ewriteln "compiling runtime module @(filename)"
+  // 926:     compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -20230,7 +19977,7 @@ static void entry__84_1(void) {
   switch(argument_count) {
     case 2: frame->slots[2] /* m */ = number__0;
   }
-  // 948: to_string &val
+  // 936: to_string &val
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -20245,21 +19992,21 @@ static void cont__84_2(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* val */ = arguments->slots[0];
-  // 949: $$ac 0
+  // 937: $$ac 0
   ((CELL *)frame->slots[3])->contents /* ac */ = number__0;
-  // 950: ... : (-> break)
-  // 951:   for_each val: (i chr)
-  // 952:     if chr == '.':
-  // 953:       !ac length_of(val)-i
-  // 954:       if n > i-1: append dup(" " n-(i-1)) &val
-  // 955:       break
+  // 938: ... : (-> break)
+  // 939:   for_each val: (i chr)
+  // 940:     if chr == '.':
+  // 941:       !ac length_of(val)-i
+  // 942:       if n > i-1: append dup(" " n-(i-1)) &val
+  // 943:       break
   frame->slots[4] /* temp__1 */ = create_closure(entry__84_3, 0);
-  // 950: do: (-> break)
-  // 951:   for_each val: (i chr)
-  // 952:     if chr == '.':
-  // 953:       !ac length_of(val)-i
-  // 954:       if n > i-1: append dup(" " n-(i-1)) &val
-  // 955:       break
+  // 938: do: (-> break)
+  // 939:   for_each val: (i chr)
+  // 940:     if chr == '.':
+  // 941:       !ac length_of(val)-i
+  // 942:       if n > i-1: append dup(" " n-(i-1)) &val
+  // 943:       break
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -20283,17 +20030,17 @@ static void entry__84_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 951: ... : (i chr)
-  // 952:   if chr == '.':
-  // 953:     !ac length_of(val)-i
-  // 954:     if n > i-1: append dup(" " n-(i-1)) &val
-  // 955:     break
+  // 939: ... : (i chr)
+  // 940:   if chr == '.':
+  // 941:     !ac length_of(val)-i
+  // 942:     if n > i-1: append dup(" " n-(i-1)) &val
+  // 943:     break
   frame->slots[4] /* temp__1 */ = create_closure(entry__84_4, 2);
-  // 951: for_each val: (i chr)
-  // 952:   if chr == '.':
-  // 953:     !ac length_of(val)-i
-  // 954:     if n > i-1: append dup(" " n-(i-1)) &val
-  // 955:     break
+  // 939: for_each val: (i chr)
+  // 940:   if chr == '.':
+  // 941:     !ac length_of(val)-i
+  // 942:     if n > i-1: append dup(" " n-(i-1)) &val
+  // 943:     break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* val */;
@@ -20320,7 +20067,7 @@ static void entry__84_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 953: ... length_of(val)
+  // 941: ... length_of(val)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* val */;
@@ -20335,7 +20082,7 @@ static void cont__84_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 953: !ac length_of(val)-i
+  // 941: !ac length_of(val)-i
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -20351,7 +20098,7 @@ static void cont__84_8(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* ac */ = arguments->slots[0];
-  // 954: ... i-1
+  // 942: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* i */;
@@ -20367,7 +20114,7 @@ static void cont__84_9(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 954: ... n > i-1
+  // 942: ... n > i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -20383,9 +20130,9 @@ static void cont__84_10(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 954: ... : append dup(" " n-(i-1)) &val
+  // 942: ... : append dup(" " n-(i-1)) &val
   frame->slots[7] /* temp__3 */ = create_closure(entry__84_11, 0);
-  // 954: if n > i-1: append dup(" " n-(i-1)) &val
+  // 942: if n > i-1: append dup(" " n-(i-1)) &val
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -20408,7 +20155,7 @@ static void entry__84_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 954: ... i-1
+  // 942: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* i */;
@@ -20424,7 +20171,7 @@ static void cont__84_12(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 954: ... n-(i-1
+  // 942: ... n-(i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* n */;
@@ -20440,7 +20187,7 @@ static void cont__84_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 954: ... dup(" " n-(i-1))
+  // 942: ... dup(" " n-(i-1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__84_14;
@@ -20456,7 +20203,7 @@ static void cont__84_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 954: ... append dup(" " n-(i-1)) &val
+  // 942: ... append dup(" " n-(i-1)) &val
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -20483,7 +20230,7 @@ static void cont__84_17(void) {
     invalid_results_error();
     return;
   }
-  // 955: break
+  // 943: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -20508,7 +20255,7 @@ static void entry__84_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 952: ... chr == '.'
+  // 940: ... chr == '.'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* chr */;
@@ -20524,15 +20271,15 @@ static void cont__84_5(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 952: ... :
-  // 953:   !ac length_of(val)-i
-  // 954:   if n > i-1: append dup(" " n-(i-1)) &val
-  // 955:   break
+  // 940: ... :
+  // 941:   !ac length_of(val)-i
+  // 942:   if n > i-1: append dup(" " n-(i-1)) &val
+  // 943:   break
   frame->slots[7] /* temp__2 */ = create_closure(entry__84_6, 0);
-  // 952: if chr == '.':
-  // 953:   !ac length_of(val)-i
-  // 954:   if n > i-1: append dup(" " n-(i-1)) &val
-  // 955:   break
+  // 940: if chr == '.':
+  // 941:   !ac length_of(val)-i
+  // 942:   if n > i-1: append dup(" " n-(i-1)) &val
+  // 943:   break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -20552,7 +20299,7 @@ static void cont__84_19(void) {
     invalid_results_error();
     return;
   }
-  // 957: m > ac
+  // 945: m > ac
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* ac */;
@@ -20568,17 +20315,17 @@ static void cont__84_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 957: ... :
-  // 958:   append &val dup("0" m-ac)
+  // 945: ... :
+  // 946:   append &val dup("0" m-ac)
   frame->slots[5] /* temp__2 */ = create_closure(entry__84_21, 0);
-  // 959: :
-  // 960:   if ac > m: range &val 1 -(ac-m+1)
+  // 947: :
+  // 948:   if ac > m: range &val 1 -(ac-m+1)
   frame->slots[6] /* temp__3 */ = create_closure(entry__84_26, 0);
-  // 956: if
-  // 957:   m > ac:
-  // 958:     append &val dup("0" m-ac)
-  // 959:   :
-  // 960:     if ac > m: range &val 1 -(ac-m+1)
+  // 944: if
+  // 945:   m > ac:
+  // 946:     append &val dup("0" m-ac)
+  // 947:   :
+  // 948:     if ac > m: range &val 1 -(ac-m+1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -20602,7 +20349,7 @@ static void entry__84_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 960: ... ac-m
+  // 948: ... ac-m
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* ac */;
@@ -20618,7 +20365,7 @@ static void cont__84_29(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 960: ... ac-m+1
+  // 948: ... ac-m+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -20634,7 +20381,7 @@ static void cont__84_30(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 960: ... ac-m+1)
+  // 948: ... ac-m+1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -20649,7 +20396,7 @@ static void cont__84_31(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 960: ... range &val 1 -(ac-m+1)
+  // 948: ... range &val 1 -(ac-m+1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -20685,7 +20432,7 @@ static void entry__84_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 958: ... m-ac
+  // 946: ... m-ac
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* m */;
@@ -20701,7 +20448,7 @@ static void cont__84_22(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 958: ... dup("0" m-ac)
+  // 946: ... dup("0" m-ac)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__84_23;
@@ -20717,7 +20464,7 @@ static void cont__84_24(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 958: append &val dup("0" m-ac)
+  // 946: append &val dup("0" m-ac)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -20752,7 +20499,7 @@ static void entry__84_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 960: ... ac > m
+  // 948: ... ac > m
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* m */;
@@ -20768,9 +20515,9 @@ static void cont__84_27(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 960: ... : range &val 1 -(ac-m+1)
+  // 948: ... : range &val 1 -(ac-m+1)
   frame->slots[4] /* temp__2 */ = create_closure(entry__84_28, 0);
-  // 960: if ac > m: range &val 1 -(ac-m+1)
+  // 948: if ac > m: range &val 1 -(ac-m+1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -20785,7 +20532,7 @@ static void cont__84_33(void) {
     invalid_results_error();
     return;
   }
-  // 961: -> val
+  // 949: -> val
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -20815,7 +20562,7 @@ static void entry__85_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* filename */ = create_cell_with_contents(undefined);
   }
-  // 964: $new_t current_time()
+  // 952: $new_t current_time()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -20829,7 +20576,7 @@ static void cont__85_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* new_t */, arguments->slots[0]);
-  // 966: filename.is_defined
+  // 954: filename.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* filename */;
@@ -20844,30 +20591,30 @@ static void cont__85_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 966: ... :
-  // 967:   truncate_until &filename '/' -1
-  // 968:   ewriteln
-  // 969:     description
-  // 970:     ' '
-  // 971:     filename
-  // 972:     ':'
-  // 973:     dup(" " 12-length_of(description))
-  // 974:     format_number(new_t-t 2 3)
-  // 975:     " s"
+  // 954: ... :
+  // 955:   truncate_until &filename '/' -1
+  // 956:   ewriteln
+  // 957:     description
+  // 958:     ' '
+  // 959:     filename
+  // 960:     ':'
+  // 961:     dup(" " 12-length_of(description))
+  // 962:     format_number(new_t-t 2 3)
+  // 963:     " s"
   frame->slots[4] /* temp__2 */ = create_closure(entry__85_4, 0);
-  // 976: :
-  // 977:   ewriteln description ": " format_number(new_t-t 0 3) " s"
+  // 964: :
+  // 965:   ewriteln description ": " format_number(new_t-t 0 3) " s"
   frame->slots[5] /* temp__3 */ = create_closure(entry__85_13, 0);
-  // 965: if
-  // 966:   filename.is_defined:
-  // 967:     truncate_until &filename '/' -1
-  // 968:     ewriteln
-  // 969:       description
-  // 970:       ' '
-  // 971:       filename
-  // 972:       ':'
-  // 973:       dup(" " 12-length_of(description))
-  // 974:       format_number(new_t-t 2 3)
+  // 953: if
+  // 954:   filename.is_defined:
+  // 955:     truncate_until &filename '/' -1
+  // 956:     ewriteln
+  // 957:       description
+  // 958:       ' '
+  // 959:       filename
+  // 960:       ':'
+  // 961:       dup(" " 12-length_of(description))
+  // 962:       format_number(new_t-t 2 3)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -20892,7 +20639,7 @@ static void entry__85_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 967: ... 1
+  // 955: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -20907,7 +20654,7 @@ static void cont__85_5(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 967: truncate_until &filename '/' -1
+  // 955: truncate_until &filename '/' -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -20924,7 +20671,7 @@ static void cont__85_6(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* filename */ = arguments->slots[0];
-  // 973: ... length_of(description)
+  // 961: ... length_of(description)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* description */;
@@ -20939,7 +20686,7 @@ static void cont__85_7(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 973: ... 12-length_of(description)
+  // 961: ... 12-length_of(description)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__12;
@@ -20955,7 +20702,7 @@ static void cont__85_8(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 973: dup(" " 12-length_of(description))
+  // 961: dup(" " 12-length_of(description))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__84_14;
@@ -20971,7 +20718,7 @@ static void cont__85_9(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 974: ... new_t-t
+  // 962: ... new_t-t
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* new_t */;
@@ -20987,7 +20734,7 @@ static void cont__85_10(void) {
     return;
   }
   frame->slots[7] /* temp__5 */ = arguments->slots[0];
-  // 974: format_number(new_t-t 2 3)
+  // 962: format_number(new_t-t 2 3)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__5 */;
@@ -21004,14 +20751,14 @@ static void cont__85_11(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 968: ewriteln
-  // 969:   description
-  // 970:   ' '
-  // 971:   filename
-  // 972:   ':'
-  // 973:   dup(" " 12-length_of(description))
-  // 974:   format_number(new_t-t 2 3)
-  // 975:   " s"
+  // 956: ewriteln
+  // 957:   description
+  // 958:   ' '
+  // 959:   filename
+  // 960:   ':'
+  // 961:   dup(" " 12-length_of(description))
+  // 962:   format_number(new_t-t 2 3)
+  // 963:   " s"
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* description */;
@@ -21037,7 +20784,7 @@ static void entry__85_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 977: ... new_t-t
+  // 965: ... new_t-t
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* new_t */;
@@ -21053,7 +20800,7 @@ static void cont__85_14(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 977: ... format_number(new_t-t 0 3)
+  // 965: ... format_number(new_t-t 0 3)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -21070,7 +20817,7 @@ static void cont__85_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 977: ewriteln description ": " format_number(new_t-t 0 3) " s"
+  // 965: ewriteln description ": " format_number(new_t-t 0 3) " s"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* description */;
@@ -21087,7 +20834,7 @@ static void cont__85_17(void) {
     invalid_results_error();
     return;
   }
-  // 978: !t current_time()
+  // 966: !t current_time()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -21118,7 +20865,7 @@ static void entry__86_114(void) {
     invalid_arguments_error();
     return;
   }
-  // 1064: exe_filename .has_prefix. '/'
+  // 1052: exe_filename .has_prefix. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* exe_filename */;
@@ -21134,14 +20881,14 @@ static void cont__86_115(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1065: -> exe_filename
+  // 1053: -> exe_filename
   frame->slots[4] /* temp__3 */ = create_closure(entry__86_116, 0);
-  // 1066: -> string("./" exe_filename)
+  // 1054: -> string("./" exe_filename)
   frame->slots[5] /* temp__4 */ = create_closure(entry__86_117, 0);
-  // 1063: if
-  // 1064:   exe_filename .has_prefix. '/'
-  // 1065:   -> exe_filename
-  // 1066:   -> string("./" exe_filename)
+  // 1051: if
+  // 1052:   exe_filename .has_prefix. '/'
+  // 1053:   -> exe_filename
+  // 1054:   -> string("./" exe_filename)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -21161,7 +20908,7 @@ static void entry__86_116(void) {
     invalid_arguments_error();
     return;
   }
-  // 1065: -> exe_filename
+  // 1053: -> exe_filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* exe_filename */;
@@ -21178,7 +20925,7 @@ static void entry__86_117(void) {
     invalid_arguments_error();
     return;
   }
-  // 1066: ... string("./" exe_filename)
+  // 1054: ... string("./" exe_filename)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__68_56;
@@ -21194,7 +20941,7 @@ static void cont__86_118(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1066: -> string("./" exe_filename)
+  // 1054: -> string("./" exe_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -21208,14 +20955,14 @@ static void cont__86_119(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1062: exec
-  // 1063:   if
-  // 1064:     exe_filename .has_prefix. '/'
-  // 1065:     -> exe_filename
-  // 1066:     -> string("./" exe_filename)
-  // 1067:   zz*
-  // 1068:   
-  // 1069:   #range(command_line_arguments 2 -1)*
+  // 1050: exec
+  // 1051:   if
+  // 1052:     exe_filename .has_prefix. '/'
+  // 1053:     -> exe_filename
+  // 1054:     -> string("./" exe_filename)
+  // 1055:   zz*
+  // 1056:   
+  // 1057:   #range(command_line_arguments 2 -1)*
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = frame->slots[2] /* temp__1 */;
@@ -21248,7 +20995,7 @@ static void entry__86_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 984: current_platform == "cygwin"
+  // 972: current_platform == "cygwin"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__current_platform();
@@ -21264,15 +21011,15 @@ static void cont__86_3(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 985: -> string(mod_filename ".exe")
+  // 973: -> string(mod_filename ".exe")
   frame->slots[10] /* temp__2 */ = create_closure(entry__86_4, 0);
-  // 986: -> mod_filename
+  // 974: -> mod_filename
   frame->slots[11] /* temp__3 */ = create_closure(entry__86_7, 0);
-  // 982: $exe_filename
-  // 983:   if
-  // 984:     current_platform == "cygwin"
-  // 985:     -> string(mod_filename ".exe")
-  // 986:     -> mod_filename
+  // 970: $exe_filename
+  // 971:   if
+  // 972:     current_platform == "cygwin"
+  // 973:     -> string(mod_filename ".exe")
+  // 974:     -> mod_filename
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -21292,7 +21039,7 @@ static void entry__86_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 985: ... string(mod_filename ".exe")
+  // 973: ... string(mod_filename ".exe")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -21308,7 +21055,7 @@ static void cont__86_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 985: -> string(mod_filename ".exe")
+  // 973: -> string(mod_filename ".exe")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -21325,7 +21072,7 @@ static void entry__86_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 986: -> mod_filename
+  // 974: -> mod_filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -21339,9 +21086,9 @@ static void cont__86_8(void) {
     return;
   }
   initialize_future(frame->slots[2] /* exe_filename */, arguments->slots[0]);
-  // 988: ... : ewriteln "build executable " exe_filename
+  // 976: ... : ewriteln "build executable " exe_filename
   frame->slots[9] /* temp__1 */ = create_closure(entry__86_9, 0);
-  // 988: if verbose: ewriteln "build executable " exe_filename
+  // 976: if verbose: ewriteln "build executable " exe_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -21360,7 +21107,7 @@ static void entry__86_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 988: ... ewriteln "build executable " exe_filename
+  // 976: ... ewriteln "build executable " exe_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__86_10;
@@ -21375,7 +21122,7 @@ static void cont__86_11(void) {
     invalid_results_error();
     return;
   }
-  // 989: $c_filename string(mod_filename ".c")
+  // 977: $c_filename string(mod_filename ".c")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -21391,11 +21138,11 @@ static void cont__86_12(void) {
     return;
   }
   initialize_future(frame->slots[3] /* c_filename */, arguments->slots[0]);
-  // 990: $o_filename string(mod_filename ".o")
+  // 978: $o_filename string(mod_filename ".o")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__70_88;
+  arguments->slots[1] = string__70_84;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -21407,7 +21154,7 @@ static void cont__86_13(void) {
     return;
   }
   initialize_future(frame->slots[4] /* o_filename */, arguments->slots[0]);
-  // 991: $sim_info stat(main_filename)
+  // 979: $sim_info stat(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -21422,7 +21169,7 @@ static void cont__86_14(void) {
     return;
   }
   initialize_future(frame->slots[5] /* sim_info */, arguments->slots[0]);
-  // 992: $c_info stat(c_filename)
+  // 980: $c_info stat(c_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* c_filename */;
@@ -21437,11 +21184,11 @@ static void cont__86_15(void) {
     return;
   }
   initialize_future(frame->slots[6] /* c_info */, arguments->slots[0]);
-  // 993: $$c_buf undefined
+  // 981: $$c_buf undefined
   ((CELL *)frame->slots[7])->contents /* c_buf */ = get__undefined();
-  // 994: !objects(o_filename) true
+  // 982: !objects(o_filename) true
   frame->slots[9] /* temp__1 */ = get__true();
-  // 994: !objects(o_filename)
+  // 982: !objects(o_filename)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* o_filename */;
@@ -21478,7 +21225,7 @@ static void entry__86_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 998: c_info.is_undefined
+  // 986: c_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_info */;
@@ -21493,7 +21240,7 @@ static void cont__86_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 999: modification_time_of(sim_info) > modification_time_of(c_info)
+  // 987: modification_time_of(sim_info) > modification_time_of(c_info)
   frame->slots[4] /* temp__3 */ = create_closure(entry__86_19, 0);
   argument_count = 2;
   arguments = node_p;
@@ -21515,7 +21262,7 @@ static void entry__86_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 999: ... modification_time_of(c_info)
+  // 987: ... modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_info */;
@@ -21530,7 +21277,7 @@ static void cont__86_20(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 999: modification_time_of(sim_info)
+  // 987: modification_time_of(sim_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* sim_info */;
@@ -21545,7 +21292,7 @@ static void cont__86_21(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 999: modification_time_of(sim_info) > modification_time_of(c_info)
+  // 987: modification_time_of(sim_info) > modification_time_of(c_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -21561,7 +21308,7 @@ static void cont__86_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 999: modification_time_of(sim_info) > modification_time_of(c_info)
+  // 987: modification_time_of(sim_info) > modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -21588,38 +21335,38 @@ static void cont__86_24(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 1000: :
-  // 1001:   %sim2c::module_name mod_name .without_suffix. some(".meta")
-  // 1002:   if verbose: ewriteln "build main module " module_name
-  // 1003:   collect_output $c_source: sim2c list(main_filename) true
-  // 1004:   collect_output !c_buf: create_imports c_source
-  // 1005:   save c_filename c_buf.to_utf8
-  // 1006:   if do_time_passes: write_timing_info "saving" c_filename
-  // 1007:   compile_c c_filename o_filename
-  // 1008:   if do_time_passes: write_timing_info "compiling" c_filename
+  // 988: :
+  // 989:   %sim2c::module_name mod_name .without_suffix. some(".meta")
+  // 990:   if verbose: ewriteln "build main module " module_name
+  // 991:   collect_output $c_source: sim2c list(main_filename) true
+  // 992:   collect_output !c_buf: create_imports c_source
+  // 993:   save c_filename c_buf.to_utf8
+  // 994:   if do_time_passes: write_timing_info "saving" c_filename
+  // 995:   compile_c c_filename o_filename
+  // 996:   if do_time_passes: write_timing_info "compiling" c_filename
   frame->slots[11] /* temp__3 */ = create_closure(entry__86_25, 0);
-  // 1009: :
-  // 1010:   load !c_buf c_filename
-  // 1011:   $o_info stat(o_filename)
-  // 1012:   if
-  // 1013:     ||
-  // 1014:       o_info.is_undefined
-  // 1015:       modification_time_of(c_info) > modification_time_of(o_info)
-  // 1016:     :
-  // 1017:       compile_c c_filename o_filename
-  // 1018:     :
+  //  997: :
+  //  998:   load !c_buf c_filename
+  //  999:   $o_info stat(o_filename)
+  // 1000:   if
+  // 1001:     ||
+  // 1002:       o_info.is_undefined
+  // 1003:       modification_time_of(c_info) > modification_time_of(o_info)
+  // 1004:     :
+  // 1005:       compile_c c_filename o_filename
+  // 1006:     :
   // ...
   frame->slots[12] /* temp__4 */ = create_closure(entry__86_45, 0);
-  //  995: if
-  //  996:   ||
-  //  997:     do_rebuild
-  //  998:     c_info.is_undefined
-  //  999:     modification_time_of(sim_info) > modification_time_of(c_info)
-  // 1000:   :
-  // 1001:     %sim2c::module_name mod_name .without_suffix. some(".meta")
-  // 1002:     if verbose: ewriteln "build main module " module_name
-  // 1003:     collect_output $c_source: sim2c list(main_filename) true
-  // 1004:     collect_output !c_buf: create_imports c_source
+  // 983: if
+  // 984:   ||
+  // 985:     do_rebuild
+  // 986:     c_info.is_undefined
+  // 987:     modification_time_of(sim_info) > modification_time_of(c_info)
+  // 988:   :
+  // 989:     %sim2c::module_name mod_name .without_suffix. some(".meta")
+  // 990:     if verbose: ewriteln "build main module " module_name
+  // 991:     collect_output $c_source: sim2c list(main_filename) true
+  // 992:     collect_output !c_buf: create_imports c_source
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -21642,7 +21389,7 @@ static void entry__86_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 1017: compile_c c_filename o_filename
+  // 1005: compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_filename */;
@@ -21661,7 +21408,7 @@ static void entry__86_55(void) {
     invalid_arguments_error();
     return;
   }
-  // 1019: !last_modification_time modification_time_of(o_info)
+  // 1007: !last_modification_time modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* o_info */;
@@ -21702,7 +21449,7 @@ static void entry__86_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 1001: ... some(".meta")
+  // 989: ... some(".meta")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__64_16;
@@ -21717,7 +21464,7 @@ static void cont__86_26(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1001: %sim2c::module_name mod_name .without_suffix. some(".meta")
+  // 989: %sim2c::module_name mod_name .without_suffix. some(".meta")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -21733,7 +21480,7 @@ static void cont__86_27(void) {
     return;
   }
   initialize_future(get__sim2c__module_name(), arguments->slots[0]);
-  // 1002: if verbose: ewriteln "build main module " module_name
+  // 990: if verbose: ewriteln "build main module " module_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -21750,7 +21497,7 @@ static void entry__86_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 1002: ... ewriteln "build main module " module_name
+  // 990: ... ewriteln "build main module " module_name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__86_29;
@@ -21765,7 +21512,7 @@ static void cont__86_30(void) {
     invalid_results_error();
     return;
   }
-  // 1003: collect_output $c_source: sim2c list(main_filename) true
+  // 991: collect_output $c_source: sim2c list(main_filename) true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__86_31;
@@ -21781,7 +21528,7 @@ static void entry__86_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 1003: ... list(main_filename)
+  // 991: ... list(main_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
@@ -21796,7 +21543,7 @@ static void cont__86_32(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1003: ... sim2c list(main_filename) true
+  // 991: ... sim2c list(main_filename) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -21812,9 +21559,9 @@ static void cont__86_33(void) {
     return;
   }
   initialize_future(frame->slots[5] /* c_source */, arguments->slots[0]);
-  // 1004: ... : create_imports c_source
+  // 992: ... : create_imports c_source
   frame->slots[6] /* temp__1 */ = create_closure(entry__86_34, 0);
-  // 1004: collect_output !c_buf: create_imports c_source
+  // 992: collect_output !c_buf: create_imports c_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -21832,7 +21579,7 @@ static void entry__86_34(void) {
     invalid_arguments_error();
     return;
   }
-  // 1004: ... create_imports c_source
+  // 992: ... create_imports c_source
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_source */;
@@ -21847,7 +21594,7 @@ static void cont__86_35(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* c_buf */ = arguments->slots[0];
-  // 1005: ... c_buf.to_utf8
+  // 993: ... c_buf.to_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* c_buf */;
@@ -21862,7 +21609,7 @@ static void cont__86_36(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1005: save c_filename c_buf.to_utf8
+  // 993: save c_filename c_buf.to_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* c_filename */;
@@ -21877,9 +21624,9 @@ static void cont__86_37(void) {
     invalid_results_error();
     return;
   }
-  // 1006: ... : write_timing_info "saving" c_filename
+  // 994: ... : write_timing_info "saving" c_filename
   frame->slots[6] /* temp__1 */ = create_closure(entry__86_38, 0);
-  // 1006: if do_time_passes: write_timing_info "saving" c_filename
+  // 994: if do_time_passes: write_timing_info "saving" c_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -21898,7 +21645,7 @@ static void entry__86_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 1006: ... write_timing_info "saving" c_filename
+  // 994: ... write_timing_info "saving" c_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__86_39;
@@ -21913,7 +21660,7 @@ static void cont__86_40(void) {
     invalid_results_error();
     return;
   }
-  // 1007: compile_c c_filename o_filename
+  // 995: compile_c c_filename o_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* c_filename */;
@@ -21928,9 +21675,9 @@ static void cont__86_41(void) {
     invalid_results_error();
     return;
   }
-  // 1008: ... : write_timing_info "compiling" c_filename
+  // 996: ... : write_timing_info "compiling" c_filename
   frame->slots[6] /* temp__1 */ = create_closure(entry__86_42, 0);
-  // 1008: if do_time_passes: write_timing_info "compiling" c_filename
+  // 996: if do_time_passes: write_timing_info "compiling" c_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -21949,7 +21696,7 @@ static void entry__86_42(void) {
     invalid_arguments_error();
     return;
   }
-  // 1008: ... write_timing_info "compiling" c_filename
+  // 996: ... write_timing_info "compiling" c_filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__86_43;
@@ -21981,7 +21728,7 @@ static void entry__86_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 1010: load !c_buf c_filename
+  // 998: load !c_buf c_filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_filename */;
@@ -21996,7 +21743,7 @@ static void cont__86_46(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* c_buf */ = arguments->slots[0];
-  // 1011: $o_info stat(o_filename)
+  // 999: $o_info stat(o_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* o_filename */;
@@ -22011,7 +21758,7 @@ static void cont__86_47(void) {
     return;
   }
   initialize_future(frame->slots[4] /* o_info */, arguments->slots[0]);
-  // 1014: o_info.is_undefined
+  // 1002: o_info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* o_info */;
@@ -22026,11 +21773,11 @@ static void cont__86_48(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 1015: modification_time_of(c_info) > modification_time_of(o_info)
+  // 1003: modification_time_of(c_info) > modification_time_of(o_info)
   frame->slots[7] /* temp__3 */ = create_closure(entry__86_49, 0);
-  // 1013: ||
-  // 1014:   o_info.is_undefined
-  // 1015:   modification_time_of(c_info) > modification_time_of(o_info)
+  // 1001: ||
+  // 1002:   o_info.is_undefined
+  // 1003:   modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -22051,7 +21798,7 @@ static void entry__86_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 1015: ... modification_time_of(o_info)
+  // 1003: ... modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* o_info */;
@@ -22066,7 +21813,7 @@ static void cont__86_50(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1015: modification_time_of(c_info)
+  // 1003: modification_time_of(c_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* c_info */;
@@ -22081,7 +21828,7 @@ static void cont__86_51(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1015: modification_time_of(c_info) > modification_time_of(o_info)
+  // 1003: modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -22097,7 +21844,7 @@ static void cont__86_52(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1015: modification_time_of(c_info) > modification_time_of(o_info)
+  // 1003: modification_time_of(c_info) > modification_time_of(o_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -22111,20 +21858,20 @@ static void cont__86_53(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1016: :
-  // 1017:   compile_c c_filename o_filename
+  // 1004: :
+  // 1005:   compile_c c_filename o_filename
   frame->slots[8] /* temp__4 */ = create_closure(entry__86_54, 0);
-  // 1018: :
-  // 1019:   !last_modification_time modification_time_of(o_info)
+  // 1006: :
+  // 1007:   !last_modification_time modification_time_of(o_info)
   frame->slots[9] /* temp__5 */ = create_closure(entry__86_55, 0);
-  // 1012: if
-  // 1013:   ||
-  // 1014:     o_info.is_undefined
-  // 1015:     modification_time_of(c_info) > modification_time_of(o_info)
-  // 1016:   :
-  // 1017:     compile_c c_filename o_filename
-  // 1018:   :
-  // 1019:     !last_modification_time modification_time_of(o_info)
+  // 1000: if
+  // 1001:   ||
+  // 1002:     o_info.is_undefined
+  // 1003:     modification_time_of(c_info) > modification_time_of(o_info)
+  // 1004:   :
+  // 1005:     compile_c c_filename o_filename
+  // 1006:   :
+  // 1007:     !last_modification_time modification_time_of(o_info)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -22140,7 +21887,7 @@ static void cont__86_57(void) {
     invalid_results_error();
     return;
   }
-  // 1020: build_dependencies mod_filename mod_name c_buf
+  // 1008: build_dependencies mod_filename mod_name c_buf
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
@@ -22156,10 +21903,10 @@ static void cont__86_58(void) {
     invalid_results_error();
     return;
   }
-  // 1021: if do_build_static_executable:
-  // 1022:   for_each
-  // 1023:     "runtime/linker", "runtime/memory", "runtime/debugger": (filename)
-  // 1024:       maybe_compile_c_file filename
+  // 1009: if do_build_static_executable:
+  // 1010:   for_each
+  // 1011:     "runtime/linker", "runtime/memory", "runtime/debugger": (filename)
+  // 1012:       maybe_compile_c_file filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_build_static_executable();
@@ -22177,7 +21924,7 @@ static void entry__86_64(void) {
     invalid_arguments_error();
     return;
   }
-  // 1024: maybe_compile_c_file filename
+  // 1012: maybe_compile_c_file filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -22193,7 +21940,7 @@ static void entry__86_59(void) {
     invalid_arguments_error();
     return;
   }
-  // 1023: "runtime/linker", "runtime/memory", "runtime/debugger"
+  // 1011: "runtime/linker", "runtime/memory", "runtime/debugger"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__86_60;
@@ -22210,9 +21957,9 @@ static void cont__86_63(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1022: for_each
-  // 1023:   "runtime/linker", "runtime/memory", "runtime/debugger": (filename)
-  // 1024:     maybe_compile_c_file filename
+  // 1010: for_each
+  // 1011:   "runtime/linker", "runtime/memory", "runtime/debugger": (filename)
+  // 1012:     maybe_compile_c_file filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -22227,27 +21974,27 @@ static void cont__86_65(void) {
     invalid_results_error();
     return;
   }
-  // 1025: ... :
-  // 1026:   $info stat(exe_filename)
-  // 1027:   if
-  // 1028:     ||
-  // 1029:       info.is_undefined
-  // 1030:       &&
-  // 1031:         last_modification_time.is_defined
-  // 1032:         last_modification_time > modification_time_of(info)
-  // 1033:     :
-  // 1034:       !do_link true
+  // 1013: ... :
+  // 1014:   $info stat(exe_filename)
+  // 1015:   if
+  // 1016:     ||
+  // 1017:       info.is_undefined
+  // 1018:       &&
+  // 1019:         last_modification_time.is_defined
+  // 1020:         last_modification_time > modification_time_of(info)
+  // 1021:     :
+  // 1022:       !do_link true
   frame->slots[9] /* temp__1 */ = create_closure(entry__86_66, 0);
-  // 1025: unless do_link:
-  // 1026:   $info stat(exe_filename)
-  // 1027:   if
-  // 1028:     ||
-  // 1029:       info.is_undefined
-  // 1030:       &&
-  // 1031:         last_modification_time.is_defined
-  // 1032:         last_modification_time > modification_time_of(info)
-  // 1033:     :
-  // 1034:       !do_link true
+  // 1013: unless do_link:
+  // 1014:   $info stat(exe_filename)
+  // 1015:   if
+  // 1016:     ||
+  // 1017:       info.is_undefined
+  // 1018:       &&
+  // 1019:         last_modification_time.is_defined
+  // 1020:         last_modification_time > modification_time_of(info)
+  // 1021:     :
+  // 1022:       !do_link true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_link();
@@ -22264,7 +22011,7 @@ static void entry__86_76(void) {
     invalid_arguments_error();
     return;
   }
-  // 1034: !do_link true
+  // 1022: !do_link true
   set__do_link(get__true());
   argument_count = 0;
   arguments = node_p;
@@ -22283,7 +22030,7 @@ static void entry__86_66(void) {
     invalid_arguments_error();
     return;
   }
-  // 1026: $info stat(exe_filename)
+  // 1014: $info stat(exe_filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* exe_filename */;
@@ -22298,7 +22045,7 @@ static void cont__86_67(void) {
     return;
   }
   initialize_future(frame->slots[1] /* info */, arguments->slots[0]);
-  // 1029: info.is_undefined
+  // 1017: info.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
@@ -22313,15 +22060,15 @@ static void cont__86_68(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1030: &&
-  // 1031:   last_modification_time.is_defined
-  // 1032:   last_modification_time > modification_time_of(info)
+  // 1018: &&
+  // 1019:   last_modification_time.is_defined
+  // 1020:   last_modification_time > modification_time_of(info)
   frame->slots[4] /* temp__3 */ = create_closure(entry__86_69, 0);
-  // 1028: ||
-  // 1029:   info.is_undefined
-  // 1030:   &&
-  // 1031:     last_modification_time.is_defined
-  // 1032:     last_modification_time > modification_time_of(info)
+  // 1016: ||
+  // 1017:   info.is_undefined
+  // 1018:   &&
+  // 1019:     last_modification_time.is_defined
+  // 1020:     last_modification_time > modification_time_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -22340,7 +22087,7 @@ static void entry__86_69(void) {
     invalid_arguments_error();
     return;
   }
-  // 1031: last_modification_time.is_defined
+  // 1019: last_modification_time.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__last_modification_time();
@@ -22355,11 +22102,11 @@ static void cont__86_70(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1032: last_modification_time > modification_time_of(info)
+  // 1020: last_modification_time > modification_time_of(info)
   frame->slots[3] /* temp__3 */ = create_closure(entry__86_71, 0);
-  // 1030: &&
-  // 1031:   last_modification_time.is_defined
-  // 1032:   last_modification_time > modification_time_of(info)
+  // 1018: &&
+  // 1019:   last_modification_time.is_defined
+  // 1020:   last_modification_time > modification_time_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -22378,7 +22125,7 @@ static void entry__86_71(void) {
     invalid_arguments_error();
     return;
   }
-  // 1032: ... modification_time_of(info)
+  // 1020: ... modification_time_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -22393,7 +22140,7 @@ static void cont__86_72(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1032: last_modification_time > modification_time_of(info)
+  // 1020: last_modification_time > modification_time_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -22409,7 +22156,7 @@ static void cont__86_73(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1032: last_modification_time > modification_time_of(info)
+  // 1020: last_modification_time > modification_time_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -22423,9 +22170,9 @@ static void cont__86_74(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1030: &&
-  // 1031:   last_modification_time.is_defined
-  // 1032:   last_modification_time > modification_time_of(info)
+  // 1018: &&
+  // 1019:   last_modification_time.is_defined
+  // 1020:   last_modification_time > modification_time_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -22439,14 +22186,14 @@ static void cont__86_75(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1027: if
-  // 1028:   ||
-  // 1029:     info.is_undefined
-  // 1030:     &&
-  // 1031:       last_modification_time.is_defined
-  // 1032:       last_modification_time > modification_time_of(info)
-  // 1033:   :
-  // 1034:     !do_link true
+  // 1015: if
+  // 1016:   ||
+  // 1017:     info.is_undefined
+  // 1018:     &&
+  // 1019:       last_modification_time.is_defined
+  // 1020:       last_modification_time > modification_time_of(info)
+  // 1021:   :
+  // 1022:     !do_link true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -22461,28 +22208,28 @@ static void cont__86_77(void) {
     invalid_results_error();
     return;
   }
-  // 1035: ... :
-  // 1036:   $$libs_and_files library_paths_and_file_list()
-  // 1037:   if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
-  // 1038:   if
-  // 1039:     do_build_static_executable:
-  // 1040:       if verbose: ewriteln "linking static executable"
-  // 1041:       Gcc $_out $err $success
-  // 1042:         "runtime/linker.o"
-  // 1043:         "runtime/memory.o"
-  // 1044:         "runtime/debugger.o"
+  // 1023: ... :
+  // 1024:   $$libs_and_files library_paths_and_file_list()
+  // 1025:   if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
+  // 1026:   if
+  // 1027:     do_build_static_executable:
+  // 1028:       if verbose: ewriteln "linking static executable"
+  // 1029:       Gcc $_out $err $success
+  // 1030:         "runtime/linker.o"
+  // 1031:         "runtime/memory.o"
+  // 1032:         "runtime/debugger.o"
   // ...
   frame->slots[9] /* temp__1 */ = create_closure(entry__86_78, 0);
-  // 1035: if do_link:
-  // 1036:   $$libs_and_files library_paths_and_file_list()
-  // 1037:   if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
-  // 1038:   if
-  // 1039:     do_build_static_executable:
-  // 1040:       if verbose: ewriteln "linking static executable"
-  // 1041:       Gcc $_out $err $success
-  // 1042:         "runtime/linker.o"
-  // 1043:         "runtime/memory.o"
-  // 1044:         "runtime/debugger.o"
+  // 1023: if do_link:
+  // 1024:   $$libs_and_files library_paths_and_file_list()
+  // 1025:   if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
+  // 1026:   if
+  // 1027:     do_build_static_executable:
+  // 1028:       if verbose: ewriteln "linking static executable"
+  // 1029:       Gcc $_out $err $success
+  // 1030:         "runtime/linker.o"
+  // 1031:         "runtime/memory.o"
+  // 1032:         "runtime/debugger.o"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -22502,7 +22249,7 @@ static void entry__86_106(void) {
     invalid_arguments_error();
     return;
   }
-  // 1059: ... err.from_utf8
+  // 1047: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -22517,7 +22264,7 @@ static void cont__86_107(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1059: ... Error err.from_utf8
+  // 1047: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -22535,7 +22282,7 @@ static void entry__86_92(void) {
     invalid_arguments_error();
     return;
   }
-  // 1048: ... err.from_utf8
+  // 1036: ... err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* err */;
@@ -22550,7 +22297,7 @@ static void cont__86_93(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1048: ... Error err.from_utf8
+  // 1036: ... Error err.from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -22576,7 +22323,7 @@ static void entry__86_84(void) {
     invalid_arguments_error();
     return;
   }
-  // 1040: if verbose: ewriteln "linking static executable"
+  // 1028: if verbose: ewriteln "linking static executable"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -22593,7 +22340,7 @@ static void entry__86_85(void) {
     invalid_arguments_error();
     return;
   }
-  // 1040: ... ewriteln "linking static executable"
+  // 1028: ... ewriteln "linking static executable"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__86_86;
@@ -22607,20 +22354,20 @@ static void cont__86_87(void) {
     invalid_results_error();
     return;
   }
-  // 1041: Gcc $_out $err $success
-  // 1042:   "runtime/linker.o"
-  // 1043:   "runtime/memory.o"
-  // 1044:   "runtime/debugger.o"
-  // 1045:   libs_and_files*
-  // 1046:   "-o"
-  // 1047:   exe_filename
+  // 1029: Gcc $_out $err $success
+  // 1030:   "runtime/linker.o"
+  // 1031:   "runtime/memory.o"
+  // 1032:   "runtime/debugger.o"
+  // 1033:   libs_and_files*
+  // 1034:   "-o"
+  // 1035:   exe_filename
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = string__86_88;
   arguments->slots[argument_count++] = string__86_89;
   arguments->slots[argument_count++] = string__86_90;
   unfold(((CELL *)frame->slots[0])->contents /* libs_and_files */);
-  arguments->slots[argument_count++] = string__67_7;
+  arguments->slots[argument_count++] = string__67_6;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
   myself = var._Gcc;
@@ -22635,15 +22382,15 @@ static void cont__86_91(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   frame->slots[6] /* temp__2 */ = arguments->slots[1];
   frame->slots[7] /* temp__3 */ = arguments->slots[2];
-  // 1041: ... _out
+  // 1029: ... _out
   initialize_future(frame->slots[2] /* out */, frame->slots[5] /* temp__1 */);
-  // 1041: ... err
+  // 1029: ... err
   initialize_future(frame->slots[3] /* err */, frame->slots[6] /* temp__2 */);
-  // 1041: ... success
+  // 1029: ... success
   initialize_future(frame->slots[4] /* success */, frame->slots[7] /* temp__3 */);
-  // 1048: ... : Error err.from_utf8
+  // 1036: ... : Error err.from_utf8
   frame->slots[5] /* temp__1 */ = create_closure(entry__86_92, 0);
-  // 1048: unless success: Error err.from_utf8
+  // 1036: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* success */;
@@ -22670,7 +22417,7 @@ static void entry__86_94(void) {
     invalid_arguments_error();
     return;
   }
-  // 1050: if verbose: ewriteln "linking executable"
+  // 1038: if verbose: ewriteln "linking executable"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
@@ -22687,7 +22434,7 @@ static void entry__86_95(void) {
     invalid_arguments_error();
     return;
   }
-  // 1050: ... ewriteln "linking executable"
+  // 1038: ... ewriteln "linking executable"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__86_96;
@@ -22701,7 +22448,7 @@ static void cont__86_97(void) {
     invalid_results_error();
     return;
   }
-  // 1054: current_platform == "linux"
+  // 1042: current_platform == "linux"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__current_platform();
@@ -22717,10 +22464,10 @@ static void cont__86_98(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 1053: if
-  // 1054:   current_platform == "linux"
-  // 1055:   -> "-l:libsim.so.@(MAJOR)"
-  // 1056:   -> "-lsim-@(MAJOR)"
+  // 1041: if
+  // 1042:   current_platform == "linux"
+  // 1043:   -> "-l:libsim.so.@(MAJOR)"
+  // 1044:   -> "-lsim-@(MAJOR)"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -22738,7 +22485,7 @@ static void entry__86_99(void) {
     invalid_arguments_error();
     return;
   }
-  // 1055: ... "-l:libsim.so.@(MAJOR)"
+  // 1043: ... "-l:libsim.so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__86_100;
@@ -22754,7 +22501,7 @@ static void cont__86_101(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1055: -> "-l:libsim.so.@(MAJOR)"
+  // 1043: -> "-l:libsim.so.@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -22769,7 +22516,7 @@ static void entry__86_102(void) {
     invalid_arguments_error();
     return;
   }
-  // 1056: ... "-lsim-@(MAJOR)"
+  // 1044: ... "-lsim-@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__81_67;
@@ -22785,7 +22532,7 @@ static void cont__86_103(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1056: -> "-lsim-@(MAJOR)"
+  // 1044: -> "-lsim-@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -22799,19 +22546,19 @@ static void cont__86_104(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1051: Gcc $_out $err $success
-  // 1052:   libs_and_files*
-  // 1053:   if
-  // 1054:     current_platform == "linux"
-  // 1055:     -> "-l:libsim.so.@(MAJOR)"
-  // 1056:     -> "-lsim-@(MAJOR)"
-  // 1057:   "-o"
-  // 1058:   exe_filename
+  // 1039: Gcc $_out $err $success
+  // 1040:   libs_and_files*
+  // 1041:   if
+  // 1042:     current_platform == "linux"
+  // 1043:     -> "-l:libsim.so.@(MAJOR)"
+  // 1044:     -> "-lsim-@(MAJOR)"
+  // 1045:   "-o"
+  // 1046:   exe_filename
   argument_count = 0;
   arguments = node_p;
   unfold(((CELL *)frame->slots[0])->contents /* libs_and_files */);
   arguments->slots[argument_count++] = frame->slots[5] /* temp__1 */;
-  arguments->slots[argument_count++] = string__67_7;
+  arguments->slots[argument_count++] = string__67_6;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
   myself = var._Gcc;
@@ -22826,15 +22573,15 @@ static void cont__86_105(void) {
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
   frame->slots[8] /* temp__4 */ = arguments->slots[1];
   frame->slots[9] /* temp__5 */ = arguments->slots[2];
-  // 1051: ... _out
+  // 1039: ... _out
   initialize_future(frame->slots[2] /* out */, frame->slots[7] /* temp__3 */);
-  // 1051: ... err
+  // 1039: ... err
   initialize_future(frame->slots[3] /* err */, frame->slots[8] /* temp__4 */);
-  // 1051: ... success
+  // 1039: ... success
   initialize_future(frame->slots[4] /* success */, frame->slots[9] /* temp__5 */);
-  // 1059: ... : Error err.from_utf8
+  // 1047: ... : Error err.from_utf8
   frame->slots[5] /* temp__1 */ = create_closure(entry__86_106, 0);
-  // 1059: unless success: Error err.from_utf8
+  // 1047: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* success */;
@@ -22855,7 +22602,7 @@ static void entry__86_78(void) {
     invalid_arguments_error();
     return;
   }
-  // 1036: $$libs_and_files library_paths_and_file_list()
+  // 1024: $$libs_and_files library_paths_and_file_list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -22869,9 +22616,9 @@ static void cont__86_79(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* libs_and_files */ = arguments->slots[0];
-  // 1037: ... : push &libs_and_files "/usr/lib/libprofiler.so.0"
+  // 1025: ... : push &libs_and_files "/usr/lib/libprofiler.so.0"
   frame->slots[2] /* temp__1 */ = create_closure(entry__86_80, 0);
-  // 1037: if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
+  // 1025: if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_link_profiler;
@@ -22890,7 +22637,7 @@ static void entry__86_80(void) {
     invalid_arguments_error();
     return;
   }
-  // 1037: ... push &libs_and_files "/usr/lib/libprofiler.so.0"
+  // 1025: ... push &libs_and_files "/usr/lib/libprofiler.so.0"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* libs_and_files */;
@@ -22917,39 +22664,39 @@ static void cont__86_83(void) {
     invalid_results_error();
     return;
   }
-  // 1039: ... :
-  // 1040:   if verbose: ewriteln "linking static executable"
-  // 1041:   Gcc $_out $err $success
-  // 1042:     "runtime/linker.o"
-  // 1043:     "runtime/memory.o"
-  // 1044:     "runtime/debugger.o"
-  // 1045:     libs_and_files*
-  // 1046:     "-o"
-  // 1047:     exe_filename
-  // 1048:   unless success: Error err.from_utf8
+  // 1027: ... :
+  // 1028:   if verbose: ewriteln "linking static executable"
+  // 1029:   Gcc $_out $err $success
+  // 1030:     "runtime/linker.o"
+  // 1031:     "runtime/memory.o"
+  // 1032:     "runtime/debugger.o"
+  // 1033:     libs_and_files*
+  // 1034:     "-o"
+  // 1035:     exe_filename
+  // 1036:   unless success: Error err.from_utf8
   frame->slots[2] /* temp__1 */ = create_closure(entry__86_84, 0);
-  // 1049: :
-  // 1050:   if verbose: ewriteln "linking executable"
-  // 1051:   Gcc $_out $err $success
-  // 1052:     libs_and_files*
-  // 1053:     if
-  // 1054:       current_platform == "linux"
-  // 1055:       -> "-l:libsim.so.@(MAJOR)"
-  // 1056:       -> "-lsim-@(MAJOR)"
-  // 1057:     "-o"
-  // 1058:     exe_filename
+  // 1037: :
+  // 1038:   if verbose: ewriteln "linking executable"
+  // 1039:   Gcc $_out $err $success
+  // 1040:     libs_and_files*
+  // 1041:     if
+  // 1042:       current_platform == "linux"
+  // 1043:       -> "-l:libsim.so.@(MAJOR)"
+  // 1044:       -> "-lsim-@(MAJOR)"
+  // 1045:     "-o"
+  // 1046:     exe_filename
   // ...
   frame->slots[3] /* temp__2 */ = create_closure(entry__86_94, 0);
-  // 1038: if
-  // 1039:   do_build_static_executable:
-  // 1040:     if verbose: ewriteln "linking static executable"
-  // 1041:     Gcc $_out $err $success
-  // 1042:       "runtime/linker.o"
-  // 1043:       "runtime/memory.o"
-  // 1044:       "runtime/debugger.o"
-  // 1045:       libs_and_files*
-  // 1046:       "-o"
-  // 1047:       exe_filename
+  // 1026: if
+  // 1027:   do_build_static_executable:
+  // 1028:     if verbose: ewriteln "linking static executable"
+  // 1029:     Gcc $_out $err $success
+  // 1030:       "runtime/linker.o"
+  // 1031:       "runtime/memory.o"
+  // 1032:       "runtime/debugger.o"
+  // 1033:       libs_and_files*
+  // 1034:       "-o"
+  // 1035:       exe_filename
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -22966,7 +22713,7 @@ static void cont__86_108(void) {
     invalid_results_error();
     return;
   }
-  // 1060: ... 1
+  // 1048: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -22981,7 +22728,7 @@ static void cont__86_109(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 1060: $zz range(command_line_arguments 2 -1)
+  // 1048: $zz range(command_line_arguments 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -22998,7 +22745,7 @@ static void cont__86_110(void) {
     return;
   }
   initialize_future(frame->slots[8] /* zz */, arguments->slots[0]);
-  // 1061: ... on_top_level && action == "simrun"
+  // 1049: ... on_top_level && action == "simrun"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__on_top_level();
@@ -23015,7 +22762,7 @@ static void entry__86_111(void) {
     invalid_arguments_error();
     return;
   }
-  // 1061: ... action == "simrun"
+  // 1049: ... action == "simrun"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._action;
@@ -23031,7 +22778,7 @@ static void cont__86_112(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1061: ... action == "simrun"
+  // 1049: ... action == "simrun"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -23045,25 +22792,25 @@ static void cont__86_113(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 1061: ... :
-  // 1062:   exec
-  // 1063:     if
-  // 1064:       exe_filename .has_prefix. '/'
-  // 1065:       -> exe_filename
-  // 1066:       -> string("./" exe_filename)
-  // 1067:     zz*
-  // 1068:     
-  // 1069:     #range(command_line_arguments 2 -1)*
+  // 1049: ... :
+  // 1050:   exec
+  // 1051:     if
+  // 1052:       exe_filename .has_prefix. '/'
+  // 1053:       -> exe_filename
+  // 1054:       -> string("./" exe_filename)
+  // 1055:     zz*
+  // 1056:     
+  // 1057:     #range(command_line_arguments 2 -1)*
   frame->slots[10] /* temp__2 */ = create_closure(entry__86_114, 0);
-  // 1061: if on_top_level && action == "simrun":
-  // 1062:   exec
-  // 1063:     if
-  // 1064:       exe_filename .has_prefix. '/'
-  // 1065:       -> exe_filename
-  // 1066:       -> string("./" exe_filename)
-  // 1067:     zz*
-  // 1068:     
-  // 1069:     #range(command_line_arguments 2 -1)*
+  // 1049: if on_top_level && action == "simrun":
+  // 1050:   exec
+  // 1051:     if
+  // 1052:       exe_filename .has_prefix. '/'
+  // 1053:       -> exe_filename
+  // 1054:       -> string("./" exe_filename)
+  // 1055:     zz*
+  // 1056:     
+  // 1057:     #range(command_line_arguments 2 -1)*
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -23080,16 +22827,16 @@ static void entry__86_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 981: compile_exe: (mod_filename mod_name)
-  // 982:   $exe_filename
-  // 983:     if
-  // 984:       current_platform == "cygwin"
-  // 985:       -> string(mod_filename ".exe")
-  // 986:       -> mod_filename
-  // 987:   
-  // 988:   if verbose: ewriteln "build executable " exe_filename
-  // 989:   $c_filename string(mod_filename ".c")
-  // 990:   $o_filename string(mod_filename ".o")
+  // 969: compile_exe: (mod_filename mod_name)
+  // 970:   $exe_filename
+  // 971:     if
+  // 972:       current_platform == "cygwin"
+  // 973:       -> string(mod_filename ".exe")
+  // 974:       -> mod_filename
+  // 975:   
+  // 976:   if verbose: ewriteln "build executable " exe_filename
+  // 977:   $c_filename string(mod_filename ".c")
+  // 978:   $o_filename string(mod_filename ".o")
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -23342,10 +23089,8 @@ int main(int argc, char **argv) {
   string__66_4 = from_latin_1_string("gcc ", 4);
   func__66_1 = create_function(entry__66_1, -1);
   func__67_2 = create_function(entry__67_2, 0);
-  string__67_6 = from_latin_1_string("-c", 2);
-  string__67_7 = from_latin_1_string("-o", 2);
-  string__67_12 = from_latin_1_string("-DWITHIN_LIBRARY", 16);
-  string__67_13 = from_latin_1_string("-fPIC", 5);
+  string__67_5 = from_latin_1_string("-c", 2);
+  string__67_6 = from_latin_1_string("-o", 2);
   func__67_1 = create_function(entry__67_1, 2);
   string__68_9 = from_latin_1_string(".c", 2);
   string__68_46 = from_latin_1_string("/// ", 4);
@@ -23365,11 +23110,8 @@ int main(int argc, char **argv) {
   string__70_47 = from_latin_1_string("build library module ", 21);
   string__70_80 = from_latin_1_string("No source file(s) for module \042", 30);
   string__70_81 = from_latin_1_string("\042 found!", 8);
-  string__70_86 = from_latin_1_string(".lib.o", 6);
-  func__70_85 = create_function(entry__70_85, 0);
-  string__70_88 = from_latin_1_string(".o", 2);
-  func__70_87 = create_function(entry__70_87, 0);
-  string__70_140 = from_latin_1_string(" #", 2);
+  string__70_84 = from_latin_1_string(".o", 2);
+  string__70_135 = from_latin_1_string(" #", 2);
   func__70_1 = create_function(entry__70_1, 2);
   func__71_1 = create_function(entry__71_1, 2);
   string__73_3 = from_latin_1_string("LD_LIBRARY_PATH", 15);
@@ -23590,8 +23332,9 @@ int main(int argc, char **argv) {
   string__141_6 = from_latin_1_string("-Wno-maybe-uninitialized", 24);
   string__141_7 = from_latin_1_string("-Wno-trigraphs", 14);
   string__141_8 = from_latin_1_string("-O1", 3);
-  string__141_9 = from_latin_1_string("-fno-stack-protector", 20);
-  string__141_10 = from_latin_1_string("-falign-functions=16", 20);
+  string__141_9 = from_latin_1_string("-fPIC", 5);
+  string__141_10 = from_latin_1_string("-fno-stack-protector", 20);
+  string__141_11 = from_latin_1_string("-falign-functions=16", 20);
   string__142_1 = from_latin_1_string("-msse2", 6);
   string__142_2 = from_latin_1_string("-mfpmath=sse", 12);
   string__142_4 = from_latin_1_string("x86_32", 6);

@@ -356,8 +356,7 @@ then
   EXE_EXTENSION='.exe'
   DLL_EXTENSION="-$DLL_VERSION.dll"
   RUNTIME_DLL_EXTENSION="-$RUNTIME_VERSION.dll"
-  echo "DLL_CC_OPTIONS = $CC_OPTIONS"
-  echo "EXE_CC_OPTIONS = $CC_OPTIONS"
+  echo "CC_OPTIONS = $CC_OPTIONS"
   echo "RUNTIME_DLL_OPTIONS = -shared -Wl,-soname,libsim-$RUNTIME_MAJOR_VERSION.dll"
   echo 'LIBRARIES = -lgmp'
 elif test $OS = 'darwin'
@@ -365,16 +364,14 @@ then
   EXE_EXTENSION=''
   DLL_EXTENSION="-$DLL_VERSION.dylib"
   RUNTIME_DLL_EXTENSION="-$RUNTIME_VERSION.dylib"
-  echo "DLL_CC_OPTIONS = $CC_OPTIONS"
-  echo "EXE_CC_OPTIONS = $CC_OPTIONS"
+  echo "CC_OPTIONS = $CC_OPTIONS"
   echo "RUNTIME_DLL_OPTIONS = -dynamiclib -Wl,-install_name,libsim-$RUNTIME_MAJOR_VERSION.dylib"
   echo 'LIBRARIES = -lgmp -lm'
 else # probably some POSIX conform system
   EXE_EXTENSION=''
   DLL_EXTENSION=".so.$DLL_VERSION"
   RUNTIME_DLL_EXTENSION=".so.$RUNTIME_VERSION"
-  echo "DLL_CC_OPTIONS = -fPIC $CC_OPTIONS"
-  echo "EXE_CC_OPTIONS = $CC_OPTIONS"
+  echo "CC_OPTIONS = -fPIC $CC_OPTIONS"
   echo "RUNTIME_DLL_OPTIONS = -shared -Wl,-soname,libsim.so.$RUNTIME_MAJOR_VERSION"
   echo 'LIBRARIES = -lrt -lgmp -lm'
 fi
@@ -479,7 +476,7 @@ printf 'runtime_OBJECTS ='
 for FILENAME in runtime/*.c
 do
   BASENAME=${FILENAME%.c}
-  OBJNAME=$BASENAME.lib.o
+  OBJNAME=$BASENAME.o
   echo ' \'
   printf "  $OBJNAME"
 done
@@ -728,20 +725,11 @@ done
 
 #generate make-targets for all bootstrap object files
 echo
-for FILENAME in runtime/*.c
-do
-  BASENAME=${FILENAME%.c}
-  OBJNAME=$BASENAME.lib.o
-  echo $OBJNAME: $FILENAME
-  echo "$TAB"'$(CC) $(DLL_CC_OPTIONS)' $CPPFLAGS $CFLAGS '-c' $FILENAME '-o' $OBJNAME
-done
-
-echo
 cat sim2c/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
 while read FILENAME
 do
   BASENAME=${FILENAME%.c}
   OBJNAME=${BASENAME%-*}.o
   echo $OBJNAME: $FILENAME
-  echo "$TAB"'$(CC) $(EXE_CC_OPTIONS)' $CPPFLAGS $CFLAGS '-c' $FILENAME '-o' $OBJNAME
+  echo "$TAB"'$(CC) $(CC_OPTIONS)' $CPPFLAGS $CFLAGS '-c' $FILENAME '-o' $OBJNAME
 done

@@ -265,6 +265,7 @@ $gcc_basic_options
     "-Wno-maybe-uninitialized"
     "-Wno-trigraphs"
     "-O1"
+    "-fPIC"
     "-fno-stack-protector"
     "-falign-functions=16"
 
@@ -373,21 +374,8 @@ $Gcc: (args*)
 
 $compile_c: (c_filename o_filename)
   unless do_build_codeblocks_project || do_list_dependencies:
-    case
-      mode
-      EXE:
-	Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-	unless success: Error err.from_utf8
-      LIB:
-	Gcc $_out $err $success
-	  "-DWITHIN_LIBRARY"
-	  gcc_options*
-	  "-fPIC"
-	  "-c"
-	  c_filename
-	  "-o"
-	  o_filename
-	unless success: Error err.from_utf8
+    Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+    unless success: Error err.from_utf8
     !do_link true
 
 $compile_meta_module:
@@ -577,7 +565,7 @@ $compile_module:
   unless mod_info.is_defined:
     Error "
       No source file(s) for module "@(mod_name)" found!@
-  $o_filename append(mod_filename if(mode == LIB (-> ".lib.o") -> ".o"))
+  $o_filename append(mod_filename ".o")
   if objects(o_filename) return
   !objects(o_filename) true
   if
