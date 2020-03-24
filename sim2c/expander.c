@@ -438,18 +438,18 @@ static void cont__6_16(void);
 static NODE *func__7_1;
 static void entry__7_1(void);
 static FRAME_INFO frame__7_1 = {1, {"self"}};
-static NODE *string__7_2;
+static void cont__7_2(void);
 static void cont__7_3(void);
 static void cont__7_4(void);
-static void cont__7_5(void);
-static NODE *func__7_6;
-static void entry__7_6(void);
-static FRAME_INFO frame__7_6 = {1, {"self"}};
+static NODE *func__7_5;
+static void entry__7_5(void);
+static FRAME_INFO frame__7_5 = {1, {"self"}};
+static void cont__7_6(void);
 static void cont__7_7(void);
-static void cont__7_8(void);
-static NODE *func__7_9;
-static void entry__7_9(void);
-static FRAME_INFO frame__7_9 = {1, {"self"}};
+static NODE *func__7_8;
+static void entry__7_8(void);
+static FRAME_INFO frame__7_8 = {1, {"self"}};
+static void cont__7_9(void);
 static void cont__7_10(void);
 static void cont__7_11(void);
 static void cont__7_12(void);
@@ -459,7 +459,6 @@ static void cont__7_15(void);
 static void cont__7_16(void);
 static void cont__7_17(void);
 static void cont__7_18(void);
-static void cont__7_19(void);
 static NODE *func__8_1;
 static void entry__8_1(void);
 static FRAME_INFO frame__8_1 = {3, {"self", "make_right_argument_lazy", "functor"}};
@@ -557,17 +556,17 @@ static void cont__8_64(void);
 static NODE *func__8_65;
 static void entry__8_65(void);
 static FRAME_INFO frame__8_65 = {1, {"functor"}};
-static NODE *string__8_66;
-static void cont__8_67(void);
-static NODE *func__8_68;
-static void entry__8_68(void);
-static FRAME_INFO frame__8_68 = {2, {"functor", "do_insert_not"}};
-static NODE *string__8_69;
+static void cont__8_66(void);
+static NODE *func__8_67;
+static void entry__8_67(void);
+static FRAME_INFO frame__8_67 = {2, {"functor", "do_insert_not"}};
+static void cont__8_68(void);
+static NODE *func__8_69;
+static void entry__8_69(void);
+static FRAME_INFO frame__8_69 = {2, {"functor", "self"}};
 static void cont__8_70(void);
-static NODE *func__8_71;
-static void entry__8_71(void);
-static FRAME_INFO frame__8_71 = {2, {"functor", "self"}};
-static NODE *string__8_72;
+static void cont__8_71(void);
+static void cont__8_72(void);
 static void cont__8_73(void);
 static void cont__8_74(void);
 static void cont__8_75(void);
@@ -575,39 +574,39 @@ static void cont__8_76(void);
 static void cont__8_77(void);
 static void cont__8_78(void);
 static void cont__8_79(void);
-static void cont__8_80(void);
-static void cont__8_81(void);
+static NODE *func__8_80;
+static void entry__8_80(void);
+static FRAME_INFO frame__8_80 = {1, {"functor"}};
+static NODE *string__8_81;
 static void cont__8_82(void);
 static NODE *func__8_83;
 static void entry__8_83(void);
-static FRAME_INFO frame__8_83 = {1, {"functor"}};
-static NODE *string__8_84;
-static void cont__8_85(void);
-static NODE *func__8_86;
-static void entry__8_86(void);
-static FRAME_INFO frame__8_86 = {2, {"functor", "do_insert_not"}};
-static NODE *string__8_87;
-static void cont__8_88(void);
-static NODE *func__8_89;
-static void entry__8_89(void);
-static FRAME_INFO frame__8_89 = {2, {"functor", "make_right_argument_lazy"}};
-static NODE *string__8_90;
-static void cont__8_91(void);
-static NODE *func__8_92;
-static void entry__8_92(void);
-static FRAME_INFO frame__8_92 = {2, {"functor", "make_right_argument_lazy"}};
-static NODE *string__8_93;
-static void cont__8_94(void);
-static NODE *func__8_95;
-static void entry__8_95(void);
-static FRAME_INFO frame__8_95 = {1, {"functor"}};
-static NODE *string__8_96;
-static void cont__8_97(void);
-static NODE *func__8_98;
-static void entry__8_98(void);
-static FRAME_INFO frame__8_98 = {1, {"functor"}};
+static FRAME_INFO frame__8_83 = {2, {"functor", "do_insert_not"}};
+static void cont__8_84(void);
+static NODE *func__8_85;
+static void entry__8_85(void);
+static FRAME_INFO frame__8_85 = {2, {"functor", "make_right_argument_lazy"}};
+static NODE *string__8_86;
+static void cont__8_87(void);
+static NODE *func__8_88;
+static void entry__8_88(void);
+static FRAME_INFO frame__8_88 = {2, {"functor", "make_right_argument_lazy"}};
+static NODE *string__8_89;
+static void cont__8_90(void);
+static NODE *func__8_91;
+static void entry__8_91(void);
+static FRAME_INFO frame__8_91 = {1, {"functor"}};
+static NODE *string__8_92;
+static void cont__8_93(void);
+static NODE *func__8_94;
+static void entry__8_94(void);
+static FRAME_INFO frame__8_94 = {1, {"functor"}};
+static NODE *string__8_95;
+static void cont__8_96(void);
+static NODE *string__8_97;
+static NODE *string__8_98;
 static NODE *string__8_99;
-static void cont__8_100(void);
+static NODE *string__8_100;
 static NODE *string__8_101;
 static NODE *string__8_102;
 static NODE *string__8_103;
@@ -623,21 +622,17 @@ static NODE *string__8_112;
 static NODE *string__8_113;
 static NODE *string__8_114;
 static NODE *string__8_115;
-static NODE *string__8_116;
-static NODE *string__8_117;
+static void cont__8_116(void);
+static NODE *func__8_117;
+static void entry__8_117(void);
+static FRAME_INFO frame__8_117 = {1, {"self"}};
 static NODE *string__8_118;
-static NODE *string__8_119;
+static void cont__8_119(void);
 static void cont__8_120(void);
-static NODE *func__8_121;
-static void entry__8_121(void);
-static FRAME_INFO frame__8_121 = {1, {"self"}};
-static NODE *string__8_122;
+static void cont__8_121(void);
+static void cont__8_122(void);
 static void cont__8_123(void);
 static void cont__8_124(void);
-static void cont__8_125(void);
-static void cont__8_126(void);
-static void cont__8_127(void);
-static void cont__8_128(void);
 static NODE *get__sim2c__expand_operator_call(void) {
   return var.sim2c__expand_operator_call;
 }
@@ -679,28 +674,27 @@ static void entry__9_24(void);
 static FRAME_INFO frame__9_24 = {1, {"right"}};
 static void cont__9_25(void);
 static void cont__9_26(void);
-static NODE *string__9_27;
+static void cont__9_27(void);
 static void cont__9_28(void);
-static void cont__9_29(void);
-static NODE *func__9_30;
-static void entry__9_30(void);
-static FRAME_INFO frame__9_30 = {3, {"right", "arguments", "right_arguments"}};
+static NODE *func__9_29;
+static void entry__9_29(void);
+static FRAME_INFO frame__9_29 = {3, {"right", "arguments", "right_arguments"}};
+static void cont__9_30(void);
 static void cont__9_31(void);
 static void cont__9_32(void);
 static void cont__9_33(void);
 static void cont__9_34(void);
 static void cont__9_35(void);
-static void cont__9_36(void);
-static NODE *string__9_37;
+static NODE *string__9_36;
+static void cont__9_37(void);
 static void cont__9_38(void);
-static void cont__9_39(void);
-static NODE *func__9_40;
-static void entry__9_40(void);
-static FRAME_INFO frame__9_40 = {1, {"self"}};
+static NODE *func__9_39;
+static void entry__9_39(void);
+static FRAME_INFO frame__9_39 = {1, {"self"}};
+static void cont__9_40(void);
 static void cont__9_41(void);
 static void cont__9_42(void);
 static void cont__9_43(void);
-static void cont__9_44(void);
 static NODE *func__10_1;
 static void entry__10_1(void);
 static FRAME_INFO frame__10_1 = {1, {"self"}};
@@ -753,24 +747,24 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__6_12, &frame__6_1, 62, 62, 16, 33},
   {cont__6_13, &frame__6_1, 62, 62, 3, 65},
   {cont__6_16, &frame__6_1, 62, 62, 65, 65},
-  {entry__7_9, NULL, 70, 70, 61, 80},
-  {cont__7_10, &frame__7_9, 70, 70, 42, 80},
-  {cont__7_11, &frame__7_9, 70, 70, 80, 80},
-  {entry__7_6, NULL, 70, 70, 8, 28},
-  {cont__7_7, &frame__7_6, 70, 70, 8, 39},
-  {cont__7_8, &frame__7_6, 70, 70, 5, 80},
-  {cont__7_12, &frame__7_6, 71, 71, 24, 38},
-  {cont__7_13, &frame__7_6, 71, 71, 5, 38},
-  {cont__7_14, &frame__7_6, 71, 71, 38, 38},
+  {entry__7_8, NULL, 70, 70, 61, 80},
+  {cont__7_9, &frame__7_8, 70, 70, 42, 80},
+  {cont__7_10, &frame__7_8, 70, 70, 80, 80},
+  {entry__7_5, NULL, 70, 70, 8, 28},
+  {cont__7_6, &frame__7_5, 70, 70, 8, 39},
+  {cont__7_7, &frame__7_5, 70, 70, 5, 80},
+  {cont__7_11, &frame__7_5, 71, 71, 24, 38},
+  {cont__7_12, &frame__7_5, 71, 71, 5, 38},
+  {cont__7_13, &frame__7_5, 71, 71, 38, 38},
   {entry__7_1, NULL, 68, 68, 3, 45},
-  {cont__7_3, &frame__7_1, 69, 69, 6, 21},
-  {cont__7_4, &frame__7_1, 69, 69, 6, 32},
-  {cont__7_5, &frame__7_1, 69, 71, 3, 38},
-  {cont__7_15, &frame__7_1, 72, 72, 21, 37},
-  {cont__7_16, &frame__7_1, 72, 72, 3, 37},
-  {cont__7_17, &frame__7_1, 73, 73, 21, 44},
-  {cont__7_18, &frame__7_1, 73, 73, 3, 44},
-  {cont__7_19, &frame__7_1, 73, 73, 44, 44},
+  {cont__7_2, &frame__7_1, 69, 69, 6, 21},
+  {cont__7_3, &frame__7_1, 69, 69, 6, 32},
+  {cont__7_4, &frame__7_1, 69, 71, 3, 38},
+  {cont__7_14, &frame__7_1, 72, 72, 21, 37},
+  {cont__7_15, &frame__7_1, 72, 72, 3, 37},
+  {cont__7_16, &frame__7_1, 73, 73, 21, 44},
+  {cont__7_17, &frame__7_1, 73, 73, 3, 44},
+  {cont__7_18, &frame__7_1, 73, 73, 44, 44},
   {entry__8_2, NULL, 80, 80, 12, 29},
   {cont__8_3, &frame__8_2, 80, 80, 5, 32},
   {cont__8_4, &frame__8_2, 86, 86, 29, 39},
@@ -820,74 +814,74 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__8_63, &frame__8_53, 123, 123, 36, 56},
   {cont__8_64, &frame__8_53, 124, 124, 27, 27},
   {entry__8_65, NULL, 126, 126, 9, 39},
-  {cont__8_67, &frame__8_65, 126, 126, 39, 39},
-  {entry__8_68, NULL, 128, 128, 9, 39},
-  {cont__8_70, &frame__8_68, 129, 129, 27, 27},
-  {entry__8_71, NULL, 131, 131, 9, 39},
-  {cont__8_73, &frame__8_71, 132, 132, 15, 31},
-  {cont__8_74, &frame__8_71, 132, 132, 15, 34},
-  {cont__8_75, &frame__8_71, 132, 132, 37, 53},
-  {cont__8_76, &frame__8_71, 132, 132, 37, 56},
-  {cont__8_77, &frame__8_71, 132, 132, 9, 56},
-  {cont__8_78, &frame__8_71, 132, 132, 15, 31},
-  {cont__8_79, &frame__8_71, 132, 132, 14, 34},
-  {cont__8_80, &frame__8_71, 132, 132, 37, 53},
-  {cont__8_81, &frame__8_71, 132, 132, 36, 56},
-  {cont__8_82, &frame__8_71, 132, 132, 56, 56},
-  {entry__8_83, NULL, 134, 134, 9, 40},
-  {cont__8_85, &frame__8_83, 134, 134, 40, 40},
-  {entry__8_86, NULL, 136, 136, 9, 40},
-  {cont__8_88, &frame__8_86, 137, 137, 27, 27},
-  {entry__8_89, NULL, 139, 139, 9, 38},
-  {cont__8_91, &frame__8_89, 140, 140, 9, 32},
-  {entry__8_92, NULL, 142, 142, 9, 37},
-  {cont__8_94, &frame__8_92, 143, 143, 9, 32},
-  {entry__8_95, NULL, 145, 145, 9, 46},
-  {cont__8_97, &frame__8_95, 145, 145, 46, 46},
-  {entry__8_98, NULL, 147, 147, 9, 49},
-  {cont__8_100, &frame__8_98, 147, 147, 49, 49},
-  {entry__8_121, NULL, 152, 152, 23, 43},
-  {cont__8_123, &frame__8_121, 153, 153, 25, 34},
-  {cont__8_124, &frame__8_121, 154, 154, 24, 40},
-  {cont__8_125, &frame__8_121, 155, 155, 31, 54},
-  {cont__8_126, &frame__8_121, 156, 156, 28, 48},
-  {cont__8_127, &frame__8_121, 156, 156, 50, 50},
+  {cont__8_66, &frame__8_65, 126, 126, 39, 39},
+  {entry__8_67, NULL, 128, 128, 9, 39},
+  {cont__8_68, &frame__8_67, 129, 129, 27, 27},
+  {entry__8_69, NULL, 131, 131, 9, 39},
+  {cont__8_70, &frame__8_69, 132, 132, 15, 31},
+  {cont__8_71, &frame__8_69, 132, 132, 15, 34},
+  {cont__8_72, &frame__8_69, 132, 132, 37, 53},
+  {cont__8_73, &frame__8_69, 132, 132, 37, 56},
+  {cont__8_74, &frame__8_69, 132, 132, 9, 56},
+  {cont__8_75, &frame__8_69, 132, 132, 15, 31},
+  {cont__8_76, &frame__8_69, 132, 132, 14, 34},
+  {cont__8_77, &frame__8_69, 132, 132, 37, 53},
+  {cont__8_78, &frame__8_69, 132, 132, 36, 56},
+  {cont__8_79, &frame__8_69, 132, 132, 56, 56},
+  {entry__8_80, NULL, 134, 134, 9, 40},
+  {cont__8_82, &frame__8_80, 134, 134, 40, 40},
+  {entry__8_83, NULL, 136, 136, 9, 40},
+  {cont__8_84, &frame__8_83, 137, 137, 27, 27},
+  {entry__8_85, NULL, 139, 139, 9, 38},
+  {cont__8_87, &frame__8_85, 140, 140, 9, 32},
+  {entry__8_88, NULL, 142, 142, 9, 37},
+  {cont__8_90, &frame__8_88, 143, 143, 9, 32},
+  {entry__8_91, NULL, 145, 145, 9, 46},
+  {cont__8_93, &frame__8_91, 145, 145, 46, 46},
+  {entry__8_94, NULL, 147, 147, 9, 49},
+  {cont__8_96, &frame__8_94, 147, 147, 49, 49},
+  {entry__8_117, NULL, 152, 152, 23, 43},
+  {cont__8_119, &frame__8_117, 153, 153, 25, 34},
+  {cont__8_120, &frame__8_117, 154, 154, 24, 40},
+  {cont__8_121, &frame__8_117, 155, 155, 31, 54},
+  {cont__8_122, &frame__8_117, 156, 156, 28, 48},
+  {cont__8_123, &frame__8_117, 156, 156, 50, 50},
   {entry__8_17, NULL, 98, 98, 7, 22},
   {cont__8_18, &frame__8_17, 97, 147, 5, 50},
-  {cont__8_120, &frame__8_17, 149, 156, 5, 50},
+  {cont__8_116, &frame__8_17, 149, 156, 5, 50},
   {entry__8_1, NULL, 94, 94, 3, 28},
   {cont__8_15, &frame__8_1, 95, 95, 6, 34},
   {cont__8_16, &frame__8_1, 95, 156, 3, 51},
-  {cont__8_128, &frame__8_1, },
+  {cont__8_124, &frame__8_1, },
   {entry__9_11, NULL, 167, 167, 40, 55},
   {cont__9_12, &frame__9_11, 167, 167, 40, 62},
   {cont__9_14, &frame__9_11, 167, 167, 40, 62},
   {entry__9_24, NULL, 170, 170, 54, 70},
   {cont__9_25, &frame__9_24, 170, 170, 46, 71},
   {cont__9_26, &frame__9_24, 170, 170, 46, 78},
-  {cont__9_28, &frame__9_24, 170, 170, 46, 78},
-  {entry__9_30, NULL, 171, 171, 11, 46},
-  {cont__9_31, &frame__9_30, 172, 172, 27, 44},
-  {cont__9_32, &frame__9_30, 172, 172, 11, 44},
-  {cont__9_33, &frame__9_30, 173, 173, 11, 35},
-  {cont__9_34, &frame__9_30, 173, 173, 35, 35},
+  {cont__9_27, &frame__9_24, 170, 170, 46, 78},
+  {entry__9_29, NULL, 171, 171, 11, 46},
+  {cont__9_30, &frame__9_29, 172, 172, 27, 44},
+  {cont__9_31, &frame__9_29, 172, 172, 11, 44},
+  {cont__9_32, &frame__9_29, 173, 173, 11, 35},
+  {cont__9_33, &frame__9_29, 173, 173, 35, 35},
   {entry__9_22, NULL, 170, 170, 18, 41},
   {cont__9_23, &frame__9_22, 170, 170, 18, 78},
-  {cont__9_29, &frame__9_22, 170, 173, 15, 35},
+  {cont__9_28, &frame__9_22, 170, 173, 15, 35},
   {entry__9_16, NULL, 168, 168, 26, 43},
   {cont__9_17, &frame__9_16, 168, 168, 26, 46},
   {cont__9_18, &frame__9_16, 168, 168, 9, 47},
   {cont__9_19, &frame__9_16, 169, 169, 17, 34},
   {cont__9_20, &frame__9_16, 169, 169, 9, 37},
   {cont__9_21, &frame__9_16, 170, 173, 9, 35},
-  {cont__9_35, &frame__9_16, 174, 174, 9, 29},
-  {cont__9_36, &frame__9_16, 175, 175, 9, 51},
-  {cont__9_38, &frame__9_16, 176, 176, 9, 54},
-  {cont__9_39, &frame__9_16, 176, 176, 54, 54},
-  {entry__9_40, NULL, 178, 178, 27, 43},
-  {cont__9_41, &frame__9_40, 178, 178, 9, 43},
-  {cont__9_42, &frame__9_40, 179, 179, 9, 34},
-  {cont__9_43, &frame__9_40, 179, 179, 34, 34},
+  {cont__9_34, &frame__9_16, 174, 174, 9, 29},
+  {cont__9_35, &frame__9_16, 175, 175, 9, 51},
+  {cont__9_37, &frame__9_16, 176, 176, 9, 54},
+  {cont__9_38, &frame__9_16, 176, 176, 54, 54},
+  {entry__9_39, NULL, 178, 178, 27, 43},
+  {cont__9_40, &frame__9_39, 178, 178, 9, 43},
+  {cont__9_41, &frame__9_39, 179, 179, 9, 34},
+  {cont__9_42, &frame__9_39, 179, 179, 34, 34},
   {entry__9_6, NULL, 164, 164, 24, 38},
   {cont__9_7, &frame__9_6, 164, 164, 5, 38},
   {cont__9_8, &frame__9_6, 165, 165, 5, 29},
@@ -898,7 +892,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__9_3, &frame__9_1, 163, 163, 6, 21},
   {cont__9_4, &frame__9_1, 163, 163, 6, 32},
   {cont__9_5, &frame__9_1, 163, 179, 3, 36},
-  {cont__9_44, &frame__9_1, },
+  {cont__9_43, &frame__9_1, },
   {entry__10_1, NULL, 185, 185, 3, 56},
   {cont__10_3, &frame__10_1, 186, 186, 21, 37},
   {cont__10_4, &frame__10_1, 186, 186, 3, 37},
@@ -1592,13 +1586,13 @@ static void entry__7_1(void) {
   // 68: show_compiler_debug_info "expand statement"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__7_2;
+  arguments->slots[0] = string__4_2;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__7_3;
+  frame->cont = cont__7_2;
 }
-static void cont__7_3(void) {
+static void cont__7_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1610,9 +1604,9 @@ static void cont__7_3(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__7_4;
+  frame->cont = cont__7_3;
 }
-static void cont__7_4(void) {
+static void cont__7_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1625,9 +1619,9 @@ static void cont__7_4(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__7_5;
+  frame->cont = cont__7_4;
 }
-static void cont__7_5(void) {
+static void cont__7_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1636,7 +1630,7 @@ static void cont__7_5(void) {
   // 69: ... :
   // 70:   if result_count_of(self).is_defined: expand_expression &self.result_count_of
   // 71:   expand_expression &self.functor_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__7_6, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__7_5, 0);
   // 69: if functor_of(self).is_defined:
   // 70:   if result_count_of(self).is_defined: expand_expression &self.result_count_of
   // 71:   expand_expression &self.functor_of
@@ -1647,9 +1641,9 @@ static void cont__7_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__7_15;
+  frame->cont = cont__7_14;
 }
-static void entry__7_6(void) {
+static void entry__7_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -1665,9 +1659,9 @@ static void entry__7_6(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__7_7;
+  frame->cont = cont__7_6;
 }
-static void cont__7_7(void) {
+static void cont__7_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1680,16 +1674,16 @@ static void cont__7_7(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__7_8;
+  frame->cont = cont__7_7;
 }
-static void cont__7_8(void) {
+static void cont__7_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 70: ... : expand_expression &self.result_count_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__7_9, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__7_8, 0);
   // 70: if result_count_of(self).is_defined: expand_expression &self.result_count_of
   argument_count = 2;
   arguments = node_p;
@@ -1698,9 +1692,9 @@ static void cont__7_8(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__7_12;
+  frame->cont = cont__7_11;
 }
-static void entry__7_9(void) {
+static void entry__7_8(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1716,9 +1710,9 @@ static void entry__7_9(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__7_10;
+  frame->cont = cont__7_9;
 }
-static void cont__7_10(void) {
+static void cont__7_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1731,9 +1725,9 @@ static void cont__7_10(void) {
   result_count = 1;
   myself = get__expand_expression();
   func = myself->type;
-  frame->cont = cont__7_11;
+  frame->cont = cont__7_10;
 }
-static void cont__7_11(void) {
+static void cont__7_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1753,7 +1747,7 @@ static void cont__7_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__7_12(void) {
+static void cont__7_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1765,9 +1759,9 @@ static void cont__7_12(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__7_13;
+  frame->cont = cont__7_12;
 }
-static void cont__7_13(void) {
+static void cont__7_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1780,9 +1774,9 @@ static void cont__7_13(void) {
   result_count = 1;
   myself = get__expand_expression();
   func = myself->type;
-  frame->cont = cont__7_14;
+  frame->cont = cont__7_13;
 }
-static void cont__7_14(void) {
+static void cont__7_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1802,7 +1796,7 @@ static void cont__7_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__7_15(void) {
+static void cont__7_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1814,9 +1808,9 @@ static void cont__7_15(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__7_16;
+  frame->cont = cont__7_15;
 }
-static void cont__7_16(void) {
+static void cont__7_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1829,9 +1823,9 @@ static void cont__7_16(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__7_17;
+  frame->cont = cont__7_16;
 }
-static void cont__7_17(void) {
+static void cont__7_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1852,9 +1846,9 @@ static void cont__7_17(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__7_18;
+  frame->cont = cont__7_17;
 }
-static void cont__7_18(void) {
+static void cont__7_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1867,9 +1861,9 @@ static void cont__7_18(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__7_19;
+  frame->cont = cont__7_18;
 }
-static void cont__7_19(void) {
+static void cont__7_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2236,9 +2230,9 @@ static void cont__8_16(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__8_128;
+  frame->cont = cont__8_124;
 }
-static void entry__8_121(void) {
+static void entry__8_117(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -2250,13 +2244,13 @@ static void entry__8_121(void) {
   // 152: ... std_identifier("not")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_122;
+  arguments->slots[0] = string__8_118;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_123;
+  frame->cont = cont__8_119;
 }
-static void cont__8_123(void) {
+static void cont__8_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2269,9 +2263,9 @@ static void cont__8_123(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__8_124;
+  frame->cont = cont__8_120;
 }
-static void cont__8_124(void) {
+static void cont__8_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2284,9 +2278,9 @@ static void cont__8_124(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__8_125;
+  frame->cont = cont__8_121;
 }
-static void cont__8_125(void) {
+static void cont__8_121(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2299,9 +2293,9 @@ static void cont__8_125(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__8_126;
+  frame->cont = cont__8_122;
 }
-static void cont__8_126(void) {
+static void cont__8_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2314,9 +2308,9 @@ static void cont__8_126(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__8_127;
+  frame->cont = cont__8_123;
 }
-static void cont__8_127(void) {
+static void cont__8_123(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2420,32 +2414,32 @@ static void cont__8_18(void) {
   // 127: ... :
   // 128:   !functor std_identifier("less")
   // 129:   !do_insert_not true
-  frame->slots[16] /* temp__13 */ = create_closure(entry__8_68, 0);
+  frame->slots[16] /* temp__13 */ = create_closure(entry__8_67, 0);
   // 130: ... :
   // 131:   !functor std_identifier("less")
   // 132:   swap &self.arguments_of(1) &self.arguments_of(2)
-  frame->slots[17] /* temp__14 */ = create_closure(entry__8_71, 0);
+  frame->slots[17] /* temp__14 */ = create_closure(entry__8_69, 0);
   // 133: ... :
   // 134:   !functor std_identifier("equal")
-  frame->slots[18] /* temp__15 */ = create_closure(entry__8_83, 0);
+  frame->slots[18] /* temp__15 */ = create_closure(entry__8_80, 0);
   // 135: ... :
   // 136:   !functor std_identifier("equal")
   // 137:   !do_insert_not true
-  frame->slots[19] /* temp__16 */ = create_closure(entry__8_86, 0);
+  frame->slots[19] /* temp__16 */ = create_closure(entry__8_83, 0);
   // 138: ... :
   // 139:   !functor std_identifier("and")
   // 140:   make_right_argument_lazy
-  frame->slots[20] /* temp__17 */ = create_closure(entry__8_89, 0);
+  frame->slots[20] /* temp__17 */ = create_closure(entry__8_85, 0);
   // 141: ... :
   // 142:   !functor std_identifier("or")
   // 143:   make_right_argument_lazy
-  frame->slots[21] /* temp__18 */ = create_closure(entry__8_92, 0);
+  frame->slots[21] /* temp__18 */ = create_closure(entry__8_88, 0);
   // 144: ... :
   // 145:   !functor std_identifier("value_range")
-  frame->slots[22] /* temp__19 */ = create_closure(entry__8_95, 0);
+  frame->slots[22] /* temp__19 */ = create_closure(entry__8_91, 0);
   // 146: ... :
   // 147:   !functor std_identifier("key_value_pair")
-  frame->slots[23] /* temp__20 */ = create_closure(entry__8_98, 0);
+  frame->slots[23] /* temp__20 */ = create_closure(entry__8_94, 0);
   //  97: case
   //  98:   name_of(functor)
   //  99:   "*":
@@ -2460,48 +2454,48 @@ static void cont__8_18(void) {
   argument_count = 39;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
-  arguments->slots[1] = string__8_101;
+  arguments->slots[1] = string__8_97;
   arguments->slots[2] = frame->slots[5] /* temp__2 */;
-  arguments->slots[3] = string__8_102;
+  arguments->slots[3] = string__8_98;
   arguments->slots[4] = frame->slots[6] /* temp__3 */;
-  arguments->slots[5] = string__8_103;
+  arguments->slots[5] = string__8_99;
   arguments->slots[6] = frame->slots[7] /* temp__4 */;
-  arguments->slots[7] = string__8_104;
+  arguments->slots[7] = string__8_100;
   arguments->slots[8] = frame->slots[8] /* temp__5 */;
-  arguments->slots[9] = string__8_105;
+  arguments->slots[9] = string__8_101;
   arguments->slots[10] = frame->slots[9] /* temp__6 */;
-  arguments->slots[11] = string__8_106;
+  arguments->slots[11] = string__8_102;
   arguments->slots[12] = frame->slots[10] /* temp__7 */;
-  arguments->slots[13] = string__8_107;
+  arguments->slots[13] = string__8_103;
   arguments->slots[14] = frame->slots[11] /* temp__8 */;
-  arguments->slots[15] = string__8_108;
+  arguments->slots[15] = string__8_104;
   arguments->slots[16] = frame->slots[12] /* temp__9 */;
-  arguments->slots[17] = string__8_109;
+  arguments->slots[17] = string__8_105;
   arguments->slots[18] = frame->slots[13] /* temp__10 */;
-  arguments->slots[19] = string__8_110;
+  arguments->slots[19] = string__8_106;
   arguments->slots[20] = frame->slots[14] /* temp__11 */;
-  arguments->slots[21] = string__8_111;
+  arguments->slots[21] = string__8_107;
   arguments->slots[22] = frame->slots[15] /* temp__12 */;
-  arguments->slots[23] = string__8_112;
+  arguments->slots[23] = string__8_108;
   arguments->slots[24] = frame->slots[16] /* temp__13 */;
-  arguments->slots[25] = string__8_113;
+  arguments->slots[25] = string__8_109;
   arguments->slots[26] = frame->slots[17] /* temp__14 */;
-  arguments->slots[27] = string__8_114;
+  arguments->slots[27] = string__8_110;
   arguments->slots[28] = frame->slots[18] /* temp__15 */;
-  arguments->slots[29] = string__8_115;
+  arguments->slots[29] = string__8_111;
   arguments->slots[30] = frame->slots[19] /* temp__16 */;
-  arguments->slots[31] = string__8_116;
+  arguments->slots[31] = string__8_112;
   arguments->slots[32] = frame->slots[20] /* temp__17 */;
-  arguments->slots[33] = string__8_117;
+  arguments->slots[33] = string__8_113;
   arguments->slots[34] = frame->slots[21] /* temp__18 */;
-  arguments->slots[35] = string__8_118;
+  arguments->slots[35] = string__8_114;
   arguments->slots[36] = frame->slots[22] /* temp__19 */;
-  arguments->slots[37] = string__8_119;
+  arguments->slots[37] = string__8_115;
   arguments->slots[38] = frame->slots[23] /* temp__20 */;
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__8_120;
+  frame->cont = cont__8_116;
 }
 static void entry__8_32(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -3084,13 +3078,13 @@ static void entry__8_65(void) {
   // 126: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_66;
+  arguments->slots[0] = string__8_54;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_67;
+  frame->cont = cont__8_66;
 }
-static void cont__8_67(void) {
+static void cont__8_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3102,7 +3096,7 @@ static void cont__8_67(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_68(void) {
+static void entry__8_67(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3116,13 +3110,13 @@ static void entry__8_68(void) {
   // 128: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_69;
+  arguments->slots[0] = string__8_54;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_70;
+  frame->cont = cont__8_68;
 }
-static void cont__8_70(void) {
+static void cont__8_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3136,7 +3130,7 @@ static void cont__8_70(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_71(void) {
+static void entry__8_69(void) {
   allocate_initialized_frame_gc(2, 10);
   // slot allocations:
   // functor: 0
@@ -3150,13 +3144,13 @@ static void entry__8_71(void) {
   // 131: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_72;
+  arguments->slots[0] = string__8_54;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_73;
+  frame->cont = cont__8_70;
 }
-static void cont__8_73(void) {
+static void cont__8_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3169,9 +3163,9 @@ static void cont__8_73(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__8_74;
+  frame->cont = cont__8_71;
 }
-static void cont__8_74(void) {
+static void cont__8_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3184,14 +3178,61 @@ static void cont__8_74(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__8_75;
+  frame->cont = cont__8_72;
 }
-static void cont__8_75(void) {
+static void cont__8_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
+  // 132: ... self.arguments_of
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
+  result_count = 1;
+  myself = get__arguments_of();
+  func = myself->type;
+  frame->cont = cont__8_73;
+}
+static void cont__8_73(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[5] /* temp__4 */ = arguments->slots[0];
+  // 132: ... self.arguments_of(2)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = number__2;
+  result_count = 1;
+  myself = frame->slots[5] /* temp__4 */;
+  func = myself->type;
+  frame->cont = cont__8_74;
+}
+static void cont__8_74(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__3 */ = arguments->slots[0];
+  // 132: swap &self.arguments_of(1) &self.arguments_of(2)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[4] /* temp__3 */;
+  result_count = 2;
+  myself = get__swap();
+  func = myself->type;
+  frame->cont = cont__8_75;
+}
+static void cont__8_75(void) {
+  if (argument_count != 2) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[6] /* temp__5 */ = arguments->slots[0];
+  frame->slots[7] /* temp__6 */ = arguments->slots[1];
   // 132: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
@@ -3206,53 +3247,6 @@ static void cont__8_76(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 132: ... self.arguments_of(2)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__2;
-  result_count = 1;
-  myself = frame->slots[5] /* temp__4 */;
-  func = myself->type;
-  frame->cont = cont__8_77;
-}
-static void cont__8_77(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 132: swap &self.arguments_of(1) &self.arguments_of(2)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[4] /* temp__3 */;
-  result_count = 2;
-  myself = get__swap();
-  func = myself->type;
-  frame->cont = cont__8_78;
-}
-static void cont__8_78(void) {
-  if (argument_count != 2) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  frame->slots[7] /* temp__6 */ = arguments->slots[1];
-  // 132: ... self.arguments_of
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
-  result_count = 1;
-  myself = get__arguments_of();
-  func = myself->type;
-  frame->cont = cont__8_79;
-}
-static void cont__8_79(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
   // 132: ... &self.arguments_of(1)
   argument_count = 2;
@@ -3262,9 +3256,9 @@ static void cont__8_79(void) {
   result_count = 1;
   myself = frame->slots[8] /* temp__7 */;
   func = myself->type;
-  frame->cont = cont__8_80;
+  frame->cont = cont__8_77;
 }
-static void cont__8_80(void) {
+static void cont__8_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3285,9 +3279,9 @@ static void cont__8_80(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__8_81;
+  frame->cont = cont__8_78;
 }
-static void cont__8_81(void) {
+static void cont__8_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3301,9 +3295,9 @@ static void cont__8_81(void) {
   result_count = 1;
   myself = frame->slots[9] /* temp__8 */;
   func = myself->type;
-  frame->cont = cont__8_82;
+  frame->cont = cont__8_79;
 }
-static void cont__8_82(void) {
+static void cont__8_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3323,7 +3317,7 @@ static void cont__8_82(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_83(void) {
+static void entry__8_80(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3335,13 +3329,13 @@ static void entry__8_83(void) {
   // 134: !functor std_identifier("equal")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_84;
+  arguments->slots[0] = string__8_81;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_85;
+  frame->cont = cont__8_82;
 }
-static void cont__8_85(void) {
+static void cont__8_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3353,7 +3347,7 @@ static void cont__8_85(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_86(void) {
+static void entry__8_83(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3367,13 +3361,13 @@ static void entry__8_86(void) {
   // 136: !functor std_identifier("equal")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_87;
+  arguments->slots[0] = string__8_81;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_88;
+  frame->cont = cont__8_84;
 }
-static void cont__8_88(void) {
+static void cont__8_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3387,7 +3381,7 @@ static void cont__8_88(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_89(void) {
+static void entry__8_85(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3401,13 +3395,13 @@ static void entry__8_89(void) {
   // 139: !functor std_identifier("and")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_90;
+  arguments->slots[0] = string__8_86;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_91;
+  frame->cont = cont__8_87;
 }
-static void cont__8_91(void) {
+static void cont__8_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3421,7 +3415,7 @@ static void cont__8_91(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_92(void) {
+static void entry__8_88(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3435,13 +3429,13 @@ static void entry__8_92(void) {
   // 142: !functor std_identifier("or")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_93;
+  arguments->slots[0] = string__8_89;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_94;
+  frame->cont = cont__8_90;
 }
-static void cont__8_94(void) {
+static void cont__8_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3455,7 +3449,7 @@ static void cont__8_94(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_95(void) {
+static void entry__8_91(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3467,13 +3461,13 @@ static void entry__8_95(void) {
   // 145: !functor std_identifier("value_range")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_96;
+  arguments->slots[0] = string__8_92;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_97;
+  frame->cont = cont__8_93;
 }
-static void cont__8_97(void) {
+static void cont__8_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3485,7 +3479,7 @@ static void cont__8_97(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_98(void) {
+static void entry__8_94(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3497,13 +3491,13 @@ static void entry__8_98(void) {
   // 147: !functor std_identifier("key_value_pair")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_99;
+  arguments->slots[0] = string__8_95;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__8_100;
+  frame->cont = cont__8_96;
 }
-static void cont__8_100(void) {
+static void cont__8_96(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3515,7 +3509,7 @@ static void cont__8_100(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__8_120(void) {
+static void cont__8_116(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3538,7 +3532,7 @@ static void cont__8_120(void) {
   // 154:       .fragment_of fragment_of(self)
   // 155:       .source_position_of source_position_of(self)
   // 156:       .end_position_of end_position_of(self)
-  frame->slots[4] /* temp__1 */ = create_closure(entry__8_121, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__8_117, 0);
   // 149: if do_insert_not:
   // 150:   !self
   // 151:     function_call
@@ -3556,7 +3550,7 @@ static void cont__8_120(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__8_128(void) {
+static void cont__8_124(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -3652,7 +3646,7 @@ static void cont__9_5(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_44;
+  frame->cont = cont__9_43;
 }
 static void entry__9_16(void) {
   allocate_initialized_frame_gc(1, 5);
@@ -3757,9 +3751,9 @@ static void cont__9_21(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__9_35;
+  frame->cont = cont__9_34;
 }
-static void entry__9_30(void) {
+static void entry__9_29(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // right: 0
@@ -3779,9 +3773,9 @@ static void entry__9_30(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__9_31;
+  frame->cont = cont__9_30;
 }
-static void cont__9_31(void) {
+static void cont__9_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3794,9 +3788,9 @@ static void cont__9_31(void) {
   result_count = 1;
   myself = frame->slots[2] /* right_arguments */;
   func = myself->type;
-  frame->cont = cont__9_32;
+  frame->cont = cont__9_31;
 }
-static void cont__9_32(void) {
+static void cont__9_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3810,9 +3804,9 @@ static void cont__9_32(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__9_33;
+  frame->cont = cont__9_32;
 }
-static void cont__9_33(void) {
+static void cont__9_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3825,9 +3819,9 @@ static void cont__9_33(void) {
   result_count = 1;
   myself = frame->slots[2] /* right_arguments */;
   func = myself->type;
-  frame->cont = cont__9_34;
+  frame->cont = cont__9_33;
 }
-static void cont__9_34(void) {
+static void cont__9_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3875,7 +3869,7 @@ static void cont__9_23(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__9_29;
+  frame->cont = cont__9_28;
 }
 static void entry__9_24(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -3920,13 +3914,13 @@ static void cont__9_26(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__9_27;
+  arguments->slots[1] = string__9_13;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__9_28;
+  frame->cont = cont__9_27;
 }
-static void cont__9_28(void) {
+static void cont__9_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3940,7 +3934,7 @@ static void cont__9_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_29(void) {
+static void cont__9_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3950,7 +3944,7 @@ static void cont__9_29(void) {
   // 171:   $right_arguments arguments_of(right)
   // 172:   push &arguments right_arguments(1)
   // 173:   !right right_arguments(2)
-  frame->slots[5] /* temp__4 */ = create_closure(entry__9_30, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__9_29, 0);
   // 170: ... -> right.is_a_function_call && name_of(functor_of(right)) == ",":
   // 171:   $right_arguments arguments_of(right)
   // 172:   push &arguments right_arguments(1)
@@ -3963,7 +3957,7 @@ static void cont__9_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_35(void) {
+static void cont__9_34(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3976,9 +3970,9 @@ static void cont__9_35(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__9_36;
+  frame->cont = cont__9_35;
 }
-static void cont__9_36(void) {
+static void cont__9_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3987,13 +3981,13 @@ static void cont__9_36(void) {
   // 175: !self.functor_of std_identifier("sequence")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__9_37;
+  arguments->slots[0] = string__9_36;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__9_38;
+  frame->cont = cont__9_37;
 }
-static void cont__9_38(void) {
+static void cont__9_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4014,9 +4008,9 @@ static void cont__9_38(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__9_39;
+  frame->cont = cont__9_38;
 }
-static void cont__9_39(void) {
+static void cont__9_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4036,7 +4030,7 @@ static void cont__9_39(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_40(void) {
+static void entry__9_39(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -4052,9 +4046,9 @@ static void entry__9_40(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__9_41;
+  frame->cont = cont__9_40;
 }
-static void cont__9_41(void) {
+static void cont__9_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4067,9 +4061,9 @@ static void cont__9_41(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__9_42;
+  frame->cont = cont__9_41;
 }
-static void cont__9_42(void) {
+static void cont__9_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4090,9 +4084,9 @@ static void cont__9_42(void) {
   result_count = 1;
   myself = get__expand_operator_call();
   func = myself->type;
-  frame->cont = cont__9_43;
+  frame->cont = cont__9_42;
 }
-static void cont__9_43(void) {
+static void cont__9_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4263,7 +4257,7 @@ static void cont__9_15(void) {
   // 177: :
   // 178:   expand_arguments &self.arguments_of
   // 179:   expand_operator_call &self
-  frame->slots[6] /* temp__5 */ = create_closure(entry__9_40, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__9_39, 0);
   // 166: if
   // 167:   functor.is_an_operator_symbol && name_of(functor) == ",":
   // 168:     $$arguments list(arguments_of(self)(1))
@@ -4285,7 +4279,7 @@ static void cont__9_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_44(void) {
+static void cont__9_43(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -4465,7 +4459,6 @@ EXPORT void phase_2__expander(void) {
   func__6_5 = create_function(entry__6_5, 1);
   func__6_14 = create_function(entry__6_14, 1);
   func__6_1 = create_function(entry__6_1, 1);
-  string__7_2 = from_latin_1_string("expand statement", 16);
   func__7_1 = create_function(entry__7_1, 1);
   string__8_20 = from_latin_1_string("times", 5);
   string__8_23 = from_latin_1_string("over", 4);
@@ -4478,40 +4471,35 @@ EXPORT void phase_2__expander(void) {
   string__8_48 = from_latin_1_string("bit_xor", 7);
   string__8_51 = from_latin_1_string("bit_or", 6);
   string__8_54 = from_latin_1_string("less", 4);
-  string__8_66 = from_latin_1_string("less", 4);
-  string__8_69 = from_latin_1_string("less", 4);
-  string__8_72 = from_latin_1_string("less", 4);
-  string__8_84 = from_latin_1_string("equal", 5);
-  string__8_87 = from_latin_1_string("equal", 5);
-  string__8_90 = from_latin_1_string("and", 3);
-  string__8_93 = from_latin_1_string("or", 2);
-  string__8_96 = from_latin_1_string("value_range", 11);
-  string__8_99 = from_latin_1_string("key_value_pair", 14);
-  string__8_101 = from_latin_1_string("*", 1);
-  string__8_102 = from_latin_1_string("/", 1);
-  string__8_103 = from_latin_1_string("+", 1);
-  string__8_104 = from_latin_1_string("-", 1);
-  string__8_105 = from_latin_1_string("<<", 2);
-  string__8_106 = from_latin_1_string(">>", 2);
-  string__8_107 = from_latin_1_string("&", 1);
-  string__8_108 = from_latin_1_string("^", 1);
-  string__8_109 = from_latin_1_string("|", 1);
-  string__8_110 = from_latin_1_string("<=", 2);
-  string__8_111 = from_latin_1_string("<", 1);
-  string__8_112 = from_latin_1_string(">=", 2);
-  string__8_113 = from_latin_1_string(">", 1);
-  string__8_114 = from_latin_1_string("==", 2);
-  string__8_115 = from_latin_1_string("!=", 2);
-  string__8_116 = from_latin_1_string("&&", 2);
-  string__8_117 = from_latin_1_string("||", 2);
-  string__8_118 = from_latin_1_string("..", 2);
-  string__8_119 = from_latin_1_string("=", 1);
-  string__8_122 = from_latin_1_string("not", 3);
+  string__8_81 = from_latin_1_string("equal", 5);
+  string__8_86 = from_latin_1_string("and", 3);
+  string__8_89 = from_latin_1_string("or", 2);
+  string__8_92 = from_latin_1_string("value_range", 11);
+  string__8_95 = from_latin_1_string("key_value_pair", 14);
+  string__8_97 = from_latin_1_string("*", 1);
+  string__8_98 = from_latin_1_string("/", 1);
+  string__8_99 = from_latin_1_string("+", 1);
+  string__8_100 = from_latin_1_string("-", 1);
+  string__8_101 = from_latin_1_string("<<", 2);
+  string__8_102 = from_latin_1_string(">>", 2);
+  string__8_103 = from_latin_1_string("&", 1);
+  string__8_104 = from_latin_1_string("^", 1);
+  string__8_105 = from_latin_1_string("|", 1);
+  string__8_106 = from_latin_1_string("<=", 2);
+  string__8_107 = from_latin_1_string("<", 1);
+  string__8_108 = from_latin_1_string(">=", 2);
+  string__8_109 = from_latin_1_string(">", 1);
+  string__8_110 = from_latin_1_string("==", 2);
+  string__8_111 = from_latin_1_string("!=", 2);
+  string__8_112 = from_latin_1_string("&&", 2);
+  string__8_113 = from_latin_1_string("||", 2);
+  string__8_114 = from_latin_1_string("..", 2);
+  string__8_115 = from_latin_1_string("=", 1);
+  string__8_118 = from_latin_1_string("not", 3);
   func__8_1 = create_function(entry__8_1, 1);
   string__9_2 = from_latin_1_string("expand function call", 20);
   string__9_13 = from_latin_1_string(",", 1);
-  string__9_27 = from_latin_1_string(",", 1);
-  string__9_37 = from_latin_1_string("sequence", 8);
+  string__9_36 = from_latin_1_string("sequence", 8);
   func__9_1 = create_function(entry__9_1, 1);
   string__10_2 = from_latin_1_string("expand attribute-value pair", 27);
   func__10_1 = create_function(entry__10_1, 1);

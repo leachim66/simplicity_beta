@@ -266,13 +266,12 @@ static NODE *get__std__current_path_separator(void) {
   return var.std__current_path_separator;
 }
 static NODE *string__6_1;
-static NODE *string__6_2;
-static void cont__6_3(void);
+static void cont__6_2(void);
 void run__platform__platform(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__platform__platform, NULL, 24, 24, 1, 43},
-  {cont__6_3, NULL, }
+  {cont__6_2, NULL, }
 };
 
 union NODE {
@@ -320,14 +319,14 @@ EXPORT void run__platform__platform(void) {
   // 24: $std::current_platforms list("posix" "all")
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__6_1;
-  arguments->slots[1] = string__6_2;
+  arguments->slots[0] = string__1_1;
+  arguments->slots[1] = string__6_1;
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__6_3;
+  frame->cont = cont__6_2;
 }
-static void cont__6_3(void) {
+static void cont__6_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -360,8 +359,7 @@ EXPORT void phase_2__platform__platform(void) {
   character__47 = from_uchar32(47);
   character__58 = from_uchar32(58);
   string__1_1 = from_latin_1_string("posix", 5);
-  string__6_1 = from_latin_1_string("posix", 5);
-  string__6_2 = from_latin_1_string("all", 3);
+  string__6_1 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_3 = false;

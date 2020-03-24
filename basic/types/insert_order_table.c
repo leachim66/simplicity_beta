@@ -1010,10 +1010,8 @@ static void cont__46_14(void);
 static NODE *func__46_15;
 static void entry__46_15(void);
 static FRAME_INFO frame__46_15 = {0, {}};
-static NODE *string__46_16;
-static void cont__46_17(void);
-static NODE *string__94_1;
-static void cont__94_2(void);
+static void cont__46_16(void);
+static void cont__94_1(void);
 void run__basic__types__insert_order_table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -1028,7 +1026,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__next_of, NULL, 39, 39, 2, 8},
   {type__previous_of, NULL, 40, 40, 2, 12},
   {run__basic__types__insert_order_table, NULL, 390, 390, 1, 76},
-  {cont__94_2, NULL, },
+  {cont__94_1, NULL, },
   {entry__16_4, NULL, 51, 51, 7, 39},
   {cont__16_5, &frame__16_4, 52, 52, 24, 24},
   {entry__16_6, NULL, 54, 54, 7, 23},
@@ -1359,7 +1357,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__46_12, &frame__46_1, 388, 388, 6, 19},
   {cont__46_13, &frame__46_1, 388, 388, 6, 19},
   {cont__46_14, &frame__46_1, 388, 388, 3, 59},
-  {cont__46_17, &frame__46_1, }
+  {cont__46_16, &frame__46_1, }
 };
 
 union NODE {
@@ -1631,14 +1629,14 @@ EXPORT void run__basic__types__insert_order_table(void) {
   // 390: register_collection_serializer "insert_order_table" empty_insert_order_table
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__94_1;
+  arguments->slots[0] = string__35_1;
   arguments->slots[1] = get__empty_insert_order_table();
   result_count = 0;
   myself = get__register_collection_serializer();
   func = myself->type;
-  frame->cont = cont__94_2;
+  frame->cont = cont__94_1;
 }
-static void cont__94_2(void) {
+static void cont__94_1(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8609,7 +8607,7 @@ static void cont__46_14(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__46_17;
+  frame->cont = cont__46_16;
 }
 static void entry__46_15(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -8621,13 +8619,13 @@ static void entry__46_15(void) {
   // 388: ... raise "Invalid tree insert operation!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__46_16;
+  arguments->slots[0] = string__45_16;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__46_17(void) {
+static void cont__46_16(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -8715,10 +8713,8 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
   func__45_15 = create_function(entry__45_15, 0);
   func__45_1 = create_function(entry__45_1, 4);
-  string__46_16 = from_latin_1_string("Invalid tree insert operation!", 30);
   func__46_15 = create_function(entry__46_15, 0);
   func__46_1 = create_function(entry__46_1, 4);
-  string__94_1 = from_latin_1_string("insert_order_table", 18);
 }
 
 static int already_run_phase_3 = false;

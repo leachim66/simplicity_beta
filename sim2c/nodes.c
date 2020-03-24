@@ -1177,7 +1177,6 @@ static NODE *get__sim2c__multi_line_string(void) {
   return var.sim2c__multi_line_string;
 }
 static NODE *string__222_1;
-static NODE *string__223_1;
 static int poly_idx__node__is_a_unique_item_constant;
 static void type__node__is_a_unique_item_constant(void);
 static NODE *get__node__is_a_unique_item_constant(void) {
@@ -4359,7 +4358,6 @@ EXPORT void phase_2__nodes(void) {
   string__208_3 = from_latin_1_string("_", 1);
   func__208_1 = create_function(entry__208_1, 1);
   string__222_1 = from_latin_1_string("\012", 1);
-  string__223_1 = from_latin_1_string("\012", 1);
   string__246_6 = from_latin_1_string("::", 2);
   func__246_8 = create_function(entry__246_8, 0);
   func__246_1 = create_function(entry__246_1, 1);
@@ -4646,7 +4644,7 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("sim2c", "string_literal", poly_idx__node__text_of, empty_string);
   define_attribute("sim2c", "string_literal", poly_idx__arguments_of, get__empty_list());
   define_attribute("sim2c", "multi_line_string", poly_idx__node__line_end_specifier_of, string__222_1);
-  define_attribute("sim2c", "multi_line_string", poly_idx__node__last_line_end_specifier_of, string__223_1);
+  define_attribute("sim2c", "multi_line_string", poly_idx__node__last_line_end_specifier_of, string__222_1);
   define_attribute("types", "grammar_node", poly_idx__is_a_unique_item_constant, get__false());
   define_attribute("sim2c", "unique_item", poly_idx__is_a_unique_item_constant, get__true());
   define_attribute("sim2c", "unique_item", poly_idx__is_a_constant, get__true());

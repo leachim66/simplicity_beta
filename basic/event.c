@@ -858,10 +858,9 @@ static NODE *func__38_27;
 static void entry__38_27(void);
 static FRAME_INFO frame__38_27 = {1, {"handler"}};
 static void cont__38_28(void);
-static NODE *string__38_29;
+static void cont__38_29(void);
 static void cont__38_30(void);
 static void cont__38_31(void);
-static void cont__38_32(void);
 static NODE *get__std__process_events(void) {
   return var.std__process_events;
 }
@@ -1093,14 +1092,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__38_19, &frame__38_18, 323, 323, 7, 39},
   {cont__38_20, &frame__38_18, 324, 324, 10, 27},
   {cont__38_21, &frame__38_18, 324, 331, 7, 36},
-  {cont__38_30, &frame__38_18, 332, 332, 7, 12},
-  {cont__38_31, &frame__38_18, 332, 332, 12, 12},
+  {cont__38_29, &frame__38_18, 332, 332, 7, 12},
+  {cont__38_30, &frame__38_18, 332, 332, 12, 12},
   {entry__38_15, NULL, 321, 321, 14, 19},
   {cont__38_16, &frame__38_15, 321, 321, 14, 19},
   {cont__38_17, &frame__38_15, 321, 332, 11, 12},
   {entry__38_13, NULL, 320, 320, 5, 24},
   {cont__38_14, &frame__38_13, 321, 332, 5, 12},
-  {cont__38_32, &frame__38_13, 333, 333, 5, 29},
+  {cont__38_31, &frame__38_13, 333, 333, 5, 29},
   {entry__38_1, NULL, 316, 316, 3, 60},
   {cont__38_7, &frame__38_1, 317, 317, 6, 21},
   {cont__38_8, &frame__38_1, 317, 317, 6, 41},
@@ -4205,7 +4204,7 @@ static void cont__38_14(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__38_32;
+  frame->cont = cont__38_31;
 }
 static void entry__38_18(void) {
   allocate_initialized_frame_gc(1, 5);
@@ -4289,7 +4288,7 @@ static void cont__38_21(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_30;
+  frame->cont = cont__38_29;
 }
 static void entry__38_22(void) {
   allocate_initialized_frame_gc(3, 7);
@@ -4417,13 +4416,13 @@ static void cont__38_28(void) {
   // 331: raise "invalid continuation"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__38_29;
+  arguments->slots[0] = string__36_16;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_30(void) {
+static void cont__38_29(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4435,9 +4434,9 @@ static void cont__38_30(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__38_31;
+  frame->cont = cont__38_30;
 }
-static void cont__38_31(void) {
+static void cont__38_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4522,7 +4521,7 @@ static void cont__38_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_32(void) {
+static void cont__38_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5362,7 +5361,6 @@ EXPORT void phase_2__basic__event(void) {
   func__38_5 = create_function(entry__38_5, 0);
   func__38_2 = create_function(entry__38_2, 0);
   func__38_9 = create_function(entry__38_9, 0);
-  string__38_29 = from_latin_1_string("invalid continuation", 20);
   func__38_1 = create_function(entry__38_1, 0);
   func__39_15 = create_function(entry__39_15, 2);
   func__39_1 = create_function(entry__39_1, -1);

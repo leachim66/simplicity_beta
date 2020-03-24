@@ -355,23 +355,21 @@ static FRAME_INFO frame__26_1 = {2, {"condition", "body"}};
 static NODE *func__27_1;
 static void entry__27_1(void);
 static FRAME_INFO frame__27_1 = {2, {"condition", "body"}};
-static NODE *string__57_1;
-static NODE *func__57_2;
-static void entry__57_2(void);
-static FRAME_INFO frame__57_2 = {2, {"text", "base_indent"}};
-static void cont__57_3(void);
-static NODE *string__58_1;
-static NODE *func__58_2;
-static void entry__58_2(void);
-static FRAME_INFO frame__58_2 = {2, {"text", "base_indent"}};
-static void cont__58_3(void);
+static NODE *func__57_1;
+static void entry__57_1(void);
+static FRAME_INFO frame__57_1 = {2, {"text", "base_indent"}};
+static void cont__57_2(void);
+static NODE *func__58_1;
+static void entry__58_1(void);
+static FRAME_INFO frame__58_1 = {2, {"text", "base_indent"}};
+static void cont__58_2(void);
 void run__basic__types__boolean(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_boolean, NULL, 23, 23, 2, 18},
   {run__basic__types__boolean, NULL, 145, 145, 1, 62},
-  {cont__57_3, NULL, 146, 146, 1, 64},
-  {cont__58_3, NULL, },
+  {cont__57_2, NULL, 146, 146, 1, 64},
+  {cont__58_2, NULL, },
   {entry__12_1, NULL, 87, 87, 38, 46},
   {entry__13_1, NULL, 89, 89, 39, 48},
   {entry__16_1, NULL, 108, 111, 3, 2},
@@ -388,8 +386,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__25_1, NULL, 139, 139, 3, 6},
   {entry__26_1, NULL, 141, 141, 41, 44},
   {entry__27_1, NULL, 143, 143, 41, 44},
-  {entry__57_2, NULL, 145, 145, 51, 62},
-  {entry__58_2, NULL, 146, 146, 52, 64}
+  {entry__57_1, NULL, 145, 145, 51, 62},
+  {entry__58_1, NULL, 146, 146, 52, 64}
 };
 
 union NODE {
@@ -458,14 +456,14 @@ EXPORT void run__basic__types__boolean(void) {
   // 145: register_deserializer "true": (text _base_indent) -> text true
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__57_1;
-  arguments->slots[1] = func__57_2;
+  arguments->slots[0] = string__12_2;
+  arguments->slots[1] = func__57_1;
   result_count = 0;
   myself = get__register_deserializer();
   func = myself->type;
-  frame->cont = cont__57_3;
+  frame->cont = cont__57_2;
 }
-static void entry__57_2(void) {
+static void entry__57_1(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // text: 0
@@ -483,7 +481,7 @@ static void entry__57_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__57_3(void) {
+static void cont__57_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -491,14 +489,14 @@ static void cont__57_3(void) {
   // 146: register_deserializer "false": (text _base_indent) -> text false
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__58_1;
-  arguments->slots[1] = func__58_2;
+  arguments->slots[0] = string__13_2;
+  arguments->slots[1] = func__58_1;
   result_count = 0;
   myself = get__register_deserializer();
   func = myself->type;
-  frame->cont = cont__58_3;
+  frame->cont = cont__58_2;
 }
-static void entry__58_2(void) {
+static void entry__58_1(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // text: 0
@@ -516,7 +514,7 @@ static void entry__58_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__58_3(void) {
+static void cont__58_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -969,10 +967,8 @@ EXPORT void phase_2__basic__types__boolean(void) {
   func__25_1 = create_function(entry__25_1, -1);
   func__26_1 = create_function(entry__26_1, 2);
   func__27_1 = create_function(entry__27_1, 2);
-  string__57_1 = from_latin_1_string("true", 4);
-  func__57_2 = create_function(entry__57_2, 2);
-  string__58_1 = from_latin_1_string("false", 5);
-  func__58_2 = create_function(entry__58_2, 2);
+  func__57_1 = create_function(entry__57_1, 2);
+  func__58_1 = create_function(entry__58_1, 2);
 }
 
 static int already_run_phase_3 = false;

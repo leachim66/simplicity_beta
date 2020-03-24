@@ -364,8 +364,7 @@ static void cont__12_10(void);
 static void cont__12_11(void);
 static NODE *string__12_12;
 static NODE *string__12_13;
-static NODE *string__12_14;
-static void cont__12_15(void);
+static void cont__12_14(void);
 void run__basic__types__value_range(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -406,7 +405,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__12_9, &frame__12_1, 102, 102, 30, 60},
   {cont__12_10, &frame__12_1, 102, 102, 64, 71},
   {cont__12_11, &frame__12_1, 99, 102, 6, 72},
-  {cont__12_15, &frame__12_1, 99, 102, 3, 72}
+  {cont__12_14, &frame__12_1, 99, 102, 3, 72}
 };
 
 union NODE {
@@ -1128,13 +1127,13 @@ static void cont__12_11(void) {
   arguments->slots[5] = frame->slots[8] /* temp__7 */;
   arguments->slots[6] = frame->slots[10] /* temp__9 */;
   arguments->slots[7] = frame->slots[12] /* temp__11 */;
-  arguments->slots[8] = string__12_14;
+  arguments->slots[8] = string__12_13;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__12_15;
+  frame->cont = cont__12_14;
 }
-static void cont__12_15(void) {
+static void cont__12_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1181,7 +1180,6 @@ EXPORT void phase_2__basic__types__value_range(void) {
   func__11_1 = create_function(entry__11_1, 2);
   string__12_12 = from_latin_1_string("value_range\012", 12);
   string__12_13 = from_latin_1_string("\012", 1);
-  string__12_14 = from_latin_1_string("\012", 1);
   func__12_1 = create_function(entry__12_1, -1);
 }
 

@@ -525,25 +525,23 @@ static void cont__27_4(void);
 static NODE *func__27_5;
 static void entry__27_5(void);
 static FRAME_INFO frame__27_5 = {0, {}};
-static NODE *string__27_6;
-static void cont__27_7(void);
-static NODE *func__27_8;
-static void entry__27_8(void);
-static FRAME_INFO frame__27_8 = {5, {"body", "key", "first", "return", "self"}};
+static void cont__27_6(void);
+static NODE *func__27_7;
+static void entry__27_7(void);
+static FRAME_INFO frame__27_7 = {5, {"body", "key", "first", "return", "self"}};
+static void cont__27_8(void);
 static void cont__27_9(void);
 static void cont__27_10(void);
 static void cont__27_11(void);
 static void cont__27_12(void);
 static void cont__27_13(void);
 static void cont__27_14(void);
-static void cont__27_15(void);
-static NODE *string__56_1;
-static void cont__56_2(void);
+static void cont__56_1(void);
 void run__basic__types__unordered_set(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__unordered_set, NULL, 956, 956, 1, 66},
-  {cont__56_2, NULL, },
+  {cont__56_1, NULL, },
   {entry__11_1, NULL, 301, 537, 3, 2},
   {entry__12_1, NULL, 540, 613, 3, 2},
   {entry__14_1, NULL, 630, 666, 3, 2},
@@ -612,19 +610,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__26_1, NULL, 929, 932, 3, 12},
   {cont__26_7, &frame__26_1, 932, 932, 12, 12},
   {entry__27_5, NULL, 949, 949, 19, 46},
-  {entry__27_8, NULL, 951, 951, 5, 12},
-  {cont__27_9, &frame__27_8, 952, 952, 8, 19},
-  {cont__27_10, &frame__27_8, 952, 952, 5, 26},
-  {cont__27_11, &frame__27_8, 953, 953, 23, 31},
-  {cont__27_12, &frame__27_8, 953, 953, 5, 36},
-  {cont__27_13, &frame__27_8, 954, 954, 8, 18},
-  {cont__27_14, &frame__27_8, 954, 954, 5, 25},
+  {entry__27_7, NULL, 951, 951, 5, 12},
+  {cont__27_8, &frame__27_7, 952, 952, 8, 19},
+  {cont__27_9, &frame__27_7, 952, 952, 5, 26},
+  {cont__27_10, &frame__27_7, 953, 953, 23, 31},
+  {cont__27_11, &frame__27_7, 953, 953, 5, 36},
+  {cont__27_12, &frame__27_7, 954, 954, 8, 18},
+  {cont__27_13, &frame__27_7, 954, 954, 5, 25},
   {entry__27_1, NULL, 947, 947, 3, 14},
   {cont__27_2, &frame__27_1, 948, 948, 3, 27},
   {cont__27_3, &frame__27_1, 949, 949, 6, 16},
   {cont__27_4, &frame__27_1, 949, 949, 3, 46},
-  {cont__27_7, &frame__27_1, 950, 954, 3, 25},
-  {cont__27_15, &frame__27_1, 954, 954, 25, 25}
+  {cont__27_6, &frame__27_1, 950, 954, 3, 25},
+  {cont__27_14, &frame__27_1, 954, 954, 25, 25}
 };
 
 union NODE {
@@ -672,14 +670,14 @@ EXPORT void run__basic__types__unordered_set(void) {
   // 956: register_collection_serializer "unordered_set" empty_unordered_set
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__56_1;
+  arguments->slots[0] = string__20_1;
   arguments->slots[1] = get__empty_unordered_set();
   result_count = 0;
   myself = get__register_collection_serializer();
   func = myself->type;
-  frame->cont = cont__56_2;
+  frame->cont = cont__56_1;
 }
-static void cont__56_2(void) {
+static void cont__56_1(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2699,7 +2697,7 @@ static void cont__27_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_7;
+  frame->cont = cont__27_6;
 }
 static void entry__27_5(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -2711,13 +2709,13 @@ static void entry__27_5(void) {
   // 949: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__27_6;
+  arguments->slots[0] = string__25_6;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_7(void) {
+static void cont__27_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2727,7 +2725,7 @@ static void cont__27_7(void) {
   // 952:   if key == first return
   // 953:   previous_key self hash(key) &key
   // 954:   if key == NONE return
-  frame->slots[7] /* temp__1 */ = create_closure(entry__27_8, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__27_7, 0);
   // 950: forever:
   // 951:   body key
   // 952:   if key == first return
@@ -2739,9 +2737,9 @@ static void cont__27_7(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__27_15;
+  frame->cont = cont__27_14;
 }
-static void entry__27_8(void) {
+static void entry__27_7(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // body: 0
@@ -2765,9 +2763,9 @@ static void entry__27_8(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__27_9;
+  frame->cont = cont__27_8;
 }
-static void cont__27_9(void) {
+static void cont__27_8(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2780,9 +2778,9 @@ static void cont__27_9(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_10;
+  frame->cont = cont__27_9;
 }
-static void cont__27_10(void) {
+static void cont__27_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2796,9 +2794,9 @@ static void cont__27_10(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_11;
+  frame->cont = cont__27_10;
 }
-static void cont__27_11(void) {
+static void cont__27_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2810,9 +2808,9 @@ static void cont__27_11(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__27_12;
+  frame->cont = cont__27_11;
 }
-static void cont__27_12(void) {
+static void cont__27_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2827,9 +2825,9 @@ static void cont__27_12(void) {
   result_count = 1;
   myself = var._previous_key;
   func = myself->type;
-  frame->cont = cont__27_13;
+  frame->cont = cont__27_12;
 }
-static void cont__27_13(void) {
+static void cont__27_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2843,9 +2841,9 @@ static void cont__27_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_14;
+  frame->cont = cont__27_13;
 }
-static void cont__27_14(void) {
+static void cont__27_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2861,7 +2859,7 @@ static void cont__27_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_15(void) {
+static void cont__27_14(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -2907,10 +2905,8 @@ EXPORT void phase_2__basic__types__unordered_set(void) {
   func__25_5 = create_function(entry__25_5, 0);
   func__25_1 = create_function(entry__25_1, 4);
   func__26_1 = create_function(entry__26_1, 2);
-  string__27_6 = from_latin_1_string("Invalid index error!", 20);
   func__27_5 = create_function(entry__27_5, 0);
   func__27_1 = create_function(entry__27_1, 4);
-  string__56_1 = from_latin_1_string("unordered_set", 13);
 }
 
 static int already_run_phase_3 = false;

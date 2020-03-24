@@ -256,13 +256,12 @@ static NODE *get__std__platform(void) {
 static NODE *get__std__platforms(void) {
   return var.std__platforms;
 }
-static NODE *string__4_1;
-static void cont__4_2(void);
+static void cont__4_1(void);
 void run__platform__platform(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__platform__platform, NULL, 41, 41, 1, 38},
-  {cont__4_2, NULL, }
+  {cont__4_1, NULL, }
 };
 
 union NODE {
@@ -308,13 +307,13 @@ EXPORT void run__platform__platform(void) {
   // 41: $std::platforms list("all") # obsolete
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_1;
+  arguments->slots[0] = string__1_1;
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__4_2;
+  frame->cont = cont__4_1;
 }
-static void cont__4_2(void) {
+static void cont__4_1(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -343,7 +342,6 @@ EXPORT void phase_2__platform__platform(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   string__1_1 = from_latin_1_string("all", 3);
-  string__4_1 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_3 = false;

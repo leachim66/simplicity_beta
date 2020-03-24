@@ -688,32 +688,29 @@ static void entry__7_15(void);
 static FRAME_INFO frame__7_15 = {2, {"info", "name"}};
 static void cont__7_16(void);
 static NODE *string__7_17;
-static NODE *string__7_18;
-static void cont__7_19(void);
-static NODE *func__7_20;
-static void entry__7_20(void);
-static FRAME_INFO frame__7_20 = {2, {"info", "name"}};
+static void cont__7_18(void);
+static NODE *func__7_19;
+static void entry__7_19(void);
+static FRAME_INFO frame__7_19 = {2, {"info", "name"}};
+static void cont__7_20(void);
 static void cont__7_21(void);
-static void cont__7_22(void);
-static NODE *func__7_23;
-static void entry__7_23(void);
-static FRAME_INFO frame__7_23 = {2, {"info", "name"}};
-static void cont__7_24(void);
-static NODE *string__7_25;
-static NODE *string__7_26;
+static NODE *func__7_22;
+static void entry__7_22(void);
+static FRAME_INFO frame__7_22 = {2, {"info", "name"}};
+static void cont__7_23(void);
+static NODE *string__7_24;
+static void cont__7_25(void);
+static NODE *func__7_26;
+static void entry__7_26(void);
+static FRAME_INFO frame__7_26 = {2, {"info", "name"}};
 static void cont__7_27(void);
-static NODE *func__7_28;
-static void entry__7_28(void);
-static FRAME_INFO frame__7_28 = {2, {"info", "name"}};
-static void cont__7_29(void);
+static void cont__7_28(void);
+static NODE *func__7_29;
+static void entry__7_29(void);
+static FRAME_INFO frame__7_29 = {2, {"info", "name"}};
 static void cont__7_30(void);
-static NODE *func__7_31;
-static void entry__7_31(void);
-static FRAME_INFO frame__7_31 = {2, {"info", "name"}};
+static NODE *string__7_31;
 static void cont__7_32(void);
-static NODE *string__7_33;
-static NODE *string__7_34;
-static void cont__7_35(void);
 static NODE *get__sim2c__check_usage(void) {
   return var.sim2c__check_usage;
 }
@@ -1313,22 +1310,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_6, &frame__7_4, 104, 106, 7, 63},
   {entry__7_15, NULL, 109, 109, 21, 39},
   {cont__7_16, &frame__7_15, 109, 110, 41, 70},
-  {cont__7_19, &frame__7_15, 109, 110, 9, 70},
+  {cont__7_18, &frame__7_15, 109, 110, 9, 70},
   {entry__7_12, NULL, 108, 108, 12, 33},
   {cont__7_13, &frame__7_12, 108, 108, 35, 63},
   {cont__7_14, &frame__7_12, 108, 110, 7, 71},
-  {entry__7_23, NULL, 113, 113, 21, 39},
-  {cont__7_24, &frame__7_23, 113, 114, 41, 70},
-  {cont__7_27, &frame__7_23, 113, 114, 9, 70},
-  {entry__7_20, NULL, 112, 112, 12, 33},
-  {cont__7_21, &frame__7_20, 112, 112, 35, 74},
-  {cont__7_22, &frame__7_20, 112, 114, 7, 71},
-  {entry__7_31, NULL, 117, 117, 21, 39},
-  {cont__7_32, &frame__7_31, 117, 118, 41, 71},
-  {cont__7_35, &frame__7_31, 117, 118, 9, 71},
-  {entry__7_28, NULL, 116, 116, 12, 33},
-  {cont__7_29, &frame__7_28, 116, 116, 35, 61},
-  {cont__7_30, &frame__7_28, 116, 118, 7, 72},
+  {entry__7_22, NULL, 113, 113, 21, 39},
+  {cont__7_23, &frame__7_22, 113, 114, 41, 70},
+  {cont__7_25, &frame__7_22, 113, 114, 9, 70},
+  {entry__7_19, NULL, 112, 112, 12, 33},
+  {cont__7_20, &frame__7_19, 112, 112, 35, 74},
+  {cont__7_21, &frame__7_19, 112, 114, 7, 71},
+  {entry__7_29, NULL, 117, 117, 21, 39},
+  {cont__7_30, &frame__7_29, 117, 118, 41, 71},
+  {cont__7_32, &frame__7_29, 117, 118, 9, 71},
+  {entry__7_26, NULL, 116, 116, 12, 33},
+  {cont__7_27, &frame__7_26, 116, 116, 35, 61},
+  {cont__7_28, &frame__7_26, 116, 118, 7, 72},
   {entry__7_1, NULL, 102, 102, 5, 32},
   {cont__7_2, &frame__7_1, 103, 103, 5, 30},
   {cont__7_3, &frame__7_1, 101, 118, 3, 74},
@@ -3113,7 +3110,7 @@ static void cont__6_57(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_31(void) {
+static void entry__7_29(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3131,9 +3128,9 @@ static void entry__7_31(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__7_32;
+  frame->cont = cont__7_30;
 }
-static void cont__7_32(void) {
+static void cont__7_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3143,15 +3140,15 @@ static void cont__7_32(void) {
   // 118:   Invalid access to dynamic read-write variable "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_33;
+  arguments->slots[0] = string__7_31;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_34;
+  arguments->slots[2] = string__7_10;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__7_35;
+  frame->cont = cont__7_32;
 }
-static void cont__7_35(void) {
+static void cont__7_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3168,7 +3165,7 @@ static void cont__7_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_23(void) {
+static void entry__7_22(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3186,9 +3183,9 @@ static void entry__7_23(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__7_24;
+  frame->cont = cont__7_23;
 }
-static void cont__7_24(void) {
+static void cont__7_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3198,15 +3195,15 @@ static void cont__7_24(void) {
   // 114:   Invalid access to dynamic read-only variable "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_25;
+  arguments->slots[0] = string__7_24;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_26;
+  arguments->slots[2] = string__7_10;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__7_27;
+  frame->cont = cont__7_25;
 }
-static void cont__7_27(void) {
+static void cont__7_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3255,13 +3252,13 @@ static void cont__7_16(void) {
   arguments = node_p;
   arguments->slots[0] = string__7_17;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_18;
+  arguments->slots[2] = string__7_10;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__7_19;
+  frame->cont = cont__7_18;
 }
-static void cont__7_19(void) {
+static void cont__7_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3452,7 +3449,7 @@ static void cont__7_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_20(void) {
+static void entry__7_19(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3470,9 +3467,9 @@ static void entry__7_20(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__7_21;
+  frame->cont = cont__7_20;
 }
-static void cont__7_21(void) {
+static void cont__7_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3487,9 +3484,9 @@ static void cont__7_21(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__7_22;
+  frame->cont = cont__7_21;
 }
-static void cont__7_22(void) {
+static void cont__7_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3498,7 +3495,7 @@ static void cont__7_22(void) {
   // 112: ... :
   // 113:   SyntaxError identifier_of(info) "
   // 114:     Invalid access to dynamic read-only variable "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__7_23, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__7_22, 0);
   // 112: case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI:
   // 113:   SyntaxError identifier_of(info) "
   // 114:     Invalid access to dynamic read-only variable "@(name)@quot;@
@@ -3512,7 +3509,7 @@ static void cont__7_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_28(void) {
+static void entry__7_26(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3530,9 +3527,9 @@ static void entry__7_28(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__7_29;
+  frame->cont = cont__7_27;
 }
-static void cont__7_29(void) {
+static void cont__7_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3546,9 +3543,9 @@ static void cont__7_29(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__7_30;
+  frame->cont = cont__7_28;
 }
-static void cont__7_30(void) {
+static void cont__7_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3557,7 +3554,7 @@ static void cont__7_30(void) {
   // 116: ... :
   // 117:   SyntaxError identifier_of(info) "
   // 118:     Invalid access to dynamic read-write variable "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__7_31, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__7_29, 0);
   // 116: case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE:
   // 117:   SyntaxError identifier_of(info) "
   // 118:     Invalid access to dynamic read-write variable "@(name)@quot;@
@@ -3626,12 +3623,12 @@ static void cont__7_3(void) {
   // 112:   case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI:
   // 113:     SyntaxError identifier_of(info) "
   // 114:       Invalid access to dynamic read-only variable "@(name)@quot;@
-  frame->slots[7] /* temp__5 */ = create_closure(entry__7_20, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__7_19, 0);
   // 115: ... :
   // 116:   case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE:
   // 117:     SyntaxError identifier_of(info) "
   // 118:       Invalid access to dynamic read-write variable "@(name)@quot;@
-  frame->slots[8] /* temp__6 */ = create_closure(entry__7_28, 0);
+  frame->slots[8] /* temp__6 */ = create_closure(entry__7_26, 0);
   // 101: case
   // 102:   variable_kind_of(definition)
   // 103:   STATIC_SINGLE, POLYMORPHIC:
@@ -10549,11 +10546,8 @@ EXPORT void phase_2__simplifier(void) {
   string__7_9 = from_latin_1_string("Invalid access to read-only variable \042", 38);
   string__7_10 = from_latin_1_string("\042", 1);
   string__7_17 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
-  string__7_18 = from_latin_1_string("\042", 1);
-  string__7_25 = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
-  string__7_26 = from_latin_1_string("\042", 1);
-  string__7_33 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
-  string__7_34 = from_latin_1_string("\042", 1);
+  string__7_24 = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
+  string__7_31 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
   func__7_1 = create_function(entry__7_1, 3);
   string__8_2 = from_latin_1_string("simplify statement (default)", 28);
   func__8_1 = create_function(entry__8_1, 1);

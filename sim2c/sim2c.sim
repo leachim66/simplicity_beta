@@ -486,6 +486,7 @@ $sim2c::sim2c:
   $$generated_collections ""
   $$delayed_statements ""
   $$used_literals empty_table
+  %%used_string_literals empty_table
 
   %sim2c::write_to_declarations: (args*)
     $txt string(args*)
@@ -869,8 +870,6 @@ $sim2c::sim2c:
   write "
     EXPORT void collect__@(module_name)(void) {
   write generated_collections
-  #for_each used_literals: (name _literal)
-    writeln "  @(name) = collect_node(@(name));"
   write "}@nl;"
   if
     is_main:

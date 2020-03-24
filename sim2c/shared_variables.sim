@@ -100,6 +100,8 @@ $sim2c::indents_of (!)
   #
     used for collecting assignments to symbols;
     only used for creating appropriate warning messages
+%%sim2c::used_string_literals undefined
+  # a a table that stores already defined string literals
 %%sim2c::current_continuation_info undefined
   # stores debug information about the current continuation function
 

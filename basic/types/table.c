@@ -501,65 +501,65 @@ static FRAME_INFO frame__19_3 = {1, {"name"}};
 static NODE *string__19_4;
 static NODE *string__19_5;
 static void cont__19_6(void);
-static NODE *string__19_7;
-static void cont__19_8(void);
-static NODE *func__19_9;
-static void entry__19_9(void);
-static FRAME_INFO frame__19_9 = {2, {"return", "text"}};
+static void cont__19_7(void);
+static NODE *func__19_8;
+static void entry__19_8(void);
+static FRAME_INFO frame__19_8 = {2, {"return", "text"}};
+static void cont__19_9(void);
 static void cont__19_10(void);
 static void cont__19_11(void);
 static void cont__19_12(void);
 static void cont__19_13(void);
 static void cont__19_14(void);
 static void cont__19_15(void);
-static void cont__19_16(void);
-static NODE *func__19_17;
-static void entry__19_17(void);
-static FRAME_INFO frame__19_17 = {9, {"text", "return", "obj", "base_indent", "invalid_table_error", "remaining_text", "indent", "key", "value"}};
+static NODE *func__19_16;
+static void entry__19_16(void);
+static FRAME_INFO frame__19_16 = {9, {"text", "return", "obj", "base_indent", "invalid_table_error", "remaining_text", "indent", "key", "value"}};
+static void cont__19_17(void);
 static void cont__19_18(void);
-static void cont__19_19(void);
-static NODE *func__19_20;
-static void entry__19_20(void);
-static FRAME_INFO frame__19_20 = {1, {"text"}};
+static NODE *func__19_19;
+static void entry__19_19(void);
+static FRAME_INFO frame__19_19 = {1, {"text"}};
+static void cont__19_20(void);
 static void cont__19_21(void);
 static void cont__19_22(void);
 static void cont__19_23(void);
-static void cont__19_24(void);
-static NODE *func__19_25;
-static void entry__19_25(void);
-static FRAME_INFO frame__19_25 = {3, {"return", "text", "obj"}};
+static NODE *func__19_24;
+static void entry__19_24(void);
+static FRAME_INFO frame__19_24 = {3, {"return", "text", "obj"}};
+static void cont__19_25(void);
 static void cont__19_26(void);
 static void cont__19_27(void);
 static void cont__19_28(void);
-static void cont__19_29(void);
-static NODE *func__19_30;
-static void entry__19_30(void);
-static FRAME_INFO frame__19_30 = {3, {"return", "text", "obj"}};
+static NODE *func__19_29;
+static void entry__19_29(void);
+static FRAME_INFO frame__19_29 = {3, {"return", "text", "obj"}};
+static void cont__19_30(void);
 static void cont__19_31(void);
-static void cont__19_32(void);
-static NODE *func__19_33;
-static void entry__19_33(void);
-static FRAME_INFO frame__19_33 = {1, {"text"}};
+static NODE *func__19_32;
+static void entry__19_32(void);
+static FRAME_INFO frame__19_32 = {1, {"text"}};
+static void cont__19_33(void);
 static void cont__19_34(void);
 static void cont__19_35(void);
-static void cont__19_36(void);
-static NODE *func__19_37;
-static void entry__19_37(void);
-static FRAME_INFO frame__19_37 = {1, {"text"}};
+static NODE *func__19_36;
+static void entry__19_36(void);
+static FRAME_INFO frame__19_36 = {1, {"text"}};
+static void cont__19_37(void);
 static void cont__19_38(void);
 static void cont__19_39(void);
-static void cont__19_40(void);
-static NODE *func__19_41;
-static void entry__19_41(void);
-static FRAME_INFO frame__19_41 = {1, {"text"}};
+static NODE *func__19_40;
+static void entry__19_40(void);
+static FRAME_INFO frame__19_40 = {1, {"text"}};
+static void cont__19_41(void);
 static void cont__19_42(void);
 static void cont__19_43(void);
 static void cont__19_44(void);
 static void cont__19_45(void);
-static void cont__19_46(void);
-static NODE *func__19_47;
-static void entry__19_47(void);
-static FRAME_INFO frame__19_47 = {1, {"text"}};
+static NODE *func__19_46;
+static void entry__19_46(void);
+static FRAME_INFO frame__19_46 = {1, {"text"}};
+static void cont__19_47(void);
 static void cont__19_48(void);
 static void cont__19_49(void);
 static void cont__19_50(void);
@@ -569,12 +569,10 @@ static void cont__19_53(void);
 static void cont__19_54(void);
 static void cont__19_55(void);
 static void cont__19_56(void);
-static void cont__19_57(void);
 static NODE *get__std__register_collection_serializer(void) {
   return var.std__register_collection_serializer;
 }
-static NODE *string__40_1;
-static void cont__40_2(void);
+static void cont__40_1(void);
 void run__basic__types__table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -582,7 +580,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__private__get_item, NULL, 31, 31, 2, 18},
   {type__std__is_a_table, NULL, 97, 97, 2, 16},
   {run__basic__types__table, NULL, 135, 135, 1, 50},
-  {cont__40_2, NULL, },
+  {cont__40_1, NULL, },
   {entry__5_3, NULL, 50, 50, 7, 34},
   {entry__5_4, NULL, 52, 52, 7, 40},
   {entry__5_1, NULL, 49, 49, 5, 17},
@@ -631,57 +629,57 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__18_6, &frame__18_1, 108, 108, 3, 8},
   {entry__19_3, NULL, 118, 118, 13, 72},
   {cont__19_6, &frame__19_3, 118, 118, 7, 72},
-  {entry__19_9, NULL, 120, 120, 53, 53},
-  {cont__19_10, &frame__19_9, 120, 120, 39, 54},
-  {cont__19_11, &frame__19_9, 120, 120, 32, 66},
-  {entry__19_20, NULL, 124, 124, 34, 40},
-  {cont__19_21, &frame__19_20, 124, 124, 34, 50},
-  {cont__19_22, &frame__19_20, 124, 124, 34, 50},
-  {cont__19_23, &frame__19_20, 124, 124, 34, 50},
-  {entry__19_25, NULL, 124, 124, 53, 67},
-  {entry__19_30, NULL, 126, 126, 33, 47},
-  {entry__19_37, NULL, 129, 129, 40, 46},
-  {cont__19_38, &frame__19_37, 129, 129, 40, 53},
-  {cont__19_39, &frame__19_37, 129, 129, 40, 53},
-  {entry__19_41, NULL, 129, 129, 71, 71},
-  {cont__19_42, &frame__19_41, 129, 129, 56, 71},
-  {cont__19_43, &frame__19_41, 129, 129, 71, 71},
-  {entry__19_33, NULL, 129, 129, 16, 30},
-  {cont__19_34, &frame__19_33, 129, 129, 16, 35},
-  {cont__19_35, &frame__19_33, 129, 129, 16, 35},
-  {cont__19_36, &frame__19_33, 129, 129, 16, 53},
-  {cont__19_40, &frame__19_33, 129, 129, 13, 71},
-  {entry__19_47, NULL, 130, 130, 34, 40},
-  {cont__19_48, &frame__19_47, 130, 130, 34, 47},
-  {cont__19_49, &frame__19_47, 130, 130, 34, 47},
-  {cont__19_50, &frame__19_47, 130, 130, 34, 47},
-  {entry__19_17, NULL, 124, 124, 10, 24},
-  {cont__19_18, &frame__19_17, 124, 124, 10, 29},
-  {cont__19_19, &frame__19_17, 124, 124, 10, 50},
-  {cont__19_24, &frame__19_17, 124, 124, 7, 67},
-  {cont__19_26, &frame__19_17, 125, 125, 7, 61},
-  {cont__19_27, &frame__19_17, 126, 126, 10, 30},
-  {cont__19_28, &frame__19_17, 126, 126, 10, 30},
-  {cont__19_29, &frame__19_17, 126, 126, 7, 47},
-  {cont__19_31, &frame__19_17, 128, 128, 7, 41},
-  {cont__19_32, &frame__19_17, 129, 129, 7, 71},
-  {cont__19_44, &frame__19_17, 130, 130, 10, 24},
-  {cont__19_45, &frame__19_17, 130, 130, 10, 29},
-  {cont__19_46, &frame__19_17, 130, 130, 10, 47},
-  {cont__19_51, &frame__19_17, 130, 130, 7, 67},
-  {cont__19_52, &frame__19_17, 131, 131, 22, 22},
-  {cont__19_53, &frame__19_17, 131, 131, 7, 22},
-  {cont__19_54, &frame__19_17, 132, 132, 7, 43},
-  {cont__19_55, &frame__19_17, 133, 133, 7, 15},
-  {cont__19_56, &frame__19_17, 133, 133, 21, 21},
+  {entry__19_8, NULL, 120, 120, 53, 53},
+  {cont__19_9, &frame__19_8, 120, 120, 39, 54},
+  {cont__19_10, &frame__19_8, 120, 120, 32, 66},
+  {entry__19_19, NULL, 124, 124, 34, 40},
+  {cont__19_20, &frame__19_19, 124, 124, 34, 50},
+  {cont__19_21, &frame__19_19, 124, 124, 34, 50},
+  {cont__19_22, &frame__19_19, 124, 124, 34, 50},
+  {entry__19_24, NULL, 124, 124, 53, 67},
+  {entry__19_29, NULL, 126, 126, 33, 47},
+  {entry__19_36, NULL, 129, 129, 40, 46},
+  {cont__19_37, &frame__19_36, 129, 129, 40, 53},
+  {cont__19_38, &frame__19_36, 129, 129, 40, 53},
+  {entry__19_40, NULL, 129, 129, 71, 71},
+  {cont__19_41, &frame__19_40, 129, 129, 56, 71},
+  {cont__19_42, &frame__19_40, 129, 129, 71, 71},
+  {entry__19_32, NULL, 129, 129, 16, 30},
+  {cont__19_33, &frame__19_32, 129, 129, 16, 35},
+  {cont__19_34, &frame__19_32, 129, 129, 16, 35},
+  {cont__19_35, &frame__19_32, 129, 129, 16, 53},
+  {cont__19_39, &frame__19_32, 129, 129, 13, 71},
+  {entry__19_46, NULL, 130, 130, 34, 40},
+  {cont__19_47, &frame__19_46, 130, 130, 34, 47},
+  {cont__19_48, &frame__19_46, 130, 130, 34, 47},
+  {cont__19_49, &frame__19_46, 130, 130, 34, 47},
+  {entry__19_16, NULL, 124, 124, 10, 24},
+  {cont__19_17, &frame__19_16, 124, 124, 10, 29},
+  {cont__19_18, &frame__19_16, 124, 124, 10, 50},
+  {cont__19_23, &frame__19_16, 124, 124, 7, 67},
+  {cont__19_25, &frame__19_16, 125, 125, 7, 61},
+  {cont__19_26, &frame__19_16, 126, 126, 10, 30},
+  {cont__19_27, &frame__19_16, 126, 126, 10, 30},
+  {cont__19_28, &frame__19_16, 126, 126, 7, 47},
+  {cont__19_30, &frame__19_16, 128, 128, 7, 41},
+  {cont__19_31, &frame__19_16, 129, 129, 7, 71},
+  {cont__19_43, &frame__19_16, 130, 130, 10, 24},
+  {cont__19_44, &frame__19_16, 130, 130, 10, 29},
+  {cont__19_45, &frame__19_16, 130, 130, 10, 47},
+  {cont__19_50, &frame__19_16, 130, 130, 7, 67},
+  {cont__19_51, &frame__19_16, 131, 131, 22, 22},
+  {cont__19_52, &frame__19_16, 131, 131, 7, 22},
+  {cont__19_53, &frame__19_16, 132, 132, 7, 43},
+  {cont__19_54, &frame__19_16, 133, 133, 7, 15},
+  {cont__19_55, &frame__19_16, 133, 133, 21, 21},
   {entry__19_2, NULL, 120, 120, 8, 29},
-  {cont__19_8, &frame__19_2, 120, 120, 5, 66},
-  {cont__19_12, &frame__19_2, 121, 121, 8, 14},
+  {cont__19_7, &frame__19_2, 120, 120, 5, 66},
+  {cont__19_11, &frame__19_2, 121, 121, 8, 14},
+  {cont__19_12, &frame__19_2, 121, 121, 8, 24},
   {cont__19_13, &frame__19_2, 121, 121, 8, 24},
-  {cont__19_14, &frame__19_2, 121, 121, 8, 24},
-  {cont__19_15, &frame__19_2, 121, 121, 5, 44},
-  {cont__19_16, &frame__19_2, 123, 133, 5, 21},
-  {cont__19_57, &frame__19_2, 133, 133, 21, 21},
+  {cont__19_14, &frame__19_2, 121, 121, 5, 44},
+  {cont__19_15, &frame__19_2, 123, 133, 5, 21},
+  {cont__19_56, &frame__19_2, 133, 133, 21, 21},
   {entry__19_1, NULL, 111, 133, 3, 22}
 };
 
@@ -806,14 +804,14 @@ EXPORT void run__basic__types__table(void) {
   // 135: register_collection_serializer "table" empty_table
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__40_1;
+  arguments->slots[0] = string__16_1;
   arguments->slots[1] = get__empty_table();
   result_count = 0;
   myself = get__register_collection_serializer();
   func = myself->type;
-  frame->cont = cont__40_2;
+  frame->cont = cont__40_1;
 }
-static void cont__40_2(void) {
+static void cont__40_1(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1701,11 +1699,11 @@ static void entry__19_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
-  arguments->slots[1] = string__19_7;
+  arguments->slots[1] = string__8_5;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__19_8;
+  frame->cont = cont__19_7;
 }
 static void entry__19_3(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -1742,14 +1740,14 @@ static void cont__19_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_8(void) {
+static void cont__19_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 120: ... : return range(text 3 -1) empty_table
-  frame->slots[8] /* temp__2 */ = create_closure(entry__19_9, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__19_8, 0);
   // 120: if text .has_prefix. "()": return range(text 3 -1) empty_table
   argument_count = 2;
   arguments = node_p;
@@ -1758,9 +1756,9 @@ static void cont__19_8(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_12;
+  frame->cont = cont__19_11;
 }
-static void entry__19_9(void) {
+static void entry__19_8(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // return: 0
@@ -1778,9 +1776,9 @@ static void entry__19_9(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_10;
+  frame->cont = cont__19_9;
 }
-static void cont__19_10(void) {
+static void cont__19_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1795,9 +1793,9 @@ static void cont__19_10(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__19_11;
+  frame->cont = cont__19_10;
 }
-static void cont__19_11(void) {
+static void cont__19_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1813,7 +1811,7 @@ static void cont__19_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_12(void) {
+static void cont__19_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1825,9 +1823,9 @@ static void cont__19_12(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_13;
+  frame->cont = cont__19_12;
 }
-static void cont__19_13(void) {
+static void cont__19_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1841,9 +1839,9 @@ static void cont__19_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_14;
+  frame->cont = cont__19_13;
 }
-static void cont__19_14(void) {
+static void cont__19_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1856,9 +1854,9 @@ static void cont__19_14(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_15;
+  frame->cont = cont__19_14;
 }
-static void cont__19_15(void) {
+static void cont__19_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1872,9 +1870,9 @@ static void cont__19_15(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_16;
+  frame->cont = cont__19_15;
 }
-static void cont__19_16(void) {
+static void cont__19_15(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1892,7 +1890,7 @@ static void cont__19_16(void) {
   // 131:   range &text 2 -1
   // 132:   $value deserialize_item(&text indent)
   // ...
-  frame->slots[7] /* temp__1 */ = create_closure(entry__19_17, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__19_16, 0);
   // 123: forever:
   // 124:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
   // 125:   get_deserialization_indent $remaining_text $indent text
@@ -1910,9 +1908,9 @@ static void cont__19_16(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__19_57;
+  frame->cont = cont__19_56;
 }
-static void entry__19_17(void) {
+static void entry__19_16(void) {
   allocate_initialized_frame_gc(5, 14);
   // slot allocations:
   // text: 0
@@ -1944,9 +1942,9 @@ static void entry__19_17(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__19_18;
+  frame->cont = cont__19_17;
 }
-static void cont__19_18(void) {
+static void cont__19_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1960,16 +1958,16 @@ static void cont__19_18(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_19;
+  frame->cont = cont__19_18;
 }
-static void cont__19_19(void) {
+static void cont__19_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
   // 124: ... text(1) != '@nl;'
-  frame->slots[12] /* temp__4 */ = create_closure(entry__19_20, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__19_19, 0);
   // 124: ... length_of(text) == 0 || text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
@@ -1978,9 +1976,9 @@ static void cont__19_19(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_24;
+  frame->cont = cont__19_23;
 }
-static void entry__19_20(void) {
+static void entry__19_19(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -1996,9 +1994,9 @@ static void entry__19_20(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_21;
+  frame->cont = cont__19_20;
 }
-static void cont__19_21(void) {
+static void cont__19_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2012,9 +2010,9 @@ static void cont__19_21(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_22;
+  frame->cont = cont__19_21;
 }
-static void cont__19_22(void) {
+static void cont__19_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2027,9 +2025,9 @@ static void cont__19_22(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_23;
+  frame->cont = cont__19_22;
 }
-static void cont__19_23(void) {
+static void cont__19_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2043,14 +2041,14 @@ static void cont__19_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_24(void) {
+static void cont__19_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 124: ... : return text obj
-  frame->slots[13] /* temp__5 */ = create_closure(entry__19_25, 0);
+  frame->slots[13] /* temp__5 */ = create_closure(entry__19_24, 0);
   // 124: if length_of(text) == 0 || text(1) != '@nl;': return text obj
   argument_count = 2;
   arguments = node_p;
@@ -2059,9 +2057,9 @@ static void cont__19_24(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_26;
+  frame->cont = cont__19_25;
 }
-static void entry__19_25(void) {
+static void entry__19_24(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return: 0
@@ -2084,7 +2082,7 @@ static void entry__19_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_26(void) {
+static void cont__19_25(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2096,9 +2094,9 @@ static void cont__19_26(void) {
   result_count = 2;
   myself = get__get_deserialization_indent();
   func = myself->type;
-  frame->cont = cont__19_27;
+  frame->cont = cont__19_26;
 }
-static void cont__19_27(void) {
+static void cont__19_26(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2117,9 +2115,9 @@ static void cont__19_27(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_28;
+  frame->cont = cont__19_27;
 }
-static void cont__19_28(void) {
+static void cont__19_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2132,16 +2130,16 @@ static void cont__19_28(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_29;
+  frame->cont = cont__19_28;
 }
-static void cont__19_29(void) {
+static void cont__19_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 126: ... : return text obj
-  frame->slots[11] /* temp__3 */ = create_closure(entry__19_30, 0);
+  frame->slots[11] /* temp__3 */ = create_closure(entry__19_29, 0);
   // 126: if indent <= base_indent: return text obj
   argument_count = 2;
   arguments = node_p;
@@ -2150,9 +2148,9 @@ static void cont__19_29(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_31;
+  frame->cont = cont__19_30;
 }
-static void entry__19_30(void) {
+static void entry__19_29(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return: 0
@@ -2175,7 +2173,7 @@ static void entry__19_30(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_31(void) {
+static void cont__19_30(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2190,9 +2188,9 @@ static void cont__19_31(void) {
   result_count = 2;
   myself = get__deserialize_item();
   func = myself->type;
-  frame->cont = cont__19_32;
+  frame->cont = cont__19_31;
 }
-static void cont__19_32(void) {
+static void cont__19_31(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2202,7 +2200,7 @@ static void cont__19_32(void) {
   // 128: ... key
   initialize_future(frame->slots[7] /* key */, frame->slots[9] /* temp__1 */);
   // 129: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
-  frame->slots[9] /* temp__1 */ = create_closure(entry__19_33, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__19_32, 0);
   // 129: while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   argument_count = 1;
   arguments = node_p;
@@ -2210,9 +2208,9 @@ static void cont__19_32(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__19_44;
+  frame->cont = cont__19_43;
 }
-static void entry__19_41(void) {
+static void entry__19_40(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // text: 0
@@ -2228,9 +2226,9 @@ static void entry__19_41(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_42;
+  frame->cont = cont__19_41;
 }
-static void cont__19_42(void) {
+static void cont__19_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2245,9 +2243,9 @@ static void cont__19_42(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__19_43;
+  frame->cont = cont__19_42;
 }
-static void cont__19_43(void) {
+static void cont__19_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2259,7 +2257,7 @@ static void cont__19_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_33(void) {
+static void entry__19_32(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // text: 0
@@ -2275,9 +2273,9 @@ static void entry__19_33(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__19_34;
+  frame->cont = cont__19_33;
 }
-static void cont__19_34(void) {
+static void cont__19_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2291,9 +2289,9 @@ static void cont__19_34(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_35;
+  frame->cont = cont__19_34;
 }
-static void cont__19_35(void) {
+static void cont__19_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2306,16 +2304,16 @@ static void cont__19_35(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_36;
+  frame->cont = cont__19_35;
 }
-static void cont__19_36(void) {
+static void cont__19_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 129: ... text(1) == ' '
-  frame->slots[5] /* temp__5 */ = create_closure(entry__19_37, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__19_36, 0);
   // 129: ... length_of(text) >= 1 && text(1) == ' '
   argument_count = 2;
   arguments = node_p;
@@ -2324,9 +2322,9 @@ static void cont__19_36(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__19_40;
+  frame->cont = cont__19_39;
 }
-static void entry__19_37(void) {
+static void entry__19_36(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // text: 0
@@ -2342,9 +2340,9 @@ static void entry__19_37(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_38;
+  frame->cont = cont__19_37;
 }
-static void cont__19_38(void) {
+static void cont__19_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2358,9 +2356,9 @@ static void cont__19_38(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_39;
+  frame->cont = cont__19_38;
 }
-static void cont__19_39(void) {
+static void cont__19_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2374,14 +2372,14 @@ static void cont__19_39(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_40(void) {
+static void cont__19_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 129: ... : range &text 2 -1
-  frame->slots[6] /* temp__6 */ = create_closure(entry__19_41, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__19_40, 0);
   // 129: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   argument_count = 2;
   arguments = node_p;
@@ -2391,7 +2389,7 @@ static void cont__19_40(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_44(void) {
+static void cont__19_43(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2403,9 +2401,9 @@ static void cont__19_44(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__19_45;
+  frame->cont = cont__19_44;
 }
-static void cont__19_45(void) {
+static void cont__19_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2419,16 +2417,16 @@ static void cont__19_45(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_46;
+  frame->cont = cont__19_45;
 }
-static void cont__19_46(void) {
+static void cont__19_45(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
   // 130: ... text(1) != '='
-  frame->slots[12] /* temp__4 */ = create_closure(entry__19_47, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__19_46, 0);
   // 130: ... length_of(text) == 0 || text(1) != '='
   argument_count = 2;
   arguments = node_p;
@@ -2437,9 +2435,9 @@ static void cont__19_46(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_51;
+  frame->cont = cont__19_50;
 }
-static void entry__19_47(void) {
+static void entry__19_46(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -2455,9 +2453,9 @@ static void entry__19_47(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_48;
+  frame->cont = cont__19_47;
 }
-static void cont__19_48(void) {
+static void cont__19_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2471,9 +2469,9 @@ static void cont__19_48(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_49;
+  frame->cont = cont__19_48;
 }
-static void cont__19_49(void) {
+static void cont__19_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2486,9 +2484,9 @@ static void cont__19_49(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_50;
+  frame->cont = cont__19_49;
 }
-static void cont__19_50(void) {
+static void cont__19_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2502,7 +2500,7 @@ static void cont__19_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_51(void) {
+static void cont__19_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2516,9 +2514,9 @@ static void cont__19_51(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_52;
+  frame->cont = cont__19_51;
 }
-static void cont__19_52(void) {
+static void cont__19_51(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2530,9 +2528,9 @@ static void cont__19_52(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_53;
+  frame->cont = cont__19_52;
 }
-static void cont__19_53(void) {
+static void cont__19_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2547,9 +2545,9 @@ static void cont__19_53(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__19_54;
+  frame->cont = cont__19_53;
 }
-static void cont__19_54(void) {
+static void cont__19_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2563,9 +2561,9 @@ static void cont__19_54(void) {
   result_count = 2;
   myself = get__deserialize_item();
   func = myself->type;
-  frame->cont = cont__19_55;
+  frame->cont = cont__19_54;
 }
-static void cont__19_55(void) {
+static void cont__19_54(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2584,9 +2582,9 @@ static void cont__19_55(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* obj */;
   func = myself->type;
-  frame->cont = cont__19_56;
+  frame->cont = cont__19_55;
 }
-static void cont__19_56(void) {
+static void cont__19_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2598,7 +2596,7 @@ static void cont__19_56(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_57(void) {
+static void cont__19_56(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -2693,9 +2691,7 @@ EXPORT void phase_2__basic__types__table(void) {
   func__18_1 = create_function(entry__18_1, -1);
   string__19_4 = from_latin_1_string("Invalid ", 8);
   string__19_5 = from_latin_1_string(" object encountered during deserialisation!", 43);
-  string__19_7 = from_latin_1_string("()", 2);
   func__19_1 = create_function(entry__19_1, 2);
-  string__40_1 = from_latin_1_string("table", 5);
 }
 
 static int already_run_phase_3 = false;

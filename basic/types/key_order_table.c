@@ -982,8 +982,7 @@ static FRAME_INFO frame__41_4 = {2, {"self", "body"}};
 static void cont__41_5(void);
 static void cont__41_6(void);
 static void cont__41_7(void);
-static NODE *string__84_1;
-static void cont__84_2(void);
+static void cont__84_1(void);
 void run__basic__types__key_order_table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -994,7 +993,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__left_of, NULL, 35, 35, 2, 8},
   {type__right_of, NULL, 36, 36, 2, 9},
   {run__basic__types__key_order_table, NULL, 331, 331, 1, 70},
-  {cont__84_2, NULL, },
+  {cont__84_1, NULL, },
   {entry__12_4, NULL, 47, 47, 7, 39},
   {cont__12_5, &frame__12_4, 48, 48, 24, 24},
   {entry__12_6, NULL, 50, 50, 7, 23},
@@ -1512,14 +1511,14 @@ EXPORT void run__basic__types__key_order_table(void) {
   // 331: register_collection_serializer "key_order_table" empty_key_order_table
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__84_1;
+  arguments->slots[0] = string__26_1;
   arguments->slots[1] = get__empty_key_order_table();
   result_count = 0;
   myself = get__register_collection_serializer();
   func = myself->type;
-  frame->cont = cont__84_2;
+  frame->cont = cont__84_1;
 }
-static void cont__84_2(void) {
+static void cont__84_1(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8207,7 +8206,6 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   func__39_1 = create_function(entry__39_1, 4);
   func__40_1 = create_function(entry__40_1, 4);
   func__41_1 = create_function(entry__41_1, 2);
-  string__84_1 = from_latin_1_string("key_order_table", 15);
 }
 
 static int already_run_phase_3 = false;

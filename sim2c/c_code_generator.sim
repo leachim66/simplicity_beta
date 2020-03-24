@@ -1055,12 +1055,19 @@ $register_string: (str)
 	write_to_phase_2 "};@nl;"
 	write_to_phase_2
 	  "  @(name) = from_uint32_string(@(name)_literal, @(len));@nl;"
-    #write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
     -> name
 
 $sim2c::string_literal/to_c: (self)
   show_compiler_debug_info "generate string literal"
-  -> register_string(node::text_of(self))
+  $text node::text_of(self)
+  $literal used_string_literals(text)
+  if
+    literal.is_defined
+    -> literal
+    :
+      $new_literal register_string(text)
+      !used_string_literals(text) new_literal
+      -> new_literal
 
 ###
 # UNIQUE ITEM
