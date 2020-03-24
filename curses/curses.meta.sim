@@ -30,6 +30,7 @@
 
 extern $cpp "cpp"
 extern $gcc "gcc"
+extern $rm "rm"
 
 # don't forget to set TERM to "xterm-256color" or "linux"
 
@@ -115,3 +116,5 @@ do:
   gcc "/tmp/curses_defines.c" "-o" "/tmp/curses_defines"
   writeln
   write call("/tmp/curses_defines")
+  rm "/tmp/curses_defines.c"
+  rm "/tmp/curses_defines"
