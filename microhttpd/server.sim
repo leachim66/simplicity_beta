@@ -126,7 +126,7 @@ $SIZE many(DIGIT), alt("mm" "pt" "px")
   <kind function>
 
   CONNECTION_DATA *collect_connection_data(CONNECTION_DATA *data) {
-    if (data && !IS_OLD(data)) MARK(data)
+    if (data && !IS_STATIC(data)) MARK(data)
     return data;
   }
 }

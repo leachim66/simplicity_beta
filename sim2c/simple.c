@@ -340,6 +340,7 @@ IMPORT __attribute__ ((noreturn)) void execute(FUNC entry);
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
 #define IS_OLD(addr) false
+#define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
 #define ALLOCATION_SIZE(size) (((size)+sizeof(void *)-1)&-sizeof(void *))

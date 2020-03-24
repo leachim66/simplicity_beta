@@ -89,7 +89,7 @@ $types::string types::generic_list
       new_data->length = length;
       memcpy(new_data->buffer, data->buffer, length);
       return new_data;
-    } else if (data && !IS_OLD(data)) {
+    } else if (data && !IS_STATIC(data)) {
       MARK(data)
     }
     return data;
@@ -111,7 +111,7 @@ $types::string types::generic_list
       new_data->length = length;
       memcpy(new_data->buffer, data->buffer, 4*length);
       return new_data;
-    } else if (data && !IS_OLD(data)) {
+    } else if (data && !IS_STATIC(data)) {
       MARK(data)
     }
     return data;

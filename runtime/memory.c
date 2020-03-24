@@ -58,15 +58,13 @@
 #define IS_AN_INVALID_ADDRESS(addr) ((uintptr_t)addr & 2)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-//#define IS_OLD(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
-#define IS_OLD(addr) false
+#define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
 #define TYPEOF(node) (node)->type
 #define SIZEOF(node) (node)->attributes->vtable->size
 
 #define TOTAL_FRAME_SIZE(frame) (sizeof(FRAME)+(frame)->slot_count*sizeof(NODE *))
-
 
 #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
   #define REGISTER register
@@ -129,8 +127,8 @@ static void *node_buf_end;
 EXPORT void *node_p;
 EXPORT void *update_start_p; // helps to prevent unnecessary duplications
 
-//void *static_node_buf;
-//void *static_node_buf_end;
+EXPORT void *static_node_buf = NULL;
+EXPORT void *static_node_buf_end = NULL;;
 
 EXPORT void *coll_node_buf;
 EXPORT void *coll_node_buf_end;
@@ -675,6 +673,9 @@ EXPORT void initialize_phase_3(void) {
     node_p-node_buf, pool_size);*/
 
   // throw away the current pool that contains mostly (only?) literals
+
+  static_node_buf = node_buf;
+  static_node_buf_end = node_buf_end;
 
   node_buf = allocate_pool();
   node_buf_end = (char *)node_buf+pool_size;

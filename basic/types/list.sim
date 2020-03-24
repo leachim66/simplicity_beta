@@ -67,7 +67,7 @@ $types::list.is_a_list true
         new_data->items[i] = collect_node(data->items[i]);
       }
       return new_data;
-    } else if (data && !IS_OLD(data)) {
+    } else if (data && !IS_STATIC(data)) {
       MARK(data)
       int i;
       for (i = 0; i < data->length; ++i) {

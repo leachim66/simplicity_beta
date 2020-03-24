@@ -21,6 +21,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -255,6 +257,7 @@ IMPORT void register_collector(FUNC collector);
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
 #define IS_OLD(addr) false
+#define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
 #define ALLOCATION_SIZE(size) (((size)+sizeof(void *)-1)&-sizeof(void *))
@@ -2111,7 +2114,7 @@ static LIST_DATA *collect_list_data(LIST_DATA *data) {
       new_data->items[i] = collect_node(data->items[i]);
     }
     return new_data;
-  } else if (data && !IS_OLD(data)) {
+  } else if (data && !IS_STATIC(data)) {
     MARK(data)
     int i;
     for (i = 0; i < data->length; ++i) {
