@@ -212,11 +212,11 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -1593,7 +1593,6 @@ static void cont__17_4(void) {
 EXPORT void collect__basic__types__insert_order_set(void) {
   var.std__is_an_insert_order_set = collect_node(var.std__is_an_insert_order_set);
   var._NONE = collect_node(var._NONE);
-  unique__4_1 = collect_node(unique__4_1);
   var._index_table_of = collect_node(var._index_table_of);
   var._keys_of = collect_node(var._keys_of);
   var.types__insert_order_set = collect_node(var.types__insert_order_set);
@@ -1619,6 +1618,7 @@ EXPORT void phase_2__basic__types__insert_order_set(void) {
   already_run_phase_2 = true;
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  unique__4_1 = register_unique_item("NONE");
   string__10_25 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__10_24 = create_function(entry__10_24, 0);
   string__11_1 = from_latin_1_string("insert_order_set", 16);
@@ -1638,7 +1638,6 @@ EXPORT void phase_3__basic__types__insert_order_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__insert_order_set");
   set_used_namespaces(used_namespaces);
-  unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
   define_single_assign_static("types", "insert_order_set", get__types__insert_order_set, &var.types__insert_order_set);
   define_single_assign_static("std", "empty_insert_order_set", get__std__empty_insert_order_set, &var.std__empty_insert_order_set);

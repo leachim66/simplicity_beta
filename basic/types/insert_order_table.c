@@ -211,11 +211,11 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -8639,11 +8639,8 @@ static void cont__46_16(void) {
 EXPORT void collect__basic__types__insert_order_table(void) {
   var.std__is_an_insert_order_table = collect_node(var.std__is_an_insert_order_table);
   var._NONE = collect_node(var._NONE);
-  unique__4_1 = collect_node(unique__4_1);
   var._INSERT = collect_node(var._INSERT);
-  unique__5_1 = collect_node(unique__5_1);
   var._UPDATE = collect_node(var._UPDATE);
-  unique__6_1 = collect_node(unique__6_1);
   var._tree_of = collect_node(var._tree_of);
   var._first_of = collect_node(var._first_of);
   var._last_of = collect_node(var._last_of);
@@ -8691,6 +8688,9 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  unique__4_1 = register_unique_item("NONE");
+  unique__5_1 = register_unique_item("INSERT");
+  unique__6_1 = register_unique_item("UPDATE");
   func__16_1 = create_function(entry__16_1, 1);
   func__17_1 = create_function(entry__17_1, 1);
   func__24_1 = create_function(entry__24_1, 1);
@@ -8724,11 +8724,8 @@ EXPORT void phase_3__basic__types__insert_order_table(void) {
   already_run_phase_3 = true;
   set_module("basic__types__insert_order_table");
   set_used_namespaces(used_namespaces);
-  unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
-  unique__5_1 = register_unique_item("INSERT");
   assign_value(&var._INSERT, unique__5_1);
-  unique__6_1 = register_unique_item("UPDATE");
   assign_value(&var._UPDATE, unique__6_1);
   define_single_assign_static("types", "insert_order_table", get__types__insert_order_table, &var.types__insert_order_table);
   define_single_assign_static("std", "empty_insert_order_table", get__std__empty_insert_order_table, &var.std__empty_insert_order_table);

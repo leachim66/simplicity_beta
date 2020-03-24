@@ -215,11 +215,11 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -19361,15 +19361,10 @@ EXPORT void collect__extractor(void) {
   var._definitions = collect_node(var._definitions);
   var._topics = collect_node(var._topics);
   var._BORING = collect_node(var._BORING);
-  unique__9_1 = collect_node(unique__9_1);
   var._TYPE = collect_node(var._TYPE);
-  unique__10_1 = collect_node(unique__10_1);
   var._FUNCTION = collect_node(var._FUNCTION);
-  unique__11_1 = collect_node(unique__11_1);
   var._INLINE_C_FUNCTION = collect_node(var._INLINE_C_FUNCTION);
-  unique__12_1 = collect_node(unique__12_1);
   var._UNIQUE_ITEM = collect_node(var._UNIQUE_ITEM);
-  unique__13_1 = collect_node(unique__13_1);
   var._PARAMETER_COUNT_OR_MYSELF = collect_node(var._PARAMETER_COUNT_OR_MYSELF);
   var._path_prefix = collect_node(var._path_prefix);
   var._create_page = collect_node(var._create_page);
@@ -19427,6 +19422,11 @@ EXPORT void phase_2__extractor(void) {
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
   character__62 = from_uchar32(62);
+  unique__9_1 = register_unique_item("BORING");
+  unique__10_1 = register_unique_item("TYPE");
+  unique__11_1 = register_unique_item("FUNCTION");
+  unique__12_1 = register_unique_item("INLINE_C_FUNCTION");
+  unique__13_1 = register_unique_item("UNIQUE_ITEM");
   string__16_5 = from_latin_1_string("body {\012  background-color: white;\012  font-family: Times New Roman, Times;\012  font-size: 12pt;\012  color: #222;\012}\012h1 {\012  font-family: Arial, Helvetica;\012  font-size: 20pt;\012  color: #333;\012  margin-top: 0pt;\012  margin-bottom: 8pt;\012}\012h2 {\012  font-family: Arial, Helvetica;\012  font-size: 16pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 5pt;\012}\012h3 {\012  font-family: Arial, Helvetica;\012  font-size: 14pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 3pt;\012}\012h4 {\012  font-family: Arial, Helvetica;\012  font-size: 13pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 2pt;\012}\012dt {\012  font-style: italic;\012  margin-bottom: 4pt;\012}\012dd {\012  padding-left: 0pt;\012  margin-left: 16pt;\012  margin-top: 0pt;\012  margin-bottom: 0pt;\012}\012p {\012  margin-top: 0pt;\012  margin-bottom: 8pt;\012}\012a {\012  text-decoration: none;\012}\012div.Example {\012  background-color: #ffc;\012  border: solid 1pt;\012  margin-top: 6pt;\012  margin-bottom: 8pt;\012}\012div.Output {\012  background-color: #cff;\012  border: solid 1pt;\012  margin-top: 6pt;\012  margin-bottom: 8pt;\012}\012div.footer {\012  padding-top: 10pt;\012  font-size: 10pt;\012}\012pre {\012  font-family: Courier New, Courier;\012  font-size: 12pt;\012  padding-top: 0pt;\012  padding-bottom: 0pt;\012  margin-top: 2pt;\012  margin-bottom: 2pt;\012}\012td.remark {\012  padding-left: 10pt;\012}\012", 1234);
   func__16_4 = create_function(entry__16_4, 0);
   func__16_1 = create_function(entry__16_1, 2);
@@ -19582,15 +19582,10 @@ EXPORT void phase_3__extractor(void) {
   already_run_phase_3 = true;
   set_module("extractor");
   set_used_namespaces(used_namespaces);
-  unique__9_1 = register_unique_item("BORING");
   assign_value(&var._BORING, unique__9_1);
-  unique__10_1 = register_unique_item("TYPE");
   assign_value(&var._TYPE, unique__10_1);
-  unique__11_1 = register_unique_item("FUNCTION");
   assign_value(&var._FUNCTION, unique__11_1);
-  unique__12_1 = register_unique_item("INLINE_C_FUNCTION");
   assign_value(&var._INLINE_C_FUNCTION, unique__12_1);
-  unique__13_1 = register_unique_item("UNIQUE_ITEM");
   assign_value(&var._UNIQUE_ITEM, unique__13_1);
   var._PARAMETER_COUNT_OR_MYSELF = create_future();
   var._symbol_info = create_future();

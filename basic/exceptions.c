@@ -183,11 +183,11 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -3442,9 +3442,7 @@ static void cont__25_37(void) {
 }
 EXPORT void collect__basic__exceptions(void) {
   var.std__CLEANUP = collect_node(var.std__CLEANUP);
-  unique__1_1 = collect_node(unique__1_1);
   var.std__ERROR_MESSAGE = collect_node(var.std__ERROR_MESSAGE);
-  unique__2_1 = collect_node(unique__2_1);
   var._resource_id_of = collect_node(var._resource_id_of);
   var._retain_id_of = collect_node(var._retain_id_of);
   var._next_resource_id = collect_node(var._next_resource_id);
@@ -3486,6 +3484,8 @@ EXPORT void phase_2__basic__exceptions(void) {
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  unique__1_1 = register_unique_item("std__CLEANUP");
+  unique__2_1 = register_unique_item("std__ERROR_MESSAGE");
   func__9_1 = create_function(entry__9_1, 1);
   func__10_1 = create_function(entry__10_1, 1);
   func__11_1 = create_function(entry__11_1, 1);
@@ -3519,10 +3519,8 @@ EXPORT void phase_3__basic__exceptions(void) {
   already_run_phase_3 = true;
   set_module("basic__exceptions");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("std__CLEANUP");
   assign_value(&var.std__CLEANUP, unique__1_1);
   define_single_assign_static("std", "CLEANUP", get__std__CLEANUP, &var.std__CLEANUP);
-  unique__2_1 = register_unique_item("std__ERROR_MESSAGE");
   assign_value(&var.std__ERROR_MESSAGE, unique__2_1);
   define_single_assign_static("std", "ERROR_MESSAGE", get__std__ERROR_MESSAGE, &var.std__ERROR_MESSAGE);
   register_dynamic(&dyna_idx__first_resource_id);

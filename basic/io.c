@@ -256,10 +256,10 @@ IMPORT void define_polymorphic_function_with_setter(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -10295,9 +10295,7 @@ static void cont__189_12(void) {
 }
 EXPORT void collect__basic__io(void) {
   var.std__MODE = collect_node(var.std__MODE);
-  unique__1_1 = collect_node(unique__1_1);
   var.std__PARENTS = collect_node(var.std__PARENTS);
-  unique__2_1 = collect_node(unique__2_1);
   var._wget = collect_node(var._wget);
   var.std__ioctl = collect_node(var.std__ioctl);
   var.std__get_terminal_size = collect_node(var.std__get_terminal_size);
@@ -10515,6 +10513,8 @@ EXPORT void phase_2__basic__io(void) {
   number__30 = from_uint32(30U);
   number__24 = from_uint32(24U);
   number__14 = from_uint32(14U);
+  unique__1_1 = register_unique_item("std__MODE");
+  unique__2_1 = register_unique_item("std__PARENTS");
   string__81_5 = from_latin_1_string(" = ", 3);
   string__81_6 = from_latin_1_string("\012", 1);
   string__81_12 = from_latin_1_string(" failed: ", 9);
@@ -10644,10 +10644,8 @@ EXPORT void phase_3__basic__io(void) {
   already_run_phase_3 = true;
   set_module("basic__io");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("std__MODE");
   assign_value(&var.std__MODE, unique__1_1);
   define_single_assign_static("std", "MODE", get__std__MODE, &var.std__MODE);
-  unique__2_1 = register_unique_item("std__PARENTS");
   assign_value(&var.std__PARENTS, unique__2_1);
   define_single_assign_static("std", "PARENTS", get__std__PARENTS, &var.std__PARENTS);
   var._wget = create_future();

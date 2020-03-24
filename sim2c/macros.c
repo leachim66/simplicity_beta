@@ -249,11 +249,11 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_dynamic(int *id_p);
 IMPORT void define_single_assign_static(
@@ -9537,13 +9537,9 @@ static void cont__71_154(void) {
 }
 EXPORT void collect__macros(void) {
   var._EVENT = collect_node(var._EVENT);
-  unique__1_1 = collect_node(unique__1_1);
   var._ACTION = collect_node(var._ACTION);
-  unique__2_1 = collect_node(unique__2_1);
   var._INFO = collect_node(var._INFO);
-  unique__3_1 = collect_node(unique__3_1);
   var._DATA = collect_node(var._DATA);
-  unique__4_1 = collect_node(unique__4_1);
   var._macro_replacements = collect_node(var._macro_replacements);
   var._define_macro = collect_node(var._define_macro);
   var.sim2c__converted = collect_node(var.sim2c__converted);
@@ -9583,6 +9579,10 @@ EXPORT void phase_2__macros(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
+  unique__1_1 = register_unique_item("EVENT");
+  unique__2_1 = register_unique_item("ACTION");
+  unique__3_1 = register_unique_item("INFO");
+  unique__4_1 = register_unique_item("DATA");
   func__11_1 = create_function(entry__11_1, 2);
   string__71_104 = from_latin_1_string(", ", 2);
   string__71_131 = from_latin_1_string("::", 2);
@@ -9778,13 +9778,9 @@ EXPORT void phase_3__macros(void) {
   already_run_phase_3 = true;
   set_module("macros");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("EVENT");
   assign_value(&var._EVENT, unique__1_1);
-  unique__2_1 = register_unique_item("ACTION");
   assign_value(&var._ACTION, unique__2_1);
-  unique__3_1 = register_unique_item("INFO");
   assign_value(&var._INFO, unique__3_1);
-  unique__4_1 = register_unique_item("DATA");
   assign_value(&var._DATA, unique__4_1);
   register_dynamic(&dyna_idx__event_name);
   define__event_name(undefined);

@@ -213,11 +213,11 @@ IMPORT void define_polymorphic_function_with_setter(
   NODE **var_p
 );
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -5266,28 +5266,20 @@ static void cont__40_2(void) {
 }
 EXPORT void collect__basic__event(void) {
   var.std__WRITE_TO = collect_node(var.std__WRITE_TO);
-  unique__1_1 = collect_node(unique__1_1);
   var.std__READ_FROM = collect_node(var.std__READ_FROM);
-  unique__2_1 = collect_node(unique__2_1);
   var.std__file_descriptor_of = collect_node(var.std__file_descriptor_of);
   var.std__TERMINATE = collect_node(var.std__TERMINATE);
-  unique__4_1 = collect_node(unique__4_1);
   var.std__pid_of = collect_node(var.std__pid_of);
   var.std__status_of = collect_node(var.std__status_of);
   var.std__SCREEN_SIZE_CHANGE = collect_node(var.std__SCREEN_SIZE_CHANGE);
-  unique__7_1 = collect_node(unique__7_1);
   var.std__width_of = collect_node(var.std__width_of);
   var.std__height_of = collect_node(var.std__height_of);
   var.std__KEY_PRESS = collect_node(var.std__KEY_PRESS);
-  unique__10_1 = collect_node(unique__10_1);
   var.std__key_code_of = collect_node(var.std__key_code_of);
   var.std__MOUSE_CLICK = collect_node(var.std__MOUSE_CLICK);
-  unique__12_1 = collect_node(unique__12_1);
   var.std__target_of = collect_node(var.std__target_of);
   var.std__PASTE = collect_node(var.std__PASTE);
-  unique__14_1 = collect_node(unique__14_1);
   var.std__MESSAGE = collect_node(var.std__MESSAGE);
-  unique__15_1 = collect_node(unique__15_1);
   var.types__event = collect_node(var.types__event);
   var.std__events = collect_node(var.std__events);
   var._wanted_output_fds = collect_node(var._wanted_output_fds);
@@ -5337,6 +5329,14 @@ EXPORT void phase_2__basic__event(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
+  unique__1_1 = register_unique_item("std__WRITE_TO");
+  unique__2_1 = register_unique_item("std__READ_FROM");
+  unique__4_1 = register_unique_item("std__TERMINATE");
+  unique__7_1 = register_unique_item("std__SCREEN_SIZE_CHANGE");
+  unique__10_1 = register_unique_item("std__KEY_PRESS");
+  unique__12_1 = register_unique_item("std__MOUSE_CLICK");
+  unique__14_1 = register_unique_item("std__PASTE");
+  unique__15_1 = register_unique_item("std__MESSAGE");
   func__20_1 = create_function(entry__20_1, 1);
   func__21_1 = create_function(entry__21_1, 1);
   func__22_1 = create_function(entry__22_1, 1);
@@ -5374,28 +5374,20 @@ EXPORT void phase_3__basic__event(void) {
   already_run_phase_3 = true;
   set_module("basic__event");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("std__WRITE_TO");
   assign_value(&var.std__WRITE_TO, unique__1_1);
   define_single_assign_static("std", "WRITE_TO", get__std__WRITE_TO, &var.std__WRITE_TO);
-  unique__2_1 = register_unique_item("std__READ_FROM");
   assign_value(&var.std__READ_FROM, unique__2_1);
   define_single_assign_static("std", "READ_FROM", get__std__READ_FROM, &var.std__READ_FROM);
-  unique__4_1 = register_unique_item("std__TERMINATE");
   assign_value(&var.std__TERMINATE, unique__4_1);
   define_single_assign_static("std", "TERMINATE", get__std__TERMINATE, &var.std__TERMINATE);
-  unique__7_1 = register_unique_item("std__SCREEN_SIZE_CHANGE");
   assign_value(&var.std__SCREEN_SIZE_CHANGE, unique__7_1);
   define_single_assign_static("std", "SCREEN_SIZE_CHANGE", get__std__SCREEN_SIZE_CHANGE, &var.std__SCREEN_SIZE_CHANGE);
-  unique__10_1 = register_unique_item("std__KEY_PRESS");
   assign_value(&var.std__KEY_PRESS, unique__10_1);
   define_single_assign_static("std", "KEY_PRESS", get__std__KEY_PRESS, &var.std__KEY_PRESS);
-  unique__12_1 = register_unique_item("std__MOUSE_CLICK");
   assign_value(&var.std__MOUSE_CLICK, unique__12_1);
   define_single_assign_static("std", "MOUSE_CLICK", get__std__MOUSE_CLICK, &var.std__MOUSE_CLICK);
-  unique__14_1 = register_unique_item("std__PASTE");
   assign_value(&var.std__PASTE, unique__14_1);
   define_single_assign_static("std", "PASTE", get__std__PASTE, &var.std__PASTE);
-  unique__15_1 = register_unique_item("std__MESSAGE");
   assign_value(&var.std__MESSAGE, unique__15_1);
   define_single_assign_static("std", "MESSAGE", get__std__MESSAGE, &var.std__MESSAGE);
   define_single_assign_static("types", "event", get__types__event, &var.types__event);

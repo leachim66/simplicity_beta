@@ -208,11 +208,11 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -3367,7 +3367,6 @@ static void cont__20_3(void) {
 }
 EXPORT void collect__basic__types__key_order_set(void) {
   var._NONE = collect_node(var._NONE);
-  unique__1_1 = collect_node(unique__1_1);
   var._tree_of = collect_node(var._tree_of);
   var._left_of = collect_node(var._left_of);
   var._right_of = collect_node(var._right_of);
@@ -3399,6 +3398,7 @@ EXPORT void phase_2__basic__types__key_order_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
+  unique__1_1 = register_unique_item("NONE");
   func__9_1 = create_function(entry__9_1, 1);
   func__10_1 = create_function(entry__10_1, 2);
   func__11_1 = create_function(entry__11_1, 2);
@@ -3418,7 +3418,6 @@ EXPORT void phase_3__basic__types__key_order_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__key_order_set");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__1_1);
   define_single_assign_static("types", "key_order_set", get__types__key_order_set, &var.types__key_order_set);
   define_single_assign_static("std", "empty_key_order_set", get__std__empty_key_order_set, &var.std__empty_key_order_set);

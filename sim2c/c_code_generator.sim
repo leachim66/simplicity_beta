@@ -951,9 +951,6 @@ $sim2c::body/to_c:
 	@
 	  func@(body_suffix) = create_function(entry@(body_suffix), @
 	@(par_count));@nl;@
-
-      #write_to_generated_collections
-	"  func@(body_suffix) = collect_node(func@(body_suffix));@nl;"
       return "func@(body_suffix)"
     : # it's a closure
       return "create_closure(entry@(body_suffix), @(par_count))"
@@ -1078,10 +1075,9 @@ $sim2c::unique_item/to_c: (self)
   $name string("unique" suffix "_" index)
   $reg_name if(name_of(self).is_defined (-> name_of(self)) -> name)
   write_to_declarations "static NODE *@(name);@nl;"
-  write_to_phase_3 "
+  write_to_phase_2 "
     @
       @(name) = register_unique_item("@(reg_name)");
-  write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
   -> name
 
 ###

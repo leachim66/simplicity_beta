@@ -178,9 +178,9 @@ REGISTER FRAME *frame ASM("r15");
 IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 typedef NODE *(*NODE_GETTER)(void);
 IMPORT void define_single_assign_static(
@@ -301,11 +301,8 @@ EXPORT void run__basic__options(void) {
 }
 EXPORT void collect__basic__options(void) {
   var.std__VERBOSE = collect_node(var.std__VERBOSE);
-  unique__1_1 = collect_node(unique__1_1);
   var.std__SORT = collect_node(var.std__SORT);
-  unique__2_1 = collect_node(unique__2_1);
   var.std__TRIM = collect_node(var.std__TRIM);
-  unique__3_1 = collect_node(unique__3_1);
 }
 
 static int already_run_phase_1 = false;
@@ -321,6 +318,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__options(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  unique__1_1 = register_unique_item("std__VERBOSE");
+  unique__2_1 = register_unique_item("std__SORT");
+  unique__3_1 = register_unique_item("std__TRIM");
 }
 
 static int already_run_phase_3 = false;
@@ -330,13 +330,10 @@ EXPORT void phase_3__basic__options(void) {
   already_run_phase_3 = true;
   set_module("basic__options");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("std__VERBOSE");
   assign_value(&var.std__VERBOSE, unique__1_1);
   define_single_assign_static("std", "VERBOSE", get__std__VERBOSE, &var.std__VERBOSE);
-  unique__2_1 = register_unique_item("std__SORT");
   assign_value(&var.std__SORT, unique__2_1);
   define_single_assign_static("std", "SORT", get__std__SORT, &var.std__SORT);
-  unique__3_1 = register_unique_item("std__TRIM");
   assign_value(&var.std__TRIM, unique__3_1);
   define_single_assign_static("std", "TRIM", get__std__TRIM, &var.std__TRIM);
 }

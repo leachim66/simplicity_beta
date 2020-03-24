@@ -281,13 +281,13 @@ IMPORT void initialize_runtime(void);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void initialize_phase_3(void);
 IMPORT void resolve_symbols(void);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
@@ -22858,7 +22858,6 @@ EXPORT void collect__simple(void) {
   var._simlibpaths = collect_node(var._simlibpaths);
   var._simdatapaths = collect_node(var._simdatapaths);
   var._NONE = collect_node(var._NONE);
-  unique__13_1 = collect_node(unique__13_1);
   var._supported_platforms = collect_node(var._supported_platforms);
   var._platform_priority = collect_node(var._platform_priority);
   var._platform_specific_priority = collect_node(var._platform_specific_priority);
@@ -22888,9 +22887,7 @@ EXPORT void collect__simple(void) {
   var._action = collect_node(var._action);
   var.sim2c__show_compiler_debug_info = collect_node(var.sim2c__show_compiler_debug_info);
   var._EXE = collect_node(var._EXE);
-  unique__48_1 = collect_node(unique__48_1);
   var._LIB = collect_node(var._LIB);
-  unique__49_1 = collect_node(unique__49_1);
   var._WHITESPACE = collect_node(var._WHITESPACE);
   var._gcc_basic_options = collect_node(var._gcc_basic_options);
   var._gcc_hardware_specific_options = collect_node(var._gcc_hardware_specific_options);
@@ -23071,7 +23068,10 @@ int main(int argc, char **argv) {
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
   number__999 = from_uint32(999U);
+  unique__13_1 = register_unique_item("NONE");
   func__47_1 = create_function(entry__47_1, -1);
+  unique__48_1 = register_unique_item("EXE");
+  unique__49_1 = register_unique_item("LIB");
   func__63_6 = create_function(entry__63_6, 1);
   func__63_4 = create_function(entry__63_4, 1);
   func__63_3 = create_function(entry__63_3, 0);
@@ -23427,7 +23427,6 @@ int main(int argc, char **argv) {
   var._SIMDATAPATH = create_future();
   var._simlibpaths = create_future();
   var._simdatapaths = create_future();
-  unique__13_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__13_1);
   var._supported_platforms = create_future();
   define_multi_assign_static("sim2c", "do_dump_trees", get__sim2c__do_dump_trees, set__sim2c__do_dump_trees);
@@ -23450,9 +23449,7 @@ int main(int argc, char **argv) {
   register_dynamic(&dyna_idx__do_build_static_executable);
   define__do_build_static_executable(create_future());
   define_single_assign_static("sim2c", "show_compiler_debug_info", get__sim2c__show_compiler_debug_info, &var.sim2c__show_compiler_debug_info);
-  unique__48_1 = register_unique_item("EXE");
   assign_value(&var._EXE, unique__48_1);
-  unique__49_1 = register_unique_item("LIB");
   assign_value(&var._LIB, unique__49_1);
   register_dynamic(&dyna_idx__mode);
   define__mode(create_future());

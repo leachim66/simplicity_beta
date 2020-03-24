@@ -181,6 +181,7 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -188,7 +189,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 typedef void (*NODE_SETTER)(NODE *);
 IMPORT void define_multi_assign_static(
@@ -930,7 +930,6 @@ EXPORT void collect__basic__environment(void) {
   var._env_1 = collect_node(var._env_1);
   var._putenv = collect_node(var._putenv);
   var._NONE = collect_node(var._NONE);
-  unique__13_1 = collect_node(unique__13_1);
   var._env_2 = collect_node(var._env_2);
   var.std__environment = collect_node(var.std__environment);
 }
@@ -956,6 +955,7 @@ EXPORT void phase_2__basic__environment(void) {
   func__4_1 = create_function(entry__4_1, 1);
   func__5_1 = create_function(entry__5_1, 0);
   func__12_1 = create_function(entry__12_1, 1);
+  unique__13_1 = register_unique_item("NONE");
   string__15_5 = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
   func__27_2 = create_function(entry__27_2, 1);
@@ -970,7 +970,6 @@ EXPORT void phase_3__basic__environment(void) {
   set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "program_name", get__std__program_name, &var.std__program_name);
   define_single_assign_static("std", "command_line_arguments", get__std__command_line_arguments, &var.std__command_line_arguments);
-  unique__13_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__13_1);
   var._env_2 = create_future();
   define_multi_assign_static("std", "environment", get__std__environment, set__std__environment);

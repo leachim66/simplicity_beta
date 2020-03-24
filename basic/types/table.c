@@ -212,6 +212,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
@@ -220,7 +221,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
@@ -2647,7 +2647,6 @@ EXPORT void collect__basic__types__table(void) {
   var.private__get_item = collect_node(var.private__get_item);
   var.types__generic_table = collect_node(var.types__generic_table);
   var._NONE = collect_node(var._NONE);
-  unique__4_1 = collect_node(unique__4_1);
   var.std__is_a_table = collect_node(var.std__is_a_table);
   var.types__table = collect_node(var.types__table);
   var.std__empty_table = collect_node(var.std__empty_table);
@@ -2679,6 +2678,7 @@ EXPORT void phase_2__basic__types__table(void) {
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  unique__4_1 = register_unique_item("NONE");
   func__6_1 = create_function(entry__6_1, 2);
   func__7_1 = create_function(entry__7_1, 2);
   string__8_5 = from_latin_1_string("()", 2);
@@ -2702,7 +2702,6 @@ EXPORT void phase_3__basic__types__table(void) {
   set_module("basic__types__table");
   set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
-  unique__4_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__4_1);
   define_single_assign_static("types", "table", get__types__table, &var.types__table);
   define_single_assign_static("std", "empty_table", get__std__empty_table, &var.std__empty_table);

@@ -192,11 +192,11 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -2866,7 +2866,6 @@ static void cont__27_14(void) {
 }
 EXPORT void collect__basic__types__unordered_set(void) {
   var._NONE = collect_node(var._NONE);
-  unique__1_1 = collect_node(unique__1_1);
   var._insert_item = collect_node(var._insert_item);
   var._retrieve_item = collect_node(var._retrieve_item);
   var.types__unordered_set = collect_node(var.types__unordered_set);
@@ -2890,6 +2889,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unordered_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  unique__1_1 = register_unique_item("NONE");
   func__11_1 = create_function(entry__11_1, 5);
   func__12_1 = create_function(entry__12_1, 3);
   func__14_1 = create_function(entry__14_1, 1);
@@ -2916,7 +2916,6 @@ EXPORT void phase_3__basic__types__unordered_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__unordered_set");
   set_used_namespaces(used_namespaces);
-  unique__1_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__1_1);
   var.types__unordered_set = create_future_with_prototype(create__types__unordered_set(0, NULL));
   define_single_assign_static("types", "unordered_set", get__types__unordered_set, &var.types__unordered_set);
