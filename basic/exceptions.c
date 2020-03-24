@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -182,6 +184,7 @@ IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -191,7 +194,6 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT void register_dynamic(int *id_p);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_dynamic(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER definer,
@@ -236,7 +238,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -3461,12 +3462,9 @@ EXPORT void collect__basic__exceptions(void) {
   var.std__Error = collect_node(var.std__Error);
   var._crash_dump = collect_node(var._crash_dump);
   var._RuntimeError = collect_node(var._RuntimeError);
-  string__21_3 = collect_node(string__21_3);
   var.std__try = collect_node(var.std__try);
   var.std__transaction = collect_node(var.std__transaction);
   var.std__retain = collect_node(var.std__retain);
-  string__25_4 = collect_node(string__25_4);
-  string__25_30 = collect_node(string__25_30);
 }
 
 static int already_run_phase_1 = false;
@@ -3502,11 +3500,14 @@ EXPORT void phase_2__basic__exceptions(void) {
   func__18_1 = create_function(entry__18_1, -1);
   func__19_1 = create_function(entry__19_1, -1);
   func__20_1 = create_function(entry__20_1, 0);
+  string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   func__21_1 = create_function(entry__21_1, -1);
   func__23_18 = create_function(entry__23_18, -1);
   func__23_1 = create_function(entry__23_1, -1);
   func__24_1 = create_function(entry__24_1, 1);
+  string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
   func__25_3 = create_function(entry__25_3, 0);
+  string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   func__25_29 = create_function(entry__25_29, 0);
   func__25_1 = create_function(entry__25_1, 1);
 }
@@ -3533,13 +3534,10 @@ EXPORT void phase_3__basic__exceptions(void) {
   define_single_assign_static("std", "terminate", get__std__terminate, &var.std__terminate);
   define_single_assign_static("std", "ErrorMessage", get__std__ErrorMessage, &var.std__ErrorMessage);
   define_single_assign_static("std", "Error", get__std__Error, &var.std__Error);
-  string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   define_single_assign_dynamic("std", "raise", get__std__raise, define__std__raise, &dyna_idx__std__raise);
   define__std__raise(create_future());
   define_single_assign_static("std", "try", get__std__try, &var.std__try);
   define_single_assign_static("std", "transaction", get__std__transaction, &var.std__transaction);
-  string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
-  string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   define_single_assign_static("std", "retain", get__std__retain, &var.std__retain);
 }
 

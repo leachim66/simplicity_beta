@@ -29,6 +29,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -225,7 +227,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -2180,7 +2181,6 @@ EXPORT void collect__basic__exec(void) {
   var.std__exec = collect_node(var.std__exec);
   var.std__call = collect_node(var.std__call);
   var.std__pipe = collect_node(var.std__pipe);
-  string__19_8 = collect_node(string__19_8);
   var.std__extern = collect_node(var.std__extern);
 }
 
@@ -2216,6 +2216,7 @@ EXPORT void phase_2__basic__exec(void) {
   func__16_1 = create_function(entry__16_1, -1);
   func__17_1 = create_function(entry__17_1, -1);
   func__18_1 = create_function(entry__18_1, -1);
+  string__19_8 = from_latin_1_string("Invalid arguments!", 18);
   func__19_7 = create_function(entry__19_7, 0);
   func__19_10 = create_function(entry__19_10, 1);
   func__19_1 = create_function(entry__19_1, -1);
@@ -2242,7 +2243,6 @@ EXPORT void phase_3__basic__exec(void) {
   define_single_assign_static("std", "kill", get__std__kill, &var.std__kill);
   define_single_assign_static("std", "exec", get__std__exec, &var.std__exec);
   define_single_assign_static("std", "call", get__std__call, &var.std__call);
-  string__19_8 = from_latin_1_string("Invalid arguments!", 18);
   define_single_assign_static("std", "pipe", get__std__pipe, &var.std__pipe);
   define_single_assign_static("std", "extern", get__std__extern, &var.std__extern);
 }

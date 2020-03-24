@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -185,9 +187,9 @@ IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -222,7 +224,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -338,12 +339,9 @@ static void cont__6_3(void) {
 }
 EXPORT void collect__platform__platform(void) {
   var.std__current_platform = collect_node(var.std__current_platform);
-  string__1_1 = collect_node(string__1_1);
   var.std__current_platforms = collect_node(var.std__current_platforms);
   var.std__current_directory_separator = collect_node(var.std__current_directory_separator);
   var.std__current_path_separator = collect_node(var.std__current_path_separator);
-  string__6_1 = collect_node(string__6_1);
-  string__6_2 = collect_node(string__6_2);
 }
 
 static int already_run_phase_1 = false;
@@ -361,6 +359,9 @@ EXPORT void phase_2__platform__platform(void) {
   already_run_phase_2 = true;
   character__92 = from_uchar32(92);
   character__59 = from_uchar32(59);
+  string__1_1 = from_latin_1_string("win", 3);
+  string__6_1 = from_latin_1_string("win", 3);
+  string__6_2 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_3 = false;
@@ -370,13 +371,10 @@ EXPORT void phase_3__platform__platform(void) {
   already_run_phase_3 = true;
   set_module("platform__platform");
   set_used_namespaces(used_namespaces);
-  string__1_1 = from_latin_1_string("win", 3);
   define_single_assign_static("std", "current_platform", get__std__current_platform, &var.std__current_platform);
   define_single_assign_static("std", "current_platforms", get__std__current_platforms, &var.std__current_platforms);
   define_single_assign_static("std", "current_directory_separator", get__std__current_directory_separator, &var.std__current_directory_separator);
   define_single_assign_static("std", "current_path_separator", get__std__current_path_separator, &var.std__current_path_separator);
-  string__6_1 = from_latin_1_string("win", 3);
-  string__6_2 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_4 = false;

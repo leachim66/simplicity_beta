@@ -28,6 +28,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -265,7 +267,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -6476,17 +6477,8 @@ EXPORT void collect__basic__types__number(void) {
   var.std__is_odd = collect_node(var.std__is_odd);
   var.std__is_even = collect_node(var.std__is_even);
   var.std__bin = collect_node(var.std__bin);
-  string__133_6 = collect_node(string__133_6);
-  string__133_9 = collect_node(string__133_9);
-  string__133_21 = collect_node(string__133_21);
   var.std__oct = collect_node(var.std__oct);
-  string__134_6 = collect_node(string__134_6);
-  string__134_9 = collect_node(string__134_9);
-  string__134_21 = collect_node(string__134_21);
   var.std__hex = collect_node(var.std__hex);
-  string__135_6 = collect_node(string__135_6);
-  string__135_9 = collect_node(string__135_9);
-  string__135_28 = collect_node(string__135_28);
 }
 
 static int already_run_phase_1 = false;
@@ -6591,8 +6583,17 @@ EXPORT void phase_2__basic__types__number(void) {
   func__129_1 = create_function(entry__129_1, 1);
   func__131_1 = create_function(entry__131_1, 1);
   func__132_1 = create_function(entry__132_1, 1);
+  string__133_6 = from_latin_1_string("0", 1);
+  string__133_9 = from_latin_1_string("0", 1);
+  string__133_21 = from_latin_1_string("0", 1);
   func__133_1 = create_function(entry__133_1, -1);
+  string__134_6 = from_latin_1_string("0", 1);
+  string__134_9 = from_latin_1_string("0", 1);
+  string__134_21 = from_latin_1_string("0", 1);
   func__134_1 = create_function(entry__134_1, -1);
+  string__135_6 = from_latin_1_string("0", 1);
+  string__135_9 = from_latin_1_string("0", 1);
+  string__135_28 = from_latin_1_string("0", 1);
   func__135_1 = create_function(entry__135_1, -1);
   func__136_1 = create_function(entry__136_1, 1);
   func__137_1 = create_function(entry__137_1, 1);
@@ -6630,17 +6631,8 @@ EXPORT void phase_3__basic__types__number(void) {
   define_single_assign_static("types", "real", get__types__real, &var.types__real);
   define_single_assign_static("std", "is_odd", get__std__is_odd, &var.std__is_odd);
   define_single_assign_static("std", "is_even", get__std__is_even, &var.std__is_even);
-  string__133_6 = from_latin_1_string("0", 1);
-  string__133_9 = from_latin_1_string("0", 1);
-  string__133_21 = from_latin_1_string("0", 1);
   define_single_assign_static("std", "bin", get__std__bin, &var.std__bin);
-  string__134_6 = from_latin_1_string("0", 1);
-  string__134_9 = from_latin_1_string("0", 1);
-  string__134_21 = from_latin_1_string("0", 1);
   define_single_assign_static("std", "oct", get__std__oct, &var.std__oct);
-  string__135_6 = from_latin_1_string("0", 1);
-  string__135_9 = from_latin_1_string("0", 1);
-  string__135_28 = from_latin_1_string("0", 1);
   define_single_assign_static("std", "hex", get__std__hex, &var.std__hex);
 }
 

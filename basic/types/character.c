@@ -21,6 +21,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -245,7 +247,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -3948,8 +3949,6 @@ EXPORT void collect__basic__types__character(void) {
   var.std__is_a_lower_case_letter_character = collect_node(var.std__is_a_lower_case_letter_character);
   var.std__is_an_uppper_case_letter_character = collect_node(var.std__is_an_uppper_case_letter_character);
   var.std__is_a_vowel = collect_node(var.std__is_a_vowel);
-  string__28_2 = collect_node(string__28_2);
-  string__28_19 = collect_node(string__28_19);
 }
 
 static int already_run_phase_1 = false;
@@ -4018,6 +4017,8 @@ EXPORT void phase_2__basic__types__character(void) {
   func__27_3 = create_function(entry__27_3, 0);
   func__27_4 = create_function(entry__27_4, 0);
   func__27_1 = create_function(entry__27_1, 1);
+  string__28_2 = from_latin_1_string("'", 1);
+  string__28_19 = from_latin_1_string("@0x", 3);
   func__28_1 = create_function(entry__28_1, -1);
 }
 
@@ -4040,8 +4041,6 @@ EXPORT void phase_3__basic__types__character(void) {
   define_single_assign_static("std", "is_a_lower_case_letter_character", get__std__is_a_lower_case_letter_character, &var.std__is_a_lower_case_letter_character);
   define_single_assign_static("std", "is_an_uppper_case_letter_character", get__std__is_an_uppper_case_letter_character, &var.std__is_an_uppper_case_letter_character);
   define_single_assign_static("std", "is_a_vowel", get__std__is_a_vowel, &var.std__is_a_vowel);
-  string__28_2 = from_latin_1_string("'", 1);
-  string__28_19 = from_latin_1_string("@0x", 3);
 }
 
 static int already_run_phase_4 = false;

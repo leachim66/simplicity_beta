@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -211,13 +213,13 @@ IMPORT void define_polymorphic_function(
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -260,7 +262,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -996,10 +997,8 @@ static void cont__12_4(void) {
 }
 EXPORT void collect__basic__types__set(void) {
   var.types__generic_set = collect_node(var.types__generic_set);
-  string__3_5 = collect_node(string__3_5);
   var.std__is_a_set = collect_node(var.std__is_a_set);
   var.types__set = collect_node(var.types__set);
-  string__10_1 = collect_node(string__10_1);
   var.std__empty_set = collect_node(var.std__empty_set);
   var.std__set = collect_node(var.std__set);
 }
@@ -1022,9 +1021,11 @@ EXPORT void phase_2__basic__types__set(void) {
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
   func__2_1 = create_function(entry__2_1, 2);
+  string__3_5 = from_latin_1_string("()", 2);
   func__3_1 = create_function(entry__3_1, -1);
   func__4_1 = create_function(entry__4_1, 1);
   func__5_1 = create_function(entry__5_1, 1);
+  string__10_1 = from_latin_1_string("set", 3);
   func__12_1 = create_function(entry__12_1, -1);
 }
 
@@ -1036,9 +1037,7 @@ EXPORT void phase_3__basic__types__set(void) {
   set_module("basic__types__set");
   set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "generic_set", get__types__generic_set, &var.types__generic_set);
-  string__3_5 = from_latin_1_string("()", 2);
   define_single_assign_static("types", "set", get__types__set, &var.types__set);
-  string__10_1 = from_latin_1_string("set", 3);
   define_single_assign_static("std", "empty_set", get__std__empty_set, &var.std__empty_set);
   define_single_assign_static("std", "set", get__std__set, &var.std__set);
 }

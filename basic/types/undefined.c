@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -168,13 +170,13 @@ IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -215,7 +217,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -472,7 +473,6 @@ EXPORT void collect__basic__types__undefined(void) {
   var.types__undefined = collect_node(var.types__undefined);
   collect_static_attributes(&attributes__types__undefined);
   var.std__undefined = collect_node(var.std__undefined);
-  string__16_1 = collect_node(string__16_1);
 }
 
 static int already_run_phase_1 = false;
@@ -490,6 +490,7 @@ EXPORT void phase_2__basic__types__undefined(void) {
   already_run_phase_2 = true;
   func__5_1 = create_function(entry__5_1, 2);
   func__6_1 = create_function(entry__6_1, 2);
+  string__16_1 = from_latin_1_string("undefined", 9);
   func__16_2 = create_function(entry__16_2, 2);
 }
 
@@ -504,7 +505,6 @@ EXPORT void phase_3__basic__types__undefined(void) {
   define_single_assign_static("types", "undefined", get__types__undefined, &var.types__undefined);
   var.std__undefined = create__types__undefined();
   define_single_assign_static("std", "undefined", get__std__undefined, &var.std__undefined);
-  string__16_1 = from_latin_1_string("undefined", 9);
 }
 
 static int already_run_phase_4 = false;

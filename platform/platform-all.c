@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -184,9 +186,9 @@ IMPORT void invalid_results_error(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -221,7 +223,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -325,9 +326,7 @@ static void cont__4_2(void) {
 }
 EXPORT void collect__platform__platform(void) {
   var.std__platform = collect_node(var.std__platform);
-  string__1_1 = collect_node(string__1_1);
   var.std__platforms = collect_node(var.std__platforms);
-  string__4_1 = collect_node(string__4_1);
 }
 
 static int already_run_phase_1 = false;
@@ -343,6 +342,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__platform__platform(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  string__1_1 = from_latin_1_string("all", 3);
+  string__4_1 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_3 = false;
@@ -352,10 +353,8 @@ EXPORT void phase_3__platform__platform(void) {
   already_run_phase_3 = true;
   set_module("platform__platform");
   set_used_namespaces(used_namespaces);
-  string__1_1 = from_latin_1_string("all", 3);
   define_single_assign_static("std", "platform", get__std__platform, &var.std__platform);
   define_single_assign_static("std", "platforms", get__std__platforms, &var.std__platforms);
-  string__4_1 = from_latin_1_string("all", 3);
 }
 
 static int already_run_phase_4 = false;

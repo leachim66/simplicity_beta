@@ -24,6 +24,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -193,6 +195,7 @@ IMPORT void define_polymorphic_function_with_setter(
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -200,7 +203,6 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -239,7 +241,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -1866,17 +1867,6 @@ EXPORT void collect__basic__types__date_and_time(void) {
   collect_static_attributes(&attributes__types__date_and_time);
   var.std__from_unix_time = collect_node(var.std__from_unix_time);
   var.std__date_and_time = collect_node(var.std__date_and_time);
-  string__28_7 = collect_node(string__28_7);
-  string__28_10 = collect_node(string__28_10);
-  string__28_14 = collect_node(string__28_14);
-  string__28_17 = collect_node(string__28_17);
-  string__28_23 = collect_node(string__28_23);
-  string__28_29 = collect_node(string__28_29);
-  string__28_38 = collect_node(string__28_38);
-  string__28_39 = collect_node(string__28_39);
-  string__28_40 = collect_node(string__28_40);
-  string__28_41 = collect_node(string__28_41);
-  string__28_42 = collect_node(string__28_42);
   var.std__sleep = collect_node(var.std__sleep);
 }
 
@@ -1923,8 +1913,19 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   func__25_1 = create_function(entry__25_1, 2);
   func__26_1 = create_function(entry__26_1, 2);
   func__27_1 = create_function(entry__27_1, 1);
+  string__28_7 = from_latin_1_string("0", 1);
+  string__28_10 = from_latin_1_string("0", 1);
+  string__28_14 = from_latin_1_string("0", 1);
+  string__28_17 = from_latin_1_string("0", 1);
+  string__28_23 = from_latin_1_string("0", 1);
+  string__28_29 = from_latin_1_string("+", 1);
   func__28_36 = create_function(entry__28_36, 0);
   func__28_35 = create_function(entry__28_35, 0);
+  string__28_38 = from_latin_1_string("-", 1);
+  string__28_39 = from_latin_1_string("-", 1);
+  string__28_40 = from_latin_1_string(":", 1);
+  string__28_41 = from_latin_1_string(":", 1);
+  string__28_42 = from_latin_1_string(" GMT", 4);
   func__28_1 = create_function(entry__28_1, 1);
   func__29_1 = create_function(entry__29_1, 1);
 }
@@ -1941,17 +1942,6 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   define_single_assign_static("types", "date_and_time", get__types__date_and_time, &var.types__date_and_time);
   define_single_assign_static("std", "from_unix_time", get__std__from_unix_time, &var.std__from_unix_time);
   define_single_assign_static("std", "date_and_time", get__std__date_and_time, &var.std__date_and_time);
-  string__28_7 = from_latin_1_string("0", 1);
-  string__28_10 = from_latin_1_string("0", 1);
-  string__28_14 = from_latin_1_string("0", 1);
-  string__28_17 = from_latin_1_string("0", 1);
-  string__28_23 = from_latin_1_string("0", 1);
-  string__28_29 = from_latin_1_string("+", 1);
-  string__28_38 = from_latin_1_string("-", 1);
-  string__28_39 = from_latin_1_string("-", 1);
-  string__28_40 = from_latin_1_string(":", 1);
-  string__28_41 = from_latin_1_string(":", 1);
-  string__28_42 = from_latin_1_string(" GMT", 4);
   define_single_assign_static("std", "sleep", get__std__sleep, &var.std__sleep);
 }
 

@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -182,6 +184,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -189,7 +192,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -232,7 +234,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -1155,9 +1156,6 @@ EXPORT void collect__basic__types__value_range(void) {
   var.types__value_range = collect_node(var.types__value_range);
   collect_static_attributes(&attributes__types__value_range);
   var.std__value_range = collect_node(var.std__value_range);
-  string__12_12 = collect_node(string__12_12);
-  string__12_13 = collect_node(string__12_13);
-  string__12_14 = collect_node(string__12_14);
 }
 
 static int already_run_phase_1 = false;
@@ -1181,6 +1179,9 @@ EXPORT void phase_2__basic__types__value_range(void) {
   func__8_1 = create_function(entry__8_1, 1);
   func__10_1 = create_function(entry__10_1, 2);
   func__11_1 = create_function(entry__11_1, 2);
+  string__12_12 = from_latin_1_string("value_range\012", 12);
+  string__12_13 = from_latin_1_string("\012", 1);
+  string__12_14 = from_latin_1_string("\012", 1);
   func__12_1 = create_function(entry__12_1, -1);
 }
 
@@ -1194,9 +1195,6 @@ EXPORT void phase_3__basic__types__value_range(void) {
   var.types__value_range = create_future_with_prototype(create__types__value_range(NULL, NULL));
   define_single_assign_static("types", "value_range", get__types__value_range, &var.types__value_range);
   define_single_assign_static("std", "value_range", get__std__value_range, &var.std__value_range);
-  string__12_12 = from_latin_1_string("value_range\012", 12);
-  string__12_13 = from_latin_1_string("\012", 1);
-  string__12_14 = from_latin_1_string("\012", 1);
 }
 
 static int already_run_phase_4 = false;

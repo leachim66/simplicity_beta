@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -200,6 +202,7 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 typedef void (*NODE_SETTER)(NODE *);
@@ -218,7 +221,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -251,7 +253,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -997,25 +998,6 @@ EXPORT void collect__shared_variables(void) {
   var.sim2c__source_of = collect_node(var.sim2c__source_of);
   var.sim2c__indents_of = collect_node(var.sim2c__indents_of);
   var.sim2c__vtable_entries = collect_node(var.sim2c__vtable_entries);
-  string__100_1 = collect_node(string__100_1);
-  string__100_2 = collect_node(string__100_2);
-  string__100_3 = collect_node(string__100_3);
-  string__100_4 = collect_node(string__100_4);
-  string__100_5 = collect_node(string__100_5);
-  string__100_6 = collect_node(string__100_6);
-  string__100_7 = collect_node(string__100_7);
-  string__100_8 = collect_node(string__100_8);
-  string__100_9 = collect_node(string__100_9);
-  string__100_10 = collect_node(string__100_10);
-  string__100_11 = collect_node(string__100_11);
-  string__100_12 = collect_node(string__100_12);
-  string__100_13 = collect_node(string__100_13);
-  string__100_14 = collect_node(string__100_14);
-  string__100_15 = collect_node(string__100_15);
-  string__100_16 = collect_node(string__100_16);
-  string__100_17 = collect_node(string__100_17);
-  string__100_18 = collect_node(string__100_18);
-  string__100_19 = collect_node(string__100_19);
 }
 
 static int already_run_phase_1 = false;
@@ -1035,6 +1017,25 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__shared_variables(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  string__100_1 = from_latin_1_string("to_int8", 7);
+  string__100_2 = from_latin_1_string("to_int16", 8);
+  string__100_3 = from_latin_1_string("to_int32", 8);
+  string__100_4 = from_latin_1_string("to_int64", 8);
+  string__100_5 = from_latin_1_string("to_uint8", 8);
+  string__100_6 = from_latin_1_string("to_uint16", 9);
+  string__100_7 = from_latin_1_string("to_uint32", 9);
+  string__100_8 = from_latin_1_string("to_uint64", 9);
+  string__100_9 = from_latin_1_string("to_uchar32", 10);
+  string__100_10 = from_latin_1_string("to_bool", 7);
+  string__100_11 = from_latin_1_string("to_int", 6);
+  string__100_12 = from_latin_1_string("to_long", 7);
+  string__100_13 = from_latin_1_string("to_double", 9);
+  string__100_14 = from_latin_1_string("to_c_string", 11);
+  string__100_15 = from_latin_1_string("to_octets", 9);
+  string__100_16 = from_latin_1_string("get_item_of", 11);
+  string__100_17 = from_latin_1_string("length_of", 9);
+  string__100_18 = from_latin_1_string("unfold", 6);
+  string__100_19 = from_latin_1_string("debug_string", 12);
 }
 
 static int already_run_phase_3 = false;
@@ -1135,25 +1136,6 @@ EXPORT void phase_3__shared_variables(void) {
   define_multi_assign_dynamic("sim2c", "current_continuation_info", get__sim2c__current_continuation_info, set__sim2c__current_continuation_info, define__sim2c__current_continuation_info, &dyna_idx__sim2c__current_continuation_info);
   define__sim2c__current_continuation_info(undefined);
   define_single_assign_static("sim2c", "vtable_entries", get__sim2c__vtable_entries, &var.sim2c__vtable_entries);
-  string__100_1 = from_latin_1_string("to_int8", 7);
-  string__100_2 = from_latin_1_string("to_int16", 8);
-  string__100_3 = from_latin_1_string("to_int32", 8);
-  string__100_4 = from_latin_1_string("to_int64", 8);
-  string__100_5 = from_latin_1_string("to_uint8", 8);
-  string__100_6 = from_latin_1_string("to_uint16", 9);
-  string__100_7 = from_latin_1_string("to_uint32", 9);
-  string__100_8 = from_latin_1_string("to_uint64", 9);
-  string__100_9 = from_latin_1_string("to_uchar32", 10);
-  string__100_10 = from_latin_1_string("to_bool", 7);
-  string__100_11 = from_latin_1_string("to_int", 6);
-  string__100_12 = from_latin_1_string("to_long", 7);
-  string__100_13 = from_latin_1_string("to_double", 9);
-  string__100_14 = from_latin_1_string("to_c_string", 11);
-  string__100_15 = from_latin_1_string("to_octets", 9);
-  string__100_16 = from_latin_1_string("get_item_of", 11);
-  string__100_17 = from_latin_1_string("length_of", 9);
-  string__100_18 = from_latin_1_string("unfold", 6);
-  string__100_19 = from_latin_1_string("debug_string", 12);
 }
 
 static int already_run_phase_4 = false;

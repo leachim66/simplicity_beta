@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -179,6 +181,7 @@ IMPORT void define_polymorphic_function(
   NODE **var_p
 );
 IMPORT void define_c_function(const char *name, void *func);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
@@ -187,7 +190,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -229,7 +231,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -935,10 +936,6 @@ EXPORT void collect__basic__types__boolean(void) {
   var.types__false = collect_node(var.types__false);
   collect_static_attributes(&attributes__types__false);
   var.std__false = collect_node(var.std__false);
-  string__12_2 = collect_node(string__12_2);
-  string__13_2 = collect_node(string__13_2);
-  string__57_1 = collect_node(string__57_1);
-  string__58_1 = collect_node(string__58_1);
 }
 
 static int already_run_phase_1 = false;
@@ -956,7 +953,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__boolean(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  string__12_2 = from_latin_1_string("true", 4);
   func__12_1 = create_function(entry__12_1, 1);
+  string__13_2 = from_latin_1_string("false", 5);
   func__13_1 = create_function(entry__13_1, 1);
   func__16_1 = create_function(entry__16_1, 2);
   func__17_1 = create_function(entry__17_1, 2);
@@ -970,7 +969,9 @@ EXPORT void phase_2__basic__types__boolean(void) {
   func__25_1 = create_function(entry__25_1, -1);
   func__26_1 = create_function(entry__26_1, 2);
   func__27_1 = create_function(entry__27_1, 2);
+  string__57_1 = from_latin_1_string("true", 4);
   func__57_2 = create_function(entry__57_2, 2);
+  string__58_1 = from_latin_1_string("false", 5);
   func__58_2 = create_function(entry__58_2, 2);
 }
 
@@ -989,10 +990,6 @@ EXPORT void phase_3__basic__types__boolean(void) {
   define_single_assign_static("types", "false", get__types__false, &var.types__false);
   var.std__false = create__types__false();
   define_single_assign_static("std", "false", get__std__false, &var.std__false);
-  string__12_2 = from_latin_1_string("true", 4);
-  string__13_2 = from_latin_1_string("false", 5);
-  string__57_1 = from_latin_1_string("true", 4);
-  string__58_1 = from_latin_1_string("false", 5);
 }
 
 static int already_run_phase_4 = false;

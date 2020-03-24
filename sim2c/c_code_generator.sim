@@ -1030,11 +1030,11 @@ $register_string: (str)
     write_to_declarations "static NODE *@(name);@nl;"
     if
       str.is_a_latin_1_string:
-	write_to_phase_3 "
+	write_to_phase_2 "
 	  @
 	    @(name) = from_latin_1_string("@(to_c_string(str))@quot;, @(len));
       :
-	write_to_phase_3 "  uint32_t @(name)_literal[@(len)] = {"
+	write_to_phase_2 "  uint32_t @(name)_literal[@(len)] = {"
 	for_each
 	  str: (chr)
 	    if
@@ -1047,15 +1047,15 @@ $register_string: (str)
 		  chr != '\'
 		chr >= '@nbsp;' && chr <= 'ÿ'
 	      :
-		write_to_phase_3 '@apos;' chr '@apos;'
+		write_to_phase_2 '@apos;' chr '@apos;'
 	      :
-		write_to_phase_3 "0x" hex(chr.to_integer)
+		write_to_phase_2 "0x" hex(chr.to_integer)
 	  :
-	    write_to_phase_3 ", "
-	write_to_phase_3 "};@nl;"
-	write_to_phase_3
+	    write_to_phase_2 ", "
+	write_to_phase_2 "};@nl;"
+	write_to_phase_2
 	  "  @(name) = from_uint32_string(@(name)_literal, @(len));@nl;"
-    write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
+    #write_to_generated_collections "  @(name) = collect_node(@(name));@nl;"
     -> name
 
 $sim2c::string_literal/to_c: (self)

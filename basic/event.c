@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -212,6 +214,7 @@ IMPORT void define_polymorphic_function_with_setter(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -224,7 +227,6 @@ IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER setter
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -262,7 +264,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -5309,10 +5310,8 @@ EXPORT void collect__basic__event(void) {
   var._get_low_level_events = collect_node(var._get_low_level_events);
   var._get_event_handler = collect_node(var._get_event_handler);
   var.std__get_event = collect_node(var.std__get_event);
-  string__36_16 = collect_node(string__36_16);
   var._waiting_tasks = collect_node(var._waiting_tasks);
   var.std__process_events = collect_node(var.std__process_events);
-  string__38_29 = collect_node(string__38_29);
   var.std__wait_to = collect_node(var.std__wait_to);
   var.std__par = collect_node(var.std__par);
 }
@@ -5357,11 +5356,13 @@ EXPORT void phase_2__basic__event(void) {
   func__34_43 = create_function(entry__34_43, 1);
   func__34_1 = create_function(entry__34_1, 1);
   func__35_1 = create_function(entry__35_1, 1);
+  string__36_16 = from_latin_1_string("invalid continuation", 20);
   func__36_18 = create_function(entry__36_18, 0);
   func__36_1 = create_function(entry__36_1, 0);
   func__38_5 = create_function(entry__38_5, 0);
   func__38_2 = create_function(entry__38_2, 0);
   func__38_9 = create_function(entry__38_9, 0);
+  string__38_29 = from_latin_1_string("invalid continuation", 20);
   func__38_1 = create_function(entry__38_1, 0);
   func__39_15 = create_function(entry__39_15, 2);
   func__39_1 = create_function(entry__39_1, -1);
@@ -5412,9 +5413,7 @@ EXPORT void phase_3__basic__event(void) {
   define_single_assign_static("std", "wait_for_termination", get__std__wait_for_termination, &var.std__wait_for_termination);
   define_single_assign_static("std", "discard", get__std__discard, &var.std__discard);
   define_single_assign_static("std", "create_event", get__std__create_event, &var.std__create_event);
-  string__36_16 = from_latin_1_string("invalid continuation", 20);
   define_single_assign_static("std", "get_event", get__std__get_event, &var.std__get_event);
-  string__38_29 = from_latin_1_string("invalid continuation", 20);
   define_single_assign_static("std", "process_events", get__std__process_events, &var.std__process_events);
   define_single_assign_static("std", "wait_to", get__std__wait_to, &var.std__wait_to);
   define_single_assign_static("std", "par", get__std__par, &var.std__par);

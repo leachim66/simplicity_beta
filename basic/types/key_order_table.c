@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -212,6 +214,7 @@ IMPORT void define_polymorphic_function(
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -220,7 +223,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -263,7 +265,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -8152,7 +8153,6 @@ EXPORT void collect__basic__types__key_order_table(void) {
   var._retrieve_item = collect_node(var._retrieve_item);
   var._add_item = collect_node(var._add_item);
   var._remove_item = collect_node(var._remove_item);
-  string__26_1 = collect_node(string__26_1);
   var.std__empty_key_order_table = collect_node(var.std__empty_key_order_table);
   var.std__key_order_table = collect_node(var.std__key_order_table);
   var._for_each_item = collect_node(var._for_each_item);
@@ -8161,7 +8161,6 @@ EXPORT void collect__basic__types__key_order_table(void) {
   var._update_each_item = collect_node(var._update_each_item);
   var._update_each_item_from_to = collect_node(var._update_each_item_from_to);
   var._update_each_item_from_down_to = collect_node(var._update_each_item_from_down_to);
-  string__84_1 = collect_node(string__84_1);
 }
 
 static int already_run_phase_1 = false;
@@ -8193,6 +8192,7 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   func__21_1 = create_function(entry__21_1, 2);
   func__22_1 = create_function(entry__22_1, 3);
   func__23_1 = create_function(entry__23_1, 2);
+  string__26_1 = from_latin_1_string("key_order_table", 15);
   func__27_1 = create_function(entry__27_1, 1);
   func__29_1 = create_function(entry__29_1, -1);
   func__30_1 = create_function(entry__30_1, 2);
@@ -8207,6 +8207,7 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   func__39_1 = create_function(entry__39_1, 4);
   func__40_1 = create_function(entry__40_1, 4);
   func__41_1 = create_function(entry__41_1, 2);
+  string__84_1 = from_latin_1_string("key_order_table", 15);
 }
 
 static int already_run_phase_3 = false;
@@ -8223,10 +8224,8 @@ EXPORT void phase_3__basic__types__key_order_table(void) {
   unique__6_1 = register_unique_item("UPDATE");
   assign_value(&var._UPDATE, unique__6_1);
   define_single_assign_static("types", "key_order_table", get__types__key_order_table, &var.types__key_order_table);
-  string__26_1 = from_latin_1_string("key_order_table", 15);
   define_single_assign_static("std", "empty_key_order_table", get__std__empty_key_order_table, &var.std__empty_key_order_table);
   define_single_assign_static("std", "key_order_table", get__std__key_order_table, &var.std__key_order_table);
-  string__84_1 = from_latin_1_string("key_order_table", 15);
 }
 
 static int already_run_phase_4 = false;

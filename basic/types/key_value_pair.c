@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -181,6 +183,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -188,7 +191,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -231,7 +233,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -745,8 +746,6 @@ EXPORT void collect__basic__types__key_value_pair(void) {
   var.types__key_value_pair = collect_node(var.types__key_value_pair);
   collect_static_attributes(&attributes__types__key_value_pair);
   var.std__key_value_pair = collect_node(var.std__key_value_pair);
-  string__10_12 = collect_node(string__10_12);
-  string__10_13 = collect_node(string__10_13);
 }
 
 static int already_run_phase_1 = false;
@@ -769,6 +768,8 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   func__6_1 = create_function(entry__6_1, 2);
   func__7_1 = create_function(entry__7_1, 1);
   func__8_1 = create_function(entry__8_1, 1);
+  string__10_12 = from_latin_1_string("key_value_pair\012", 15);
+  string__10_13 = from_latin_1_string("\012", 1);
   func__10_1 = create_function(entry__10_1, -1);
 }
 
@@ -782,8 +783,6 @@ EXPORT void phase_3__basic__types__key_value_pair(void) {
   var.types__key_value_pair = create_future_with_prototype(create__types__key_value_pair(NULL, NULL));
   define_single_assign_static("types", "key_value_pair", get__types__key_value_pair, &var.types__key_value_pair);
   define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
-  string__10_12 = from_latin_1_string("key_value_pair\012", 15);
-  string__10_13 = from_latin_1_string("\012", 1);
 }
 
 static int already_run_phase_4 = false;

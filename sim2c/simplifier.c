@@ -54,6 +54,8 @@ typedef __SIZE_TYPE__ size_t;
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -212,11 +214,11 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void register_dynamic(int *id_p);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -272,7 +274,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -10515,33 +10516,10 @@ EXPORT void collect__simplifier(void) {
   var.sim2c__simplify_statement = collect_node(var.sim2c__simplify_statement);
   var.sim2c__simplify_expression = collect_node(var.sim2c__simplify_expression);
   var._temporary_identifier = collect_node(var._temporary_identifier);
-  string__5_3 = collect_node(string__5_3);
   var._simplify_arguments = collect_node(var._simplify_arguments);
   var.sim2c__check_usage = collect_node(var.sim2c__check_usage);
-  string__7_9 = collect_node(string__7_9);
-  string__7_10 = collect_node(string__7_10);
-  string__7_17 = collect_node(string__7_17);
-  string__7_18 = collect_node(string__7_18);
-  string__7_25 = collect_node(string__7_25);
-  string__7_26 = collect_node(string__7_26);
-  string__7_33 = collect_node(string__7_33);
-  string__7_34 = collect_node(string__7_34);
-  string__8_2 = collect_node(string__8_2);
-  string__9_2 = collect_node(string__9_2);
-  string__10_2 = collect_node(string__10_2);
-  string__10_10 = collect_node(string__10_10);
-  string__10_11 = collect_node(string__10_11);
   var._do_store = collect_node(var._do_store);
   var._store_result = collect_node(var._store_result);
-  string__13_2 = collect_node(string__13_2);
-  string__14_2 = collect_node(string__14_2);
-  string__15_2 = collect_node(string__15_2);
-  string__16_2 = collect_node(string__16_2);
-  string__17_2 = collect_node(string__17_2);
-  string__17_28 = collect_node(string__17_28);
-  string__17_29 = collect_node(string__17_29);
-  string__17_30 = collect_node(string__17_30);
-  string__18_2 = collect_node(string__18_2);
 }
 
 static int already_run_phase_1 = false;
@@ -10564,25 +10542,48 @@ EXPORT void phase_2__simplifier(void) {
   character__32 = from_uchar32(32);
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
+  string__5_3 = from_latin_1_string("temp__", 6);
   func__5_1 = create_function(entry__5_1, 0);
   func__6_3 = create_function(entry__6_3, 1);
   func__6_1 = create_function(entry__6_1, 1);
+  string__7_9 = from_latin_1_string("Invalid access to read-only variable \042", 38);
+  string__7_10 = from_latin_1_string("\042", 1);
+  string__7_17 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
+  string__7_18 = from_latin_1_string("\042", 1);
+  string__7_25 = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
+  string__7_26 = from_latin_1_string("\042", 1);
+  string__7_33 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
+  string__7_34 = from_latin_1_string("\042", 1);
   func__7_1 = create_function(entry__7_1, 3);
+  string__8_2 = from_latin_1_string("simplify statement (default)", 28);
   func__8_1 = create_function(entry__8_1, 1);
+  string__9_2 = from_latin_1_string("simplify expression (default)", 29);
   func__9_1 = create_function(entry__9_1, 1);
+  string__10_2 = from_latin_1_string("simplify body", 13);
+  string__10_10 = from_latin_1_string("An identifier named \042", 21);
+  string__10_11 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
   func__10_1 = create_function(entry__10_1, 1);
   func__11_5 = create_function(entry__11_5, 1);
   func__11_45 = create_function(entry__11_45, 0);
   func__11_46 = create_function(entry__11_46, 0);
   func__11_1 = create_function(entry__11_1, 5);
   func__12_1 = create_function(entry__12_1, -1);
+  string__13_2 = from_latin_1_string("simplify statement", 18);
   func__13_89 = create_function(entry__13_89, 1);
   func__13_1 = create_function(entry__13_1, 1);
+  string__14_2 = from_latin_1_string("simplify function call", 22);
   func__14_1 = create_function(entry__14_1, 1);
+  string__15_2 = from_latin_1_string("simplify attribute-value pair", 29);
   func__15_1 = create_function(entry__15_1, 1);
+  string__16_2 = from_latin_1_string("simplify attribute-function pair", 32);
   func__16_1 = create_function(entry__16_1, 1);
+  string__17_2 = from_latin_1_string("simplify C-code", 15);
   func__17_4 = create_function(entry__17_4, 0);
+  string__17_28 = from_latin_1_string("struct", 6);
+  string__17_29 = from_latin_1_string("node", 4);
+  string__17_30 = from_latin_1_string("function", 8);
   func__17_1 = create_function(entry__17_1, 1);
+  string__18_2 = from_latin_1_string("simplify C-body", 15);
   func__18_4 = create_function(entry__18_4, 0);
   func__18_1 = create_function(entry__18_1, 1);
 }
@@ -10598,30 +10599,7 @@ EXPORT void phase_3__simplifier(void) {
   define__defined_names(create_future());
   register_dynamic(&dyna_idx__inherited_names);
   define__inherited_names(create_future());
-  string__5_3 = from_latin_1_string("temp__", 6);
-  string__7_9 = from_latin_1_string("Invalid access to read-only variable \042", 38);
-  string__7_10 = from_latin_1_string("\042", 1);
-  string__7_17 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
-  string__7_18 = from_latin_1_string("\042", 1);
-  string__7_25 = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
-  string__7_26 = from_latin_1_string("\042", 1);
-  string__7_33 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
-  string__7_34 = from_latin_1_string("\042", 1);
   define_single_assign_static("sim2c", "check_usage", get__sim2c__check_usage, &var.sim2c__check_usage);
-  string__8_2 = from_latin_1_string("simplify statement (default)", 28);
-  string__9_2 = from_latin_1_string("simplify expression (default)", 29);
-  string__10_2 = from_latin_1_string("simplify body", 13);
-  string__10_10 = from_latin_1_string("An identifier named \042", 21);
-  string__10_11 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
-  string__13_2 = from_latin_1_string("simplify statement", 18);
-  string__14_2 = from_latin_1_string("simplify function call", 22);
-  string__15_2 = from_latin_1_string("simplify attribute-value pair", 29);
-  string__16_2 = from_latin_1_string("simplify attribute-function pair", 32);
-  string__17_2 = from_latin_1_string("simplify C-code", 15);
-  string__17_28 = from_latin_1_string("struct", 6);
-  string__17_29 = from_latin_1_string("node", 4);
-  string__17_30 = from_latin_1_string("function", 8);
-  string__18_2 = from_latin_1_string("simplify C-body", 15);
 }
 
 static int already_run_phase_4 = false;

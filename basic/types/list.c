@@ -206,6 +206,7 @@ IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
@@ -213,7 +214,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -256,7 +256,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -8502,15 +8501,8 @@ EXPORT void collect__basic__types__list(void) {
   var.std__empty_list = collect_node(var.std__empty_list);
   var.std__list = collect_node(var.std__list);
   var.std__normalized_index = collect_node(var.std__normalized_index);
-  string__31_5 = collect_node(string__31_5);
-  string__34_4 = collect_node(string__34_4);
-  string__34_6 = collect_node(string__34_6);
-  string__41_6 = collect_node(string__41_6);
   var.std__is_a_sequence = collect_node(var.std__is_a_sequence);
   var.std__sequence = collect_node(var.std__sequence);
-  string__94_1 = collect_node(string__94_1);
-  string__94_3 = collect_node(string__94_3);
-  string__94_13 = collect_node(string__94_13);
 }
 
 static int already_run_phase_1 = false;
@@ -8551,16 +8543,20 @@ EXPORT void phase_2__basic__types__list(void) {
   func__28_1 = create_function(entry__28_1, -1);
   func__29_1 = create_function(entry__29_1, 2);
   func__30_1 = create_function(entry__30_1, 2);
+  string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
   func__31_4 = create_function(entry__31_4, 0);
   func__31_1 = create_function(entry__31_1, 1);
   func__32_1 = create_function(entry__32_1, 2);
   func__33_1 = create_function(entry__33_1, -1);
+  string__34_4 = from_latin_1_string("list()", 6);
+  string__34_6 = from_latin_1_string("list", 4);
   func__34_1 = create_function(entry__34_1, -1);
   func__35_1 = create_function(entry__35_1, -1);
   func__37_1 = create_function(entry__37_1, 1);
   func__38_1 = create_function(entry__38_1, 2);
   func__39_1 = create_function(entry__39_1, 2);
   func__40_1 = create_function(entry__40_1, 2);
+  string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
   func__41_5 = create_function(entry__41_5, 0);
   func__41_15 = create_function(entry__41_15, 0);
   func__41_1 = create_function(entry__41_1, 2);
@@ -8568,6 +8564,9 @@ EXPORT void phase_2__basic__types__list(void) {
   func__43_1 = create_function(entry__43_1, 2);
   func__46_3 = create_function(entry__46_3, 2);
   func__46_1 = create_function(entry__46_1, -1);
+  string__94_1 = from_latin_1_string("list", 4);
+  string__94_3 = from_latin_1_string("()", 2);
+  string__94_13 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
   func__94_12 = create_function(entry__94_12, 0);
   func__94_2 = create_function(entry__94_2, 2);
 }
@@ -8587,14 +8586,7 @@ EXPORT void phase_3__basic__types__list(void) {
   define_single_assign_static("std", "empty_list", get__std__empty_list, &var.std__empty_list);
   define_single_assign_static("std", "list", get__std__list, &var.std__list);
   define_single_assign_static("std", "normalized_index", get__std__normalized_index, &var.std__normalized_index);
-  string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
-  string__34_4 = from_latin_1_string("list()", 6);
-  string__34_6 = from_latin_1_string("list", 4);
-  string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
   define_single_assign_static("std", "sequence", get__std__sequence, &var.std__sequence);
-  string__94_1 = from_latin_1_string("list", 4);
-  string__94_3 = from_latin_1_string("()", 2);
-  string__94_13 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
 }
 
 static int already_run_phase_4 = false;

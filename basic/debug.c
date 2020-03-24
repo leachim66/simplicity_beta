@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -215,7 +217,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -1631,20 +1632,11 @@ static void cont__7_2(void) {
 EXPORT void collect__basic__debug(void) {
   var.std__debug_string = collect_node(var.std__debug_string);
   var.std__dump = collect_node(var.std__dump);
-  string__2_12 = collect_node(string__2_12);
   var.std__edump = collect_node(var.std__edump);
-  string__3_12 = collect_node(string__3_12);
   var.std__collect_garbage = collect_node(var.std__collect_garbage);
   var.std__instruction_counter = collect_node(var.std__instruction_counter);
   var.std__total_garbage_collections = collect_node(var.std__total_garbage_collections);
   var.std__hexdump = collect_node(var.std__hexdump);
-  string__7_12 = collect_node(string__7_12);
-  string__7_14 = collect_node(string__7_14);
-  string__7_20 = collect_node(string__7_20);
-  string__7_22 = collect_node(string__7_22);
-  string__7_25 = collect_node(string__7_25);
-  string__7_27 = collect_node(string__7_27);
-  string__7_38 = collect_node(string__7_38);
 }
 
 static int already_run_phase_1 = false;
@@ -1668,11 +1660,20 @@ EXPORT void phase_2__basic__debug(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   func__1_1 = create_function(entry__1_1, -1);
+  string__2_12 = from_latin_1_string(":", 1);
   func__2_1 = create_function(entry__2_1, -1);
+  string__3_12 = from_latin_1_string(":", 1);
   func__3_1 = create_function(entry__3_1, -1);
   func__4_1 = create_function(entry__4_1, 0);
   func__5_1 = create_function(entry__5_1, 0);
   func__6_1 = create_function(entry__6_1, 0);
+  string__7_12 = from_latin_1_string("0", 1);
+  string__7_14 = from_latin_1_string(":", 1);
+  string__7_20 = from_latin_1_string("0", 1);
+  string__7_22 = from_latin_1_string(" ", 1);
+  string__7_25 = from_latin_1_string("   ", 3);
+  string__7_27 = from_latin_1_string("  ", 2);
+  string__7_38 = from_latin_1_string(".", 1);
   func__7_37 = create_function(entry__7_37, 0);
   func__7_1 = create_function(entry__7_1, 1);
 }
@@ -1685,20 +1686,11 @@ EXPORT void phase_3__basic__debug(void) {
   set_module("basic__debug");
   set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "debug_string", get__std__debug_string, &var.std__debug_string);
-  string__2_12 = from_latin_1_string(":", 1);
   define_single_assign_static("std", "dump", get__std__dump, &var.std__dump);
-  string__3_12 = from_latin_1_string(":", 1);
   define_single_assign_static("std", "edump", get__std__edump, &var.std__edump);
   define_single_assign_static("std", "collect_garbage", get__std__collect_garbage, &var.std__collect_garbage);
   define_single_assign_static("std", "instruction_counter", get__std__instruction_counter, &var.std__instruction_counter);
   define_single_assign_static("std", "total_garbage_collections", get__std__total_garbage_collections, &var.std__total_garbage_collections);
-  string__7_12 = from_latin_1_string("0", 1);
-  string__7_14 = from_latin_1_string(":", 1);
-  string__7_20 = from_latin_1_string("0", 1);
-  string__7_22 = from_latin_1_string(" ", 1);
-  string__7_25 = from_latin_1_string("   ", 3);
-  string__7_27 = from_latin_1_string("  ", 2);
-  string__7_38 = from_latin_1_string(".", 1);
   define_single_assign_static("std", "hexdump", get__std__hexdump, &var.std__hexdump);
 }
 

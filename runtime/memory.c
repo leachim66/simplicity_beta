@@ -818,7 +818,7 @@ EXPORT void join_nodes(void *left_node_pp, void *right_node_pp) {
   void *left_p = *(void **)left_node_pp;
   void *right_p = *(void **)right_node_pp;
   void *joined_p;
-  /*if (left_p >= static_node_buf && left_p < static_node_buf_end) {
+  if (left_p >= static_node_buf && left_p < static_node_buf_end) {
     if (right_p >= static_node_buf && right_p < static_node_buf_end) {
       if (left_p < right_p) {
         joined_p = left_p;
@@ -831,14 +831,14 @@ EXPORT void join_nodes(void *left_node_pp, void *right_node_pp) {
   } else {
     if (right_p >= static_node_buf && right_p < static_node_buf_end) {
       joined_p = right_p;
-    } else {*/
+    } else {
       if (left_p < right_p) {
         joined_p = left_p;
       } else {
         joined_p = right_p;
       }
-  /*  }
-  }*/
+    }
+  }
   *(void **)left_node_pp = joined_p;
   *(void **)right_node_pp = joined_p;
 }

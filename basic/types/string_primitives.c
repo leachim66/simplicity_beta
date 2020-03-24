@@ -259,7 +259,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -5167,11 +5166,6 @@ EXPORT void collect__basic__types__string_primitives(void) {
   var.types__quad_octet_string = collect_node(var.types__quad_octet_string);
   collect_static_attributes(&attributes__types__quad_octet_string);
   var.std__empty_string = collect_node(var.std__empty_string);
-  string__35_2 = collect_node(string__35_2);
-  string__35_23 = collect_node(string__35_23);
-  string__36_9 = collect_node(string__36_9);
-  string__36_27 = collect_node(string__36_27);
-  string__36_45 = collect_node(string__36_45);
   var.std__matches_file_pattern = collect_node(var.std__matches_file_pattern);
   var.std__from_utf8 = collect_node(var.std__from_utf8);
 }
@@ -5228,7 +5222,12 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   func__32_1 = create_function(entry__32_1, 1);
   func__33_1 = create_function(entry__33_1, 1);
   func__34_1 = create_function(entry__34_1, 1);
+  string__35_2 = from_latin_1_string("\042", 1);
+  string__35_23 = from_latin_1_string("@0x", 3);
   func__35_1 = create_function(entry__35_1, -1);
+  string__36_9 = from_latin_1_string("0b", 2);
+  string__36_27 = from_latin_1_string("0o", 2);
+  string__36_45 = from_latin_1_string("0x", 2);
   func__36_1 = create_function(entry__36_1, 1);
   func__39_1 = create_function(entry__39_1, 2);
   func__40_1 = create_function(entry__40_1, 2);
@@ -5259,11 +5258,6 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   define_single_assign_static("types", "quad_octet_string", get__types__quad_octet_string, &var.types__quad_octet_string);
   var.std__empty_string = create__types__octet_string(0, 0, NULL);
   define_single_assign_static("std", "empty_string", get__std__empty_string, &var.std__empty_string);
-  string__35_2 = from_latin_1_string("\042", 1);
-  string__35_23 = from_latin_1_string("@0x", 3);
-  string__36_9 = from_latin_1_string("0b", 2);
-  string__36_27 = from_latin_1_string("0o", 2);
-  string__36_45 = from_latin_1_string("0x", 2);
   define_single_assign_static("std", "matches_file_pattern", get__std__matches_file_pattern, &var.std__matches_file_pattern);
   define_single_assign_static("std", "from_utf8", get__std__from_utf8, &var.std__from_utf8);
 }

@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -194,6 +196,7 @@ IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *register_unique_item(const char *name);
@@ -203,7 +206,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -248,7 +250,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -4389,14 +4390,8 @@ EXPORT void collect__basic__types__unordered_table(void) {
   collect_static_attributes(&attributes__types__unordered_table);
   var._next_key_and_value = collect_node(var._next_key_and_value);
   var._previous_key_and_value = collect_node(var._previous_key_and_value);
-  string__20_1 = collect_node(string__20_1);
   var.std__empty_unordered_table = collect_node(var.std__empty_unordered_table);
   var.std__unordered_table = collect_node(var.std__unordered_table);
-  string__25_6 = collect_node(string__25_6);
-  string__27_6 = collect_node(string__27_6);
-  string__29_6 = collect_node(string__29_6);
-  string__31_6 = collect_node(string__31_6);
-  string__64_1 = collect_node(string__64_1);
 }
 
 static int already_run_phase_1 = false;
@@ -4420,20 +4415,26 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   func__16_1 = create_function(entry__16_1, 3);
   func__17_1 = create_function(entry__17_1, 3);
   func__18_1 = create_function(entry__18_1, 2);
+  string__20_1 = from_latin_1_string("unordered_table", 15);
   func__21_1 = create_function(entry__21_1, 1);
   func__23_1 = create_function(entry__23_1, -1);
   func__24_1 = create_function(entry__24_1, 2);
+  string__25_6 = from_latin_1_string("Invalid index error!", 20);
   func__25_5 = create_function(entry__25_5, 0);
   func__25_1 = create_function(entry__25_1, 4);
   func__26_1 = create_function(entry__26_1, 2);
+  string__27_6 = from_latin_1_string("Invalid index error!", 20);
   func__27_5 = create_function(entry__27_5, 0);
   func__27_1 = create_function(entry__27_1, 4);
   func__28_1 = create_function(entry__28_1, 2);
+  string__29_6 = from_latin_1_string("Invalid index error!", 20);
   func__29_5 = create_function(entry__29_5, 0);
   func__29_1 = create_function(entry__29_1, 4);
   func__30_1 = create_function(entry__30_1, 2);
+  string__31_6 = from_latin_1_string("Invalid index error!", 20);
   func__31_5 = create_function(entry__31_5, 0);
   func__31_1 = create_function(entry__31_1, 4);
+  string__64_1 = from_latin_1_string("unordered_table", 15);
 }
 
 static int already_run_phase_3 = false;
@@ -4447,14 +4448,8 @@ EXPORT void phase_3__basic__types__unordered_table(void) {
   assign_value(&var._NONE, unique__1_1);
   var.types__unordered_table = create_future_with_prototype(create__types__unordered_table(0, NULL));
   define_single_assign_static("types", "unordered_table", get__types__unordered_table, &var.types__unordered_table);
-  string__20_1 = from_latin_1_string("unordered_table", 15);
   define_single_assign_static("std", "empty_unordered_table", get__std__empty_unordered_table, &var.std__empty_unordered_table);
   define_single_assign_static("std", "unordered_table", get__std__unordered_table, &var.std__unordered_table);
-  string__25_6 = from_latin_1_string("Invalid index error!", 20);
-  string__27_6 = from_latin_1_string("Invalid index error!", 20);
-  string__29_6 = from_latin_1_string("Invalid index error!", 20);
-  string__31_6 = from_latin_1_string("Invalid index error!", 20);
-  string__64_1 = from_latin_1_string("unordered_table", 15);
 }
 
 static int already_run_phase_4 = false;

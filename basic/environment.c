@@ -20,6 +20,8 @@ D E C L A R A T I O N S
 typedef union NODE NODE;
 IMPORT void *coll_node_buf;
 IMPORT void *coll_node_buf_end;
+IMPORT void *static_node_buf;
+IMPORT void *static_node_buf_end;
 typedef void (*DESTRUCTOR)(void *);
 typedef struct MEMORY_BLOCK {
   struct MEMORY_BLOCK *link;
@@ -179,6 +181,7 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
@@ -187,7 +190,6 @@ IMPORT void define_single_assign_static(
 );
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT NODE *from_latin_1_string(const char *str, long len);
 typedef void (*NODE_SETTER)(NODE *);
 IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
@@ -225,7 +227,6 @@ IMPORT void register_collector(FUNC collector);
 #define IS_AN_INVALID_LENGTH(addr) ((uintptr_t)addr & MSB)
 
 #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void *)(addr)) < coll_node_buf_end)
-#define IS_OLD(addr) false
 #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
 #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
@@ -931,7 +932,6 @@ EXPORT void collect__basic__environment(void) {
   var._NONE = collect_node(var._NONE);
   unique__13_1 = collect_node(unique__13_1);
   var._env_2 = collect_node(var._env_2);
-  string__15_5 = collect_node(string__15_5);
   var.std__environment = collect_node(var.std__environment);
 }
 
@@ -956,6 +956,7 @@ EXPORT void phase_2__basic__environment(void) {
   func__4_1 = create_function(entry__4_1, 1);
   func__5_1 = create_function(entry__5_1, 0);
   func__12_1 = create_function(entry__12_1, 1);
+  string__15_5 = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
   func__27_2 = create_function(entry__27_2, 1);
 }
@@ -972,7 +973,6 @@ EXPORT void phase_3__basic__environment(void) {
   unique__13_1 = register_unique_item("NONE");
   assign_value(&var._NONE, unique__13_1);
   var._env_2 = create_future();
-  string__15_5 = from_latin_1_string("=", 1);
   define_multi_assign_static("std", "environment", get__std__environment, set__std__environment);
 }
 
