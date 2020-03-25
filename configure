@@ -176,14 +176,15 @@ then
   if which gcc >/dev/null 2>&1
   then
     CC=gcc
+  elif which c99 >/dev/null 2>&1
+  then
+    CC=c99
+  elif which cc >/dev/null 2>&1
+  then
+    CC=cc
   else
-    if which cc >/dev/null 2>&1
-    then
-      CC=cc
-    else
-      echo '*** No C compiler found (neither gcc nor cc)!' >&2
-      false || exit
-    fi
+    echo '*** No C compiler found (neither gcc nor cc)!' >&2
+    false || exit
   fi
 fi
 
