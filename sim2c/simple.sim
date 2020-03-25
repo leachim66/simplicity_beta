@@ -533,12 +533,7 @@ $compile_module:
 	modification_time > modification_time_of(c_info)
       :
 	%sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
-	case
-	  mode
-	  EXE:
-	    if verbose: ewriteln "build application module " module_name suffix
-	  LIB:
-	    if verbose: ewriteln "build library module " module_name suffix
+	if verbose: ewriteln "build module " module_name suffix
 	collect_output $c_source: sim2c sim_filenames
 	collect_output !c_buf: create_imports c_source
 	save c_filename c_buf.to_utf8
