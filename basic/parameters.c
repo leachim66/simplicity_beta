@@ -443,28 +443,28 @@ static const char *var_names[] = {
   "check_arguments",
   "show_commands"
 };
-static NODE *unique__1_1;
-static NODE *unique__2_1;
+static NODE *unique__BOOLEAN_OPTION;
+static NODE *unique__std__VALUED_OPTION;
 static NODE *get__std__VALUED_OPTION(void) {
   return var.std__VALUED_OPTION;
 }
-static NODE *unique__3_1;
+static NODE *unique__std__MULTI_VALUED_OPTION;
 static NODE *get__std__MULTI_VALUED_OPTION(void) {
   return var.std__MULTI_VALUED_OPTION;
 }
-static NODE *unique__4_1;
+static NODE *unique__std__MANDATORY_PARAMETER;
 static NODE *get__std__MANDATORY_PARAMETER(void) {
   return var.std__MANDATORY_PARAMETER;
 }
-static NODE *unique__5_1;
+static NODE *unique__std__OPTIONAL_PARAMETER;
 static NODE *get__std__OPTIONAL_PARAMETER(void) {
   return var.std__OPTIONAL_PARAMETER;
 }
-static NODE *unique__6_1;
+static NODE *unique__std__SOME_PARAMETERS;
 static NODE *get__std__SOME_PARAMETERS(void) {
   return var.std__SOME_PARAMETERS;
 }
-static NODE *unique__7_1;
+static NODE *unique__std__MANY_PARAMETERS;
 static NODE *get__std__MANY_PARAMETERS(void) {
   return var.std__MANY_PARAMETERS;
 }
@@ -12002,13 +12002,13 @@ EXPORT void phase_2__basic__parameters(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
-  unique__1_1 = register_unique_item("BOOLEAN_OPTION");
-  unique__2_1 = register_unique_item("std__VALUED_OPTION");
-  unique__3_1 = register_unique_item("std__MULTI_VALUED_OPTION");
-  unique__4_1 = register_unique_item("std__MANDATORY_PARAMETER");
-  unique__5_1 = register_unique_item("std__OPTIONAL_PARAMETER");
-  unique__6_1 = register_unique_item("std__SOME_PARAMETERS");
-  unique__7_1 = register_unique_item("std__MANY_PARAMETERS");
+  unique__BOOLEAN_OPTION = register_unique_item("BOOLEAN_OPTION");
+  unique__std__VALUED_OPTION = register_unique_item("std__VALUED_OPTION");
+  unique__std__MULTI_VALUED_OPTION = register_unique_item("std__MULTI_VALUED_OPTION");
+  unique__std__MANDATORY_PARAMETER = register_unique_item("std__MANDATORY_PARAMETER");
+  unique__std__OPTIONAL_PARAMETER = register_unique_item("std__OPTIONAL_PARAMETER");
+  unique__std__SOME_PARAMETERS = register_unique_item("std__SOME_PARAMETERS");
+  unique__std__MANY_PARAMETERS = register_unique_item("std__MANY_PARAMETERS");
   func__10_1_std__copyright = create_function(entry__10_1_std__copyright, 1);
   func__11_1_std__version = create_function(entry__11_1_std__version, 1);
   string__12_45 = from_latin_1_string("Invalid option ", 15);
@@ -12089,18 +12089,18 @@ EXPORT void phase_3__basic__parameters(void) {
   already_run_phase_3 = true;
   set_module("basic__parameters");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._BOOLEAN_OPTION, unique__1_1);
-  assign_value(&var.std__VALUED_OPTION, unique__2_1);
+  assign_value(&var._BOOLEAN_OPTION, unique__BOOLEAN_OPTION);
+  assign_value(&var.std__VALUED_OPTION, unique__std__VALUED_OPTION);
   define_single_assign_static("std", "VALUED_OPTION", get__std__VALUED_OPTION, &var.std__VALUED_OPTION);
-  assign_value(&var.std__MULTI_VALUED_OPTION, unique__3_1);
+  assign_value(&var.std__MULTI_VALUED_OPTION, unique__std__MULTI_VALUED_OPTION);
   define_single_assign_static("std", "MULTI_VALUED_OPTION", get__std__MULTI_VALUED_OPTION, &var.std__MULTI_VALUED_OPTION);
-  assign_value(&var.std__MANDATORY_PARAMETER, unique__4_1);
+  assign_value(&var.std__MANDATORY_PARAMETER, unique__std__MANDATORY_PARAMETER);
   define_single_assign_static("std", "MANDATORY_PARAMETER", get__std__MANDATORY_PARAMETER, &var.std__MANDATORY_PARAMETER);
-  assign_value(&var.std__OPTIONAL_PARAMETER, unique__5_1);
+  assign_value(&var.std__OPTIONAL_PARAMETER, unique__std__OPTIONAL_PARAMETER);
   define_single_assign_static("std", "OPTIONAL_PARAMETER", get__std__OPTIONAL_PARAMETER, &var.std__OPTIONAL_PARAMETER);
-  assign_value(&var.std__SOME_PARAMETERS, unique__6_1);
+  assign_value(&var.std__SOME_PARAMETERS, unique__std__SOME_PARAMETERS);
   define_single_assign_static("std", "SOME_PARAMETERS", get__std__SOME_PARAMETERS, &var.std__SOME_PARAMETERS);
-  assign_value(&var.std__MANY_PARAMETERS, unique__7_1);
+  assign_value(&var.std__MANY_PARAMETERS, unique__std__MANY_PARAMETERS);
   define_single_assign_static("std", "MANY_PARAMETERS", get__std__MANY_PARAMETERS, &var.std__MANY_PARAMETERS);
   define_single_assign_static("std", "copyright", get__std__copyright, &var.std__copyright);
   define_single_assign_static("std", "version", get__std__version, &var.std__version);

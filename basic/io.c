@@ -678,11 +678,11 @@ static const char *var_names[] = {
   "posix_unlink",
   "wait_for_io_ready"
 };
-static NODE *unique__1_1;
+static NODE *unique__std__MODE;
 static NODE *get__std__MODE(void) {
   return var.std__MODE;
 }
-static NODE *unique__2_1;
+static NODE *unique__std__PARENTS;
 static NODE *get__std__PARENTS(void) {
   return var.std__PARENTS;
 }
@@ -10513,8 +10513,8 @@ EXPORT void phase_2__basic__io(void) {
   number__30 = from_uint32(30U);
   number__24 = from_uint32(24U);
   number__14 = from_uint32(14U);
-  unique__1_1 = register_unique_item("std__MODE");
-  unique__2_1 = register_unique_item("std__PARENTS");
+  unique__std__MODE = register_unique_item("std__MODE");
+  unique__std__PARENTS = register_unique_item("std__PARENTS");
   string__81_5 = from_latin_1_string(" = ", 3);
   string__81_6 = from_latin_1_string("\012", 1);
   string__81_12 = from_latin_1_string(" failed: ", 9);
@@ -10644,9 +10644,9 @@ EXPORT void phase_3__basic__io(void) {
   already_run_phase_3 = true;
   set_module("basic__io");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.std__MODE, unique__1_1);
+  assign_value(&var.std__MODE, unique__std__MODE);
   define_single_assign_static("std", "MODE", get__std__MODE, &var.std__MODE);
-  assign_value(&var.std__PARENTS, unique__2_1);
+  assign_value(&var.std__PARENTS, unique__std__PARENTS);
   define_single_assign_static("std", "PARENTS", get__std__PARENTS, &var.std__PARENTS);
   var._wget = create_future();
   define_single_assign_static("std", "O_RDONLY", get__std__O_RDONLY, &var.std__O_RDONLY);

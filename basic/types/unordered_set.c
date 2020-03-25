@@ -330,7 +330,7 @@ static const char *var_names[] = {
   "next_key",
   "previous_key"
 };
-static NODE *unique__1_1;
+static NODE *unique__NONE;
 
 typedef struct REFERRED_REVISION REFERRED_REVISION;
 struct REFERRED_REVISION {
@@ -2889,7 +2889,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unordered_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  unique__1_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   func__11_1 = create_function(entry__11_1, 5);
   func__12_1 = create_function(entry__12_1, 3);
   func__14_1 = create_function(entry__14_1, 1);
@@ -2916,7 +2916,7 @@ EXPORT void phase_3__basic__types__unordered_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__unordered_set");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__1_1);
+  assign_value(&var._NONE, unique__NONE);
   var.types__unordered_set = create_future_with_prototype(create__types__unordered_set(0, NULL));
   define_single_assign_static("types", "unordered_set", get__types__unordered_set, &var.types__unordered_set);
   define_single_assign_static("std", "empty_unordered_set", get__std__empty_unordered_set, &var.std__empty_unordered_set);

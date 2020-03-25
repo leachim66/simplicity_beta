@@ -341,7 +341,7 @@ static const char *var_names[] = {
   "next_key_and_value",
   "previous_key_and_value"
 };
-static NODE *unique__1_1;
+static NODE *unique__NONE;
 
 typedef struct REFERRED_REVISION REFERRED_REVISION;
 struct REFERRED_REVISION {
@@ -4403,7 +4403,7 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__2 = from_uint32(2U);
-  unique__1_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   func__11_1 = create_function(entry__11_1, 5);
   func__12_1 = create_function(entry__12_1, 3);
   func__14_1 = create_function(entry__14_1, 1);
@@ -4436,7 +4436,7 @@ EXPORT void phase_3__basic__types__unordered_table(void) {
   already_run_phase_3 = true;
   set_module("basic__types__unordered_table");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__1_1);
+  assign_value(&var._NONE, unique__NONE);
   var.types__unordered_table = create_future_with_prototype(create__types__unordered_table(0, NULL));
   define_single_assign_static("types", "unordered_table", get__types__unordered_table, &var.types__unordered_table);
   define_single_assign_static("std", "empty_unordered_table", get__std__empty_unordered_table, &var.std__empty_unordered_table);

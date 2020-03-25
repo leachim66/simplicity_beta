@@ -481,31 +481,31 @@ static const char *var_names[] = {
 };
 static int poly_idx__convert_from_percent_encoding;
 static void type__convert_from_percent_encoding(void);
-static NODE *unique__2_1;
+static NODE *unique__html__SIMPLE;
 static NODE *get__html__SIMPLE(void) {
   return var.html__SIMPLE;
 }
-static NODE *unique__3_1;
+static NODE *unique__html__SINGLE_LINE;
 static NODE *get__html__SINGLE_LINE(void) {
   return var.html__SINGLE_LINE;
 }
-static NODE *unique__4_1;
+static NODE *unique__html__MULTI_LINE;
 static NODE *get__html__MULTI_LINE(void) {
   return var.html__MULTI_LINE;
 }
-static NODE *unique__5_1;
+static NODE *unique__html__MULTI_PARAGRAPH;
 static NODE *get__html__MULTI_PARAGRAPH(void) {
   return var.html__MULTI_PARAGRAPH;
 }
-static NODE *unique__6_1;
+static NODE *unique__html__NORMAL;
 static NODE *get__html__NORMAL(void) {
   return var.html__NORMAL;
 }
-static NODE *unique__7_1;
+static NODE *unique__html__VOID;
 static NODE *get__html__VOID(void) {
   return var.html__VOID;
 }
-static NODE *unique__8_1;
+static NODE *unique__html__FOREIGN;
 static NODE *get__html__FOREIGN(void) {
   return var.html__FOREIGN;
 }
@@ -5882,13 +5882,13 @@ EXPORT void phase_2__system__export__html(void) {
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
   number__10 = from_uint32(10U);
-  unique__2_1 = register_unique_item("html__SIMPLE");
-  unique__3_1 = register_unique_item("html__SINGLE_LINE");
-  unique__4_1 = register_unique_item("html__MULTI_LINE");
-  unique__5_1 = register_unique_item("html__MULTI_PARAGRAPH");
-  unique__6_1 = register_unique_item("html__NORMAL");
-  unique__7_1 = register_unique_item("html__VOID");
-  unique__8_1 = register_unique_item("html__FOREIGN");
+  unique__html__SIMPLE = register_unique_item("html__SIMPLE");
+  unique__html__SINGLE_LINE = register_unique_item("html__SINGLE_LINE");
+  unique__html__MULTI_LINE = register_unique_item("html__MULTI_LINE");
+  unique__html__MULTI_PARAGRAPH = register_unique_item("html__MULTI_PARAGRAPH");
+  unique__html__NORMAL = register_unique_item("html__NORMAL");
+  unique__html__VOID = register_unique_item("html__VOID");
+  unique__html__FOREIGN = register_unique_item("html__FOREIGN");
   func__9_2 = create_function(entry__9_2, 1);
   func__9_1_html__emit = create_function(entry__9_1_html__emit, -1);
   func__10_1_html__encode = create_function(entry__10_1_html__encode, 3);
@@ -6005,19 +6005,19 @@ EXPORT void phase_3__system__export__html(void) {
   already_run_phase_3 = true;
   set_module("system__export__html");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.html__SIMPLE, unique__2_1);
+  assign_value(&var.html__SIMPLE, unique__html__SIMPLE);
   define_single_assign_static("html", "SIMPLE", get__html__SIMPLE, &var.html__SIMPLE);
-  assign_value(&var.html__SINGLE_LINE, unique__3_1);
+  assign_value(&var.html__SINGLE_LINE, unique__html__SINGLE_LINE);
   define_single_assign_static("html", "SINGLE_LINE", get__html__SINGLE_LINE, &var.html__SINGLE_LINE);
-  assign_value(&var.html__MULTI_LINE, unique__4_1);
+  assign_value(&var.html__MULTI_LINE, unique__html__MULTI_LINE);
   define_single_assign_static("html", "MULTI_LINE", get__html__MULTI_LINE, &var.html__MULTI_LINE);
-  assign_value(&var.html__MULTI_PARAGRAPH, unique__5_1);
+  assign_value(&var.html__MULTI_PARAGRAPH, unique__html__MULTI_PARAGRAPH);
   define_single_assign_static("html", "MULTI_PARAGRAPH", get__html__MULTI_PARAGRAPH, &var.html__MULTI_PARAGRAPH);
-  assign_value(&var.html__NORMAL, unique__6_1);
+  assign_value(&var.html__NORMAL, unique__html__NORMAL);
   define_single_assign_static("html", "NORMAL", get__html__NORMAL, &var.html__NORMAL);
-  assign_value(&var.html__VOID, unique__7_1);
+  assign_value(&var.html__VOID, unique__html__VOID);
   define_single_assign_static("html", "VOID", get__html__VOID, &var.html__VOID);
-  assign_value(&var.html__FOREIGN, unique__8_1);
+  assign_value(&var.html__FOREIGN, unique__html__FOREIGN);
   define_single_assign_static("html", "FOREIGN", get__html__FOREIGN, &var.html__FOREIGN);
   define_single_assign_dynamic("html", "emit", get__html__emit, define__html__emit, &dyna_idx__html__emit);
   define_single_assign_dynamic("html", "encode", get__html__encode, define__html__encode, &dyna_idx__html__encode);

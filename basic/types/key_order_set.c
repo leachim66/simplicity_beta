@@ -349,7 +349,7 @@ static const char *var_names[] = {
   "remove_item",
   "for_each_item"
 };
-static NODE *unique__1_1;
+static NODE *unique__NONE;
 static int poly_idx__tree_of;
 static void type__tree_of(void);
 static int poly_idx__left_of;
@@ -3398,7 +3398,7 @@ EXPORT void phase_2__basic__types__key_order_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
-  unique__1_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   func__9_1_fetch_first = create_function(entry__9_1_fetch_first, 1);
   func__10_1_get_item = create_function(entry__10_1_get_item, 2);
   func__11_1_add_item = create_function(entry__11_1_add_item, 2);
@@ -3418,7 +3418,7 @@ EXPORT void phase_3__basic__types__key_order_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__key_order_set");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__1_1);
+  assign_value(&var._NONE, unique__NONE);
   define_single_assign_static("types", "key_order_set", get__types__key_order_set, &var.types__key_order_set);
   define_single_assign_static("std", "empty_key_order_set", get__std__empty_key_order_set, &var.std__empty_key_order_set);
   define_single_assign_static("std", "key_order_set", get__std__key_order_set, &var.std__key_order_set);

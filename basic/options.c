@@ -237,15 +237,15 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *unique__1_1;
+static NODE *unique__std__VERBOSE;
 static NODE *get__std__VERBOSE(void) {
   return var.std__VERBOSE;
 }
-static NODE *unique__2_1;
+static NODE *unique__std__SORT;
 static NODE *get__std__SORT(void) {
   return var.std__SORT;
 }
-static NODE *unique__3_1;
+static NODE *unique__std__TRIM;
 static NODE *get__std__TRIM(void) {
   return var.std__TRIM;
 }
@@ -318,9 +318,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__options(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  unique__1_1 = register_unique_item("std__VERBOSE");
-  unique__2_1 = register_unique_item("std__SORT");
-  unique__3_1 = register_unique_item("std__TRIM");
+  unique__std__VERBOSE = register_unique_item("std__VERBOSE");
+  unique__std__SORT = register_unique_item("std__SORT");
+  unique__std__TRIM = register_unique_item("std__TRIM");
 }
 
 static int already_run_phase_3 = false;
@@ -330,11 +330,11 @@ EXPORT void phase_3__basic__options(void) {
   already_run_phase_3 = true;
   set_module("basic__options");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.std__VERBOSE, unique__1_1);
+  assign_value(&var.std__VERBOSE, unique__std__VERBOSE);
   define_single_assign_static("std", "VERBOSE", get__std__VERBOSE, &var.std__VERBOSE);
-  assign_value(&var.std__SORT, unique__2_1);
+  assign_value(&var.std__SORT, unique__std__SORT);
   define_single_assign_static("std", "SORT", get__std__SORT, &var.std__SORT);
-  assign_value(&var.std__TRIM, unique__3_1);
+  assign_value(&var.std__TRIM, unique__std__TRIM);
   define_single_assign_static("std", "TRIM", get__std__TRIM, &var.std__TRIM);
 }
 

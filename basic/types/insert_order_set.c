@@ -351,7 +351,7 @@ static void type__std__is_an_insert_order_set(void);
 static NODE *get__std__is_an_insert_order_set(void) {
   return var.std__is_an_insert_order_set;
 }
-static NODE *unique__4_1;
+static NODE *unique__NONE;
 static int poly_idx__index_table_of;
 static void type__index_table_of(void);
 static int poly_idx__keys_of;
@@ -1618,7 +1618,7 @@ EXPORT void phase_2__basic__types__insert_order_set(void) {
   already_run_phase_2 = true;
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  unique__4_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   string__10_25 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__10_24 = create_function(entry__10_24, 0);
   string__11_1 = from_latin_1_string("insert_order_set", 16);
@@ -1638,7 +1638,7 @@ EXPORT void phase_3__basic__types__insert_order_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__insert_order_set");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__4_1);
+  assign_value(&var._NONE, unique__NONE);
   define_single_assign_static("types", "insert_order_set", get__types__insert_order_set, &var.types__insert_order_set);
   define_single_assign_static("std", "empty_insert_order_set", get__std__empty_insert_order_set, &var.std__empty_insert_order_set);
   define_single_assign_static("std", "insert_order_set", get__std__insert_order_set, &var.std__insert_order_set);

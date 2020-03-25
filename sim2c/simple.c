@@ -755,7 +755,7 @@ static const char *var_names[] = {
   "format_number",
   "build_executable"
 };
-static NODE *unique__13_1;
+static NODE *unique__NONE;
 static NODE *get__sim2c__do_dump_trees(void) {
   return var.sim2c__do_dump_trees;
 }
@@ -858,8 +858,8 @@ static FRAME_INFO frame__47_2 = {1, {"args"}};
 static NODE *get__sim2c__show_compiler_debug_info(void) {
   return var.sim2c__show_compiler_debug_info;
 }
-static NODE *unique__48_1;
-static NODE *unique__49_1;
+static NODE *unique__EXE;
+static NODE *unique__LIB;
 static int dyna_idx__mode;
 static NODE *get__mode(void) {
   return get_dynamic_slot(dyna_idx__mode);
@@ -23068,10 +23068,10 @@ int main(int argc, char **argv) {
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
   number__999 = from_uint32(999U);
-  unique__13_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   func__47_1_sim2c__show_compiler_debug_info = create_function(entry__47_1_sim2c__show_compiler_debug_info, -1);
-  unique__48_1 = register_unique_item("EXE");
-  unique__49_1 = register_unique_item("LIB");
+  unique__EXE = register_unique_item("EXE");
+  unique__LIB = register_unique_item("LIB");
   func__63_6 = create_function(entry__63_6, 1);
   func__63_4 = create_function(entry__63_4, 1);
   func__63_3 = create_function(entry__63_3, 0);
@@ -23427,7 +23427,7 @@ int main(int argc, char **argv) {
   var._SIMDATAPATH = create_future();
   var._simlibpaths = create_future();
   var._simdatapaths = create_future();
-  assign_value(&var._NONE, unique__13_1);
+  assign_value(&var._NONE, unique__NONE);
   var._supported_platforms = create_future();
   define_multi_assign_static("sim2c", "do_dump_trees", get__sim2c__do_dump_trees, set__sim2c__do_dump_trees);
   define_multi_assign_static("sim2c", "do_pretty_print", get__sim2c__do_pretty_print, set__sim2c__do_pretty_print);
@@ -23449,8 +23449,8 @@ int main(int argc, char **argv) {
   register_dynamic(&dyna_idx__do_build_static_executable);
   define__do_build_static_executable(create_future());
   define_single_assign_static("sim2c", "show_compiler_debug_info", get__sim2c__show_compiler_debug_info, &var.sim2c__show_compiler_debug_info);
-  assign_value(&var._EXE, unique__48_1);
-  assign_value(&var._LIB, unique__49_1);
+  assign_value(&var._EXE, unique__EXE);
+  assign_value(&var._LIB, unique__LIB);
   register_dynamic(&dyna_idx__mode);
   define__mode(create_future());
   var._WHITESPACE = create_future();

@@ -368,11 +368,11 @@ static const char *var_names[] = {
   "crash_dump",
   "RuntimeError"
 };
-static NODE *unique__1_1;
+static NODE *unique__std__CLEANUP;
 static NODE *get__std__CLEANUP(void) {
   return var.std__CLEANUP;
 }
-static NODE *unique__2_1;
+static NODE *unique__std__ERROR_MESSAGE;
 static NODE *get__std__ERROR_MESSAGE(void) {
   return var.std__ERROR_MESSAGE;
 }
@@ -3484,8 +3484,8 @@ EXPORT void phase_2__basic__exceptions(void) {
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  unique__1_1 = register_unique_item("std__CLEANUP");
-  unique__2_1 = register_unique_item("std__ERROR_MESSAGE");
+  unique__std__CLEANUP = register_unique_item("std__CLEANUP");
+  unique__std__ERROR_MESSAGE = register_unique_item("std__ERROR_MESSAGE");
   func__9_1_std__register_resource = create_function(entry__9_1_std__register_resource, 1);
   func__10_1_std__deregister_resource = create_function(entry__10_1_std__deregister_resource, 1);
   func__11_1_cleanup_till = create_function(entry__11_1_cleanup_till, 1);
@@ -3519,9 +3519,9 @@ EXPORT void phase_3__basic__exceptions(void) {
   already_run_phase_3 = true;
   set_module("basic__exceptions");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.std__CLEANUP, unique__1_1);
+  assign_value(&var.std__CLEANUP, unique__std__CLEANUP);
   define_single_assign_static("std", "CLEANUP", get__std__CLEANUP, &var.std__CLEANUP);
-  assign_value(&var.std__ERROR_MESSAGE, unique__2_1);
+  assign_value(&var.std__ERROR_MESSAGE, unique__std__ERROR_MESSAGE);
   define_single_assign_static("std", "ERROR_MESSAGE", get__std__ERROR_MESSAGE, &var.std__ERROR_MESSAGE);
   register_dynamic(&dyna_idx__first_resource_id);
   define__first_resource_id(create_future());

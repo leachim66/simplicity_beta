@@ -391,7 +391,7 @@ static NODE *get__private__get_item(void) {
 static NODE *get__types__generic_table(void) {
   return var.types__generic_table;
 }
-static NODE *unique__4_1;
+static NODE *unique__NONE;
 static NODE *func__5_1_types__generic_table_;
 static void entry__5_1_types__generic_table_(void);
 static FRAME_INFO frame__5_1_types__generic_table_ = {3, {"key", "value", "myself"}};
@@ -2678,7 +2678,7 @@ EXPORT void phase_2__basic__types__table(void) {
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  unique__4_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   func__6_1_types__generic_table_union = create_function(entry__6_1_types__generic_table_union, 2);
   func__7_1_types__generic_table_map = create_function(entry__7_1_types__generic_table_map, 2);
   string__8_5 = from_latin_1_string("()", 2);
@@ -2702,7 +2702,7 @@ EXPORT void phase_3__basic__types__table(void) {
   set_module("basic__types__table");
   set_used_namespaces(used_namespaces);
   define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
-  assign_value(&var._NONE, unique__4_1);
+  assign_value(&var._NONE, unique__NONE);
   define_single_assign_static("types", "table", get__types__table, &var.types__table);
   define_single_assign_static("std", "empty_table", get__std__empty_table, &var.std__empty_table);
   define_single_assign_static("std", "table", get__std__table, &var.std__table);

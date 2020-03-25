@@ -404,9 +404,9 @@ static void type__std__is_a_key_order_table(void);
 static NODE *get__std__is_a_key_order_table(void) {
   return var.std__is_a_key_order_table;
 }
-static NODE *unique__4_1;
-static NODE *unique__5_1;
-static NODE *unique__6_1;
+static NODE *unique__NONE;
+static NODE *unique__INSERT;
+static NODE *unique__UPDATE;
 static int poly_idx__tree_of;
 static void type__tree_of(void);
 static int poly_idx__key_of;
@@ -8180,9 +8180,9 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
-  unique__4_1 = register_unique_item("NONE");
-  unique__5_1 = register_unique_item("INSERT");
-  unique__6_1 = register_unique_item("UPDATE");
+  unique__NONE = register_unique_item("NONE");
+  unique__INSERT = register_unique_item("INSERT");
+  unique__UPDATE = register_unique_item("UPDATE");
   func__12_1_remove_leftmost = create_function(entry__12_1_remove_leftmost, 1);
   func__13_1_remove_rightmost = create_function(entry__13_1_remove_rightmost, 1);
   func__18_1_fetch_first = create_function(entry__18_1_fetch_first, 1);
@@ -8215,9 +8215,9 @@ EXPORT void phase_3__basic__types__key_order_table(void) {
   already_run_phase_3 = true;
   set_module("basic__types__key_order_table");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__4_1);
-  assign_value(&var._INSERT, unique__5_1);
-  assign_value(&var._UPDATE, unique__6_1);
+  assign_value(&var._NONE, unique__NONE);
+  assign_value(&var._INSERT, unique__INSERT);
+  assign_value(&var._UPDATE, unique__UPDATE);
   define_single_assign_static("types", "key_order_table", get__types__key_order_table, &var.types__key_order_table);
   define_single_assign_static("std", "empty_key_order_table", get__std__empty_key_order_table, &var.std__empty_key_order_table);
   define_single_assign_static("std", "key_order_table", get__std__key_order_table, &var.std__key_order_table);

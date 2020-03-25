@@ -315,7 +315,7 @@ static NODE *get__std__command_line_arguments(void) {
 }
 static void entry__12_1(void);
 static NODE *func__12_1;
-static NODE *unique__13_1;
+static NODE *unique__NONE;
 static NODE *func__15_1_env_2_;
 static void entry__15_1_env_2_(void);
 static FRAME_INFO frame__15_1_env_2_ = {3, {"key", "value", "myself"}};
@@ -955,7 +955,7 @@ EXPORT void phase_2__basic__environment(void) {
   func__4_1 = create_function(entry__4_1, 1);
   func__5_1 = create_function(entry__5_1, 0);
   func__12_1 = create_function(entry__12_1, 1);
-  unique__13_1 = register_unique_item("NONE");
+  unique__NONE = register_unique_item("NONE");
   string__15_5 = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
   func__27_2 = create_function(entry__27_2, 1);
@@ -970,7 +970,7 @@ EXPORT void phase_3__basic__environment(void) {
   set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "program_name", get__std__program_name, &var.std__program_name);
   define_single_assign_static("std", "command_line_arguments", get__std__command_line_arguments, &var.std__command_line_arguments);
-  assign_value(&var._NONE, unique__13_1);
+  assign_value(&var._NONE, unique__NONE);
   var._env_2 = create_future();
   define_multi_assign_static("std", "environment", get__std__environment, set__std__environment);
 }

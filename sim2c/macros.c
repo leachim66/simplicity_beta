@@ -413,10 +413,10 @@ static const char *var_names[] = {
   "macro_replacements",
   "define_macro"
 };
-static NODE *unique__1_1;
-static NODE *unique__2_1;
-static NODE *unique__3_1;
-static NODE *unique__4_1;
+static NODE *unique__EVENT;
+static NODE *unique__ACTION;
+static NODE *unique__INFO;
+static NODE *unique__DATA;
 static int dyna_idx__event_name;
 static NODE *get__event_name(void) {
   return get_dynamic_cell(dyna_idx__event_name);
@@ -9579,10 +9579,10 @@ EXPORT void phase_2__macros(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
-  unique__1_1 = register_unique_item("EVENT");
-  unique__2_1 = register_unique_item("ACTION");
-  unique__3_1 = register_unique_item("INFO");
-  unique__4_1 = register_unique_item("DATA");
+  unique__EVENT = register_unique_item("EVENT");
+  unique__ACTION = register_unique_item("ACTION");
+  unique__INFO = register_unique_item("INFO");
+  unique__DATA = register_unique_item("DATA");
   func__11_1_define_macro = create_function(entry__11_1_define_macro, 2);
   string__71_104 = from_latin_1_string(", ", 2);
   string__71_131 = from_latin_1_string("::", 2);
@@ -9778,10 +9778,10 @@ EXPORT void phase_3__macros(void) {
   already_run_phase_3 = true;
   set_module("macros");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._EVENT, unique__1_1);
-  assign_value(&var._ACTION, unique__2_1);
-  assign_value(&var._INFO, unique__3_1);
-  assign_value(&var._DATA, unique__4_1);
+  assign_value(&var._EVENT, unique__EVENT);
+  assign_value(&var._ACTION, unique__ACTION);
+  assign_value(&var._INFO, unique__INFO);
+  assign_value(&var._DATA, unique__DATA);
   register_dynamic(&dyna_idx__event_name);
   define__event_name(undefined);
   register_dynamic(&dyna_idx__event_kind);

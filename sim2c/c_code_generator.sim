@@ -1076,8 +1076,7 @@ $sim2c::string_literal/to_c: (self)
 
 $sim2c::unique_item/to_c: (self)
   show_compiler_debug_info "generate unique item"
-  inc &index
-  $name string("unique" suffix "_" index)
+  $name string("unique__" name_of(self))
   $reg_name if(name_of(self).is_defined (-> name_of(self)) -> name)
   write_to_declarations "static NODE *@(name);@nl;"
   write_to_phase_2 "

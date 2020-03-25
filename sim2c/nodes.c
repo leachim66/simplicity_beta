@@ -586,71 +586,71 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *unique__1_1;
+static NODE *unique__sim2c__NONE;
 static NODE *get__sim2c__NONE(void) {
   return var.sim2c__NONE;
 }
-static NODE *unique__2_1;
+static NODE *unique__sim2c__ATTRIBUTE_KIND;
 static NODE *get__sim2c__ATTRIBUTE_KIND(void) {
   return var.sim2c__ATTRIBUTE_KIND;
 }
-static NODE *unique__3_1;
+static NODE *unique__sim2c__METHOD_KIND;
 static NODE *get__sim2c__METHOD_KIND(void) {
   return var.sim2c__METHOD_KIND;
 }
-static NODE *unique__4_1;
+static NODE *unique__sim2c__NO_PARAMETER;
 static NODE *get__sim2c__NO_PARAMETER(void) {
   return var.sim2c__NO_PARAMETER;
 }
-static NODE *unique__5_1;
+static NODE *unique__sim2c__IN_PARAMETER;
 static NODE *get__sim2c__IN_PARAMETER(void) {
   return var.sim2c__IN_PARAMETER;
 }
-static NODE *unique__6_1;
+static NODE *unique__sim2c__IN_OUT_PARAMETER;
 static NODE *get__sim2c__IN_OUT_PARAMETER(void) {
   return var.sim2c__IN_OUT_PARAMETER;
 }
-static NODE *unique__7_1;
+static NODE *unique__sim2c__OUT_PARAMETER;
 static NODE *get__sim2c__OUT_PARAMETER(void) {
   return var.sim2c__OUT_PARAMETER;
 }
-static NODE *unique__8_1;
+static NODE *unique__sim2c__MYSELF_PARAMETER;
 static NODE *get__sim2c__MYSELF_PARAMETER(void) {
   return var.sim2c__MYSELF_PARAMETER;
 }
-static NODE *unique__9_1;
+static NODE *unique__sim2c__CONTINUATION_PARAMETER;
 static NODE *get__sim2c__CONTINUATION_PARAMETER(void) {
   return var.sim2c__CONTINUATION_PARAMETER;
 }
-static NODE *unique__10_1;
+static NODE *unique__sim2c__LEFT;
 static NODE *get__sim2c__LEFT(void) {
   return var.sim2c__LEFT;
 }
-static NODE *unique__11_1;
+static NODE *unique__sim2c__RIGHT;
 static NODE *get__sim2c__RIGHT(void) {
   return var.sim2c__RIGHT;
 }
-static NODE *unique__12_1;
+static NODE *unique__sim2c__POLYMORPHIC;
 static NODE *get__sim2c__POLYMORPHIC(void) {
   return var.sim2c__POLYMORPHIC;
 }
-static NODE *unique__13_1;
+static NODE *unique__sim2c__STATIC_SINGLE;
 static NODE *get__sim2c__STATIC_SINGLE(void) {
   return var.sim2c__STATIC_SINGLE;
 }
-static NODE *unique__14_1;
+static NODE *unique__sim2c__STATIC_MULTI;
 static NODE *get__sim2c__STATIC_MULTI(void) {
   return var.sim2c__STATIC_MULTI;
 }
-static NODE *unique__15_1;
+static NODE *unique__sim2c__DYNAMIC_SINGLE;
 static NODE *get__sim2c__DYNAMIC_SINGLE(void) {
   return var.sim2c__DYNAMIC_SINGLE;
 }
-static NODE *unique__16_1;
+static NODE *unique__sim2c__DYNAMIC_MULTI;
 static NODE *get__sim2c__DYNAMIC_MULTI(void) {
   return var.sim2c__DYNAMIC_MULTI;
 }
-static NODE *unique__17_1;
+static NODE *unique__sim2c__C_NODE;
 static NODE *get__sim2c__C_NODE(void) {
   return var.sim2c__C_NODE;
 }
@@ -4338,23 +4338,23 @@ EXPORT void phase_2__nodes(void) {
   already_run_phase_2 = true;
   character__39 = from_uchar32(39);
   character__46 = from_uchar32(46);
-  unique__1_1 = register_unique_item("sim2c__NONE");
-  unique__2_1 = register_unique_item("sim2c__ATTRIBUTE_KIND");
-  unique__3_1 = register_unique_item("sim2c__METHOD_KIND");
-  unique__4_1 = register_unique_item("sim2c__NO_PARAMETER");
-  unique__5_1 = register_unique_item("sim2c__IN_PARAMETER");
-  unique__6_1 = register_unique_item("sim2c__IN_OUT_PARAMETER");
-  unique__7_1 = register_unique_item("sim2c__OUT_PARAMETER");
-  unique__8_1 = register_unique_item("sim2c__MYSELF_PARAMETER");
-  unique__9_1 = register_unique_item("sim2c__CONTINUATION_PARAMETER");
-  unique__10_1 = register_unique_item("sim2c__LEFT");
-  unique__11_1 = register_unique_item("sim2c__RIGHT");
-  unique__12_1 = register_unique_item("sim2c__POLYMORPHIC");
-  unique__13_1 = register_unique_item("sim2c__STATIC_SINGLE");
-  unique__14_1 = register_unique_item("sim2c__STATIC_MULTI");
-  unique__15_1 = register_unique_item("sim2c__DYNAMIC_SINGLE");
-  unique__16_1 = register_unique_item("sim2c__DYNAMIC_MULTI");
-  unique__17_1 = register_unique_item("sim2c__C_NODE");
+  unique__sim2c__NONE = register_unique_item("sim2c__NONE");
+  unique__sim2c__ATTRIBUTE_KIND = register_unique_item("sim2c__ATTRIBUTE_KIND");
+  unique__sim2c__METHOD_KIND = register_unique_item("sim2c__METHOD_KIND");
+  unique__sim2c__NO_PARAMETER = register_unique_item("sim2c__NO_PARAMETER");
+  unique__sim2c__IN_PARAMETER = register_unique_item("sim2c__IN_PARAMETER");
+  unique__sim2c__IN_OUT_PARAMETER = register_unique_item("sim2c__IN_OUT_PARAMETER");
+  unique__sim2c__OUT_PARAMETER = register_unique_item("sim2c__OUT_PARAMETER");
+  unique__sim2c__MYSELF_PARAMETER = register_unique_item("sim2c__MYSELF_PARAMETER");
+  unique__sim2c__CONTINUATION_PARAMETER = register_unique_item("sim2c__CONTINUATION_PARAMETER");
+  unique__sim2c__LEFT = register_unique_item("sim2c__LEFT");
+  unique__sim2c__RIGHT = register_unique_item("sim2c__RIGHT");
+  unique__sim2c__POLYMORPHIC = register_unique_item("sim2c__POLYMORPHIC");
+  unique__sim2c__STATIC_SINGLE = register_unique_item("sim2c__STATIC_SINGLE");
+  unique__sim2c__STATIC_MULTI = register_unique_item("sim2c__STATIC_MULTI");
+  unique__sim2c__DYNAMIC_SINGLE = register_unique_item("sim2c__DYNAMIC_SINGLE");
+  unique__sim2c__DYNAMIC_MULTI = register_unique_item("sim2c__DYNAMIC_MULTI");
+  unique__sim2c__C_NODE = register_unique_item("sim2c__C_NODE");
   string__208_3 = from_latin_1_string("_", 1);
   func__208_1_sim2c__numeric_literal_mangled_name_of = create_function(entry__208_1_sim2c__numeric_literal_mangled_name_of, 1);
   string__222_1 = from_latin_1_string("\012", 1);
@@ -4375,39 +4375,39 @@ EXPORT void phase_3__nodes(void) {
   already_run_phase_3 = true;
   set_module("nodes");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.sim2c__NONE, unique__1_1);
+  assign_value(&var.sim2c__NONE, unique__sim2c__NONE);
   define_single_assign_static("sim2c", "NONE", get__sim2c__NONE, &var.sim2c__NONE);
-  assign_value(&var.sim2c__ATTRIBUTE_KIND, unique__2_1);
+  assign_value(&var.sim2c__ATTRIBUTE_KIND, unique__sim2c__ATTRIBUTE_KIND);
   define_single_assign_static("sim2c", "ATTRIBUTE_KIND", get__sim2c__ATTRIBUTE_KIND, &var.sim2c__ATTRIBUTE_KIND);
-  assign_value(&var.sim2c__METHOD_KIND, unique__3_1);
+  assign_value(&var.sim2c__METHOD_KIND, unique__sim2c__METHOD_KIND);
   define_single_assign_static("sim2c", "METHOD_KIND", get__sim2c__METHOD_KIND, &var.sim2c__METHOD_KIND);
-  assign_value(&var.sim2c__NO_PARAMETER, unique__4_1);
+  assign_value(&var.sim2c__NO_PARAMETER, unique__sim2c__NO_PARAMETER);
   define_single_assign_static("sim2c", "NO_PARAMETER", get__sim2c__NO_PARAMETER, &var.sim2c__NO_PARAMETER);
-  assign_value(&var.sim2c__IN_PARAMETER, unique__5_1);
+  assign_value(&var.sim2c__IN_PARAMETER, unique__sim2c__IN_PARAMETER);
   define_single_assign_static("sim2c", "IN_PARAMETER", get__sim2c__IN_PARAMETER, &var.sim2c__IN_PARAMETER);
-  assign_value(&var.sim2c__IN_OUT_PARAMETER, unique__6_1);
+  assign_value(&var.sim2c__IN_OUT_PARAMETER, unique__sim2c__IN_OUT_PARAMETER);
   define_single_assign_static("sim2c", "IN_OUT_PARAMETER", get__sim2c__IN_OUT_PARAMETER, &var.sim2c__IN_OUT_PARAMETER);
-  assign_value(&var.sim2c__OUT_PARAMETER, unique__7_1);
+  assign_value(&var.sim2c__OUT_PARAMETER, unique__sim2c__OUT_PARAMETER);
   define_single_assign_static("sim2c", "OUT_PARAMETER", get__sim2c__OUT_PARAMETER, &var.sim2c__OUT_PARAMETER);
-  assign_value(&var.sim2c__MYSELF_PARAMETER, unique__8_1);
+  assign_value(&var.sim2c__MYSELF_PARAMETER, unique__sim2c__MYSELF_PARAMETER);
   define_single_assign_static("sim2c", "MYSELF_PARAMETER", get__sim2c__MYSELF_PARAMETER, &var.sim2c__MYSELF_PARAMETER);
-  assign_value(&var.sim2c__CONTINUATION_PARAMETER, unique__9_1);
+  assign_value(&var.sim2c__CONTINUATION_PARAMETER, unique__sim2c__CONTINUATION_PARAMETER);
   define_single_assign_static("sim2c", "CONTINUATION_PARAMETER", get__sim2c__CONTINUATION_PARAMETER, &var.sim2c__CONTINUATION_PARAMETER);
-  assign_value(&var.sim2c__LEFT, unique__10_1);
+  assign_value(&var.sim2c__LEFT, unique__sim2c__LEFT);
   define_single_assign_static("sim2c", "LEFT", get__sim2c__LEFT, &var.sim2c__LEFT);
-  assign_value(&var.sim2c__RIGHT, unique__11_1);
+  assign_value(&var.sim2c__RIGHT, unique__sim2c__RIGHT);
   define_single_assign_static("sim2c", "RIGHT", get__sim2c__RIGHT, &var.sim2c__RIGHT);
-  assign_value(&var.sim2c__POLYMORPHIC, unique__12_1);
+  assign_value(&var.sim2c__POLYMORPHIC, unique__sim2c__POLYMORPHIC);
   define_single_assign_static("sim2c", "POLYMORPHIC", get__sim2c__POLYMORPHIC, &var.sim2c__POLYMORPHIC);
-  assign_value(&var.sim2c__STATIC_SINGLE, unique__13_1);
+  assign_value(&var.sim2c__STATIC_SINGLE, unique__sim2c__STATIC_SINGLE);
   define_single_assign_static("sim2c", "STATIC_SINGLE", get__sim2c__STATIC_SINGLE, &var.sim2c__STATIC_SINGLE);
-  assign_value(&var.sim2c__STATIC_MULTI, unique__14_1);
+  assign_value(&var.sim2c__STATIC_MULTI, unique__sim2c__STATIC_MULTI);
   define_single_assign_static("sim2c", "STATIC_MULTI", get__sim2c__STATIC_MULTI, &var.sim2c__STATIC_MULTI);
-  assign_value(&var.sim2c__DYNAMIC_SINGLE, unique__15_1);
+  assign_value(&var.sim2c__DYNAMIC_SINGLE, unique__sim2c__DYNAMIC_SINGLE);
   define_single_assign_static("sim2c", "DYNAMIC_SINGLE", get__sim2c__DYNAMIC_SINGLE, &var.sim2c__DYNAMIC_SINGLE);
-  assign_value(&var.sim2c__DYNAMIC_MULTI, unique__16_1);
+  assign_value(&var.sim2c__DYNAMIC_MULTI, unique__sim2c__DYNAMIC_MULTI);
   define_single_assign_static("sim2c", "DYNAMIC_MULTI", get__sim2c__DYNAMIC_MULTI, &var.sim2c__DYNAMIC_MULTI);
-  assign_value(&var.sim2c__C_NODE, unique__17_1);
+  assign_value(&var.sim2c__C_NODE, unique__sim2c__C_NODE);
   define_single_assign_static("sim2c", "C_NODE", get__sim2c__C_NODE, &var.sim2c__C_NODE);
   define_single_assign_static("sim2c", "meta_instruction", get__sim2c__meta_instruction, &var.sim2c__meta_instruction);
   define_single_assign_static("sim2c", "require_instruction", get__sim2c__require_instruction, &var.sim2c__require_instruction);
