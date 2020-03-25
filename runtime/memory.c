@@ -508,11 +508,13 @@ extern NODE *from_c_string(const char *str);
 NODE *from_vprintf(const char *msg, va_list args) {
   int n;
   char *big_buf;
+  va_list args_copy;
+  va_copy(args_copy, args);
   char buf[512];
   n = vsnprintf(buf, 512, msg, args);
   if (n < 512) return from_c_string(buf);
   big_buf = allocate_memory(n+1);
-  n = vsprintf(big_buf, msg, args);
+  vsprintf(big_buf, msg, args_copy);
   NODE *node = from_c_string(big_buf);
   deallocate_memory(big_buf);
   return node;
