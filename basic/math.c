@@ -332,23 +332,23 @@ static const char *var_names[] = {
   "atan3",
   "atan4"
 };
-static NODE *func__1_1;
-static void entry__1_1(void);
-static FRAME_INFO frame__1_1 = {1, {"var"}};
+static NODE *func__1_1_std__inc;
+static void entry__1_1_std__inc(void);
+static FRAME_INFO frame__1_1_std__inc = {1, {"var"}};
 static void cont__1_2(void);
 static NODE *get__std__inc(void) {
   return var.std__inc;
 }
-static NODE *func__2_1;
-static void entry__2_1(void);
-static FRAME_INFO frame__2_1 = {1, {"var"}};
+static NODE *func__2_1_std__dec;
+static void entry__2_1_std__dec(void);
+static FRAME_INFO frame__2_1_std__dec = {1, {"var"}};
 static void cont__2_2(void);
 static NODE *get__std__dec(void) {
   return var.std__dec;
 }
-static NODE *func__3_1;
-static void entry__3_1(void);
-static FRAME_INFO frame__3_1 = {2, {"var", "val"}};
+static NODE *func__3_1_std__extend_to;
+static void entry__3_1_std__extend_to(void);
+static FRAME_INFO frame__3_1_std__extend_to = {2, {"var", "val"}};
 static void cont__3_2(void);
 static NODE *func__3_3;
 static void entry__3_3(void);
@@ -357,9 +357,9 @@ static void cont__3_4(void);
 static NODE *get__std__extend_to(void) {
   return var.std__extend_to;
 }
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {2, {"var", "val"}};
+static NODE *func__4_1_std__reduce_to;
+static void entry__4_1_std__reduce_to(void);
+static FRAME_INFO frame__4_1_std__reduce_to = {2, {"var", "val"}};
 static void cont__4_2(void);
 static NODE *func__4_3;
 static void entry__4_3(void);
@@ -368,9 +368,9 @@ static void cont__4_4(void);
 static NODE *get__std__reduce_to(void) {
   return var.std__reduce_to;
 }
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {1, {"var"}};
+static NODE *func__5_1_std__abs;
+static void entry__5_1_std__abs(void);
+static FRAME_INFO frame__5_1_std__abs = {1, {"var"}};
 static void cont__5_2(void);
 static NODE *func__5_3;
 static void entry__5_3(void);
@@ -380,9 +380,9 @@ static void cont__5_5(void);
 static NODE *get__std__abs(void) {
   return var.std__abs;
 }
-static NODE *func__6_1;
-static void entry__6_1(void);
-static FRAME_INFO frame__6_1 = {1, {"x"}};
+static NODE *func__6_1_std__sgn;
+static void entry__6_1_std__sgn(void);
+static FRAME_INFO frame__6_1_std__sgn = {1, {"x"}};
 static NODE *func__6_2;
 static void entry__6_2(void);
 static FRAME_INFO frame__6_2 = {1, {"x"}};
@@ -407,16 +407,16 @@ static FRAME_INFO frame__6_10 = {0, {}};
 static NODE *get__std__sgn(void) {
   return var.std__sgn;
 }
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {1, {"var"}};
+static NODE *func__7_1_std__sqr;
+static void entry__7_1_std__sqr(void);
+static FRAME_INFO frame__7_1_std__sqr = {1, {"var"}};
 static void cont__7_2(void);
 static NODE *get__std__sqr(void) {
   return var.std__sqr;
 }
-static NODE *func__8_1;
-static void entry__8_1(void);
-static FRAME_INFO frame__8_1 = {2, {"args", "result"}};
+static NODE *func__8_1_std__min;
+static void entry__8_1_std__min(void);
+static FRAME_INFO frame__8_1_std__min = {2, {"args", "result"}};
 static void cont__8_2(void);
 static void cont__8_3(void);
 static NODE *func__8_4;
@@ -430,9 +430,9 @@ static void cont__8_7(void);
 static NODE *get__std__min(void) {
   return var.std__min;
 }
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {2, {"args", "result"}};
+static NODE *func__9_1_std__max;
+static void entry__9_1_std__max(void);
+static FRAME_INFO frame__9_1_std__max = {2, {"args", "result"}};
 static void cont__9_2(void);
 static void cont__9_3(void);
 static NODE *func__9_4;
@@ -446,9 +446,9 @@ static void cont__9_7(void);
 static NODE *get__std__max(void) {
   return var.std__max;
 }
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {2, {"x", "n"}};
+static NODE *func__10_1_std__pow;
+static void entry__10_1_std__pow(void);
+static FRAME_INFO frame__10_1_std__pow = {2, {"x", "n"}};
 static NODE *func__10_2;
 static void entry__10_2(void);
 static FRAME_INFO frame__10_2 = {1, {"n"}};
@@ -479,9 +479,9 @@ static void cont__10_16(void);
 static NODE *get__std__pow(void) {
   return var.std__pow;
 }
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {3, {"x", "low", "high"}};
+static NODE *func__11_1_std__sqrt;
+static void entry__11_1_std__sqrt(void);
+static FRAME_INFO frame__11_1_std__sqrt = {3, {"x", "low", "high"}};
 static NODE *func__11_2;
 static void entry__11_2(void);
 static FRAME_INFO frame__11_2 = {4, {"high", "low", "x", "mid"}};
@@ -502,9 +502,9 @@ static NODE *get__std__sqrt(void) {
 static NODE *get__std__PI(void) {
   return var.std__PI;
 }
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {4, {"alpha", "p", "s", "t"}};
+static NODE *func__13_1_std__sin;
+static void entry__13_1_std__sin(void);
+static FRAME_INFO frame__13_1_std__sin = {4, {"alpha", "p", "s", "t"}};
 static NODE *func__13_2;
 static void entry__13_2(void);
 static FRAME_INFO frame__13_2 = {4, {"t", "alpha", "p", "s"}};
@@ -522,9 +522,9 @@ static void cont__13_13(void);
 static NODE *get__std__sin(void) {
   return var.std__sin;
 }
-static NODE *func__14_1;
-static void entry__14_1(void);
-static FRAME_INFO frame__14_1 = {4, {"alpha", "p", "s", "t"}};
+static NODE *func__14_1_std__cos;
+static void entry__14_1_std__cos(void);
+static FRAME_INFO frame__14_1_std__cos = {4, {"alpha", "p", "s", "t"}};
 static NODE *func__14_2;
 static void entry__14_2(void);
 static FRAME_INFO frame__14_2 = {4, {"p", "t", "alpha", "s"}};
@@ -542,18 +542,18 @@ static void cont__14_13(void);
 static NODE *get__std__cos(void) {
   return var.std__cos;
 }
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {1, {"alpha"}};
+static NODE *func__15_1_std__tan;
+static void entry__15_1_std__tan(void);
+static FRAME_INFO frame__15_1_std__tan = {1, {"alpha"}};
 static void cont__15_2(void);
 static void cont__15_3(void);
 static void cont__15_4(void);
 static NODE *get__std__tan(void) {
   return var.std__tan;
 }
-static NODE *func__16_1;
-static void entry__16_1(void);
-static FRAME_INFO frame__16_1 = {1, {"x"}};
+static NODE *func__16_1_std__atan;
+static void entry__16_1_std__atan(void);
+static FRAME_INFO frame__16_1_std__atan = {1, {"x"}};
 static void cont__16_2(void);
 static NODE *func__16_3;
 static void entry__16_3(void);
@@ -568,9 +568,9 @@ static void cont__16_8(void);
 static NODE *get__std__atan(void) {
   return var.std__atan;
 }
-static NODE *func__17_1;
-static void entry__17_1(void);
-static FRAME_INFO frame__17_1 = {1, {"x"}};
+static NODE *func__17_1_atan2;
+static void entry__17_1_atan2(void);
+static FRAME_INFO frame__17_1_atan2 = {1, {"x"}};
 static void cont__17_2(void);
 static NODE *func__17_3;
 static void entry__17_3(void);
@@ -583,9 +583,9 @@ static NODE *func__17_8;
 static void entry__17_8(void);
 static FRAME_INFO frame__17_8 = {1, {"x"}};
 static void cont__17_9(void);
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {1, {"x"}};
+static NODE *func__18_1_atan3;
+static void entry__18_1_atan3(void);
+static FRAME_INFO frame__18_1_atan3 = {1, {"x"}};
 static void cont__18_2(void);
 static void cont__18_3(void);
 static void cont__18_4(void);
@@ -605,9 +605,9 @@ static NODE *func__18_15;
 static void entry__18_15(void);
 static FRAME_INFO frame__18_15 = {1, {"x"}};
 static void cont__18_16(void);
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {4, {"x", "sum", "s", "p"}};
+static NODE *func__19_1_atan4;
+static void entry__19_1_atan4(void);
+static FRAME_INFO frame__19_1_atan4 = {4, {"x", "sum", "s", "p"}};
 static NODE *func__19_2;
 static void entry__19_2(void);
 static FRAME_INFO frame__19_2 = {5, {"i", "sum", "s", "p", "x"}};
@@ -622,23 +622,23 @@ void run__basic__math(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__math, NULL, },
-  {entry__1_1, NULL, 23, 23, 19, 29},
-  {cont__1_2, &frame__1_1, 23, 23, 29, 29},
-  {entry__2_1, NULL, 25, 25, 19, 30},
-  {cont__2_2, &frame__2_1, 25, 25, 30, 30},
+  {entry__1_1_std__inc, NULL, 23, 23, 19, 29},
+  {cont__1_2, &frame__1_1_std__inc, 23, 23, 29, 29},
+  {entry__2_1_std__dec, NULL, 25, 25, 19, 30},
+  {cont__2_2, &frame__2_1_std__dec, 25, 25, 30, 30},
   {entry__3_3, NULL, 32, 32, 24, 24},
-  {entry__3_1, NULL, 32, 32, 6, 14},
-  {cont__3_2, &frame__3_1, 32, 32, 3, 24},
-  {cont__3_4, &frame__3_1, },
+  {entry__3_1_std__extend_to, NULL, 32, 32, 6, 14},
+  {cont__3_2, &frame__3_1_std__extend_to, 32, 32, 3, 24},
+  {cont__3_4, &frame__3_1_std__extend_to, },
   {entry__4_3, NULL, 39, 39, 24, 24},
-  {entry__4_1, NULL, 39, 39, 6, 14},
-  {cont__4_2, &frame__4_1, 39, 39, 3, 24},
-  {cont__4_4, &frame__4_1, },
+  {entry__4_1_std__reduce_to, NULL, 39, 39, 6, 14},
+  {cont__4_2, &frame__4_1_std__reduce_to, 39, 39, 3, 24},
+  {cont__4_4, &frame__4_1_std__reduce_to, },
   {entry__5_3, NULL, 41, 41, 31, 41},
   {cont__5_4, &frame__5_3, 41, 41, 41, 41},
-  {entry__5_1, NULL, 41, 41, 22, 28},
-  {cont__5_2, &frame__5_1, 41, 41, 19, 41},
-  {cont__5_5, &frame__5_1, },
+  {entry__5_1_std__abs, NULL, 41, 41, 22, 28},
+  {cont__5_2, &frame__5_1_std__abs, 41, 41, 19, 41},
+  {cont__5_5, &frame__5_1_std__abs, },
   {entry__6_4, NULL, 43, 43, 31, 34},
   {entry__6_2, NULL, 43, 43, 25, 29},
   {cont__6_3, &frame__6_2, 43, 43, 22, 34},
@@ -648,23 +648,23 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__6_6, &frame__6_5, 43, 43, 38, 51},
   {entry__6_10, NULL, 43, 43, 62, 65},
   {entry__6_9, NULL, 43, 43, 54, 65},
-  {entry__6_1, NULL, 43, 43, 16, 65},
-  {entry__7_1, NULL, 45, 45, 21, 27},
-  {cont__7_2, &frame__7_1, 45, 45, 18, 27},
+  {entry__6_1_std__sgn, NULL, 43, 43, 16, 65},
+  {entry__7_1_std__sqr, NULL, 45, 45, 21, 27},
+  {cont__7_2, &frame__7_1_std__sqr, 45, 45, 18, 27},
   {entry__8_6, NULL, 49, 49, 64, 64},
   {entry__8_4, NULL, 49, 49, 40, 51},
   {cont__8_5, &frame__8_4, 49, 49, 37, 64},
-  {entry__8_1, NULL, 48, 48, 3, 18},
-  {cont__8_2, &frame__8_1, 49, 49, 28, 28},
-  {cont__8_3, &frame__8_1, 49, 49, 3, 64},
-  {cont__8_7, &frame__8_1, 50, 50, 3, 11},
+  {entry__8_1_std__min, NULL, 48, 48, 3, 18},
+  {cont__8_2, &frame__8_1_std__min, 49, 49, 28, 28},
+  {cont__8_3, &frame__8_1_std__min, 49, 49, 3, 64},
+  {cont__8_7, &frame__8_1_std__min, 50, 50, 3, 11},
   {entry__9_6, NULL, 54, 54, 64, 64},
   {entry__9_4, NULL, 54, 54, 40, 51},
   {cont__9_5, &frame__9_4, 54, 54, 37, 64},
-  {entry__9_1, NULL, 53, 53, 3, 18},
-  {cont__9_2, &frame__9_1, 54, 54, 28, 28},
-  {cont__9_3, &frame__9_1, 54, 54, 3, 64},
-  {cont__9_7, &frame__9_1, 55, 55, 3, 11},
+  {entry__9_1_std__max, NULL, 53, 53, 3, 18},
+  {cont__9_2, &frame__9_1_std__max, 54, 54, 28, 28},
+  {cont__9_3, &frame__9_1_std__max, 54, 54, 3, 64},
+  {cont__9_7, &frame__9_1_std__max, 55, 55, 3, 11},
   {entry__10_4, NULL, 59, 59, 15, 18},
   {entry__10_2, NULL, 59, 59, 8, 13},
   {cont__10_3, &frame__10_2, 59, 59, 5, 18},
@@ -680,7 +680,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_15, &frame__10_13, 61, 61, 16, 33},
   {cont__10_16, &frame__10_13, 61, 61, 13, 33},
   {entry__10_12, NULL, 61, 61, 5, 33},
-  {entry__10_1, NULL, 58, 61, 3, 33},
+  {entry__10_1_std__pow, NULL, 58, 61, 3, 33},
   {entry__11_7, NULL, 70, 70, 17, 17},
   {entry__11_8, NULL, 72, 72, 16, 16},
   {entry__11_2, NULL, 67, 67, 11, 18},
@@ -688,8 +688,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__11_4, &frame__11_2, 69, 69, 7, 14},
   {cont__11_5, &frame__11_2, 69, 69, 7, 18},
   {cont__11_6, &frame__11_2, 68, 72, 5, 17},
-  {entry__11_1, NULL, 66, 72, 3, 18},
-  {cont__11_9, &frame__11_1, 73, 73, 3, 8},
+  {entry__11_1_std__sqrt, NULL, 66, 72, 3, 18},
+  {cont__11_9, &frame__11_1_std__sqrt, 73, 73, 3, 8},
   {entry__13_2, NULL, 82, 82, 9, 9},
   {cont__13_3, &frame__13_2, 82, 82, 9, 15},
   {cont__13_4, &frame__13_2, 82, 82, 9, 21},
@@ -701,8 +701,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__13_10, &frame__13_2, 83, 83, 5, 13},
   {cont__13_11, &frame__13_2, 84, 84, 5, 10},
   {cont__13_12, &frame__13_2, 84, 84, 10, 10},
-  {entry__13_1, NULL, 81, 84, 3, 10},
-  {cont__13_13, &frame__13_1, 85, 85, 3, 6},
+  {entry__13_1_std__sin, NULL, 81, 84, 3, 10},
+  {cont__13_13, &frame__13_1_std__sin, 85, 85, 3, 6},
   {entry__14_2, NULL, 92, 92, 5, 10},
   {cont__14_3, &frame__14_2, 93, 93, 9, 9},
   {cont__14_4, &frame__14_2, 93, 93, 9, 15},
@@ -714,20 +714,20 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__14_10, &frame__14_2, 93, 93, 5, 37},
   {cont__14_11, &frame__14_2, 94, 94, 5, 13},
   {cont__14_12, &frame__14_2, 94, 94, 13, 13},
-  {entry__14_1, NULL, 91, 94, 3, 13},
-  {cont__14_13, &frame__14_1, 95, 95, 3, 6},
-  {entry__15_1, NULL, 97, 97, 23, 32},
-  {cont__15_2, &frame__15_1, 97, 97, 34, 43},
-  {cont__15_3, &frame__15_1, 97, 97, 23, 43},
-  {cont__15_4, &frame__15_1, 97, 97, 20, 43},
+  {entry__14_1_std__cos, NULL, 91, 94, 3, 13},
+  {cont__14_13, &frame__14_1_std__cos, 95, 95, 3, 6},
+  {entry__15_1_std__tan, NULL, 97, 97, 23, 32},
+  {cont__15_2, &frame__15_1_std__tan, 97, 97, 34, 43},
+  {cont__15_3, &frame__15_1_std__tan, 97, 97, 23, 43},
+  {cont__15_4, &frame__15_1_std__tan, 97, 97, 20, 43},
   {entry__16_3, NULL, 99, 99, 30, 37},
   {cont__16_4, &frame__16_3, 99, 99, 27, 37},
   {entry__16_5, NULL, 99, 99, 51, 51},
   {cont__16_6, &frame__16_5, 99, 99, 44, 52},
   {cont__16_7, &frame__16_5, 99, 99, 44, 52},
   {cont__16_8, &frame__16_5, 99, 99, 40, 52},
-  {entry__16_1, NULL, 99, 99, 20, 24},
-  {cont__16_2, &frame__16_1, 99, 99, 17, 52},
+  {entry__16_1_std__atan, NULL, 99, 99, 20, 24},
+  {cont__16_2, &frame__16_1_std__atan, 99, 99, 17, 52},
   {entry__17_3, NULL, 101, 101, 26, 29},
   {cont__17_4, &frame__17_3, 101, 101, 37, 39},
   {cont__17_5, &frame__17_3, 101, 101, 31, 40},
@@ -735,8 +735,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__17_7, &frame__17_3, 101, 101, 23, 40},
   {entry__17_8, NULL, 101, 101, 46, 53},
   {cont__17_9, &frame__17_8, 101, 101, 43, 53},
-  {entry__17_1, NULL, 101, 101, 16, 20},
-  {cont__17_2, &frame__17_1, 101, 101, 13, 53},
+  {entry__17_1_atan2, NULL, 101, 101, 16, 20},
+  {cont__17_2, &frame__17_1_atan2, 101, 101, 13, 53},
   {entry__18_5, NULL, 104, 104, 24, 27},
   {cont__18_6, &frame__18_5, 104, 104, 36, 42},
   {cont__18_7, &frame__18_5, 104, 104, 36, 44},
@@ -749,10 +749,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__18_14, &frame__18_5, 104, 104, 21, 60},
   {entry__18_15, NULL, 104, 104, 66, 73},
   {cont__18_16, &frame__18_15, 104, 104, 63, 73},
-  {entry__18_1, NULL, 104, 104, 12, 18},
-  {cont__18_2, &frame__18_1, 104, 104, 10, 18},
-  {cont__18_3, &frame__18_1, 104, 104, 6, 18},
-  {cont__18_4, &frame__18_1, 104, 104, 3, 73},
+  {entry__18_1_atan3, NULL, 104, 104, 12, 18},
+  {cont__18_2, &frame__18_1_atan3, 104, 104, 10, 18},
+  {cont__18_3, &frame__18_1_atan3, 104, 104, 6, 18},
+  {cont__18_4, &frame__18_1_atan3, 104, 104, 3, 73},
   {entry__19_2, NULL, 111, 111, 15, 17},
   {cont__19_3, &frame__19_2, 111, 111, 15, 19},
   {cont__19_4, &frame__19_2, 111, 111, 5, 19},
@@ -760,8 +760,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__19_6, &frame__19_2, 112, 112, 5, 12},
   {cont__19_7, &frame__19_2, 113, 113, 5, 9},
   {cont__19_8, &frame__19_2, 113, 113, 9, 9},
-  {entry__19_1, NULL, 110, 113, 3, 9},
-  {cont__19_9, &frame__19_1, 114, 114, 3, 8}
+  {entry__19_1_atan4, NULL, 110, 113, 3, 9},
+  {cont__19_9, &frame__19_1_atan4, 114, 114, 3, 8}
 };
 
 union NODE {
@@ -817,7 +817,7 @@ EXPORT void run__basic__math(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__inc(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // var: 0
@@ -849,7 +849,7 @@ static void cont__1_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__2_1(void) {
+static void entry__2_1_std__dec(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // var: 0
@@ -881,7 +881,7 @@ static void cont__2_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__3_1(void) {
+static void entry__3_1_std__extend_to(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // var: 0
@@ -951,7 +951,7 @@ static void cont__3_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1(void) {
+static void entry__4_1_std__reduce_to(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // var: 0
@@ -1021,7 +1021,7 @@ static void cont__4_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1(void) {
+static void entry__5_1_std__abs(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // var: 0
@@ -1245,7 +1245,7 @@ static void entry__6_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1(void) {
+static void entry__6_1_std__sgn(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // x: 0
@@ -1268,7 +1268,7 @@ static void entry__6_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_1(void) {
+static void entry__7_1_std__sqr(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // var: 0
@@ -1300,7 +1300,7 @@ static void cont__7_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_1(void) {
+static void entry__8_1_std__min(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
@@ -1422,7 +1422,7 @@ static void cont__8_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1(void) {
+static void entry__9_1_std__max(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
@@ -1800,7 +1800,7 @@ static void entry__10_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1(void) {
+static void entry__10_1_std__pow(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // x: 0
@@ -1829,7 +1829,7 @@ static void entry__10_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__11_1(void) {
+static void entry__11_1_std__sqrt(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -2019,7 +2019,7 @@ static void cont__11_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1(void) {
+static void entry__13_1_std__sin(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // alpha: 0
@@ -2249,7 +2249,7 @@ static void cont__13_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1(void) {
+static void entry__14_1_std__cos(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // alpha: 0
@@ -2479,7 +2479,7 @@ static void cont__14_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1(void) {
+static void entry__15_1_std__tan(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // alpha: 0
@@ -2635,7 +2635,7 @@ static void cont__16_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1(void) {
+static void entry__16_1_std__atan(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -2786,7 +2786,7 @@ static void cont__17_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__17_1(void) {
+static void entry__17_1_atan2(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -3015,7 +3015,7 @@ static void cont__18_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1(void) {
+static void entry__18_1_atan3(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // x: 0
@@ -3085,7 +3085,7 @@ static void cont__18_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1(void) {
+static void entry__19_1_atan4(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // x: 0
@@ -3299,29 +3299,29 @@ EXPORT void phase_2__basic__math(void) {
   number__23 = from_uint32(23U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__1_1 = create_function(entry__1_1, 1);
-  func__2_1 = create_function(entry__2_1, 1);
-  func__3_1 = create_function(entry__3_1, 2);
-  func__4_1 = create_function(entry__4_1, 2);
-  func__5_1 = create_function(entry__5_1, 1);
+  func__1_1_std__inc = create_function(entry__1_1_std__inc, 1);
+  func__2_1_std__dec = create_function(entry__2_1_std__dec, 1);
+  func__3_1_std__extend_to = create_function(entry__3_1_std__extend_to, 2);
+  func__4_1_std__reduce_to = create_function(entry__4_1_std__reduce_to, 2);
+  func__5_1_std__abs = create_function(entry__5_1_std__abs, 1);
   func__6_4 = create_function(entry__6_4, 0);
   func__6_7 = create_function(entry__6_7, 0);
   func__6_10 = create_function(entry__6_10, 0);
   func__6_9 = create_function(entry__6_9, 0);
-  func__6_1 = create_function(entry__6_1, 1);
-  func__7_1 = create_function(entry__7_1, 1);
-  func__8_1 = create_function(entry__8_1, -1);
-  func__9_1 = create_function(entry__9_1, -1);
+  func__6_1_std__sgn = create_function(entry__6_1_std__sgn, 1);
+  func__7_1_std__sqr = create_function(entry__7_1_std__sqr, 1);
+  func__8_1_std__min = create_function(entry__8_1_std__min, -1);
+  func__9_1_std__max = create_function(entry__9_1_std__max, -1);
   func__10_4 = create_function(entry__10_4, 0);
-  func__10_1 = create_function(entry__10_1, 2);
-  func__11_1 = create_function(entry__11_1, 1);
-  func__13_1 = create_function(entry__13_1, 1);
-  func__14_1 = create_function(entry__14_1, 1);
-  func__15_1 = create_function(entry__15_1, 1);
-  func__16_1 = create_function(entry__16_1, 1);
-  func__17_1 = create_function(entry__17_1, 1);
-  func__18_1 = create_function(entry__18_1, 1);
-  func__19_1 = create_function(entry__19_1, 1);
+  func__10_1_std__pow = create_function(entry__10_1_std__pow, 2);
+  func__11_1_std__sqrt = create_function(entry__11_1_std__sqrt, 1);
+  func__13_1_std__sin = create_function(entry__13_1_std__sin, 1);
+  func__14_1_std__cos = create_function(entry__14_1_std__cos, 1);
+  func__15_1_std__tan = create_function(entry__15_1_std__tan, 1);
+  func__16_1_std__atan = create_function(entry__16_1_std__atan, 1);
+  func__17_1_atan2 = create_function(entry__17_1_atan2, 1);
+  func__18_1_atan3 = create_function(entry__18_1_atan3, 1);
+  func__19_1_atan4 = create_function(entry__19_1_atan4, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3388,25 +3388,25 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__math(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__inc, &func__1_1);
-  assign_variable(&var.std__dec, &func__2_1);
-  assign_variable(&var.std__extend_to, &func__3_1);
-  assign_variable(&var.std__reduce_to, &func__4_1);
-  assign_variable(&var.std__abs, &func__5_1);
-  assign_variable(&var.std__sgn, &func__6_1);
-  assign_variable(&var.std__sqr, &func__7_1);
-  assign_variable(&var.std__min, &func__8_1);
-  assign_variable(&var.std__max, &func__9_1);
-  assign_variable(&var.std__pow, &func__10_1);
-  assign_variable(&var.std__sqrt, &func__11_1);
+  assign_variable(&var.std__inc, &func__1_1_std__inc);
+  assign_variable(&var.std__dec, &func__2_1_std__dec);
+  assign_variable(&var.std__extend_to, &func__3_1_std__extend_to);
+  assign_variable(&var.std__reduce_to, &func__4_1_std__reduce_to);
+  assign_variable(&var.std__abs, &func__5_1_std__abs);
+  assign_variable(&var.std__sgn, &func__6_1_std__sgn);
+  assign_variable(&var.std__sqr, &func__7_1_std__sqr);
+  assign_variable(&var.std__min, &func__8_1_std__min);
+  assign_variable(&var.std__max, &func__9_1_std__max);
+  assign_variable(&var.std__pow, &func__10_1_std__pow);
+  assign_variable(&var.std__sqrt, &func__11_1_std__sqrt);
   assign_value(&var.std__PI, number__3_1415926535897932);
-  assign_variable(&var.std__sin, &func__13_1);
-  assign_variable(&var.std__cos, &func__14_1);
-  assign_variable(&var.std__tan, &func__15_1);
-  assign_variable(&var.std__atan, &func__16_1);
-  assign_variable(&var._atan2, &func__17_1);
-  assign_variable(&var._atan3, &func__18_1);
-  assign_variable(&var._atan4, &func__19_1);
+  assign_variable(&var.std__sin, &func__13_1_std__sin);
+  assign_variable(&var.std__cos, &func__14_1_std__cos);
+  assign_variable(&var.std__tan, &func__15_1_std__tan);
+  assign_variable(&var.std__atan, &func__16_1_std__atan);
+  assign_variable(&var._atan2, &func__17_1_atan2);
+  assign_variable(&var._atan3, &func__18_1_atan3);
+  assign_variable(&var._atan4, &func__19_1_atan4);
 }
 
 static int already_run_phase_6 = false;

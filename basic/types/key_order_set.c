@@ -359,10 +359,10 @@ static void type__right_of(void);
 static NODE *get__types__key_order_set(void) {
   return var.types__key_order_set;
 }
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {3, {"myself", "return", "left"}};
-static void exit__9_1(void);
+static NODE *func__9_1_fetch_first;
+static void entry__9_1_fetch_first(void);
+static FRAME_INFO frame__9_1_fetch_first = {3, {"myself", "return", "left"}};
+static void exit__9_1_fetch_first(void);
 static void cont__9_2(void);
 static void cont__9_3(void);
 static NODE *func__9_4;
@@ -375,9 +375,9 @@ static FRAME_INFO frame__9_6 = {3, {"myself", "return", "key"}};
 static void cont__9_7(void);
 static void cont__9_8(void);
 static void cont__9_9(void);
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__10_1_get_item;
+static void entry__10_1_get_item(void);
+static FRAME_INFO frame__10_1_get_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__10_2(void);
 static NODE *func__10_3;
 static void entry__10_3(void);
@@ -410,9 +410,9 @@ static FRAME_INFO frame__10_16 = {3, {"return", "myself", "key"}};
 static void cont__10_17(void);
 static void cont__10_18(void);
 static void cont__10_19(void);
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__11_1_add_item;
+static void entry__11_1_add_item(void);
+static FRAME_INFO frame__11_1_add_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__11_2(void);
 static NODE *func__11_3;
 static void entry__11_3(void);
@@ -455,9 +455,9 @@ static void entry__11_23(void);
 static FRAME_INFO frame__11_23 = {1, {"return"}};
 static void cont__11_24(void);
 static void cont__11_25(void);
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__12_1_remove_item;
+static void entry__12_1_remove_item(void);
+static FRAME_INFO frame__12_1_remove_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__12_2(void);
 static NODE *func__12_3;
 static void entry__12_3(void);
@@ -517,9 +517,9 @@ static void entry__12_32(void);
 static FRAME_INFO frame__12_32 = {1, {"return"}};
 static void cont__12_33(void);
 static void cont__12_34(void);
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {4, {"key", "value", "myself", "return"}};
+static NODE *func__13_1_types__key_order_set_;
+static void entry__13_1_types__key_order_set_(void);
+static FRAME_INFO frame__13_1_types__key_order_set_ = {4, {"key", "value", "myself", "return"}};
 static NODE *func__13_2;
 static void entry__13_2(void);
 static FRAME_INFO frame__13_2 = {3, {"return", "myself", "key"}};
@@ -560,15 +560,15 @@ static NODE *string__16_1;
 static NODE *get__std__empty_key_order_set(void) {
   return var.std__empty_key_order_set;
 }
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {0, {}};
+static NODE *func__18_1_std__key_order_set;
+static void entry__18_1_std__key_order_set(void);
+static FRAME_INFO frame__18_1_std__key_order_set = {0, {}};
 static NODE *get__std__key_order_set(void) {
   return var.std__key_order_set;
 }
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {2, {"myself", "body"}};
+static NODE *func__19_1_for_each_item;
+static void entry__19_1_for_each_item(void);
+static FRAME_INFO frame__19_1_for_each_item = {2, {"myself", "body"}};
 static void cont__19_2(void);
 static NODE *func__19_3;
 static void entry__19_3(void);
@@ -578,9 +578,9 @@ static void cont__19_5(void);
 static void cont__19_6(void);
 static void cont__19_7(void);
 static void cont__19_8(void);
-static NODE *func__20_1;
-static void entry__20_1(void);
-static FRAME_INFO frame__20_1 = {3, {"self", "body", "tree"}};
+static NODE *func__20_1_types__key_order_set_for_each;
+static void entry__20_1_types__key_order_set_for_each(void);
+static FRAME_INFO frame__20_1_types__key_order_set_for_each = {3, {"self", "body", "tree"}};
 static void cont__20_2(void);
 static void cont__20_3(void);
 static NODE *func__20_4;
@@ -598,10 +598,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__9_6, NULL, 55, 55, 7, 25},
   {cont__9_7, &frame__9_6, 56, 56, 7, 30},
   {cont__9_8, &frame__9_6, 57, 57, 7, 16},
-  {entry__9_1, NULL, 48, 48, 3, 24},
-  {cont__9_2, &frame__9_1, 50, 50, 5, 19},
-  {cont__9_3, &frame__9_1, 49, 57, 3, 17},
-  {cont__9_9, &frame__9_1, 57, 57, 17, 17},
+  {entry__9_1_fetch_first, NULL, 48, 48, 3, 24},
+  {cont__9_2, &frame__9_1_fetch_first, 50, 50, 5, 19},
+  {cont__9_3, &frame__9_1_fetch_first, 49, 57, 3, 17},
+  {cont__9_9, &frame__9_1_fetch_first, 57, 57, 17, 17},
   {entry__10_3, NULL, 65, 65, 27, 38},
   {entry__10_8, NULL, 68, 68, 23, 33},
   {entry__10_6, NULL, 68, 68, 8, 20},
@@ -616,11 +616,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_18, &frame__10_16, 70, 70, 22, 58},
   {entry__10_14, NULL, 70, 70, 8, 19},
   {cont__10_15, &frame__10_14, 70, 70, 5, 58},
-  {entry__10_1, NULL, 65, 65, 6, 24},
-  {cont__10_2, &frame__10_1, 65, 65, 3, 38},
-  {cont__10_4, &frame__10_1, 66, 66, 3, 24},
-  {cont__10_5, &frame__10_1, 67, 70, 3, 58},
-  {cont__10_19, &frame__10_1, 70, 70, 58, 58},
+  {entry__10_1_get_item, NULL, 65, 65, 6, 24},
+  {cont__10_2, &frame__10_1_get_item, 65, 65, 3, 38},
+  {cont__10_4, &frame__10_1_get_item, 66, 66, 3, 24},
+  {cont__10_5, &frame__10_1_get_item, 67, 70, 3, 58},
+  {cont__10_19, &frame__10_1_get_item, 70, 70, 58, 58},
   {entry__11_3, NULL, 78, 78, 27, 56},
   {entry__11_8, NULL, 81, 81, 23, 33},
   {entry__11_6, NULL, 81, 81, 8, 20},
@@ -641,11 +641,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__11_24, &frame__11_19, 91, 91, 7, 19},
   {entry__11_17, NULL, 87, 87, 8, 19},
   {cont__11_18, &frame__11_17, 87, 91, 5, 19},
-  {entry__11_1, NULL, 78, 78, 6, 24},
-  {cont__11_2, &frame__11_1, 78, 78, 3, 56},
-  {cont__11_4, &frame__11_1, 79, 79, 3, 24},
-  {cont__11_5, &frame__11_1, 80, 91, 3, 20},
-  {cont__11_25, &frame__11_1, 91, 91, 20, 20},
+  {entry__11_1_add_item, NULL, 78, 78, 6, 24},
+  {cont__11_2, &frame__11_1_add_item, 78, 78, 3, 56},
+  {cont__11_4, &frame__11_1_add_item, 79, 79, 3, 24},
+  {cont__11_5, &frame__11_1_add_item, 80, 91, 3, 20},
+  {cont__11_25, &frame__11_1_add_item, 91, 91, 20, 20},
   {entry__12_3, NULL, 99, 99, 27, 55},
   {entry__12_14, NULL, 109, 109, 15, 39},
   {cont__12_15, &frame__12_14, 110, 110, 15, 78},
@@ -675,11 +675,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__12_33, &frame__12_28, 124, 124, 7, 19},
   {entry__12_26, NULL, 120, 120, 8, 19},
   {cont__12_27, &frame__12_26, 120, 124, 5, 19},
-  {entry__12_1, NULL, 99, 99, 6, 24},
-  {cont__12_2, &frame__12_1, 99, 99, 3, 55},
-  {cont__12_4, &frame__12_1, 100, 100, 3, 24},
-  {cont__12_5, &frame__12_1, 101, 124, 3, 20},
-  {cont__12_34, &frame__12_1, 124, 124, 20, 20},
+  {entry__12_1_remove_item, NULL, 99, 99, 6, 24},
+  {cont__12_2, &frame__12_1_remove_item, 99, 99, 3, 55},
+  {cont__12_4, &frame__12_1_remove_item, 100, 100, 3, 24},
+  {cont__12_5, &frame__12_1_remove_item, 101, 124, 3, 20},
+  {cont__12_34, &frame__12_1_remove_item, 124, 124, 20, 20},
   {entry__13_2, NULL, 136, 136, 23, 37},
   {cont__13_3, &frame__13_2, 136, 136, 14, 42},
   {cont__13_4, &frame__13_2, 136, 136, 7, 42},
@@ -702,21 +702,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__13_18, &frame__13_14, 145, 147, 7, 29},
   {cont__13_22, &frame__13_14, 148, 148, 7, 19},
   {entry__13_23, NULL, 150, 150, 7, 65},
-  {entry__13_1, NULL, 133, 150, 3, 66},
-  {cont__13_25, &frame__13_1, 150, 150, 66, 66},
-  {entry__18_1, NULL, 157, 157, 21, 43},
+  {entry__13_1_types__key_order_set_, NULL, 133, 150, 3, 66},
+  {cont__13_25, &frame__13_1_types__key_order_set_, 150, 150, 66, 66},
+  {entry__18_1_std__key_order_set, NULL, 157, 157, 21, 43},
   {entry__19_3, NULL, 161, 161, 19, 33},
   {cont__19_4, &frame__19_3, 161, 161, 5, 38},
   {cont__19_5, &frame__19_3, 162, 162, 10, 23},
   {cont__19_6, &frame__19_3, 162, 162, 5, 23},
   {cont__19_7, &frame__19_3, 163, 163, 19, 34},
   {cont__19_8, &frame__19_3, 163, 163, 5, 39},
-  {entry__19_1, NULL, 160, 160, 6, 22},
-  {cont__19_2, &frame__19_1, 160, 163, 3, 39},
+  {entry__19_1_for_each_item, NULL, 160, 160, 6, 22},
+  {cont__19_2, &frame__19_1_for_each_item, 160, 163, 3, 39},
   {entry__20_4, NULL, 167, 167, 23, 45},
-  {entry__20_1, NULL, 166, 166, 3, 21},
-  {cont__20_2, &frame__20_1, 167, 167, 6, 20},
-  {cont__20_3, &frame__20_1, 167, 167, 3, 45}
+  {entry__20_1_types__key_order_set_for_each, NULL, 166, 166, 3, 21},
+  {cont__20_2, &frame__20_1_types__key_order_set_for_each, 167, 167, 6, 20},
+  {cont__20_3, &frame__20_1_types__key_order_set_for_each, 167, 167, 3, 45}
 };
 
 union NODE {
@@ -834,13 +834,13 @@ EXPORT void run__basic__types__key_order_set(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1(void) {
+static void entry__9_1_fetch_first(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // myself: 0
   // return: 1
   // left: 2
-  frame->slots[1] /* return */ = create_continuation_with_exit(exit__9_1);
+  frame->slots[1] /* return */ = create_continuation_with_exit(exit__9_1_fetch_first);
   frame->slots[2] /* left */ = create_cell();
   if (argument_count != 1) {
     invalid_arguments_error();
@@ -1017,7 +1017,7 @@ static void cont__9_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__9_1(void) {
+static void exit__9_1_fetch_first(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -1027,7 +1027,7 @@ static void exit__9_1(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
   func = continuation_type_function;
 }
-static void entry__10_1(void) {
+static void entry__10_1_get_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -1378,7 +1378,7 @@ static void cont__10_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1(void) {
+static void entry__11_1_add_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -1897,7 +1897,7 @@ static void cont__11_25(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_remove_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -2654,7 +2654,7 @@ static void cont__12_34(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1(void) {
+static void entry__13_1_types__key_order_set_(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // key: 0
@@ -3139,7 +3139,7 @@ static void cont__13_25(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1(void) {
+static void entry__18_1_std__key_order_set(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3249,7 +3249,7 @@ static void cont__19_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1(void) {
+static void entry__19_1_for_each_item(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // myself: 0
@@ -3312,7 +3312,7 @@ static void entry__20_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__20_1(void) {
+static void entry__20_1_types__key_order_set_for_each(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -3399,16 +3399,16 @@ EXPORT void phase_2__basic__types__key_order_set(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   unique__1_1 = register_unique_item("NONE");
-  func__9_1 = create_function(entry__9_1, 1);
-  func__10_1 = create_function(entry__10_1, 2);
-  func__11_1 = create_function(entry__11_1, 2);
-  func__12_1 = create_function(entry__12_1, 2);
+  func__9_1_fetch_first = create_function(entry__9_1_fetch_first, 1);
+  func__10_1_get_item = create_function(entry__10_1_get_item, 2);
+  func__11_1_add_item = create_function(entry__11_1_add_item, 2);
+  func__12_1_remove_item = create_function(entry__12_1_remove_item, 2);
   string__13_24 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__13_23 = create_function(entry__13_23, 0);
   string__16_1 = from_latin_1_string("key_order_set", 13);
-  func__18_1 = create_function(entry__18_1, 0);
-  func__19_1 = create_function(entry__19_1, 2);
-  func__20_1 = create_function(entry__20_1, 2);
+  func__18_1_std__key_order_set = create_function(entry__18_1_std__key_order_set, 0);
+  func__19_1_for_each_item = create_function(entry__19_1_for_each_item, 2);
+  func__20_1_types__key_order_set_for_each = create_function(entry__20_1_types__key_order_set_for_each, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -3455,11 +3455,11 @@ EXPORT void phase_4__basic__types__key_order_set(void) {
   def_attribute(&var._empty_node, poly_idx__left_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
   update_start_p = node_p;
   def_attribute(&var._empty_node, poly_idx__right_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
-  define_type_function("types", "key_order_set", entry__13_1, -1);
+  define_type_function("types", "key_order_set", entry__13_1_types__key_order_set_, -1);
   define_attribute("types", "key_order_set", poly_idx__tree_of, get__undefined());
   define_attribute("types", "key_order_set", poly_idx__length_of, number__0);
   define_attribute("types", "key_order_set", poly_idx__serialization_tag_of, string__16_1);
-  define_method("types", "key_order_set", poly_idx__for_each, func__20_1);
+  define_method("types", "key_order_set", poly_idx__for_each, func__20_1_types__key_order_set_for_each);
 }
 
 static int already_run_phase_5 = false;
@@ -3472,13 +3472,13 @@ EXPORT void phase_5__basic__types__key_order_set(void) {
   assign_value(&var._right_of, create_function(type__right_of, -1));
   assign_value(&var.types__key_order_set, get__types__generic_set());
   assign_value(&var._empty_node, get__types__object());
-  assign_variable(&var._fetch_first, &func__9_1);
-  assign_variable(&var._get_item, &func__10_1);
-  assign_variable(&var._add_item, &func__11_1);
-  assign_variable(&var._remove_item, &func__12_1);
+  assign_variable(&var._fetch_first, &func__9_1_fetch_first);
+  assign_variable(&var._get_item, &func__10_1_get_item);
+  assign_variable(&var._add_item, &func__11_1_add_item);
+  assign_variable(&var._remove_item, &func__12_1_remove_item);
   assign_variable(&var.std__empty_key_order_set, &var.types__key_order_set);
-  assign_variable(&var.std__key_order_set, &func__18_1);
-  assign_variable(&var._for_each_item, &func__19_1);
+  assign_variable(&var.std__key_order_set, &func__18_1_std__key_order_set);
+  assign_variable(&var._for_each_item, &func__19_1_for_each_item);
 }
 
 static int already_run_phase_6 = false;

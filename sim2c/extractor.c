@@ -673,9 +673,9 @@ static NODE *unique__10_1;
 static NODE *unique__11_1;
 static NODE *unique__12_1;
 static NODE *unique__13_1;
-static NODE *func__16_1;
-static void entry__16_1(void);
-static FRAME_INFO frame__16_1 = {3, {"filename", "body", "page"}};
+static NODE *func__16_1_create_page;
+static void entry__16_1_create_page(void);
+static FRAME_INFO frame__16_1_create_page = {3, {"filename", "body", "page"}};
 static NODE *func__16_2;
 static void entry__16_2(void);
 static FRAME_INFO frame__16_2 = {1, {"body"}};
@@ -688,9 +688,9 @@ static FRAME_INFO frame__16_4 = {0, {}};
 static NODE *string__16_5;
 static void cont__16_6(void);
 static void cont__16_7(void);
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {7, {"filename", "return__1", "buf", "fragments", "trees", "first_idx", "local_method_names"}};
+static NODE *func__18_1_extract_documentation_from_file;
+static void entry__18_1_extract_documentation_from_file(void);
+static FRAME_INFO frame__18_1_extract_documentation_from_file = {7, {"filename", "return__1", "buf", "fragments", "trees", "first_idx", "local_method_names"}};
 static NODE *string__18_2;
 static NODE *string__18_3;
 static void cont__18_4(void);
@@ -984,9 +984,9 @@ static void cont__18_187(void);
 static void cont__18_188(void);
 static void cont__18_189(void);
 static void cont__18_190(void);
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {1, {"path"}};
+static NODE *func__19_1_extract_documentation_from_directory;
+static void entry__19_1_extract_documentation_from_directory(void);
+static FRAME_INFO frame__19_1_extract_documentation_from_directory = {1, {"path"}};
 static void cont__19_2(void);
 static void cont__19_3(void);
 static NODE *func__19_4;
@@ -1007,9 +1007,9 @@ static void cont__19_10(void);
 static NODE *func__19_11;
 static void entry__19_11(void);
 static FRAME_INFO frame__19_11 = {1, {"name"}};
-static NODE *func__20_1;
-static void entry__20_1(void);
-static FRAME_INFO frame__20_1 = {2, {"attr", "name"}};
+static NODE *func__20_1_resolved_name;
+static void entry__20_1_resolved_name(void);
+static FRAME_INFO frame__20_1_resolved_name = {2, {"attr", "name"}};
 static void cont__20_2(void);
 static void cont__20_3(void);
 static void cont__20_4(void);
@@ -1046,9 +1046,9 @@ static void cont__20_22(void);
 static void cont__20_23(void);
 static NODE *string__20_24;
 static void cont__20_25(void);
-static NODE *func__21_1;
-static void entry__21_1(void);
-static FRAME_INFO frame__21_1 = {4, {"base", "name", "ibase", "definition"}};
+static NODE *func__21_1_add_derived_type;
+static void entry__21_1_add_derived_type(void);
+static FRAME_INFO frame__21_1_add_derived_type = {4, {"base", "name", "ibase", "definition"}};
 static void cont__21_2(void);
 static void cont__21_3(void);
 static void cont__21_4(void);
@@ -1071,22 +1071,22 @@ static void entry__21_15(void);
 static FRAME_INFO frame__21_15 = {2, {"base_of_base", "ibase"}};
 static void cont__21_16(void);
 static void cont__21_17(void);
-static NODE *func__22_1;
-static void entry__22_1(void);
-static FRAME_INFO frame__22_1 = {1, {"name"}};
+static NODE *func__22_1_mangled;
+static void entry__22_1_mangled(void);
+static FRAME_INFO frame__22_1_mangled = {1, {"name"}};
 static void cont__22_2(void);
 static NODE *string__22_3;
 static void cont__22_4(void);
 static void cont__22_5(void);
-static NODE *func__23_1;
-static void entry__23_1(void);
-static FRAME_INFO frame__23_1 = {2, {"namespace", "name"}};
+static NODE *func__23_1_ordered_name;
+static void entry__23_1_ordered_name(void);
+static FRAME_INFO frame__23_1_ordered_name = {2, {"namespace", "name"}};
 static void cont__23_2(void);
 static void cont__23_3(void);
 static void cont__23_4(void);
-static NODE *func__24_1;
-static void entry__24_1(void);
-static FRAME_INFO frame__24_1 = {0, {}};
+static NODE *func__24_1_link_bar;
+static void entry__24_1_link_bar(void);
+static FRAME_INFO frame__24_1_link_bar = {0, {}};
 static NODE *func__24_2;
 static void entry__24_2(void);
 static FRAME_INFO frame__24_2 = {0, {}};
@@ -1115,9 +1115,9 @@ static void cont__24_24(void);
 static NODE *string__24_25;
 static void cont__24_26(void);
 static NODE *string__24_27;
-static NODE *func__25_1;
-static void entry__25_1(void);
-static FRAME_INFO frame__25_1 = {1, {"reference"}};
+static NODE *func__25_1_resolve_reference;
+static void entry__25_1_resolve_reference(void);
+static FRAME_INFO frame__25_1_resolve_reference = {1, {"reference"}};
 static void cont__25_2(void);
 static NODE *func__25_3;
 static void entry__25_3(void);
@@ -1148,9 +1148,9 @@ static void entry__25_19(void);
 static FRAME_INFO frame__25_19 = {1, {"reference"}};
 static void cont__25_20(void);
 static void cont__25_21(void);
-static NODE *func__28_1;
-static void entry__28_1(void);
-static FRAME_INFO frame__28_1 = {4, {"lines", "paragraphs", "text", "pre_mode"}};
+static NODE *func__28_1_to_paragraphs;
+static void entry__28_1_to_paragraphs(void);
+static FRAME_INFO frame__28_1_to_paragraphs = {4, {"lines", "paragraphs", "text", "pre_mode"}};
 static NODE *func__28_2;
 static void entry__28_2(void);
 static FRAME_INFO frame__28_2 = {4, {"line", "pre_mode", "text", "paragraphs"}};
@@ -1206,9 +1206,9 @@ static void entry__28_30(void);
 static FRAME_INFO frame__28_30 = {2, {"paragraphs", "text"}};
 static void cont__28_31(void);
 static void cont__28_32(void);
-static NODE *func__29_1;
-static void entry__29_1(void);
-static FRAME_INFO frame__29_1 = {2, {"function_name", "info"}};
+static NODE *func__29_1_create_info_page;
+static void entry__29_1_create_info_page(void);
+static FRAME_INFO frame__29_1_create_info_page = {2, {"function_name", "info"}};
 static void cont__29_2(void);
 static NODE *func__29_3;
 static void entry__29_3(void);
@@ -1678,12 +1678,12 @@ static void cont__29_305(void);
 static NODE *string__29_306;
 static NODE *string__29_307;
 static void cont__29_308(void);
-static NODE *func__30_1;
-static void entry__30_1(void);
-static FRAME_INFO frame__30_1 = {2, {"path", "return__1"}};
-static NODE *func__30_2;
-static void entry__30_2(void);
-static FRAME_INFO frame__30_2 = {3, {"text", "tag", "arg_str"}};
+static NODE *func__30_1_sim2c__extract_documentation;
+static void entry__30_1_sim2c__extract_documentation(void);
+static FRAME_INFO frame__30_1_sim2c__extract_documentation = {2, {"path", "return__1"}};
+static NODE *func__30_2_html__encode;
+static void entry__30_2_html__encode(void);
+static FRAME_INFO frame__30_2_html__encode = {3, {"text", "tag", "arg_str"}};
 static NODE *string__30_3;
 static void cont__30_4(void);
 static NODE *func__30_5;
@@ -1756,9 +1756,9 @@ static NODE *string__30_55;
 static NODE *func__30_56;
 static void entry__30_56(void);
 static FRAME_INFO frame__30_56 = {1, {"print_type_info"}};
-static NODE *func__30_57;
-static void entry__30_57(void);
-static FRAME_INFO frame__30_57 = {3, {"info", "indent", "print_type_info"}};
+static NODE *func__30_57_print_type_info;
+static void entry__30_57_print_type_info(void);
+static FRAME_INFO frame__30_57_print_type_info = {3, {"info", "indent", "print_type_info"}};
 static NODE *func__30_58;
 static void entry__30_58(void);
 static FRAME_INFO frame__30_58 = {5, {"info", "indent", "print_type_info", "qname", "remark_lines"}};
@@ -2101,8 +2101,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__16_3, NULL, 63, 142, 7, 12},
   {cont__16_6, &frame__16_3, 143, 143, 7, 15},
   {entry__16_2, NULL, 62, 143, 5, 15},
-  {entry__16_1, NULL, 61, 143, 3, 16},
-  {cont__16_7, &frame__16_1, 144, 144, 3, 20},
+  {entry__16_1_create_page, NULL, 61, 143, 3, 16},
+  {cont__16_7, &frame__16_1_create_page, 144, 144, 3, 20},
   {entry__18_10, NULL, 159, 159, 27, 52},
   {entry__18_16, NULL, 160, 160, 21, 63},
   {entry__18_23, NULL, 161, 161, 26, 71},
@@ -2253,36 +2253,36 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__18_111, &frame__18_110, 223, 286, 7, 56},
   {entry__18_84, NULL, 207, 286, 5, 57},
   {cont__18_189, &frame__18_84, 286, 286, 57, 57},
-  {entry__18_1, NULL, 157, 157, 10, 56},
-  {cont__18_4, &frame__18_1, 157, 157, 3, 56},
-  {cont__18_5, &frame__18_1, 158, 158, 8, 21},
-  {cont__18_6, &frame__18_1, 158, 158, 3, 31},
-  {cont__18_7, &frame__18_1, 159, 159, 6, 19},
-  {cont__18_8, &frame__18_1, 159, 159, 6, 24},
-  {cont__18_9, &frame__18_1, 159, 159, 3, 52},
-  {cont__18_12, &frame__18_1, 160, 160, 6, 11},
-  {cont__18_13, &frame__18_1, 160, 160, 6, 18},
-  {cont__18_14, &frame__18_1, 160, 160, 6, 18},
-  {cont__18_15, &frame__18_1, 160, 160, 3, 63},
-  {cont__18_18, &frame__18_1, 161, 161, 11, 11},
-  {cont__18_19, &frame__18_1, 161, 161, 6, 12},
-  {cont__18_20, &frame__18_1, 161, 161, 6, 23},
-  {cont__18_21, &frame__18_1, 161, 161, 6, 23},
-  {cont__18_22, &frame__18_1, 161, 161, 3, 71},
-  {cont__18_25, &frame__18_1, 164, 164, 17, 48},
-  {cont__18_27, &frame__18_1, 164, 164, 50, 59},
-  {cont__18_29, &frame__18_1, 163, 165, 3, 69},
-  {cont__18_30, &frame__18_1, 174, 174, 3, 37},
-  {cont__18_31, &frame__18_1, 175, 175, 3, 56},
-  {cont__18_34, &frame__18_1, 178, 188, 3, 17},
-  {cont__18_46, &frame__18_1, 189, 189, 31, 31},
-  {cont__18_47, &frame__18_1, 189, 189, 3, 31},
-  {cont__18_48, &frame__18_1, 190, 190, 3, 70},
-  {cont__18_52, &frame__18_1, 191, 191, 6, 29},
-  {cont__18_53, &frame__18_1, 191, 191, 3, 59},
-  {cont__18_57, &frame__18_1, 193, 201, 3, 77},
-  {cont__18_83, &frame__18_1, 202, 286, 3, 58},
-  {cont__18_190, &frame__18_1, 286, 286, 58, 58},
+  {entry__18_1_extract_documentation_from_file, NULL, 157, 157, 10, 56},
+  {cont__18_4, &frame__18_1_extract_documentation_from_file, 157, 157, 3, 56},
+  {cont__18_5, &frame__18_1_extract_documentation_from_file, 158, 158, 8, 21},
+  {cont__18_6, &frame__18_1_extract_documentation_from_file, 158, 158, 3, 31},
+  {cont__18_7, &frame__18_1_extract_documentation_from_file, 159, 159, 6, 19},
+  {cont__18_8, &frame__18_1_extract_documentation_from_file, 159, 159, 6, 24},
+  {cont__18_9, &frame__18_1_extract_documentation_from_file, 159, 159, 3, 52},
+  {cont__18_12, &frame__18_1_extract_documentation_from_file, 160, 160, 6, 11},
+  {cont__18_13, &frame__18_1_extract_documentation_from_file, 160, 160, 6, 18},
+  {cont__18_14, &frame__18_1_extract_documentation_from_file, 160, 160, 6, 18},
+  {cont__18_15, &frame__18_1_extract_documentation_from_file, 160, 160, 3, 63},
+  {cont__18_18, &frame__18_1_extract_documentation_from_file, 161, 161, 11, 11},
+  {cont__18_19, &frame__18_1_extract_documentation_from_file, 161, 161, 6, 12},
+  {cont__18_20, &frame__18_1_extract_documentation_from_file, 161, 161, 6, 23},
+  {cont__18_21, &frame__18_1_extract_documentation_from_file, 161, 161, 6, 23},
+  {cont__18_22, &frame__18_1_extract_documentation_from_file, 161, 161, 3, 71},
+  {cont__18_25, &frame__18_1_extract_documentation_from_file, 164, 164, 17, 48},
+  {cont__18_27, &frame__18_1_extract_documentation_from_file, 164, 164, 50, 59},
+  {cont__18_29, &frame__18_1_extract_documentation_from_file, 163, 165, 3, 69},
+  {cont__18_30, &frame__18_1_extract_documentation_from_file, 174, 174, 3, 37},
+  {cont__18_31, &frame__18_1_extract_documentation_from_file, 175, 175, 3, 56},
+  {cont__18_34, &frame__18_1_extract_documentation_from_file, 178, 188, 3, 17},
+  {cont__18_46, &frame__18_1_extract_documentation_from_file, 189, 189, 31, 31},
+  {cont__18_47, &frame__18_1_extract_documentation_from_file, 189, 189, 3, 31},
+  {cont__18_48, &frame__18_1_extract_documentation_from_file, 190, 190, 3, 70},
+  {cont__18_52, &frame__18_1_extract_documentation_from_file, 191, 191, 6, 29},
+  {cont__18_53, &frame__18_1_extract_documentation_from_file, 191, 191, 3, 59},
+  {cont__18_57, &frame__18_1_extract_documentation_from_file, 193, 201, 3, 77},
+  {cont__18_83, &frame__18_1_extract_documentation_from_file, 202, 286, 3, 58},
+  {cont__18_190, &frame__18_1_extract_documentation_from_file, 286, 286, 58, 58},
   {entry__19_8, NULL, 292, 292, 32, 72},
   {entry__19_6, NULL, 292, 292, 10, 29},
   {cont__19_7, &frame__19_6, 292, 292, 7, 72},
@@ -2291,9 +2291,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__19_10, &frame__19_9, 293, 293, 7, 71},
   {entry__19_4, NULL, 290, 290, 5, 28},
   {cont__19_5, &frame__19_4, 291, 293, 5, 71},
-  {entry__19_1, NULL, 289, 289, 22, 27},
-  {cont__19_2, &frame__19_1, 289, 289, 12, 33},
-  {cont__19_3, &frame__19_1, 289, 293, 3, 72},
+  {entry__19_1_extract_documentation_from_directory, NULL, 289, 289, 22, 27},
+  {cont__19_2, &frame__19_1_extract_documentation_from_directory, 289, 289, 12, 33},
+  {cont__19_3, &frame__19_1_extract_documentation_from_directory, 289, 293, 3, 72},
   {entry__20_5, NULL, 297, 297, 40, 53},
   {cont__20_6, &frame__20_5, 297, 297, 37, 53},
   {entry__20_13, NULL, 302, 303, 17, 64},
@@ -2311,10 +2311,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__20_19, &frame__20_7, 305, 307, 5, 52},
   {cont__20_23, &frame__20_7, 308, 308, 8, 43},
   {cont__20_25, &frame__20_7, 308, 308, 5, 43},
-  {entry__20_1, NULL, 296, 296, 3, 21},
-  {cont__20_2, &frame__20_1, 297, 297, 6, 23},
-  {cont__20_3, &frame__20_1, 297, 297, 6, 34},
-  {cont__20_4, &frame__20_1, 297, 308, 3, 43},
+  {entry__20_1_resolved_name, NULL, 296, 296, 3, 21},
+  {cont__20_2, &frame__20_1_resolved_name, 297, 297, 6, 23},
+  {cont__20_3, &frame__20_1_resolved_name, 297, 297, 6, 34},
+  {cont__20_4, &frame__20_1_resolved_name, 297, 308, 3, 43},
   {entry__21_15, NULL, 318, 318, 35, 69},
   {entry__21_12, NULL, 317, 317, 7, 39},
   {cont__21_13, &frame__21_12, 318, 318, 10, 32},
@@ -2326,20 +2326,20 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__21_11, &frame__21_7, 315, 318, 5, 69},
   {cont__21_16, &frame__21_7, 319, 319, 5, 23},
   {cont__21_17, &frame__21_7, 319, 319, 34, 34},
-  {entry__21_1, NULL, 311, 311, 23, 40},
-  {cont__21_2, &frame__21_1, 311, 311, 42, 59},
-  {cont__21_3, &frame__21_1, 311, 311, 3, 60},
-  {cont__21_4, &frame__21_1, 312, 312, 3, 33},
-  {cont__21_5, &frame__21_1, 313, 313, 6, 26},
-  {cont__21_6, &frame__21_1, 313, 319, 3, 34},
-  {entry__22_1, NULL, 321, 321, 38, 48},
-  {cont__22_2, &frame__22_1, 321, 321, 50, 60},
-  {cont__22_4, &frame__22_1, 321, 321, 21, 61},
-  {cont__22_5, &frame__22_1, 321, 321, 18, 61},
-  {entry__23_1, NULL, 326, 326, 7, 24},
-  {cont__23_2, &frame__23_1, 328, 328, 7, 29},
-  {cont__23_3, &frame__23_1, 325, 332, 5, 14},
-  {cont__23_4, &frame__23_1, 324, 332, 3, 16},
+  {entry__21_1_add_derived_type, NULL, 311, 311, 23, 40},
+  {cont__21_2, &frame__21_1_add_derived_type, 311, 311, 42, 59},
+  {cont__21_3, &frame__21_1_add_derived_type, 311, 311, 3, 60},
+  {cont__21_4, &frame__21_1_add_derived_type, 312, 312, 3, 33},
+  {cont__21_5, &frame__21_1_add_derived_type, 313, 313, 6, 26},
+  {cont__21_6, &frame__21_1_add_derived_type, 313, 319, 3, 34},
+  {entry__22_1_mangled, NULL, 321, 321, 38, 48},
+  {cont__22_2, &frame__22_1_mangled, 321, 321, 50, 60},
+  {cont__22_4, &frame__22_1_mangled, 321, 321, 21, 61},
+  {cont__22_5, &frame__22_1_mangled, 321, 321, 18, 61},
+  {entry__23_1_ordered_name, NULL, 326, 326, 7, 24},
+  {cont__23_2, &frame__23_1_ordered_name, 328, 328, 7, 29},
+  {cont__23_3, &frame__23_1_ordered_name, 325, 332, 5, 14},
+  {cont__23_4, &frame__23_1_ordered_name, 324, 332, 3, 16},
   {entry__24_2, NULL, 336, 336, 7, 27},
   {cont__24_5, &frame__24_2, 336, 336, 5, 34},
   {cont__24_7, &frame__24_2, 337, 337, 5, 29},
@@ -2354,7 +2354,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__24_23, &frame__24_2, 343, 343, 5, 29},
   {cont__24_24, &frame__24_2, 344, 344, 7, 33},
   {cont__24_26, &frame__24_2, 344, 344, 5, 47},
-  {entry__24_1, NULL, 335, 344, 3, 47},
+  {entry__24_1_link_bar, NULL, 335, 344, 3, 47},
   {entry__25_7, NULL, 351, 351, 41, 67},
   {cont__25_9, &frame__25_7, 351, 351, 67, 67},
   {entry__25_12, NULL, 352, 352, 43, 69},
@@ -2371,9 +2371,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__25_20, &frame__25_19, 355, 355, 65, 65},
   {entry__25_17, NULL, 355, 355, 14, 38},
   {cont__25_18, &frame__25_17, 355, 355, 7, 65},
-  {entry__25_1, NULL, 348, 348, 5, 28},
-  {cont__25_2, &frame__25_1, 347, 355, 3, 66},
-  {cont__25_21, &frame__25_1, },
+  {entry__25_1_resolve_reference, NULL, 348, 348, 5, 28},
+  {cont__25_2, &frame__25_1_resolve_reference, 347, 355, 3, 66},
+  {cont__25_21, &frame__25_1_resolve_reference, },
   {entry__28_5, NULL, 369, 369, 13, 22},
   {cont__28_6, &frame__28_5, 370, 370, 13, 33},
   {cont__28_7, &frame__28_5, 371, 371, 22, 22},
@@ -2401,11 +2401,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__28_2, NULL, 365, 386, 5, 37},
   {entry__28_30, NULL, 387, 387, 18, 38},
   {cont__28_31, &frame__28_30, 387, 387, 38, 38},
-  {entry__28_1, NULL, 364, 386, 3, 38},
-  {cont__28_27, &frame__28_1, 387, 387, 6, 15},
-  {cont__28_28, &frame__28_1, 387, 387, 6, 15},
-  {cont__28_29, &frame__28_1, 387, 387, 3, 38},
-  {cont__28_32, &frame__28_1, 388, 388, 3, 15},
+  {entry__28_1_to_paragraphs, NULL, 364, 386, 3, 38},
+  {cont__28_27, &frame__28_1_to_paragraphs, 387, 387, 6, 15},
+  {cont__28_28, &frame__28_1_to_paragraphs, 387, 387, 6, 15},
+  {cont__28_29, &frame__28_1_to_paragraphs, 387, 387, 3, 38},
+  {cont__28_32, &frame__28_1_to_paragraphs, 388, 388, 3, 15},
   {entry__29_11, NULL, 396, 396, 11, 42},
   {cont__29_12, &frame__29_11, 397, 397, 11, 44},
   {cont__29_13, &frame__29_11, 403, 403, 15, 26},
@@ -2685,8 +2685,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__29_3, NULL, 392, 392, 25, 45},
   {cont__29_4, &frame__29_3, 392, 392, 17, 52},
   {cont__29_7, &frame__29_3, 392, 612, 5, 77},
-  {entry__29_1, NULL, 391, 391, 6, 29},
-  {cont__29_2, &frame__29_1, 391, 612, 3, 78},
+  {entry__29_1_create_info_page, NULL, 391, 391, 6, 29},
+  {cont__29_2, &frame__29_1_create_info_page, 391, 612, 3, 78},
   {entry__30_8, NULL, 622, 622, 59, 59},
   {cont__30_9, &frame__30_8, 622, 622, 42, 60},
   {cont__30_10, &frame__30_8, 622, 622, 13, 61},
@@ -2697,9 +2697,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_7, &frame__30_5, 619, 624, 9, 68},
   {cont__30_17, &frame__30_5, 617, 624, 7, 70},
   {cont__30_18, &frame__30_5, 624, 624, 71, 71},
-  {entry__30_2, NULL, 616, 616, 8, 17},
-  {cont__30_4, &frame__30_2, 616, 624, 5, 71},
-  {cont__30_19, &frame__30_2, 625, 625, 5, 13},
+  {entry__30_2_html__encode, NULL, 616, 616, 8, 17},
+  {cont__30_4, &frame__30_2_html__encode, 616, 624, 5, 71},
+  {cont__30_19, &frame__30_2_html__encode, 625, 625, 5, 13},
   {entry__30_29, NULL, 632, 632, 27, 52},
   {entry__30_34, NULL, 636, 636, 24, 48},
   {cont__30_35, &frame__30_34, 636, 636, 11, 62},
@@ -2756,7 +2756,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_74, &frame__30_58, 657, 658, 9, 42},
   {cont__30_78, &frame__30_58, 659, 659, 18, 39},
   {cont__30_79, &frame__30_58, 659, 660, 9, 52},
-  {entry__30_57, NULL, 650, 660, 7, 53},
+  {entry__30_57_print_type_info, NULL, 650, 660, 7, 53},
   {entry__30_89, NULL, 666, 666, 37, 49},
   {cont__30_90, &frame__30_89, 666, 666, 37, 62},
   {cont__30_91, &frame__30_89, 666, 666, 37, 62},
@@ -2890,17 +2890,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_232, &frame__30_227, 745, 745, 5, 48},
   {cont__30_235, &frame__30_227, 746, 746, 5, 52},
   {cont__30_238, &frame__30_227, 747, 747, 5, 50},
-  {entry__30_1, NULL, 627, 627, 42, 42},
-  {cont__30_20, &frame__30_1, 627, 627, 3, 43},
-  {cont__30_21, &frame__30_1, 628, 628, 3, 43},
-  {cont__30_22, &frame__30_1, 629, 643, 3, 44},
-  {cont__30_54, &frame__30_1, 644, 667, 3, 33},
-  {cont__30_94, &frame__30_1, 668, 719, 3, 44},
-  {cont__30_180, &frame__30_1, 720, 726, 3, 70},
-  {cont__30_192, &frame__30_1, 727, 733, 3, 43},
-  {cont__30_208, &frame__30_1, 734, 741, 3, 75},
-  {cont__30_225, &frame__30_1, 742, 747, 3, 50},
-  {cont__30_241, &frame__30_1, 747, 747, 50, 50}
+  {entry__30_1_sim2c__extract_documentation, NULL, 627, 627, 42, 42},
+  {cont__30_20, &frame__30_1_sim2c__extract_documentation, 627, 627, 3, 43},
+  {cont__30_21, &frame__30_1_sim2c__extract_documentation, 628, 628, 3, 43},
+  {cont__30_22, &frame__30_1_sim2c__extract_documentation, 629, 643, 3, 44},
+  {cont__30_54, &frame__30_1_sim2c__extract_documentation, 644, 667, 3, 33},
+  {cont__30_94, &frame__30_1_sim2c__extract_documentation, 668, 719, 3, 44},
+  {cont__30_180, &frame__30_1_sim2c__extract_documentation, 720, 726, 3, 70},
+  {cont__30_192, &frame__30_1_sim2c__extract_documentation, 727, 733, 3, 43},
+  {cont__30_208, &frame__30_1_sim2c__extract_documentation, 734, 741, 3, 75},
+  {cont__30_225, &frame__30_1_sim2c__extract_documentation, 742, 747, 3, 50},
+  {cont__30_241, &frame__30_1_sim2c__extract_documentation, 747, 747, 50, 50}
 };
 
 union NODE {
@@ -3357,7 +3357,7 @@ static void cont__57_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1(void) {
+static void entry__16_1_create_page(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // filename: 0
@@ -3523,7 +3523,7 @@ static void cont__16_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__18_1(void) {
+static void entry__18_1_extract_documentation_from_file(void) {
   allocate_initialized_frame_gc(2, 11);
   // slot allocations:
   // filename: 0
@@ -7468,7 +7468,7 @@ static void cont__19_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1(void) {
+static void entry__19_1_extract_documentation_from_directory(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // path: 0
@@ -7851,7 +7851,7 @@ static void cont__20_25(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__20_1(void) {
+static void entry__20_1_resolved_name(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // attr: 0
@@ -8159,7 +8159,7 @@ static void cont__21_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1(void) {
+static void entry__21_1_add_derived_type(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // base: 0
@@ -8274,7 +8274,7 @@ static void cont__21_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__22_1(void) {
+static void entry__22_1_mangled(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // name: 0
@@ -8339,7 +8339,7 @@ static void cont__22_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__23_1(void) {
+static void entry__23_1_ordered_name(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // namespace: 0
@@ -8635,7 +8635,7 @@ static void cont__24_26(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__24_1(void) {
+static void entry__24_1_link_bar(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -8660,7 +8660,7 @@ static void entry__24_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__25_1(void) {
+static void entry__25_1_resolve_reference(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // reference: 0
@@ -8991,7 +8991,7 @@ static void cont__25_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__28_1(void) {
+static void entry__28_1_to_paragraphs(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // lines: 0
@@ -15298,7 +15298,7 @@ static void cont__29_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__29_1(void) {
+static void entry__29_1_create_info_page(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // function_name: 0
@@ -15354,7 +15354,7 @@ static void cont__29_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__30_1(void) {
+static void entry__30_1_sim2c__extract_documentation(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // path: 0
@@ -15385,7 +15385,7 @@ static void entry__30_1(void) {
   // 
   //   if temp__1 temp__2
   //   emit text
-  define__html__encode(func__30_2);
+  define__html__encode(func__30_2_html__encode);
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -15399,7 +15399,7 @@ static void entry__30_1(void) {
   func = myself->type;
   frame->cont = cont__30_20;
 }
-static void entry__30_2(void) {
+static void entry__30_2_html__encode(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // text: 0
@@ -16497,7 +16497,7 @@ static void entry__30_56(void) {
   // 653:     if qname.is_defined:
   // 654:       TD:
   // ...
-  frame->slots[1] /* temp__1 */ = create_closure(entry__30_57, -1);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__30_57_print_type_info, -1);
   // 645: $print_type_info:
   // 646:   (
   // 647:     info
@@ -16956,7 +16956,7 @@ static void cont__30_79(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__30_57(void) {
+static void entry__30_57_print_type_info(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // info: 0
@@ -19429,7 +19429,7 @@ EXPORT void phase_2__extractor(void) {
   unique__13_1 = register_unique_item("UNIQUE_ITEM");
   string__16_5 = from_latin_1_string("body {\012  background-color: white;\012  font-family: Times New Roman, Times;\012  font-size: 12pt;\012  color: #222;\012}\012h1 {\012  font-family: Arial, Helvetica;\012  font-size: 20pt;\012  color: #333;\012  margin-top: 0pt;\012  margin-bottom: 8pt;\012}\012h2 {\012  font-family: Arial, Helvetica;\012  font-size: 16pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 5pt;\012}\012h3 {\012  font-family: Arial, Helvetica;\012  font-size: 14pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 3pt;\012}\012h4 {\012  font-family: Arial, Helvetica;\012  font-size: 13pt;\012  color: #222;\012  margin-top: 0pt;\012  margin-bottom: 2pt;\012}\012dt {\012  font-style: italic;\012  margin-bottom: 4pt;\012}\012dd {\012  padding-left: 0pt;\012  margin-left: 16pt;\012  margin-top: 0pt;\012  margin-bottom: 0pt;\012}\012p {\012  margin-top: 0pt;\012  margin-bottom: 8pt;\012}\012a {\012  text-decoration: none;\012}\012div.Example {\012  background-color: #ffc;\012  border: solid 1pt;\012  margin-top: 6pt;\012  margin-bottom: 8pt;\012}\012div.Output {\012  background-color: #cff;\012  border: solid 1pt;\012  margin-top: 6pt;\012  margin-bottom: 8pt;\012}\012div.footer {\012  padding-top: 10pt;\012  font-size: 10pt;\012}\012pre {\012  font-family: Courier New, Courier;\012  font-size: 12pt;\012  padding-top: 0pt;\012  padding-bottom: 0pt;\012  margin-top: 2pt;\012  margin-bottom: 2pt;\012}\012td.remark {\012  padding-left: 10pt;\012}\012", 1234);
   func__16_4 = create_function(entry__16_4, 0);
-  func__16_1 = create_function(entry__16_1, 2);
+  func__16_1_create_page = create_function(entry__16_1_create_page, 2);
   string__18_2 = from_latin_1_string("extracting documentation from ", 30);
   string__18_3 = from_latin_1_string("\012", 1);
   string__18_11 = from_latin_1_string("Empty source text!", 18);
@@ -19449,18 +19449,18 @@ EXPORT void phase_2__extractor(void) {
   string__18_92 = from_latin_1_string("type", 4);
   func__18_105 = create_function(entry__18_105, 0);
   string__18_135 = from_latin_1_string("types::function", 15);
-  func__18_1 = create_function(entry__18_1, 1);
+  func__18_1_extract_documentation_from_file = create_function(entry__18_1_extract_documentation_from_file, 1);
   func__19_4 = create_function(entry__19_4, 1);
-  func__19_1 = create_function(entry__19_1, 1);
+  func__19_1_extract_documentation_from_directory = create_function(entry__19_1_extract_documentation_from_directory, 1);
   string__20_14 = from_latin_1_string("The attribute \042", 15);
   string__20_15 = from_latin_1_string("\042 cannot be uniquely resolved!\012", 31);
   string__20_21 = from_latin_1_string("\042 cannot be resolved!\012", 22);
   string__20_24 = from_latin_1_string("::", 2);
-  func__20_1 = create_function(entry__20_1, 1);
-  func__21_1 = create_function(entry__21_1, 2);
+  func__20_1_resolved_name = create_function(entry__20_1_resolved_name, 1);
+  func__21_1_add_derived_type = create_function(entry__21_1_add_derived_type, 2);
   string__22_3 = from_latin_1_string("___", 3);
-  func__22_1 = create_function(entry__22_1, 1);
-  func__23_1 = create_function(entry__23_1, 2);
+  func__22_1_mangled = create_function(entry__22_1_mangled, 1);
+  func__23_1_ordered_name = create_function(entry__23_1_ordered_name, 2);
   string__24_3 = from_latin_1_string("href", 4);
   string__24_4 = from_latin_1_string("index.html", 10);
   string__24_6 = from_latin_1_string("Home", 4);
@@ -19474,11 +19474,11 @@ EXPORT void phase_2__extractor(void) {
   string__24_25 = from_latin_1_string("topic_index.html", 16);
   string__24_27 = from_latin_1_string("Topic Index", 11);
   func__24_2 = create_function(entry__24_2, 0);
-  func__24_1 = create_function(entry__24_1, 0);
+  func__24_1_link_bar = create_function(entry__24_1_link_bar, 0);
   string__25_8 = from_latin_1_string("types::", 7);
   string__25_13 = from_latin_1_string("std::", 5);
-  func__25_1 = create_function(entry__25_1, 1);
-  func__28_1 = create_function(entry__28_1, 1);
+  func__25_1_resolve_reference = create_function(entry__25_1_resolve_reference, 1);
+  func__28_1_to_paragraphs = create_function(entry__28_1_to_paragraphs, 1);
   string__29_5 = from_latin_1_string("html/", 5);
   string__29_6 = from_latin_1_string(".html", 5);
   string__29_16 = from_latin_1_string("](", 2);
@@ -19515,14 +19515,14 @@ EXPORT void phase_2__extractor(void) {
   string__29_302 = from_latin_1_string("footer", 6);
   string__29_306 = from_latin_1_string("(defined in ", 12);
   string__29_307 = from_latin_1_string(")\012", 2);
-  func__29_1 = create_function(entry__29_1, 2);
+  func__29_1_create_info_page = create_function(entry__29_1_create_info_page, 2);
   string__30_3 = from_latin_1_string("p", 1);
   string__30_6 = from_latin_1_string("&lt;", 4);
   string__30_13 = from_latin_1_string("<a href=\042", 9);
   string__30_14 = from_latin_1_string(".html\042>", 7);
   string__30_15 = from_latin_1_string("</a>", 4);
   func__30_8 = create_function(entry__30_8, 1);
-  func__30_2 = create_function(entry__30_2, 3);
+  func__30_2_html__encode = create_function(entry__30_2_html__encode, 3);
   func__30_23 = create_function(entry__30_23, 2);
   string__30_55 = from_latin_1_string("html/type_index.html", 20);
   func__30_56 = create_function(entry__30_56, 0);
@@ -19568,7 +19568,7 @@ EXPORT void phase_2__extractor(void) {
   func__30_236 = create_function(entry__30_236, 0);
   func__30_239 = create_function(entry__30_239, 0);
   func__30_227 = create_function(entry__30_227, 0);
-  func__30_1 = create_function(entry__30_1, 1);
+  func__30_1_sim2c__extract_documentation = create_function(entry__30_1_sim2c__extract_documentation, 1);
   string__56_1 = from_latin_1_string("Topics", 6);
   string__56_2 = from_latin_1_string("Topic", 5);
   string__57_1 = from_latin_1_string("Example", 7);
@@ -19763,18 +19763,18 @@ EXPORT void phase_5__extractor(void) {
   assign_value(&var._derived_types_of, create_function(type__derived_types_of, -1));
   assign_value(&var._methods_of, create_function(type__methods_of, -1));
   assign_value(&var._types_of, create_function(type__types_of, -1));
-  assign_variable(&var._create_page, &func__16_1);
-  assign_variable(&var._extract_documentation_from_file, &func__18_1);
-  assign_variable(&var._extract_documentation_from_directory, &func__19_1);
-  assign_variable(&var._resolved_name, &func__20_1);
-  assign_variable(&var._add_derived_type, &func__21_1);
-  assign_variable(&var._mangled, &func__22_1);
-  assign_variable(&var._ordered_name, &func__23_1);
-  assign_variable(&var._link_bar, &func__24_1);
-  assign_variable(&var._resolve_reference, &func__25_1);
-  assign_variable(&var._to_paragraphs, &func__28_1);
-  assign_variable(&var._create_info_page, &func__29_1);
-  assign_variable(&var.sim2c__extract_documentation, &func__30_1);
+  assign_variable(&var._create_page, &func__16_1_create_page);
+  assign_variable(&var._extract_documentation_from_file, &func__18_1_extract_documentation_from_file);
+  assign_variable(&var._extract_documentation_from_directory, &func__19_1_extract_documentation_from_directory);
+  assign_variable(&var._resolved_name, &func__20_1_resolved_name);
+  assign_variable(&var._add_derived_type, &func__21_1_add_derived_type);
+  assign_variable(&var._mangled, &func__22_1_mangled);
+  assign_variable(&var._ordered_name, &func__23_1_ordered_name);
+  assign_variable(&var._link_bar, &func__24_1_link_bar);
+  assign_variable(&var._resolve_reference, &func__25_1_resolve_reference);
+  assign_variable(&var._to_paragraphs, &func__28_1_to_paragraphs);
+  assign_variable(&var._create_info_page, &func__29_1_create_info_page);
+  assign_variable(&var.sim2c__extract_documentation, &func__30_1_sim2c__extract_documentation);
 }
 
 static int already_run_phase_6 = false;

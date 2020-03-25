@@ -502,9 +502,9 @@ static const char *var_names[] = {
   "umlaut_conversions",
   "eighty_spaces"
 };
-static NODE *func__1_1;
-static void entry__1_1(void);
-static FRAME_INFO frame__1_1 = {3, {"self", "return", "value"}};
+static NODE *func__1_1_types__string_to_integer;
+static void entry__1_1_types__string_to_integer(void);
+static FRAME_INFO frame__1_1_types__string_to_integer = {3, {"self", "return", "value"}};
 static void cont__1_2(void);
 static void cont__1_3(void);
 static void cont__1_4(void);
@@ -512,9 +512,9 @@ static NODE *func__1_5;
 static void entry__1_5(void);
 static FRAME_INFO frame__1_5 = {1, {"return"}};
 static void cont__1_6(void);
-static NODE *func__2_1;
-static void entry__2_1(void);
-static FRAME_INFO frame__2_1 = {3, {"self", "return", "value"}};
+static NODE *func__2_1_types__string_to_real;
+static void entry__2_1_types__string_to_real(void);
+static FRAME_INFO frame__2_1_types__string_to_real = {3, {"self", "return", "value"}};
 static void cont__2_2(void);
 static void cont__2_3(void);
 static void cont__2_4(void);
@@ -522,9 +522,9 @@ static NODE *func__2_5;
 static void entry__2_5(void);
 static FRAME_INFO frame__2_5 = {1, {"return"}};
 static void cont__2_6(void);
-static NODE *func__3_1;
-static void entry__3_1(void);
-static FRAME_INFO frame__3_1 = {3, {"self", "i", "n"}};
+static NODE *func__3_1_types__string_parse_number;
+static void entry__3_1_types__string_parse_number(void);
+static FRAME_INFO frame__3_1_types__string_parse_number = {3, {"self", "i", "n"}};
 static void cont__3_2(void);
 static void cont__3_3(void);
 static void cont__3_4(void);
@@ -563,9 +563,9 @@ static FRAME_INFO frame__3_24 = {1, {"self"}};
 static NODE *func__3_25;
 static void entry__3_25(void);
 static FRAME_INFO frame__3_25 = {1, {"self"}};
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {3, {"self", "return", "value"}};
+static NODE *func__4_1_types__string_to_number;
+static void entry__4_1_types__string_to_number(void);
+static FRAME_INFO frame__4_1_types__string_to_number = {3, {"self", "return", "value"}};
 static void cont__4_2(void);
 static void cont__4_3(void);
 static void cont__4_4(void);
@@ -573,23 +573,23 @@ static NODE *func__4_5;
 static void entry__4_5(void);
 static FRAME_INFO frame__4_5 = {1, {"return"}};
 static void cont__4_6(void);
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {2, {"self", "chr"}};
+static NODE *func__5_1_types__string_put;
+static void entry__5_1_types__string_put(void);
+static FRAME_INFO frame__5_1_types__string_put = {2, {"self", "chr"}};
 static void cont__5_2(void);
 static void cont__5_3(void);
-static NODE *func__6_1;
-static void entry__6_1(void);
-static FRAME_INFO frame__6_1 = {2, {"self", "args"}};
+static NODE *func__6_1_types__string_write_to;
+static void entry__6_1_types__string_write_to(void);
+static FRAME_INFO frame__6_1_types__string_write_to = {2, {"self", "args"}};
 static NODE *func__6_2;
 static void entry__6_2(void);
 static FRAME_INFO frame__6_2 = {2, {"arg", "self"}};
 static void cont__6_3(void);
 static void cont__6_4(void);
 static void cont__6_5(void);
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {5, {"left", "right", "return", "left_len", "right_len"}};
+static NODE *func__7_1_types__string_numerically_less;
+static void entry__7_1_types__string_numerically_less(void);
+static FRAME_INFO frame__7_1_types__string_numerically_less = {5, {"left", "right", "return", "left_len", "right_len"}};
 static void cont__7_2(void);
 static void cont__7_3(void);
 static void cont__7_4(void);
@@ -681,17 +681,17 @@ static void cont__7_55(void);
 static void cont__7_56(void);
 static void cont__7_57(void);
 static void cont__7_58(void);
-static NODE *func__8_1;
-static void entry__8_1(void);
-static FRAME_INFO frame__8_1 = {2, {"self", "items"}};
+static NODE *func__8_1_types__string_to_list;
+static void entry__8_1_types__string_to_list(void);
+static FRAME_INFO frame__8_1_types__string_to_list = {2, {"self", "items"}};
 static NODE *func__8_2;
 static void entry__8_2(void);
 static FRAME_INFO frame__8_2 = {2, {"item", "items"}};
 static void cont__8_3(void);
 static void cont__8_4(void);
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {3, {"args", "buf", "n"}};
+static NODE *func__9_1_std__string;
+static void entry__9_1_std__string(void);
+static FRAME_INFO frame__9_1_std__string = {3, {"args", "buf", "n"}};
 static void cont__9_2(void);
 static NODE *func__9_3;
 static void entry__9_3(void);
@@ -703,9 +703,9 @@ static void cont__9_7(void);
 static NODE *get__std__string(void) {
   return var.std__string;
 }
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {3, {"self", "n", "return"}};
+static NODE *func__10_1_types__string_dup;
+static void entry__10_1_types__string_dup(void);
+static FRAME_INFO frame__10_1_types__string_dup = {3, {"self", "n", "return"}};
 static NODE *func__10_2;
 static void entry__10_2(void);
 static FRAME_INFO frame__10_2 = {1, {"return"}};
@@ -734,9 +734,9 @@ static void entry__10_15(void);
 static FRAME_INFO frame__10_15 = {3, {"return", "str", "self"}};
 static void cont__10_16(void);
 static void cont__10_17(void);
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {6, {"expr", "n", "pad", "return", "text", "len"}};
+static NODE *func__11_1_std__pad_left;
+static void entry__11_1_std__pad_left(void);
+static FRAME_INFO frame__11_1_std__pad_left = {6, {"expr", "n", "pad", "return", "text", "len"}};
 static NODE *string__11_2;
 static void cont__11_3(void);
 static void cont__11_4(void);
@@ -757,9 +757,9 @@ static void cont__11_16(void);
 static NODE *get__std__pad_left(void) {
   return var.std__pad_left;
 }
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {6, {"expr", "n", "pad", "return", "text", "len"}};
+static NODE *func__12_1_std__pad_right;
+static void entry__12_1_std__pad_right(void);
+static FRAME_INFO frame__12_1_std__pad_right = {6, {"expr", "n", "pad", "return", "text", "len"}};
 static void cont__12_2(void);
 static void cont__12_3(void);
 static void cont__12_4(void);
@@ -779,9 +779,9 @@ static void cont__12_15(void);
 static NODE *get__std__pad_right(void) {
   return var.std__pad_right;
 }
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {4, {"expr", "n", "text", "len"}};
+static NODE *func__13_1_std__truncate;
+static void entry__13_1_std__truncate(void);
+static FRAME_INFO frame__13_1_std__truncate = {4, {"expr", "n", "text", "len"}};
 static void cont__13_2(void);
 static void cont__13_3(void);
 static void cont__13_4(void);
@@ -795,9 +795,9 @@ static void cont__13_7(void);
 static NODE *get__std__truncate(void) {
   return var.std__truncate;
 }
-static NODE *func__14_1;
-static void entry__14_1(void);
-static FRAME_INFO frame__14_1 = {4, {"expr", "n", "text", "len"}};
+static NODE *func__14_1_std__pad_or_truncate;
+static void entry__14_1_std__pad_or_truncate(void);
+static FRAME_INFO frame__14_1_std__pad_or_truncate = {4, {"expr", "n", "text", "len"}};
 static void cont__14_2(void);
 static void cont__14_3(void);
 static void cont__14_4(void);
@@ -814,9 +814,9 @@ static void cont__14_10(void);
 static NODE *get__std__pad_or_truncate(void) {
   return var.std__pad_or_truncate;
 }
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {2, {"self", "chr"}};
+static NODE *func__15_1_types__string_match_character;
+static void entry__15_1_types__string_match_character(void);
+static FRAME_INFO frame__15_1_types__string_match_character = {2, {"self", "chr"}};
 static void cont__15_2(void);
 static void cont__15_3(void);
 static NODE *func__15_4;
@@ -831,9 +831,9 @@ static FRAME_INFO frame__15_8 = {0, {}};
 static NODE *func__15_9;
 static void entry__15_9(void);
 static FRAME_INFO frame__15_9 = {0, {}};
-static NODE *func__16_1;
-static void entry__16_1(void);
-static FRAME_INFO frame__16_1 = {4, {"expr", "stream", "return", "len"}};
+static NODE *func__16_1_types__string_grammar__match;
+static void entry__16_1_types__string_grammar__match(void);
+static FRAME_INFO frame__16_1_types__string_grammar__match = {4, {"expr", "stream", "return", "len"}};
 static void cont__16_2(void);
 static void cont__16_3(void);
 static NODE *func__16_4;
@@ -846,9 +846,9 @@ static NODE *func__16_8;
 static void entry__16_8(void);
 static FRAME_INFO frame__16_8 = {2, {"return", "len"}};
 static void cont__16_9(void);
-static NODE *func__17_1;
-static void entry__17_1(void);
-static FRAME_INFO frame__17_1 = {4, {"stream", "expr", "return", "n"}};
+static NODE *func__17_1_types__string_match;
+static void entry__17_1_types__string_match(void);
+static FRAME_INFO frame__17_1_types__string_match = {4, {"stream", "expr", "return", "n"}};
 static void cont__17_2(void);
 static void cont__17_3(void);
 static void cont__17_4(void);
@@ -856,9 +856,9 @@ static NODE *func__17_5;
 static void entry__17_5(void);
 static FRAME_INFO frame__17_5 = {2, {"return", "n"}};
 static void cont__17_6(void);
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {3, {"self", "chr", "sum"}};
+static NODE *func__18_1_types__string_search_character;
+static void entry__18_1_types__string_search_character(void);
+static FRAME_INFO frame__18_1_types__string_search_character = {3, {"self", "chr", "sum"}};
 static void cont__18_2(void);
 static NODE *func__18_3;
 static void entry__18_3(void);
@@ -879,13 +879,13 @@ static void cont__18_12(void);
 static NODE *func__18_13;
 static void entry__18_13(void);
 static FRAME_INFO frame__18_13 = {0, {}};
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {5, {"stream", "expr", "return__1", "pos", "len"}};
+static NODE *func__19_1_types__string_search;
+static void entry__19_1_types__string_search(void);
+static FRAME_INFO frame__19_1_types__string_search = {5, {"stream", "expr", "return__1", "pos", "len"}};
 static void cont__19_2(void);
-static NODE *func__20_1;
-static void entry__20_1(void);
-static FRAME_INFO frame__20_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__20_1_types__string_before;
+static void entry__20_1_types__string_before(void);
+static FRAME_INFO frame__20_1_types__string_before = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__20_2(void);
 static void cont__20_3(void);
 static NODE *func__20_4;
@@ -897,9 +897,9 @@ static NODE *func__20_7;
 static void entry__20_7(void);
 static FRAME_INFO frame__20_7 = {1, {"return"}};
 static void cont__20_8(void);
-static NODE *func__21_1;
-static void entry__21_1(void);
-static FRAME_INFO frame__21_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__21_1_types__string_truncate_from;
+static void entry__21_1_types__string_truncate_from(void);
+static FRAME_INFO frame__21_1_types__string_truncate_from = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__21_2(void);
 static void cont__21_3(void);
 static NODE *func__21_4;
@@ -911,9 +911,9 @@ static NODE *func__21_7;
 static void entry__21_7(void);
 static FRAME_INFO frame__21_7 = {2, {"return", "str"}};
 static void cont__21_8(void);
-static NODE *func__22_1;
-static void entry__22_1(void);
-static FRAME_INFO frame__22_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__22_1_types__string_behind;
+static void entry__22_1_types__string_behind(void);
+static FRAME_INFO frame__22_1_types__string_behind = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__22_2(void);
 static void cont__22_3(void);
 static NODE *func__22_4;
@@ -926,9 +926,9 @@ static NODE *func__22_8;
 static void entry__22_8(void);
 static FRAME_INFO frame__22_8 = {1, {"return"}};
 static void cont__22_9(void);
-static NODE *func__23_1;
-static void entry__23_1(void);
-static FRAME_INFO frame__23_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__23_1_types__string_truncate_until;
+static void entry__23_1_types__string_truncate_until(void);
+static FRAME_INFO frame__23_1_types__string_truncate_until = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__23_2(void);
 static void cont__23_3(void);
 static NODE *func__23_4;
@@ -941,9 +941,9 @@ static NODE *func__23_8;
 static void entry__23_8(void);
 static FRAME_INFO frame__23_8 = {2, {"return", "str"}};
 static void cont__23_9(void);
-static NODE *func__24_1;
-static void entry__24_1(void);
-static FRAME_INFO frame__24_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__24_1_types__string_from;
+static void entry__24_1_types__string_from(void);
+static FRAME_INFO frame__24_1_types__string_from = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__24_2(void);
 static void cont__24_3(void);
 static NODE *func__24_4;
@@ -955,9 +955,9 @@ static NODE *func__24_7;
 static void entry__24_7(void);
 static FRAME_INFO frame__24_7 = {1, {"return"}};
 static void cont__24_8(void);
-static NODE *func__25_1;
-static void entry__25_1(void);
-static FRAME_INFO frame__25_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__25_1_types__string_truncate_before;
+static void entry__25_1_types__string_truncate_before(void);
+static FRAME_INFO frame__25_1_types__string_truncate_before = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__25_2(void);
 static void cont__25_3(void);
 static NODE *func__25_4;
@@ -969,9 +969,9 @@ static NODE *func__25_7;
 static void entry__25_7(void);
 static FRAME_INFO frame__25_7 = {2, {"return", "str"}};
 static void cont__25_8(void);
-static NODE *func__26_1;
-static void entry__26_1(void);
-static FRAME_INFO frame__26_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__26_1_types__string_until;
+static void entry__26_1_types__string_until(void);
+static FRAME_INFO frame__26_1_types__string_until = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__26_2(void);
 static void cont__26_3(void);
 static NODE *func__26_4;
@@ -984,9 +984,9 @@ static NODE *func__26_8;
 static void entry__26_8(void);
 static FRAME_INFO frame__26_8 = {1, {"return"}};
 static void cont__26_9(void);
-static NODE *func__27_1;
-static void entry__27_1(void);
-static FRAME_INFO frame__27_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static NODE *func__27_1_types__string_truncate_behind;
+static void entry__27_1_types__string_truncate_behind(void);
+static FRAME_INFO frame__27_1_types__string_truncate_behind = {6, {"str", "expr", "nth", "return", "pos", "len"}};
 static void cont__27_2(void);
 static void cont__27_3(void);
 static NODE *func__27_4;
@@ -999,19 +999,19 @@ static NODE *func__27_8;
 static void entry__27_8(void);
 static FRAME_INFO frame__27_8 = {2, {"return", "str"}};
 static void cont__27_9(void);
-static NODE *func__28_1;
-static void entry__28_1(void);
-static FRAME_INFO frame__28_1 = {4, {"str", "expr_1", "expr_2", "nth"}};
+static NODE *func__28_1_types__string_between;
+static void entry__28_1_types__string_between(void);
+static FRAME_INFO frame__28_1_types__string_between = {4, {"str", "expr_1", "expr_2", "nth"}};
 static void cont__28_2(void);
 static void cont__28_3(void);
-static NODE *func__29_1;
-static void entry__29_1(void);
-static FRAME_INFO frame__29_1 = {2, {"self", "prefix"}};
+static NODE *func__29_1_types__string_has_prefix;
+static void entry__29_1_types__string_has_prefix(void);
+static FRAME_INFO frame__29_1_types__string_has_prefix = {2, {"self", "prefix"}};
 static void cont__29_2(void);
 static void cont__29_3(void);
-static NODE *func__30_1;
-static void entry__30_1(void);
-static FRAME_INFO frame__30_1 = {4, {"self", "suffix", "return", "len"}};
+static NODE *func__30_1_types__string_has_suffix;
+static void entry__30_1_types__string_has_suffix(void);
+static FRAME_INFO frame__30_1_types__string_has_suffix = {4, {"self", "suffix", "return", "len"}};
 static void cont__30_2(void);
 static NODE *func__30_3;
 static void entry__30_3(void);
@@ -1026,9 +1026,9 @@ static NODE *func__30_10;
 static void entry__30_10(void);
 static FRAME_INFO frame__30_10 = {1, {"return"}};
 static void cont__30_11(void);
-static NODE *func__31_1;
-static void entry__31_1(void);
-static FRAME_INFO frame__31_1 = {4, {"self", "prefix", "return", "n"}};
+static NODE *func__31_1_types__string_without_prefix;
+static void entry__31_1_types__string_without_prefix(void);
+static FRAME_INFO frame__31_1_types__string_without_prefix = {4, {"self", "prefix", "return", "n"}};
 static void cont__31_2(void);
 static void cont__31_3(void);
 static NODE *func__31_4;
@@ -1038,9 +1038,9 @@ static void cont__31_5(void);
 static void cont__31_6(void);
 static void cont__31_7(void);
 static void cont__31_8(void);
-static NODE *func__32_1;
-static void entry__32_1(void);
-static FRAME_INFO frame__32_1 = {4, {"self", "suffix", "return", "len"}};
+static NODE *func__32_1_types__string_without_suffix;
+static void entry__32_1_types__string_without_suffix(void);
+static FRAME_INFO frame__32_1_types__string_without_suffix = {4, {"self", "suffix", "return", "len"}};
 static void cont__32_2(void);
 static NODE *func__32_3;
 static void entry__32_3(void);
@@ -1057,9 +1057,9 @@ static FRAME_INFO frame__32_10 = {3, {"return", "self", "i"}};
 static void cont__32_11(void);
 static void cont__32_12(void);
 static void cont__32_13(void);
-static NODE *func__33_1;
-static void entry__33_1(void);
-static FRAME_INFO frame__33_1 = {3, {"str", "s", "e"}};
+static NODE *func__33_1_std__trim;
+static void entry__33_1_std__trim(void);
+static FRAME_INFO frame__33_1_std__trim = {3, {"str", "s", "e"}};
 static void cont__33_2(void);
 static NODE *func__33_3;
 static void entry__33_3(void);
@@ -1099,9 +1099,9 @@ static void cont__33_25(void);
 static NODE *get__std__trim(void) {
   return var.std__trim;
 }
-static NODE *func__34_1;
-static void entry__34_1(void);
-static FRAME_INFO frame__34_1 = {1, {"str"}};
+static NODE *func__34_1_std__normalize;
+static void entry__34_1_std__normalize(void);
+static FRAME_INFO frame__34_1_std__normalize = {1, {"str"}};
 static void cont__34_2(void);
 static void cont__34_3(void);
 static void cont__34_4(void);
@@ -1110,9 +1110,9 @@ static void cont__34_6(void);
 static NODE *get__std__normalize(void) {
   return var.std__normalize;
 }
-static NODE *func__35_1;
-static void entry__35_1(void);
-static FRAME_INFO frame__35_1 = {3, {"text", "separator", "items"}};
+static NODE *func__35_1_std__split;
+static void entry__35_1_std__split(void);
+static FRAME_INFO frame__35_1_std__split = {3, {"text", "separator", "items"}};
 static void cont__35_3(void);
 static void cont__35_2(void);
 static NODE *func__35_4;
@@ -1142,9 +1142,9 @@ static void cont__35_21(void);
 static NODE *get__std__split(void) {
   return var.std__split;
 }
-static NODE *func__36_1;
-static void entry__36_1(void);
-static FRAME_INFO frame__36_1 = {3, {"words", "separator", "text"}};
+static NODE *func__36_1_std__join;
+static void entry__36_1_std__join(void);
+static FRAME_INFO frame__36_1_std__join = {3, {"words", "separator", "text"}};
 static NODE *func__36_2;
 static void entry__36_2(void);
 static FRAME_INFO frame__36_2 = {2, {"word", "text"}};
@@ -1157,9 +1157,9 @@ static void cont__36_6(void);
 static NODE *get__std__join(void) {
   return var.std__join;
 }
-static NODE *func__37_1;
-static void entry__37_1(void);
-static FRAME_INFO frame__37_1 = {3, {"text", "expr", "n"}};
+static NODE *func__37_1_std__count_occurrences;
+static void entry__37_1_std__count_occurrences(void);
+static FRAME_INFO frame__37_1_std__count_occurrences = {3, {"text", "expr", "n"}};
 static NODE *func__37_2;
 static void entry__37_2(void);
 static FRAME_INFO frame__37_2 = {5, {"expr", "text", "n", "pos", "len"}};
@@ -1178,23 +1178,23 @@ static void cont__37_12(void);
 static NODE *get__std__count_occurrences(void) {
   return var.std__count_occurrences;
 }
-static NODE *func__38_1;
-static void entry__38_1(void);
-static FRAME_INFO frame__38_1 = {2, {"text", "expr"}};
+static NODE *func__38_1_types__string_matches;
+static void entry__38_1_types__string_matches(void);
+static FRAME_INFO frame__38_1_types__string_matches = {2, {"text", "expr"}};
 static void cont__38_2(void);
 static void cont__38_3(void);
 static void cont__38_4(void);
-static NODE *func__39_1;
-static void entry__39_1(void);
-static FRAME_INFO frame__39_1 = {4, {"text", "expr", "pos", "len"}};
+static NODE *func__39_1_types__string_contains;
+static void entry__39_1_types__string_contains(void);
+static FRAME_INFO frame__39_1_types__string_contains = {4, {"text", "expr", "pos", "len"}};
 static void cont__39_2(void);
 static void cont__39_3(void);
-static NODE *func__41_1;
-static void entry__41_1(void);
-static FRAME_INFO frame__41_1 = {4, {"text", "s", "result", "copy"}};
-static NODE *func__41_2;
-static void entry__41_2(void);
-static FRAME_INFO frame__41_2 = {4, {"idx", "result", "text", "s"}};
+static NODE *func__41_1_std__replace_umlauts;
+static void entry__41_1_std__replace_umlauts(void);
+static FRAME_INFO frame__41_1_std__replace_umlauts = {4, {"text", "s", "result", "copy"}};
+static NODE *func__41_2_copy;
+static void entry__41_2_copy(void);
+static FRAME_INFO frame__41_2_copy = {4, {"idx", "result", "text", "s"}};
 static void cont__41_3(void);
 static void cont__41_4(void);
 static void cont__41_5(void);
@@ -1236,9 +1236,9 @@ static void cont__41_28(void);
 static NODE *get__std__replace_umlauts(void) {
   return var.std__replace_umlauts;
 }
-static NODE *func__42_1;
-static void entry__42_1(void);
-static FRAME_INFO frame__42_1 = {3, {"text", "args", "new_text"}};
+static NODE *func__42_1_std__replace_all;
+static void entry__42_1_std__replace_all(void);
+static FRAME_INFO frame__42_1_std__replace_all = {3, {"text", "args", "new_text"}};
 static NODE *func__42_2;
 static void entry__42_2(void);
 static FRAME_INFO frame__42_2 = {3, {"text", "args", "new_text"}};
@@ -1285,9 +1285,9 @@ static NODE *get__std__replace_all(void) {
   return var.std__replace_all;
 }
 static NODE *string__43_1;
-static NODE *func__44_1;
-static void entry__44_1(void);
-static FRAME_INFO frame__44_1 = {1, {"n"}};
+static NODE *func__44_1_std__spaces;
+static void entry__44_1_std__spaces(void);
+static FRAME_INFO frame__44_1_std__spaces = {1, {"n"}};
 static void cont__44_2(void);
 static NODE *func__44_3;
 static void entry__44_3(void);
@@ -1300,9 +1300,9 @@ static void cont__44_6(void);
 static NODE *get__std__spaces(void) {
   return var.std__spaces;
 }
-static NODE *func__45_1;
-static void entry__45_1(void);
-static FRAME_INFO frame__45_1 = {2, {"indent", "text"}};
+static NODE *func__45_1_std__indented;
+static void entry__45_1_std__indented(void);
+static FRAME_INFO frame__45_1_std__indented = {2, {"indent", "text"}};
 static void cont__45_2(void);
 static NODE *func__45_3;
 static void entry__45_3(void);
@@ -1331,9 +1331,9 @@ static void cont__45_20(void);
 static NODE *get__std__indented(void) {
   return var.std__indented;
 }
-static NODE *func__46_1;
-static void entry__46_1(void);
-static FRAME_INFO frame__46_1 = {6, {"text", "body", "body2", "no", "pos", "len"}};
+static NODE *func__46_1_std__for_each_line;
+static void entry__46_1_std__for_each_line(void);
+static FRAME_INFO frame__46_1_std__for_each_line = {6, {"text", "body", "body2", "no", "pos", "len"}};
 static void cont__46_2(void);
 static void cont__46_3(void);
 static NODE *func__46_4;
@@ -1382,17 +1382,17 @@ static FRAME_INFO frame__46_30 = {2, {"body", "text"}};
 static NODE *get__std__for_each_line(void) {
   return var.std__for_each_line;
 }
-static NODE *func__47_1;
-static void entry__47_1(void);
-static FRAME_INFO frame__47_1 = {1, {"text"}};
+static NODE *func__47_1_types__string_to_lower_case;
+static void entry__47_1_types__string_to_lower_case(void);
+static FRAME_INFO frame__47_1_types__string_to_lower_case = {1, {"text"}};
 static void cont__47_2(void);
-static NODE *func__48_1;
-static void entry__48_1(void);
-static FRAME_INFO frame__48_1 = {1, {"text"}};
+static NODE *func__48_1_types__string_to_upper_case;
+static void entry__48_1_types__string_to_upper_case(void);
+static FRAME_INFO frame__48_1_types__string_to_upper_case = {1, {"text"}};
 static void cont__48_2(void);
-static NODE *func__49_1;
-static void entry__49_1(void);
-static FRAME_INFO frame__49_1 = {3, {"text", "out", "to_upper"}};
+static NODE *func__49_1_types__string_to_title_case;
+static void entry__49_1_types__string_to_title_case(void);
+static FRAME_INFO frame__49_1_types__string_to_title_case = {3, {"text", "out", "to_upper"}};
 static NODE *func__49_2;
 static void entry__49_2(void);
 static FRAME_INFO frame__49_2 = {3, {"chr", "to_upper", "out"}};
@@ -1415,27 +1415,27 @@ static void entry__49_11(void);
 static FRAME_INFO frame__49_11 = {3, {"out", "chr", "to_upper"}};
 static void cont__49_12(void);
 static void cont__49_13(void);
-static NODE *func__50_1;
-static void entry__50_1(void);
-static FRAME_INFO frame__50_1 = {1, {"self"}};
-static NODE *func__51_1;
-static void entry__51_1(void);
-static FRAME_INFO frame__51_1 = {1, {"self"}};
-static NODE *func__52_1;
-static void entry__52_1(void);
-static FRAME_INFO frame__52_1 = {3, {"self", "body", "return__1"}};
-static void exit__52_1(void);
-static NODE *func__52_2;
-static void entry__52_2(void);
-static FRAME_INFO frame__52_2 = {2, {"args", "self"}};
+static NODE *func__50_1_types__octet_string_new_empty_collection;
+static void entry__50_1_types__octet_string_new_empty_collection(void);
+static FRAME_INFO frame__50_1_types__octet_string_new_empty_collection = {1, {"self"}};
+static NODE *func__51_1_types__quad_octet_string_new_empty_collection;
+static void entry__51_1_types__quad_octet_string_new_empty_collection(void);
+static FRAME_INFO frame__51_1_types__quad_octet_string_new_empty_collection = {1, {"self"}};
+static NODE *func__52_1_std__collect_output;
+static void entry__52_1_std__collect_output(void);
+static FRAME_INFO frame__52_1_std__collect_output = {3, {"self", "body", "return__1"}};
+static void exit__52_1_std__collect_output(void);
+static NODE *func__52_2_std__write;
+static void entry__52_2_std__write(void);
+static FRAME_INFO frame__52_2_std__write = {2, {"args", "self"}};
 static void cont__52_3(void);
 static void cont__52_4(void);
 static NODE *get__std__collect_output(void) {
   return var.std__collect_output;
 }
-static NODE *func__53_1;
-static void entry__53_1(void);
-static FRAME_INFO frame__53_1 = {3, {"strings", "func", "buf"}};
+static NODE *func__53_1_std__concatenate;
+static void entry__53_1_std__concatenate(void);
+static FRAME_INFO frame__53_1_std__concatenate = {3, {"strings", "func", "buf"}};
 static void cont__53_2(void);
 static NODE *func__53_3;
 static void entry__53_3(void);
@@ -2147,17 +2147,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_389, NULL, 638, 934, 1, 14},
   {cont__93_390, NULL, },
   {entry__1_5, NULL, 29, 29, 18, 33},
-  {entry__1_1, NULL, 28, 28, 3, 28},
-  {cont__1_2, &frame__1_1, 29, 29, 6, 15},
-  {cont__1_3, &frame__1_1, 29, 29, 6, 15},
-  {cont__1_4, &frame__1_1, 29, 29, 3, 33},
-  {cont__1_6, &frame__1_1, 30, 30, 3, 10},
+  {entry__1_1_types__string_to_integer, NULL, 28, 28, 3, 28},
+  {cont__1_2, &frame__1_1_types__string_to_integer, 29, 29, 6, 15},
+  {cont__1_3, &frame__1_1_types__string_to_integer, 29, 29, 6, 15},
+  {cont__1_4, &frame__1_1_types__string_to_integer, 29, 29, 3, 33},
+  {cont__1_6, &frame__1_1_types__string_to_integer, 30, 30, 3, 10},
   {entry__2_5, NULL, 38, 38, 18, 33},
-  {entry__2_1, NULL, 37, 37, 3, 25},
-  {cont__2_2, &frame__2_1, 38, 38, 6, 15},
-  {cont__2_3, &frame__2_1, 38, 38, 6, 15},
-  {cont__2_4, &frame__2_1, 38, 38, 3, 33},
-  {cont__2_6, &frame__2_1, 39, 39, 3, 10},
+  {entry__2_1_types__string_to_real, NULL, 37, 37, 3, 25},
+  {cont__2_2, &frame__2_1_types__string_to_real, 38, 38, 6, 15},
+  {cont__2_3, &frame__2_1_types__string_to_real, 38, 38, 6, 15},
+  {cont__2_4, &frame__2_1_types__string_to_real, 38, 38, 3, 33},
+  {cont__2_6, &frame__2_1_types__string_to_real, 39, 39, 3, 10},
   {entry__3_5, NULL, 44, 44, 22, 27},
   {cont__3_6, &frame__3_5, 44, 44, 27, 27},
   {entry__3_11, NULL, 45, 45, 22, 28},
@@ -2174,29 +2174,29 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__3_22, &frame__3_20, 47, 47, 15, 28},
   {entry__3_24, NULL, 48, 48, 7, 21},
   {entry__3_25, NULL, 50, 50, 7, 24},
-  {entry__3_1, NULL, 43, 43, 3, 20},
-  {cont__3_2, &frame__3_1, 44, 44, 6, 12},
-  {cont__3_3, &frame__3_1, 44, 44, 6, 19},
-  {cont__3_4, &frame__3_1, 44, 44, 3, 27},
-  {cont__3_7, &frame__3_1, 45, 45, 3, 47},
-  {cont__3_17, &frame__3_1, 47, 47, 5, 10},
-  {cont__3_18, &frame__3_1, 47, 47, 5, 10},
-  {cont__3_19, &frame__3_1, 47, 47, 5, 28},
-  {cont__3_23, &frame__3_1, 46, 50, 3, 25},
+  {entry__3_1_types__string_parse_number, NULL, 43, 43, 3, 20},
+  {cont__3_2, &frame__3_1_types__string_parse_number, 44, 44, 6, 12},
+  {cont__3_3, &frame__3_1_types__string_parse_number, 44, 44, 6, 19},
+  {cont__3_4, &frame__3_1_types__string_parse_number, 44, 44, 3, 27},
+  {cont__3_7, &frame__3_1_types__string_parse_number, 45, 45, 3, 47},
+  {cont__3_17, &frame__3_1_types__string_parse_number, 47, 47, 5, 10},
+  {cont__3_18, &frame__3_1_types__string_parse_number, 47, 47, 5, 10},
+  {cont__3_19, &frame__3_1_types__string_parse_number, 47, 47, 5, 28},
+  {cont__3_23, &frame__3_1_types__string_parse_number, 46, 50, 3, 25},
   {entry__4_5, NULL, 58, 58, 18, 33},
-  {entry__4_1, NULL, 57, 57, 3, 27},
-  {cont__4_2, &frame__4_1, 58, 58, 6, 15},
-  {cont__4_3, &frame__4_1, 58, 58, 6, 15},
-  {cont__4_4, &frame__4_1, 58, 58, 3, 33},
-  {cont__4_6, &frame__4_1, 59, 59, 3, 10},
-  {entry__5_1, NULL, 61, 61, 42, 54},
-  {cont__5_2, &frame__5_1, 61, 61, 35, 60},
-  {cont__5_3, &frame__5_1, 61, 61, 32, 60},
+  {entry__4_1_types__string_to_number, NULL, 57, 57, 3, 27},
+  {cont__4_2, &frame__4_1_types__string_to_number, 58, 58, 6, 15},
+  {cont__4_3, &frame__4_1_types__string_to_number, 58, 58, 6, 15},
+  {cont__4_4, &frame__4_1_types__string_to_number, 58, 58, 3, 33},
+  {cont__4_6, &frame__4_1_types__string_to_number, 59, 59, 3, 10},
+  {entry__5_1_types__string_put, NULL, 61, 61, 42, 54},
+  {cont__5_2, &frame__5_1_types__string_put, 61, 61, 35, 60},
+  {cont__5_3, &frame__5_1_types__string_put, 61, 61, 32, 60},
   {entry__6_2, NULL, 68, 68, 37, 49},
   {cont__6_3, &frame__6_2, 68, 68, 24, 49},
   {cont__6_4, &frame__6_2, 68, 68, 49, 49},
-  {entry__6_1, NULL, 68, 68, 3, 49},
-  {cont__6_5, &frame__6_1, },
+  {entry__6_1_types__string_write_to, NULL, 68, 68, 3, 49},
+  {cont__6_5, &frame__6_1_types__string_write_to, },
   {entry__7_19, NULL, 87, 87, 11, 26},
   {cont__7_20, &frame__7_19, 87, 87, 11, 26},
   {cont__7_21, &frame__7_19, 87, 87, 11, 26},
@@ -2250,22 +2250,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_7, &frame__7_5, 81, 81, 8, 28},
   {cont__7_8, &frame__7_5, 81, 81, 8, 28},
   {cont__7_9, &frame__7_5, 81, 106, 5, 33},
-  {entry__7_1, NULL, 76, 76, 3, 27},
-  {cont__7_2, &frame__7_1, 77, 77, 3, 29},
-  {cont__7_3, &frame__7_1, 78, 78, 13, 35},
-  {cont__7_4, &frame__7_1, 78, 106, 3, 34},
-  {cont__7_58, &frame__7_1, 106, 106, 34, 34},
+  {entry__7_1_types__string_numerically_less, NULL, 76, 76, 3, 27},
+  {cont__7_2, &frame__7_1_types__string_numerically_less, 77, 77, 3, 29},
+  {cont__7_3, &frame__7_1_types__string_numerically_less, 78, 78, 13, 35},
+  {cont__7_4, &frame__7_1_types__string_numerically_less, 78, 106, 3, 34},
+  {cont__7_58, &frame__7_1_types__string_numerically_less, 106, 106, 34, 34},
   {entry__8_2, NULL, 110, 110, 25, 40},
   {cont__8_3, &frame__8_2, 110, 110, 40, 40},
-  {entry__8_1, NULL, 110, 110, 3, 40},
-  {cont__8_4, &frame__8_1, 111, 111, 3, 10},
+  {entry__8_1_types__string_to_list, NULL, 110, 110, 3, 40},
+  {cont__8_4, &frame__8_1_types__string_to_list, 111, 111, 3, 10},
   {entry__9_3, NULL, 116, 116, 42, 48},
   {cont__9_4, &frame__9_3, 116, 116, 32, 49},
   {cont__9_5, &frame__9_3, 116, 116, 20, 49},
   {cont__9_6, &frame__9_3, 116, 116, 49, 49},
-  {entry__9_1, NULL, 115, 115, 3, 20},
-  {cont__9_2, &frame__9_1, 116, 116, 3, 49},
-  {cont__9_7, &frame__9_1, 117, 117, 3, 8},
+  {entry__9_1_std__string, NULL, 115, 115, 3, 20},
+  {cont__9_2, &frame__9_1_std__string, 116, 116, 3, 49},
+  {cont__9_7, &frame__9_1_std__string, 117, 117, 3, 8},
   {entry__10_2, NULL, 129, 129, 7, 15},
   {entry__10_3, NULL, 131, 131, 7, 17},
   {entry__10_6, NULL, 133, 133, 17, 50},
@@ -2280,8 +2280,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_10, &frame__10_4, 137, 137, 9, 11},
   {cont__10_11, &frame__10_4, 137, 137, 9, 16},
   {cont__10_12, &frame__10_4, 136, 140, 7, 38},
-  {entry__10_1, NULL, 126, 140, 3, 40},
-  {cont__10_17, &frame__10_1, 140, 140, 40, 40},
+  {entry__10_1_types__string_dup, NULL, 126, 140, 3, 40},
+  {cont__10_17, &frame__10_1_types__string_dup, 140, 140, 40, 40},
   {entry__11_6, NULL, 158, 158, 5, 27},
   {cont__11_7, &frame__11_6, 159, 159, 33, 37},
   {cont__11_8, &frame__11_6, 159, 159, 33, 45},
@@ -2292,11 +2292,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__11_13, &frame__11_6, 159, 159, 19, 71},
   {cont__11_14, &frame__11_6, 159, 159, 12, 77},
   {cont__11_15, &frame__11_6, 159, 159, 5, 77},
-  {entry__11_1, NULL, 155, 155, 3, 22},
-  {cont__11_3, &frame__11_1, 156, 156, 3, 22},
-  {cont__11_4, &frame__11_1, 157, 157, 6, 12},
-  {cont__11_5, &frame__11_1, 157, 159, 3, 77},
-  {cont__11_16, &frame__11_1, 160, 160, 3, 9},
+  {entry__11_1_std__pad_left, NULL, 155, 155, 3, 22},
+  {cont__11_3, &frame__11_1_std__pad_left, 156, 156, 3, 22},
+  {cont__11_4, &frame__11_1_std__pad_left, 157, 157, 6, 12},
+  {cont__11_5, &frame__11_1_std__pad_left, 157, 159, 3, 77},
+  {cont__11_16, &frame__11_1_std__pad_left, 160, 160, 3, 9},
   {entry__12_5, NULL, 178, 178, 5, 27},
   {cont__12_6, &frame__12_5, 179, 179, 38, 42},
   {cont__12_7, &frame__12_5, 179, 179, 38, 50},
@@ -2307,52 +2307,52 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__12_12, &frame__12_5, 179, 179, 24, 76},
   {cont__12_13, &frame__12_5, 179, 179, 12, 77},
   {cont__12_14, &frame__12_5, 179, 179, 5, 77},
-  {entry__12_1, NULL, 175, 175, 3, 22},
-  {cont__12_2, &frame__12_1, 176, 176, 3, 22},
-  {cont__12_3, &frame__12_1, 177, 177, 6, 12},
-  {cont__12_4, &frame__12_1, 177, 179, 3, 77},
-  {cont__12_15, &frame__12_1, 180, 180, 3, 9},
+  {entry__12_1_std__pad_right, NULL, 175, 175, 3, 22},
+  {cont__12_2, &frame__12_1_std__pad_right, 176, 176, 3, 22},
+  {cont__12_3, &frame__12_1_std__pad_right, 177, 177, 6, 12},
+  {cont__12_4, &frame__12_1_std__pad_right, 177, 179, 3, 77},
+  {cont__12_15, &frame__12_1_std__pad_right, 180, 180, 3, 9},
   {entry__13_5, NULL, 194, 194, 15, 21},
   {entry__13_6, NULL, 194, 194, 27, 41},
   {cont__13_7, &frame__13_6, 194, 194, 24, 41},
-  {entry__13_1, NULL, 192, 192, 3, 22},
-  {cont__13_2, &frame__13_1, 193, 193, 3, 22},
-  {cont__13_3, &frame__13_1, 194, 194, 6, 12},
-  {cont__13_4, &frame__13_1, 194, 194, 3, 41},
+  {entry__13_1_std__truncate, NULL, 192, 192, 3, 22},
+  {cont__13_2, &frame__13_1_std__truncate, 193, 193, 3, 22},
+  {cont__13_3, &frame__13_1_std__truncate, 194, 194, 6, 12},
+  {cont__13_4, &frame__13_1_std__truncate, 194, 194, 3, 41},
   {entry__14_5, NULL, 209, 209, 38, 42},
   {cont__14_6, &frame__14_5, 209, 209, 30, 43},
   {cont__14_7, &frame__14_5, 209, 209, 18, 44},
   {cont__14_8, &frame__14_5, 209, 209, 15, 44},
   {entry__14_9, NULL, 209, 209, 50, 64},
   {cont__14_10, &frame__14_9, 209, 209, 47, 64},
-  {entry__14_1, NULL, 207, 207, 3, 22},
-  {cont__14_2, &frame__14_1, 208, 208, 3, 22},
-  {cont__14_3, &frame__14_1, 209, 209, 6, 12},
-  {cont__14_4, &frame__14_1, 209, 209, 3, 64},
+  {entry__14_1_std__pad_or_truncate, NULL, 207, 207, 3, 22},
+  {cont__14_2, &frame__14_1_std__pad_or_truncate, 208, 208, 3, 22},
+  {cont__14_3, &frame__14_1_std__pad_or_truncate, 209, 209, 6, 12},
+  {cont__14_4, &frame__14_1_std__pad_or_truncate, 209, 209, 3, 64},
   {entry__15_4, NULL, 212, 212, 29, 35},
   {cont__15_5, &frame__15_4, 212, 212, 29, 42},
   {cont__15_6, &frame__15_4, 212, 212, 29, 42},
   {entry__15_8, NULL, 212, 212, 45, 48},
   {entry__15_9, NULL, 212, 212, 51, 62},
-  {entry__15_1, NULL, 212, 212, 6, 20},
-  {cont__15_2, &frame__15_1, 212, 212, 6, 24},
-  {cont__15_3, &frame__15_1, 212, 212, 6, 42},
-  {cont__15_7, &frame__15_1, 212, 212, 3, 62},
+  {entry__15_1_types__string_match_character, NULL, 212, 212, 6, 20},
+  {cont__15_2, &frame__15_1_types__string_match_character, 212, 212, 6, 24},
+  {cont__15_3, &frame__15_1_types__string_match_character, 212, 212, 6, 42},
+  {cont__15_7, &frame__15_1_types__string_match_character, 212, 212, 3, 62},
   {entry__16_4, NULL, 221, 221, 43, 58},
   {entry__16_8, NULL, 222, 222, 35, 44},
-  {entry__16_1, NULL, 220, 220, 3, 22},
-  {cont__16_2, &frame__16_1, 221, 221, 10, 40},
-  {cont__16_3, &frame__16_1, 221, 221, 3, 58},
-  {cont__16_5, &frame__16_1, 222, 222, 6, 24},
-  {cont__16_6, &frame__16_1, 222, 222, 6, 32},
-  {cont__16_7, &frame__16_1, 222, 222, 3, 44},
-  {cont__16_9, &frame__16_1, 223, 223, 3, 14},
+  {entry__16_1_types__string_grammar__match, NULL, 220, 220, 3, 22},
+  {cont__16_2, &frame__16_1_types__string_grammar__match, 221, 221, 10, 40},
+  {cont__16_3, &frame__16_1_types__string_grammar__match, 221, 221, 3, 58},
+  {cont__16_5, &frame__16_1_types__string_grammar__match, 222, 222, 6, 24},
+  {cont__16_6, &frame__16_1_types__string_grammar__match, 222, 222, 6, 32},
+  {cont__16_7, &frame__16_1_types__string_grammar__match, 222, 222, 3, 44},
+  {cont__16_9, &frame__16_1_types__string_grammar__match, 223, 223, 3, 14},
   {entry__17_5, NULL, 233, 233, 39, 68},
-  {entry__17_1, NULL, 232, 232, 3, 32},
-  {cont__17_2, &frame__17_1, 233, 233, 6, 31},
-  {cont__17_3, &frame__17_1, 233, 233, 6, 36},
-  {cont__17_4, &frame__17_1, 233, 233, 3, 68},
-  {cont__17_6, &frame__17_1, 234, 234, 3, 6},
+  {entry__17_1_types__string_match, NULL, 232, 232, 3, 32},
+  {cont__17_2, &frame__17_1_types__string_match, 233, 233, 6, 31},
+  {cont__17_3, &frame__17_1_types__string_match, 233, 233, 6, 36},
+  {cont__17_4, &frame__17_1_types__string_match, 233, 233, 3, 68},
+  {cont__17_6, &frame__17_1_types__string_match, 234, 234, 3, 6},
   {entry__18_6, NULL, 246, 246, 12, 16},
   {cont__18_7, &frame__18_6, 246, 246, 9, 16},
   {entry__18_8, NULL, 247, 247, 43, 43},
@@ -2364,84 +2364,84 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__18_4, &frame__18_3, 245, 245, 9, 22},
   {cont__18_5, &frame__18_3, 244, 247, 7, 55},
   {entry__18_13, NULL, 248, 248, 5, 16},
-  {entry__18_1, NULL, 243, 243, 5, 31},
-  {cont__18_2, &frame__18_1, 242, 248, 3, 16},
-  {entry__19_1, NULL, 259, 259, 3, 39},
-  {cont__19_2, &frame__19_1, 260, 260, 3, 12},
+  {entry__18_1_types__string_search_character, NULL, 243, 243, 5, 31},
+  {cont__18_2, &frame__18_1_types__string_search_character, 242, 248, 3, 16},
+  {entry__19_1_types__string_search, NULL, 259, 259, 3, 39},
+  {cont__19_2, &frame__19_1_types__string_search, 260, 260, 3, 12},
   {entry__20_4, NULL, 298, 298, 26, 30},
   {cont__20_5, &frame__20_4, 298, 298, 14, 31},
   {cont__20_6, &frame__20_4, 298, 298, 7, 31},
   {entry__20_7, NULL, 300, 300, 7, 15},
-  {entry__20_1, NULL, 295, 295, 3, 41},
-  {cont__20_2, &frame__20_1, 297, 297, 5, 18},
-  {cont__20_3, &frame__20_1, 296, 300, 3, 16},
-  {cont__20_8, &frame__20_1, 300, 300, 16, 16},
+  {entry__20_1_types__string_before, NULL, 295, 295, 3, 41},
+  {cont__20_2, &frame__20_1_types__string_before, 297, 297, 5, 18},
+  {cont__20_3, &frame__20_1_types__string_before, 296, 300, 3, 16},
+  {cont__20_8, &frame__20_1_types__string_before, 300, 300, 16, 16},
   {entry__21_4, NULL, 329, 329, 26, 30},
   {cont__21_5, &frame__21_4, 329, 329, 14, 31},
   {cont__21_6, &frame__21_4, 329, 329, 7, 31},
   {entry__21_7, NULL, 331, 331, 7, 16},
-  {entry__21_1, NULL, 326, 326, 3, 41},
-  {cont__21_2, &frame__21_1, 328, 328, 5, 18},
-  {cont__21_3, &frame__21_1, 327, 331, 3, 17},
-  {cont__21_8, &frame__21_1, 331, 331, 17, 17},
+  {entry__21_1_types__string_truncate_from, NULL, 326, 326, 3, 41},
+  {cont__21_2, &frame__21_1_types__string_truncate_from, 328, 328, 5, 18},
+  {cont__21_3, &frame__21_1_types__string_truncate_from, 327, 331, 3, 17},
+  {cont__21_8, &frame__21_1_types__string_truncate_from, 331, 331, 17, 17},
   {entry__22_4, NULL, 367, 367, 24, 30},
   {cont__22_5, &frame__22_4, 367, 367, 33, 33},
   {cont__22_6, &frame__22_4, 367, 367, 14, 34},
   {cont__22_7, &frame__22_4, 367, 367, 7, 34},
   {entry__22_8, NULL, 369, 369, 7, 15},
-  {entry__22_1, NULL, 364, 364, 3, 40},
-  {cont__22_2, &frame__22_1, 366, 366, 5, 18},
-  {cont__22_3, &frame__22_1, 365, 369, 3, 16},
-  {cont__22_9, &frame__22_1, 369, 369, 16, 16},
+  {entry__22_1_types__string_behind, NULL, 364, 364, 3, 40},
+  {cont__22_2, &frame__22_1_types__string_behind, 366, 366, 5, 18},
+  {cont__22_3, &frame__22_1_types__string_behind, 365, 369, 3, 16},
+  {cont__22_9, &frame__22_1_types__string_behind, 369, 369, 16, 16},
   {entry__23_4, NULL, 398, 398, 24, 30},
   {cont__23_5, &frame__23_4, 398, 398, 33, 33},
   {cont__23_6, &frame__23_4, 398, 398, 14, 34},
   {cont__23_7, &frame__23_4, 398, 398, 7, 34},
   {entry__23_8, NULL, 400, 400, 7, 16},
-  {entry__23_1, NULL, 395, 395, 3, 40},
-  {cont__23_2, &frame__23_1, 397, 397, 5, 18},
-  {cont__23_3, &frame__23_1, 396, 400, 3, 17},
-  {cont__23_9, &frame__23_1, 400, 400, 17, 17},
+  {entry__23_1_types__string_truncate_until, NULL, 395, 395, 3, 40},
+  {cont__23_2, &frame__23_1_types__string_truncate_until, 397, 397, 5, 18},
+  {cont__23_3, &frame__23_1_types__string_truncate_until, 396, 400, 3, 17},
+  {cont__23_9, &frame__23_1_types__string_truncate_until, 400, 400, 17, 17},
   {entry__24_4, NULL, 432, 432, 29, 29},
   {cont__24_5, &frame__24_4, 432, 432, 14, 30},
   {cont__24_6, &frame__24_4, 432, 432, 7, 30},
   {entry__24_7, NULL, 434, 434, 7, 15},
-  {entry__24_1, NULL, 429, 429, 3, 41},
-  {cont__24_2, &frame__24_1, 431, 431, 5, 18},
-  {cont__24_3, &frame__24_1, 430, 434, 3, 16},
-  {cont__24_8, &frame__24_1, 434, 434, 16, 16},
+  {entry__24_1_types__string_from, NULL, 429, 429, 3, 41},
+  {cont__24_2, &frame__24_1_types__string_from, 431, 431, 5, 18},
+  {cont__24_3, &frame__24_1_types__string_from, 430, 434, 3, 16},
+  {cont__24_8, &frame__24_1_types__string_from, 434, 434, 16, 16},
   {entry__25_4, NULL, 454, 454, 29, 29},
   {cont__25_5, &frame__25_4, 454, 454, 14, 30},
   {cont__25_6, &frame__25_4, 454, 454, 7, 30},
   {entry__25_7, NULL, 456, 456, 7, 16},
-  {entry__25_1, NULL, 451, 451, 3, 41},
-  {cont__25_2, &frame__25_1, 453, 453, 5, 18},
-  {cont__25_3, &frame__25_1, 452, 456, 3, 17},
-  {cont__25_8, &frame__25_1, 456, 456, 17, 17},
+  {entry__25_1_types__string_truncate_before, NULL, 451, 451, 3, 41},
+  {cont__25_2, &frame__25_1_types__string_truncate_before, 453, 453, 5, 18},
+  {cont__25_3, &frame__25_1_types__string_truncate_before, 452, 456, 3, 17},
+  {cont__25_8, &frame__25_1_types__string_truncate_before, 456, 456, 17, 17},
   {entry__26_4, NULL, 484, 484, 26, 32},
   {cont__26_5, &frame__26_4, 484, 484, 26, 34},
   {cont__26_6, &frame__26_4, 484, 484, 14, 35},
   {cont__26_7, &frame__26_4, 484, 484, 7, 35},
   {entry__26_8, NULL, 486, 486, 7, 15},
-  {entry__26_1, NULL, 481, 481, 3, 40},
-  {cont__26_2, &frame__26_1, 483, 483, 5, 18},
-  {cont__26_3, &frame__26_1, 482, 486, 3, 16},
-  {cont__26_9, &frame__26_1, 486, 486, 16, 16},
+  {entry__26_1_types__string_until, NULL, 481, 481, 3, 40},
+  {cont__26_2, &frame__26_1_types__string_until, 483, 483, 5, 18},
+  {cont__26_3, &frame__26_1_types__string_until, 482, 486, 3, 16},
+  {cont__26_9, &frame__26_1_types__string_until, 486, 486, 16, 16},
   {entry__27_4, NULL, 506, 506, 26, 32},
   {cont__27_5, &frame__27_4, 506, 506, 26, 34},
   {cont__27_6, &frame__27_4, 506, 506, 14, 35},
   {cont__27_7, &frame__27_4, 506, 506, 7, 35},
   {entry__27_8, NULL, 508, 508, 7, 16},
-  {entry__27_1, NULL, 503, 503, 3, 40},
-  {cont__27_2, &frame__27_1, 505, 505, 5, 18},
-  {cont__27_3, &frame__27_1, 504, 508, 3, 17},
-  {cont__27_9, &frame__27_1, 508, 508, 17, 17},
-  {entry__28_1, NULL, 525, 525, 6, 27},
-  {cont__28_2, &frame__28_1, 525, 525, 6, 43},
-  {cont__28_3, &frame__28_1, 525, 525, 3, 43},
-  {entry__29_1, NULL, 536, 536, 6, 23},
-  {cont__29_2, &frame__29_1, 536, 536, 6, 34},
-  {cont__29_3, &frame__29_1, 536, 536, 3, 34},
+  {entry__27_1_types__string_truncate_behind, NULL, 503, 503, 3, 40},
+  {cont__27_2, &frame__27_1_types__string_truncate_behind, 505, 505, 5, 18},
+  {cont__27_3, &frame__27_1_types__string_truncate_behind, 504, 508, 3, 17},
+  {cont__27_9, &frame__27_1_types__string_truncate_behind, 508, 508, 17, 17},
+  {entry__28_1_types__string_between, NULL, 525, 525, 6, 27},
+  {cont__28_2, &frame__28_1_types__string_between, 525, 525, 6, 43},
+  {cont__28_3, &frame__28_1_types__string_between, 525, 525, 3, 43},
+  {entry__29_1_types__string_has_prefix, NULL, 536, 536, 6, 23},
+  {cont__29_2, &frame__29_1_types__string_has_prefix, 536, 536, 6, 34},
+  {cont__29_3, &frame__29_1_types__string_has_prefix, 536, 536, 3, 34},
   {entry__30_10, NULL, 550, 550, 51, 61},
   {entry__30_3, NULL, 550, 550, 28, 28},
   {cont__30_4, &frame__30_3, 550, 550, 14, 29},
@@ -2450,17 +2450,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_7, &frame__30_3, 550, 550, 42, 48},
   {cont__30_8, &frame__30_3, 550, 550, 8, 48},
   {cont__30_9, &frame__30_3, 550, 550, 5, 61},
-  {entry__30_1, NULL, 548, 548, 3, 22},
-  {cont__30_2, &frame__30_1, 549, 550, 3, 61},
-  {cont__30_11, &frame__30_1, 551, 551, 3, 10},
+  {entry__30_1_types__string_has_suffix, NULL, 548, 548, 3, 22},
+  {cont__30_2, &frame__30_1_types__string_has_suffix, 549, 550, 3, 61},
+  {cont__30_11, &frame__30_1_types__string_has_suffix, 551, 551, 3, 10},
   {entry__31_4, NULL, 564, 564, 38, 40},
   {cont__31_5, &frame__31_4, 564, 564, 43, 43},
   {cont__31_6, &frame__31_4, 564, 564, 27, 44},
   {cont__31_7, &frame__31_4, 564, 564, 20, 44},
-  {entry__31_1, NULL, 563, 563, 3, 23},
-  {cont__31_2, &frame__31_1, 564, 564, 6, 17},
-  {cont__31_3, &frame__31_1, 564, 564, 3, 44},
-  {cont__31_8, &frame__31_1, 565, 565, 3, 9},
+  {entry__31_1_types__string_without_prefix, NULL, 563, 563, 3, 23},
+  {cont__31_2, &frame__31_1_types__string_without_prefix, 564, 564, 6, 17},
+  {cont__31_3, &frame__31_1_types__string_without_prefix, 564, 564, 3, 44},
+  {cont__31_8, &frame__31_1_types__string_without_prefix, 565, 565, 3, 9},
   {entry__32_10, NULL, 579, 579, 71, 73},
   {cont__32_11, &frame__32_10, 579, 579, 58, 74},
   {cont__32_12, &frame__32_10, 579, 579, 51, 74},
@@ -2471,9 +2471,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__32_7, &frame__32_3, 579, 579, 42, 48},
   {cont__32_8, &frame__32_3, 579, 579, 8, 48},
   {cont__32_9, &frame__32_3, 579, 579, 5, 74},
-  {entry__32_1, NULL, 577, 577, 3, 22},
-  {cont__32_2, &frame__32_1, 578, 579, 3, 74},
-  {cont__32_13, &frame__32_1, 580, 580, 3, 9},
+  {entry__32_1_types__string_without_suffix, NULL, 577, 577, 3, 22},
+  {cont__32_2, &frame__32_1_types__string_without_suffix, 578, 579, 3, 74},
+  {cont__32_13, &frame__32_1_types__string_without_suffix, 580, 580, 3, 9},
   {entry__33_6, NULL, 585, 585, 22, 27},
   {cont__33_7, &frame__33_6, 585, 585, 22, 34},
   {cont__33_8, &frame__33_6, 585, 585, 22, 34},
@@ -2494,17 +2494,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__33_15, &frame__33_14, 586, 586, 12, 17},
   {cont__33_16, &frame__33_14, 586, 586, 12, 34},
   {cont__33_21, &frame__33_14, 586, 586, 9, 46},
-  {entry__33_1, NULL, 584, 584, 3, 20},
-  {cont__33_2, &frame__33_1, 585, 585, 3, 45},
-  {cont__33_13, &frame__33_1, 586, 586, 3, 46},
-  {cont__33_24, &frame__33_1, 587, 587, 3, 16},
-  {cont__33_25, &frame__33_1, 587, 587, 16, 16},
-  {entry__34_1, NULL, 590, 590, 3, 11},
-  {cont__34_2, &frame__34_1, 591, 591, 25, 53},
-  {cont__34_3, &frame__34_1, 591, 591, 20, 54},
-  {cont__34_4, &frame__34_1, 591, 591, 20, 60},
-  {cont__34_5, &frame__34_1, 591, 591, 3, 60},
-  {cont__34_6, &frame__34_1, 591, 591, 60, 60},
+  {entry__33_1_std__trim, NULL, 584, 584, 3, 20},
+  {cont__33_2, &frame__33_1_std__trim, 585, 585, 3, 45},
+  {cont__33_13, &frame__33_1_std__trim, 586, 586, 3, 46},
+  {cont__33_24, &frame__33_1_std__trim, 587, 587, 3, 16},
+  {cont__33_25, &frame__33_1_std__trim, 587, 587, 16, 16},
+  {entry__34_1_std__normalize, NULL, 590, 590, 3, 11},
+  {cont__34_2, &frame__34_1_std__normalize, 591, 591, 25, 53},
+  {cont__34_3, &frame__34_1_std__normalize, 591, 591, 20, 54},
+  {cont__34_4, &frame__34_1_std__normalize, 591, 591, 20, 60},
+  {cont__34_5, &frame__34_1_std__normalize, 591, 591, 3, 60},
+  {cont__34_6, &frame__34_1_std__normalize, 591, 591, 60, 60},
   {entry__35_7, NULL, 602, 602, 32, 36},
   {cont__35_8, &frame__35_7, 602, 602, 19, 37},
   {cont__35_9, &frame__35_7, 602, 602, 7, 37},
@@ -2519,19 +2519,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__35_15, &frame__35_4, 604, 604, 5, 21},
   {entry__35_19, NULL, 605, 605, 27, 42},
   {cont__35_20, &frame__35_19, 605, 605, 42, 42},
-  {entry__35_1, NULL, 596, 596, 5, 13},
-  {cont__35_3, &frame__35_1, },
-  {cont__35_2, &frame__35_1, 599, 604, 3, 21},
-  {cont__35_16, &frame__35_1, 605, 605, 6, 20},
-  {cont__35_17, &frame__35_1, 605, 605, 6, 24},
-  {cont__35_18, &frame__35_1, 605, 605, 3, 42},
-  {cont__35_21, &frame__35_1, 606, 606, 3, 10},
+  {entry__35_1_std__split, NULL, 596, 596, 5, 13},
+  {cont__35_3, &frame__35_1_std__split, },
+  {cont__35_2, &frame__35_1_std__split, 599, 604, 3, 21},
+  {cont__35_16, &frame__35_1_std__split, 605, 605, 6, 20},
+  {cont__35_17, &frame__35_1_std__split, 605, 605, 6, 24},
+  {cont__35_18, &frame__35_1_std__split, 605, 605, 3, 42},
+  {cont__35_21, &frame__35_1_std__split, 606, 606, 3, 10},
   {entry__36_2, NULL, 616, 616, 7, 23},
   {cont__36_3, &frame__36_2, 616, 616, 23, 23},
   {entry__36_4, NULL, 618, 618, 7, 28},
   {cont__36_5, &frame__36_4, 618, 618, 28, 28},
-  {entry__36_1, NULL, 614, 618, 3, 29},
-  {cont__36_6, &frame__36_1, 619, 619, 3, 9},
+  {entry__36_1_std__join, NULL, 614, 618, 3, 29},
+  {cont__36_6, &frame__36_1_std__join, 619, 619, 3, 9},
   {entry__37_5, NULL, 626, 626, 19, 25},
   {cont__37_6, &frame__37_5, 626, 626, 28, 28},
   {cont__37_7, &frame__37_5, 626, 626, 7, 28},
@@ -2542,19 +2542,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__37_4, &frame__37_2, 625, 627, 5, 12},
   {cont__37_10, &frame__37_2, 628, 628, 8, 21},
   {cont__37_11, &frame__37_2, 628, 628, 5, 21},
-  {entry__37_1, NULL, 623, 628, 3, 21},
-  {cont__37_12, &frame__37_1, 629, 629, 3, 6},
-  {entry__38_1, NULL, 632, 632, 6, 30},
-  {cont__38_2, &frame__38_1, 632, 632, 35, 49},
-  {cont__38_3, &frame__38_1, 632, 632, 6, 49},
-  {cont__38_4, &frame__38_1, 632, 632, 3, 49},
-  {entry__39_1, NULL, 635, 635, 3, 38},
-  {cont__39_2, &frame__39_1, 636, 636, 6, 19},
-  {cont__39_3, &frame__39_1, 636, 636, 3, 19},
-  {entry__41_2, NULL, 941, 941, 20, 36},
-  {cont__41_3, &frame__41_2, 941, 941, 5, 36},
-  {cont__41_4, &frame__41_2, 942, 942, 5, 12},
-  {cont__41_5, &frame__41_2, 942, 942, 12, 12},
+  {entry__37_1_std__count_occurrences, NULL, 623, 628, 3, 21},
+  {cont__37_12, &frame__37_1_std__count_occurrences, 629, 629, 3, 6},
+  {entry__38_1_types__string_matches, NULL, 632, 632, 6, 30},
+  {cont__38_2, &frame__38_1_types__string_matches, 632, 632, 35, 49},
+  {cont__38_3, &frame__38_1_types__string_matches, 632, 632, 6, 49},
+  {cont__38_4, &frame__38_1_types__string_matches, 632, 632, 3, 49},
+  {entry__39_1_types__string_contains, NULL, 635, 635, 3, 38},
+  {cont__39_2, &frame__39_1_types__string_contains, 636, 636, 6, 19},
+  {cont__39_3, &frame__39_1_types__string_contains, 636, 636, 3, 19},
+  {entry__41_2_copy, NULL, 941, 941, 20, 36},
+  {cont__41_3, &frame__41_2_copy, 941, 941, 5, 36},
+  {cont__41_4, &frame__41_2_copy, 942, 942, 5, 12},
+  {cont__41_5, &frame__41_2_copy, 942, 942, 12, 12},
   {entry__41_17, NULL, 952, 952, 15, 39},
   {cont__41_18, &frame__41_17, 952, 952, 39, 39},
   {entry__41_19, NULL, 954, 954, 15, 30},
@@ -2575,10 +2575,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__41_6, NULL, 945, 945, 8, 22},
   {cont__41_7, &frame__41_6, 945, 945, 8, 22},
   {cont__41_8, &frame__41_6, 945, 957, 5, 33},
-  {entry__41_1, NULL, 944, 957, 3, 34},
-  {cont__41_26, &frame__41_1, 958, 958, 8, 22},
-  {cont__41_27, &frame__41_1, 958, 958, 3, 22},
-  {cont__41_28, &frame__41_1, 959, 959, 3, 11},
+  {entry__41_1_std__replace_umlauts, NULL, 944, 957, 3, 34},
+  {cont__41_26, &frame__41_1_std__replace_umlauts, 958, 958, 8, 22},
+  {cont__41_27, &frame__41_1_std__replace_umlauts, 958, 958, 3, 22},
+  {cont__41_28, &frame__41_1_std__replace_umlauts, 959, 959, 3, 11},
   {entry__42_14, NULL, 992, 992, 15, 42},
   {cont__42_15, &frame__42_14, 992, 992, 42, 42},
   {entry__42_16, NULL, 994, 994, 44, 60},
@@ -2606,14 +2606,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__42_2, NULL, 983, 983, 12, 26},
   {cont__42_3, &frame__42_2, 983, 983, 12, 30},
   {cont__42_4, &frame__42_2, 983, 998, 9, 23},
-  {entry__42_1, NULL, 983, 998, 3, 23},
-  {cont__42_29, &frame__42_1, 999, 999, 3, 13},
+  {entry__42_1_std__replace_all, NULL, 983, 998, 3, 23},
+  {cont__42_29, &frame__42_1_std__replace_all, 999, 999, 3, 13},
   {entry__44_3, NULL, 1006, 1006, 33, 42},
   {cont__44_4, &frame__44_3, 1006, 1006, 30, 42},
   {entry__44_5, NULL, 1006, 1006, 48, 71},
   {cont__44_6, &frame__44_5, 1006, 1006, 45, 71},
-  {entry__44_1, NULL, 1006, 1006, 22, 27},
-  {cont__44_2, &frame__44_1, 1006, 1006, 19, 71},
+  {entry__44_1_std__spaces, NULL, 1006, 1006, 22, 27},
+  {cont__44_2, &frame__44_1_std__spaces, 1006, 1006, 19, 71},
   {entry__45_14, NULL, 1014, 1014, 36, 42},
   {cont__45_15, &frame__45_14, 1014, 1014, 36, 52},
   {cont__45_16, &frame__45_14, 1014, 1014, 36, 52},
@@ -2630,9 +2630,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__45_12, &frame__45_3, 1014, 1014, 12, 31},
   {cont__45_13, &frame__45_3, 1014, 1014, 12, 52},
   {cont__45_17, &frame__45_3, 1014, 1014, 5, 78},
-  {entry__45_1, NULL, 1009, 1009, 6, 15},
-  {cont__45_2, &frame__45_1, 1009, 1014, 3, 78},
-  {cont__45_20, &frame__45_1, 1015, 1015, 3, 9},
+  {entry__45_1_std__indented, NULL, 1009, 1009, 6, 15},
+  {cont__45_2, &frame__45_1_std__indented, 1009, 1014, 3, 78},
+  {cont__45_20, &frame__45_1_std__indented, 1015, 1015, 3, 9},
   {entry__46_7, NULL, 1029, 1029, 32, 36},
   {cont__46_8, &frame__46_7, 1029, 1029, 19, 37},
   {cont__46_9, &frame__46_7, 1029, 1029, 11, 37},
@@ -2660,13 +2660,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__46_23, NULL, 1036, 1036, 10, 24},
   {cont__46_24, &frame__46_23, 1036, 1036, 10, 28},
   {cont__46_25, &frame__46_23, 1036, 1041, 7, 23},
-  {entry__46_1, NULL, 1024, 1024, 3, 31},
-  {cont__46_2, &frame__46_1, 1026, 1026, 5, 18},
-  {cont__46_3, &frame__46_1, 1025, 1041, 3, 25},
-  {entry__47_1, NULL, 1043, 1043, 41, 63},
-  {cont__47_2, &frame__47_1, 1043, 1043, 38, 63},
-  {entry__48_1, NULL, 1045, 1045, 41, 63},
-  {cont__48_2, &frame__48_1, 1045, 1045, 38, 63},
+  {entry__46_1_std__for_each_line, NULL, 1024, 1024, 3, 31},
+  {cont__46_2, &frame__46_1_std__for_each_line, 1026, 1026, 5, 18},
+  {cont__46_3, &frame__46_1_std__for_each_line, 1025, 1041, 3, 25},
+  {entry__47_1_types__string_to_lower_case, NULL, 1043, 1043, 41, 63},
+  {cont__47_2, &frame__47_1_types__string_to_lower_case, 1043, 1043, 38, 63},
+  {entry__48_1_types__string_to_upper_case, NULL, 1045, 1045, 41, 63},
+  {cont__48_2, &frame__48_1_types__string_to_upper_case, 1045, 1045, 38, 63},
   {entry__49_5, NULL, 1055, 1055, 23, 39},
   {cont__49_6, &frame__49_5, 1055, 1055, 13, 39},
   {cont__49_7, &frame__49_5, 1056, 1056, 27, 27},
@@ -2678,14 +2678,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__49_12, &frame__49_11, 1061, 1061, 22, 22},
   {entry__49_2, NULL, 1052, 1052, 7, 31},
   {cont__49_3, &frame__49_2, 1051, 1061, 5, 23},
-  {entry__49_1, NULL, 1050, 1061, 3, 24},
-  {cont__49_13, &frame__49_1, 1062, 1062, 3, 8},
-  {entry__50_1, NULL, 1129, 1129, 52, 73},
-  {entry__51_1, NULL, 1131, 1131, 57, 78},
-  {entry__52_2, NULL, 1138, 1138, 24, 43},
-  {cont__52_3, &frame__52_2, 1138, 1138, 43, 43},
-  {entry__52_1, NULL, 1140, 1140, 3, 6},
-  {cont__52_4, &frame__52_1, 1140, 1140, 6, 6},
+  {entry__49_1_types__string_to_title_case, NULL, 1050, 1061, 3, 24},
+  {cont__49_13, &frame__49_1_types__string_to_title_case, 1062, 1062, 3, 8},
+  {entry__50_1_types__octet_string_new_empty_collection, NULL, 1129, 1129, 52, 73},
+  {entry__51_1_types__quad_octet_string_new_empty_collection, NULL, 1131, 1131, 57, 78},
+  {entry__52_2_std__write, NULL, 1138, 1138, 24, 43},
+  {cont__52_3, &frame__52_2_std__write, 1138, 1138, 43, 43},
+  {entry__52_1_std__collect_output, NULL, 1140, 1140, 3, 6},
+  {cont__52_4, &frame__52_1_std__collect_output, 1140, 1140, 6, 6},
   {entry__53_4, NULL, 1146, 1146, 43, 51},
   {cont__53_5, &frame__53_4, 1146, 1146, 31, 51},
   {cont__53_6, &frame__53_4, 1146, 1146, 51, 51},
@@ -2693,9 +2693,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__53_8, NULL, 1148, 1148, 31, 45},
   {cont__53_9, &frame__53_8, 1148, 1148, 45, 45},
   {entry__53_7, NULL, 1148, 1148, 7, 45},
-  {entry__53_1, NULL, 1145, 1145, 5, 19},
-  {cont__53_2, &frame__53_1, 1144, 1148, 3, 46},
-  {cont__53_10, &frame__53_1, 1149, 1149, 3, 8}
+  {entry__53_1_std__concatenate, NULL, 1145, 1145, 5, 19},
+  {cont__53_2, &frame__53_1_std__concatenate, 1144, 1148, 3, 46},
+  {cont__53_10, &frame__53_1_std__concatenate, 1149, 1149, 3, 8}
 };
 
 union NODE {
@@ -8091,7 +8091,7 @@ static void cont__93_390(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_types__string_to_integer(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -8196,7 +8196,7 @@ static void cont__1_6(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__2_1(void) {
+static void entry__2_1_types__string_to_real(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -8337,7 +8337,7 @@ static void entry__3_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_1(void) {
+static void entry__3_1_types__string_parse_number(void) {
   allocate_initialized_frame_gc(1, 9);
   // slot allocations:
   // self: 0
@@ -8732,7 +8732,7 @@ static void cont__3_23(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1(void) {
+static void entry__4_1_types__string_to_number(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -8837,7 +8837,7 @@ static void cont__4_6(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1(void) {
+static void entry__5_1_types__string_put(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -8885,7 +8885,7 @@ static void cont__5_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1(void) {
+static void entry__6_1_types__string_write_to(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
@@ -8969,7 +8969,7 @@ static void cont__6_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_1(void) {
+static void entry__7_1_types__string_numerically_less(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // left: 0
@@ -10139,7 +10139,7 @@ static void cont__7_58(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__8_1(void) {
+static void entry__8_1_types__string_to_list(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10208,7 +10208,7 @@ static void cont__8_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1(void) {
+static void entry__9_1_std__string(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
@@ -10325,7 +10325,7 @@ static void cont__9_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1(void) {
+static void entry__10_1_types__string_dup(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -10643,7 +10643,7 @@ static void cont__10_17(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1(void) {
+static void entry__11_1_std__pad_left(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // expr: 0
@@ -10917,7 +10917,7 @@ static void cont__11_16(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_std__pad_right(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // expr: 0
@@ -11244,7 +11244,7 @@ static void cont__13_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1(void) {
+static void entry__13_1_std__truncate(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // expr: 0
@@ -11423,7 +11423,7 @@ static void cont__14_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1(void) {
+static void entry__14_1_std__pad_or_truncate(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // expr: 0
@@ -11527,7 +11527,7 @@ static void entry__15_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1(void) {
+static void entry__15_1_types__string_match_character(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -11646,7 +11646,7 @@ static void cont__15_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__16_1(void) {
+static void entry__16_1_types__string_grammar__match(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // expr: 0
@@ -11803,7 +11803,7 @@ static void cont__16_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__17_1(void) {
+static void entry__17_1_types__string_match(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // stream: 0
@@ -12108,7 +12108,7 @@ static void entry__18_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1(void) {
+static void entry__18_1_types__string_search_character(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -12168,7 +12168,7 @@ static void cont__18_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1(void) {
+static void entry__19_1_types__string_search(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // stream: 0
@@ -12216,7 +12216,7 @@ static void cont__19_2(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__20_1(void) {
+static void entry__20_1_types__string_before(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12379,7 +12379,7 @@ static void cont__20_8(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1(void) {
+static void entry__21_1_types__string_truncate_from(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12544,7 +12544,7 @@ static void cont__21_8(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__22_1(void) {
+static void entry__22_1_types__string_behind(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12724,7 +12724,7 @@ static void cont__22_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__23_1(void) {
+static void entry__23_1_types__string_truncate_until(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12906,7 +12906,7 @@ static void cont__23_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1(void) {
+static void entry__24_1_types__string_from(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13068,7 +13068,7 @@ static void cont__24_8(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1(void) {
+static void entry__25_1_types__string_truncate_before(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13232,7 +13232,7 @@ static void cont__25_8(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__26_1(void) {
+static void entry__26_1_types__string_until(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13413,7 +13413,7 @@ static void cont__26_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1(void) {
+static void entry__27_1_types__string_truncate_behind(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13596,7 +13596,7 @@ static void cont__27_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__28_1(void) {
+static void entry__28_1_types__string_between(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // str: 0
@@ -13659,7 +13659,7 @@ static void cont__28_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_1(void) {
+static void entry__29_1_types__string_has_prefix(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -13707,7 +13707,7 @@ static void cont__29_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__30_1(void) {
+static void entry__30_1_types__string_has_suffix(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -13905,7 +13905,7 @@ static void cont__30_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__31_1(void) {
+static void entry__31_1_types__string_without_prefix(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -14044,7 +14044,7 @@ static void cont__31_8(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__32_1(void) {
+static void entry__32_1_types__string_without_suffix(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -14279,7 +14279,7 @@ static void cont__32_13(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__33_1(void) {
+static void entry__33_1_std__trim(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // str: 0
@@ -14703,7 +14703,7 @@ static void cont__33_25(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__34_1(void) {
+static void entry__34_1_std__normalize(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // str: 0
@@ -14799,7 +14799,7 @@ static void cont__34_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__35_1(void) {
+static void entry__35_1_std__split(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
@@ -15177,7 +15177,7 @@ static void cont__35_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_1(void) {
+static void entry__36_1_std__join(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // words: 0
@@ -15300,7 +15300,7 @@ static void cont__36_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__37_1(void) {
+static void entry__37_1_std__count_occurrences(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // text: 0
@@ -15529,7 +15529,7 @@ static void cont__37_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_1(void) {
+static void entry__38_1_types__string_matches(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // text: 0
@@ -15593,7 +15593,7 @@ static void cont__38_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__39_1(void) {
+static void entry__39_1_types__string_contains(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // text: 0
@@ -15650,7 +15650,7 @@ static void cont__39_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_1(void) {
+static void entry__41_1_std__replace_umlauts(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // text: 0
@@ -15667,7 +15667,7 @@ static void entry__41_1(void) {
   // 940: ... : (idx)
   // 941:   append &result range(text s idx)
   // 942:   !s idx+2
-  frame->slots[4] /* temp__1 */ = create_closure(entry__41_2, 1);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__41_2_copy, 1);
   // 940: $copy: (idx)
   // 941:   append &result range(text s idx)
   // 942:   !s idx+2
@@ -16033,7 +16033,7 @@ static void cont__41_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__41_2(void) {
+static void entry__41_2_copy(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // idx: 0
@@ -16220,7 +16220,7 @@ static void cont__41_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__42_1(void) {
+static void entry__42_1_std__replace_all(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -16910,7 +16910,7 @@ static void cont__44_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__44_1(void) {
+static void entry__44_1_std__spaces(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // n: 0
@@ -16949,7 +16949,7 @@ static void cont__44_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__45_1(void) {
+static void entry__45_1_std__indented(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // indent: 0
@@ -17797,7 +17797,7 @@ static void cont__46_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__46_1(void) {
+static void entry__46_1_std__for_each_line(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // text: 0
@@ -17900,7 +17900,7 @@ static void cont__46_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__47_1(void) {
+static void entry__47_1_types__string_to_lower_case(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // text: 0
@@ -17932,7 +17932,7 @@ static void cont__47_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__48_1(void) {
+static void entry__48_1_types__string_to_upper_case(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // text: 0
@@ -17964,7 +17964,7 @@ static void cont__48_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__49_1(void) {
+static void entry__49_1_types__string_to_title_case(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -18258,7 +18258,7 @@ static void cont__49_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__50_1(void) {
+static void entry__50_1_types__octet_string_new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -18274,7 +18274,7 @@ static void entry__50_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__51_1(void) {
+static void entry__51_1_types__quad_octet_string_new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -18290,13 +18290,13 @@ static void entry__51_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__52_1(void) {
+static void entry__52_1_std__collect_output(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
   // body: 1
   // return__1: 2
-  frame->slots[2] /* return__1 */ = create_continuation_with_exit(exit__52_1);
+  frame->slots[2] /* return__1 */ = create_continuation_with_exit(exit__52_1_std__collect_output);
   define__std__write(create_future());
   if (argument_count < 1) {
     too_few_arguments_error();
@@ -18315,7 +18315,7 @@ static void entry__52_1(void) {
     case 1: frame->slots[0] /* self */ = create_cell_with_contents(empty_string);
   }
   // 1138: ... : (args*) write_to &self args*
-  frame->slots[3] /* temp__1 */ = create_closure(entry__52_2, -1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__52_2_std__write, -1);
   // 1138: %std::write: (args*) write_to &self args*
   initialize_future(get__std__write(), frame->slots[3] /* temp__1 */);
   // 1140: body
@@ -18326,7 +18326,7 @@ static void entry__52_1(void) {
   func = myself->type;
   frame->cont = cont__52_4;
 }
-static void entry__52_2(void) {
+static void entry__52_2_std__write(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
@@ -18361,7 +18361,7 @@ static void cont__52_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__52_1(void) {
+static void exit__52_1_std__collect_output(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i;
   int n = argument_count;
@@ -18375,7 +18375,7 @@ static void exit__52_1(void) {
   }
   func = continuation_type_function;
 }
-static void entry__53_1(void) {
+static void entry__53_1_std__concatenate(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // strings: 0
@@ -18922,65 +18922,65 @@ EXPORT void phase_2__basic__types__string(void) {
   character__207 = from_uchar32(207);
   character__183 = from_uchar32(183);
   character__161 = from_uchar32(161);
-  func__1_1 = create_function(entry__1_1, 1);
-  func__2_1 = create_function(entry__2_1, 1);
-  func__3_1 = create_function(entry__3_1, 1);
-  func__4_1 = create_function(entry__4_1, 1);
-  func__5_1 = create_function(entry__5_1, 2);
-  func__6_1 = create_function(entry__6_1, -1);
-  func__7_1 = create_function(entry__7_1, 2);
-  func__8_1 = create_function(entry__8_1, 1);
-  func__9_1 = create_function(entry__9_1, -1);
+  func__1_1_types__string_to_integer = create_function(entry__1_1_types__string_to_integer, 1);
+  func__2_1_types__string_to_real = create_function(entry__2_1_types__string_to_real, 1);
+  func__3_1_types__string_parse_number = create_function(entry__3_1_types__string_parse_number, 1);
+  func__4_1_types__string_to_number = create_function(entry__4_1_types__string_to_number, 1);
+  func__5_1_types__string_put = create_function(entry__5_1_types__string_put, 2);
+  func__6_1_types__string_write_to = create_function(entry__6_1_types__string_write_to, -1);
+  func__7_1_types__string_numerically_less = create_function(entry__7_1_types__string_numerically_less, 2);
+  func__8_1_types__string_to_list = create_function(entry__8_1_types__string_to_list, 1);
+  func__9_1_std__string = create_function(entry__9_1_std__string, -1);
   string__10_7 = from_latin_1_string("Negative argument for dup!", 26);
   func__10_6 = create_function(entry__10_6, 0);
-  func__10_1 = create_function(entry__10_1, 2);
+  func__10_1_types__string_dup = create_function(entry__10_1_types__string_dup, 2);
   string__11_2 = from_latin_1_string(" ", 1);
-  func__11_1 = create_function(entry__11_1, -1);
-  func__12_1 = create_function(entry__12_1, -1);
-  func__13_1 = create_function(entry__13_1, 2);
-  func__14_1 = create_function(entry__14_1, 2);
+  func__11_1_std__pad_left = create_function(entry__11_1_std__pad_left, -1);
+  func__12_1_std__pad_right = create_function(entry__12_1_std__pad_right, -1);
+  func__13_1_std__truncate = create_function(entry__13_1_std__truncate, 2);
+  func__14_1_std__pad_or_truncate = create_function(entry__14_1_std__pad_or_truncate, 2);
   func__15_8 = create_function(entry__15_8, 0);
   func__15_9 = create_function(entry__15_9, 0);
-  func__15_1 = create_function(entry__15_1, 2);
-  func__16_1 = create_function(entry__16_1, 2);
-  func__17_1 = create_function(entry__17_1, 2);
+  func__15_1_types__string_match_character = create_function(entry__15_1_types__string_match_character, 2);
+  func__16_1_types__string_grammar__match = create_function(entry__16_1_types__string_grammar__match, 2);
+  func__17_1_types__string_match = create_function(entry__17_1_types__string_match, 2);
   func__18_13 = create_function(entry__18_13, 0);
-  func__18_1 = create_function(entry__18_1, -1);
-  func__19_1 = create_function(entry__19_1, 2);
-  func__20_1 = create_function(entry__20_1, -1);
-  func__21_1 = create_function(entry__21_1, -1);
-  func__22_1 = create_function(entry__22_1, -1);
-  func__23_1 = create_function(entry__23_1, -1);
-  func__24_1 = create_function(entry__24_1, -1);
-  func__25_1 = create_function(entry__25_1, -1);
-  func__26_1 = create_function(entry__26_1, -1);
-  func__27_1 = create_function(entry__27_1, -1);
-  func__28_1 = create_function(entry__28_1, -1);
-  func__29_1 = create_function(entry__29_1, 2);
-  func__30_1 = create_function(entry__30_1, 2);
-  func__31_1 = create_function(entry__31_1, 2);
-  func__32_1 = create_function(entry__32_1, 2);
-  func__33_1 = create_function(entry__33_1, 1);
-  func__34_1 = create_function(entry__34_1, 1);
-  func__35_1 = create_function(entry__35_1, -1);
-  func__36_1 = create_function(entry__36_1, -1);
-  func__37_1 = create_function(entry__37_1, 2);
-  func__38_1 = create_function(entry__38_1, 2);
-  func__39_1 = create_function(entry__39_1, 2);
-  func__41_1 = create_function(entry__41_1, 1);
-  func__42_1 = create_function(entry__42_1, -1);
+  func__18_1_types__string_search_character = create_function(entry__18_1_types__string_search_character, -1);
+  func__19_1_types__string_search = create_function(entry__19_1_types__string_search, 2);
+  func__20_1_types__string_before = create_function(entry__20_1_types__string_before, -1);
+  func__21_1_types__string_truncate_from = create_function(entry__21_1_types__string_truncate_from, -1);
+  func__22_1_types__string_behind = create_function(entry__22_1_types__string_behind, -1);
+  func__23_1_types__string_truncate_until = create_function(entry__23_1_types__string_truncate_until, -1);
+  func__24_1_types__string_from = create_function(entry__24_1_types__string_from, -1);
+  func__25_1_types__string_truncate_before = create_function(entry__25_1_types__string_truncate_before, -1);
+  func__26_1_types__string_until = create_function(entry__26_1_types__string_until, -1);
+  func__27_1_types__string_truncate_behind = create_function(entry__27_1_types__string_truncate_behind, -1);
+  func__28_1_types__string_between = create_function(entry__28_1_types__string_between, -1);
+  func__29_1_types__string_has_prefix = create_function(entry__29_1_types__string_has_prefix, 2);
+  func__30_1_types__string_has_suffix = create_function(entry__30_1_types__string_has_suffix, 2);
+  func__31_1_types__string_without_prefix = create_function(entry__31_1_types__string_without_prefix, 2);
+  func__32_1_types__string_without_suffix = create_function(entry__32_1_types__string_without_suffix, 2);
+  func__33_1_std__trim = create_function(entry__33_1_std__trim, 1);
+  func__34_1_std__normalize = create_function(entry__34_1_std__normalize, 1);
+  func__35_1_std__split = create_function(entry__35_1_std__split, -1);
+  func__36_1_std__join = create_function(entry__36_1_std__join, -1);
+  func__37_1_std__count_occurrences = create_function(entry__37_1_std__count_occurrences, 2);
+  func__38_1_types__string_matches = create_function(entry__38_1_types__string_matches, 2);
+  func__39_1_types__string_contains = create_function(entry__39_1_types__string_contains, 2);
+  func__41_1_std__replace_umlauts = create_function(entry__41_1_std__replace_umlauts, 1);
+  func__42_1_std__replace_all = create_function(entry__42_1_std__replace_all, -1);
   string__43_1 = from_latin_1_string("                                                                                ", 80);
-  func__44_1 = create_function(entry__44_1, 1);
+  func__44_1_std__spaces = create_function(entry__44_1_std__spaces, 1);
   string__45_8 = from_latin_1_string("\012", 1);
-  func__45_1 = create_function(entry__45_1, 2);
-  func__46_1 = create_function(entry__46_1, -1);
-  func__47_1 = create_function(entry__47_1, 1);
-  func__48_1 = create_function(entry__48_1, 1);
-  func__49_1 = create_function(entry__49_1, 1);
-  func__50_1 = create_function(entry__50_1, 1);
-  func__51_1 = create_function(entry__51_1, 1);
-  func__52_1 = create_function(entry__52_1, -1);
-  func__53_1 = create_function(entry__53_1, -1);
+  func__45_1_std__indented = create_function(entry__45_1_std__indented, 2);
+  func__46_1_std__for_each_line = create_function(entry__46_1_std__for_each_line, -1);
+  func__47_1_types__string_to_lower_case = create_function(entry__47_1_types__string_to_lower_case, 1);
+  func__48_1_types__string_to_upper_case = create_function(entry__48_1_types__string_to_upper_case, 1);
+  func__49_1_types__string_to_title_case = create_function(entry__49_1_types__string_to_title_case, 1);
+  func__50_1_types__octet_string_new_empty_collection = create_function(entry__50_1_types__octet_string_new_empty_collection, 1);
+  func__51_1_types__quad_octet_string_new_empty_collection = create_function(entry__51_1_types__quad_octet_string_new_empty_collection, 1);
+  func__52_1_std__collect_output = create_function(entry__52_1_std__collect_output, -1);
+  func__53_1_std__concatenate = create_function(entry__53_1_std__concatenate, -1);
   string__93_2 = from_latin_1_string("!", 1);
   string__93_4 = from_latin_1_string("(cent)", 6);
   string__93_6 = from_latin_1_string("(pound)", 7);
@@ -19208,40 +19208,40 @@ EXPORT void phase_4__basic__types__string(void) {
   use_polymorphic_function(NULL, "without_prefix", &get__without_prefix, &poly_idx__without_prefix);
   use_polymorphic_function(NULL, "without_suffix", &get__without_suffix, &poly_idx__without_suffix);
   use_polymorphic_function(NULL, "write_to", &get__write_to, &poly_idx__write_to);
-  define_method("types", "string", poly_idx__to_integer, func__1_1);
-  define_method("types", "string", poly_idx__to_real, func__2_1);
-  define_method("types", "string", poly_idx__parse_number, func__3_1);
-  define_method("types", "string", poly_idx__to_number, func__4_1);
-  define_method("types", "string", poly_idx__put, func__5_1);
-  define_method("types", "string", poly_idx__write_to, func__6_1);
-  define_method("types", "string", poly_idx__numerically_less, func__7_1);
-  define_method("types", "string", poly_idx__to_list, func__8_1);
-  define_method("types", "string", poly_idx__dup, func__10_1);
-  define_method("types", "string", poly_idx__match_character, func__15_1);
-  define_method("types", "string", poly_idx__grammar__match, func__16_1);
-  define_method("types", "string", poly_idx__match, func__17_1);
-  define_method("types", "string", poly_idx__search_character, func__18_1);
-  define_method("types", "string", poly_idx__search, func__19_1);
-  define_method("types", "string", poly_idx__before, func__20_1);
-  define_method("types", "string", poly_idx__truncate_from, func__21_1);
-  define_method("types", "string", poly_idx__behind, func__22_1);
-  define_method("types", "string", poly_idx__truncate_until, func__23_1);
-  define_method("types", "string", poly_idx__from, func__24_1);
-  define_method("types", "string", poly_idx__truncate_before, func__25_1);
-  define_method("types", "string", poly_idx__until, func__26_1);
-  define_method("types", "string", poly_idx__truncate_behind, func__27_1);
-  define_method("types", "string", poly_idx__between, func__28_1);
-  define_method("types", "string", poly_idx__has_prefix, func__29_1);
-  define_method("types", "string", poly_idx__has_suffix, func__30_1);
-  define_method("types", "string", poly_idx__without_prefix, func__31_1);
-  define_method("types", "string", poly_idx__without_suffix, func__32_1);
-  define_method("types", "string", poly_idx__matches, func__38_1);
-  define_method("types", "string", poly_idx__contains, func__39_1);
-  define_method("types", "string", poly_idx__to_lower_case, func__47_1);
-  define_method("types", "string", poly_idx__to_upper_case, func__48_1);
-  define_method("types", "string", poly_idx__to_title_case, func__49_1);
-  define_method("types", "octet_string", poly_idx__new_empty_collection, func__50_1);
-  define_method("types", "quad_octet_string", poly_idx__new_empty_collection, func__51_1);
+  define_method("types", "string", poly_idx__to_integer, func__1_1_types__string_to_integer);
+  define_method("types", "string", poly_idx__to_real, func__2_1_types__string_to_real);
+  define_method("types", "string", poly_idx__parse_number, func__3_1_types__string_parse_number);
+  define_method("types", "string", poly_idx__to_number, func__4_1_types__string_to_number);
+  define_method("types", "string", poly_idx__put, func__5_1_types__string_put);
+  define_method("types", "string", poly_idx__write_to, func__6_1_types__string_write_to);
+  define_method("types", "string", poly_idx__numerically_less, func__7_1_types__string_numerically_less);
+  define_method("types", "string", poly_idx__to_list, func__8_1_types__string_to_list);
+  define_method("types", "string", poly_idx__dup, func__10_1_types__string_dup);
+  define_method("types", "string", poly_idx__match_character, func__15_1_types__string_match_character);
+  define_method("types", "string", poly_idx__grammar__match, func__16_1_types__string_grammar__match);
+  define_method("types", "string", poly_idx__match, func__17_1_types__string_match);
+  define_method("types", "string", poly_idx__search_character, func__18_1_types__string_search_character);
+  define_method("types", "string", poly_idx__search, func__19_1_types__string_search);
+  define_method("types", "string", poly_idx__before, func__20_1_types__string_before);
+  define_method("types", "string", poly_idx__truncate_from, func__21_1_types__string_truncate_from);
+  define_method("types", "string", poly_idx__behind, func__22_1_types__string_behind);
+  define_method("types", "string", poly_idx__truncate_until, func__23_1_types__string_truncate_until);
+  define_method("types", "string", poly_idx__from, func__24_1_types__string_from);
+  define_method("types", "string", poly_idx__truncate_before, func__25_1_types__string_truncate_before);
+  define_method("types", "string", poly_idx__until, func__26_1_types__string_until);
+  define_method("types", "string", poly_idx__truncate_behind, func__27_1_types__string_truncate_behind);
+  define_method("types", "string", poly_idx__between, func__28_1_types__string_between);
+  define_method("types", "string", poly_idx__has_prefix, func__29_1_types__string_has_prefix);
+  define_method("types", "string", poly_idx__has_suffix, func__30_1_types__string_has_suffix);
+  define_method("types", "string", poly_idx__without_prefix, func__31_1_types__string_without_prefix);
+  define_method("types", "string", poly_idx__without_suffix, func__32_1_types__string_without_suffix);
+  define_method("types", "string", poly_idx__matches, func__38_1_types__string_matches);
+  define_method("types", "string", poly_idx__contains, func__39_1_types__string_contains);
+  define_method("types", "string", poly_idx__to_lower_case, func__47_1_types__string_to_lower_case);
+  define_method("types", "string", poly_idx__to_upper_case, func__48_1_types__string_to_upper_case);
+  define_method("types", "string", poly_idx__to_title_case, func__49_1_types__string_to_title_case);
+  define_method("types", "octet_string", poly_idx__new_empty_collection, func__50_1_types__octet_string_new_empty_collection);
+  define_method("types", "quad_octet_string", poly_idx__new_empty_collection, func__51_1_types__quad_octet_string_new_empty_collection);
 }
 
 static int already_run_phase_5 = false;
@@ -19249,24 +19249,24 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__string(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__string, &func__9_1);
-  assign_variable(&var.std__pad_left, &func__11_1);
-  assign_variable(&var.std__pad_right, &func__12_1);
-  assign_variable(&var.std__truncate, &func__13_1);
-  assign_variable(&var.std__pad_or_truncate, &func__14_1);
-  assign_variable(&var.std__trim, &func__33_1);
-  assign_variable(&var.std__normalize, &func__34_1);
-  assign_variable(&var.std__split, &func__35_1);
-  assign_variable(&var.std__join, &func__36_1);
-  assign_variable(&var.std__count_occurrences, &func__37_1);
-  assign_variable(&var.std__replace_umlauts, &func__41_1);
-  assign_variable(&var.std__replace_all, &func__42_1);
+  assign_variable(&var.std__string, &func__9_1_std__string);
+  assign_variable(&var.std__pad_left, &func__11_1_std__pad_left);
+  assign_variable(&var.std__pad_right, &func__12_1_std__pad_right);
+  assign_variable(&var.std__truncate, &func__13_1_std__truncate);
+  assign_variable(&var.std__pad_or_truncate, &func__14_1_std__pad_or_truncate);
+  assign_variable(&var.std__trim, &func__33_1_std__trim);
+  assign_variable(&var.std__normalize, &func__34_1_std__normalize);
+  assign_variable(&var.std__split, &func__35_1_std__split);
+  assign_variable(&var.std__join, &func__36_1_std__join);
+  assign_variable(&var.std__count_occurrences, &func__37_1_std__count_occurrences);
+  assign_variable(&var.std__replace_umlauts, &func__41_1_std__replace_umlauts);
+  assign_variable(&var.std__replace_all, &func__42_1_std__replace_all);
   assign_value(&var._eighty_spaces, string__43_1);
-  assign_variable(&var.std__spaces, &func__44_1);
-  assign_variable(&var.std__indented, &func__45_1);
-  assign_variable(&var.std__for_each_line, &func__46_1);
-  assign_variable(&var.std__collect_output, &func__52_1);
-  assign_variable(&var.std__concatenate, &func__53_1);
+  assign_variable(&var.std__spaces, &func__44_1_std__spaces);
+  assign_variable(&var.std__indented, &func__45_1_std__indented);
+  assign_variable(&var.std__for_each_line, &func__46_1_std__for_each_line);
+  assign_variable(&var.std__collect_output, &func__52_1_std__collect_output);
+  assign_variable(&var.std__concatenate, &func__53_1_std__concatenate);
 }
 
 static int already_run_phase_6 = false;

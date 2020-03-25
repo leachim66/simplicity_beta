@@ -524,37 +524,37 @@ static NODE *get__std__events(void) {
 static void set__std__events(NODE *val) {
   var.std__events = val;
 }
-static NODE *func__20_1;
-static void entry__20_1(void);
-static FRAME_INFO frame__20_1 = {1, {"fd"}};
+static NODE *func__20_1_std__want_to_write_to;
+static void entry__20_1_std__want_to_write_to(void);
+static FRAME_INFO frame__20_1_std__want_to_write_to = {1, {"fd"}};
 static void cont__20_2(void);
 static NODE *get__std__want_to_write_to(void) {
   return var.std__want_to_write_to;
 }
-static NODE *func__21_1;
-static void entry__21_1(void);
-static FRAME_INFO frame__21_1 = {1, {"fd"}};
+static NODE *func__21_1_std__no_longer_want_to_write_to;
+static void entry__21_1_std__no_longer_want_to_write_to(void);
+static FRAME_INFO frame__21_1_std__no_longer_want_to_write_to = {1, {"fd"}};
 static void cont__21_2(void);
 static NODE *get__std__no_longer_want_to_write_to(void) {
   return var.std__no_longer_want_to_write_to;
 }
-static NODE *func__22_1;
-static void entry__22_1(void);
-static FRAME_INFO frame__22_1 = {1, {"fd"}};
+static NODE *func__22_1_std__want_to_read_from;
+static void entry__22_1_std__want_to_read_from(void);
+static FRAME_INFO frame__22_1_std__want_to_read_from = {1, {"fd"}};
 static void cont__22_2(void);
 static NODE *get__std__want_to_read_from(void) {
   return var.std__want_to_read_from;
 }
-static NODE *func__23_1;
-static void entry__23_1(void);
-static FRAME_INFO frame__23_1 = {1, {"fd"}};
+static NODE *func__23_1_std__no_longer_want_to_read_from;
+static void entry__23_1_std__no_longer_want_to_read_from(void);
+static FRAME_INFO frame__23_1_std__no_longer_want_to_read_from = {1, {"fd"}};
 static void cont__23_2(void);
 static NODE *get__std__no_longer_want_to_read_from(void) {
   return var.std__no_longer_want_to_read_from;
 }
-static NODE *func__24_1;
-static void entry__24_1(void);
-static FRAME_INFO frame__24_1 = {1, {"fd"}};
+static NODE *func__24_1_std__wanting_to_write_to;
+static void entry__24_1_std__wanting_to_write_to(void);
+static FRAME_INFO frame__24_1_std__wanting_to_write_to = {1, {"fd"}};
 static void cont__24_2(void);
 static NODE *func__24_3;
 static void entry__24_3(void);
@@ -564,9 +564,9 @@ static void cont__24_5(void);
 static NODE *get__std__wanting_to_write_to(void) {
   return var.std__wanting_to_write_to;
 }
-static NODE *func__25_1;
-static void entry__25_1(void);
-static FRAME_INFO frame__25_1 = {1, {"fd"}};
+static NODE *func__25_1_std__wanting_to_read_from;
+static void entry__25_1_std__wanting_to_read_from(void);
+static FRAME_INFO frame__25_1_std__wanting_to_read_from = {1, {"fd"}};
 static void cont__25_2(void);
 static NODE *func__25_3;
 static void entry__25_3(void);
@@ -576,35 +576,35 @@ static void cont__25_5(void);
 static NODE *get__std__wanting_to_read_from(void) {
   return var.std__wanting_to_read_from;
 }
-static NODE *func__27_1;
-static void entry__27_1(void);
-static FRAME_INFO frame__27_1 = {2, {"fd", "continuation"}};
+static NODE *func__27_1_std__wait_to_read_from;
+static void entry__27_1_std__wait_to_read_from(void);
+static FRAME_INFO frame__27_1_std__wait_to_read_from = {2, {"fd", "continuation"}};
 static void cont__27_2(void);
 static void cont__27_3(void);
 static void cont__27_4(void);
 static NODE *get__std__wait_to_read_from(void) {
   return var.std__wait_to_read_from;
 }
-static NODE *func__29_1;
-static void entry__29_1(void);
-static FRAME_INFO frame__29_1 = {2, {"fd", "continuation"}};
+static NODE *func__29_1_std__wait_to_write_to;
+static void entry__29_1_std__wait_to_write_to(void);
+static FRAME_INFO frame__29_1_std__wait_to_write_to = {2, {"fd", "continuation"}};
 static void cont__29_2(void);
 static void cont__29_3(void);
 static void cont__29_4(void);
 static NODE *get__std__wait_to_write_to(void) {
   return var.std__wait_to_write_to;
 }
-static NODE *func__31_1;
-static void entry__31_1(void);
-static FRAME_INFO frame__31_1 = {2, {"pid", "continuation"}};
+static NODE *func__31_1_std__wait_for_termination;
+static void entry__31_1_std__wait_for_termination(void);
+static FRAME_INFO frame__31_1_std__wait_for_termination = {2, {"pid", "continuation"}};
 static void cont__31_2(void);
 static void cont__31_3(void);
 static NODE *get__std__wait_for_termination(void) {
   return var.std__wait_for_termination;
 }
-static NODE *func__32_1;
-static void entry__32_1(void);
-static FRAME_INFO frame__32_1 = {2, {"fd", "return"}};
+static NODE *func__32_1_std__discard;
+static void entry__32_1_std__discard(void);
+static FRAME_INFO frame__32_1_std__discard = {2, {"fd", "return"}};
 static void cont__32_2(void);
 static NODE *func__32_3;
 static void entry__32_3(void);
@@ -647,16 +647,16 @@ static void cont__32_28(void);
 static NODE *get__std__discard(void) {
   return var.std__discard;
 }
-static NODE *func__33_1;
-static void entry__33_1(void);
-static FRAME_INFO frame__33_1 = {1, {"event"}};
+static NODE *func__33_1_std__create_event;
+static void entry__33_1_std__create_event(void);
+static FRAME_INFO frame__33_1_std__create_event = {1, {"event"}};
 static void cont__33_2(void);
 static NODE *get__std__create_event(void) {
   return var.std__create_event;
 }
-static NODE *func__34_1;
-static void entry__34_1(void);
-static FRAME_INFO frame__34_1 = {9, {"for_readers_and_writers_only", "output_fds_list", "input_fds_list", "exception_fds_list", "child_changed_state", "window_changed_size", "ready_input_fds_list", "ready_output_fds_list", "ready_exception_fds_list"}};
+static NODE *func__34_1_get_low_level_events;
+static void entry__34_1_get_low_level_events(void);
+static FRAME_INFO frame__34_1_get_low_level_events = {9, {"for_readers_and_writers_only", "output_fds_list", "input_fds_list", "exception_fds_list", "child_changed_state", "window_changed_size", "ready_input_fds_list", "ready_output_fds_list", "ready_exception_fds_list"}};
 static NODE *func__34_2;
 static void entry__34_2(void);
 static FRAME_INFO frame__34_2 = {2, {"output_fds_list", "input_fds_list"}};
@@ -737,9 +737,9 @@ static void cont__34_44(void);
 static NODE *func__34_45;
 static void entry__34_45(void);
 static FRAME_INFO frame__34_45 = {1, {"output_fd"}};
-static NODE *func__35_1;
-static void entry__35_1(void);
-static FRAME_INFO frame__35_1 = {2, {"event", "return"}};
+static NODE *func__35_1_get_event_handler;
+static void entry__35_1_get_event_handler(void);
+static FRAME_INFO frame__35_1_get_event_handler = {2, {"event", "return"}};
 static void cont__35_2(void);
 static NODE *func__35_3;
 static void entry__35_3(void);
@@ -774,9 +774,9 @@ static void entry__35_21(void);
 static FRAME_INFO frame__35_21 = {3, {"pid", "return", "terminator"}};
 static void cont__35_22(void);
 static void cont__35_23(void);
-static NODE *func__36_1;
-static void entry__36_1(void);
-static FRAME_INFO frame__36_1 = {1, {"return"}};
+static NODE *func__36_1_std__get_event;
+static void entry__36_1_std__get_event(void);
+static FRAME_INFO frame__36_1_std__get_event = {1, {"return"}};
 static NODE *func__36_2;
 static void entry__36_2(void);
 static FRAME_INFO frame__36_2 = {2, {"myself", "return"}};
@@ -810,9 +810,9 @@ static void cont__36_19(void);
 static NODE *get__std__get_event(void) {
   return var.std__get_event;
 }
-static NODE *func__38_1;
-static void entry__38_1(void);
-static FRAME_INFO frame__38_1 = {1, {"i"}};
+static NODE *func__38_1_std__process_events;
+static void entry__38_1_std__process_events(void);
+static FRAME_INFO frame__38_1_std__process_events = {1, {"i"}};
 static NODE *func__38_2;
 static void entry__38_2(void);
 static FRAME_INFO frame__38_2 = {0, {}};
@@ -864,9 +864,9 @@ static void cont__38_31(void);
 static NODE *get__std__process_events(void) {
   return var.std__process_events;
 }
-static NODE *func__39_1;
-static void entry__39_1(void);
-static FRAME_INFO frame__39_1 = {2, {"args", "event"}};
+static NODE *func__39_1_std__wait_to;
+static void entry__39_1_std__wait_to(void);
+static FRAME_INFO frame__39_1_std__wait_to = {2, {"args", "event"}};
 static NODE *func__39_2;
 static void entry__39_2(void);
 static FRAME_INFO frame__39_2 = {2, {"continuation", "args"}};
@@ -911,9 +911,9 @@ static void cont__39_24(void);
 static NODE *get__std__wait_to(void) {
   return var.std__wait_to;
 }
-static NODE *func__40_1;
-static void entry__40_1(void);
-static FRAME_INFO frame__40_1 = {1, {"tasks"}};
+static NODE *func__40_1_std__par;
+static void entry__40_1_std__par(void);
+static FRAME_INFO frame__40_1_std__par = {1, {"tasks"}};
 static void cont__40_2(void);
 static NODE *get__std__par(void) {
   return var.std__par;
@@ -929,35 +929,35 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__key_code_of, NULL, 40, 40, 2, 17},
   {type__std__target_of, NULL, 44, 44, 2, 15},
   {run__basic__event, NULL, 309, 309, 1, 26},
-  {entry__20_1, NULL, 63, 63, 3, 24},
-  {cont__20_2, &frame__20_1, 63, 63, 29, 29},
-  {entry__21_1, NULL, 74, 74, 3, 24},
-  {cont__21_2, &frame__21_1, 74, 74, 30, 30},
-  {entry__22_1, NULL, 85, 85, 3, 23},
-  {cont__22_2, &frame__22_1, 85, 85, 28, 28},
-  {entry__23_1, NULL, 96, 96, 3, 23},
-  {cont__23_2, &frame__23_1, 96, 96, 29, 29},
+  {entry__20_1_std__want_to_write_to, NULL, 63, 63, 3, 24},
+  {cont__20_2, &frame__20_1_std__want_to_write_to, 63, 63, 29, 29},
+  {entry__21_1_std__no_longer_want_to_write_to, NULL, 74, 74, 3, 24},
+  {cont__21_2, &frame__21_1_std__no_longer_want_to_write_to, 74, 74, 30, 30},
+  {entry__22_1_std__want_to_read_from, NULL, 85, 85, 3, 23},
+  {cont__22_2, &frame__22_1_std__want_to_read_from, 85, 85, 28, 28},
+  {entry__23_1_std__no_longer_want_to_read_from, NULL, 96, 96, 3, 23},
+  {cont__23_2, &frame__23_1_std__no_longer_want_to_read_from, 96, 96, 29, 29},
   {entry__24_3, NULL, 107, 107, 23, 43},
   {cont__24_4, &frame__24_3, 107, 107, 23, 43},
-  {entry__24_1, NULL, 107, 107, 6, 18},
-  {cont__24_2, &frame__24_1, 107, 107, 6, 43},
-  {cont__24_5, &frame__24_1, 107, 107, 3, 43},
+  {entry__24_1_std__wanting_to_write_to, NULL, 107, 107, 6, 18},
+  {cont__24_2, &frame__24_1_std__wanting_to_write_to, 107, 107, 6, 43},
+  {cont__24_5, &frame__24_1_std__wanting_to_write_to, 107, 107, 3, 43},
   {entry__25_3, NULL, 118, 118, 23, 42},
   {cont__25_4, &frame__25_3, 118, 118, 23, 42},
-  {entry__25_1, NULL, 118, 118, 6, 18},
-  {cont__25_2, &frame__25_1, 118, 118, 6, 42},
-  {cont__25_5, &frame__25_1, 118, 118, 3, 42},
-  {entry__27_1, NULL, 131, 131, 3, 22},
-  {cont__27_2, &frame__27_1, 132, 132, 3, 14},
-  {cont__27_3, &frame__27_1, 133, 133, 3, 45},
-  {cont__27_4, &frame__27_1, 133, 133, 45, 45},
-  {entry__29_1, NULL, 146, 146, 3, 21},
-  {cont__29_2, &frame__29_1, 147, 147, 3, 14},
-  {cont__29_3, &frame__29_1, 148, 148, 3, 45},
-  {cont__29_4, &frame__29_1, 148, 148, 45, 45},
-  {entry__31_1, NULL, 161, 161, 3, 19},
-  {cont__31_2, &frame__31_1, 162, 162, 3, 45},
-  {cont__31_3, &frame__31_1, 162, 162, 45, 45},
+  {entry__25_1_std__wanting_to_read_from, NULL, 118, 118, 6, 18},
+  {cont__25_2, &frame__25_1_std__wanting_to_read_from, 118, 118, 6, 42},
+  {cont__25_5, &frame__25_1_std__wanting_to_read_from, 118, 118, 3, 42},
+  {entry__27_1_std__wait_to_read_from, NULL, 131, 131, 3, 22},
+  {cont__27_2, &frame__27_1_std__wait_to_read_from, 132, 132, 3, 14},
+  {cont__27_3, &frame__27_1_std__wait_to_read_from, 133, 133, 3, 45},
+  {cont__27_4, &frame__27_1_std__wait_to_read_from, 133, 133, 45, 45},
+  {entry__29_1_std__wait_to_write_to, NULL, 146, 146, 3, 21},
+  {cont__29_2, &frame__29_1_std__wait_to_write_to, 147, 147, 3, 14},
+  {cont__29_3, &frame__29_1_std__wait_to_write_to, 148, 148, 3, 45},
+  {cont__29_4, &frame__29_1_std__wait_to_write_to, 148, 148, 45, 45},
+  {entry__31_1_std__wait_for_termination, NULL, 161, 161, 3, 19},
+  {cont__31_2, &frame__31_1_std__wait_for_termination, 162, 162, 3, 45},
+  {cont__31_3, &frame__31_1_std__wait_for_termination, 162, 162, 45, 45},
   {entry__32_13, NULL, 181, 181, 45, 49},
   {cont__32_14, &frame__32_13, 181, 181, 30, 50},
   {cont__32_15, &frame__32_13, 181, 181, 11, 50},
@@ -980,14 +980,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__32_18, &frame__32_3, 183, 183, 8, 12},
   {cont__32_19, &frame__32_3, 183, 185, 5, 24},
   {entry__32_27, NULL, 186, 186, 39, 54},
-  {entry__32_1, NULL, 169, 169, 6, 18},
-  {cont__32_2, &frame__32_1, 169, 185, 3, 25},
-  {cont__32_24, &frame__32_1, 186, 186, 6, 31},
-  {cont__32_25, &frame__32_1, 186, 186, 6, 36},
-  {cont__32_26, &frame__32_1, 186, 186, 3, 54},
-  {cont__32_28, &frame__32_1, 186, 186, 54, 54},
-  {entry__33_1, NULL, 194, 194, 3, 20},
-  {cont__33_2, &frame__33_1, 194, 194, 20, 20},
+  {entry__32_1_std__discard, NULL, 169, 169, 6, 18},
+  {cont__32_2, &frame__32_1_std__discard, 169, 185, 3, 25},
+  {cont__32_24, &frame__32_1_std__discard, 186, 186, 6, 31},
+  {cont__32_25, &frame__32_1_std__discard, 186, 186, 6, 36},
+  {cont__32_26, &frame__32_1_std__discard, 186, 186, 3, 54},
+  {cont__32_28, &frame__32_1_std__discard, 186, 186, 54, 54},
+  {entry__33_1_std__create_event, NULL, 194, 194, 3, 20},
+  {cont__33_2, &frame__33_1_std__create_event, 194, 194, 20, 20},
   {entry__34_3, NULL, 203, 203, 9, 39},
   {cont__34_4, &frame__34_3, 203, 203, 39, 39},
   {entry__34_6, NULL, 204, 204, 50, 78},
@@ -1030,9 +1030,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__34_35, &frame__34_16, 240, 241, 7, 57},
   {cont__34_38, &frame__34_16, 242, 245, 7, 75},
   {cont__34_42, &frame__34_16, 246, 249, 7, 75},
-  {entry__34_1, NULL, 200, 207, 3, 74},
-  {cont__34_14, &frame__34_1, 209, 217, 5, 23},
-  {cont__34_15, &frame__34_1, 208, 249, 3, 77},
+  {entry__34_1_get_low_level_events, NULL, 200, 207, 3, 74},
+  {cont__34_14, &frame__34_1_get_low_level_events, 209, 217, 5, 23},
+  {cont__34_15, &frame__34_1_get_low_level_events, 208, 249, 3, 77},
   {entry__35_7, NULL, 262, 262, 9, 38},
   {cont__35_8, &frame__35_7, 263, 263, 9, 20},
   {cont__35_9, &frame__35_7, 264, 264, 9, 21},
@@ -1053,9 +1053,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__35_18, &frame__35_17, 274, 274, 7, 34},
   {cont__35_19, &frame__35_17, 275, 275, 10, 30},
   {cont__35_20, &frame__35_17, 275, 277, 7, 25},
-  {entry__35_1, NULL, 257, 257, 5, 18},
-  {cont__35_2, &frame__35_1, 256, 277, 3, 27},
-  {cont__35_23, &frame__35_1, 278, 278, 3, 14},
+  {entry__35_1_get_event_handler, NULL, 257, 257, 5, 18},
+  {cont__35_2, &frame__35_1_get_event_handler, 256, 277, 3, 27},
+  {cont__35_23, &frame__35_1_get_event_handler, 278, 278, 3, 14},
   {entry__36_13, NULL, 301, 301, 15, 27},
   {entry__36_14, NULL, 303, 303, 15, 21},
   {entry__36_9, NULL, 298, 298, 11, 35},
@@ -1072,8 +1072,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__36_2, NULL, 294, 294, 7, 23},
   {cont__36_3, &frame__36_2, 294, 294, 7, 27},
   {cont__36_4, &frame__36_2, 293, 307, 5, 35},
-  {entry__36_1, NULL, 292, 307, 3, 36},
-  {cont__36_19, &frame__36_1, 307, 307, 36, 36},
+  {entry__36_1_std__get_event, NULL, 292, 307, 3, 36},
+  {cont__36_19, &frame__36_1_std__get_event, 307, 307, 36, 36},
   {entry__38_5, NULL, 316, 316, 42, 60},
   {cont__38_6, &frame__38_5, 316, 316, 42, 60},
   {entry__38_2, NULL, 316, 316, 12, 35},
@@ -1100,11 +1100,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__38_13, NULL, 320, 320, 5, 24},
   {cont__38_14, &frame__38_13, 321, 332, 5, 12},
   {cont__38_31, &frame__38_13, 333, 333, 5, 29},
-  {entry__38_1, NULL, 316, 316, 3, 60},
-  {cont__38_7, &frame__38_1, 317, 317, 6, 21},
-  {cont__38_8, &frame__38_1, 317, 317, 6, 41},
-  {cont__38_11, &frame__38_1, 317, 317, 3, 51},
-  {cont__38_12, &frame__38_1, 319, 333, 3, 29},
+  {entry__38_1_std__process_events, NULL, 316, 316, 3, 60},
+  {cont__38_7, &frame__38_1_std__process_events, 317, 317, 6, 21},
+  {cont__38_8, &frame__38_1_std__process_events, 317, 317, 6, 41},
+  {cont__38_11, &frame__38_1_std__process_events, 317, 317, 3, 51},
+  {cont__38_12, &frame__38_1_std__process_events, 319, 333, 3, 29},
   {entry__39_4, NULL, 349, 349, 11, 37},
   {cont__39_5, &frame__39_4, 350, 350, 11, 29},
   {cont__39_6, &frame__39_4, 350, 350, 42, 42},
@@ -1126,11 +1126,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__39_22, NULL, 367, 367, 9, 31},
   {cont__39_23, &frame__39_22, 367, 367, 41, 41},
   {entry__39_15, NULL, 358, 367, 5, 42},
-  {entry__39_1, NULL, 344, 356, 3, 47},
-  {cont__39_14, &frame__39_1, 357, 367, 3, 43},
-  {cont__39_24, &frame__39_1, 368, 368, 3, 10},
-  {entry__40_1, NULL, 371, 371, 3, 29},
-  {cont__40_2, &frame__40_1, 372, 372, 3, 16}
+  {entry__39_1_std__wait_to, NULL, 344, 356, 3, 47},
+  {cont__39_14, &frame__39_1_std__wait_to, 357, 367, 3, 43},
+  {cont__39_24, &frame__39_1_std__wait_to, 368, 368, 3, 10},
+  {entry__40_1_std__par, NULL, 371, 371, 3, 29},
+  {cont__40_2, &frame__40_1_std__par, 372, 372, 3, 16}
 };
 
 union NODE {
@@ -1349,7 +1349,7 @@ EXPORT void run__basic__event(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__20_1(void) {
+static void entry__20_1_std__want_to_write_to(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // fd: 0
@@ -1381,7 +1381,7 @@ static void cont__20_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1(void) {
+static void entry__21_1_std__no_longer_want_to_write_to(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // fd: 0
@@ -1413,7 +1413,7 @@ static void cont__21_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__22_1(void) {
+static void entry__22_1_std__want_to_read_from(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // fd: 0
@@ -1445,7 +1445,7 @@ static void cont__22_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__23_1(void) {
+static void entry__23_1_std__no_longer_want_to_read_from(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // fd: 0
@@ -1477,7 +1477,7 @@ static void cont__23_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1(void) {
+static void entry__24_1_std__wanting_to_write_to(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // fd: 0
@@ -1558,7 +1558,7 @@ static void cont__24_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1(void) {
+static void entry__25_1_std__wanting_to_read_from(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // fd: 0
@@ -1639,7 +1639,7 @@ static void cont__25_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1(void) {
+static void entry__27_1_std__wait_to_read_from(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // fd: 0
@@ -1694,7 +1694,7 @@ static void cont__27_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__29_1(void) {
+static void entry__29_1_std__wait_to_write_to(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // fd: 0
@@ -1749,7 +1749,7 @@ static void cont__29_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__31_1(void) {
+static void entry__31_1_std__wait_for_termination(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // pid: 0
@@ -1790,7 +1790,7 @@ static void cont__31_3(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__32_1(void) {
+static void entry__32_1_std__discard(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // fd: 0
@@ -2314,7 +2314,7 @@ static void cont__32_28(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__33_1(void) {
+static void entry__33_1_std__create_event(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // event: 0
@@ -2965,7 +2965,7 @@ static void cont__34_42(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__34_1(void) {
+static void entry__34_1_get_low_level_events(void) {
   allocate_initialized_frame_gc(1, 16);
   // slot allocations:
   // for_readers_and_writers_only: 0
@@ -3312,7 +3312,7 @@ static void cont__34_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_1(void) {
+static void entry__35_1_get_event_handler(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // event: 0
@@ -3778,7 +3778,7 @@ static void cont__35_23(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__36_1(void) {
+static void entry__36_1_std__get_event(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return: 0
@@ -4535,7 +4535,7 @@ static void cont__38_31(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_1(void) {
+static void entry__38_1_std__process_events(void) {
   allocate_initialized_frame_gc(0, 3);
   // slot allocations:
   // i: 0
@@ -4745,7 +4745,7 @@ static void cont__38_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__39_1(void) {
+static void entry__39_1_std__wait_to(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -5234,7 +5234,7 @@ static void cont__39_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__40_1(void) {
+static void entry__40_1_std__par(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -5337,34 +5337,34 @@ EXPORT void phase_2__basic__event(void) {
   unique__12_1 = register_unique_item("std__MOUSE_CLICK");
   unique__14_1 = register_unique_item("std__PASTE");
   unique__15_1 = register_unique_item("std__MESSAGE");
-  func__20_1 = create_function(entry__20_1, 1);
-  func__21_1 = create_function(entry__21_1, 1);
-  func__22_1 = create_function(entry__22_1, 1);
-  func__23_1 = create_function(entry__23_1, 1);
-  func__24_1 = create_function(entry__24_1, 1);
-  func__25_1 = create_function(entry__25_1, 1);
-  func__27_1 = create_function(entry__27_1, 1);
-  func__29_1 = create_function(entry__29_1, 1);
-  func__31_1 = create_function(entry__31_1, 1);
-  func__32_1 = create_function(entry__32_1, 1);
-  func__33_1 = create_function(entry__33_1, 1);
+  func__20_1_std__want_to_write_to = create_function(entry__20_1_std__want_to_write_to, 1);
+  func__21_1_std__no_longer_want_to_write_to = create_function(entry__21_1_std__no_longer_want_to_write_to, 1);
+  func__22_1_std__want_to_read_from = create_function(entry__22_1_std__want_to_read_from, 1);
+  func__23_1_std__no_longer_want_to_read_from = create_function(entry__23_1_std__no_longer_want_to_read_from, 1);
+  func__24_1_std__wanting_to_write_to = create_function(entry__24_1_std__wanting_to_write_to, 1);
+  func__25_1_std__wanting_to_read_from = create_function(entry__25_1_std__wanting_to_read_from, 1);
+  func__27_1_std__wait_to_read_from = create_function(entry__27_1_std__wait_to_read_from, 1);
+  func__29_1_std__wait_to_write_to = create_function(entry__29_1_std__wait_to_write_to, 1);
+  func__31_1_std__wait_for_termination = create_function(entry__31_1_std__wait_for_termination, 1);
+  func__32_1_std__discard = create_function(entry__32_1_std__discard, 1);
+  func__33_1_std__create_event = create_function(entry__33_1_std__create_event, 1);
   func__34_18 = create_function(entry__34_18, 0);
   func__34_17 = create_function(entry__34_17, 0);
   func__34_27 = create_function(entry__34_27, 0);
   func__34_39 = create_function(entry__34_39, 1);
   func__34_43 = create_function(entry__34_43, 1);
-  func__34_1 = create_function(entry__34_1, 1);
-  func__35_1 = create_function(entry__35_1, 1);
+  func__34_1_get_low_level_events = create_function(entry__34_1_get_low_level_events, 1);
+  func__35_1_get_event_handler = create_function(entry__35_1_get_event_handler, 1);
   string__36_16 = from_latin_1_string("invalid continuation", 20);
   func__36_18 = create_function(entry__36_18, 0);
-  func__36_1 = create_function(entry__36_1, 0);
+  func__36_1_std__get_event = create_function(entry__36_1_std__get_event, 0);
   func__38_5 = create_function(entry__38_5, 0);
   func__38_2 = create_function(entry__38_2, 0);
   func__38_9 = create_function(entry__38_9, 0);
-  func__38_1 = create_function(entry__38_1, 0);
+  func__38_1_std__process_events = create_function(entry__38_1_std__process_events, 0);
   func__39_15 = create_function(entry__39_15, 2);
-  func__39_1 = create_function(entry__39_1, -1);
-  func__40_1 = create_function(entry__40_1, -1);
+  func__39_1_std__wait_to = create_function(entry__39_1_std__wait_to, -1);
+  func__40_1_std__par = create_function(entry__40_1_std__par, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -5488,23 +5488,23 @@ EXPORT void phase_5__basic__event(void) {
   assign_value(&var.std__key_code_of, create_function(type__std__key_code_of, -1));
   assign_value(&var.std__target_of, create_function(type__std__target_of, -1));
   assign_value(&var.types__event, get__types__object());
-  assign_variable(&var.std__want_to_write_to, &func__20_1);
-  assign_variable(&var.std__no_longer_want_to_write_to, &func__21_1);
-  assign_variable(&var.std__want_to_read_from, &func__22_1);
-  assign_variable(&var.std__no_longer_want_to_read_from, &func__23_1);
-  assign_variable(&var.std__wanting_to_write_to, &func__24_1);
-  assign_variable(&var.std__wanting_to_read_from, &func__25_1);
-  assign_variable(&var.std__wait_to_read_from, &func__27_1);
-  assign_variable(&var.std__wait_to_write_to, &func__29_1);
-  assign_variable(&var.std__wait_for_termination, &func__31_1);
-  assign_variable(&var.std__discard, &func__32_1);
-  assign_variable(&var.std__create_event, &func__33_1);
-  assign_variable(&var._get_low_level_events, &func__34_1);
-  assign_variable(&var._get_event_handler, &func__35_1);
-  assign_variable(&var.std__get_event, &func__36_1);
-  assign_variable(&var.std__process_events, &func__38_1);
-  assign_variable(&var.std__wait_to, &func__39_1);
-  assign_variable(&var.std__par, &func__40_1);
+  assign_variable(&var.std__want_to_write_to, &func__20_1_std__want_to_write_to);
+  assign_variable(&var.std__no_longer_want_to_write_to, &func__21_1_std__no_longer_want_to_write_to);
+  assign_variable(&var.std__want_to_read_from, &func__22_1_std__want_to_read_from);
+  assign_variable(&var.std__no_longer_want_to_read_from, &func__23_1_std__no_longer_want_to_read_from);
+  assign_variable(&var.std__wanting_to_write_to, &func__24_1_std__wanting_to_write_to);
+  assign_variable(&var.std__wanting_to_read_from, &func__25_1_std__wanting_to_read_from);
+  assign_variable(&var.std__wait_to_read_from, &func__27_1_std__wait_to_read_from);
+  assign_variable(&var.std__wait_to_write_to, &func__29_1_std__wait_to_write_to);
+  assign_variable(&var.std__wait_for_termination, &func__31_1_std__wait_for_termination);
+  assign_variable(&var.std__discard, &func__32_1_std__discard);
+  assign_variable(&var.std__create_event, &func__33_1_std__create_event);
+  assign_variable(&var._get_low_level_events, &func__34_1_get_low_level_events);
+  assign_variable(&var._get_event_handler, &func__35_1_get_event_handler);
+  assign_variable(&var.std__get_event, &func__36_1_std__get_event);
+  assign_variable(&var.std__process_events, &func__38_1_std__process_events);
+  assign_variable(&var.std__wait_to, &func__39_1_std__wait_to);
+  assign_variable(&var.std__par, &func__40_1_std__par);
 }
 
 static int already_run_phase_6 = false;

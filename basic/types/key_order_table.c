@@ -417,9 +417,9 @@ static int poly_idx__left_of;
 static void type__left_of(void);
 static int poly_idx__right_of;
 static void type__right_of(void);
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {4, {"node", "key", "value", "left"}};
+static NODE *func__12_1_remove_leftmost;
+static void entry__12_1_remove_leftmost(void);
+static FRAME_INFO frame__12_1_remove_leftmost = {4, {"node", "key", "value", "left"}};
 static void cont__12_2(void);
 static void cont__12_3(void);
 static NODE *func__12_4;
@@ -433,9 +433,9 @@ static void cont__12_7(void);
 static void cont__12_8(void);
 static void cont__12_9(void);
 static void cont__12_10(void);
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {4, {"node", "key", "value", "right"}};
+static NODE *func__13_1_remove_rightmost;
+static void entry__13_1_remove_rightmost(void);
+static FRAME_INFO frame__13_1_remove_rightmost = {4, {"node", "key", "value", "right"}};
 static void cont__13_2(void);
 static void cont__13_3(void);
 static NODE *func__13_4;
@@ -452,10 +452,10 @@ static void cont__13_10(void);
 static NODE *get__types__key_order_table(void) {
   return var.types__key_order_table;
 }
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {3, {"myself", "return", "left"}};
-static void exit__18_1(void);
+static NODE *func__18_1_fetch_first;
+static void entry__18_1_fetch_first(void);
+static FRAME_INFO frame__18_1_fetch_first = {3, {"myself", "return", "left"}};
+static void exit__18_1_fetch_first(void);
 static void cont__18_2(void);
 static void cont__18_3(void);
 static NODE *func__18_4;
@@ -469,9 +469,9 @@ static void cont__18_7(void);
 static void cont__18_8(void);
 static void cont__18_9(void);
 static void cont__18_10(void);
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__19_1_retrieve_item;
+static void entry__19_1_retrieve_item(void);
+static FRAME_INFO frame__19_1_retrieve_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__19_2(void);
 static NODE *func__19_3;
 static void entry__19_3(void);
@@ -505,9 +505,9 @@ static FRAME_INFO frame__19_17 = {3, {"return", "myself", "key"}};
 static void cont__19_18(void);
 static void cont__19_19(void);
 static void cont__19_20(void);
-static NODE *func__20_1;
-static void entry__20_1(void);
-static FRAME_INFO frame__20_1 = {5, {"myself", "key", "value", "return", "my_key"}};
+static NODE *func__20_1_add_item;
+static void entry__20_1_add_item(void);
+static FRAME_INFO frame__20_1_add_item = {5, {"myself", "key", "value", "return", "my_key"}};
 static void cont__20_2(void);
 static NODE *func__20_3;
 static void entry__20_3(void);
@@ -540,9 +540,9 @@ static FRAME_INFO frame__20_16 = {6, {"myself", "key", "value", "return", "right
 static void cont__20_17(void);
 static void cont__20_18(void);
 static void cont__20_19(void);
-static NODE *func__21_1;
-static void entry__21_1(void);
-static FRAME_INFO frame__21_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__21_1_remove_item;
+static void entry__21_1_remove_item(void);
+static FRAME_INFO frame__21_1_remove_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__21_2(void);
 static NODE *func__21_3;
 static void entry__21_3(void);
@@ -602,9 +602,9 @@ static void entry__21_32(void);
 static FRAME_INFO frame__21_32 = {1, {"return"}};
 static void cont__21_33(void);
 static void cont__21_34(void);
-static NODE *func__22_1;
-static void entry__22_1(void);
-static FRAME_INFO frame__22_1 = {3, {"self", "key", "value"}};
+static NODE *func__22_1_types__key_order_table_private__set_item;
+static void entry__22_1_types__key_order_table_private__set_item(void);
+static FRAME_INFO frame__22_1_types__key_order_table_private__set_item = {3, {"self", "key", "value"}};
 static void cont__22_2(void);
 static NODE *func__22_3;
 static void entry__22_3(void);
@@ -630,20 +630,20 @@ static FRAME_INFO frame__22_15 = {1, {"self"}};
 static void cont__22_16(void);
 static void cont__22_17(void);
 static void cont__22_18(void);
-static NODE *func__23_1;
-static void entry__23_1(void);
-static FRAME_INFO frame__23_1 = {2, {"self", "key"}};
+static NODE *func__23_1_types__key_order_table_private__get_item;
+static void entry__23_1_types__key_order_table_private__get_item(void);
+static FRAME_INFO frame__23_1_types__key_order_table_private__get_item = {2, {"self", "key"}};
 static void cont__23_2(void);
 static NODE *string__26_1;
-static NODE *func__27_1;
-static void entry__27_1(void);
-static FRAME_INFO frame__27_1 = {1, {"self"}};
+static NODE *func__27_1_types__key_order_table_new_empty_collection;
+static void entry__27_1_types__key_order_table_new_empty_collection(void);
+static FRAME_INFO frame__27_1_types__key_order_table_new_empty_collection = {1, {"self"}};
 static NODE *get__std__empty_key_order_table(void) {
   return var.std__empty_key_order_table;
 }
-static NODE *func__29_1;
-static void entry__29_1(void);
-static FRAME_INFO frame__29_1 = {2, {"initializers", "tab"}};
+static NODE *func__29_1_std__key_order_table;
+static void entry__29_1_std__key_order_table(void);
+static FRAME_INFO frame__29_1_std__key_order_table = {2, {"initializers", "tab"}};
 static NODE *func__29_2;
 static void entry__29_2(void);
 static FRAME_INFO frame__29_2 = {2, {"initializer", "tab"}};
@@ -654,9 +654,9 @@ static void cont__29_6(void);
 static NODE *get__std__key_order_table(void) {
   return var.std__key_order_table;
 }
-static NODE *func__30_1;
-static void entry__30_1(void);
-static FRAME_INFO frame__30_1 = {2, {"myself", "body"}};
+static NODE *func__30_1_for_each_item;
+static void entry__30_1_for_each_item(void);
+static FRAME_INFO frame__30_1_for_each_item = {2, {"myself", "body"}};
 static void cont__30_2(void);
 static NODE *func__30_3;
 static void entry__30_3(void);
@@ -676,17 +676,17 @@ static FRAME_INFO frame__30_11 = {2, {"body", "myself"}};
 static void cont__30_12(void);
 static void cont__30_13(void);
 static void cont__30_14(void);
-static NODE *func__31_1;
-static void entry__31_1(void);
-static FRAME_INFO frame__31_1 = {3, {"self", "body", "tree"}};
+static NODE *func__31_1_types__key_order_table_for_each;
+static void entry__31_1_types__key_order_table_for_each(void);
+static FRAME_INFO frame__31_1_types__key_order_table_for_each = {3, {"self", "body", "tree"}};
 static void cont__31_2(void);
 static void cont__31_3(void);
 static NODE *func__31_4;
 static void entry__31_4(void);
 static FRAME_INFO frame__31_4 = {2, {"tree", "body"}};
-static NODE *func__32_1;
-static void entry__32_1(void);
-static FRAME_INFO frame__32_1 = {4, {"myself", "first", "last", "body"}};
+static NODE *func__32_1_for_each_item_from_to;
+static void entry__32_1_for_each_item_from_to(void);
+static FRAME_INFO frame__32_1_for_each_item_from_to = {4, {"myself", "first", "last", "body"}};
 static void cont__32_2(void);
 static NODE *func__32_3;
 static void entry__32_3(void);
@@ -745,17 +745,17 @@ static NODE *func__32_36;
 static void entry__32_36(void);
 static FRAME_INFO frame__32_36 = {4, {"myself", "first", "last", "body"}};
 static void cont__32_37(void);
-static NODE *func__33_1;
-static void entry__33_1(void);
-static FRAME_INFO frame__33_1 = {5, {"self", "first", "last", "body", "tree"}};
+static NODE *func__33_1_types__key_order_table_for_each_from_to;
+static void entry__33_1_types__key_order_table_for_each_from_to(void);
+static FRAME_INFO frame__33_1_types__key_order_table_for_each_from_to = {5, {"self", "first", "last", "body", "tree"}};
 static void cont__33_2(void);
 static void cont__33_3(void);
 static NODE *func__33_4;
 static void entry__33_4(void);
 static FRAME_INFO frame__33_4 = {4, {"tree", "first", "last", "body"}};
-static NODE *func__34_1;
-static void entry__34_1(void);
-static FRAME_INFO frame__34_1 = {4, {"myself", "last", "first", "body"}};
+static NODE *func__34_1_for_each_item_from_down_to;
+static void entry__34_1_for_each_item_from_down_to(void);
+static FRAME_INFO frame__34_1_for_each_item_from_down_to = {4, {"myself", "last", "first", "body"}};
 static void cont__34_2(void);
 static NODE *func__34_3;
 static void entry__34_3(void);
@@ -814,17 +814,17 @@ static NODE *func__34_36;
 static void entry__34_36(void);
 static FRAME_INFO frame__34_36 = {4, {"myself", "last", "first", "body"}};
 static void cont__34_37(void);
-static NODE *func__35_1;
-static void entry__35_1(void);
-static FRAME_INFO frame__35_1 = {5, {"self", "last", "first", "body", "tree"}};
+static NODE *func__35_1_types__key_order_table_for_each_from_down_to;
+static void entry__35_1_types__key_order_table_for_each_from_down_to(void);
+static FRAME_INFO frame__35_1_types__key_order_table_for_each_from_down_to = {5, {"self", "last", "first", "body", "tree"}};
 static void cont__35_2(void);
 static void cont__35_3(void);
 static NODE *func__35_4;
 static void entry__35_4(void);
 static FRAME_INFO frame__35_4 = {4, {"tree", "last", "first", "body"}};
-static NODE *func__36_1;
-static void entry__36_1(void);
-static FRAME_INFO frame__36_1 = {2, {"myself", "body"}};
+static NODE *func__36_1_update_each_item;
+static void entry__36_1_update_each_item(void);
+static FRAME_INFO frame__36_1_update_each_item = {2, {"myself", "body"}};
 static void cont__36_2(void);
 static NODE *func__36_3;
 static void entry__36_3(void);
@@ -837,9 +837,9 @@ static void cont__36_8(void);
 static void cont__36_9(void);
 static void cont__36_10(void);
 static void cont__36_11(void);
-static NODE *func__37_1;
-static void entry__37_1(void);
-static FRAME_INFO frame__37_1 = {4, {"myself", "first", "last", "body"}};
+static NODE *func__37_1_update_each_item_from_to;
+static void entry__37_1_update_each_item_from_to(void);
+static FRAME_INFO frame__37_1_update_each_item_from_to = {4, {"myself", "first", "last", "body"}};
 static void cont__37_2(void);
 static NODE *func__37_3;
 static void entry__37_3(void);
@@ -893,9 +893,9 @@ static FRAME_INFO frame__37_33 = {4, {"myself", "first", "last", "body"}};
 static void cont__37_34(void);
 static void cont__37_35(void);
 static void cont__37_36(void);
-static NODE *func__38_1;
-static void entry__38_1(void);
-static FRAME_INFO frame__38_1 = {4, {"self", "first", "last", "body"}};
+static NODE *func__38_1_types__key_order_table_update_each_from_to;
+static void entry__38_1_types__key_order_table_update_each_from_to(void);
+static FRAME_INFO frame__38_1_types__key_order_table_update_each_from_to = {4, {"self", "first", "last", "body"}};
 static void cont__38_2(void);
 static void cont__38_3(void);
 static NODE *func__38_4;
@@ -904,9 +904,9 @@ static FRAME_INFO frame__38_4 = {4, {"self", "first", "last", "body"}};
 static void cont__38_5(void);
 static void cont__38_6(void);
 static void cont__38_7(void);
-static NODE *func__39_1;
-static void entry__39_1(void);
-static FRAME_INFO frame__39_1 = {4, {"myself", "last", "first", "body"}};
+static NODE *func__39_1_update_each_item_from_down_to;
+static void entry__39_1_update_each_item_from_down_to(void);
+static FRAME_INFO frame__39_1_update_each_item_from_down_to = {4, {"myself", "last", "first", "body"}};
 static void cont__39_2(void);
 static NODE *func__39_3;
 static void entry__39_3(void);
@@ -960,9 +960,9 @@ static FRAME_INFO frame__39_33 = {4, {"myself", "last", "first", "body"}};
 static void cont__39_34(void);
 static void cont__39_35(void);
 static void cont__39_36(void);
-static NODE *func__40_1;
-static void entry__40_1(void);
-static FRAME_INFO frame__40_1 = {4, {"self", "last", "first", "body"}};
+static NODE *func__40_1_types__key_order_table_update_each_from_down_to;
+static void entry__40_1_types__key_order_table_update_each_from_down_to(void);
+static FRAME_INFO frame__40_1_types__key_order_table_update_each_from_down_to = {4, {"self", "last", "first", "body"}};
 static void cont__40_2(void);
 static void cont__40_3(void);
 static NODE *func__40_4;
@@ -971,9 +971,9 @@ static FRAME_INFO frame__40_4 = {4, {"self", "last", "first", "body"}};
 static void cont__40_5(void);
 static void cont__40_6(void);
 static void cont__40_7(void);
-static NODE *func__41_1;
-static void entry__41_1(void);
-static FRAME_INFO frame__41_1 = {2, {"self", "body"}};
+static NODE *func__41_1_types__key_order_table_update_each;
+static void entry__41_1_types__key_order_table_update_each(void);
+static FRAME_INFO frame__41_1_types__key_order_table_update_each = {2, {"self", "body"}};
 static void cont__41_2(void);
 static void cont__41_3(void);
 static NODE *func__41_4;
@@ -1000,30 +1000,30 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__12_7, &frame__12_6, 51, 51, 7, 27},
   {cont__12_8, &frame__12_6, 52, 52, 7, 26},
   {cont__12_9, &frame__12_6, 52, 52, 26, 26},
-  {entry__12_1, NULL, 44, 44, 3, 22},
-  {cont__12_2, &frame__12_1, 46, 46, 5, 19},
-  {cont__12_3, &frame__12_1, 45, 52, 3, 27},
-  {cont__12_10, &frame__12_1, },
+  {entry__12_1_remove_leftmost, NULL, 44, 44, 3, 22},
+  {cont__12_2, &frame__12_1_remove_leftmost, 46, 46, 5, 19},
+  {cont__12_3, &frame__12_1_remove_leftmost, 45, 52, 3, 27},
+  {cont__12_10, &frame__12_1_remove_leftmost, },
   {entry__13_4, NULL, 63, 63, 7, 41},
   {cont__13_5, &frame__13_4, 64, 64, 26, 26},
   {entry__13_6, NULL, 66, 66, 7, 23},
   {cont__13_7, &frame__13_6, 67, 67, 7, 27},
   {cont__13_8, &frame__13_6, 68, 68, 7, 25},
   {cont__13_9, &frame__13_6, 68, 68, 25, 25},
-  {entry__13_1, NULL, 60, 60, 3, 24},
-  {cont__13_2, &frame__13_1, 62, 62, 5, 20},
-  {cont__13_3, &frame__13_1, 61, 68, 3, 26},
-  {cont__13_10, &frame__13_1, },
+  {entry__13_1_remove_rightmost, NULL, 60, 60, 3, 24},
+  {cont__13_2, &frame__13_1_remove_rightmost, 62, 62, 5, 20},
+  {cont__13_3, &frame__13_1_remove_rightmost, 61, 68, 3, 26},
+  {cont__13_10, &frame__13_1_remove_rightmost, },
   {entry__18_4, NULL, 92, 92, 7, 35},
   {cont__18_5, &frame__18_4, 94, 94, 7, 22},
   {entry__18_6, NULL, 96, 96, 7, 25},
   {cont__18_7, &frame__18_6, 97, 97, 7, 29},
   {cont__18_8, &frame__18_6, 98, 98, 7, 30},
   {cont__18_9, &frame__18_6, 99, 99, 7, 22},
-  {entry__18_1, NULL, 89, 89, 3, 24},
-  {cont__18_2, &frame__18_1, 91, 91, 5, 19},
-  {cont__18_3, &frame__18_1, 90, 99, 3, 23},
-  {cont__18_10, &frame__18_1, 99, 99, 23, 23},
+  {entry__18_1_fetch_first, NULL, 89, 89, 3, 24},
+  {cont__18_2, &frame__18_1_fetch_first, 91, 91, 5, 19},
+  {cont__18_3, &frame__18_1_fetch_first, 90, 99, 3, 23},
+  {cont__18_10, &frame__18_1_fetch_first, 99, 99, 23, 23},
   {entry__19_3, NULL, 107, 107, 27, 42},
   {entry__19_8, NULL, 110, 110, 30, 45},
   {cont__19_9, &frame__19_8, 110, 110, 23, 45},
@@ -1039,11 +1039,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__19_19, &frame__19_17, 112, 112, 22, 63},
   {entry__19_15, NULL, 112, 112, 8, 19},
   {cont__19_16, &frame__19_15, 112, 112, 5, 63},
-  {entry__19_1, NULL, 107, 107, 6, 24},
-  {cont__19_2, &frame__19_1, 107, 107, 3, 42},
-  {cont__19_4, &frame__19_1, 108, 108, 3, 24},
-  {cont__19_5, &frame__19_1, 109, 112, 3, 63},
-  {cont__19_20, &frame__19_1, 112, 112, 63, 63},
+  {entry__19_1_retrieve_item, NULL, 107, 107, 6, 24},
+  {cont__19_2, &frame__19_1_retrieve_item, 107, 107, 3, 42},
+  {cont__19_4, &frame__19_1_retrieve_item, 108, 108, 3, 24},
+  {cont__19_5, &frame__19_1_retrieve_item, 109, 112, 3, 63},
+  {cont__19_20, &frame__19_1_retrieve_item, 112, 112, 63, 63},
   {entry__20_3, NULL, 121, 121, 27, 79},
   {entry__20_8, NULL, 124, 124, 23, 59},
   {entry__20_6, NULL, 124, 124, 8, 20},
@@ -1058,11 +1058,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__20_18, &frame__20_16, 130, 130, 7, 41},
   {entry__20_14, NULL, 128, 128, 8, 19},
   {cont__20_15, &frame__20_14, 128, 130, 5, 41},
-  {entry__20_1, NULL, 121, 121, 6, 24},
-  {cont__20_2, &frame__20_1, 121, 121, 3, 79},
-  {cont__20_4, &frame__20_1, 122, 122, 3, 24},
-  {cont__20_5, &frame__20_1, 123, 130, 3, 42},
-  {cont__20_19, &frame__20_1, 130, 130, 42, 42},
+  {entry__20_1_add_item, NULL, 121, 121, 6, 24},
+  {cont__20_2, &frame__20_1_add_item, 121, 121, 3, 79},
+  {cont__20_4, &frame__20_1_add_item, 122, 122, 3, 24},
+  {cont__20_5, &frame__20_1_add_item, 123, 130, 3, 42},
+  {cont__20_19, &frame__20_1_add_item, 130, 130, 42, 42},
   {entry__21_3, NULL, 138, 138, 27, 55},
   {entry__21_14, NULL, 148, 148, 15, 54},
   {cont__21_15, &frame__21_14, 149, 154, 15, 34},
@@ -1092,11 +1092,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__21_33, &frame__21_28, 168, 168, 7, 19},
   {entry__21_26, NULL, 164, 164, 8, 19},
   {cont__21_27, &frame__21_26, 164, 168, 5, 19},
-  {entry__21_1, NULL, 138, 138, 6, 24},
-  {cont__21_2, &frame__21_1, 138, 138, 3, 55},
-  {cont__21_4, &frame__21_1, 139, 139, 3, 24},
-  {cont__21_5, &frame__21_1, 140, 168, 3, 20},
-  {cont__21_34, &frame__21_1, 168, 168, 20, 20},
+  {entry__21_1_remove_item, NULL, 138, 138, 6, 24},
+  {cont__21_2, &frame__21_1_remove_item, 138, 138, 3, 55},
+  {cont__21_4, &frame__21_1_remove_item, 139, 139, 3, 24},
+  {cont__21_5, &frame__21_1_remove_item, 140, 168, 3, 20},
+  {cont__21_34, &frame__21_1_remove_item, 168, 168, 20, 20},
   {entry__22_8, NULL, 181, 181, 14, 27},
   {cont__22_9, &frame__22_8, 181, 181, 9, 27},
   {cont__22_10, &frame__22_8, 181, 181, 27, 27},
@@ -1112,18 +1112,18 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__22_12, &frame__22_11, 183, 183, 7, 54},
   {cont__22_13, &frame__22_11, 185, 185, 10, 23},
   {cont__22_14, &frame__22_11, 185, 185, 7, 44},
-  {entry__22_1, NULL, 177, 177, 5, 22},
-  {cont__22_2, &frame__22_1, 176, 185, 3, 45},
-  {cont__22_18, &frame__22_1, },
-  {entry__23_1, NULL, 188, 188, 17, 29},
-  {cont__23_2, &frame__23_1, 188, 188, 3, 33},
-  {entry__27_1, NULL, 194, 194, 55, 79},
+  {entry__22_1_types__key_order_table_private__set_item, NULL, 177, 177, 5, 22},
+  {cont__22_2, &frame__22_1_types__key_order_table_private__set_item, 176, 185, 3, 45},
+  {cont__22_18, &frame__22_1_types__key_order_table_private__set_item, },
+  {entry__23_1_types__key_order_table_private__get_item, NULL, 188, 188, 17, 29},
+  {cont__23_2, &frame__23_1_types__key_order_table_private__get_item, 188, 188, 3, 33},
+  {entry__27_1_types__key_order_table_new_empty_collection, NULL, 194, 194, 55, 79},
   {entry__29_2, NULL, 201, 201, 5, 61},
   {cont__29_3, &frame__29_2, 201, 201, 10, 33},
   {cont__29_4, &frame__29_2, 201, 201, 5, 34},
   {cont__29_5, &frame__29_2, 201, 201, 61, 61},
-  {entry__29_1, NULL, 200, 201, 3, 61},
-  {cont__29_6, &frame__29_1, 202, 202, 3, 8},
+  {entry__29_1_std__key_order_table, NULL, 200, 201, 3, 61},
+  {cont__29_6, &frame__29_1_std__key_order_table, 202, 202, 3, 8},
   {entry__30_8, NULL, 209, 209, 14, 27},
   {cont__30_9, &frame__30_8, 209, 209, 29, 44},
   {cont__30_10, &frame__30_8, 209, 209, 9, 44},
@@ -1136,12 +1136,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_7, &frame__30_3, 207, 211, 5, 30},
   {cont__30_13, &frame__30_3, 212, 212, 19, 34},
   {cont__30_14, &frame__30_3, 212, 212, 5, 39},
-  {entry__30_1, NULL, 205, 205, 6, 22},
-  {cont__30_2, &frame__30_1, 205, 212, 3, 39},
+  {entry__30_1_for_each_item, NULL, 205, 205, 6, 22},
+  {cont__30_2, &frame__30_1_for_each_item, 205, 212, 3, 39},
   {entry__31_4, NULL, 216, 216, 23, 45},
-  {entry__31_1, NULL, 215, 215, 3, 21},
-  {cont__31_2, &frame__31_1, 216, 216, 6, 20},
-  {cont__31_3, &frame__31_1, 216, 216, 3, 45},
+  {entry__31_1_types__key_order_table_for_each, NULL, 215, 215, 3, 21},
+  {cont__31_2, &frame__31_1_types__key_order_table_for_each, 216, 216, 6, 20},
+  {cont__31_3, &frame__31_1_types__key_order_table_for_each, 216, 216, 3, 45},
   {entry__32_6, NULL, 221, 221, 30, 40},
   {cont__32_7, &frame__32_6, 221, 221, 30, 40},
   {entry__32_9, NULL, 222, 222, 29, 43},
@@ -1177,12 +1177,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__32_31, &frame__32_3, 231, 231, 8, 24},
   {cont__32_32, &frame__32_3, 231, 231, 8, 38},
   {cont__32_35, &frame__32_3, 231, 232, 5, 60},
-  {entry__32_1, NULL, 219, 219, 6, 22},
-  {cont__32_2, &frame__32_1, 219, 232, 3, 61},
+  {entry__32_1_for_each_item_from_to, NULL, 219, 219, 6, 22},
+  {cont__32_2, &frame__32_1_for_each_item_from_to, 219, 232, 3, 61},
   {entry__33_4, NULL, 236, 236, 23, 64},
-  {entry__33_1, NULL, 235, 235, 3, 21},
-  {cont__33_2, &frame__33_1, 236, 236, 6, 20},
-  {cont__33_3, &frame__33_1, 236, 236, 3, 64},
+  {entry__33_1_types__key_order_table_for_each_from_to, NULL, 235, 235, 3, 21},
+  {cont__33_2, &frame__33_1_types__key_order_table_for_each_from_to, 236, 236, 6, 20},
+  {cont__33_3, &frame__33_1_types__key_order_table_for_each_from_to, 236, 236, 3, 64},
   {entry__34_6, NULL, 241, 241, 29, 38},
   {cont__34_7, &frame__34_6, 241, 241, 29, 38},
   {entry__34_9, NULL, 242, 242, 34, 49},
@@ -1218,12 +1218,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__34_31, &frame__34_3, 251, 251, 8, 25},
   {cont__34_32, &frame__34_3, 251, 251, 8, 40},
   {cont__34_35, &frame__34_3, 251, 252, 5, 64},
-  {entry__34_1, NULL, 239, 239, 6, 22},
-  {cont__34_2, &frame__34_1, 239, 252, 3, 65},
+  {entry__34_1_for_each_item_from_down_to, NULL, 239, 239, 6, 22},
+  {cont__34_2, &frame__34_1_for_each_item_from_down_to, 239, 252, 3, 65},
   {entry__35_4, NULL, 256, 256, 23, 69},
-  {entry__35_1, NULL, 255, 255, 3, 21},
-  {cont__35_2, &frame__35_1, 256, 256, 6, 20},
-  {cont__35_3, &frame__35_1, 256, 256, 3, 69},
+  {entry__35_1_types__key_order_table_for_each_from_down_to, NULL, 255, 255, 3, 21},
+  {cont__35_2, &frame__35_1_types__key_order_table_for_each_from_down_to, 256, 256, 6, 20},
+  {cont__35_3, &frame__35_1_types__key_order_table_for_each_from_down_to, 256, 256, 3, 69},
   {entry__36_3, NULL, 264, 264, 23, 36},
   {cont__36_4, &frame__36_3, 264, 264, 5, 41},
   {cont__36_5, &frame__36_3, 265, 265, 10, 23},
@@ -1232,9 +1232,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__36_8, &frame__36_3, 266, 266, 23, 37},
   {cont__36_9, &frame__36_3, 266, 266, 5, 42},
   {cont__36_10, &frame__36_3, 266, 266, 42, 42},
-  {entry__36_1, NULL, 263, 263, 6, 22},
-  {cont__36_2, &frame__36_1, 263, 266, 3, 42},
-  {cont__36_11, &frame__36_1, },
+  {entry__36_1_update_each_item, NULL, 263, 263, 6, 22},
+  {cont__36_2, &frame__36_1_update_each_item, 263, 266, 3, 42},
+  {cont__36_11, &frame__36_1_update_each_item, },
   {entry__37_6, NULL, 277, 277, 30, 40},
   {cont__37_7, &frame__37_6, 277, 277, 30, 40},
   {entry__37_9, NULL, 278, 278, 33, 46},
@@ -1268,16 +1268,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__37_28, &frame__37_3, 283, 283, 8, 24},
   {cont__37_29, &frame__37_3, 283, 283, 8, 38},
   {cont__37_32, &frame__37_3, 283, 284, 5, 63},
-  {entry__37_1, NULL, 275, 275, 6, 22},
-  {cont__37_2, &frame__37_1, 275, 284, 3, 64},
-  {cont__37_36, &frame__37_1, },
+  {entry__37_1_update_each_item_from_to, NULL, 275, 275, 6, 22},
+  {cont__37_2, &frame__37_1_update_each_item_from_to, 275, 284, 3, 64},
+  {cont__37_36, &frame__37_1_update_each_item_from_to, },
   {entry__38_4, NULL, 294, 294, 31, 42},
   {cont__38_5, &frame__38_4, 294, 294, 5, 58},
   {cont__38_6, &frame__38_4, 294, 294, 58, 58},
-  {entry__38_1, NULL, 293, 293, 6, 18},
-  {cont__38_2, &frame__38_1, 293, 293, 6, 29},
-  {cont__38_3, &frame__38_1, 293, 294, 3, 58},
-  {cont__38_7, &frame__38_1, },
+  {entry__38_1_types__key_order_table_update_each_from_to, NULL, 293, 293, 6, 18},
+  {cont__38_2, &frame__38_1_types__key_order_table_update_each_from_to, 293, 293, 6, 29},
+  {cont__38_3, &frame__38_1_types__key_order_table_update_each_from_to, 293, 294, 3, 58},
+  {cont__38_7, &frame__38_1_types__key_order_table_update_each_from_to, },
   {entry__39_6, NULL, 305, 305, 29, 38},
   {cont__39_7, &frame__39_6, 305, 305, 29, 38},
   {entry__39_9, NULL, 306, 306, 38, 52},
@@ -1311,23 +1311,23 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__39_28, &frame__39_3, 311, 311, 8, 25},
   {cont__39_29, &frame__39_3, 311, 311, 8, 40},
   {cont__39_32, &frame__39_3, 311, 312, 5, 67},
-  {entry__39_1, NULL, 303, 303, 6, 22},
-  {cont__39_2, &frame__39_1, 303, 312, 3, 68},
-  {cont__39_36, &frame__39_1, },
+  {entry__39_1_update_each_item_from_down_to, NULL, 303, 303, 6, 22},
+  {cont__39_2, &frame__39_1_update_each_item_from_down_to, 303, 312, 3, 68},
+  {cont__39_36, &frame__39_1_update_each_item_from_down_to, },
   {entry__40_4, NULL, 322, 322, 36, 47},
   {cont__40_5, &frame__40_4, 322, 322, 5, 63},
   {cont__40_6, &frame__40_4, 322, 322, 63, 63},
-  {entry__40_1, NULL, 321, 321, 6, 18},
-  {cont__40_2, &frame__40_1, 321, 321, 6, 29},
-  {cont__40_3, &frame__40_1, 321, 322, 3, 63},
-  {cont__40_7, &frame__40_1, },
+  {entry__40_1_types__key_order_table_update_each_from_down_to, NULL, 321, 321, 6, 18},
+  {cont__40_2, &frame__40_1_types__key_order_table_update_each_from_down_to, 321, 321, 6, 29},
+  {cont__40_3, &frame__40_1_types__key_order_table_update_each_from_down_to, 321, 322, 3, 63},
+  {cont__40_7, &frame__40_1_types__key_order_table_update_each_from_down_to, },
   {entry__41_4, NULL, 329, 329, 50, 61},
   {cont__41_5, &frame__41_4, 329, 329, 32, 66},
   {cont__41_6, &frame__41_4, 329, 329, 66, 66},
-  {entry__41_1, NULL, 329, 329, 6, 18},
-  {cont__41_2, &frame__41_1, 329, 329, 6, 29},
-  {cont__41_3, &frame__41_1, 329, 329, 3, 66},
-  {cont__41_7, &frame__41_1, }
+  {entry__41_1_types__key_order_table_update_each, NULL, 329, 329, 6, 18},
+  {cont__41_2, &frame__41_1_types__key_order_table_update_each, 329, 329, 6, 29},
+  {cont__41_3, &frame__41_1_types__key_order_table_update_each, 329, 329, 3, 66},
+  {cont__41_7, &frame__41_1_types__key_order_table_update_each, }
 };
 
 union NODE {
@@ -1527,7 +1527,7 @@ static void cont__84_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_remove_leftmost(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // node: 0
@@ -1726,7 +1726,7 @@ static void cont__12_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1(void) {
+static void entry__13_1_remove_rightmost(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // node: 0
@@ -1925,13 +1925,13 @@ static void cont__13_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1(void) {
+static void entry__18_1_fetch_first(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // myself: 0
   // return: 1
   // left: 2
-  frame->slots[1] /* return */ = create_continuation_with_exit(exit__18_1);
+  frame->slots[1] /* return */ = create_continuation_with_exit(exit__18_1_fetch_first);
   frame->slots[2] /* left */ = create_cell();
   if (argument_count != 1) {
     invalid_arguments_error();
@@ -2134,7 +2134,7 @@ static void cont__18_10(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__18_1(void) {
+static void exit__18_1_fetch_first(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -2144,7 +2144,7 @@ static void exit__18_1(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
   func = continuation_type_function;
 }
-static void entry__19_1(void) {
+static void entry__19_1_retrieve_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -2514,7 +2514,7 @@ static void cont__19_20(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__20_1(void) {
+static void entry__20_1_add_item(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // myself: 0
@@ -2959,7 +2959,7 @@ static void cont__20_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1(void) {
+static void entry__21_1_remove_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -3746,7 +3746,7 @@ static void cont__21_34(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__22_1(void) {
+static void entry__22_1_types__key_order_table_private__set_item(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -4117,7 +4117,7 @@ static void cont__22_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__23_1(void) {
+static void entry__23_1_types__key_order_table_private__get_item(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -4151,7 +4151,7 @@ static void cont__23_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__27_1(void) {
+static void entry__27_1_types__key_order_table_new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -4167,7 +4167,7 @@ static void entry__27_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_1(void) {
+static void entry__29_1_std__key_order_table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -4475,7 +4475,7 @@ static void cont__30_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__30_1(void) {
+static void entry__30_1_for_each_item(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // myself: 0
@@ -4546,7 +4546,7 @@ static void entry__31_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__31_1(void) {
+static void entry__31_1_types__key_order_table_for_each(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -5254,7 +5254,7 @@ static void cont__32_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__32_1(void) {
+static void entry__32_1_for_each_item_from_to(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // myself: 0
@@ -5339,7 +5339,7 @@ static void entry__33_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__33_1(void) {
+static void entry__33_1_types__key_order_table_for_each_from_to(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // self: 0
@@ -6049,7 +6049,7 @@ static void cont__34_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__34_1(void) {
+static void entry__34_1_for_each_item_from_down_to(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // myself: 0
@@ -6134,7 +6134,7 @@ static void entry__35_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_1(void) {
+static void entry__35_1_types__key_order_table_for_each_from_down_to(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // self: 0
@@ -6189,7 +6189,7 @@ static void cont__35_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__36_1(void) {
+static void entry__36_1_update_each_item(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // myself: 0
@@ -6394,7 +6394,7 @@ static void cont__36_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__37_1(void) {
+static void entry__37_1_update_each_item_from_to(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // myself: 0
@@ -7071,7 +7071,7 @@ static void cont__37_36(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_1(void) {
+static void entry__38_1_types__key_order_table_update_each_from_to(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // self: 0
@@ -7202,7 +7202,7 @@ static void cont__38_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__39_1(void) {
+static void entry__39_1_update_each_item_from_down_to(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // myself: 0
@@ -7879,7 +7879,7 @@ static void cont__39_36(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__40_1(void) {
+static void entry__40_1_types__key_order_table_update_each_from_down_to(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // self: 0
@@ -8010,7 +8010,7 @@ static void cont__40_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_1(void) {
+static void entry__41_1_types__key_order_table_update_each(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -8183,29 +8183,29 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   unique__4_1 = register_unique_item("NONE");
   unique__5_1 = register_unique_item("INSERT");
   unique__6_1 = register_unique_item("UPDATE");
-  func__12_1 = create_function(entry__12_1, 1);
-  func__13_1 = create_function(entry__13_1, 1);
-  func__18_1 = create_function(entry__18_1, 1);
-  func__19_1 = create_function(entry__19_1, 2);
-  func__20_1 = create_function(entry__20_1, 3);
-  func__21_1 = create_function(entry__21_1, 2);
-  func__22_1 = create_function(entry__22_1, 3);
-  func__23_1 = create_function(entry__23_1, 2);
+  func__12_1_remove_leftmost = create_function(entry__12_1_remove_leftmost, 1);
+  func__13_1_remove_rightmost = create_function(entry__13_1_remove_rightmost, 1);
+  func__18_1_fetch_first = create_function(entry__18_1_fetch_first, 1);
+  func__19_1_retrieve_item = create_function(entry__19_1_retrieve_item, 2);
+  func__20_1_add_item = create_function(entry__20_1_add_item, 3);
+  func__21_1_remove_item = create_function(entry__21_1_remove_item, 2);
+  func__22_1_types__key_order_table_private__set_item = create_function(entry__22_1_types__key_order_table_private__set_item, 3);
+  func__23_1_types__key_order_table_private__get_item = create_function(entry__23_1_types__key_order_table_private__get_item, 2);
   string__26_1 = from_latin_1_string("key_order_table", 15);
-  func__27_1 = create_function(entry__27_1, 1);
-  func__29_1 = create_function(entry__29_1, -1);
-  func__30_1 = create_function(entry__30_1, 2);
-  func__31_1 = create_function(entry__31_1, 2);
-  func__32_1 = create_function(entry__32_1, 4);
-  func__33_1 = create_function(entry__33_1, 4);
-  func__34_1 = create_function(entry__34_1, 4);
-  func__35_1 = create_function(entry__35_1, 4);
-  func__36_1 = create_function(entry__36_1, 2);
-  func__37_1 = create_function(entry__37_1, 4);
-  func__38_1 = create_function(entry__38_1, 4);
-  func__39_1 = create_function(entry__39_1, 4);
-  func__40_1 = create_function(entry__40_1, 4);
-  func__41_1 = create_function(entry__41_1, 2);
+  func__27_1_types__key_order_table_new_empty_collection = create_function(entry__27_1_types__key_order_table_new_empty_collection, 1);
+  func__29_1_std__key_order_table = create_function(entry__29_1_std__key_order_table, -1);
+  func__30_1_for_each_item = create_function(entry__30_1_for_each_item, 2);
+  func__31_1_types__key_order_table_for_each = create_function(entry__31_1_types__key_order_table_for_each, 2);
+  func__32_1_for_each_item_from_to = create_function(entry__32_1_for_each_item_from_to, 4);
+  func__33_1_types__key_order_table_for_each_from_to = create_function(entry__33_1_types__key_order_table_for_each_from_to, 4);
+  func__34_1_for_each_item_from_down_to = create_function(entry__34_1_for_each_item_from_down_to, 4);
+  func__35_1_types__key_order_table_for_each_from_down_to = create_function(entry__35_1_types__key_order_table_for_each_from_down_to, 4);
+  func__36_1_update_each_item = create_function(entry__36_1_update_each_item, 2);
+  func__37_1_update_each_item_from_to = create_function(entry__37_1_update_each_item_from_to, 4);
+  func__38_1_types__key_order_table_update_each_from_to = create_function(entry__38_1_types__key_order_table_update_each_from_to, 4);
+  func__39_1_update_each_item_from_down_to = create_function(entry__39_1_update_each_item_from_down_to, 4);
+  func__40_1_types__key_order_table_update_each_from_down_to = create_function(entry__40_1_types__key_order_table_update_each_from_down_to, 4);
+  func__41_1_types__key_order_table_update_each = create_function(entry__41_1_types__key_order_table_update_each, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -8269,18 +8269,18 @@ EXPORT void phase_4__basic__types__key_order_table(void) {
   def_attribute(&var._empty_node, poly_idx__left_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
   update_start_p = node_p;
   def_attribute(&var._empty_node, poly_idx__right_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
-  define_method("types", "key_order_table", poly_idx__private__set_item, func__22_1);
-  define_method("types", "key_order_table", poly_idx__private__get_item, func__23_1);
+  define_method("types", "key_order_table", poly_idx__private__set_item, func__22_1_types__key_order_table_private__set_item);
+  define_method("types", "key_order_table", poly_idx__private__get_item, func__23_1_types__key_order_table_private__get_item);
   define_attribute("types", "key_order_table", poly_idx__tree_of, get__undefined());
   define_attribute("types", "key_order_table", poly_idx__length_of, number__0);
   define_attribute("types", "key_order_table", poly_idx__serialization_tag_of, string__26_1);
-  define_method("types", "key_order_table", poly_idx__new_empty_collection, func__27_1);
-  define_method("types", "key_order_table", poly_idx__for_each, func__31_1);
-  define_method("types", "key_order_table", poly_idx__for_each_from_to, func__33_1);
-  define_method("types", "key_order_table", poly_idx__for_each_from_down_to, func__35_1);
-  define_method("types", "key_order_table", poly_idx__update_each_from_to, func__38_1);
-  define_method("types", "key_order_table", poly_idx__update_each_from_down_to, func__40_1);
-  define_method("types", "key_order_table", poly_idx__update_each, func__41_1);
+  define_method("types", "key_order_table", poly_idx__new_empty_collection, func__27_1_types__key_order_table_new_empty_collection);
+  define_method("types", "key_order_table", poly_idx__for_each, func__31_1_types__key_order_table_for_each);
+  define_method("types", "key_order_table", poly_idx__for_each_from_to, func__33_1_types__key_order_table_for_each_from_to);
+  define_method("types", "key_order_table", poly_idx__for_each_from_down_to, func__35_1_types__key_order_table_for_each_from_down_to);
+  define_method("types", "key_order_table", poly_idx__update_each_from_to, func__38_1_types__key_order_table_update_each_from_to);
+  define_method("types", "key_order_table", poly_idx__update_each_from_down_to, func__40_1_types__key_order_table_update_each_from_down_to);
+  define_method("types", "key_order_table", poly_idx__update_each, func__41_1_types__key_order_table_update_each);
 }
 
 static int already_run_phase_5 = false;
@@ -8294,22 +8294,22 @@ EXPORT void phase_5__basic__types__key_order_table(void) {
   assign_value(&var._value_of, create_function(type__value_of, -1));
   assign_value(&var._left_of, create_function(type__left_of, -1));
   assign_value(&var._right_of, create_function(type__right_of, -1));
-  assign_variable(&var._remove_leftmost, &func__12_1);
-  assign_variable(&var._remove_rightmost, &func__13_1);
+  assign_variable(&var._remove_leftmost, &func__12_1_remove_leftmost);
+  assign_variable(&var._remove_rightmost, &func__13_1_remove_rightmost);
   assign_value(&var.types__key_order_table, get__types__generic_table());
   assign_value(&var._empty_node, get__types__object());
-  assign_variable(&var._fetch_first, &func__18_1);
-  assign_variable(&var._retrieve_item, &func__19_1);
-  assign_variable(&var._add_item, &func__20_1);
-  assign_variable(&var._remove_item, &func__21_1);
+  assign_variable(&var._fetch_first, &func__18_1_fetch_first);
+  assign_variable(&var._retrieve_item, &func__19_1_retrieve_item);
+  assign_variable(&var._add_item, &func__20_1_add_item);
+  assign_variable(&var._remove_item, &func__21_1_remove_item);
   assign_variable(&var.std__empty_key_order_table, &var.types__key_order_table);
-  assign_variable(&var.std__key_order_table, &func__29_1);
-  assign_variable(&var._for_each_item, &func__30_1);
-  assign_variable(&var._for_each_item_from_to, &func__32_1);
-  assign_variable(&var._for_each_item_from_down_to, &func__34_1);
-  assign_variable(&var._update_each_item, &func__36_1);
-  assign_variable(&var._update_each_item_from_to, &func__37_1);
-  assign_variable(&var._update_each_item_from_down_to, &func__39_1);
+  assign_variable(&var.std__key_order_table, &func__29_1_std__key_order_table);
+  assign_variable(&var._for_each_item, &func__30_1_for_each_item);
+  assign_variable(&var._for_each_item_from_to, &func__32_1_for_each_item_from_to);
+  assign_variable(&var._for_each_item_from_down_to, &func__34_1_for_each_item_from_down_to);
+  assign_variable(&var._update_each_item, &func__36_1_update_each_item);
+  assign_variable(&var._update_each_item_from_to, &func__37_1_update_each_item_from_to);
+  assign_variable(&var._update_each_item_from_down_to, &func__39_1_update_each_item_from_down_to);
 }
 
 static int already_run_phase_6 = false;

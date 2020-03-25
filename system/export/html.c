@@ -232,9 +232,9 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void define_attribute(
+IMPORT void define_method(
   const char *namespace, const char *name,
-  int id, NODE *attribute
+  int id, NODE *method
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
@@ -516,9 +516,9 @@ static NODE *get__html__emit(void) {
 static void define__html__emit(NODE *node) {
   define_dynamic_slot(dyna_idx__html__emit, node);
 }
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {1, {"args"}};
+static NODE *func__9_1_html__emit;
+static void entry__9_1_html__emit(void);
+static FRAME_INFO frame__9_1_html__emit = {1, {"args"}};
 static NODE *func__9_2;
 static void entry__9_2(void);
 static FRAME_INFO frame__9_2 = {1, {"arg"}};
@@ -529,19 +529,19 @@ static NODE *get__html__encode(void) {
 static void define__html__encode(NODE *node) {
   define_dynamic_slot(dyna_idx__html__encode, node);
 }
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {3, {"txt", "tag", "arg_str"}};
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {1, {"args"}};
+static NODE *func__10_1_html__encode;
+static void entry__10_1_html__encode(void);
+static FRAME_INFO frame__10_1_html__encode = {3, {"txt", "tag", "arg_str"}};
+static NODE *func__11_1_html__TEXT;
+static void entry__11_1_html__TEXT(void);
+static FRAME_INFO frame__11_1_html__TEXT = {1, {"args"}};
 static void cont__11_2(void);
 static NODE *get__html__TEXT(void) {
   return var.html__TEXT;
 }
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {2, {"chr", "return"}};
+static NODE *func__12_1_hex_digit_value;
+static void entry__12_1_hex_digit_value(void);
+static FRAME_INFO frame__12_1_hex_digit_value = {2, {"chr", "return"}};
 static NODE *func__12_2;
 static void entry__12_2(void);
 static FRAME_INFO frame__12_2 = {2, {"chr", "return"}};
@@ -594,9 +594,9 @@ static void entry__12_31(void);
 static FRAME_INFO frame__12_31 = {0, {}};
 static NODE *string__12_32;
 static void cont__12_33(void);
-static NODE *func__14_1;
-static void entry__14_1(void);
-static FRAME_INFO frame__14_1 = {1, {"self"}};
+static NODE *func__14_1_types__string_convert_from_percent_encoding;
+static void entry__14_1_types__string_convert_from_percent_encoding(void);
+static FRAME_INFO frame__14_1_types__string_convert_from_percent_encoding = {1, {"self"}};
 static NODE *string__14_2;
 static NODE *string__14_3;
 static void cont__14_4(void);
@@ -615,15 +615,15 @@ static void cont__14_14(void);
 static void cont__14_15(void);
 static void cont__14_16(void);
 static void cont__14_17(void);
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {3, {"name", "mode", "tag_mode"}};
+static NODE *func__15_1_html__define_tag;
+static void entry__15_1_html__define_tag(void);
+static FRAME_INFO frame__15_1_html__define_tag = {3, {"name", "mode", "tag_mode"}};
 static NODE *func__15_2;
 static void entry__15_2(void);
 static FRAME_INFO frame__15_2 = {9, {"args", "name", "mode", "tag_mode", "i", "n", "arg_str", "contents", "emit_tag"}};
-static NODE *func__15_3;
-static void entry__15_3(void);
-static FRAME_INFO frame__15_3 = {5, {"cts", "name", "arg_str", "mode", "tag_mode"}};
+static NODE *func__15_3_emit_tag;
+static void entry__15_3_emit_tag(void);
+static FRAME_INFO frame__15_3_emit_tag = {5, {"cts", "name", "arg_str", "mode", "tag_mode"}};
 static NODE *string__15_4;
 static void cont__15_5(void);
 static void cont__15_6(void);
@@ -733,9 +733,9 @@ static void cont__15_73(void);
 static NODE *func__15_74;
 static void entry__15_74(void);
 static FRAME_INFO frame__15_74 = {3, {"field", "emit_tag", "convert"}};
-static NODE *func__15_75;
-static void entry__15_75(void);
-static FRAME_INFO frame__15_75 = {1, {"line"}};
+static NODE *func__15_75_convert;
+static void entry__15_75_convert(void);
+static FRAME_INFO frame__15_75_convert = {1, {"line"}};
 static NODE *string__15_76;
 static NODE *string__15_77;
 static void cont__15_78(void);
@@ -966,23 +966,23 @@ static NODE *get__html__SOURCE(void) {
 static NODE *get__html__CANVAS(void) {
   return var.html__CANVAS;
 }
-static NODE *func__66_1;
-static void entry__66_1(void);
-static FRAME_INFO frame__66_1 = {0, {}};
+static NODE *func__66_1_html__HTTP_HEADER;
+static void entry__66_1_html__HTTP_HEADER(void);
+static FRAME_INFO frame__66_1_html__HTTP_HEADER = {0, {}};
 static NODE *string__66_2;
 static NODE *get__html__HTTP_HEADER(void) {
   return var.html__HTTP_HEADER;
 }
-static NODE *func__67_1;
-static void entry__67_1(void);
-static FRAME_INFO frame__67_1 = {0, {}};
+static NODE *func__67_1_html__HTML_HEADER;
+static void entry__67_1_html__HTML_HEADER(void);
+static FRAME_INFO frame__67_1_html__HTML_HEADER = {0, {}};
 static NODE *string__67_2;
 static NODE *get__html__HTML_HEADER(void) {
   return var.html__HTML_HEADER;
 }
-static NODE *func__68_1;
-static void entry__68_1(void);
-static FRAME_INFO frame__68_1 = {2, {"msg", "details"}};
+static NODE *func__68_1_html__ERROR_PAGE;
+static void entry__68_1_html__ERROR_PAGE(void);
+static FRAME_INFO frame__68_1_html__ERROR_PAGE = {2, {"msg", "details"}};
 static void cont__68_2(void);
 static void cont__68_3(void);
 static NODE *func__68_4;
@@ -1003,9 +1003,9 @@ static FRAME_INFO frame__68_10 = {1, {"details"}};
 static NODE *get__html__ERROR_PAGE(void) {
   return var.html__ERROR_PAGE;
 }
-static NODE *func__69_1;
-static void entry__69_1(void);
-static FRAME_INFO frame__69_1 = {1, {"msg"}};
+static NODE *func__69_1_html__DUMP_PAGE;
+static void entry__69_1_html__DUMP_PAGE(void);
+static FRAME_INFO frame__69_1_html__DUMP_PAGE = {1, {"msg"}};
 static void cont__69_2(void);
 static void cont__69_3(void);
 static NODE *func__69_4;
@@ -1186,10 +1186,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__133_2, NULL, 232, 232, 1, 49},
   {cont__134_2, NULL, },
   {entry__9_2, NULL, 39, 39, 43, 51},
-  {entry__9_1, NULL, 39, 39, 22, 51},
-  {entry__10_1, NULL, 41, 41, 36, 43},
-  {entry__11_1, NULL, 43, 43, 35, 47},
-  {cont__11_2, &frame__11_1, 43, 43, 22, 67},
+  {entry__9_1_html__emit, NULL, 39, 39, 22, 51},
+  {entry__10_1_html__encode, NULL, 41, 41, 36, 43},
+  {entry__11_1_html__TEXT, NULL, 43, 43, 35, 47},
+  {cont__11_2, &frame__11_1_html__TEXT, 43, 43, 22, 67},
   {entry__12_5, NULL, 51, 51, 22, 31},
   {cont__12_6, &frame__12_5, 51, 51, 22, 31},
   {cont__12_7, &frame__12_5, 51, 51, 22, 31},
@@ -1220,8 +1220,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__12_23, &frame__12_21, 53, 53, 8, 31},
   {cont__12_27, &frame__12_21, 53, 53, 5, 50},
   {entry__12_31, NULL, 55, 55, 7, 31},
-  {entry__12_1, NULL, 50, 55, 3, 32},
-  {cont__12_33, &frame__12_1, 55, 55, 32, 32},
+  {entry__12_1_hex_digit_value, NULL, 50, 55, 3, 32},
+  {cont__12_33, &frame__12_1_hex_digit_value, 55, 55, 32, 32},
   {entry__14_8, NULL, 69, 69, 34, 43},
   {cont__14_9, &frame__14_8, 69, 69, 18, 44},
   {cont__14_10, &frame__14_8, 69, 69, 15, 44},
@@ -1230,12 +1230,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__14_13, &frame__14_8, 69, 69, 15, 72},
   {cont__14_14, &frame__14_8, 68, 69, 13, 71},
   {cont__14_15, &frame__14_8, 67, 69, 11, 73},
-  {entry__14_1, NULL, 61, 61, 23, 31},
-  {cont__14_4, &frame__14_1, 61, 61, 5, 31},
-  {cont__14_5, &frame__14_1, 65, 65, 9, 33},
-  {cont__14_7, &frame__14_1, 64, 69, 7, 74},
-  {cont__14_16, &frame__14_1, 62, 69, 5, 76},
-  {cont__14_17, &frame__14_1, 69, 69, 77, 77},
+  {entry__14_1_types__string_convert_from_percent_encoding, NULL, 61, 61, 23, 31},
+  {cont__14_4, &frame__14_1_types__string_convert_from_percent_encoding, 61, 61, 5, 31},
+  {cont__14_5, &frame__14_1_types__string_convert_from_percent_encoding, 65, 65, 9, 33},
+  {cont__14_7, &frame__14_1_types__string_convert_from_percent_encoding, 64, 69, 7, 74},
+  {cont__14_16, &frame__14_1_types__string_convert_from_percent_encoding, 62, 69, 5, 76},
+  {cont__14_17, &frame__14_1_types__string_convert_from_percent_encoding, 69, 69, 77, 77},
   {entry__15_11, NULL, 123, 123, 34, 44},
   {entry__15_14, NULL, 126, 126, 15, 17},
   {entry__15_15, NULL, 128, 128, 22, 34},
@@ -1251,11 +1251,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__15_23, NULL, 138, 138, 15, 23},
   {entry__15_19, NULL, 131, 138, 11, 24},
   {entry__15_27, NULL, 139, 139, 30, 40},
-  {entry__15_3, NULL, 119, 119, 7, 27},
-  {cont__15_5, &frame__15_3, 121, 121, 9, 22},
-  {cont__15_6, &frame__15_3, 120, 138, 7, 26},
-  {cont__15_25, &frame__15_3, 139, 139, 14, 27},
-  {cont__15_26, &frame__15_3, 139, 139, 7, 40},
+  {entry__15_3_emit_tag, NULL, 119, 119, 7, 27},
+  {cont__15_5, &frame__15_3_emit_tag, 121, 121, 9, 22},
+  {cont__15_6, &frame__15_3_emit_tag, 120, 138, 7, 26},
+  {cont__15_25, &frame__15_3_emit_tag, 139, 139, 14, 27},
+  {cont__15_26, &frame__15_3_emit_tag, 139, 139, 7, 40},
   {entry__15_30, NULL, 101, 101, 12, 16},
   {cont__15_31, &frame__15_30, 101, 101, 9, 22},
   {cont__15_32, &frame__15_30, 102, 102, 9, 20},
@@ -1302,31 +1302,31 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__15_120, &frame__15_119, 170, 170, 19, 50},
   {cont__15_121, &frame__15_119, 171, 172, 22, 55},
   {cont__15_125, &frame__15_119, 171, 172, 19, 55},
-  {entry__15_75, NULL, 147, 147, 15, 28},
-  {cont__15_78, &frame__15_75, 148, 148, 15, 26},
-  {cont__15_80, &frame__15_75, 149, 149, 15, 24},
-  {cont__15_83, &frame__15_75, 150, 150, 15, 24},
-  {cont__15_85, &frame__15_75, 151, 151, 15, 24},
-  {cont__15_88, &frame__15_75, 153, 153, 27, 46},
-  {cont__15_89, &frame__15_75, 153, 153, 27, 61},
-  {cont__15_90, &frame__15_75, 153, 153, 22, 62},
-  {cont__15_91, &frame__15_75, 153, 153, 17, 67},
-  {cont__15_92, &frame__15_75, 152, 155, 15, 58},
-  {cont__15_99, &frame__15_75, 157, 157, 28, 48},
-  {cont__15_101, &frame__15_75, 157, 157, 28, 63},
-  {cont__15_102, &frame__15_75, 157, 157, 23, 64},
-  {cont__15_103, &frame__15_75, 157, 157, 17, 70},
-  {cont__15_104, &frame__15_75, 156, 159, 15, 58},
-  {cont__15_111, &frame__15_75, 163, 163, 24, 43},
-  {cont__15_112, &frame__15_75, 163, 163, 24, 58},
-  {cont__15_113, &frame__15_75, 163, 163, 19, 59},
-  {cont__15_114, &frame__15_75, 166, 166, 24, 43},
-  {cont__15_115, &frame__15_75, 166, 166, 24, 58},
-  {cont__15_116, &frame__15_75, 166, 166, 19, 59},
-  {cont__15_117, &frame__15_75, 161, 167, 17, 20},
-  {cont__15_118, &frame__15_75, 160, 172, 15, 56},
-  {cont__15_126, &frame__15_75, 145, 172, 13, 58},
-  {cont__15_127, &frame__15_75, 172, 172, 59, 59},
+  {entry__15_75_convert, NULL, 147, 147, 15, 28},
+  {cont__15_78, &frame__15_75_convert, 148, 148, 15, 26},
+  {cont__15_80, &frame__15_75_convert, 149, 149, 15, 24},
+  {cont__15_83, &frame__15_75_convert, 150, 150, 15, 24},
+  {cont__15_85, &frame__15_75_convert, 151, 151, 15, 24},
+  {cont__15_88, &frame__15_75_convert, 153, 153, 27, 46},
+  {cont__15_89, &frame__15_75_convert, 153, 153, 27, 61},
+  {cont__15_90, &frame__15_75_convert, 153, 153, 22, 62},
+  {cont__15_91, &frame__15_75_convert, 153, 153, 17, 67},
+  {cont__15_92, &frame__15_75_convert, 152, 155, 15, 58},
+  {cont__15_99, &frame__15_75_convert, 157, 157, 28, 48},
+  {cont__15_101, &frame__15_75_convert, 157, 157, 28, 63},
+  {cont__15_102, &frame__15_75_convert, 157, 157, 23, 64},
+  {cont__15_103, &frame__15_75_convert, 157, 157, 17, 70},
+  {cont__15_104, &frame__15_75_convert, 156, 159, 15, 58},
+  {cont__15_111, &frame__15_75_convert, 163, 163, 24, 43},
+  {cont__15_112, &frame__15_75_convert, 163, 163, 24, 58},
+  {cont__15_113, &frame__15_75_convert, 163, 163, 19, 59},
+  {cont__15_114, &frame__15_75_convert, 166, 166, 24, 43},
+  {cont__15_115, &frame__15_75_convert, 166, 166, 24, 58},
+  {cont__15_116, &frame__15_75_convert, 166, 166, 19, 59},
+  {cont__15_117, &frame__15_75_convert, 161, 167, 17, 20},
+  {cont__15_118, &frame__15_75_convert, 160, 172, 15, 56},
+  {cont__15_126, &frame__15_75_convert, 145, 172, 13, 58},
+  {cont__15_127, &frame__15_75_convert, 172, 172, 59, 59},
   {entry__15_130, NULL, 176, 176, 63, 63},
   {cont__15_131, &frame__15_130, 176, 176, 48, 64},
   {cont__15_132, &frame__15_130, 176, 176, 40, 65},
@@ -1346,9 +1346,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__15_61, &frame__15_2, 142, 142, 7, 25},
   {cont__15_62, &frame__15_2, 142, 142, 7, 69},
   {cont__15_70, &frame__15_2, 141, 181, 5, 26},
-  {entry__15_1, NULL, 95, 181, 3, 27},
-  {entry__66_1, NULL, 235, 237, 3, 6},
-  {entry__67_1, NULL, 239, 239, 21, 45},
+  {entry__15_1_html__define_tag, NULL, 95, 181, 3, 27},
+  {entry__66_1_html__HTTP_HEADER, NULL, 235, 237, 3, 6},
+  {entry__67_1_html__HTML_HEADER, NULL, 239, 239, 21, 45},
   {entry__68_5, NULL, 245, 245, 11, 19},
   {entry__68_10, NULL, 248, 248, 30, 38},
   {entry__68_7, NULL, 247, 247, 7, 12},
@@ -1356,17 +1356,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__68_9, &frame__68_7, 248, 248, 7, 38},
   {entry__68_4, NULL, 245, 245, 5, 19},
   {cont__68_6, &frame__68_4, 246, 248, 5, 38},
-  {entry__68_1, NULL, 242, 242, 3, 13},
-  {cont__68_2, &frame__68_1, 243, 243, 3, 13},
-  {cont__68_3, &frame__68_1, 244, 248, 3, 39},
+  {entry__68_1_html__ERROR_PAGE, NULL, 242, 242, 3, 13},
+  {cont__68_2, &frame__68_1_html__ERROR_PAGE, 243, 243, 3, 13},
+  {cont__68_3, &frame__68_1_html__ERROR_PAGE, 244, 248, 3, 39},
   {entry__69_5, NULL, 261, 261, 11, 22},
   {entry__69_8, NULL, 263, 263, 7, 15},
   {cont__69_9, &frame__69_8, 264, 264, 7, 13},
   {entry__69_4, NULL, 261, 261, 5, 22},
   {cont__69_7, &frame__69_4, 262, 264, 5, 13},
-  {entry__69_1, NULL, 258, 258, 3, 13},
-  {cont__69_2, &frame__69_1, 259, 259, 3, 13},
-  {cont__69_3, &frame__69_1, 260, 264, 3, 14}
+  {entry__69_1_html__DUMP_PAGE, NULL, 258, 258, 3, 13},
+  {cont__69_2, &frame__69_1_html__DUMP_PAGE, 259, 259, 3, 13},
+  {cont__69_3, &frame__69_1_html__DUMP_PAGE, 260, 264, 3, 14}
 };
 
 union NODE {
@@ -2344,7 +2344,7 @@ static void entry__9_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__9_1(void) {
+static void entry__9_1_html__emit(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -2360,7 +2360,7 @@ static void entry__9_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__10_1(void) {
+static void entry__10_1_html__encode(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // txt: 0
@@ -2379,7 +2379,7 @@ static void entry__10_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__11_1(void) {
+static void entry__11_1_html__TEXT(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -2411,7 +2411,7 @@ static void cont__11_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__12_1(void) {
+static void entry__12_1_hex_digit_value(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // chr: 0
@@ -2962,7 +2962,7 @@ static void cont__12_33(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1(void) {
+static void entry__14_1_types__string_convert_from_percent_encoding(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -3258,7 +3258,7 @@ static void entry__15_74(void) {
   //     temp__6
   //     temp__11
   //     temp__16
-  frame->slots[2] /* convert */ = func__15_75;
+  frame->slots[2] /* convert */ = func__15_75_convert;
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -3274,7 +3274,7 @@ static void entry__15_74(void) {
   func = myself->type;
   frame->cont = cont__15_129;
 }
-static void entry__15_75(void) {
+static void entry__15_75_convert(void) {
   allocate_initialized_frame_gc(1, 24);
   // slot allocations:
   // line: 0
@@ -4182,7 +4182,7 @@ static void entry__15_2(void) {
   // 126:           cts
   // 127:         :
   // ...
-  frame->slots[9] /* temp__1 */ = create_closure(entry__15_3, 1);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__15_3_emit_tag, 1);
   // 118: $emit_tag: (cts)
   // 119:   emit "<" name arg_str
   // 120:   if
@@ -4222,7 +4222,7 @@ static void entry__15_27(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_3(void) {
+static void entry__15_3_emit_tag(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // cts: 0
@@ -5360,7 +5360,7 @@ static void cont__15_70(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_1(void) {
+static void entry__15_1_html__define_tag(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // name: 0
@@ -5411,7 +5411,7 @@ static void entry__15_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__66_1(void) {
+static void entry__66_1_html__HTTP_HEADER(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -5429,7 +5429,7 @@ static void entry__66_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__67_1(void) {
+static void entry__67_1_html__HTML_HEADER(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -5575,7 +5575,7 @@ static void cont__68_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__68_1(void) {
+static void entry__68_1_html__ERROR_PAGE(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // msg: 0
@@ -5726,7 +5726,7 @@ static void cont__69_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__69_1(void) {
+static void entry__69_1_html__DUMP_PAGE(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // msg: 0
@@ -5890,17 +5890,17 @@ EXPORT void phase_2__system__export__html(void) {
   unique__7_1 = register_unique_item("html__VOID");
   unique__8_1 = register_unique_item("html__FOREIGN");
   func__9_2 = create_function(entry__9_2, 1);
-  func__9_1 = create_function(entry__9_1, -1);
-  func__10_1 = create_function(entry__10_1, 3);
-  func__11_1 = create_function(entry__11_1, -1);
+  func__9_1_html__emit = create_function(entry__9_1_html__emit, -1);
+  func__10_1_html__encode = create_function(entry__10_1_html__encode, 3);
+  func__11_1_html__TEXT = create_function(entry__11_1_html__TEXT, -1);
   string__12_32 = from_latin_1_string("invalid hex digit", 17);
   func__12_31 = create_function(entry__12_31, 0);
-  func__12_1 = create_function(entry__12_1, 1);
+  func__12_1_hex_digit_value = create_function(entry__12_1_hex_digit_value, 1);
   string__14_2 = from_latin_1_string("+", 1);
   string__14_3 = from_latin_1_string(" ", 1);
   string__14_6 = from_latin_1_string("%", 1);
   func__14_8 = create_function(entry__14_8, 1);
-  func__14_1 = create_function(entry__14_1, 1);
+  func__14_1_types__string_convert_from_percent_encoding = create_function(entry__14_1_types__string_convert_from_percent_encoding, 1);
   string__15_4 = from_latin_1_string("<", 1);
   string__15_8 = from_latin_1_string(">", 1);
   func__15_11 = create_function(entry__15_11, 0);
@@ -5934,19 +5934,19 @@ EXPORT void phase_2__system__export__html(void) {
   string__15_123 = from_latin_1_string("\042>", 2);
   string__15_124 = from_latin_1_string("</a>", 4);
   func__15_119 = create_function(entry__15_119, 1);
-  func__15_75 = create_function(entry__15_75, 1);
+  func__15_75_convert = create_function(entry__15_75_convert, 1);
   string__15_128 = from_latin_1_string("* ", 2);
   string__15_134 = from_latin_1_string("<ul><li>", 8);
   string__15_135 = from_latin_1_string("</ul>", 5);
-  func__15_1 = create_function(entry__15_1, -1);
+  func__15_1_html__define_tag = create_function(entry__15_1_html__define_tag, -1);
   string__66_2 = from_latin_1_string("Content-type: text/html; charset=utf-8\012\012", 40);
-  func__66_1 = create_function(entry__66_1, 0);
+  func__66_1_html__HTTP_HEADER = create_function(entry__66_1_html__HTTP_HEADER, 0);
   string__67_2 = from_latin_1_string("<!doctype html>", 15);
-  func__67_1 = create_function(entry__67_1, 0);
-  func__68_1 = create_function(entry__68_1, -1);
+  func__67_1_html__HTML_HEADER = create_function(entry__67_1_html__HTML_HEADER, 0);
+  func__68_1_html__ERROR_PAGE = create_function(entry__68_1_html__ERROR_PAGE, -1);
   string__69_6 = from_latin_1_string("dump", 4);
   func__69_5 = create_function(entry__69_5, 0);
-  func__69_1 = create_function(entry__69_1, 1);
+  func__69_1_html__DUMP_PAGE = create_function(entry__69_1_html__DUMP_PAGE, 1);
   string__85_1 = from_latin_1_string("html", 4);
   string__86_1 = from_latin_1_string("head", 4);
   string__87_1 = from_latin_1_string("meta", 4);
@@ -6150,7 +6150,7 @@ EXPORT void phase_4__system__export__html(void) {
   use_read_only(NULL, "value_of", &get__value_of, &get_value_or_future__value_of);
   use_read_only(NULL, "write", &get__write, &get_value_or_future__write);
   use_read_only(NULL, "writeln", &get__writeln, &get_value_or_future__writeln);
-  define_attribute("types", "string", poly_idx__convert_from_percent_encoding, func__14_1);
+  define_method("types", "string", poly_idx__convert_from_percent_encoding, func__14_1_types__string_convert_from_percent_encoding);
 }
 
 static int already_run_phase_5 = false;
@@ -6159,15 +6159,15 @@ EXPORT void phase_5__system__export__html(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_value(&var._convert_from_percent_encoding, create_function(type__convert_from_percent_encoding, -1));
-  define__html__emit(func__9_1);
-  define__html__encode(func__10_1);
-  assign_variable(&var.html__TEXT, &func__11_1);
-  assign_variable(&var._hex_digit_value, &func__12_1);
-  assign_variable(&var.html__define_tag, &func__15_1);
-  assign_variable(&var.html__HTTP_HEADER, &func__66_1);
-  assign_variable(&var.html__HTML_HEADER, &func__67_1);
-  assign_variable(&var.html__ERROR_PAGE, &func__68_1);
-  assign_variable(&var.html__DUMP_PAGE, &func__69_1);
+  define__html__emit(func__9_1_html__emit);
+  define__html__encode(func__10_1_html__encode);
+  assign_variable(&var.html__TEXT, &func__11_1_html__TEXT);
+  assign_variable(&var._hex_digit_value, &func__12_1_hex_digit_value);
+  assign_variable(&var.html__define_tag, &func__15_1_html__define_tag);
+  assign_variable(&var.html__HTTP_HEADER, &func__66_1_html__HTTP_HEADER);
+  assign_variable(&var.html__HTML_HEADER, &func__67_1_html__HTML_HEADER);
+  assign_variable(&var.html__ERROR_PAGE, &func__68_1_html__ERROR_PAGE);
+  assign_variable(&var.html__DUMP_PAGE, &func__69_1_html__DUMP_PAGE);
 }
 
 static int already_run_phase_6 = false;

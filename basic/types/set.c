@@ -332,17 +332,17 @@ static const char *var_names[] = {
 static NODE *get__types__generic_set(void) {
   return var.types__generic_set;
 }
-static NODE *func__2_1;
-static void entry__2_1(void);
-static FRAME_INFO frame__2_1 = {2, {"left", "right"}};
+static NODE *func__2_1_types__generic_set_union;
+static void entry__2_1_types__generic_set_union(void);
+static FRAME_INFO frame__2_1_types__generic_set_union = {2, {"left", "right"}};
 static NODE *func__2_2;
 static void entry__2_2(void);
 static FRAME_INFO frame__2_2 = {2, {"key", "left"}};
 static void cont__2_3(void);
 static void cont__2_4(void);
-static NODE *func__3_1;
-static void entry__3_1(void);
-static FRAME_INFO frame__3_1 = {5, {"self", "indent", "return", "tag", "buf"}};
+static NODE *func__3_1_types__generic_set_serialize;
+static void entry__3_1_types__generic_set_serialize(void);
+static FRAME_INFO frame__3_1_types__generic_set_serialize = {5, {"self", "indent", "return", "tag", "buf"}};
 static void cont__3_2(void);
 static void cont__3_3(void);
 static NODE *func__3_4;
@@ -360,14 +360,14 @@ static void cont__3_11(void);
 static void cont__3_12(void);
 static void cont__3_13(void);
 static void cont__3_14(void);
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {1, {"self"}};
+static NODE *func__4_1_types__generic_set_is_empty;
+static void entry__4_1_types__generic_set_is_empty(void);
+static FRAME_INFO frame__4_1_types__generic_set_is_empty = {1, {"self"}};
 static void cont__4_2(void);
 static void cont__4_3(void);
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {2, {"self", "items"}};
+static NODE *func__5_1_types__generic_set_to_list;
+static void entry__5_1_types__generic_set_to_list(void);
+static FRAME_INFO frame__5_1_types__generic_set_to_list = {2, {"self", "items"}};
 static NODE *func__5_2;
 static void entry__5_2(void);
 static FRAME_INFO frame__5_2 = {2, {"item", "items"}};
@@ -385,9 +385,9 @@ static NODE *string__10_1;
 static NODE *get__std__empty_set(void) {
   return var.std__empty_set;
 }
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {2, {"args", "tab"}};
+static NODE *func__12_1_std__set;
+static void entry__12_1_std__set(void);
+static FRAME_INFO frame__12_1_std__set = {2, {"args", "tab"}};
 static NODE *func__12_2;
 static void entry__12_2(void);
 static FRAME_INFO frame__12_2 = {2, {"key", "tab"}};
@@ -403,8 +403,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__set, NULL, 56, 56, 1, 32},
   {entry__2_2, NULL, 30, 30, 25, 34},
   {cont__2_3, &frame__2_2, 30, 30, 39, 39},
-  {entry__2_1, NULL, 30, 30, 3, 39},
-  {cont__2_4, &frame__2_1, },
+  {entry__2_1_types__generic_set_union, NULL, 30, 30, 3, 39},
+  {cont__2_4, &frame__2_1_types__generic_set_union, },
   {entry__3_4, NULL, 39, 39, 28, 37},
   {cont__3_6, &frame__3_4, 39, 39, 21, 37},
   {entry__3_8, NULL, 42, 42, 33, 40},
@@ -413,22 +413,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__3_11, &frame__3_8, 42, 42, 43, 65},
   {cont__3_12, &frame__3_8, 42, 42, 5, 65},
   {cont__3_13, &frame__3_8, 42, 42, 65, 65},
-  {entry__3_1, NULL, 38, 38, 3, 33},
-  {cont__3_2, &frame__3_1, 39, 39, 6, 18},
-  {cont__3_3, &frame__3_1, 39, 39, 3, 37},
-  {cont__3_7, &frame__3_1, 41, 42, 3, 65},
-  {cont__3_14, &frame__3_1, 43, 43, 3, 8},
-  {entry__4_1, NULL, 45, 45, 41, 55},
-  {cont__4_2, &frame__4_1, 45, 45, 41, 60},
-  {cont__4_3, &frame__4_1, 45, 45, 38, 60},
+  {entry__3_1_types__generic_set_serialize, NULL, 38, 38, 3, 33},
+  {cont__3_2, &frame__3_1_types__generic_set_serialize, 39, 39, 6, 18},
+  {cont__3_3, &frame__3_1_types__generic_set_serialize, 39, 39, 3, 37},
+  {cont__3_7, &frame__3_1_types__generic_set_serialize, 41, 42, 3, 65},
+  {cont__3_14, &frame__3_1_types__generic_set_serialize, 43, 43, 3, 8},
+  {entry__4_1_types__generic_set_is_empty, NULL, 45, 45, 41, 55},
+  {cont__4_2, &frame__4_1_types__generic_set_is_empty, 45, 45, 41, 60},
+  {cont__4_3, &frame__4_1_types__generic_set_is_empty, 45, 45, 38, 60},
   {entry__5_2, NULL, 49, 49, 25, 40},
   {cont__5_3, &frame__5_2, 49, 49, 40, 40},
-  {entry__5_1, NULL, 49, 49, 3, 40},
-  {cont__5_4, &frame__5_1, 50, 50, 3, 10},
+  {entry__5_1_types__generic_set_to_list, NULL, 49, 49, 3, 40},
+  {cont__5_4, &frame__5_1_types__generic_set_to_list, 50, 50, 3, 10},
   {entry__12_2, NULL, 62, 62, 24, 32},
   {cont__12_3, &frame__12_2, 62, 62, 37, 37},
-  {entry__12_1, NULL, 62, 62, 3, 37},
-  {cont__12_4, &frame__12_1, 63, 63, 3, 8}
+  {entry__12_1_std__set, NULL, 62, 62, 3, 37},
+  {cont__12_4, &frame__12_1_std__set, 63, 63, 3, 8}
 };
 
 union NODE {
@@ -504,7 +504,7 @@ EXPORT void run__basic__types__set(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__2_1(void) {
+static void entry__2_1_types__generic_set_union(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -573,7 +573,7 @@ static void cont__2_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__3_1(void) {
+static void entry__3_1_types__generic_set_serialize(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -810,7 +810,7 @@ static void cont__3_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1(void) {
+static void entry__4_1_types__generic_set_is_empty(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -857,7 +857,7 @@ static void cont__4_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1(void) {
+static void entry__5_1_types__generic_set_to_list(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -926,7 +926,7 @@ static void cont__5_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_std__set(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -1020,13 +1020,13 @@ EXPORT void phase_2__basic__types__set(void) {
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
-  func__2_1 = create_function(entry__2_1, 2);
+  func__2_1_types__generic_set_union = create_function(entry__2_1_types__generic_set_union, 2);
   string__3_5 = from_latin_1_string("()", 2);
-  func__3_1 = create_function(entry__3_1, -1);
-  func__4_1 = create_function(entry__4_1, 1);
-  func__5_1 = create_function(entry__5_1, 1);
+  func__3_1_types__generic_set_serialize = create_function(entry__3_1_types__generic_set_serialize, -1);
+  func__4_1_types__generic_set_is_empty = create_function(entry__4_1_types__generic_set_is_empty, 1);
+  func__5_1_types__generic_set_to_list = create_function(entry__5_1_types__generic_set_to_list, 1);
   string__10_1 = from_latin_1_string("set", 3);
-  func__12_1 = create_function(entry__12_1, -1);
+  func__12_1_std__set = create_function(entry__12_1_std__set, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1069,10 +1069,10 @@ EXPORT void phase_4__basic__types__set(void) {
   use_read_only("types", "unordered_set", &get__types__unordered_set, &get_value_or_future__types__unordered_set);
   use_polymorphic_function(NULL, "union", &get__union, &poly_idx__union);
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
-  define_method("types", "generic_set", poly_idx__union, func__2_1);
-  define_method("types", "generic_set", poly_idx__serialize, func__3_1);
-  define_method("types", "generic_set", poly_idx__is_empty, func__4_1);
-  define_method("types", "generic_set", poly_idx__to_list, func__5_1);
+  define_method("types", "generic_set", poly_idx__union, func__2_1_types__generic_set_union);
+  define_method("types", "generic_set", poly_idx__serialize, func__3_1_types__generic_set_serialize);
+  define_method("types", "generic_set", poly_idx__is_empty, func__4_1_types__generic_set_is_empty);
+  define_method("types", "generic_set", poly_idx__to_list, func__5_1_types__generic_set_to_list);
   define_attribute("types", "object", poly_idx__is_a_set, get__false());
   define_attribute("types", "generic_set", poly_idx__is_a_set, get__true());
   define_attribute("types", "set", poly_idx__serialization_tag_of, string__10_1);
@@ -1087,7 +1087,7 @@ EXPORT void phase_5__basic__types__set(void) {
   assign_value(&var.std__is_a_set, create_function(type__std__is_a_set, -1));
   assign_value(&var.types__set, get__types__unordered_set());
   assign_variable(&var.std__empty_set, &var.types__set);
-  assign_variable(&var.std__set, &func__12_1);
+  assign_variable(&var.std__set, &func__12_1_std__set);
 }
 
 static int already_run_phase_6 = false;

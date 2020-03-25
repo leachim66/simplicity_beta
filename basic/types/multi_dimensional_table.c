@@ -318,9 +318,9 @@ static int poly_idx__dimensions_of;
 static void type__dimensions_of(void);
 static int poly_idx__table_of;
 static void type__table_of(void);
-static NODE *func__3_1;
-static void entry__3_1(void);
-static FRAME_INFO frame__3_1 = {4, {"table", "dimensions", "args", "idx"}};
+static NODE *func__3_1_insert_into;
+static void entry__3_1_insert_into(void);
+static FRAME_INFO frame__3_1_insert_into = {4, {"table", "dimensions", "args", "idx"}};
 static void cont__3_2(void);
 static NODE *func__3_3;
 static void entry__3_3(void);
@@ -346,9 +346,9 @@ static FRAME_INFO frame__3_17 = {3, {"table", "idx", "args"}};
 static void cont__3_18(void);
 static void cont__3_19(void);
 static void cont__3_20(void);
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {3, {"table", "indices", "return"}};
+static NODE *func__4_1_get_item;
+static void entry__4_1_get_item(void);
+static FRAME_INFO frame__4_1_get_item = {3, {"table", "indices", "return"}};
 static void cont__4_2(void);
 static NODE *func__4_3;
 static void entry__4_3(void);
@@ -368,9 +368,9 @@ static NODE *func__4_13;
 static void entry__4_13(void);
 static FRAME_INFO frame__4_13 = {1, {"table"}};
 static void cont__4_14(void);
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {4, {"args", "myself", "dimensions", "n"}};
+static NODE *func__5_1_types__multi_dimensional_table;
+static void entry__5_1_types__multi_dimensional_table(void);
+static FRAME_INFO frame__5_1_types__multi_dimensional_table = {4, {"args", "myself", "dimensions", "n"}};
 static void cont__5_2(void);
 static void cont__5_3(void);
 static void cont__5_4(void);
@@ -388,15 +388,15 @@ static void cont__5_11(void);
 static NODE *get__types__multi_dimensional_table(void) {
   return var.types__multi_dimensional_table;
 }
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {1, {"dimensions"}};
+static NODE *func__7_1_std__multi_dimensional_table;
+static void entry__7_1_std__multi_dimensional_table(void);
+static FRAME_INFO frame__7_1_std__multi_dimensional_table = {1, {"dimensions"}};
 static NODE *get__std__multi_dimensional_table(void) {
   return var.std__multi_dimensional_table;
 }
-static NODE *func__8_1;
-static void entry__8_1(void);
-static FRAME_INFO frame__8_1 = {4, {"table", "depth", "indices", "body"}};
+static NODE *func__8_1_for_each_dimension;
+static void entry__8_1_for_each_dimension(void);
+static FRAME_INFO frame__8_1_for_each_dimension = {4, {"table", "depth", "indices", "body"}};
 static void cont__8_2(void);
 static NODE *func__8_3;
 static void entry__8_3(void);
@@ -413,9 +413,9 @@ static void cont__8_8(void);
 static NODE *func__8_9;
 static void entry__8_9(void);
 static FRAME_INFO frame__8_9 = {4, {"body", "indices", "idx", "value"}};
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {2, {"self", "body"}};
+static NODE *func__9_1_types__multi_dimensional_table_for_each;
+static void entry__9_1_types__multi_dimensional_table_for_each(void);
+static FRAME_INFO frame__9_1_types__multi_dimensional_table_for_each = {2, {"self", "body"}};
 static void cont__9_2(void);
 static void cont__9_3(void);
 static void cont__9_4(void);
@@ -439,13 +439,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__3_17, NULL, 34, 34, 7, 25},
   {cont__3_18, &frame__3_17, 34, 34, 7, 17},
   {cont__3_19, &frame__3_17, 34, 34, 25, 25},
-  {entry__3_1, NULL, 27, 27, 10, 25},
-  {cont__3_2, &frame__3_1, 27, 27, 3, 47},
-  {cont__3_5, &frame__3_1, 28, 28, 3, 14},
-  {cont__3_6, &frame__3_1, 30, 30, 5, 25},
-  {cont__3_7, &frame__3_1, 30, 30, 5, 29},
-  {cont__3_8, &frame__3_1, 29, 34, 3, 26},
-  {cont__3_20, &frame__3_1, 35, 35, 3, 10},
+  {entry__3_1_insert_into, NULL, 27, 27, 10, 25},
+  {cont__3_2, &frame__3_1_insert_into, 27, 27, 3, 47},
+  {cont__3_5, &frame__3_1_insert_into, 28, 28, 3, 14},
+  {cont__3_6, &frame__3_1_insert_into, 30, 30, 5, 25},
+  {cont__3_7, &frame__3_1_insert_into, 30, 30, 5, 29},
+  {cont__3_8, &frame__3_1_insert_into, 29, 34, 3, 26},
+  {cont__3_20, &frame__3_1_insert_into, 35, 35, 3, 10},
   {entry__4_3, NULL, 43, 43, 26, 41},
   {entry__4_7, NULL, 46, 46, 23, 32},
   {cont__4_8, &frame__4_7, 46, 46, 17, 33},
@@ -454,24 +454,24 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_11, &frame__4_7, 46, 46, 8, 54},
   {cont__4_12, &frame__4_7, 46, 46, 5, 54},
   {entry__4_13, NULL, 47, 47, 5, 12},
-  {entry__4_1, NULL, 43, 43, 6, 23},
-  {cont__4_2, &frame__4_1, 43, 43, 3, 41},
-  {cont__4_4, &frame__4_1, 45, 45, 5, 22},
-  {cont__4_5, &frame__4_1, 45, 45, 5, 26},
-  {cont__4_6, &frame__4_1, 44, 47, 3, 12},
-  {cont__4_14, &frame__4_1, 47, 47, 12, 12},
+  {entry__4_1_get_item, NULL, 43, 43, 6, 23},
+  {cont__4_2, &frame__4_1_get_item, 43, 43, 3, 41},
+  {cont__4_4, &frame__4_1_get_item, 45, 45, 5, 22},
+  {cont__4_5, &frame__4_1_get_item, 45, 45, 5, 26},
+  {cont__4_6, &frame__4_1_get_item, 44, 47, 3, 12},
+  {cont__4_14, &frame__4_1_get_item, 47, 47, 12, 12},
   {entry__5_6, NULL, 58, 58, 36, 51},
   {cont__5_7, &frame__5_6, 58, 58, 7, 68},
   {cont__5_8, &frame__5_6, 59, 59, 7, 15},
   {entry__5_9, NULL, 60, 60, 17, 32},
   {cont__5_10, &frame__5_9, 60, 60, 8, 38},
   {cont__5_11, &frame__5_9, 60, 60, 5, 38},
-  {entry__5_1, NULL, 54, 54, 3, 35},
-  {cont__5_2, &frame__5_1, 55, 55, 3, 26},
-  {cont__5_3, &frame__5_1, 57, 57, 5, 19},
-  {cont__5_4, &frame__5_1, 57, 57, 5, 23},
-  {cont__5_5, &frame__5_1, 56, 60, 3, 38},
-  {entry__7_1, NULL, 65, 65, 3, 62},
+  {entry__5_1_types__multi_dimensional_table, NULL, 54, 54, 3, 35},
+  {cont__5_2, &frame__5_1_types__multi_dimensional_table, 55, 55, 3, 26},
+  {cont__5_3, &frame__5_1_types__multi_dimensional_table, 57, 57, 5, 19},
+  {cont__5_4, &frame__5_1_types__multi_dimensional_table, 57, 57, 5, 23},
+  {cont__5_5, &frame__5_1_types__multi_dimensional_table, 56, 60, 3, 38},
+  {entry__7_1_std__multi_dimensional_table, NULL, 65, 65, 3, 62},
   {entry__8_6, NULL, 72, 72, 36, 42},
   {cont__8_7, &frame__8_6, 72, 72, 44, 60},
   {cont__8_8, &frame__8_6, 72, 72, 11, 65},
@@ -479,13 +479,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__8_4, NULL, 71, 71, 9, 17},
   {cont__8_5, &frame__8_4, 70, 74, 7, 34},
   {entry__8_3, NULL, 69, 74, 5, 35},
-  {entry__8_1, NULL, 68, 68, 6, 21},
-  {cont__8_2, &frame__8_1, 68, 74, 3, 36},
-  {entry__9_1, NULL, 77, 77, 22, 35},
-  {cont__9_2, &frame__9_1, 77, 77, 47, 65},
-  {cont__9_3, &frame__9_1, 77, 77, 37, 66},
-  {cont__9_4, &frame__9_1, 77, 77, 68, 73},
-  {cont__9_5, &frame__9_1, 77, 77, 3, 78}
+  {entry__8_1_for_each_dimension, NULL, 68, 68, 6, 21},
+  {cont__8_2, &frame__8_1_for_each_dimension, 68, 74, 3, 36},
+  {entry__9_1_types__multi_dimensional_table_for_each, NULL, 77, 77, 22, 35},
+  {cont__9_2, &frame__9_1_types__multi_dimensional_table_for_each, 77, 77, 47, 65},
+  {cont__9_3, &frame__9_1_types__multi_dimensional_table_for_each, 77, 77, 37, 66},
+  {cont__9_4, &frame__9_1_types__multi_dimensional_table_for_each, 77, 77, 68, 73},
+  {cont__9_5, &frame__9_1_types__multi_dimensional_table_for_each, 77, 77, 3, 78}
 };
 
 union NODE {
@@ -579,7 +579,7 @@ EXPORT void run__basic__types__multi_dimensional_table(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__3_1(void) {
+static void entry__3_1_insert_into(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // table: 0
@@ -922,7 +922,7 @@ static void cont__3_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1(void) {
+static void entry__4_1_get_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // table: 0
@@ -1262,7 +1262,7 @@ static void cont__5_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1(void) {
+static void entry__5_1_types__multi_dimensional_table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
@@ -1356,7 +1356,7 @@ static void cont__5_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_1(void) {
+static void entry__7_1_std__multi_dimensional_table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -1554,7 +1554,7 @@ static void entry__8_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_1(void) {
+static void entry__8_1_for_each_dimension(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // table: 0
@@ -1604,7 +1604,7 @@ static void cont__8_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__9_1(void) {
+static void entry__9_1_types__multi_dimensional_table_for_each(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -1712,12 +1712,12 @@ EXPORT void phase_2__basic__types__multi_dimensional_table(void) {
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__3_1 = create_function(entry__3_1, 3);
-  func__4_1 = create_function(entry__4_1, 2);
-  func__5_1 = create_function(entry__5_1, -1);
-  func__7_1 = create_function(entry__7_1, -1);
-  func__8_1 = create_function(entry__8_1, 4);
-  func__9_1 = create_function(entry__9_1, 2);
+  func__3_1_insert_into = create_function(entry__3_1_insert_into, 3);
+  func__4_1_get_item = create_function(entry__4_1_get_item, 2);
+  func__5_1_types__multi_dimensional_table = create_function(entry__5_1_types__multi_dimensional_table, -1);
+  func__7_1_std__multi_dimensional_table = create_function(entry__7_1_std__multi_dimensional_table, -1);
+  func__8_1_for_each_dimension = create_function(entry__8_1_for_each_dimension, 4);
+  func__9_1_types__multi_dimensional_table_for_each = create_function(entry__9_1_types__multi_dimensional_table_for_each, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -1752,7 +1752,7 @@ EXPORT void phase_4__basic__types__multi_dimensional_table(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   use_read_only(NULL, "unless", &get__unless, &get_value_or_future__unless);
   define_attribute("types", "multi_dimensional_table", poly_idx__table_of, get__undefined());
-  define_method("types", "multi_dimensional_table", poly_idx__for_each, func__9_1);
+  define_method("types", "multi_dimensional_table", poly_idx__for_each, func__9_1_types__multi_dimensional_table_for_each);
 }
 
 static int already_run_phase_5 = false;
@@ -1762,11 +1762,11 @@ EXPORT void phase_5__basic__types__multi_dimensional_table(void) {
   already_run_phase_5 = true;
   assign_value(&var._dimensions_of, create_function(type__dimensions_of, -1));
   assign_value(&var._table_of, create_function(type__table_of, -1));
-  assign_variable(&var._insert_into, &func__3_1);
-  assign_variable(&var._get_item, &func__4_1);
-  assign_variable(&var.types__multi_dimensional_table, &func__5_1);
-  assign_variable(&var.std__multi_dimensional_table, &func__7_1);
-  assign_variable(&var._for_each_dimension, &func__8_1);
+  assign_variable(&var._insert_into, &func__3_1_insert_into);
+  assign_variable(&var._get_item, &func__4_1_get_item);
+  assign_variable(&var.types__multi_dimensional_table, &func__5_1_types__multi_dimensional_table);
+  assign_variable(&var.std__multi_dimensional_table, &func__7_1_std__multi_dimensional_table);
+  assign_variable(&var._for_each_dimension, &func__8_1_for_each_dimension);
 }
 
 static int already_run_phase_6 = false;

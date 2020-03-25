@@ -467,13 +467,13 @@ static void set__info_variables(NODE *node) {
 static void define__info_variables(NODE *node) {
   define_dynamic_cell(dyna_idx__info_variables, node);
 }
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {2, {"name", "replacement"}};
+static NODE *func__11_1_define_macro;
+static void entry__11_1_define_macro(void);
+static FRAME_INFO frame__11_1_define_macro = {2, {"name", "replacement"}};
 static void cont__11_2(void);
-static NODE *func__71_1;
-static void entry__71_1(void);
-static FRAME_INFO frame__71_1 = {8, {"code", "return__1", "new_code", "start", "within_string", "s", "i", "len"}};
+static NODE *func__71_1_sim2c__converted;
+static void entry__71_1_sim2c__converted(void);
+static FRAME_INFO frame__71_1_sim2c__converted = {8, {"code", "return__1", "new_code", "start", "within_string", "s", "i", "len"}};
 static void cont__71_2(void);
 static void cont__71_3(void);
 static NODE *func__71_4;
@@ -967,9 +967,9 @@ static NODE *string__107_1;
 static NODE *func__107_2;
 static void entry__107_2(void);
 static FRAME_INFO frame__107_2 = {3, {"retrieve_variables", "print_variables", "buf"}};
-static NODE *func__107_3;
-static void entry__107_3(void);
-static FRAME_INFO frame__107_3 = {2, {"buf", "indent"}};
+static NODE *func__107_3_retrieve_variables;
+static void entry__107_3_retrieve_variables(void);
+static FRAME_INFO frame__107_3_retrieve_variables = {2, {"buf", "indent"}};
 static void cont__107_4(void);
 static NODE *func__107_5;
 static void entry__107_5(void);
@@ -1012,9 +1012,9 @@ static NODE *string__107_28;
 static NODE *string__107_29;
 static void cont__107_30(void);
 static void cont__107_31(void);
-static NODE *func__107_32;
-static void entry__107_32(void);
-static FRAME_INFO frame__107_32 = {2, {"buf", "indent"}};
+static NODE *func__107_32_print_variables;
+static void entry__107_32_print_variables(void);
+static FRAME_INFO frame__107_32_print_variables = {2, {"buf", "indent"}};
 static void cont__107_33(void);
 static NODE *func__107_34;
 static void entry__107_34(void);
@@ -1285,8 +1285,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__139_3, NULL, 385, 388, 1, 4},
   {cont__140_3, NULL, 389, 392, 1, 4},
   {cont__141_3, NULL, },
-  {entry__11_1, NULL, 41, 41, 35, 59},
-  {cont__11_2, &frame__11_1, 41, 41, 71, 71},
+  {entry__11_1_define_macro, NULL, 41, 41, 35, 59},
+  {cont__11_2, &frame__11_1_define_macro, 41, 41, 71, 71},
   {entry__71_15, NULL, 409, 409, 72, 72},
   {entry__71_10, NULL, 409, 409, 40, 42},
   {cont__71_11, &frame__71_10, 409, 409, 35, 43},
@@ -1431,13 +1431,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__71_151, NULL, 500, 500, 22, 22},
   {cont__71_152, &frame__71_151, 500, 500, 8, 23},
   {cont__71_153, &frame__71_151, 500, 500, 5, 23},
-  {entry__71_1, NULL, 399, 399, 3, 34},
-  {cont__71_2, &frame__71_1, 405, 405, 3, 22},
-  {cont__71_3, &frame__71_1, 406, 496, 3, 16},
-  {cont__71_144, &frame__71_1, 498, 498, 5, 18},
-  {cont__71_145, &frame__71_1, 498, 498, 5, 18},
-  {cont__71_146, &frame__71_1, 497, 500, 3, 23},
-  {cont__71_154, &frame__71_1, 500, 500, 23, 23},
+  {entry__71_1_sim2c__converted, NULL, 399, 399, 3, 34},
+  {cont__71_2, &frame__71_1_sim2c__converted, 405, 405, 3, 22},
+  {cont__71_3, &frame__71_1_sim2c__converted, 406, 496, 3, 16},
+  {cont__71_144, &frame__71_1_sim2c__converted, 498, 498, 5, 18},
+  {cont__71_145, &frame__71_1_sim2c__converted, 498, 498, 5, 18},
+  {cont__71_146, &frame__71_1_sim2c__converted, 497, 500, 3, 23},
+  {cont__71_154, &frame__71_1_sim2c__converted, 500, 500, 23, 23},
   {entry__96_8, NULL, 72, 72, 36, 48},
   {cont__96_10, &frame__96_8, 72, 72, 33, 48},
   {entry__96_11, NULL, 72, 72, 54, 67},
@@ -1550,9 +1550,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__107_10, NULL, 181, 181, 7, 18},
   {cont__107_11, &frame__107_10, 182, 182, 7, 18},
   {cont__107_12, &frame__107_10, 183, 198, 7, 64},
-  {entry__107_3, NULL, 179, 179, 16, 35},
-  {cont__107_4, &frame__107_3, 179, 179, 5, 58},
-  {cont__107_9, &frame__107_3, 180, 198, 5, 65},
+  {entry__107_3_retrieve_variables, NULL, 179, 179, 16, 35},
+  {cont__107_4, &frame__107_3_retrieve_variables, 179, 179, 5, 58},
+  {cont__107_9, &frame__107_3_retrieve_variables, 180, 198, 5, 65},
   {entry__107_34, NULL, 201, 201, 38, 48},
   {entry__107_35, NULL, 201, 201, 51, 57},
   {entry__107_40, NULL, 208, 208, 34, 59},
@@ -1572,9 +1572,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__107_37, NULL, 203, 203, 7, 18},
   {cont__107_38, &frame__107_37, 204, 204, 7, 18},
   {cont__107_39, &frame__107_37, 205, 214, 7, 60},
-  {entry__107_32, NULL, 201, 201, 16, 35},
-  {cont__107_33, &frame__107_32, 201, 201, 5, 58},
-  {cont__107_36, &frame__107_32, 202, 214, 5, 61},
+  {entry__107_32_print_variables, NULL, 201, 201, 16, 35},
+  {cont__107_33, &frame__107_32_print_variables, 201, 201, 5, 58},
+  {cont__107_36, &frame__107_32_print_variables, 202, 214, 5, 61},
   {entry__107_70, NULL, 227, 229, 23, 45},
   {cont__107_72, &frame__107_70, 227, 229, 9, 45},
   {cont__107_73, &frame__107_70, 230, 230, 9, 23},
@@ -4046,7 +4046,7 @@ static void entry__107_2(void) {
   // 186:         writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
   // 187:       "int_array":
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__107_3, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__107_3_retrieve_variables, 0);
   // 178: $retrieve_variables:
   // 179:   $indent if(event_kind == ACTION (-> "      ") -> "  ")
   // 180:   for_each data_variables: (var)
@@ -4070,7 +4070,7 @@ static void entry__107_2(void) {
   // 208:         writeln_to &buf indent "print__pointer(@(name));"
   // 209:       "int_array":
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__107_32, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__107_32_print_variables, 0);
   // 200: $print_variables:
   // 201:   $indent if(event_kind == ACTION (-> "      ") -> "  ")
   // 202:   for_each info_variables: (var)
@@ -5351,7 +5351,7 @@ static void cont__107_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__107_3(void) {
+static void entry__107_3_retrieve_variables(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // buf: 0
@@ -5457,7 +5457,7 @@ static void cont__107_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__107_32(void) {
+static void entry__107_32_print_variables(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // buf: 0
@@ -6343,7 +6343,7 @@ static void cont__141_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1(void) {
+static void entry__11_1_define_macro(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -6376,7 +6376,7 @@ static void cont__11_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__71_1(void) {
+static void entry__71_1_sim2c__converted(void) {
   allocate_initialized_frame_gc(2, 12);
   // slot allocations:
   // code: 0
@@ -9583,12 +9583,12 @@ EXPORT void phase_2__macros(void) {
   unique__2_1 = register_unique_item("ACTION");
   unique__3_1 = register_unique_item("INFO");
   unique__4_1 = register_unique_item("DATA");
-  func__11_1 = create_function(entry__11_1, 2);
+  func__11_1_define_macro = create_function(entry__11_1_define_macro, 2);
   string__71_104 = from_latin_1_string(", ", 2);
   string__71_131 = from_latin_1_string("::", 2);
   string__71_132 = from_latin_1_string("__", 2);
   func__71_141 = create_function(entry__71_141, 0);
-  func__71_1 = create_function(entry__71_1, 1);
+  func__71_1_sim2c__converted = create_function(entry__71_1_sim2c__converted, 1);
   string__83_1 = from_latin_1_string("ARGC", 4);
   string__83_2 = from_latin_1_string("main_argc", 9);
   string__84_1 = from_latin_1_string("ARGV", 4);
@@ -9853,8 +9853,8 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__macros(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var._define_macro, &func__11_1);
-  assign_variable(&var.sim2c__converted, &func__71_1);
+  assign_variable(&var._define_macro, &func__11_1_define_macro);
+  assign_variable(&var.sim2c__converted, &func__71_1_sim2c__converted);
 }
 
 static int already_run_phase_6 = false;

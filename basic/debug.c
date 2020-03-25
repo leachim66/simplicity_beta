@@ -297,9 +297,9 @@ static NODE *func__1_1;
 static NODE *get__std__debug_string(void) {
   return var.std__debug_string;
 }
-static NODE *func__2_1;
-static void entry__2_1(void);
-static FRAME_INFO frame__2_1 = {2, {"args", "depth"}};
+static NODE *func__2_1_std__dump;
+static void entry__2_1_std__dump(void);
+static FRAME_INFO frame__2_1_std__dump = {2, {"args", "depth"}};
 static void cont__2_2(void);
 static void cont__2_3(void);
 static NODE *func__2_4;
@@ -318,9 +318,9 @@ static NODE *string__2_12;
 static NODE *get__std__dump(void) {
   return var.std__dump;
 }
-static NODE *func__3_1;
-static void entry__3_1(void);
-static FRAME_INFO frame__3_1 = {2, {"args", "depth"}};
+static NODE *func__3_1_std__edump;
+static void entry__3_1_std__edump(void);
+static FRAME_INFO frame__3_1_std__edump = {2, {"args", "depth"}};
 static void cont__3_2(void);
 static void cont__3_3(void);
 static NODE *func__3_4;
@@ -353,9 +353,9 @@ static NODE *func__6_1;
 static NODE *get__std__total_garbage_collections(void) {
   return var.std__total_garbage_collections;
 }
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {3, {"str", "len", "pos"}};
+static NODE *func__7_1_std__hexdump;
+static void entry__7_1_std__hexdump(void);
+static FRAME_INFO frame__7_1_std__hexdump = {3, {"str", "len", "pos"}};
 static void cont__7_2(void);
 static NODE *func__7_3;
 static void entry__7_3(void);
@@ -423,10 +423,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__2_9, NULL, 87, 87, 69, 69},
   {cont__2_10, &frame__2_9, 87, 87, 50, 76},
   {cont__2_11, &frame__2_9, 87, 87, 35, 76},
-  {entry__2_1, NULL, 84, 84, 6, 20},
-  {cont__2_2, &frame__2_1, 84, 84, 6, 27},
-  {cont__2_3, &frame__2_1, 84, 86, 3, 20},
-  {cont__2_8, &frame__2_1, 87, 87, 3, 76},
+  {entry__2_1_std__dump, NULL, 84, 84, 6, 20},
+  {cont__2_2, &frame__2_1_std__dump, 84, 84, 6, 27},
+  {cont__2_3, &frame__2_1_std__dump, 84, 86, 3, 20},
+  {cont__2_8, &frame__2_1_std__dump, 87, 87, 3, 76},
   {entry__3_4, NULL, 108, 108, 5, 18},
   {cont__3_5, &frame__3_4, 109, 109, 20, 20},
   {cont__3_6, &frame__3_4, 109, 109, 5, 20},
@@ -434,10 +434,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__3_9, NULL, 110, 110, 70, 70},
   {cont__3_10, &frame__3_9, 110, 110, 51, 77},
   {cont__3_11, &frame__3_9, 110, 110, 35, 77},
-  {entry__3_1, NULL, 107, 107, 6, 20},
-  {cont__3_2, &frame__3_1, 107, 107, 6, 27},
-  {cont__3_3, &frame__3_1, 107, 109, 3, 20},
-  {cont__3_8, &frame__3_1, 110, 110, 3, 77},
+  {entry__3_1_std__edump, NULL, 107, 107, 6, 20},
+  {cont__3_2, &frame__3_1_std__edump, 107, 107, 6, 27},
+  {cont__3_3, &frame__3_1_std__edump, 107, 109, 3, 20},
+  {cont__3_8, &frame__3_1_std__edump, 110, 110, 3, 77},
   {entry__4_1, NULL, 113, 117, 3, 2},
   {entry__5_1, NULL, 125, 128, 3, 2},
   {entry__6_1, NULL, 131, 134, 3, 2},
@@ -473,8 +473,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_39, &frame__7_5, 153, 153, 15, 15},
   {entry__7_3, NULL, 139, 139, 12, 20},
   {cont__7_4, &frame__7_3, 139, 153, 9, 15},
-  {entry__7_1, NULL, 137, 137, 3, 21},
-  {cont__7_2, &frame__7_1, 139, 153, 3, 15}
+  {entry__7_1_std__hexdump, NULL, 137, 137, 3, 21},
+  {cont__7_2, &frame__7_1_std__hexdump, 139, 153, 3, 15}
 };
 
 union NODE {
@@ -617,7 +617,7 @@ static void cont__2_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_1(void) {
+static void entry__2_1_std__dump(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
@@ -808,7 +808,7 @@ static void cont__3_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_1(void) {
+static void entry__3_1_std__edump(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
@@ -1566,7 +1566,7 @@ static void cont__7_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_1(void) {
+static void entry__7_1_std__hexdump(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // str: 0
@@ -1658,8 +1658,8 @@ EXPORT void phase_2__basic__debug(void) {
   number__2 = from_uint32(2U);
   func__1_1 = create_function(entry__1_1, -1);
   string__2_12 = from_latin_1_string(":", 1);
-  func__2_1 = create_function(entry__2_1, -1);
-  func__3_1 = create_function(entry__3_1, -1);
+  func__2_1_std__dump = create_function(entry__2_1_std__dump, -1);
+  func__3_1_std__edump = create_function(entry__3_1_std__edump, -1);
   func__4_1 = create_function(entry__4_1, 0);
   func__5_1 = create_function(entry__5_1, 0);
   func__6_1 = create_function(entry__6_1, 0);
@@ -1669,7 +1669,7 @@ EXPORT void phase_2__basic__debug(void) {
   string__7_25 = from_latin_1_string("  ", 2);
   string__7_36 = from_latin_1_string(".", 1);
   func__7_35 = create_function(entry__7_35, 0);
-  func__7_1 = create_function(entry__7_1, 1);
+  func__7_1_std__hexdump = create_function(entry__7_1_std__hexdump, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1726,12 +1726,12 @@ EXPORT void phase_5__basic__debug(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_variable(&var.std__debug_string, &func__1_1);
-  assign_variable(&var.std__dump, &func__2_1);
-  assign_variable(&var.std__edump, &func__3_1);
+  assign_variable(&var.std__dump, &func__2_1_std__dump);
+  assign_variable(&var.std__edump, &func__3_1_std__edump);
   assign_variable(&var.std__collect_garbage, &func__4_1);
   assign_variable(&var.std__instruction_counter, &func__5_1);
   assign_variable(&var.std__total_garbage_collections, &func__6_1);
-  assign_variable(&var.std__hexdump, &func__7_1);
+  assign_variable(&var.std__hexdump, &func__7_1_std__hexdump);
 }
 
 static int already_run_phase_6 = false;

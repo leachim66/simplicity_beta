@@ -356,12 +356,12 @@ static NODE *get__sim2c__outdent_marker(void) {
 static NODE *get__sim2c__newline(void) {
   return var.sim2c__newline;
 }
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {11, {"fragment", "text", "i", "s", "new_text", "pending_newlines", "quote_count", "TokenizationError", "skip_line", "get_indent", "convert"}};
-static NODE *func__4_2;
-static void entry__4_2(void);
-static FRAME_INFO frame__4_2 = {5, {"msg", "fragment", "text", "i", "line_no"}};
+static NODE *func__4_1_sim2c__tokenize;
+static void entry__4_1_sim2c__tokenize(void);
+static FRAME_INFO frame__4_1_sim2c__tokenize = {11, {"fragment", "text", "i", "s", "new_text", "pending_newlines", "quote_count", "TokenizationError", "skip_line", "get_indent", "convert"}};
+static NODE *func__4_2_TokenizationError;
+static void entry__4_2_TokenizationError(void);
+static FRAME_INFO frame__4_2_TokenizationError = {5, {"msg", "fragment", "text", "i", "line_no"}};
 static void cont__4_3(void);
 static void cont__4_4(void);
 static void cont__4_5(void);
@@ -375,9 +375,9 @@ static NODE *string__4_12;
 static NODE *string__4_13;
 static void cont__4_14(void);
 static void cont__4_15(void);
-static NODE *func__4_16;
-static void entry__4_16(void);
-static FRAME_INFO frame__4_16 = {4, {"quote_count", "text", "i", "TokenizationError"}};
+static NODE *func__4_16_skip_line;
+static void entry__4_16_skip_line(void);
+static FRAME_INFO frame__4_16_skip_line = {4, {"quote_count", "text", "i", "TokenizationError"}};
 static NODE *func__4_17;
 static void entry__4_17(void);
 static FRAME_INFO frame__4_17 = {4, {"text", "i", "quote_count", "TokenizationError"}};
@@ -398,9 +398,9 @@ static FRAME_INFO frame__4_25 = {1, {"TokenizationError"}};
 static NODE *string__4_26;
 static void cont__4_27(void);
 static void cont__4_28(void);
-static NODE *func__4_29;
-static void entry__4_29(void);
-static FRAME_INFO frame__4_29 = {6, {"return", "pending_newlines", "i", "text", "TokenizationError", "indent"}};
+static NODE *func__4_29_get_indent;
+static void entry__4_29_get_indent(void);
+static FRAME_INFO frame__4_29_get_indent = {6, {"return", "pending_newlines", "i", "text", "TokenizationError", "indent"}};
 static NODE *func__4_30;
 static void entry__4_30(void);
 static FRAME_INFO frame__4_30 = {5, {"break", "i", "text", "return", "pending_newlines"}};
@@ -456,24 +456,24 @@ static void entry__4_64(void);
 static FRAME_INFO frame__4_64 = {1, {"TokenizationError"}};
 static NODE *string__4_65;
 static void cont__4_66(void);
-static NODE *func__4_67;
-static void entry__4_67(void);
-static FRAME_INFO frame__4_67 = {13, {"current_indent", "return", "pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "convert", "TokenizationError"}};
+static NODE *func__4_67_convert;
+static void entry__4_67_convert(void);
+static FRAME_INFO frame__4_67_convert = {13, {"current_indent", "return", "pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "convert", "TokenizationError"}};
 static NODE *func__4_68;
 static void entry__4_68(void);
 static FRAME_INFO frame__4_68 = {19, {"pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "current_indent", "convert", "TokenizationError", "return", "add_newline", "add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "indent"}};
-static NODE *func__4_69;
-static void entry__4_69(void);
-static FRAME_INFO frame__4_69 = {4, {"pending_newlines", "new_text", "fragment", "indent"}};
+static NODE *func__4_69_add_newline;
+static void entry__4_69_add_newline(void);
+static FRAME_INFO frame__4_69_add_newline = {4, {"pending_newlines", "new_text", "fragment", "indent"}};
 static NODE *func__4_70;
 static void entry__4_70(void);
 static FRAME_INFO frame__4_70 = {3, {"new_text", "fragment", "indent"}};
 static void cont__4_71(void);
 static void cont__4_72(void);
 static void cont__4_73(void);
-static NODE *func__4_74;
-static void entry__4_74(void);
-static FRAME_INFO frame__4_74 = {5, {"new_text", "fragment", "indent", "pending_newlines", "add_newline"}};
+static NODE *func__4_74_add_indent;
+static void entry__4_74_add_indent(void);
+static FRAME_INFO frame__4_74_add_indent = {5, {"new_text", "fragment", "indent", "pending_newlines", "add_newline"}};
 static void cont__4_75(void);
 static void cont__4_76(void);
 static void cont__4_77(void);
@@ -576,17 +576,17 @@ void run__tokenizer(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__tokenizer, NULL, },
-  {entry__4_2, NULL, 45, 45, 5, 34},
-  {cont__4_3, &frame__4_2, 46, 46, 50, 52},
-  {cont__4_4, &frame__4_2, 46, 46, 37, 53},
-  {cont__4_5, &frame__4_2, 46, 46, 19, 62},
-  {cont__4_6, &frame__4_2, 46, 46, 5, 62},
-  {cont__4_7, &frame__4_2, 47, 47, 20, 25},
-  {cont__4_8, &frame__4_2, 47, 47, 5, 25},
-  {cont__4_9, &frame__4_2, 47, 47, 19, 25},
-  {cont__4_10, &frame__4_2, 48, 50, 12, 55},
-  {cont__4_14, &frame__4_2, 48, 50, 5, 55},
-  {cont__4_15, &frame__4_2, 51, 51, 5, 10},
+  {entry__4_2_TokenizationError, NULL, 45, 45, 5, 34},
+  {cont__4_3, &frame__4_2_TokenizationError, 46, 46, 50, 52},
+  {cont__4_4, &frame__4_2_TokenizationError, 46, 46, 37, 53},
+  {cont__4_5, &frame__4_2_TokenizationError, 46, 46, 19, 62},
+  {cont__4_6, &frame__4_2_TokenizationError, 46, 46, 5, 62},
+  {cont__4_7, &frame__4_2_TokenizationError, 47, 47, 20, 25},
+  {cont__4_8, &frame__4_2_TokenizationError, 47, 47, 5, 25},
+  {cont__4_9, &frame__4_2_TokenizationError, 47, 47, 19, 25},
+  {cont__4_10, &frame__4_2_TokenizationError, 48, 50, 12, 55},
+  {cont__4_14, &frame__4_2_TokenizationError, 48, 50, 5, 55},
+  {cont__4_15, &frame__4_2_TokenizationError, 51, 51, 5, 10},
   {entry__4_23, NULL, 59, 59, 11, 26},
   {cont__4_24, &frame__4_23, 59, 59, 26, 26},
   {entry__4_25, NULL, 61, 61, 11, 70},
@@ -598,7 +598,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_18, &frame__4_17, 55, 55, 14, 31},
   {cont__4_19, &frame__4_17, 55, 55, 14, 31},
   {cont__4_20, &frame__4_17, 55, 62, 11, 12},
-  {entry__4_16, NULL, 55, 62, 5, 12},
+  {entry__4_16_skip_line, NULL, 55, 62, 5, 12},
   {entry__4_34, NULL, 68, 68, 42, 42},
   {cont__4_35, &frame__4_34, 68, 68, 34, 42},
   {entry__4_31, NULL, 68, 68, 17, 31},
@@ -629,23 +629,23 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_61, &frame__4_60, 79, 79, 22, 39},
   {cont__4_62, &frame__4_60, 79, 79, 22, 39},
   {entry__4_64, NULL, 80, 80, 7, 56},
-  {entry__4_29, NULL, 66, 71, 5, 30},
-  {cont__4_44, &frame__4_29, 73, 75, 5, 20},
-  {cont__4_51, &frame__4_29, 76, 78, 5, 17},
-  {cont__4_58, &frame__4_29, 79, 79, 8, 17},
-  {cont__4_59, &frame__4_29, 79, 79, 8, 39},
-  {cont__4_63, &frame__4_29, 79, 80, 5, 56},
-  {cont__4_66, &frame__4_29, 81, 81, 5, 13},
+  {entry__4_29_get_indent, NULL, 66, 71, 5, 30},
+  {cont__4_44, &frame__4_29_get_indent, 73, 75, 5, 20},
+  {cont__4_51, &frame__4_29_get_indent, 76, 78, 5, 17},
+  {cont__4_58, &frame__4_29_get_indent, 79, 79, 8, 17},
+  {cont__4_59, &frame__4_29_get_indent, 79, 79, 8, 39},
+  {cont__4_63, &frame__4_29_get_indent, 79, 80, 5, 56},
+  {cont__4_66, &frame__4_29_get_indent, 81, 81, 5, 13},
   {entry__4_70, NULL, 91, 91, 11, 32},
   {cont__4_71, &frame__4_70, 92, 92, 17, 35},
   {cont__4_72, &frame__4_70, 92, 92, 11, 42},
   {cont__4_73, &frame__4_70, 92, 92, 42, 42},
-  {entry__4_69, NULL, 90, 92, 9, 42},
-  {entry__4_74, NULL, 95, 95, 9, 36},
-  {cont__4_75, &frame__4_74, 96, 96, 15, 33},
-  {cont__4_76, &frame__4_74, 96, 96, 9, 40},
-  {cont__4_77, &frame__4_74, 97, 97, 9, 29},
-  {cont__4_78, &frame__4_74, 98, 98, 9, 19},
+  {entry__4_69_add_newline, NULL, 90, 92, 9, 42},
+  {entry__4_74_add_indent, NULL, 95, 95, 9, 36},
+  {cont__4_75, &frame__4_74_add_indent, 96, 96, 15, 33},
+  {cont__4_76, &frame__4_74_add_indent, 96, 96, 9, 40},
+  {cont__4_77, &frame__4_74_add_indent, 97, 97, 9, 29},
+  {cont__4_78, &frame__4_74_add_indent, 98, 98, 9, 19},
   {entry__4_84, NULL, 103, 103, 34, 36},
   {cont__4_85, &frame__4_84, 103, 103, 29, 37},
   {cont__4_86, &frame__4_84, 103, 103, 29, 44},
@@ -706,13 +706,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_135, &frame__4_68, 136, 136, 10, 32},
   {cont__4_136, &frame__4_68, 136, 136, 7, 47},
   {cont__4_138, &frame__4_68, 137, 137, 7, 17},
-  {entry__4_67, NULL, 88, 137, 5, 17},
-  {cont__4_139, &frame__4_67, 137, 137, 17, 17},
-  {entry__4_1, NULL, 37, 37, 3, 25},
-  {cont__4_140, &frame__4_1, 139, 139, 10, 19},
-  {cont__4_141, &frame__4_1, 139, 139, 3, 19},
-  {cont__4_142, &frame__4_1, 140, 140, 3, 24},
-  {cont__4_143, &frame__4_1, 141, 141, 30, 30}
+  {entry__4_67_convert, NULL, 88, 137, 5, 17},
+  {cont__4_139, &frame__4_67_convert, 137, 137, 17, 17},
+  {entry__4_1_sim2c__tokenize, NULL, 37, 37, 3, 25},
+  {cont__4_140, &frame__4_1_sim2c__tokenize, 139, 139, 10, 19},
+  {cont__4_141, &frame__4_1_sim2c__tokenize, 139, 139, 3, 19},
+  {cont__4_142, &frame__4_1_sim2c__tokenize, 140, 140, 3, 24},
+  {cont__4_143, &frame__4_1_sim2c__tokenize, 141, 141, 30, 30}
 };
 
 union NODE {
@@ -771,7 +771,7 @@ EXPORT void run__tokenizer(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1(void) {
+static void entry__4_1_sim2c__tokenize(void) {
   allocate_initialized_frame_gc(1, 12);
   // slot allocations:
   // fragment: 0
@@ -808,7 +808,7 @@ static void entry__4_1(void) {
   // 49:     ____________________________________
   // 50:     TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
   // 51:   exit 1
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_2, 1);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_2_TokenizationError, 1);
   // 44: $TokenizationError: ($msg)
   // 45:   $$line_no line_no_of(fragment)
   // 46:   plus &line_no count_occurrences(range(text 1 i-1) newline)
@@ -828,7 +828,7 @@ static void entry__4_1(void) {
   // 60:       '@ht;':
   // 61:         TokenizationError "tabulator character within line detected"
   // 62:     inc &i
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_16, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_16_skip_line, 0);
   // 53: $skip_line:
   // 54:   !quote_count 0
   // 55:   while -> text(i) != newline:
@@ -851,7 +851,7 @@ static void entry__4_1(void) {
   // 72:   $$indent 0
   // 73:   while -> text(i) == '@ht;':
   // ...
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_29, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_29_get_indent, 0);
   // 64: $get_indent: (-> return)
   // 65:   !pending_newlines 0
   // 66:   do: (-> break)
@@ -875,7 +875,7 @@ static void entry__4_1(void) {
   // 91:         push &new_text newline
   // 92:         push &fragment.indents_of indent
   // ...
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_67, 1);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_67_convert, 1);
   // 83: $convert:
   // 84:   (
   // 85:     current_indent
@@ -1121,7 +1121,7 @@ static void cont__4_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_2(void) {
+static void entry__4_2_TokenizationError(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // msg: 0
@@ -1310,7 +1310,7 @@ static void cont__4_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_16(void) {
+static void entry__4_16_skip_line(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // quote_count: 0
@@ -1352,7 +1352,7 @@ static void entry__4_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_29(void) {
+static void entry__4_29_get_indent(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // return: 0
@@ -2019,7 +2019,7 @@ static void cont__4_66(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__4_67(void) {
+static void entry__4_67_convert(void) {
   allocate_initialized_frame_gc(13, 14);
   // slot allocations:
   // current_indent: 0
@@ -2131,7 +2131,7 @@ static void entry__4_68(void) {
   // 90:   repeat pending_newlines:
   // 91:     push &new_text newline
   // 92:     push &fragment.indents_of indent
-  frame->slots[19] /* temp__1 */ = create_closure(entry__4_69, 0);
+  frame->slots[19] /* temp__1 */ = create_closure(entry__4_69_add_newline, 0);
   // 89: $add_newline:
   // 90:   repeat pending_newlines:
   // 91:     push &new_text newline
@@ -2142,7 +2142,7 @@ static void entry__4_68(void) {
   // 96:   push &fragment.indents_of indent
   // 97:   dec &pending_newlines
   // 98:   add_newline
-  frame->slots[19] /* temp__1 */ = create_closure(entry__4_74, 0);
+  frame->slots[19] /* temp__1 */ = create_closure(entry__4_74_add_indent, 0);
   // 94: $add_indent:
   // 95:   push &new_text indent_marker
   // 96:   push &fragment.indents_of indent
@@ -2232,7 +2232,7 @@ static void cont__4_73(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_69(void) {
+static void entry__4_69_add_newline(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // pending_newlines: 0
@@ -2263,7 +2263,7 @@ static void entry__4_69(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_74(void) {
+static void entry__4_74_add_indent(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // new_text: 0
@@ -3627,7 +3627,7 @@ EXPORT void phase_2__tokenizer(void) {
   string__4_26 = from_latin_1_string("tabulator character within line detected", 40);
   string__4_65 = from_latin_1_string("empty line contains whitespace", 30);
   string__4_132 = from_latin_1_string("invalid indentation", 19);
-  func__4_1 = create_function(entry__4_1, 1);
+  func__4_1_sim2c__tokenize = create_function(entry__4_1_sim2c__tokenize, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3697,7 +3697,7 @@ EXPORT void phase_5__tokenizer(void) {
   assign_value(&var.sim2c__indent_marker, character__1);
   assign_value(&var.sim2c__outdent_marker, character__2);
   assign_value(&var.sim2c__newline, character__10);
-  assign_variable(&var.sim2c__tokenize, &func__4_1);
+  assign_variable(&var.sim2c__tokenize, &func__4_1_sim2c__tokenize);
 }
 
 static int already_run_phase_6 = false;

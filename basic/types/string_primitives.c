@@ -467,12 +467,12 @@ static void entry__32_1(void);
 static NODE *func__32_1;
 static void entry__33_1(void);
 static NODE *func__33_1;
-static NODE *func__34_1;
-static void entry__34_1(void);
-static FRAME_INFO frame__34_1 = {1, {"self"}};
-static NODE *func__35_1;
-static void entry__35_1(void);
-static FRAME_INFO frame__35_1 = {4, {"self", "indent", "buf", "s"}};
+static NODE *func__34_1_types__string_to_string;
+static void entry__34_1_types__string_to_string(void);
+static FRAME_INFO frame__34_1_types__string_to_string = {1, {"self"}};
+static NODE *func__35_1_types__string_serialize;
+static void entry__35_1_types__string_serialize(void);
+static FRAME_INFO frame__35_1_types__string_serialize = {4, {"self", "indent", "buf", "s"}};
 static NODE *string__35_2;
 static NODE *func__35_3;
 static void entry__35_3(void);
@@ -515,9 +515,9 @@ static void cont__35_28(void);
 static void cont__35_29(void);
 static void cont__35_30(void);
 static void cont__35_31(void);
-static NODE *func__36_1;
-static void entry__36_1(void);
-static FRAME_INFO frame__36_1 = {4, {"self", "return", "val", "negate"}};
+static NODE *func__36_1_types__string_parse_integer;
+static void entry__36_1_types__string_parse_integer(void);
+static FRAME_INFO frame__36_1_types__string_parse_integer = {4, {"self", "return", "val", "negate"}};
 static void cont__36_2(void);
 static NODE *func__36_3;
 static void entry__36_3(void);
@@ -722,7 +722,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__31_1, NULL, 476, 526, 3, 2},
   {entry__32_1, NULL, 529, 550, 3, 2},
   {entry__33_1, NULL, 553, 574, 3, 2},
-  {entry__34_1, NULL, 576, 576, 34, 40},
+  {entry__34_1_types__string_to_string, NULL, 576, 576, 34, 40},
   {entry__35_11, NULL, 588, 588, 9, 23},
   {cont__35_12, &frame__35_11, 588, 588, 9, 23},
   {entry__35_9, NULL, 587, 587, 9, 23},
@@ -746,12 +746,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__35_3, NULL, 584, 584, 9, 17},
   {cont__35_4, &frame__35_3, },
   {cont__35_16, &frame__35_3, 582, 592, 5, 17},
-  {entry__35_1, NULL, 581, 592, 3, 18},
-  {cont__35_27, &frame__35_1, 593, 593, 29, 29},
-  {cont__35_28, &frame__35_1, 593, 593, 15, 30},
-  {cont__35_29, &frame__35_1, 593, 593, 3, 30},
-  {cont__35_30, &frame__35_1, 594, 594, 6, 23},
-  {cont__35_31, &frame__35_1, 594, 594, 3, 23},
+  {entry__35_1_types__string_serialize, NULL, 581, 592, 3, 18},
+  {cont__35_27, &frame__35_1_types__string_serialize, 593, 593, 29, 29},
+  {cont__35_28, &frame__35_1_types__string_serialize, 593, 593, 15, 30},
+  {cont__35_29, &frame__35_1_types__string_serialize, 593, 593, 3, 30},
+  {cont__35_30, &frame__35_1_types__string_serialize, 594, 594, 6, 23},
+  {cont__35_31, &frame__35_1_types__string_serialize, 594, 594, 3, 23},
   {entry__36_3, NULL, 604, 604, 20, 20},
   {cont__36_4, &frame__36_3, 604, 604, 5, 20},
   {cont__36_5, &frame__36_3, 605, 605, 16, 16},
@@ -837,11 +837,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__36_90, NULL, 653, 653, 26, 28},
   {cont__36_91, &frame__36_90, 653, 653, 22, 28},
   {entry__36_92, NULL, 653, 653, 31, 36},
-  {entry__36_1, NULL, 603, 603, 6, 26},
-  {cont__36_2, &frame__36_1, 603, 605, 3, 16},
-  {cont__36_6, &frame__36_1, 606, 652, 3, 12},
-  {cont__36_89, &frame__36_1, 653, 653, 11, 37},
-  {cont__36_93, &frame__36_1, 653, 653, 3, 37},
+  {entry__36_1_types__string_parse_integer, NULL, 603, 603, 6, 26},
+  {cont__36_2, &frame__36_1_types__string_parse_integer, 603, 605, 3, 16},
+  {cont__36_6, &frame__36_1_types__string_parse_integer, 606, 652, 3, 12},
+  {cont__36_89, &frame__36_1_types__string_parse_integer, 653, 653, 11, 37},
+  {cont__36_93, &frame__36_1_types__string_parse_integer, 653, 653, 3, 37},
   {entry__39_1, NULL, 724, 765, 3, 2},
   {entry__40_1, NULL, 768, 794, 3, 2},
   {entry__41_1, NULL, 797, 841, 3, 2},
@@ -1894,7 +1894,7 @@ static void entry__33_1(void) {
     return;
   }
 }
-static void entry__34_1(void) {
+static void entry__34_1_types__string_to_string(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -1910,7 +1910,7 @@ static void entry__34_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__35_1(void) {
+static void entry__35_1_types__string_serialize(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -2448,7 +2448,7 @@ static void cont__35_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_1(void) {
+static void entry__36_1_types__string_parse_integer(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -5221,14 +5221,14 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   func__31_1 = create_function(entry__31_1, 2);
   func__32_1 = create_function(entry__32_1, 1);
   func__33_1 = create_function(entry__33_1, 1);
-  func__34_1 = create_function(entry__34_1, 1);
+  func__34_1_types__string_to_string = create_function(entry__34_1_types__string_to_string, 1);
   string__35_2 = from_latin_1_string("\042", 1);
   string__35_23 = from_latin_1_string("@0x", 3);
-  func__35_1 = create_function(entry__35_1, -1);
+  func__35_1_types__string_serialize = create_function(entry__35_1_types__string_serialize, -1);
   string__36_9 = from_latin_1_string("0b", 2);
   string__36_27 = from_latin_1_string("0o", 2);
   string__36_45 = from_latin_1_string("0x", 2);
-  func__36_1 = create_function(entry__36_1, 1);
+  func__36_1_types__string_parse_integer = create_function(entry__36_1_types__string_parse_integer, 1);
   func__39_1 = create_function(entry__39_1, 2);
   func__40_1 = create_function(entry__40_1, 2);
   func__41_1 = create_function(entry__41_1, 2);
@@ -5321,9 +5321,9 @@ EXPORT void phase_4__basic__types__string_primitives(void) {
   define_method("types", "quad_octet_string", poly_idx__less, func__31_1);
   define_method("types", "octet_string", poly_idx__hash, func__32_1);
   define_method("types", "quad_octet_string", poly_idx__hash, func__33_1);
-  define_method("types", "string", poly_idx__to_string, func__34_1);
-  define_method("types", "string", poly_idx__serialize, func__35_1);
-  define_method("types", "string", poly_idx__parse_integer, func__36_1);
+  define_method("types", "string", poly_idx__to_string, func__34_1_types__string_to_string);
+  define_method("types", "string", poly_idx__serialize, func__35_1_types__string_serialize);
+  define_method("types", "string", poly_idx__parse_integer, func__36_1_types__string_parse_integer);
   define_method("types", "octet_string", poly_idx__push, func__39_1);
   define_method("types", "quad_octet_string", poly_idx__push, func__40_1);
   define_method("types", "octet_string", poly_idx__append, func__41_1);

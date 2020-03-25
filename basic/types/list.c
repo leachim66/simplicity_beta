@@ -452,9 +452,9 @@ static void func__types__list___unfold(NODE *list);
 static long func__types__list___length_of(NODE *node);
 
 static NODE *func__types__list___get_item_of(NODE *node, long idx);
-static NODE *func__14_1;
-static void entry__14_1(void);
-static FRAME_INFO frame__14_1 = {1, {"self"}};
+static NODE *func__14_1_types__list_to_list;
+static void entry__14_1_types__list_to_list(void);
+static FRAME_INFO frame__14_1_types__list_to_list = {1, {"self"}};
 static void entry__15_1(void);
 static NODE *func__15_1;
 static NODE *get__std__list(void) {
@@ -474,9 +474,9 @@ static void entry__21_1(void);
 static NODE *func__21_1;
 static void entry__22_1(void);
 static NODE *func__22_1;
-static NODE *func__23_1;
-static void entry__23_1(void);
-static FRAME_INFO frame__23_1 = {3, {"self", "idx", "count"}};
+static NODE *func__23_1_types__generic_list_delete_at;
+static void entry__23_1_types__generic_list_delete_at(void);
+static FRAME_INFO frame__23_1_types__generic_list_delete_at = {3, {"self", "idx", "count"}};
 static void cont__23_2(void);
 static void cont__23_3(void);
 static NODE *func__23_4;
@@ -489,9 +489,9 @@ static void cont__23_8(void);
 static void cont__23_9(void);
 static void cont__23_10(void);
 static void cont__23_11(void);
-static NODE *func__24_1;
-static void entry__24_1(void);
-static FRAME_INFO frame__24_1 = {3, {"self", "idx", "return"}};
+static NODE *func__24_1_std__normalized_index;
+static void entry__24_1_std__normalized_index(void);
+static FRAME_INFO frame__24_1_std__normalized_index = {3, {"self", "idx", "return"}};
 static void cont__24_2(void);
 static void cont__24_3(void);
 static NODE *func__24_4;
@@ -507,14 +507,14 @@ static void cont__24_9(void);
 static NODE *get__std__normalized_index(void) {
   return var.std__normalized_index;
 }
-static NODE *func__25_1;
-static void entry__25_1(void);
-static FRAME_INFO frame__25_1 = {1, {"self"}};
+static NODE *func__25_1_types__generic_list_is_empty;
+static void entry__25_1_types__generic_list_is_empty(void);
+static FRAME_INFO frame__25_1_types__generic_list_is_empty = {1, {"self"}};
 static void cont__25_2(void);
 static void cont__25_3(void);
-static NODE *func__26_1;
-static void entry__26_1(void);
-static FRAME_INFO frame__26_1 = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
+static NODE *func__26_1_types__generic_list_for_each_from_to;
+static void entry__26_1_types__generic_list_for_each_from_to(void);
+static FRAME_INFO frame__26_1_types__generic_list_for_each_from_to = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
 static void cont__26_2(void);
 static void cont__26_3(void);
 static NODE *func__26_4;
@@ -547,9 +547,9 @@ static void entry__26_19(void);
 static FRAME_INFO frame__26_19 = {1, {"body2"}};
 static void cont__26_20(void);
 static void cont__26_21(void);
-static NODE *func__27_1;
-static void entry__27_1(void);
-static FRAME_INFO frame__27_1 = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
+static NODE *func__27_1_types__generic_list_for_each_from_down_to;
+static void entry__27_1_types__generic_list_for_each_from_down_to(void);
+static FRAME_INFO frame__27_1_types__generic_list_for_each_from_down_to = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
 static void cont__27_2(void);
 static void cont__27_3(void);
 static NODE *func__27_4;
@@ -582,9 +582,9 @@ static void entry__27_19(void);
 static FRAME_INFO frame__27_19 = {1, {"body2"}};
 static void cont__27_20(void);
 static void cont__27_21(void);
-static NODE *func__28_1;
-static void entry__28_1(void);
-static FRAME_INFO frame__28_1 = {5, {"self", "body", "body2", "i", "n"}};
+static NODE *func__28_1_types__generic_list_for_each;
+static void entry__28_1_types__generic_list_for_each(void);
+static FRAME_INFO frame__28_1_types__generic_list_for_each = {5, {"self", "body", "body2", "i", "n"}};
 static void cont__28_2(void);
 static void cont__28_3(void);
 static void cont__28_4(void);
@@ -636,9 +636,9 @@ static void entry__28_30(void);
 static FRAME_INFO frame__28_30 = {1, {"body2"}};
 static void cont__28_31(void);
 static void cont__28_32(void);
-static NODE *func__29_1;
-static void entry__29_1(void);
-static FRAME_INFO frame__29_1 = {6, {"self", "body", "return", "i", "n", "new_list"}};
+static NODE *func__29_1_types__generic_list_update_each;
+static void entry__29_1_types__generic_list_update_each(void);
+static FRAME_INFO frame__29_1_types__generic_list_update_each = {6, {"self", "body", "return", "i", "n", "new_list"}};
 static void cont__29_2(void);
 static void cont__29_3(void);
 static void cont__29_4(void);
@@ -674,9 +674,9 @@ static void cont__29_21(void);
 static void cont__29_22(void);
 static void cont__29_23(void);
 static void cont__29_24(void);
-static NODE *func__30_1;
-static void entry__30_1(void);
-static FRAME_INFO frame__30_1 = {4, {"self", "body", "i", "n"}};
+static NODE *func__30_1_types__list_for_each_pair;
+static void entry__30_1_types__list_for_each_pair(void);
+static FRAME_INFO frame__30_1_types__list_for_each_pair = {4, {"self", "body", "i", "n"}};
 static void cont__30_2(void);
 static NODE *func__30_3;
 static void entry__30_3(void);
@@ -696,9 +696,9 @@ static NODE *func__30_13;
 static void entry__30_13(void);
 static FRAME_INFO frame__30_13 = {3, {"body", "self", "i"}};
 static void cont__30_14(void);
-static NODE *func__31_1;
-static void entry__31_1(void);
-static FRAME_INFO frame__31_1 = {1, {"self"}};
+static NODE *func__31_1_types__generic_list_get;
+static void entry__31_1_types__generic_list_get(void);
+static FRAME_INFO frame__31_1_types__generic_list_get = {1, {"self"}};
 static void cont__31_2(void);
 static void cont__31_3(void);
 static NODE *func__31_4;
@@ -709,14 +709,14 @@ static void cont__31_6(void);
 static void cont__31_7(void);
 static void cont__31_8(void);
 static void cont__31_9(void);
-static NODE *func__32_1;
-static void entry__32_1(void);
-static FRAME_INFO frame__32_1 = {2, {"self", "item"}};
+static NODE *func__32_1_types__list_put;
+static void entry__32_1_types__list_put(void);
+static FRAME_INFO frame__32_1_types__list_put = {2, {"self", "item"}};
 static void cont__32_2(void);
 static void cont__32_3(void);
-static NODE *func__33_1;
-static void entry__33_1(void);
-static FRAME_INFO frame__33_1 = {5, {"left", "right", "func", "return", "result"}};
+static NODE *func__33_1_types__list_merge;
+static void entry__33_1_types__list_merge(void);
+static FRAME_INFO frame__33_1_types__list_merge = {5, {"left", "right", "func", "return", "result"}};
 static void cont__33_2(void);
 static NODE *func__33_3;
 static void entry__33_3(void);
@@ -772,9 +772,9 @@ static void entry__33_34(void);
 static FRAME_INFO frame__33_34 = {3, {"return", "result", "right"}};
 static void cont__33_35(void);
 static void cont__33_36(void);
-static NODE *func__34_1;
-static void entry__34_1(void);
-static FRAME_INFO frame__34_1 = {4, {"self", "indent", "return", "buf"}};
+static NODE *func__34_1_types__list_serialize;
+static void entry__34_1_types__list_serialize(void);
+static FRAME_INFO frame__34_1_types__list_serialize = {4, {"self", "indent", "return", "buf"}};
 static void cont__34_2(void);
 static NODE *func__34_3;
 static void entry__34_3(void);
@@ -791,9 +791,9 @@ static void cont__34_10(void);
 static void cont__34_11(void);
 static void cont__34_12(void);
 static void cont__34_13(void);
-static NODE *func__35_1;
-static void entry__35_1(void);
-static FRAME_INFO frame__35_1 = {4, {"self", "func", "return", "n"}};
+static NODE *func__35_1_types__list_sort;
+static void entry__35_1_types__list_sort(void);
+static FRAME_INFO frame__35_1_types__list_sort = {4, {"self", "func", "return", "n"}};
 static void cont__35_2(void);
 static void cont__35_3(void);
 static NODE *func__35_4;
@@ -859,12 +859,12 @@ static void cont__35_43(void);
 static void cont__35_44(void);
 
 static long func__types__list___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__37_1;
-static void entry__37_1(void);
-static FRAME_INFO frame__37_1 = {1, {"self"}};
-static NODE *func__38_1;
-static void entry__38_1(void);
-static FRAME_INFO frame__38_1 = {3, {"left", "right", "return"}};
+static NODE *func__37_1_types__list_new_empty_collection;
+static void entry__37_1_types__list_new_empty_collection(void);
+static FRAME_INFO frame__37_1_types__list_new_empty_collection = {1, {"self"}};
+static NODE *func__38_1_types__generic_list_equal;
+static void entry__38_1_types__generic_list_equal(void);
+static FRAME_INFO frame__38_1_types__generic_list_equal = {3, {"left", "right", "return"}};
 static void cont__38_2(void);
 static NODE *func__38_3;
 static void entry__38_3(void);
@@ -893,9 +893,9 @@ static NODE *func__38_18;
 static void entry__38_18(void);
 static FRAME_INFO frame__38_18 = {1, {"return"}};
 static void cont__38_19(void);
-static NODE *func__39_1;
-static void entry__39_1(void);
-static FRAME_INFO frame__39_1 = {3, {"self", "test", "new_list"}};
+static NODE *func__39_1_types__generic_list_filter;
+static void entry__39_1_types__generic_list_filter(void);
+static FRAME_INFO frame__39_1_types__generic_list_filter = {3, {"self", "test", "new_list"}};
 static void cont__39_2(void);
 static NODE *func__39_3;
 static void entry__39_3(void);
@@ -906,9 +906,9 @@ static void entry__39_5(void);
 static FRAME_INFO frame__39_5 = {2, {"new_list", "item"}};
 static void cont__39_6(void);
 static void cont__39_7(void);
-static NODE *func__40_1;
-static void entry__40_1(void);
-static FRAME_INFO frame__40_1 = {3, {"self", "func", "new_list"}};
+static NODE *func__40_1_types__generic_list_map;
+static void entry__40_1_types__generic_list_map(void);
+static FRAME_INFO frame__40_1_types__generic_list_map = {3, {"self", "func", "new_list"}};
 static void cont__40_2(void);
 static NODE *func__40_3;
 static void entry__40_3(void);
@@ -916,9 +916,9 @@ static FRAME_INFO frame__40_3 = {3, {"item", "new_list", "func"}};
 static void cont__40_4(void);
 static void cont__40_5(void);
 static void cont__40_6(void);
-static NODE *func__41_1;
-static void entry__41_1(void);
-static FRAME_INFO frame__41_1 = {2, {"self", "n"}};
+static NODE *func__41_1_types__generic_list_dup;
+static void entry__41_1_types__generic_list_dup(void);
+static FRAME_INFO frame__41_1_types__generic_list_dup = {2, {"self", "n"}};
 static NODE *func__41_2;
 static void entry__41_2(void);
 static FRAME_INFO frame__41_2 = {1, {"self"}};
@@ -943,9 +943,9 @@ static void cont__41_14(void);
 static NODE *func__41_15;
 static void entry__41_15(void);
 static FRAME_INFO frame__41_15 = {0, {}};
-static NODE *func__42_1;
-static void entry__42_1(void);
-static FRAME_INFO frame__42_1 = {3, {"lists", "n", "result"}};
+static NODE *func__42_1_types__generic_list_interleave;
+static void entry__42_1_types__generic_list_interleave(void);
+static FRAME_INFO frame__42_1_types__generic_list_interleave = {3, {"lists", "n", "result"}};
 static void cont__42_2(void);
 static void cont__42_3(void);
 static void cont__42_4(void);
@@ -970,9 +970,9 @@ static FRAME_INFO frame__42_14 = {3, {"result", "current_list", "n"}};
 static void cont__42_15(void);
 static void cont__42_16(void);
 static void cont__42_17(void);
-static NODE *func__43_1;
-static void entry__43_1(void);
-static FRAME_INFO frame__43_1 = {3, {"self", "item", "return"}};
+static NODE *func__43_1_types__generic_list_contains;
+static void entry__43_1_types__generic_list_contains(void);
+static FRAME_INFO frame__43_1_types__generic_list_contains = {3, {"self", "item", "return"}};
 static NODE *func__43_2;
 static void entry__43_2(void);
 static FRAME_INFO frame__43_2 = {3, {"current_item", "item", "return"}};
@@ -986,9 +986,9 @@ static void type__std__is_a_sequence(void);
 static NODE *get__std__is_a_sequence(void) {
   return var.std__is_a_sequence;
 }
-static NODE *func__46_1;
-static void entry__46_1(void);
-static FRAME_INFO frame__46_1 = {1, {"items"}};
+static NODE *func__46_1_std__sequence;
+static void entry__46_1_std__sequence(void);
+static FRAME_INFO frame__46_1_std__sequence = {1, {"items"}};
 static void cont__46_2(void);
 static NODE *func__46_3;
 static void entry__46_3(void);
@@ -1062,7 +1062,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_sequence, NULL, 568, 568, 2, 19},
   {run__basic__types__list, NULL, 586, 601, 1, 45},
   {cont__94_32, NULL, },
-  {entry__14_1, NULL, 164, 164, 30, 36},
+  {entry__14_1_types__list_to_list, NULL, 164, 164, 30, 36},
   {entry__15_1, NULL, 167, 179, 3, 2},
   {entry__16_1, NULL, 182, 185, 3, 2},
   {entry__17_1, NULL, 188, 206, 3, 2},
@@ -1078,22 +1078,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__23_8, &frame__23_4, 300, 300, 51, 74},
   {cont__23_9, &frame__23_4, 300, 300, 18, 75},
   {cont__23_10, &frame__23_4, 300, 300, 75, 75},
-  {entry__23_1, NULL, 300, 300, 6, 15},
-  {cont__23_2, &frame__23_1, 300, 300, 6, 15},
-  {cont__23_3, &frame__23_1, 300, 300, 3, 75},
-  {cont__23_11, &frame__23_1, },
+  {entry__23_1_types__generic_list_delete_at, NULL, 300, 300, 6, 15},
+  {cont__23_2, &frame__23_1_types__generic_list_delete_at, 300, 300, 6, 15},
+  {cont__23_3, &frame__23_1_types__generic_list_delete_at, 300, 300, 3, 75},
+  {cont__23_11, &frame__23_1_types__generic_list_delete_at, },
   {entry__24_4, NULL, 310, 310, 7, 16},
   {entry__24_5, NULL, 312, 312, 14, 28},
   {cont__24_6, &frame__24_5, 312, 312, 14, 30},
   {cont__24_7, &frame__24_5, 312, 312, 14, 34},
   {cont__24_8, &frame__24_5, 312, 312, 7, 34},
-  {entry__24_1, NULL, 309, 309, 5, 12},
-  {cont__24_2, &frame__24_1, 309, 309, 5, 12},
-  {cont__24_3, &frame__24_1, 308, 312, 3, 35},
-  {cont__24_9, &frame__24_1, 312, 312, 35, 35},
-  {entry__25_1, NULL, 314, 314, 42, 56},
-  {cont__25_2, &frame__25_1, 314, 314, 42, 61},
-  {cont__25_3, &frame__25_1, 314, 314, 39, 61},
+  {entry__24_1_std__normalized_index, NULL, 309, 309, 5, 12},
+  {cont__24_2, &frame__24_1_std__normalized_index, 309, 309, 5, 12},
+  {cont__24_3, &frame__24_1_std__normalized_index, 308, 312, 3, 35},
+  {cont__24_9, &frame__24_1_std__normalized_index, 312, 312, 35, 35},
+  {entry__25_1_types__generic_list_is_empty, NULL, 314, 314, 42, 56},
+  {cont__25_2, &frame__25_1_types__generic_list_is_empty, 314, 314, 42, 61},
+  {cont__25_3, &frame__25_1_types__generic_list_is_empty, 314, 314, 39, 61},
   {entry__26_10, NULL, 341, 341, 16, 22},
   {cont__26_11, &frame__26_10, 341, 341, 9, 22},
   {entry__26_12, NULL, 343, 343, 14, 20},
@@ -1112,9 +1112,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__26_4, NULL, 338, 338, 12, 17},
   {cont__26_5, &frame__26_4, 338, 338, 12, 17},
   {cont__26_6, &frame__26_4, 338, 345, 9, 13},
-  {entry__26_1, NULL, 336, 336, 3, 34},
-  {cont__26_2, &frame__26_1, 337, 337, 3, 32},
-  {cont__26_3, &frame__26_1, 338, 345, 3, 13},
+  {entry__26_1_types__generic_list_for_each_from_to, NULL, 336, 336, 3, 34},
+  {cont__26_2, &frame__26_1_types__generic_list_for_each_from_to, 337, 337, 3, 32},
+  {cont__26_3, &frame__26_1_types__generic_list_for_each_from_to, 338, 345, 3, 13},
   {entry__27_10, NULL, 353, 353, 16, 22},
   {cont__27_11, &frame__27_10, 353, 353, 9, 22},
   {entry__27_12, NULL, 355, 355, 14, 20},
@@ -1133,9 +1133,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__27_4, NULL, 350, 350, 12, 17},
   {cont__27_5, &frame__27_4, 350, 350, 12, 17},
   {cont__27_6, &frame__27_4, 350, 357, 9, 14},
-  {entry__27_1, NULL, 348, 348, 3, 34},
-  {cont__27_2, &frame__27_1, 349, 349, 3, 32},
-  {cont__27_3, &frame__27_1, 350, 357, 3, 14},
+  {entry__27_1_types__generic_list_for_each_from_down_to, NULL, 348, 348, 3, 34},
+  {cont__27_2, &frame__27_1_types__generic_list_for_each_from_down_to, 349, 349, 3, 32},
+  {cont__27_3, &frame__27_1_types__generic_list_for_each_from_down_to, 350, 357, 3, 14},
   {entry__28_13, NULL, 366, 366, 32, 36},
   {cont__28_14, &frame__28_13, 366, 366, 32, 36},
   {entry__28_16, NULL, 366, 366, 39, 43},
@@ -1164,10 +1164,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__28_21, &frame__28_20, 369, 369, 16, 21},
   {cont__28_22, &frame__28_20, 369, 372, 13, 17},
   {entry__28_19, NULL, 369, 372, 7, 17},
-  {entry__28_1, NULL, 361, 361, 3, 20},
-  {cont__28_2, &frame__28_1, 363, 363, 5, 28},
-  {cont__28_3, &frame__28_1, 363, 363, 5, 33},
-  {cont__28_4, &frame__28_1, 362, 372, 3, 19},
+  {entry__28_1_types__generic_list_for_each, NULL, 361, 361, 3, 20},
+  {cont__28_2, &frame__28_1_types__generic_list_for_each, 363, 363, 5, 28},
+  {cont__28_3, &frame__28_1_types__generic_list_for_each, 363, 363, 5, 33},
+  {cont__28_4, &frame__28_1_types__generic_list_for_each, 362, 372, 3, 19},
   {entry__29_9, NULL, 386, 386, 31, 37},
   {cont__29_10, &frame__29_9, 386, 386, 24, 38},
   {cont__29_11, &frame__29_9, 386, 386, 9, 38},
@@ -1186,12 +1186,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__29_16, &frame__29_15, 389, 389, 16, 21},
   {cont__29_17, &frame__29_15, 389, 391, 13, 17},
   {entry__29_14, NULL, 389, 391, 7, 17},
-  {entry__29_1, NULL, 381, 381, 3, 20},
-  {cont__29_2, &frame__29_1, 384, 384, 5, 28},
-  {cont__29_3, &frame__29_1, 384, 384, 5, 33},
-  {cont__29_4, &frame__29_1, 383, 391, 3, 19},
-  {cont__29_23, &frame__29_1, 392, 392, 3, 17},
-  {cont__29_24, &frame__29_1, 392, 392, 17, 17},
+  {entry__29_1_types__generic_list_update_each, NULL, 381, 381, 3, 20},
+  {cont__29_2, &frame__29_1_types__generic_list_update_each, 384, 384, 5, 28},
+  {cont__29_3, &frame__29_1_types__generic_list_update_each, 384, 384, 5, 33},
+  {cont__29_4, &frame__29_1_types__generic_list_update_each, 383, 391, 3, 19},
+  {cont__29_23, &frame__29_1_types__generic_list_update_each, 392, 392, 3, 17},
+  {cont__29_24, &frame__29_1_types__generic_list_update_each, 392, 392, 17, 17},
   {entry__30_5, NULL, 398, 398, 10, 16},
   {cont__30_6, &frame__30_5, 398, 398, 23, 25},
   {cont__30_7, &frame__30_5, 398, 398, 18, 26},
@@ -1202,21 +1202,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_4, &frame__30_3, 397, 399, 9, 13},
   {entry__30_13, NULL, 400, 400, 22, 28},
   {cont__30_14, &frame__30_13, 400, 400, 17, 28},
-  {entry__30_1, NULL, 396, 396, 3, 20},
-  {cont__30_2, &frame__30_1, 397, 399, 3, 13},
-  {cont__30_11, &frame__30_1, 400, 400, 6, 14},
-  {cont__30_12, &frame__30_1, 400, 400, 3, 28},
+  {entry__30_1_types__list_for_each_pair, NULL, 396, 396, 3, 20},
+  {cont__30_2, &frame__30_1_types__list_for_each_pair, 397, 399, 3, 13},
+  {cont__30_11, &frame__30_1_types__list_for_each_pair, 400, 400, 6, 14},
+  {cont__30_12, &frame__30_1_types__list_for_each_pair, 400, 400, 3, 28},
   {entry__31_4, NULL, 403, 403, 28, 80},
-  {entry__31_1, NULL, 403, 403, 6, 20},
-  {cont__31_2, &frame__31_1, 403, 403, 6, 25},
-  {cont__31_3, &frame__31_1, 403, 403, 3, 80},
-  {cont__31_6, &frame__31_1, 404, 404, 20, 20},
-  {cont__31_7, &frame__31_1, 404, 404, 6, 21},
-  {cont__31_8, &frame__31_1, 404, 404, 23, 29},
-  {cont__31_9, &frame__31_1, 404, 404, 3, 29},
-  {entry__32_1, NULL, 406, 406, 41, 50},
-  {cont__32_2, &frame__32_1, 406, 406, 34, 56},
-  {cont__32_3, &frame__32_1, 406, 406, 31, 56},
+  {entry__31_1_types__generic_list_get, NULL, 403, 403, 6, 20},
+  {cont__31_2, &frame__31_1_types__generic_list_get, 403, 403, 6, 25},
+  {cont__31_3, &frame__31_1_types__generic_list_get, 403, 403, 3, 80},
+  {cont__31_6, &frame__31_1_types__generic_list_get, 404, 404, 20, 20},
+  {cont__31_7, &frame__31_1_types__generic_list_get, 404, 404, 6, 21},
+  {cont__31_8, &frame__31_1_types__generic_list_get, 404, 404, 23, 29},
+  {cont__31_9, &frame__31_1_types__generic_list_get, 404, 404, 3, 29},
+  {entry__32_1_types__list_put, NULL, 406, 406, 41, 50},
+  {cont__32_2, &frame__32_1_types__list_put, 406, 406, 34, 56},
+  {cont__32_3, &frame__32_1_types__list_put, 406, 406, 31, 56},
   {entry__33_11, NULL, 423, 423, 49, 56},
   {cont__33_12, &frame__33_11, 423, 423, 38, 44},
   {cont__33_13, &frame__33_11, 423, 423, 38, 56},
@@ -1250,9 +1250,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__33_3, NULL, 418, 418, 7, 21},
   {cont__33_4, &frame__33_3, 418, 418, 7, 25},
   {cont__33_5, &frame__33_3, 417, 432, 5, 36},
-  {entry__33_1, NULL, 415, 415, 3, 17},
-  {cont__33_2, &frame__33_1, 416, 432, 3, 37},
-  {cont__33_36, &frame__33_1, 432, 432, 37, 37},
+  {entry__33_1_types__list_merge, NULL, 415, 415, 3, 17},
+  {cont__33_2, &frame__33_1_types__list_merge, 416, 432, 3, 37},
+  {cont__33_36, &frame__33_1_types__list_merge, 432, 432, 37, 37},
   {entry__34_3, NULL, 440, 440, 21, 35},
   {entry__34_7, NULL, 443, 443, 33, 40},
   {cont__34_8, &frame__34_7, 443, 443, 26, 41},
@@ -1260,10 +1260,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__34_10, &frame__34_7, 443, 443, 43, 66},
   {cont__34_11, &frame__34_7, 443, 443, 5, 66},
   {cont__34_12, &frame__34_7, 443, 443, 66, 66},
-  {entry__34_1, NULL, 440, 440, 6, 18},
-  {cont__34_2, &frame__34_1, 440, 440, 3, 35},
-  {cont__34_5, &frame__34_1, 442, 443, 3, 66},
-  {cont__34_13, &frame__34_1, 444, 444, 3, 8},
+  {entry__34_1_types__list_serialize, NULL, 440, 440, 6, 18},
+  {cont__34_2, &frame__34_1_types__list_serialize, 440, 440, 3, 35},
+  {cont__34_5, &frame__34_1_types__list_serialize, 442, 443, 3, 66},
+  {cont__34_13, &frame__34_1_types__list_serialize, 444, 444, 3, 8},
   {entry__35_4, NULL, 456, 456, 7, 17},
   {entry__35_7, NULL, 460, 460, 43, 49},
   {cont__35_8, &frame__35_7, 460, 460, 32, 38},
@@ -1304,11 +1304,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__35_27, NULL, 467, 467, 7, 18},
   {cont__35_28, &frame__35_27, 469, 469, 9, 25},
   {cont__35_29, &frame__35_27, 468, 473, 7, 81},
-  {entry__35_1, NULL, 452, 452, 3, 20},
-  {cont__35_2, &frame__35_1, 455, 455, 5, 8},
-  {cont__35_3, &frame__35_1, 453, 473, 3, 83},
-  {cont__35_44, &frame__35_1, 473, 473, 83, 83},
-  {entry__37_1, NULL, 504, 504, 44, 57},
+  {entry__35_1_types__list_sort, NULL, 452, 452, 3, 20},
+  {cont__35_2, &frame__35_1_types__list_sort, 455, 455, 5, 8},
+  {cont__35_3, &frame__35_1_types__list_sort, 453, 473, 3, 83},
+  {cont__35_44, &frame__35_1_types__list_sort, 473, 473, 83, 83},
+  {entry__37_1_types__list_new_empty_collection, NULL, 504, 504, 44, 57},
   {entry__38_3, NULL, 516, 516, 30, 44},
   {cont__38_4, &frame__38_3, 516, 516, 30, 44},
   {entry__38_6, NULL, 516, 516, 47, 58},
@@ -1318,29 +1318,29 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__38_15, &frame__38_14, 518, 518, 32, 49},
   {cont__38_16, &frame__38_14, 518, 518, 32, 49},
   {cont__38_17, &frame__38_14, 518, 518, 29, 63},
-  {entry__38_1, NULL, 516, 516, 10, 25},
-  {cont__38_2, &frame__38_1, 516, 516, 10, 44},
-  {cont__38_5, &frame__38_1, 516, 516, 3, 58},
-  {cont__38_7, &frame__38_1, 517, 517, 6, 20},
-  {cont__38_8, &frame__38_1, 517, 517, 25, 40},
-  {cont__38_9, &frame__38_1, 517, 517, 6, 40},
-  {cont__38_10, &frame__38_1, 517, 517, 6, 40},
-  {cont__38_11, &frame__38_1, 517, 517, 3, 54},
-  {cont__38_13, &frame__38_1, 518, 518, 3, 63},
-  {cont__38_19, &frame__38_1, 519, 519, 3, 9},
+  {entry__38_1_types__generic_list_equal, NULL, 516, 516, 10, 25},
+  {cont__38_2, &frame__38_1_types__generic_list_equal, 516, 516, 10, 44},
+  {cont__38_5, &frame__38_1_types__generic_list_equal, 516, 516, 3, 58},
+  {cont__38_7, &frame__38_1_types__generic_list_equal, 517, 517, 6, 20},
+  {cont__38_8, &frame__38_1_types__generic_list_equal, 517, 517, 25, 40},
+  {cont__38_9, &frame__38_1_types__generic_list_equal, 517, 517, 6, 40},
+  {cont__38_10, &frame__38_1_types__generic_list_equal, 517, 517, 6, 40},
+  {cont__38_11, &frame__38_1_types__generic_list_equal, 517, 517, 3, 54},
+  {cont__38_13, &frame__38_1_types__generic_list_equal, 518, 518, 3, 63},
+  {cont__38_19, &frame__38_1_types__generic_list_equal, 519, 519, 3, 9},
   {entry__39_5, NULL, 523, 523, 40, 58},
   {cont__39_6, &frame__39_5, 523, 523, 58, 58},
   {entry__39_3, NULL, 523, 523, 28, 37},
   {cont__39_4, &frame__39_3, 523, 523, 25, 58},
-  {entry__39_1, NULL, 522, 522, 3, 39},
-  {cont__39_2, &frame__39_1, 523, 523, 3, 58},
-  {cont__39_7, &frame__39_1, 524, 524, 3, 13},
+  {entry__39_1_types__generic_list_filter, NULL, 522, 522, 3, 39},
+  {cont__39_2, &frame__39_1_types__generic_list_filter, 523, 523, 3, 58},
+  {cont__39_7, &frame__39_1_types__generic_list_filter, 524, 524, 3, 13},
   {entry__40_3, NULL, 528, 528, 40, 49},
   {cont__40_4, &frame__40_3, 528, 528, 25, 49},
   {cont__40_5, &frame__40_3, 528, 528, 49, 49},
-  {entry__40_1, NULL, 527, 527, 3, 39},
-  {cont__40_2, &frame__40_1, 528, 528, 3, 49},
-  {cont__40_6, &frame__40_1, 529, 529, 3, 13},
+  {entry__40_1_types__generic_list_map, NULL, 527, 527, 3, 39},
+  {cont__40_2, &frame__40_1_types__generic_list_map, 528, 528, 3, 49},
+  {cont__40_6, &frame__40_1_types__generic_list_map, 529, 529, 3, 13},
   {entry__41_2, NULL, 537, 537, 31, 37},
   {entry__41_5, NULL, 538, 538, 15, 48},
   {entry__41_12, NULL, 541, 541, 18, 36},
@@ -1354,7 +1354,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__41_11, &frame__41_3, 541, 541, 5, 36},
   {cont__41_14, &frame__41_3, 542, 542, 5, 13},
   {entry__41_15, NULL, 537, 537, 13, 25},
-  {entry__41_1, NULL, 537, 542, 3, 13},
+  {entry__41_1_types__generic_list_dup, NULL, 537, 542, 3, 13},
   {entry__42_6, NULL, 554, 554, 66, 80},
   {cont__42_7, &frame__42_6, 554, 554, 53, 80},
   {cont__42_8, &frame__42_6, 554, 554, 80, 80},
@@ -1366,17 +1366,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__42_11, &frame__42_10, 556, 556, 8, 35},
   {cont__42_12, &frame__42_10, 556, 556, 8, 35},
   {cont__42_13, &frame__42_10, 556, 556, 5, 65},
-  {entry__42_1, NULL, 552, 552, 16, 23},
-  {cont__42_2, &frame__42_1, 552, 552, 3, 24},
-  {cont__42_3, &frame__42_1, 554, 554, 13, 15},
-  {cont__42_4, &frame__42_1, 554, 554, 3, 80},
-  {cont__42_9, &frame__42_1, 555, 556, 3, 65},
-  {cont__42_17, &frame__42_1, 557, 557, 3, 11},
+  {entry__42_1_types__generic_list_interleave, NULL, 552, 552, 16, 23},
+  {cont__42_2, &frame__42_1_types__generic_list_interleave, 552, 552, 3, 24},
+  {cont__42_3, &frame__42_1_types__generic_list_interleave, 554, 554, 13, 15},
+  {cont__42_4, &frame__42_1_types__generic_list_interleave, 554, 554, 3, 80},
+  {cont__42_9, &frame__42_1_types__generic_list_interleave, 555, 556, 3, 65},
+  {cont__42_17, &frame__42_1_types__generic_list_interleave, 557, 557, 3, 11},
   {entry__43_4, NULL, 565, 565, 58, 68},
   {entry__43_2, NULL, 565, 565, 36, 55},
   {cont__43_3, &frame__43_2, 565, 565, 33, 68},
-  {entry__43_1, NULL, 565, 565, 3, 68},
-  {cont__43_5, &frame__43_1, 566, 566, 3, 10},
+  {entry__43_1_types__generic_list_contains, NULL, 565, 565, 3, 68},
+  {cont__43_5, &frame__43_1_types__generic_list_contains, 566, 566, 3, 10},
   {entry__46_6, NULL, 583, 583, 33, 55},
   {cont__46_7, &frame__46_6, 583, 583, 33, 55},
   {entry__46_9, NULL, 583, 583, 58, 68},
@@ -1385,8 +1385,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__46_8, &frame__46_4, 583, 583, 11, 68},
   {entry__46_3, NULL, 582, 583, 9, 68},
   {cont__46_10, &frame__46_3, 584, 584, 9, 16},
-  {entry__46_1, NULL, 574, 574, 5, 16},
-  {cont__46_2, &frame__46_1, 573, 584, 3, 18},
+  {entry__46_1_std__sequence, NULL, 574, 574, 5, 16},
+  {cont__46_2, &frame__46_1_std__sequence, 573, 584, 3, 18},
   {entry__94_4, NULL, 592, 592, 51, 51},
   {cont__94_5, &frame__94_4, 592, 592, 37, 52},
   {cont__94_6, &frame__94_4, 592, 592, 30, 63},
@@ -2238,7 +2238,7 @@ static long func__types__list___length_of(NODE *node) {
 static NODE *func__types__list___get_item_of(NODE *node, long idx) {
   return node->list.data->items[idx];
 }
-static void entry__14_1(void) {
+static void entry__14_1_types__list_to_list(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -2498,7 +2498,7 @@ static void entry__22_1(void) {
     return;
   }
 }
-static void entry__23_1(void) {
+static void entry__23_1_types__generic_list_delete_at(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -2692,7 +2692,7 @@ static void cont__23_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1(void) {
+static void entry__24_1_std__normalized_index(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -2849,7 +2849,7 @@ static void cont__24_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1(void) {
+static void entry__25_1_types__generic_list_is_empty(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -3242,7 +3242,7 @@ static void cont__26_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__26_1(void) {
+static void entry__26_1_types__generic_list_for_each_from_to(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -3672,7 +3672,7 @@ static void cont__27_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1(void) {
+static void entry__27_1_types__generic_list_for_each_from_down_to(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -4295,7 +4295,7 @@ static void entry__28_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__28_1(void) {
+static void entry__28_1_types__generic_list_for_each(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -4401,7 +4401,7 @@ static void cont__28_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__29_1(void) {
+static void entry__29_1_types__generic_list_update_each(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // self: 0
@@ -4910,7 +4910,7 @@ static void cont__30_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__30_1(void) {
+static void entry__30_1_types__list_for_each_pair(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -5129,7 +5129,7 @@ static void cont__30_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__31_1(void) {
+static void entry__31_1_types__generic_list_get(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -5255,7 +5255,7 @@ static void cont__31_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__32_1(void) {
+static void entry__32_1_types__list_put(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -5303,7 +5303,7 @@ static void cont__32_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__33_1(void) {
+static void entry__33_1_types__list_merge(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // left: 0
@@ -6028,7 +6028,7 @@ static void cont__33_36(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__34_1(void) {
+static void entry__34_1_types__list_serialize(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -6230,7 +6230,7 @@ static void cont__34_13(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__35_1(void) {
+static void entry__35_1_types__list_sort(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // self: 0
@@ -7084,7 +7084,7 @@ static long func__types__list___debug_string(NODE *node, int indent, int max_dep
     }
   }
 }
-static void entry__37_1(void) {
+static void entry__37_1_types__list_new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -7100,7 +7100,7 @@ static void entry__37_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_1(void) {
+static void entry__38_1_types__generic_list_equal(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // left: 0
@@ -7421,7 +7421,7 @@ static void cont__38_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__39_1(void) {
+static void entry__39_1_types__generic_list_filter(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -7544,7 +7544,7 @@ static void cont__39_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__40_1(void) {
+static void entry__40_1_types__generic_list_map(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -7857,7 +7857,7 @@ static void entry__41_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_1(void) {
+static void entry__41_1_types__generic_list_dup(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -7894,7 +7894,7 @@ static void entry__41_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__42_1(void) {
+static void entry__42_1_types__generic_list_interleave(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
@@ -8190,7 +8190,7 @@ static void cont__42_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__43_1(void) {
+static void entry__43_1_types__generic_list_contains(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
@@ -8433,7 +8433,7 @@ static void cont__46_10(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__46_1(void) {
+static void entry__46_1_std__sequence(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -8525,7 +8525,7 @@ EXPORT void phase_2__basic__types__list(void) {
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__14_1 = create_function(entry__14_1, 1);
+  func__14_1_types__list_to_list = create_function(entry__14_1_types__list_to_list, 1);
   func__15_1 = create_function(entry__15_1, -1);
   func__16_1 = create_function(entry__16_1, 1);
   func__17_1 = create_function(entry__17_1, 2);
@@ -8534,35 +8534,35 @@ EXPORT void phase_2__basic__types__list(void) {
   func__20_1 = create_function(entry__20_1, 1);
   func__21_1 = create_function(entry__21_1, 2);
   func__22_1 = create_function(entry__22_1, 3);
-  func__23_1 = create_function(entry__23_1, -1);
-  func__24_1 = create_function(entry__24_1, 2);
-  func__25_1 = create_function(entry__25_1, 1);
-  func__26_1 = create_function(entry__26_1, -1);
-  func__27_1 = create_function(entry__27_1, -1);
-  func__28_1 = create_function(entry__28_1, -1);
-  func__29_1 = create_function(entry__29_1, 2);
-  func__30_1 = create_function(entry__30_1, 2);
+  func__23_1_types__generic_list_delete_at = create_function(entry__23_1_types__generic_list_delete_at, -1);
+  func__24_1_std__normalized_index = create_function(entry__24_1_std__normalized_index, 2);
+  func__25_1_types__generic_list_is_empty = create_function(entry__25_1_types__generic_list_is_empty, 1);
+  func__26_1_types__generic_list_for_each_from_to = create_function(entry__26_1_types__generic_list_for_each_from_to, -1);
+  func__27_1_types__generic_list_for_each_from_down_to = create_function(entry__27_1_types__generic_list_for_each_from_down_to, -1);
+  func__28_1_types__generic_list_for_each = create_function(entry__28_1_types__generic_list_for_each, -1);
+  func__29_1_types__generic_list_update_each = create_function(entry__29_1_types__generic_list_update_each, 2);
+  func__30_1_types__list_for_each_pair = create_function(entry__30_1_types__list_for_each_pair, 2);
   string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
   func__31_4 = create_function(entry__31_4, 0);
-  func__31_1 = create_function(entry__31_1, 1);
-  func__32_1 = create_function(entry__32_1, 2);
-  func__33_1 = create_function(entry__33_1, -1);
+  func__31_1_types__generic_list_get = create_function(entry__31_1_types__generic_list_get, 1);
+  func__32_1_types__list_put = create_function(entry__32_1_types__list_put, 2);
+  func__33_1_types__list_merge = create_function(entry__33_1_types__list_merge, -1);
   string__34_4 = from_latin_1_string("list()", 6);
   string__34_6 = from_latin_1_string("list", 4);
-  func__34_1 = create_function(entry__34_1, -1);
-  func__35_1 = create_function(entry__35_1, -1);
-  func__37_1 = create_function(entry__37_1, 1);
-  func__38_1 = create_function(entry__38_1, 2);
-  func__39_1 = create_function(entry__39_1, 2);
-  func__40_1 = create_function(entry__40_1, 2);
+  func__34_1_types__list_serialize = create_function(entry__34_1_types__list_serialize, -1);
+  func__35_1_types__list_sort = create_function(entry__35_1_types__list_sort, -1);
+  func__37_1_types__list_new_empty_collection = create_function(entry__37_1_types__list_new_empty_collection, 1);
+  func__38_1_types__generic_list_equal = create_function(entry__38_1_types__generic_list_equal, 2);
+  func__39_1_types__generic_list_filter = create_function(entry__39_1_types__generic_list_filter, 2);
+  func__40_1_types__generic_list_map = create_function(entry__40_1_types__generic_list_map, 2);
   string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
   func__41_5 = create_function(entry__41_5, 0);
   func__41_15 = create_function(entry__41_15, 0);
-  func__41_1 = create_function(entry__41_1, 2);
-  func__42_1 = create_function(entry__42_1, -1);
-  func__43_1 = create_function(entry__43_1, 2);
+  func__41_1_types__generic_list_dup = create_function(entry__41_1_types__generic_list_dup, 2);
+  func__42_1_types__generic_list_interleave = create_function(entry__42_1_types__generic_list_interleave, -1);
+  func__43_1_types__generic_list_contains = create_function(entry__43_1_types__generic_list_contains, 2);
   func__46_3 = create_function(entry__46_3, 2);
-  func__46_1 = create_function(entry__46_1, -1);
+  func__46_1_std__sequence = create_function(entry__46_1_std__sequence, -1);
   string__94_2 = from_latin_1_string("()", 2);
   string__94_12 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
   func__94_11 = create_function(entry__94_11, 0);
@@ -8660,7 +8660,7 @@ EXPORT void phase_4__basic__types__list(void) {
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
   define_attribute("types", "object", poly_idx__is_a_list, get__false());
   define_attribute("types", "list", poly_idx__is_a_list, get__true());
-  define_method("types", "list", poly_idx__to_list, func__14_1);
+  define_method("types", "list", poly_idx__to_list, func__14_1_types__list_to_list);
   define_method("types", "list", poly_idx__length_of, func__16_1);
   define_method("types", "list", poly_idx__push, func__17_1);
   define_method("types", "list", poly_idx__drop, func__18_1);
@@ -8668,25 +8668,25 @@ EXPORT void phase_4__basic__types__list(void) {
   define_method("types", "list", poly_idx__peek, func__20_1);
   define_method("types", "list", poly_idx__append, func__21_1);
   define_method("types", "list", poly_idx__range, func__22_1);
-  define_method("types", "generic_list", poly_idx__delete_at, func__23_1);
-  define_method("types", "generic_list", poly_idx__is_empty, func__25_1);
-  define_method("types", "generic_list", poly_idx__for_each_from_to, func__26_1);
-  define_method("types", "generic_list", poly_idx__for_each_from_down_to, func__27_1);
-  define_method("types", "generic_list", poly_idx__for_each, func__28_1);
-  define_method("types", "generic_list", poly_idx__update_each, func__29_1);
-  define_method("types", "list", poly_idx__for_each_pair, func__30_1);
-  define_method("types", "generic_list", poly_idx__get, func__31_1);
-  define_method("types", "list", poly_idx__put, func__32_1);
-  define_method("types", "list", poly_idx__merge, func__33_1);
-  define_method("types", "list", poly_idx__serialize, func__34_1);
-  define_method("types", "list", poly_idx__sort, func__35_1);
-  define_method("types", "list", poly_idx__new_empty_collection, func__37_1);
-  define_method("types", "generic_list", poly_idx__equal, func__38_1);
-  define_method("types", "generic_list", poly_idx__filter, func__39_1);
-  define_method("types", "generic_list", poly_idx__map, func__40_1);
-  define_method("types", "generic_list", poly_idx__dup, func__41_1);
-  define_method("types", "generic_list", poly_idx__interleave, func__42_1);
-  define_method("types", "generic_list", poly_idx__contains, func__43_1);
+  define_method("types", "generic_list", poly_idx__delete_at, func__23_1_types__generic_list_delete_at);
+  define_method("types", "generic_list", poly_idx__is_empty, func__25_1_types__generic_list_is_empty);
+  define_method("types", "generic_list", poly_idx__for_each_from_to, func__26_1_types__generic_list_for_each_from_to);
+  define_method("types", "generic_list", poly_idx__for_each_from_down_to, func__27_1_types__generic_list_for_each_from_down_to);
+  define_method("types", "generic_list", poly_idx__for_each, func__28_1_types__generic_list_for_each);
+  define_method("types", "generic_list", poly_idx__update_each, func__29_1_types__generic_list_update_each);
+  define_method("types", "list", poly_idx__for_each_pair, func__30_1_types__list_for_each_pair);
+  define_method("types", "generic_list", poly_idx__get, func__31_1_types__generic_list_get);
+  define_method("types", "list", poly_idx__put, func__32_1_types__list_put);
+  define_method("types", "list", poly_idx__merge, func__33_1_types__list_merge);
+  define_method("types", "list", poly_idx__serialize, func__34_1_types__list_serialize);
+  define_method("types", "list", poly_idx__sort, func__35_1_types__list_sort);
+  define_method("types", "list", poly_idx__new_empty_collection, func__37_1_types__list_new_empty_collection);
+  define_method("types", "generic_list", poly_idx__equal, func__38_1_types__generic_list_equal);
+  define_method("types", "generic_list", poly_idx__filter, func__39_1_types__generic_list_filter);
+  define_method("types", "generic_list", poly_idx__map, func__40_1_types__generic_list_map);
+  define_method("types", "generic_list", poly_idx__dup, func__41_1_types__generic_list_dup);
+  define_method("types", "generic_list", poly_idx__interleave, func__42_1_types__generic_list_interleave);
+  define_method("types", "generic_list", poly_idx__contains, func__43_1_types__generic_list_contains);
   define_attribute("types", "object", poly_idx__is_a_sequence, get__false());
 }
 
@@ -8699,9 +8699,9 @@ EXPORT void phase_5__basic__types__list(void) {
   assign_value(&var.types__generic_list, get__types__object());
   assign_variable(&var.types__list, &var.types__generic_list);
   assign_variable(&var.std__list, &func__15_1);
-  assign_variable(&var.std__normalized_index, &func__24_1);
+  assign_variable(&var.std__normalized_index, &func__24_1_std__normalized_index);
   assign_value(&var.std__is_a_sequence, create_function(type__std__is_a_sequence, -1));
-  assign_variable(&var.std__sequence, &func__46_1);
+  assign_variable(&var.std__sequence, &func__46_1_std__sequence);
 }
 
 static int already_run_phase_6 = false;

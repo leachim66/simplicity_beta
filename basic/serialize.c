@@ -279,9 +279,9 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *func__1_1;
-static void entry__1_1(void);
-static FRAME_INFO frame__1_1 = {5, {"tag", "prototype", "obj", "attributes", "buf"}};
+static NODE *func__1_1_std__serialize_object;
+static void entry__1_1_std__serialize_object(void);
+static FRAME_INFO frame__1_1_std__serialize_object = {5, {"tag", "prototype", "obj", "attributes", "buf"}};
 static NODE *func__1_2;
 static void entry__1_2(void);
 static FRAME_INFO frame__1_2 = {6, {"attribute_name", "attribute_getter", "obj", "prototype", "buf", "attribute"}};
@@ -337,10 +337,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__1_6, &frame__1_2, 27, 34, 5, 34},
   {entry__1_20, NULL, 35, 35, 18, 33},
   {cont__1_22, &frame__1_20, 35, 35, 33, 33},
-  {entry__1_1, NULL, 25, 34, 3, 35},
-  {cont__1_18, &frame__1_1, 35, 35, 6, 15},
-  {cont__1_19, &frame__1_1, 35, 35, 3, 33},
-  {cont__1_23, &frame__1_1, 36, 36, 3, 8}
+  {entry__1_1_std__serialize_object, NULL, 25, 34, 3, 35},
+  {cont__1_18, &frame__1_1_std__serialize_object, 35, 35, 6, 15},
+  {cont__1_19, &frame__1_1_std__serialize_object, 35, 35, 3, 33},
+  {cont__1_23, &frame__1_1_std__serialize_object, 36, 36, 3, 8}
 };
 
 union NODE {
@@ -390,7 +390,7 @@ EXPORT void run__basic__serialize(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__serialize_object(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
@@ -813,7 +813,7 @@ EXPORT void phase_2__basic__serialize(void) {
   string__1_9 = from_latin_1_string("\012  ", 3);
   string__1_10 = from_latin_1_string(":", 1);
   string__1_21 = from_latin_1_string("()", 2);
-  func__1_1 = create_function(entry__1_1, -1);
+  func__1_1_std__serialize_object = create_function(entry__1_1_std__serialize_object, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -849,7 +849,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__serialize(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__serialize_object, &func__1_1);
+  assign_variable(&var.std__serialize_object, &func__1_1_std__serialize_object);
 }
 
 static int already_run_phase_6 = false;

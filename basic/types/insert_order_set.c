@@ -359,9 +359,9 @@ static void type__keys_of(void);
 static NODE *get__types__insert_order_set(void) {
   return var.types__insert_order_set;
 }
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {4, {"key", "value", "myself", "idx"}};
+static NODE *func__10_1_types__insert_order_set_;
+static void entry__10_1_types__insert_order_set_(void);
+static FRAME_INFO frame__10_1_types__insert_order_set_ = {4, {"key", "value", "myself", "idx"}};
 static void cont__10_2(void);
 static void cont__10_3(void);
 static NODE *func__10_4;
@@ -399,14 +399,14 @@ static void entry__10_24(void);
 static FRAME_INFO frame__10_24 = {0, {}};
 static NODE *string__10_25;
 static NODE *string__11_1;
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {1, {"self"}};
+static NODE *func__12_1_types__insert_order_set_is_empty;
+static void entry__12_1_types__insert_order_set_is_empty(void);
+static FRAME_INFO frame__12_1_types__insert_order_set_is_empty = {1, {"self"}};
 static void cont__12_2(void);
 static void cont__12_3(void);
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {1, {"self"}};
+static NODE *func__13_1_types__insert_order_set_first_index_of;
+static void entry__13_1_types__insert_order_set_first_index_of(void);
+static FRAME_INFO frame__13_1_types__insert_order_set_first_index_of = {1, {"self"}};
 static void cont__13_2(void);
 static NODE *func__13_3;
 static void entry__13_3(void);
@@ -416,9 +416,9 @@ static void cont__13_5(void);
 static NODE *func__13_6;
 static void entry__13_6(void);
 static FRAME_INFO frame__13_6 = {0, {}};
-static NODE *func__14_1;
-static void entry__14_1(void);
-static FRAME_INFO frame__14_1 = {1, {"self"}};
+static NODE *func__14_1_types__insert_order_set_last_index_of;
+static void entry__14_1_types__insert_order_set_last_index_of(void);
+static FRAME_INFO frame__14_1_types__insert_order_set_last_index_of = {1, {"self"}};
 static void cont__14_2(void);
 static NODE *func__14_3;
 static void entry__14_3(void);
@@ -429,9 +429,9 @@ static void cont__14_6(void);
 static NODE *func__14_7;
 static void entry__14_7(void);
 static FRAME_INFO frame__14_7 = {0, {}};
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {2, {"self", "body"}};
+static NODE *func__15_1_types__insert_order_set_for_each;
+static void entry__15_1_types__insert_order_set_for_each(void);
+static FRAME_INFO frame__15_1_types__insert_order_set_for_each = {2, {"self", "body"}};
 static void cont__15_2(void);
 static NODE *func__15_3;
 static void entry__15_3(void);
@@ -447,9 +447,9 @@ static FRAME_INFO frame__15_7 = {2, {"body", "value"}};
 static NODE *get__std__empty_insert_order_set(void) {
   return var.std__empty_insert_order_set;
 }
-static NODE *func__17_1;
-static void entry__17_1(void);
-static FRAME_INFO frame__17_1 = {2, {"args", "tab"}};
+static NODE *func__17_1_std__insert_order_set;
+static void entry__17_1_std__insert_order_set(void);
+static FRAME_INFO frame__17_1_std__insert_order_set = {2, {"args", "tab"}};
 static NODE *func__17_2;
 static void entry__17_2(void);
 static FRAME_INFO frame__17_2 = {2, {"key", "tab"}};
@@ -486,36 +486,36 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_17, &frame__10_16, 54, 56, 7, 45},
   {cont__10_23, &frame__10_16, 57, 57, 7, 15},
   {entry__10_24, NULL, 59, 59, 7, 65},
-  {entry__10_1, NULL, 43, 43, 8, 29},
-  {cont__10_2, &frame__10_1, 43, 43, 3, 34},
-  {cont__10_3, &frame__10_1, 44, 59, 3, 66},
-  {entry__12_1, NULL, 63, 63, 46, 58},
-  {cont__12_2, &frame__12_1, 63, 63, 46, 67},
-  {cont__12_3, &frame__12_1, 63, 63, 43, 67},
+  {entry__10_1_types__insert_order_set_, NULL, 43, 43, 8, 29},
+  {cont__10_2, &frame__10_1_types__insert_order_set_, 43, 43, 3, 34},
+  {cont__10_3, &frame__10_1_types__insert_order_set_, 44, 59, 3, 66},
+  {entry__12_1_types__insert_order_set_is_empty, NULL, 63, 63, 46, 58},
+  {cont__12_2, &frame__12_1_types__insert_order_set_is_empty, 63, 63, 46, 67},
+  {cont__12_3, &frame__12_1_types__insert_order_set_is_empty, 63, 63, 43, 67},
   {entry__13_3, NULL, 66, 66, 38, 50},
   {cont__13_4, &frame__13_3, 66, 66, 38, 53},
   {cont__13_5, &frame__13_3, 66, 66, 35, 53},
   {entry__13_6, NULL, 66, 66, 21, 32},
-  {entry__13_1, NULL, 66, 66, 6, 18},
-  {cont__13_2, &frame__13_1, 66, 66, 3, 53},
+  {entry__13_1_types__insert_order_set_first_index_of, NULL, 66, 66, 6, 18},
+  {cont__13_2, &frame__13_1_types__insert_order_set_first_index_of, 66, 66, 3, 53},
   {entry__14_3, NULL, 69, 69, 53, 53},
   {cont__14_4, &frame__14_3, 69, 69, 38, 50},
   {cont__14_5, &frame__14_3, 69, 69, 38, 54},
   {cont__14_6, &frame__14_3, 69, 69, 35, 54},
   {entry__14_7, NULL, 69, 69, 21, 32},
-  {entry__14_1, NULL, 69, 69, 6, 18},
-  {cont__14_2, &frame__14_1, 69, 69, 3, 54},
+  {entry__14_1_types__insert_order_set_last_index_of, NULL, 69, 69, 6, 18},
+  {cont__14_2, &frame__14_1_types__insert_order_set_last_index_of, 69, 69, 3, 54},
   {entry__15_6, NULL, 75, 75, 9, 22},
   {entry__15_7, NULL, 77, 77, 9, 18},
   {entry__15_3, NULL, 74, 74, 7, 30},
   {cont__15_4, &frame__15_3, 74, 74, 7, 35},
   {cont__15_5, &frame__15_3, 73, 77, 5, 19},
-  {entry__15_1, NULL, 72, 72, 12, 24},
-  {cont__15_2, &frame__15_1, 72, 77, 3, 20},
+  {entry__15_1_types__insert_order_set_for_each, NULL, 72, 72, 12, 24},
+  {cont__15_2, &frame__15_1_types__insert_order_set_for_each, 72, 77, 3, 20},
   {entry__17_2, NULL, 83, 83, 24, 32},
   {cont__17_3, &frame__17_2, 83, 83, 37, 37},
-  {entry__17_1, NULL, 83, 83, 3, 37},
-  {cont__17_4, &frame__17_1, 84, 84, 3, 8}
+  {entry__17_1_std__insert_order_set, NULL, 83, 83, 3, 37},
+  {cont__17_4, &frame__17_1_std__insert_order_set, 84, 84, 3, 8}
 };
 
 union NODE {
@@ -1018,7 +1018,7 @@ static void entry__10_24(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__10_1(void) {
+static void entry__10_1_types__insert_order_set_(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // key: 0
@@ -1112,7 +1112,7 @@ static void cont__10_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__12_1(void) {
+static void entry__12_1_types__insert_order_set_is_empty(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1220,7 +1220,7 @@ static void entry__13_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1(void) {
+static void entry__13_1_types__insert_order_set_first_index_of(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1333,7 +1333,7 @@ static void entry__14_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1(void) {
+static void entry__14_1_types__insert_order_set_last_index_of(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1475,7 +1475,7 @@ static void cont__15_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_1(void) {
+static void entry__15_1_types__insert_order_set_for_each(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -1521,7 +1521,7 @@ static void cont__15_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__17_1(void) {
+static void entry__17_1_std__insert_order_set(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -1622,13 +1622,13 @@ EXPORT void phase_2__basic__types__insert_order_set(void) {
   string__10_25 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__10_24 = create_function(entry__10_24, 0);
   string__11_1 = from_latin_1_string("insert_order_set", 16);
-  func__12_1 = create_function(entry__12_1, 1);
+  func__12_1_types__insert_order_set_is_empty = create_function(entry__12_1_types__insert_order_set_is_empty, 1);
   func__13_6 = create_function(entry__13_6, 0);
-  func__13_1 = create_function(entry__13_1, 1);
+  func__13_1_types__insert_order_set_first_index_of = create_function(entry__13_1_types__insert_order_set_first_index_of, 1);
   func__14_7 = create_function(entry__14_7, 0);
-  func__14_1 = create_function(entry__14_1, 1);
-  func__15_1 = create_function(entry__15_1, 2);
-  func__17_1 = create_function(entry__17_1, -1);
+  func__14_1_types__insert_order_set_last_index_of = create_function(entry__14_1_types__insert_order_set_last_index_of, 1);
+  func__15_1_types__insert_order_set_for_each = create_function(entry__15_1_types__insert_order_set_for_each, 2);
+  func__17_1_std__insert_order_set = create_function(entry__17_1_std__insert_order_set, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1679,12 +1679,12 @@ EXPORT void phase_4__basic__types__insert_order_set(void) {
   define_attribute("types", "insert_order_set", poly_idx__is_an_insert_order_set, get__true());
   define_attribute("types", "insert_order_set", poly_idx__index_table_of, get__empty_table());
   define_attribute("types", "insert_order_set", poly_idx__keys_of, get__empty_list());
-  define_type_function("types", "insert_order_set", entry__10_1, -1);
+  define_type_function("types", "insert_order_set", entry__10_1_types__insert_order_set_, -1);
   define_attribute("types", "insert_order_set", poly_idx__serialization_tag_of, string__11_1);
-  define_method("types", "insert_order_set", poly_idx__is_empty, func__12_1);
-  define_method("types", "insert_order_set", poly_idx__first_index_of, func__13_1);
-  define_method("types", "insert_order_set", poly_idx__last_index_of, func__14_1);
-  define_method("types", "insert_order_set", poly_idx__for_each, func__15_1);
+  define_method("types", "insert_order_set", poly_idx__is_empty, func__12_1_types__insert_order_set_is_empty);
+  define_method("types", "insert_order_set", poly_idx__first_index_of, func__13_1_types__insert_order_set_first_index_of);
+  define_method("types", "insert_order_set", poly_idx__last_index_of, func__14_1_types__insert_order_set_last_index_of);
+  define_method("types", "insert_order_set", poly_idx__for_each, func__15_1_types__insert_order_set_for_each);
 }
 
 static int already_run_phase_5 = false;
@@ -1697,7 +1697,7 @@ EXPORT void phase_5__basic__types__insert_order_set(void) {
   assign_value(&var._keys_of, create_function(type__keys_of, -1));
   assign_value(&var.types__insert_order_set, get__types__generic_set());
   assign_variable(&var.std__empty_insert_order_set, &var.types__insert_order_set);
-  assign_variable(&var.std__insert_order_set, &func__17_1);
+  assign_variable(&var.std__insert_order_set, &func__17_1_std__insert_order_set);
 }
 
 static int already_run_phase_6 = false;

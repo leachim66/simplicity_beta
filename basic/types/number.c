@@ -741,25 +741,25 @@ static void entry__129_1(void);
 static NODE *func__129_1;
 
 static long func__types__real___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__131_1;
-static void entry__131_1(void);
-static FRAME_INFO frame__131_1 = {1, {"n"}};
+static NODE *func__131_1_std__is_odd;
+static void entry__131_1_std__is_odd(void);
+static FRAME_INFO frame__131_1_std__is_odd = {1, {"n"}};
 static void cont__131_2(void);
 static void cont__131_3(void);
 static NODE *get__std__is_odd(void) {
   return var.std__is_odd;
 }
-static NODE *func__132_1;
-static void entry__132_1(void);
-static FRAME_INFO frame__132_1 = {1, {"n"}};
+static NODE *func__132_1_std__is_even;
+static void entry__132_1_std__is_even(void);
+static FRAME_INFO frame__132_1_std__is_even = {1, {"n"}};
 static void cont__132_2(void);
 static void cont__132_3(void);
 static NODE *get__std__is_even(void) {
   return var.std__is_even;
 }
-static NODE *func__133_1;
-static void entry__133_1(void);
-static FRAME_INFO frame__133_1 = {4, {"val", "size", "return", "str"}};
+static NODE *func__133_1_std__bin;
+static void entry__133_1_std__bin(void);
+static FRAME_INFO frame__133_1_std__bin = {4, {"val", "size", "return", "str"}};
 static void cont__133_2(void);
 static NODE *func__133_3;
 static void entry__133_3(void);
@@ -795,9 +795,9 @@ static void cont__133_21(void);
 static NODE *get__std__bin(void) {
   return var.std__bin;
 }
-static NODE *func__134_1;
-static void entry__134_1(void);
-static FRAME_INFO frame__134_1 = {4, {"val", "size", "return", "str"}};
+static NODE *func__134_1_std__oct;
+static void entry__134_1_std__oct(void);
+static FRAME_INFO frame__134_1_std__oct = {4, {"val", "size", "return", "str"}};
 static void cont__134_2(void);
 static NODE *func__134_3;
 static void entry__134_3(void);
@@ -832,9 +832,9 @@ static void cont__134_20(void);
 static NODE *get__std__oct(void) {
   return var.std__oct;
 }
-static NODE *func__135_1;
-static void entry__135_1(void);
-static FRAME_INFO frame__135_1 = {4, {"val", "size", "return", "str"}};
+static NODE *func__135_1_std__hex;
+static void entry__135_1_std__hex(void);
+static FRAME_INFO frame__135_1_std__hex = {4, {"val", "size", "return", "str"}};
 static void cont__135_2(void);
 static NODE *func__135_3;
 static void entry__135_3(void);
@@ -880,20 +880,20 @@ static void cont__135_27(void);
 static NODE *get__std__hex(void) {
   return var.std__hex;
 }
-static NODE *func__136_1;
-static void entry__136_1(void);
-static FRAME_INFO frame__136_1 = {1, {"value"}};
+static NODE *func__136_1_types__integer_to_integer;
+static void entry__136_1_types__integer_to_integer(void);
+static FRAME_INFO frame__136_1_types__integer_to_integer = {1, {"value"}};
 static void entry__137_1(void);
 static NODE *func__137_1;
-static NODE *func__138_1;
-static void entry__138_1(void);
-static FRAME_INFO frame__138_1 = {1, {"self"}};
-static NODE *func__139_1;
-static void entry__139_1(void);
-static FRAME_INFO frame__139_1 = {1, {"self"}};
-static NODE *func__140_1;
-static void entry__140_1(void);
-static FRAME_INFO frame__140_1 = {1, {"self"}};
+static NODE *func__138_1_types__number_floor;
+static void entry__138_1_types__number_floor(void);
+static FRAME_INFO frame__138_1_types__number_floor = {1, {"self"}};
+static NODE *func__139_1_types__number_ceil;
+static void entry__139_1_types__number_ceil(void);
+static FRAME_INFO frame__139_1_types__number_ceil = {1, {"self"}};
+static NODE *func__140_1_types__number_round;
+static void entry__140_1_types__number_round(void);
+static FRAME_INFO frame__140_1_types__number_round = {1, {"self"}};
 static void entry__141_1(void);
 static NODE *func__141_1;
 static void entry__142_1(void);
@@ -977,12 +977,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__125_1, NULL, 1925, 1928, 3, 2},
   {entry__127_1, NULL, 1939, 1942, 3, 2},
   {entry__129_1, NULL, 1953, 1958, 3, 2},
-  {entry__131_1, NULL, 1968, 1968, 22, 26},
-  {cont__131_2, &frame__131_1, 1968, 1968, 22, 31},
-  {cont__131_3, &frame__131_1, 1968, 1968, 19, 31},
-  {entry__132_1, NULL, 1970, 1970, 23, 27},
-  {cont__132_2, &frame__132_1, 1970, 1970, 23, 32},
-  {cont__132_3, &frame__132_1, 1970, 1970, 20, 32},
+  {entry__131_1_std__is_odd, NULL, 1968, 1968, 22, 26},
+  {cont__131_2, &frame__131_1_std__is_odd, 1968, 1968, 22, 31},
+  {cont__131_3, &frame__131_1_std__is_odd, 1968, 1968, 19, 31},
+  {entry__132_1_std__is_even, NULL, 1970, 1970, 23, 27},
+  {cont__132_2, &frame__132_1_std__is_even, 1970, 1970, 23, 32},
+  {cont__132_3, &frame__132_1_std__is_even, 1970, 1970, 20, 32},
   {entry__133_5, NULL, 1981, 1981, 16, 28},
   {cont__133_7, &frame__133_5, 1981, 1981, 9, 28},
   {entry__133_8, NULL, 1983, 1983, 9, 18},
@@ -997,12 +997,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__133_11, &frame__133_10, 1985, 1987, 9, 17},
   {entry__133_19, NULL, 1988, 1988, 30, 51},
   {cont__133_20, &frame__133_19, 1988, 1988, 23, 51},
-  {entry__133_1, NULL, 1978, 1978, 6, 13},
-  {cont__133_2, &frame__133_1, 1978, 1983, 3, 20},
-  {cont__133_9, &frame__133_1, 1985, 1987, 3, 17},
-  {cont__133_17, &frame__133_1, 1988, 1988, 6, 20},
-  {cont__133_18, &frame__133_1, 1988, 1988, 3, 51},
-  {cont__133_21, &frame__133_1, 1989, 1989, 3, 8},
+  {entry__133_1_std__bin, NULL, 1978, 1978, 6, 13},
+  {cont__133_2, &frame__133_1_std__bin, 1978, 1983, 3, 20},
+  {cont__133_9, &frame__133_1_std__bin, 1985, 1987, 3, 17},
+  {cont__133_17, &frame__133_1_std__bin, 1988, 1988, 6, 20},
+  {cont__133_18, &frame__133_1_std__bin, 1988, 1988, 3, 51},
+  {cont__133_21, &frame__133_1_std__bin, 1989, 1989, 3, 8},
   {entry__134_5, NULL, 2000, 2000, 16, 28},
   {cont__134_6, &frame__134_5, 2000, 2000, 9, 28},
   {entry__134_7, NULL, 2002, 2002, 9, 18},
@@ -1017,12 +1017,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__134_10, &frame__134_9, 2004, 2006, 9, 17},
   {entry__134_18, NULL, 2007, 2007, 30, 51},
   {cont__134_19, &frame__134_18, 2007, 2007, 23, 51},
-  {entry__134_1, NULL, 1997, 1997, 6, 13},
-  {cont__134_2, &frame__134_1, 1997, 2002, 3, 20},
-  {cont__134_8, &frame__134_1, 2004, 2006, 3, 17},
-  {cont__134_16, &frame__134_1, 2007, 2007, 6, 20},
-  {cont__134_17, &frame__134_1, 2007, 2007, 3, 51},
-  {cont__134_20, &frame__134_1, 2008, 2008, 3, 8},
+  {entry__134_1_std__oct, NULL, 1997, 1997, 6, 13},
+  {cont__134_2, &frame__134_1_std__oct, 1997, 2002, 3, 20},
+  {cont__134_8, &frame__134_1_std__oct, 2004, 2006, 3, 17},
+  {cont__134_16, &frame__134_1_std__oct, 2007, 2007, 6, 20},
+  {cont__134_17, &frame__134_1_std__oct, 2007, 2007, 3, 51},
+  {cont__134_20, &frame__134_1_std__oct, 2008, 2008, 3, 8},
   {entry__135_5, NULL, 2019, 2019, 16, 28},
   {cont__135_6, &frame__135_5, 2019, 2019, 9, 28},
   {entry__135_7, NULL, 2021, 2021, 9, 18},
@@ -1044,17 +1044,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__135_10, &frame__135_9, 2023, 2031, 9, 17},
   {entry__135_25, NULL, 2032, 2032, 30, 51},
   {cont__135_26, &frame__135_25, 2032, 2032, 23, 51},
-  {entry__135_1, NULL, 2016, 2016, 6, 13},
-  {cont__135_2, &frame__135_1, 2016, 2021, 3, 20},
-  {cont__135_8, &frame__135_1, 2023, 2031, 3, 17},
-  {cont__135_23, &frame__135_1, 2032, 2032, 6, 20},
-  {cont__135_24, &frame__135_1, 2032, 2032, 3, 51},
-  {cont__135_27, &frame__135_1, 2033, 2033, 3, 8},
-  {entry__136_1, NULL, 2035, 2035, 37, 44},
+  {entry__135_1_std__hex, NULL, 2016, 2016, 6, 13},
+  {cont__135_2, &frame__135_1_std__hex, 2016, 2021, 3, 20},
+  {cont__135_8, &frame__135_1_std__hex, 2023, 2031, 3, 17},
+  {cont__135_23, &frame__135_1_std__hex, 2032, 2032, 6, 20},
+  {cont__135_24, &frame__135_1_std__hex, 2032, 2032, 3, 51},
+  {cont__135_27, &frame__135_1_std__hex, 2033, 2033, 3, 8},
+  {entry__136_1_types__integer_to_integer, NULL, 2035, 2035, 37, 44},
   {entry__137_1, NULL, 2038, 2042, 3, 2},
-  {entry__138_1, NULL, 2044, 2044, 30, 36},
-  {entry__139_1, NULL, 2046, 2046, 29, 35},
-  {entry__140_1, NULL, 2048, 2048, 30, 36},
+  {entry__138_1_types__number_floor, NULL, 2044, 2044, 30, 36},
+  {entry__139_1_types__number_ceil, NULL, 2046, 2046, 29, 35},
+  {entry__140_1_types__number_round, NULL, 2048, 2048, 30, 36},
   {entry__141_1, NULL, 2051, 2054, 3, 2},
   {entry__142_1, NULL, 2057, 2060, 3, 2},
   {entry__143_1, NULL, 2063, 2066, 3, 2},
@@ -4875,7 +4875,7 @@ static void entry__129_1(void) {
 static long func__types__real___debug_string(NODE *node, int indent, int max_depth, char *buf) {
   return debug_print(indent, buf, "%.15g", node->real.value);
 }
-static void entry__131_1(void) {
+static void entry__131_1_std__is_odd(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // n: 0
@@ -4923,7 +4923,7 @@ static void cont__131_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__132_1(void) {
+static void entry__132_1_std__is_even(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // n: 0
@@ -4971,7 +4971,7 @@ static void cont__132_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__133_1(void) {
+static void entry__133_1_std__bin(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // val: 0
@@ -5364,7 +5364,7 @@ static void cont__133_21(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__134_1(void) {
+static void entry__134_1_std__oct(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // val: 0
@@ -5757,7 +5757,7 @@ static void cont__134_20(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__135_1(void) {
+static void entry__135_1_std__hex(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // val: 0
@@ -6295,7 +6295,7 @@ static void cont__135_27(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__136_1(void) {
+static void entry__136_1_types__integer_to_integer(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // value: 0
@@ -6327,7 +6327,7 @@ static void entry__137_1(void) {
     return;
   }
 }
-static void entry__138_1(void) {
+static void entry__138_1_types__number_floor(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -6343,7 +6343,7 @@ static void entry__138_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__139_1(void) {
+static void entry__139_1_types__number_ceil(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -6359,7 +6359,7 @@ static void entry__139_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__140_1(void) {
+static void entry__140_1_types__number_round(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -6573,17 +6573,17 @@ EXPORT void phase_2__basic__types__number(void) {
   func__125_1 = create_function(entry__125_1, 1);
   func__127_1 = create_function(entry__127_1, 1);
   func__129_1 = create_function(entry__129_1, 1);
-  func__131_1 = create_function(entry__131_1, 1);
-  func__132_1 = create_function(entry__132_1, 1);
+  func__131_1_std__is_odd = create_function(entry__131_1_std__is_odd, 1);
+  func__132_1_std__is_even = create_function(entry__132_1_std__is_even, 1);
   string__133_6 = from_latin_1_string("0", 1);
-  func__133_1 = create_function(entry__133_1, -1);
-  func__134_1 = create_function(entry__134_1, -1);
-  func__135_1 = create_function(entry__135_1, -1);
-  func__136_1 = create_function(entry__136_1, 1);
+  func__133_1_std__bin = create_function(entry__133_1_std__bin, -1);
+  func__134_1_std__oct = create_function(entry__134_1_std__oct, -1);
+  func__135_1_std__hex = create_function(entry__135_1_std__hex, -1);
+  func__136_1_types__integer_to_integer = create_function(entry__136_1_types__integer_to_integer, 1);
   func__137_1 = create_function(entry__137_1, 1);
-  func__138_1 = create_function(entry__138_1, 1);
-  func__139_1 = create_function(entry__139_1, 1);
-  func__140_1 = create_function(entry__140_1, 1);
+  func__138_1_types__number_floor = create_function(entry__138_1_types__number_floor, 1);
+  func__139_1_types__number_ceil = create_function(entry__139_1_types__number_ceil, 1);
+  func__140_1_types__number_round = create_function(entry__140_1_types__number_round, 1);
   func__141_1 = create_function(entry__141_1, 1);
   func__142_1 = create_function(entry__142_1, 1);
   func__143_1 = create_function(entry__143_1, 1);
@@ -6730,11 +6730,11 @@ EXPORT void phase_4__basic__types__number(void) {
   define_method("types", "positive_large_integer", poly_idx__to_string, func__125_1);
   define_method("types", "negative_large_integer", poly_idx__to_string, func__127_1);
   define_method("types", "real", poly_idx__to_string, func__129_1);
-  define_method("types", "integer", poly_idx__to_integer, func__136_1);
+  define_method("types", "integer", poly_idx__to_integer, func__136_1_types__integer_to_integer);
   define_method("types", "real", poly_idx__to_integer, func__137_1);
-  define_method("types", "number", poly_idx__floor, func__138_1);
-  define_method("types", "number", poly_idx__ceil, func__139_1);
-  define_method("types", "number", poly_idx__round, func__140_1);
+  define_method("types", "number", poly_idx__floor, func__138_1_types__number_floor);
+  define_method("types", "number", poly_idx__ceil, func__139_1_types__number_ceil);
+  define_method("types", "number", poly_idx__round, func__140_1_types__number_round);
   define_method("types", "real", poly_idx__floor, func__141_1);
   define_method("types", "real", poly_idx__ceil, func__142_1);
   define_method("types", "real", poly_idx__round, func__143_1);
@@ -6768,11 +6768,11 @@ EXPORT void phase_5__basic__types__number(void) {
   assign_variable(&var.types__positive_large_integer, &var.types__integer);
   assign_variable(&var.types__negative_large_integer, &var.types__integer);
   assign_variable(&var.types__real, &var.types__number);
-  assign_variable(&var.std__is_odd, &func__131_1);
-  assign_variable(&var.std__is_even, &func__132_1);
-  assign_variable(&var.std__bin, &func__133_1);
-  assign_variable(&var.std__oct, &func__134_1);
-  assign_variable(&var.std__hex, &func__135_1);
+  assign_variable(&var.std__is_odd, &func__131_1_std__is_odd);
+  assign_variable(&var.std__is_even, &func__132_1_std__is_even);
+  assign_variable(&var.std__bin, &func__133_1_std__bin);
+  assign_variable(&var.std__oct, &func__134_1_std__oct);
+  assign_variable(&var.std__hex, &func__135_1_std__hex);
 }
 
 static int already_run_phase_6 = false;

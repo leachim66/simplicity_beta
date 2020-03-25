@@ -536,7 +536,12 @@ $sim2c::body/to_c:
   $parent_locals current_locals
   $is_an_inherited_shared_local is_a_shared_local
   inc &index
-  $body_suffix string(suffix '_' index)
+  $body_name
+    if
+      name_of(self).is_defined
+      -> string('_' name_of(self))
+      -> ""
+  $body_suffix string(suffix '_' index body_name)
   $$par_count undefined
   delayed:
     %level outer_level+1
@@ -1454,10 +1459,6 @@ $sim2c::define_polymorphic_function: (definition is_a_setter)
   compute_source_text_info $info identifier_of(definition)
   write_to_continuation_table "  {type__@(mangled_name), NULL, @(info)},@nl;"
   generate_dispatcher_function mangled_name
-
-  #write_to_phase_3 "
-    @
-      @(var_entry(mangled_name)) = create_future();
 
   write_to_phase_5 "
     @

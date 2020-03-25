@@ -450,24 +450,24 @@ static void type__function_of(void);
 static NODE *get__types__optional(void) {
   return var.types__optional;
 }
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {2, {"self", "stream"}};
+static NODE *func__12_1_types__optional_grammar__match;
+static void entry__12_1_types__optional_grammar__match(void);
+static FRAME_INFO frame__12_1_types__optional_grammar__match = {2, {"self", "stream"}};
 static void cont__12_2(void);
 static void cont__12_3(void);
 static void cont__12_4(void);
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {1, {"expr"}};
+static NODE *func__13_1_std__optional;
+static void entry__13_1_std__optional(void);
+static FRAME_INFO frame__13_1_std__optional = {1, {"expr"}};
 static NODE *get__std__optional(void) {
   return var.std__optional;
 }
 static NODE *get__types__many(void) {
   return var.types__many;
 }
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {4, {"self", "stream", "return", "len"}};
+static NODE *func__15_1_types__many_grammar__match;
+static void entry__15_1_types__many_grammar__match(void);
+static FRAME_INFO frame__15_1_types__many_grammar__match = {4, {"self", "stream", "return", "len"}};
 static NODE *func__15_2;
 static void entry__15_2(void);
 static FRAME_INFO frame__15_2 = {5, {"self", "stream", "return", "len", "n"}};
@@ -496,18 +496,18 @@ static void cont__15_16(void);
 static void cont__15_17(void);
 static void cont__15_18(void);
 static void cont__15_19(void);
-static NODE *func__16_1;
-static void entry__16_1(void);
-static FRAME_INFO frame__16_1 = {1, {"expr"}};
+static NODE *func__16_1_std__many;
+static void entry__16_1_std__many(void);
+static FRAME_INFO frame__16_1_std__many = {1, {"expr"}};
 static NODE *get__std__many(void) {
   return var.std__many;
 }
 static NODE *get__types__some(void) {
   return var.types__some;
 }
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {4, {"self", "stream", "return", "len"}};
+static NODE *func__18_1_types__some_grammar__match;
+static void entry__18_1_types__some_grammar__match(void);
+static FRAME_INFO frame__18_1_types__some_grammar__match = {4, {"self", "stream", "return", "len"}};
 static NODE *func__18_2;
 static void entry__18_2(void);
 static FRAME_INFO frame__18_2 = {5, {"self", "stream", "return", "len", "n"}};
@@ -536,18 +536,18 @@ static void cont__18_16(void);
 static void cont__18_17(void);
 static void cont__18_18(void);
 static void cont__18_19(void);
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {1, {"expr"}};
+static NODE *func__19_1_std__some;
+static void entry__19_1_std__some(void);
+static FRAME_INFO frame__19_1_std__some = {1, {"expr"}};
 static NODE *get__std__some(void) {
   return var.std__some;
 }
 static NODE *get__types__alt(void) {
   return var.types__alt;
 }
-static NODE *func__21_1;
-static void entry__21_1(void);
-static FRAME_INFO frame__21_1 = {4, {"self", "stream", "return", "alternatives"}};
+static NODE *func__21_1_types__alt_grammar__match;
+static void entry__21_1_types__alt_grammar__match(void);
+static FRAME_INFO frame__21_1_types__alt_grammar__match = {4, {"self", "stream", "return", "alternatives"}};
 static void cont__21_2(void);
 static NODE *func__21_3;
 static void entry__21_3(void);
@@ -558,18 +558,18 @@ static NODE *func__21_6;
 static void entry__21_6(void);
 static FRAME_INFO frame__21_6 = {2, {"return", "n"}};
 static void cont__21_7(void);
-static NODE *func__22_1;
-static void entry__22_1(void);
-static FRAME_INFO frame__22_1 = {1, {"alternatives"}};
+static NODE *func__22_1_std__alt;
+static void entry__22_1_std__alt(void);
+static FRAME_INFO frame__22_1_std__alt = {1, {"alternatives"}};
 static NODE *get__std__alt(void) {
   return var.std__alt;
 }
 static NODE *get__types__followed_by(void) {
   return var.types__followed_by;
 }
-static NODE *func__24_1;
-static void entry__24_1(void);
-static FRAME_INFO frame__24_1 = {4, {"self", "stream", "return", "original_node"}};
+static NODE *func__24_1_types__followed_by_grammar__match;
+static void entry__24_1_types__followed_by_grammar__match(void);
+static FRAME_INFO frame__24_1_types__followed_by_grammar__match = {4, {"self", "stream", "return", "original_node"}};
 static void cont__24_2(void);
 static void cont__24_3(void);
 static void cont__24_4(void);
@@ -580,18 +580,18 @@ static NODE *func__24_6;
 static void entry__24_6(void);
 static FRAME_INFO frame__24_6 = {1, {"return"}};
 static void cont__24_7(void);
-static NODE *func__25_1;
-static void entry__25_1(void);
-static FRAME_INFO frame__25_1 = {1, {"expr"}};
+static NODE *func__25_1_std__followed_by;
+static void entry__25_1_std__followed_by(void);
+static FRAME_INFO frame__25_1_std__followed_by = {1, {"expr"}};
 static NODE *get__std__followed_by(void) {
   return var.std__followed_by;
 }
 static NODE *get__types__not_followed_by(void) {
   return var.types__not_followed_by;
 }
-static NODE *func__27_1;
-static void entry__27_1(void);
-static FRAME_INFO frame__27_1 = {4, {"self", "stream", "return", "original_node"}};
+static NODE *func__27_1_types__not_followed_by_grammar__match;
+static void entry__27_1_types__not_followed_by_grammar__match(void);
+static FRAME_INFO frame__27_1_types__not_followed_by_grammar__match = {4, {"self", "stream", "return", "original_node"}};
 static void cont__27_2(void);
 static void cont__27_3(void);
 static void cont__27_4(void);
@@ -602,18 +602,18 @@ static NODE *func__27_6;
 static void entry__27_6(void);
 static FRAME_INFO frame__27_6 = {1, {"return"}};
 static void cont__27_7(void);
-static NODE *func__28_1;
-static void entry__28_1(void);
-static FRAME_INFO frame__28_1 = {1, {"expr"}};
+static NODE *func__28_1_std__not_followed_by;
+static void entry__28_1_std__not_followed_by(void);
+static FRAME_INFO frame__28_1_std__not_followed_by = {1, {"expr"}};
 static NODE *get__std__not_followed_by(void) {
   return var.std__not_followed_by;
 }
 static NODE *get__types__capture(void) {
   return var.types__capture;
 }
-static NODE *func__30_1;
-static void entry__30_1(void);
-static FRAME_INFO frame__30_1 = {3, {"self", "stream", "len"}};
+static NODE *func__30_1_types__capture_grammar__match;
+static void entry__30_1_types__capture_grammar__match(void);
+static FRAME_INFO frame__30_1_types__capture_grammar__match = {3, {"self", "stream", "len"}};
 static void cont__30_2(void);
 static void cont__30_3(void);
 static void cont__30_4(void);
@@ -631,18 +631,18 @@ static NODE *func__30_11;
 static void entry__30_11(void);
 static FRAME_INFO frame__30_11 = {1, {"value"}};
 static void cont__30_12(void);
-static NODE *func__31_1;
-static void entry__31_1(void);
-static FRAME_INFO frame__31_1 = {2, {"setter", "expr"}};
+static NODE *func__31_1_std__capture;
+static void entry__31_1_std__capture(void);
+static FRAME_INFO frame__31_1_std__capture = {2, {"setter", "expr"}};
 static NODE *get__std__capture(void) {
   return var.std__capture;
 }
 static NODE *get__types__multi_capture(void) {
   return var.types__multi_capture;
 }
-static NODE *func__33_1;
-static void entry__33_1(void);
-static FRAME_INFO frame__33_1 = {3, {"self", "stream", "len"}};
+static NODE *func__33_1_types__multi_capture_grammar__match;
+static void entry__33_1_types__multi_capture_grammar__match(void);
+static FRAME_INFO frame__33_1_types__multi_capture_grammar__match = {3, {"self", "stream", "len"}};
 static void cont__33_2(void);
 static void cont__33_3(void);
 static void cont__33_4(void);
@@ -664,18 +664,18 @@ static void entry__33_14(void);
 static FRAME_INFO frame__33_14 = {1, {"value"}};
 static void cont__33_15(void);
 static void cont__33_16(void);
-static NODE *func__34_1;
-static void entry__34_1(void);
-static FRAME_INFO frame__34_1 = {2, {"setter", "expr"}};
+static NODE *func__34_1_std__multi_capture;
+static void entry__34_1_std__multi_capture(void);
+static FRAME_INFO frame__34_1_std__multi_capture = {2, {"setter", "expr"}};
 static NODE *get__std__multi_capture(void) {
   return var.std__multi_capture;
 }
 static NODE *get__types__span(void) {
   return var.types__span;
 }
-static NODE *func__36_1;
-static void entry__36_1(void);
-static FRAME_INFO frame__36_1 = {5, {"self", "stream", "return", "outer_node", "len"}};
+static NODE *func__36_1_types__span_grammar__match;
+static void entry__36_1_types__span_grammar__match(void);
+static FRAME_INFO frame__36_1_types__span_grammar__match = {5, {"self", "stream", "return", "outer_node", "len"}};
 static NODE *func__36_2;
 static void entry__36_2(void);
 static FRAME_INFO frame__36_2 = {6, {"return__1", "len", "self", "stream", "return", "outer_node"}};
@@ -689,18 +689,18 @@ static void cont__36_7(void);
 static void cont__36_8(void);
 static void cont__36_9(void);
 static void cont__36_10(void);
-static NODE *func__37_1;
-static void entry__37_1(void);
-static FRAME_INFO frame__37_1 = {2, {"setter", "expr"}};
+static NODE *func__37_1_std__span;
+static void entry__37_1_std__span(void);
+static FRAME_INFO frame__37_1_std__span = {2, {"setter", "expr"}};
 static NODE *get__std__span(void) {
   return var.std__span;
 }
 static NODE *get__types__multi_span(void) {
   return var.types__multi_span;
 }
-static NODE *func__39_1;
-static void entry__39_1(void);
-static FRAME_INFO frame__39_1 = {5, {"self", "stream", "return", "outer_node", "len"}};
+static NODE *func__39_1_types__multi_span_grammar__match;
+static void entry__39_1_types__multi_span_grammar__match(void);
+static FRAME_INFO frame__39_1_types__multi_span_grammar__match = {5, {"self", "stream", "return", "outer_node", "len"}};
 static NODE *func__39_2;
 static void entry__39_2(void);
 static FRAME_INFO frame__39_2 = {7, {"return__1", "len", "self", "stream", "return", "outer_node", "setter"}};
@@ -725,31 +725,31 @@ static FRAME_INFO frame__39_14 = {1, {"outer_node"}};
 static void cont__39_15(void);
 static void cont__39_16(void);
 static void cont__39_17(void);
-static NODE *func__40_1;
-static void entry__40_1(void);
-static FRAME_INFO frame__40_1 = {2, {"setter", "expr"}};
+static NODE *func__40_1_std__multi_span;
+static void entry__40_1_std__multi_span(void);
+static FRAME_INFO frame__40_1_std__multi_span = {2, {"setter", "expr"}};
 static NODE *get__std__multi_span(void) {
   return var.std__multi_span;
 }
 static NODE *get__types__set_node(void) {
   return var.types__set_node;
 }
-static NODE *func__42_1;
-static void entry__42_1(void);
-static FRAME_INFO frame__42_1 = {2, {"self", "stream"}};
+static NODE *func__42_1_types__set_node_grammar__match;
+static void entry__42_1_types__set_node_grammar__match(void);
+static FRAME_INFO frame__42_1_types__set_node_grammar__match = {2, {"self", "stream"}};
 static void cont__42_2(void);
-static NODE *func__43_1;
-static void entry__43_1(void);
-static FRAME_INFO frame__43_1 = {1, {"node"}};
+static NODE *func__43_1_std__set_node;
+static void entry__43_1_std__set_node(void);
+static FRAME_INFO frame__43_1_std__set_node = {1, {"node"}};
 static NODE *get__std__set_node(void) {
   return var.std__set_node;
 }
 static NODE *get__types__inspect_node(void) {
   return var.types__inspect_node;
 }
-static NODE *func__45_1;
-static void entry__45_1(void);
-static FRAME_INFO frame__45_1 = {3, {"self", "stream", "func"}};
+static NODE *func__45_1_types__inspect_node_grammar__match;
+static void entry__45_1_types__inspect_node_grammar__match(void);
+static FRAME_INFO frame__45_1_types__inspect_node_grammar__match = {3, {"self", "stream", "func"}};
 static void cont__45_2(void);
 static void cont__45_3(void);
 static void cont__45_4(void);
@@ -760,18 +760,18 @@ static NODE *func__45_6;
 static void entry__45_6(void);
 static FRAME_INFO frame__45_6 = {1, {"func"}};
 static void cont__45_7(void);
-static NODE *func__46_1;
-static void entry__46_1(void);
-static FRAME_INFO frame__46_1 = {1, {"func"}};
+static NODE *func__46_1_std__inspect_node;
+static void entry__46_1_std__inspect_node(void);
+static FRAME_INFO frame__46_1_std__inspect_node = {1, {"func"}};
 static NODE *get__std__inspect_node(void) {
   return var.std__inspect_node;
 }
 static NODE *get__types__modify_node(void) {
   return var.types__modify_node;
 }
-static NODE *func__48_1;
-static void entry__48_1(void);
-static FRAME_INFO frame__48_1 = {3, {"self", "stream", "func"}};
+static NODE *func__48_1_types__modify_node_grammar__match;
+static void entry__48_1_types__modify_node_grammar__match(void);
+static FRAME_INFO frame__48_1_types__modify_node_grammar__match = {3, {"self", "stream", "func"}};
 static void cont__48_2(void);
 static void cont__48_3(void);
 static void cont__48_4(void);
@@ -784,18 +784,18 @@ static void entry__48_7(void);
 static FRAME_INFO frame__48_7 = {1, {"func"}};
 static void cont__48_8(void);
 static void cont__48_9(void);
-static NODE *func__49_1;
-static void entry__49_1(void);
-static FRAME_INFO frame__49_1 = {1, {"func"}};
+static NODE *func__49_1_std__modify_node;
+static void entry__49_1_std__modify_node(void);
+static FRAME_INFO frame__49_1_std__modify_node = {1, {"func"}};
 static NODE *get__std__modify_node(void) {
   return var.std__modify_node;
 }
 static NODE *get__types__check_node(void) {
   return var.types__check_node;
 }
-static NODE *func__51_1;
-static void entry__51_1(void);
-static FRAME_INFO frame__51_1 = {4, {"self", "stream", "return", "func"}};
+static NODE *func__51_1_types__check_node_grammar__match;
+static void entry__51_1_types__check_node_grammar__match(void);
+static FRAME_INFO frame__51_1_types__check_node_grammar__match = {4, {"self", "stream", "return", "func"}};
 static void cont__51_2(void);
 static void cont__51_3(void);
 static void cont__51_4(void);
@@ -814,47 +814,47 @@ static NODE *func__51_10;
 static void entry__51_10(void);
 static FRAME_INFO frame__51_10 = {1, {"return"}};
 static void cont__51_11(void);
-static NODE *func__52_1;
-static void entry__52_1(void);
-static FRAME_INFO frame__52_1 = {1, {"func"}};
+static NODE *func__52_1_std__check_node;
+static void entry__52_1_std__check_node(void);
+static FRAME_INFO frame__52_1_std__check_node = {1, {"func"}};
 static NODE *get__std__check_node(void) {
   return var.std__check_node;
 }
 static NODE *get__types__grammar_action(void) {
   return var.types__grammar_action;
 }
-static NODE *func__54_1;
-static void entry__54_1(void);
-static FRAME_INFO frame__54_1 = {2, {"self", "stream"}};
+static NODE *func__54_1_types__grammar_action_grammar__match;
+static void entry__54_1_types__grammar_action_grammar__match(void);
+static FRAME_INFO frame__54_1_types__grammar_action_grammar__match = {2, {"self", "stream"}};
 static void cont__54_2(void);
 static void cont__54_3(void);
-static NODE *func__55_1;
-static void entry__55_1(void);
-static FRAME_INFO frame__55_1 = {1, {"func"}};
+static NODE *func__55_1_std__grammar_action;
+static void entry__55_1_std__grammar_action(void);
+static FRAME_INFO frame__55_1_std__grammar_action = {1, {"func"}};
 static NODE *get__std__grammar_action(void) {
   return var.std__grammar_action;
 }
 static NODE *get__types__set_field(void) {
   return var.types__set_field;
 }
-static NODE *func__57_1;
-static void entry__57_1(void);
-static FRAME_INFO frame__57_1 = {2, {"self", "stream"}};
+static NODE *func__57_1_types__set_field_grammar__match;
+static void entry__57_1_types__set_field_grammar__match(void);
+static FRAME_INFO frame__57_1_types__set_field_grammar__match = {2, {"self", "stream"}};
 static void cont__57_2(void);
 static void cont__57_3(void);
 static void cont__57_4(void);
-static NODE *func__58_1;
-static void entry__58_1(void);
-static FRAME_INFO frame__58_1 = {2, {"setter", "expr"}};
+static NODE *func__58_1_std__set_field;
+static void entry__58_1_std__set_field(void);
+static FRAME_INFO frame__58_1_std__set_field = {2, {"setter", "expr"}};
 static NODE *get__std__set_field(void) {
   return var.std__set_field;
 }
 static NODE *get__std__END_OF_TEXT(void) {
   return var.std__END_OF_TEXT;
 }
-static NODE *func__60_1;
-static void entry__60_1(void);
-static FRAME_INFO frame__60_1 = {2, {"self", "stream"}};
+static NODE *func__60_1_std__END_OF_TEXT_grammar__match;
+static void entry__60_1_std__END_OF_TEXT_grammar__match(void);
+static FRAME_INFO frame__60_1_std__END_OF_TEXT_grammar__match = {2, {"self", "stream"}};
 static void cont__60_2(void);
 static NODE *func__60_3;
 static void entry__60_3(void);
@@ -865,9 +865,9 @@ static FRAME_INFO frame__60_4 = {0, {}};
 static NODE *get__std__LETTER(void) {
   return var.std__LETTER;
 }
-static NODE *func__62_1;
-static void entry__62_1(void);
-static FRAME_INFO frame__62_1 = {3, {"self", "stream", "return"}};
+static NODE *func__62_1_std__LETTER_grammar__match;
+static void entry__62_1_std__LETTER_grammar__match(void);
+static FRAME_INFO frame__62_1_std__LETTER_grammar__match = {3, {"self", "stream", "return"}};
 static void cont__62_2(void);
 static NODE *func__62_3;
 static void entry__62_3(void);
@@ -904,9 +904,9 @@ static void cont__62_24(void);
 static NODE *get__std__UPPER_CASE_LETTER(void) {
   return var.std__UPPER_CASE_LETTER;
 }
-static NODE *func__64_1;
-static void entry__64_1(void);
-static FRAME_INFO frame__64_1 = {3, {"self", "stream", "return"}};
+static NODE *func__64_1_std__UPPER_CASE_LETTER_grammar__match;
+static void entry__64_1_std__UPPER_CASE_LETTER_grammar__match(void);
+static FRAME_INFO frame__64_1_std__UPPER_CASE_LETTER_grammar__match = {3, {"self", "stream", "return"}};
 static void cont__64_2(void);
 static NODE *func__64_3;
 static void entry__64_3(void);
@@ -929,9 +929,9 @@ static void cont__64_14(void);
 static NODE *get__std__LOWER_CASE_LETTER(void) {
   return var.std__LOWER_CASE_LETTER;
 }
-static NODE *func__66_1;
-static void entry__66_1(void);
-static FRAME_INFO frame__66_1 = {3, {"self", "stream", "return"}};
+static NODE *func__66_1_std__LOWER_CASE_LETTER_grammar__match;
+static void entry__66_1_std__LOWER_CASE_LETTER_grammar__match(void);
+static FRAME_INFO frame__66_1_std__LOWER_CASE_LETTER_grammar__match = {3, {"self", "stream", "return"}};
 static void cont__66_2(void);
 static NODE *func__66_3;
 static void entry__66_3(void);
@@ -954,9 +954,9 @@ static void cont__66_14(void);
 static NODE *get__std__DIGIT(void) {
   return var.std__DIGIT;
 }
-static NODE *func__68_1;
-static void entry__68_1(void);
-static FRAME_INFO frame__68_1 = {3, {"self", "stream", "return"}};
+static NODE *func__68_1_std__DIGIT_grammar__match;
+static void entry__68_1_std__DIGIT_grammar__match(void);
+static FRAME_INFO frame__68_1_std__DIGIT_grammar__match = {3, {"self", "stream", "return"}};
 static void cont__68_2(void);
 static NODE *func__68_3;
 static void entry__68_3(void);
@@ -979,9 +979,9 @@ static void cont__68_14(void);
 static NODE *get__std__WHITESPACE_CHARACTER(void) {
   return var.std__WHITESPACE_CHARACTER;
 }
-static NODE *func__70_1;
-static void entry__70_1(void);
-static FRAME_INFO frame__70_1 = {4, {"self", "stream", "return", "chr"}};
+static NODE *func__70_1_std__WHITESPACE_CHARACTER_grammar__match;
+static void entry__70_1_std__WHITESPACE_CHARACTER_grammar__match(void);
+static FRAME_INFO frame__70_1_std__WHITESPACE_CHARACTER_grammar__match = {4, {"self", "stream", "return", "chr"}};
 static void cont__70_2(void);
 static NODE *func__70_3;
 static void entry__70_3(void);
@@ -1005,9 +1005,9 @@ static NODE *get__std__WHITESPACE(void) {
 static NODE *get__std__PRINTABLE_CHARACTER(void) {
   return var.std__PRINTABLE_CHARACTER;
 }
-static NODE *func__73_1;
-static void entry__73_1(void);
-static FRAME_INFO frame__73_1 = {4, {"self", "stream", "return", "chr"}};
+static NODE *func__73_1_std__PRINTABLE_CHARACTER_grammar__match;
+static void entry__73_1_std__PRINTABLE_CHARACTER_grammar__match(void);
+static FRAME_INFO frame__73_1_std__PRINTABLE_CHARACTER_grammar__match = {4, {"self", "stream", "return", "chr"}};
 static void cont__73_2(void);
 static NODE *func__73_3;
 static void entry__73_3(void);
@@ -1034,9 +1034,9 @@ static void cont__73_16(void);
 static NODE *get__std__NON_SPACE_CHARACTER(void) {
   return var.std__NON_SPACE_CHARACTER;
 }
-static NODE *func__75_1;
-static void entry__75_1(void);
-static FRAME_INFO frame__75_1 = {4, {"self", "stream", "return", "chr"}};
+static NODE *func__75_1_std__NON_SPACE_CHARACTER_grammar__match;
+static void entry__75_1_std__NON_SPACE_CHARACTER_grammar__match(void);
+static FRAME_INFO frame__75_1_std__NON_SPACE_CHARACTER_grammar__match = {4, {"self", "stream", "return", "chr"}};
 static void cont__75_2(void);
 static NODE *func__75_3;
 static void entry__75_3(void);
@@ -1062,20 +1062,20 @@ static void cont__75_15(void);
 static NODE *get__std__ANY_CHARACTER(void) {
   return var.std__ANY_CHARACTER;
 }
-static NODE *func__77_1;
-static void entry__77_1(void);
-static FRAME_INFO frame__77_1 = {3, {"self", "stream", "return"}};
+static NODE *func__77_1_std__ANY_CHARACTER_grammar__match;
+static void entry__77_1_std__ANY_CHARACTER_grammar__match(void);
+static FRAME_INFO frame__77_1_std__ANY_CHARACTER_grammar__match = {3, {"self", "stream", "return"}};
 static void cont__77_2(void);
 static NODE *func__77_3;
 static void entry__77_3(void);
 static FRAME_INFO frame__77_3 = {1, {"return"}};
 static void cont__77_4(void);
-static NODE *func__78_1;
-static void entry__78_1(void);
-static FRAME_INFO frame__78_1 = {2, {"chr", "stream"}};
-static NODE *func__79_1;
-static void entry__79_1(void);
-static FRAME_INFO frame__79_1 = {4, {"self", "stream", "return", "chr"}};
+static NODE *func__78_1_types__character_grammar__match;
+static void entry__78_1_types__character_grammar__match(void);
+static FRAME_INFO frame__78_1_types__character_grammar__match = {2, {"chr", "stream"}};
+static NODE *func__79_1_types__value_range_grammar__match;
+static void entry__79_1_types__value_range_grammar__match(void);
+static FRAME_INFO frame__79_1_types__value_range_grammar__match = {4, {"self", "stream", "return", "chr"}};
 static void cont__79_2(void);
 static NODE *func__79_3;
 static void entry__79_3(void);
@@ -1096,9 +1096,9 @@ static NODE *func__79_14;
 static void entry__79_14(void);
 static FRAME_INFO frame__79_14 = {1, {"return"}};
 static void cont__79_15(void);
-static NODE *func__80_1;
-static void entry__80_1(void);
-static FRAME_INFO frame__80_1 = {5, {"self", "stream", "return", "len", "original_node"}};
+static NODE *func__80_1_types__list_grammar__match;
+static void entry__80_1_types__list_grammar__match(void);
+static FRAME_INFO frame__80_1_types__list_grammar__match = {5, {"self", "stream", "return", "len", "original_node"}};
 static NODE *func__80_2;
 static void entry__80_2(void);
 static FRAME_INFO frame__80_2 = {6, {"expr", "stream", "original_node", "return", "len", "n"}};
@@ -1113,9 +1113,9 @@ static void cont__80_8(void);
 static void cont__80_9(void);
 static void cont__80_10(void);
 static void cont__80_11(void);
-static NODE *func__81_1;
-static void entry__81_1(void);
-static FRAME_INFO frame__81_1 = {6, {"expr", "stream", "nth", "return", "pos", "s"}};
+static NODE *func__81_1_types__object_grammar__search;
+static void entry__81_1_types__object_grammar__search(void);
+static FRAME_INFO frame__81_1_types__object_grammar__search = {6, {"expr", "stream", "nth", "return", "pos", "s"}};
 static void cont__81_2(void);
 static NODE *func__81_3;
 static void entry__81_3(void);
@@ -1216,11 +1216,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__function_of, NULL, 34, 34, 2, 12},
   {run__basic__grammar, NULL, 426, 426, 1, 43},
   {cont__152_1, NULL, },
-  {entry__12_1, NULL, 42, 42, 21, 33},
-  {cont__12_2, &frame__12_1, 42, 42, 6, 41},
-  {cont__12_3, &frame__12_1, 42, 42, 6, 59},
-  {cont__12_4, &frame__12_1, 42, 42, 3, 59},
-  {entry__13_1, NULL, 44, 44, 24, 56},
+  {entry__12_1_types__optional_grammar__match, NULL, 42, 42, 21, 33},
+  {cont__12_2, &frame__12_1_types__optional_grammar__match, 42, 42, 6, 41},
+  {cont__12_3, &frame__12_1_types__optional_grammar__match, 42, 42, 6, 59},
+  {cont__12_4, &frame__12_1_types__optional_grammar__match, 42, 42, 3, 59},
+  {entry__13_1_std__optional, NULL, 44, 44, 24, 56},
   {entry__15_6, NULL, 60, 60, 26, 35},
   {entry__15_9, NULL, 63, 63, 9, 19},
   {cont__15_10, &frame__15_9, 63, 63, 19, 19},
@@ -1238,9 +1238,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__15_16, &frame__15_2, 67, 67, 24, 24},
   {cont__15_17, &frame__15_2, 67, 67, 5, 24},
   {cont__15_18, &frame__15_2, 67, 67, 24, 24},
-  {entry__15_1, NULL, 58, 67, 3, 24},
-  {cont__15_19, &frame__15_1, 67, 67, 24, 24},
-  {entry__16_1, NULL, 69, 69, 20, 48},
+  {entry__15_1_types__many_grammar__match, NULL, 58, 67, 3, 24},
+  {cont__15_19, &frame__15_1_types__many_grammar__match, 67, 67, 24, 24},
+  {entry__16_1_std__many, NULL, 69, 69, 20, 48},
   {entry__18_6, NULL, 85, 85, 26, 35},
   {entry__18_9, NULL, 88, 88, 9, 19},
   {cont__18_10, &frame__18_9, 88, 88, 19, 19},
@@ -1258,33 +1258,33 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__18_16, &frame__18_2, 92, 92, 24, 24},
   {cont__18_17, &frame__18_2, 92, 92, 5, 24},
   {cont__18_18, &frame__18_2, 92, 92, 24, 24},
-  {entry__18_1, NULL, 83, 92, 3, 24},
-  {cont__18_19, &frame__18_1, 92, 92, 24, 24},
-  {entry__19_1, NULL, 94, 94, 20, 48},
+  {entry__18_1_types__some_grammar__match, NULL, 83, 92, 3, 24},
+  {cont__18_19, &frame__18_1_types__some_grammar__match, 92, 92, 24, 24},
+  {entry__19_1_std__some, NULL, 94, 94, 20, 48},
   {entry__21_6, NULL, 110, 110, 22, 29},
   {entry__21_3, NULL, 109, 109, 5, 41},
   {cont__21_4, &frame__21_3, 110, 110, 8, 19},
   {cont__21_5, &frame__21_3, 110, 110, 5, 29},
-  {entry__21_1, NULL, 107, 107, 3, 37},
-  {cont__21_2, &frame__21_1, 108, 110, 3, 29},
-  {cont__21_7, &frame__21_1, 111, 111, 3, 14},
-  {entry__22_1, NULL, 113, 113, 28, 71},
+  {entry__21_1_types__alt_grammar__match, NULL, 107, 107, 3, 37},
+  {cont__21_2, &frame__21_1_types__alt_grammar__match, 108, 110, 3, 29},
+  {cont__21_7, &frame__21_1_types__alt_grammar__match, 111, 111, 3, 14},
+  {entry__22_1_std__alt, NULL, 113, 113, 28, 71},
   {entry__24_5, NULL, 130, 130, 7, 14},
   {entry__24_6, NULL, 132, 132, 7, 22},
-  {entry__24_1, NULL, 128, 128, 20, 32},
-  {cont__24_2, &frame__24_1, 128, 128, 5, 40},
-  {cont__24_3, &frame__24_1, 128, 128, 5, 51},
-  {cont__24_4, &frame__24_1, 127, 132, 3, 23},
-  {cont__24_7, &frame__24_1, 132, 132, 23, 23},
-  {entry__25_1, NULL, 134, 134, 27, 62},
+  {entry__24_1_types__followed_by_grammar__match, NULL, 128, 128, 20, 32},
+  {cont__24_2, &frame__24_1_types__followed_by_grammar__match, 128, 128, 5, 40},
+  {cont__24_3, &frame__24_1_types__followed_by_grammar__match, 128, 128, 5, 51},
+  {cont__24_4, &frame__24_1_types__followed_by_grammar__match, 127, 132, 3, 23},
+  {cont__24_7, &frame__24_1_types__followed_by_grammar__match, 132, 132, 23, 23},
+  {entry__25_1_std__followed_by, NULL, 134, 134, 27, 62},
   {entry__27_5, NULL, 151, 151, 7, 22},
   {entry__27_6, NULL, 153, 153, 7, 14},
-  {entry__27_1, NULL, 149, 149, 20, 32},
-  {cont__27_2, &frame__27_1, 149, 149, 5, 40},
-  {cont__27_3, &frame__27_1, 149, 149, 5, 51},
-  {cont__27_4, &frame__27_1, 148, 153, 3, 15},
-  {cont__27_7, &frame__27_1, 153, 153, 15, 15},
-  {entry__28_1, NULL, 155, 155, 31, 70},
+  {entry__27_1_types__not_followed_by_grammar__match, NULL, 149, 149, 20, 32},
+  {cont__27_2, &frame__27_1_types__not_followed_by_grammar__match, 149, 149, 5, 40},
+  {cont__27_3, &frame__27_1_types__not_followed_by_grammar__match, 149, 149, 5, 51},
+  {cont__27_4, &frame__27_1_types__not_followed_by_grammar__match, 148, 153, 3, 15},
+  {cont__27_7, &frame__27_1_types__not_followed_by_grammar__match, 153, 153, 15, 15},
+  {entry__28_1_std__not_followed_by, NULL, 155, 155, 31, 70},
   {entry__30_9, NULL, 169, 169, 9, 43},
   {cont__30_10, &frame__30_9, 169, 169, 43, 43},
   {entry__30_11, NULL, 171, 171, 36, 36},
@@ -1292,12 +1292,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__30_6, &frame__30_5, 166, 166, 5, 30},
   {cont__30_7, &frame__30_5, 168, 168, 7, 23},
   {cont__30_8, &frame__30_5, 167, 171, 5, 37},
-  {entry__30_1, NULL, 163, 163, 23, 35},
-  {cont__30_2, &frame__30_1, 163, 163, 3, 43},
-  {cont__30_3, &frame__30_1, 164, 164, 6, 19},
-  {cont__30_4, &frame__30_1, 164, 171, 3, 38},
-  {cont__30_12, &frame__30_1, 172, 172, 3, 8},
-  {entry__31_1, NULL, 174, 174, 31, 80},
+  {entry__30_1_types__capture_grammar__match, NULL, 163, 163, 23, 35},
+  {cont__30_2, &frame__30_1_types__capture_grammar__match, 163, 163, 3, 43},
+  {cont__30_3, &frame__30_1_types__capture_grammar__match, 164, 164, 6, 19},
+  {cont__30_4, &frame__30_1_types__capture_grammar__match, 164, 171, 3, 38},
+  {cont__30_12, &frame__30_1_types__capture_grammar__match, 172, 172, 3, 8},
+  {entry__31_1_std__capture, NULL, 174, 174, 31, 80},
   {entry__33_9, NULL, 190, 190, 16, 30},
   {cont__33_10, &frame__33_9, 190, 190, 16, 53},
   {cont__33_11, &frame__33_9, 190, 190, 11, 60},
@@ -1309,12 +1309,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__33_6, &frame__33_5, 185, 185, 5, 30},
   {cont__33_7, &frame__33_5, 187, 187, 7, 23},
   {cont__33_8, &frame__33_5, 186, 192, 5, 42},
-  {entry__33_1, NULL, 182, 182, 23, 35},
-  {cont__33_2, &frame__33_1, 182, 182, 3, 43},
-  {cont__33_3, &frame__33_1, 183, 183, 6, 19},
-  {cont__33_4, &frame__33_1, 183, 192, 3, 43},
-  {cont__33_16, &frame__33_1, 193, 193, 3, 8},
-  {entry__34_1, NULL, 196, 196, 3, 58},
+  {entry__33_1_types__multi_capture_grammar__match, NULL, 182, 182, 23, 35},
+  {cont__33_2, &frame__33_1_types__multi_capture_grammar__match, 182, 182, 3, 43},
+  {cont__33_3, &frame__33_1_types__multi_capture_grammar__match, 183, 183, 6, 19},
+  {cont__33_4, &frame__33_1_types__multi_capture_grammar__match, 183, 192, 3, 43},
+  {cont__33_16, &frame__33_1_types__multi_capture_grammar__match, 193, 193, 3, 8},
+  {entry__34_1_std__multi_capture, NULL, 196, 196, 3, 58},
   {entry__36_6, NULL, 214, 214, 28, 43},
   {entry__36_2, NULL, 213, 213, 25, 37},
   {cont__36_3, &frame__36_2, 213, 213, 5, 45},
@@ -1323,9 +1323,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__36_7, &frame__36_2, 215, 215, 5, 19},
   {cont__36_8, &frame__36_2, 215, 215, 5, 53},
   {cont__36_9, &frame__36_2, },
-  {entry__36_1, NULL, 211, 215, 3, 53},
-  {cont__36_10, &frame__36_1, 217, 217, 3, 8},
-  {entry__37_1, NULL, 219, 219, 27, 73},
+  {entry__36_1_types__span_grammar__match, NULL, 211, 215, 3, 53},
+  {cont__36_10, &frame__36_1_types__span_grammar__match, 217, 217, 3, 8},
+  {entry__37_1_std__span, NULL, 219, 219, 27, 73},
   {entry__39_6, NULL, 237, 237, 28, 43},
   {entry__39_10, NULL, 241, 241, 33, 50},
   {cont__39_11, &frame__39_10, 241, 241, 28, 73},
@@ -1341,55 +1341,55 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__39_8, &frame__39_2, 240, 240, 7, 23},
   {cont__39_9, &frame__39_2, 239, 243, 5, 47},
   {cont__39_16, &frame__39_2, 243, 243, 47, 47},
-  {entry__39_1, NULL, 234, 243, 3, 48},
-  {cont__39_17, &frame__39_1, 245, 245, 3, 8},
-  {entry__40_1, NULL, 248, 248, 3, 55},
-  {entry__42_1, NULL, 256, 256, 3, 38},
-  {cont__42_2, &frame__42_1, 257, 257, 3, 6},
-  {entry__43_1, NULL, 259, 259, 24, 56},
+  {entry__39_1_types__multi_span_grammar__match, NULL, 234, 243, 3, 48},
+  {cont__39_17, &frame__39_1_types__multi_span_grammar__match, 245, 245, 3, 8},
+  {entry__40_1_std__multi_span, NULL, 248, 248, 3, 55},
+  {entry__42_1_types__set_node_grammar__match, NULL, 256, 256, 3, 38},
+  {cont__42_2, &frame__42_1_types__set_node_grammar__match, 257, 257, 3, 6},
+  {entry__43_1_std__set_node, NULL, 259, 259, 24, 56},
   {entry__45_5, NULL, 270, 270, 7, 39},
   {entry__45_6, NULL, 272, 272, 7, 32},
-  {entry__45_1, NULL, 267, 267, 3, 25},
-  {cont__45_2, &frame__45_1, 269, 269, 5, 28},
-  {cont__45_3, &frame__45_1, 269, 269, 5, 33},
-  {cont__45_4, &frame__45_1, 268, 272, 3, 33},
-  {cont__45_7, &frame__45_1, 273, 273, 3, 6},
-  {entry__46_1, NULL, 275, 275, 28, 68},
+  {entry__45_1_types__inspect_node_grammar__match, NULL, 267, 267, 3, 25},
+  {cont__45_2, &frame__45_1_types__inspect_node_grammar__match, 269, 269, 5, 28},
+  {cont__45_3, &frame__45_1_types__inspect_node_grammar__match, 269, 269, 5, 33},
+  {cont__45_4, &frame__45_1_types__inspect_node_grammar__match, 268, 272, 3, 33},
+  {cont__45_7, &frame__45_1_types__inspect_node_grammar__match, 273, 273, 3, 6},
+  {entry__46_1_std__inspect_node, NULL, 275, 275, 28, 68},
   {entry__48_5, NULL, 286, 286, 7, 40},
   {cont__48_6, &frame__48_5, 286, 286, 40, 40},
   {entry__48_7, NULL, 288, 288, 7, 33},
   {cont__48_8, &frame__48_7, 288, 288, 33, 33},
-  {entry__48_1, NULL, 283, 283, 3, 25},
-  {cont__48_2, &frame__48_1, 285, 285, 5, 28},
-  {cont__48_3, &frame__48_1, 285, 285, 5, 33},
-  {cont__48_4, &frame__48_1, 284, 288, 3, 34},
-  {cont__48_9, &frame__48_1, 289, 289, 3, 6},
-  {entry__49_1, NULL, 291, 291, 27, 66},
+  {entry__48_1_types__modify_node_grammar__match, NULL, 283, 283, 3, 25},
+  {cont__48_2, &frame__48_1_types__modify_node_grammar__match, 285, 285, 5, 28},
+  {cont__48_3, &frame__48_1_types__modify_node_grammar__match, 285, 285, 5, 33},
+  {cont__48_4, &frame__48_1_types__modify_node_grammar__match, 284, 288, 3, 34},
+  {cont__48_9, &frame__48_1_types__modify_node_grammar__match, 289, 289, 3, 6},
+  {entry__49_1_std__modify_node, NULL, 291, 291, 27, 66},
   {entry__51_7, NULL, 307, 307, 50, 65},
   {entry__51_5, NULL, 307, 307, 14, 47},
   {cont__51_6, &frame__51_5, 307, 307, 7, 65},
   {entry__51_10, NULL, 309, 309, 43, 58},
   {entry__51_8, NULL, 309, 309, 14, 40},
   {cont__51_9, &frame__51_8, 309, 309, 7, 58},
-  {entry__51_1, NULL, 304, 304, 3, 25},
-  {cont__51_2, &frame__51_1, 306, 306, 5, 28},
-  {cont__51_3, &frame__51_1, 306, 306, 5, 33},
-  {cont__51_4, &frame__51_1, 305, 309, 3, 59},
-  {cont__51_11, &frame__51_1, 310, 310, 3, 6},
-  {entry__52_1, NULL, 312, 312, 26, 64},
-  {entry__54_1, NULL, 320, 320, 6, 22},
-  {cont__54_2, &frame__54_1, 320, 320, 6, 30},
-  {cont__54_3, &frame__54_1, 320, 320, 3, 30},
-  {entry__55_1, NULL, 322, 322, 30, 72},
-  {entry__57_1, NULL, 330, 330, 42, 54},
-  {cont__57_2, &frame__57_1, 330, 330, 3, 17},
-  {cont__57_3, &frame__57_1, 330, 330, 3, 54},
-  {cont__57_4, &frame__57_1, 331, 331, 3, 6},
-  {entry__58_1, NULL, 334, 334, 3, 54},
+  {entry__51_1_types__check_node_grammar__match, NULL, 304, 304, 3, 25},
+  {cont__51_2, &frame__51_1_types__check_node_grammar__match, 306, 306, 5, 28},
+  {cont__51_3, &frame__51_1_types__check_node_grammar__match, 306, 306, 5, 33},
+  {cont__51_4, &frame__51_1_types__check_node_grammar__match, 305, 309, 3, 59},
+  {cont__51_11, &frame__51_1_types__check_node_grammar__match, 310, 310, 3, 6},
+  {entry__52_1_std__check_node, NULL, 312, 312, 26, 64},
+  {entry__54_1_types__grammar_action_grammar__match, NULL, 320, 320, 6, 22},
+  {cont__54_2, &frame__54_1_types__grammar_action_grammar__match, 320, 320, 6, 30},
+  {cont__54_3, &frame__54_1_types__grammar_action_grammar__match, 320, 320, 3, 30},
+  {entry__55_1_std__grammar_action, NULL, 322, 322, 30, 72},
+  {entry__57_1_types__set_field_grammar__match, NULL, 330, 330, 42, 54},
+  {cont__57_2, &frame__57_1_types__set_field_grammar__match, 330, 330, 3, 17},
+  {cont__57_3, &frame__57_1_types__set_field_grammar__match, 330, 330, 3, 54},
+  {cont__57_4, &frame__57_1_types__set_field_grammar__match, 331, 331, 3, 6},
+  {entry__58_1_std__set_field, NULL, 334, 334, 3, 54},
   {entry__60_3, NULL, 342, 342, 37, 48},
   {entry__60_4, NULL, 342, 342, 51, 54},
-  {entry__60_1, NULL, 342, 342, 6, 34},
-  {cont__60_2, &frame__60_1, 342, 342, 3, 54},
+  {entry__60_1_std__END_OF_TEXT_grammar__match, NULL, 342, 342, 6, 34},
+  {cont__60_2, &frame__60_1_std__END_OF_TEXT_grammar__match, 342, 342, 3, 54},
   {entry__62_3, NULL, 355, 355, 41, 56},
   {entry__62_8, NULL, 357, 357, 25, 33},
   {cont__62_9, &frame__62_8, 357, 357, 25, 40},
@@ -1405,69 +1405,69 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__62_16, &frame__62_13, 357, 357, 45, 80},
   {cont__62_21, &frame__62_13, 357, 357, 45, 80},
   {entry__62_23, NULL, 359, 359, 7, 14},
-  {entry__62_1, NULL, 355, 355, 10, 38},
-  {cont__62_2, &frame__62_1, 355, 355, 3, 56},
-  {cont__62_4, &frame__62_1, 357, 357, 5, 13},
-  {cont__62_5, &frame__62_1, 357, 357, 5, 20},
-  {cont__62_6, &frame__62_1, 357, 357, 5, 20},
-  {cont__62_7, &frame__62_1, 357, 357, 5, 40},
-  {cont__62_12, &frame__62_1, 357, 357, 5, 80},
-  {cont__62_22, &frame__62_1, 356, 359, 3, 15},
-  {cont__62_24, &frame__62_1, 360, 360, 3, 14},
+  {entry__62_1_std__LETTER_grammar__match, NULL, 355, 355, 10, 38},
+  {cont__62_2, &frame__62_1_std__LETTER_grammar__match, 355, 355, 3, 56},
+  {cont__62_4, &frame__62_1_std__LETTER_grammar__match, 357, 357, 5, 13},
+  {cont__62_5, &frame__62_1_std__LETTER_grammar__match, 357, 357, 5, 20},
+  {cont__62_6, &frame__62_1_std__LETTER_grammar__match, 357, 357, 5, 20},
+  {cont__62_7, &frame__62_1_std__LETTER_grammar__match, 357, 357, 5, 40},
+  {cont__62_12, &frame__62_1_std__LETTER_grammar__match, 357, 357, 5, 80},
+  {cont__62_22, &frame__62_1_std__LETTER_grammar__match, 356, 359, 3, 15},
+  {cont__62_24, &frame__62_1_std__LETTER_grammar__match, 360, 360, 3, 14},
   {entry__64_3, NULL, 373, 373, 41, 56},
   {entry__64_8, NULL, 374, 374, 26, 34},
   {cont__64_9, &frame__64_8, 374, 374, 26, 41},
   {cont__64_10, &frame__64_8, 374, 374, 26, 41},
   {cont__64_11, &frame__64_8, 374, 374, 26, 41},
   {entry__64_13, NULL, 374, 374, 44, 51},
-  {entry__64_1, NULL, 373, 373, 10, 38},
-  {cont__64_2, &frame__64_1, 373, 373, 3, 56},
-  {cont__64_4, &frame__64_1, 374, 374, 6, 14},
-  {cont__64_5, &frame__64_1, 374, 374, 6, 21},
-  {cont__64_6, &frame__64_1, 374, 374, 6, 21},
-  {cont__64_7, &frame__64_1, 374, 374, 6, 41},
-  {cont__64_12, &frame__64_1, 374, 374, 3, 51},
-  {cont__64_14, &frame__64_1, 375, 375, 3, 14},
+  {entry__64_1_std__UPPER_CASE_LETTER_grammar__match, NULL, 373, 373, 10, 38},
+  {cont__64_2, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 373, 373, 3, 56},
+  {cont__64_4, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 374, 374, 6, 14},
+  {cont__64_5, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 374, 374, 6, 21},
+  {cont__64_6, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 374, 374, 6, 21},
+  {cont__64_7, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 374, 374, 6, 41},
+  {cont__64_12, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 374, 374, 3, 51},
+  {cont__64_14, &frame__64_1_std__UPPER_CASE_LETTER_grammar__match, 375, 375, 3, 14},
   {entry__66_3, NULL, 388, 388, 41, 56},
   {entry__66_8, NULL, 389, 389, 26, 34},
   {cont__66_9, &frame__66_8, 389, 389, 26, 41},
   {cont__66_10, &frame__66_8, 389, 389, 26, 41},
   {cont__66_11, &frame__66_8, 389, 389, 26, 41},
   {entry__66_13, NULL, 389, 389, 44, 51},
-  {entry__66_1, NULL, 388, 388, 10, 38},
-  {cont__66_2, &frame__66_1, 388, 388, 3, 56},
-  {cont__66_4, &frame__66_1, 389, 389, 6, 14},
-  {cont__66_5, &frame__66_1, 389, 389, 6, 21},
-  {cont__66_6, &frame__66_1, 389, 389, 6, 21},
-  {cont__66_7, &frame__66_1, 389, 389, 6, 41},
-  {cont__66_12, &frame__66_1, 389, 389, 3, 51},
-  {cont__66_14, &frame__66_1, 390, 390, 3, 14},
+  {entry__66_1_std__LOWER_CASE_LETTER_grammar__match, NULL, 388, 388, 10, 38},
+  {cont__66_2, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 388, 388, 3, 56},
+  {cont__66_4, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 389, 389, 6, 14},
+  {cont__66_5, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 389, 389, 6, 21},
+  {cont__66_6, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 389, 389, 6, 21},
+  {cont__66_7, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 389, 389, 6, 41},
+  {cont__66_12, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 389, 389, 3, 51},
+  {cont__66_14, &frame__66_1_std__LOWER_CASE_LETTER_grammar__match, 390, 390, 3, 14},
   {entry__68_3, NULL, 403, 403, 41, 56},
   {entry__68_8, NULL, 404, 404, 26, 34},
   {cont__68_9, &frame__68_8, 404, 404, 26, 41},
   {cont__68_10, &frame__68_8, 404, 404, 26, 41},
   {cont__68_11, &frame__68_8, 404, 404, 26, 41},
   {entry__68_13, NULL, 404, 404, 44, 51},
-  {entry__68_1, NULL, 403, 403, 10, 38},
-  {cont__68_2, &frame__68_1, 403, 403, 3, 56},
-  {cont__68_4, &frame__68_1, 404, 404, 6, 14},
-  {cont__68_5, &frame__68_1, 404, 404, 6, 21},
-  {cont__68_6, &frame__68_1, 404, 404, 6, 21},
-  {cont__68_7, &frame__68_1, 404, 404, 6, 41},
-  {cont__68_12, &frame__68_1, 404, 404, 3, 51},
-  {cont__68_14, &frame__68_1, 405, 405, 3, 14},
+  {entry__68_1_std__DIGIT_grammar__match, NULL, 403, 403, 10, 38},
+  {cont__68_2, &frame__68_1_std__DIGIT_grammar__match, 403, 403, 3, 56},
+  {cont__68_4, &frame__68_1_std__DIGIT_grammar__match, 404, 404, 6, 14},
+  {cont__68_5, &frame__68_1_std__DIGIT_grammar__match, 404, 404, 6, 21},
+  {cont__68_6, &frame__68_1_std__DIGIT_grammar__match, 404, 404, 6, 21},
+  {cont__68_7, &frame__68_1_std__DIGIT_grammar__match, 404, 404, 6, 41},
+  {cont__68_12, &frame__68_1_std__DIGIT_grammar__match, 404, 404, 3, 51},
+  {cont__68_14, &frame__68_1_std__DIGIT_grammar__match, 405, 405, 3, 14},
   {entry__70_3, NULL, 418, 418, 41, 56},
   {entry__70_8, NULL, 420, 420, 20, 33},
   {cont__70_9, &frame__70_8, 420, 420, 20, 33},
   {entry__70_11, NULL, 420, 420, 36, 43},
-  {entry__70_1, NULL, 418, 418, 10, 38},
-  {cont__70_2, &frame__70_1, 418, 418, 3, 56},
-  {cont__70_4, &frame__70_1, 419, 419, 3, 16},
-  {cont__70_5, &frame__70_1, 420, 420, 6, 15},
-  {cont__70_6, &frame__70_1, 420, 420, 6, 15},
-  {cont__70_7, &frame__70_1, 420, 420, 6, 33},
-  {cont__70_10, &frame__70_1, 420, 420, 3, 43},
-  {cont__70_12, &frame__70_1, 421, 421, 3, 14},
+  {entry__70_1_std__WHITESPACE_CHARACTER_grammar__match, NULL, 418, 418, 10, 38},
+  {cont__70_2, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 418, 418, 3, 56},
+  {cont__70_4, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 419, 419, 3, 16},
+  {cont__70_5, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 420, 420, 6, 15},
+  {cont__70_6, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 420, 420, 6, 15},
+  {cont__70_7, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 420, 420, 6, 33},
+  {cont__70_10, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 420, 420, 3, 43},
+  {cont__70_12, &frame__70_1_std__WHITESPACE_CHARACTER_grammar__match, 421, 421, 3, 14},
   {entry__73_3, NULL, 439, 439, 41, 56},
   {entry__73_8, NULL, 441, 441, 20, 32},
   {cont__73_9, &frame__73_8, 441, 441, 20, 32},
@@ -1475,15 +1475,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__73_12, &frame__73_11, 441, 441, 37, 51},
   {cont__73_13, &frame__73_11, 441, 441, 37, 51},
   {entry__73_15, NULL, 441, 441, 54, 61},
-  {entry__73_1, NULL, 439, 439, 10, 38},
-  {cont__73_2, &frame__73_1, 439, 439, 3, 56},
-  {cont__73_4, &frame__73_1, 440, 440, 3, 16},
-  {cont__73_5, &frame__73_1, 441, 441, 6, 15},
-  {cont__73_6, &frame__73_1, 441, 441, 6, 15},
-  {cont__73_7, &frame__73_1, 441, 441, 6, 32},
-  {cont__73_10, &frame__73_1, 441, 441, 6, 51},
-  {cont__73_14, &frame__73_1, 441, 441, 3, 61},
-  {cont__73_16, &frame__73_1, 442, 442, 3, 14},
+  {entry__73_1_std__PRINTABLE_CHARACTER_grammar__match, NULL, 439, 439, 10, 38},
+  {cont__73_2, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 439, 439, 3, 56},
+  {cont__73_4, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 440, 440, 3, 16},
+  {cont__73_5, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 441, 441, 6, 15},
+  {cont__73_6, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 441, 441, 6, 15},
+  {cont__73_7, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 441, 441, 6, 32},
+  {cont__73_10, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 441, 441, 6, 51},
+  {cont__73_14, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 441, 441, 3, 61},
+  {cont__73_16, &frame__73_1_std__PRINTABLE_CHARACTER_grammar__match, 442, 442, 3, 14},
   {entry__75_3, NULL, 455, 455, 41, 56},
   {entry__75_7, NULL, 457, 457, 19, 31},
   {cont__75_8, &frame__75_7, 457, 457, 19, 31},
@@ -1491,34 +1491,34 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__75_11, &frame__75_10, 457, 457, 36, 50},
   {cont__75_12, &frame__75_10, 457, 457, 36, 50},
   {entry__75_14, NULL, 457, 457, 53, 60},
-  {entry__75_1, NULL, 455, 455, 10, 38},
-  {cont__75_2, &frame__75_1, 455, 455, 3, 56},
-  {cont__75_4, &frame__75_1, 456, 456, 3, 16},
-  {cont__75_5, &frame__75_1, 457, 457, 6, 14},
-  {cont__75_6, &frame__75_1, 457, 457, 6, 31},
-  {cont__75_9, &frame__75_1, 457, 457, 6, 50},
-  {cont__75_13, &frame__75_1, 457, 457, 3, 60},
-  {cont__75_15, &frame__75_1, 458, 458, 3, 14},
+  {entry__75_1_std__NON_SPACE_CHARACTER_grammar__match, NULL, 455, 455, 10, 38},
+  {cont__75_2, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 455, 455, 3, 56},
+  {cont__75_4, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 456, 456, 3, 16},
+  {cont__75_5, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 457, 457, 6, 14},
+  {cont__75_6, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 457, 457, 6, 31},
+  {cont__75_9, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 457, 457, 6, 50},
+  {cont__75_13, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 457, 457, 3, 60},
+  {cont__75_15, &frame__75_1_std__NON_SPACE_CHARACTER_grammar__match, 458, 458, 3, 14},
   {entry__77_3, NULL, 471, 471, 41, 56},
-  {entry__77_1, NULL, 471, 471, 10, 38},
-  {cont__77_2, &frame__77_1, 471, 471, 3, 56},
-  {cont__77_4, &frame__77_1, 472, 472, 3, 6},
-  {entry__78_1, NULL, 477, 477, 48, 73},
+  {entry__77_1_std__ANY_CHARACTER_grammar__match, NULL, 471, 471, 10, 38},
+  {cont__77_2, &frame__77_1_std__ANY_CHARACTER_grammar__match, 471, 471, 3, 56},
+  {cont__77_4, &frame__77_1_std__ANY_CHARACTER_grammar__match, 472, 472, 3, 6},
+  {entry__78_1_types__character_grammar__match, NULL, 477, 477, 48, 73},
   {entry__79_3, NULL, 485, 485, 41, 56},
   {entry__79_9, NULL, 487, 487, 44, 63},
   {cont__79_10, &frame__79_9, 487, 487, 37, 63},
   {cont__79_11, &frame__79_9, 487, 487, 37, 63},
   {cont__79_12, &frame__79_9, 487, 487, 37, 63},
   {entry__79_14, NULL, 487, 487, 66, 73},
-  {entry__79_1, NULL, 485, 485, 10, 38},
-  {cont__79_2, &frame__79_1, 485, 485, 3, 56},
-  {cont__79_4, &frame__79_1, 486, 486, 3, 16},
-  {cont__79_5, &frame__79_1, 487, 487, 13, 32},
-  {cont__79_6, &frame__79_1, 487, 487, 6, 32},
-  {cont__79_7, &frame__79_1, 487, 487, 6, 32},
-  {cont__79_8, &frame__79_1, 487, 487, 6, 63},
-  {cont__79_13, &frame__79_1, 487, 487, 3, 73},
-  {cont__79_15, &frame__79_1, 488, 488, 3, 14},
+  {entry__79_1_types__value_range_grammar__match, NULL, 485, 485, 10, 38},
+  {cont__79_2, &frame__79_1_types__value_range_grammar__match, 485, 485, 3, 56},
+  {cont__79_4, &frame__79_1_types__value_range_grammar__match, 486, 486, 3, 16},
+  {cont__79_5, &frame__79_1_types__value_range_grammar__match, 487, 487, 13, 32},
+  {cont__79_6, &frame__79_1_types__value_range_grammar__match, 487, 487, 6, 32},
+  {cont__79_7, &frame__79_1_types__value_range_grammar__match, 487, 487, 6, 32},
+  {cont__79_8, &frame__79_1_types__value_range_grammar__match, 487, 487, 6, 63},
+  {cont__79_13, &frame__79_1_types__value_range_grammar__match, 487, 487, 3, 73},
+  {cont__79_15, &frame__79_1_types__value_range_grammar__match, 488, 488, 3, 14},
   {entry__80_5, NULL, 502, 502, 7, 22},
   {entry__80_2, NULL, 499, 499, 5, 34},
   {cont__80_3, &frame__80_2, 500, 500, 12, 23},
@@ -1528,8 +1528,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__80_8, &frame__80_2, 503, 503, 5, 24},
   {cont__80_9, &frame__80_2, 504, 504, 5, 15},
   {cont__80_10, &frame__80_2, 504, 504, 15, 15},
-  {entry__80_1, NULL, 498, 504, 3, 15},
-  {cont__80_11, &frame__80_1, 505, 505, 3, 8},
+  {entry__80_1_types__list_grammar__match, NULL, 498, 504, 3, 15},
+  {cont__80_11, &frame__80_1_types__list_grammar__match, 505, 505, 3, 8},
   {entry__81_9, NULL, 521, 521, 24, 37},
   {entry__81_12, NULL, 523, 523, 23, 27},
   {cont__81_13, &frame__81_12, 523, 523, 13, 27},
@@ -1589,9 +1589,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__81_61, &frame__81_28, 548, 548, 21, 21},
   {entry__81_26, NULL, 530, 530, 7, 17},
   {cont__81_27, &frame__81_26, 533, 548, 7, 21},
-  {entry__81_1, NULL, 517, 517, 5, 11},
-  {cont__81_2, &frame__81_1, 516, 548, 3, 23},
-  {cont__81_62, &frame__81_1, 548, 548, 23, 23}
+  {entry__81_1_types__object_grammar__search, NULL, 517, 517, 5, 11},
+  {cont__81_2, &frame__81_1_types__object_grammar__search, 516, 548, 3, 23},
+  {cont__81_62, &frame__81_1_types__object_grammar__search, 548, 548, 23, 23}
 };
 
 union NODE {
@@ -1825,7 +1825,7 @@ static void cont__152_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_types__optional_grammar__match(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -1889,7 +1889,7 @@ static void cont__12_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1(void) {
+static void entry__13_1_std__optional(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -1913,7 +1913,7 @@ static void entry__13_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1(void) {
+static void entry__15_1_types__many_grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2263,7 +2263,7 @@ static void cont__15_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1(void) {
+static void entry__16_1_std__many(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -2287,7 +2287,7 @@ static void entry__16_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1(void) {
+static void entry__18_1_types__some_grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2637,7 +2637,7 @@ static void cont__18_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__19_1(void) {
+static void entry__19_1_std__some(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -2661,7 +2661,7 @@ static void entry__19_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1(void) {
+static void entry__21_1_types__alt_grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2795,7 +2795,7 @@ static void cont__21_7(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__22_1(void) {
+static void entry__22_1_std__alt(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -2817,7 +2817,7 @@ static void entry__22_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1(void) {
+static void entry__24_1_types__followed_by_grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -2946,7 +2946,7 @@ static void cont__24_7(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1(void) {
+static void entry__25_1_std__followed_by(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -2970,7 +2970,7 @@ static void entry__25_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1(void) {
+static void entry__27_1_types__not_followed_by_grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -3099,7 +3099,7 @@ static void cont__27_7(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__28_1(void) {
+static void entry__28_1_std__not_followed_by(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -3123,7 +3123,7 @@ static void entry__28_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__30_1(void) {
+static void entry__30_1_types__capture_grammar__match(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -3354,7 +3354,7 @@ static void cont__30_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__31_1(void) {
+static void entry__31_1_std__capture(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -3392,7 +3392,7 @@ static void entry__31_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__33_1(void) {
+static void entry__33_1_types__multi_capture_grammar__match(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -3695,7 +3695,7 @@ static void cont__33_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__34_1(void) {
+static void entry__34_1_std__multi_capture(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -3733,7 +3733,7 @@ static void entry__34_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_1(void) {
+static void entry__36_1_types__span_grammar__match(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -3926,7 +3926,7 @@ static void cont__36_10(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__37_1(void) {
+static void entry__37_1_std__span(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -3952,7 +3952,7 @@ static void entry__37_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__39_1(void) {
+static void entry__39_1_types__multi_span_grammar__match(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -4271,7 +4271,7 @@ static void cont__39_17(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__40_1(void) {
+static void entry__40_1_std__multi_span(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -4309,7 +4309,7 @@ static void entry__40_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__42_1(void) {
+static void entry__42_1_types__set_node_grammar__match(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // self: 0
@@ -4341,7 +4341,7 @@ static void cont__42_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__43_1(void) {
+static void entry__43_1_std__set_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // node: 0
@@ -4365,7 +4365,7 @@ static void entry__43_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__45_1(void) {
+static void entry__45_1_types__inspect_node_grammar__match(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -4495,7 +4495,7 @@ static void cont__45_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__46_1(void) {
+static void entry__46_1_std__inspect_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -4519,7 +4519,7 @@ static void entry__46_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__48_1(void) {
+static void entry__48_1_types__modify_node_grammar__match(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -4673,7 +4673,7 @@ static void cont__48_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__49_1(void) {
+static void entry__49_1_std__modify_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -4697,7 +4697,7 @@ static void entry__49_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__51_1(void) {
+static void entry__51_1_types__check_node_grammar__match(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // self: 0
@@ -4905,7 +4905,7 @@ static void cont__51_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__52_1(void) {
+static void entry__52_1_std__check_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -4929,7 +4929,7 @@ static void entry__52_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__54_1(void) {
+static void entry__54_1_types__grammar_action_grammar__match(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -4976,7 +4976,7 @@ static void cont__54_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__55_1(void) {
+static void entry__55_1_std__grammar_action(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -5000,7 +5000,7 @@ static void entry__55_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__57_1(void) {
+static void entry__57_1_types__set_field_grammar__match(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -5063,7 +5063,7 @@ static void cont__57_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__58_1(void) {
+static void entry__58_1_std__set_field(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -5119,7 +5119,7 @@ static void entry__60_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__60_1(void) {
+static void entry__60_1_std__END_OF_TEXT_grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -5155,7 +5155,7 @@ static void cont__60_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__62_1(void) {
+static void entry__62_1_std__LETTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 11);
   // slot allocations:
   // self: 0
@@ -5553,7 +5553,7 @@ static void cont__62_24(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__64_1(void) {
+static void entry__64_1_std__UPPER_CASE_LETTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -5785,7 +5785,7 @@ static void cont__64_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__66_1(void) {
+static void entry__66_1_std__LOWER_CASE_LETTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -6017,7 +6017,7 @@ static void cont__66_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__68_1(void) {
+static void entry__68_1_std__DIGIT_grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -6249,7 +6249,7 @@ static void cont__68_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__70_1(void) {
+static void entry__70_1_std__WHITESPACE_CHARACTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -6453,7 +6453,7 @@ static void cont__70_12(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__73_1(void) {
+static void entry__73_1_std__PRINTABLE_CHARACTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 11);
   // slot allocations:
   // self: 0
@@ -6723,7 +6723,7 @@ static void cont__73_16(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__75_1(void) {
+static void entry__75_1_std__NON_SPACE_CHARACTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // self: 0
@@ -6978,7 +6978,7 @@ static void cont__75_15(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__77_1(void) {
+static void entry__77_1_std__ANY_CHARACTER_grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -7048,7 +7048,7 @@ static void cont__77_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__78_1(void) {
+static void entry__78_1_types__character_grammar__match(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // chr: 0
@@ -7067,7 +7067,7 @@ static void entry__78_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__79_1(void) {
+static void entry__79_1_types__value_range_grammar__match(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // self: 0
@@ -7318,7 +7318,7 @@ static void cont__79_15(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__80_1(void) {
+static void entry__80_1_types__list_grammar__match(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -7537,7 +7537,7 @@ static void cont__80_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__81_1(void) {
+static void entry__81_1_types__object_grammar__search(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // expr: 0
@@ -8851,53 +8851,53 @@ EXPORT void phase_2__basic__grammar(void) {
   character__97 = from_uchar32(97);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__12_1 = create_function(entry__12_1, 2);
-  func__13_1 = create_function(entry__13_1, 1);
-  func__15_1 = create_function(entry__15_1, 2);
-  func__16_1 = create_function(entry__16_1, 1);
-  func__18_1 = create_function(entry__18_1, 2);
-  func__19_1 = create_function(entry__19_1, 1);
-  func__21_1 = create_function(entry__21_1, 2);
-  func__22_1 = create_function(entry__22_1, -1);
-  func__24_1 = create_function(entry__24_1, 2);
-  func__25_1 = create_function(entry__25_1, 1);
-  func__27_1 = create_function(entry__27_1, 2);
-  func__28_1 = create_function(entry__28_1, 1);
-  func__30_1 = create_function(entry__30_1, 2);
-  func__31_1 = create_function(entry__31_1, -1);
-  func__33_1 = create_function(entry__33_1, 2);
-  func__34_1 = create_function(entry__34_1, -1);
-  func__36_1 = create_function(entry__36_1, 2);
-  func__37_1 = create_function(entry__37_1, 2);
-  func__39_1 = create_function(entry__39_1, 2);
-  func__40_1 = create_function(entry__40_1, -1);
-  func__42_1 = create_function(entry__42_1, 2);
-  func__43_1 = create_function(entry__43_1, 1);
-  func__45_1 = create_function(entry__45_1, 2);
-  func__46_1 = create_function(entry__46_1, 1);
-  func__48_1 = create_function(entry__48_1, 2);
-  func__49_1 = create_function(entry__49_1, 1);
-  func__51_1 = create_function(entry__51_1, 2);
-  func__52_1 = create_function(entry__52_1, 1);
-  func__54_1 = create_function(entry__54_1, 2);
-  func__55_1 = create_function(entry__55_1, 1);
-  func__57_1 = create_function(entry__57_1, 2);
-  func__58_1 = create_function(entry__58_1, 2);
+  func__12_1_types__optional_grammar__match = create_function(entry__12_1_types__optional_grammar__match, 2);
+  func__13_1_std__optional = create_function(entry__13_1_std__optional, 1);
+  func__15_1_types__many_grammar__match = create_function(entry__15_1_types__many_grammar__match, 2);
+  func__16_1_std__many = create_function(entry__16_1_std__many, 1);
+  func__18_1_types__some_grammar__match = create_function(entry__18_1_types__some_grammar__match, 2);
+  func__19_1_std__some = create_function(entry__19_1_std__some, 1);
+  func__21_1_types__alt_grammar__match = create_function(entry__21_1_types__alt_grammar__match, 2);
+  func__22_1_std__alt = create_function(entry__22_1_std__alt, -1);
+  func__24_1_types__followed_by_grammar__match = create_function(entry__24_1_types__followed_by_grammar__match, 2);
+  func__25_1_std__followed_by = create_function(entry__25_1_std__followed_by, 1);
+  func__27_1_types__not_followed_by_grammar__match = create_function(entry__27_1_types__not_followed_by_grammar__match, 2);
+  func__28_1_std__not_followed_by = create_function(entry__28_1_std__not_followed_by, 1);
+  func__30_1_types__capture_grammar__match = create_function(entry__30_1_types__capture_grammar__match, 2);
+  func__31_1_std__capture = create_function(entry__31_1_std__capture, -1);
+  func__33_1_types__multi_capture_grammar__match = create_function(entry__33_1_types__multi_capture_grammar__match, 2);
+  func__34_1_std__multi_capture = create_function(entry__34_1_std__multi_capture, -1);
+  func__36_1_types__span_grammar__match = create_function(entry__36_1_types__span_grammar__match, 2);
+  func__37_1_std__span = create_function(entry__37_1_std__span, 2);
+  func__39_1_types__multi_span_grammar__match = create_function(entry__39_1_types__multi_span_grammar__match, 2);
+  func__40_1_std__multi_span = create_function(entry__40_1_std__multi_span, -1);
+  func__42_1_types__set_node_grammar__match = create_function(entry__42_1_types__set_node_grammar__match, 2);
+  func__43_1_std__set_node = create_function(entry__43_1_std__set_node, 1);
+  func__45_1_types__inspect_node_grammar__match = create_function(entry__45_1_types__inspect_node_grammar__match, 2);
+  func__46_1_std__inspect_node = create_function(entry__46_1_std__inspect_node, 1);
+  func__48_1_types__modify_node_grammar__match = create_function(entry__48_1_types__modify_node_grammar__match, 2);
+  func__49_1_std__modify_node = create_function(entry__49_1_std__modify_node, 1);
+  func__51_1_types__check_node_grammar__match = create_function(entry__51_1_types__check_node_grammar__match, 2);
+  func__52_1_std__check_node = create_function(entry__52_1_std__check_node, 1);
+  func__54_1_types__grammar_action_grammar__match = create_function(entry__54_1_types__grammar_action_grammar__match, 2);
+  func__55_1_std__grammar_action = create_function(entry__55_1_std__grammar_action, 1);
+  func__57_1_types__set_field_grammar__match = create_function(entry__57_1_types__set_field_grammar__match, 2);
+  func__58_1_std__set_field = create_function(entry__58_1_std__set_field, 2);
   func__60_3 = create_function(entry__60_3, 0);
   func__60_4 = create_function(entry__60_4, 0);
-  func__60_1 = create_function(entry__60_1, 2);
-  func__62_1 = create_function(entry__62_1, 2);
-  func__64_1 = create_function(entry__64_1, 2);
-  func__66_1 = create_function(entry__66_1, 2);
-  func__68_1 = create_function(entry__68_1, 2);
-  func__70_1 = create_function(entry__70_1, 2);
-  func__73_1 = create_function(entry__73_1, 2);
-  func__75_1 = create_function(entry__75_1, 2);
-  func__77_1 = create_function(entry__77_1, 2);
-  func__78_1 = create_function(entry__78_1, 2);
-  func__79_1 = create_function(entry__79_1, 2);
-  func__80_1 = create_function(entry__80_1, 2);
-  func__81_1 = create_function(entry__81_1, -1);
+  func__60_1_std__END_OF_TEXT_grammar__match = create_function(entry__60_1_std__END_OF_TEXT_grammar__match, 2);
+  func__62_1_std__LETTER_grammar__match = create_function(entry__62_1_std__LETTER_grammar__match, 2);
+  func__64_1_std__UPPER_CASE_LETTER_grammar__match = create_function(entry__64_1_std__UPPER_CASE_LETTER_grammar__match, 2);
+  func__66_1_std__LOWER_CASE_LETTER_grammar__match = create_function(entry__66_1_std__LOWER_CASE_LETTER_grammar__match, 2);
+  func__68_1_std__DIGIT_grammar__match = create_function(entry__68_1_std__DIGIT_grammar__match, 2);
+  func__70_1_std__WHITESPACE_CHARACTER_grammar__match = create_function(entry__70_1_std__WHITESPACE_CHARACTER_grammar__match, 2);
+  func__73_1_std__PRINTABLE_CHARACTER_grammar__match = create_function(entry__73_1_std__PRINTABLE_CHARACTER_grammar__match, 2);
+  func__75_1_std__NON_SPACE_CHARACTER_grammar__match = create_function(entry__75_1_std__NON_SPACE_CHARACTER_grammar__match, 2);
+  func__77_1_std__ANY_CHARACTER_grammar__match = create_function(entry__77_1_std__ANY_CHARACTER_grammar__match, 2);
+  func__78_1_types__character_grammar__match = create_function(entry__78_1_types__character_grammar__match, 2);
+  func__79_1_types__value_range_grammar__match = create_function(entry__79_1_types__value_range_grammar__match, 2);
+  func__80_1_types__list_grammar__match = create_function(entry__80_1_types__list_grammar__match, 2);
+  func__81_1_types__object_grammar__search = create_function(entry__81_1_types__object_grammar__search, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -8996,35 +8996,35 @@ EXPORT void phase_4__basic__grammar(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   use_read_only(NULL, "unless", &get__unless, &get_value_or_future__unless);
   use_read_only(NULL, "upper_bound_of", &get__upper_bound_of, &get_value_or_future__upper_bound_of);
-  define_method("types", "optional", poly_idx__grammar__match, func__12_1);
-  define_method("types", "many", poly_idx__grammar__match, func__15_1);
-  define_method("types", "some", poly_idx__grammar__match, func__18_1);
-  define_method("types", "alt", poly_idx__grammar__match, func__21_1);
-  define_method("types", "followed_by", poly_idx__grammar__match, func__24_1);
-  define_method("types", "not_followed_by", poly_idx__grammar__match, func__27_1);
-  define_method("types", "capture", poly_idx__grammar__match, func__30_1);
-  define_method("types", "multi_capture", poly_idx__grammar__match, func__33_1);
-  define_method("types", "span", poly_idx__grammar__match, func__36_1);
-  define_method("types", "multi_span", poly_idx__grammar__match, func__39_1);
-  define_method("types", "set_node", poly_idx__grammar__match, func__42_1);
-  define_method("types", "inspect_node", poly_idx__grammar__match, func__45_1);
-  define_method("types", "modify_node", poly_idx__grammar__match, func__48_1);
-  define_method("types", "check_node", poly_idx__grammar__match, func__51_1);
-  define_method("types", "grammar_action", poly_idx__grammar__match, func__54_1);
-  define_method("types", "set_field", poly_idx__grammar__match, func__57_1);
-  define_method("std", "END_OF_TEXT", poly_idx__grammar__match, func__60_1);
-  define_method("std", "LETTER", poly_idx__grammar__match, func__62_1);
-  define_method("std", "UPPER_CASE_LETTER", poly_idx__grammar__match, func__64_1);
-  define_method("std", "LOWER_CASE_LETTER", poly_idx__grammar__match, func__66_1);
-  define_method("std", "DIGIT", poly_idx__grammar__match, func__68_1);
-  define_method("std", "WHITESPACE_CHARACTER", poly_idx__grammar__match, func__70_1);
-  define_method("std", "PRINTABLE_CHARACTER", poly_idx__grammar__match, func__73_1);
-  define_method("std", "NON_SPACE_CHARACTER", poly_idx__grammar__match, func__75_1);
-  define_method("std", "ANY_CHARACTER", poly_idx__grammar__match, func__77_1);
-  define_method("types", "character", poly_idx__grammar__match, func__78_1);
-  define_method("types", "value_range", poly_idx__grammar__match, func__79_1);
-  define_method("types", "list", poly_idx__grammar__match, func__80_1);
-  define_method("types", "object", poly_idx__grammar__search, func__81_1);
+  define_method("types", "optional", poly_idx__grammar__match, func__12_1_types__optional_grammar__match);
+  define_method("types", "many", poly_idx__grammar__match, func__15_1_types__many_grammar__match);
+  define_method("types", "some", poly_idx__grammar__match, func__18_1_types__some_grammar__match);
+  define_method("types", "alt", poly_idx__grammar__match, func__21_1_types__alt_grammar__match);
+  define_method("types", "followed_by", poly_idx__grammar__match, func__24_1_types__followed_by_grammar__match);
+  define_method("types", "not_followed_by", poly_idx__grammar__match, func__27_1_types__not_followed_by_grammar__match);
+  define_method("types", "capture", poly_idx__grammar__match, func__30_1_types__capture_grammar__match);
+  define_method("types", "multi_capture", poly_idx__grammar__match, func__33_1_types__multi_capture_grammar__match);
+  define_method("types", "span", poly_idx__grammar__match, func__36_1_types__span_grammar__match);
+  define_method("types", "multi_span", poly_idx__grammar__match, func__39_1_types__multi_span_grammar__match);
+  define_method("types", "set_node", poly_idx__grammar__match, func__42_1_types__set_node_grammar__match);
+  define_method("types", "inspect_node", poly_idx__grammar__match, func__45_1_types__inspect_node_grammar__match);
+  define_method("types", "modify_node", poly_idx__grammar__match, func__48_1_types__modify_node_grammar__match);
+  define_method("types", "check_node", poly_idx__grammar__match, func__51_1_types__check_node_grammar__match);
+  define_method("types", "grammar_action", poly_idx__grammar__match, func__54_1_types__grammar_action_grammar__match);
+  define_method("types", "set_field", poly_idx__grammar__match, func__57_1_types__set_field_grammar__match);
+  define_method("std", "END_OF_TEXT", poly_idx__grammar__match, func__60_1_std__END_OF_TEXT_grammar__match);
+  define_method("std", "LETTER", poly_idx__grammar__match, func__62_1_std__LETTER_grammar__match);
+  define_method("std", "UPPER_CASE_LETTER", poly_idx__grammar__match, func__64_1_std__UPPER_CASE_LETTER_grammar__match);
+  define_method("std", "LOWER_CASE_LETTER", poly_idx__grammar__match, func__66_1_std__LOWER_CASE_LETTER_grammar__match);
+  define_method("std", "DIGIT", poly_idx__grammar__match, func__68_1_std__DIGIT_grammar__match);
+  define_method("std", "WHITESPACE_CHARACTER", poly_idx__grammar__match, func__70_1_std__WHITESPACE_CHARACTER_grammar__match);
+  define_method("std", "PRINTABLE_CHARACTER", poly_idx__grammar__match, func__73_1_std__PRINTABLE_CHARACTER_grammar__match);
+  define_method("std", "NON_SPACE_CHARACTER", poly_idx__grammar__match, func__75_1_std__NON_SPACE_CHARACTER_grammar__match);
+  define_method("std", "ANY_CHARACTER", poly_idx__grammar__match, func__77_1_std__ANY_CHARACTER_grammar__match);
+  define_method("types", "character", poly_idx__grammar__match, func__78_1_types__character_grammar__match);
+  define_method("types", "value_range", poly_idx__grammar__match, func__79_1_types__value_range_grammar__match);
+  define_method("types", "list", poly_idx__grammar__match, func__80_1_types__list_grammar__match);
+  define_method("types", "object", poly_idx__grammar__search, func__81_1_types__object_grammar__search);
 }
 
 static int already_run_phase_5 = false;
@@ -9042,37 +9042,37 @@ EXPORT void phase_5__basic__grammar(void) {
   assign_value(&var._node_of, create_function(type__node_of, -1));
   assign_value(&var._function_of, create_function(type__function_of, -1));
   assign_variable(&var.types__optional, &var.types__grammar_object);
-  assign_variable(&var.std__optional, &func__13_1);
+  assign_variable(&var.std__optional, &func__13_1_std__optional);
   assign_variable(&var.types__many, &var.types__grammar_object);
-  assign_variable(&var.std__many, &func__16_1);
+  assign_variable(&var.std__many, &func__16_1_std__many);
   assign_variable(&var.types__some, &var.types__grammar_object);
-  assign_variable(&var.std__some, &func__19_1);
+  assign_variable(&var.std__some, &func__19_1_std__some);
   assign_variable(&var.types__alt, &var.types__grammar_object);
-  assign_variable(&var.std__alt, &func__22_1);
+  assign_variable(&var.std__alt, &func__22_1_std__alt);
   assign_variable(&var.types__followed_by, &var.types__grammar_object);
-  assign_variable(&var.std__followed_by, &func__25_1);
+  assign_variable(&var.std__followed_by, &func__25_1_std__followed_by);
   assign_variable(&var.types__not_followed_by, &var.types__grammar_object);
-  assign_variable(&var.std__not_followed_by, &func__28_1);
+  assign_variable(&var.std__not_followed_by, &func__28_1_std__not_followed_by);
   assign_variable(&var.types__capture, &var.types__grammar_object);
-  assign_variable(&var.std__capture, &func__31_1);
+  assign_variable(&var.std__capture, &func__31_1_std__capture);
   assign_variable(&var.types__multi_capture, &var.types__grammar_object);
-  assign_variable(&var.std__multi_capture, &func__34_1);
+  assign_variable(&var.std__multi_capture, &func__34_1_std__multi_capture);
   assign_variable(&var.types__span, &var.types__grammar_object);
-  assign_variable(&var.std__span, &func__37_1);
+  assign_variable(&var.std__span, &func__37_1_std__span);
   assign_variable(&var.types__multi_span, &var.types__grammar_object);
-  assign_variable(&var.std__multi_span, &func__40_1);
+  assign_variable(&var.std__multi_span, &func__40_1_std__multi_span);
   assign_variable(&var.types__set_node, &var.types__grammar_object);
-  assign_variable(&var.std__set_node, &func__43_1);
+  assign_variable(&var.std__set_node, &func__43_1_std__set_node);
   assign_variable(&var.types__inspect_node, &var.types__grammar_object);
-  assign_variable(&var.std__inspect_node, &func__46_1);
+  assign_variable(&var.std__inspect_node, &func__46_1_std__inspect_node);
   assign_variable(&var.types__modify_node, &var.types__grammar_object);
-  assign_variable(&var.std__modify_node, &func__49_1);
+  assign_variable(&var.std__modify_node, &func__49_1_std__modify_node);
   assign_variable(&var.types__check_node, &var.types__grammar_object);
-  assign_variable(&var.std__check_node, &func__52_1);
+  assign_variable(&var.std__check_node, &func__52_1_std__check_node);
   assign_variable(&var.types__grammar_action, &var.types__grammar_object);
-  assign_variable(&var.std__grammar_action, &func__55_1);
+  assign_variable(&var.std__grammar_action, &func__55_1_std__grammar_action);
   assign_variable(&var.types__set_field, &var.types__grammar_object);
-  assign_variable(&var.std__set_field, &func__58_1);
+  assign_variable(&var.std__set_field, &func__58_1_std__set_field);
   assign_variable(&var.std__END_OF_TEXT, &var.types__grammar_object);
   assign_variable(&var.std__LETTER, &var.types__grammar_object);
   assign_variable(&var.std__UPPER_CASE_LETTER, &var.types__grammar_object);

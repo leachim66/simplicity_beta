@@ -419,9 +419,9 @@ static void entry__26_1(void);
 static NODE *func__26_1;
 static void entry__27_1(void);
 static NODE *func__27_1;
-static NODE *func__28_1;
-static void entry__28_1(void);
-static FRAME_INFO frame__28_1 = {4, {"self", "ts", "t", "second"}};
+static NODE *func__28_1_types__date_and_time_to_string;
+static void entry__28_1_types__date_and_time_to_string(void);
+static FRAME_INFO frame__28_1_types__date_and_time_to_string = {4, {"self", "ts", "t", "second"}};
 static void cont__28_2(void);
 static void cont__28_3(void);
 static void cont__28_4(void);
@@ -513,27 +513,27 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__28_28, &frame__28_27, 364, 364, 9, 28, 1},
   {entry__28_32, NULL, 365, 365, 17, 21, 1},
   {entry__28_31, NULL, 365, 365, 9, 21, 1},
-  {entry__28_1, NULL, 343, 343, 3, 25, 1},
-  {cont__28_2, &frame__28_1, 344, 344, 3, 12, 1},
-  {cont__28_3, &frame__28_1, 345, 345, 3, 22, 1},
-  {cont__28_4, &frame__28_1, 348, 348, 7, 16, 1},
-  {cont__28_5, &frame__28_1, 350, 350, 16, 26, 1},
-  {cont__28_6, &frame__28_1, 350, 350, 7, 33, 1},
-  {cont__28_8, &frame__28_1, 352, 352, 16, 24, 1},
-  {cont__28_9, &frame__28_1, 352, 352, 7, 31, 1},
-  {cont__28_10, &frame__28_1, 354, 354, 7, 16, 1},
-  {cont__28_11, &frame__28_1, 356, 356, 16, 27, 1},
-  {cont__28_12, &frame__28_1, 356, 356, 7, 34, 1},
-  {cont__28_13, &frame__28_1, 358, 358, 16, 28, 1},
-  {cont__28_14, &frame__28_1, 358, 358, 7, 35, 1},
-  {cont__28_15, &frame__28_1, 360, 360, 35, 47, 1},
-  {cont__28_16, &frame__28_1, 360, 360, 28, 47, 1},
-  {cont__28_17, &frame__28_1, 360, 360, 22, 47, 1},
-  {cont__28_18, &frame__28_1, 360, 360, 16, 49, 1},
-  {cont__28_19, &frame__28_1, 360, 360, 7, 56, 1},
-  {cont__28_20, &frame__28_1, 362, 365, 7, 20, 1},
-  {cont__28_33, &frame__28_1, 347, 365, 5, 21, 1},
-  {cont__28_37, &frame__28_1, 346, 365, 3, 23, 1},
+  {entry__28_1_types__date_and_time_to_string, NULL, 343, 343, 3, 25, 1},
+  {cont__28_2, &frame__28_1_types__date_and_time_to_string, 344, 344, 3, 12, 1},
+  {cont__28_3, &frame__28_1_types__date_and_time_to_string, 345, 345, 3, 22, 1},
+  {cont__28_4, &frame__28_1_types__date_and_time_to_string, 348, 348, 7, 16, 1},
+  {cont__28_5, &frame__28_1_types__date_and_time_to_string, 350, 350, 16, 26, 1},
+  {cont__28_6, &frame__28_1_types__date_and_time_to_string, 350, 350, 7, 33, 1},
+  {cont__28_8, &frame__28_1_types__date_and_time_to_string, 352, 352, 16, 24, 1},
+  {cont__28_9, &frame__28_1_types__date_and_time_to_string, 352, 352, 7, 31, 1},
+  {cont__28_10, &frame__28_1_types__date_and_time_to_string, 354, 354, 7, 16, 1},
+  {cont__28_11, &frame__28_1_types__date_and_time_to_string, 356, 356, 16, 27, 1},
+  {cont__28_12, &frame__28_1_types__date_and_time_to_string, 356, 356, 7, 34, 1},
+  {cont__28_13, &frame__28_1_types__date_and_time_to_string, 358, 358, 16, 28, 1},
+  {cont__28_14, &frame__28_1_types__date_and_time_to_string, 358, 358, 7, 35, 1},
+  {cont__28_15, &frame__28_1_types__date_and_time_to_string, 360, 360, 35, 47, 1},
+  {cont__28_16, &frame__28_1_types__date_and_time_to_string, 360, 360, 28, 47, 1},
+  {cont__28_17, &frame__28_1_types__date_and_time_to_string, 360, 360, 22, 47, 1},
+  {cont__28_18, &frame__28_1_types__date_and_time_to_string, 360, 360, 16, 49, 1},
+  {cont__28_19, &frame__28_1_types__date_and_time_to_string, 360, 360, 7, 56, 1},
+  {cont__28_20, &frame__28_1_types__date_and_time_to_string, 362, 365, 7, 20, 1},
+  {cont__28_33, &frame__28_1_types__date_and_time_to_string, 347, 365, 5, 21, 1},
+  {cont__28_37, &frame__28_1_types__date_and_time_to_string, 346, 365, 3, 23, 1},
   {entry__29_1, NULL, 368, 378, 3, 2, 1}
 };
 
@@ -1269,7 +1269,7 @@ static void entry__27_1(void) {
     return;
   }
 }
-static void entry__28_1(void) {
+static void entry__28_1_types__date_and_time_to_string(void) {
   allocate_initialized_frame_gc(1, 23);
   // slot allocations:
   // self: 0
@@ -1918,7 +1918,7 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   string__28_34 = from_latin_1_string("-", 1);
   string__28_35 = from_latin_1_string(":", 1);
   string__28_36 = from_latin_1_string(" GMT", 4);
-  func__28_1 = create_function(entry__28_1, 1);
+  func__28_1_types__date_and_time_to_string = create_function(entry__28_1_types__date_and_time_to_string, 1);
   func__29_1 = create_function(entry__29_1, 1);
 }
 
@@ -1980,7 +1980,7 @@ EXPORT void phase_4__basic__types__date_and_time(void) {
   define_method("types", "date_and_time", poly_idx__equal, func__25_1);
   define_method("types", "date_and_time", poly_idx__less, func__26_1);
   define_method("types", "date_and_time", poly_idx__time_shift_of, func__27_1);
-  define_method("types", "date_and_time", poly_idx__to_string, func__28_1);
+  define_method("types", "date_and_time", poly_idx__to_string, func__28_1_types__date_and_time_to_string);
 }
 
 static int already_run_phase_5 = false;

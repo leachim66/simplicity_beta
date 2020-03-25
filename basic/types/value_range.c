@@ -318,9 +318,9 @@ static void entry__8_1(void);
 static NODE *func__8_1;
 
 static long func__types__value_range___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {2, {"left", "right"}};
+static NODE *func__10_1_types__value_range_equal;
+static void entry__10_1_types__value_range_equal(void);
+static FRAME_INFO frame__10_1_types__value_range_equal = {2, {"left", "right"}};
 static void cont__10_2(void);
 static NODE *func__10_3;
 static void entry__10_3(void);
@@ -336,9 +336,9 @@ static void cont__10_9(void);
 static void cont__10_10(void);
 static void cont__10_11(void);
 static void cont__10_12(void);
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {2, {"self", "item"}};
+static NODE *func__11_1_types__value_range_contains;
+static void entry__11_1_types__value_range_contains(void);
+static FRAME_INFO frame__11_1_types__value_range_contains = {2, {"self", "item"}};
 static void cont__11_2(void);
 static void cont__11_3(void);
 static void cont__11_4(void);
@@ -349,9 +349,9 @@ static void cont__11_6(void);
 static void cont__11_7(void);
 static void cont__11_8(void);
 static void cont__11_9(void);
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {2, {"self", "indent"}};
+static NODE *func__12_1_types__value_range_serialize;
+static void entry__12_1_types__value_range_serialize(void);
+static FRAME_INFO frame__12_1_types__value_range_serialize = {2, {"self", "indent"}};
 static void cont__12_2(void);
 static void cont__12_3(void);
 static void cont__12_4(void);
@@ -382,30 +382,30 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_5, &frame__10_3, 88, 88, 7, 51},
   {cont__10_6, &frame__10_3, 89, 89, 7, 51},
   {cont__10_11, &frame__10_3, },
-  {entry__10_1, NULL, 87, 87, 7, 28},
-  {cont__10_2, &frame__10_1, },
-  {cont__10_12, &frame__10_1, 85, 89, 3, 52},
+  {entry__10_1_types__value_range_equal, NULL, 87, 87, 7, 28},
+  {cont__10_2, &frame__10_1_types__value_range_equal, },
+  {cont__10_12, &frame__10_1_types__value_range_equal, 85, 89, 3, 52},
   {entry__11_5, NULL, 92, 92, 46, 65},
   {cont__11_6, &frame__11_5, 92, 92, 38, 65},
   {cont__11_7, &frame__11_5, 92, 92, 38, 65},
   {cont__11_8, &frame__11_5, 92, 92, 38, 65},
-  {entry__11_1, NULL, 92, 92, 14, 33},
-  {cont__11_2, &frame__11_1, 92, 92, 6, 33},
-  {cont__11_3, &frame__11_1, 92, 92, 6, 33},
-  {cont__11_4, &frame__11_1, 92, 92, 6, 65},
-  {cont__11_9, &frame__11_1, 92, 92, 3, 65},
-  {entry__12_1, NULL, 101, 101, 14, 21},
-  {cont__12_2, &frame__12_1, 101, 101, 7, 22},
-  {cont__12_3, &frame__12_1, 101, 101, 36, 55},
-  {cont__12_4, &frame__12_1, 101, 101, 26, 56},
-  {cont__12_5, &frame__12_1, 101, 101, 60, 67},
-  {cont__12_6, &frame__12_1, 102, 102, 18, 25},
-  {cont__12_7, &frame__12_1, 102, 102, 11, 26},
-  {cont__12_8, &frame__12_1, 102, 102, 40, 59},
-  {cont__12_9, &frame__12_1, 102, 102, 30, 60},
-  {cont__12_10, &frame__12_1, 102, 102, 64, 71},
-  {cont__12_11, &frame__12_1, 99, 102, 6, 72},
-  {cont__12_14, &frame__12_1, 99, 102, 3, 72}
+  {entry__11_1_types__value_range_contains, NULL, 92, 92, 14, 33},
+  {cont__11_2, &frame__11_1_types__value_range_contains, 92, 92, 6, 33},
+  {cont__11_3, &frame__11_1_types__value_range_contains, 92, 92, 6, 33},
+  {cont__11_4, &frame__11_1_types__value_range_contains, 92, 92, 6, 65},
+  {cont__11_9, &frame__11_1_types__value_range_contains, 92, 92, 3, 65},
+  {entry__12_1_types__value_range_serialize, NULL, 101, 101, 14, 21},
+  {cont__12_2, &frame__12_1_types__value_range_serialize, 101, 101, 7, 22},
+  {cont__12_3, &frame__12_1_types__value_range_serialize, 101, 101, 36, 55},
+  {cont__12_4, &frame__12_1_types__value_range_serialize, 101, 101, 26, 56},
+  {cont__12_5, &frame__12_1_types__value_range_serialize, 101, 101, 60, 67},
+  {cont__12_6, &frame__12_1_types__value_range_serialize, 102, 102, 18, 25},
+  {cont__12_7, &frame__12_1_types__value_range_serialize, 102, 102, 11, 26},
+  {cont__12_8, &frame__12_1_types__value_range_serialize, 102, 102, 40, 59},
+  {cont__12_9, &frame__12_1_types__value_range_serialize, 102, 102, 30, 60},
+  {cont__12_10, &frame__12_1_types__value_range_serialize, 102, 102, 64, 71},
+  {cont__12_11, &frame__12_1_types__value_range_serialize, 99, 102, 6, 72},
+  {cont__12_14, &frame__12_1_types__value_range_serialize, 99, 102, 3, 72}
 };
 
 union NODE {
@@ -595,7 +595,7 @@ static long func__types__value_range___debug_string(NODE *node, int indent, int 
   n += len;
   return n;
 }
-static void entry__10_1(void) {
+static void entry__10_1_types__value_range_equal(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // left: 0
@@ -793,7 +793,7 @@ static void cont__10_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1(void) {
+static void entry__11_1_types__value_range_contains(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -939,7 +939,7 @@ static void cont__11_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_types__value_range_serialize(void) {
   allocate_initialized_frame_gc(2, 13);
   // slot allocations:
   // self: 0
@@ -1176,11 +1176,11 @@ EXPORT void phase_2__basic__types__value_range(void) {
   func__6_1 = create_function(entry__6_1, 2);
   func__7_1 = create_function(entry__7_1, 1);
   func__8_1 = create_function(entry__8_1, 1);
-  func__10_1 = create_function(entry__10_1, 2);
-  func__11_1 = create_function(entry__11_1, 2);
+  func__10_1_types__value_range_equal = create_function(entry__10_1_types__value_range_equal, 2);
+  func__11_1_types__value_range_contains = create_function(entry__11_1_types__value_range_contains, 2);
   string__12_12 = from_latin_1_string("value_range\012", 12);
   string__12_13 = from_latin_1_string("\012", 1);
-  func__12_1 = create_function(entry__12_1, -1);
+  func__12_1_types__value_range_serialize = create_function(entry__12_1_types__value_range_serialize, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1222,9 +1222,9 @@ EXPORT void phase_4__basic__types__value_range(void) {
   define_attribute("types", "value_range", poly_idx__is_a_value_range, get__true());
   define_method("types", "value_range", poly_idx__lower_bound_of, func__7_1);
   define_method("types", "value_range", poly_idx__upper_bound_of, func__8_1);
-  define_method("types", "value_range", poly_idx__equal, func__10_1);
-  define_method("types", "value_range", poly_idx__contains, func__11_1);
-  define_method("types", "value_range", poly_idx__serialize, func__12_1);
+  define_method("types", "value_range", poly_idx__equal, func__10_1_types__value_range_equal);
+  define_method("types", "value_range", poly_idx__contains, func__11_1_types__value_range_contains);
+  define_method("types", "value_range", poly_idx__serialize, func__12_1_types__value_range_serialize);
 }
 
 static int already_run_phase_5 = false;

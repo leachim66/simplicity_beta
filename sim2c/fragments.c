@@ -297,9 +297,9 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *func__1_1;
-static void entry__1_1(void);
-static FRAME_INFO frame__1_1 = {5, {"buf", "fragments", "start_idx", "start_no", "no"}};
+static NODE *func__1_1_sim2c__cut_into_fragments;
+static void entry__1_1_sim2c__cut_into_fragments(void);
+static FRAME_INFO frame__1_1_sim2c__cut_into_fragments = {5, {"buf", "fragments", "start_idx", "start_no", "no"}};
 static void cont__1_2(void);
 static NODE *func__1_3;
 static void entry__1_3(void);
@@ -361,9 +361,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__1_19, &frame__1_5, 39, 47, 7, 24},
   {entry__1_3, NULL, 37, 37, 8, 20},
   {cont__1_4, &frame__1_3, 37, 47, 5, 25},
-  {entry__1_1, NULL, 32, 32, 3, 20},
-  {cont__1_2, &frame__1_1, 36, 47, 3, 26},
-  {cont__1_24, &frame__1_1, 48, 48, 3, 14}
+  {entry__1_1_sim2c__cut_into_fragments, NULL, 32, 32, 3, 20},
+  {cont__1_2, &frame__1_1_sim2c__cut_into_fragments, 36, 47, 3, 26},
+  {cont__1_24, &frame__1_1_sim2c__cut_into_fragments, 48, 48, 3, 14}
 };
 
 union NODE {
@@ -416,7 +416,7 @@ EXPORT void run__fragments(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_sim2c__cut_into_fragments(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // buf: 0
@@ -955,7 +955,7 @@ EXPORT void phase_2__fragments(void) {
   character__32 = from_uchar32(32);
   character__125 = from_uchar32(125);
   number__1 = from_uint32(1U);
-  func__1_1 = create_function(entry__1_1, 1);
+  func__1_1_sim2c__cut_into_fragments = create_function(entry__1_1_sim2c__cut_into_fragments, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1000,7 +1000,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__fragments(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.sim2c__cut_into_fragments, &func__1_1);
+  assign_variable(&var.sim2c__cut_into_fragments, &func__1_1_sim2c__cut_into_fragments);
 }
 
 static int already_run_phase_6 = false;

@@ -316,9 +316,9 @@ static NODE *get__std__command_line_arguments(void) {
 static void entry__12_1(void);
 static NODE *func__12_1;
 static NODE *unique__13_1;
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {3, {"key", "value", "myself"}};
+static NODE *func__15_1_env_2_;
+static void entry__15_1_env_2_(void);
+static FRAME_INFO frame__15_1_env_2_ = {3, {"key", "value", "myself"}};
 static void cont__15_2(void);
 static NODE *func__15_3;
 static void entry__15_3(void);
@@ -373,8 +373,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__15_4, NULL, 101, 101, 14, 30},
   {cont__15_6, &frame__15_4, 101, 101, 7, 30},
   {cont__15_7, &frame__15_4, 102, 102, 7, 40},
-  {entry__15_1, NULL, 96, 96, 5, 17},
-  {cont__15_2, &frame__15_1, 95, 102, 3, 41},
+  {entry__15_1_env_2_, NULL, 96, 96, 5, 17},
+  {cont__15_2, &frame__15_1_env_2_, 95, 102, 3, 41},
   {entry__24_3, NULL, 71, 71, 41, 47},
   {cont__24_4, &frame__24_3, 71, 71, 25, 47},
   {cont__24_5, &frame__24_3, 71, 71, 47, 47},
@@ -854,7 +854,7 @@ static void cont__15_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_1(void) {
+static void entry__15_1_env_2_(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -996,7 +996,7 @@ EXPORT void phase_4__basic__environment(void) {
   use_read_only("std", "minus", &get__std__minus, &get_value_or_future__std__minus);
   use_read_only("std", "string", &get__std__string, &get_value_or_future__std__string);
   update_start_p = node_p;
-  def_attribute(&var._env_2, -1, entry__15_1);
+  def_attribute(&var._env_2, -1, entry__15_1_env_2_);
 }
 
 static int already_run_phase_5 = false;

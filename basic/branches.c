@@ -308,15 +308,15 @@ static struct {
 static const char *var_names[] = {
   "cond_list"
 };
-static NODE *func__1_1;
-static void entry__1_1(void);
-static FRAME_INFO frame__1_1 = {1, {"args"}};
+static NODE *func__1_1_std__cond;
+static void entry__1_1_std__cond(void);
+static FRAME_INFO frame__1_1_std__cond = {1, {"args"}};
 static NODE *get__std__cond(void) {
   return var.std__cond;
 }
-static NODE *func__2_1;
-static void entry__2_1(void);
-static FRAME_INFO frame__2_1 = {1, {"args"}};
+static NODE *func__2_1_cond_list;
+static void entry__2_1_cond_list(void);
+static FRAME_INFO frame__2_1_cond_list = {1, {"args"}};
 static void cont__2_2(void);
 static NODE *func__2_3;
 static void entry__2_3(void);
@@ -339,12 +339,12 @@ static void cont__2_12(void);
 static NODE *func__2_13;
 static void entry__2_13(void);
 static FRAME_INFO frame__2_13 = {1, {"cond_or_body"}};
-static NODE *func__3_1;
-static void entry__3_1(void);
-static FRAME_INFO frame__3_1 = {3, {"expr", "values_and_bodies", "recursive_case"}};
-static NODE *func__3_2;
-static void entry__3_2(void);
-static FRAME_INFO frame__3_2 = {4, {"args", "expr", "recursive_case", "len"}};
+static NODE *func__3_1_std__case;
+static void entry__3_1_std__case(void);
+static FRAME_INFO frame__3_1_std__case = {3, {"expr", "values_and_bodies", "recursive_case"}};
+static NODE *func__3_2_recursive_case;
+static void entry__3_2_recursive_case(void);
+static FRAME_INFO frame__3_2_recursive_case = {4, {"args", "expr", "recursive_case", "len"}};
 static void cont__3_3(void);
 static void cont__3_4(void);
 static NODE *func__3_5;
@@ -450,12 +450,12 @@ static void cont__3_58(void);
 static NODE *get__std__case(void) {
   return var.std__case;
 }
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {4, {"expr", "check", "values_and_bodies", "recursive_check_case"}};
-static NODE *func__4_2;
-static void entry__4_2(void);
-static FRAME_INFO frame__4_2 = {5, {"args", "check", "expr", "recursive_check_case", "len"}};
+static NODE *func__4_1_std__check_case;
+static void entry__4_1_std__check_case(void);
+static FRAME_INFO frame__4_1_std__check_case = {4, {"expr", "check", "values_and_bodies", "recursive_check_case"}};
+static NODE *func__4_2_recursive_check_case;
+static void entry__4_2_recursive_check_case(void);
+static FRAME_INFO frame__4_2_recursive_check_case = {5, {"args", "check", "expr", "recursive_check_case", "len"}};
 static void cont__4_3(void);
 static void cont__4_4(void);
 static NODE *func__4_5;
@@ -506,7 +506,7 @@ void run__basic__branches(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__branches, NULL, },
-  {entry__1_1, NULL, 53, 53, 3, 16},
+  {entry__1_1_std__cond, NULL, 53, 53, 3, 16},
   {entry__2_10, NULL, 61, 61, 57, 57},
   {cont__2_11, &frame__2_10, 61, 61, 43, 58},
   {cont__2_12, &frame__2_10, 61, 61, 33, 58},
@@ -518,8 +518,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__2_4, &frame__2_3, 57, 57, 5, 33},
   {cont__2_5, &frame__2_3, 58, 58, 8, 30},
   {cont__2_6, &frame__2_3, 58, 63, 5, 24},
-  {entry__2_1, NULL, 56, 56, 10, 22},
-  {cont__2_2, &frame__2_1, 56, 63, 3, 25},
+  {entry__2_1_cond_list, NULL, 56, 56, 10, 22},
+  {cont__2_2, &frame__2_1_cond_list, 56, 63, 3, 25},
   {entry__3_7, NULL, 102, 102, 11, 23},
   {cont__3_8, &frame__3_7, 103, 103, 11, 14},
   {entry__3_20, NULL, 115, 115, 49, 74},
@@ -574,10 +574,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__3_55, &frame__3_9, 138, 138, 11, 58},
   {entry__3_5, NULL, 101, 101, 9, 16},
   {cont__3_6, &frame__3_5, 100, 138, 7, 59},
-  {entry__3_2, NULL, 98, 98, 5, 24},
-  {cont__3_3, &frame__3_2, 99, 99, 8, 14},
-  {cont__3_4, &frame__3_2, 99, 138, 5, 60},
-  {entry__3_1, NULL, 140, 140, 3, 34},
+  {entry__3_2_recursive_case, NULL, 98, 98, 5, 24},
+  {cont__3_3, &frame__3_2_recursive_case, 99, 99, 8, 14},
+  {cont__3_4, &frame__3_2_recursive_case, 99, 138, 5, 60},
+  {entry__3_1_std__case, NULL, 140, 140, 3, 34},
   {entry__4_7, NULL, 176, 176, 11, 23},
   {cont__4_8, &frame__4_7, 177, 177, 11, 14},
   {entry__4_17, NULL, 188, 188, 21, 25},
@@ -599,10 +599,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_22, &frame__4_9, 191, 191, 11, 64},
   {entry__4_5, NULL, 175, 175, 9, 16},
   {cont__4_6, &frame__4_5, 174, 191, 7, 65},
-  {entry__4_2, NULL, 172, 172, 5, 24},
-  {cont__4_3, &frame__4_2, 173, 173, 8, 14},
-  {cont__4_4, &frame__4_2, 173, 191, 5, 66},
-  {entry__4_1, NULL, 193, 193, 3, 40}
+  {entry__4_2_recursive_check_case, NULL, 172, 172, 5, 24},
+  {cont__4_3, &frame__4_2_recursive_check_case, 173, 173, 8, 14},
+  {cont__4_4, &frame__4_2_recursive_check_case, 173, 191, 5, 66},
+  {entry__4_1_std__check_case, NULL, 193, 193, 3, 40}
 };
 
 union NODE {
@@ -653,7 +653,7 @@ EXPORT void run__basic__branches(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__cond(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -901,7 +901,7 @@ static void cont__2_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_1(void) {
+static void entry__2_1_cond_list(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // args: 0
@@ -2148,7 +2148,7 @@ static void cont__3_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_2(void) {
+static void entry__3_2_recursive_case(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // args: 0
@@ -2225,7 +2225,7 @@ static void cont__3_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_1(void) {
+static void entry__3_1_std__case(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -2250,7 +2250,7 @@ static void entry__3_1(void) {
   // 105:         $value args(1)
   // 106:         $body args(2)
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__3_2, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__3_2_recursive_case, 1);
   //  97: $recursive_case: (args)
   //  98:   $len length_of(args)
   //  99:   if len > 0:
@@ -2746,7 +2746,7 @@ static void cont__4_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_2(void) {
+static void entry__4_2_recursive_check_case(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // args: 0
@@ -2825,7 +2825,7 @@ static void cont__4_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1(void) {
+static void entry__4_1_std__check_case(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
@@ -2852,7 +2852,7 @@ static void entry__4_1(void) {
   // 179:         $value args(1)
   // 180:         $body args(2)
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__4_2, 1);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__4_2_recursive_check_case, 1);
   // 171: $recursive_check_case: (args)
   // 172:   $len length_of(args)
   // 173:   if len > 0:
@@ -2898,10 +2898,10 @@ EXPORT void phase_2__basic__branches(void) {
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__1_1 = create_function(entry__1_1, -1);
-  func__2_1 = create_function(entry__2_1, 1);
-  func__3_1 = create_function(entry__3_1, -1);
-  func__4_1 = create_function(entry__4_1, -1);
+  func__1_1_std__cond = create_function(entry__1_1_std__cond, -1);
+  func__2_1_cond_list = create_function(entry__2_1_cond_list, 1);
+  func__3_1_std__case = create_function(entry__3_1_std__case, -1);
+  func__4_1_std__check_case = create_function(entry__4_1_std__check_case, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -2951,10 +2951,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__branches(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__cond, &func__1_1);
-  assign_variable(&var._cond_list, &func__2_1);
-  assign_variable(&var.std__case, &func__3_1);
-  assign_variable(&var.std__check_case, &func__4_1);
+  assign_variable(&var.std__cond, &func__1_1_std__cond);
+  assign_variable(&var._cond_list, &func__2_1_cond_list);
+  assign_variable(&var.std__case, &func__3_1_std__case);
+  assign_variable(&var.std__check_case, &func__4_1_std__check_case);
 }
 
 static int already_run_phase_6 = false;

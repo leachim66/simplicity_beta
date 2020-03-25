@@ -56,7 +56,7 @@ $hex_digit_value:
 
 $hex_digit alt('0' .. '9' 'a' .. 'f' 'A' .. 'F')
 
-$types::string.convert_from_percent_encoding
+$types::string/convert_from_percent_encoding
   : (&self) # converts a percent encoded string into iso-8859-1
     replace_all &self "+" = " "
     replace_all

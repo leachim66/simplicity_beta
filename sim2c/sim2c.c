@@ -736,9 +736,9 @@ static struct {
 static const char *var_names[] = {
   "demangled"
 };
-static NODE *func__1_1;
-static void entry__1_1(void);
-static FRAME_INFO frame__1_1 = {1, {"source"}};
+static NODE *func__1_1_sim2c__print_source;
+static void entry__1_1_sim2c__print_source(void);
+static FRAME_INFO frame__1_1_sim2c__print_source = {1, {"source"}};
 static NODE *func__1_2;
 static void entry__1_2(void);
 static FRAME_INFO frame__1_2 = {1, {"chr"}};
@@ -760,9 +760,9 @@ static NODE *string__1_9;
 static NODE *get__sim2c__print_source(void) {
   return var.sim2c__print_source;
 }
-static NODE *func__2_1;
-static void entry__2_1(void);
-static FRAME_INFO frame__2_1 = {1, {"source"}};
+static NODE *func__2_1_sim2c__eprint_source;
+static void entry__2_1_sim2c__eprint_source(void);
+static FRAME_INFO frame__2_1_sim2c__eprint_source = {1, {"source"}};
 static NODE *func__2_2;
 static void entry__2_2(void);
 static FRAME_INFO frame__2_2 = {1, {"chr"}};
@@ -784,9 +784,9 @@ static NODE *get__sim2c__eprint_source(void) {
 static NODE *get__sim2c__privileged_polymorphic_functions(void) {
   return var.sim2c__privileged_polymorphic_functions;
 }
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {2, {"name", "id"}};
+static NODE *func__4_1_sim2c__generate_dispatcher_function;
+static void entry__4_1_sim2c__generate_dispatcher_function(void);
+static FRAME_INFO frame__4_1_sim2c__generate_dispatcher_function = {2, {"name", "id"}};
 static NODE *string__4_2;
 static NODE *string__4_3;
 static void cont__4_4(void);
@@ -815,16 +815,16 @@ static void cont__4_22(void);
 static NODE *get__sim2c__generate_dispatcher_function(void) {
   return var.sim2c__generate_dispatcher_function;
 }
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {1, {"name"}};
+static NODE *func__5_1_demangled;
+static void entry__5_1_demangled(void);
+static FRAME_INFO frame__5_1_demangled = {1, {"name"}};
 static NODE *string__5_2;
 static NODE *string__5_3;
 static void cont__5_4(void);
 static void cont__5_5(void);
-static NODE *func__6_1;
-static void entry__6_1(void);
-static FRAME_INFO frame__6_1 = {4, {"name", "curr_info", "info", "return"}};
+static NODE *func__6_1_sim2c__update_info;
+static void entry__6_1_sim2c__update_info(void);
+static FRAME_INFO frame__6_1_sim2c__update_info = {4, {"name", "curr_info", "info", "return"}};
 static void cont__6_2(void);
 static NODE *func__6_3;
 static void entry__6_3(void);
@@ -932,12 +932,12 @@ static void cont__6_59(void);
 static NODE *get__sim2c__update_info(void) {
   return var.sim2c__update_info;
 }
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {33, {"filenames", "is_main", "return__9", "mangle_filename", "fragments", "trees", "all_defined_names", "all_used_names", "all_actions", "top_level_names", "all_definitions", "all_statements", "max_temp_idx", "need", "generated_declarations", "generated_top_level_variable_names", "generated_top_level_variable_declarations", "generated_global_variable_declarations", "generated_continuation_table", "generated_delayed_continuation_table", "generated_functions", "generated_phase_1", "generated_phase_2", "generated_phase_3", "generated_phase_4", "generated_phase_5", "generated_phase_6", "generated_code", "generated_collections", "delayed_statements", "used_literals", "def_count", "depth"}};
-static NODE *func__7_2;
-static void entry__7_2(void);
-static FRAME_INFO frame__7_2 = {1, {"name"}};
+static NODE *func__7_1_sim2c__sim2c;
+static void entry__7_1_sim2c__sim2c(void);
+static FRAME_INFO frame__7_1_sim2c__sim2c = {33, {"filenames", "is_main", "return__9", "mangle_filename", "fragments", "trees", "all_defined_names", "all_used_names", "all_actions", "top_level_names", "all_definitions", "all_statements", "max_temp_idx", "need", "generated_declarations", "generated_top_level_variable_names", "generated_top_level_variable_declarations", "generated_global_variable_declarations", "generated_continuation_table", "generated_delayed_continuation_table", "generated_functions", "generated_phase_1", "generated_phase_2", "generated_phase_3", "generated_phase_4", "generated_phase_5", "generated_phase_6", "generated_code", "generated_collections", "delayed_statements", "used_literals", "def_count", "depth"}};
+static NODE *func__7_2_mangle_filename;
+static void entry__7_2_mangle_filename(void);
+static FRAME_INFO frame__7_2_mangle_filename = {1, {"name"}};
 static NODE *string__7_3;
 static void cont__7_4(void);
 static NODE *func__7_5;
@@ -960,9 +960,9 @@ static void cont__7_15(void);
 static void cont__7_16(void);
 static void cont__7_17(void);
 static void cont__7_18(void);
-static NODE *func__7_19;
-static void entry__7_19(void);
-static FRAME_INFO frame__7_19 = {4, {"mangled_name", "info", "return", "updated_info"}};
+static NODE *func__7_19_need;
+static void entry__7_19_need(void);
+static FRAME_INFO frame__7_19_need = {4, {"mangled_name", "info", "return", "updated_info"}};
 static void cont__7_20(void);
 static NODE *func__7_21;
 static void entry__7_21(void);
@@ -1383,152 +1383,152 @@ static void cont__7_290(void);
 static NODE *string__7_291;
 static void cont__7_292(void);
 static void cont__7_293(void);
-static NODE *func__7_294;
-static void entry__7_294(void);
-static FRAME_INFO frame__7_294 = {3, {"args", "generated_declarations", "txt"}};
+static NODE *func__7_294_sim2c__write_to_declarations;
+static void entry__7_294_sim2c__write_to_declarations(void);
+static FRAME_INFO frame__7_294_sim2c__write_to_declarations = {3, {"args", "generated_declarations", "txt"}};
 static void cont__7_295(void);
 static NODE *func__7_296;
 static void entry__7_296(void);
 static FRAME_INFO frame__7_296 = {2, {"generated_declarations", "txt"}};
 static void cont__7_297(void);
 static void cont__7_298(void);
-static NODE *func__7_299;
-static void entry__7_299(void);
-static FRAME_INFO frame__7_299 = {3, {"args", "generated_top_level_variable_names", "txt"}};
+static NODE *func__7_299_sim2c__write_to_top_level_variable_names;
+static void entry__7_299_sim2c__write_to_top_level_variable_names(void);
+static FRAME_INFO frame__7_299_sim2c__write_to_top_level_variable_names = {3, {"args", "generated_top_level_variable_names", "txt"}};
 static void cont__7_300(void);
 static NODE *func__7_301;
 static void entry__7_301(void);
 static FRAME_INFO frame__7_301 = {2, {"generated_top_level_variable_names", "txt"}};
 static void cont__7_302(void);
 static void cont__7_303(void);
-static NODE *func__7_304;
-static void entry__7_304(void);
-static FRAME_INFO frame__7_304 = {3, {"args", "generated_top_level_variable_declarations", "txt"}};
+static NODE *func__7_304_sim2c__write_to_top_level_variable_declarations;
+static void entry__7_304_sim2c__write_to_top_level_variable_declarations(void);
+static FRAME_INFO frame__7_304_sim2c__write_to_top_level_variable_declarations = {3, {"args", "generated_top_level_variable_declarations", "txt"}};
 static void cont__7_305(void);
 static NODE *func__7_306;
 static void entry__7_306(void);
 static FRAME_INFO frame__7_306 = {2, {"generated_top_level_variable_declarations", "txt"}};
 static void cont__7_307(void);
 static void cont__7_308(void);
-static NODE *func__7_309;
-static void entry__7_309(void);
-static FRAME_INFO frame__7_309 = {3, {"args", "generated_global_variable_declarations", "txt"}};
+static NODE *func__7_309_sim2c__write_to_global_variable_declarations;
+static void entry__7_309_sim2c__write_to_global_variable_declarations(void);
+static FRAME_INFO frame__7_309_sim2c__write_to_global_variable_declarations = {3, {"args", "generated_global_variable_declarations", "txt"}};
 static void cont__7_310(void);
 static NODE *func__7_311;
 static void entry__7_311(void);
 static FRAME_INFO frame__7_311 = {2, {"generated_global_variable_declarations", "txt"}};
 static void cont__7_312(void);
 static void cont__7_313(void);
-static NODE *func__7_314;
-static void entry__7_314(void);
-static FRAME_INFO frame__7_314 = {3, {"args", "generated_continuation_table", "txt"}};
+static NODE *func__7_314_sim2c__write_to_continuation_table;
+static void entry__7_314_sim2c__write_to_continuation_table(void);
+static FRAME_INFO frame__7_314_sim2c__write_to_continuation_table = {3, {"args", "generated_continuation_table", "txt"}};
 static void cont__7_315(void);
 static NODE *func__7_316;
 static void entry__7_316(void);
 static FRAME_INFO frame__7_316 = {2, {"generated_continuation_table", "txt"}};
 static void cont__7_317(void);
 static void cont__7_318(void);
-static NODE *func__7_319;
-static void entry__7_319(void);
-static FRAME_INFO frame__7_319 = {3, {"args", "generated_delayed_continuation_table", "txt"}};
+static NODE *func__7_319_sim2c__write_to_delayed_continuation_table;
+static void entry__7_319_sim2c__write_to_delayed_continuation_table(void);
+static FRAME_INFO frame__7_319_sim2c__write_to_delayed_continuation_table = {3, {"args", "generated_delayed_continuation_table", "txt"}};
 static void cont__7_320(void);
 static NODE *func__7_321;
 static void entry__7_321(void);
 static FRAME_INFO frame__7_321 = {2, {"generated_delayed_continuation_table", "txt"}};
 static void cont__7_322(void);
 static void cont__7_323(void);
-static NODE *func__7_324;
-static void entry__7_324(void);
-static FRAME_INFO frame__7_324 = {3, {"args", "generated_functions", "txt"}};
+static NODE *func__7_324_sim2c__write_to_functions;
+static void entry__7_324_sim2c__write_to_functions(void);
+static FRAME_INFO frame__7_324_sim2c__write_to_functions = {3, {"args", "generated_functions", "txt"}};
 static void cont__7_325(void);
 static NODE *func__7_326;
 static void entry__7_326(void);
 static FRAME_INFO frame__7_326 = {2, {"generated_functions", "txt"}};
 static void cont__7_327(void);
 static void cont__7_328(void);
-static NODE *func__7_329;
-static void entry__7_329(void);
-static FRAME_INFO frame__7_329 = {3, {"args", "generated_phase_1", "txt"}};
+static NODE *func__7_329_sim2c__write_to_phase_1;
+static void entry__7_329_sim2c__write_to_phase_1(void);
+static FRAME_INFO frame__7_329_sim2c__write_to_phase_1 = {3, {"args", "generated_phase_1", "txt"}};
 static void cont__7_330(void);
 static NODE *func__7_331;
 static void entry__7_331(void);
 static FRAME_INFO frame__7_331 = {2, {"generated_phase_1", "txt"}};
 static void cont__7_332(void);
 static void cont__7_333(void);
-static NODE *func__7_334;
-static void entry__7_334(void);
-static FRAME_INFO frame__7_334 = {3, {"args", "generated_phase_2", "txt"}};
+static NODE *func__7_334_sim2c__write_to_phase_2;
+static void entry__7_334_sim2c__write_to_phase_2(void);
+static FRAME_INFO frame__7_334_sim2c__write_to_phase_2 = {3, {"args", "generated_phase_2", "txt"}};
 static void cont__7_335(void);
 static NODE *func__7_336;
 static void entry__7_336(void);
 static FRAME_INFO frame__7_336 = {2, {"generated_phase_2", "txt"}};
 static void cont__7_337(void);
 static void cont__7_338(void);
-static NODE *func__7_339;
-static void entry__7_339(void);
-static FRAME_INFO frame__7_339 = {3, {"args", "generated_phase_3", "txt"}};
+static NODE *func__7_339_sim2c__write_to_phase_3;
+static void entry__7_339_sim2c__write_to_phase_3(void);
+static FRAME_INFO frame__7_339_sim2c__write_to_phase_3 = {3, {"args", "generated_phase_3", "txt"}};
 static void cont__7_340(void);
 static NODE *func__7_341;
 static void entry__7_341(void);
 static FRAME_INFO frame__7_341 = {2, {"generated_phase_3", "txt"}};
 static void cont__7_342(void);
 static void cont__7_343(void);
-static NODE *func__7_344;
-static void entry__7_344(void);
-static FRAME_INFO frame__7_344 = {3, {"args", "generated_phase_4", "txt"}};
+static NODE *func__7_344_sim2c__write_to_phase_4;
+static void entry__7_344_sim2c__write_to_phase_4(void);
+static FRAME_INFO frame__7_344_sim2c__write_to_phase_4 = {3, {"args", "generated_phase_4", "txt"}};
 static void cont__7_345(void);
 static NODE *func__7_346;
 static void entry__7_346(void);
 static FRAME_INFO frame__7_346 = {2, {"generated_phase_4", "txt"}};
 static void cont__7_347(void);
 static void cont__7_348(void);
-static NODE *func__7_349;
-static void entry__7_349(void);
-static FRAME_INFO frame__7_349 = {3, {"args", "generated_phase_5", "txt"}};
+static NODE *func__7_349_sim2c__write_to_phase_5;
+static void entry__7_349_sim2c__write_to_phase_5(void);
+static FRAME_INFO frame__7_349_sim2c__write_to_phase_5 = {3, {"args", "generated_phase_5", "txt"}};
 static void cont__7_350(void);
 static NODE *func__7_351;
 static void entry__7_351(void);
 static FRAME_INFO frame__7_351 = {2, {"generated_phase_5", "txt"}};
 static void cont__7_352(void);
 static void cont__7_353(void);
-static NODE *func__7_354;
-static void entry__7_354(void);
-static FRAME_INFO frame__7_354 = {3, {"args", "generated_phase_6", "txt"}};
+static NODE *func__7_354_sim2c__write_to_phase_6;
+static void entry__7_354_sim2c__write_to_phase_6(void);
+static FRAME_INFO frame__7_354_sim2c__write_to_phase_6 = {3, {"args", "generated_phase_6", "txt"}};
 static void cont__7_355(void);
 static NODE *func__7_356;
 static void entry__7_356(void);
 static FRAME_INFO frame__7_356 = {2, {"generated_phase_6", "txt"}};
 static void cont__7_357(void);
 static void cont__7_358(void);
-static NODE *func__7_359;
-static void entry__7_359(void);
-static FRAME_INFO frame__7_359 = {3, {"name", "literal", "used_literals"}};
+static NODE *func__7_359_sim2c__use_literal;
+static void entry__7_359_sim2c__use_literal(void);
+static FRAME_INFO frame__7_359_sim2c__use_literal = {3, {"name", "literal", "used_literals"}};
 static NODE *func__7_360;
 static void entry__7_360(void);
 static FRAME_INFO frame__7_360 = {3, {"used_literals", "name", "literal"}};
 static void cont__7_361(void);
 static void cont__7_362(void);
-static NODE *func__7_363;
-static void entry__7_363(void);
-static FRAME_INFO frame__7_363 = {3, {"args", "generated_collections", "txt"}};
+static NODE *func__7_363_sim2c__write_to_generated_collections;
+static void entry__7_363_sim2c__write_to_generated_collections(void);
+static FRAME_INFO frame__7_363_sim2c__write_to_generated_collections = {3, {"args", "generated_collections", "txt"}};
 static void cont__7_364(void);
 static NODE *func__7_365;
 static void entry__7_365(void);
 static FRAME_INFO frame__7_365 = {2, {"generated_collections", "txt"}};
 static void cont__7_366(void);
 static void cont__7_367(void);
-static NODE *func__7_368;
-static void entry__7_368(void);
-static FRAME_INFO frame__7_368 = {3, {"args", "delayed_statements", "txt"}};
+static NODE *func__7_368_sim2c__write_to_delayed_statements;
+static void entry__7_368_sim2c__write_to_delayed_statements(void);
+static FRAME_INFO frame__7_368_sim2c__write_to_delayed_statements = {3, {"args", "delayed_statements", "txt"}};
 static void cont__7_369(void);
 static NODE *func__7_370;
 static void entry__7_370(void);
 static FRAME_INFO frame__7_370 = {2, {"delayed_statements", "txt"}};
 static void cont__7_371(void);
 static void cont__7_372(void);
-static NODE *func__7_373;
-static void entry__7_373(void);
-static FRAME_INFO frame__7_373 = {2, {"ident", "need"}};
+static NODE *func__7_373_sim2c__use_identifier;
+static void entry__7_373_sim2c__use_identifier(void);
+static FRAME_INFO frame__7_373_sim2c__use_identifier = {2, {"ident", "need"}};
 static NODE *string__7_374;
 static void cont__7_375(void);
 static NODE *func__7_376;
@@ -2234,29 +2234,29 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__1_6, NULL, 36, 36, 9, 33},
   {entry__1_8, NULL, 38, 38, 9, 34},
   {entry__1_2, NULL, 31, 40, 5, 18},
-  {entry__1_1, NULL, 30, 40, 3, 19},
+  {entry__1_1_sim2c__print_source, NULL, 30, 40, 3, 19},
   {entry__2_3, NULL, 53, 53, 9, 18},
   {entry__2_4, NULL, 47, 47, 9, 28},
   {entry__2_5, NULL, 49, 49, 9, 34},
   {entry__2_6, NULL, 51, 51, 9, 35},
   {entry__2_2, NULL, 44, 53, 5, 19},
-  {entry__2_1, NULL, 43, 53, 3, 20},
+  {entry__2_1_sim2c__eprint_source, NULL, 43, 53, 3, 20},
   {entry__4_11, NULL, 87, 90, 26, 18},
   {cont__4_15, &frame__4_11, 87, 90, 7, 18},
   {entry__4_16, NULL, 93, 93, 9, 79},
   {cont__4_18, &frame__4_16, 92, 93, 7, 79},
-  {entry__4_1, NULL, 66, 67, 25, 36},
-  {cont__4_4, &frame__4_1, 66, 67, 3, 36},
-  {cont__4_5, &frame__4_1, 68, 69, 22, 37},
-  {cont__4_7, &frame__4_1, 68, 69, 3, 37},
-  {cont__4_8, &frame__4_1, 70, 70, 3, 44},
-  {cont__4_9, &frame__4_1, 72, 72, 5, 17},
-  {cont__4_10, &frame__4_1, 71, 93, 3, 81},
-  {cont__4_19, &frame__4_1, 98, 118, 22, 5},
-  {cont__4_22, &frame__4_1, 98, 118, 3, 5},
-  {entry__5_1, NULL, 120, 120, 40, 50},
-  {cont__5_4, &frame__5_1, 120, 120, 23, 51},
-  {cont__5_5, &frame__5_1, 120, 120, 20, 51},
+  {entry__4_1_sim2c__generate_dispatcher_function, NULL, 66, 67, 25, 36},
+  {cont__4_4, &frame__4_1_sim2c__generate_dispatcher_function, 66, 67, 3, 36},
+  {cont__4_5, &frame__4_1_sim2c__generate_dispatcher_function, 68, 69, 22, 37},
+  {cont__4_7, &frame__4_1_sim2c__generate_dispatcher_function, 68, 69, 3, 37},
+  {cont__4_8, &frame__4_1_sim2c__generate_dispatcher_function, 70, 70, 3, 44},
+  {cont__4_9, &frame__4_1_sim2c__generate_dispatcher_function, 72, 72, 5, 17},
+  {cont__4_10, &frame__4_1_sim2c__generate_dispatcher_function, 71, 93, 3, 81},
+  {cont__4_19, &frame__4_1_sim2c__generate_dispatcher_function, 98, 118, 22, 5},
+  {cont__4_22, &frame__4_1_sim2c__generate_dispatcher_function, 98, 118, 3, 5},
+  {entry__5_1_demangled, NULL, 120, 120, 40, 50},
+  {cont__5_4, &frame__5_1_demangled, 120, 120, 23, 51},
+  {cont__5_5, &frame__5_1_demangled, 120, 120, 20, 51},
   {entry__6_8, NULL, 137, 137, 15, 30},
   {entry__6_9, NULL, 140, 140, 31, 44},
   {cont__6_10, &frame__6_9, 139, 141, 21, 55},
@@ -2306,9 +2306,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__6_3, NULL, 132, 132, 9, 35},
   {cont__6_4, &frame__6_3, 131, 195, 7, 28},
   {entry__6_58, NULL, 197, 197, 7, 17},
-  {entry__6_1, NULL, 130, 130, 5, 24},
-  {cont__6_2, &frame__6_1, 129, 197, 3, 18},
-  {cont__6_59, &frame__6_1, 197, 197, 18, 18},
+  {entry__6_1_sim2c__update_info, NULL, 130, 130, 5, 24},
+  {cont__6_2, &frame__6_1_sim2c__update_info, 129, 197, 3, 18},
+  {cont__6_59, &frame__6_1_sim2c__update_info, 197, 197, 18, 18},
   {entry__7_7, NULL, 214, 214, 42, 42},
   {cont__7_8, &frame__7_7, 214, 214, 17, 43},
   {cont__7_9, &frame__7_7, 214, 214, 68, 68},
@@ -2320,11 +2320,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_15, &frame__7_13, 216, 216, 32, 32},
   {entry__7_5, NULL, 213, 213, 9, 35},
   {cont__7_6, &frame__7_5, 212, 216, 7, 33},
-  {entry__7_2, NULL, 211, 211, 8, 29},
-  {cont__7_4, &frame__7_2, 211, 216, 5, 34},
-  {cont__7_16, &frame__7_2, 217, 217, 25, 34},
-  {cont__7_17, &frame__7_2, 217, 217, 8, 35},
-  {cont__7_18, &frame__7_2, 217, 217, 5, 35},
+  {entry__7_2_mangle_filename, NULL, 211, 211, 8, 29},
+  {cont__7_4, &frame__7_2_mangle_filename, 211, 216, 5, 34},
+  {cont__7_16, &frame__7_2_mangle_filename, 217, 217, 25, 34},
+  {cont__7_17, &frame__7_2_mangle_filename, 217, 217, 8, 35},
+  {cont__7_18, &frame__7_2_mangle_filename, 217, 217, 5, 35},
   {entry__7_26, NULL, 404, 404, 37, 57},
   {cont__7_27, &frame__7_26, 404, 404, 37, 68},
   {cont__7_28, &frame__7_26, 404, 404, 37, 68},
@@ -2341,13 +2341,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_32, &frame__7_30, 407, 409, 9, 16},
   {entry__7_39, NULL, 411, 411, 33, 59},
   {cont__7_40, &frame__7_39, 411, 411, 72, 72},
-  {entry__7_19, NULL, 400, 400, 7, 34},
-  {cont__7_20, &frame__7_19, 399, 409, 5, 18},
-  {cont__7_35, &frame__7_19, 410, 410, 44, 69},
-  {cont__7_36, &frame__7_19, 410, 410, 5, 75},
-  {cont__7_37, &frame__7_19, 411, 411, 8, 30},
-  {cont__7_38, &frame__7_19, 411, 411, 5, 72},
-  {cont__7_41, &frame__7_19, 411, 411, 72, 72},
+  {entry__7_19_need, NULL, 400, 400, 7, 34},
+  {cont__7_20, &frame__7_19_need, 399, 409, 5, 18},
+  {cont__7_35, &frame__7_19_need, 410, 410, 44, 69},
+  {cont__7_36, &frame__7_19_need, 410, 410, 5, 75},
+  {cont__7_37, &frame__7_19_need, 411, 411, 8, 30},
+  {cont__7_38, &frame__7_19_need, 411, 411, 5, 72},
+  {cont__7_41, &frame__7_19_need, 411, 411, 72, 72},
   {entry__7_49, NULL, 243, 243, 9, 22},
   {cont__7_50, &frame__7_49, 243, 243, 22, 22},
   {entry__7_51, NULL, 245, 245, 9, 61},
@@ -2540,88 +2540,88 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_290, &frame__7_289, 415, 415, 22, 62},
   {entry__7_296, NULL, 493, 493, 20, 53},
   {cont__7_297, &frame__7_296, 493, 493, 53, 53},
-  {entry__7_294, NULL, 492, 492, 5, 22},
-  {cont__7_295, &frame__7_294, 493, 493, 5, 53},
-  {cont__7_298, &frame__7_294, 493, 493, 53, 53},
+  {entry__7_294_sim2c__write_to_declarations, NULL, 492, 492, 5, 22},
+  {cont__7_295, &frame__7_294_sim2c__write_to_declarations, 493, 493, 5, 53},
+  {cont__7_298, &frame__7_294_sim2c__write_to_declarations, 493, 493, 53, 53},
   {entry__7_301, NULL, 497, 497, 20, 65},
   {cont__7_302, &frame__7_301, 497, 497, 65, 65},
-  {entry__7_299, NULL, 496, 496, 5, 22},
-  {cont__7_300, &frame__7_299, 497, 497, 5, 65},
-  {cont__7_303, &frame__7_299, 497, 497, 65, 65},
+  {entry__7_299_sim2c__write_to_top_level_variable_names, NULL, 496, 496, 5, 22},
+  {cont__7_300, &frame__7_299_sim2c__write_to_top_level_variable_names, 497, 497, 5, 65},
+  {cont__7_303, &frame__7_299_sim2c__write_to_top_level_variable_names, 497, 497, 65, 65},
   {entry__7_306, NULL, 501, 501, 20, 72},
   {cont__7_307, &frame__7_306, 501, 501, 72, 72},
-  {entry__7_304, NULL, 500, 500, 5, 22},
-  {cont__7_305, &frame__7_304, 501, 501, 5, 72},
-  {cont__7_308, &frame__7_304, 501, 501, 72, 72},
+  {entry__7_304_sim2c__write_to_top_level_variable_declarations, NULL, 500, 500, 5, 22},
+  {cont__7_305, &frame__7_304_sim2c__write_to_top_level_variable_declarations, 501, 501, 5, 72},
+  {cont__7_308, &frame__7_304_sim2c__write_to_top_level_variable_declarations, 501, 501, 72, 72},
   {entry__7_311, NULL, 505, 505, 20, 69},
   {cont__7_312, &frame__7_311, 505, 505, 69, 69},
-  {entry__7_309, NULL, 504, 504, 5, 22},
-  {cont__7_310, &frame__7_309, 505, 505, 5, 69},
-  {cont__7_313, &frame__7_309, 505, 505, 69, 69},
+  {entry__7_309_sim2c__write_to_global_variable_declarations, NULL, 504, 504, 5, 22},
+  {cont__7_310, &frame__7_309_sim2c__write_to_global_variable_declarations, 505, 505, 5, 69},
+  {cont__7_313, &frame__7_309_sim2c__write_to_global_variable_declarations, 505, 505, 69, 69},
   {entry__7_316, NULL, 509, 509, 20, 59},
   {cont__7_317, &frame__7_316, 509, 509, 59, 59},
-  {entry__7_314, NULL, 508, 508, 5, 22},
-  {cont__7_315, &frame__7_314, 509, 509, 5, 59},
-  {cont__7_318, &frame__7_314, 509, 509, 59, 59},
+  {entry__7_314_sim2c__write_to_continuation_table, NULL, 508, 508, 5, 22},
+  {cont__7_315, &frame__7_314_sim2c__write_to_continuation_table, 509, 509, 5, 59},
+  {cont__7_318, &frame__7_314_sim2c__write_to_continuation_table, 509, 509, 59, 59},
   {entry__7_321, NULL, 513, 513, 20, 67},
   {cont__7_322, &frame__7_321, 513, 513, 67, 67},
-  {entry__7_319, NULL, 512, 512, 5, 22},
-  {cont__7_320, &frame__7_319, 513, 513, 5, 67},
-  {cont__7_323, &frame__7_319, 513, 513, 67, 67},
+  {entry__7_319_sim2c__write_to_delayed_continuation_table, NULL, 512, 512, 5, 22},
+  {cont__7_320, &frame__7_319_sim2c__write_to_delayed_continuation_table, 513, 513, 5, 67},
+  {cont__7_323, &frame__7_319_sim2c__write_to_delayed_continuation_table, 513, 513, 67, 67},
   {entry__7_326, NULL, 517, 517, 20, 50},
   {cont__7_327, &frame__7_326, 517, 517, 50, 50},
-  {entry__7_324, NULL, 516, 516, 5, 22},
-  {cont__7_325, &frame__7_324, 517, 517, 5, 50},
-  {cont__7_328, &frame__7_324, 517, 517, 50, 50},
+  {entry__7_324_sim2c__write_to_functions, NULL, 516, 516, 5, 22},
+  {cont__7_325, &frame__7_324_sim2c__write_to_functions, 517, 517, 5, 50},
+  {cont__7_328, &frame__7_324_sim2c__write_to_functions, 517, 517, 50, 50},
   {entry__7_331, NULL, 521, 521, 20, 48},
   {cont__7_332, &frame__7_331, 521, 521, 48, 48},
-  {entry__7_329, NULL, 520, 520, 5, 22},
-  {cont__7_330, &frame__7_329, 521, 521, 5, 48},
-  {cont__7_333, &frame__7_329, 521, 521, 48, 48},
+  {entry__7_329_sim2c__write_to_phase_1, NULL, 520, 520, 5, 22},
+  {cont__7_330, &frame__7_329_sim2c__write_to_phase_1, 521, 521, 5, 48},
+  {cont__7_333, &frame__7_329_sim2c__write_to_phase_1, 521, 521, 48, 48},
   {entry__7_336, NULL, 525, 525, 20, 48},
   {cont__7_337, &frame__7_336, 525, 525, 48, 48},
-  {entry__7_334, NULL, 524, 524, 5, 22},
-  {cont__7_335, &frame__7_334, 525, 525, 5, 48},
-  {cont__7_338, &frame__7_334, 525, 525, 48, 48},
+  {entry__7_334_sim2c__write_to_phase_2, NULL, 524, 524, 5, 22},
+  {cont__7_335, &frame__7_334_sim2c__write_to_phase_2, 525, 525, 5, 48},
+  {cont__7_338, &frame__7_334_sim2c__write_to_phase_2, 525, 525, 48, 48},
   {entry__7_341, NULL, 529, 529, 20, 48},
   {cont__7_342, &frame__7_341, 529, 529, 48, 48},
-  {entry__7_339, NULL, 528, 528, 5, 22},
-  {cont__7_340, &frame__7_339, 529, 529, 5, 48},
-  {cont__7_343, &frame__7_339, 529, 529, 48, 48},
+  {entry__7_339_sim2c__write_to_phase_3, NULL, 528, 528, 5, 22},
+  {cont__7_340, &frame__7_339_sim2c__write_to_phase_3, 529, 529, 5, 48},
+  {cont__7_343, &frame__7_339_sim2c__write_to_phase_3, 529, 529, 48, 48},
   {entry__7_346, NULL, 533, 533, 20, 48},
   {cont__7_347, &frame__7_346, 533, 533, 48, 48},
-  {entry__7_344, NULL, 532, 532, 5, 22},
-  {cont__7_345, &frame__7_344, 533, 533, 5, 48},
-  {cont__7_348, &frame__7_344, 533, 533, 48, 48},
+  {entry__7_344_sim2c__write_to_phase_4, NULL, 532, 532, 5, 22},
+  {cont__7_345, &frame__7_344_sim2c__write_to_phase_4, 533, 533, 5, 48},
+  {cont__7_348, &frame__7_344_sim2c__write_to_phase_4, 533, 533, 48, 48},
   {entry__7_351, NULL, 537, 537, 20, 48},
   {cont__7_352, &frame__7_351, 537, 537, 48, 48},
-  {entry__7_349, NULL, 536, 536, 5, 22},
-  {cont__7_350, &frame__7_349, 537, 537, 5, 48},
-  {cont__7_353, &frame__7_349, 537, 537, 48, 48},
+  {entry__7_349_sim2c__write_to_phase_5, NULL, 536, 536, 5, 22},
+  {cont__7_350, &frame__7_349_sim2c__write_to_phase_5, 537, 537, 5, 48},
+  {cont__7_353, &frame__7_349_sim2c__write_to_phase_5, 537, 537, 48, 48},
   {entry__7_356, NULL, 541, 541, 20, 48},
   {cont__7_357, &frame__7_356, 541, 541, 48, 48},
-  {entry__7_354, NULL, 540, 540, 5, 22},
-  {cont__7_355, &frame__7_354, 541, 541, 5, 48},
-  {cont__7_358, &frame__7_354, 541, 541, 48, 48},
+  {entry__7_354_sim2c__write_to_phase_6, NULL, 540, 540, 5, 22},
+  {cont__7_355, &frame__7_354_sim2c__write_to_phase_6, 541, 541, 5, 48},
+  {cont__7_358, &frame__7_354_sim2c__write_to_phase_6, 541, 541, 48, 48},
   {entry__7_360, NULL, 544, 544, 20, 39},
   {cont__7_361, &frame__7_360, 544, 544, 47, 47},
-  {entry__7_359, NULL, 544, 544, 5, 47},
-  {cont__7_362, &frame__7_359, 544, 544, 47, 47},
+  {entry__7_359_sim2c__use_literal, NULL, 544, 544, 5, 47},
+  {cont__7_362, &frame__7_359_sim2c__use_literal, 544, 544, 47, 47},
   {entry__7_365, NULL, 548, 548, 20, 52},
   {cont__7_366, &frame__7_365, 548, 548, 52, 52},
-  {entry__7_363, NULL, 547, 547, 5, 22},
-  {cont__7_364, &frame__7_363, 548, 548, 5, 52},
-  {cont__7_367, &frame__7_363, 548, 548, 52, 52},
+  {entry__7_363_sim2c__write_to_generated_collections, NULL, 547, 547, 5, 22},
+  {cont__7_364, &frame__7_363_sim2c__write_to_generated_collections, 548, 548, 5, 52},
+  {cont__7_367, &frame__7_363_sim2c__write_to_generated_collections, 548, 548, 52, 52},
   {entry__7_370, NULL, 552, 552, 20, 49},
   {cont__7_371, &frame__7_370, 552, 552, 49, 49},
-  {entry__7_368, NULL, 551, 551, 5, 22},
-  {cont__7_369, &frame__7_368, 552, 552, 5, 49},
-  {cont__7_372, &frame__7_368, 552, 552, 49, 49},
+  {entry__7_368_sim2c__write_to_delayed_statements, NULL, 551, 551, 5, 22},
+  {cont__7_369, &frame__7_368_sim2c__write_to_delayed_statements, 552, 552, 5, 49},
+  {cont__7_372, &frame__7_368_sim2c__write_to_delayed_statements, 552, 552, 49, 49},
   {entry__7_376, NULL, 556, 556, 28, 28},
   {cont__7_377, &frame__7_376, 556, 556, 7, 29},
   {cont__7_378, &frame__7_376, 557, 557, 7, 68},
-  {entry__7_373, NULL, 555, 555, 8, 33},
-  {cont__7_375, &frame__7_373, 555, 557, 5, 68},
+  {entry__7_373_sim2c__use_identifier, NULL, 555, 555, 8, 33},
+  {cont__7_375, &frame__7_373_sim2c__use_identifier, 555, 557, 5, 68},
   {entry__7_386, NULL, 569, 569, 11, 43},
   {cont__7_387, &frame__7_386, 570, 570, 11, 40},
   {cont__7_388, &frame__7_386, 570, 570, 40, 40},
@@ -2871,128 +2871,128 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__7_830, NULL, 1068, 1070, 5, 30},
   {entry__7_834, NULL, 1072, 1072, 53, 64},
   {cont__7_835, &frame__7_834, 1072, 1072, 22, 64},
-  {entry__7_1, NULL, 231, 231, 3, 38},
-  {cont__7_43, &frame__7_1, 232, 232, 32, 68},
-  {cont__7_45, &frame__7_1, 232, 232, 3, 69},
-  {cont__7_46, &frame__7_1, 239, 272, 3, 61},
-  {cont__7_113, &frame__7_1, 273, 273, 3, 70},
-  {cont__7_117, &frame__7_1, 274, 274, 3, 61},
-  {cont__7_121, &frame__7_1, 275, 285, 3, 13},
-  {cont__7_124, &frame__7_1, 286, 287, 3, 71},
-  {cont__7_129, &frame__7_1, 288, 290, 3, 26},
-  {cont__7_132, &frame__7_1, 291, 291, 3, 63},
-  {cont__7_136, &frame__7_1, 292, 298, 3, 42},
-  {cont__7_141, &frame__7_1, 299, 299, 3, 64},
-  {cont__7_145, &frame__7_1, 302, 303, 3, 70},
-  {cont__7_148, &frame__7_1, 305, 305, 6, 30},
-  {cont__7_149, &frame__7_1, 305, 305, 6, 41},
-  {cont__7_151, &frame__7_1, 305, 307, 3, 58},
-  {cont__7_157, &frame__7_1, 308, 308, 3, 30},
-  {cont__7_159, &frame__7_1, 309, 309, 6, 29},
-  {cont__7_160, &frame__7_1, 309, 309, 3, 59},
-  {cont__7_164, &frame__7_1, 310, 310, 3, 29},
-  {cont__7_165, &frame__7_1, 311, 352, 3, 46},
-  {cont__7_235, &frame__7_1, 353, 358, 3, 58},
-  {cont__7_241, &frame__7_1, 359, 359, 3, 63},
-  {cont__7_245, &frame__7_1, 360, 362, 3, 13},
-  {cont__7_251, &frame__7_1, 366, 378, 3, 32},
-  {cont__7_265, &frame__7_1, 379, 379, 3, 77},
-  {cont__7_268, &frame__7_1, 381, 381, 3, 65},
-  {cont__7_272, &frame__7_1, 382, 391, 3, 13},
-  {cont__7_285, &frame__7_1, 413, 414, 3, 67},
-  {cont__7_288, &frame__7_1, 415, 415, 3, 62},
-  {cont__7_292, &frame__7_1, 416, 416, 3, 28},
-  {cont__7_293, &frame__7_1, 559, 559, 3, 49},
-  {cont__7_380, &frame__7_1, 560, 593, 3, 29},
-  {cont__7_417, &frame__7_1, 594, 594, 3, 48},
-  {cont__7_419, &frame__7_1, 596, 627, 3, 29},
-  {cont__7_456, &frame__7_1, 628, 628, 3, 39},
-  {cont__7_457, &frame__7_1, 629, 637, 3, 29},
-  {cont__7_472, &frame__7_1, 638, 654, 3, 29},
-  {cont__7_485, &frame__7_1, 655, 655, 3, 77},
-  {cont__7_488, &frame__7_1, 656, 656, 3, 71},
-  {cont__7_492, &frame__7_1, 657, 657, 3, 62},
-  {cont__7_496, &frame__7_1, 658, 658, 3, 68},
-  {cont__7_500, &frame__7_1, 659, 659, 10, 34},
-  {cont__7_501, &frame__7_1, 659, 659, 3, 42},
-  {cont__7_502, &frame__7_1, 660, 662, 3, 36},
-  {cont__7_508, &frame__7_1, 663, 663, 3, 62},
-  {cont__7_513, &frame__7_1, 664, 681, 3, 18},
-  {cont__7_515, &frame__7_1, 682, 682, 10, 35},
-  {cont__7_516, &frame__7_1, 682, 718, 3, 13},
-  {cont__7_519, &frame__7_1, 719, 719, 10, 35},
-  {cont__7_520, &frame__7_1, 719, 719, 10, 65},
-  {cont__7_524, &frame__7_1, 719, 721, 3, 36},
-  {cont__7_527, &frame__7_1, 722, 765, 3, 10},
-  {cont__7_529, &frame__7_1, 766, 775, 3, 52},
-  {cont__7_558, &frame__7_1, 776, 777, 3, 19},
-  {cont__7_560, &frame__7_1, 778, 778, 3, 49},
-  {cont__7_561, &frame__7_1, 779, 779, 3, 46},
-  {cont__7_562, &frame__7_1, 780, 781, 3, 10},
-  {cont__7_564, &frame__7_1, 782, 783, 3, 38},
-  {cont__7_566, &frame__7_1, 784, 784, 6, 45},
-  {cont__7_567, &frame__7_1, 784, 784, 6, 45},
-  {cont__7_568, &frame__7_1, 784, 785, 3, 58},
-  {cont__7_572, &frame__7_1, 786, 786, 3, 16},
-  {cont__7_574, &frame__7_1, 787, 787, 3, 30},
-  {cont__7_575, &frame__7_1, 795, 799, 3, 48},
-  {cont__7_582, &frame__7_1, 800, 802, 3, 52},
-  {cont__7_584, &frame__7_1, 803, 803, 3, 75},
-  {cont__7_585, &frame__7_1, 804, 804, 6, 39},
-  {cont__7_586, &frame__7_1, 804, 804, 6, 39},
-  {cont__7_587, &frame__7_1, 804, 805, 3, 52},
-  {cont__7_591, &frame__7_1, 806, 808, 3, 6},
-  {cont__7_593, &frame__7_1, 809, 816, 3, 24},
-  {cont__7_595, &frame__7_1, 817, 819, 3, 51},
-  {cont__7_603, &frame__7_1, 820, 820, 3, 16},
-  {cont__7_604, &frame__7_1, 821, 821, 3, 27},
-  {cont__7_605, &frame__7_1, 822, 822, 3, 75},
-  {cont__7_609, &frame__7_1, 823, 825, 3, 44},
-  {cont__7_611, &frame__7_1, 826, 826, 3, 69},
-  {cont__7_616, &frame__7_1, 827, 840, 9, 10},
-  {cont__7_619, &frame__7_1, 827, 840, 3, 10},
-  {cont__7_620, &frame__7_1, 841, 841, 3, 44},
-  {cont__7_621, &frame__7_1, 842, 848, 3, 17},
-  {cont__7_631, &frame__7_1, 849, 856, 3, 6},
-  {cont__7_633, &frame__7_1, 857, 867, 3, 39},
-  {cont__7_645, &frame__7_1, 868, 868, 3, 22},
-  {cont__7_646, &frame__7_1, 869, 869, 3, 26},
-  {cont__7_647, &frame__7_1, 870, 871, 9, 47},
-  {cont__7_649, &frame__7_1, 870, 871, 3, 47},
-  {cont__7_650, &frame__7_1, 872, 872, 3, 29},
-  {cont__7_651, &frame__7_1, 873, 873, 3, 15},
-  {cont__7_653, &frame__7_1, 874, 892, 3, 41},
-  {cont__7_660, &frame__7_1, 893, 895, 3, 43},
-  {cont__7_666, &frame__7_1, 896, 898, 3, 43},
-  {cont__7_668, &frame__7_1, 899, 899, 3, 25},
-  {cont__7_669, &frame__7_1, 900, 914, 3, 41},
-  {cont__7_676, &frame__7_1, 915, 916, 3, 52},
-  {cont__7_681, &frame__7_1, 917, 938, 3, 72},
-  {cont__7_729, &frame__7_1, 939, 939, 3, 25},
-  {cont__7_730, &frame__7_1, 940, 957, 3, 41},
-  {cont__7_737, &frame__7_1, 958, 959, 3, 52},
-  {cont__7_742, &frame__7_1, 960, 963, 9, 45},
-  {cont__7_745, &frame__7_1, 960, 963, 3, 45},
-  {cont__7_746, &frame__7_1, 964, 964, 3, 25},
-  {cont__7_747, &frame__7_1, 965, 981, 3, 41},
-  {cont__7_754, &frame__7_1, 982, 983, 3, 52},
-  {cont__7_759, &frame__7_1, 984, 987, 9, 45},
-  {cont__7_760, &frame__7_1, 984, 987, 3, 45},
-  {cont__7_761, &frame__7_1, 988, 1023, 3, 64},
-  {cont__7_796, &frame__7_1, 1024, 1024, 3, 25},
-  {cont__7_797, &frame__7_1, 1025, 1028, 3, 32},
-  {cont__7_800, &frame__7_1, 1029, 1043, 3, 41},
-  {cont__7_807, &frame__7_1, 1044, 1045, 3, 52},
-  {cont__7_812, &frame__7_1, 1046, 1046, 3, 25},
-  {cont__7_813, &frame__7_1, 1047, 1062, 3, 41},
-  {cont__7_820, &frame__7_1, 1063, 1064, 3, 52},
-  {cont__7_825, &frame__7_1, 1065, 1065, 3, 25},
-  {cont__7_826, &frame__7_1, 1066, 1066, 11, 58},
-  {cont__7_828, &frame__7_1, 1066, 1066, 3, 58},
-  {cont__7_829, &frame__7_1, 1067, 1070, 3, 31},
-  {cont__7_832, &frame__7_1, 1071, 1071, 3, 15},
-  {cont__7_833, &frame__7_1, 1072, 1072, 3, 64},
-  {cont__7_837, &frame__7_1, 1072, 1072, 64, 64}
+  {entry__7_1_sim2c__sim2c, NULL, 231, 231, 3, 38},
+  {cont__7_43, &frame__7_1_sim2c__sim2c, 232, 232, 32, 68},
+  {cont__7_45, &frame__7_1_sim2c__sim2c, 232, 232, 3, 69},
+  {cont__7_46, &frame__7_1_sim2c__sim2c, 239, 272, 3, 61},
+  {cont__7_113, &frame__7_1_sim2c__sim2c, 273, 273, 3, 70},
+  {cont__7_117, &frame__7_1_sim2c__sim2c, 274, 274, 3, 61},
+  {cont__7_121, &frame__7_1_sim2c__sim2c, 275, 285, 3, 13},
+  {cont__7_124, &frame__7_1_sim2c__sim2c, 286, 287, 3, 71},
+  {cont__7_129, &frame__7_1_sim2c__sim2c, 288, 290, 3, 26},
+  {cont__7_132, &frame__7_1_sim2c__sim2c, 291, 291, 3, 63},
+  {cont__7_136, &frame__7_1_sim2c__sim2c, 292, 298, 3, 42},
+  {cont__7_141, &frame__7_1_sim2c__sim2c, 299, 299, 3, 64},
+  {cont__7_145, &frame__7_1_sim2c__sim2c, 302, 303, 3, 70},
+  {cont__7_148, &frame__7_1_sim2c__sim2c, 305, 305, 6, 30},
+  {cont__7_149, &frame__7_1_sim2c__sim2c, 305, 305, 6, 41},
+  {cont__7_151, &frame__7_1_sim2c__sim2c, 305, 307, 3, 58},
+  {cont__7_157, &frame__7_1_sim2c__sim2c, 308, 308, 3, 30},
+  {cont__7_159, &frame__7_1_sim2c__sim2c, 309, 309, 6, 29},
+  {cont__7_160, &frame__7_1_sim2c__sim2c, 309, 309, 3, 59},
+  {cont__7_164, &frame__7_1_sim2c__sim2c, 310, 310, 3, 29},
+  {cont__7_165, &frame__7_1_sim2c__sim2c, 311, 352, 3, 46},
+  {cont__7_235, &frame__7_1_sim2c__sim2c, 353, 358, 3, 58},
+  {cont__7_241, &frame__7_1_sim2c__sim2c, 359, 359, 3, 63},
+  {cont__7_245, &frame__7_1_sim2c__sim2c, 360, 362, 3, 13},
+  {cont__7_251, &frame__7_1_sim2c__sim2c, 366, 378, 3, 32},
+  {cont__7_265, &frame__7_1_sim2c__sim2c, 379, 379, 3, 77},
+  {cont__7_268, &frame__7_1_sim2c__sim2c, 381, 381, 3, 65},
+  {cont__7_272, &frame__7_1_sim2c__sim2c, 382, 391, 3, 13},
+  {cont__7_285, &frame__7_1_sim2c__sim2c, 413, 414, 3, 67},
+  {cont__7_288, &frame__7_1_sim2c__sim2c, 415, 415, 3, 62},
+  {cont__7_292, &frame__7_1_sim2c__sim2c, 416, 416, 3, 28},
+  {cont__7_293, &frame__7_1_sim2c__sim2c, 559, 559, 3, 49},
+  {cont__7_380, &frame__7_1_sim2c__sim2c, 560, 593, 3, 29},
+  {cont__7_417, &frame__7_1_sim2c__sim2c, 594, 594, 3, 48},
+  {cont__7_419, &frame__7_1_sim2c__sim2c, 596, 627, 3, 29},
+  {cont__7_456, &frame__7_1_sim2c__sim2c, 628, 628, 3, 39},
+  {cont__7_457, &frame__7_1_sim2c__sim2c, 629, 637, 3, 29},
+  {cont__7_472, &frame__7_1_sim2c__sim2c, 638, 654, 3, 29},
+  {cont__7_485, &frame__7_1_sim2c__sim2c, 655, 655, 3, 77},
+  {cont__7_488, &frame__7_1_sim2c__sim2c, 656, 656, 3, 71},
+  {cont__7_492, &frame__7_1_sim2c__sim2c, 657, 657, 3, 62},
+  {cont__7_496, &frame__7_1_sim2c__sim2c, 658, 658, 3, 68},
+  {cont__7_500, &frame__7_1_sim2c__sim2c, 659, 659, 10, 34},
+  {cont__7_501, &frame__7_1_sim2c__sim2c, 659, 659, 3, 42},
+  {cont__7_502, &frame__7_1_sim2c__sim2c, 660, 662, 3, 36},
+  {cont__7_508, &frame__7_1_sim2c__sim2c, 663, 663, 3, 62},
+  {cont__7_513, &frame__7_1_sim2c__sim2c, 664, 681, 3, 18},
+  {cont__7_515, &frame__7_1_sim2c__sim2c, 682, 682, 10, 35},
+  {cont__7_516, &frame__7_1_sim2c__sim2c, 682, 718, 3, 13},
+  {cont__7_519, &frame__7_1_sim2c__sim2c, 719, 719, 10, 35},
+  {cont__7_520, &frame__7_1_sim2c__sim2c, 719, 719, 10, 65},
+  {cont__7_524, &frame__7_1_sim2c__sim2c, 719, 721, 3, 36},
+  {cont__7_527, &frame__7_1_sim2c__sim2c, 722, 765, 3, 10},
+  {cont__7_529, &frame__7_1_sim2c__sim2c, 766, 775, 3, 52},
+  {cont__7_558, &frame__7_1_sim2c__sim2c, 776, 777, 3, 19},
+  {cont__7_560, &frame__7_1_sim2c__sim2c, 778, 778, 3, 49},
+  {cont__7_561, &frame__7_1_sim2c__sim2c, 779, 779, 3, 46},
+  {cont__7_562, &frame__7_1_sim2c__sim2c, 780, 781, 3, 10},
+  {cont__7_564, &frame__7_1_sim2c__sim2c, 782, 783, 3, 38},
+  {cont__7_566, &frame__7_1_sim2c__sim2c, 784, 784, 6, 45},
+  {cont__7_567, &frame__7_1_sim2c__sim2c, 784, 784, 6, 45},
+  {cont__7_568, &frame__7_1_sim2c__sim2c, 784, 785, 3, 58},
+  {cont__7_572, &frame__7_1_sim2c__sim2c, 786, 786, 3, 16},
+  {cont__7_574, &frame__7_1_sim2c__sim2c, 787, 787, 3, 30},
+  {cont__7_575, &frame__7_1_sim2c__sim2c, 795, 799, 3, 48},
+  {cont__7_582, &frame__7_1_sim2c__sim2c, 800, 802, 3, 52},
+  {cont__7_584, &frame__7_1_sim2c__sim2c, 803, 803, 3, 75},
+  {cont__7_585, &frame__7_1_sim2c__sim2c, 804, 804, 6, 39},
+  {cont__7_586, &frame__7_1_sim2c__sim2c, 804, 804, 6, 39},
+  {cont__7_587, &frame__7_1_sim2c__sim2c, 804, 805, 3, 52},
+  {cont__7_591, &frame__7_1_sim2c__sim2c, 806, 808, 3, 6},
+  {cont__7_593, &frame__7_1_sim2c__sim2c, 809, 816, 3, 24},
+  {cont__7_595, &frame__7_1_sim2c__sim2c, 817, 819, 3, 51},
+  {cont__7_603, &frame__7_1_sim2c__sim2c, 820, 820, 3, 16},
+  {cont__7_604, &frame__7_1_sim2c__sim2c, 821, 821, 3, 27},
+  {cont__7_605, &frame__7_1_sim2c__sim2c, 822, 822, 3, 75},
+  {cont__7_609, &frame__7_1_sim2c__sim2c, 823, 825, 3, 44},
+  {cont__7_611, &frame__7_1_sim2c__sim2c, 826, 826, 3, 69},
+  {cont__7_616, &frame__7_1_sim2c__sim2c, 827, 840, 9, 10},
+  {cont__7_619, &frame__7_1_sim2c__sim2c, 827, 840, 3, 10},
+  {cont__7_620, &frame__7_1_sim2c__sim2c, 841, 841, 3, 44},
+  {cont__7_621, &frame__7_1_sim2c__sim2c, 842, 848, 3, 17},
+  {cont__7_631, &frame__7_1_sim2c__sim2c, 849, 856, 3, 6},
+  {cont__7_633, &frame__7_1_sim2c__sim2c, 857, 867, 3, 39},
+  {cont__7_645, &frame__7_1_sim2c__sim2c, 868, 868, 3, 22},
+  {cont__7_646, &frame__7_1_sim2c__sim2c, 869, 869, 3, 26},
+  {cont__7_647, &frame__7_1_sim2c__sim2c, 870, 871, 9, 47},
+  {cont__7_649, &frame__7_1_sim2c__sim2c, 870, 871, 3, 47},
+  {cont__7_650, &frame__7_1_sim2c__sim2c, 872, 872, 3, 29},
+  {cont__7_651, &frame__7_1_sim2c__sim2c, 873, 873, 3, 15},
+  {cont__7_653, &frame__7_1_sim2c__sim2c, 874, 892, 3, 41},
+  {cont__7_660, &frame__7_1_sim2c__sim2c, 893, 895, 3, 43},
+  {cont__7_666, &frame__7_1_sim2c__sim2c, 896, 898, 3, 43},
+  {cont__7_668, &frame__7_1_sim2c__sim2c, 899, 899, 3, 25},
+  {cont__7_669, &frame__7_1_sim2c__sim2c, 900, 914, 3, 41},
+  {cont__7_676, &frame__7_1_sim2c__sim2c, 915, 916, 3, 52},
+  {cont__7_681, &frame__7_1_sim2c__sim2c, 917, 938, 3, 72},
+  {cont__7_729, &frame__7_1_sim2c__sim2c, 939, 939, 3, 25},
+  {cont__7_730, &frame__7_1_sim2c__sim2c, 940, 957, 3, 41},
+  {cont__7_737, &frame__7_1_sim2c__sim2c, 958, 959, 3, 52},
+  {cont__7_742, &frame__7_1_sim2c__sim2c, 960, 963, 9, 45},
+  {cont__7_745, &frame__7_1_sim2c__sim2c, 960, 963, 3, 45},
+  {cont__7_746, &frame__7_1_sim2c__sim2c, 964, 964, 3, 25},
+  {cont__7_747, &frame__7_1_sim2c__sim2c, 965, 981, 3, 41},
+  {cont__7_754, &frame__7_1_sim2c__sim2c, 982, 983, 3, 52},
+  {cont__7_759, &frame__7_1_sim2c__sim2c, 984, 987, 9, 45},
+  {cont__7_760, &frame__7_1_sim2c__sim2c, 984, 987, 3, 45},
+  {cont__7_761, &frame__7_1_sim2c__sim2c, 988, 1023, 3, 64},
+  {cont__7_796, &frame__7_1_sim2c__sim2c, 1024, 1024, 3, 25},
+  {cont__7_797, &frame__7_1_sim2c__sim2c, 1025, 1028, 3, 32},
+  {cont__7_800, &frame__7_1_sim2c__sim2c, 1029, 1043, 3, 41},
+  {cont__7_807, &frame__7_1_sim2c__sim2c, 1044, 1045, 3, 52},
+  {cont__7_812, &frame__7_1_sim2c__sim2c, 1046, 1046, 3, 25},
+  {cont__7_813, &frame__7_1_sim2c__sim2c, 1047, 1062, 3, 41},
+  {cont__7_820, &frame__7_1_sim2c__sim2c, 1063, 1064, 3, 52},
+  {cont__7_825, &frame__7_1_sim2c__sim2c, 1065, 1065, 3, 25},
+  {cont__7_826, &frame__7_1_sim2c__sim2c, 1066, 1066, 11, 58},
+  {cont__7_828, &frame__7_1_sim2c__sim2c, 1066, 1066, 3, 58},
+  {cont__7_829, &frame__7_1_sim2c__sim2c, 1067, 1070, 3, 31},
+  {cont__7_832, &frame__7_1_sim2c__sim2c, 1071, 1071, 3, 15},
+  {cont__7_833, &frame__7_1_sim2c__sim2c, 1072, 1072, 3, 64},
+  {cont__7_837, &frame__7_1_sim2c__sim2c, 1072, 1072, 64, 64}
 };
 
 union NODE {
@@ -3303,7 +3303,7 @@ static void entry__1_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__1_1(void) {
+static void entry__1_1_sim2c__print_source(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // source: 0
@@ -3433,7 +3433,7 @@ static void entry__2_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_1(void) {
+static void entry__2_1_sim2c__eprint_source(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // source: 0
@@ -3461,7 +3461,7 @@ static void entry__2_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1(void) {
+static void entry__4_1_sim2c__generate_dispatcher_function(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // name: 0
@@ -3736,7 +3736,7 @@ static void cont__4_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_1(void) {
+static void entry__5_1_demangled(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // name: 0
@@ -3784,7 +3784,7 @@ static void cont__5_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1(void) {
+static void entry__6_1_sim2c__update_info(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // name: 0
@@ -4950,7 +4950,7 @@ static void cont__6_59(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__7_1(void) {
+static void entry__7_1_sim2c__sim2c(void) {
   allocate_initialized_frame_gc(3, 36);
   // slot allocations:
   // filenames: 0
@@ -5011,7 +5011,7 @@ static void entry__7_1(void) {
   //   std::key_value_pair temp__2 '/' "__"
   //   replace_all temp__1 name temp__2
   //   -> temp__1
-  frame->slots[3] /* mangle_filename */ = func__7_2;
+  frame->slots[3] /* mangle_filename */ = func__7_2_mangle_filename;
   // _define $need 
   // :
   //   (
@@ -5055,7 +5055,7 @@ static void entry__7_1(void) {
   //     needed_names !needed_names mangled_name temp__1
   // 
   //   if temp__1 temp__2
-  frame->slots[13] /* need */ = func__7_19;
+  frame->slots[13] /* need */ = func__7_19_need;
   define__sim2c__required_modules(undefined);
   define__sim2c__used_namespaces(undefined);
   define__sim2c__defined_namespaces(undefined);
@@ -5167,7 +5167,7 @@ static void entry__7_1(void) {
   func = myself->type;
   frame->cont = cont__7_43;
 }
-static void entry__7_2(void) {
+static void entry__7_2_mangle_filename(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // name: 0
@@ -5447,7 +5447,7 @@ static void cont__7_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_19(void) {
+static void entry__7_19_need(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // mangled_name: 0
@@ -10188,7 +10188,7 @@ static void cont__7_293(void) {
   // 491: ... : (args*)
   // 492:   $txt string(args*)
   // 493:   push &actions: append &generated_declarations txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_294, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_294_sim2c__write_to_declarations, -1);
   // 491: %sim2c::write_to_declarations: (args*)
   // 492:   $txt string(args*)
   // 493:   push &actions: append &generated_declarations txt
@@ -10196,7 +10196,7 @@ static void cont__7_293(void) {
   // 495: ... : (args*)
   // 496:   $txt string(args*)
   // 497:   push &actions: append &generated_top_level_variable_names txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_299, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_299_sim2c__write_to_top_level_variable_names, -1);
   // 495: %sim2c::write_to_top_level_variable_names: (args*)
   // 496:   $txt string(args*)
   // 497:   push &actions: append &generated_top_level_variable_names txt
@@ -10204,7 +10204,7 @@ static void cont__7_293(void) {
   // 499: ... : (args*)
   // 500:   $txt string(args*)
   // 501:   push &actions: append &generated_top_level_variable_declarations txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_304, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_304_sim2c__write_to_top_level_variable_declarations, -1);
   // 499: %sim2c::write_to_top_level_variable_declarations: (args*)
   // 500:   $txt string(args*)
   // 501:   push &actions: append &generated_top_level_variable_declarations txt
@@ -10212,7 +10212,7 @@ static void cont__7_293(void) {
   // 503: ... : (args*)
   // 504:   $txt string(args*)
   // 505:   push &actions: append &generated_global_variable_declarations txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_309, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_309_sim2c__write_to_global_variable_declarations, -1);
   // 503: %sim2c::write_to_global_variable_declarations: (args*)
   // 504:   $txt string(args*)
   // 505:   push &actions: append &generated_global_variable_declarations txt
@@ -10220,7 +10220,7 @@ static void cont__7_293(void) {
   // 507: ... : (args*)
   // 508:   $txt string(args*)
   // 509:   push &actions: append &generated_continuation_table txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_314, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_314_sim2c__write_to_continuation_table, -1);
   // 507: %sim2c::write_to_continuation_table: (args*)
   // 508:   $txt string(args*)
   // 509:   push &actions: append &generated_continuation_table txt
@@ -10228,7 +10228,7 @@ static void cont__7_293(void) {
   // 511: ... : (args*)
   // 512:   $txt string(args*)
   // 513:   push &actions: append &generated_delayed_continuation_table txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_319, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_319_sim2c__write_to_delayed_continuation_table, -1);
   // 511: %sim2c::write_to_delayed_continuation_table: (args*)
   // 512:   $txt string(args*)
   // 513:   push &actions: append &generated_delayed_continuation_table txt
@@ -10236,7 +10236,7 @@ static void cont__7_293(void) {
   // 515: ... : (args*)
   // 516:   $txt string(args*)
   // 517:   push &actions: append &generated_functions txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_324, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_324_sim2c__write_to_functions, -1);
   // 515: %sim2c::write_to_functions: (args*)
   // 516:   $txt string(args*)
   // 517:   push &actions: append &generated_functions txt
@@ -10244,7 +10244,7 @@ static void cont__7_293(void) {
   // 519: ... : (args*)
   // 520:   $txt string(args*)
   // 521:   push &actions: append &generated_phase_1 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_329, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_329_sim2c__write_to_phase_1, -1);
   // 519: %sim2c::write_to_phase_1: (args*)
   // 520:   $txt string(args*)
   // 521:   push &actions: append &generated_phase_1 txt
@@ -10252,7 +10252,7 @@ static void cont__7_293(void) {
   // 523: ... : (args*)
   // 524:   $txt string(args*)
   // 525:   push &actions: append &generated_phase_2 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_334, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_334_sim2c__write_to_phase_2, -1);
   // 523: %sim2c::write_to_phase_2: (args*)
   // 524:   $txt string(args*)
   // 525:   push &actions: append &generated_phase_2 txt
@@ -10260,7 +10260,7 @@ static void cont__7_293(void) {
   // 527: ... : (args*)
   // 528:   $txt string(args*)
   // 529:   push &actions: append &generated_phase_3 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_339, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_339_sim2c__write_to_phase_3, -1);
   // 527: %sim2c::write_to_phase_3: (args*)
   // 528:   $txt string(args*)
   // 529:   push &actions: append &generated_phase_3 txt
@@ -10268,7 +10268,7 @@ static void cont__7_293(void) {
   // 531: ... : (args*)
   // 532:   $txt string(args*)
   // 533:   push &actions: append &generated_phase_4 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_344, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_344_sim2c__write_to_phase_4, -1);
   // 531: %sim2c::write_to_phase_4: (args*)
   // 532:   $txt string(args*)
   // 533:   push &actions: append &generated_phase_4 txt
@@ -10276,7 +10276,7 @@ static void cont__7_293(void) {
   // 535: ... : (args*)
   // 536:   $txt string(args*)
   // 537:   push &actions: append &generated_phase_5 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_349, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_349_sim2c__write_to_phase_5, -1);
   // 535: %sim2c::write_to_phase_5: (args*)
   // 536:   $txt string(args*)
   // 537:   push &actions: append &generated_phase_5 txt
@@ -10284,21 +10284,21 @@ static void cont__7_293(void) {
   // 539: ... : (args*)
   // 540:   $txt string(args*)
   // 541:   push &actions: append &generated_phase_6 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_354, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_354_sim2c__write_to_phase_6, -1);
   // 539: %sim2c::write_to_phase_6: (args*)
   // 540:   $txt string(args*)
   // 541:   push &actions: append &generated_phase_6 txt
   initialize_future(get__sim2c__write_to_phase_6(), frame->slots[33] /* temp__1 */);
   // 543: ... : (name literal)
   // 544:   push &actions: !used_literals(name) literal
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_359, 2);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_359_sim2c__use_literal, 2);
   // 543: %sim2c::use_literal: (name literal)
   // 544:   push &actions: !used_literals(name) literal
   initialize_future(get__sim2c__use_literal(), frame->slots[33] /* temp__1 */);
   // 546: ... : (args*)
   // 547:   $txt string(args*)
   // 548:   push &actions: append &generated_collections txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_363, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_363_sim2c__write_to_generated_collections, -1);
   // 546: %sim2c::write_to_generated_collections: (args*)
   // 547:   $txt string(args*)
   // 548:   push &actions: append &generated_collections txt
@@ -10306,7 +10306,7 @@ static void cont__7_293(void) {
   // 550: ... : (args*)
   // 551:   $txt string(args*)
   // 552:   push &actions: append &delayed_statements txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_368, -1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_368_sim2c__write_to_delayed_statements, -1);
   // 550: %sim2c::write_to_delayed_statements: (args*)
   // 551:   $txt string(args*)
   // 552:   push &actions: append &delayed_statements txt
@@ -10315,7 +10315,7 @@ static void cont__7_293(void) {
   // 555:   if ident .has_prefix. "get__":
   // 556:     $name range(ident 6 -1)
   // 557:     need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
-  frame->slots[33] /* temp__1 */ = create_closure(entry__7_373, 1);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__7_373_sim2c__use_identifier, 1);
   // 554: %sim2c::use_identifier: (ident)
   // 555:   if ident .has_prefix. "get__":
   // 556:     $name range(ident 6 -1)
@@ -10393,7 +10393,7 @@ static void cont__7_378(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_294(void) {
+static void entry__7_294_sim2c__write_to_declarations(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10475,7 +10475,7 @@ static void cont__7_298(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_299(void) {
+static void entry__7_299_sim2c__write_to_top_level_variable_names(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10557,7 +10557,7 @@ static void cont__7_303(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_304(void) {
+static void entry__7_304_sim2c__write_to_top_level_variable_declarations(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10639,7 +10639,7 @@ static void cont__7_308(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_309(void) {
+static void entry__7_309_sim2c__write_to_global_variable_declarations(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10721,7 +10721,7 @@ static void cont__7_313(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_314(void) {
+static void entry__7_314_sim2c__write_to_continuation_table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10803,7 +10803,7 @@ static void cont__7_318(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_319(void) {
+static void entry__7_319_sim2c__write_to_delayed_continuation_table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10885,7 +10885,7 @@ static void cont__7_323(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_324(void) {
+static void entry__7_324_sim2c__write_to_functions(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10967,7 +10967,7 @@ static void cont__7_328(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_329(void) {
+static void entry__7_329_sim2c__write_to_phase_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11049,7 +11049,7 @@ static void cont__7_333(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_334(void) {
+static void entry__7_334_sim2c__write_to_phase_2(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11131,7 +11131,7 @@ static void cont__7_338(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_339(void) {
+static void entry__7_339_sim2c__write_to_phase_3(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11213,7 +11213,7 @@ static void cont__7_343(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_344(void) {
+static void entry__7_344_sim2c__write_to_phase_4(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11295,7 +11295,7 @@ static void cont__7_348(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_349(void) {
+static void entry__7_349_sim2c__write_to_phase_5(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11377,7 +11377,7 @@ static void cont__7_353(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_354(void) {
+static void entry__7_354_sim2c__write_to_phase_6(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11459,7 +11459,7 @@ static void cont__7_358(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_359(void) {
+static void entry__7_359_sim2c__use_literal(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // name: 0
@@ -11531,7 +11531,7 @@ static void cont__7_362(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_363(void) {
+static void entry__7_363_sim2c__write_to_generated_collections(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11613,7 +11613,7 @@ static void cont__7_367(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_368(void) {
+static void entry__7_368_sim2c__write_to_delayed_statements(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11695,7 +11695,7 @@ static void cont__7_372(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_373(void) {
+static void entry__7_373_sim2c__use_identifier(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // ident: 0
@@ -18426,12 +18426,12 @@ EXPORT void phase_2__sim2c(void) {
   string__1_9 = from_latin_1_string("<outdent_marker>", 16);
   func__1_8 = create_function(entry__1_8, 0);
   func__1_2 = create_function(entry__1_2, 1);
-  func__1_1 = create_function(entry__1_1, 1);
+  func__1_1_sim2c__print_source = create_function(entry__1_1_sim2c__print_source, 1);
   func__2_4 = create_function(entry__2_4, 0);
   func__2_5 = create_function(entry__2_5, 0);
   func__2_6 = create_function(entry__2_6, 0);
   func__2_2 = create_function(entry__2_2, 1);
-  func__2_1 = create_function(entry__2_1, 1);
+  func__2_1_sim2c__eprint_source = create_function(entry__2_1_sim2c__eprint_source, 1);
   string__4_2 = from_latin_1_string("static void type__", 18);
   string__4_3 = from_latin_1_string("(void);\012", 8);
   string__4_6 = from_latin_1_string("(void) {\012", 9);
@@ -18441,10 +18441,10 @@ EXPORT void phase_2__sim2c(void) {
   string__4_17 = from_latin_1_string(");\012", 3);
   string__4_20 = from_latin_1_string("  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {\012    if (argument_count != 1) {\012      if (argument_count != 2) invalid_arguments_error();\012      NODE *attr = arguments->slots[1];\012      NODE *temp = clone_object_and_attributes(arguments->slots[0]);\012      update_start_p = node_p;\012      set_attribute_value(temp->attributes, poly_idx__", 328);
   string__4_21 = from_latin_1_string(", attr);\012      arguments = node_p;\012      argument_count = 1;\012      arguments->slots[0] = temp;\012    } else {\012      arguments = node_p;\012      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);\012    }\012    func = frame->cont;\012    frame->cont = invalid_continuation;\012  } else {\012    func = myself->type;\012  }\012}\012", 308);
-  func__4_1 = create_function(entry__4_1, 1);
+  func__4_1_sim2c__generate_dispatcher_function = create_function(entry__4_1_sim2c__generate_dispatcher_function, 1);
   string__5_2 = from_latin_1_string("__", 2);
   string__5_3 = from_latin_1_string("::", 2);
-  func__5_1 = create_function(entry__5_1, 1);
+  func__5_1_demangled = create_function(entry__5_1_demangled, 1);
   string__6_11 = from_latin_1_string("The symbol \042", 12);
   string__6_12 = from_latin_1_string("\042 is used as a polymorphic function and cannot be used otherwise!", 65);
   string__6_22 = from_latin_1_string("\042 is used as a polymorphic function and id assigned to!", 55);
@@ -18452,10 +18452,10 @@ EXPORT void phase_2__sim2c(void) {
   string__6_35 = from_latin_1_string("\042 is used as a polymorphic function and as a single-assign dynamic!", 67);
   string__6_44 = from_latin_1_string("\042 is used as a single-assign dynamic and as a multi-assign dynamic!", 67);
   string__6_50 = from_latin_1_string("\042 is used as a polymorphic function and as a multi-assign dynamic!", 66);
-  func__6_1 = create_function(entry__6_1, 3);
+  func__6_1_sim2c__update_info = create_function(entry__6_1_sim2c__update_info, 3);
   string__7_3 = from_latin_1_string("./", 2);
-  func__7_2 = create_function(entry__7_2, 1);
-  func__7_19 = create_function(entry__7_19, 2);
+  func__7_2_mangle_filename = create_function(entry__7_2_mangle_filename, 1);
+  func__7_19_need = create_function(entry__7_19_need, 2);
   string__7_42 = from_latin_1_string("NODE", 4);
   string__7_44 = from_latin_1_string("SIMPLE_NODE", 11);
   string__7_52 = from_latin_1_string("Source file is not in a valid utf-8-encoding!", 45);
@@ -18665,7 +18665,7 @@ EXPORT void phase_2__sim2c(void) {
   string__7_831 = from_latin_1_string("  execute(main_entry);\012", 23);
   func__7_830 = create_function(entry__7_830, 0);
   string__7_836 = from_latin_1_string("generating", 10);
-  func__7_1 = create_function(entry__7_1, -1);
+  func__7_1_sim2c__sim2c = create_function(entry__7_1_sim2c__sim2c, -1);
   string__10_1 = from_latin_1_string("std__if", 7);
   string__10_3 = from_latin_1_string("std__is_defined", 15);
   string__10_5 = from_latin_1_string("std__equal", 10);
@@ -18895,12 +18895,12 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__sim2c(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.sim2c__print_source, &func__1_1);
-  assign_variable(&var.sim2c__eprint_source, &func__2_1);
-  assign_variable(&var.sim2c__generate_dispatcher_function, &func__4_1);
-  assign_variable(&var._demangled, &func__5_1);
-  assign_variable(&var.sim2c__update_info, &func__6_1);
-  assign_variable(&var.sim2c__sim2c, &func__7_1);
+  assign_variable(&var.sim2c__print_source, &func__1_1_sim2c__print_source);
+  assign_variable(&var.sim2c__eprint_source, &func__2_1_sim2c__eprint_source);
+  assign_variable(&var.sim2c__generate_dispatcher_function, &func__4_1_sim2c__generate_dispatcher_function);
+  assign_variable(&var._demangled, &func__5_1_demangled);
+  assign_variable(&var.sim2c__update_info, &func__6_1_sim2c__update_info);
+  assign_variable(&var.sim2c__sim2c, &func__7_1_sim2c__sim2c);
 }
 
 static int already_run_phase_6 = false;

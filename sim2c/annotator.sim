@@ -157,6 +157,18 @@ $sim2c::body/annotate_expression: (&self)
 $sim2c::call/annotate_statement: (&self)
   show_compiler_debug_info "annotate statement"
   if
+    &&
+      self.is_an_assignment
+      arguments_of(self)(1).is_a_body
+      output_arguments_of(self)(1).is_a_single_assign_definition
+    :
+      !self.arguments_of(1).name_of
+	replace_all
+	  range(output_arguments_of(self)(1).to_string 2 -1)
+	  "::" = "__"
+	  '/' = "_"
+	  '.' = "_"
+  if
     functor_of(self).is_defined:
       if result_count_of(self).is_defined:
 	annotate_expression &self.result_count_of

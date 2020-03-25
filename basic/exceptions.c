@@ -387,17 +387,17 @@ static NODE *get__first_resource_id(void) {
 static void define__first_resource_id(NODE *node) {
   define_dynamic_slot(dyna_idx__first_resource_id, node);
 }
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {1, {"resource"}};
+static NODE *func__9_1_std__register_resource;
+static void entry__9_1_std__register_resource(void);
+static FRAME_INFO frame__9_1_std__register_resource = {1, {"resource"}};
 static void cont__9_2(void);
 static void cont__9_3(void);
 static NODE *get__std__register_resource(void) {
   return var.std__register_resource;
 }
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {4, {"resource", "return", "resource_id", "n"}};
+static NODE *func__10_1_std__deregister_resource;
+static void entry__10_1_std__deregister_resource(void);
+static FRAME_INFO frame__10_1_std__deregister_resource = {4, {"resource", "return", "resource_id", "n"}};
 static void cont__10_2(void);
 static void cont__10_3(void);
 static NODE *func__10_4;
@@ -420,9 +420,9 @@ static void cont__10_14(void);
 static NODE *get__std__deregister_resource(void) {
   return var.std__deregister_resource;
 }
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {1, {"id"}};
+static NODE *func__11_1_cleanup_till;
+static void entry__11_1_cleanup_till(void);
+static FRAME_INFO frame__11_1_cleanup_till = {1, {"id"}};
 static NODE *func__11_2;
 static void entry__11_2(void);
 static FRAME_INFO frame__11_2 = {3, {"repeat_me", "id", "i"}};
@@ -465,9 +465,9 @@ static FRAME_INFO frame__11_26 = {3, {"i", "repeat_me", "resource"}};
 static void cont__11_27(void);
 static void cont__11_28(void);
 static void cont__11_29(void);
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {0, {}};
+static NODE *func__12_1_cleanup;
+static void entry__12_1_cleanup(void);
+static FRAME_INFO frame__12_1_cleanup = {0, {}};
 static NODE *func__12_2;
 static void entry__12_2(void);
 static FRAME_INFO frame__12_2 = {0, {}};
@@ -479,16 +479,16 @@ static FRAME_INFO frame__12_5 = {1, {"resource"}};
 static void cont__12_6(void);
 static void entry__13_1(void);
 static NODE *func__13_1;
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {1, {"func"}};
+static NODE *func__15_1_std__at_exit;
+static void entry__15_1_std__at_exit(void);
+static FRAME_INFO frame__15_1_std__at_exit = {1, {"func"}};
 static void cont__15_2(void);
 static NODE *get__std__at_exit(void) {
   return var.std__at_exit;
 }
-static NODE *func__16_1;
-static void entry__16_1(void);
-static FRAME_INFO frame__16_1 = {1, {"status"}};
+static NODE *func__16_1_std__exit;
+static void entry__16_1_std__exit(void);
+static FRAME_INFO frame__16_1_std__exit = {1, {"status"}};
 static NODE *func__16_2;
 static void entry__16_2(void);
 static FRAME_INFO frame__16_2 = {1, {"func"}};
@@ -497,15 +497,15 @@ static void cont__16_4(void);
 static NODE *get__std__exit(void) {
   return var.std__exit;
 }
-static NODE *func__17_1;
-static void entry__17_1(void);
-static FRAME_INFO frame__17_1 = {0, {}};
+static NODE *func__17_1_std__terminate;
+static void entry__17_1_std__terminate(void);
+static FRAME_INFO frame__17_1_std__terminate = {0, {}};
 static NODE *get__std__terminate(void) {
   return var.std__terminate;
 }
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {2, {"args", "msg"}};
+static NODE *func__18_1_std__ErrorMessage;
+static void entry__18_1_std__ErrorMessage(void);
+static FRAME_INFO frame__18_1_std__ErrorMessage = {2, {"args", "msg"}};
 static void cont__18_2(void);
 static void cont__18_3(void);
 static void cont__18_4(void);
@@ -519,9 +519,9 @@ static void cont__18_9(void);
 static NODE *get__std__ErrorMessage(void) {
   return var.std__ErrorMessage;
 }
-static NODE *func__19_1;
-static void entry__19_1(void);
-static FRAME_INFO frame__19_1 = {1, {"args"}};
+static NODE *func__19_1_std__Error;
+static void entry__19_1_std__Error(void);
+static FRAME_INFO frame__19_1_std__Error = {1, {"args"}};
 static void cont__19_2(void);
 static void cont__19_3(void);
 static NODE *get__std__Error(void) {
@@ -529,9 +529,9 @@ static NODE *get__std__Error(void) {
 }
 static void entry__20_1(void);
 static NODE *func__20_1;
-static NODE *func__21_1;
-static void entry__21_1(void);
-static FRAME_INFO frame__21_1 = {1, {"args"}};
+static NODE *func__21_1_RuntimeError;
+static void entry__21_1_RuntimeError(void);
+static FRAME_INFO frame__21_1_RuntimeError = {1, {"args"}};
 static void cont__21_2(void);
 static NODE *string__21_3;
 static void cont__21_4(void);
@@ -544,15 +544,15 @@ static NODE *get__std__raise(void) {
 static void define__std__raise(NODE *node) {
   define_dynamic_slot(dyna_idx__std__raise, node);
 }
-static NODE *func__23_1;
-static void entry__23_1(void);
-static FRAME_INFO frame__23_1 = {3, {"bodies", "return", "outer_raise"}};
+static NODE *func__23_1_std__try;
+static void entry__23_1_std__try(void);
+static FRAME_INFO frame__23_1_std__try = {3, {"bodies", "return", "outer_raise"}};
 static NODE *func__23_2;
 static void entry__23_2(void);
 static FRAME_INFO frame__23_2 = {5, {"return__1", "bodies", "outer_raise", "return", "body"}};
-static NODE *func__23_3;
-static void entry__23_3(void);
-static FRAME_INFO frame__23_3 = {5, {"args", "bodies", "outer_raise", "return", "handler"}};
+static NODE *func__23_3_raise;
+static void entry__23_3_raise(void);
+static FRAME_INFO frame__23_3_raise = {5, {"args", "bodies", "outer_raise", "return", "handler"}};
 static void cont__23_4(void);
 static NODE *func__23_5;
 static void entry__23_5(void);
@@ -587,9 +587,9 @@ static void cont__23_22(void);
 static NODE *get__std__try(void) {
   return var.std__try;
 }
-static NODE *func__24_1;
-static void entry__24_1(void);
-static FRAME_INFO frame__24_1 = {3, {"body", "return__1", "first_id"}};
+static NODE *func__24_1_std__transaction;
+static void entry__24_1_std__transaction(void);
+static FRAME_INFO frame__24_1_std__transaction = {3, {"body", "return__1", "first_id"}};
 static void cont__24_2(void);
 static NODE *func__24_3;
 static void entry__24_3(void);
@@ -599,9 +599,9 @@ static void cont__24_5(void);
 static NODE *get__std__transaction(void) {
   return var.std__transaction;
 }
-static NODE *func__25_1;
-static void entry__25_1(void);
-static FRAME_INFO frame__25_1 = {5, {"resource", "id", "s", "e", "retain_id"}};
+static NODE *func__25_1_std__retain;
+static void entry__25_1_std__retain(void);
+static FRAME_INFO frame__25_1_std__retain = {5, {"resource", "id", "s", "e", "retain_id"}};
 static void cont__25_2(void);
 static NODE *func__25_3;
 static void entry__25_3(void);
@@ -668,9 +668,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__resource_id_of, NULL, 28, 28, 2, 15},
   {type__retain_id_of, NULL, 29, 29, 2, 13},
   {run__basic__exceptions, NULL, 98, 98, 1, 27},
-  {entry__9_1, NULL, 38, 38, 3, 23},
-  {cont__9_2, &frame__9_1, 39, 39, 3, 26},
-  {cont__9_3, &frame__9_1, 39, 39, 26, 26},
+  {entry__9_1_std__register_resource, NULL, 38, 38, 3, 23},
+  {cont__9_2, &frame__9_1_std__register_resource, 39, 39, 3, 26},
+  {cont__9_3, &frame__9_1_std__register_resource, 39, 39, 26, 26},
   {entry__10_10, NULL, 50, 50, 7, 28},
   {cont__10_11, &frame__10_10, 51, 51, 7, 12},
   {entry__10_6, NULL, 49, 49, 23, 34},
@@ -681,10 +681,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_13, &frame__10_6, 52, 52, 10, 10},
   {entry__10_4, NULL, 48, 48, 12, 16},
   {cont__10_5, &frame__10_4, 48, 52, 9, 10},
-  {entry__10_1, NULL, 46, 46, 3, 39},
-  {cont__10_2, &frame__10_1, 47, 47, 3, 26},
-  {cont__10_3, &frame__10_1, 48, 52, 3, 10},
-  {cont__10_14, &frame__10_1, 52, 52, 10, 10},
+  {entry__10_1_std__deregister_resource, NULL, 46, 46, 3, 39},
+  {cont__10_2, &frame__10_1_std__deregister_resource, 47, 47, 3, 26},
+  {cont__10_3, &frame__10_1_std__deregister_resource, 48, 52, 3, 10},
+  {cont__10_14, &frame__10_1_std__deregister_resource, 52, 52, 10, 10},
   {entry__11_7, NULL, 75, 75, 40, 51},
   {cont__11_8, &frame__11_7, 75, 75, 25, 52},
   {cont__11_9, &frame__11_7, 75, 75, 25, 58},
@@ -713,39 +713,39 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__11_3, &frame__11_2, 74, 80, 5, 15},
   {cont__11_24, &frame__11_2, 81, 81, 8, 12},
   {cont__11_25, &frame__11_2, 81, 85, 5, 15},
-  {entry__11_1, NULL, 72, 85, 3, 16},
+  {entry__11_1_cleanup_till, NULL, 72, 85, 3, 16},
   {entry__12_5, NULL, 89, 89, 5, 28},
   {cont__12_6, &frame__12_5, 90, 90, 5, 18},
   {entry__12_2, NULL, 88, 88, 16, 33},
   {cont__12_3, &frame__12_2, 88, 88, 12, 34},
   {cont__12_4, &frame__12_2, 88, 90, 9, 18},
-  {entry__12_1, NULL, 88, 90, 3, 18},
+  {entry__12_1_cleanup, NULL, 88, 90, 3, 18},
   {entry__13_1, NULL, 93, 96, 3, 2},
-  {entry__15_1, NULL, 100, 100, 23, 47},
-  {cont__15_2, &frame__15_1, 100, 100, 47, 47},
+  {entry__15_1_std__at_exit, NULL, 100, 100, 23, 47},
+  {cont__15_2, &frame__15_1_std__at_exit, 100, 100, 47, 47},
   {entry__16_2, NULL, 103, 103, 35, 38},
-  {entry__16_1, NULL, 103, 103, 3, 38},
-  {cont__16_3, &frame__16_1, 104, 104, 3, 9},
-  {cont__16_4, &frame__16_1, 105, 105, 3, 18},
-  {entry__17_1, NULL, 107, 107, 18, 23},
+  {entry__16_1_std__exit, NULL, 103, 103, 3, 38},
+  {cont__16_3, &frame__16_1_std__exit, 104, 104, 3, 9},
+  {cont__16_4, &frame__16_1_std__exit, 105, 105, 3, 18},
+  {entry__17_1_std__terminate, NULL, 107, 107, 18, 23},
   {entry__18_6, NULL, 111, 111, 29, 44},
   {cont__18_7, &frame__18_6, 111, 111, 44, 44},
-  {entry__18_1, NULL, 110, 110, 3, 21},
-  {cont__18_2, &frame__18_1, 111, 111, 15, 15},
-  {cont__18_3, &frame__18_1, 111, 111, 10, 16},
-  {cont__18_4, &frame__18_1, 111, 111, 10, 26},
-  {cont__18_5, &frame__18_1, 111, 111, 3, 44},
-  {cont__18_8, &frame__18_1, 112, 112, 3, 21},
-  {cont__18_9, &frame__18_1, 113, 113, 3, 12},
-  {entry__19_1, NULL, 116, 116, 3, 9},
-  {cont__19_2, &frame__19_1, 117, 117, 3, 20},
-  {cont__19_3, &frame__19_1, 118, 118, 3, 8},
+  {entry__18_1_std__ErrorMessage, NULL, 110, 110, 3, 21},
+  {cont__18_2, &frame__18_1_std__ErrorMessage, 111, 111, 15, 15},
+  {cont__18_3, &frame__18_1_std__ErrorMessage, 111, 111, 10, 16},
+  {cont__18_4, &frame__18_1_std__ErrorMessage, 111, 111, 10, 26},
+  {cont__18_5, &frame__18_1_std__ErrorMessage, 111, 111, 3, 44},
+  {cont__18_8, &frame__18_1_std__ErrorMessage, 112, 112, 3, 21},
+  {cont__18_9, &frame__18_1_std__ErrorMessage, 113, 113, 3, 12},
+  {entry__19_1_std__Error, NULL, 116, 116, 3, 9},
+  {cont__19_2, &frame__19_1_std__Error, 117, 117, 3, 20},
+  {cont__19_3, &frame__19_1_std__Error, 118, 118, 3, 8},
   {entry__20_1, NULL, 121, 125, 3, 2},
-  {entry__21_1, NULL, 128, 128, 3, 9},
-  {cont__21_2, &frame__21_1, 129, 129, 3, 26},
-  {cont__21_4, &frame__21_1, 130, 130, 3, 20},
-  {cont__21_5, &frame__21_1, 131, 131, 3, 12},
-  {cont__21_6, &frame__21_1, 132, 132, 3, 8},
+  {entry__21_1_RuntimeError, NULL, 128, 128, 3, 9},
+  {cont__21_2, &frame__21_1_RuntimeError, 129, 129, 3, 26},
+  {cont__21_4, &frame__21_1_RuntimeError, 130, 130, 3, 20},
+  {cont__21_5, &frame__21_1_RuntimeError, 131, 131, 3, 12},
+  {cont__21_6, &frame__21_1_RuntimeError, 132, 132, 3, 8},
   {entry__23_5, NULL, 144, 144, 36, 49},
   {entry__23_6, NULL, 144, 144, 55, 66},
   {cont__23_7, &frame__23_6, 144, 144, 52, 66},
@@ -753,11 +753,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__23_12, &frame__23_11, 148, 148, 11, 16},
   {entry__23_13, NULL, 150, 150, 11, 23},
   {cont__23_14, &frame__23_13, 151, 151, 11, 16},
-  {entry__23_3, NULL, 144, 144, 19, 33},
-  {cont__23_4, &frame__23_3, 144, 144, 7, 67},
-  {cont__23_8, &frame__23_3, 146, 146, 9, 35},
-  {cont__23_9, &frame__23_3, 146, 146, 9, 40},
-  {cont__23_10, &frame__23_3, 145, 151, 7, 17},
+  {entry__23_3_raise, NULL, 144, 144, 19, 33},
+  {cont__23_4, &frame__23_3_raise, 144, 144, 7, 67},
+  {cont__23_8, &frame__23_3_raise, 146, 146, 9, 35},
+  {cont__23_9, &frame__23_3_raise, 146, 146, 9, 40},
+  {cont__23_10, &frame__23_3_raise, 145, 151, 7, 17},
   {entry__23_18, NULL, 154, 154, 48, 51},
   {entry__23_17, NULL, 154, 154, 25, 51},
   {cont__23_19, &frame__23_17, 154, 154, 51, 51},
@@ -766,13 +766,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__23_16, &frame__23_2, 154, 154, 5, 51},
   {cont__23_20, &frame__23_2, 155, 155, 5, 8},
   {cont__23_21, &frame__23_2, 155, 155, 8, 8},
-  {entry__23_1, NULL, 142, 155, 3, 8},
-  {cont__23_22, &frame__23_1, 155, 155, 8, 8},
+  {entry__23_1_std__try, NULL, 142, 155, 3, 8},
+  {cont__23_22, &frame__23_1_std__try, 155, 155, 8, 8},
   {entry__24_3, NULL, 162, 162, 5, 25},
   {cont__24_4, &frame__24_3, 163, 163, 5, 15},
-  {entry__24_1, NULL, 158, 158, 3, 72},
-  {cont__24_2, &frame__24_1, 161, 163, 3, 15},
-  {cont__24_5, &frame__24_1, 163, 163, 15, 15},
+  {entry__24_1_std__transaction, NULL, 158, 158, 3, 72},
+  {cont__24_2, &frame__24_1_std__transaction, 161, 163, 3, 15},
+  {cont__24_5, &frame__24_1_std__transaction, 163, 163, 15, 15},
   {entry__25_3, NULL, 167, 167, 5, 63},
   {entry__25_18, NULL, 175, 175, 12, 12},
   {entry__25_19, NULL, 177, 177, 9, 14},
@@ -798,19 +798,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__25_38, NULL, 182, 182, 6, 17},
   {cont__25_39, &frame__25_38, 182, 182, 5, 17},
   {cont__25_40, &frame__25_38, 182, 182, 48, 48},
-  {entry__25_1, NULL, 166, 166, 6, 35},
-  {cont__25_2, &frame__25_1, 166, 167, 3, 63},
-  {cont__25_5, &frame__25_1, 168, 168, 3, 30},
-  {cont__25_6, &frame__25_1, 170, 170, 3, 26},
-  {cont__25_7, &frame__25_1, 171, 177, 3, 16},
-  {cont__25_21, &frame__25_1, 178, 178, 6, 11},
-  {cont__25_22, &frame__25_1, 178, 178, 6, 49},
-  {cont__25_28, &frame__25_1, 178, 179, 3, 54},
-  {cont__25_31, &frame__25_1, 180, 180, 27, 38},
-  {cont__25_32, &frame__25_1, 180, 180, 3, 39},
-  {cont__25_33, &frame__25_1, 181, 181, 6, 27},
-  {cont__25_34, &frame__25_1, 181, 181, 6, 60},
-  {cont__25_37, &frame__25_1, 181, 182, 3, 48}
+  {entry__25_1_std__retain, NULL, 166, 166, 6, 35},
+  {cont__25_2, &frame__25_1_std__retain, 166, 167, 3, 63},
+  {cont__25_5, &frame__25_1_std__retain, 168, 168, 3, 30},
+  {cont__25_6, &frame__25_1_std__retain, 170, 170, 3, 26},
+  {cont__25_7, &frame__25_1_std__retain, 171, 177, 3, 16},
+  {cont__25_21, &frame__25_1_std__retain, 178, 178, 6, 11},
+  {cont__25_22, &frame__25_1_std__retain, 178, 178, 6, 49},
+  {cont__25_28, &frame__25_1_std__retain, 178, 179, 3, 54},
+  {cont__25_31, &frame__25_1_std__retain, 180, 180, 27, 38},
+  {cont__25_32, &frame__25_1_std__retain, 180, 180, 3, 39},
+  {cont__25_33, &frame__25_1_std__retain, 181, 181, 6, 27},
+  {cont__25_34, &frame__25_1_std__retain, 181, 181, 6, 60},
+  {cont__25_37, &frame__25_1_std__retain, 181, 182, 3, 48}
 };
 
 union NODE {
@@ -914,7 +914,7 @@ EXPORT void run__basic__exceptions(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1(void) {
+static void entry__9_1_std__register_resource(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // resource: 0
@@ -971,7 +971,7 @@ static void cont__9_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1(void) {
+static void entry__10_1_std__deregister_resource(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // resource: 0
@@ -1734,7 +1734,7 @@ static void cont__11_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__11_1(void) {
+static void entry__11_1_cleanup_till(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // id: 0
@@ -1857,7 +1857,7 @@ static void cont__12_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1(void) {
+static void entry__12_1_cleanup(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1882,7 +1882,7 @@ static void entry__13_1(void) {
   }
   terminate(to_int(arguments->slots[0]));
 }
-static void entry__15_1(void) {
+static void entry__15_1_std__at_exit(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // func: 0
@@ -1912,7 +1912,7 @@ static void cont__15_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1(void) {
+static void entry__16_1_std__exit(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // status: 0
@@ -1973,7 +1973,7 @@ static void cont__16_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__17_1(void) {
+static void entry__17_1_std__terminate(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1989,7 +1989,7 @@ static void entry__17_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__18_1(void) {
+static void entry__18_1_std__ErrorMessage(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
@@ -2129,7 +2129,7 @@ static void cont__18_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1(void) {
+static void entry__19_1_std__Error(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -2184,7 +2184,7 @@ static void entry__20_1(void) {
     return;
   }
 }
-static void entry__21_1(void) {
+static void entry__21_1_RuntimeError(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -2253,7 +2253,7 @@ static void cont__21_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__23_1(void) {
+static void entry__23_1_std__try(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -2324,7 +2324,7 @@ static void entry__23_2(void) {
   // 149:     :
   // 150:       handler args*
   // 151:       return
-  frame->slots[5] /* temp__1 */ = create_closure(entry__23_3, -1);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__23_3_raise, -1);
   // 143: %raise: (args*)
   // 144:   $handler if(bodies.is_empty (-> outer_raise) -> get(&bodies))
   // 145:   if
@@ -2411,7 +2411,7 @@ static void cont__23_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__23_3(void) {
+static void entry__23_3_raise(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
@@ -2671,7 +2671,7 @@ static void cont__23_22(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1(void) {
+static void entry__24_1_std__transaction(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // body: 0
@@ -2812,7 +2812,7 @@ static void cont__25_40(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1(void) {
+static void entry__25_1_std__retain(void) {
   allocate_initialized_frame_gc(1, 9);
   // slot allocations:
   // resource: 0
@@ -3486,30 +3486,30 @@ EXPORT void phase_2__basic__exceptions(void) {
   number__2 = from_uint32(2U);
   unique__1_1 = register_unique_item("std__CLEANUP");
   unique__2_1 = register_unique_item("std__ERROR_MESSAGE");
-  func__9_1 = create_function(entry__9_1, 1);
-  func__10_1 = create_function(entry__10_1, 1);
-  func__11_1 = create_function(entry__11_1, 1);
+  func__9_1_std__register_resource = create_function(entry__9_1_std__register_resource, 1);
+  func__10_1_std__deregister_resource = create_function(entry__10_1_std__deregister_resource, 1);
+  func__11_1_cleanup_till = create_function(entry__11_1_cleanup_till, 1);
   func__12_5 = create_function(entry__12_5, 0);
   func__12_2 = create_function(entry__12_2, 0);
-  func__12_1 = create_function(entry__12_1, 0);
+  func__12_1_cleanup = create_function(entry__12_1_cleanup, 0);
   func__13_1 = create_function(entry__13_1, 1);
-  func__15_1 = create_function(entry__15_1, 1);
+  func__15_1_std__at_exit = create_function(entry__15_1_std__at_exit, 1);
   func__16_2 = create_function(entry__16_2, 1);
-  func__16_1 = create_function(entry__16_1, 1);
-  func__17_1 = create_function(entry__17_1, 0);
-  func__18_1 = create_function(entry__18_1, -1);
-  func__19_1 = create_function(entry__19_1, -1);
+  func__16_1_std__exit = create_function(entry__16_1_std__exit, 1);
+  func__17_1_std__terminate = create_function(entry__17_1_std__terminate, 0);
+  func__18_1_std__ErrorMessage = create_function(entry__18_1_std__ErrorMessage, -1);
+  func__19_1_std__Error = create_function(entry__19_1_std__Error, -1);
   func__20_1 = create_function(entry__20_1, 0);
   string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
-  func__21_1 = create_function(entry__21_1, -1);
+  func__21_1_RuntimeError = create_function(entry__21_1_RuntimeError, -1);
   func__23_18 = create_function(entry__23_18, -1);
-  func__23_1 = create_function(entry__23_1, -1);
-  func__24_1 = create_function(entry__24_1, 1);
+  func__23_1_std__try = create_function(entry__23_1_std__try, -1);
+  func__24_1_std__transaction = create_function(entry__24_1_std__transaction, 1);
   string__25_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
   func__25_3 = create_function(entry__25_3, 0);
   string__25_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   func__25_29 = create_function(entry__25_29, 0);
-  func__25_1 = create_function(entry__25_1, 1);
+  func__25_1_std__retain = create_function(entry__25_1_std__retain, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3595,22 +3595,22 @@ EXPORT void phase_5__basic__exceptions(void) {
   assign_value(&var._resource_id_of, create_function(type__resource_id_of, -1));
   assign_value(&var._retain_id_of, create_function(type__retain_id_of, -1));
   maybe_initialize_future(get__first_resource_id(), get__undefined());
-  assign_variable(&var.std__register_resource, &func__9_1);
-  assign_variable(&var.std__deregister_resource, &func__10_1);
-  assign_variable(&var._cleanup_till, &func__11_1);
-  assign_variable(&var._cleanup, &func__12_1);
+  assign_variable(&var.std__register_resource, &func__9_1_std__register_resource);
+  assign_variable(&var.std__deregister_resource, &func__10_1_std__deregister_resource);
+  assign_variable(&var._cleanup_till, &func__11_1_cleanup_till);
+  assign_variable(&var._cleanup, &func__12_1_cleanup);
   assign_variable(&var._clib_exit, &func__13_1);
-  assign_variable(&var.std__at_exit, &func__15_1);
-  assign_variable(&var.std__exit, &func__16_1);
-  assign_variable(&var.std__terminate, &func__17_1);
-  assign_variable(&var.std__ErrorMessage, &func__18_1);
-  assign_variable(&var.std__Error, &func__19_1);
+  assign_variable(&var.std__at_exit, &func__15_1_std__at_exit);
+  assign_variable(&var.std__exit, &func__16_1_std__exit);
+  assign_variable(&var.std__terminate, &func__17_1_std__terminate);
+  assign_variable(&var.std__ErrorMessage, &func__18_1_std__ErrorMessage);
+  assign_variable(&var.std__Error, &func__19_1_std__Error);
   assign_variable(&var._crash_dump, &func__20_1);
-  assign_variable(&var._RuntimeError, &func__21_1);
+  assign_variable(&var._RuntimeError, &func__21_1_RuntimeError);
   initialize_future(get__std__raise(), var._RuntimeError);
-  assign_variable(&var.std__try, &func__23_1);
-  assign_variable(&var.std__transaction, &func__24_1);
-  assign_variable(&var.std__retain, &func__25_1);
+  assign_variable(&var.std__try, &func__23_1_std__try);
+  assign_variable(&var.std__transaction, &func__24_1_std__transaction);
+  assign_variable(&var.std__retain, &func__25_1_std__retain);
 }
 
 static int already_run_phase_6 = false;

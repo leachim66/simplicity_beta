@@ -276,9 +276,9 @@ static NODE *get__types__object(void) {
   return var.types__object;
 }
 static NODE *create__types__object();
-static NODE *func__4_1;
-static void entry__4_1(void);
-static FRAME_INFO frame__4_1 = {2, {"self", "default"}};
+static NODE *func__4_1_types__object_default_value;
+static void entry__4_1_types__object_default_value(void);
+static FRAME_INFO frame__4_1_types__object_default_value = {2, {"self", "default"}};
 
 int has_prefix(const char *str, const char *prefix)
 {
@@ -288,13 +288,13 @@ int has_prefix(const char *str, const char *prefix)
 }
 
 static long func__types__object___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {2, {"self", "indent"}};
+static NODE *func__7_1_types__object_serialize;
+static void entry__7_1_types__object_serialize(void);
+static FRAME_INFO frame__7_1_types__object_serialize = {2, {"self", "indent"}};
 static void cont__7_2(void);
-static NODE *func__8_1;
-static void entry__8_1(void);
-static FRAME_INFO frame__8_1 = {2, {"a", "b"}};
+static NODE *func__8_1_types__object_equal_type_and_value;
+static void entry__8_1_types__object_equal_type_and_value(void);
+static FRAME_INFO frame__8_1_types__object_equal_type_and_value = {2, {"a", "b"}};
 static void cont__8_2(void);
 static void entry__9_1(void);
 static NODE *func__9_1;
@@ -305,11 +305,11 @@ void run__basic__types__object(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__object, NULL, },
-  {entry__4_1, NULL, 36, 36, 47, 53},
-  {entry__7_1, NULL, 87, 87, 46, 59},
-  {cont__7_2, &frame__7_1, 87, 87, 43, 59},
-  {entry__8_1, NULL, 89, 89, 47, 56},
-  {cont__8_2, &frame__8_1, 89, 89, 44, 56},
+  {entry__4_1_types__object_default_value, NULL, 36, 36, 47, 53},
+  {entry__7_1_types__object_serialize, NULL, 87, 87, 46, 59},
+  {cont__7_2, &frame__7_1_types__object_serialize, 87, 87, 43, 59},
+  {entry__8_1_types__object_equal_type_and_value, NULL, 89, 89, 47, 56},
+  {cont__8_2, &frame__8_1_types__object_equal_type_and_value, 89, 89, 44, 56},
   {entry__9_1, NULL, 100, 103, 3, 2}
 };
 
@@ -407,7 +407,7 @@ SIMPLE_NODE types__object__node =
 static NODE *create__types__object() {
   return (NODE *)&types__object__node;
 }
-static void entry__4_1(void) {
+static void entry__4_1_types__object_default_value(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // self: 0
@@ -460,7 +460,7 @@ static long func__types__object___debug_string(NODE *node, int indent, int max_d
     return n;
   }
 }
-static void entry__7_1(void) {
+static void entry__7_1_types__object_serialize(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -503,7 +503,7 @@ static void cont__7_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_1(void) {
+static void entry__8_1_types__object_equal_type_and_value(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // a: 0
@@ -570,9 +570,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__object(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  func__4_1 = create_function(entry__4_1, 2);
-  func__7_1 = create_function(entry__7_1, -1);
-  func__8_1 = create_function(entry__8_1, 2);
+  func__4_1_types__object_default_value = create_function(entry__4_1_types__object_default_value, 2);
+  func__7_1_types__object_serialize = create_function(entry__7_1_types__object_serialize, -1);
+  func__8_1_types__object_equal_type_and_value = create_function(entry__8_1_types__object_equal_type_and_value, 2);
   func__9_1 = create_function(entry__9_1, 1);
 }
 
@@ -607,9 +607,9 @@ EXPORT void phase_4__basic__types__object(void) {
   use_read_only(NULL, "true", &get__true, &get_value_or_future__true);
   define_attribute("types", "object", poly_idx__is_defined, get__true());
   define_attribute("types", "object", poly_idx__is_undefined, get__false());
-  define_method("types", "object", poly_idx__default_value, func__4_1);
-  define_method("types", "object", poly_idx__serialize, func__7_1);
-  define_method("types", "object", poly_idx__equal_type_and_value, func__8_1);
+  define_method("types", "object", poly_idx__default_value, func__4_1_types__object_default_value);
+  define_method("types", "object", poly_idx__serialize, func__7_1_types__object_serialize);
+  define_method("types", "object", poly_idx__equal_type_and_value, func__8_1_types__object_equal_type_and_value);
 }
 
 static int already_run_phase_5 = false;

@@ -264,13 +264,13 @@ static NODE *create__types__undefined();
 static NODE *get__std__undefined(void) {
   return var.std__undefined;
 }
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {2, {"left", "right"}};
+static NODE *func__5_1_types__undefined_equal;
+static void entry__5_1_types__undefined_equal(void);
+static FRAME_INFO frame__5_1_types__undefined_equal = {2, {"left", "right"}};
 static void cont__5_2(void);
-static NODE *func__6_1;
-static void entry__6_1(void);
-static FRAME_INFO frame__6_1 = {2, {"self", "default"}};
+static NODE *func__6_1_types__undefined_default_value;
+static void entry__6_1_types__undefined_default_value(void);
+static FRAME_INFO frame__6_1_types__undefined_default_value = {2, {"self", "default"}};
 
 static long func__types__undefined___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static NODE *string__16_1;
@@ -283,9 +283,9 @@ void run__basic__types__undefined(void);
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__undefined, NULL, 53, 53, 1, 72},
   {cont__16_3, NULL, },
-  {entry__5_1, NULL, 41, 41, 43, 60},
-  {cont__5_2, &frame__5_1, 41, 41, 40, 60},
-  {entry__6_1, NULL, 43, 43, 50, 59},
+  {entry__5_1_types__undefined_equal, NULL, 41, 41, 43, 60},
+  {cont__5_2, &frame__5_1_types__undefined_equal, 41, 41, 40, 60},
+  {entry__6_1_types__undefined_default_value, NULL, 43, 43, 50, 59},
   {entry__16_2, NULL, 53, 53, 56, 72}
 };
 
@@ -416,7 +416,7 @@ SIMPLE_NODE types__undefined__node =
 static NODE *create__types__undefined() {
   return (NODE *)&types__undefined__node;
 }
-static void entry__5_1(void) {
+static void entry__5_1_types__undefined_equal(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -448,7 +448,7 @@ static void cont__5_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1(void) {
+static void entry__6_1_types__undefined_default_value(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // self: 0
@@ -488,8 +488,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__undefined(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  func__5_1 = create_function(entry__5_1, 2);
-  func__6_1 = create_function(entry__6_1, 2);
+  func__5_1_types__undefined_equal = create_function(entry__5_1_types__undefined_equal, 2);
+  func__6_1_types__undefined_default_value = create_function(entry__6_1_types__undefined_default_value, 2);
   string__16_1 = from_latin_1_string("undefined", 9);
   func__16_2 = create_function(entry__16_2, 2);
 }
@@ -524,8 +524,8 @@ EXPORT void phase_4__basic__types__undefined(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   define_attribute("types", "undefined", poly_idx__is_defined, get__false());
   define_attribute("types", "undefined", poly_idx__is_undefined, get__true());
-  define_method("types", "undefined", poly_idx__equal, func__5_1);
-  define_method("types", "undefined", poly_idx__default_value, func__6_1);
+  define_method("types", "undefined", poly_idx__equal, func__5_1_types__undefined_equal);
+  define_method("types", "undefined", poly_idx__default_value, func__6_1_types__undefined_default_value);
 }
 
 static int already_run_phase_5 = false;

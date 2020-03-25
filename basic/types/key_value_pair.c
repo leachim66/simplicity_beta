@@ -305,9 +305,9 @@ static void entry__8_1(void);
 static NODE *func__8_1;
 
 static long func__types__key_value_pair___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {2, {"self", "indent"}};
+static NODE *func__10_1_types__key_value_pair_serialize;
+static void entry__10_1_types__key_value_pair_serialize(void);
+static FRAME_INFO frame__10_1_types__key_value_pair_serialize = {2, {"self", "indent"}};
 static void cont__10_2(void);
 static void cont__10_3(void);
 static void cont__10_4(void);
@@ -329,18 +329,18 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__6_1, NULL, 48, 51, 3, 2},
   {entry__7_1, NULL, 54, 57, 3, 2},
   {entry__8_1, NULL, 60, 63, 3, 2},
-  {entry__10_1, NULL, 91, 91, 14, 21},
-  {cont__10_2, &frame__10_1, 91, 91, 7, 22},
-  {cont__10_3, &frame__10_1, 91, 91, 36, 47},
-  {cont__10_4, &frame__10_1, 91, 91, 49, 56},
-  {cont__10_5, &frame__10_1, 91, 91, 26, 57},
-  {cont__10_6, &frame__10_1, 92, 92, 18, 25},
-  {cont__10_7, &frame__10_1, 92, 92, 11, 26},
-  {cont__10_8, &frame__10_1, 92, 92, 40, 53},
-  {cont__10_9, &frame__10_1, 92, 92, 55, 62},
-  {cont__10_10, &frame__10_1, 92, 92, 30, 63},
-  {cont__10_11, &frame__10_1, 89, 92, 6, 65},
-  {cont__10_14, &frame__10_1, 89, 92, 3, 65}
+  {entry__10_1_types__key_value_pair_serialize, NULL, 91, 91, 14, 21},
+  {cont__10_2, &frame__10_1_types__key_value_pair_serialize, 91, 91, 7, 22},
+  {cont__10_3, &frame__10_1_types__key_value_pair_serialize, 91, 91, 36, 47},
+  {cont__10_4, &frame__10_1_types__key_value_pair_serialize, 91, 91, 49, 56},
+  {cont__10_5, &frame__10_1_types__key_value_pair_serialize, 91, 91, 26, 57},
+  {cont__10_6, &frame__10_1_types__key_value_pair_serialize, 92, 92, 18, 25},
+  {cont__10_7, &frame__10_1_types__key_value_pair_serialize, 92, 92, 11, 26},
+  {cont__10_8, &frame__10_1_types__key_value_pair_serialize, 92, 92, 40, 53},
+  {cont__10_9, &frame__10_1_types__key_value_pair_serialize, 92, 92, 55, 62},
+  {cont__10_10, &frame__10_1_types__key_value_pair_serialize, 92, 92, 30, 63},
+  {cont__10_11, &frame__10_1_types__key_value_pair_serialize, 89, 92, 6, 65},
+  {cont__10_14, &frame__10_1_types__key_value_pair_serialize, 89, 92, 3, 65}
 };
 
 union NODE {
@@ -531,7 +531,7 @@ static long func__types__key_value_pair___debug_string(NODE *node, int indent, i
   n += len;
   return n;
 }
-static void entry__10_1(void) {
+static void entry__10_1_types__key_value_pair_serialize(void) {
   allocate_initialized_frame_gc(2, 13);
   // slot allocations:
   // self: 0
@@ -770,7 +770,7 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   func__8_1 = create_function(entry__8_1, 1);
   string__10_12 = from_latin_1_string("key_value_pair\012", 15);
   string__10_13 = from_latin_1_string("\012", 1);
-  func__10_1 = create_function(entry__10_1, -1);
+  func__10_1_types__key_value_pair_serialize = create_function(entry__10_1_types__key_value_pair_serialize, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -806,7 +806,7 @@ EXPORT void phase_4__basic__types__key_value_pair(void) {
   define_attribute("types", "key_value_pair", poly_idx__is_a_key_value_pair, get__true());
   define_method("types", "key_value_pair", poly_idx__key_of, func__7_1);
   define_method("types", "key_value_pair", poly_idx__value_of, func__8_1);
-  define_method("types", "key_value_pair", poly_idx__serialize, func__10_1);
+  define_method("types", "key_value_pair", poly_idx__serialize, func__10_1_types__key_value_pair_serialize);
 }
 
 static int already_run_phase_5 = false;

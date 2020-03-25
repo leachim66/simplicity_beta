@@ -552,15 +552,15 @@ static NODE *get__inherited_names(void) {
 static void define__inherited_names(NODE *node) {
   define_dynamic_slot(dyna_idx__inherited_names, node);
 }
-static NODE *func__5_1;
-static void entry__5_1(void);
-static FRAME_INFO frame__5_1 = {1, {"id"}};
+static NODE *func__5_1_temporary_identifier;
+static void entry__5_1_temporary_identifier(void);
+static FRAME_INFO frame__5_1_temporary_identifier = {1, {"id"}};
 static void cont__5_2(void);
 static NODE *string__5_3;
 static void cont__5_4(void);
-static NODE *func__6_1;
-static void entry__6_1(void);
-static FRAME_INFO frame__6_1 = {4, {"self", "arguments", "final_destinations", "output_arguments"}};
+static NODE *func__6_1_simplify_arguments;
+static void entry__6_1_simplify_arguments(void);
+static FRAME_INFO frame__6_1_simplify_arguments = {4, {"self", "arguments", "final_destinations", "output_arguments"}};
 static void cont__6_2(void);
 static NODE *func__6_3;
 static void entry__6_3(void);
@@ -661,9 +661,9 @@ static void cont__6_54(void);
 static void cont__6_55(void);
 static void cont__6_56(void);
 static void cont__6_57(void);
-static NODE *func__7_1;
-static void entry__7_1(void);
-static FRAME_INFO frame__7_1 = {3, {"name", "definition", "info"}};
+static NODE *func__7_1_sim2c__check_usage;
+static void entry__7_1_sim2c__check_usage(void);
+static FRAME_INFO frame__7_1_sim2c__check_usage = {3, {"name", "definition", "info"}};
 static void cont__7_2(void);
 static void cont__7_3(void);
 static NODE *func__7_4;
@@ -714,20 +714,20 @@ static void cont__7_32(void);
 static NODE *get__sim2c__check_usage(void) {
   return var.sim2c__check_usage;
 }
-static NODE *func__8_1;
-static void entry__8_1(void);
-static FRAME_INFO frame__8_1 = {1, {"self"}};
+static NODE *func__8_1_types__grammar_node_simplify_statement;
+static void entry__8_1_types__grammar_node_simplify_statement(void);
+static FRAME_INFO frame__8_1_types__grammar_node_simplify_statement = {1, {"self"}};
 static NODE *string__8_2;
 static void cont__8_3(void);
 static void cont__8_4(void);
-static NODE *func__9_1;
-static void entry__9_1(void);
-static FRAME_INFO frame__9_1 = {1, {"self"}};
+static NODE *func__9_1_types__grammar_node_simplify_expression;
+static void entry__9_1_types__grammar_node_simplify_expression(void);
+static FRAME_INFO frame__9_1_types__grammar_node_simplify_expression = {1, {"self"}};
 static NODE *string__9_2;
 static void cont__9_3(void);
-static NODE *func__10_1;
-static void entry__10_1(void);
-static FRAME_INFO frame__10_1 = {2, {"self", "all_defined_names"}};
+static NODE *func__10_1_sim2c__body_simplify_expression;
+static void entry__10_1_sim2c__body_simplify_expression(void);
+static FRAME_INFO frame__10_1_sim2c__body_simplify_expression = {2, {"self", "all_defined_names"}};
 static NODE *string__10_2;
 static void cont__10_3(void);
 static void cont__10_4(void);
@@ -876,9 +876,9 @@ static void cont__10_100(void);
 static void cont__10_101(void);
 static void cont__10_102(void);
 static void cont__10_103(void);
-static NODE *func__11_1;
-static void entry__11_1(void);
-static FRAME_INFO frame__11_1 = {6, {"functor", "arguments", "result", "rest", "infos", "info"}};
+static NODE *func__11_1_do_store;
+static void entry__11_1_do_store(void);
+static FRAME_INFO frame__11_1_do_store = {6, {"functor", "arguments", "result", "rest", "infos", "info"}};
 static void cont__11_2(void);
 static void cont__11_3(void);
 static NODE *func__11_4;
@@ -948,9 +948,9 @@ static void cont__11_53(void);
 static void cont__11_54(void);
 static void cont__11_55(void);
 static void cont__11_56(void);
-static NODE *func__12_1;
-static void entry__12_1(void);
-static FRAME_INFO frame__12_1 = {5, {"destination", "result", "rest", "infos", "arguments"}};
+static NODE *func__12_1_store_result;
+static void entry__12_1_store_result(void);
+static FRAME_INFO frame__12_1_store_result = {5, {"destination", "result", "rest", "infos", "arguments"}};
 static void cont__12_2(void);
 static void cont__12_3(void);
 static void cont__12_4(void);
@@ -980,9 +980,9 @@ static NODE *func__12_17;
 static void entry__12_17(void);
 static FRAME_INFO frame__12_17 = {5, {"functor", "result", "rest", "arguments", "infos"}};
 static void cont__12_18(void);
-static NODE *func__13_1;
-static void entry__13_1(void);
-static FRAME_INFO frame__13_1 = {3, {"self", "return", "final_destinations"}};
+static NODE *func__13_1_sim2c__call_simplify_statement;
+static void entry__13_1_sim2c__call_simplify_statement(void);
+static FRAME_INFO frame__13_1_sim2c__call_simplify_statement = {3, {"self", "return", "final_destinations"}};
 static NODE *string__13_2;
 static void cont__13_3(void);
 static void cont__13_4(void);
@@ -1153,9 +1153,9 @@ static void cont__13_114(void);
 static void cont__13_115(void);
 static void cont__13_116(void);
 static void cont__13_117(void);
-static NODE *func__14_1;
-static void entry__14_1(void);
-static FRAME_INFO frame__14_1 = {2, {"self", "temp"}};
+static NODE *func__14_1_sim2c__function_call_simplify_expression;
+static void entry__14_1_sim2c__function_call_simplify_expression(void);
+static FRAME_INFO frame__14_1_sim2c__function_call_simplify_expression = {2, {"self", "temp"}};
 static NODE *string__14_2;
 static void cont__14_3(void);
 static void cont__14_4(void);
@@ -1167,21 +1167,21 @@ static void cont__14_9(void);
 static void cont__14_10(void);
 static void cont__14_11(void);
 static void cont__14_12(void);
-static NODE *func__15_1;
-static void entry__15_1(void);
-static FRAME_INFO frame__15_1 = {2, {"self", "dummy_destinations"}};
+static NODE *func__15_1_sim2c__attribute_value_pair_simplify_expression;
+static void entry__15_1_sim2c__attribute_value_pair_simplify_expression(void);
+static FRAME_INFO frame__15_1_sim2c__attribute_value_pair_simplify_expression = {2, {"self", "dummy_destinations"}};
 static NODE *string__15_2;
 static void cont__15_3(void);
 static void cont__15_4(void);
-static NODE *func__16_1;
-static void entry__16_1(void);
-static FRAME_INFO frame__16_1 = {2, {"self", "dummy_destinations"}};
+static NODE *func__16_1_sim2c__attribute_function_pair_simplify_expression;
+static void entry__16_1_sim2c__attribute_function_pair_simplify_expression(void);
+static FRAME_INFO frame__16_1_sim2c__attribute_function_pair_simplify_expression = {2, {"self", "dummy_destinations"}};
 static NODE *string__16_2;
 static void cont__16_3(void);
 static void cont__16_4(void);
-static NODE *func__17_1;
-static void entry__17_1(void);
-static FRAME_INFO frame__17_1 = {1, {"self"}};
+static NODE *func__17_1_sim2c__c_code_simplify_statement;
+static void entry__17_1_sim2c__c_code_simplify_statement(void);
+static FRAME_INFO frame__17_1_sim2c__c_code_simplify_statement = {1, {"self"}};
 static NODE *string__17_2;
 static void cont__17_3(void);
 static NODE *func__17_4;
@@ -1227,9 +1227,9 @@ static NODE *string__17_29;
 static NODE *string__17_30;
 static void cont__17_31(void);
 static void cont__17_32(void);
-static NODE *func__18_1;
-static void entry__18_1(void);
-static FRAME_INFO frame__18_1 = {1, {"self"}};
+static NODE *func__18_1_sim2c__c_body_simplify_expression;
+static void entry__18_1_sim2c__c_body_simplify_expression(void);
+static FRAME_INFO frame__18_1_sim2c__c_body_simplify_expression = {1, {"self"}};
 static NODE *string__18_2;
 static void cont__18_3(void);
 static NODE *func__18_4;
@@ -1242,9 +1242,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__sim2c__simplify_statement, NULL, 30, 30, 2, 26},
   {type__sim2c__simplify_expression, NULL, 31, 31, 2, 27},
   {run__simplifier, NULL, 34, 34, 1, 28},
-  {entry__5_1, NULL, 37, 37, 3, 15},
-  {cont__5_2, &frame__5_1, 38, 38, 26, 44},
-  {cont__5_4, &frame__5_1, 39, 39, 3, 7},
+  {entry__5_1_temporary_identifier, NULL, 37, 37, 3, 15},
+  {cont__5_2, &frame__5_1_temporary_identifier, 38, 38, 26, 44},
+  {cont__5_4, &frame__5_1_temporary_identifier, 39, 39, 3, 7},
   {entry__6_6, NULL, 47, 47, 9, 37},
   {cont__6_7, &frame__6_6, 48, 48, 42, 42},
   {entry__6_4, NULL, 45, 45, 10, 37},
@@ -1296,12 +1296,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__6_34, &frame__6_18, 76, 76, 8, 39},
   {cont__6_35, &frame__6_18, 76, 96, 5, 29},
   {cont__6_56, &frame__6_18, 97, 97, 46, 46},
-  {entry__6_1, NULL, 42, 42, 3, 32},
-  {cont__6_2, &frame__6_1, 43, 54, 3, 39},
-  {cont__6_15, &frame__6_1, 61, 61, 3, 46},
-  {cont__6_16, &frame__6_1, 62, 62, 6, 32},
-  {cont__6_17, &frame__6_1, 62, 97, 3, 46},
-  {cont__6_57, &frame__6_1, 98, 98, 3, 23},
+  {entry__6_1_simplify_arguments, NULL, 42, 42, 3, 32},
+  {cont__6_2, &frame__6_1_simplify_arguments, 43, 54, 3, 39},
+  {cont__6_15, &frame__6_1_simplify_arguments, 61, 61, 3, 46},
+  {cont__6_16, &frame__6_1_simplify_arguments, 62, 62, 6, 32},
+  {cont__6_17, &frame__6_1_simplify_arguments, 62, 97, 3, 46},
+  {cont__6_57, &frame__6_1_simplify_arguments, 98, 98, 3, 23},
   {entry__7_7, NULL, 105, 105, 21, 39},
   {cont__7_8, &frame__7_7, 105, 106, 41, 62},
   {cont__7_11, &frame__7_7, 105, 106, 9, 62},
@@ -1326,14 +1326,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__7_26, NULL, 116, 116, 12, 33},
   {cont__7_27, &frame__7_26, 116, 116, 35, 61},
   {cont__7_28, &frame__7_26, 116, 118, 7, 72},
-  {entry__7_1, NULL, 102, 102, 5, 32},
-  {cont__7_2, &frame__7_1, 103, 103, 5, 30},
-  {cont__7_3, &frame__7_1, 101, 118, 3, 74},
-  {entry__8_1, NULL, 124, 124, 3, 57},
-  {cont__8_3, &frame__8_1, 125, 125, 3, 23},
-  {cont__8_4, &frame__8_1, 125, 125, 23, 23},
-  {entry__9_1, NULL, 128, 128, 3, 58},
-  {cont__9_3, &frame__9_1, },
+  {entry__7_1_sim2c__check_usage, NULL, 102, 102, 5, 32},
+  {cont__7_2, &frame__7_1_sim2c__check_usage, 103, 103, 5, 30},
+  {cont__7_3, &frame__7_1_sim2c__check_usage, 101, 118, 3, 74},
+  {entry__8_1_types__grammar_node_simplify_statement, NULL, 124, 124, 3, 57},
+  {cont__8_3, &frame__8_1_types__grammar_node_simplify_statement, 125, 125, 3, 23},
+  {cont__8_4, &frame__8_1_types__grammar_node_simplify_statement, 125, 125, 23, 23},
+  {entry__9_1_types__grammar_node_simplify_expression, NULL, 128, 128, 3, 58},
+  {cont__9_3, &frame__9_1_types__grammar_node_simplify_expression, },
   {entry__10_8, NULL, 140, 140, 21, 39},
   {cont__10_9, &frame__10_8, 140, 142, 41, 33},
   {cont__10_12, &frame__10_8, 140, 142, 9, 33},
@@ -1424,16 +1424,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__10_100, &frame__10_95, 222, 222, 26, 46},
   {cont__10_101, &frame__10_95, 215, 222, 5, 47},
   {cont__10_102, &frame__10_95, 223, 223, 14, 14},
-  {entry__10_1, NULL, 134, 134, 3, 42},
-  {cont__10_3, &frame__10_1, 136, 136, 12, 33},
-  {cont__10_4, &frame__10_1, 136, 144, 3, 39},
-  {cont__10_15, &frame__10_1, 145, 145, 12, 30},
-  {cont__10_16, &frame__10_1, 145, 150, 3, 45},
-  {cont__10_31, &frame__10_1, 151, 208, 3, 41},
-  {cont__10_92, &frame__10_1, 209, 209, 10, 33},
-  {cont__10_93, &frame__10_1, 209, 209, 10, 42},
-  {cont__10_94, &frame__10_1, 209, 223, 3, 14},
-  {cont__10_103, &frame__10_1, },
+  {entry__10_1_sim2c__body_simplify_expression, NULL, 134, 134, 3, 42},
+  {cont__10_3, &frame__10_1_sim2c__body_simplify_expression, 136, 136, 12, 33},
+  {cont__10_4, &frame__10_1_sim2c__body_simplify_expression, 136, 144, 3, 39},
+  {cont__10_15, &frame__10_1_sim2c__body_simplify_expression, 145, 145, 12, 30},
+  {cont__10_16, &frame__10_1_sim2c__body_simplify_expression, 145, 150, 3, 45},
+  {cont__10_31, &frame__10_1_sim2c__body_simplify_expression, 151, 208, 3, 41},
+  {cont__10_92, &frame__10_1_sim2c__body_simplify_expression, 209, 209, 10, 33},
+  {cont__10_93, &frame__10_1_sim2c__body_simplify_expression, 209, 209, 10, 42},
+  {cont__10_94, &frame__10_1_sim2c__body_simplify_expression, 209, 223, 3, 14},
+  {cont__10_103, &frame__10_1_sim2c__body_simplify_expression, },
   {entry__11_5, NULL, 232, 232, 43, 71},
   {cont__11_6, &frame__11_5, 232, 232, 71, 71},
   {entry__11_10, NULL, 234, 234, 9, 36},
@@ -1487,9 +1487,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__11_54, &frame__11_28, 287, 287, 28, 48},
   {cont__11_55, &frame__11_28, 276, 287, 7, 49},
   {cont__11_56, &frame__11_28, 287, 287, 50, 50},
-  {entry__11_1, NULL, 229, 229, 3, 18},
-  {cont__11_2, &frame__11_1, 231, 231, 5, 23},
-  {cont__11_3, &frame__11_1, 230, 287, 3, 51},
+  {entry__11_1_do_store, NULL, 229, 229, 3, 18},
+  {cont__11_2, &frame__11_1_do_store, 231, 231, 5, 23},
+  {cont__11_3, &frame__11_1_do_store, 230, 287, 3, 51},
   {entry__12_8, NULL, 302, 302, 20, 31},
   {cont__12_9, &frame__12_8, 302, 302, 11, 61},
   {entry__12_10, NULL, 304, 304, 24, 35},
@@ -1504,10 +1504,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__12_13, NULL, 306, 306, 7, 38},
   {cont__12_14, &frame__12_13, 308, 308, 9, 32},
   {cont__12_15, &frame__12_13, 307, 311, 7, 65},
-  {entry__12_1, NULL, 296, 296, 3, 25},
-  {cont__12_2, &frame__12_1, 297, 297, 3, 38},
-  {cont__12_3, &frame__12_1, 299, 299, 5, 38},
-  {cont__12_4, &frame__12_1, 298, 311, 3, 67},
+  {entry__12_1_store_result, NULL, 296, 296, 3, 25},
+  {cont__12_2, &frame__12_1_store_result, 297, 297, 3, 38},
+  {cont__12_3, &frame__12_1_store_result, 299, 299, 5, 38},
+  {cont__12_4, &frame__12_1_store_result, 298, 311, 3, 67},
   {entry__13_5, NULL, 319, 319, 41, 58},
   {cont__13_6, &frame__13_5, 319, 319, 31, 59},
   {cont__13_7, &frame__13_5, 319, 319, 31, 64},
@@ -1610,37 +1610,37 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__13_99, NULL, 369, 369, 10, 31},
   {cont__13_100, &frame__13_99, 369, 395, 7, 64},
   {entry__13_98, NULL, 368, 395, 5, 65},
-  {entry__13_1, NULL, 318, 318, 3, 47},
-  {cont__13_3, &frame__13_1, 319, 319, 6, 26},
-  {cont__13_4, &frame__13_1, 319, 319, 6, 64},
-  {cont__13_9, &frame__13_1, 319, 330, 3, 51},
-  {cont__13_24, &frame__13_1, 331, 331, 3, 47},
-  {cont__13_25, &frame__13_1, 332, 332, 6, 21},
-  {cont__13_26, &frame__13_1, 332, 332, 6, 32},
-  {cont__13_27, &frame__13_1, 332, 337, 3, 40},
-  {cont__13_43, &frame__13_1, 339, 339, 5, 25},
-  {cont__13_44, &frame__13_1, 338, 365, 3, 48},
-  {cont__13_95, &frame__13_1, 366, 366, 3, 23},
-  {cont__13_96, &frame__13_1, 367, 367, 6, 34},
-  {cont__13_97, &frame__13_1, 367, 395, 3, 66},
-  {cont__13_117, &frame__13_1, 395, 395, 66, 66},
-  {entry__14_1, NULL, 401, 401, 3, 51},
-  {cont__14_3, &frame__14_1, 402, 402, 3, 30},
-  {cont__14_4, &frame__14_1, 405, 405, 19, 34},
-  {cont__14_5, &frame__14_1, 406, 406, 33, 57},
-  {cont__14_6, &frame__14_1, 406, 406, 28, 63},
-  {cont__14_7, &frame__14_1, 407, 407, 21, 38},
-  {cont__14_8, &frame__14_1, 408, 408, 20, 36},
-  {cont__14_9, &frame__14_1, 409, 409, 27, 50},
-  {cont__14_10, &frame__14_1, 410, 410, 24, 44},
-  {cont__14_11, &frame__14_1, 403, 410, 3, 45},
-  {cont__14_12, &frame__14_1, 411, 411, 3, 9},
-  {entry__15_1, NULL, 417, 417, 3, 58},
-  {cont__15_3, &frame__15_1, 418, 419, 3, 47},
-  {cont__15_4, &frame__15_1, 419, 419, 48, 48},
-  {entry__16_1, NULL, 425, 425, 3, 61},
-  {cont__16_3, &frame__16_1, 426, 427, 3, 47},
-  {cont__16_4, &frame__16_1, 427, 427, 48, 48},
+  {entry__13_1_sim2c__call_simplify_statement, NULL, 318, 318, 3, 47},
+  {cont__13_3, &frame__13_1_sim2c__call_simplify_statement, 319, 319, 6, 26},
+  {cont__13_4, &frame__13_1_sim2c__call_simplify_statement, 319, 319, 6, 64},
+  {cont__13_9, &frame__13_1_sim2c__call_simplify_statement, 319, 330, 3, 51},
+  {cont__13_24, &frame__13_1_sim2c__call_simplify_statement, 331, 331, 3, 47},
+  {cont__13_25, &frame__13_1_sim2c__call_simplify_statement, 332, 332, 6, 21},
+  {cont__13_26, &frame__13_1_sim2c__call_simplify_statement, 332, 332, 6, 32},
+  {cont__13_27, &frame__13_1_sim2c__call_simplify_statement, 332, 337, 3, 40},
+  {cont__13_43, &frame__13_1_sim2c__call_simplify_statement, 339, 339, 5, 25},
+  {cont__13_44, &frame__13_1_sim2c__call_simplify_statement, 338, 365, 3, 48},
+  {cont__13_95, &frame__13_1_sim2c__call_simplify_statement, 366, 366, 3, 23},
+  {cont__13_96, &frame__13_1_sim2c__call_simplify_statement, 367, 367, 6, 34},
+  {cont__13_97, &frame__13_1_sim2c__call_simplify_statement, 367, 395, 3, 66},
+  {cont__13_117, &frame__13_1_sim2c__call_simplify_statement, 395, 395, 66, 66},
+  {entry__14_1_sim2c__function_call_simplify_expression, NULL, 401, 401, 3, 51},
+  {cont__14_3, &frame__14_1_sim2c__function_call_simplify_expression, 402, 402, 3, 30},
+  {cont__14_4, &frame__14_1_sim2c__function_call_simplify_expression, 405, 405, 19, 34},
+  {cont__14_5, &frame__14_1_sim2c__function_call_simplify_expression, 406, 406, 33, 57},
+  {cont__14_6, &frame__14_1_sim2c__function_call_simplify_expression, 406, 406, 28, 63},
+  {cont__14_7, &frame__14_1_sim2c__function_call_simplify_expression, 407, 407, 21, 38},
+  {cont__14_8, &frame__14_1_sim2c__function_call_simplify_expression, 408, 408, 20, 36},
+  {cont__14_9, &frame__14_1_sim2c__function_call_simplify_expression, 409, 409, 27, 50},
+  {cont__14_10, &frame__14_1_sim2c__function_call_simplify_expression, 410, 410, 24, 44},
+  {cont__14_11, &frame__14_1_sim2c__function_call_simplify_expression, 403, 410, 3, 45},
+  {cont__14_12, &frame__14_1_sim2c__function_call_simplify_expression, 411, 411, 3, 9},
+  {entry__15_1_sim2c__attribute_value_pair_simplify_expression, NULL, 417, 417, 3, 58},
+  {cont__15_3, &frame__15_1_sim2c__attribute_value_pair_simplify_expression, 418, 419, 3, 47},
+  {cont__15_4, &frame__15_1_sim2c__attribute_value_pair_simplify_expression, 419, 419, 48, 48},
+  {entry__16_1_sim2c__attribute_function_pair_simplify_expression, NULL, 425, 425, 3, 61},
+  {cont__16_3, &frame__16_1_sim2c__attribute_function_pair_simplify_expression, 426, 427, 3, 47},
+  {cont__16_4, &frame__16_1_sim2c__attribute_function_pair_simplify_expression, 427, 427, 48, 48},
   {entry__17_4, NULL, 434, 434, 35, 35},
   {entry__17_10, NULL, 439, 439, 22, 43},
   {cont__17_11, &frame__17_10, 439, 439, 48, 48},
@@ -1663,16 +1663,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__17_23, &frame__17_19, 444, 444, 7, 64},
   {cont__17_24, &frame__17_19, 445, 445, 7, 50},
   {cont__17_27, &frame__17_19, 445, 445, 50, 50},
-  {entry__17_1, NULL, 433, 433, 3, 44},
-  {cont__17_3, &frame__17_1, 434, 434, 3, 35},
-  {cont__17_5, &frame__17_1, 436, 436, 5, 17},
-  {cont__17_6, &frame__17_1, 435, 445, 3, 51},
-  {cont__17_31, &frame__17_1, 446, 446, 3, 24},
-  {cont__17_32, &frame__17_1, 446, 446, 24, 24},
+  {entry__17_1_sim2c__c_code_simplify_statement, NULL, 433, 433, 3, 44},
+  {cont__17_3, &frame__17_1_sim2c__c_code_simplify_statement, 434, 434, 3, 35},
+  {cont__17_5, &frame__17_1_sim2c__c_code_simplify_statement, 436, 436, 5, 17},
+  {cont__17_6, &frame__17_1_sim2c__c_code_simplify_statement, 435, 445, 3, 51},
+  {cont__17_31, &frame__17_1_sim2c__c_code_simplify_statement, 446, 446, 3, 24},
+  {cont__17_32, &frame__17_1_sim2c__c_code_simplify_statement, 446, 446, 24, 24},
   {entry__18_4, NULL, 453, 453, 35, 35},
-  {entry__18_1, NULL, 452, 452, 3, 44},
-  {cont__18_3, &frame__18_1, 453, 453, 3, 35},
-  {cont__18_5, &frame__18_1, 453, 453, 35, 35}
+  {entry__18_1_sim2c__c_body_simplify_expression, NULL, 452, 452, 3, 44},
+  {cont__18_3, &frame__18_1_sim2c__c_body_simplify_expression, 453, 453, 3, 35},
+  {cont__18_5, &frame__18_1_sim2c__c_body_simplify_expression, 453, 453, 35, 35}
 };
 
 union NODE {
@@ -1774,7 +1774,7 @@ EXPORT void run__simplifier(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1(void) {
+static void entry__5_1_temporary_identifier(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   // id: 0
@@ -1830,7 +1830,7 @@ static void cont__5_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1(void) {
+static void entry__6_1_simplify_arguments(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -3568,7 +3568,7 @@ static void cont__7_28(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_1(void) {
+static void entry__7_1_sim2c__check_usage(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // name: 0
@@ -3656,7 +3656,7 @@ static void cont__7_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_1(void) {
+static void entry__8_1_types__grammar_node_simplify_statement(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -3700,7 +3700,7 @@ static void cont__8_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1(void) {
+static void entry__9_1_types__grammar_node_simplify_expression(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -3731,7 +3731,7 @@ static void cont__9_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1(void) {
+static void entry__10_1_sim2c__body_simplify_expression(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -6837,7 +6837,7 @@ static void cont__11_56(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1(void) {
+static void entry__11_1_do_store(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // functor: 0
@@ -7250,7 +7250,7 @@ static void cont__12_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__12_1(void) {
+static void entry__12_1_store_result(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // destination: 0
@@ -7358,7 +7358,7 @@ static void cont__12_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_1(void) {
+static void entry__13_1_sim2c__call_simplify_statement(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -9677,7 +9677,7 @@ static void cont__13_117(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1(void) {
+static void entry__14_1_sim2c__function_call_simplify_expression(void) {
   allocate_initialized_frame_gc(1, 10);
   // slot allocations:
   // self: 0
@@ -9869,7 +9869,7 @@ static void cont__14_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1(void) {
+static void entry__15_1_sim2c__attribute_value_pair_simplify_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -9920,7 +9920,7 @@ static void cont__15_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1(void) {
+static void entry__16_1_sim2c__attribute_function_pair_simplify_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -9971,7 +9971,7 @@ static void cont__16_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__17_1(void) {
+static void entry__17_1_sim2c__c_code_simplify_statement(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -10448,7 +10448,7 @@ static void cont__17_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1(void) {
+static void entry__18_1_sim2c__c_body_simplify_expression(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -10540,46 +10540,46 @@ EXPORT void phase_2__simplifier(void) {
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
   string__5_3 = from_latin_1_string("temp__", 6);
-  func__5_1 = create_function(entry__5_1, 0);
+  func__5_1_temporary_identifier = create_function(entry__5_1_temporary_identifier, 0);
   func__6_3 = create_function(entry__6_3, 1);
-  func__6_1 = create_function(entry__6_1, 1);
+  func__6_1_simplify_arguments = create_function(entry__6_1_simplify_arguments, 1);
   string__7_9 = from_latin_1_string("Invalid access to read-only variable \042", 38);
   string__7_10 = from_latin_1_string("\042", 1);
   string__7_17 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
   string__7_24 = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
   string__7_31 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
-  func__7_1 = create_function(entry__7_1, 3);
+  func__7_1_sim2c__check_usage = create_function(entry__7_1_sim2c__check_usage, 3);
   string__8_2 = from_latin_1_string("simplify statement (default)", 28);
-  func__8_1 = create_function(entry__8_1, 1);
+  func__8_1_types__grammar_node_simplify_statement = create_function(entry__8_1_types__grammar_node_simplify_statement, 1);
   string__9_2 = from_latin_1_string("simplify expression (default)", 29);
-  func__9_1 = create_function(entry__9_1, 1);
+  func__9_1_types__grammar_node_simplify_expression = create_function(entry__9_1_types__grammar_node_simplify_expression, 1);
   string__10_2 = from_latin_1_string("simplify body", 13);
   string__10_10 = from_latin_1_string("An identifier named \042", 21);
   string__10_11 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
-  func__10_1 = create_function(entry__10_1, 1);
+  func__10_1_sim2c__body_simplify_expression = create_function(entry__10_1_sim2c__body_simplify_expression, 1);
   func__11_5 = create_function(entry__11_5, 1);
   func__11_45 = create_function(entry__11_45, 0);
   func__11_46 = create_function(entry__11_46, 0);
-  func__11_1 = create_function(entry__11_1, 5);
-  func__12_1 = create_function(entry__12_1, -1);
+  func__11_1_do_store = create_function(entry__11_1_do_store, 5);
+  func__12_1_store_result = create_function(entry__12_1_store_result, -1);
   string__13_2 = from_latin_1_string("simplify statement", 18);
   func__13_89 = create_function(entry__13_89, 1);
-  func__13_1 = create_function(entry__13_1, 1);
+  func__13_1_sim2c__call_simplify_statement = create_function(entry__13_1_sim2c__call_simplify_statement, 1);
   string__14_2 = from_latin_1_string("simplify function call", 22);
-  func__14_1 = create_function(entry__14_1, 1);
+  func__14_1_sim2c__function_call_simplify_expression = create_function(entry__14_1_sim2c__function_call_simplify_expression, 1);
   string__15_2 = from_latin_1_string("simplify attribute-value pair", 29);
-  func__15_1 = create_function(entry__15_1, 1);
+  func__15_1_sim2c__attribute_value_pair_simplify_expression = create_function(entry__15_1_sim2c__attribute_value_pair_simplify_expression, 1);
   string__16_2 = from_latin_1_string("simplify attribute-function pair", 32);
-  func__16_1 = create_function(entry__16_1, 1);
+  func__16_1_sim2c__attribute_function_pair_simplify_expression = create_function(entry__16_1_sim2c__attribute_function_pair_simplify_expression, 1);
   string__17_2 = from_latin_1_string("simplify C-code", 15);
   func__17_4 = create_function(entry__17_4, 0);
   string__17_28 = from_latin_1_string("struct", 6);
   string__17_29 = from_latin_1_string("node", 4);
   string__17_30 = from_latin_1_string("function", 8);
-  func__17_1 = create_function(entry__17_1, 1);
+  func__17_1_sim2c__c_code_simplify_statement = create_function(entry__17_1_sim2c__c_code_simplify_statement, 1);
   string__18_2 = from_latin_1_string("simplify C-body", 15);
   func__18_4 = create_function(entry__18_4, 0);
-  func__18_1 = create_function(entry__18_1, 1);
+  func__18_1_sim2c__c_body_simplify_expression = create_function(entry__18_1_sim2c__c_body_simplify_expression, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -10712,15 +10712,15 @@ EXPORT void phase_4__simplifier(void) {
   use_read_write(NULL, "use_inline_c", &get__use_inline_c, &set__use_inline_c);
   use_read_only(NULL, "used_names_of", &get__used_names_of, &get_value_or_future__used_names_of);
   use_read_only(NULL, "variable_kind_of", &get__variable_kind_of, &get_value_or_future__variable_kind_of);
-  define_method("types", "grammar_node", poly_idx__simplify_statement, func__8_1);
-  define_method("types", "grammar_node", poly_idx__simplify_expression, func__9_1);
-  define_method("sim2c", "body", poly_idx__simplify_expression, func__10_1);
-  define_method("sim2c", "call", poly_idx__simplify_statement, func__13_1);
-  define_method("sim2c", "function_call", poly_idx__simplify_expression, func__14_1);
-  define_method("sim2c", "attribute_value_pair", poly_idx__simplify_expression, func__15_1);
-  define_method("sim2c", "attribute_function_pair", poly_idx__simplify_expression, func__16_1);
-  define_method("sim2c", "c_code", poly_idx__simplify_statement, func__17_1);
-  define_method("sim2c", "c_body", poly_idx__simplify_expression, func__18_1);
+  define_method("types", "grammar_node", poly_idx__simplify_statement, func__8_1_types__grammar_node_simplify_statement);
+  define_method("types", "grammar_node", poly_idx__simplify_expression, func__9_1_types__grammar_node_simplify_expression);
+  define_method("sim2c", "body", poly_idx__simplify_expression, func__10_1_sim2c__body_simplify_expression);
+  define_method("sim2c", "call", poly_idx__simplify_statement, func__13_1_sim2c__call_simplify_statement);
+  define_method("sim2c", "function_call", poly_idx__simplify_expression, func__14_1_sim2c__function_call_simplify_expression);
+  define_method("sim2c", "attribute_value_pair", poly_idx__simplify_expression, func__15_1_sim2c__attribute_value_pair_simplify_expression);
+  define_method("sim2c", "attribute_function_pair", poly_idx__simplify_expression, func__16_1_sim2c__attribute_function_pair_simplify_expression);
+  define_method("sim2c", "c_code", poly_idx__simplify_statement, func__17_1_sim2c__c_code_simplify_statement);
+  define_method("sim2c", "c_body", poly_idx__simplify_expression, func__18_1_sim2c__c_body_simplify_expression);
 }
 
 static int already_run_phase_5 = false;
@@ -10732,11 +10732,11 @@ EXPORT void phase_5__simplifier(void) {
   assign_value(&var.sim2c__simplify_expression, create_function(type__sim2c__simplify_expression, -1));
   maybe_initialize_future(get__defined_names(), get__empty_table());
   maybe_initialize_future(get__inherited_names(), get__empty_table());
-  assign_variable(&var._temporary_identifier, &func__5_1);
-  assign_variable(&var._simplify_arguments, &func__6_1);
-  assign_variable(&var.sim2c__check_usage, &func__7_1);
-  assign_variable(&var._do_store, &func__11_1);
-  assign_variable(&var._store_result, &func__12_1);
+  assign_variable(&var._temporary_identifier, &func__5_1_temporary_identifier);
+  assign_variable(&var._simplify_arguments, &func__6_1_simplify_arguments);
+  assign_variable(&var.sim2c__check_usage, &func__7_1_sim2c__check_usage);
+  assign_variable(&var._do_store, &func__11_1_do_store);
+  assign_variable(&var._store_result, &func__12_1_store_result);
 }
 
 static int already_run_phase_6 = false;
