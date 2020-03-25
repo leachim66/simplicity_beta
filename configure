@@ -236,7 +236,12 @@ FATAL_ERROR=0
 check_dependencies () {
   LIBNAME=$1
   ESSENTIAL=$2
-  echo "check dependencies for $LIBNAME"
+  if [ $ESSENTIAL -eq 1 ]
+  then
+    echo "check dependencies for $LIBNAME (essential)" >&2
+  else
+    echo "check dependencies for $LIBNAME (optional)" >&2
+  fi
   FILENAMES=`cat $LIBNAME/INCLUDES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1`
 
   # check whether all needed include and library files are available
