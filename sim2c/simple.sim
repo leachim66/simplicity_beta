@@ -163,7 +163,6 @@ $$do_list_dependencies false
 $$do_build_static false
 $$do_link_profiler false
 $$sim2c::do_time_passes false
-$$sim2c::do_use_goto false
 $$module_prefix undefined
 $$input_filename undefined
 $action truncate_until(program_name '/' -1)
@@ -226,11 +225,6 @@ if
       !do_list_dependencies:
 	-> "list-dependencies" "
 	  list all dependencies
-
-	# the following options change the generated C-code
-      !do_use_goto:
-	-> "goto" "
-	  the compiler uses goto-statements to link continuations
 
 	# the following options influence the build process for all modules
       !do_rebuild

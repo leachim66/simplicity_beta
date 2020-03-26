@@ -1859,10 +1859,6 @@ $sim2c::generate_statement: (statement)
 		  writeln "  result_count = @(result_count);"
 	  inc &index
 	  get_func_and_myself functor "cont@(suffix)_@(index)"
-	  if do_use_goto:
-	    write "
-	      @
-	        goto *(func+4);
 	  write "}@nl;"
 	  next_continuation "cont@(suffix)_@(index)"
 	  extract "results" output_arguments

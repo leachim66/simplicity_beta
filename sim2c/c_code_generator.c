@@ -447,8 +447,6 @@ static NODE_GETTER get__do;
 static NODE_GETTER get_value_or_future__do;
 static NODE_GETTER get__do_show_compiler_debug_infos;
 static NODE_GETTER get_value_or_future__do_show_compiler_debug_infos;
-static NODE_GETTER get__do_use_goto;
-static NODE_GETTER get_value_or_future__do_use_goto;
 static NODE_GETTER get__dup;
 static NODE_GETTER get_value_or_future__dup;
 static NODE_GETTER get__empty_insert_order_table;
@@ -3885,37 +3883,32 @@ static void cont__55_59(void);
 static void cont__55_60(void);
 static void cont__55_61(void);
 static void cont__55_62(void);
-static NODE *func__55_63;
-static void entry__55_63(void);
-static FRAME_INFO frame__55_63 = {0, {}};
-static NODE *string__55_64;
+static void cont__55_63(void);
+static void cont__55_64(void);
 static void cont__55_65(void);
-static void cont__55_66(void);
+static NODE *func__55_66;
+static void entry__55_66(void);
+static FRAME_INFO frame__55_66 = {4, {"output_arguments", "input_arguments", "destination", "source"}};
 static void cont__55_67(void);
 static void cont__55_68(void);
-static NODE *func__55_69;
-static void entry__55_69(void);
-static FRAME_INFO frame__55_69 = {4, {"output_arguments", "input_arguments", "destination", "source"}};
-static void cont__55_70(void);
+static void cont__55_69(void);
+static NODE *func__55_70;
+static void entry__55_70(void);
+static FRAME_INFO frame__55_70 = {1, {"source"}};
 static void cont__55_71(void);
 static void cont__55_72(void);
 static NODE *func__55_73;
 static void entry__55_73(void);
-static FRAME_INFO frame__55_73 = {1, {"source"}};
+static FRAME_INFO frame__55_73 = {2, {"destination", "source"}};
 static void cont__55_74(void);
 static void cont__55_75(void);
-static NODE *func__55_76;
-static void entry__55_76(void);
-static FRAME_INFO frame__55_76 = {2, {"destination", "source"}};
+static NODE *string__55_76;
 static void cont__55_77(void);
-static void cont__55_78(void);
-static NODE *string__55_79;
+static NODE *func__55_78;
+static void entry__55_78(void);
+static FRAME_INFO frame__55_78 = {2, {"destination", "source"}};
+static void cont__55_79(void);
 static void cont__55_80(void);
-static NODE *func__55_81;
-static void entry__55_81(void);
-static FRAME_INFO frame__55_81 = {2, {"destination", "source"}};
-static void cont__55_82(void);
-static void cont__55_83(void);
 static NODE *get__sim2c__generate_statement(void) {
   return var.sim2c__generate_statement;
 }
@@ -5591,33 +5584,31 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__55_57, NULL, 1857, 1857, 19, 48},
   {entry__55_51, NULL, 1853, 1853, 15, 61},
   {cont__55_52, &frame__55_51, 1854, 1859, 15, 62},
-  {entry__55_63, NULL, 1863, 1865, 13, 33},
   {entry__55_35, NULL, 1841, 1841, 11, 46},
   {cont__55_36, &frame__55_35, 1842, 1859, 11, 64},
   {cont__55_59, &frame__55_35, 1860, 1860, 11, 20},
   {cont__55_60, &frame__55_35, 1861, 1861, 39, 62},
   {cont__55_61, &frame__55_35, 1861, 1861, 11, 62},
-  {cont__55_62, &frame__55_35, 1862, 1865, 11, 34},
-  {cont__55_65, &frame__55_35, 1866, 1866, 11, 23},
-  {cont__55_66, &frame__55_35, 1867, 1867, 29, 52},
-  {cont__55_67, &frame__55_35, 1867, 1867, 11, 52},
-  {cont__55_68, &frame__55_35, 1868, 1868, 11, 44},
-  {entry__55_73, NULL, 1875, 1875, 15, 38},
-  {cont__55_74, &frame__55_73, 1875, 1875, 15, 38},
-  {entry__55_76, NULL, 1879, 1879, 47, 62},
-  {cont__55_77, &frame__55_76, 1879, 1879, 68, 78},
-  {cont__55_78, &frame__55_76, 1877, 1880, 21, 23},
-  {cont__55_80, &frame__55_76, 1877, 1880, 15, 23},
-  {entry__55_81, NULL, 1882, 1882, 49, 59},
-  {cont__55_82, &frame__55_81, 1882, 1882, 21, 60},
-  {cont__55_83, &frame__55_81, 1882, 1882, 15, 60},
-  {entry__55_69, NULL, 1870, 1870, 11, 42},
-  {cont__55_70, &frame__55_69, 1871, 1871, 11, 36},
-  {cont__55_71, &frame__55_69, 1874, 1874, 15, 55},
-  {cont__55_72, &frame__55_69, 1873, 1875, 13, 37},
-  {cont__55_75, &frame__55_69, 1872, 1882, 11, 61},
+  {cont__55_62, &frame__55_35, 1862, 1862, 11, 23},
+  {cont__55_63, &frame__55_35, 1863, 1863, 29, 52},
+  {cont__55_64, &frame__55_35, 1863, 1863, 11, 52},
+  {cont__55_65, &frame__55_35, 1864, 1864, 11, 44},
+  {entry__55_70, NULL, 1871, 1871, 15, 38},
+  {cont__55_71, &frame__55_70, 1871, 1871, 15, 38},
+  {entry__55_73, NULL, 1875, 1875, 47, 62},
+  {cont__55_74, &frame__55_73, 1875, 1875, 68, 78},
+  {cont__55_75, &frame__55_73, 1873, 1876, 21, 23},
+  {cont__55_77, &frame__55_73, 1873, 1876, 15, 23},
+  {entry__55_78, NULL, 1878, 1878, 49, 59},
+  {cont__55_79, &frame__55_78, 1878, 1878, 21, 60},
+  {cont__55_80, &frame__55_78, 1878, 1878, 15, 60},
+  {entry__55_66, NULL, 1866, 1866, 11, 42},
+  {cont__55_67, &frame__55_66, 1867, 1867, 11, 36},
+  {cont__55_68, &frame__55_66, 1870, 1870, 15, 55},
+  {cont__55_69, &frame__55_66, 1869, 1871, 13, 37},
+  {cont__55_72, &frame__55_66, 1868, 1878, 11, 61},
   {entry__55_33, NULL, 1840, 1840, 9, 26},
-  {cont__55_34, &frame__55_33, 1839, 1882, 7, 63},
+  {cont__55_34, &frame__55_33, 1839, 1878, 7, 63},
   {entry__55_1_sim2c__generate_statement, NULL, 1820, 1825, 3, 47},
   {cont__55_13, &frame__55_1_sim2c__generate_statement, 1826, 1826, 3, 34},
   {cont__55_14, &frame__55_1_sim2c__generate_statement, 1827, 1827, 3, 32},
@@ -5627,7 +5618,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__55_18, &frame__55_1_sim2c__generate_statement, 1832, 1832, 7, 37},
   {cont__55_19, &frame__55_1_sim2c__generate_statement, 1832, 1832, 7, 37},
   {cont__55_20, &frame__55_1_sim2c__generate_statement, 1831, 1833, 5, 51},
-  {cont__55_25, &frame__55_1_sim2c__generate_statement, 1830, 1882, 3, 65}
+  {cont__55_25, &frame__55_1_sim2c__generate_statement, 1830, 1878, 3, 65}
 };
 
 union NODE {
@@ -37939,7 +37930,7 @@ static void cont__54_31(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__55_76(void) {
+static void entry__55_73(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // destination: 0
@@ -37950,12 +37941,49 @@ static void entry__55_76(void) {
     invalid_arguments_error();
     return;
   }
-  // 1879: ... destination.to_c
+  // 1875: ... destination.to_c
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
   result_count = 1;
   myself = get__to_c();
+  func = myself->type;
+  frame->cont = cont__55_74;
+}
+static void cont__55_74(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 1875: ... source.to_c
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* source */;
+  result_count = 1;
+  myself = get__to_c();
+  func = myself->type;
+  frame->cont = cont__55_75;
+}
+static void cont__55_75(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__3 */ = arguments->slots[0];
+  // 1873: ... "
+  // 1874:   @
+  // 1875:     initialize_maybe_future(@(destination.to_c), @(source.to_c)@
+  // 1876:   );@nl;@
+  argument_count = 5;
+  arguments = node_p;
+  arguments->slots[0] = string__55_76;
+  arguments->slots[1] = frame->slots[3] /* temp__2 */;
+  arguments->slots[2] = string__13_11;
+  arguments->slots[3] = frame->slots[4] /* temp__3 */;
+  arguments->slots[4] = string__17_21;
+  result_count = 1;
+  myself = get__std__string();
   func = myself->type;
   frame->cont = cont__55_77;
 }
@@ -37964,48 +37992,11 @@ static void cont__55_77(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1879: ... source.to_c
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* source */;
-  result_count = 1;
-  myself = get__to_c();
-  func = myself->type;
-  frame->cont = cont__55_78;
-}
-static void cont__55_78(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1877: ... "
-  // 1878:   @
-  // 1879:     initialize_maybe_future(@(destination.to_c), @(source.to_c)@
-  // 1880:   );@nl;@
-  argument_count = 5;
-  arguments = node_p;
-  arguments->slots[0] = string__55_79;
-  arguments->slots[1] = frame->slots[3] /* temp__2 */;
-  arguments->slots[2] = string__13_11;
-  arguments->slots[3] = frame->slots[4] /* temp__3 */;
-  arguments->slots[4] = string__17_21;
-  result_count = 1;
-  myself = get__std__string();
-  func = myself->type;
-  frame->cont = cont__55_80;
-}
-static void cont__55_80(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1877: write "
-  // 1878:   @
-  // 1879:     initialize_maybe_future(@(destination.to_c), @(source.to_c)@
-  // 1880:   );@nl;@
+  // 1873: write "
+  // 1874:   @
+  // 1875:     initialize_maybe_future(@(destination.to_c), @(source.to_c)@
+  // 1876:   );@nl;@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -38014,7 +38005,7 @@ static void cont__55_80(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__55_81(void) {
+static void entry__55_78(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // destination: 0
@@ -38025,22 +38016,22 @@ static void entry__55_81(void) {
     invalid_arguments_error();
     return;
   }
-  // 1882: ... source.to_c
+  // 1878: ... source.to_c
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* source */;
   result_count = 1;
   myself = get__to_c();
   func = myself->type;
-  frame->cont = cont__55_82;
+  frame->cont = cont__55_79;
 }
-static void cont__55_82(void) {
+static void cont__55_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1882: ... assignment_to_c(destination source.to_c)
+  // 1878: ... assignment_to_c(destination source.to_c)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -38048,15 +38039,15 @@ static void cont__55_82(void) {
   result_count = 1;
   myself = get__assignment_to_c();
   func = myself->type;
-  frame->cont = cont__55_83;
+  frame->cont = cont__55_80;
 }
-static void cont__55_83(void) {
+static void cont__55_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1882: write assignment_to_c(destination source.to_c)
+  // 1878: write assignment_to_c(destination source.to_c)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -38486,57 +38477,21 @@ static void cont__55_62(void) {
     invalid_results_error();
     return;
   }
-  // 1862: if do_use_goto:
-  // 1863:   write "
-  // 1864:     @
-  // 1865:       goto *(func+4);
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = get__do_use_goto();
-  arguments->slots[1] = func__55_63;
-  result_count = 0;
-  myself = get__if();
-  func = myself->type;
-  frame->cont = cont__55_65;
-}
-static void entry__55_63(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 1863: write "
-  // 1864:   @
-  // 1865:     goto *(func+4);
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = string__55_64;
-  result_count = frame->caller_result_count;
-  myself = get__write();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void cont__55_65(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 1866: write "}@nl;"
+  // 1862: write "}@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__31_359;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__55_66;
+  frame->cont = cont__55_63;
 }
-static void cont__55_66(void) {
+static void cont__55_63(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 1867: ... "cont@(suffix)_@(index)"
+  // 1863: ... "cont@(suffix)_@(index)"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__21_157;
@@ -38546,29 +38501,29 @@ static void cont__55_66(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__55_67;
+  frame->cont = cont__55_64;
 }
-static void cont__55_67(void) {
+static void cont__55_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1867: next_continuation "cont@(suffix)_@(index)"
+  // 1863: next_continuation "cont@(suffix)_@(index)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = 0;
   myself = get__next_continuation();
   func = myself->type;
-  frame->cont = cont__55_68;
+  frame->cont = cont__55_65;
 }
-static void cont__55_68(void) {
+static void cont__55_65(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 1868: extract "results" output_arguments
+  // 1864: extract "results" output_arguments
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__21_45;
@@ -38578,7 +38533,7 @@ static void cont__55_68(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__55_69(void) {
+static void entry__55_66(void) {
   allocate_initialized_frame_gc(2, 9);
   // slot allocations:
   // output_arguments: 0
@@ -38593,56 +38548,56 @@ static void entry__55_69(void) {
     invalid_arguments_error();
     return;
   }
-  // 1870: $destination output_arguments(1)
+  // 1866: $destination output_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = frame->slots[0] /* output_arguments */;
   func = myself->type;
-  frame->cont = cont__55_70;
+  frame->cont = cont__55_67;
 }
-static void cont__55_70(void) {
+static void cont__55_67(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* destination */, arguments->slots[0]);
-  // 1871: $source input_arguments(1)
+  // 1867: $source input_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = frame->slots[1] /* input_arguments */;
   func = myself->type;
-  frame->cont = cont__55_71;
+  frame->cont = cont__55_68;
 }
-static void cont__55_71(void) {
+static void cont__55_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* source */, arguments->slots[0]);
-  // 1874: destination.is_a_single_assign_definition
+  // 1870: destination.is_a_single_assign_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* destination */;
   result_count = 1;
   myself = get__is_a_single_assign_definition();
   func = myself->type;
-  frame->cont = cont__55_72;
+  frame->cont = cont__55_69;
 }
-static void cont__55_72(void) {
+static void cont__55_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1875: source.might_be_constant
-  frame->slots[6] /* temp__3 */ = create_closure(entry__55_73, 0);
-  // 1873: &&
-  // 1874:   destination.is_a_single_assign_definition
-  // 1875:   source.might_be_constant
+  // 1871: source.might_be_constant
+  frame->slots[6] /* temp__3 */ = create_closure(entry__55_70, 0);
+  // 1869: &&
+  // 1870:   destination.is_a_single_assign_definition
+  // 1871:   source.might_be_constant
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -38650,9 +38605,9 @@ static void cont__55_72(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__55_75;
+  frame->cont = cont__55_72;
 }
-static void entry__55_73(void) {
+static void entry__55_70(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // source: 0
@@ -38661,22 +38616,22 @@ static void entry__55_73(void) {
     invalid_arguments_error();
     return;
   }
-  // 1875: source.might_be_constant
+  // 1871: source.might_be_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
   result_count = 1;
   myself = get__might_be_constant();
   func = myself->type;
-  frame->cont = cont__55_74;
+  frame->cont = cont__55_71;
 }
-static void cont__55_74(void) {
+static void cont__55_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1875: source.might_be_constant
+  // 1871: source.might_be_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -38684,31 +38639,31 @@ static void cont__55_74(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__55_75(void) {
+static void cont__55_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1876: :
-  // 1877:   write "
-  // 1878:     @
-  // 1879:       initialize_maybe_future(@(destination.to_c), @(source.to_c)@
-  // 1880:     );@nl;@
-  frame->slots[7] /* temp__4 */ = create_closure(entry__55_76, 0);
-  // 1881: :
-  // 1882:   write assignment_to_c(destination source.to_c)
-  frame->slots[8] /* temp__5 */ = create_closure(entry__55_81, 0);
-  // 1872: if
-  // 1873:   &&
-  // 1874:     destination.is_a_single_assign_definition
-  // 1875:     source.might_be_constant
-  // 1876:   :
-  // 1877:     write "
-  // 1878:       @
-  // 1879:         initialize_maybe_future(@(destination.to_c), @(source.to_c)@
-  // 1880:       );@nl;@
-  // 1881:   :
+  // 1872: :
+  // 1873:   write "
+  // 1874:     @
+  // 1875:       initialize_maybe_future(@(destination.to_c), @(source.to_c)@
+  // 1876:     );@nl;@
+  frame->slots[7] /* temp__4 */ = create_closure(entry__55_73, 0);
+  // 1877: :
+  // 1878:   write assignment_to_c(destination source.to_c)
+  frame->slots[8] /* temp__5 */ = create_closure(entry__55_78, 0);
+  // 1868: if
+  // 1869:   &&
+  // 1870:     destination.is_a_single_assign_definition
+  // 1871:     source.might_be_constant
+  // 1872:   :
+  // 1873:     write "
+  // 1874:       @
+  // 1875:         initialize_maybe_future(@(destination.to_c), @(source.to_c)@
+  // 1876:       );@nl;@
+  // 1877:   :
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -38890,18 +38845,18 @@ static void cont__55_34(void) {
   // 1849:       SyntaxError
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__55_35, 0);
-  // 1869: : # assignment
-  // 1870:   $destination output_arguments(1)
-  // 1871:   $source input_arguments(1)
-  // 1872:   if
-  // 1873:     &&
-  // 1874:       destination.is_a_single_assign_definition
-  // 1875:       source.might_be_constant
-  // 1876:     :
-  // 1877:       write "
-  // 1878:         @
+  // 1865: : # assignment
+  // 1866:   $destination output_arguments(1)
+  // 1867:   $source input_arguments(1)
+  // 1868:   if
+  // 1869:     &&
+  // 1870:       destination.is_a_single_assign_definition
+  // 1871:       source.might_be_constant
+  // 1872:     :
+  // 1873:       write "
+  // 1874:         @
   // ...
-  frame->slots[6] /* temp__3 */ = create_closure(entry__55_69, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__55_66, 0);
   // 1839: if
   // 1840:   functor.is_defined:
   // 1841:     generate_c_arguments input_arguments
@@ -39830,9 +39785,7 @@ EXPORT void phase_2__c_code_generator(void) {
   string__55_55 = from_latin_1_string(";", 1);
   string__55_58 = from_latin_1_string("  result_count = -1;", 20);
   func__55_57 = create_function(entry__55_57, 0);
-  string__55_64 = from_latin_1_string("  goto *(func+4);\012", 18);
-  func__55_63 = create_function(entry__55_63, 0);
-  string__55_79 = from_latin_1_string("  initialize_maybe_future(", 26);
+  string__55_76 = from_latin_1_string("  initialize_maybe_future(", 26);
   func__55_1_sim2c__generate_statement = create_function(entry__55_1_sim2c__generate_statement, 1);
 }
 
@@ -39926,7 +39879,6 @@ EXPORT void phase_4__c_code_generator(void) {
   use_read_write(NULL, "delayed_code", &get__delayed_code, &set__delayed_code);
   use_read_only(NULL, "do", &get__do, &get_value_or_future__do);
   use_read_only(NULL, "do_show_compiler_debug_infos", &get__do_show_compiler_debug_infos, &get_value_or_future__do_show_compiler_debug_infos);
-  use_read_only(NULL, "do_use_goto", &get__do_use_goto, &get_value_or_future__do_use_goto);
   use_read_only(NULL, "dup", &get__dup, &get_value_or_future__dup);
   use_read_only(NULL, "empty_insert_order_table", &get__empty_insert_order_table, &get_value_or_future__empty_insert_order_table);
   use_read_only(NULL, "empty_list", &get__empty_list, &get_value_or_future__empty_list);
