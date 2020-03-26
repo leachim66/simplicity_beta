@@ -8,3 +8,22 @@ If you add or remove files from the compiler and/or a standard library
 run the following command when *everything has already been built*:
 
 ./autogen.sim
+
+To make changes to the compiler or a library:
+
+cd <your build directory>
+export SIMLIBPATH=`pwd`
+export SIMDATAPATH=`pwd`
+export LD_LIBRARY_PATH=`pwd`
+
+Attention:
+
+make simple
+
+builds the compiler from existing .c-files
+
+To build the compiler from modified .sim-files make a copy of the current
+compiler and use this copy to build the new compiler:
+
+cp sim2c/simple sim2c/simple-orig
+sim2c/simple-orig --static sim2c/simple.sim

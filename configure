@@ -173,13 +173,13 @@ fi
 if test -z "$CC"
 then
   echo 'checking for C compiler' >&2
-  if which gcc >/dev/null 2>&1
+  if command -v gcc >/dev/null 2>&1
   then
     CC=gcc
-  elif which c99 >/dev/null 2>&1
+  elif command -v c99 >/dev/null 2>&1
   then
     CC=c99
-  elif which cc >/dev/null 2>&1
+  elif command -v cc >/dev/null 2>&1
   then
     CC=cc
   else
@@ -189,7 +189,7 @@ then
 fi
 
 echo 'checking for C preprocessor' >&2
-if ! which cpp >/dev/null 2>&1
+if ! command -v cpp >/dev/null 2>&1
 then
   echo '*** No C preprocessor found (cpp)!' >&2
   false || exit
@@ -207,7 +207,7 @@ then
   LIBRARY_PATHS='/usr/lib /usr/local/lib'
 else
   echo 'checking for linker' >&2
-  if ! which ld >/dev/null 2>&1
+  if ! command -v ld >/dev/null 2>&1
   then
     echo '*** No linker found (ld)!' >&2
     false || exit
@@ -641,7 +641,7 @@ do
 done
 for LIBNAME in sim2c $ALL_LIBRARIES
 do
-  find $LIBNAME -depth -type d | LC_COLLATE=C sort | \
+  find $LIBNAME -depth -type d | LC_COLLATE=C sort -r | \
   while read DIRNAME
   do
     if test ${DIRNAME%.*} = $DIRNAME

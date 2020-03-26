@@ -93,7 +93,8 @@ $MAJOR runtime_major_version()
 $MINOR runtime_minor_version()
 $REVISION runtime_revision()
 $BUILD 0
-version "@(MAJOR).@(MINOR).@(REVISION).@(BUILD)"
+$VERSION "@(MAJOR).@(MINOR).@(REVISION).@(BUILD)"
+version VERSION
 extern $gcc "gcc"
 extern $mkdir "mkdir" # would be nice to have one in the system library!
 $SIMLIBPATH environment("SIMLIBPATH")
@@ -103,13 +104,19 @@ $simlibpaths
   if
     SIMLIBPATH.is_defined
     -> split(SIMLIBPATH ':')
-    -> list("/usr/local/share/simplicity" "/usr/share/simplicity")
+    ->
+      list
+	"/usr/local/share/simplicity-@(VERSION)"
+	"/usr/share/simplicity-@(VERSION)"
 
 $simdatapaths
   if
     SIMDATAPATH.is_defined
     -> split(SIMDATAPATH ':')
-    -> list("/usr/local/share/simplicity" "/usr/share/simplicity")
+    ->
+      list
+	"/usr/local/share/simplicity-@(VERSION)"
+	"/usr/share/simplicity-@(VERSION)"
 
 $NONE .
 
@@ -294,10 +301,11 @@ $resolve_filename: (filename)
   if resolved_libraries.is_undefined:
     !resolved_libraries empty_table
     for_each simlibpaths: (path)
-      for_each directory(path): (entry)
-	if entry.is_a_directory:
-	  $name std::filename_of(entry)
-	  if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+      if file_exists(path):
+	for_each directory(path): (entry)
+	  if entry.is_a_directory:
+	    $name std::filename_of(entry)
+	    if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
   $libname filename .before. '/'
   $libpath resolved_libraries(libname)
   if libpath.is_undefined:
@@ -486,7 +494,7 @@ $build_dependencies:
 	      :
 		compile_module resolve_filename(argument) argument
 	      :
-		if do_compile_c && not(do_build_static_executable):
+		if do_compile_c:
 		  !libraries(string("sim-" argument .truncate_from. '/')) true
       "link":
 	if do_compile_c: !libraries(argument .truncate_from. '/') true
@@ -961,6 +969,15 @@ $sim2c::write_timing_info: (description $filename?)
   !t current_time()
 
 $build_executable:
+  #
+    build a dynamically (default) or statically (--static) linked executable
+
+    for static builds library modules are searched in $SIMLIBPATH
+
+    if $SIMLIBPATH is not set the default is
+
+    "/usr/local/share/simplicity-@(version):/usr/share/simplicity-@(version)"
+
   compile_exe: (mod_filename mod_name)
     $exe_filename
       if
