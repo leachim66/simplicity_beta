@@ -187,7 +187,6 @@ then
     false || exit
   fi
 fi
-echo $CC
 
 # compute the include paths used on this platform
 INCLUDE_PATHS=`echo | $CC -E -Wp,-v - 2>&1 | grep '^[[:space:]]*/'`
@@ -221,20 +220,18 @@ check_dependencies () {
   for FILENAME in $FILENAMES
   do
     echo "  checking include file $FILENAME" >&2
-    FOUND=0
-    for INCLUDE_PATH in $INCLUDE_PATHS
-    do
-      if test -e $INCLUDE_PATH/$FILENAME
-      then
-	FOUND=1
-	break
-      fi
-    done
-    if test $FOUND = 0
+    echo "#include <$FILENAME>" >/tmp/test_include.c
+    cat test.c >>/tmp/test_include.c
+    set +e
+    $CC $CPPFLAGS /tmp/test_include.c -o /tmp/test_include 2>/dev/null
+    if [ $? != 0 ]
     then
       echo "  *** Missing include file $FILENAME!" >&2
       MISSING=`expr $MISSING + 1`
     fi
+    set -e
+    rm /tmp/test_include.c
+    rm -f /tmp/test_include
   done
   FILENAMES=`cat $LIBNAME/LIBRARIES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1`
   for FILENAME in $FILENAMES
