@@ -150,7 +150,7 @@ then
 elif test x$MACHINE = xi686
 then
   ARCHITECTURE=x86_32
-elif test x`expr substr $MACHINE 1 3` = xarm
+elif test x`echo $MACHINE | cut -c1-3` = xarm
 then
   ARCHITECTURE=arm_32
 fi
@@ -169,16 +169,16 @@ else # probably some POSIX conform system
   LIBRARY_EXTENSIONS='.so'
 fi
 
-# check for several tools needed to build this package
+# check for C-compiler
 if test -z "$CC"
 then
   echo 'checking for C compiler' >&2
   if command -v gcc >/dev/null 2>&1
   then
     CC=gcc
-  elif command -v c99 >/dev/null 2>&1
+  elif command -v clang >/dev/null 2>&1
   then
-    CC=c99
+    CC=clang
   elif command -v cc >/dev/null 2>&1
   then
     CC=cc
@@ -187,43 +187,10 @@ then
     false || exit
   fi
 fi
-
-echo 'checking for C preprocessor' >&2
-if ! command -v cpp >/dev/null 2>&1
-then
-  echo '*** No C preprocessor found (cpp)!' >&2
-  false || exit
-fi
+echo $CC
 
 # compute the include paths used on this platform
-INCLUDE_PATHS=`echo | cpp -Wp,-v 2>&1 | grep '^\s*/'`
-
-# compute the library paths used on this platform;
-# this path list is used for checking installed libraries;
-# additional paths can be supplied (colon delimited) in the environment
-# variable LD_LIBRARY_PATH
-if test $OS = 'darwin'
-then
-  LIBRARY_PATHS='/usr/lib /usr/local/lib'
-else
-  echo 'checking for linker' >&2
-  if ! command -v ld >/dev/null 2>&1
-  then
-    echo '*** No linker found (ld)!' >&2
-    false || exit
-  fi
-  LIBRARY_PATHS=`
-    ld --verbose | sed '/^SEARCH_DIR/ b 1; d; :1 s/SEARCH_DIR("=\?//g; s/");//g'
-  `
-fi
-ADDITIONAL_LIBRARY_PATHS=`echo $LD_LIBRARY_PATH | sed 's/:/ /g'`
-LIBRARY_PATHS="$ADDITIONAL_LIBRARY_PATHS $LIBRARY_PATHS"
-ADDITIONAL_LINK_OPTIONS=''
-  # the additional link options are used to link the bootstrap compiler
-for LIBRARY_PATH in $ADDITIONAL_LIBRARY_PATHS
-do
-  ADDITIONAL_LINK_OPTIONS="$ADDITIONAL_LINK_OPTIONS -L $LIBRARY_PATH"
-done
+INCLUDE_PATHS=`echo | $CC -E -Wp,-v - 2>&1 | grep '^[[:space:]]*/'`
 
 INSTALLED_LIBRARIES=''
   # the set of libraries within MORE_LIBRARIES that is actually installed
@@ -269,29 +236,16 @@ check_dependencies () {
   for FILENAME in $FILENAMES
   do
     echo "  checking library file $FILENAME" >&2
-    FOUND=0
-    for LIBRARY_PATH in $LIBRARY_PATHS
-    do
-      for LIBRARY_EXTENSION in $LIBRARY_EXTENSIONS
-      do
-	if test -e $LIBRARY_PATH/lib$FILENAME$LIBRARY_EXTENSION
-	then
-	  FOUND=1
-	  break
-	fi
-      done
-      if test FOUND = 1
-      then
-	break
-      fi
-    done
-    if test $FOUND = 0
+    set +e
+    $CC test.c -l$FILENAME 2>/dev/null
+    if [ $? != 0 ]
     then
       echo "  *** Missing library file $FILENAME!" >&2
       MISSING=`expr $MISSING + 1`
     fi
+    set -e
   done
-  if test $MISSING -gt 0
+  if [ $MISSING -gt 0 ]
   then
     echo "  *** $MISSING file(s) missing!" >&2
     if test $ESSENTIAL = 1
