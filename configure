@@ -238,13 +238,14 @@ check_dependencies () {
   do
     echo "  checking library file $FILENAME" >&2
     set +e
-    $CC test.c $LDFLAGS $LIBRARY_PATHS -l$FILENAME 2>/dev/null
+    $CC test.c $LDFLAGS $LIBRARY_PATHS -l$FILENAME >/tmp/test_lib 2>/dev/null
     if [ $? != 0 ]
     then
       echo "  *** Missing library file $FILENAME!" >&2
       MISSING=`expr $MISSING + 1`
     fi
     set -e
+    rm -f /tmp/test_lib
   done
   if [ $MISSING -gt 0 ]
   then
