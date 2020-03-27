@@ -191,6 +191,10 @@ echo $CC
 
 # compute the include paths used on this platform
 INCLUDE_PATHS=`echo | $CC -E -Wp,-v - 2>&1 | grep '^[[:space:]]*/'`
+if [ "$LD_LIBRARY_PATH" != "" ]
+then
+  LIBRARY_PATHS=-L`echo $LD_LIBRARY_PATH | sed 's/:/ -L/g'`
+fi
 
 INSTALLED_LIBRARIES=''
   # the set of libraries within MORE_LIBRARIES that is actually installed
@@ -237,7 +241,7 @@ check_dependencies () {
   do
     echo "  checking library file $FILENAME" >&2
     set +e
-    $CC test.c -l$FILENAME 2>/dev/null
+    $CC test.c $LIBRARY_PATHS -l$FILENAME 2>/dev/null
     if [ $? != 0 ]
     then
       echo "  *** Missing library file $FILENAME!" >&2
