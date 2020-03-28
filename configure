@@ -314,7 +314,7 @@ fi
 # set compiler specific options
 if [ $CC = "clang" ]
 then
-  CC_OPTIONS="$CC_OPTIONS -Wno-logical-op-parentheses -Wno-ordered-compare-function-pointers"
+  CC_OPTIONS="$CC_OPTIONS -Wno-parentheses -Wno-logical-op-parentheses -Wno-ordered-compare-function-pointers -Wno-bitwise-op-parentheses"
 fi
 
 # set more platform specific settings
