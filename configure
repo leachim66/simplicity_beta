@@ -223,16 +223,15 @@ check_dependencies () {
   for FILENAME in $FILENAMES
   do
     echo "  checking include file $FILENAME" >&2
-    echo "#include <$FILENAME>" >/tmp/test_include.c
+    echo "#include <stdlib.h>" >/tmp/test_include.c
+    echo "#include <stdio.h>" >>/tmp/test_include.c
+    echo "#include <$FILENAME>" >>/tmp/test_include.c
     cat test.c >>/tmp/test_include.c
-    set +e
-    $CC $CPPFLAGS /tmp/test_include.c -o /tmp/test_include 2>/dev/null
-    if [ $? != 0 ]
+    if ! $CC $CPPFLAGS /tmp/test_include.c -o /tmp/test_include 2>/dev/null
     then
       echo "  *** Missing include file $FILENAME!" >&2
       MISSING=`expr $MISSING + 1`
     fi
-    set -e
     rm /tmp/test_include.c
     rm -f /tmp/test_include
   done
@@ -240,14 +239,11 @@ check_dependencies () {
   for FILENAME in $FILENAMES
   do
     echo "  checking library file $FILENAME" >&2
-    set +e
-    $CC test.c $LDFLAGS $LIBRARY_PATHS -l$FILENAME -o /tmp/test_lib 2>/dev/null
-    if [ $? != 0 ]
+    if ! $CC test.c $LDFLAGS $LIBRARY_PATHS -l$FILENAME -o /tmp/test_lib 2>/dev/null
     then
       echo "  *** Missing library file $FILENAME!" >&2
       MISSING=`expr $MISSING + 1`
     fi
-    set -e
     rm -f /tmp/test_lib
   done
   if [ $MISSING -gt 0 ]
