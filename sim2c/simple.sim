@@ -262,12 +262,19 @@ $cc_basic_options
     "-Wno-unused-variable"
     "-Wno-parentheses"
     "-Wno-switch"
-    "-Wno-maybe-uninitialized"
     "-Wno-trigraphs"
     "-O1"
     "-fPIC"
     "-fno-stack-protector"
     "-falign-functions=16"
+
+$gcc_options
+  list
+    "-Wno-maybe-uninitialized"
+
+#$clang_options
+  list
+    "-Wno-uninitialized"
 
 $cc_hardware_specific_options
   table
@@ -285,7 +292,12 @@ $cc_options
       default_value
 	cc_hardware_specific_options(hardware_architecture())
 	empty_list
-      cc_include_options
+      append
+	if
+	  c_compiler() == "gcc"
+	  -> gcc_options
+	  -> empty_list
+	cc_include_options
 
 %on_top_level true # set to false while building meta-files
 %%objects empty_insert_order_set
