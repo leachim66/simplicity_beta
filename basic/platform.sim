@@ -1,0 +1,122 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, US
+
+<include runtime/platform.h>
+
+#
+  Platform Hierarchy
+
+  all
+    |
+    +-- posix
+    |   |
+    |   +-- bsd
+    |   |
+    |   +-- cygwin
+    |   |
+    |   +-- darwin
+    |   |
+    |   +-- linux
+    |
+    +-- win
+
+$std::operating_system {
+  const char *platform =
+  #if defined(OS_linux)
+    "linux";
+  #elif defined(OS_bsd)
+    "bsd";
+  #elif defined(OS_darwin)
+    "darwin";
+  #elif defined(OS_cygwin)
+    "cygwin";
+  #elif defined(OS_posix)
+    "posix";
+  #elif defined(OS_win)
+    "win";
+  #else
+    NULL;
+  #endif
+  NODE *result;
+  if (platform) {
+    result = from_c_string(platform);
+  } else {
+    result = UNDEFINED;
+  }
+  RETURN_SINGLE_RESULT(result)
+}
+
+$std::hardware_architecture {
+  CHECK_ARGUMENTS(0)
+  const char *architecture =
+  #if defined(ARCHITECTURE_x86_64)
+    "x86_64";
+  #elif defined(ARCHITECTURE_x86_32)
+    "x86_32";
+  #elif defined(ARCHITECTURE_arm_32)
+    "arm_32";
+  #else
+    NULL;
+  #endif
+  NODE *result;
+  if (architecture) {
+    result = from_c_string(architecture);
+  } else {
+    result = UNDEFINED;
+  }
+  RETURN_SINGLE_RESULT(result)
+}
+
+$std::c_compiler {
+  CHECK_ARGUMENTS(0)
+  const char *compiler =
+  #if defined(CC_gcc)
+    "gcc";
+  #elif defined(CC_clang)
+    "clang";
+  #elif defined(CC_c99)
+    "c99";
+  #elif defined(CC_cc)
+    "cc";
+  #else
+    NULL;
+  #endif
+  NODE *result;
+  if (compiler) {
+    result = from_c_string(compiler);
+  } else {
+    result = UNDEFINED;
+  }
+  RETURN_SINGLE_RESULT(result)
+}
+
+$std::current_directory_separator:
+  if
+    operating_system() == "win"
+    -> '\'
+    -> '/'
+
+$std::current_path_separator:
+  if
+    operating_system() == "win"
+    -> ';'
+    -> ':'
