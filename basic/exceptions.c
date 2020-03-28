@@ -282,6 +282,8 @@ static NODE_GETTER get__for_each;
 static NODE_GETTER get_value_or_future__for_each;
 static NODE_GETTER get__get;
 static NODE_GETTER get_value_or_future__get;
+static NODE_GETTER get__has_suffix;
+static NODE_GETTER get_value_or_future__has_suffix;
 static NODE_GETTER get__if;
 static NODE_GETTER get_value_or_future__if;
 static NODE_GETTER get__inc;
@@ -312,8 +314,6 @@ static NODE_GETTER get__std__less;
 static NODE_GETTER get_value_or_future__std__less;
 static NODE_GETTER get__std__minus;
 static NODE_GETTER get_value_or_future__std__minus;
-static NODE_GETTER get__std__negate;
-static NODE_GETTER get_value_or_future__std__negate;
 static NODE_GETTER get__std__not;
 static NODE_GETTER get_value_or_future__std__not;
 static NODE_GETTER get__std__or;
@@ -508,14 +508,12 @@ static void entry__18_1_std__ErrorMessage(void);
 static FRAME_INFO frame__18_1_std__ErrorMessage = {2, {"args", "msg"}};
 static void cont__18_2(void);
 static void cont__18_3(void);
-static void cont__18_4(void);
+static NODE *func__18_4;
+static void entry__18_4(void);
+static FRAME_INFO frame__18_4 = {1, {"msg"}};
 static void cont__18_5(void);
-static NODE *func__18_6;
-static void entry__18_6(void);
-static FRAME_INFO frame__18_6 = {1, {"msg"}};
+static void cont__18_6(void);
 static void cont__18_7(void);
-static void cont__18_8(void);
-static void cont__18_9(void);
 static NODE *get__std__ErrorMessage(void) {
   return var.std__ErrorMessage;
 }
@@ -728,15 +726,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__16_3, &frame__16_1_std__exit, 104, 104, 3, 9},
   {cont__16_4, &frame__16_1_std__exit, 105, 105, 3, 18},
   {entry__17_1_std__terminate, NULL, 107, 107, 18, 23},
-  {entry__18_6, NULL, 111, 111, 29, 44},
-  {cont__18_7, &frame__18_6, 111, 111, 44, 44},
+  {entry__18_4, NULL, 111, 111, 35, 50},
+  {cont__18_5, &frame__18_4, 111, 111, 50, 50},
   {entry__18_1_std__ErrorMessage, NULL, 110, 110, 3, 21},
-  {cont__18_2, &frame__18_1_std__ErrorMessage, 111, 111, 15, 15},
-  {cont__18_3, &frame__18_1_std__ErrorMessage, 111, 111, 10, 16},
-  {cont__18_4, &frame__18_1_std__ErrorMessage, 111, 111, 10, 26},
-  {cont__18_5, &frame__18_1_std__ErrorMessage, 111, 111, 3, 44},
-  {cont__18_8, &frame__18_1_std__ErrorMessage, 112, 112, 3, 21},
-  {cont__18_9, &frame__18_1_std__ErrorMessage, 113, 113, 3, 12},
+  {cont__18_2, &frame__18_1_std__ErrorMessage, 111, 111, 10, 32},
+  {cont__18_3, &frame__18_1_std__ErrorMessage, 111, 111, 3, 50},
+  {cont__18_6, &frame__18_1_std__ErrorMessage, 112, 112, 3, 21},
+  {cont__18_7, &frame__18_1_std__ErrorMessage, 113, 113, 3, 12},
   {entry__19_1_std__Error, NULL, 116, 116, 3, 9},
   {cont__19_2, &frame__19_1_std__Error, 117, 117, 3, 20},
   {cont__19_3, &frame__19_1_std__Error, 118, 118, 3, 8},
@@ -1991,7 +1987,7 @@ static void entry__17_1_std__terminate(void) {
 }
 static void entry__18_1_std__ErrorMessage(void) {
   allocate_arguments();
-  allocate_initialized_frame_gc(1, 6);
+  allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // args: 0
   // msg: 1
@@ -2012,12 +2008,13 @@ static void cont__18_2(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* msg */ = arguments->slots[0];
-  // 111: ... 1
-  argument_count = 1;
+  // 111: ... msg .has_suffix. '@nl;'
+  argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = number__1;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* msg */;
+  arguments->slots[1] = character__10;
   result_count = 1;
-  myself = get__std__negate();
+  myself = get__has_suffix();
   func = myself->type;
   frame->cont = cont__18_3;
 }
@@ -2026,51 +2023,20 @@ static void cont__18_3(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 111: ... msg(-1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* temp__3 */;
-  result_count = 1;
-  myself = ((CELL *)frame->slots[1])->contents /* msg */;
-  func = myself->type;
-  frame->cont = cont__18_4;
-}
-static void cont__18_4(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 111: ... msg(-1) == '@nl;'
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  arguments->slots[1] = character__10;
-  result_count = 1;
-  myself = get__std__equal();
-  func = myself->type;
-  frame->cont = cont__18_5;
-}
-static void cont__18_5(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 111: ... : push &msg '@nl;'
-  frame->slots[5] /* temp__4 */ = create_closure(entry__18_6, 0);
-  // 111: unless msg(-1) == '@nl;': push &msg '@nl;'
+  frame->slots[3] /* temp__2 */ = create_closure(entry__18_4, 0);
+  // 111: unless msg .has_suffix. '@nl;': push &msg '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[5] /* temp__4 */;
+  arguments->slots[1] = frame->slots[3] /* temp__2 */;
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__18_8;
+  frame->cont = cont__18_6;
 }
-static void entry__18_6(void) {
+static void entry__18_4(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // msg: 0
@@ -2087,9 +2053,9 @@ static void entry__18_6(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__18_7;
+  frame->cont = cont__18_5;
 }
-static void cont__18_7(void) {
+static void cont__18_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2101,7 +2067,7 @@ static void cont__18_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__18_8(void) {
+static void cont__18_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2113,9 +2079,9 @@ static void cont__18_8(void) {
   result_count = 0;
   myself = get__flush();
   func = myself->type;
-  frame->cont = cont__18_9;
+  frame->cont = cont__18_7;
 }
-static void cont__18_9(void) {
+static void cont__18_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3559,6 +3525,7 @@ EXPORT void phase_4__basic__exceptions(void) {
   use_read_only(NULL, "flush", &get__flush, &get_value_or_future__flush);
   use_read_only(NULL, "for_each", &get__for_each, &get_value_or_future__for_each);
   use_read_only(NULL, "get", &get__get, &get_value_or_future__get);
+  use_read_only(NULL, "has_suffix", &get__has_suffix, &get_value_or_future__has_suffix);
   use_read_only(NULL, "if", &get__if, &get_value_or_future__if);
   use_read_only(NULL, "inc", &get__inc, &get_value_or_future__inc);
   use_read_only(NULL, "is_empty", &get__is_empty, &get_value_or_future__is_empty);
@@ -3574,7 +3541,6 @@ EXPORT void phase_4__basic__exceptions(void) {
   use_read_only("std", "equal", &get__std__equal, &get_value_or_future__std__equal);
   use_read_only("std", "less", &get__std__less, &get_value_or_future__std__less);
   use_read_only("std", "minus", &get__std__minus, &get_value_or_future__std__minus);
-  use_read_only("std", "negate", &get__std__negate, &get_value_or_future__std__negate);
   use_read_only("std", "not", &get__std__not, &get_value_or_future__std__not);
   use_read_only("std", "or", &get__std__or, &get_value_or_future__std__or);
   use_read_only("std", "plus", &get__std__plus, &get_value_or_future__std__plus);

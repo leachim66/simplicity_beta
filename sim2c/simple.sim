@@ -377,7 +377,10 @@ $Gcc: (args*)
 $compile_c: (c_filename o_filename)
   unless do_build_codeblocks_project || do_list_dependencies:
     Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
-    unless success: Error err.from_utf8
+    unless success:
+      Error "
+	Failed to compile @(c_filename)
+	@(err.from_utf8)
     !do_link true
 
 $compile_meta_module:

@@ -108,7 +108,7 @@ $std::terminate: exit 0
 
 $std::ErrorMessage: (args*)
   $$msg string(args*)
-  unless msg(-1) == '@nl;': push &msg '@nl;'
+  unless msg .has_suffix. '@nl;': push &msg '@nl;'
   flush STDOUT_FILENO
   ewrite msg
 
