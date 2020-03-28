@@ -527,7 +527,7 @@ do
 done
 echo "${TAB}rm -f sim2c/simple$EXE_EXTENSION"
 echo "${TAB}rm -f libsim$RUNTIME_DLL_EXTENSION"
-if [ $OS = 'linux' -o $OS = 'bsd']
+if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}rm -f libsim.so.$RUNTIME_MAJOR_VERSION"
 elif [ $OS = 'darwin' ]
