@@ -14,6 +14,7 @@
 #include <sys/wait.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <signal.h>
 #include <netinet/in.h>
 /**********************
 D E C L A R A T I O N S

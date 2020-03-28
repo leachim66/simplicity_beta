@@ -64,7 +64,7 @@ done
 TAB=`printf '\t:'`; TAB=${TAB%:}
 NL=`printf '\n:'`; NL=${NL%:}
 
-OS='POSIX'
+OS='posix'
   # default platform (= Operating System)
 
 ARCHITECTURE='unknown'
