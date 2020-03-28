@@ -527,7 +527,7 @@ do
 done
 echo "${TAB}rm -f sim2c/simple$EXE_EXTENSION"
 echo "${TAB}rm -f libsim$RUNTIME_DLL_EXTENSION"
-if [ $OS = 'linux' ]
+if [ $OS = 'linux' -o $OS = 'bsd']
 then
   echo "${TAB}rm -f libsim.so.$RUNTIME_MAJOR_VERSION"
 elif [ $OS = 'darwin' ]
@@ -554,7 +554,7 @@ echo "${TAB}cp --remove-destination sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PRE
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\"; ln -fs simple simrun"
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/lib/\""
 echo "${TAB}cp --remove-destination libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
-if [ $OS = 'linux' ]
+if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
 elif [ $OS = 'darwin' ]
@@ -595,7 +595,7 @@ echo '.PHONY: uninstall'
 echo 'uninstall:'
 echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simrun\""
 echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simple$EXE_EXTENSION\""
-if [ $OS = 'linux' ]
+if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim.so.$RUNTIME_MAJOR_VERSION\""
 elif [ $OS = 'darwin' ]
@@ -647,7 +647,7 @@ echo "simple: sim2c/simple$EXE_EXTENSION"
 echo
 echo "libsim$RUNTIME_DLL_EXTENSION: \$(runtime_OBJECTS)"
 echo "${TAB}\$(CC) \$(RUNTIME_DLL_OPTIONS)" $LDFLAGS "\$(runtime_OBJECTS)" $LIBS "-o libsim$RUNTIME_DLL_EXTENSION"
-if [ $OS = 'linux' ]
+if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
 elif [ $OS = 'darwin' ]

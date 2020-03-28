@@ -825,13 +825,13 @@ $build_codeblocks_project:
           <Unit filename="@(path_prefix)runtime/common.h" />
           <Unit filename="@(path_prefix)runtime/linker.h" />
           <Unit filename="@(path_prefix)runtime/memory.c">
-            <Option compilerVar="CC" />
+            <Option compilerVar="@(c_compiler())" />
           </Unit>
           <Unit filename="@(path_prefix)runtime/debugger.c">
-            <Option compilerVar="CC" />
+            <Option compilerVar="@(c_compiler())" />
           </Unit>
           <Unit filename="@(path_prefix)runtime/linker.c">
-            <Option compilerVar="CC" />
+            <Option compilerVar="@(c_compiler())" />
           </Unit>
     for_each c_sources: ($filename)
       without_prefix &filename prefix_path
@@ -840,7 +840,7 @@ $build_codeblocks_project:
 	@
 
 	    <Unit filename="@(path_prefix)@(filename)">
-	      <Option compilerVar="CC" />
+	      <Option compilerVar="@(c_compiler())" />
 	    </Unit>
     write_to &buf "
           <Extensions>
@@ -891,7 +891,7 @@ $build_library:
 	if verbose: ewriteln "linking dynamic library"
 	case
 	  operating_system()
-	  "linux":
+	  "linux", "bsd":
 	    CC $_out $err $success
 	      "-shared"
 	      "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
