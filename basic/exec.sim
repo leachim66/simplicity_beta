@@ -55,10 +55,8 @@ $std::SIGTERM 15
   <kind function>
 
   void close_all_files(void) {
-    char buf[32];
-    sprintf(buf, "/proc/%d/fd", getpid());
     struct dirent *dp;
-    DIR *dir = opendir(buf);
+    DIR *dir = opendir("/dev/fd");
     if (dir) {
       int dfd = dirfd(dir);
       while ((dp = readdir(dir)) != NULL) {
