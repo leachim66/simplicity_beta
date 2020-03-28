@@ -1067,7 +1067,7 @@ EXPORT void collect_garbage() {
   update_start_p = node_p;
   if (runtime_debug_level > 1) {
     fprintf(
-      stderr, "%" PRIu64 ": memory usage %d / %d\n",
+      stderr, "%" PRIu64 ": memory usage %ld / %ld\n",
       instruction_counter, node_p-node_buf, pool_size);
   }
 
@@ -1559,7 +1559,7 @@ EXPORT long retrieve__memory(uint8_t **buf_p) {
       }
     }
   }
-  *buf_p = buf;
+  *buf_p = (uint8_t *)buf;
   return len;
 }
 
