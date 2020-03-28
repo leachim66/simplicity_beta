@@ -21,7 +21,9 @@ netdb.h
 stddef.h
 fcntl.h
 arpa/inet.h
+netinet/in.h
 sys/ioctl.h
 sys/stat.h
 sys/socket.h
 locale.h
+runtime/platform.h

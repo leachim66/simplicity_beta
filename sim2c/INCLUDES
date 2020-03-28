@@ -14,9 +14,11 @@ stddef.h
 fcntl.h
 math.h
 arpa/inet.h
+netinet/in.h
 sys/ioctl.h
 sys/stat.h
 sys/socket.h
+runtime/platform.h
 limits.h
 mach/clock.h #darwin
 mach/mach.h #darwin

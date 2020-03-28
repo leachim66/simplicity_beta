@@ -19,6 +19,7 @@
 <require basic/math>
 <require basic/options>
 <require basic/parameters>
+<require basic/platform>
 <require basic/polymorphic_functions>
 <require basic/primitives>
 <require basic/runtime>
@@ -47,8 +48,6 @@
 <require basic/types/unordered_table>
 <require basic/types/value_range>
 <require system/export/html>
-<require platform/platform>
-<require platform/hardware_architecture>
 <require ./character_names>
 <require ./fragments>
 <require ./tokenizer>
@@ -132,7 +131,7 @@ $supported_platforms
 
 $$platform_priority empty_table
 do:
-  $$platform current_platform
+  $$platform operating_system()
   $$priority 0
   do: (-> break)
     forever:
@@ -275,12 +274,18 @@ $gcc_hardware_specific_options
     "x86_32" = list("-msse2" "-mfpmath=sse")
     "x86_64" = list("-msse2" "-mfpmath=sse")
 
+$$gcc_include_options empty_list
+for_each simdatapaths: (path)
+  push &gcc_include_options "-I@(path)"
+
 $gcc_options
   append
     gcc_basic_options
-    default_value
-      gcc_hardware_specific_options(hardware_architecture())
-      empty_list
+    append
+      default_value
+	gcc_hardware_specific_options(hardware_architecture())
+	empty_list
+      gcc_include_options
 
 %on_top_level true # set to false while building meta-files
 %%objects empty_insert_order_set
@@ -646,7 +651,7 @@ $library_paths_and_file_list:
 	library .has_prefix. "sim-"
 	->
 	  if
-	    current_platform == "linux"
+	    operating_system() == "linux"
 	    -> "-l:lib@(library).so.@(MAJOR)"
 	    -> "-l@(library)-@(MAJOR)"
 	->
@@ -851,7 +856,7 @@ $build_library:
 
       $lib_filename
 	case
-	  current_platform
+	  operating_system()
 	  "linux"
 	  -> string("libsim-" base_filename version ".so.@(MAJOR)")
 	  "cygwin"
@@ -873,7 +878,7 @@ $build_library:
       if do_link:
 	if verbose: ewriteln "linking dynamic library"
 	case
-	  current_platform
+	  operating_system()
 	  "linux":
 	    Gcc $_out $err $success
 	      "-shared"
@@ -978,7 +983,7 @@ $build_executable:
   compile_exe: (mod_filename mod_name)
     $exe_filename
       if
-	current_platform == "cygwin"
+	operating_system() == "cygwin"
 	-> string(mod_filename ".exe")
 	-> mod_filename
 
@@ -1048,7 +1053,7 @@ $build_executable:
 	  Gcc $_out $err $success
 	    libs_and_files*
 	    if
-	      current_platform == "linux"
+	      operating_system() == "linux"
 	      -> "-l:libsim.so.@(MAJOR)"
 	      -> "-lsim-@(MAJOR)"
 	    "-o"
