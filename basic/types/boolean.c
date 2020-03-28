@@ -319,10 +319,10 @@ static NODE *string__13_2;
 static long func__types__true___debug_string(NODE *node, int indent, int max_depth, char *buf);
 
 static long func__types__false___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static void entry__16_1(void);
-static NODE *func__16_1;
-static void entry__17_1(void);
-static NODE *func__17_1;
+static void entry__16_1_types__true_equal(void);
+static NODE *func__16_1_types__true_equal;
+static void entry__17_1_types__false_equal(void);
+static NODE *func__17_1_types__false_equal;
 static NODE *func__18_1_types__true_not;
 static void entry__18_1_types__true_not(void);
 static FRAME_INFO frame__18_1_types__true_not = {1, {"self"}};
@@ -372,8 +372,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__58_2, NULL, },
   {entry__12_1_types__true_std__to_string, NULL, 87, 87, 38, 46},
   {entry__13_1_types__false_std__to_string, NULL, 89, 89, 39, 48},
-  {entry__16_1, NULL, 108, 111, 3, 2},
-  {entry__17_1, NULL, 114, 117, 3, 2},
+  {entry__16_1_types__true_equal, NULL, 108, 111, 3, 2},
+  {entry__17_1_types__false_equal, NULL, 114, 117, 3, 2},
   {entry__18_1_types__true_not, NULL, 119, 119, 27, 34},
   {entry__19_1_types__false_not, NULL, 121, 121, 28, 34},
   {entry__20_1_types__true_and, NULL, 123, 123, 36, 42},
@@ -676,7 +676,7 @@ static long func__types__true___debug_string(NODE *node, int indent, int max_dep
 static long func__types__false___debug_string(NODE *node, int indent, int max_depth, char *buf) {
   return debug_print(indent, buf, "false");
 }
-static void entry__16_1(void) {
+static void entry__16_1_types__true_equal(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -691,7 +691,7 @@ static void entry__16_1(void) {
     return;
   }
 }
-static void entry__17_1(void) {
+static void entry__17_1_types__false_equal(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -955,8 +955,8 @@ EXPORT void phase_2__basic__types__boolean(void) {
   func__12_1_types__true_std__to_string = create_function(entry__12_1_types__true_std__to_string, 1);
   string__13_2 = from_latin_1_string("false", 5);
   func__13_1_types__false_std__to_string = create_function(entry__13_1_types__false_std__to_string, 1);
-  func__16_1 = create_function(entry__16_1, 2);
-  func__17_1 = create_function(entry__17_1, 2);
+  func__16_1_types__true_equal = create_function(entry__16_1_types__true_equal, 2);
+  func__17_1_types__false_equal = create_function(entry__17_1_types__false_equal, 2);
   func__18_1_types__true_not = create_function(entry__18_1_types__true_not, 1);
   func__19_1_types__false_not = create_function(entry__19_1_types__false_not, 1);
   func__20_1_types__true_and = create_function(entry__20_1_types__true_and, 2);
@@ -1013,8 +1013,8 @@ EXPORT void phase_4__basic__types__boolean(void) {
   define_attribute("types", "false", poly_idx__is_a_boolean, get__true());
   define_method("types", "true", poly_idx__std__to_string, func__12_1_types__true_std__to_string);
   define_method("types", "false", poly_idx__std__to_string, func__13_1_types__false_std__to_string);
-  define_method("types", "true", poly_idx__equal, func__16_1);
-  define_method("types", "false", poly_idx__equal, func__17_1);
+  define_method("types", "true", poly_idx__equal, func__16_1_types__true_equal);
+  define_method("types", "false", poly_idx__equal, func__17_1_types__false_equal);
   define_method("types", "true", poly_idx__not, func__18_1_types__true_not);
   define_method("types", "false", poly_idx__not, func__19_1_types__false_not);
   define_method("types", "true", poly_idx__and, func__20_1_types__true_and);

@@ -159,7 +159,7 @@ $sim2c::call/annotate_statement: (&self)
   if
     &&
       self.is_an_assignment
-      arguments_of(self)(1).is_a_body
+      arguments_of(self)(1).is_a_body || arguments_of(self)(1).is_a_c_body
       output_arguments_of(self)(1).is_a_single_assign_definition
     :
       !self.arguments_of(1).name_of

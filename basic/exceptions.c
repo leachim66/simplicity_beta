@@ -477,8 +477,8 @@ static NODE *func__12_5;
 static void entry__12_5(void);
 static FRAME_INFO frame__12_5 = {1, {"resource"}};
 static void cont__12_6(void);
-static void entry__13_1(void);
-static NODE *func__13_1;
+static void entry__13_1_clib_exit(void);
+static NODE *func__13_1_clib_exit;
 static NODE *func__15_1_std__at_exit;
 static void entry__15_1_std__at_exit(void);
 static FRAME_INFO frame__15_1_std__at_exit = {1, {"func"}};
@@ -525,8 +525,8 @@ static void cont__19_3(void);
 static NODE *get__std__Error(void) {
   return var.std__Error;
 }
-static void entry__20_1(void);
-static NODE *func__20_1;
+static void entry__20_1_crash_dump(void);
+static NODE *func__20_1_crash_dump;
 static NODE *func__21_1_RuntimeError;
 static void entry__21_1_RuntimeError(void);
 static FRAME_INFO frame__21_1_RuntimeError = {1, {"args"}};
@@ -718,7 +718,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__12_3, &frame__12_2, 88, 88, 12, 34},
   {cont__12_4, &frame__12_2, 88, 90, 9, 18},
   {entry__12_1_cleanup, NULL, 88, 90, 3, 18},
-  {entry__13_1, NULL, 93, 96, 3, 2},
+  {entry__13_1_clib_exit, NULL, 93, 96, 3, 2},
   {entry__15_1_std__at_exit, NULL, 100, 100, 23, 47},
   {cont__15_2, &frame__15_1_std__at_exit, 100, 100, 47, 47},
   {entry__16_2, NULL, 103, 103, 35, 38},
@@ -736,7 +736,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__19_1_std__Error, NULL, 116, 116, 3, 9},
   {cont__19_2, &frame__19_1_std__Error, 117, 117, 3, 20},
   {cont__19_3, &frame__19_1_std__Error, 118, 118, 3, 8},
-  {entry__20_1, NULL, 121, 125, 3, 2},
+  {entry__20_1_crash_dump, NULL, 121, 125, 3, 2},
   {entry__21_1_RuntimeError, NULL, 128, 128, 3, 9},
   {cont__21_2, &frame__21_1_RuntimeError, 129, 129, 3, 26},
   {cont__21_4, &frame__21_1_RuntimeError, 130, 130, 3, 20},
@@ -1871,7 +1871,7 @@ static void entry__12_1_cleanup(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_1(void) {
+static void entry__13_1_clib_exit(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2137,7 +2137,7 @@ static void cont__19_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__20_1(void) {
+static void entry__20_1_crash_dump(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -3458,14 +3458,14 @@ EXPORT void phase_2__basic__exceptions(void) {
   func__12_5 = create_function(entry__12_5, 0);
   func__12_2 = create_function(entry__12_2, 0);
   func__12_1_cleanup = create_function(entry__12_1_cleanup, 0);
-  func__13_1 = create_function(entry__13_1, 1);
+  func__13_1_clib_exit = create_function(entry__13_1_clib_exit, 1);
   func__15_1_std__at_exit = create_function(entry__15_1_std__at_exit, 1);
   func__16_2 = create_function(entry__16_2, 1);
   func__16_1_std__exit = create_function(entry__16_1_std__exit, 1);
   func__17_1_std__terminate = create_function(entry__17_1_std__terminate, 0);
   func__18_1_std__ErrorMessage = create_function(entry__18_1_std__ErrorMessage, -1);
   func__19_1_std__Error = create_function(entry__19_1_std__Error, -1);
-  func__20_1 = create_function(entry__20_1, 0);
+  func__20_1_crash_dump = create_function(entry__20_1_crash_dump, 0);
   string__21_3 = from_latin_1_string("RUNTIME ERROR: ", 15);
   func__21_1_RuntimeError = create_function(entry__21_1_RuntimeError, -1);
   func__23_18 = create_function(entry__23_18, -1);
@@ -3565,13 +3565,13 @@ EXPORT void phase_5__basic__exceptions(void) {
   assign_variable(&var.std__deregister_resource, &func__10_1_std__deregister_resource);
   assign_variable(&var._cleanup_till, &func__11_1_cleanup_till);
   assign_variable(&var._cleanup, &func__12_1_cleanup);
-  assign_variable(&var._clib_exit, &func__13_1);
+  assign_variable(&var._clib_exit, &func__13_1_clib_exit);
   assign_variable(&var.std__at_exit, &func__15_1_std__at_exit);
   assign_variable(&var.std__exit, &func__16_1_std__exit);
   assign_variable(&var.std__terminate, &func__17_1_std__terminate);
   assign_variable(&var.std__ErrorMessage, &func__18_1_std__ErrorMessage);
   assign_variable(&var.std__Error, &func__19_1_std__Error);
-  assign_variable(&var._crash_dump, &func__20_1);
+  assign_variable(&var._crash_dump, &func__20_1_crash_dump);
   assign_variable(&var._RuntimeError, &func__21_1_RuntimeError);
   initialize_future(get__std__raise(), var._RuntimeError);
   assign_variable(&var.std__try, &func__23_1_std__try);

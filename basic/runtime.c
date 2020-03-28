@@ -215,18 +215,18 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static void entry__1_1(void);
-static NODE *func__1_1;
+static void entry__1_1_std__runtime_major_version(void);
+static NODE *func__1_1_std__runtime_major_version;
 static NODE *get__std__runtime_major_version(void) {
   return var.std__runtime_major_version;
 }
-static void entry__2_1(void);
-static NODE *func__2_1;
+static void entry__2_1_std__runtime_minor_version(void);
+static NODE *func__2_1_std__runtime_minor_version;
 static NODE *get__std__runtime_minor_version(void) {
   return var.std__runtime_minor_version;
 }
-static void entry__3_1(void);
-static NODE *func__3_1;
+static void entry__3_1_std__runtime_revision(void);
+static NODE *func__3_1_std__runtime_revision;
 static NODE *get__std__runtime_revision(void) {
   return var.std__runtime_revision;
 }
@@ -234,9 +234,9 @@ void run__basic__runtime(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__runtime, NULL, },
-  {entry__1_1, NULL, 24, 27, 3, 2},
-  {entry__2_1, NULL, 30, 33, 3, 2},
-  {entry__3_1, NULL, 36, 39, 3, 2}
+  {entry__1_1_std__runtime_major_version, NULL, 24, 27, 3, 2},
+  {entry__2_1_std__runtime_minor_version, NULL, 30, 33, 3, 2},
+  {entry__3_1_std__runtime_revision, NULL, 36, 39, 3, 2}
 };
 
 union NODE {
@@ -284,7 +284,7 @@ EXPORT void run__basic__runtime(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__runtime_major_version(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -299,7 +299,7 @@ static void entry__1_1(void) {
     return;
   }
 }
-static void entry__2_1(void) {
+static void entry__2_1_std__runtime_minor_version(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -314,7 +314,7 @@ static void entry__2_1(void) {
     return;
   }
 }
-static void entry__3_1(void) {
+static void entry__3_1_std__runtime_revision(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -348,9 +348,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__runtime(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  func__1_1 = create_function(entry__1_1, 0);
-  func__2_1 = create_function(entry__2_1, 0);
-  func__3_1 = create_function(entry__3_1, 0);
+  func__1_1_std__runtime_major_version = create_function(entry__1_1_std__runtime_major_version, 0);
+  func__2_1_std__runtime_minor_version = create_function(entry__2_1_std__runtime_minor_version, 0);
+  func__3_1_std__runtime_revision = create_function(entry__3_1_std__runtime_revision, 0);
 }
 
 static int already_run_phase_3 = false;
@@ -379,9 +379,9 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__runtime(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__runtime_major_version, &func__1_1);
-  assign_variable(&var.std__runtime_minor_version, &func__2_1);
-  assign_variable(&var.std__runtime_revision, &func__3_1);
+  assign_variable(&var.std__runtime_major_version, &func__1_1_std__runtime_major_version);
+  assign_variable(&var.std__runtime_minor_version, &func__2_1_std__runtime_minor_version);
+  assign_variable(&var.std__runtime_revision, &func__3_1_std__runtime_revision);
 }
 
 static int already_run_phase_6 = false;

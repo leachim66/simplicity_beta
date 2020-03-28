@@ -287,8 +287,8 @@ static FRAME_INFO frame__5_1_std__swap = {2, {"left", "right"}};
 static NODE *get__std__swap(void) {
   return var.std__swap;
 }
-static void entry__6_1(void);
-static NODE *func__6_1;
+static void entry__6_1_std__pass(void);
+static NODE *func__6_1_std__pass;
 static NODE *get__std__pass(void) {
   return var.std__pass;
 }
@@ -298,18 +298,18 @@ static FRAME_INFO frame__7_1_std__eval = {1, {"body"}};
 static NODE *get__std__eval(void) {
   return var.std__eval;
 }
-static void entry__8_1(void);
-static NODE *func__8_1;
+static void entry__8_1_std__do(void);
+static NODE *func__8_1_std__do;
 static NODE *get__std__do(void) {
   return var.std__do;
 }
-static void entry__9_1(void);
-static NODE *func__9_1;
+static void entry__9_1_std__assign(void);
+static NODE *func__9_1_std__assign;
 static NODE *get__std__assign(void) {
   return var.std__assign;
 }
-static void entry__10_1(void);
-static NODE *func__10_1;
+static void entry__10_1_std__goto(void);
+static NODE *func__10_1_std__goto;
 static NODE *get__std__goto(void) {
   return var.std__goto;
 }
@@ -325,11 +325,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__3_1_std__ignore, NULL, 52, 52, 3, 6},
   {entry__4_1_std__writeln_to, NULL, 67, 67, 3, 40},
   {entry__5_1_std__swap, NULL, 82, 82, 3, 15},
-  {entry__6_1, NULL, 99, 102, 3, 2},
+  {entry__6_1_std__pass, NULL, 99, 102, 3, 2},
   {entry__7_1_std__eval, NULL, 105, 119, 3, 47},
-  {entry__8_1, NULL, 140, 145, 3, 2},
-  {entry__9_1, NULL, 182, 184, 3, 2},
-  {entry__10_1, NULL, 197, 212, 3, 2}
+  {entry__8_1_std__do, NULL, 140, 145, 3, 2},
+  {entry__9_1_std__assign, NULL, 182, 184, 3, 2},
+  {entry__10_1_std__goto, NULL, 197, 212, 3, 2}
 };
 
 union NODE {
@@ -520,7 +520,7 @@ static void entry__5_1_std__swap(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1(void) {
+static void entry__6_1_std__pass(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -558,7 +558,7 @@ static void entry__7_1_std__eval(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_1(void) {
+static void entry__8_1_std__do(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -571,14 +571,14 @@ static void entry__8_1(void) {
     return;
   }
 }
-static void entry__9_1(void) {
+static void entry__9_1_std__assign(void) {
   {
     func = frame->cont;
     frame->cont = invalid_continuation;
     return;
   }
 }
-static void entry__10_1(void) {
+static void entry__10_1_std__goto(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -632,11 +632,11 @@ EXPORT void phase_2__basic__primitives(void) {
   func__3_1_std__ignore = create_function(entry__3_1_std__ignore, 1);
   func__4_1_std__writeln_to = create_function(entry__4_1_std__writeln_to, -1);
   func__5_1_std__swap = create_function(entry__5_1_std__swap, 2);
-  func__6_1 = create_function(entry__6_1, 0);
+  func__6_1_std__pass = create_function(entry__6_1_std__pass, 0);
   func__7_1_std__eval = create_function(entry__7_1_std__eval, 1);
-  func__8_1 = create_function(entry__8_1, 1);
-  func__9_1 = create_function(entry__9_1, -1);
-  func__10_1 = create_function(entry__10_1, -1);
+  func__8_1_std__do = create_function(entry__8_1_std__do, 1);
+  func__9_1_std__assign = create_function(entry__9_1_std__assign, -1);
+  func__10_1_std__goto = create_function(entry__10_1_std__goto, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -682,11 +682,11 @@ EXPORT void phase_5__basic__primitives(void) {
   assign_variable(&var.std__ignore, &func__3_1_std__ignore);
   assign_variable(&var.std__writeln_to, &func__4_1_std__writeln_to);
   assign_variable(&var.std__swap, &func__5_1_std__swap);
-  assign_variable(&var.std__pass, &func__6_1);
+  assign_variable(&var.std__pass, &func__6_1_std__pass);
   assign_variable(&var.std__eval, &func__7_1_std__eval);
-  assign_variable(&var.std__do, &func__8_1);
-  assign_variable(&var.std__assign, &func__9_1);
-  assign_variable(&var.std__goto, &func__10_1);
+  assign_variable(&var.std__do, &func__8_1_std__do);
+  assign_variable(&var.std__assign, &func__9_1_std__assign);
+  assign_variable(&var.std__goto, &func__10_1_std__goto);
 }
 
 static int already_run_phase_6 = false;

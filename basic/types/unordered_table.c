@@ -399,20 +399,20 @@ static UNORDERED_TABLE_DATA *collect_unordered_table_data(
 );
 
 static void *collect_unordered_table(UNORDERED_TABLE *node);
-static void entry__11_1(void);
-static NODE *func__11_1;
-static void entry__12_1(void);
-static NODE *func__12_1;
+static void entry__11_1_insert_item(void);
+static NODE *func__11_1_insert_item;
+static void entry__12_1_retrieve_item(void);
+static NODE *func__12_1_retrieve_item;
 static NODE *get__types__unordered_table(void) {
   return var.types__unordered_table;
 }
 static NODE *create__types__unordered_table(long rev_no, UNORDERED_TABLE_DATA *data);
-static void entry__14_1(void);
-static NODE *func__14_1;
-static void entry__15_1(void);
-static NODE *func__15_1;
-static void entry__16_1(void);
-static NODE *func__16_1;
+static void entry__14_1_types__unordered_table_length_of(void);
+static NODE *func__14_1_types__unordered_table_length_of;
+static void entry__15_1_next_key_and_value(void);
+static NODE *func__15_1_next_key_and_value;
+static void entry__16_1_previous_key_and_value(void);
+static NODE *func__16_1_previous_key_and_value;
 static NODE *func__17_1_types__unordered_table_private__set_item;
 static void entry__17_1_types__unordered_table_private__set_item(void);
 static FRAME_INFO frame__17_1_types__unordered_table_private__set_item = {6, {"self", "key", "value", "return", "h", "cmp_key"}};
@@ -657,11 +657,11 @@ void run__basic__types__unordered_table(void);
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__unordered_table, NULL, 1072, 1072, 1, 70},
   {cont__64_1, NULL, },
-  {entry__11_1, NULL, 305, 541, 3, 2},
-  {entry__12_1, NULL, 544, 617, 3, 2},
-  {entry__14_1, NULL, 634, 670, 3, 2},
-  {entry__15_1, NULL, 673, 740, 3, 2},
-  {entry__16_1, NULL, 743, 804, 3, 2},
+  {entry__11_1_insert_item, NULL, 305, 541, 3, 2},
+  {entry__12_1_retrieve_item, NULL, 544, 617, 3, 2},
+  {entry__14_1_types__unordered_table_length_of, NULL, 634, 670, 3, 2},
+  {entry__15_1_next_key_and_value, NULL, 673, 740, 3, 2},
+  {entry__16_1_previous_key_and_value, NULL, 743, 804, 3, 2},
   {entry__17_3, NULL, 813, 813, 37, 37},
   {entry__17_9, NULL, 827, 827, 25, 35},
   {entry__17_12, NULL, 829, 829, 72, 72},
@@ -1068,7 +1068,7 @@ static void *collect_unordered_table(UNORDERED_TABLE *node) {
       node->data, node->rev_no, (REFERRED_REVISION *)&node->rev_no);
   return new_node;
 }
-static void entry__11_1(void) {
+static void entry__11_1_insert_item(void) {
   if (argument_count != 5) {
     invalid_arguments_error();
     return;
@@ -1313,7 +1313,7 @@ static void entry__11_1(void) {
     return;
   }
 }
-static void entry__12_1(void) {
+static void entry__12_1_retrieve_item(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -1453,7 +1453,7 @@ static NODE *create__types__unordered_table(long rev_no, UNORDERED_TABLE_DATA *d
   node->unordered_table.data = data;
   return node;
 }
-static void entry__14_1(void) {
+static void entry__14_1_types__unordered_table_length_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1501,7 +1501,7 @@ static void entry__14_1(void) {
     return;
   }
 }
-static void entry__15_1(void) {
+static void entry__15_1_next_key_and_value(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -1579,7 +1579,7 @@ static void entry__15_1(void) {
     return;
   }
 }
-static void entry__16_1(void) {
+static void entry__16_1_previous_key_and_value(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -4404,11 +4404,11 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   already_run_phase_2 = true;
   number__2 = from_uint32(2U);
   unique__NONE = register_unique_item("NONE");
-  func__11_1 = create_function(entry__11_1, 5);
-  func__12_1 = create_function(entry__12_1, 3);
-  func__14_1 = create_function(entry__14_1, 1);
-  func__15_1 = create_function(entry__15_1, 3);
-  func__16_1 = create_function(entry__16_1, 3);
+  func__11_1_insert_item = create_function(entry__11_1_insert_item, 5);
+  func__12_1_retrieve_item = create_function(entry__12_1_retrieve_item, 3);
+  func__14_1_types__unordered_table_length_of = create_function(entry__14_1_types__unordered_table_length_of, 1);
+  func__15_1_next_key_and_value = create_function(entry__15_1_next_key_and_value, 3);
+  func__16_1_previous_key_and_value = create_function(entry__16_1_previous_key_and_value, 3);
   func__17_1_types__unordered_table_private__set_item = create_function(entry__17_1_types__unordered_table_private__set_item, 3);
   func__18_1_types__unordered_table_private__get_item = create_function(entry__18_1_types__unordered_table_private__get_item, 2);
   string__20_1 = from_latin_1_string("unordered_table", 15);
@@ -4478,7 +4478,7 @@ EXPORT void phase_4__basic__types__unordered_table(void) {
   use_polymorphic_function(NULL, "update_each_downwards", &get__update_each_downwards, &poly_idx__update_each_downwards);
   use_polymorphic_function(NULL, "update_each_from_down_to", &get__update_each_from_down_to, &poly_idx__update_each_from_down_to);
   use_polymorphic_function(NULL, "update_each_from_to", &get__update_each_from_to, &poly_idx__update_each_from_to);
-  define_method("types", "unordered_table", poly_idx__length_of, func__14_1);
+  define_method("types", "unordered_table", poly_idx__length_of, func__14_1_types__unordered_table_length_of);
   define_method("types", "unordered_table", poly_idx__private__set_item, func__17_1_types__unordered_table_private__set_item);
   define_method("types", "unordered_table", poly_idx__private__get_item, func__18_1_types__unordered_table_private__get_item);
   define_type_function("types", "unordered_table", entry__19_1_types__unordered_table_, -1);
@@ -4499,11 +4499,11 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__unordered_table(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var._insert_item, &func__11_1);
-  assign_variable(&var._retrieve_item, &func__12_1);
+  assign_variable(&var._insert_item, &func__11_1_insert_item);
+  assign_variable(&var._retrieve_item, &func__12_1_retrieve_item);
   assign_value(&var.types__unordered_table, get__types__generic_table());
-  assign_variable(&var._next_key_and_value, &func__15_1);
-  assign_variable(&var._previous_key_and_value, &func__16_1);
+  assign_variable(&var._next_key_and_value, &func__15_1_next_key_and_value);
+  assign_variable(&var._previous_key_and_value, &func__16_1_previous_key_and_value);
   assign_variable(&var.std__empty_unordered_table, &var.types__unordered_table);
   assign_variable(&var.std__unordered_table, &func__23_1_std__unordered_table);
 }

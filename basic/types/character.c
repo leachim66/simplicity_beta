@@ -358,25 +358,25 @@ static NODE *get__types__character(void) {
 static NODE *create__types__character(uint32_t code);
 
 static uint32_t func__types__character___to_uchar32(NODE *node);
-static void entry__8_1(void);
-static NODE *func__8_1;
+static void entry__8_1_std__character(void);
+static NODE *func__8_1_std__character;
 static NODE *get__std__character(void) {
   return var.std__character;
 }
-static void entry__9_1(void);
-static NODE *func__9_1;
-static void entry__10_1(void);
-static NODE *func__10_1;
-static void entry__11_1(void);
-static NODE *func__11_1;
-static void entry__12_1(void);
-static NODE *func__12_1;
-static void entry__13_1(void);
-static NODE *func__13_1;
-static void entry__14_1(void);
-static NODE *func__14_1;
-static void entry__15_1(void);
-static NODE *func__15_1;
+static void entry__9_1_types__character_plus(void);
+static NODE *func__9_1_types__character_plus;
+static void entry__10_1_types__character_minus(void);
+static NODE *func__10_1_types__character_minus;
+static void entry__11_1_types__character_equal(void);
+static NODE *func__11_1_types__character_equal;
+static void entry__12_1_types__character_less(void);
+static NODE *func__12_1_types__character_less;
+static void entry__13_1_types__character_hash(void);
+static NODE *func__13_1_types__character_hash;
+static void entry__14_1_types__character_to_string(void);
+static NODE *func__14_1_types__character_to_string;
+static void entry__15_1_types__character_to_integer(void);
+static NODE *func__15_1_types__character_to_integer;
 
 static long func__types__character___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static NODE *func__17_1_std__is_a_whitespace_character;
@@ -676,14 +676,14 @@ void run__basic__types__character(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_character, NULL, 25, 25, 2, 20},
   {run__basic__types__character, NULL, },
-  {entry__8_1, NULL, 65, 70, 3, 2},
-  {entry__9_1, NULL, 73, 78, 3, 2},
-  {entry__10_1, NULL, 81, 92, 3, 2},
-  {entry__11_1, NULL, 95, 101, 3, 2},
-  {entry__12_1, NULL, 104, 110, 3, 2},
-  {entry__13_1, NULL, 113, 119, 3, 2},
-  {entry__14_1, NULL, 122, 131, 3, 2},
-  {entry__15_1, NULL, 134, 137, 3, 2},
+  {entry__8_1_std__character, NULL, 65, 70, 3, 2},
+  {entry__9_1_types__character_plus, NULL, 73, 78, 3, 2},
+  {entry__10_1_types__character_minus, NULL, 81, 92, 3, 2},
+  {entry__11_1_types__character_equal, NULL, 95, 101, 3, 2},
+  {entry__12_1_types__character_less, NULL, 104, 110, 3, 2},
+  {entry__13_1_types__character_hash, NULL, 113, 119, 3, 2},
+  {entry__14_1_types__character_to_string, NULL, 122, 131, 3, 2},
+  {entry__15_1_types__character_to_integer, NULL, 134, 137, 3, 2},
   {entry__17_7, NULL, 159, 159, 54, 66},
   {cont__17_8, &frame__17_7, 159, 159, 54, 66},
   {entry__17_5, NULL, 159, 159, 37, 49},
@@ -1010,7 +1010,7 @@ NODE *runtime__from_uchar32(uint32_t code) {
 static uint32_t func__types__character___to_uchar32(NODE *node) {
   return node->character.code;
 }
-static void entry__8_1(void) {
+static void entry__8_1_std__character(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1029,7 +1029,7 @@ static void entry__8_1(void) {
     return;
   }
 }
-static void entry__9_1(void) {
+static void entry__9_1_types__character_plus(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1048,7 +1048,7 @@ static void entry__9_1(void) {
     return;
   }
 }
-static void entry__10_1(void) {
+static void entry__10_1_types__character_minus(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1080,7 +1080,7 @@ static void entry__10_1(void) {
   }
   }
 }
-static void entry__11_1(void) {
+static void entry__11_1_types__character_equal(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1105,7 +1105,7 @@ static void entry__11_1(void) {
     return;
   }
 }
-static void entry__12_1(void) {
+static void entry__12_1_types__character_less(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1125,7 +1125,7 @@ static void entry__12_1(void) {
     invalid_arguments_error();
   }
 }
-static void entry__13_1(void) {
+static void entry__13_1_types__character_hash(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1143,7 +1143,7 @@ static void entry__13_1(void) {
     return;
   };
 }
-static void entry__14_1(void) {
+static void entry__14_1_types__character_to_string(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1172,7 +1172,7 @@ static void entry__14_1(void) {
   }
   }
 }
-static void entry__15_1(void) {
+static void entry__15_1_types__character_to_integer(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -3996,14 +3996,14 @@ EXPORT void phase_2__basic__types__character(void) {
   number__0x20 = from_uint32(32U);
   character__223 = from_uchar32(223);
   character__79 = from_uchar32(79);
-  func__8_1 = create_function(entry__8_1, 1);
-  func__9_1 = create_function(entry__9_1, 2);
-  func__10_1 = create_function(entry__10_1, 2);
-  func__11_1 = create_function(entry__11_1, 2);
-  func__12_1 = create_function(entry__12_1, 2);
-  func__13_1 = create_function(entry__13_1, 1);
-  func__14_1 = create_function(entry__14_1, 1);
-  func__15_1 = create_function(entry__15_1, 1);
+  func__8_1_std__character = create_function(entry__8_1_std__character, 1);
+  func__9_1_types__character_plus = create_function(entry__9_1_types__character_plus, 2);
+  func__10_1_types__character_minus = create_function(entry__10_1_types__character_minus, 2);
+  func__11_1_types__character_equal = create_function(entry__11_1_types__character_equal, 2);
+  func__12_1_types__character_less = create_function(entry__12_1_types__character_less, 2);
+  func__13_1_types__character_hash = create_function(entry__13_1_types__character_hash, 1);
+  func__14_1_types__character_to_string = create_function(entry__14_1_types__character_to_string, 1);
+  func__15_1_types__character_to_integer = create_function(entry__15_1_types__character_to_integer, 1);
   func__17_1_std__is_a_whitespace_character = create_function(entry__17_1_std__is_a_whitespace_character, 1);
   func__18_1_std__is_a_digit = create_function(entry__18_1_std__is_a_digit, 1);
   func__19_1_std__is_a_letter = create_function(entry__19_1_std__is_a_letter, 1);
@@ -4082,13 +4082,13 @@ EXPORT void phase_4__basic__types__character(void) {
   use_read_only("types", "object", &get__types__object, &get_value_or_future__types__object);
   define_attribute("types", "object", poly_idx__is_a_character, get__false());
   define_attribute("types", "character", poly_idx__is_a_character, get__true());
-  define_method("types", "character", poly_idx__plus, func__9_1);
-  define_method("types", "character", poly_idx__minus, func__10_1);
-  define_method("types", "character", poly_idx__equal, func__11_1);
-  define_method("types", "character", poly_idx__less, func__12_1);
-  define_method("types", "character", poly_idx__hash, func__13_1);
-  define_method("types", "character", poly_idx__to_string, func__14_1);
-  define_method("types", "character", poly_idx__to_integer, func__15_1);
+  define_method("types", "character", poly_idx__plus, func__9_1_types__character_plus);
+  define_method("types", "character", poly_idx__minus, func__10_1_types__character_minus);
+  define_method("types", "character", poly_idx__equal, func__11_1_types__character_equal);
+  define_method("types", "character", poly_idx__less, func__12_1_types__character_less);
+  define_method("types", "character", poly_idx__hash, func__13_1_types__character_hash);
+  define_method("types", "character", poly_idx__to_string, func__14_1_types__character_to_string);
+  define_method("types", "character", poly_idx__to_integer, func__15_1_types__character_to_integer);
   define_method("types", "character", poly_idx__to_lower_case, func__25_1_types__character_to_lower_case);
   define_method("types", "character", poly_idx__to_upper_case, func__26_1_types__character_to_upper_case);
   define_method("types", "character", poly_idx__serialize, func__28_1_types__character_serialize);
@@ -4101,7 +4101,7 @@ EXPORT void phase_5__basic__types__character(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_character, create_function(type__std__is_a_character, -1));
   assign_value(&var.types__character, get__types__object());
-  assign_variable(&var.std__character, &func__8_1);
+  assign_variable(&var.std__character, &func__8_1_std__character);
   assign_variable(&var.std__is_a_whitespace_character, &func__17_1_std__is_a_whitespace_character);
   assign_variable(&var.std__is_a_digit, &func__18_1_std__is_a_digit);
   assign_variable(&var.std__is_a_letter, &func__19_1_std__is_a_letter);

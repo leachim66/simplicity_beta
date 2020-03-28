@@ -335,10 +335,10 @@ static NODE *get__std__SIGTERM(void) {
 }
 
 static void close_fd(int *fd_p);
-static void entry__11_1(void);
-static NODE *func__11_1;
-static void entry__12_1(void);
-static NODE *func__12_1;
+static void entry__11_1_posix_exec(void);
+static NODE *func__11_1_posix_exec;
+static void entry__12_1_posix_launch(void);
+static NODE *func__12_1_posix_launch;
 static NODE *func__13_1_std__launch;
 static void entry__13_1_std__launch(void);
 static FRAME_INFO frame__13_1_std__launch = {2, {"args", "return"}};
@@ -372,15 +372,15 @@ static void cont__13_18(void);
 static NODE *get__std__launch(void) {
   return var.std__launch;
 }
-static void entry__14_1(void);
-static NODE *func__14_1;
-static void entry__15_1(void);
-static NODE *func__15_1;
+static void entry__14_1_posix_call(void);
+static NODE *func__14_1_posix_call;
+static void entry__15_1_std__kill(void);
+static NODE *func__15_1_std__kill;
 static NODE *get__std__kill(void) {
   return var.std__kill;
 }
-static void entry__16_1(void);
-static NODE *func__16_1;
+static void entry__16_1_posix_pipe(void);
+static NODE *func__16_1_posix_pipe;
 static NODE *func__17_1_std__exec;
 static void entry__17_1_std__exec(void);
 static FRAME_INFO frame__17_1_std__exec = {1, {"args"}};
@@ -451,8 +451,8 @@ void run__basic__exec(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__exec, NULL, },
-  {entry__11_1, NULL, 55, 81, 3, 2},
-  {entry__12_1, NULL, 84, 200, 3, 2},
+  {entry__11_1_posix_exec, NULL, 55, 81, 3, 2},
+  {entry__12_1_posix_launch, NULL, 84, 200, 3, 2},
   {entry__13_3, NULL, 210, 210, 7, 24},
   {entry__13_4, NULL, 212, 212, 14, 32},
   {cont__13_5, &frame__13_4, 212, 212, 7, 32},
@@ -471,9 +471,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__13_1_std__launch, NULL, 208, 208, 5, 30},
   {cont__13_2, &frame__13_1_std__launch, 207, 225, 3, 37},
   {cont__13_18, &frame__13_1_std__launch, 225, 225, 37, 37},
-  {entry__14_1, NULL, 228, 430, 3, 2},
-  {entry__15_1, NULL, 433, 438, 3, 2},
-  {entry__16_1, NULL, 441, 767, 3, 2},
+  {entry__14_1_posix_call, NULL, 228, 430, 3, 2},
+  {entry__15_1_std__kill, NULL, 433, 438, 3, 2},
+  {entry__16_1_posix_pipe, NULL, 441, 767, 3, 2},
   {entry__17_1_std__exec, NULL, 770, 770, 3, 29},
   {cont__17_2, &frame__17_1_std__exec, 771, 771, 3, 18},
   {entry__18_1_std__call, NULL, 774, 774, 3, 29},
@@ -566,7 +566,7 @@ static void close_fd(int *fd_p) {
     *fd_p = -1;
   }
 }
-static void entry__11_1(void) {
+static void entry__11_1_posix_exec(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -601,7 +601,7 @@ static void entry__11_1(void) {
     return;
   }
 }
-static void entry__12_1(void) {
+static void entry__12_1_posix_launch(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -1116,7 +1116,7 @@ static void cont__13_18(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1(void) {
+static void entry__14_1_posix_call(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -1331,7 +1331,7 @@ static void entry__14_1(void) {
     return;
   }
 }
-static void entry__15_1(void) {
+static void entry__15_1_std__kill(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -1348,7 +1348,7 @@ static void entry__15_1(void) {
     return;
   }
 }
-static void entry__16_1(void) {
+static void entry__16_1_posix_pipe(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -2208,12 +2208,12 @@ EXPORT void phase_2__basic__exec(void) {
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
   number__14 = from_uint32(14U);
-  func__11_1 = create_function(entry__11_1, -1);
-  func__12_1 = create_function(entry__12_1, -1);
+  func__11_1_posix_exec = create_function(entry__11_1_posix_exec, -1);
+  func__12_1_posix_launch = create_function(entry__12_1_posix_launch, -1);
   func__13_1_std__launch = create_function(entry__13_1_std__launch, -1);
-  func__14_1 = create_function(entry__14_1, -1);
-  func__15_1 = create_function(entry__15_1, -1);
-  func__16_1 = create_function(entry__16_1, -1);
+  func__14_1_posix_call = create_function(entry__14_1_posix_call, -1);
+  func__15_1_std__kill = create_function(entry__15_1_std__kill, -1);
+  func__16_1_posix_pipe = create_function(entry__16_1_posix_pipe, -1);
   func__17_1_std__exec = create_function(entry__17_1_std__exec, -1);
   func__18_1_std__call = create_function(entry__18_1_std__call, -1);
   string__19_8 = from_latin_1_string("Invalid arguments!", 18);
@@ -2287,12 +2287,12 @@ EXPORT void phase_5__basic__exec(void) {
   assign_value(&var.std__SIGUSR2, number__12);
   assign_value(&var.std__SIGALRM, number__14);
   assign_value(&var.std__SIGTERM, number__15);
-  assign_variable(&var._posix_exec, &func__11_1);
-  assign_variable(&var._posix_launch, &func__12_1);
+  assign_variable(&var._posix_exec, &func__11_1_posix_exec);
+  assign_variable(&var._posix_launch, &func__12_1_posix_launch);
   assign_variable(&var.std__launch, &func__13_1_std__launch);
-  assign_variable(&var._posix_call, &func__14_1);
-  assign_variable(&var.std__kill, &func__15_1);
-  assign_variable(&var._posix_pipe, &func__16_1);
+  assign_variable(&var._posix_call, &func__14_1_posix_call);
+  assign_variable(&var.std__kill, &func__15_1_std__kill);
+  assign_variable(&var._posix_pipe, &func__16_1_posix_pipe);
   assign_variable(&var.std__exec, &func__17_1_std__exec);
   assign_variable(&var.std__call, &func__18_1_std__call);
   assign_variable(&var.std__pipe, &func__19_1_std__pipe);

@@ -307,15 +307,15 @@ static NODE *get__types__value_range(void) {
   return var.types__value_range;
 }
 static NODE *create__types__value_range(NODE *lower_bound, NODE *upper_bound);
-static void entry__6_1(void);
-static NODE *func__6_1;
+static void entry__6_1_std__value_range(void);
+static NODE *func__6_1_std__value_range;
 static NODE *get__std__value_range(void) {
   return var.std__value_range;
 }
-static void entry__7_1(void);
-static NODE *func__7_1;
-static void entry__8_1(void);
-static NODE *func__8_1;
+static void entry__7_1_types__value_range_lower_bound_of(void);
+static NODE *func__7_1_types__value_range_lower_bound_of;
+static void entry__8_1_types__value_range_upper_bound_of(void);
+static NODE *func__8_1_types__value_range_upper_bound_of;
 
 static long func__types__value_range___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static NODE *func__10_1_types__value_range_equal;
@@ -370,9 +370,9 @@ void run__basic__types__value_range(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_value_range, NULL, 23, 23, 2, 22},
   {run__basic__types__value_range, NULL, },
-  {entry__6_1, NULL, 48, 51, 3, 2},
-  {entry__7_1, NULL, 54, 57, 3, 2},
-  {entry__8_1, NULL, 60, 63, 3, 2},
+  {entry__6_1_std__value_range, NULL, 48, 51, 3, 2},
+  {entry__7_1_types__value_range_lower_bound_of, NULL, 54, 57, 3, 2},
+  {entry__8_1_types__value_range_upper_bound_of, NULL, 60, 63, 3, 2},
   {entry__10_7, NULL, 89, 89, 7, 26},
   {cont__10_8, &frame__10_7, 89, 89, 31, 51},
   {cont__10_9, &frame__10_7, 89, 89, 7, 51},
@@ -535,7 +535,7 @@ static NODE *create__types__value_range(NODE *lower_bound, NODE *upper_bound) {
   node->value_range.upper_bound = upper_bound;
   return node;
 }
-static void entry__6_1(void) {
+static void entry__6_1_std__value_range(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -550,7 +550,7 @@ static void entry__6_1(void) {
     return;
   }
 }
-static void entry__7_1(void) {
+static void entry__7_1_types__value_range_lower_bound_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -565,7 +565,7 @@ static void entry__7_1(void) {
     return;
   }
 }
-static void entry__8_1(void) {
+static void entry__8_1_types__value_range_upper_bound_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1173,9 +1173,9 @@ EXPORT void phase_2__basic__types__value_range(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
-  func__6_1 = create_function(entry__6_1, 2);
-  func__7_1 = create_function(entry__7_1, 1);
-  func__8_1 = create_function(entry__8_1, 1);
+  func__6_1_std__value_range = create_function(entry__6_1_std__value_range, 2);
+  func__7_1_types__value_range_lower_bound_of = create_function(entry__7_1_types__value_range_lower_bound_of, 1);
+  func__8_1_types__value_range_upper_bound_of = create_function(entry__8_1_types__value_range_upper_bound_of, 1);
   func__10_1_types__value_range_equal = create_function(entry__10_1_types__value_range_equal, 2);
   func__11_1_types__value_range_contains = create_function(entry__11_1_types__value_range_contains, 2);
   string__12_12 = from_latin_1_string("value_range\012", 12);
@@ -1220,8 +1220,8 @@ EXPORT void phase_4__basic__types__value_range(void) {
   use_polymorphic_function(NULL, "upper_bound_of", &get__upper_bound_of, &poly_idx__upper_bound_of);
   define_attribute("types", "object", poly_idx__is_a_value_range, get__false());
   define_attribute("types", "value_range", poly_idx__is_a_value_range, get__true());
-  define_method("types", "value_range", poly_idx__lower_bound_of, func__7_1);
-  define_method("types", "value_range", poly_idx__upper_bound_of, func__8_1);
+  define_method("types", "value_range", poly_idx__lower_bound_of, func__7_1_types__value_range_lower_bound_of);
+  define_method("types", "value_range", poly_idx__upper_bound_of, func__8_1_types__value_range_upper_bound_of);
   define_method("types", "value_range", poly_idx__equal, func__10_1_types__value_range_equal);
   define_method("types", "value_range", poly_idx__contains, func__11_1_types__value_range_contains);
   define_method("types", "value_range", poly_idx__serialize, func__12_1_types__value_range_serialize);
@@ -1234,7 +1234,7 @@ EXPORT void phase_5__basic__types__value_range(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_value_range, create_function(type__std__is_a_value_range, -1));
   assign_value(&var.types__value_range, get__types__object());
-  assign_variable(&var.std__value_range, &func__6_1);
+  assign_variable(&var.std__value_range, &func__6_1_std__value_range);
 }
 
 static int already_run_phase_6 = false;

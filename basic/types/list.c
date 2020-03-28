@@ -455,25 +455,25 @@ static NODE *func__types__list___get_item_of(NODE *node, long idx);
 static NODE *func__14_1_types__list_to_list;
 static void entry__14_1_types__list_to_list(void);
 static FRAME_INFO frame__14_1_types__list_to_list = {1, {"self"}};
-static void entry__15_1(void);
-static NODE *func__15_1;
+static void entry__15_1_std__list(void);
+static NODE *func__15_1_std__list;
 static NODE *get__std__list(void) {
   return var.std__list;
 }
-static void entry__16_1(void);
-static NODE *func__16_1;
-static void entry__17_1(void);
-static NODE *func__17_1;
-static void entry__18_1(void);
-static NODE *func__18_1;
-static void entry__19_1(void);
-static NODE *func__19_1;
-static void entry__20_1(void);
-static NODE *func__20_1;
-static void entry__21_1(void);
-static NODE *func__21_1;
-static void entry__22_1(void);
-static NODE *func__22_1;
+static void entry__16_1_types__list_length_of(void);
+static NODE *func__16_1_types__list_length_of;
+static void entry__17_1_types__list_push(void);
+static NODE *func__17_1_types__list_push;
+static void entry__18_1_types__list_drop(void);
+static NODE *func__18_1_types__list_drop;
+static void entry__19_1_types__list_pop(void);
+static NODE *func__19_1_types__list_pop;
+static void entry__20_1_types__list_peek(void);
+static NODE *func__20_1_types__list_peek;
+static void entry__21_1_types__list_append(void);
+static NODE *func__21_1_types__list_append;
+static void entry__22_1_types__list_range(void);
+static NODE *func__22_1_types__list_range;
 static NODE *func__23_1_types__generic_list_delete_at;
 static void entry__23_1_types__generic_list_delete_at(void);
 static FRAME_INFO frame__23_1_types__generic_list_delete_at = {3, {"self", "idx", "count"}};
@@ -1063,14 +1063,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__list, NULL, 586, 601, 1, 45},
   {cont__94_32, NULL, },
   {entry__14_1_types__list_to_list, NULL, 164, 164, 30, 36},
-  {entry__15_1, NULL, 167, 179, 3, 2},
-  {entry__16_1, NULL, 182, 185, 3, 2},
-  {entry__17_1, NULL, 188, 206, 3, 2},
-  {entry__18_1, NULL, 209, 216, 3, 2},
-  {entry__19_1, NULL, 219, 230, 3, 2},
-  {entry__20_1, NULL, 233, 239, 3, 2},
-  {entry__21_1, NULL, 242, 267, 3, 2},
-  {entry__22_1, NULL, 270, 291, 3, 2},
+  {entry__15_1_std__list, NULL, 167, 179, 3, 2},
+  {entry__16_1_types__list_length_of, NULL, 182, 185, 3, 2},
+  {entry__17_1_types__list_push, NULL, 188, 206, 3, 2},
+  {entry__18_1_types__list_drop, NULL, 209, 216, 3, 2},
+  {entry__19_1_types__list_pop, NULL, 219, 230, 3, 2},
+  {entry__20_1_types__list_peek, NULL, 233, 239, 3, 2},
+  {entry__21_1_types__list_append, NULL, 242, 267, 3, 2},
+  {entry__22_1_types__list_range, NULL, 270, 291, 3, 2},
   {entry__23_4, NULL, 300, 300, 44, 48},
   {cont__23_5, &frame__23_4, 300, 300, 31, 49},
   {cont__23_6, &frame__23_4, 300, 300, 62, 70},
@@ -2254,7 +2254,7 @@ static void entry__14_1_types__list_to_list(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1(void) {
+static void entry__15_1_std__list(void) {
   if (argument_count < 0) {
     too_few_arguments_error();
     return;
@@ -2278,7 +2278,7 @@ static void entry__15_1(void) {
     return;
   }
 }
-static void entry__16_1(void) {
+static void entry__16_1_types__list_length_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2293,7 +2293,7 @@ static void entry__16_1(void) {
     return;
   }
 }
-static void entry__17_1(void) {
+static void entry__17_1_types__list_push(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -2323,7 +2323,7 @@ static void entry__17_1(void) {
     return;
   }
 }
-static void entry__18_1(void) {
+static void entry__18_1_types__list_drop(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2344,7 +2344,7 @@ static void entry__18_1(void) {
     return;
   }
 }
-static void entry__19_1(void) {
+static void entry__19_1_types__list_pop(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2368,7 +2368,7 @@ static void entry__19_1(void) {
     return;
   }
 }
-static void entry__20_1(void) {
+static void entry__20_1_types__list_peek(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2388,7 +2388,7 @@ static void entry__20_1(void) {
     return;
   }
 }
-static void entry__21_1(void) {
+static void entry__21_1_types__list_append(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -2443,7 +2443,7 @@ static void entry__21_1(void) {
     return;
   }
 }
-static void entry__22_1(void) {
+static void entry__22_1_types__list_range(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -8526,14 +8526,14 @@ EXPORT void phase_2__basic__types__list(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   func__14_1_types__list_to_list = create_function(entry__14_1_types__list_to_list, 1);
-  func__15_1 = create_function(entry__15_1, -1);
-  func__16_1 = create_function(entry__16_1, 1);
-  func__17_1 = create_function(entry__17_1, 2);
-  func__18_1 = create_function(entry__18_1, 1);
-  func__19_1 = create_function(entry__19_1, 1);
-  func__20_1 = create_function(entry__20_1, 1);
-  func__21_1 = create_function(entry__21_1, 2);
-  func__22_1 = create_function(entry__22_1, 3);
+  func__15_1_std__list = create_function(entry__15_1_std__list, -1);
+  func__16_1_types__list_length_of = create_function(entry__16_1_types__list_length_of, 1);
+  func__17_1_types__list_push = create_function(entry__17_1_types__list_push, 2);
+  func__18_1_types__list_drop = create_function(entry__18_1_types__list_drop, 1);
+  func__19_1_types__list_pop = create_function(entry__19_1_types__list_pop, 1);
+  func__20_1_types__list_peek = create_function(entry__20_1_types__list_peek, 1);
+  func__21_1_types__list_append = create_function(entry__21_1_types__list_append, 2);
+  func__22_1_types__list_range = create_function(entry__22_1_types__list_range, 3);
   func__23_1_types__generic_list_delete_at = create_function(entry__23_1_types__generic_list_delete_at, -1);
   func__24_1_std__normalized_index = create_function(entry__24_1_std__normalized_index, 2);
   func__25_1_types__generic_list_is_empty = create_function(entry__25_1_types__generic_list_is_empty, 1);
@@ -8661,13 +8661,13 @@ EXPORT void phase_4__basic__types__list(void) {
   define_attribute("types", "object", poly_idx__is_a_list, get__false());
   define_attribute("types", "list", poly_idx__is_a_list, get__true());
   define_method("types", "list", poly_idx__to_list, func__14_1_types__list_to_list);
-  define_method("types", "list", poly_idx__length_of, func__16_1);
-  define_method("types", "list", poly_idx__push, func__17_1);
-  define_method("types", "list", poly_idx__drop, func__18_1);
-  define_method("types", "list", poly_idx__pop, func__19_1);
-  define_method("types", "list", poly_idx__peek, func__20_1);
-  define_method("types", "list", poly_idx__append, func__21_1);
-  define_method("types", "list", poly_idx__range, func__22_1);
+  define_method("types", "list", poly_idx__length_of, func__16_1_types__list_length_of);
+  define_method("types", "list", poly_idx__push, func__17_1_types__list_push);
+  define_method("types", "list", poly_idx__drop, func__18_1_types__list_drop);
+  define_method("types", "list", poly_idx__pop, func__19_1_types__list_pop);
+  define_method("types", "list", poly_idx__peek, func__20_1_types__list_peek);
+  define_method("types", "list", poly_idx__append, func__21_1_types__list_append);
+  define_method("types", "list", poly_idx__range, func__22_1_types__list_range);
   define_method("types", "generic_list", poly_idx__delete_at, func__23_1_types__generic_list_delete_at);
   define_method("types", "generic_list", poly_idx__is_empty, func__25_1_types__generic_list_is_empty);
   define_method("types", "generic_list", poly_idx__for_each_from_to, func__26_1_types__generic_list_for_each_from_to);
@@ -8698,7 +8698,7 @@ EXPORT void phase_5__basic__types__list(void) {
   assign_value(&var.std__is_a_list, create_function(type__std__is_a_list, -1));
   assign_value(&var.types__generic_list, get__types__object());
   assign_variable(&var.types__list, &var.types__generic_list);
-  assign_variable(&var.std__list, &func__15_1);
+  assign_variable(&var.std__list, &func__15_1_std__list);
   assign_variable(&var.std__normalized_index, &func__24_1_std__normalized_index);
   assign_value(&var.std__is_a_sequence, create_function(type__std__is_a_sequence, -1));
   assign_variable(&var.std__sequence, &func__46_1_std__sequence);

@@ -292,8 +292,8 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static void entry__1_1(void);
-static NODE *func__1_1;
+static void entry__1_1_std__debug_string(void);
+static NODE *func__1_1_std__debug_string;
 static NODE *get__std__debug_string(void) {
   return var.std__debug_string;
 }
@@ -338,18 +338,18 @@ static void cont__3_11(void);
 static NODE *get__std__edump(void) {
   return var.std__edump;
 }
-static void entry__4_1(void);
-static NODE *func__4_1;
+static void entry__4_1_std__collect_garbage(void);
+static NODE *func__4_1_std__collect_garbage;
 static NODE *get__std__collect_garbage(void) {
   return var.std__collect_garbage;
 }
-static void entry__5_1(void);
-static NODE *func__5_1;
+static void entry__5_1_std__instruction_counter(void);
+static NODE *func__5_1_std__instruction_counter;
 static NODE *get__std__instruction_counter(void) {
   return var.std__instruction_counter;
 }
-static void entry__6_1(void);
-static NODE *func__6_1;
+static void entry__6_1_std__total_garbage_collections(void);
+static NODE *func__6_1_std__total_garbage_collections;
 static NODE *get__std__total_garbage_collections(void) {
   return var.std__total_garbage_collections;
 }
@@ -415,7 +415,7 @@ void run__basic__debug(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__debug, NULL, },
-  {entry__1_1, NULL, 45, 64, 3, 2},
+  {entry__1_1_std__debug_string, NULL, 45, 64, 3, 2},
   {entry__2_4, NULL, 85, 85, 5, 18},
   {cont__2_5, &frame__2_4, 86, 86, 20, 20},
   {cont__2_6, &frame__2_4, 86, 86, 5, 20},
@@ -438,9 +438,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__3_2, &frame__3_1_std__edump, 107, 107, 6, 27},
   {cont__3_3, &frame__3_1_std__edump, 107, 109, 3, 20},
   {cont__3_8, &frame__3_1_std__edump, 110, 110, 3, 77},
-  {entry__4_1, NULL, 113, 117, 3, 2},
-  {entry__5_1, NULL, 125, 128, 3, 2},
-  {entry__6_1, NULL, 131, 134, 3, 2},
+  {entry__4_1_std__collect_garbage, NULL, 113, 117, 3, 2},
+  {entry__5_1_std__instruction_counter, NULL, 125, 128, 3, 2},
+  {entry__6_1_std__total_garbage_collections, NULL, 131, 134, 3, 2},
   {entry__7_15, NULL, 143, 143, 45, 51},
   {cont__7_16, &frame__7_15, 143, 143, 45, 62},
   {cont__7_17, &frame__7_15, 143, 143, 41, 63},
@@ -529,7 +529,7 @@ EXPORT void run__basic__debug(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__debug_string(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -945,7 +945,7 @@ static void cont__3_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1(void) {
+static void entry__4_1_std__collect_garbage(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -958,7 +958,7 @@ static void entry__4_1(void) {
     return;
   }
 }
-static void entry__5_1(void) {
+static void entry__5_1_std__instruction_counter(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -973,7 +973,7 @@ static void entry__5_1(void) {
     return;
   }
 }
-static void entry__6_1(void) {
+static void entry__6_1_std__total_garbage_collections(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -1656,13 +1656,13 @@ EXPORT void phase_2__basic__debug(void) {
   character__127 = from_uchar32(127);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__1_1 = create_function(entry__1_1, -1);
+  func__1_1_std__debug_string = create_function(entry__1_1_std__debug_string, -1);
   string__2_12 = from_latin_1_string(":", 1);
   func__2_1_std__dump = create_function(entry__2_1_std__dump, -1);
   func__3_1_std__edump = create_function(entry__3_1_std__edump, -1);
-  func__4_1 = create_function(entry__4_1, 0);
-  func__5_1 = create_function(entry__5_1, 0);
-  func__6_1 = create_function(entry__6_1, 0);
+  func__4_1_std__collect_garbage = create_function(entry__4_1_std__collect_garbage, 0);
+  func__5_1_std__instruction_counter = create_function(entry__5_1_std__instruction_counter, 0);
+  func__6_1_std__total_garbage_collections = create_function(entry__6_1_std__total_garbage_collections, 0);
   string__7_12 = from_latin_1_string("0", 1);
   string__7_20 = from_latin_1_string(" ", 1);
   string__7_23 = from_latin_1_string("   ", 3);
@@ -1725,12 +1725,12 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__debug(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__debug_string, &func__1_1);
+  assign_variable(&var.std__debug_string, &func__1_1_std__debug_string);
   assign_variable(&var.std__dump, &func__2_1_std__dump);
   assign_variable(&var.std__edump, &func__3_1_std__edump);
-  assign_variable(&var.std__collect_garbage, &func__4_1);
-  assign_variable(&var.std__instruction_counter, &func__5_1);
-  assign_variable(&var.std__total_garbage_collections, &func__6_1);
+  assign_variable(&var.std__collect_garbage, &func__4_1_std__collect_garbage);
+  assign_variable(&var.std__instruction_counter, &func__5_1_std__instruction_counter);
+  assign_variable(&var.std__total_garbage_collections, &func__6_1_std__total_garbage_collections);
   assign_variable(&var.std__hexdump, &func__7_1_std__hexdump);
 }
 

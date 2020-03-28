@@ -296,25 +296,25 @@ static const char *var_names[] = {
   "NONE",
   "env_2"
 };
-static void entry__1_1(void);
-static NODE *func__1_1;
-static void entry__2_1(void);
-static NODE *func__2_1;
+static void entry__1_1_argv(void);
+static NODE *func__1_1_argv;
+static void entry__2_1_argc(void);
+static NODE *func__2_1_argc;
 
 extern char **environ;
 static int ENVC = 0;
-static void entry__4_1(void);
-static NODE *func__4_1;
-static void entry__5_1(void);
-static NODE *func__5_1;
+static void entry__4_1_envv(void);
+static NODE *func__4_1_envv;
+static void entry__5_1_envc(void);
+static NODE *func__5_1_envc;
 static NODE *get__std__program_name(void) {
   return var.std__program_name;
 }
 static NODE *get__std__command_line_arguments(void) {
   return var.std__command_line_arguments;
 }
-static void entry__12_1(void);
-static NODE *func__12_1;
+static void entry__12_1_putenv(void);
+static NODE *func__12_1_putenv;
 static NODE *unique__NONE;
 static NODE *func__15_1_env_2_;
 static void entry__15_1_env_2_(void);
@@ -364,11 +364,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__24_6, NULL, 74, 74, 11, 16},
   {cont__27_1, NULL, 74, 76, 1, 43},
   {cont__27_8, NULL, 104, 104, 1, 24},
-  {entry__1_1, NULL, 26, 31, 3, 2},
-  {entry__2_1, NULL, 34, 37, 3, 2},
-  {entry__4_1, NULL, 45, 56, 3, 2},
-  {entry__5_1, NULL, 59, 67, 3, 2},
-  {entry__12_1, NULL, 79, 83, 3, 2},
+  {entry__1_1_argv, NULL, 26, 31, 3, 2},
+  {entry__2_1_argc, NULL, 34, 37, 3, 2},
+  {entry__4_1_envv, NULL, 45, 56, 3, 2},
+  {entry__5_1_envc, NULL, 59, 67, 3, 2},
+  {entry__12_1_putenv, NULL, 79, 83, 3, 2},
   {entry__15_3, NULL, 97, 97, 7, 34},
   {entry__15_4, NULL, 101, 101, 14, 30},
   {cont__15_6, &frame__15_4, 101, 101, 7, 30},
@@ -676,7 +676,7 @@ static void cont__27_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_argv(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -695,7 +695,7 @@ static void entry__1_1(void) {
     return;
   };
 }
-static void entry__2_1(void) {
+static void entry__2_1_argc(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -710,7 +710,7 @@ static void entry__2_1(void) {
     return;
   };
 }
-static void entry__4_1(void) {
+static void entry__4_1_envv(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -740,7 +740,7 @@ static void entry__4_1(void) {
     return;
   }
 }
-static void entry__5_1(void) {
+static void entry__5_1_envc(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -765,7 +765,7 @@ static void entry__5_1(void) {
     return;
   };
 }
-static void entry__12_1(void) {
+static void entry__12_1_putenv(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -950,11 +950,11 @@ EXPORT void phase_2__basic__environment(void) {
   number__0 = from_uint32(0U);
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
-  func__1_1 = create_function(entry__1_1, 1);
-  func__2_1 = create_function(entry__2_1, 0);
-  func__4_1 = create_function(entry__4_1, 1);
-  func__5_1 = create_function(entry__5_1, 0);
-  func__12_1 = create_function(entry__12_1, 1);
+  func__1_1_argv = create_function(entry__1_1_argv, 1);
+  func__2_1_argc = create_function(entry__2_1_argc, 0);
+  func__4_1_envv = create_function(entry__4_1_envv, 1);
+  func__5_1_envc = create_function(entry__5_1_envc, 0);
+  func__12_1_putenv = create_function(entry__12_1_putenv, 1);
   unique__NONE = register_unique_item("NONE");
   string__15_5 = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
@@ -1004,11 +1004,11 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__environment(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var._argv, &func__1_1);
-  assign_variable(&var._argc, &func__2_1);
-  assign_variable(&var._envv, &func__4_1);
-  assign_variable(&var._envc, &func__5_1);
-  assign_variable(&var._putenv, &func__12_1);
+  assign_variable(&var._argv, &func__1_1_argv);
+  assign_variable(&var._argc, &func__2_1_argc);
+  assign_variable(&var._envv, &func__4_1_envv);
+  assign_variable(&var._envc, &func__5_1_envc);
+  assign_variable(&var._putenv, &func__12_1_putenv);
 }
 
 static int already_run_phase_6 = false;

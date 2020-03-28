@@ -447,26 +447,26 @@ static uint8_t *func__types__octet_string___to_octets(NODE *node, long *size_p);
 static long func__types__octet_string___length_of(NODE *node);
 
 static long func__types__quad_octet_string___length_of(NODE *node);
-static void entry__24_1(void);
-static NODE *func__24_1;
-static void entry__25_1(void);
-static NODE *func__25_1;
-static void entry__26_1(void);
-static NODE *func__26_1;
-static void entry__27_1(void);
-static NODE *func__27_1;
-static void entry__28_1(void);
-static NODE *func__28_1;
-static void entry__29_1(void);
-static NODE *func__29_1;
-static void entry__30_1(void);
-static NODE *func__30_1;
-static void entry__31_1(void);
-static NODE *func__31_1;
-static void entry__32_1(void);
-static NODE *func__32_1;
-static void entry__33_1(void);
-static NODE *func__33_1;
+static void entry__24_1_types__octet_string_length_of(void);
+static NODE *func__24_1_types__octet_string_length_of;
+static void entry__25_1_types__quad_octet_string_length_of(void);
+static NODE *func__25_1_types__quad_octet_string_length_of;
+static void entry__26_1_types__octet_string_equal(void);
+static NODE *func__26_1_types__octet_string_equal;
+static void entry__27_1_types__quad_octet_string_equal(void);
+static NODE *func__27_1_types__quad_octet_string_equal;
+static void entry__28_1_types__octet_string_count_character_occurrences(void);
+static NODE *func__28_1_types__octet_string_count_character_occurrences;
+static void entry__29_1_types__quad_octet_string_count_character_occurrences(void);
+static NODE *func__29_1_types__quad_octet_string_count_character_occurrences;
+static void entry__30_1_types__octet_string_less(void);
+static NODE *func__30_1_types__octet_string_less;
+static void entry__31_1_types__quad_octet_string_less(void);
+static NODE *func__31_1_types__quad_octet_string_less;
+static void entry__32_1_types__octet_string_hash(void);
+static NODE *func__32_1_types__octet_string_hash;
+static void entry__33_1_types__quad_octet_string_hash(void);
+static NODE *func__33_1_types__quad_octet_string_hash;
 static NODE *func__34_1_types__string_to_string;
 static void entry__34_1_types__string_to_string(void);
 static FRAME_INFO frame__34_1_types__string_to_string = {1, {"self"}};
@@ -672,38 +672,38 @@ static void cont__36_93(void);
 static long func__types__octet_string___debug_string(NODE *node, int indent, int max_depth, char *buf);
 
 static long func__types__quad_octet_string___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static void entry__39_1(void);
-static NODE *func__39_1;
-static void entry__40_1(void);
-static NODE *func__40_1;
-static void entry__41_1(void);
-static NODE *func__41_1;
-static void entry__42_1(void);
-static NODE *func__42_1;
-static void entry__43_1(void);
-static NODE *func__43_1;
-static void entry__44_1(void);
-static NODE *func__44_1;
-static void entry__45_1(void);
-static NODE *func__45_1;
-static void entry__46_1(void);
-static NODE *func__46_1;
+static void entry__39_1_types__octet_string_push(void);
+static NODE *func__39_1_types__octet_string_push;
+static void entry__40_1_types__quad_octet_string_push(void);
+static NODE *func__40_1_types__quad_octet_string_push;
+static void entry__41_1_types__octet_string_append(void);
+static NODE *func__41_1_types__octet_string_append;
+static void entry__42_1_types__quad_octet_string_append(void);
+static NODE *func__42_1_types__quad_octet_string_append;
+static void entry__43_1_types__string_parse_real(void);
+static NODE *func__43_1_types__string_parse_real;
+static void entry__44_1_types__octet_string_range(void);
+static NODE *func__44_1_types__octet_string_range;
+static void entry__45_1_types__quad_octet_string_range(void);
+static NODE *func__45_1_types__quad_octet_string_range;
+static void entry__46_1_std__matches_file_pattern(void);
+static NODE *func__46_1_std__matches_file_pattern;
 static NODE *get__std__matches_file_pattern(void) {
   return var.std__matches_file_pattern;
 }
-static void entry__47_1(void);
-static NODE *func__47_1;
-static void entry__48_1(void);
-static NODE *func__48_1;
-static void entry__49_1(void);
-static NODE *func__49_1;
+static void entry__47_1_types__octet_string_is_a_latin_1_string(void);
+static NODE *func__47_1_types__octet_string_is_a_latin_1_string;
+static void entry__48_1_types__quad_octet_string_is_a_latin_1_string(void);
+static NODE *func__48_1_types__quad_octet_string_is_a_latin_1_string;
+static void entry__49_1_std__from_utf8(void);
+static NODE *func__49_1_std__from_utf8;
 static NODE *get__std__from_utf8(void) {
   return var.std__from_utf8;
 }
-static void entry__50_1(void);
-static NODE *func__50_1;
-static void entry__51_1(void);
-static NODE *func__51_1;
+static void entry__50_1_types__octet_string_to_utf8(void);
+static NODE *func__50_1_types__octet_string_to_utf8;
+static void entry__51_1_types__quad_octet_string_to_utf8(void);
+static NODE *func__51_1_types__quad_octet_string_to_utf8;
 void run__basic__types__string_primitives(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -712,16 +712,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__to_utf8, NULL, 32, 32, 2, 13},
   {type__std__is_a_latin_1_string, NULL, 33, 33, 2, 25},
   {run__basic__types__string_primitives, NULL, 38, 38, 1, 34},
-  {entry__24_1, NULL, 331, 334, 3, 2},
-  {entry__25_1, NULL, 337, 340, 3, 2},
-  {entry__26_1, NULL, 343, 365, 3, 2},
-  {entry__27_1, NULL, 368, 390, 3, 2},
-  {entry__28_1, NULL, 393, 405, 3, 2},
-  {entry__29_1, NULL, 408, 420, 3, 2},
-  {entry__30_1, NULL, 423, 473, 3, 2},
-  {entry__31_1, NULL, 476, 526, 3, 2},
-  {entry__32_1, NULL, 529, 550, 3, 2},
-  {entry__33_1, NULL, 553, 574, 3, 2},
+  {entry__24_1_types__octet_string_length_of, NULL, 331, 334, 3, 2},
+  {entry__25_1_types__quad_octet_string_length_of, NULL, 337, 340, 3, 2},
+  {entry__26_1_types__octet_string_equal, NULL, 343, 365, 3, 2},
+  {entry__27_1_types__quad_octet_string_equal, NULL, 368, 390, 3, 2},
+  {entry__28_1_types__octet_string_count_character_occurrences, NULL, 393, 405, 3, 2},
+  {entry__29_1_types__quad_octet_string_count_character_occurrences, NULL, 408, 420, 3, 2},
+  {entry__30_1_types__octet_string_less, NULL, 423, 473, 3, 2},
+  {entry__31_1_types__quad_octet_string_less, NULL, 476, 526, 3, 2},
+  {entry__32_1_types__octet_string_hash, NULL, 529, 550, 3, 2},
+  {entry__33_1_types__quad_octet_string_hash, NULL, 553, 574, 3, 2},
   {entry__34_1_types__string_to_string, NULL, 576, 576, 34, 40},
   {entry__35_11, NULL, 588, 588, 9, 23},
   {cont__35_12, &frame__35_11, 588, 588, 9, 23},
@@ -842,19 +842,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__36_6, &frame__36_1_types__string_parse_integer, 606, 652, 3, 12},
   {cont__36_89, &frame__36_1_types__string_parse_integer, 653, 653, 11, 37},
   {cont__36_93, &frame__36_1_types__string_parse_integer, 653, 653, 3, 37},
-  {entry__39_1, NULL, 724, 765, 3, 2},
-  {entry__40_1, NULL, 768, 794, 3, 2},
-  {entry__41_1, NULL, 797, 841, 3, 2},
-  {entry__42_1, NULL, 844, 888, 3, 2},
-  {entry__43_1, NULL, 891, 903, 3, 2},
-  {entry__44_1, NULL, 906, 923, 3, 2},
-  {entry__45_1, NULL, 926, 958, 3, 2},
-  {entry__46_1, NULL, 961, 969, 3, 2},
-  {entry__47_1, NULL, 972, 975, 3, 2},
-  {entry__48_1, NULL, 978, 981, 3, 2},
-  {entry__49_1, NULL, 984, 1079, 3, 2},
-  {entry__50_1, NULL, 1082, 1111, 3, 2},
-  {entry__51_1, NULL, 1125, 1214, 3, 2}
+  {entry__39_1_types__octet_string_push, NULL, 724, 765, 3, 2},
+  {entry__40_1_types__quad_octet_string_push, NULL, 768, 794, 3, 2},
+  {entry__41_1_types__octet_string_append, NULL, 797, 841, 3, 2},
+  {entry__42_1_types__quad_octet_string_append, NULL, 844, 888, 3, 2},
+  {entry__43_1_types__string_parse_real, NULL, 891, 903, 3, 2},
+  {entry__44_1_types__octet_string_range, NULL, 906, 923, 3, 2},
+  {entry__45_1_types__quad_octet_string_range, NULL, 926, 958, 3, 2},
+  {entry__46_1_std__matches_file_pattern, NULL, 961, 969, 3, 2},
+  {entry__47_1_types__octet_string_is_a_latin_1_string, NULL, 972, 975, 3, 2},
+  {entry__48_1_types__quad_octet_string_is_a_latin_1_string, NULL, 978, 981, 3, 2},
+  {entry__49_1_std__from_utf8, NULL, 984, 1079, 3, 2},
+  {entry__50_1_types__octet_string_to_utf8, NULL, 1082, 1111, 3, 2},
+  {entry__51_1_types__quad_octet_string_to_utf8, NULL, 1125, 1214, 3, 2}
 };
 
 union NODE {
@@ -1362,7 +1362,7 @@ static long func__types__octet_string___length_of(NODE *node) {
 static long func__types__quad_octet_string___length_of(NODE *node) {
   return node->quad_octet_string.length;
 }
-static void entry__24_1(void) {
+static void entry__24_1_types__octet_string_length_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1377,7 +1377,7 @@ static void entry__24_1(void) {
     return;
   }
 }
-static void entry__25_1(void) {
+static void entry__25_1_types__quad_octet_string_length_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1392,7 +1392,7 @@ static void entry__25_1(void) {
     return;
   }
 }
-static void entry__26_1(void) {
+static void entry__26_1_types__octet_string_equal(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1460,7 +1460,7 @@ static void entry__26_1(void) {
     return;
   }
 }
-static void entry__27_1(void) {
+static void entry__27_1_types__quad_octet_string_equal(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1528,7 +1528,7 @@ static void entry__27_1(void) {
     return;
   }
 }
-static void entry__28_1(void) {
+static void entry__28_1_types__octet_string_count_character_occurrences(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1552,7 +1552,7 @@ static void entry__28_1(void) {
     return;
   }
 }
-static void entry__29_1(void) {
+static void entry__29_1_types__quad_octet_string_count_character_occurrences(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1576,7 +1576,7 @@ static void entry__29_1(void) {
     return;
   }
 }
-static void entry__30_1(void) {
+static void entry__30_1_types__octet_string_less(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1702,7 +1702,7 @@ static void entry__30_1(void) {
   }
   }
 }
-static void entry__31_1(void) {
+static void entry__31_1_types__quad_octet_string_less(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1828,7 +1828,7 @@ static void entry__31_1(void) {
   }
   }
 }
-static void entry__32_1(void) {
+static void entry__32_1_types__octet_string_hash(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1861,7 +1861,7 @@ static void entry__32_1(void) {
     return;
   }
 }
-static void entry__33_1(void) {
+static void entry__33_1_types__quad_octet_string_hash(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4437,7 +4437,7 @@ static long func__types__quad_octet_string___debug_string(NODE *node, int indent
   len += print(&buf, "\"\n");
   return len;
 }
-static void entry__39_1(void) {
+static void entry__39_1_types__octet_string_push(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4498,7 +4498,7 @@ static void entry__39_1(void) {
   }
   }
 }
-static void entry__40_1(void) {
+static void entry__40_1_types__quad_octet_string_push(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4536,7 +4536,7 @@ static void entry__40_1(void) {
     return;
   }
 }
-static void entry__41_1(void) {
+static void entry__41_1_types__octet_string_append(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4626,7 +4626,7 @@ static void entry__41_1(void) {
   }
   }
 }
-static void entry__42_1(void) {
+static void entry__42_1_types__quad_octet_string_append(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4700,7 +4700,7 @@ static void entry__42_1(void) {
   }
   }
 }
-static void entry__43_1(void) {
+static void entry__43_1_types__string_parse_real(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4721,7 +4721,7 @@ static void entry__43_1(void) {
     return;
   }
 }
-static void entry__44_1(void) {
+static void entry__44_1_types__octet_string_range(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -4771,7 +4771,7 @@ static void entry__44_1(void) {
     return;
   }
 }
-static void entry__45_1(void) {
+static void entry__45_1_types__quad_octet_string_range(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -4844,7 +4844,7 @@ static void entry__45_1(void) {
     return;
   }
 }
-static void entry__46_1(void) {
+static void entry__46_1_std__matches_file_pattern(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4864,7 +4864,7 @@ static void entry__46_1(void) {
     return;
   };
 }
-static void entry__47_1(void) {
+static void entry__47_1_types__octet_string_is_a_latin_1_string(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4878,7 +4878,7 @@ static void entry__47_1(void) {
     return;
   }
 }
-static void entry__48_1(void) {
+static void entry__48_1_types__quad_octet_string_is_a_latin_1_string(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4892,7 +4892,7 @@ static void entry__48_1(void) {
     return;
   }
 }
-static void entry__49_1(void) {
+static void entry__49_1_std__from_utf8(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5013,7 +5013,7 @@ static void entry__49_1(void) {
   }
   }
 }
-static void entry__50_1(void) {
+static void entry__50_1_types__octet_string_to_utf8(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5054,7 +5054,7 @@ static void entry__50_1(void) {
     return;
   }
 }
-static void entry__51_1(void) {
+static void entry__51_1_types__quad_octet_string_to_utf8(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5211,16 +5211,16 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   character__49 = from_uchar32(49);
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
-  func__24_1 = create_function(entry__24_1, 1);
-  func__25_1 = create_function(entry__25_1, 1);
-  func__26_1 = create_function(entry__26_1, 2);
-  func__27_1 = create_function(entry__27_1, 2);
-  func__28_1 = create_function(entry__28_1, 2);
-  func__29_1 = create_function(entry__29_1, 2);
-  func__30_1 = create_function(entry__30_1, 2);
-  func__31_1 = create_function(entry__31_1, 2);
-  func__32_1 = create_function(entry__32_1, 1);
-  func__33_1 = create_function(entry__33_1, 1);
+  func__24_1_types__octet_string_length_of = create_function(entry__24_1_types__octet_string_length_of, 1);
+  func__25_1_types__quad_octet_string_length_of = create_function(entry__25_1_types__quad_octet_string_length_of, 1);
+  func__26_1_types__octet_string_equal = create_function(entry__26_1_types__octet_string_equal, 2);
+  func__27_1_types__quad_octet_string_equal = create_function(entry__27_1_types__quad_octet_string_equal, 2);
+  func__28_1_types__octet_string_count_character_occurrences = create_function(entry__28_1_types__octet_string_count_character_occurrences, 2);
+  func__29_1_types__quad_octet_string_count_character_occurrences = create_function(entry__29_1_types__quad_octet_string_count_character_occurrences, 2);
+  func__30_1_types__octet_string_less = create_function(entry__30_1_types__octet_string_less, 2);
+  func__31_1_types__quad_octet_string_less = create_function(entry__31_1_types__quad_octet_string_less, 2);
+  func__32_1_types__octet_string_hash = create_function(entry__32_1_types__octet_string_hash, 1);
+  func__33_1_types__quad_octet_string_hash = create_function(entry__33_1_types__quad_octet_string_hash, 1);
   func__34_1_types__string_to_string = create_function(entry__34_1_types__string_to_string, 1);
   string__35_2 = from_latin_1_string("\042", 1);
   string__35_23 = from_latin_1_string("@0x", 3);
@@ -5229,19 +5229,19 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   string__36_27 = from_latin_1_string("0o", 2);
   string__36_45 = from_latin_1_string("0x", 2);
   func__36_1_types__string_parse_integer = create_function(entry__36_1_types__string_parse_integer, 1);
-  func__39_1 = create_function(entry__39_1, 2);
-  func__40_1 = create_function(entry__40_1, 2);
-  func__41_1 = create_function(entry__41_1, 2);
-  func__42_1 = create_function(entry__42_1, 2);
-  func__43_1 = create_function(entry__43_1, 1);
-  func__44_1 = create_function(entry__44_1, 3);
-  func__45_1 = create_function(entry__45_1, 3);
-  func__46_1 = create_function(entry__46_1, 2);
-  func__47_1 = create_function(entry__47_1, 1);
-  func__48_1 = create_function(entry__48_1, 1);
-  func__49_1 = create_function(entry__49_1, 1);
-  func__50_1 = create_function(entry__50_1, 1);
-  func__51_1 = create_function(entry__51_1, 1);
+  func__39_1_types__octet_string_push = create_function(entry__39_1_types__octet_string_push, 2);
+  func__40_1_types__quad_octet_string_push = create_function(entry__40_1_types__quad_octet_string_push, 2);
+  func__41_1_types__octet_string_append = create_function(entry__41_1_types__octet_string_append, 2);
+  func__42_1_types__quad_octet_string_append = create_function(entry__42_1_types__quad_octet_string_append, 2);
+  func__43_1_types__string_parse_real = create_function(entry__43_1_types__string_parse_real, 1);
+  func__44_1_types__octet_string_range = create_function(entry__44_1_types__octet_string_range, 3);
+  func__45_1_types__quad_octet_string_range = create_function(entry__45_1_types__quad_octet_string_range, 3);
+  func__46_1_std__matches_file_pattern = create_function(entry__46_1_std__matches_file_pattern, 2);
+  func__47_1_types__octet_string_is_a_latin_1_string = create_function(entry__47_1_types__octet_string_is_a_latin_1_string, 1);
+  func__48_1_types__quad_octet_string_is_a_latin_1_string = create_function(entry__48_1_types__quad_octet_string_is_a_latin_1_string, 1);
+  func__49_1_std__from_utf8 = create_function(entry__49_1_std__from_utf8, 1);
+  func__50_1_types__octet_string_to_utf8 = create_function(entry__50_1_types__octet_string_to_utf8, 1);
+  func__51_1_types__quad_octet_string_to_utf8 = create_function(entry__51_1_types__quad_octet_string_to_utf8, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -5311,30 +5311,30 @@ EXPORT void phase_4__basic__types__string_primitives(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   define_attribute("types", "object", poly_idx__is_a_string, get__false());
   define_attribute("types", "string", poly_idx__is_a_string, get__true());
-  define_method("types", "octet_string", poly_idx__length_of, func__24_1);
-  define_method("types", "quad_octet_string", poly_idx__length_of, func__25_1);
-  define_method("types", "octet_string", poly_idx__equal, func__26_1);
-  define_method("types", "quad_octet_string", poly_idx__equal, func__27_1);
-  define_method("types", "octet_string", poly_idx__count_character_occurrences, func__28_1);
-  define_method("types", "quad_octet_string", poly_idx__count_character_occurrences, func__29_1);
-  define_method("types", "octet_string", poly_idx__less, func__30_1);
-  define_method("types", "quad_octet_string", poly_idx__less, func__31_1);
-  define_method("types", "octet_string", poly_idx__hash, func__32_1);
-  define_method("types", "quad_octet_string", poly_idx__hash, func__33_1);
+  define_method("types", "octet_string", poly_idx__length_of, func__24_1_types__octet_string_length_of);
+  define_method("types", "quad_octet_string", poly_idx__length_of, func__25_1_types__quad_octet_string_length_of);
+  define_method("types", "octet_string", poly_idx__equal, func__26_1_types__octet_string_equal);
+  define_method("types", "quad_octet_string", poly_idx__equal, func__27_1_types__quad_octet_string_equal);
+  define_method("types", "octet_string", poly_idx__count_character_occurrences, func__28_1_types__octet_string_count_character_occurrences);
+  define_method("types", "quad_octet_string", poly_idx__count_character_occurrences, func__29_1_types__quad_octet_string_count_character_occurrences);
+  define_method("types", "octet_string", poly_idx__less, func__30_1_types__octet_string_less);
+  define_method("types", "quad_octet_string", poly_idx__less, func__31_1_types__quad_octet_string_less);
+  define_method("types", "octet_string", poly_idx__hash, func__32_1_types__octet_string_hash);
+  define_method("types", "quad_octet_string", poly_idx__hash, func__33_1_types__quad_octet_string_hash);
   define_method("types", "string", poly_idx__to_string, func__34_1_types__string_to_string);
   define_method("types", "string", poly_idx__serialize, func__35_1_types__string_serialize);
   define_method("types", "string", poly_idx__parse_integer, func__36_1_types__string_parse_integer);
-  define_method("types", "octet_string", poly_idx__push, func__39_1);
-  define_method("types", "quad_octet_string", poly_idx__push, func__40_1);
-  define_method("types", "octet_string", poly_idx__append, func__41_1);
-  define_method("types", "quad_octet_string", poly_idx__append, func__42_1);
-  define_method("types", "string", poly_idx__parse_real, func__43_1);
-  define_method("types", "octet_string", poly_idx__range, func__44_1);
-  define_method("types", "quad_octet_string", poly_idx__range, func__45_1);
-  define_method("types", "octet_string", poly_idx__is_a_latin_1_string, func__47_1);
-  define_method("types", "quad_octet_string", poly_idx__is_a_latin_1_string, func__48_1);
-  define_method("types", "octet_string", poly_idx__to_utf8, func__50_1);
-  define_method("types", "quad_octet_string", poly_idx__to_utf8, func__51_1);
+  define_method("types", "octet_string", poly_idx__push, func__39_1_types__octet_string_push);
+  define_method("types", "quad_octet_string", poly_idx__push, func__40_1_types__quad_octet_string_push);
+  define_method("types", "octet_string", poly_idx__append, func__41_1_types__octet_string_append);
+  define_method("types", "quad_octet_string", poly_idx__append, func__42_1_types__quad_octet_string_append);
+  define_method("types", "string", poly_idx__parse_real, func__43_1_types__string_parse_real);
+  define_method("types", "octet_string", poly_idx__range, func__44_1_types__octet_string_range);
+  define_method("types", "quad_octet_string", poly_idx__range, func__45_1_types__quad_octet_string_range);
+  define_method("types", "octet_string", poly_idx__is_a_latin_1_string, func__47_1_types__octet_string_is_a_latin_1_string);
+  define_method("types", "quad_octet_string", poly_idx__is_a_latin_1_string, func__48_1_types__quad_octet_string_is_a_latin_1_string);
+  define_method("types", "octet_string", poly_idx__to_utf8, func__50_1_types__octet_string_to_utf8);
+  define_method("types", "quad_octet_string", poly_idx__to_utf8, func__51_1_types__quad_octet_string_to_utf8);
 }
 
 static int already_run_phase_5 = false;
@@ -5349,8 +5349,8 @@ EXPORT void phase_5__basic__types__string_primitives(void) {
   assign_value(&var.types__string, get__types__generic_list());
   assign_variable(&var.types__octet_string, &var.types__string);
   assign_variable(&var.types__quad_octet_string, &var.types__string);
-  assign_variable(&var.std__matches_file_pattern, &func__46_1);
-  assign_variable(&var.std__from_utf8, &func__49_1);
+  assign_variable(&var.std__matches_file_pattern, &func__46_1_std__matches_file_pattern);
+  assign_variable(&var.std__from_utf8, &func__49_1_std__from_utf8);
 }
 
 static int already_run_phase_6 = false;

@@ -296,8 +296,8 @@ static NODE *func__8_1_types__object_equal_type_and_value;
 static void entry__8_1_types__object_equal_type_and_value(void);
 static FRAME_INFO frame__8_1_types__object_equal_type_and_value = {2, {"a", "b"}};
 static void cont__8_2(void);
-static void entry__9_1(void);
-static NODE *func__9_1;
+static void entry__9_1_std__current_address_of(void);
+static NODE *func__9_1_std__current_address_of;
 static NODE *get__std__current_address_of(void) {
   return var.std__current_address_of;
 }
@@ -310,7 +310,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__7_2, &frame__7_1_types__object_serialize, 87, 87, 43, 59},
   {entry__8_1_types__object_equal_type_and_value, NULL, 89, 89, 47, 56},
   {cont__8_2, &frame__8_1_types__object_equal_type_and_value, 89, 89, 44, 56},
-  {entry__9_1, NULL, 100, 103, 3, 2}
+  {entry__9_1_std__current_address_of, NULL, 100, 103, 3, 2}
 };
 
 union NODE {
@@ -536,7 +536,7 @@ static void cont__8_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1(void) {
+static void entry__9_1_std__current_address_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -573,7 +573,7 @@ EXPORT void phase_2__basic__types__object(void) {
   func__4_1_types__object_default_value = create_function(entry__4_1_types__object_default_value, 2);
   func__7_1_types__object_serialize = create_function(entry__7_1_types__object_serialize, -1);
   func__8_1_types__object_equal_type_and_value = create_function(entry__8_1_types__object_equal_type_and_value, 2);
-  func__9_1 = create_function(entry__9_1, 1);
+  func__9_1_std__current_address_of = create_function(entry__9_1_std__current_address_of, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -617,7 +617,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__object(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__current_address_of, &func__9_1);
+  assign_variable(&var.std__current_address_of, &func__9_1_std__current_address_of);
 }
 
 static int already_run_phase_6 = false;

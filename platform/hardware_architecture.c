@@ -210,8 +210,8 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static void entry__1_1(void);
-static NODE *func__1_1;
+static void entry__1_1_std__hardware_architecture(void);
+static NODE *func__1_1_std__hardware_architecture;
 static NODE *get__std__hardware_architecture(void) {
   return var.std__hardware_architecture;
 }
@@ -219,7 +219,7 @@ void run__platform__hardware_architecture(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__platform__hardware_architecture, NULL, },
-  {entry__1_1, NULL, 24, 40, 3, 2}
+  {entry__1_1_std__hardware_architecture, NULL, 24, 40, 3, 2}
 };
 
 union NODE {
@@ -267,7 +267,7 @@ EXPORT void run__platform__hardware_architecture(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__hardware_architecture(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -312,7 +312,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__platform__hardware_architecture(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  func__1_1 = create_function(entry__1_1, 0);
+  func__1_1_std__hardware_architecture = create_function(entry__1_1_std__hardware_architecture, 0);
 }
 
 static int already_run_phase_3 = false;
@@ -339,7 +339,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__platform__hardware_architecture(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__hardware_architecture, &func__1_1);
+  assign_variable(&var.std__hardware_architecture, &func__1_1_std__hardware_architecture);
 }
 
 static int already_run_phase_6 = false;

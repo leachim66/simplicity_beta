@@ -324,8 +324,8 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static void entry__1_1(void);
-static NODE *func__1_1;
+static void entry__1_1_std__current_time(void);
+static NODE *func__1_1_std__current_time;
 static NODE *get__std__current_time(void) {
   return var.std__current_time;
 }
@@ -382,42 +382,42 @@ static NODE *get__types__date_and_time(void) {
 NODE *create__types__date_and_time(int64_t seconds, int32_t nanoseconds);
 
 static long func__types__date_and_time___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static void entry__13_1(void);
-static NODE *func__13_1;
+static void entry__13_1_std__from_unix_time(void);
+static NODE *func__13_1_std__from_unix_time;
 static NODE *get__std__from_unix_time(void) {
   return var.std__from_unix_time;
 }
-static void entry__14_1(void);
-static NODE *func__14_1;
+static void entry__14_1_std__date_and_time(void);
+static NODE *func__14_1_std__date_and_time;
 static NODE *get__std__date_and_time(void) {
   return var.std__date_and_time;
 }
 
 static void year_month_day(NODE *node, int *year_p, int *month_p, int *day_p);
-static void entry__16_1(void);
-static NODE *func__16_1;
-static void entry__17_1(void);
-static NODE *func__17_1;
-static void entry__18_1(void);
-static NODE *func__18_1;
-static void entry__19_1(void);
-static NODE *func__19_1;
-static void entry__20_1(void);
-static NODE *func__20_1;
-static void entry__21_1(void);
-static NODE *func__21_1;
-static void entry__22_1(void);
-static NODE *func__22_1;
-static void entry__23_1(void);
-static NODE *func__23_1;
-static void entry__24_1(void);
-static NODE *func__24_1;
-static void entry__25_1(void);
-static NODE *func__25_1;
-static void entry__26_1(void);
-static NODE *func__26_1;
-static void entry__27_1(void);
-static NODE *func__27_1;
+static void entry__16_1_types__date_and_time_year_of(void);
+static NODE *func__16_1_types__date_and_time_year_of;
+static void entry__17_1_types__date_and_time_month_of(void);
+static NODE *func__17_1_types__date_and_time_month_of;
+static void entry__18_1_types__date_and_time_day_of(void);
+static NODE *func__18_1_types__date_and_time_day_of;
+static void entry__19_1_types__date_and_time_day_of_week_of(void);
+static NODE *func__19_1_types__date_and_time_day_of_week_of;
+static void entry__20_1_types__date_and_time_hour_of(void);
+static NODE *func__20_1_types__date_and_time_hour_of;
+static void entry__21_1_types__date_and_time_minute_of(void);
+static NODE *func__21_1_types__date_and_time_minute_of;
+static void entry__22_1_types__date_and_time_second_of(void);
+static NODE *func__22_1_types__date_and_time_second_of;
+static void entry__23_1_types__date_and_time_plus(void);
+static NODE *func__23_1_types__date_and_time_plus;
+static void entry__24_1_types__date_and_time_minus(void);
+static NODE *func__24_1_types__date_and_time_minus;
+static void entry__25_1_types__date_and_time_equal(void);
+static NODE *func__25_1_types__date_and_time_equal;
+static void entry__26_1_types__date_and_time_less(void);
+static NODE *func__26_1_types__date_and_time_less;
+static void entry__27_1_types__date_and_time_time_shift_of(void);
+static NODE *func__27_1_types__date_and_time_time_shift_of;
 static NODE *func__28_1_types__date_and_time_to_string;
 static void entry__28_1_types__date_and_time_to_string(void);
 static FRAME_INFO frame__28_1_types__date_and_time_to_string = {4, {"self", "ts", "t", "second"}};
@@ -469,8 +469,8 @@ static NODE *string__28_34;
 static NODE *string__28_35;
 static NODE *string__28_36;
 static void cont__28_37(void);
-static void entry__29_1(void);
-static NODE *func__29_1;
+static void entry__29_1_std__sleep(void);
+static NODE *func__29_1_std__sleep;
 static NODE *get__std__sleep(void) {
   return var.std__sleep;
 }
@@ -486,21 +486,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__second_of, NULL, 34, 34, 2, 15, 1},
   {type__std__time_shift_of, NULL, 35, 35, 2, 19, 1},
   {run__basic__types__date_and_time, NULL, },
-  {entry__1_1, NULL, 26, 32, 3, 2},
-  {entry__13_1, NULL, 67, 72, 3, 2, 1},
-  {entry__14_1, NULL, 75, 126, 3, 2, 1},
-  {entry__16_1, NULL, 208, 213, 3, 2, 1},
-  {entry__17_1, NULL, 216, 221, 3, 2, 1},
-  {entry__18_1, NULL, 224, 229, 3, 2, 1},
-  {entry__19_1, NULL, 232, 237, 3, 2, 1},
-  {entry__20_1, NULL, 240, 244, 3, 2, 1},
-  {entry__21_1, NULL, 247, 251, 3, 2, 1},
-  {entry__22_1, NULL, 254, 260, 3, 2, 1},
-  {entry__23_1, NULL, 263, 277, 3, 2, 1},
-  {entry__24_1, NULL, 280, 301, 3, 2, 1},
-  {entry__25_1, NULL, 304, 313, 3, 2, 1},
-  {entry__26_1, NULL, 316, 326, 3, 2, 1},
-  {entry__27_1, NULL, 329, 340, 3, 2, 1},
+  {entry__1_1_std__current_time, NULL, 26, 32, 3, 2},
+  {entry__13_1_std__from_unix_time, NULL, 67, 72, 3, 2, 1},
+  {entry__14_1_std__date_and_time, NULL, 75, 126, 3, 2, 1},
+  {entry__16_1_types__date_and_time_year_of, NULL, 208, 213, 3, 2, 1},
+  {entry__17_1_types__date_and_time_month_of, NULL, 216, 221, 3, 2, 1},
+  {entry__18_1_types__date_and_time_day_of, NULL, 224, 229, 3, 2, 1},
+  {entry__19_1_types__date_and_time_day_of_week_of, NULL, 232, 237, 3, 2, 1},
+  {entry__20_1_types__date_and_time_hour_of, NULL, 240, 244, 3, 2, 1},
+  {entry__21_1_types__date_and_time_minute_of, NULL, 247, 251, 3, 2, 1},
+  {entry__22_1_types__date_and_time_second_of, NULL, 254, 260, 3, 2, 1},
+  {entry__23_1_types__date_and_time_plus, NULL, 263, 277, 3, 2, 1},
+  {entry__24_1_types__date_and_time_minus, NULL, 280, 301, 3, 2, 1},
+  {entry__25_1_types__date_and_time_equal, NULL, 304, 313, 3, 2, 1},
+  {entry__26_1_types__date_and_time_less, NULL, 316, 326, 3, 2, 1},
+  {entry__27_1_types__date_and_time_time_shift_of, NULL, 329, 340, 3, 2, 1},
   {entry__28_23, NULL, 363, 363, 33, 39, 1},
   {cont__28_24, &frame__28_23, 363, 363, 22, 40, 1},
   {cont__28_26, &frame__28_23, 363, 363, 19, 40, 1},
@@ -533,7 +533,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__28_20, &frame__28_1_types__date_and_time_to_string, 362, 365, 7, 20, 1},
   {cont__28_33, &frame__28_1_types__date_and_time_to_string, 347, 365, 5, 21, 1},
   {cont__28_37, &frame__28_1_types__date_and_time_to_string, 346, 365, 3, 23, 1},
-  {entry__29_1, NULL, 368, 378, 3, 2, 1}
+  {entry__29_1_std__sleep, NULL, 368, 378, 3, 2, 1}
 };
 
 union NODE {
@@ -765,7 +765,7 @@ EXPORT void run__basic__types__date_and_time(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1(void) {
+static void entry__1_1_std__current_time(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -844,7 +844,7 @@ static long func__types__date_and_time___debug_string(NODE *node, int indent, in
   return debug_print(indent, buf, "<date and time %d.%09d>",
     node->date_and_time.seconds, node->date_and_time.nanoseconds);
 }
-static void entry__13_1(void) {
+static void entry__13_1_std__from_unix_time(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -860,7 +860,7 @@ static void entry__13_1(void) {
     return;
   }
 }
-static void entry__14_1(void) {
+static void entry__14_1_std__date_and_time(void) {
   if (argument_count != 6) {
     invalid_arguments_error();
     return;
@@ -1009,7 +1009,7 @@ static void year_month_day(NODE *node, int *year_p, int *month_p, int *day_p) {
   if (month_p) *month_p = month;
   if (day_p) *day_p = days+1;
 }
-static void entry__16_1(void) {
+static void entry__16_1_types__date_and_time_year_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1026,7 +1026,7 @@ static void entry__16_1(void) {
     return;
   }
 }
-static void entry__17_1(void) {
+static void entry__17_1_types__date_and_time_month_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1043,7 +1043,7 @@ static void entry__17_1(void) {
     return;
   }
 }
-static void entry__18_1(void) {
+static void entry__18_1_types__date_and_time_day_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1060,7 +1060,7 @@ static void entry__18_1(void) {
     return;
   }
 }
-static void entry__19_1(void) {
+static void entry__19_1_types__date_and_time_day_of_week_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1076,7 +1076,7 @@ static void entry__19_1(void) {
     return;
   }
 }
-static void entry__20_1(void) {
+static void entry__20_1_types__date_and_time_hour_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1092,7 +1092,7 @@ static void entry__20_1(void) {
     return;
   }
 }
-static void entry__21_1(void) {
+static void entry__21_1_types__date_and_time_minute_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1108,7 +1108,7 @@ static void entry__21_1(void) {
     return;
   }
 }
-static void entry__22_1(void) {
+static void entry__22_1_types__date_and_time_second_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1125,7 +1125,7 @@ static void entry__22_1(void) {
     return;
   }
 }
-static void entry__23_1(void) {
+static void entry__23_1_types__date_and_time_plus(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1151,7 +1151,7 @@ static void entry__23_1(void) {
     return;
   };
 }
-static void entry__24_1(void) {
+static void entry__24_1_types__date_and_time_minus(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1192,7 +1192,7 @@ static void entry__24_1(void) {
   };
   }
 }
-static void entry__25_1(void) {
+static void entry__25_1_types__date_and_time_equal(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1219,7 +1219,7 @@ static void entry__25_1(void) {
     return;
   }
 }
-static void entry__26_1(void) {
+static void entry__26_1_types__date_and_time_less(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1242,7 +1242,7 @@ static void entry__26_1(void) {
     return;
   }
 }
-static void entry__27_1(void) {
+static void entry__27_1_types__date_and_time_time_shift_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1828,7 +1828,7 @@ static void cont__28_37(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_1(void) {
+static void entry__29_1_std__sleep(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1892,21 +1892,21 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   character__32 = from_uchar32(32);
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
-  func__1_1 = create_function(entry__1_1, 0);
-  func__13_1 = create_function(entry__13_1, 1);
-  func__14_1 = create_function(entry__14_1, 6);
-  func__16_1 = create_function(entry__16_1, 1);
-  func__17_1 = create_function(entry__17_1, 1);
-  func__18_1 = create_function(entry__18_1, 1);
-  func__19_1 = create_function(entry__19_1, 1);
-  func__20_1 = create_function(entry__20_1, 1);
-  func__21_1 = create_function(entry__21_1, 1);
-  func__22_1 = create_function(entry__22_1, 1);
-  func__23_1 = create_function(entry__23_1, 2);
-  func__24_1 = create_function(entry__24_1, 2);
-  func__25_1 = create_function(entry__25_1, 2);
-  func__26_1 = create_function(entry__26_1, 2);
-  func__27_1 = create_function(entry__27_1, 1);
+  func__1_1_std__current_time = create_function(entry__1_1_std__current_time, 0);
+  func__13_1_std__from_unix_time = create_function(entry__13_1_std__from_unix_time, 1);
+  func__14_1_std__date_and_time = create_function(entry__14_1_std__date_and_time, 6);
+  func__16_1_types__date_and_time_year_of = create_function(entry__16_1_types__date_and_time_year_of, 1);
+  func__17_1_types__date_and_time_month_of = create_function(entry__17_1_types__date_and_time_month_of, 1);
+  func__18_1_types__date_and_time_day_of = create_function(entry__18_1_types__date_and_time_day_of, 1);
+  func__19_1_types__date_and_time_day_of_week_of = create_function(entry__19_1_types__date_and_time_day_of_week_of, 1);
+  func__20_1_types__date_and_time_hour_of = create_function(entry__20_1_types__date_and_time_hour_of, 1);
+  func__21_1_types__date_and_time_minute_of = create_function(entry__21_1_types__date_and_time_minute_of, 1);
+  func__22_1_types__date_and_time_second_of = create_function(entry__22_1_types__date_and_time_second_of, 1);
+  func__23_1_types__date_and_time_plus = create_function(entry__23_1_types__date_and_time_plus, 2);
+  func__24_1_types__date_and_time_minus = create_function(entry__24_1_types__date_and_time_minus, 2);
+  func__25_1_types__date_and_time_equal = create_function(entry__25_1_types__date_and_time_equal, 2);
+  func__26_1_types__date_and_time_less = create_function(entry__26_1_types__date_and_time_less, 2);
+  func__27_1_types__date_and_time_time_shift_of = create_function(entry__27_1_types__date_and_time_time_shift_of, 1);
   string__28_7 = from_latin_1_string("0", 1);
   string__28_25 = from_latin_1_string("+", 1);
   func__28_32 = create_function(entry__28_32, 0);
@@ -1915,7 +1915,7 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   string__28_35 = from_latin_1_string(":", 1);
   string__28_36 = from_latin_1_string(" GMT", 4);
   func__28_1_types__date_and_time_to_string = create_function(entry__28_1_types__date_and_time_to_string, 1);
-  func__29_1 = create_function(entry__29_1, 1);
+  func__29_1_std__sleep = create_function(entry__29_1_std__sleep, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1964,18 +1964,18 @@ EXPORT void phase_4__basic__types__date_and_time(void) {
   use_read_only(NULL, "true", &get__true, &get_value_or_future__true);
   use_read_only("types", "object", &get__types__object, &get_value_or_future__types__object);
   use_polymorphic_function(NULL, "year_of", &get__year_of, &poly_idx__year_of);
-  define_method("types", "date_and_time", poly_idx__year_of, func__16_1);
-  define_method("types", "date_and_time", poly_idx__month_of, func__17_1);
-  define_method("types", "date_and_time", poly_idx__day_of, func__18_1);
-  define_method("types", "date_and_time", poly_idx__day_of_week_of, func__19_1);
-  define_method("types", "date_and_time", poly_idx__hour_of, func__20_1);
-  define_method("types", "date_and_time", poly_idx__minute_of, func__21_1);
-  define_method("types", "date_and_time", poly_idx__second_of, func__22_1);
-  define_method("types", "date_and_time", poly_idx__plus, func__23_1);
-  define_method("types", "date_and_time", poly_idx__minus, func__24_1);
-  define_method("types", "date_and_time", poly_idx__equal, func__25_1);
-  define_method("types", "date_and_time", poly_idx__less, func__26_1);
-  define_method("types", "date_and_time", poly_idx__time_shift_of, func__27_1);
+  define_method("types", "date_and_time", poly_idx__year_of, func__16_1_types__date_and_time_year_of);
+  define_method("types", "date_and_time", poly_idx__month_of, func__17_1_types__date_and_time_month_of);
+  define_method("types", "date_and_time", poly_idx__day_of, func__18_1_types__date_and_time_day_of);
+  define_method("types", "date_and_time", poly_idx__day_of_week_of, func__19_1_types__date_and_time_day_of_week_of);
+  define_method("types", "date_and_time", poly_idx__hour_of, func__20_1_types__date_and_time_hour_of);
+  define_method("types", "date_and_time", poly_idx__minute_of, func__21_1_types__date_and_time_minute_of);
+  define_method("types", "date_and_time", poly_idx__second_of, func__22_1_types__date_and_time_second_of);
+  define_method("types", "date_and_time", poly_idx__plus, func__23_1_types__date_and_time_plus);
+  define_method("types", "date_and_time", poly_idx__minus, func__24_1_types__date_and_time_minus);
+  define_method("types", "date_and_time", poly_idx__equal, func__25_1_types__date_and_time_equal);
+  define_method("types", "date_and_time", poly_idx__less, func__26_1_types__date_and_time_less);
+  define_method("types", "date_and_time", poly_idx__time_shift_of, func__27_1_types__date_and_time_time_shift_of);
   define_method("types", "date_and_time", poly_idx__to_string, func__28_1_types__date_and_time_to_string);
 }
 
@@ -1984,7 +1984,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__date_and_time(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__current_time, &func__1_1);
+  assign_variable(&var.std__current_time, &func__1_1_std__current_time);
   assign_value(&var.std__year_of, create_function(type__std__year_of, -1));
   assign_value(&var.std__month_of, create_function(type__std__month_of, -1));
   assign_value(&var.std__day_of, create_function(type__std__day_of, -1));
@@ -1994,9 +1994,9 @@ EXPORT void phase_5__basic__types__date_and_time(void) {
   assign_value(&var.std__second_of, create_function(type__std__second_of, -1));
   assign_value(&var.std__time_shift_of, create_function(type__std__time_shift_of, -1));
   assign_value(&var.types__date_and_time, get__types__object());
-  assign_variable(&var.std__from_unix_time, &func__13_1);
-  assign_variable(&var.std__date_and_time, &func__14_1);
-  assign_variable(&var.std__sleep, &func__29_1);
+  assign_variable(&var.std__from_unix_time, &func__13_1_std__from_unix_time);
+  assign_variable(&var.std__date_and_time, &func__14_1_std__date_and_time);
+  assign_variable(&var.std__sleep, &func__29_1_std__sleep);
 }
 
 static int already_run_phase_6 = false;

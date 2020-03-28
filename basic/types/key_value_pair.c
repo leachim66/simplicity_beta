@@ -294,15 +294,15 @@ static NODE *get__types__key_value_pair(void) {
   return var.types__key_value_pair;
 }
 static NODE *create__types__key_value_pair(NODE *key, NODE *value);
-static void entry__6_1(void);
-static NODE *func__6_1;
+static void entry__6_1_std__key_value_pair(void);
+static NODE *func__6_1_std__key_value_pair;
 static NODE *get__std__key_value_pair(void) {
   return var.std__key_value_pair;
 }
-static void entry__7_1(void);
-static NODE *func__7_1;
-static void entry__8_1(void);
-static NODE *func__8_1;
+static void entry__7_1_types__key_value_pair_key_of(void);
+static NODE *func__7_1_types__key_value_pair_key_of;
+static void entry__8_1_types__key_value_pair_value_of(void);
+static NODE *func__8_1_types__key_value_pair_value_of;
 
 static long func__types__key_value_pair___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static NODE *func__10_1_types__key_value_pair_serialize;
@@ -326,9 +326,9 @@ void run__basic__types__key_value_pair(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_key_value_pair, NULL, 23, 23, 2, 25},
   {run__basic__types__key_value_pair, NULL, },
-  {entry__6_1, NULL, 48, 51, 3, 2},
-  {entry__7_1, NULL, 54, 57, 3, 2},
-  {entry__8_1, NULL, 60, 63, 3, 2},
+  {entry__6_1_std__key_value_pair, NULL, 48, 51, 3, 2},
+  {entry__7_1_types__key_value_pair_key_of, NULL, 54, 57, 3, 2},
+  {entry__8_1_types__key_value_pair_value_of, NULL, 60, 63, 3, 2},
   {entry__10_1_types__key_value_pair_serialize, NULL, 91, 91, 14, 21},
   {cont__10_2, &frame__10_1_types__key_value_pair_serialize, 91, 91, 7, 22},
   {cont__10_3, &frame__10_1_types__key_value_pair_serialize, 91, 91, 36, 47},
@@ -471,7 +471,7 @@ static NODE *create__types__key_value_pair(NODE *key, NODE *value) {
   node->key_value_pair.value = value;
   return node;
 }
-static void entry__6_1(void) {
+static void entry__6_1_std__key_value_pair(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -486,7 +486,7 @@ static void entry__6_1(void) {
     return;
   }
 }
-static void entry__7_1(void) {
+static void entry__7_1_types__key_value_pair_key_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -501,7 +501,7 @@ static void entry__7_1(void) {
     return;
   }
 }
-static void entry__8_1(void) {
+static void entry__8_1_types__key_value_pair_value_of(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -765,9 +765,9 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   number__0 = from_uint32(0U);
   number__4 = from_uint32(4U);
   number__2 = from_uint32(2U);
-  func__6_1 = create_function(entry__6_1, 2);
-  func__7_1 = create_function(entry__7_1, 1);
-  func__8_1 = create_function(entry__8_1, 1);
+  func__6_1_std__key_value_pair = create_function(entry__6_1_std__key_value_pair, 2);
+  func__7_1_types__key_value_pair_key_of = create_function(entry__7_1_types__key_value_pair_key_of, 1);
+  func__8_1_types__key_value_pair_value_of = create_function(entry__8_1_types__key_value_pair_value_of, 1);
   string__10_12 = from_latin_1_string("key_value_pair\012", 15);
   string__10_13 = from_latin_1_string("\012", 1);
   func__10_1_types__key_value_pair_serialize = create_function(entry__10_1_types__key_value_pair_serialize, -1);
@@ -804,8 +804,8 @@ EXPORT void phase_4__basic__types__key_value_pair(void) {
   use_polymorphic_function(NULL, "value_of", &get__value_of, &poly_idx__value_of);
   define_attribute("types", "object", poly_idx__is_a_key_value_pair, get__false());
   define_attribute("types", "key_value_pair", poly_idx__is_a_key_value_pair, get__true());
-  define_method("types", "key_value_pair", poly_idx__key_of, func__7_1);
-  define_method("types", "key_value_pair", poly_idx__value_of, func__8_1);
+  define_method("types", "key_value_pair", poly_idx__key_of, func__7_1_types__key_value_pair_key_of);
+  define_method("types", "key_value_pair", poly_idx__value_of, func__8_1_types__key_value_pair_value_of);
   define_method("types", "key_value_pair", poly_idx__serialize, func__10_1_types__key_value_pair_serialize);
 }
 
@@ -816,7 +816,7 @@ EXPORT void phase_5__basic__types__key_value_pair(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_key_value_pair, create_function(type__std__is_a_key_value_pair, -1));
   assign_value(&var.types__key_value_pair, get__types__object());
-  assign_variable(&var.std__key_value_pair, &func__6_1);
+  assign_variable(&var.std__key_value_pair, &func__6_1_std__key_value_pair);
 }
 
 static int already_run_phase_6 = false;
