@@ -374,6 +374,8 @@ static NODE_GETTER get__behind;
 static NODE_GETTER get_value_or_future__behind;
 static NODE_GETTER get__between;
 static NODE_GETTER get_value_or_future__between;
+static NODE_GETTER get__c_compiler;
+static NODE_GETTER get_value_or_future__c_compiler;
 static NODE_GETTER get__case;
 static NODE_GETTER get_value_or_future__case;
 static NODE_GETTER get__change_directory;
@@ -626,7 +628,7 @@ static struct {
   NODE *_REVISION;
   NODE *_BUILD;
   NODE *_VERSION;
-  NODE *_gcc;
+  NODE *_cc;
   NODE *_mkdir;
   NODE *_SIMLIBPATH;
   NODE *_SIMDATAPATH;
@@ -651,17 +653,17 @@ static struct {
   NODE *_EXE;
   NODE *_LIB;
   NODE *_WHITESPACE;
-  NODE *_gcc_basic_options;
-  NODE *_gcc_hardware_specific_options;
-  NODE *_gcc_include_options;
-  NODE *_gcc_options;
+  NODE *_cc_basic_options;
+  NODE *_cc_hardware_specific_options;
+  NODE *_cc_include_options;
+  NODE *_cc_options;
   NODE *_c_sources;
   NODE *_dependencies;
   NODE *_resolved_libraries;
   NODE *_resolve_filename;
   NODE *_add_module_infos;
   NODE *_lookup;
-  NODE *_Gcc;
+  NODE *_CC;
   NODE *_compile_c;
   NODE *_compile_meta_module;
   NODE *_build_dependencies;
@@ -700,7 +702,7 @@ static const char *var_names[] = {
   "REVISION",
   "BUILD",
   "VERSION",
-  "gcc",
+  "cc",
   "mkdir",
   "SIMLIBPATH",
   "SIMDATAPATH",
@@ -725,17 +727,17 @@ static const char *var_names[] = {
   "EXE",
   "LIB",
   "WHITESPACE",
-  "gcc_basic_options",
-  "gcc_hardware_specific_options",
-  "gcc_include_options",
-  "gcc_options",
+  "cc_basic_options",
+  "cc_hardware_specific_options",
+  "cc_include_options",
+  "cc_options",
   "c_sources",
   "dependencies",
   "resolved_libraries",
   "resolve_filename",
   "add_module_infos",
   "lookup",
-  "Gcc",
+  "CC",
   "compile_c",
   "compile_meta_module",
   "build_dependencies",
@@ -1081,14 +1083,14 @@ static void cont__67_8(void);
 static void cont__67_9(void);
 static void cont__67_10(void);
 static void cont__67_11(void);
-static NODE *func__68_1_Gcc;
-static void entry__68_1_Gcc(void);
-static FRAME_INFO frame__68_1_Gcc = {1, {"args"}};
+static NODE *func__68_1_CC;
+static void entry__68_1_CC(void);
+static FRAME_INFO frame__68_1_CC = {1, {"args"}};
 static NODE *func__68_2;
 static void entry__68_2(void);
 static FRAME_INFO frame__68_2 = {1, {"args"}};
 static void cont__68_3(void);
-static NODE *string__68_4;
+static void cont__68_4(void);
 static void cont__68_5(void);
 static NODE *func__69_1_compile_c;
 static void entry__69_1_compile_c(void);
@@ -2427,7 +2429,7 @@ static void cont__95_1(void);
 static NODE *string__97_1;
 static void cont__97_2(void);
 static void cont__98_1(void);
-static NODE *string__99_1;
+static void cont__99_1(void);
 static void cont__99_2(void);
 static NODE *string__100_1;
 static void cont__100_2(void);
@@ -2761,7 +2763,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__94_1, NULL, 93, 93, 1, 28},
   {cont__95_1, NULL, 95, 95, 1, 49},
   {cont__97_2, NULL, 96, 96, 1, 15},
-  {cont__98_1, NULL, 97, 97, 1, 17},
+  {cont__98_1, NULL, 97, 97, 12, 23},
+  {cont__99_1, NULL, 97, 97, 1, 23},
   {cont__99_2, NULL, 98, 98, 1, 72},
   {cont__100_2, NULL, 99, 99, 1, 37},
   {cont__101_2, NULL, 100, 100, 1, 39},
@@ -2792,12 +2795,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__144_5, NULL, 275, 275, 16, 44},
   {cont__144_6, NULL, 275, 275, 5, 44},
   {cont__144_8, NULL, 272, 275, 1, 45},
-  {cont__144_9, NULL, 278, 279, 1, 39},
-  {cont__146_5, NULL, 286, 286, 39, 61},
-  {cont__147_1, NULL, 286, 286, 9, 62},
+  {cont__144_9, NULL, 278, 279, 1, 38},
+  {cont__146_5, NULL, 286, 286, 38, 60},
+  {cont__147_1, NULL, 286, 286, 9, 61},
   {cont__147_2, NULL, 285, 287, 7, 17},
-  {cont__147_3, NULL, 284, 288, 5, 24},
-  {cont__147_4, NULL, 281, 288, 1, 27},
+  {cont__147_3, NULL, 284, 288, 5, 23},
+  {cont__147_4, NULL, 281, 288, 1, 26},
   {cont__147_5, NULL, 626, 626, 4, 25},
   {cont__165_1, NULL, 626, 628, 1, 52},
   {cont__165_6, NULL, 1073, 1073, 1, 36},
@@ -2913,15 +2916,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__67_1_lookup, NULL, 373, 373, 3, 29},
   {cont__67_2, &frame__67_1_lookup, 374, 374, 6, 20},
   {cont__67_3, &frame__67_1_lookup, 374, 376, 3, 28},
-  {entry__68_2, NULL, 379, 379, 43, 52},
-  {cont__68_3, &frame__68_2, 379, 379, 27, 52},
-  {entry__68_1_Gcc, NULL, 379, 379, 3, 52},
-  {cont__68_5, &frame__68_1_Gcc, 380, 380, 3, 11},
+  {entry__68_2, NULL, 379, 379, 36, 47},
+  {cont__68_3, &frame__68_2, 379, 379, 53, 62},
+  {cont__68_4, &frame__68_2, 379, 379, 27, 62},
+  {entry__68_1_CC, NULL, 379, 379, 3, 62},
+  {cont__68_5, &frame__68_1_CC, 380, 380, 3, 10},
   {entry__69_2, NULL, 383, 383, 41, 60},
   {entry__69_8, NULL, 388, 388, 11, 23},
   {cont__69_9, &frame__69_8, 386, 388, 13, 24},
   {cont__69_12, &frame__69_8, 386, 388, 7, 24},
-  {entry__69_4, NULL, 384, 384, 5, 72},
+  {entry__69_4, NULL, 384, 384, 5, 70},
   {cont__69_7, &frame__69_4, 385, 388, 5, 25},
   {cont__69_13, &frame__69_4, 389, 389, 17, 17},
   {entry__69_1_compile_c, NULL, 383, 383, 10, 60},
@@ -3696,9 +3700,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__133_8, NULL, 173, 243, 5, 47},
   {cont__133_69, &frame__133_8, 243, 243, 48, 48},
   {entry__137_1, NULL, 247, 247, 37, 37},
-  {entry__146_1, NULL, 279, 279, 29, 39},
-  {cont__146_3, &frame__146_1, 279, 279, 3, 39},
-  {cont__146_4, &frame__146_1, 279, 279, 39, 39},
+  {entry__146_1, NULL, 279, 279, 28, 38},
+  {cont__146_3, &frame__146_1, 279, 279, 3, 38},
+  {cont__146_4, &frame__146_1, 279, 279, 38, 38},
   {entry__165_2, NULL, 627, 628, 9, 51},
   {cont__165_5, &frame__165_2, 627, 628, 3, 51},
   {entry__180_1, NULL, 1073, 1073, 20, 36},
@@ -4637,10 +4641,24 @@ static void cont__98_1(void) {
     invalid_results_error();
     return;
   }
-  // 97: extern $gcc "gcc"
+  // 97: ... c_compiler()
+  argument_count = 0;
+  arguments = node_p;
+  result_count = 1;
+  myself = get__c_compiler();
+  func = myself->type;
+  frame->cont = cont__99_1;
+}
+static void cont__99_1(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
+  // 97: extern $cc c_compiler()
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__99_1;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__extern();
   func = myself->type;
@@ -4651,7 +4669,7 @@ static void cont__99_2(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(var._gcc, arguments->slots[0]);
+  initialize_future(var._cc, arguments->slots[0]);
   // 98: extern $mkdir "mkdir" # would be nice to have one in the system library!
   argument_count = 1;
   arguments = node_p;
@@ -6058,7 +6076,7 @@ static void cont__142_1(void) {
     return;
   }
   initialize_future(var._WHITESPACE, arguments->slots[0]);
-  // 258: $gcc_basic_options
+  // 258: $cc_basic_options
   // 259:   list
   // 260:     "-Wall"
   // 261:     "-Wno-unused-function"
@@ -6092,7 +6110,7 @@ static void cont__143_12(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(var._gcc_basic_options, arguments->slots[0]);
+  initialize_future(var._cc_basic_options, arguments->slots[0]);
   // 274: ... list("-msse2" "-mfpmath=sse")
   argument_count = 2;
   arguments = node_p;
@@ -6157,7 +6175,7 @@ static void cont__144_8(void) {
     return;
   }
   frame->slots[2] /* temp__3 */ = arguments->slots[0];
-  // 272: $gcc_hardware_specific_options
+  // 272: $cc_hardware_specific_options
   // 273:   table
   // 274:     "x86_32" = list("-msse2" "-mfpmath=sse")
   // 275:     "x86_64" = list("-msse2" "-mfpmath=sse")
@@ -6175,11 +6193,11 @@ static void cont__144_9(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(var._gcc_hardware_specific_options, arguments->slots[0]);
-  // 277: $$gcc_include_options empty_list
-  var._gcc_include_options = get__empty_list();
+  initialize_future(var._cc_hardware_specific_options, arguments->slots[0]);
+  // 277: $$cc_include_options empty_list
+  var._cc_include_options = get__empty_list();
   // 278: for_each simdatapaths: (path)
-  // 279:   push &gcc_include_options "-I@(path)"
+  // 279:   push &cc_include_options "-I@(path)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._simdatapaths;
@@ -6213,10 +6231,10 @@ static void cont__146_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 279: push &gcc_include_options "-I@(path)"
+  // 279: push &cc_include_options "-I@(path)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._gcc_include_options;
+  arguments->slots[0] = var._cc_include_options;
   arguments->slots[1] = frame->slots[1] /* temp__1 */;
   result_count = 1;
   myself = get__push();
@@ -6228,7 +6246,7 @@ static void cont__146_4(void) {
     invalid_results_error();
     return;
   }
-  var._gcc_include_options = arguments->slots[0];
+  var._cc_include_options = arguments->slots[0];
   argument_count = 0;
   arguments = node_p;
   frame = frame->caller_frame;
@@ -6254,12 +6272,12 @@ static void cont__147_1(void) {
     return;
   }
   frame->slots[3] /* temp__4 */ = arguments->slots[0];
-  // 286: gcc_hardware_specific_options(hardware_architecture())
+  // 286: cc_hardware_specific_options(hardware_architecture())
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__4 */;
   result_count = 1;
-  myself = var._gcc_hardware_specific_options;
+  myself = var._cc_hardware_specific_options;
   func = myself->type;
   frame->cont = cont__147_2;
 }
@@ -6270,7 +6288,7 @@ static void cont__147_2(void) {
   }
   frame->slots[2] /* temp__3 */ = arguments->slots[0];
   // 285: default_value
-  // 286:   gcc_hardware_specific_options(hardware_architecture())
+  // 286:   cc_hardware_specific_options(hardware_architecture())
   // 287:   empty_list
   argument_count = 2;
   arguments = node_p;
@@ -6289,13 +6307,13 @@ static void cont__147_3(void) {
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
   // 284: append
   // 285:   default_value
-  // 286:     gcc_hardware_specific_options(hardware_architecture())
+  // 286:     cc_hardware_specific_options(hardware_architecture())
   // 287:     empty_list
-  // 288:   gcc_include_options
+  // 288:   cc_include_options
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
-  arguments->slots[1] = var._gcc_include_options;
+  arguments->slots[1] = var._cc_include_options;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -6307,17 +6325,17 @@ static void cont__147_4(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 281: $gcc_options
+  // 281: $cc_options
   // 282:   append
-  // 283:     gcc_basic_options
+  // 283:     cc_basic_options
   // 284:     append
   // 285:       default_value
-  // 286:         gcc_hardware_specific_options(hardware_architecture())
+  // 286:         cc_hardware_specific_options(hardware_architecture())
   // 287:         empty_list
-  // 288:       gcc_include_options
+  // 288:       cc_include_options
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._gcc_basic_options;
+  arguments->slots[0] = var._cc_basic_options;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__append();
@@ -6329,7 +6347,7 @@ static void cont__147_5(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(var._gcc_options, arguments->slots[0]);
+  initialize_future(var._cc_options, arguments->slots[0]);
   // 290: %on_top_level true # set to false while building meta-files
   initialize_maybe_future(get__on_top_level(), get__true());
   // 291: %%objects empty_insert_order_set
@@ -8781,15 +8799,15 @@ static void cont__67_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__68_1_Gcc(void) {
+static void entry__68_1_CC(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 379: ... : ewriteln "gcc " join(args)
+  // 379: ... : ewriteln c_compiler() ' ' join(args)
   frame->slots[1] /* temp__1 */ = create_closure(entry__68_2, 0);
-  // 379: if do_show_debug_infos: ewriteln "gcc " join(args)
+  // 379: if do_show_debug_infos: ewriteln c_compiler() ' ' join(args)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_show_debug_infos();
@@ -8800,7 +8818,7 @@ static void entry__68_1_Gcc(void) {
   frame->cont = cont__68_5;
 }
 static void entry__68_2(void) {
-  allocate_initialized_frame_gc(1, 2);
+  allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // args: 0
   frame->slots[0] = myself->closure.frame->slots[0]; /* args */
@@ -8808,12 +8826,11 @@ static void entry__68_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 379: ... join(args)
-  argument_count = 1;
+  // 379: ... c_compiler()
+  argument_count = 0;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* args */;
   result_count = 1;
-  myself = get__join();
+  myself = get__c_compiler();
   func = myself->type;
   frame->cont = cont__68_3;
 }
@@ -8823,11 +8840,27 @@ static void cont__68_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 379: ... ewriteln "gcc " join(args)
-  argument_count = 2;
+  // 379: ... join(args)
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__68_4;
-  arguments->slots[1] = frame->slots[1] /* temp__1 */;
+  arguments->slots[0] = frame->slots[0] /* args */;
+  result_count = 1;
+  myself = get__join();
+  func = myself->type;
+  frame->cont = cont__68_4;
+}
+static void cont__68_4(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 379: ... ewriteln c_compiler() ' ' join(args)
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  arguments->slots[1] = character__32;
+  arguments->slots[2] = frame->slots[2] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -8838,12 +8871,12 @@ static void cont__68_5(void) {
     invalid_results_error();
     return;
   }
-  // 380: gcc args*
+  // 380: cc args*
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = frame->caller_result_count;
-  myself = var._gcc;
+  myself = var._cc;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -8864,16 +8897,16 @@ static void entry__69_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 384: Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+  // 384: CC $_out $err $success cc_options* "-c" c_filename "-o" o_filename
   argument_count = 0;
   arguments = node_p;
-  unfold(var._gcc_options);
+  unfold(var._cc_options);
   arguments->slots[argument_count++] = string__69_5;
   arguments->slots[argument_count++] = frame->slots[0] /* c_filename */;
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[1] /* o_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__69_7;
 }
@@ -9021,7 +9054,7 @@ static void cont__69_3(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 383: ... :
-  // 384:   Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+  // 384:   CC $_out $err $success cc_options* "-c" c_filename "-o" o_filename
   // 385:   unless success:
   // 386:     Error "
   // 387:       Failed to compile @(c_filename)
@@ -9029,7 +9062,7 @@ static void cont__69_3(void) {
   // 389:   !do_link true
   frame->slots[3] /* temp__2 */ = create_closure(entry__69_4, 0);
   // 383: unless do_build_codeblocks_project || do_list_dependencies:
-  // 384:   Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+  // 384:   CC $_out $err $success cc_options* "-c" c_filename "-o" o_filename
   // 385:   unless success:
   // 386:     Error "
   // 387:       Failed to compile @(c_filename)
@@ -17940,7 +17973,7 @@ static void cont__82_28(void) {
   // 785:     <Project>
   // 786:       <Option title="@(basename)" />
   // 787:       <Option pch_mode="2" />
-  // 788:       <Option compiler="gcc" />
+  // 788:       <Option compiler=c_compiler() />
   // 789:       <Build>
   // 790:         <Target title="debug">
   // ...
@@ -17969,7 +18002,7 @@ static void cont__82_32(void) {
   // 785:     <Project>
   // 786:       <Option title="@(basename)" />
   // 787:       <Option pch_mode="2" />
-  // 788:       <Option compiler="gcc" />
+  // 788:       <Option compiler=c_compiler() />
   // 789:       <Build>
   // 790:         <Target title="debug">
   // ...
@@ -18576,7 +18609,7 @@ static void cont__83_62(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 883: Gcc $_out $err $success
+  // 883: CC $_out $err $success
   // 884:   "-shared"
   // 885:   "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   // 886:   library_paths_and_file_list()*
@@ -18590,7 +18623,7 @@ static void cont__83_62(void) {
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__83_64;
 }
@@ -18665,7 +18698,7 @@ static void cont__83_70(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 891: Gcc $_out $err $success
+  // 891: CC $_out $err $success
   // 892:   "-shared"
   // 893:   library_paths_and_file_list()*
   // 894:   "-lsim-@(MAJOR)"
@@ -18679,7 +18712,7 @@ static void cont__83_70(void) {
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__83_71;
 }
@@ -18780,7 +18813,7 @@ static void cont__83_78(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 899: Gcc $_out $err $success
+  // 899: CC $_out $err $success
   // 900:   "-dynamiclib"
   // 901:   "
   // 902:     -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
@@ -18798,7 +18831,7 @@ static void cont__83_78(void) {
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__83_80;
 }
@@ -18857,7 +18890,7 @@ static void cont__83_84(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 910: Gcc $_out $err $success
+  // 910: CC $_out $err $success
   // 911:   "-shared"
   // 912:   library_paths_and_file_list()*
   // 913:   "-o"
@@ -18869,7 +18902,7 @@ static void cont__83_84(void) {
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__83_85;
 }
@@ -18958,7 +18991,7 @@ static void cont__83_58(void) {
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 882: ... :
-  // 883:   Gcc $_out $err $success
+  // 883:   CC $_out $err $success
   // 884:     "-shared"
   // 885:     "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   // 886:     library_paths_and_file_list()*
@@ -18967,7 +19000,7 @@ static void cont__83_58(void) {
   // 889:   unless success: Error err.from_utf8
   frame->slots[4] /* temp__2 */ = create_closure(entry__83_59, 0);
   // 890: ... :
-  // 891:   Gcc $_out $err $success
+  // 891:   CC $_out $err $success
   // 892:     "-shared"
   // 893:     library_paths_and_file_list()*
   // 894:     "-lsim-@(MAJOR)"
@@ -18976,7 +19009,7 @@ static void cont__83_58(void) {
   // 897:   unless success: Error err.from_utf8
   frame->slots[5] /* temp__3 */ = create_closure(entry__83_67, 0);
   // 898: ... :
-  // 899:   Gcc $_out $err $success
+  // 899:   CC $_out $err $success
   // 900:     "-dynamiclib"
   // 901:     "
   // 902:       -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
@@ -18988,7 +19021,7 @@ static void cont__83_58(void) {
   // ...
   frame->slots[6] /* temp__4 */ = create_closure(entry__83_74, 0);
   // 909: :
-  // 910:   Gcc $_out $err $success
+  // 910:   CC $_out $err $success
   // 911:     "-shared"
   // 912:     library_paths_and_file_list()*
   // 913:     "-o"
@@ -18998,7 +19031,7 @@ static void cont__83_58(void) {
   // 880: case
   // 881:   operating_system()
   // 882:   "linux":
-  // 883:     Gcc $_out $err $success
+  // 883:     CC $_out $err $success
   // 884:       "-shared"
   // 885:       "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   // 886:       library_paths_and_file_list()*
@@ -19729,7 +19762,7 @@ static void cont__83_53(void) {
   // 880:   case
   // 881:     operating_system()
   // 882:     "linux":
-  // 883:       Gcc $_out $err $success
+  // 883:       CC $_out $err $success
   // 884:         "-shared"
   // 885:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   // 886:         library_paths_and_file_list()*
@@ -19741,7 +19774,7 @@ static void cont__83_53(void) {
   // 880:   case
   // 881:     operating_system()
   // 882:     "linux":
-  // 883:       Gcc $_out $err $success
+  // 883:       CC $_out $err $success
   // 884:         "-shared"
   // 885:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   // 886:         library_paths_and_file_list()*
@@ -22381,7 +22414,7 @@ static void cont__88_78(void) {
   // 1040:   if
   // 1041:     do_build_static_executable:
   // 1042:       if verbose: ewriteln "linking static executable"
-  // 1043:       Gcc $_out $err $success
+  // 1043:       CC $_out $err $success
   // 1044:         "runtime/linker.o"
   // 1045:         "runtime/memory.o"
   // 1046:         "runtime/debugger.o"
@@ -22393,7 +22426,7 @@ static void cont__88_78(void) {
   // 1040:   if
   // 1041:     do_build_static_executable:
   // 1042:       if verbose: ewriteln "linking static executable"
-  // 1043:       Gcc $_out $err $success
+  // 1043:       CC $_out $err $success
   // 1044:         "runtime/linker.o"
   // 1045:         "runtime/memory.o"
   // 1046:         "runtime/debugger.o"
@@ -22521,7 +22554,7 @@ static void cont__88_88(void) {
     invalid_results_error();
     return;
   }
-  // 1043: Gcc $_out $err $success
+  // 1043: CC $_out $err $success
   // 1044:   "runtime/linker.o"
   // 1045:   "runtime/memory.o"
   // 1046:   "runtime/debugger.o"
@@ -22537,7 +22570,7 @@ static void cont__88_88(void) {
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__88_92;
 }
@@ -22727,7 +22760,7 @@ static void cont__88_106(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1053: Gcc $_out $err $success
+  // 1053: CC $_out $err $success
   // 1054:   libs_and_files*
   // 1055:   if
   // 1056:     operating_system() == "linux"
@@ -22742,7 +22775,7 @@ static void cont__88_106(void) {
   arguments->slots[argument_count++] = string__69_6;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
-  myself = var._Gcc;
+  myself = var._CC;
   func = myself->type;
   frame->cont = cont__88_107;
 }
@@ -22847,7 +22880,7 @@ static void cont__88_84(void) {
   }
   // 1041: ... :
   // 1042:   if verbose: ewriteln "linking static executable"
-  // 1043:   Gcc $_out $err $success
+  // 1043:   CC $_out $err $success
   // 1044:     "runtime/linker.o"
   // 1045:     "runtime/memory.o"
   // 1046:     "runtime/debugger.o"
@@ -22858,7 +22891,7 @@ static void cont__88_84(void) {
   frame->slots[2] /* temp__1 */ = create_closure(entry__88_85, 0);
   // 1051: :
   // 1052:   if verbose: ewriteln "linking executable"
-  // 1053:   Gcc $_out $err $success
+  // 1053:   CC $_out $err $success
   // 1054:     libs_and_files*
   // 1055:     if
   // 1056:       operating_system() == "linux"
@@ -22871,7 +22904,7 @@ static void cont__88_84(void) {
   // 1040: if
   // 1041:   do_build_static_executable:
   // 1042:     if verbose: ewriteln "linking static executable"
-  // 1043:     Gcc $_out $err $success
+  // 1043:     CC $_out $err $success
   // 1044:       "runtime/linker.o"
   // 1045:       "runtime/memory.o"
   // 1046:       "runtime/debugger.o"
@@ -23033,7 +23066,7 @@ EXPORT void collect__simple(void) {
   var._REVISION = collect_node(var._REVISION);
   var._BUILD = collect_node(var._BUILD);
   var._VERSION = collect_node(var._VERSION);
-  var._gcc = collect_node(var._gcc);
+  var._cc = collect_node(var._cc);
   var._mkdir = collect_node(var._mkdir);
   var._SIMLIBPATH = collect_node(var._SIMLIBPATH);
   var._SIMDATAPATH = collect_node(var._SIMDATAPATH);
@@ -23070,17 +23103,17 @@ EXPORT void collect__simple(void) {
   var._EXE = collect_node(var._EXE);
   var._LIB = collect_node(var._LIB);
   var._WHITESPACE = collect_node(var._WHITESPACE);
-  var._gcc_basic_options = collect_node(var._gcc_basic_options);
-  var._gcc_hardware_specific_options = collect_node(var._gcc_hardware_specific_options);
-  var._gcc_include_options = collect_node(var._gcc_include_options);
-  var._gcc_options = collect_node(var._gcc_options);
+  var._cc_basic_options = collect_node(var._cc_basic_options);
+  var._cc_hardware_specific_options = collect_node(var._cc_hardware_specific_options);
+  var._cc_include_options = collect_node(var._cc_include_options);
+  var._cc_options = collect_node(var._cc_options);
   var._c_sources = collect_node(var._c_sources);
   var._dependencies = collect_node(var._dependencies);
   var._resolved_libraries = collect_node(var._resolved_libraries);
   var._resolve_filename = collect_node(var._resolve_filename);
   var._add_module_infos = collect_node(var._add_module_infos);
   var._lookup = collect_node(var._lookup);
-  var._Gcc = collect_node(var._Gcc);
+  var._CC = collect_node(var._CC);
   var._compile_c = collect_node(var._compile_c);
   var._compile_meta_module = collect_node(var._compile_meta_module);
   var._build_dependencies = collect_node(var._build_dependencies);
@@ -23266,8 +23299,7 @@ int main(int argc, char **argv) {
   string__66_59 = from_latin_1_string("\042 is not supported!", 19);
   func__66_1_add_module_infos = create_function(entry__66_1_add_module_infos, 2);
   func__67_1_lookup = create_function(entry__67_1_lookup, 2);
-  string__68_4 = from_latin_1_string("gcc ", 4);
-  func__68_1_Gcc = create_function(entry__68_1_Gcc, -1);
+  func__68_1_CC = create_function(entry__68_1_CC, -1);
   func__69_2 = create_function(entry__69_2, 0);
   string__69_5 = from_latin_1_string("-c", 2);
   string__69_6 = from_latin_1_string("-o", 2);
@@ -23345,8 +23377,8 @@ int main(int argc, char **argv) {
   string__82_25 = from_latin_1_string("/", 1);
   string__82_26 = from_latin_1_string(".cbp", 4);
   string__82_29 = from_latin_1_string("<?xml version=\0421.0\042 encoding=\042UTF-8\042 standalone=\042yes\042 ?>\012<CodeBlocks_project_file>\012  <FileVersion major=\0421\042 minor=\0426\042 />\012  <Project>\012    <Option title=\042", 152);
-  string__82_30 = from_latin_1_string("\042 />\012    <Option pch_mode=\0422\042 />\012    <Option compiler=\042gcc\042 />\012    <Build>\012      <Target title=\042debug\042>\012        <Option output=\042bin/debug/", 138);
-  string__82_31 = from_latin_1_string("\042 prefix_auto=\0421\042 extension_auto=\0421\042 />\012        <Option object_output=\042obj/debug/\042 />\012        <Option type=\0421\042 />\012        <Option compiler=\042gcc\042 />\012        <Compiler>\012          <Add option=\042-g\042 />\012        </Compiler>\012      </Target>\012    </Build>\012    <Linker>\012", 259);
+  string__82_30 = from_latin_1_string("\042 />\012    <Option pch_mode=\0422\042 />\012    <Option compiler=c_compiler() />\012    <Build>\012      <Target title=\042debug\042>\012        <Option output=\042bin/debug/", 145);
+  string__82_31 = from_latin_1_string("\042 prefix_auto=\0421\042 extension_auto=\0421\042 />\012        <Option object_output=\042obj/debug/\042 />\012        <Option type=\0421\042 />\012        <Option compiler=c_compiler() />\012        <Compiler>\012          <Add option=\042-g\042 />\012        </Compiler>\012      </Target>\012    </Build>\012    <Linker>\012", 266);
   string__82_35 = from_latin_1_string("      <Add library=\042", 20);
   string__82_36 = from_latin_1_string("\042 />\012", 5);
   string__82_40 = from_latin_1_string("\012    </Linker>\012    <Compiler>\012      <Add option=\042-Wall\042 />\012    </Compiler>\012    <Unit filename=\042", 95);
@@ -23421,7 +23453,6 @@ int main(int argc, char **argv) {
   func__88_1_build_executable = create_function(entry__88_1_build_executable, 0);
   string__92_1 = from_latin_1_string("Copyright (C) 2020 by\012Dipl.-Ing. Michael Niederle\012\012This program is free software; you can redistribute it and/or modify\012it under the terms of the GNU General Public License, version 2, or\012(at your option) version 3.\012\012This program is distributed in the hope that it will be useful,\012but WITHOUT ANY WARRANTY; without even the implied warranty of\012MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\012GNU General Public License for more details.\012\012For details of the GNU General Public License see the accompanying\012files GPLv2.txt and GLPv3.txt or\012http://www.gnu.org/licenses/gpl-2.0.html\012http://www.gnu.org/licenses/gpl-3.0.html\012or write to the\012Free Software Foundation, Inc.,\01251 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\012", 742);
   string__97_1 = from_latin_1_string(".", 1);
-  string__99_1 = from_latin_1_string("gcc", 3);
   string__100_1 = from_latin_1_string("mkdir", 5);
   string__101_1 = from_latin_1_string("SIMLIBPATH", 10);
   string__102_1 = from_latin_1_string("SIMDATAPATH", 11);
@@ -23600,7 +23631,7 @@ int main(int argc, char **argv) {
   var._MINOR = create_future();
   var._REVISION = create_future();
   var._VERSION = create_future();
-  var._gcc = create_future();
+  var._cc = create_future();
   var._mkdir = create_future();
   var._SIMLIBPATH = create_future();
   var._SIMDATAPATH = create_future();
@@ -23632,9 +23663,9 @@ int main(int argc, char **argv) {
   register_dynamic(&dyna_idx__mode);
   define__mode(create_future());
   var._WHITESPACE = create_future();
-  var._gcc_basic_options = create_future();
-  var._gcc_hardware_specific_options = create_future();
-  var._gcc_options = create_future();
+  var._cc_basic_options = create_future();
+  var._cc_hardware_specific_options = create_future();
+  var._cc_options = create_future();
   register_dynamic(&dyna_idx__on_top_level);
   define__on_top_level(create_future());
   register_dynamic(&dyna_idx__objects);
@@ -23719,6 +23750,7 @@ int main(int argc, char **argv) {
   use_read_only(NULL, "before", &get__before, &get_value_or_future__before);
   use_read_only(NULL, "behind", &get__behind, &get_value_or_future__behind);
   use_read_only(NULL, "between", &get__between, &get_value_or_future__between);
+  use_read_only(NULL, "c_compiler", &get__c_compiler, &get_value_or_future__c_compiler);
   use_read_only(NULL, "case", &get__case, &get_value_or_future__case);
   use_read_only(NULL, "change_directory", &get__change_directory, &get_value_or_future__change_directory);
   use_read_only(NULL, "collect_output", &get__collect_output, &get_value_or_future__collect_output);
@@ -23912,7 +23944,7 @@ int main(int argc, char **argv) {
   assign_variable(&var._resolve_filename, &func__65_1_resolve_filename);
   assign_variable(&var._add_module_infos, &func__66_1_add_module_infos);
   assign_variable(&var._lookup, &func__67_1_lookup);
-  assign_variable(&var._Gcc, &func__68_1_Gcc);
+  assign_variable(&var._CC, &func__68_1_CC);
   assign_variable(&var._compile_c, &func__69_1_compile_c);
   assign_variable(&var._compile_meta_module, &func__70_1_compile_meta_module);
   assign_variable(&var._build_dependencies, &func__71_1_build_dependencies);

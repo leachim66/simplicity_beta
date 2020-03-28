@@ -94,7 +94,7 @@ $REVISION runtime_revision()
 $BUILD 0
 $VERSION "@(MAJOR).@(MINOR).@(REVISION).@(BUILD)"
 version VERSION
-extern $gcc "gcc"
+extern $cc c_compiler()
 extern $mkdir "mkdir" # would be nice to have one in the system library!
 $SIMLIBPATH environment("SIMLIBPATH")
 $SIMDATAPATH environment("SIMDATAPATH")
@@ -255,7 +255,7 @@ $LIB . # a file within a shared library
 %mode undefined # EXE or LIB
 $WHITESPACE many(' ')
 
-$gcc_basic_options
+$cc_basic_options
   list
     "-Wall"
     "-Wno-unused-function"
@@ -269,23 +269,23 @@ $gcc_basic_options
     "-fno-stack-protector"
     "-falign-functions=16"
 
-$gcc_hardware_specific_options
+$cc_hardware_specific_options
   table
     "x86_32" = list("-msse2" "-mfpmath=sse")
     "x86_64" = list("-msse2" "-mfpmath=sse")
 
-$$gcc_include_options empty_list
+$$cc_include_options empty_list
 for_each simdatapaths: (path)
-  push &gcc_include_options "-I@(path)"
+  push &cc_include_options "-I@(path)"
 
-$gcc_options
+$cc_options
   append
-    gcc_basic_options
+    cc_basic_options
     append
       default_value
-	gcc_hardware_specific_options(hardware_architecture())
+	cc_hardware_specific_options(hardware_architecture())
 	empty_list
-      gcc_include_options
+      cc_include_options
 
 %on_top_level true # set to false while building meta-files
 %%objects empty_insert_order_set
@@ -375,13 +375,13 @@ $lookup:
     add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
     -> module_info(mod_name)
 
-$Gcc: (args*)
-  if do_show_debug_infos: ewriteln "gcc " join(args)
-  gcc args*
+$CC: (args*)
+  if do_show_debug_infos: ewriteln c_compiler() ' ' join(args)
+  cc args*
 
 $compile_c: (c_filename o_filename)
   unless do_build_codeblocks_project || do_list_dependencies:
-    Gcc $_out $err $success gcc_options* "-c" c_filename "-o" o_filename
+    CC $_out $err $success cc_options* "-c" c_filename "-o" o_filename
     unless success:
       Error "
 	Failed to compile @(c_filename)
@@ -785,14 +785,14 @@ $build_codeblocks_project:
         <Project>
           <Option title="@(basename)" />
           <Option pch_mode="2" />
-          <Option compiler="gcc" />
+          <Option compiler=c_compiler() />
           <Build>
             <Target title="debug">
               <Option output="bin/debug/@(basename)" prefix_auto="1" @
       extension_auto="1" />
               <Option object_output="obj/debug/" />
               <Option type="1" />
-              <Option compiler="gcc" />
+              <Option compiler=c_compiler() />
               <Compiler>
                 <Add option="-g" />
               </Compiler>
@@ -880,7 +880,7 @@ $build_library:
 	case
 	  operating_system()
 	  "linux":
-	    Gcc $_out $err $success
+	    CC $_out $err $success
 	      "-shared"
 	      "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
 	      library_paths_and_file_list()*
@@ -888,7 +888,7 @@ $build_library:
 	      lib_filename
 	    unless success: Error err.from_utf8
 	  "cygwin":
-	    Gcc $_out $err $success
+	    CC $_out $err $success
 	      "-shared"
 	      library_paths_and_file_list()*
 	      "-lsim-@(MAJOR)"
@@ -896,7 +896,7 @@ $build_library:
 	      lib_filename
 	    unless success: Error err.from_utf8
 	  "darwin":
-	    Gcc $_out $err $success
+	    CC $_out $err $success
 	      "-dynamiclib"
 	      "
 		-Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
@@ -907,7 +907,7 @@ $build_library:
 	      lib_filename
 	    unless success: Error err.from_utf8
 	  :
-	    Gcc $_out $err $success
+	    CC $_out $err $success
 	      "-shared"
 	      library_paths_and_file_list()*
 	      "-o"
@@ -1040,7 +1040,7 @@ $build_executable:
       if
 	do_build_static_executable:
 	  if verbose: ewriteln "linking static executable"
-	  Gcc $_out $err $success
+	  CC $_out $err $success
 	    "runtime/linker.o"
 	    "runtime/memory.o"
 	    "runtime/debugger.o"
@@ -1050,7 +1050,7 @@ $build_executable:
 	  unless success: Error err.from_utf8
 	:
 	  if verbose: ewriteln "linking executable"
-	  Gcc $_out $err $success
+	  CC $_out $err $success
 	    libs_and_files*
 	    if
 	      operating_system() == "linux"
