@@ -73,6 +73,11 @@ ARCHITECTURE='unknown'
 UNAME=`uname`
 MACHINE=`uname -m`
 
+if [ "$MACHINE" = "amd64" ]
+then
+  MACHINE=x86_64
+fi
+
 BASIC_LIBRARIES='basic'
   # basic libraries do not depend on any other libraries
 
