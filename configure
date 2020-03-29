@@ -558,10 +558,10 @@ echo
 echo '.PHONY: install'
 echo 'install: all'
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/bin/\""
-echo "${TAB}cp --remove-destination sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/\""
+echo "${TAB}cp -f sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/\""
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\"; ln -fs simple simrun"
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/lib/\""
-echo "${TAB}cp --remove-destination libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
+echo "${TAB}cp -f libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
 if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
@@ -575,7 +575,7 @@ fi
 for LIBNAME in $ALL_LIBRARIES
 do
   VERSION=`cat $LIBNAME/VERSION`
-  echo "${TAB}cp --remove-destination libsim-$LIBNAME-$VERSION$DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
+  echo "${TAB}cp -f libsim-$LIBNAME-$VERSION$DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
 done
