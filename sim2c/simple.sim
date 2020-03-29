@@ -650,10 +650,10 @@ $library_paths_and_file_list:
       if
 	library .has_prefix. "sim-"
 	->
-	  if
-	    operating_system() == "linux"
-	    -> "-l:lib@(library).so.@(MAJOR)"
-	    -> "-l@(library)-@(MAJOR)"
+	  case
+	    operating_system()
+	    "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+	    true -> "-l@(library)-@(MAJOR)"
 	->
 	  if
 	    library .contains. '.'
@@ -857,7 +857,7 @@ $build_library:
       $lib_filename
 	case
 	  operating_system()
-	  "linux"
+	  "linux", "bsd"
 	  -> string("libsim-" base_filename version ".so.@(MAJOR)")
 	  "cygwin"
 	  -> string("libsim-" base_filename version "-@(MAJOR).dll")
@@ -1056,10 +1056,10 @@ $build_executable:
 	  if verbose: ewriteln "linking executable"
 	  CC $_out $err $success
 	    libs_and_files*
-	    if
-	      operating_system() == "linux"
-	      -> "-l:libsim.so.@(MAJOR)"
-	      -> "-lsim-@(MAJOR)"
+	    case
+	      operating_system()
+	      "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
+	      true -> "-lsim-@(MAJOR)"
 	    "-o"
 	    exe_filename
 	  unless success: Error err.from_utf8

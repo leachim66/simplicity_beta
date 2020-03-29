@@ -678,7 +678,7 @@ do
   echo "$LIBNAME: simple"
   echo "${TAB}LD_LIBRARY_PATH=`pwd`:\$\$LD_LIBRARY_PATH; \\"
   echo "${TAB}LD_LIBRARY_PATH=\$\${LD_LIBRARY_PATH%:}; \\"
-  echo "${TAB}sim2c/simple $LIBNAME"
+  echo "${TAB}SIMDATAPATH=. sim2c/simple $LIBNAME"
   VERSION=`cat $LIBNAME/VERSION`
   echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
   echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"

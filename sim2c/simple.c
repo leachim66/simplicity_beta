@@ -1587,38 +1587,39 @@ static void entry__79_21(void);
 static FRAME_INFO frame__79_21 = {1, {"library"}};
 static void cont__79_22(void);
 static NODE *string__79_23;
-static void cont__79_24(void);
-static NODE *func__79_25;
-static void entry__79_25(void);
-static FRAME_INFO frame__79_25 = {1, {"library"}};
-static NODE *string__79_26;
+static NODE *string__79_24;
+static void cont__79_25(void);
+static NODE *func__79_26;
+static void entry__79_26(void);
+static FRAME_INFO frame__79_26 = {1, {"library"}};
 static NODE *string__79_27;
-static void cont__79_28(void);
-static NODE *func__79_29;
-static void entry__79_29(void);
-static FRAME_INFO frame__79_29 = {1, {"library"}};
-static NODE *string__79_30;
-static void cont__79_31(void);
+static NODE *string__79_28;
+static void cont__79_29(void);
+static NODE *func__79_30;
+static void entry__79_30(void);
+static FRAME_INFO frame__79_30 = {1, {"library"}};
+static NODE *string__79_31;
 static void cont__79_32(void);
-static NODE *func__79_33;
-static void entry__79_33(void);
-static FRAME_INFO frame__79_33 = {1, {"library"}};
-static void cont__79_34(void);
-static NODE *func__79_35;
-static void entry__79_35(void);
-static FRAME_INFO frame__79_35 = {1, {"library"}};
-static void cont__79_36(void);
+static void cont__79_33(void);
+static NODE *func__79_34;
+static void entry__79_34(void);
+static FRAME_INFO frame__79_34 = {1, {"library"}};
+static void cont__79_35(void);
+static NODE *func__79_36;
+static void entry__79_36(void);
+static FRAME_INFO frame__79_36 = {1, {"library"}};
 static void cont__79_37(void);
 static void cont__79_38(void);
-static NODE *func__79_39;
-static void entry__79_39(void);
-static FRAME_INFO frame__79_39 = {1, {"library"}};
-static void cont__79_40(void);
+static void cont__79_39(void);
+static NODE *func__79_40;
+static void entry__79_40(void);
+static FRAME_INFO frame__79_40 = {1, {"library"}};
 static void cont__79_41(void);
 static void cont__79_42(void);
 static void cont__79_43(void);
 static void cont__79_44(void);
 static void cont__79_45(void);
+static void cont__79_46(void);
 static NODE *func__80_1_create_imports;
 static void entry__80_1_create_imports(void);
 static FRAME_INFO frame__80_1_create_imports = {5, {"source", "already_checked", "collect_declarations", "imports", "first_part"}};
@@ -1962,65 +1963,65 @@ static void cont__86_17(void);
 static void cont__86_18(void);
 static void cont__86_19(void);
 static void cont__86_20(void);
-static NODE *func__86_21;
-static void entry__86_21(void);
-static FRAME_INFO frame__86_21 = {2, {"base_filename", "version"}};
-static void cont__86_22(void);
-static NODE *string__86_23;
-static void cont__86_24(void);
-static NODE *func__86_25;
-static void entry__86_25(void);
-static FRAME_INFO frame__86_25 = {2, {"base_filename", "version"}};
-static NODE *string__86_26;
-static void cont__86_27(void);
+static void cont__86_21(void);
+static NODE *func__86_22;
+static void entry__86_22(void);
+static FRAME_INFO frame__86_22 = {2, {"base_filename", "version"}};
+static void cont__86_23(void);
+static NODE *string__86_24;
+static void cont__86_25(void);
+static NODE *func__86_26;
+static void entry__86_26(void);
+static FRAME_INFO frame__86_26 = {2, {"base_filename", "version"}};
+static NODE *string__86_27;
 static void cont__86_28(void);
-static NODE *func__86_29;
-static void entry__86_29(void);
-static FRAME_INFO frame__86_29 = {2, {"base_filename", "version"}};
-static NODE *string__86_30;
-static void cont__86_31(void);
+static void cont__86_29(void);
+static NODE *func__86_30;
+static void entry__86_30(void);
+static FRAME_INFO frame__86_30 = {2, {"base_filename", "version"}};
+static NODE *string__86_31;
 static void cont__86_32(void);
-static NODE *func__86_33;
-static void entry__86_33(void);
-static FRAME_INFO frame__86_33 = {1, {"base_filename"}};
-static NODE *string__86_34;
-static void cont__86_35(void);
-static NODE *string__86_36;
+static void cont__86_33(void);
+static NODE *func__86_34;
+static void entry__86_34(void);
+static FRAME_INFO frame__86_34 = {1, {"base_filename"}};
+static NODE *string__86_35;
+static void cont__86_36(void);
 static NODE *string__86_37;
-static void cont__86_38(void);
-static NODE *func__86_39;
-static void entry__86_39(void);
-static FRAME_INFO frame__86_39 = {1, {"lib_filename"}};
-static NODE *string__86_40;
-static void cont__86_41(void);
+static NODE *string__86_38;
+static void cont__86_39(void);
+static NODE *func__86_40;
+static void entry__86_40(void);
+static FRAME_INFO frame__86_40 = {1, {"lib_filename"}};
+static NODE *string__86_41;
 static void cont__86_42(void);
 static void cont__86_43(void);
 static void cont__86_44(void);
-static NODE *func__86_45;
-static void entry__86_45(void);
-static FRAME_INFO frame__86_45 = {2, {"lib_filename", "info"}};
-static void cont__86_46(void);
+static void cont__86_45(void);
+static NODE *func__86_46;
+static void entry__86_46(void);
+static FRAME_INFO frame__86_46 = {2, {"lib_filename", "info"}};
 static void cont__86_47(void);
-static NODE *func__86_48;
-static void entry__86_48(void);
-static FRAME_INFO frame__86_48 = {1, {"info"}};
-static void cont__86_49(void);
+static void cont__86_48(void);
+static NODE *func__86_49;
+static void entry__86_49(void);
+static FRAME_INFO frame__86_49 = {1, {"info"}};
 static void cont__86_50(void);
 static void cont__86_51(void);
-static NODE *func__86_52;
-static void entry__86_52(void);
-static FRAME_INFO frame__86_52 = {0, {}};
-static void cont__86_53(void);
-static NODE *func__86_54;
-static void entry__86_54(void);
-static FRAME_INFO frame__86_54 = {3, {"base_filename", "so_version", "lib_filename"}};
+static void cont__86_52(void);
+static NODE *func__86_53;
+static void entry__86_53(void);
+static FRAME_INFO frame__86_53 = {0, {}};
+static void cont__86_54(void);
 static NODE *func__86_55;
 static void entry__86_55(void);
-static FRAME_INFO frame__86_55 = {0, {}};
-static NODE *string__86_56;
-static void cont__86_57(void);
+static FRAME_INFO frame__86_55 = {3, {"base_filename", "so_version", "lib_filename"}};
+static NODE *func__86_56;
+static void entry__86_56(void);
+static FRAME_INFO frame__86_56 = {0, {}};
+static NODE *string__86_57;
 static void cont__86_58(void);
-static NODE *string__86_59;
+static void cont__86_59(void);
 static void cont__86_60(void);
 static NODE *func__86_61;
 static void entry__86_61(void);
@@ -3234,27 +3235,27 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__79_13, &frame__79_12, 645, 645, 27, 77},
   {entry__79_16, NULL, 646, 646, 30, 54},
   {cont__79_17, &frame__79_16, 646, 646, 54, 54},
-  {entry__79_25, NULL, 655, 655, 16, 45},
-  {cont__79_28, &frame__79_25, 655, 655, 13, 45},
-  {entry__79_29, NULL, 656, 656, 16, 38},
-  {cont__79_31, &frame__79_29, 656, 656, 13, 38},
+  {entry__79_26, NULL, 655, 655, 31, 60},
+  {cont__79_29, &frame__79_26, 655, 655, 28, 60},
+  {entry__79_30, NULL, 656, 656, 21, 43},
+  {cont__79_32, &frame__79_30, 656, 656, 18, 43},
   {entry__79_21, NULL, 654, 654, 13, 30},
-  {cont__79_22, &frame__79_21, 654, 654, 13, 41},
-  {cont__79_24, &frame__79_21, 653, 656, 11, 37},
-  {cont__79_32, &frame__79_21, 652, 656, 9, 39},
-  {entry__79_35, NULL, 660, 660, 25, 44},
-  {cont__79_36, &frame__79_35, 660, 660, 52, 71},
-  {cont__79_37, &frame__79_35, 660, 660, 16, 73},
-  {cont__79_38, &frame__79_35, 660, 661, 13, 26},
-  {entry__79_39, NULL, 662, 662, 16, 29},
-  {cont__79_40, &frame__79_39, 662, 662, 13, 29},
-  {entry__79_33, NULL, 659, 659, 13, 34},
-  {cont__79_34, &frame__79_33, 658, 662, 11, 28},
-  {cont__79_41, &frame__79_33, 657, 662, 9, 30},
+  {cont__79_22, &frame__79_21, 655, 655, 13, 26},
+  {cont__79_25, &frame__79_21, 653, 656, 11, 42},
+  {cont__79_33, &frame__79_21, 652, 656, 9, 44},
+  {entry__79_36, NULL, 660, 660, 25, 44},
+  {cont__79_37, &frame__79_36, 660, 660, 52, 71},
+  {cont__79_38, &frame__79_36, 660, 660, 16, 73},
+  {cont__79_39, &frame__79_36, 660, 661, 13, 26},
+  {entry__79_40, NULL, 662, 662, 16, 29},
+  {cont__79_41, &frame__79_40, 662, 662, 13, 29},
+  {entry__79_34, NULL, 659, 659, 13, 34},
+  {cont__79_35, &frame__79_34, 658, 662, 11, 28},
+  {cont__79_42, &frame__79_34, 657, 662, 9, 30},
   {entry__79_19, NULL, 651, 651, 9, 35},
   {cont__79_20, &frame__79_19, 650, 662, 7, 30},
-  {cont__79_42, &frame__79_19, 648, 662, 5, 32},
-  {cont__79_43, &frame__79_19, 662, 662, 33, 33},
+  {cont__79_43, &frame__79_19, 648, 662, 5, 32},
+  {cont__79_44, &frame__79_19, 662, 662, 33, 33},
   {entry__79_1_library_paths_and_file_list, NULL, 638, 638, 3, 16},
   {cont__79_2, &frame__79_1_library_paths_and_file_list, 642, 642, 3, 39},
   {cont__79_3, &frame__79_1_library_paths_and_file_list, 643, 643, 6, 21},
@@ -3262,8 +3263,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__79_11, &frame__79_1_library_paths_and_file_list, 645, 645, 3, 77},
   {cont__79_15, &frame__79_1_library_paths_and_file_list, 646, 646, 3, 54},
   {cont__79_18, &frame__79_1_library_paths_and_file_list, 647, 662, 3, 33},
-  {cont__79_44, &frame__79_1_library_paths_and_file_list, 663, 663, 24, 57},
-  {cont__79_45, &frame__79_1_library_paths_and_file_list, 663, 663, 3, 57},
+  {cont__79_45, &frame__79_1_library_paths_and_file_list, 663, 663, 24, 57},
+  {cont__79_46, &frame__79_1_library_paths_and_file_list, 663, 663, 3, 57},
   {entry__80_9, NULL, 673, 673, 51, 64},
   {cont__80_10, &frame__80_9, 673, 673, 51, 64},
   {entry__80_7, NULL, 673, 673, 37, 46},
@@ -3446,27 +3447,27 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__86_14, &frame__86_12, 853, 853, 9, 56},
   {cont__86_15, &frame__86_12, 854, 854, 9, 47},
   {cont__86_16, &frame__86_12, 854, 854, 47, 47},
-  {entry__86_21, NULL, 861, 861, 53, 66},
-  {cont__86_22, &frame__86_21, 861, 861, 14, 67},
-  {cont__86_24, &frame__86_21, 861, 861, 11, 67},
-  {entry__86_25, NULL, 863, 863, 53, 67},
-  {cont__86_27, &frame__86_25, 863, 863, 14, 68},
-  {cont__86_28, &frame__86_25, 863, 863, 11, 68},
-  {entry__86_29, NULL, 865, 865, 53, 69},
-  {cont__86_31, &frame__86_29, 865, 865, 14, 70},
-  {cont__86_32, &frame__86_29, 865, 865, 11, 70},
-  {entry__86_33, NULL, 866, 866, 14, 50},
-  {cont__86_35, &frame__86_33, 866, 866, 11, 50},
-  {entry__86_39, NULL, 868, 868, 19, 56},
-  {entry__86_48, NULL, 875, 875, 38, 63},
-  {cont__86_49, &frame__86_48, 875, 875, 13, 63},
-  {cont__86_50, &frame__86_48, 875, 875, 13, 63},
-  {entry__86_52, NULL, 877, 877, 25, 25},
-  {entry__86_45, NULL, 871, 871, 9, 32},
-  {cont__86_46, &frame__86_45, 874, 874, 13, 29},
-  {cont__86_47, &frame__86_45, 873, 875, 11, 62},
-  {cont__86_51, &frame__86_45, 872, 877, 9, 26},
-  {entry__86_55, NULL, 879, 879, 21, 54},
+  {entry__86_22, NULL, 861, 861, 53, 66},
+  {cont__86_23, &frame__86_22, 861, 861, 14, 67},
+  {cont__86_25, &frame__86_22, 861, 861, 11, 67},
+  {entry__86_26, NULL, 863, 863, 53, 67},
+  {cont__86_28, &frame__86_26, 863, 863, 14, 68},
+  {cont__86_29, &frame__86_26, 863, 863, 11, 68},
+  {entry__86_30, NULL, 865, 865, 53, 69},
+  {cont__86_32, &frame__86_30, 865, 865, 14, 70},
+  {cont__86_33, &frame__86_30, 865, 865, 11, 70},
+  {entry__86_34, NULL, 866, 866, 14, 50},
+  {cont__86_36, &frame__86_34, 866, 866, 11, 50},
+  {entry__86_40, NULL, 868, 868, 19, 56},
+  {entry__86_49, NULL, 875, 875, 38, 63},
+  {cont__86_50, &frame__86_49, 875, 875, 13, 63},
+  {cont__86_51, &frame__86_49, 875, 875, 13, 63},
+  {entry__86_53, NULL, 877, 877, 25, 25},
+  {entry__86_46, NULL, 871, 871, 9, 32},
+  {cont__86_47, &frame__86_46, 874, 874, 13, 29},
+  {cont__86_48, &frame__86_46, 873, 875, 11, 62},
+  {cont__86_52, &frame__86_46, 872, 877, 9, 26},
+  {entry__86_56, NULL, 879, 879, 21, 54},
   {entry__86_67, NULL, 890, 890, 35, 47},
   {cont__86_68, &frame__86_67, 890, 890, 29, 47},
   {entry__86_61, NULL, 886, 886, 15, 76},
@@ -3491,23 +3492,24 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__86_85, NULL, 916, 916, 15, 43},
   {cont__86_86, &frame__86_85, 913, 918, 13, 26},
   {cont__86_87, &frame__86_85, 919, 919, 13, 47},
-  {entry__86_54, NULL, 879, 879, 9, 54},
-  {cont__86_57, &frame__86_54, 881, 881, 11, 28},
-  {cont__86_58, &frame__86_54, 882, 882, 11, 24},
-  {cont__86_60, &frame__86_54, 880, 919, 9, 48},
+  {entry__86_55, NULL, 879, 879, 9, 54},
+  {cont__86_58, &frame__86_55, 881, 881, 11, 28},
+  {cont__86_59, &frame__86_55, 882, 882, 11, 24},
+  {cont__86_60, &frame__86_55, 880, 919, 9, 48},
   {entry__86_8, NULL, 851, 851, 7, 56},
   {cont__86_10, &frame__86_8, 852, 852, 10, 38},
   {cont__86_11, &frame__86_8, 852, 854, 7, 47},
   {cont__86_17, &frame__86_8, 855, 855, 56, 56},
   {cont__86_18, &frame__86_8, 855, 855, 7, 57},
   {cont__86_19, &frame__86_8, 859, 859, 11, 28},
-  {cont__86_20, &frame__86_8, 857, 866, 7, 51},
-  {cont__86_38, &frame__86_8, 868, 868, 7, 56},
-  {cont__86_41, &frame__86_8, 869, 869, 63, 63},
-  {cont__86_42, &frame__86_8, 869, 869, 37, 64},
-  {cont__86_43, &frame__86_8, 869, 869, 7, 64},
-  {cont__86_44, &frame__86_8, 870, 877, 7, 27},
-  {cont__86_53, &frame__86_8, 878, 919, 7, 49},
+  {cont__86_20, &frame__86_8, 860, 860, 11, 24},
+  {cont__86_21, &frame__86_8, 857, 866, 7, 51},
+  {cont__86_39, &frame__86_8, 868, 868, 7, 56},
+  {cont__86_42, &frame__86_8, 869, 869, 63, 63},
+  {cont__86_43, &frame__86_8, 869, 869, 37, 64},
+  {cont__86_44, &frame__86_8, 869, 869, 7, 64},
+  {cont__86_45, &frame__86_8, 870, 877, 7, 27},
+  {cont__86_54, &frame__86_8, 878, 919, 7, 49},
   {entry__86_1_build_library, NULL, 843, 843, 6, 23},
   {cont__86_3, &frame__86_1_build_library, 843, 843, 3, 56},
   {cont__86_6, &frame__86_1_build_library, 845, 919, 3, 51},
@@ -3641,16 +3643,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__91_88, &frame__91_85, 1047, 1053, 11, 24},
   {cont__91_92, &frame__91_85, 1054, 1054, 11, 45},
   {entry__91_96, NULL, 1056, 1056, 23, 51},
-  {entry__91_101, NULL, 1061, 1061, 18, 40},
-  {cont__91_103, &frame__91_101, 1061, 1061, 15, 40},
-  {entry__91_104, NULL, 1062, 1062, 18, 33},
-  {cont__91_105, &frame__91_104, 1062, 1062, 15, 33},
+  {entry__91_101, NULL, 1061, 1061, 33, 55},
+  {cont__91_103, &frame__91_101, 1061, 1061, 30, 55},
+  {entry__91_104, NULL, 1062, 1062, 23, 38},
+  {cont__91_105, &frame__91_104, 1062, 1062, 20, 38},
   {entry__91_108, NULL, 1065, 1065, 33, 45},
   {cont__91_109, &frame__91_108, 1065, 1065, 27, 45},
   {entry__91_95, NULL, 1056, 1056, 11, 51},
   {cont__91_98, &frame__91_95, 1060, 1060, 15, 32},
-  {cont__91_99, &frame__91_95, 1060, 1060, 15, 43},
-  {cont__91_100, &frame__91_95, 1059, 1062, 13, 32},
+  {cont__91_99, &frame__91_95, 1061, 1061, 15, 28},
+  {cont__91_100, &frame__91_95, 1059, 1062, 13, 37},
   {cont__91_106, &frame__91_95, 1057, 1064, 11, 24},
   {cont__91_107, &frame__91_95, 1065, 1065, 11, 45},
   {entry__91_79, NULL, 1042, 1042, 7, 52},
@@ -5039,7 +5041,7 @@ static void cont__107_8(void) {
   // 124: "bsd" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__86_59;
+  arguments->slots[0] = string__79_24;
   arguments->slots[1] = string__109_1;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5055,7 +5057,7 @@ static void cont__109_2(void) {
   // 125: "cygwin" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__86_36;
+  arguments->slots[0] = string__86_37;
   arguments->slots[1] = string__109_1;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5071,7 +5073,7 @@ static void cont__109_3(void) {
   // 126: "darwin" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__86_37;
+  arguments->slots[0] = string__86_38;
   arguments->slots[1] = string__109_1;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -14820,10 +14822,10 @@ static void cont__79_18(void) {
   // 650:     if
   // 651:       library .has_prefix. "sim-"
   // 652:       ->
-  // 653:         if
-  // 654:           operating_system() == "linux"
-  // 655:           -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:           -> "-l@(library)-@(MAJOR)"
+  // 653:         case
+  // 654:           operating_system()
+  // 655:           "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:           true -> "-l@(library)-@(MAJOR)"
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__79_19, 1);
   // 647: for_each libraries: (library)
@@ -14832,10 +14834,10 @@ static void cont__79_18(void) {
   // 650:     if
   // 651:       library .has_prefix. "sim-"
   // 652:       ->
-  // 653:         if
-  // 654:           operating_system() == "linux"
-  // 655:           -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:           -> "-l@(library)-@(MAJOR)"
+  // 653:         case
+  // 654:           operating_system()
+  // 655:           "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:           true -> "-l@(library)-@(MAJOR)"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -14844,7 +14846,7 @@ static void cont__79_18(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__79_44;
+  frame->cont = cont__79_45;
 }
 static void entry__79_19(void) {
   allocate_initialized_frame_gc(2, 6);
@@ -14873,10 +14875,10 @@ static void cont__79_20(void) {
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 652: ->
-  // 653:   if
-  // 654:     operating_system() == "linux"
-  // 655:     -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:     -> "-l@(library)-@(MAJOR)"
+  // 653:   case
+  // 654:     operating_system()
+  // 655:     "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:     true -> "-l@(library)-@(MAJOR)"
   frame->slots[4] /* temp__3 */ = create_closure(entry__79_21, 0);
   // 657: ->
   // 658:   if
@@ -14884,14 +14886,14 @@ static void cont__79_20(void) {
   // 660:     -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
   // 661:       # Linux only
   // 662:     -> "-l@(library)"
-  frame->slots[5] /* temp__4 */ = create_closure(entry__79_33, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__79_34, 0);
   // 650: if
   // 651:   library .has_prefix. "sim-"
   // 652:   ->
-  // 653:     if
-  // 654:       operating_system() == "linux"
-  // 655:       -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:       -> "-l@(library)-@(MAJOR)"
+  // 653:     case
+  // 654:       operating_system()
+  // 655:       "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:       true -> "-l@(library)-@(MAJOR)"
   // 657:   ->
   // 658:     if
   // 659:       library .contains. '.'
@@ -14904,7 +14906,7 @@ static void cont__79_20(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__79_42;
+  frame->cont = cont__79_43;
 }
 static void entry__79_21(void) {
   allocate_initialized_frame_gc(1, 6);
@@ -14928,42 +14930,44 @@ static void cont__79_22(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 654: operating_system() == "linux"
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 655: "linux", "bsd"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__3 */;
-  arguments->slots[1] = string__79_23;
+  arguments->slots[0] = string__79_23;
+  arguments->slots[1] = string__79_24;
   result_count = 1;
-  myself = get__std__equal();
+  myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__79_24;
+  frame->cont = cont__79_25;
 }
-static void cont__79_24(void) {
+static void cont__79_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 655: -> "-l:lib@(library).so.@(MAJOR)"
-  frame->slots[4] /* temp__4 */ = create_closure(entry__79_25, 0);
-  // 656: -> "-l@(library)-@(MAJOR)"
-  frame->slots[5] /* temp__5 */ = create_closure(entry__79_29, 0);
-  // 653: if
-  // 654:   operating_system() == "linux"
-  // 655:   -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:   -> "-l@(library)-@(MAJOR)"
-  argument_count = 3;
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 655: ... -> "-l:lib@(library).so.@(MAJOR)"
+  frame->slots[4] /* temp__4 */ = create_closure(entry__79_26, 0);
+  // 656: ... -> "-l@(library)-@(MAJOR)"
+  frame->slots[5] /* temp__5 */ = create_closure(entry__79_30, 0);
+  // 653: case
+  // 654:   operating_system()
+  // 655:   "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:   true -> "-l@(library)-@(MAJOR)"
+  argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = frame->slots[4] /* temp__4 */;
-  arguments->slots[2] = frame->slots[5] /* temp__5 */;
+  arguments->slots[1] = frame->slots[3] /* temp__3 */;
+  arguments->slots[2] = frame->slots[4] /* temp__4 */;
+  arguments->slots[3] = get__true();
+  arguments->slots[4] = frame->slots[5] /* temp__5 */;
   result_count = 1;
-  myself = get__if();
+  myself = get__case();
   func = myself->type;
-  frame->cont = cont__79_32;
+  frame->cont = cont__79_33;
 }
-static void entry__79_25(void) {
+static void entry__79_26(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // library: 0
@@ -14975,22 +14979,22 @@ static void entry__79_25(void) {
   // 655: ... "-l:lib@(library).so.@(MAJOR)"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__79_26;
+  arguments->slots[0] = string__79_27;
   arguments->slots[1] = frame->slots[0] /* library */;
-  arguments->slots[2] = string__79_27;
+  arguments->slots[2] = string__79_28;
   arguments->slots[3] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__79_28;
+  frame->cont = cont__79_29;
 }
-static void cont__79_28(void) {
+static void cont__79_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 655: -> "-l:lib@(library).so.@(MAJOR)"
+  // 655: ... -> "-l:lib@(library).so.@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14998,7 +15002,7 @@ static void cont__79_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__79_29(void) {
+static void entry__79_30(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // library: 0
@@ -15010,28 +15014,14 @@ static void entry__79_29(void) {
   // 656: ... "-l@(library)-@(MAJOR)"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__79_30;
+  arguments->slots[0] = string__79_31;
   arguments->slots[1] = frame->slots[0] /* library */;
   arguments->slots[2] = string__69_46;
   arguments->slots[3] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__79_31;
-}
-static void cont__79_31(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 656: -> "-l@(library)-@(MAJOR)"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
+  frame->cont = cont__79_32;
 }
 static void cont__79_32(void) {
   if (argument_count != 1) {
@@ -15039,11 +15029,7 @@ static void cont__79_32(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 652: ->
-  // 653:   if
-  // 654:     operating_system() == "linux"
-  // 655:     -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:     -> "-l@(library)-@(MAJOR)"
+  // 656: ... -> "-l@(library)-@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15051,7 +15037,25 @@ static void cont__79_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__79_33(void) {
+static void cont__79_33(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 652: ->
+  // 653:   case
+  // 654:     operating_system()
+  // 655:     "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:     true -> "-l@(library)-@(MAJOR)"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void entry__79_34(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // library: 0
@@ -15068,9 +15072,9 @@ static void entry__79_33(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__79_34;
+  frame->cont = cont__79_35;
 }
-static void cont__79_34(void) {
+static void cont__79_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15078,9 +15082,9 @@ static void cont__79_34(void) {
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 660: -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
   // 661:   # Linux only
-  frame->slots[3] /* temp__3 */ = create_closure(entry__79_35, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__79_36, 0);
   // 662: -> "-l@(library)"
-  frame->slots[4] /* temp__4 */ = create_closure(entry__79_39, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__79_40, 0);
   // 658: if
   // 659:   library .contains. '.'
   // 660:   -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
@@ -15094,9 +15098,9 @@ static void cont__79_34(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__79_41;
+  frame->cont = cont__79_42;
 }
-static void entry__79_35(void) {
+static void entry__79_36(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // library: 0
@@ -15113,9 +15117,9 @@ static void entry__79_35(void) {
   result_count = 1;
   myself = get__before();
   func = myself->type;
-  frame->cont = cont__79_36;
+  frame->cont = cont__79_37;
 }
-static void cont__79_36(void) {
+static void cont__79_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15129,9 +15133,9 @@ static void cont__79_36(void) {
   result_count = 1;
   myself = get__behind();
   func = myself->type;
-  frame->cont = cont__79_37;
+  frame->cont = cont__79_38;
 }
-static void cont__79_37(void) {
+static void cont__79_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15140,16 +15144,16 @@ static void cont__79_37(void) {
   // 660: ... "-l:lib@(library .before. '.').so.@(library .behind. '.')"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__79_26;
+  arguments->slots[0] = string__79_27;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__79_27;
+  arguments->slots[2] = string__79_28;
   arguments->slots[3] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__79_38;
+  frame->cont = cont__79_39;
 }
-static void cont__79_38(void) {
+static void cont__79_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15164,7 +15168,7 @@ static void cont__79_38(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__79_39(void) {
+static void entry__79_40(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // library: 0
@@ -15176,14 +15180,14 @@ static void entry__79_39(void) {
   // 662: ... "-l@(library)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__79_30;
+  arguments->slots[0] = string__79_31;
   arguments->slots[1] = frame->slots[0] /* library */;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__79_40;
+  frame->cont = cont__79_41;
 }
-static void cont__79_40(void) {
+static void cont__79_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15197,7 +15201,7 @@ static void cont__79_40(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__79_41(void) {
+static void cont__79_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15216,7 +15220,7 @@ static void cont__79_41(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__79_42(void) {
+static void cont__79_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15227,10 +15231,10 @@ static void cont__79_42(void) {
   // 650:   if
   // 651:     library .has_prefix. "sim-"
   // 652:     ->
-  // 653:       if
-  // 654:         operating_system() == "linux"
-  // 655:         -> "-l:lib@(library).so.@(MAJOR)"
-  // 656:         -> "-l@(library)-@(MAJOR)"
+  // 653:       case
+  // 654:         operating_system()
+  // 655:         "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+  // 656:         true -> "-l@(library)-@(MAJOR)"
   // 657:     ->
   // ...
   argument_count = 2;
@@ -15240,9 +15244,9 @@ static void cont__79_42(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__79_43;
+  frame->cont = cont__79_44;
 }
-static void cont__79_43(void) {
+static void cont__79_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15254,7 +15258,7 @@ static void cont__79_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__79_44(void) {
+static void cont__79_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15267,9 +15271,9 @@ static void cont__79_44(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__79_45;
+  frame->cont = cont__79_46;
 }
-static void cont__79_45(void) {
+static void cont__79_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18839,7 +18843,7 @@ static void entry__86_61(void) {
   arguments->slots[0] = string__86_62;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* so_version */;
-  arguments->slots[3] = string__79_27;
+  arguments->slots[3] = string__79_28;
   arguments->slots[4] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -19032,7 +19036,7 @@ static void entry__86_76(void) {
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* so_version */;
   arguments->slots[3] = string__69_46;
   arguments->slots[4] = var._MAJOR;
-  arguments->slots[5] = string__86_30;
+  arguments->slots[5] = string__86_31;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -19197,7 +19201,7 @@ static void cont__86_87(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__86_54(void) {
+static void entry__86_55(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // base_filename: 0
@@ -19214,13 +19218,13 @@ static void entry__86_54(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__verbose();
-  arguments->slots[1] = func__86_55;
+  arguments->slots[1] = func__86_56;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__86_57;
+  frame->cont = cont__86_58;
 }
-static void entry__86_55(void) {
+static void entry__86_56(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -19230,13 +19234,13 @@ static void entry__86_55(void) {
   // 879: ... ewriteln "linking dynamic library"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__86_56;
+  arguments->slots[0] = string__86_57;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__86_57(void) {
+static void cont__86_58(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -19247,9 +19251,9 @@ static void cont__86_57(void) {
   result_count = 1;
   myself = get__operating_system();
   func = myself->type;
-  frame->cont = cont__86_58;
+  frame->cont = cont__86_59;
 }
-static void cont__86_58(void) {
+static void cont__86_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19259,7 +19263,7 @@ static void cont__86_58(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__79_23;
-  arguments->slots[1] = string__86_59;
+  arguments->slots[1] = string__79_24;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -19328,9 +19332,9 @@ static void cont__86_60(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   arguments->slots[2] = frame->slots[5] /* temp__3 */;
-  arguments->slots[3] = string__86_36;
+  arguments->slots[3] = string__86_37;
   arguments->slots[4] = frame->slots[6] /* temp__4 */;
-  arguments->slots[5] = string__86_37;
+  arguments->slots[5] = string__86_38;
   arguments->slots[6] = frame->slots[7] /* temp__5 */;
   arguments->slots[7] = frame->slots[8] /* temp__6 */;
   result_count = frame->caller_result_count;
@@ -19355,7 +19359,7 @@ static void entry__86_7(void) {
   frame = frame->caller_frame;
 }
 static void entry__86_8(void) {
-  allocate_initialized_frame_gc(0, 10);
+  allocate_initialized_frame_gc(0, 11);
   // slot allocations:
   // version: 0
   // so_version: 1
@@ -19554,18 +19558,34 @@ static void cont__86_20(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
+  // 860: "linux", "bsd"
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = string__79_23;
+  arguments->slots[1] = string__79_24;
+  result_count = 1;
+  myself = get__std__sequence();
+  func = myself->type;
+  frame->cont = cont__86_21;
+}
+static void cont__86_21(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[6] /* temp__2 */ = arguments->slots[0];
   // 861: -> string("libsim-" base_filename version ".so.@(MAJOR)")
-  frame->slots[6] /* temp__2 */ = create_closure(entry__86_21, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__86_22, 0);
   // 863: -> string("libsim-" base_filename version "-@(MAJOR).dll")
-  frame->slots[7] /* temp__3 */ = create_closure(entry__86_25, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__86_26, 0);
   // 865: -> string("libsim-" base_filename version "-@(MAJOR).dylib")
-  frame->slots[8] /* temp__4 */ = create_closure(entry__86_29, 0);
+  frame->slots[9] /* temp__5 */ = create_closure(entry__86_30, 0);
   // 866: -> string("libsim-" base_filename ".so")
-  frame->slots[9] /* temp__5 */ = create_closure(entry__86_33, 0);
+  frame->slots[10] /* temp__6 */ = create_closure(entry__86_34, 0);
   // 857: $lib_filename
   // 858:   case
   // 859:     operating_system()
-  // 860:     "linux"
+  // 860:     "linux", "bsd"
   // 861:     -> string("libsim-" base_filename version ".so.@(MAJOR)")
   // 862:     "cygwin"
   // 863:     -> string("libsim-" base_filename version "-@(MAJOR).dll")
@@ -19575,19 +19595,19 @@ static void cont__86_20(void) {
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = string__79_23;
-  arguments->slots[2] = frame->slots[6] /* temp__2 */;
-  arguments->slots[3] = string__86_36;
-  arguments->slots[4] = frame->slots[7] /* temp__3 */;
-  arguments->slots[5] = string__86_37;
-  arguments->slots[6] = frame->slots[8] /* temp__4 */;
-  arguments->slots[7] = frame->slots[9] /* temp__5 */;
+  arguments->slots[1] = frame->slots[6] /* temp__2 */;
+  arguments->slots[2] = frame->slots[7] /* temp__3 */;
+  arguments->slots[3] = string__86_37;
+  arguments->slots[4] = frame->slots[8] /* temp__4 */;
+  arguments->slots[5] = string__86_38;
+  arguments->slots[6] = frame->slots[9] /* temp__5 */;
+  arguments->slots[7] = frame->slots[10] /* temp__6 */;
   result_count = 1;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__86_38;
+  frame->cont = cont__86_39;
 }
-static void entry__86_21(void) {
+static void entry__86_22(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // base_filename: 0
@@ -19601,14 +19621,14 @@ static void entry__86_21(void) {
   // 861: ... ".so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__79_27;
+  arguments->slots[0] = string__79_28;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__86_22;
+  frame->cont = cont__86_23;
 }
-static void cont__86_22(void) {
+static void cont__86_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19617,16 +19637,16 @@ static void cont__86_22(void) {
   // 861: ... string("libsim-" base_filename version ".so.@(MAJOR)")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__86_23;
+  arguments->slots[0] = string__86_24;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__86_24;
+  frame->cont = cont__86_25;
 }
-static void cont__86_24(void) {
+static void cont__86_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19640,7 +19660,7 @@ static void cont__86_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__86_25(void) {
+static void entry__86_26(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // base_filename: 0
@@ -19656,13 +19676,13 @@ static void entry__86_25(void) {
   arguments = node_p;
   arguments->slots[0] = string__69_46;
   arguments->slots[1] = var._MAJOR;
-  arguments->slots[2] = string__86_26;
+  arguments->slots[2] = string__86_27;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__86_27;
+  frame->cont = cont__86_28;
 }
-static void cont__86_27(void) {
+static void cont__86_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19671,16 +19691,16 @@ static void cont__86_27(void) {
   // 863: ... string("libsim-" base_filename version "-@(MAJOR).dll")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__86_23;
+  arguments->slots[0] = string__86_24;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__86_28;
+  frame->cont = cont__86_29;
 }
-static void cont__86_28(void) {
+static void cont__86_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19694,7 +19714,7 @@ static void cont__86_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__86_29(void) {
+static void entry__86_30(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // base_filename: 0
@@ -19710,13 +19730,13 @@ static void entry__86_29(void) {
   arguments = node_p;
   arguments->slots[0] = string__69_46;
   arguments->slots[1] = var._MAJOR;
-  arguments->slots[2] = string__86_30;
+  arguments->slots[2] = string__86_31;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__86_31;
+  frame->cont = cont__86_32;
 }
-static void cont__86_31(void) {
+static void cont__86_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19725,16 +19745,16 @@ static void cont__86_31(void) {
   // 865: ... string("libsim-" base_filename version "-@(MAJOR).dylib")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__86_23;
+  arguments->slots[0] = string__86_24;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__86_32;
+  frame->cont = cont__86_33;
 }
-static void cont__86_32(void) {
+static void cont__86_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19748,7 +19768,7 @@ static void cont__86_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__86_33(void) {
+static void entry__86_34(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // base_filename: 0
@@ -19760,15 +19780,15 @@ static void entry__86_33(void) {
   // 866: ... string("libsim-" base_filename ".so")
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__86_23;
+  arguments->slots[0] = string__86_24;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
-  arguments->slots[2] = string__86_34;
+  arguments->slots[2] = string__86_35;
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__86_35;
+  frame->cont = cont__86_36;
 }
-static void cont__86_35(void) {
+static void cont__86_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19782,14 +19802,14 @@ static void cont__86_35(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__86_38(void) {
+static void cont__86_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[4] /* lib_filename */, arguments->slots[0]);
   // 868: ... : ewriteln "build library " lib_filename
-  frame->slots[5] /* temp__1 */ = create_closure(entry__86_39, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__86_40, 0);
   // 868: if verbose: ewriteln "build library " lib_filename
   argument_count = 2;
   arguments = node_p;
@@ -19798,9 +19818,9 @@ static void cont__86_38(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__86_41;
+  frame->cont = cont__86_42;
 }
-static void entry__86_39(void) {
+static void entry__86_40(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // lib_filename: 0
@@ -19812,14 +19832,14 @@ static void entry__86_39(void) {
   // 868: ... ewriteln "build library " lib_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__86_40;
+  arguments->slots[0] = string__86_41;
   arguments->slots[1] = frame->slots[0] /* lib_filename */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__86_41(void) {
+static void cont__86_42(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -19831,9 +19851,9 @@ static void cont__86_41(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__86_42;
+  frame->cont = cont__86_43;
 }
-static void cont__86_42(void) {
+static void cont__86_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19848,9 +19868,9 @@ static void cont__86_42(void) {
   result_count = 1;
   myself = get__behind();
   func = myself->type;
-  frame->cont = cont__86_43;
+  frame->cont = cont__86_44;
 }
-static void cont__86_43(void) {
+static void cont__86_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19864,9 +19884,9 @@ static void cont__86_43(void) {
   result_count = 0;
   myself = var._compile_modules;
   func = myself->type;
-  frame->cont = cont__86_44;
+  frame->cont = cont__86_45;
 }
-static void cont__86_44(void) {
+static void cont__86_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -19879,7 +19899,7 @@ static void cont__86_44(void) {
   // 875:       last_modification_time > modification_time_of(info)
   // 876:     :
   // 877:       !do_link true
-  frame->slots[5] /* temp__1 */ = create_closure(entry__86_45, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__86_46, 0);
   // 870: unless do_link:
   // 871:   $info stat(lib_filename)
   // 872:   if
@@ -19895,9 +19915,9 @@ static void cont__86_44(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__86_53;
+  frame->cont = cont__86_54;
 }
-static void entry__86_52(void) {
+static void entry__86_53(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -19912,7 +19932,7 @@ static void entry__86_52(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__86_45(void) {
+static void entry__86_46(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // lib_filename: 0
@@ -19930,9 +19950,9 @@ static void entry__86_45(void) {
   result_count = 1;
   myself = get__stat();
   func = myself->type;
-  frame->cont = cont__86_46;
+  frame->cont = cont__86_47;
 }
-static void cont__86_46(void) {
+static void cont__86_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19945,16 +19965,16 @@ static void cont__86_46(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__86_47;
+  frame->cont = cont__86_48;
 }
-static void cont__86_47(void) {
+static void cont__86_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 875: last_modification_time > modification_time_of(info)
-  frame->slots[4] /* temp__3 */ = create_closure(entry__86_48, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__86_49, 0);
   // 873: ||
   // 874:   info.is_undefined
   // 875:   last_modification_time > modification_time_of(info)
@@ -19965,9 +19985,9 @@ static void cont__86_47(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__86_51;
+  frame->cont = cont__86_52;
 }
-static void entry__86_48(void) {
+static void entry__86_49(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // info: 0
@@ -19983,9 +20003,9 @@ static void entry__86_48(void) {
   result_count = 1;
   myself = get__modification_time_of();
   func = myself->type;
-  frame->cont = cont__86_49;
+  frame->cont = cont__86_50;
 }
-static void cont__86_49(void) {
+static void cont__86_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19999,9 +20019,9 @@ static void cont__86_49(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__86_50;
+  frame->cont = cont__86_51;
 }
-static void cont__86_50(void) {
+static void cont__86_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20015,7 +20035,7 @@ static void cont__86_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__86_51(void) {
+static void cont__86_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20030,13 +20050,13 @@ static void cont__86_51(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = func__86_52;
+  arguments->slots[1] = func__86_53;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__86_53(void) {
+static void cont__86_54(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -20052,7 +20072,7 @@ static void cont__86_53(void) {
   // 886:         "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   // 887:         library_paths_and_file_list()*
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__86_54, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__86_55, 0);
   // 878: if do_link:
   // 879:   if verbose: ewriteln "linking dynamic library"
   // 880:   case
@@ -21483,7 +21503,7 @@ static void cont__91_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
-  arguments->slots[1] = string__86_36;
+  arguments->slots[1] = string__86_37;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -22945,14 +22965,14 @@ static void cont__91_99(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 1060: operating_system() == "linux"
+  frame->slots[6] /* temp__2 */ = arguments->slots[0];
+  // 1061: "linux", "bsd"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[7] /* temp__3 */;
-  arguments->slots[1] = string__79_23;
+  arguments->slots[0] = string__79_23;
+  arguments->slots[1] = string__79_24;
   result_count = 1;
-  myself = get__std__equal();
+  myself = get__std__sequence();
   func = myself->type;
   frame->cont = cont__91_100;
 }
@@ -22961,18 +22981,20 @@ static void cont__91_100(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 1059: if
-  // 1060:   operating_system() == "linux"
-  // 1061:   -> "-l:libsim.so.@(MAJOR)"
-  // 1062:   -> "-lsim-@(MAJOR)"
-  argument_count = 3;
+  frame->slots[7] /* temp__3 */ = arguments->slots[0];
+  // 1059: case
+  // 1060:   operating_system()
+  // 1061:   "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
+  // 1062:   true -> "-lsim-@(MAJOR)"
+  argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
-  arguments->slots[1] = func__91_101;
-  arguments->slots[2] = func__91_104;
+  arguments->slots[1] = frame->slots[7] /* temp__3 */;
+  arguments->slots[2] = func__91_101;
+  arguments->slots[3] = get__true();
+  arguments->slots[4] = func__91_104;
   result_count = 1;
-  myself = get__if();
+  myself = get__case();
   func = myself->type;
   frame->cont = cont__91_106;
 }
@@ -22999,7 +23021,7 @@ static void cont__91_103(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1061: -> "-l:libsim.so.@(MAJOR)"
+  // 1061: ... -> "-l:libsim.so.@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -23030,7 +23052,7 @@ static void cont__91_105(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1062: -> "-lsim-@(MAJOR)"
+  // 1062: ... -> "-lsim-@(MAJOR)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -23046,10 +23068,10 @@ static void cont__91_106(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 1057: CC $_out $err $success
   // 1058:   libs_and_files*
-  // 1059:   if
-  // 1060:     operating_system() == "linux"
-  // 1061:     -> "-l:libsim.so.@(MAJOR)"
-  // 1062:     -> "-lsim-@(MAJOR)"
+  // 1059:   case
+  // 1060:     operating_system()
+  // 1061:     "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
+  // 1062:     true -> "-lsim-@(MAJOR)"
   // 1063:   "-o"
   // 1064:   exe_filename
   argument_count = 0;
@@ -23177,10 +23199,10 @@ static void cont__91_84(void) {
   // 1056:   if verbose: ewriteln "linking executable"
   // 1057:   CC $_out $err $success
   // 1058:     libs_and_files*
-  // 1059:     if
-  // 1060:       operating_system() == "linux"
-  // 1061:       -> "-l:libsim.so.@(MAJOR)"
-  // 1062:       -> "-lsim-@(MAJOR)"
+  // 1059:     case
+  // 1060:       operating_system()
+  // 1061:       "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
+  // 1062:       true -> "-lsim-@(MAJOR)"
   // 1063:     "-o"
   // 1064:     exe_filename
   // ...
@@ -23618,9 +23640,10 @@ int main(int argc, char **argv) {
   string__79_8 = from_latin_1_string("-L", 2);
   string__79_14 = from_latin_1_string("library paths: ", 15);
   string__79_23 = from_latin_1_string("linux", 5);
-  string__79_26 = from_latin_1_string("-l:lib", 6);
-  string__79_27 = from_latin_1_string(".so.", 4);
-  string__79_30 = from_latin_1_string("-l", 2);
+  string__79_24 = from_latin_1_string("bsd", 3);
+  string__79_27 = from_latin_1_string("-l:lib", 6);
+  string__79_28 = from_latin_1_string(".so.", 4);
+  string__79_31 = from_latin_1_string("-l", 2);
   func__79_1_library_paths_and_file_list = create_function(entry__79_1_library_paths_and_file_list, 0);
   string__80_26 = from_latin_1_string("typedef", 7);
   string__80_30 = from_latin_1_string("REGISTER", 8);
@@ -23682,17 +23705,16 @@ int main(int argc, char **argv) {
   func__86_4 = create_function(entry__86_4, 0);
   func__86_7 = create_function(entry__86_7, 0);
   string__86_9 = from_latin_1_string("/VERSION", 8);
-  string__86_23 = from_latin_1_string("libsim-", 7);
-  string__86_26 = from_latin_1_string(".dll", 4);
-  string__86_30 = from_latin_1_string(".dylib", 6);
-  string__86_34 = from_latin_1_string(".so", 3);
-  string__86_36 = from_latin_1_string("cygwin", 6);
-  string__86_37 = from_latin_1_string("darwin", 6);
-  string__86_40 = from_latin_1_string("build library ", 14);
-  func__86_52 = create_function(entry__86_52, 0);
-  string__86_56 = from_latin_1_string("linking dynamic library", 23);
-  func__86_55 = create_function(entry__86_55, 0);
-  string__86_59 = from_latin_1_string("bsd", 3);
+  string__86_24 = from_latin_1_string("libsim-", 7);
+  string__86_27 = from_latin_1_string(".dll", 4);
+  string__86_31 = from_latin_1_string(".dylib", 6);
+  string__86_35 = from_latin_1_string(".so", 3);
+  string__86_37 = from_latin_1_string("cygwin", 6);
+  string__86_38 = from_latin_1_string("darwin", 6);
+  string__86_41 = from_latin_1_string("build library ", 14);
+  func__86_53 = create_function(entry__86_53, 0);
+  string__86_57 = from_latin_1_string("linking dynamic library", 23);
+  func__86_56 = create_function(entry__86_56, 0);
   string__86_62 = from_latin_1_string("-Wl,-soname,libsim-", 19);
   string__86_65 = from_latin_1_string("-shared", 7);
   string__86_71 = from_latin_1_string("-lsim-", 6);
