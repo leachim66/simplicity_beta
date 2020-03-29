@@ -134,6 +134,9 @@ then
 elif [ 0 -ne `echo $UNAME | awk '{print match(toupper($0), /LINUX/)}'` ]
 then
   OS='linux'
+elif [ 0 -ne `echo $UNAME | awk '{print match(toupper($0), /FREEBSD/)}'` ]
+then
+  OS='bsd'
 elif [ 0 -ne `echo $OSTYPE | awk '{print match(toupper($0), /CYGWIN/)}'` ]
 then
   OS='cygwin'

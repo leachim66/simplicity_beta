@@ -1,5 +1,7 @@
 #!/usr/bin/env simrun
 
+<require basic/stdlib>
+
 write "
   Greetings from Simplicity!
 
