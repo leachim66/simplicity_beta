@@ -1,7 +1,7 @@
 #!/usr/bin/env simrun
 
 extern $sim2c "sim2c/simple"
-extern $gcc "gcc"
+extern $cc c_compiler()
 !environment("LD_LIBRARY_PATH") "." # use the freshly built libraries
 $prefix_len length_of(current_path())
 $$total_compilations 0
@@ -95,7 +95,7 @@ $$total_c_compilations 0
 $$attempted_c_compilations 0
 $$successful_c_compilations 0
 
-$gcc_options
+$cc_options
   list
     "-O1"
     "-fno-stack-protector"
@@ -105,7 +105,7 @@ $gcc_options
     "-Wno-unused-variable"
     "-Wno-parentheses"
     "-Wno-switch"
-    "-Wno-maybe-uninitialized"
+    #"-Wno-maybe-uninitialized"
     "-Werror"
     "-I."
 
@@ -125,8 +125,8 @@ $c_compile:
 	  if file_exists(c_filename):
 	    $o_filename string(plainname ".o")
 	    inc &attempted_c_compilations
-	    writeln "gcc -c " range(c_filename prefix_len+2 -1) " ..."
-	    gcc $out $err $success gcc_options* "-c" c_filename "-o" o_filename
+	    writeln "@(c_compiler()) -c " range(c_filename prefix_len+2 -1) " ..."
+	    cc $out $err $success cc_options* "-c" c_filename "-o" o_filename
 	    inc &total_c_compilations
 	    if
 	      success:
