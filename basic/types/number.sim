@@ -145,6 +145,7 @@ $types::real.is_a_real true
 {
   <kind type>
   <name types::positive_integer>
+  <scope extern>
   <node INTEGER>
   <base types::integer>
   <argument 1>

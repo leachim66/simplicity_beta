@@ -228,58 +228,443 @@ $std::connect () # connect to a specific network address and port
   IPPROTO_UDP  17 # User Datagram Protocol
   IPPROTO_IPV6 41 # IPv6 header
 
-$std::O_RDONLY 0o00
-$std::O_WRONLY 0o01
-$std::O_RDWR 0o02
-$std::O_CREAT 0o100
-$std::O_EXCL 0o200
-$std::O_NOCTTY 0o400
-$std::O_TRUNC 0o1000
-$std::O_APPEND 0o2000
-$std::O_NONBLOCK 0o4000
-$std::O_ASYNC 0o20000
-$std::UNKNOWN 0
-$std::FIFO 1 # pipe
-$std::CHARACTER_DEVICE 2
-$std::DIRECTORY 4
-$std::BLOCK_DEVICE 6
-$std::REGULAR_FILE 8
-$std::LINK 10
-$std::SOCKET 12
-$std::EPERM 1 # Operation not permitted
-$std::ENOENT 2 # No such file or directory
-$std::ESRCH 3 # No such process
-$std::EINTR 4 # Interrupted system call
-$std::EIO 5 # I/O error
-$std::ENXIO 6 # No such device or address
-$std::E2BIG 7 # Argument list too long
-$std::ENOEXEC 8 # Exec format error
-$std::EBADF 9 # Bad file number
-$std::ECHILD 10 # No child processes
-$std::EAGAIN 11 # Try again
-$std::ENOMEM 12 # Out of memory
-$std::EACCES 13 # Permission denied
-$std::EFAULT 14 # Bad address
-$std::ENOTBLK 15 # Block device required
-$std::EBUSY 16 # Device or resource busy
-$std::EEXIST 17 # File exists
-$std::EXDEV 18 # Cross-device link
-$std::ENODEV 19 # No such device
-$std::ENOTDIR 20 # Not a directory
-$std::EISDIR 21 # Is a directory
-$std::EINVAL 22 # Invalid argument
-$std::ENFILE 23 # File table overflow
-$std::EMFILE 24 # Too many open files
-$std::ENOTTY 25 # Not a typewriter
-$std::ETXTBSY 26 # Text file busy
-$std::EFBIG 27 # File too large
-$std::ENOSPC 28 # No space left on device
-$std::ESPIPE 29 # Illegal seek
-$std::EROFS 30 # Read-only file system
-$std::EMLINK 31 # Too many links
-$std::EPIPE 32 # Broken pipe
-$std::EDOM 33 # Math argument out of domain of func
-$std::ERANGE 34 # Math result not representable
+{
+  extern NODE *create__types__positive_integer(uint64_t value);
+}
+
+{
+  <kind object>
+  <name std::O_RDONLY>
+  <type types::positive_integer>
+  <argument O_RDONLY>
+}
+
+{
+  <kind object>
+  <name std::O_WRONLY>
+  <type types::positive_integer>
+  <argument O_WRONLY>
+}
+
+{
+  <kind object>
+  <name std::O_RDWR>
+  <type types::positive_integer>
+  <argument O_RDWR>
+}
+
+{
+  <kind object>
+  <name std::O_CREAT>
+  <type types::positive_integer>
+  <argument O_CREAT>
+}
+
+{
+  <kind object>
+  <name std::O_EXCL>
+  <type types::positive_integer>
+  <argument O_EXCL>
+}
+
+{
+  <kind object>
+  <name std::O_NOCTTY>
+  <type types::positive_integer>
+  <argument O_NOCTTY>
+}
+
+{
+  <kind object>
+  <name std::O_TRUNC>
+  <type types::positive_integer>
+  <argument O_TRUNC>
+}
+
+{
+  <kind object>
+  <name std::O_APPEND>
+  <type types::positive_integer>
+  <argument O_APPEND>
+}
+
+{
+  <kind object>
+  <name std::O_NONBLOCK>
+  <type types::positive_integer>
+  <argument O_NONBLOCK>
+}
+
+{
+  <kind object>
+  <name std::O_ASYNC>
+  <type types::positive_integer>
+  <argument O_ASYNC>
+}
+
+{
+  <kind object>
+  <name std::UNKNOWN>
+  <type types::positive_integer>
+  <argument DT_UNKNOWN>
+}
+
+# pipe
+
+{
+  <kind object>
+  <name std::FIFO>
+  <type types::positive_integer>
+  <argument DT_FIFO>
+}
+
+{
+  <kind object>
+  <name std::CHARACTER_DEVICE>
+  <type types::positive_integer>
+  <argument DT_CHR>
+}
+
+{
+  <kind object>
+  <name std::DIRECTORY>
+  <type types::positive_integer>
+  <argument DT_DIR>
+}
+
+{
+  <kind object>
+  <name std::BLOCK_DEVICE>
+  <type types::positive_integer>
+  <argument DT_BLK>
+}
+
+{
+  <kind object>
+  <name std::REGULAR_FILE>
+  <type types::positive_integer>
+  <argument DT_REG>
+}
+
+{
+  <kind object>
+  <name std::LINK>
+  <type types::positive_integer>
+  <argument DT_LNK>
+}
+
+{
+  <kind object>
+  <name std::SOCKET>
+  <type types::positive_integer>
+  <argument DT_SOCK>
+}
+
+# Operation not permitted
+
+{
+  <kind object>
+  <name std::EPERM>
+  <type types::positive_integer>
+  <argument EPERM>
+}
+
+# No such file or directory
+
+{
+  <kind object>
+  <name std::ENOENT>
+  <type types::positive_integer>
+  <argument ENOENT>
+}
+
+# No such process
+
+{
+  <kind object>
+  <name std::ESRCH>
+  <type types::positive_integer>
+  <argument ESRCH>
+}
+
+# Interrupted system call
+
+{
+  <kind object>
+  <name std::EINTR>
+  <type types::positive_integer>
+  <argument EINTR>
+}
+
+# I/O error
+
+{
+  <kind object>
+  <name std::EIO>
+  <type types::positive_integer>
+  <argument EIO>
+}
+
+# No such device or address
+
+{
+  <kind object>
+  <name std::ENXIO>
+  <type types::positive_integer>
+  <argument ENXIO>
+}
+
+# Argument list too long
+
+{
+  <kind object>
+  <name std::E2BIG>
+  <type types::positive_integer>
+  <argument E2BIG>
+}
+
+# Exec format error
+
+{
+  <kind object>
+  <name std::ENOEXEC>
+  <type types::positive_integer>
+  <argument ENOEXEC>
+}
+
+# Bad file number
+
+{
+  <kind object>
+  <name std::EBADF>
+  <type types::positive_integer>
+  <argument EBADF>
+}
+
+# No child processes
+
+{
+  <kind object>
+  <name std::ECHILD>
+  <type types::positive_integer>
+  <argument ECHILD>
+}
+
+# Try again
+
+{
+  <kind object>
+  <name std::EAGAIN>
+  <type types::positive_integer>
+  <argument EAGAIN>
+}
+
+# Out of memory
+
+{
+  <kind object>
+  <name std::ENOMEM>
+  <type types::positive_integer>
+  <argument ENOMEM>
+}
+
+# Permission denied
+
+{
+  <kind object>
+  <name std::EACCES>
+  <type types::positive_integer>
+  <argument EACCES>
+}
+
+# Bad address
+
+{
+  <kind object>
+  <name std::EFAULT>
+  <type types::positive_integer>
+  <argument EFAULT>
+}
+
+# Block device required
+
+{
+  <kind object>
+  <name std::ENOTBLK>
+  <type types::positive_integer>
+  <argument ENOTBLK>
+}
+
+# Device or resource busy
+
+{
+  <kind object>
+  <name std::EBUSY>
+  <type types::positive_integer>
+  <argument EBUSY>
+}
+
+# File exists
+
+{
+  <kind object>
+  <name std::EEXIST>
+  <type types::positive_integer>
+  <argument EEXIST>
+}
+
+# Cross-device link
+
+{
+  <kind object>
+  <name std::EXDEV>
+  <type types::positive_integer>
+  <argument EXDEV>
+}
+
+# No such device
+
+{
+  <kind object>
+  <name std::ENODEV>
+  <type types::positive_integer>
+  <argument ENODEV>
+}
+
+# Not a directory
+
+{
+  <kind object>
+  <name std::ENOTDIR>
+  <type types::positive_integer>
+  <argument ENOTDIR>
+}
+
+# Is a directory
+
+{
+  <kind object>
+  <name std::EISDIR>
+  <type types::positive_integer>
+  <argument EISDIR>
+}
+
+# Invalid argument
+
+{
+  <kind object>
+  <name std::EINVAL>
+  <type types::positive_integer>
+  <argument EINVAL>
+}
+
+# File table overflow
+
+{
+  <kind object>
+  <name std::ENFILE>
+  <type types::positive_integer>
+  <argument ENFILE>
+}
+
+# Too many open files
+
+{
+  <kind object>
+  <name std::EMFILE>
+  <type types::positive_integer>
+  <argument EMFILE>
+}
+
+# Not a typewriter
+
+{
+  <kind object>
+  <name std::ENOTTY>
+  <type types::positive_integer>
+  <argument ENOTTY>
+}
+
+# Text file busy
+
+{
+  <kind object>
+  <name std::ETXTBSY>
+  <type types::positive_integer>
+  <argument ETXTBSY>
+}
+
+# File too large
+
+{
+  <kind object>
+  <name std::EFBIG>
+  <type types::positive_integer>
+  <argument EFBIG>
+}
+
+# No space left on device
+
+{
+  <kind object>
+  <name std::ENOSPC>
+  <type types::positive_integer>
+  <argument ENOSPC>
+}
+
+# Illegal seek
+
+{
+  <kind object>
+  <name std::ESPIPE>
+  <type types::positive_integer>
+  <argument ESPIPE>
+}
+
+# Read-only file system
+
+{
+  <kind object>
+  <name std::EROFS>
+  <type types::positive_integer>
+  <argument EROFS>
+}
+
+# Too many links
+
+{
+  <kind object>
+  <name std::EMLINK>
+  <type types::positive_integer>
+  <argument EMLINK>
+}
+
+# Broken pipe
+
+{
+  <kind object>
+  <name std::EPIPE>
+  <type types::positive_integer>
+  <argument EPIPE>
+}
+
+# Math argument out of domain of func
+
+{
+  <kind object>
+  <name std::EDOM>
+  <type types::positive_integer>
+  <argument EDOM>
+}
+
+# Math result not representable
+
+{
+  <kind object>
+  <name std::ERANGE>
+  <type types::positive_integer>
+  <argument ERANGE>
+}
 
 $std::raise_error: (cmd args*)
   $$info ""
