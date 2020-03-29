@@ -4,7 +4,9 @@
 #include <stdint.h>
 #include <math.h>
 #include <time.h>
+#include <runtime/platform.h>
 #include <stdlib.h>
+
 /**********************
 D E C L A R A T I O N S
 **********************/

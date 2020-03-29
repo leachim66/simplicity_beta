@@ -255,7 +255,7 @@ $LIB . # a file within a shared library
 %mode undefined # EXE or LIB
 $WHITESPACE many(' ')
 
-$cc_basic_options
+$$cc_options
   list
     "-Wall"
     "-Wno-unused-function"
@@ -268,36 +268,24 @@ $cc_basic_options
     "-fno-stack-protector"
     "-falign-functions=16"
 
-$gcc_options
-  list
-    "-Wno-maybe-uninitialized"
+if c_compiler() == "gcc":
+  push &cc_options "-Wno-maybe-uninitialized"
 
-#$clang_options
-  list
-    "-Wno-uninitialized"
+case hardware_architecture()
+  "x86_32", "x86_64":
+    push &cc_options "-msse2"
+    push &cc_options "-mfpmath=sse"
 
-$cc_hardware_specific_options
-  table
-    "x86_32" = list("-msse2" "-mfpmath=sse")
-    "x86_64" = list("-msse2" "-mfpmath=sse")
-
-$$cc_include_options empty_list
 for_each simdatapaths: (path)
-  push &cc_include_options "-I@(path)"
+  push &cc_options "-I@(path)"
 
-$cc_options
-  append
-    cc_basic_options
-    append
-      default_value
-	cc_hardware_specific_options(hardware_architecture())
-	empty_list
-      append
-	if
-	  c_compiler() == "gcc"
-	  -> gcc_options
-	  -> empty_list
-	cc_include_options
+$$cpp_options empty_list
+for_each split(CPPFLAGS()): (option)
+  push &cpp_options option
+
+$$ld_options empty_list
+for_each split(LDFLAGS()): (option)
+  push &ld_options option
 
 %on_top_level true # set to false while building meta-files
 %%objects empty_insert_order_set
@@ -393,7 +381,7 @@ $CC: (args*)
 
 $compile_c: (c_filename o_filename)
   unless do_build_codeblocks_project || do_list_dependencies:
-    CC $_out $err $success cc_options* "-c" c_filename "-o" o_filename
+    CC $_out $err $success cpp_options* cc_options* "-c" c_filename "-o" o_filename
     unless success:
       Error "
 	Failed to compile @(c_filename)
@@ -893,6 +881,7 @@ $build_library:
 	  operating_system()
 	  "linux", "bsd":
 	    CC $_out $err $success
+	      ld_options*
 	      "-shared"
 	      "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
 	      library_paths_and_file_list()*
@@ -901,6 +890,7 @@ $build_library:
 	    unless success: Error err.from_utf8
 	  "cygwin":
 	    CC $_out $err $success
+	      ld_options*
 	      "-shared"
 	      library_paths_and_file_list()*
 	      "-lsim-@(MAJOR)"
@@ -909,6 +899,7 @@ $build_library:
 	    unless success: Error err.from_utf8
 	  "darwin":
 	    CC $_out $err $success
+	      ld_options*
 	      "-dynamiclib"
 	      "
 		-Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
@@ -920,6 +911,7 @@ $build_library:
 	    unless success: Error err.from_utf8
 	  :
 	    CC $_out $err $success
+	      ld_options*
 	      "-shared"
 	      library_paths_and_file_list()*
 	      "-o"

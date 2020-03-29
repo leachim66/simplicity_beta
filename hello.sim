@@ -5,5 +5,4 @@
 write "
   Greetings from Simplicity!
 
-  Running on a @(current_platform()) operating system on an @
-  @(hardware_architecture()) architecture.
+  Running under @(operating_system()) on an @(hardware_architecture()) computer.

@@ -107,6 +107,7 @@ $gcc_options
     "-Wno-switch"
     "-Wno-maybe-uninitialized"
     "-Werror"
+    "-I."
 
 $c_compile:
   (

@@ -20,8 +20,6 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, US
 
-<include runtime/platform.h>
-
 #
   Platform Hierarchy
 
@@ -40,73 +38,28 @@
     +-- win
 
 $std::operating_system {
-  const char *platform =
-  #if defined(OS_linux)
-    "linux";
-  #elif defined(OS_bsd)
-    "bsd";
-  #elif defined(OS_darwin)
-    "darwin";
-  #elif defined(OS_cygwin)
-    "cygwin";
-  #elif defined(OS_posix)
-    "posix";
-  #elif defined(OS_win)
-    "win";
-  #else
-    NULL;
-  #endif
-  NODE *result;
-  if (platform) {
-    result = from_c_string(platform);
-  } else {
-    result = UNDEFINED;
-  }
-  RETURN_SINGLE_RESULT(result)
+  CHECK_ARGUMENTS(0)
+  RETURN_SINGLE_RESULT(from_c_string(OS))
 }
 
 $std::hardware_architecture {
   CHECK_ARGUMENTS(0)
-  const char *architecture =
-  #if defined(ARCHITECTURE_x86_64)
-    "x86_64";
-  #elif defined(ARCHITECTURE_x86_32)
-    "x86_32";
-  #elif defined(ARCHITECTURE_arm_32)
-    "arm_32";
-  #else
-    NULL;
-  #endif
-  NODE *result;
-  if (architecture) {
-    result = from_c_string(architecture);
-  } else {
-    result = UNDEFINED;
-  }
-  RETURN_SINGLE_RESULT(result)
+  RETURN_SINGLE_RESULT(from_c_string(ARCHITECTURE))
 }
 
 $std::c_compiler {
   CHECK_ARGUMENTS(0)
-  const char *compiler =
-  #if defined(CC_gcc)
-    "gcc";
-  #elif defined(CC_clang)
-    "clang";
-  #elif defined(CC_c99)
-    "c99";
-  #elif defined(CC_cc)
-    "cc";
-  #else
-    NULL;
-  #endif
-  NODE *result;
-  if (compiler) {
-    result = from_c_string(compiler);
-  } else {
-    result = UNDEFINED;
-  }
-  RETURN_SINGLE_RESULT(result)
+  RETURN_SINGLE_RESULT(from_c_string(CC))
+}
+
+$std::CPPFLAGS {
+  CHECK_ARGUMENTS(0)
+  RETURN_SINGLE_RESULT(from_c_string(CPPFLAGS))
+}
+
+$std::LDFLAGS {
+  CHECK_ARGUMENTS(0)
+  RETURN_SINGLE_RESULT(from_c_string(LDFLAGS))
 }
 
 $std::current_directory_separator:

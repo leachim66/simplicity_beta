@@ -657,10 +657,12 @@ $sim2c::sim2c:
   for_each linked_libraries: (name) writeln "/// link @(name)"
   for_each dependent_data: (filemask) writeln "/// data @(filemask)"
   unless required_modules.is_empty writeln
+  !included_files("runtime/platform.h") true
   if use_inline_c:
     !included_files("stdint.h") true
     !included_files("stdlib.h") true
   for_each included_files: (name) writeln "#include <@(name)>"
+  unless included_files.is_empty writeln
   write "
     /**********************
     D E C L A R A T I O N S

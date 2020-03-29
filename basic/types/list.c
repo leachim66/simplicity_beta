@@ -1,6 +1,8 @@
 #include <string.h>
+#include <runtime/platform.h>
 #include <stdint.h>
 #include <stdlib.h>
+
 /**********************
 D E C L A R A T I O N S
 **********************/
