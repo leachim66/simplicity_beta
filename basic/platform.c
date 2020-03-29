@@ -1,6 +1,7 @@
 #include <runtime/platform.h>
 #include <stdint.h>
 #include <stdlib.h>
+
 /**********************
 D E C L A R A T I O N S
 **********************/
@@ -148,12 +149,11 @@ typedef struct MODULE_INFO {
 REGISTER FUNC func ASM("r14");
 REGISTER FRAME *frame ASM("r15");
 IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
-IMPORT NODE *from_c_string(const char *str);
-IMPORT NODE *undefined;
-REGISTER FRAME *arguments ASM("r12");
-IMPORT void *node_p;
 REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
+IMPORT NODE *from_c_string(const char *str);
+REGISTER FRAME *arguments ASM("r12");
+IMPORT void *node_p;
 IMPORT int result_count;
 REGISTER NODE *myself ASM("r13");
 IMPORT void invalid_results_error(void);
@@ -226,6 +226,8 @@ static struct {
   NODE *std__operating_system;
   NODE *std__hardware_architecture;
   NODE *std__c_compiler;
+  NODE *std__CPPFLAGS;
+  NODE *std__LDFLAGS;
   NODE *std__current_directory_separator;
   NODE *std__current_path_separator;
 } var;
@@ -246,32 +248,42 @@ static NODE *func__3_1_std__c_compiler;
 static NODE *get__std__c_compiler(void) {
   return var.std__c_compiler;
 }
-static NODE *func__4_1_std__current_directory_separator;
-static void entry__4_1_std__current_directory_separator(void);
-static FRAME_INFO frame__4_1_std__current_directory_separator = {0, {}};
-static void cont__4_2(void);
-static NODE *string__4_3;
-static void cont__4_4(void);
-static NODE *func__4_5;
-static void entry__4_5(void);
-static FRAME_INFO frame__4_5 = {0, {}};
-static NODE *func__4_6;
-static void entry__4_6(void);
-static FRAME_INFO frame__4_6 = {0, {}};
+static void entry__4_1_std__CPPFLAGS(void);
+static NODE *func__4_1_std__CPPFLAGS;
+static NODE *get__std__CPPFLAGS(void) {
+  return var.std__CPPFLAGS;
+}
+static void entry__5_1_std__LDFLAGS(void);
+static NODE *func__5_1_std__LDFLAGS;
+static NODE *get__std__LDFLAGS(void) {
+  return var.std__LDFLAGS;
+}
+static NODE *func__6_1_std__current_directory_separator;
+static void entry__6_1_std__current_directory_separator(void);
+static FRAME_INFO frame__6_1_std__current_directory_separator = {0, {}};
+static void cont__6_2(void);
+static NODE *string__6_3;
+static void cont__6_4(void);
+static NODE *func__6_5;
+static void entry__6_5(void);
+static FRAME_INFO frame__6_5 = {0, {}};
+static NODE *func__6_6;
+static void entry__6_6(void);
+static FRAME_INFO frame__6_6 = {0, {}};
 static NODE *get__std__current_directory_separator(void) {
   return var.std__current_directory_separator;
 }
-static NODE *func__5_1_std__current_path_separator;
-static void entry__5_1_std__current_path_separator(void);
-static FRAME_INFO frame__5_1_std__current_path_separator = {0, {}};
-static void cont__5_2(void);
-static void cont__5_3(void);
-static NODE *func__5_4;
-static void entry__5_4(void);
-static FRAME_INFO frame__5_4 = {0, {}};
-static NODE *func__5_5;
-static void entry__5_5(void);
-static FRAME_INFO frame__5_5 = {0, {}};
+static NODE *func__7_1_std__current_path_separator;
+static void entry__7_1_std__current_path_separator(void);
+static FRAME_INFO frame__7_1_std__current_path_separator = {0, {}};
+static void cont__7_2(void);
+static void cont__7_3(void);
+static NODE *func__7_4;
+static void entry__7_4(void);
+static FRAME_INFO frame__7_4 = {0, {}};
+static NODE *func__7_5;
+static void entry__7_5(void);
+static FRAME_INFO frame__7_5 = {0, {}};
 static NODE *get__std__current_path_separator(void) {
   return var.std__current_path_separator;
 }
@@ -279,19 +291,21 @@ void run__basic__platform(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__platform, NULL, },
-  {entry__1_1_std__operating_system, NULL, 42, 66, 24, 0},
-  {entry__2_1_std__hardware_architecture, NULL, 68, 87, 29, 0},
-  {entry__3_1_std__c_compiler, NULL, 89, 110, 18, 0},
-  {entry__4_5, NULL, 115, 115, 5, 10},
-  {entry__4_6, NULL, 116, 116, 5, 10},
-  {entry__4_1_std__current_directory_separator, NULL, 114, 114, 5, 22},
-  {cont__4_2, &frame__4_1_std__current_directory_separator, 114, 114, 5, 31},
-  {cont__4_4, &frame__4_1_std__current_directory_separator, 113, 116, 3, 10},
-  {entry__5_4, NULL, 121, 121, 5, 10},
-  {entry__5_5, NULL, 122, 122, 5, 10},
-  {entry__5_1_std__current_path_separator, NULL, 120, 120, 5, 22},
-  {cont__5_2, &frame__5_1_std__current_path_separator, 120, 120, 5, 31},
-  {cont__5_3, &frame__5_1_std__current_path_separator, 119, 122, 3, 10}
+  {entry__1_1_std__operating_system, NULL, 40, 43, 24, 0},
+  {entry__2_1_std__hardware_architecture, NULL, 45, 48, 29, 0},
+  {entry__3_1_std__c_compiler, NULL, 50, 53, 18, 0},
+  {entry__4_1_std__CPPFLAGS, NULL, 55, 58, 16, 0},
+  {entry__5_1_std__LDFLAGS, NULL, 60, 63, 15, 0},
+  {entry__6_5, NULL, 68, 68, 5, 10},
+  {entry__6_6, NULL, 69, 69, 5, 10},
+  {entry__6_1_std__current_directory_separator, NULL, 67, 67, 5, 22},
+  {cont__6_2, &frame__6_1_std__current_directory_separator, 67, 67, 5, 31},
+  {cont__6_4, &frame__6_1_std__current_directory_separator, 66, 69, 3, 10},
+  {entry__7_4, NULL, 74, 74, 5, 10},
+  {entry__7_5, NULL, 75, 75, 5, 10},
+  {entry__7_1_std__current_path_separator, NULL, 73, 73, 5, 22},
+  {cont__7_2, &frame__7_1_std__current_path_separator, 73, 73, 5, 31},
+  {cont__7_3, &frame__7_1_std__current_path_separator, 72, 75, 3, 10}
 };
 
 union NODE {
@@ -344,30 +358,12 @@ EXPORT void run__basic__platform(void) {
   frame->cont = invalid_continuation;
 }
 static void entry__1_1_std__operating_system(void) {
-  const char *platform =
-  #if defined(OS_linux)
-    "linux";
-  #elif defined(OS_bsd)
-    "bsd";
-  #elif defined(OS_darwin)
-    "darwin";
-  #elif defined(OS_cygwin)
-    "cygwin";
-  #elif defined(OS_posix)
-    "posix";
-  #elif defined(OS_win)
-    "win";
-  #else
-    NULL;
-  #endif
-  NODE *result;
-  if (platform) {
-    result = from_c_string(platform);
-  } else {
-    result = undefined;
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
   }
   {
-    NODE *result__node = (NODE *)(result);
+    NODE *result__node = (NODE *)(from_c_string(OS));
     arguments = node_p;
     arguments->slots[0] = result__node;
     argument_count = 1;
@@ -381,24 +377,8 @@ static void entry__2_1_std__hardware_architecture(void) {
     invalid_arguments_error();
     return;
   }
-  const char *architecture =
-  #if defined(ARCHITECTURE_x86_64)
-    "x86_64";
-  #elif defined(ARCHITECTURE_x86_32)
-    "x86_32";
-  #elif defined(ARCHITECTURE_arm_32)
-    "arm_32";
-  #else
-    NULL;
-  #endif
-  NODE *result;
-  if (architecture) {
-    result = from_c_string(architecture);
-  } else {
-    result = undefined;
-  }
   {
-    NODE *result__node = (NODE *)(result);
+    NODE *result__node = (NODE *)(from_c_string(ARCHITECTURE));
     arguments = node_p;
     arguments->slots[0] = result__node;
     argument_count = 1;
@@ -412,26 +392,8 @@ static void entry__3_1_std__c_compiler(void) {
     invalid_arguments_error();
     return;
   }
-  const char *compiler =
-  #if defined(CC_gcc)
-    "gcc";
-  #elif defined(CC_clang)
-    "clang";
-  #elif defined(CC_c99)
-    "c99";
-  #elif defined(CC_cc)
-    "cc";
-  #else
-    NULL;
-  #endif
-  NODE *result;
-  if (compiler) {
-    result = from_c_string(compiler);
-  } else {
-    result = undefined;
-  }
   {
-    NODE *result__node = (NODE *)(result);
+    NODE *result__node = (NODE *)(from_c_string(CC));
     arguments = node_p;
     arguments->slots[0] = result__node;
     argument_count = 1;
@@ -440,14 +402,44 @@ static void entry__3_1_std__c_compiler(void) {
     return;
   }
 }
-static void entry__4_5(void) {
+static void entry__4_1_std__CPPFLAGS(void) {
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  {
+    NODE *result__node = (NODE *)(from_c_string(CPPFLAGS));
+    arguments = node_p;
+    arguments->slots[0] = result__node;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }
+}
+static void entry__5_1_std__LDFLAGS(void) {
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  {
+    NODE *result__node = (NODE *)(from_c_string(LDFLAGS));
+    arguments = node_p;
+    arguments->slots[0] = result__node;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }
+}
+static void entry__6_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 115: -> '\'
+  // 68: -> '\'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__92;
@@ -455,14 +447,14 @@ static void entry__4_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_6(void) {
+static void entry__6_6(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 116: -> '/'
+  // 69: -> '/'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -470,65 +462,65 @@ static void entry__4_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1_std__current_directory_separator(void) {
+static void entry__6_1_std__current_directory_separator(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 114: operating_system()
+  // 67: operating_system()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
   myself = get__operating_system();
   func = myself->type;
-  frame->cont = cont__4_2;
+  frame->cont = cont__6_2;
 }
-static void cont__4_2(void) {
+static void cont__6_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 114: operating_system() == "win"
+  // 67: operating_system() == "win"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
-  arguments->slots[1] = string__4_3;
+  arguments->slots[1] = string__6_3;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_4;
+  frame->cont = cont__6_4;
 }
-static void cont__4_4(void) {
+static void cont__6_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 113: if
-  // 114:   operating_system() == "win"
-  // 115:   -> '\'
-  // 116:   -> '/'
+  // 66: if
+  // 67:   operating_system() == "win"
+  // 68:   -> '\'
+  // 69:   -> '/'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = func__4_5;
-  arguments->slots[2] = func__4_6;
+  arguments->slots[1] = func__6_5;
+  arguments->slots[2] = func__6_6;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_4(void) {
+static void entry__7_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 121: -> ';'
+  // 74: -> ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__59;
@@ -536,14 +528,14 @@ static void entry__5_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_5(void) {
+static void entry__7_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 122: -> ':'
+  // 75: -> ':'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__58;
@@ -551,52 +543,52 @@ static void entry__5_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1_std__current_path_separator(void) {
+static void entry__7_1_std__current_path_separator(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 120: operating_system()
+  // 73: operating_system()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
   myself = get__operating_system();
   func = myself->type;
-  frame->cont = cont__5_2;
+  frame->cont = cont__7_2;
 }
-static void cont__5_2(void) {
+static void cont__7_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 120: operating_system() == "win"
+  // 73: operating_system() == "win"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
-  arguments->slots[1] = string__4_3;
+  arguments->slots[1] = string__6_3;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__5_3;
+  frame->cont = cont__7_3;
 }
-static void cont__5_3(void) {
+static void cont__7_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 119: if
-  // 120:   operating_system() == "win"
-  // 121:   -> ';'
-  // 122:   -> ':'
+  // 72: if
+  // 73:   operating_system() == "win"
+  // 74:   -> ';'
+  // 75:   -> ':'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = func__5_4;
-  arguments->slots[2] = func__5_5;
+  arguments->slots[1] = func__7_4;
+  arguments->slots[2] = func__7_5;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
@@ -606,6 +598,8 @@ EXPORT void collect__basic__platform(void) {
   var.std__operating_system = collect_node(var.std__operating_system);
   var.std__hardware_architecture = collect_node(var.std__hardware_architecture);
   var.std__c_compiler = collect_node(var.std__c_compiler);
+  var.std__CPPFLAGS = collect_node(var.std__CPPFLAGS);
+  var.std__LDFLAGS = collect_node(var.std__LDFLAGS);
   var.std__current_directory_separator = collect_node(var.std__current_directory_separator);
   var.std__current_path_separator = collect_node(var.std__current_path_separator);
 }
@@ -627,16 +621,18 @@ EXPORT void phase_2__basic__platform(void) {
   character__47 = from_uchar32(47);
   character__58 = from_uchar32(58);
   character__59 = from_uchar32(59);
-  func__1_1_std__operating_system = create_function(entry__1_1_std__operating_system, -1);
+  func__1_1_std__operating_system = create_function(entry__1_1_std__operating_system, 0);
   func__2_1_std__hardware_architecture = create_function(entry__2_1_std__hardware_architecture, 0);
   func__3_1_std__c_compiler = create_function(entry__3_1_std__c_compiler, 0);
-  string__4_3 = from_latin_1_string("win", 3);
-  func__4_5 = create_function(entry__4_5, 0);
-  func__4_6 = create_function(entry__4_6, 0);
-  func__4_1_std__current_directory_separator = create_function(entry__4_1_std__current_directory_separator, 0);
-  func__5_4 = create_function(entry__5_4, 0);
-  func__5_5 = create_function(entry__5_5, 0);
-  func__5_1_std__current_path_separator = create_function(entry__5_1_std__current_path_separator, 0);
+  func__4_1_std__CPPFLAGS = create_function(entry__4_1_std__CPPFLAGS, 0);
+  func__5_1_std__LDFLAGS = create_function(entry__5_1_std__LDFLAGS, 0);
+  string__6_3 = from_latin_1_string("win", 3);
+  func__6_5 = create_function(entry__6_5, 0);
+  func__6_6 = create_function(entry__6_6, 0);
+  func__6_1_std__current_directory_separator = create_function(entry__6_1_std__current_directory_separator, 0);
+  func__7_4 = create_function(entry__7_4, 0);
+  func__7_5 = create_function(entry__7_5, 0);
+  func__7_1_std__current_path_separator = create_function(entry__7_1_std__current_path_separator, 0);
 }
 
 static int already_run_phase_3 = false;
@@ -649,6 +645,8 @@ EXPORT void phase_3__basic__platform(void) {
   define_single_assign_static("std", "operating_system", get__std__operating_system, &var.std__operating_system);
   define_single_assign_static("std", "hardware_architecture", get__std__hardware_architecture, &var.std__hardware_architecture);
   define_single_assign_static("std", "c_compiler", get__std__c_compiler, &var.std__c_compiler);
+  define_single_assign_static("std", "CPPFLAGS", get__std__CPPFLAGS, &var.std__CPPFLAGS);
+  define_single_assign_static("std", "LDFLAGS", get__std__LDFLAGS, &var.std__LDFLAGS);
   define_single_assign_static("std", "current_directory_separator", get__std__current_directory_separator, &var.std__current_directory_separator);
   define_single_assign_static("std", "current_path_separator", get__std__current_path_separator, &var.std__current_path_separator);
 }
@@ -673,8 +671,10 @@ EXPORT void phase_5__basic__platform(void) {
   assign_variable(&var.std__operating_system, &func__1_1_std__operating_system);
   assign_variable(&var.std__hardware_architecture, &func__2_1_std__hardware_architecture);
   assign_variable(&var.std__c_compiler, &func__3_1_std__c_compiler);
-  assign_variable(&var.std__current_directory_separator, &func__4_1_std__current_directory_separator);
-  assign_variable(&var.std__current_path_separator, &func__5_1_std__current_path_separator);
+  assign_variable(&var.std__CPPFLAGS, &func__4_1_std__CPPFLAGS);
+  assign_variable(&var.std__LDFLAGS, &func__5_1_std__LDFLAGS);
+  assign_variable(&var.std__current_directory_separator, &func__6_1_std__current_directory_separator);
+  assign_variable(&var.std__current_path_separator, &func__7_1_std__current_path_separator);
 }
 
 static int already_run_phase_6 = false;

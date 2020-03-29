@@ -27,8 +27,10 @@
 <include errno.h>
 <include fcntl.h>
 <include math.h>
+<include signal.h>
 <include unistd.h>
 <include arpa/inet.h>
+<include netinet/in.h>
 <include sys/ioctl.h>
 <include sys/stat.h>
 <include sys/socket.h>
