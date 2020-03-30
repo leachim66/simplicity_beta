@@ -1,0 +1,14 @@
+#!/usr/bin/env simple
+
+extern "rm" $rm
+
+save "/tmp/test.dat" "
+  Das ist ein zweizeiliger Text.
+  Das ist die zweite Zeile.
+
+save "/tmp/test.dat" "
+  Das ist ein einzeiliger Text.
+
+write load("/tmp/test.dat")
+
+rm "/tmp/test.dat"
