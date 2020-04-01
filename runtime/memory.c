@@ -211,7 +211,7 @@ EXPORT OCTREE no_attributes_level_8 = {{
 
 // "undefined_attributes" is used for all other objects
 
-extern SIMPLE_NODE *types__undefined__node;
+EXPORT SIMPLE_NODE *types__undefined__node;
 
 // the first 8 and all even IDs starting with 10 are by default undefined methods
 // all odd IDs starting with 9 are by default attributes initialized to <undefined>

@@ -295,12 +295,13 @@ $std::connect () # connect to a specific network address and port
   <argument O_NONBLOCK>
 }
 
-{
+# not supported by Cygwin
+#{
   <kind object>
   <name std::O_ASYNC>
   <type types::positive_integer>
   <argument O_ASYNC>
-}
+#}
 
 {
   <kind object>
