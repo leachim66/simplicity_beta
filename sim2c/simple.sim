@@ -526,6 +526,9 @@ $compile_module:
       $sim_filename string(submodule_filename ".sim")
       push &sim_filenames sim_filename
       $sim_info stat(sim_filename)
+      unless sim_info.is_defined:
+	Error "
+	  Failed to open file "@(sim_filename)"!@
       if
 	||
 	  modification_time.is_undefined
@@ -653,7 +656,7 @@ $library_paths_and_file_list:
 	  case
 	    operating_system()
 	    "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
-	    true -> "-l@(library)-@(MAJOR)"
+	    -> "-l@(library)-@(MAJOR)"
 	->
 	  if
 	    library .contains. '.'

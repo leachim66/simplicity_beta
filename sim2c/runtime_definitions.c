@@ -349,6 +349,7 @@ IMPORT OCTREE no_attributes_level_5;
 IMPORT OCTREE no_attributes_level_6;
 IMPORT OCTREE no_attributes_level_7;
 IMPORT OCTREE no_attributes_level_8;
+IMPORT SIMPLE_NODE *types__undefined__node;
 IMPORT OCTREE undefined_attributes_level_1;
 IMPORT OCTREE undefined_attributes_level_2;
 IMPORT OCTREE undefined_attributes_level_3;
