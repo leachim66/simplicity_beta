@@ -1062,7 +1062,7 @@ $build_executable:
 	    case
 	      operating_system()
 	      "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
-	      true -> "-lsim-@(MAJOR)"
+	      "-lsim-@(MAJOR)"
 	    "-o"
 	    exe_filename
 	  unless success: Error err.from_utf8
