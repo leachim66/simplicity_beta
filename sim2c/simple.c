@@ -2344,41 +2344,38 @@ static NODE *string__91_97;
 static void cont__91_98(void);
 static void cont__91_99(void);
 static void cont__91_100(void);
-static NODE *func__91_101;
-static void entry__91_101(void);
-static FRAME_INFO frame__91_101 = {0, {}};
-static NODE *string__91_102;
-static void cont__91_103(void);
-static NODE *func__91_104;
-static void entry__91_104(void);
-static FRAME_INFO frame__91_104 = {0, {}};
+static void cont__91_101(void);
+static NODE *func__91_102;
+static void entry__91_102(void);
+static FRAME_INFO frame__91_102 = {0, {}};
+static NODE *string__91_103;
+static void cont__91_104(void);
 static void cont__91_105(void);
 static void cont__91_106(void);
-static void cont__91_107(void);
-static NODE *func__91_108;
-static void entry__91_108(void);
-static FRAME_INFO frame__91_108 = {1, {"err"}};
+static NODE *func__91_107;
+static void entry__91_107(void);
+static FRAME_INFO frame__91_107 = {1, {"err"}};
+static void cont__91_108(void);
 static void cont__91_109(void);
 static void cont__91_110(void);
 static void cont__91_111(void);
-static void cont__91_112(void);
-static NODE *func__91_113;
-static void entry__91_113(void);
-static FRAME_INFO frame__91_113 = {0, {}};
+static NODE *func__91_112;
+static void entry__91_112(void);
+static FRAME_INFO frame__91_112 = {0, {}};
+static void cont__91_113(void);
 static void cont__91_114(void);
-static void cont__91_115(void);
-static NODE *func__91_116;
-static void entry__91_116(void);
-static FRAME_INFO frame__91_116 = {2, {"exe_filename", "zz"}};
-static void cont__91_117(void);
+static NODE *func__91_115;
+static void entry__91_115(void);
+static FRAME_INFO frame__91_115 = {2, {"exe_filename", "zz"}};
+static void cont__91_116(void);
+static NODE *func__91_117;
+static void entry__91_117(void);
+static FRAME_INFO frame__91_117 = {1, {"exe_filename"}};
 static NODE *func__91_118;
 static void entry__91_118(void);
 static FRAME_INFO frame__91_118 = {1, {"exe_filename"}};
-static NODE *func__91_119;
-static void entry__91_119(void);
-static FRAME_INFO frame__91_119 = {1, {"exe_filename"}};
+static void cont__91_119(void);
 static void cont__91_120(void);
-static void cont__91_121(void);
 static void main_entry(void);
 static void cont__run__basic__exceptions(void);
 static void cont__run__basic__serialize(void);
@@ -3654,29 +3651,28 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__91_88, &frame__91_85, 1050, 1056, 11, 24},
   {cont__91_92, &frame__91_85, 1057, 1057, 11, 45},
   {entry__91_96, NULL, 1059, 1059, 23, 51},
-  {entry__91_101, NULL, 1064, 1064, 33, 55},
-  {cont__91_103, &frame__91_101, 1064, 1064, 30, 55},
-  {entry__91_104, NULL, 1065, 1065, 23, 38},
-  {cont__91_105, &frame__91_104, 1065, 1065, 20, 38},
-  {entry__91_108, NULL, 1068, 1068, 33, 45},
-  {cont__91_109, &frame__91_108, 1068, 1068, 27, 45},
+  {entry__91_102, NULL, 1064, 1064, 33, 55},
+  {cont__91_104, &frame__91_102, 1064, 1064, 30, 55},
+  {entry__91_107, NULL, 1068, 1068, 33, 45},
+  {cont__91_108, &frame__91_107, 1068, 1068, 27, 45},
   {entry__91_95, NULL, 1059, 1059, 11, 51},
   {cont__91_98, &frame__91_95, 1063, 1063, 15, 32},
   {cont__91_99, &frame__91_95, 1064, 1064, 15, 28},
-  {cont__91_100, &frame__91_95, 1062, 1065, 13, 37},
-  {cont__91_106, &frame__91_95, 1060, 1067, 11, 24},
-  {cont__91_107, &frame__91_95, 1068, 1068, 11, 45},
+  {cont__91_100, &frame__91_95, 1065, 1065, 15, 30},
+  {cont__91_101, &frame__91_95, 1062, 1065, 13, 29},
+  {cont__91_105, &frame__91_95, 1060, 1067, 11, 24},
+  {cont__91_106, &frame__91_95, 1068, 1068, 11, 45},
   {entry__91_79, NULL, 1045, 1045, 7, 52},
   {cont__91_80, &frame__91_79, 1046, 1046, 7, 75},
   {cont__91_84, &frame__91_79, 1047, 1068, 7, 46},
-  {entry__91_113, NULL, 1070, 1070, 24, 41},
-  {cont__91_114, &frame__91_113, 1070, 1070, 24, 41},
-  {entry__91_118, NULL, 1074, 1074, 11, 25},
-  {entry__91_119, NULL, 1075, 1075, 14, 38},
-  {cont__91_120, &frame__91_119, 1075, 1075, 11, 38},
-  {entry__91_116, NULL, 1073, 1073, 11, 39},
-  {cont__91_117, &frame__91_116, 1072, 1075, 9, 37},
-  {cont__91_121, &frame__91_116, 1071, 1078, 7, 44},
+  {entry__91_112, NULL, 1070, 1070, 24, 41},
+  {cont__91_113, &frame__91_112, 1070, 1070, 24, 41},
+  {entry__91_117, NULL, 1074, 1074, 11, 25},
+  {entry__91_118, NULL, 1075, 1075, 14, 38},
+  {cont__91_119, &frame__91_118, 1075, 1075, 11, 38},
+  {entry__91_115, NULL, 1073, 1073, 11, 39},
+  {cont__91_116, &frame__91_115, 1072, 1075, 9, 37},
+  {cont__91_120, &frame__91_115, 1071, 1078, 7, 44},
   {entry__91_2, NULL, 993, 993, 9, 26},
   {cont__91_3, &frame__91_2, 993, 993, 9, 38},
   {cont__91_4, &frame__91_2, 991, 995, 5, 24},
@@ -3692,10 +3688,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__91_59, &frame__91_2, 1030, 1033, 5, 41},
   {cont__91_66, &frame__91_2, 1034, 1043, 5, 25},
   {cont__91_78, &frame__91_2, 1044, 1068, 5, 47},
-  {cont__91_110, &frame__91_2, 1069, 1069, 41, 41},
-  {cont__91_111, &frame__91_2, 1069, 1069, 5, 42},
-  {cont__91_112, &frame__91_2, 1070, 1070, 8, 41},
-  {cont__91_115, &frame__91_2, 1070, 1078, 5, 45},
+  {cont__91_109, &frame__91_2, 1069, 1069, 41, 41},
+  {cont__91_110, &frame__91_2, 1069, 1069, 5, 42},
+  {cont__91_111, &frame__91_2, 1070, 1070, 8, 41},
+  {cont__91_114, &frame__91_2, 1070, 1078, 5, 45},
   {entry__91_1_build_executable, NULL, 990, 1078, 3, 46},
   {entry__106_2, NULL, 105, 105, 8, 28},
   {cont__106_3, &frame__106_2, 105, 105, 5, 28},
@@ -21427,7 +21423,7 @@ static void cont__90_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__91_116(void) {
+static void entry__91_115(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // exe_filename: 0
@@ -21446,18 +21442,18 @@ static void entry__91_116(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__91_117;
+  frame->cont = cont__91_116;
 }
-static void cont__91_117(void) {
+static void cont__91_116(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 1074: -> exe_filename
-  frame->slots[4] /* temp__3 */ = create_closure(entry__91_118, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__91_117, 0);
   // 1075: -> string("./" exe_filename)
-  frame->slots[5] /* temp__4 */ = create_closure(entry__91_119, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__91_118, 0);
   // 1072: if
   // 1073:   exe_filename .has_prefix. '/'
   // 1074:   -> exe_filename
@@ -21470,9 +21466,9 @@ static void cont__91_117(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__91_121;
+  frame->cont = cont__91_120;
 }
-static void entry__91_118(void) {
+static void entry__91_117(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // exe_filename: 0
@@ -21489,7 +21485,7 @@ static void entry__91_118(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__91_119(void) {
+static void entry__91_118(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // exe_filename: 0
@@ -21506,9 +21502,9 @@ static void entry__91_119(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__91_120;
+  frame->cont = cont__91_119;
 }
-static void cont__91_120(void) {
+static void cont__91_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21522,7 +21518,7 @@ static void cont__91_120(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__91_121(void) {
+static void cont__91_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22825,9 +22821,9 @@ static void cont__91_78(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__91_110;
+  frame->cont = cont__91_109;
 }
-static void entry__91_108(void) {
+static void entry__91_107(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // err: 0
@@ -22843,9 +22839,9 @@ static void entry__91_108(void) {
   result_count = 1;
   myself = get__from_utf8();
   func = myself->type;
-  frame->cont = cont__91_109;
+  frame->cont = cont__91_108;
 }
-static void cont__91_109(void) {
+static void cont__91_108(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22988,7 +22984,7 @@ static void cont__91_92(void) {
   frame = frame->caller_frame;
 }
 static void entry__91_95(void) {
-  allocate_initialized_frame_gc(2, 11);
+  allocate_initialized_frame_gc(2, 12);
   // slot allocations:
   // libs_and_files: 0
   // exe_filename: 1
@@ -23065,23 +23061,38 @@ static void cont__91_100(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
+  // 1065: "-lsim-@(MAJOR)"
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = string__86_71;
+  arguments->slots[1] = var._MAJOR;
+  result_count = 1;
+  myself = get__std__string();
+  func = myself->type;
+  frame->cont = cont__91_101;
+}
+static void cont__91_101(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[8] /* temp__4 */ = arguments->slots[0];
   // 1062: case
   // 1063:   operating_system()
   // 1064:   "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
-  // 1065:   true -> "-lsim-@(MAJOR)"
-  argument_count = 5;
+  // 1065:   "-lsim-@(MAJOR)"
+  argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
   arguments->slots[1] = frame->slots[7] /* temp__3 */;
-  arguments->slots[2] = func__91_101;
-  arguments->slots[3] = get__true();
-  arguments->slots[4] = func__91_104;
+  arguments->slots[2] = func__91_102;
+  arguments->slots[3] = frame->slots[8] /* temp__4 */;
   result_count = 1;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__91_106;
+  frame->cont = cont__91_105;
 }
-static void entry__91_101(void) {
+static void entry__91_102(void) {
   allocate_initialized_frame_gc(0, 1);
   // slot allocations:
   if (argument_count != 0) {
@@ -23091,14 +23102,14 @@ static void entry__91_101(void) {
   // 1064: ... "-l:libsim.so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__91_102;
+  arguments->slots[0] = string__91_103;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__91_103;
+  frame->cont = cont__91_104;
 }
-static void cont__91_103(void) {
+static void cont__91_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23112,38 +23123,7 @@ static void cont__91_103(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__91_104(void) {
-  allocate_initialized_frame_gc(0, 1);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 1065: ... "-lsim-@(MAJOR)"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = string__86_71;
-  arguments->slots[1] = var._MAJOR;
-  result_count = 1;
-  myself = get__std__string();
-  func = myself->type;
-  frame->cont = cont__91_105;
-}
 static void cont__91_105(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1065: ... -> "-lsim-@(MAJOR)"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void cont__91_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23154,7 +23134,7 @@ static void cont__91_106(void) {
   // 1062:   case
   // 1063:     operating_system()
   // 1064:     "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
-  // 1065:     true -> "-lsim-@(MAJOR)"
+  // 1065:     "-lsim-@(MAJOR)"
   // 1066:   "-o"
   // 1067:   exe_filename
   argument_count = 0;
@@ -23166,24 +23146,24 @@ static void cont__91_106(void) {
   result_count = 3;
   myself = var._CC;
   func = myself->type;
-  frame->cont = cont__91_107;
+  frame->cont = cont__91_106;
 }
-static void cont__91_107(void) {
+static void cont__91_106(void) {
   if (argument_count != 3) {
     invalid_results_error();
     return;
   }
-  frame->slots[8] /* temp__4 */ = arguments->slots[0];
-  frame->slots[9] /* temp__5 */ = arguments->slots[1];
-  frame->slots[10] /* temp__6 */ = arguments->slots[2];
+  frame->slots[9] /* temp__5 */ = arguments->slots[0];
+  frame->slots[10] /* temp__6 */ = arguments->slots[1];
+  frame->slots[11] /* temp__7 */ = arguments->slots[2];
   // 1060: ... _out
-  initialize_future(frame->slots[2] /* out */, frame->slots[8] /* temp__4 */);
+  initialize_future(frame->slots[2] /* out */, frame->slots[9] /* temp__5 */);
   // 1060: ... err
-  initialize_future(frame->slots[3] /* err */, frame->slots[9] /* temp__5 */);
+  initialize_future(frame->slots[3] /* err */, frame->slots[10] /* temp__6 */);
   // 1060: ... success
-  initialize_future(frame->slots[4] /* success */, frame->slots[10] /* temp__6 */);
+  initialize_future(frame->slots[4] /* success */, frame->slots[11] /* temp__7 */);
   // 1068: ... : Error err.from_utf8
-  frame->slots[5] /* temp__1 */ = create_closure(entry__91_108, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__91_107, 0);
   // 1068: unless success: Error err.from_utf8
   argument_count = 2;
   arguments = node_p;
@@ -23285,7 +23265,7 @@ static void cont__91_84(void) {
   // 1062:     case
   // 1063:       operating_system()
   // 1064:       "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
-  // 1065:       true -> "-lsim-@(MAJOR)"
+  // 1065:       "-lsim-@(MAJOR)"
   // 1066:     "-o"
   // 1067:     exe_filename
   // ...
@@ -23311,7 +23291,7 @@ static void cont__91_84(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__91_110(void) {
+static void cont__91_109(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -23323,9 +23303,9 @@ static void cont__91_110(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__91_111;
+  frame->cont = cont__91_110;
 }
-static void cont__91_111(void) {
+static void cont__91_110(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23340,9 +23320,9 @@ static void cont__91_111(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__91_112;
+  frame->cont = cont__91_111;
 }
-static void cont__91_112(void) {
+static void cont__91_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23352,13 +23332,13 @@ static void cont__91_112(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__on_top_level();
-  arguments->slots[1] = func__91_113;
+  arguments->slots[1] = func__91_112;
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__91_115;
+  frame->cont = cont__91_114;
 }
-static void entry__91_113(void) {
+static void entry__91_112(void) {
   allocate_initialized_frame_gc(0, 1);
   // slot allocations:
   if (argument_count != 0) {
@@ -23373,9 +23353,9 @@ static void entry__91_113(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__91_114;
+  frame->cont = cont__91_113;
 }
-static void cont__91_114(void) {
+static void cont__91_113(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23389,7 +23369,7 @@ static void cont__91_114(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__91_115(void) {
+static void cont__91_114(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23404,7 +23384,7 @@ static void cont__91_115(void) {
   // 1076:     zz*
   // 1077:     
   // 1078:     #range(command_line_arguments 2 -1)*
-  frame->slots[10] /* temp__2 */ = create_closure(entry__91_116, 0);
+  frame->slots[10] /* temp__2 */ = create_closure(entry__91_115, 0);
   // 1070: if on_top_level && action == "simrun":
   // 1071:   exec
   // 1072:     if
@@ -23837,10 +23817,9 @@ int main(int argc, char **argv) {
   string__91_91 = from_latin_1_string("runtime/debugger.o", 18);
   string__91_97 = from_latin_1_string("linking executable", 18);
   func__91_96 = create_function(entry__91_96, 0);
-  string__91_102 = from_latin_1_string("-l:libsim.so.", 13);
-  func__91_101 = create_function(entry__91_101, 0);
-  func__91_104 = create_function(entry__91_104, 0);
-  func__91_113 = create_function(entry__91_113, 0);
+  string__91_103 = from_latin_1_string("-l:libsim.so.", 13);
+  func__91_102 = create_function(entry__91_102, 0);
+  func__91_112 = create_function(entry__91_112, 0);
   func__91_2 = create_function(entry__91_2, 2);
   func__91_1_build_executable = create_function(entry__91_1_build_executable, 0);
   string__95_1 = from_latin_1_string("Copyright (C) 2020 by\012Dipl.-Ing. Michael Niederle\012\012This program is free software; you can redistribute it and/or modify\012it under the terms of the GNU General Public License, version 2, or\012(at your option) version 3.\012\012This program is distributed in the hope that it will be useful,\012but WITHOUT ANY WARRANTY; without even the implied warranty of\012MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\012GNU General Public License for more details.\012\012For details of the GNU General Public License see the accompanying\012files GPLv2.txt and GLPv3.txt or\012http://www.gnu.org/licenses/gpl-2.0.html\012http://www.gnu.org/licenses/gpl-3.0.html\012or write to the\012Free Software Foundation, Inc.,\01251 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\012", 742);
