@@ -211,8 +211,6 @@ EXPORT OCTREE no_attributes_level_8 = {{
 
 // "undefined_attributes" is used for all other objects
 
-EXPORT SIMPLE_NODE *types__undefined__node;
-
 // the first 8 and all even IDs starting with 10 are by default undefined methods
 // all odd IDs starting with 9 are by default attributes initialized to <undefined>
 
@@ -223,11 +221,13 @@ EXPORT OCTREE undefined_attributes_level_1 = {{
   (OCTREE *)&no_such_attribute_node, (OCTREE *)&no_such_attribute_node
 }};
 
+// the missing subtrees are initialized in phase 4
+
 OCTREE mixed_attributes_level_1 = {{
-  (OCTREE *)&no_such_attribute_node, (OCTREE *)&types__undefined__node,
-  (OCTREE *)&no_such_attribute_node, (OCTREE *)&types__undefined__node,
-  (OCTREE *)&no_such_attribute_node, (OCTREE *)&types__undefined__node,
-  (OCTREE *)&no_such_attribute_node, (OCTREE *)&types__undefined__node
+  (OCTREE *)&no_such_attribute_node, NULL,
+  (OCTREE *)&no_such_attribute_node, NULL,
+  (OCTREE *)&no_such_attribute_node, NULL,
+  (OCTREE *)&no_such_attribute_node, NULL
 }};
 
 EXPORT OCTREE undefined_attributes_level_2 = {{
@@ -620,13 +620,6 @@ void invalid_continuation(void) {
 EXPORT void initialize_runtime(void) {
   debug_info("initialize runtime\n");
 
-  // set the "object"-bit for "undefined_attributes"
-  int i;
-  for (i = 1; i < 8; i += 2) {
-    mixed_attributes_level_1.nodes[i] =
-      (OCTREE *)(((long)mixed_attributes_level_1.nodes[i])|1);
-  }
-
   #ifdef __CYGWIN__
     invalid_continuation = invalid_continuation_function;
   #endif
@@ -700,6 +693,13 @@ EXPORT void initialize_phase_4(void) {
   empty_string = getter();
   use_read_only("std", "raise", &getter, &dummy);
   raise_exception_getter = getter;
+
+  // set the "object"-bit for "undefined_attributes"
+  int i;
+  for (i = 1; i < 8; i += 2) {
+    mixed_attributes_level_1.nodes[i] = (OCTREE *)((long)undefined|1);
+  }
+
 }
 
 extern NODE *var__std__undefined;
