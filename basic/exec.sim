@@ -106,6 +106,17 @@ $posix_launch
       if (pipe((int *)&err_pipe) != 0) RESOURCE_ERROR
     }
 
+    // check the arguments **before** the fork!!!
+    // otherwise the child process could raise a Simplicity error message!
+
+    char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
+    // convert all arguments into C-strings
+    int i;
+    for (i = 0; i < ARGUMENT_COUNT; ++i) {
+      args[i] = to_c_string(ARGUMENTS(i));
+    }
+    args[ARGUMENT_COUNT] = NULL;
+
     int pid = fork();
     if (pid == 0) { // child process
       if (do_redirect_stdout) {
@@ -123,18 +134,17 @@ $posix_launch
         dup2(err_pipe.write_fd, STDERR_FILENO);
         close(err_pipe.write_fd);
       }
-      char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
-      // convert all arguments into C-strings
-      int i;
-      for (i = 0; i < ARGUMENT_COUNT; ++i) {
-        args[i] = to_c_string(ARGUMENTS(i));
-      }
-      args[ARGUMENT_COUNT] = NULL;
       execvp(args[0], args);
       exit(EXIT_FAILURE);
     }
 
     // parent process
+
+    // free the arguments in the parent process
+    for (i = 0; i < ARGUMENT_COUNT; ++i) {
+      deallocate_memory(args[i]);
+    }
+    deallocate_memory(args);
 
     if (pid == -1) goto cleanup_and_return; // fork failed
 
@@ -472,7 +482,20 @@ $posix_pipe
 
     int pid;
     int cmd_idx = 0;
+
     do {
+      // check the arguments **before** the fork!!!
+      // otherwise the child process could raise a Simplicity error message!
+
+      NODE *cmd = get_item_of(cmds, cmd_idx);
+      long len = length_of(cmd);
+      char **args = allocate_memory((len+1)*sizeof(char *));
+      // convert all arguments into C-strings
+      for (i = 0; i < len; ++i) {
+	args[i] = to_c_string(get_item_of(cmd, i));
+      }
+      args[len] = NULL;
+
       pid = fork();
       if (pid == 0) { // child process
         // duplicate all needed handles
@@ -492,18 +515,19 @@ $posix_pipe
 	  close(err_pipes[cmd_idx].write_fd);
         }
 
-        NODE *cmd = get_item_of(cmds, cmd_idx);
-        long len = length_of(cmd);
-        char **args = allocate_memory((len+1)*sizeof(char *));
-        // convert all arguments into C-strings
-        for (i = 0; i < len; ++i) {
-          args[i] = to_c_string(get_item_of(cmd, i));
-        }
-        args[len] = NULL;
         execvp(args[0], args);
         exit(EXIT_FAILURE);
       }
+
+      // parent process
+
       pids[cmd_idx++] = pid;
+
+      // free the arguments in the parent process
+      for (i = 0; i < len; ++i) {
+	deallocate_memory(args[i]);
+      }
+      deallocate_memory(args);
     } while (pid > 0 && cmd_idx < cmd_cnt);
 
     if (pid < 0) goto cleanup_and_return;
@@ -588,13 +612,14 @@ $posix_pipe
 
       if (do_write_to_stdin && FD_ISSET(in_pipe_write_fd, &wfds)) {
         ssize_t bytes_written;
-        do {
-          bytes_written = write(in_pipe_write_fd, input+s, input_size-s);
-        } while (bytes_written < 0 && errno == EINTR);
-        if (bytes_written < 0) goto cleanup_and_return;
-        if (bytes_written > 0) {
-          s += bytes_written;
-        } else {
+	if (s < input_size) {
+	  do {
+	    bytes_written = write(in_pipe_write_fd, input+s, input_size-s);
+	  } while (bytes_written < 0 && errno == EINTR);
+	  if (bytes_written < 0) goto cleanup_and_return;
+	  s += bytes_written;
+        }
+	if (s >= input_size) { // <s> should never be greater than <input_size>
           do_write_to_stdin = false;
           close_fd(&out_pipes[0].write_fd);
         }

@@ -3747,12 +3747,12 @@ static void entry__124_1_types__file_descriptor_close(void) {
   int err;
   int fd = arguments->slots[0]->file_descriptor.fd;
   if (event__mode != EM__REPLAY) {
+    struct stat statbuf;
+    fstat(fd, &statbuf);
+    if (S_ISSOCK(statbuf.st_mode)) {
+      shutdown(fd, SHUT_RDWR); // fail silent
+    }
     do {
-      struct stat statbuf;
-      fstat(fd, &statbuf);
-      if (S_ISSOCK(statbuf.st_mode)) {
-        shutdown(fd, SHUT_RDWR);
-      }
       err = close(fd);
     } while (err == -1 && errno == EINTR);
 
