@@ -51,32 +51,6 @@ $std::SIGTERM 15
   }
 }
 
-{
-  <kind function>
-
-  void close_all_files(void) {
-    struct dirent *dp;
-    DIR *dir = opendir("/dev/fd");
-    if (dir) {
-      int dfd = dirfd(dir);
-      while ((dp = readdir(dir)) != NULL) {
-	if (dp->d_name[0] != '.') {
-	  int fd = atoi(dp->d_name);
-	  if (fd >= 3 && fd != dfd && fd < 1024) {
-	    // valgrind uses file descriptors 1024 and above,
-	    // so we just ignore them
-	    close(fd);
-	  }
-	}
-      }
-      closedir(dir);
-    } else {
-      fprintf(stderr, "FAILED TO CLOSE OPEN FILES!\n");
-      exit(EXIT_FAILURE);
-    }
-  }
-}
-
 $posix_exec
   {
     MIN_ARGUMENTS(1)
@@ -135,21 +109,20 @@ $posix_launch
     int pid = fork();
     if (pid == 0) { // child process
       if (do_redirect_stdout) {
-        //close(out_pipe.read_fd);
+        close(out_pipe.read_fd);
         dup2(out_pipe.write_fd, STDOUT_FILENO);
-        //close(out_pipe.write_fd);
+        close(out_pipe.write_fd);
       }
       if (do_redirect_stdin) {
-        //close(in_pipe.write_fd);
+        close(in_pipe.write_fd);
         dup2(in_pipe.read_fd, STDIN_FILENO);
-        //close(in_pipe.read_fd);
+        close(in_pipe.read_fd);
       }
       if (do_redirect_stderr) {
-        //close(err_pipe.read_fd);
+        close(err_pipe.read_fd);
         dup2(err_pipe.write_fd, STDERR_FILENO);
-        //close(err_pipe.write_fd);
+        close(err_pipe.write_fd);
       }
-      close_all_files();
       char **args = allocate_memory((ARGUMENT_COUNT+1)*sizeof(char *));
       // convert all arguments into C-strings
       int i;
@@ -280,16 +253,15 @@ $posix_call
     int pid = fork();
     if (pid == 0) { // child process
       if (do_redirect_stdout) {
-        //close(out_pipe.read_fd);
+        close(out_pipe.read_fd);
         dup2(out_pipe.write_fd, STDOUT_FILENO);
-        //close(out_pipe.write_fd);
+        close(out_pipe.write_fd);
       }
       if (do_redirect_stderr) {
-        //close(err_pipe.read_fd);
+        close(err_pipe.read_fd);
         dup2(err_pipe.write_fd, STDERR_FILENO);
-        //close(err_pipe.write_fd);
+        close(err_pipe.write_fd);
       }
-      close_all_files();
       execvp(args[0], args);
       exit(EXIT_FAILURE);
     }
@@ -505,16 +477,20 @@ $posix_pipe
       if (pid == 0) { // child process
         // duplicate all needed handles
         if (do_redirect_stdin || cmd_idx != 0) {
+	  close(out_pipes[cmd_idx].write_fd);
           dup2(out_pipes[cmd_idx].read_fd, STDIN_FILENO);
+	  close(out_pipes[cmd_idx].read_fd);
         }
         if (do_redirect_stdout || cmd_idx != cmd_cnt-1) {
+	  close(out_pipes[cmd_idx+1].read_fd);
           dup2(out_pipes[cmd_idx+1].write_fd, STDOUT_FILENO);
+	  close(out_pipes[cmd_idx+1].write_fd);
         }
         if (do_redirect_stderr) {
+	  close(err_pipes[cmd_idx].read_fd);
           dup2(err_pipes[cmd_idx].write_fd, STDERR_FILENO);
+	  close(err_pipes[cmd_idx].write_fd);
         }
-
-	close_all_files();
 
         NODE *cmd = get_item_of(cmds, cmd_idx);
         long len = length_of(cmd);

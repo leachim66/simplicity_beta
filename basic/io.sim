@@ -1000,6 +1000,7 @@ $posix_open
     MAX_ARGUMENTS(3)
     int fd;
     int flags = to_int(ARGUMENTS(1));
+    flags |= O_CLOEXEC;
     mode_t mode = 0644;
     if (ARGUMENT_COUNT == 3) mode = to_uint32(ARGUMENTS(2));
     EVENT(posix_open)
