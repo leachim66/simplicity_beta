@@ -1,0 +1,19 @@
+#!/usr/bin/env simple
+
+$text "
+  This is
+  a multiline test for
+  this
+  test program.
+
+pipe text
+  -> "grep" "test"
+  -> "wc"
+
+pipe $out $err $success text
+  -> "grep" "test"
+  -> "wc"
+
+writeln "success: " success
+write "error output:@nl;" err
+write "output:@nl;" out
