@@ -43,11 +43,27 @@ $std::SIGTERM 15
 {
   <kind function>
 
-  void close_fd(int *fd_p) {
+  int close_fd(int *fd_p) {
+    int err = 0;
     if (*fd_p >= 0) {
-      close(*fd_p);
+      do {
+        err = close(*fd_p);
+      } while (err == -1 && errno == EINTR);
       *fd_p = -1;
     }
+    return err;
+  }
+}
+
+{
+  <kind function>
+
+  int dup2_fd(int src_fd, int dest_fd) {
+    int err;
+    do {
+      err = dup2(src_fd, dest_fd);
+    } while (err == -1 && errno == EINTR);
+    return err;
   }
 }
 
@@ -121,17 +137,17 @@ $posix_launch
     if (pid == 0) { // child process
       if (do_redirect_stdout) {
         close(out_pipe.read_fd);
-        dup2(out_pipe.write_fd, STDOUT_FILENO);
+        dup2_fd(out_pipe.write_fd, STDOUT_FILENO);
         close(out_pipe.write_fd);
       }
       if (do_redirect_stdin) {
         close(in_pipe.write_fd);
-        dup2(in_pipe.read_fd, STDIN_FILENO);
+        dup2_fd(in_pipe.read_fd, STDIN_FILENO);
         close(in_pipe.read_fd);
       }
       if (do_redirect_stderr) {
         close(err_pipe.read_fd);
-        dup2(err_pipe.write_fd, STDERR_FILENO);
+        dup2_fd(err_pipe.write_fd, STDERR_FILENO);
         close(err_pipe.write_fd);
       }
       execvp(args[0], args);
@@ -264,12 +280,12 @@ $posix_call
     if (pid == 0) { // child process
       if (do_redirect_stdout) {
         close(out_pipe.read_fd);
-        dup2(out_pipe.write_fd, STDOUT_FILENO);
+        dup2_fd(out_pipe.write_fd, STDOUT_FILENO);
         close(out_pipe.write_fd);
       }
       if (do_redirect_stderr) {
         close(err_pipe.read_fd);
-        dup2(err_pipe.write_fd, STDERR_FILENO);
+        dup2_fd(err_pipe.write_fd, STDERR_FILENO);
         close(err_pipe.write_fd);
       }
       execvp(args[0], args);
@@ -500,19 +516,21 @@ $posix_pipe
       if (pid == 0) { // child process
         // duplicate all needed handles
         if (do_redirect_stdin || cmd_idx != 0) {
-	  close(out_pipes[cmd_idx].write_fd);
-          dup2(out_pipes[cmd_idx].read_fd, STDIN_FILENO);
-	  close(out_pipes[cmd_idx].read_fd);
+          dup2_fd(out_pipes[cmd_idx].read_fd, STDIN_FILENO);
         }
         if (do_redirect_stdout || cmd_idx != cmd_cnt-1) {
-	  close(out_pipes[cmd_idx+1].read_fd);
-          dup2(out_pipes[cmd_idx+1].write_fd, STDOUT_FILENO);
-	  close(out_pipes[cmd_idx+1].write_fd);
+	  dup2_fd(out_pipes[cmd_idx+1].write_fd, STDOUT_FILENO);
         }
+	for (i = 0; i <= cmd_cnt; ++i) {
+	  close(out_pipes[i].read_fd);
+	  close(out_pipes[i].write_fd);
+	}
         if (do_redirect_stderr) {
-	  close(err_pipes[cmd_idx].read_fd);
-          dup2(err_pipes[cmd_idx].write_fd, STDERR_FILENO);
-	  close(err_pipes[cmd_idx].write_fd);
+          dup2_fd(err_pipes[cmd_idx].write_fd, STDERR_FILENO);
+	  for (i = 0; i < cmd_cnt; ++i) {
+	    close(err_pipes[i].read_fd);
+	    close(err_pipes[i].write_fd);
+	  }
         }
 
         execvp(args[0], args);
@@ -572,9 +590,6 @@ $posix_pipe
     int do_read_from_stdout = do_redirect_stdout;
     int do_read_from_stderr = do_redirect_stderr ? cmd_cnt : 0;
 
-    int out_pipe_read_fd = out_pipes[cmd_cnt].read_fd;
-    int in_pipe_write_fd = out_pipes[0].write_fd;
-
     while (do_write_to_stdin || do_read_from_stdout || do_read_from_stderr) {
       int nfds;
       fd_set rfds;
@@ -583,16 +598,16 @@ $posix_pipe
       FD_ZERO(&rfds);
       FD_ZERO(&wfds);
       if (do_write_to_stdin) {
-        if (in_pipe_write_fd > nfds) {
-          nfds = in_pipe_write_fd;
+        if (out_pipes[0].write_fd > nfds) {
+          nfds = out_pipes[0].write_fd;
         }
-        FD_SET(in_pipe_write_fd, &wfds);
+        FD_SET(out_pipes[0].write_fd, &wfds);
       }
       if (do_read_from_stdout) {
-        if (out_pipe_read_fd > nfds) {
-          nfds = out_pipe_read_fd;
+        if (out_pipes[cmd_cnt].read_fd > nfds) {
+          nfds = out_pipes[cmd_cnt].read_fd;
         }
-        FD_SET(out_pipe_read_fd, &rfds);
+        FD_SET(out_pipes[cmd_cnt].read_fd, &rfds);
       }
       if (do_read_from_stderr) {
         for (i = 0; i < cmd_cnt; ++i) {
@@ -610,11 +625,11 @@ $posix_pipe
       } while (ret < 0 && errno == EINTR);
       if (ret < 0) goto cleanup_and_return;
 
-      if (do_write_to_stdin && FD_ISSET(in_pipe_write_fd, &wfds)) {
+      if (do_write_to_stdin && FD_ISSET(out_pipes[0].write_fd, &wfds)) {
         ssize_t bytes_written;
 	if (s < input_size) {
 	  do {
-	    bytes_written = write(in_pipe_write_fd, input+s, input_size-s);
+	    bytes_written = write(out_pipes[0].write_fd, input+s, input_size-s);
 	  } while (bytes_written < 0 && errno == EINTR);
 	  if (bytes_written < 0) goto cleanup_and_return;
 	  s += bytes_written;
@@ -625,10 +640,10 @@ $posix_pipe
         }
       }
 
-      if (do_read_from_stdout && FD_ISSET(out_pipe_read_fd, &rfds)) {
+      if (do_read_from_stdout && FD_ISSET(out_pipes[cmd_cnt].read_fd, &rfds)) {
         ssize_t bytes_read;
         do {
-          bytes_read = read(out_pipe_read_fd, out_buf+out_len, out_buf_size-out_len);
+          bytes_read = read(out_pipes[cmd_cnt].read_fd, out_buf+out_len, out_buf_size-out_len);
         } while (bytes_read < 0 && errno == EINTR);
         if (bytes_read < 0) goto cleanup_and_return;
         if (bytes_read > 0) {
@@ -639,7 +654,7 @@ $posix_pipe
           }
         } else {
           do_read_from_stdout = false;
-          close_fd(&out_pipe_read_fd);
+          close_fd(&out_pipes[cmd_cnt].read_fd);
         }
       }
 
