@@ -28,6 +28,8 @@ extern $uuidgen --TRIM "uuidgen"
 %std::do_log_ssh_output false
 $PROMPT "> "
 
+$std::PORT .
+
 $KSH .
 $CSH .
 
@@ -41,18 +43,26 @@ $types::ssh_connection types::object
 
 $std::open_ssh_connection:
   (
+    options* # e.g. port no. to use
     url
     -> return
   )
+  extract_options options PORT = undefined $port_no
+  $$additional_options empty_list
+  if port_no.is_defined:
+    push &additional_options "-p"
+    push &additional_options port_no
   launch $pid $fd_out $fd_in $fd_err
     "ssh"
+    additional_options*
     "-tt"
     "-o"
     "ConnectTimeout=5"
     "-o"
     "ServerAliveInterval=30"
     url
-  do:
+  $$timeout 5
+  forever:
     wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
     case
       type_of(event)
@@ -60,7 +70,8 @@ $std::open_ssh_connection:
 	case
 	  file_descriptor_of(event)
 	  fd_out:
-	    ignore read_from(fd_out)
+	    edump `read_from(fd_out)
+	    #ignore read_from(fd_out)
 	  fd_err:
 	    if parameter_count_of(return) == 2: return undefined false
 	    raise read_from(fd_err)

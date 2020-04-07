@@ -355,6 +355,7 @@ static struct {
   NODE *std__for_each_pair;
   NODE *std__new_empty_collection;
   NODE *std__filter;
+  NODE *std__apply;
   NODE *std__map;
   NODE *std__dup;
   NODE *std__interleave;
@@ -893,6 +894,11 @@ static void type__std__filter(void);
 static NODE *get__std__filter(void) {
   return var.std__filter;
 }
+static int poly_idx__std__apply;
+static void type__std__apply(void);
+static NODE *get__std__apply(void) {
+  return var.std__apply;
+}
 static int poly_idx__std__map;
 static void type__std__map(void);
 static NODE *get__std__map(void) {
@@ -1051,16 +1057,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__for_each_pair, NULL, 127, 127, 2, 19},
   {type__std__new_empty_collection, NULL, 128, 128, 2, 26},
   {type__std__filter, NULL, 129, 129, 2, 12},
-  {type__std__map, NULL, 130, 130, 2, 9},
-  {type__std__dup, NULL, 131, 131, 2, 9},
-  {type__std__interleave, NULL, 132, 132, 2, 16},
-  {type__std__stop, NULL, 133, 133, 2, 10},
-  {type__std__get_file_descriptors, NULL, 134, 134, 2, 26},
-  {type__std__handle_requests, NULL, 135, 135, 2, 21},
-  {type__std__select, NULL, 136, 136, 2, 12},
-  {type__std__delete, NULL, 137, 137, 2, 12},
-  {type__std__update, NULL, 138, 138, 2, 12},
-  {type__std__call_command, NULL, 139, 139, 2, 18},
+  {type__std__apply, NULL, 130, 130, 2, 11},
+  {type__std__map, NULL, 131, 131, 2, 9},
+  {type__std__dup, NULL, 132, 132, 2, 9},
+  {type__std__interleave, NULL, 133, 133, 2, 16},
+  {type__std__stop, NULL, 134, 134, 2, 10},
+  {type__std__get_file_descriptors, NULL, 135, 135, 2, 26},
+  {type__std__handle_requests, NULL, 136, 136, 2, 21},
+  {type__std__select, NULL, 137, 137, 2, 12},
+  {type__std__delete, NULL, 138, 138, 2, 12},
+  {type__std__update, NULL, 139, 139, 2, 12},
+  {type__std__call_command, NULL, 140, 140, 2, 18},
   {run__basic__polymorphic_functions, NULL, }
 };
 
@@ -3382,6 +3389,28 @@ static void type__std__filter(void) {
     func = myself->type;
   }
 }
+static void type__std__apply(void) {
+  myself = get_attribute(arguments->slots[0], poly_idx__std__apply);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__std__apply, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
 static void type__std__map(void) {
   myself = get_attribute(arguments->slots[0], poly_idx__std__map);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
@@ -3744,6 +3773,7 @@ EXPORT void collect__basic__polymorphic_functions(void) {
   var.std__for_each_pair = collect_node(var.std__for_each_pair);
   var.std__new_empty_collection = collect_node(var.std__new_empty_collection);
   var.std__filter = collect_node(var.std__filter);
+  var.std__apply = collect_node(var.std__apply);
   var.std__map = collect_node(var.std__map);
   var.std__dup = collect_node(var.std__dup);
   var.std__interleave = collect_node(var.std__interleave);
@@ -3867,6 +3897,7 @@ EXPORT void phase_1__basic__polymorphic_functions(void) {
   define_polymorphic_function("std", "for_each_pair", get__std__for_each_pair, &poly_idx__std__for_each_pair, &var.std__for_each_pair);
   define_polymorphic_function("std", "new_empty_collection", get__std__new_empty_collection, &poly_idx__std__new_empty_collection, &var.std__new_empty_collection);
   define_polymorphic_function("std", "filter", get__std__filter, &poly_idx__std__filter, &var.std__filter);
+  define_polymorphic_function("std", "apply", get__std__apply, &poly_idx__std__apply, &var.std__apply);
   define_polymorphic_function("std", "map", get__std__map, &poly_idx__std__map, &var.std__map);
   define_polymorphic_function("std", "dup", get__std__dup, &poly_idx__std__dup, &var.std__dup);
   define_polymorphic_function("std", "interleave", get__std__interleave, &poly_idx__std__interleave, &var.std__interleave);
@@ -4014,6 +4045,7 @@ EXPORT void phase_5__basic__polymorphic_functions(void) {
   assign_value(&var.std__for_each_pair, create_function(type__std__for_each_pair, -1));
   assign_value(&var.std__new_empty_collection, create_function(type__std__new_empty_collection, -1));
   assign_value(&var.std__filter, create_function(type__std__filter, -1));
+  assign_value(&var.std__apply, create_function(type__std__apply, -1));
   assign_value(&var.std__map, create_function(type__std__map, -1));
   assign_value(&var.std__dup, create_function(type__std__dup, -1));
   assign_value(&var.std__interleave, create_function(type__std__interleave, -1));

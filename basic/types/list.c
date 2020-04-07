@@ -7073,7 +7073,7 @@ static long func__types__list___debug_string(NODE *node, int indent, int max_dep
         return debug_print(indent, buf, "<list of %ld items>", node->list.length);
       }
     } else {
-      int i, n, len;
+      long i, n, len;
       n = debug_print_head(&indent, &buf, "list");
       const char *contents_indent = indent_to_string(indent);
       for (i = 0; i < node->list.length; ++i) {

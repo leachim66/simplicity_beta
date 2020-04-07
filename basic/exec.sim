@@ -211,9 +211,10 @@ $posix_launch
 
 $std::launch:
   (
-    args*
+    $args*
     -> return
   )
+  update_each &args to_string
   case
     parameter_count_of(return)
     0:

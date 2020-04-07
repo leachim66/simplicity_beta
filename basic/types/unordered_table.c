@@ -194,6 +194,10 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *create_continuation_with_exit(FUNC exit_func);
 IMPORT void continuation_type_function(void);
+IMPORT int debug_print_head(int *indent_p, char **buf_p, const char *format, ...);
+IMPORT const char *indent_to_string(int indent);
+IMPORT int print(char **buf_p, const char *format, ...);
+IMPORT int debug_print(int indent, char *buf, const char *format, ...);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *from_uint32(uint32_t val);
@@ -653,12 +657,14 @@ static void cont__31_12(void);
 static void cont__31_13(void);
 static void cont__31_14(void);
 static void cont__31_15(void);
-static void cont__64_1(void);
+
+static long func__types__unordered_table___debug_string(NODE *node, int indent, int max_depth, char *buf);
+static void cont__66_1(void);
 void run__basic__types__unordered_table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__types__unordered_table, NULL, 1072, 1072, 1, 70},
-  {cont__64_1, NULL, },
+  {run__basic__types__unordered_table, NULL, 1133, 1133, 1, 70},
+  {cont__66_1, NULL, },
   {entry__11_1_insert_item, NULL, 305, 541, 3, 2},
   {entry__12_1_retrieve_item, NULL, 544, 617, 3, 2},
   {entry__14_1_types__unordered_table_length_of, NULL, 634, 670, 3, 2},
@@ -849,7 +855,7 @@ EXPORT void run__basic__types__unordered_table(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 1072: register_collection_serializer "unordered_table" empty_unordered_table
+  // 1133: register_collection_serializer "unordered_table" empty_unordered_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__20_1;
@@ -857,9 +863,9 @@ EXPORT void run__basic__types__unordered_table(void) {
   result_count = 0;
   myself = get__register_collection_serializer();
   func = myself->type;
-  frame->cont = cont__64_1;
+  frame->cont = cont__66_1;
 }
-static void cont__64_1(void) {
+static void cont__66_1(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1419,7 +1425,7 @@ static VTABLE vtable__types__unordered_table = {
   (void *)no_such_function,
   (void *)no_such_function,
   (void *)no_such_function,
-  (void *)no_such_function
+  &func__types__unordered_table___debug_string
 };
 
 static ATTRIBUTES attributes__types__unordered_table = {
@@ -4378,6 +4384,63 @@ static void exit__31_1_types__unordered_table_update_each_from_down_to(void) {
   argument_count += 1;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   func = continuation_type_function;
+}
+
+static long func__types__unordered_table___debug_string(NODE *node, int indent, int max_depth, char *buf) {
+  UNORDERED_TABLE *myself = (UNORDERED_TABLE *)node;
+
+  long n;
+  long count = 0;
+
+  UNORDERED_TABLE_DATA *data = myself->data;
+
+  if (data) {
+    const char *contents_indent;
+    if (max_depth > 1) {
+      n = debug_print_head(&indent, &buf, "unordered_table");
+      contents_indent = indent_to_string(indent);
+    }
+
+    long rev_no = data->rev_no;
+    UNORDERED_TABLE_HASH_COLLISION **entries = data->entries;
+    long size = data->size;
+    long idx;
+    for (idx = 0; idx < size; ++idx) {
+      UNORDERED_TABLE_HASH_COLLISION *hash_collision = entries[idx];
+      while (hash_collision) {
+        UNORDERED_TABLE_KEY_COLLISION *key_collision =
+          hash_collision->key_collisions;
+        while (key_collision) {
+          UNORDERED_TABLE_REVISION *revision = key_collision->revisions;
+          while (revision) {
+            if (revision->rev_no <= rev_no) {
+            if (revision->value != undefined) ++count;
+              if (max_depth > 1) {
+                long len;
+                n += print(&buf, contents_indent);
+                len = debug_string(revision->value, indent, max_depth-1, buf);
+                if (buf) buf += len;
+                n += len;
+              }
+              break;
+            }
+            revision = revision->link;
+          }
+          key_collision = key_collision->link;
+        }
+        hash_collision = hash_collision->link;
+      }
+    }
+  } else {
+    return debug_print(indent, buf, "empty_unordered_table");
+  }
+
+  if (max_depth > 1) {
+    return n;
+  } else {
+    return
+      debug_print(indent, buf, "<unordered_table with %ld entries>", count);
+  }
 }
 EXPORT void collect__basic__types__unordered_table(void) {
   var._NONE = collect_node(var._NONE);

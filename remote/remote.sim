@@ -112,9 +112,9 @@ $os_to_string: (os)
     -> "CygWin"
     -> "unknown"
 
-$hw_to_string: (os)
+$hw_to_string: (hw)
   case
-    os
+    hw
     X86_32
     -> "x86-32"
     X86_64
@@ -131,11 +131,12 @@ $remote::do_on_remote_server:
     commands remotely. After the last command has been executed the connection
     is closed again.
   (
+    options* # e.g. port no. to use
     server # the name of the remote server
     body # the commands to execute on the remote server
   )
   if
-    open_ssh_connection($conn server):
+    open_ssh_connection($conn options* server):
       %remote::sh:
 	(
 	  args*

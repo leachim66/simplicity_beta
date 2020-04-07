@@ -1069,4 +1069,65 @@ $types::unordered_table/update_each_from_down_to:
     previous_key_and_value self hash(key) &key !value
     if key == NONE return
 
+{
+  <kind function>
+
+  long types::unordered_table/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    UNORDERED_TABLE *myself = (UNORDERED_TABLE *)node;
+
+    long n;
+    long count = 0;
+
+    UNORDERED_TABLE_DATA *data = myself->data;
+
+    if (data) {
+      const char *contents_indent;
+      if (max_depth > 1) {
+        n = debug_print_head(&indent, &buf, "unordered_table");
+        contents_indent = indent_to_string(indent);
+      }
+
+      long rev_no = data->rev_no;
+      UNORDERED_TABLE_HASH_COLLISION **entries = data->entries;
+      long size = data->size;
+      long idx;
+      for (idx = 0; idx < size; ++idx) {
+        UNORDERED_TABLE_HASH_COLLISION *hash_collision = entries[idx];
+        while (hash_collision) {
+          UNORDERED_TABLE_KEY_COLLISION *key_collision =
+            hash_collision->key_collisions;
+          while (key_collision) {
+            UNORDERED_TABLE_REVISION *revision = key_collision->revisions;
+            while (revision) {
+              if (revision->rev_no <= rev_no) {
+              if (revision->value != UNDEFINED) ++count;
+		if (max_depth > 1) {
+		  long len;
+		  n += print(&buf, contents_indent);
+		  len = debug_string(revision->value, indent, max_depth-1, buf);
+		  if (buf) buf += len;
+		  n += len;
+		}
+                break;
+              }
+              revision = revision->link;
+            }
+            key_collision = key_collision->link;
+          }
+          hash_collision = hash_collision->link;
+        }
+      }
+    } else {
+      return debug_print(indent, buf, "empty_unordered_table");
+    }
+
+    if (max_depth > 1) {
+      return n;
+    } else {
+      return
+	debug_print(indent, buf, "<unordered_table with %ld entries>", count);
+    }
+  }
+}
+
 register_collection_serializer "unordered_table" empty_unordered_table
