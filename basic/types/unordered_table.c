@@ -663,7 +663,7 @@ static void cont__66_1(void);
 void run__basic__types__unordered_table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__types__unordered_table, NULL, 1133, 1133, 1, 70},
+  {run__basic__types__unordered_table, NULL, 1143, 1143, 1, 70},
   {cont__66_1, NULL, },
   {entry__11_1_insert_item, NULL, 305, 541, 3, 2},
   {entry__12_1_retrieve_item, NULL, 544, 617, 3, 2},
@@ -855,7 +855,7 @@ EXPORT void run__basic__types__unordered_table(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 1133: register_collection_serializer "unordered_table" empty_unordered_table
+  // 1143: register_collection_serializer "unordered_table" empty_unordered_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__20_1;
@@ -4396,9 +4396,11 @@ static long func__types__unordered_table___debug_string(NODE *node, int indent, 
 
   if (data) {
     const char *contents_indent;
+    const char *contents_indent_2;
     if (max_depth > 1) {
       n = debug_print_head(&indent, &buf, "unordered_table");
       contents_indent = indent_to_string(indent);
+      contents_indent_2 = indent_to_string(indent+2);
     }
 
     long rev_no = data->rev_no;
@@ -4414,17 +4416,25 @@ static long func__types__unordered_table___debug_string(NODE *node, int indent, 
           UNORDERED_TABLE_REVISION *revision = key_collision->revisions;
           while (revision) {
             if (revision->rev_no <= rev_no) {
-            if (revision->value != undefined) ++count;
-              if (max_depth > 1) {
-                long len;
-                n += print(&buf, contents_indent);
-                len = debug_string(revision->value, indent, max_depth-1, buf);
-                if (buf) buf += len;
-                n += len;
+              if (revision->value != undefined) {
+                ++count;
+                if (max_depth > 1) {
+                  long len;
+                  n += print(&buf, contents_indent);
+                  n += print(&buf, "=\n");
+                  n += print(&buf, contents_indent_2);
+                  len = debug_string(key_collision->key, indent+2, max_depth-1, buf);
+                  if (buf) buf += len;
+                  n += len;
+                  n += print(&buf, contents_indent_2);
+                  len = debug_string(revision->value, indent+2, max_depth-1, buf);
+                  if (buf) buf += len;
+                  n += len;
+                }
+                break;
               }
-              break;
+              revision = revision->link;
             }
-            revision = revision->link;
           }
           key_collision = key_collision->link;
         }

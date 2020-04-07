@@ -6,13 +6,13 @@ push &values 29
 push &values 35
 push &values 42
 $orig_values values
-dump `values
+dump 2 `values
 pop &values $a
-dump `values
+dump 2 `values
 dump `a
 pop &values $b
-dump `values
+dump 2 `values
 dump `b
 push &values 69
-dump `values
-dump `orig_values
+dump 2 `values
+dump 2 `orig_values

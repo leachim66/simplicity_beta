@@ -192,6 +192,10 @@ IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
+IMPORT int debug_print_head(int *indent_p, char **buf_p, const char *format, ...);
+IMPORT const char *indent_to_string(int indent);
+IMPORT int print(char **buf_p, const char *format, ...);
+IMPORT int debug_print(int indent, char *buf, const char *format, ...);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT NODE *register_unique_item(const char *name);
@@ -538,12 +542,14 @@ static void cont__27_11(void);
 static void cont__27_12(void);
 static void cont__27_13(void);
 static void cont__27_14(void);
-static void cont__56_1(void);
+
+static long func__types__unordered_set___debug_string(NODE *node, int indent, int max_depth, char *buf);
+static void cont__58_1(void);
 void run__basic__types__unordered_set(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__types__unordered_set, NULL, 956, 956, 1, 66},
-  {cont__56_1, NULL, },
+  {run__basic__types__unordered_set, NULL, 1019, 1019, 1, 66},
+  {cont__58_1, NULL, },
   {entry__11_1_insert_item, NULL, 301, 537, 3, 2},
   {entry__12_1_retrieve_item, NULL, 540, 613, 3, 2},
   {entry__14_1_types__unordered_set_length_of, NULL, 630, 666, 3, 2},
@@ -669,7 +675,7 @@ EXPORT void run__basic__types__unordered_set(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 956: register_collection_serializer "unordered_set" empty_unordered_set
+  // 1019: register_collection_serializer "unordered_set" empty_unordered_set
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__20_1;
@@ -677,9 +683,9 @@ EXPORT void run__basic__types__unordered_set(void) {
   result_count = 0;
   myself = get__register_collection_serializer();
   func = myself->type;
-  frame->cont = cont__56_1;
+  frame->cont = cont__58_1;
 }
-static void cont__56_1(void) {
+static void cont__58_1(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1239,7 +1245,7 @@ static VTABLE vtable__types__unordered_set = {
   (void *)no_such_function,
   (void *)no_such_function,
   (void *)no_such_function,
-  (void *)no_such_function
+  &func__types__unordered_set___debug_string
 };
 
 static ATTRIBUTES attributes__types__unordered_set = {
@@ -2865,6 +2871,65 @@ static void cont__27_14(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
+}
+
+static long func__types__unordered_set___debug_string(NODE *node, int indent, int max_depth, char *buf) {
+  UNORDERED_SET *myself = (UNORDERED_SET *)node;
+
+  long n;
+  long count = 0;
+
+  UNORDERED_SET_DATA *data = (UNORDERED_SET_DATA *)myself->data;
+
+  long len = 0;
+
+  if (data) {
+    const char *contents_indent;
+    if (max_depth > 1) {
+      n = debug_print_head(&indent, &buf, "unordered_set");
+      contents_indent = indent_to_string(indent);
+    }
+
+    long rev_no = data->rev_no;
+    UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+    long size = data->size;
+    long idx;
+    for (idx = 0; idx < size; ++idx) {
+      UNORDERED_SET_HASH_COLLISION *hash_collision = entries[idx];
+      while (hash_collision) {
+        UNORDERED_SET_KEY_COLLISION *key_collision =
+          hash_collision->key_collisions;
+        while (key_collision) {
+          UNORDERED_SET_REVISION *revision = key_collision->revisions;
+          while (revision) {
+            if (revision->rev_no <= rev_no) {
+              if (revision->value) {
+                ++count;
+                if (max_depth > 1) {
+                  long len;
+                  n += print(&buf, contents_indent);
+                  len = debug_string(key_collision->key, indent, max_depth-1, buf);
+                  if (buf) buf += len;
+                  n += len;
+                }
+              }
+              break;
+            }
+            revision = revision->link;
+          }
+          key_collision = key_collision->link;
+        }
+        hash_collision = hash_collision->link;
+      }
+    }
+  }
+
+  if (max_depth > 1) {
+    return n;
+  } else {
+    return
+      debug_print(indent, buf, "<unordered_set with %ld entries>", count);
+  }
 }
 EXPORT void collect__basic__types__unordered_set(void) {
   var._NONE = collect_node(var._NONE);

@@ -3,7 +3,7 @@
 $$persons list("Albert" "Berta" "Clara" "Dorian")
 
 $some_persons range(persons 2 -2)
-dump `some_persons
+dump 2 `some_persons
 
 $no_persons range(persons 3 -3)
-dump `no_persons
+dump 2 `no_persons

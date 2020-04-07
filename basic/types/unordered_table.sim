@@ -1082,9 +1082,11 @@ $types::unordered_table/update_each_from_down_to:
 
     if (data) {
       const char *contents_indent;
+      const char *contents_indent_2;
       if (max_depth > 1) {
         n = debug_print_head(&indent, &buf, "unordered_table");
         contents_indent = indent_to_string(indent);
+        contents_indent_2 = indent_to_string(indent+2);
       }
 
       long rev_no = data->rev_no;
@@ -1100,17 +1102,25 @@ $types::unordered_table/update_each_from_down_to:
             UNORDERED_TABLE_REVISION *revision = key_collision->revisions;
             while (revision) {
               if (revision->rev_no <= rev_no) {
-              if (revision->value != UNDEFINED) ++count;
-		if (max_depth > 1) {
-		  long len;
-		  n += print(&buf, contents_indent);
-		  len = debug_string(revision->value, indent, max_depth-1, buf);
-		  if (buf) buf += len;
-		  n += len;
+		if (revision->value != UNDEFINED) {
+		  ++count;
+		  if (max_depth > 1) {
+		    long len;
+		    n += print(&buf, contents_indent);
+		    n += print(&buf, "=\n");
+		    n += print(&buf, contents_indent_2);
+		    len = debug_string(key_collision->key, indent+2, max_depth-1, buf);
+		    if (buf) buf += len;
+		    n += len;
+		    n += print(&buf, contents_indent_2);
+		    len = debug_string(revision->value, indent+2, max_depth-1, buf);
+		    if (buf) buf += len;
+		    n += len;
+		  }
+		  break;
 		}
-                break;
-              }
-              revision = revision->link;
+		revision = revision->link;
+	      }
             }
             key_collision = key_collision->link;
           }

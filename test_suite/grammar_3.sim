@@ -14,4 +14,4 @@ $MEAN
 
 match buf MEAN $len $cap
 dump `len
-dump 2 `cap
+dump 3 `cap

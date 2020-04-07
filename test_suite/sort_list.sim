@@ -4,4 +4,4 @@ $$names list("Gustav" "Albert" "Heinrich" "Georg")
 
 sort &names
 
-dump `names
+dump 2 `names

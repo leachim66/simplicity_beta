@@ -6,4 +6,4 @@ $sum_diff: (a b)
 do:
   sum_diff $results* 3 9
   writeln length_of(results)
-  dump `results
+  dump 2 `results

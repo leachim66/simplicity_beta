@@ -953,4 +953,67 @@ $types::unordered_set/for_each_from_down_to:
     previous_key self hash(key) &key
     if key == NONE return
 
+{
+  <kind function>
+
+  long types::unordered_set/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+    UNORDERED_SET *myself = (UNORDERED_SET *)node;
+
+    long n;
+    long count = 0;
+
+    UNORDERED_SET_DATA *data = (UNORDERED_SET_DATA *)myself->data;
+
+    long len = 0;
+
+    if (data) {
+      const char *contents_indent;
+      if (max_depth > 1) {
+        n = debug_print_head(&indent, &buf, "unordered_set");
+        contents_indent = indent_to_string(indent);
+      }
+
+      long rev_no = data->rev_no;
+      UNORDERED_SET_HASH_COLLISION **entries = data->entries;
+      long size = data->size;
+      long idx;
+      for (idx = 0; idx < size; ++idx) {
+        UNORDERED_SET_HASH_COLLISION *hash_collision = entries[idx];
+        while (hash_collision) {
+          UNORDERED_SET_KEY_COLLISION *key_collision =
+            hash_collision->key_collisions;
+          while (key_collision) {
+            UNORDERED_SET_REVISION *revision = key_collision->revisions;
+            while (revision) {
+              if (revision->rev_no <= rev_no) {
+                if (revision->value) {
+		  ++count;
+		  if (max_depth > 1) {
+		    long len;
+		    n += print(&buf, contents_indent);
+		    len = debug_string(key_collision->key, indent, max_depth-1, buf);
+		    if (buf) buf += len;
+		    n += len;
+		  }
+		}
+                break;
+              }
+              revision = revision->link;
+            }
+            key_collision = key_collision->link;
+          }
+          hash_collision = hash_collision->link;
+        }
+      }
+    }
+
+    if (max_depth > 1) {
+      return n;
+    } else {
+      return
+	debug_print(indent, buf, "<unordered_set with %ld entries>", count);
+    }
+  }
+}
+
 register_collection_serializer "unordered_set" empty_unordered_set

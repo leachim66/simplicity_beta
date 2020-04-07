@@ -2,8 +2,8 @@
 
 $$names list("Albert" "Berta" "Caesar")
 $$shouting_names map(names to_upper_case)
-dump `shouting_names
+dump 2 `shouting_names
 
 $name "Albert"
 $encoded_name map(name: (chr) -> chr+1)
-dump `encoded_name
+dump 2 `encoded_name

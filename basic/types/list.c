@@ -7066,7 +7066,7 @@ static long func__types__list___debug_string(NODE *node, int indent, int max_dep
   if (node->list.length == 0) {
     return debug_print(indent, buf, "empty_list", node);
   } else {
-    if (max_depth == 0) {
+    if (max_depth <= 1) {
       if (node->list.length == 1) {
         return debug_print(indent, buf, "<list of 1 item>", node);
       } else {

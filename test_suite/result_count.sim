@@ -9,4 +9,4 @@ enumerate $a $b $c
 dump `a `b `c
 
 enumerate.(4+1) $numbers*
-dump `numbers
+dump 2 `numbers
