@@ -1170,9 +1170,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__43_20, &frame__43_18, 377, 386, 5, 38},
   {entry__43_1_std__wait_to, NULL, 356, 373, 3, 47},
   {cont__43_17, &frame__43_1_std__wait_to, 374, 386, 3, 39},
-  {cont__43_29, &frame__43_1_std__wait_to, 388, 388, 3, 10},
-  {entry__44_1_std__par, NULL, 391, 391, 3, 29},
-  {cont__44_2, &frame__44_1_std__par, 392, 392, 3, 16}
+  {cont__43_29, &frame__43_1_std__wait_to, 389, 389, 3, 10},
+  {entry__44_1_std__par, NULL, 392, 392, 3, 29},
+  {cont__44_2, &frame__44_1_std__par, 393, 393, 3, 16}
 };
 
 union NODE {
@@ -5440,7 +5440,9 @@ static void cont__43_29(void) {
   }
   // 387: !timeout undefined
   var._timeout = get__undefined();
-  // 388: -> event
+  // 388: !timeout_exceeded undefined
+  var._timeout_exceeded = get__undefined();
+  // 389: -> event
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* event */;
@@ -5454,7 +5456,7 @@ static void entry__44_1_std__par(void) {
   // slot allocations:
   // tasks: 0
   frame->slots[0] /* tasks */ = from_arguments(0, argument_count-0);
-  // 391: append &waiting_tasks tasks
+  // 392: append &waiting_tasks tasks
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._waiting_tasks;
@@ -5470,7 +5472,7 @@ static void cont__44_2(void) {
     return;
   }
   var._waiting_tasks = arguments->slots[0];
-  // 392: process_events
+  // 393: process_events
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;

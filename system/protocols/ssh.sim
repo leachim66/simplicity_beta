@@ -72,7 +72,7 @@ $std::open_ssh_connection:
     "-o"
     "ServerAliveInterval=30"
     url
-  $$timeout 5
+  $$timeout 3
   do: (-> break) forever:
     wait_to $event
       READ_FROM = fd_out
@@ -92,7 +92,6 @@ $std::open_ssh_connection:
       TERMINATED:
 	return undefined false
       TIMEOUT:
-	ewriteln "Timeout exceeded!"
 	break
 
   !timeout 1
@@ -103,7 +102,7 @@ $std::open_ssh_connection:
 
   $$shell KSH
   send_command "
-    echo `expr 1230 + 4`#"$SHELL"#`expr 4320 + 1`
+    echo `expr 1230 + 4`@@"$SHELL"@@`expr 4320 + 1`
   do:
     $$out ""
     $$err ""
@@ -128,23 +127,22 @@ $std::open_ssh_connection:
 		    return undefined false
 		  :
 		    append &out text
-		    if out .contains. "#4321#" break
+		    if out .contains. "@@4321@@" break
 	      fd_err:
 		append &err read_from(fd)
 	  TERMINATED:
 	    return undefined false
 	  TIMEOUT:
-	    ewriteln "Timeout exceeded!"
 	    break
-    case truncate_until(between(out "#1234#" "#4321#") '/' -1) "csh": !shell CSH
+    case truncate_until(between(out "@@1234@@" "@@4321@@") '/' -1) "csh": !shell CSH
   if
     shell == KSH:
       send_command "
 	PROMPT_COMMAND=
-	PS1="@(PROMPT)@quot;
+	PS1="@(PROMPT)"
     :
       send_command "
-	set prompt="@(PROMPT)@quot;
+	set prompt="@(PROMPT)"
   do:
     $$out ""
     $$err ""
@@ -175,7 +173,6 @@ $std::open_ssh_connection:
 	  TERMINATED:
 	    return undefined false
 	  TIMEOUT:
-	    ewriteln "Timeout exceeded!"
 	    break
 
   $conn
@@ -213,12 +210,9 @@ $types::ssh_connection/call_command:
     do: (-> break)
       forever:
 	wait_to $event
-	  READ_FROM
-	  output_file_descriptor_of(conn)
-	  READ_FROM
-	  error_file_descriptor_of(conn)
-	  TERMINATED
-	  pid_of(conn)
+	  READ_FROM = output_file_descriptor_of(conn)
+	  READ_FROM = error_file_descriptor_of(conn)
+	  TERMINATED = pid_of(conn)
 	case
 	  type_of(event)
 	  READ_FROM:
@@ -233,16 +227,17 @@ $types::ssh_connection/call_command:
 		    execution_failed
 		  :
 		    append &out text
-		    if out .contains. "#7654321#" break
+		    if out .contains. "@@7654321@@" break
 	      error_file_descriptor_of(conn):
 		append &err read_from(fd)
 	  TERMINATED:
+	    ewriteln "execution_failed"
 	    execution_failed
-    -> between(out "#1234567#" "#7654321#")
+    -> between(out "@@1234567@@" "@@7654321@@")
 
   $retrieve_variable: (var)
     send_command "
-      echo #`expr 1234560 + 7`#"$@(var)"#`expr 7654320 + 1`#
+      echo @@`expr 1234560 + 7`@@"$@(var)"@@`expr 7654320 + 1`@@
     -> retrieve_output()
 
   $retrieve_stream: (stream)
@@ -255,8 +250,8 @@ $types::ssh_connection/call_command:
       -> ""
       :
 	send_command "
-	  echo #`expr 1234560 + 7`#;cat /tmp/@(stream)_@(uuid_of(conn));echo @
-	  #`expr 7654320 + 1`#
+	  echo @@`expr 1234560 + 7`@@;cat /tmp/@(stream)_@(uuid_of(conn));echo @
+	  @@`expr 7654320 + 1`@@
 	-> retrieve_output()
 
   send_command

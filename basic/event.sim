@@ -385,6 +385,7 @@ $std::wait_to:
       TERMINATED:
 	!terminators(value) undefined
   !timeout undefined
+  !timeout_exceeded undefined
   -> event
 
 $std::par: (tasks*)
