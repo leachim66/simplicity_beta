@@ -25,10 +25,14 @@ $std::READ_FROM .
 
 $std::file_descriptor_of (!)
 
-$std::TERMINATE .
+$std::TERMINATED .
 
 $std::pid_of (!)
 $std::status_of (!)
+
+$std::TIMEOUT .
+
+$std::timeout_of (!)
 
 $std::SCREEN_SIZE_CHANGE .
 
@@ -161,6 +165,9 @@ $std::wait_for_termination:
   !terminators(pid) continuation
   process_events # will never return directly
 
+$$timeout undefined # there should be separate timeouts for each caller
+$$timeout_exceeded undefined
+
 $std::discard:
   (
     fd
@@ -215,6 +222,7 @@ $get_low_level_events: (for_readers_and_writers_only)
       output_fds_list
       $ready_exception_fds_list
       exception_fds_list
+      timeout
     :
       if child_changed_state:
 	do: (-> break)
@@ -222,7 +230,7 @@ $get_low_level_events: (for_readers_and_writers_only)
 	    wait_pid $status $pid -1 true
 	    if pid <= 0 break
 	    create_event
-	      types::event(.type_of TERMINATE .pid_of pid .status_of status)
+	      types::event(.type_of TERMINATED .pid_of pid .status_of status)
       if window_changed_size:
 	get_terminal_size STDIN_FILENO $width $height
 	create_event
@@ -247,6 +255,8 @@ $get_low_level_events: (for_readers_and_writers_only)
 	if wanted_output_fds(output_fd):
 	  create_event
 	    types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+    :
+      create_event types::event(.type_of TIMEOUT)
 
 $get_event_handler:
   (
@@ -269,12 +279,14 @@ $get_event_handler:
 	no_longer_want_to_write_to fd
 	!writers(fd) undefined
 	return writer
-    TERMINATE:
+    TERMINATED:
       $pid pid_of(event)
       $terminator terminators(pid)
       if terminator.is_defined:
 	!terminators(pid) undefined
 	return terminator
+    TIMEOUT:
+      return timeout_exceeded
   -> undefined
 
 $std::get_event:
@@ -342,29 +354,37 @@ $std::wait_to:
     args*
   )
   do $event: (-> continuation)
-    for_each_pair args: (type fd_or_pid)
+    for_each args: (arg)
+      $type key_of(arg)
+      $value value_of(arg)
       case
 	type
 	READ_FROM:
-	  want_to_read_from fd_or_pid
-	  !readers(fd_or_pid) continuation
+	  want_to_read_from value
+	  !readers(value) continuation
 	WRITE_TO:
-	  want_to_write_to fd_or_pid
-	  !writers(fd_or_pid) continuation
-	TERMINATE:
-	  !terminators(fd_or_pid) continuation
+	  want_to_write_to value
+	  !writers(value) continuation
+	TERMINATED:
+	  !terminators(value) continuation
+	TIMEOUT:
+	  !timeout value
+	  !timeout_exceeded continuation
     process_events # will never return directly
-  for_each_pair args: (type fd_or_pid)
+  for_each args: (arg)
+    $type key_of(arg)
+    $value value_of(arg)
     case
       type
       READ_FROM:
-	no_longer_want_to_read_from fd_or_pid
-	!readers(fd_or_pid) undefined
+	no_longer_want_to_read_from value
+	!readers(value) undefined
       WRITE_TO:
-	no_longer_want_to_write_to fd_or_pid
-	!writers(fd_or_pid) undefined
-      TERMINATE:
-	!terminators(fd_or_pid) undefined
+	no_longer_want_to_write_to value
+	!writers(value) undefined
+      TERMINATED:
+	!terminators(value) undefined
+  !timeout undefined
   -> event
 
 $std::par: (tasks*)

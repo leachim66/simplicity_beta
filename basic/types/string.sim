@@ -998,6 +998,19 @@ $std::replace_all: ($text args*)
       range &text 2 -1
   -> new_text
 
+$std::delete_all: ($text expressions*)
+  $$new_text ""
+  while -> length_of(text) > 0:
+    do: (-> break)
+      for_each expressions: (expression)
+	grammar::match $len expression text
+	if len.is_defined:
+	  range &text len+1 -1
+	  break
+      push &new_text text(1)
+      range &text 2 -1
+  -> new_text
+
 $eighty_spaces "
   @
                                                                                @

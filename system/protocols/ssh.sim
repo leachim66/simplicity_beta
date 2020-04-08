@@ -41,6 +41,17 @@ $uuid_of (!)
 
 $types::ssh_connection types::object
 
+$ESC '@esc;'
+$CSI "@esc;["
+
+$ESCAPE_SEQUENCE
+  alt
+    CSI, some(DIGIT), optional(';'), some(DIGIT), LETTER
+    ESC, alt(DIGIT LETTER)
+
+$log: (text)
+  if do_log_ssh_output: ewrite delete_all(text ESCAPE_SEQUENCE)
+
 $std::open_ssh_connection:
   (
     options* # e.g. port no. to use
@@ -62,21 +73,29 @@ $std::open_ssh_connection:
     "ServerAliveInterval=30"
     url
   $$timeout 5
-  forever:
-    wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
+  do: (-> break) forever:
+    wait_to $event
+      READ_FROM = fd_out
+      READ_FROM = fd_err
+      TERMINATED = pid
+      TIMEOUT = timeout
     case
       type_of(event)
       READ_FROM:
 	case
 	  file_descriptor_of(event)
 	  fd_out:
-	    edump `read_from(fd_out)
-	    #ignore read_from(fd_out)
+	    log read_from(fd_out).from_utf8
 	  fd_err:
 	    if parameter_count_of(return) == 2: return undefined false
 	    raise read_from(fd_err)
-      TERMINATE:
+      TERMINATED:
 	return undefined false
+      TIMEOUT:
+	ewriteln "Timeout exceeded!"
+	break
+
+  !timeout 1
 
   $send_command: (cmd)
     if do_log_ssh_commands: ewrite BLUE cmd NORMAL
@@ -84,13 +103,17 @@ $std::open_ssh_connection:
 
   $$shell KSH
   send_command "
-    echo #`expr 1230 + 4`#"$SHELL"#`expr 4320 + 1`#
+    echo `expr 1230 + 4`#"$SHELL"#`expr 4320 + 1`
   do:
     $$out ""
     $$err ""
     do: (-> break)
       forever:
-	wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
+	wait_to $event
+	  READ_FROM = fd_out
+	  READ_FROM = fd_err
+	  TERMINATED = pid
+	  TIMEOUT = timeout
 	case
 	  type_of(event)
 	  READ_FROM:
@@ -98,8 +121,8 @@ $std::open_ssh_connection:
 	    case
 	      fd
 	      fd_out:
-		$text read_from(fd)
-		if do_log_ssh_output: ewrite text
+		$text read_from(fd).from_utf8
+		log text
 		if
 		  text == "":
 		    return undefined false
@@ -108,8 +131,11 @@ $std::open_ssh_connection:
 		    if out .contains. "#4321#" break
 	      fd_err:
 		append &err read_from(fd)
-	  TERMINATE:
+	  TERMINATED:
 	    return undefined false
+	  TIMEOUT:
+	    ewriteln "Timeout exceeded!"
+	    break
     case truncate_until(between(out "#1234#" "#4321#") '/' -1) "csh": !shell CSH
   if
     shell == KSH:
@@ -124,7 +150,11 @@ $std::open_ssh_connection:
     $$err ""
     do: (-> break)
       forever:
-	wait_to $event READ_FROM fd_out READ_FROM fd_err TERMINATE pid
+	wait_to $event
+	  READ_FROM = fd_out
+	  READ_FROM = fd_err
+	  TERMINATED = pid
+	  TIMEOUT = timeout
 	case
 	  type_of(event)
 	  READ_FROM:
@@ -132,8 +162,8 @@ $std::open_ssh_connection:
 	    case
 	      fd
 	      fd_out:
-		$text read_from(fd)
-		if do_log_ssh_output: ewrite text
+		$text read_from(fd).from_utf8
+		log text
 		if
 		  text == "":
 		    return undefined false
@@ -142,8 +172,11 @@ $std::open_ssh_connection:
 		    if count_occurrences(out PROMPT) >= 2: break
 	      fd_err:
 		append &err read_from(fd)
-	  TERMINATE:
+	  TERMINATED:
 	    return undefined false
+	  TIMEOUT:
+	    ewriteln "Timeout exceeded!"
+	    break
 
   $conn
     types::ssh_connection
@@ -184,7 +217,7 @@ $types::ssh_connection/call_command:
 	  output_file_descriptor_of(conn)
 	  READ_FROM
 	  error_file_descriptor_of(conn)
-	  TERMINATE
+	  TERMINATED
 	  pid_of(conn)
 	case
 	  type_of(event)
@@ -203,7 +236,7 @@ $types::ssh_connection/call_command:
 		    if out .contains. "#7654321#" break
 	      error_file_descriptor_of(conn):
 		append &err read_from(fd)
-	  TERMINATE:
+	  TERMINATED:
 	    execution_failed
     -> between(out "#1234567#" "#7654321#")
 
