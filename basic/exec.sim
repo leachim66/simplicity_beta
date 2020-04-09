@@ -763,11 +763,12 @@ $std::pipe: ($input $cmds*)
   update_each &cmds: (&cmd) cmd !cmd*
   posix_pipe cmds input?
 
-$std::extern: (options* filename)
+$std::extern: (options* command)
   extract_options options TRIM = false $do_trim
-  if
-    do_trim
-    -> : (args*)
-      call $result filename args*
-      if result.is_defined (-> result.trim) -> result
-    -> : (args*) call filename args*
+  -> : (arguments* -> return)
+    call $$out $err $ret command arguments*
+    if out.is_defined && do_trim: trim &out
+    case parameter_count_of(return)
+      1 -> out
+      2 -> out ret
+      3 -> out err ret
