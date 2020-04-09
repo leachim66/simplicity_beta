@@ -28,7 +28,8 @@ extern $uuidgen --TRIM "uuidgen"
 %std::do_log_ssh_output false
 $PROMPT "> "
 
-$std::PORT .
+$std::PORT . # port to connect to on the remote host
+$std::FORWARD . # enables forwarding of the authentication agent connection
 
 $KSH .
 $CSH .
@@ -58,11 +59,15 @@ $std::open_ssh_connection:
     url
     -> return
   )
-  extract_options options PORT = undefined $port_no
+  extract_options options
+    PORT = undefined $port_no
+    FORWARD = false $do_forward
   $$additional_options empty_list
   if port_no.is_defined:
     push &additional_options "-p"
     push &additional_options port_no
+  if do_forward:
+    push &additional_options "-A"
   launch $pid $fd_out $fd_in $fd_err
     "ssh"
     additional_options*
@@ -270,7 +275,7 @@ $types::ssh_connection/call_command:
   case
     parameter_count_of(return)
     3:
-      return c_out ret c_err
+      return c_out c_err ret
     2:
       return c_out ret
     1:
