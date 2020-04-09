@@ -34,12 +34,77 @@ trap cleanup 0
 PREFIX='/usr/local'
   # the default installation prefix
 
+OPTIONAL_LIBRARIES='readline curses network remote microhttpd gd'
+MORE_LIBRARIES=''
+
+show_help() {
+  echo "Usage: ./configure [OPTION]... [VAR=VALUE]..."
+  echo
+  echo "To assign environment variables (e.g., CC, CFLAGS...), specify them as"
+  echo "VAR=VALUE. See below for descriptions of some of the useful variables."
+  echo
+  echo "Defaults for the options are specified in brackets."
+  echo
+  echo "Configuration:"
+  echo "  --help      display this help and exit"
+  echo
+  echo "Installation directories:"
+  echo "  --prefix=PREFIX         install files in PREFIX [/usr/local]"
+  echo
+  echo "By default, \"make install\" will install all the files in"
+  echo "\"/usr/local/bin\", \"/usr/local/lib\" etc. You can specify"
+  echo "an installation prefix other than \"/usr/local\" using \"--prefix\","
+  echo 'for instance "--prefix=$HOME".'
+  echo
+  echo "Optional Libraries:"
+  echo "  --with-all              build all optional libraries"
+  echo "  --with-LIBRARY          build this LIBRRAY"
+  echo
+  echo "Available libraries are: $OPTIONAL_LIBRARIES"
+  echo
+  echo "Some influential environment variables:"
+  echo "  CC          C compiler command"
+  echo "  CFLAGS      C compiler flags"
+  echo "  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if"
+  echo "  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a"
+  echo "              nonstandard directory <lib dir>"
+  echo "  LIBS        link these additional libraries"
+
+  exit
+}
+
+with_library() {
+  if [ "$1" = "all" ]
+  then
+    MORE_LIBRARIES=$OPTIONAL_LIBRARIES
+  else
+    for LIBRARY in $OPTIONAL_LIBRARIES
+    do
+      if [ "$1" = $LIBRARY ]
+      then
+	for LIBRARY in $MORE_LIBRARIES
+	do
+	  if [ "$1" = "$LIBRARY" ]
+	  then
+	    echo "Library \"$1\" was specified twise!" >&2; false || exit
+	  fi
+	done
+	MORE_LIBRARIES="$MORE_LIBRARIES $1"
+	return
+      fi
+    done
+    echo "There is no library named \"$1\"!" >&2; false || exit
+  fi
+}
+
 # parse configure options ...
 while true
 do
   case $1 in
     --) shift; break;;
     --prefix=*) PREFIX=${1#*=};;
+    --help) show_help;;
+    --with-*) with_library ${1#*--with-};;
     -*) echo "Unsupported option '$1'!" >&2; false || exit;;
     *) break
   esac
@@ -81,7 +146,7 @@ fi
 BASIC_LIBRARIES='basic'
   # basic libraries do not depend on any other libraries
 
-MORE_LIBRARIES='system readline curses network remote microhttpd gd'
+# MORE_LIBRARIES
   # these none-essential libraries may depend on the basic libraries
   # for executing meta-files
 
