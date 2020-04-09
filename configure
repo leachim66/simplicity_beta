@@ -146,7 +146,7 @@ fi
 BASIC_LIBRARIES='basic'
   # basic libraries do not depend on any other libraries
 
-# MORE_LIBRARIES
+MORE_LIBRARIES="system $MORE_LIBRARIES"
   # these none-essential libraries may depend on the basic libraries
   # for executing meta-files
 
