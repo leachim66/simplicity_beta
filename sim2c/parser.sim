@@ -1413,7 +1413,23 @@ $C_BODY
     STORE_END_POSITION
 
 $LINE_END_EXPRESSION arguments_span(alt(BODY C_BODY MULTI_LINE_STRING))
-$POLYMORPHIC_FUNCTION_WITHOUT_SETTER "()", set_node(polymorphic_function)
+$ASSIGNMENT
+  sequence
+    set_node(assignment)
+    STORE_POSITION
+    alt
+      output_arguments_span(DEFINE_STATIC_MULTI), SINGLE_INPUT_ARGUMENT
+      sequence
+	output_arguments_span(DEFINE_STATIC_SINGLE) SINGLE_INPUT_ARGUMENT
+      output_arguments_span(DEFINE_DYNAMIC_MULTI), SINGLE_INPUT_ARGUMENT
+      output_arguments_span(DEFINE_DYNAMIC_SINGLE), SINGLE_INPUT_ARGUMENT
+      sequence
+	output_arguments_span(ASSIGN)
+	alt(SINGLE_INPUT_ARGUMENT INDENTED_ATTRIBUTE_VALUE_PAIRS)
+    STORE_END_POSITION
+
+$POLYMORPHIC_FUNCTION_WITHOUT_SETTER
+  "()", set_node(polymorphic_function)
 
 $POLYMORPHIC_FUNCTION_WITH_SETTER
   "(!)", set_node(polymorphic_function_with_setter)
@@ -1425,15 +1441,14 @@ $POLYMORPHIC_FUNCTION
       alt(POLYMORPHIC_FUNCTION_WITHOUT_SETTER POLYMORPHIC_FUNCTION_WITH_SETTER)
     LINE_END_REMARK
 
-$ASSIGNMENT
+$TOP_LEVEL_ASSIGNMENT
   sequence
     set_node(assignment)
     STORE_POSITION
     alt
       output_arguments_span(DEFINE_STATIC_MULTI), SINGLE_INPUT_ARGUMENT
       sequence
-	output_arguments_span(DEFINE_STATIC_SINGLE)
-	alt(POLYMORPHIC_FUNCTION SINGLE_INPUT_ARGUMENT)
+	output_arguments_span(DEFINE_STATIC_SINGLE) alt(POLYMORPHIC_FUNCTION SINGLE_INPUT_ARGUMENT)
       output_arguments_span(DEFINE_DYNAMIC_MULTI), SINGLE_INPUT_ARGUMENT
       output_arguments_span(DEFINE_DYNAMIC_SINGLE), SINGLE_INPUT_ARGUMENT
       sequence
@@ -1471,10 +1486,13 @@ $PROCEDURE_CALL
 $INDENTED_REMARKS INDENT, interleaved(REMARK NEWLINES), OUTDENT
 
 $SINGLE_STATEMENT
-  # used for top-level statements (fragments)
-
   alt
     alt(ASSIGNMENT PROCEDURE_CALL), optional(INDENTED_REMARKS)
+    SINGLE_REMARK_STATEMENT
+
+$TOP_LEVEL_STATEMENT
+  alt
+    alt(TOP_LEVEL_ASSIGNMENT PROCEDURE_CALL), optional(INDENTED_REMARKS)
     SINGLE_REMARK_STATEMENT
 
 $STATEMENT multi_span(statements_of SINGLE_STATEMENT)
@@ -1575,7 +1593,7 @@ $FRAGMENT
   sequence
     alt
       SINGLE_REMARK_STATEMENT
-      SINGLE_STATEMENT
+      TOP_LEVEL_STATEMENT
       C_CODE
       syntax_error("top-level statement expected")
     expect(newline, END_OF_TEXT)
