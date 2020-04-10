@@ -677,7 +677,7 @@ EXPORT void use_polymorphic_function(
       unrecoverable_error(
 	"The symbol \"%s::%s\", defined in the module \"%s\" is a %s and not a "
 	"polymorphic function as needed by the module \"%s\"!",
-	namespace, name, ep->module_name, var_type[ep->type],
+	ep->namespace, name, ep->module_name, var_type[ep->type],
 	current_module_name);
   }
 }
@@ -715,7 +715,7 @@ EXPORT void use_read_write(
       unrecoverable_error(
 	"The symbol \"%s::%s\", defined in the module \"%s\" is a %s and not "
 	"writeable as needed by the module \"%s\"!",
-	namespace, name, ep->module_name, var_type[ep->type],
+	ep->namespace, name, ep->module_name, var_type[ep->type],
 	current_module_name);
   }
 }
@@ -735,7 +735,7 @@ EXPORT void use_single_assign_dynamic(
       unrecoverable_error(
 	"The symbol \"%s::%s\", defined in the module \"%s\" is a %s and not "
 	"a single assign dynamic as needed by the module \"%s\"!",
-	namespace, name, ep->module_name, var_type[ep->type],
+	ep->namespace, name, ep->module_name, var_type[ep->type],
 	current_module_name);
   }
 }
@@ -756,7 +756,7 @@ EXPORT void use_multi_assign_dynamic(
       unrecoverable_error(
 	"The symbol \"%s::%s\", defined in the module \"%s\" is a %s and not "
 	"a multi assign dynamic as needed by the module \"%s\"!",
-	namespace, name, ep->module_name, var_type[ep->type],
+	ep->namespace, name, ep->module_name, var_type[ep->type],
 	current_module_name);
   }
 }
