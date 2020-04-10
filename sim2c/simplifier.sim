@@ -100,20 +100,24 @@ $simplify_arguments: (&self)
 $sim2c::check_usage: (name definition info)
   case
     variable_kind_of(definition)
-    STATIC_SINGLE, POLYMORPHIC:
+    POLYMORPHIC:
       case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI:
+	SyntaxError identifier_of(info) "
+	  Invalid access to polymorphic function "@(name)@quot;@
+    STATIC_SINGLE:
+      case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
 	SyntaxError identifier_of(info) "
 	  Invalid access to read-only variable "@(name)@quot;@
     STATIC_MULTI:
-      case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
+      case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
 	SyntaxError identifier_of(info) "
 	  Invalid access to static read-write variable "@(name)@quot;@
     DYNAMIC_SINGLE:
-      case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI:
+      case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI, POLYMORPHIC:
 	SyntaxError identifier_of(info) "
 	  Invalid access to dynamic read-only variable "@(name)@quot;@
     DYNAMIC_MULTI:
-      case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE:
+      case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE, POLYMORPHIC:
 	SyntaxError identifier_of(info) "
 	  Invalid access to dynamic read-write variable "@(name)@quot;@
 

@@ -1454,9 +1454,11 @@ $TOP_LEVEL_ASSIGNMENT
 	    POLYMORPHIC_FUNCTION
 	    modify_node
 	      : (&node)
-		$destination output_arguments_of(node)(1)
+		$$destination output_arguments_of(node)(1)
 		if attribute_of(destination).is_defined:
 		  SyntaxError node "invalid polymorphic function definition"
+		!destination.variable_kind_of POLYMORPHIC
+		!node.output_arguments_of(1) destination
 	  SINGLE_INPUT_ARGUMENT
       output_arguments_span(DEFINE_DYNAMIC_MULTI), SINGLE_INPUT_ARGUMENT
       output_arguments_span(DEFINE_DYNAMIC_SINGLE), SINGLE_INPUT_ARGUMENT
