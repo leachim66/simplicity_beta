@@ -175,18 +175,15 @@ RUNTIME_MINOR_VERSION=`cat runtime/linker.c | grep '^#define RUNTIME_MINOR_VERSI
 RUNTIME_REVISION=`cat runtime/linker.c | grep '^#define RUNTIME_REVISION' | cut -d ' ' -f 3`
   # denotes an internal change in the runtime library
 
-BUILD_NO=0
-  # increased for each change that is visible in the distribution package
-
 RUNTIME_VERSION="$RUNTIME_MAJOR_VERSION.$RUNTIME_MINOR_VERSION.$RUNTIME_REVISION"
   # version of the Simplicity runtime DLL (e.g. libsim.so)
 
 DLL_VERSION="$RUNTIME_MAJOR_VERSION"
   # runtime-DLL version *required* by Simplicity executables
   # and used for all DLLs built for Simplicity libraries
-  # they don't care about the runtime revision
+  # they don't care about the runtime minor version or revision
 
-PACKAGE_VERSION="$RUNTIME_VERSION.$BUILD_NO"
+PACKAGE_VERSION="$RUNTIME_VERSION"
   # the version used for creating distribution packages
 
 BASEDIR="simplicity-$PACKAGE_VERSION"
@@ -614,9 +611,10 @@ fi
 for LIBNAME in $ALL_LIBRARIES
 do
   VERSION=`cat $LIBNAME/VERSION`
-  echo "${TAB}rm -f libsim-$LIBNAME$DLL_EXTENSION"
-  echo "${TAB}rm -f libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
-  echo "${TAB}rm -f libsim-$LIBNAME-$VERSION$DLL_EXTENSION"
+  MAJOR_VERSION="${VERSION%%.*}"
+  echo "${TAB}rm -f libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
+  echo "${TAB}rm -f libsim-$LIBNAME-${VERSION}${DLL_EXTENSION}"
+  echo "${TAB}rm -f libsim-${LIBNAME}${DLL_EXTENSION}"
 done
 
 echo
@@ -624,25 +622,26 @@ echo '.PHONY: install'
 echo 'install: all'
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/bin/\""
 echo "${TAB}cp -f sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/\""
-echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\"; ln -fs simple simrun"
+echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple simrun"
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/lib/\""
 echo "${TAB}cp -f libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
 if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
-  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
 elif [ $OS = 'darwin' ]
 then
-  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dylib"
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dylib"
 elif [ $OS = 'cygwin' ]
 then
-  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dll"
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim$RUNTIME_DLL_EXTENSION libsim-$RUNTIME_MAJOR_VERSION.dll"
 fi
 for LIBNAME in $ALL_LIBRARIES
 do
   VERSION=`cat $LIBNAME/VERSION`
+  MAJOR_VERSION="${VERSION%%.*}"
   echo "${TAB}cp -f libsim-$LIBNAME-$VERSION$DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
-  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
-  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\"; ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
+  echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-${LIBNAME}${DLL_EXTENSION}"
 done
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime\""
 echo "${TAB}cp runtime/*.h \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime/\""
@@ -682,9 +681,10 @@ echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim$RUNTIME_DLL_EXTENSION\""
 for LIBNAME in $ALL_LIBRARIES
 do
   VERSION=`cat $LIBNAME/VERSION`
-  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME$DLL_EXTENSION\""
-  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION\""
-  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-$VERSION$DLL_EXTENSION\""
+  MAJOR_VERSION="${VERSION%%.*}"
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}\""
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-${VERSION}${DLL_EXTENSION}\""
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-${LIBNAME}${DLL_EXTENSION}\""
 done
 echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime\"/*.h"
 echo "${TAB}rmdir \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime\" || true"
@@ -745,8 +745,9 @@ do
   echo "${TAB}LD_LIBRARY_PATH=\$\${LD_LIBRARY_PATH%:}; \\"
   echo "${TAB}SIMDATAPATH=. sim2c/simple $LIBNAME"
   VERSION=`cat $LIBNAME/VERSION`
-  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
-  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
+  MAJOR_VERSION="${VERSION%%.*}"
+  echo "${TAB}ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
+  echo "${TAB}ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-${LIBNAME}${DLL_EXTENSION}"
 done
 
 for LIBNAME in $INSTALLED_LIBRARIES
@@ -774,8 +775,9 @@ do
   fi
   echo "${TAB}SIMLIBPATH=. SIMDATAPATH=. sim2c/simple $LIBNAME"
   VERSION=`cat $LIBNAME/VERSION`
-  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME-${VERSION%%.*}$DLL_EXTENSION"
-  echo "${TAB}ln -fs libsim-$LIBNAME-$VERSION$DLL_EXTENSION libsim-$LIBNAME$DLL_EXTENSION"
+  MAJOR_VERSION="${VERSION%%.*}"
+  echo "${TAB}ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
+  echo "${TAB}ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-${LIBNAME}${DLL_EXTENSION}"
 done
 
 #generate make-targets for all bootstrap object files
