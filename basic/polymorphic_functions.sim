@@ -20,20 +20,149 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::plus () # add two numbers
+$std::plus ()
+  #
+    add two numbers of any kind
+
+    The result is always stored in the simplest possible form.
+
+    See also: std::minus, std::times, std::over, std::div, std::mod
+
 $std::minus () # subtract two numbers
+  #
+    subtract two numbers of any kind
+
+    The result is always stored in the simplest possible form.
+
+    See also: std::negate, std::plus, std::times, std::over, std::div, std::mod
+
 $std::times () # multiply two numbers
+  #
+    multiply two numbers of any kind
+
+    The result is always stored in the simplest possible form.
+
+    See also: std::over, std::div, std::mod, std::plus, std::minus
+
 $std::over () # divide two numbers
+  #
+    divide two numbers of any kind
+
+    The result is stored as an integer if there is no remainder.
+
+    See also: std::div, std::mod, std::times, std::plus, std::minus
+
 $std::div () # divide two integers giving an integer
+  #
+    divide two integer numbers
+
+    The result is rounded towards zero.
+
+    See also: std::times, std::over, std::mod, std::plus, std::minus
+
 $std::mod () # divide two integers and return the modulo
+  #
+    compute the remainder of two integer numbers
+
+    The result has the same sign as the dividend
+
+    See also: std::div,  std::times, std::over, std::plus, std::minus
+
 $std::negate () # negate a number
+  #
+    negate the numeric argument
+
+    The result is equal to
+
+    0 - argument
+
+    See also: std::minus
+
 $std::equal () # check two objects for equality
-$std::equal_type_and_value () # equal_type_and_value(a b) => hash(a) == hash(b)
+  #
+    compares two objects for equality
+
+    Two objects are equal if the equal function says so ... ^^
+
+    Two identical objects should always be equal.
+
+    <std::undefined> should only be equal to itself and to no other object.
+
+    There is no separate function to test non-equality.
+
+    *a* != *b*
+
+    is converted by the compiler to
+
+    not(equal(*a* *b*))
+
+    See also: std::equal_type_and_value, std::less
+
+
+$std::equal_type_and_value ()
+  #
+    compares two objects for equality in a stricter way
+
+    When comparing two objects of different types this function shall always
+    return <std::false>.
+
+    If this function returns <std::true> for two objects *a* and *b* then
+    this should imply that
+
+    hash(a) == hash(b)
+
+    See also: std::equal
+
 $std::less ()
-  # check whether the first argument is less than the second argument
+  #
+    compares two objects in an object specific way
+
+    The two objects must be of a comparable type.
+
+    This function is used to implement the following comparison operators:
+
+    *a* < *b*
+
+    is converted by the compiler to
+
+    less(*a* *b*)
+
+    *a* > *b*
+
+    is converted by the compiler to
+
+    less(*b* *a*)
+
+    *a* <= *b*
+
+    is converted by the compiler to
+
+    not(less(*b* *a*))
+
+    *a* >= *b*
+
+    is converted by the compiler to
+
+    not(less(*a* *b*))
+
+    See also: std::numerically_less, std::equal
+
+
 $std::numerically_less ()
-  # check whether the first argument is numerically less than the second argument
-$std::not () # negate the boolean expression
+  #
+    compares two objects and treats them as numeric values
+
+    See also: std::less
+
+$std::not ()
+  #
+    negate the boolean argument
+
+    not(<std::true>) yields <std::false)
+
+    not(<std::false>) yields <std::true)
+
+    See also: std::equal, std::less
 
 $std::and ()
   #
