@@ -2511,6 +2511,7 @@ static void cont__109_12(void);
 static void cont__109_13(void);
 static void cont__133_1(void);
 static void cont__133_2(void);
+static void cont__133_3(void);
 static void cont__134_1(void);
 static NODE *func__134_2;
 static void entry__134_2(void);
@@ -2817,8 +2818,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__107_10, NULL, 125, 133, 1, 17},
   {cont__107_11, NULL, 136, 146, 1, 22},
   {cont__109_13, NULL, 170, 170, 42, 42},
-  {cont__133_1, NULL, 170, 170, 1, 43},
-  {cont__133_2, NULL, 172, 172, 3, 20},
+  {cont__133_1, NULL, 170, 170, 9, 43},
+  {cont__133_2, NULL, 170, 170, 1, 63},
+  {cont__133_3, NULL, 172, 172, 3, 20},
   {cont__134_1, NULL, 171, 246, 1, 49},
   {cont__134_70, NULL, 247, 247, 1, 39},
   {cont__135_1, NULL, 248, 248, 1, 30},
@@ -5498,19 +5500,35 @@ static void cont__133_1(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 170: $action truncate_until(program_name '/' -1)
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
+  // 170: ... truncate_until(program_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__program_name();
   arguments->slots[1] = character__47;
-  arguments->slots[2] = frame->slots[0] /* temp__1 */;
+  arguments->slots[2] = frame->slots[1] /* temp__2 */;
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
   frame->cont = cont__133_2;
 }
 static void cont__133_2(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
+  // 170: $action truncate_until(program_name '/' -1) .truncate_from. '-'
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = character__45;
+  result_count = 1;
+  myself = get__truncate_from();
+  func = myself->type;
+  frame->cont = cont__133_3;
+}
+static void cont__133_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;

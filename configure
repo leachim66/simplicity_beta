@@ -621,8 +621,10 @@ echo
 echo '.PHONY: install'
 echo 'install: all'
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/bin/\""
-echo "${TAB}cp -f sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/\""
-echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple simrun"
+echo "${TAB}cp -f sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/simple-$RUNTIME_MAJOR_VERSION\""
+echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simple"
+echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simrun-$RUNTIME_MAJOR_VERSION"
+echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simrun"
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/lib/\""
 echo "${TAB}cp -f libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
 if [ $OS = 'linux' -o $OS = 'bsd' ]
@@ -666,7 +668,9 @@ echo
 echo '.PHONY: uninstall'
 echo 'uninstall:'
 echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simrun\""
+echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simrun-${RUNTIME_MAJOR_VERSION}$EXE_EXTENSION\""
 echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simple$EXE_EXTENSION\""
+echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simple-${RUNTIME_MAJOR_VERSION}$EXE_EXTENSION\""
 if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim.so.$RUNTIME_MAJOR_VERSION\""
