@@ -44,7 +44,7 @@ $std::from_to:
 
     Topics: Control Flow, Loops
 
-    See Also: from_to_by, from_down_to, from_down_to_by, repeat, forever, while
+    See also: from_to_by, from_down_to, from_down_to_by, repeat, forever, while
 
     Example:
 
@@ -124,7 +124,7 @@ $std::from_to_by:
 
     Topics: Control Flow, Loops
 
-    See Also: from_to, from_down_to, from_down_to_by, repeat, forever, while
+    See also: from_to, from_down_to, from_down_to_by, repeat, forever, while
 
     Example:
 
@@ -200,7 +200,7 @@ $std::from_down_to:
 
     Topics: Control Flow, Loops
 
-    See Also: from_down_to_by, from_to, from_to_by, repeat, forever, while
+    See also: from_down_to_by, from_to, from_to_by, repeat, forever, while
 
     Example:
 
@@ -271,7 +271,7 @@ $std::from_down_to_by:
 
     Topics: Control Flow, Loops
 
-    See Also: from_down_to, from_to, from_to_by, repeat, forever, while
+    See also: from_down_to, from_to, from_to_by, repeat, forever, while
 
     Example:
 
@@ -330,7 +330,7 @@ $std::repeat:
 
     Topics: Control Flow, Loops
 
-    See Also: forever, from_to, while
+    See also: forever, from_to, while
 
     Example:
 
@@ -358,7 +358,7 @@ $std::forever:
 
     Topics: Control Flow, Loops
 
-    See Also: repeat, from_to, while
+    See also: repeat, from_to, while
 
     Example:
 
@@ -414,7 +414,7 @@ $std::while:
 
     Topics: Control Flow, Loops
 
-    See Also: do_while, do_until, repeat, forever, from_to
+    See also: do_while, do_until, repeat, forever, from_to
 
     Example:
 
@@ -451,7 +451,7 @@ $std::do_while:
 
     Topics: Control Flow, Loops
 
-    See Also: while, do_until, from_to, repeat, forever
+    See also: while, do_until, from_to, repeat, forever
   (
     body # the statement sequence to execute within the loop
   )
@@ -466,7 +466,7 @@ $std::do_until:
 
     Topics: Control Flow, Loops
 
-    See Also: do_while, while, from_to, repeat, forever
+    See also: do_while, while, from_to, repeat, forever
   (
     body # the statement sequence to execute within the loop
   )

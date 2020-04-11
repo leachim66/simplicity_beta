@@ -34,18 +34,139 @@ $std::less ()
 $std::numerically_less ()
   # check whether the first argument is numerically less than the second argument
 $std::not () # negate the boolean expression
+
 $std::and ()
+  #
+    "short cut" and-operation
+
+    The left argument must be <std::true> or <std::false>.
+
+    The right argument must be a function that evaluates to
+    <std::true> or <std::false>.
+
+    See also: std::or
+
 $std::or ()
+  #
+    "short cut" or- operation;
+
+    The left argument must be <std::true> or <std::false>.
+
+    The right argument must be a function that evaluates to
+    <std::true> or <std::false>.
+
+    See also: std::and
+
 $std::if ()
+  #
+    classic if; can be used as a function or a procedure
+
+    The first argument must be <std::true> or <std::false>.
+
+    The second argument represents the "then-part" and must be a function; it
+    is called, if the first argument is <std::true>.
+
+    The third argument is optional represents the "else-part". if present it
+    must be a function and is called, if the first argument is <std::false>.
+
+    The "then-part"- and "else-part" function can return any number of results
+    (including none). But both (if then "else-part" is present) should return
+    the *same* number of results.
+
+    Topics: Control Flow, Branches
+
+    See also: std::unless
+
 $std::unless ()
+  #
+    executes a function unless the *condition* is true
+
+    The first argument must be <std::true> or <std::false>.
+
+    The second argument must be a function that does not return any results.
+
+    In the case the first argument is <std::true> nothing is done.
+
+    In the case the first argument is <std::false> the function specified as
+    the second argument is called.
+
+    Topics: Control Flow, Branches
+
+    See also: std::if
+
 $std::shift_left ()
+  #
+    bitwise shift-left operation
+
+    The first operand (must be positive integer) is shifted left by the number
+    of bits specified by the second operandt, that must be a positive integer,
+    too.
+
+    There is no restriction in the size of the integer numbers!
+
+    See also: std::shift_right, std::bit_and, std::bit_or, std::bit_xor
+
 $std::shift_right ()
+  #
+    bitwise shift-right operation
+
+    The first operand (must be positive integer) is shifted right by the number
+    of bits specified by the second operandt, that must be a positive integer,
+    too.
+
+    Bits that are shifted out on the right side are "lost".
+
+    There is no restriction in the size of the integer numbers!
+
+    See also: std::shift_right, std::bit_and, std::bit_or, std::bit_xor
+
 $std::bit_and ()
+  #
+    bitwise and operation
+
+    The two operands (both must be positive integers of any size) are combined
+    bit for bit using an and-operation.
+
+    See also: std::bit_or, std::bit_xor, std::shift_left, std::shift_right
+
 $std::bit_or ()
+  #
+    bitwise and operation
+
+    The two operands (both must be positive integers of any size) are combined
+    bit for bit using an inclusive-or-operation.
+
+    See also: std::bit_and, std::bit_xor, std::shift_left, std::shift_right
+
 $std::bit_xor ()
+  #
+    bitwise and operation
+
+    The two operands (both must be positive integers of any size) are combined
+    bit for bit using an exclusive-or-operation.
+
+    See also: std::bit_and, std::bit_or, std::shift_left, std::shift_right
+
 $std::parameter_count_of (!)
+  #
+    number of wanted arguments
+
+    This attribute returns the number of arguments to use when calling its
+    function. Functions that accept a variable number of arguments will return
+    <std::undefined>.
+
+    Attention: Functions accepting a variable number of arguments might have
+    a minimum and/or maximum number of expected arguments. These numbers **cannot** be
+    retrieved during runtime!
+
 $std::is_defined ()
+  #
+    check if this object is a descendant of <types::object>
+
 $std::is_undefined ()
+  #
+    check if this object is <types::undefined>
+
 $std::default_value ()
 $std::is_valid ()
 $std::to_string ()

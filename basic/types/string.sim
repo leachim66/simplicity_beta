@@ -145,7 +145,7 @@ $std::pad_left:
     *n* characters long. If it would be shorter than it is padded to the left
     with the pattern stored in *pad*.
 
-    See Also: pad_right, pad_or_truncate, truncate
+    See also: pad_right, pad_or_truncate, truncate
   (
     expr # the expression that is converted into a string
     n # the length of the resulting string
@@ -165,7 +165,7 @@ $std::pad_right:
     *n* characters long. If it would be shorter than it is padded to the right
     with the pattern stored in *pad*.
 
-    See Also: pad_left, pad_or_truncate, truncate
+    See also: pad_left, pad_or_truncate, truncate
   (
     expr # the expression that is converted into a string
     n # the length of the resulting string
@@ -184,7 +184,7 @@ $std::truncate:
     This function creates a string representation of *expr* which is no longer
     than *n* characters. Additional characters are truncated.
 
-    See Also: pad_right, pad_left, pad_or_truncate
+    See also: pad_right, pad_left, pad_or_truncate
   (
     expr # the expression that is converted into a string
     n # the length of the resulting string
@@ -199,7 +199,7 @@ $std::pad_or_truncate:
     *n* characters long. If it would be shorter than it is padded with spaces
     otherwise it is truncated.
 
-    See Also: pad_right, pad_left, truncate
+    See also: pad_right, pad_left, truncate
   (
     expr # the expression that is converted into a string
     n # the length of the resulting string
@@ -281,7 +281,7 @@ $types::string/before:
     A very similar function is <string/truncate_from>. It behaves differently
     only when the expression is *not* found.
 
-    See Also: string/truncate_from, string/behind, string/between, string/until
+    See also: string/truncate_from, string/behind, string/between, string/until
 
     Example:
 
@@ -312,7 +312,7 @@ $types::string/truncate_from:
     found. In this case the original string is returned unmodified or - when
     called as a procedure - nothing will happen.
 
-    See Also: string/before, string/from, string/truncate_behind
+    See also: string/before, string/from, string/truncate_behind
 
     Example:
 
@@ -350,7 +350,7 @@ $types::string/behind:
     A very similar function is <string/truncate_until>. It behaves differently
     only when the expression is *not* found.
 
-    See Also: string/truncate_until, string/before, string/between, string/from
+    See also: string/truncate_until, string/before, string/between, string/from
 
     Example:
 
@@ -381,7 +381,7 @@ $types::string/truncate_until:
     found. In this case the original string is returned unmodified or - when
     called as a procedure - nothing will happen.
 
-    See Also: string/behind, string/until, string/truncate_before
+    See also: string/behind, string/until, string/truncate_before
 
     Example:
 
@@ -419,7 +419,7 @@ $types::string/from:
     A very similar function is <string/truncate_until>. It behaves differently
     only when the expression is *not* found.
 
-    See Also: string/before, string/from, string/truncate_behind
+    See also: string/before, string/from, string/truncate_behind
   (
     str # the input string
     expr # the expression to look for
@@ -441,7 +441,7 @@ $types::string/truncate_before:
     In this case the original string is returned unchanged or - when called
     as a procedure - nothing will happen.
 
-    See Also: string/from, string/before, string/truncate_until
+    See also: string/from, string/before, string/truncate_until
   (
     str # the string to truncate
     expr # the expression to look for
@@ -471,7 +471,7 @@ $types::string/until:
     A very similar function is <string.truncate_behind>. It behaves different
     only when the expression is *not* found.
 
-    See Also: string/truncate_behind, string/from, string/before
+    See also: string/truncate_behind, string/from, string/before
   (
     str # the input string
     expr # the expression to look for
@@ -493,7 +493,7 @@ $types::string/truncate_behind:
     In this case the original string is returned unchanged or - when called
     as a procedure - nothing will happen.
 
-    See Also: string/until, string/behind, string/truncate_from
+    See also: string/until, string/behind, string/truncate_from
   (
     str # the string to truncate
     expr # the expression to look for
@@ -515,7 +515,7 @@ $types::string/between:
     If *nth* is specified then the *nth* occurrence of the *left expression*
     is used instead of the first one.
 
-    See Also: string/behind, string/before
+    See also: string/behind, string/before
   (
     str # the input string
     expr_1 # the expression on the left hand side
@@ -528,7 +528,7 @@ $types::string/has_prefix:
   #
     checks whether the string has *prefix* as a prefix
 
-    See Also: string/has_suffix, string/without_prefix
+    See also: string/has_suffix, string/without_prefix
   (
     self
     prefix # the prefix to check for
@@ -539,7 +539,7 @@ $types::string/has_suffix:
   #
     checks whether the string has *suffix* as a suffix
 
-    See Also: string/has_prefix, string/without_suffix
+    See also: string/has_prefix, string/without_suffix
   (
     self
     suffix # the suffix to check for
@@ -554,7 +554,7 @@ $types::string/without_prefix:
   #
     removes the specified prefix
 
-    See Also: string/has_prefix, string/without_suffix
+    See also: string/has_prefix, string/without_suffix
   (
     self
     prefix
@@ -568,7 +568,7 @@ $types::string/without_suffix:
   #
     removes the specified suffix
 
-    See Also: string/has_suffix, string/without_prefix
+    See also: string/has_suffix, string/without_prefix
   (
     self
     suffix

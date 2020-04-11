@@ -32,7 +32,7 @@ $std::cond:
 
     Topics: Control Flow, Branches
 
-    See Also: if, case
+    See also: if, case
 
     Example:
 
@@ -74,7 +74,7 @@ $std::case:
 
     Topics: Control Flow, Branches
 
-    See Also: if, cond, check_case
+    See also: if, cond, check_case
 
     Example:
 
@@ -151,7 +151,7 @@ $std::check_case:
 
     Topics: Control Flow, Branches
 
-    See Also: if, cond, check
+    See also: if, cond, check
 
     Example:
 

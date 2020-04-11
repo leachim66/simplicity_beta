@@ -11701,7 +11701,7 @@ static void entry__29_87(void) {
     invalid_arguments_error();
     return;
   }
-  // 470: ... paragraph .has_prefix. "See Also:"
+  // 470: ... paragraph .has_prefix. "See also:"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* paragraph */;
@@ -11721,7 +11721,7 @@ static void cont__29_89(void) {
   // 471:   for_each split(paragraph .behind. ':' ','): (reference)
   // 472:     push &references reference.trim
   frame->slots[3] /* temp__2 */ = create_closure(entry__29_90, 0);
-  // 470: -> paragraph .has_prefix. "See Also:":
+  // 470: -> paragraph .has_prefix. "See also:":
   // 471:   for_each split(paragraph .behind. ':' ','): (reference)
   // 472:     push &references reference.trim
   argument_count = 2;
@@ -12179,7 +12179,7 @@ static void entry__29_26(void) {
   // 458:   :
   // ...
   frame->slots[10] /* temp__2 */ = create_closure(entry__29_63, 0);
-  // 470: -> paragraph .has_prefix. "See Also:":
+  // 470: -> paragraph .has_prefix. "See also:":
   // 471:   for_each split(paragraph .behind. ':' ','): (reference)
   // 472:     push &references reference.trim
   frame->slots[11] /* temp__3 */ = create_closure(entry__29_87, 0);
@@ -13722,7 +13722,7 @@ static void cont__29_224(void) {
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
   // 559: ... :
-  // 560:   H2 "See Also"
+  // 560:   H2 "See also"
   // 561:   P:
   // 562:     for_each references: ($reference)
   // 563:       resolve_reference &reference
@@ -13730,7 +13730,7 @@ static void cont__29_224(void) {
   // 565:       BR
   frame->slots[12] /* temp__2 */ = create_closure(entry__29_225, 0);
   // 559: unless references.is_empty:
-  // 560:   H2 "See Also"
+  // 560:   H2 "See also"
   // 561:   P:
   // 562:     for_each references: ($reference)
   // 563:       resolve_reference &reference
@@ -13870,7 +13870,7 @@ static void entry__29_225(void) {
     invalid_arguments_error();
     return;
   }
-  // 560: H2 "See Also"
+  // 560: H2 "See also"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__29_226;
@@ -19492,7 +19492,7 @@ EXPORT void phase_2__extractor(void) {
   string__29_55 = from_latin_1_string(" (optional; default value: ", 27);
   string__29_56 = from_latin_1_string(")", 1);
   string__29_65 = from_latin_1_string("Returns", 7);
-  string__29_88 = from_latin_1_string("See Also:", 9);
+  string__29_88 = from_latin_1_string("See also:", 9);
   string__29_117 = from_latin_1_string("Technical Details:", 18);
   string__29_135 = from_latin_1_string("[", 1);
   func__29_130 = create_function(entry__29_130, 1);
@@ -19505,7 +19505,7 @@ EXPORT void phase_2__extractor(void) {
   func__29_216 = create_function(entry__29_216, 1);
   string__29_220 = from_latin_1_string("Technical Details", 17);
   func__29_222 = create_function(entry__29_222, 1);
-  string__29_226 = from_latin_1_string("See Also", 8);
+  string__29_226 = from_latin_1_string("See also", 8);
   func__29_229 = create_function(entry__29_229, 1);
   string__29_239 = from_latin_1_string("Implemented by", 14);
   string__29_251 = from_latin_1_string("&nbsp;as&nbsp;", 14);

@@ -467,7 +467,7 @@ $create_info_page: (function_name info)
 			" (zero or more arguments)"
 		$description (paragraph .behind. ':').trim
 		push &return_values return_value = description
-	    -> paragraph .has_prefix. "See Also:":
+	    -> paragraph .has_prefix. "See also:":
 	      for_each split(paragraph .behind. ':' ','): (reference)
 		push &references reference.trim
 	    -> paragraph .has_prefix. TOPIC:
@@ -557,7 +557,7 @@ $create_info_page: (function_name info)
 	H2 "Technical Details"
 	for_each technical_details: (detail) P detail
       unless references.is_empty:
-	H2 "See Also"
+	H2 "See also"
 	P:
 	  for_each references: ($reference)
 	    resolve_reference &reference
