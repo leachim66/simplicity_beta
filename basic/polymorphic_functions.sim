@@ -743,7 +743,7 @@ $std::before ()
 
     Topic: Strings
 
-    See also: std::truncate_from, std::behind, std::from, std::until
+    See also: std::truncate_from, std::between, std::behind, std::from, std::until
 
 $std::truncate_from ()
   #
@@ -782,7 +782,7 @@ $std::behind ()
 
     Topic: Strings
 
-    See also: std::truncate_until, std::before, std::from, std::until
+    See also: std::truncate_until, std::between, std::before, std::from, std::until
 
 $std::truncate_until ()
   #
@@ -840,7 +840,7 @@ $std::truncate_before ()
 
     Topic: Strings
 
-    See also: std::from, std::between, std::truncate_behind,
+    See also: std::from, std::truncate_behind,
 	      std::truncate_from, std::truncate_until
 
 $std::until ()
@@ -879,7 +879,7 @@ $std::truncate_behind ()
 
     Topic: Strings
 
-    See also: std::until, std::between, std::truncate_before,
+    See also: std::until, std::truncate_before,
 	      std::truncate_from, std::truncate_until
 
 $std::between ()
@@ -904,6 +904,32 @@ $std::between ()
     See also: std::behind, std::before
 
 $std::range ()
+  #
+    returns a subrange of a collection
+
+    The first argument specifies the collection.
+
+    The second argument specifies the first index of the first item to include
+    in the subrange.
+
+    The third argument specifies the last index of the first item to include in
+    the subrange.
+
+    It is okay if the subrange is empty:
+
+    *first_index* == *last_index* + 1
+
+    It is an error if the size of the subrange would be negative:
+
+    *first_index* > *last_index* + 1
+
+    If an index is negativ it is counted from the end of the collection.
+
+    So -1 denotes the last item of the collection, -2 denotes the next-to-last
+    item and so on.
+
+    Topic: Strings
+
 $std::merge ()
 $std::sort ()
 $std::close ()
