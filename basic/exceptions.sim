@@ -126,10 +126,14 @@ $crash_dump
 
 $RuntimeError: (args*)
   cleanup
-  ewrite "RUNTIME ERROR: "
-  ErrorMessage args*
-  crash_dump
-  exit 1
+  try
+    :
+      ewrite "RUNTIME ERROR: "
+      ErrorMessage args*
+      crash_dump
+      exit 1
+    :
+      exit 2
 
 %std::raise RuntimeError
 
