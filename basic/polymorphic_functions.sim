@@ -94,7 +94,7 @@ $std::equal () # check two objects for equality
 
     is converted by the compiler to
 
-    not(equal(*a* *b*))
+    <std::not>(<std::equal>(*a* *b*))
 
     See also: std::equal_type_and_value, std::less
 
@@ -109,9 +109,12 @@ $std::equal_type_and_value ()
     If this function returns <std::true> for two objects *a* and *b* then
     this should imply that
 
-    hash(a) == hash(b)
+    <std::hash>(a) == <std::hash>(b)
 
-    See also: std::equal
+    This function is usually used in combination with <std::hash>. Two objects
+    that are "equal" (due to <std::equal>) might return different hash values.
+
+    See also: std::equal, std::hash
 
 $std::less ()
   #
@@ -125,25 +128,25 @@ $std::less ()
 
     is converted by the compiler to
 
-    less(*a* *b*)
+    <std::less>(*a* *b*)
 
     *a* > *b*
 
     is converted by the compiler to
 
-    less(*b* *a*)
+    <std::less>(*b* *a*)
 
     *a* <= *b*
 
     is converted by the compiler to
 
-    not(less(*b* *a*))
+    <std::not>(<std::less>(*b* *a*))
 
     *a* >= *b*
 
     is converted by the compiler to
 
-    not(less(*a* *b*))
+    <std::not>(<std::less>(*a* *b*))
 
     See also: std::numerically_less, std::equal
 
@@ -158,9 +161,9 @@ $std::not ()
   #
     negate the boolean argument
 
-    not(<std::true>) yields <std::false)
+    <std::not>(<std::true>) yields <std::false)
 
-    not(<std::false>) yields <std::true)
+    <std::not>(<std::false>) yields <std::true)
 
     See also: std::equal, std::less
 
@@ -173,6 +176,12 @@ $std::and ()
     The right argument must be a function that evaluates to
     <std::true> or <std::false>.
 
+    *a* && *b*
+
+    is converted by the compiler to
+
+    <std::and>(**a** -> **b**)
+
     See also: std::or
 
 $std::or ()
@@ -183,6 +192,12 @@ $std::or ()
 
     The right argument must be a function that evaluates to
     <std::true> or <std::false>.
+
+    *a* || *b*
+
+    is converted by the compiler to
+
+    <std::or>(**a** -> **b**)
 
     See also: std::and
 
@@ -204,7 +219,7 @@ $std::if ()
 
     Topics: Control Flow, Branches
 
-    See also: std::unless
+    See also: std::unless, std::default_value
 
 $std::unless ()
   #
@@ -221,7 +236,7 @@ $std::unless ()
 
     Topics: Control Flow, Branches
 
-    See also: std::if
+    See also: std::if, std::default_value
 
 $std::shift_left ()
   #
@@ -296,61 +311,598 @@ $std::is_undefined ()
   #
     check if this object is <types::undefined>
 
+    See also: std::is_undefined
+
 $std::default_value ()
+  #
+    conditional expression
+
+    returns the first argument if it is not equal to <std::undefined>
+
+    otherwise the second argument is returned
+
+    See also: std::if
+
 $std::is_valid ()
+  #
+    checks the state of an object
+
+    See also: std::is_defined, std::is_undefined
+
 $std::to_string ()
+  #
+    converts to a (human readable) string
+
+    Returns a string representation of its single argument.
+
+    When called on a string the string is returned unaltered.
+
+    Topic: Strings
+
+    See also: std::to_list, std::to_number, std::to_integer, std::to_real
+
 $std::to_list ()
+  #
+    converts to a list
+
+    Returns the contents of its single argument within a list.
+
+    When called on a list the list is returned unaltered.
+
+    See also: std::to_string, std::to_number, std::to_integer, std::to_real
+
 $std::serialize ()
+  #
+    converts to a machine readable string
+
+    If possible the object ist transformed into its source code form.
+
+    Topic: Strings
+
+    See also: std::deserialize, std::serialization_tag_of, std::to_string
+
 $std::serialization_tag_of (!)
+  #
+    returns a tag denoting the type of an object
+
+    This attribute allows inheriting the serialization method and just changing
+    its type.
+
+    See also: std::serialize, std::deserialize
+
 $std::to_number ()
+  #
+    converts its argument into a number
+
+    See also: std::parse_number, std::to_integer, std::to_real, std::to_string
+
 $std::parse_number ()
+  #
+    parses a number at the front of a string
+
+    Returns the number of the front of a string as its first and the rest of
+    the parsed string as its second result.
+
+    Topic: Strings
+
+    See also: std::to_number, std::parse_integer, std::parse_real
+
 $std::to_integer ()
+  #
+    converts its argument into an integer number
+
+    See also: std::parse_integer, std::to_number, std::to_real, std::to_string
+
 $std::parse_integer ()
+  #
+    parses an integer number at the front of a string
+
+    Returns the integer number of the front of a string as its first and the
+    rest of the parsed string as its second result.
+
+    Topic: Strings
+
+    See also: std::to_integer, std::parse_number, std::parse_real
+
 $std::to_real ()
+  #
+    converts its argument into a real (floating point) number
+
+    See also: std::parse_reail, std::to_number, std::to_integer, std::to_string
+
 $std::parse_real ()
+  #
+    parses a real (floating point) number at the front of a string
+
+    Returns the real number of the front of a string as its first and the
+    rest of the parsed string as its second result.
+
+    Topic: Strings
+
+    See also: std::to_real, std::parse_number, std::parse_integer
+
 $std::to_lower_case ()
+  #
+    converts all upper case characters to lower case
+
+    Topic: Strings
+
+    See also: std::to_upper_case, std::to_title_case
+
 $std::to_upper_case ()
+  #
+    converts all lower case characters to upper case
+
+    Topic: Strings
+
+    See also: std::to_lower_case, std::to_title_case
+
 $std::to_title_case ()
+  #
+    converts the case of characters
+
+    All characters but the first character of each word are converted to lower
+    case. The first characters of all words are converted to upper case.
+
+    Topic: Strings
+
+    See also: std::to_lower_case, std::to_upper_case
+
 $std::is_empty ()
+  #
+    checks whether a collection contains any items
+
+    The following invariant should always hold:
+
+    <std::is_empty>(*collection*) == (<std::length_of>(*collection*) == 0)
+
+    Topic: Strings
+
+    See also: std::length_of
+
 $std::length_of (!)
-$std::type_of (!) # the type of an object (e.g. an event's type)
+  #
+    returns the number of items within a collection
+
+    Many collections just store this value explicitely, making this a very cheap
+    operation.
+
+    But there are collections which must traverse all its contents to compute
+    the total number of stored items, making this a very expensive operation!
+
+    Topic: Strings
+
+    See also: std::is_empty
+
+$std::type_of (!)
+  #
+    the type of an object
+
+    This attribute is used to store some kind of type information, e.g. the
+    type of an event.
+
 $std::hash ()
-$std::push () # add a single item at the end of a container
-$std::pop () # remove (and return) the last item of a container
-$std::peek () # return the last item of a container
-$std::drop () # removes a single item from the end of a container
-$std::put () # add a single item at the front of a container
-$std::get () # remove (and return) the first item of a container
+  #
+    returns a hash value
+
+    The returned integer number will always be the same for an object. The
+    returned number might not depend on the platform the program is running!
+
+    It must be computed from the object's contents solely!
+
+    Topic: Strings
+
+    See also: std::equal_type_and_value
+
+$std::push ()
+  #
+    add a single item at the end of a collection
+
+    Topic: Strings
+
+    See also: std::pop, std::peek, std::drop, std::put, std::append
+
+$std::pop ()
+  #
+    remove and return the last item of a collection
+
+    Topic: Strings
+
+    See also: std::peek, std::drop, std::push, std::put
+
+$std::peek ()
+  #
+    returns the last item of a collection without removing it
+
+    Topic: Strings
+
+    See also: std::pop, std::drop, std::push, std::put
+
+$std::drop ()
+  #
+    removes the last item of a collection without returning it
+
+    Topic: Strings
+
+    See also: std::pop, std::peek, std::push, std::put
+
+$std::put ()
+  #
+    add a single item at the front of a collection
+
+    Topic: Strings
+
+    See also: std::get, std::push, std::pop
+
+$std::get ()
+  #
+    remove and return the first item of a collection
+
+    Topic: Strings
+
+    See also: std::put, std::pop, std::push
+
 $std::next ()
+  #
+    return the next item
+
+    This function is used for generators (e.g. random number generators)
+
 $std::append ()
+  #
+    append two collections to form a single collection
+
+    Topic: Strings
+
+    See also: std::push
+
 $std::insert_before ()
+  #
+    insert an item into a collection
+
+    The first argument is the collection.
+
+    The second argument describes the position (e.g. a numerical index).
+
+    The third argument is the item to be inserted.
+
+    See also: std::insert_behind, std::delete_at, std::push, std::put,
+              std::first_index_of, std::last_index_of
+
 $std::insert_behind ()
+  #
+    insert an item into a collection
+
+    The first argument is the collection.
+
+    The second argument describes the position (e.g. a numerical index).
+
+    The third argument is the item to be inserted.
+
+    See also: std::insert_before, std::delete_at, std::push, std::put,
+              std::first_index_of, std::last_index_of
+
 $std::first_index_of (!)
+  #
+    returns the first valid index of a collection
+
+    See also: std::last_index_of, std::for_each_from_to,
+	      std::for_each_from_down_to
+
 $std::last_index_of (!)
+  #
+    returns the last valid index of a collection
+
+    See also: std::first_index_of, std::for_each_from_to,
+	      std::for_each_from_down_to
+
 $std::delete_at ()
+  #
+    removes an item at the specified position from a collection
+
+    **Attention**: The removed item is **not** returned!
+
+    See also: std::insert_before, std::insert_behind, std::get, std::pop,
+	      std::first_index_of, std::last_index_of
+
 $std::union ()
+  #
+    returns the union of two collections
+
+    See also: std::intersection
+
 $std::intersection ()
-$std::match_character () # try to match the start of a stream with a character
-$std::match_string () # try to match the start of a stream with a string
-$std::search_character () # search for a specific character within a stream
-$std::search_string () # search for a specific string within a stream
+  #
+    returns the intersection of two collections
+
+    See also: std::union
+
+$std::match_character ()
+  #
+    try to match the start of a stream with a character
+
+    Topic: Strings
+
+    See also: std::match_string, std::search_character, std::search_string
+
+$std::match_string ()
+  #
+    try to match the start of a stream with a string
+
+    Topic: Strings
+
+    See also: std::match_character, std::search_character, std::search_string
+
+$std::search_character ()
+  #
+    search for a specific character within a stream
+
+    Topic: Strings
+
+    See also: std::search_string, std::match_character, std::match_string
+
+$std::search_string ()
+  #
+    search for a specific string within a stream
+
+    Topic: Strings
+
+    See also: std::search_character, std::match_string, std::match_character
+
 $std::match ()
+  #
+    try to match the start of a stream with a specific expression
+
+    Topic: Strings
+
+    See also: std::matches, std::contains, std::has_prefix, std::has_suffix,
+	      std::match_string, std::match_character, std::search
+
 $std::search ()
+  #
+    search for a specific expression within a stream
+
+    Topic: Strings
+
+    See also: std::match, std::search_string, std::search_character
+
 $std::matches ()
+  #
+    checks whether a whole string matches a specific expression
+
+    Topic: Strings
+
+    See also: std::match, std::contains, std::has_prefix, std::has_suffix
+
 $std::contains ()
+  #
+    checks whether a string contains a specific expression
+
+    Topic: Strings
+
+    See also: std::matches, std::has_prefix, std::has_suffix
+
 $std::has_prefix ()
+  #
+    checks whether a string starts with a specific expression
+
+    See also: std::has_suffix, std::contains, std::matches, std::without_prefix
+
 $std::has_suffix ()
+  #
+    checks whether a string ends with a specific expression
+
+    Topic: Strings
+
+    See also: std::has_suffix, std::contains, std::matches, std::without_suffix
+
 $std::without_prefix ()
+  #
+    removes a specific expression at the start of a string
+
+    If the string specified as the first argument starts with the expression
+    specified as the second argument, the matching prefix of the string is
+    removed and the resulting string is returned.
+
+    Otherwise the string is returned without alteration.
+
+    Topic: Strings
+
+    See also: std::without_suffix, std::has_prefix, std::has_suffix
+	      std::behind, std::truncate_from
+
 $std::without_suffix ()
+  #
+    removes a specific expression at the end of a string
+
+    If the string specified as the first argument ends with the expression
+    specified as the second argument, the matching suffix of the string is
+    removed and the resulting string is returned.
+
+    Otherwise the string is returned without alteration.
+
+    Topic: Strings
+
+    See also: std::without_prefix, std::has_suffix, std::has_prefix
+	      std::before, std::truncate_until
+
 $std::before ()
+  #
+    returns the substring before the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring before the first match of
+    the expression is returned.
+
+    **If the string does not contain the expression then the empty string is
+    returned.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::truncate_from, std::behind, std::from, std::until
+
 $std::truncate_from ()
+  #
+    returns the substring before the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring before the first match of
+    the expression is returned.
+
+    **If the string does not contain the expression then the string is
+    returned without alteration.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::before, std::truncate_until
+	      std::truncate_before, std::truncate_behind
+
 $std::behind ()
+  #
+    returns the substring behind the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring behind the first match of
+    the expression is returned.
+
+    **If the string does not contain the expression then the empty string is
+    returned.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::truncate_until, std::before, std::from, std::until
+
 $std::truncate_until ()
+  #
+    returns the substring behind the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring behind the first match of
+    the expression is returned.
+
+    **If the string does not contain the expression then the string is
+    returned without alteration.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::behind, std::truncate_from,
+	      std::truncate_before, std::truncate_behind
+
 $std::from ()
+  #
+    returns the substring starting with the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring starting with the first
+    match of the expression is returned.
+
+    **If the string does not contain the expression then the empty string is
+    returned.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::truncate_before, std::until, std::before, std::behind
+
 $std::truncate_before ()
+  #
+    returns the substring starting with the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring starting with the first
+    match of the expression is returned.
+
+    **If the string does not contain the expression then the string is
+    returned without alteration.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::from, std::between, std::truncate_behind,
+	      std::truncate_from, std::truncate_until
+
 $std::until ()
+  #
+    returns the substring ending with the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring ending with the first
+    match of the expression is returned.
+
+    **If the string does not contain the expression then the empty string is
+    returned.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::truncate_behind, std::from, std::before, std::behind
+
 $std::truncate_behind ()
+  #
+    returns the substring ending with the specified expression
+
+    If the string specified as the first argument contains the expression
+    specified as the second argument, the substring ending with the first
+    match of the expression is returned.
+
+    **If the string does not contain the expression then the string is
+    returned without alteration.**
+
+    An optional third argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    Topic: Strings
+
+    See also: std::until, std::between, std::truncate_before,
+	      std::truncate_from, std::truncate_until
+
 $std::between ()
+  #
+    returns the substring between the two specified expressions
+
+    If the string specified as the first argument contains the expression
+    specified as the second and third argument in the correct order, the
+    substring starting between the two matching expressions is returned.
+
+    **If the string does not contain the expressions (or in the wrong order)
+    then the empty string is returned.**
+
+    An optional fourth argument can be used to match the *nth* occurence of
+    the specified expression. If this value is negative then -1 means the
+    last occurrence, -2 means the next-to-last occurence and so on.
+
+    The end-expression is **always** the next match after the start-expression.
+
+    Topic: Strings
+
+    See also: std::behind, std::before
+
 $std::range ()
 $std::merge ()
 $std::sort ()
