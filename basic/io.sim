@@ -970,6 +970,11 @@ $std::create_file_descriptor
     RETURN_SINGLE_RESULT(create__types__file_descriptor(to_int(ARGUMENTS(0))))
   }
 
+$types::file_descriptor/to_integer {
+  CHECK_ARGUMENTS(1)
+  RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->file_descriptor.fd))
+}
+
 $types::file_descriptor/equal
   {
     CHECK_ARGUMENTS(2)
@@ -1020,6 +1025,11 @@ $posix_open
     RETURN_SINGLE_RESULT(create__types__file_descriptor(fd))
   }
 
+$open: (filename mode)
+  posix_open $$fd filename mode
+  if fd.is_defined: !fd.filename_of filename
+  -> fd
+
 $std::open_file_for_reading:
   #
     Opens a file in read-only mode.
@@ -1042,7 +1052,7 @@ $std::open_file_for_reading:
   (
     filename # the name of the file to open
   )
-  posix_open filename std::O_RDONLY
+  open filename std::O_RDONLY
 
 $std::open_file_for_writing:
   #
@@ -1066,7 +1076,7 @@ $std::open_file_for_writing:
   (
     filename # the name of the file to open
   )
-  posix_open filename std::O_WRONLY
+  open filename std::O_WRONLY
 
 $std::open_file_for_reading_and_writing:
   #
@@ -1092,10 +1102,10 @@ $std::open_file_for_reading_and_writing:
   (
     filename # the name of the file to open
   )
-  posix_open filename std::O_RDWR
+  open filename std::O_RDWR
 
 $std::create_file: (filename)
-  posix_open filename std::O_CREAT | std::O_TRUNC | std::O_RDWR
+  open filename std::O_CREAT | std::O_TRUNC | std::O_RDWR
 
 $types::file_descriptor/close
   {
@@ -1199,6 +1209,22 @@ $types::file_descriptor/write_some_bytes_to
     RETURN_SINGLE_RESULT(from_long(bytes_written))
   }
 
+$file_description: (fd)
+  $filename filename_of(fd)
+  if
+    filename.is_defined
+    -> "@quot;@(filename)@quot;"
+    :
+      $num fd.to_integer
+      case num
+	0 -> "<stdin>"
+	1 -> "<stdout>"
+	2 -> "<stderr>"
+        -> "<file descriptor @(num)>"
+
+$WriteError: (fd)
+  raise "Failed to write to file @(file_description(fd))!"
+
 $types::file_descriptor/write_to:
   (
     fd
@@ -1210,7 +1236,7 @@ $types::file_descriptor/write_to:
     wait_to_write_to fd
     write_some_bytes_to fd data $bytes_written
     if bytes_written < 0:
-      if parameter_count_of(return) == 0: raise "Failed to write to file!"
+      if parameter_count_of(return) == 0: WriteError fd
       return false
     range &data bytes_written+1 -1
   if parameter_count_of(return) == 1: return true
@@ -1225,7 +1251,7 @@ $std::atomic_write_to:
   while -> length_of(data) > 0:
     write_some_bytes_to fd data $bytes_written
     if bytes_written < 0:
-      if parameter_count_of(return) == 0: raise "Failed to write to file!"
+      if parameter_count_of(return) == 0: WriteError fd
       return false
     range &data bytes_written+1 -1
   if parameter_count_of(return) == 1: return true
