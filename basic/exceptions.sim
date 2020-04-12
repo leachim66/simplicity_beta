@@ -104,7 +104,9 @@ $std::exit: (status)
   cleanup
   clib_exit status
 
-$std::terminate: exit 0
+$std::terminate:
+  cleanup
+  exit 0
 
 $std::ErrorMessage: (args*)
   $$msg string(args*)
