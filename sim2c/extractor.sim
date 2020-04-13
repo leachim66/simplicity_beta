@@ -417,7 +417,10 @@ $create_info_page: (function_name info)
       $$examples empty_list
       $remark_lines remark_lines_of(info)
       if
-	do_print_warnings && remark_lines.is_undefined || remark_lines.is_empty:
+	&&
+	  do_print_warnings
+	  remark_lines.is_undefined || remark_lines.is_empty
+	:
 	  ewrite "Missing documentation for @(function_name)!@nl;"
       if remark_lines.is_defined:
 	$paragraphs remark_lines.to_paragraphs
