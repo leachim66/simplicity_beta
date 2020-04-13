@@ -1027,7 +1027,7 @@ $posix_open
 
 $open: (filename mode)
   posix_open $$fd filename mode
-  if fd.is_defined: !fd.filename_of filename
+  if fd.is_defined: !fd.filename_of fullname(filename)
   -> fd
 
 $std::open_file_for_reading:
@@ -1732,7 +1732,8 @@ $std::fullname: ($pathname)
   do: (-> break)
     forever:
       $orig_pathname pathname
-      replace_all &pathname "/", some(not_followed_by('/')), '/', "../" = "/"
+      replace_all &pathname
+	'/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
       if pathname == orig_pathname break
   unless pathname == "/": range &pathname 1 -2
   -> pathname
