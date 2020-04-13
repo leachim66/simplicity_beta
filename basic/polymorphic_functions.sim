@@ -299,7 +299,7 @@ $std::parameter_count_of (!)
     function. Functions that accept a variable number of arguments will return
     <std::undefined>.
 
-    Attention: Functions accepting a variable number of arguments might have
+    **Attention**: Functions accepting a variable number of arguments might have
     a minimum and/or maximum number of expected arguments. These numbers **cannot** be
     retrieved during runtime!
 
@@ -554,7 +554,7 @@ $std::append ()
 
     Topic: Strings
 
-    See also: std::push
+    See also: std::push, std::dup
 
 $std::insert_before ()
   #
@@ -931,38 +931,232 @@ $std::range ()
     Topic: Strings
 
 $std::merge ()
+  #
+    merge two sorted collections
+
+    See also: std::sort, std::append
+
 $std::sort ()
+  #
+    sort a collection
+
+    See also: std::merge
+
 $std::close ()
+  #
+    close a resource
+
+    See also: std::open_file
+
 $std::write_some_bytes_to ()
+  #
+    try to write the specified number of bytes
+
+    This is a low-level function!
+
+    See also: std::write_to, std::read_some_bytes_from
+
 $std::write_to ()
+  #
+    write the specified number of bytes
+
+    See also: std::read_from, std::write_some_bytes_to
+
 $std::flush ()
+  #
+    flushes all buffers associated with the resource
+
 $std::read_some_bytes_from ()
+  #
+    try to read the specified number of bytes
+
+    This is a low-level function!
+
+    See also: std::read_from std::write_some_bytes_to
+
 $std::read_from ()
+  #
+    read the specified number of bytes
+
+    See also: std::write_to, std::read_some_bytes_from
+
 $std::key_of (!)
+  #
+    the key of a key-value-pair
+
+    See also: std::value_of
+
 $std::value_of (!)
+  #
+    the value of a key-value-pair
+
+    See also: std::key_of
+
 $std::keys_of (!)
+  #
+    extracts all keys of a collection into a list
+
+    See also: std::values_of
+
 $std::values_of (!)
+  #
+    extracts all values of a collection into a list
+
+    See also: std::keys_of
+
 $std::lower_bound_of (!)
+  #
+    the lower bound of a range
+
+    See also: std::upper_bound_of
+
 $std::upper_bound_of (!)
+  #
+    the upper bound of a range
+
+    See also: std::lower_bound_of
+
 $std::for_each_from_to ()
+  #
+    iterates over a subrange of the items of a collection
+
+    See also: std::for_each, std::for_each_from_down_to,
+	      std::update_each_from_to
+
 $std::for_each_from_down_to ()
+  #
+    iterates over a subrange of the items of a collection in reverse order
+
+    See also: std::for_each_downwards, std::for_each_from_to,
+	      std::update_each_from_down_to
+
 $std::for_each ()
+  #
+    iterates over all items of a collection
+
+    See also: std::for_each_downwards, std::for_each_from_to,
+	      std::update_each
+
 $std::for_each_downwards ()
+  #
+    iterates over all items of a collection in reverse order
+
+    See also: std::for_each, std::for_each_from_down_to,
+	      std::update_each_downwards
+
 $std::update_each_from_to ()
+  #
+    updates a subrange of the items of a collection
+
+    See also: std::update_each, std::update_each_from_down_to,
+	      std::for_each_from_to
+
 $std::update_each_from_down_to ()
+  #
+    updates a subrange of the items of a collection in reverse order
+
+    See also: std::update_each_downwards, std::update_each_from_to,
+	      std::for_each_from_down_to
+
 $std::update_each ()
+  #
+    updates all items of a collection
+
+    See also: std::update_each_downwards, std::update_each_from_to,
+	      std::for_each
+
 $std::update_each_downwards ()
+  #
+    updates all items of a collection in reverse order
+
+    See also: std::update_each, std::update_each_from_down_to,
+	      std::for_each_downwards
+
 $std::for_each_pair ()
+  #
+    iterates over pairs of items of a collection
+
+    **Attention**: This function is **deprecated**!
+
+    See also: std::for_each
+
 $std::new_empty_collection ()
+  #
+    creates an empty collection
+
+    The created collection has the same type as the first argument.
+
 $std::filter ()
+  #
+    returns a collection containing all the items that fullfill the filter-condition
+
+    See also: std::apply, std::map
+
 $std::apply ()
+  #
+    applies a pure function to all items of a collection
+
+    The function applications might be executed in parallel!
+
+    See also: std::map, std::filter
+
 $std::map ()
+  #
+    applies a function to all items of a collection
+
+    The function applications are executed in strict sequential order.
+
+    See also: std::apply, std::filter
+
 $std::dup ()
+  #
+    appends a collection to itself
+
+    See also: std::append
+
 $std::interleave ()
+  #
+    returns a collection with interleaved items of the specified collections
+
 $std::stop ()
+  #
+    stop a service or something similar
+
 $std::get_file_descriptors ()
+  #
+    retrieve a set of file descriptors
+
+    **Attention**: This function is **deprecated** as a general purpose
+    polymorphic function.
+
 $std::handle_requests ()
-$std::select () # select items from a collection
-$std::delete () # delete items from a collection
-$std::update () # update items in a collection
-$std::call_command () # call a (possibly remote) command
+  #
+    handle some client requests
+
+    **Attention**: This function is **deprecated** as a general purpose
+    polymorphic function.
+
+$std::select ()
+  #
+    select items from a collection
+
+    See also: std::delete, std::update
+
+$std::delete ()
+  #
+    delete items from a collection
+
+    See also: std::select, std::update
+
+$std::update ()
+  #
+    update items in a collection
+
+    See also: std::select, std::delete
+
+$std::call_command ()
+  #
+    call a (possibly remote) command
+
+    **Attention**: This function is **deprecated** as a general purpose
+    polymorphic function.
