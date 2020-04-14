@@ -110,6 +110,13 @@ $std::edump:
   for_each_pair args: (name expr) ewrite name ":" debug_string(expr -2 depth)
 
 $std::collect_garbage
+  #
+    forces a garbage collection call
+
+    **Attention**: This function does not belong to the official API and is
+    meant for testing and developing the compiler itself!
+
+    See also: std::total_garbage_collections, std::instruction_counter
   {
     CHECK_ARGUMENTS(0)
     collect_garbage();
@@ -122,18 +129,37 @@ $std::collect_garbage
 #}
 
 $std::instruction_counter
+  #
+    returns the number of already executed instructions
+
+    **Attention**: This function does not belong to the official API and is
+    meant for testing and developing the compiler itself!
+
+    See also: std::collect_garbage, std::total_garbage_collections
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_uint64(instruction_counter))
   }
 
 $std::total_garbage_collections
+  #
+    returns number of garbage collections since program start
+
+    **Attention**: This function does not belong to the official API and is
+    meant for testing and developing the compiler itself!
+
+    See also: std::collect_garbage, std::instruction_counter
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(total_garbage_collections))
   }
 
-$std::hexdump: (str)
+$std::hexdump:
+  #
+    prints a string like the "hexdump" utility
+  (
+    str
+  )
   $len length_of(str)
   $$pos 0
   while -> pos < len:

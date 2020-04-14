@@ -42,8 +42,12 @@ $$topics empty_key_order_table
 $BORING . # ^^
 $TYPE .
 $FUNCTION .
+$POLYMORPHIC_FUNCTION .
+$POLYMORPHIC_ATTRIBUTE .
 $INLINE_C_FUNCTION .
 $UNIQUE_ITEM .
+$CONSTANT .
+$VARIABLE .
 
 $PARAMETER_COUNT_OR_MYSELF
   alt
@@ -236,7 +240,11 @@ $extract_documentation_from_file: (filename)
 		!polymorphic_functions(name namespace) true
 		!definitions(iname)
 		  info
-		    .kind_of POLYMORPHIC
+		    .kind_of
+		      if
+			source.is_a_setter
+			-> POLYMORPHIC_ATTRIBUTE
+			-> POLYMORPHIC_FUNCTION
 		    .remark_lines_of remark_lines_of(statement)
 		break
 	      -> source.is_a_body:
@@ -255,7 +263,11 @@ $extract_documentation_from_file: (filename)
 	      -> source.is_a_constant:
 		!definitions(iname)
 		  info
-		    .kind_of UNIQUE_ITEM
+		    .kind_of
+		      if
+			source.is_a_unique_item_constant
+			-> UNIQUE_ITEM
+			-> CONSTANT
 		    .remark_lines_of remark_lines_of(statement)
 		break
 	    case
@@ -421,7 +433,7 @@ $create_info_page: (function_name info)
 	  do_print_warnings
 	  remark_lines.is_undefined || remark_lines.is_empty
 	:
-	  ewrite "Missing documentation for @(function_name)!@nl;"
+	  ewriteln "Missing documentation for @(function_name)!"
       if remark_lines.is_defined:
 	$paragraphs remark_lines.to_paragraphs
 	for_each paragraphs: ($paragraph)
@@ -708,6 +720,8 @@ $sim2c::extract_documentation: (path)
 	    -> "polymorphic function"
 	    UNIQUE_ITEM
 	    -> "unique item"
+	    CONSTANT
+	    -> "constant"
 	    TYPE
 	    -> "type"
 	    -> undefined
@@ -725,11 +739,10 @@ $sim2c::extract_documentation: (path)
 	    TD "class" = "remark" remark
   for_each definitions: (_iname info)
     $name name_of(info)
-    if name.is_defined:
-      create_info_page name info
-      case kind_of(info) TYPE:
-	for_each methods_of(info): (method_name method_info)
-	  create_info_page string(name "/" method_name) method_info
+    create_info_page name info
+    case kind_of(info) TYPE:
+      for_each methods_of(info): (method_name method_info)
+	create_info_page string(name "/" method_name) method_info
   create_page "html/topic_index.html":
     link_bar
     H1 "id" = "index" "Topic Index"
@@ -751,3 +764,66 @@ $sim2c::extract_documentation: (path)
     P: A "href" = "type_index.html" "Type Index"
     P: A "href" = "symbol_index.html" "Symbol Index"
     P: A "href" = "topic_index.html" "Topic Index"
+
+  if do_print_summary:
+    $$total_types 0
+    $$total_functions 0
+    $$total_polymorphic_functions 0
+    $$total_polymorphic_attributes 0
+    $$total_methods 0
+    $$total_inline_c_methods 0
+    $$total_attributes 0
+    $$total_inline_c_functions 0
+    $$total_unique_items 0
+    $$total_constants 0
+    $$total_variables 0
+    $$other 0
+
+    for_each definitions: (_iname info)
+      case kind_of(info)
+	TYPE: inc &total_types
+	FUNCTION: inc &total_functions
+	POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
+	POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
+	INLINE_C_FUNCTION: inc &total_inline_c_functions
+	UNIQUE_ITEM: inc &total_unique_items
+	CONSTANT: inc &total_constants
+	VARIABLE: inc &total_variables
+	: inc &other
+      case kind_of(info) TYPE:
+	for_each methods_of(info): (method_name method_info)
+	  case kind_of(method_info)
+	    FUNCTION: inc &total_methods
+	    INLINE_C_FUNCTION: inc &total_inline_c_methods
+	    : inc &total_attributes
+
+    $total_definitions
+      +
+	total_types
+	total_functions
+	total_polymorphic_functions
+	total_polymorphic_attributes
+	total_methods
+	total_inline_c_methods
+	total_attributes
+	total_inline_c_functions
+	total_unique_items
+	total_constants
+	total_variables
+
+    ewrite "
+      total definitions:     @(pad_left(total_definitions 5))
+
+      types:                 @(pad_left(total_types 5))
+      functions:             @(pad_left(total_functions 5))
+      polymorphic functions: @(pad_left(total_polymorphic_functions 5))
+      polymorphic attributes:@(pad_left(total_polymorphic_attributes 5))
+      method definitions:    @(pad_left(total_methods 5))
+      inline C methods:      @(pad_left(total_inline_c_methods 5))
+      attribute definitions: @(pad_left(total_attributes 5))
+      inline C functions:    @(pad_left(total_inline_c_functions 5))
+      unique items:          @(pad_left(total_unique_items 5))
+      other constants:       @(pad_left(total_constants 5))
+      variables:             @(pad_left(total_variables 5))
+
+      other:                 @(pad_left(other 5))

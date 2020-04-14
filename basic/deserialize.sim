@@ -20,8 +20,22 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::NAME LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
-$std::IDENTIFIER NAME, optional("::", NAME)
+$std::NAME
+  #
+    a grammar expression to match a valid Simplicity name
+
+    See also: IDENTIFIER
+
+  LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
+
+$std::IDENTIFIER
+  #
+    a grammar expression to match a valid Simplicity name (with optional namespace)
+
+    See also: NAME
+
+  NAME, optional("::", NAME)
+
 $$deserializers empty_table
 
 $std::register_deserializer: (tag deserializer) !deserializers(tag) deserializer
