@@ -43,7 +43,6 @@ $$short_descriptions empty_table
 
 $$topics empty_key_order_table
 
-$BORING . # ^^
 $FUNCTION .
 $POLYMORPHIC_FUNCTION .
 $POLYMORPHIC_ATTRIBUTE .
@@ -52,6 +51,7 @@ $INLINE_C_OBJECT .
 $INLINE_C_FUNCTION .
 $UNIQUE_ITEM .
 $CONSTANT .
+$OTHER . #
 
 $PARAMETER_COUNT_OR_MYSELF
   alt
@@ -152,7 +152,7 @@ $create_page: (filename body)
   save filename page
 
 types::object $symbol_info
-  .kind_of BORING
+  .kind_of OTHER
   .name_of undefined
   .base_of undefined
   .parameters_of undefined
@@ -784,20 +784,15 @@ $sim2c::extract_documentation: (path)
 	$kind_info
 	  case
 	    kind_of(info)
-	    FUNCTION
-	    -> "function"
-	    INLINE_C_FUNCTION
-	    -> "inline-C function"
-	    POLYMORPHIC
-	    -> "polymorphic function"
-	    UNIQUE_ITEM
-	    -> "unique item"
-	    CONSTANT
-	    -> "constant"
-	    INLINE_C_TYPE
-	    -> "inine-C type"
-	    INLINE_C_OBJECT
-	    -> "inine-C object"
+	    FUNCTION -> "function"
+	    POLYMORPHIC_FUNCTION -> "polymorphic function"
+	    POLYMORPHIC_ATTRIBUTE -> "polymorphic attribute"
+	    INLINE_C_TYPE -> "inine-C type"
+	    INLINE_C_OBJECT -> "inine-C object"
+	    INLINE_C_FUNCTION -> "inline-C function"
+	    UNIQUE_ITEM -> "unique item"
+	    CONSTANT -> "constant"
+	    OTHER -> "other"
 	    -> undefined
 
 	if kind_info.is_defined:
