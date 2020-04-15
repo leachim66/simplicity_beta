@@ -545,7 +545,7 @@ $create_info_page: (function_name info)
 	      replace_all
 		&paragraph
 		=
-		  '<', NAME, optional('/', NAME), '>'
+		  '<', IDENTIFIER, optional('/', IDENTIFIER), '>'
 		  : ($reference)
 		    range &reference 2 -2
 		    resolve_reference &reference
@@ -696,18 +696,6 @@ $get_short_description: (name info)
 
 
 $sim2c::extract_documentation: (path)
-  #%html::encode: ($text tag _arg_str)
-    if tag == "p":
-      replace_all
-	&text
-	=
-	  "&lt;", NAME, "::", NAME, '>'
-	  : (capture)
-	    $reference resolve_reference(range(capture 5 -2) "<unknown>")
-	    -> "
-	      <a href="@(reference.mangled).html">@(reference)</a>@
-    emit text
-
   !path_prefix truncate_behind(path '/' -1)
   extract_documentation_from_directory path
 
