@@ -2154,16 +2154,14 @@ static void cont__36_208(void);
 static void cont__36_209(void);
 static void cont__36_210(void);
 static void cont__36_211(void);
-static NODE *string__36_212;
-static NODE *func__36_213;
-static void entry__36_213(void);
-static FRAME_INFO frame__36_213 = {0, {}};
-static NODE *string__36_214;
-static void cont__36_215(void);
+static void cont__36_212(void);
+static void cont__36_213(void);
+static void cont__36_214(void);
+static NODE *string__36_215;
 static NODE *func__36_216;
 static void entry__36_216(void);
 static FRAME_INFO frame__36_216 = {0, {}};
-static void cont__36_217(void);
+static NODE *string__36_217;
 static void cont__36_218(void);
 static NODE *func__36_219;
 static void entry__36_219(void);
@@ -2182,75 +2180,77 @@ static void cont__36_226(void);
 static void cont__36_227(void);
 static NODE *func__36_228;
 static void entry__36_228(void);
-static FRAME_INFO frame__36_228 = {14, {"total_functions", "total_polymorphic_functions", "total_polymorphic_attributes", "total_methods", "total_inline_c_methods", "total_inline_c_types", "total_inline_c_objects", "total_attributes", "total_inline_c_functions", "total_unique_items", "total_constants", "total_variables", "other", "total_definitions"}};
-static NODE *func__36_229;
-static void entry__36_229(void);
-static FRAME_INFO frame__36_229 = {15, {"iname", "info", "total_functions", "total_polymorphic_functions", "total_polymorphic_attributes", "total_inline_c_functions", "total_inline_c_types", "total_inline_c_objects", "total_unique_items", "total_constants", "total_variables", "other", "total_methods", "total_inline_c_methods", "total_attributes"}};
+static FRAME_INFO frame__36_228 = {0, {}};
+static void cont__36_229(void);
 static void cont__36_230(void);
 static NODE *func__36_231;
 static void entry__36_231(void);
-static FRAME_INFO frame__36_231 = {1, {"total_functions"}};
-static void cont__36_232(void);
-static NODE *func__36_233;
-static void entry__36_233(void);
-static FRAME_INFO frame__36_233 = {1, {"total_polymorphic_functions"}};
-static void cont__36_234(void);
-static NODE *func__36_235;
-static void entry__36_235(void);
-static FRAME_INFO frame__36_235 = {1, {"total_polymorphic_attributes"}};
-static void cont__36_236(void);
-static NODE *func__36_237;
-static void entry__36_237(void);
-static FRAME_INFO frame__36_237 = {1, {"total_inline_c_functions"}};
-static void cont__36_238(void);
-static NODE *func__36_239;
-static void entry__36_239(void);
-static FRAME_INFO frame__36_239 = {1, {"total_inline_c_types"}};
-static void cont__36_240(void);
-static NODE *func__36_241;
-static void entry__36_241(void);
-static FRAME_INFO frame__36_241 = {1, {"total_inline_c_objects"}};
-static void cont__36_242(void);
-static NODE *func__36_243;
-static void entry__36_243(void);
-static FRAME_INFO frame__36_243 = {1, {"total_unique_items"}};
-static void cont__36_244(void);
-static NODE *func__36_245;
-static void entry__36_245(void);
-static FRAME_INFO frame__36_245 = {1, {"total_constants"}};
-static void cont__36_246(void);
-static NODE *func__36_247;
-static void entry__36_247(void);
-static FRAME_INFO frame__36_247 = {1, {"total_variables"}};
-static void cont__36_248(void);
-static NODE *func__36_249;
-static void entry__36_249(void);
-static FRAME_INFO frame__36_249 = {1, {"other"}};
-static void cont__36_250(void);
+static FRAME_INFO frame__36_231 = {14, {"total_functions", "total_polymorphic_functions", "total_polymorphic_attributes", "total_methods", "total_inline_c_methods", "total_inline_c_types", "total_inline_c_objects", "total_attributes", "total_inline_c_functions", "total_unique_items", "total_constants", "total_variables", "other", "total_definitions"}};
+static NODE *func__36_232;
+static void entry__36_232(void);
+static FRAME_INFO frame__36_232 = {15, {"iname", "info", "total_functions", "total_polymorphic_functions", "total_polymorphic_attributes", "total_inline_c_functions", "total_inline_c_types", "total_inline_c_objects", "total_unique_items", "total_constants", "total_variables", "other", "total_methods", "total_inline_c_methods", "total_attributes"}};
+static void cont__36_233(void);
+static NODE *func__36_234;
+static void entry__36_234(void);
+static FRAME_INFO frame__36_234 = {1, {"total_functions"}};
+static void cont__36_235(void);
+static NODE *func__36_236;
+static void entry__36_236(void);
+static FRAME_INFO frame__36_236 = {1, {"total_polymorphic_functions"}};
+static void cont__36_237(void);
+static NODE *func__36_238;
+static void entry__36_238(void);
+static FRAME_INFO frame__36_238 = {1, {"total_polymorphic_attributes"}};
+static void cont__36_239(void);
+static NODE *func__36_240;
+static void entry__36_240(void);
+static FRAME_INFO frame__36_240 = {1, {"total_inline_c_functions"}};
+static void cont__36_241(void);
+static NODE *func__36_242;
+static void entry__36_242(void);
+static FRAME_INFO frame__36_242 = {1, {"total_inline_c_types"}};
+static void cont__36_243(void);
+static NODE *func__36_244;
+static void entry__36_244(void);
+static FRAME_INFO frame__36_244 = {1, {"total_inline_c_objects"}};
+static void cont__36_245(void);
+static NODE *func__36_246;
+static void entry__36_246(void);
+static FRAME_INFO frame__36_246 = {1, {"total_unique_items"}};
+static void cont__36_247(void);
+static NODE *func__36_248;
+static void entry__36_248(void);
+static FRAME_INFO frame__36_248 = {1, {"total_constants"}};
+static void cont__36_249(void);
+static NODE *func__36_250;
+static void entry__36_250(void);
+static FRAME_INFO frame__36_250 = {1, {"total_variables"}};
 static void cont__36_251(void);
-static void cont__36_252(void);
-static NODE *func__36_253;
-static void entry__36_253(void);
-static FRAME_INFO frame__36_253 = {4, {"info", "total_methods", "total_inline_c_methods", "total_attributes"}};
+static NODE *func__36_252;
+static void entry__36_252(void);
+static FRAME_INFO frame__36_252 = {1, {"other"}};
+static void cont__36_253(void);
 static void cont__36_254(void);
-static NODE *func__36_255;
-static void entry__36_255(void);
-static FRAME_INFO frame__36_255 = {5, {"method_name", "method_info", "total_methods", "total_inline_c_methods", "total_attributes"}};
-static void cont__36_256(void);
-static NODE *func__36_257;
-static void entry__36_257(void);
-static FRAME_INFO frame__36_257 = {1, {"total_methods"}};
-static void cont__36_258(void);
-static NODE *func__36_259;
-static void entry__36_259(void);
-static FRAME_INFO frame__36_259 = {1, {"total_inline_c_methods"}};
-static void cont__36_260(void);
-static NODE *func__36_261;
-static void entry__36_261(void);
-static FRAME_INFO frame__36_261 = {1, {"total_attributes"}};
-static void cont__36_262(void);
+static void cont__36_255(void);
+static NODE *func__36_256;
+static void entry__36_256(void);
+static FRAME_INFO frame__36_256 = {4, {"info", "total_methods", "total_inline_c_methods", "total_attributes"}};
+static void cont__36_257(void);
+static NODE *func__36_258;
+static void entry__36_258(void);
+static FRAME_INFO frame__36_258 = {5, {"method_name", "method_info", "total_methods", "total_inline_c_methods", "total_attributes"}};
+static void cont__36_259(void);
+static NODE *func__36_260;
+static void entry__36_260(void);
+static FRAME_INFO frame__36_260 = {1, {"total_methods"}};
+static void cont__36_261(void);
+static NODE *func__36_262;
+static void entry__36_262(void);
+static FRAME_INFO frame__36_262 = {1, {"total_inline_c_methods"}};
 static void cont__36_263(void);
-static void cont__36_264(void);
+static NODE *func__36_264;
+static void entry__36_264(void);
+static FRAME_INFO frame__36_264 = {1, {"total_attributes"}};
 static void cont__36_265(void);
 static void cont__36_266(void);
 static void cont__36_267(void);
@@ -2275,9 +2275,9 @@ static void cont__36_285(void);
 static void cont__36_286(void);
 static void cont__36_287(void);
 static void cont__36_288(void);
-static NODE *string__36_289;
-static NODE *string__36_290;
-static NODE *string__36_291;
+static void cont__36_289(void);
+static void cont__36_290(void);
+static void cont__36_291(void);
 static NODE *string__36_292;
 static NODE *string__36_293;
 static NODE *string__36_294;
@@ -2289,7 +2289,10 @@ static NODE *string__36_299;
 static NODE *string__36_300;
 static NODE *string__36_301;
 static NODE *string__36_302;
-static void cont__36_303(void);
+static NODE *string__36_303;
+static NODE *string__36_304;
+static NODE *string__36_305;
+static void cont__36_306(void);
 static NODE *get__sim2c__extract_documentation(void) {
   return var.sim2c__extract_documentation;
 }
@@ -3152,97 +3155,100 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__36_181, &frame__36_180, 800, 800, 8, 21},
   {cont__36_182, &frame__36_180, 800, 800, 5, 35},
   {cont__36_183, &frame__36_180, 801, 804, 5, 42},
-  {entry__36_207, NULL, 812, 812, 37, 53},
-  {cont__36_208, &frame__36_207, 812, 812, 30, 62},
-  {cont__36_209, &frame__36_207, 812, 812, 21, 62},
-  {cont__36_210, &frame__36_207, 812, 812, 19, 72},
-  {entry__36_206, NULL, 812, 812, 15, 72},
-  {entry__36_205, NULL, 812, 812, 11, 72},
-  {entry__36_204, NULL, 811, 812, 9, 72},
+  {entry__36_207, NULL, 813, 813, 35, 51},
+  {cont__36_208, &frame__36_207, 813, 813, 28, 60},
+  {cont__36_209, &frame__36_207, 813, 813, 19, 60},
+  {cont__36_210, &frame__36_207, 813, 813, 17, 70},
+  {entry__36_206, NULL, 813, 813, 13, 70},
+  {cont__36_211, &frame__36_206, 814, 814, 13, 23},
+  {cont__36_212, &frame__36_206, 815, 815, 16, 44},
+  {cont__36_213, &frame__36_206, 815, 815, 13, 44},
+  {entry__36_205, NULL, 812, 815, 11, 44},
+  {entry__36_204, NULL, 811, 815, 9, 45},
   {entry__36_200, NULL, 808, 808, 7, 14},
   {cont__36_201, &frame__36_200, 809, 809, 10, 23},
   {cont__36_202, &frame__36_200, 809, 809, 7, 29},
-  {cont__36_203, &frame__36_200, 810, 812, 7, 73},
+  {cont__36_203, &frame__36_200, 810, 815, 7, 46},
   {entry__36_195, NULL, 806, 806, 27, 45},
   {cont__36_196, &frame__36_195, 806, 806, 47, 55},
   {cont__36_197, &frame__36_195, 806, 806, 5, 56},
   {cont__36_198, &frame__36_195, 807, 807, 17, 39},
-  {cont__36_199, &frame__36_195, 807, 812, 5, 74},
-  {entry__36_216, NULL, 815, 815, 10, 31},
-  {cont__36_217, &frame__36_216, 815, 815, 8, 40},
-  {entry__36_219, NULL, 816, 816, 10, 35},
-  {cont__36_220, &frame__36_219, 816, 816, 8, 48},
-  {entry__36_222, NULL, 817, 817, 10, 37},
-  {cont__36_223, &frame__36_222, 817, 817, 8, 52},
-  {entry__36_225, NULL, 818, 818, 10, 36},
-  {cont__36_226, &frame__36_225, 818, 818, 8, 50},
-  {entry__36_213, NULL, 814, 814, 5, 19},
-  {cont__36_215, &frame__36_213, 815, 815, 5, 40},
-  {cont__36_218, &frame__36_213, 816, 816, 5, 48},
-  {cont__36_221, &frame__36_213, 817, 817, 5, 52},
-  {cont__36_224, &frame__36_213, 818, 818, 5, 50},
-  {entry__36_231, NULL, 837, 837, 19, 38},
-  {cont__36_232, &frame__36_231, 837, 837, 38, 38},
-  {entry__36_233, NULL, 838, 838, 31, 62},
-  {cont__36_234, &frame__36_233, 838, 838, 62, 62},
-  {entry__36_235, NULL, 839, 839, 32, 64},
-  {cont__36_236, &frame__36_235, 839, 839, 64, 64},
-  {entry__36_237, NULL, 840, 840, 28, 56},
-  {cont__36_238, &frame__36_237, 840, 840, 56, 56},
-  {entry__36_239, NULL, 841, 841, 24, 48},
-  {cont__36_240, &frame__36_239, 841, 841, 48, 48},
-  {entry__36_241, NULL, 842, 842, 26, 52},
-  {cont__36_242, &frame__36_241, 842, 842, 52, 52},
-  {entry__36_243, NULL, 843, 843, 22, 44},
-  {cont__36_244, &frame__36_243, 843, 843, 44, 44},
-  {entry__36_245, NULL, 844, 844, 19, 38},
-  {cont__36_246, &frame__36_245, 844, 844, 38, 38},
-  {entry__36_247, NULL, 845, 845, 19, 38},
-  {cont__36_248, &frame__36_247, 845, 845, 38, 38},
-  {entry__36_249, NULL, 846, 846, 11, 20},
-  {cont__36_250, &frame__36_249, 846, 846, 20, 20},
-  {entry__36_257, NULL, 850, 850, 23, 40},
-  {cont__36_258, &frame__36_257, 850, 850, 40, 40},
-  {entry__36_259, NULL, 851, 851, 32, 58},
-  {cont__36_260, &frame__36_259, 851, 851, 58, 58},
-  {entry__36_261, NULL, 852, 852, 15, 35},
-  {cont__36_262, &frame__36_261, 852, 852, 35, 35},
-  {entry__36_255, NULL, 849, 849, 16, 35},
-  {cont__36_256, &frame__36_255, 849, 852, 11, 35},
-  {entry__36_253, NULL, 848, 848, 18, 33},
-  {cont__36_254, &frame__36_253, 848, 852, 9, 36},
-  {entry__36_229, NULL, 836, 836, 12, 24},
-  {cont__36_230, &frame__36_229, 836, 846, 7, 20},
-  {cont__36_251, &frame__36_229, 847, 847, 12, 24},
-  {cont__36_252, &frame__36_229, 847, 852, 7, 37},
-  {entry__36_228, NULL, 835, 852, 5, 38},
-  {cont__36_263, &frame__36_228, },
-  {cont__36_264, &frame__36_228, },
-  {cont__36_265, &frame__36_228, },
-  {cont__36_266, &frame__36_228, },
-  {cont__36_267, &frame__36_228, },
-  {cont__36_268, &frame__36_228, },
-  {cont__36_269, &frame__36_228, },
-  {cont__36_270, &frame__36_228, },
-  {cont__36_271, &frame__36_228, },
-  {cont__36_272, &frame__36_228, },
-  {cont__36_273, &frame__36_228, 854, 867, 5, 24},
-  {cont__36_274, &frame__36_228, 870, 870, 32, 60},
-  {cont__36_275, &frame__36_228, 872, 872, 32, 58},
-  {cont__36_276, &frame__36_228, 873, 873, 32, 70},
-  {cont__36_277, &frame__36_228, 874, 874, 32, 71},
-  {cont__36_278, &frame__36_228, 875, 875, 32, 56},
-  {cont__36_279, &frame__36_228, 876, 876, 32, 65},
-  {cont__36_280, &frame__36_228, 877, 877, 32, 59},
-  {cont__36_281, &frame__36_228, 878, 878, 32, 67},
-  {cont__36_282, &frame__36_228, 879, 879, 32, 63},
-  {cont__36_283, &frame__36_228, 880, 880, 32, 65},
-  {cont__36_284, &frame__36_228, 881, 881, 32, 61},
-  {cont__36_285, &frame__36_228, 882, 882, 32, 58},
-  {cont__36_286, &frame__36_228, 883, 883, 32, 58},
-  {cont__36_287, &frame__36_228, 885, 885, 32, 48},
-  {cont__36_288, &frame__36_228, 869, 885, 12, 49},
-  {cont__36_303, &frame__36_228, 869, 885, 5, 49},
+  {cont__36_199, &frame__36_195, 807, 815, 5, 47},
+  {entry__36_219, NULL, 818, 818, 10, 31},
+  {cont__36_220, &frame__36_219, 818, 818, 8, 40},
+  {entry__36_222, NULL, 819, 819, 10, 35},
+  {cont__36_223, &frame__36_222, 819, 819, 8, 48},
+  {entry__36_225, NULL, 820, 820, 10, 37},
+  {cont__36_226, &frame__36_225, 820, 820, 8, 52},
+  {entry__36_228, NULL, 821, 821, 10, 36},
+  {cont__36_229, &frame__36_228, 821, 821, 8, 50},
+  {entry__36_216, NULL, 817, 817, 5, 19},
+  {cont__36_218, &frame__36_216, 818, 818, 5, 40},
+  {cont__36_221, &frame__36_216, 819, 819, 5, 48},
+  {cont__36_224, &frame__36_216, 820, 820, 5, 52},
+  {cont__36_227, &frame__36_216, 821, 821, 5, 50},
+  {entry__36_234, NULL, 840, 840, 19, 38},
+  {cont__36_235, &frame__36_234, 840, 840, 38, 38},
+  {entry__36_236, NULL, 841, 841, 31, 62},
+  {cont__36_237, &frame__36_236, 841, 841, 62, 62},
+  {entry__36_238, NULL, 842, 842, 32, 64},
+  {cont__36_239, &frame__36_238, 842, 842, 64, 64},
+  {entry__36_240, NULL, 843, 843, 28, 56},
+  {cont__36_241, &frame__36_240, 843, 843, 56, 56},
+  {entry__36_242, NULL, 844, 844, 24, 48},
+  {cont__36_243, &frame__36_242, 844, 844, 48, 48},
+  {entry__36_244, NULL, 845, 845, 26, 52},
+  {cont__36_245, &frame__36_244, 845, 845, 52, 52},
+  {entry__36_246, NULL, 846, 846, 22, 44},
+  {cont__36_247, &frame__36_246, 846, 846, 44, 44},
+  {entry__36_248, NULL, 847, 847, 19, 38},
+  {cont__36_249, &frame__36_248, 847, 847, 38, 38},
+  {entry__36_250, NULL, 848, 848, 19, 38},
+  {cont__36_251, &frame__36_250, 848, 848, 38, 38},
+  {entry__36_252, NULL, 849, 849, 11, 20},
+  {cont__36_253, &frame__36_252, 849, 849, 20, 20},
+  {entry__36_260, NULL, 853, 853, 23, 40},
+  {cont__36_261, &frame__36_260, 853, 853, 40, 40},
+  {entry__36_262, NULL, 854, 854, 32, 58},
+  {cont__36_263, &frame__36_262, 854, 854, 58, 58},
+  {entry__36_264, NULL, 855, 855, 15, 35},
+  {cont__36_265, &frame__36_264, 855, 855, 35, 35},
+  {entry__36_258, NULL, 852, 852, 16, 35},
+  {cont__36_259, &frame__36_258, 852, 855, 11, 35},
+  {entry__36_256, NULL, 851, 851, 18, 33},
+  {cont__36_257, &frame__36_256, 851, 855, 9, 36},
+  {entry__36_232, NULL, 839, 839, 12, 24},
+  {cont__36_233, &frame__36_232, 839, 849, 7, 20},
+  {cont__36_254, &frame__36_232, 850, 850, 12, 24},
+  {cont__36_255, &frame__36_232, 850, 855, 7, 37},
+  {entry__36_231, NULL, 838, 855, 5, 38},
+  {cont__36_266, &frame__36_231, },
+  {cont__36_267, &frame__36_231, },
+  {cont__36_268, &frame__36_231, },
+  {cont__36_269, &frame__36_231, },
+  {cont__36_270, &frame__36_231, },
+  {cont__36_271, &frame__36_231, },
+  {cont__36_272, &frame__36_231, },
+  {cont__36_273, &frame__36_231, },
+  {cont__36_274, &frame__36_231, },
+  {cont__36_275, &frame__36_231, },
+  {cont__36_276, &frame__36_231, 857, 870, 5, 24},
+  {cont__36_277, &frame__36_231, 873, 873, 32, 60},
+  {cont__36_278, &frame__36_231, 875, 875, 32, 58},
+  {cont__36_279, &frame__36_231, 876, 876, 32, 70},
+  {cont__36_280, &frame__36_231, 877, 877, 32, 71},
+  {cont__36_281, &frame__36_231, 878, 878, 32, 56},
+  {cont__36_282, &frame__36_231, 879, 879, 32, 65},
+  {cont__36_283, &frame__36_231, 880, 880, 32, 59},
+  {cont__36_284, &frame__36_231, 881, 881, 32, 67},
+  {cont__36_285, &frame__36_231, 882, 882, 32, 63},
+  {cont__36_286, &frame__36_231, 883, 883, 32, 65},
+  {cont__36_287, &frame__36_231, 884, 884, 32, 61},
+  {cont__36_288, &frame__36_231, 885, 885, 32, 58},
+  {cont__36_289, &frame__36_231, 886, 886, 32, 58},
+  {cont__36_290, &frame__36_231, 888, 888, 32, 48},
+  {cont__36_291, &frame__36_231, 872, 888, 12, 49},
+  {cont__36_306, &frame__36_231, 872, 888, 5, 49},
   {entry__36_1_sim2c__extract_documentation, NULL, 687, 687, 42, 42},
   {cont__36_2, &frame__36_1_sim2c__extract_documentation, 687, 687, 3, 43},
   {cont__36_3, &frame__36_1_sim2c__extract_documentation, 688, 688, 3, 43},
@@ -3251,9 +3257,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__36_78, &frame__36_1_sim2c__extract_documentation, 734, 789, 3, 44},
   {cont__36_169, &frame__36_1_sim2c__extract_documentation, 791, 796, 3, 67},
   {cont__36_178, &frame__36_1_sim2c__extract_documentation, 798, 804, 3, 43},
-  {cont__36_194, &frame__36_1_sim2c__extract_documentation, 805, 812, 3, 75},
-  {cont__36_211, &frame__36_1_sim2c__extract_documentation, 813, 818, 3, 50},
-  {cont__36_227, &frame__36_1_sim2c__extract_documentation, 820, 885, 3, 50}
+  {cont__36_194, &frame__36_1_sim2c__extract_documentation, 805, 815, 3, 48},
+  {cont__36_214, &frame__36_1_sim2c__extract_documentation, 816, 821, 3, 50},
+  {cont__36_230, &frame__36_1_sim2c__extract_documentation, 823, 888, 3, 50}
 };
 
 union NODE {
@@ -17079,7 +17085,7 @@ static void cont__35_30(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_228(void) {
+static void entry__36_231(void) {
   allocate_initialized_frame_gc(0, 29);
   // slot allocations:
   // total_functions: 0
@@ -17114,54 +17120,54 @@ static void entry__36_228(void) {
     invalid_arguments_error();
     return;
   }
-  // 821: $$total_functions 0
+  // 824: $$total_functions 0
   ((CELL *)frame->slots[0])->contents /* total_functions */ = number__0;
-  // 822: $$total_polymorphic_functions 0
+  // 825: $$total_polymorphic_functions 0
   ((CELL *)frame->slots[1])->contents /* total_polymorphic_functions */ = number__0;
-  // 823: $$total_polymorphic_attributes 0
+  // 826: $$total_polymorphic_attributes 0
   ((CELL *)frame->slots[2])->contents /* total_polymorphic_attributes */ = number__0;
-  // 824: $$total_methods 0
+  // 827: $$total_methods 0
   ((CELL *)frame->slots[3])->contents /* total_methods */ = number__0;
-  // 825: $$total_inline_c_methods 0
+  // 828: $$total_inline_c_methods 0
   ((CELL *)frame->slots[4])->contents /* total_inline_c_methods */ = number__0;
-  // 826: $$total_inline_c_types 0
+  // 829: $$total_inline_c_types 0
   ((CELL *)frame->slots[5])->contents /* total_inline_c_types */ = number__0;
-  // 827: $$total_inline_c_objects 0
+  // 830: $$total_inline_c_objects 0
   ((CELL *)frame->slots[6])->contents /* total_inline_c_objects */ = number__0;
-  // 828: $$total_attributes 0
+  // 831: $$total_attributes 0
   ((CELL *)frame->slots[7])->contents /* total_attributes */ = number__0;
-  // 829: $$total_inline_c_functions 0
+  // 832: $$total_inline_c_functions 0
   ((CELL *)frame->slots[8])->contents /* total_inline_c_functions */ = number__0;
-  // 830: $$total_unique_items 0
+  // 833: $$total_unique_items 0
   ((CELL *)frame->slots[9])->contents /* total_unique_items */ = number__0;
-  // 831: $$total_constants 0
+  // 834: $$total_constants 0
   ((CELL *)frame->slots[10])->contents /* total_constants */ = number__0;
-  // 832: $$total_variables 0
+  // 835: $$total_variables 0
   ((CELL *)frame->slots[11])->contents /* total_variables */ = number__0;
-  // 833: $$other 0
+  // 836: $$other 0
   ((CELL *)frame->slots[12])->contents /* other */ = number__0;
-  // 835: ... : (_iname info)
-  // 836:   case kind_of(info)
-  // 837:     FUNCTION: inc &total_functions
-  // 838:     POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
-  // 839:     POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
-  // 840:     INLINE_C_FUNCTION: inc &total_inline_c_functions
-  // 841:     INLINE_C_TYPE: inc &total_inline_c_types
-  // 842:     INLINE_C_OBJECT: inc &total_inline_c_objects
-  // 843:     UNIQUE_ITEM: inc &total_unique_items
-  // 844:     CONSTANT: inc &total_constants
+  // 838: ... : (_iname info)
+  // 839:   case kind_of(info)
+  // 840:     FUNCTION: inc &total_functions
+  // 841:     POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
+  // 842:     POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
+  // 843:     INLINE_C_FUNCTION: inc &total_inline_c_functions
+  // 844:     INLINE_C_TYPE: inc &total_inline_c_types
+  // 845:     INLINE_C_OBJECT: inc &total_inline_c_objects
+  // 846:     UNIQUE_ITEM: inc &total_unique_items
+  // 847:     CONSTANT: inc &total_constants
   // ...
-  frame->slots[14] /* temp__1 */ = create_closure(entry__36_229, 2);
-  // 835: for_each definitions: (_iname info)
-  // 836:   case kind_of(info)
-  // 837:     FUNCTION: inc &total_functions
-  // 838:     POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
-  // 839:     POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
-  // 840:     INLINE_C_FUNCTION: inc &total_inline_c_functions
-  // 841:     INLINE_C_TYPE: inc &total_inline_c_types
-  // 842:     INLINE_C_OBJECT: inc &total_inline_c_objects
-  // 843:     UNIQUE_ITEM: inc &total_unique_items
-  // 844:     CONSTANT: inc &total_constants
+  frame->slots[14] /* temp__1 */ = create_closure(entry__36_232, 2);
+  // 838: for_each definitions: (_iname info)
+  // 839:   case kind_of(info)
+  // 840:     FUNCTION: inc &total_functions
+  // 841:     POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
+  // 842:     POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
+  // 843:     INLINE_C_FUNCTION: inc &total_inline_c_functions
+  // 844:     INLINE_C_TYPE: inc &total_inline_c_types
+  // 845:     INLINE_C_OBJECT: inc &total_inline_c_objects
+  // 846:     UNIQUE_ITEM: inc &total_unique_items
+  // 847:     CONSTANT: inc &total_constants
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -17170,9 +17176,9 @@ static void entry__36_228(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__36_263;
+  frame->cont = cont__36_266;
 }
-static void entry__36_257(void) {
+static void entry__36_260(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_methods: 0
@@ -17181,16 +17187,16 @@ static void entry__36_257(void) {
     invalid_arguments_error();
     return;
   }
-  // 850: ... inc &total_methods
+  // 853: ... inc &total_methods
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_methods */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_258;
+  frame->cont = cont__36_261;
 }
-static void cont__36_258(void) {
+static void cont__36_261(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17202,7 +17208,7 @@ static void cont__36_258(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_259(void) {
+static void entry__36_262(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_inline_c_methods: 0
@@ -17211,16 +17217,16 @@ static void entry__36_259(void) {
     invalid_arguments_error();
     return;
   }
-  // 851: ... inc &total_inline_c_methods
+  // 854: ... inc &total_inline_c_methods
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_inline_c_methods */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_260;
+  frame->cont = cont__36_263;
 }
-static void cont__36_260(void) {
+static void cont__36_263(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17232,7 +17238,7 @@ static void cont__36_260(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_261(void) {
+static void entry__36_264(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_attributes: 0
@@ -17241,16 +17247,16 @@ static void entry__36_261(void) {
     invalid_arguments_error();
     return;
   }
-  // 852: ... inc &total_attributes
+  // 855: ... inc &total_attributes
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_attributes */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_262;
+  frame->cont = cont__36_265;
 }
-static void cont__36_262(void) {
+static void cont__36_265(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17262,7 +17268,7 @@ static void cont__36_262(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_255(void) {
+static void entry__36_258(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // method_name: 0
@@ -17277,31 +17283,31 @@ static void entry__36_255(void) {
     invalid_arguments_error();
     return;
   }
-  // 849: ... kind_of(method_info)
+  // 852: ... kind_of(method_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* method_info */;
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__36_256;
+  frame->cont = cont__36_259;
 }
-static void cont__36_256(void) {
+static void cont__36_259(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 850: ... : inc &total_methods
-  frame->slots[6] /* temp__2 */ = create_closure(entry__36_257, 0);
-  // 851: ... : inc &total_inline_c_methods
-  frame->slots[7] /* temp__3 */ = create_closure(entry__36_259, 0);
-  // 852: : inc &total_attributes
-  frame->slots[8] /* temp__4 */ = create_closure(entry__36_261, 0);
-  // 849: case kind_of(method_info)
-  // 850:   FUNCTION: inc &total_methods
-  // 851:   INLINE_C_FUNCTION: inc &total_inline_c_methods
-  // 852:   : inc &total_attributes
+  // 853: ... : inc &total_methods
+  frame->slots[6] /* temp__2 */ = create_closure(entry__36_260, 0);
+  // 854: ... : inc &total_inline_c_methods
+  frame->slots[7] /* temp__3 */ = create_closure(entry__36_262, 0);
+  // 855: : inc &total_attributes
+  frame->slots[8] /* temp__4 */ = create_closure(entry__36_264, 0);
+  // 852: case kind_of(method_info)
+  // 853:   FUNCTION: inc &total_methods
+  // 854:   INLINE_C_FUNCTION: inc &total_inline_c_methods
+  // 855:   : inc &total_attributes
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -17315,7 +17321,7 @@ static void cont__36_256(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__36_253(void) {
+static void entry__36_256(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // info: 0
@@ -17330,32 +17336,32 @@ static void entry__36_253(void) {
     invalid_arguments_error();
     return;
   }
-  // 848: ... methods_of(info)
+  // 851: ... methods_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
   result_count = 1;
   myself = var._methods_of;
   func = myself->type;
-  frame->cont = cont__36_254;
+  frame->cont = cont__36_257;
 }
-static void cont__36_254(void) {
+static void cont__36_257(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 848: ... : (method_name method_info)
-  // 849:   case kind_of(method_info)
-  // 850:     FUNCTION: inc &total_methods
-  // 851:     INLINE_C_FUNCTION: inc &total_inline_c_methods
-  // 852:     : inc &total_attributes
-  frame->slots[5] /* temp__2 */ = create_closure(entry__36_255, 2);
-  // 848: for_each methods_of(info): (method_name method_info)
-  // 849:   case kind_of(method_info)
-  // 850:     FUNCTION: inc &total_methods
-  // 851:     INLINE_C_FUNCTION: inc &total_inline_c_methods
-  // 852:     : inc &total_attributes
+  // 851: ... : (method_name method_info)
+  // 852:   case kind_of(method_info)
+  // 853:     FUNCTION: inc &total_methods
+  // 854:     INLINE_C_FUNCTION: inc &total_inline_c_methods
+  // 855:     : inc &total_attributes
+  frame->slots[5] /* temp__2 */ = create_closure(entry__36_258, 2);
+  // 851: for_each methods_of(info): (method_name method_info)
+  // 852:   case kind_of(method_info)
+  // 853:     FUNCTION: inc &total_methods
+  // 854:     INLINE_C_FUNCTION: inc &total_inline_c_methods
+  // 855:     : inc &total_attributes
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -17365,7 +17371,7 @@ static void cont__36_254(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__36_229(void) {
+static void entry__36_232(void) {
   allocate_initialized_frame_gc(15, 26);
   // slot allocations:
   // iname: 0
@@ -17400,51 +17406,51 @@ static void entry__36_229(void) {
     invalid_arguments_error();
     return;
   }
-  // 836: ... kind_of(info)
+  // 839: ... kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__36_230;
+  frame->cont = cont__36_233;
 }
-static void cont__36_230(void) {
+static void cont__36_233(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[15] /* temp__1 */ = arguments->slots[0];
-  // 837: ... : inc &total_functions
-  frame->slots[16] /* temp__2 */ = create_closure(entry__36_231, 0);
-  // 838: ... : inc &total_polymorphic_functions
-  frame->slots[17] /* temp__3 */ = create_closure(entry__36_233, 0);
-  // 839: ... : inc &total_polymorphic_attributes
-  frame->slots[18] /* temp__4 */ = create_closure(entry__36_235, 0);
-  // 840: ... : inc &total_inline_c_functions
-  frame->slots[19] /* temp__5 */ = create_closure(entry__36_237, 0);
-  // 841: ... : inc &total_inline_c_types
-  frame->slots[20] /* temp__6 */ = create_closure(entry__36_239, 0);
-  // 842: ... : inc &total_inline_c_objects
-  frame->slots[21] /* temp__7 */ = create_closure(entry__36_241, 0);
-  // 843: ... : inc &total_unique_items
-  frame->slots[22] /* temp__8 */ = create_closure(entry__36_243, 0);
-  // 844: ... : inc &total_constants
-  frame->slots[23] /* temp__9 */ = create_closure(entry__36_245, 0);
-  // 845: ... : inc &total_variables
-  frame->slots[24] /* temp__10 */ = create_closure(entry__36_247, 0);
-  // 846: : inc &other
-  frame->slots[25] /* temp__11 */ = create_closure(entry__36_249, 0);
-  // 836: case kind_of(info)
-  // 837:   FUNCTION: inc &total_functions
-  // 838:   POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
-  // 839:   POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
-  // 840:   INLINE_C_FUNCTION: inc &total_inline_c_functions
-  // 841:   INLINE_C_TYPE: inc &total_inline_c_types
-  // 842:   INLINE_C_OBJECT: inc &total_inline_c_objects
-  // 843:   UNIQUE_ITEM: inc &total_unique_items
-  // 844:   CONSTANT: inc &total_constants
-  // 845:   VARIABLE: inc &total_variables
+  // 840: ... : inc &total_functions
+  frame->slots[16] /* temp__2 */ = create_closure(entry__36_234, 0);
+  // 841: ... : inc &total_polymorphic_functions
+  frame->slots[17] /* temp__3 */ = create_closure(entry__36_236, 0);
+  // 842: ... : inc &total_polymorphic_attributes
+  frame->slots[18] /* temp__4 */ = create_closure(entry__36_238, 0);
+  // 843: ... : inc &total_inline_c_functions
+  frame->slots[19] /* temp__5 */ = create_closure(entry__36_240, 0);
+  // 844: ... : inc &total_inline_c_types
+  frame->slots[20] /* temp__6 */ = create_closure(entry__36_242, 0);
+  // 845: ... : inc &total_inline_c_objects
+  frame->slots[21] /* temp__7 */ = create_closure(entry__36_244, 0);
+  // 846: ... : inc &total_unique_items
+  frame->slots[22] /* temp__8 */ = create_closure(entry__36_246, 0);
+  // 847: ... : inc &total_constants
+  frame->slots[23] /* temp__9 */ = create_closure(entry__36_248, 0);
+  // 848: ... : inc &total_variables
+  frame->slots[24] /* temp__10 */ = create_closure(entry__36_250, 0);
+  // 849: : inc &other
+  frame->slots[25] /* temp__11 */ = create_closure(entry__36_252, 0);
+  // 839: case kind_of(info)
+  // 840:   FUNCTION: inc &total_functions
+  // 841:   POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
+  // 842:   POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
+  // 843:   INLINE_C_FUNCTION: inc &total_inline_c_functions
+  // 844:   INLINE_C_TYPE: inc &total_inline_c_types
+  // 845:   INLINE_C_OBJECT: inc &total_inline_c_objects
+  // 846:   UNIQUE_ITEM: inc &total_unique_items
+  // 847:   CONSTANT: inc &total_constants
+  // 848:   VARIABLE: inc &total_variables
   // ...
   argument_count = 20;
   arguments = node_p;
@@ -17471,9 +17477,9 @@ static void cont__36_230(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__36_251;
+  frame->cont = cont__36_254;
 }
-static void entry__36_231(void) {
+static void entry__36_234(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_functions: 0
@@ -17482,16 +17488,16 @@ static void entry__36_231(void) {
     invalid_arguments_error();
     return;
   }
-  // 837: ... inc &total_functions
+  // 840: ... inc &total_functions
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_functions */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_232;
+  frame->cont = cont__36_235;
 }
-static void cont__36_232(void) {
+static void cont__36_235(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17503,7 +17509,7 @@ static void cont__36_232(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_233(void) {
+static void entry__36_236(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_polymorphic_functions: 0
@@ -17512,16 +17518,16 @@ static void entry__36_233(void) {
     invalid_arguments_error();
     return;
   }
-  // 838: ... inc &total_polymorphic_functions
+  // 841: ... inc &total_polymorphic_functions
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_polymorphic_functions */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_234;
+  frame->cont = cont__36_237;
 }
-static void cont__36_234(void) {
+static void cont__36_237(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17533,7 +17539,7 @@ static void cont__36_234(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_235(void) {
+static void entry__36_238(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_polymorphic_attributes: 0
@@ -17542,16 +17548,16 @@ static void entry__36_235(void) {
     invalid_arguments_error();
     return;
   }
-  // 839: ... inc &total_polymorphic_attributes
+  // 842: ... inc &total_polymorphic_attributes
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_polymorphic_attributes */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_236;
+  frame->cont = cont__36_239;
 }
-static void cont__36_236(void) {
+static void cont__36_239(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17563,7 +17569,7 @@ static void cont__36_236(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_237(void) {
+static void entry__36_240(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_inline_c_functions: 0
@@ -17572,16 +17578,16 @@ static void entry__36_237(void) {
     invalid_arguments_error();
     return;
   }
-  // 840: ... inc &total_inline_c_functions
+  // 843: ... inc &total_inline_c_functions
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_inline_c_functions */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_238;
+  frame->cont = cont__36_241;
 }
-static void cont__36_238(void) {
+static void cont__36_241(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17593,7 +17599,7 @@ static void cont__36_238(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_239(void) {
+static void entry__36_242(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_inline_c_types: 0
@@ -17602,16 +17608,16 @@ static void entry__36_239(void) {
     invalid_arguments_error();
     return;
   }
-  // 841: ... inc &total_inline_c_types
+  // 844: ... inc &total_inline_c_types
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_inline_c_types */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_240;
+  frame->cont = cont__36_243;
 }
-static void cont__36_240(void) {
+static void cont__36_243(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17623,7 +17629,7 @@ static void cont__36_240(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_241(void) {
+static void entry__36_244(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_inline_c_objects: 0
@@ -17632,16 +17638,16 @@ static void entry__36_241(void) {
     invalid_arguments_error();
     return;
   }
-  // 842: ... inc &total_inline_c_objects
+  // 845: ... inc &total_inline_c_objects
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_inline_c_objects */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_242;
+  frame->cont = cont__36_245;
 }
-static void cont__36_242(void) {
+static void cont__36_245(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17653,7 +17659,7 @@ static void cont__36_242(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_243(void) {
+static void entry__36_246(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_unique_items: 0
@@ -17662,16 +17668,16 @@ static void entry__36_243(void) {
     invalid_arguments_error();
     return;
   }
-  // 843: ... inc &total_unique_items
+  // 846: ... inc &total_unique_items
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_unique_items */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_244;
+  frame->cont = cont__36_247;
 }
-static void cont__36_244(void) {
+static void cont__36_247(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17683,7 +17689,7 @@ static void cont__36_244(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_245(void) {
+static void entry__36_248(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_constants: 0
@@ -17692,16 +17698,16 @@ static void entry__36_245(void) {
     invalid_arguments_error();
     return;
   }
-  // 844: ... inc &total_constants
+  // 847: ... inc &total_constants
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_constants */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_246;
+  frame->cont = cont__36_249;
 }
-static void cont__36_246(void) {
+static void cont__36_249(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17713,7 +17719,7 @@ static void cont__36_246(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_247(void) {
+static void entry__36_250(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_variables: 0
@@ -17722,16 +17728,16 @@ static void entry__36_247(void) {
     invalid_arguments_error();
     return;
   }
-  // 845: ... inc &total_variables
+  // 848: ... inc &total_variables
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_variables */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_248;
+  frame->cont = cont__36_251;
 }
-static void cont__36_248(void) {
+static void cont__36_251(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17743,7 +17749,7 @@ static void cont__36_248(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__36_249(void) {
+static void entry__36_252(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // other: 0
@@ -17752,16 +17758,16 @@ static void entry__36_249(void) {
     invalid_arguments_error();
     return;
   }
-  // 846: ... inc &other
+  // 849: ... inc &other
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* other */;
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__36_250;
+  frame->cont = cont__36_253;
 }
-static void cont__36_250(void) {
+static void cont__36_253(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17773,39 +17779,39 @@ static void cont__36_250(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__36_251(void) {
+static void cont__36_254(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 847: ... kind_of(info)
+  // 850: ... kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__36_252;
+  frame->cont = cont__36_255;
 }
-static void cont__36_252(void) {
+static void cont__36_255(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[15] /* temp__1 */ = arguments->slots[0];
-  // 847: ... :
-  // 848:   for_each methods_of(info): (method_name method_info)
-  // 849:     case kind_of(method_info)
-  // 850:       FUNCTION: inc &total_methods
-  // 851:       INLINE_C_FUNCTION: inc &total_inline_c_methods
-  // 852:       : inc &total_attributes
-  frame->slots[16] /* temp__2 */ = create_closure(entry__36_253, 0);
-  // 847: case kind_of(info) INLINE_C_TYPE:
-  // 848:   for_each methods_of(info): (method_name method_info)
-  // 849:     case kind_of(method_info)
-  // 850:       FUNCTION: inc &total_methods
-  // 851:       INLINE_C_FUNCTION: inc &total_inline_c_methods
-  // 852:       : inc &total_attributes
+  // 850: ... :
+  // 851:   for_each methods_of(info): (method_name method_info)
+  // 852:     case kind_of(method_info)
+  // 853:       FUNCTION: inc &total_methods
+  // 854:       INLINE_C_FUNCTION: inc &total_inline_c_methods
+  // 855:       : inc &total_attributes
+  frame->slots[16] /* temp__2 */ = create_closure(entry__36_256, 0);
+  // 850: case kind_of(info) INLINE_C_TYPE:
+  // 851:   for_each methods_of(info): (method_name method_info)
+  // 852:     case kind_of(method_info)
+  // 853:       FUNCTION: inc &total_methods
+  // 854:       INLINE_C_FUNCTION: inc &total_inline_c_methods
+  // 855:       : inc &total_attributes
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[15] /* temp__1 */;
@@ -17816,7 +17822,7 @@ static void cont__36_252(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__36_263(void) {
+static void cont__36_266(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17828,9 +17834,9 @@ static void cont__36_263(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_264;
+  frame->cont = cont__36_267;
 }
-static void cont__36_264(void) {
+static void cont__36_267(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17843,9 +17849,9 @@ static void cont__36_264(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_265;
+  frame->cont = cont__36_268;
 }
-static void cont__36_265(void) {
+static void cont__36_268(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17858,9 +17864,9 @@ static void cont__36_265(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_266;
+  frame->cont = cont__36_269;
 }
-static void cont__36_266(void) {
+static void cont__36_269(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17873,9 +17879,9 @@ static void cont__36_266(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_267;
+  frame->cont = cont__36_270;
 }
-static void cont__36_267(void) {
+static void cont__36_270(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17888,9 +17894,9 @@ static void cont__36_267(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_268;
+  frame->cont = cont__36_271;
 }
-static void cont__36_268(void) {
+static void cont__36_271(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17903,9 +17909,9 @@ static void cont__36_268(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_269;
+  frame->cont = cont__36_272;
 }
-static void cont__36_269(void) {
+static void cont__36_272(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17918,9 +17924,9 @@ static void cont__36_269(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_270;
+  frame->cont = cont__36_273;
 }
-static void cont__36_270(void) {
+static void cont__36_273(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17933,9 +17939,9 @@ static void cont__36_270(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_271;
+  frame->cont = cont__36_274;
 }
-static void cont__36_271(void) {
+static void cont__36_274(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17948,9 +17954,9 @@ static void cont__36_271(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_272;
+  frame->cont = cont__36_275;
 }
-static void cont__36_272(void) {
+static void cont__36_275(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17963,24 +17969,24 @@ static void cont__36_272(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_273;
+  frame->cont = cont__36_276;
 }
-static void cont__36_273(void) {
+static void cont__36_276(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[14] /* temp__1 */ = arguments->slots[0];
-  // 854: $total_definitions
-  // 855:   +
-  // 856:     total_functions
-  // 857:     total_polymorphic_functions
-  // 858:     total_polymorphic_attributes
-  // 859:     total_methods
-  // 860:     total_inline_c_methods
-  // 861:     total_inline_c_types
-  // 862:     total_inline_c_objects
-  // 863:     total_attributes
+  // 857: $total_definitions
+  // 858:   +
+  // 859:     total_functions
+  // 860:     total_polymorphic_functions
+  // 861:     total_polymorphic_attributes
+  // 862:     total_methods
+  // 863:     total_inline_c_methods
+  // 864:     total_inline_c_types
+  // 865:     total_inline_c_objects
+  // 866:     total_attributes
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -17989,54 +17995,6 @@ static void cont__36_273(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__36_274;
-}
-static void cont__36_274(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  initialize_future(frame->slots[13] /* total_definitions */, arguments->slots[0]);
-  // 870: ... pad_left(total_definitions 5)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[13] /* total_definitions */;
-  arguments->slots[1] = number__5;
-  result_count = 1;
-  myself = get__pad_left();
-  func = myself->type;
-  frame->cont = cont__36_275;
-}
-static void cont__36_275(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[15] /* temp__2 */ = arguments->slots[0];
-  // 872: ... pad_left(total_functions 5)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_functions */;
-  arguments->slots[1] = number__5;
-  result_count = 1;
-  myself = get__pad_left();
-  func = myself->type;
-  frame->cont = cont__36_276;
-}
-static void cont__36_276(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[16] /* temp__3 */ = arguments->slots[0];
-  // 873: ... pad_left(total_polymorphic_functions 5)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* total_polymorphic_functions */;
-  arguments->slots[1] = number__5;
-  result_count = 1;
-  myself = get__pad_left();
-  func = myself->type;
   frame->cont = cont__36_277;
 }
 static void cont__36_277(void) {
@@ -18044,11 +18002,11 @@ static void cont__36_277(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[17] /* temp__4 */ = arguments->slots[0];
-  // 874: ... pad_left(total_polymorphic_attributes 5)
+  initialize_future(frame->slots[13] /* total_definitions */, arguments->slots[0]);
+  // 873: ... pad_left(total_definitions 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* total_polymorphic_attributes */;
+  arguments->slots[0] = frame->slots[13] /* total_definitions */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18060,11 +18018,11 @@ static void cont__36_278(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[18] /* temp__5 */ = arguments->slots[0];
-  // 875: ... pad_left(total_methods 5)
+  frame->slots[15] /* temp__2 */ = arguments->slots[0];
+  // 875: ... pad_left(total_functions 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* total_methods */;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* total_functions */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18076,11 +18034,11 @@ static void cont__36_279(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[19] /* temp__6 */ = arguments->slots[0];
-  // 876: ... pad_left(total_inline_c_methods 5)
+  frame->slots[16] /* temp__3 */ = arguments->slots[0];
+  // 876: ... pad_left(total_polymorphic_functions 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* total_inline_c_methods */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* total_polymorphic_functions */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18092,11 +18050,11 @@ static void cont__36_280(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[20] /* temp__7 */ = arguments->slots[0];
-  // 877: ... pad_left(total_attributes 5)
+  frame->slots[17] /* temp__4 */ = arguments->slots[0];
+  // 877: ... pad_left(total_polymorphic_attributes 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* total_attributes */;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* total_polymorphic_attributes */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18108,11 +18066,11 @@ static void cont__36_281(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[21] /* temp__8 */ = arguments->slots[0];
-  // 878: ... pad_left(total_inline_c_functions 5)
+  frame->slots[18] /* temp__5 */ = arguments->slots[0];
+  // 878: ... pad_left(total_methods 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[8])->contents /* total_inline_c_functions */;
+  arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* total_methods */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18124,11 +18082,11 @@ static void cont__36_282(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[22] /* temp__9 */ = arguments->slots[0];
-  // 879: ... pad_left(total_inline_c_types 5)
+  frame->slots[19] /* temp__6 */ = arguments->slots[0];
+  // 879: ... pad_left(total_inline_c_methods 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* total_inline_c_types */;
+  arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* total_inline_c_methods */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18140,11 +18098,11 @@ static void cont__36_283(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[23] /* temp__10 */ = arguments->slots[0];
-  // 880: ... pad_left(total_inline_c_objects 5)
+  frame->slots[20] /* temp__7 */ = arguments->slots[0];
+  // 880: ... pad_left(total_attributes 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* total_inline_c_objects */;
+  arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* total_attributes */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18156,11 +18114,11 @@ static void cont__36_284(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[24] /* temp__11 */ = arguments->slots[0];
-  // 881: ... pad_left(total_unique_items 5)
+  frame->slots[21] /* temp__8 */ = arguments->slots[0];
+  // 881: ... pad_left(total_inline_c_functions 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[9])->contents /* total_unique_items */;
+  arguments->slots[0] = ((CELL *)frame->slots[8])->contents /* total_inline_c_functions */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18172,11 +18130,11 @@ static void cont__36_285(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[25] /* temp__12 */ = arguments->slots[0];
-  // 882: ... pad_left(total_constants 5)
+  frame->slots[22] /* temp__9 */ = arguments->slots[0];
+  // 882: ... pad_left(total_inline_c_types 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[10])->contents /* total_constants */;
+  arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* total_inline_c_types */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18188,11 +18146,11 @@ static void cont__36_286(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[26] /* temp__13 */ = arguments->slots[0];
-  // 883: ... pad_left(total_variables 5)
+  frame->slots[23] /* temp__10 */ = arguments->slots[0];
+  // 883: ... pad_left(total_inline_c_objects 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[11])->contents /* total_variables */;
+  arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* total_inline_c_objects */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18204,11 +18162,11 @@ static void cont__36_287(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[27] /* temp__14 */ = arguments->slots[0];
-  // 885: ... pad_left(other 5)
+  frame->slots[24] /* temp__11 */ = arguments->slots[0];
+  // 884: ... pad_left(total_unique_items 5)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[12])->contents /* other */;
+  arguments->slots[0] = ((CELL *)frame->slots[9])->contents /* total_unique_items */;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__pad_left();
@@ -18220,70 +18178,118 @@ static void cont__36_288(void) {
     invalid_results_error();
     return;
   }
+  frame->slots[25] /* temp__12 */ = arguments->slots[0];
+  // 885: ... pad_left(total_constants 5)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[10])->contents /* total_constants */;
+  arguments->slots[1] = number__5;
+  result_count = 1;
+  myself = get__pad_left();
+  func = myself->type;
+  frame->cont = cont__36_289;
+}
+static void cont__36_289(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[26] /* temp__13 */ = arguments->slots[0];
+  // 886: ... pad_left(total_variables 5)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[11])->contents /* total_variables */;
+  arguments->slots[1] = number__5;
+  result_count = 1;
+  myself = get__pad_left();
+  func = myself->type;
+  frame->cont = cont__36_290;
+}
+static void cont__36_290(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[27] /* temp__14 */ = arguments->slots[0];
+  // 888: ... pad_left(other 5)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[12])->contents /* other */;
+  arguments->slots[1] = number__5;
+  result_count = 1;
+  myself = get__pad_left();
+  func = myself->type;
+  frame->cont = cont__36_291;
+}
+static void cont__36_291(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
   frame->slots[28] /* temp__15 */ = arguments->slots[0];
-  // 869: ... "
-  // 870:   total definitions:     @(pad_left(total_definitions 5))
-  // 871:   
-  // 872:   functions:             @(pad_left(total_functions 5))
-  // 873:   polymorphic functions: @(pad_left(total_polymorphic_functions 5))
-  // 874:   polymorphic attributes:@(pad_left(total_polymorphic_attributes 5))
-  // 875:   method definitions:    @(pad_left(total_methods 5))
-  // 876:   inline C methods:      @(pad_left(total_inline_c_methods 5))
-  // 877:   attribute definitions: @(pad_left(total_attributes 5))
-  // 878:   inline C functions:    @(pad_left(total_inline_c_functions 5))
+  // 872: ... "
+  // 873:   total definitions:     @(pad_left(total_definitions 5))
+  // 874:   
+  // 875:   functions:             @(pad_left(total_functions 5))
+  // 876:   polymorphic functions: @(pad_left(total_polymorphic_functions 5))
+  // 877:   polymorphic attributes:@(pad_left(total_polymorphic_attributes 5))
+  // 878:   method definitions:    @(pad_left(total_methods 5))
+  // 879:   inline C methods:      @(pad_left(total_inline_c_methods 5))
+  // 880:   attribute definitions: @(pad_left(total_attributes 5))
+  // 881:   inline C functions:    @(pad_left(total_inline_c_functions 5))
   // ...
   argument_count = 29;
   arguments = node_p;
-  arguments->slots[0] = string__36_289;
+  arguments->slots[0] = string__36_292;
   arguments->slots[1] = frame->slots[15] /* temp__2 */;
-  arguments->slots[2] = string__36_290;
+  arguments->slots[2] = string__36_293;
   arguments->slots[3] = frame->slots[16] /* temp__3 */;
-  arguments->slots[4] = string__36_291;
+  arguments->slots[4] = string__36_294;
   arguments->slots[5] = frame->slots[17] /* temp__4 */;
-  arguments->slots[6] = string__36_292;
+  arguments->slots[6] = string__36_295;
   arguments->slots[7] = frame->slots[18] /* temp__5 */;
-  arguments->slots[8] = string__36_293;
+  arguments->slots[8] = string__36_296;
   arguments->slots[9] = frame->slots[19] /* temp__6 */;
-  arguments->slots[10] = string__36_294;
+  arguments->slots[10] = string__36_297;
   arguments->slots[11] = frame->slots[20] /* temp__7 */;
-  arguments->slots[12] = string__36_295;
+  arguments->slots[12] = string__36_298;
   arguments->slots[13] = frame->slots[21] /* temp__8 */;
-  arguments->slots[14] = string__36_296;
+  arguments->slots[14] = string__36_299;
   arguments->slots[15] = frame->slots[22] /* temp__9 */;
-  arguments->slots[16] = string__36_297;
+  arguments->slots[16] = string__36_300;
   arguments->slots[17] = frame->slots[23] /* temp__10 */;
-  arguments->slots[18] = string__36_298;
+  arguments->slots[18] = string__36_301;
   arguments->slots[19] = frame->slots[24] /* temp__11 */;
-  arguments->slots[20] = string__36_299;
+  arguments->slots[20] = string__36_302;
   arguments->slots[21] = frame->slots[25] /* temp__12 */;
-  arguments->slots[22] = string__36_300;
+  arguments->slots[22] = string__36_303;
   arguments->slots[23] = frame->slots[26] /* temp__13 */;
-  arguments->slots[24] = string__36_301;
+  arguments->slots[24] = string__36_304;
   arguments->slots[25] = frame->slots[27] /* temp__14 */;
-  arguments->slots[26] = string__36_302;
+  arguments->slots[26] = string__36_305;
   arguments->slots[27] = frame->slots[28] /* temp__15 */;
   arguments->slots[28] = string__24_3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__36_303;
+  frame->cont = cont__36_306;
 }
-static void cont__36_303(void) {
+static void cont__36_306(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[14] /* temp__1 */ = arguments->slots[0];
-  // 869: ewrite "
-  // 870:   total definitions:     @(pad_left(total_definitions 5))
-  // 871:   
-  // 872:   functions:             @(pad_left(total_functions 5))
-  // 873:   polymorphic functions: @(pad_left(total_polymorphic_functions 5))
-  // 874:   polymorphic attributes:@(pad_left(total_polymorphic_attributes 5))
-  // 875:   method definitions:    @(pad_left(total_methods 5))
-  // 876:   inline C methods:      @(pad_left(total_inline_c_methods 5))
-  // 877:   attribute definitions: @(pad_left(total_attributes 5))
-  // 878:   inline C functions:    @(pad_left(total_inline_c_functions 5))
+  // 872: ewrite "
+  // 873:   total definitions:     @(pad_left(total_definitions 5))
+  // 874:   
+  // 875:   functions:             @(pad_left(total_functions 5))
+  // 876:   polymorphic functions: @(pad_left(total_polymorphic_functions 5))
+  // 877:   polymorphic attributes:@(pad_left(total_polymorphic_attributes 5))
+  // 878:   method definitions:    @(pad_left(total_methods 5))
+  // 879:   inline C methods:      @(pad_left(total_inline_c_methods 5))
+  // 880:   attribute definitions: @(pad_left(total_attributes 5))
+  // 881:   inline C functions:    @(pad_left(total_inline_c_functions 5))
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -21485,13 +21491,36 @@ static void cont__36_194(void) {
   // 809:     H1 "id" = "index" topic
   // 810:     TABLE:
   // 811:       for_each references: (reference)
-  // 812:         TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812:         TR:
+  // 813:           TD: A "href" = string(reference.mangled ".html") reference
+  // 814:           TD "&nbsp;"
+  // ...
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._topics;
   arguments->slots[1] = func__36_195;
   result_count = 0;
   myself = get__for_each();
+  func = myself->type;
+  frame->cont = cont__36_214;
+}
+static void entry__36_206(void) {
+  allocate_initialized_frame_gc(1, 2);
+  // slot allocations:
+  // reference: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* reference */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 813: ... : A "href" = string(reference.mangled ".html") reference
+  frame->slots[1] /* temp__1 */ = create_closure(entry__36_207, 0);
+  // 813: TD: A "href" = string(reference.mangled ".html") reference
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  result_count = 0;
+  myself = get__TD();
   func = myself->type;
   frame->cont = cont__36_211;
 }
@@ -21504,7 +21533,7 @@ static void entry__36_207(void) {
     invalid_arguments_error();
     return;
   }
-  // 812: ... reference.mangled
+  // 813: ... reference.mangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* reference */;
@@ -21519,7 +21548,7 @@ static void cont__36_208(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 812: ... string(reference.mangled ".html")
+  // 813: ... string(reference.mangled ".html")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -21535,7 +21564,7 @@ static void cont__36_209(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 812: ... "href" = string(reference.mangled ".html")
+  // 813: ... "href" = string(reference.mangled ".html")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__30_3;
@@ -21551,7 +21580,7 @@ static void cont__36_210(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 812: ... A "href" = string(reference.mangled ".html") reference
+  // 813: ... A "href" = string(reference.mangled ".html") reference
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -21561,18 +21590,41 @@ static void cont__36_210(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__36_206(void) {
-  allocate_initialized_frame_gc(1, 2);
-  // slot allocations:
-  // reference: 0
-  frame->slots[0] = myself->closure.frame->slots[0]; /* reference */
+static void cont__36_211(void) {
   if (argument_count != 0) {
-    invalid_arguments_error();
+    invalid_results_error();
     return;
   }
-  // 812: ... : A "href" = string(reference.mangled ".html") reference
-  frame->slots[1] /* temp__1 */ = create_closure(entry__36_207, 0);
-  // 812: ... TD: A "href" = string(reference.mangled ".html") reference
+  // 814: TD "&nbsp;"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = string__34_281;
+  result_count = 0;
+  myself = get__TD();
+  func = myself->type;
+  frame->cont = cont__36_212;
+}
+static void cont__36_212(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 815: ... short_descriptions(reference)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* reference */;
+  result_count = 1;
+  myself = var._short_descriptions;
+  func = myself->type;
+  frame->cont = cont__36_213;
+}
+static void cont__36_213(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 815: TD short_descriptions(reference)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -21589,9 +21641,15 @@ static void entry__36_205(void) {
     invalid_arguments_error();
     return;
   }
-  // 812: ... : TD: A "href" = string(reference.mangled ".html") reference
+  // 812: ... :
+  // 813:   TD: A "href" = string(reference.mangled ".html") reference
+  // 814:   TD "&nbsp;"
+  // 815:   TD short_descriptions(reference)
   frame->slots[1] /* temp__1 */ = create_closure(entry__36_206, 0);
-  // 812: TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812: TR:
+  // 813:   TD: A "href" = string(reference.mangled ".html") reference
+  // 814:   TD "&nbsp;"
+  // 815:   TD short_descriptions(reference)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -21610,7 +21668,10 @@ static void entry__36_204(void) {
     return;
   }
   // 811: for_each references: (reference)
-  // 812:   TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812:   TR:
+  // 813:     TD: A "href" = string(reference.mangled ".html") reference
+  // 814:     TD "&nbsp;"
+  // 815:     TD short_descriptions(reference)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* references */;
@@ -21677,11 +21738,17 @@ static void cont__36_203(void) {
   }
   // 810: ... :
   // 811:   for_each references: (reference)
-  // 812:     TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812:     TR:
+  // 813:       TD: A "href" = string(reference.mangled ".html") reference
+  // 814:       TD "&nbsp;"
+  // 815:       TD short_descriptions(reference)
   frame->slots[2] /* temp__1 */ = create_closure(entry__36_204, 0);
   // 810: TABLE:
   // 811:   for_each references: (reference)
-  // 812:     TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812:     TR:
+  // 813:       TD: A "href" = string(reference.mangled ".html") reference
+  // 814:       TD "&nbsp;"
+  // 815:       TD short_descriptions(reference)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -21770,14 +21837,20 @@ static void cont__36_199(void) {
   // 809:   H1 "id" = "index" topic
   // 810:   TABLE:
   // 811:     for_each references: (reference)
-  // 812:       TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812:       TR:
+  // 813:         TD: A "href" = string(reference.mangled ".html") reference
+  // 814:         TD "&nbsp;"
+  // 815:         TD short_descriptions(reference)
   frame->slots[4] /* temp__2 */ = create_closure(entry__36_200, 0);
   // 807: create_page "html/@(filename).html":
   // 808:   link_bar
   // 809:   H1 "id" = "index" topic
   // 810:   TABLE:
   // 811:     for_each references: (reference)
-  // 812:       TR: TD: A "href" = string(reference.mangled ".html") reference
+  // 812:       TR:
+  // 813:         TD: A "href" = string(reference.mangled ".html") reference
+  // 814:         TD "&nbsp;"
+  // 815:         TD short_descriptions(reference)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -21787,34 +21860,34 @@ static void cont__36_199(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__36_211(void) {
+static void cont__36_214(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 813: create_page "html/index.html":
-  // 814:   H1 "Simplicity"
-  // 815:   P: A "href" = "manual.html" "Manual"
-  // 816:   P: A "href" = "type_index.html" "Type Index"
-  // 817:   P: A "href" = "symbol_index.html" "Symbol Index"
-  // 818:   P: A "href" = "topic_index.html" "Topic Index"
+  // 816: create_page "html/index.html":
+  // 817:   H1 "Simplicity"
+  // 818:   P: A "href" = "manual.html" "Manual"
+  // 819:   P: A "href" = "type_index.html" "Type Index"
+  // 820:   P: A "href" = "symbol_index.html" "Symbol Index"
+  // 821:   P: A "href" = "topic_index.html" "Topic Index"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__36_212;
-  arguments->slots[1] = func__36_213;
+  arguments->slots[0] = string__36_215;
+  arguments->slots[1] = func__36_216;
   result_count = 0;
   myself = var._create_page;
   func = myself->type;
-  frame->cont = cont__36_227;
+  frame->cont = cont__36_230;
 }
-static void entry__36_225(void) {
+static void entry__36_228(void) {
   allocate_initialized_frame_gc(0, 1);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 818: ... "href" = "topic_index.html"
+  // 821: ... "href" = "topic_index.html"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__30_3;
@@ -21822,15 +21895,15 @@ static void entry__36_225(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__36_226;
+  frame->cont = cont__36_229;
 }
-static void cont__36_226(void) {
+static void cont__36_229(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 818: ... A "href" = "topic_index.html" "Topic Index"
+  // 821: ... A "href" = "topic_index.html" "Topic Index"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -21840,75 +21913,28 @@ static void cont__36_226(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__36_213(void) {
+static void entry__36_216(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 814: H1 "Simplicity"
+  // 817: H1 "Simplicity"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__36_214;
+  arguments->slots[0] = string__36_217;
   result_count = 0;
   myself = get__H1();
   func = myself->type;
-  frame->cont = cont__36_215;
-}
-static void cont__36_215(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 815: P: A "href" = "manual.html" "Manual"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = func__36_216;
-  result_count = 0;
-  myself = get__P();
-  func = myself->type;
   frame->cont = cont__36_218;
-}
-static void entry__36_216(void) {
-  allocate_initialized_frame_gc(0, 1);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 815: ... "href" = "manual.html"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = string__30_3;
-  arguments->slots[1] = string__30_10;
-  result_count = 1;
-  myself = get__std__key_value_pair();
-  func = myself->type;
-  frame->cont = cont__36_217;
-}
-static void cont__36_217(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 815: ... A "href" = "manual.html" "Manual"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = string__30_12;
-  result_count = frame->caller_result_count;
-  myself = get__A();
-  func = myself->type;
-  frame = frame->caller_frame;
 }
 static void cont__36_218(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 816: P: A "href" = "type_index.html" "Type Index"
+  // 818: P: A "href" = "manual.html" "Manual"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__36_219;
@@ -21924,11 +21950,11 @@ static void entry__36_219(void) {
     invalid_arguments_error();
     return;
   }
-  // 816: ... "href" = "type_index.html"
+  // 818: ... "href" = "manual.html"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__30_3;
-  arguments->slots[1] = string__30_15;
+  arguments->slots[1] = string__30_10;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -21940,11 +21966,11 @@ static void cont__36_220(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 816: ... A "href" = "type_index.html" "Type Index"
+  // 818: ... A "href" = "manual.html" "Manual"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = string__30_17;
+  arguments->slots[1] = string__30_12;
   result_count = frame->caller_result_count;
   myself = get__A();
   func = myself->type;
@@ -21955,7 +21981,7 @@ static void cont__36_221(void) {
     invalid_results_error();
     return;
   }
-  // 817: P: A "href" = "symbol_index.html" "Symbol Index"
+  // 819: P: A "href" = "type_index.html" "Type Index"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__36_222;
@@ -21971,11 +21997,11 @@ static void entry__36_222(void) {
     invalid_arguments_error();
     return;
   }
-  // 817: ... "href" = "symbol_index.html"
+  // 819: ... "href" = "type_index.html"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__30_3;
-  arguments->slots[1] = string__30_20;
+  arguments->slots[1] = string__30_15;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -21987,11 +22013,11 @@ static void cont__36_223(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 817: ... A "href" = "symbol_index.html" "Symbol Index"
+  // 819: ... A "href" = "type_index.html" "Type Index"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = string__30_22;
+  arguments->slots[1] = string__30_17;
   result_count = frame->caller_result_count;
   myself = get__A();
   func = myself->type;
@@ -22002,12 +22028,45 @@ static void cont__36_224(void) {
     invalid_results_error();
     return;
   }
-  // 818: P: A "href" = "topic_index.html" "Topic Index"
+  // 820: P: A "href" = "symbol_index.html" "Symbol Index"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__36_225;
-  result_count = frame->caller_result_count;
+  result_count = 0;
   myself = get__P();
+  func = myself->type;
+  frame->cont = cont__36_227;
+}
+static void entry__36_225(void) {
+  allocate_initialized_frame_gc(0, 1);
+  // slot allocations:
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 820: ... "href" = "symbol_index.html"
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = string__30_3;
+  arguments->slots[1] = string__30_20;
+  result_count = 1;
+  myself = get__std__key_value_pair();
+  func = myself->type;
+  frame->cont = cont__36_226;
+}
+static void cont__36_226(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
+  // 820: ... A "href" = "symbol_index.html" "Symbol Index"
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = string__30_22;
+  result_count = frame->caller_result_count;
+  myself = get__A();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22016,21 +22075,35 @@ static void cont__36_227(void) {
     invalid_results_error();
     return;
   }
-  // 820: if do_print_summary:
-  // 821:   $$total_functions 0
-  // 822:   $$total_polymorphic_functions 0
-  // 823:   $$total_polymorphic_attributes 0
-  // 824:   $$total_methods 0
-  // 825:   $$total_inline_c_methods 0
-  // 826:   $$total_inline_c_types 0
-  // 827:   $$total_inline_c_objects 0
-  // 828:   $$total_attributes 0
-  // 829:   $$total_inline_c_functions 0
+  // 821: P: A "href" = "topic_index.html" "Topic Index"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = func__36_228;
+  result_count = frame->caller_result_count;
+  myself = get__P();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void cont__36_230(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 823: if do_print_summary:
+  // 824:   $$total_functions 0
+  // 825:   $$total_polymorphic_functions 0
+  // 826:   $$total_polymorphic_attributes 0
+  // 827:   $$total_methods 0
+  // 828:   $$total_inline_c_methods 0
+  // 829:   $$total_inline_c_types 0
+  // 830:   $$total_inline_c_objects 0
+  // 831:   $$total_attributes 0
+  // 832:   $$total_inline_c_functions 0
   // ...
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_print_summary();
-  arguments->slots[1] = func__36_228;
+  arguments->slots[1] = func__36_231;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
@@ -22268,28 +22341,28 @@ EXPORT void phase_2__extractor(void) {
   func__36_180 = create_function(entry__36_180, 0);
   func__36_205 = create_function(entry__36_205, 1);
   func__36_195 = create_function(entry__36_195, 2);
-  string__36_212 = from_latin_1_string("html/index.html", 15);
-  string__36_214 = from_latin_1_string("Simplicity", 10);
-  func__36_216 = create_function(entry__36_216, 0);
+  string__36_215 = from_latin_1_string("html/index.html", 15);
+  string__36_217 = from_latin_1_string("Simplicity", 10);
   func__36_219 = create_function(entry__36_219, 0);
   func__36_222 = create_function(entry__36_222, 0);
   func__36_225 = create_function(entry__36_225, 0);
-  func__36_213 = create_function(entry__36_213, 0);
-  string__36_289 = from_latin_1_string("total definitions:     ", 23);
-  string__36_290 = from_latin_1_string("\012\012functions:             ", 25);
-  string__36_291 = from_latin_1_string("\012polymorphic functions: ", 24);
-  string__36_292 = from_latin_1_string("\012polymorphic attributes:", 24);
-  string__36_293 = from_latin_1_string("\012method definitions:    ", 24);
-  string__36_294 = from_latin_1_string("\012inline C methods:      ", 24);
-  string__36_295 = from_latin_1_string("\012attribute definitions: ", 24);
-  string__36_296 = from_latin_1_string("\012inline C functions:    ", 24);
-  string__36_297 = from_latin_1_string("\012inline C types:        ", 24);
-  string__36_298 = from_latin_1_string("\012inline C objects:      ", 24);
-  string__36_299 = from_latin_1_string("\012unique items:          ", 24);
-  string__36_300 = from_latin_1_string("\012other constants:       ", 24);
-  string__36_301 = from_latin_1_string("\012variables:             ", 24);
-  string__36_302 = from_latin_1_string("\012\012other:                 ", 25);
   func__36_228 = create_function(entry__36_228, 0);
+  func__36_216 = create_function(entry__36_216, 0);
+  string__36_292 = from_latin_1_string("total definitions:     ", 23);
+  string__36_293 = from_latin_1_string("\012\012functions:             ", 25);
+  string__36_294 = from_latin_1_string("\012polymorphic functions: ", 24);
+  string__36_295 = from_latin_1_string("\012polymorphic attributes:", 24);
+  string__36_296 = from_latin_1_string("\012method definitions:    ", 24);
+  string__36_297 = from_latin_1_string("\012inline C methods:      ", 24);
+  string__36_298 = from_latin_1_string("\012attribute definitions: ", 24);
+  string__36_299 = from_latin_1_string("\012inline C functions:    ", 24);
+  string__36_300 = from_latin_1_string("\012inline C types:        ", 24);
+  string__36_301 = from_latin_1_string("\012inline C objects:      ", 24);
+  string__36_302 = from_latin_1_string("\012unique items:          ", 24);
+  string__36_303 = from_latin_1_string("\012other constants:       ", 24);
+  string__36_304 = from_latin_1_string("\012variables:             ", 24);
+  string__36_305 = from_latin_1_string("\012\012other:                 ", 25);
+  func__36_231 = create_function(entry__36_231, 0);
   func__36_1_sim2c__extract_documentation = create_function(entry__36_1_sim2c__extract_documentation, 1);
   string__67_1 = from_latin_1_string("Topics", 6);
   string__67_2 = from_latin_1_string("Topic", 5);

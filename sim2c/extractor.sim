@@ -809,7 +809,10 @@ $sim2c::extract_documentation: (path)
       H1 "id" = "index" topic
       TABLE:
 	for_each references: (reference)
-	  TR: TD: A "href" = string(reference.mangled ".html") reference
+	  TR:
+	    TD: A "href" = string(reference.mangled ".html") reference
+	    TD "&nbsp;"
+	    TD short_descriptions(reference)
   create_page "html/index.html":
     H1 "Simplicity"
     P: A "href" = "manual.html" "Manual"
