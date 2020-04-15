@@ -32,6 +32,14 @@ $types::false.is_a_boolean true
   <node SIMPLE_NODE>
   <base types::object>
 
+  // the *type* of the boolean value **true**
+  //
+  // Use <std::true> for constants in your programs (not <types::true>).
+  //
+  // Use <types::true> to add new functionality to the *true*-type.
+  //
+  // See also: types::false, std::true
+
   RUNTIME_ERROR("Attempt to call the boolean value true as a function!")
 }
 
@@ -39,6 +47,12 @@ $types::false.is_a_boolean true
   <kind object>
   <name std::true>
   <type types::true>
+
+  // the boolean value **true**
+  //
+  // There is no common basetype (e.g. "boolean") for <true> and <false>!
+  //
+  // See also: std::false, types::true
 }
 
 {
@@ -47,6 +61,14 @@ $types::false.is_a_boolean true
   <node SIMPLE_NODE>
   <base types::object>
 
+  // the *type* of the boolean value **true**
+  //
+  // Use <std::false> for constants in your programs (not <types::true>).
+  //
+  // Use <types::false> to add new functionality to the *false*-type.
+  //
+  // See also: types::true, std::false
+
   RUNTIME_ERROR("Attempt to call the boolean value false as a function!")
 }
 
@@ -54,6 +76,12 @@ $types::false.is_a_boolean true
   <kind object>
   <name std::false>
   <type types::false>
+
+  // the boolean value **false**
+  //
+  // There is no common basetype (e.g. "boolean") for <true> and <false>!
+  //
+  // See also: std::true, types::false
 }
 
 {

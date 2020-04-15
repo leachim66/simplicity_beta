@@ -43,6 +43,8 @@ $$short_descriptions empty_table
 
 $$topics empty_key_order_table
 
+$$missing_documentation_count 0
+
 $FUNCTION .
 $POLYMORPHIC_FUNCTION .
 $POLYMORPHIC_ATTRIBUTE .
@@ -458,11 +460,9 @@ $create_info_page: (function_name info)
       $$topic_list empty_list
       $$examples empty_list
       $remark_lines remark_lines_of(info)
-      if
-	&&
-	  do_print_missing
-	  remark_lines.is_undefined || remark_lines.is_empty
-	:
+      if remark_lines.is_undefined || remark_lines.is_empty:
+	inc &missing_documentation_count
+	if do_print_missing:
 	  ewrite "
 	    Missing documentation for @(function_name) @
 	    (defined in "@(filename_of(info))")!
@@ -899,5 +899,6 @@ $sim2c::extract_documentation: (path)
       inline C objects:      @(pad_left(total_inline_c_objects 5))
       unique items:          @(pad_left(total_unique_items 5))
       other constants:       @(pad_left(total_constants 5))
-
       other:                 @(pad_left(other 5))
+
+      missing documentation: @(pad_left(missing_documentation_count 5))

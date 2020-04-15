@@ -2895,6 +2895,8 @@ static NODE *string__411_1;
 static void cont__411_2(void);
 static void cont__412_1(void);
 static void cont__412_2(void);
+static void cont__412_3(void);
+static void cont__412_4(void);
 static void cont__413_1(void);
 static void cont__413_2(void);
 static void cont__413_3(void);
@@ -3625,9 +3627,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__409_1, NULL, 1581, 1581, 1, 45},
   {cont__409_2, NULL, 1582, 1582, 1, 45},
   {cont__410_1, NULL, 1583, 1583, 1, 32},
-  {cont__411_2, NULL, 1584, 1584, 22, 44},
-  {cont__412_1, NULL, 1584, 1584, 1, 45},
-  {cont__412_2, NULL, 1589, 1589, 28, 51},
+  {cont__411_2, NULL, 1584, 1584, 50, 69},
+  {cont__412_1, NULL, 1584, 1584, 37, 70},
+  {cont__412_2, NULL, 1584, 1584, 22, 70},
+  {cont__412_3, NULL, 1584, 1584, 1, 71},
+  {cont__412_4, NULL, 1589, 1589, 28, 51},
   {cont__413_1, NULL, 1589, 1589, 28, 66},
   {cont__413_2, NULL, 1589, 1589, 23, 67},
   {cont__413_3, NULL, 1589, 1589, 5, 68},
@@ -24658,13 +24662,12 @@ static void cont__411_2(void) {
     return;
   }
   initialize_future(var._C_CODE_REMARK, arguments->slots[0]);
-  // 1584: ... C_CODE_REMARK, NEWLINES
-  argument_count = 2;
+  // 1584: ... followed_by(OUTDENT)
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = var._C_CODE_REMARK;
-  arguments->slots[1] = var._NEWLINES;
+  arguments->slots[0] = var._OUTDENT;
   result_count = 1;
-  myself = get__std__sequence();
+  myself = get__followed_by();
   func = myself->type;
   frame->cont = cont__412_1;
 }
@@ -24673,17 +24676,49 @@ static void cont__412_1(void) {
     invalid_results_error();
     return;
   }
+  frame->slots[2] /* temp__3 */ = arguments->slots[0];
+  // 1584: ... alt(NEWLINES followed_by(OUTDENT))
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = var._NEWLINES;
+  arguments->slots[1] = frame->slots[2] /* temp__3 */;
+  result_count = 1;
+  myself = get__alt();
+  func = myself->type;
+  frame->cont = cont__412_2;
+}
+static void cont__412_2(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__2 */ = arguments->slots[0];
+  // 1584: ... C_CODE_REMARK, alt(NEWLINES followed_by(OUTDENT))
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = var._C_CODE_REMARK;
+  arguments->slots[1] = frame->slots[1] /* temp__2 */;
+  result_count = 1;
+  myself = get__std__sequence();
+  func = myself->type;
+  frame->cont = cont__412_3;
+}
+static void cont__412_3(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1584: $C_CODE_REMARKS some(C_CODE_REMARK, NEWLINES)
+  // 1584: $C_CODE_REMARKS some(C_CODE_REMARK, alt(NEWLINES followed_by(OUTDENT)))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__some();
   func = myself->type;
-  frame->cont = cont__412_2;
+  frame->cont = cont__412_4;
 }
-static void cont__412_2(void) {
+static void cont__412_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;

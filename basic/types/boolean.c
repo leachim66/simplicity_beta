@@ -369,27 +369,27 @@ void run__basic__types__boolean(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_boolean, NULL, 23, 23, 2, 18},
-  {run__basic__types__boolean, NULL, 145, 145, 1, 62},
-  {cont__57_2, NULL, 146, 146, 1, 64},
+  {run__basic__types__boolean, NULL, 173, 173, 1, 62},
+  {cont__57_2, NULL, 174, 174, 1, 64},
   {cont__58_2, NULL, },
-  {entry__12_1_types__true_std__to_string, NULL, 87, 87, 38, 46},
-  {entry__13_1_types__false_std__to_string, NULL, 89, 89, 39, 48},
-  {entry__16_1_types__true_equal, NULL, 108, 111, 3, 2},
-  {entry__17_1_types__false_equal, NULL, 114, 117, 3, 2},
-  {entry__18_1_types__true_not, NULL, 119, 119, 27, 34},
-  {entry__19_1_types__false_not, NULL, 121, 121, 28, 34},
-  {entry__20_1_types__true_and, NULL, 123, 123, 36, 42},
-  {cont__20_2, &frame__20_1_types__true_and, 123, 123, 33, 42},
-  {entry__21_1_types__false_and, NULL, 125, 125, 35, 42},
-  {entry__22_1_types__true_or, NULL, 127, 127, 33, 39},
-  {entry__23_1_types__false_or, NULL, 129, 129, 36, 42},
-  {cont__23_2, &frame__23_1_types__false_or, 129, 129, 33, 42},
-  {entry__24_1_types__true_if, NULL, 131, 131, 43, 46},
-  {entry__25_1_types__false_if, NULL, 139, 139, 3, 6},
-  {entry__26_1_types__true_unless, NULL, 141, 141, 41, 44},
-  {entry__27_1_types__false_unless, NULL, 143, 143, 41, 44},
-  {entry__57_1, NULL, 145, 145, 51, 62},
-  {entry__58_1, NULL, 146, 146, 52, 64}
+  {entry__12_1_types__true_std__to_string, NULL, 115, 115, 38, 46},
+  {entry__13_1_types__false_std__to_string, NULL, 117, 117, 39, 48},
+  {entry__16_1_types__true_equal, NULL, 136, 139, 3, 2},
+  {entry__17_1_types__false_equal, NULL, 142, 145, 3, 2},
+  {entry__18_1_types__true_not, NULL, 147, 147, 27, 34},
+  {entry__19_1_types__false_not, NULL, 149, 149, 28, 34},
+  {entry__20_1_types__true_and, NULL, 151, 151, 36, 42},
+  {cont__20_2, &frame__20_1_types__true_and, 151, 151, 33, 42},
+  {entry__21_1_types__false_and, NULL, 153, 153, 35, 42},
+  {entry__22_1_types__true_or, NULL, 155, 155, 33, 39},
+  {entry__23_1_types__false_or, NULL, 157, 157, 36, 42},
+  {cont__23_2, &frame__23_1_types__false_or, 157, 157, 33, 42},
+  {entry__24_1_types__true_if, NULL, 159, 159, 43, 46},
+  {entry__25_1_types__false_if, NULL, 167, 167, 3, 6},
+  {entry__26_1_types__true_unless, NULL, 169, 169, 41, 44},
+  {entry__27_1_types__false_unless, NULL, 171, 171, 41, 44},
+  {entry__57_1, NULL, 173, 173, 51, 62},
+  {entry__58_1, NULL, 174, 174, 52, 64}
 };
 
 union NODE {
@@ -455,7 +455,7 @@ EXPORT void run__basic__types__boolean(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 145: register_deserializer "true": (text _base_indent) -> text true
+  // 173: register_deserializer "true": (text _base_indent) -> text true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__12_2;
@@ -474,7 +474,7 @@ static void entry__57_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 145: ... -> text true
+  // 173: ... -> text true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -488,7 +488,7 @@ static void cont__57_2(void) {
     invalid_results_error();
     return;
   }
-  // 146: register_deserializer "false": (text _base_indent) -> text false
+  // 174: register_deserializer "false": (text _base_indent) -> text false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__13_2;
@@ -507,7 +507,7 @@ static void entry__58_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 146: ... -> text false
+  // 174: ... -> text false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -646,7 +646,7 @@ static void entry__12_1_types__true_std__to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 87: ... -> "true"
+  // 115: ... -> "true"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__12_2;
@@ -662,7 +662,7 @@ static void entry__13_1_types__false_std__to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: ... -> "false"
+  // 117: ... -> "false"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__13_2;
@@ -716,7 +716,7 @@ static void entry__18_1_types__true_not(void) {
     invalid_arguments_error();
     return;
   }
-  // 119: ... -> false
+  // 147: ... -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -732,7 +732,7 @@ static void entry__19_1_types__false_not(void) {
     invalid_arguments_error();
     return;
   }
-  // 121: ... -> true
+  // 149: ... -> true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -749,7 +749,7 @@ static void entry__20_1_types__true_and(void) {
     invalid_arguments_error();
     return;
   }
-  // 123: ... right()
+  // 151: ... right()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -763,7 +763,7 @@ static void cont__20_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 123: ... -> right()
+  // 151: ... -> right()
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -780,7 +780,7 @@ static void entry__21_1_types__false_and(void) {
     invalid_arguments_error();
     return;
   }
-  // 125: ... -> false
+  // 153: ... -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -797,7 +797,7 @@ static void entry__22_1_types__true_or(void) {
     invalid_arguments_error();
     return;
   }
-  // 127: ... -> true
+  // 155: ... -> true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -814,7 +814,7 @@ static void entry__23_1_types__false_or(void) {
     invalid_arguments_error();
     return;
   }
-  // 129: ... right()
+  // 157: ... right()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -828,7 +828,7 @@ static void cont__23_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 129: ... -> right()
+  // 157: ... -> right()
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -857,7 +857,7 @@ static void entry__24_1_types__true_if(void) {
   switch(argument_count) {
     case 2: frame->slots[2] /* else */ = undefined;
   }
-  // 131: ... then
+  // 159: ... then
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -886,7 +886,7 @@ static void entry__25_1_types__false_if(void) {
   switch(argument_count) {
     case 2: frame->slots[2] /* else */ = get__pass();
   }
-  // 139: else
+  // 167: else
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -903,7 +903,7 @@ static void entry__26_1_types__true_unless(void) {
     invalid_arguments_error();
     return;
   }
-  // 141: ... pass
+  // 169: ... pass
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -920,7 +920,7 @@ static void entry__27_1_types__false_unless(void) {
     invalid_arguments_error();
     return;
   }
-  // 143: ... body
+  // 171: ... body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
