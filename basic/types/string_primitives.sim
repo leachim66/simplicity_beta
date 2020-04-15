@@ -146,11 +146,12 @@ $types::string types::generic_list
   <argument NULL>
 
   // a sequence of zero or more 8-bit characters
+  //
   // the type function supports positive and negative indices from
   // 1 to the length of the sequence starting at the left or form -1 to
   // -length of the sequence starting at the right
   // replacing any character of the sequence  with a 32-bit value will
-  // produce a <quad_octet_string>
+  // produce a <types::quad_octet_string>
 
   MIN_ARGUMENTS(1)
   MAX_ARGUMENTS(2)

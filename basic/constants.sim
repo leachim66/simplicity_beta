@@ -22,20 +22,26 @@
 
 $std::AUTO .
   #
-    used as a value for specifying a text encoding; *AUTO* means that the
-    actual encoding should be retrieved by context
+    use a default for the text encoding
+
+    the actual encoding will be retrieved by context
+
 $std::UTF8 .
   #
     used as a value for specifying a text encoding
+
 $std::LATIN1 .
   #
     used as a value for specifying a text encoding
+
 $std::ENCODING .
   #
     used as an option key to specify a text encoding
+
 $std::SEPARATOR .
   #
     used as an option key to specify a separator
+
 $std::KEYS .
   #
     used as an option key to specify field names for import or export

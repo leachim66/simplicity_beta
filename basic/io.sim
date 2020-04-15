@@ -791,10 +791,14 @@ $std::stat
 
 $std::file_exists
   #
-    Checks whether the specified file exists. The type of the file is *not*
+    checks whether the specified file exists
+
+    The type of the file is *not*
     checked - it could as well be a directory or a special file.
 
     parameter filename: the name of the file to check
+
+    See also: stat
 
   {
     CHECK_ARGUMENTS(1)
@@ -1042,7 +1046,7 @@ $std::open_file_for_reading:
     be no buffering.
 
     see also: std::open_file_for_writing,
-              std::open_file_for_reading_and_writing,std::close, std::read
+              std::open_file_for_reading_and_writing, std::close, std::read
 
     example:
 
@@ -1593,6 +1597,8 @@ $std::get_pid
 
 $std::wait_pid
   #
+    wait for process termination
+
     ARGUMENTS:
       pid     # the pid of the process (or -1) for all children
       no_hang # if true the call returns immediately

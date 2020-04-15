@@ -141,6 +141,8 @@ $types::string/dup:
 
 $std::pad_left:
   #
+    extends a string to a specified width
+
     This function creates a string representation of *expr* which is at least
     *n* characters long. If it would be shorter than it is padded to the left
     with the pattern stored in *pad*.
@@ -161,6 +163,8 @@ $std::pad_left:
 
 $std::pad_right:
   #
+    extends a string to a specified width
+
     This function creates a string representation of *expr* which is at least
     *n* characters long. If it would be shorter than it is padded to the right
     with the pattern stored in *pad*.
@@ -181,6 +185,8 @@ $std::pad_right:
 
 $std::truncate:
   #
+    truncates a string to a specified width
+
     This function creates a string representation of *expr* which is no longer
     than *n* characters. Additional characters are truncated.
 
@@ -195,6 +201,8 @@ $std::truncate:
 
 $std::pad_or_truncate:
   #
+    extends or truncates a string to a specified width
+
     This function creates a string representation of *expr* which is exactly
     *n* characters long. If it would be shorter than it is padded with spaces
     otherwise it is truncated.
@@ -457,9 +465,10 @@ $types::string/truncate_before:
 
 $types::string/until:
   #
-    This function returns the substring before and including the
-    specified expression. If the expression does not occur within
-    the string then an empty string is returned.
+    returns the substring before and including the specified expression
+
+    If the expression does not occur within the string then an <empty_string>
+    is returned.
 
     If called as a procedure then the rear part of the original string
     will be removed. If the expression does not occur within the string then
@@ -509,8 +518,10 @@ $types::string/truncate_behind:
 
 $types::string/between:
   #
-    Returns the substring between the two specified expressions or
-    nothing if either of the two expression is not found.
+    returns the substring between the two specified expressions
+
+    If either of the two expressions is not found then the <empty_string> is
+    returned.
 
     If *nth* is specified then the *nth* occurrence of the *left expression*
     is used instead of the first one.

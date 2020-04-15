@@ -120,10 +120,14 @@ $std::eval: (body)
 
 $std::do
   #
+    execute a statement sequence
+
     This procedure is used to explicitely define a scope or introduce a named
     continuation.
 
-    example:
+    See also: pass
+
+    Example:
 
     do:
       $y f(x)

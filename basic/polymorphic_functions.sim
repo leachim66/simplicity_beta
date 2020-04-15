@@ -28,7 +28,7 @@ $std::plus ()
 
     See also: std::minus, std::times, std::over, std::div, std::mod
 
-$std::minus () # subtract two numbers
+$std::minus () #
   #
     subtract two numbers of any kind
 
@@ -36,7 +36,7 @@ $std::minus () # subtract two numbers
 
     See also: std::negate, std::plus, std::times, std::over, std::div, std::mod
 
-$std::times () # multiply two numbers
+$std::times () #
   #
     multiply two numbers of any kind
 
@@ -44,7 +44,7 @@ $std::times () # multiply two numbers
 
     See also: std::over, std::div, std::mod, std::plus, std::minus
 
-$std::over () # divide two numbers
+$std::over () #
   #
     divide two numbers of any kind
 
@@ -52,7 +52,7 @@ $std::over () # divide two numbers
 
     See also: std::div, std::mod, std::times, std::plus, std::minus
 
-$std::div () # divide two integers giving an integer
+$std::div () #
   #
     divide two integer numbers
 
@@ -60,7 +60,7 @@ $std::div () # divide two integers giving an integer
 
     See also: std::times, std::over, std::mod, std::plus, std::minus
 
-$std::mod () # divide two integers and return the modulo
+$std::mod () #
   #
     compute the remainder of two integer numbers
 
@@ -68,7 +68,7 @@ $std::mod () # divide two integers and return the modulo
 
     See also: std::div,  std::times, std::over, std::plus, std::minus
 
-$std::negate () # negate a number
+$std::negate () #
   #
     negate the numeric argument
 
@@ -78,7 +78,7 @@ $std::negate () # negate a number
 
     See also: std::minus
 
-$std::equal () # check two objects for equality
+$std::equal () #
   #
     compares two objects for equality
 
@@ -368,7 +368,7 @@ $std::serialization_tag_of (!)
     This attribute allows inheriting the serialization method and just changing
     its type.
 
-    See also: std::serialize, std::deserialize
+    See also: std::serialize, register_deserializer
 
 $std::to_number ()
   #
@@ -408,7 +408,7 @@ $std::to_real ()
   #
     converts its argument into a real (floating point) number
 
-    See also: std::parse_reail, std::to_number, std::to_integer, std::to_string
+    See also: std::parse_real, std::to_number, std::to_integer, std::to_string
 
 $std::parse_real ()
   #
@@ -694,7 +694,7 @@ $std::has_suffix ()
 
     Topic: Strings
 
-    See also: std::has_suffix, std::contains, std::matches, std::without_suffix
+    See also: std::has_prefix, std::contains, std::matches, std::without_suffix
 
 $std::without_prefix ()
   #
@@ -708,7 +708,7 @@ $std::without_prefix ()
 
     Topic: Strings
 
-    See also: std::without_suffix, std::has_prefix, std::has_suffix
+    See also: std::without_suffix, std::has_prefix, std::has_suffix,
 	      std::behind, std::truncate_from
 
 $std::without_suffix ()
@@ -723,7 +723,7 @@ $std::without_suffix ()
 
     Topic: Strings
 
-    See also: std::without_prefix, std::has_suffix, std::has_prefix
+    See also: std::without_prefix, std::has_suffix, std::has_prefix,
 	      std::before, std::truncate_until
 
 $std::before ()
@@ -762,7 +762,7 @@ $std::truncate_from ()
 
     Topic: Strings
 
-    See also: std::before, std::truncate_until
+    See also: std::before, std::truncate_until,
 	      std::truncate_before, std::truncate_behind
 
 $std::behind ()
@@ -946,7 +946,8 @@ $std::close ()
   #
     close a resource
 
-    See also: std::open_file
+    See also: std::open_file_for_reading, std::open_file_for_writing,
+              std::open_file_for_reading_and_writing
 
 $std::write_some_bytes_to ()
   #
@@ -972,7 +973,7 @@ $std::read_some_bytes_from ()
 
     This is a low-level function!
 
-    See also: std::read_from std::write_some_bytes_to
+    See also: std::read_from, std::write_some_bytes_to
 
 $std::read_from ()
   #

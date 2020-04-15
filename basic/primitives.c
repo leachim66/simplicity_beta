@@ -329,9 +329,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__5_1_std__swap, NULL, 82, 82, 3, 15},
   {entry__6_1_std__pass, NULL, 99, 102, 3, 2},
   {entry__7_1_std__eval, NULL, 105, 119, 3, 47},
-  {entry__8_1_std__do, NULL, 140, 145, 3, 2},
-  {entry__9_1_std__assign, NULL, 182, 184, 3, 2},
-  {entry__10_1_std__goto, NULL, 197, 212, 3, 2}
+  {entry__8_1_std__do, NULL, 144, 149, 3, 2},
+  {entry__9_1_std__assign, NULL, 186, 188, 3, 2},
+  {entry__10_1_std__goto, NULL, 201, 216, 3, 2}
 };
 
 union NODE {

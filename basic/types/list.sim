@@ -291,7 +291,7 @@ $types::list/range
   }
 
 $types::generic_list/delete_at:
-  # deletes zero or more items at the specified position (<idx>)
+  # deletes zero or more items at the specified position
   (
     &self
     idx # the position where to start deleting
@@ -315,6 +315,8 @@ $types::generic_list/is_empty: (self) -> length_of(self) == 0
 
 $types::generic_list/for_each_from_to:
   #
+    iterates over a subrange of the list's items
+
     Iterates over each item in the list starting with the *first* item
     until (and including) the *last* item.
 
@@ -507,7 +509,7 @@ $types::generic_list/equal:
   #
     Compares two lists item per item.
 
-    If <right> is undefined or is not a list then <std::false> is returned.
+    If *right* is undefined or is not a list then <std::false> is returned.
   (
     left
     right
@@ -529,7 +531,7 @@ $types::generic_list/map: (self func)
   -> new_list
 
 $types::generic_list/dup:
-  # creates a list containing <n> copies of the original list's contents
+  # creates a list containing *n* copies of the original list's contents
   (
     self
     n # the duplication count
@@ -543,8 +545,9 @@ $types::generic_list/dup:
 
 $types::generic_list/interleave:
   #
-    creates a list containing the elements from the source lists in interleaved
-    order; the last *n* source lists (for an arbitrary value of *n*) may be
+    creates a list of the elements of the source lists in interleaved order
+
+    The last *n* source lists (for an arbitrary value of *n*) may be
     one element shorter than the first list.
   (
     lists*

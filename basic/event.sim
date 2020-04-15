@@ -57,6 +57,8 @@ $$wanted_input_fds empty_set
 
 $std::want_to_write_to:
   #
+    add a file descriptor to watch
+
     Tells the event handling system that it should generate an event as soon
     as it is possible to write to the specified file descriptor.
 
@@ -68,6 +70,8 @@ $std::want_to_write_to:
 
 $std::no_longer_want_to_write_to:
   #
+    do not longer watch a file descriptor
+
     Tells the event handling system that it should no longer generate events
     when it is possible to write to the specified file descriptor.
 
@@ -79,6 +83,8 @@ $std::no_longer_want_to_write_to:
 
 $std::want_to_read_from:
   #
+    add a file descriptor to watch
+
     Tells the event handling system that it should generate an event as soon
     as it is possible to read from the specified file descriptor.
 
@@ -90,6 +96,8 @@ $std::want_to_read_from:
 
 $std::no_longer_want_to_read_from:
   #
+    do not longer watch a file descriptor
+
     Tells the event handling system that it should no longer generate events
     when it is possible to read from the specified file descriptor.
 
@@ -291,6 +299,8 @@ $get_event_handler:
 
 $std::get_event:
   #
+    retrieve an I/O-event
+
     If there are already events in the event queue then the first event in the
     queue is removed from the event queue and returned.
 
@@ -346,6 +356,8 @@ $std::process_events:
 
 $std::wait_to:
   #
+    wait for an event
+
     Run tasks until all tasks block then wait for any of the specified events
     to happen.
 

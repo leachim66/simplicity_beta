@@ -963,216 +963,216 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__height_of, NULL, 40, 40, 2, 15},
   {type__std__key_code_of, NULL, 44, 44, 2, 17},
   {type__std__target_of, NULL, 48, 48, 2, 15},
-  {run__basic__event, NULL, 321, 321, 1, 26},
-  {entry__22_1_std__want_to_write_to, NULL, 67, 67, 3, 24},
-  {cont__22_2, &frame__22_1_std__want_to_write_to, 67, 67, 29, 29},
-  {entry__23_1_std__no_longer_want_to_write_to, NULL, 78, 78, 3, 24},
-  {cont__23_2, &frame__23_1_std__no_longer_want_to_write_to, 78, 78, 30, 30},
-  {entry__24_1_std__want_to_read_from, NULL, 89, 89, 3, 23},
-  {cont__24_2, &frame__24_1_std__want_to_read_from, 89, 89, 28, 28},
-  {entry__25_1_std__no_longer_want_to_read_from, NULL, 100, 100, 3, 23},
-  {cont__25_2, &frame__25_1_std__no_longer_want_to_read_from, 100, 100, 29, 29},
-  {entry__26_3, NULL, 111, 111, 23, 43},
-  {cont__26_4, &frame__26_3, 111, 111, 23, 43},
-  {entry__26_1_std__wanting_to_write_to, NULL, 111, 111, 6, 18},
-  {cont__26_2, &frame__26_1_std__wanting_to_write_to, 111, 111, 6, 43},
-  {cont__26_5, &frame__26_1_std__wanting_to_write_to, 111, 111, 3, 43},
-  {entry__27_3, NULL, 122, 122, 23, 42},
-  {cont__27_4, &frame__27_3, 122, 122, 23, 42},
-  {entry__27_1_std__wanting_to_read_from, NULL, 122, 122, 6, 18},
-  {cont__27_2, &frame__27_1_std__wanting_to_read_from, 122, 122, 6, 42},
-  {cont__27_5, &frame__27_1_std__wanting_to_read_from, 122, 122, 3, 42},
-  {entry__29_1_std__wait_to_read_from, NULL, 135, 135, 3, 22},
-  {cont__29_2, &frame__29_1_std__wait_to_read_from, 136, 136, 3, 14},
-  {cont__29_3, &frame__29_1_std__wait_to_read_from, 137, 137, 3, 45},
-  {cont__29_4, &frame__29_1_std__wait_to_read_from, 137, 137, 45, 45},
-  {entry__31_1_std__wait_to_write_to, NULL, 150, 150, 3, 21},
-  {cont__31_2, &frame__31_1_std__wait_to_write_to, 151, 151, 3, 14},
-  {cont__31_3, &frame__31_1_std__wait_to_write_to, 152, 152, 3, 45},
-  {cont__31_4, &frame__31_1_std__wait_to_write_to, 152, 152, 45, 45},
-  {entry__33_1_std__wait_for_termination, NULL, 165, 165, 3, 19},
-  {cont__33_2, &frame__33_1_std__wait_for_termination, 166, 166, 3, 45},
-  {cont__33_3, &frame__33_1_std__wait_for_termination, 166, 166, 45, 45},
-  {entry__36_13, NULL, 188, 188, 45, 49},
-  {cont__36_14, &frame__36_13, 188, 188, 30, 50},
-  {cont__36_15, &frame__36_13, 188, 188, 11, 50},
-  {cont__36_16, &frame__36_13, 189, 189, 11, 18},
-  {cont__36_17, &frame__36_13, 189, 189, 18, 18},
-  {entry__36_10, NULL, 187, 187, 12, 36},
-  {cont__36_11, &frame__36_10, 187, 187, 12, 42},
-  {cont__36_12, &frame__36_10, 187, 189, 9, 18},
-  {entry__36_7, NULL, 186, 186, 12, 25},
-  {cont__36_8, &frame__36_7, 186, 186, 27, 45},
-  {cont__36_9, &frame__36_7, 186, 189, 7, 19},
-  {entry__36_20, NULL, 191, 191, 42, 42},
-  {cont__36_21, &frame__36_20, 191, 191, 26, 43},
-  {cont__36_22, &frame__36_20, 191, 191, 7, 43},
-  {cont__36_23, &frame__36_20, 192, 192, 24, 24},
-  {entry__36_3, NULL, 177, 177, 5, 34},
-  {cont__36_4, &frame__36_3, 178, 178, 5, 33},
-  {cont__36_5, &frame__36_3, 179, 179, 5, 12},
-  {cont__36_6, &frame__36_3, 185, 189, 5, 20},
-  {cont__36_18, &frame__36_3, 190, 190, 8, 12},
-  {cont__36_19, &frame__36_3, 190, 192, 5, 24},
-  {entry__36_27, NULL, 193, 193, 39, 54},
-  {entry__36_1_std__discard, NULL, 176, 176, 6, 18},
-  {cont__36_2, &frame__36_1_std__discard, 176, 192, 3, 25},
-  {cont__36_24, &frame__36_1_std__discard, 193, 193, 6, 31},
-  {cont__36_25, &frame__36_1_std__discard, 193, 193, 6, 36},
-  {cont__36_26, &frame__36_1_std__discard, 193, 193, 3, 54},
-  {cont__36_28, &frame__36_1_std__discard, 193, 193, 54, 54},
-  {entry__37_1_std__create_event, NULL, 201, 201, 3, 20},
-  {cont__37_2, &frame__37_1_std__create_event, 201, 201, 20, 20},
-  {entry__38_3, NULL, 210, 210, 9, 39},
-  {cont__38_4, &frame__38_3, 210, 210, 39, 39},
-  {entry__38_6, NULL, 211, 211, 50, 78},
-  {cont__38_7, &frame__38_6, 211, 211, 78, 78},
-  {entry__38_2, NULL, 209, 210, 7, 39},
-  {cont__38_5, &frame__38_2, 211, 211, 7, 78},
-  {entry__38_9, NULL, 213, 213, 47, 77},
-  {cont__38_10, &frame__38_9, 213, 213, 77, 77},
-  {entry__38_12, NULL, 214, 214, 45, 73},
-  {cont__38_13, &frame__38_12, 214, 214, 73, 73},
-  {entry__38_8, NULL, 213, 213, 7, 77},
-  {cont__38_11, &frame__38_8, 214, 214, 7, 73},
-  {entry__38_19, NULL, 230, 230, 36, 36},
-  {cont__38_20, &frame__38_19, 230, 230, 13, 41},
-  {cont__38_21, &frame__38_19, 231, 231, 16, 23},
-  {cont__38_22, &frame__38_19, 231, 231, 16, 23},
-  {cont__38_23, &frame__38_19, 231, 231, 13, 29},
-  {cont__38_24, &frame__38_19, 232, 233, 13, 77},
-  {entry__38_18, NULL, 229, 233, 11, 78},
-  {cont__38_25, &frame__38_18, 233, 233, 78, 78},
-  {entry__38_17, NULL, 228, 233, 9, 79},
-  {entry__38_27, NULL, 235, 235, 9, 53},
-  {cont__38_28, &frame__38_27, 236, 240, 9, 30},
-  {entry__38_30, NULL, 245, 245, 9, 44},
-  {cont__38_31, &frame__38_30, 245, 245, 49, 49},
-  {entry__38_33, NULL, 247, 247, 9, 46},
-  {cont__38_34, &frame__38_33, 247, 247, 51, 51},
-  {entry__38_36, NULL, 249, 249, 9, 52},
-  {cont__38_37, &frame__38_36, 249, 249, 57, 57},
-  {entry__38_41, NULL, 252, 253, 11, 73},
-  {entry__38_39, NULL, 251, 251, 12, 37},
-  {cont__38_40, &frame__38_39, 251, 253, 9, 74},
-  {entry__38_45, NULL, 256, 257, 11, 73},
-  {entry__38_43, NULL, 255, 255, 12, 39},
-  {cont__38_44, &frame__38_43, 255, 257, 9, 74},
-  {entry__38_16, NULL, 227, 233, 7, 80},
-  {cont__38_26, &frame__38_16, 234, 240, 7, 31},
-  {cont__38_29, &frame__38_16, 244, 245, 7, 49},
-  {cont__38_32, &frame__38_16, 246, 247, 7, 51},
-  {cont__38_35, &frame__38_16, 248, 249, 7, 57},
-  {cont__38_38, &frame__38_16, 250, 253, 7, 75},
-  {cont__38_42, &frame__38_16, 254, 257, 7, 75},
-  {entry__38_46, NULL, 259, 259, 7, 49},
-  {entry__38_1_get_low_level_events, NULL, 207, 214, 3, 74},
-  {cont__38_14, &frame__38_1_get_low_level_events, 216, 225, 5, 12},
-  {cont__38_15, &frame__38_1_get_low_level_events, 215, 259, 3, 50},
-  {entry__39_7, NULL, 272, 272, 9, 38},
-  {cont__39_8, &frame__39_7, 273, 273, 9, 20},
-  {cont__39_9, &frame__39_7, 274, 274, 9, 21},
-  {entry__39_3, NULL, 269, 269, 7, 35},
-  {cont__39_4, &frame__39_3, 270, 270, 7, 25},
-  {cont__39_5, &frame__39_3, 271, 271, 10, 26},
-  {cont__39_6, &frame__39_3, 271, 274, 7, 21},
-  {entry__39_14, NULL, 279, 279, 9, 37},
-  {cont__39_15, &frame__39_14, 280, 280, 9, 20},
-  {cont__39_16, &frame__39_14, 281, 281, 9, 21},
-  {entry__39_10, NULL, 276, 276, 7, 35},
-  {cont__39_11, &frame__39_10, 277, 277, 7, 25},
-  {cont__39_12, &frame__39_10, 278, 278, 10, 26},
-  {cont__39_13, &frame__39_10, 278, 281, 7, 21},
-  {entry__39_21, NULL, 286, 286, 9, 25},
-  {cont__39_22, &frame__39_21, 287, 287, 9, 25},
-  {entry__39_17, NULL, 283, 283, 7, 24},
-  {cont__39_18, &frame__39_17, 284, 284, 7, 34},
-  {cont__39_19, &frame__39_17, 285, 285, 10, 30},
-  {cont__39_20, &frame__39_17, 285, 287, 7, 25},
-  {entry__39_23, NULL, 289, 289, 7, 29},
-  {entry__39_1_get_event_handler, NULL, 267, 267, 5, 18},
-  {cont__39_2, &frame__39_1_get_event_handler, 266, 289, 3, 30},
-  {cont__39_24, &frame__39_1_get_event_handler, 290, 290, 3, 14},
-  {entry__40_13, NULL, 313, 313, 15, 27},
-  {entry__40_14, NULL, 315, 315, 15, 21},
-  {entry__40_9, NULL, 310, 310, 11, 35},
-  {cont__40_10, &frame__40_9, 312, 312, 13, 39},
-  {cont__40_11, &frame__40_9, 312, 312, 13, 44},
-  {cont__40_12, &frame__40_9, 311, 315, 11, 22},
-  {cont__40_15, &frame__40_9, 316, 316, 11, 38},
-  {entry__40_5, NULL, 307, 307, 9, 27},
-  {cont__40_6, &frame__40_5, 308, 308, 9, 41},
-  {cont__40_7, &frame__40_5, 309, 309, 12, 29},
-  {cont__40_8, &frame__40_5, 309, 316, 9, 38},
-  {cont__40_17, &frame__40_5, 317, 317, 9, 20},
-  {entry__40_18, NULL, 319, 319, 9, 34},
-  {entry__40_2, NULL, 306, 306, 7, 23},
-  {cont__40_3, &frame__40_2, 306, 306, 7, 27},
-  {cont__40_4, &frame__40_2, 305, 319, 5, 35},
-  {entry__40_1_std__get_event, NULL, 304, 319, 3, 36},
-  {cont__40_19, &frame__40_1_std__get_event, 319, 319, 36, 36},
-  {entry__42_5, NULL, 328, 328, 42, 60},
-  {cont__42_6, &frame__42_5, 328, 328, 42, 60},
-  {entry__42_2, NULL, 328, 328, 12, 35},
-  {cont__42_3, &frame__42_2, 328, 328, 12, 39},
-  {cont__42_4, &frame__42_2, 328, 328, 9, 60},
-  {entry__42_9, NULL, 329, 329, 26, 41},
-  {cont__42_10, &frame__42_9, 329, 329, 26, 41},
-  {entry__42_26, NULL, 340, 340, 13, 25},
-  {entry__42_27, NULL, 342, 342, 13, 19},
-  {entry__42_22, NULL, 337, 337, 9, 27},
-  {cont__42_23, &frame__42_22, 339, 339, 11, 37},
-  {cont__42_24, &frame__42_22, 339, 339, 11, 42},
-  {cont__42_25, &frame__42_22, 338, 342, 9, 20},
-  {cont__42_28, &frame__42_22, 343, 343, 9, 36},
-  {entry__42_18, NULL, 334, 334, 7, 22},
-  {cont__42_19, &frame__42_18, 335, 335, 7, 39},
-  {cont__42_20, &frame__42_18, 336, 336, 10, 27},
-  {cont__42_21, &frame__42_18, 336, 343, 7, 36},
-  {cont__42_29, &frame__42_18, 344, 344, 7, 12},
-  {cont__42_30, &frame__42_18, 344, 344, 12, 12},
-  {entry__42_15, NULL, 333, 333, 14, 19},
-  {cont__42_16, &frame__42_15, 333, 333, 14, 19},
-  {cont__42_17, &frame__42_15, 333, 344, 11, 12},
-  {entry__42_13, NULL, 332, 332, 5, 24},
-  {cont__42_14, &frame__42_13, 333, 344, 5, 12},
-  {cont__42_31, &frame__42_13, 345, 345, 5, 29},
-  {entry__42_1_std__process_events, NULL, 328, 328, 3, 60},
-  {cont__42_7, &frame__42_1_std__process_events, 329, 329, 6, 21},
-  {cont__42_8, &frame__42_1_std__process_events, 329, 329, 6, 41},
-  {cont__42_11, &frame__42_1_std__process_events, 329, 329, 3, 51},
-  {cont__42_12, &frame__42_1_std__process_events, 331, 345, 3, 29},
-  {entry__43_6, NULL, 363, 363, 11, 33},
-  {cont__43_7, &frame__43_6, 364, 364, 11, 25},
-  {cont__43_8, &frame__43_6, 364, 364, 38, 38},
-  {entry__43_9, NULL, 366, 366, 11, 32},
-  {cont__43_10, &frame__43_9, 367, 367, 11, 25},
-  {cont__43_11, &frame__43_9, 367, 367, 38, 38},
-  {entry__43_12, NULL, 369, 369, 11, 29},
-  {cont__43_13, &frame__43_12, 369, 369, 42, 42},
-  {entry__43_14, NULL, 372, 372, 40, 40},
-  {entry__43_3, NULL, 358, 358, 7, 23},
-  {cont__43_4, &frame__43_3, 359, 359, 7, 26},
-  {cont__43_5, &frame__43_3, 360, 372, 7, 41},
-  {entry__43_2, NULL, 357, 372, 5, 42},
-  {cont__43_15, &frame__43_2, 373, 373, 5, 47},
-  {cont__43_16, &frame__43_2, 373, 373, 47, 47},
-  {entry__43_21, NULL, 380, 380, 9, 41},
-  {cont__43_22, &frame__43_21, 381, 381, 9, 23},
-  {cont__43_23, &frame__43_21, 381, 381, 33, 33},
-  {entry__43_24, NULL, 383, 383, 9, 40},
-  {cont__43_25, &frame__43_24, 384, 384, 9, 23},
-  {cont__43_26, &frame__43_24, 384, 384, 33, 33},
-  {entry__43_27, NULL, 386, 386, 9, 27},
-  {cont__43_28, &frame__43_27, 386, 386, 37, 37},
-  {entry__43_18, NULL, 375, 375, 5, 21},
-  {cont__43_19, &frame__43_18, 376, 376, 5, 24},
-  {cont__43_20, &frame__43_18, 377, 386, 5, 38},
-  {entry__43_1_std__wait_to, NULL, 356, 373, 3, 47},
-  {cont__43_17, &frame__43_1_std__wait_to, 374, 386, 3, 39},
-  {cont__43_29, &frame__43_1_std__wait_to, 389, 389, 3, 10},
-  {entry__44_1_std__par, NULL, 392, 392, 3, 29},
-  {cont__44_2, &frame__44_1_std__par, 393, 393, 3, 16}
+  {run__basic__event, NULL, 331, 331, 1, 26},
+  {entry__22_1_std__want_to_write_to, NULL, 69, 69, 3, 24},
+  {cont__22_2, &frame__22_1_std__want_to_write_to, 69, 69, 29, 29},
+  {entry__23_1_std__no_longer_want_to_write_to, NULL, 82, 82, 3, 24},
+  {cont__23_2, &frame__23_1_std__no_longer_want_to_write_to, 82, 82, 30, 30},
+  {entry__24_1_std__want_to_read_from, NULL, 95, 95, 3, 23},
+  {cont__24_2, &frame__24_1_std__want_to_read_from, 95, 95, 28, 28},
+  {entry__25_1_std__no_longer_want_to_read_from, NULL, 108, 108, 3, 23},
+  {cont__25_2, &frame__25_1_std__no_longer_want_to_read_from, 108, 108, 29, 29},
+  {entry__26_3, NULL, 119, 119, 23, 43},
+  {cont__26_4, &frame__26_3, 119, 119, 23, 43},
+  {entry__26_1_std__wanting_to_write_to, NULL, 119, 119, 6, 18},
+  {cont__26_2, &frame__26_1_std__wanting_to_write_to, 119, 119, 6, 43},
+  {cont__26_5, &frame__26_1_std__wanting_to_write_to, 119, 119, 3, 43},
+  {entry__27_3, NULL, 130, 130, 23, 42},
+  {cont__27_4, &frame__27_3, 130, 130, 23, 42},
+  {entry__27_1_std__wanting_to_read_from, NULL, 130, 130, 6, 18},
+  {cont__27_2, &frame__27_1_std__wanting_to_read_from, 130, 130, 6, 42},
+  {cont__27_5, &frame__27_1_std__wanting_to_read_from, 130, 130, 3, 42},
+  {entry__29_1_std__wait_to_read_from, NULL, 143, 143, 3, 22},
+  {cont__29_2, &frame__29_1_std__wait_to_read_from, 144, 144, 3, 14},
+  {cont__29_3, &frame__29_1_std__wait_to_read_from, 145, 145, 3, 45},
+  {cont__29_4, &frame__29_1_std__wait_to_read_from, 145, 145, 45, 45},
+  {entry__31_1_std__wait_to_write_to, NULL, 158, 158, 3, 21},
+  {cont__31_2, &frame__31_1_std__wait_to_write_to, 159, 159, 3, 14},
+  {cont__31_3, &frame__31_1_std__wait_to_write_to, 160, 160, 3, 45},
+  {cont__31_4, &frame__31_1_std__wait_to_write_to, 160, 160, 45, 45},
+  {entry__33_1_std__wait_for_termination, NULL, 173, 173, 3, 19},
+  {cont__33_2, &frame__33_1_std__wait_for_termination, 174, 174, 3, 45},
+  {cont__33_3, &frame__33_1_std__wait_for_termination, 174, 174, 45, 45},
+  {entry__36_13, NULL, 196, 196, 45, 49},
+  {cont__36_14, &frame__36_13, 196, 196, 30, 50},
+  {cont__36_15, &frame__36_13, 196, 196, 11, 50},
+  {cont__36_16, &frame__36_13, 197, 197, 11, 18},
+  {cont__36_17, &frame__36_13, 197, 197, 18, 18},
+  {entry__36_10, NULL, 195, 195, 12, 36},
+  {cont__36_11, &frame__36_10, 195, 195, 12, 42},
+  {cont__36_12, &frame__36_10, 195, 197, 9, 18},
+  {entry__36_7, NULL, 194, 194, 12, 25},
+  {cont__36_8, &frame__36_7, 194, 194, 27, 45},
+  {cont__36_9, &frame__36_7, 194, 197, 7, 19},
+  {entry__36_20, NULL, 199, 199, 42, 42},
+  {cont__36_21, &frame__36_20, 199, 199, 26, 43},
+  {cont__36_22, &frame__36_20, 199, 199, 7, 43},
+  {cont__36_23, &frame__36_20, 200, 200, 24, 24},
+  {entry__36_3, NULL, 185, 185, 5, 34},
+  {cont__36_4, &frame__36_3, 186, 186, 5, 33},
+  {cont__36_5, &frame__36_3, 187, 187, 5, 12},
+  {cont__36_6, &frame__36_3, 193, 197, 5, 20},
+  {cont__36_18, &frame__36_3, 198, 198, 8, 12},
+  {cont__36_19, &frame__36_3, 198, 200, 5, 24},
+  {entry__36_27, NULL, 201, 201, 39, 54},
+  {entry__36_1_std__discard, NULL, 184, 184, 6, 18},
+  {cont__36_2, &frame__36_1_std__discard, 184, 200, 3, 25},
+  {cont__36_24, &frame__36_1_std__discard, 201, 201, 6, 31},
+  {cont__36_25, &frame__36_1_std__discard, 201, 201, 6, 36},
+  {cont__36_26, &frame__36_1_std__discard, 201, 201, 3, 54},
+  {cont__36_28, &frame__36_1_std__discard, 201, 201, 54, 54},
+  {entry__37_1_std__create_event, NULL, 209, 209, 3, 20},
+  {cont__37_2, &frame__37_1_std__create_event, 209, 209, 20, 20},
+  {entry__38_3, NULL, 218, 218, 9, 39},
+  {cont__38_4, &frame__38_3, 218, 218, 39, 39},
+  {entry__38_6, NULL, 219, 219, 50, 78},
+  {cont__38_7, &frame__38_6, 219, 219, 78, 78},
+  {entry__38_2, NULL, 217, 218, 7, 39},
+  {cont__38_5, &frame__38_2, 219, 219, 7, 78},
+  {entry__38_9, NULL, 221, 221, 47, 77},
+  {cont__38_10, &frame__38_9, 221, 221, 77, 77},
+  {entry__38_12, NULL, 222, 222, 45, 73},
+  {cont__38_13, &frame__38_12, 222, 222, 73, 73},
+  {entry__38_8, NULL, 221, 221, 7, 77},
+  {cont__38_11, &frame__38_8, 222, 222, 7, 73},
+  {entry__38_19, NULL, 238, 238, 36, 36},
+  {cont__38_20, &frame__38_19, 238, 238, 13, 41},
+  {cont__38_21, &frame__38_19, 239, 239, 16, 23},
+  {cont__38_22, &frame__38_19, 239, 239, 16, 23},
+  {cont__38_23, &frame__38_19, 239, 239, 13, 29},
+  {cont__38_24, &frame__38_19, 240, 241, 13, 77},
+  {entry__38_18, NULL, 237, 241, 11, 78},
+  {cont__38_25, &frame__38_18, 241, 241, 78, 78},
+  {entry__38_17, NULL, 236, 241, 9, 79},
+  {entry__38_27, NULL, 243, 243, 9, 53},
+  {cont__38_28, &frame__38_27, 244, 248, 9, 30},
+  {entry__38_30, NULL, 253, 253, 9, 44},
+  {cont__38_31, &frame__38_30, 253, 253, 49, 49},
+  {entry__38_33, NULL, 255, 255, 9, 46},
+  {cont__38_34, &frame__38_33, 255, 255, 51, 51},
+  {entry__38_36, NULL, 257, 257, 9, 52},
+  {cont__38_37, &frame__38_36, 257, 257, 57, 57},
+  {entry__38_41, NULL, 260, 261, 11, 73},
+  {entry__38_39, NULL, 259, 259, 12, 37},
+  {cont__38_40, &frame__38_39, 259, 261, 9, 74},
+  {entry__38_45, NULL, 264, 265, 11, 73},
+  {entry__38_43, NULL, 263, 263, 12, 39},
+  {cont__38_44, &frame__38_43, 263, 265, 9, 74},
+  {entry__38_16, NULL, 235, 241, 7, 80},
+  {cont__38_26, &frame__38_16, 242, 248, 7, 31},
+  {cont__38_29, &frame__38_16, 252, 253, 7, 49},
+  {cont__38_32, &frame__38_16, 254, 255, 7, 51},
+  {cont__38_35, &frame__38_16, 256, 257, 7, 57},
+  {cont__38_38, &frame__38_16, 258, 261, 7, 75},
+  {cont__38_42, &frame__38_16, 262, 265, 7, 75},
+  {entry__38_46, NULL, 267, 267, 7, 49},
+  {entry__38_1_get_low_level_events, NULL, 215, 222, 3, 74},
+  {cont__38_14, &frame__38_1_get_low_level_events, 224, 233, 5, 12},
+  {cont__38_15, &frame__38_1_get_low_level_events, 223, 267, 3, 50},
+  {entry__39_7, NULL, 280, 280, 9, 38},
+  {cont__39_8, &frame__39_7, 281, 281, 9, 20},
+  {cont__39_9, &frame__39_7, 282, 282, 9, 21},
+  {entry__39_3, NULL, 277, 277, 7, 35},
+  {cont__39_4, &frame__39_3, 278, 278, 7, 25},
+  {cont__39_5, &frame__39_3, 279, 279, 10, 26},
+  {cont__39_6, &frame__39_3, 279, 282, 7, 21},
+  {entry__39_14, NULL, 287, 287, 9, 37},
+  {cont__39_15, &frame__39_14, 288, 288, 9, 20},
+  {cont__39_16, &frame__39_14, 289, 289, 9, 21},
+  {entry__39_10, NULL, 284, 284, 7, 35},
+  {cont__39_11, &frame__39_10, 285, 285, 7, 25},
+  {cont__39_12, &frame__39_10, 286, 286, 10, 26},
+  {cont__39_13, &frame__39_10, 286, 289, 7, 21},
+  {entry__39_21, NULL, 294, 294, 9, 25},
+  {cont__39_22, &frame__39_21, 295, 295, 9, 25},
+  {entry__39_17, NULL, 291, 291, 7, 24},
+  {cont__39_18, &frame__39_17, 292, 292, 7, 34},
+  {cont__39_19, &frame__39_17, 293, 293, 10, 30},
+  {cont__39_20, &frame__39_17, 293, 295, 7, 25},
+  {entry__39_23, NULL, 297, 297, 7, 29},
+  {entry__39_1_get_event_handler, NULL, 275, 275, 5, 18},
+  {cont__39_2, &frame__39_1_get_event_handler, 274, 297, 3, 30},
+  {cont__39_24, &frame__39_1_get_event_handler, 298, 298, 3, 14},
+  {entry__40_13, NULL, 323, 323, 15, 27},
+  {entry__40_14, NULL, 325, 325, 15, 21},
+  {entry__40_9, NULL, 320, 320, 11, 35},
+  {cont__40_10, &frame__40_9, 322, 322, 13, 39},
+  {cont__40_11, &frame__40_9, 322, 322, 13, 44},
+  {cont__40_12, &frame__40_9, 321, 325, 11, 22},
+  {cont__40_15, &frame__40_9, 326, 326, 11, 38},
+  {entry__40_5, NULL, 317, 317, 9, 27},
+  {cont__40_6, &frame__40_5, 318, 318, 9, 41},
+  {cont__40_7, &frame__40_5, 319, 319, 12, 29},
+  {cont__40_8, &frame__40_5, 319, 326, 9, 38},
+  {cont__40_17, &frame__40_5, 327, 327, 9, 20},
+  {entry__40_18, NULL, 329, 329, 9, 34},
+  {entry__40_2, NULL, 316, 316, 7, 23},
+  {cont__40_3, &frame__40_2, 316, 316, 7, 27},
+  {cont__40_4, &frame__40_2, 315, 329, 5, 35},
+  {entry__40_1_std__get_event, NULL, 314, 329, 3, 36},
+  {cont__40_19, &frame__40_1_std__get_event, 329, 329, 36, 36},
+  {entry__42_5, NULL, 338, 338, 42, 60},
+  {cont__42_6, &frame__42_5, 338, 338, 42, 60},
+  {entry__42_2, NULL, 338, 338, 12, 35},
+  {cont__42_3, &frame__42_2, 338, 338, 12, 39},
+  {cont__42_4, &frame__42_2, 338, 338, 9, 60},
+  {entry__42_9, NULL, 339, 339, 26, 41},
+  {cont__42_10, &frame__42_9, 339, 339, 26, 41},
+  {entry__42_26, NULL, 350, 350, 13, 25},
+  {entry__42_27, NULL, 352, 352, 13, 19},
+  {entry__42_22, NULL, 347, 347, 9, 27},
+  {cont__42_23, &frame__42_22, 349, 349, 11, 37},
+  {cont__42_24, &frame__42_22, 349, 349, 11, 42},
+  {cont__42_25, &frame__42_22, 348, 352, 9, 20},
+  {cont__42_28, &frame__42_22, 353, 353, 9, 36},
+  {entry__42_18, NULL, 344, 344, 7, 22},
+  {cont__42_19, &frame__42_18, 345, 345, 7, 39},
+  {cont__42_20, &frame__42_18, 346, 346, 10, 27},
+  {cont__42_21, &frame__42_18, 346, 353, 7, 36},
+  {cont__42_29, &frame__42_18, 354, 354, 7, 12},
+  {cont__42_30, &frame__42_18, 354, 354, 12, 12},
+  {entry__42_15, NULL, 343, 343, 14, 19},
+  {cont__42_16, &frame__42_15, 343, 343, 14, 19},
+  {cont__42_17, &frame__42_15, 343, 354, 11, 12},
+  {entry__42_13, NULL, 342, 342, 5, 24},
+  {cont__42_14, &frame__42_13, 343, 354, 5, 12},
+  {cont__42_31, &frame__42_13, 355, 355, 5, 29},
+  {entry__42_1_std__process_events, NULL, 338, 338, 3, 60},
+  {cont__42_7, &frame__42_1_std__process_events, 339, 339, 6, 21},
+  {cont__42_8, &frame__42_1_std__process_events, 339, 339, 6, 41},
+  {cont__42_11, &frame__42_1_std__process_events, 339, 339, 3, 51},
+  {cont__42_12, &frame__42_1_std__process_events, 341, 355, 3, 29},
+  {entry__43_6, NULL, 375, 375, 11, 33},
+  {cont__43_7, &frame__43_6, 376, 376, 11, 25},
+  {cont__43_8, &frame__43_6, 376, 376, 38, 38},
+  {entry__43_9, NULL, 378, 378, 11, 32},
+  {cont__43_10, &frame__43_9, 379, 379, 11, 25},
+  {cont__43_11, &frame__43_9, 379, 379, 38, 38},
+  {entry__43_12, NULL, 381, 381, 11, 29},
+  {cont__43_13, &frame__43_12, 381, 381, 42, 42},
+  {entry__43_14, NULL, 384, 384, 40, 40},
+  {entry__43_3, NULL, 370, 370, 7, 23},
+  {cont__43_4, &frame__43_3, 371, 371, 7, 26},
+  {cont__43_5, &frame__43_3, 372, 384, 7, 41},
+  {entry__43_2, NULL, 369, 384, 5, 42},
+  {cont__43_15, &frame__43_2, 385, 385, 5, 47},
+  {cont__43_16, &frame__43_2, 385, 385, 47, 47},
+  {entry__43_21, NULL, 392, 392, 9, 41},
+  {cont__43_22, &frame__43_21, 393, 393, 9, 23},
+  {cont__43_23, &frame__43_21, 393, 393, 33, 33},
+  {entry__43_24, NULL, 395, 395, 9, 40},
+  {cont__43_25, &frame__43_24, 396, 396, 9, 23},
+  {cont__43_26, &frame__43_24, 396, 396, 33, 33},
+  {entry__43_27, NULL, 398, 398, 9, 27},
+  {cont__43_28, &frame__43_27, 398, 398, 37, 37},
+  {entry__43_18, NULL, 387, 387, 5, 21},
+  {cont__43_19, &frame__43_18, 388, 388, 5, 24},
+  {cont__43_20, &frame__43_18, 389, 398, 5, 38},
+  {entry__43_1_std__wait_to, NULL, 368, 385, 3, 47},
+  {cont__43_17, &frame__43_1_std__wait_to, 386, 398, 3, 39},
+  {cont__43_29, &frame__43_1_std__wait_to, 401, 401, 3, 10},
+  {entry__44_1_std__par, NULL, 404, 404, 3, 29},
+  {cont__44_2, &frame__44_1_std__par, 405, 405, 3, 16}
 };
 
 union NODE {
@@ -1401,17 +1401,17 @@ EXPORT void run__basic__event(void) {
   var._wanted_output_fds = get__empty_set();
   // 56: $$wanted_input_fds empty_set
   var._wanted_input_fds = get__empty_set();
-  // 124: $$readers empty_key_order_table
+  // 132: $$readers empty_key_order_table
   var._readers = get__empty_key_order_table();
-  // 139: $$writers empty_key_order_table
+  // 147: $$writers empty_key_order_table
   var._writers = get__empty_key_order_table();
-  // 154: $$terminators empty_key_order_table
+  // 162: $$terminators empty_key_order_table
   var._terminators = get__empty_key_order_table();
-  // 168: $$timeout undefined # there should be separate timeouts for each caller
+  // 176: $$timeout undefined # there should be separate timeouts for each caller
   var._timeout = get__undefined();
-  // 169: $$timeout_exceeded undefined
+  // 177: $$timeout_exceeded undefined
   var._timeout_exceeded = get__undefined();
-  // 321: $$waiting_tasks empty_list
+  // 331: $$waiting_tasks empty_list
   var._waiting_tasks = get__empty_list();
   frame = frame->caller_frame;
   func = frame->cont;
@@ -1425,9 +1425,9 @@ static void entry__22_1_std__want_to_write_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 67: !wanted_output_fds(fd) true
+  // 69: !wanted_output_fds(fd) true
   frame->slots[1] /* temp__1 */ = get__true();
-  // 67: !wanted_output_fds(fd)
+  // 69: !wanted_output_fds(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1457,9 +1457,9 @@ static void entry__23_1_std__no_longer_want_to_write_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 78: !wanted_output_fds(fd) false
+  // 82: !wanted_output_fds(fd) false
   frame->slots[1] /* temp__1 */ = get__false();
-  // 78: !wanted_output_fds(fd)
+  // 82: !wanted_output_fds(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1489,9 +1489,9 @@ static void entry__24_1_std__want_to_read_from(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: !wanted_input_fds(fd) true
+  // 95: !wanted_input_fds(fd) true
   frame->slots[1] /* temp__1 */ = get__true();
-  // 89: !wanted_input_fds(fd)
+  // 95: !wanted_input_fds(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1521,9 +1521,9 @@ static void entry__25_1_std__no_longer_want_to_read_from(void) {
     invalid_arguments_error();
     return;
   }
-  // 100: !wanted_input_fds(fd) false
+  // 108: !wanted_input_fds(fd) false
   frame->slots[1] /* temp__1 */ = get__false();
-  // 100: !wanted_input_fds(fd)
+  // 108: !wanted_input_fds(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1553,7 +1553,7 @@ static void entry__26_1_std__wanting_to_write_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: ... fd.is_defined
+  // 119: ... fd.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1568,9 +1568,9 @@ static void cont__26_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 111: ... wanted_output_fds(fd)
+  // 119: ... wanted_output_fds(fd)
   frame->slots[3] /* temp__3 */ = create_closure(entry__26_3, 0);
-  // 111: ... fd.is_defined && wanted_output_fds(fd)
+  // 119: ... fd.is_defined && wanted_output_fds(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -1589,7 +1589,7 @@ static void entry__26_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: ... wanted_output_fds(fd)
+  // 119: ... wanted_output_fds(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1604,7 +1604,7 @@ static void cont__26_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 111: ... wanted_output_fds(fd)
+  // 119: ... wanted_output_fds(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1618,7 +1618,7 @@ static void cont__26_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 111: -> fd.is_defined && wanted_output_fds(fd)
+  // 119: -> fd.is_defined && wanted_output_fds(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1634,7 +1634,7 @@ static void entry__27_1_std__wanting_to_read_from(void) {
     invalid_arguments_error();
     return;
   }
-  // 122: ... fd.is_defined
+  // 130: ... fd.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1649,9 +1649,9 @@ static void cont__27_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 122: ... wanted_input_fds(fd)
+  // 130: ... wanted_input_fds(fd)
   frame->slots[3] /* temp__3 */ = create_closure(entry__27_3, 0);
-  // 122: ... fd.is_defined && wanted_input_fds(fd)
+  // 130: ... fd.is_defined && wanted_input_fds(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -1670,7 +1670,7 @@ static void entry__27_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 122: ... wanted_input_fds(fd)
+  // 130: ... wanted_input_fds(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1685,7 +1685,7 @@ static void cont__27_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 122: ... wanted_input_fds(fd)
+  // 130: ... wanted_input_fds(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1699,7 +1699,7 @@ static void cont__27_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 122: -> fd.is_defined && wanted_input_fds(fd)
+  // 130: -> fd.is_defined && wanted_input_fds(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1717,7 +1717,7 @@ static void entry__29_1_std__wait_to_read_from(void) {
     invalid_arguments_error();
     return;
   }
-  // 135: want_to_read_from fd
+  // 143: want_to_read_from fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1731,9 +1731,9 @@ static void cont__29_2(void) {
     invalid_results_error();
     return;
   }
-  // 136: !readers(fd) continuation
+  // 144: !readers(fd) continuation
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* continuation */;
-  // 136: !readers(fd)
+  // 144: !readers(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1749,7 +1749,7 @@ static void cont__29_3(void) {
     return;
   }
   var._readers = arguments->slots[0];
-  // 137: process_events # will never return directly
+  // 145: process_events # will never return directly
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -1772,7 +1772,7 @@ static void entry__31_1_std__wait_to_write_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 150: want_to_write_to fd
+  // 158: want_to_write_to fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1786,9 +1786,9 @@ static void cont__31_2(void) {
     invalid_results_error();
     return;
   }
-  // 151: !writers(fd) continuation
+  // 159: !writers(fd) continuation
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* continuation */;
-  // 151: !writers(fd)
+  // 159: !writers(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1804,7 +1804,7 @@ static void cont__31_3(void) {
     return;
   }
   var._writers = arguments->slots[0];
-  // 152: process_events # will never return directly
+  // 160: process_events # will never return directly
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -1827,9 +1827,9 @@ static void entry__33_1_std__wait_for_termination(void) {
     invalid_arguments_error();
     return;
   }
-  // 165: !terminators(pid) continuation
+  // 173: !terminators(pid) continuation
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* continuation */;
-  // 165: !terminators(pid)
+  // 173: !terminators(pid)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* pid */;
@@ -1845,7 +1845,7 @@ static void cont__33_2(void) {
     return;
   }
   var._terminators = arguments->slots[0];
-  // 166: process_events # will never return directly
+  // 174: process_events # will never return directly
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -1868,7 +1868,7 @@ static void entry__36_1_std__discard(void) {
     invalid_arguments_error();
     return;
   }
-  // 176: ... fd.is_defined
+  // 184: ... fd.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -1883,28 +1883,28 @@ static void cont__36_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 176: ... :
-  // 177:   no_longer_want_to_read_from fd
-  // 178:   no_longer_want_to_write_to fd
-  // 179:   close fd
-  // 180:   
-  // 181:   # remove all associated events
-  // 182:   
-  // 183:   $$new_events empty_list
-  // 184:   $$s 1
-  // 185:   for_each events: (idx event)
+  // 184: ... :
+  // 185:   no_longer_want_to_read_from fd
+  // 186:   no_longer_want_to_write_to fd
+  // 187:   close fd
+  // 188:   
+  // 189:   # remove all associated events
+  // 190:   
+  // 191:   $$new_events empty_list
+  // 192:   $$s 1
+  // 193:   for_each events: (idx event)
   // ...
   frame->slots[3] /* temp__2 */ = create_closure(entry__36_3, 0);
-  // 176: if fd.is_defined:
-  // 177:   no_longer_want_to_read_from fd
-  // 178:   no_longer_want_to_write_to fd
-  // 179:   close fd
-  // 180:   
-  // 181:   # remove all associated events
-  // 182:   
-  // 183:   $$new_events empty_list
-  // 184:   $$s 1
-  // 185:   for_each events: (idx event)
+  // 184: if fd.is_defined:
+  // 185:   no_longer_want_to_read_from fd
+  // 186:   no_longer_want_to_write_to fd
+  // 187:   close fd
+  // 188:   
+  // 189:   # remove all associated events
+  // 190:   
+  // 191:   $$new_events empty_list
+  // 192:   $$s 1
+  // 193:   for_each events: (idx event)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -1926,7 +1926,7 @@ static void entry__36_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 191: ... 1
+  // 199: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1941,7 +1941,7 @@ static void cont__36_21(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 191: ... range(events s -1)
+  // 199: ... range(events s -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -1958,7 +1958,7 @@ static void cont__36_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 191: append &new_events range(events s -1)
+  // 199: append &new_events range(events s -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_events */;
@@ -1974,7 +1974,7 @@ static void cont__36_23(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* new_events */ = arguments->slots[0];
-  // 192: !events new_events
+  // 200: !events new_events
   set__events(((CELL *)frame->slots[0])->contents /* new_events */);
   argument_count = 0;
   arguments = node_p;
@@ -1995,7 +1995,7 @@ static void entry__36_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 177: no_longer_want_to_read_from fd
+  // 185: no_longer_want_to_read_from fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -2009,7 +2009,7 @@ static void cont__36_4(void) {
     invalid_results_error();
     return;
   }
-  // 178: no_longer_want_to_write_to fd
+  // 186: no_longer_want_to_write_to fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -2023,7 +2023,7 @@ static void cont__36_5(void) {
     invalid_results_error();
     return;
   }
-  // 179: close fd
+  // 187: close fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -2037,21 +2037,21 @@ static void cont__36_6(void) {
     invalid_results_error();
     return;
   }
-  // 183: $$new_events empty_list
+  // 191: $$new_events empty_list
   ((CELL *)frame->slots[1])->contents /* new_events */ = get__empty_list();
-  // 184: $$s 1
+  // 192: $$s 1
   ((CELL *)frame->slots[2])->contents /* s */ = number__1;
-  // 185: ... : (idx event)
-  // 186:   case type_of(event) WRITE_TO, READ_FROM:
-  // 187:     if file_descriptor_of(event) == fd:
-  // 188:       append &new_events range(events s idx-1)
-  // 189:       !s idx+1
+  // 193: ... : (idx event)
+  // 194:   case type_of(event) WRITE_TO, READ_FROM:
+  // 195:     if file_descriptor_of(event) == fd:
+  // 196:       append &new_events range(events s idx-1)
+  // 197:       !s idx+1
   frame->slots[3] /* temp__1 */ = create_closure(entry__36_7, 2);
-  // 185: for_each events: (idx event)
-  // 186:   case type_of(event) WRITE_TO, READ_FROM:
-  // 187:     if file_descriptor_of(event) == fd:
-  // 188:       append &new_events range(events s idx-1)
-  // 189:       !s idx+1
+  // 193: for_each events: (idx event)
+  // 194:   case type_of(event) WRITE_TO, READ_FROM:
+  // 195:     if file_descriptor_of(event) == fd:
+  // 196:       append &new_events range(events s idx-1)
+  // 197:       !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -2074,7 +2074,7 @@ static void entry__36_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 188: ... idx-1
+  // 196: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* idx */;
@@ -2090,7 +2090,7 @@ static void cont__36_14(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 188: ... range(events s idx-1)
+  // 196: ... range(events s idx-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -2107,7 +2107,7 @@ static void cont__36_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 188: append &new_events range(events s idx-1)
+  // 196: append &new_events range(events s idx-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_events */;
@@ -2123,7 +2123,7 @@ static void cont__36_16(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* new_events */ = arguments->slots[0];
-  // 189: !s idx+1
+  // 197: !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* idx */;
@@ -2162,7 +2162,7 @@ static void entry__36_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 187: ... file_descriptor_of(event)
+  // 195: ... file_descriptor_of(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* event */;
@@ -2177,7 +2177,7 @@ static void cont__36_11(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 187: ... file_descriptor_of(event) == fd
+  // 195: ... file_descriptor_of(event) == fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -2193,13 +2193,13 @@ static void cont__36_12(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 187: ... :
-  // 188:   append &new_events range(events s idx-1)
-  // 189:   !s idx+1
+  // 195: ... :
+  // 196:   append &new_events range(events s idx-1)
+  // 197:   !s idx+1
   frame->slots[7] /* temp__3 */ = create_closure(entry__36_13, 0);
-  // 187: if file_descriptor_of(event) == fd:
-  // 188:   append &new_events range(events s idx-1)
-  // 189:   !s idx+1
+  // 195: if file_descriptor_of(event) == fd:
+  // 196:   append &new_events range(events s idx-1)
+  // 197:   !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2224,7 +2224,7 @@ static void entry__36_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 186: ... type_of(event)
+  // 194: ... type_of(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* event */;
@@ -2239,7 +2239,7 @@ static void cont__36_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 186: ... WRITE_TO, READ_FROM
+  // 194: ... WRITE_TO, READ_FROM
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__WRITE_TO();
@@ -2255,15 +2255,15 @@ static void cont__36_9(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 186: ... :
-  // 187:   if file_descriptor_of(event) == fd:
-  // 188:     append &new_events range(events s idx-1)
-  // 189:     !s idx+1
+  // 194: ... :
+  // 195:   if file_descriptor_of(event) == fd:
+  // 196:     append &new_events range(events s idx-1)
+  // 197:     !s idx+1
   frame->slots[7] /* temp__3 */ = create_closure(entry__36_10, 0);
-  // 186: case type_of(event) WRITE_TO, READ_FROM:
-  // 187:   if file_descriptor_of(event) == fd:
-  // 188:     append &new_events range(events s idx-1)
-  // 189:     !s idx+1
+  // 194: case type_of(event) WRITE_TO, READ_FROM:
+  // 195:   if file_descriptor_of(event) == fd:
+  // 196:     append &new_events range(events s idx-1)
+  // 197:     !s idx+1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2279,7 +2279,7 @@ static void cont__36_18(void) {
     invalid_results_error();
     return;
   }
-  // 190: ... s > 1
+  // 198: ... s > 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2295,13 +2295,13 @@ static void cont__36_19(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 190: ... :
-  // 191:   append &new_events range(events s -1)
-  // 192:   !events new_events
+  // 198: ... :
+  // 199:   append &new_events range(events s -1)
+  // 200:   !events new_events
   frame->slots[4] /* temp__2 */ = create_closure(entry__36_20, 0);
-  // 190: if s > 1:
-  // 191:   append &new_events range(events s -1)
-  // 192:   !events new_events
+  // 198: if s > 1:
+  // 199:   append &new_events range(events s -1)
+  // 200:   !events new_events
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2316,7 +2316,7 @@ static void cont__36_24(void) {
     invalid_results_error();
     return;
   }
-  // 193: ... parameter_count_of(return)
+  // 201: ... parameter_count_of(return)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* return */;
@@ -2331,7 +2331,7 @@ static void cont__36_25(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 193: ... parameter_count_of(return) == 1
+  // 201: ... parameter_count_of(return) == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2347,9 +2347,9 @@ static void cont__36_26(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 193: ... : return undefined
+  // 201: ... : return undefined
   frame->slots[4] /* temp__3 */ = create_closure(entry__36_27, 0);
-  // 193: if parameter_count_of(return) == 1: return undefined
+  // 201: if parameter_count_of(return) == 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2368,7 +2368,7 @@ static void entry__36_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 193: ... return undefined
+  // 201: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -2390,7 +2390,7 @@ static void entry__37_1_std__create_event(void) {
     invalid_arguments_error();
     return;
   }
-  // 201: push &events event
+  // 209: push &events event
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -2421,7 +2421,7 @@ static void entry__38_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 257: types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+  // 265: types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
   {
     NODE *temp = clone_object_and_attributes(var.types__event);
     update_start_p = node_p;
@@ -2430,8 +2430,8 @@ static void entry__38_45(void) {
     frame->slots[1] /* temp__1 */ = temp;
 
   }
-  // 256: create_event
-  // 257:   types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+  // 264: create_event
+  // 265:   types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2448,7 +2448,7 @@ static void entry__38_43(void) {
     invalid_arguments_error();
     return;
   }
-  // 255: ... wanted_output_fds(output_fd)
+  // 263: ... wanted_output_fds(output_fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* output_fd */;
@@ -2463,13 +2463,13 @@ static void cont__38_44(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 255: ... :
-  // 256:   create_event
-  // 257:     types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+  // 263: ... :
+  // 264:   create_event
+  // 265:     types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
   frame->slots[2] /* temp__2 */ = create_closure(entry__38_45, 0);
-  // 255: if wanted_output_fds(output_fd):
-  // 256:   create_event
-  // 257:     types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+  // 263: if wanted_output_fds(output_fd):
+  // 264:   create_event
+  // 265:     types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2502,13 +2502,13 @@ static void entry__38_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 227: if child_changed_state:
-  // 228:   do: (-> break)
-  // 229:     forever:
-  // 230:       wait_pid $status $pid -1 true
-  // 231:       if pid <= 0 break
-  // 232:       create_event
-  // 233:         types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 235: if child_changed_state:
+  // 236:   do: (-> break)
+  // 237:     forever:
+  // 238:       wait_pid $status $pid -1 true
+  // 239:       if pid <= 0 break
+  // 240:       create_event
+  // 241:         types::event(.type_of TERMINATED .pid_of pid .status_of status)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* child_changed_state */;
@@ -2527,17 +2527,17 @@ static void entry__38_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 229: ... :
-  // 230:   wait_pid $status $pid -1 true
-  // 231:   if pid <= 0 break
-  // 232:   create_event
-  // 233:     types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 237: ... :
+  // 238:   wait_pid $status $pid -1 true
+  // 239:   if pid <= 0 break
+  // 240:   create_event
+  // 241:     types::event(.type_of TERMINATED .pid_of pid .status_of status)
   frame->slots[1] /* temp__1 */ = create_closure(entry__38_19, 0);
-  // 229: forever:
-  // 230:   wait_pid $status $pid -1 true
-  // 231:   if pid <= 0 break
-  // 232:   create_event
-  // 233:     types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 237: forever:
+  // 238:   wait_pid $status $pid -1 true
+  // 239:   if pid <= 0 break
+  // 240:   create_event
+  // 241:     types::event(.type_of TERMINATED .pid_of pid .status_of status)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2559,7 +2559,7 @@ static void entry__38_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 230: ... 1
+  // 238: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2574,7 +2574,7 @@ static void cont__38_20(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 230: wait_pid $status $pid -1 true
+  // 238: wait_pid $status $pid -1 true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2591,11 +2591,11 @@ static void cont__38_21(void) {
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   frame->slots[5] /* temp__3 */ = arguments->slots[1];
-  // 230: ... status
+  // 238: ... status
   initialize_future(frame->slots[1] /* status */, frame->slots[4] /* temp__2 */);
-  // 230: ... pid
+  // 238: ... pid
   initialize_future(frame->slots[2] /* pid */, frame->slots[5] /* temp__3 */);
-  // 231: ... pid <= 0
+  // 239: ... pid <= 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -2611,7 +2611,7 @@ static void cont__38_22(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 231: ... pid <= 0
+  // 239: ... pid <= 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -2626,7 +2626,7 @@ static void cont__38_23(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 231: if pid <= 0 break
+  // 239: if pid <= 0 break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2641,7 +2641,7 @@ static void cont__38_24(void) {
     invalid_results_error();
     return;
   }
-  // 233: types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 241: types::event(.type_of TERMINATED .pid_of pid .status_of status)
   {
     NODE *temp = clone_object_and_attributes(var.types__event);
     update_start_p = node_p;
@@ -2651,8 +2651,8 @@ static void cont__38_24(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 232: create_event
-  // 233:   types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 240: create_event
+  // 241:   types::event(.type_of TERMINATED .pid_of pid .status_of status)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2673,12 +2673,12 @@ static void entry__38_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 228: do: (-> break)
-  // 229:   forever:
-  // 230:     wait_pid $status $pid -1 true
-  // 231:     if pid <= 0 break
-  // 232:     create_event
-  // 233:       types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 236: do: (-> break)
+  // 237:   forever:
+  // 238:     wait_pid $status $pid -1 true
+  // 239:     if pid <= 0 break
+  // 240:     create_event
+  // 241:       types::event(.type_of TERMINATED .pid_of pid .status_of status)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__38_18;
@@ -2692,13 +2692,13 @@ static void cont__38_26(void) {
     invalid_results_error();
     return;
   }
-  // 234: if window_changed_size:
-  // 235:   get_terminal_size STDIN_FILENO $width $height
-  // 236:   create_event
-  // 237:     types::event
-  // 238:       .type_of SCREEN_SIZE_CHANGE
-  // 239:       .width_of width
-  // 240:       .height_of height
+  // 242: if window_changed_size:
+  // 243:   get_terminal_size STDIN_FILENO $width $height
+  // 244:   create_event
+  // 245:     types::event
+  // 246:       .type_of SCREEN_SIZE_CHANGE
+  // 247:       .width_of width
+  // 248:       .height_of height
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* window_changed_size */;
@@ -2719,7 +2719,7 @@ static void entry__38_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 235: get_terminal_size STDIN_FILENO $width $height
+  // 243: get_terminal_size STDIN_FILENO $width $height
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__STDIN_FILENO();
@@ -2735,14 +2735,14 @@ static void cont__38_28(void) {
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   frame->slots[3] /* temp__2 */ = arguments->slots[1];
-  // 235: ... width
+  // 243: ... width
   initialize_future(frame->slots[0] /* width */, frame->slots[2] /* temp__1 */);
-  // 235: ... height
+  // 243: ... height
   initialize_future(frame->slots[1] /* height */, frame->slots[3] /* temp__2 */);
-  // 237: types::event
-  // 238:   .type_of SCREEN_SIZE_CHANGE
-  // 239:   .width_of width
-  // 240:   .height_of height
+  // 245: types::event
+  // 246:   .type_of SCREEN_SIZE_CHANGE
+  // 247:   .width_of width
+  // 248:   .height_of height
   {
     NODE *temp = clone_object_and_attributes(var.types__event);
     update_start_p = node_p;
@@ -2752,11 +2752,11 @@ static void cont__38_28(void) {
     frame->slots[2] /* temp__1 */ = temp;
 
   }
-  // 236: create_event
-  // 237:   types::event
-  // 238:     .type_of SCREEN_SIZE_CHANGE
-  // 239:     .width_of width
-  // 240:     .height_of height
+  // 244: create_event
+  // 245:   types::event
+  // 246:     .type_of SCREEN_SIZE_CHANGE
+  // 247:     .width_of width
+  // 248:     .height_of height
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2770,17 +2770,17 @@ static void cont__38_29(void) {
     invalid_results_error();
     return;
   }
-  // 241: $$ready_input_fds_set empty_set
+  // 249: $$ready_input_fds_set empty_set
   ((CELL *)frame->slots[5])->contents /* ready_input_fds_set */ = get__empty_set();
-  // 242: $$ready_output_fds_set empty_set
+  // 250: $$ready_output_fds_set empty_set
   ((CELL *)frame->slots[6])->contents /* ready_output_fds_set */ = get__empty_set();
-  // 243: $$ready_exception_fds_set empty_set
+  // 251: $$ready_exception_fds_set empty_set
   ((CELL *)frame->slots[7])->contents /* ready_exception_fds_set */ = get__empty_set();
-  // 244: ... : (ready_input_fd)
-  // 245:   !ready_input_fds_set(ready_input_fd) true
+  // 252: ... : (ready_input_fd)
+  // 253:   !ready_input_fds_set(ready_input_fd) true
   frame->slots[8] /* temp__1 */ = create_closure(entry__38_30, 1);
-  // 244: for_each ready_input_fds_list: (ready_input_fd)
-  // 245:   !ready_input_fds_set(ready_input_fd) true
+  // 252: for_each ready_input_fds_list: (ready_input_fd)
+  // 253:   !ready_input_fds_set(ready_input_fd) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* ready_input_fds_list */;
@@ -2800,9 +2800,9 @@ static void entry__38_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 245: !ready_input_fds_set(ready_input_fd) true
+  // 253: !ready_input_fds_set(ready_input_fd) true
   frame->slots[2] /* temp__1 */ = get__true();
-  // 245: !ready_input_fds_set(ready_input_fd)
+  // 253: !ready_input_fds_set(ready_input_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ready_input_fd */;
@@ -2829,11 +2829,11 @@ static void cont__38_32(void) {
     invalid_results_error();
     return;
   }
-  // 246: ... : (ready_output_fd)
-  // 247:   !ready_output_fds_set(ready_output_fd) true
+  // 254: ... : (ready_output_fd)
+  // 255:   !ready_output_fds_set(ready_output_fd) true
   frame->slots[8] /* temp__1 */ = create_closure(entry__38_33, 1);
-  // 246: for_each ready_output_fds_list: (ready_output_fd)
-  // 247:   !ready_output_fds_set(ready_output_fd) true
+  // 254: for_each ready_output_fds_list: (ready_output_fd)
+  // 255:   !ready_output_fds_set(ready_output_fd) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* ready_output_fds_list */;
@@ -2853,9 +2853,9 @@ static void entry__38_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 247: !ready_output_fds_set(ready_output_fd) true
+  // 255: !ready_output_fds_set(ready_output_fd) true
   frame->slots[2] /* temp__1 */ = get__true();
-  // 247: !ready_output_fds_set(ready_output_fd)
+  // 255: !ready_output_fds_set(ready_output_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ready_output_fd */;
@@ -2882,11 +2882,11 @@ static void cont__38_35(void) {
     invalid_results_error();
     return;
   }
-  // 248: ... : (ready_exception_fd)
-  // 249:   !ready_exception_fds_set(ready_exception_fd) true
+  // 256: ... : (ready_exception_fd)
+  // 257:   !ready_exception_fds_set(ready_exception_fd) true
   frame->slots[8] /* temp__1 */ = create_closure(entry__38_36, 1);
-  // 248: for_each ready_exception_fds_list: (ready_exception_fd)
-  // 249:   !ready_exception_fds_set(ready_exception_fd) true
+  // 256: for_each ready_exception_fds_list: (ready_exception_fd)
+  // 257:   !ready_exception_fds_set(ready_exception_fd) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* ready_exception_fds_list */;
@@ -2906,9 +2906,9 @@ static void entry__38_36(void) {
     invalid_arguments_error();
     return;
   }
-  // 249: !ready_exception_fds_set(ready_exception_fd) true
+  // 257: !ready_exception_fds_set(ready_exception_fd) true
   frame->slots[2] /* temp__1 */ = get__true();
-  // 249: !ready_exception_fds_set(ready_exception_fd)
+  // 257: !ready_exception_fds_set(ready_exception_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ready_exception_fd */;
@@ -2935,10 +2935,10 @@ static void cont__38_38(void) {
     invalid_results_error();
     return;
   }
-  // 250: for_each ready_input_fds_set: (input_fd)
-  // 251:   if wanted_input_fds(input_fd):
-  // 252:     create_event
-  // 253:       types::event(.type_of READ_FROM .file_descriptor_of input_fd)
+  // 258: for_each ready_input_fds_set: (input_fd)
+  // 259:   if wanted_input_fds(input_fd):
+  // 260:     create_event
+  // 261:       types::event(.type_of READ_FROM .file_descriptor_of input_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* ready_input_fds_set */;
@@ -2957,7 +2957,7 @@ static void entry__38_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 253: types::event(.type_of READ_FROM .file_descriptor_of input_fd)
+  // 261: types::event(.type_of READ_FROM .file_descriptor_of input_fd)
   {
     NODE *temp = clone_object_and_attributes(var.types__event);
     update_start_p = node_p;
@@ -2966,8 +2966,8 @@ static void entry__38_41(void) {
     frame->slots[1] /* temp__1 */ = temp;
 
   }
-  // 252: create_event
-  // 253:   types::event(.type_of READ_FROM .file_descriptor_of input_fd)
+  // 260: create_event
+  // 261:   types::event(.type_of READ_FROM .file_descriptor_of input_fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2984,7 +2984,7 @@ static void entry__38_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 251: ... wanted_input_fds(input_fd)
+  // 259: ... wanted_input_fds(input_fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* input_fd */;
@@ -2999,13 +2999,13 @@ static void cont__38_40(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 251: ... :
-  // 252:   create_event
-  // 253:     types::event(.type_of READ_FROM .file_descriptor_of input_fd)
+  // 259: ... :
+  // 260:   create_event
+  // 261:     types::event(.type_of READ_FROM .file_descriptor_of input_fd)
   frame->slots[2] /* temp__2 */ = create_closure(entry__38_41, 0);
-  // 251: if wanted_input_fds(input_fd):
-  // 252:   create_event
-  // 253:     types::event(.type_of READ_FROM .file_descriptor_of input_fd)
+  // 259: if wanted_input_fds(input_fd):
+  // 260:   create_event
+  // 261:     types::event(.type_of READ_FROM .file_descriptor_of input_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3020,10 +3020,10 @@ static void cont__38_42(void) {
     invalid_results_error();
     return;
   }
-  // 254: for_each ready_output_fds_set: (output_fd)
-  // 255:   if wanted_output_fds(output_fd):
-  // 256:     create_event
-  // 257:       types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
+  // 262: for_each ready_output_fds_set: (output_fd)
+  // 263:   if wanted_output_fds(output_fd):
+  // 264:     create_event
+  // 265:       types::event(.type_of WRITE_TO .file_descriptor_of output_fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* ready_output_fds_set */;
@@ -3040,7 +3040,7 @@ static void entry__38_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 259: ... types::event(.type_of TIMEOUT)
+  // 267: ... types::event(.type_of TIMEOUT)
   {
     NODE *temp = clone_object_and_attributes(var.types__event);
     update_start_p = node_p;
@@ -3048,7 +3048,7 @@ static void entry__38_46(void) {
     frame->slots[0] /* temp__1 */ = temp;
 
   }
-  // 259: create_event types::event(.type_of TIMEOUT)
+  // 267: create_event types::event(.type_of TIMEOUT)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -3082,29 +3082,29 @@ static void entry__38_1_get_low_level_events(void) {
     invalid_arguments_error();
     return;
   }
-  // 204: $$output_fds_list empty_list
+  // 212: $$output_fds_list empty_list
   ((CELL *)frame->slots[1])->contents /* output_fds_list */ = get__empty_list();
-  // 205: $$input_fds_list empty_list
+  // 213: $$input_fds_list empty_list
   ((CELL *)frame->slots[2])->contents /* input_fds_list */ = get__empty_list();
-  // 206: $exception_fds_list empty_list
+  // 214: $exception_fds_list empty_list
   initialize_maybe_future(frame->slots[3] /* exception_fds_list */, get__empty_list());
-  // 208: ... :
-  // 209:   for_each writers: (output_fd _continuation)
-  // 210:     push &output_fds_list output_fd
-  // 211:   for_each readers: (input_fd _continuation) push &input_fds_list input_fd
+  // 216: ... :
+  // 217:   for_each writers: (output_fd _continuation)
+  // 218:     push &output_fds_list output_fd
+  // 219:   for_each readers: (input_fd _continuation) push &input_fds_list input_fd
   frame->slots[9] /* temp__1 */ = create_closure(entry__38_2, 0);
-  // 212: :
-  // 213:   for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
-  // 214:   for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
+  // 220: :
+  // 221:   for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
+  // 222:   for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
   frame->slots[10] /* temp__2 */ = create_closure(entry__38_8, 0);
-  // 207: if
-  // 208:   for_readers_and_writers_only:
-  // 209:     for_each writers: (output_fd _continuation)
-  // 210:       push &output_fds_list output_fd
-  // 211:     for_each readers: (input_fd _continuation) push &input_fds_list input_fd
-  // 212:   :
-  // 213:     for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
-  // 214:     for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
+  // 215: if
+  // 216:   for_readers_and_writers_only:
+  // 217:     for_each writers: (output_fd _continuation)
+  // 218:       push &output_fds_list output_fd
+  // 219:     for_each readers: (input_fd _continuation) push &input_fds_list input_fd
+  // 220:   :
+  // 221:     for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
+  // 222:     for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* for_readers_and_writers_only */;
@@ -3125,7 +3125,7 @@ static void entry__38_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 214: ... push &input_fds_list input_fd
+  // 222: ... push &input_fds_list input_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* input_fds_list */;
@@ -3158,7 +3158,7 @@ static void entry__38_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 211: ... push &input_fds_list input_fd
+  // 219: ... push &input_fds_list input_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* input_fds_list */;
@@ -3191,11 +3191,11 @@ static void entry__38_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 209: ... : (output_fd _continuation)
-  // 210:   push &output_fds_list output_fd
+  // 217: ... : (output_fd _continuation)
+  // 218:   push &output_fds_list output_fd
   frame->slots[2] /* temp__1 */ = create_closure(entry__38_3, 2);
-  // 209: for_each writers: (output_fd _continuation)
-  // 210:   push &output_fds_list output_fd
+  // 217: for_each writers: (output_fd _continuation)
+  // 218:   push &output_fds_list output_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._writers;
@@ -3216,7 +3216,7 @@ static void entry__38_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 210: push &output_fds_list output_fd
+  // 218: push &output_fds_list output_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* output_fds_list */;
@@ -3243,9 +3243,9 @@ static void cont__38_5(void) {
     invalid_results_error();
     return;
   }
-  // 211: ... : (input_fd _continuation) push &input_fds_list input_fd
+  // 219: ... : (input_fd _continuation) push &input_fds_list input_fd
   frame->slots[2] /* temp__1 */ = create_closure(entry__38_6, 2);
-  // 211: for_each readers: (input_fd _continuation) push &input_fds_list input_fd
+  // 219: for_each readers: (input_fd _continuation) push &input_fds_list input_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._readers;
@@ -3266,9 +3266,9 @@ static void entry__38_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 213: ... : (output_fd) push &output_fds_list output_fd
+  // 221: ... : (output_fd) push &output_fds_list output_fd
   frame->slots[2] /* temp__1 */ = create_closure(entry__38_9, 1);
-  // 213: for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
+  // 221: for_each wanted_output_fds: (output_fd) push &output_fds_list output_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._wanted_output_fds;
@@ -3288,7 +3288,7 @@ static void entry__38_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 213: ... push &output_fds_list output_fd
+  // 221: ... push &output_fds_list output_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* output_fds_list */;
@@ -3315,9 +3315,9 @@ static void cont__38_11(void) {
     invalid_results_error();
     return;
   }
-  // 214: ... : (input_fd) push &input_fds_list input_fd
+  // 222: ... : (input_fd) push &input_fds_list input_fd
   frame->slots[2] /* temp__1 */ = create_closure(entry__38_12, 1);
-  // 214: for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
+  // 222: for_each wanted_input_fds: (input_fd) push &input_fds_list input_fd
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._wanted_input_fds;
@@ -3332,16 +3332,16 @@ static void cont__38_14(void) {
     invalid_results_error();
     return;
   }
-  // 216: wait_for_io
-  // 217:   $child_changed_state
-  // 218:   $window_changed_size
-  // 219:   $ready_input_fds_list
-  // 220:   input_fds_list
-  // 221:   $ready_output_fds_list
-  // 222:   output_fds_list
-  // 223:   $ready_exception_fds_list
-  // 224:   exception_fds_list
-  // 225:   timeout
+  // 224: wait_for_io
+  // 225:   $child_changed_state
+  // 226:   $window_changed_size
+  // 227:   $ready_input_fds_list
+  // 228:   input_fds_list
+  // 229:   $ready_output_fds_list
+  // 230:   output_fds_list
+  // 231:   $ready_exception_fds_list
+  // 232:   exception_fds_list
+  // 233:   timeout
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* input_fds_list */;
@@ -3364,38 +3364,38 @@ static void cont__38_15(void) {
   frame->slots[13] /* temp__5 */ = arguments->slots[3];
   frame->slots[14] /* temp__6 */ = arguments->slots[4];
   frame->slots[9] /* temp__1 */ = arguments->slots[5];
-  // 217: ... child_changed_state
+  // 225: ... child_changed_state
   initialize_future(frame->slots[4] /* child_changed_state */, frame->slots[10] /* temp__2 */);
-  // 218: ... window_changed_size
+  // 226: ... window_changed_size
   initialize_future(frame->slots[5] /* window_changed_size */, frame->slots[11] /* temp__3 */);
-  // 219: ... ready_input_fds_list
+  // 227: ... ready_input_fds_list
   initialize_future(frame->slots[6] /* ready_input_fds_list */, frame->slots[12] /* temp__4 */);
-  // 221: ... ready_output_fds_list
+  // 229: ... ready_output_fds_list
   initialize_future(frame->slots[7] /* ready_output_fds_list */, frame->slots[13] /* temp__5 */);
-  // 223: ... ready_exception_fds_list
+  // 231: ... ready_exception_fds_list
   initialize_future(frame->slots[8] /* ready_exception_fds_list */, frame->slots[14] /* temp__6 */);
-  // 226: :
-  // 227:   if child_changed_state:
-  // 228:     do: (-> break)
-  // 229:       forever:
-  // 230:         wait_pid $status $pid -1 true
-  // 231:         if pid <= 0 break
-  // 232:         create_event
-  // 233:           types::event(.type_of TERMINATED .pid_of pid .status_of status)
-  // 234:   if window_changed_size:
-  // 235:     get_terminal_size STDIN_FILENO $width $height
+  // 234: :
+  // 235:   if child_changed_state:
+  // 236:     do: (-> break)
+  // 237:       forever:
+  // 238:         wait_pid $status $pid -1 true
+  // 239:         if pid <= 0 break
+  // 240:         create_event
+  // 241:           types::event(.type_of TERMINATED .pid_of pid .status_of status)
+  // 242:   if window_changed_size:
+  // 243:     get_terminal_size STDIN_FILENO $width $height
   // ...
   frame->slots[15] /* temp__7 */ = create_closure(entry__38_16, 0);
-  // 215: if
-  // 216:   wait_for_io
-  // 217:     $child_changed_state
-  // 218:     $window_changed_size
-  // 219:     $ready_input_fds_list
-  // 220:     input_fds_list
-  // 221:     $ready_output_fds_list
-  // 222:     output_fds_list
-  // 223:     $ready_exception_fds_list
-  // 224:     exception_fds_list
+  // 223: if
+  // 224:   wait_for_io
+  // 225:     $child_changed_state
+  // 226:     $window_changed_size
+  // 227:     $ready_input_fds_list
+  // 228:     input_fds_list
+  // 229:     $ready_output_fds_list
+  // 230:     output_fds_list
+  // 231:     $ready_exception_fds_list
+  // 232:     exception_fds_list
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3417,7 +3417,7 @@ static void entry__39_1_get_event_handler(void) {
     invalid_arguments_error();
     return;
   }
-  // 267: type_of(event)
+  // 275: type_of(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* event */;
@@ -3432,42 +3432,42 @@ static void cont__39_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 268: ... :
-  // 269:   $fd file_descriptor_of(event)
-  // 270:   $reader readers(fd)
-  // 271:   if reader.is_defined:
-  // 272:     no_longer_want_to_read_from fd
-  // 273:     !readers(fd) undefined
-  // 274:     return reader
+  // 276: ... :
+  // 277:   $fd file_descriptor_of(event)
+  // 278:   $reader readers(fd)
+  // 279:   if reader.is_defined:
+  // 280:     no_longer_want_to_read_from fd
+  // 281:     !readers(fd) undefined
+  // 282:     return reader
   frame->slots[3] /* temp__2 */ = create_closure(entry__39_3, 0);
-  // 275: ... :
-  // 276:   $fd file_descriptor_of(event)
-  // 277:   $writer writers(fd)
-  // 278:   if writer.is_defined:
-  // 279:     no_longer_want_to_write_to fd
-  // 280:     !writers(fd) undefined
-  // 281:     return writer
+  // 283: ... :
+  // 284:   $fd file_descriptor_of(event)
+  // 285:   $writer writers(fd)
+  // 286:   if writer.is_defined:
+  // 287:     no_longer_want_to_write_to fd
+  // 288:     !writers(fd) undefined
+  // 289:     return writer
   frame->slots[4] /* temp__3 */ = create_closure(entry__39_10, 0);
-  // 282: ... :
-  // 283:   $pid pid_of(event)
-  // 284:   $terminator terminators(pid)
-  // 285:   if terminator.is_defined:
-  // 286:     !terminators(pid) undefined
-  // 287:     return terminator
+  // 290: ... :
+  // 291:   $pid pid_of(event)
+  // 292:   $terminator terminators(pid)
+  // 293:   if terminator.is_defined:
+  // 294:     !terminators(pid) undefined
+  // 295:     return terminator
   frame->slots[5] /* temp__4 */ = create_closure(entry__39_17, 0);
-  // 288: ... :
-  // 289:   return timeout_exceeded
+  // 296: ... :
+  // 297:   return timeout_exceeded
   frame->slots[6] /* temp__5 */ = create_closure(entry__39_23, 0);
-  // 266: case
-  // 267:   type_of(event)
-  // 268:   READ_FROM:
-  // 269:     $fd file_descriptor_of(event)
-  // 270:     $reader readers(fd)
-  // 271:     if reader.is_defined:
-  // 272:       no_longer_want_to_read_from fd
-  // 273:       !readers(fd) undefined
-  // 274:       return reader
-  // 275:   WRITE_TO:
+  // 274: case
+  // 275:   type_of(event)
+  // 276:   READ_FROM:
+  // 277:     $fd file_descriptor_of(event)
+  // 278:     $reader readers(fd)
+  // 279:     if reader.is_defined:
+  // 280:       no_longer_want_to_read_from fd
+  // 281:       !readers(fd) undefined
+  // 282:       return reader
+  // 283:   WRITE_TO:
   // ...
   argument_count = 9;
   arguments = node_p;
@@ -3498,9 +3498,9 @@ static void entry__39_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 286: !terminators(pid) undefined
+  // 294: !terminators(pid) undefined
   frame->slots[3] /* temp__1 */ = get__undefined();
-  // 286: !terminators(pid)
+  // 294: !terminators(pid)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* pid */;
@@ -3516,7 +3516,7 @@ static void cont__39_22(void) {
     return;
   }
   var._terminators = arguments->slots[0];
-  // 287: return terminator
+  // 295: return terminator
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* terminator */;
@@ -3538,7 +3538,7 @@ static void entry__39_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 279: no_longer_want_to_write_to fd
+  // 287: no_longer_want_to_write_to fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -3552,9 +3552,9 @@ static void cont__39_15(void) {
     invalid_results_error();
     return;
   }
-  // 280: !writers(fd) undefined
+  // 288: !writers(fd) undefined
   frame->slots[3] /* temp__1 */ = get__undefined();
-  // 280: !writers(fd)
+  // 288: !writers(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -3570,7 +3570,7 @@ static void cont__39_16(void) {
     return;
   }
   var._writers = arguments->slots[0];
-  // 281: return writer
+  // 289: return writer
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* writer */;
@@ -3592,7 +3592,7 @@ static void entry__39_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 272: no_longer_want_to_read_from fd
+  // 280: no_longer_want_to_read_from fd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -3606,9 +3606,9 @@ static void cont__39_8(void) {
     invalid_results_error();
     return;
   }
-  // 273: !readers(fd) undefined
+  // 281: !readers(fd) undefined
   frame->slots[3] /* temp__1 */ = get__undefined();
-  // 273: !readers(fd)
+  // 281: !readers(fd)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
@@ -3624,7 +3624,7 @@ static void cont__39_9(void) {
     return;
   }
   var._readers = arguments->slots[0];
-  // 274: return reader
+  // 282: return reader
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* reader */;
@@ -3648,7 +3648,7 @@ static void entry__39_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 269: $fd file_descriptor_of(event)
+  // 277: $fd file_descriptor_of(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* event */;
@@ -3663,7 +3663,7 @@ static void cont__39_4(void) {
     return;
   }
   initialize_future(frame->slots[2] /* fd */, arguments->slots[0]);
-  // 270: $reader readers(fd)
+  // 278: $reader readers(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* fd */;
@@ -3678,7 +3678,7 @@ static void cont__39_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* reader */, arguments->slots[0]);
-  // 271: ... reader.is_defined
+  // 279: ... reader.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* reader */;
@@ -3693,15 +3693,15 @@ static void cont__39_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 271: ... :
-  // 272:   no_longer_want_to_read_from fd
-  // 273:   !readers(fd) undefined
-  // 274:   return reader
+  // 279: ... :
+  // 280:   no_longer_want_to_read_from fd
+  // 281:   !readers(fd) undefined
+  // 282:   return reader
   frame->slots[5] /* temp__2 */ = create_closure(entry__39_7, 0);
-  // 271: if reader.is_defined:
-  // 272:   no_longer_want_to_read_from fd
-  // 273:   !readers(fd) undefined
-  // 274:   return reader
+  // 279: if reader.is_defined:
+  // 280:   no_longer_want_to_read_from fd
+  // 281:   !readers(fd) undefined
+  // 282:   return reader
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3726,7 +3726,7 @@ static void entry__39_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 276: $fd file_descriptor_of(event)
+  // 284: $fd file_descriptor_of(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* event */;
@@ -3741,7 +3741,7 @@ static void cont__39_11(void) {
     return;
   }
   initialize_future(frame->slots[2] /* fd */, arguments->slots[0]);
-  // 277: $writer writers(fd)
+  // 285: $writer writers(fd)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* fd */;
@@ -3756,7 +3756,7 @@ static void cont__39_12(void) {
     return;
   }
   initialize_future(frame->slots[3] /* writer */, arguments->slots[0]);
-  // 278: ... writer.is_defined
+  // 286: ... writer.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* writer */;
@@ -3771,15 +3771,15 @@ static void cont__39_13(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 278: ... :
-  // 279:   no_longer_want_to_write_to fd
-  // 280:   !writers(fd) undefined
-  // 281:   return writer
+  // 286: ... :
+  // 287:   no_longer_want_to_write_to fd
+  // 288:   !writers(fd) undefined
+  // 289:   return writer
   frame->slots[5] /* temp__2 */ = create_closure(entry__39_14, 0);
-  // 278: if writer.is_defined:
-  // 279:   no_longer_want_to_write_to fd
-  // 280:   !writers(fd) undefined
-  // 281:   return writer
+  // 286: if writer.is_defined:
+  // 287:   no_longer_want_to_write_to fd
+  // 288:   !writers(fd) undefined
+  // 289:   return writer
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3804,7 +3804,7 @@ static void entry__39_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 283: $pid pid_of(event)
+  // 291: $pid pid_of(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* event */;
@@ -3819,7 +3819,7 @@ static void cont__39_18(void) {
     return;
   }
   initialize_future(frame->slots[2] /* pid */, arguments->slots[0]);
-  // 284: $terminator terminators(pid)
+  // 292: $terminator terminators(pid)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* pid */;
@@ -3834,7 +3834,7 @@ static void cont__39_19(void) {
     return;
   }
   initialize_future(frame->slots[3] /* terminator */, arguments->slots[0]);
-  // 285: ... terminator.is_defined
+  // 293: ... terminator.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* terminator */;
@@ -3849,13 +3849,13 @@ static void cont__39_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 285: ... :
-  // 286:   !terminators(pid) undefined
-  // 287:   return terminator
+  // 293: ... :
+  // 294:   !terminators(pid) undefined
+  // 295:   return terminator
   frame->slots[5] /* temp__2 */ = create_closure(entry__39_21, 0);
-  // 285: if terminator.is_defined:
-  // 286:   !terminators(pid) undefined
-  // 287:   return terminator
+  // 293: if terminator.is_defined:
+  // 294:   !terminators(pid) undefined
+  // 295:   return terminator
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3874,7 +3874,7 @@ static void entry__39_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 289: return timeout_exceeded
+  // 297: return timeout_exceeded
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._timeout_exceeded;
@@ -3888,7 +3888,7 @@ static void cont__39_24(void) {
     invalid_results_error();
     return;
   }
-  // 290: -> undefined
+  // 298: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -3905,28 +3905,28 @@ static void entry__40_1_std__get_event(void) {
     invalid_arguments_error();
     return;
   }
-  // 304: ... : (myself^)
-  // 305:   if
-  // 306:     length_of(events) > 0:
-  // 307:       $event get(&events)
-  // 308:       $handler get_event_handler(event)
-  // 309:       if handler.is_defined:
-  // 310:         put &waiting_tasks myself
-  // 311:         if
-  // 312:           parameter_count_of(handler) == 1:
-  // 313:             handler event
+  // 314: ... : (myself^)
+  // 315:   if
+  // 316:     length_of(events) > 0:
+  // 317:       $event get(&events)
+  // 318:       $handler get_event_handler(event)
+  // 319:       if handler.is_defined:
+  // 320:         put &waiting_tasks myself
+  // 321:         if
+  // 322:           parameter_count_of(handler) == 1:
+  // 323:             handler event
   // ...
   frame->slots[1] /* temp__1 */ = create_closure(entry__40_2, 0);
-  // 304: forever: (myself^)
-  // 305:   if
-  // 306:     length_of(events) > 0:
-  // 307:       $event get(&events)
-  // 308:       $handler get_event_handler(event)
-  // 309:       if handler.is_defined:
-  // 310:         put &waiting_tasks myself
-  // 311:         if
-  // 312:           parameter_count_of(handler) == 1:
-  // 313:             handler event
+  // 314: forever: (myself^)
+  // 315:   if
+  // 316:     length_of(events) > 0:
+  // 317:       $event get(&events)
+  // 318:       $handler get_event_handler(event)
+  // 319:       if handler.is_defined:
+  // 320:         put &waiting_tasks myself
+  // 321:         if
+  // 322:           parameter_count_of(handler) == 1:
+  // 323:             handler event
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -3951,7 +3951,7 @@ static void entry__40_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 307: $event get(&events)
+  // 317: $event get(&events)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -3967,9 +3967,9 @@ static void cont__40_6(void) {
   }
   set__events(arguments->slots[0]);
   frame->slots[4] /* temp__1 */ = arguments->slots[1];
-  // 307: ... event
+  // 317: ... event
   initialize_future(frame->slots[2] /* event */, frame->slots[4] /* temp__1 */);
-  // 308: $handler get_event_handler(event)
+  // 318: $handler get_event_handler(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* event */;
@@ -3984,7 +3984,7 @@ static void cont__40_7(void) {
     return;
   }
   initialize_future(frame->slots[3] /* handler */, arguments->slots[0]);
-  // 309: ... handler.is_defined
+  // 319: ... handler.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* handler */;
@@ -3999,23 +3999,23 @@ static void cont__40_8(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 309: ... :
-  // 310:   put &waiting_tasks myself
-  // 311:   if
-  // 312:     parameter_count_of(handler) == 1:
-  // 313:       handler event
-  // 314:     :
-  // 315:       handler
-  // 316:   raise "invalid continuation"
+  // 319: ... :
+  // 320:   put &waiting_tasks myself
+  // 321:   if
+  // 322:     parameter_count_of(handler) == 1:
+  // 323:       handler event
+  // 324:     :
+  // 325:       handler
+  // 326:   raise "invalid continuation"
   frame->slots[5] /* temp__2 */ = create_closure(entry__40_9, 0);
-  // 309: if handler.is_defined:
-  // 310:   put &waiting_tasks myself
-  // 311:   if
-  // 312:     parameter_count_of(handler) == 1:
-  // 313:       handler event
-  // 314:     :
-  // 315:       handler
-  // 316:   raise "invalid continuation"
+  // 319: if handler.is_defined:
+  // 320:   put &waiting_tasks myself
+  // 321:   if
+  // 322:     parameter_count_of(handler) == 1:
+  // 323:       handler event
+  // 324:     :
+  // 325:       handler
+  // 326:   raise "invalid continuation"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4038,7 +4038,7 @@ static void entry__40_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 310: put &waiting_tasks myself
+  // 320: put &waiting_tasks myself
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._waiting_tasks;
@@ -4054,7 +4054,7 @@ static void cont__40_10(void) {
     return;
   }
   var._waiting_tasks = arguments->slots[0];
-  // 312: parameter_count_of(handler)
+  // 322: parameter_count_of(handler)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* handler */;
@@ -4069,7 +4069,7 @@ static void cont__40_11(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 312: parameter_count_of(handler) == 1
+  // 322: parameter_count_of(handler) == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -4085,17 +4085,17 @@ static void cont__40_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 312: ... :
-  // 313:   handler event
+  // 322: ... :
+  // 323:   handler event
   frame->slots[5] /* temp__3 */ = create_closure(entry__40_13, 0);
-  // 314: :
-  // 315:   handler
+  // 324: :
+  // 325:   handler
   frame->slots[6] /* temp__4 */ = create_closure(entry__40_14, 0);
-  // 311: if
-  // 312:   parameter_count_of(handler) == 1:
-  // 313:     handler event
-  // 314:   :
-  // 315:     handler
+  // 321: if
+  // 322:   parameter_count_of(handler) == 1:
+  // 323:     handler event
+  // 324:   :
+  // 325:     handler
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4117,7 +4117,7 @@ static void entry__40_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 313: handler event
+  // 323: handler event
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* event */;
@@ -4135,7 +4135,7 @@ static void entry__40_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 315: handler
+  // 325: handler
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -4148,7 +4148,7 @@ static void cont__40_15(void) {
     invalid_results_error();
     return;
   }
-  // 316: raise "invalid continuation"
+  // 326: raise "invalid continuation"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__40_16;
@@ -4162,7 +4162,7 @@ static void cont__40_17(void) {
     invalid_results_error();
     return;
   }
-  // 317: return event
+  // 327: return event
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* event */;
@@ -4178,7 +4178,7 @@ static void entry__40_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 319: get_low_level_events false
+  // 329: get_low_level_events false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -4198,7 +4198,7 @@ static void entry__40_2(void) {
     return;
   }
   frame->slots[0] /* myself */ = myself;
-  // 306: length_of(events)
+  // 316: length_of(events)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -4213,7 +4213,7 @@ static void cont__40_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 306: length_of(events) > 0
+  // 316: length_of(events) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -4229,28 +4229,28 @@ static void cont__40_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 306: ... :
-  // 307:   $event get(&events)
-  // 308:   $handler get_event_handler(event)
-  // 309:   if handler.is_defined:
-  // 310:     put &waiting_tasks myself
-  // 311:     if
-  // 312:       parameter_count_of(handler) == 1:
-  // 313:         handler event
-  // 314:       :
-  // 315:         handler
+  // 316: ... :
+  // 317:   $event get(&events)
+  // 318:   $handler get_event_handler(event)
+  // 319:   if handler.is_defined:
+  // 320:     put &waiting_tasks myself
+  // 321:     if
+  // 322:       parameter_count_of(handler) == 1:
+  // 323:         handler event
+  // 324:       :
+  // 325:         handler
   // ...
   frame->slots[4] /* temp__3 */ = create_closure(entry__40_5, 0);
-  // 305: if
-  // 306:   length_of(events) > 0:
-  // 307:     $event get(&events)
-  // 308:     $handler get_event_handler(event)
-  // 309:     if handler.is_defined:
-  // 310:       put &waiting_tasks myself
-  // 311:       if
-  // 312:         parameter_count_of(handler) == 1:
-  // 313:           handler event
-  // 314:         :
+  // 315: if
+  // 316:   length_of(events) > 0:
+  // 317:     $event get(&events)
+  // 318:     $handler get_event_handler(event)
+  // 319:     if handler.is_defined:
+  // 320:       put &waiting_tasks myself
+  // 321:       if
+  // 322:         parameter_count_of(handler) == 1:
+  // 323:           handler event
+  // 324:         :
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -4278,7 +4278,7 @@ static void entry__42_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 332: $n length_of(events)
+  // 342: $n length_of(events)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -4293,28 +4293,28 @@ static void cont__42_14(void) {
     return;
   }
   initialize_future(frame->slots[1] /* n */, arguments->slots[0]);
-  // 333: ... -> i <= n:
-  // 334:   $event events(i)
-  // 335:   $handler get_event_handler(event)
-  // 336:   if handler.is_defined:
-  // 337:     delete_at &events i
-  // 338:     if
-  // 339:       parameter_count_of(handler) == 1:
-  // 340:         handler event
-  // 341:       :
-  // 342:         handler
+  // 343: ... -> i <= n:
+  // 344:   $event events(i)
+  // 345:   $handler get_event_handler(event)
+  // 346:   if handler.is_defined:
+  // 347:     delete_at &events i
+  // 348:     if
+  // 349:       parameter_count_of(handler) == 1:
+  // 350:         handler event
+  // 351:       :
+  // 352:         handler
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__42_15, 0);
-  // 333: while -> i <= n:
-  // 334:   $event events(i)
-  // 335:   $handler get_event_handler(event)
-  // 336:   if handler.is_defined:
-  // 337:     delete_at &events i
-  // 338:     if
-  // 339:       parameter_count_of(handler) == 1:
-  // 340:         handler event
-  // 341:       :
-  // 342:         handler
+  // 343: while -> i <= n:
+  // 344:   $event events(i)
+  // 345:   $handler get_event_handler(event)
+  // 346:   if handler.is_defined:
+  // 347:     delete_at &events i
+  // 348:     if
+  // 349:       parameter_count_of(handler) == 1:
+  // 350:         handler event
+  // 351:       :
+  // 352:         handler
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -4337,7 +4337,7 @@ static void entry__42_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 334: $event events(i)
+  // 344: $event events(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* i */;
@@ -4352,7 +4352,7 @@ static void cont__42_19(void) {
     return;
   }
   initialize_future(frame->slots[1] /* event */, arguments->slots[0]);
-  // 335: $handler get_event_handler(event)
+  // 345: $handler get_event_handler(event)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* event */;
@@ -4367,7 +4367,7 @@ static void cont__42_20(void) {
     return;
   }
   initialize_future(frame->slots[2] /* handler */, arguments->slots[0]);
-  // 336: ... handler.is_defined
+  // 346: ... handler.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* handler */;
@@ -4382,23 +4382,23 @@ static void cont__42_21(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 336: ... :
-  // 337:   delete_at &events i
-  // 338:   if
-  // 339:     parameter_count_of(handler) == 1:
-  // 340:       handler event
-  // 341:     :
-  // 342:       handler
-  // 343:   raise "invalid continuation"
+  // 346: ... :
+  // 347:   delete_at &events i
+  // 348:   if
+  // 349:     parameter_count_of(handler) == 1:
+  // 350:       handler event
+  // 351:     :
+  // 352:       handler
+  // 353:   raise "invalid continuation"
   frame->slots[4] /* temp__2 */ = create_closure(entry__42_22, 0);
-  // 336: if handler.is_defined:
-  // 337:   delete_at &events i
-  // 338:   if
-  // 339:     parameter_count_of(handler) == 1:
-  // 340:       handler event
-  // 341:     :
-  // 342:       handler
-  // 343:   raise "invalid continuation"
+  // 346: if handler.is_defined:
+  // 347:   delete_at &events i
+  // 348:   if
+  // 349:     parameter_count_of(handler) == 1:
+  // 350:       handler event
+  // 351:     :
+  // 352:       handler
+  // 353:   raise "invalid continuation"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4421,7 +4421,7 @@ static void entry__42_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 337: delete_at &events i
+  // 347: delete_at &events i
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__events();
@@ -4437,7 +4437,7 @@ static void cont__42_23(void) {
     return;
   }
   set__events(arguments->slots[0]);
-  // 339: parameter_count_of(handler)
+  // 349: parameter_count_of(handler)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* handler */;
@@ -4452,7 +4452,7 @@ static void cont__42_24(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 339: parameter_count_of(handler) == 1
+  // 349: parameter_count_of(handler) == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -4468,17 +4468,17 @@ static void cont__42_25(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 339: ... :
-  // 340:   handler event
+  // 349: ... :
+  // 350:   handler event
   frame->slots[5] /* temp__3 */ = create_closure(entry__42_26, 0);
-  // 341: :
-  // 342:   handler
+  // 351: :
+  // 352:   handler
   frame->slots[6] /* temp__4 */ = create_closure(entry__42_27, 0);
-  // 338: if
-  // 339:   parameter_count_of(handler) == 1:
-  // 340:     handler event
-  // 341:   :
-  // 342:     handler
+  // 348: if
+  // 349:   parameter_count_of(handler) == 1:
+  // 350:     handler event
+  // 351:   :
+  // 352:     handler
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4500,7 +4500,7 @@ static void entry__42_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 340: handler event
+  // 350: handler event
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* event */;
@@ -4518,7 +4518,7 @@ static void entry__42_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 342: handler
+  // 352: handler
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -4531,7 +4531,7 @@ static void cont__42_28(void) {
     invalid_results_error();
     return;
   }
-  // 343: raise "invalid continuation"
+  // 353: raise "invalid continuation"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__40_16;
@@ -4545,7 +4545,7 @@ static void cont__42_29(void) {
     invalid_results_error();
     return;
   }
-  // 344: inc &i
+  // 354: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* i */;
@@ -4577,7 +4577,7 @@ static void entry__42_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 333: ... i <= n
+  // 343: ... i <= n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -4593,7 +4593,7 @@ static void cont__42_16(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 333: ... i <= n
+  // 343: ... i <= n
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4608,28 +4608,28 @@ static void cont__42_17(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 333: ... :
-  // 334:   $event events(i)
-  // 335:   $handler get_event_handler(event)
-  // 336:   if handler.is_defined:
-  // 337:     delete_at &events i
-  // 338:     if
-  // 339:       parameter_count_of(handler) == 1:
-  // 340:         handler event
-  // 341:       :
-  // 342:         handler
+  // 343: ... :
+  // 344:   $event events(i)
+  // 345:   $handler get_event_handler(event)
+  // 346:   if handler.is_defined:
+  // 347:     delete_at &events i
+  // 348:     if
+  // 349:       parameter_count_of(handler) == 1:
+  // 350:         handler event
+  // 351:       :
+  // 352:         handler
   // ...
   frame->slots[4] /* temp__3 */ = create_closure(entry__42_18, 0);
-  // 333: ... -> i <= n:
-  // 334:   $event events(i)
-  // 335:   $handler get_event_handler(event)
-  // 336:   if handler.is_defined:
-  // 337:     delete_at &events i
-  // 338:     if
-  // 339:       parameter_count_of(handler) == 1:
-  // 340:         handler event
-  // 341:       :
-  // 342:         handler
+  // 343: ... -> i <= n:
+  // 344:   $event events(i)
+  // 345:   $handler get_event_handler(event)
+  // 346:   if handler.is_defined:
+  // 347:     delete_at &events i
+  // 348:     if
+  // 349:       parameter_count_of(handler) == 1:
+  // 350:         handler event
+  // 351:       :
+  // 352:         handler
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4644,7 +4644,7 @@ static void cont__42_31(void) {
     invalid_results_error();
     return;
   }
-  // 345: get_low_level_events true
+  // 355: get_low_level_events true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -4662,7 +4662,7 @@ static void entry__42_1_std__process_events(void) {
     invalid_arguments_error();
     return;
   }
-  // 328: while -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
+  // 338: while -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__42_2;
@@ -4678,7 +4678,7 @@ static void entry__42_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 328: ... get(&waiting_tasks)
+  // 338: ... get(&waiting_tasks)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._waiting_tasks;
@@ -4694,7 +4694,7 @@ static void cont__42_6(void) {
   }
   var._waiting_tasks = arguments->slots[0];
   frame->slots[0] /* temp__1 */ = arguments->slots[1];
-  // 328: ... get(&waiting_tasks)
+  // 338: ... get(&waiting_tasks)
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -4709,7 +4709,7 @@ static void entry__42_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 328: ... length_of(waiting_tasks)
+  // 338: ... length_of(waiting_tasks)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._waiting_tasks;
@@ -4724,7 +4724,7 @@ static void cont__42_3(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 328: ... length_of(waiting_tasks) > 0
+  // 338: ... length_of(waiting_tasks) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -4740,7 +4740,7 @@ static void cont__42_4(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 328: ... -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
+  // 338: ... -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -4754,7 +4754,7 @@ static void cont__42_7(void) {
     invalid_results_error();
     return;
   }
-  // 329: ... readers.is_empty
+  // 339: ... readers.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._readers;
@@ -4769,7 +4769,7 @@ static void cont__42_8(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 329: ... readers.is_empty && writers.is_empty
+  // 339: ... readers.is_empty && writers.is_empty
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4786,7 +4786,7 @@ static void entry__42_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 329: ... writers.is_empty
+  // 339: ... writers.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._writers;
@@ -4801,7 +4801,7 @@ static void cont__42_10(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 329: ... writers.is_empty
+  // 339: ... writers.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -4815,7 +4815,7 @@ static void cont__42_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 329: if readers.is_empty && writers.is_empty terminate
+  // 339: if readers.is_empty && writers.is_empty terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4830,30 +4830,30 @@ static void cont__42_12(void) {
     invalid_results_error();
     return;
   }
-  // 330: $$i 1
+  // 340: $$i 1
   ((CELL *)frame->slots[0])->contents /* i */ = number__1;
-  // 331: ... :
-  // 332:   $n length_of(events)
-  // 333:   while -> i <= n:
-  // 334:     $event events(i)
-  // 335:     $handler get_event_handler(event)
-  // 336:     if handler.is_defined:
-  // 337:       delete_at &events i
-  // 338:       if
-  // 339:         parameter_count_of(handler) == 1:
-  // 340:           handler event
+  // 341: ... :
+  // 342:   $n length_of(events)
+  // 343:   while -> i <= n:
+  // 344:     $event events(i)
+  // 345:     $handler get_event_handler(event)
+  // 346:     if handler.is_defined:
+  // 347:       delete_at &events i
+  // 348:       if
+  // 349:         parameter_count_of(handler) == 1:
+  // 350:           handler event
   // ...
   frame->slots[1] /* temp__1 */ = create_closure(entry__42_13, 0);
-  // 331: forever:
-  // 332:   $n length_of(events)
-  // 333:   while -> i <= n:
-  // 334:     $event events(i)
-  // 335:     $handler get_event_handler(event)
-  // 336:     if handler.is_defined:
-  // 337:       delete_at &events i
-  // 338:       if
-  // 339:         parameter_count_of(handler) == 1:
-  // 340:           handler event
+  // 341: forever:
+  // 342:   $n length_of(events)
+  // 343:   while -> i <= n:
+  // 344:     $event events(i)
+  // 345:     $handler get_event_handler(event)
+  // 346:     if handler.is_defined:
+  // 347:       delete_at &events i
+  // 348:       if
+  // 349:         parameter_count_of(handler) == 1:
+  // 350:           handler event
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -4871,28 +4871,28 @@ static void entry__43_1_std__wait_to(void) {
   // event: 1
   frame->slots[1] /* event */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 356: ... : (-> continuation)
-  // 357:   for_each args: (arg)
-  // 358:     $type key_of(arg)
-  // 359:     $value value_of(arg)
-  // 360:     case
-  // 361:       type
-  // 362:       READ_FROM:
-  // 363:         want_to_read_from value
-  // 364:         !readers(value) continuation
-  // 365:       WRITE_TO:
+  // 368: ... : (-> continuation)
+  // 369:   for_each args: (arg)
+  // 370:     $type key_of(arg)
+  // 371:     $value value_of(arg)
+  // 372:     case
+  // 373:       type
+  // 374:       READ_FROM:
+  // 375:         want_to_read_from value
+  // 376:         !readers(value) continuation
+  // 377:       WRITE_TO:
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__43_2, 0);
-  // 356: do $event: (-> continuation)
-  // 357:   for_each args: (arg)
-  // 358:     $type key_of(arg)
-  // 359:     $value value_of(arg)
-  // 360:     case
-  // 361:       type
-  // 362:       READ_FROM:
-  // 363:         want_to_read_from value
-  // 364:         !readers(value) continuation
-  // 365:       WRITE_TO:
+  // 368: do $event: (-> continuation)
+  // 369:   for_each args: (arg)
+  // 370:     $type key_of(arg)
+  // 371:     $value value_of(arg)
+  // 372:     case
+  // 373:       type
+  // 374:       READ_FROM:
+  // 375:         want_to_read_from value
+  // 376:         !readers(value) continuation
+  // 377:       WRITE_TO:
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -4913,28 +4913,28 @@ static void entry__43_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 357: ... : (arg)
-  // 358:   $type key_of(arg)
-  // 359:   $value value_of(arg)
-  // 360:   case
-  // 361:     type
-  // 362:     READ_FROM:
-  // 363:       want_to_read_from value
-  // 364:       !readers(value) continuation
-  // 365:     WRITE_TO:
-  // 366:       want_to_write_to value
+  // 369: ... : (arg)
+  // 370:   $type key_of(arg)
+  // 371:   $value value_of(arg)
+  // 372:   case
+  // 373:     type
+  // 374:     READ_FROM:
+  // 375:       want_to_read_from value
+  // 376:       !readers(value) continuation
+  // 377:     WRITE_TO:
+  // 378:       want_to_write_to value
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__43_3, 1);
-  // 357: for_each args: (arg)
-  // 358:   $type key_of(arg)
-  // 359:   $value value_of(arg)
-  // 360:   case
-  // 361:     type
-  // 362:     READ_FROM:
-  // 363:       want_to_read_from value
-  // 364:       !readers(value) continuation
-  // 365:     WRITE_TO:
-  // 366:       want_to_write_to value
+  // 369: for_each args: (arg)
+  // 370:   $type key_of(arg)
+  // 371:   $value value_of(arg)
+  // 372:   case
+  // 373:     type
+  // 374:     READ_FROM:
+  // 375:       want_to_read_from value
+  // 376:       !readers(value) continuation
+  // 377:     WRITE_TO:
+  // 378:       want_to_write_to value
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4956,7 +4956,7 @@ static void entry__43_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 363: want_to_read_from value
+  // 375: want_to_read_from value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -4970,9 +4970,9 @@ static void cont__43_7(void) {
     invalid_results_error();
     return;
   }
-  // 364: !readers(value) continuation
+  // 376: !readers(value) continuation
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* continuation */;
-  // 364: !readers(value)
+  // 376: !readers(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5005,7 +5005,7 @@ static void entry__43_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 366: want_to_write_to value
+  // 378: want_to_write_to value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5019,9 +5019,9 @@ static void cont__43_10(void) {
     invalid_results_error();
     return;
   }
-  // 367: !writers(value) continuation
+  // 379: !writers(value) continuation
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* continuation */;
-  // 367: !writers(value)
+  // 379: !writers(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5054,9 +5054,9 @@ static void entry__43_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 369: !terminators(value) continuation
+  // 381: !terminators(value) continuation
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* continuation */;
-  // 369: !terminators(value)
+  // 381: !terminators(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5089,9 +5089,9 @@ static void entry__43_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 371: !timeout value
+  // 383: !timeout value
   var._timeout = frame->slots[0] /* value */;
-  // 372: !timeout_exceeded continuation
+  // 384: !timeout_exceeded continuation
   var._timeout_exceeded = frame->slots[1] /* continuation */;
   argument_count = 0;
   arguments = node_p;
@@ -5113,7 +5113,7 @@ static void entry__43_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 358: $type key_of(arg)
+  // 370: $type key_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -5128,7 +5128,7 @@ static void cont__43_4(void) {
     return;
   }
   initialize_future(frame->slots[2] /* type */, arguments->slots[0]);
-  // 359: $value value_of(arg)
+  // 371: $value value_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -5143,31 +5143,31 @@ static void cont__43_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* value */, arguments->slots[0]);
-  // 362: ... :
-  // 363:   want_to_read_from value
-  // 364:   !readers(value) continuation
+  // 374: ... :
+  // 375:   want_to_read_from value
+  // 376:   !readers(value) continuation
   frame->slots[4] /* temp__1 */ = create_closure(entry__43_6, 0);
-  // 365: ... :
-  // 366:   want_to_write_to value
-  // 367:   !writers(value) continuation
+  // 377: ... :
+  // 378:   want_to_write_to value
+  // 379:   !writers(value) continuation
   frame->slots[5] /* temp__2 */ = create_closure(entry__43_9, 0);
-  // 368: ... :
-  // 369:   !terminators(value) continuation
+  // 380: ... :
+  // 381:   !terminators(value) continuation
   frame->slots[6] /* temp__3 */ = create_closure(entry__43_12, 0);
-  // 370: ... :
-  // 371:   !timeout value
-  // 372:   !timeout_exceeded continuation
+  // 382: ... :
+  // 383:   !timeout value
+  // 384:   !timeout_exceeded continuation
   frame->slots[7] /* temp__4 */ = create_closure(entry__43_14, 0);
-  // 360: case
-  // 361:   type
-  // 362:   READ_FROM:
-  // 363:     want_to_read_from value
-  // 364:     !readers(value) continuation
-  // 365:   WRITE_TO:
-  // 366:     want_to_write_to value
-  // 367:     !writers(value) continuation
-  // 368:   TERMINATED:
-  // 369:     !terminators(value) continuation
+  // 372: case
+  // 373:   type
+  // 374:   READ_FROM:
+  // 375:     want_to_read_from value
+  // 376:     !readers(value) continuation
+  // 377:   WRITE_TO:
+  // 378:     want_to_write_to value
+  // 379:     !writers(value) continuation
+  // 380:   TERMINATED:
+  // 381:     !terminators(value) continuation
   // ...
   argument_count = 9;
   arguments = node_p;
@@ -5190,7 +5190,7 @@ static void cont__43_15(void) {
     invalid_results_error();
     return;
   }
-  // 373: process_events # will never return directly
+  // 385: process_events # will never return directly
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -5209,16 +5209,16 @@ static void cont__43_17(void) {
     return;
   }
   initialize_future(frame->slots[1] /* event */, arguments->slots[0]);
-  // 374: for_each args: (arg)
-  // 375:   $type key_of(arg)
-  // 376:   $value value_of(arg)
-  // 377:   case
-  // 378:     type
-  // 379:     READ_FROM:
-  // 380:       no_longer_want_to_read_from value
-  // 381:       !readers(value) undefined
-  // 382:     WRITE_TO:
-  // 383:       no_longer_want_to_write_to value
+  // 386: for_each args: (arg)
+  // 387:   $type key_of(arg)
+  // 388:   $value value_of(arg)
+  // 389:   case
+  // 390:     type
+  // 391:     READ_FROM:
+  // 392:       no_longer_want_to_read_from value
+  // 393:       !readers(value) undefined
+  // 394:     WRITE_TO:
+  // 395:       no_longer_want_to_write_to value
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5238,7 +5238,7 @@ static void entry__43_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 380: no_longer_want_to_read_from value
+  // 392: no_longer_want_to_read_from value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5252,9 +5252,9 @@ static void cont__43_22(void) {
     invalid_results_error();
     return;
   }
-  // 381: !readers(value) undefined
+  // 393: !readers(value) undefined
   frame->slots[1] /* temp__1 */ = get__undefined();
-  // 381: !readers(value)
+  // 393: !readers(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5285,7 +5285,7 @@ static void entry__43_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 383: no_longer_want_to_write_to value
+  // 395: no_longer_want_to_write_to value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5299,9 +5299,9 @@ static void cont__43_25(void) {
     invalid_results_error();
     return;
   }
-  // 384: !writers(value) undefined
+  // 396: !writers(value) undefined
   frame->slots[1] /* temp__1 */ = get__undefined();
-  // 384: !writers(value)
+  // 396: !writers(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5332,9 +5332,9 @@ static void entry__43_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 386: !terminators(value) undefined
+  // 398: !terminators(value) undefined
   frame->slots[1] /* temp__1 */ = get__undefined();
-  // 386: !terminators(value)
+  // 398: !terminators(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -5368,7 +5368,7 @@ static void entry__43_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 375: $type key_of(arg)
+  // 387: $type key_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -5383,7 +5383,7 @@ static void cont__43_19(void) {
     return;
   }
   initialize_future(frame->slots[1] /* type */, arguments->slots[0]);
-  // 376: $value value_of(arg)
+  // 388: $value value_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -5398,27 +5398,27 @@ static void cont__43_20(void) {
     return;
   }
   initialize_future(frame->slots[2] /* value */, arguments->slots[0]);
-  // 379: ... :
-  // 380:   no_longer_want_to_read_from value
-  // 381:   !readers(value) undefined
+  // 391: ... :
+  // 392:   no_longer_want_to_read_from value
+  // 393:   !readers(value) undefined
   frame->slots[3] /* temp__1 */ = create_closure(entry__43_21, 0);
-  // 382: ... :
-  // 383:   no_longer_want_to_write_to value
-  // 384:   !writers(value) undefined
+  // 394: ... :
+  // 395:   no_longer_want_to_write_to value
+  // 396:   !writers(value) undefined
   frame->slots[4] /* temp__2 */ = create_closure(entry__43_24, 0);
-  // 385: ... :
-  // 386:   !terminators(value) undefined
+  // 397: ... :
+  // 398:   !terminators(value) undefined
   frame->slots[5] /* temp__3 */ = create_closure(entry__43_27, 0);
-  // 377: case
-  // 378:   type
-  // 379:   READ_FROM:
-  // 380:     no_longer_want_to_read_from value
-  // 381:     !readers(value) undefined
-  // 382:   WRITE_TO:
-  // 383:     no_longer_want_to_write_to value
-  // 384:     !writers(value) undefined
-  // 385:   TERMINATED:
-  // 386:     !terminators(value) undefined
+  // 389: case
+  // 390:   type
+  // 391:   READ_FROM:
+  // 392:     no_longer_want_to_read_from value
+  // 393:     !readers(value) undefined
+  // 394:   WRITE_TO:
+  // 395:     no_longer_want_to_write_to value
+  // 396:     !writers(value) undefined
+  // 397:   TERMINATED:
+  // 398:     !terminators(value) undefined
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* type */;
@@ -5438,11 +5438,11 @@ static void cont__43_29(void) {
     invalid_results_error();
     return;
   }
-  // 387: !timeout undefined
+  // 399: !timeout undefined
   var._timeout = get__undefined();
-  // 388: !timeout_exceeded undefined
+  // 400: !timeout_exceeded undefined
   var._timeout_exceeded = get__undefined();
-  // 389: -> event
+  // 401: -> event
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* event */;
@@ -5456,7 +5456,7 @@ static void entry__44_1_std__par(void) {
   // slot allocations:
   // tasks: 0
   frame->slots[0] /* tasks */ = from_arguments(0, argument_count-0);
-  // 392: append &waiting_tasks tasks
+  // 404: append &waiting_tasks tasks
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._waiting_tasks;
@@ -5472,7 +5472,7 @@ static void cont__44_2(void) {
     return;
   }
   var._waiting_tasks = arguments->slots[0];
-  // 393: process_events
+  // 405: process_events
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;

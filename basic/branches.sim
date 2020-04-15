@@ -22,6 +22,8 @@
 
 $std::cond:
   #
+    a multiway conditional expression or statement
+
     The conditions are evaluated one after the other until a condition
     evaluates to true. If a condition evaluates to true its corresponding
     statement-sequence is executed and no more conditions are considered.
@@ -141,17 +143,23 @@ $std::case:
 
 $std::check_case:
   #
-    If calling the check function with the specified expression as
-    its first and a value from the case list as its second argument returns
-    *true* then the corresponding statement sequence is executed. After a
-    check succeeds no more alternatives are considered.
+    case-function with specified comparison function
+
+    The *check function* is used to compare the *expression* with the specified
+    cases.
+
+    The *expression* is used as the first argument and each *case* is used as
+    the second argument in the call of the *check function*.
+
+    If the *check function* returns <true> then the correspondig statement
+    sequence is executed.
 
     The last argument can be a single statement sequence without a preceding
     value. It is executed if no check is successful.
 
     Topics: Control Flow, Branches
 
-    See also: if, cond, check
+    See also: case, if, cond
 
     Example:
 

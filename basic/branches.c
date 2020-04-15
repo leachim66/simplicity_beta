@@ -508,103 +508,103 @@ void run__basic__branches(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__branches, NULL, },
-  {entry__1_1_std__cond, NULL, 53, 53, 3, 16},
-  {entry__2_10, NULL, 61, 61, 57, 57},
-  {cont__2_11, &frame__2_10, 61, 61, 43, 58},
-  {cont__2_12, &frame__2_10, 61, 61, 33, 58},
-  {entry__2_9, NULL, 61, 61, 11, 58},
-  {entry__2_13, NULL, 63, 63, 11, 22},
-  {entry__2_7, NULL, 60, 60, 9, 23},
-  {cont__2_8, &frame__2_7, 59, 63, 7, 23},
-  {entry__2_3, NULL, 57, 57, 5, 11},
-  {cont__2_4, &frame__2_3, 57, 57, 5, 33},
-  {cont__2_5, &frame__2_3, 58, 58, 8, 30},
-  {cont__2_6, &frame__2_3, 58, 63, 5, 24},
-  {entry__2_1_cond_list, NULL, 56, 56, 10, 22},
-  {cont__2_2, &frame__2_1_cond_list, 56, 63, 3, 25},
-  {entry__3_7, NULL, 102, 102, 11, 23},
-  {cont__3_8, &frame__3_7, 103, 103, 11, 14},
-  {entry__3_20, NULL, 115, 115, 49, 74},
-  {cont__3_21, &frame__3_20, 115, 115, 49, 74},
-  {entry__3_27, NULL, 119, 119, 39, 63},
-  {cont__3_28, &frame__3_27, 119, 119, 31, 63},
-  {cont__3_29, &frame__3_27, 119, 119, 31, 63},
-  {cont__3_30, &frame__3_27, 119, 119, 31, 63},
-  {entry__3_32, NULL, 122, 122, 31, 35},
-  {entry__3_23, NULL, 118, 118, 39, 63},
-  {cont__3_24, &frame__3_23, 118, 118, 31, 63},
-  {cont__3_25, &frame__3_23, 118, 118, 31, 63},
-  {cont__3_26, &frame__3_23, 117, 119, 29, 62},
-  {cont__3_31, &frame__3_23, 116, 122, 27, 36},
-  {entry__3_35, NULL, 126, 126, 29, 33},
-  {entry__3_33, NULL, 124, 124, 30, 46},
-  {cont__3_34, &frame__3_33, 124, 126, 27, 33},
-  {entry__3_18, NULL, 115, 115, 25, 44},
-  {cont__3_19, &frame__3_18, 115, 115, 25, 74},
-  {cont__3_22, &frame__3_18, 114, 126, 23, 35},
-  {entry__3_17, NULL, 113, 126, 21, 36},
-  {cont__3_36, &frame__3_17, 126, 126, 36, 36},
-  {entry__3_16, NULL, 112, 126, 19, 37},
-  {entry__3_14, NULL, 111, 111, 20, 38},
-  {cont__3_15, &frame__3_14, 111, 126, 17, 38},
-  {entry__3_43, NULL, 131, 131, 31, 51},
-  {cont__3_44, &frame__3_43, 131, 131, 23, 51},
-  {cont__3_45, &frame__3_43, 131, 131, 23, 51},
-  {cont__3_46, &frame__3_43, 131, 131, 23, 51},
-  {entry__3_48, NULL, 133, 133, 35, 35},
-  {entry__3_39, NULL, 130, 130, 31, 51},
-  {cont__3_40, &frame__3_39, 130, 130, 23, 51},
-  {cont__3_41, &frame__3_39, 130, 130, 23, 51},
-  {cont__3_42, &frame__3_39, 129, 131, 21, 50},
-  {cont__3_47, &frame__3_39, 128, 133, 19, 36},
-  {entry__3_37, NULL, 127, 127, 20, 41},
-  {cont__3_38, &frame__3_37, 127, 133, 17, 37},
-  {entry__3_51, NULL, 135, 135, 49, 49},
-  {entry__3_49, NULL, 135, 135, 22, 34},
-  {cont__3_50, &frame__3_49, 135, 135, 19, 49},
-  {entry__3_13, NULL, 110, 135, 15, 50},
-  {entry__3_54, NULL, 137, 137, 49, 49},
-  {entry__3_52, NULL, 137, 137, 18, 34},
-  {cont__3_53, &frame__3_52, 137, 137, 15, 49},
-  {entry__3_56, NULL, 138, 138, 57, 57},
-  {cont__3_57, &frame__3_56, 138, 138, 43, 58},
-  {cont__3_58, &frame__3_56, 138, 138, 28, 58},
-  {entry__3_9, NULL, 105, 105, 11, 24},
-  {cont__3_10, &frame__3_9, 106, 106, 11, 23},
-  {cont__3_11, &frame__3_9, 109, 109, 13, 28},
-  {cont__3_12, &frame__3_9, 108, 137, 11, 50},
-  {cont__3_55, &frame__3_9, 138, 138, 11, 58},
-  {entry__3_5, NULL, 101, 101, 9, 16},
-  {cont__3_6, &frame__3_5, 100, 138, 7, 59},
-  {entry__3_2_recursive_case, NULL, 98, 98, 5, 24},
-  {cont__3_3, &frame__3_2_recursive_case, 99, 99, 8, 14},
-  {cont__3_4, &frame__3_2_recursive_case, 99, 138, 5, 60},
-  {entry__3_1_std__case, NULL, 140, 140, 3, 34},
-  {entry__4_7, NULL, 176, 176, 11, 23},
-  {cont__4_8, &frame__4_7, 177, 177, 11, 14},
-  {entry__4_17, NULL, 188, 188, 21, 25},
-  {entry__4_15, NULL, 186, 186, 22, 42},
-  {cont__4_16, &frame__4_15, 186, 188, 19, 25},
-  {entry__4_14, NULL, 185, 188, 17, 26},
-  {cont__4_18, &frame__4_14, 188, 188, 26, 26},
-  {entry__4_13, NULL, 184, 188, 15, 27},
-  {entry__4_21, NULL, 190, 190, 49, 49},
-  {entry__4_19, NULL, 190, 190, 18, 34},
-  {cont__4_20, &frame__4_19, 190, 190, 15, 49},
-  {entry__4_23, NULL, 191, 191, 63, 63},
-  {cont__4_24, &frame__4_23, 191, 191, 49, 64},
-  {cont__4_25, &frame__4_23, 191, 191, 28, 64},
-  {entry__4_9, NULL, 179, 179, 11, 24},
-  {cont__4_10, &frame__4_9, 180, 180, 11, 23},
-  {cont__4_11, &frame__4_9, 183, 183, 13, 31},
-  {cont__4_12, &frame__4_9, 182, 190, 11, 50},
-  {cont__4_22, &frame__4_9, 191, 191, 11, 64},
-  {entry__4_5, NULL, 175, 175, 9, 16},
-  {cont__4_6, &frame__4_5, 174, 191, 7, 65},
-  {entry__4_2_recursive_check_case, NULL, 172, 172, 5, 24},
-  {cont__4_3, &frame__4_2_recursive_check_case, 173, 173, 8, 14},
-  {cont__4_4, &frame__4_2_recursive_check_case, 173, 191, 5, 66},
-  {entry__4_1_std__check_case, NULL, 193, 193, 3, 40}
+  {entry__1_1_std__cond, NULL, 55, 55, 3, 16},
+  {entry__2_10, NULL, 63, 63, 57, 57},
+  {cont__2_11, &frame__2_10, 63, 63, 43, 58},
+  {cont__2_12, &frame__2_10, 63, 63, 33, 58},
+  {entry__2_9, NULL, 63, 63, 11, 58},
+  {entry__2_13, NULL, 65, 65, 11, 22},
+  {entry__2_7, NULL, 62, 62, 9, 23},
+  {cont__2_8, &frame__2_7, 61, 65, 7, 23},
+  {entry__2_3, NULL, 59, 59, 5, 11},
+  {cont__2_4, &frame__2_3, 59, 59, 5, 33},
+  {cont__2_5, &frame__2_3, 60, 60, 8, 30},
+  {cont__2_6, &frame__2_3, 60, 65, 5, 24},
+  {entry__2_1_cond_list, NULL, 58, 58, 10, 22},
+  {cont__2_2, &frame__2_1_cond_list, 58, 65, 3, 25},
+  {entry__3_7, NULL, 104, 104, 11, 23},
+  {cont__3_8, &frame__3_7, 105, 105, 11, 14},
+  {entry__3_20, NULL, 117, 117, 49, 74},
+  {cont__3_21, &frame__3_20, 117, 117, 49, 74},
+  {entry__3_27, NULL, 121, 121, 39, 63},
+  {cont__3_28, &frame__3_27, 121, 121, 31, 63},
+  {cont__3_29, &frame__3_27, 121, 121, 31, 63},
+  {cont__3_30, &frame__3_27, 121, 121, 31, 63},
+  {entry__3_32, NULL, 124, 124, 31, 35},
+  {entry__3_23, NULL, 120, 120, 39, 63},
+  {cont__3_24, &frame__3_23, 120, 120, 31, 63},
+  {cont__3_25, &frame__3_23, 120, 120, 31, 63},
+  {cont__3_26, &frame__3_23, 119, 121, 29, 62},
+  {cont__3_31, &frame__3_23, 118, 124, 27, 36},
+  {entry__3_35, NULL, 128, 128, 29, 33},
+  {entry__3_33, NULL, 126, 126, 30, 46},
+  {cont__3_34, &frame__3_33, 126, 128, 27, 33},
+  {entry__3_18, NULL, 117, 117, 25, 44},
+  {cont__3_19, &frame__3_18, 117, 117, 25, 74},
+  {cont__3_22, &frame__3_18, 116, 128, 23, 35},
+  {entry__3_17, NULL, 115, 128, 21, 36},
+  {cont__3_36, &frame__3_17, 128, 128, 36, 36},
+  {entry__3_16, NULL, 114, 128, 19, 37},
+  {entry__3_14, NULL, 113, 113, 20, 38},
+  {cont__3_15, &frame__3_14, 113, 128, 17, 38},
+  {entry__3_43, NULL, 133, 133, 31, 51},
+  {cont__3_44, &frame__3_43, 133, 133, 23, 51},
+  {cont__3_45, &frame__3_43, 133, 133, 23, 51},
+  {cont__3_46, &frame__3_43, 133, 133, 23, 51},
+  {entry__3_48, NULL, 135, 135, 35, 35},
+  {entry__3_39, NULL, 132, 132, 31, 51},
+  {cont__3_40, &frame__3_39, 132, 132, 23, 51},
+  {cont__3_41, &frame__3_39, 132, 132, 23, 51},
+  {cont__3_42, &frame__3_39, 131, 133, 21, 50},
+  {cont__3_47, &frame__3_39, 130, 135, 19, 36},
+  {entry__3_37, NULL, 129, 129, 20, 41},
+  {cont__3_38, &frame__3_37, 129, 135, 17, 37},
+  {entry__3_51, NULL, 137, 137, 49, 49},
+  {entry__3_49, NULL, 137, 137, 22, 34},
+  {cont__3_50, &frame__3_49, 137, 137, 19, 49},
+  {entry__3_13, NULL, 112, 137, 15, 50},
+  {entry__3_54, NULL, 139, 139, 49, 49},
+  {entry__3_52, NULL, 139, 139, 18, 34},
+  {cont__3_53, &frame__3_52, 139, 139, 15, 49},
+  {entry__3_56, NULL, 140, 140, 57, 57},
+  {cont__3_57, &frame__3_56, 140, 140, 43, 58},
+  {cont__3_58, &frame__3_56, 140, 140, 28, 58},
+  {entry__3_9, NULL, 107, 107, 11, 24},
+  {cont__3_10, &frame__3_9, 108, 108, 11, 23},
+  {cont__3_11, &frame__3_9, 111, 111, 13, 28},
+  {cont__3_12, &frame__3_9, 110, 139, 11, 50},
+  {cont__3_55, &frame__3_9, 140, 140, 11, 58},
+  {entry__3_5, NULL, 103, 103, 9, 16},
+  {cont__3_6, &frame__3_5, 102, 140, 7, 59},
+  {entry__3_2_recursive_case, NULL, 100, 100, 5, 24},
+  {cont__3_3, &frame__3_2_recursive_case, 101, 101, 8, 14},
+  {cont__3_4, &frame__3_2_recursive_case, 101, 140, 5, 60},
+  {entry__3_1_std__case, NULL, 142, 142, 3, 34},
+  {entry__4_7, NULL, 184, 184, 11, 23},
+  {cont__4_8, &frame__4_7, 185, 185, 11, 14},
+  {entry__4_17, NULL, 196, 196, 21, 25},
+  {entry__4_15, NULL, 194, 194, 22, 42},
+  {cont__4_16, &frame__4_15, 194, 196, 19, 25},
+  {entry__4_14, NULL, 193, 196, 17, 26},
+  {cont__4_18, &frame__4_14, 196, 196, 26, 26},
+  {entry__4_13, NULL, 192, 196, 15, 27},
+  {entry__4_21, NULL, 198, 198, 49, 49},
+  {entry__4_19, NULL, 198, 198, 18, 34},
+  {cont__4_20, &frame__4_19, 198, 198, 15, 49},
+  {entry__4_23, NULL, 199, 199, 63, 63},
+  {cont__4_24, &frame__4_23, 199, 199, 49, 64},
+  {cont__4_25, &frame__4_23, 199, 199, 28, 64},
+  {entry__4_9, NULL, 187, 187, 11, 24},
+  {cont__4_10, &frame__4_9, 188, 188, 11, 23},
+  {cont__4_11, &frame__4_9, 191, 191, 13, 31},
+  {cont__4_12, &frame__4_9, 190, 198, 11, 50},
+  {cont__4_22, &frame__4_9, 199, 199, 11, 64},
+  {entry__4_5, NULL, 183, 183, 9, 16},
+  {cont__4_6, &frame__4_5, 182, 199, 7, 65},
+  {entry__4_2_recursive_check_case, NULL, 180, 180, 5, 24},
+  {cont__4_3, &frame__4_2_recursive_check_case, 181, 181, 8, 14},
+  {cont__4_4, &frame__4_2_recursive_check_case, 181, 199, 5, 66},
+  {entry__4_1_std__check_case, NULL, 201, 201, 3, 40}
 };
 
 union NODE {
@@ -661,7 +661,7 @@ static void entry__1_1_std__cond(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 53: cond_list args
+  // 55: cond_list args
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -679,7 +679,7 @@ static void entry__2_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 61: ... 1
+  // 63: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -694,7 +694,7 @@ static void cont__2_11(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 61: ... range(args 2 -1)
+  // 63: ... range(args 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -711,7 +711,7 @@ static void cont__2_12(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 61: ... cond_list range(args 2 -1)
+  // 63: ... cond_list range(args 2 -1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -733,9 +733,9 @@ static void entry__2_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 61: ... : cond_list range(args 2 -1)
+  // 63: ... : cond_list range(args 2 -1)
   frame->slots[3] /* temp__1 */ = create_closure(entry__2_10, 0);
-  // 61: if cond_or_body body: cond_list range(args 2 -1)
+  // 63: if cond_or_body body: cond_list range(args 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* cond_or_body */;
@@ -755,7 +755,7 @@ static void entry__2_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 63: cond_or_body
+  // 65: cond_or_body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -776,7 +776,7 @@ static void entry__2_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 60: body.is_defined
+  // 62: body.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -791,17 +791,17 @@ static void cont__2_8(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 60: ... :
-  // 61:   if cond_or_body body: cond_list range(args 2 -1)
+  // 62: ... :
+  // 63:   if cond_or_body body: cond_list range(args 2 -1)
   frame->slots[4] /* temp__2 */ = create_closure(entry__2_9, 0);
-  // 62: :
-  // 63:   cond_or_body
+  // 64: :
+  // 65:   cond_or_body
   frame->slots[5] /* temp__3 */ = create_closure(entry__2_13, 0);
-  // 59: if
-  // 60:   body.is_defined:
-  // 61:     if cond_or_body body: cond_list range(args 2 -1)
-  // 62:   :
-  // 63:     cond_or_body
+  // 61: if
+  // 62:   body.is_defined:
+  // 63:     if cond_or_body body: cond_list range(args 2 -1)
+  // 64:   :
+  // 65:     cond_or_body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -825,7 +825,7 @@ static void entry__2_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 57: args(1)
+  // 59: args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -840,7 +840,7 @@ static void cont__2_4(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 57: args(1) $cond_or_body? $body?
+  // 59: args(1) $cond_or_body? $body?
   argument_count = 0;
   arguments = node_p;
   result_count = -1;
@@ -862,11 +862,11 @@ static void cont__2_5(void) {
     case 0: frame->slots[3] /* temp__1 */ = undefined;
     case 1: frame->slots[4] /* temp__2 */ = undefined;
   }
-  // 57: ... cond_or_body
+  // 59: ... cond_or_body
   initialize_future(frame->slots[1] /* cond_or_body */, frame->slots[3] /* temp__1 */);
-  // 57: ... body
+  // 59: ... body
   initialize_future(frame->slots[2] /* body */, frame->slots[4] /* temp__2 */);
-  // 58: ... cond_or_body.is_defined
+  // 60: ... cond_or_body.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* cond_or_body */;
@@ -881,19 +881,19 @@ static void cont__2_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 58: ... : # if not it's the default case
-  // 59:   if
-  // 60:     body.is_defined:
-  // 61:       if cond_or_body body: cond_list range(args 2 -1)
-  // 62:     :
-  // 63:       cond_or_body
+  // 60: ... : # if not it's the default case
+  // 61:   if
+  // 62:     body.is_defined:
+  // 63:       if cond_or_body body: cond_list range(args 2 -1)
+  // 64:     :
+  // 65:       cond_or_body
   frame->slots[4] /* temp__2 */ = create_closure(entry__2_7, 0);
-  // 58: if cond_or_body.is_defined: # if not it's the default case
-  // 59:   if
-  // 60:     body.is_defined:
-  // 61:       if cond_or_body body: cond_list range(args 2 -1)
-  // 62:     :
-  // 63:       cond_or_body
+  // 60: if cond_or_body.is_defined: # if not it's the default case
+  // 61:   if
+  // 62:     body.is_defined:
+  // 63:       if cond_or_body body: cond_list range(args 2 -1)
+  // 64:     :
+  // 65:       cond_or_body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -911,7 +911,7 @@ static void entry__2_1_cond_list(void) {
     invalid_arguments_error();
     return;
   }
-  // 56: ... args.is_empty
+  // 58: ... args.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -926,23 +926,23 @@ static void cont__2_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 56: ... :
-  // 57:   args(1) $cond_or_body? $body?
-  // 58:   if cond_or_body.is_defined: # if not it's the default case
-  // 59:     if
-  // 60:       body.is_defined:
-  // 61:         if cond_or_body body: cond_list range(args 2 -1)
-  // 62:       :
-  // 63:         cond_or_body
+  // 58: ... :
+  // 59:   args(1) $cond_or_body? $body?
+  // 60:   if cond_or_body.is_defined: # if not it's the default case
+  // 61:     if
+  // 62:       body.is_defined:
+  // 63:         if cond_or_body body: cond_list range(args 2 -1)
+  // 64:       :
+  // 65:         cond_or_body
   frame->slots[2] /* temp__2 */ = create_closure(entry__2_3, 0);
-  // 56: unless args.is_empty:
-  // 57:   args(1) $cond_or_body? $body?
-  // 58:   if cond_or_body.is_defined: # if not it's the default case
-  // 59:     if
-  // 60:       body.is_defined:
-  // 61:         if cond_or_body body: cond_list range(args 2 -1)
-  // 62:       :
-  // 63:         cond_or_body
+  // 58: unless args.is_empty:
+  // 59:   args(1) $cond_or_body? $body?
+  // 60:   if cond_or_body.is_defined: # if not it's the default case
+  // 61:     if
+  // 62:       body.is_defined:
+  // 63:         if cond_or_body body: cond_list range(args 2 -1)
+  // 64:       :
+  // 65:         cond_or_body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -963,7 +963,7 @@ static void entry__3_56(void) {
     invalid_arguments_error();
     return;
   }
-  // 138: ... 1
+  // 140: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -978,7 +978,7 @@ static void cont__3_57(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 138: ... range(args 3 -1)
+  // 140: ... range(args 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* args */;
@@ -995,7 +995,7 @@ static void cont__3_58(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 138: ... recursive_case range(args 3 -1)
+  // 140: ... recursive_case range(args 3 -1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1015,7 +1015,7 @@ static void entry__3_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 102: $body args(1)
+  // 104: $body args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1030,7 +1030,7 @@ static void cont__3_8(void) {
     return;
   }
   initialize_future(frame->slots[1] /* body */, arguments->slots[0]);
-  // 103: body
+  // 105: body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -1057,7 +1057,7 @@ static void entry__3_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 105: $value args(1)
+  // 107: $value args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1072,7 +1072,7 @@ static void cont__3_10(void) {
     return;
   }
   initialize_future(frame->slots[3] /* value */, arguments->slots[0]);
-  // 106: $body args(2)
+  // 108: $body args(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -1087,9 +1087,9 @@ static void cont__3_11(void) {
     return;
   }
   initialize_future(frame->slots[4] /* body */, arguments->slots[0]);
-  // 107: $$success false
+  // 109: $$success false
   ((CELL *)frame->slots[5])->contents /* success */ = get__false();
-  // 109: value.is_defined
+  // 111: value.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* value */;
@@ -1104,31 +1104,31 @@ static void cont__3_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 109: ... :
-  // 110:   cond
-  // 111:     -> value.is_a_sequence:
-  // 112:       do: (-> break)
-  // 113:         for_each value: (sub_value)
-  // 114:           if
-  // 115:             sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:               if
-  // 117:                 &&
-  // 118:                   expr >= lower_bound_of(sub_value)
+  // 111: ... :
+  // 112:   cond
+  // 113:     -> value.is_a_sequence:
+  // 114:       do: (-> break)
+  // 115:         for_each value: (sub_value)
+  // 116:           if
+  // 117:             sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:               if
+  // 119:                 &&
+  // 120:                   expr >= lower_bound_of(sub_value)
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__3_13, 0);
-  // 136: :
-  // 137:   if expr.is_undefined: !success true
+  // 138: :
+  // 139:   if expr.is_undefined: !success true
   frame->slots[8] /* temp__3 */ = create_closure(entry__3_52, 0);
-  // 108: if
-  // 109:   value.is_defined:
-  // 110:     cond
-  // 111:       -> value.is_a_sequence:
-  // 112:         do: (-> break)
-  // 113:           for_each value: (sub_value)
-  // 114:             if
-  // 115:               sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:                 if
-  // 117:                   &&
+  // 110: if
+  // 111:   value.is_defined:
+  // 112:     cond
+  // 113:       -> value.is_a_sequence:
+  // 114:         do: (-> break)
+  // 115:           for_each value: (sub_value)
+  // 116:             if
+  // 117:               sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:                 if
+  // 119:                   &&
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -1149,7 +1149,7 @@ static void entry__3_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 137: ... !success true
+  // 139: ... !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -1166,7 +1166,7 @@ static void entry__3_51(void) {
     invalid_arguments_error();
     return;
   }
-  // 135: ... !success true
+  // 137: ... !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -1183,7 +1183,7 @@ static void entry__3_48(void) {
     invalid_arguments_error();
     return;
   }
-  // 133: !success true
+  // 135: !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -1204,7 +1204,7 @@ static void entry__3_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 130: ... lower_bound_of(value)
+  // 132: ... lower_bound_of(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -1219,7 +1219,7 @@ static void cont__3_40(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 130: expr >= lower_bound_of(value)
+  // 132: expr >= lower_bound_of(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expr */;
@@ -1235,7 +1235,7 @@ static void cont__3_41(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 130: expr >= lower_bound_of(value)
+  // 132: expr >= lower_bound_of(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -1250,11 +1250,11 @@ static void cont__3_42(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 131: expr <= upper_bound_of(value)
+  // 133: expr <= upper_bound_of(value)
   frame->slots[7] /* temp__5 */ = create_closure(entry__3_43, 0);
-  // 129: &&
-  // 130:   expr >= lower_bound_of(value)
-  // 131:   expr <= upper_bound_of(value)
+  // 131: &&
+  // 132:   expr >= lower_bound_of(value)
+  // 133:   expr <= upper_bound_of(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -1275,7 +1275,7 @@ static void entry__3_43(void) {
     invalid_arguments_error();
     return;
   }
-  // 131: ... upper_bound_of(value)
+  // 133: ... upper_bound_of(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -1290,7 +1290,7 @@ static void cont__3_44(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 131: expr <= upper_bound_of(value)
+  // 133: expr <= upper_bound_of(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1306,7 +1306,7 @@ static void cont__3_45(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 131: expr <= upper_bound_of(value)
+  // 133: expr <= upper_bound_of(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1321,7 +1321,7 @@ static void cont__3_46(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 131: expr <= upper_bound_of(value)
+  // 133: expr <= upper_bound_of(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1335,15 +1335,15 @@ static void cont__3_47(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 132: :
-  // 133:   !success true
+  // 134: :
+  // 135:   !success true
   frame->slots[8] /* temp__6 */ = create_closure(entry__3_48, 0);
-  // 128: if
-  // 129:   &&
-  // 130:     expr >= lower_bound_of(value)
-  // 131:     expr <= upper_bound_of(value)
-  // 132:   :
-  // 133:     !success true
+  // 130: if
+  // 131:   &&
+  // 132:     expr >= lower_bound_of(value)
+  // 133:     expr <= upper_bound_of(value)
+  // 134:   :
+  // 135:     !success true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1368,28 +1368,28 @@ static void entry__3_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 113: ... : (sub_value)
-  // 114:   if
-  // 115:     sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:       if
-  // 117:         &&
-  // 118:           expr >= lower_bound_of(sub_value)
-  // 119:           expr <= upper_bound_of(sub_value)
-  // 120:         :
-  // 121:           !success true
-  // 122:           break
+  // 115: ... : (sub_value)
+  // 116:   if
+  // 117:     sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:       if
+  // 119:         &&
+  // 120:           expr >= lower_bound_of(sub_value)
+  // 121:           expr <= upper_bound_of(sub_value)
+  // 122:         :
+  // 123:           !success true
+  // 124:           break
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__3_18, 1);
-  // 113: for_each value: (sub_value)
-  // 114:   if
-  // 115:     sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:       if
-  // 117:         &&
-  // 118:           expr >= lower_bound_of(sub_value)
-  // 119:           expr <= upper_bound_of(sub_value)
-  // 120:         :
-  // 121:           !success true
-  // 122:           break
+  // 115: for_each value: (sub_value)
+  // 116:   if
+  // 117:     sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:       if
+  // 119:         &&
+  // 120:           expr >= lower_bound_of(sub_value)
+  // 121:           expr <= upper_bound_of(sub_value)
+  // 122:         :
+  // 123:           !success true
+  // 124:           break
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -1411,9 +1411,9 @@ static void entry__3_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 125: !success true
+  // 127: !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
-  // 126: break
+  // 128: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -1432,9 +1432,9 @@ static void entry__3_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 121: !success true
+  // 123: !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
-  // 122: break
+  // 124: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -1457,7 +1457,7 @@ static void entry__3_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 118: ... lower_bound_of(sub_value)
+  // 120: ... lower_bound_of(sub_value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* sub_value */;
@@ -1472,7 +1472,7 @@ static void cont__3_24(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 118: expr >= lower_bound_of(sub_value)
+  // 120: expr >= lower_bound_of(sub_value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expr */;
@@ -1488,7 +1488,7 @@ static void cont__3_25(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 118: expr >= lower_bound_of(sub_value)
+  // 120: expr >= lower_bound_of(sub_value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -1503,11 +1503,11 @@ static void cont__3_26(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 119: expr <= upper_bound_of(sub_value)
+  // 121: expr <= upper_bound_of(sub_value)
   frame->slots[8] /* temp__5 */ = create_closure(entry__3_27, 0);
-  // 117: &&
-  // 118:   expr >= lower_bound_of(sub_value)
-  // 119:   expr <= upper_bound_of(sub_value)
+  // 119: &&
+  // 120:   expr >= lower_bound_of(sub_value)
+  // 121:   expr <= upper_bound_of(sub_value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1528,7 +1528,7 @@ static void entry__3_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 119: ... upper_bound_of(sub_value)
+  // 121: ... upper_bound_of(sub_value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sub_value */;
@@ -1543,7 +1543,7 @@ static void cont__3_28(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 119: expr <= upper_bound_of(sub_value)
+  // 121: expr <= upper_bound_of(sub_value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1559,7 +1559,7 @@ static void cont__3_29(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 119: expr <= upper_bound_of(sub_value)
+  // 121: expr <= upper_bound_of(sub_value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1574,7 +1574,7 @@ static void cont__3_30(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 119: expr <= upper_bound_of(sub_value)
+  // 121: expr <= upper_bound_of(sub_value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1588,17 +1588,17 @@ static void cont__3_31(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 120: :
-  // 121:   !success true
-  // 122:   break
+  // 122: :
+  // 123:   !success true
+  // 124:   break
   frame->slots[9] /* temp__6 */ = create_closure(entry__3_32, 0);
-  // 116: if
-  // 117:   &&
-  // 118:     expr >= lower_bound_of(sub_value)
-  // 119:     expr <= upper_bound_of(sub_value)
-  // 120:   :
-  // 121:     !success true
-  // 122:     break
+  // 118: if
+  // 119:   &&
+  // 120:     expr >= lower_bound_of(sub_value)
+  // 121:     expr <= upper_bound_of(sub_value)
+  // 122:   :
+  // 123:     !success true
+  // 124:     break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1623,7 +1623,7 @@ static void entry__3_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... sub_value == expr
+  // 126: ... sub_value == expr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sub_value */;
@@ -1639,13 +1639,13 @@ static void cont__3_34(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 124: ... :
-  // 125:   !success true
-  // 126:   break
+  // 126: ... :
+  // 127:   !success true
+  // 128:   break
   frame->slots[5] /* temp__2 */ = create_closure(entry__3_35, 0);
-  // 124: if sub_value == expr:
-  // 125:   !success true
-  // 126:   break
+  // 126: if sub_value == expr:
+  // 127:   !success true
+  // 128:   break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1669,7 +1669,7 @@ static void entry__3_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 115: sub_value.is_defined
+  // 117: sub_value.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sub_value */;
@@ -1684,9 +1684,9 @@ static void cont__3_19(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 115: ... sub_value.is_a_value_range
+  // 117: ... sub_value.is_a_value_range
   frame->slots[6] /* temp__3 */ = create_closure(entry__3_20, 0);
-  // 115: sub_value.is_defined && sub_value.is_a_value_range
+  // 117: sub_value.is_defined && sub_value.is_a_value_range
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1705,7 +1705,7 @@ static void entry__3_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 115: ... sub_value.is_a_value_range
+  // 117: ... sub_value.is_a_value_range
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* sub_value */;
@@ -1720,7 +1720,7 @@ static void cont__3_21(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 115: ... sub_value.is_a_value_range
+  // 117: ... sub_value.is_a_value_range
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1734,30 +1734,30 @@ static void cont__3_22(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 115: ... :
-  // 116:   if
-  // 117:     &&
-  // 118:       expr >= lower_bound_of(sub_value)
-  // 119:       expr <= upper_bound_of(sub_value)
-  // 120:     :
-  // 121:       !success true
-  // 122:       break
+  // 117: ... :
+  // 118:   if
+  // 119:     &&
+  // 120:       expr >= lower_bound_of(sub_value)
+  // 121:       expr <= upper_bound_of(sub_value)
+  // 122:     :
+  // 123:       !success true
+  // 124:       break
   frame->slots[7] /* temp__4 */ = create_closure(entry__3_23, 0);
-  // 123: :
-  // 124:   if sub_value == expr:
-  // 125:     !success true
-  // 126:     break
+  // 125: :
+  // 126:   if sub_value == expr:
+  // 127:     !success true
+  // 128:     break
   frame->slots[8] /* temp__5 */ = create_closure(entry__3_33, 0);
-  // 114: if
-  // 115:   sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:     if
-  // 117:       &&
-  // 118:         expr >= lower_bound_of(sub_value)
-  // 119:         expr <= upper_bound_of(sub_value)
-  // 120:       :
-  // 121:         !success true
-  // 122:         break
-  // 123:   :
+  // 116: if
+  // 117:   sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:     if
+  // 119:       &&
+  // 120:         expr >= lower_bound_of(sub_value)
+  // 121:         expr <= upper_bound_of(sub_value)
+  // 122:       :
+  // 123:         !success true
+  // 124:         break
+  // 125:   :
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -1787,28 +1787,28 @@ static void entry__3_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 112: ... : (-> break)
-  // 113:   for_each value: (sub_value)
-  // 114:     if
-  // 115:       sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:         if
-  // 117:           &&
-  // 118:             expr >= lower_bound_of(sub_value)
-  // 119:             expr <= upper_bound_of(sub_value)
-  // 120:           :
-  // 121:             !success true
+  // 114: ... : (-> break)
+  // 115:   for_each value: (sub_value)
+  // 116:     if
+  // 117:       sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:         if
+  // 119:           &&
+  // 120:             expr >= lower_bound_of(sub_value)
+  // 121:             expr <= upper_bound_of(sub_value)
+  // 122:           :
+  // 123:             !success true
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__3_17, 0);
-  // 112: do: (-> break)
-  // 113:   for_each value: (sub_value)
-  // 114:     if
-  // 115:       sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:         if
-  // 117:           &&
-  // 118:             expr >= lower_bound_of(sub_value)
-  // 119:             expr <= upper_bound_of(sub_value)
-  // 120:           :
-  // 121:             !success true
+  // 114: do: (-> break)
+  // 115:   for_each value: (sub_value)
+  // 116:     if
+  // 117:       sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:         if
+  // 119:           &&
+  // 120:             expr >= lower_bound_of(sub_value)
+  // 121:             expr <= upper_bound_of(sub_value)
+  // 122:           :
+  // 123:             !success true
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -1831,7 +1831,7 @@ static void entry__3_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: ... value.is_a_sequence
+  // 113: ... value.is_a_sequence
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -1846,28 +1846,28 @@ static void cont__3_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 111: ... :
-  // 112:   do: (-> break)
-  // 113:     for_each value: (sub_value)
-  // 114:       if
-  // 115:         sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:           if
-  // 117:             &&
-  // 118:               expr >= lower_bound_of(sub_value)
-  // 119:               expr <= upper_bound_of(sub_value)
-  // 120:             :
+  // 113: ... :
+  // 114:   do: (-> break)
+  // 115:     for_each value: (sub_value)
+  // 116:       if
+  // 117:         sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:           if
+  // 119:             &&
+  // 120:               expr >= lower_bound_of(sub_value)
+  // 121:               expr <= upper_bound_of(sub_value)
+  // 122:             :
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__3_16, 0);
-  // 111: -> value.is_a_sequence:
-  // 112:   do: (-> break)
-  // 113:     for_each value: (sub_value)
-  // 114:       if
-  // 115:         sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:           if
-  // 117:             &&
-  // 118:               expr >= lower_bound_of(sub_value)
-  // 119:               expr <= upper_bound_of(sub_value)
-  // 120:             :
+  // 113: -> value.is_a_sequence:
+  // 114:   do: (-> break)
+  // 115:     for_each value: (sub_value)
+  // 116:       if
+  // 117:         sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:           if
+  // 119:             &&
+  // 120:               expr >= lower_bound_of(sub_value)
+  // 121:               expr <= upper_bound_of(sub_value)
+  // 122:             :
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -1890,7 +1890,7 @@ static void entry__3_37(void) {
     invalid_arguments_error();
     return;
   }
-  // 127: ... value.is_a_value_range
+  // 129: ... value.is_a_value_range
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -1905,21 +1905,21 @@ static void cont__3_38(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 127: ... :
-  // 128:   if
-  // 129:     &&
-  // 130:       expr >= lower_bound_of(value)
-  // 131:       expr <= upper_bound_of(value)
-  // 132:     :
-  // 133:       !success true
+  // 129: ... :
+  // 130:   if
+  // 131:     &&
+  // 132:       expr >= lower_bound_of(value)
+  // 133:       expr <= upper_bound_of(value)
+  // 134:     :
+  // 135:       !success true
   frame->slots[4] /* temp__2 */ = create_closure(entry__3_39, 0);
-  // 127: -> value.is_a_value_range:
-  // 128:   if
-  // 129:     &&
-  // 130:       expr >= lower_bound_of(value)
-  // 131:       expr <= upper_bound_of(value)
-  // 132:     :
-  // 133:       !success true
+  // 129: -> value.is_a_value_range:
+  // 130:   if
+  // 131:     &&
+  // 132:       expr >= lower_bound_of(value)
+  // 133:       expr <= upper_bound_of(value)
+  // 134:     :
+  // 135:       !success true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1941,7 +1941,7 @@ static void entry__3_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 135: ... value == expr
+  // 137: ... value == expr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -1957,9 +1957,9 @@ static void cont__3_50(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 135: ... : !success true
+  // 137: ... : !success true
   frame->slots[4] /* temp__2 */ = create_closure(entry__3_51, 0);
-  // 135: if value == expr: !success true
+  // 137: if value == expr: !success true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1982,39 +1982,39 @@ static void entry__3_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: -> value.is_a_sequence:
-  // 112:   do: (-> break)
-  // 113:     for_each value: (sub_value)
-  // 114:       if
-  // 115:         sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:           if
-  // 117:             &&
-  // 118:               expr >= lower_bound_of(sub_value)
-  // 119:               expr <= upper_bound_of(sub_value)
-  // 120:             :
+  // 113: -> value.is_a_sequence:
+  // 114:   do: (-> break)
+  // 115:     for_each value: (sub_value)
+  // 116:       if
+  // 117:         sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:           if
+  // 119:             &&
+  // 120:               expr >= lower_bound_of(sub_value)
+  // 121:               expr <= upper_bound_of(sub_value)
+  // 122:             :
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__3_14, 0);
-  // 127: -> value.is_a_value_range:
-  // 128:   if
-  // 129:     &&
-  // 130:       expr >= lower_bound_of(value)
-  // 131:       expr <= upper_bound_of(value)
-  // 132:     :
-  // 133:       !success true
+  // 129: -> value.is_a_value_range:
+  // 130:   if
+  // 131:     &&
+  // 132:       expr >= lower_bound_of(value)
+  // 133:       expr <= upper_bound_of(value)
+  // 134:     :
+  // 135:       !success true
   frame->slots[4] /* temp__2 */ = create_closure(entry__3_37, 0);
-  // 134: :
-  // 135:   if value == expr: !success true
+  // 136: :
+  // 137:   if value == expr: !success true
   frame->slots[5] /* temp__3 */ = create_closure(entry__3_49, 0);
-  // 110: cond
-  // 111:   -> value.is_a_sequence:
-  // 112:     do: (-> break)
-  // 113:       for_each value: (sub_value)
-  // 114:         if
-  // 115:           sub_value.is_defined && sub_value.is_a_value_range:
-  // 116:             if
-  // 117:               &&
-  // 118:                 expr >= lower_bound_of(sub_value)
-  // 119:                 expr <= upper_bound_of(sub_value)
+  // 112: cond
+  // 113:   -> value.is_a_sequence:
+  // 114:     do: (-> break)
+  // 115:       for_each value: (sub_value)
+  // 116:         if
+  // 117:           sub_value.is_defined && sub_value.is_a_value_range:
+  // 118:             if
+  // 119:               &&
+  // 120:                 expr >= lower_bound_of(sub_value)
+  // 121:                 expr <= upper_bound_of(sub_value)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -2037,7 +2037,7 @@ static void entry__3_52(void) {
     invalid_arguments_error();
     return;
   }
-  // 137: ... expr.is_undefined
+  // 139: ... expr.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expr */;
@@ -2052,9 +2052,9 @@ static void cont__3_53(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 137: ... : !success true
+  // 139: ... : !success true
   frame->slots[3] /* temp__2 */ = create_closure(entry__3_54, 0);
-  // 137: if expr.is_undefined: !success true
+  // 139: if expr.is_undefined: !success true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2069,9 +2069,9 @@ static void cont__3_55(void) {
     invalid_results_error();
     return;
   }
-  // 138: ... : recursive_case range(args 3 -1)
+  // 140: ... : recursive_case range(args 3 -1)
   frame->slots[6] /* temp__1 */ = create_closure(entry__3_56, 0);
-  // 138: if success body: recursive_case range(args 3 -1)
+  // 140: if success body: recursive_case range(args 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* success */;
@@ -2097,7 +2097,7 @@ static void entry__3_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 101: len == 1
+  // 103: len == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* len */;
@@ -2113,32 +2113,32 @@ static void cont__3_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 101: ... :
-  // 102:   $body args(1)
-  // 103:   body
+  // 103: ... :
+  // 104:   $body args(1)
+  // 105:   body
   frame->slots[5] /* temp__2 */ = create_closure(entry__3_7, 0);
-  // 104: :
-  // 105:   $value args(1)
-  // 106:   $body args(2)
-  // 107:   $$success false
-  // 108:   if
-  // 109:     value.is_defined:
-  // 110:       cond
-  // 111:         -> value.is_a_sequence:
-  // 112:           do: (-> break)
-  // 113:             for_each value: (sub_value)
+  // 106: :
+  // 107:   $value args(1)
+  // 108:   $body args(2)
+  // 109:   $$success false
+  // 110:   if
+  // 111:     value.is_defined:
+  // 112:       cond
+  // 113:         -> value.is_a_sequence:
+  // 114:           do: (-> break)
+  // 115:             for_each value: (sub_value)
   // ...
   frame->slots[6] /* temp__3 */ = create_closure(entry__3_9, 0);
-  // 100: if
-  // 101:   len == 1:
-  // 102:     $body args(1)
-  // 103:     body
-  // 104:   :
-  // 105:     $value args(1)
-  // 106:     $body args(2)
-  // 107:     $$success false
-  // 108:     if
-  // 109:       value.is_defined:
+  // 102: if
+  // 103:   len == 1:
+  // 104:     $body args(1)
+  // 105:     body
+  // 106:   :
+  // 107:     $value args(1)
+  // 108:     $body args(2)
+  // 109:     $$success false
+  // 110:     if
+  // 111:       value.is_defined:
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -2164,7 +2164,7 @@ static void entry__3_2_recursive_case(void) {
     invalid_arguments_error();
     return;
   }
-  // 98: $len length_of(args)
+  // 100: $len length_of(args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -2179,7 +2179,7 @@ static void cont__3_3(void) {
     return;
   }
   initialize_future(frame->slots[3] /* len */, arguments->slots[0]);
-  // 99: ... len > 0
+  // 101: ... len > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -2195,28 +2195,28 @@ static void cont__3_4(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  //  99: ... :
-  // 100:   if
-  // 101:     len == 1:
-  // 102:       $body args(1)
-  // 103:       body
-  // 104:     :
-  // 105:       $value args(1)
-  // 106:       $body args(2)
-  // 107:       $$success false
-  // 108:       if
+  // 101: ... :
+  // 102:   if
+  // 103:     len == 1:
+  // 104:       $body args(1)
+  // 105:       body
+  // 106:     :
+  // 107:       $value args(1)
+  // 108:       $body args(2)
+  // 109:       $$success false
+  // 110:       if
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__3_5, 0);
-  //  99: if len > 0:
-  // 100:   if
-  // 101:     len == 1:
-  // 102:       $body args(1)
-  // 103:       body
-  // 104:     :
-  // 105:       $value args(1)
-  // 106:       $body args(2)
-  // 107:       $$success false
-  // 108:       if
+  // 101: if len > 0:
+  // 102:   if
+  // 103:     len == 1:
+  // 104:       $body args(1)
+  // 105:       body
+  // 106:     :
+  // 107:       $value args(1)
+  // 108:       $body args(2)
+  // 109:       $$success false
+  // 110:       if
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -2241,31 +2241,31 @@ static void entry__3_1_std__case(void) {
   }
   frame->slots[0] /* expr */ = arguments->slots[0];
   frame->slots[1] /* values_and_bodies */ = from_arguments(1, argument_count-1);
-  //  97: ... : (args)
-  //  98:   $len length_of(args)
-  //  99:   if len > 0:
-  // 100:     if
-  // 101:       len == 1:
-  // 102:         $body args(1)
-  // 103:         body
-  // 104:       :
-  // 105:         $value args(1)
-  // 106:         $body args(2)
+  //  99: ... : (args)
+  // 100:   $len length_of(args)
+  // 101:   if len > 0:
+  // 102:     if
+  // 103:       len == 1:
+  // 104:         $body args(1)
+  // 105:         body
+  // 106:       :
+  // 107:         $value args(1)
+  // 108:         $body args(2)
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__3_2_recursive_case, 1);
-  //  97: $recursive_case: (args)
-  //  98:   $len length_of(args)
-  //  99:   if len > 0:
-  // 100:     if
-  // 101:       len == 1:
-  // 102:         $body args(1)
-  // 103:         body
-  // 104:       :
-  // 105:         $value args(1)
-  // 106:         $body args(2)
+  //  99: $recursive_case: (args)
+  // 100:   $len length_of(args)
+  // 101:   if len > 0:
+  // 102:     if
+  // 103:       len == 1:
+  // 104:         $body args(1)
+  // 105:         body
+  // 106:       :
+  // 107:         $value args(1)
+  // 108:         $body args(2)
   // ...
   initialize_future(frame->slots[2] /* recursive_case */, frame->slots[3] /* temp__1 */);
-  // 140: recursive_case values_and_bodies
+  // 142: recursive_case values_and_bodies
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* values_and_bodies */;
@@ -2285,7 +2285,7 @@ static void entry__4_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 191: ... 1
+  // 199: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2300,7 +2300,7 @@ static void cont__4_24(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 191: ... range(args 3 -1)
+  // 199: ... range(args 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* args */;
@@ -2317,7 +2317,7 @@ static void cont__4_25(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 191: ... recursive_check_case range(args 3 -1)
+  // 199: ... recursive_check_case range(args 3 -1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2337,7 +2337,7 @@ static void entry__4_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 176: $body args(1)
+  // 184: $body args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2352,7 +2352,7 @@ static void cont__4_8(void) {
     return;
   }
   initialize_future(frame->slots[1] /* body */, arguments->slots[0]);
-  // 177: body
+  // 185: body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -2381,7 +2381,7 @@ static void entry__4_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 179: $value args(1)
+  // 187: $value args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2396,7 +2396,7 @@ static void cont__4_10(void) {
     return;
   }
   initialize_future(frame->slots[4] /* value */, arguments->slots[0]);
-  // 180: $body args(2)
+  // 188: $body args(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -2411,9 +2411,9 @@ static void cont__4_11(void) {
     return;
   }
   initialize_future(frame->slots[5] /* body */, arguments->slots[0]);
-  // 181: $$success false
+  // 189: $$success false
   ((CELL *)frame->slots[6])->contents /* success */ = get__false();
-  // 183: value.is_a_sequence
+  // 191: value.is_a_sequence
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* value */;
@@ -2428,25 +2428,25 @@ static void cont__4_12(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 183: ... :
-  // 184:   do: (-> break)
-  // 185:     for_each value: (sub_value)
-  // 186:       if check(expr sub_value):
-  // 187:         !success true
-  // 188:         break
+  // 191: ... :
+  // 192:   do: (-> break)
+  // 193:     for_each value: (sub_value)
+  // 194:       if check(expr sub_value):
+  // 195:         !success true
+  // 196:         break
   frame->slots[8] /* temp__2 */ = create_closure(entry__4_13, 0);
-  // 189: :
-  // 190:   if check(expr value): !success true
+  // 197: :
+  // 198:   if check(expr value): !success true
   frame->slots[9] /* temp__3 */ = create_closure(entry__4_19, 0);
-  // 182: if
-  // 183:   value.is_a_sequence:
-  // 184:     do: (-> break)
-  // 185:       for_each value: (sub_value)
-  // 186:         if check(expr sub_value):
-  // 187:           !success true
-  // 188:           break
-  // 189:   :
-  // 190:     if check(expr value): !success true
+  // 190: if
+  // 191:   value.is_a_sequence:
+  // 192:     do: (-> break)
+  // 193:       for_each value: (sub_value)
+  // 194:         if check(expr sub_value):
+  // 195:           !success true
+  // 196:           break
+  // 197:   :
+  // 198:     if check(expr value): !success true
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -2466,7 +2466,7 @@ static void entry__4_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 190: ... !success true
+  // 198: ... !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -2491,15 +2491,15 @@ static void entry__4_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 185: ... : (sub_value)
-  // 186:   if check(expr sub_value):
-  // 187:     !success true
-  // 188:     break
+  // 193: ... : (sub_value)
+  // 194:   if check(expr sub_value):
+  // 195:     !success true
+  // 196:     break
   frame->slots[5] /* temp__1 */ = create_closure(entry__4_15, 1);
-  // 185: for_each value: (sub_value)
-  // 186:   if check(expr sub_value):
-  // 187:     !success true
-  // 188:     break
+  // 193: for_each value: (sub_value)
+  // 194:   if check(expr sub_value):
+  // 195:     !success true
+  // 196:     break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -2520,9 +2520,9 @@ static void entry__4_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 187: !success true
+  // 195: !success true
   ((CELL *)frame->slots[0])->contents /* success */ = get__true();
-  // 188: break
+  // 196: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -2546,7 +2546,7 @@ static void entry__4_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 186: ... check(expr sub_value)
+  // 194: ... check(expr sub_value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* expr */;
@@ -2562,13 +2562,13 @@ static void cont__4_16(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 186: ... :
-  // 187:   !success true
-  // 188:   break
+  // 194: ... :
+  // 195:   !success true
+  // 196:   break
   frame->slots[6] /* temp__2 */ = create_closure(entry__4_17, 0);
-  // 186: if check(expr sub_value):
-  // 187:   !success true
-  // 188:   break
+  // 194: if check(expr sub_value):
+  // 195:   !success true
+  // 196:   break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2598,17 +2598,17 @@ static void entry__4_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 184: ... : (-> break)
-  // 185:   for_each value: (sub_value)
-  // 186:     if check(expr sub_value):
-  // 187:       !success true
-  // 188:       break
+  // 192: ... : (-> break)
+  // 193:   for_each value: (sub_value)
+  // 194:     if check(expr sub_value):
+  // 195:       !success true
+  // 196:       break
   frame->slots[4] /* temp__1 */ = create_closure(entry__4_14, 0);
-  // 184: do: (-> break)
-  // 185:   for_each value: (sub_value)
-  // 186:     if check(expr sub_value):
-  // 187:       !success true
-  // 188:       break
+  // 192: do: (-> break)
+  // 193:   for_each value: (sub_value)
+  // 194:     if check(expr sub_value):
+  // 195:       !success true
+  // 196:       break
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2632,7 +2632,7 @@ static void entry__4_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 190: ... check(expr value)
+  // 198: ... check(expr value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* expr */;
@@ -2648,9 +2648,9 @@ static void cont__4_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 190: ... : !success true
+  // 198: ... : !success true
   frame->slots[5] /* temp__2 */ = create_closure(entry__4_21, 0);
-  // 190: if check(expr value): !success true
+  // 198: if check(expr value): !success true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2665,9 +2665,9 @@ static void cont__4_22(void) {
     invalid_results_error();
     return;
   }
-  // 191: ... : recursive_check_case range(args 3 -1)
+  // 199: ... : recursive_check_case range(args 3 -1)
   frame->slots[7] /* temp__1 */ = create_closure(entry__4_23, 0);
-  // 191: if success body: recursive_check_case range(args 3 -1)
+  // 199: if success body: recursive_check_case range(args 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* success */;
@@ -2695,7 +2695,7 @@ static void entry__4_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: len == 1
+  // 183: len == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* len */;
@@ -2711,32 +2711,32 @@ static void cont__4_6(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 175: ... :
-  // 176:   $body args(1)
-  // 177:   body
+  // 183: ... :
+  // 184:   $body args(1)
+  // 185:   body
   frame->slots[6] /* temp__2 */ = create_closure(entry__4_7, 0);
-  // 178: :
-  // 179:   $value args(1)
-  // 180:   $body args(2)
-  // 181:   $$success false
-  // 182:   if
-  // 183:     value.is_a_sequence:
-  // 184:       do: (-> break)
-  // 185:         for_each value: (sub_value)
-  // 186:           if check(expr sub_value):
-  // 187:             !success true
+  // 186: :
+  // 187:   $value args(1)
+  // 188:   $body args(2)
+  // 189:   $$success false
+  // 190:   if
+  // 191:     value.is_a_sequence:
+  // 192:       do: (-> break)
+  // 193:         for_each value: (sub_value)
+  // 194:           if check(expr sub_value):
+  // 195:             !success true
   // ...
   frame->slots[7] /* temp__3 */ = create_closure(entry__4_9, 0);
-  // 174: if
-  // 175:   len == 1:
-  // 176:     $body args(1)
-  // 177:     body
-  // 178:   :
-  // 179:     $value args(1)
-  // 180:     $body args(2)
-  // 181:     $$success false
-  // 182:     if
-  // 183:       value.is_a_sequence:
+  // 182: if
+  // 183:   len == 1:
+  // 184:     $body args(1)
+  // 185:     body
+  // 186:   :
+  // 187:     $value args(1)
+  // 188:     $body args(2)
+  // 189:     $$success false
+  // 190:     if
+  // 191:       value.is_a_sequence:
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -2764,7 +2764,7 @@ static void entry__4_2_recursive_check_case(void) {
     invalid_arguments_error();
     return;
   }
-  // 172: $len length_of(args)
+  // 180: $len length_of(args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -2779,7 +2779,7 @@ static void cont__4_3(void) {
     return;
   }
   initialize_future(frame->slots[4] /* len */, arguments->slots[0]);
-  // 173: ... len > 0
+  // 181: ... len > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -2795,28 +2795,28 @@ static void cont__4_4(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 173: ... :
-  // 174:   if
-  // 175:     len == 1:
-  // 176:       $body args(1)
-  // 177:       body
-  // 178:     :
-  // 179:       $value args(1)
-  // 180:       $body args(2)
-  // 181:       $$success false
-  // 182:       if
+  // 181: ... :
+  // 182:   if
+  // 183:     len == 1:
+  // 184:       $body args(1)
+  // 185:       body
+  // 186:     :
+  // 187:       $value args(1)
+  // 188:       $body args(2)
+  // 189:       $$success false
+  // 190:       if
   // ...
   frame->slots[6] /* temp__2 */ = create_closure(entry__4_5, 0);
-  // 173: if len > 0:
-  // 174:   if
-  // 175:     len == 1:
-  // 176:       $body args(1)
-  // 177:       body
-  // 178:     :
-  // 179:       $value args(1)
-  // 180:       $body args(2)
-  // 181:       $$success false
-  // 182:       if
+  // 181: if len > 0:
+  // 182:   if
+  // 183:     len == 1:
+  // 184:       $body args(1)
+  // 185:       body
+  // 186:     :
+  // 187:       $value args(1)
+  // 188:       $body args(2)
+  // 189:       $$success false
+  // 190:       if
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -2843,31 +2843,31 @@ static void entry__4_1_std__check_case(void) {
   frame->slots[0] /* expr */ = arguments->slots[0];
   frame->slots[1] /* check */ = arguments->slots[1];
   frame->slots[2] /* values_and_bodies */ = from_arguments(2, argument_count-2);
-  // 171: ... : (args)
-  // 172:   $len length_of(args)
-  // 173:   if len > 0:
-  // 174:     if
-  // 175:       len == 1:
-  // 176:         $body args(1)
-  // 177:         body
-  // 178:       :
-  // 179:         $value args(1)
-  // 180:         $body args(2)
+  // 179: ... : (args)
+  // 180:   $len length_of(args)
+  // 181:   if len > 0:
+  // 182:     if
+  // 183:       len == 1:
+  // 184:         $body args(1)
+  // 185:         body
+  // 186:       :
+  // 187:         $value args(1)
+  // 188:         $body args(2)
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__4_2_recursive_check_case, 1);
-  // 171: $recursive_check_case: (args)
-  // 172:   $len length_of(args)
-  // 173:   if len > 0:
-  // 174:     if
-  // 175:       len == 1:
-  // 176:         $body args(1)
-  // 177:         body
-  // 178:       :
-  // 179:         $value args(1)
-  // 180:         $body args(2)
+  // 179: $recursive_check_case: (args)
+  // 180:   $len length_of(args)
+  // 181:   if len > 0:
+  // 182:     if
+  // 183:       len == 1:
+  // 184:         $body args(1)
+  // 185:         body
+  // 186:       :
+  // 187:         $value args(1)
+  // 188:         $body args(2)
   // ...
   initialize_future(frame->slots[3] /* recursive_check_case */, frame->slots[4] /* temp__1 */);
-  // 193: recursive_check_case values_and_bodies
+  // 201: recursive_check_case values_and_bodies
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* values_and_bodies */;

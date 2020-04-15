@@ -37,13 +37,18 @@ $$polymorphic_functions
   multi_dimensional_set(types::key_order_table types::key_order_set)
 
 $$definitions empty_key_order_table
+
+$$short_descriptions empty_table
+  # is also used to check whether a symbol is defined or not
+
 $$topics empty_key_order_table
 
 $BORING . # ^^
-$TYPE .
 $FUNCTION .
 $POLYMORPHIC_FUNCTION .
 $POLYMORPHIC_ATTRIBUTE .
+$INLINE_C_TYPE .
+$INLINE_C_OBJECT .
 $INLINE_C_FUNCTION .
 $UNIQUE_ITEM .
 $CONSTANT .
@@ -211,19 +216,29 @@ $extract_documentation_from_file: (filename)
     cond
       -> statement.is_a_remark: pass
       -> statement.is_c_code:
-	if kind_of(statement) == "type":
-	  $identifier identifier_of(statement)
+	$identifier identifier_of(statement)
+	if identifier.is_defined:
 	  $namespace namespace_of(identifier)
 	  if namespace.is_defined:
 	    $name name_of(identifier)
-	    $base base_of(statement)
-	    !definitions(ordered_name(namespace name))
-	      symbol_info
-		.kind_of TYPE
-		.name_of identifier.to_string
-		.base_of if(base.is_defined (-> base.to_string) -> undefined)
-		.remark_lines_of remark_lines_of(statement)
-		.filename_of filename
+	    case kind_of(statement)
+	      "type":
+		if namespace.is_defined:
+		  $base base_of(statement)
+		  !definitions(ordered_name(namespace name))
+		    symbol_info
+		      .kind_of INLINE_C_TYPE
+		      .name_of identifier.to_string
+		      .base_of if(base.is_defined (-> base.to_string) -> undefined)
+		      .remark_lines_of remark_lines_of(statement)
+		      .filename_of filename
+	      "object":
+		!definitions(ordered_name(namespace name))
+		  symbol_info
+		    .kind_of INLINE_C_OBJECT
+		    .name_of identifier.to_string
+		    .remark_lines_of remark_lines_of(statement)
+		    .filename_of filename
       -> statement.is_an_assignment:
 	$destination output_arguments_of(statement)(1)(.base_of undefined)
 	$$info symbol_info(.filename_of filename)
@@ -275,7 +290,7 @@ $extract_documentation_from_file: (filename)
 	      NONE:
 		$previous_definition definitions(iname)
 		if previous_definition.is_defined:
-		  if kind_of(previous_definition) == TYPE:
+		  if kind_of(previous_definition) == INLINE_C_TYPE:
 		    !info.types_of types_of(previous_definition)
 		    !info.derived_types_of derived_types_of(previous_definition)
 		    !info.methods_of methods_of(previous_definition)
@@ -284,7 +299,7 @@ $extract_documentation_from_file: (filename)
 		$$attr attribute_of(destination)
 
 		$type
-		  default_value(definitions(iname) symbol_info)(.kind_of TYPE)
+		  default_value(definitions(iname) symbol_info)(.kind_of INLINE_C_TYPE)
 
 		!definitions(iname) type
 		if attr.is_defined:
@@ -293,7 +308,7 @@ $extract_documentation_from_file: (filename)
 		    unless namespace_of(attr).is_defined:
 		      !attr.used_namespaces_of used_namespaces
 		    $$definition default_value(definitions(iname) symbol_info)
-		    !definition.kind_of TYPE
+		    !definition.kind_of INLINE_C_TYPE
 		    !definition.methods_of(attr_name) info(.attribute_of attr)
 		    !definitions(iname) definition
 
@@ -324,8 +339,8 @@ $add_derived_type: (base name)
   $$definition definitions(ibase)
   if definition.is_defined:
     !definition.derived_types_of(name) true
-    unless kind_of(definition) == TYPE:
-      !definition.kind_of TYPE
+    unless kind_of(definition) == INLINE_C_TYPE:
+      !definition.kind_of INLINE_C_TYPE
       $base_of_base base_of(definition)
       if base_of_base.is_defined: add_derived_type base_of_base ibase
     !definitions(ibase) definition
@@ -354,17 +369,6 @@ $link_bar:
     A "href" = "symbol_index.html" "Symbol Index"
     TEXT "&nbsp;&nbsp;&nbsp;"
     A "href" = "topic_index.html" "Topic Index"
-
-$resolve_reference: (&reference)
-  if
-    reference .contains. '/':
-      $$type_name reference .before. '/'
-      $$method_name reference .behind. '/'
-      unless type_name .contains. "::": append "types::" &type_name
-      unless method_name .contains. "::": append "std::" &method_name
-      !reference string(type_name '/' method_name)
-    :
-      unless reference .contains. "::": append "std::" &reference
 
 $TOPIC alt("Topics" "Topic"), ':'
 $EXAMPLE alt("Example" "Output"), some(not_followed_by(':'), ANY_CHARACTER), ':'
@@ -400,6 +404,23 @@ $to_paragraphs: (lines)
   -> paragraphs
 
 $create_info_page: (function_name info)
+  $resolve_reference: (&reference)
+    if
+      reference .contains. '/':
+	$$type_name reference .before. '/'
+	$$method_name reference .behind. '/'
+	unless type_name .contains. "::": append "types::" &type_name
+	unless method_name .contains. "::": append "std::" &method_name
+	!reference string(type_name '/' method_name)
+      :
+	unless reference .contains. "::": append "std::" &reference
+
+    if short_descriptions(reference).is_undefined:
+      Error "
+	The documentation for "@(function_name)"
+	(defined in "@(filename_of(info))")
+	references the undefined symbol "@(reference)"!
+
   if function_name.is_defined:
     create_page "html/@(function_name.mangled).html":
       link_bar
@@ -430,10 +451,12 @@ $create_info_page: (function_name info)
       $remark_lines remark_lines_of(info)
       if
 	&&
-	  do_print_warnings
+	  do_print_missing
 	  remark_lines.is_undefined || remark_lines.is_empty
 	:
-	  ewriteln "Missing documentation for @(function_name)!"
+	  ewrite "
+	    Missing documentation for @(function_name) @
+	    (defined in "@(filename_of(info))")!
       if remark_lines.is_defined:
 	$paragraphs remark_lines.to_paragraphs
 	for_each paragraphs: ($paragraph)
@@ -576,11 +599,13 @@ $create_info_page: (function_name info)
 	for_each technical_details: (detail) P detail
       unless references.is_empty:
 	H2 "See also"
-	P:
+	TABLE:
 	  for_each references: ($reference)
 	    resolve_reference &reference
-	    A "href" = "@(reference.mangled).html" reference
-	    BR
+	    TR:
+	      TD: A "href" = "@(reference.mangled).html" reference
+	      TD "&nbsp;"
+	      TD short_descriptions(reference)
       unless types_of(info).is_empty:
 	H2 "Implemented by"
 	TABLE:
@@ -590,7 +615,7 @@ $create_info_page: (function_name info)
 	      TD: A "href" = "@(name.mangled).html" name
 	      TD "&nbsp;as&nbsp;"
 	      TD: A "href" = "@(method.mangled).html" method
-      if kind_of(info) == TYPE:
+      if kind_of(info) == INLINE_C_TYPE:
 	H2 "Supported Polymorphic Functions"
 	TABLE:
 	  for_each methods_of(info): (method_name _method_info)
@@ -629,36 +654,58 @@ $create_info_page: (function_name info)
 	"class" = "footer"
 	"(defined in @(filename_of(info) .without_prefix. path_prefix))@nl;"
 
+$get_short_description: (name info)
+  $remark_lines remark_lines_of(info)
+  $$short_description ""
+  if remark_lines.is_defined && not(remark_lines.is_empty):
+    do: (-> break) for_each remark_lines: (line)
+      if line == "" && short_description != "" break
+      append &short_description line.trim
+    if do_print_warnings && length_of(short_description) > 80:
+      ewrite "
+
+	The short description for "@(name)"
+	(defined in "@(filename_of(info))")
+	is quite long:
+	@(short_description)
+  -> short_description
+
+
 $sim2c::extract_documentation: (path)
-  %html::encode: ($text tag _arg_str)
+  #%html::encode: ($text tag _arg_str)
     if tag == "p":
       replace_all
 	&text
 	=
 	  "&lt;", NAME, "::", NAME, '>'
 	  : (capture)
-	    $reference resolve_reference(range(capture 5 -2))
+	    $reference resolve_reference(range(capture 5 -2) "<unknown>")
 	    -> "
 	      <a href="@(reference.mangled).html">@(reference)</a>@
     emit text
 
   !path_prefix truncate_behind(path '/' -1)
   extract_documentation_from_directory path
-  for_each definitions: (name info)
-    if kind_of(info) == TYPE:
+
+  for_each definitions: (iname info)
+    $name name_of(info)
+    !short_descriptions(name) get_short_description(name info)
+
+    if kind_of(info) == INLINE_C_TYPE:
       $base base_of(info)
-      if base.is_defined: add_derived_type base name
+      if base.is_defined: add_derived_type base iname
       $$methods empty_key_order_table
       for_each methods_of(info): ($method_name method_info)
 	unless method_name .contains. "::":
 	  !method_name attribute_of(method_info).resolved_name
-	if name_of(info).is_defined:
-	  $oname
-	    ordered_name(method_name .before. "::" method_name .behind. "::")
-
-	  !definitions(oname).types_of(name_of(info)) true
+	$sd_name string(name "/" method_name)
+	!short_descriptions(sd_name) get_short_description(sd_name method_info)
+	$oname
+	  ordered_name(method_name .before. "::" method_name .behind. "::")
+	!definitions(oname).types_of(name) true
 	!methods(method_name) method_info
-      !definitions(name).methods_of methods
+      !definitions(iname).methods_of methods
+
   create_page "html/type_index.html":
     $print_type_info:
       (
@@ -681,8 +728,9 @@ $sim2c::extract_documentation: (path)
     H1 "Type Index"
     TABLE:
       for_each definitions: (_base info)
-	if kind_of(info) == TYPE && base_of(info).is_undefined:
+	if kind_of(info) == INLINE_C_TYPE && base_of(info).is_undefined:
 	  print_type_info info
+
   create_page "html/symbol_index.html":
     link_bar
     H1 "id" = "index" "Symbol Index"
@@ -722,8 +770,10 @@ $sim2c::extract_documentation: (path)
 	    -> "unique item"
 	    CONSTANT
 	    -> "constant"
-	    TYPE
-	    -> "type"
+	    INLINE_C_TYPE
+	    -> "inine-C type"
+	    INLINE_C_OBJECT
+	    -> "inine-C object"
 	    -> undefined
 
 	if kind_info.is_defined:
@@ -737,12 +787,14 @@ $sim2c::extract_documentation: (path)
 	    TD "align" = "right" name .until. "::"
 	    TD: A "href" = "@(name.mangled).html" name .behind. "::"
 	    TD "class" = "remark" remark
+
   for_each definitions: (_iname info)
     $name name_of(info)
     create_info_page name info
-    case kind_of(info) TYPE:
+    case kind_of(info) INLINE_C_TYPE:
       for_each methods_of(info): (method_name method_info)
 	create_info_page string(name "/" method_name) method_info
+
   create_page "html/topic_index.html":
     link_bar
     H1 "id" = "index" "Topic Index"
@@ -766,12 +818,13 @@ $sim2c::extract_documentation: (path)
     P: A "href" = "topic_index.html" "Topic Index"
 
   if do_print_summary:
-    $$total_types 0
     $$total_functions 0
     $$total_polymorphic_functions 0
     $$total_polymorphic_attributes 0
     $$total_methods 0
     $$total_inline_c_methods 0
+    $$total_inline_c_types 0
+    $$total_inline_c_objects 0
     $$total_attributes 0
     $$total_inline_c_functions 0
     $$total_unique_items 0
@@ -781,16 +834,17 @@ $sim2c::extract_documentation: (path)
 
     for_each definitions: (_iname info)
       case kind_of(info)
-	TYPE: inc &total_types
 	FUNCTION: inc &total_functions
 	POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
 	POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
 	INLINE_C_FUNCTION: inc &total_inline_c_functions
+	INLINE_C_TYPE: inc &total_inline_c_types
+	INLINE_C_OBJECT: inc &total_inline_c_objects
 	UNIQUE_ITEM: inc &total_unique_items
 	CONSTANT: inc &total_constants
 	VARIABLE: inc &total_variables
 	: inc &other
-      case kind_of(info) TYPE:
+      case kind_of(info) INLINE_C_TYPE:
 	for_each methods_of(info): (method_name method_info)
 	  case kind_of(method_info)
 	    FUNCTION: inc &total_methods
@@ -799,12 +853,13 @@ $sim2c::extract_documentation: (path)
 
     $total_definitions
       +
-	total_types
 	total_functions
 	total_polymorphic_functions
 	total_polymorphic_attributes
 	total_methods
 	total_inline_c_methods
+	total_inline_c_types
+	total_inline_c_objects
 	total_attributes
 	total_inline_c_functions
 	total_unique_items
@@ -814,7 +869,6 @@ $sim2c::extract_documentation: (path)
     ewrite "
       total definitions:     @(pad_left(total_definitions 5))
 
-      types:                 @(pad_left(total_types 5))
       functions:             @(pad_left(total_functions 5))
       polymorphic functions: @(pad_left(total_polymorphic_functions 5))
       polymorphic attributes:@(pad_left(total_polymorphic_attributes 5))
@@ -822,6 +876,8 @@ $sim2c::extract_documentation: (path)
       inline C methods:      @(pad_left(total_inline_c_methods 5))
       attribute definitions: @(pad_left(total_attributes 5))
       inline C functions:    @(pad_left(total_inline_c_functions 5))
+      inline C types:        @(pad_left(total_inline_c_types 5))
+      inline C objects:      @(pad_left(total_inline_c_objects 5))
       unique items:          @(pad_left(total_unique_items 5))
       other constants:       @(pad_left(total_constants 5))
       variables:             @(pad_left(total_variables 5))

@@ -157,6 +157,7 @@ $$sim2c::do_show_compiler_debug_infos false
 $$sim2c::do_check_only false
 $$sim2c::do_show_brief_messages false
 $$sim2c::do_print_warnings false
+$$sim2c::do_print_missing false
 $$sim2c::do_print_summary false
 $$sim2c::verbose false
 $$do_print_c false
@@ -208,6 +209,9 @@ if
       !sim2c::do_print_warnings
       -> "warnings" "
 	show warning messages
+      !sim2c::do_print_missing
+      -> "missing" "
+	inform about missing documentation
       !sim2c::do_print_summary
       -> "summary" "
 	show a statistical summary
