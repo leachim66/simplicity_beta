@@ -242,75 +242,76 @@ $extract_documentation_from_file: (filename)
       -> statement.is_an_assignment:
 	$destination output_arguments_of(statement)(1)(.base_of undefined)
 	$$info symbol_info(.filename_of filename)
-	if destination.is_a_definition:
-	  $identifier identifier_of(destination)
-	  $namespace namespace_of(identifier)
-	  if namespace.is_defined:
-	    $name name_of(identifier)
-	    $iname ordered_name(namespace name)
-	    !info.name_of identifier.to_string
-	    $source arguments_of(statement)(1)
-	    cond
-	      -> source.is_a_polymorphic_function_constant:
-		!polymorphic_functions(name namespace) true
-		!definitions(iname)
-		  info
-		    .kind_of
-		      if
-			source.is_a_setter
-			-> POLYMORPHIC_ATTRIBUTE
-			-> POLYMORPHIC_FUNCTION
-		    .remark_lines_of remark_lines_of(statement)
-		break
-	      -> source.is_a_body:
-		!info.base_of "types::function"
-		!info.kind_of FUNCTION
-		!info.parameters_of parameters_of(source)
-		!info.remark_lines_of remark_lines_of(source)
-	      -> source.is_a_c_body:
-		!info.kind_of INLINE_C_FUNCTION
-		!info.remark_lines_of remark_lines_of(statement)
-	      -> source.is_an_identifier:
-		if namespace_of(source).is_defined:
-		  !info
-		    .base_of source.to_string
-		    .remark_lines_of remark_lines_of(statement)
-	      -> source.is_a_constant:
-		!definitions(iname)
-		  info
-		    .kind_of
-		      if
-			source.is_a_unique_item_constant
-			-> UNIQUE_ITEM
-			-> CONSTANT
-		    .remark_lines_of remark_lines_of(statement)
-		break
-	    case
-	      attribute_kind_of(destination)
-	      NONE:
-		$previous_definition definitions(iname)
-		if previous_definition.is_defined:
-		  if kind_of(previous_definition) == INLINE_C_TYPE:
-		    !info.types_of types_of(previous_definition)
-		    !info.derived_types_of derived_types_of(previous_definition)
-		    !info.methods_of methods_of(previous_definition)
-		!definitions(iname) info
-	      ATTRIBUTE_KIND, METHOD_KIND:
-		$$attr attribute_of(destination)
+	if
+	  destination.is_a_definition:
+	    $identifier identifier_of(destination)
+	    $namespace namespace_of(identifier)
+	    if namespace.is_defined:
+	      $name name_of(identifier)
+	      $iname ordered_name(namespace name)
+	      !info.name_of identifier.to_string
+	      $source arguments_of(statement)(1)
+	      cond
+		-> source.is_a_polymorphic_function_constant:
+		  !polymorphic_functions(name namespace) true
+		  !definitions(iname)
+		    info
+		      .kind_of
+			if
+			  source.is_a_setter
+			  -> POLYMORPHIC_ATTRIBUTE
+			  -> POLYMORPHIC_FUNCTION
+		      .remark_lines_of remark_lines_of(statement)
+		  break
+		-> source.is_a_body:
+		  !info.base_of "types::function"
+		  !info.kind_of FUNCTION
+		  !info.parameters_of parameters_of(source)
+		  !info.remark_lines_of remark_lines_of(source)
+		-> source.is_a_c_body:
+		  !info.kind_of INLINE_C_FUNCTION
+		  !info.remark_lines_of remark_lines_of(statement)
+		-> source.is_an_identifier:
+		  if namespace_of(source).is_defined:
+		    !info
+		      .base_of source.to_string
+		      .remark_lines_of remark_lines_of(statement)
+		-> source.is_a_constant:
+		  !definitions(iname)
+		    info
+		      .kind_of
+			if
+			  source.is_a_unique_item_constant
+			  -> UNIQUE_ITEM
+			  -> CONSTANT
+		      .remark_lines_of remark_lines_of(statement)
+		  break
+	      case
+		attribute_kind_of(destination)
+		NONE:
+		  $previous_definition definitions(iname)
+		  if previous_definition.is_defined:
+		    if kind_of(previous_definition) == INLINE_C_TYPE:
+		      !info.types_of types_of(previous_definition)
+		      !info.derived_types_of derived_types_of(previous_definition)
+		      !info.methods_of methods_of(previous_definition)
+		  !definitions(iname) info
+		ATTRIBUTE_KIND, METHOD_KIND:
+		  $$attr attribute_of(destination)
 
-		$type
-		  default_value(definitions(iname) symbol_info)(.kind_of INLINE_C_TYPE)
+		  $type
+		    default_value(definitions(iname) symbol_info)(.kind_of INLINE_C_TYPE)
 
-		!definitions(iname) type
-		if attr.is_defined:
-		  $attr_name attr.to_string
-		  unless local_method_names(attr_name):
-		    unless namespace_of(attr).is_defined:
-		      !attr.used_namespaces_of used_namespaces
-		    $$definition default_value(definitions(iname) symbol_info)
-		    !definition.kind_of INLINE_C_TYPE
-		    !definition.methods_of(attr_name) info(.attribute_of attr)
-		    !definitions(iname) definition
+		  !definitions(iname) type
+		  if attr.is_defined:
+		    $attr_name attr.to_string
+		    unless local_method_names(attr_name):
+		      unless namespace_of(attr).is_defined:
+			!attr.used_namespaces_of used_namespaces
+		      $$definition default_value(definitions(iname) symbol_info)
+		      !definition.kind_of INLINE_C_TYPE
+		      !definition.methods_of(attr_name) info(.attribute_of attr)
+		      !definitions(iname) definition
 
 $extract_documentation_from_directory: (path)
   for_each directory(--SORT path): (entry)
@@ -617,6 +618,13 @@ $create_info_page: (function_name info)
 	      TD: A "href" = "@(name.mangled).html" name
 	      TD "&nbsp;as&nbsp;"
 	      TD: A "href" = "@(method.mangled).html" method
+
+      if function_name .contains. '/':
+	$polymorphic_function_name function_name .behind. '/'
+	H2 "Implements"
+	A "href" = "@(polymorphic_function_name.mangled).html"
+	  polymorphic_function_name
+
       if kind_of(info) == INLINE_C_TYPE:
 	H2 "Supported Polymorphic Functions"
 	TABLE:
