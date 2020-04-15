@@ -88,21 +88,21 @@ $create_page: (filename body)
 	    font-family: Arial, Helvetica;
 	    font-size: 16pt;
 	    color: #222;
-	    margin-top: 0pt;
+	    margin-top: 5pt;
 	    margin-bottom: 5pt;
 	  }
 	  h3 {
 	    font-family: Arial, Helvetica;
 	    font-size: 14pt;
 	    color: #222;
-	    margin-top: 0pt;
+	    margin-top: 3pt;
 	    margin-bottom: 3pt;
 	  }
 	  h4 {
 	    font-family: Arial, Helvetica;
 	    font-size: 13pt;
 	    color: #222;
-	    margin-top: 0pt;
+	    margin-top: 2pt;
 	    margin-bottom: 2pt;
 	  }
 	  dt {
@@ -447,6 +447,7 @@ $create_info_page: (function_name info)
       $$descriptions empty_list
       $$technical_details undefined
       $$references empty_list
+      $$topic_list empty_list
       $$examples empty_list
       $remark_lines remark_lines_of(info)
       if
@@ -514,6 +515,7 @@ $create_info_page: (function_name info)
 	    -> paragraph .has_prefix. TOPIC:
 	      for_each split(paragraph .behind. ':' ','): ($topic)
 		trim &topic
+		push &topic_list topic
 
 		$$topic_contents
 		  default_value(topics(topic) empty_key_order_set)
@@ -633,6 +635,13 @@ $create_info_page: (function_name info)
 
       $function_basename
 	function_name .truncate_until. '/' .truncate_until. "::"
+
+      unless topic_list.is_empty:
+	H2 "Topics"
+	TABLE:
+	  for_each topic_list: (topic)
+	    $filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
+	    TR: TD: A "href" = filename topic
 
       for_each examples: (example)
 	$title key_of(example)
