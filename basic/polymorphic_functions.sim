@@ -331,7 +331,7 @@ $std::is_valid ()
 
 $std::to_string ()
   #
-    converts to a (human readable) string
+    returns a human readable presentation of the object
 
     Returns a string representation of its single argument.
 
@@ -343,7 +343,7 @@ $std::to_string ()
 
 $std::to_list ()
   #
-    converts to a list
+    converts the object into a list
 
     Returns the contents of its single argument within a list.
 

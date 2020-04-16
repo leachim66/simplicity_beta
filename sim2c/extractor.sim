@@ -253,6 +253,7 @@ $extract_documentation_from_file: (filename)
 	      !info
 		.name_of identifier.to_string
 		.variable_kind_of variable_kind_of(destination)
+		.remark_lines_of remark_lines_of(statement)
 	      $source arguments_of(statement)(1)
 	      cond
 		-> source.is_a_polymorphic_function_constant:
@@ -264,31 +265,23 @@ $extract_documentation_from_file: (filename)
 			  source.is_a_setter
 			  -> POLYMORPHIC_ATTRIBUTE
 			  -> POLYMORPHIC_FUNCTION
-		      .remark_lines_of remark_lines_of(statement)
 		  break
 		-> source.is_a_body:
-		  !info.base_of "types::function"
-		  !info.kind_of FUNCTION
-		  !info.parameters_of parameters_of(source)
-		  !info.remark_lines_of remark_lines_of(source)
+		  !info
+		    .base_of "types::function"
+		    .kind_of FUNCTION
+		    .parameters_of parameters_of(source)
+		    .remark_lines_of remark_lines_of(source)
 		-> source.is_a_c_body:
 		  !info.kind_of INLINE_C_FUNCTION
-		  !info.remark_lines_of remark_lines_of(statement)
 		-> source.is_an_identifier:
 		  if namespace_of(source).is_defined:
-		    !info
-		      .base_of source.to_string
-		      .remark_lines_of remark_lines_of(statement)
-		-> source.is_a_constant:
-		  !definitions(iname)
-		    info
-		      .kind_of
-			if
-			  source.is_a_unique_item_constant
-			  -> UNIQUE_ITEM
-			  -> CONSTANT
-		      .remark_lines_of remark_lines_of(statement)
+		    !info.base_of source.to_string
+		-> source.is_a_unique_item_constant:
+		  !definitions(iname) info(.kind_of UNIQUE_ITEM)
 		  break
+		-> source.is_a_constant:
+		  !info.kind_of CONSTANT
 	      case
 		attribute_kind_of(destination)
 		NONE:

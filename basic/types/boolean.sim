@@ -112,9 +112,11 @@ $types::false.is_a_boolean true
   }
 }
 
-$types::true/std::to_string: (_self) -> "true"
+$types::true.std::to_string "true"
+  # returns the string "true"
 
-$types::false/std::to_string: (_self) -> "false"
+$types::false.std::to_string "false"
+  # returns the string "false"
 
 {
   <kind function>
