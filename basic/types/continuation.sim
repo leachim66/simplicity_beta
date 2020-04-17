@@ -21,6 +21,8 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::is_a_continuation ()
+  #
+    returns true for continuation functions
 
 $types::object.is_a_continuation false
 $types::continuation.is_a_continuation true

@@ -242,7 +242,7 @@ $std::is_an_upper_case_letter:
     Only the roman characters ('A' .. 'Z') are considered letters!
 
     See also: is_a_lower_case_letter, is_a_letter,
-	      is_an_uppper_case_letter_character
+	      is_an_upper_case_letter_character
   (
     chr
   )
@@ -256,7 +256,7 @@ $std::is_a_letter_character:
     characters.
 
     See also: is_a_letter,
-	      is_a_lower_case_letter_character, is_an_uppper_case_letter_character
+	      is_a_lower_case_letter_character, is_an_upper_case_letter_character
   (
     chr
   )
@@ -274,7 +274,7 @@ $std::is_a_lower_case_letter_character:
     characters.
 
     See also: is_a_letter_character, is_a_letter, is_a_letter_character,
-	      is_an_uppper_case_letter_character
+	      is_an_upper_case_letter_character
   (
     chr
   )
@@ -283,7 +283,7 @@ $std::is_a_lower_case_letter_character:
       chr >= 'a' && chr <= 'z'
       chr >= 'à' && chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
 
-$std::is_an_uppper_case_letter_character:
+$std::is_an_upper_case_letter_character:
   #
     returns <true> for upper case letter characters
 
@@ -313,7 +313,7 @@ $types::character/to_lower_case:
     -> return
   )
   if
-    chr.is_an_uppper_case_letter_character:
+    chr.is_an_upper_case_letter_character:
       return chr+0x20
     :
       return chr

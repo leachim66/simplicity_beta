@@ -21,6 +21,8 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::is_a_function ()
+  #
+    returns true for function objects
 
 $types::object.is_a_function false
 $types::function.is_a_function true

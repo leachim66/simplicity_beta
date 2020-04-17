@@ -285,8 +285,8 @@ static int poly_idx__is_a_character;
 static NODE_GETTER get__is_a_character;
 static NODE_GETTER get__is_a_lower_case_letter_character;
 static NODE_GETTER get_value_or_future__is_a_lower_case_letter_character;
-static NODE_GETTER get__is_an_uppper_case_letter_character;
-static NODE_GETTER get_value_or_future__is_an_uppper_case_letter_character;
+static NODE_GETTER get__is_an_upper_case_letter_character;
+static NODE_GETTER get_value_or_future__is_an_upper_case_letter_character;
 static int poly_idx__less;
 static NODE_GETTER get__less;
 static int poly_idx__minus;
@@ -338,7 +338,7 @@ static struct {
   NODE *std__is_an_upper_case_letter;
   NODE *std__is_a_letter_character;
   NODE *std__is_a_lower_case_letter_character;
-  NODE *std__is_an_uppper_case_letter_character;
+  NODE *std__is_an_upper_case_letter_character;
   NODE *std__is_a_vowel;
 } var;
 static const char *var_names[] = {
@@ -559,9 +559,9 @@ static void cont__23_23(void);
 static NODE *get__std__is_a_lower_case_letter_character(void) {
   return var.std__is_a_lower_case_letter_character;
 }
-static NODE *func__24_1_std__is_an_uppper_case_letter_character;
-static void entry__24_1_std__is_an_uppper_case_letter_character(void);
-static FRAME_INFO frame__24_1_std__is_an_uppper_case_letter_character = {1, {"chr"}};
+static NODE *func__24_1_std__is_an_upper_case_letter_character;
+static void entry__24_1_std__is_an_upper_case_letter_character(void);
+static FRAME_INFO frame__24_1_std__is_an_upper_case_letter_character = {1, {"chr"}};
 static void cont__24_2(void);
 static void cont__24_3(void);
 static NODE *func__24_4;
@@ -594,8 +594,8 @@ static void cont__24_20(void);
 static void cont__24_21(void);
 static void cont__24_22(void);
 static void cont__24_23(void);
-static NODE *get__std__is_an_uppper_case_letter_character(void) {
-  return var.std__is_an_uppper_case_letter_character;
+static NODE *get__std__is_an_upper_case_letter_character(void) {
+  return var.std__is_an_upper_case_letter_character;
 }
 static NODE *func__25_1_types__character_to_lower_case;
 static void entry__25_1_types__character_to_lower_case(void);
@@ -805,15 +805,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__24_9, &frame__24_8, 301, 301, 7, 16},
   {cont__24_10, &frame__24_8, 301, 301, 7, 58},
   {cont__24_22, &frame__24_8, 301, 301, 7, 58},
-  {entry__24_1_std__is_an_uppper_case_letter_character, NULL, 300, 300, 7, 16},
-  {cont__24_2, &frame__24_1_std__is_an_uppper_case_letter_character, 300, 300, 7, 16},
-  {cont__24_3, &frame__24_1_std__is_an_uppper_case_letter_character, 300, 300, 7, 30},
-  {cont__24_7, &frame__24_1_std__is_an_uppper_case_letter_character, 299, 301, 5, 57},
-  {cont__24_23, &frame__24_1_std__is_an_uppper_case_letter_character, 298, 301, 3, 59},
+  {entry__24_1_std__is_an_upper_case_letter_character, NULL, 300, 300, 7, 16},
+  {cont__24_2, &frame__24_1_std__is_an_upper_case_letter_character, 300, 300, 7, 16},
+  {cont__24_3, &frame__24_1_std__is_an_upper_case_letter_character, 300, 300, 7, 30},
+  {cont__24_7, &frame__24_1_std__is_an_upper_case_letter_character, 299, 301, 5, 57},
+  {cont__24_23, &frame__24_1_std__is_an_upper_case_letter_character, 298, 301, 3, 59},
   {entry__25_3, NULL, 317, 317, 14, 21},
   {cont__25_4, &frame__25_3, 317, 317, 7, 21},
   {entry__25_5, NULL, 319, 319, 7, 16},
-  {entry__25_1_types__character_to_lower_case, NULL, 316, 316, 5, 42},
+  {entry__25_1_types__character_to_lower_case, NULL, 316, 316, 5, 41},
   {cont__25_2, &frame__25_1_types__character_to_lower_case, 315, 319, 3, 17},
   {cont__25_6, &frame__25_1_types__character_to_lower_case, 319, 319, 17, 17},
   {entry__26_3, NULL, 335, 335, 14, 21},
@@ -2864,7 +2864,7 @@ static void cont__23_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1_std__is_an_uppper_case_letter_character(void) {
+static void entry__24_1_std__is_an_upper_case_letter_character(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
@@ -3256,12 +3256,12 @@ static void entry__25_1_types__character_to_lower_case(void) {
     invalid_arguments_error();
     return;
   }
-  // 316: chr.is_an_uppper_case_letter_character
+  // 316: chr.is_an_upper_case_letter_character
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
   result_count = 1;
-  myself = get__is_an_uppper_case_letter_character();
+  myself = get__is_an_upper_case_letter_character();
   func = myself->type;
   frame->cont = cont__25_2;
 }
@@ -3278,7 +3278,7 @@ static void cont__25_2(void) {
   // 319:   return chr
   frame->slots[4] /* temp__3 */ = create_closure(entry__25_5, 0);
   // 315: if
-  // 316:   chr.is_an_uppper_case_letter_character:
+  // 316:   chr.is_an_upper_case_letter_character:
   // 317:     return chr+0x20
   // 318:   :
   // 319:     return chr
@@ -3949,7 +3949,7 @@ EXPORT void collect__basic__types__character(void) {
   var.std__is_an_upper_case_letter = collect_node(var.std__is_an_upper_case_letter);
   var.std__is_a_letter_character = collect_node(var.std__is_a_letter_character);
   var.std__is_a_lower_case_letter_character = collect_node(var.std__is_a_lower_case_letter_character);
-  var.std__is_an_uppper_case_letter_character = collect_node(var.std__is_an_uppper_case_letter_character);
+  var.std__is_an_upper_case_letter_character = collect_node(var.std__is_an_upper_case_letter_character);
   var.std__is_a_vowel = collect_node(var.std__is_a_vowel);
 }
 
@@ -4013,7 +4013,7 @@ EXPORT void phase_2__basic__types__character(void) {
   func__21_1_std__is_an_upper_case_letter = create_function(entry__21_1_std__is_an_upper_case_letter, 1);
   func__22_1_std__is_a_letter_character = create_function(entry__22_1_std__is_a_letter_character, 1);
   func__23_1_std__is_a_lower_case_letter_character = create_function(entry__23_1_std__is_a_lower_case_letter_character, 1);
-  func__24_1_std__is_an_uppper_case_letter_character = create_function(entry__24_1_std__is_an_uppper_case_letter_character, 1);
+  func__24_1_std__is_an_upper_case_letter_character = create_function(entry__24_1_std__is_an_upper_case_letter_character, 1);
   func__25_1_types__character_to_lower_case = create_function(entry__25_1_types__character_to_lower_case, 1);
   func__26_1_types__character_to_upper_case = create_function(entry__26_1_types__character_to_upper_case, 1);
   func__27_3 = create_function(entry__27_3, 0);
@@ -4041,7 +4041,7 @@ EXPORT void phase_3__basic__types__character(void) {
   define_single_assign_static("std", "is_an_upper_case_letter", get__std__is_an_upper_case_letter, &var.std__is_an_upper_case_letter);
   define_single_assign_static("std", "is_a_letter_character", get__std__is_a_letter_character, &var.std__is_a_letter_character);
   define_single_assign_static("std", "is_a_lower_case_letter_character", get__std__is_a_lower_case_letter_character, &var.std__is_a_lower_case_letter_character);
-  define_single_assign_static("std", "is_an_uppper_case_letter_character", get__std__is_an_uppper_case_letter_character, &var.std__is_an_uppper_case_letter_character);
+  define_single_assign_static("std", "is_an_upper_case_letter_character", get__std__is_an_upper_case_letter_character, &var.std__is_an_upper_case_letter_character);
   define_single_assign_static("std", "is_a_vowel", get__std__is_a_vowel, &var.std__is_a_vowel);
 }
 
@@ -4061,7 +4061,7 @@ EXPORT void phase_4__basic__types__character(void) {
   use_read_only(NULL, "if", &get__if, &get_value_or_future__if);
   use_polymorphic_function(NULL, "is_a_character", &get__is_a_character, &poly_idx__is_a_character);
   use_read_only(NULL, "is_a_lower_case_letter_character", &get__is_a_lower_case_letter_character, &get_value_or_future__is_a_lower_case_letter_character);
-  use_read_only(NULL, "is_an_uppper_case_letter_character", &get__is_an_uppper_case_letter_character, &get_value_or_future__is_an_uppper_case_letter_character);
+  use_read_only(NULL, "is_an_upper_case_letter_character", &get__is_an_upper_case_letter_character, &get_value_or_future__is_an_upper_case_letter_character);
   use_polymorphic_function(NULL, "less", &get__less, &poly_idx__less);
   use_polymorphic_function(NULL, "minus", &get__minus, &poly_idx__minus);
   use_polymorphic_function(NULL, "plus", &get__plus, &poly_idx__plus);
@@ -4111,7 +4111,7 @@ EXPORT void phase_5__basic__types__character(void) {
   assign_variable(&var.std__is_an_upper_case_letter, &func__21_1_std__is_an_upper_case_letter);
   assign_variable(&var.std__is_a_letter_character, &func__22_1_std__is_a_letter_character);
   assign_variable(&var.std__is_a_lower_case_letter_character, &func__23_1_std__is_a_lower_case_letter_character);
-  assign_variable(&var.std__is_an_uppper_case_letter_character, &func__24_1_std__is_an_uppper_case_letter_character);
+  assign_variable(&var.std__is_an_upper_case_letter_character, &func__24_1_std__is_an_upper_case_letter_character);
   assign_variable(&var.std__is_a_vowel, &func__27_1_std__is_a_vowel);
 }
 

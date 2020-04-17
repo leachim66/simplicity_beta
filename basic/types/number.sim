@@ -63,6 +63,8 @@ $types::real.is_a_real true
   <node SIMPLE_NODE>
   <base types::object>
 
+  // the prototype object for all numbers
+
   RUNTIME_ERROR("Attempt to call a numeric value as a function!")
 }
 
@@ -71,6 +73,8 @@ $types::real.is_a_real true
   <name types::integer>
   <node SIMPLE_NODE>
   <base types::number>
+
+  // the prototype object for all integer numbers
 
   RUNTIME_ERROR("Attempt to call an integer value as a function!")
 }
@@ -150,6 +154,12 @@ $types::real.is_a_real true
   <base types::integer>
   <argument 1>
 
+  // the prototype object for (small) positive integer numbers
+  //
+  // The integer number *0* is stored as a <types::positive_integer>.
+  //
+  // See also: zero
+
   RUNTIME_ERROR("Attempt to call an integer value as a function!")
 }
 
@@ -159,6 +169,8 @@ $types::real.is_a_real true
   <type types::positive_integer>
   <scope global>
   <argument 0>
+
+  // the numeric constant *0*
 }
 
 {
@@ -167,6 +179,8 @@ $types::real.is_a_real true
   <node INTEGER>
   <base types::integer>
   <argument 1>
+
+  // the prototype object for (small) negative integer numbers
 
   RUNTIME_ERROR("Attempt to call an integer value as a function!")
 }
@@ -197,6 +211,10 @@ $types::real.is_a_real true
   <base types::integer>
   <argument NULL>
 
+  // the prototype object for positive large integer numbers
+  //
+  // a positive large integer is always greater than a positive (small) integer
+
   RUNTIME_ERROR("Attempt to call an integer value as a function!")
 }
 
@@ -207,6 +225,8 @@ $types::real.is_a_real true
   <base types::integer>
   <argument NULL>
 
+  // the prototype object for negative large integer numbers
+
   RUNTIME_ERROR("Attempt to call an integer value as a function!")
 }
 
@@ -216,6 +236,10 @@ $types::real.is_a_real true
   <node REAL>
   <base types::number>
   <argument 0.0>
+
+  // the prototype object for floating point numbers
+  //
+  // a negative large integer is always less than a negative (small) integer
 
   RUNTIME_ERROR("Attempt to call a real value as a function!")
 }
@@ -428,21 +452,27 @@ $types::real.is_a_real true
 }
 
 $types::positive_integer/negate
+  #
+    returns a <types::negative_integer> or *0*
   {
     CHECK_ARGUMENTS(1)
+    if (ARGUMENTS(0)->integer.value == 0) RETURN
     RETURN_SINGLE_RESULT(
       create__types__negative_integer(ARGUMENTS(0)->integer.value))
   }
 
 $types::negative_integer/negate
+  #
+    returns a <types::positive_integer>
   {
     CHECK_ARGUMENTS(1)
-    if (ARGUMENTS(0)->integer.value == 0) RETURN
     RETURN_SINGLE_RESULT(
       create__types__positive_integer(ARGUMENTS(0)->integer.value))
   }
 
 $types::positive_large_integer/negate
+  #
+    returns a <types::negative_large_integer>
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(
@@ -450,6 +480,8 @@ $types::positive_large_integer/negate
   }
 
 $types::negative_large_integer/negate
+  #
+    returns a <types::positive_large_integer>
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(
@@ -457,6 +489,8 @@ $types::negative_large_integer/negate
   }
 
 $types::real/negate
+  #
+    returns a <types::real>
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(create__types__real(-ARGUMENTS(0)->real.value))
@@ -518,6 +552,8 @@ $types::real/negate
 }
 
 $types::positive_integer/plus
+  #
+    adds any kind of number to the positive integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -548,6 +584,8 @@ $types::positive_integer/plus
   }
 
 $types::positive_integer/minus
+  #
+    subtracts any kind of number from the positive integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -578,6 +616,8 @@ $types::positive_integer/minus
   }
 
 $types::negative_integer/plus
+  #
+    adds any kind of number to the negative integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -608,6 +648,8 @@ $types::negative_integer/plus
   }
 
 $types::negative_integer/minus
+  #
+    subtracts any kind of number from the negative integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -709,6 +751,8 @@ $types::negative_integer/minus
 }
 
 $types::positive_large_integer/plus
+  #
+    adds any kind of number to the positive large integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -748,6 +792,8 @@ $types::positive_large_integer/plus
   }
 
 $types::positive_large_integer/minus
+  #
+    subtracs any kind of number from the positive large integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -787,6 +833,8 @@ $types::positive_large_integer/minus
   }
 
 $types::negative_large_integer/plus
+  #
+    adds any kind of number to the negative large integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -826,6 +874,8 @@ $types::negative_large_integer/plus
   }
 
 $types::negative_large_integer/minus
+  #
+    subtracs any kind of number from the negative large integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -865,6 +915,8 @@ $types::negative_large_integer/minus
   }
 
 $types::real/plus
+  #
+    adds any kind of number to the floating point number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -895,6 +947,8 @@ $types::real/plus
   }
 
 $types::real/minus
+  #
+    subtracs any kind of number from floating point number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -963,6 +1017,8 @@ $types::real/minus
 }
 
 $types::positive_integer/times
+  #
+    multiplies the positive integer number with any kind of number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -991,6 +1047,8 @@ $types::positive_integer/times
   }
 
 $types::negative_integer/times
+  #
+    multiplies the negative integer number with any kind of number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -1049,6 +1107,8 @@ $types::negative_integer/times
 }
 
 $types::positive_large_integer/times
+  #
+    multiplies the positive large integer number with any kind of number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -1088,6 +1148,8 @@ $types::positive_large_integer/times
   }
 
 $types::negative_large_integer/times
+  #
+    multiplies the positive large integer number with any kind of number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -1127,6 +1189,8 @@ $types::negative_large_integer/times
   }
 
 $types::real/times
+  #
+    multiplies the floating point number with any kind of number
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
@@ -1172,6 +1236,8 @@ $types::real/times
 }
 
 $types::positive_integer/over
+  #
+    divides any kind of number into a positive integer number
   {
     CHECK_ARGUMENTS(2)
     int sign;
@@ -1198,6 +1264,8 @@ $types::positive_integer/over
   }
 
 $types::negative_integer/over
+  #
+    divides any kind of number into a negative integer number
   {
     CHECK_ARGUMENTS(2)
     int sign;
@@ -1269,6 +1337,8 @@ $types::negative_integer/over
 }
 
 $types::positive_large_integer/over
+  #
+    divides any kind of number into a positive large integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -1308,6 +1378,8 @@ $types::positive_large_integer/over
   }
 
 $types::negative_large_integer/over
+  #
+    divides any kind of number into a negative large integer number
   {
     CHECK_ARGUMENTS(2)
     long right_size;
@@ -1347,6 +1419,8 @@ $types::negative_large_integer/over
   }
 
 $types::real/over
+  #
+    divides any kind of number into a floating point number
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
@@ -1375,6 +1449,8 @@ $types::real/over
   }
 
 $types::positive_integer/div
+  #
+    returns the integral part of the division
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1386,6 +1462,8 @@ $types::positive_integer/div
   }
 
 $types::positive_integer/mod
+  #
+    returns the module of the division
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1397,6 +1475,11 @@ $types::positive_integer/mod
   }
 
 $types::positive_integer/equal
+  #
+    compares a positive integer to any kind of object
+
+    Might return <true> when compared to a floating point number without a
+    fractional part.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1408,6 +1491,11 @@ $types::positive_integer/equal
   }
 
 $types::positive_integer/equal_type_and_value
+  #
+    compares a positive integer to another positive integer
+
+    If the second argument is not a positive integer then <false> will be
+    returned.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1417,6 +1505,11 @@ $types::positive_integer/equal_type_and_value
   }
 
 $types::negative_integer/equal
+  #
+    compares a negative integer to any kind of object
+
+    Might return <true> when compared to a floating point number without a
+    fractional part.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
@@ -1428,6 +1521,11 @@ $types::negative_integer/equal
   }
 
 $types::negative_integer/equal_type_and_value
+  #
+    compares a negative integer to another negative integer
+
+    If the second argument is not a negative integer then <false> will be
+    returned.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
@@ -1437,6 +1535,11 @@ $types::negative_integer/equal_type_and_value
   }
 
 $types::positive_large_integer/equal
+  #
+    compares a positive large integer to any kind of object
+
+    Might return <true> when compared to a floating point number without a
+    fractional part.
   {
     CHECK_ARGUMENTS(2)
     long left_size, right_size;
@@ -1458,6 +1561,11 @@ $types::positive_large_integer/equal
   }
 
 $types::positive_large_integer/equal_type_and_value
+  #
+    compares a positive large integer to another positive large integer
+
+    If the second argument is not a positive large integer then <false> will be
+    returned.
   {
     CHECK_ARGUMENTS(2)
     long left_size, right_size;
@@ -1474,6 +1582,11 @@ $types::positive_large_integer/equal_type_and_value
   }
 
 $types::negative_large_integer/equal
+  #
+    compares a negative large integer to any kind of object
+
+    Might return <true> when compared to a floating point number without a
+    fractional part.
   {
     CHECK_ARGUMENTS(2)
     long left_size, right_size;
@@ -1495,6 +1608,11 @@ $types::negative_large_integer/equal
   }
 
 $types::negative_large_integer/equal_type_and_value
+  #
+    compares a negative large integer to another negative large integer
+
+    If the second argument is not a negative large integer then <false> will be
+    returned.
   {
     CHECK_ARGUMENTS(2)
     long left_size, right_size;
@@ -1511,6 +1629,11 @@ $types::negative_large_integer/equal_type_and_value
   }
 
 $types::real/equal
+  #
+    compares a floating point number to any kind of object
+
+    If there is no fractional part then this function might return <true> when
+    compared to an integer number.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
@@ -1534,6 +1657,11 @@ $types::real/equal
   }
 
 $types::real/equal_type_and_value
+  #
+    compares a floating point number to another floating point number
+
+    If the second argument is not a floating point number  then <false> will be
+    returned.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
@@ -1543,6 +1671,8 @@ $types::real/equal_type_and_value
   }
 
 $types::positive_integer/less
+  #
+    compares a positive integer to any kind of number
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1562,6 +1692,8 @@ $types::positive_integer/less
   }
 
 $types::negative_integer/less
+  #
+    compares a negative integer to any kind of number
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::negative_integer)) {
@@ -1581,6 +1713,8 @@ $types::negative_integer/less
   }
 
 $types::positive_large_integer/less
+  #
+    compares a positive large integer to any kind of number
   {
     CHECK_ARGUMENTS(2)
     long left_size, right_size;
@@ -1609,6 +1743,8 @@ $types::positive_large_integer/less
   }
 
 $types::negative_large_integer/less
+  #
+    compares a negative large integer to any kind of number
   {
     CHECK_ARGUMENTS(2)
     long left_size, right_size;
@@ -1637,6 +1773,8 @@ $types::negative_large_integer/less
   }
 
 $types::real/less
+  #
+    compares a floating point number to any kind of number
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::real)) {
@@ -1686,6 +1824,10 @@ $types::real/less
 }
 
 $types::positive_integer/shift_left
+  #
+    bitwise shift-left operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     uint32_t shift = to_uint32(ARGUMENTS(1));
@@ -1730,6 +1872,10 @@ $types::positive_integer/shift_left
   }
 
 $types::positive_large_integer/shift_left
+  #
+    bitwise shift-left operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     uint32_t shift = to_uint32(ARGUMENTS(1));
@@ -1756,6 +1902,10 @@ $types::positive_large_integer/shift_left
   }
 
 $types::positive_integer/shift_right
+  #
+    bitwise shift-right operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     uint32_t shift = to_uint32(ARGUMENTS(1));
@@ -1765,6 +1915,10 @@ $types::positive_integer/shift_right
   }
 
 $types::positive_large_integer/shift_right
+  #
+    bitwise shift-right operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     uint32_t shift = to_uint32(ARGUMENTS(1));
@@ -1806,6 +1960,10 @@ $types::positive_large_integer/shift_right
   }
 
 $types::positive_integer/bit_or
+  #
+    bitwise inclusive or operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1817,6 +1975,10 @@ $types::positive_integer/bit_or
   }
 
 $types::positive_integer/bit_and
+  #
+    bitwise and operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1828,6 +1990,10 @@ $types::positive_integer/bit_and
   }
 
 $types::positive_integer/bit_xor
+  #
+    bitwise exclusive or operation
+
+    The second operand must be positive integer, too.
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::positive_integer)) {
@@ -1839,6 +2005,8 @@ $types::positive_integer/bit_xor
   }
 
 $types::positive_integer/hash
+  #
+    returns an integer hash value
   {
     CHECK_ARGUMENTS(1)
     uint32_t hash =
@@ -1851,6 +2019,8 @@ $types::positive_integer/hash
   }
 
 $types::negative_integer/hash
+  #
+    returns an integer hash value
   {
     CHECK_ARGUMENTS(1)
     uint32_t hash =
@@ -1863,6 +2033,8 @@ $types::negative_integer/hash
   }
 
 $types::positive_integer/to_string
+  #
+    returns a human readable string representation
   {
     CHECK_ARGUMENTS(1)
     char buf[24];
@@ -1879,6 +2051,8 @@ $types::positive_integer/to_string
 }
 
 $types::negative_integer/to_string
+  #
+    returns a human readable string representation
   {
     CHECK_ARGUMENTS(1)
     char buf[24];
@@ -1923,6 +2097,8 @@ $types::negative_integer/to_string
 }
 
 $types::positive_large_integer/to_string
+  #
+    returns a human readable string representation
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(large_integer_to_string(1))
@@ -1937,6 +2113,8 @@ $types::positive_large_integer/to_string
 }
 
 $types::negative_large_integer/to_string
+  #
+    returns a human readable string representation
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(large_integer_to_string(-1))
@@ -1951,6 +2129,8 @@ $types::negative_large_integer/to_string
 }
 
 $types::real/to_string
+  #
+    returns a human readable string representation
   {
     CHECK_ARGUMENTS(1)
     char buf[24];
@@ -1966,11 +2146,32 @@ $types::real/to_string
   }
 }
 
-$std::is_odd: (n) -> n & 1 == 1
+$std::is_odd:
+  #
+    return <true> for *odd* integer numbers
+  (
+    n
+  )
+  -> n & 1 == 1
 
-$std::is_even: (n) -> n & 1 == 0
+$std::is_even:
+  #
+    return <true> for *even* integer numbers
+  (
+    n
+  )
+  -> n & 1 == 0
 
 $std::bin:
+  #
+    returns a string consisting of binary digits
+
+    The first argument must be a positive integer number. The optional second
+    argument specifies the minimum length of the string to be returned. If there
+    are less bits then specified by the *size* then the string is left-padded
+    with '0'-characters.
+
+    See also: hex, oct, to_string
   (
     $val
     size?
@@ -1990,6 +2191,15 @@ $std::bin:
   -> str
 
 $std::oct:
+  #
+    returns a string consisting of octal digits
+
+    The first argument must be a positive integer number. The optional second
+    argument specifies the minimum length of the string to be returned. If there
+    are less octal digits then specified by the *size* then the string is
+    left-padded with '0'-characters.
+
+    See also: hex, bin, to_string
   (
     $val
     size?
@@ -2009,6 +2219,15 @@ $std::oct:
   -> str
 
 $std::hex:
+  #
+    returns a string consisting of hexadecimal digits
+
+    The first argument must be a positive integer number. The optional second
+    argument specifies the minimum length of the string to be returned. If there
+    are less hexadecimal digits then specified by the *size* then the string is
+    left-padded with '0'-characters.
+
+    See also: oct, bin, to_string
   (
     $val
     size?
@@ -2033,28 +2252,58 @@ $std::hex:
   if size.is_defined: return pad_left(str size "0")
   -> str
 
-$types::integer/to_integer: (value) -> value
+$types::integer/to_integer:
+  #
+    returns the number unaltered
+  (
+    value
+  )
+  -> value
 
 $types::real/to_integer
+  #
+    returns the integral part of the floating point number
   {
     CHECK_ARGUMENTS(1)
     long val = floor(ARGUMENTS(0)->real.value);
     RETURN_SINGLE_RESULT(from_long(val))
   }
 
-$types::number/floor: (self) -> self
+$types::number/floor:
+  #
+    default implementation for all kind of numbers
+  (
+    self
+  )
+  -> self
 
-$types::number/ceil: (self) -> self
+$types::number/ceil:
+  #
+    default implementation for all kind of numbers
+  (
+    self
+  )
+  -> self
 
-$types::number/round: (self) -> self
+$types::number/round:
+  #
+    default implementation for all kind of numbers
+  (
+    self
+  )
+  -> self
 
 $types::real/floor
+  #
+    returns a *floating point* number
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(create__types__real(floor(ARGUMENTS(0)->real.value)))
   }
 
 $types::real/ceil
+  #
+    returns a *floating point* number
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(create__types__real(ceil(ARGUMENTS(0)->real.value)))
@@ -2067,6 +2316,8 @@ $types::real/round
   }
 
 $types::real/ln
+  #
+    returns the logarithmus naturalis
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(create__types__real(log(ARGUMENTS(0)->real.value)))

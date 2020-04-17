@@ -20,6 +20,11 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
+$std::is_a_key_order_set ()
+
+$types::object.is_a_key_order_set false
+$types::key_order_set.is_a_key_order_set true
+
 $NONE .
 
 $tree_of (!)
@@ -27,14 +32,6 @@ $left_of (!)
 $right_of (!)
 
 $types::key_order_set types::generic_set
-
-# ATTENTION: BUG BUG BUG!!!
-
-#types::object $empty_node
-  .left_of undefined
-  .right_of undefined
-
-# THIS *SHOULD* BE IDENTICAL TO:
 
 $empty_node types::object
 $empty_node.left_of undefined

@@ -275,7 +275,7 @@ $std::bit_and ()
 
 $std::bit_or ()
   #
-    bitwise and operation
+    bitwise inclusive or operation
 
     The two operands (both must be positive integers of any size) are combined
     bit for bit using an inclusive-or-operation.
@@ -284,7 +284,7 @@ $std::bit_or ()
 
 $std::bit_xor ()
   #
-    bitwise and operation
+    bitwise exclusive or operation
 
     The two operands (both must be positive integers of any size) are combined
     bit for bit using an exclusive-or-operation.

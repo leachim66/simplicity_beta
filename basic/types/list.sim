@@ -37,6 +37,8 @@ $types::list.is_a_list true
   <node SIMPLE_NODE>
   <base types::object>
 
+  // the prototype for all kind of lists (including strings)
+
   RUNTIME_ERROR("Attempt to call the generic list prototype as a function!")
 }
 
@@ -95,6 +97,8 @@ $types::list.is_a_list true
   <argument 0>
   <argument NULL>
 
+  // an ordered, enumerated sequence of items
+
   MIN_ARGUMENTS(1)
   MAX_ARGUMENTS(2)
   long length = myself->list.length;
@@ -118,6 +122,8 @@ $types::list.is_a_list true
   <type types::list>
   <argument 0>
   <argument NULL>
+
+  // an empty list object
 }
 
 {
@@ -164,6 +170,8 @@ $types::list.is_a_list true
 $types::list/to_list: (self) -> self
 
 $std::list
+  #
+    constructs a list from its arguments
   {
     MIN_ARGUMENTS(0)
     LIST_DATA *data = NULL;
@@ -179,12 +187,16 @@ $std::list
   }
 
 $types::list/length_of
+  #
+    returns the number of items within the list
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->list.length))
   }
 
 $types::list/push
+  #
+    adds a single item at the end of the list
   {
     CHECK_ARGUMENTS(2)
     NODE *right = ARGUMENTS(1);
@@ -206,6 +218,8 @@ $types::list/push
   }
 
 $types::list/drop
+  #
+    removes the last item of a non-empty list
   {
     CHECK_ARGUMENTS(1)
     NODE *list = ARGUMENTS(0);
@@ -216,6 +230,8 @@ $types::list/drop
   }
 
 $types::list/pop
+  #
+    removes and returns the last item of a non-empty list
   {
     CHECK_ARGUMENTS(1)
     if (RESULT_COUNT != 2) RUNTIME_ERROR("Invalid number of expected results!")
@@ -230,6 +246,8 @@ $types::list/pop
   }
 
 $types::list/peek
+  #
+    returns the last item of a non-empty list
   {
     CHECK_ARGUMENTS(1)
     NODE *list = ARGUMENTS(0);
@@ -239,6 +257,8 @@ $types::list/peek
   }
 
 $types::list/append
+  #
+    appends two lists
   {
     CHECK_ARGUMENTS(2)
     NODE *right = ARGUMENTS(1);
@@ -267,6 +287,8 @@ $types::list/append
   }
 
 $types::list/range
+  #
+    returns the specified subrange
   {
     CHECK_ARGUMENTS(3)
     NODE *self = ARGUMENTS(0);
@@ -291,7 +313,8 @@ $types::list/range
   }
 
 $types::generic_list/delete_at:
-  # deletes zero or more items at the specified position
+  #
+    deletes zero or more items at the specified position
   (
     &self
     idx # the position where to start deleting
@@ -300,6 +323,8 @@ $types::generic_list/delete_at:
   if count != 0: !self append(range(self 1 idx-1) range(self idx+count -1))
 
 $std::normalized_index:
+  #
+    returns the absolute index position
   (
     self
     idx
@@ -311,7 +336,13 @@ $std::normalized_index:
     :
       return length_of(self)+1+idx
 
-$types::generic_list/is_empty: (self) -> length_of(self) == 0
+$types::generic_list/is_empty:
+  #
+    checks whether the specified list is empty
+  (
+    self
+  )
+  -> length_of(self) == 0
 
 $types::generic_list/for_each_from_to:
   #
@@ -346,7 +377,28 @@ $types::generic_list/for_each_from_to:
     if body2.is_defined && i < n: body2
     plus &i 1
 
-$types::generic_list/for_each_from_down_to: (self first last body body2?)
+$types::generic_list/for_each_from_down_to:
+  #
+    iterates over a subrange of the list's items in reverse order
+
+    Iterates over each item in the list starting with the *first* item
+    down to (and including) the *last* item.
+
+    For each item the statement sequence supplied as *body* is called
+    with one or two arguments (depending on *body*'s parameter count).
+
+    If called with two arguments the first argument is the position no.
+    of the item within the list.
+
+    If a second statement sequence (*body2*) is supplied it is called
+    between two calls to *body* (without any arguments).
+  (
+    self # the list to iterate over
+    first # the no. of the first item
+    last # the no. of the first item
+    body # the statement sequence to call for each item
+    body2? # a statement sequence to call between two item-calls
+  )
   $$i normalized_index(self first)
   $n normalized_index(self last)
   while -> i >= n:
@@ -358,7 +410,12 @@ $types::generic_list/for_each_from_down_to: (self first last body body2?)
     if body2.is_defined && i < n: body2
     minus &i 1
 
-$types::generic_list/for_each: (self body body2?)
+$types::generic_list/for_each:
+  (
+    self
+    body
+    body2?
+  )
   $$i 1
   $n length_of(self)
   if
@@ -393,7 +450,11 @@ $types::generic_list/update_each:
 	plus &i 1
   return new_list
 
-$types::list/for_each_pair: (self body)
+$types::list/for_each_pair:
+  (
+    self
+    body
+  )
   $$i 1
   $n length_of(self)
   while -> i < n:
@@ -401,11 +462,19 @@ $types::list/for_each_pair: (self body)
     plus &i 2
   if is_odd(n): body self(i)
 
-$types::generic_list/get: (self)
+$types::generic_list/get:
+  (
+    self
+  )
   if length_of(self) == 0: raise "Attempt to get an element from an empty list!"
   -> range(self 2 -1) self(1)
 
-$types::list/put: (self item) -> append(list(item) self)
+$types::list/put:
+  (
+    self
+    item
+  )
+  -> append(list(item) self)
 
 $types::list/merge:
   (
@@ -503,7 +572,13 @@ $types::list/sort:
   }
 }
 
-$types::list/new_empty_collection: (_self) -> types::list
+$types::list/new_empty_collection:
+  #
+    returns an empty list
+  (
+    _self
+  )
+  -> types::list
 
 $types::generic_list/equal:
   #
@@ -520,12 +595,20 @@ $types::generic_list/equal:
   for_each left: (idx item) if item != right(idx): return false
   -> true
 
-$types::generic_list/filter: (self test)
+$types::generic_list/filter:
+  (
+    self
+    test
+  )
   $$new_list new_empty_collection(self)
   for_each self: (item) if test(item): push &new_list item
   -> new_list
 
-$types::generic_list/map: (self func)
+$types::generic_list/map:
+  (
+    self
+    func
+  )
   $$new_list new_empty_collection(self)
   for_each self: (item) push &new_list func(item)
   -> new_list
@@ -572,7 +655,11 @@ $std::is_a_sequence ()
 
 $types::object.is_a_sequence false
 
-$std::sequence: (items*)
+$std::sequence:
+  # constructs a list that is tagged to be a sequence
+  (
+    items*
+  )
   ->
     list(items*)
       .is_a_sequence true
@@ -587,6 +674,8 @@ $std::sequence: (items*)
 	-> false
 
 register_deserializer "list":
+  #
+    constructs a list from its serialized representation
   (
     $text
     base_indent
