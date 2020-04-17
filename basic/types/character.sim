@@ -41,6 +41,10 @@ $types::character.is_a_character true
   <base types::object>
   <argument 0>
 
+  // a unicode code point encoded as a 32-bit value
+  //
+  // See also: types::string
+
   RUNTIME_ERROR("Attempt to call a character value as a function!")
 }
 
@@ -70,6 +74,14 @@ $std::character
   }
 
 $types::character/plus
+  #
+    returns the *offset*-next character
+
+    Parameter chr: this character
+
+    Parameter offset: the number of characters to skip
+
+    See also: types::character/minus
   {
     CHECK_ARGUMENTS(2)
     long code = (long)ARGUMENTS(0)->character.code+to_long(ARGUMENTS(1));
@@ -78,6 +90,14 @@ $types::character/plus
   }
 
 $types::character/minus
+  #
+    returns the *offset*-previous character
+
+    Parameter chr: this character
+
+    Parameter offset: the number of characters to skip
+
+    See also: types::character/plus
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::character)) {
@@ -92,6 +112,8 @@ $types::character/minus
   }
 
 $types::character/equal
+  #
+    compares two characters for equality
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::character)) {
@@ -101,6 +123,8 @@ $types::character/equal
   }
 
 $types::character/less
+  #
+    numerically compares the codes of the two characters
   {
     CHECK_ARGUMENTS(2)
     if (TYPEOF(ARGUMENTS(1)) == TYPE(types::character)) {
@@ -110,6 +134,8 @@ $types::character/less
   }
 
 $types::character/hash
+  #
+    computes a numerical hash value
   {
     CHECK_ARGUMENTS(1)
     uint32_t hash = ARGUMENTS(0)->character.code;
@@ -119,6 +145,8 @@ $types::character/hash
   }
 
 $types::character/to_string
+  #
+    returns a single-character string
   {
     CHECK_ARGUMENTS(1)
     if (ARGUMENTS(0)->character.code <= 0xff) {
@@ -131,6 +159,8 @@ $types::character/to_string
   }
 
 $types::character/to_integer
+  #
+    returns the character's code as an integer value
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_uint32(ARGUMENTS(0)->character.code))
@@ -155,37 +185,129 @@ $types::character/to_integer
   }
 }
 
-$std::is_a_whitespace_character: (chr)
+$std::is_a_whitespace_character:
+  #
+    returns <true> for whitespace characters
+
+    The following characters are considerd whitespace:
+
+    space, line feed, carriage return, horizontal tabulator
+
+    See also: is_a_digit, is_a_letter
+  (
+    chr
+  )
   -> chr == ' ' || chr == '@nl;' || chr == '@cr;' || chr == '@ht;'
 
-$std::is_a_digit: (chr) -> chr >= '0' && chr <= '9'
+$std::is_a_digit:
+  #
+    returns <true> for digits
 
-$std::is_a_letter: (chr) -> chr >= 'a' && chr <= 'z' || chr >= 'A' && chr <= 'Z'
+    See also: is_a_letter, is_a_whitespace_character
+  (
+    chr
+  )
+  -> chr >= '0' && chr <= '9'
 
-$std::is_a_lower_case_letter: (chr) -> chr >= 'a' && chr <= 'z'
+$std::is_a_letter:
+  #
+    returns <true> for letters
 
-$std::is_an_upper_case_letter: (chr) -> chr >= 'A' && chr <= 'Z'
+    Only the roman characters ('a' .. 'z'), 'A' .. 'Z') are considered letters!
 
-$std::is_a_letter_character: (chr)
+    See also: is_a_digit, is_a_lower_case_letter, is_an_upper_case_letter,
+	      is_a_letter_character, is_a_whitespace_character
+  (
+    chr
+  )
+  -> chr >= 'a' && chr <= 'z' || chr >= 'A' && chr <= 'Z'
+
+$std::is_a_lower_case_letter:
+  #
+    returns <true> for lower case letters
+
+    Only the roman characters ('a' .. 'z') are considered letters!
+
+    See also: is_an_upper_case_letter, is_a_letter,
+	      is_a_lower_case_letter_character
+  (
+    chr
+  )
+  -> chr >= 'a' && chr <= 'z'
+
+$std::is_an_upper_case_letter:
+  #
+    returns <true> for upper case letters
+
+    Only the roman characters ('A' .. 'Z') are considered letters!
+
+    See also: is_a_lower_case_letter, is_a_letter,
+	      is_an_uppper_case_letter_character
+  (
+    chr
+  )
+  -> chr >= 'A' && chr <= 'Z'
+
+$std::is_a_letter_character:
+  #
+    returns <true> for letter characters
+
+    All characters based on roman characters (e.g. 'Ä', ô) are letter
+    characters.
+
+    See also: is_a_letter,
+	      is_a_lower_case_letter_character, is_an_uppper_case_letter_character
+  (
+    chr
+  )
   ->
     ||
       chr >= 'a' && chr <= 'z'
       chr >= 'A' && chr <= 'Z'
       chr >= 'À' && chr <= 'ÿ' && chr != '×' && chr != '÷'
 
-$std::is_a_lower_case_letter_character: (chr)
+$std::is_a_lower_case_letter_character:
+  #
+    returns <true> for lower case letter characters
+
+    All characters based on roman characters (e.g. 'ä', ô) are letter
+    characters.
+
+    See also: is_a_letter_character, is_a_letter, is_a_letter_character,
+	      is_an_uppper_case_letter_character
+  (
+    chr
+  )
   ->
     ||
       chr >= 'a' && chr <= 'z'
       chr >= 'à' && chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
 
-$std::is_an_uppper_case_letter_character: (chr)
+$std::is_an_uppper_case_letter_character:
+  #
+    returns <true> for upper case letter characters
+
+    All characters based on roman characters (e.g. 'Ä', Ô) are letter
+    characters.
+
+    See also: is_a_letter_character, is_a_letter, is_an_upper_case_letter,
+	      is_a_lower_case_letter_character
+  (
+    chr
+  )
   ->
     ||
       chr >= 'A' && chr <= 'Z'
       chr >= 'À' && chr <= 'ß' && chr != '×' && chr != 'ß'
 
 $types::character/to_lower_case:
+  #
+    converts to lower case
+
+    All upper case letter characters are converted to their lower case
+    pendants; all other characters are returned unaltered.
+
+    See also: to_upper_case, is_a_lower_case_letter_character
   (
     chr
     -> return
@@ -197,6 +319,13 @@ $types::character/to_lower_case:
       return chr
 
 $types::character/to_upper_case:
+  #
+    converts to upper case
+
+    All lower case letter characters are converted to their upper case
+    pendants; all other characters are returned unaltered.
+
+    See also: to_lower_case, is_an_upper_case_letter_character
   (
     chr
     -> return
@@ -207,10 +336,26 @@ $types::character/to_upper_case:
     :
       return chr
 
-$std::is_a_vowel: (chr)
+$std::is_a_vowel:
+  #
+    returns <true> for vowels
+
+    Only 'a', 'e', 'i', 'o' and 'u' (and their upper case forms) are considered
+    to be vowels.
+
+    See also: is_a_letter
+  (
+    chr
+  )
   case chr 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' (-> true) -> false
 
-$types::character/serialize: (self _indent?)
+$types::character/serialize:
+  #
+    returns the character in source code form
+  (
+    self
+    _indent?
+  )
   $$buf "'"
   if
     ||

@@ -319,12 +319,6 @@ static void entry__16_1_types__true_equal(void);
 static NODE *func__16_1_types__true_equal;
 static void entry__17_1_types__false_equal(void);
 static NODE *func__17_1_types__false_equal;
-static NODE *func__18_1_types__true_not;
-static void entry__18_1_types__true_not(void);
-static FRAME_INFO frame__18_1_types__true_not = {1, {"self"}};
-static NODE *func__19_1_types__false_not;
-static void entry__19_1_types__false_not(void);
-static FRAME_INFO frame__19_1_types__false_not = {1, {"self"}};
 static NODE *func__20_1_types__true_and;
 static void entry__20_1_types__true_and(void);
 static FRAME_INFO frame__20_1_types__true_and = {2, {"left", "right"}};
@@ -363,25 +357,23 @@ void run__basic__types__boolean(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_boolean, NULL, 23, 23, 2, 18},
-  {run__basic__types__boolean, NULL, 175, 175, 1, 62},
-  {cont__57_2, NULL, 176, 176, 1, 64},
+  {run__basic__types__boolean, NULL, 243, 243, 1, 62},
+  {cont__57_2, NULL, 244, 244, 1, 64},
   {cont__58_2, NULL, },
-  {entry__16_1_types__true_equal, NULL, 138, 141, 3, 2},
-  {entry__17_1_types__false_equal, NULL, 144, 147, 3, 2},
-  {entry__18_1_types__true_not, NULL, 149, 149, 27, 34},
-  {entry__19_1_types__false_not, NULL, 151, 151, 28, 34},
-  {entry__20_1_types__true_and, NULL, 153, 153, 36, 42},
-  {cont__20_2, &frame__20_1_types__true_and, 153, 153, 33, 42},
-  {entry__21_1_types__false_and, NULL, 155, 155, 35, 42},
-  {entry__22_1_types__true_or, NULL, 157, 157, 33, 39},
-  {entry__23_1_types__false_or, NULL, 159, 159, 36, 42},
-  {cont__23_2, &frame__23_1_types__false_or, 159, 159, 33, 42},
-  {entry__24_1_types__true_if, NULL, 161, 161, 43, 46},
-  {entry__25_1_types__false_if, NULL, 169, 169, 3, 6},
-  {entry__26_1_types__true_unless, NULL, 171, 171, 41, 44},
-  {entry__27_1_types__false_unless, NULL, 173, 173, 41, 44},
-  {entry__57_1, NULL, 175, 175, 51, 62},
-  {entry__58_1, NULL, 176, 176, 52, 64}
+  {entry__16_1_types__true_equal, NULL, 138, 143, 3, 2},
+  {entry__17_1_types__false_equal, NULL, 146, 151, 3, 2},
+  {entry__20_1_types__true_and, NULL, 169, 169, 6, 12},
+  {cont__20_2, &frame__20_1_types__true_and, 169, 169, 3, 12},
+  {entry__21_1_types__false_and, NULL, 180, 180, 3, 10},
+  {entry__22_1_types__true_or, NULL, 191, 191, 3, 9},
+  {entry__23_1_types__false_or, NULL, 203, 203, 6, 12},
+  {cont__23_2, &frame__23_1_types__false_or, 203, 203, 3, 12},
+  {entry__24_1_types__true_if, NULL, 213, 213, 3, 6},
+  {entry__25_1_types__false_if, NULL, 223, 223, 3, 6},
+  {entry__26_1_types__true_unless, NULL, 232, 232, 3, 6},
+  {entry__27_1_types__false_unless, NULL, 241, 241, 3, 6},
+  {entry__57_1, NULL, 243, 243, 51, 62},
+  {entry__58_1, NULL, 244, 244, 52, 64}
 };
 
 union NODE {
@@ -447,7 +439,7 @@ EXPORT void run__basic__types__boolean(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 175: register_deserializer "true": (text _base_indent) -> text true
+  // 243: register_deserializer "true": (text _base_indent) -> text true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__12_1;
@@ -466,7 +458,7 @@ static void entry__57_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: ... -> text true
+  // 243: ... -> text true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -480,7 +472,7 @@ static void cont__57_2(void) {
     invalid_results_error();
     return;
   }
-  // 176: register_deserializer "false": (text _base_indent) -> text false
+  // 244: register_deserializer "false": (text _base_indent) -> text false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__13_1;
@@ -499,7 +491,7 @@ static void entry__58_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 176: ... -> text false
+  // 244: ... -> text false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -639,6 +631,8 @@ static long func__types__false___debug_string(NODE *node, int indent, int max_de
   return debug_print(indent, buf, "false");
 }
 static void entry__16_1_types__true_equal(void) {
+  // is only equal to itself
+
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -654,6 +648,8 @@ static void entry__16_1_types__true_equal(void) {
   }
 }
 static void entry__17_1_types__false_equal(void) {
+  // is only equal to itself
+
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -668,38 +664,6 @@ static void entry__17_1_types__false_equal(void) {
     return;
   }
 }
-static void entry__18_1_types__true_not(void) {
-  allocate_initialized_frame_gc(1, 1);
-  // slot allocations:
-  // self: 0
-  if (argument_count != 1) {
-    invalid_arguments_error();
-    return;
-  }
-  // 149: ... -> false
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = get__false();
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void entry__19_1_types__false_not(void) {
-  allocate_initialized_frame_gc(1, 1);
-  // slot allocations:
-  // self: 0
-  if (argument_count != 1) {
-    invalid_arguments_error();
-    return;
-  }
-  // 151: ... -> true
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = get__true();
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
 static void entry__20_1_types__true_and(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
@@ -709,7 +673,7 @@ static void entry__20_1_types__true_and(void) {
     invalid_arguments_error();
     return;
   }
-  // 153: ... right()
+  // 169: ... right()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -723,7 +687,7 @@ static void cont__20_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 153: ... -> right()
+  // 169: -> right()
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -740,7 +704,7 @@ static void entry__21_1_types__false_and(void) {
     invalid_arguments_error();
     return;
   }
-  // 155: ... -> false
+  // 180: -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -757,7 +721,7 @@ static void entry__22_1_types__true_or(void) {
     invalid_arguments_error();
     return;
   }
-  // 157: ... -> true
+  // 191: -> true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -774,7 +738,7 @@ static void entry__23_1_types__false_or(void) {
     invalid_arguments_error();
     return;
   }
-  // 159: ... right()
+  // 203: ... right()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -788,7 +752,7 @@ static void cont__23_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 159: ... -> right()
+  // 203: -> right()
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -817,7 +781,7 @@ static void entry__24_1_types__true_if(void) {
   switch(argument_count) {
     case 2: frame->slots[2] /* else */ = undefined;
   }
-  // 161: ... then
+  // 213: then
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -846,7 +810,7 @@ static void entry__25_1_types__false_if(void) {
   switch(argument_count) {
     case 2: frame->slots[2] /* else */ = get__pass();
   }
-  // 169: else
+  // 223: else
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -863,7 +827,7 @@ static void entry__26_1_types__true_unless(void) {
     invalid_arguments_error();
     return;
   }
-  // 171: ... pass
+  // 232: pass
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -880,7 +844,7 @@ static void entry__27_1_types__false_unless(void) {
     invalid_arguments_error();
     return;
   }
-  // 173: ... body
+  // 241: body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -915,10 +879,8 @@ EXPORT void phase_2__basic__types__boolean(void) {
   already_run_phase_2 = true;
   string__12_1 = from_latin_1_string("true", 4);
   string__13_1 = from_latin_1_string("false", 5);
-  func__16_1_types__true_equal = create_function(entry__16_1_types__true_equal, 2);
-  func__17_1_types__false_equal = create_function(entry__17_1_types__false_equal, 2);
-  func__18_1_types__true_not = create_function(entry__18_1_types__true_not, 1);
-  func__19_1_types__false_not = create_function(entry__19_1_types__false_not, 1);
+  func__16_1_types__true_equal = create_function(entry__16_1_types__true_equal, -1);
+  func__17_1_types__false_equal = create_function(entry__17_1_types__false_equal, -1);
   func__20_1_types__true_and = create_function(entry__20_1_types__true_and, 2);
   func__21_1_types__false_and = create_function(entry__21_1_types__false_and, 2);
   func__22_1_types__true_or = create_function(entry__22_1_types__true_or, 2);
@@ -975,8 +937,8 @@ EXPORT void phase_4__basic__types__boolean(void) {
   define_attribute("types", "false", poly_idx__std__to_string, string__13_1);
   define_method("types", "true", poly_idx__equal, func__16_1_types__true_equal);
   define_method("types", "false", poly_idx__equal, func__17_1_types__false_equal);
-  define_method("types", "true", poly_idx__not, func__18_1_types__true_not);
-  define_method("types", "false", poly_idx__not, func__19_1_types__false_not);
+  define_attribute("types", "true", poly_idx__not, get__false());
+  define_attribute("types", "false", poly_idx__not, get__true());
   define_method("types", "true", poly_idx__and, func__20_1_types__true_and);
   define_method("types", "false", poly_idx__and, func__21_1_types__false_and);
   define_method("types", "true", poly_idx__or, func__22_1_types__true_or);

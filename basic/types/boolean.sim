@@ -136,31 +136,85 @@ $types::false.std::to_string "false"
 
 $types::true/equal
   {
+    // is only equal to itself
+
     CHECK_ARGUMENTS(2)
     RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::true))
   }
 
 $types::false/equal
   {
+    // is only equal to itself
+
     CHECK_ARGUMENTS(2)
     RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::false))
   }
 
-$types::true/not: (_self) -> false
+$types::true.not false
+  # returns <false>
 
-$types::false/not: (_self) -> true
+$types::false.not true
+  # returns <true>
 
-$types::true/and: (_left right) -> right()
+$types::true/and:
+  #
+    evaluates and returns its second argument
 
-$types::false/and: (_left _right) -> false
+    The first argument is already <true>, so the second argument decides
+    whether the *and*-expression ist *true* or not.
+  (
+    _left
+    right
+  )
+  -> right()
 
-$types::true/or: (_left _right) -> true
+$types::false/and:
+  #
+    return <false>
 
-$types::false/or: (_left right) -> right()
+    The second argument is not evaluated at all!
+  (
+    _left
+    _right
+  )
+  -> false
 
-$types::true/if: (_condition then _else?) then
+$types::true/or:
+  #
+    return <true>
+
+    The second argument is not evaluated at all!
+  (
+    _left
+    _right
+  )
+  -> true
+
+$types::false/or:
+  #
+    evaluates and returns its second argument
+
+    The first argument is already <false>, so the second argument decides
+    whether the *or*-expression ist *true* or not.
+  (
+    _left
+    right
+  )
+  -> right()
+
+$types::true/if:
+  #
+    executes the *then-part*
+  (
+    _condition
+    then
+    _else?
+  )
+  then
 
 $types::false/if:
+  #
+    executes the *else-part*
   (
     _condition
     _then
@@ -168,9 +222,23 @@ $types::false/if:
   )
   else
 
-$types::true/unless: (_condition _body) pass
+$types::true/unless:
+  #
+    does nothing at all
+  (
+    _condition
+    _body
+  )
+  pass
 
-$types::false/unless: (_condition body) body
+$types::false/unless:
+  #
+    executes the *body*
+  (
+    _condition
+    body
+  )
+  body
 
 register_deserializer "true": (text _base_indent) -> text true
 register_deserializer "false": (text _base_indent) -> text false

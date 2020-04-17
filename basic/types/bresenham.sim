@@ -26,7 +26,17 @@ $steps_of ()
 $value_of ()
 $error_of ()
 
-$std::bresenham: (count first last)
+$std::bresenham:
+  #
+    return an iterators
+
+    The iterator produces *count* equally distributed values starting with the
+    *first* value and ending with the *last* value.
+  (
+    count # the number of values to return
+    first # the first value to return
+    last # the last value to return
+  )
   $delta abs(last-first)
   $sign sgn(last-first)
   $steps count-1

@@ -182,7 +182,7 @@ $std::and ()
 
     <std::and>(**a** -> **b**)
 
-    See also: std::or
+    See also: std::or, std::if
 
 $std::or ()
   #
@@ -199,7 +199,7 @@ $std::or ()
 
     <std::or>(**a** -> **b**)
 
-    See also: std::and
+    See also: std::and, std::if
 
 $std::if ()
   #
