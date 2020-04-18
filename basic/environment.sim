@@ -67,6 +67,9 @@ $envc
   }
 
 $std::program_name argv(0)
+  #
+    the name of the application program
+
 $$arguments empty_list
 from_to 1 argc()-1: (i) push &arguments argv(i)
 $std::command_line_arguments arguments
@@ -102,3 +105,13 @@ $env_2/:
       private::set_item myself key value
 
 $$std::environment env_2
+  #
+    allows access to the process' environment
+
+    Example 1:
+
+    writeln environment("user")
+
+    Example 2:
+
+    !environment("user") "John Doe"

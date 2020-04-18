@@ -360,32 +360,32 @@ void run__basic__environment(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__environment, NULL, 69, 69, 1, 26},
-  {cont__22_1, NULL, 71, 71, 11, 16},
-  {cont__24_1, NULL, 71, 71, 11, 18},
-  {cont__24_2, NULL, 71, 71, 1, 47},
-  {cont__24_6, NULL, 74, 74, 11, 16},
-  {cont__27_1, NULL, 74, 76, 1, 43},
-  {cont__27_8, NULL, 104, 104, 1, 24},
+  {cont__22_1, NULL, 74, 74, 11, 16},
+  {cont__24_1, NULL, 74, 74, 11, 18},
+  {cont__24_2, NULL, 74, 74, 1, 47},
+  {cont__24_6, NULL, 77, 77, 11, 16},
+  {cont__27_1, NULL, 77, 79, 1, 43},
+  {cont__27_8, NULL, 107, 107, 1, 24},
   {entry__1_1_argv, NULL, 26, 31, 3, 2},
   {entry__2_1_argc, NULL, 34, 37, 3, 2},
   {entry__4_1_envv, NULL, 45, 56, 3, 2},
   {entry__5_1_envc, NULL, 59, 67, 3, 2},
-  {entry__12_1_putenv, NULL, 79, 83, 3, 2},
-  {entry__15_3, NULL, 97, 97, 7, 34},
-  {entry__15_4, NULL, 101, 101, 14, 30},
-  {cont__15_6, &frame__15_4, 101, 101, 7, 30},
-  {cont__15_7, &frame__15_4, 102, 102, 7, 40},
-  {entry__15_1_env_2_, NULL, 96, 96, 5, 17},
-  {cont__15_2, &frame__15_1_env_2_, 95, 102, 3, 41},
-  {entry__24_3, NULL, 71, 71, 41, 47},
-  {cont__24_4, &frame__24_3, 71, 71, 25, 47},
-  {cont__24_5, &frame__24_3, 71, 71, 47, 47},
-  {entry__27_2, NULL, 75, 75, 8, 14},
-  {cont__27_3, &frame__27_2, 75, 75, 3, 24},
-  {cont__27_4, &frame__27_2, 76, 76, 3, 43},
-  {cont__27_5, &frame__27_2, 76, 76, 10, 25},
-  {cont__27_6, &frame__27_2, 76, 76, 3, 26},
-  {cont__27_7, &frame__27_2, 76, 76, 43, 43}
+  {entry__12_1_putenv, NULL, 82, 86, 3, 2},
+  {entry__15_3, NULL, 100, 100, 7, 34},
+  {entry__15_4, NULL, 104, 104, 14, 30},
+  {cont__15_6, &frame__15_4, 104, 104, 7, 30},
+  {cont__15_7, &frame__15_4, 105, 105, 7, 40},
+  {entry__15_1_env_2_, NULL, 99, 99, 5, 17},
+  {cont__15_2, &frame__15_1_env_2_, 98, 105, 3, 41},
+  {entry__24_3, NULL, 74, 74, 41, 47},
+  {cont__24_4, &frame__24_3, 74, 74, 25, 47},
+  {cont__24_5, &frame__24_3, 74, 74, 47, 47},
+  {entry__27_2, NULL, 78, 78, 8, 14},
+  {cont__27_3, &frame__27_2, 78, 78, 3, 24},
+  {cont__27_4, &frame__27_2, 79, 79, 3, 43},
+  {cont__27_5, &frame__27_2, 79, 79, 10, 25},
+  {cont__27_6, &frame__27_2, 79, 79, 3, 26},
+  {cont__27_7, &frame__27_2, 79, 79, 43, 43}
 };
 
 union NODE {
@@ -447,9 +447,9 @@ static void cont__22_1(void) {
     return;
   }
   initialize_future(var.std__program_name, arguments->slots[0]);
-  // 70: $$arguments empty_list
+  // 73: $$arguments empty_list
   var._arguments = get__empty_list();
-  // 71: ... argc()
+  // 74: ... argc()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -463,7 +463,7 @@ static void cont__24_1(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 71: ... argc()-1
+  // 74: ... argc()-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -479,7 +479,7 @@ static void cont__24_2(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 71: from_to 1 argc()-1: (i) push &arguments argv(i)
+  // 74: from_to 1 argc()-1: (i) push &arguments argv(i)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -498,7 +498,7 @@ static void entry__24_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 71: ... argv(i)
+  // 74: ... argv(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* i */;
@@ -513,7 +513,7 @@ static void cont__24_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 71: ... push &arguments argv(i)
+  // 74: ... push &arguments argv(i)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._arguments;
@@ -540,11 +540,11 @@ static void cont__24_6(void) {
     invalid_results_error();
     return;
   }
-  // 72: $std::command_line_arguments arguments
+  // 75: $std::command_line_arguments arguments
   initialize_future(var.std__command_line_arguments, var._arguments);
-  // 73: $$env_1 empty_table
+  // 76: $$env_1 empty_table
   var._env_1 = get__empty_table();
-  // 74: ... envc()
+  // 77: ... envc()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -558,9 +558,9 @@ static void cont__27_1(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 74: from_to 1 envc(): (i)
-  // 75:   $str envv(i).from_utf8
-  // 76:   !env_1(str .before. '=') str .behind. '='
+  // 77: from_to 1 envc(): (i)
+  // 78:   $str envv(i).from_utf8
+  // 79:   !env_1(str .before. '=') str .behind. '='
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -581,7 +581,7 @@ static void entry__27_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 75: ... envv(i)
+  // 78: ... envv(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* i */;
@@ -596,7 +596,7 @@ static void cont__27_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 75: $str envv(i).from_utf8
+  // 78: $str envv(i).from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -611,7 +611,7 @@ static void cont__27_4(void) {
     return;
   }
   initialize_future(frame->slots[1] /* str */, arguments->slots[0]);
-  // 76: !env_1(str .before. '=') str .behind. '='
+  // 79: !env_1(str .before. '=') str .behind. '='
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* str */;
@@ -627,7 +627,7 @@ static void cont__27_5(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 76: ... str .before. '='
+  // 79: ... str .before. '='
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* str */;
@@ -643,7 +643,7 @@ static void cont__27_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 76: !env_1(str .before. '=')
+  // 79: !env_1(str .before. '=')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -670,9 +670,9 @@ static void cont__27_8(void) {
     invalid_results_error();
     return;
   }
-  // 87: $env_2 env_1
+  // 90: $env_2 env_1
   initialize_future(var._env_2, var._env_1);
-  // 104: $$std::environment env_2
+  // 107: $$std::environment env_2
   var.std__environment = var._env_2;
   frame = frame->caller_frame;
   func = frame->cont;
@@ -791,7 +791,7 @@ static void entry__15_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 97: private::get_item myself key
+  // 100: private::get_item myself key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -814,7 +814,7 @@ static void entry__15_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 101: ... "@(key)=@(value)"
+  // 104: ... "@(key)=@(value)"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -831,7 +831,7 @@ static void cont__15_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 101: putenv "@(key)=@(value)"
+  // 104: putenv "@(key)=@(value)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -845,7 +845,7 @@ static void cont__15_7(void) {
     invalid_results_error();
     return;
   }
-  // 102: private::set_item myself key value
+  // 105: private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* myself */;
@@ -878,7 +878,7 @@ static void entry__15_1_env_2_(void) {
     case 1: frame->slots[1] /* value */ = var._NONE;
   }
   frame->slots[2] /* myself */ = myself;
-  // 96: NONE == value
+  // 99: NONE == value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -894,23 +894,23 @@ static void cont__15_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 96: ... :
-  // 97:   private::get_item myself key
+  //  99: ... :
+  // 100:   private::get_item myself key
   frame->slots[4] /* temp__2 */ = create_closure(entry__15_3, 0);
-  //  98: :
-  //  99:   #ewriteln key ": " value
-  // 100:   
-  // 101:   putenv "@(key)=@(value)"
-  // 102:   private::set_item myself key value
+  // 101: :
+  // 102:   #ewriteln key ": " value
+  // 103:   
+  // 104:   putenv "@(key)=@(value)"
+  // 105:   private::set_item myself key value
   frame->slots[5] /* temp__3 */ = create_closure(entry__15_4, 0);
-  //  95: if
-  //  96:   NONE == value:
-  //  97:     private::get_item myself key
-  //  98:   :
-  //  99:     #ewriteln key ": " value
-  // 100:     
-  // 101:     putenv "@(key)=@(value)"
-  // 102:     private::set_item myself key value
+  //  98: if
+  //  99:   NONE == value:
+  // 100:     private::get_item myself key
+  // 101:   :
+  // 102:     #ewriteln key ": " value
+  // 103:     
+  // 104:     putenv "@(key)=@(value)"
+  // 105:     private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;

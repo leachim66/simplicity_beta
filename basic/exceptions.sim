@@ -22,23 +22,31 @@
 
 <include stdlib.h>
 
-$std::CLEANUP .
-$std::ERROR_MESSAGE .
+#$std::CLEANUP .
+#$std::ERROR_MESSAGE .
 
 $resource_id_of (!)
+  # maybe depredated
 $retain_id_of (!)
+  # maybe depredated
 
 $types::object.retain_id_of undefined
+  # maybe depredated
 %first_resource_id undefined
 $$next_resource_id 0
 $$resources empty_list
 
-$std::register_resource: (&resource)
+$std::register_resource:
+  # maybe depredated
+  (
+    &resource
+  )
   !resource.resource_id_of next_resource_id
   inc &next_resource_id
   push &resources resource
 
 $std::deregister_resource:
+  # maybe depredated
   (
     resource
     -> return
@@ -68,7 +76,11 @@ $std::deregister_resource:
       :
         return out
 
-$cleanup_till: (id)
+$cleanup_till:
+  # maybe depredated
+  (
+    id
+  )
   do: (repeat_me^)
     $$i length_of(resources)
     do: (-> break)
@@ -97,24 +109,49 @@ $clib_exit
 
 $$exit_functions empty_list
 
-$std::at_exit: (func) push &exit_functions func
+$std::at_exit:
+  #
+    register a procedure to be called before the application exits
+  (
+    func
+  )
+  push &exit_functions func
 
-$std::exit: (status)
+$std::exit:
+  #
+    run the exit-handlers and exit the application with the specified *status*
+    code
+  (
+    status
+  )
   for_each exit_functions: (func) func
   cleanup
   clib_exit status
 
-$std::terminate:
-  cleanup
-  exit 0
+$std::terminate
+  #
+    run the exit-handlers and successfully terminate the application
+  :
+    cleanup
+    exit 0
 
-$std::ErrorMessage: (args*)
+$std::ErrorMessage:
+  #
+    prints the specified error message to the error output
+  (
+    args*
+  )
   $$msg string(args*)
   unless msg .has_suffix. '@nl;': push &msg '@nl;'
   flush STDOUT_FILENO
   ewrite msg
 
-$std::Error: (args*)
+$std::Error:
+  #
+    prints the specified error message and exits the application
+  (
+    args*
+  )
   cleanup
   ErrorMessage args*
   exit 1
@@ -126,7 +163,12 @@ $crash_dump
     RETURN_NOTHING
   }
 
-$RuntimeError: (args*)
+$RuntimeError:
+  #
+    prints the specified runtime error message and exits the application
+  (
+    args*
+  )
   cleanup
   try
     :
@@ -138,8 +180,12 @@ $RuntimeError: (args*)
       exit 2
 
 %std::raise RuntimeError
+  #
+    raises an exception
 
 $std::try:
+  #
+    tries several variants until one succeeds
   (
     $bodies*
     -> return
@@ -160,7 +206,12 @@ $std::try:
     if bodies.is_empty: push &bodies: (_args*) pass
     body
 
-$std::transaction: (body)
+$std::transaction:
+  # maybe depredated
+
+  (
+    body
+  )
   inc &next_resource_id # prevent that two transactions have the same id
   $first_id next_resource_id
   %first_resource_id first_id
@@ -168,7 +219,11 @@ $std::transaction: (body)
     cleanup_till first_id
     raise args*
 
-$std::retain: (resource)
+$std::retain:
+  # maybe depredated
+  (
+    resource
+  )
   if first_resource_id.is_undefined:
     raise "Attempt to retain a resource outside a transaction!"
   $id resource_id_of(resource)

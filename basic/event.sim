@@ -21,39 +21,112 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::WRITE_TO .
+  #
+    event that signals that a file descriptor is ready for writing
+
+    Topic: Events
+
 $std::READ_FROM .
+  #
+    event that signals that a file descriptor is ready for reading
+
+    Topic: Events
 
 $std::file_descriptor_of (!)
+  #
+    the file descriptor of an <WRITE_TO> or <READ_FROM> event
 
 $std::TERMINATED .
+  #
+    event that signals that a process has been terminated
+
+    Topic: Events
 
 $std::pid_of (!)
+  #
+    the process id of a <TERMINATED> event
+
+    Topic: Events
+
 $std::status_of (!)
+  #
+    the termination status of a <TERMINATED> event
+
+    Topic: Events
 
 $std::TIMEOUT .
+  #
+    event that signals that a timeout has occurred
 
-$std::timeout_of (!)
+    Topic: Events
 
 $std::SCREEN_SIZE_CHANGE .
+  #
+    event that signals that the size of a screen or terminal has changed
+
+    Topic: Events
 
 $std::width_of (!)
+  #
+    the width of a <SCREEN_SIZE_CHANGE> event
+
+    Topic: Events
+
 $std::height_of (!)
+  #
+    the height of a <SCREEN_SIZE_CHANGE> event
+
+    Topic: Events
 
 $std::KEY_PRESS .
+  #
+    a key press event
+
+    Topic: Events
 
 $std::key_code_of (!)
+  #
+    the key code of a <KEY_PRESS> event
+
+    Topic: Events
 
 $std::MOUSE_CLICK .
+  #
+    a mouse click event
+
+    Topic: Events
 
 $std::target_of (!)
+  #
+    the gui-object that the event refers to
 
 $std::PASTE .
+  #
+    a paste event
+
+    Topic: Events
+
 $std::MESSAGE .
+  #
+    a message event
+
+    Topic: Events
 
 $types::event types::object
+  #
+    an event object
+
 $$std::events empty_list
+  #
+    the list of unhandled events
+
 $$wanted_output_fds empty_set
+  #
+    the set of file descriptors that shall be written to
+
 $$wanted_input_fds empty_set
+  #
+    the set of file descriptors that shall be read from
 
 $std::want_to_write_to:
   #
@@ -400,6 +473,11 @@ $std::wait_to:
   !timeout_exceeded undefined
   -> event
 
-$std::par: (tasks*)
+$std::par:
+  #
+    run the specified tasks in parallel order
+  (
+    tasks*
+  )
   append &waiting_tasks tasks
   process_events
