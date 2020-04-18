@@ -37,39 +37,129 @@
     |
     +-- win
 
-$std::operating_system {
-  CHECK_ARGUMENTS(0)
-  RETURN_SINGLE_RESULT(from_c_string(OS))
-}
+$std::operating_system
+  #
+    returns a string describing the operating system
 
-$std::hardware_architecture {
-  CHECK_ARGUMENTS(0)
-  RETURN_SINGLE_RESULT(from_c_string(ARCHITECTURE))
-}
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
 
-$std::c_compiler {
-  CHECK_ARGUMENTS(0)
-  RETURN_SINGLE_RESULT(from_c_string(CC))
-}
+    Topic: Platform
 
-$std::CPPFLAGS {
-  CHECK_ARGUMENTS(0)
-  RETURN_SINGLE_RESULT(from_c_string(CPPFLAGS))
-}
+    See also:
+      hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
+      current_directory_separator, current_path_separator
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_c_string(OS))
+  }
 
-$std::LDFLAGS {
-  CHECK_ARGUMENTS(0)
-  RETURN_SINGLE_RESULT(from_c_string(LDFLAGS))
-}
+$std::hardware_architecture
+  #
+    returns a string describing the hardware architecture
 
-$std::current_directory_separator:
-  if
-    operating_system() == "win"
-    -> '\'
-    -> '/'
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
 
-$std::current_path_separator:
-  if
-    operating_system() == "win"
-    -> ';'
-    -> ':'
+    Topic: Platform
+
+    See also:
+      operating_system, c_compiler, CPPFLAGS, LDFLAGS,
+      current_directory_separator, current_path_separator
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_c_string(ARCHITECTURE))
+  }
+
+$std::c_compiler
+  #
+    returns a string describing the default C-compiler
+
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
+
+    Topic: Platform
+
+    See also:
+      operating_system, hardware_architecture, CPPFLAGS, LDFLAGS,
+      current_directory_separator, current_path_separator
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_c_string(CC))
+  }
+
+$std::CPPFLAGS
+  #
+    returns a string describing the default C preprocessor flags
+
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
+
+    Topic: Platform
+
+    See also:
+      operating_system, hardware_architecture, c_compiler, LDFLAGS,
+      current_directory_separator, current_path_separator
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_c_string(CPPFLAGS))
+  }
+
+$std::LDFLAGS
+  #
+    returns a string describing the default linker flags
+
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
+
+    Topic: Platform
+
+    See also:
+      operating_system, hardware_architecture, c_compiler, CPPFLAGS,
+      current_directory_separator, current_path_separator
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_c_string(LDFLAGS))
+  }
+
+$std::current_directory_separator
+  #
+    returns a string describing the current directory separator
+
+    The directory separator separates the components of a directory path
+    (e.g. "\" for Windows, "/" for POSIX).
+
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
+
+    Topic: Platform
+
+    See also:
+      operating_system, hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
+      current_path_separator
+  :
+    if
+      operating_system() == "win"
+      -> '\'
+      -> '/'
+
+$std::current_path_separator
+  #
+    returns a string describing the current path separator
+
+    The path separator separates multiple pathes (e.g. ":" for Windows,
+    ";" for POSIX).
+
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
+
+    Topic: Platform
+
+    See also:
+      operating_system, hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
+      current_directory_separator
+  :
+    if
+      operating_system() == "win"
+      -> ';'
+      -> ':'

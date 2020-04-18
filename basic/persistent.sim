@@ -25,7 +25,15 @@ $getter_of (!)
 
 $$persistent_vars empty_list
 
-$std::persistent: (filename updater)
+$std::persistent:
+  #
+    defines a persistant variable
+
+    See also: save_persistent
+  (
+    filename
+    updater
+  )
   $$buf undefined
   try:
     load !buf filename
@@ -34,6 +42,12 @@ $std::persistent: (filename updater)
   push &persistent_vars types::object(.filename_of filename .getter_of updater)
 
 $std::save_persistent:
+  #
+    saves all persistant variables
+
+    On program exit all variables are saved automatically.
+
+    See also: persistent
   (
     filename
     -> return

@@ -27,13 +27,27 @@
   <name types::object>
   <node SIMPLE_NODE>
 
+  // the protoype for all objects other than <undefined>
+
   RUNTIME_ERROR("Attempt to call an object as a function!")
 }
 
 $types::object.is_defined true
-$types::object.is_undefined false
+  #
+    true for all objects that are not <undefined>
 
-$types::object/default_value: (self _default) -> self
+$types::object.is_undefined false
+  #
+    false for all objects that are not <undefined>
+
+$types::object/default_value:
+  #
+    returns its first arguments
+  (
+    self
+    _default
+  )
+  -> self
 
 {
   int has_prefix(const char *str, const char *prefix)
@@ -84,9 +98,23 @@ $types::object/default_value: (self _default) -> self
   }
 }
 
-$types::object/serialize: (self _indent?) -> self.to_string
+$types::object/serialize:
+  #
+    the default implementation converts the object into a string
+  (
+    self
+    _indent?
+  )
+  -> self.to_string
 
-$types::object/equal_type_and_value: (a b) -> equal(a b)
+$types::object/equal_type_and_value:
+  #
+    the default implementation checks if both arguments are <equal>
+  (
+    a
+    b
+  )
+  -> equal(a b)
 
 $std::current_address_of
   #

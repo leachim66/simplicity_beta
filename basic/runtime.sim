@@ -21,18 +21,36 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::runtime_major_version
+  #
+    returns the runtime's major version number
+
+    Topic: Platform
+
+    See also: runtime_minor_version, runtime_revision
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(runtime_major_version()))
   }
 
 $std::runtime_minor_version
+  #
+    returns the runtime's minor version number
+
+    Topic: Platform
+
+    See also: runtime_major_version, runtime_revision
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(runtime_minor_version()))
   }
 
 $std::runtime_revision
+  #
+    returns the runtime's revision number
+
+    Topic: Platform
+
+    See also: runtime_major_version, runtime_minor_version
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(runtime_revision()))

@@ -38,9 +38,27 @@ $std::IDENTIFIER
 
 $$deserializers empty_table
 
-$std::register_deserializer: (tag deserializer) !deserializers(tag) deserializer
+$std::register_deserializer:
+  #
+    register a deserialization function
 
-$std::get_deserialization_indent: (&text)
+    Topic: Serialization
+
+    See also: create_deserializer
+  (
+    tag
+    deserializer
+  )
+  !deserializers(tag) deserializer
+
+$std::get_deserialization_indent:
+  #
+    returns the text's indent
+
+    Topic: Serialization
+  (
+    &text
+  )
   $$i 2
   $n length_of(text)
   $$indent 0
@@ -53,7 +71,15 @@ $std::get_deserialization_indent: (&text)
   range &text i -1
   -> indent
 
-$std::deserialize_item: ($text base_indent)
+$std::deserialize_item:
+  #
+    deserializes a single item
+
+    Topic: Serialization
+  (
+    $text
+    base_indent
+  )
   if
     length_of(text) >= 1 && text(1) == '@nl;':
       $indent get_deserialization_indent(&text)
@@ -65,7 +91,16 @@ $std::deserialize_item: ($text base_indent)
       while -> text(1) == ' ': range &text 2 -1
       deserialize_stream text base_indent
 
-$std::create_deserializer: (name prototype attributes*)
+$std::create_deserializer:
+  #
+    returns a deserializer function
+
+    Topic: Serialization
+  (
+    name
+    prototype
+    attributes*
+  )
   $$attribute_setters empty_table
   for_each_pair attributes: (attribute_name attribute_setter)
     !attribute_setters(range(attribute_name 3 -1)) attribute_setter
@@ -169,6 +204,15 @@ $deserialize_stream:
 	:
 	  raise "No valid tag found while attempting to deserialize text!"
 
-$std::deserialize: (text)
+$std::deserialize:
+  #
+    creates an object from its serialization string
+
+    Topic: Serialization
+
+    See also: serialize
+  (
+    text
+  )
   deserialize_stream text 0 $remaining_text $obj
   -> if(remaining_text == "" (-> obj) -> undefined)

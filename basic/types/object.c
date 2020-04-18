@@ -307,12 +307,12 @@ void run__basic__types__object(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__object, NULL, },
-  {entry__4_1_types__object_default_value, NULL, 36, 36, 47, 53},
-  {entry__7_1_types__object_serialize, NULL, 87, 87, 46, 59},
-  {cont__7_2, &frame__7_1_types__object_serialize, 87, 87, 43, 59},
-  {entry__8_1_types__object_equal_type_and_value, NULL, 89, 89, 47, 56},
-  {cont__8_2, &frame__8_1_types__object_equal_type_and_value, 89, 89, 44, 56},
-  {entry__9_1_std__current_address_of, NULL, 100, 103, 3, 2}
+  {entry__4_1_types__object_default_value, NULL, 50, 50, 3, 9},
+  {entry__7_1_types__object_serialize, NULL, 108, 108, 6, 19},
+  {cont__7_2, &frame__7_1_types__object_serialize, 108, 108, 3, 19},
+  {entry__8_1_types__object_equal_type_and_value, NULL, 117, 117, 6, 15},
+  {cont__8_2, &frame__8_1_types__object_equal_type_and_value, 117, 117, 3, 15},
+  {entry__9_1_std__current_address_of, NULL, 128, 131, 3, 2}
 };
 
 union NODE {
@@ -418,7 +418,7 @@ static void entry__4_1_types__object_default_value(void) {
     invalid_arguments_error();
     return;
   }
-  // 36: ... -> self
+  // 50: -> self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -482,7 +482,7 @@ static void entry__7_1_types__object_serialize(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* indent */ = undefined;
   }
-  // 87: ... self.to_string
+  // 108: ... self.to_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -497,7 +497,7 @@ static void cont__7_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 87: ... -> self.to_string
+  // 108: -> self.to_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -514,7 +514,7 @@ static void entry__8_1_types__object_equal_type_and_value(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: ... equal(a b)
+  // 117: ... equal(a b)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* a */;
@@ -530,7 +530,7 @@ static void cont__8_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 89: ... -> equal(a b)
+  // 117: -> equal(a b)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;

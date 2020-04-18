@@ -236,9 +236,9 @@ void run__basic__runtime(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__runtime, NULL, },
-  {entry__1_1_std__runtime_major_version, NULL, 24, 27, 3, 2},
-  {entry__2_1_std__runtime_minor_version, NULL, 30, 33, 3, 2},
-  {entry__3_1_std__runtime_revision, NULL, 36, 39, 3, 2}
+  {entry__1_1_std__runtime_major_version, NULL, 30, 33, 3, 2},
+  {entry__2_1_std__runtime_minor_version, NULL, 42, 45, 3, 2},
+  {entry__3_1_std__runtime_revision, NULL, 54, 57, 3, 2}
 };
 
 union NODE {

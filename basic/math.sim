@@ -20,11 +20,31 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::inc: (&var) plus &var 1
+$std::inc:
+  #
+    adds the number 1
 
-$std::dec: (&var) minus &var 1
+    See also: dec, plus
+  (
+    &var
+  )
+  plus &var 1
+
+$std::dec:
+  #
+    subtracts the number 1
+
+    See also: inc, minus
+  (
+    &var
+  )
+  minus &var 1
 
 $std::extend_to:
+  #
+    returns the greater of its two arguments
+
+    See also: reduce_to, max
   (
     &var
     val
@@ -32,35 +52,100 @@ $std::extend_to:
   if val > var: !var val
 
 $std::reduce_to:
+  #
+    returns the lesser of its two arguments
+
+    See also: extend_to, min
   (
     &var
     val
   )
   if val < var: !var val
 
-$std::abs: (&var) if var < 0: negate &var
+$std::abs:
+  #
+    returns the absolute value of its (numerical) argument
 
-$std::sgn: (x) cond (-> x > 0 -> 1) (-> x < 0 -> -1) -> true -> 0
+    See also: sgn
+  (
+    &var
+  )
+  if var < 0: negate &var
 
-$std::sqr: (var) -> var*var
+$std::sgn:
+  #
+    returns the sign of its (numerical) argument
 
-$std::min: (args*)
+    If the argument is less than zero then *-1* is returned.
+
+    If the argument equals zero then *0* is returned.
+
+    If the argument is greater than zero then *1* is returned.
+
+    See also: abs
+  (
+    x
+  )
+  cond (-> x > 0 -> 1) (-> x < 0 -> -1) -> true -> 0
+
+$std::sqr:
+  #
+    return the power of 2 of its (numerical) argument
+
+    See also: pow, sqrt
+  (
+    var
+  )
+  -> var*var
+
+$std::min:
+  #
+    returns the smallest of its (potentially) many arguments
+
+    See also: max, reduce_to
+  (
+    args*
+  )
   $$result args(1)
   for_each_from_to args 2 -1: (arg) if arg < result: !result arg
   -> result
 
-$std::max: (args*)
+$std::max:
+  #
+    returns the biggest of its (potentially) many arguments
+
+    See also: min, extend_to
+  (
+    args*
+  )
   $$result args(1)
   for_each_from_to args 2 -1: (arg) if arg > result: !result arg
   -> result
 
-$std::pow: (x n)
+$std::pow:
+  #
+    returns the its first argument by the power of its second argument
+
+    **Attention**: *n* must be a positive integer!
+
+    See also: sqr, sqrt
+  (
+    x
+    n
+  )
   cond
     -> n == 0 -> 1
     -> is_odd(n) -> x*sqr(pow(x n >> 1))
     -> true -> sqr(pow(x n >> 1))
 
-$std::sqrt: (x)
+$std::sqrt:
+  #
+    return the square root of its (numerical) argument
+
+    See also: sqr, pow
+  (
+    x
+  )
   $$low 0
   $$high x
   repeat 50:
@@ -73,8 +158,17 @@ $std::sqrt: (x)
   -> low
 
 $std::PI 3.1415926535897932
+  #
+    the mathematical constant PI
 
-$std::sin: (alpha)
+$std::sin:
+  #
+    trigonometric function
+
+    See also: cos, tan, atan
+  (
+    alpha
+  )
   $$p 1
   $$s alpha
   $$t alpha
@@ -84,7 +178,14 @@ $std::sin: (alpha)
     inc &p
   -> s
 
-$std::cos: (alpha)
+$std::cos:
+  #
+    trigonometric function
+
+    See also: sin, tan, atan
+  (
+    alpha
+  )
   $$p 0
   $$s 1
   $$t 1
@@ -94,9 +195,25 @@ $std::cos: (alpha)
     plus &s t
   -> s
 
-$std::tan: (alpha) -> sin(alpha)/cos(alpha)
+$std::tan:
+  #
+    trigonometric function
 
-$std::atan: (x) if x > 0 (-> atan2(x)) -> -atan2(-x)
+    See also: sin, cos, atan
+  (
+    alpha
+  )
+  -> sin(alpha)/cos(alpha)
+
+$std::atan:
+  #
+    trigonometric function
+
+    See also: sin, cos, tan
+  (
+    x
+  )
+  if x > 0 (-> atan2(x)) -> -atan2(-x)
 
 $atan2: (x) if x > 1 (-> PI/2-atan3(1/x)) -> atan3(x)
 

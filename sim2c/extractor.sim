@@ -201,14 +201,17 @@ $extract_documentation_from_file: (filename)
   if used_namespaces.is_empty: !used_namespaces("std") true
   $$local_method_names empty_set
   for_each trees: (statement)
-    cond (-> statement.is_a_remark: pass) (-> statement.is_c_code: pass) -> statement.is_an_assignment:
-      $destination output_arguments_of(statement)(1)
-      if destination.is_a_definition:
-	$identifier identifier_of(destination)
-	unless namespace_of(identifier).is_defined:
-	  $source arguments_of(statement)(1)
-	  if source.is_a_polymorphic_function_constant:
-	    !local_method_names(name_of(identifier_of(destination))) true
+    cond
+      -> statement.is_a_remark: pass
+      -> statement.is_c_code: pass
+      -> statement.is_an_assignment:
+	$destination output_arguments_of(statement)(1)
+	if destination.is_a_definition:
+	  $identifier identifier_of(destination)
+	  unless namespace_of(identifier).is_defined:
+	    $source arguments_of(statement)(1)
+	    if source.is_a_polymorphic_function_constant:
+	      !local_method_names(name_of(identifier_of(destination))) true
   for_each trees:
     (
       statement
@@ -271,7 +274,11 @@ $extract_documentation_from_file: (filename)
 		    .base_of "types::function"
 		    .kind_of FUNCTION
 		    .parameters_of parameters_of(source)
-		    .remark_lines_of remark_lines_of(source)
+		    .remark_lines_of
+		      if
+			remark_lines_of(statement).is_empty
+			-> remark_lines_of(source)
+			-> remark_lines_of(statement)
 		-> source.is_a_c_body:
 		  !info.kind_of INLINE_C_FUNCTION
 		-> source.is_an_identifier:

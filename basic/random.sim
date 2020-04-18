@@ -28,7 +28,13 @@
 $m_w_of (!)
 $m_z_of (!)
 
-$std::marsaglia_random_number_generator: (initial_m_w initial_m_z)
+$std::marsaglia_random_number_generator:
+  #
+    creates a random number generator
+  (
+    initial_m_w
+    initial_m_z
+  )
   ->
     types::object
       .m_w_of initial_m_w

@@ -320,18 +320,18 @@ void run__basic__primitives(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__has_minimum_length, NULL, 23, 23, 2, 24},
   {run__basic__primitives, NULL, },
-  {entry__2_1_types__object_has_minimum_length, NULL, 46, 46, 8, 22},
-  {cont__2_2, &frame__2_1_types__object_has_minimum_length, 46, 46, 8, 29},
-  {cont__2_3, &frame__2_1_types__object_has_minimum_length, 46, 46, 8, 29},
-  {cont__2_4, &frame__2_1_types__object_has_minimum_length, 46, 46, 5, 29},
-  {entry__3_1_std__ignore, NULL, 52, 52, 3, 6},
-  {entry__4_1_std__writeln_to, NULL, 67, 67, 3, 40},
-  {entry__5_1_std__swap, NULL, 82, 82, 3, 15},
-  {entry__6_1_std__pass, NULL, 99, 102, 3, 2},
-  {entry__7_1_std__eval, NULL, 105, 119, 3, 47},
-  {entry__8_1_std__do, NULL, 144, 149, 3, 2},
-  {entry__9_1_std__assign, NULL, 186, 188, 3, 2},
-  {entry__10_1_std__goto, NULL, 201, 216, 3, 2}
+  {entry__2_1_types__object_has_minimum_length, NULL, 52, 52, 8, 22},
+  {cont__2_2, &frame__2_1_types__object_has_minimum_length, 52, 52, 8, 29},
+  {cont__2_3, &frame__2_1_types__object_has_minimum_length, 52, 52, 8, 29},
+  {cont__2_4, &frame__2_1_types__object_has_minimum_length, 52, 52, 5, 29},
+  {entry__3_1_std__ignore, NULL, 60, 60, 3, 6},
+  {entry__4_1_std__writeln_to, NULL, 75, 75, 3, 40},
+  {entry__5_1_std__swap, NULL, 90, 90, 3, 15},
+  {entry__6_1_std__pass, NULL, 107, 110, 3, 2},
+  {entry__7_1_std__eval, NULL, 130, 130, 3, 6},
+  {entry__8_1_std__do, NULL, 154, 159, 3, 2},
+  {entry__9_1_std__assign, NULL, 196, 198, 3, 2},
+  {entry__10_1_std__goto, NULL, 210, 225, 3, 2}
 };
 
 union NODE {
@@ -411,7 +411,7 @@ static void entry__2_1_types__object_has_minimum_length(void) {
     invalid_arguments_error();
     return;
   }
-  // 46: ... length_of(self)
+  // 52: ... length_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -426,7 +426,7 @@ static void cont__2_2(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 46: ... length_of(self) >= len
+  // 52: ... length_of(self) >= len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -442,7 +442,7 @@ static void cont__2_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 46: ... length_of(self) >= len
+  // 52: ... length_of(self) >= len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -457,7 +457,7 @@ static void cont__2_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 46: -> length_of(self) >= len
+  // 52: -> length_of(self) >= len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -473,7 +473,7 @@ static void entry__3_1_std__ignore(void) {
     invalid_arguments_error();
     return;
   }
-  // 52: pass
+  // 60: pass
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -493,7 +493,7 @@ static void entry__4_1_std__writeln_to(void) {
   }
   frame->slots[0] /* file_handle */ = arguments->slots[0];
   frame->slots[1] /* arguments */ = from_arguments(1, argument_count-1);
-  // 67: write_to file_handle arguments* '@nl;'
+  // 75: write_to file_handle arguments* '@nl;'
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = frame->slots[0] /* file_handle */;
@@ -513,7 +513,7 @@ static void entry__5_1_std__swap(void) {
     invalid_arguments_error();
     return;
   }
-  // 82: -> right left
+  // 90: -> right left
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -542,17 +542,7 @@ static void entry__7_1_std__eval(void) {
     invalid_arguments_error();
     return;
   }
-  // 105: body
-  // 106:   #
-  // 107:     evaluate a function
-  // 108:     
-  // 109:     Allows the direct evaluation of a lambda-function.
-  // 110:     
-  // 111:     example:
-  // 112:     
-  // 113:     # example taken from the compiler's pretty_printer-module
-  // 114:     
-  // ...
+  // 130: body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;

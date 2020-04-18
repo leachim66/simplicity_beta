@@ -357,7 +357,7 @@ $std::serialize ()
 
     If possible the object ist transformed into its source code form.
 
-    Topic: Strings
+    Topics: Strings, Serialization
 
     See also: std::deserialize, std::serialization_tag_of, std::to_string
 
@@ -367,6 +367,8 @@ $std::serialization_tag_of (!)
 
     This attribute allows inheriting the serialization method and just changing
     its type.
+
+    Topic: Serialization
 
     See also: std::serialize, register_deserializer
 

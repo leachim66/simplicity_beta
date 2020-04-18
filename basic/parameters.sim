@@ -21,21 +21,98 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $BOOLEAN_OPTION .
+  # used internly
+
 $std::VALUED_OPTION .
+  #
+    describes an option with an associated value
+
+    This option must not appear more than once in the options list.
+
+    See also: MULTI_VALUED_OPTION
+
 $std::MULTI_VALUED_OPTION .
+  #
+    describes an option with an associated value
+
+    This option may appear many times in the options list.
+
+    See also: MULTI_VALUED_OPTION
+
 $std::MANDATORY_PARAMETER .
+  #
+    describes a mandatory parameter
+
+    See also: OPTIONAL_PARAMETER
+
 $std::OPTIONAL_PARAMETER .
+  #
+    describes an optional parameter
+
+    See also: MANDATORY_PARAMETER
+
 $std::SOME_PARAMETERS .
+  #
+    describes list of zero or more parameters
+
+    See also: MANY_PARAMETERS
+
 $std::MANY_PARAMETERS .
+  #
+    describes list of one or more parameters
+
+    See also: SOME_PARAMETERS
 
 $$program_version undefined
+  # stores the version of the application
+
 $$program_copyright undefined
+  # stores the copyright notice the application
 
-$std::copyright: (msg) !program_copyright msg
+$std::copyright:
+  #
+    defines the copyright notice the application
+  (
+    msg
+  )
+  !program_copyright msg
 
-$std::version: (no) !program_version no
+$std::version:
+  #
+    defines the version of the application
+  (
+    no
+  )
+  !program_version no
 
-$std::extract_options: ($options templates*)
+$std::extract_options:
+  #
+    extracts the options of a function call
+
+    This function returns a variable number of results - one for each option
+    template.
+
+    Each template has the form
+
+    OPTION = *default value*
+
+    To make the code more readable it is recommended to interleave the option
+    templates and the results.
+
+    See also: extract_some_options
+
+    Example:
+
+    $std::load_csv: (options\* filename)
+      extract_options options
+	ENCODING = UTF8 $encoding
+	SEPARATOR = ';' $separator
+      load $buf filename
+      ...
+  (
+    $options
+    templates*
+  )
   $$results empty_list
   $$parameters empty_list
   do:
@@ -74,6 +151,29 @@ $std::extract_options: ($options templates*)
   -> results* parameters*
 
 $std::extract_some_options:
+  #
+    extracts options of a function call
+
+    This function returns a variable number of results - one for each option
+    template.
+
+    In addition the unparsed rest of the options is returned, too.
+
+    Each template has the form
+
+    OPTION = *default value*
+
+    To make the code more readable it is recommended to interleave the option
+    templates and the results.
+
+    See also: extract_options
+
+    Example:
+
+    $gui::button: ($args\*)
+      extract_some_options &args
+	gui::ID = undefined $id
+      ...
   (
     &options
     templates*
@@ -395,7 +495,99 @@ $show_commands:
     push &tab list("version" "display the version number")
   display_table tab
 
-$std::program_parameters: (templates*)
+$std::program_parameters:
+  #
+    defines the appliation's options and parameters
+
+    The specified information is used to parse the application's input arguments
+    as well as to print a brief help message.
+
+    Options to print the program's version and the copyright notice are added
+    automatically.
+
+    The syntax is quite complicated. The example shows the complete list of
+    options and parameters of the Simplicity compiler.
+
+    Example:
+    program_parameters
+      # the following options act on a single file only
+
+      $sim2c::do_check_only -> "check-only" "
+	do not compile; just check for syntax errors
+
+      $sim2c::do_dump_trees -> "dump-trees" "
+	dump abstract syntax trees
+
+      $sim2c::do_pretty_print -> "pretty-print" "
+	do not compile; just pretty print the source file
+
+      $sim2c::do_print_simplified_source -> "print-simplified-source" "
+	do not generate a C-file; just print the simplified source text
+
+      $do_print_c -> "print-c" "
+	print C source code for a single module
+
+      $do_time_passes -> "time-passes" "
+	print running time for the individual compiler passes
+
+      $module_prefix -> VALUED_OPTION "module-prefix" "
+	needed to compile a single file within a subdirectory;
+	if the subdirectories are nested use slashes to separate
+	the directory names
+
+      # the following options change the diagnostic output
+
+      $sim2c::do_show_brief_messages -> "brief" "
+	show brief error messages
+
+      $sim2c::do_print_warnings -> "warnings" "
+	show warning messages
+
+      $sim2c::do_print_missing -> "missing" "
+	inform about missing documentation
+
+      $sim2c::do_print_summary -> "summary" "
+	show a statistical summary
+
+      $sim2c::verbose -> "verbose" "
+	output verbose informations
+
+      $sim2c::do_show_debug_infos -> "debug" "
+	show C-compiler and linker calls
+
+      $sim2c::do_show_compiler_debug_infos -> "debug_compiler" "
+	show internal debug messages of the Simplicity compiler
+
+      # the following options create meta-informations
+
+      $do_build_codeblocks_project -> "codeblocks" "
+	create Code::Blocks project
+
+      $do_extract_documentation -> "extract-documentation" "
+	extract documentation encoded as HTML
+
+      $do_list_dependencies -> "list-dependencies" "
+	list all dependencies
+
+      # the following options influence the build process for all modules
+
+      $do_rebuild -> "rebuild" "
+	rebuild all source files
+
+      $do_omit_meta -> "omit-meta" "
+	do not rebuild meta files
+
+      $do_build_static -> "static" "
+	create statically linked executable
+
+      $do_link_profiler -> "profile" "
+	link with libprofiler
+
+      $input_filename -> std::MANDATORY_PARAMETER "filename" "
+	the name of the source file to compile
+  (
+    templates*
+  )
   if
     command_id_count > 0:
       if command_id.is_defined (-> command_id):

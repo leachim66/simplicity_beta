@@ -42,10 +42,18 @@ $std::has_minimum_length ()
         -> 0
 
 $types::object/has_minimum_length
-  : (self len) # default implementation for streams with known length
+  #
+    default implementation for streams with known length
+  :
+    (
+      self
+      len
+    )
     -> length_of(self) >= len
 
-$std::ignore: # ignore the result of a function call
+$std::ignore:
+  #
+    ignore the result of a function call
   (
     _dummy # the expression whose result shall be ignored
   )
@@ -101,22 +109,25 @@ $std::pass
     RETURN_NOTHING
   }
 
-$std::eval: (body)
+$std::eval:
+  #
+    evaluate a function
+
+    Allows the direct evaluation of a lambda-function.
+
+    example:
+
+    # example taken from the compiler's pretty_printer-module
+
+    $functor
+      eval
+	:
+	  %line_width 999999 # force inline output
+	  to_string functor_of(self)
+  (
+    body
+  )
   body
-      #
-	evaluate a function
-
-	Allows the direct evaluation of a lambda-function.
-
-	example:
-
-	# example taken from the compiler's pretty_printer-module
-
-	$functor
-	  eval
-	    :
-	      %line_width 999999 # force inline output
-	      to_string functor_of(self)
 
 $std::do
   #
@@ -140,7 +151,6 @@ $std::do
       p
       if f() break
       q
-
   {
     CHECK_ARGUMENTS(1)
     myself = ARGUMENTS(0);
@@ -197,7 +207,6 @@ $std::goto
     example:
 
     goto some_function some_argument another_argument
-
   {
     MIN_ARGUMENTS(1)
     myself = ARGUMENTS(0);

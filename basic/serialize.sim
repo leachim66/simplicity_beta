@@ -20,7 +20,19 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::serialize_object: (tag prototype obj attributes*)
+$std::serialize_object:
+  #
+    low level serialization
+
+    Topic: Serialization
+
+    See also: serialize, deserialize
+  (
+    tag
+    prototype
+    obj
+    attributes*
+  )
   $$buf tag
   for_each_pair attributes: (attribute_name attribute_getter)
     $attribute attribute_getter(obj)

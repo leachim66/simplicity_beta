@@ -323,26 +323,26 @@ void run__basic__serialize(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__serialize, NULL, },
-  {entry__1_13, NULL, 32, 32, 32, 47},
-  {cont__1_14, &frame__1_13, 32, 32, 11, 47},
-  {cont__1_15, &frame__1_13, 32, 32, 47, 47},
-  {entry__1_16, NULL, 34, 34, 11, 32},
-  {cont__1_17, &frame__1_16, 34, 34, 32, 32},
-  {entry__1_7, NULL, 28, 28, 7, 31},
-  {cont__1_8, &frame__1_7, 29, 29, 7, 47},
-  {cont__1_11, &frame__1_7, 31, 31, 9, 30},
-  {cont__1_12, &frame__1_7, 30, 34, 7, 33},
-  {entry__1_2, NULL, 26, 26, 5, 36},
-  {cont__1_3, &frame__1_2, 27, 27, 21, 47},
-  {cont__1_4, &frame__1_2, 27, 27, 8, 47},
-  {cont__1_5, &frame__1_2, 27, 27, 8, 47},
-  {cont__1_6, &frame__1_2, 27, 34, 5, 34},
-  {entry__1_20, NULL, 35, 35, 18, 33},
-  {cont__1_22, &frame__1_20, 35, 35, 33, 33},
-  {entry__1_1_std__serialize_object, NULL, 25, 34, 3, 35},
-  {cont__1_18, &frame__1_1_std__serialize_object, 35, 35, 6, 15},
-  {cont__1_19, &frame__1_1_std__serialize_object, 35, 35, 3, 33},
-  {cont__1_23, &frame__1_1_std__serialize_object, 36, 36, 3, 8}
+  {entry__1_13, NULL, 44, 44, 32, 47},
+  {cont__1_14, &frame__1_13, 44, 44, 11, 47},
+  {cont__1_15, &frame__1_13, 44, 44, 47, 47},
+  {entry__1_16, NULL, 46, 46, 11, 32},
+  {cont__1_17, &frame__1_16, 46, 46, 32, 32},
+  {entry__1_7, NULL, 40, 40, 7, 31},
+  {cont__1_8, &frame__1_7, 41, 41, 7, 47},
+  {cont__1_11, &frame__1_7, 43, 43, 9, 30},
+  {cont__1_12, &frame__1_7, 42, 46, 7, 33},
+  {entry__1_2, NULL, 38, 38, 5, 36},
+  {cont__1_3, &frame__1_2, 39, 39, 21, 47},
+  {cont__1_4, &frame__1_2, 39, 39, 8, 47},
+  {cont__1_5, &frame__1_2, 39, 39, 8, 47},
+  {cont__1_6, &frame__1_2, 39, 46, 5, 34},
+  {entry__1_20, NULL, 47, 47, 18, 33},
+  {cont__1_22, &frame__1_20, 47, 47, 33, 33},
+  {entry__1_1_std__serialize_object, NULL, 37, 46, 3, 35},
+  {cont__1_18, &frame__1_1_std__serialize_object, 47, 47, 6, 15},
+  {cont__1_19, &frame__1_1_std__serialize_object, 47, 47, 3, 33},
+  {cont__1_23, &frame__1_1_std__serialize_object, 48, 48, 3, 8}
 };
 
 union NODE {
@@ -410,29 +410,29 @@ static void entry__1_1_std__serialize_object(void) {
   frame->slots[1] /* prototype */ = arguments->slots[1];
   frame->slots[2] /* obj */ = arguments->slots[2];
   frame->slots[3] /* attributes */ = from_arguments(3, argument_count-3);
-  // 24: $$buf tag
+  // 36: $$buf tag
   ((CELL *)frame->slots[4])->contents /* buf */ = frame->slots[0] /* tag */;
-  // 25: ... : (attribute_name attribute_getter)
-  // 26:   $attribute attribute_getter(obj)
-  // 27:   if attribute != attribute_getter(prototype):
-  // 28:     $text attribute.serialize
-  // 29:     write_to &buf "@nl;  " attribute_name ":"
-  // 30:     if
-  // 31:       text .contains. '@nl;':
-  // 32:         write_to &buf '@nl;' indented(4 text)
-  // 33:       :
-  // 34:         write_to &buf ' ' text
+  // 37: ... : (attribute_name attribute_getter)
+  // 38:   $attribute attribute_getter(obj)
+  // 39:   if attribute != attribute_getter(prototype):
+  // 40:     $text attribute.serialize
+  // 41:     write_to &buf "@nl;  " attribute_name ":"
+  // 42:     if
+  // 43:       text .contains. '@nl;':
+  // 44:         write_to &buf '@nl;' indented(4 text)
+  // 45:       :
+  // 46:         write_to &buf ' ' text
   frame->slots[5] /* temp__1 */ = create_closure(entry__1_2, 2);
-  // 25: for_each_pair attributes: (attribute_name attribute_getter)
-  // 26:   $attribute attribute_getter(obj)
-  // 27:   if attribute != attribute_getter(prototype):
-  // 28:     $text attribute.serialize
-  // 29:     write_to &buf "@nl;  " attribute_name ":"
-  // 30:     if
-  // 31:       text .contains. '@nl;':
-  // 32:         write_to &buf '@nl;' indented(4 text)
-  // 33:       :
-  // 34:         write_to &buf ' ' text
+  // 37: for_each_pair attributes: (attribute_name attribute_getter)
+  // 38:   $attribute attribute_getter(obj)
+  // 39:   if attribute != attribute_getter(prototype):
+  // 40:     $text attribute.serialize
+  // 41:     write_to &buf "@nl;  " attribute_name ":"
+  // 42:     if
+  // 43:       text .contains. '@nl;':
+  // 44:         write_to &buf '@nl;' indented(4 text)
+  // 45:       :
+  // 46:         write_to &buf ' ' text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* attributes */;
@@ -453,7 +453,7 @@ static void entry__1_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 32: ... indented(4 text)
+  // 44: ... indented(4 text)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__4;
@@ -469,7 +469,7 @@ static void cont__1_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 32: write_to &buf '@nl;' indented(4 text)
+  // 44: write_to &buf '@nl;' indented(4 text)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -503,7 +503,7 @@ static void entry__1_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 34: write_to &buf ' ' text
+  // 46: write_to &buf ' ' text
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -541,7 +541,7 @@ static void entry__1_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 28: $text attribute.serialize
+  // 40: $text attribute.serialize
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* attribute */;
@@ -556,7 +556,7 @@ static void cont__1_8(void) {
     return;
   }
   initialize_future(frame->slots[3] /* text */, arguments->slots[0]);
-  // 29: write_to &buf "@nl;  " attribute_name ":"
+  // 41: write_to &buf "@nl;  " attribute_name ":"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -574,7 +574,7 @@ static void cont__1_11(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* buf */ = arguments->slots[0];
-  // 31: text .contains. '@nl;'
+  // 43: text .contains. '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* text */;
@@ -590,17 +590,17 @@ static void cont__1_12(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 31: ... :
-  // 32:   write_to &buf '@nl;' indented(4 text)
+  // 43: ... :
+  // 44:   write_to &buf '@nl;' indented(4 text)
   frame->slots[5] /* temp__2 */ = create_closure(entry__1_13, 0);
-  // 33: :
-  // 34:   write_to &buf ' ' text
+  // 45: :
+  // 46:   write_to &buf ' ' text
   frame->slots[6] /* temp__3 */ = create_closure(entry__1_16, 0);
-  // 30: if
-  // 31:   text .contains. '@nl;':
-  // 32:     write_to &buf '@nl;' indented(4 text)
-  // 33:   :
-  // 34:     write_to &buf ' ' text
+  // 42: if
+  // 43:   text .contains. '@nl;':
+  // 44:     write_to &buf '@nl;' indented(4 text)
+  // 45:   :
+  // 46:     write_to &buf ' ' text
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -628,7 +628,7 @@ static void entry__1_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 26: $attribute attribute_getter(obj)
+  // 38: $attribute attribute_getter(obj)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* obj */;
@@ -643,7 +643,7 @@ static void cont__1_3(void) {
     return;
   }
   initialize_future(frame->slots[5] /* attribute */, arguments->slots[0]);
-  // 27: ... attribute_getter(prototype)
+  // 39: ... attribute_getter(prototype)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* prototype */;
@@ -658,7 +658,7 @@ static void cont__1_4(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 27: ... attribute != attribute_getter(prototype)
+  // 39: ... attribute != attribute_getter(prototype)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* attribute */;
@@ -674,7 +674,7 @@ static void cont__1_5(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 27: ... attribute != attribute_getter(prototype)
+  // 39: ... attribute != attribute_getter(prototype)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -689,23 +689,23 @@ static void cont__1_6(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 27: ... :
-  // 28:   $text attribute.serialize
-  // 29:   write_to &buf "@nl;  " attribute_name ":"
-  // 30:   if
-  // 31:     text .contains. '@nl;':
-  // 32:       write_to &buf '@nl;' indented(4 text)
-  // 33:     :
-  // 34:       write_to &buf ' ' text
+  // 39: ... :
+  // 40:   $text attribute.serialize
+  // 41:   write_to &buf "@nl;  " attribute_name ":"
+  // 42:   if
+  // 43:     text .contains. '@nl;':
+  // 44:       write_to &buf '@nl;' indented(4 text)
+  // 45:     :
+  // 46:       write_to &buf ' ' text
   frame->slots[9] /* temp__4 */ = create_closure(entry__1_7, 0);
-  // 27: if attribute != attribute_getter(prototype):
-  // 28:   $text attribute.serialize
-  // 29:   write_to &buf "@nl;  " attribute_name ":"
-  // 30:   if
-  // 31:     text .contains. '@nl;':
-  // 32:       write_to &buf '@nl;' indented(4 text)
-  // 33:     :
-  // 34:       write_to &buf ' ' text
+  // 39: if attribute != attribute_getter(prototype):
+  // 40:   $text attribute.serialize
+  // 41:   write_to &buf "@nl;  " attribute_name ":"
+  // 42:   if
+  // 43:     text .contains. '@nl;':
+  // 44:       write_to &buf '@nl;' indented(4 text)
+  // 45:     :
+  // 46:       write_to &buf ' ' text
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -720,7 +720,7 @@ static void cont__1_18(void) {
     invalid_results_error();
     return;
   }
-  // 35: ... buf == tag
+  // 47: ... buf == tag
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* buf */;
@@ -736,9 +736,9 @@ static void cont__1_19(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 35: ... : append &buf "()"
+  // 47: ... : append &buf "()"
   frame->slots[6] /* temp__2 */ = create_closure(entry__1_20, 0);
-  // 35: if buf == tag: append &buf "()"
+  // 47: if buf == tag: append &buf "()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -757,7 +757,7 @@ static void entry__1_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 35: ... append &buf "()"
+  // 47: ... append &buf "()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -784,7 +784,7 @@ static void cont__1_23(void) {
     invalid_results_error();
     return;
   }
-  // 36: -> buf
+  // 48: -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* buf */;
