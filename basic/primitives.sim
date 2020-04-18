@@ -33,7 +33,7 @@ $std::has_minimum_length ()
 
     see also: grammar::match
 
-    example:
+    Example:
 
     $std::END_OF_TEXT/grammar::match: (self stream)
       if
@@ -80,7 +80,7 @@ $std::swap:
 
     Can be used to exchange the contents of two variables.
 
-    example:
+    Example:
 
     swap &first &last
   (
@@ -96,7 +96,7 @@ $std::pass
     This procedure does exactly nothing and is used as a placeholder where a
     statement is syntactically needed.
 
-    example:
+    Example:
 
     if
       everything_alright:
@@ -115,7 +115,7 @@ $std::eval:
 
     Allows the direct evaluation of a lambda-function.
 
-    example:
+    Example:
 
     # example taken from the compiler's pretty_printer-module
 
@@ -204,7 +204,7 @@ $std::goto
     Calls the function specified as the first argument with the rest of
     the arguments. The caller is *not* supplied any continuation.
 
-    example:
+    Example:
 
     goto some_function some_argument another_argument
   {

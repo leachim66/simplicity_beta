@@ -23,6 +23,8 @@
 <include locale.h>
 
 $std::setlocale
+  #
+    sets the POSIX locale
   {
     CHECK_ARGUMENTS(1)
     char *locale = to_c_string(ARGUMENTS(0));

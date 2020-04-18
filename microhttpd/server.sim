@@ -538,7 +538,7 @@ $microhttpd::start
       microhttpd_types::daemon/handle_requests,
       microhttpd_types::daemon/stop
 
-    example:
+    Example:
 
     microhttpd::start $web_server 8888
 
@@ -576,7 +576,7 @@ $microhttpd_types::daemon/get_file_descriptors:
     microhttpd_types::daemon/handle_requests
     microhttpd_types::daemon/stop
 
-    example:
+    Example:
 
     get_file_descriptors web_server $input_fds $output_fds $exception_fds
   (
@@ -626,7 +626,7 @@ $handle_socket_io
     parameter body:
       a callback for handling individual client requests
 
-    example:
+    Example:
 
     handle_requests web_server ready_input_fds ready_output_fds ready_exception_fds:
       (
@@ -735,7 +735,7 @@ $microhttpd_types::daemon/stop
     see also:
     microhttpd::start
 
-    example:
+    Example:
 
     stop web_server
 

@@ -263,7 +263,7 @@ $gui::cursor_position_of (!)
   #
     A list of two entries, describing the current cursor position.
 
-    example:
+    Example:
 
     .cursor_position_of list(cursor_line cursor_column)
 $gui::cursor_column_of (!)
@@ -275,7 +275,7 @@ $gui::selection_of (!)
   #
     A list of four entries, describing the current selection.
 
-    example:
+    Example:
 
     .selection_of list(start_line start_column end_line end_column)
 

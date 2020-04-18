@@ -21,6 +21,8 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::all:
+  #
+    checks whether all supplied argumentless functions return <true>
   (
     tests*
     -> return
@@ -29,6 +31,9 @@ $std::all:
   -> true
 
 $std::any:
+  #
+    checks whether at least one of the supplied argumentless functions
+    return <true>
   (
     tests*
     -> return
@@ -36,4 +41,11 @@ $std::any:
   for_each tests: (test) if test(): return true
   -> false
 
-$std::in: (element collection) -> contains(collection element)
+$std::in:
+  #
+    checks whether an element is contained in a collection
+  (
+    element
+    collection
+  )
+  -> contains(collection element)

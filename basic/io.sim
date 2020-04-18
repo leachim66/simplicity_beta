@@ -43,7 +43,13 @@ $std::PARENTS . # mkdir, save
 extern $wget "wget"
 
 $std::ioctl ()
+  #
+    sets file descriptor options
+
 $std::get_terminal_size ()
+  #
+    retrieves the current width and height of the connected terminal
+
 $std::device_of (!)
   #
     returns the device on which a file is stored
@@ -194,15 +200,45 @@ $std::creation_time_of (!)
 $std::filename_of (!)
   #
     returns the name of a file
+
 $std::file_type_of (!)
+  #
+    returns the *file type*
+
+    File types are: <REGULAR_FILE>, <DIRECTORY>, <LINK>, <FIFO>, <SOCKET>,
+    <CHARACTER_DEVICE>, <BLOCK_DEVICE>, and <UNKNOWN>.
+
 $std::pathname_of (!)
+  #
+    the fullname before the last *directory separator*
+
 $std::fullname_of (!)
+  #
+    the full pathname
+
 $std::is_a_directory ()
+  #
+    returns <true> for directories
+
 $std::is_a_regular_file ()
+  #
+    returns <true> for regular files
+
 $std::is_a_link ()
-$std::listen () # listen for new incoming network connections
-$std::accept () # accept an incoming network connection
-$std::connect () # connect to a specific network address and port
+  #
+    returns <true> for symbolic links
+
+$std::listen ()
+  #
+    listen for new incoming network connections
+
+$std::accept ()
+  #
+    accept an incoming network connection
+
+$std::connect ()
+  #
+    connect to a specific network address and port
 
 #
   family (identical to protocol)
@@ -237,6 +273,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_RDONLY>
   <type types::positive_integer>
   <argument O_RDONLY>
+
+  // used for opening files
 }
 
 {
@@ -244,6 +282,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_WRONLY>
   <type types::positive_integer>
   <argument O_WRONLY>
+
+  // used for opening files
 }
 
 {
@@ -251,6 +291,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_RDWR>
   <type types::positive_integer>
   <argument O_RDWR>
+
+  // used for opening files
 }
 
 {
@@ -258,6 +300,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_CREAT>
   <type types::positive_integer>
   <argument O_CREAT>
+
+  // used for opening files
 }
 
 {
@@ -265,6 +309,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_EXCL>
   <type types::positive_integer>
   <argument O_EXCL>
+
+  // used for opening files
 }
 
 {
@@ -272,6 +318,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_NOCTTY>
   <type types::positive_integer>
   <argument O_NOCTTY>
+
+  // used for opening files
 }
 
 {
@@ -279,6 +327,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_TRUNC>
   <type types::positive_integer>
   <argument O_TRUNC>
+
+  // used for opening files
 }
 
 {
@@ -286,6 +336,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_APPEND>
   <type types::positive_integer>
   <argument O_APPEND>
+
+  // used for opening files
 }
 
 {
@@ -293,6 +345,8 @@ $std::connect () # connect to a specific network address and port
   <name std::O_NONBLOCK>
   <type types::positive_integer>
   <argument O_NONBLOCK>
+
+  // used for opening files
 }
 
 # not supported by Cygwin
@@ -308,6 +362,10 @@ $std::connect () # connect to a specific network address and port
   <name std::UNKNOWN>
   <type types::positive_integer>
   <argument DT_UNKNOWN>
+
+  // a directory entry of unknown type
+  //
+  // See also: file_type_of
 }
 
 # pipe
@@ -317,6 +375,10 @@ $std::connect () # connect to a specific network address and port
   <name std::FIFO>
   <type types::positive_integer>
   <argument DT_FIFO>
+
+  // a directory entry that is a pipe
+  //
+  // See also: file_type_of
 }
 
 {
@@ -324,6 +386,10 @@ $std::connect () # connect to a specific network address and port
   <name std::CHARACTER_DEVICE>
   <type types::positive_integer>
   <argument DT_CHR>
+
+  // a directory entry that is a character device
+  //
+  // See also: file_type_of
 }
 
 {
@@ -331,6 +397,10 @@ $std::connect () # connect to a specific network address and port
   <name std::DIRECTORY>
   <type types::positive_integer>
   <argument DT_DIR>
+
+  // a directory entry that is itself a directory
+  //
+  // See also: file_type_of
 }
 
 {
@@ -338,6 +408,10 @@ $std::connect () # connect to a specific network address and port
   <name std::BLOCK_DEVICE>
   <type types::positive_integer>
   <argument DT_BLK>
+
+  // a directory entry that is a block device
+  //
+  // See also: file_type_of
 }
 
 {
@@ -345,6 +419,10 @@ $std::connect () # connect to a specific network address and port
   <name std::REGULAR_FILE>
   <type types::positive_integer>
   <argument DT_REG>
+
+  // a directory entry that is a regular file
+  //
+  // See also: file_type_of
 }
 
 {
@@ -352,6 +430,10 @@ $std::connect () # connect to a specific network address and port
   <name std::LINK>
   <type types::positive_integer>
   <argument DT_LNK>
+
+  // a directory entry that is a symbolic link
+  //
+  // See also: file_type_of
 }
 
 {
@@ -359,320 +441,413 @@ $std::connect () # connect to a specific network address and port
   <name std::SOCKET>
   <type types::positive_integer>
   <argument DT_SOCK>
-}
 
-# Operation not permitted
+  // a directory entry that is a socket
+  //
+  // See also: file_type_of
+}
 
 {
   <kind object>
   <name std::EPERM>
   <type types::positive_integer>
   <argument EPERM>
-}
 
-# No such file or directory
+  // Operation not permitted
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOENT>
   <type types::positive_integer>
   <argument ENOENT>
-}
 
-# No such process
+  // No such file or directory
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ESRCH>
   <type types::positive_integer>
   <argument ESRCH>
-}
 
-# Interrupted system call
+  // No such process
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EINTR>
   <type types::positive_integer>
   <argument EINTR>
-}
 
-# I/O error
+  // Interrupted system call
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EIO>
   <type types::positive_integer>
   <argument EIO>
-}
 
-# No such device or address
+  // I/O error
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENXIO>
   <type types::positive_integer>
   <argument ENXIO>
-}
 
-# Argument list too long
+  // No such device or address
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::E2BIG>
   <type types::positive_integer>
   <argument E2BIG>
-}
 
-# Exec format error
+  // Argument list too long
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOEXEC>
   <type types::positive_integer>
   <argument ENOEXEC>
-}
 
-# Bad file number
+  // Exec format error
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EBADF>
   <type types::positive_integer>
   <argument EBADF>
-}
 
-# No child processes
+  // Bad file number
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ECHILD>
   <type types::positive_integer>
   <argument ECHILD>
-}
 
-# Try again
+  // No child processes
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EAGAIN>
   <type types::positive_integer>
   <argument EAGAIN>
-}
 
-# Out of memory
+  // Try again
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOMEM>
   <type types::positive_integer>
   <argument ENOMEM>
-}
 
-# Permission denied
+  // Out of memory
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EACCES>
   <type types::positive_integer>
   <argument EACCES>
-}
 
-# Bad address
+  // Permission denied
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EFAULT>
   <type types::positive_integer>
   <argument EFAULT>
-}
 
-# Block device required
+  // Bad address
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOTBLK>
   <type types::positive_integer>
   <argument ENOTBLK>
-}
 
-# Device or resource busy
+  // Block device required
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EBUSY>
   <type types::positive_integer>
   <argument EBUSY>
-}
 
-# File exists
+  // Device or resource busy
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EEXIST>
   <type types::positive_integer>
   <argument EEXIST>
-}
 
-# Cross-device link
+  // File exists
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EXDEV>
   <type types::positive_integer>
   <argument EXDEV>
-}
 
-# No such device
+  // Cross-device link
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENODEV>
   <type types::positive_integer>
   <argument ENODEV>
-}
 
-# Not a directory
+  // No such device
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOTDIR>
   <type types::positive_integer>
   <argument ENOTDIR>
-}
 
-# Is a directory
+  // Not a directory
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EISDIR>
   <type types::positive_integer>
   <argument EISDIR>
-}
 
-# Invalid argument
+  // Is a directory
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EINVAL>
   <type types::positive_integer>
   <argument EINVAL>
-}
 
-# File table overflow
+  // Invalid argument
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENFILE>
   <type types::positive_integer>
   <argument ENFILE>
-}
 
-# Too many open files
+  // File table overflow
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EMFILE>
   <type types::positive_integer>
   <argument EMFILE>
-}
 
-# Not a typewriter
+  // Too many open files
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOTTY>
   <type types::positive_integer>
   <argument ENOTTY>
-}
 
-# Text file busy
+  // Not a typewriter
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ETXTBSY>
   <type types::positive_integer>
   <argument ETXTBSY>
-}
 
-# File too large
+  // Text file busy
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EFBIG>
   <type types::positive_integer>
   <argument EFBIG>
-}
 
-# No space left on device
+  // File too large
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ENOSPC>
   <type types::positive_integer>
   <argument ENOSPC>
-}
 
-# Illegal seek
+  // No space left on device
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ESPIPE>
   <type types::positive_integer>
   <argument ESPIPE>
-}
 
-# Read-only file system
+  // Illegal seek
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EROFS>
   <type types::positive_integer>
   <argument EROFS>
-}
 
-# Too many links
+  // Read-only file system
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EMLINK>
   <type types::positive_integer>
   <argument EMLINK>
-}
 
-# Broken pipe
+  // Too many links
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EPIPE>
   <type types::positive_integer>
   <argument EPIPE>
-}
 
-# Math argument out of domain of func
+  // Broken pipe
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::EDOM>
   <type types::positive_integer>
   <argument EDOM>
-}
 
-# Math result not representable
+  // Math argument out of domain of func
+  //
+  // See also: errno
+}
 
 {
   <kind object>
   <name std::ERANGE>
   <type types::positive_integer>
   <argument ERANGE>
+
+  // Math result not representable
+  //
+  // See also: errno
 }
 
-$std::raise_error: (cmd args*)
+$std::raise_error:
+  #
+    raises an error after a failed posix command
+
+    Topic: Error handling
+
+    See also: check_error, raise, errno, strerror
+  (
+    cmd # a text string to describe the failed command
+    args*
+  )
   $$info ""
   for_each args: (arg) write_to &info "@(key_of(arg)) = @(value_of(arg))@nl;"
   raise "@(cmd) failed: @(std::strerror(std::errno()))!@nl;@(info)"
 
-$std::check_error: (err args*) if err < 0 raise_error args*
+$std::check_error:
+  #
+    raises an error if the last posix command failed
+
+    Topic: Error handling
+
+    See also: raise_error, raise, errno, strerror
+  (
+    err
+    args*
+  )
+  if err < 0 raise_error args*
 
 $std::errno
   #
@@ -681,8 +856,9 @@ $std::errno
     If no error occured (the function call was successful) then the integer
     value 0 is returned.
 
-    see also: std::strerror
+    Topic: Error handling
 
+    see also: std::strerror, check_error, raise_error
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(errno));
@@ -694,8 +870,9 @@ $std::strerror
 
     parameter err: the error code
 
-    see also: std::errno
+    Topic: Error handling
 
+    see also: std::errno
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_c_string(strerror(to_int(ARGUMENTS(0)))))
@@ -744,6 +921,8 @@ $std::strerror
   <node STAT>
   <base types::object>
   <argument NULL>
+
+  // an object containing a file's meta-information
 
   RUNTIME_ERROR("Attempt to call a file status object as a function!")
 }
@@ -810,18 +989,30 @@ $std::file_exists
   }
 
 $types::stat/device_of
+  #
+    the device on which the file is stored
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->stat.buf->stat.st_dev))
   }
 
 $types::stat/inode_of
+  #
+    the inode number of the file
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->stat.buf->stat.st_ino))
   }
 
 $types::stat/mode_of
+  #
+    the access rights of the file
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -829,6 +1020,10 @@ $types::stat/mode_of
   }
 
 $types::stat/link_count_of
+  #
+    the number of hard links of the file
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -836,6 +1031,10 @@ $types::stat/link_count_of
   }
 
 $types::stat/user_id_of
+  #
+    the user id of the file
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -843,6 +1042,10 @@ $types::stat/user_id_of
   }
 
 $types::stat/group_id_of
+  #
+    the group id of the file
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -850,6 +1053,10 @@ $types::stat/group_id_of
   }
 
 $types::stat/size_of
+  #
+    the size of the file (in bytes)
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -857,6 +1064,10 @@ $types::stat/size_of
   }
 
 $types::stat/block_size_of
+  #
+    the size of a sector on the device of the file
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -864,6 +1075,10 @@ $types::stat/block_size_of
   }
 
 $types::stat/sector_count_of
+  #
+    the number of sectors used for the file's data
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -871,6 +1086,10 @@ $types::stat/sector_count_of
   }
 
 $types::stat/access_time_of
+  #
+    the time the file was last accessed (read or write)
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -881,6 +1100,10 @@ $types::stat/access_time_of
   }
 
 $types::stat/modification_time_of
+  #
+    the time the file's contents were last modified
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -891,6 +1114,10 @@ $types::stat/modification_time_of
   }
 
 $types::stat/status_change_time_of
+  #
+    the time the file's meta-data last change
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -901,6 +1128,10 @@ $types::stat/status_change_time_of
   }
 
 $types::stat/is_a_directory
+  #
+    returns <true> if the file is a directory
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -908,6 +1139,10 @@ $types::stat/is_a_directory
   }
 
 $types::stat/is_a_regular_file
+  #
+    returns <true> if the file is a *regular file*
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -915,6 +1150,10 @@ $types::stat/is_a_regular_file
   }
 
 $types::stat/is_a_link
+  #
+    returns <true> if the file is a symbolic link
+
+    See also: stat
   {
     CHECK_ARGUMENTS(1)
 
@@ -936,6 +1175,8 @@ $types::stat/is_a_link
   <scope extern>
   <argument -1>
 
+  // a file descriptor object
+
   RUNTIME_ERROR("Attempt to call a file_descriptor as a function!")
 }
 
@@ -952,6 +1193,8 @@ $types::stat/is_a_link
   <name std::STDIN_FILENO>
   <type types::file_descriptor>
   <argument STDIN_FILENO>
+
+  // the file descriptor object for *stdin*
 }
 
 {
@@ -959,6 +1202,8 @@ $types::stat/is_a_link
   <name std::STDOUT_FILENO>
   <type types::file_descriptor>
   <argument STDOUT_FILENO>
+
+  // the file descriptor object for *stdout*
 }
 
 {
@@ -966,20 +1211,33 @@ $types::stat/is_a_link
   <name std::STDERR_FILENO>
   <type types::file_descriptor>
   <argument STDERR_FILENO>
+
+  // the file descriptor object for *stderr*
 }
 
 $std::create_file_descriptor
+  #
+    create a file descriptor object from an integer number
+
+    See also: types::file_descriptor/to_integer
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(create__types__file_descriptor(to_int(ARGUMENTS(0))))
   }
 
-$types::file_descriptor/to_integer {
-  CHECK_ARGUMENTS(1)
-  RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->file_descriptor.fd))
-}
+$types::file_descriptor/to_integer
+  #
+    returns the corresponding integer value of a file descriptor object
+
+    See also: create_file_descriptor
+  {
+    CHECK_ARGUMENTS(1)
+    RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->file_descriptor.fd))
+  }
 
 $types::file_descriptor/equal
+  #
+    compares two file descriptor objects
   {
     CHECK_ARGUMENTS(2)
     NODE *right = ARGUMENTS(1);
@@ -989,6 +1247,8 @@ $types::file_descriptor/equal
   }
 
 $types::file_descriptor/less
+  #
+    compares two file descriptor objects
   {
     CHECK_ARGUMENTS(2)
     NODE *right = ARGUMENTS(1);
@@ -998,6 +1258,8 @@ $types::file_descriptor/less
   }
 
 $types::file_descriptor/hash
+  #
+    computes the hash value for a file descriptor object
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->file_descriptor.fd+0xfdec))
@@ -1029,14 +1291,23 @@ $posix_open
     RETURN_SINGLE_RESULT(create__types__file_descriptor(fd))
   }
 
-$open: (filename mode)
+$std::open_file:
+  #
+    opens a file
+
+    See also: close, O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_APPEND, O_TRUNC,
+	      O_EXCL, O_NOCTTY, O_NONBLOCK
+  (
+    filename # the name of the file
+    mode # the mode to use for opening the file
+  )
   posix_open $$fd filename mode
   if fd.is_defined: !fd.filename_of fullname(filename)
   -> fd
 
 $std::open_file_for_reading:
   #
-    Opens a file in read-only mode.
+    opens a file in read-only mode
 
     On success a valid file descriptor is returned.
 
@@ -1048,7 +1319,7 @@ $std::open_file_for_reading:
     see also: std::open_file_for_writing,
               std::open_file_for_reading_and_writing, std::close, std::read
 
-    example:
+    Example:
 
     open_file_for_reading $fd "my_file.txt"
     read_from fd $text 1024
@@ -1056,11 +1327,11 @@ $std::open_file_for_reading:
   (
     filename # the name of the file to open
   )
-  open filename std::O_RDONLY
+  open_file filename std::O_RDONLY
 
 $std::open_file_for_writing:
   #
-    Opens a file in write-only mode.
+    opens a file in write-only mode
 
     On success a valid file descriptor is returned.
 
@@ -1072,7 +1343,7 @@ $std::open_file_for_writing:
     see also: std::open_file_for_reading,
               std::open_file_for_reading_and_writingstd::close, std::read
 
-    example:
+    Example:
 
     open_file_for_writing $fd "my_file.txt"
     write_to fd "Hello, world!"
@@ -1080,11 +1351,11 @@ $std::open_file_for_writing:
   (
     filename # the name of the file to open
   )
-  open filename std::O_WRONLY
+  open_file filename std::O_WRONLY
 
 $std::open_file_for_reading_and_writing:
   #
-    Opens a file in read-write mode.
+    opens a file in read-write mode
 
     On success a valid file descriptor is returned.
 
@@ -1093,12 +1364,12 @@ $std::open_file_for_reading_and_writing:
     This function relies on posix-functions if available. So there will
     be no buffering.
 
-    see also: std::open_file_for_reading, std::open_file_for_writing
-              std::close, std::read, std::write
+    see also: std::open_file_for_reading, std::open_file_for_writing,
+              std::create_file, std::close, std::read, std::write
 
-    example:
+    Example:
 
-    open $fd "my_file.dat"
+    open_file_for_reading_and_writing $fd "my_file.dat"
     read fd $first_page 4096
     seek fd 0
     write fd new_page
@@ -1106,12 +1377,31 @@ $std::open_file_for_reading_and_writing:
   (
     filename # the name of the file to open
   )
-  open filename std::O_RDWR
+  open_file filename std::O_RDWR
 
-$std::create_file: (filename)
-  open filename std::O_CREAT | std::O_TRUNC | std::O_RDWR
+$std::create_file:
+  #
+    creates a file
+
+    On success a valid file descriptor is returned.
+
+    On failure <std::undefined> is returned.
+
+    This function relies on posix-functions if available. So there will
+    be no buffering.
+
+    see also: std::open, std::open_file_for_reading,
+	      std::open_file_for_writing,
+	      std::open_file_for_reading_and_writing,
+              std::close, std::read, std::write
+  (
+    filename # the name of the file to create
+  )
+  open_file filename std::O_CREAT | std::O_TRUNC | std::O_RDWR
 
 $types::file_descriptor/close
+  #
+    close the file
   {
     CHECK_ARGUMENTS(1)
     int err;
@@ -1138,6 +1428,13 @@ $types::file_descriptor/close
   }
 
 $types::file_descriptor/read_some_bytes_from
+  #
+    try to read the specified number of bytes
+
+    This is a low-level function!
+
+    See also: types::file_descriptor/read_from,
+	      types::file_descriptor/write_some_bytes_to
   {
     CHECK_ARGUMENTS(2)
     int fd = ARGUMENTS(0)->file_descriptor.fd;
@@ -1170,7 +1467,9 @@ $types::file_descriptor/read_from:
     There might be an upper limit for the number of readily available bytes
     depending on the implementation! This limit must not be less than 1 MiB.
 
-    example:
+    See also: types::file_descriptor/write_to
+
+    Example:
 
     read $buf fd 1024 # waits until 1024 bytes are available
     read $line fd # reads as many bytes as are readily available
@@ -1193,6 +1492,13 @@ $types::file_descriptor/read_from:
   read_some_bytes_from fd 0x1000000 # 16 MiB limit
 
 $types::file_descriptor/write_some_bytes_to
+  #
+    try to write the specified number of bytes
+
+    This is a low-level function!
+
+    See also: types::file_descriptor/write_to,
+	      types::file_descriptor/read_some_bytes_from
   {
     CHECK_ARGUMENTS(2)
     int fd = ARGUMENTS(0)->file_descriptor.fd;
@@ -1230,9 +1536,16 @@ $WriteError: (fd)
   raise "Failed to write to file @(file_description(fd))!"
 
 $types::file_descriptor/write_to:
+  #
+    writes to the specified file
+
+    All arguments are converted to strings and concatenated. The resulting
+    string ist then printed to the specified file.
+
+    See also: types::file_descriptor/read_from, atomic_write_to
   (
-    fd
-    args*
+    fd # the file descriptor
+    args* # a list of arguments
     -> return
   )
   $$data string(args*)
@@ -1246,9 +1559,18 @@ $types::file_descriptor/write_to:
   if parameter_count_of(return) == 1: return true
 
 $std::atomic_write_to:
+  #
+    writes atomically to the specified file
+
+    All arguments are converted to strings and concatenated. The resulting
+    string ist then printed to the specified file.
+
+    No other I/O-operations will be handled until all data has been written.
+
+    See also: types::file_descriptor/write_to
   (
-    fd
-    args*
+    fd # the file descriptor
+    args* # a list of arguments
     -> return
   )
   $$data string(args*)
@@ -1271,7 +1593,7 @@ $std::load_file:
               std::read_from,
               std::close
 
-    example:
+    Example:
 
     load $settings "my_settings.conf"
   (
@@ -1304,7 +1626,7 @@ $std::save_file:
               std::write_to,
               std::close
 
-    example:
+    Example:
 
     save "my_settings.conf" settings
   (
@@ -1328,6 +1650,8 @@ $std::save_file:
       return false
 
 $types::file_descriptor/flush
+  #
+    flushes all buffers associated with the file
   {
     CHECK_ARGUMENTS(1)
     int fd = ARGUMENTS(0)->file_descriptor.fd;
@@ -1361,6 +1685,8 @@ $ioctl_value
   }
 
 $types::file_descriptor/std::ioctl:
+  #
+    sets file descriptor options
   (
     fd
     request
@@ -1376,6 +1702,11 @@ $types::file_descriptor/std::ioctl:
       return ioctl_value(fd request value)
 
 $types::file_descriptor/std::get_terminal_size
+  #
+    retrieves the current width and height of the terminal
+
+    If the file descriptor is not connected to a terminal then the behaviour
+    is undefined.
   {
     CHECK_ARGUMENTS(1)
 
@@ -1414,8 +1745,10 @@ $posix_unlink
   }
 
 $std::delete_file:
+  #
+    deletes the specified file
   (
-    filename
+    filename # the name of the file to delete
     -> return
   )
   if
@@ -1590,6 +1923,8 @@ $wait_for_io_ready
   }
 
 $std::get_pid
+  #
+    return the process id of the current process
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(getpid()))
@@ -1617,29 +1952,38 @@ $std::wait_pid
     RETURN
   }
 
-$std::wait_for_io
-  : (read_descriptors write_descriptors except_descriptors timeout?)
-    wait_for_io_ready
-      read_descriptors
-      write_descriptors
-      except_descriptors
-      timeout
-      $success
-      $child_changed_state
-      $window_changed_size
-      $input_count
-      $output_count
-      $_exception_count
-      $descriptors*
-    ->
-      child_changed_state
-      window_changed_size
-      range(descriptors 1 input_count)
-      range(descriptors input_count+1 input_count+output_count)
-      range(descriptors input_count+output_count+1 -1)
-      success
+$std::wait_for_io:
+  #
+    wait until any of the supplied descriptors allow I/O
+  (
+    read_descriptors
+    write_descriptors
+    except_descriptors
+    timeout?
+  )
+  wait_for_io_ready
+    read_descriptors
+    write_descriptors
+    except_descriptors
+    timeout
+    $success
+    $child_changed_state
+    $window_changed_size
+    $input_count
+    $output_count
+    $_exception_count
+    $descriptors*
+  ->
+    child_changed_state
+    window_changed_size
+    range(descriptors 1 input_count)
+    range(descriptors input_count+1 input_count+output_count)
+    range(descriptors input_count+output_count+1 -1)
+    success
 
 $std::current_path
+  #
+    returns the current working directory
   {
     CHECK_ARGUMENTS(0)
     char *buf = NULL;
@@ -1661,6 +2005,10 @@ $std::current_path
   }
 
 $std::chdir
+  #
+    changes the current working directory
+
+    This is a low level function.
   {
     CHECK_ARGUMENTS(1)
     char *path = to_c_string(ARGUMENTS(0));
@@ -1675,6 +2023,9 @@ $std::chdir
   }
 
 $std::change_directory: (path)
+  #
+    changes the current working directory
+
   if std::chdir(path) != 0:
     Error "
       Failed to change current directory to "@(path)@quot;!@
@@ -1695,6 +2046,11 @@ $std::clib_mkdir
   }
 
 $std::mkdir: (options* $path)
+  #
+    creates a new directory
+
+    This is a low level function.
+
   extract_options
     options
     MODE = 0o755
@@ -1721,6 +2077,8 @@ $std::mkdir: (options* $path)
     unless do_create_parent_folders && errno() == EEXIST fail
 
 $std::create_directory:
+  #
+    creates a new directory
   (
     path
     mode = 0o755
@@ -1729,7 +2087,12 @@ $std::create_directory:
     Error "
       Failed to create directory "@(path)@quot;!@
 
-$std::fullname: ($pathname)
+$std::fullname:
+  #
+    returns the fullname of the specified path- or filename
+  (
+    $pathname
+  )
   unless pathname .has_prefix. '/':
     !pathname string(current_path() "/" pathname)
   unless pathname .has_suffix. '/': push &pathname '/'
@@ -1757,6 +2120,8 @@ $std::fullname: ($pathname)
   <node DIRECTORY_HANDLE>
   <base types::object>
   <argument NULL>
+
+  // a directory object
 
   RUNTIME_ERROR("Attempt to call a DIR object as a function!")
 }
@@ -1810,6 +2175,8 @@ $std::fullname: ($pathname)
   <base types::object>
   <argument NULL>
 
+  // a directory entry object
+
   RUNTIME_ERROR("Attempt to call a dirent object as a function!")
 }
 
@@ -1823,6 +2190,8 @@ $std::fullname: ($pathname)
 }
 
 $std::opendir
+  #
+    returns a handle for traversing a directory
   {
     CHECK_ARGUMENTS(1)
     NODE *pathname_node = ARGUMENTS(0);
@@ -1838,6 +2207,8 @@ $std::opendir
   }
 
 $types::DIR/close
+  #
+    ends traversing a directory
   {
     CHECK_ARGUMENTS(1)
     int err;
@@ -1852,6 +2223,8 @@ $types::DIR/close
   }
 
 $types::DIR/get
+  #
+    reads a single directory entry
   {
     CHECK_ARGUMENTS(1)
     NODE *dir_node = ARGUMENTS(0);
@@ -1874,6 +2247,8 @@ $types::DIR/get
   }
 
 $types::dirent/filename_of
+  #
+    returns the name of a directory entry
   {
     CHECK_ARGUMENTS(1)
 
@@ -1881,6 +2256,8 @@ $types::dirent/filename_of
   }
 
 $types::dirent/inode_of
+  #
+    returns the inode number of the referred file
   {
     CHECK_ARGUMENTS(1)
 
@@ -1888,23 +2265,53 @@ $types::dirent/inode_of
   }
 
 $types::dirent/file_type_of
+  #
+    returns the type of the referred file
   {
     CHECK_ARGUMENTS(1)
 
     RETURN_SINGLE_RESULT(from_int(ARGUMENTS(0)->dirent.dirent->d_type))
   }
 
-$types::dirent/fullname_of: (self)
+$types::dirent/fullname_of:
+  #
+    returns the full pathname of a directory entry
+  (
+    self
+  )
   -> string(pathname_of(self) "/" filename_of(self))
 
-$types::dirent/is_a_directory: (self) -> file_type_of(self) == std::DIRECTORY
+$types::dirent/is_a_directory:
+  #
+    returns <true> if the referred file is a directory
+  (
+    self
+  )
+  -> file_type_of(self) == std::DIRECTORY
 
-$types::dirent/is_a_regular_file: (self)
+$types::dirent/is_a_regular_file:
+  #
+    returns <true> if the referred file is a regular file
+  (
+    self
+  )
   -> file_type_of(self) == std::REGULAR_FILE
 
-$types::dirent/is_a_link: (self) -> file_type_of(self) == std::LINK
+$types::dirent/is_a_link:
+  #
+    returns <true> if the referred file is a symbolic link
+  (
+    self
+  )
+  -> file_type_of(self) == std::LINK
 
-$std::directory: (options* pathname)
+$std::directory:
+  #
+    reads and returns a complete directory
+  (
+    options*
+    pathname
+  )
   extract_options options SORT = false $do_sort
   $$entries list()
   $dir std::opendir(fullname(pathname))
@@ -1981,6 +2388,8 @@ $std::directory: (options* pathname)
   <base types::object>
   <argument NULL>
 
+  // an addrinfo object
+
   RUNTIME_ERROR("Attempt to call an addrinfo object as a function!")
 }
 
@@ -2013,9 +2422,9 @@ $std::directory: (options* pathname)
 }
 
 $std::get_network_addresses
+  #
+    get all network addresses
   {
-    // get all network addresses
-
     CHECK_ARGUMENTS(1)
     struct addrinfo *first;
     char *name = to_c_string(ARGUMENTS(0));
@@ -2054,9 +2463,9 @@ $std::get_network_addresses
   }
 
 $std::get_network_address
+  #
+    get one network address
   {
-    // get one network address
-
     CHECK_ARGUMENTS(1)
     struct addrinfo *first;
     char *name = to_c_string(ARGUMENTS(0));
@@ -2084,6 +2493,8 @@ $std::get_network_address
   }
 
 $types::addrinfo/connect
+  #
+    connect to the specified address
   {
     CHECK_ARGUMENTS(2)
     ADDRINFO_DATA *data = ARGUMENTS(0)->addrinfo.data;
@@ -2099,9 +2510,18 @@ $types::addrinfo/connect
     }
   }
 
-$types::string/connect: (uri port) connect get_network_address(uri) port
+$types::string/connect:
+  #
+    connect to the specified uri/port combination
+  (
+    uri
+    port
+  )
+  connect get_network_address(uri) port
 
 $types::addrinfo/listen
+  #
+    listen on the specified socket
   {
     CHECK_ARGUMENTS(2)
     ADDRINFO_DATA *data = ARGUMENTS(0)->addrinfo.data;
@@ -2126,9 +2546,18 @@ $types::addrinfo/listen
     RETURN_SINGLE_RESULT(create__types__file_descriptor(sd))
   }
 
-$types::string/listen: (uri port) listen get_network_address(uri) port
+$types::string/listen:
+  #
+    listen on the specified uri/port combination
+  (
+    uri
+    port
+  )
+  listen get_network_address(uri) port
 
 $types::file_descriptor/accept
+  #
+    accept an incoming connection
   {
     CHECK_ARGUMENTS(1)
     int fd = ARGUMENTS(0)->file_descriptor.fd;
@@ -2140,24 +2569,72 @@ $types::file_descriptor/accept
     }
   }
 
-%std::write: (args*) write_to STDOUT_FILENO string(args*).to_utf8
+%std::write:
+  #
+    writes its arguments (as a single string)
 
-$std::writeln: (args*) write args* "@nl;"
+    See also: writeln, ewrite
+  (
+    args*
+  )
+  write_to STDOUT_FILENO string(args*).to_utf8
 
-%std::ewrite: (args*) atomic_write_to STDERR_FILENO string(args*).to_utf8
+$std::writeln:
+  #
+    writes its arguments and a trailing newline
 
-$std::ewriteln: (args*) ewrite args* "@nl;"
+    See also: write, ewriteln
+  (
+    args*
+  )
+  write args* "@nl;"
 
-%std::read: (n) read_from STDIN_FILENO n
+%std::ewrite:
+  #
+    writes its arguments (as a single string) as error
+    output
 
-$std::readln: (-> return)
+    See also: ewriteln, write
+  (
+    args*
+  )
+  atomic_write_to STDERR_FILENO string(args*).to_utf8
+
+$std::ewriteln:
+  #
+    writes its arguments (as a single string) with a trailing newline as error
+    output
+  (
+    args*
+  )
+  ewrite args* "@nl;"
+
+%std::read:
+  #
+    reads a specified amount of data from a default source
+  (
+    n
+  )
+  read_from STDIN_FILENO n
+
+$std::readln:
+  #
+    reads a single line from a default source
+  (
+    -> return
+  )
   $$buf ""
   forever:
     read $chr 1
     if chr == "@nl;" || chr == "": return buf
     append &buf chr
 
-$std::load: (filename)
+$std::load:
+  #
+    loads data from a file or a network resource
+  (
+    filename
+  )
   if
     filename .has_prefix. "http://":
       if wget($buf "-q" "-O" "-" filename) (-> buf):
@@ -2166,7 +2643,14 @@ $std::load: (filename)
     :
       load_file filename
 
-$std::save: (options* filename data)
+$std::save:
+  #
+    saves data to a file
+  (
+    options*
+    filename
+    data
+  )
   extract_options options PARENTS = false $do_create_directory
   if do_create_directory:
     $path before(filename '/' -1)

@@ -27,6 +27,12 @@ $int_size
   }
 
 $std::INT_SIZE int_size()
+  #
+    returns the size of an *int* (in bytes)
+
+    Topic: Platform
+
+    See also: PTR_SIZE
 
 $ptr_size
   {
@@ -35,3 +41,9 @@ $ptr_size
   }
 
 $std::PTR_SIZE ptr_size()
+  #
+    returns the size of a *pointer* (in bytes)
+
+    Topic: Platform
+
+    See also: INT_SIZE

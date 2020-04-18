@@ -3183,8 +3183,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__36_126, NULL, 775, 775, 22, 34},
   {entry__36_128, NULL, 776, 776, 34, 58},
   {entry__36_130, NULL, 777, 777, 35, 60},
-  {entry__36_132, NULL, 778, 778, 27, 43},
-  {entry__36_134, NULL, 779, 779, 29, 47},
+  {entry__36_132, NULL, 778, 778, 27, 44},
+  {entry__36_134, NULL, 779, 779, 29, 48},
   {entry__36_136, NULL, 780, 780, 31, 52},
   {entry__36_138, NULL, 781, 781, 25, 40},
   {entry__36_140, NULL, 782, 782, 22, 34},
@@ -21024,8 +21024,8 @@ static void cont__36_125(void) {
   // 775:     FUNCTION -> "function"
   // 776:     POLYMORPHIC_FUNCTION -> "polymorphic function"
   // 777:     POLYMORPHIC_ATTRIBUTE -> "polymorphic attribute"
-  // 778:     INLINE_C_TYPE -> "inine-C type"
-  // 779:     INLINE_C_OBJECT -> "inine-C object"
+  // 778:     INLINE_C_TYPE -> "inline-C type"
+  // 779:     INLINE_C_OBJECT -> "inline-C object"
   // 780:     INLINE_C_FUNCTION -> "inline-C function"
   // 781:     UNIQUE_ITEM -> "unique item"
   // ...
@@ -21108,7 +21108,7 @@ static void entry__36_132(void) {
     invalid_arguments_error();
     return;
   }
-  // 778: ... -> "inine-C type"
+  // 778: ... -> "inline-C type"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__36_133;
@@ -21123,7 +21123,7 @@ static void entry__36_134(void) {
     invalid_arguments_error();
     return;
   }
-  // 779: ... -> "inine-C object"
+  // 779: ... -> "inline-C object"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__36_135;
@@ -22933,9 +22933,9 @@ EXPORT void phase_2__extractor(void) {
   func__36_128 = create_function(entry__36_128, 0);
   string__36_131 = from_latin_1_string("polymorphic attribute", 21);
   func__36_130 = create_function(entry__36_130, 0);
-  string__36_133 = from_latin_1_string("inine-C type", 12);
+  string__36_133 = from_latin_1_string("inline-C type", 13);
   func__36_132 = create_function(entry__36_132, 0);
-  string__36_135 = from_latin_1_string("inine-C object", 14);
+  string__36_135 = from_latin_1_string("inline-C object", 15);
   func__36_134 = create_function(entry__36_134, 0);
   string__36_137 = from_latin_1_string("inline-C function", 17);
   func__36_136 = create_function(entry__36_136, 0);

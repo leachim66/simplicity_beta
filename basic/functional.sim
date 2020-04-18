@@ -54,7 +54,7 @@ $std::fold:
 
     This is a left-fold.
 
-    example:
+    Example:
 
     fold(plus list(1 2 3))
 
