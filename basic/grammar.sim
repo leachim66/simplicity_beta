@@ -21,11 +21,34 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $grammar::match ()
-$grammar::search ()
+  #
+    match the start of the stream with a grammar object
 
-$types::grammar_object types::object # an object used for matching strings
+    Topic: Grammar
+
+$grammar::search ()
+  #
+    search within a stream for a grammar object
+
+    Topic: Grammar
+
+$types::grammar_object types::object
+  #
+    the prototype for all grammar objects
+
+    Topic: Grammar
+
 $types::grammar_node types::object
+  #
+    the prototype for nodes of the asyntax tree
+
+    Topic: Grammar
+
 %%grammar::current_node undefined
+  #
+    the current node of the syntax tree
+
+    Topic: Grammar
 
 $expr_of (!)
 $alternatives_of (!)
@@ -37,18 +60,42 @@ $function_of (!)
 # OPTIONAL
 
 $types::optional types::grammar_object
+  #
+    a grammar object to match zero or one occurences of a grammar object
 
-$types::optional/grammar::match: (self stream)
+    Topic: Grammar
+
+$types::optional/grammar::match:
+  #
+    match zero or one occurences
+  (
+    self
+    stream
+  )
   -> grammar::match(expr_of(self) stream) .default_value. 0
 
-$std::optional: (expr) -> types::optional(.expr_of expr)
+$std::optional:
+  #
+    match zero or one occurences of the specified expression
+
+    Topic: Grammar
+
+    See also: some, many
+  (
+    expr # the expression to use for matching
+  )
+  -> types::optional(.expr_of expr)
 
 ###
 # MANY
 
 $types::many types::grammar_object
+  #
+    a grammar object to match one or more occurences of a grammar object
 
 $types::many/grammar::match:
+  #
+    match one or more occurences
   (
     self
     $stream
@@ -66,14 +113,30 @@ $types::many/grammar::match:
     if n == 0: return len
     range &stream n+1 -1
 
-$std::many: (expr) -> types::many(.expr_of expr)
+$std::many:
+  #
+    match one or more occurences of the specified expression
+
+    Topic: Grammar
+
+    See also: some, optional
+  (
+    expr # the expression to use for matching
+  )
+  -> types::many(.expr_of expr)
 
 ###
 # SOME
 
 $types::some types::grammar_object
+  #
+    a grammar object to match zero or more occurences of a grammar object
+
+    Topic: Grammar
 
 $types::some/grammar::match:
+  #
+    match zero or more occurences
   (
     self
     $stream
@@ -91,14 +154,31 @@ $types::some/grammar::match:
     if n == 0: return len
     range &stream n+1 -1
 
-$std::some: (expr) -> types::some(.expr_of expr)
+$std::some:
+  #
+    match zero or more occurences of the specified expression
+
+    Topic: Grammar
+
+    See also: some, optional
+
+  (
+    expr # the expression to use for matching
+  )
+  -> types::some(.expr_of expr)
 
 ###
 # ALT
 
 $types::alt types::grammar_object
+  #
+    a grammar object to match one of several alternatives
+
+    Topic: Grammar
 
 $types::alt/grammar::match:
+  #
+    match one of several alternatives
   (
     self
     stream
@@ -110,14 +190,26 @@ $types::alt/grammar::match:
     if n.is_defined: return n
   -> undefined
 
-$std::alt: (alternatives*) -> types::alt(.alternatives_of alternatives)
+$std::alt:
+  #
+    match one of several alternative expressions
+  (
+    alternatives* # the expressions to use for matching
+  )
+  -> types::alt(.alternatives_of alternatives)
 
 ###
 # FOLLOWED BY
 
 $types::followed_by types::grammar_object
+  #
+    a grammar object to check the occurence of an expression
+
+    Topic: Grammar
 
 $types::followed_by/grammar::match:
+  #
+    check the occurence of an expression
   (
     self
     stream
@@ -131,14 +223,33 @@ $types::followed_by/grammar::match:
     :
       return undefined
 
-$std::followed_by: (expr) -> types::followed_by(.expr_of expr)
+$std::followed_by:
+  #
+    check the occurence of an expression
+
+    Succeeds if the specified expression occurs at the start of the input
+    stream **without** matching or skipping the expression!
+
+    Topic: Grammar
+
+    See also: not_followed_by
+  (
+    expr # the expression to check
+  )
+  -> types::followed_by(.expr_of expr)
 
 ###
 # NOT FOLLOWED BY
 
 $types::not_followed_by types::grammar_object
+  #
+    a grammar object to check the non-occurence of an expression
+
+    Topic: Grammar
 
 $types::not_followed_by/grammar::match:
+  #
+    check the non-occurence of an expression
   (
     self
     stream
@@ -152,14 +263,37 @@ $types::not_followed_by/grammar::match:
     :
       return 0
 
-$std::not_followed_by: (expr) -> types::not_followed_by(.expr_of expr)
+$std::not_followed_by:
+  #
+    check the non-occurence of an expression
+
+    Succeeds if the specified expression does not occur at the start of the
+    input stream.
+
+    Topic: Grammar
+
+    See also: followed_by
+  (
+    expr
+  )
+  -> types::not_followed_by(.expr_of expr)
 
 ###
 # CAPTURE
 
 $types::capture types::grammar_object
+  #
+    a grammar object for capturing a string matching an expression
 
-$types::capture/grammar::match: (self stream)
+    Topic: Grammar
+
+$types::capture/grammar::match:
+  #
+    captures a matching string
+  (
+    self
+    stream
+  )
   $len grammar::match(expr_of(self) stream)
   if len.is_defined:
     $setter setter_of(self)
@@ -171,14 +305,35 @@ $types::capture/grammar::match: (self stream)
 	!grammar::current_node value
   -> len
 
-$std::capture: (setter? expr) -> types::capture(.setter_of setter .expr_of expr)
+$std::capture:
+  #
+    captures the string matching the specified expression
+
+    Topic: Grammar
+
+    See also: multi_capture, span
+  (
+    setter? # where to store the matched string
+    expr # the epxression to match the string
+  )
+  -> types::capture(.setter_of setter .expr_of expr)
 
 ###
 # MULTI-CAPTURE
 
 $types::multi_capture types::grammar_object
+  #
+    a grammar object for capturing strings matching expressions
 
-$types::multi_capture/grammar::match: (self stream)
+    Topic: Grammar
+
+$types::multi_capture/grammar::match:
+  #
+    capture a matching string
+  (
+    self
+    stream
+  )
   $len grammar::match(expr_of(self) stream)
   if len.is_defined:
     $setter setter_of(self)
@@ -192,15 +347,36 @@ $types::multi_capture/grammar::match: (self stream)
 	push &grammar::current_node value
   -> len
 
-$std::multi_capture: (setter? expr)
+$std::multi_capture:
+  #
+    captures the string matching the specified expression
+
+    The matched strings are appended to a list.
+
+    This construct is intended to be used inside a <some> or <many> grammar
+    expression.
+
+    Topic: Grammar
+
+    See also: capture, multi_span, some, many
+  (
+    setter? # where to store the matched strings
+    expr # the epxression to match the strings
+  )
   -> types::multi_capture(.setter_of setter .expr_of expr)
 
 ###
 # SPAN
 
 $types::span types::grammar_object
+  #
+    a grammar object for matching and storing a subexpression
+
+    Topic: Grammar
 
 $types::span/grammar::match:
+  #
+    match and store a subexpression
   (
     self
     stream
@@ -216,14 +392,33 @@ $types::span/grammar::match:
   !grammar::current_node outer_node
   -> len
 
-$std::span: (setter expr) -> types::span(.setter_of setter .expr_of expr)
+$std::span:
+  #
+    match and store the specified subexpression
+
+    This is one of the expressions to build syntax **trees**.
+
+    Topic: Grammar
+
+    See also: capture, multi_span
+  (
+    setter # where to store the matched subexpression
+    expr # the subexpression
+  )
+  -> types::span(.setter_of setter .expr_of expr)
 
 ###
 # MULTI-SPAN
 
 $types::multi_span types::grammar_object
+  #
+    a grammar object for matching and storing subexpressions
+
+    Topic: Grammar
 
 $types::multi_span/grammar::match:
+  #
+    match and store a subexpression
   (
     self
     stream
@@ -244,26 +439,69 @@ $types::multi_span/grammar::match:
   !grammar::current_node outer_node
   -> len
 
-$std::multi_span: (setter? expr)
+$std::multi_span:
+  #
+    match and store the specified subexpression
+
+    This is one of the expressions to build syntax **trees**.
+
+    The matched expressions are appended to a list.
+
+    This construct is intended to be used inside a <some> or <many> grammar
+    expression.
+
+    Topic: Grammar
+
+    See also: multi_capture, span
+  (
+    setter?
+    expr
+  )
   -> types::multi_span(.setter_of setter .expr_of expr)
 
 ###
 # SET NODE
 
 $types::set_node types::grammar_object
+  #
+    an expression to replace the current node of the syntax tree
 
-$types::set_node/grammar::match: (self _stream)
+    Topic: Grammar
+
+$types::set_node/grammar::match:
+  #
+    does not match anything; replaces the current node of the syntax tree
+  (
+    self
+    _stream
+  )
   !grammar::current_node node_of(self)
   -> 0
 
-$std::set_node: (node) -> types::set_node(.node_of node)
+$std::set_node:
+  #
+    replaces the current node of the syntax tree with the specified node
+  (
+    node # the node to use as the current node of the syntax tree
+  )
+  -> types::set_node(.node_of node)
 
 ###
 # INSPECT NODE
 
 $types::inspect_node types::grammar_object
+  #
+    allows inspecting the current node of the syntax tree
 
-$types::inspect_node/grammar::match: (self stream)
+    Topic: Grammar
+
+$types::inspect_node/grammar::match:
+  #
+    does not match anything; inspects the current node of the syntax tree
+  (
+    self
+    stream
+  )
   $func function_of(self)
   if
     parameter_count_of(func) == 2:
@@ -272,14 +510,34 @@ $types::inspect_node/grammar::match: (self stream)
       func grammar::current_node
   -> 0
 
-$std::inspect_node: (func) -> types::inspect_node(.function_of func)
+$std::inspect_node:
+  #
+    allows the specified function to inspect the current node of the syntax tree
+
+    Topic: Grammar
+
+    See also: set_node, modify_node, check_node
+  (
+    func # the function to inspect the node
+  )
+  -> types::inspect_node(.function_of func)
 
 ###
 # MODIFY NODE
 
 $types::modify_node types::grammar_object
+  #
+    allows modifying the current node of the syntax tree
 
-$types::modify_node/grammar::match: (self stream)
+    Topic: Grammar
+
+$types::modify_node/grammar::match:
+  #
+    does not match anything; modifies the current node of the syntax tree
+  (
+    self
+    stream
+  )
   $func function_of(self)
   if
     parameter_count_of(func) == 2:
@@ -288,14 +546,30 @@ $types::modify_node/grammar::match: (self stream)
       func &grammar::current_node
   -> 0
 
-$std::modify_node: (func) -> types::modify_node(.function_of func)
+$std::modify_node:
+  #
+    allows the specified function to modify the current node of the syntax tree
+
+    Topic: Grammar
+
+    See also: set_node, inspect_node, check_node, grammar_action
+  (
+    func # the function to modify the node
+  )
+  -> types::modify_node(.function_of func)
 
 ###
 # CHECK NODE
 
 $types::check_node types::grammar_object
+  #
+    allows checking the current node of the syntax tree
+
+    Topic: Grammar
 
 $types::check_node/grammar::match:
+  #
+    does not match anything; checks the current node of the syntax tree
   (
     self
     stream
@@ -309,44 +583,105 @@ $types::check_node/grammar::match:
       unless func(grammar::current_node): return undefined
   -> 0
 
-$std::check_node: (func) -> types::check_node(.function_of func)
+$std::check_node:
+  #
+    allows the specified function to check the current node of the syntax tree
+
+    Topic: Grammar
+
+    See also: set_node, inspect_node, modify_node
+  (
+    func # the function to check the node
+  )
+  -> types::check_node(.function_of func)
 
 ###
 # GRAMMAR ACTION
 
 $types::grammar_action types::grammar_object
+  #
+    an object for implementing arbitrary grammar actions
 
-$types::grammar_action/grammar::match: (self stream)
+$types::grammar_action/grammar::match:
+  #
+    applies an arbitrary action to the current input stream and the current node
+  (
+    self
+    stream
+  )
   -> function_of(self)(stream)
 
-$std::grammar_action: (func) -> types::grammar_action(.function_of func)
+$std::grammar_action:
+  #
+    applies the specified funtion to the current input stream and the current
+    node
+
+    Topic: Grammar
+
+    See also: modify_node
+  (
+    func
+  )
+  -> types::grammar_action(.function_of func)
 
 ###
 # SET FIELD
 
 $types::set_field types::grammar_object
+  #
+    a grammar object for setting a field in the current node of the syntax tree
 
-$types::set_field/grammar::match: (self _stream)
+    Topic: Grammar
+
+$types::set_field/grammar::match:
+  #
+    sets a field in the current node of the syntax tree
+  (
+    self
+    _stream
+  )
   setter_of(self) &grammar::current_node expr_of(self)
   -> 0
 
-$std::set_field: (setter expr)
+$std::set_field:
+  #
+    sets the specified field in the current node of the syntax tree
+
+    Topic: Grammar
+
+    See also: set_node, modify_node, span, multi_span
+  (
+    setter # the field to set
+    expr # the value to set to
+  )
   -> types::set_field(.setter_of setter .expr_of expr)
 
 ###
 # END_OF_TEXT
 
 $std::END_OF_TEXT types::grammar_object
+  #
+    a grammar object for matching the end of the input stream
+
+    Topic: Grammar
 
 $std::END_OF_TEXT/grammar::match: (_self stream)
+  #
+    matches the end of the input stream
   if stream .has_minimum_length. 1 (-> undefined) -> 0
 
 ###
 # LETTER
 
 $std::LETTER types::grammar_object
+  #
+    a grammar object for matching a single letter
+
+    Topic: Grammar
 
 $std::LETTER/grammar::match:
+  #
+    matches any single letter
   (
     _self
     stream
@@ -363,8 +698,14 @@ $std::LETTER/grammar::match:
 # UPPER_CASE_LETTER
 
 $std::UPPER_CASE_LETTER types::grammar_object
+  #
+    a grammar object for matching a single upper case letter
+
+    Topic: Grammar
 
 $std::UPPER_CASE_LETTER/grammar::match:
+  #
+    matches any single upper case letter
   (
     _self
     stream
@@ -378,8 +719,14 @@ $std::UPPER_CASE_LETTER/grammar::match:
 # LOWER_CASE_LETTER
 
 $std::LOWER_CASE_LETTER types::grammar_object
+  #
+    a grammar object for matching a single lower case letter
+
+    Topic: Grammar
 
 $std::LOWER_CASE_LETTER/grammar::match:
+  #
+    matches any single lower case letter
   (
     _self
     stream
@@ -393,8 +740,14 @@ $std::LOWER_CASE_LETTER/grammar::match:
 # DIGIT
 
 $std::DIGIT types::grammar_object
+  #
+    a grammar object for matching a single digit
+
+    Topic: Grammar
 
 $std::DIGIT/grammar::match:
+  #
+    matches any single digit
   (
     _self
     stream
@@ -408,8 +761,14 @@ $std::DIGIT/grammar::match:
 # WHITESPACE CHARACTER
 
 $std::WHITESPACE_CHARACTER types::grammar_object
+  #
+    a grammar object for matching a single whitespace character
+
+    Topic: Grammar
 
 $std::WHITESPACE_CHARACTER/grammar::match:
+  #
+    matches any single whitespace character
   (
     _self
     stream
@@ -424,13 +783,23 @@ $std::WHITESPACE_CHARACTER/grammar::match:
 # WHITESPACE
 
 $std::WHITESPACE many(WHITESPACE_CHARACTER)
+  #
+    matches one or more whitespace characters
+
+    Topic: Grammar
 
 ###
 # PRINTABLE CHARACTER
 
 $std::PRINTABLE_CHARACTER types::grammar_object
+  #
+    a grammar object for matching a single printable character
+
+    Topic: Grammar
 
 $std::PRINTABLE_CHARACTER/grammar::match:
+  #
+    matches any single printable character
   (
     _self
     stream
@@ -445,8 +814,14 @@ $std::PRINTABLE_CHARACTER/grammar::match:
 # NON-SPACE CHARACTER
 
 $std::NON_SPACE_CHARACTER types::grammar_object
+  #
+    a grammar object for matching a single non-space character
+
+    Topic: Grammar
 
 $std::NON_SPACE_CHARACTER/grammar::match:
+  #
+    matches any single non-space character
   (
     _self
     stream
@@ -461,8 +836,14 @@ $std::NON_SPACE_CHARACTER/grammar::match:
 # ANY CHARACTER
 
 $std::ANY_CHARACTER types::grammar_object
+  #
+    a grammar object for matching any single character
+
+    Topic: Grammar
 
 $std::ANY_CHARACTER/grammar::match:
+  #
+    matches any single character
   (
     _self
     stream
@@ -474,9 +855,25 @@ $std::ANY_CHARACTER/grammar::match:
 ###
 # GRAMMAR FUNCTIONS
 
-$types::character/grammar::match: (chr stream) match_character stream chr
+$types::character/grammar::match:
+  #
+    matches a single characters
+
+    Topic: Grammar
+  (
+    chr
+    stream
+  )
+  match_character stream chr
 
 $types::value_range/grammar::match:
+  #
+    implements matching for *value ranges*
+
+    The bounds must be character values. Any character within the range matches
+    the first character of the input stream.
+
+    Topic: Grammar
   (
     self
     stream
@@ -488,6 +885,14 @@ $types::value_range/grammar::match:
   -> undefined
 
 $types::list/grammar::match:
+  #
+    implements matching for strings
+
+    A list matches if all its items match in consecutive order.
+
+    Typically *sequences* (not plain lists) are used for this task.
+
+    Topics: Grammar, Strings
   (
     self
     $stream
@@ -505,6 +910,10 @@ $types::list/grammar::match:
   -> len
 
 $types::object/grammar::search:
+  #
+    searches an input stream for a grammar expression
+
+    Topic: Grammar
   (
     expr
     stream
