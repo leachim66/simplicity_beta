@@ -210,6 +210,8 @@ $posix_launch
   }
 
 $std::launch:
+  #
+    launches an external command
   (
     $args*
     -> return
@@ -749,21 +751,43 @@ $posix_pipe
     RETURN
   }
 
-$std::exec: ($args*)
+$std::exec:
+  #
+    replaces the running application with an external command
+  (
+    $args*
+  )
   update_each &args to_string
   posix_exec args*
 
-$std::call: ($args*)
+$std::call:
+  #
+    calls an external command
+  (
+    $args*
+  )
   update_each &args to_string
   posix_call args*
 
-$std::pipe: ($input $cmds*)
+$std::pipe:
+  #
+    runs some external commands as a "pipe chain"
+  (
+    $input
+    $cmds*
+  )
   if input.is_defined: to_string &input
   if cmds.is_empty: raise "Invalid arguments!"
   update_each &cmds: (&cmd) cmd !cmd*
   posix_pipe cmds input?
 
-$std::extern: (options* command)
+$std::extern:
+  #
+    allows calling an external command like a builtin function
+  (
+    options*
+    command
+  )
   extract_options options TRIM = false $do_trim
   -> : (arguments* -> return)
     call $$out $err $ret command arguments*

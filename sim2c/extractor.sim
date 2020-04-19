@@ -407,18 +407,30 @@ $to_paragraphs: (lines)
   if text != "": push &paragraphs text
   -> paragraphs
 
-$create_info_page: (function_name info)
-  $resolve_reference: (&reference)
-    if
-      reference .contains. '/':
-	$$type_name reference .before. '/'
-	$$method_name reference .behind. '/'
-	unless type_name .contains. "::": append "types::" &type_name
-	unless method_name .contains. "::": append "std::" &method_name
-	!reference string(type_name '/' method_name)
-      :
-	unless reference .contains. "::": append "std::" &reference
+$resolve_reference: (&reference)
+  if
+    reference .contains. '/':
+      $$type_name reference .before. '/'
+      $$method_name reference .behind. '/'
+      unless type_name .contains. "::": append "types::" &type_name
+      unless method_name .contains. "::": append "std::" &method_name
+      !reference string(type_name '/' method_name)
+    :
+      unless reference .contains. "::": append "std::" &reference
 
+$add_links: (&paragraph)
+  replace_all
+    &paragraph
+    =
+      '<', IDENTIFIER, optional('/', IDENTIFIER), '>'
+      : ($reference)
+	range &reference 2 -2
+	resolve_reference &reference
+	-> "[@(reference)](@(reference.mangled).html)"
+
+$create_info_page: (function_name info)
+  $resolve_and_check_reference: (&reference)
+    resolve_reference &reference
     if short_descriptions(reference).is_undefined:
       Error "
 	The documentation for "@(function_name)"
@@ -548,7 +560,7 @@ $create_info_page: (function_name info)
 		  '<', IDENTIFIER, optional('/', IDENTIFIER), '>'
 		  : ($reference)
 		    range &reference 2 -2
-		    resolve_reference &reference
+		    resolve_and_check_reference &reference
 		    -> "[@(reference)](@(reference.mangled).html)"
 	      if
 		short_description.is_defined:
@@ -611,7 +623,7 @@ $create_info_page: (function_name info)
 	H2 "See also"
 	TABLE:
 	  for_each references: ($reference)
-	    resolve_reference &reference
+	    resolve_and_check_reference &reference
 	    TR:
 	      TD: A "href" = "@(reference.mangled).html" reference
 	      TD "&nbsp;"
@@ -692,6 +704,7 @@ $get_short_description: (name info)
 	(defined in "@(filename_of(info))")
 	is quite long:
 	@(short_description)
+  add_links &short_description
   -> short_description
 
 

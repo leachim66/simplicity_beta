@@ -56,7 +56,7 @@ $std::status_of (!)
 
 $std::TIMEOUT .
   #
-    event that signals that a timeout has occurred
+    a timeout event
 
     Topic: Events
 
