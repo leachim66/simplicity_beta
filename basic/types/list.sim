@@ -22,10 +22,10 @@
 
 <include string.h>
 
-$std::is_a_list ()
+$std::is_a_list () # obvious
 
-$types::object.is_a_list false
-$types::list.is_a_list true
+$types::object.is_a_list false # obvious
+$types::list.is_a_list true # obvious
 
 #$types::generic_list types::object
 
@@ -167,7 +167,13 @@ $types::list.is_a_list true
   }
 }
 
-$types::list/to_list: (self) -> self
+$types::list/to_list:
+  #
+    returns the unmodified list
+  (
+    self
+  )
+  -> self
 
 $std::list
   #
@@ -411,10 +417,21 @@ $types::generic_list/for_each_from_down_to:
     minus &i 1
 
 $types::generic_list/for_each:
+  #
+    iterates over all items of the list
+
+    For each item the statement sequence supplied as *body* is called
+    with one or two arguments (depending on *body*'s parameter count).
+
+    If called with two arguments the first argument is the position no.
+    of the item within the list.
+
+    If a second statement sequence (*body2*) is supplied it is called
+    between two calls to *body* (without any arguments).
   (
-    self
-    body
-    body2?
+    self # the list to iterate over
+    body # the statement sequence to call for each item
+    body2? # a statement sequence to call between two item-calls
   )
   $$i 1
   $n length_of(self)
@@ -431,9 +448,21 @@ $types::generic_list/for_each:
 	plus &i 1
 
 $types::generic_list/update_each:
+  #
+    updates all items of the list
+
+    For each item the statement sequence supplied as *body* is called
+    with one or two arguments (depending on *body*'s parameter count).
+
+    If called with two arguments the first argument is the position no.
+    of the item within the list.
+
+    The list item is replaced with the object returned by *body*.
+
+    Returns new_list: the updated list
   (
-    self
-    body
+    self # the list that will be updated
+    body # the function to update the list items
     -> return
   )
   $$i 1
@@ -451,6 +480,12 @@ $types::generic_list/update_each:
   return new_list
 
 $types::list/for_each_pair:
+  #
+    iterates over pairs of items in the list
+
+    **Attention**: This function is **deprecated**!
+
+    See also: for_each
   (
     self
     body
@@ -463,6 +498,8 @@ $types::list/for_each_pair:
   if is_odd(n): body self(i)
 
 $types::generic_list/get:
+  #
+    removes and returns the first item of the list
   (
     self
   )
@@ -470,6 +507,8 @@ $types::generic_list/get:
   -> range(self 2 -1) self(1)
 
 $types::list/put:
+  #
+    adds a single item at the front of the list
   (
     self
     item
@@ -477,6 +516,8 @@ $types::list/put:
   -> append(list(item) self)
 
 $types::list/merge:
+  #
+    merges two sorted lists
   (
     $left
     $right
@@ -503,6 +544,8 @@ $types::list/merge:
 	return append(result right)
 
 $types::list/serialize:
+  #
+    converts the list to a machine readable string
   (
     self
     indent = 0
@@ -515,6 +558,11 @@ $types::list/serialize:
   -> buf
 
 $types::list/sort:
+  #
+    sorts the list
+
+    A special <less> function can be supplied. If no such function is supplied
+    the items are compared using their own implementations of <less>.
   (
     self
     func? # default: <less>
@@ -596,25 +644,32 @@ $types::generic_list/equal:
   -> true
 
 $types::generic_list/filter:
+  #
+    returns a list containing all the items that fullfill the filter-condition
   (
-    self
-    test
+    self # the list to filter
+    test # the filter-condition
   )
   $$new_list new_empty_collection(self)
   for_each self: (item) if test(item): push &new_list item
   -> new_list
 
 $types::generic_list/map:
+  #
+    applies a function to all items of the list
+
+    The function applications are executed in strict sequential order.
   (
-    self
-    func
+    self # the list
+    func # the mapping function
   )
   $$new_list new_empty_collection(self)
   for_each self: (item) push &new_list func(item)
   -> new_list
 
 $types::generic_list/dup:
-  # creates a list containing *n* copies of the original list's contents
+  #
+    creates a list containing *n* copies of the original list's contents
   (
     self
     n # the duplication count
@@ -643,6 +698,8 @@ $types::generic_list/interleave:
   -> result
 
 $types::generic_list/contains:
+  #
+    checks whether the list contains the specified item or not
   (
     self
     item
@@ -652,11 +709,14 @@ $types::generic_list/contains:
   -> false
 
 $std::is_a_sequence ()
+  #
+    checks whether an object is a sequence or not
 
-$types::object.is_a_sequence false
+$types::object.is_a_sequence false # obvious
 
 $std::sequence:
-  # constructs a list that is tagged to be a sequence
+  #
+    constructs a list that returns true for <is_a_sequence>
   (
     items*
   )

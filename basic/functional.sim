@@ -29,9 +29,14 @@ $std::any_of:
   (
     collection
     test
+    arguments* # additional arguments that are passed to the test function
     -> return
   )
-  for_each collection: (item) if test(item): return true
+  if
+    arguments.is_empty:
+      for_each collection: (item) if test(item): return true
+    :
+      for_each collection: (item) if test(item arguments*): return true
   -> false
 
 $std::all_of:
@@ -43,9 +48,14 @@ $std::all_of:
   (
     collection
     test
+    arguments* # additional arguments that are passed to the test function
     -> return
   )
-  for_each collection: (item) unless test(item): return false
+  if
+    arguments.is_empty:
+      for_each collection: (item) unless test(item): return false
+    :
+      for_each collection: (item) unless test(item arguments*): return false
   -> true
 
 $std::fold:

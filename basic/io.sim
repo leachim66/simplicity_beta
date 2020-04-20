@@ -2022,10 +2022,12 @@ $std::chdir
     RETURN_SINGLE_RESULT(from_int(err))
   }
 
-$std::change_directory: (path)
+$std::change_directory:
   #
     changes the current working directory
-
+  (
+    path
+  )
   if std::chdir(path) != 0:
     Error "
       Failed to change current directory to "@(path)@quot;!@

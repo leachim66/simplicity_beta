@@ -28,7 +28,7 @@ $error_of ()
 
 $std::bresenham:
   #
-    return an iterators
+    returns an iterator
 
     The iterator produces *count* equally distributed values starting with the
     *first* value and ending with the *last* value.

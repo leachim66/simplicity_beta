@@ -21,18 +21,24 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $types::generic_set types::object
+  #
+    the prototype object for all kinds of sets
 
 $types::generic_set/union:
+  #
+    returns the union of two sets
   (
-    &left
-    right
+    &left # the first set
+    right # the second set
   )
   for_each right: (key) !left(key) true
 
 $types::generic_set/serialize:
+  #
+    converts the set to a machine-readable string
   (
-    self
-    indent = 0
+    self # the set
+    indent = 0 # the number of spaces to use for indenting lines
     -> return
   )
   $tag serialization_tag_of(self)
@@ -42,22 +48,52 @@ $types::generic_set/serialize:
     write_to &buf '@nl;' spaces(indent+2) serialize(key indent+2)
   -> buf
 
-$types::generic_set/is_empty: (self) -> length_of(self) == 0
+$types::generic_set/is_empty:
+  #
+    checks whether the set is empty or not
+  (
+    self
+  )
+  -> length_of(self) == 0
 
-$types::generic_set/to_list: (self)
+$types::generic_set/to_list:
+  #
+    returns a list containing all set elements
+  (
+    self
+  )
   $$items empty_list
   for_each self: (item) push &items item
   -> items
 
 $std::is_a_set ()
+  #
+    returns <true> for sets; <false> for all other objects
 
-$types::object.is_a_set false
-$types::generic_set.is_a_set true
+$types::object.is_a_set false # obvious
+
+$types::generic_set.is_a_set true # obvious
+
 $types::set types::unordered_set
-$types::set.serialization_tag_of "set"
-$std::empty_set types::set
+  #
+    the prototype object for all unordered sets
 
-$std::set: (args*)
+$types::set.serialization_tag_of "set"
+  #
+    the name to use for serialization
+
+    This name should be redefined for more specialized kinds of sets.
+
+$std::empty_set types::set
+  #
+    the empty set
+
+$std::set:
+  #
+    constructs a set containing the specified elements
+  (
+    args*
+  )
   $$tab types::set
   for_each args: (key) !tab(key) true
   -> tab

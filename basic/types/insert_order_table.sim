@@ -20,10 +20,10 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_an_insert_order_table ()
+$std::is_an_insert_order_table () # obvious
 
-$types::object.is_an_insert_order_table false
-$types::insert_order_table.is_an_insert_order_table true
+$types::object.is_an_insert_order_table false # obvious
+$types::insert_order_table.is_an_insert_order_table true # obvious
 
 $NONE .
 $INSERT .

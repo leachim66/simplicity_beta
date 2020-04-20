@@ -30,30 +30,68 @@
 <link gmp>
 <link m>
 
+#
+  Topic: Math
+
+  The math library implements integer numbers of arbitrary size and double
+  precision (64 bit) floating point numbers (IEEE 754).
+
+  This floating point type is called <types::real>.
+
+  Arithmethic operations that combine an integer number and a real number
+  always return a real number.
+
+  Bitwise operations can only be performed on positive integers.
+
 # double dispatch methods
 
-$std::integer_plus_me ()
-$std::integer_minus_me ()
-$std::integer_times_me ()
-$std::integer_over_me ()
-$std::real_plus_me ()
-$std::real_minus_me ()
-$std::real_times_me ()
-$std::real_over_me ()
-$std::is_a_number ()
-$std::is_an_integer ()
-$std::is_a_real ()
+$std::integer_plus_me () # not yet implemented
+$std::integer_minus_me () # not yet implemented
+$std::integer_times_me () # not yet implemented
+$std::integer_over_me () # not yet implemented
+$std::real_plus_me () # not yet implemented
+$std::real_minus_me () # not yet implemented
+$std::real_times_me () # not yet implemented
+$std::real_over_me () # not yet implemented
+$std::is_a_number ()  # obvious
+$std::is_an_integer () # obvious
+$std::is_a_real () # obvious
 $std::floor ()
-$std::ceil ()
-$std::round ()
-$std::ln ()
+  #
+    computes the greatest integral number smaller or equal than its argument
 
-$types::object.is_a_number false
-$types::number.is_a_number true
-$types::object.is_an_integer false
-$types::integer.is_an_integer true
-$types::object.is_a_real false
-$types::real.is_a_real true
+    Topic: Math
+
+    See also: ceil, round
+
+$std::ceil ()
+  #
+    computes the smallest integral number greater or equal than its argument
+
+    Topic: Math
+
+    See also: ceil, round
+
+$std::round ()
+  #
+    computes the nearest integral number for its argument
+
+    Topic: Math
+
+    See also: floor, ceil
+
+$std::ln ()
+  #
+    returns the logarithmus naturalis
+
+    Topic: Math
+
+$types::object.is_a_number false # obvious
+$types::number.is_a_number true # obvious
+$types::object.is_an_integer false # obvious
+$types::integer.is_an_integer true # obvious
+$types::object.is_a_real false # obvious
+$types::real.is_a_real true # obvious
 
 # ATTENTION: Currently there is no way to declare an abstract type!
 

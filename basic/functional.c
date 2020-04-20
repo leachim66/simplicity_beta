@@ -76,11 +76,19 @@ typedef struct FRAME_INFO {
 #else
   #define REGISTER IMPORT
 #endif
+typedef struct FRAME {
+  FUNC cont;
+  struct FRAME *caller_frame;
+  long caller_result_count;
+  long slot_count;
+  NODE *slots[0];
+} FRAME;
 #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
   #define ASM(x) asm(x)
 #else
   #define ASM(x)
 #endif
+REGISTER FRAME *arguments ASM("r12");
 REGISTER FUNC func ASM("r14");
 typedef struct CONTINUATION_INFO {
   FUNC continuation;
@@ -142,13 +150,6 @@ typedef struct ATTRIBUTES {
   struct VTABLE *vtable;
   struct OCTREE *nodes[7];
 } ATTRIBUTES;
-typedef struct FRAME {
-  FUNC cont;
-  struct FRAME *caller_frame;
-  long caller_result_count;
-  long slot_count;
-  NODE *slots[0];
-} FRAME;
 typedef struct DYNAMICS {
   struct OCTREE *nodes[8];
 } DYNAMICS;
@@ -179,17 +180,18 @@ typedef struct MODULE_INFO {
 } MODULE_INFO;
 REGISTER FRAME *frame ASM("r15");
 IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
+IMPORT void allocate_arguments(void);
 IMPORT NODE *create_continuation(void);
 REGISTER int argument_count ASM("ebx");
-IMPORT void invalid_arguments_error(void);
-IMPORT NODE *create_closure(FUNC type, int par_count);
-REGISTER FRAME *arguments ASM("r12");
+IMPORT void too_few_arguments_error(void);
+IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT void *node_p;
 IMPORT int result_count;
 REGISTER NODE *myself ASM("r13");
 IMPORT void invalid_results_error(void);
+IMPORT NODE *create_closure(FUNC type, int par_count);
+IMPORT void invalid_arguments_error(void);
 IMPORT NODE *create_cell(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *undefined;
 typedef struct CELL {
@@ -263,6 +265,8 @@ static NODE_GETTER get__if;
 static NODE_GETTER get_value_or_future__if;
 static NODE_GETTER get__is_defined;
 static NODE_GETTER get_value_or_future__is_defined;
+static NODE_GETTER get__is_empty;
+static NODE_GETTER get_value_or_future__is_empty;
 static NODE_GETTER get__parameter_count_of;
 static NODE_GETTER get_value_or_future__parameter_count_of;
 static NODE_GETTER get__std__equal;
@@ -283,29 +287,57 @@ static const char *var_names[] = {
 };
 static NODE *func__1_1_std__any_of;
 static void entry__1_1_std__any_of(void);
-static FRAME_INFO frame__1_1_std__any_of = {3, {"collection", "test", "return"}};
-static NODE *func__1_2;
-static void entry__1_2(void);
-static FRAME_INFO frame__1_2 = {3, {"item", "test", "return"}};
-static void cont__1_3(void);
+static FRAME_INFO frame__1_1_std__any_of = {4, {"collection", "test", "arguments", "return"}};
+static void cont__1_2(void);
+static NODE *func__1_3;
+static void entry__1_3(void);
+static FRAME_INFO frame__1_3 = {3, {"collection", "test", "return"}};
 static NODE *func__1_4;
 static void entry__1_4(void);
-static FRAME_INFO frame__1_4 = {1, {"return"}};
+static FRAME_INFO frame__1_4 = {3, {"item", "test", "return"}};
 static void cont__1_5(void);
+static NODE *func__1_6;
+static void entry__1_6(void);
+static FRAME_INFO frame__1_6 = {1, {"return"}};
+static NODE *func__1_7;
+static void entry__1_7(void);
+static FRAME_INFO frame__1_7 = {4, {"collection", "test", "arguments", "return"}};
+static NODE *func__1_8;
+static void entry__1_8(void);
+static FRAME_INFO frame__1_8 = {4, {"item", "test", "arguments", "return"}};
+static void cont__1_9(void);
+static NODE *func__1_10;
+static void entry__1_10(void);
+static FRAME_INFO frame__1_10 = {1, {"return"}};
+static void cont__1_11(void);
 static NODE *get__std__any_of(void) {
   return var.std__any_of;
 }
 static NODE *func__2_1_std__all_of;
 static void entry__2_1_std__all_of(void);
-static FRAME_INFO frame__2_1_std__all_of = {3, {"collection", "test", "return"}};
-static NODE *func__2_2;
-static void entry__2_2(void);
-static FRAME_INFO frame__2_2 = {3, {"item", "test", "return"}};
-static void cont__2_3(void);
+static FRAME_INFO frame__2_1_std__all_of = {4, {"collection", "test", "arguments", "return"}};
+static void cont__2_2(void);
+static NODE *func__2_3;
+static void entry__2_3(void);
+static FRAME_INFO frame__2_3 = {3, {"collection", "test", "return"}};
 static NODE *func__2_4;
 static void entry__2_4(void);
-static FRAME_INFO frame__2_4 = {1, {"return"}};
+static FRAME_INFO frame__2_4 = {3, {"item", "test", "return"}};
 static void cont__2_5(void);
+static NODE *func__2_6;
+static void entry__2_6(void);
+static FRAME_INFO frame__2_6 = {1, {"return"}};
+static NODE *func__2_7;
+static void entry__2_7(void);
+static FRAME_INFO frame__2_7 = {4, {"collection", "test", "arguments", "return"}};
+static NODE *func__2_8;
+static void entry__2_8(void);
+static FRAME_INFO frame__2_8 = {4, {"item", "test", "arguments", "return"}};
+static void cont__2_9(void);
+static NODE *func__2_10;
+static void entry__2_10(void);
+static FRAME_INFO frame__2_10 = {1, {"return"}};
+static void cont__2_11(void);
 static NODE *get__std__all_of(void) {
   return var.std__all_of;
 }
@@ -362,37 +394,49 @@ void run__basic__functional(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__functional, NULL, },
-  {entry__1_4, NULL, 34, 34, 46, 56},
-  {entry__1_2, NULL, 34, 34, 34, 43},
-  {cont__1_3, &frame__1_2, 34, 34, 31, 56},
-  {entry__1_1_std__any_of, NULL, 34, 34, 3, 56},
-  {cont__1_5, &frame__1_1_std__any_of, 35, 35, 3, 10},
-  {entry__2_4, NULL, 48, 48, 50, 61},
-  {entry__2_2, NULL, 48, 48, 38, 47},
-  {cont__2_3, &frame__2_2, 48, 48, 31, 61},
-  {entry__2_1_std__all_of, NULL, 48, 48, 3, 61},
-  {cont__2_5, &frame__2_1_std__all_of, 49, 49, 3, 9},
-  {entry__3_4, NULL, 81, 81, 9, 33},
-  {cont__3_5, &frame__3_4, 81, 81, 33, 33},
-  {entry__3_6, NULL, 83, 83, 20, 20},
-  {entry__3_2, NULL, 80, 80, 7, 23},
-  {cont__3_3, &frame__3_2, 79, 83, 5, 21},
-  {entry__3_1_std__fold, NULL, 78, 83, 3, 22},
-  {cont__3_7, &frame__3_1_std__fold, 84, 84, 3, 11},
-  {entry__4_7, NULL, 104, 104, 54, 68},
-  {entry__4_5, NULL, 104, 104, 42, 51},
-  {cont__4_6, &frame__4_5, 104, 104, 39, 68},
-  {entry__4_4, NULL, 104, 104, 7, 68},
-  {cont__4_8, &frame__4_4, 105, 105, 7, 32},
-  {entry__4_12, NULL, 107, 107, 50, 60},
-  {entry__4_10, NULL, 107, 107, 38, 47},
-  {cont__4_11, &frame__4_10, 107, 107, 35, 60},
-  {entry__4_9, NULL, 107, 107, 7, 60},
-  {cont__4_13, &frame__4_9, 108, 108, 7, 22},
-  {entry__4_1_std__find_first, NULL, 103, 103, 5, 30},
-  {cont__4_2, &frame__4_1_std__find_first, 103, 103, 5, 35},
-  {cont__4_3, &frame__4_1_std__find_first, 102, 108, 3, 23},
-  {cont__4_14, &frame__4_1_std__find_first, 108, 108, 23, 23}
+  {entry__1_6, NULL, 37, 37, 50, 60},
+  {entry__1_4, NULL, 37, 37, 38, 47},
+  {cont__1_5, &frame__1_4, 37, 37, 35, 60},
+  {entry__1_3, NULL, 37, 37, 7, 60},
+  {entry__1_10, NULL, 39, 39, 61, 71},
+  {entry__1_8, NULL, 39, 39, 38, 58},
+  {cont__1_9, &frame__1_8, 39, 39, 35, 71},
+  {entry__1_7, NULL, 39, 39, 7, 71},
+  {entry__1_1_std__any_of, NULL, 36, 36, 5, 22},
+  {cont__1_2, &frame__1_1_std__any_of, 35, 39, 3, 72},
+  {cont__1_11, &frame__1_1_std__any_of, 40, 40, 3, 10},
+  {entry__2_6, NULL, 56, 56, 54, 65},
+  {entry__2_4, NULL, 56, 56, 42, 51},
+  {cont__2_5, &frame__2_4, 56, 56, 35, 65},
+  {entry__2_3, NULL, 56, 56, 7, 65},
+  {entry__2_10, NULL, 58, 58, 65, 76},
+  {entry__2_8, NULL, 58, 58, 42, 62},
+  {cont__2_9, &frame__2_8, 58, 58, 35, 76},
+  {entry__2_7, NULL, 58, 58, 7, 76},
+  {entry__2_1_std__all_of, NULL, 55, 55, 5, 22},
+  {cont__2_2, &frame__2_1_std__all_of, 54, 58, 3, 77},
+  {cont__2_11, &frame__2_1_std__all_of, 59, 59, 3, 9},
+  {entry__3_4, NULL, 91, 91, 9, 33},
+  {cont__3_5, &frame__3_4, 91, 91, 33, 33},
+  {entry__3_6, NULL, 93, 93, 20, 20},
+  {entry__3_2, NULL, 90, 90, 7, 23},
+  {cont__3_3, &frame__3_2, 89, 93, 5, 21},
+  {entry__3_1_std__fold, NULL, 88, 93, 3, 22},
+  {cont__3_7, &frame__3_1_std__fold, 94, 94, 3, 11},
+  {entry__4_7, NULL, 114, 114, 54, 68},
+  {entry__4_5, NULL, 114, 114, 42, 51},
+  {cont__4_6, &frame__4_5, 114, 114, 39, 68},
+  {entry__4_4, NULL, 114, 114, 7, 68},
+  {cont__4_8, &frame__4_4, 115, 115, 7, 32},
+  {entry__4_12, NULL, 117, 117, 50, 60},
+  {entry__4_10, NULL, 117, 117, 38, 47},
+  {cont__4_11, &frame__4_10, 117, 117, 35, 60},
+  {entry__4_9, NULL, 117, 117, 7, 60},
+  {cont__4_13, &frame__4_9, 118, 118, 7, 22},
+  {entry__4_1_std__find_first, NULL, 113, 113, 5, 30},
+  {cont__4_2, &frame__4_1_std__find_first, 113, 113, 5, 35},
+  {cont__4_3, &frame__4_1_std__find_first, 112, 118, 3, 23},
+  {cont__4_14, &frame__4_1_std__find_first, 118, 118, 23, 23}
 };
 
 union NODE {
@@ -441,38 +485,67 @@ EXPORT void run__basic__functional(void) {
   frame->cont = invalid_continuation;
 }
 static void entry__1_1_std__any_of(void) {
-  allocate_initialized_frame_gc(3, 4);
+  allocate_arguments();
+  allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // collection: 0
   // test: 1
-  // return: 2
-  frame->slots[2] /* return */ = create_continuation();
-  if (argument_count != 2) {
-    invalid_arguments_error();
+  // arguments: 2
+  // return: 3
+  frame->slots[3] /* return */ = create_continuation();
+  if (argument_count < 2) {
+    too_few_arguments_error();
     return;
   }
-  // 34: ... : (item) if test(item): return true
-  frame->slots[3] /* temp__1 */ = create_closure(entry__1_2, 1);
-  // 34: for_each collection: (item) if test(item): return true
-  argument_count = 2;
+  frame->slots[0] /* collection */ = arguments->slots[0];
+  frame->slots[1] /* test */ = arguments->slots[1];
+  frame->slots[2] /* arguments */ = from_arguments(2, argument_count-2);
+  // 36: arguments.is_empty
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* collection */;
-  arguments->slots[1] = frame->slots[3] /* temp__1 */;
-  result_count = 0;
-  myself = get__for_each();
+  arguments->slots[0] = frame->slots[2] /* arguments */;
+  result_count = 1;
+  myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__1_5;
+  frame->cont = cont__1_2;
 }
-static void entry__1_4(void) {
+static void cont__1_2(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__1 */ = arguments->slots[0];
+  // 36: ... :
+  // 37:   for_each collection: (item) if test(item): return true
+  frame->slots[5] /* temp__2 */ = create_closure(entry__1_3, 0);
+  // 38: :
+  // 39:   for_each collection: (item) if test(item arguments*): return true
+  frame->slots[6] /* temp__3 */ = create_closure(entry__1_7, 0);
+  // 35: if
+  // 36:   arguments.is_empty:
+  // 37:     for_each collection: (item) if test(item): return true
+  // 38:   :
+  // 39:     for_each collection: (item) if test(item arguments*): return true
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__1 */;
+  arguments->slots[1] = frame->slots[5] /* temp__2 */;
+  arguments->slots[2] = frame->slots[6] /* temp__3 */;
+  result_count = 0;
+  myself = get__if();
+  func = myself->type;
+  frame->cont = cont__1_11;
+}
+static void entry__1_10(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
-  frame->slots[0] = myself->closure.frame->slots[2]; /* return */
+  frame->slots[0] = myself->closure.frame->slots[3]; /* return */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 34: ... return true
+  // 39: ... return true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -481,7 +554,67 @@ static void entry__1_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__1_2(void) {
+static void entry__1_8(void) {
+  allocate_initialized_frame_gc(4, 6);
+  // slot allocations:
+  // item: 0
+  // test: 1
+  // arguments: 2
+  // return: 3
+  frame->slots[1] = myself->closure.frame->slots[1]; /* test */
+  frame->slots[2] = myself->closure.frame->slots[2]; /* arguments */
+  frame->slots[3] = myself->closure.frame->slots[3]; /* return */
+  if (argument_count != 1) {
+    invalid_arguments_error();
+    return;
+  }
+  // 39: ... test(item arguments*)
+  argument_count = 0;
+  arguments = node_p;
+  arguments->slots[argument_count++] = frame->slots[0] /* item */;
+  unfold(frame->slots[2] /* arguments */);
+  result_count = 1;
+  myself = frame->slots[1] /* test */;
+  func = myself->type;
+  frame->cont = cont__1_9;
+}
+static void cont__1_9(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__1 */ = arguments->slots[0];
+  // 39: ... : return true
+  frame->slots[5] /* temp__2 */ = create_closure(entry__1_10, 0);
+  // 39: ... if test(item arguments*): return true
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__1 */;
+  arguments->slots[1] = frame->slots[5] /* temp__2 */;
+  result_count = frame->caller_result_count;
+  myself = get__if();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__1_6(void) {
+  allocate_initialized_frame_gc(1, 1);
+  // slot allocations:
+  // return: 0
+  frame->slots[0] = myself->closure.frame->slots[2]; /* return */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 37: ... return true
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = get__true();
+  result_count = frame->caller_result_count;
+  myself = frame->slots[0] /* return */;
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__1_4(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // item: 0
@@ -493,24 +626,24 @@ static void entry__1_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 34: ... test(item)
+  // 37: ... test(item)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
   result_count = 1;
   myself = frame->slots[1] /* test */;
   func = myself->type;
-  frame->cont = cont__1_3;
+  frame->cont = cont__1_5;
 }
-static void cont__1_3(void) {
+static void cont__1_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 34: ... : return true
-  frame->slots[4] /* temp__2 */ = create_closure(entry__1_4, 0);
-  // 34: ... if test(item): return true
+  // 37: ... : return true
+  frame->slots[4] /* temp__2 */ = create_closure(entry__1_6, 0);
+  // 37: ... if test(item): return true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -520,52 +653,133 @@ static void cont__1_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__1_5(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 35: -> false
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = get__false();
-  myself = frame->slots[2] /* return */;
-  func = myself->type;
-  frame->cont = invalid_continuation;
-}
-static void entry__2_1_std__all_of(void) {
+static void entry__1_3(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // collection: 0
   // test: 1
   // return: 2
-  frame->slots[2] /* return */ = create_continuation();
-  if (argument_count != 2) {
-    invalid_arguments_error();
-    return;
-  }
-  // 48: ... : (item) unless test(item): return false
-  frame->slots[3] /* temp__1 */ = create_closure(entry__2_2, 1);
-  // 48: for_each collection: (item) unless test(item): return false
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* collection */;
-  arguments->slots[1] = frame->slots[3] /* temp__1 */;
-  result_count = 0;
-  myself = get__for_each();
-  func = myself->type;
-  frame->cont = cont__2_5;
-}
-static void entry__2_4(void) {
-  allocate_initialized_frame_gc(1, 1);
-  // slot allocations:
-  // return: 0
-  frame->slots[0] = myself->closure.frame->slots[2]; /* return */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* collection */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* test */
+  frame->slots[2] = myself->closure.frame->slots[3]; /* return */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 48: ... return false
+  // 37: ... : (item) if test(item): return true
+  frame->slots[3] /* temp__1 */ = create_closure(entry__1_4, 1);
+  // 37: for_each collection: (item) if test(item): return true
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* collection */;
+  arguments->slots[1] = frame->slots[3] /* temp__1 */;
+  result_count = frame->caller_result_count;
+  myself = get__for_each();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__1_7(void) {
+  allocate_initialized_frame_gc(4, 5);
+  // slot allocations:
+  // collection: 0
+  // test: 1
+  // arguments: 2
+  // return: 3
+  frame->slots[0] = myself->closure.frame->slots[0]; /* collection */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* test */
+  frame->slots[2] = myself->closure.frame->slots[2]; /* arguments */
+  frame->slots[3] = myself->closure.frame->slots[3]; /* return */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 39: ... : (item) if test(item arguments*): return true
+  frame->slots[4] /* temp__1 */ = create_closure(entry__1_8, 1);
+  // 39: for_each collection: (item) if test(item arguments*): return true
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* collection */;
+  arguments->slots[1] = frame->slots[4] /* temp__1 */;
+  result_count = frame->caller_result_count;
+  myself = get__for_each();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void cont__1_11(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 40: -> false
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = get__false();
+  myself = frame->slots[3] /* return */;
+  func = myself->type;
+  frame->cont = invalid_continuation;
+}
+static void entry__2_1_std__all_of(void) {
+  allocate_arguments();
+  allocate_initialized_frame_gc(4, 7);
+  // slot allocations:
+  // collection: 0
+  // test: 1
+  // arguments: 2
+  // return: 3
+  frame->slots[3] /* return */ = create_continuation();
+  if (argument_count < 2) {
+    too_few_arguments_error();
+    return;
+  }
+  frame->slots[0] /* collection */ = arguments->slots[0];
+  frame->slots[1] /* test */ = arguments->slots[1];
+  frame->slots[2] /* arguments */ = from_arguments(2, argument_count-2);
+  // 55: arguments.is_empty
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* arguments */;
+  result_count = 1;
+  myself = get__is_empty();
+  func = myself->type;
+  frame->cont = cont__2_2;
+}
+static void cont__2_2(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__1 */ = arguments->slots[0];
+  // 55: ... :
+  // 56:   for_each collection: (item) unless test(item): return false
+  frame->slots[5] /* temp__2 */ = create_closure(entry__2_3, 0);
+  // 57: :
+  // 58:   for_each collection: (item) unless test(item arguments*): return false
+  frame->slots[6] /* temp__3 */ = create_closure(entry__2_7, 0);
+  // 54: if
+  // 55:   arguments.is_empty:
+  // 56:     for_each collection: (item) unless test(item): return false
+  // 57:   :
+  // 58:     for_each collection: (item) unless test(item arguments*): return false
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__1 */;
+  arguments->slots[1] = frame->slots[5] /* temp__2 */;
+  arguments->slots[2] = frame->slots[6] /* temp__3 */;
+  result_count = 0;
+  myself = get__if();
+  func = myself->type;
+  frame->cont = cont__2_11;
+}
+static void entry__2_10(void) {
+  allocate_initialized_frame_gc(1, 1);
+  // slot allocations:
+  // return: 0
+  frame->slots[0] = myself->closure.frame->slots[3]; /* return */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 58: ... return false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -574,7 +788,67 @@ static void entry__2_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_2(void) {
+static void entry__2_8(void) {
+  allocate_initialized_frame_gc(4, 6);
+  // slot allocations:
+  // item: 0
+  // test: 1
+  // arguments: 2
+  // return: 3
+  frame->slots[1] = myself->closure.frame->slots[1]; /* test */
+  frame->slots[2] = myself->closure.frame->slots[2]; /* arguments */
+  frame->slots[3] = myself->closure.frame->slots[3]; /* return */
+  if (argument_count != 1) {
+    invalid_arguments_error();
+    return;
+  }
+  // 58: ... test(item arguments*)
+  argument_count = 0;
+  arguments = node_p;
+  arguments->slots[argument_count++] = frame->slots[0] /* item */;
+  unfold(frame->slots[2] /* arguments */);
+  result_count = 1;
+  myself = frame->slots[1] /* test */;
+  func = myself->type;
+  frame->cont = cont__2_9;
+}
+static void cont__2_9(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__1 */ = arguments->slots[0];
+  // 58: ... : return false
+  frame->slots[5] /* temp__2 */ = create_closure(entry__2_10, 0);
+  // 58: ... unless test(item arguments*): return false
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__1 */;
+  arguments->slots[1] = frame->slots[5] /* temp__2 */;
+  result_count = frame->caller_result_count;
+  myself = get__unless();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__2_6(void) {
+  allocate_initialized_frame_gc(1, 1);
+  // slot allocations:
+  // return: 0
+  frame->slots[0] = myself->closure.frame->slots[2]; /* return */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 56: ... return false
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = get__false();
+  result_count = frame->caller_result_count;
+  myself = frame->slots[0] /* return */;
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__2_4(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // item: 0
@@ -586,24 +860,24 @@ static void entry__2_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 48: ... test(item)
+  // 56: ... test(item)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
   result_count = 1;
   myself = frame->slots[1] /* test */;
   func = myself->type;
-  frame->cont = cont__2_3;
+  frame->cont = cont__2_5;
 }
-static void cont__2_3(void) {
+static void cont__2_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 48: ... : return false
-  frame->slots[4] /* temp__2 */ = create_closure(entry__2_4, 0);
-  // 48: ... unless test(item): return false
+  // 56: ... : return false
+  frame->slots[4] /* temp__2 */ = create_closure(entry__2_6, 0);
+  // 56: ... unless test(item): return false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -613,16 +887,68 @@ static void cont__2_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__2_5(void) {
+static void entry__2_3(void) {
+  allocate_initialized_frame_gc(3, 4);
+  // slot allocations:
+  // collection: 0
+  // test: 1
+  // return: 2
+  frame->slots[0] = myself->closure.frame->slots[0]; /* collection */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* test */
+  frame->slots[2] = myself->closure.frame->slots[3]; /* return */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 56: ... : (item) unless test(item): return false
+  frame->slots[3] /* temp__1 */ = create_closure(entry__2_4, 1);
+  // 56: for_each collection: (item) unless test(item): return false
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* collection */;
+  arguments->slots[1] = frame->slots[3] /* temp__1 */;
+  result_count = frame->caller_result_count;
+  myself = get__for_each();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__2_7(void) {
+  allocate_initialized_frame_gc(4, 5);
+  // slot allocations:
+  // collection: 0
+  // test: 1
+  // arguments: 2
+  // return: 3
+  frame->slots[0] = myself->closure.frame->slots[0]; /* collection */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* test */
+  frame->slots[2] = myself->closure.frame->slots[2]; /* arguments */
+  frame->slots[3] = myself->closure.frame->slots[3]; /* return */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 58: ... : (item) unless test(item arguments*): return false
+  frame->slots[4] /* temp__1 */ = create_closure(entry__2_8, 1);
+  // 58: for_each collection: (item) unless test(item arguments*): return false
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* collection */;
+  arguments->slots[1] = frame->slots[4] /* temp__1 */;
+  result_count = frame->caller_result_count;
+  myself = get__for_each();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void cont__2_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 49: -> true
+  // 59: -> true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
-  myself = frame->slots[2] /* return */;
+  myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
@@ -651,21 +977,21 @@ static void entry__3_1_std__fold(void) {
   switch(argument_count) {
     case 2: frame->slots[0] /* base */ = undefined;
   }
-  // 77: $$result base
+  // 87: $$result base
   ((CELL *)frame->slots[3])->contents /* result */ = frame->slots[0] /* base */;
-  // 78: ... : (item)
-  // 79:   if
-  // 80:     result.is_defined:
-  // 81:       !result func(result item)
-  // 82:     :
-  // 83:       !result item
+  // 88: ... : (item)
+  // 89:   if
+  // 90:     result.is_defined:
+  // 91:       !result func(result item)
+  // 92:     :
+  // 93:       !result item
   frame->slots[4] /* temp__1 */ = create_closure(entry__3_2, 1);
-  // 78: for_each collection: (item)
-  // 79:   if
-  // 80:     result.is_defined:
-  // 81:       !result func(result item)
-  // 82:     :
-  // 83:       !result item
+  // 88: for_each collection: (item)
+  // 89:   if
+  // 90:     result.is_defined:
+  // 91:       !result func(result item)
+  // 92:     :
+  // 93:       !result item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* collection */;
@@ -688,7 +1014,7 @@ static void entry__3_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 81: !result func(result item)
+  // 91: !result func(result item)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* result */;
@@ -721,7 +1047,7 @@ static void entry__3_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 83: !result item
+  // 93: !result item
   ((CELL *)frame->slots[0])->contents /* result */ = frame->slots[1] /* item */;
   argument_count = 0;
   arguments = node_p;
@@ -741,7 +1067,7 @@ static void entry__3_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 80: result.is_defined
+  // 90: result.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* result */;
@@ -756,17 +1082,17 @@ static void cont__3_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 80: ... :
-  // 81:   !result func(result item)
+  // 90: ... :
+  // 91:   !result func(result item)
   frame->slots[4] /* temp__2 */ = create_closure(entry__3_4, 0);
-  // 82: :
-  // 83:   !result item
+  // 92: :
+  // 93:   !result item
   frame->slots[5] /* temp__3 */ = create_closure(entry__3_6, 0);
-  // 79: if
-  // 80:   result.is_defined:
-  // 81:     !result func(result item)
-  // 82:   :
-  // 83:     !result item
+  // 89: if
+  // 90:   result.is_defined:
+  // 91:     !result func(result item)
+  // 92:   :
+  // 93:     !result item
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -782,7 +1108,7 @@ static void cont__3_7(void) {
     invalid_results_error();
     return;
   }
-  // 84: -> result
+  // 94: -> result
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* result */;
@@ -801,7 +1127,7 @@ static void entry__4_1_std__find_first(void) {
     invalid_arguments_error();
     return;
   }
-  // 103: parameter_count_of(return)
+  // 113: parameter_count_of(return)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* return */;
@@ -816,7 +1142,7 @@ static void cont__4_2(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 103: parameter_count_of(return) == 2
+  // 113: parameter_count_of(return) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -832,21 +1158,21 @@ static void cont__4_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 103: ... :
-  // 104:   for_each collection: (idx item) if test(item): return idx item
-  // 105:   return undefined undefined
+  // 113: ... :
+  // 114:   for_each collection: (idx item) if test(item): return idx item
+  // 115:   return undefined undefined
   frame->slots[5] /* temp__3 */ = create_closure(entry__4_4, 0);
-  // 106: :
-  // 107:   for_each collection: (item) if test(item): return item
-  // 108:   return undefined
+  // 116: :
+  // 117:   for_each collection: (item) if test(item): return item
+  // 118:   return undefined
   frame->slots[6] /* temp__4 */ = create_closure(entry__4_9, 0);
-  // 102: if
-  // 103:   parameter_count_of(return) == 2:
-  // 104:     for_each collection: (idx item) if test(item): return idx item
-  // 105:     return undefined undefined
-  // 106:   :
-  // 107:     for_each collection: (item) if test(item): return item
-  // 108:     return undefined
+  // 112: if
+  // 113:   parameter_count_of(return) == 2:
+  // 114:     for_each collection: (idx item) if test(item): return idx item
+  // 115:     return undefined undefined
+  // 116:   :
+  // 117:     for_each collection: (item) if test(item): return item
+  // 118:     return undefined
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -870,9 +1196,9 @@ static void entry__4_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 104: ... : (idx item) if test(item): return idx item
+  // 114: ... : (idx item) if test(item): return idx item
   frame->slots[3] /* temp__1 */ = create_closure(entry__4_5, 2);
-  // 104: for_each collection: (idx item) if test(item): return idx item
+  // 114: for_each collection: (idx item) if test(item): return idx item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* collection */;
@@ -895,7 +1221,7 @@ static void entry__4_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 104: ... return idx item
+  // 114: ... return idx item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* idx */;
@@ -918,7 +1244,7 @@ static void entry__4_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 104: ... test(item)
+  // 114: ... test(item)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* item */;
@@ -933,9 +1259,9 @@ static void cont__4_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 104: ... : return idx item
+  // 114: ... : return idx item
   frame->slots[5] /* temp__2 */ = create_closure(entry__4_7, 0);
-  // 104: ... if test(item): return idx item
+  // 114: ... if test(item): return idx item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -950,7 +1276,7 @@ static void cont__4_8(void) {
     invalid_results_error();
     return;
   }
-  // 105: return undefined undefined
+  // 115: return undefined undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -973,9 +1299,9 @@ static void entry__4_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... : (item) if test(item): return item
+  // 117: ... : (item) if test(item): return item
   frame->slots[3] /* temp__1 */ = create_closure(entry__4_10, 1);
-  // 107: for_each collection: (item) if test(item): return item
+  // 117: for_each collection: (item) if test(item): return item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* collection */;
@@ -996,7 +1322,7 @@ static void entry__4_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... return item
+  // 117: ... return item
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* item */;
@@ -1017,7 +1343,7 @@ static void entry__4_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... test(item)
+  // 117: ... test(item)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
@@ -1032,9 +1358,9 @@ static void cont__4_11(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 107: ... : return item
+  // 117: ... : return item
   frame->slots[4] /* temp__2 */ = create_closure(entry__4_12, 0);
-  // 107: ... if test(item): return item
+  // 117: ... if test(item): return item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1049,7 +1375,7 @@ static void cont__4_13(void) {
     invalid_results_error();
     return;
   }
-  // 108: return undefined
+  // 118: return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -1084,8 +1410,8 @@ EXPORT void phase_2__basic__functional(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__2 = from_uint32(2U);
-  func__1_1_std__any_of = create_function(entry__1_1_std__any_of, 2);
-  func__2_1_std__all_of = create_function(entry__2_1_std__all_of, 2);
+  func__1_1_std__any_of = create_function(entry__1_1_std__any_of, -1);
+  func__2_1_std__all_of = create_function(entry__2_1_std__all_of, -1);
   func__3_1_std__fold = create_function(entry__3_1_std__fold, -1);
   func__4_1_std__find_first = create_function(entry__4_1_std__find_first, 2);
 }
@@ -1114,6 +1440,7 @@ EXPORT void phase_4__basic__functional(void) {
   use_read_only(NULL, "for_each", &get__for_each, &get_value_or_future__for_each);
   use_read_only(NULL, "if", &get__if, &get_value_or_future__if);
   use_read_only(NULL, "is_defined", &get__is_defined, &get_value_or_future__is_defined);
+  use_read_only(NULL, "is_empty", &get__is_empty, &get_value_or_future__is_empty);
   use_read_only(NULL, "parameter_count_of", &get__parameter_count_of, &get_value_or_future__parameter_count_of);
   use_read_only("std", "equal", &get__std__equal, &get_value_or_future__std__equal);
   use_read_only(NULL, "true", &get__true, &get_value_or_future__true);

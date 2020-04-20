@@ -20,10 +20,10 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_a_key_order_set ()
+$std::is_a_key_order_set () # obvious
 
-$types::object.is_a_key_order_set false
-$types::key_order_set.is_a_key_order_set true
+$types::object.is_a_key_order_set false # obvious
+$types::key_order_set.is_a_key_order_set true # obvious
 
 $NONE .
 
@@ -32,6 +32,10 @@ $left_of (!)
 $right_of (!)
 
 $types::key_order_set types::generic_set
+  #
+    the prototype object for *key order* sets
+
+    Topic: Collections
 
 $empty_node types::object
 $empty_node.left_of undefined
@@ -121,6 +125,8 @@ $remove_item:
       return myself
 
 $types::key_order_set/:
+  #
+    check for or add an element
   (
     $myself^
     key
@@ -152,6 +158,8 @@ $types::key_order_set.serialization_tag_of "key_order_set"
 $std::empty_key_order_set types::key_order_set
 
 $std::key_order_set -> types::key_order_set
+  #
+    returns an empty *key order set*
 
 $for_each_item: (myself body)
   if myself.is_defined:
@@ -159,6 +167,12 @@ $for_each_item: (myself body)
     body key_of(myself)
     for_each_item right_of(myself) body
 
-$types::key_order_set/for_each: (self body)
+$types::key_order_set/for_each:
+  #
+    enumerates all items of a *key order set*
+  (
+    self
+    body
+  )
   $tree tree_of(self)
   if tree.is_defined: for_each_item tree body

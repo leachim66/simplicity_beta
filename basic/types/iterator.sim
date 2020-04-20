@@ -20,10 +20,15 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::is_an_iterator ()
+  #
+    checks whether an object is an iterator or not
 
-$types::object.is_an_iterator false
+$types::object.is_an_iterator false # obvious
+$types::iterator.is_an_iterator true # obvious
+
 $types::iterator types::object
-$types::iterator.is_an_iterator true
+  #
+    prototype object for all kinds of iterators
 
 $types::iterator/for_each: ($myself body)
   if

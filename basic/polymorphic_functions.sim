@@ -530,7 +530,7 @@ $std::drop ()
 
 $std::put ()
   #
-    add a single item at the front of a collection
+    adds a single item at the front of a collection
 
     Topic: Strings
 
@@ -538,7 +538,7 @@ $std::put ()
 
 $std::get ()
   #
-    remove and return the first item of a collection
+    removes and return the first item of a collection
 
     Topic: Strings
 
@@ -546,13 +546,13 @@ $std::get ()
 
 $std::next ()
   #
-    return the next item
+    returns the next item
 
     This function is used for generators (e.g. random number generators)
 
 $std::append ()
   #
-    append two collections to form a single collection
+    appends two collections to form a single collection
 
     Topic: Strings
 
@@ -560,7 +560,7 @@ $std::append ()
 
 $std::insert_before ()
   #
-    insert an item into a collection
+    inserts an item into a collection
 
     The first argument is the collection.
 
@@ -573,7 +573,7 @@ $std::insert_before ()
 
 $std::insert_behind ()
   #
-    insert an item into a collection
+    inserts an item into a collection
 
     The first argument is the collection.
 
@@ -934,26 +934,26 @@ $std::range ()
 
 $std::merge ()
   #
-    merge two sorted collections
+    merges two sorted collections
 
     See also: std::sort, std::append
 
 $std::sort ()
   #
-    sort a collection
+    sorts a collection
 
     See also: std::merge
 
 $std::close ()
   #
-    close a resource
+    closes a resource
 
     See also: std::open_file_for_reading, std::open_file_for_writing,
               std::open_file_for_reading_and_writing
 
 $std::write_some_bytes_to ()
   #
-    try to write the specified number of bytes
+    tries to write the specified number of bytes
 
     This is a low-level function!
 
@@ -961,7 +961,7 @@ $std::write_some_bytes_to ()
 
 $std::write_to ()
   #
-    write the specified number of bytes
+    writes the specified number of bytes
 
     See also: std::read_from, std::write_some_bytes_to
 
@@ -971,7 +971,7 @@ $std::flush ()
 
 $std::read_some_bytes_from ()
   #
-    try to read the specified number of bytes
+    tries to read the specified number of bytes
 
     This is a low-level function!
 
@@ -979,7 +979,7 @@ $std::read_some_bytes_from ()
 
 $std::read_from ()
   #
-    read the specified number of bytes
+    reads the specified number of bytes
 
     See also: std::write_to, std::read_some_bytes_from
 
