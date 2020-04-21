@@ -47,7 +47,7 @@ $sim2c::tokenize: (&fragment)
     to_upper_case &msg(1)
     ewrite "
       ____________________________________
-      TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
+      TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
     exit 1
 
   $skip_line:

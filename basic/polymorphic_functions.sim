@@ -433,7 +433,7 @@ $std::to_lower_case ()
 
 $std::to_upper_case ()
   #
-    converts all lower case characters to upper case
+    converts all lower case characters to UPPER CASE
 
     Topic: Strings
 
@@ -441,7 +441,7 @@ $std::to_upper_case ()
 
 $std::to_title_case ()
   #
-    converts the case of characters
+    converts the contents to Title Case
 
     All characters but the first character of each word are converted to lower
     case. The first characters of all words are converted to upper case.

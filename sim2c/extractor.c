@@ -2755,9 +2755,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__31_19, &frame__31_2, 382, 382, 7, 34},
   {cont__31_21, &frame__31_2, 382, 382, 5, 49},
   {cont__31_23, &frame__31_2, 383, 383, 5, 29},
-  {cont__31_24, &frame__31_2, 384, 384, 7, 33},
-  {cont__31_26, &frame__31_2, 384, 384, 5, 47},
-  {entry__31_1_link_bar, NULL, 375, 384, 3, 47},
+  {cont__31_24, &frame__31_2, 384, 384, 7, 34},
+  {cont__31_26, &frame__31_2, 384, 384, 5, 49},
+  {entry__31_1_link_bar, NULL, 375, 384, 3, 49},
   {entry__34_5, NULL, 398, 398, 13, 22},
   {cont__34_6, &frame__34_5, 399, 399, 13, 33},
   {cont__34_7, &frame__34_5, 400, 400, 22, 22},
@@ -3342,7 +3342,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__39_188, NULL, 831, 833, 7, 41},
   {entry__39_184, NULL, 828, 828, 5, 12},
   {cont__39_185, &frame__39_184, 829, 829, 8, 21},
-  {cont__39_186, &frame__39_184, 829, 829, 5, 35},
+  {cont__39_186, &frame__39_184, 829, 829, 5, 36},
   {cont__39_187, &frame__39_184, 830, 833, 5, 42},
   {entry__39_210, NULL, 841, 841, 44, 62},
   {cont__39_211, &frame__39_210, 841, 841, 42, 62},
@@ -3375,13 +3375,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__39_232, &frame__39_231, 851, 851, 8, 48},
   {entry__39_234, NULL, 852, 852, 10, 37},
   {cont__39_235, &frame__39_234, 852, 852, 8, 52},
-  {entry__39_237, NULL, 853, 853, 10, 36},
-  {cont__39_238, &frame__39_237, 853, 853, 8, 50},
+  {entry__39_237, NULL, 853, 853, 10, 37},
+  {cont__39_238, &frame__39_237, 853, 853, 8, 52},
   {entry__39_225, NULL, 849, 849, 5, 19},
   {cont__39_227, &frame__39_225, 850, 850, 5, 40},
   {cont__39_230, &frame__39_225, 851, 851, 5, 48},
   {cont__39_233, &frame__39_225, 852, 852, 5, 52},
-  {cont__39_236, &frame__39_225, 853, 853, 5, 50},
+  {cont__39_236, &frame__39_225, 853, 853, 5, 52},
   {entry__39_243, NULL, 871, 871, 19, 38},
   {cont__39_244, &frame__39_243, 871, 871, 38, 38},
   {entry__39_245, NULL, 872, 872, 31, 62},
@@ -3450,7 +3450,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__39_173, &frame__39_1_sim2c__extract_documentation, 820, 825, 3, 67},
   {cont__39_182, &frame__39_1_sim2c__extract_documentation, 827, 833, 3, 43},
   {cont__39_197, &frame__39_1_sim2c__extract_documentation, 834, 847, 3, 48},
-  {cont__39_223, &frame__39_1_sim2c__extract_documentation, 848, 853, 3, 50},
+  {cont__39_223, &frame__39_1_sim2c__extract_documentation, 848, 853, 3, 52},
   {cont__39_239, &frame__39_1_sim2c__extract_documentation, 855, 917, 3, 72}
 };
 
@@ -9873,7 +9873,7 @@ static void cont__31_24(void) {
     invalid_results_error();
     return;
   }
-  // 384: ... "href" = "topic_index.html"
+  // 384: ... "href" = "topics_index.html"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__31_3;
@@ -9889,7 +9889,7 @@ static void cont__31_26(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 384: A "href" = "topic_index.html" "Topic Index"
+  // 384: A "href" = "topics_index.html" "Topics Index"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -9915,7 +9915,7 @@ static void entry__31_1_link_bar(void) {
   // 381:   TEXT "&nbsp;&nbsp;&nbsp;"
   // 382:   A "href" = "symbol_index.html" "Symbol Index"
   // 383:   TEXT "&nbsp;&nbsp;&nbsp;"
-  // 384:   A "href" = "topic_index.html" "Topic Index"
+  // 384:   A "href" = "topics_index.html" "Topics Index"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__31_2;
@@ -22495,9 +22495,9 @@ static void cont__39_182(void) {
     invalid_results_error();
     return;
   }
-  // 827: create_page "html/topic_index.html":
+  // 827: create_page "html/topics_index.html":
   // 828:   link_bar
-  // 829:   H1 "id" = "index" "Topic Index"
+  // 829:   H1 "id" = "index" "Topics Index"
   // 830:   TABLE:
   // 831:     for_each topics: (topic _references)
   // 832:       $filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
@@ -22710,7 +22710,7 @@ static void cont__39_186(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 829: H1 "id" = "index" "Topic Index"
+  // 829: H1 "id" = "index" "Topics Index"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -23234,7 +23234,7 @@ static void cont__39_223(void) {
   // 850:   P: A "href" = "manual.html" "Manual"
   // 851:   P: A "href" = "type_index.html" "Type Index"
   // 852:   P: A "href" = "symbol_index.html" "Symbol Index"
-  // 853:   P: A "href" = "topic_index.html" "Topic Index"
+  // 853:   P: A "href" = "topics_index.html" "Topics Index"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__39_224;
@@ -23251,7 +23251,7 @@ static void entry__39_237(void) {
     invalid_arguments_error();
     return;
   }
-  // 853: ... "href" = "topic_index.html"
+  // 853: ... "href" = "topics_index.html"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__31_3;
@@ -23267,7 +23267,7 @@ static void cont__39_238(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 853: ... A "href" = "topic_index.html" "Topic Index"
+  // 853: ... A "href" = "topics_index.html" "Topics Index"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -23439,7 +23439,7 @@ static void cont__39_236(void) {
     invalid_results_error();
     return;
   }
-  // 853: P: A "href" = "topic_index.html" "Topic Index"
+  // 853: P: A "href" = "topics_index.html" "Topics Index"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = func__39_237;
@@ -23611,8 +23611,8 @@ EXPORT void phase_2__extractor(void) {
   string__31_17 = from_latin_1_string("Type Index", 10);
   string__31_20 = from_latin_1_string("symbol_index.html", 17);
   string__31_22 = from_latin_1_string("Symbol Index", 12);
-  string__31_25 = from_latin_1_string("topic_index.html", 16);
-  string__31_27 = from_latin_1_string("Topic Index", 11);
+  string__31_25 = from_latin_1_string("topics_index.html", 17);
+  string__31_27 = from_latin_1_string("Topics Index", 12);
   func__31_2 = create_function(entry__31_2, 0);
   func__31_1_link_bar = create_function(entry__31_1_link_bar, 0);
   func__34_1_to_paragraphs = create_function(entry__34_1_to_paragraphs, 1);
@@ -23716,7 +23716,7 @@ EXPORT void phase_2__extractor(void) {
   func__39_95 = create_function(entry__39_95, 0);
   func__39_80 = create_function(entry__39_80, 0);
   func__39_174 = create_function(entry__39_174, 2);
-  string__39_183 = from_latin_1_string("html/topic_index.html", 21);
+  string__39_183 = from_latin_1_string("html/topics_index.html", 22);
   func__39_189 = create_function(entry__39_189, 2);
   func__39_188 = create_function(entry__39_188, 0);
   func__39_184 = create_function(entry__39_184, 0);

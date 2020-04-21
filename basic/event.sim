@@ -135,7 +135,9 @@ $std::want_to_write_to:
     Tells the event handling system that it should generate an event as soon
     as it is possible to write to the specified file descriptor.
 
-    see also: no_longer_want_to_write_to, wait_to_write_to, want_to_read_from
+    Topic: Events
+
+    See also: no_longer_want_to_write_to, wait_to_write_to, want_to_read_from
   (
     fd # the file descriptor to watch
   )
@@ -148,7 +150,9 @@ $std::no_longer_want_to_write_to:
     Tells the event handling system that it should no longer generate events
     when it is possible to write to the specified file descriptor.
 
-    see also: want_to_write_to, wait_to_write_to, no_longer_want_to_read_from
+    Topic: Events
+
+    See also: want_to_write_to, wait_to_write_to, no_longer_want_to_read_from
   (
     fd # the file descriptor no longer to be watched
   )
@@ -161,7 +165,9 @@ $std::want_to_read_from:
     Tells the event handling system that it should generate an event as soon
     as it is possible to read from the specified file descriptor.
 
-    see also: no_longer_want_to_read_from, wait_to_read_from, want_to_write_to
+    Topic: Events
+
+    See also: no_longer_want_to_read_from, wait_to_read_from, want_to_write_to
   (
     fd # the file descriptor to watch
   )
@@ -174,7 +180,9 @@ $std::no_longer_want_to_read_from:
     Tells the event handling system that it should no longer generate events
     when it is possible to read from the specified file descriptor.
 
-    see also: want_to_read_from, wait_to_read_from, no_longer_want_to_write_to
+    Topic: Events
+
+    See also: want_to_read_from, wait_to_read_from, no_longer_want_to_write_to
   (
     fd # the file descriptor no longer to be watched
   )
@@ -185,7 +193,9 @@ $std::wanting_to_write_to:
     Returns true if somebody wants to write to the specified file
     descriptor.
 
-    see also: want_to_write_to, no_longer_want_to_write_to, wanting_to_read_from
+    Topic: Events
+
+    See also: want_to_write_to, no_longer_want_to_write_to, wanting_to_read_from
   (
     fd # the file descriptor to inspect
   )
@@ -196,7 +206,9 @@ $std::wanting_to_read_from:
     Returns true if somebody wants to read from the specified file
     descriptor.
 
-    see also: want_to_read_from, no_longer_want_to_read_from, wanting_to_write_to
+    Topic: Events
+
+    See also: want_to_read_from, no_longer_want_to_read_from, wanting_to_write_to
   (
     fd # the file descriptor to inspect
   )
@@ -208,7 +220,9 @@ $std::wait_to_read_from:
   #
     Waits until it is possible to read from the specified file descriptor.
 
-    see also: want_to_read_from, wait_to_write_to, wait_for_termination
+    Topic: Events
+
+    See also: want_to_read_from, wait_to_write_to, wait_for_termination
   (
     fd # the file descriptor to watch
     -> continuation
@@ -223,7 +237,9 @@ $std::wait_to_write_to:
   #
     Waits until it is possible to write to the specified file descriptor.
 
-    see also: want_to_write_to, wait_to_read_from, wait_for_termination
+    Topic: Events
+
+    See also: want_to_write_to, wait_to_read_from, wait_for_termination
   (
     fd # the file descriptor to watch
     -> continuation
@@ -238,7 +254,9 @@ $std::wait_for_termination:
   #
     Waits until the specified process terminates.
 
-    see also: wait_to_write_to, wait_to_read_from
+    Topic: Events
+
+    See also: wait_to_write_to, wait_to_read_from
   (
     pid # the process identifier to watch
     -> continuation
@@ -250,6 +268,13 @@ $$timeout undefined # there should be separate timeouts for each caller
 $$timeout_exceeded undefined
 
 $std::discard:
+  #
+    discards some queued events
+
+    All events associated with the specified <types::file_descriptor> will be
+    descarded.
+
+    Topic: Events
   (
     fd
     -> return
@@ -276,6 +301,8 @@ $std::discard:
 $std::create_event:
   #
     Pushes an event onto the event queue.
+
+    Topic: Events
   (
     event # the event to push
   )
@@ -379,8 +406,6 @@ $std::get_event:
 
     Otherwise the caller is blocked until an event arrives which is then
     returned to the caller.
-
-    see also: get_raw_event
   (
     -> return
   )
@@ -408,6 +433,7 @@ $std::process_events:
     Run tasks until all tasks block then wait to process events and eventually
     call registered continuations.
 
+    Topic: Events
   while -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
   if readers.is_empty && writers.is_empty terminate
   $$i 1
@@ -435,6 +461,8 @@ $std::wait_to:
     to happen.
 
     Returns the event in the case one of the specified events has happend.
+
+    Topic: Events
   (
     args*
   )

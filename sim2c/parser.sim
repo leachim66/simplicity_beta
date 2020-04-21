@@ -74,7 +74,7 @@ $print_message: (fragment offset msg_type $msg)
     :
       ewrite "
 	____________________________________
-	@(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
+	@(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
       ewriteln line
       ewriteln dup(" " n) "^"
 

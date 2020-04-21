@@ -363,8 +363,6 @@ static int poly_idx__block_size_of;
 static NODE_GETTER get__block_size_of;
 static NODE_GETTER get__case;
 static NODE_GETTER get_value_or_future__case;
-static NODE_GETTER get__clib_mkdir;
-static NODE_GETTER get_value_or_future__clib_mkdir;
 static int poly_idx__close;
 static NODE_GETTER get__close;
 static int poly_idx__connect;
@@ -559,6 +557,7 @@ static struct {
   NODE *_ioctl_value;
   NODE *_posix_unlink;
   NODE *_wait_for_io_ready;
+  NODE *_clib_mkdir;
   NODE *std__MODE;
   NODE *std__PARENTS;
   NODE *std__ioctl;
@@ -664,7 +663,6 @@ static struct {
   NODE *std__current_path;
   NODE *std__chdir;
   NODE *std__change_directory;
-  NODE *std__clib_mkdir;
   NODE *std__mkdir;
   NODE *std__create_directory;
   NODE *std__fullname;
@@ -688,7 +686,8 @@ static const char *var_names[] = {
   "WriteError",
   "ioctl_value",
   "posix_unlink",
-  "wait_for_io_ready"
+  "wait_for_io_ready",
+  "clib_mkdir"
 };
 static NODE *unique__std__MODE;
 static NODE *get__std__MODE(void) {
@@ -1476,11 +1475,8 @@ static void cont__148_8(void);
 static NODE *get__std__change_directory(void) {
   return var.std__change_directory;
 }
-static void entry__149_1_std__clib_mkdir(void);
-static NODE *func__149_1_std__clib_mkdir;
-static NODE *get__std__clib_mkdir(void) {
-  return var.std__clib_mkdir;
-}
+static void entry__149_1_clib_mkdir(void);
+static NODE *func__149_1_clib_mkdir;
 static NODE *func__150_1_std__mkdir;
 static void entry__150_1_std__mkdir(void);
 static FRAME_INFO frame__150_1_std__mkdir = {6, {"options", "path", "mode", "do_create_parent_folders", "fail", "create_parent_folders"}};
@@ -2140,7 +2136,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__148_2, &frame__148_1_std__change_directory, 2031, 2031, 6, 26},
   {cont__148_3, &frame__148_1_std__change_directory, 2031, 2031, 6, 26},
   {cont__148_4, &frame__148_1_std__change_directory, 2031, 2033, 3, 61},
-  {entry__149_1_std__clib_mkdir, NULL, 2036, 2048, 3, 2},
+  {entry__149_1_clib_mkdir, NULL, 2036, 2048, 3, 2},
   {entry__150_2_fail, NULL, 2066, 2066, 28, 36},
   {cont__150_3, &frame__150_2_fail, 2066, 2066, 16, 37},
   {cont__150_5, &frame__150_2_fail, 2066, 2066, 7, 37},
@@ -7431,7 +7427,7 @@ static void cont__148_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__149_1_std__clib_mkdir(void) {
+static void entry__149_1_clib_mkdir(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -7640,7 +7636,7 @@ static void cont__150_19(void) {
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* partial_path */;
   arguments->slots[1] = frame->slots[2] /* mode */;
   result_count = 1;
-  myself = get__clib_mkdir();
+  myself = var._clib_mkdir;
   func = myself->type;
   frame->cont = cont__150_20;
 }
@@ -8062,7 +8058,7 @@ static void cont__150_32(void) {
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* path */;
   arguments->slots[1] = frame->slots[2] /* mode */;
   result_count = 1;
-  myself = get__clib_mkdir();
+  myself = var._clib_mkdir;
   func = myself->type;
   frame->cont = cont__150_33;
 }
@@ -8165,7 +8161,7 @@ static void entry__151_1_std__create_directory(void) {
   arguments->slots[0] = frame->slots[0] /* path */;
   arguments->slots[1] = frame->slots[1] /* mode */;
   result_count = 1;
-  myself = get__clib_mkdir();
+  myself = var._clib_mkdir;
   func = myself->type;
   frame->cont = cont__151_2;
 }
@@ -10884,7 +10880,7 @@ EXPORT void collect__basic__io(void) {
   var.std__current_path = collect_node(var.std__current_path);
   var.std__chdir = collect_node(var.std__chdir);
   var.std__change_directory = collect_node(var.std__change_directory);
-  var.std__clib_mkdir = collect_node(var.std__clib_mkdir);
+  var._clib_mkdir = collect_node(var._clib_mkdir);
   var.std__mkdir = collect_node(var.std__mkdir);
   var.std__create_directory = collect_node(var.std__create_directory);
   var.std__fullname = collect_node(var.std__fullname);
@@ -11029,7 +11025,7 @@ EXPORT void phase_2__basic__io(void) {
   string__148_6 = from_latin_1_string("Failed to change current directory to \042", 39);
   string__148_7 = from_latin_1_string("\042!", 2);
   func__148_1_std__change_directory = create_function(entry__148_1_std__change_directory, 1);
-  func__149_1_std__clib_mkdir = create_function(entry__149_1_std__clib_mkdir, 2);
+  func__149_1_clib_mkdir = create_function(entry__149_1_clib_mkdir, 2);
   string__150_4 = from_latin_1_string("0o", 2);
   string__150_6 = from_latin_1_string("MODE", 4);
   string__150_8 = from_latin_1_string("PARENTS", 7);
@@ -11230,7 +11226,6 @@ EXPORT void phase_3__basic__io(void) {
   define_single_assign_static("std", "current_path", get__std__current_path, &var.std__current_path);
   define_single_assign_static("std", "chdir", get__std__chdir, &var.std__chdir);
   define_single_assign_static("std", "change_directory", get__std__change_directory, &var.std__change_directory);
-  define_single_assign_static("std", "clib_mkdir", get__std__clib_mkdir, &var.std__clib_mkdir);
   define_single_assign_static("std", "mkdir", get__std__mkdir, &var.std__mkdir);
   define_single_assign_static("std", "create_directory", get__std__create_directory, &var.std__create_directory);
   define_single_assign_static("std", "fullname", get__std__fullname, &var.std__fullname);
@@ -11277,7 +11272,6 @@ EXPORT void phase_4__basic__io(void) {
   use_read_only(NULL, "before", &get__before, &get_value_or_future__before);
   use_polymorphic_function(NULL, "block_size_of", &get__block_size_of, &poly_idx__block_size_of);
   use_read_only(NULL, "case", &get__case, &get_value_or_future__case);
-  use_read_only(NULL, "clib_mkdir", &get__clib_mkdir, &get_value_or_future__clib_mkdir);
   use_polymorphic_function(NULL, "close", &get__close, &poly_idx__close);
   use_polymorphic_function(NULL, "connect", &get__connect, &poly_idx__connect);
   use_read_only(NULL, "create_file", &get__create_file, &get_value_or_future__create_file);
@@ -11474,7 +11468,7 @@ EXPORT void phase_5__basic__io(void) {
   assign_variable(&var.std__current_path, &func__146_1_std__current_path);
   assign_variable(&var.std__chdir, &func__147_1_std__chdir);
   assign_variable(&var.std__change_directory, &func__148_1_std__change_directory);
-  assign_variable(&var.std__clib_mkdir, &func__149_1_std__clib_mkdir);
+  assign_variable(&var._clib_mkdir, &func__149_1_clib_mkdir);
   assign_variable(&var.std__mkdir, &func__150_1_std__mkdir);
   assign_variable(&var.std__create_directory, &func__151_1_std__create_directory);
   assign_variable(&var.std__fullname, &func__152_1_std__fullname);

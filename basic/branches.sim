@@ -20,6 +20,17 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
+#
+  Topic: Branches
+
+  There are no builtin branch instructions in the Simplicity language.
+
+  The basic branch instructions of the standard library use polymorphic dispatch
+  on the truth values <true> and <false> to implement <if> and <unless>.
+
+  More complex branches like <cond> or <case> use <if> to check their
+  conditions.
+
 $std::cond:
   #
     a multiway conditional expression or statement

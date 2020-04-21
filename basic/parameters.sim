@@ -452,7 +452,14 @@ $check_arguments: (command? $arguments templates)
 	      !results(idx) conversion(result)
   -> results*
 
-$std::program_commands: (commands*)
+$std::program_commands:
+  #
+    defines subcommands
+
+    Topic: Command Line Argument Parsing
+  (
+    commands*
+  )
   $$command_ids empty_list
   for_each commands: (command)
     $name key_of(command)
@@ -463,7 +470,15 @@ $std::program_commands: (commands*)
     push &command_ids command_id_count
   -> command_ids*
 
-$std::command_parameters: (id templates*)
+$std::command_parameters:
+  #
+    defines subcommand details
+
+    Topic: Command Line Argument Parsing
+  (
+    id
+    templates*
+  )
   if
     command_line_arguments.is_empty
     -> dup(list(undefined) length_of(templates))*
@@ -507,6 +522,8 @@ $std::program_parameters:
 
     The syntax is quite complicated. The example shows the complete list of
     options and parameters of the Simplicity compiler.
+
+    Topic: Command Line Argument Parsing
 
     Example:
     program_parameters

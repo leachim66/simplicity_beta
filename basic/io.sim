@@ -2032,7 +2032,7 @@ $std::change_directory:
     Error "
       Failed to change current directory to "@(path)@quot;!@
 
-$std::clib_mkdir
+$clib_mkdir
   {
     CHECK_ARGUMENTS(2)
     char *path = to_c_string(ARGUMENTS(0));

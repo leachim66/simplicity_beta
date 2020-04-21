@@ -1744,122 +1744,122 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__21_262, &frame__21_1_check_arguments, 423, 423, 3, 52},
   {cont__21_263, &frame__21_1_check_arguments, 424, 452, 3, 51},
   {cont__21_305, &frame__21_1_check_arguments, 453, 453, 3, 13},
-  {entry__22_2, NULL, 458, 458, 5, 25},
-  {cont__22_3, &frame__22_2, 459, 459, 5, 34},
-  {cont__22_4, &frame__22_2, 460, 460, 5, 28},
-  {cont__22_5, &frame__22_2, 461, 461, 5, 42},
-  {cont__22_6, &frame__22_2, 462, 462, 5, 25},
-  {cont__22_7, &frame__22_2, 463, 463, 5, 38},
-  {cont__22_8, &frame__22_2, 463, 463, 38, 38},
-  {entry__22_1_std__program_commands, NULL, 457, 463, 3, 38},
-  {cont__22_9, &frame__22_1_std__program_commands, 464, 464, 3, 17},
-  {entry__23_3, NULL, 469, 469, 12, 26},
-  {cont__23_4, &frame__23_3, 469, 469, 28, 47},
-  {cont__23_5, &frame__23_3, 469, 469, 8, 48},
-  {cont__23_6, &frame__23_3, 469, 469, 5, 49},
-  {entry__23_16, NULL, 477, 477, 13, 37},
-  {cont__23_17, &frame__23_16, 477, 477, 13, 47},
-  {cont__23_18, &frame__23_16, 477, 477, 52, 68},
-  {cont__23_19, &frame__23_16, 477, 477, 13, 68},
-  {cont__23_20, &frame__23_16, 477, 477, 13, 68},
-  {entry__23_13, NULL, 476, 476, 13, 45},
-  {cont__23_14, &frame__23_13, 476, 476, 13, 50},
-  {cont__23_15, &frame__23_13, 477, 477, 13, 68},
+  {entry__22_2, NULL, 465, 465, 5, 25},
+  {cont__22_3, &frame__22_2, 466, 466, 5, 34},
+  {cont__22_4, &frame__22_2, 467, 467, 5, 28},
+  {cont__22_5, &frame__22_2, 468, 468, 5, 42},
+  {cont__22_6, &frame__22_2, 469, 469, 5, 25},
+  {cont__22_7, &frame__22_2, 470, 470, 5, 38},
+  {cont__22_8, &frame__22_2, 470, 470, 38, 38},
+  {entry__22_1_std__program_commands, NULL, 464, 470, 3, 38},
+  {cont__22_9, &frame__22_1_std__program_commands, 471, 471, 3, 17},
+  {entry__23_3, NULL, 484, 484, 12, 26},
+  {cont__23_4, &frame__23_3, 484, 484, 28, 47},
+  {cont__23_5, &frame__23_3, 484, 484, 8, 48},
+  {cont__23_6, &frame__23_3, 484, 484, 5, 49},
+  {entry__23_16, NULL, 492, 492, 13, 37},
+  {cont__23_17, &frame__23_16, 492, 492, 13, 47},
+  {cont__23_18, &frame__23_16, 492, 492, 52, 68},
+  {cont__23_19, &frame__23_16, 492, 492, 13, 68},
+  {cont__23_20, &frame__23_16, 492, 492, 13, 68},
+  {entry__23_13, NULL, 491, 491, 13, 45},
+  {cont__23_14, &frame__23_13, 491, 491, 13, 50},
+  {cont__23_15, &frame__23_13, 492, 492, 13, 68},
   {cont__23_21, &frame__23_13, },
-  {entry__23_23, NULL, 479, 479, 29, 45},
-  {cont__23_24, &frame__23_23, 479, 479, 47, 60},
-  {cont__23_25, &frame__23_23, 479, 479, 13, 70},
-  {entry__23_10, NULL, 475, 475, 13, 29},
+  {entry__23_23, NULL, 494, 494, 29, 45},
+  {cont__23_24, &frame__23_23, 494, 494, 47, 60},
+  {cont__23_25, &frame__23_23, 494, 494, 13, 70},
+  {entry__23_10, NULL, 490, 490, 13, 29},
   {cont__23_12, &frame__23_10, },
-  {cont__23_22, &frame__23_10, 473, 479, 9, 71},
-  {entry__23_29, NULL, 482, 482, 67, 67},
-  {cont__23_30, &frame__23_29, 482, 482, 35, 68},
-  {cont__23_31, &frame__23_29, 482, 482, 11, 78},
-  {entry__23_26, NULL, 480, 480, 23, 39},
-  {cont__23_27, &frame__23_26, 480, 480, 12, 39},
-  {cont__23_28, &frame__23_26, 480, 482, 9, 78},
-  {entry__23_33, NULL, 483, 483, 24, 38},
-  {cont__23_34, &frame__23_33, 483, 483, 40, 59},
-  {cont__23_35, &frame__23_33, 483, 483, 20, 60},
-  {cont__23_36, &frame__23_33, 483, 483, 17, 61},
-  {entry__23_32, NULL, 483, 483, 9, 61},
-  {entry__23_7, NULL, 471, 471, 16, 40},
-  {cont__23_8, &frame__23_7, 471, 471, 7, 50},
-  {cont__23_9, &frame__23_7, 472, 483, 7, 61},
-  {entry__23_1_std__command_parameters, NULL, 468, 468, 5, 35},
-  {cont__23_2, &frame__23_1_std__command_parameters, 467, 483, 3, 63},
-  {entry__24_3, NULL, 487, 487, 51, 51},
-  {cont__24_4, &frame__24_3, 487, 487, 18, 52},
-  {cont__24_5, &frame__24_3, 487, 487, 5, 52},
-  {entry__24_12, NULL, 491, 491, 33, 57},
-  {cont__24_13, &frame__24_12, 491, 491, 15, 58},
-  {cont__24_14, &frame__24_12, 491, 491, 5, 58},
-  {cont__24_15, &frame__24_12, 491, 491, 58, 58},
-  {entry__24_18, NULL, 493, 493, 15, 63},
-  {cont__24_21, &frame__24_18, 493, 493, 5, 63},
-  {cont__24_22, &frame__24_18, 493, 493, 63, 63},
-  {entry__24_25, NULL, 495, 495, 15, 58},
-  {cont__24_28, &frame__24_25, 495, 495, 5, 58},
-  {cont__24_29, &frame__24_25, 495, 495, 58, 58},
-  {entry__24_1_show_commands, NULL, 486, 486, 6, 31},
-  {cont__24_2, &frame__24_1_show_commands, 486, 487, 3, 52},
-  {cont__24_6, &frame__24_1_show_commands, 488, 488, 3, 32},
-  {cont__24_8, &frame__24_1_show_commands, 489, 489, 14, 66},
-  {cont__24_10, &frame__24_1_show_commands, 489, 489, 3, 67},
-  {cont__24_11, &frame__24_1_show_commands, 490, 491, 3, 58},
-  {cont__24_16, &frame__24_1_show_commands, 492, 492, 6, 33},
-  {cont__24_17, &frame__24_1_show_commands, 492, 493, 3, 63},
-  {cont__24_23, &frame__24_1_show_commands, 494, 494, 6, 31},
-  {cont__24_24, &frame__24_1_show_commands, 494, 495, 3, 58},
-  {cont__24_30, &frame__24_1_show_commands, 496, 496, 3, 19},
-  {entry__25_3, NULL, 655, 655, 7, 54},
-  {entry__25_6, NULL, 593, 593, 33, 45},
-  {entry__25_9, NULL, 596, 597, 13, 35},
-  {cont__25_11, &frame__25_9, 598, 598, 13, 25},
-  {cont__25_12, &frame__25_9, 599, 599, 13, 18},
-  {entry__25_17, NULL, 605, 605, 19, 32},
-  {cont__25_18, &frame__25_17, 606, 606, 19, 27},
-  {entry__25_15, NULL, 604, 604, 20, 47},
-  {cont__25_16, &frame__25_15, 604, 606, 17, 27},
-  {entry__25_21, NULL, 611, 611, 21, 33},
-  {cont__25_22, &frame__25_21, 612, 612, 21, 29},
-  {entry__25_27, NULL, 618, 620, 27, 46},
-  {cont__25_29, &frame__25_27, 621, 621, 27, 35},
-  {entry__25_25, NULL, 617, 617, 28, 55},
-  {cont__25_26, &frame__25_25, 617, 621, 25, 35},
-  {entry__25_30, NULL, 623, 628, 25, 77},
-  {cont__25_32, &frame__25_30, 629, 629, 25, 33},
-  {entry__25_35, NULL, 632, 634, 27, 44},
-  {cont__25_37, &frame__25_35, 635, 635, 27, 35},
-  {entry__25_33, NULL, 631, 631, 28, 53},
-  {cont__25_34, &frame__25_33, 631, 635, 25, 35},
-  {entry__25_23, NULL, 615, 615, 23, 47},
-  {cont__25_24, &frame__25_23, 614, 635, 21, 37},
-  {cont__25_38, &frame__25_23, 636, 637, 21, 43},
-  {cont__25_40, &frame__25_23, 638, 638, 21, 33},
-  {cont__25_41, &frame__25_23, 639, 639, 21, 26},
-  {entry__25_42, NULL, 641, 642, 21, 41},
-  {cont__25_43, &frame__25_42, 643, 643, 21, 33},
-  {cont__25_44, &frame__25_42, 644, 644, 21, 26},
-  {entry__25_19, NULL, 609, 609, 19, 51},
-  {cont__25_20, &frame__25_19, 608, 644, 17, 27},
-  {entry__25_47, NULL, 647, 647, 66, 66},
-  {cont__25_48, &frame__25_47, 647, 647, 19, 67},
-  {cont__25_49, &frame__25_47, 648, 648, 19, 43},
-  {cont__25_50, &frame__25_47, 649, 649, 19, 27},
-  {entry__25_45, NULL, 646, 646, 20, 45},
-  {cont__25_46, &frame__25_45, 646, 649, 17, 27},
-  {entry__25_13, NULL, 602, 602, 15, 39},
-  {cont__25_14, &frame__25_13, 601, 649, 13, 29},
-  {cont__25_51, &frame__25_13, 650, 651, 13, 32},
-  {cont__25_53, &frame__25_13, 652, 652, 13, 25},
-  {cont__25_54, &frame__25_13, 653, 653, 13, 18},
-  {entry__25_7, NULL, 595, 595, 11, 41},
-  {cont__25_8, &frame__25_7, 594, 653, 9, 19},
-  {entry__25_4, NULL, 593, 593, 10, 30},
-  {cont__25_5, &frame__25_4, 593, 653, 7, 20},
-  {entry__25_1_std__program_parameters, NULL, 592, 592, 5, 24},
-  {cont__25_2, &frame__25_1_std__program_parameters, 591, 655, 3, 55}
+  {cont__23_22, &frame__23_10, 488, 494, 9, 71},
+  {entry__23_29, NULL, 497, 497, 67, 67},
+  {cont__23_30, &frame__23_29, 497, 497, 35, 68},
+  {cont__23_31, &frame__23_29, 497, 497, 11, 78},
+  {entry__23_26, NULL, 495, 495, 23, 39},
+  {cont__23_27, &frame__23_26, 495, 495, 12, 39},
+  {cont__23_28, &frame__23_26, 495, 497, 9, 78},
+  {entry__23_33, NULL, 498, 498, 24, 38},
+  {cont__23_34, &frame__23_33, 498, 498, 40, 59},
+  {cont__23_35, &frame__23_33, 498, 498, 20, 60},
+  {cont__23_36, &frame__23_33, 498, 498, 17, 61},
+  {entry__23_32, NULL, 498, 498, 9, 61},
+  {entry__23_7, NULL, 486, 486, 16, 40},
+  {cont__23_8, &frame__23_7, 486, 486, 7, 50},
+  {cont__23_9, &frame__23_7, 487, 498, 7, 61},
+  {entry__23_1_std__command_parameters, NULL, 483, 483, 5, 35},
+  {cont__23_2, &frame__23_1_std__command_parameters, 482, 498, 3, 63},
+  {entry__24_3, NULL, 502, 502, 51, 51},
+  {cont__24_4, &frame__24_3, 502, 502, 18, 52},
+  {cont__24_5, &frame__24_3, 502, 502, 5, 52},
+  {entry__24_12, NULL, 506, 506, 33, 57},
+  {cont__24_13, &frame__24_12, 506, 506, 15, 58},
+  {cont__24_14, &frame__24_12, 506, 506, 5, 58},
+  {cont__24_15, &frame__24_12, 506, 506, 58, 58},
+  {entry__24_18, NULL, 508, 508, 15, 63},
+  {cont__24_21, &frame__24_18, 508, 508, 5, 63},
+  {cont__24_22, &frame__24_18, 508, 508, 63, 63},
+  {entry__24_25, NULL, 510, 510, 15, 58},
+  {cont__24_28, &frame__24_25, 510, 510, 5, 58},
+  {cont__24_29, &frame__24_25, 510, 510, 58, 58},
+  {entry__24_1_show_commands, NULL, 501, 501, 6, 31},
+  {cont__24_2, &frame__24_1_show_commands, 501, 502, 3, 52},
+  {cont__24_6, &frame__24_1_show_commands, 503, 503, 3, 32},
+  {cont__24_8, &frame__24_1_show_commands, 504, 504, 14, 66},
+  {cont__24_10, &frame__24_1_show_commands, 504, 504, 3, 67},
+  {cont__24_11, &frame__24_1_show_commands, 505, 506, 3, 58},
+  {cont__24_16, &frame__24_1_show_commands, 507, 507, 6, 33},
+  {cont__24_17, &frame__24_1_show_commands, 507, 508, 3, 63},
+  {cont__24_23, &frame__24_1_show_commands, 509, 509, 6, 31},
+  {cont__24_24, &frame__24_1_show_commands, 509, 510, 3, 58},
+  {cont__24_30, &frame__24_1_show_commands, 511, 511, 3, 19},
+  {entry__25_3, NULL, 672, 672, 7, 54},
+  {entry__25_6, NULL, 610, 610, 33, 45},
+  {entry__25_9, NULL, 613, 614, 13, 35},
+  {cont__25_11, &frame__25_9, 615, 615, 13, 25},
+  {cont__25_12, &frame__25_9, 616, 616, 13, 18},
+  {entry__25_17, NULL, 622, 622, 19, 32},
+  {cont__25_18, &frame__25_17, 623, 623, 19, 27},
+  {entry__25_15, NULL, 621, 621, 20, 47},
+  {cont__25_16, &frame__25_15, 621, 623, 17, 27},
+  {entry__25_21, NULL, 628, 628, 21, 33},
+  {cont__25_22, &frame__25_21, 629, 629, 21, 29},
+  {entry__25_27, NULL, 635, 637, 27, 46},
+  {cont__25_29, &frame__25_27, 638, 638, 27, 35},
+  {entry__25_25, NULL, 634, 634, 28, 55},
+  {cont__25_26, &frame__25_25, 634, 638, 25, 35},
+  {entry__25_30, NULL, 640, 645, 25, 77},
+  {cont__25_32, &frame__25_30, 646, 646, 25, 33},
+  {entry__25_35, NULL, 649, 651, 27, 44},
+  {cont__25_37, &frame__25_35, 652, 652, 27, 35},
+  {entry__25_33, NULL, 648, 648, 28, 53},
+  {cont__25_34, &frame__25_33, 648, 652, 25, 35},
+  {entry__25_23, NULL, 632, 632, 23, 47},
+  {cont__25_24, &frame__25_23, 631, 652, 21, 37},
+  {cont__25_38, &frame__25_23, 653, 654, 21, 43},
+  {cont__25_40, &frame__25_23, 655, 655, 21, 33},
+  {cont__25_41, &frame__25_23, 656, 656, 21, 26},
+  {entry__25_42, NULL, 658, 659, 21, 41},
+  {cont__25_43, &frame__25_42, 660, 660, 21, 33},
+  {cont__25_44, &frame__25_42, 661, 661, 21, 26},
+  {entry__25_19, NULL, 626, 626, 19, 51},
+  {cont__25_20, &frame__25_19, 625, 661, 17, 27},
+  {entry__25_47, NULL, 664, 664, 66, 66},
+  {cont__25_48, &frame__25_47, 664, 664, 19, 67},
+  {cont__25_49, &frame__25_47, 665, 665, 19, 43},
+  {cont__25_50, &frame__25_47, 666, 666, 19, 27},
+  {entry__25_45, NULL, 663, 663, 20, 45},
+  {cont__25_46, &frame__25_45, 663, 666, 17, 27},
+  {entry__25_13, NULL, 619, 619, 15, 39},
+  {cont__25_14, &frame__25_13, 618, 666, 13, 29},
+  {cont__25_51, &frame__25_13, 667, 668, 13, 32},
+  {cont__25_53, &frame__25_13, 669, 669, 13, 25},
+  {cont__25_54, &frame__25_13, 670, 670, 13, 18},
+  {entry__25_7, NULL, 612, 612, 11, 41},
+  {cont__25_8, &frame__25_7, 611, 670, 9, 19},
+  {entry__25_4, NULL, 610, 610, 10, 30},
+  {cont__25_5, &frame__25_4, 610, 670, 7, 20},
+  {entry__25_1_std__program_parameters, NULL, 609, 609, 5, 24},
+  {cont__25_2, &frame__25_1_std__program_parameters, 608, 672, 3, 55}
 };
 
 union NODE {
@@ -9919,23 +9919,23 @@ static void entry__22_1_std__program_commands(void) {
   // command_ids: 1
   frame->slots[1] /* command_ids */ = create_cell();
   frame->slots[0] /* commands */ = from_arguments(0, argument_count-0);
-  // 456: $$command_ids empty_list
+  // 463: $$command_ids empty_list
   ((CELL *)frame->slots[1])->contents /* command_ids */ = get__empty_list();
-  // 457: ... : (command)
-  // 458:   $name key_of(command)
-  // 459:   $description value_of(command)
-  // 460:   push &command_names name
-  // 461:   push &command_descriptions description
-  // 462:   inc &command_id_count
-  // 463:   push &command_ids command_id_count
+  // 464: ... : (command)
+  // 465:   $name key_of(command)
+  // 466:   $description value_of(command)
+  // 467:   push &command_names name
+  // 468:   push &command_descriptions description
+  // 469:   inc &command_id_count
+  // 470:   push &command_ids command_id_count
   frame->slots[2] /* temp__1 */ = create_closure(entry__22_2, 1);
-  // 457: for_each commands: (command)
-  // 458:   $name key_of(command)
-  // 459:   $description value_of(command)
-  // 460:   push &command_names name
-  // 461:   push &command_descriptions description
-  // 462:   inc &command_id_count
-  // 463:   push &command_ids command_id_count
+  // 464: for_each commands: (command)
+  // 465:   $name key_of(command)
+  // 466:   $description value_of(command)
+  // 467:   push &command_names name
+  // 468:   push &command_descriptions description
+  // 469:   inc &command_id_count
+  // 470:   push &command_ids command_id_count
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* commands */;
@@ -9959,7 +9959,7 @@ static void entry__22_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 458: $name key_of(command)
+  // 465: $name key_of(command)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command */;
@@ -9974,7 +9974,7 @@ static void cont__22_3(void) {
     return;
   }
   initialize_future(frame->slots[2] /* name */, arguments->slots[0]);
-  // 459: $description value_of(command)
+  // 466: $description value_of(command)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command */;
@@ -9989,7 +9989,7 @@ static void cont__22_4(void) {
     return;
   }
   initialize_future(frame->slots[3] /* description */, arguments->slots[0]);
-  // 460: push &command_names name
+  // 467: push &command_names name
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._command_names;
@@ -10005,7 +10005,7 @@ static void cont__22_5(void) {
     return;
   }
   var._command_names = arguments->slots[0];
-  // 461: push &command_descriptions description
+  // 468: push &command_descriptions description
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._command_descriptions;
@@ -10021,7 +10021,7 @@ static void cont__22_6(void) {
     return;
   }
   var._command_descriptions = arguments->slots[0];
-  // 462: inc &command_id_count
+  // 469: inc &command_id_count
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._command_id_count;
@@ -10036,7 +10036,7 @@ static void cont__22_7(void) {
     return;
   }
   var._command_id_count = arguments->slots[0];
-  // 463: push &command_ids command_id_count
+  // 470: push &command_ids command_id_count
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* command_ids */;
@@ -10063,7 +10063,7 @@ static void cont__22_9(void) {
     invalid_results_error();
     return;
   }
-  // 464: -> command_ids*
+  // 471: -> command_ids*
   argument_count = 0;
   arguments = node_p;
   unfold(((CELL *)frame->slots[1])->contents /* command_ids */);
@@ -10080,7 +10080,7 @@ static void entry__23_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 483: ... list(undefined)
+  // 498: ... list(undefined)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -10095,7 +10095,7 @@ static void cont__23_34(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 483: ... length_of(templates)
+  // 498: ... length_of(templates)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* templates */;
@@ -10110,7 +10110,7 @@ static void cont__23_35(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 483: ... dup(list(undefined) length_of(templates))
+  // 498: ... dup(list(undefined) length_of(templates))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10126,7 +10126,7 @@ static void cont__23_36(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 483: ... -> dup(list(undefined) length_of(templates))*
+  // 498: ... -> dup(list(undefined) length_of(templates))*
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[1] /* temp__1 */);
@@ -10147,9 +10147,9 @@ static void entry__23_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 481: !command_id id
+  // 496: !command_id id
   var._command_id = frame->slots[0] /* id */;
-  // 482: ... 1
+  // 497: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10164,7 +10164,7 @@ static void cont__23_30(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 482: ... range(command_line_arguments 2 -1)
+  // 497: ... range(command_line_arguments 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -10181,7 +10181,7 @@ static void cont__23_31(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 482: check_arguments command range(command_line_arguments 2 -1) templates
+  // 497: check_arguments command range(command_line_arguments 2 -1) templates
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* command */;
@@ -10203,7 +10203,7 @@ static void entry__23_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 479: ... command_names(id)
+  // 494: ... command_names(id)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* id */;
@@ -10218,7 +10218,7 @@ static void cont__23_24(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 479: ... list("--help")
+  // 494: ... list("--help")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__21_156;
@@ -10233,7 +10233,7 @@ static void cont__23_25(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 479: check_arguments command_names(id) list("--help") templates
+  // 494: check_arguments command_names(id) list("--help") templates
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10257,7 +10257,7 @@ static void entry__23_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 475: command == "help"
+  // 490: command == "help"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command */;
@@ -10292,7 +10292,7 @@ static void entry__23_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 476: length_of(command_line_arguments)
+  // 491: length_of(command_line_arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -10307,7 +10307,7 @@ static void cont__23_14(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 476: length_of(command_line_arguments) == 2
+  // 491: length_of(command_line_arguments) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -10323,7 +10323,7 @@ static void cont__23_15(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 477: command_line_arguments(2).from_utf8 == command_names(id)
+  // 492: command_line_arguments(2).from_utf8 == command_names(id)
   frame->slots[4] /* temp__4 */ = create_closure(entry__23_16, 0);
   argument_count = 2;
   arguments = node_p;
@@ -10343,7 +10343,7 @@ static void entry__23_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 477: command_line_arguments(2)
+  // 492: command_line_arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -10358,7 +10358,7 @@ static void cont__23_17(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 477: command_line_arguments(2).from_utf8
+  // 492: command_line_arguments(2).from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -10373,7 +10373,7 @@ static void cont__23_18(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 477: ... command_names(id)
+  // 492: ... command_names(id)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* id */;
@@ -10388,7 +10388,7 @@ static void cont__23_19(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 477: command_line_arguments(2).from_utf8 == command_names(id)
+  // 492: command_line_arguments(2).from_utf8 == command_names(id)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10404,7 +10404,7 @@ static void cont__23_20(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 477: command_line_arguments(2).from_utf8 == command_names(id)
+  // 492: command_line_arguments(2).from_utf8 == command_names(id)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10431,16 +10431,16 @@ static void cont__23_22(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 478: :
-  // 479:   check_arguments command_names(id) list("--help") templates
+  // 493: :
+  // 494:   check_arguments command_names(id) list("--help") templates
   frame->slots[6] /* temp__4 */ = create_closure(entry__23_23, 0);
-  // 473: ->
-  // 474:   &&
-  // 475:     command == "help"
-  // 476:     length_of(command_line_arguments) == 2
-  // 477:     command_line_arguments(2).from_utf8 == command_names(id)
-  // 478:   :
-  // 479:     check_arguments command_names(id) list("--help") templates
+  // 488: ->
+  // 489:   &&
+  // 490:     command == "help"
+  // 491:     length_of(command_line_arguments) == 2
+  // 492:     command_line_arguments(2).from_utf8 == command_names(id)
+  // 493:   :
+  // 494:     check_arguments command_names(id) list("--help") templates
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -10462,7 +10462,7 @@ static void entry__23_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 480: ... command_names(id)
+  // 495: ... command_names(id)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* id */;
@@ -10477,7 +10477,7 @@ static void cont__23_27(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 480: ... command == command_names(id)
+  // 495: ... command == command_names(id)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command */;
@@ -10493,13 +10493,13 @@ static void cont__23_28(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 480: ... :
-  // 481:   !command_id id
-  // 482:   check_arguments command range(command_line_arguments 2 -1) templates
+  // 495: ... :
+  // 496:   !command_id id
+  // 497:   check_arguments command range(command_line_arguments 2 -1) templates
   frame->slots[5] /* temp__3 */ = create_closure(entry__23_29, 0);
-  // 480: -> command == command_names(id):
-  // 481:   !command_id id
-  // 482:   check_arguments command range(command_line_arguments 2 -1) templates
+  // 495: -> command == command_names(id):
+  // 496:   !command_id id
+  // 497:   check_arguments command range(command_line_arguments 2 -1) templates
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -10517,9 +10517,9 @@ static void entry__23_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 483: ... -> dup(list(undefined) length_of(templates))*
+  // 498: ... -> dup(list(undefined) length_of(templates))*
   frame->slots[1] /* temp__1 */ = create_closure(entry__23_33, 0);
-  // 483: -> true -> dup(list(undefined) length_of(templates))*
+  // 498: -> true -> dup(list(undefined) length_of(templates))*
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -10537,7 +10537,7 @@ static void entry__23_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 469: ... list(undefined)
+  // 484: ... list(undefined)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -10552,7 +10552,7 @@ static void cont__23_4(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 469: ... length_of(templates)
+  // 484: ... length_of(templates)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* templates */;
@@ -10567,7 +10567,7 @@ static void cont__23_5(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 469: ... dup(list(undefined) length_of(templates))
+  // 484: ... dup(list(undefined) length_of(templates))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10583,7 +10583,7 @@ static void cont__23_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 469: -> dup(list(undefined) length_of(templates))*
+  // 484: -> dup(list(undefined) length_of(templates))*
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[1] /* temp__1 */);
@@ -10604,7 +10604,7 @@ static void entry__23_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 471: ... command_line_arguments(1)
+  // 486: ... command_line_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10619,7 +10619,7 @@ static void cont__23_8(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 471: $command command_line_arguments(1).from_utf8
+  // 486: $command command_line_arguments(1).from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -10634,30 +10634,30 @@ static void cont__23_9(void) {
     return;
   }
   initialize_future(frame->slots[2] /* command */, arguments->slots[0]);
-  // 473: ->
-  // 474:   &&
-  // 475:     command == "help"
-  // 476:     length_of(command_line_arguments) == 2
-  // 477:     command_line_arguments(2).from_utf8 == command_names(id)
-  // 478:   :
-  // 479:     check_arguments command_names(id) list("--help") templates
+  // 488: ->
+  // 489:   &&
+  // 490:     command == "help"
+  // 491:     length_of(command_line_arguments) == 2
+  // 492:     command_line_arguments(2).from_utf8 == command_names(id)
+  // 493:   :
+  // 494:     check_arguments command_names(id) list("--help") templates
   frame->slots[3] /* temp__1 */ = create_closure(entry__23_10, 0);
-  // 480: -> command == command_names(id):
-  // 481:   !command_id id
-  // 482:   check_arguments command range(command_line_arguments 2 -1) templates
+  // 495: -> command == command_names(id):
+  // 496:   !command_id id
+  // 497:   check_arguments command range(command_line_arguments 2 -1) templates
   frame->slots[4] /* temp__2 */ = create_closure(entry__23_26, 0);
-  // 483: -> true -> dup(list(undefined) length_of(templates))*
+  // 498: -> true -> dup(list(undefined) length_of(templates))*
   frame->slots[5] /* temp__3 */ = create_closure(entry__23_32, 0);
-  // 472: cond
-  // 473:   ->
-  // 474:     &&
-  // 475:       command == "help"
-  // 476:       length_of(command_line_arguments) == 2
-  // 477:       command_line_arguments(2).from_utf8 == command_names(id)
-  // 478:     :
-  // 479:       check_arguments command_names(id) list("--help") templates
-  // 480:   -> command == command_names(id):
-  // 481:     !command_id id
+  // 487: cond
+  // 488:   ->
+  // 489:     &&
+  // 490:       command == "help"
+  // 491:       length_of(command_line_arguments) == 2
+  // 492:       command_line_arguments(2).from_utf8 == command_names(id)
+  // 493:     :
+  // 494:       check_arguments command_names(id) list("--help") templates
+  // 495:   -> command == command_names(id):
+  // 496:     !command_id id
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -10681,7 +10681,7 @@ static void entry__23_1_std__command_parameters(void) {
   }
   frame->slots[0] /* id */ = arguments->slots[0];
   frame->slots[1] /* templates */ = from_arguments(1, argument_count-1);
-  // 468: command_line_arguments.is_empty
+  // 483: command_line_arguments.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -10696,30 +10696,30 @@ static void cont__23_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 469: -> dup(list(undefined) length_of(templates))*
+  // 484: -> dup(list(undefined) length_of(templates))*
   frame->slots[3] /* temp__2 */ = create_closure(entry__23_3, 0);
-  // 470: :
-  // 471:   $command command_line_arguments(1).from_utf8
-  // 472:   cond
-  // 473:     ->
-  // 474:       &&
-  // 475:         command == "help"
-  // 476:         length_of(command_line_arguments) == 2
-  // 477:         command_line_arguments(2).from_utf8 == command_names(id)
-  // 478:       :
-  // 479:         check_arguments command_names(id) list("--help") templates
+  // 485: :
+  // 486:   $command command_line_arguments(1).from_utf8
+  // 487:   cond
+  // 488:     ->
+  // 489:       &&
+  // 490:         command == "help"
+  // 491:         length_of(command_line_arguments) == 2
+  // 492:         command_line_arguments(2).from_utf8 == command_names(id)
+  // 493:       :
+  // 494:         check_arguments command_names(id) list("--help") templates
   // ...
   frame->slots[4] /* temp__3 */ = create_closure(entry__23_7, 0);
-  // 467: if
-  // 468:   command_line_arguments.is_empty
-  // 469:   -> dup(list(undefined) length_of(templates))*
-  // 470:   :
-  // 471:     $command command_line_arguments(1).from_utf8
-  // 472:     cond
-  // 473:       ->
-  // 474:         &&
-  // 475:           command == "help"
-  // 476:           length_of(command_line_arguments) == 2
+  // 482: if
+  // 483:   command_line_arguments.is_empty
+  // 484:   -> dup(list(undefined) length_of(templates))*
+  // 485:   :
+  // 486:     $command command_line_arguments(1).from_utf8
+  // 487:     cond
+  // 488:       ->
+  // 489:         &&
+  // 490:           command == "help"
+  // 491:           length_of(command_line_arguments) == 2
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -10740,7 +10740,7 @@ static void entry__24_1_show_commands(void) {
     invalid_arguments_error();
     return;
   }
-  // 486: ... program_version.is_defined
+  // 501: ... program_version.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_version;
@@ -10755,8 +10755,8 @@ static void cont__24_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 486: if program_version.is_defined:
-  // 487:   show_version truncate_until(program_name '/' -1)
+  // 501: if program_version.is_defined:
+  // 502:   show_version truncate_until(program_name '/' -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10773,7 +10773,7 @@ static void entry__24_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 487: ... 1
+  // 502: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10788,7 +10788,7 @@ static void cont__24_4(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 487: ... truncate_until(program_name '/' -1)
+  // 502: ... truncate_until(program_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__program_name();
@@ -10805,7 +10805,7 @@ static void cont__24_5(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 487: show_version truncate_until(program_name '/' -1)
+  // 502: show_version truncate_until(program_name '/' -1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -10819,7 +10819,7 @@ static void cont__24_6(void) {
     invalid_results_error();
     return;
   }
-  // 488: ewriteln "Available commands:"
+  // 503: ewriteln "Available commands:"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__24_7;
@@ -10833,7 +10833,7 @@ static void cont__24_8(void) {
     invalid_results_error();
     return;
   }
-  // 489: ... list("help" "display help for the specified command")
+  // 504: ... list("help" "display help for the specified command")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__23_11;
@@ -10849,7 +10849,7 @@ static void cont__24_10(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 489: $$tab list(list("help" "display help for the specified command"))
+  // 504: $$tab list(list("help" "display help for the specified command"))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10864,11 +10864,11 @@ static void cont__24_11(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* tab */ = arguments->slots[0];
-  // 490: ... : (idx command_name)
-  // 491:   push &tab list(command_name command_descriptions(idx))
+  // 505: ... : (idx command_name)
+  // 506:   push &tab list(command_name command_descriptions(idx))
   frame->slots[1] /* temp__1 */ = create_closure(entry__24_12, 2);
-  // 490: for_each command_names: (idx command_name)
-  // 491:   push &tab list(command_name command_descriptions(idx))
+  // 505: for_each command_names: (idx command_name)
+  // 506:   push &tab list(command_name command_descriptions(idx))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._command_names;
@@ -10889,7 +10889,7 @@ static void entry__24_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 491: ... command_descriptions(idx)
+  // 506: ... command_descriptions(idx)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* idx */;
@@ -10904,7 +10904,7 @@ static void cont__24_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 491: ... list(command_name command_descriptions(idx))
+  // 506: ... list(command_name command_descriptions(idx))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* command_name */;
@@ -10920,7 +10920,7 @@ static void cont__24_14(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 491: push &tab list(command_name command_descriptions(idx))
+  // 506: push &tab list(command_name command_descriptions(idx))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* tab */;
@@ -10947,7 +10947,7 @@ static void cont__24_16(void) {
     invalid_results_error();
     return;
   }
-  // 492: ... program_copyright.is_defined
+  // 507: ... program_copyright.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_copyright;
@@ -10962,11 +10962,11 @@ static void cont__24_17(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 492: ... :
-  // 493:   push &tab list("copyright" "display the copyright message")
+  // 507: ... :
+  // 508:   push &tab list("copyright" "display the copyright message")
   frame->slots[2] /* temp__2 */ = create_closure(entry__24_18, 0);
-  // 492: if program_copyright.is_defined:
-  // 493:   push &tab list("copyright" "display the copyright message")
+  // 507: if program_copyright.is_defined:
+  // 508:   push &tab list("copyright" "display the copyright message")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10985,7 +10985,7 @@ static void entry__24_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 493: ... list("copyright" "display the copyright message")
+  // 508: ... list("copyright" "display the copyright message")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__24_19;
@@ -11001,7 +11001,7 @@ static void cont__24_21(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 493: push &tab list("copyright" "display the copyright message")
+  // 508: push &tab list("copyright" "display the copyright message")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* tab */;
@@ -11028,7 +11028,7 @@ static void cont__24_23(void) {
     invalid_results_error();
     return;
   }
-  // 494: ... program_version.is_defined
+  // 509: ... program_version.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_version;
@@ -11043,11 +11043,11 @@ static void cont__24_24(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 494: ... :
-  // 495:   push &tab list("version" "display the version number")
+  // 509: ... :
+  // 510:   push &tab list("version" "display the version number")
   frame->slots[2] /* temp__2 */ = create_closure(entry__24_25, 0);
-  // 494: if program_version.is_defined:
-  // 495:   push &tab list("version" "display the version number")
+  // 509: if program_version.is_defined:
+  // 510:   push &tab list("version" "display the version number")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -11066,7 +11066,7 @@ static void entry__24_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 495: ... list("version" "display the version number")
+  // 510: ... list("version" "display the version number")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__24_26;
@@ -11082,7 +11082,7 @@ static void cont__24_28(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 495: push &tab list("version" "display the version number")
+  // 510: push &tab list("version" "display the version number")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* tab */;
@@ -11109,7 +11109,7 @@ static void cont__24_30(void) {
     invalid_results_error();
     return;
   }
-  // 496: display_table tab
+  // 511: display_table tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* tab */;
@@ -11125,8 +11125,8 @@ static void entry__25_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 596: ewriteln "
-  // 597:   No command specified!
+  // 613: ewriteln "
+  // 614:   No command specified!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_10;
@@ -11140,7 +11140,7 @@ static void cont__25_11(void) {
     invalid_results_error();
     return;
   }
-  // 598: show_commands
+  // 615: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11153,7 +11153,7 @@ static void cont__25_12(void) {
     invalid_results_error();
     return;
   }
-  // 599: exit 1
+  // 616: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11169,7 +11169,7 @@ static void entry__25_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 602: command_line_arguments(1)
+  // 619: command_line_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11184,16 +11184,16 @@ static void cont__25_14(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 601: case
-  // 602:   command_line_arguments(1)
-  // 603:   "copyright":
-  // 604:     if program_copyright.is_defined:
-  // 605:       show_copyright
-  // 606:       terminate
-  // 607:   "help":
-  // 608:     case
-  // 609:       length_of(command_line_arguments)
-  // 610:       1:
+  // 618: case
+  // 619:   command_line_arguments(1)
+  // 620:   "copyright":
+  // 621:     if program_copyright.is_defined:
+  // 622:       show_copyright
+  // 623:       terminate
+  // 624:   "help":
+  // 625:     case
+  // 626:       length_of(command_line_arguments)
+  // 627:       1:
   // ...
   argument_count = 7;
   arguments = node_p;
@@ -11218,7 +11218,7 @@ static void entry__25_47(void) {
     invalid_arguments_error();
     return;
   }
-  // 647: ... 1
+  // 664: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11233,7 +11233,7 @@ static void cont__25_48(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 647: $command_name truncate_until(program_name '/' -1)
+  // 664: $command_name truncate_until(program_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__program_name();
@@ -11250,7 +11250,7 @@ static void cont__25_49(void) {
     return;
   }
   initialize_future(frame->slots[0] /* command_name */, arguments->slots[0]);
-  // 648: show_version command_name
+  // 665: show_version command_name
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command_name */;
@@ -11264,7 +11264,7 @@ static void cont__25_50(void) {
     invalid_results_error();
     return;
   }
-  // 649: terminate
+  // 666: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11279,7 +11279,7 @@ static void entry__25_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 611: show_commands
+  // 628: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11292,7 +11292,7 @@ static void cont__25_22(void) {
     invalid_results_error();
     return;
   }
-  // 612: terminate
+  // 629: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11307,7 +11307,7 @@ static void entry__25_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 615: command_line_arguments(2)
+  // 632: command_line_arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -11322,16 +11322,16 @@ static void cont__25_24(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 614: case
-  // 615:   command_line_arguments(2)
-  // 616:   "copyright":
-  // 617:     if program_copyright.is_defined:
-  // 618:       ewrite "
-  // 619:         Usage:
-  // 620:           sigi copyright
-  // 621:       terminate
-  // 622:   "help":
-  // 623:     ewrite "
+  // 631: case
+  // 632:   command_line_arguments(2)
+  // 633:   "copyright":
+  // 634:     if program_copyright.is_defined:
+  // 635:       ewrite "
+  // 636:         Usage:
+  // 637:           sigi copyright
+  // 638:       terminate
+  // 639:   "help":
+  // 640:     ewrite "
   // ...
   argument_count = 7;
   arguments = node_p;
@@ -11354,9 +11354,9 @@ static void entry__25_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 632: ewrite "
-  // 633:   Usage:
-  // 634:     sigi version
+  // 649: ewrite "
+  // 650:   Usage:
+  // 651:     sigi version
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_36;
@@ -11370,7 +11370,7 @@ static void cont__25_37(void) {
     invalid_results_error();
     return;
   }
-  // 635: terminate
+  // 652: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11385,9 +11385,9 @@ static void entry__25_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 618: ewrite "
-  // 619:   Usage:
-  // 620:     sigi copyright
+  // 635: ewrite "
+  // 636:   Usage:
+  // 637:     sigi copyright
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_28;
@@ -11401,7 +11401,7 @@ static void cont__25_29(void) {
     invalid_results_error();
     return;
   }
-  // 621: terminate
+  // 638: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11416,7 +11416,7 @@ static void entry__25_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 617: ... program_copyright.is_defined
+  // 634: ... program_copyright.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_copyright;
@@ -11431,11 +11431,11 @@ static void cont__25_26(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 617: if program_copyright.is_defined:
-  // 618:   ewrite "
-  // 619:     Usage:
-  // 620:       sigi copyright
-  // 621:   terminate
+  // 634: if program_copyright.is_defined:
+  // 635:   ewrite "
+  // 636:     Usage:
+  // 637:       sigi copyright
+  // 638:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11452,12 +11452,12 @@ static void entry__25_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 623: ewrite "
-  // 624:   Usage:
-  // 625:     sigi help COMMAND
-  // 626:   
-  // 627:   Parameter:
-  // 628:     COMMAND  the command for which to retrieve help
+  // 640: ewrite "
+  // 641:   Usage:
+  // 642:     sigi help COMMAND
+  // 643:   
+  // 644:   Parameter:
+  // 645:     COMMAND  the command for which to retrieve help
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_31;
@@ -11471,7 +11471,7 @@ static void cont__25_32(void) {
     invalid_results_error();
     return;
   }
-  // 629: terminate
+  // 646: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11486,7 +11486,7 @@ static void entry__25_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 631: ... program_version.is_defined
+  // 648: ... program_version.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_version;
@@ -11501,11 +11501,11 @@ static void cont__25_34(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 631: if program_version.is_defined:
-  // 632:   ewrite "
-  // 633:     Usage:
-  // 634:       sigi version
-  // 635:   terminate
+  // 648: if program_version.is_defined:
+  // 649:   ewrite "
+  // 650:     Usage:
+  // 651:       sigi version
+  // 652:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11520,8 +11520,8 @@ static void cont__25_38(void) {
     invalid_results_error();
     return;
   }
-  // 636: ewriteln "
-  // 637:   Invalid command name!
+  // 653: ewriteln "
+  // 654:   Invalid command name!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_39;
@@ -11535,7 +11535,7 @@ static void cont__25_40(void) {
     invalid_results_error();
     return;
   }
-  // 638: show_commands
+  // 655: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11548,7 +11548,7 @@ static void cont__25_41(void) {
     invalid_results_error();
     return;
   }
-  // 639: exit 1
+  // 656: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11564,8 +11564,8 @@ static void entry__25_42(void) {
     invalid_arguments_error();
     return;
   }
-  // 641: ewriteln "
-  // 642:   Too many arguments!
+  // 658: ewriteln "
+  // 659:   Too many arguments!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__21_98;
@@ -11579,7 +11579,7 @@ static void cont__25_43(void) {
     invalid_results_error();
     return;
   }
-  // 643: show_commands
+  // 660: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11592,7 +11592,7 @@ static void cont__25_44(void) {
     invalid_results_error();
     return;
   }
-  // 644: exit 1
+  // 661: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11608,7 +11608,7 @@ static void entry__25_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 605: show_copyright
+  // 622: show_copyright
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11621,7 +11621,7 @@ static void cont__25_18(void) {
     invalid_results_error();
     return;
   }
-  // 606: terminate
+  // 623: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11636,7 +11636,7 @@ static void entry__25_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 604: ... program_copyright.is_defined
+  // 621: ... program_copyright.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_copyright;
@@ -11651,9 +11651,9 @@ static void cont__25_16(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 604: if program_copyright.is_defined:
-  // 605:   show_copyright
-  // 606:   terminate
+  // 621: if program_copyright.is_defined:
+  // 622:   show_copyright
+  // 623:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11670,7 +11670,7 @@ static void entry__25_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 609: length_of(command_line_arguments)
+  // 626: length_of(command_line_arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -11685,16 +11685,16 @@ static void cont__25_20(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 608: case
-  // 609:   length_of(command_line_arguments)
-  // 610:   1:
-  // 611:     show_commands
-  // 612:     terminate
-  // 613:   2:
-  // 614:     case
-  // 615:       command_line_arguments(2)
-  // 616:       "copyright":
-  // 617:         if program_copyright.is_defined:
+  // 625: case
+  // 626:   length_of(command_line_arguments)
+  // 627:   1:
+  // 628:     show_commands
+  // 629:     terminate
+  // 630:   2:
+  // 631:     case
+  // 632:       command_line_arguments(2)
+  // 633:       "copyright":
+  // 634:         if program_copyright.is_defined:
   // ...
   argument_count = 6;
   arguments = node_p;
@@ -11716,7 +11716,7 @@ static void entry__25_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 646: ... program_version.is_defined
+  // 663: ... program_version.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_version;
@@ -11731,10 +11731,10 @@ static void cont__25_46(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 646: if program_version.is_defined:
-  // 647:   $command_name truncate_until(program_name '/' -1)
-  // 648:   show_version command_name
-  // 649:   terminate
+  // 663: if program_version.is_defined:
+  // 664:   $command_name truncate_until(program_name '/' -1)
+  // 665:   show_version command_name
+  // 666:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11749,8 +11749,8 @@ static void cont__25_51(void) {
     invalid_results_error();
     return;
   }
-  // 650: ewriteln "
-  // 651:   Invalid arguments!
+  // 667: ewriteln "
+  // 668:   Invalid arguments!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_52;
@@ -11764,7 +11764,7 @@ static void cont__25_53(void) {
     invalid_results_error();
     return;
   }
-  // 652: show_commands
+  // 669: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11777,7 +11777,7 @@ static void cont__25_54(void) {
     invalid_results_error();
     return;
   }
-  // 653: exit 1
+  // 670: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11793,7 +11793,7 @@ static void entry__25_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 593: ... -> command_id
+  // 610: ... -> command_id
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._command_id;
@@ -11808,7 +11808,7 @@ static void entry__25_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 595: command_line_arguments.is_empty
+  // 612: command_line_arguments.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -11823,16 +11823,16 @@ static void cont__25_8(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 594: if
-  // 595:   command_line_arguments.is_empty:
-  // 596:     ewriteln "
-  // 597:       No command specified!
-  // 598:     show_commands
-  // 599:     exit 1
-  // 600:   :
-  // 601:     case
-  // 602:       command_line_arguments(1)
-  // 603:       "copyright":
+  // 611: if
+  // 612:   command_line_arguments.is_empty:
+  // 613:     ewriteln "
+  // 614:       No command specified!
+  // 615:     show_commands
+  // 616:     exit 1
+  // 617:   :
+  // 618:     case
+  // 619:       command_line_arguments(1)
+  // 620:       "copyright":
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -11853,7 +11853,7 @@ static void entry__25_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 655: check_arguments command_line_arguments templates
+  // 672: check_arguments command_line_arguments templates
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -11870,7 +11870,7 @@ static void entry__25_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 593: ... command_id.is_defined
+  // 610: ... command_id.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._command_id;
@@ -11885,16 +11885,16 @@ static void cont__25_5(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 593: if command_id.is_defined (-> command_id):
-  // 594:   if
-  // 595:     command_line_arguments.is_empty:
-  // 596:       ewriteln "
-  // 597:         No command specified!
-  // 598:       show_commands
-  // 599:       exit 1
-  // 600:     :
-  // 601:       case
-  // 602:         command_line_arguments(1)
+  // 610: if command_id.is_defined (-> command_id):
+  // 611:   if
+  // 612:     command_line_arguments.is_empty:
+  // 613:       ewriteln "
+  // 614:         No command specified!
+  // 615:       show_commands
+  // 616:       exit 1
+  // 617:     :
+  // 618:       case
+  // 619:         command_line_arguments(1)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -11912,7 +11912,7 @@ static void entry__25_1_std__program_parameters(void) {
   // slot allocations:
   // templates: 0
   frame->slots[0] /* templates */ = from_arguments(0, argument_count-0);
-  // 592: command_id_count > 0
+  // 609: command_id_count > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -11928,19 +11928,19 @@ static void cont__25_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 654: :
-  // 655:   check_arguments command_line_arguments templates
+  // 671: :
+  // 672:   check_arguments command_line_arguments templates
   frame->slots[2] /* temp__2 */ = create_closure(entry__25_3, 0);
-  // 591: if
-  // 592:   command_id_count > 0:
-  // 593:     if command_id.is_defined (-> command_id):
-  // 594:       if
-  // 595:         command_line_arguments.is_empty:
-  // 596:           ewriteln "
-  // 597:             No command specified!
-  // 598:           show_commands
-  // 599:           exit 1
-  // 600:         :
+  // 608: if
+  // 609:   command_id_count > 0:
+  // 610:     if command_id.is_defined (-> command_id):
+  // 611:       if
+  // 612:         command_line_arguments.is_empty:
+  // 613:           ewriteln "
+  // 614:             No command specified!
+  // 615:           show_commands
+  // 616:           exit 1
+  // 617:         :
   // ...
   argument_count = 3;
   arguments = node_p;

@@ -20,7 +20,23 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
+#
+  Topic: Strings
+
+  Strings are lists of 32-bit integer values, usually unicode code points.
+
+  I/O-functions cannot handle strings that contain values that do not fit into
+  8 bit.
+
+  The function <to_utf8> is used to convert a string containing unicode code
+  points into an 8-bit string.
+
+  The function <from_utf8> is used to convert an 8-bit string into a string
+  containing unicode code points.
+
 $types::string/to_integer:
+  #
+    converts the whole string into an integer value
   (
     $self
     -> return
@@ -30,6 +46,8 @@ $types::string/to_integer:
   -> value
 
 $types::string/to_real:
+  #
+    converts the whole string into a real value
   (
     $self
     -> return
@@ -38,7 +56,12 @@ $types::string/to_real:
   if self != "": return undefined
   -> value
 
-$types::string/parse_number: (self)
+$types::string/parse_number:
+  #
+    extracts a number from the start of the string
+  (
+    self
+  )
   $$i 1
   $n length_of(self)
   if self(1) == '-': inc &i
@@ -50,6 +73,8 @@ $types::string/parse_number: (self)
       parse_integer self
 
 $types::string/to_number:
+  #
+    converts the whole string into a numeric value
   (
     $self
     -> return
@@ -58,9 +83,18 @@ $types::string/to_number:
   if self != "": return undefined
   -> value
 
-$types::string/put: (self chr) -> append(chr.to_string self)
+$types::string/put:
+  #
+    adds a character at the front of the string
+  (
+    self
+    chr
+  )
+  -> append(chr.to_string self)
 
 $types::string/write_to:
+  #
+    converts its arguments to strings and appends them
   (
     &self
     args*
@@ -68,6 +102,8 @@ $types::string/write_to:
   for_each args: (arg) append &self arg.to_string
 
 $types::string/numerically_less:
+  #
+    compares two strings as decimal numbers
   (
     left
     right
@@ -105,19 +141,30 @@ $types::string/numerically_less:
 	  return left_chr < right_chr
       return left_len < right_len
 
-$types::string/to_list: (self)
+$types::string/to_list:
+  #
+    returns a list of the string's characters
+  (
+    self
+  )
   $$items empty_list
   for_each self: (item) push &items item
   -> items
 
-$std::string: (args*)
+$std::string:
+  #
+    returns the concatenation of all its arguments converted to strings
+  (
+    args*
+  )
   $$buf ""
   $n length_of(args)
   from_to 1 n: (i) append &buf to_string(args(i))
   -> buf
 
 $types::string/dup:
-  # creates a string containing *n* copies of the original string
+  #
+    creates a string containing *n* copies of the original string
   (
     self
     n # the duplication count
@@ -216,10 +263,18 @@ $std::pad_or_truncate:
   $len length_of(text)
   if len < n (-> string(text dup(" " n-len))) -> range(text 1 n)
 
-$types::string/match_character: (self chr)
+$types::string/match_character:
+  #
+    matches a single character at the start of the string
+  (
+    self
+    chr
+  )
   if length_of(self) > 0 && self(1) == chr (-> 1) -> undefined
 
 $types::string/grammar::match:
+  #
+    matches the start of the stream with the string
   (
     expr
     stream
@@ -231,6 +286,8 @@ $types::string/grammar::match:
   -> undefined
 
 $types::string/match:
+  #
+    matches the string against the specified expression
   (
     stream
     expr
@@ -242,6 +299,8 @@ $types::string/match:
   -> n
 
 $types::string/search_character:
+  #
+    searches the string for the specified character
   (
     self
     chr
@@ -590,18 +649,31 @@ $types::string/without_suffix:
     if match(range(self i -1) suffix) == len-i+1: return range(self 1 i-1)
   -> self
 
-$std::trim: (&str) # removes whitespace on both ends of a string
+$std::trim:
+  #
+    removes whitespace on both ends of a string
+  (
+    &str
+  )
   $$s 1
   $$e length_of(str)
   while -> s <= e && str(s) <= ' ': plus &s 1
   while -> e >= s && str(e) <= ' ': minus &e 1
   range &str s e
 
-$std::normalize: (&str)
+$std::normalize:
+  #
+    trims the string and replaces all remaining whitespace sequences with a
+    single space
+  (
+    &str
+  )
   trim &str
   replace_all &str many(alt(' ' '@ht;' '@nl;' '@cr;')) = " "
 
 $std::split:
+  #
+    splits the string into words
   (
     $text
     separator = many(' ')
@@ -617,6 +689,8 @@ $std::split:
   -> items
 
 $std::join:
+  #
+    joins a list of words using the specified separator
   (
     words
     separator = " "
@@ -629,7 +703,13 @@ $std::join:
       append &text separator
   -> text
 
-$std::count_occurrences: ($text expr)
+$std::count_occurrences:
+  #
+    counts how often the specified expression occurrs within the string
+  (
+    $text
+    expr
+  )
   $$n 0
   do_while:
     grammar::search $pos $len expr text
@@ -639,10 +719,23 @@ $std::count_occurrences: ($text expr)
     -> pos.is_defined
   -> n
 
-$types::string/matches: (text expr)
+$types::string/matches:
+  #
+    returns <true> if the *whole* string matches the specified expression
+  (
+    text
+    expr
+  )
   -> grammar::match(expr text) == length_of(text)
 
-$types::string/contains: (text expr)
+$types::string/contains:
+  #
+    returns <true> if the specified expression occurrs at least once within the
+    string
+  (
+    text
+    expr
+  )
   grammar::search $pos $_len expr text
   -> pos.is_defined
 
@@ -944,7 +1037,12 @@ $umlaut_conversions
     'Ǿ' = "O"
     'ǿ' = "o"
 
-$std::replace_umlauts: (text)
+$std::replace_umlauts:
+  #
+    returns a string without umlauts
+  (
+    text
+  )
   $$s 1
   $$result ""
 
@@ -989,7 +1087,14 @@ $std::replace_umlauts: (text)
     $replacement value_of(arg)
     do_replace &text expression replacement
 
-$std::replace_all: ($text args*)
+$std::replace_all:
+  #
+    replaces all occurences of the specfified expressions with a replacement
+    text
+  (
+    $text
+    args*
+  )
   $$new_text ""
   while -> length_of(text) > 0:
     do: (-> break)
@@ -1009,7 +1114,13 @@ $std::replace_all: ($text args*)
       range &text 2 -1
   -> new_text
 
-$std::delete_all: ($text expressions*)
+$std::delete_all:
+  #
+    deletes all occurrences of the specified expressions from the string
+  (
+    $text
+    expressions*
+  )
   $$new_text ""
   while -> length_of(text) > 0:
     do: (-> break)
@@ -1027,9 +1138,21 @@ $eighty_spaces "
                                                                                @
      @
 
-$std::spaces: (n) if n > 80 (-> dup(" " n)) -> range(eighty_spaces 1 n)
+$std::spaces:
+  #
+    returns that many spaces
+  (
+    n
+  )
+  if n > 80 (-> dup(" " n)) -> range(eighty_spaces 1 n)
 
-$std::indented: (indent $text)
+$std::indented:
+  #
+    returns a sequence of tabulator and space characters
+  (
+    indent
+    $text
+  )
   if indent > 0:
     $indentation spaces(indent)
     replace_all
@@ -1039,6 +1162,8 @@ $std::indented: (indent $text)
   -> text
 
 $std::for_each_line:
+  #
+    executes a callback function for each line of text in the string
   (
     text
     body
@@ -1064,11 +1189,28 @@ $std::for_each_line:
 	  :
 	    body text
 
-$types::string/to_lower_case: (text) -> map(text to_lower_case)
+$types::string/to_lower_case:
+  #
+    converts the string to lower case
+  (
+    text
+  )
+  -> map(text to_lower_case)
 
-$types::string/to_upper_case: (text) -> map(text to_upper_case)
+$types::string/to_upper_case:
+  #
+    converts the string to UPPER CASE
+  (
+    text
+  )
+  -> map(text to_upper_case)
 
-$types::string/to_title_case: (text)
+$types::string/to_title_case:
+  #
+    converts the string to Title Case
+  (
+    text
+  )
   $$out ""
   $$to_upper true
   for_each text: (chr)
@@ -1085,76 +1227,25 @@ $types::string/to_title_case: (text)
 	!to_upper true
   -> out
 
-#$std::from_utf8: (text)
-  $$out ""
-  $$count 0
-  $$unicode undefined
-  for_each text: (chr)
-    $code chr.to_integer
-    cond
-      -> code >= 0xf0:
-        !count 3
-        !unicode code & 0x07
-      -> code >= 0xe0:
-        !count 2
-        !unicode code & 0x0f
-      -> code >= 0xc0:
-        !count 1
-        !unicode code & 0x1f
-      -> code >= 0x80:
-        !unicode unicode << 6 | code & 0x3f
-        dec &count
-        if count == 0:
-          # ATTENTION: Temporary fix for gcc error messages!
-          case unicode
-            0x2013:
-              push &out '-'
-            0x201c, 0x201e:
-              push &out '@quot;'
-            0x2018, 0x201a, 0x2098, 0x2099:
-              push &out '@apos;'
-            0x2009:
-              pass
-            :
-              if
-                unicode > 255:
-                  #edump `hex(unicode)
-                  push &out '?'
-                :
-                  push &out character(unicode)
-      :
-        push &out chr
-  -> out
-#$std::to_utf8: (text)
-  $$out ""
-  for_each text: (chr)
-    $code
-      if
-        chr == '@0xa4;'
-        -> 0x20ac
-        -> chr.to_integer
-    cond
-      -> code >= 0x10000:
-        push &out character(code >> 18 | 0xf0)
-        push &out character(code >> 12 & 0x3f | 0x80)
-        push &out character(code >> 6 & 0x3f | 0x80)
-        push &out character(code & 0x3f | 0x80)
-      -> code >= 0x800:
-        push &out character(code >> 12 | 0xe0)
-        push &out character(code >> 6 & 0x3f | 0x80)
-        push &out character(code & 0x3f | 0x80)
-      -> code >= 0x80:
-        push &out character(code >> 6 & 0x1f | 0xc0)
-        push &out character(code & 0x3f | 0x80)
-      :
-        push &out chr
-  -> out
+$types::octet_string/new_empty_collection:
+  #
+    returns an empty <types::octet_string>
+  (
+    _self
+  )
+  -> types::octet_string
 
-$types::octet_string/new_empty_collection: (_self) -> types::octet_string
-
-$types::quad_octet_string/new_empty_collection: (_self) -> types::octet_string
+$types::quad_octet_string/new_empty_collection:
+  #
+    returns an empty <types::quad_octet_string>
+  (
+    _self
+  )
+  -> types::octet_string
 
 $std::collect_output:
+  #
+    collects the output within the specified callback function into a string
   (
     &self = ""
     body
@@ -1162,12 +1253,3 @@ $std::collect_output:
   %std::write: (args*) write_to &self args*
 
   body
-
-$std::concatenate: (strings func?)
-  $$buf ""
-  if
-    func.is_defined:
-      for_each strings: (str) append &buf func(str)
-    :
-      for_each strings: (str) append &buf str
-  -> buf

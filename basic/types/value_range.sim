@@ -20,10 +20,10 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_a_value_range ()
+$std::is_a_value_range () # obvious
 
-$types::object.is_a_value_range false
-$types::value_range.is_a_value_range true
+$types::object.is_a_value_range false # obvious
+$types::value_range.is_a_value_range true # obvious
 
 {
   <kind node>
@@ -41,22 +41,30 @@ $types::value_range.is_a_value_range true
   <argument NULL>
   <argument NULL>
 
+  // the prototype object for all value-ranges
+
   RUNTIME_ERROR("Attempt to call a value range as a function!")
 }
 
 $std::value_range
+  #
+    creates a value-range-object
   {
     CHECK_ARGUMENTS(2)
     RETURN_SINGLE_RESULT(create__types__value_range(ARGUMENTS(0), ARGUMENTS(1)))
   }
 
 $types::value_range/lower_bound_of
+  #
+    returns the *lower bound* of the range
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(ARGUMENTS(0)->value_range.lower_bound)
   }
 
 $types::value_range/upper_bound_of
+  #
+    returns the *upper bound* of the range
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(ARGUMENTS(0)->value_range.upper_bound)
@@ -65,7 +73,9 @@ $types::value_range/upper_bound_of
 {
   <kind function>
 
-  long types::value_range/debug_string(NODE *node, int indent, int max_depth, char *buf) {
+  long types::value_range/debug_string(
+    NODE *node, int indent, int max_depth, char *buf
+  ) {
     int i, n, len;
     n = debug_print_head(&indent, &buf, "value_range");
     const char *contents_indent = indent_to_string(indent);
@@ -88,8 +98,34 @@ $types::value_range/equal: (left right)
       lower_bound_of(left) == lower_bound_of(right)
       upper_bound_of(left) == upper_bound_of(right)
 
-$types::value_range/contains: (self item)
+$types::value_range/contains:
+  #
+    checks whether the supplied item is within range
+
+    The range bounds are inclusive, so for items that match either the lower or
+    the upper bound of the range, the check will succeed.
+
+    See also: lower_bound_of, upper_bound_of
+  (
+    self
+    item
+  )
   -> item >= lower_bound_of(self) && item <= upper_bound_of(self)
+
+$types::value_range/for_each:
+  #
+    iterates over each item in the range
+
+    The specified *body* is called for each item in range, starting with the
+    range's *lower bound* and ending with the range's upper bound.
+
+    See also: lower_bound_of, upper_bound_of
+  (
+    self
+    body
+  )
+  from_to lower_bound_of(self) upper_bound_of(self): (item)
+    body item
 
 $types::value_range/serialize:
   (

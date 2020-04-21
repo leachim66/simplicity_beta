@@ -20,6 +20,19 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
+#
+  Topic: Loops
+
+  There are no builtin loop instructions in the Simplicity language.
+
+  The basic loop instructions of the standard library use recursion and rely on
+  the guraranteed tail-recursion-optimization peformed by the Simplicity
+  compiler.
+
+  There are lots of loops that iterate over the elements of collections. Most
+  of them are implemented as polymorphic functions and specialized for each type
+  of collection.
+
 $std::from_to:
   #
     a loop iterating over a sequence of values

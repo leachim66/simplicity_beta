@@ -522,112 +522,112 @@ void run__basic__loops(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__loops, NULL, },
-  {entry__1_6, NULL, 87, 87, 25, 34},
-  {entry__1_3, NULL, 87, 87, 10, 22},
-  {cont__1_4, &frame__1_3, 87, 87, 10, 22},
-  {cont__1_5, &frame__1_3, 87, 87, 7, 34},
-  {cont__1_7, &frame__1_3, 88, 88, 17, 23},
-  {cont__1_8, &frame__1_3, 88, 88, 7, 39},
-  {entry__1_9, NULL, 90, 90, 7, 31},
-  {entry__1_1_std__from_to, NULL, 86, 86, 5, 20},
-  {cont__1_2, &frame__1_1_std__from_to, 85, 90, 3, 32},
-  {entry__2_4, NULL, 94, 94, 5, 10},
-  {cont__2_5, &frame__2_4, 95, 95, 15, 17},
-  {cont__2_6, &frame__2_4, 95, 95, 5, 24},
-  {entry__2_1_from_to_1, NULL, 93, 93, 6, 11},
-  {cont__2_2, &frame__2_1_from_to_1, 93, 93, 6, 11},
-  {cont__2_3, &frame__2_1_from_to_1, 93, 95, 3, 24},
-  {entry__3_4, NULL, 99, 99, 5, 9},
-  {cont__3_5, &frame__3_4, 100, 100, 5, 10},
-  {cont__3_6, &frame__3_4, 101, 101, 15, 17},
-  {cont__3_7, &frame__3_4, 101, 101, 5, 30},
-  {entry__3_1_from_to_2, NULL, 98, 98, 6, 11},
-  {cont__3_2, &frame__3_1_from_to_2, 98, 98, 6, 11},
-  {cont__3_3, &frame__3_1_from_to_2, 98, 101, 3, 30},
-  {entry__4_6, NULL, 163, 163, 25, 34},
-  {entry__4_3, NULL, 163, 163, 10, 22},
-  {cont__4_4, &frame__4_3, 163, 163, 10, 22},
-  {cont__4_5, &frame__4_3, 163, 163, 7, 34},
-  {cont__4_7, &frame__4_3, 164, 164, 20, 29},
-  {cont__4_8, &frame__4_3, 164, 164, 7, 50},
-  {entry__4_9, NULL, 166, 166, 7, 39},
-  {entry__4_1_std__from_to_by, NULL, 162, 162, 5, 20},
-  {cont__4_2, &frame__4_1_std__from_to_by, 161, 166, 3, 40},
-  {entry__5_4, NULL, 170, 170, 5, 10},
-  {cont__5_5, &frame__5_4, 171, 171, 18, 23},
-  {cont__5_6, &frame__5_4, 171, 171, 5, 35},
-  {entry__5_1_from_to_by_1, NULL, 169, 169, 6, 11},
-  {cont__5_2, &frame__5_1_from_to_by_1, 169, 169, 6, 11},
-  {cont__5_3, &frame__5_1_from_to_by_1, 169, 171, 3, 35},
-  {entry__6_4, NULL, 175, 175, 5, 9},
-  {cont__6_5, &frame__6_4, 176, 176, 5, 10},
-  {cont__6_6, &frame__6_4, 177, 177, 18, 23},
-  {cont__6_7, &frame__6_4, 177, 177, 5, 41},
-  {entry__6_1_from_to_by_2, NULL, 174, 174, 6, 11},
-  {cont__6_2, &frame__6_1_from_to_by_2, 174, 174, 6, 11},
-  {cont__6_3, &frame__6_1_from_to_by_2, 174, 177, 3, 41},
-  {entry__7_6, NULL, 234, 234, 25, 34},
-  {entry__7_3, NULL, 234, 234, 10, 22},
-  {cont__7_4, &frame__7_3, 234, 234, 10, 22},
-  {cont__7_5, &frame__7_3, 234, 234, 7, 34},
-  {cont__7_7, &frame__7_3, 235, 235, 22, 28},
-  {cont__7_8, &frame__7_3, 235, 235, 7, 44},
-  {entry__7_9, NULL, 237, 237, 7, 36},
-  {entry__7_1_std__from_down_to, NULL, 233, 233, 5, 20},
-  {cont__7_2, &frame__7_1_std__from_down_to, 232, 237, 3, 37},
-  {entry__8_4, NULL, 241, 241, 5, 10},
-  {cont__8_5, &frame__8_4, 242, 242, 20, 22},
-  {cont__8_6, &frame__8_4, 242, 242, 5, 29},
-  {entry__8_1_from_down_to_1, NULL, 240, 240, 6, 11},
-  {cont__8_2, &frame__8_1_from_down_to_1, 240, 240, 6, 11},
-  {cont__8_3, &frame__8_1_from_down_to_1, 240, 242, 3, 29},
-  {entry__9_4, NULL, 246, 246, 5, 9},
-  {cont__9_5, &frame__9_4, 247, 247, 5, 10},
-  {cont__9_6, &frame__9_4, 248, 248, 15, 17},
-  {cont__9_7, &frame__9_4, 248, 248, 5, 30},
-  {entry__9_1_from_down_to_2, NULL, 245, 245, 6, 11},
-  {cont__9_2, &frame__9_1_from_down_to_2, 245, 245, 6, 11},
-  {cont__9_3, &frame__9_1_from_down_to_2, 245, 248, 3, 30},
-  {entry__10_6, NULL, 304, 304, 25, 34},
-  {entry__10_3, NULL, 304, 304, 10, 22},
-  {cont__10_4, &frame__10_3, 304, 304, 10, 22},
-  {cont__10_5, &frame__10_3, 304, 304, 7, 34},
-  {cont__10_7, &frame__10_3, 305, 305, 25, 34},
-  {cont__10_8, &frame__10_3, 305, 305, 7, 55},
-  {entry__10_9, NULL, 307, 307, 7, 44},
-  {entry__10_1_std__from_down_to_by, NULL, 303, 303, 5, 20},
-  {cont__10_2, &frame__10_1_std__from_down_to_by, 302, 307, 3, 45},
-  {entry__11_4, NULL, 311, 311, 5, 10},
-  {cont__11_5, &frame__11_4, 312, 312, 23, 28},
-  {cont__11_6, &frame__11_4, 312, 312, 5, 40},
-  {entry__11_1_from_down_to_by_1, NULL, 310, 310, 6, 11},
-  {cont__11_2, &frame__11_1_from_down_to_by_1, 310, 310, 6, 11},
-  {cont__11_3, &frame__11_1_from_down_to_by_1, 310, 312, 3, 40},
-  {entry__12_4, NULL, 316, 316, 5, 9},
-  {cont__12_5, &frame__12_4, 317, 317, 5, 10},
-  {cont__12_6, &frame__12_4, 318, 318, 23, 28},
-  {cont__12_7, &frame__12_4, 318, 318, 5, 46},
-  {entry__12_1_from_down_to_by_2, NULL, 315, 315, 6, 11},
-  {cont__12_2, &frame__12_1_from_down_to_by_2, 315, 315, 6, 11},
-  {cont__12_3, &frame__12_1_from_down_to_by_2, 315, 318, 3, 46},
-  {entry__13_4, NULL, 348, 348, 5, 8},
-  {cont__13_5, &frame__13_4, 349, 349, 12, 14},
-  {cont__13_6, &frame__13_4, 349, 349, 5, 19},
-  {entry__13_1_std__repeat, NULL, 347, 347, 6, 11},
-  {cont__13_2, &frame__13_1_std__repeat, 347, 347, 6, 11},
-  {cont__13_3, &frame__13_1_std__repeat, 347, 349, 3, 19},
-  {entry__14_1_std__forever, NULL, 389, 389, 3, 6},
-  {cont__14_2, &frame__14_1_std__forever, 390, 390, 3, 14},
-  {entry__15_3, NULL, 442, 442, 5, 8},
-  {cont__15_4, &frame__15_3, 443, 443, 5, 23},
-  {entry__15_1_std__while, NULL, 440, 440, 3, 27},
-  {cont__15_2, &frame__15_1_std__while, 441, 443, 3, 23},
-  {entry__16_3, NULL, 458, 458, 14, 26},
-  {entry__16_1_std__do_while, NULL, 458, 458, 6, 11},
-  {cont__16_2, &frame__16_1_std__do_while, 458, 458, 3, 26},
-  {entry__17_3, NULL, 473, 473, 18, 30},
-  {entry__17_1_std__do_until, NULL, 473, 473, 10, 15},
-  {cont__17_2, &frame__17_1_std__do_until, 473, 473, 3, 30}
+  {entry__1_6, NULL, 100, 100, 25, 34},
+  {entry__1_3, NULL, 100, 100, 10, 22},
+  {cont__1_4, &frame__1_3, 100, 100, 10, 22},
+  {cont__1_5, &frame__1_3, 100, 100, 7, 34},
+  {cont__1_7, &frame__1_3, 101, 101, 17, 23},
+  {cont__1_8, &frame__1_3, 101, 101, 7, 39},
+  {entry__1_9, NULL, 103, 103, 7, 31},
+  {entry__1_1_std__from_to, NULL, 99, 99, 5, 20},
+  {cont__1_2, &frame__1_1_std__from_to, 98, 103, 3, 32},
+  {entry__2_4, NULL, 107, 107, 5, 10},
+  {cont__2_5, &frame__2_4, 108, 108, 15, 17},
+  {cont__2_6, &frame__2_4, 108, 108, 5, 24},
+  {entry__2_1_from_to_1, NULL, 106, 106, 6, 11},
+  {cont__2_2, &frame__2_1_from_to_1, 106, 106, 6, 11},
+  {cont__2_3, &frame__2_1_from_to_1, 106, 108, 3, 24},
+  {entry__3_4, NULL, 112, 112, 5, 9},
+  {cont__3_5, &frame__3_4, 113, 113, 5, 10},
+  {cont__3_6, &frame__3_4, 114, 114, 15, 17},
+  {cont__3_7, &frame__3_4, 114, 114, 5, 30},
+  {entry__3_1_from_to_2, NULL, 111, 111, 6, 11},
+  {cont__3_2, &frame__3_1_from_to_2, 111, 111, 6, 11},
+  {cont__3_3, &frame__3_1_from_to_2, 111, 114, 3, 30},
+  {entry__4_6, NULL, 176, 176, 25, 34},
+  {entry__4_3, NULL, 176, 176, 10, 22},
+  {cont__4_4, &frame__4_3, 176, 176, 10, 22},
+  {cont__4_5, &frame__4_3, 176, 176, 7, 34},
+  {cont__4_7, &frame__4_3, 177, 177, 20, 29},
+  {cont__4_8, &frame__4_3, 177, 177, 7, 50},
+  {entry__4_9, NULL, 179, 179, 7, 39},
+  {entry__4_1_std__from_to_by, NULL, 175, 175, 5, 20},
+  {cont__4_2, &frame__4_1_std__from_to_by, 174, 179, 3, 40},
+  {entry__5_4, NULL, 183, 183, 5, 10},
+  {cont__5_5, &frame__5_4, 184, 184, 18, 23},
+  {cont__5_6, &frame__5_4, 184, 184, 5, 35},
+  {entry__5_1_from_to_by_1, NULL, 182, 182, 6, 11},
+  {cont__5_2, &frame__5_1_from_to_by_1, 182, 182, 6, 11},
+  {cont__5_3, &frame__5_1_from_to_by_1, 182, 184, 3, 35},
+  {entry__6_4, NULL, 188, 188, 5, 9},
+  {cont__6_5, &frame__6_4, 189, 189, 5, 10},
+  {cont__6_6, &frame__6_4, 190, 190, 18, 23},
+  {cont__6_7, &frame__6_4, 190, 190, 5, 41},
+  {entry__6_1_from_to_by_2, NULL, 187, 187, 6, 11},
+  {cont__6_2, &frame__6_1_from_to_by_2, 187, 187, 6, 11},
+  {cont__6_3, &frame__6_1_from_to_by_2, 187, 190, 3, 41},
+  {entry__7_6, NULL, 247, 247, 25, 34},
+  {entry__7_3, NULL, 247, 247, 10, 22},
+  {cont__7_4, &frame__7_3, 247, 247, 10, 22},
+  {cont__7_5, &frame__7_3, 247, 247, 7, 34},
+  {cont__7_7, &frame__7_3, 248, 248, 22, 28},
+  {cont__7_8, &frame__7_3, 248, 248, 7, 44},
+  {entry__7_9, NULL, 250, 250, 7, 36},
+  {entry__7_1_std__from_down_to, NULL, 246, 246, 5, 20},
+  {cont__7_2, &frame__7_1_std__from_down_to, 245, 250, 3, 37},
+  {entry__8_4, NULL, 254, 254, 5, 10},
+  {cont__8_5, &frame__8_4, 255, 255, 20, 22},
+  {cont__8_6, &frame__8_4, 255, 255, 5, 29},
+  {entry__8_1_from_down_to_1, NULL, 253, 253, 6, 11},
+  {cont__8_2, &frame__8_1_from_down_to_1, 253, 253, 6, 11},
+  {cont__8_3, &frame__8_1_from_down_to_1, 253, 255, 3, 29},
+  {entry__9_4, NULL, 259, 259, 5, 9},
+  {cont__9_5, &frame__9_4, 260, 260, 5, 10},
+  {cont__9_6, &frame__9_4, 261, 261, 15, 17},
+  {cont__9_7, &frame__9_4, 261, 261, 5, 30},
+  {entry__9_1_from_down_to_2, NULL, 258, 258, 6, 11},
+  {cont__9_2, &frame__9_1_from_down_to_2, 258, 258, 6, 11},
+  {cont__9_3, &frame__9_1_from_down_to_2, 258, 261, 3, 30},
+  {entry__10_6, NULL, 317, 317, 25, 34},
+  {entry__10_3, NULL, 317, 317, 10, 22},
+  {cont__10_4, &frame__10_3, 317, 317, 10, 22},
+  {cont__10_5, &frame__10_3, 317, 317, 7, 34},
+  {cont__10_7, &frame__10_3, 318, 318, 25, 34},
+  {cont__10_8, &frame__10_3, 318, 318, 7, 55},
+  {entry__10_9, NULL, 320, 320, 7, 44},
+  {entry__10_1_std__from_down_to_by, NULL, 316, 316, 5, 20},
+  {cont__10_2, &frame__10_1_std__from_down_to_by, 315, 320, 3, 45},
+  {entry__11_4, NULL, 324, 324, 5, 10},
+  {cont__11_5, &frame__11_4, 325, 325, 23, 28},
+  {cont__11_6, &frame__11_4, 325, 325, 5, 40},
+  {entry__11_1_from_down_to_by_1, NULL, 323, 323, 6, 11},
+  {cont__11_2, &frame__11_1_from_down_to_by_1, 323, 323, 6, 11},
+  {cont__11_3, &frame__11_1_from_down_to_by_1, 323, 325, 3, 40},
+  {entry__12_4, NULL, 329, 329, 5, 9},
+  {cont__12_5, &frame__12_4, 330, 330, 5, 10},
+  {cont__12_6, &frame__12_4, 331, 331, 23, 28},
+  {cont__12_7, &frame__12_4, 331, 331, 5, 46},
+  {entry__12_1_from_down_to_by_2, NULL, 328, 328, 6, 11},
+  {cont__12_2, &frame__12_1_from_down_to_by_2, 328, 328, 6, 11},
+  {cont__12_3, &frame__12_1_from_down_to_by_2, 328, 331, 3, 46},
+  {entry__13_4, NULL, 361, 361, 5, 8},
+  {cont__13_5, &frame__13_4, 362, 362, 12, 14},
+  {cont__13_6, &frame__13_4, 362, 362, 5, 19},
+  {entry__13_1_std__repeat, NULL, 360, 360, 6, 11},
+  {cont__13_2, &frame__13_1_std__repeat, 360, 360, 6, 11},
+  {cont__13_3, &frame__13_1_std__repeat, 360, 362, 3, 19},
+  {entry__14_1_std__forever, NULL, 402, 402, 3, 6},
+  {cont__14_2, &frame__14_1_std__forever, 403, 403, 3, 14},
+  {entry__15_3, NULL, 455, 455, 5, 8},
+  {cont__15_4, &frame__15_3, 456, 456, 5, 23},
+  {entry__15_1_std__while, NULL, 453, 453, 3, 27},
+  {cont__15_2, &frame__15_1_std__while, 454, 456, 3, 23},
+  {entry__16_3, NULL, 471, 471, 14, 26},
+  {entry__16_1_std__do_while, NULL, 471, 471, 6, 11},
+  {cont__16_2, &frame__16_1_std__do_while, 471, 471, 3, 26},
+  {entry__17_3, NULL, 486, 486, 18, 30},
+  {entry__17_1_std__do_until, NULL, 486, 486, 10, 15},
+  {cont__17_2, &frame__17_1_std__do_until, 486, 486, 3, 30}
 };
 
 union NODE {
@@ -690,7 +690,7 @@ static void entry__1_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 87: ... first <= last
+  // 100: ... first <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -706,7 +706,7 @@ static void cont__1_4(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 87: ... first <= last
+  // 100: ... first <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -721,9 +721,9 @@ static void cont__1_5(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 87: ... : body first
+  // 100: ... : body first
   frame->slots[6] /* temp__3 */ = create_closure(entry__1_6, 0);
-  // 87: if first <= last: body first
+  // 100: if first <= last: body first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -744,7 +744,7 @@ static void entry__1_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 87: ... body first
+  // 100: ... body first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -758,7 +758,7 @@ static void cont__1_7(void) {
     invalid_results_error();
     return;
   }
-  // 88: ... first+1
+  // 101: ... first+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -774,7 +774,7 @@ static void cont__1_8(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 88: from_to_2 first+1 last body body2
+  // 101: from_to_2 first+1 last body body2
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -799,7 +799,7 @@ static void entry__1_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 90: from_to_1 first last body
+  // 103: from_to_1 first last body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -832,7 +832,7 @@ static void entry__1_1_std__from_to(void) {
   switch(argument_count) {
     case 3: frame->slots[3] /* body2 */ = undefined;
   }
-  // 86: body2.is_defined
+  // 99: body2.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* body2 */;
@@ -847,19 +847,19 @@ static void cont__1_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 86: ... :
-  // 87:   if first <= last: body first
-  // 88:   from_to_2 first+1 last body body2
+  //  99: ... :
+  // 100:   if first <= last: body first
+  // 101:   from_to_2 first+1 last body body2
   frame->slots[5] /* temp__2 */ = create_closure(entry__1_3, 0);
-  // 89: :
-  // 90:   from_to_1 first last body
+  // 102: :
+  // 103:   from_to_1 first last body
   frame->slots[6] /* temp__3 */ = create_closure(entry__1_9, 0);
-  // 85: if
-  // 86:   body2.is_defined:
-  // 87:     if first <= last: body first
-  // 88:     from_to_2 first+1 last body body2
-  // 89:   :
-  // 90:     from_to_1 first last body
+  //  98: if
+  //  99:   body2.is_defined:
+  // 100:     if first <= last: body first
+  // 101:     from_to_2 first+1 last body body2
+  // 102:   :
+  // 103:     from_to_1 first last body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -883,7 +883,7 @@ static void entry__2_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 94: body s
+  // 107: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -897,7 +897,7 @@ static void cont__2_5(void) {
     invalid_results_error();
     return;
   }
-  // 95: ... s+1
+  // 108: ... s+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -913,7 +913,7 @@ static void cont__2_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 95: from_to_1 s+1 e body
+  // 108: from_to_1 s+1 e body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -934,7 +934,7 @@ static void entry__2_1_from_to_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 93: ... s <= e
+  // 106: ... s <= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* e */;
@@ -950,7 +950,7 @@ static void cont__2_2(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 93: ... s <= e
+  // 106: ... s <= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -965,13 +965,13 @@ static void cont__2_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 93: ... :
-  // 94:   body s
-  // 95:   from_to_1 s+1 e body
+  // 106: ... :
+  // 107:   body s
+  // 108:   from_to_1 s+1 e body
   frame->slots[5] /* temp__3 */ = create_closure(entry__2_4, 0);
-  // 93: if s <= e:
-  // 94:   body s
-  // 95:   from_to_1 s+1 e body
+  // 106: if s <= e:
+  // 107:   body s
+  // 108:   from_to_1 s+1 e body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -996,7 +996,7 @@ static void entry__3_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 99: body2
+  // 112: body2
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -1009,7 +1009,7 @@ static void cont__3_5(void) {
     invalid_results_error();
     return;
   }
-  // 100: body s
+  // 113: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -1023,7 +1023,7 @@ static void cont__3_6(void) {
     invalid_results_error();
     return;
   }
-  // 101: ... s+1
+  // 114: ... s+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -1039,7 +1039,7 @@ static void cont__3_7(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 101: from_to_2 s+1 e body body2
+  // 114: from_to_2 s+1 e body body2
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1062,7 +1062,7 @@ static void entry__3_1_from_to_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 98: ... s <= e
+  // 111: ... s <= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* e */;
@@ -1078,7 +1078,7 @@ static void cont__3_2(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 98: ... s <= e
+  // 111: ... s <= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1093,15 +1093,15 @@ static void cont__3_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  //  98: ... :
-  //  99:   body2
-  // 100:   body s
-  // 101:   from_to_2 s+1 e body body2
+  // 111: ... :
+  // 112:   body2
+  // 113:   body s
+  // 114:   from_to_2 s+1 e body body2
   frame->slots[6] /* temp__3 */ = create_closure(entry__3_4, 0);
-  //  98: if s <= e:
-  //  99:   body2
-  // 100:   body s
-  // 101:   from_to_2 s+1 e body body2
+  // 111: if s <= e:
+  // 112:   body2
+  // 113:   body s
+  // 114:   from_to_2 s+1 e body body2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1128,7 +1128,7 @@ static void entry__4_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 163: ... first <= last
+  // 176: ... first <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -1144,7 +1144,7 @@ static void cont__4_4(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 163: ... first <= last
+  // 176: ... first <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -1159,9 +1159,9 @@ static void cont__4_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 163: ... : body first
+  // 176: ... : body first
   frame->slots[7] /* temp__3 */ = create_closure(entry__4_6, 0);
-  // 163: if first <= last: body first
+  // 176: if first <= last: body first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1182,7 +1182,7 @@ static void entry__4_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 163: ... body first
+  // 176: ... body first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -1196,7 +1196,7 @@ static void cont__4_7(void) {
     invalid_results_error();
     return;
   }
-  // 164: ... first+step
+  // 177: ... first+step
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -1212,7 +1212,7 @@ static void cont__4_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 164: from_to_by_2 first+step last step body body2
+  // 177: from_to_by_2 first+step last step body body2
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1240,7 +1240,7 @@ static void entry__4_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 166: from_to_by_1 first last step body
+  // 179: from_to_by_1 first last step body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -1275,7 +1275,7 @@ static void entry__4_1_std__from_to_by(void) {
   switch(argument_count) {
     case 4: frame->slots[4] /* body2 */ = undefined;
   }
-  // 162: body2.is_defined
+  // 175: body2.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* body2 */;
@@ -1290,19 +1290,19 @@ static void cont__4_2(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 162: ... :
-  // 163:   if first <= last: body first
-  // 164:   from_to_by_2 first+step last step body body2
+  // 175: ... :
+  // 176:   if first <= last: body first
+  // 177:   from_to_by_2 first+step last step body body2
   frame->slots[6] /* temp__2 */ = create_closure(entry__4_3, 0);
-  // 165: :
-  // 166:   from_to_by_1 first last step body
+  // 178: :
+  // 179:   from_to_by_1 first last step body
   frame->slots[7] /* temp__3 */ = create_closure(entry__4_9, 0);
-  // 161: if
-  // 162:   body2.is_defined:
-  // 163:     if first <= last: body first
-  // 164:     from_to_by_2 first+step last step body body2
-  // 165:   :
-  // 166:     from_to_by_1 first last step body
+  // 174: if
+  // 175:   body2.is_defined:
+  // 176:     if first <= last: body first
+  // 177:     from_to_by_2 first+step last step body body2
+  // 178:   :
+  // 179:     from_to_by_1 first last step body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1328,7 +1328,7 @@ static void entry__5_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 170: body s
+  // 183: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -1342,7 +1342,7 @@ static void cont__5_5(void) {
     invalid_results_error();
     return;
   }
-  // 171: ... s+step
+  // 184: ... s+step
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -1358,7 +1358,7 @@ static void cont__5_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 171: from_to_by_1 s+step e step body
+  // 184: from_to_by_1 s+step e step body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1381,7 +1381,7 @@ static void entry__5_1_from_to_by_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 169: ... s <= e
+  // 182: ... s <= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* e */;
@@ -1397,7 +1397,7 @@ static void cont__5_2(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 169: ... s <= e
+  // 182: ... s <= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1412,13 +1412,13 @@ static void cont__5_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 169: ... :
-  // 170:   body s
-  // 171:   from_to_by_1 s+step e step body
+  // 182: ... :
+  // 183:   body s
+  // 184:   from_to_by_1 s+step e step body
   frame->slots[6] /* temp__3 */ = create_closure(entry__5_4, 0);
-  // 169: if s <= e:
-  // 170:   body s
-  // 171:   from_to_by_1 s+step e step body
+  // 182: if s <= e:
+  // 183:   body s
+  // 184:   from_to_by_1 s+step e step body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1445,7 +1445,7 @@ static void entry__6_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: body2
+  // 188: body2
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -1458,7 +1458,7 @@ static void cont__6_5(void) {
     invalid_results_error();
     return;
   }
-  // 176: body s
+  // 189: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -1472,7 +1472,7 @@ static void cont__6_6(void) {
     invalid_results_error();
     return;
   }
-  // 177: ... s+step
+  // 190: ... s+step
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -1488,7 +1488,7 @@ static void cont__6_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 177: from_to_by_2 s+step e step body body2
+  // 190: from_to_by_2 s+step e step body body2
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1513,7 +1513,7 @@ static void entry__6_1_from_to_by_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 174: ... s <= e
+  // 187: ... s <= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* e */;
@@ -1529,7 +1529,7 @@ static void cont__6_2(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 174: ... s <= e
+  // 187: ... s <= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -1544,15 +1544,15 @@ static void cont__6_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 174: ... :
-  // 175:   body2
-  // 176:   body s
-  // 177:   from_to_by_2 s+step e step body body2
+  // 187: ... :
+  // 188:   body2
+  // 189:   body s
+  // 190:   from_to_by_2 s+step e step body body2
   frame->slots[7] /* temp__3 */ = create_closure(entry__6_4, 0);
-  // 174: if s <= e:
-  // 175:   body2
-  // 176:   body s
-  // 177:   from_to_by_2 s+step e step body body2
+  // 187: if s <= e:
+  // 188:   body2
+  // 189:   body s
+  // 190:   from_to_by_2 s+step e step body body2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1577,7 +1577,7 @@ static void entry__7_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 234: ... first >= last
+  // 247: ... first >= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -1593,7 +1593,7 @@ static void cont__7_4(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 234: ... first >= last
+  // 247: ... first >= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1608,9 +1608,9 @@ static void cont__7_5(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 234: ... : body first
+  // 247: ... : body first
   frame->slots[6] /* temp__3 */ = create_closure(entry__7_6, 0);
-  // 234: if first >= last: body first
+  // 247: if first >= last: body first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1631,7 +1631,7 @@ static void entry__7_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 234: ... body first
+  // 247: ... body first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -1645,7 +1645,7 @@ static void cont__7_7(void) {
     invalid_results_error();
     return;
   }
-  // 235: ... first+1
+  // 248: ... first+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -1661,7 +1661,7 @@ static void cont__7_8(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 235: from_down_to_2 first+1 last body body2
+  // 248: from_down_to_2 first+1 last body body2
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1686,7 +1686,7 @@ static void entry__7_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 237: from_down_to_1 first last body
+  // 250: from_down_to_1 first last body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -1719,7 +1719,7 @@ static void entry__7_1_std__from_down_to(void) {
   switch(argument_count) {
     case 3: frame->slots[3] /* body2 */ = undefined;
   }
-  // 233: body2.is_defined
+  // 246: body2.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* body2 */;
@@ -1734,19 +1734,19 @@ static void cont__7_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 233: ... :
-  // 234:   if first >= last: body first
-  // 235:   from_down_to_2 first+1 last body body2
+  // 246: ... :
+  // 247:   if first >= last: body first
+  // 248:   from_down_to_2 first+1 last body body2
   frame->slots[5] /* temp__2 */ = create_closure(entry__7_3, 0);
-  // 236: :
-  // 237:   from_down_to_1 first last body
+  // 249: :
+  // 250:   from_down_to_1 first last body
   frame->slots[6] /* temp__3 */ = create_closure(entry__7_9, 0);
-  // 232: if
-  // 233:   body2.is_defined:
-  // 234:     if first >= last: body first
-  // 235:     from_down_to_2 first+1 last body body2
-  // 236:   :
-  // 237:     from_down_to_1 first last body
+  // 245: if
+  // 246:   body2.is_defined:
+  // 247:     if first >= last: body first
+  // 248:     from_down_to_2 first+1 last body body2
+  // 249:   :
+  // 250:     from_down_to_1 first last body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1770,7 +1770,7 @@ static void entry__8_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 241: body s
+  // 254: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -1784,7 +1784,7 @@ static void cont__8_5(void) {
     invalid_results_error();
     return;
   }
-  // 242: ... s-1
+  // 255: ... s-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -1800,7 +1800,7 @@ static void cont__8_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 242: from_down_to_1 s-1 e body
+  // 255: from_down_to_1 s-1 e body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1821,7 +1821,7 @@ static void entry__8_1_from_down_to_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 240: ... s >= e
+  // 253: ... s >= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* s */;
@@ -1837,7 +1837,7 @@ static void cont__8_2(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 240: ... s >= e
+  // 253: ... s >= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -1852,13 +1852,13 @@ static void cont__8_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 240: ... :
-  // 241:   body s
-  // 242:   from_down_to_1 s-1 e body
+  // 253: ... :
+  // 254:   body s
+  // 255:   from_down_to_1 s-1 e body
   frame->slots[5] /* temp__3 */ = create_closure(entry__8_4, 0);
-  // 240: if s >= e:
-  // 241:   body s
-  // 242:   from_down_to_1 s-1 e body
+  // 253: if s >= e:
+  // 254:   body s
+  // 255:   from_down_to_1 s-1 e body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1883,7 +1883,7 @@ static void entry__9_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 246: body2
+  // 259: body2
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -1896,7 +1896,7 @@ static void cont__9_5(void) {
     invalid_results_error();
     return;
   }
-  // 247: body s
+  // 260: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -1910,7 +1910,7 @@ static void cont__9_6(void) {
     invalid_results_error();
     return;
   }
-  // 248: ... s-1
+  // 261: ... s-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -1926,7 +1926,7 @@ static void cont__9_7(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 248: from_to_2 s-1 e body body2
+  // 261: from_to_2 s-1 e body body2
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1949,7 +1949,7 @@ static void entry__9_1_from_down_to_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 245: ... s >= e
+  // 258: ... s >= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* s */;
@@ -1965,7 +1965,7 @@ static void cont__9_2(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 245: ... s >= e
+  // 258: ... s >= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1980,15 +1980,15 @@ static void cont__9_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 245: ... :
-  // 246:   body2
-  // 247:   body s
-  // 248:   from_to_2 s-1 e body body2
+  // 258: ... :
+  // 259:   body2
+  // 260:   body s
+  // 261:   from_to_2 s-1 e body body2
   frame->slots[6] /* temp__3 */ = create_closure(entry__9_4, 0);
-  // 245: if s >= e:
-  // 246:   body2
-  // 247:   body s
-  // 248:   from_to_2 s-1 e body body2
+  // 258: if s >= e:
+  // 259:   body2
+  // 260:   body s
+  // 261:   from_to_2 s-1 e body body2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2015,7 +2015,7 @@ static void entry__10_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 304: ... first >= last
+  // 317: ... first >= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -2031,7 +2031,7 @@ static void cont__10_4(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 304: ... first >= last
+  // 317: ... first >= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -2046,9 +2046,9 @@ static void cont__10_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 304: ... : body first
+  // 317: ... : body first
   frame->slots[7] /* temp__3 */ = create_closure(entry__10_6, 0);
-  // 304: if first >= last: body first
+  // 317: if first >= last: body first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2069,7 +2069,7 @@ static void entry__10_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 304: ... body first
+  // 317: ... body first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -2083,7 +2083,7 @@ static void cont__10_7(void) {
     invalid_results_error();
     return;
   }
-  // 305: ... first+step
+  // 318: ... first+step
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -2099,7 +2099,7 @@ static void cont__10_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 305: from_down_to_by_2 first+step last step body body2
+  // 318: from_down_to_by_2 first+step last step body body2
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2127,7 +2127,7 @@ static void entry__10_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 307: from_down_to_by_1 first last step body
+  // 320: from_down_to_by_1 first last step body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -2162,7 +2162,7 @@ static void entry__10_1_std__from_down_to_by(void) {
   switch(argument_count) {
     case 4: frame->slots[4] /* body2 */ = undefined;
   }
-  // 303: body2.is_defined
+  // 316: body2.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* body2 */;
@@ -2177,19 +2177,19 @@ static void cont__10_2(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 303: ... :
-  // 304:   if first >= last: body first
-  // 305:   from_down_to_by_2 first+step last step body body2
+  // 316: ... :
+  // 317:   if first >= last: body first
+  // 318:   from_down_to_by_2 first+step last step body body2
   frame->slots[6] /* temp__2 */ = create_closure(entry__10_3, 0);
-  // 306: :
-  // 307:   from_down_to_by_1 first last step body
+  // 319: :
+  // 320:   from_down_to_by_1 first last step body
   frame->slots[7] /* temp__3 */ = create_closure(entry__10_9, 0);
-  // 302: if
-  // 303:   body2.is_defined:
-  // 304:     if first >= last: body first
-  // 305:     from_down_to_by_2 first+step last step body body2
-  // 306:   :
-  // 307:     from_down_to_by_1 first last step body
+  // 315: if
+  // 316:   body2.is_defined:
+  // 317:     if first >= last: body first
+  // 318:     from_down_to_by_2 first+step last step body body2
+  // 319:   :
+  // 320:     from_down_to_by_1 first last step body
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2215,7 +2215,7 @@ static void entry__11_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 311: body s
+  // 324: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -2229,7 +2229,7 @@ static void cont__11_5(void) {
     invalid_results_error();
     return;
   }
-  // 312: ... s-step
+  // 325: ... s-step
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* s */;
@@ -2245,7 +2245,7 @@ static void cont__11_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 312: from_down_to_by_1 s-step e step body
+  // 325: from_down_to_by_1 s-step e step body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2268,7 +2268,7 @@ static void entry__11_1_from_down_to_by_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 310: ... s >= e
+  // 323: ... s >= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* s */;
@@ -2284,7 +2284,7 @@ static void cont__11_2(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 310: ... s >= e
+  // 323: ... s >= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -2299,13 +2299,13 @@ static void cont__11_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 310: ... :
-  // 311:   body s
-  // 312:   from_down_to_by_1 s-step e step body
+  // 323: ... :
+  // 324:   body s
+  // 325:   from_down_to_by_1 s-step e step body
   frame->slots[6] /* temp__3 */ = create_closure(entry__11_4, 0);
-  // 310: if s >= e:
-  // 311:   body s
-  // 312:   from_down_to_by_1 s-step e step body
+  // 323: if s >= e:
+  // 324:   body s
+  // 325:   from_down_to_by_1 s-step e step body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2332,7 +2332,7 @@ static void entry__12_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 316: body2
+  // 329: body2
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -2345,7 +2345,7 @@ static void cont__12_5(void) {
     invalid_results_error();
     return;
   }
-  // 317: body s
+  // 330: body s
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -2359,7 +2359,7 @@ static void cont__12_6(void) {
     invalid_results_error();
     return;
   }
-  // 318: ... s-step
+  // 331: ... s-step
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* s */;
@@ -2375,7 +2375,7 @@ static void cont__12_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 318: from_down_to_by_2 s-step e step body body2
+  // 331: from_down_to_by_2 s-step e step body body2
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2400,7 +2400,7 @@ static void entry__12_1_from_down_to_by_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 315: ... s >= e
+  // 328: ... s >= e
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* s */;
@@ -2416,7 +2416,7 @@ static void cont__12_2(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 315: ... s >= e
+  // 328: ... s >= e
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -2431,15 +2431,15 @@ static void cont__12_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 315: ... :
-  // 316:   body2
-  // 317:   body s
-  // 318:   from_down_to_by_2 s-step e step body body2
+  // 328: ... :
+  // 329:   body2
+  // 330:   body s
+  // 331:   from_down_to_by_2 s-step e step body body2
   frame->slots[7] /* temp__3 */ = create_closure(entry__12_4, 0);
-  // 315: if s >= e:
-  // 316:   body2
-  // 317:   body s
-  // 318:   from_down_to_by_2 s-step e step body body2
+  // 328: if s >= e:
+  // 329:   body2
+  // 330:   body s
+  // 331:   from_down_to_by_2 s-step e step body body2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2460,7 +2460,7 @@ static void entry__13_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 348: body
+  // 361: body
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -2473,7 +2473,7 @@ static void cont__13_5(void) {
     invalid_results_error();
     return;
   }
-  // 349: ... n-1
+  // 362: ... n-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* n */;
@@ -2489,7 +2489,7 @@ static void cont__13_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 349: repeat n-1 body
+  // 362: repeat n-1 body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2508,7 +2508,7 @@ static void entry__13_1_std__repeat(void) {
     invalid_arguments_error();
     return;
   }
-  // 347: ... n >= 1
+  // 360: ... n >= 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -2524,7 +2524,7 @@ static void cont__13_2(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 347: ... n >= 1
+  // 360: ... n >= 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2539,13 +2539,13 @@ static void cont__13_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 347: ... :
-  // 348:   body
-  // 349:   repeat n-1 body
+  // 360: ... :
+  // 361:   body
+  // 362:   repeat n-1 body
   frame->slots[4] /* temp__3 */ = create_closure(entry__13_4, 0);
-  // 347: if n >= 1:
-  // 348:   body
-  // 349:   repeat n-1 body
+  // 360: if n >= 1:
+  // 361:   body
+  // 362:   repeat n-1 body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2563,7 +2563,7 @@ static void entry__14_1_std__forever(void) {
     invalid_arguments_error();
     return;
   }
-  // 389: body
+  // 402: body
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -2576,7 +2576,7 @@ static void cont__14_2(void) {
     invalid_results_error();
     return;
   }
-  // 390: forever body
+  // 403: forever body
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -2596,7 +2596,7 @@ static void entry__15_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 442: body
+  // 455: body
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -2609,7 +2609,7 @@ static void cont__15_4(void) {
     invalid_results_error();
     return;
   }
-  // 443: while cond_and_body
+  // 456: while cond_and_body
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* cond_and_body */;
@@ -2630,7 +2630,7 @@ static void entry__15_1_std__while(void) {
     invalid_arguments_error();
     return;
   }
-  // 440: cond_and_body $cond $body
+  // 453: cond_and_body $cond $body
   argument_count = 0;
   arguments = node_p;
   result_count = 2;
@@ -2645,17 +2645,17 @@ static void cont__15_2(void) {
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   frame->slots[4] /* temp__2 */ = arguments->slots[1];
-  // 440: ... cond
+  // 453: ... cond
   initialize_future(frame->slots[1] /* cond */, frame->slots[3] /* temp__1 */);
-  // 440: ... body
+  // 453: ... body
   initialize_future(frame->slots[2] /* body */, frame->slots[4] /* temp__2 */);
-  // 441: ... :
-  // 442:   body
-  // 443:   while cond_and_body
+  // 454: ... :
+  // 455:   body
+  // 456:   while cond_and_body
   frame->slots[3] /* temp__1 */ = create_closure(entry__15_3, 0);
-  // 441: if cond:
-  // 442:   body
-  // 443:   while cond_and_body
+  // 454: if cond:
+  // 455:   body
+  // 456:   while cond_and_body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* cond */;
@@ -2674,7 +2674,7 @@ static void entry__16_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 458: ... do_while body
+  // 471: ... do_while body
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -2691,7 +2691,7 @@ static void entry__16_1_std__do_while(void) {
     invalid_arguments_error();
     return;
   }
-  // 458: ... body()
+  // 471: ... body()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -2705,9 +2705,9 @@ static void cont__16_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 458: ... : do_while body
+  // 471: ... : do_while body
   frame->slots[2] /* temp__2 */ = create_closure(entry__16_3, 0);
-  // 458: if body(): do_while body
+  // 471: if body(): do_while body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2726,7 +2726,7 @@ static void entry__17_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 473: ... do_until body
+  // 486: ... do_until body
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -2743,7 +2743,7 @@ static void entry__17_1_std__do_until(void) {
     invalid_arguments_error();
     return;
   }
-  // 473: ... body()
+  // 486: ... body()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -2757,9 +2757,9 @@ static void cont__17_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 473: ... : do_until body
+  // 486: ... : do_until body
   frame->slots[2] /* temp__2 */ = create_closure(entry__17_3, 0);
-  // 473: unless body(): do_until body
+  // 486: unless body(): do_until body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;

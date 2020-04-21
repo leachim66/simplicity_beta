@@ -301,6 +301,8 @@ static NODE_GETTER get__length_of;
 static NODE_GETTER get_value_or_future__length_of;
 static NODE_GETTER get__line_no_of;
 static NODE_GETTER get_value_or_future__line_no_of;
+static NODE_GETTER get__module_name;
+static NODE_GETTER get_value_or_future__module_name;
 static NODE_GETTER get__newline;
 static NODE_GETTER get_value_or_future__newline;
 static NODE_GETTER get__outdent_marker;
@@ -375,46 +377,46 @@ static void cont__4_10(void);
 static NODE *string__4_11;
 static NODE *string__4_12;
 static NODE *string__4_13;
-static void cont__4_14(void);
+static NODE *string__4_14;
 static void cont__4_15(void);
-static NODE *func__4_16_skip_line;
-static void entry__4_16_skip_line(void);
-static FRAME_INFO frame__4_16_skip_line = {4, {"quote_count", "text", "i", "TokenizationError"}};
-static NODE *func__4_17;
-static void entry__4_17(void);
-static FRAME_INFO frame__4_17 = {4, {"text", "i", "quote_count", "TokenizationError"}};
-static void cont__4_18(void);
+static void cont__4_16(void);
+static NODE *func__4_17_skip_line;
+static void entry__4_17_skip_line(void);
+static FRAME_INFO frame__4_17_skip_line = {4, {"quote_count", "text", "i", "TokenizationError"}};
+static NODE *func__4_18;
+static void entry__4_18(void);
+static FRAME_INFO frame__4_18 = {4, {"text", "i", "quote_count", "TokenizationError"}};
 static void cont__4_19(void);
 static void cont__4_20(void);
-static NODE *func__4_21;
-static void entry__4_21(void);
-static FRAME_INFO frame__4_21 = {4, {"text", "i", "quote_count", "TokenizationError"}};
-static void cont__4_22(void);
-static NODE *func__4_23;
-static void entry__4_23(void);
-static FRAME_INFO frame__4_23 = {1, {"quote_count"}};
-static void cont__4_24(void);
-static NODE *func__4_25;
-static void entry__4_25(void);
-static FRAME_INFO frame__4_25 = {1, {"TokenizationError"}};
-static NODE *string__4_26;
-static void cont__4_27(void);
+static void cont__4_21(void);
+static NODE *func__4_22;
+static void entry__4_22(void);
+static FRAME_INFO frame__4_22 = {4, {"text", "i", "quote_count", "TokenizationError"}};
+static void cont__4_23(void);
+static NODE *func__4_24;
+static void entry__4_24(void);
+static FRAME_INFO frame__4_24 = {1, {"quote_count"}};
+static void cont__4_25(void);
+static NODE *func__4_26;
+static void entry__4_26(void);
+static FRAME_INFO frame__4_26 = {1, {"TokenizationError"}};
+static NODE *string__4_27;
 static void cont__4_28(void);
-static NODE *func__4_29_get_indent;
-static void entry__4_29_get_indent(void);
-static FRAME_INFO frame__4_29_get_indent = {6, {"return", "pending_newlines", "i", "text", "TokenizationError", "indent"}};
-static NODE *func__4_30;
-static void entry__4_30(void);
-static FRAME_INFO frame__4_30 = {5, {"break", "i", "text", "return", "pending_newlines"}};
+static void cont__4_29(void);
+static NODE *func__4_30_get_indent;
+static void entry__4_30_get_indent(void);
+static FRAME_INFO frame__4_30_get_indent = {6, {"return", "pending_newlines", "i", "text", "TokenizationError", "indent"}};
 static NODE *func__4_31;
 static void entry__4_31(void);
-static FRAME_INFO frame__4_31 = {5, {"i", "text", "return", "break", "pending_newlines"}};
-static void cont__4_32(void);
+static FRAME_INFO frame__4_31 = {5, {"break", "i", "text", "return", "pending_newlines"}};
+static NODE *func__4_32;
+static void entry__4_32(void);
+static FRAME_INFO frame__4_32 = {5, {"i", "text", "return", "break", "pending_newlines"}};
 static void cont__4_33(void);
-static NODE *func__4_34;
-static void entry__4_34(void);
-static FRAME_INFO frame__4_34 = {1, {"return"}};
-static void cont__4_35(void);
+static void cont__4_34(void);
+static NODE *func__4_35;
+static void entry__4_35(void);
+static FRAME_INFO frame__4_35 = {1, {"return"}};
 static void cont__4_36(void);
 static void cont__4_37(void);
 static void cont__4_38(void);
@@ -424,59 +426,59 @@ static void cont__4_41(void);
 static void cont__4_42(void);
 static void cont__4_43(void);
 static void cont__4_44(void);
-static NODE *func__4_45;
-static void entry__4_45(void);
-static FRAME_INFO frame__4_45 = {3, {"text", "i", "indent"}};
-static void cont__4_46(void);
+static void cont__4_45(void);
+static NODE *func__4_46;
+static void entry__4_46(void);
+static FRAME_INFO frame__4_46 = {3, {"text", "i", "indent"}};
 static void cont__4_47(void);
-static NODE *func__4_48;
-static void entry__4_48(void);
-static FRAME_INFO frame__4_48 = {2, {"i", "indent"}};
-static void cont__4_49(void);
+static void cont__4_48(void);
+static NODE *func__4_49;
+static void entry__4_49(void);
+static FRAME_INFO frame__4_49 = {2, {"i", "indent"}};
 static void cont__4_50(void);
 static void cont__4_51(void);
-static NODE *func__4_52;
-static void entry__4_52(void);
-static FRAME_INFO frame__4_52 = {3, {"text", "i", "indent"}};
-static void cont__4_53(void);
+static void cont__4_52(void);
+static NODE *func__4_53;
+static void entry__4_53(void);
+static FRAME_INFO frame__4_53 = {3, {"text", "i", "indent"}};
 static void cont__4_54(void);
-static NODE *func__4_55;
-static void entry__4_55(void);
-static FRAME_INFO frame__4_55 = {2, {"i", "indent"}};
-static void cont__4_56(void);
+static void cont__4_55(void);
+static NODE *func__4_56;
+static void entry__4_56(void);
+static FRAME_INFO frame__4_56 = {2, {"i", "indent"}};
 static void cont__4_57(void);
 static void cont__4_58(void);
 static void cont__4_59(void);
-static NODE *func__4_60;
-static void entry__4_60(void);
-static FRAME_INFO frame__4_60 = {2, {"text", "i"}};
-static void cont__4_61(void);
+static void cont__4_60(void);
+static NODE *func__4_61;
+static void entry__4_61(void);
+static FRAME_INFO frame__4_61 = {2, {"text", "i"}};
 static void cont__4_62(void);
 static void cont__4_63(void);
-static NODE *func__4_64;
-static void entry__4_64(void);
-static FRAME_INFO frame__4_64 = {1, {"TokenizationError"}};
-static NODE *string__4_65;
-static void cont__4_66(void);
-static NODE *func__4_67_convert;
-static void entry__4_67_convert(void);
-static FRAME_INFO frame__4_67_convert = {13, {"current_indent", "return", "pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "convert", "TokenizationError"}};
-static NODE *func__4_68;
-static void entry__4_68(void);
-static FRAME_INFO frame__4_68 = {19, {"pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "current_indent", "convert", "TokenizationError", "return", "add_newline", "add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "indent"}};
-static NODE *func__4_69_add_newline;
-static void entry__4_69_add_newline(void);
-static FRAME_INFO frame__4_69_add_newline = {4, {"pending_newlines", "new_text", "fragment", "indent"}};
-static NODE *func__4_70;
-static void entry__4_70(void);
-static FRAME_INFO frame__4_70 = {3, {"new_text", "fragment", "indent"}};
-static void cont__4_71(void);
+static void cont__4_64(void);
+static NODE *func__4_65;
+static void entry__4_65(void);
+static FRAME_INFO frame__4_65 = {1, {"TokenizationError"}};
+static NODE *string__4_66;
+static void cont__4_67(void);
+static NODE *func__4_68_convert;
+static void entry__4_68_convert(void);
+static FRAME_INFO frame__4_68_convert = {13, {"current_indent", "return", "pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "convert", "TokenizationError"}};
+static NODE *func__4_69;
+static void entry__4_69(void);
+static FRAME_INFO frame__4_69 = {19, {"pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "current_indent", "convert", "TokenizationError", "return", "add_newline", "add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "indent"}};
+static NODE *func__4_70_add_newline;
+static void entry__4_70_add_newline(void);
+static FRAME_INFO frame__4_70_add_newline = {4, {"pending_newlines", "new_text", "fragment", "indent"}};
+static NODE *func__4_71;
+static void entry__4_71(void);
+static FRAME_INFO frame__4_71 = {3, {"new_text", "fragment", "indent"}};
 static void cont__4_72(void);
 static void cont__4_73(void);
-static NODE *func__4_74_add_indent;
-static void entry__4_74_add_indent(void);
-static FRAME_INFO frame__4_74_add_indent = {5, {"new_text", "fragment", "indent", "pending_newlines", "add_newline"}};
-static void cont__4_75(void);
+static void cont__4_74(void);
+static NODE *func__4_75_add_indent;
+static void entry__4_75_add_indent(void);
+static FRAME_INFO frame__4_75_add_indent = {5, {"new_text", "fragment", "indent", "pending_newlines", "add_newline"}};
 static void cont__4_76(void);
 static void cont__4_77(void);
 static void cont__4_78(void);
@@ -485,10 +487,10 @@ static void cont__4_80(void);
 static void cont__4_81(void);
 static void cont__4_82(void);
 static void cont__4_83(void);
-static NODE *func__4_84;
-static void entry__4_84(void);
-static FRAME_INFO frame__4_84 = {2, {"text", "i"}};
-static void cont__4_85(void);
+static void cont__4_84(void);
+static NODE *func__4_85;
+static void entry__4_85(void);
+static FRAME_INFO frame__4_85 = {2, {"text", "i"}};
 static void cont__4_86(void);
 static void cont__4_87(void);
 static void cont__4_88(void);
@@ -497,28 +499,28 @@ static void cont__4_90(void);
 static void cont__4_91(void);
 static void cont__4_92(void);
 static void cont__4_93(void);
-static NODE *func__4_94;
-static void entry__4_94(void);
-static FRAME_INFO frame__4_94 = {15, {"add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "convert", "TokenizationError"}};
-static void cont__4_95(void);
-static NODE *func__4_96;
-static void entry__4_96(void);
-static FRAME_INFO frame__4_96 = {2, {"is_a_multi_line_string", "is_inline_C"}};
+static void cont__4_94(void);
+static NODE *func__4_95;
+static void entry__4_95(void);
+static FRAME_INFO frame__4_95 = {15, {"add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "convert", "TokenizationError"}};
+static void cont__4_96(void);
 static NODE *func__4_97;
 static void entry__4_97(void);
-static FRAME_INFO frame__4_97 = {1, {"is_inline_C"}};
-static void cont__4_98(void);
+static FRAME_INFO frame__4_97 = {2, {"is_a_multi_line_string", "is_inline_C"}};
+static NODE *func__4_98;
+static void entry__4_98(void);
+static FRAME_INFO frame__4_98 = {1, {"is_inline_C"}};
 static void cont__4_99(void);
-static NODE *func__4_100;
-static void entry__4_100(void);
-static FRAME_INFO frame__4_100 = {11, {"i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "rs", "least_indent"}};
+static void cont__4_100(void);
 static NODE *func__4_101;
 static void entry__4_101(void);
-static FRAME_INFO frame__4_101 = {5, {"break", "skip_line", "get_indent", "current_indent", "least_indent"}};
+static FRAME_INFO frame__4_101 = {11, {"i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "rs", "least_indent"}};
 static NODE *func__4_102;
 static void entry__4_102(void);
-static FRAME_INFO frame__4_102 = {6, {"skip_line", "get_indent", "current_indent", "break", "least_indent", "next_indent"}};
-static void cont__4_103(void);
+static FRAME_INFO frame__4_102 = {5, {"break", "skip_line", "get_indent", "current_indent", "least_indent"}};
+static NODE *func__4_103;
+static void entry__4_103(void);
+static FRAME_INFO frame__4_103 = {6, {"skip_line", "get_indent", "current_indent", "break", "least_indent", "next_indent"}};
 static void cont__4_104(void);
 static void cont__4_105(void);
 static void cont__4_106(void);
@@ -526,18 +528,18 @@ static void cont__4_107(void);
 static void cont__4_108(void);
 static void cont__4_109(void);
 static void cont__4_110(void);
-static NODE *func__4_111;
-static void entry__4_111(void);
-static FRAME_INFO frame__4_111 = {11, {"break", "skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "add_newline"}};
+static void cont__4_111(void);
 static NODE *func__4_112;
 static void entry__4_112(void);
-static FRAME_INFO frame__4_112 = {11, {"skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "break", "add_newline"}};
-static void cont__4_113(void);
+static FRAME_INFO frame__4_112 = {11, {"break", "skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "add_newline"}};
+static NODE *func__4_113;
+static void entry__4_113(void);
+static FRAME_INFO frame__4_113 = {11, {"skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "break", "add_newline"}};
 static void cont__4_114(void);
-static NODE *func__4_115;
-static void entry__4_115(void);
-static FRAME_INFO frame__4_115 = {1, {"new_text"}};
-static void cont__4_116(void);
+static void cont__4_115(void);
+static NODE *func__4_116;
+static void entry__4_116(void);
+static FRAME_INFO frame__4_116 = {1, {"new_text"}};
 static void cont__4_117(void);
 static void cont__4_118(void);
 static void cont__4_119(void);
@@ -549,28 +551,29 @@ static void cont__4_124(void);
 static void cont__4_125(void);
 static void cont__4_126(void);
 static void cont__4_127(void);
-static NODE *func__4_128;
-static void entry__4_128(void);
-static FRAME_INFO frame__4_128 = {5, {"indent", "convert", "current_indent", "TokenizationError", "new_text"}};
-static void cont__4_129(void);
+static void cont__4_128(void);
+static NODE *func__4_129;
+static void entry__4_129(void);
+static FRAME_INFO frame__4_129 = {5, {"indent", "convert", "current_indent", "TokenizationError", "new_text"}};
 static void cont__4_130(void);
-static NODE *func__4_131;
-static void entry__4_131(void);
-static FRAME_INFO frame__4_131 = {1, {"TokenizationError"}};
-static NODE *string__4_132;
-static void cont__4_133(void);
+static void cont__4_131(void);
+static NODE *func__4_132;
+static void entry__4_132(void);
+static FRAME_INFO frame__4_132 = {1, {"TokenizationError"}};
+static NODE *string__4_133;
 static void cont__4_134(void);
 static void cont__4_135(void);
 static void cont__4_136(void);
-static NODE *func__4_137;
-static void entry__4_137(void);
-static FRAME_INFO frame__4_137 = {2, {"return", "indent"}};
-static void cont__4_138(void);
+static void cont__4_137(void);
+static NODE *func__4_138;
+static void entry__4_138(void);
+static FRAME_INFO frame__4_138 = {2, {"return", "indent"}};
 static void cont__4_139(void);
 static void cont__4_140(void);
 static void cont__4_141(void);
 static void cont__4_142(void);
 static void cont__4_143(void);
+static void cont__4_144(void);
 static NODE *get__sim2c__tokenize(void) {
   return var.sim2c__tokenize;
 }
@@ -586,135 +589,135 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_7, &frame__4_2_TokenizationError, 47, 47, 20, 25},
   {cont__4_8, &frame__4_2_TokenizationError, 47, 47, 5, 25},
   {cont__4_9, &frame__4_2_TokenizationError, 47, 47, 19, 25},
-  {cont__4_10, &frame__4_2_TokenizationError, 48, 50, 12, 55},
-  {cont__4_14, &frame__4_2_TokenizationError, 48, 50, 5, 55},
-  {cont__4_15, &frame__4_2_TokenizationError, 51, 51, 5, 10},
-  {entry__4_23, NULL, 59, 59, 11, 26},
-  {cont__4_24, &frame__4_23, 59, 59, 26, 26},
-  {entry__4_25, NULL, 61, 61, 11, 70},
-  {entry__4_21, NULL, 57, 57, 9, 15},
-  {cont__4_22, &frame__4_21, 56, 61, 7, 71},
-  {cont__4_27, &frame__4_21, 62, 62, 7, 12},
-  {cont__4_28, &frame__4_21, 62, 62, 12, 12},
-  {entry__4_17, NULL, 55, 55, 14, 20},
-  {cont__4_18, &frame__4_17, 55, 55, 14, 31},
-  {cont__4_19, &frame__4_17, 55, 55, 14, 31},
-  {cont__4_20, &frame__4_17, 55, 62, 11, 12},
-  {entry__4_16_skip_line, NULL, 55, 62, 5, 12},
-  {entry__4_34, NULL, 68, 68, 42, 42},
-  {cont__4_35, &frame__4_34, 68, 68, 34, 42},
-  {entry__4_31, NULL, 68, 68, 17, 31},
-  {cont__4_32, &frame__4_31, 68, 68, 12, 31},
-  {cont__4_33, &frame__4_31, 68, 68, 9, 42},
-  {cont__4_36, &frame__4_31, 69, 69, 12, 18},
-  {cont__4_37, &frame__4_31, 69, 69, 12, 29},
-  {cont__4_38, &frame__4_31, 69, 69, 12, 29},
-  {cont__4_39, &frame__4_31, 69, 69, 9, 35},
-  {cont__4_40, &frame__4_31, 70, 70, 9, 14},
-  {cont__4_41, &frame__4_31, 71, 71, 9, 29},
-  {cont__4_42, &frame__4_31, 71, 71, 29, 29},
-  {entry__4_30, NULL, 67, 71, 7, 29},
-  {cont__4_43, &frame__4_30, 71, 71, 29, 29},
-  {entry__4_48, NULL, 74, 74, 7, 12},
-  {cont__4_49, &frame__4_48, 75, 75, 7, 20},
-  {cont__4_50, &frame__4_48, 75, 75, 20, 20},
-  {entry__4_45, NULL, 73, 73, 14, 20},
-  {cont__4_46, &frame__4_45, 73, 73, 14, 30},
-  {cont__4_47, &frame__4_45, 73, 75, 11, 20},
-  {entry__4_55, NULL, 77, 77, 7, 12},
-  {cont__4_56, &frame__4_55, 78, 78, 7, 17},
-  {cont__4_57, &frame__4_55, 78, 78, 17, 17},
-  {entry__4_52, NULL, 76, 76, 14, 20},
-  {cont__4_53, &frame__4_52, 76, 76, 14, 27},
-  {cont__4_54, &frame__4_52, 76, 78, 11, 17},
-  {entry__4_60, NULL, 79, 79, 22, 28},
-  {cont__4_61, &frame__4_60, 79, 79, 22, 39},
-  {cont__4_62, &frame__4_60, 79, 79, 22, 39},
-  {entry__4_64, NULL, 80, 80, 7, 56},
-  {entry__4_29_get_indent, NULL, 66, 71, 5, 30},
-  {cont__4_44, &frame__4_29_get_indent, 73, 75, 5, 20},
-  {cont__4_51, &frame__4_29_get_indent, 76, 78, 5, 17},
-  {cont__4_58, &frame__4_29_get_indent, 79, 79, 8, 17},
-  {cont__4_59, &frame__4_29_get_indent, 79, 79, 8, 39},
-  {cont__4_63, &frame__4_29_get_indent, 79, 80, 5, 56},
-  {cont__4_66, &frame__4_29_get_indent, 81, 81, 5, 13},
-  {entry__4_70, NULL, 91, 91, 11, 32},
-  {cont__4_71, &frame__4_70, 92, 92, 17, 35},
-  {cont__4_72, &frame__4_70, 92, 92, 11, 42},
-  {cont__4_73, &frame__4_70, 92, 92, 42, 42},
-  {entry__4_69_add_newline, NULL, 90, 92, 9, 42},
-  {entry__4_74_add_indent, NULL, 95, 95, 9, 36},
-  {cont__4_75, &frame__4_74_add_indent, 96, 96, 15, 33},
-  {cont__4_76, &frame__4_74_add_indent, 96, 96, 9, 40},
-  {cont__4_77, &frame__4_74_add_indent, 97, 97, 9, 29},
-  {cont__4_78, &frame__4_74_add_indent, 98, 98, 9, 19},
-  {entry__4_84, NULL, 103, 103, 34, 36},
-  {cont__4_85, &frame__4_84, 103, 103, 29, 37},
-  {cont__4_86, &frame__4_84, 103, 103, 29, 44},
-  {cont__4_87, &frame__4_84, 103, 103, 29, 44},
-  {entry__4_97, NULL, 110, 110, 52, 62},
-  {entry__4_96, NULL, 110, 110, 26, 62},
-  {cont__4_98, &frame__4_96, 110, 110, 26, 62},
-  {entry__4_102, NULL, 117, 117, 17, 25},
-  {cont__4_103, &frame__4_102, 118, 118, 17, 39},
-  {cont__4_104, &frame__4_102, 119, 119, 20, 48},
-  {cont__4_105, &frame__4_102, 119, 119, 20, 48},
-  {cont__4_106, &frame__4_102, 119, 119, 17, 54},
-  {cont__4_107, &frame__4_102, 120, 120, 17, 51},
-  {cont__4_108, &frame__4_102, 120, 120, 51, 51},
-  {entry__4_101, NULL, 116, 120, 15, 51},
-  {cont__4_109, &frame__4_101, 120, 120, 51, 51},
-  {entry__4_115, NULL, 125, 125, 45, 62},
-  {cont__4_116, &frame__4_115, 125, 125, 62, 62},
-  {entry__4_112, NULL, 124, 124, 17, 25},
-  {cont__4_113, &frame__4_112, 125, 125, 24, 42},
-  {cont__4_114, &frame__4_112, 125, 125, 17, 62},
-  {cont__4_117, &frame__4_112, 126, 126, 47, 49},
-  {cont__4_118, &frame__4_112, 126, 126, 34, 50},
-  {cont__4_119, &frame__4_112, 126, 126, 17, 50},
-  {cont__4_120, &frame__4_112, 127, 127, 17, 34},
-  {cont__4_121, &frame__4_112, 129, 129, 20, 43},
-  {cont__4_122, &frame__4_112, 129, 129, 20, 43},
-  {cont__4_123, &frame__4_112, 129, 129, 17, 49},
-  {cont__4_124, &frame__4_112, 130, 130, 17, 27},
-  {entry__4_111, NULL, 123, 130, 15, 27},
-  {cont__4_125, &frame__4_111, 130, 130, 27, 27},
-  {entry__4_100, NULL, 115, 120, 13, 52},
-  {cont__4_110, &frame__4_100, 122, 130, 13, 28},
-  {cont__4_126, &frame__4_100, 131, 131, 13, 41},
-  {cont__4_127, &frame__4_100, 131, 131, 41, 41},
-  {entry__4_131, NULL, 134, 134, 41, 79},
-  {entry__4_128, NULL, 133, 133, 13, 35},
-  {cont__4_129, &frame__4_128, 134, 134, 16, 38},
-  {cont__4_130, &frame__4_128, 134, 134, 13, 79},
-  {cont__4_133, &frame__4_128, 135, 135, 13, 41},
-  {cont__4_134, &frame__4_128, 135, 135, 41, 41},
-  {entry__4_94, NULL, 108, 108, 9, 18},
-  {cont__4_95, &frame__4_94, 110, 110, 11, 62},
-  {cont__4_99, &frame__4_94, 109, 135, 9, 42},
-  {entry__4_137, NULL, 136, 136, 35, 47},
-  {entry__4_68, NULL, 100, 100, 20, 26},
-  {cont__4_79, &frame__4_68, 100, 100, 7, 33},
-  {cont__4_80, &frame__4_68, 101, 101, 7, 15},
-  {cont__4_81, &frame__4_68, 102, 102, 7, 48},
-  {cont__4_82, &frame__4_68, 103, 103, 20, 24},
-  {cont__4_83, &frame__4_68, 103, 103, 7, 44},
-  {cont__4_88, &frame__4_68, 104, 104, 37, 39},
-  {cont__4_89, &frame__4_68, 104, 104, 24, 40},
-  {cont__4_90, &frame__4_68, 104, 104, 7, 40},
-  {cont__4_91, &frame__4_68, 105, 105, 7, 25},
-  {cont__4_92, &frame__4_68, 107, 107, 10, 32},
-  {cont__4_93, &frame__4_68, 107, 135, 7, 43},
-  {cont__4_135, &frame__4_68, 136, 136, 10, 32},
-  {cont__4_136, &frame__4_68, 136, 136, 7, 47},
-  {cont__4_138, &frame__4_68, 137, 137, 7, 17},
-  {entry__4_67_convert, NULL, 88, 137, 5, 17},
-  {cont__4_139, &frame__4_67_convert, 137, 137, 17, 17},
+  {cont__4_10, &frame__4_2_TokenizationError, 48, 50, 12, 80},
+  {cont__4_15, &frame__4_2_TokenizationError, 48, 50, 5, 80},
+  {cont__4_16, &frame__4_2_TokenizationError, 51, 51, 5, 10},
+  {entry__4_24, NULL, 59, 59, 11, 26},
+  {cont__4_25, &frame__4_24, 59, 59, 26, 26},
+  {entry__4_26, NULL, 61, 61, 11, 70},
+  {entry__4_22, NULL, 57, 57, 9, 15},
+  {cont__4_23, &frame__4_22, 56, 61, 7, 71},
+  {cont__4_28, &frame__4_22, 62, 62, 7, 12},
+  {cont__4_29, &frame__4_22, 62, 62, 12, 12},
+  {entry__4_18, NULL, 55, 55, 14, 20},
+  {cont__4_19, &frame__4_18, 55, 55, 14, 31},
+  {cont__4_20, &frame__4_18, 55, 55, 14, 31},
+  {cont__4_21, &frame__4_18, 55, 62, 11, 12},
+  {entry__4_17_skip_line, NULL, 55, 62, 5, 12},
+  {entry__4_35, NULL, 68, 68, 42, 42},
+  {cont__4_36, &frame__4_35, 68, 68, 34, 42},
+  {entry__4_32, NULL, 68, 68, 17, 31},
+  {cont__4_33, &frame__4_32, 68, 68, 12, 31},
+  {cont__4_34, &frame__4_32, 68, 68, 9, 42},
+  {cont__4_37, &frame__4_32, 69, 69, 12, 18},
+  {cont__4_38, &frame__4_32, 69, 69, 12, 29},
+  {cont__4_39, &frame__4_32, 69, 69, 12, 29},
+  {cont__4_40, &frame__4_32, 69, 69, 9, 35},
+  {cont__4_41, &frame__4_32, 70, 70, 9, 14},
+  {cont__4_42, &frame__4_32, 71, 71, 9, 29},
+  {cont__4_43, &frame__4_32, 71, 71, 29, 29},
+  {entry__4_31, NULL, 67, 71, 7, 29},
+  {cont__4_44, &frame__4_31, 71, 71, 29, 29},
+  {entry__4_49, NULL, 74, 74, 7, 12},
+  {cont__4_50, &frame__4_49, 75, 75, 7, 20},
+  {cont__4_51, &frame__4_49, 75, 75, 20, 20},
+  {entry__4_46, NULL, 73, 73, 14, 20},
+  {cont__4_47, &frame__4_46, 73, 73, 14, 30},
+  {cont__4_48, &frame__4_46, 73, 75, 11, 20},
+  {entry__4_56, NULL, 77, 77, 7, 12},
+  {cont__4_57, &frame__4_56, 78, 78, 7, 17},
+  {cont__4_58, &frame__4_56, 78, 78, 17, 17},
+  {entry__4_53, NULL, 76, 76, 14, 20},
+  {cont__4_54, &frame__4_53, 76, 76, 14, 27},
+  {cont__4_55, &frame__4_53, 76, 78, 11, 17},
+  {entry__4_61, NULL, 79, 79, 22, 28},
+  {cont__4_62, &frame__4_61, 79, 79, 22, 39},
+  {cont__4_63, &frame__4_61, 79, 79, 22, 39},
+  {entry__4_65, NULL, 80, 80, 7, 56},
+  {entry__4_30_get_indent, NULL, 66, 71, 5, 30},
+  {cont__4_45, &frame__4_30_get_indent, 73, 75, 5, 20},
+  {cont__4_52, &frame__4_30_get_indent, 76, 78, 5, 17},
+  {cont__4_59, &frame__4_30_get_indent, 79, 79, 8, 17},
+  {cont__4_60, &frame__4_30_get_indent, 79, 79, 8, 39},
+  {cont__4_64, &frame__4_30_get_indent, 79, 80, 5, 56},
+  {cont__4_67, &frame__4_30_get_indent, 81, 81, 5, 13},
+  {entry__4_71, NULL, 91, 91, 11, 32},
+  {cont__4_72, &frame__4_71, 92, 92, 17, 35},
+  {cont__4_73, &frame__4_71, 92, 92, 11, 42},
+  {cont__4_74, &frame__4_71, 92, 92, 42, 42},
+  {entry__4_70_add_newline, NULL, 90, 92, 9, 42},
+  {entry__4_75_add_indent, NULL, 95, 95, 9, 36},
+  {cont__4_76, &frame__4_75_add_indent, 96, 96, 15, 33},
+  {cont__4_77, &frame__4_75_add_indent, 96, 96, 9, 40},
+  {cont__4_78, &frame__4_75_add_indent, 97, 97, 9, 29},
+  {cont__4_79, &frame__4_75_add_indent, 98, 98, 9, 19},
+  {entry__4_85, NULL, 103, 103, 34, 36},
+  {cont__4_86, &frame__4_85, 103, 103, 29, 37},
+  {cont__4_87, &frame__4_85, 103, 103, 29, 44},
+  {cont__4_88, &frame__4_85, 103, 103, 29, 44},
+  {entry__4_98, NULL, 110, 110, 52, 62},
+  {entry__4_97, NULL, 110, 110, 26, 62},
+  {cont__4_99, &frame__4_97, 110, 110, 26, 62},
+  {entry__4_103, NULL, 117, 117, 17, 25},
+  {cont__4_104, &frame__4_103, 118, 118, 17, 39},
+  {cont__4_105, &frame__4_103, 119, 119, 20, 48},
+  {cont__4_106, &frame__4_103, 119, 119, 20, 48},
+  {cont__4_107, &frame__4_103, 119, 119, 17, 54},
+  {cont__4_108, &frame__4_103, 120, 120, 17, 51},
+  {cont__4_109, &frame__4_103, 120, 120, 51, 51},
+  {entry__4_102, NULL, 116, 120, 15, 51},
+  {cont__4_110, &frame__4_102, 120, 120, 51, 51},
+  {entry__4_116, NULL, 125, 125, 45, 62},
+  {cont__4_117, &frame__4_116, 125, 125, 62, 62},
+  {entry__4_113, NULL, 124, 124, 17, 25},
+  {cont__4_114, &frame__4_113, 125, 125, 24, 42},
+  {cont__4_115, &frame__4_113, 125, 125, 17, 62},
+  {cont__4_118, &frame__4_113, 126, 126, 47, 49},
+  {cont__4_119, &frame__4_113, 126, 126, 34, 50},
+  {cont__4_120, &frame__4_113, 126, 126, 17, 50},
+  {cont__4_121, &frame__4_113, 127, 127, 17, 34},
+  {cont__4_122, &frame__4_113, 129, 129, 20, 43},
+  {cont__4_123, &frame__4_113, 129, 129, 20, 43},
+  {cont__4_124, &frame__4_113, 129, 129, 17, 49},
+  {cont__4_125, &frame__4_113, 130, 130, 17, 27},
+  {entry__4_112, NULL, 123, 130, 15, 27},
+  {cont__4_126, &frame__4_112, 130, 130, 27, 27},
+  {entry__4_101, NULL, 115, 120, 13, 52},
+  {cont__4_111, &frame__4_101, 122, 130, 13, 28},
+  {cont__4_127, &frame__4_101, 131, 131, 13, 41},
+  {cont__4_128, &frame__4_101, 131, 131, 41, 41},
+  {entry__4_132, NULL, 134, 134, 41, 79},
+  {entry__4_129, NULL, 133, 133, 13, 35},
+  {cont__4_130, &frame__4_129, 134, 134, 16, 38},
+  {cont__4_131, &frame__4_129, 134, 134, 13, 79},
+  {cont__4_134, &frame__4_129, 135, 135, 13, 41},
+  {cont__4_135, &frame__4_129, 135, 135, 41, 41},
+  {entry__4_95, NULL, 108, 108, 9, 18},
+  {cont__4_96, &frame__4_95, 110, 110, 11, 62},
+  {cont__4_100, &frame__4_95, 109, 135, 9, 42},
+  {entry__4_138, NULL, 136, 136, 35, 47},
+  {entry__4_69, NULL, 100, 100, 20, 26},
+  {cont__4_80, &frame__4_69, 100, 100, 7, 33},
+  {cont__4_81, &frame__4_69, 101, 101, 7, 15},
+  {cont__4_82, &frame__4_69, 102, 102, 7, 48},
+  {cont__4_83, &frame__4_69, 103, 103, 20, 24},
+  {cont__4_84, &frame__4_69, 103, 103, 7, 44},
+  {cont__4_89, &frame__4_69, 104, 104, 37, 39},
+  {cont__4_90, &frame__4_69, 104, 104, 24, 40},
+  {cont__4_91, &frame__4_69, 104, 104, 7, 40},
+  {cont__4_92, &frame__4_69, 105, 105, 7, 25},
+  {cont__4_93, &frame__4_69, 107, 107, 10, 32},
+  {cont__4_94, &frame__4_69, 107, 135, 7, 43},
+  {cont__4_136, &frame__4_69, 136, 136, 10, 32},
+  {cont__4_137, &frame__4_69, 136, 136, 7, 47},
+  {cont__4_139, &frame__4_69, 137, 137, 7, 17},
+  {entry__4_68_convert, NULL, 88, 137, 5, 17},
+  {cont__4_140, &frame__4_68_convert, 137, 137, 17, 17},
   {entry__4_1_sim2c__tokenize, NULL, 37, 37, 3, 25},
-  {cont__4_140, &frame__4_1_sim2c__tokenize, 139, 139, 10, 19},
-  {cont__4_141, &frame__4_1_sim2c__tokenize, 139, 139, 3, 19},
-  {cont__4_142, &frame__4_1_sim2c__tokenize, 140, 140, 3, 24},
-  {cont__4_143, &frame__4_1_sim2c__tokenize, 141, 141, 30, 30}
+  {cont__4_141, &frame__4_1_sim2c__tokenize, 139, 139, 10, 19},
+  {cont__4_142, &frame__4_1_sim2c__tokenize, 139, 139, 3, 19},
+  {cont__4_143, &frame__4_1_sim2c__tokenize, 140, 140, 3, 24},
+  {cont__4_144, &frame__4_1_sim2c__tokenize, 141, 141, 30, 30}
 };
 
 union NODE {
@@ -808,7 +811,7 @@ static void entry__4_1_sim2c__tokenize(void) {
   // 47:   to_upper_case &msg(1)
   // 48:   ewrite "
   // 49:     ____________________________________
-  // 50:     TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
+  // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   // 51:   exit 1
   frame->slots[11] /* temp__1 */ = create_closure(entry__4_2_TokenizationError, 1);
   // 44: $TokenizationError: ($msg)
@@ -817,7 +820,7 @@ static void entry__4_1_sim2c__tokenize(void) {
   // 47:   to_upper_case &msg(1)
   // 48:   ewrite "
   // 49:     ____________________________________
-  // 50:     TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
+  // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   // 51:   exit 1
   initialize_future(frame->slots[7] /* TokenizationError */, frame->slots[11] /* temp__1 */);
   // 53: ... :
@@ -830,7 +833,7 @@ static void entry__4_1_sim2c__tokenize(void) {
   // 60:       '@ht;':
   // 61:         TokenizationError "tabulator character within line detected"
   // 62:     inc &i
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_16_skip_line, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_17_skip_line, 0);
   // 53: $skip_line:
   // 54:   !quote_count 0
   // 55:   while -> text(i) != newline:
@@ -853,7 +856,7 @@ static void entry__4_1_sim2c__tokenize(void) {
   // 72:   $$indent 0
   // 73:   while -> text(i) == '@ht;':
   // ...
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_29_get_indent, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_30_get_indent, 0);
   // 64: $get_indent: (-> return)
   // 65:   !pending_newlines 0
   // 66:   do: (-> break)
@@ -877,7 +880,7 @@ static void entry__4_1_sim2c__tokenize(void) {
   // 91:         push &new_text newline
   // 92:         push &fragment.indents_of indent
   // ...
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_67_convert, 1);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_68_convert, 1);
   // 83: $convert:
   // 84:   (
   // 85:     current_indent
@@ -907,9 +910,9 @@ static void entry__4_1_sim2c__tokenize(void) {
   result_count = 1;
   myself = get__text_of();
   func = myself->type;
-  frame->cont = cont__4_140;
+  frame->cont = cont__4_141;
 }
-static void entry__4_21(void) {
+static void entry__4_22(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // text: 0
@@ -931,9 +934,9 @@ static void entry__4_21(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__4_22;
+  frame->cont = cont__4_23;
 }
-static void cont__4_22(void) {
+static void cont__4_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -941,10 +944,10 @@ static void cont__4_22(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 58: ... :
   // 59:   inc &quote_count
-  frame->slots[5] /* temp__2 */ = create_closure(entry__4_23, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__4_24, 0);
   // 60: ... :
   // 61:   TokenizationError "tabulator character within line detected"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__4_25, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__4_26, 0);
   // 56: case
   // 57:   text(i)
   // 58:   '@quot;':
@@ -961,9 +964,9 @@ static void cont__4_22(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__4_27;
+  frame->cont = cont__4_28;
 }
-static void entry__4_23(void) {
+static void entry__4_24(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // quote_count: 0
@@ -979,9 +982,9 @@ static void entry__4_23(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_24;
+  frame->cont = cont__4_25;
 }
-static void cont__4_24(void) {
+static void cont__4_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -993,7 +996,7 @@ static void cont__4_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_25(void) {
+static void entry__4_26(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // TokenizationError: 0
@@ -1005,13 +1008,13 @@ static void entry__4_25(void) {
   // 61: TokenizationError "tabulator character within line detected"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_26;
+  arguments->slots[0] = string__4_27;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_27(void) {
+static void cont__4_28(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1023,9 +1026,9 @@ static void cont__4_27(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_28;
+  frame->cont = cont__4_29;
 }
-static void cont__4_28(void) {
+static void cont__4_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1037,7 +1040,7 @@ static void cont__4_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_17(void) {
+static void entry__4_18(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // text: 0
@@ -1059,9 +1062,9 @@ static void entry__4_17(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__4_18;
+  frame->cont = cont__4_19;
 }
-static void cont__4_18(void) {
+static void cont__4_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1075,9 +1078,9 @@ static void cont__4_18(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_19;
+  frame->cont = cont__4_20;
 }
-static void cont__4_19(void) {
+static void cont__4_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1090,9 +1093,9 @@ static void cont__4_19(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__4_20;
+  frame->cont = cont__4_21;
 }
-static void cont__4_20(void) {
+static void cont__4_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1106,7 +1109,7 @@ static void cont__4_20(void) {
   // 60:     '@ht;':
   // 61:       TokenizationError "tabulator character within line detected"
   // 62:   inc &i
-  frame->slots[7] /* temp__4 */ = create_closure(entry__4_21, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__4_22, 0);
   // 55: ... -> text(i) != newline:
   // 56:   case
   // 57:     text(i)
@@ -1268,20 +1271,22 @@ static void cont__4_10(void) {
   ((CELL *)frame->slots[0])->contents /* msg */ = arguments->slots[0];
   // 48: ... "
   // 49:   ____________________________________
-  // 50:   TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
-  argument_count = 5;
+  // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
+  argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = string__4_11;
   arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* line_no */;
   arguments->slots[2] = string__4_12;
-  arguments->slots[3] = ((CELL *)frame->slots[0])->contents /* msg */;
+  arguments->slots[3] = get__module_name();
   arguments->slots[4] = string__4_13;
+  arguments->slots[5] = ((CELL *)frame->slots[0])->contents /* msg */;
+  arguments->slots[6] = string__4_14;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__4_14;
+  frame->cont = cont__4_15;
 }
-static void cont__4_14(void) {
+static void cont__4_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1289,16 +1294,16 @@ static void cont__4_14(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 48: ewrite "
   // 49:   ____________________________________
-  // 50:   TOKENIZATION ERROR IN LINE @(line_no):@nl;@(msg)!
+  // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
-  frame->cont = cont__4_15;
+  frame->cont = cont__4_16;
 }
-static void cont__4_15(void) {
+static void cont__4_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1312,7 +1317,7 @@ static void cont__4_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_16_skip_line(void) {
+static void entry__4_17_skip_line(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // quote_count: 0
@@ -1337,7 +1342,7 @@ static void entry__4_16_skip_line(void) {
   // 60:     '@ht;':
   // 61:       TokenizationError "tabulator character within line detected"
   // 62:   inc &i
-  frame->slots[4] /* temp__1 */ = create_closure(entry__4_17, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__4_18, 0);
   // 55: while -> text(i) != newline:
   // 56:   case
   // 57:     text(i)
@@ -1354,7 +1359,7 @@ static void entry__4_16_skip_line(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_29_get_indent(void) {
+static void entry__4_30_get_indent(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // return: 0
@@ -1381,7 +1386,7 @@ static void entry__4_29_get_indent(void) {
   // 69:     if text(i) != newline break
   // 70:     inc &i
   // 71:     inc &pending_newlines
-  frame->slots[6] /* temp__1 */ = create_closure(entry__4_30, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__4_31, 0);
   // 66: do: (-> break)
   // 67:   forever:
   // 68:     if i == length_of(text): return -1
@@ -1394,9 +1399,9 @@ static void entry__4_29_get_indent(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__4_44;
+  frame->cont = cont__4_45;
 }
-static void entry__4_30(void) {
+static void entry__4_31(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // break: 0
@@ -1418,7 +1423,7 @@ static void entry__4_30(void) {
   // 69:   if text(i) != newline break
   // 70:   inc &i
   // 71:   inc &pending_newlines
-  frame->slots[5] /* temp__1 */ = create_closure(entry__4_31, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__4_32, 0);
   // 67: forever:
   // 68:   if i == length_of(text): return -1
   // 69:   if text(i) != newline break
@@ -1430,9 +1435,9 @@ static void entry__4_30(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__4_43;
+  frame->cont = cont__4_44;
 }
-static void entry__4_31(void) {
+static void entry__4_32(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // i: 0
@@ -1456,9 +1461,9 @@ static void entry__4_31(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__4_32;
+  frame->cont = cont__4_33;
 }
-static void cont__4_32(void) {
+static void cont__4_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1472,16 +1477,16 @@ static void cont__4_32(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_33;
+  frame->cont = cont__4_34;
 }
-static void cont__4_33(void) {
+static void cont__4_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 68: ... : return -1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__4_34, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__4_35, 0);
   // 68: if i == length_of(text): return -1
   argument_count = 2;
   arguments = node_p;
@@ -1490,9 +1495,9 @@ static void cont__4_33(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_36;
+  frame->cont = cont__4_37;
 }
-static void entry__4_34(void) {
+static void entry__4_35(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return: 0
@@ -1508,9 +1513,9 @@ static void entry__4_34(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__4_35;
+  frame->cont = cont__4_36;
 }
-static void cont__4_35(void) {
+static void cont__4_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1525,7 +1530,7 @@ static void cont__4_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_36(void) {
+static void cont__4_37(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1537,9 +1542,9 @@ static void cont__4_36(void) {
   result_count = 1;
   myself = frame->slots[1] /* text */;
   func = myself->type;
-  frame->cont = cont__4_37;
+  frame->cont = cont__4_38;
 }
-static void cont__4_37(void) {
+static void cont__4_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1553,9 +1558,9 @@ static void cont__4_37(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_38;
+  frame->cont = cont__4_39;
 }
-static void cont__4_38(void) {
+static void cont__4_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1568,9 +1573,9 @@ static void cont__4_38(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__4_39;
+  frame->cont = cont__4_40;
 }
-static void cont__4_39(void) {
+static void cont__4_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1584,9 +1589,9 @@ static void cont__4_39(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_40;
+  frame->cont = cont__4_41;
 }
-static void cont__4_40(void) {
+static void cont__4_41(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1598,9 +1603,9 @@ static void cont__4_40(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_41;
+  frame->cont = cont__4_42;
 }
-static void cont__4_41(void) {
+static void cont__4_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1613,9 +1618,9 @@ static void cont__4_41(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_42;
+  frame->cont = cont__4_43;
 }
-static void cont__4_42(void) {
+static void cont__4_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1627,12 +1632,12 @@ static void cont__4_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_43(void) {
+static void cont__4_44(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__4_44(void) {
+static void cont__4_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1642,7 +1647,7 @@ static void cont__4_44(void) {
   // 73: ... -> text(i) == '@ht;':
   // 74:   inc &i
   // 75:   plus &indent 8
-  frame->slots[6] /* temp__1 */ = create_closure(entry__4_45, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__4_46, 0);
   // 73: while -> text(i) == '@ht;':
   // 74:   inc &i
   // 75:   plus &indent 8
@@ -1652,9 +1657,9 @@ static void cont__4_44(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__4_51;
+  frame->cont = cont__4_52;
 }
-static void entry__4_48(void) {
+static void entry__4_49(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // i: 0
@@ -1672,9 +1677,9 @@ static void entry__4_48(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_49;
+  frame->cont = cont__4_50;
 }
-static void cont__4_49(void) {
+static void cont__4_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1688,9 +1693,9 @@ static void cont__4_49(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__4_50;
+  frame->cont = cont__4_51;
 }
-static void cont__4_50(void) {
+static void cont__4_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1702,7 +1707,7 @@ static void cont__4_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_45(void) {
+static void entry__4_46(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // text: 0
@@ -1722,9 +1727,9 @@ static void entry__4_45(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__4_46;
+  frame->cont = cont__4_47;
 }
-static void cont__4_46(void) {
+static void cont__4_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1738,9 +1743,9 @@ static void cont__4_46(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_47;
+  frame->cont = cont__4_48;
 }
-static void cont__4_47(void) {
+static void cont__4_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1749,7 +1754,7 @@ static void cont__4_47(void) {
   // 73: ... :
   // 74:   inc &i
   // 75:   plus &indent 8
-  frame->slots[5] /* temp__3 */ = create_closure(entry__4_48, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__4_49, 0);
   // 73: ... -> text(i) == '@ht;':
   // 74:   inc &i
   // 75:   plus &indent 8
@@ -1761,7 +1766,7 @@ static void cont__4_47(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_51(void) {
+static void cont__4_52(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1769,7 +1774,7 @@ static void cont__4_51(void) {
   // 76: ... -> text(i) == ' ':
   // 77:   inc &i
   // 78:   inc &indent
-  frame->slots[6] /* temp__1 */ = create_closure(entry__4_52, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__4_53, 0);
   // 76: while -> text(i) == ' ':
   // 77:   inc &i
   // 78:   inc &indent
@@ -1779,9 +1784,9 @@ static void cont__4_51(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__4_58;
+  frame->cont = cont__4_59;
 }
-static void entry__4_55(void) {
+static void entry__4_56(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // i: 0
@@ -1799,9 +1804,9 @@ static void entry__4_55(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_56;
+  frame->cont = cont__4_57;
 }
-static void cont__4_56(void) {
+static void cont__4_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1814,9 +1819,9 @@ static void cont__4_56(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__4_57;
+  frame->cont = cont__4_58;
 }
-static void cont__4_57(void) {
+static void cont__4_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1828,7 +1833,7 @@ static void cont__4_57(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_52(void) {
+static void entry__4_53(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // text: 0
@@ -1848,9 +1853,9 @@ static void entry__4_52(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__4_53;
+  frame->cont = cont__4_54;
 }
-static void cont__4_53(void) {
+static void cont__4_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1864,9 +1869,9 @@ static void cont__4_53(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_54;
+  frame->cont = cont__4_55;
 }
-static void cont__4_54(void) {
+static void cont__4_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1875,7 +1880,7 @@ static void cont__4_54(void) {
   // 76: ... :
   // 77:   inc &i
   // 78:   inc &indent
-  frame->slots[5] /* temp__3 */ = create_closure(entry__4_55, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__4_56, 0);
   // 76: ... -> text(i) == ' ':
   // 77:   inc &i
   // 78:   inc &indent
@@ -1887,7 +1892,7 @@ static void cont__4_54(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_58(void) {
+static void cont__4_59(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1900,16 +1905,16 @@ static void cont__4_58(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_59;
+  frame->cont = cont__4_60;
 }
-static void cont__4_59(void) {
+static void cont__4_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   // 79: ... text(i) == newline
-  frame->slots[8] /* temp__3 */ = create_closure(entry__4_60, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__4_61, 0);
   // 79: ... indent > 0 && text(i) == newline
   argument_count = 2;
   arguments = node_p;
@@ -1918,9 +1923,9 @@ static void cont__4_59(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__4_63;
+  frame->cont = cont__4_64;
 }
-static void entry__4_60(void) {
+static void entry__4_61(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // text: 0
@@ -1938,9 +1943,9 @@ static void entry__4_60(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__4_61;
+  frame->cont = cont__4_62;
 }
-static void cont__4_61(void) {
+static void cont__4_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1954,9 +1959,9 @@ static void cont__4_61(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_62;
+  frame->cont = cont__4_63;
 }
-static void cont__4_62(void) {
+static void cont__4_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1970,7 +1975,7 @@ static void cont__4_62(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_63(void) {
+static void cont__4_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1978,7 +1983,7 @@ static void cont__4_63(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 79: ... :
   // 80:   TokenizationError "empty line contains whitespace"
-  frame->slots[9] /* temp__4 */ = create_closure(entry__4_64, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__4_65, 0);
   // 79: if indent > 0 && text(i) == newline:
   // 80:   TokenizationError "empty line contains whitespace"
   argument_count = 2;
@@ -1988,9 +1993,9 @@ static void cont__4_63(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_66;
+  frame->cont = cont__4_67;
 }
-static void entry__4_64(void) {
+static void entry__4_65(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // TokenizationError: 0
@@ -2002,13 +2007,13 @@ static void entry__4_64(void) {
   // 80: TokenizationError "empty line contains whitespace"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_65;
+  arguments->slots[0] = string__4_66;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_66(void) {
+static void cont__4_67(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2021,7 +2026,7 @@ static void cont__4_66(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__4_67_convert(void) {
+static void entry__4_68_convert(void) {
   allocate_initialized_frame_gc(13, 14);
   // slot allocations:
   // current_indent: 0
@@ -2064,7 +2069,7 @@ static void entry__4_67_convert(void) {
   // 96:     push &fragment.indents_of indent
   // 97:     dec &pending_newlines
   // ...
-  frame->slots[13] /* temp__1 */ = create_closure(entry__4_68, 0);
+  frame->slots[13] /* temp__1 */ = create_closure(entry__4_69, 0);
   // 88: forever:
   // 89:   $add_newline:
   // 90:     repeat pending_newlines:
@@ -2082,9 +2087,9 @@ static void entry__4_67_convert(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__4_139;
+  frame->cont = cont__4_140;
 }
-static void entry__4_68(void) {
+static void entry__4_69(void) {
   allocate_initialized_frame_gc(13, 21);
   // slot allocations:
   // pending_newlines: 0
@@ -2133,7 +2138,7 @@ static void entry__4_68(void) {
   // 90:   repeat pending_newlines:
   // 91:     push &new_text newline
   // 92:     push &fragment.indents_of indent
-  frame->slots[19] /* temp__1 */ = create_closure(entry__4_69_add_newline, 0);
+  frame->slots[19] /* temp__1 */ = create_closure(entry__4_70_add_newline, 0);
   // 89: $add_newline:
   // 90:   repeat pending_newlines:
   // 91:     push &new_text newline
@@ -2144,7 +2149,7 @@ static void entry__4_68(void) {
   // 96:   push &fragment.indents_of indent
   // 97:   dec &pending_newlines
   // 98:   add_newline
-  frame->slots[19] /* temp__1 */ = create_closure(entry__4_74_add_indent, 0);
+  frame->slots[19] /* temp__1 */ = create_closure(entry__4_75_add_indent, 0);
   // 94: $add_indent:
   // 95:   push &new_text indent_marker
   // 96:   push &fragment.indents_of indent
@@ -2158,9 +2163,9 @@ static void entry__4_68(void) {
   result_count = 1;
   myself = frame->slots[3] /* text */;
   func = myself->type;
-  frame->cont = cont__4_79;
+  frame->cont = cont__4_80;
 }
-static void entry__4_70(void) {
+static void entry__4_71(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // new_text: 0
@@ -2181,9 +2186,9 @@ static void entry__4_70(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_71;
+  frame->cont = cont__4_72;
 }
-static void cont__4_71(void) {
+static void cont__4_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2196,9 +2201,9 @@ static void cont__4_71(void) {
   result_count = 1;
   myself = get__indents_of();
   func = myself->type;
-  frame->cont = cont__4_72;
+  frame->cont = cont__4_73;
 }
-static void cont__4_72(void) {
+static void cont__4_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2212,9 +2217,9 @@ static void cont__4_72(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_73;
+  frame->cont = cont__4_74;
 }
-static void cont__4_73(void) {
+static void cont__4_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2234,7 +2239,7 @@ static void cont__4_73(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_69_add_newline(void) {
+static void entry__4_70_add_newline(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // pending_newlines: 0
@@ -2252,7 +2257,7 @@ static void entry__4_69_add_newline(void) {
   // 90: ... :
   // 91:   push &new_text newline
   // 92:   push &fragment.indents_of indent
-  frame->slots[4] /* temp__1 */ = create_closure(entry__4_70, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__4_71, 0);
   // 90: repeat pending_newlines:
   // 91:   push &new_text newline
   // 92:   push &fragment.indents_of indent
@@ -2265,7 +2270,7 @@ static void entry__4_69_add_newline(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_74_add_indent(void) {
+static void entry__4_75_add_indent(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // new_text: 0
@@ -2290,9 +2295,9 @@ static void entry__4_74_add_indent(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_75;
+  frame->cont = cont__4_76;
 }
-static void cont__4_75(void) {
+static void cont__4_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2305,9 +2310,9 @@ static void cont__4_75(void) {
   result_count = 1;
   myself = get__indents_of();
   func = myself->type;
-  frame->cont = cont__4_76;
+  frame->cont = cont__4_77;
 }
-static void cont__4_76(void) {
+static void cont__4_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2321,9 +2326,9 @@ static void cont__4_76(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_77;
+  frame->cont = cont__4_78;
 }
-static void cont__4_77(void) {
+static void cont__4_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2344,9 +2349,9 @@ static void cont__4_77(void) {
   result_count = 1;
   myself = get__dec();
   func = myself->type;
-  frame->cont = cont__4_78;
+  frame->cont = cont__4_79;
 }
-static void cont__4_78(void) {
+static void cont__4_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2360,7 +2365,7 @@ static void cont__4_78(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_79(void) {
+static void cont__4_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2374,9 +2379,9 @@ static void cont__4_79(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_80;
+  frame->cont = cont__4_81;
 }
-static void cont__4_80(void) {
+static void cont__4_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2388,9 +2393,9 @@ static void cont__4_80(void) {
   result_count = 0;
   myself = frame->slots[5] /* skip_line */;
   func = myself->type;
-  frame->cont = cont__4_81;
+  frame->cont = cont__4_82;
 }
-static void cont__4_81(void) {
+static void cont__4_82(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2402,9 +2407,9 @@ static void cont__4_81(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__4_82;
+  frame->cont = cont__4_83;
 }
-static void cont__4_82(void) {
+static void cont__4_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2418,16 +2423,16 @@ static void cont__4_82(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_83;
+  frame->cont = cont__4_84;
 }
-static void cont__4_83(void) {
+static void cont__4_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[19] /* temp__1 */ = arguments->slots[0];
   // 103: ... text(i-1) == '{'
-  frame->slots[20] /* temp__2 */ = create_closure(entry__4_84, 0);
+  frame->slots[20] /* temp__2 */ = create_closure(entry__4_85, 0);
   // 103: $is_inline_C i > 1 && text(i-1) == '{'
   argument_count = 2;
   arguments = node_p;
@@ -2436,9 +2441,9 @@ static void cont__4_83(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__4_88;
+  frame->cont = cont__4_89;
 }
-static void entry__4_84(void) {
+static void entry__4_85(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // text: 0
@@ -2457,9 +2462,9 @@ static void entry__4_84(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__4_85;
+  frame->cont = cont__4_86;
 }
-static void cont__4_85(void) {
+static void cont__4_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2472,9 +2477,9 @@ static void cont__4_85(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__4_86;
+  frame->cont = cont__4_87;
 }
-static void cont__4_86(void) {
+static void cont__4_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2488,9 +2493,9 @@ static void cont__4_86(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_87;
+  frame->cont = cont__4_88;
 }
-static void cont__4_87(void) {
+static void cont__4_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2504,7 +2509,7 @@ static void cont__4_87(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_88(void) {
+static void cont__4_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2518,9 +2523,9 @@ static void cont__4_88(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__4_89;
+  frame->cont = cont__4_90;
 }
-static void cont__4_89(void) {
+static void cont__4_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2535,9 +2540,9 @@ static void cont__4_89(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__4_90;
+  frame->cont = cont__4_91;
 }
-static void cont__4_90(void) {
+static void cont__4_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2551,9 +2556,9 @@ static void cont__4_90(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__4_91;
+  frame->cont = cont__4_92;
 }
-static void cont__4_91(void) {
+static void cont__4_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2565,9 +2570,9 @@ static void cont__4_91(void) {
   result_count = 1;
   myself = frame->slots[8] /* get_indent */;
   func = myself->type;
-  frame->cont = cont__4_92;
+  frame->cont = cont__4_93;
 }
-static void cont__4_92(void) {
+static void cont__4_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2583,9 +2588,9 @@ static void cont__4_92(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_93;
+  frame->cont = cont__4_94;
 }
-static void cont__4_93(void) {
+static void cont__4_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2602,7 +2607,7 @@ static void cont__4_93(void) {
   // 115:       do: (-> break)
   // 116:         forever:
   // ...
-  frame->slots[20] /* temp__2 */ = create_closure(entry__4_94, 0);
+  frame->slots[20] /* temp__2 */ = create_closure(entry__4_95, 0);
   // 107: if indent > current_indent:
   // 108:   add_indent
   // 109:   if
@@ -2621,9 +2626,9 @@ static void cont__4_93(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_135;
+  frame->cont = cont__4_136;
 }
-static void entry__4_100(void) {
+static void entry__4_101(void) {
   allocate_initialized_frame_gc(9, 12);
   // slot allocations:
   // i: 0
@@ -2663,7 +2668,7 @@ static void entry__4_100(void) {
   // 118:     get_indent $next_indent
   // 119:     if next_indent <= current_indent break
   // 120:     reduce_to &least_indent next_indent
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_101, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_102, 0);
   // 115: do: (-> break)
   // 116:   forever:
   // 117:     skip_line
@@ -2676,9 +2681,9 @@ static void entry__4_100(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__4_110;
+  frame->cont = cont__4_111;
 }
-static void entry__4_101(void) {
+static void entry__4_102(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // break: 0
@@ -2700,7 +2705,7 @@ static void entry__4_101(void) {
   // 118:   get_indent $next_indent
   // 119:   if next_indent <= current_indent break
   // 120:   reduce_to &least_indent next_indent
-  frame->slots[5] /* temp__1 */ = create_closure(entry__4_102, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__4_103, 0);
   // 116: forever:
   // 117:   skip_line
   // 118:   get_indent $next_indent
@@ -2712,9 +2717,9 @@ static void entry__4_101(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__4_109;
+  frame->cont = cont__4_110;
 }
-static void entry__4_102(void) {
+static void entry__4_103(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // skip_line: 0
@@ -2739,9 +2744,9 @@ static void entry__4_102(void) {
   result_count = 0;
   myself = frame->slots[0] /* skip_line */;
   func = myself->type;
-  frame->cont = cont__4_103;
+  frame->cont = cont__4_104;
 }
-static void cont__4_103(void) {
+static void cont__4_104(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2752,9 +2757,9 @@ static void cont__4_103(void) {
   result_count = 1;
   myself = frame->slots[1] /* get_indent */;
   func = myself->type;
-  frame->cont = cont__4_104;
+  frame->cont = cont__4_105;
 }
-static void cont__4_104(void) {
+static void cont__4_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2768,9 +2773,9 @@ static void cont__4_104(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_105;
+  frame->cont = cont__4_106;
 }
-static void cont__4_105(void) {
+static void cont__4_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2783,9 +2788,9 @@ static void cont__4_105(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__4_106;
+  frame->cont = cont__4_107;
 }
-static void cont__4_106(void) {
+static void cont__4_107(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2799,9 +2804,9 @@ static void cont__4_106(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_107;
+  frame->cont = cont__4_108;
 }
-static void cont__4_107(void) {
+static void cont__4_108(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2814,9 +2819,9 @@ static void cont__4_107(void) {
   result_count = 1;
   myself = get__reduce_to();
   func = myself->type;
-  frame->cont = cont__4_108;
+  frame->cont = cont__4_109;
 }
-static void cont__4_108(void) {
+static void cont__4_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2828,12 +2833,12 @@ static void cont__4_108(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_109(void) {
+static void cont__4_110(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__4_110(void) {
+static void cont__4_111(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2849,7 +2854,7 @@ static void cont__4_110(void) {
   // 128:     !s i
   // 129:     if indent <= current_indent break
   // 130:     add_newline
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_111, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_112, 0);
   // 122: do: (-> break)
   // 123:   forever:
   // 124:     skip_line
@@ -2865,9 +2870,9 @@ static void cont__4_110(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__4_126;
+  frame->cont = cont__4_127;
 }
-static void entry__4_111(void) {
+static void entry__4_112(void) {
   allocate_initialized_frame_gc(11, 12);
   // slot allocations:
   // break: 0
@@ -2904,7 +2909,7 @@ static void entry__4_111(void) {
   // 128:   !s i
   // 129:   if indent <= current_indent break
   // 130:   add_newline
-  frame->slots[11] /* temp__1 */ = create_closure(entry__4_112, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__4_113, 0);
   // 123: forever:
   // 124:   skip_line
   // 125:   repeat indent-least_indent: push &new_text ' '
@@ -2919,9 +2924,9 @@ static void entry__4_111(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__4_125;
+  frame->cont = cont__4_126;
 }
-static void entry__4_112(void) {
+static void entry__4_113(void) {
   allocate_initialized_frame_gc(11, 13);
   // slot allocations:
   // skip_line: 0
@@ -2956,9 +2961,9 @@ static void entry__4_112(void) {
   result_count = 0;
   myself = frame->slots[0] /* skip_line */;
   func = myself->type;
-  frame->cont = cont__4_113;
+  frame->cont = cont__4_114;
 }
-static void cont__4_113(void) {
+static void cont__4_114(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2971,16 +2976,16 @@ static void cont__4_113(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__4_114;
+  frame->cont = cont__4_115;
 }
-static void cont__4_114(void) {
+static void cont__4_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
   // 125: ... : push &new_text ' '
-  frame->slots[12] /* temp__2 */ = create_closure(entry__4_115, 0);
+  frame->slots[12] /* temp__2 */ = create_closure(entry__4_116, 0);
   // 125: repeat indent-least_indent: push &new_text ' '
   argument_count = 2;
   arguments = node_p;
@@ -2989,9 +2994,9 @@ static void cont__4_114(void) {
   result_count = 0;
   myself = get__repeat();
   func = myself->type;
-  frame->cont = cont__4_117;
+  frame->cont = cont__4_118;
 }
-static void entry__4_115(void) {
+static void entry__4_116(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // new_text: 0
@@ -3008,9 +3013,9 @@ static void entry__4_115(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_116;
+  frame->cont = cont__4_117;
 }
-static void cont__4_116(void) {
+static void cont__4_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3022,7 +3027,7 @@ static void cont__4_116(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_117(void) {
+static void cont__4_118(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3035,9 +3040,9 @@ static void cont__4_117(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__4_118;
+  frame->cont = cont__4_119;
 }
-static void cont__4_118(void) {
+static void cont__4_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3052,9 +3057,9 @@ static void cont__4_118(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__4_119;
+  frame->cont = cont__4_120;
 }
-static void cont__4_119(void) {
+static void cont__4_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3068,9 +3073,9 @@ static void cont__4_119(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__4_120;
+  frame->cont = cont__4_121;
 }
-static void cont__4_120(void) {
+static void cont__4_121(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3082,9 +3087,9 @@ static void cont__4_120(void) {
   result_count = 1;
   myself = frame->slots[7] /* get_indent */;
   func = myself->type;
-  frame->cont = cont__4_121;
+  frame->cont = cont__4_122;
 }
-static void cont__4_121(void) {
+static void cont__4_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3100,9 +3105,9 @@ static void cont__4_121(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_122;
+  frame->cont = cont__4_123;
 }
-static void cont__4_122(void) {
+static void cont__4_123(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3115,9 +3120,9 @@ static void cont__4_122(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__4_123;
+  frame->cont = cont__4_124;
 }
-static void cont__4_123(void) {
+static void cont__4_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3131,9 +3136,9 @@ static void cont__4_123(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_124;
+  frame->cont = cont__4_125;
 }
-static void cont__4_124(void) {
+static void cont__4_125(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3146,12 +3151,12 @@ static void cont__4_124(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_125(void) {
+static void cont__4_126(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__4_126(void) {
+static void cont__4_127(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3164,9 +3169,9 @@ static void cont__4_126(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_127;
+  frame->cont = cont__4_128;
 }
-static void cont__4_127(void) {
+static void cont__4_128(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3178,7 +3183,7 @@ static void cont__4_127(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_128(void) {
+static void entry__4_129(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // indent: 0
@@ -3202,9 +3207,9 @@ static void entry__4_128(void) {
   result_count = 1;
   myself = frame->slots[1] /* convert */;
   func = myself->type;
-  frame->cont = cont__4_129;
+  frame->cont = cont__4_130;
 }
-static void cont__4_129(void) {
+static void cont__4_130(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3218,16 +3223,16 @@ static void cont__4_129(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_130;
+  frame->cont = cont__4_131;
 }
-static void cont__4_130(void) {
+static void cont__4_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 134: ... : TokenizationError "invalid indentation"
-  frame->slots[6] /* temp__2 */ = create_closure(entry__4_131, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__4_132, 0);
   // 134: if indent > current_indent: TokenizationError "invalid indentation"
   argument_count = 2;
   arguments = node_p;
@@ -3236,9 +3241,9 @@ static void cont__4_130(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_133;
+  frame->cont = cont__4_134;
 }
-static void entry__4_131(void) {
+static void entry__4_132(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // TokenizationError: 0
@@ -3250,13 +3255,13 @@ static void entry__4_131(void) {
   // 134: ... TokenizationError "invalid indentation"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_132;
+  arguments->slots[0] = string__4_133;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_133(void) {
+static void cont__4_134(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3269,9 +3274,9 @@ static void cont__4_133(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_134;
+  frame->cont = cont__4_135;
 }
-static void cont__4_134(void) {
+static void cont__4_135(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3283,7 +3288,7 @@ static void cont__4_134(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_94(void) {
+static void entry__4_95(void) {
   allocate_initialized_frame_gc(15, 19);
   // slot allocations:
   // add_indent: 0
@@ -3326,15 +3331,15 @@ static void entry__4_94(void) {
   result_count = 0;
   myself = frame->slots[0] /* add_indent */;
   func = myself->type;
-  frame->cont = cont__4_95;
+  frame->cont = cont__4_96;
 }
-static void cont__4_95(void) {
+static void cont__4_96(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 110: ... is_a_multi_line_string || is_inline_C
-  frame->slots[16] /* temp__2 */ = create_closure(entry__4_96, 0);
+  frame->slots[16] /* temp__2 */ = create_closure(entry__4_97, 0);
   // 110: is_a_remark || is_a_multi_line_string || is_inline_C
   argument_count = 2;
   arguments = node_p;
@@ -3343,9 +3348,9 @@ static void cont__4_95(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__4_99;
+  frame->cont = cont__4_100;
 }
-static void entry__4_96(void) {
+static void entry__4_97(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // is_a_multi_line_string: 0
@@ -3357,7 +3362,7 @@ static void entry__4_96(void) {
     return;
   }
   // 110: ... is_inline_C
-  frame->slots[3] /* temp__2 */ = create_closure(entry__4_97, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__4_98, 0);
   // 110: ... is_a_multi_line_string || is_inline_C
   argument_count = 2;
   arguments = node_p;
@@ -3366,9 +3371,9 @@ static void entry__4_96(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__4_98;
+  frame->cont = cont__4_99;
 }
-static void entry__4_97(void) {
+static void entry__4_98(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // is_inline_C: 0
@@ -3385,7 +3390,7 @@ static void entry__4_97(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_98(void) {
+static void cont__4_99(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3399,7 +3404,7 @@ static void cont__4_98(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_99(void) {
+static void cont__4_100(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3416,12 +3421,12 @@ static void cont__4_99(void) {
   // 118:       get_indent $next_indent
   // 119:       if next_indent <= current_indent break
   // ...
-  frame->slots[17] /* temp__3 */ = create_closure(entry__4_100, 0);
+  frame->slots[17] /* temp__3 */ = create_closure(entry__4_101, 0);
   // 132: :
   // 133:   !indent convert(indent)
   // 134:   if indent > current_indent: TokenizationError "invalid indentation"
   // 135:   push &new_text outdent_marker
-  frame->slots[18] /* temp__4 */ = create_closure(entry__4_128, 0);
+  frame->slots[18] /* temp__4 */ = create_closure(entry__4_129, 0);
   // 109: if
   // 110:   is_a_remark || is_a_multi_line_string || is_inline_C:
   // 111:     # maybe irregular indentations
@@ -3443,7 +3448,7 @@ static void cont__4_99(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_135(void) {
+static void cont__4_136(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3456,16 +3461,16 @@ static void cont__4_135(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_136;
+  frame->cont = cont__4_137;
 }
-static void cont__4_136(void) {
+static void cont__4_137(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[19] /* temp__1 */ = arguments->slots[0];
   // 136: ... : return indent
-  frame->slots[20] /* temp__2 */ = create_closure(entry__4_137, 0);
+  frame->slots[20] /* temp__2 */ = create_closure(entry__4_138, 0);
   // 136: if indent < current_indent: return indent
   argument_count = 2;
   arguments = node_p;
@@ -3474,9 +3479,9 @@ static void cont__4_136(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_138;
+  frame->cont = cont__4_139;
 }
-static void entry__4_137(void) {
+static void entry__4_138(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3496,7 +3501,7 @@ static void entry__4_137(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_138(void) {
+static void cont__4_139(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3509,12 +3514,12 @@ static void cont__4_138(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_139(void) {
+static void cont__4_140(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__4_140(void) {
+static void cont__4_141(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3537,9 +3542,9 @@ static void cont__4_140(void) {
   result_count = 1;
   myself = frame->slots[10] /* convert */;
   func = myself->type;
-  frame->cont = cont__4_141;
+  frame->cont = cont__4_142;
 }
-static void cont__4_141(void) {
+static void cont__4_142(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3552,9 +3557,9 @@ static void cont__4_141(void) {
   result_count = 0;
   myself = get__ignore();
   func = myself->type;
-  frame->cont = cont__4_142;
+  frame->cont = cont__4_143;
 }
-static void cont__4_142(void) {
+static void cont__4_143(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3567,9 +3572,9 @@ static void cont__4_142(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__4_143;
+  frame->cont = cont__4_144;
 }
-static void cont__4_143(void) {
+static void cont__4_144(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3624,11 +3629,12 @@ EXPORT void phase_2__tokenizer(void) {
   character__1 = from_uchar32(1);
   number__1 = from_uint32(1U);
   string__4_11 = from_latin_1_string("____________________________________\012TOKENIZATION ERROR IN LINE ", 64);
-  string__4_12 = from_latin_1_string(":\012", 2);
-  string__4_13 = from_latin_1_string("!\012", 2);
-  string__4_26 = from_latin_1_string("tabulator character within line detected", 40);
-  string__4_65 = from_latin_1_string("empty line contains whitespace", 30);
-  string__4_132 = from_latin_1_string("invalid indentation", 19);
+  string__4_12 = from_latin_1_string(" OF FILE \042", 10);
+  string__4_13 = from_latin_1_string("\042:\012", 3);
+  string__4_14 = from_latin_1_string("!\012", 2);
+  string__4_27 = from_latin_1_string("tabulator character within line detected", 40);
+  string__4_66 = from_latin_1_string("empty line contains whitespace", 30);
+  string__4_133 = from_latin_1_string("invalid indentation", 19);
   func__4_1_sim2c__tokenize = create_function(entry__4_1_sim2c__tokenize, 1);
 }
 
@@ -3669,6 +3675,7 @@ EXPORT void phase_4__tokenizer(void) {
   use_read_only(NULL, "is_odd", &get__is_odd, &get_value_or_future__is_odd);
   use_read_only(NULL, "length_of", &get__length_of, &get_value_or_future__length_of);
   use_read_only(NULL, "line_no_of", &get__line_no_of, &get_value_or_future__line_no_of);
+  use_read_only(NULL, "module_name", &get__module_name, &get_value_or_future__module_name);
   use_read_only(NULL, "newline", &get__newline, &get_value_or_future__newline);
   use_read_only(NULL, "outdent_marker", &get__outdent_marker, &get_value_or_future__outdent_marker);
   use_read_only(NULL, "plus", &get__plus, &get_value_or_future__plus);

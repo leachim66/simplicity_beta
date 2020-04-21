@@ -3680,8 +3680,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__2_50, NULL, 73, 73, 43, 45},
   {cont__2_51, &frame__2_50, 73, 73, 14, 59},
   {cont__2_55, &frame__2_50, 73, 73, 7, 59},
-  {entry__2_56, NULL, 75, 77, 14, 80},
-  {cont__2_62, &frame__2_56, 75, 77, 7, 80},
+  {entry__2_56, NULL, 75, 77, 14, 75},
+  {cont__2_62, &frame__2_56, 75, 77, 7, 75},
   {cont__2_63, &frame__2_56, 78, 78, 7, 19},
   {cont__2_64, &frame__2_56, 79, 79, 16, 25},
   {cont__2_66, &frame__2_56, 79, 79, 7, 29},
@@ -25218,7 +25218,7 @@ static void entry__2_56(void) {
   }
   // 75: ... "
   // 76:   ____________________________________
-  // 77:   @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
+  // 77:   @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__2_57;
@@ -25243,7 +25243,7 @@ static void cont__2_62(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 75: ewrite "
   // 76:   ____________________________________
-  // 77:   @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
+  // 77:   @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -26106,7 +26106,7 @@ static void cont__2_49(void) {
   // 74: :
   // 75:   ewrite "
   // 76:     ____________________________________
-  // 77:     @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
+  // 77:     @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   // 78:   ewriteln line
   // 79:   ewriteln dup(" " n) "^"
   frame->slots[13] /* temp__2 */ = create_closure(entry__2_56, 0);
@@ -26116,7 +26116,7 @@ static void cont__2_49(void) {
   // 74:   :
   // 75:     ewrite "
   // 76:       ____________________________________
-  // 77:       @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
+  // 77:       @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   // 78:     ewriteln line
   // 79:     ewriteln dup(" " n) "^"
   argument_count = 3;

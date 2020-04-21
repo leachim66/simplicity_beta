@@ -381,7 +381,7 @@ $link_bar:
     TEXT "&nbsp;&nbsp;&nbsp;"
     A "href" = "symbol_index.html" "Symbol Index"
     TEXT "&nbsp;&nbsp;&nbsp;"
-    A "href" = "topic_index.html" "Topic Index"
+    A "href" = "topics_index.html" "Topics Index"
 
 $TOPIC alt("Topics" "Topic"), ':'
 $EXAMPLE alt("Example" "Output"), some(not_followed_by(':'), ANY_CHARACTER), ':'
@@ -824,9 +824,9 @@ $sim2c::extract_documentation: (path)
       for_each methods_of(info): (method_name method_info)
 	create_info_page string(name "/" method_name) method_info
 
-  create_page "html/topic_index.html":
+  create_page "html/topics_index.html":
     link_bar
-    H1 "id" = "index" "Topic Index"
+    H1 "id" = "index" "Topics Index"
     TABLE:
       for_each topics: (topic _references)
 	$filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
@@ -850,7 +850,7 @@ $sim2c::extract_documentation: (path)
     P: A "href" = "manual.html" "Manual"
     P: A "href" = "type_index.html" "Type Index"
     P: A "href" = "symbol_index.html" "Symbol Index"
-    P: A "href" = "topic_index.html" "Topic Index"
+    P: A "href" = "topics_index.html" "Topics Index"
 
   if do_print_summary:
     $$total_functions 0

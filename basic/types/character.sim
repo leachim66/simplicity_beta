@@ -66,11 +66,12 @@ $types::character.is_a_character true
 }
 
 $std::character
+  #
+    returns the character with the specified code
   {
     CHECK_ARGUMENTS(1)
-    uint64_t code = to_uint64(ARGUMENTS(0));
-    if (code >= 0x100000000LL) INVALID_ARGUMENTS_ERROR
-    RETURN_SINGLE_RESULT(create__types__character((uint32_t)code))
+    uint32_t code = to_uint32(ARGUMENTS(0));
+    RETURN_SINGLE_RESULT(create__types__character(code))
   }
 
 $types::character/plus
