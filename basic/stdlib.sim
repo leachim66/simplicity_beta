@@ -38,6 +38,7 @@
 <require ./loops>
 <require ./machine_info>
 <require ./math>
+<require ./mersenne_twister>
 <require ./options>
 <require ./parameters>
 <require ./platform>

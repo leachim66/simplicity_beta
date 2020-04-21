@@ -58,6 +58,24 @@ $std::create_screen:
       .background_colours_of
 	dup(list(dup(background_colour.to_string column_count)) row_count)
 
+$std::scroll_left:
+  #
+    scroll the screen left by *delta* positions
+  (
+    delta = 1
+  )
+  $right_text spaces(delta)
+  $right_text_colours
+    dup(current_text_colour_of(current_screen).to_string delta)
+  $right_background_colours
+    dup(current_background_colour_of(current_screen).to_string delta)
+  update_each &current_screen.characters_of: (line)
+    append range(line 1+delta -1) right_text
+  update_each &current_screen.text_colours_of: (line)
+    append range(line 1+delta -1) right_text_colours
+  update_each &current_screen.background_colours_of: (line)
+    append range(line 1+delta -1) right_background_colours
+
 $std::update_terminal:
   $$output ""
   $$current_row current_row_of(terminal)
@@ -179,6 +197,11 @@ $std::update_terminal:
 	  use_text_colour new_text_colour
 	  use_background_colour new_background_colour
 	  emit_character new_chr
+  if current_row > height_of(terminal):
+    !current_row 1
+    !current_column 1
+    emit_command current_row ';' current_column 'H'
+    log "move cursor to @(current_row), @(current_column)"
   !terminal.current_row_of current_row
   !terminal.current_column_of current_column
   write output
@@ -193,14 +216,38 @@ $std::set_text_colour: (colour) !current_screen.current_text_colour_of colour
 $std::set_background_colour: (colour)
   !current_screen.current_background_colour_of colour
 
-$std::draw_text:
+$std::draw_character:
+  #
+    draw a character at the current screen position
   (
-    $text
+    chr # the character to draw
+  )
+  $row current_row_of(current_screen)
+  $column current_column_of(current_screen)
+  $width width_of(current_screen)
+  $height height_of(current_screen)
+  if row >= 1 && row <= height && column >= 1 && column <= width:
+    $current_text_colour current_text_colour_of(current_screen)
+    $current_background_colour current_background_colour_of(current_screen)
+    !current_screen.characters_of(row)(column) chr
+    if current_text_colour.is_defined:
+      !current_screen.text_colours_of(row)(column) current_text_colour
+    if current_background_colour.is_defined:
+      !current_screen.background_colours_of(row)(column)
+	current_background_colour
+
+$std::draw_text:
+  #
+    draw a text at the current screen position
+  (
+    $text # the text (string) to draw
     -> return
   )
   $row current_row_of(current_screen)
   $$column current_column_of(current_screen)
   $width width_of(current_screen)
+  $height height_of(current_screen)
+  if row < 1 || row > height return
   plus &current_screen.current_column_of length_of(text)
   if column > width return
   if column < 1:
@@ -412,3 +459,19 @@ $std::draw_rectangle: (x1 y1 x2 y2)
   draw_line x1 y2 x2 y2
   draw_line x2 y2 x2 y1
   draw_line x2 y1 x1 y1
+
+$std::cursor_off
+  #
+    turn the console cursor off
+
+    See also: cursor_on
+  :
+    write "@esc;[?25l"
+
+$std::cursor_on
+  #
+    turn the console cursor on
+
+    See also: cursor_off
+  :
+    write "@esc;[?25h"

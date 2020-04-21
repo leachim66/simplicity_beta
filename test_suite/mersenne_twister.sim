@@ -1,0 +1,5 @@
+#!/usr/bin/env simple
+
+$$rng mersenne_twister(4711)
+
+repeat 2000: writeln next(&rng 10)
