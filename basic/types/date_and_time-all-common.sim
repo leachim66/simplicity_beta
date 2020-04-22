@@ -26,13 +26,80 @@
 <include time.h>
 
 $std::year_of (!)
+  #
+    the calendar year of a <types::date_and_time> object
+
+    See also: month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
+	      time_shift_of
+
 $std::month_of (!)
+  #
+    the month of the year of a <types::date_and_time> object
+
+    January: 1
+    February: 2
+    ...
+    December: 12
+
+    See also: year_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
+	      time_shift_of
+
 $std::day_of (!)
-$std::day_of_week_of (!) # 1: monday, 2: tuesday, ..., 7: sunday
+  #
+    the day of the month of a <types::date_and_time> object
+
+    Returned values are in the range 1 to 31.
+
+    See also: year_of, month_of, day_of_week_of, hour_of, minute_of, second_of,
+	      time_shift_of
+
+$std::day_of_week_of (!) #
+  #
+    the day of the of a <types::date_and_time> object
+
+    monday: 1
+    tuesday: 2
+    ...
+    sunday: 7
+
+    See also: year_of, month_of, day_of, hour_of, minute_of, second_of,
+	      time_shift_of
+
 $std::hour_of (!)
+  #
+    the hour of the day of a <types::date_and_time> object
+
+    Returned values are in the range 0 to 23.
+
+    See also: year_of, month_of, day_of, day_of_week_of, minute_of, second_of,
+	      time_shift_of
+
 $std::minute_of (!)
+  #
+    the minute of the hour a <types::date_and_time> object
+
+    Returned values are in the range 0 to 59.
+
+    See also: year_of, month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
+	      time_shift_of
+
 $std::second_of (!)
+  #
+    the second of the minute of a <types::date_and_time> object
+
+    Returned values are in the range 0.0 to 59.999...
+
+    See also: year_of, month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
+	      time_shift_of
+
 $std::time_shift_of (!)
+  #
+    the time shift of a <types::date_and_time> object
+
+    The time shift of the time zone (in seconds).
+
+    See also: year_of, month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
+	      time_shift_of
 
 {
   <kind node>
@@ -51,6 +118,10 @@ $std::time_shift_of (!)
   <argument 0>
   <argument 0>
 
+  // the prototype object for storing date & time information
+  //
+  // See also: date_and_time
+
   RUNTIME_ERROR("Attempt to call a date and time object as a function!")
 }
 
@@ -64,6 +135,9 @@ $std::time_shift_of (!)
 }
 
 $std::from_unix_time
+  #
+    constructs a <types::date_and_time> object from the seconds since the UNIX
+    epoch
   {
     CHECK_ARGUMENTS(1)
     int64_t sec = to_int64(ARGUMENTS(0));
@@ -72,6 +146,20 @@ $std::from_unix_time
   }
 
 $std::date_and_time
+  #
+    constructs a <types::date_and_time> object
+
+    Parameter year: the calendar year
+
+    Parameter month: the month of the year
+
+    Parameter day: the day of the month
+
+    Parameter hour: the hour of the day
+
+    Parameter minute: the minute of the hour
+
+    Parameter second: the second of the minute (decimals allowed!)
   {
     CHECK_ARGUMENTS(6)
     int year = to_int(ARGUMENTS(0));

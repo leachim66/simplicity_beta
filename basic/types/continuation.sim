@@ -24,14 +24,17 @@ $std::is_a_continuation ()
   #
     returns true for continuation functions
 
-$types::object.is_a_continuation false
-$types::continuation.is_a_continuation true
+$types::object.is_a_continuation false # obvious
+
+$types::continuation.is_a_continuation true # obvious
 
 {
   <kind type>
   <name types::continuation>
   <node SIMPLE_NODE>
   <base types::function>
+
+  // the prototype object for all continuations
 
   RUNTIME_ERROR("Attempt to call the continuation prototype object!")
 }

@@ -663,8 +663,7 @@ $std::trim:
 
 $std::normalize:
   #
-    trims the string and replaces all remaining whitespace sequences with a
-    single space
+    trims the string and replaces all whitespace sequences with a single space
   (
     &str
   )
@@ -730,8 +729,7 @@ $types::string/matches:
 
 $types::string/contains:
   #
-    returns <true> if the specified expression occurrs at least once within the
-    string
+    succeeds if the specified expression occurrs at least once within the string
   (
     text
     expr

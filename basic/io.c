@@ -1229,8 +1229,7 @@ static void entry__131_1_WriteError(void);
 static FRAME_INFO frame__131_1_WriteError = {1, {"fd"}};
 static void cont__131_2(void);
 static NODE *string__131_3;
-static NODE *string__131_4;
-static void cont__131_5(void);
+static void cont__131_4(void);
 static NODE *func__132_1_types__file_descriptor_write_to;
 static void entry__132_1_types__file_descriptor_write_to(void);
 static FRAME_INFO frame__132_1_types__file_descriptor_write_to = {4, {"fd", "args", "return", "data"}};
@@ -2004,9 +2003,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__130_1_file_description, NULL, 1523, 1523, 3, 27},
   {cont__130_2, &frame__130_1_file_description, 1525, 1525, 5, 23},
   {cont__130_3, &frame__130_1_file_description, 1524, 1533, 3, 39},
-  {entry__131_1_WriteError, NULL, 1536, 1536, 36, 55},
-  {cont__131_2, &frame__131_1_WriteError, 1536, 1536, 9, 58},
-  {cont__131_5, &frame__131_1_WriteError, 1536, 1536, 3, 58},
+  {entry__131_1_WriteError, NULL, 1536, 1536, 34, 53},
+  {cont__131_2, &frame__131_1_WriteError, 1536, 1536, 15, 55},
+  {cont__131_4, &frame__131_1_WriteError, 1536, 1536, 3, 55},
   {entry__132_13, NULL, 1556, 1556, 43, 55},
   {entry__132_10, NULL, 1556, 1556, 10, 35},
   {cont__132_11, &frame__132_10, 1556, 1556, 10, 40},
@@ -4695,29 +4694,28 @@ static void cont__131_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1536: ... "Failed to write to file @(file_description(fd))!"
-  argument_count = 3;
+  // 1536: ... "Writing to file @(file_description(fd))"
+  argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__131_3;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__131_4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__131_5;
+  frame->cont = cont__131_4;
 }
-static void cont__131_5(void) {
+static void cont__131_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1536: raise "Failed to write to file @(file_description(fd))!"
+  // 1536: raise_error "Writing to file @(file_description(fd))"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__raise();
+  myself = get__raise_error();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -10997,8 +10995,7 @@ EXPORT void phase_2__basic__io(void) {
   string__130_18 = from_latin_1_string("<stderr>", 8);
   func__130_17 = create_function(entry__130_17, 0);
   func__130_1_file_description = create_function(entry__130_1_file_description, 1);
-  string__131_3 = from_latin_1_string("Failed to write to file ", 24);
-  string__131_4 = from_latin_1_string("!", 1);
+  string__131_3 = from_latin_1_string("Writing to file ", 16);
   func__131_1_WriteError = create_function(entry__131_1_WriteError, 1);
   func__132_1_types__file_descriptor_write_to = create_function(entry__132_1_types__file_descriptor_write_to, -1);
   func__133_1_std__atomic_write_to = create_function(entry__133_1_std__atomic_write_to, -1);

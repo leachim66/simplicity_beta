@@ -1533,7 +1533,7 @@ $file_description: (fd)
         -> "<file descriptor @(num)>"
 
 $WriteError: (fd)
-  raise "Failed to write to file @(file_description(fd))!"
+  raise_error "Writing to file @(file_description(fd))"
 
 $types::file_descriptor/write_to:
   #
