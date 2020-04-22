@@ -1,0 +1,209 @@
+#!/usr/bin/env simrun
+
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  This is a very basic implementation of a scramble like video game to be played
+  on a character console.
+
+  https://en.wikipedia.org/wiki/Scramble_(video_game)
+
+  This is by purpose only a skeleton of the game - waiting for *you* to develop
+  it into a full fledged action game!
+
+<require basic/stdlib>
+<require system/stdlib>
+
+$WIDTH 80 # the width of the cave in character columns
+$HEIGHT 50 # the height of the cave in half character rows
+
+#
+  The height of a character is approximately about twice the size of its width.
+
+  So we use half-blocks to accommodate for this inbalance.
+
+$full_block '@0x2588;'
+$upper_half_block '@0x2580;'
+$lower_half_block '@0x2584;'
+
+$$rng mersenne_twister(4714)
+  #
+    our random number generator
+
+    To change the cave just change the seed value.
+
+# initialize the ceiling and floor coordinates of the cave
+
+$$ceiling_y next(&rng 21)
+$$floor_y HEIGHT+1-next(&rng 21)
+
+$draw_vertical_bar:
+  #
+    draws a vertical stack of block graphics characters
+
+    *x* is the character column where to draw the bar
+
+    *top_y* and *bottom_y* are measured in half rows!
+  (
+    x
+    top_y
+    bottom_y
+  )
+  $$y (top_y+1) >> 1 # in rows
+  if top_y.is_even:
+    at x y
+    draw_character lower_half_block
+    inc &y
+  repeat (bottom_y >> 1) - (top_y >> 1):
+    at x y
+    draw_character full_block
+    inc &y
+  if bottom_y.is_odd:
+    at x y
+    draw_character upper_half_block
+
+$draw_cave_column:
+  #
+    draws a new column of the cave
+  (
+    x # the column number on the screen
+  )
+  draw_vertical_bar x 1 ceiling_y # draw the ceiling
+  draw_vertical_bar x floor_y HEIGHT # draw the floor
+
+  # update the ceiling height
+
+  !ceiling_y ceiling_y+next(&rng 5)-3 # make a random change
+  extend_to &ceiling_y 1 # not too high
+  reduce_to &ceiling_y 35 # not too low
+
+  # update the floor height
+
+  !floor_y floor_y+next(&rng 5)-3 # make a random change
+  reduce_to &floor_y HEIGHT # not too low
+  extend_to &floor_y 16 # not too high
+
+  # check whether the cave would be too narrow
+
+  $cave_height floor_y-ceiling_y # the height of the cave
+  if cave_height < 15: # too narrow?
+    $delta (15-cave_height) .div. 2 # how much?
+    minus &ceiling_y delta # distribute the change to ceiling ...
+    plus &floor_y delta # ... and floor
+
+$$ship_y 13
+  #
+    the vertical position (row) of the space ship
+
+    We start in the middle of the screen.
+
+$draw_ship
+  #
+    draws the space ship
+  :
+    at 1 ship_y
+    draw_character '='
+
+$draw_message
+  #
+    draws a message in the center of the screen
+  :
+    (
+      msg # the message to draw
+    )
+    $len length_of(msg)
+    at div((80-len) 2) 13
+    draw_text msg
+
+$a_collision_happened
+  #
+    checks whether the space ship hit any obstacle
+  :
+    -> character_at(1 ship_y) != ' '
+
+initialize_terminal # must be called before any other terminal function
+
+#
+  We check for the standard terminal size.
+
+  The cave would be different for other resolutions and results (highscores!)
+  could not be compared.
+
+if width_of(current_screen) != 80 || height_of(current_screen) != 25:
+  Error "Please change your terminal size to 80x25!"
+
+do: # we initialize the terminal
+  get_terminal_attributes STDIN_FILENO $$attributes
+  use_canonical_mode &attributes false # we want no line-buffering ...
+  echo_characters &attributes false # ... and no echoing of typed in characters
+  unless set_terminal_attributes(STDIN_FILENO attributes):
+    Error "Failed to disable canonical input mode!"
+  cursor_off # ... and we want no blinking cursor!
+
+do: # draw the initial view of the cave
+  from_to 1 WIDTH: (x) draw_cave_column x # fill all columns of the screen
+  draw_ship # draw the space ship
+  update_terminal # make all updates visible
+
+$$input_buffer ""
+  #
+    We use a maximum of one key per frame.
+
+    If the user pressed more keys then we keep a backlog.
+
+do: (-> break) repeat 300: # after these number of steps the player survided!
+  wait_to $event READ_FROM=STDIN_FILENO TIMEOUT=0.08
+    # we wait for a keystroke or until some time elapsed
+  case type_of(event)
+    READ_FROM: # we got a keystroke
+      append &input_buffer read_from(STDIN_FILENO)
+
+  unless input_buffer.is_empty: # are there keys in the backlog buffer?
+    case get(&input_buffer)
+      'w':
+	dec &ship_y # move the space ship upwards
+      's':
+	inc &ship_y # move the space ship downwards
+      'q': break # the user wants to quit the game
+
+  do: # update the view of the cave
+    scroll_left # scroll the whole cave left by 1 character column
+    draw_cave_column 80 # draw a new right-most character column
+    if a_collision_happened():
+      draw_message "Your ship hit an obstacle!"
+      update_terminal # make all updates visible
+      sleep 3 # wait for 3 seconds ...
+      break # ... and leave
+    draw_ship # draw the space ship
+    update_terminal # make all updates visible
+
+do:
+  #
+    clean the screen and restore all changes we made to input buffering and
+    echoing
+
+  clear_screen
+  cursor_on
+  get_terminal_attributes STDIN_FILENO $$attributes
+  use_canonical_mode &attributes false
+  echo_characters &attributes true
+  unless set_terminal_attributes(STDIN_FILENO attributes):
+    Error "Failed to reset input mode!"

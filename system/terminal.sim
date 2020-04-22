@@ -58,6 +58,15 @@ $std::create_screen:
       .background_colours_of
 	dup(list(dup(background_colour.to_string column_count)) row_count)
 
+$std::character_at:
+  #
+    returns the characters at the specified position of the screen
+  (
+    x
+    y
+  )
+  -> characters_of(current_screen)(y)(x)
+
 $std::scroll_left:
   #
     scroll the screen left by *delta* positions
@@ -451,8 +460,15 @@ $std::draw_line: (x1 y1 x2 y2)
       draw_horizontal_line max_x min_y '@0x2524;'
     -> true: raise "invalid arguments"
 
-create_screen $$terminal INVALID_COLOUR INVALID_COLOUR undefined undefined
-create_screen %%std::current_screen
+$$terminal undefined
+%%std::current_screen undefined
+
+$std::initialize_terminal
+  #
+    must be called before any other terminal function
+  :
+    create_screen !terminal INVALID_COLOUR INVALID_COLOUR undefined undefined
+    create_screen !std::current_screen
 
 $std::draw_rectangle: (x1 y1 x2 y2)
   draw_line x1 y1 x1 y2
@@ -462,16 +478,33 @@ $std::draw_rectangle: (x1 y1 x2 y2)
 
 $std::cursor_off
   #
-    turn the console cursor off
+    turns the console cursor off
 
-    See also: cursor_on
+    See also: cursor_on, cursor_home, clear_screen
   :
     write "@esc;[?25l"
 
 $std::cursor_on
   #
-    turn the console cursor on
+    turns the console cursor on
 
-    See also: cursor_off
+    See also: cursor_off, cursor_home, clear_screen
   :
     write "@esc;[?25h"
+
+$std::cursor_home
+  #
+    moves the cursor to the top-left position
+
+    See also: clear_screen, cursor_no, cursor_off
+  :
+    write "@esc;[1;1H"
+
+$std::clear_screen
+  #
+    clears the terminal screen and moves the cursor to the top-left position
+
+    See also: cursor_home, cursor_no, cursor_off
+  :
+    cursor_home
+    write "@esc;[2J"
