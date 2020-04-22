@@ -1,0 +1,84 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Library General Public License, version 2, or
+  (at your option) under the terms of the GNU Lesser General Public License,
+  version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser (Library) General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files LGPLv2.txt and LGLPv3.txt or
+  http://www.gnu.org/licenses/lgpl-2.0.html
+  http://www.gnu.org/licenses/lgpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$STATE_VECTOR_LENGTH 624
+$STATE_VECTOR_M 397
+
+$UPPER_MASK       0x80000000
+$LOWER_MASK       0x7fffffff
+$TEMPERING_MASK_B 0x9d2c5680
+$TEMPERING_MASK_C 0xefc60000
+
+$mag list(0x0 0x9908b0df)
+
+$index_of ()
+$state_of ()
+
+$std::mersenne_twister:
+  #
+    creates a random number generator
+  (
+    seed
+  )
+  $$initial_state list(seed & 0xffffffff)
+  repeat STATE_VECTOR_LENGTH-1:
+    push &initial_state (6069 * initial_state(-1)) & 0xffffffff
+  ->
+    types::object
+      .state_of initial_state
+      .index_of STATE_VECTOR_LENGTH+1
+      /next:
+	(
+	  &self
+	  n
+	)
+	$$state state_of(self)
+	$$index index_of(self)
+	if index > STATE_VECTOR_LENGTH:
+	  $$new_state empty_list
+
+	  from_to 1 STATE_VECTOR_LENGTH-STATE_VECTOR_M: (kk)
+	    $x (state(kk) & UPPER_MASK) | (state(kk+1) & LOWER_MASK)
+	    push &new_state state(kk+STATE_VECTOR_M) ^ (x >> 1) ^ mag((x&1)+1)
+
+	  from_to STATE_VECTOR_LENGTH-STATE_VECTOR_M+1 STATE_VECTOR_LENGTH-1: (kk)
+	    $x (state(kk) & UPPER_MASK) | (state(kk+1) & LOWER_MASK)
+	    push &new_state new_state(kk+STATE_VECTOR_M-STATE_VECTOR_LENGTH) ^ (x >> 1) ^ mag((x&1)+1)
+
+	  do:
+	    $x (state(STATE_VECTOR_LENGTH) & UPPER_MASK) | (new_state(1) & LOWER_MASK)
+	    push &new_state new_state(STATE_VECTOR_M) ^ (x >> 1) ^ mag((x&1)+1)
+
+	  !state new_state
+	  !index 1
+
+	$$y state(index)
+	inc &index
+	!y y ^ (y >> 11)
+	!y y ^ ((y << 7) & TEMPERING_MASK_B)
+	!y y ^ ((y << 15) & TEMPERING_MASK_C)
+	!y y ^ (y >> 18)
+
+	!self.state_of state
+	!self.index_of index
+
+	-> (y .mod. n) + 1
