@@ -233,14 +233,34 @@ $types::insert_order_table/new_empty_collection: (_self)
   -> types::insert_order_table
 
 $std::empty_insert_order_table types::insert_order_table
+  #
+    an empty insert-order table
 
-$std::insert_order_table: (initializers*)
+$std::insert_order_table:
+  #
+    constructs an insert-order table from its arguments
+
+    Example:
+
+    insert_order_tables $ages
+      "Carlo" = 47
+      "Maria" = 45
+      "Estefan" = 27
+  (
+    initializers*
+  )
   $$tab types::insert_order_table
   for_each initializers: (initializer)
     !tab(std::key_of(initializer)) std::value_of(initializer)
   -> tab
 
-$types::insert_order_table/for_each: (self body)
+$types::insert_order_table/for_each:
+  #
+    invokes the specified callback for each item of the table
+  (
+    self
+    body
+  )
   $tree tree_of(self)
   if tree.is_defined:
     $$key first_of(self)
@@ -254,6 +274,8 @@ $types::insert_order_table/for_each: (self body)
       !key next_of(item)
 
 $types::insert_order_table/for_each_from_to:
+  #
+    invokes the specified callback for each item in the specified range
   (
     self
     first
@@ -275,6 +297,8 @@ $types::insert_order_table/for_each_from_to:
       !key next_of(item)
 
 $types::insert_order_table/for_each_from_down_to:
+  #
+    invokes the callback for each item in the specified range in reverse order
   (
     self
     last
@@ -296,6 +320,8 @@ $types::insert_order_table/for_each_from_down_to:
       !key previous_of(item)
 
 $types::insert_order_table/update_each:
+  #
+    updates all items of the table
   (
     &self
     body
@@ -310,6 +336,8 @@ $types::insert_order_table/update_each:
     !self.tree_of tree
 
 $types::insert_order_table/update_each_from_to:
+  #
+    updates all items within the specified range
   (
     &self
     first
@@ -328,6 +356,8 @@ $types::insert_order_table/update_each_from_to:
     !self.tree_of tree
 
 $types::insert_order_table/update_each_from_down_to:
+  #
+    updates all items within the specified range in reverse order
   (
     &self
     last
@@ -346,6 +376,8 @@ $types::insert_order_table/update_each_from_down_to:
     !self.tree_of tree
 
 $types::insert_order_table/insert_before:
+  #
+    inserts an item before another item
   (
     &self
     key
@@ -367,6 +399,8 @@ $types::insert_order_table/insert_before:
   if mode != INSERT: raise "Invalid tree insert operation!"
 
 $types::insert_order_table/insert_behind:
+  #
+    inserts an item behind another item
   (
     &self
     key

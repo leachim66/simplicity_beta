@@ -36,10 +36,14 @@ $private::get_item ()
     of the main accessor function and need access to the base functionality.
 
 $types::generic_table types::object
+  #
+    the prototype object for all kinds of tables
 
 $NONE .
 
 $types::generic_table/:
+  #
+    retrieve or add an item
   (
     myself^
     key
@@ -52,18 +56,28 @@ $types::generic_table/:
       private::set_item myself key value
 
 $types::generic_table/union:
+  #
+    adds all items from the second table
   (
     &left
     right
   )
   for_each right: (key value) !left(key) value
 
-$types::generic_table/map: (self func)
+$types::generic_table/map:
+  #
+    returns a new table containing the mapped items
+  (
+    self
+    func
+  )
   $$new_table new_empty_collection(self)
   for_each self: (key value) !new_table(key) func(value)
   -> new_table
 
 $types::generic_table/serialize:
+  #
+    returns a machine readable representation of the table
   (
     self
     indent = 0
@@ -82,32 +96,74 @@ $types::generic_table/serialize:
       serialize(value indent+4)
   -> buf
 
-$types::generic_table/keys_of: (self)
+$types::generic_table/keys_of:
+  #
+    returns a list of all keys in the table
+  (
+    self
+  )
   $$keys empty_list
   for_each self: (key _value) push &keys key
   -> keys
 
-$types::generic_table/values_of: (self)
+$types::generic_table/values_of:
+  #
+    returns a list of all values in the table
+  (
+    self
+  )
   $$values empty_list
   for_each self: (_key value) push &values value
   -> values
 
-$types::generic_table/is_empty: (self) -> length_of(self) == 0
+$types::generic_table/is_empty:
+  #
+    checks whether the table contains any items
+  (
+    self
+  )
+  -> length_of(self) == 0
 
-$std::is_a_table ()
+$std::is_a_table () # obvious
 
-$types::object.is_a_table false
-$types::generic_table.is_a_table true
+$types::object.is_a_table false # obvious
+$types::generic_table.is_a_table true # obvious
 $types::table types::unordered_table
-$types::table.serialization_tag_of "table"
-$std::empty_table types::table
+  #
+    the default table is a <types::unordered_table>
 
-$std::table: (args*)
+$types::table.serialization_tag_of "table"
+  #
+    the default table is tagged "table"
+
+$std::empty_table types::table
+  #
+    an empty table
+
+$std::table:
+  #
+    constructs a table from its arguments
+
+    Example:
+
+    key_order_tables $ages
+      "Carlo" = 47
+      "Maria" = 45
+      "Estefan" = 27
+  (
+    args*
+  )
   $$tab types::table
   for_each args: (arg) !tab(std::key_of(arg)) std::value_of(arg)
   -> tab
 
-$std::register_collection_serializer: (name empty_collection)
+$std::register_collection_serializer:
+  #
+    registers a collection type for serialization
+  (
+    name
+    empty_collection
+  )
   register_deserializer name:
     (
       $text

@@ -631,6 +631,8 @@ $retrieve_item
 }
 
 $types::unordered_table/length_of
+  #
+    returns the number of items in the table
   {
     CHECK_ARGUMENTS(1)
 
@@ -866,6 +868,8 @@ $types::unordered_table/private::get_item:
   <generic_table> but does *NOT* work!
 
 $types::unordered_table/:
+  #
+    retrieves or adds an item
   (
     myself^
     key
@@ -878,18 +882,42 @@ $types::unordered_table/:
       private::set_item myself key value
 
 $types::unordered_table.serialization_tag_of "unordered_table"
+  #
+    the serialization tag for unordered tables
 
-$types::unordered_table/new_empty_collection: (_self) -> types::unordered_table
+$types::unordered_table/new_empty_collection:
+  #
+    returns an empty unordered table
+  (
+    _self
+  )
+  -> types::unordered_table
 
 $std::empty_unordered_table types::unordered_table
+  #
+    an empty unordered table
 
-$std::unordered_table: (initializers*)
+$std::unordered_table:
+  #
+    constructs an unordered table from its arguments
+
+    Example:
+
+    key_order_tables $ages
+      "Carlo" = 47
+      "Maria" = 45
+      "Estefan" = 27
+  (
+    initializers*
+  )
   $$tab types::unordered_table
   for_each initializers: (initializer)
     !tab(std::key_of(initializer)) std::value_of(initializer)
   -> tab
 
 $types::unordered_table/for_each:
+  #
+    invokes the specified callback for each item of the table
   (
     self
     body
@@ -911,6 +939,8 @@ $types::unordered_table/for_each:
 	body value
 
 $types::unordered_table/for_each_from_to:
+  #
+    invokes the specified callback for each item in the specified range
   (
     self
     first
@@ -938,6 +968,8 @@ $types::unordered_table/for_each_from_to:
     if key == NONE return
 
 $types::unordered_table/for_each_downwards:
+  #
+    invokes the specified callback for each item of the table in reverse order
   (
     self
     body
@@ -959,6 +991,8 @@ $types::unordered_table/for_each_downwards:
 	body value
 
 $types::unordered_table/for_each_from_down_to:
+  #
+    invokes the callback for each item in the specified range in reverse order
   (
     self
     last
@@ -986,6 +1020,8 @@ $types::unordered_table/for_each_from_down_to:
     if key == NONE return
 
 $types::unordered_table/update_each:
+  #
+    updates all items of the table
   (
     &self
     body
@@ -1004,6 +1040,8 @@ $types::unordered_table/update_each:
     !self(key) value
 
 $types::unordered_table/update_each_from_to:
+  #
+    updates all items within the specified range
   (
     &self
     first
@@ -1028,6 +1066,8 @@ $types::unordered_table/update_each_from_to:
     if key == NONE return
 
 $types::unordered_table/update_each_downwards:
+  #
+    updates all items of the table in reverse order
   (
     &self
     body
@@ -1046,6 +1086,8 @@ $types::unordered_table/update_each_downwards:
     !self(key) value
 
 $types::unordered_table/update_each_from_down_to:
+  #
+    updates all items within the specified range in reverse order
   (
     &self
     last

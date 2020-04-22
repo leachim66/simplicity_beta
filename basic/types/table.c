@@ -580,109 +580,109 @@ void run__basic__types__table(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__private__set_item, NULL, 23, 23, 2, 18},
   {type__private__get_item, NULL, 31, 31, 2, 18},
-  {type__std__is_a_table, NULL, 97, 97, 2, 16},
-  {run__basic__types__table, NULL, 135, 135, 1, 50},
+  {type__std__is_a_table, NULL, 127, 127, 2, 16},
+  {run__basic__types__table, NULL, 191, 191, 1, 50},
   {cont__40_1, NULL, },
-  {entry__5_3, NULL, 50, 50, 7, 34},
-  {entry__5_4, NULL, 52, 52, 7, 40},
-  {entry__5_1_types__generic_table_, NULL, 49, 49, 5, 17},
-  {cont__5_2, &frame__5_1_types__generic_table_, 48, 52, 3, 41},
-  {entry__6_2, NULL, 59, 59, 31, 40},
-  {cont__6_3, &frame__6_2, 59, 59, 46, 46},
-  {entry__6_1_types__generic_table_union, NULL, 59, 59, 3, 46},
+  {entry__5_3, NULL, 54, 54, 7, 34},
+  {entry__5_4, NULL, 56, 56, 7, 40},
+  {entry__5_1_types__generic_table_, NULL, 53, 53, 5, 17},
+  {cont__5_2, &frame__5_1_types__generic_table_, 52, 56, 3, 41},
+  {entry__6_2, NULL, 65, 65, 31, 40},
+  {cont__6_3, &frame__6_2, 65, 65, 46, 46},
+  {entry__6_1_types__generic_table_union, NULL, 65, 65, 3, 46},
   {cont__6_4, &frame__6_1_types__generic_table_union, },
-  {entry__7_3, NULL, 63, 63, 30, 56},
-  {cont__7_4, &frame__7_3, 63, 63, 30, 44},
-  {cont__7_5, &frame__7_3, 63, 63, 56, 56},
-  {entry__7_1_types__generic_table_map, NULL, 62, 62, 3, 40},
-  {cont__7_2, &frame__7_1_types__generic_table_map, 63, 63, 3, 56},
-  {cont__7_6, &frame__7_1_types__generic_table_map, 64, 64, 3, 14},
-  {entry__8_4, NULL, 73, 73, 28, 37},
-  {cont__8_6, &frame__8_4, 73, 73, 21, 37},
-  {entry__8_8, NULL, 79, 79, 14, 21},
-  {cont__8_9, &frame__8_8, 79, 79, 7, 22},
-  {cont__8_10, &frame__8_8, 80, 80, 21, 28},
-  {cont__8_11, &frame__8_8, 80, 80, 7, 29},
-  {cont__8_12, &frame__8_8, 82, 82, 23, 30},
-  {cont__8_13, &frame__8_8, 82, 82, 7, 31},
-  {cont__8_14, &frame__8_8, 76, 82, 5, 31},
-  {cont__8_16, &frame__8_8, 82, 82, 32, 32},
-  {entry__8_1_types__generic_table_serialize, NULL, 72, 72, 3, 33},
-  {cont__8_2, &frame__8_1_types__generic_table_serialize, 73, 73, 6, 18},
-  {cont__8_3, &frame__8_1_types__generic_table_serialize, 73, 73, 3, 37},
-  {cont__8_7, &frame__8_1_types__generic_table_serialize, 75, 82, 3, 32},
-  {cont__8_17, &frame__8_1_types__generic_table_serialize, 83, 83, 3, 8},
-  {entry__9_2, NULL, 87, 87, 31, 44},
-  {cont__9_3, &frame__9_2, 87, 87, 44, 44},
-  {entry__9_1_types__generic_table_keys_of, NULL, 87, 87, 3, 44},
-  {cont__9_4, &frame__9_1_types__generic_table_keys_of, 88, 88, 3, 9},
-  {entry__10_2, NULL, 92, 92, 31, 48},
-  {cont__10_3, &frame__10_2, 92, 92, 48, 48},
-  {entry__10_1_types__generic_table_values_of, NULL, 92, 92, 3, 48},
-  {cont__10_4, &frame__10_1_types__generic_table_values_of, 93, 93, 3, 11},
-  {entry__11_1_types__generic_table_is_empty, NULL, 95, 95, 43, 57},
-  {cont__11_2, &frame__11_1_types__generic_table_is_empty, 95, 95, 43, 62},
-  {cont__11_3, &frame__11_1_types__generic_table_is_empty, 95, 95, 40, 62},
-  {entry__18_2, NULL, 107, 107, 24, 64},
-  {cont__18_3, &frame__18_2, 107, 107, 29, 44},
-  {cont__18_4, &frame__18_2, 107, 107, 24, 45},
-  {cont__18_5, &frame__18_2, 107, 107, 64, 64},
-  {entry__18_1_std__table, NULL, 107, 107, 3, 64},
-  {cont__18_6, &frame__18_1_std__table, 108, 108, 3, 8},
-  {entry__19_3_invalid_table_error, NULL, 118, 118, 13, 72},
-  {cont__19_6, &frame__19_3_invalid_table_error, 118, 118, 7, 72},
-  {entry__19_8, NULL, 120, 120, 53, 53},
-  {cont__19_9, &frame__19_8, 120, 120, 39, 54},
-  {cont__19_10, &frame__19_8, 120, 120, 32, 66},
-  {entry__19_19, NULL, 124, 124, 34, 40},
-  {cont__19_20, &frame__19_19, 124, 124, 34, 50},
-  {cont__19_21, &frame__19_19, 124, 124, 34, 50},
-  {cont__19_22, &frame__19_19, 124, 124, 34, 50},
-  {entry__19_24, NULL, 124, 124, 53, 67},
-  {entry__19_29, NULL, 126, 126, 33, 47},
-  {entry__19_36, NULL, 129, 129, 40, 46},
-  {cont__19_37, &frame__19_36, 129, 129, 40, 53},
-  {cont__19_38, &frame__19_36, 129, 129, 40, 53},
-  {entry__19_40, NULL, 129, 129, 71, 71},
-  {cont__19_41, &frame__19_40, 129, 129, 56, 71},
-  {cont__19_42, &frame__19_40, 129, 129, 71, 71},
-  {entry__19_32, NULL, 129, 129, 16, 30},
-  {cont__19_33, &frame__19_32, 129, 129, 16, 35},
-  {cont__19_34, &frame__19_32, 129, 129, 16, 35},
-  {cont__19_35, &frame__19_32, 129, 129, 16, 53},
-  {cont__19_39, &frame__19_32, 129, 129, 13, 71},
-  {entry__19_46, NULL, 130, 130, 34, 40},
-  {cont__19_47, &frame__19_46, 130, 130, 34, 47},
-  {cont__19_48, &frame__19_46, 130, 130, 34, 47},
-  {cont__19_49, &frame__19_46, 130, 130, 34, 47},
-  {entry__19_16, NULL, 124, 124, 10, 24},
-  {cont__19_17, &frame__19_16, 124, 124, 10, 29},
-  {cont__19_18, &frame__19_16, 124, 124, 10, 50},
-  {cont__19_23, &frame__19_16, 124, 124, 7, 67},
-  {cont__19_25, &frame__19_16, 125, 125, 7, 61},
-  {cont__19_26, &frame__19_16, 126, 126, 10, 30},
-  {cont__19_27, &frame__19_16, 126, 126, 10, 30},
-  {cont__19_28, &frame__19_16, 126, 126, 7, 47},
-  {cont__19_30, &frame__19_16, 128, 128, 7, 41},
-  {cont__19_31, &frame__19_16, 129, 129, 7, 71},
-  {cont__19_43, &frame__19_16, 130, 130, 10, 24},
-  {cont__19_44, &frame__19_16, 130, 130, 10, 29},
-  {cont__19_45, &frame__19_16, 130, 130, 10, 47},
-  {cont__19_50, &frame__19_16, 130, 130, 7, 67},
-  {cont__19_51, &frame__19_16, 131, 131, 22, 22},
-  {cont__19_52, &frame__19_16, 131, 131, 7, 22},
-  {cont__19_53, &frame__19_16, 132, 132, 7, 43},
-  {cont__19_54, &frame__19_16, 133, 133, 7, 15},
-  {cont__19_55, &frame__19_16, 133, 133, 21, 21},
-  {entry__19_2, NULL, 120, 120, 8, 29},
-  {cont__19_7, &frame__19_2, 120, 120, 5, 66},
-  {cont__19_11, &frame__19_2, 121, 121, 8, 14},
-  {cont__19_12, &frame__19_2, 121, 121, 8, 24},
-  {cont__19_13, &frame__19_2, 121, 121, 8, 24},
-  {cont__19_14, &frame__19_2, 121, 121, 5, 44},
-  {cont__19_15, &frame__19_2, 123, 133, 5, 21},
-  {cont__19_56, &frame__19_2, 133, 133, 21, 21},
-  {entry__19_1_std__register_collection_serializer, NULL, 111, 133, 3, 22}
+  {entry__7_3, NULL, 75, 75, 30, 56},
+  {cont__7_4, &frame__7_3, 75, 75, 30, 44},
+  {cont__7_5, &frame__7_3, 75, 75, 56, 56},
+  {entry__7_1_types__generic_table_map, NULL, 74, 74, 3, 40},
+  {cont__7_2, &frame__7_1_types__generic_table_map, 75, 75, 3, 56},
+  {cont__7_6, &frame__7_1_types__generic_table_map, 76, 76, 3, 14},
+  {entry__8_4, NULL, 87, 87, 28, 37},
+  {cont__8_6, &frame__8_4, 87, 87, 21, 37},
+  {entry__8_8, NULL, 93, 93, 14, 21},
+  {cont__8_9, &frame__8_8, 93, 93, 7, 22},
+  {cont__8_10, &frame__8_8, 94, 94, 21, 28},
+  {cont__8_11, &frame__8_8, 94, 94, 7, 29},
+  {cont__8_12, &frame__8_8, 96, 96, 23, 30},
+  {cont__8_13, &frame__8_8, 96, 96, 7, 31},
+  {cont__8_14, &frame__8_8, 90, 96, 5, 31},
+  {cont__8_16, &frame__8_8, 96, 96, 32, 32},
+  {entry__8_1_types__generic_table_serialize, NULL, 86, 86, 3, 33},
+  {cont__8_2, &frame__8_1_types__generic_table_serialize, 87, 87, 6, 18},
+  {cont__8_3, &frame__8_1_types__generic_table_serialize, 87, 87, 3, 37},
+  {cont__8_7, &frame__8_1_types__generic_table_serialize, 89, 96, 3, 32},
+  {cont__8_17, &frame__8_1_types__generic_table_serialize, 97, 97, 3, 8},
+  {entry__9_2, NULL, 106, 106, 31, 44},
+  {cont__9_3, &frame__9_2, 106, 106, 44, 44},
+  {entry__9_1_types__generic_table_keys_of, NULL, 106, 106, 3, 44},
+  {cont__9_4, &frame__9_1_types__generic_table_keys_of, 107, 107, 3, 9},
+  {entry__10_2, NULL, 116, 116, 31, 48},
+  {cont__10_3, &frame__10_2, 116, 116, 48, 48},
+  {entry__10_1_types__generic_table_values_of, NULL, 116, 116, 3, 48},
+  {cont__10_4, &frame__10_1_types__generic_table_values_of, 117, 117, 3, 11},
+  {entry__11_1_types__generic_table_is_empty, NULL, 125, 125, 6, 20},
+  {cont__11_2, &frame__11_1_types__generic_table_is_empty, 125, 125, 6, 25},
+  {cont__11_3, &frame__11_1_types__generic_table_is_empty, 125, 125, 3, 25},
+  {entry__18_2, NULL, 157, 157, 24, 64},
+  {cont__18_3, &frame__18_2, 157, 157, 29, 44},
+  {cont__18_4, &frame__18_2, 157, 157, 24, 45},
+  {cont__18_5, &frame__18_2, 157, 157, 64, 64},
+  {entry__18_1_std__table, NULL, 157, 157, 3, 64},
+  {cont__18_6, &frame__18_1_std__table, 158, 158, 3, 8},
+  {entry__19_3_invalid_table_error, NULL, 174, 174, 13, 72},
+  {cont__19_6, &frame__19_3_invalid_table_error, 174, 174, 7, 72},
+  {entry__19_8, NULL, 176, 176, 53, 53},
+  {cont__19_9, &frame__19_8, 176, 176, 39, 54},
+  {cont__19_10, &frame__19_8, 176, 176, 32, 66},
+  {entry__19_19, NULL, 180, 180, 34, 40},
+  {cont__19_20, &frame__19_19, 180, 180, 34, 50},
+  {cont__19_21, &frame__19_19, 180, 180, 34, 50},
+  {cont__19_22, &frame__19_19, 180, 180, 34, 50},
+  {entry__19_24, NULL, 180, 180, 53, 67},
+  {entry__19_29, NULL, 182, 182, 33, 47},
+  {entry__19_36, NULL, 185, 185, 40, 46},
+  {cont__19_37, &frame__19_36, 185, 185, 40, 53},
+  {cont__19_38, &frame__19_36, 185, 185, 40, 53},
+  {entry__19_40, NULL, 185, 185, 71, 71},
+  {cont__19_41, &frame__19_40, 185, 185, 56, 71},
+  {cont__19_42, &frame__19_40, 185, 185, 71, 71},
+  {entry__19_32, NULL, 185, 185, 16, 30},
+  {cont__19_33, &frame__19_32, 185, 185, 16, 35},
+  {cont__19_34, &frame__19_32, 185, 185, 16, 35},
+  {cont__19_35, &frame__19_32, 185, 185, 16, 53},
+  {cont__19_39, &frame__19_32, 185, 185, 13, 71},
+  {entry__19_46, NULL, 186, 186, 34, 40},
+  {cont__19_47, &frame__19_46, 186, 186, 34, 47},
+  {cont__19_48, &frame__19_46, 186, 186, 34, 47},
+  {cont__19_49, &frame__19_46, 186, 186, 34, 47},
+  {entry__19_16, NULL, 180, 180, 10, 24},
+  {cont__19_17, &frame__19_16, 180, 180, 10, 29},
+  {cont__19_18, &frame__19_16, 180, 180, 10, 50},
+  {cont__19_23, &frame__19_16, 180, 180, 7, 67},
+  {cont__19_25, &frame__19_16, 181, 181, 7, 61},
+  {cont__19_26, &frame__19_16, 182, 182, 10, 30},
+  {cont__19_27, &frame__19_16, 182, 182, 10, 30},
+  {cont__19_28, &frame__19_16, 182, 182, 7, 47},
+  {cont__19_30, &frame__19_16, 184, 184, 7, 41},
+  {cont__19_31, &frame__19_16, 185, 185, 7, 71},
+  {cont__19_43, &frame__19_16, 186, 186, 10, 24},
+  {cont__19_44, &frame__19_16, 186, 186, 10, 29},
+  {cont__19_45, &frame__19_16, 186, 186, 10, 47},
+  {cont__19_50, &frame__19_16, 186, 186, 7, 67},
+  {cont__19_51, &frame__19_16, 187, 187, 22, 22},
+  {cont__19_52, &frame__19_16, 187, 187, 7, 22},
+  {cont__19_53, &frame__19_16, 188, 188, 7, 43},
+  {cont__19_54, &frame__19_16, 189, 189, 7, 15},
+  {cont__19_55, &frame__19_16, 189, 189, 21, 21},
+  {entry__19_2, NULL, 176, 176, 8, 29},
+  {cont__19_7, &frame__19_2, 176, 176, 5, 66},
+  {cont__19_11, &frame__19_2, 177, 177, 8, 14},
+  {cont__19_12, &frame__19_2, 177, 177, 8, 24},
+  {cont__19_13, &frame__19_2, 177, 177, 8, 24},
+  {cont__19_14, &frame__19_2, 177, 177, 5, 44},
+  {cont__19_15, &frame__19_2, 179, 189, 5, 21},
+  {cont__19_56, &frame__19_2, 189, 189, 21, 21},
+  {entry__19_1_std__register_collection_serializer, NULL, 167, 189, 3, 22}
 };
 
 union NODE {
@@ -801,9 +801,9 @@ EXPORT void run__basic__types__table(void) {
   allocate_initialized_frame_gc(0, 0);
   // 38: $types::generic_table types::object
   initialize_maybe_future(var.types__generic_table, get__types__object());
-  // 101: $types::table types::unordered_table
+  // 131: $types::table types::unordered_table
   initialize_maybe_future(var.types__table, get__types__unordered_table());
-  // 135: register_collection_serializer "table" empty_table
+  // 191: register_collection_serializer "table" empty_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__16_1;
@@ -833,7 +833,7 @@ static void entry__5_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 50: private::get_item myself key
+  // 54: private::get_item myself key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -856,7 +856,7 @@ static void entry__5_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 52: private::set_item myself key value
+  // 56: private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -889,7 +889,7 @@ static void entry__5_1_types__generic_table_(void) {
     case 1: frame->slots[1] /* value */ = var._NONE;
   }
   frame->slots[2] /* myself */ = myself;
-  // 49: NONE == value
+  // 53: NONE == value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -905,17 +905,17 @@ static void cont__5_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 49: ... :
-  // 50:   private::get_item myself key
+  // 53: ... :
+  // 54:   private::get_item myself key
   frame->slots[4] /* temp__2 */ = create_closure(entry__5_3, 0);
-  // 51: :
-  // 52:   private::set_item myself key value
+  // 55: :
+  // 56:   private::set_item myself key value
   frame->slots[5] /* temp__3 */ = create_closure(entry__5_4, 0);
-  // 48: if
-  // 49:   NONE == value:
-  // 50:     private::get_item myself key
-  // 51:   :
-  // 52:     private::set_item myself key value
+  // 52: if
+  // 53:   NONE == value:
+  // 54:     private::get_item myself key
+  // 55:   :
+  // 56:     private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -936,9 +936,9 @@ static void entry__6_1_types__generic_table_union(void) {
     return;
   }
   frame->slots[0] /* left */ = create_cell_with_contents(arguments->slots[0]);
-  // 59: ... : (key value) !left(key) value
+  // 65: ... : (key value) !left(key) value
   frame->slots[2] /* temp__1 */ = create_closure(entry__6_2, 2);
-  // 59: for_each right: (key value) !left(key) value
+  // 65: for_each right: (key value) !left(key) value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -961,9 +961,9 @@ static void entry__6_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 59: ... !left(key) value
+  // 65: ... !left(key) value
   frame->slots[3] /* temp__1 */ = frame->slots[1] /* value */;
-  // 59: ... !left(key)
+  // 65: ... !left(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -1007,7 +1007,7 @@ static void entry__7_1_types__generic_table_map(void) {
     invalid_arguments_error();
     return;
   }
-  // 62: $$new_table new_empty_collection(self)
+  // 74: $$new_table new_empty_collection(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1022,9 +1022,9 @@ static void cont__7_2(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* new_table */ = arguments->slots[0];
-  // 63: ... : (key value) !new_table(key) func(value)
+  // 75: ... : (key value) !new_table(key) func(value)
   frame->slots[3] /* temp__1 */ = create_closure(entry__7_3, 2);
-  // 63: for_each self: (key value) !new_table(key) func(value)
+  // 75: for_each self: (key value) !new_table(key) func(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1047,7 +1047,7 @@ static void entry__7_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 63: ... !new_table(key) func(value)
+  // 75: ... !new_table(key) func(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -1062,7 +1062,7 @@ static void cont__7_4(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 63: ... !new_table(key)
+  // 75: ... !new_table(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -1089,7 +1089,7 @@ static void cont__7_6(void) {
     invalid_results_error();
     return;
   }
-  // 64: -> new_table
+  // 76: -> new_table
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* new_table */;
@@ -1123,7 +1123,7 @@ static void entry__8_1_types__generic_table_serialize(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* indent */ = number__0;
   }
-  // 72: $tag serialization_tag_of(self)
+  // 86: $tag serialization_tag_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1138,7 +1138,7 @@ static void cont__8_2(void) {
     return;
   }
   initialize_future(frame->slots[3] /* tag */, arguments->slots[0]);
-  // 73: ... self.is_empty
+  // 87: ... self.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1153,9 +1153,9 @@ static void cont__8_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 73: ... : return "@(tag)()"
+  // 87: ... : return "@(tag)()"
   frame->slots[6] /* temp__2 */ = create_closure(entry__8_4, 0);
-  // 73: if self.is_empty: return "@(tag)()"
+  // 87: if self.is_empty: return "@(tag)()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1176,7 +1176,7 @@ static void entry__8_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 73: ... "@(tag)()"
+  // 87: ... "@(tag)()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* tag */;
@@ -1192,7 +1192,7 @@ static void cont__8_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 73: ... return "@(tag)()"
+  // 87: ... return "@(tag)()"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1206,25 +1206,25 @@ static void cont__8_7(void) {
     invalid_results_error();
     return;
   }
-  // 74: $$buf tag
+  // 88: $$buf tag
   ((CELL *)frame->slots[4])->contents /* buf */ = frame->slots[3] /* tag */;
-  // 75: ... : (key value)
-  // 76:   write_to
-  // 77:     &buf
-  // 78:     '@nl;'
-  // 79:     spaces(indent+2)
-  // 80:     serialize(key indent+2)
-  // 81:     " = "
-  // 82:     serialize(value indent+4)
+  // 89: ... : (key value)
+  // 90:   write_to
+  // 91:     &buf
+  // 92:     '@nl;'
+  // 93:     spaces(indent+2)
+  // 94:     serialize(key indent+2)
+  // 95:     " = "
+  // 96:     serialize(value indent+4)
   frame->slots[5] /* temp__1 */ = create_closure(entry__8_8, 2);
-  // 75: for_each self: (key value)
-  // 76:   write_to
-  // 77:     &buf
-  // 78:     '@nl;'
-  // 79:     spaces(indent+2)
-  // 80:     serialize(key indent+2)
-  // 81:     " = "
-  // 82:     serialize(value indent+4)
+  // 89: for_each self: (key value)
+  // 90:   write_to
+  // 91:     &buf
+  // 92:     '@nl;'
+  // 93:     spaces(indent+2)
+  // 94:     serialize(key indent+2)
+  // 95:     " = "
+  // 96:     serialize(value indent+4)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1247,7 +1247,7 @@ static void entry__8_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 79: ... indent+2
+  // 93: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* indent */;
@@ -1263,7 +1263,7 @@ static void cont__8_9(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 79: spaces(indent+2)
+  // 93: spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1278,7 +1278,7 @@ static void cont__8_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 80: ... indent+2
+  // 94: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* indent */;
@@ -1294,7 +1294,7 @@ static void cont__8_11(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 80: serialize(key indent+2)
+  // 94: serialize(key indent+2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -1310,7 +1310,7 @@ static void cont__8_12(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 82: ... indent+4
+  // 96: ... indent+4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* indent */;
@@ -1326,7 +1326,7 @@ static void cont__8_13(void) {
     return;
   }
   frame->slots[9] /* temp__6 */ = arguments->slots[0];
-  // 82: serialize(value indent+4)
+  // 96: serialize(value indent+4)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -1342,13 +1342,13 @@ static void cont__8_14(void) {
     return;
   }
   frame->slots[8] /* temp__5 */ = arguments->slots[0];
-  // 76: write_to
-  // 77:   &buf
-  // 78:   '@nl;'
-  // 79:   spaces(indent+2)
-  // 80:   serialize(key indent+2)
-  // 81:   " = "
-  // 82:   serialize(value indent+4)
+  // 90: write_to
+  // 91:   &buf
+  // 92:   '@nl;'
+  // 93:   spaces(indent+2)
+  // 94:   serialize(key indent+2)
+  // 95:   " = "
+  // 96:   serialize(value indent+4)
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* buf */;
@@ -1379,7 +1379,7 @@ static void cont__8_17(void) {
     invalid_results_error();
     return;
   }
-  // 83: -> buf
+  // 97: -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* buf */;
@@ -1397,11 +1397,11 @@ static void entry__9_1_types__generic_table_keys_of(void) {
     invalid_arguments_error();
     return;
   }
-  // 86: $$keys empty_list
+  // 105: $$keys empty_list
   ((CELL *)frame->slots[1])->contents /* keys */ = get__empty_list();
-  // 87: ... : (key _value) push &keys key
+  // 106: ... : (key _value) push &keys key
   frame->slots[2] /* temp__1 */ = create_closure(entry__9_2, 2);
-  // 87: for_each self: (key _value) push &keys key
+  // 106: for_each self: (key _value) push &keys key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1422,7 +1422,7 @@ static void entry__9_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 87: ... push &keys key
+  // 106: ... push &keys key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* keys */;
@@ -1449,7 +1449,7 @@ static void cont__9_4(void) {
     invalid_results_error();
     return;
   }
-  // 88: -> keys
+  // 107: -> keys
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* keys */;
@@ -1467,11 +1467,11 @@ static void entry__10_1_types__generic_table_values_of(void) {
     invalid_arguments_error();
     return;
   }
-  // 91: $$values empty_list
+  // 115: $$values empty_list
   ((CELL *)frame->slots[1])->contents /* values */ = get__empty_list();
-  // 92: ... : (_key value) push &values value
+  // 116: ... : (_key value) push &values value
   frame->slots[2] /* temp__1 */ = create_closure(entry__10_2, 2);
-  // 92: for_each self: (_key value) push &values value
+  // 116: for_each self: (_key value) push &values value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1492,7 +1492,7 @@ static void entry__10_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 92: ... push &values value
+  // 116: ... push &values value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* values */;
@@ -1519,7 +1519,7 @@ static void cont__10_4(void) {
     invalid_results_error();
     return;
   }
-  // 93: -> values
+  // 117: -> values
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* values */;
@@ -1535,7 +1535,7 @@ static void entry__11_1_types__generic_table_is_empty(void) {
     invalid_arguments_error();
     return;
   }
-  // 95: ... length_of(self)
+  // 125: ... length_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1550,7 +1550,7 @@ static void cont__11_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 95: ... length_of(self) == 0
+  // 125: ... length_of(self) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -1566,7 +1566,7 @@ static void cont__11_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 95: ... -> length_of(self) == 0
+  // 125: -> length_of(self) == 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1582,11 +1582,11 @@ static void entry__18_1_std__table(void) {
   // tab: 1
   frame->slots[1] /* tab */ = create_cell();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 106: $$tab types::table
+  // 156: $$tab types::table
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__table;
-  // 107: ... : (arg) !tab(std::key_of(arg)) std::value_of(arg)
+  // 157: ... : (arg) !tab(std::key_of(arg)) std::value_of(arg)
   frame->slots[2] /* temp__1 */ = create_closure(entry__18_2, 1);
-  // 107: for_each args: (arg) !tab(std::key_of(arg)) std::value_of(arg)
+  // 157: for_each args: (arg) !tab(std::key_of(arg)) std::value_of(arg)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -1606,7 +1606,7 @@ static void entry__18_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... !tab(std::key_of(arg)) std::value_of(arg)
+  // 157: ... !tab(std::key_of(arg)) std::value_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -1621,7 +1621,7 @@ static void cont__18_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 107: ... std::key_of(arg)
+  // 157: ... std::key_of(arg)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arg */;
@@ -1636,7 +1636,7 @@ static void cont__18_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 107: ... !tab(std::key_of(arg))
+  // 157: ... !tab(std::key_of(arg))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1663,7 +1663,7 @@ static void cont__18_6(void) {
     invalid_results_error();
     return;
   }
-  // 108: -> tab
+  // 158: -> tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;
@@ -1691,13 +1691,13 @@ static void entry__19_2(void) {
     return;
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
-  // 117: ... :
-  // 118:   raise "Invalid @(name) object encountered during deserialisation!"
+  // 173: ... :
+  // 174:   raise "Invalid @(name) object encountered during deserialisation!"
   frame->slots[7] /* temp__1 */ = create_closure(entry__19_3_invalid_table_error, 0);
-  // 117: $invalid_table_error:
-  // 118:   raise "Invalid @(name) object encountered during deserialisation!"
+  // 173: $invalid_table_error:
+  // 174:   raise "Invalid @(name) object encountered during deserialisation!"
   initialize_future(frame->slots[5] /* invalid_table_error */, frame->slots[7] /* temp__1 */);
-  // 120: ... text .has_prefix. "()"
+  // 176: ... text .has_prefix. "()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1716,7 +1716,7 @@ static void entry__19_3_invalid_table_error(void) {
     invalid_arguments_error();
     return;
   }
-  // 118: ... "Invalid @(name) object encountered during deserialisation!"
+  // 174: ... "Invalid @(name) object encountered during deserialisation!"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__19_4;
@@ -1733,7 +1733,7 @@ static void cont__19_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 118: raise "Invalid @(name) object encountered during deserialisation!"
+  // 174: raise "Invalid @(name) object encountered during deserialisation!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1748,9 +1748,9 @@ static void cont__19_7(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 120: ... : return range(text 3 -1) empty_table
+  // 176: ... : return range(text 3 -1) empty_table
   frame->slots[8] /* temp__2 */ = create_closure(entry__19_8, 0);
-  // 120: if text .has_prefix. "()": return range(text 3 -1) empty_table
+  // 176: if text .has_prefix. "()": return range(text 3 -1) empty_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -1771,7 +1771,7 @@ static void entry__19_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 120: ... 1
+  // 176: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1786,7 +1786,7 @@ static void cont__19_9(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 120: ... range(text 3 -1)
+  // 176: ... range(text 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -1803,7 +1803,7 @@ static void cont__19_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 120: ... return range(text 3 -1) empty_table
+  // 176: ... return range(text 3 -1) empty_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1818,7 +1818,7 @@ static void cont__19_11(void) {
     invalid_results_error();
     return;
   }
-  // 121: ... text(1)
+  // 177: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1833,7 +1833,7 @@ static void cont__19_12(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 121: ... text(1) != '@nl;'
+  // 177: ... text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__3 */;
@@ -1849,7 +1849,7 @@ static void cont__19_13(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 121: ... text(1) != '@nl;'
+  // 177: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -1864,7 +1864,7 @@ static void cont__19_14(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 121: if text(1) != '@nl;' invalid_table_error
+  // 177: if text(1) != '@nl;' invalid_table_error
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -1879,30 +1879,30 @@ static void cont__19_15(void) {
     invalid_results_error();
     return;
   }
-  // 122: $$obj empty_collection
+  // 178: $$obj empty_collection
   ((CELL *)frame->slots[6])->contents /* obj */ = frame->slots[4] /* empty_collection */;
-  // 123: ... :
-  // 124:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
-  // 125:   get_deserialization_indent $remaining_text $indent text
-  // 126:   if indent <= base_indent: return text obj
-  // 127:   !text remaining_text
-  // 128:   $key deserialize_item(&text indent)
-  // 129:   while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
-  // 130:   if length_of(text) == 0 || text(1) != '=' invalid_table_error
-  // 131:   range &text 2 -1
-  // 132:   $value deserialize_item(&text indent)
+  // 179: ... :
+  // 180:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 181:   get_deserialization_indent $remaining_text $indent text
+  // 182:   if indent <= base_indent: return text obj
+  // 183:   !text remaining_text
+  // 184:   $key deserialize_item(&text indent)
+  // 185:   while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
+  // 186:   if length_of(text) == 0 || text(1) != '=' invalid_table_error
+  // 187:   range &text 2 -1
+  // 188:   $value deserialize_item(&text indent)
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__19_16, 0);
-  // 123: forever:
-  // 124:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
-  // 125:   get_deserialization_indent $remaining_text $indent text
-  // 126:   if indent <= base_indent: return text obj
-  // 127:   !text remaining_text
-  // 128:   $key deserialize_item(&text indent)
-  // 129:   while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
-  // 130:   if length_of(text) == 0 || text(1) != '=' invalid_table_error
-  // 131:   range &text 2 -1
-  // 132:   $value deserialize_item(&text indent)
+  // 179: forever:
+  // 180:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 181:   get_deserialization_indent $remaining_text $indent text
+  // 182:   if indent <= base_indent: return text obj
+  // 183:   !text remaining_text
+  // 184:   $key deserialize_item(&text indent)
+  // 185:   while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
+  // 186:   if length_of(text) == 0 || text(1) != '=' invalid_table_error
+  // 187:   range &text 2 -1
+  // 188:   $value deserialize_item(&text indent)
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -1937,7 +1937,7 @@ static void entry__19_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... length_of(text)
+  // 180: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1952,7 +1952,7 @@ static void cont__19_17(void) {
     return;
   }
   frame->slots[11] /* temp__3 */ = arguments->slots[0];
-  // 124: ... length_of(text) == 0
+  // 180: ... length_of(text) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__3 */;
@@ -1968,9 +1968,9 @@ static void cont__19_18(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 124: ... text(1) != '@nl;'
+  // 180: ... text(1) != '@nl;'
   frame->slots[12] /* temp__4 */ = create_closure(entry__19_19, 0);
-  // 124: ... length_of(text) == 0 || text(1) != '@nl;'
+  // 180: ... length_of(text) == 0 || text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -1989,7 +1989,7 @@ static void entry__19_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... text(1)
+  // 180: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2004,7 +2004,7 @@ static void cont__19_20(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 124: ... text(1) != '@nl;'
+  // 180: ... text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -2020,7 +2020,7 @@ static void cont__19_21(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 124: ... text(1) != '@nl;'
+  // 180: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2035,7 +2035,7 @@ static void cont__19_22(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 124: ... text(1) != '@nl;'
+  // 180: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2049,9 +2049,9 @@ static void cont__19_23(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 124: ... : return text obj
+  // 180: ... : return text obj
   frame->slots[13] /* temp__5 */ = create_closure(entry__19_24, 0);
-  // 124: if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 180: if length_of(text) == 0 || text(1) != '@nl;': return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -2074,7 +2074,7 @@ static void entry__19_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... return text obj
+  // 180: ... return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2089,7 +2089,7 @@ static void cont__19_25(void) {
     invalid_results_error();
     return;
   }
-  // 125: get_deserialization_indent $remaining_text $indent text
+  // 181: get_deserialization_indent $remaining_text $indent text
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2105,11 +2105,11 @@ static void cont__19_26(void) {
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   frame->slots[10] /* temp__2 */ = arguments->slots[1];
-  // 125: ... remaining_text
+  // 181: ... remaining_text
   initialize_future(frame->slots[5] /* remaining_text */, frame->slots[9] /* temp__1 */);
-  // 125: ... indent
+  // 181: ... indent
   initialize_future(frame->slots[6] /* indent */, frame->slots[10] /* temp__2 */);
-  // 126: ... indent <= base_indent
+  // 182: ... indent <= base_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* base_indent */;
@@ -2125,7 +2125,7 @@ static void cont__19_27(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 126: ... indent <= base_indent
+  // 182: ... indent <= base_indent
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -2140,9 +2140,9 @@ static void cont__19_28(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 126: ... : return text obj
+  // 182: ... : return text obj
   frame->slots[11] /* temp__3 */ = create_closure(entry__19_29, 0);
-  // 126: if indent <= base_indent: return text obj
+  // 182: if indent <= base_indent: return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -2165,7 +2165,7 @@ static void entry__19_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 126: ... return text obj
+  // 182: ... return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2180,9 +2180,9 @@ static void cont__19_30(void) {
     invalid_results_error();
     return;
   }
-  // 127: !text remaining_text
+  // 183: !text remaining_text
   ((CELL *)frame->slots[0])->contents /* text */ = frame->slots[5] /* remaining_text */;
-  // 128: $key deserialize_item(&text indent)
+  // 184: $key deserialize_item(&text indent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2199,11 +2199,11 @@ static void cont__19_31(void) {
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
   frame->slots[9] /* temp__1 */ = arguments->slots[1];
-  // 128: ... key
+  // 184: ... key
   initialize_future(frame->slots[7] /* key */, frame->slots[9] /* temp__1 */);
-  // 129: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
+  // 185: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   frame->slots[9] /* temp__1 */ = create_closure(entry__19_32, 0);
-  // 129: while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
+  // 185: while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -2221,7 +2221,7 @@ static void entry__19_40(void) {
     invalid_arguments_error();
     return;
   }
-  // 129: ... 1
+  // 185: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2236,7 +2236,7 @@ static void cont__19_41(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 129: ... range &text 2 -1
+  // 185: ... range &text 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2268,7 +2268,7 @@ static void entry__19_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 129: ... length_of(text)
+  // 185: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2283,7 +2283,7 @@ static void cont__19_33(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 129: ... length_of(text) >= 1
+  // 185: ... length_of(text) >= 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
@@ -2299,7 +2299,7 @@ static void cont__19_34(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 129: ... length_of(text) >= 1
+  // 185: ... length_of(text) >= 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -2314,9 +2314,9 @@ static void cont__19_35(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 129: ... text(1) == ' '
+  // 185: ... text(1) == ' '
   frame->slots[5] /* temp__5 */ = create_closure(entry__19_36, 0);
-  // 129: ... length_of(text) >= 1 && text(1) == ' '
+  // 185: ... length_of(text) >= 1 && text(1) == ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2335,7 +2335,7 @@ static void entry__19_36(void) {
     invalid_arguments_error();
     return;
   }
-  // 129: ... text(1)
+  // 185: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2350,7 +2350,7 @@ static void cont__19_37(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 129: ... text(1) == ' '
+  // 185: ... text(1) == ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2366,7 +2366,7 @@ static void cont__19_38(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 129: ... text(1) == ' '
+  // 185: ... text(1) == ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2380,9 +2380,9 @@ static void cont__19_39(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 129: ... : range &text 2 -1
+  // 185: ... : range &text 2 -1
   frame->slots[6] /* temp__6 */ = create_closure(entry__19_40, 0);
-  // 129: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
+  // 185: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2396,7 +2396,7 @@ static void cont__19_43(void) {
     invalid_results_error();
     return;
   }
-  // 130: ... length_of(text)
+  // 186: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2411,7 +2411,7 @@ static void cont__19_44(void) {
     return;
   }
   frame->slots[11] /* temp__3 */ = arguments->slots[0];
-  // 130: ... length_of(text) == 0
+  // 186: ... length_of(text) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__3 */;
@@ -2427,9 +2427,9 @@ static void cont__19_45(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 130: ... text(1) != '='
+  // 186: ... text(1) != '='
   frame->slots[12] /* temp__4 */ = create_closure(entry__19_46, 0);
-  // 130: ... length_of(text) == 0 || text(1) != '='
+  // 186: ... length_of(text) == 0 || text(1) != '='
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -2448,7 +2448,7 @@ static void entry__19_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 130: ... text(1)
+  // 186: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2463,7 +2463,7 @@ static void cont__19_47(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 130: ... text(1) != '='
+  // 186: ... text(1) != '='
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -2479,7 +2479,7 @@ static void cont__19_48(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 130: ... text(1) != '='
+  // 186: ... text(1) != '='
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2494,7 +2494,7 @@ static void cont__19_49(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 130: ... text(1) != '='
+  // 186: ... text(1) != '='
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2508,7 +2508,7 @@ static void cont__19_50(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 130: if length_of(text) == 0 || text(1) != '=' invalid_table_error
+  // 186: if length_of(text) == 0 || text(1) != '=' invalid_table_error
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -2523,7 +2523,7 @@ static void cont__19_51(void) {
     invalid_results_error();
     return;
   }
-  // 131: ... 1
+  // 187: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2538,7 +2538,7 @@ static void cont__19_52(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 131: range &text 2 -1
+  // 187: range &text 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2555,7 +2555,7 @@ static void cont__19_53(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
-  // 132: $value deserialize_item(&text indent)
+  // 188: $value deserialize_item(&text indent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2572,11 +2572,11 @@ static void cont__19_54(void) {
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
   frame->slots[9] /* temp__1 */ = arguments->slots[1];
-  // 132: ... value
+  // 188: ... value
   initialize_future(frame->slots[8] /* value */, frame->slots[9] /* temp__1 */);
-  // 133: !obj(key) value
+  // 189: !obj(key) value
   frame->slots[9] /* temp__1 */ = frame->slots[8] /* value */;
-  // 133: !obj(key)
+  // 189: !obj(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* key */;
@@ -2612,28 +2612,28 @@ static void entry__19_1_std__register_collection_serializer(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: ... :
-  // 112:   (
-  // 113:     $text
-  // 114:     base_indent
-  // 115:     -> return
-  // 116:   )
-  // 117:   $invalid_table_error:
-  // 118:     raise "Invalid @(name) object encountered during deserialisation!"
-  // 119:   
-  // 120:   if text .has_prefix. "()": return range(text 3 -1) empty_table
+  // 167: ... :
+  // 168:   (
+  // 169:     $text
+  // 170:     base_indent
+  // 171:     -> return
+  // 172:   )
+  // 173:   $invalid_table_error:
+  // 174:     raise "Invalid @(name) object encountered during deserialisation!"
+  // 175:   
+  // 176:   if text .has_prefix. "()": return range(text 3 -1) empty_table
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__19_2, 2);
-  // 111: register_deserializer name:
-  // 112:   (
-  // 113:     $text
-  // 114:     base_indent
-  // 115:     -> return
-  // 116:   )
-  // 117:   $invalid_table_error:
-  // 118:     raise "Invalid @(name) object encountered during deserialisation!"
-  // 119:   
-  // 120:   if text .has_prefix. "()": return range(text 3 -1) empty_table
+  // 167: register_deserializer name:
+  // 168:   (
+  // 169:     $text
+  // 170:     base_indent
+  // 171:     -> return
+  // 172:   )
+  // 173:   $invalid_table_error:
+  // 174:     raise "Invalid @(name) object encountered during deserialisation!"
+  // 175:   
+  // 176:   if text .has_prefix. "()": return range(text 3 -1) empty_table
   // ...
   argument_count = 2;
   arguments = node_p;

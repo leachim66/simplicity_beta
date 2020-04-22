@@ -293,6 +293,10 @@ $std::date_and_time
 }
 
 $types::date_and_time/year_of
+  #
+    returns the calendar year
+
+    See also: year_of
   {
     CHECK_ARGUMENTS(1)
     int year;
@@ -301,6 +305,10 @@ $types::date_and_time/year_of
   }
 
 $types::date_and_time/month_of
+  #
+    returns the month of the year
+
+    See also: month_of
   {
     CHECK_ARGUMENTS(1)
     int month;
@@ -309,6 +317,10 @@ $types::date_and_time/month_of
   }
 
 $types::date_and_time/day_of
+  #
+    returns the day of the month
+
+    See also: day_of
   {
     CHECK_ARGUMENTS(1)
     int day;
@@ -317,6 +329,10 @@ $types::date_and_time/day_of
   }
 
 $types::date_and_time/day_of_week_of
+  #
+    returns the month of the year
+
+    See also: month_of
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(
@@ -325,6 +341,10 @@ $types::date_and_time/day_of_week_of
   }
 
 $types::date_and_time/hour_of
+  #
+    returns the hour of the day
+
+    See also: hour_of
   {
     CHECK_ARGUMENTS(1)
     int seconds = ARGUMENTS(0)->date_and_time.seconds%86400;
@@ -332,6 +352,10 @@ $types::date_and_time/hour_of
   }
 
 $types::date_and_time/minute_of
+  #
+    returns the minute of the hour
+
+    See also: minute_of
   {
     CHECK_ARGUMENTS(1)
     int seconds = ARGUMENTS(0)->date_and_time.seconds%3600;
@@ -339,6 +363,10 @@ $types::date_and_time/minute_of
   }
 
 $types::date_and_time/second_of
+  #
+    returns the second of the minute
+
+    See also: second_of
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(
@@ -348,6 +376,8 @@ $types::date_and_time/second_of
   }
 
 $types::date_and_time/plus
+  #
+    adds a <types::date_and_time> and a numeric delta (in seconds)
   {
     CHECK_ARGUMENTS(2)
     int64_t seconds = ARGUMENTS(0)->date_and_time.seconds;
@@ -365,6 +395,8 @@ $types::date_and_time/plus
   }
 
 $types::date_and_time/minus
+  #
+    subtracts a numeric delta (in seconds) from a <types::date_and_time>
   {
     CHECK_ARGUMENTS(2)
     int64_t seconds = ARGUMENTS(0)->date_and_time.seconds;
@@ -389,6 +421,8 @@ $types::date_and_time/minus
   }
 
 $types::date_and_time/equal
+  #
+    compares two <types::date_and_time> values for equality
   {
     CHECK_ARGUMENTS(2)
     NODE *left, *right;
@@ -401,6 +435,8 @@ $types::date_and_time/equal
   }
 
 $types::date_and_time/less
+  #
+    compares two <types::date_and_time> values
   {
     CHECK_ARGUMENTS(2)
     NODE *left, *right;
@@ -414,6 +450,10 @@ $types::date_and_time/less
   }
 
 $types::date_and_time/time_shift_of
+  #
+    returns the time shift
+
+    See also: time_shift_of
   {
     CHECK_ARGUMENTS(1)
     // This insane looking sequence of calls correctly computes the time shift!!!
@@ -428,6 +468,8 @@ $types::date_and_time/time_shift_of
   }
 
 $types::date_and_time/to_string: (self)
+  #
+    returns a human readable interpration
   $ts time_shift_of(self)
   $t self+ts
   $second second_of(t)
@@ -453,6 +495,10 @@ $types::date_and_time/to_string: (self)
 	-> true -> ""
 
 $std::sleep
+  #
+    halts the application for the specified number of seconds
+
+    Parameter delay: the number of seconds to wait (can contain decimals)
   {
     CHECK_ARGUMENTS(1)
     double seconds = to_double(ARGUMENTS(0));

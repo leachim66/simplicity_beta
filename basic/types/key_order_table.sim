@@ -20,10 +20,10 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_a_key_order_table ()
+$std::is_a_key_order_table () # obvious
 
-$types::object.is_a_key_order_table false
-$types::key_order_table.is_a_key_order_table true
+$types::object.is_a_key_order_table false # obvious
+$types::key_order_table.is_a_key_order_table true # obvious
 
 $NONE .
 $INSERT .
@@ -68,14 +68,6 @@ $remove_rightmost:
       !node left_of(node)
 
 $types::key_order_table types::generic_table
-
-# ATTENTION: BUG BUG BUG!!!
-
-#types::object $empty_node
-  .left_of undefined
-  .right_of undefined
-
-# THIS *SHOULD* BE IDENTICAL TO:
 
 $empty_node types::object
 $empty_node.left_of undefined
@@ -191,11 +183,31 @@ $types::key_order_table.tree_of undefined
 $types::key_order_table.length_of 0
 $types::key_order_table.serialization_tag_of "key_order_table"
 
-$types::key_order_table/new_empty_collection: (_self) -> types::key_order_table
+$types::key_order_table/new_empty_collection:
+  #
+    returns an empty key-order table
+  (
+    _self
+  )
+  -> types::key_order_table
 
 $std::empty_key_order_table types::key_order_table
+  #
+    an empty key-order table
 
-$std::key_order_table: (initializers*)
+$std::key_order_table:
+  #
+    constructs a key-order table from its arguments
+
+    Example:
+
+    key_order_tables $ages
+      "Carlo" = 47
+      "Maria" = 45
+      "Estefan" = 27
+  (
+    initializers*
+  )
   $$tab types::key_order_table
   for_each initializers: (initializer)
     !tab(std::key_of(initializer)) std::value_of(initializer)
@@ -211,7 +223,13 @@ $for_each_item: (myself body)
 	body value_of(myself)
     for_each_item right_of(myself) body
 
-$types::key_order_table/for_each: (self body)
+$types::key_order_table/for_each:
+  #
+    invokes the specified callback for each item of the table
+  (
+    self
+    body
+  )
   $tree tree_of(self)
   if tree.is_defined: for_each_item tree body
 
@@ -231,7 +249,15 @@ $for_each_item_from_to: (myself first last body)
     if last.is_undefined || last > key:
       for_each_item_from_to right_of(myself) first last body
 
-$types::key_order_table/for_each_from_to: (self first last body)
+$types::key_order_table/for_each_from_to:
+  #
+    invokes the specified callback for each item in the specified range
+  (
+    self
+    first
+    last
+    body
+  )
   $tree tree_of(self)
   if tree.is_defined: for_each_item_from_to tree first last body
 
@@ -251,7 +277,15 @@ $for_each_item_from_down_to: (myself last first body)
     if first.is_undefined || first < key:
       for_each_item_from_down_to left_of(myself) last first body
 
-$types::key_order_table/for_each_from_down_to: (self last first body)
+$types::key_order_table/for_each_from_down_to:
+  #
+    invokes the callback for each item in the specified range in reverse order
+  (
+    self
+    last
+    first
+    body
+  )
   $tree tree_of(self)
   if tree.is_defined: for_each_item_from_down_to tree last first body
 
@@ -284,6 +318,8 @@ $update_each_item_from_to:
       update_each_item_from_to &myself.right_of first last body
 
 $types::key_order_table/update_each_from_to:
+  #
+    updates all items within the specified range
   (
     &self
     first
@@ -312,6 +348,8 @@ $update_each_item_from_down_to:
       update_each_item_from_down_to &myself.left_of last first body
 
 $types::key_order_table/update_each_from_down_to:
+  #
+    updates all items within the specified range in reverse order
   (
     &self
     last
@@ -322,6 +360,8 @@ $types::key_order_table/update_each_from_down_to:
     update_each_item_from_down_to &self.tree_of last first body
 
 $types::key_order_table/update_each:
+  #
+    updates all items of the table
   (
     &self
     body

@@ -719,19 +719,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__16_23, NULL, 153, 153, 7, 65},
   {entry__16_1_types__key_order_set_, NULL, 136, 153, 3, 66},
   {cont__16_25, &frame__16_1_types__key_order_set_, 153, 153, 66, 66},
-  {entry__21_1_std__key_order_set, NULL, 160, 162, 21, 37},
-  {entry__22_3, NULL, 166, 166, 19, 33},
-  {cont__22_4, &frame__22_3, 166, 166, 5, 38},
-  {cont__22_5, &frame__22_3, 167, 167, 10, 23},
-  {cont__22_6, &frame__22_3, 167, 167, 5, 23},
-  {cont__22_7, &frame__22_3, 168, 168, 19, 34},
-  {cont__22_8, &frame__22_3, 168, 168, 5, 39},
-  {entry__22_1_for_each_item, NULL, 165, 165, 6, 22},
-  {cont__22_2, &frame__22_1_for_each_item, 165, 168, 3, 39},
-  {entry__23_4, NULL, 178, 178, 23, 45},
-  {entry__23_1_types__key_order_set_for_each, NULL, 177, 177, 3, 21},
-  {cont__23_2, &frame__23_1_types__key_order_set_for_each, 178, 178, 6, 20},
-  {cont__23_3, &frame__23_1_types__key_order_set_for_each, 178, 178, 3, 45}
+  {entry__21_1_std__key_order_set, NULL, 162, 164, 21, 37},
+  {entry__22_3, NULL, 168, 168, 19, 33},
+  {cont__22_4, &frame__22_3, 168, 168, 5, 38},
+  {cont__22_5, &frame__22_3, 169, 169, 10, 23},
+  {cont__22_6, &frame__22_3, 169, 169, 5, 23},
+  {cont__22_7, &frame__22_3, 170, 170, 19, 34},
+  {cont__22_8, &frame__22_3, 170, 170, 5, 39},
+  {entry__22_1_for_each_item, NULL, 167, 167, 6, 22},
+  {cont__22_2, &frame__22_1_for_each_item, 167, 170, 3, 39},
+  {entry__23_4, NULL, 180, 180, 23, 45},
+  {entry__23_1_types__key_order_set_for_each, NULL, 179, 179, 3, 21},
+  {cont__23_2, &frame__23_1_types__key_order_set_for_each, 180, 180, 6, 20},
+  {cont__23_3, &frame__23_1_types__key_order_set_for_each, 180, 180, 3, 45}
 };
 
 union NODE {
@@ -3183,9 +3183,9 @@ static void entry__21_1_std__key_order_set(void) {
     invalid_arguments_error();
     return;
   }
-  // 160: ... -> types::key_order_set
-  // 161:   #
-  // 162:     returns an empty *key order set*
+  // 162: ... -> types::key_order_set
+  // 163:   #
+  // 164:     returns an empty *key order set*
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var.types__key_order_set;
@@ -3204,7 +3204,7 @@ static void entry__22_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 166: ... left_of(myself)
+  // 168: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3219,7 +3219,7 @@ static void cont__22_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 166: for_each_item left_of(myself) body
+  // 168: for_each_item left_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3234,7 +3234,7 @@ static void cont__22_5(void) {
     invalid_results_error();
     return;
   }
-  // 167: ... key_of(myself)
+  // 169: ... key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3249,7 +3249,7 @@ static void cont__22_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 167: body key_of(myself)
+  // 169: body key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3263,7 +3263,7 @@ static void cont__22_7(void) {
     invalid_results_error();
     return;
   }
-  // 168: ... right_of(myself)
+  // 170: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3278,7 +3278,7 @@ static void cont__22_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 168: for_each_item right_of(myself) body
+  // 170: for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3297,7 +3297,7 @@ static void entry__22_1_for_each_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 165: ... myself.is_defined
+  // 167: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3312,15 +3312,15 @@ static void cont__22_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 165: ... :
-  // 166:   for_each_item left_of(myself) body
-  // 167:   body key_of(myself)
-  // 168:   for_each_item right_of(myself) body
+  // 167: ... :
+  // 168:   for_each_item left_of(myself) body
+  // 169:   body key_of(myself)
+  // 170:   for_each_item right_of(myself) body
   frame->slots[3] /* temp__2 */ = create_closure(entry__22_3, 0);
-  // 165: if myself.is_defined:
-  // 166:   for_each_item left_of(myself) body
-  // 167:   body key_of(myself)
-  // 168:   for_each_item right_of(myself) body
+  // 167: if myself.is_defined:
+  // 168:   for_each_item left_of(myself) body
+  // 169:   body key_of(myself)
+  // 170:   for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3341,7 +3341,7 @@ static void entry__23_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... for_each_item tree body
+  // 180: ... for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tree */;
@@ -3362,7 +3362,7 @@ static void entry__23_1_types__key_order_set_for_each(void) {
     invalid_arguments_error();
     return;
   }
-  // 177: $tree tree_of(self)
+  // 179: $tree tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3377,7 +3377,7 @@ static void cont__23_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* tree */, arguments->slots[0]);
-  // 178: ... tree.is_defined
+  // 180: ... tree.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* tree */;
@@ -3392,9 +3392,9 @@ static void cont__23_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 178: ... : for_each_item tree body
+  // 180: ... : for_each_item tree body
   frame->slots[4] /* temp__2 */ = create_closure(entry__23_4, 0);
-  // 178: if tree.is_defined: for_each_item tree body
+  // 180: if tree.is_defined: for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;

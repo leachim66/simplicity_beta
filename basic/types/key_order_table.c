@@ -994,7 +994,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__value_of, NULL, 34, 34, 2, 9},
   {type__left_of, NULL, 35, 35, 2, 8},
   {type__right_of, NULL, 36, 36, 2, 9},
-  {run__basic__types__key_order_table, NULL, 331, 331, 1, 70},
+  {run__basic__types__key_order_table, NULL, 371, 371, 1, 70},
   {cont__84_1, NULL, },
   {entry__12_4, NULL, 47, 47, 7, 39},
   {cont__12_5, &frame__12_4, 48, 48, 24, 24},
@@ -1016,319 +1016,319 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__13_2, &frame__13_1_remove_rightmost, 62, 62, 5, 20},
   {cont__13_3, &frame__13_1_remove_rightmost, 61, 68, 3, 26},
   {cont__13_10, &frame__13_1_remove_rightmost, },
-  {entry__18_4, NULL, 92, 92, 7, 35},
-  {cont__18_5, &frame__18_4, 94, 94, 7, 22},
-  {entry__18_6, NULL, 96, 96, 7, 25},
-  {cont__18_7, &frame__18_6, 97, 97, 7, 29},
-  {cont__18_8, &frame__18_6, 98, 98, 7, 30},
-  {cont__18_9, &frame__18_6, 99, 99, 7, 22},
-  {entry__18_1_fetch_first, NULL, 89, 89, 3, 24},
-  {cont__18_2, &frame__18_1_fetch_first, 91, 91, 5, 19},
-  {cont__18_3, &frame__18_1_fetch_first, 90, 99, 3, 23},
-  {cont__18_10, &frame__18_1_fetch_first, 99, 99, 23, 23},
-  {entry__19_3, NULL, 107, 107, 27, 42},
-  {entry__19_8, NULL, 110, 110, 30, 45},
-  {cont__19_9, &frame__19_8, 110, 110, 23, 45},
-  {entry__19_6, NULL, 110, 110, 8, 20},
-  {cont__19_7, &frame__19_6, 110, 110, 5, 45},
-  {entry__19_12, NULL, 111, 111, 43, 57},
-  {cont__19_13, &frame__19_12, 111, 111, 29, 62},
-  {cont__19_14, &frame__19_12, 111, 111, 22, 62},
-  {entry__19_10, NULL, 111, 111, 8, 19},
-  {cont__19_11, &frame__19_10, 111, 111, 5, 62},
-  {entry__19_17, NULL, 112, 112, 43, 58},
-  {cont__19_18, &frame__19_17, 112, 112, 29, 63},
-  {cont__19_19, &frame__19_17, 112, 112, 22, 63},
-  {entry__19_15, NULL, 112, 112, 8, 19},
-  {cont__19_16, &frame__19_15, 112, 112, 5, 63},
-  {entry__19_1_retrieve_item, NULL, 107, 107, 6, 24},
-  {cont__19_2, &frame__19_1_retrieve_item, 107, 107, 3, 42},
-  {cont__19_4, &frame__19_1_retrieve_item, 108, 108, 3, 24},
-  {cont__19_5, &frame__19_1_retrieve_item, 109, 112, 3, 63},
-  {cont__19_20, &frame__19_1_retrieve_item, 112, 112, 63, 63},
-  {entry__20_3, NULL, 121, 121, 27, 79},
-  {entry__20_8, NULL, 124, 124, 23, 59},
-  {entry__20_6, NULL, 124, 124, 8, 20},
-  {cont__20_7, &frame__20_6, 124, 124, 5, 59},
-  {entry__20_11, NULL, 126, 126, 28, 42},
-  {cont__20_12, &frame__20_11, 126, 126, 7, 52},
-  {cont__20_13, &frame__20_11, 127, 127, 7, 39},
-  {entry__20_9, NULL, 125, 125, 8, 19},
-  {cont__20_10, &frame__20_9, 125, 127, 5, 39},
-  {entry__20_16, NULL, 129, 129, 29, 44},
-  {cont__20_17, &frame__20_16, 129, 129, 7, 54},
-  {cont__20_18, &frame__20_16, 130, 130, 7, 41},
-  {entry__20_14, NULL, 128, 128, 8, 19},
-  {cont__20_15, &frame__20_14, 128, 130, 5, 41},
-  {entry__20_1_add_item, NULL, 121, 121, 6, 24},
-  {cont__20_2, &frame__20_1_add_item, 121, 121, 3, 79},
-  {cont__20_4, &frame__20_1_add_item, 122, 122, 3, 24},
-  {cont__20_5, &frame__20_1_add_item, 123, 130, 3, 42},
-  {cont__20_19, &frame__20_1_add_item, 130, 130, 42, 42},
-  {entry__21_3, NULL, 138, 138, 27, 55},
-  {entry__21_14, NULL, 148, 148, 15, 54},
-  {cont__21_15, &frame__21_14, 149, 154, 15, 34},
-  {entry__21_16, NULL, 156, 156, 15, 25},
-  {entry__21_12, NULL, 147, 147, 13, 28},
-  {cont__21_13, &frame__21_12, 146, 156, 11, 26},
-  {entry__21_17, NULL, 158, 158, 11, 22},
-  {entry__21_8, NULL, 142, 142, 7, 27},
-  {cont__21_9, &frame__21_8, 143, 143, 7, 30},
-  {cont__21_10, &frame__21_8, 145, 145, 9, 23},
-  {cont__21_11, &frame__21_8, 144, 158, 7, 23},
-  {entry__21_6, NULL, 141, 141, 8, 20},
-  {cont__21_7, &frame__21_6, 141, 158, 5, 24},
-  {entry__21_24, NULL, 161, 161, 24, 52},
-  {entry__21_20, NULL, 160, 160, 25, 39},
-  {cont__21_21, &frame__21_20, 160, 160, 7, 44},
-  {cont__21_22, &frame__21_20, 161, 161, 10, 21},
-  {cont__21_23, &frame__21_20, 161, 161, 7, 52},
-  {cont__21_25, &frame__21_20, 163, 163, 7, 19},
-  {entry__21_18, NULL, 159, 159, 8, 19},
-  {cont__21_19, &frame__21_18, 159, 163, 5, 19},
-  {entry__21_32, NULL, 166, 166, 25, 53},
-  {entry__21_28, NULL, 165, 165, 26, 41},
-  {cont__21_29, &frame__21_28, 165, 165, 7, 46},
-  {cont__21_30, &frame__21_28, 166, 166, 10, 22},
-  {cont__21_31, &frame__21_28, 166, 166, 7, 53},
-  {cont__21_33, &frame__21_28, 168, 168, 7, 19},
-  {entry__21_26, NULL, 164, 164, 8, 19},
-  {cont__21_27, &frame__21_26, 164, 168, 5, 19},
-  {entry__21_1_remove_item, NULL, 138, 138, 6, 24},
-  {cont__21_2, &frame__21_1_remove_item, 138, 138, 3, 55},
-  {cont__21_4, &frame__21_1_remove_item, 139, 139, 3, 24},
-  {cont__21_5, &frame__21_1_remove_item, 140, 168, 3, 20},
-  {cont__21_34, &frame__21_1_remove_item, 168, 168, 20, 20},
-  {entry__22_8, NULL, 181, 181, 14, 27},
-  {cont__22_9, &frame__22_8, 181, 181, 9, 27},
-  {cont__22_10, &frame__22_8, 181, 181, 27, 27},
-  {entry__22_3, NULL, 178, 178, 29, 41},
-  {cont__22_4, &frame__22_3, 178, 178, 7, 46},
-  {cont__22_5, &frame__22_3, 179, 179, 10, 25},
-  {cont__22_6, &frame__22_3, 179, 179, 10, 25},
-  {cont__22_7, &frame__22_3, 179, 181, 7, 27},
-  {entry__22_15, NULL, 185, 185, 31, 44},
-  {cont__22_16, &frame__22_15, 185, 185, 26, 44},
-  {cont__22_17, &frame__22_15, 185, 185, 44, 44},
-  {entry__22_11, NULL, 183, 183, 32, 44},
-  {cont__22_12, &frame__22_11, 183, 183, 7, 54},
-  {cont__22_13, &frame__22_11, 185, 185, 10, 23},
-  {cont__22_14, &frame__22_11, 185, 185, 7, 44},
-  {entry__22_1_types__key_order_table_private__set_item, NULL, 177, 177, 5, 22},
-  {cont__22_2, &frame__22_1_types__key_order_table_private__set_item, 176, 185, 3, 45},
+  {entry__18_4, NULL, 84, 84, 7, 35},
+  {cont__18_5, &frame__18_4, 86, 86, 7, 22},
+  {entry__18_6, NULL, 88, 88, 7, 25},
+  {cont__18_7, &frame__18_6, 89, 89, 7, 29},
+  {cont__18_8, &frame__18_6, 90, 90, 7, 30},
+  {cont__18_9, &frame__18_6, 91, 91, 7, 22},
+  {entry__18_1_fetch_first, NULL, 81, 81, 3, 24},
+  {cont__18_2, &frame__18_1_fetch_first, 83, 83, 5, 19},
+  {cont__18_3, &frame__18_1_fetch_first, 82, 91, 3, 23},
+  {cont__18_10, &frame__18_1_fetch_first, 91, 91, 23, 23},
+  {entry__19_3, NULL, 99, 99, 27, 42},
+  {entry__19_8, NULL, 102, 102, 30, 45},
+  {cont__19_9, &frame__19_8, 102, 102, 23, 45},
+  {entry__19_6, NULL, 102, 102, 8, 20},
+  {cont__19_7, &frame__19_6, 102, 102, 5, 45},
+  {entry__19_12, NULL, 103, 103, 43, 57},
+  {cont__19_13, &frame__19_12, 103, 103, 29, 62},
+  {cont__19_14, &frame__19_12, 103, 103, 22, 62},
+  {entry__19_10, NULL, 103, 103, 8, 19},
+  {cont__19_11, &frame__19_10, 103, 103, 5, 62},
+  {entry__19_17, NULL, 104, 104, 43, 58},
+  {cont__19_18, &frame__19_17, 104, 104, 29, 63},
+  {cont__19_19, &frame__19_17, 104, 104, 22, 63},
+  {entry__19_15, NULL, 104, 104, 8, 19},
+  {cont__19_16, &frame__19_15, 104, 104, 5, 63},
+  {entry__19_1_retrieve_item, NULL, 99, 99, 6, 24},
+  {cont__19_2, &frame__19_1_retrieve_item, 99, 99, 3, 42},
+  {cont__19_4, &frame__19_1_retrieve_item, 100, 100, 3, 24},
+  {cont__19_5, &frame__19_1_retrieve_item, 101, 104, 3, 63},
+  {cont__19_20, &frame__19_1_retrieve_item, 104, 104, 63, 63},
+  {entry__20_3, NULL, 113, 113, 27, 79},
+  {entry__20_8, NULL, 116, 116, 23, 59},
+  {entry__20_6, NULL, 116, 116, 8, 20},
+  {cont__20_7, &frame__20_6, 116, 116, 5, 59},
+  {entry__20_11, NULL, 118, 118, 28, 42},
+  {cont__20_12, &frame__20_11, 118, 118, 7, 52},
+  {cont__20_13, &frame__20_11, 119, 119, 7, 39},
+  {entry__20_9, NULL, 117, 117, 8, 19},
+  {cont__20_10, &frame__20_9, 117, 119, 5, 39},
+  {entry__20_16, NULL, 121, 121, 29, 44},
+  {cont__20_17, &frame__20_16, 121, 121, 7, 54},
+  {cont__20_18, &frame__20_16, 122, 122, 7, 41},
+  {entry__20_14, NULL, 120, 120, 8, 19},
+  {cont__20_15, &frame__20_14, 120, 122, 5, 41},
+  {entry__20_1_add_item, NULL, 113, 113, 6, 24},
+  {cont__20_2, &frame__20_1_add_item, 113, 113, 3, 79},
+  {cont__20_4, &frame__20_1_add_item, 114, 114, 3, 24},
+  {cont__20_5, &frame__20_1_add_item, 115, 122, 3, 42},
+  {cont__20_19, &frame__20_1_add_item, 122, 122, 42, 42},
+  {entry__21_3, NULL, 130, 130, 27, 55},
+  {entry__21_14, NULL, 140, 140, 15, 54},
+  {cont__21_15, &frame__21_14, 141, 146, 15, 34},
+  {entry__21_16, NULL, 148, 148, 15, 25},
+  {entry__21_12, NULL, 139, 139, 13, 28},
+  {cont__21_13, &frame__21_12, 138, 148, 11, 26},
+  {entry__21_17, NULL, 150, 150, 11, 22},
+  {entry__21_8, NULL, 134, 134, 7, 27},
+  {cont__21_9, &frame__21_8, 135, 135, 7, 30},
+  {cont__21_10, &frame__21_8, 137, 137, 9, 23},
+  {cont__21_11, &frame__21_8, 136, 150, 7, 23},
+  {entry__21_6, NULL, 133, 133, 8, 20},
+  {cont__21_7, &frame__21_6, 133, 150, 5, 24},
+  {entry__21_24, NULL, 153, 153, 24, 52},
+  {entry__21_20, NULL, 152, 152, 25, 39},
+  {cont__21_21, &frame__21_20, 152, 152, 7, 44},
+  {cont__21_22, &frame__21_20, 153, 153, 10, 21},
+  {cont__21_23, &frame__21_20, 153, 153, 7, 52},
+  {cont__21_25, &frame__21_20, 155, 155, 7, 19},
+  {entry__21_18, NULL, 151, 151, 8, 19},
+  {cont__21_19, &frame__21_18, 151, 155, 5, 19},
+  {entry__21_32, NULL, 158, 158, 25, 53},
+  {entry__21_28, NULL, 157, 157, 26, 41},
+  {cont__21_29, &frame__21_28, 157, 157, 7, 46},
+  {cont__21_30, &frame__21_28, 158, 158, 10, 22},
+  {cont__21_31, &frame__21_28, 158, 158, 7, 53},
+  {cont__21_33, &frame__21_28, 160, 160, 7, 19},
+  {entry__21_26, NULL, 156, 156, 8, 19},
+  {cont__21_27, &frame__21_26, 156, 160, 5, 19},
+  {entry__21_1_remove_item, NULL, 130, 130, 6, 24},
+  {cont__21_2, &frame__21_1_remove_item, 130, 130, 3, 55},
+  {cont__21_4, &frame__21_1_remove_item, 131, 131, 3, 24},
+  {cont__21_5, &frame__21_1_remove_item, 132, 160, 3, 20},
+  {cont__21_34, &frame__21_1_remove_item, 160, 160, 20, 20},
+  {entry__22_8, NULL, 173, 173, 14, 27},
+  {cont__22_9, &frame__22_8, 173, 173, 9, 27},
+  {cont__22_10, &frame__22_8, 173, 173, 27, 27},
+  {entry__22_3, NULL, 170, 170, 29, 41},
+  {cont__22_4, &frame__22_3, 170, 170, 7, 46},
+  {cont__22_5, &frame__22_3, 171, 171, 10, 25},
+  {cont__22_6, &frame__22_3, 171, 171, 10, 25},
+  {cont__22_7, &frame__22_3, 171, 173, 7, 27},
+  {entry__22_15, NULL, 177, 177, 31, 44},
+  {cont__22_16, &frame__22_15, 177, 177, 26, 44},
+  {cont__22_17, &frame__22_15, 177, 177, 44, 44},
+  {entry__22_11, NULL, 175, 175, 32, 44},
+  {cont__22_12, &frame__22_11, 175, 175, 7, 54},
+  {cont__22_13, &frame__22_11, 177, 177, 10, 23},
+  {cont__22_14, &frame__22_11, 177, 177, 7, 44},
+  {entry__22_1_types__key_order_table_private__set_item, NULL, 169, 169, 5, 22},
+  {cont__22_2, &frame__22_1_types__key_order_table_private__set_item, 168, 177, 3, 45},
   {cont__22_18, &frame__22_1_types__key_order_table_private__set_item, },
-  {entry__23_1_types__key_order_table_private__get_item, NULL, 188, 188, 17, 29},
-  {cont__23_2, &frame__23_1_types__key_order_table_private__get_item, 188, 188, 3, 33},
-  {entry__27_1_types__key_order_table_new_empty_collection, NULL, 194, 194, 55, 79},
-  {entry__29_2, NULL, 201, 201, 5, 61},
-  {cont__29_3, &frame__29_2, 201, 201, 10, 33},
-  {cont__29_4, &frame__29_2, 201, 201, 5, 34},
-  {cont__29_5, &frame__29_2, 201, 201, 61, 61},
-  {entry__29_1_std__key_order_table, NULL, 200, 201, 3, 61},
-  {cont__29_6, &frame__29_1_std__key_order_table, 202, 202, 3, 8},
-  {entry__30_8, NULL, 209, 209, 14, 27},
-  {cont__30_9, &frame__30_8, 209, 209, 29, 44},
-  {cont__30_10, &frame__30_8, 209, 209, 9, 44},
-  {entry__30_11, NULL, 211, 211, 14, 29},
-  {cont__30_12, &frame__30_11, 211, 211, 9, 29},
-  {entry__30_3, NULL, 206, 206, 19, 33},
-  {cont__30_4, &frame__30_3, 206, 206, 5, 38},
-  {cont__30_5, &frame__30_3, 208, 208, 7, 30},
-  {cont__30_6, &frame__30_3, 208, 208, 7, 35},
-  {cont__30_7, &frame__30_3, 207, 211, 5, 30},
-  {cont__30_13, &frame__30_3, 212, 212, 19, 34},
-  {cont__30_14, &frame__30_3, 212, 212, 5, 39},
-  {entry__30_1_for_each_item, NULL, 205, 205, 6, 22},
-  {cont__30_2, &frame__30_1_for_each_item, 205, 212, 3, 39},
-  {entry__31_4, NULL, 216, 216, 23, 45},
-  {entry__31_1_types__key_order_table_for_each, NULL, 215, 215, 3, 21},
-  {cont__31_2, &frame__31_1_types__key_order_table_for_each, 216, 216, 6, 20},
-  {cont__31_3, &frame__31_1_types__key_order_table_for_each, 216, 216, 3, 45},
-  {entry__32_6, NULL, 221, 221, 30, 40},
-  {cont__32_7, &frame__32_6, 221, 221, 30, 40},
-  {entry__32_9, NULL, 222, 222, 29, 43},
-  {cont__32_10, &frame__32_9, 222, 222, 7, 59},
-  {entry__32_13, NULL, 224, 224, 30, 41},
-  {cont__32_14, &frame__32_13, 224, 224, 30, 41},
-  {cont__32_15, &frame__32_13, 224, 224, 30, 41},
-  {entry__32_19, NULL, 224, 224, 69, 79},
-  {cont__32_20, &frame__32_19, 224, 224, 69, 79},
-  {cont__32_21, &frame__32_19, 224, 224, 69, 79},
-  {entry__32_17, NULL, 224, 224, 48, 64},
-  {cont__32_18, &frame__32_17, 224, 224, 48, 79},
-  {cont__32_22, &frame__32_17, 224, 224, 48, 79},
-  {entry__32_27, NULL, 228, 228, 22, 37},
-  {cont__32_28, &frame__32_27, 228, 228, 13, 37},
-  {entry__32_29, NULL, 230, 230, 18, 33},
-  {cont__32_30, &frame__32_29, 230, 230, 13, 33},
-  {entry__32_24, NULL, 227, 227, 11, 34},
-  {cont__32_25, &frame__32_24, 227, 227, 11, 39},
-  {cont__32_26, &frame__32_24, 226, 230, 9, 34},
-  {entry__32_33, NULL, 231, 231, 29, 38},
-  {cont__32_34, &frame__32_33, 231, 231, 29, 38},
-  {entry__32_36, NULL, 232, 232, 29, 44},
-  {cont__32_37, &frame__32_36, 232, 232, 7, 60},
-  {entry__32_3, NULL, 220, 220, 5, 23},
-  {cont__32_4, &frame__32_3, 221, 221, 8, 25},
-  {cont__32_5, &frame__32_3, 221, 221, 8, 40},
-  {cont__32_8, &frame__32_3, 221, 222, 5, 59},
-  {cont__32_11, &frame__32_3, 224, 224, 8, 25},
-  {cont__32_12, &frame__32_3, 224, 224, 8, 41},
-  {cont__32_16, &frame__32_3, 224, 224, 8, 79},
-  {cont__32_23, &frame__32_3, 223, 230, 5, 36},
-  {cont__32_31, &frame__32_3, 231, 231, 8, 24},
-  {cont__32_32, &frame__32_3, 231, 231, 8, 38},
-  {cont__32_35, &frame__32_3, 231, 232, 5, 60},
-  {entry__32_1_for_each_item_from_to, NULL, 219, 219, 6, 22},
-  {cont__32_2, &frame__32_1_for_each_item_from_to, 219, 232, 3, 61},
-  {entry__33_4, NULL, 236, 236, 23, 64},
-  {entry__33_1_types__key_order_table_for_each_from_to, NULL, 235, 235, 3, 21},
-  {cont__33_2, &frame__33_1_types__key_order_table_for_each_from_to, 236, 236, 6, 20},
-  {cont__33_3, &frame__33_1_types__key_order_table_for_each_from_to, 236, 236, 3, 64},
-  {entry__34_6, NULL, 241, 241, 29, 38},
-  {cont__34_7, &frame__34_6, 241, 241, 29, 38},
-  {entry__34_9, NULL, 242, 242, 34, 49},
-  {cont__34_10, &frame__34_9, 242, 242, 7, 65},
-  {entry__34_13, NULL, 244, 244, 30, 41},
-  {cont__34_14, &frame__34_13, 244, 244, 30, 41},
-  {cont__34_15, &frame__34_13, 244, 244, 30, 41},
-  {entry__34_19, NULL, 244, 244, 69, 79},
-  {cont__34_20, &frame__34_19, 244, 244, 69, 79},
-  {cont__34_21, &frame__34_19, 244, 244, 69, 79},
-  {entry__34_17, NULL, 244, 244, 48, 64},
-  {cont__34_18, &frame__34_17, 244, 244, 48, 79},
-  {cont__34_22, &frame__34_17, 244, 244, 48, 79},
-  {entry__34_27, NULL, 248, 248, 22, 37},
-  {cont__34_28, &frame__34_27, 248, 248, 13, 37},
-  {entry__34_29, NULL, 250, 250, 18, 33},
-  {cont__34_30, &frame__34_29, 250, 250, 13, 33},
-  {entry__34_24, NULL, 247, 247, 11, 34},
-  {cont__34_25, &frame__34_24, 247, 247, 11, 39},
-  {cont__34_26, &frame__34_24, 246, 250, 9, 34},
-  {entry__34_33, NULL, 251, 251, 30, 40},
-  {cont__34_34, &frame__34_33, 251, 251, 30, 40},
-  {entry__34_36, NULL, 252, 252, 34, 48},
-  {cont__34_37, &frame__34_36, 252, 252, 7, 64},
-  {entry__34_3, NULL, 240, 240, 5, 23},
-  {cont__34_4, &frame__34_3, 241, 241, 8, 24},
-  {cont__34_5, &frame__34_3, 241, 241, 8, 38},
-  {cont__34_8, &frame__34_3, 241, 242, 5, 65},
-  {cont__34_11, &frame__34_3, 244, 244, 8, 25},
-  {cont__34_12, &frame__34_3, 244, 244, 8, 41},
-  {cont__34_16, &frame__34_3, 244, 244, 8, 79},
-  {cont__34_23, &frame__34_3, 243, 250, 5, 36},
-  {cont__34_31, &frame__34_3, 251, 251, 8, 25},
-  {cont__34_32, &frame__34_3, 251, 251, 8, 40},
-  {cont__34_35, &frame__34_3, 251, 252, 5, 64},
-  {entry__34_1_for_each_item_from_down_to, NULL, 239, 239, 6, 22},
-  {cont__34_2, &frame__34_1_for_each_item_from_down_to, 239, 252, 3, 65},
-  {entry__35_4, NULL, 256, 256, 23, 69},
-  {entry__35_1_types__key_order_table_for_each_from_down_to, NULL, 255, 255, 3, 21},
-  {cont__35_2, &frame__35_1_types__key_order_table_for_each_from_down_to, 256, 256, 6, 20},
-  {cont__35_3, &frame__35_1_types__key_order_table_for_each_from_down_to, 256, 256, 3, 69},
-  {entry__36_3, NULL, 264, 264, 23, 36},
-  {cont__36_4, &frame__36_3, 264, 264, 5, 41},
-  {cont__36_5, &frame__36_3, 265, 265, 10, 23},
-  {cont__36_6, &frame__36_3, 265, 265, 26, 40},
-  {cont__36_7, &frame__36_3, 265, 265, 5, 40},
-  {cont__36_8, &frame__36_3, 266, 266, 23, 37},
-  {cont__36_9, &frame__36_3, 266, 266, 5, 42},
-  {cont__36_10, &frame__36_3, 266, 266, 42, 42},
-  {entry__36_1_update_each_item, NULL, 263, 263, 6, 22},
-  {cont__36_2, &frame__36_1_update_each_item, 263, 266, 3, 42},
+  {entry__23_1_types__key_order_table_private__get_item, NULL, 180, 180, 17, 29},
+  {cont__23_2, &frame__23_1_types__key_order_table_private__get_item, 180, 180, 3, 33},
+  {entry__27_1_types__key_order_table_new_empty_collection, NULL, 192, 192, 3, 27},
+  {entry__29_2, NULL, 213, 213, 5, 61},
+  {cont__29_3, &frame__29_2, 213, 213, 10, 33},
+  {cont__29_4, &frame__29_2, 213, 213, 5, 34},
+  {cont__29_5, &frame__29_2, 213, 213, 61, 61},
+  {entry__29_1_std__key_order_table, NULL, 212, 213, 3, 61},
+  {cont__29_6, &frame__29_1_std__key_order_table, 214, 214, 3, 8},
+  {entry__30_8, NULL, 221, 221, 14, 27},
+  {cont__30_9, &frame__30_8, 221, 221, 29, 44},
+  {cont__30_10, &frame__30_8, 221, 221, 9, 44},
+  {entry__30_11, NULL, 223, 223, 14, 29},
+  {cont__30_12, &frame__30_11, 223, 223, 9, 29},
+  {entry__30_3, NULL, 218, 218, 19, 33},
+  {cont__30_4, &frame__30_3, 218, 218, 5, 38},
+  {cont__30_5, &frame__30_3, 220, 220, 7, 30},
+  {cont__30_6, &frame__30_3, 220, 220, 7, 35},
+  {cont__30_7, &frame__30_3, 219, 223, 5, 30},
+  {cont__30_13, &frame__30_3, 224, 224, 19, 34},
+  {cont__30_14, &frame__30_3, 224, 224, 5, 39},
+  {entry__30_1_for_each_item, NULL, 217, 217, 6, 22},
+  {cont__30_2, &frame__30_1_for_each_item, 217, 224, 3, 39},
+  {entry__31_4, NULL, 234, 234, 23, 45},
+  {entry__31_1_types__key_order_table_for_each, NULL, 233, 233, 3, 21},
+  {cont__31_2, &frame__31_1_types__key_order_table_for_each, 234, 234, 6, 20},
+  {cont__31_3, &frame__31_1_types__key_order_table_for_each, 234, 234, 3, 45},
+  {entry__32_6, NULL, 239, 239, 30, 40},
+  {cont__32_7, &frame__32_6, 239, 239, 30, 40},
+  {entry__32_9, NULL, 240, 240, 29, 43},
+  {cont__32_10, &frame__32_9, 240, 240, 7, 59},
+  {entry__32_13, NULL, 242, 242, 30, 41},
+  {cont__32_14, &frame__32_13, 242, 242, 30, 41},
+  {cont__32_15, &frame__32_13, 242, 242, 30, 41},
+  {entry__32_19, NULL, 242, 242, 69, 79},
+  {cont__32_20, &frame__32_19, 242, 242, 69, 79},
+  {cont__32_21, &frame__32_19, 242, 242, 69, 79},
+  {entry__32_17, NULL, 242, 242, 48, 64},
+  {cont__32_18, &frame__32_17, 242, 242, 48, 79},
+  {cont__32_22, &frame__32_17, 242, 242, 48, 79},
+  {entry__32_27, NULL, 246, 246, 22, 37},
+  {cont__32_28, &frame__32_27, 246, 246, 13, 37},
+  {entry__32_29, NULL, 248, 248, 18, 33},
+  {cont__32_30, &frame__32_29, 248, 248, 13, 33},
+  {entry__32_24, NULL, 245, 245, 11, 34},
+  {cont__32_25, &frame__32_24, 245, 245, 11, 39},
+  {cont__32_26, &frame__32_24, 244, 248, 9, 34},
+  {entry__32_33, NULL, 249, 249, 29, 38},
+  {cont__32_34, &frame__32_33, 249, 249, 29, 38},
+  {entry__32_36, NULL, 250, 250, 29, 44},
+  {cont__32_37, &frame__32_36, 250, 250, 7, 60},
+  {entry__32_3, NULL, 238, 238, 5, 23},
+  {cont__32_4, &frame__32_3, 239, 239, 8, 25},
+  {cont__32_5, &frame__32_3, 239, 239, 8, 40},
+  {cont__32_8, &frame__32_3, 239, 240, 5, 59},
+  {cont__32_11, &frame__32_3, 242, 242, 8, 25},
+  {cont__32_12, &frame__32_3, 242, 242, 8, 41},
+  {cont__32_16, &frame__32_3, 242, 242, 8, 79},
+  {cont__32_23, &frame__32_3, 241, 248, 5, 36},
+  {cont__32_31, &frame__32_3, 249, 249, 8, 24},
+  {cont__32_32, &frame__32_3, 249, 249, 8, 38},
+  {cont__32_35, &frame__32_3, 249, 250, 5, 60},
+  {entry__32_1_for_each_item_from_to, NULL, 237, 237, 6, 22},
+  {cont__32_2, &frame__32_1_for_each_item_from_to, 237, 250, 3, 61},
+  {entry__33_4, NULL, 262, 262, 23, 64},
+  {entry__33_1_types__key_order_table_for_each_from_to, NULL, 261, 261, 3, 21},
+  {cont__33_2, &frame__33_1_types__key_order_table_for_each_from_to, 262, 262, 6, 20},
+  {cont__33_3, &frame__33_1_types__key_order_table_for_each_from_to, 262, 262, 3, 64},
+  {entry__34_6, NULL, 267, 267, 29, 38},
+  {cont__34_7, &frame__34_6, 267, 267, 29, 38},
+  {entry__34_9, NULL, 268, 268, 34, 49},
+  {cont__34_10, &frame__34_9, 268, 268, 7, 65},
+  {entry__34_13, NULL, 270, 270, 30, 41},
+  {cont__34_14, &frame__34_13, 270, 270, 30, 41},
+  {cont__34_15, &frame__34_13, 270, 270, 30, 41},
+  {entry__34_19, NULL, 270, 270, 69, 79},
+  {cont__34_20, &frame__34_19, 270, 270, 69, 79},
+  {cont__34_21, &frame__34_19, 270, 270, 69, 79},
+  {entry__34_17, NULL, 270, 270, 48, 64},
+  {cont__34_18, &frame__34_17, 270, 270, 48, 79},
+  {cont__34_22, &frame__34_17, 270, 270, 48, 79},
+  {entry__34_27, NULL, 274, 274, 22, 37},
+  {cont__34_28, &frame__34_27, 274, 274, 13, 37},
+  {entry__34_29, NULL, 276, 276, 18, 33},
+  {cont__34_30, &frame__34_29, 276, 276, 13, 33},
+  {entry__34_24, NULL, 273, 273, 11, 34},
+  {cont__34_25, &frame__34_24, 273, 273, 11, 39},
+  {cont__34_26, &frame__34_24, 272, 276, 9, 34},
+  {entry__34_33, NULL, 277, 277, 30, 40},
+  {cont__34_34, &frame__34_33, 277, 277, 30, 40},
+  {entry__34_36, NULL, 278, 278, 34, 48},
+  {cont__34_37, &frame__34_36, 278, 278, 7, 64},
+  {entry__34_3, NULL, 266, 266, 5, 23},
+  {cont__34_4, &frame__34_3, 267, 267, 8, 24},
+  {cont__34_5, &frame__34_3, 267, 267, 8, 38},
+  {cont__34_8, &frame__34_3, 267, 268, 5, 65},
+  {cont__34_11, &frame__34_3, 270, 270, 8, 25},
+  {cont__34_12, &frame__34_3, 270, 270, 8, 41},
+  {cont__34_16, &frame__34_3, 270, 270, 8, 79},
+  {cont__34_23, &frame__34_3, 269, 276, 5, 36},
+  {cont__34_31, &frame__34_3, 277, 277, 8, 25},
+  {cont__34_32, &frame__34_3, 277, 277, 8, 40},
+  {cont__34_35, &frame__34_3, 277, 278, 5, 64},
+  {entry__34_1_for_each_item_from_down_to, NULL, 265, 265, 6, 22},
+  {cont__34_2, &frame__34_1_for_each_item_from_down_to, 265, 278, 3, 65},
+  {entry__35_4, NULL, 290, 290, 23, 69},
+  {entry__35_1_types__key_order_table_for_each_from_down_to, NULL, 289, 289, 3, 21},
+  {cont__35_2, &frame__35_1_types__key_order_table_for_each_from_down_to, 290, 290, 6, 20},
+  {cont__35_3, &frame__35_1_types__key_order_table_for_each_from_down_to, 290, 290, 3, 69},
+  {entry__36_3, NULL, 298, 298, 23, 36},
+  {cont__36_4, &frame__36_3, 298, 298, 5, 41},
+  {cont__36_5, &frame__36_3, 299, 299, 10, 23},
+  {cont__36_6, &frame__36_3, 299, 299, 26, 40},
+  {cont__36_7, &frame__36_3, 299, 299, 5, 40},
+  {cont__36_8, &frame__36_3, 300, 300, 23, 37},
+  {cont__36_9, &frame__36_3, 300, 300, 5, 42},
+  {cont__36_10, &frame__36_3, 300, 300, 42, 42},
+  {entry__36_1_update_each_item, NULL, 297, 297, 6, 22},
+  {cont__36_2, &frame__36_1_update_each_item, 297, 300, 3, 42},
   {cont__36_11, &frame__36_1_update_each_item, },
-  {entry__37_6, NULL, 277, 277, 30, 40},
-  {cont__37_7, &frame__37_6, 277, 277, 30, 40},
-  {entry__37_9, NULL, 278, 278, 33, 46},
-  {cont__37_10, &frame__37_9, 278, 278, 7, 62},
-  {cont__37_11, &frame__37_9, 278, 278, 62, 62},
-  {entry__37_14, NULL, 280, 280, 30, 41},
-  {cont__37_15, &frame__37_14, 280, 280, 30, 41},
-  {cont__37_16, &frame__37_14, 280, 280, 30, 41},
-  {entry__37_20, NULL, 280, 280, 69, 79},
-  {cont__37_21, &frame__37_20, 280, 280, 69, 79},
-  {cont__37_22, &frame__37_20, 280, 280, 69, 79},
-  {entry__37_18, NULL, 280, 280, 48, 64},
-  {cont__37_19, &frame__37_18, 280, 280, 48, 79},
-  {cont__37_23, &frame__37_18, 280, 280, 48, 79},
-  {entry__37_25, NULL, 282, 282, 19, 33},
-  {cont__37_26, &frame__37_25, 282, 282, 9, 33},
-  {cont__37_27, &frame__37_25, 282, 282, 33, 33},
-  {entry__37_30, NULL, 283, 283, 29, 38},
-  {cont__37_31, &frame__37_30, 283, 283, 29, 38},
-  {entry__37_33, NULL, 284, 284, 33, 47},
-  {cont__37_34, &frame__37_33, 284, 284, 7, 63},
-  {cont__37_35, &frame__37_33, 284, 284, 63, 63},
-  {entry__37_3, NULL, 276, 276, 5, 23},
-  {cont__37_4, &frame__37_3, 277, 277, 8, 25},
-  {cont__37_5, &frame__37_3, 277, 277, 8, 40},
-  {cont__37_8, &frame__37_3, 277, 278, 5, 62},
-  {cont__37_12, &frame__37_3, 280, 280, 8, 25},
-  {cont__37_13, &frame__37_3, 280, 280, 8, 41},
-  {cont__37_17, &frame__37_3, 280, 280, 8, 79},
-  {cont__37_24, &frame__37_3, 279, 282, 5, 34},
-  {cont__37_28, &frame__37_3, 283, 283, 8, 24},
-  {cont__37_29, &frame__37_3, 283, 283, 8, 38},
-  {cont__37_32, &frame__37_3, 283, 284, 5, 63},
-  {entry__37_1_update_each_item_from_to, NULL, 275, 275, 6, 22},
-  {cont__37_2, &frame__37_1_update_each_item_from_to, 275, 284, 3, 64},
+  {entry__37_6, NULL, 311, 311, 30, 40},
+  {cont__37_7, &frame__37_6, 311, 311, 30, 40},
+  {entry__37_9, NULL, 312, 312, 33, 46},
+  {cont__37_10, &frame__37_9, 312, 312, 7, 62},
+  {cont__37_11, &frame__37_9, 312, 312, 62, 62},
+  {entry__37_14, NULL, 314, 314, 30, 41},
+  {cont__37_15, &frame__37_14, 314, 314, 30, 41},
+  {cont__37_16, &frame__37_14, 314, 314, 30, 41},
+  {entry__37_20, NULL, 314, 314, 69, 79},
+  {cont__37_21, &frame__37_20, 314, 314, 69, 79},
+  {cont__37_22, &frame__37_20, 314, 314, 69, 79},
+  {entry__37_18, NULL, 314, 314, 48, 64},
+  {cont__37_19, &frame__37_18, 314, 314, 48, 79},
+  {cont__37_23, &frame__37_18, 314, 314, 48, 79},
+  {entry__37_25, NULL, 316, 316, 19, 33},
+  {cont__37_26, &frame__37_25, 316, 316, 9, 33},
+  {cont__37_27, &frame__37_25, 316, 316, 33, 33},
+  {entry__37_30, NULL, 317, 317, 29, 38},
+  {cont__37_31, &frame__37_30, 317, 317, 29, 38},
+  {entry__37_33, NULL, 318, 318, 33, 47},
+  {cont__37_34, &frame__37_33, 318, 318, 7, 63},
+  {cont__37_35, &frame__37_33, 318, 318, 63, 63},
+  {entry__37_3, NULL, 310, 310, 5, 23},
+  {cont__37_4, &frame__37_3, 311, 311, 8, 25},
+  {cont__37_5, &frame__37_3, 311, 311, 8, 40},
+  {cont__37_8, &frame__37_3, 311, 312, 5, 62},
+  {cont__37_12, &frame__37_3, 314, 314, 8, 25},
+  {cont__37_13, &frame__37_3, 314, 314, 8, 41},
+  {cont__37_17, &frame__37_3, 314, 314, 8, 79},
+  {cont__37_24, &frame__37_3, 313, 316, 5, 34},
+  {cont__37_28, &frame__37_3, 317, 317, 8, 24},
+  {cont__37_29, &frame__37_3, 317, 317, 8, 38},
+  {cont__37_32, &frame__37_3, 317, 318, 5, 63},
+  {entry__37_1_update_each_item_from_to, NULL, 309, 309, 6, 22},
+  {cont__37_2, &frame__37_1_update_each_item_from_to, 309, 318, 3, 64},
   {cont__37_36, &frame__37_1_update_each_item_from_to, },
-  {entry__38_4, NULL, 294, 294, 31, 42},
-  {cont__38_5, &frame__38_4, 294, 294, 5, 58},
-  {cont__38_6, &frame__38_4, 294, 294, 58, 58},
-  {entry__38_1_types__key_order_table_update_each_from_to, NULL, 293, 293, 6, 18},
-  {cont__38_2, &frame__38_1_types__key_order_table_update_each_from_to, 293, 293, 6, 29},
-  {cont__38_3, &frame__38_1_types__key_order_table_update_each_from_to, 293, 294, 3, 58},
+  {entry__38_4, NULL, 330, 330, 31, 42},
+  {cont__38_5, &frame__38_4, 330, 330, 5, 58},
+  {cont__38_6, &frame__38_4, 330, 330, 58, 58},
+  {entry__38_1_types__key_order_table_update_each_from_to, NULL, 329, 329, 6, 18},
+  {cont__38_2, &frame__38_1_types__key_order_table_update_each_from_to, 329, 329, 6, 29},
+  {cont__38_3, &frame__38_1_types__key_order_table_update_each_from_to, 329, 330, 3, 58},
   {cont__38_7, &frame__38_1_types__key_order_table_update_each_from_to, },
-  {entry__39_6, NULL, 305, 305, 29, 38},
-  {cont__39_7, &frame__39_6, 305, 305, 29, 38},
-  {entry__39_9, NULL, 306, 306, 38, 52},
-  {cont__39_10, &frame__39_9, 306, 306, 7, 68},
-  {cont__39_11, &frame__39_9, 306, 306, 68, 68},
-  {entry__39_14, NULL, 308, 308, 30, 41},
-  {cont__39_15, &frame__39_14, 308, 308, 30, 41},
-  {cont__39_16, &frame__39_14, 308, 308, 30, 41},
-  {entry__39_20, NULL, 308, 308, 69, 79},
-  {cont__39_21, &frame__39_20, 308, 308, 69, 79},
-  {cont__39_22, &frame__39_20, 308, 308, 69, 79},
-  {entry__39_18, NULL, 308, 308, 48, 64},
-  {cont__39_19, &frame__39_18, 308, 308, 48, 79},
-  {cont__39_23, &frame__39_18, 308, 308, 48, 79},
-  {entry__39_25, NULL, 310, 310, 19, 33},
-  {cont__39_26, &frame__39_25, 310, 310, 9, 33},
-  {cont__39_27, &frame__39_25, 310, 310, 33, 33},
-  {entry__39_30, NULL, 311, 311, 30, 40},
-  {cont__39_31, &frame__39_30, 311, 311, 30, 40},
-  {entry__39_33, NULL, 312, 312, 38, 51},
-  {cont__39_34, &frame__39_33, 312, 312, 7, 67},
-  {cont__39_35, &frame__39_33, 312, 312, 67, 67},
-  {entry__39_3, NULL, 304, 304, 5, 23},
-  {cont__39_4, &frame__39_3, 305, 305, 8, 24},
-  {cont__39_5, &frame__39_3, 305, 305, 8, 38},
-  {cont__39_8, &frame__39_3, 305, 306, 5, 68},
-  {cont__39_12, &frame__39_3, 308, 308, 8, 25},
-  {cont__39_13, &frame__39_3, 308, 308, 8, 41},
-  {cont__39_17, &frame__39_3, 308, 308, 8, 79},
-  {cont__39_24, &frame__39_3, 307, 310, 5, 34},
-  {cont__39_28, &frame__39_3, 311, 311, 8, 25},
-  {cont__39_29, &frame__39_3, 311, 311, 8, 40},
-  {cont__39_32, &frame__39_3, 311, 312, 5, 67},
-  {entry__39_1_update_each_item_from_down_to, NULL, 303, 303, 6, 22},
-  {cont__39_2, &frame__39_1_update_each_item_from_down_to, 303, 312, 3, 68},
+  {entry__39_6, NULL, 341, 341, 29, 38},
+  {cont__39_7, &frame__39_6, 341, 341, 29, 38},
+  {entry__39_9, NULL, 342, 342, 38, 52},
+  {cont__39_10, &frame__39_9, 342, 342, 7, 68},
+  {cont__39_11, &frame__39_9, 342, 342, 68, 68},
+  {entry__39_14, NULL, 344, 344, 30, 41},
+  {cont__39_15, &frame__39_14, 344, 344, 30, 41},
+  {cont__39_16, &frame__39_14, 344, 344, 30, 41},
+  {entry__39_20, NULL, 344, 344, 69, 79},
+  {cont__39_21, &frame__39_20, 344, 344, 69, 79},
+  {cont__39_22, &frame__39_20, 344, 344, 69, 79},
+  {entry__39_18, NULL, 344, 344, 48, 64},
+  {cont__39_19, &frame__39_18, 344, 344, 48, 79},
+  {cont__39_23, &frame__39_18, 344, 344, 48, 79},
+  {entry__39_25, NULL, 346, 346, 19, 33},
+  {cont__39_26, &frame__39_25, 346, 346, 9, 33},
+  {cont__39_27, &frame__39_25, 346, 346, 33, 33},
+  {entry__39_30, NULL, 347, 347, 30, 40},
+  {cont__39_31, &frame__39_30, 347, 347, 30, 40},
+  {entry__39_33, NULL, 348, 348, 38, 51},
+  {cont__39_34, &frame__39_33, 348, 348, 7, 67},
+  {cont__39_35, &frame__39_33, 348, 348, 67, 67},
+  {entry__39_3, NULL, 340, 340, 5, 23},
+  {cont__39_4, &frame__39_3, 341, 341, 8, 24},
+  {cont__39_5, &frame__39_3, 341, 341, 8, 38},
+  {cont__39_8, &frame__39_3, 341, 342, 5, 68},
+  {cont__39_12, &frame__39_3, 344, 344, 8, 25},
+  {cont__39_13, &frame__39_3, 344, 344, 8, 41},
+  {cont__39_17, &frame__39_3, 344, 344, 8, 79},
+  {cont__39_24, &frame__39_3, 343, 346, 5, 34},
+  {cont__39_28, &frame__39_3, 347, 347, 8, 25},
+  {cont__39_29, &frame__39_3, 347, 347, 8, 40},
+  {cont__39_32, &frame__39_3, 347, 348, 5, 67},
+  {entry__39_1_update_each_item_from_down_to, NULL, 339, 339, 6, 22},
+  {cont__39_2, &frame__39_1_update_each_item_from_down_to, 339, 348, 3, 68},
   {cont__39_36, &frame__39_1_update_each_item_from_down_to, },
-  {entry__40_4, NULL, 322, 322, 36, 47},
-  {cont__40_5, &frame__40_4, 322, 322, 5, 63},
-  {cont__40_6, &frame__40_4, 322, 322, 63, 63},
-  {entry__40_1_types__key_order_table_update_each_from_down_to, NULL, 321, 321, 6, 18},
-  {cont__40_2, &frame__40_1_types__key_order_table_update_each_from_down_to, 321, 321, 6, 29},
-  {cont__40_3, &frame__40_1_types__key_order_table_update_each_from_down_to, 321, 322, 3, 63},
+  {entry__40_4, NULL, 360, 360, 36, 47},
+  {cont__40_5, &frame__40_4, 360, 360, 5, 63},
+  {cont__40_6, &frame__40_4, 360, 360, 63, 63},
+  {entry__40_1_types__key_order_table_update_each_from_down_to, NULL, 359, 359, 6, 18},
+  {cont__40_2, &frame__40_1_types__key_order_table_update_each_from_down_to, 359, 359, 6, 29},
+  {cont__40_3, &frame__40_1_types__key_order_table_update_each_from_down_to, 359, 360, 3, 63},
   {cont__40_7, &frame__40_1_types__key_order_table_update_each_from_down_to, },
-  {entry__41_4, NULL, 329, 329, 50, 61},
-  {cont__41_5, &frame__41_4, 329, 329, 32, 66},
-  {cont__41_6, &frame__41_4, 329, 329, 66, 66},
-  {entry__41_1_types__key_order_table_update_each, NULL, 329, 329, 6, 18},
-  {cont__41_2, &frame__41_1_types__key_order_table_update_each, 329, 329, 6, 29},
-  {cont__41_3, &frame__41_1_types__key_order_table_update_each, 329, 329, 3, 66},
+  {entry__41_4, NULL, 369, 369, 50, 61},
+  {cont__41_5, &frame__41_4, 369, 369, 32, 66},
+  {cont__41_6, &frame__41_4, 369, 369, 66, 66},
+  {entry__41_1_types__key_order_table_update_each, NULL, 369, 369, 6, 18},
+  {cont__41_2, &frame__41_1_types__key_order_table_update_each, 369, 369, 6, 29},
+  {cont__41_3, &frame__41_1_types__key_order_table_update_each, 369, 369, 3, 66},
   {cont__41_7, &frame__41_1_types__key_order_table_update_each, }
 };
 
@@ -1508,9 +1508,9 @@ EXPORT void run__basic__types__key_order_table(void) {
   allocate_initialized_frame_gc(0, 0);
   // 70: $types::key_order_table types::generic_table
   initialize_maybe_future(var.types__key_order_table, get__types__generic_table());
-  // 80: $empty_node types::object
+  // 72: $empty_node types::object
   initialize_maybe_future(var._empty_node, get__types__object());
-  // 331: register_collection_serializer "key_order_table" empty_key_order_table
+  // 371: register_collection_serializer "key_order_table" empty_key_order_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__26_1;
@@ -1940,7 +1940,7 @@ static void entry__18_1_fetch_first(void) {
     return;
   }
   frame->slots[0] /* myself */ = create_cell_with_contents(arguments->slots[0]);
-  // 89: $$left left_of(myself)
+  // 81: $$left left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -1955,7 +1955,7 @@ static void cont__18_2(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* left */ = arguments->slots[0];
-  // 91: left.is_defined
+  // 83: left.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* left */;
@@ -1970,27 +1970,27 @@ static void cont__18_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 91: ... :
-  // 92:   fetch_first &left $key $value
-  // 93:   !myself.left_of left
-  // 94:   return key value
+  // 83: ... :
+  // 84:   fetch_first &left $key $value
+  // 85:   !myself.left_of left
+  // 86:   return key value
   frame->slots[4] /* temp__2 */ = create_closure(entry__18_4, 0);
-  // 95: :
-  // 96:   $key key_of(myself)
-  // 97:   $value value_of(myself)
-  // 98:   !myself right_of(myself)
-  // 99:   return key value
+  // 87: :
+  // 88:   $key key_of(myself)
+  // 89:   $value value_of(myself)
+  // 90:   !myself right_of(myself)
+  // 91:   return key value
   frame->slots[5] /* temp__3 */ = create_closure(entry__18_6, 0);
-  // 90: if
-  // 91:   left.is_defined:
-  // 92:     fetch_first &left $key $value
-  // 93:     !myself.left_of left
-  // 94:     return key value
-  // 95:   :
-  // 96:     $key key_of(myself)
-  // 97:     $value value_of(myself)
-  // 98:     !myself right_of(myself)
-  // 99:     return key value
+  // 82: if
+  // 83:   left.is_defined:
+  // 84:     fetch_first &left $key $value
+  // 85:     !myself.left_of left
+  // 86:     return key value
+  // 87:   :
+  // 88:     $key key_of(myself)
+  // 89:     $value value_of(myself)
+  // 90:     !myself right_of(myself)
+  // 91:     return key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2020,7 +2020,7 @@ static void entry__18_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 92: fetch_first &left $key $value
+  // 84: fetch_first &left $key $value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* left */;
@@ -2037,13 +2037,13 @@ static void cont__18_5(void) {
   ((CELL *)frame->slots[0])->contents /* left */ = arguments->slots[0];
   frame->slots[5] /* temp__1 */ = arguments->slots[1];
   frame->slots[6] /* temp__2 */ = arguments->slots[2];
-  // 92: ... key
+  // 84: ... key
   initialize_future(frame->slots[3] /* key */, frame->slots[5] /* temp__1 */);
-  // 92: ... value
+  // 84: ... value
   initialize_future(frame->slots[4] /* value */, frame->slots[6] /* temp__2 */);
-  // 93: !myself.left_of left
+  // 85: !myself.left_of left
   frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[0])->contents /* left */;
-  // 93: !myself.left_of
+  // 85: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
     update_start_p = node_p;
@@ -2051,7 +2051,7 @@ static void cont__18_5(void) {
     ((CELL *)frame->slots[1])->contents /* myself */ = temp;
 
   }
-  // 94: return key value
+  // 86: return key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* key */;
@@ -2076,7 +2076,7 @@ static void entry__18_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 96: $key key_of(myself)
+  // 88: $key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -2091,7 +2091,7 @@ static void cont__18_7(void) {
     return;
   }
   initialize_future(frame->slots[2] /* key */, arguments->slots[0]);
-  // 97: $value value_of(myself)
+  // 89: $value value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -2106,7 +2106,7 @@ static void cont__18_8(void) {
     return;
   }
   initialize_future(frame->slots[3] /* value */, arguments->slots[0]);
-  // 98: !myself right_of(myself)
+  // 90: !myself right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -2121,7 +2121,7 @@ static void cont__18_9(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* myself */ = arguments->slots[0];
-  // 99: return key value
+  // 91: return key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* key */;
@@ -2159,7 +2159,7 @@ static void entry__19_1_retrieve_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... myself.is_undefined
+  // 99: ... myself.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2174,9 +2174,9 @@ static void cont__19_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 107: ... : return undefined
+  // 99: ... : return undefined
   frame->slots[5] /* temp__2 */ = create_closure(entry__19_3, 0);
-  // 107: if myself.is_undefined: return undefined
+  // 99: if myself.is_undefined: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2195,7 +2195,7 @@ static void entry__19_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... return undefined
+  // 99: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -2209,7 +2209,7 @@ static void cont__19_4(void) {
     invalid_results_error();
     return;
   }
-  // 108: $my_key key_of(myself)
+  // 100: $my_key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2224,16 +2224,16 @@ static void cont__19_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* my_key */, arguments->slots[0]);
-  // 110: -> key == my_key: return value_of(myself)
+  // 102: -> key == my_key: return value_of(myself)
   frame->slots[4] /* temp__1 */ = create_closure(entry__19_6, 0);
-  // 111: -> key < my_key: return retrieve_item(left_of(myself) key)
+  // 103: -> key < my_key: return retrieve_item(left_of(myself) key)
   frame->slots[5] /* temp__2 */ = create_closure(entry__19_10, 0);
-  // 112: -> key > my_key: return retrieve_item(right_of(myself) key)
+  // 104: -> key > my_key: return retrieve_item(right_of(myself) key)
   frame->slots[6] /* temp__3 */ = create_closure(entry__19_15, 0);
-  // 109: cond
-  // 110:   -> key == my_key: return value_of(myself)
-  // 111:   -> key < my_key: return retrieve_item(left_of(myself) key)
-  // 112:   -> key > my_key: return retrieve_item(right_of(myself) key)
+  // 101: cond
+  // 102:   -> key == my_key: return value_of(myself)
+  // 103:   -> key < my_key: return retrieve_item(left_of(myself) key)
+  // 104:   -> key > my_key: return retrieve_item(right_of(myself) key)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2257,7 +2257,7 @@ static void entry__19_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 112: ... right_of(myself)
+  // 104: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -2272,7 +2272,7 @@ static void cont__19_18(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 112: ... retrieve_item(right_of(myself) key)
+  // 104: ... retrieve_item(right_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -2288,7 +2288,7 @@ static void cont__19_19(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 112: ... return retrieve_item(right_of(myself) key)
+  // 104: ... return retrieve_item(right_of(myself) key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2310,7 +2310,7 @@ static void entry__19_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: ... left_of(myself)
+  // 103: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -2325,7 +2325,7 @@ static void cont__19_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 111: ... retrieve_item(left_of(myself) key)
+  // 103: ... retrieve_item(left_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -2341,7 +2341,7 @@ static void cont__19_14(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 111: ... return retrieve_item(left_of(myself) key)
+  // 103: ... return retrieve_item(left_of(myself) key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2361,7 +2361,7 @@ static void entry__19_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 110: ... value_of(myself)
+  // 102: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -2376,7 +2376,7 @@ static void cont__19_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 110: ... return value_of(myself)
+  // 102: ... return value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2400,7 +2400,7 @@ static void entry__19_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 110: ... key == my_key
+  // 102: ... key == my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -2416,9 +2416,9 @@ static void cont__19_7(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 110: ... : return value_of(myself)
+  // 102: ... : return value_of(myself)
   frame->slots[5] /* temp__2 */ = create_closure(entry__19_8, 0);
-  // 110: -> key == my_key: return value_of(myself)
+  // 102: -> key == my_key: return value_of(myself)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2442,7 +2442,7 @@ static void entry__19_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: ... key < my_key
+  // 103: ... key < my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -2458,9 +2458,9 @@ static void cont__19_11(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 111: ... : return retrieve_item(left_of(myself) key)
+  // 103: ... : return retrieve_item(left_of(myself) key)
   frame->slots[5] /* temp__2 */ = create_closure(entry__19_12, 0);
-  // 111: -> key < my_key: return retrieve_item(left_of(myself) key)
+  // 103: -> key < my_key: return retrieve_item(left_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2484,7 +2484,7 @@ static void entry__19_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 112: ... key > my_key
+  // 104: ... key > my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* my_key */;
@@ -2500,9 +2500,9 @@ static void cont__19_16(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 112: ... : return retrieve_item(right_of(myself) key)
+  // 104: ... : return retrieve_item(right_of(myself) key)
   frame->slots[5] /* temp__2 */ = create_closure(entry__19_17, 0);
-  // 112: -> key > my_key: return retrieve_item(right_of(myself) key)
+  // 104: -> key > my_key: return retrieve_item(right_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2530,7 +2530,7 @@ static void entry__20_1_add_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 121: ... myself.is_undefined
+  // 113: ... myself.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2545,9 +2545,9 @@ static void cont__20_2(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 121: ... : return empty_node(.key_of key .value_of value) INSERT
+  // 113: ... : return empty_node(.key_of key .value_of value) INSERT
   frame->slots[6] /* temp__2 */ = create_closure(entry__20_3, 0);
-  // 121: if myself.is_undefined: return empty_node(.key_of key .value_of value) INSERT
+  // 113: if myself.is_undefined: return empty_node(.key_of key .value_of value) INSERT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2570,7 +2570,7 @@ static void entry__20_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 121: ... empty_node(.key_of key .value_of value)
+  // 113: ... empty_node(.key_of key .value_of value)
   {
     NODE *temp = clone_object_and_attributes(var._empty_node);
     update_start_p = node_p;
@@ -2579,7 +2579,7 @@ static void entry__20_3(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 121: ... return empty_node(.key_of key .value_of value) INSERT
+  // 113: ... return empty_node(.key_of key .value_of value) INSERT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2594,7 +2594,7 @@ static void cont__20_4(void) {
     invalid_results_error();
     return;
   }
-  // 122: $my_key key_of(myself)
+  // 114: $my_key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2609,24 +2609,24 @@ static void cont__20_5(void) {
     return;
   }
   initialize_future(frame->slots[4] /* my_key */, arguments->slots[0]);
-  // 124: -> key == my_key: return myself(.value_of value) UPDATE
+  // 116: -> key == my_key: return myself(.value_of value) UPDATE
   frame->slots[5] /* temp__1 */ = create_closure(entry__20_6, 0);
-  // 125: -> key < my_key:
-  // 126:   add_item $left $mode left_of(myself) key value
-  // 127:   return myself(.left_of left) mode
+  // 117: -> key < my_key:
+  // 118:   add_item $left $mode left_of(myself) key value
+  // 119:   return myself(.left_of left) mode
   frame->slots[6] /* temp__2 */ = create_closure(entry__20_9, 0);
-  // 128: -> key > my_key:
-  // 129:   add_item $right $mode right_of(myself) key value
-  // 130:   return myself(.right_of right) mode
+  // 120: -> key > my_key:
+  // 121:   add_item $right $mode right_of(myself) key value
+  // 122:   return myself(.right_of right) mode
   frame->slots[7] /* temp__3 */ = create_closure(entry__20_14, 0);
-  // 123: cond
-  // 124:   -> key == my_key: return myself(.value_of value) UPDATE
-  // 125:   -> key < my_key:
-  // 126:     add_item $left $mode left_of(myself) key value
-  // 127:     return myself(.left_of left) mode
-  // 128:   -> key > my_key:
-  // 129:     add_item $right $mode right_of(myself) key value
-  // 130:     return myself(.right_of right) mode
+  // 115: cond
+  // 116:   -> key == my_key: return myself(.value_of value) UPDATE
+  // 117:   -> key < my_key:
+  // 118:     add_item $left $mode left_of(myself) key value
+  // 119:     return myself(.left_of left) mode
+  // 120:   -> key > my_key:
+  // 121:     add_item $right $mode right_of(myself) key value
+  // 122:     return myself(.right_of right) mode
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2656,7 +2656,7 @@ static void entry__20_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 129: ... right_of(myself)
+  // 121: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2671,7 +2671,7 @@ static void cont__20_17(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 129: add_item $right $mode right_of(myself) key value
+  // 121: add_item $right $mode right_of(myself) key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2689,11 +2689,11 @@ static void cont__20_18(void) {
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   frame->slots[8] /* temp__3 */ = arguments->slots[1];
-  // 129: ... right
+  // 121: ... right
   initialize_future(frame->slots[4] /* right */, frame->slots[7] /* temp__2 */);
-  // 129: ... mode
+  // 121: ... mode
   initialize_future(frame->slots[5] /* mode */, frame->slots[8] /* temp__3 */);
-  // 130: ... myself(.right_of right)
+  // 122: ... myself(.right_of right)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[0] /* myself */);
     update_start_p = node_p;
@@ -2701,7 +2701,7 @@ static void cont__20_18(void) {
     frame->slots[6] /* temp__1 */ = temp;
 
   }
-  // 130: return myself(.right_of right) mode
+  // 122: return myself(.right_of right) mode
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2730,7 +2730,7 @@ static void entry__20_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 126: ... left_of(myself)
+  // 118: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2745,7 +2745,7 @@ static void cont__20_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 126: add_item $left $mode left_of(myself) key value
+  // 118: add_item $left $mode left_of(myself) key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2763,11 +2763,11 @@ static void cont__20_13(void) {
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   frame->slots[8] /* temp__3 */ = arguments->slots[1];
-  // 126: ... left
+  // 118: ... left
   initialize_future(frame->slots[4] /* left */, frame->slots[7] /* temp__2 */);
-  // 126: ... mode
+  // 118: ... mode
   initialize_future(frame->slots[5] /* mode */, frame->slots[8] /* temp__3 */);
-  // 127: ... myself(.left_of left)
+  // 119: ... myself(.left_of left)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[0] /* myself */);
     update_start_p = node_p;
@@ -2775,7 +2775,7 @@ static void cont__20_13(void) {
     frame->slots[6] /* temp__1 */ = temp;
 
   }
-  // 127: return myself(.left_of left) mode
+  // 119: return myself(.left_of left) mode
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2798,7 +2798,7 @@ static void entry__20_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... myself(.value_of value)
+  // 116: ... myself(.value_of value)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[1] /* myself */);
     update_start_p = node_p;
@@ -2806,7 +2806,7 @@ static void entry__20_8(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 124: ... return myself(.value_of value) UPDATE
+  // 116: ... return myself(.value_of value) UPDATE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2833,7 +2833,7 @@ static void entry__20_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... key == my_key
+  // 116: ... key == my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -2849,9 +2849,9 @@ static void cont__20_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 124: ... : return myself(.value_of value) UPDATE
+  // 116: ... : return myself(.value_of value) UPDATE
   frame->slots[6] /* temp__2 */ = create_closure(entry__20_8, 0);
-  // 124: -> key == my_key: return myself(.value_of value) UPDATE
+  // 116: -> key == my_key: return myself(.value_of value) UPDATE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2877,7 +2877,7 @@ static void entry__20_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 125: ... key < my_key
+  // 117: ... key < my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -2893,13 +2893,13 @@ static void cont__20_10(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 125: ... :
-  // 126:   add_item $left $mode left_of(myself) key value
-  // 127:   return myself(.left_of left) mode
+  // 117: ... :
+  // 118:   add_item $left $mode left_of(myself) key value
+  // 119:   return myself(.left_of left) mode
   frame->slots[6] /* temp__2 */ = create_closure(entry__20_11, 0);
-  // 125: -> key < my_key:
-  // 126:   add_item $left $mode left_of(myself) key value
-  // 127:   return myself(.left_of left) mode
+  // 117: -> key < my_key:
+  // 118:   add_item $left $mode left_of(myself) key value
+  // 119:   return myself(.left_of left) mode
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2925,7 +2925,7 @@ static void entry__20_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 128: ... key > my_key
+  // 120: ... key > my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* my_key */;
@@ -2941,13 +2941,13 @@ static void cont__20_15(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 128: ... :
-  // 129:   add_item $right $mode right_of(myself) key value
-  // 130:   return myself(.right_of right) mode
+  // 120: ... :
+  // 121:   add_item $right $mode right_of(myself) key value
+  // 122:   return myself(.right_of right) mode
   frame->slots[6] /* temp__2 */ = create_closure(entry__20_16, 0);
-  // 128: -> key > my_key:
-  // 129:   add_item $right $mode right_of(myself) key value
-  // 130:   return myself(.right_of right) mode
+  // 120: -> key > my_key:
+  // 121:   add_item $right $mode right_of(myself) key value
+  // 122:   return myself(.right_of right) mode
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2975,7 +2975,7 @@ static void entry__21_1_remove_item(void) {
     return;
   }
   frame->slots[0] /* myself */ = create_cell_with_contents(arguments->slots[0]);
-  // 138: ... myself.is_undefined
+  // 130: ... myself.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -2990,9 +2990,9 @@ static void cont__21_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 138: ... : return NONE # nothing removed
+  // 130: ... : return NONE # nothing removed
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_3, 0);
-  // 138: if myself.is_undefined: return NONE # nothing removed
+  // 130: if myself.is_undefined: return NONE # nothing removed
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3011,7 +3011,7 @@ static void entry__21_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 138: ... return NONE # nothing removed
+  // 130: ... return NONE # nothing removed
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3025,7 +3025,7 @@ static void cont__21_4(void) {
     invalid_results_error();
     return;
   }
-  // 139: $my_key key_of(myself)
+  // 131: $my_key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3040,40 +3040,40 @@ static void cont__21_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* my_key */, arguments->slots[0]);
-  // 141: -> key == my_key:
-  // 142:   $left left_of(myself)
-  // 143:   $$right right_of(myself)
-  // 144:   if
-  // 145:     left.is_defined:
-  // 146:       if
-  // 147:         right.is_defined:
-  // 148:           fetch_first &right $head_key $head_value
-  // 149:           return
-  // 150:             types::object
+  // 133: -> key == my_key:
+  // 134:   $left left_of(myself)
+  // 135:   $$right right_of(myself)
+  // 136:   if
+  // 137:     left.is_defined:
+  // 138:       if
+  // 139:         right.is_defined:
+  // 140:           fetch_first &right $head_key $head_value
+  // 141:           return
+  // 142:             types::object
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__21_6, 0);
-  // 159: -> key < my_key:
-  // 160:   $left remove_item(left_of(myself) key)
-  // 161:   if NONE == left: return NONE # nothing removed
-  // 162:   !myself.left_of left
-  // 163:   return myself
+  // 151: -> key < my_key:
+  // 152:   $left remove_item(left_of(myself) key)
+  // 153:   if NONE == left: return NONE # nothing removed
+  // 154:   !myself.left_of left
+  // 155:   return myself
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_18, 0);
-  // 164: -> key > my_key:
-  // 165:   $right remove_item(right_of(myself) key)
-  // 166:   if NONE == right: return NONE # nothing removed
-  // 167:   !myself.right_of right
-  // 168:   return myself
+  // 156: -> key > my_key:
+  // 157:   $right remove_item(right_of(myself) key)
+  // 158:   if NONE == right: return NONE # nothing removed
+  // 159:   !myself.right_of right
+  // 160:   return myself
   frame->slots[6] /* temp__3 */ = create_closure(entry__21_26, 0);
-  // 140: cond
-  // 141:   -> key == my_key:
-  // 142:     $left left_of(myself)
-  // 143:     $$right right_of(myself)
-  // 144:     if
-  // 145:       left.is_defined:
-  // 146:         if
-  // 147:           right.is_defined:
-  // 148:             fetch_first &right $head_key $head_value
-  // 149:             return
+  // 132: cond
+  // 133:   -> key == my_key:
+  // 134:     $left left_of(myself)
+  // 135:     $$right right_of(myself)
+  // 136:     if
+  // 137:       left.is_defined:
+  // 138:         if
+  // 139:           right.is_defined:
+  // 140:             fetch_first &right $head_key $head_value
+  // 141:             return
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3100,7 +3100,7 @@ static void entry__21_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 165: ... right_of(myself)
+  // 157: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3115,7 +3115,7 @@ static void cont__21_29(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 165: $right remove_item(right_of(myself) key)
+  // 157: $right remove_item(right_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3131,7 +3131,7 @@ static void cont__21_30(void) {
     return;
   }
   initialize_future(frame->slots[3] /* right */, arguments->slots[0]);
-  // 166: ... NONE == right
+  // 158: ... NONE == right
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3147,9 +3147,9 @@ static void cont__21_31(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 166: ... : return NONE # nothing removed
+  // 158: ... : return NONE # nothing removed
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_32, 0);
-  // 166: if NONE == right: return NONE # nothing removed
+  // 158: if NONE == right: return NONE # nothing removed
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3168,7 +3168,7 @@ static void entry__21_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 166: ... return NONE # nothing removed
+  // 158: ... return NONE # nothing removed
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3182,9 +3182,9 @@ static void cont__21_33(void) {
     invalid_results_error();
     return;
   }
-  // 167: !myself.right_of right
+  // 159: !myself.right_of right
   frame->slots[4] /* temp__1 */ = frame->slots[3] /* right */;
-  // 167: !myself.right_of
+  // 159: !myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -3192,7 +3192,7 @@ static void cont__21_33(void) {
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 168: return myself
+  // 160: return myself
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3216,7 +3216,7 @@ static void entry__21_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 160: ... left_of(myself)
+  // 152: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3231,7 +3231,7 @@ static void cont__21_21(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 160: $left remove_item(left_of(myself) key)
+  // 152: $left remove_item(left_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3247,7 +3247,7 @@ static void cont__21_22(void) {
     return;
   }
   initialize_future(frame->slots[3] /* left */, arguments->slots[0]);
-  // 161: ... NONE == left
+  // 153: ... NONE == left
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3263,9 +3263,9 @@ static void cont__21_23(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 161: ... : return NONE # nothing removed
+  // 153: ... : return NONE # nothing removed
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_24, 0);
-  // 161: if NONE == left: return NONE # nothing removed
+  // 153: if NONE == left: return NONE # nothing removed
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3284,7 +3284,7 @@ static void entry__21_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 161: ... return NONE # nothing removed
+  // 153: ... return NONE # nothing removed
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3298,9 +3298,9 @@ static void cont__21_25(void) {
     invalid_results_error();
     return;
   }
-  // 162: !myself.left_of left
+  // 154: !myself.left_of left
   frame->slots[4] /* temp__1 */ = frame->slots[3] /* left */;
-  // 162: !myself.left_of
+  // 154: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -3308,7 +3308,7 @@ static void cont__21_25(void) {
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 163: return myself
+  // 155: return myself
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3334,7 +3334,7 @@ static void entry__21_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 148: fetch_first &right $head_key $head_value
+  // 140: fetch_first &right $head_key $head_value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
@@ -3351,15 +3351,15 @@ static void cont__21_15(void) {
   ((CELL *)frame->slots[0])->contents /* right */ = arguments->slots[0];
   frame->slots[5] /* temp__1 */ = arguments->slots[1];
   frame->slots[6] /* temp__2 */ = arguments->slots[2];
-  // 148: ... head_key
+  // 140: ... head_key
   initialize_future(frame->slots[3] /* head_key */, frame->slots[5] /* temp__1 */);
-  // 148: ... head_value
+  // 140: ... head_value
   initialize_future(frame->slots[4] /* head_value */, frame->slots[6] /* temp__2 */);
-  // 150: types::object
-  // 151:   .key_of head_key
-  // 152:   .value_of head_value
-  // 153:   .left_of left
-  // 154:   .right_of right
+  // 142: types::object
+  // 143:   .key_of head_key
+  // 144:   .value_of head_value
+  // 145:   .left_of left
+  // 146:   .right_of right
   {
     NODE *temp = clone_object_and_attributes(get__types__object());
     update_start_p = node_p;
@@ -3370,12 +3370,12 @@ static void cont__21_15(void) {
     frame->slots[5] /* temp__1 */ = temp;
 
   }
-  // 149: return
-  // 150:   types::object
-  // 151:     .key_of head_key
-  // 152:     .value_of head_value
-  // 153:     .left_of left
-  // 154:     .right_of right
+  // 141: return
+  // 142:   types::object
+  // 143:     .key_of head_key
+  // 144:     .value_of head_value
+  // 145:     .left_of left
+  // 146:     .right_of right
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3395,7 +3395,7 @@ static void entry__21_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 156: return left
+  // 148: return left
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* left */;
@@ -3417,7 +3417,7 @@ static void entry__21_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 147: right.is_defined
+  // 139: right.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
@@ -3432,28 +3432,28 @@ static void cont__21_13(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 147: ... :
-  // 148:   fetch_first &right $head_key $head_value
-  // 149:   return
-  // 150:     types::object
-  // 151:       .key_of head_key
-  // 152:       .value_of head_value
-  // 153:       .left_of left
-  // 154:       .right_of right
+  // 139: ... :
+  // 140:   fetch_first &right $head_key $head_value
+  // 141:   return
+  // 142:     types::object
+  // 143:       .key_of head_key
+  // 144:       .value_of head_value
+  // 145:       .left_of left
+  // 146:       .right_of right
   frame->slots[4] /* temp__2 */ = create_closure(entry__21_14, 0);
-  // 155: :
-  // 156:   return left
+  // 147: :
+  // 148:   return left
   frame->slots[5] /* temp__3 */ = create_closure(entry__21_16, 0);
-  // 146: if
-  // 147:   right.is_defined:
-  // 148:     fetch_first &right $head_key $head_value
-  // 149:     return
-  // 150:       types::object
-  // 151:         .key_of head_key
-  // 152:         .value_of head_value
-  // 153:         .left_of left
-  // 154:         .right_of right
-  // 155:   :
+  // 138: if
+  // 139:   right.is_defined:
+  // 140:     fetch_first &right $head_key $head_value
+  // 141:     return
+  // 142:       types::object
+  // 143:         .key_of head_key
+  // 144:         .value_of head_value
+  // 145:         .left_of left
+  // 146:         .right_of right
+  // 147:   :
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3476,7 +3476,7 @@ static void entry__21_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 158: return right
+  // 150: return right
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* right */;
@@ -3500,7 +3500,7 @@ static void entry__21_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 142: $left left_of(myself)
+  // 134: $left left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3515,7 +3515,7 @@ static void cont__21_9(void) {
     return;
   }
   initialize_future(frame->slots[2] /* left */, arguments->slots[0]);
-  // 143: $$right right_of(myself)
+  // 135: $$right right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3530,7 +3530,7 @@ static void cont__21_10(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* right */ = arguments->slots[0];
-  // 145: left.is_defined
+  // 137: left.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* left */;
@@ -3545,31 +3545,31 @@ static void cont__21_11(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 145: ... :
-  // 146:   if
-  // 147:     right.is_defined:
-  // 148:       fetch_first &right $head_key $head_value
-  // 149:       return
-  // 150:         types::object
-  // 151:           .key_of head_key
-  // 152:           .value_of head_value
-  // 153:           .left_of left
-  // 154:           .right_of right
+  // 137: ... :
+  // 138:   if
+  // 139:     right.is_defined:
+  // 140:       fetch_first &right $head_key $head_value
+  // 141:       return
+  // 142:         types::object
+  // 143:           .key_of head_key
+  // 144:           .value_of head_value
+  // 145:           .left_of left
+  // 146:           .right_of right
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_12, 0);
-  // 157: :
-  // 158:   return right
+  // 149: :
+  // 150:   return right
   frame->slots[6] /* temp__3 */ = create_closure(entry__21_17, 0);
-  // 144: if
-  // 145:   left.is_defined:
-  // 146:     if
-  // 147:       right.is_defined:
-  // 148:         fetch_first &right $head_key $head_value
-  // 149:         return
-  // 150:           types::object
-  // 151:             .key_of head_key
-  // 152:             .value_of head_value
-  // 153:             .left_of left
+  // 136: if
+  // 137:   left.is_defined:
+  // 138:     if
+  // 139:       right.is_defined:
+  // 140:         fetch_first &right $head_key $head_value
+  // 141:         return
+  // 142:           types::object
+  // 143:             .key_of head_key
+  // 144:             .value_of head_value
+  // 145:             .left_of left
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3596,7 +3596,7 @@ static void entry__21_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 141: ... key == my_key
+  // 133: ... key == my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -3612,28 +3612,28 @@ static void cont__21_7(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 141: ... :
-  // 142:   $left left_of(myself)
-  // 143:   $$right right_of(myself)
-  // 144:   if
-  // 145:     left.is_defined:
-  // 146:       if
-  // 147:         right.is_defined:
-  // 148:           fetch_first &right $head_key $head_value
-  // 149:           return
-  // 150:             types::object
+  // 133: ... :
+  // 134:   $left left_of(myself)
+  // 135:   $$right right_of(myself)
+  // 136:   if
+  // 137:     left.is_defined:
+  // 138:       if
+  // 139:         right.is_defined:
+  // 140:           fetch_first &right $head_key $head_value
+  // 141:           return
+  // 142:             types::object
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_8, 0);
-  // 141: -> key == my_key:
-  // 142:   $left left_of(myself)
-  // 143:   $$right right_of(myself)
-  // 144:   if
-  // 145:     left.is_defined:
-  // 146:       if
-  // 147:         right.is_defined:
-  // 148:           fetch_first &right $head_key $head_value
-  // 149:           return
-  // 150:             types::object
+  // 133: -> key == my_key:
+  // 134:   $left left_of(myself)
+  // 135:   $$right right_of(myself)
+  // 136:   if
+  // 137:     left.is_defined:
+  // 138:       if
+  // 139:         right.is_defined:
+  // 140:           fetch_first &right $head_key $head_value
+  // 141:           return
+  // 142:             types::object
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -3658,7 +3658,7 @@ static void entry__21_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 159: ... key < my_key
+  // 151: ... key < my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -3674,17 +3674,17 @@ static void cont__21_19(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 159: ... :
-  // 160:   $left remove_item(left_of(myself) key)
-  // 161:   if NONE == left: return NONE # nothing removed
-  // 162:   !myself.left_of left
-  // 163:   return myself
+  // 151: ... :
+  // 152:   $left remove_item(left_of(myself) key)
+  // 153:   if NONE == left: return NONE # nothing removed
+  // 154:   !myself.left_of left
+  // 155:   return myself
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_20, 0);
-  // 159: -> key < my_key:
-  // 160:   $left remove_item(left_of(myself) key)
-  // 161:   if NONE == left: return NONE # nothing removed
-  // 162:   !myself.left_of left
-  // 163:   return myself
+  // 151: -> key < my_key:
+  // 152:   $left remove_item(left_of(myself) key)
+  // 153:   if NONE == left: return NONE # nothing removed
+  // 154:   !myself.left_of left
+  // 155:   return myself
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3708,7 +3708,7 @@ static void entry__21_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 164: ... key > my_key
+  // 156: ... key > my_key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* my_key */;
@@ -3724,17 +3724,17 @@ static void cont__21_27(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 164: ... :
-  // 165:   $right remove_item(right_of(myself) key)
-  // 166:   if NONE == right: return NONE # nothing removed
-  // 167:   !myself.right_of right
-  // 168:   return myself
+  // 156: ... :
+  // 157:   $right remove_item(right_of(myself) key)
+  // 158:   if NONE == right: return NONE # nothing removed
+  // 159:   !myself.right_of right
+  // 160:   return myself
   frame->slots[5] /* temp__2 */ = create_closure(entry__21_28, 0);
-  // 164: -> key > my_key:
-  // 165:   $right remove_item(right_of(myself) key)
-  // 166:   if NONE == right: return NONE # nothing removed
-  // 167:   !myself.right_of right
-  // 168:   return myself
+  // 156: -> key > my_key:
+  // 157:   $right remove_item(right_of(myself) key)
+  // 158:   if NONE == right: return NONE # nothing removed
+  // 159:   !myself.right_of right
+  // 160:   return myself
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3759,7 +3759,7 @@ static void entry__22_1_types__key_order_table_private__set_item(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 177: value.is_undefined
+  // 169: value.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* value */;
@@ -3774,27 +3774,27 @@ static void cont__22_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 177: ... :
-  // 178:   $new_tree remove_item(tree_of(self) key)
-  // 179:   if NONE != new_tree:
-  // 180:     !self.tree_of new_tree
-  // 181:     dec &self.length_of
+  // 169: ... :
+  // 170:   $new_tree remove_item(tree_of(self) key)
+  // 171:   if NONE != new_tree:
+  // 172:     !self.tree_of new_tree
+  // 173:     dec &self.length_of
   frame->slots[4] /* temp__2 */ = create_closure(entry__22_3, 0);
-  // 182: :
-  // 183:   add_item $new_tree $mode tree_of(self) key value
-  // 184:   !self.tree_of new_tree
-  // 185:   if mode == INSERT: inc &self.length_of
+  // 174: :
+  // 175:   add_item $new_tree $mode tree_of(self) key value
+  // 176:   !self.tree_of new_tree
+  // 177:   if mode == INSERT: inc &self.length_of
   frame->slots[5] /* temp__3 */ = create_closure(entry__22_11, 0);
-  // 176: if
-  // 177:   value.is_undefined:
-  // 178:     $new_tree remove_item(tree_of(self) key)
-  // 179:     if NONE != new_tree:
-  // 180:       !self.tree_of new_tree
-  // 181:       dec &self.length_of
-  // 182:   :
-  // 183:     add_item $new_tree $mode tree_of(self) key value
-  // 184:     !self.tree_of new_tree
-  // 185:     if mode == INSERT: inc &self.length_of
+  // 168: if
+  // 169:   value.is_undefined:
+  // 170:     $new_tree remove_item(tree_of(self) key)
+  // 171:     if NONE != new_tree:
+  // 172:       !self.tree_of new_tree
+  // 173:       dec &self.length_of
+  // 174:   :
+  // 175:     add_item $new_tree $mode tree_of(self) key value
+  // 176:     !self.tree_of new_tree
+  // 177:     if mode == INSERT: inc &self.length_of
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3816,7 +3816,7 @@ static void entry__22_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 185: ... self.length_of
+  // 177: ... self.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3831,7 +3831,7 @@ static void cont__22_16(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 185: ... inc &self.length_of
+  // 177: ... inc &self.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3846,7 +3846,7 @@ static void cont__22_17(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 185: ... &self.length_of
+  // 177: ... &self.length_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -3871,9 +3871,9 @@ static void entry__22_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 180: !self.tree_of new_tree
+  // 172: !self.tree_of new_tree
   frame->slots[2] /* temp__1 */ = frame->slots[1] /* new_tree */;
-  // 180: !self.tree_of
+  // 172: !self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -3881,7 +3881,7 @@ static void entry__22_8(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 181: ... self.length_of
+  // 173: ... self.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3896,7 +3896,7 @@ static void cont__22_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 181: dec &self.length_of
+  // 173: dec &self.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3911,7 +3911,7 @@ static void cont__22_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 181: ... &self.length_of
+  // 173: ... &self.length_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -3938,7 +3938,7 @@ static void entry__22_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... tree_of(self)
+  // 170: ... tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3953,7 +3953,7 @@ static void cont__22_4(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 178: $new_tree remove_item(tree_of(self) key)
+  // 170: $new_tree remove_item(tree_of(self) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3969,7 +3969,7 @@ static void cont__22_5(void) {
     return;
   }
   initialize_future(frame->slots[2] /* new_tree */, arguments->slots[0]);
-  // 179: ... NONE != new_tree
+  // 171: ... NONE != new_tree
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3985,7 +3985,7 @@ static void cont__22_6(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 179: ... NONE != new_tree
+  // 171: ... NONE != new_tree
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -4000,13 +4000,13 @@ static void cont__22_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 179: ... :
-  // 180:   !self.tree_of new_tree
-  // 181:   dec &self.length_of
+  // 171: ... :
+  // 172:   !self.tree_of new_tree
+  // 173:   dec &self.length_of
   frame->slots[5] /* temp__3 */ = create_closure(entry__22_8, 0);
-  // 179: if NONE != new_tree:
-  // 180:   !self.tree_of new_tree
-  // 181:   dec &self.length_of
+  // 171: if NONE != new_tree:
+  // 172:   !self.tree_of new_tree
+  // 173:   dec &self.length_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4033,7 +4033,7 @@ static void entry__22_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 183: ... tree_of(self)
+  // 175: ... tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4048,7 +4048,7 @@ static void cont__22_12(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 183: add_item $new_tree $mode tree_of(self) key value
+  // 175: add_item $new_tree $mode tree_of(self) key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4066,13 +4066,13 @@ static void cont__22_13(void) {
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
   frame->slots[7] /* temp__3 */ = arguments->slots[1];
-  // 183: ... new_tree
+  // 175: ... new_tree
   initialize_future(frame->slots[3] /* new_tree */, frame->slots[6] /* temp__2 */);
-  // 183: ... mode
+  // 175: ... mode
   initialize_future(frame->slots[4] /* mode */, frame->slots[7] /* temp__3 */);
-  // 184: !self.tree_of new_tree
+  // 176: !self.tree_of new_tree
   frame->slots[5] /* temp__1 */ = frame->slots[3] /* new_tree */;
-  // 184: !self.tree_of
+  // 176: !self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4080,7 +4080,7 @@ static void cont__22_13(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 185: ... mode == INSERT
+  // 177: ... mode == INSERT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* mode */;
@@ -4096,9 +4096,9 @@ static void cont__22_14(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 185: ... : inc &self.length_of
+  // 177: ... : inc &self.length_of
   frame->slots[6] /* temp__2 */ = create_closure(entry__22_15, 0);
-  // 185: if mode == INSERT: inc &self.length_of
+  // 177: if mode == INSERT: inc &self.length_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4128,7 +4128,7 @@ static void entry__23_1_types__key_order_table_private__get_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 188: ... tree_of(self)
+  // 180: ... tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4143,7 +4143,7 @@ static void cont__23_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 188: retrieve_item tree_of(self) key
+  // 180: retrieve_item tree_of(self) key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4161,7 +4161,7 @@ static void entry__27_1_types__key_order_table_new_empty_collection(void) {
     invalid_arguments_error();
     return;
   }
-  // 194: ... -> types::key_order_table
+  // 192: -> types::key_order_table
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var.types__key_order_table;
@@ -4177,13 +4177,13 @@ static void entry__29_1_std__key_order_table(void) {
   // tab: 1
   frame->slots[1] /* tab */ = create_cell();
   frame->slots[0] /* initializers */ = from_arguments(0, argument_count-0);
-  // 199: $$tab types::key_order_table
+  // 211: $$tab types::key_order_table
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__key_order_table;
-  // 200: ... : (initializer)
-  // 201:   !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 212: ... : (initializer)
+  // 213:   !tab(std::key_of(initializer)) std::value_of(initializer)
   frame->slots[2] /* temp__1 */ = create_closure(entry__29_2, 1);
-  // 200: for_each initializers: (initializer)
-  // 201:   !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 212: for_each initializers: (initializer)
+  // 213:   !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializers */;
@@ -4203,7 +4203,7 @@ static void entry__29_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 201: !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 213: !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializer */;
@@ -4218,7 +4218,7 @@ static void cont__29_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 201: ... std::key_of(initializer)
+  // 213: ... std::key_of(initializer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializer */;
@@ -4233,7 +4233,7 @@ static void cont__29_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 201: !tab(std::key_of(initializer))
+  // 213: !tab(std::key_of(initializer))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4260,7 +4260,7 @@ static void cont__29_6(void) {
     invalid_results_error();
     return;
   }
-  // 202: -> tab
+  // 214: -> tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;
@@ -4279,7 +4279,7 @@ static void entry__30_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 206: ... left_of(myself)
+  // 218: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -4294,7 +4294,7 @@ static void cont__30_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 206: for_each_item left_of(myself) body
+  // 218: for_each_item left_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4309,7 +4309,7 @@ static void cont__30_5(void) {
     invalid_results_error();
     return;
   }
-  // 208: parameter_count_of(body)
+  // 220: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* body */;
@@ -4324,7 +4324,7 @@ static void cont__30_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 208: parameter_count_of(body) == 2
+  // 220: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4340,17 +4340,17 @@ static void cont__30_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 208: ... :
-  // 209:   body key_of(myself) value_of(myself)
+  // 220: ... :
+  // 221:   body key_of(myself) value_of(myself)
   frame->slots[4] /* temp__3 */ = create_closure(entry__30_8, 0);
-  // 210: :
-  // 211:   body value_of(myself)
+  // 222: :
+  // 223:   body value_of(myself)
   frame->slots[5] /* temp__4 */ = create_closure(entry__30_11, 0);
-  // 207: if
-  // 208:   parameter_count_of(body) == 2:
-  // 209:     body key_of(myself) value_of(myself)
-  // 210:   :
-  // 211:     body value_of(myself)
+  // 219: if
+  // 220:   parameter_count_of(body) == 2:
+  // 221:     body key_of(myself) value_of(myself)
+  // 222:   :
+  // 223:     body value_of(myself)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4372,7 +4372,7 @@ static void entry__30_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 209: ... key_of(myself)
+  // 221: ... key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -4387,7 +4387,7 @@ static void cont__30_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 209: ... value_of(myself)
+  // 221: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -4402,7 +4402,7 @@ static void cont__30_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 209: body key_of(myself) value_of(myself)
+  // 221: body key_of(myself) value_of(myself)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4423,7 +4423,7 @@ static void entry__30_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 211: ... value_of(myself)
+  // 223: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -4438,7 +4438,7 @@ static void cont__30_12(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 211: body value_of(myself)
+  // 223: body value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4452,7 +4452,7 @@ static void cont__30_13(void) {
     invalid_results_error();
     return;
   }
-  // 212: ... right_of(myself)
+  // 224: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -4467,7 +4467,7 @@ static void cont__30_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 212: for_each_item right_of(myself) body
+  // 224: for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4486,7 +4486,7 @@ static void entry__30_1_for_each_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 205: ... myself.is_defined
+  // 217: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -4501,23 +4501,23 @@ static void cont__30_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 205: ... :
-  // 206:   for_each_item left_of(myself) body
-  // 207:   if
-  // 208:     parameter_count_of(body) == 2:
-  // 209:       body key_of(myself) value_of(myself)
-  // 210:     :
-  // 211:       body value_of(myself)
-  // 212:   for_each_item right_of(myself) body
+  // 217: ... :
+  // 218:   for_each_item left_of(myself) body
+  // 219:   if
+  // 220:     parameter_count_of(body) == 2:
+  // 221:       body key_of(myself) value_of(myself)
+  // 222:     :
+  // 223:       body value_of(myself)
+  // 224:   for_each_item right_of(myself) body
   frame->slots[3] /* temp__2 */ = create_closure(entry__30_3, 0);
-  // 205: if myself.is_defined:
-  // 206:   for_each_item left_of(myself) body
-  // 207:   if
-  // 208:     parameter_count_of(body) == 2:
-  // 209:       body key_of(myself) value_of(myself)
-  // 210:     :
-  // 211:       body value_of(myself)
-  // 212:   for_each_item right_of(myself) body
+  // 217: if myself.is_defined:
+  // 218:   for_each_item left_of(myself) body
+  // 219:   if
+  // 220:     parameter_count_of(body) == 2:
+  // 221:       body key_of(myself) value_of(myself)
+  // 222:     :
+  // 223:       body value_of(myself)
+  // 224:   for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4538,7 +4538,7 @@ static void entry__31_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 216: ... for_each_item tree body
+  // 234: ... for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tree */;
@@ -4559,7 +4559,7 @@ static void entry__31_1_types__key_order_table_for_each(void) {
     invalid_arguments_error();
     return;
   }
-  // 215: $tree tree_of(self)
+  // 233: $tree tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4574,7 +4574,7 @@ static void cont__31_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* tree */, arguments->slots[0]);
-  // 216: ... tree.is_defined
+  // 234: ... tree.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* tree */;
@@ -4589,9 +4589,9 @@ static void cont__31_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 216: ... : for_each_item tree body
+  // 234: ... : for_each_item tree body
   frame->slots[4] /* temp__2 */ = create_closure(entry__31_4, 0);
-  // 216: if tree.is_defined: for_each_item tree body
+  // 234: if tree.is_defined: for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4616,7 +4616,7 @@ static void entry__32_36(void) {
     invalid_arguments_error();
     return;
   }
-  // 232: ... right_of(myself)
+  // 250: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -4631,7 +4631,7 @@ static void cont__32_37(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 232: for_each_item_from_to right_of(myself) first last body
+  // 250: for_each_item_from_to right_of(myself) first last body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4660,7 +4660,7 @@ static void entry__32_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 220: $key key_of(myself)
+  // 238: $key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -4675,7 +4675,7 @@ static void cont__32_4(void) {
     return;
   }
   initialize_future(frame->slots[4] /* key */, arguments->slots[0]);
-  // 221: ... first.is_undefined
+  // 239: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -4690,9 +4690,9 @@ static void cont__32_5(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 221: ... first < key
+  // 239: ... first < key
   frame->slots[7] /* temp__3 */ = create_closure(entry__32_6, 0);
-  // 221: ... first.is_undefined || first < key
+  // 239: ... first.is_undefined || first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -4713,7 +4713,7 @@ static void entry__32_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 221: ... first < key
+  // 239: ... first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -4729,7 +4729,7 @@ static void cont__32_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 221: ... first < key
+  // 239: ... first < key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4743,11 +4743,11 @@ static void cont__32_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 221: ... :
-  // 222:   for_each_item_from_to left_of(myself) first last body
+  // 239: ... :
+  // 240:   for_each_item_from_to left_of(myself) first last body
   frame->slots[8] /* temp__4 */ = create_closure(entry__32_9, 0);
-  // 221: if first.is_undefined || first < key:
-  // 222:   for_each_item_from_to left_of(myself) first last body
+  // 239: if first.is_undefined || first < key:
+  // 240:   for_each_item_from_to left_of(myself) first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4772,7 +4772,7 @@ static void entry__32_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 222: ... left_of(myself)
+  // 240: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -4787,7 +4787,7 @@ static void cont__32_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 222: for_each_item_from_to left_of(myself) first last body
+  // 240: for_each_item_from_to left_of(myself) first last body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4804,7 +4804,7 @@ static void cont__32_11(void) {
     invalid_results_error();
     return;
   }
-  // 224: ... first.is_undefined
+  // 242: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -4819,9 +4819,9 @@ static void cont__32_12(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 224: ... key >= first
+  // 242: ... key >= first
   frame->slots[8] /* temp__4 */ = create_closure(entry__32_13, 0);
-  // 224: ... first.is_undefined || key >= first
+  // 242: ... first.is_undefined || key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -4842,7 +4842,7 @@ static void entry__32_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 224: ... key >= first
+  // 242: ... key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -4858,7 +4858,7 @@ static void cont__32_14(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 224: ... key >= first
+  // 242: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4873,7 +4873,7 @@ static void cont__32_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 224: ... key >= first
+  // 242: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4887,9 +4887,9 @@ static void cont__32_16(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 224: ... last.is_undefined || key <= last
+  // 242: ... last.is_undefined || key <= last
   frame->slots[9] /* temp__5 */ = create_closure(entry__32_17, 0);
-  // 224: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
+  // 242: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -4910,7 +4910,7 @@ static void entry__32_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 224: ... last.is_undefined
+  // 242: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -4925,9 +4925,9 @@ static void cont__32_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 224: ... key <= last
+  // 242: ... key <= last
   frame->slots[4] /* temp__3 */ = create_closure(entry__32_19, 0);
-  // 224: ... last.is_undefined || key <= last
+  // 242: ... last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4948,7 +4948,7 @@ static void entry__32_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 224: ... key <= last
+  // 242: ... key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -4964,7 +4964,7 @@ static void cont__32_20(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 224: ... key <= last
+  // 242: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4979,7 +4979,7 @@ static void cont__32_21(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 224: ... key <= last
+  // 242: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4993,7 +4993,7 @@ static void cont__32_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 224: ... last.is_undefined || key <= last
+  // 242: ... last.is_undefined || key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5007,21 +5007,21 @@ static void cont__32_23(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 225: :
-  // 226:   if
-  // 227:     parameter_count_of(body) == 2:
-  // 228:       body key value_of(myself)
-  // 229:     :
-  // 230:       body value_of(myself)
+  // 243: :
+  // 244:   if
+  // 245:     parameter_count_of(body) == 2:
+  // 246:       body key value_of(myself)
+  // 247:     :
+  // 248:       body value_of(myself)
   frame->slots[10] /* temp__6 */ = create_closure(entry__32_24, 0);
-  // 223: if
-  // 224:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 225:   :
-  // 226:     if
-  // 227:       parameter_count_of(body) == 2:
-  // 228:         body key value_of(myself)
-  // 229:       :
-  // 230:         body value_of(myself)
+  // 241: if
+  // 242:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 243:   :
+  // 244:     if
+  // 245:       parameter_count_of(body) == 2:
+  // 246:         body key value_of(myself)
+  // 247:       :
+  // 248:         body value_of(myself)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -5044,7 +5044,7 @@ static void entry__32_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 228: ... value_of(myself)
+  // 246: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* myself */;
@@ -5059,7 +5059,7 @@ static void cont__32_28(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 228: body key value_of(myself)
+  // 246: body key value_of(myself)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* key */;
@@ -5080,7 +5080,7 @@ static void entry__32_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 230: ... value_of(myself)
+  // 248: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -5095,7 +5095,7 @@ static void cont__32_30(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 230: body value_of(myself)
+  // 248: body value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5117,7 +5117,7 @@ static void entry__32_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 227: parameter_count_of(body)
+  // 245: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -5132,7 +5132,7 @@ static void cont__32_25(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 227: parameter_count_of(body) == 2
+  // 245: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -5148,17 +5148,17 @@ static void cont__32_26(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 227: ... :
-  // 228:   body key value_of(myself)
+  // 245: ... :
+  // 246:   body key value_of(myself)
   frame->slots[5] /* temp__3 */ = create_closure(entry__32_27, 0);
-  // 229: :
-  // 230:   body value_of(myself)
+  // 247: :
+  // 248:   body value_of(myself)
   frame->slots[6] /* temp__4 */ = create_closure(entry__32_29, 0);
-  // 226: if
-  // 227:   parameter_count_of(body) == 2:
-  // 228:     body key value_of(myself)
-  // 229:   :
-  // 230:     body value_of(myself)
+  // 244: if
+  // 245:   parameter_count_of(body) == 2:
+  // 246:     body key value_of(myself)
+  // 247:   :
+  // 248:     body value_of(myself)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5174,7 +5174,7 @@ static void cont__32_31(void) {
     invalid_results_error();
     return;
   }
-  // 231: ... last.is_undefined
+  // 249: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* last */;
@@ -5189,9 +5189,9 @@ static void cont__32_32(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 231: ... last > key
+  // 249: ... last > key
   frame->slots[7] /* temp__3 */ = create_closure(entry__32_33, 0);
-  // 231: ... last.is_undefined || last > key
+  // 249: ... last.is_undefined || last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -5212,7 +5212,7 @@ static void entry__32_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 231: ... last > key
+  // 249: ... last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -5228,7 +5228,7 @@ static void cont__32_34(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 231: ... last > key
+  // 249: ... last > key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5242,11 +5242,11 @@ static void cont__32_35(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 231: ... :
-  // 232:   for_each_item_from_to right_of(myself) first last body
+  // 249: ... :
+  // 250:   for_each_item_from_to right_of(myself) first last body
   frame->slots[8] /* temp__4 */ = create_closure(entry__32_36, 0);
-  // 231: if last.is_undefined || last > key:
-  // 232:   for_each_item_from_to right_of(myself) first last body
+  // 249: if last.is_undefined || last > key:
+  // 250:   for_each_item_from_to right_of(myself) first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -5267,7 +5267,7 @@ static void entry__32_1_for_each_item_from_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 219: ... myself.is_defined
+  // 237: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -5282,28 +5282,28 @@ static void cont__32_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 219: ... :
-  // 220:   $key key_of(myself)
-  // 221:   if first.is_undefined || first < key:
-  // 222:     for_each_item_from_to left_of(myself) first last body
-  // 223:   if
-  // 224:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 225:     :
-  // 226:       if
-  // 227:         parameter_count_of(body) == 2:
-  // 228:           body key value_of(myself)
+  // 237: ... :
+  // 238:   $key key_of(myself)
+  // 239:   if first.is_undefined || first < key:
+  // 240:     for_each_item_from_to left_of(myself) first last body
+  // 241:   if
+  // 242:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 243:     :
+  // 244:       if
+  // 245:         parameter_count_of(body) == 2:
+  // 246:           body key value_of(myself)
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__32_3, 0);
-  // 219: if myself.is_defined:
-  // 220:   $key key_of(myself)
-  // 221:   if first.is_undefined || first < key:
-  // 222:     for_each_item_from_to left_of(myself) first last body
-  // 223:   if
-  // 224:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 225:     :
-  // 226:       if
-  // 227:         parameter_count_of(body) == 2:
-  // 228:           body key value_of(myself)
+  // 237: if myself.is_defined:
+  // 238:   $key key_of(myself)
+  // 239:   if first.is_undefined || first < key:
+  // 240:     for_each_item_from_to left_of(myself) first last body
+  // 241:   if
+  // 242:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 243:     :
+  // 244:       if
+  // 245:         parameter_count_of(body) == 2:
+  // 246:           body key value_of(myself)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5329,7 +5329,7 @@ static void entry__33_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 236: ... for_each_item_from_to tree first last body
+  // 262: ... for_each_item_from_to tree first last body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tree */;
@@ -5354,7 +5354,7 @@ static void entry__33_1_types__key_order_table_for_each_from_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 235: $tree tree_of(self)
+  // 261: $tree tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -5369,7 +5369,7 @@ static void cont__33_2(void) {
     return;
   }
   initialize_future(frame->slots[4] /* tree */, arguments->slots[0]);
-  // 236: ... tree.is_defined
+  // 262: ... tree.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* tree */;
@@ -5384,9 +5384,9 @@ static void cont__33_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 236: ... : for_each_item_from_to tree first last body
+  // 262: ... : for_each_item_from_to tree first last body
   frame->slots[6] /* temp__2 */ = create_closure(entry__33_4, 0);
-  // 236: if tree.is_defined: for_each_item_from_to tree first last body
+  // 262: if tree.is_defined: for_each_item_from_to tree first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -5411,7 +5411,7 @@ static void entry__34_36(void) {
     invalid_arguments_error();
     return;
   }
-  // 252: ... left_of(myself)
+  // 278: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -5426,7 +5426,7 @@ static void cont__34_37(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 252: for_each_item_from_down_to left_of(myself) last first body
+  // 278: for_each_item_from_down_to left_of(myself) last first body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5455,7 +5455,7 @@ static void entry__34_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 240: $key key_of(myself)
+  // 266: $key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -5470,7 +5470,7 @@ static void cont__34_4(void) {
     return;
   }
   initialize_future(frame->slots[4] /* key */, arguments->slots[0]);
-  // 241: ... last.is_undefined
+  // 267: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* last */;
@@ -5485,9 +5485,9 @@ static void cont__34_5(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 241: ... last > key
+  // 267: ... last > key
   frame->slots[7] /* temp__3 */ = create_closure(entry__34_6, 0);
-  // 241: ... last.is_undefined || last > key
+  // 267: ... last.is_undefined || last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -5508,7 +5508,7 @@ static void entry__34_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 241: ... last > key
+  // 267: ... last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -5524,7 +5524,7 @@ static void cont__34_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 241: ... last > key
+  // 267: ... last > key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5538,11 +5538,11 @@ static void cont__34_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 241: ... :
-  // 242:   for_each_item_from_down_to right_of(myself) last first body
+  // 267: ... :
+  // 268:   for_each_item_from_down_to right_of(myself) last first body
   frame->slots[8] /* temp__4 */ = create_closure(entry__34_9, 0);
-  // 241: if last.is_undefined || last > key:
-  // 242:   for_each_item_from_down_to right_of(myself) last first body
+  // 267: if last.is_undefined || last > key:
+  // 268:   for_each_item_from_down_to right_of(myself) last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -5567,7 +5567,7 @@ static void entry__34_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 242: ... right_of(myself)
+  // 268: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -5582,7 +5582,7 @@ static void cont__34_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 242: for_each_item_from_down_to right_of(myself) last first body
+  // 268: for_each_item_from_down_to right_of(myself) last first body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5599,7 +5599,7 @@ static void cont__34_11(void) {
     invalid_results_error();
     return;
   }
-  // 244: ... first.is_undefined
+  // 270: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* first */;
@@ -5614,9 +5614,9 @@ static void cont__34_12(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 244: ... key >= first
+  // 270: ... key >= first
   frame->slots[8] /* temp__4 */ = create_closure(entry__34_13, 0);
-  // 244: ... first.is_undefined || key >= first
+  // 270: ... first.is_undefined || key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -5637,7 +5637,7 @@ static void entry__34_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 244: ... key >= first
+  // 270: ... key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -5653,7 +5653,7 @@ static void cont__34_14(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 244: ... key >= first
+  // 270: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5668,7 +5668,7 @@ static void cont__34_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 244: ... key >= first
+  // 270: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5682,9 +5682,9 @@ static void cont__34_16(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 244: ... last.is_undefined || key <= last
+  // 270: ... last.is_undefined || key <= last
   frame->slots[9] /* temp__5 */ = create_closure(entry__34_17, 0);
-  // 244: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
+  // 270: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -5705,7 +5705,7 @@ static void entry__34_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 244: ... last.is_undefined
+  // 270: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -5720,9 +5720,9 @@ static void cont__34_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 244: ... key <= last
+  // 270: ... key <= last
   frame->slots[4] /* temp__3 */ = create_closure(entry__34_19, 0);
-  // 244: ... last.is_undefined || key <= last
+  // 270: ... last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5743,7 +5743,7 @@ static void entry__34_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 244: ... key <= last
+  // 270: ... key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -5759,7 +5759,7 @@ static void cont__34_20(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 244: ... key <= last
+  // 270: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5774,7 +5774,7 @@ static void cont__34_21(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 244: ... key <= last
+  // 270: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5788,7 +5788,7 @@ static void cont__34_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 244: ... last.is_undefined || key <= last
+  // 270: ... last.is_undefined || key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5802,21 +5802,21 @@ static void cont__34_23(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 245: :
-  // 246:   if
-  // 247:     parameter_count_of(body) == 2:
-  // 248:       body key value_of(myself)
-  // 249:     :
-  // 250:       body value_of(myself)
+  // 271: :
+  // 272:   if
+  // 273:     parameter_count_of(body) == 2:
+  // 274:       body key value_of(myself)
+  // 275:     :
+  // 276:       body value_of(myself)
   frame->slots[10] /* temp__6 */ = create_closure(entry__34_24, 0);
-  // 243: if
-  // 244:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 245:   :
-  // 246:     if
-  // 247:       parameter_count_of(body) == 2:
-  // 248:         body key value_of(myself)
-  // 249:       :
-  // 250:         body value_of(myself)
+  // 269: if
+  // 270:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 271:   :
+  // 272:     if
+  // 273:       parameter_count_of(body) == 2:
+  // 274:         body key value_of(myself)
+  // 275:       :
+  // 276:         body value_of(myself)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -5839,7 +5839,7 @@ static void entry__34_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 248: ... value_of(myself)
+  // 274: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* myself */;
@@ -5854,7 +5854,7 @@ static void cont__34_28(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 248: body key value_of(myself)
+  // 274: body key value_of(myself)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* key */;
@@ -5875,7 +5875,7 @@ static void entry__34_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 250: ... value_of(myself)
+  // 276: ... value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* myself */;
@@ -5890,7 +5890,7 @@ static void cont__34_30(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 250: body value_of(myself)
+  // 276: body value_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5912,7 +5912,7 @@ static void entry__34_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 247: parameter_count_of(body)
+  // 273: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -5927,7 +5927,7 @@ static void cont__34_25(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 247: parameter_count_of(body) == 2
+  // 273: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -5943,17 +5943,17 @@ static void cont__34_26(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 247: ... :
-  // 248:   body key value_of(myself)
+  // 273: ... :
+  // 274:   body key value_of(myself)
   frame->slots[5] /* temp__3 */ = create_closure(entry__34_27, 0);
-  // 249: :
-  // 250:   body value_of(myself)
+  // 275: :
+  // 276:   body value_of(myself)
   frame->slots[6] /* temp__4 */ = create_closure(entry__34_29, 0);
-  // 246: if
-  // 247:   parameter_count_of(body) == 2:
-  // 248:     body key value_of(myself)
-  // 249:   :
-  // 250:     body value_of(myself)
+  // 272: if
+  // 273:   parameter_count_of(body) == 2:
+  // 274:     body key value_of(myself)
+  // 275:   :
+  // 276:     body value_of(myself)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5969,7 +5969,7 @@ static void cont__34_31(void) {
     invalid_results_error();
     return;
   }
-  // 251: ... first.is_undefined
+  // 277: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* first */;
@@ -5984,9 +5984,9 @@ static void cont__34_32(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 251: ... first < key
+  // 277: ... first < key
   frame->slots[7] /* temp__3 */ = create_closure(entry__34_33, 0);
-  // 251: ... first.is_undefined || first < key
+  // 277: ... first.is_undefined || first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -6007,7 +6007,7 @@ static void entry__34_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 251: ... first < key
+  // 277: ... first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -6023,7 +6023,7 @@ static void cont__34_34(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 251: ... first < key
+  // 277: ... first < key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6037,11 +6037,11 @@ static void cont__34_35(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 251: ... :
-  // 252:   for_each_item_from_down_to left_of(myself) last first body
+  // 277: ... :
+  // 278:   for_each_item_from_down_to left_of(myself) last first body
   frame->slots[8] /* temp__4 */ = create_closure(entry__34_36, 0);
-  // 251: if first.is_undefined || first < key:
-  // 252:   for_each_item_from_down_to left_of(myself) last first body
+  // 277: if first.is_undefined || first < key:
+  // 278:   for_each_item_from_down_to left_of(myself) last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -6062,7 +6062,7 @@ static void entry__34_1_for_each_item_from_down_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 239: ... myself.is_defined
+  // 265: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -6077,28 +6077,28 @@ static void cont__34_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 239: ... :
-  // 240:   $key key_of(myself)
-  // 241:   if last.is_undefined || last > key:
-  // 242:     for_each_item_from_down_to right_of(myself) last first body
-  // 243:   if
-  // 244:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 245:     :
-  // 246:       if
-  // 247:         parameter_count_of(body) == 2:
-  // 248:           body key value_of(myself)
+  // 265: ... :
+  // 266:   $key key_of(myself)
+  // 267:   if last.is_undefined || last > key:
+  // 268:     for_each_item_from_down_to right_of(myself) last first body
+  // 269:   if
+  // 270:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 271:     :
+  // 272:       if
+  // 273:         parameter_count_of(body) == 2:
+  // 274:           body key value_of(myself)
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__34_3, 0);
-  // 239: if myself.is_defined:
-  // 240:   $key key_of(myself)
-  // 241:   if last.is_undefined || last > key:
-  // 242:     for_each_item_from_down_to right_of(myself) last first body
-  // 243:   if
-  // 244:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 245:     :
-  // 246:       if
-  // 247:         parameter_count_of(body) == 2:
-  // 248:           body key value_of(myself)
+  // 265: if myself.is_defined:
+  // 266:   $key key_of(myself)
+  // 267:   if last.is_undefined || last > key:
+  // 268:     for_each_item_from_down_to right_of(myself) last first body
+  // 269:   if
+  // 270:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 271:     :
+  // 272:       if
+  // 273:         parameter_count_of(body) == 2:
+  // 274:           body key value_of(myself)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -6124,7 +6124,7 @@ static void entry__35_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 256: ... for_each_item_from_down_to tree last first body
+  // 290: ... for_each_item_from_down_to tree last first body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tree */;
@@ -6149,7 +6149,7 @@ static void entry__35_1_types__key_order_table_for_each_from_down_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 255: $tree tree_of(self)
+  // 289: $tree tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -6164,7 +6164,7 @@ static void cont__35_2(void) {
     return;
   }
   initialize_future(frame->slots[4] /* tree */, arguments->slots[0]);
-  // 256: ... tree.is_defined
+  // 290: ... tree.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* tree */;
@@ -6179,9 +6179,9 @@ static void cont__35_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 256: ... : for_each_item_from_down_to tree last first body
+  // 290: ... : for_each_item_from_down_to tree last first body
   frame->slots[6] /* temp__2 */ = create_closure(entry__35_4, 0);
-  // 256: if tree.is_defined: for_each_item_from_down_to tree last first body
+  // 290: if tree.is_defined: for_each_item_from_down_to tree last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -6201,7 +6201,7 @@ static void entry__36_1_update_each_item(void) {
     return;
   }
   frame->slots[0] /* myself */ = create_cell_with_contents(arguments->slots[0]);
-  // 263: ... myself.is_defined
+  // 297: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6216,15 +6216,15 @@ static void cont__36_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 263: ... :
-  // 264:   update_each_item &myself.left_of body
-  // 265:   body key_of(myself) &myself.value_of
-  // 266:   update_each_item &myself.right_of body
+  // 297: ... :
+  // 298:   update_each_item &myself.left_of body
+  // 299:   body key_of(myself) &myself.value_of
+  // 300:   update_each_item &myself.right_of body
   frame->slots[3] /* temp__2 */ = create_closure(entry__36_3, 0);
-  // 263: if myself.is_defined:
-  // 264:   update_each_item &myself.left_of body
-  // 265:   body key_of(myself) &myself.value_of
-  // 266:   update_each_item &myself.right_of body
+  // 297: if myself.is_defined:
+  // 298:   update_each_item &myself.left_of body
+  // 299:   body key_of(myself) &myself.value_of
+  // 300:   update_each_item &myself.right_of body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6247,7 +6247,7 @@ static void entry__36_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 264: ... myself.left_of
+  // 298: ... myself.left_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6262,7 +6262,7 @@ static void cont__36_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 264: update_each_item &myself.left_of body
+  // 298: update_each_item &myself.left_of body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6278,7 +6278,7 @@ static void cont__36_5(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 264: ... &myself.left_of
+  // 298: ... &myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -6286,7 +6286,7 @@ static void cont__36_5(void) {
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 265: ... key_of(myself)
+  // 299: ... key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6301,7 +6301,7 @@ static void cont__36_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 265: ... myself.value_of
+  // 299: ... myself.value_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6316,7 +6316,7 @@ static void cont__36_7(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 265: body key_of(myself) &myself.value_of
+  // 299: body key_of(myself) &myself.value_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6332,7 +6332,7 @@ static void cont__36_8(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 265: ... &myself.value_of
+  // 299: ... &myself.value_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -6340,7 +6340,7 @@ static void cont__36_8(void) {
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 266: ... myself.right_of
+  // 300: ... myself.right_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6355,7 +6355,7 @@ static void cont__36_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 266: update_each_item &myself.right_of body
+  // 300: update_each_item &myself.right_of body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6371,7 +6371,7 @@ static void cont__36_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 266: ... &myself.right_of
+  // 300: ... &myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -6408,7 +6408,7 @@ static void entry__37_1_update_each_item_from_to(void) {
     return;
   }
   frame->slots[0] /* myself */ = create_cell_with_contents(arguments->slots[0]);
-  // 275: ... myself.is_defined
+  // 309: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6423,27 +6423,27 @@ static void cont__37_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 275: ... :
-  // 276:   $key key_of(myself)
-  // 277:   if first.is_undefined || first < key:
-  // 278:     update_each_item_from_to &myself.left_of first last body
-  // 279:   if
-  // 280:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 281:     :
-  // 282:       body key &myself.value_of
-  // 283:   if last.is_undefined || last > key:
-  // 284:     update_each_item_from_to &myself.right_of first last body
+  // 309: ... :
+  // 310:   $key key_of(myself)
+  // 311:   if first.is_undefined || first < key:
+  // 312:     update_each_item_from_to &myself.left_of first last body
+  // 313:   if
+  // 314:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 315:     :
+  // 316:       body key &myself.value_of
+  // 317:   if last.is_undefined || last > key:
+  // 318:     update_each_item_from_to &myself.right_of first last body
   frame->slots[5] /* temp__2 */ = create_closure(entry__37_3, 0);
-  // 275: if myself.is_defined:
-  // 276:   $key key_of(myself)
-  // 277:   if first.is_undefined || first < key:
-  // 278:     update_each_item_from_to &myself.left_of first last body
-  // 279:   if
-  // 280:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 281:     :
-  // 282:       body key &myself.value_of
-  // 283:   if last.is_undefined || last > key:
-  // 284:     update_each_item_from_to &myself.right_of first last body
+  // 309: if myself.is_defined:
+  // 310:   $key key_of(myself)
+  // 311:   if first.is_undefined || first < key:
+  // 312:     update_each_item_from_to &myself.left_of first last body
+  // 313:   if
+  // 314:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 315:     :
+  // 316:       body key &myself.value_of
+  // 317:   if last.is_undefined || last > key:
+  // 318:     update_each_item_from_to &myself.right_of first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6470,7 +6470,7 @@ static void entry__37_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 284: ... myself.right_of
+  // 318: ... myself.right_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6485,7 +6485,7 @@ static void cont__37_34(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 284: update_each_item_from_to &myself.right_of first last body
+  // 318: update_each_item_from_to &myself.right_of first last body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6503,7 +6503,7 @@ static void cont__37_35(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 284: ... &myself.right_of
+  // 318: ... &myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -6534,7 +6534,7 @@ static void entry__37_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 276: $key key_of(myself)
+  // 310: $key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6549,7 +6549,7 @@ static void cont__37_4(void) {
     return;
   }
   initialize_future(frame->slots[4] /* key */, arguments->slots[0]);
-  // 277: ... first.is_undefined
+  // 311: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -6564,9 +6564,9 @@ static void cont__37_5(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 277: ... first < key
+  // 311: ... first < key
   frame->slots[7] /* temp__3 */ = create_closure(entry__37_6, 0);
-  // 277: ... first.is_undefined || first < key
+  // 311: ... first.is_undefined || first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -6587,7 +6587,7 @@ static void entry__37_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 277: ... first < key
+  // 311: ... first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -6603,7 +6603,7 @@ static void cont__37_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 277: ... first < key
+  // 311: ... first < key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6617,11 +6617,11 @@ static void cont__37_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 277: ... :
-  // 278:   update_each_item_from_to &myself.left_of first last body
+  // 311: ... :
+  // 312:   update_each_item_from_to &myself.left_of first last body
   frame->slots[8] /* temp__4 */ = create_closure(entry__37_9, 0);
-  // 277: if first.is_undefined || first < key:
-  // 278:   update_each_item_from_to &myself.left_of first last body
+  // 311: if first.is_undefined || first < key:
+  // 312:   update_each_item_from_to &myself.left_of first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -6646,7 +6646,7 @@ static void entry__37_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 278: ... myself.left_of
+  // 312: ... myself.left_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -6661,7 +6661,7 @@ static void cont__37_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 278: update_each_item_from_to &myself.left_of first last body
+  // 312: update_each_item_from_to &myself.left_of first last body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6679,7 +6679,7 @@ static void cont__37_11(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 278: ... &myself.left_of
+  // 312: ... &myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -6698,7 +6698,7 @@ static void cont__37_12(void) {
     invalid_results_error();
     return;
   }
-  // 280: ... first.is_undefined
+  // 314: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* first */;
@@ -6713,9 +6713,9 @@ static void cont__37_13(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 280: ... key >= first
+  // 314: ... key >= first
   frame->slots[8] /* temp__4 */ = create_closure(entry__37_14, 0);
-  // 280: ... first.is_undefined || key >= first
+  // 314: ... first.is_undefined || key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -6736,7 +6736,7 @@ static void entry__37_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 280: ... key >= first
+  // 314: ... key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -6752,7 +6752,7 @@ static void cont__37_15(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 280: ... key >= first
+  // 314: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -6767,7 +6767,7 @@ static void cont__37_16(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 280: ... key >= first
+  // 314: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6781,9 +6781,9 @@ static void cont__37_17(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 280: ... last.is_undefined || key <= last
+  // 314: ... last.is_undefined || key <= last
   frame->slots[9] /* temp__5 */ = create_closure(entry__37_18, 0);
-  // 280: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
+  // 314: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -6804,7 +6804,7 @@ static void entry__37_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 280: ... last.is_undefined
+  // 314: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -6819,9 +6819,9 @@ static void cont__37_19(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 280: ... key <= last
+  // 314: ... key <= last
   frame->slots[4] /* temp__3 */ = create_closure(entry__37_20, 0);
-  // 280: ... last.is_undefined || key <= last
+  // 314: ... last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -6842,7 +6842,7 @@ static void entry__37_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 280: ... key <= last
+  // 314: ... key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -6858,7 +6858,7 @@ static void cont__37_21(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 280: ... key <= last
+  // 314: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -6873,7 +6873,7 @@ static void cont__37_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 280: ... key <= last
+  // 314: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6887,7 +6887,7 @@ static void cont__37_23(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 280: ... last.is_undefined || key <= last
+  // 314: ... last.is_undefined || key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6901,13 +6901,13 @@ static void cont__37_24(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 281: :
-  // 282:   body key &myself.value_of
+  // 315: :
+  // 316:   body key &myself.value_of
   frame->slots[10] /* temp__6 */ = create_closure(entry__37_25, 0);
-  // 279: if
-  // 280:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 281:   :
-  // 282:     body key &myself.value_of
+  // 313: if
+  // 314:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 315:   :
+  // 316:     body key &myself.value_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -6930,7 +6930,7 @@ static void entry__37_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 282: ... myself.value_of
+  // 316: ... myself.value_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* myself */;
@@ -6945,7 +6945,7 @@ static void cont__37_26(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 282: body key &myself.value_of
+  // 316: body key &myself.value_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* key */;
@@ -6961,7 +6961,7 @@ static void cont__37_27(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 282: ... &myself.value_of
+  // 316: ... &myself.value_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
     update_start_p = node_p;
@@ -6980,7 +6980,7 @@ static void cont__37_28(void) {
     invalid_results_error();
     return;
   }
-  // 283: ... last.is_undefined
+  // 317: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* last */;
@@ -6995,9 +6995,9 @@ static void cont__37_29(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 283: ... last > key
+  // 317: ... last > key
   frame->slots[7] /* temp__3 */ = create_closure(entry__37_30, 0);
-  // 283: ... last.is_undefined || last > key
+  // 317: ... last.is_undefined || last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -7018,7 +7018,7 @@ static void entry__37_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 283: ... last > key
+  // 317: ... last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -7034,7 +7034,7 @@ static void cont__37_31(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 283: ... last > key
+  // 317: ... last > key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7048,11 +7048,11 @@ static void cont__37_32(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 283: ... :
-  // 284:   update_each_item_from_to &myself.right_of first last body
+  // 317: ... :
+  // 318:   update_each_item_from_to &myself.right_of first last body
   frame->slots[8] /* temp__4 */ = create_closure(entry__37_33, 0);
-  // 283: if last.is_undefined || last > key:
-  // 284:   update_each_item_from_to &myself.right_of first last body
+  // 317: if last.is_undefined || last > key:
+  // 318:   update_each_item_from_to &myself.right_of first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7085,7 +7085,7 @@ static void entry__38_1_types__key_order_table_update_each_from_to(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 293: ... tree_of(self)
+  // 329: ... tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -7100,7 +7100,7 @@ static void cont__38_2(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 293: ... tree_of(self).is_defined
+  // 329: ... tree_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -7115,11 +7115,11 @@ static void cont__38_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 293: ... :
-  // 294:   update_each_item_from_to &self.tree_of first last body
+  // 329: ... :
+  // 330:   update_each_item_from_to &self.tree_of first last body
   frame->slots[6] /* temp__3 */ = create_closure(entry__38_4, 0);
-  // 293: if tree_of(self).is_defined:
-  // 294:   update_each_item_from_to &self.tree_of first last body
+  // 329: if tree_of(self).is_defined:
+  // 330:   update_each_item_from_to &self.tree_of first last body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7146,7 +7146,7 @@ static void entry__38_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 294: ... self.tree_of
+  // 330: ... self.tree_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -7161,7 +7161,7 @@ static void cont__38_5(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 294: update_each_item_from_to &self.tree_of first last body
+  // 330: update_each_item_from_to &self.tree_of first last body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7179,7 +7179,7 @@ static void cont__38_6(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 294: ... &self.tree_of
+  // 330: ... &self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -7216,7 +7216,7 @@ static void entry__39_1_update_each_item_from_down_to(void) {
     return;
   }
   frame->slots[0] /* myself */ = create_cell_with_contents(arguments->slots[0]);
-  // 303: ... myself.is_defined
+  // 339: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -7231,27 +7231,27 @@ static void cont__39_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 303: ... :
-  // 304:   $key key_of(myself)
-  // 305:   if last.is_undefined || last > key:
-  // 306:     update_each_item_from_down_to &myself.right_of last first body
-  // 307:   if
-  // 308:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 309:     :
-  // 310:       body key &myself.value_of
-  // 311:   if first.is_undefined || first < key:
-  // 312:     update_each_item_from_down_to &myself.left_of last first body
+  // 339: ... :
+  // 340:   $key key_of(myself)
+  // 341:   if last.is_undefined || last > key:
+  // 342:     update_each_item_from_down_to &myself.right_of last first body
+  // 343:   if
+  // 344:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 345:     :
+  // 346:       body key &myself.value_of
+  // 347:   if first.is_undefined || first < key:
+  // 348:     update_each_item_from_down_to &myself.left_of last first body
   frame->slots[5] /* temp__2 */ = create_closure(entry__39_3, 0);
-  // 303: if myself.is_defined:
-  // 304:   $key key_of(myself)
-  // 305:   if last.is_undefined || last > key:
-  // 306:     update_each_item_from_down_to &myself.right_of last first body
-  // 307:   if
-  // 308:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 309:     :
-  // 310:       body key &myself.value_of
-  // 311:   if first.is_undefined || first < key:
-  // 312:     update_each_item_from_down_to &myself.left_of last first body
+  // 339: if myself.is_defined:
+  // 340:   $key key_of(myself)
+  // 341:   if last.is_undefined || last > key:
+  // 342:     update_each_item_from_down_to &myself.right_of last first body
+  // 343:   if
+  // 344:     (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 345:     :
+  // 346:       body key &myself.value_of
+  // 347:   if first.is_undefined || first < key:
+  // 348:     update_each_item_from_down_to &myself.left_of last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7278,7 +7278,7 @@ static void entry__39_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 312: ... myself.left_of
+  // 348: ... myself.left_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -7293,7 +7293,7 @@ static void cont__39_34(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 312: update_each_item_from_down_to &myself.left_of last first body
+  // 348: update_each_item_from_down_to &myself.left_of last first body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7311,7 +7311,7 @@ static void cont__39_35(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 312: ... &myself.left_of
+  // 348: ... &myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -7342,7 +7342,7 @@ static void entry__39_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 304: $key key_of(myself)
+  // 340: $key key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -7357,7 +7357,7 @@ static void cont__39_4(void) {
     return;
   }
   initialize_future(frame->slots[4] /* key */, arguments->slots[0]);
-  // 305: ... last.is_undefined
+  // 341: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* last */;
@@ -7372,9 +7372,9 @@ static void cont__39_5(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 305: ... last > key
+  // 341: ... last > key
   frame->slots[7] /* temp__3 */ = create_closure(entry__39_6, 0);
-  // 305: ... last.is_undefined || last > key
+  // 341: ... last.is_undefined || last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -7395,7 +7395,7 @@ static void entry__39_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 305: ... last > key
+  // 341: ... last > key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -7411,7 +7411,7 @@ static void cont__39_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 305: ... last > key
+  // 341: ... last > key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7425,11 +7425,11 @@ static void cont__39_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 305: ... :
-  // 306:   update_each_item_from_down_to &myself.right_of last first body
+  // 341: ... :
+  // 342:   update_each_item_from_down_to &myself.right_of last first body
   frame->slots[8] /* temp__4 */ = create_closure(entry__39_9, 0);
-  // 305: if last.is_undefined || last > key:
-  // 306:   update_each_item_from_down_to &myself.right_of last first body
+  // 341: if last.is_undefined || last > key:
+  // 342:   update_each_item_from_down_to &myself.right_of last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7454,7 +7454,7 @@ static void entry__39_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 306: ... myself.right_of
+  // 342: ... myself.right_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -7469,7 +7469,7 @@ static void cont__39_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 306: update_each_item_from_down_to &myself.right_of last first body
+  // 342: update_each_item_from_down_to &myself.right_of last first body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7487,7 +7487,7 @@ static void cont__39_11(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 306: ... &myself.right_of
+  // 342: ... &myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -7506,7 +7506,7 @@ static void cont__39_12(void) {
     invalid_results_error();
     return;
   }
-  // 308: ... first.is_undefined
+  // 344: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* first */;
@@ -7521,9 +7521,9 @@ static void cont__39_13(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 308: ... key >= first
+  // 344: ... key >= first
   frame->slots[8] /* temp__4 */ = create_closure(entry__39_14, 0);
-  // 308: ... first.is_undefined || key >= first
+  // 344: ... first.is_undefined || key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -7544,7 +7544,7 @@ static void entry__39_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 308: ... key >= first
+  // 344: ... key >= first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -7560,7 +7560,7 @@ static void cont__39_15(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 308: ... key >= first
+  // 344: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -7575,7 +7575,7 @@ static void cont__39_16(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 308: ... key >= first
+  // 344: ... key >= first
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7589,9 +7589,9 @@ static void cont__39_17(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 308: ... last.is_undefined || key <= last
+  // 344: ... last.is_undefined || key <= last
   frame->slots[9] /* temp__5 */ = create_closure(entry__39_18, 0);
-  // 308: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
+  // 344: ... first.is_undefined || key >= first) && (last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -7612,7 +7612,7 @@ static void entry__39_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 308: ... last.is_undefined
+  // 344: ... last.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -7627,9 +7627,9 @@ static void cont__39_19(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 308: ... key <= last
+  // 344: ... key <= last
   frame->slots[4] /* temp__3 */ = create_closure(entry__39_20, 0);
-  // 308: ... last.is_undefined || key <= last
+  // 344: ... last.is_undefined || key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -7650,7 +7650,7 @@ static void entry__39_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 308: ... key <= last
+  // 344: ... key <= last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* last */;
@@ -7666,7 +7666,7 @@ static void cont__39_21(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 308: ... key <= last
+  // 344: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -7681,7 +7681,7 @@ static void cont__39_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 308: ... key <= last
+  // 344: ... key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7695,7 +7695,7 @@ static void cont__39_23(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 308: ... last.is_undefined || key <= last
+  // 344: ... last.is_undefined || key <= last
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7709,13 +7709,13 @@ static void cont__39_24(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 309: :
-  // 310:   body key &myself.value_of
+  // 345: :
+  // 346:   body key &myself.value_of
   frame->slots[10] /* temp__6 */ = create_closure(entry__39_25, 0);
-  // 307: if
-  // 308:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
-  // 309:   :
-  // 310:     body key &myself.value_of
+  // 343: if
+  // 344:   (first.is_undefined || key >= first) && (last.is_undefined || key <= last)
+  // 345:   :
+  // 346:     body key &myself.value_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7738,7 +7738,7 @@ static void entry__39_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 310: ... myself.value_of
+  // 346: ... myself.value_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* myself */;
@@ -7753,7 +7753,7 @@ static void cont__39_26(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 310: body key &myself.value_of
+  // 346: body key &myself.value_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* key */;
@@ -7769,7 +7769,7 @@ static void cont__39_27(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 310: ... &myself.value_of
+  // 346: ... &myself.value_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
     update_start_p = node_p;
@@ -7788,7 +7788,7 @@ static void cont__39_28(void) {
     invalid_results_error();
     return;
   }
-  // 311: ... first.is_undefined
+  // 347: ... first.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* first */;
@@ -7803,9 +7803,9 @@ static void cont__39_29(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 311: ... first < key
+  // 347: ... first < key
   frame->slots[7] /* temp__3 */ = create_closure(entry__39_30, 0);
-  // 311: ... first.is_undefined || first < key
+  // 347: ... first.is_undefined || first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -7826,7 +7826,7 @@ static void entry__39_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 311: ... first < key
+  // 347: ... first < key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* first */;
@@ -7842,7 +7842,7 @@ static void cont__39_31(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 311: ... first < key
+  // 347: ... first < key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7856,11 +7856,11 @@ static void cont__39_32(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 311: ... :
-  // 312:   update_each_item_from_down_to &myself.left_of last first body
+  // 347: ... :
+  // 348:   update_each_item_from_down_to &myself.left_of last first body
   frame->slots[8] /* temp__4 */ = create_closure(entry__39_33, 0);
-  // 311: if first.is_undefined || first < key:
-  // 312:   update_each_item_from_down_to &myself.left_of last first body
+  // 347: if first.is_undefined || first < key:
+  // 348:   update_each_item_from_down_to &myself.left_of last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7893,7 +7893,7 @@ static void entry__40_1_types__key_order_table_update_each_from_down_to(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 321: ... tree_of(self)
+  // 359: ... tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -7908,7 +7908,7 @@ static void cont__40_2(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 321: ... tree_of(self).is_defined
+  // 359: ... tree_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -7923,11 +7923,11 @@ static void cont__40_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 321: ... :
-  // 322:   update_each_item_from_down_to &self.tree_of last first body
+  // 359: ... :
+  // 360:   update_each_item_from_down_to &self.tree_of last first body
   frame->slots[6] /* temp__3 */ = create_closure(entry__40_4, 0);
-  // 321: if tree_of(self).is_defined:
-  // 322:   update_each_item_from_down_to &self.tree_of last first body
+  // 359: if tree_of(self).is_defined:
+  // 360:   update_each_item_from_down_to &self.tree_of last first body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7954,7 +7954,7 @@ static void entry__40_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 322: ... self.tree_of
+  // 360: ... self.tree_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -7969,7 +7969,7 @@ static void cont__40_5(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 322: update_each_item_from_down_to &self.tree_of last first body
+  // 360: update_each_item_from_down_to &self.tree_of last first body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7987,7 +7987,7 @@ static void cont__40_6(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 322: ... &self.tree_of
+  // 360: ... &self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -8022,7 +8022,7 @@ static void entry__41_1_types__key_order_table_update_each(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 329: ... tree_of(self)
+  // 369: ... tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8037,7 +8037,7 @@ static void cont__41_2(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 329: ... tree_of(self).is_defined
+  // 369: ... tree_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -8052,9 +8052,9 @@ static void cont__41_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 329: ... : update_each_item &self.tree_of body
+  // 369: ... : update_each_item &self.tree_of body
   frame->slots[4] /* temp__3 */ = create_closure(entry__41_4, 0);
-  // 329: if tree_of(self).is_defined: update_each_item &self.tree_of body
+  // 369: if tree_of(self).is_defined: update_each_item &self.tree_of body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8077,7 +8077,7 @@ static void entry__41_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 329: ... self.tree_of
+  // 369: ... self.tree_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8092,7 +8092,7 @@ static void cont__41_5(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 329: ... update_each_item &self.tree_of body
+  // 369: ... update_each_item &self.tree_of body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8108,7 +8108,7 @@ static void cont__41_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 329: ... &self.tree_of
+  // 369: ... &self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;

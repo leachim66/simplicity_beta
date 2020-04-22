@@ -156,6 +156,8 @@ $types::key_order_set.tree_of undefined
 $types::key_order_set.length_of 0
 $types::key_order_set.serialization_tag_of "key_order_set"
 $std::empty_key_order_set types::key_order_set
+  #
+    an empty key-order set
 
 $std::key_order_set -> types::key_order_set
   #

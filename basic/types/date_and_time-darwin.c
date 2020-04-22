@@ -492,51 +492,51 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__1_1_std__current_time, NULL, 27, 36, 3, 2},
   {entry__13_1_std__from_unix_time, NULL, 141, 146, 3, 2, 1},
   {entry__14_1_std__date_and_time, NULL, 163, 214, 3, 2, 1},
-  {entry__16_1_types__date_and_time_year_of, NULL, 296, 301, 3, 2, 1},
-  {entry__17_1_types__date_and_time_month_of, NULL, 304, 309, 3, 2, 1},
-  {entry__18_1_types__date_and_time_day_of, NULL, 312, 317, 3, 2, 1},
-  {entry__19_1_types__date_and_time_day_of_week_of, NULL, 320, 325, 3, 2, 1},
-  {entry__20_1_types__date_and_time_hour_of, NULL, 328, 332, 3, 2, 1},
-  {entry__21_1_types__date_and_time_minute_of, NULL, 335, 339, 3, 2, 1},
-  {entry__22_1_types__date_and_time_second_of, NULL, 342, 348, 3, 2, 1},
-  {entry__23_1_types__date_and_time_plus, NULL, 351, 365, 3, 2, 1},
-  {entry__24_1_types__date_and_time_minus, NULL, 368, 389, 3, 2, 1},
-  {entry__25_1_types__date_and_time_equal, NULL, 392, 401, 3, 2, 1},
-  {entry__26_1_types__date_and_time_less, NULL, 404, 414, 3, 2, 1},
-  {entry__27_1_types__date_and_time_time_shift_of, NULL, 417, 428, 3, 2, 1},
-  {entry__28_23, NULL, 451, 451, 33, 39, 1},
-  {cont__28_24, &frame__28_23, 451, 451, 22, 40, 1},
-  {cont__28_26, &frame__28_23, 451, 451, 19, 40, 1},
-  {entry__28_21, NULL, 451, 451, 12, 17, 1},
-  {cont__28_22, &frame__28_21, 451, 451, 9, 40, 1},
-  {entry__28_29, NULL, 452, 452, 22, 28, 1},
-  {cont__28_30, &frame__28_29, 452, 452, 19, 28, 1},
-  {entry__28_27, NULL, 452, 452, 12, 17, 1},
-  {cont__28_28, &frame__28_27, 452, 452, 9, 28, 1},
-  {entry__28_32, NULL, 453, 453, 17, 21, 1},
-  {entry__28_31, NULL, 453, 453, 9, 21, 1},
-  {entry__28_1_types__date_and_time_to_string, NULL, 431, 431, 3, 25, 1},
-  {cont__28_2, &frame__28_1_types__date_and_time_to_string, 432, 432, 3, 12, 1},
-  {cont__28_3, &frame__28_1_types__date_and_time_to_string, 433, 433, 3, 22, 1},
-  {cont__28_4, &frame__28_1_types__date_and_time_to_string, 436, 436, 7, 16, 1},
-  {cont__28_5, &frame__28_1_types__date_and_time_to_string, 438, 438, 16, 26, 1},
-  {cont__28_6, &frame__28_1_types__date_and_time_to_string, 438, 438, 7, 33, 1},
-  {cont__28_8, &frame__28_1_types__date_and_time_to_string, 440, 440, 16, 24, 1},
-  {cont__28_9, &frame__28_1_types__date_and_time_to_string, 440, 440, 7, 31, 1},
-  {cont__28_10, &frame__28_1_types__date_and_time_to_string, 442, 442, 7, 16, 1},
-  {cont__28_11, &frame__28_1_types__date_and_time_to_string, 444, 444, 16, 27, 1},
-  {cont__28_12, &frame__28_1_types__date_and_time_to_string, 444, 444, 7, 34, 1},
-  {cont__28_13, &frame__28_1_types__date_and_time_to_string, 446, 446, 16, 28, 1},
-  {cont__28_14, &frame__28_1_types__date_and_time_to_string, 446, 446, 7, 35, 1},
-  {cont__28_15, &frame__28_1_types__date_and_time_to_string, 448, 448, 35, 47, 1},
-  {cont__28_16, &frame__28_1_types__date_and_time_to_string, 448, 448, 28, 47, 1},
-  {cont__28_17, &frame__28_1_types__date_and_time_to_string, 448, 448, 22, 47, 1},
-  {cont__28_18, &frame__28_1_types__date_and_time_to_string, 448, 448, 16, 49, 1},
-  {cont__28_19, &frame__28_1_types__date_and_time_to_string, 448, 448, 7, 56, 1},
-  {cont__28_20, &frame__28_1_types__date_and_time_to_string, 450, 453, 7, 20, 1},
-  {cont__28_33, &frame__28_1_types__date_and_time_to_string, 435, 453, 5, 21, 1},
-  {cont__28_37, &frame__28_1_types__date_and_time_to_string, 434, 453, 3, 23, 1},
-  {entry__29_1_std__sleep, NULL, 456, 466, 3, 2, 1}
+  {entry__16_1_types__date_and_time_year_of, NULL, 300, 305, 3, 2, 1},
+  {entry__17_1_types__date_and_time_month_of, NULL, 312, 317, 3, 2, 1},
+  {entry__18_1_types__date_and_time_day_of, NULL, 324, 329, 3, 2, 1},
+  {entry__19_1_types__date_and_time_day_of_week_of, NULL, 336, 341, 3, 2, 1},
+  {entry__20_1_types__date_and_time_hour_of, NULL, 348, 352, 3, 2, 1},
+  {entry__21_1_types__date_and_time_minute_of, NULL, 359, 363, 3, 2, 1},
+  {entry__22_1_types__date_and_time_second_of, NULL, 370, 376, 3, 2, 1},
+  {entry__23_1_types__date_and_time_plus, NULL, 381, 395, 3, 2, 1},
+  {entry__24_1_types__date_and_time_minus, NULL, 400, 421, 3, 2, 1},
+  {entry__25_1_types__date_and_time_equal, NULL, 426, 435, 3, 2, 1},
+  {entry__26_1_types__date_and_time_less, NULL, 440, 450, 3, 2, 1},
+  {entry__27_1_types__date_and_time_time_shift_of, NULL, 457, 468, 3, 2, 1},
+  {entry__28_23, NULL, 493, 493, 33, 39, 1},
+  {cont__28_24, &frame__28_23, 493, 493, 22, 40, 1},
+  {cont__28_26, &frame__28_23, 493, 493, 19, 40, 1},
+  {entry__28_21, NULL, 493, 493, 12, 17, 1},
+  {cont__28_22, &frame__28_21, 493, 493, 9, 40, 1},
+  {entry__28_29, NULL, 494, 494, 22, 28, 1},
+  {cont__28_30, &frame__28_29, 494, 494, 19, 28, 1},
+  {entry__28_27, NULL, 494, 494, 12, 17, 1},
+  {cont__28_28, &frame__28_27, 494, 494, 9, 28, 1},
+  {entry__28_32, NULL, 495, 495, 17, 21, 1},
+  {entry__28_31, NULL, 495, 495, 9, 21, 1},
+  {entry__28_1_types__date_and_time_to_string, NULL, 473, 473, 3, 25, 1},
+  {cont__28_2, &frame__28_1_types__date_and_time_to_string, 474, 474, 3, 12, 1},
+  {cont__28_3, &frame__28_1_types__date_and_time_to_string, 475, 475, 3, 22, 1},
+  {cont__28_4, &frame__28_1_types__date_and_time_to_string, 478, 478, 7, 16, 1},
+  {cont__28_5, &frame__28_1_types__date_and_time_to_string, 480, 480, 16, 26, 1},
+  {cont__28_6, &frame__28_1_types__date_and_time_to_string, 480, 480, 7, 33, 1},
+  {cont__28_8, &frame__28_1_types__date_and_time_to_string, 482, 482, 16, 24, 1},
+  {cont__28_9, &frame__28_1_types__date_and_time_to_string, 482, 482, 7, 31, 1},
+  {cont__28_10, &frame__28_1_types__date_and_time_to_string, 484, 484, 7, 16, 1},
+  {cont__28_11, &frame__28_1_types__date_and_time_to_string, 486, 486, 16, 27, 1},
+  {cont__28_12, &frame__28_1_types__date_and_time_to_string, 486, 486, 7, 34, 1},
+  {cont__28_13, &frame__28_1_types__date_and_time_to_string, 488, 488, 16, 28, 1},
+  {cont__28_14, &frame__28_1_types__date_and_time_to_string, 488, 488, 7, 35, 1},
+  {cont__28_15, &frame__28_1_types__date_and_time_to_string, 490, 490, 35, 47, 1},
+  {cont__28_16, &frame__28_1_types__date_and_time_to_string, 490, 490, 28, 47, 1},
+  {cont__28_17, &frame__28_1_types__date_and_time_to_string, 490, 490, 22, 47, 1},
+  {cont__28_18, &frame__28_1_types__date_and_time_to_string, 490, 490, 16, 49, 1},
+  {cont__28_19, &frame__28_1_types__date_and_time_to_string, 490, 490, 7, 56, 1},
+  {cont__28_20, &frame__28_1_types__date_and_time_to_string, 492, 495, 7, 20, 1},
+  {cont__28_33, &frame__28_1_types__date_and_time_to_string, 477, 495, 5, 21, 1},
+  {cont__28_37, &frame__28_1_types__date_and_time_to_string, 476, 495, 3, 23, 1},
+  {entry__29_1_std__sleep, NULL, 502, 512, 3, 2, 1}
 };
 
 union NODE {
@@ -1285,7 +1285,7 @@ static void entry__28_1_types__date_and_time_to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 431: $ts time_shift_of(self)
+  // 473: $ts time_shift_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1300,7 +1300,7 @@ static void cont__28_2(void) {
     return;
   }
   initialize_future(frame->slots[1] /* ts */, arguments->slots[0]);
-  // 432: $t self+ts
+  // 474: $t self+ts
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1316,7 +1316,7 @@ static void cont__28_3(void) {
     return;
   }
   initialize_future(frame->slots[2] /* t */, arguments->slots[0]);
-  // 433: $second second_of(t)
+  // 475: $second second_of(t)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* t */;
@@ -1331,7 +1331,7 @@ static void cont__28_4(void) {
     return;
   }
   initialize_future(frame->slots[3] /* second */, arguments->slots[0]);
-  // 436: year_of(t)
+  // 478: year_of(t)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* t */;
@@ -1346,7 +1346,7 @@ static void cont__28_5(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 438: ... month_of(t)
+  // 480: ... month_of(t)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* t */;
@@ -1361,7 +1361,7 @@ static void cont__28_6(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 438: pad_left(month_of(t) 2 "0")
+  // 480: pad_left(month_of(t) 2 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__4 */;
@@ -1378,7 +1378,7 @@ static void cont__28_8(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 440: ... day_of(t)
+  // 482: ... day_of(t)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* t */;
@@ -1393,7 +1393,7 @@ static void cont__28_9(void) {
     return;
   }
   frame->slots[9] /* temp__6 */ = arguments->slots[0];
-  // 440: pad_left(day_of(t) 2 "0")
+  // 482: pad_left(day_of(t) 2 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__6 */;
@@ -1410,7 +1410,7 @@ static void cont__28_10(void) {
     return;
   }
   frame->slots[8] /* temp__5 */ = arguments->slots[0];
-  // 442: hour_of(t)
+  // 484: hour_of(t)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* t */;
@@ -1425,7 +1425,7 @@ static void cont__28_11(void) {
     return;
   }
   frame->slots[10] /* temp__7 */ = arguments->slots[0];
-  // 444: ... minute_of(t)
+  // 486: ... minute_of(t)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* t */;
@@ -1440,7 +1440,7 @@ static void cont__28_12(void) {
     return;
   }
   frame->slots[12] /* temp__9 */ = arguments->slots[0];
-  // 444: pad_left(minute_of(t) 2 "0")
+  // 486: pad_left(minute_of(t) 2 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[12] /* temp__9 */;
@@ -1457,7 +1457,7 @@ static void cont__28_13(void) {
     return;
   }
   frame->slots[11] /* temp__8 */ = arguments->slots[0];
-  // 446: ... floor(second)
+  // 488: ... floor(second)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* second */;
@@ -1472,7 +1472,7 @@ static void cont__28_14(void) {
     return;
   }
   frame->slots[14] /* temp__11 */ = arguments->slots[0];
-  // 446: pad_left(floor(second) 2 "0")
+  // 488: pad_left(floor(second) 2 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[14] /* temp__11 */;
@@ -1489,7 +1489,7 @@ static void cont__28_15(void) {
     return;
   }
   frame->slots[13] /* temp__10 */ = arguments->slots[0];
-  // 448: ... floor(second)
+  // 490: ... floor(second)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* second */;
@@ -1504,7 +1504,7 @@ static void cont__28_16(void) {
     return;
   }
   frame->slots[19] /* temp__16 */ = arguments->slots[0];
-  // 448: ... second-floor(second)
+  // 490: ... second-floor(second)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* second */;
@@ -1520,7 +1520,7 @@ static void cont__28_17(void) {
     return;
   }
   frame->slots[18] /* temp__15 */ = arguments->slots[0];
-  // 448: ... 1000*(second-floor(second)
+  // 490: ... 1000*(second-floor(second)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1000;
@@ -1536,7 +1536,7 @@ static void cont__28_18(void) {
     return;
   }
   frame->slots[17] /* temp__14 */ = arguments->slots[0];
-  // 448: ... floor(1000*(second-floor(second)))
+  // 490: ... floor(1000*(second-floor(second)))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[17] /* temp__14 */;
@@ -1551,7 +1551,7 @@ static void cont__28_19(void) {
     return;
   }
   frame->slots[16] /* temp__13 */ = arguments->slots[0];
-  // 448: pad_left(floor(1000*(second-floor(second))) 3 "0")
+  // 490: pad_left(floor(1000*(second-floor(second))) 3 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[16] /* temp__13 */;
@@ -1568,14 +1568,14 @@ static void cont__28_20(void) {
     return;
   }
   frame->slots[15] /* temp__12 */ = arguments->slots[0];
-  // 451: -> ts > 0 -> string("+" ts/3600)
+  // 493: -> ts > 0 -> string("+" ts/3600)
   frame->slots[21] /* temp__18 */ = create_closure(entry__28_21, 0);
-  // 452: -> ts < 0 -> ts/3600
+  // 494: -> ts < 0 -> ts/3600
   frame->slots[22] /* temp__19 */ = create_closure(entry__28_27, 0);
-  // 450: cond
-  // 451:   -> ts > 0 -> string("+" ts/3600)
-  // 452:   -> ts < 0 -> ts/3600
-  // 453:   -> true -> ""
+  // 492: cond
+  // 493:   -> ts > 0 -> string("+" ts/3600)
+  // 494:   -> ts < 0 -> ts/3600
+  // 495:   -> true -> ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[21] /* temp__18 */;
@@ -1593,7 +1593,7 @@ static void entry__28_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 453: ... -> ""
+  // 495: ... -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -1610,7 +1610,7 @@ static void entry__28_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 452: ... ts/3600
+  // 494: ... ts/3600
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ts */;
@@ -1626,7 +1626,7 @@ static void cont__28_30(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 452: ... -> ts/3600
+  // 494: ... -> ts/3600
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1643,7 +1643,7 @@ static void entry__28_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 451: ... ts/3600
+  // 493: ... ts/3600
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ts */;
@@ -1659,7 +1659,7 @@ static void cont__28_24(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 451: ... string("+" ts/3600)
+  // 493: ... string("+" ts/3600)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__28_25;
@@ -1675,7 +1675,7 @@ static void cont__28_26(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 451: ... -> string("+" ts/3600)
+  // 493: ... -> string("+" ts/3600)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1692,7 +1692,7 @@ static void entry__28_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 451: ... ts > 0
+  // 493: ... ts > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -1708,9 +1708,9 @@ static void cont__28_22(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 451: ... -> string("+" ts/3600)
+  // 493: ... -> string("+" ts/3600)
   frame->slots[2] /* temp__2 */ = create_closure(entry__28_23, 0);
-  // 451: -> ts > 0 -> string("+" ts/3600)
+  // 493: -> ts > 0 -> string("+" ts/3600)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1728,7 +1728,7 @@ static void entry__28_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 452: ... ts < 0
+  // 494: ... ts < 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ts */;
@@ -1744,9 +1744,9 @@ static void cont__28_28(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 452: ... -> ts/3600
+  // 494: ... -> ts/3600
   frame->slots[2] /* temp__2 */ = create_closure(entry__28_29, 0);
-  // 452: -> ts < 0 -> ts/3600
+  // 494: -> ts < 0 -> ts/3600
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1762,7 +1762,7 @@ static void entry__28_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 453: -> true -> ""
+  // 495: -> true -> ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -1777,16 +1777,16 @@ static void cont__28_33(void) {
     return;
   }
   frame->slots[20] /* temp__17 */ = arguments->slots[0];
-  // 435: string
-  // 436:   year_of(t)
-  // 437:   "-"
-  // 438:   pad_left(month_of(t) 2 "0")
-  // 439:   "-"
-  // 440:   pad_left(day_of(t) 2 "0")
-  // 441:   ' '
-  // 442:   hour_of(t)
-  // 443:   ":"
-  // 444:   pad_left(minute_of(t) 2 "0")
+  // 477: string
+  // 478:   year_of(t)
+  // 479:   "-"
+  // 480:   pad_left(month_of(t) 2 "0")
+  // 481:   "-"
+  // 482:   pad_left(day_of(t) 2 "0")
+  // 483:   ' '
+  // 484:   hour_of(t)
+  // 485:   ":"
+  // 486:   pad_left(minute_of(t) 2 "0")
   // ...
   argument_count = 15;
   arguments = node_p;
@@ -1816,16 +1816,16 @@ static void cont__28_37(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 434: ->
-  // 435:   string
-  // 436:     year_of(t)
-  // 437:     "-"
-  // 438:     pad_left(month_of(t) 2 "0")
-  // 439:     "-"
-  // 440:     pad_left(day_of(t) 2 "0")
-  // 441:     ' '
-  // 442:     hour_of(t)
-  // 443:     ":"
+  // 476: ->
+  // 477:   string
+  // 478:     year_of(t)
+  // 479:     "-"
+  // 480:     pad_left(month_of(t) 2 "0")
+  // 481:     "-"
+  // 482:     pad_left(day_of(t) 2 "0")
+  // 483:     ' '
+  // 484:     hour_of(t)
+  // 485:     ":"
   // ...
   argument_count = 1;
   arguments = node_p;
