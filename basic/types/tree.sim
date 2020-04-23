@@ -242,9 +242,12 @@ $types::insert_order_tree/insert_behind:
     :
       insert_behind &self.table_of key new_key new_value
 
-$std::tree_nodes_of: (self)
+$std::tree_nodes_of:
   #
     returns a table containing all of the tree's nodes
+  (
+    self
+  )
   -> table_of(self)
     # allows only read-access
 

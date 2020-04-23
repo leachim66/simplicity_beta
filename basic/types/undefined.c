@@ -283,12 +283,12 @@ static void cont__16_3(void);
 void run__basic__types__undefined(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__types__undefined, NULL, 53, 53, 1, 72},
+  {run__basic__types__undefined, NULL, 80, 80, 1, 72},
   {cont__16_3, NULL, },
-  {entry__5_1_types__undefined_equal, NULL, 41, 41, 43, 60},
-  {cont__5_2, &frame__5_1_types__undefined_equal, 41, 41, 40, 60},
-  {entry__6_1_types__undefined_default_value, NULL, 43, 43, 50, 59},
-  {entry__16_2, NULL, 53, 53, 56, 72}
+  {entry__5_1_types__undefined_equal, NULL, 61, 61, 6, 23},
+  {cont__5_2, &frame__5_1_types__undefined_equal, 61, 61, 3, 23},
+  {entry__6_1_types__undefined_default_value, NULL, 70, 70, 3, 12},
+  {entry__16_2, NULL, 80, 80, 56, 72}
 };
 
 union NODE {
@@ -332,7 +332,7 @@ EXPORT void run__basic__types__undefined(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 53: register_deserializer "undefined": (text _base_indent) -> text undefined
+  // 80: register_deserializer "undefined": (text _base_indent) -> text undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__16_1;
@@ -351,7 +351,7 @@ static void entry__16_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 53: ... -> text undefined
+  // 80: ... -> text undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -427,7 +427,7 @@ static void entry__5_1_types__undefined_equal(void) {
     invalid_arguments_error();
     return;
   }
-  // 41: ... right.is_undefined
+  // 61: ... right.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -442,7 +442,7 @@ static void cont__5_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 41: ... -> right.is_undefined
+  // 61: -> right.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -459,7 +459,7 @@ static void entry__6_1_types__undefined_default_value(void) {
     invalid_arguments_error();
     return;
   }
-  // 43: ... -> default
+  // 70: -> default
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* default */;

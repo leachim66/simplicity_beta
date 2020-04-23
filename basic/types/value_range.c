@@ -389,43 +389,43 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__6_1_std__value_range, NULL, 52, 55, 3, 2},
   {entry__7_1_types__value_range_lower_bound_of, NULL, 60, 63, 3, 2},
   {entry__8_1_types__value_range_upper_bound_of, NULL, 68, 71, 3, 2},
-  {entry__10_7, NULL, 99, 99, 7, 26},
-  {cont__10_8, &frame__10_7, 99, 99, 31, 51},
-  {cont__10_9, &frame__10_7, 99, 99, 7, 51},
-  {cont__10_10, &frame__10_7, 99, 99, 7, 51},
-  {entry__10_3, NULL, 98, 98, 7, 26},
-  {cont__10_4, &frame__10_3, 98, 98, 31, 51},
-  {cont__10_5, &frame__10_3, 98, 98, 7, 51},
-  {cont__10_6, &frame__10_3, 99, 99, 7, 51},
+  {entry__10_7, NULL, 105, 105, 7, 26},
+  {cont__10_8, &frame__10_7, 105, 105, 31, 51},
+  {cont__10_9, &frame__10_7, 105, 105, 7, 51},
+  {cont__10_10, &frame__10_7, 105, 105, 7, 51},
+  {entry__10_3, NULL, 104, 104, 7, 26},
+  {cont__10_4, &frame__10_3, 104, 104, 31, 51},
+  {cont__10_5, &frame__10_3, 104, 104, 7, 51},
+  {cont__10_6, &frame__10_3, 105, 105, 7, 51},
   {cont__10_11, &frame__10_3, },
-  {entry__10_1_types__value_range_equal, NULL, 97, 97, 7, 28},
+  {entry__10_1_types__value_range_equal, NULL, 103, 103, 7, 28},
   {cont__10_2, &frame__10_1_types__value_range_equal, },
-  {cont__10_12, &frame__10_1_types__value_range_equal, 95, 99, 3, 52},
-  {entry__11_5, NULL, 113, 113, 46, 65},
-  {cont__11_6, &frame__11_5, 113, 113, 38, 65},
-  {cont__11_7, &frame__11_5, 113, 113, 38, 65},
-  {cont__11_8, &frame__11_5, 113, 113, 38, 65},
-  {entry__11_1_types__value_range_contains, NULL, 113, 113, 14, 33},
-  {cont__11_2, &frame__11_1_types__value_range_contains, 113, 113, 6, 33},
-  {cont__11_3, &frame__11_1_types__value_range_contains, 113, 113, 6, 33},
-  {cont__11_4, &frame__11_1_types__value_range_contains, 113, 113, 6, 65},
-  {cont__11_9, &frame__11_1_types__value_range_contains, 113, 113, 3, 65},
-  {entry__12_4, NULL, 128, 128, 5, 13},
-  {entry__12_1_types__value_range_for_each, NULL, 127, 127, 11, 30},
-  {cont__12_2, &frame__12_1_types__value_range_for_each, 127, 127, 32, 51},
-  {cont__12_3, &frame__12_1_types__value_range_for_each, 127, 128, 3, 13},
-  {entry__13_1_types__value_range_serialize, NULL, 137, 137, 14, 21},
-  {cont__13_2, &frame__13_1_types__value_range_serialize, 137, 137, 7, 22},
-  {cont__13_3, &frame__13_1_types__value_range_serialize, 137, 137, 36, 55},
-  {cont__13_4, &frame__13_1_types__value_range_serialize, 137, 137, 26, 56},
-  {cont__13_5, &frame__13_1_types__value_range_serialize, 137, 137, 60, 67},
-  {cont__13_6, &frame__13_1_types__value_range_serialize, 138, 138, 18, 25},
-  {cont__13_7, &frame__13_1_types__value_range_serialize, 138, 138, 11, 26},
-  {cont__13_8, &frame__13_1_types__value_range_serialize, 138, 138, 40, 59},
-  {cont__13_9, &frame__13_1_types__value_range_serialize, 138, 138, 30, 60},
-  {cont__13_10, &frame__13_1_types__value_range_serialize, 138, 138, 64, 71},
-  {cont__13_11, &frame__13_1_types__value_range_serialize, 135, 138, 6, 72},
-  {cont__13_14, &frame__13_1_types__value_range_serialize, 135, 138, 3, 72}
+  {cont__10_12, &frame__10_1_types__value_range_equal, 101, 105, 3, 52},
+  {entry__11_5, NULL, 119, 119, 46, 65},
+  {cont__11_6, &frame__11_5, 119, 119, 38, 65},
+  {cont__11_7, &frame__11_5, 119, 119, 38, 65},
+  {cont__11_8, &frame__11_5, 119, 119, 38, 65},
+  {entry__11_1_types__value_range_contains, NULL, 119, 119, 14, 33},
+  {cont__11_2, &frame__11_1_types__value_range_contains, 119, 119, 6, 33},
+  {cont__11_3, &frame__11_1_types__value_range_contains, 119, 119, 6, 33},
+  {cont__11_4, &frame__11_1_types__value_range_contains, 119, 119, 6, 65},
+  {cont__11_9, &frame__11_1_types__value_range_contains, 119, 119, 3, 65},
+  {entry__12_4, NULL, 134, 134, 5, 13},
+  {entry__12_1_types__value_range_for_each, NULL, 133, 133, 11, 30},
+  {cont__12_2, &frame__12_1_types__value_range_for_each, 133, 133, 32, 51},
+  {cont__12_3, &frame__12_1_types__value_range_for_each, 133, 134, 3, 13},
+  {entry__13_1_types__value_range_serialize, NULL, 145, 145, 14, 21},
+  {cont__13_2, &frame__13_1_types__value_range_serialize, 145, 145, 7, 22},
+  {cont__13_3, &frame__13_1_types__value_range_serialize, 145, 145, 36, 55},
+  {cont__13_4, &frame__13_1_types__value_range_serialize, 145, 145, 26, 56},
+  {cont__13_5, &frame__13_1_types__value_range_serialize, 145, 145, 60, 67},
+  {cont__13_6, &frame__13_1_types__value_range_serialize, 146, 146, 18, 25},
+  {cont__13_7, &frame__13_1_types__value_range_serialize, 146, 146, 11, 26},
+  {cont__13_8, &frame__13_1_types__value_range_serialize, 146, 146, 40, 59},
+  {cont__13_9, &frame__13_1_types__value_range_serialize, 146, 146, 30, 60},
+  {cont__13_10, &frame__13_1_types__value_range_serialize, 146, 146, 64, 71},
+  {cont__13_11, &frame__13_1_types__value_range_serialize, 143, 146, 6, 72},
+  {cont__13_14, &frame__13_1_types__value_range_serialize, 143, 146, 3, 72}
 };
 
 union NODE {
@@ -626,7 +626,7 @@ static void entry__10_1_types__value_range_equal(void) {
     invalid_arguments_error();
     return;
   }
-  // 97: right.is_a_value_range
+  // 103: right.is_a_value_range
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -662,7 +662,7 @@ static void entry__10_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 98: lower_bound_of(left)
+  // 104: lower_bound_of(left)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* left */;
@@ -677,7 +677,7 @@ static void cont__10_4(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 98: ... lower_bound_of(right)
+  // 104: ... lower_bound_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -692,7 +692,7 @@ static void cont__10_5(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 98: lower_bound_of(left) == lower_bound_of(right)
+  // 104: lower_bound_of(left) == lower_bound_of(right)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -708,7 +708,7 @@ static void cont__10_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 99: upper_bound_of(left) == upper_bound_of(right)
+  // 105: upper_bound_of(left) == upper_bound_of(right)
   frame->slots[6] /* temp__5 */ = create_closure(entry__10_7, 0);
   argument_count = 2;
   arguments = node_p;
@@ -730,7 +730,7 @@ static void entry__10_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 99: upper_bound_of(left)
+  // 105: upper_bound_of(left)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* left */;
@@ -745,7 +745,7 @@ static void cont__10_8(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 99: ... upper_bound_of(right)
+  // 105: ... upper_bound_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -760,7 +760,7 @@ static void cont__10_9(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 99: upper_bound_of(left) == upper_bound_of(right)
+  // 105: upper_bound_of(left) == upper_bound_of(right)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -776,7 +776,7 @@ static void cont__10_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 99: upper_bound_of(left) == upper_bound_of(right)
+  // 105: upper_bound_of(left) == upper_bound_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -803,11 +803,11 @@ static void cont__10_12(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 95: ->
-  // 96:   &&
-  // 97:     right.is_a_value_range
-  // 98:     lower_bound_of(left) == lower_bound_of(right)
-  // 99:     upper_bound_of(left) == upper_bound_of(right)
+  // 101: ->
+  // 102:   &&
+  // 103:     right.is_a_value_range
+  // 104:     lower_bound_of(left) == lower_bound_of(right)
+  // 105:     upper_bound_of(left) == upper_bound_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -824,7 +824,7 @@ static void entry__11_1_types__value_range_contains(void) {
     invalid_arguments_error();
     return;
   }
-  // 113: ... lower_bound_of(self)
+  // 119: ... lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -839,7 +839,7 @@ static void cont__11_2(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 113: ... item >= lower_bound_of(self)
+  // 119: ... item >= lower_bound_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* item */;
@@ -855,7 +855,7 @@ static void cont__11_3(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 113: ... item >= lower_bound_of(self)
+  // 119: ... item >= lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -870,9 +870,9 @@ static void cont__11_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 113: ... item <= upper_bound_of(self)
+  // 119: ... item <= upper_bound_of(self)
   frame->slots[6] /* temp__5 */ = create_closure(entry__11_5, 0);
-  // 113: ... item >= lower_bound_of(self) && item <= upper_bound_of(self)
+  // 119: ... item >= lower_bound_of(self) && item <= upper_bound_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -893,7 +893,7 @@ static void entry__11_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 113: ... upper_bound_of(self)
+  // 119: ... upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -908,7 +908,7 @@ static void cont__11_6(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 113: ... item <= upper_bound_of(self)
+  // 119: ... item <= upper_bound_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -924,7 +924,7 @@ static void cont__11_7(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 113: ... item <= upper_bound_of(self)
+  // 119: ... item <= upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -939,7 +939,7 @@ static void cont__11_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 113: ... item <= upper_bound_of(self)
+  // 119: ... item <= upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -953,7 +953,7 @@ static void cont__11_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 113: -> item >= lower_bound_of(self) && item <= upper_bound_of(self)
+  // 119: -> item >= lower_bound_of(self) && item <= upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -971,7 +971,7 @@ static void entry__12_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 128: body item
+  // 134: body item
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
@@ -989,7 +989,7 @@ static void entry__12_1_types__value_range_for_each(void) {
     invalid_arguments_error();
     return;
   }
-  // 127: ... lower_bound_of(self)
+  // 133: ... lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1004,7 +1004,7 @@ static void cont__12_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 127: ... upper_bound_of(self)
+  // 133: ... upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1019,11 +1019,11 @@ static void cont__12_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 127: ... : (item)
-  // 128:   body item
+  // 133: ... : (item)
+  // 134:   body item
   frame->slots[4] /* temp__3 */ = create_closure(entry__12_4, 1);
-  // 127: from_to lower_bound_of(self) upper_bound_of(self): (item)
-  // 128:   body item
+  // 133: from_to lower_bound_of(self) upper_bound_of(self): (item)
+  // 134:   body item
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1054,7 +1054,7 @@ static void entry__13_1_types__value_range_serialize(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* indent */ = number__0;
   }
-  // 137: ... indent+2
+  // 145: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1070,7 +1070,7 @@ static void cont__13_2(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 137: ... spaces(indent+2)
+  // 145: ... spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1085,7 +1085,7 @@ static void cont__13_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 137: ... lower_bound_of(self)
+  // 145: ... lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1100,7 +1100,7 @@ static void cont__13_4(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 137: ... serialize(lower_bound_of(self))
+  // 145: ... serialize(lower_bound_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__5 */;
@@ -1115,7 +1115,7 @@ static void cont__13_5(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 137: ... indent+2
+  // 145: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1131,7 +1131,7 @@ static void cont__13_6(void) {
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 138: ... indent+2
+  // 146: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1147,7 +1147,7 @@ static void cont__13_7(void) {
     return;
   }
   frame->slots[9] /* temp__8 */ = arguments->slots[0];
-  // 138: ... spaces(indent+2)
+  // 146: ... spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__8 */;
@@ -1162,7 +1162,7 @@ static void cont__13_8(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 138: ... upper_bound_of(self)
+  // 146: ... upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1177,7 +1177,7 @@ static void cont__13_9(void) {
     return;
   }
   frame->slots[11] /* temp__10 */ = arguments->slots[0];
-  // 138: ... serialize(upper_bound_of(self))
+  // 146: ... serialize(upper_bound_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__10 */;
@@ -1192,7 +1192,7 @@ static void cont__13_10(void) {
     return;
   }
   frame->slots[10] /* temp__9 */ = arguments->slots[0];
-  // 138: ... indent+2
+  // 146: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1208,10 +1208,10 @@ static void cont__13_11(void) {
     return;
   }
   frame->slots[12] /* temp__11 */ = arguments->slots[0];
-  // 135: ... "
-  // 136:   value_range
-  // 137:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
-  // 138:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
+  // 143: ... "
+  // 144:   value_range
+  // 145:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
+  // 146:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__13_12;
@@ -1234,10 +1234,10 @@ static void cont__13_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 135: -> "
-  // 136:   value_range
-  // 137:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
-  // 138:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
+  // 143: -> "
+  // 144:   value_range
+  // 145:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
+  // 146:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;

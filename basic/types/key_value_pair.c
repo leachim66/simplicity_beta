@@ -328,21 +328,21 @@ void run__basic__types__key_value_pair(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_key_value_pair, NULL, 23, 23, 2, 25},
   {run__basic__types__key_value_pair, NULL, },
-  {entry__6_1_std__key_value_pair, NULL, 48, 51, 3, 2},
-  {entry__7_1_types__key_value_pair_key_of, NULL, 54, 57, 3, 2},
-  {entry__8_1_types__key_value_pair_value_of, NULL, 60, 63, 3, 2},
-  {entry__10_1_types__key_value_pair_serialize, NULL, 91, 91, 14, 21},
-  {cont__10_2, &frame__10_1_types__key_value_pair_serialize, 91, 91, 7, 22},
-  {cont__10_3, &frame__10_1_types__key_value_pair_serialize, 91, 91, 36, 47},
-  {cont__10_4, &frame__10_1_types__key_value_pair_serialize, 91, 91, 49, 56},
-  {cont__10_5, &frame__10_1_types__key_value_pair_serialize, 91, 91, 26, 57},
-  {cont__10_6, &frame__10_1_types__key_value_pair_serialize, 92, 92, 18, 25},
-  {cont__10_7, &frame__10_1_types__key_value_pair_serialize, 92, 92, 11, 26},
-  {cont__10_8, &frame__10_1_types__key_value_pair_serialize, 92, 92, 40, 53},
-  {cont__10_9, &frame__10_1_types__key_value_pair_serialize, 92, 92, 55, 62},
-  {cont__10_10, &frame__10_1_types__key_value_pair_serialize, 92, 92, 30, 63},
-  {cont__10_11, &frame__10_1_types__key_value_pair_serialize, 89, 92, 6, 65},
-  {cont__10_14, &frame__10_1_types__key_value_pair_serialize, 89, 92, 3, 65}
+  {entry__6_1_std__key_value_pair, NULL, 52, 55, 3, 2},
+  {entry__7_1_types__key_value_pair_key_of, NULL, 60, 63, 3, 2},
+  {entry__8_1_types__key_value_pair_value_of, NULL, 68, 71, 3, 2},
+  {entry__10_1_types__key_value_pair_serialize, NULL, 101, 101, 14, 21},
+  {cont__10_2, &frame__10_1_types__key_value_pair_serialize, 101, 101, 7, 22},
+  {cont__10_3, &frame__10_1_types__key_value_pair_serialize, 101, 101, 36, 47},
+  {cont__10_4, &frame__10_1_types__key_value_pair_serialize, 101, 101, 49, 56},
+  {cont__10_5, &frame__10_1_types__key_value_pair_serialize, 101, 101, 26, 57},
+  {cont__10_6, &frame__10_1_types__key_value_pair_serialize, 102, 102, 18, 25},
+  {cont__10_7, &frame__10_1_types__key_value_pair_serialize, 102, 102, 11, 26},
+  {cont__10_8, &frame__10_1_types__key_value_pair_serialize, 102, 102, 40, 53},
+  {cont__10_9, &frame__10_1_types__key_value_pair_serialize, 102, 102, 55, 62},
+  {cont__10_10, &frame__10_1_types__key_value_pair_serialize, 102, 102, 30, 63},
+  {cont__10_11, &frame__10_1_types__key_value_pair_serialize, 99, 102, 6, 65},
+  {cont__10_14, &frame__10_1_types__key_value_pair_serialize, 99, 102, 3, 65}
 };
 
 union NODE {
@@ -553,7 +553,7 @@ static void entry__10_1_types__key_value_pair_serialize(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* indent */ = number__0;
   }
-  // 91: ... indent+2
+  // 101: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -569,7 +569,7 @@ static void cont__10_2(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 91: ... spaces(indent+2)
+  // 101: ... spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -584,7 +584,7 @@ static void cont__10_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 91: ... key_of(self)
+  // 101: ... key_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -599,7 +599,7 @@ static void cont__10_4(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 91: ... indent+4
+  // 101: ... indent+4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -615,7 +615,7 @@ static void cont__10_5(void) {
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 91: ... serialize(key_of(self) indent+4)
+  // 101: ... serialize(key_of(self) indent+4)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__5 */;
@@ -631,7 +631,7 @@ static void cont__10_6(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 92: ... indent+2
+  // 102: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -647,7 +647,7 @@ static void cont__10_7(void) {
     return;
   }
   frame->slots[9] /* temp__8 */ = arguments->slots[0];
-  // 92: ... spaces(indent+2)
+  // 102: ... spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__8 */;
@@ -662,7 +662,7 @@ static void cont__10_8(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 92: ... value_of(self)
+  // 102: ... value_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -677,7 +677,7 @@ static void cont__10_9(void) {
     return;
   }
   frame->slots[11] /* temp__10 */ = arguments->slots[0];
-  // 92: ... indent+4
+  // 102: ... indent+4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -693,7 +693,7 @@ static void cont__10_10(void) {
     return;
   }
   frame->slots[12] /* temp__11 */ = arguments->slots[0];
-  // 92: ... serialize(value_of(self) indent+4)
+  // 102: ... serialize(value_of(self) indent+4)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__10 */;
@@ -709,10 +709,10 @@ static void cont__10_11(void) {
     return;
   }
   frame->slots[10] /* temp__9 */ = arguments->slots[0];
-  // 89: ... "
-  // 90:   key_value_pair
-  // 91:   @(spaces(indent+2))@(serialize(key_of(self) indent+4))@
-  // 92:   @nl;@(spaces(indent+2))@(serialize(value_of(self) indent+4))@
+  //  99: ... "
+  // 100:   key_value_pair
+  // 101:   @(spaces(indent+2))@(serialize(key_of(self) indent+4))@
+  // 102:   @nl;@(spaces(indent+2))@(serialize(value_of(self) indent+4))@
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = string__10_12;
@@ -732,10 +732,10 @@ static void cont__10_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 89: -> "
-  // 90:   key_value_pair
-  // 91:   @(spaces(indent+2))@(serialize(key_of(self) indent+4))@
-  // 92:   @nl;@(spaces(indent+2))@(serialize(value_of(self) indent+4))@
+  //  99: -> "
+  // 100:   key_value_pair
+  // 101:   @(spaces(indent+2))@(serialize(key_of(self) indent+4))@
+  // 102:   @nl;@(spaces(indent+2))@(serialize(value_of(self) indent+4))@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;

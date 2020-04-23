@@ -47,6 +47,8 @@ $get_item:
     -> table
 
 $types::multi_dimensional_table:
+  #
+    retrieves or adds an item
   (
     $myself^
     args*
@@ -61,7 +63,12 @@ $types::multi_dimensional_table:
 
 $types::multi_dimensional_table.table_of undefined
 
-$std::multi_dimensional_table: (dimensions*)
+$std::multi_dimensional_table:
+  #
+    creates a multi-dimensional table
+  (
+    dimensions*
+  )
   -> types::multi_dimensional_table(.dimensions_of dimensions)
 
 $for_each_dimension: (table depth indices body)
@@ -73,5 +80,11 @@ $for_each_dimension: (table depth indices body)
 	:
 	  body indices* idx value
 
-$types::multi_dimensional_table/for_each: (self body)
+$types::multi_dimensional_table/for_each:
+  #
+    iterates over all items
+  (
+    self
+    body
+  )
   for_each_dimension table_of(self) length_of(dimensions_of(self)) list() body

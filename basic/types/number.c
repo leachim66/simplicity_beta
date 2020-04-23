@@ -1059,8 +1059,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__140_1_types__number_round, NULL, 2332, 2332, 3, 9},
   {entry__141_1_types__real_floor, NULL, 2337, 2340, 3, 2},
   {entry__142_1_types__real_ceil, NULL, 2345, 2348, 3, 2},
-  {entry__143_1_types__real_round, NULL, 2351, 2354, 3, 2},
-  {entry__144_1_types__real_ln, NULL, 2359, 2362, 3, 2}
+  {entry__143_1_types__real_round, NULL, 2354, 2357, 3, 2},
+  {entry__144_1_types__real_ln, NULL, 2362, 2365, 3, 2}
 };
 
 union NODE {

@@ -47,6 +47,8 @@ $get_item:
     -> table
 
 $types::multi_dimensional_set:
+  #
+    checks or sets an element
   (
     $myself^
     args*
@@ -61,7 +63,12 @@ $types::multi_dimensional_set:
 
 $types::multi_dimensional_set.table_of undefined
 
-$std::multi_dimensional_set: (dimensions*)
+$std::multi_dimensional_set:
+  #
+    creates a multi-dimensional set
+  (
+    dimensions*
+  )
   -> types::multi_dimensional_set(.dimensions_of dimensions)
 
 $for_each_dimension: (table depth indices body)
@@ -73,5 +80,11 @@ $for_each_dimension: (table depth indices body)
 	:
 	  body indices* idx
 
-$types::multi_dimensional_set/for_each: (self body)
+$types::multi_dimensional_set/for_each:
+  #
+    iterates over all elements
+  (
+    self
+    body
+  )
   for_each_dimension table_of(self) length_of(dimensions_of(self)) list() body

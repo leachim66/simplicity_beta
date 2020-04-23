@@ -25,6 +25,8 @@
   <name types::undefined>
   <node SIMPLE_NODE>
 
+  // the pototype for the <undefined> object
+
   RUNTIME_ERROR("Attempt to call an undefined value as a function!")
 }
 
@@ -33,14 +35,39 @@
   <name std::undefined>
   <type types::undefined>
   <scope global>
+
+  // the undefined object
+  //
+  // The undfined object is the only object that is **not** derived from
+  // <types::object>!
+  //
+  // Accessing an attribute of an undefined object raises an error instead of
+  // returning <undefined>. This prevents endless recursion during an attempt to
+  // traverse an undefined structure.
+  //
+  // Be very carefull when defining methods or attributes for <types::undefined>.
 }
 
-$types::undefined.is_defined false
-$types::undefined.is_undefined true
+$types::undefined.is_defined false # obvious
+$types::undefined.is_undefined true # obvious
 
-$types::undefined/equal: (_left right) -> right.is_undefined
+$types::undefined/equal:
+  #
+    is only equal to itself
+  (
+    _left
+    right
+  )
+  -> right.is_undefined
 
-$types::undefined/default_value: (_self default) -> default
+$types::undefined/default_value:
+  #
+    returns the *default*
+  (
+    _self
+    default
+  )
+  -> default
 
 {
   <kind function>

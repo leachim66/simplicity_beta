@@ -2047,11 +2047,15 @@ $clib_mkdir
     RETURN_SINGLE_RESULT(from_int(err))
   }
 
-$std::mkdir: (options* $path)
+$std::mkdir:
   #
     creates a new directory
 
     This is a low level function.
+  (
+    options*
+    $path
+  )
 
   extract_options
     options

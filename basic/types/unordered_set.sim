@@ -620,13 +620,15 @@ $retrieve_item
   <argument 0>
   <argument NULL>
 
-  // Dummy implementation - will be reimplemented below in Simplicity!
+  // the prototype object for unordered sets
 
   CHECK_ARGUMENTS(0)
   RETURN_SINGLE_RESULT(create__types__unordered_set(0, NULL))
 }
 
 $types::unordered_set/length_of
+  #
+    returns the number of elements of the set
   {
     CHECK_ARGUMENTS(1)
 
@@ -790,6 +792,8 @@ $previous_key
   }
 
 $types::unordered_set/private::set_item:
+  #
+    adds an element to the set
   (
     $self
     $key
@@ -815,6 +819,8 @@ $types::unordered_set/private::set_item:
       !key cmp_key # force the use of the already stored (and equal) key
 
 $types::unordered_set/private::get_item:
+  #
+    checks whether the set contains the specified element
   (
     self
     key
@@ -852,6 +858,8 @@ $types::unordered_set/private::get_item:
   <generic_set> but does *NOT* work!
 
 $types::unordered_set/:
+  #
+    check or set an element
   (
     myself^
     key
@@ -864,18 +872,35 @@ $types::unordered_set/:
       private::set_item myself key value
 
 $types::unordered_set.serialization_tag_of "unordered_set"
+  #
+    the serialization tag for unordered sets
 
-$types::unordered_set/new_empty_collection: (_self) -> types::unordered_set
+$types::unordered_set/new_empty_collection:
+  #
+    returns an empty unordered set
+  (
+    _self
+  )
+  -> types::unordered_set
 
 $std::empty_unordered_set types::unordered_set
+  #
+    an empty unordered set
 
-$std::unordered_set: (initializers*)
+$std::unordered_set:
+  #
+    constructs an unordered set containing the specified elements
+  (
+    initializers*
+  )
   $$tab types::unordered_set
   for_each initializers: (initializer)
     !tab(std::key_of(initializer)) std::value_of(initializer)
   -> tab
 
 $types::unordered_set/for_each:
+  #
+    iterates over all elements of the set
   (
     self
     body
@@ -893,6 +918,8 @@ $types::unordered_set/for_each:
     body key
 
 $types::unordered_set/for_each_from_to:
+  #
+    iterates over all elements of the specified subrange
   (
     self
     first
@@ -915,6 +942,8 @@ $types::unordered_set/for_each_from_to:
     if key == NONE return
 
 $types::unordered_set/for_each_downwards:
+  #
+    iterates over all elements of the set in reverse order
   (
     self
     body
@@ -932,6 +961,8 @@ $types::unordered_set/for_each_downwards:
     body key
 
 $types::unordered_set/for_each_from_down_to:
+  #
+    iterates over all elements of the specified subrange in reverse order
   (
     self
     last

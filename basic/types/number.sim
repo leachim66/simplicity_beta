@@ -2348,6 +2348,9 @@ $types::real/ceil
   }
 
 $types::real/round
+  #
+    returns a *floating point* number
+
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(create__types__real(round(ARGUMENTS(0)->real.value)))

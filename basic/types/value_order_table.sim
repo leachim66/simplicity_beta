@@ -24,12 +24,23 @@ $table_of (!)
 $key_table_of (!)
 
 $types::value_order_table types::generic_table
+  #
+    the prototype object for all value-order tables
+
 $types::value_order_table.table_of empty_table
 $types::value_order_table.key_table_of empty_key_order_table
+
 $types::value_order_table.serialization_tag_of "value_order_table"
+  #
+    the serialization tag for value-ordered tables
+
 $types::value_order_table.length_of 0
+  #
+    returns the number of items in the table
 
 $types::value_order_table/private::set_item:
+  #
+    adds or updates an item
   (
     &self
     key
@@ -46,9 +57,18 @@ $types::value_order_table/private::set_item:
     !self.key_table_of(value) keys(key true)
     inc &self.length_of
 
-$types::value_order_table/private::get_item: (self key) table_of(self) key
+$types::value_order_table/private::get_item:
+  #
+    retrieves an item
+  (
+    self
+    key
+  )
+  table_of(self) key
 
 $types::value_order_table/get:
+  #
+    retrieves an removes an item
   (
     &self
     -> return
@@ -59,7 +79,13 @@ $types::value_order_table/get:
     !self(key) undefined
     return key
 
-$types::value_order_table/for_each: (self body)
+$types::value_order_table/for_each:
+  #
+    invokes the specified callback for each item of the table
+  (
+    self
+    body
+  )
   for_each key_table_of(self): (value keys)
     for_each keys: (key)
       if
@@ -69,4 +95,7 @@ $types::value_order_table/for_each: (self body)
 	  body value
 
 $std::empty_value_order_table types::value_order_table
+  #
+    an empty value-order table
+
 register_collection_serializer "value_order_table" empty_value_order_table

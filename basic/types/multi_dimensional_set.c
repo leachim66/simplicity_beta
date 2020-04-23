@@ -466,32 +466,32 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__4_5, &frame__4_1_get_item, 45, 45, 5, 26},
   {cont__4_6, &frame__4_1_get_item, 44, 47, 3, 12},
   {cont__4_14, &frame__4_1_get_item, 47, 47, 12, 12},
-  {entry__5_6, NULL, 58, 58, 36, 51},
-  {cont__5_7, &frame__5_6, 58, 58, 7, 68},
-  {cont__5_8, &frame__5_6, 59, 59, 7, 15},
-  {entry__5_9, NULL, 60, 60, 17, 32},
-  {cont__5_10, &frame__5_9, 60, 60, 8, 38},
-  {cont__5_11, &frame__5_9, 60, 60, 5, 38},
-  {entry__5_1_types__multi_dimensional_set, NULL, 54, 54, 3, 35},
-  {cont__5_2, &frame__5_1_types__multi_dimensional_set, 55, 55, 3, 26},
-  {cont__5_3, &frame__5_1_types__multi_dimensional_set, 57, 57, 5, 19},
-  {cont__5_4, &frame__5_1_types__multi_dimensional_set, 57, 57, 5, 23},
-  {cont__5_5, &frame__5_1_types__multi_dimensional_set, 56, 60, 3, 38},
-  {entry__7_1_std__multi_dimensional_set, NULL, 65, 65, 3, 60},
-  {entry__8_6, NULL, 72, 72, 36, 42},
-  {cont__8_7, &frame__8_6, 72, 72, 44, 60},
-  {cont__8_8, &frame__8_6, 72, 72, 11, 65},
-  {entry__8_9, NULL, 74, 74, 11, 27},
-  {entry__8_4, NULL, 71, 71, 9, 17},
-  {cont__8_5, &frame__8_4, 70, 74, 7, 28},
-  {entry__8_3, NULL, 69, 74, 5, 29},
-  {entry__8_1_for_each_dimension, NULL, 68, 68, 6, 21},
-  {cont__8_2, &frame__8_1_for_each_dimension, 68, 74, 3, 30},
-  {entry__9_1_types__multi_dimensional_set_for_each, NULL, 77, 77, 22, 35},
-  {cont__9_2, &frame__9_1_types__multi_dimensional_set_for_each, 77, 77, 47, 65},
-  {cont__9_3, &frame__9_1_types__multi_dimensional_set_for_each, 77, 77, 37, 66},
-  {cont__9_4, &frame__9_1_types__multi_dimensional_set_for_each, 77, 77, 68, 73},
-  {cont__9_5, &frame__9_1_types__multi_dimensional_set_for_each, 77, 77, 3, 78}
+  {entry__5_6, NULL, 60, 60, 36, 51},
+  {cont__5_7, &frame__5_6, 60, 60, 7, 68},
+  {cont__5_8, &frame__5_6, 61, 61, 7, 15},
+  {entry__5_9, NULL, 62, 62, 17, 32},
+  {cont__5_10, &frame__5_9, 62, 62, 8, 38},
+  {cont__5_11, &frame__5_9, 62, 62, 5, 38},
+  {entry__5_1_types__multi_dimensional_set, NULL, 56, 56, 3, 35},
+  {cont__5_2, &frame__5_1_types__multi_dimensional_set, 57, 57, 3, 26},
+  {cont__5_3, &frame__5_1_types__multi_dimensional_set, 59, 59, 5, 19},
+  {cont__5_4, &frame__5_1_types__multi_dimensional_set, 59, 59, 5, 23},
+  {cont__5_5, &frame__5_1_types__multi_dimensional_set, 58, 62, 3, 38},
+  {entry__7_1_std__multi_dimensional_set, NULL, 72, 72, 3, 60},
+  {entry__8_6, NULL, 79, 79, 36, 42},
+  {cont__8_7, &frame__8_6, 79, 79, 44, 60},
+  {cont__8_8, &frame__8_6, 79, 79, 11, 65},
+  {entry__8_9, NULL, 81, 81, 11, 27},
+  {entry__8_4, NULL, 78, 78, 9, 17},
+  {cont__8_5, &frame__8_4, 77, 81, 7, 28},
+  {entry__8_3, NULL, 76, 81, 5, 29},
+  {entry__8_1_for_each_dimension, NULL, 75, 75, 6, 21},
+  {cont__8_2, &frame__8_1_for_each_dimension, 75, 81, 3, 30},
+  {entry__9_1_types__multi_dimensional_set_for_each, NULL, 90, 90, 22, 35},
+  {cont__9_2, &frame__9_1_types__multi_dimensional_set_for_each, 90, 90, 47, 65},
+  {cont__9_3, &frame__9_1_types__multi_dimensional_set_for_each, 90, 90, 37, 66},
+  {cont__9_4, &frame__9_1_types__multi_dimensional_set_for_each, 90, 90, 68, 73},
+  {cont__9_5, &frame__9_1_types__multi_dimensional_set_for_each, 90, 90, 3, 78}
 };
 
 union NODE {
@@ -1170,7 +1170,7 @@ static void entry__5_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 58: ... table_of(myself)
+  // 60: ... table_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -1185,7 +1185,7 @@ static void cont__5_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 58: !myself.table_of insert_into(table_of(myself) dimensions args)
+  // 60: !myself.table_of insert_into(table_of(myself) dimensions args)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1202,7 +1202,7 @@ static void cont__5_8(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 58: !myself.table_of
+  // 60: !myself.table_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -1210,7 +1210,7 @@ static void cont__5_8(void) {
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 59: -> myself
+  // 61: -> myself
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -1229,7 +1229,7 @@ static void entry__5_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 60: ... table_of(myself)
+  // 62: ... table_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -1244,7 +1244,7 @@ static void cont__5_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 60: ... get_item(table_of(myself) args)
+  // 62: ... get_item(table_of(myself) args)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1260,7 +1260,7 @@ static void cont__5_11(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 60: -> get_item(table_of(myself) args)
+  // 62: -> get_item(table_of(myself) args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1280,7 +1280,7 @@ static void entry__5_1_types__multi_dimensional_set(void) {
   frame->slots[3] /* n */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
   frame->slots[1] /* myself */ = create_cell_with_contents(myself);
-  // 54: $dimensions dimensions_of(myself)
+  // 56: $dimensions dimensions_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* myself */;
@@ -1295,7 +1295,7 @@ static void cont__5_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* dimensions */, arguments->slots[0]);
-  // 55: $n length_of(dimensions)
+  // 57: $n length_of(dimensions)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* dimensions */;
@@ -1310,7 +1310,7 @@ static void cont__5_3(void) {
     return;
   }
   initialize_future(frame->slots[3] /* n */, arguments->slots[0]);
-  // 57: length_of(args)
+  // 59: length_of(args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -1325,7 +1325,7 @@ static void cont__5_4(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 57: length_of(args) > n
+  // 59: length_of(args) > n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* n */;
@@ -1341,17 +1341,17 @@ static void cont__5_5(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 57: ... : # insert
-  // 58:   !myself.table_of insert_into(table_of(myself) dimensions args)
-  // 59:   -> myself
+  // 59: ... : # insert
+  // 60:   !myself.table_of insert_into(table_of(myself) dimensions args)
+  // 61:   -> myself
   frame->slots[6] /* temp__3 */ = create_closure(entry__5_6, 0);
-  // 60: -> get_item(table_of(myself) args)
+  // 62: -> get_item(table_of(myself) args)
   frame->slots[7] /* temp__4 */ = create_closure(entry__5_9, 0);
-  // 56: if
-  // 57:   length_of(args) > n: # insert
-  // 58:     !myself.table_of insert_into(table_of(myself) dimensions args)
-  // 59:     -> myself
-  // 60:   -> get_item(table_of(myself) args)
+  // 58: if
+  // 59:   length_of(args) > n: # insert
+  // 60:     !myself.table_of insert_into(table_of(myself) dimensions args)
+  // 61:     -> myself
+  // 62:   -> get_item(table_of(myself) args)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1368,7 +1368,7 @@ static void entry__7_1_std__multi_dimensional_set(void) {
   // slot allocations:
   // dimensions: 0
   frame->slots[0] /* dimensions */ = from_arguments(0, argument_count-0);
-  // 65: ... types::multi_dimensional_set(.dimensions_of dimensions)
+  // 72: ... types::multi_dimensional_set(.dimensions_of dimensions)
   {
     NODE *temp = clone_object_and_attributes(var.types__multi_dimensional_set);
     update_start_p = node_p;
@@ -1376,7 +1376,7 @@ static void entry__7_1_std__multi_dimensional_set(void) {
     frame->slots[1] /* temp__1 */ = temp;
 
   }
-  // 65: -> types::multi_dimensional_set(.dimensions_of dimensions)
+  // 72: -> types::multi_dimensional_set(.dimensions_of dimensions)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1401,7 +1401,7 @@ static void entry__8_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 72: ... depth-1
+  // 79: ... depth-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* depth */;
@@ -1417,7 +1417,7 @@ static void cont__8_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 72: ... push(indices idx)
+  // 79: ... push(indices idx)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* indices */;
@@ -1433,7 +1433,7 @@ static void cont__8_8(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 72: for_each_dimension value depth-1 push(indices idx) body
+  // 79: for_each_dimension value depth-1 push(indices idx) body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -1458,7 +1458,7 @@ static void entry__8_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 74: body indices* idx
+  // 81: body indices* idx
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[1] /* indices */);
@@ -1494,7 +1494,7 @@ static void entry__8_4(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* value */ = undefined;
   }
-  // 71: depth > 1
+  // 78: depth > 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1510,17 +1510,17 @@ static void cont__8_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 71: ... :
-  // 72:   for_each_dimension value depth-1 push(indices idx) body
+  // 78: ... :
+  // 79:   for_each_dimension value depth-1 push(indices idx) body
   frame->slots[6] /* temp__2 */ = create_closure(entry__8_6, 0);
-  // 73: :
-  // 74:   body indices* idx
+  // 80: :
+  // 81:   body indices* idx
   frame->slots[7] /* temp__3 */ = create_closure(entry__8_9, 0);
-  // 70: if
-  // 71:   depth > 1:
-  // 72:     for_each_dimension value depth-1 push(indices idx) body
-  // 73:   :
-  // 74:     body indices* idx
+  // 77: if
+  // 78:   depth > 1:
+  // 79:     for_each_dimension value depth-1 push(indices idx) body
+  // 80:   :
+  // 81:     body indices* idx
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1546,19 +1546,19 @@ static void entry__8_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 69: ... : (idx value?)
-  // 70:   if
-  // 71:     depth > 1:
-  // 72:       for_each_dimension value depth-1 push(indices idx) body
-  // 73:     :
-  // 74:       body indices* idx
+  // 76: ... : (idx value?)
+  // 77:   if
+  // 78:     depth > 1:
+  // 79:       for_each_dimension value depth-1 push(indices idx) body
+  // 80:     :
+  // 81:       body indices* idx
   frame->slots[4] /* temp__1 */ = create_closure(entry__8_4, -1);
-  // 69: for_each table: (idx value?)
-  // 70:   if
-  // 71:     depth > 1:
-  // 72:       for_each_dimension value depth-1 push(indices idx) body
-  // 73:     :
-  // 74:       body indices* idx
+  // 76: for_each table: (idx value?)
+  // 77:   if
+  // 78:     depth > 1:
+  // 79:       for_each_dimension value depth-1 push(indices idx) body
+  // 80:     :
+  // 81:       body indices* idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* table */;
@@ -1579,7 +1579,7 @@ static void entry__8_1_for_each_dimension(void) {
     invalid_arguments_error();
     return;
   }
-  // 68: ... table.is_defined
+  // 75: ... table.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* table */;
@@ -1594,21 +1594,21 @@ static void cont__8_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 68: ... :
-  // 69:   for_each table: (idx value?)
-  // 70:     if
-  // 71:       depth > 1:
-  // 72:         for_each_dimension value depth-1 push(indices idx) body
-  // 73:       :
-  // 74:         body indices* idx
+  // 75: ... :
+  // 76:   for_each table: (idx value?)
+  // 77:     if
+  // 78:       depth > 1:
+  // 79:         for_each_dimension value depth-1 push(indices idx) body
+  // 80:       :
+  // 81:         body indices* idx
   frame->slots[5] /* temp__2 */ = create_closure(entry__8_3, 0);
-  // 68: if table.is_defined:
-  // 69:   for_each table: (idx value?)
-  // 70:     if
-  // 71:       depth > 1:
-  // 72:         for_each_dimension value depth-1 push(indices idx) body
-  // 73:       :
-  // 74:         body indices* idx
+  // 75: if table.is_defined:
+  // 76:   for_each table: (idx value?)
+  // 77:     if
+  // 78:       depth > 1:
+  // 79:         for_each_dimension value depth-1 push(indices idx) body
+  // 80:       :
+  // 81:         body indices* idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1627,7 +1627,7 @@ static void entry__9_1_types__multi_dimensional_set_for_each(void) {
     invalid_arguments_error();
     return;
   }
-  // 77: ... table_of(self)
+  // 90: ... table_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1642,7 +1642,7 @@ static void cont__9_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 77: ... dimensions_of(self)
+  // 90: ... dimensions_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1657,7 +1657,7 @@ static void cont__9_3(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 77: ... length_of(dimensions_of(self))
+  // 90: ... length_of(dimensions_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1672,7 +1672,7 @@ static void cont__9_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 77: ... list()
+  // 90: ... list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -1686,7 +1686,7 @@ static void cont__9_5(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 77: for_each_dimension table_of(self) length_of(dimensions_of(self)) list() body
+  // 90: for_each_dimension table_of(self) length_of(dimensions_of(self)) list() body
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;

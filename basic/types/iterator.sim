@@ -30,7 +30,13 @@ $types::iterator types::object
   #
     prototype object for all kinds of iterators
 
-$types::iterator/for_each: ($myself body)
+$types::iterator/for_each:
+  #
+    invokes a callback for each item
+  (
+    $myself
+    body
+  )
   if
     parameter_count_of(body) == 2:
       from_to 1 length_of(myself): (idx) body idx next(&myself)

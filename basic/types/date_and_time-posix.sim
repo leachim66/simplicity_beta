@@ -23,6 +23,10 @@
 <link rt>
 
 $std::current_time
+  #
+    returns the current date and time
+
+    See also: types::date_and_time
   {
     CHECK_ARGUMENTS(0)
     struct timespec timespec;

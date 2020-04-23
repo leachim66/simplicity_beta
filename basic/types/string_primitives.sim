@@ -346,12 +346,16 @@ $types::string types::generic_list
 }
 
 $types::octet_string/length_of
+  #
+    returns the number of 8-bit-characters in the string
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->octet_string.length))
   }
 
 $types::quad_octet_string/length_of
+  #
+    returns the number of unicode codepoints in the string
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_long(ARGUMENTS(0)->quad_octet_string.length))

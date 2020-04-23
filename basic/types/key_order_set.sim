@@ -153,15 +153,28 @@ $types::key_order_set/:
       Error "Attempt to set a set element to a nonboolean value!"
 
 $types::key_order_set.tree_of undefined
+
 $types::key_order_set.length_of 0
+  #
+    the number of elements of the set
+
 $types::key_order_set.serialization_tag_of "key_order_set"
+  #
+    the serialization tag for key-order sets
+
 $std::empty_key_order_set types::key_order_set
   #
     an empty key-order set
 
-$std::key_order_set -> types::key_order_set
+$std::key_order_set:
   #
-    returns an empty *key order set*
+    constructs a key-order set from the specified arguments
+  (
+    args*
+  )
+  $$tab types::key_order_set
+  for_each args: (key) !tab(key) true
+  -> tab
 
 $for_each_item: (myself body)
   if myself.is_defined:

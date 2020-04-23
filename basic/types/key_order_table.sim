@@ -68,6 +68,8 @@ $remove_rightmost:
       !node left_of(node)
 
 $types::key_order_table types::generic_table
+  #
+    the prototype object for all key-order tables
 
 $empty_node types::object
 $empty_node.left_of undefined
@@ -188,8 +190,14 @@ $types::key_order_table/private::get_item:
   retrieve_item tree_of(self) key
 
 $types::key_order_table.tree_of undefined
+
 $types::key_order_table.length_of 0
+  #
+    the number of items in the table
+
 $types::key_order_table.serialization_tag_of "key_order_table"
+  #
+    the serialization tag for key-order tables
 
 $types::key_order_table/new_empty_collection:
   #

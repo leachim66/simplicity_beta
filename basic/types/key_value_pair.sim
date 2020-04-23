@@ -20,10 +20,10 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_a_key_value_pair ()
+$std::is_a_key_value_pair () # obvious
 
-$types::object.is_a_key_value_pair false
-$types::key_value_pair.is_a_key_value_pair true
+$types::object.is_a_key_value_pair false # obvious
+$types::key_value_pair.is_a_key_value_pair true # obvious
 
 {
   <kind node>
@@ -41,22 +41,30 @@ $types::key_value_pair.is_a_key_value_pair true
   <argument NULL>
   <argument NULL>
 
+  // the prototype object for all key-value pairs
+
   RUNTIME_ERROR("Attempt to call an option value as a function!")
 }
 
 $std::key_value_pair
+  #
+    construct a key-value pair
   {
     CHECK_ARGUMENTS(2)
     RETURN_SINGLE_RESULT(create__types__key_value_pair(ARGUMENTS(0), ARGUMENTS(1)))
   }
 
 $types::key_value_pair/key_of
+  #
+    returns the key of the key-value pair
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(ARGUMENTS(0)->key_value_pair.key)
   }
 
 $types::key_value_pair/value_of
+  #
+    returns the value of the key-value pair
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(ARGUMENTS(0)->key_value_pair.value)
@@ -82,6 +90,8 @@ $types::key_value_pair/value_of
 }
 
 $types::key_value_pair/serialize:
+  #
+    returns a machine readable representation of the key-value pair
   (
     self
     indent = 0

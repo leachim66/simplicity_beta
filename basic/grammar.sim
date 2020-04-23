@@ -665,9 +665,13 @@ $std::END_OF_TEXT types::grammar_object
 
     Topic: Grammar
 
-$std::END_OF_TEXT/grammar::match: (_self stream)
+$std::END_OF_TEXT/grammar::match:
   #
     matches the end of the input stream
+  (
+    _self
+    stream
+  )
   if stream .has_minimum_length. 1 (-> undefined) -> 0
 
 ###

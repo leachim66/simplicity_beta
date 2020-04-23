@@ -206,6 +206,8 @@ IMPORT void continuation_type_function(void);
 IMPORT NODE *create_continuation(void);
 IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
+IMPORT void allocate_arguments(void);
+IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void define_polymorphic_function(
@@ -576,7 +578,12 @@ static NODE *get__std__empty_key_order_set(void) {
 }
 static NODE *func__21_1_std__key_order_set;
 static void entry__21_1_std__key_order_set(void);
-static FRAME_INFO frame__21_1_std__key_order_set = {0, {}};
+static FRAME_INFO frame__21_1_std__key_order_set = {2, {"args", "tab"}};
+static NODE *func__21_2;
+static void entry__21_2(void);
+static FRAME_INFO frame__21_2 = {2, {"key", "tab"}};
+static void cont__21_3(void);
+static void cont__21_4(void);
 static NODE *get__std__key_order_set(void) {
   return var.std__key_order_set;
 }
@@ -719,19 +726,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__16_23, NULL, 153, 153, 7, 65},
   {entry__16_1_types__key_order_set_, NULL, 136, 153, 3, 66},
   {cont__16_25, &frame__16_1_types__key_order_set_, 153, 153, 66, 66},
-  {entry__21_1_std__key_order_set, NULL, 162, 164, 21, 37},
-  {entry__22_3, NULL, 168, 168, 19, 33},
-  {cont__22_4, &frame__22_3, 168, 168, 5, 38},
-  {cont__22_5, &frame__22_3, 169, 169, 10, 23},
-  {cont__22_6, &frame__22_3, 169, 169, 5, 23},
-  {cont__22_7, &frame__22_3, 170, 170, 19, 34},
-  {cont__22_8, &frame__22_3, 170, 170, 5, 39},
-  {entry__22_1_for_each_item, NULL, 167, 167, 6, 22},
-  {cont__22_2, &frame__22_1_for_each_item, 167, 170, 3, 39},
-  {entry__23_4, NULL, 180, 180, 23, 45},
-  {entry__23_1_types__key_order_set_for_each, NULL, 179, 179, 3, 21},
-  {cont__23_2, &frame__23_1_types__key_order_set_for_each, 180, 180, 6, 20},
-  {cont__23_3, &frame__23_1_types__key_order_set_for_each, 180, 180, 3, 45}
+  {entry__21_2, NULL, 176, 176, 24, 32},
+  {cont__21_3, &frame__21_2, 176, 176, 37, 37},
+  {entry__21_1_std__key_order_set, NULL, 176, 176, 3, 37},
+  {cont__21_4, &frame__21_1_std__key_order_set, 177, 177, 3, 8},
+  {entry__22_3, NULL, 181, 181, 19, 33},
+  {cont__22_4, &frame__22_3, 181, 181, 5, 38},
+  {cont__22_5, &frame__22_3, 182, 182, 10, 23},
+  {cont__22_6, &frame__22_3, 182, 182, 5, 23},
+  {cont__22_7, &frame__22_3, 183, 183, 19, 34},
+  {cont__22_8, &frame__22_3, 183, 183, 5, 39},
+  {entry__22_1_for_each_item, NULL, 180, 180, 6, 22},
+  {cont__22_2, &frame__22_1_for_each_item, 180, 183, 3, 39},
+  {entry__23_4, NULL, 193, 193, 23, 45},
+  {entry__23_1_types__key_order_set_for_each, NULL, 192, 192, 3, 21},
+  {cont__23_2, &frame__23_1_types__key_order_set_for_each, 193, 193, 6, 20},
+  {cont__23_3, &frame__23_1_types__key_order_set_for_each, 193, 193, 3, 45}
 };
 
 union NODE {
@@ -3177,18 +3187,70 @@ static void cont__16_25(void) {
   frame->cont = invalid_continuation;
 }
 static void entry__21_1_std__key_order_set(void) {
-  allocate_initialized_frame_gc(0, 0);
+  allocate_arguments();
+  allocate_initialized_frame_gc(1, 3);
   // slot allocations:
-  if (argument_count != 0) {
+  // args: 0
+  // tab: 1
+  frame->slots[1] /* tab */ = create_cell();
+  frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
+  // 175: $$tab types::key_order_set
+  ((CELL *)frame->slots[1])->contents /* tab */ = var.types__key_order_set;
+  // 176: ... : (key) !tab(key) true
+  frame->slots[2] /* temp__1 */ = create_closure(entry__21_2, 1);
+  // 176: for_each args: (key) !tab(key) true
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* args */;
+  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  result_count = 0;
+  myself = get__for_each();
+  func = myself->type;
+  frame->cont = cont__21_4;
+}
+static void entry__21_2(void) {
+  allocate_initialized_frame_gc(2, 3);
+  // slot allocations:
+  // key: 0
+  // tab: 1
+  frame->slots[1] = myself->closure.frame->slots[1]; /* tab */
+  if (argument_count != 1) {
     invalid_arguments_error();
     return;
   }
-  // 162: ... -> types::key_order_set
-  // 163:   #
-  // 164:     returns an empty *key order set*
+  // 176: ... !tab(key) true
+  frame->slots[2] /* temp__1 */ = get__true();
+  // 176: ... !tab(key)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* key */;
+  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  result_count = 1;
+  myself = ((CELL *)frame->slots[1])->contents /* tab */;
+  func = myself->type;
+  frame->cont = cont__21_3;
+}
+static void cont__21_3(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  ((CELL *)frame->slots[1])->contents /* tab */ = arguments->slots[0];
+  argument_count = 0;
+  arguments = node_p;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__21_4(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 177: -> tab
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = var.types__key_order_set;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -3204,7 +3266,7 @@ static void entry__22_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 168: ... left_of(myself)
+  // 181: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3219,7 +3281,7 @@ static void cont__22_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 168: for_each_item left_of(myself) body
+  // 181: for_each_item left_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3234,7 +3296,7 @@ static void cont__22_5(void) {
     invalid_results_error();
     return;
   }
-  // 169: ... key_of(myself)
+  // 182: ... key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3249,7 +3311,7 @@ static void cont__22_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 169: body key_of(myself)
+  // 182: body key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3263,7 +3325,7 @@ static void cont__22_7(void) {
     invalid_results_error();
     return;
   }
-  // 170: ... right_of(myself)
+  // 183: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3278,7 +3340,7 @@ static void cont__22_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 170: for_each_item right_of(myself) body
+  // 183: for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3297,7 +3359,7 @@ static void entry__22_1_for_each_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 167: ... myself.is_defined
+  // 180: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3312,15 +3374,15 @@ static void cont__22_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 167: ... :
-  // 168:   for_each_item left_of(myself) body
-  // 169:   body key_of(myself)
-  // 170:   for_each_item right_of(myself) body
+  // 180: ... :
+  // 181:   for_each_item left_of(myself) body
+  // 182:   body key_of(myself)
+  // 183:   for_each_item right_of(myself) body
   frame->slots[3] /* temp__2 */ = create_closure(entry__22_3, 0);
-  // 167: if myself.is_defined:
-  // 168:   for_each_item left_of(myself) body
-  // 169:   body key_of(myself)
-  // 170:   for_each_item right_of(myself) body
+  // 180: if myself.is_defined:
+  // 181:   for_each_item left_of(myself) body
+  // 182:   body key_of(myself)
+  // 183:   for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3341,7 +3403,7 @@ static void entry__23_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 180: ... for_each_item tree body
+  // 193: ... for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tree */;
@@ -3362,7 +3424,7 @@ static void entry__23_1_types__key_order_set_for_each(void) {
     invalid_arguments_error();
     return;
   }
-  // 179: $tree tree_of(self)
+  // 192: $tree tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3377,7 +3439,7 @@ static void cont__23_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* tree */, arguments->slots[0]);
-  // 180: ... tree.is_defined
+  // 193: ... tree.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* tree */;
@@ -3392,9 +3454,9 @@ static void cont__23_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 180: ... : for_each_item tree body
+  // 193: ... : for_each_item tree body
   frame->slots[4] /* temp__2 */ = create_closure(entry__23_4, 0);
-  // 180: if tree.is_defined: for_each_item tree body
+  // 193: if tree.is_defined: for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3447,7 +3509,7 @@ EXPORT void phase_2__basic__types__key_order_set(void) {
   string__16_24 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__16_23 = create_function(entry__16_23, 0);
   string__19_1 = from_latin_1_string("key_order_set", 13);
-  func__21_1_std__key_order_set = create_function(entry__21_1_std__key_order_set, 0);
+  func__21_1_std__key_order_set = create_function(entry__21_1_std__key_order_set, -1);
   func__22_1_for_each_item = create_function(entry__22_1_for_each_item, 2);
   func__23_1_types__key_order_set_for_each = create_function(entry__23_1_types__key_order_set_for_each, 2);
 }

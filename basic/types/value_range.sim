@@ -91,7 +91,13 @@ $types::value_range/upper_bound_of
   }
 }
 
-$types::value_range/equal: (left right)
+$types::value_range/equal:
+  #
+    compares two value-ranges
+  (
+    left
+    right
+  )
   ->
     &&
       right.is_a_value_range
@@ -128,6 +134,8 @@ $types::value_range/for_each:
     body item
 
 $types::value_range/serialize:
+  #
+    returns a machine readable representation of the value-range
   (
     self
     indent = 0

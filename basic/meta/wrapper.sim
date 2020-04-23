@@ -23,7 +23,13 @@
 <using std>
 <using meta>
 
-$meta::gpl_header: (year name)
+$meta::gpl_header:
+  #
+    returns a customized license remark
+  (
+    year
+    name
+  )
   -> "
     #
       Copyright (C) @(year) by
@@ -46,7 +52,13 @@ $meta::gpl_header: (year name)
       Free Software Foundation, Inc.,
       51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$meta::lgpl_header: (year name)
+$meta::lgpl_header:
+  #
+    returns a customized license remark
+  (
+    year
+    name
+  )
   -> "
     #
       Copyright (C) @(year) by
@@ -73,13 +85,33 @@ $meta::lgpl_header: (year name)
 
 $c_types set("void" "bool" "char" "int" "long")
 %meta::known_c_types c_types
-  # ATTENTION: Workaround for a bug in the language specification!
-%meta::known_pointer_types empty_set
-%meta::pointer_type_aliases empty_table
-%meta::wrapper_namespace "std"
-%meta::remove_prefix undefined
+  #
+    the set of known C types
 
-%meta::is_a_valid_type: ($type)
+%meta::known_pointer_types empty_set
+  #
+    the set of known pointer types (initially empty)
+
+%meta::pointer_type_aliases empty_table
+  #
+    a table of pointer type aliases
+
+%meta::wrapper_namespace "std"
+  #
+    the namespace to use
+
+    The default namespace is "std".
+
+%meta::remove_prefix undefined
+  #
+    a callback to remove prefixes
+
+%meta::is_a_valid_type:
+  #
+    check whether a type is a known type or an alias
+  (
+    $type
+  )
   truncate_from &type '*'
   trim &type
   ->
@@ -89,9 +121,20 @@ $c_types set("void" "bool" "char" "int" "long")
       pointer_type_aliases(type).is_defined
 
 $meta::name_of (!)
+  #
+    the name of a symbol
+
 $meta::type_of (!)
+  #
+    the type of a symbol
+
 $meta::qualifier_of (!)
+  #
+    the qualifier of a symbol
+
 $meta::parameters_of (!)
+  #
+    the parameters of a function
 
 $function_declaration types::grammar_node
 $function_declaration.qualifier_of undefined
@@ -167,6 +210,8 @@ $FUNCTION_DECLARATION
     ';'
 
 $meta::parse_c_function_declaration:
+  #
+    returns the syntax tree for the specified C function declaration
   (
     !cap
     declaration
@@ -207,7 +252,13 @@ $from_type: (type var)
 
   -> string(function_name "(" var ")")
 
-$meta::wrapper_function: (cap prefix?)
+$meta::wrapper_function:
+  #
+    creates an inline-C wrapper function
+  (
+    cap
+    prefix?
+  )
   $function_name name_of(cap)
 
   $wrapped_function_name
@@ -263,7 +314,12 @@ $meta::wrapper_function: (cap prefix?)
     write "}@nl;"
   -> buf
 
-$meta::wrapper_pointer_type: (base_type)
+$meta::wrapper_pointer_type:
+  #
+    creates a node-, a type and function-annotations
+  (
+    base_type
+  )
   $name "@(base_type)_pointer"
   $type_declaration "@(base_type) *"
   -> "

@@ -287,7 +287,7 @@ $types::string/grammar::match:
 
 $types::string/match:
   #
-    matches the string against the specified expression
+    matches the string against the specified grammar expression
   (
     stream
     expr
@@ -314,14 +314,19 @@ $types::string/search_character:
 	-> search_character(range(self 2 -1) chr sum+1)
     -> undefined
 
-$types::string/search: (stream expr)
+$types::string/search:
   #
+    # searchs the string for the specified grammar expression
+
     This function returns the position of the found substring within the string
     as well as the number of matched characters (two return values!).
 
     If the expression is *not* found then undefined is returned as the position
     and also as the length of the match.
-
+  (
+    stream
+    expr
+  )
   %%grammar::current_node types::grammar_node
   grammar::search $pos $len expr stream
   -> pos len

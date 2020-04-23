@@ -467,9 +467,12 @@ $types::date_and_time/time_shift_of
     RETURN_SINGLE_RESULT(from_uint64(t1-t2))
   }
 
-$types::date_and_time/to_string: (self)
+$types::date_and_time/to_string:
   #
     returns a human readable interpration
+  (
+    self
+  )
   $ts time_shift_of(self)
   $t self+ts
   $second second_of(t)

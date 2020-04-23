@@ -300,8 +300,8 @@ void run__basic__types__unique_item(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_unique_item, NULL, 23, 23, 2, 22},
   {run__basic__types__unique_item, NULL, },
-  {entry__9_1_types__unique_item_equal, NULL, 77, 83, 3, 2},
-  {entry__10_1_types__unique_item_hash, NULL, 86, 92, 3, 2}
+  {entry__9_1_types__unique_item_equal, NULL, 81, 87, 3, 2},
+  {entry__10_1_types__unique_item_hash, NULL, 92, 98, 3, 2}
 };
 
 union NODE {

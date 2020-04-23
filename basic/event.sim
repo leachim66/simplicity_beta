@@ -428,30 +428,30 @@ $std::get_event:
 
 $$waiting_tasks empty_list
 
-$std::process_events:
+$std::process_events
   #
-    Run tasks until all tasks block then wait to process events and eventually
-    call registered continuations.
+    runs until all tasks block; then waits to process events
 
     Topic: Events
-  while -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
-  if readers.is_empty && writers.is_empty terminate
-  $$i 1
-  forever:
-    $n length_of(events)
-    while -> i <= n:
-      $event events(i)
-      $handler get_event_handler(event)
-      if handler.is_defined:
-	delete_at &events i
-	if
-	  parameter_count_of(handler) == 1:
-	    handler event
-	  :
-	    handler
-	raise "invalid continuation"
-      inc &i
-    get_low_level_events true
+  :
+    while -> length_of(waiting_tasks) > 0: get(&waiting_tasks)
+    if readers.is_empty && writers.is_empty terminate
+    $$i 1
+    forever:
+      $n length_of(events)
+      while -> i <= n:
+	$event events(i)
+	$handler get_event_handler(event)
+	if handler.is_defined:
+	  delete_at &events i
+	  if
+	    parameter_count_of(handler) == 1:
+	      handler event
+	    :
+	      handler
+	  raise "invalid continuation"
+	inc &i
+      get_low_level_events true
 
 $std::wait_to:
   #

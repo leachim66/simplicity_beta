@@ -20,10 +20,10 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_a_unique_item ()
+$std::is_a_unique_item () # obvious
 
-$types::object.is_a_unique_item false
-$types::unique_item.is_a_unique_item true
+$types::object.is_a_unique_item false # obvious
+$types::unique_item.is_a_unique_item true # obvious
 
 {
   long unique_idx = 1;
@@ -52,6 +52,8 @@ $types::unique_item.is_a_unique_item true
   <base types::object>
   <argument 0>
 
+  // the prototype object for all unique items
+
   RUNTIME_ERROR("Attempt to call a unique item as a function!")
 }
 
@@ -74,6 +76,8 @@ $types::unique_item.is_a_unique_item true
 }
 
 $types::unique_item/equal
+  #
+    compares two unique items for equality
   {
     CHECK_ARGUMENTS(2)
     NODE *right = ARGUMENTS(1);
@@ -83,6 +87,8 @@ $types::unique_item/equal
   }
 
 $types::unique_item/hash
+  #
+    returns a numerical hash value
   {
     CHECK_ARGUMENTS(1)
     uint32_t hash = ARGUMENTS(0)->unique_item.id;

@@ -24,14 +24,16 @@ $std::is_a_function ()
   #
     returns true for function objects
 
-$types::object.is_a_function false
-$types::function.is_a_function true
+$types::object.is_a_function false # obvious
+$types::function.is_a_function true # obvious
 
 {
   <kind type>
   <name types::function>
   <node SIMPLE_NODE>
   <base types::object>
+
+  // the prototype object for all functions
 
   RUNTIME_ERROR("Attempt to call the function prototype object!")
 }

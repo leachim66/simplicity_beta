@@ -72,6 +72,9 @@ $remove_rightmost:
       !node left_of(node)
 
 $types::insert_order_table types::generic_table
+  #
+    the prototype object for all insert-order tables
+
 $empty_node types::object
 $empty_node.left_of undefined
 $empty_node.right_of undefined

@@ -22,10 +22,10 @@
 
 <include limits.h>
 
-$std::is_a_character ()
+$std::is_a_character () # obvious
 
-$types::object.is_a_character false
-$types::character.is_a_character true
+$types::object.is_a_character false # obvious
+$types::character.is_a_character true # obvious
 
 {
   <kind node>

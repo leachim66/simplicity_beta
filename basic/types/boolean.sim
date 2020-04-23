@@ -21,10 +21,13 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::is_a_boolean ()
+  #
+    succeeds for <true> and <false>
 
-$types::object.is_a_boolean false
-$types::true.is_a_boolean true
-$types::false.is_a_boolean true
+$types::object.is_a_boolean false # obvious
+
+$types::true.is_a_boolean true # obvious
+$types::false.is_a_boolean true # obvious
 
 {
   <kind type>
@@ -135,17 +138,17 @@ $types::false.std::to_string "false"
 }
 
 $types::true/equal
+  #
+    is only equal to itself
   {
-    // is only equal to itself
-
     CHECK_ARGUMENTS(2)
     RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::true))
   }
 
 $types::false/equal
+  #
+    is only equal to itself
   {
-    // is only equal to itself
-
     CHECK_ARGUMENTS(2)
     RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::false))
   }

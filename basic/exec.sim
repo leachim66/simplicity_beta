@@ -30,15 +30,16 @@
 <include sys/wait.h>
 <include sys/select.h>
 
-$std::SIGHUP 1
-$std::SIGINT 2
-$std::SIGQUIT 3
-$std::SIGABRT 6
-$std::SIGKILL 9
-$std::SIGUSR1 10
-$std::SIGUSR2 12
-$std::SIGALRM 14
-$std::SIGTERM 15
+$std::SIGHUP   1  # Hangup (POSIX)
+$std::SIGINT   2  # Interrupt (ANSI)
+$std::SIGQUIT  3  # Quit (POSIX)
+$std::SIGABRT  6  # Abort (ANSI)
+$std::SIGKILL  9  # Kill, unblockable (POSIX)
+$std::SIGUSR1 10  # User-defined signal 1 (POSIX)
+$std::SIGUSR2 12  # User-defined signal 2 (POSIX)
+$std::SIGPIPE 13  # Broken pipe (POSIX)
+$std::SIGALRM 14  # Alarm clock (POSIX)
+$std::SIGTERM 15  # Termination (ANSI)
 
 {
   <kind function>
@@ -427,6 +428,8 @@ $posix_call
   }
 
 $std::kill
+  #
+    sends a signal to the specified process
   {
     MIN_ARGUMENTS(1)
     MAX_ARGUMENTS(2)
