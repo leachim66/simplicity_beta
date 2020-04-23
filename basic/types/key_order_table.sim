@@ -160,6 +160,8 @@ $remove_item:
       return myself
 
 $types::key_order_table/private::set_item:
+  #
+    adds or updates an item
   (
     &self
     key
@@ -176,7 +178,13 @@ $types::key_order_table/private::set_item:
       !self.tree_of new_tree
       if mode == INSERT: inc &self.length_of
 
-$types::key_order_table/private::get_item: (self key)
+$types::key_order_table/private::get_item:
+  #
+    retrieves an item
+  (
+    self
+    key
+  )
   retrieve_item tree_of(self) key
 
 $types::key_order_table.tree_of undefined

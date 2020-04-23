@@ -806,6 +806,8 @@ $previous_key_and_value
   }
 
 $types::unordered_table/private::set_item:
+  #
+    adds or updates an item
   (
     $self
     $key
@@ -831,6 +833,8 @@ $types::unordered_table/private::set_item:
       !key cmp_key # force the use of the already stored (and equal) key
 
 $types::unordered_table/private::get_item:
+  #
+    retrieves an item
   (
     self
     key

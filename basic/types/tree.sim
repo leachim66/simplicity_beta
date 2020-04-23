@@ -20,23 +20,44 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$std::is_an_insert_order_tree ()
+$std::is_an_insert_order_tree () # obvious
 
-$types::object.is_an_insert_order_tree false
-$types::insert_order_tree.is_an_insert_order_tree true
+$types::object.is_an_insert_order_tree false # obvious
+$types::insert_order_tree.is_an_insert_order_tree true # obvious
 
 $NONE .
 
 $table_of (!)
 
 $types::object.table_of empty_table
+
 $types::generic_tree types::object
+  #
+    the prototype object for all kinds of trees
+
 $types::tree types::generic_tree
+  #
+    the prototype object for trees
+
 $types::key_order_tree types::generic_tree
+  #
+    the prototype object for key-order trees
+
 $types::insert_order_tree types::generic_tree
+  #
+    the prototype object for insert-order trees
+
 $types::tree.serialization_tag_of "tree"
+  #
+    the serialization tag for trees
+
 $types::key_order_tree.serialization_tag_of "key_order_tree"
+  #
+    the serialization tag for key-order trees
+
 $types::insert_order_tree.serialization_tag_of "insert_order_tree"
+  #
+    the serialization tag for insert-order trees
 
 $retrieve_item: (myself keys)
   $key keys(1)
@@ -95,6 +116,8 @@ $insert_item_in_insert_order:
       !myself.table_of(key) node
 
 $types::tree/:
+  #
+    retrieve or add an item
   (
     $myself^
     key
@@ -113,6 +136,8 @@ $types::tree/:
       -> myself
 
 $types::key_order_tree/:
+  #
+    retrieve or add an item
   (
     $myself^
     key
@@ -132,6 +157,8 @@ $types::key_order_tree/:
       -> myself
 
 $types::insert_order_tree/:
+  #
+    retrieve or add an item
   (
     $myself^
     key
@@ -169,6 +196,8 @@ $insert_item_before:
       !table(key) node
 
 $types::insert_order_tree/insert_before:
+  #
+    inserts an item before another item
   (
     &self
     key
@@ -199,6 +228,8 @@ $insert_item_behind:
       !table(key) node
 
 $types::insert_order_tree/insert_behind:
+  #
+    inserts an item behind another item
   (
     &self
     key
@@ -212,6 +243,8 @@ $types::insert_order_tree/insert_behind:
       insert_behind &self.table_of key new_key new_value
 
 $std::tree_nodes_of: (self)
+  #
+    returns a table containing all of the tree's nodes
   -> table_of(self)
     # allows only read-access
 
@@ -220,27 +253,70 @@ $total_node_count_of: (self)
   for_each table_of(self): (item) plus &n total_node_count_of(item)
   -> n
 
-$std::node_count_of: (self) -> total_node_count_of(self)-1
+$std::node_count_of:
+  #
+    returns the total number of nodes within the tree
+  (
+    self
+  )
+  -> total_node_count_of(self)-1
 
-$std::subnode_count_of: (self) -> length_of(table_of(self))
+$std::subnode_count_of:
+  #
+    returns the number of direct child nodes
+  (
+    self
+  )
+  -> length_of(table_of(self))
 
-$std::leaf_count_of: (self)
+$std::leaf_count_of:
+  #
+    returns the total number of leaf nodes
+  (
+    self
+  )
   if table_of(self).is_empty (-> 1):
     $$n 0
     for_each table_of(self): (item) plus &n leaf_count_of(item)
     -> n
 
-$std::for_each_subnode: (self body)
+$std::for_each_subnode:
+  #
+    iterates over all direct child nodes
+  (
+    self
+    body
+  )
   for_each table_of(self): (key item) body key item
 
-$std::for_each_node_do: (keys node body)
+$std::for_each_node_do:
+  #
+    iterates over all nodes in the tree
+  (
+    keys
+    node
+    body
+  )
   body keys node
   for_each table_of(node): (key item) for_each_node_do push(keys key) item body
 
-$std::for_each_node: (self body)
+$std::for_each_node:
+  #
+    iterates over all nodes in the tree
+  (
+    self
+    body
+  )
   for_each table_of(self): (key item) for_each_node_do list(key) item body
 
-$std::for_each_leaf_do: (keys node body)
+$std::for_each_leaf_do:
+  #
+    iterates over all leaf nodes
+  (
+    keys
+    node
+    body
+  )
   if
     table_of(node).is_empty:
       body keys node
@@ -248,10 +324,25 @@ $std::for_each_leaf_do: (keys node body)
       for_each table_of(node): (key item)
 	for_each_leaf_do push(keys key) item body
 
-$std::for_each_leaf: (self body)
+$std::for_each_leaf:
+  #
+    iterates over all leaf nodes
+  (
+    self
+    body
+  )
   for_each table_of(self): (key item) for_each_leaf_do list(key) item body
 
-$std::for_each_leaf_from_to_do: (keys node first_keys last_keys body)
+$std::for_each_leaf_from_to_do:
+  #
+    iterates over all leaf nodes in the specified range
+  (
+    keys
+    node
+    first_keys
+    last_keys
+    body
+  )
   $table table_of(node)
   if
     table.is_empty:
@@ -267,11 +358,28 @@ $std::for_each_leaf_from_to_do: (keys node first_keys last_keys body)
 	  if(key == last_key (-> range(last_keys 2 -1)) -> undefined)
 	  body
 
-$std::for_each_leaf_from_to: (self first_keys last_keys body)
+$std::for_each_leaf_from_to:
+  #
+    iterates over all leaf nodes in the specified range
+  (
+    self
+    first_keys
+    last_keys
+    body
+  )
   unless table_of(self).is_empty:
     for_each_leaf_from_to_do empty_list self first_keys last_keys body
 
-$std::for_each_leaf_from_down_to_do: (keys node last_keys first_keys body)
+$std::for_each_leaf_from_down_to_do:
+  #
+    iterates over all leaf nodes in the specified range in reverse order
+  (
+    keys
+    node
+    last_keys
+    first_keys
+    body
+  )
   $table table_of(node)
   if
     table.is_empty:
@@ -287,11 +395,21 @@ $std::for_each_leaf_from_down_to_do: (keys node last_keys first_keys body)
 	  if(key == first_key (-> range(first_keys 2 -1)) -> undefined)
 	  body
 
-$std::for_each_leaf_from_down_to: (self last_keys first_keys body)
+$std::for_each_leaf_from_down_to:
+  #
+    iterates over all leaf nodes in the specified range in reverse order
+  (
+    self
+    last_keys
+    first_keys
+    body
+  )
   unless table_of(self).is_empty:
     for_each_leaf_from_down_to_do empty_list self last_keys first_keys body
 
 $std::update_each_subnode:
+  #
+    updates all direct subnodes
   (
     &self
     body
@@ -304,6 +422,8 @@ $std::update_each_subnode:
     body key &item
 
 $std::update_each_node_do:
+  #
+    updates all tree nodes
   (
     keys
     &node
@@ -318,6 +438,8 @@ $std::update_each_node_do:
     update_each_node_do push(keys key) &item body
 
 $std::update_each_node:
+  #
+    updates all tree nodes
   (
     &self
     body
@@ -330,6 +452,8 @@ $std::update_each_node:
     update_each_node_do list(key) &item body
 
 $std::update_each_leaf_do:
+  #
+    updates all leaf nodes
   (
     keys
     &node
@@ -347,6 +471,8 @@ $std::update_each_leaf_do:
 	update_each_leaf_do push(keys key) &item body
 
 $std::update_each_leaf:
+  #
+    updates all leaf nodes
   (
     &self
     body
@@ -359,6 +485,8 @@ $std::update_each_leaf:
     update_each_leaf_do list(key) &item body
 
 $std::update_each_leaf_from_to_do:
+  #
+    updates all leaf nodes in the specified range
   (
     keys
     &node
@@ -385,6 +513,8 @@ $std::update_each_leaf_from_to_do:
 	  body
 
 $std::update_each_leaf_from_to:
+  #
+    updates all leaf nodes in the specified range
   (
     &self
     first_keys
@@ -395,6 +525,8 @@ $std::update_each_leaf_from_to:
     update_each_leaf_from_to_do empty_list &self first_keys last_keys body
 
 $std::update_each_leaf_from_down_to_do:
+  #
+    updates all leaf nodes in the specified range in reverse order
   (
     keys
     &node
@@ -421,6 +553,8 @@ $std::update_each_leaf_from_down_to_do:
 	  body
 
 $std::update_each_leaf_from_down_to:
+  #
+    updates all leaf nodes in the specified range in reverse order
   (
     &self
     last_keys
@@ -441,7 +575,13 @@ $serialize_tree: (node indent)
 	write ' ' serialized_value
     unless table_of(item).is_empty: serialize_tree item indent+2
 
-$types::generic_tree/serialize: (self indent?)
+$types::generic_tree/serialize:
+  #
+    converts the tree to a machine readable string
+  (
+    self
+    indent?
+  )
   $tag serialization_tag_of(self)
   if table_of(self).is_empty (-> "@(tag)()") ->
     append
@@ -451,5 +591,10 @@ $types::generic_tree/serialize: (self indent?)
 	  serialize_tree self indent+2
 
 $std::empty_tree types::tree
+  # an empty tree
+
 $std::empty_key_order_tree types::key_order_tree
+  # an empty key-order tree
+
 $std::empty_insert_order_tree types::insert_order_tree
+  # an empty insert-order tree

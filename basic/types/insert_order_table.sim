@@ -184,6 +184,8 @@ $remove_item:
       return myself removed_item
 
 $types::insert_order_table/private::set_item:
+  #
+    adds or updates an item
   (
     &self
     key
@@ -219,17 +221,34 @@ $types::insert_order_table/private::set_item:
 	inc &self.length_of
       !self.tree_of new_tree
 
-$types::insert_order_table/private::get_item: (self key)
+$types::insert_order_table/private::get_item:
+  #
+    retrieves an item
+  (
+    self
+    key
+  )
   $item retrieve_item(tree_of(self) key)
   if item.is_defined (-> value_of(item)) -> undefined
 
 $types::insert_order_table.tree_of undefined
 $types::insert_order_table.first_of undefined
 $types::insert_order_table.last_of undefined
-$types::insert_order_table.length_of 0
-$types::insert_order_table.serialization_tag_of "insert_order_table"
 
-$types::insert_order_table/new_empty_collection: (_self)
+$types::insert_order_table.length_of 0
+  #
+    returns the number of items in the table
+
+$types::insert_order_table.serialization_tag_of "insert_order_table"
+  #
+    the serialization tag for insert-order tables
+
+$types::insert_order_table/new_empty_collection:
+  #
+    returns an empty insert-order table
+  (
+    _self
+  )
   -> types::insert_order_table
 
 $std::empty_insert_order_table types::insert_order_table
