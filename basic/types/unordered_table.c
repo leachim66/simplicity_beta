@@ -663,153 +663,153 @@ static void cont__66_1(void);
 void run__basic__types__unordered_table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__types__unordered_table, NULL, 1185, 1185, 1, 70},
+  {run__basic__types__unordered_table, NULL, 1189, 1189, 1, 70},
   {cont__66_1, NULL, },
   {entry__11_1_insert_item, NULL, 305, 541, 3, 2},
   {entry__12_1_retrieve_item, NULL, 544, 617, 3, 2},
   {entry__14_1_types__unordered_table_length_of, NULL, 636, 672, 3, 2},
   {entry__15_1_next_key_and_value, NULL, 675, 742, 3, 2},
   {entry__16_1_previous_key_and_value, NULL, 745, 806, 3, 2},
-  {entry__17_3, NULL, 815, 815, 37, 37},
-  {entry__17_9, NULL, 829, 829, 25, 35},
-  {entry__17_12, NULL, 831, 831, 72, 72},
-  {entry__17_6, NULL, 828, 828, 5, 42},
-  {cont__17_7, &frame__17_6, 829, 829, 8, 22},
-  {cont__17_8, &frame__17_6, 829, 829, 5, 35},
-  {cont__17_10, &frame__17_6, 830, 830, 8, 41},
-  {cont__17_11, &frame__17_6, 830, 831, 5, 72},
-  {entry__17_1_types__unordered_table_private__set_item, NULL, 815, 815, 6, 21},
-  {cont__17_2, &frame__17_1_types__unordered_table_private__set_item, 815, 815, 3, 37},
-  {cont__17_4, &frame__17_1_types__unordered_table_private__set_item, 816, 816, 3, 14},
-  {cont__17_5, &frame__17_1_types__unordered_table_private__set_item, 827, 831, 3, 73},
-  {cont__17_13, &frame__17_1_types__unordered_table_private__set_item, 831, 831, 73, 73},
-  {entry__18_6, NULL, 855, 855, 27, 60},
-  {cont__18_7, &frame__18_6, 855, 855, 27, 60},
-  {entry__18_9, NULL, 856, 856, 7, 28},
-  {entry__18_3, NULL, 850, 850, 5, 50},
-  {cont__18_4, &frame__18_3, 855, 855, 8, 22},
-  {cont__18_5, &frame__18_3, 855, 855, 8, 60},
-  {cont__18_8, &frame__18_3, 855, 856, 5, 28},
-  {entry__18_1_types__unordered_table_private__get_item, NULL, 839, 839, 3, 14},
-  {cont__18_2, &frame__18_1_types__unordered_table_private__get_item, 849, 862, 3, 52},
-  {cont__18_10, &frame__18_1_types__unordered_table_private__get_item, 862, 862, 52, 52},
-  {entry__19_3, NULL, 880, 880, 7, 34},
-  {entry__19_4, NULL, 882, 882, 7, 40},
-  {entry__19_1_types__unordered_table_, NULL, 879, 879, 5, 17},
-  {cont__19_2, &frame__19_1_types__unordered_table_, 878, 882, 3, 41},
-  {entry__21_1_types__unordered_table_new_empty_collection, NULL, 894, 894, 3, 27},
-  {entry__23_2, NULL, 915, 915, 5, 61},
-  {cont__23_3, &frame__23_2, 915, 915, 10, 33},
-  {cont__23_4, &frame__23_2, 915, 915, 5, 34},
-  {cont__23_5, &frame__23_2, 915, 915, 61, 61},
-  {entry__23_1_std__unordered_table, NULL, 914, 915, 3, 61},
-  {cont__23_6, &frame__23_1_std__unordered_table, 916, 916, 3, 8},
-  {entry__24_9, NULL, 937, 937, 9, 22},
-  {entry__24_10, NULL, 939, 939, 9, 18},
-  {entry__24_2, NULL, 933, 933, 29, 37},
-  {cont__24_3, &frame__24_2, 933, 933, 5, 49},
-  {cont__24_4, &frame__24_2, 934, 934, 8, 18},
-  {cont__24_5, &frame__24_2, 934, 934, 5, 25},
-  {cont__24_6, &frame__24_2, 936, 936, 7, 30},
-  {cont__24_7, &frame__24_2, 936, 936, 7, 35},
-  {cont__24_8, &frame__24_2, 935, 939, 5, 19},
-  {entry__24_1_types__unordered_table_for_each, NULL, 932, 939, 3, 20},
-  {cont__24_11, &frame__24_1_types__unordered_table_for_each, 939, 939, 20, 20},
-  {entry__25_5, NULL, 959, 959, 19, 46},
-  {entry__25_11, NULL, 963, 963, 9, 22},
-  {entry__25_12, NULL, 965, 965, 9, 18},
-  {entry__25_8, NULL, 962, 962, 7, 30},
-  {cont__25_9, &frame__25_8, 962, 962, 7, 35},
-  {cont__25_10, &frame__25_8, 961, 965, 5, 19},
-  {cont__25_13, &frame__25_8, 966, 966, 8, 18},
-  {cont__25_14, &frame__25_8, 966, 966, 5, 25},
-  {cont__25_15, &frame__25_8, 967, 967, 29, 37},
-  {cont__25_16, &frame__25_8, 967, 967, 5, 49},
-  {cont__25_17, &frame__25_8, 968, 968, 8, 18},
-  {cont__25_18, &frame__25_8, 968, 968, 5, 25},
-  {entry__25_1_types__unordered_table_for_each_from_to, NULL, 957, 957, 3, 14},
-  {cont__25_2, &frame__25_1_types__unordered_table_for_each_from_to, 958, 958, 3, 34},
-  {cont__25_3, &frame__25_1_types__unordered_table_for_each_from_to, 959, 959, 6, 16},
-  {cont__25_4, &frame__25_1_types__unordered_table_for_each_from_to, 959, 959, 3, 46},
-  {cont__25_7, &frame__25_1_types__unordered_table_for_each_from_to, 960, 968, 3, 25},
-  {cont__25_19, &frame__25_1_types__unordered_table_for_each_from_to, 968, 968, 25, 25},
-  {entry__26_9, NULL, 989, 989, 9, 22},
-  {entry__26_10, NULL, 991, 991, 9, 18},
-  {entry__26_2, NULL, 985, 985, 33, 41},
-  {cont__26_3, &frame__26_2, 985, 985, 5, 53},
-  {cont__26_4, &frame__26_2, 986, 986, 8, 18},
-  {cont__26_5, &frame__26_2, 986, 986, 5, 25},
-  {cont__26_6, &frame__26_2, 988, 988, 7, 30},
-  {cont__26_7, &frame__26_2, 988, 988, 7, 35},
-  {cont__26_8, &frame__26_2, 987, 991, 5, 19},
-  {entry__26_1_types__unordered_table_for_each_downwards, NULL, 984, 991, 3, 20},
-  {cont__26_11, &frame__26_1_types__unordered_table_for_each_downwards, 991, 991, 20, 20},
-  {entry__27_5, NULL, 1011, 1011, 19, 46},
-  {entry__27_10, NULL, 1015, 1015, 9, 22},
-  {entry__27_11, NULL, 1017, 1017, 9, 18},
-  {entry__27_7, NULL, 1014, 1014, 7, 30},
-  {cont__27_8, &frame__27_7, 1014, 1014, 7, 35},
-  {cont__27_9, &frame__27_7, 1013, 1017, 5, 19},
-  {cont__27_12, &frame__27_7, 1018, 1018, 8, 19},
-  {cont__27_13, &frame__27_7, 1018, 1018, 5, 26},
-  {cont__27_14, &frame__27_7, 1019, 1019, 33, 41},
-  {cont__27_15, &frame__27_7, 1019, 1019, 5, 53},
-  {cont__27_16, &frame__27_7, 1020, 1020, 8, 18},
-  {cont__27_17, &frame__27_7, 1020, 1020, 5, 25},
-  {entry__27_1_types__unordered_table_for_each_from_down_to, NULL, 1009, 1009, 3, 14},
-  {cont__27_2, &frame__27_1_types__unordered_table_for_each_from_down_to, 1010, 1010, 3, 34},
-  {cont__27_3, &frame__27_1_types__unordered_table_for_each_from_down_to, 1011, 1011, 6, 16},
-  {cont__27_4, &frame__27_1_types__unordered_table_for_each_from_down_to, 1011, 1011, 3, 46},
-  {cont__27_6, &frame__27_1_types__unordered_table_for_each_from_down_to, 1012, 1020, 3, 25},
-  {cont__27_18, &frame__27_1_types__unordered_table_for_each_from_down_to, 1020, 1020, 25, 25},
-  {entry__28_2, NULL, 1037, 1037, 29, 37},
-  {cont__28_3, &frame__28_2, 1037, 1037, 5, 50},
-  {cont__28_4, &frame__28_2, 1038, 1038, 8, 18},
-  {cont__28_5, &frame__28_2, 1038, 1038, 5, 25},
-  {cont__28_6, &frame__28_2, 1039, 1039, 5, 19},
-  {cont__28_7, &frame__28_2, 1040, 1040, 5, 14},
-  {cont__28_8, &frame__28_2, 1040, 1040, 20, 20},
-  {entry__28_1_types__unordered_table_update_each, NULL, 1036, 1040, 3, 20},
-  {cont__28_9, &frame__28_1_types__unordered_table_update_each, 1040, 1040, 20, 20},
-  {entry__29_5, NULL, 1060, 1060, 19, 46},
-  {entry__29_7, NULL, 1062, 1062, 5, 19},
-  {cont__29_8, &frame__29_7, 1063, 1063, 5, 14},
-  {cont__29_9, &frame__29_7, 1064, 1064, 8, 18},
-  {cont__29_10, &frame__29_7, 1064, 1064, 5, 25},
-  {cont__29_11, &frame__29_7, 1065, 1065, 29, 37},
-  {cont__29_12, &frame__29_7, 1065, 1065, 5, 49},
-  {cont__29_13, &frame__29_7, 1066, 1066, 8, 18},
-  {cont__29_14, &frame__29_7, 1066, 1066, 5, 25},
-  {entry__29_1_types__unordered_table_update_each_from_to, NULL, 1058, 1058, 3, 14},
-  {cont__29_2, &frame__29_1_types__unordered_table_update_each_from_to, 1059, 1059, 3, 34},
-  {cont__29_3, &frame__29_1_types__unordered_table_update_each_from_to, 1060, 1060, 6, 16},
-  {cont__29_4, &frame__29_1_types__unordered_table_update_each_from_to, 1060, 1060, 3, 46},
-  {cont__29_6, &frame__29_1_types__unordered_table_update_each_from_to, 1061, 1066, 3, 25},
-  {cont__29_15, &frame__29_1_types__unordered_table_update_each_from_to, 1066, 1066, 25, 25},
-  {entry__30_2, NULL, 1083, 1083, 33, 41},
-  {cont__30_3, &frame__30_2, 1083, 1083, 5, 54},
-  {cont__30_4, &frame__30_2, 1084, 1084, 8, 18},
-  {cont__30_5, &frame__30_2, 1084, 1084, 5, 25},
-  {cont__30_6, &frame__30_2, 1085, 1085, 5, 19},
-  {cont__30_7, &frame__30_2, 1086, 1086, 5, 14},
-  {cont__30_8, &frame__30_2, 1086, 1086, 20, 20},
-  {entry__30_1_types__unordered_table_update_each_downwards, NULL, 1082, 1086, 3, 20},
-  {cont__30_9, &frame__30_1_types__unordered_table_update_each_downwards, 1086, 1086, 20, 20},
-  {entry__31_5, NULL, 1106, 1106, 19, 46},
-  {entry__31_7, NULL, 1108, 1108, 5, 19},
-  {cont__31_8, &frame__31_7, 1109, 1109, 5, 14},
-  {cont__31_9, &frame__31_7, 1110, 1110, 8, 19},
-  {cont__31_10, &frame__31_7, 1110, 1110, 5, 26},
-  {cont__31_11, &frame__31_7, 1111, 1111, 33, 41},
-  {cont__31_12, &frame__31_7, 1111, 1111, 5, 53},
-  {cont__31_13, &frame__31_7, 1112, 1112, 8, 18},
-  {cont__31_14, &frame__31_7, 1112, 1112, 5, 25},
-  {entry__31_1_types__unordered_table_update_each_from_down_to, NULL, 1104, 1104, 3, 14},
-  {cont__31_2, &frame__31_1_types__unordered_table_update_each_from_down_to, 1105, 1105, 3, 34},
-  {cont__31_3, &frame__31_1_types__unordered_table_update_each_from_down_to, 1106, 1106, 6, 16},
-  {cont__31_4, &frame__31_1_types__unordered_table_update_each_from_down_to, 1106, 1106, 3, 46},
-  {cont__31_6, &frame__31_1_types__unordered_table_update_each_from_down_to, 1107, 1112, 3, 25},
-  {cont__31_15, &frame__31_1_types__unordered_table_update_each_from_down_to, 1112, 1112, 25, 25}
+  {entry__17_3, NULL, 817, 817, 37, 37},
+  {entry__17_9, NULL, 831, 831, 25, 35},
+  {entry__17_12, NULL, 833, 833, 72, 72},
+  {entry__17_6, NULL, 830, 830, 5, 42},
+  {cont__17_7, &frame__17_6, 831, 831, 8, 22},
+  {cont__17_8, &frame__17_6, 831, 831, 5, 35},
+  {cont__17_10, &frame__17_6, 832, 832, 8, 41},
+  {cont__17_11, &frame__17_6, 832, 833, 5, 72},
+  {entry__17_1_types__unordered_table_private__set_item, NULL, 817, 817, 6, 21},
+  {cont__17_2, &frame__17_1_types__unordered_table_private__set_item, 817, 817, 3, 37},
+  {cont__17_4, &frame__17_1_types__unordered_table_private__set_item, 818, 818, 3, 14},
+  {cont__17_5, &frame__17_1_types__unordered_table_private__set_item, 829, 833, 3, 73},
+  {cont__17_13, &frame__17_1_types__unordered_table_private__set_item, 833, 833, 73, 73},
+  {entry__18_6, NULL, 859, 859, 27, 60},
+  {cont__18_7, &frame__18_6, 859, 859, 27, 60},
+  {entry__18_9, NULL, 860, 860, 7, 28},
+  {entry__18_3, NULL, 854, 854, 5, 50},
+  {cont__18_4, &frame__18_3, 859, 859, 8, 22},
+  {cont__18_5, &frame__18_3, 859, 859, 8, 60},
+  {cont__18_8, &frame__18_3, 859, 860, 5, 28},
+  {entry__18_1_types__unordered_table_private__get_item, NULL, 843, 843, 3, 14},
+  {cont__18_2, &frame__18_1_types__unordered_table_private__get_item, 853, 866, 3, 52},
+  {cont__18_10, &frame__18_1_types__unordered_table_private__get_item, 866, 866, 52, 52},
+  {entry__19_3, NULL, 884, 884, 7, 34},
+  {entry__19_4, NULL, 886, 886, 7, 40},
+  {entry__19_1_types__unordered_table_, NULL, 883, 883, 5, 17},
+  {cont__19_2, &frame__19_1_types__unordered_table_, 882, 886, 3, 41},
+  {entry__21_1_types__unordered_table_new_empty_collection, NULL, 898, 898, 3, 27},
+  {entry__23_2, NULL, 919, 919, 5, 61},
+  {cont__23_3, &frame__23_2, 919, 919, 10, 33},
+  {cont__23_4, &frame__23_2, 919, 919, 5, 34},
+  {cont__23_5, &frame__23_2, 919, 919, 61, 61},
+  {entry__23_1_std__unordered_table, NULL, 918, 919, 3, 61},
+  {cont__23_6, &frame__23_1_std__unordered_table, 920, 920, 3, 8},
+  {entry__24_9, NULL, 941, 941, 9, 22},
+  {entry__24_10, NULL, 943, 943, 9, 18},
+  {entry__24_2, NULL, 937, 937, 29, 37},
+  {cont__24_3, &frame__24_2, 937, 937, 5, 49},
+  {cont__24_4, &frame__24_2, 938, 938, 8, 18},
+  {cont__24_5, &frame__24_2, 938, 938, 5, 25},
+  {cont__24_6, &frame__24_2, 940, 940, 7, 30},
+  {cont__24_7, &frame__24_2, 940, 940, 7, 35},
+  {cont__24_8, &frame__24_2, 939, 943, 5, 19},
+  {entry__24_1_types__unordered_table_for_each, NULL, 936, 943, 3, 20},
+  {cont__24_11, &frame__24_1_types__unordered_table_for_each, 943, 943, 20, 20},
+  {entry__25_5, NULL, 963, 963, 19, 46},
+  {entry__25_11, NULL, 967, 967, 9, 22},
+  {entry__25_12, NULL, 969, 969, 9, 18},
+  {entry__25_8, NULL, 966, 966, 7, 30},
+  {cont__25_9, &frame__25_8, 966, 966, 7, 35},
+  {cont__25_10, &frame__25_8, 965, 969, 5, 19},
+  {cont__25_13, &frame__25_8, 970, 970, 8, 18},
+  {cont__25_14, &frame__25_8, 970, 970, 5, 25},
+  {cont__25_15, &frame__25_8, 971, 971, 29, 37},
+  {cont__25_16, &frame__25_8, 971, 971, 5, 49},
+  {cont__25_17, &frame__25_8, 972, 972, 8, 18},
+  {cont__25_18, &frame__25_8, 972, 972, 5, 25},
+  {entry__25_1_types__unordered_table_for_each_from_to, NULL, 961, 961, 3, 14},
+  {cont__25_2, &frame__25_1_types__unordered_table_for_each_from_to, 962, 962, 3, 34},
+  {cont__25_3, &frame__25_1_types__unordered_table_for_each_from_to, 963, 963, 6, 16},
+  {cont__25_4, &frame__25_1_types__unordered_table_for_each_from_to, 963, 963, 3, 46},
+  {cont__25_7, &frame__25_1_types__unordered_table_for_each_from_to, 964, 972, 3, 25},
+  {cont__25_19, &frame__25_1_types__unordered_table_for_each_from_to, 972, 972, 25, 25},
+  {entry__26_9, NULL, 993, 993, 9, 22},
+  {entry__26_10, NULL, 995, 995, 9, 18},
+  {entry__26_2, NULL, 989, 989, 33, 41},
+  {cont__26_3, &frame__26_2, 989, 989, 5, 53},
+  {cont__26_4, &frame__26_2, 990, 990, 8, 18},
+  {cont__26_5, &frame__26_2, 990, 990, 5, 25},
+  {cont__26_6, &frame__26_2, 992, 992, 7, 30},
+  {cont__26_7, &frame__26_2, 992, 992, 7, 35},
+  {cont__26_8, &frame__26_2, 991, 995, 5, 19},
+  {entry__26_1_types__unordered_table_for_each_downwards, NULL, 988, 995, 3, 20},
+  {cont__26_11, &frame__26_1_types__unordered_table_for_each_downwards, 995, 995, 20, 20},
+  {entry__27_5, NULL, 1015, 1015, 19, 46},
+  {entry__27_10, NULL, 1019, 1019, 9, 22},
+  {entry__27_11, NULL, 1021, 1021, 9, 18},
+  {entry__27_7, NULL, 1018, 1018, 7, 30},
+  {cont__27_8, &frame__27_7, 1018, 1018, 7, 35},
+  {cont__27_9, &frame__27_7, 1017, 1021, 5, 19},
+  {cont__27_12, &frame__27_7, 1022, 1022, 8, 19},
+  {cont__27_13, &frame__27_7, 1022, 1022, 5, 26},
+  {cont__27_14, &frame__27_7, 1023, 1023, 33, 41},
+  {cont__27_15, &frame__27_7, 1023, 1023, 5, 53},
+  {cont__27_16, &frame__27_7, 1024, 1024, 8, 18},
+  {cont__27_17, &frame__27_7, 1024, 1024, 5, 25},
+  {entry__27_1_types__unordered_table_for_each_from_down_to, NULL, 1013, 1013, 3, 14},
+  {cont__27_2, &frame__27_1_types__unordered_table_for_each_from_down_to, 1014, 1014, 3, 34},
+  {cont__27_3, &frame__27_1_types__unordered_table_for_each_from_down_to, 1015, 1015, 6, 16},
+  {cont__27_4, &frame__27_1_types__unordered_table_for_each_from_down_to, 1015, 1015, 3, 46},
+  {cont__27_6, &frame__27_1_types__unordered_table_for_each_from_down_to, 1016, 1024, 3, 25},
+  {cont__27_18, &frame__27_1_types__unordered_table_for_each_from_down_to, 1024, 1024, 25, 25},
+  {entry__28_2, NULL, 1041, 1041, 29, 37},
+  {cont__28_3, &frame__28_2, 1041, 1041, 5, 50},
+  {cont__28_4, &frame__28_2, 1042, 1042, 8, 18},
+  {cont__28_5, &frame__28_2, 1042, 1042, 5, 25},
+  {cont__28_6, &frame__28_2, 1043, 1043, 5, 19},
+  {cont__28_7, &frame__28_2, 1044, 1044, 5, 14},
+  {cont__28_8, &frame__28_2, 1044, 1044, 20, 20},
+  {entry__28_1_types__unordered_table_update_each, NULL, 1040, 1044, 3, 20},
+  {cont__28_9, &frame__28_1_types__unordered_table_update_each, 1044, 1044, 20, 20},
+  {entry__29_5, NULL, 1064, 1064, 19, 46},
+  {entry__29_7, NULL, 1066, 1066, 5, 19},
+  {cont__29_8, &frame__29_7, 1067, 1067, 5, 14},
+  {cont__29_9, &frame__29_7, 1068, 1068, 8, 18},
+  {cont__29_10, &frame__29_7, 1068, 1068, 5, 25},
+  {cont__29_11, &frame__29_7, 1069, 1069, 29, 37},
+  {cont__29_12, &frame__29_7, 1069, 1069, 5, 49},
+  {cont__29_13, &frame__29_7, 1070, 1070, 8, 18},
+  {cont__29_14, &frame__29_7, 1070, 1070, 5, 25},
+  {entry__29_1_types__unordered_table_update_each_from_to, NULL, 1062, 1062, 3, 14},
+  {cont__29_2, &frame__29_1_types__unordered_table_update_each_from_to, 1063, 1063, 3, 34},
+  {cont__29_3, &frame__29_1_types__unordered_table_update_each_from_to, 1064, 1064, 6, 16},
+  {cont__29_4, &frame__29_1_types__unordered_table_update_each_from_to, 1064, 1064, 3, 46},
+  {cont__29_6, &frame__29_1_types__unordered_table_update_each_from_to, 1065, 1070, 3, 25},
+  {cont__29_15, &frame__29_1_types__unordered_table_update_each_from_to, 1070, 1070, 25, 25},
+  {entry__30_2, NULL, 1087, 1087, 33, 41},
+  {cont__30_3, &frame__30_2, 1087, 1087, 5, 54},
+  {cont__30_4, &frame__30_2, 1088, 1088, 8, 18},
+  {cont__30_5, &frame__30_2, 1088, 1088, 5, 25},
+  {cont__30_6, &frame__30_2, 1089, 1089, 5, 19},
+  {cont__30_7, &frame__30_2, 1090, 1090, 5, 14},
+  {cont__30_8, &frame__30_2, 1090, 1090, 20, 20},
+  {entry__30_1_types__unordered_table_update_each_downwards, NULL, 1086, 1090, 3, 20},
+  {cont__30_9, &frame__30_1_types__unordered_table_update_each_downwards, 1090, 1090, 20, 20},
+  {entry__31_5, NULL, 1110, 1110, 19, 46},
+  {entry__31_7, NULL, 1112, 1112, 5, 19},
+  {cont__31_8, &frame__31_7, 1113, 1113, 5, 14},
+  {cont__31_9, &frame__31_7, 1114, 1114, 8, 19},
+  {cont__31_10, &frame__31_7, 1114, 1114, 5, 26},
+  {cont__31_11, &frame__31_7, 1115, 1115, 33, 41},
+  {cont__31_12, &frame__31_7, 1115, 1115, 5, 53},
+  {cont__31_13, &frame__31_7, 1116, 1116, 8, 18},
+  {cont__31_14, &frame__31_7, 1116, 1116, 5, 25},
+  {entry__31_1_types__unordered_table_update_each_from_down_to, NULL, 1108, 1108, 3, 14},
+  {cont__31_2, &frame__31_1_types__unordered_table_update_each_from_down_to, 1109, 1109, 3, 34},
+  {cont__31_3, &frame__31_1_types__unordered_table_update_each_from_down_to, 1110, 1110, 6, 16},
+  {cont__31_4, &frame__31_1_types__unordered_table_update_each_from_down_to, 1110, 1110, 3, 46},
+  {cont__31_6, &frame__31_1_types__unordered_table_update_each_from_down_to, 1111, 1116, 3, 25},
+  {cont__31_15, &frame__31_1_types__unordered_table_update_each_from_down_to, 1116, 1116, 25, 25}
 };
 
 union NODE {
@@ -855,7 +855,7 @@ EXPORT void run__basic__types__unordered_table(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 1185: register_collection_serializer "unordered_table" empty_unordered_table
+  // 1189: register_collection_serializer "unordered_table" empty_unordered_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__20_1;
@@ -1675,7 +1675,7 @@ static void entry__17_1_types__unordered_table_private__set_item(void) {
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
   frame->slots[1] /* key */ = create_cell_with_contents(arguments->slots[1]);
-  // 815: ... key.is_undefined
+  // 817: ... key.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -1690,9 +1690,9 @@ static void cont__17_2(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 815: ... : !key undefined
+  // 817: ... : !key undefined
   frame->slots[7] /* temp__2 */ = create_closure(entry__17_3, 0);
-  // 815: if key.is_undefined: !key undefined
+  // 817: if key.is_undefined: !key undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1711,7 +1711,7 @@ static void entry__17_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 815: ... !key undefined
+  // 817: ... !key undefined
   ((CELL *)frame->slots[0])->contents /* key */ = get__undefined();
   argument_count = 0;
   arguments = node_p;
@@ -1724,7 +1724,7 @@ static void cont__17_4(void) {
     invalid_results_error();
     return;
   }
-  // 816: $h hash(key)
+  // 818: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -1739,19 +1739,19 @@ static void cont__17_5(void) {
     return;
   }
   initialize_future(frame->slots[4] /* h */, arguments->slots[0]);
-  // 823: $$cmp_key NONE
+  // 825: $$cmp_key NONE
   ((CELL *)frame->slots[5])->contents /* cmp_key */ = var._NONE;
-  // 827: ... :
-  // 828:   insert_item &self h &cmp_key key value
-  // 829:   if cmp_key == NONE: return self
-  // 830:   if cmp_key .equal_type_and_value. key:
-  // 831:     !key cmp_key # force the use of the already stored (and equal) key
+  // 829: ... :
+  // 830:   insert_item &self h &cmp_key key value
+  // 831:   if cmp_key == NONE: return self
+  // 832:   if cmp_key .equal_type_and_value. key:
+  // 833:     !key cmp_key # force the use of the already stored (and equal) key
   frame->slots[6] /* temp__1 */ = create_closure(entry__17_6, 0);
-  // 827: forever:
-  // 828:   insert_item &self h &cmp_key key value
-  // 829:   if cmp_key == NONE: return self
-  // 830:   if cmp_key .equal_type_and_value. key:
-  // 831:     !key cmp_key # force the use of the already stored (and equal) key
+  // 829: forever:
+  // 830:   insert_item &self h &cmp_key key value
+  // 831:   if cmp_key == NONE: return self
+  // 832:   if cmp_key .equal_type_and_value. key:
+  // 833:     !key cmp_key # force the use of the already stored (and equal) key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1771,7 +1771,7 @@ static void entry__17_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 831: !key cmp_key # force the use of the already stored (and equal) key
+  // 833: !key cmp_key # force the use of the already stored (and equal) key
   ((CELL *)frame->slots[0])->contents /* key */ = ((CELL *)frame->slots[1])->contents /* cmp_key */;
   argument_count = 0;
   arguments = node_p;
@@ -1798,7 +1798,7 @@ static void entry__17_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 828: insert_item &self h &cmp_key key value
+  // 830: insert_item &self h &cmp_key key value
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -1818,7 +1818,7 @@ static void cont__17_7(void) {
   }
   ((CELL *)frame->slots[0])->contents /* self */ = arguments->slots[0];
   ((CELL *)frame->slots[1])->contents /* cmp_key */ = arguments->slots[1];
-  // 829: ... cmp_key == NONE
+  // 831: ... cmp_key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmp_key */;
@@ -1834,9 +1834,9 @@ static void cont__17_8(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 829: ... : return self
+  // 831: ... : return self
   frame->slots[7] /* temp__2 */ = create_closure(entry__17_9, 0);
-  // 829: if cmp_key == NONE: return self
+  // 831: if cmp_key == NONE: return self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1857,7 +1857,7 @@ static void entry__17_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 829: ... return self
+  // 831: ... return self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -1871,7 +1871,7 @@ static void cont__17_10(void) {
     invalid_results_error();
     return;
   }
-  // 830: ... cmp_key .equal_type_and_value. key
+  // 832: ... cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmp_key */;
@@ -1887,11 +1887,11 @@ static void cont__17_11(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 830: ... :
-  // 831:   !key cmp_key # force the use of the already stored (and equal) key
+  // 832: ... :
+  // 833:   !key cmp_key # force the use of the already stored (and equal) key
   frame->slots[7] /* temp__2 */ = create_closure(entry__17_12, 0);
-  // 830: if cmp_key .equal_type_and_value. key:
-  // 831:   !key cmp_key # force the use of the already stored (and equal) key
+  // 832: if cmp_key .equal_type_and_value. key:
+  // 833:   !key cmp_key # force the use of the already stored (and equal) key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1921,7 +1921,7 @@ static void entry__18_1_types__unordered_table_private__get_item(void) {
     invalid_arguments_error();
     return;
   }
-  // 839: $h hash(key)
+  // 843: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* key */;
@@ -1936,30 +1936,30 @@ static void cont__18_2(void) {
     return;
   }
   initialize_future(frame->slots[3] /* h */, arguments->slots[0]);
-  // 846: $$cmp_key NONE
+  // 850: $$cmp_key NONE
   ((CELL *)frame->slots[4])->contents /* cmp_key */ = var._NONE;
-  // 849: ... :
-  // 850:   retrieve_item self h &cmp_key $retrieved_value
-  // 851:   
-  // 852:   #ewriteln "___"
-  // 853:   #edump `cmp_key `retrieved_value
-  // 854:   
-  // 855:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
-  // 856:     return retrieved_value
-  // 857:   
-  // 858:   #
+  // 853: ... :
+  // 854:   retrieve_item self h &cmp_key $retrieved_value
+  // 855:   
+  // 856:   #ewriteln "___"
+  // 857:   #edump `cmp_key `retrieved_value
+  // 858:   
+  // 859:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
+  // 860:     return retrieved_value
+  // 861:   
+  // 862:   #
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__18_3, 0);
-  // 849: forever:
-  // 850:   retrieve_item self h &cmp_key $retrieved_value
-  // 851:   
-  // 852:   #ewriteln "___"
-  // 853:   #edump `cmp_key `retrieved_value
-  // 854:   
-  // 855:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
-  // 856:     return retrieved_value
-  // 857:   
-  // 858:   #
+  // 853: forever:
+  // 854:   retrieve_item self h &cmp_key $retrieved_value
+  // 855:   
+  // 856:   #ewriteln "___"
+  // 857:   #edump `cmp_key `retrieved_value
+  // 858:   
+  // 859:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
+  // 860:     return retrieved_value
+  // 861:   
+  // 862:   #
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -1980,7 +1980,7 @@ static void entry__18_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 856: return retrieved_value
+  // 860: return retrieved_value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* retrieved_value */;
@@ -2008,7 +2008,7 @@ static void entry__18_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 850: retrieve_item self h &cmp_key $retrieved_value
+  // 854: retrieve_item self h &cmp_key $retrieved_value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -2026,9 +2026,9 @@ static void cont__18_4(void) {
   }
   ((CELL *)frame->slots[0])->contents /* cmp_key */ = arguments->slots[0];
   frame->slots[6] /* temp__1 */ = arguments->slots[1];
-  // 850: ... retrieved_value
+  // 854: ... retrieved_value
   initialize_future(frame->slots[5] /* retrieved_value */, frame->slots[6] /* temp__1 */);
-  // 855: ... cmp_key == NONE
+  // 859: ... cmp_key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* cmp_key */;
@@ -2044,9 +2044,9 @@ static void cont__18_5(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 855: ... cmp_key .equal_type_and_value. key
+  // 859: ... cmp_key .equal_type_and_value. key
   frame->slots[8] /* temp__3 */ = create_closure(entry__18_6, 0);
-  // 855: ... cmp_key == NONE || cmp_key .equal_type_and_value. key
+  // 859: ... cmp_key == NONE || cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -2067,7 +2067,7 @@ static void entry__18_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 855: ... cmp_key .equal_type_and_value. key
+  // 859: ... cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* cmp_key */;
@@ -2083,7 +2083,7 @@ static void cont__18_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 855: ... cmp_key .equal_type_and_value. key
+  // 859: ... cmp_key .equal_type_and_value. key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2097,11 +2097,11 @@ static void cont__18_8(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 855: ... :
-  // 856:   return retrieved_value
+  // 859: ... :
+  // 860:   return retrieved_value
   frame->slots[9] /* temp__4 */ = create_closure(entry__18_9, 0);
-  // 855: if cmp_key == NONE || cmp_key .equal_type_and_value. key:
-  // 856:   return retrieved_value
+  // 859: if cmp_key == NONE || cmp_key .equal_type_and_value. key:
+  // 860:   return retrieved_value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2127,7 +2127,7 @@ static void entry__19_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 880: private::get_item myself key
+  // 884: private::get_item myself key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2150,7 +2150,7 @@ static void entry__19_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 882: private::set_item myself key value
+  // 886: private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2183,7 +2183,7 @@ static void entry__19_1_types__unordered_table_(void) {
     case 1: frame->slots[1] /* value */ = var._NONE;
   }
   frame->slots[2] /* myself */ = myself;
-  // 879: NONE == value
+  // 883: NONE == value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -2199,17 +2199,17 @@ static void cont__19_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 879: ... :
-  // 880:   private::get_item myself key
+  // 883: ... :
+  // 884:   private::get_item myself key
   frame->slots[4] /* temp__2 */ = create_closure(entry__19_3, 0);
-  // 881: :
-  // 882:   private::set_item myself key value
+  // 885: :
+  // 886:   private::set_item myself key value
   frame->slots[5] /* temp__3 */ = create_closure(entry__19_4, 0);
-  // 878: if
-  // 879:   NONE == value:
-  // 880:     private::get_item myself key
-  // 881:   :
-  // 882:     private::set_item myself key value
+  // 882: if
+  // 883:   NONE == value:
+  // 884:     private::get_item myself key
+  // 885:   :
+  // 886:     private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2228,7 +2228,7 @@ static void entry__21_1_types__unordered_table_new_empty_collection(void) {
     invalid_arguments_error();
     return;
   }
-  // 894: -> types::unordered_table
+  // 898: -> types::unordered_table
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var.types__unordered_table;
@@ -2244,13 +2244,13 @@ static void entry__23_1_std__unordered_table(void) {
   // tab: 1
   frame->slots[1] /* tab */ = create_cell();
   frame->slots[0] /* initializers */ = from_arguments(0, argument_count-0);
-  // 913: $$tab types::unordered_table
+  // 917: $$tab types::unordered_table
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__unordered_table;
-  // 914: ... : (initializer)
-  // 915:   !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 918: ... : (initializer)
+  // 919:   !tab(std::key_of(initializer)) std::value_of(initializer)
   frame->slots[2] /* temp__1 */ = create_closure(entry__23_2, 1);
-  // 914: for_each initializers: (initializer)
-  // 915:   !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 918: for_each initializers: (initializer)
+  // 919:   !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializers */;
@@ -2270,7 +2270,7 @@ static void entry__23_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 915: !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 919: !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializer */;
@@ -2285,7 +2285,7 @@ static void cont__23_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 915: ... std::key_of(initializer)
+  // 919: ... std::key_of(initializer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializer */;
@@ -2300,7 +2300,7 @@ static void cont__23_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 915: !tab(std::key_of(initializer))
+  // 919: !tab(std::key_of(initializer))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2327,7 +2327,7 @@ static void cont__23_6(void) {
     invalid_results_error();
     return;
   }
-  // 916: -> tab
+  // 920: -> tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;
@@ -2348,25 +2348,25 @@ static void entry__24_1_types__unordered_table_for_each(void) {
     invalid_arguments_error();
     return;
   }
-  // 931: $$key NONE
+  // 935: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 932: ... :
-  // 933:   next_key_and_value self hash(key) &key $value
-  // 934:   if key == NONE return
-  // 935:   if
-  // 936:     parameter_count_of(body) == 2:
-  // 937:       body key value
-  // 938:     :
-  // 939:       body value
+  // 936: ... :
+  // 937:   next_key_and_value self hash(key) &key $value
+  // 938:   if key == NONE return
+  // 939:   if
+  // 940:     parameter_count_of(body) == 2:
+  // 941:       body key value
+  // 942:     :
+  // 943:       body value
   frame->slots[4] /* temp__1 */ = create_closure(entry__24_2, 0);
-  // 932: forever:
-  // 933:   next_key_and_value self hash(key) &key $value
-  // 934:   if key == NONE return
-  // 935:   if
-  // 936:     parameter_count_of(body) == 2:
-  // 937:       body key value
-  // 938:     :
-  // 939:       body value
+  // 936: forever:
+  // 937:   next_key_and_value self hash(key) &key $value
+  // 938:   if key == NONE return
+  // 939:   if
+  // 940:     parameter_count_of(body) == 2:
+  // 941:       body key value
+  // 942:     :
+  // 943:       body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2388,7 +2388,7 @@ static void entry__24_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 937: body key value
+  // 941: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2409,7 +2409,7 @@ static void entry__24_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 939: body value
+  // 943: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -2435,7 +2435,7 @@ static void entry__24_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 933: ... hash(key)
+  // 937: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -2450,7 +2450,7 @@ static void cont__24_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 933: next_key_and_value self hash(key) &key $value
+  // 937: next_key_and_value self hash(key) &key $value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -2468,9 +2468,9 @@ static void cont__24_4(void) {
   }
   ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
   frame->slots[6] /* temp__2 */ = arguments->slots[1];
-  // 933: ... value
+  // 937: ... value
   initialize_future(frame->slots[4] /* value */, frame->slots[6] /* temp__2 */);
-  // 934: ... key == NONE
+  // 938: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -2486,7 +2486,7 @@ static void cont__24_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 934: if key == NONE return
+  // 938: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2501,7 +2501,7 @@ static void cont__24_6(void) {
     invalid_results_error();
     return;
   }
-  // 936: parameter_count_of(body)
+  // 940: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* body */;
@@ -2516,7 +2516,7 @@ static void cont__24_7(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 936: parameter_count_of(body) == 2
+  // 940: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -2532,17 +2532,17 @@ static void cont__24_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 936: ... :
-  // 937:   body key value
+  // 940: ... :
+  // 941:   body key value
   frame->slots[7] /* temp__3 */ = create_closure(entry__24_9, 0);
-  // 938: :
-  // 939:   body value
+  // 942: :
+  // 943:   body value
   frame->slots[8] /* temp__4 */ = create_closure(entry__24_10, 0);
-  // 935: if
-  // 936:   parameter_count_of(body) == 2:
-  // 937:     body key value
-  // 938:   :
-  // 939:     body value
+  // 939: if
+  // 940:   parameter_count_of(body) == 2:
+  // 941:     body key value
+  // 942:   :
+  // 943:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2577,11 +2577,11 @@ static void entry__25_1_types__unordered_table_for_each_from_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 955: $$key first
+  // 959: $$key first
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* first */;
-  // 956: $$value undefined
+  // 960: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 957: $h hash(key)
+  // 961: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -2596,7 +2596,7 @@ static void cont__25_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 958: retrieve_item self h &key !value
+  // 962: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -2614,7 +2614,7 @@ static void cont__25_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 959: ... key == NONE
+  // 963: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -2630,7 +2630,7 @@ static void cont__25_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 959: if key == NONE: Error "Invalid index error!"
+  // 963: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -2647,7 +2647,7 @@ static void entry__25_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 959: ... Error "Invalid index error!"
+  // 963: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_6;
@@ -2661,25 +2661,25 @@ static void cont__25_7(void) {
     invalid_results_error();
     return;
   }
-  // 960: ... :
-  // 961:   if
-  // 962:     parameter_count_of(body) == 2:
-  // 963:       body key value
-  // 964:     :
-  // 965:       body value
-  // 966:   if key == last return
-  // 967:   next_key_and_value self hash(key) &key !value
-  // 968:   if key == NONE return
+  // 964: ... :
+  // 965:   if
+  // 966:     parameter_count_of(body) == 2:
+  // 967:       body key value
+  // 968:     :
+  // 969:       body value
+  // 970:   if key == last return
+  // 971:   next_key_and_value self hash(key) &key !value
+  // 972:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__25_8, 0);
-  // 960: forever:
-  // 961:   if
-  // 962:     parameter_count_of(body) == 2:
-  // 963:       body key value
-  // 964:     :
-  // 965:       body value
-  // 966:   if key == last return
-  // 967:   next_key_and_value self hash(key) &key !value
-  // 968:   if key == NONE return
+  // 964: forever:
+  // 965:   if
+  // 966:     parameter_count_of(body) == 2:
+  // 967:       body key value
+  // 968:     :
+  // 969:       body value
+  // 970:   if key == last return
+  // 971:   next_key_and_value self hash(key) &key !value
+  // 972:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -2707,7 +2707,7 @@ static void entry__25_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 962: parameter_count_of(body)
+  // 966: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -2722,7 +2722,7 @@ static void cont__25_9(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 962: parameter_count_of(body) == 2
+  // 966: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -2738,17 +2738,17 @@ static void cont__25_10(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 962: ... :
-  // 963:   body key value
+  // 966: ... :
+  // 967:   body key value
   frame->slots[8] /* temp__3 */ = create_closure(entry__25_11, 0);
-  // 964: :
-  // 965:   body value
+  // 968: :
+  // 969:   body value
   frame->slots[9] /* temp__4 */ = create_closure(entry__25_12, 0);
-  // 961: if
-  // 962:   parameter_count_of(body) == 2:
-  // 963:     body key value
-  // 964:   :
-  // 965:     body value
+  // 965: if
+  // 966:   parameter_count_of(body) == 2:
+  // 967:     body key value
+  // 968:   :
+  // 969:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2772,7 +2772,7 @@ static void entry__25_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 963: body key value
+  // 967: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2793,7 +2793,7 @@ static void entry__25_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 965: body value
+  // 969: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* value */;
@@ -2807,7 +2807,7 @@ static void cont__25_13(void) {
     invalid_results_error();
     return;
   }
-  // 966: ... key == last
+  // 970: ... key == last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2823,7 +2823,7 @@ static void cont__25_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 966: if key == last return
+  // 970: if key == last return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2838,7 +2838,7 @@ static void cont__25_15(void) {
     invalid_results_error();
     return;
   }
-  // 967: ... hash(key)
+  // 971: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2853,7 +2853,7 @@ static void cont__25_16(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 967: next_key_and_value self hash(key) &key !value
+  // 971: next_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* self */;
@@ -2871,7 +2871,7 @@ static void cont__25_17(void) {
   }
   ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[1];
-  // 968: ... key == NONE
+  // 972: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2887,7 +2887,7 @@ static void cont__25_18(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 968: if key == NONE return
+  // 972: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2915,25 +2915,25 @@ static void entry__26_1_types__unordered_table_for_each_downwards(void) {
     invalid_arguments_error();
     return;
   }
-  // 983: $$key NONE
+  // 987: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 984: ... :
-  // 985:   previous_key_and_value self hash(key) &key $value
-  // 986:   if key == NONE return
-  // 987:   if
-  // 988:     parameter_count_of(body) == 2:
-  // 989:       body key value
-  // 990:     :
-  // 991:       body value
+  // 988: ... :
+  // 989:   previous_key_and_value self hash(key) &key $value
+  // 990:   if key == NONE return
+  // 991:   if
+  // 992:     parameter_count_of(body) == 2:
+  // 993:       body key value
+  // 994:     :
+  // 995:       body value
   frame->slots[4] /* temp__1 */ = create_closure(entry__26_2, 0);
-  // 984: forever:
-  // 985:   previous_key_and_value self hash(key) &key $value
-  // 986:   if key == NONE return
-  // 987:   if
-  // 988:     parameter_count_of(body) == 2:
-  // 989:       body key value
-  // 990:     :
-  // 991:       body value
+  // 988: forever:
+  // 989:   previous_key_and_value self hash(key) &key $value
+  // 990:   if key == NONE return
+  // 991:   if
+  // 992:     parameter_count_of(body) == 2:
+  // 993:       body key value
+  // 994:     :
+  // 995:       body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2955,7 +2955,7 @@ static void entry__26_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 989: body key value
+  // 993: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2976,7 +2976,7 @@ static void entry__26_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 991: body value
+  // 995: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -3002,7 +3002,7 @@ static void entry__26_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 985: ... hash(key)
+  // 989: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3017,7 +3017,7 @@ static void cont__26_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 985: previous_key_and_value self hash(key) &key $value
+  // 989: previous_key_and_value self hash(key) &key $value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -3035,9 +3035,9 @@ static void cont__26_4(void) {
   }
   ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
   frame->slots[6] /* temp__2 */ = arguments->slots[1];
-  // 985: ... value
+  // 989: ... value
   initialize_future(frame->slots[4] /* value */, frame->slots[6] /* temp__2 */);
-  // 986: ... key == NONE
+  // 990: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3053,7 +3053,7 @@ static void cont__26_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 986: if key == NONE return
+  // 990: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3068,7 +3068,7 @@ static void cont__26_6(void) {
     invalid_results_error();
     return;
   }
-  // 988: parameter_count_of(body)
+  // 992: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* body */;
@@ -3083,7 +3083,7 @@ static void cont__26_7(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 988: parameter_count_of(body) == 2
+  // 992: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -3099,17 +3099,17 @@ static void cont__26_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 988: ... :
-  // 989:   body key value
+  // 992: ... :
+  // 993:   body key value
   frame->slots[7] /* temp__3 */ = create_closure(entry__26_9, 0);
-  // 990: :
-  // 991:   body value
+  // 994: :
+  // 995:   body value
   frame->slots[8] /* temp__4 */ = create_closure(entry__26_10, 0);
-  // 987: if
-  // 988:   parameter_count_of(body) == 2:
-  // 989:     body key value
-  // 990:   :
-  // 991:     body value
+  // 991: if
+  // 992:   parameter_count_of(body) == 2:
+  // 993:     body key value
+  // 994:   :
+  // 995:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3144,11 +3144,11 @@ static void entry__27_1_types__unordered_table_for_each_from_down_to(void) {
     invalid_arguments_error();
     return;
   }
-  // 1007: $$key last
+  // 1011: $$key last
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* last */;
-  // 1008: $$value undefined
+  // 1012: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 1009: $h hash(key)
+  // 1013: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3163,7 +3163,7 @@ static void cont__27_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 1010: retrieve_item self h &key !value
+  // 1014: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3181,7 +3181,7 @@ static void cont__27_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 1011: ... key == NONE
+  // 1015: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3197,7 +3197,7 @@ static void cont__27_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1011: if key == NONE: Error "Invalid index error!"
+  // 1015: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3214,7 +3214,7 @@ static void entry__27_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1011: ... Error "Invalid index error!"
+  // 1015: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_6;
@@ -3228,25 +3228,25 @@ static void cont__27_6(void) {
     invalid_results_error();
     return;
   }
-  // 1012: ... :
-  // 1013:   if
-  // 1014:     parameter_count_of(body) == 2:
-  // 1015:       body key value
-  // 1016:     :
-  // 1017:       body value
-  // 1018:   if key == first return
-  // 1019:   previous_key_and_value self hash(key) &key !value
-  // 1020:   if key == NONE return
+  // 1016: ... :
+  // 1017:   if
+  // 1018:     parameter_count_of(body) == 2:
+  // 1019:       body key value
+  // 1020:     :
+  // 1021:       body value
+  // 1022:   if key == first return
+  // 1023:   previous_key_and_value self hash(key) &key !value
+  // 1024:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__27_7, 0);
-  // 1012: forever:
-  // 1013:   if
-  // 1014:     parameter_count_of(body) == 2:
-  // 1015:       body key value
-  // 1016:     :
-  // 1017:       body value
-  // 1018:   if key == first return
-  // 1019:   previous_key_and_value self hash(key) &key !value
-  // 1020:   if key == NONE return
+  // 1016: forever:
+  // 1017:   if
+  // 1018:     parameter_count_of(body) == 2:
+  // 1019:       body key value
+  // 1020:     :
+  // 1021:       body value
+  // 1022:   if key == first return
+  // 1023:   previous_key_and_value self hash(key) &key !value
+  // 1024:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3274,7 +3274,7 @@ static void entry__27_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1014: parameter_count_of(body)
+  // 1018: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -3289,7 +3289,7 @@ static void cont__27_8(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1014: parameter_count_of(body) == 2
+  // 1018: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -3305,17 +3305,17 @@ static void cont__27_9(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1014: ... :
-  // 1015:   body key value
+  // 1018: ... :
+  // 1019:   body key value
   frame->slots[8] /* temp__3 */ = create_closure(entry__27_10, 0);
-  // 1016: :
-  // 1017:   body value
+  // 1020: :
+  // 1021:   body value
   frame->slots[9] /* temp__4 */ = create_closure(entry__27_11, 0);
-  // 1013: if
-  // 1014:   parameter_count_of(body) == 2:
-  // 1015:     body key value
-  // 1016:   :
-  // 1017:     body value
+  // 1017: if
+  // 1018:   parameter_count_of(body) == 2:
+  // 1019:     body key value
+  // 1020:   :
+  // 1021:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3339,7 +3339,7 @@ static void entry__27_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 1015: body key value
+  // 1019: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3360,7 +3360,7 @@ static void entry__27_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 1017: body value
+  // 1021: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* value */;
@@ -3374,7 +3374,7 @@ static void cont__27_12(void) {
     invalid_results_error();
     return;
   }
-  // 1018: ... key == first
+  // 1022: ... key == first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3390,7 +3390,7 @@ static void cont__27_13(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1018: if key == first return
+  // 1022: if key == first return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3405,7 +3405,7 @@ static void cont__27_14(void) {
     invalid_results_error();
     return;
   }
-  // 1019: ... hash(key)
+  // 1023: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3420,7 +3420,7 @@ static void cont__27_15(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1019: previous_key_and_value self hash(key) &key !value
+  // 1023: previous_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* self */;
@@ -3438,7 +3438,7 @@ static void cont__27_16(void) {
   }
   ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[1];
-  // 1020: ... key == NONE
+  // 1024: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3454,7 +3454,7 @@ static void cont__27_17(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1020: if key == NONE return
+  // 1024: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3483,19 +3483,19 @@ static void entry__28_1_types__unordered_table_update_each(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1035: $$key NONE
+  // 1039: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 1036: ... :
-  // 1037:   next_key_and_value self hash(key) &key $$value
-  // 1038:   if key == NONE return
-  // 1039:   body key &value
-  // 1040:   !self(key) value
+  // 1040: ... :
+  // 1041:   next_key_and_value self hash(key) &key $$value
+  // 1042:   if key == NONE return
+  // 1043:   body key &value
+  // 1044:   !self(key) value
   frame->slots[4] /* temp__1 */ = create_closure(entry__28_2, 0);
-  // 1036: forever:
-  // 1037:   next_key_and_value self hash(key) &key $$value
-  // 1038:   if key == NONE return
-  // 1039:   body key &value
-  // 1040:   !self(key) value
+  // 1040: forever:
+  // 1041:   next_key_and_value self hash(key) &key $$value
+  // 1042:   if key == NONE return
+  // 1043:   body key &value
+  // 1044:   !self(key) value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3523,7 +3523,7 @@ static void entry__28_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1037: ... hash(key)
+  // 1041: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3538,7 +3538,7 @@ static void cont__28_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1037: next_key_and_value self hash(key) &key $$value
+  // 1041: next_key_and_value self hash(key) &key $$value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -3556,7 +3556,7 @@ static void cont__28_4(void) {
   }
   ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[1];
-  // 1038: ... key == NONE
+  // 1042: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3572,7 +3572,7 @@ static void cont__28_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1038: if key == NONE return
+  // 1042: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3587,7 +3587,7 @@ static void cont__28_6(void) {
     invalid_results_error();
     return;
   }
-  // 1039: body key &value
+  // 1043: body key &value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3603,9 +3603,9 @@ static void cont__28_7(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[0];
-  // 1040: !self(key) value
+  // 1044: !self(key) value
   frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[4])->contents /* value */;
-  // 1040: !self(key)
+  // 1044: !self(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3662,11 +3662,11 @@ static void entry__29_1_types__unordered_table_update_each_from_to(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1056: $$key first
+  // 1060: $$key first
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* first */;
-  // 1057: $$value undefined
+  // 1061: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 1058: $h hash(key)
+  // 1062: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3681,7 +3681,7 @@ static void cont__29_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 1059: retrieve_item self h &key !value
+  // 1063: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3699,7 +3699,7 @@ static void cont__29_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 1060: ... key == NONE
+  // 1064: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3715,7 +3715,7 @@ static void cont__29_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1060: if key == NONE: Error "Invalid index error!"
+  // 1064: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3732,7 +3732,7 @@ static void entry__29_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1060: ... Error "Invalid index error!"
+  // 1064: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_6;
@@ -3746,19 +3746,19 @@ static void cont__29_6(void) {
     invalid_results_error();
     return;
   }
-  // 1061: ... :
-  // 1062:   body key &value
-  // 1063:   !self(key) value
-  // 1064:   if key == last return
-  // 1065:   next_key_and_value self hash(key) &key !value
-  // 1066:   if key == NONE return
+  // 1065: ... :
+  // 1066:   body key &value
+  // 1067:   !self(key) value
+  // 1068:   if key == last return
+  // 1069:   next_key_and_value self hash(key) &key !value
+  // 1070:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__29_7, 0);
-  // 1061: forever:
-  // 1062:   body key &value
-  // 1063:   !self(key) value
-  // 1064:   if key == last return
-  // 1065:   next_key_and_value self hash(key) &key !value
-  // 1066:   if key == NONE return
+  // 1065: forever:
+  // 1066:   body key &value
+  // 1067:   !self(key) value
+  // 1068:   if key == last return
+  // 1069:   next_key_and_value self hash(key) &key !value
+  // 1070:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3788,7 +3788,7 @@ static void entry__29_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1062: body key &value
+  // 1066: body key &value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -3804,9 +3804,9 @@ static void cont__29_8(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[0];
-  // 1063: !self(key) value
+  // 1067: !self(key) value
   frame->slots[6] /* temp__1 */ = ((CELL *)frame->slots[1])->contents /* value */;
-  // 1063: !self(key)
+  // 1067: !self(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -3822,7 +3822,7 @@ static void cont__29_9(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* self */ = arguments->slots[0];
-  // 1064: ... key == last
+  // 1068: ... key == last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -3838,7 +3838,7 @@ static void cont__29_10(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1064: if key == last return
+  // 1068: if key == last return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3853,7 +3853,7 @@ static void cont__29_11(void) {
     invalid_results_error();
     return;
   }
-  // 1065: ... hash(key)
+  // 1069: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -3868,7 +3868,7 @@ static void cont__29_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1065: next_key_and_value self hash(key) &key !value
+  // 1069: next_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* self */;
@@ -3886,7 +3886,7 @@ static void cont__29_13(void) {
   }
   ((CELL *)frame->slots[2])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[1];
-  // 1066: ... key == NONE
+  // 1070: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -3902,7 +3902,7 @@ static void cont__29_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1066: if key == NONE return
+  // 1070: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3941,19 +3941,19 @@ static void entry__30_1_types__unordered_table_update_each_downwards(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1081: $$key NONE
+  // 1085: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 1082: ... :
-  // 1083:   previous_key_and_value self hash(key) &key $$value
-  // 1084:   if key == NONE return
-  // 1085:   body key &value
-  // 1086:   !self(key) value
+  // 1086: ... :
+  // 1087:   previous_key_and_value self hash(key) &key $$value
+  // 1088:   if key == NONE return
+  // 1089:   body key &value
+  // 1090:   !self(key) value
   frame->slots[4] /* temp__1 */ = create_closure(entry__30_2, 0);
-  // 1082: forever:
-  // 1083:   previous_key_and_value self hash(key) &key $$value
-  // 1084:   if key == NONE return
-  // 1085:   body key &value
-  // 1086:   !self(key) value
+  // 1086: forever:
+  // 1087:   previous_key_and_value self hash(key) &key $$value
+  // 1088:   if key == NONE return
+  // 1089:   body key &value
+  // 1090:   !self(key) value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3981,7 +3981,7 @@ static void entry__30_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1083: ... hash(key)
+  // 1087: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -3996,7 +3996,7 @@ static void cont__30_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1083: previous_key_and_value self hash(key) &key $$value
+  // 1087: previous_key_and_value self hash(key) &key $$value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -4014,7 +4014,7 @@ static void cont__30_4(void) {
   }
   ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[1];
-  // 1084: ... key == NONE
+  // 1088: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -4030,7 +4030,7 @@ static void cont__30_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1084: if key == NONE return
+  // 1088: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4045,7 +4045,7 @@ static void cont__30_6(void) {
     invalid_results_error();
     return;
   }
-  // 1085: body key &value
+  // 1089: body key &value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -4061,9 +4061,9 @@ static void cont__30_7(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[0];
-  // 1086: !self(key) value
+  // 1090: !self(key) value
   frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[4])->contents /* value */;
-  // 1086: !self(key)
+  // 1090: !self(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
@@ -4120,11 +4120,11 @@ static void entry__31_1_types__unordered_table_update_each_from_down_to(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1102: $$key last
+  // 1106: $$key last
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* last */;
-  // 1103: $$value undefined
+  // 1107: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 1104: $h hash(key)
+  // 1108: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -4139,7 +4139,7 @@ static void cont__31_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 1105: retrieve_item self h &key !value
+  // 1109: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4157,7 +4157,7 @@ static void cont__31_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 1106: ... key == NONE
+  // 1110: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -4173,7 +4173,7 @@ static void cont__31_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1106: if key == NONE: Error "Invalid index error!"
+  // 1110: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -4190,7 +4190,7 @@ static void entry__31_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1106: ... Error "Invalid index error!"
+  // 1110: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25_6;
@@ -4204,19 +4204,19 @@ static void cont__31_6(void) {
     invalid_results_error();
     return;
   }
-  // 1107: ... :
-  // 1108:   body key &value
-  // 1109:   !self(key) value
-  // 1110:   if key == first return
-  // 1111:   previous_key_and_value self hash(key) &key !value
-  // 1112:   if key == NONE return
+  // 1111: ... :
+  // 1112:   body key &value
+  // 1113:   !self(key) value
+  // 1114:   if key == first return
+  // 1115:   previous_key_and_value self hash(key) &key !value
+  // 1116:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__31_7, 0);
-  // 1107: forever:
-  // 1108:   body key &value
-  // 1109:   !self(key) value
-  // 1110:   if key == first return
-  // 1111:   previous_key_and_value self hash(key) &key !value
-  // 1112:   if key == NONE return
+  // 1111: forever:
+  // 1112:   body key &value
+  // 1113:   !self(key) value
+  // 1114:   if key == first return
+  // 1115:   previous_key_and_value self hash(key) &key !value
+  // 1116:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -4246,7 +4246,7 @@ static void entry__31_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1108: body key &value
+  // 1112: body key &value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -4262,9 +4262,9 @@ static void cont__31_8(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[0];
-  // 1109: !self(key) value
+  // 1113: !self(key) value
   frame->slots[6] /* temp__1 */ = ((CELL *)frame->slots[1])->contents /* value */;
-  // 1109: !self(key)
+  // 1113: !self(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -4280,7 +4280,7 @@ static void cont__31_9(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* self */ = arguments->slots[0];
-  // 1110: ... key == first
+  // 1114: ... key == first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -4296,7 +4296,7 @@ static void cont__31_10(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1110: if key == first return
+  // 1114: if key == first return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -4311,7 +4311,7 @@ static void cont__31_11(void) {
     invalid_results_error();
     return;
   }
-  // 1111: ... hash(key)
+  // 1115: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -4326,7 +4326,7 @@ static void cont__31_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1111: previous_key_and_value self hash(key) &key !value
+  // 1115: previous_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* self */;
@@ -4344,7 +4344,7 @@ static void cont__31_13(void) {
   }
   ((CELL *)frame->slots[2])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[1];
-  // 1112: ... key == NONE
+  // 1116: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
@@ -4360,7 +4360,7 @@ static void cont__31_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1112: if key == NONE return
+  // 1116: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;

@@ -23,17 +23,22 @@
 <include string.h>
 <include fnmatch.h>
 
-$std::is_a_string ()
+$std::is_a_string () # obvious
 
-$types::object.is_a_string false
-$types::string.is_a_string true
+$types::object.is_a_string false # obvious
+$types::string.is_a_string true # obvious
 
 $std::count_character_occurrences ()
-$std::to_utf8 () # creates an octet string
+  #
+    returns the number of occurrences of the specified character
+
+$std::to_utf8 ()
+  #
+    returns an 8-bit utf8-encoded string
+
 $std::is_a_latin_1_string ()
   #
-    checks whether the string contains only character codes in the
-    range 0 .. 255
+    checks whether the string contains only 8-bit characters
 
 $types::string types::generic_list
   #
@@ -145,13 +150,14 @@ $types::string types::generic_list
   <argument 0>
   <argument NULL>
 
-  // a sequence of zero or more 8-bit characters
+  // a string of zero or more 8-bit characters
   //
-  // the type function supports positive and negative indices from
+  // The type function supports positive and negative indices from
   // 1 to the length of the sequence starting at the left or form -1 to
-  // -length of the sequence starting at the right
-  // replacing any character of the sequence  with a 32-bit value will
-  // produce a <types::quad_octet_string>
+  // -length of the sequence starting at the right.
+  //
+  // Replacing any character of the string with a 32-bit character will
+  // produce a <types::quad_octet_string>.
 
   MIN_ARGUMENTS(1)
   MAX_ARGUMENTS(2)
@@ -198,6 +204,15 @@ $types::string types::generic_list
   <argument 0>
   <argument 0>
   <argument NULL>
+
+  // a sequence of zero or more 32-bit characters
+  //
+  // The type function supports positive and negative indices from
+  // 1 to the length of the sequence starting at the left or form -1 to
+  // -length of the sequence starting at the right.
+  //
+  // If due to replacement there is no more 32-character in the string it is
+  // automatically replaced with a <types::quad_octet_string>.
 
   MIN_ARGUMENTS(1)
   MAX_ARGUMENTS(2)
@@ -247,6 +262,8 @@ $types::string types::generic_list
   <argument 0>
   <argument 0>
   <argument NULL>
+
+  // the empty string
 }
 
 {
@@ -341,6 +358,8 @@ $types::quad_octet_string/length_of
   }
 
 $types::octet_string/equal
+  #
+    returns <true> if both string have the same contents
   {
     CHECK_ARGUMENTS(2)
     NODE *left = ARGUMENTS(0);
@@ -366,6 +385,8 @@ $types::octet_string/equal
   }
 
 $types::quad_octet_string/equal
+  #
+    returns <true> if both string have the same contents
   {
     CHECK_ARGUMENTS(2)
     NODE *left = ARGUMENTS(0);
@@ -391,6 +412,8 @@ $types::quad_octet_string/equal
   }
 
 $types::octet_string/count_character_occurrences
+  #
+    returns the number of occurrences of the specified character
   {
     CHECK_ARGUMENTS(2)
     NODE *string = ARGUMENTS(0);
@@ -406,6 +429,8 @@ $types::octet_string/count_character_occurrences
   }
 
 $types::quad_octet_string/count_character_occurrences
+  #
+    returns the number of occurrences of the specified character
   {
     CHECK_ARGUMENTS(2)
     NODE *string = ARGUMENTS(0);
@@ -421,6 +446,8 @@ $types::quad_octet_string/count_character_occurrences
   }
 
 $types::octet_string/less
+  #
+    compares the two strings character by character
   {
     CHECK_ARGUMENTS(2)
     NODE *left = ARGUMENTS(0);
@@ -474,6 +501,8 @@ $types::octet_string/less
   }
 
 $types::quad_octet_string/less
+  #
+    compares the two strings character by character
   {
     CHECK_ARGUMENTS(2)
     NODE *left = ARGUMENTS(0);
@@ -527,6 +556,8 @@ $types::quad_octet_string/less
   }
 
 $types::octet_string/hash
+  #
+    returns a numerical hash value
   {
     CHECK_ARGUMENTS(1)
     NODE *self = ARGUMENTS(0);
@@ -551,6 +582,8 @@ $types::octet_string/hash
   }
 
 $types::quad_octet_string/hash
+  #
+    returns a numerical hash value
   {
     CHECK_ARGUMENTS(1)
     NODE *self = ARGUMENTS(0);
@@ -574,9 +607,21 @@ $types::quad_octet_string/hash
     RETURN_SINGLE_RESULT(from_uint32(hash))
   }
 
-$types::string/to_string: (self) -> self
+$types::string/to_string:
+  #
+    returns the unaltered string
+  (
+    self
+  )
+  -> self
 
-$types::string/serialize: (self _indent?)
+$types::string/serialize:
+  #
+    returns a quoted string literal
+  (
+    self
+    _indent?
+  )
   $$buf "@quot;"
   $$s 1
   for_each self: (idx chr)
@@ -595,6 +640,8 @@ $types::string/serialize: (self _indent?)
   -> push(buf '@quot;')
 
 $types::string/parse_integer:
+  #
+    extracts an integer number from the start of the string
   (
     $self
     -> return
@@ -722,6 +769,8 @@ $types::string/parse_integer:
 }
 
 $types::octet_string/push
+  #
+    adds a single character at the front of the string
   {
     CHECK_ARGUMENTS(2)
     uint32_t chr_code = to_uchar32(ARGUMENTS(1));
@@ -766,6 +815,8 @@ $types::octet_string/push
   }
 
 $types::quad_octet_string/push
+  #
+    adds a single character at the front of the string
   {
     CHECK_ARGUMENTS(2)
     uint32_t chr_code = to_uchar32(ARGUMENTS(1));
@@ -795,6 +846,8 @@ $types::quad_octet_string/push
   }
 
 $types::octet_string/append
+  #
+    appends two strings
   {
     CHECK_ARGUMENTS(2)
     NODE *left = ARGUMENTS(0);
@@ -842,6 +895,8 @@ $types::octet_string/append
   }
 
 $types::quad_octet_string/append
+  #
+    appends two strings
   {
     CHECK_ARGUMENTS(2)
     NODE *left = ARGUMENTS(0);
@@ -889,6 +944,8 @@ $types::quad_octet_string/append
   }
 
 $types::string/parse_real
+  #
+    extracts an real number from the start of the string
   {
     CHECK_ARGUMENTS(1)
     char *str = to_c_string(ARGUMENTS(0));
@@ -904,6 +961,8 @@ $types::string/parse_real
   }
 
 $types::octet_string/range
+  #
+    returns a string containing the specified subrange
   {
     CHECK_ARGUMENTS(3)
     NODE *self = ARGUMENTS(0);
@@ -924,6 +983,8 @@ $types::octet_string/range
   }
 
 $types::quad_octet_string/range
+  #
+    returns a string containing the specified subrange
   {
     CHECK_ARGUMENTS(3)
     NODE *self = ARGUMENTS(0);
@@ -959,6 +1020,8 @@ $types::quad_octet_string/range
   }
 
 $std::matches_file_pattern
+  #
+    returns <true> if the string matches the specified pattern
   {
     CHECK_ARGUMENTS(2)
     char *filename = to_c_string(ARGUMENTS(0));
@@ -970,18 +1033,24 @@ $std::matches_file_pattern
   }
 
 $types::octet_string/is_a_latin_1_string
+  #
+    returns <true>
   {
     CHECK_ARGUMENTS(1)
     RETURN_TRUE
   }
 
 $types::quad_octet_string/is_a_latin_1_string
+  #
+    returns <false>
   {
     CHECK_ARGUMENTS(1)
     RETURN_FALSE
   }
 
 $std::from_utf8
+  #
+    converts a string from utf-8 encoding to code points
   {
     CHECK_ARGUMENTS(1)
     uint8_t *buf = (unsigned char *)to_c_string(ARGUMENTS(0));
@@ -1080,6 +1149,8 @@ $std::from_utf8
   }
 
 $types::octet_string/to_utf8
+  #
+    converts a string from code points to utf-8 encoding
   {
     CHECK_ARGUMENTS(1)
     NODE *self = ARGUMENTS(0);
@@ -1123,6 +1194,8 @@ $types::octet_string/to_utf8
   36 bit: 11111110 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
 
 $types::quad_octet_string/to_utf8
+  #
+    converts a string from code points to utf-8 encoding
   {
     CHECK_ARGUMENTS(1)
     NODE *self = ARGUMENTS(0);
