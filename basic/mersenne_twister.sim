@@ -86,5 +86,5 @@ $std::mersenne_twister:
 	  :
 	    $low lower_bound_of(n)
 	    $high upper_bound_of(n)
-	    -> (y .mod. high-low) + low
+	    -> (y .mod. high-low+1) + low
 	  -> (y .mod. n) + 1

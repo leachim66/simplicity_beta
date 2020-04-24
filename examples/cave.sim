@@ -88,13 +88,13 @@ $draw_cave_column:
 
   # update the ceiling height
 
-  !ceiling_y ceiling_y+next(&rng 5)-3 # make a random change
+  !ceiling_y ceiling_y+next(&rng -2..2) # make a random change
   extend_to &ceiling_y 1 # not too high
   reduce_to &ceiling_y 35 # not too low
 
   # update the floor height
 
-  !floor_y floor_y+next(&rng 5)-3 # make a random change
+  !floor_y floor_y+next(&rng -2..2) # make a random change
   reduce_to &floor_y HEIGHT # not too low
   extend_to &floor_y 16 # not too high
 
