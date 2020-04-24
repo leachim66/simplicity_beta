@@ -35,7 +35,7 @@ $state_of ()
 
 $std::mersenne_twister:
   #
-    creates a random number generator
+    creates a pseudo random number generator
   (
     seed
   )
@@ -81,4 +81,10 @@ $std::mersenne_twister:
 	!self.state_of state
 	!self.index_of index
 
-	-> (y .mod. n) + 1
+	if
+	  n.is_a_value_range
+	  :
+	    $low lower_bound_of(n)
+	    $high upper_bound_of(n)
+	    -> (y .mod. high-low) + low
+	  -> (y .mod. n) + 1
