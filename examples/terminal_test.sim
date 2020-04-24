@@ -1,7 +1,6 @@
 #!/usr/bin/env simrun
 
-<require basic/stdlib>
-<require system/stdlib>
+initialize_terminal
 
 $width width_of(current_screen)
 $height height_of(current_screen)

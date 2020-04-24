@@ -29,9 +29,6 @@
   This is by purpose only a skeleton of the game - waiting for *you* to develop
   it into a full fledged action game!
 
-<require basic/stdlib>
-<require system/stdlib>
-
 $WIDTH 80 # the width of the cave in character columns
 $HEIGHT 50 # the height of the cave in half character rows
 
@@ -46,7 +43,7 @@ $lower_half_block '@0x2584;'
 
 $$rng mersenne_twister(4714)
   #
-    our random number generator
+    our pseudo random number generator
 
     To change the cave just change the seed value.
 

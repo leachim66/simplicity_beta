@@ -333,9 +333,9 @@ $std::draw_text:
   #
     draw the specified text at the current screen position
 
-    The text is clipped on the borders of the screen. The remaining text is
-    drawn and the cursor position is advanced by the number of printed
-    characters.
+    The text is clipped on the borders of the screen.
+
+    The current column is updated according to the length of the *text*.
 
     **Attention**: The *text* must not contain *newline*-characters!
 
@@ -368,7 +368,6 @@ $std::draw_text:
       !current_screen.background_colours_of(row)(column)
 	current_background_colour
     inc &column
-  !current_screen.current_column_of column+1
 
 $std::draw_line:
   #
