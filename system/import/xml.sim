@@ -366,7 +366,7 @@ $types::xml_element/update:
   #
     updates all subtrees that match at least one set of clauses
 
-    if the <updater> returns <undefined> then the subtree is deleted
+    if the *updater* returns <undefined> then the subtree is deleted
 
     there are three kinds of clauses:
 

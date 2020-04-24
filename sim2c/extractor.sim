@@ -717,9 +717,10 @@ $get_short_description: (name info)
   -> short_description
 
 
-$sim2c::extract_documentation: (path)
-  !path_prefix truncate_behind(path '/' -1)
-  extract_documentation_from_directory path
+$sim2c::extract_documentation: (paths)
+  !path_prefix truncate_behind(paths(1) '/' -1)
+  for_each paths: (path)
+    extract_documentation_from_directory path
 
   for_each definitions: (iname info)
     $name name_of(info)

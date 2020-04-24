@@ -24,46 +24,147 @@
 <require ./widgets>
 
 $gui::style_of (!)
+  #
+    the style of a widget
+
 $gui::foreground_colour_of (!)
+  #
+    the foreground colour of a widget
+
 $gui::background_colour_of (!)
+  #
+    the background colour of a widget
+
 $gui::border_colour_of (!)
+  #
+    the border colour of a widget
+
 $gui::shadow_colour_of (!)
+  #
+    the shadow colour of a widget
+
 $gui::contents_of (!)
   #
-    stores subwidgets
+    the subwidgets of a widget
 
-    One of <text_of> or <text_lines_of> or <contents_of> must be defined for
-    each widget.
+    One of <gui::text_of> or <gui::text_lines_of> or <gui::contents_of> must be
+    defined for each widget.
+
 $gui::tooltip_of (!)
+  #
+    the tooltip of a widget
+
 $gui::uses_markup ()
+  #
+    whether the widget's text uses markup or not
+
 $gui::updater_of (!)
+  #
+    a function to update a value when the widget's contents change
+
 $gui::width_of (!)
+  #
+    the width of a widget
+
 $gui::height_of (!)
+  #
+    the height of a widget
+
 $gui::column_widths_of (!)
+  #
+    the column widths of a widget
+
 $gui::row_heights_of (!)
+  #
+    the row heights of a widget
+
 $gui::horizontal_spacing_of (!)
+  #
+    the horizontal spacing for subwidgets
+
 $gui::vertical_spacing_of (!)
+  #
+    the vertical spacing for subwidgets
+
 $gui::layout_direction_of (!)
+  #
+    the direction of a widget's layout
+
 $gui::alignment_of (!)
+  #
+    the alignment of a widget
+
 $gui::item_alignment_of (!)
+  #
+    the alignment of the widget's items
+
 $gui::column_of (!)
+  #
+    the column of a widget
+
 $gui::row_of (!)
+  #
+    the row of a widget
+
 $gui::column_span_of (!)
+  #
+    the number of columns the widget spans
+
 $gui::row_span_of (!)
+  #
+    the number of rows the widget spans
+
 $gui::background_of (!)
+  #
+    the background of a widget
+
 $gui::action_of (!)
+  #
+    an action associated with the widget
+
 $gui::validator_of (!)
+  #
+    a validator function for a widget
+
 $gui::is_acceptable ()
+  #
+    the widget is in a valid (acceptable) state
+
 $gui::is_default ()
+  #
+    the button is activated by the ENTER-key
+
 $gui::left_margin_of (!)
+  #
+    the left margin of a widget
+
 $gui::right_margin_of (!)
+  #
+    the right margin of a widget
+
 $gui::top_margin_of (!)
+  #
+    the top margin of a widget
+
 $gui::bottom_margin_of (!)
+  #
+    the bottom margin of a widget
+
 $gui::border_width_of (!)
+  #
+    the border width of a widget
 
 %%gui::current_contents undefined
+  #
+    the current contents - used for adding subwidgets
+
 %%gui::current_id undefined
+  #
+    the next id to use for widget numbering
+
 %gui::current_widget_path undefined
+  #
+    the current key in the widget tree
 
 ###
 # Widgets
@@ -71,7 +172,8 @@ $gui::border_width_of (!)
 $types::widget types::object # The prototype for all widgets.
 
 $types::style
-  # The prototype for all widget styles.
+  #
+    the prototype object for all widget styles
 
   types::object
     .gui::foreground_colour_of gui::BLACK
@@ -80,15 +182,23 @@ $types::style
     .gui::shadow_colour_of undefined
 
 $gui::WINDOW .
+  #
+    a window
+
 $gui::TEXT_WIDGET .
   #
-    A simple widget containing multiple lines of text without any decorations.
+    a simple widget containing multiple lines of text
+
+    The text does not contain any decorations.
 
     see also:
 
     gui::text_lines_of
+
 $gui::TEXT_WINDOW .
   #
+    a titled window
+
     A text window has a title, stored in the <gui::title_of>-attribute and
     contains several lines of text stored in the attribute <gui::text_lines_of>.
 
@@ -96,31 +206,49 @@ $gui::TEXT_WINDOW .
 
     gui::text_lines_of
     gui::title_of
+
 $gui::STATUS_LINE .
   #
+    a status line (for a window)
+
     A status line has a title, stored in the <gui::title_of>-attribute and is
     displayed using a single line of text.
 
     see also:
 
     gui::title_of
+
 $gui::TOOLTIP .
   #
+    an option to set a widget's tooltip
+
     This option sets a widget's tooltip that is shown when hovering with the
     mouse cursor over the widget.
+
 $gui::MARKUP .
   #
+    a boolean option to define whether a widget uses markup or not
+
     If <std::true> then the widget's contents may contain markup.
+
 $gui::WIDTH .
   #
+    an option to set the width of a widget
+
     This option allows setting the width of a widget to an absolute length
     in inch ("inch"), millimeter ("mm") or point ("pt").
+
 $gui::HEIGHT .
   #
+    an option to set the height of a widget
+
     This option allows setting the height of a widget to an absolute length
     in inch ("inch"), millimeter ("mm") or point ("pt").
+
 $gui::COLUMN_WIDTHS .
   #
+    an option to set the column widths of a grid widget
+
     This option allows setting the widths of a grid's columns to a specific
     ratio (e.g. "1/3"), percentage (e.g. "45%"), an absolute length in "inch",
     "mm" or "pt" or to "auto".
@@ -130,16 +258,22 @@ $gui::COLUMN_WIDTHS .
 
     If neither <gui::COLUMN_WIDTHS> nor <gui::COLUMN_COUNT> is set then
     the default is two columns with "auto"-size.
+
 $gui::COLUMN_COUNT .
   #
+    an option to set the number of columns of a grid widget
+
     This option sets the widths of all columns of a grid to "auto". Setting
     the column count is only necessary for grids with the (default) "left-right"
     layout.
 
     If neither <gui::COLUMN_WIDTHS> nor <gui::COLUMN_COUNT> is set then
     the default is two columns with "auto"-size.
+
 $gui::ROW_HEIGHTS .
   #
+    an option to set the row heights of a grid widget
+
     This option allows setting the heights of a grid's columns to a specific
     ratio (e.g. "1/3"), percentage (e.g. "45%"), an absolute length in "inch",
     "mm" or "pt" or to "auto".
@@ -149,39 +283,60 @@ $gui::ROW_HEIGHTS .
 
     If neither <gui::ROW_HEIGHTS> nor <gui::ROW_COUNT> is set then
     the default is as many rows as necessary - all with "auto"-height.
+
 $gui::ROW_COUNT .
   #
+    an option to set the number of rows of a grid widget
+
     This option sets the heights of all rows of a grid to "auto". Setting
     the row count is only necessary for grids with "top-down" layout.
 
     If neither <gui::ROW_HEIGHTS> nor <gui::ROW_COUNT> is set then
     the default is as many rows as necessary - all with "auto"-height.
+
 $gui::COLUMN .
   #
-    Sets the (start) column of a widget within a grid. Further widgets will
-    start at the next position within the grid (unless gui::COLUMN_SPAN or
-    gui::ROW_SPAN are set, too)
+    an option to set the (start) column of a widget withing a grid
+
+    Further widgets will start at the next position within the grid (unless
+    gui::COLUMN_SPAN or gui::ROW_SPAN are set, too)
+
 $gui::ROW .
   #
-    Sets the (start) row of a widget within a grid. Further widgets will
-    start at the next position within the grid (unless gui::COLUMN_SPAN or
-    gui::ROW_SPAN are set, too)
+    an option to set the (start) row of a widget within a grid
+
+    Further widgets will start at the next position within the grid (unless
+    gui::COLUMN_SPAN or gui::ROW_SPAN are set, too)
+
 $gui::COLUMN_SPAN .
   #
-    Sets the number of columns a widget spans. Widgets with a column span
-    will not alter the current position within the grid.
+    an option to set the number of columns a widget spans
+
+    Widgets with a column span will not alter the current position within the
+    grid.
+
 $gui::ROW_SPAN .
   #
-    Sets the number of rows a widget spans. Widgets with a row span
-    will not alter the current position within the grid.
+    an option to set set the number of rows a widget spans
+
+    Widgets with a row span will not alter the current position within the grid.
+
 $gui::LAYOUT_DIRECTION .
   #
+    an option to set the layout direction within a widget
+
     This is either "left-right" (default) or "top-down".
+
 $gui::ACTION .
   #
+    an option to associate an action callback with a widget
+
     This option allows setting the action of a widget.
+
 $gui::VALIDATE .
   #
+    an option to associate a validation callback with a widget
+
     This option allows setting a contents validation function for a widget.
 
     A validation function returns <std::true> if the content is in an acceptable
@@ -189,30 +344,47 @@ $gui::VALIDATE .
     state (not yet acceptable, but further input might yield an acceptable
     state) and it returns <std::undefined> if the content is definitely
     unacceptable (e.g. contains invalid characters).
-$gui::PASSWORD . # This option hides user input.
+
+$gui::PASSWORD .
+  #
+    an option to hide user input
+
 $gui::DEFAULT .
   #
+    option to set the default button of a dialog
+
     If set on a button, the button's action is triggered if the user presses
     the "return" (or "enter") key in a widget that does not handle "return"
     (or "enter") by itself.
+
 $gui::HORIZONTAL_SPACING .
   #
+    an option to set the horizontal spacing for subwidgets
+
     Sets the spacing used between grid columns or within a line in a group.
 $gui::VERTICAL_SPACING .
   #
+    an option to set the vertical spacing for subwidgets
 
     Sets the spacing used between grid rows or between lines in a group.
+
 $gui::SPACING .
   # Sets the horizontal and the vertical spacing (to the same value).
+
 $gui::ALIGNMENT .
   #
+    an option to set the horizontal **and** vertical spacing for subwidgets
+
     This specifies the horizontal as well as the vertical alignment of a
     widget in relation to its container.
 
     Horizontal alignment options: "left", "right", "center", "stretch".
 
     Vertical alignment options: "top", "bottom", "middle", "grow".
+
 $gui::ITEM_ALIGNMENT .
+  #
+    an option to specify the alignment of grid items
   #
     This specifies the horizontal as well as the vertical alignment of a grid's
     item within their grid cell. This can be overruled by setting
@@ -221,22 +393,71 @@ $gui::ITEM_ALIGNMENT .
     Horizontal alignment options: "left", "right", "center", "stretch".
 
     Vertical alignment options: "top", "bottom", "middle", "grow".
-$gui::MARGIN . # sets TOP_MARGIN, BOTTOM_MARGIN, LEFT_MARGIN and RIGHT_MARGIN
-$gui::HORIZONTAL_MARGIN . # sets LEFT_MARGIN and RIGHT_MARGIN
-$gui::VERTICAL_MARGIN . # sets TOP_MARGIN and BOTTOM_MARGIN
+
+$gui::MARGIN .
+  #
+    an option to specify *all* margins
+
+    sets TOP_MARGIN, BOTTOM_MARGIN, LEFT_MARGIN and RIGHT_MARGIN
+
+    See also: gui::HORIZONTAL_MARGIN, gui::VERTICAL_MARGIN, gui::LEFT_MARGIN,
+	      gui::RIGHT_MARGIN, gui::TOP_MARGIN, gui::BOTTOM_MARGIN
+
+$gui::HORIZONTAL_MARGIN .
+  #
+    an option to specify the left and right margins
+
+    See also: gui::MARGIN, gui::VERTICAL_MARGIN, gui::LEFT_MARGIN,
+	      gui::RIGHT_MARGIN
+
+$gui::VERTICAL_MARGIN .
+  #
+    an option to specify the top and bottom margins
+
+    See also: gui::MARGIN, gui::HORIZONTAL_MARGIN, gui::TOP_MARGIN,
+	      gui::BOTTOM_MARGIN
+
 $gui::LEFT_MARGIN .
+  #
+    an option to specify the left margin
+
+    See also: gui::MARGIN, gui::HORIZONTAL_MARGIN, gui::RIGHT_MARGIN
+
 $gui::RIGHT_MARGIN .
+  #
+    an option to specify the left margin
+
+    See also: gui::MARGIN, gui::HORIZONTAL_MARGIN, gui::LEFT_MARGIN
+
 $gui::TOP_MARGIN .
+  #
+    an option to specify the top margin
+
+    See also: gui::MARGIN, gui::VERTICAL_MARGIN, gui::BOTTOM_MARGIN
+
 $gui::BOTTOM_MARGIN .
+  #
+    an option to specify the bottom margin
+
+    See also: gui::MARGIN, gui::VERTICAL_MARGIN, gui::TOP_MARGIN
+
 $gui::BORDER_WIDTH .
+  #
+    an option to specify the border width of a widget
+
 $gui::BACKGROUND .
+  #
+    an option to specify the background of a widget
+
 $gui::STYLE .
+  #
+    an option to specify the style of a widget
 
 $gui::is_a_password () # The widget contains a password.
 
 #$gui::type_of (!)
   #
-    The type of a widget or event; e.g. <gui::TEXT_WINDOW> or <gui::KEY_EVENT>.
+    Tte type of a widget or event; e.g. <gui::TEXT_WINDOW> or <gui::KEY_EVENT>
 
     see also:
 
@@ -245,35 +466,52 @@ $gui::is_a_password () # The widget contains a password.
     gui::KEY_EVENT
 
 $types::widget.type_of undefined
+  #
+    the type of the widget
 
-$gui::title_of (!) # A string describing the title of the widget.
+$gui::title_of (!)
+  #
+    the title of the widget
+
 $gui::text_of (!)
   #
-    A single- or multi-line text.
+    the text of a single- or multi-line text widget
 
-    One of <text_of> or <text_lines_of> or <contents_of> must be defined for
-    each widget.
+    One of <gui::text_of> or <gui:text_lines_of> or <gui::contents_of> must be
+    defined for each widget.
+
 $gui::text_lines_of (!)
   #
-    A list of strings, each string describing a single line of text.
+    the text lines of a widget
 
-    One of <text_of> or <text_lines_of> or <contents_of> must be defined for
-    each widget.
+    Each string describes a single line of text.
+
+    One of <gui::text_of> or <gui:text_lines_of> or <gui::contents_of> must be
+    defined for each widget.
+
 $gui::cursor_position_of (!)
   #
-    A list of two entries, describing the current cursor position.
+    a two-entry list describing the current cursor position within the widget
 
     Example:
 
     .cursor_position_of list(cursor_line cursor_column)
+
 $gui::cursor_column_of (!)
   #
-    The (maybe virtual) column of the cursor in a multi-line edit box
+    the (maybe virtual) column of the cursor in a multi-line edit box
+
 $gui::is_focusable ()
+  #
+    <true> if the widget is able to have the input focus
+
 $gui::has_focus ()
+  #
+    <true> if the widget currently has the input focus
+
 $gui::selection_of (!)
   #
-    A list of four entries, describing the current selection.
+    a list of four entries, describing the current selection
 
     Example:
 
@@ -333,7 +571,9 @@ $gui::KEY_EVENT .
     <std::undefined>.
 #$types::event.gui::key_code_of undefined
 
-$gui::focused_widget_of (!) # The name of the currently focused widget.
+$gui::focused_widget_of (!)
+  #
+    the name of the currently focused widget
 
 $types::event.gui::focused_widget_of undefined
 
