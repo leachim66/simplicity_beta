@@ -127,7 +127,7 @@ $draw_message
       msg # the message to draw
     )
     $len length_of(msg)
-    at div((80-len) 2) 13
+    at div((80-len) 2)+1 13
     draw_text msg
 
 $a_collision_happened
@@ -197,6 +197,7 @@ do:
     clean the screen and restore all changes we made to input buffering and
     echoing
 
+  restore_colours
   clear_screen
   cursor_on
   get_terminal_attributes STDIN_FILENO $$attributes

@@ -653,7 +653,17 @@ $std::clear_screen
 
     Topic: Terminal
 
-    See also: cursor_home, cursor_on, cursor_off
+    See also: cursor_home, cursor_on, cursor_off, restore_colours
   :
     cursor_home
     write "@esc;[2J"
+
+$std::restore_colours
+  #
+    set default colours for text and background
+
+    Call this during the cleanup phase.
+
+    See also: clear_screen, cursor_on
+  :
+    write "@esc;[39m@esc;[49m"
