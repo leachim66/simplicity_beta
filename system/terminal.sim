@@ -45,6 +45,30 @@ $current_column_of ()
 $current_text_colour_of ()
 $current_background_colour_of ()
 
+$std::red_component_of (!)
+  #
+    the red component of a colour
+
+    Topic: Terminal
+
+    See also: green_component_of, blue_component_of
+
+$std::green_component_of (!)
+  #
+    the green component of a colour
+
+    Topic: Terminal
+
+    See also: red_component_of, blue_component_of
+
+$std::blue_component_of (!)
+  #
+    the blue component of a colour
+
+    Topic: Terminal
+
+    See also: red_component_of, green_component_of
+
 $INVALID_COLOUR '@0xffffffff;'
 
 $types::screen types::object
@@ -775,6 +799,110 @@ $std::restore_colours
 
     Call this during the cleanup phase.
 
+    Topic: Terminal
+
     See also: clear_screen, cursor_on
   :
     write "@esc;[39m@esc;[49m"
+
+$std::rgb_character:
+  #
+    constructs a colour (character) from its primary colours
+
+    Topic: Terminal
+
+    See also: colour_mixture,
+	      red_component_of, green_component_of, blue_component_of
+  (
+    red
+    green
+    blue
+  )
+  -> character(red << 16 | green << 8 | blue)
+
+$types::character/red_component_of:
+  #
+    returns the red component of the colour (character)
+
+    Topic: Terminal
+
+    See also: green_component_of, blue_component_of, rgb_character,
+	      colour_mixture
+  (
+    chr
+  )
+  -> (chr.to_integer >> 16) & 0xff
+
+$types::character/green_component_of:
+  #
+    returns the green component of the colour (character)
+
+    Topic: Terminal
+
+    See also: red_component_of, blue_component_of, rgb_character,
+	      colour_mixture
+  (
+    chr
+  )
+  -> (chr.to_integer >> 8) & 0xff
+
+$types::character/blue_component_of:
+  #
+    returns the blue component of the colour (character)
+
+    Topic: Terminal
+
+    See also: red_component_of, green_component_of, rgb_character,
+	      colour_mixture
+  (
+    chr
+  )
+  -> chr.to_integer & 0xff
+
+$std::colour_mixture:
+  #
+    constructs a colour (character) from a mixture of the specified colours
+
+    The arguments are colour characters or <types::key_value_pair>s of the
+    form
+
+    *colour* = *parts*
+
+    Topic: Terminal
+
+    See also: rgb_character
+	      red_component_of, green_component_of, blue_component_of
+
+    Example:
+
+    $RED rgb_character(0xff 0 0)
+    $BLUE rgb_character(0 0 0xff)
+
+    $VIOLET colour_mixture(RED BLUE = 2) # one part red, two parts blue
+  (
+    args*
+  )
+  $$total_parts 0
+  $$red 0
+  $$green 0
+  $$blue 0
+
+  for_each args: (arg)
+    if
+      arg.is_a_key_value_pair:
+	$colour key_of(arg)
+	$parts value_of(arg)
+	plus &red parts*red_component_of(colour)
+	plus &green parts*green_component_of(colour)
+	plus &blue parts*blue_component_of(colour)
+	plus &total_parts parts
+      :
+	plus &red red_component_of(arg)
+	plus &green green_component_of(arg)
+	plus &blue blue_component_of(arg)
+	inc &total_parts
+  ->
+    rgb_character
+      round(red/total_parts).to_integer
+      round(green/total_parts).to_integer
+      round(blue/total_parts).to_integer
