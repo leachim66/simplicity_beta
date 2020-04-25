@@ -79,8 +79,6 @@ $std::create_screen:
   (
     text_colour = '@nul;' # the initial text colour
     background_colour = '@0xffffff;' # the initial background colour
-    row = 1 # the initial cursor row
-    column = 1 # the initial cursor column
   )
   $row_count terminal_height
   $column_count terminal_width
@@ -88,8 +86,8 @@ $std::create_screen:
     types::screen
       .height_of row_count
       .width_of column_count
-      .current_row_of row
-      .current_column_of column
+      .current_row_of 1
+      .current_column_of 1
       .current_text_colour_of text_colour
       .current_background_colour_of background_colour
       .characters_of dup(list(dup(" " column_count)) row_count)
@@ -592,8 +590,12 @@ $std::initialize_terminal
 
     See also: current_screen, create_screen
   :
-    create_screen !terminal INVALID_COLOUR INVALID_COLOUR undefined undefined
-    create_screen !std::current_screen
+    (
+      text_colour? # the initial text colour
+      background_colour? # the initial background colour
+    )
+    create_screen !terminal INVALID_COLOUR INVALID_COLOUR
+    create_screen !std::current_screen text_colour? background_colour?
 
 $std::draw_rectangle:
   #
