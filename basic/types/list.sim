@@ -454,6 +454,12 @@ $types::generic_list/update_each:
     For each item the statement sequence supplied as *body* is called
     with one or two arguments (depending on *body*'s parameter count).
 
+    **Attention**: If the returned item equals <undefined> then the item is
+    removed from the list!
+
+    **Attention**: if the returned item is a <types::sequence> then all the
+    items of the sequence are inserted.
+
     If called with two arguments the first argument is the position no.
     of the item within the list.
 
@@ -465,18 +471,23 @@ $types::generic_list/update_each:
     body # the function to update the list items
     -> return
   )
+  $update_item: (new_item)
+    if new_item.is_defined:
+      if
+	new_item.is_a_sequence:
+	  append &new_list new_item
+	:
+	  push &new_list new_item
+    plus &i 1
+
   $$i 1
   $n length_of(self)
   $$new_list types::list
   if
     parameter_count_of(body) == 2:
-      while -> i <= n:
-	push &new_list body(i self(i))
-	plus &i 1
+      while -> i <= n: update_item body(i self(i))
     :
-      while -> i <= n:
-	push &new_list body(self(i))
-	plus &i 1
+      while -> i <= n: update_item body(self(i))
   return new_list
 
 $types::list/for_each_pair:

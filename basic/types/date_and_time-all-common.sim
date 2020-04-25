@@ -501,6 +501,8 @@ $std::sleep
   #
     halts the application for the specified number of seconds
 
+    If the *delay* is negative then the function returns immediately.
+
     Parameter delay: the number of seconds to wait (can contain decimals)
   {
     CHECK_ARGUMENTS(1)

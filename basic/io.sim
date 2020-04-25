@@ -1771,6 +1771,7 @@ $wait_for_io_ready
 
     if (TYPEOF(ARGUMENTS(3)) != TYPEOF(undefined)) {
       timeout = to_double(ARGUMENTS(3));
+      if (timeout < 0.0) timeout = 0.0;
       timeout_data.tv_sec = timeout;
       timeout_data.tv_nsec = 1000000000*(timeout-floor(timeout));
       timeout_ptr = &timeout_data;
@@ -1959,7 +1960,7 @@ $std::wait_for_io:
     read_descriptors
     write_descriptors
     except_descriptors
-    timeout?
+    timeout? # negative timeout values are ignored
   )
   wait_for_io_ready
     read_descriptors
