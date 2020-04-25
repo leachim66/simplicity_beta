@@ -102,14 +102,50 @@ $std::character_at:
 
     Topic: Terminal
 
+    See also: text_colour_at, background_colour_at, set_character_at
+
     Example:
 
-      character_at(column row)
+    character_at(column row)
   (
     x
     y
   )
   -> characters_of(current_screen)(y)(x)
+
+$std::text_colour_at:
+  #
+    returns the text colour at the specified position of the screen
+
+    Topic: Terminal
+
+    See also: background_colour_at, character_at, set_text_colour_at
+
+    Example:
+
+    text_colour_at(column row)
+  (
+    x
+    y
+  )
+  -> text_colours_of(current_screen)(y)(x)
+
+$std::background_colour_at:
+  #
+    returns the background colour at the specified position of the screen
+
+    Topic: Terminal
+
+    See also: text_colour_at, character_at, set_background_colour_at
+
+    Example:
+
+    background_colour_at(column row)
+  (
+    x
+    y
+  )
+  -> background_colours_of(current_screen)(y)(x)
 
 $std::scroll_left:
   #
@@ -299,9 +335,80 @@ $std::set_background_colour:
   )
   !current_screen.current_background_colour_of colour
 
+$std::set_character_at:
+  #
+    sets the character at the specified screen position
+
+    The text and background colours are left unchanged.
+
+    Topic: Terminal
+
+    See also: set_text_colour_at, set_background_colour_at, character_at
+  (
+    x
+    y
+    chr
+  )
+  if
+    &&
+      y >= 1
+      y <= height_of(current_screen)
+      x >= 1
+      x <= width_of(current_screen)
+    :
+      !current_screen.characters_of(y)(x) chr
+
+$std::set_text_colour_at:
+  #
+    sets the text colour at the specified screen position
+
+    The character and the background colour are left unchanged.
+
+    Topic: Terminal
+
+    See also: set_background_colour_at, set_character_at, background_colour_at
+  (
+    x
+    y
+    colour # the new text colour
+  )
+  if
+    &&
+      y >= 1
+      y <= height_of(current_screen)
+      x >= 1
+      x <= width_of(current_screen)
+    :
+      !current_screen.text_colours_of(y)(x) colour
+
+$std::set_background_colour_at:
+  #
+    sets the background colour at the specified screen position
+
+    The character and the text colour are left unchanged.
+
+    Topic: Terminal
+
+    See also: set_text_colour_at, set_character_at, text_colour_at
+  (
+    x
+    y
+    colour # the new background colour
+  )
+  if
+    &&
+      y >= 1
+      y <= height_of(current_screen)
+      x >= 1
+      x <= width_of(current_screen)
+    :
+      !current_screen.background_colours_of(y)(x) colour
+
 $std::draw_character:
   #
     draws a character at the current screen position
+
+    The character is drawn using the current text and background colour.
 
     If the cursor position is valid then the character is drawn and the cursor
     position is advanced by one character column.
@@ -330,6 +437,8 @@ $std::draw_character:
 $std::draw_text:
   #
     draw the specified text at the current screen position
+
+    The text is drawn using the current text and background colour.
 
     The text is clipped on the borders of the screen.
 
