@@ -132,7 +132,6 @@ $std::terminate
   #
     run the exit-handlers and successfully terminate the application
   :
-    cleanup
     exit 0
 
 $std::ErrorMessage:

@@ -2114,193 +2114,193 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__141_2, &frame__141_1_std__delete_file, 1755, 1755, 5, 35},
   {cont__141_3, &frame__141_1_std__delete_file, 1754, 1760, 3, 41},
   {cont__141_15, &frame__141_1_std__delete_file, 1760, 1760, 41, 41},
-  {entry__142_1_wait_for_io_ready, NULL, 1763, 1923, 3, 2},
-  {entry__143_1_std__get_pid, NULL, 1928, 1931, 3, 2},
-  {entry__144_1_std__wait_pid, NULL, 1941, 1953, 3, 2},
-  {entry__145_1_std__wait_for_io, NULL, 1964, 1975, 3, 17},
-  {cont__145_2, &frame__145_1_std__wait_for_io, 1979, 1979, 5, 36},
-  {cont__145_3, &frame__145_1_std__wait_for_io, 1980, 1980, 23, 35},
-  {cont__145_4, &frame__145_1_std__wait_for_io, 1980, 1980, 37, 60},
-  {cont__145_5, &frame__145_1_std__wait_for_io, 1980, 1980, 5, 61},
-  {cont__145_6, &frame__145_1_std__wait_for_io, 1981, 1981, 23, 46},
-  {cont__145_7, &frame__145_1_std__wait_for_io, 1981, 1981, 23, 48},
-  {cont__145_8, &frame__145_1_std__wait_for_io, 1981, 1981, 51, 51},
-  {cont__145_9, &frame__145_1_std__wait_for_io, 1981, 1981, 5, 52},
-  {cont__145_10, &frame__145_1_std__wait_for_io, 1976, 1982, 3, 11},
-  {entry__146_1_std__current_path, NULL, 1987, 2005, 3, 2},
-  {entry__147_1_std__chdir, NULL, 2012, 2023, 3, 2},
-  {entry__148_5, NULL, 2032, 2033, 11, 60},
-  {cont__148_8, &frame__148_5, 2032, 2033, 5, 60},
-  {entry__148_1_std__change_directory, NULL, 2031, 2031, 6, 21},
-  {cont__148_2, &frame__148_1_std__change_directory, 2031, 2031, 6, 26},
-  {cont__148_3, &frame__148_1_std__change_directory, 2031, 2031, 6, 26},
-  {cont__148_4, &frame__148_1_std__change_directory, 2031, 2033, 3, 61},
-  {entry__149_1_clib_mkdir, NULL, 2036, 2048, 3, 2},
-  {entry__150_2_fail, NULL, 2070, 2070, 28, 36},
-  {cont__150_3, &frame__150_2_fail, 2070, 2070, 16, 37},
-  {cont__150_5, &frame__150_2_fail, 2070, 2070, 7, 37},
-  {cont__150_7, &frame__150_2_fail, 2071, 2071, 7, 42},
-  {cont__150_9, &frame__150_2_fail, 2072, 2072, 7, 19},
-  {cont__150_11, &frame__150_2_fail, 2068, 2072, 5, 19},
-  {entry__150_22, NULL, 2078, 2078, 47, 53},
-  {cont__150_23, &frame__150_22, 2078, 2078, 47, 63},
-  {cont__150_24, &frame__150_22, 2078, 2078, 47, 63},
-  {cont__150_25, &frame__150_22, 2078, 2078, 47, 63},
-  {entry__150_18, NULL, 2077, 2077, 7, 40},
-  {cont__150_19, &frame__150_18, 2078, 2078, 10, 38},
-  {cont__150_20, &frame__150_18, 2078, 2078, 10, 42},
-  {cont__150_21, &frame__150_18, 2078, 2078, 10, 63},
-  {cont__150_26, &frame__150_18, 2078, 2078, 7, 68},
-  {entry__150_13_create_parent_folders, NULL, 2075, 2075, 31, 31},
-  {cont__150_14, &frame__150_13_create_parent_folders, 2075, 2075, 5, 31},
-  {cont__150_15, &frame__150_13_create_parent_folders, 2076, 2076, 8, 25},
-  {cont__150_16, &frame__150_13_create_parent_folders, 2076, 2076, 8, 25},
-  {cont__150_17, &frame__150_13_create_parent_folders, 2076, 2078, 5, 68},
-  {entry__150_31, NULL, 2081, 2081, 32, 57},
-  {entry__150_36, NULL, 2083, 2083, 40, 46},
-  {cont__150_37, &frame__150_36, 2083, 2083, 40, 56},
-  {cont__150_38, &frame__150_36, 2083, 2083, 40, 56},
-  {entry__150_35, NULL, 2083, 2083, 12, 56},
-  {cont__150_39, &frame__150_35, 2083, 2083, 5, 61},
-  {entry__150_1_std__mkdir, NULL, 2062, 2062, 5, 16},
-  {cont__150_27, &frame__150_1_std__mkdir, 2064, 2064, 5, 19},
-  {cont__150_28, &frame__150_1_std__mkdir, 2060, 2065, 3, 29},
-  {cont__150_29, &frame__150_1_std__mkdir, 2080, 2080, 3, 26},
-  {cont__150_30, &frame__150_1_std__mkdir, 2081, 2081, 3, 57},
-  {cont__150_32, &frame__150_1_std__mkdir, 2082, 2082, 6, 26},
-  {cont__150_33, &frame__150_1_std__mkdir, 2082, 2082, 6, 30},
-  {cont__150_34, &frame__150_1_std__mkdir, 2082, 2083, 3, 61},
-  {entry__151_5, NULL, 2093, 2094, 11, 49},
-  {cont__151_7, &frame__151_5, 2093, 2094, 5, 49},
-  {entry__151_1_std__create_directory, NULL, 2092, 2092, 6, 26},
-  {cont__151_2, &frame__151_1_std__create_directory, 2092, 2092, 6, 31},
-  {cont__151_3, &frame__151_1_std__create_directory, 2092, 2092, 6, 31},
-  {cont__151_4, &frame__151_1_std__create_directory, 2092, 2094, 3, 50},
-  {entry__152_3, NULL, 2103, 2103, 22, 35},
-  {cont__152_4, &frame__152_3, 2103, 2103, 5, 49},
-  {cont__152_6, &frame__152_3, 2103, 2103, 49, 49},
-  {entry__152_9, NULL, 2104, 2104, 37, 54},
-  {cont__152_10, &frame__152_9, 2104, 2104, 54, 54},
-  {entry__152_20, NULL, 2111, 2111, 19, 38},
-  {cont__152_21, &frame__152_20, 2111, 2111, 19, 53},
-  {cont__152_22, &frame__152_20, 2111, 2111, 14, 54},
-  {cont__152_23, &frame__152_20, 2111, 2111, 9, 62},
-  {cont__152_25, &frame__152_20, 2111, 2111, 9, 68},
-  {cont__152_26, &frame__152_20, 2110, 2111, 7, 68},
-  {cont__152_27, &frame__152_20, 2112, 2112, 10, 34},
-  {cont__152_28, &frame__152_20, 2112, 2112, 7, 40},
-  {entry__152_19, NULL, 2108, 2112, 5, 40},
-  {cont__152_29, &frame__152_19, 2112, 2112, 40, 40},
-  {entry__152_32, NULL, 2113, 2113, 46, 46},
-  {cont__152_33, &frame__152_32, 2113, 2113, 27, 46},
-  {cont__152_34, &frame__152_32, 2113, 2113, 46, 46},
-  {entry__152_1_std__fullname, NULL, 2102, 2102, 10, 34},
-  {cont__152_2, &frame__152_1_std__fullname, 2102, 2103, 3, 49},
-  {cont__152_7, &frame__152_1_std__fullname, 2104, 2104, 10, 34},
-  {cont__152_8, &frame__152_1_std__fullname, 2104, 2104, 3, 54},
-  {cont__152_11, &frame__152_1_std__fullname, 2105, 2105, 25, 34},
-  {cont__152_13, &frame__152_1_std__fullname, 2105, 2105, 25, 40},
-  {cont__152_14, &frame__152_1_std__fullname, 2105, 2105, 3, 40},
-  {cont__152_15, &frame__152_1_std__fullname, 2106, 2106, 25, 35},
-  {cont__152_17, &frame__152_1_std__fullname, 2106, 2106, 3, 35},
-  {cont__152_18, &frame__152_1_std__fullname, 2107, 2112, 3, 41},
-  {cont__152_30, &frame__152_1_std__fullname, 2113, 2113, 10, 24},
-  {cont__152_31, &frame__152_1_std__fullname, 2113, 2113, 3, 46},
-  {cont__152_35, &frame__152_1_std__fullname, 2114, 2114, 3, 13},
-  {entry__161_1_std__opendir, NULL, 2201, 2213, 3, 2},
-  {entry__162_1_types__DIR_close, NULL, 2218, 2229, 3, 2},
-  {entry__163_1_types__DIR_get, NULL, 2234, 2253, 3, 2},
-  {entry__164_1_types__dirent_filename_of, NULL, 2258, 2262, 3, 2},
-  {entry__165_1_types__dirent_inode_of, NULL, 2267, 2271, 3, 2},
-  {entry__166_1_types__dirent_file_type_of, NULL, 2276, 2280, 3, 2},
-  {entry__167_1_types__dirent_fullname_of, NULL, 2288, 2288, 13, 29},
-  {cont__167_2, &frame__167_1_types__dirent_fullname_of, 2288, 2288, 35, 51},
-  {cont__167_3, &frame__167_1_types__dirent_fullname_of, 2288, 2288, 6, 52},
-  {cont__167_4, &frame__167_1_types__dirent_fullname_of, 2288, 2288, 3, 52},
-  {entry__168_1_types__dirent_is_a_directory, NULL, 2296, 2296, 6, 23},
-  {cont__168_2, &frame__168_1_types__dirent_is_a_directory, 2296, 2296, 6, 41},
-  {cont__168_3, &frame__168_1_types__dirent_is_a_directory, 2296, 2296, 3, 41},
-  {entry__169_1_types__dirent_is_a_regular_file, NULL, 2304, 2304, 6, 23},
-  {cont__169_2, &frame__169_1_types__dirent_is_a_regular_file, 2304, 2304, 6, 44},
-  {cont__169_3, &frame__169_1_types__dirent_is_a_regular_file, 2304, 2304, 3, 44},
-  {entry__170_1_types__dirent_is_a_link, NULL, 2312, 2312, 6, 23},
-  {cont__170_2, &frame__170_1_types__dirent_is_a_link, 2312, 2312, 6, 36},
-  {cont__170_3, &frame__170_1_types__dirent_is_a_link, 2312, 2312, 3, 36},
-  {entry__171_16, NULL, 2333, 2333, 11, 29},
-  {cont__171_17, &frame__171_16, 2333, 2333, 29, 29},
-  {entry__171_18, NULL, 2331, 2331, 11, 14},
-  {entry__171_8, NULL, 2326, 2326, 7, 21},
-  {cont__171_9, &frame__171_8, 2327, 2327, 14, 29},
-  {cont__171_10, &frame__171_8, 2327, 2327, 7, 35},
-  {cont__171_11, &frame__171_8, 2329, 2329, 9, 26},
-  {cont__171_12, &frame__171_8, 2330, 2330, 9, 17},
-  {cont__171_15, &frame__171_8, 2328, 2333, 7, 30},
-  {entry__171_7, NULL, 2325, 2333, 5, 31},
-  {cont__171_19, &frame__171_7, 2333, 2333, 31, 31},
-  {entry__171_23, NULL, 2336, 2336, 36, 52},
-  {cont__171_24, &frame__171_23, 2336, 2336, 56, 73},
-  {cont__171_25, &frame__171_23, 2336, 2336, 36, 73},
-  {cont__171_26, &frame__171_23, 2336, 2336, 33, 73},
-  {entry__171_22, NULL, 2336, 2336, 5, 73},
-  {cont__171_27, &frame__171_22, 2336, 2336, 73, 73},
-  {entry__171_1_std__directory, NULL, 2321, 2321, 27, 38},
-  {cont__171_2, &frame__171_1_std__directory, 2321, 2321, 3, 47},
-  {cont__171_3, &frame__171_1_std__directory, 2322, 2322, 3, 18},
-  {cont__171_4, &frame__171_1_std__directory, 2323, 2323, 21, 38},
-  {cont__171_5, &frame__171_1_std__directory, 2323, 2323, 3, 39},
-  {cont__171_6, &frame__171_1_std__directory, 2324, 2333, 3, 32},
-  {cont__171_20, &frame__171_1_std__directory, 2334, 2334, 3, 11},
-  {cont__171_21, &frame__171_1_std__directory, 2335, 2336, 3, 73},
-  {cont__171_28, &frame__171_1_std__directory, 2337, 2337, 3, 12},
-  {entry__179_1_std__get_network_addresses, NULL, 2433, 2469, 3, 2},
-  {entry__180_1_std__get_network_address, NULL, 2474, 2499, 3, 2},
-  {entry__181_1_types__addrinfo_connect, NULL, 2504, 2517, 3, 2},
-  {entry__182_1_types__string_connect, NULL, 2526, 2526, 11, 34},
-  {cont__182_2, &frame__182_1_types__string_connect, 2526, 2526, 3, 39},
-  {entry__183_1_types__addrinfo_listen, NULL, 2531, 2553, 3, 2},
-  {entry__184_1_types__string_listen, NULL, 2562, 2562, 10, 33},
-  {cont__184_2, &frame__184_1_types__string_listen, 2562, 2562, 3, 38},
-  {entry__185_1_types__file_descriptor_accept, NULL, 2567, 2576, 3, 2},
-  {entry__186_1_std__write, NULL, 2586, 2586, 26, 38},
-  {cont__186_2, &frame__186_1_std__write, 2586, 2586, 26, 46},
-  {cont__186_3, &frame__186_1_std__write, 2586, 2586, 3, 46},
-  {entry__187_1_std__writeln, NULL, 2596, 2596, 3, 20},
-  {entry__188_1_std__ewrite, NULL, 2607, 2607, 33, 45},
-  {cont__188_2, &frame__188_1_std__ewrite, 2607, 2607, 33, 53},
-  {cont__188_3, &frame__188_1_std__ewrite, 2607, 2607, 3, 53},
-  {entry__189_1_std__ewriteln, NULL, 2616, 2616, 3, 21},
-  {entry__190_1_std__read, NULL, 2624, 2624, 3, 26},
-  {entry__191_5, NULL, 2635, 2635, 25, 33},
-  {cont__191_6, &frame__191_5, 2635, 2635, 25, 33},
-  {entry__191_8, NULL, 2635, 2635, 36, 45},
-  {entry__191_2, NULL, 2634, 2634, 5, 15},
-  {cont__191_3, &frame__191_2, 2635, 2635, 8, 20},
-  {cont__191_4, &frame__191_2, 2635, 2635, 8, 33},
-  {cont__191_7, &frame__191_2, 2635, 2635, 5, 45},
-  {cont__191_9, &frame__191_2, 2636, 2636, 5, 19},
-  {cont__191_10, &frame__191_2, 2636, 2636, 19, 19},
-  {entry__191_1_std__readln, NULL, 2633, 2636, 3, 19},
-  {cont__191_11, &frame__191_1_std__readln, 2636, 2636, 19, 19},
-  {entry__192_9, NULL, 2646, 2646, 45, 50},
-  {entry__192_10, NULL, 2647, 2648, 15, 43},
-  {cont__192_13, &frame__192_10, 2647, 2648, 9, 43},
-  {entry__192_4, NULL, 2646, 2646, 10, 42},
-  {cont__192_8, &frame__192_4, 2646, 2648, 7, 44},
-  {entry__192_14, NULL, 2650, 2650, 7, 24},
-  {entry__192_1_std__load, NULL, 2645, 2645, 5, 35},
-  {cont__192_3, &frame__192_1_std__load, 2644, 2650, 3, 25},
-  {entry__193_9, NULL, 2663, 2663, 26, 34},
-  {cont__193_10, &frame__193_9, 2663, 2663, 20, 39},
-  {entry__193_4, NULL, 2662, 2662, 32, 32},
-  {cont__193_5, &frame__193_4, 2662, 2662, 5, 33},
-  {cont__193_6, &frame__193_4, 2663, 2663, 8, 17},
-  {cont__193_7, &frame__193_4, 2663, 2663, 8, 17},
-  {cont__193_8, &frame__193_4, 2663, 2663, 5, 39},
-  {entry__193_1_std__save, NULL, 2660, 2660, 27, 41},
-  {cont__193_2, &frame__193_1_std__save, 2660, 2660, 3, 62},
-  {cont__193_3, &frame__193_1_std__save, 2661, 2663, 3, 39},
-  {cont__193_11, &frame__193_1_std__save, 2664, 2664, 22, 35},
-  {cont__193_12, &frame__193_1_std__save, 2664, 2664, 3, 35}
+  {entry__142_1_wait_for_io_ready, NULL, 1763, 1924, 3, 2},
+  {entry__143_1_std__get_pid, NULL, 1929, 1932, 3, 2},
+  {entry__144_1_std__wait_pid, NULL, 1942, 1954, 3, 2},
+  {entry__145_1_std__wait_for_io, NULL, 1965, 1976, 3, 17},
+  {cont__145_2, &frame__145_1_std__wait_for_io, 1980, 1980, 5, 36},
+  {cont__145_3, &frame__145_1_std__wait_for_io, 1981, 1981, 23, 35},
+  {cont__145_4, &frame__145_1_std__wait_for_io, 1981, 1981, 37, 60},
+  {cont__145_5, &frame__145_1_std__wait_for_io, 1981, 1981, 5, 61},
+  {cont__145_6, &frame__145_1_std__wait_for_io, 1982, 1982, 23, 46},
+  {cont__145_7, &frame__145_1_std__wait_for_io, 1982, 1982, 23, 48},
+  {cont__145_8, &frame__145_1_std__wait_for_io, 1982, 1982, 51, 51},
+  {cont__145_9, &frame__145_1_std__wait_for_io, 1982, 1982, 5, 52},
+  {cont__145_10, &frame__145_1_std__wait_for_io, 1977, 1983, 3, 11},
+  {entry__146_1_std__current_path, NULL, 1988, 2006, 3, 2},
+  {entry__147_1_std__chdir, NULL, 2013, 2024, 3, 2},
+  {entry__148_5, NULL, 2033, 2034, 11, 60},
+  {cont__148_8, &frame__148_5, 2033, 2034, 5, 60},
+  {entry__148_1_std__change_directory, NULL, 2032, 2032, 6, 21},
+  {cont__148_2, &frame__148_1_std__change_directory, 2032, 2032, 6, 26},
+  {cont__148_3, &frame__148_1_std__change_directory, 2032, 2032, 6, 26},
+  {cont__148_4, &frame__148_1_std__change_directory, 2032, 2034, 3, 61},
+  {entry__149_1_clib_mkdir, NULL, 2037, 2049, 3, 2},
+  {entry__150_2_fail, NULL, 2071, 2071, 28, 36},
+  {cont__150_3, &frame__150_2_fail, 2071, 2071, 16, 37},
+  {cont__150_5, &frame__150_2_fail, 2071, 2071, 7, 37},
+  {cont__150_7, &frame__150_2_fail, 2072, 2072, 7, 42},
+  {cont__150_9, &frame__150_2_fail, 2073, 2073, 7, 19},
+  {cont__150_11, &frame__150_2_fail, 2069, 2073, 5, 19},
+  {entry__150_22, NULL, 2079, 2079, 47, 53},
+  {cont__150_23, &frame__150_22, 2079, 2079, 47, 63},
+  {cont__150_24, &frame__150_22, 2079, 2079, 47, 63},
+  {cont__150_25, &frame__150_22, 2079, 2079, 47, 63},
+  {entry__150_18, NULL, 2078, 2078, 7, 40},
+  {cont__150_19, &frame__150_18, 2079, 2079, 10, 38},
+  {cont__150_20, &frame__150_18, 2079, 2079, 10, 42},
+  {cont__150_21, &frame__150_18, 2079, 2079, 10, 63},
+  {cont__150_26, &frame__150_18, 2079, 2079, 7, 68},
+  {entry__150_13_create_parent_folders, NULL, 2076, 2076, 31, 31},
+  {cont__150_14, &frame__150_13_create_parent_folders, 2076, 2076, 5, 31},
+  {cont__150_15, &frame__150_13_create_parent_folders, 2077, 2077, 8, 25},
+  {cont__150_16, &frame__150_13_create_parent_folders, 2077, 2077, 8, 25},
+  {cont__150_17, &frame__150_13_create_parent_folders, 2077, 2079, 5, 68},
+  {entry__150_31, NULL, 2082, 2082, 32, 57},
+  {entry__150_36, NULL, 2084, 2084, 40, 46},
+  {cont__150_37, &frame__150_36, 2084, 2084, 40, 56},
+  {cont__150_38, &frame__150_36, 2084, 2084, 40, 56},
+  {entry__150_35, NULL, 2084, 2084, 12, 56},
+  {cont__150_39, &frame__150_35, 2084, 2084, 5, 61},
+  {entry__150_1_std__mkdir, NULL, 2063, 2063, 5, 16},
+  {cont__150_27, &frame__150_1_std__mkdir, 2065, 2065, 5, 19},
+  {cont__150_28, &frame__150_1_std__mkdir, 2061, 2066, 3, 29},
+  {cont__150_29, &frame__150_1_std__mkdir, 2081, 2081, 3, 26},
+  {cont__150_30, &frame__150_1_std__mkdir, 2082, 2082, 3, 57},
+  {cont__150_32, &frame__150_1_std__mkdir, 2083, 2083, 6, 26},
+  {cont__150_33, &frame__150_1_std__mkdir, 2083, 2083, 6, 30},
+  {cont__150_34, &frame__150_1_std__mkdir, 2083, 2084, 3, 61},
+  {entry__151_5, NULL, 2094, 2095, 11, 49},
+  {cont__151_7, &frame__151_5, 2094, 2095, 5, 49},
+  {entry__151_1_std__create_directory, NULL, 2093, 2093, 6, 26},
+  {cont__151_2, &frame__151_1_std__create_directory, 2093, 2093, 6, 31},
+  {cont__151_3, &frame__151_1_std__create_directory, 2093, 2093, 6, 31},
+  {cont__151_4, &frame__151_1_std__create_directory, 2093, 2095, 3, 50},
+  {entry__152_3, NULL, 2104, 2104, 22, 35},
+  {cont__152_4, &frame__152_3, 2104, 2104, 5, 49},
+  {cont__152_6, &frame__152_3, 2104, 2104, 49, 49},
+  {entry__152_9, NULL, 2105, 2105, 37, 54},
+  {cont__152_10, &frame__152_9, 2105, 2105, 54, 54},
+  {entry__152_20, NULL, 2112, 2112, 19, 38},
+  {cont__152_21, &frame__152_20, 2112, 2112, 19, 53},
+  {cont__152_22, &frame__152_20, 2112, 2112, 14, 54},
+  {cont__152_23, &frame__152_20, 2112, 2112, 9, 62},
+  {cont__152_25, &frame__152_20, 2112, 2112, 9, 68},
+  {cont__152_26, &frame__152_20, 2111, 2112, 7, 68},
+  {cont__152_27, &frame__152_20, 2113, 2113, 10, 34},
+  {cont__152_28, &frame__152_20, 2113, 2113, 7, 40},
+  {entry__152_19, NULL, 2109, 2113, 5, 40},
+  {cont__152_29, &frame__152_19, 2113, 2113, 40, 40},
+  {entry__152_32, NULL, 2114, 2114, 46, 46},
+  {cont__152_33, &frame__152_32, 2114, 2114, 27, 46},
+  {cont__152_34, &frame__152_32, 2114, 2114, 46, 46},
+  {entry__152_1_std__fullname, NULL, 2103, 2103, 10, 34},
+  {cont__152_2, &frame__152_1_std__fullname, 2103, 2104, 3, 49},
+  {cont__152_7, &frame__152_1_std__fullname, 2105, 2105, 10, 34},
+  {cont__152_8, &frame__152_1_std__fullname, 2105, 2105, 3, 54},
+  {cont__152_11, &frame__152_1_std__fullname, 2106, 2106, 25, 34},
+  {cont__152_13, &frame__152_1_std__fullname, 2106, 2106, 25, 40},
+  {cont__152_14, &frame__152_1_std__fullname, 2106, 2106, 3, 40},
+  {cont__152_15, &frame__152_1_std__fullname, 2107, 2107, 25, 35},
+  {cont__152_17, &frame__152_1_std__fullname, 2107, 2107, 3, 35},
+  {cont__152_18, &frame__152_1_std__fullname, 2108, 2113, 3, 41},
+  {cont__152_30, &frame__152_1_std__fullname, 2114, 2114, 10, 24},
+  {cont__152_31, &frame__152_1_std__fullname, 2114, 2114, 3, 46},
+  {cont__152_35, &frame__152_1_std__fullname, 2115, 2115, 3, 13},
+  {entry__161_1_std__opendir, NULL, 2202, 2214, 3, 2},
+  {entry__162_1_types__DIR_close, NULL, 2219, 2230, 3, 2},
+  {entry__163_1_types__DIR_get, NULL, 2235, 2254, 3, 2},
+  {entry__164_1_types__dirent_filename_of, NULL, 2259, 2263, 3, 2},
+  {entry__165_1_types__dirent_inode_of, NULL, 2268, 2272, 3, 2},
+  {entry__166_1_types__dirent_file_type_of, NULL, 2277, 2281, 3, 2},
+  {entry__167_1_types__dirent_fullname_of, NULL, 2289, 2289, 13, 29},
+  {cont__167_2, &frame__167_1_types__dirent_fullname_of, 2289, 2289, 35, 51},
+  {cont__167_3, &frame__167_1_types__dirent_fullname_of, 2289, 2289, 6, 52},
+  {cont__167_4, &frame__167_1_types__dirent_fullname_of, 2289, 2289, 3, 52},
+  {entry__168_1_types__dirent_is_a_directory, NULL, 2297, 2297, 6, 23},
+  {cont__168_2, &frame__168_1_types__dirent_is_a_directory, 2297, 2297, 6, 41},
+  {cont__168_3, &frame__168_1_types__dirent_is_a_directory, 2297, 2297, 3, 41},
+  {entry__169_1_types__dirent_is_a_regular_file, NULL, 2305, 2305, 6, 23},
+  {cont__169_2, &frame__169_1_types__dirent_is_a_regular_file, 2305, 2305, 6, 44},
+  {cont__169_3, &frame__169_1_types__dirent_is_a_regular_file, 2305, 2305, 3, 44},
+  {entry__170_1_types__dirent_is_a_link, NULL, 2313, 2313, 6, 23},
+  {cont__170_2, &frame__170_1_types__dirent_is_a_link, 2313, 2313, 6, 36},
+  {cont__170_3, &frame__170_1_types__dirent_is_a_link, 2313, 2313, 3, 36},
+  {entry__171_16, NULL, 2334, 2334, 11, 29},
+  {cont__171_17, &frame__171_16, 2334, 2334, 29, 29},
+  {entry__171_18, NULL, 2332, 2332, 11, 14},
+  {entry__171_8, NULL, 2327, 2327, 7, 21},
+  {cont__171_9, &frame__171_8, 2328, 2328, 14, 29},
+  {cont__171_10, &frame__171_8, 2328, 2328, 7, 35},
+  {cont__171_11, &frame__171_8, 2330, 2330, 9, 26},
+  {cont__171_12, &frame__171_8, 2331, 2331, 9, 17},
+  {cont__171_15, &frame__171_8, 2329, 2334, 7, 30},
+  {entry__171_7, NULL, 2326, 2334, 5, 31},
+  {cont__171_19, &frame__171_7, 2334, 2334, 31, 31},
+  {entry__171_23, NULL, 2337, 2337, 36, 52},
+  {cont__171_24, &frame__171_23, 2337, 2337, 56, 73},
+  {cont__171_25, &frame__171_23, 2337, 2337, 36, 73},
+  {cont__171_26, &frame__171_23, 2337, 2337, 33, 73},
+  {entry__171_22, NULL, 2337, 2337, 5, 73},
+  {cont__171_27, &frame__171_22, 2337, 2337, 73, 73},
+  {entry__171_1_std__directory, NULL, 2322, 2322, 27, 38},
+  {cont__171_2, &frame__171_1_std__directory, 2322, 2322, 3, 47},
+  {cont__171_3, &frame__171_1_std__directory, 2323, 2323, 3, 18},
+  {cont__171_4, &frame__171_1_std__directory, 2324, 2324, 21, 38},
+  {cont__171_5, &frame__171_1_std__directory, 2324, 2324, 3, 39},
+  {cont__171_6, &frame__171_1_std__directory, 2325, 2334, 3, 32},
+  {cont__171_20, &frame__171_1_std__directory, 2335, 2335, 3, 11},
+  {cont__171_21, &frame__171_1_std__directory, 2336, 2337, 3, 73},
+  {cont__171_28, &frame__171_1_std__directory, 2338, 2338, 3, 12},
+  {entry__179_1_std__get_network_addresses, NULL, 2434, 2470, 3, 2},
+  {entry__180_1_std__get_network_address, NULL, 2475, 2500, 3, 2},
+  {entry__181_1_types__addrinfo_connect, NULL, 2505, 2518, 3, 2},
+  {entry__182_1_types__string_connect, NULL, 2527, 2527, 11, 34},
+  {cont__182_2, &frame__182_1_types__string_connect, 2527, 2527, 3, 39},
+  {entry__183_1_types__addrinfo_listen, NULL, 2532, 2554, 3, 2},
+  {entry__184_1_types__string_listen, NULL, 2563, 2563, 10, 33},
+  {cont__184_2, &frame__184_1_types__string_listen, 2563, 2563, 3, 38},
+  {entry__185_1_types__file_descriptor_accept, NULL, 2568, 2577, 3, 2},
+  {entry__186_1_std__write, NULL, 2587, 2587, 26, 38},
+  {cont__186_2, &frame__186_1_std__write, 2587, 2587, 26, 46},
+  {cont__186_3, &frame__186_1_std__write, 2587, 2587, 3, 46},
+  {entry__187_1_std__writeln, NULL, 2597, 2597, 3, 20},
+  {entry__188_1_std__ewrite, NULL, 2608, 2608, 33, 45},
+  {cont__188_2, &frame__188_1_std__ewrite, 2608, 2608, 33, 53},
+  {cont__188_3, &frame__188_1_std__ewrite, 2608, 2608, 3, 53},
+  {entry__189_1_std__ewriteln, NULL, 2617, 2617, 3, 21},
+  {entry__190_1_std__read, NULL, 2625, 2625, 3, 26},
+  {entry__191_5, NULL, 2636, 2636, 25, 33},
+  {cont__191_6, &frame__191_5, 2636, 2636, 25, 33},
+  {entry__191_8, NULL, 2636, 2636, 36, 45},
+  {entry__191_2, NULL, 2635, 2635, 5, 15},
+  {cont__191_3, &frame__191_2, 2636, 2636, 8, 20},
+  {cont__191_4, &frame__191_2, 2636, 2636, 8, 33},
+  {cont__191_7, &frame__191_2, 2636, 2636, 5, 45},
+  {cont__191_9, &frame__191_2, 2637, 2637, 5, 19},
+  {cont__191_10, &frame__191_2, 2637, 2637, 19, 19},
+  {entry__191_1_std__readln, NULL, 2634, 2637, 3, 19},
+  {cont__191_11, &frame__191_1_std__readln, 2637, 2637, 19, 19},
+  {entry__192_9, NULL, 2647, 2647, 45, 50},
+  {entry__192_10, NULL, 2648, 2649, 15, 43},
+  {cont__192_13, &frame__192_10, 2648, 2649, 9, 43},
+  {entry__192_4, NULL, 2647, 2647, 10, 42},
+  {cont__192_8, &frame__192_4, 2647, 2649, 7, 44},
+  {entry__192_14, NULL, 2651, 2651, 7, 24},
+  {entry__192_1_std__load, NULL, 2646, 2646, 5, 35},
+  {cont__192_3, &frame__192_1_std__load, 2645, 2651, 3, 25},
+  {entry__193_9, NULL, 2664, 2664, 26, 34},
+  {cont__193_10, &frame__193_9, 2664, 2664, 20, 39},
+  {entry__193_4, NULL, 2663, 2663, 32, 32},
+  {cont__193_5, &frame__193_4, 2663, 2663, 5, 33},
+  {cont__193_6, &frame__193_4, 2664, 2664, 8, 17},
+  {cont__193_7, &frame__193_4, 2664, 2664, 8, 17},
+  {cont__193_8, &frame__193_4, 2664, 2664, 5, 39},
+  {entry__193_1_std__save, NULL, 2661, 2661, 27, 41},
+  {cont__193_2, &frame__193_1_std__save, 2661, 2661, 3, 62},
+  {cont__193_3, &frame__193_1_std__save, 2662, 2664, 3, 39},
+  {cont__193_11, &frame__193_1_std__save, 2665, 2665, 22, 35},
+  {cont__193_12, &frame__193_1_std__save, 2665, 2665, 3, 35}
 };
 
 union NODE {
@@ -6799,6 +6799,7 @@ static void entry__142_1_wait_for_io_ready(void) {
 
   if ((arguments->slots[3])->type != (undefined)->type) {
     timeout = to_double(arguments->slots[3]);
+    if (timeout < 0.0) timeout = 0.0;
     timeout_data.tv_sec = timeout;
     timeout_data.tv_nsec = 1000000000*(timeout-floor(timeout));
     timeout_ptr = &timeout_data;
@@ -7055,16 +7056,16 @@ static void entry__145_1_std__wait_for_io(void) {
   switch(argument_count) {
     case 3: frame->slots[3] /* timeout */ = undefined;
   }
-  // 1964: wait_for_io_ready
-  // 1965:   read_descriptors
-  // 1966:   write_descriptors
-  // 1967:   except_descriptors
-  // 1968:   timeout
-  // 1969:   $success
-  // 1970:   $child_changed_state
-  // 1971:   $window_changed_size
-  // 1972:   $input_count
-  // 1973:   $output_count
+  // 1965: wait_for_io_ready
+  // 1966:   read_descriptors
+  // 1967:   write_descriptors
+  // 1968:   except_descriptors
+  // 1969:   timeout
+  // 1970:   $success
+  // 1971:   $child_changed_state
+  // 1972:   $window_changed_size
+  // 1973:   $input_count
+  // 1974:   $output_count
   // ...
   argument_count = 4;
   arguments = node_p;
@@ -7090,21 +7091,21 @@ static void cont__145_2(void) {
   frame->slots[15] /* temp__5 */ = arguments->slots[4];
   frame->slots[16] /* temp__6 */ = arguments->slots[5];
   frame->slots[17] /* temp__7 */ = from_arguments(6, argument_count-6);
-  // 1969: ... success
+  // 1970: ... success
   initialize_future(frame->slots[4] /* success */, frame->slots[11] /* temp__1 */);
-  // 1970: ... child_changed_state
+  // 1971: ... child_changed_state
   initialize_future(frame->slots[5] /* child_changed_state */, frame->slots[12] /* temp__2 */);
-  // 1971: ... window_changed_size
+  // 1972: ... window_changed_size
   initialize_future(frame->slots[6] /* window_changed_size */, frame->slots[13] /* temp__3 */);
-  // 1972: ... input_count
+  // 1973: ... input_count
   initialize_future(frame->slots[7] /* input_count */, frame->slots[14] /* temp__4 */);
-  // 1973: ... output_count
+  // 1974: ... output_count
   initialize_future(frame->slots[8] /* output_count */, frame->slots[15] /* temp__5 */);
-  // 1974: ... _exception_count
+  // 1975: ... _exception_count
   initialize_future(frame->slots[9] /* exception_count */, frame->slots[16] /* temp__6 */);
-  // 1975: ... descriptors
+  // 1976: ... descriptors
   initialize_future(frame->slots[10] /* descriptors */, frame->slots[17] /* temp__7 */);
-  // 1979: range(descriptors 1 input_count)
+  // 1980: range(descriptors 1 input_count)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* descriptors */;
@@ -7121,7 +7122,7 @@ static void cont__145_3(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 1980: ... input_count+1
+  // 1981: ... input_count+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* input_count */;
@@ -7137,7 +7138,7 @@ static void cont__145_4(void) {
     return;
   }
   frame->slots[13] /* temp__3 */ = arguments->slots[0];
-  // 1980: ... input_count+output_count
+  // 1981: ... input_count+output_count
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* input_count */;
@@ -7153,7 +7154,7 @@ static void cont__145_5(void) {
     return;
   }
   frame->slots[14] /* temp__4 */ = arguments->slots[0];
-  // 1980: range(descriptors input_count+1 input_count+output_count)
+  // 1981: range(descriptors input_count+1 input_count+output_count)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* descriptors */;
@@ -7170,7 +7171,7 @@ static void cont__145_6(void) {
     return;
   }
   frame->slots[12] /* temp__2 */ = arguments->slots[0];
-  // 1981: ... input_count+output_count
+  // 1982: ... input_count+output_count
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* input_count */;
@@ -7186,7 +7187,7 @@ static void cont__145_7(void) {
     return;
   }
   frame->slots[17] /* temp__7 */ = arguments->slots[0];
-  // 1981: ... input_count+output_count+1
+  // 1982: ... input_count+output_count+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[17] /* temp__7 */;
@@ -7202,7 +7203,7 @@ static void cont__145_8(void) {
     return;
   }
   frame->slots[16] /* temp__6 */ = arguments->slots[0];
-  // 1981: ... 1
+  // 1982: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7217,7 +7218,7 @@ static void cont__145_9(void) {
     return;
   }
   frame->slots[18] /* temp__8 */ = arguments->slots[0];
-  // 1981: range(descriptors input_count+output_count+1 -1)
+  // 1982: range(descriptors input_count+output_count+1 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* descriptors */;
@@ -7234,13 +7235,13 @@ static void cont__145_10(void) {
     return;
   }
   frame->slots[15] /* temp__5 */ = arguments->slots[0];
-  // 1976: ->
-  // 1977:   child_changed_state
-  // 1978:   window_changed_size
-  // 1979:   range(descriptors 1 input_count)
-  // 1980:   range(descriptors input_count+1 input_count+output_count)
-  // 1981:   range(descriptors input_count+output_count+1 -1)
-  // 1982:   success
+  // 1977: ->
+  // 1978:   child_changed_state
+  // 1979:   window_changed_size
+  // 1980:   range(descriptors 1 input_count)
+  // 1981:   range(descriptors input_count+1 input_count+output_count)
+  // 1982:   range(descriptors input_count+output_count+1 -1)
+  // 1983:   success
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* child_changed_state */;
@@ -7327,8 +7328,8 @@ static void entry__148_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 2032: ... "
-  // 2033:   Failed to change current directory to "@(path)@quot;!@
+  // 2033: ... "
+  // 2034:   Failed to change current directory to "@(path)@quot;!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__148_6;
@@ -7345,8 +7346,8 @@ static void cont__148_8(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2032: Error "
-  // 2033:   Failed to change current directory to "@(path)@quot;!@
+  // 2033: Error "
+  // 2034:   Failed to change current directory to "@(path)@quot;!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -7363,7 +7364,7 @@ static void entry__148_1_std__change_directory(void) {
     invalid_arguments_error();
     return;
   }
-  // 2031: ... std::chdir(path)
+  // 2032: ... std::chdir(path)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
@@ -7378,7 +7379,7 @@ static void cont__148_2(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 2031: ... std::chdir(path) != 0
+  // 2032: ... std::chdir(path) != 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -7394,7 +7395,7 @@ static void cont__148_3(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2031: ... std::chdir(path) != 0
+  // 2032: ... std::chdir(path) != 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -7409,13 +7410,13 @@ static void cont__148_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2031: ... :
-  // 2032:   Error "
-  // 2033:     Failed to change current directory to "@(path)@quot;!@
+  // 2032: ... :
+  // 2033:   Error "
+  // 2034:     Failed to change current directory to "@(path)@quot;!@
   frame->slots[4] /* temp__4 */ = create_closure(entry__148_5, 0);
-  // 2031: if std::chdir(path) != 0:
-  // 2032:   Error "
-  // 2033:     Failed to change current directory to "@(path)@quot;!@
+  // 2032: if std::chdir(path) != 0:
+  // 2033:   Error "
+  // 2034:     Failed to change current directory to "@(path)@quot;!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -7472,7 +7473,7 @@ static void entry__150_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 2083: ... do_create_parent_folders && errno() == EEXIST
+  // 2084: ... do_create_parent_folders && errno() == EEXIST
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* do_create_parent_folders */;
@@ -7489,7 +7490,7 @@ static void entry__150_36(void) {
     invalid_arguments_error();
     return;
   }
-  // 2083: ... errno()
+  // 2084: ... errno()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -7503,7 +7504,7 @@ static void cont__150_37(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 2083: ... errno() == EEXIST
+  // 2084: ... errno() == EEXIST
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -7519,7 +7520,7 @@ static void cont__150_38(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 2083: ... errno() == EEXIST
+  // 2084: ... errno() == EEXIST
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -7533,7 +7534,7 @@ static void cont__150_39(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2083: unless do_create_parent_folders && errno() == EEXIST fail
+  // 2084: unless do_create_parent_folders && errno() == EEXIST fail
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7563,33 +7564,33 @@ static void entry__150_1_std__mkdir(void) {
   }
   frame->slots[1] /* path */ = create_cell_with_contents(arguments->slots[argument_count-1]);
   frame->slots[0] /* options */ = from_arguments(0, argument_count-1);
-  // 2067: ... :
-  // 2068:   raise_error
-  // 2069:     "mkdir"
-  // 2070:     "MODE" = string("0o" oct(mode))
-  // 2071:     "PARENTS" = do_create_parent_folders
-  // 2072:     "path" = path
+  // 2068: ... :
+  // 2069:   raise_error
+  // 2070:     "mkdir"
+  // 2071:     "MODE" = string("0o" oct(mode))
+  // 2072:     "PARENTS" = do_create_parent_folders
+  // 2073:     "path" = path
   frame->slots[6] /* temp__1 */ = create_closure(entry__150_2_fail, 0);
-  // 2067: $fail:
-  // 2068:   raise_error
-  // 2069:     "mkdir"
-  // 2070:     "MODE" = string("0o" oct(mode))
-  // 2071:     "PARENTS" = do_create_parent_folders
-  // 2072:     "path" = path
+  // 2068: $fail:
+  // 2069:   raise_error
+  // 2070:     "mkdir"
+  // 2071:     "MODE" = string("0o" oct(mode))
+  // 2072:     "PARENTS" = do_create_parent_folders
+  // 2073:     "path" = path
   initialize_future(frame->slots[4] /* fail */, frame->slots[6] /* temp__1 */);
-  // 2074: ... : ($partial_path)
-  // 2075:   before &partial_path '/' -1
-  // 2076:   if partial_path != "":
-  // 2077:     create_parent_folders partial_path
-  // 2078:     if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
+  // 2075: ... : ($partial_path)
+  // 2076:   before &partial_path '/' -1
+  // 2077:   if partial_path != "":
+  // 2078:     create_parent_folders partial_path
+  // 2079:     if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
   frame->slots[6] /* temp__1 */ = create_closure(entry__150_13_create_parent_folders, 1);
-  // 2074: $create_parent_folders: ($partial_path)
-  // 2075:   before &partial_path '/' -1
-  // 2076:   if partial_path != "":
-  // 2077:     create_parent_folders partial_path
-  // 2078:     if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
+  // 2075: $create_parent_folders: ($partial_path)
+  // 2076:   before &partial_path '/' -1
+  // 2077:   if partial_path != "":
+  // 2078:     create_parent_folders partial_path
+  // 2079:     if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
   initialize_future(frame->slots[5] /* create_parent_folders */, frame->slots[6] /* temp__1 */);
-  // 2062: MODE = 0o755
+  // 2063: MODE = 0o755
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__MODE();
@@ -7614,7 +7615,7 @@ static void entry__150_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 2077: create_parent_folders partial_path
+  // 2078: create_parent_folders partial_path
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* partial_path */;
@@ -7628,7 +7629,7 @@ static void cont__150_19(void) {
     invalid_results_error();
     return;
   }
-  // 2078: ... clib_mkdir(partial_path mode)
+  // 2079: ... clib_mkdir(partial_path mode)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* partial_path */;
@@ -7644,7 +7645,7 @@ static void cont__150_20(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 2078: ... clib_mkdir(partial_path mode) < 0
+  // 2079: ... clib_mkdir(partial_path mode) < 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -7660,7 +7661,7 @@ static void cont__150_21(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 2078: ... clib_mkdir(partial_path mode) < 0 && errno() != EEXIST
+  // 2079: ... clib_mkdir(partial_path mode) < 0 && errno() != EEXIST
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -7677,7 +7678,7 @@ static void entry__150_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 2078: ... errno()
+  // 2079: ... errno()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -7691,7 +7692,7 @@ static void cont__150_23(void) {
     return;
   }
   frame->slots[2] /* temp__3 */ = arguments->slots[0];
-  // 2078: ... errno() != EEXIST
+  // 2079: ... errno() != EEXIST
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__3 */;
@@ -7707,7 +7708,7 @@ static void cont__150_24(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 2078: ... errno() != EEXIST
+  // 2079: ... errno() != EEXIST
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -7722,7 +7723,7 @@ static void cont__150_25(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 2078: ... errno() != EEXIST
+  // 2079: ... errno() != EEXIST
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -7736,7 +7737,7 @@ static void cont__150_26(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2078: if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
+  // 2079: if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7759,7 +7760,7 @@ static void entry__150_2_fail(void) {
     invalid_arguments_error();
     return;
   }
-  // 2070: ... oct(mode)
+  // 2071: ... oct(mode)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mode */;
@@ -7774,7 +7775,7 @@ static void cont__150_3(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 2070: ... string("0o" oct(mode))
+  // 2071: ... string("0o" oct(mode))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__150_4;
@@ -7790,7 +7791,7 @@ static void cont__150_5(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 2070: "MODE" = string("0o" oct(mode))
+  // 2071: "MODE" = string("0o" oct(mode))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__150_6;
@@ -7806,7 +7807,7 @@ static void cont__150_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2071: "PARENTS" = do_create_parent_folders
+  // 2072: "PARENTS" = do_create_parent_folders
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__150_8;
@@ -7822,7 +7823,7 @@ static void cont__150_9(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 2072: "path" = path
+  // 2073: "path" = path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__150_10;
@@ -7838,11 +7839,11 @@ static void cont__150_11(void) {
     return;
   }
   frame->slots[7] /* temp__5 */ = arguments->slots[0];
-  // 2068: raise_error
-  // 2069:   "mkdir"
-  // 2070:   "MODE" = string("0o" oct(mode))
-  // 2071:   "PARENTS" = do_create_parent_folders
-  // 2072:   "path" = path
+  // 2069: raise_error
+  // 2070:   "mkdir"
+  // 2071:   "MODE" = string("0o" oct(mode))
+  // 2072:   "PARENTS" = do_create_parent_folders
+  // 2073:   "path" = path
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__150_12;
@@ -7869,7 +7870,7 @@ static void entry__150_13_create_parent_folders(void) {
     return;
   }
   frame->slots[0] /* partial_path */ = create_cell_with_contents(arguments->slots[0]);
-  // 2075: ... 1
+  // 2076: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7884,7 +7885,7 @@ static void cont__150_14(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2075: before &partial_path '/' -1
+  // 2076: before &partial_path '/' -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* partial_path */;
@@ -7901,7 +7902,7 @@ static void cont__150_15(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* partial_path */ = arguments->slots[0];
-  // 2076: ... partial_path != ""
+  // 2077: ... partial_path != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* partial_path */;
@@ -7917,7 +7918,7 @@ static void cont__150_16(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 2076: ... partial_path != ""
+  // 2077: ... partial_path != ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -7932,13 +7933,13 @@ static void cont__150_17(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2076: ... :
-  // 2077:   create_parent_folders partial_path
-  // 2078:   if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
+  // 2077: ... :
+  // 2078:   create_parent_folders partial_path
+  // 2079:   if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
   frame->slots[6] /* temp__3 */ = create_closure(entry__150_18, 0);
-  // 2076: if partial_path != "":
-  // 2077:   create_parent_folders partial_path
-  // 2078:   if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
+  // 2077: if partial_path != "":
+  // 2078:   create_parent_folders partial_path
+  // 2079:   if clib_mkdir(partial_path mode) < 0 && errno() != EEXIST fail
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7954,7 +7955,7 @@ static void cont__150_27(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 2064: PARENTS = false
+  // 2065: PARENTS = false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__PARENTS();
@@ -7970,12 +7971,12 @@ static void cont__150_28(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 2060: extract_options
-  // 2061:   options
-  // 2062:   MODE = 0o755
-  // 2063:   $mode
-  // 2064:   PARENTS = false
-  // 2065:   $do_create_parent_folders
+  // 2061: extract_options
+  // 2062:   options
+  // 2063:   MODE = 0o755
+  // 2064:   $mode
+  // 2065:   PARENTS = false
+  // 2066:   $do_create_parent_folders
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* options */;
@@ -7993,11 +7994,11 @@ static void cont__150_29(void) {
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
   frame->slots[9] /* temp__4 */ = arguments->slots[1];
-  // 2063: ... mode
+  // 2064: ... mode
   initialize_future(frame->slots[2] /* mode */, frame->slots[8] /* temp__3 */);
-  // 2065: ... do_create_parent_folders
+  // 2066: ... do_create_parent_folders
   initialize_future(frame->slots[3] /* do_create_parent_folders */, frame->slots[9] /* temp__4 */);
-  // 2080: without_suffix &path '/'
+  // 2081: without_suffix &path '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* path */;
@@ -8013,9 +8014,9 @@ static void cont__150_30(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* path */ = arguments->slots[0];
-  // 2081: ... : create_parent_folders path
+  // 2082: ... : create_parent_folders path
   frame->slots[6] /* temp__1 */ = create_closure(entry__150_31, 0);
-  // 2081: if do_create_parent_folders: create_parent_folders path
+  // 2082: if do_create_parent_folders: create_parent_folders path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* do_create_parent_folders */;
@@ -8036,7 +8037,7 @@ static void entry__150_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 2081: ... create_parent_folders path
+  // 2082: ... create_parent_folders path
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* path */;
@@ -8050,7 +8051,7 @@ static void cont__150_32(void) {
     invalid_results_error();
     return;
   }
-  // 2082: ... clib_mkdir(path mode)
+  // 2083: ... clib_mkdir(path mode)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* path */;
@@ -8066,7 +8067,7 @@ static void cont__150_33(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 2082: ... clib_mkdir(path mode) < 0
+  // 2083: ... clib_mkdir(path mode) < 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -8082,11 +8083,11 @@ static void cont__150_34(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 2082: ... :
-  // 2083:   unless do_create_parent_folders && errno() == EEXIST fail
+  // 2083: ... :
+  // 2084:   unless do_create_parent_folders && errno() == EEXIST fail
   frame->slots[8] /* temp__3 */ = create_closure(entry__150_35, 0);
-  // 2082: if clib_mkdir(path mode) < 0:
-  // 2083:   unless do_create_parent_folders && errno() == EEXIST fail
+  // 2083: if clib_mkdir(path mode) < 0:
+  // 2084:   unless do_create_parent_folders && errno() == EEXIST fail
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8105,8 +8106,8 @@ static void entry__151_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 2093: ... "
-  // 2094:   Failed to create directory "@(path)@quot;!@
+  // 2094: ... "
+  // 2095:   Failed to create directory "@(path)@quot;!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__151_6;
@@ -8123,8 +8124,8 @@ static void cont__151_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2093: Error "
-  // 2094:   Failed to create directory "@(path)@quot;!@
+  // 2094: Error "
+  // 2095:   Failed to create directory "@(path)@quot;!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8153,7 +8154,7 @@ static void entry__151_1_std__create_directory(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* mode */ = number__0o755;
   }
-  // 2092: ... clib_mkdir(path mode)
+  // 2093: ... clib_mkdir(path mode)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
@@ -8169,7 +8170,7 @@ static void cont__151_2(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 2092: ... clib_mkdir(path mode) != 0
+  // 2093: ... clib_mkdir(path mode) != 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -8185,7 +8186,7 @@ static void cont__151_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 2092: ... clib_mkdir(path mode) != 0
+  // 2093: ... clib_mkdir(path mode) != 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -8200,13 +8201,13 @@ static void cont__151_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2092: ... :
-  // 2093:   Error "
-  // 2094:     Failed to create directory "@(path)@quot;!@
+  // 2093: ... :
+  // 2094:   Error "
+  // 2095:     Failed to create directory "@(path)@quot;!@
   frame->slots[5] /* temp__4 */ = create_closure(entry__151_5, 0);
-  // 2092: if clib_mkdir(path mode) != 0:
-  // 2093:   Error "
-  // 2094:     Failed to create directory "@(path)@quot;!@
+  // 2093: if clib_mkdir(path mode) != 0:
+  // 2094:   Error "
+  // 2095:     Failed to create directory "@(path)@quot;!@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8225,7 +8226,7 @@ static void entry__152_1_std__fullname(void) {
     return;
   }
   frame->slots[0] /* pathname */ = create_cell_with_contents(arguments->slots[0]);
-  // 2102: ... pathname .has_prefix. '/'
+  // 2103: ... pathname .has_prefix. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8241,11 +8242,11 @@ static void cont__152_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2102: ... :
-  // 2103:   !pathname string(current_path() "/" pathname)
+  // 2103: ... :
+  // 2104:   !pathname string(current_path() "/" pathname)
   frame->slots[2] /* temp__2 */ = create_closure(entry__152_3, 0);
-  // 2102: unless pathname .has_prefix. '/':
-  // 2103:   !pathname string(current_path() "/" pathname)
+  // 2103: unless pathname .has_prefix. '/':
+  // 2104:   !pathname string(current_path() "/" pathname)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8264,7 +8265,7 @@ static void entry__152_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 2103: ... current_path()
+  // 2104: ... current_path()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -8278,7 +8279,7 @@ static void cont__152_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2103: !pathname string(current_path() "/" pathname)
+  // 2104: !pathname string(current_path() "/" pathname)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8306,7 +8307,7 @@ static void cont__152_7(void) {
     invalid_results_error();
     return;
   }
-  // 2104: ... pathname .has_suffix. '/'
+  // 2105: ... pathname .has_suffix. '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8322,9 +8323,9 @@ static void cont__152_8(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2104: ... : push &pathname '/'
+  // 2105: ... : push &pathname '/'
   frame->slots[2] /* temp__2 */ = create_closure(entry__152_9, 0);
-  // 2104: unless pathname .has_suffix. '/': push &pathname '/'
+  // 2105: unless pathname .has_suffix. '/': push &pathname '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8343,7 +8344,7 @@ static void entry__152_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 2104: ... push &pathname '/'
+  // 2105: ... push &pathname '/'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8370,7 +8371,7 @@ static void cont__152_11(void) {
     invalid_results_error();
     return;
   }
-  // 2105: ... many("//")
+  // 2106: ... many("//")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__152_12;
@@ -8385,7 +8386,7 @@ static void cont__152_13(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2105: ... many("//") = "/"
+  // 2106: ... many("//") = "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -8401,7 +8402,7 @@ static void cont__152_14(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2105: replace_all &pathname many("//") = "/"
+  // 2106: replace_all &pathname many("//") = "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8417,7 +8418,7 @@ static void cont__152_15(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pathname */ = arguments->slots[0];
-  // 2106: ... "/./" = "/"
+  // 2107: ... "/./" = "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__152_16;
@@ -8433,7 +8434,7 @@ static void cont__152_17(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2106: replace_all &pathname "/./" = "/"
+  // 2107: replace_all &pathname "/./" = "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8449,19 +8450,19 @@ static void cont__152_18(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pathname */ = arguments->slots[0];
-  // 2107: ... : (-> break)
-  // 2108:   forever:
-  // 2109:     $orig_pathname pathname
-  // 2110:     replace_all &pathname
-  // 2111:       '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
-  // 2112:     if pathname == orig_pathname break
+  // 2108: ... : (-> break)
+  // 2109:   forever:
+  // 2110:     $orig_pathname pathname
+  // 2111:     replace_all &pathname
+  // 2112:       '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
+  // 2113:     if pathname == orig_pathname break
   frame->slots[1] /* temp__1 */ = create_closure(entry__152_19, 0);
-  // 2107: do: (-> break)
-  // 2108:   forever:
-  // 2109:     $orig_pathname pathname
-  // 2110:     replace_all &pathname
-  // 2111:       '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
-  // 2112:     if pathname == orig_pathname break
+  // 2108: do: (-> break)
+  // 2109:   forever:
+  // 2110:     $orig_pathname pathname
+  // 2111:     replace_all &pathname
+  // 2112:       '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
+  // 2113:     if pathname == orig_pathname break
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8481,17 +8482,17 @@ static void entry__152_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 2108: ... :
-  // 2109:   $orig_pathname pathname
-  // 2110:   replace_all &pathname
-  // 2111:     '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
-  // 2112:   if pathname == orig_pathname break
+  // 2109: ... :
+  // 2110:   $orig_pathname pathname
+  // 2111:   replace_all &pathname
+  // 2112:     '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
+  // 2113:   if pathname == orig_pathname break
   frame->slots[2] /* temp__1 */ = create_closure(entry__152_20, 0);
-  // 2108: forever:
-  // 2109:   $orig_pathname pathname
-  // 2110:   replace_all &pathname
-  // 2111:     '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
-  // 2112:   if pathname == orig_pathname break
+  // 2109: forever:
+  // 2110:   $orig_pathname pathname
+  // 2111:   replace_all &pathname
+  // 2112:     '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
+  // 2113:   if pathname == orig_pathname break
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8514,9 +8515,9 @@ static void entry__152_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 2109: $orig_pathname pathname
+  // 2110: $orig_pathname pathname
   initialize_maybe_future(frame->slots[2] /* orig_pathname */, ((CELL *)frame->slots[0])->contents /* pathname */);
-  // 2111: ... not_followed_by('/')
+  // 2112: ... not_followed_by('/')
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -8531,7 +8532,7 @@ static void cont__152_21(void) {
     return;
   }
   frame->slots[7] /* temp__5 */ = arguments->slots[0];
-  // 2111: ... not_followed_by('/'), ANY_CHARACTER
+  // 2112: ... not_followed_by('/'), ANY_CHARACTER
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__5 */;
@@ -8547,7 +8548,7 @@ static void cont__152_22(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 2111: ... many(not_followed_by('/'), ANY_CHARACTER)
+  // 2112: ... many(not_followed_by('/'), ANY_CHARACTER)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -8562,7 +8563,7 @@ static void cont__152_23(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 2111: '/', many(not_followed_by('/'), ANY_CHARACTER), "/../"
+  // 2112: '/', many(not_followed_by('/'), ANY_CHARACTER), "/../"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -8579,7 +8580,7 @@ static void cont__152_25(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 2111: '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
+  // 2112: '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -8595,8 +8596,8 @@ static void cont__152_26(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2110: replace_all &pathname
-  // 2111:   '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
+  // 2111: replace_all &pathname
+  // 2112:   '/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8612,7 +8613,7 @@ static void cont__152_27(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pathname */ = arguments->slots[0];
-  // 2112: ... pathname == orig_pathname
+  // 2113: ... pathname == orig_pathname
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8628,7 +8629,7 @@ static void cont__152_28(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2112: if pathname == orig_pathname break
+  // 2113: if pathname == orig_pathname break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -8648,7 +8649,7 @@ static void cont__152_30(void) {
     invalid_results_error();
     return;
   }
-  // 2113: ... pathname == "/"
+  // 2114: ... pathname == "/"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8664,9 +8665,9 @@ static void cont__152_31(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2113: ... : range &pathname 1 -2
+  // 2114: ... : range &pathname 1 -2
   frame->slots[2] /* temp__2 */ = create_closure(entry__152_32, 0);
-  // 2113: unless pathname == "/": range &pathname 1 -2
+  // 2114: unless pathname == "/": range &pathname 1 -2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8685,7 +8686,7 @@ static void entry__152_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 2113: ... 2
+  // 2114: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -8700,7 +8701,7 @@ static void cont__152_33(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2113: ... range &pathname 1 -2
+  // 2114: ... range &pathname 1 -2
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -8728,7 +8729,7 @@ static void cont__152_35(void) {
     invalid_results_error();
     return;
   }
-  // 2114: -> pathname
+  // 2115: -> pathname
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
@@ -9018,7 +9019,7 @@ static void entry__167_1_types__dirent_fullname_of(void) {
     invalid_arguments_error();
     return;
   }
-  // 2288: ... pathname_of(self)
+  // 2289: ... pathname_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9033,7 +9034,7 @@ static void cont__167_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2288: ... filename_of(self)
+  // 2289: ... filename_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9048,7 +9049,7 @@ static void cont__167_3(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 2288: ... string(pathname_of(self) "/" filename_of(self))
+  // 2289: ... string(pathname_of(self) "/" filename_of(self))
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -9065,7 +9066,7 @@ static void cont__167_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2288: -> string(pathname_of(self) "/" filename_of(self))
+  // 2289: -> string(pathname_of(self) "/" filename_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -9081,7 +9082,7 @@ static void entry__168_1_types__dirent_is_a_directory(void) {
     invalid_arguments_error();
     return;
   }
-  // 2296: ... file_type_of(self)
+  // 2297: ... file_type_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9096,7 +9097,7 @@ static void cont__168_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2296: ... file_type_of(self) == std::DIRECTORY
+  // 2297: ... file_type_of(self) == std::DIRECTORY
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -9112,7 +9113,7 @@ static void cont__168_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2296: -> file_type_of(self) == std::DIRECTORY
+  // 2297: -> file_type_of(self) == std::DIRECTORY
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -9128,7 +9129,7 @@ static void entry__169_1_types__dirent_is_a_regular_file(void) {
     invalid_arguments_error();
     return;
   }
-  // 2304: ... file_type_of(self)
+  // 2305: ... file_type_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9143,7 +9144,7 @@ static void cont__169_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2304: ... file_type_of(self) == std::REGULAR_FILE
+  // 2305: ... file_type_of(self) == std::REGULAR_FILE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -9159,7 +9160,7 @@ static void cont__169_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2304: -> file_type_of(self) == std::REGULAR_FILE
+  // 2305: -> file_type_of(self) == std::REGULAR_FILE
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -9175,7 +9176,7 @@ static void entry__170_1_types__dirent_is_a_link(void) {
     invalid_arguments_error();
     return;
   }
-  // 2312: ... file_type_of(self)
+  // 2313: ... file_type_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9190,7 +9191,7 @@ static void cont__170_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2312: ... file_type_of(self) == std::LINK
+  // 2313: ... file_type_of(self) == std::LINK
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -9206,7 +9207,7 @@ static void cont__170_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2312: -> file_type_of(self) == std::LINK
+  // 2313: -> file_type_of(self) == std::LINK
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -9232,7 +9233,7 @@ static void entry__171_1_std__directory(void) {
   }
   frame->slots[1] /* pathname */ = arguments->slots[argument_count-1];
   frame->slots[0] /* options */ = from_arguments(0, argument_count-1);
-  // 2321: ... SORT = false
+  // 2322: ... SORT = false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__SORT();
@@ -9248,7 +9249,7 @@ static void cont__171_2(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 2321: extract_options options SORT = false $do_sort
+  // 2322: extract_options options SORT = false $do_sort
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* options */;
@@ -9264,7 +9265,7 @@ static void cont__171_3(void) {
     return;
   }
   initialize_future(frame->slots[2] /* do_sort */, arguments->slots[0]);
-  // 2322: $$entries list()
+  // 2323: $$entries list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -9278,7 +9279,7 @@ static void cont__171_4(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* entries */ = arguments->slots[0];
-  // 2323: ... fullname(pathname)
+  // 2324: ... fullname(pathname)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* pathname */;
@@ -9293,7 +9294,7 @@ static void cont__171_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 2323: $dir std::opendir(fullname(pathname))
+  // 2324: $dir std::opendir(fullname(pathname))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -9308,27 +9309,27 @@ static void cont__171_6(void) {
     return;
   }
   initialize_future(frame->slots[4] /* dir */, arguments->slots[0]);
-  // 2324: ... : (-> break)
-  // 2325:   forever:
-  // 2326:     $entry get(dir)
-  // 2327:     unless entry.is_defined break
-  // 2328:     case
-  // 2329:       filename_of(entry)
-  // 2330:       ".", "..":
-  // 2331:         pass
-  // 2332:       :
-  // 2333:         push &entries entry
+  // 2325: ... : (-> break)
+  // 2326:   forever:
+  // 2327:     $entry get(dir)
+  // 2328:     unless entry.is_defined break
+  // 2329:     case
+  // 2330:       filename_of(entry)
+  // 2331:       ".", "..":
+  // 2332:         pass
+  // 2333:       :
+  // 2334:         push &entries entry
   frame->slots[5] /* temp__1 */ = create_closure(entry__171_7, 0);
-  // 2324: do: (-> break)
-  // 2325:   forever:
-  // 2326:     $entry get(dir)
-  // 2327:     unless entry.is_defined break
-  // 2328:     case
-  // 2329:       filename_of(entry)
-  // 2330:       ".", "..":
-  // 2331:         pass
-  // 2332:       :
-  // 2333:         push &entries entry
+  // 2325: do: (-> break)
+  // 2326:   forever:
+  // 2327:     $entry get(dir)
+  // 2328:     unless entry.is_defined break
+  // 2329:     case
+  // 2330:       filename_of(entry)
+  // 2331:       ".", "..":
+  // 2332:         pass
+  // 2333:       :
+  // 2334:         push &entries entry
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -9350,25 +9351,25 @@ static void entry__171_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 2325: ... :
-  // 2326:   $entry get(dir)
-  // 2327:   unless entry.is_defined break
-  // 2328:   case
-  // 2329:     filename_of(entry)
-  // 2330:     ".", "..":
-  // 2331:       pass
-  // 2332:     :
-  // 2333:       push &entries entry
+  // 2326: ... :
+  // 2327:   $entry get(dir)
+  // 2328:   unless entry.is_defined break
+  // 2329:   case
+  // 2330:     filename_of(entry)
+  // 2331:     ".", "..":
+  // 2332:       pass
+  // 2333:     :
+  // 2334:       push &entries entry
   frame->slots[3] /* temp__1 */ = create_closure(entry__171_8, 0);
-  // 2325: forever:
-  // 2326:   $entry get(dir)
-  // 2327:   unless entry.is_defined break
-  // 2328:   case
-  // 2329:     filename_of(entry)
-  // 2330:     ".", "..":
-  // 2331:       pass
-  // 2332:     :
-  // 2333:       push &entries entry
+  // 2326: forever:
+  // 2327:   $entry get(dir)
+  // 2328:   unless entry.is_defined break
+  // 2329:   case
+  // 2330:     filename_of(entry)
+  // 2331:     ".", "..":
+  // 2332:       pass
+  // 2333:     :
+  // 2334:       push &entries entry
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9388,7 +9389,7 @@ static void entry__171_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 2333: push &entries entry
+  // 2334: push &entries entry
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* entries */;
@@ -9417,7 +9418,7 @@ static void entry__171_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 2331: pass
+  // 2332: pass
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -9440,7 +9441,7 @@ static void entry__171_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 2326: $entry get(dir)
+  // 2327: $entry get(dir)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* dir */;
@@ -9455,7 +9456,7 @@ static void cont__171_9(void) {
     return;
   }
   initialize_future(frame->slots[3] /* entry */, arguments->slots[0]);
-  // 2327: ... entry.is_defined
+  // 2328: ... entry.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* entry */;
@@ -9470,7 +9471,7 @@ static void cont__171_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2327: unless entry.is_defined break
+  // 2328: unless entry.is_defined break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -9485,7 +9486,7 @@ static void cont__171_11(void) {
     invalid_results_error();
     return;
   }
-  // 2329: filename_of(entry)
+  // 2330: filename_of(entry)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* entry */;
@@ -9500,7 +9501,7 @@ static void cont__171_12(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2330: ".", ".."
+  // 2331: ".", ".."
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__171_13;
@@ -9516,15 +9517,15 @@ static void cont__171_15(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 2332: :
-  // 2333:   push &entries entry
+  // 2333: :
+  // 2334:   push &entries entry
   frame->slots[6] /* temp__3 */ = create_closure(entry__171_16, 0);
-  // 2328: case
-  // 2329:   filename_of(entry)
-  // 2330:   ".", "..":
-  // 2331:     pass
-  // 2332:   :
-  // 2333:     push &entries entry
+  // 2329: case
+  // 2330:   filename_of(entry)
+  // 2331:   ".", "..":
+  // 2332:     pass
+  // 2333:   :
+  // 2334:     push &entries entry
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -9546,7 +9547,7 @@ static void cont__171_20(void) {
     invalid_results_error();
     return;
   }
-  // 2334: close dir
+  // 2335: close dir
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* dir */;
@@ -9560,11 +9561,11 @@ static void cont__171_21(void) {
     invalid_results_error();
     return;
   }
-  // 2335: ... :
-  // 2336:   sort &entries: (left right) -> filename_of(left) < filename_of(right)
+  // 2336: ... :
+  // 2337:   sort &entries: (left right) -> filename_of(left) < filename_of(right)
   frame->slots[5] /* temp__1 */ = create_closure(entry__171_22, 0);
-  // 2335: if do_sort:
-  // 2336:   sort &entries: (left right) -> filename_of(left) < filename_of(right)
+  // 2336: if do_sort:
+  // 2337:   sort &entries: (left right) -> filename_of(left) < filename_of(right)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* do_sort */;
@@ -9583,7 +9584,7 @@ static void entry__171_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 2336: sort &entries: (left right) -> filename_of(left) < filename_of(right)
+  // 2337: sort &entries: (left right) -> filename_of(left) < filename_of(right)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* entries */;
@@ -9602,7 +9603,7 @@ static void entry__171_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 2336: ... filename_of(left)
+  // 2337: ... filename_of(left)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* left */;
@@ -9617,7 +9618,7 @@ static void cont__171_24(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 2336: ... filename_of(right)
+  // 2337: ... filename_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -9632,7 +9633,7 @@ static void cont__171_25(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 2336: ... filename_of(left) < filename_of(right)
+  // 2337: ... filename_of(left) < filename_of(right)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -9648,7 +9649,7 @@ static void cont__171_26(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2336: ... -> filename_of(left) < filename_of(right)
+  // 2337: ... -> filename_of(left) < filename_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -9673,7 +9674,7 @@ static void cont__171_28(void) {
     invalid_results_error();
     return;
   }
-  // 2337: -> entries
+  // 2338: -> entries
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* entries */;
@@ -9903,7 +9904,7 @@ static void entry__182_1_types__string_connect(void) {
     invalid_arguments_error();
     return;
   }
-  // 2526: ... get_network_address(uri)
+  // 2527: ... get_network_address(uri)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* uri */;
@@ -9918,7 +9919,7 @@ static void cont__182_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2526: connect get_network_address(uri) port
+  // 2527: connect get_network_address(uri) port
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -9992,7 +9993,7 @@ static void entry__184_1_types__string_listen(void) {
     invalid_arguments_error();
     return;
   }
-  // 2562: ... get_network_address(uri)
+  // 2563: ... get_network_address(uri)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* uri */;
@@ -10007,7 +10008,7 @@ static void cont__184_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2562: listen get_network_address(uri) port
+  // 2563: listen get_network_address(uri) port
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10051,7 +10052,7 @@ static void entry__186_1_std__write(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 2586: ... string(args*)
+  // 2587: ... string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
@@ -10066,7 +10067,7 @@ static void cont__186_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2586: ... string(args*).to_utf8
+  // 2587: ... string(args*).to_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10081,7 +10082,7 @@ static void cont__186_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2586: write_to STDOUT_FILENO string(args*).to_utf8
+  // 2587: write_to STDOUT_FILENO string(args*).to_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__STDOUT_FILENO();
@@ -10097,7 +10098,7 @@ static void entry__187_1_std__writeln(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 2596: write args* "@nl;"
+  // 2597: write args* "@nl;"
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
@@ -10113,7 +10114,7 @@ static void entry__188_1_std__ewrite(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 2607: ... string(args*)
+  // 2608: ... string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
@@ -10128,7 +10129,7 @@ static void cont__188_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2607: ... string(args*).to_utf8
+  // 2608: ... string(args*).to_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -10143,7 +10144,7 @@ static void cont__188_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2607: atomic_write_to STDERR_FILENO string(args*).to_utf8
+  // 2608: atomic_write_to STDERR_FILENO string(args*).to_utf8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__STDERR_FILENO();
@@ -10159,7 +10160,7 @@ static void entry__189_1_std__ewriteln(void) {
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 2616: ewrite args* "@nl;"
+  // 2617: ewrite args* "@nl;"
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
@@ -10177,7 +10178,7 @@ static void entry__190_1_std__read(void) {
     invalid_arguments_error();
     return;
   }
-  // 2624: read_from STDIN_FILENO n
+  // 2625: read_from STDIN_FILENO n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__STDIN_FILENO();
@@ -10198,17 +10199,17 @@ static void entry__191_1_std__readln(void) {
     invalid_arguments_error();
     return;
   }
-  // 2632: $$buf ""
+  // 2633: $$buf ""
   ((CELL *)frame->slots[1])->contents /* buf */ = empty_string;
-  // 2633: ... :
-  // 2634:   read $chr 1
-  // 2635:   if chr == "@nl;" || chr == "": return buf
-  // 2636:   append &buf chr
+  // 2634: ... :
+  // 2635:   read $chr 1
+  // 2636:   if chr == "@nl;" || chr == "": return buf
+  // 2637:   append &buf chr
   frame->slots[2] /* temp__1 */ = create_closure(entry__191_2, 0);
-  // 2633: forever:
-  // 2634:   read $chr 1
-  // 2635:   if chr == "@nl;" || chr == "": return buf
-  // 2636:   append &buf chr
+  // 2634: forever:
+  // 2635:   read $chr 1
+  // 2636:   if chr == "@nl;" || chr == "": return buf
+  // 2637:   append &buf chr
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10230,7 +10231,7 @@ static void entry__191_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 2634: read $chr 1
+  // 2635: read $chr 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10245,7 +10246,7 @@ static void cont__191_3(void) {
     return;
   }
   initialize_future(frame->slots[2] /* chr */, arguments->slots[0]);
-  // 2635: ... chr == "@nl;"
+  // 2636: ... chr == "@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* chr */;
@@ -10261,9 +10262,9 @@ static void cont__191_4(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 2635: ... chr == ""
+  // 2636: ... chr == ""
   frame->slots[5] /* temp__3 */ = create_closure(entry__191_5, 0);
-  // 2635: ... chr == "@nl;" || chr == ""
+  // 2636: ... chr == "@nl;" || chr == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -10282,7 +10283,7 @@ static void entry__191_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 2635: ... chr == ""
+  // 2636: ... chr == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -10298,7 +10299,7 @@ static void cont__191_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2635: ... chr == ""
+  // 2636: ... chr == ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10312,9 +10313,9 @@ static void cont__191_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2635: ... : return buf
+  // 2636: ... : return buf
   frame->slots[6] /* temp__4 */ = create_closure(entry__191_8, 0);
-  // 2635: if chr == "@nl;" || chr == "": return buf
+  // 2636: if chr == "@nl;" || chr == "": return buf
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -10335,7 +10336,7 @@ static void entry__191_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 2635: ... return buf
+  // 2636: ... return buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -10349,7 +10350,7 @@ static void cont__191_9(void) {
     invalid_results_error();
     return;
   }
-  // 2636: append &buf chr
+  // 2637: append &buf chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -10385,7 +10386,7 @@ static void entry__192_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 2646: ... -> buf
+  // 2647: ... -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* buf */;
@@ -10402,8 +10403,8 @@ static void entry__192_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 2647: ... "
-  // 2648:   Load error ("@(filename)@quot;)!@
+  // 2648: ... "
+  // 2649:   Load error ("@(filename)@quot;)!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__192_11;
@@ -10420,8 +10421,8 @@ static void cont__192_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2647: raise "
-  // 2648:   Load error ("@(filename)@quot;)!@
+  // 2648: raise "
+  // 2649:   Load error ("@(filename)@quot;)!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10441,7 +10442,7 @@ static void entry__192_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 2646: ... wget($buf "-q" "-O" "-" filename)
+  // 2647: ... wget($buf "-q" "-O" "-" filename)
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = string__192_5;
@@ -10460,17 +10461,17 @@ static void cont__192_8(void) {
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   frame->slots[2] /* temp__1 */ = arguments->slots[1];
-  // 2646: ... buf
+  // 2647: ... buf
   initialize_future(frame->slots[1] /* buf */, frame->slots[3] /* temp__2 */);
-  // 2646: ... -> buf
+  // 2647: ... -> buf
   frame->slots[4] /* temp__3 */ = create_closure(entry__192_9, 0);
-  // 2646: ... :
-  // 2647:   raise "
-  // 2648:     Load error ("@(filename)@quot;)!@
+  // 2647: ... :
+  // 2648:   raise "
+  // 2649:     Load error ("@(filename)@quot;)!@
   frame->slots[5] /* temp__4 */ = create_closure(entry__192_10, 0);
-  // 2646: if wget($buf "-q" "-O" "-" filename) (-> buf):
-  // 2647:   raise "
-  // 2648:     Load error ("@(filename)@quot;)!@
+  // 2647: if wget($buf "-q" "-O" "-" filename) (-> buf):
+  // 2648:   raise "
+  // 2649:     Load error ("@(filename)@quot;)!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10490,7 +10491,7 @@ static void entry__192_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 2650: load_file filename
+  // 2651: load_file filename
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -10507,7 +10508,7 @@ static void entry__192_1_std__load(void) {
     invalid_arguments_error();
     return;
   }
-  // 2645: filename .has_prefix. "http://"
+  // 2646: filename .has_prefix. "http://"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -10523,21 +10524,21 @@ static void cont__192_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2645: ... :
-  // 2646:   if wget($buf "-q" "-O" "-" filename) (-> buf):
-  // 2647:     raise "
-  // 2648:       Load error ("@(filename)@quot;)!@
+  // 2646: ... :
+  // 2647:   if wget($buf "-q" "-O" "-" filename) (-> buf):
+  // 2648:     raise "
+  // 2649:       Load error ("@(filename)@quot;)!@
   frame->slots[2] /* temp__2 */ = create_closure(entry__192_4, 0);
-  // 2649: :
-  // 2650:   load_file filename
+  // 2650: :
+  // 2651:   load_file filename
   frame->slots[3] /* temp__3 */ = create_closure(entry__192_14, 0);
-  // 2644: if
-  // 2645:   filename .has_prefix. "http://":
-  // 2646:     if wget($buf "-q" "-O" "-" filename) (-> buf):
-  // 2647:       raise "
-  // 2648:         Load error ("@(filename)@quot;)!@
-  // 2649:   :
-  // 2650:     load_file filename
+  // 2645: if
+  // 2646:   filename .has_prefix. "http://":
+  // 2647:     if wget($buf "-q" "-O" "-" filename) (-> buf):
+  // 2648:       raise "
+  // 2649:         Load error ("@(filename)@quot;)!@
+  // 2650:   :
+  // 2651:     load_file filename
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10564,7 +10565,7 @@ static void entry__193_1_std__save(void) {
   frame->slots[2] /* data */ = arguments->slots[argument_count-1];
   frame->slots[1] /* filename */ = arguments->slots[argument_count-2];
   frame->slots[0] /* options */ = from_arguments(0, argument_count-2);
-  // 2660: ... PARENTS = false
+  // 2661: ... PARENTS = false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__PARENTS();
@@ -10580,7 +10581,7 @@ static void cont__193_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2660: extract_options options PARENTS = false $do_create_directory
+  // 2661: extract_options options PARENTS = false $do_create_directory
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* options */;
@@ -10596,13 +10597,13 @@ static void cont__193_3(void) {
     return;
   }
   initialize_future(frame->slots[3] /* do_create_directory */, arguments->slots[0]);
-  // 2661: ... :
-  // 2662:   $path before(filename '/' -1)
-  // 2663:   if path != "": mkdir --PARENTS path
+  // 2662: ... :
+  // 2663:   $path before(filename '/' -1)
+  // 2664:   if path != "": mkdir --PARENTS path
   frame->slots[4] /* temp__1 */ = create_closure(entry__193_4, 0);
-  // 2661: if do_create_directory:
-  // 2662:   $path before(filename '/' -1)
-  // 2663:   if path != "": mkdir --PARENTS path
+  // 2662: if do_create_directory:
+  // 2663:   $path before(filename '/' -1)
+  // 2664:   if path != "": mkdir --PARENTS path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* do_create_directory */;
@@ -10621,7 +10622,7 @@ static void entry__193_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 2663: ... --PARENTS
+  // 2664: ... --PARENTS
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__PARENTS();
@@ -10637,7 +10638,7 @@ static void cont__193_10(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2663: ... mkdir --PARENTS path
+  // 2664: ... mkdir --PARENTS path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10658,7 +10659,7 @@ static void entry__193_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 2662: ... 1
+  // 2663: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10673,7 +10674,7 @@ static void cont__193_5(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2662: $path before(filename '/' -1)
+  // 2663: $path before(filename '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
@@ -10690,7 +10691,7 @@ static void cont__193_6(void) {
     return;
   }
   initialize_future(frame->slots[1] /* path */, arguments->slots[0]);
-  // 2663: ... path != ""
+  // 2664: ... path != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* path */;
@@ -10706,7 +10707,7 @@ static void cont__193_7(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 2663: ... path != ""
+  // 2664: ... path != ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -10721,9 +10722,9 @@ static void cont__193_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2663: ... : mkdir --PARENTS path
+  // 2664: ... : mkdir --PARENTS path
   frame->slots[4] /* temp__3 */ = create_closure(entry__193_9, 0);
-  // 2663: if path != "": mkdir --PARENTS path
+  // 2664: if path != "": mkdir --PARENTS path
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10738,7 +10739,7 @@ static void cont__193_11(void) {
     invalid_results_error();
     return;
   }
-  // 2664: ... data.to_string
+  // 2665: ... data.to_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* data */;
@@ -10753,7 +10754,7 @@ static void cont__193_12(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2664: save_file filename data.to_string
+  // 2665: save_file filename data.to_string
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* filename */;
