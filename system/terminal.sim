@@ -434,8 +434,9 @@ $std::draw_character:
 
     The character is drawn using the current text and background colour.
 
-    If the cursor position is valid then the character is drawn and the cursor
-    position is advanced by one character column.
+    If the cursor position is valid then the character is drawn.
+
+    The cursor position is advanced anyways.
 
     Topic: Terminal
 
@@ -456,7 +457,7 @@ $std::draw_character:
     if current_background_colour.is_defined:
       !current_screen.background_colours_of(row)(column)
 	current_background_colour
-    !current_screen.current_column_of column+1
+  !current_screen.current_column_of column+1
 
 $std::draw_text:
   #
@@ -468,7 +469,8 @@ $std::draw_text:
 
     The current column is updated according to the length of the *text*.
 
-    **Attention**: The *text* must not contain *newline*-characters!
+    A *newline*-character moves the drawing position into the next *row* back to
+    the original *column*.
 
     Topic: Terminal
 
@@ -477,28 +479,32 @@ $std::draw_text:
     $text # the text (string) to draw
     -> return
   )
-  $row current_row_of(current_screen)
-  $$column current_column_of(current_screen)
   $width width_of(current_screen)
   $height height_of(current_screen)
-  if row < 1 || row > height return
-  plus &current_screen.current_column_of length_of(text)
-  if column > width return
-  if column < 1:
-    if length_of(text) <= 1-column return
-    range &text 2-column -1
-  if column > width return
-  if length_of(text) > width-column+1: range &text 1 width-column+1
+  $$row current_row_of(current_screen)
+  $$column current_column_of(current_screen)
+
+  $$row_is_valid row >= 1 || row <= height
+
   $current_text_colour current_text_colour_of(current_screen)
   $current_background_colour current_background_colour_of(current_screen)
   for_each text: (chr)
-    !current_screen.characters_of(row)(column) chr
-    if current_text_colour.is_defined:
-      !current_screen.text_colours_of(row)(column) current_text_colour
-    if current_background_colour.is_defined:
-      !current_screen.background_colours_of(row)(column)
-	current_background_colour
-    inc &column
+    if
+      chr == '@nl;':
+	inc &row
+	!column current_column_of(current_screen)
+	!row_is_valid row >= 1 || row <= height
+      :
+	if row_is_valid && column >= 1 && column <= width:
+	  !current_screen.characters_of(row)(column) chr
+	  if current_text_colour.is_defined:
+	    !current_screen.text_colours_of(row)(column) current_text_colour
+	  if current_background_colour.is_defined:
+	    !current_screen.background_colours_of(row)(column)
+	      current_background_colour
+	inc &column
+  !current_screen.current_row_of row
+  !current_screen.current_column_of column
 
 $std::draw_line:
   #
