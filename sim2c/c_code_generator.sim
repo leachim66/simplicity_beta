@@ -1034,7 +1034,24 @@ $register_string: (str)
       str.is_a_latin_1_string:
 	write_to_phase_2 "
 	  @
-	    @(name) = from_latin_1_string("@(to_c_string(str))@quot;, @(len));
+	    @(name) = from_latin_1_string(@
+	$n search_character(str '@nl;')
+	if
+	  n.is_defined && len > n:
+	    for_each_line str
+	      : (line)
+		write_to_phase_2 "@nl;    @quot;" to_c_string(line)
+	      :
+		write_to_phase_2 "\n@quot;"
+	    if
+	      str(-1) == '@nl;':
+		write_to_phase_2 "\n@quot;"
+	      :
+		write_to_phase_2 "@quot;"
+	    write_to_phase_2 ",@nl;    @(len));@nl;"
+	  :
+	    write_to_phase_2 "
+	      "@(to_c_string(str))@quot;, @(len));
       :
 	write_to_phase_2 "  uint32_t @(name)_literal[@(len)] = {"
 	for_each
