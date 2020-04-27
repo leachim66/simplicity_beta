@@ -1155,7 +1155,7 @@ static NODE *func__208_1_sim2c__numeric_literal_mangled_name_of;
 static void entry__208_1_sim2c__numeric_literal_mangled_name_of(void);
 static FRAME_INFO frame__208_1_sim2c__numeric_literal_mangled_name_of = {1, {"self"}};
 static void cont__208_2(void);
-static NODE *string__208_3;
+static NODE *string__578a5af303e9cbe;
 static void cont__208_4(void);
 static void cont__208_5(void);
 static void cont__208_6(void);
@@ -1178,7 +1178,7 @@ static NODE *get__sim2c__string_literal(void) {
 static NODE *get__sim2c__multi_line_string(void) {
   return var.sim2c__multi_line_string;
 }
-static NODE *string__222_1;
+static NODE *string__578a5af303e9ceb;
 static int poly_idx__node__is_a_unique_item_constant;
 static void type__node__is_a_unique_item_constant(void);
 static NODE *get__node__is_a_unique_item_constant(void) {
@@ -1225,7 +1225,7 @@ static NODE *func__246_4;
 static void entry__246_4(void);
 static FRAME_INFO frame__246_4 = {1, {"self"}};
 static void cont__246_5(void);
-static NODE *string__246_6;
+static NODE *string__2d7981f4e6d82bff;
 static void cont__246_7(void);
 static NODE *func__246_8;
 static void entry__246_8(void);
@@ -1242,7 +1242,7 @@ static NODE *func__247_4;
 static void entry__247_4(void);
 static FRAME_INFO frame__247_4 = {1, {"self"}};
 static void cont__247_5(void);
-static NODE *string__247_6;
+static NODE *string__2d7981f4e5f02b9a;
 static void cont__247_7(void);
 static NODE *func__247_8;
 static void entry__247_8(void);
@@ -1274,7 +1274,7 @@ static NODE *get__node__is_c_code(void) {
 static NODE *get__sim2c__c_code(void) {
   return var.sim2c__c_code;
 }
-static NODE *string__260_1;
+static NODE *string__545aebc3eac0d03b;
 static int poly_idx__node__is_a_c_body;
 static void type__node__is_a_c_body(void);
 static NODE *get__node__is_a_c_body(void) {
@@ -3617,7 +3617,7 @@ static void cont__208_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
-  arguments->slots[1] = string__208_3;
+  arguments->slots[1] = string__578a5af303e9cbe;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -3752,7 +3752,7 @@ static void cont__246_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__246_6;
+  arguments->slots[1] = string__2d7981f4e6d82bff;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -3925,7 +3925,7 @@ static void cont__247_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__247_6;
+  arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -4357,16 +4357,16 @@ EXPORT void phase_2__nodes(void) {
   unique__sim2c__DYNAMIC_SINGLE = register_unique_item("sim2c__DYNAMIC_SINGLE");
   unique__sim2c__DYNAMIC_MULTI = register_unique_item("sim2c__DYNAMIC_MULTI");
   unique__sim2c__C_NODE = register_unique_item("sim2c__C_NODE");
-  string__208_3 = from_latin_1_string("_", 1);
+  string__578a5af303e9cbe = from_latin_1_string("_", 1);
   func__208_1_sim2c__numeric_literal_mangled_name_of = create_function(entry__208_1_sim2c__numeric_literal_mangled_name_of, 1);
-  string__222_1 = from_latin_1_string("\012", 1);
-  string__246_6 = from_latin_1_string("::", 2);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
+  string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
   func__246_8 = create_function(entry__246_8, 0);
   func__246_1_sim2c__identifier_full_name_of = create_function(entry__246_1_sim2c__identifier_full_name_of, 1);
-  string__247_6 = from_latin_1_string("__", 2);
+  string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
   func__247_8 = create_function(entry__247_8, 0);
   func__247_1_sim2c__identifier_mangled_name_of = create_function(entry__247_1_sim2c__identifier_mangled_name_of, 1);
-  string__260_1 = from_latin_1_string("local", 5);
+  string__545aebc3eac0d03b = from_latin_1_string("local", 5);
   func__267_1_sim2c__is_a_parameter = create_function(entry__267_1_sim2c__is_a_parameter, 1);
 }
 
@@ -4628,8 +4628,8 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("sim2c", "string_literal", poly_idx__is_a_constant, get__true());
   define_attribute("sim2c", "string_literal", poly_idx__node__text_of, empty_string);
   define_attribute("sim2c", "string_literal", poly_idx__arguments_of, get__empty_list());
-  define_attribute("sim2c", "multi_line_string", poly_idx__node__line_end_specifier_of, string__222_1);
-  define_attribute("sim2c", "multi_line_string", poly_idx__node__last_line_end_specifier_of, string__222_1);
+  define_attribute("sim2c", "multi_line_string", poly_idx__node__line_end_specifier_of, string__578a5af303e9ceb);
+  define_attribute("sim2c", "multi_line_string", poly_idx__node__last_line_end_specifier_of, string__578a5af303e9ceb);
   define_attribute("types", "grammar_node", poly_idx__is_a_unique_item_constant, get__false());
   define_attribute("sim2c", "unique_item", poly_idx__is_a_unique_item_constant, get__true());
   define_attribute("sim2c", "unique_item", poly_idx__is_a_constant, get__true());
@@ -4651,7 +4651,7 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("sim2c", "operator_symbol", poly_idx__is_an_operator_symbol, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_c_code, get__false());
   define_attribute("sim2c", "c_code", poly_idx__is_c_code, get__true());
-  define_attribute("sim2c", "c_code", poly_idx__scope_of, string__260_1);
+  define_attribute("sim2c", "c_code", poly_idx__scope_of, string__545aebc3eac0d03b);
   define_attribute("sim2c", "c_code", poly_idx__arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_a_c_body, get__false());
   define_attribute("sim2c", "c_body", poly_idx__is_a_c_body, get__true());

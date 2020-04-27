@@ -492,9 +492,22 @@ $std::hash ()
 
     It must be computed from the object's contents solely!
 
-    Topic: Strings
+    Topic: Math, Strings
 
-    See also: std::equal_type_and_value
+    See also: std::equal_type_and_value, std::hash2
+
+$std::hash2 ()
+  #
+    returns a more expensive 64-bit hash value
+
+    The returned integer number will always be the same for an object. The
+    returned number might not depend on the platform the program is running!
+
+    It must be computed from the object's contents solely!
+
+    Topic: Math, Strings
+
+    See also: std::hash
 
 $std::push ()
   #

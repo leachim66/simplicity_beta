@@ -374,10 +374,10 @@ static void cont__4_7(void);
 static void cont__4_8(void);
 static void cont__4_9(void);
 static void cont__4_10(void);
-static NODE *string__4_11;
-static NODE *string__4_12;
-static NODE *string__4_13;
-static NODE *string__4_14;
+static NODE *string__a18ab04649b43ca6;
+static NODE *string__6c6619488b29e163;
+static NODE *string__fa730c15ff96bc6;
+static NODE *string__2d7981f4e6002bcf;
 static void cont__4_15(void);
 static void cont__4_16(void);
 static NODE *func__4_17_skip_line;
@@ -400,7 +400,7 @@ static void cont__4_25(void);
 static NODE *func__4_26;
 static void entry__4_26(void);
 static FRAME_INFO frame__4_26 = {1, {"TokenizationError"}};
-static NODE *string__4_27;
+static NODE *string__dd17af2f619a6908;
 static void cont__4_28(void);
 static void cont__4_29(void);
 static NODE *func__4_30_get_indent;
@@ -459,7 +459,7 @@ static void cont__4_64(void);
 static NODE *func__4_65;
 static void entry__4_65(void);
 static FRAME_INFO frame__4_65 = {1, {"TokenizationError"}};
-static NODE *string__4_66;
+static NODE *string__97eea539018d4d4b;
 static void cont__4_67(void);
 static NODE *func__4_68_convert;
 static void entry__4_68_convert(void);
@@ -560,7 +560,7 @@ static void cont__4_131(void);
 static NODE *func__4_132;
 static void entry__4_132(void);
 static FRAME_INFO frame__4_132 = {1, {"TokenizationError"}};
-static NODE *string__4_133;
+static NODE *string__f6816391653ef18d;
 static void cont__4_134(void);
 static void cont__4_135(void);
 static void cont__4_136(void);
@@ -1008,7 +1008,7 @@ static void entry__4_26(void) {
   // 61: TokenizationError "tabulator character within line detected"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_27;
+  arguments->slots[0] = string__dd17af2f619a6908;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
@@ -1274,13 +1274,13 @@ static void cont__4_10(void) {
   // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   argument_count = 7;
   arguments = node_p;
-  arguments->slots[0] = string__4_11;
+  arguments->slots[0] = string__a18ab04649b43ca6;
   arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* line_no */;
-  arguments->slots[2] = string__4_12;
+  arguments->slots[2] = string__6c6619488b29e163;
   arguments->slots[3] = get__module_name();
-  arguments->slots[4] = string__4_13;
+  arguments->slots[4] = string__fa730c15ff96bc6;
   arguments->slots[5] = ((CELL *)frame->slots[0])->contents /* msg */;
-  arguments->slots[6] = string__4_14;
+  arguments->slots[6] = string__2d7981f4e6002bcf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2007,7 +2007,7 @@ static void entry__4_65(void) {
   // 80: TokenizationError "empty line contains whitespace"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_66;
+  arguments->slots[0] = string__97eea539018d4d4b;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
@@ -3255,7 +3255,7 @@ static void entry__4_132(void) {
   // 134: ... TokenizationError "invalid indentation"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_133;
+  arguments->slots[0] = string__f6816391653ef18d;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* TokenizationError */;
   func = myself->type;
@@ -3628,13 +3628,16 @@ EXPORT void phase_2__tokenizer(void) {
   character__32 = from_uchar32(32);
   character__1 = from_uchar32(1);
   number__1 = from_uint32(1U);
-  string__4_11 = from_latin_1_string("____________________________________\012TOKENIZATION ERROR IN LINE ", 64);
-  string__4_12 = from_latin_1_string(" OF FILE \042", 10);
-  string__4_13 = from_latin_1_string("\042:\012", 3);
-  string__4_14 = from_latin_1_string("!\012", 2);
-  string__4_27 = from_latin_1_string("tabulator character within line detected", 40);
-  string__4_66 = from_latin_1_string("empty line contains whitespace", 30);
-  string__4_133 = from_latin_1_string("invalid indentation", 19);
+  string__a18ab04649b43ca6 = from_latin_1_string(
+    "____________________________________\n"
+    "TOKENIZATION ERROR IN LINE ",
+    64);
+  string__6c6619488b29e163 = from_latin_1_string(" OF FILE \042", 10);
+  string__fa730c15ff96bc6 = from_latin_1_string("\042:\012", 3);
+  string__2d7981f4e6002bcf = from_latin_1_string("!\012", 2);
+  string__dd17af2f619a6908 = from_latin_1_string("tabulator character within line detected", 40);
+  string__97eea539018d4d4b = from_latin_1_string("empty line contains whitespace", 30);
+  string__f6816391653ef18d = from_latin_1_string("invalid indentation", 19);
   func__4_1_sim2c__tokenize = create_function(entry__4_1_sim2c__tokenize, 1);
 }
 

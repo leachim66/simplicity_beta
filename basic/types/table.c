@@ -430,7 +430,7 @@ static void cont__8_3(void);
 static NODE *func__8_4;
 static void entry__8_4(void);
 static FRAME_INFO frame__8_4 = {2, {"return", "tag"}};
-static NODE *string__8_5;
+static NODE *string__2d7981f4e6482bec;
 static void cont__8_6(void);
 static void cont__8_7(void);
 static NODE *func__8_8;
@@ -442,7 +442,7 @@ static void cont__8_11(void);
 static void cont__8_12(void);
 static void cont__8_13(void);
 static void cont__8_14(void);
-static NODE *string__8_15;
+static NODE *string__fa730415fc16bec;
 static void cont__8_16(void);
 static void cont__8_17(void);
 static NODE *func__9_1_types__generic_table_keys_of;
@@ -474,7 +474,7 @@ static NODE *get__std__is_a_table(void) {
 static NODE *get__types__table(void) {
   return var.types__table;
 }
-static NODE *string__16_1;
+static NODE *string__485aeb83eaa95032;
 static NODE *get__std__empty_table(void) {
   return var.std__empty_table;
 }
@@ -500,8 +500,8 @@ static FRAME_INFO frame__19_2 = {7, {"text", "base_indent", "return", "name", "e
 static NODE *func__19_3_invalid_table_error;
 static void entry__19_3_invalid_table_error(void);
 static FRAME_INFO frame__19_3_invalid_table_error = {1, {"name"}};
-static NODE *string__19_4;
-static NODE *string__19_5;
+static NODE *string__76acaf9d04f58520;
+static NODE *string__770b9b2c5bac96f5;
 static void cont__19_6(void);
 static void cont__19_7(void);
 static NODE *func__19_8;
@@ -806,7 +806,7 @@ EXPORT void run__basic__types__table(void) {
   // 191: register_collection_serializer "table" empty_table
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__16_1;
+  arguments->slots[0] = string__485aeb83eaa95032;
   arguments->slots[1] = get__empty_table();
   result_count = 0;
   myself = get__register_collection_serializer();
@@ -1180,7 +1180,7 @@ static void entry__8_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* tag */;
-  arguments->slots[1] = string__8_5;
+  arguments->slots[1] = string__2d7981f4e6482bec;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -1355,7 +1355,7 @@ static void cont__8_14(void) {
   arguments->slots[1] = character__10;
   arguments->slots[2] = frame->slots[4] /* temp__1 */;
   arguments->slots[3] = frame->slots[6] /* temp__3 */;
-  arguments->slots[4] = string__8_15;
+  arguments->slots[4] = string__fa730415fc16bec;
   arguments->slots[5] = frame->slots[8] /* temp__5 */;
   result_count = 1;
   myself = get__write_to();
@@ -1701,7 +1701,7 @@ static void entry__19_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
-  arguments->slots[1] = string__8_5;
+  arguments->slots[1] = string__2d7981f4e6482bec;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -1719,9 +1719,9 @@ static void entry__19_3_invalid_table_error(void) {
   // 174: ... "Invalid @(name) object encountered during deserialisation!"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__19_4;
+  arguments->slots[0] = string__76acaf9d04f58520;
   arguments->slots[1] = frame->slots[0] /* name */;
-  arguments->slots[2] = string__19_5;
+  arguments->slots[2] = string__770b9b2c5bac96f5;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2683,16 +2683,16 @@ EXPORT void phase_2__basic__types__table(void) {
   unique__NONE = register_unique_item("NONE");
   func__6_1_types__generic_table_union = create_function(entry__6_1_types__generic_table_union, 2);
   func__7_1_types__generic_table_map = create_function(entry__7_1_types__generic_table_map, 2);
-  string__8_5 = from_latin_1_string("()", 2);
-  string__8_15 = from_latin_1_string(" = ", 3);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
+  string__fa730415fc16bec = from_latin_1_string(" = ", 3);
   func__8_1_types__generic_table_serialize = create_function(entry__8_1_types__generic_table_serialize, -1);
   func__9_1_types__generic_table_keys_of = create_function(entry__9_1_types__generic_table_keys_of, 1);
   func__10_1_types__generic_table_values_of = create_function(entry__10_1_types__generic_table_values_of, 1);
   func__11_1_types__generic_table_is_empty = create_function(entry__11_1_types__generic_table_is_empty, 1);
-  string__16_1 = from_latin_1_string("table", 5);
+  string__485aeb83eaa95032 = from_latin_1_string("table", 5);
   func__18_1_std__table = create_function(entry__18_1_std__table, -1);
-  string__19_4 = from_latin_1_string("Invalid ", 8);
-  string__19_5 = from_latin_1_string(" object encountered during deserialisation!", 43);
+  string__76acaf9d04f58520 = from_latin_1_string("Invalid ", 8);
+  string__770b9b2c5bac96f5 = from_latin_1_string(" object encountered during deserialisation!", 43);
   func__19_1_std__register_collection_serializer = create_function(entry__19_1_std__register_collection_serializer, 2);
 }
 
@@ -2767,7 +2767,7 @@ EXPORT void phase_4__basic__types__table(void) {
   define_method("types", "generic_table", poly_idx__is_empty, func__11_1_types__generic_table_is_empty);
   define_attribute("types", "object", poly_idx__is_a_table, get__false());
   define_attribute("types", "generic_table", poly_idx__is_a_table, get__true());
-  define_attribute("types", "table", poly_idx__serialization_tag_of, string__16_1);
+  define_attribute("types", "table", poly_idx__serialization_tag_of, string__485aeb83eaa95032);
 }
 
 static int already_run_phase_5 = false;

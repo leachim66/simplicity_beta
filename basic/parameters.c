@@ -556,8 +556,8 @@ static void cont__12_41(void);
 static void cont__12_42(void);
 static void cont__12_43(void);
 static void cont__12_44(void);
-static NODE *string__12_45;
-static NODE *string__12_46;
+static NODE *string__629e8589dc7e42e;
+static NODE *string__578a5af303e9cc0;
 static void cont__12_47(void);
 static void cont__12_48(void);
 static NODE *get__std__extract_options(void) {
@@ -635,7 +635,7 @@ static void entry__14_8(void);
 static FRAME_INFO frame__14_8 = {2, {"entry", "first_column_width"}};
 static void cont__14_9(void);
 static void cont__14_10(void);
-static NODE *string__14_11;
+static NODE *string__2d7981f4e6082be5;
 static void cont__14_12(void);
 static void cont__14_13(void);
 static NODE *func__14_14;
@@ -647,13 +647,13 @@ static NODE *func__14_17;
 static void entry__14_17(void);
 static FRAME_INFO frame__14_17 = {1, {"first_column_width"}};
 static void cont__14_18(void);
-static NODE *string__14_19;
+static NODE *string__578a5af303e9cc1;
 static void cont__14_20(void);
 static void cont__14_21(void);
 static NODE *func__19_1_show_version;
 static void entry__19_1_show_version(void);
 static FRAME_INFO frame__19_1_show_version = {1, {"command_name"}};
-static NODE *string__19_2;
+static NODE *string__2d7981f4e7582bcf;
 static void cont__19_3(void);
 static NODE *func__20_1_show_copyright;
 static void entry__20_1_show_copyright(void);
@@ -670,7 +670,7 @@ static void cont__21_5(void);
 static NODE *func__21_6;
 static void entry__21_6(void);
 static FRAME_INFO frame__21_6 = {2, {"message", "possible_value"}};
-static NODE *string__21_7;
+static NODE *string__e8329800b0d69ed2;
 static void cont__21_8(void);
 static NODE *func__21_9;
 static void entry__21_9(void);
@@ -714,7 +714,7 @@ static void cont__21_31(void);
 static void cont__21_32(void);
 static void cont__21_33(void);
 static void cont__21_34(void);
-static NODE *string__21_35;
+static NODE *string__5a1f579a019362ed;
 static void cont__21_36(void);
 static void cont__21_37(void);
 static NODE *func__21_38;
@@ -724,9 +724,9 @@ static void cont__21_39(void);
 static NODE *func__21_40;
 static void entry__21_40(void);
 static FRAME_INFO frame__21_40 = {1, {"command_name"}};
-static NODE *string__21_41;
+static NODE *string__d89f1181d9c5276e;
 static void cont__21_42(void);
-static NODE *string__21_43;
+static NODE *string__a3040cb415de108a;
 static void cont__21_44(void);
 static void cont__21_45(void);
 static NODE *func__21_46;
@@ -744,7 +744,7 @@ static FRAME_INFO frame__21_51 = {3, {"parameter", "idx", "parameter_name"}};
 static void cont__21_52(void);
 static void cont__21_53(void);
 static void cont__21_54(void);
-static NODE *string__21_55;
+static NODE *string__a67e424a37fc0741;
 static void cont__21_56(void);
 static NODE *func__21_57;
 static void entry__21_57(void);
@@ -762,7 +762,7 @@ static void cont__21_65(void);
 static NODE *func__21_66;
 static void entry__21_66(void);
 static FRAME_INFO frame__21_66 = {3, {"options", "kinds", "help_messages"}};
-static NODE *string__21_67;
+static NODE *string__293744df0bfb878b;
 static void cont__21_68(void);
 static NODE *func__21_69;
 static void entry__21_69(void);
@@ -773,18 +773,18 @@ static FRAME_INFO frame__21_70 = {6, {"option", "idx", "kinds", "tab", "help_mes
 static NODE *func__21_71_option_name;
 static void entry__21_71_option_name(void);
 static FRAME_INFO frame__21_71_option_name = {4, {"option", "kinds", "idx", "buf"}};
-static NODE *string__21_72;
+static NODE *string__2d7981f4e6602be8;
 static void cont__21_73(void);
 static void cont__21_74(void);
 static NODE *func__21_75;
 static void entry__21_75(void);
 static FRAME_INFO frame__21_75 = {1, {"buf"}};
-static NODE *string__21_76;
+static NODE *string__1a1f5d6080113292;
 static void cont__21_77(void);
 static NODE *func__21_78;
 static void entry__21_78(void);
 static FRAME_INFO frame__21_78 = {1, {"buf"}};
-static NODE *string__21_79;
+static NODE *string__eb0400899490d0a9;
 static void cont__21_80(void);
 static void cont__21_81(void);
 static void cont__21_82(void);
@@ -799,19 +799,19 @@ static void cont__21_88(void);
 static NODE *func__21_89;
 static void entry__21_89(void);
 static FRAME_INFO frame__21_89 = {1, {"command"}};
-static NODE *string__21_90;
-static NODE *string__21_91;
+static NODE *string__1fe132c840060c77;
+static NODE *string__2952791d2723646b;
 static void cont__21_92(void);
 static NODE *func__21_93;
 static void entry__21_93(void);
 static FRAME_INFO frame__21_93 = {0, {}};
-static NODE *string__21_94;
+static NODE *string__f0948421cb0e2be3;
 static void cont__21_95(void);
 static void cont__21_96(void);
 static NODE *func__21_97_too_many_arguments_error;
 static void entry__21_97_too_many_arguments_error(void);
 static FRAME_INFO frame__21_97_too_many_arguments_error = {1, {"show_usage"}};
-static NODE *string__21_98;
+static NODE *string__e3aee165acc437aa;
 static void cont__21_99(void);
 static void cont__21_100(void);
 static void cont__21_101(void);
@@ -901,7 +901,7 @@ static NODE *func__21_154;
 static void entry__21_154(void);
 static FRAME_INFO frame__21_154 = {3, {"arguments", "show_usage", "command_name"}};
 static void cont__21_155(void);
-static NODE *string__21_156;
+static NODE *string__481f572601de82a7;
 static void cont__21_157(void);
 static NODE *func__21_158;
 static void entry__21_158(void);
@@ -913,7 +913,7 @@ static NODE *func__21_162;
 static void entry__21_162(void);
 static FRAME_INFO frame__21_162 = {1, {"arguments"}};
 static void cont__21_163(void);
-static NODE *string__21_164;
+static NODE *string__d29f58972c488aa7;
 static void cont__21_165(void);
 static void cont__21_166(void);
 static NODE *func__21_167;
@@ -926,7 +926,7 @@ static NODE *func__21_171;
 static void entry__21_171(void);
 static FRAME_INFO frame__21_171 = {1, {"arguments"}};
 static void cont__21_172(void);
-static NODE *string__21_173;
+static NODE *string__48e824ee4f7a5d6b;
 static void cont__21_174(void);
 static void cont__21_175(void);
 static NODE *func__21_176;
@@ -978,7 +978,7 @@ static void cont__21_201(void);
 static NODE *func__21_202;
 static void entry__21_202(void);
 static FRAME_INFO frame__21_202 = {1, {"argument"}};
-static NODE *string__21_203;
+static NODE *string__42c4ee3f21a0316f;
 static void cont__21_204(void);
 static void cont__21_205(void);
 static void cont__21_206(void);
@@ -1096,8 +1096,8 @@ static void entry__21_276(void);
 static FRAME_INFO frame__21_276 = {3, {"names", "idx", "show_usage"}};
 static void cont__21_277(void);
 static void cont__21_278(void);
-static NODE *string__21_279;
-static NODE *string__21_280;
+static NODE *string__143aedf103648031;
+static NODE *string__2d7981f4e6002bcf;
 static void cont__21_281(void);
 static void cont__21_282(void);
 static void cont__21_283(void);
@@ -1173,7 +1173,7 @@ static void cont__23_9(void);
 static NODE *func__23_10;
 static void entry__23_10(void);
 static FRAME_INFO frame__23_10 = {3, {"command", "id", "templates"}};
-static NODE *string__23_11;
+static NODE *string__120ae80b5d007d49;
 static void cont__23_12(void);
 static NODE *func__23_13;
 static void entry__23_13(void);
@@ -1226,9 +1226,9 @@ static FRAME_INFO frame__24_3 = {0, {}};
 static void cont__24_4(void);
 static void cont__24_5(void);
 static void cont__24_6(void);
-static NODE *string__24_7;
+static NODE *string__c69810bce846f05a;
 static void cont__24_8(void);
-static NODE *string__24_9;
+static NODE *string__e65a119686ab55e3;
 static void cont__24_10(void);
 static void cont__24_11(void);
 static NODE *func__24_12;
@@ -1242,8 +1242,8 @@ static void cont__24_17(void);
 static NODE *func__24_18;
 static void entry__24_18(void);
 static FRAME_INFO frame__24_18 = {1, {"tab"}};
-static NODE *string__24_19;
-static NODE *string__24_20;
+static NODE *string__7cf0276001425531;
+static NODE *string__d9b4d5146ecce23;
 static void cont__24_21(void);
 static void cont__24_22(void);
 static void cont__24_23(void);
@@ -1251,8 +1251,8 @@ static void cont__24_24(void);
 static NODE *func__24_25;
 static void entry__24_25(void);
 static FRAME_INFO frame__24_25 = {1, {"tab"}};
-static NODE *string__24_26;
-static NODE *string__24_27;
+static NODE *string__945c0f9015c3e094;
+static NODE *string__460a51cfecd67225;
 static void cont__24_28(void);
 static void cont__24_29(void);
 static void cont__24_30(void);
@@ -1277,7 +1277,7 @@ static void cont__25_8(void);
 static NODE *func__25_9;
 static void entry__25_9(void);
 static FRAME_INFO frame__25_9 = {0, {}};
-static NODE *string__25_10;
+static NODE *string__9e1d476192d899b4;
 static void cont__25_11(void);
 static void cont__25_12(void);
 static NODE *func__25_13;
@@ -1311,12 +1311,12 @@ static void cont__25_26(void);
 static NODE *func__25_27;
 static void entry__25_27(void);
 static FRAME_INFO frame__25_27 = {0, {}};
-static NODE *string__25_28;
+static NODE *string__1dc76095d723d587;
 static void cont__25_29(void);
 static NODE *func__25_30;
 static void entry__25_30(void);
 static FRAME_INFO frame__25_30 = {0, {}};
-static NODE *string__25_31;
+static NODE *string__a15bc662b3bb7e39;
 static void cont__25_32(void);
 static NODE *func__25_33;
 static void entry__25_33(void);
@@ -1325,10 +1325,10 @@ static void cont__25_34(void);
 static NODE *func__25_35;
 static void entry__25_35(void);
 static FRAME_INFO frame__25_35 = {0, {}};
-static NODE *string__25_36;
+static NODE *string__617a0ed7343fbf40;
 static void cont__25_37(void);
 static void cont__25_38(void);
-static NODE *string__25_39;
+static NODE *string__19bd6394b9c09d4b;
 static void cont__25_40(void);
 static void cont__25_41(void);
 static NODE *func__25_42;
@@ -1347,7 +1347,7 @@ static void cont__25_48(void);
 static void cont__25_49(void);
 static void cont__25_50(void);
 static void cont__25_51(void);
-static NODE *string__25_52;
+static NODE *string__f68d8519ec4e03eb;
 static void cont__25_53(void);
 static void cont__25_54(void);
 static NODE *get__std__program_parameters(void) {
@@ -2888,9 +2888,9 @@ static void cont__12_44(void) {
   // 150: ... "Invalid option @(range(debug_string(key_of(options(1))) 1 -2))!"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__12_45;
+  arguments->slots[0] = string__629e8589dc7e42e;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__12_46;
+  arguments->slots[2] = string__578a5af303e9cc0;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3667,7 +3667,7 @@ static void cont__14_18(void) {
   // 213: ... " " .dup. 2+first_column_width
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__14_19;
+  arguments->slots[0] = string__578a5af303e9cc1;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -3747,7 +3747,7 @@ static void cont__14_10(void) {
   // 211: ewrite "  " pad_right(entry(1) first_column_width)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__14_11;
+  arguments->slots[0] = string__2d7981f4e6082be5;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = 0;
   myself = get__ewrite();
@@ -3929,9 +3929,9 @@ static void entry__19_1_show_version(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command_name */;
-  arguments->slots[1] = string__14_19;
+  arguments->slots[1] = string__578a5af303e9cc1;
   arguments->slots[2] = var._program_version;
-  arguments->slots[3] = string__19_2;
+  arguments->slots[3] = string__2d7981f4e7582bcf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -4236,7 +4236,7 @@ static void entry__21_71_option_name(void) {
   // 292: $$buf string("--" option)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__21_72;
+  arguments->slots[0] = string__2d7981f4e6602be8;
   arguments->slots[1] = frame->slots[0] /* option */;
   result_count = 1;
   myself = get__string();
@@ -4301,7 +4301,7 @@ static void entry__21_75(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
-  arguments->slots[1] = string__21_76;
+  arguments->slots[1] = string__1a1f5d6080113292;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -4332,7 +4332,7 @@ static void entry__21_78(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
-  arguments->slots[1] = string__21_79;
+  arguments->slots[1] = string__eb0400899490d0a9;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -4454,7 +4454,7 @@ static void entry__21_66(void) {
   // 287:   Options:
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_67;
+  arguments->slots[0] = string__293744df0bfb878b;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
@@ -4590,7 +4590,7 @@ static void entry__21_6(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* message */;
-  arguments->slots[1] = string__21_7;
+  arguments->slots[1] = string__e8329800b0d69ed2;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -5088,7 +5088,7 @@ static void cont__21_34(void) {
   // 265: ewriteln "Usage:"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_35;
+  arguments->slots[0] = string__5a1f579a019362ed;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -5178,9 +5178,9 @@ static void entry__21_40(void) {
   // 267: ... ewriteln "  " command_name " --copyright"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__14_11;
+  arguments->slots[0] = string__2d7981f4e6082be5;
   arguments->slots[1] = frame->slots[0] /* command_name */;
-  arguments->slots[2] = string__21_41;
+  arguments->slots[2] = string__d89f1181d9c5276e;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -5194,9 +5194,9 @@ static void cont__21_42(void) {
   // 268: ewriteln "  " command_name " --help"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__14_11;
+  arguments->slots[0] = string__2d7981f4e6082be5;
   arguments->slots[1] = frame->slots[0] /* command_name */;
-  arguments->slots[2] = string__21_43;
+  arguments->slots[2] = string__a3040cb415de108a;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -5295,7 +5295,7 @@ static void cont__21_49(void) {
   // 272:   if(command.is_defined (-> string(' ' command)) -> "")
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__14_11;
+  arguments->slots[0] = string__2d7981f4e6082be5;
   arguments->slots[1] = frame->slots[1] /* command_name */;
   arguments->slots[2] = frame->slots[8] /* temp__1 */;
   result_count = 0;
@@ -5352,7 +5352,7 @@ static void cont__21_52(void) {
   // 274: ewrite " " parameter_name(parameter idx)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__14_19;
+  arguments->slots[0] = string__578a5af303e9cc1;
   arguments->slots[1] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__ewrite();
@@ -5382,7 +5382,7 @@ static void cont__21_54(void) {
   // 278:   Parameters:
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_55;
+  arguments->slots[0] = string__a67e424a37fc0741;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
@@ -5653,9 +5653,9 @@ static void entry__21_89(void) {
   // 308:   Too few arguments for @(command)-command!
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__21_90;
+  arguments->slots[0] = string__1fe132c840060c77;
   arguments->slots[1] = frame->slots[0] /* command */;
-  arguments->slots[2] = string__21_91;
+  arguments->slots[2] = string__2952791d2723646b;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -5688,7 +5688,7 @@ static void entry__21_93(void) {
   // 311:   Too few arguments!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_94;
+  arguments->slots[0] = string__f0948421cb0e2be3;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -5734,7 +5734,7 @@ static void entry__21_97_too_many_arguments_error(void) {
   // 317:   Too many arguments!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_98;
+  arguments->slots[0] = string__e3aee165acc437aa;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -6927,7 +6927,7 @@ static void cont__21_155(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
-  arguments->slots[1] = string__21_156;
+  arguments->slots[1] = string__481f572601de82a7;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -7045,7 +7045,7 @@ static void cont__21_163(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__21_164;
+  arguments->slots[1] = string__d29f58972c488aa7;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -7171,7 +7171,7 @@ static void cont__21_172(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__21_173;
+  arguments->slots[1] = string__48e824ee4f7a5d6b;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -7413,9 +7413,9 @@ static void entry__21_202(void) {
   // 384: ... "Invalid option: @(argument)!"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__21_203;
+  arguments->slots[0] = string__42c4ee3f21a0316f;
   arguments->slots[1] = frame->slots[0] /* argument */;
-  arguments->slots[2] = string__12_46;
+  arguments->slots[2] = string__578a5af303e9cc0;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7810,7 +7810,7 @@ static void entry__21_195(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
-  arguments->slots[1] = string__21_72;
+  arguments->slots[1] = string__2d7981f4e6602be8;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -7884,7 +7884,7 @@ static void entry__21_181(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
-  arguments->slots[1] = string__21_72;
+  arguments->slots[1] = string__2d7981f4e6602be8;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -9444,9 +9444,9 @@ static void cont__21_278(void) {
   // 434: "Invalid argument value for @(names(idx).to_upper_case)!@nl;"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__21_279;
+  arguments->slots[0] = string__143aedf103648031;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__21_280;
+  arguments->slots[2] = string__2d7981f4e6002bcf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -10221,7 +10221,7 @@ static void cont__23_24(void) {
   // 494: ... list("--help")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_156;
+  arguments->slots[0] = string__481f572601de82a7;
   result_count = 1;
   myself = get__list();
   func = myself->type;
@@ -10261,7 +10261,7 @@ static void entry__23_10(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command */;
-  arguments->slots[1] = string__23_11;
+  arguments->slots[1] = string__120ae80b5d007d49;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -10822,7 +10822,7 @@ static void cont__24_6(void) {
   // 503: ewriteln "Available commands:"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__24_7;
+  arguments->slots[0] = string__c69810bce846f05a;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -10836,8 +10836,8 @@ static void cont__24_8(void) {
   // 504: ... list("help" "display help for the specified command")
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__23_11;
-  arguments->slots[1] = string__24_9;
+  arguments->slots[0] = string__120ae80b5d007d49;
+  arguments->slots[1] = string__e65a119686ab55e3;
   result_count = 1;
   myself = get__list();
   func = myself->type;
@@ -10988,8 +10988,8 @@ static void entry__24_18(void) {
   // 508: ... list("copyright" "display the copyright message")
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__24_19;
-  arguments->slots[1] = string__24_20;
+  arguments->slots[0] = string__7cf0276001425531;
+  arguments->slots[1] = string__d9b4d5146ecce23;
   result_count = 1;
   myself = get__list();
   func = myself->type;
@@ -11069,8 +11069,8 @@ static void entry__24_25(void) {
   // 510: ... list("version" "display the version number")
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__24_26;
-  arguments->slots[1] = string__24_27;
+  arguments->slots[0] = string__945c0f9015c3e094;
+  arguments->slots[1] = string__460a51cfecd67225;
   result_count = 1;
   myself = get__list();
   func = myself->type;
@@ -11129,7 +11129,7 @@ static void entry__25_9(void) {
   // 614:   No command specified!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_10;
+  arguments->slots[0] = string__9e1d476192d899b4;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -11198,11 +11198,11 @@ static void cont__25_14(void) {
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = string__24_19;
+  arguments->slots[1] = string__7cf0276001425531;
   arguments->slots[2] = func__25_15;
-  arguments->slots[3] = string__23_11;
+  arguments->slots[3] = string__120ae80b5d007d49;
   arguments->slots[4] = func__25_19;
-  arguments->slots[5] = string__24_26;
+  arguments->slots[5] = string__945c0f9015c3e094;
   arguments->slots[6] = func__25_45;
   result_count = 0;
   myself = get__case();
@@ -11336,11 +11336,11 @@ static void cont__25_24(void) {
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = string__24_19;
+  arguments->slots[1] = string__7cf0276001425531;
   arguments->slots[2] = func__25_25;
-  arguments->slots[3] = string__23_11;
+  arguments->slots[3] = string__120ae80b5d007d49;
   arguments->slots[4] = func__25_30;
-  arguments->slots[5] = string__24_26;
+  arguments->slots[5] = string__945c0f9015c3e094;
   arguments->slots[6] = func__25_33;
   result_count = 0;
   myself = get__case();
@@ -11359,7 +11359,7 @@ static void entry__25_35(void) {
   // 651:     sigi version
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_36;
+  arguments->slots[0] = string__617a0ed7343fbf40;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
@@ -11390,7 +11390,7 @@ static void entry__25_27(void) {
   // 637:     sigi copyright
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_28;
+  arguments->slots[0] = string__1dc76095d723d587;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
@@ -11460,7 +11460,7 @@ static void entry__25_30(void) {
   // 645:     COMMAND  the command for which to retrieve help
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_31;
+  arguments->slots[0] = string__a15bc662b3bb7e39;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
@@ -11524,7 +11524,7 @@ static void cont__25_38(void) {
   // 654:   Invalid command name!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_39;
+  arguments->slots[0] = string__19bd6394b9c09d4b;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -11568,7 +11568,7 @@ static void entry__25_42(void) {
   // 659:   Too many arguments!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_98;
+  arguments->slots[0] = string__e3aee165acc437aa;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -11753,7 +11753,7 @@ static void cont__25_51(void) {
   // 668:   Invalid arguments!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_52;
+  arguments->slots[0] = string__f68d8519ec4e03eb;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -12013,71 +12013,92 @@ EXPORT void phase_2__basic__parameters(void) {
   unique__std__MANY_PARAMETERS = register_unique_item("std__MANY_PARAMETERS");
   func__10_1_std__copyright = create_function(entry__10_1_std__copyright, 1);
   func__11_1_std__version = create_function(entry__11_1_std__version, 1);
-  string__12_45 = from_latin_1_string("Invalid option ", 15);
-  string__12_46 = from_latin_1_string("!", 1);
+  string__629e8589dc7e42e = from_latin_1_string("Invalid option ", 15);
+  string__578a5af303e9cc0 = from_latin_1_string("!", 1);
   func__12_1_std__extract_options = create_function(entry__12_1_std__extract_options, -1);
   func__13_1_std__extract_some_options = create_function(entry__13_1_std__extract_some_options, -1);
-  string__14_11 = from_latin_1_string("  ", 2);
-  string__14_19 = from_latin_1_string(" ", 1);
+  string__2d7981f4e6082be5 = from_latin_1_string("  ", 2);
+  string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   func__14_1_display_table = create_function(entry__14_1_display_table, 1);
-  string__19_2 = from_latin_1_string("\012\012", 2);
+  string__2d7981f4e7582bcf = from_latin_1_string(
+    "\n"
+    "\n",
+    2);
   func__19_1_show_version = create_function(entry__19_1_show_version, 1);
   func__20_1_show_copyright = create_function(entry__20_1_show_copyright, 0);
-  string__21_7 = from_latin_1_string("valid values:", 13);
-  string__21_35 = from_latin_1_string("Usage:", 6);
-  string__21_41 = from_latin_1_string(" --copyright", 12);
-  string__21_43 = from_latin_1_string(" --help", 7);
+  string__e8329800b0d69ed2 = from_latin_1_string("valid values:", 13);
+  string__5a1f579a019362ed = from_latin_1_string("Usage:", 6);
+  string__d89f1181d9c5276e = from_latin_1_string(" --copyright", 12);
+  string__a3040cb415de108a = from_latin_1_string(" --help", 7);
   func__21_48 = create_function(entry__21_48, 0);
-  string__21_55 = from_latin_1_string("\012Parameters:\012", 13);
-  string__21_67 = from_latin_1_string("\012Options:\012", 10);
-  string__21_72 = from_latin_1_string("--", 2);
-  string__21_76 = from_latin_1_string(" VALUE", 6);
-  string__21_79 = from_latin_1_string(" VALUES", 7);
-  string__21_90 = from_latin_1_string("Too few arguments for ", 22);
-  string__21_91 = from_latin_1_string("-command!\012", 10);
-  string__21_94 = from_latin_1_string("Too few arguments!\012", 19);
+  string__a67e424a37fc0741 = from_latin_1_string(
+    "\n"
+    "Parameters:\n",
+    13);
+  string__293744df0bfb878b = from_latin_1_string(
+    "\n"
+    "Options:\n",
+    10);
+  string__2d7981f4e6602be8 = from_latin_1_string("--", 2);
+  string__1a1f5d6080113292 = from_latin_1_string(" VALUE", 6);
+  string__eb0400899490d0a9 = from_latin_1_string(" VALUES", 7);
+  string__1fe132c840060c77 = from_latin_1_string("Too few arguments for ", 22);
+  string__2952791d2723646b = from_latin_1_string("-command!\012", 10);
+  string__f0948421cb0e2be3 = from_latin_1_string("Too few arguments!\012", 19);
   func__21_93 = create_function(entry__21_93, 0);
-  string__21_98 = from_latin_1_string("Too many arguments!\012", 20);
-  string__21_156 = from_latin_1_string("--help", 6);
-  string__21_164 = from_latin_1_string("--copyright", 11);
+  string__e3aee165acc437aa = from_latin_1_string("Too many arguments!\012", 20);
+  string__481f572601de82a7 = from_latin_1_string("--help", 6);
+  string__d29f58972c488aa7 = from_latin_1_string("--copyright", 11);
   func__21_167 = create_function(entry__21_167, 0);
-  string__21_173 = from_latin_1_string("--version", 9);
-  string__21_203 = from_latin_1_string("Invalid option: ", 16);
-  string__21_279 = from_latin_1_string("Invalid argument value for ", 27);
-  string__21_280 = from_latin_1_string("!\012", 2);
+  string__48e824ee4f7a5d6b = from_latin_1_string("--version", 9);
+  string__42c4ee3f21a0316f = from_latin_1_string("Invalid option: ", 16);
+  string__143aedf103648031 = from_latin_1_string("Invalid argument value for ", 27);
+  string__2d7981f4e6002bcf = from_latin_1_string("!\012", 2);
   func__21_1_check_arguments = create_function(entry__21_1_check_arguments, -1);
   func__22_1_std__program_commands = create_function(entry__22_1_std__program_commands, -1);
-  string__23_11 = from_latin_1_string("help", 4);
+  string__120ae80b5d007d49 = from_latin_1_string("help", 4);
   func__23_1_std__command_parameters = create_function(entry__23_1_std__command_parameters, -1);
   func__24_3 = create_function(entry__24_3, 0);
-  string__24_7 = from_latin_1_string("Available commands:", 19);
-  string__24_9 = from_latin_1_string("display help for the specified command", 38);
-  string__24_19 = from_latin_1_string("copyright", 9);
-  string__24_20 = from_latin_1_string("display the copyright message", 29);
-  string__24_26 = from_latin_1_string("version", 7);
-  string__24_27 = from_latin_1_string("display the version number", 26);
+  string__c69810bce846f05a = from_latin_1_string("Available commands:", 19);
+  string__e65a119686ab55e3 = from_latin_1_string("display help for the specified command", 38);
+  string__7cf0276001425531 = from_latin_1_string("copyright", 9);
+  string__d9b4d5146ecce23 = from_latin_1_string("display the copyright message", 29);
+  string__945c0f9015c3e094 = from_latin_1_string("version", 7);
+  string__460a51cfecd67225 = from_latin_1_string("display the version number", 26);
   func__24_1_show_commands = create_function(entry__24_1_show_commands, 0);
   func__25_6 = create_function(entry__25_6, 0);
-  string__25_10 = from_latin_1_string("No command specified!\012", 22);
+  string__9e1d476192d899b4 = from_latin_1_string("No command specified!\012", 22);
   func__25_9 = create_function(entry__25_9, 0);
   func__25_17 = create_function(entry__25_17, 0);
   func__25_15 = create_function(entry__25_15, 0);
   func__25_21 = create_function(entry__25_21, 0);
-  string__25_28 = from_latin_1_string("Usage:\012  sigi copyright\012", 24);
+  string__1dc76095d723d587 = from_latin_1_string(
+    "Usage:\n"
+    "  sigi copyright\n",
+    24);
   func__25_27 = create_function(entry__25_27, 0);
   func__25_25 = create_function(entry__25_25, 0);
-  string__25_31 = from_latin_1_string("Usage:\012  sigi help COMMAND\012\012Parameter:\012  COMMAND  the command for which to retrieve help\012", 89);
+  string__a15bc662b3bb7e39 = from_latin_1_string(
+    "Usage:\n"
+    "  sigi help COMMAND\n"
+    "\n"
+    "Parameter:\n"
+    "  COMMAND  the command for which to retrieve help\n",
+    89);
   func__25_30 = create_function(entry__25_30, 0);
-  string__25_36 = from_latin_1_string("Usage:\012  sigi version\012", 22);
+  string__617a0ed7343fbf40 = from_latin_1_string(
+    "Usage:\n"
+    "  sigi version\n",
+    22);
   func__25_35 = create_function(entry__25_35, 0);
   func__25_33 = create_function(entry__25_33, 0);
-  string__25_39 = from_latin_1_string("Invalid command name!\012", 22);
+  string__19bd6394b9c09d4b = from_latin_1_string("Invalid command name!\012", 22);
   func__25_23 = create_function(entry__25_23, 0);
   func__25_42 = create_function(entry__25_42, 0);
   func__25_19 = create_function(entry__25_19, 0);
   func__25_47 = create_function(entry__25_47, 0);
   func__25_45 = create_function(entry__25_45, 0);
-  string__25_52 = from_latin_1_string("Invalid arguments!\012", 19);
+  string__f68d8519ec4e03eb = from_latin_1_string("Invalid arguments!\012", 19);
   func__25_13 = create_function(entry__25_13, 0);
   func__25_7 = create_function(entry__25_7, 0);
   func__25_4 = create_function(entry__25_4, 0);

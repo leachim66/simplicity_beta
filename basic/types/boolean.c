@@ -309,8 +309,8 @@ static NODE *get__std__false(void) {
 static int func__types__true___to_bool(NODE *node);
 
 static int func__types__false___to_bool(NODE *node);
-static NODE *string__12_1;
-static NODE *string__13_1;
+static NODE *string__2a0aedcb5dc87d5c;
+static NODE *string__485ae803ea507032;
 
 static long func__types__true___debug_string(NODE *node, int indent, int max_depth, char *buf);
 
@@ -442,7 +442,7 @@ EXPORT void run__basic__types__boolean(void) {
   // 246: register_deserializer "true": (text _base_indent) -> text true
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__12_1;
+  arguments->slots[0] = string__2a0aedcb5dc87d5c;
   arguments->slots[1] = func__57_1;
   result_count = 0;
   myself = get__register_deserializer();
@@ -475,7 +475,7 @@ static void cont__57_2(void) {
   // 247: register_deserializer "false": (text _base_indent) -> text false
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__13_1;
+  arguments->slots[0] = string__485ae803ea507032;
   arguments->slots[1] = func__58_1;
   result_count = 0;
   myself = get__register_deserializer();
@@ -873,8 +873,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__boolean(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  string__12_1 = from_latin_1_string("true", 4);
-  string__13_1 = from_latin_1_string("false", 5);
+  string__2a0aedcb5dc87d5c = from_latin_1_string("true", 4);
+  string__485ae803ea507032 = from_latin_1_string("false", 5);
   func__16_1_types__true_equal = create_function(entry__16_1_types__true_equal, 2);
   func__17_1_types__false_equal = create_function(entry__17_1_types__false_equal, 2);
   func__20_1_types__true_and = create_function(entry__20_1_types__true_and, 2);
@@ -929,8 +929,8 @@ EXPORT void phase_4__basic__types__boolean(void) {
   define_attribute("types", "object", poly_idx__is_a_boolean, get__false());
   define_attribute("types", "true", poly_idx__is_a_boolean, get__true());
   define_attribute("types", "false", poly_idx__is_a_boolean, get__true());
-  define_attribute("types", "true", poly_idx__std__to_string, string__12_1);
-  define_attribute("types", "false", poly_idx__std__to_string, string__13_1);
+  define_attribute("types", "true", poly_idx__std__to_string, string__2a0aedcb5dc87d5c);
+  define_attribute("types", "false", poly_idx__std__to_string, string__485ae803ea507032);
   define_method("types", "true", poly_idx__equal, func__16_1_types__true_equal);
   define_method("types", "false", poly_idx__equal, func__17_1_types__false_equal);
   define_attribute("types", "true", poly_idx__not, get__false());

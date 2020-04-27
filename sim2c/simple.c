@@ -964,8 +964,8 @@ static void cont__70_19(void);
 static NODE *func__70_20;
 static void entry__70_20(void);
 static FRAME_INFO frame__70_20 = {1, {"libname"}};
-static NODE *string__70_21;
-static NODE *string__70_22;
+static NODE *string__373a794ad67f2aca;
+static NODE *string__2d7981f4e6182be4;
 static void cont__70_23(void);
 static void cont__70_24(void);
 static void cont__70_25(void);
@@ -994,12 +994,12 @@ static void cont__71_11(void);
 static NODE *func__71_12;
 static void entry__71_12(void);
 static FRAME_INFO frame__71_12 = {4, {"name", "filenames", "modules", "mod_path"}};
-static NODE *string__71_13;
+static NODE *string__9e0aed8b5d287d54;
 static void cont__71_14(void);
 static NODE *func__71_15;
 static void entry__71_15(void);
 static FRAME_INFO frame__71_15 = {9, {"name", "filenames", "modules", "mod_path", "submodule_name", "meta_level", "stored_level", "basename", "mod_name"}};
-static NODE *string__71_16;
+static NODE *string__505aea43ea6cf036;
 static void cont__71_17(void);
 static void cont__71_18(void);
 static void cont__71_19(void);
@@ -1033,7 +1033,7 @@ static void cont__71_40(void);
 static NODE *func__71_41;
 static void entry__71_41(void);
 static FRAME_INFO frame__71_41 = {3, {"filename", "filenames", "mod_path"}};
-static NODE *string__71_42;
+static NODE *string__a9300e9315c23094;
 static void cont__71_43(void);
 static NODE *func__71_44;
 static void entry__71_44(void);
@@ -1041,7 +1041,7 @@ static FRAME_INFO frame__71_44 = {9, {"filenames", "filename", "mod_path", "mayb
 static NODE *func__71_45_maybe_push_common;
 static void entry__71_45_maybe_push_common(void);
 static FRAME_INFO frame__71_45_maybe_push_common = {5, {"plat", "name", "filenames", "files", "common_name"}};
-static NODE *string__71_46;
+static NODE *string__578a5af303e9ccc;
 static void cont__71_47(void);
 static void cont__71_48(void);
 static NODE *func__71_49;
@@ -1057,8 +1057,8 @@ static void cont__71_56(void);
 static NODE *func__71_57;
 static void entry__71_57(void);
 static FRAME_INFO frame__71_57 = {1, {"platform"}};
-static NODE *string__71_58;
-static NODE *string__71_59;
+static NODE *string__bf5121a1ba54e344;
+static NODE *string__b566882ea60ef100;
 static void cont__71_60(void);
 static void cont__71_61(void);
 static void cont__71_62(void);
@@ -1120,15 +1120,15 @@ static void cont__74_3(void);
 static NODE *func__74_4;
 static void entry__74_4(void);
 static FRAME_INFO frame__74_4 = {5, {"c_filename", "o_filename", "out", "err", "success"}};
-static NODE *string__74_5;
-static NODE *string__74_6;
+static NODE *string__2d7981f4e6602ba6;
+static NODE *string__2d7981f4e6602baa;
 static void cont__74_7(void);
 static NODE *func__74_8;
 static void entry__74_8(void);
 static FRAME_INFO frame__74_8 = {2, {"c_filename", "err"}};
 static void cont__74_9(void);
-static NODE *string__74_10;
-static NODE *string__74_11;
+static NODE *string__ca9b4802029a5965;
+static NODE *string__578a5af303e9ceb;
 static void cont__74_12(void);
 static void cont__74_13(void);
 static NODE *func__75_1_compile_meta_module;
@@ -1143,7 +1143,7 @@ static void cont__75_5(void);
 static void cont__75_6(void);
 static void cont__75_7(void);
 static void cont__75_8(void);
-static NODE *string__75_9;
+static NODE *string__2d7981f4e6782ba6;
 static void cont__75_10(void);
 static void cont__75_11(void);
 static void cont__75_12(void);
@@ -1200,19 +1200,19 @@ static void cont__75_44(void);
 static NODE *func__75_45;
 static void entry__75_45(void);
 static FRAME_INFO frame__75_45 = {2, {"force_rebuild", "break"}};
-static NODE *string__75_46;
+static NODE *string__9c0afa8b5f187d19;
 static void cont__75_47(void);
 static void cont__75_48(void);
 static void cont__75_49(void);
 static void cont__75_50(void);
 static void cont__75_51(void);
 static void cont__75_52(void);
-static NODE *string__75_53;
+static NODE *string__a0ae90b5dc07d58;
 static void cont__75_54(void);
 static NODE *func__75_55;
 static void entry__75_55(void);
 static FRAME_INFO frame__75_55 = {3, {"argument", "check", "meta_path"}};
-static NODE *string__75_56;
+static NODE *string__2d7981f4e6782bea;
 static void cont__75_57(void);
 static NODE *func__75_58;
 static void entry__75_58(void);
@@ -1301,7 +1301,7 @@ static NODE *func__76_30;
 static void entry__76_30(void);
 static FRAME_INFO frame__76_30 = {1, {"argument"}};
 static void cont__76_31(void);
-static NODE *string__76_32;
+static NODE *string__240aeb0b5d087d14;
 static void cont__76_33(void);
 static void cont__76_34(void);
 static NODE *func__76_35;
@@ -1312,8 +1312,8 @@ static void entry__76_36(void);
 static FRAME_INFO frame__76_36 = {1, {"argument"}};
 static void cont__76_37(void);
 static void cont__76_38(void);
-static NODE *string__76_39;
-static NODE *string__76_40;
+static NODE *string__984c0f90152bd09f;
+static NODE *string__1a0aeb0b5d107d52;
 static void cont__76_41(void);
 static NODE *func__77_1_compile_module;
 static void entry__77_1_compile_module(void);
@@ -1345,7 +1345,7 @@ static void cont__77_17(void);
 static NODE *func__77_18;
 static void entry__77_18(void);
 static FRAME_INFO frame__77_18 = {1, {"sim_filename"}};
-static NODE *string__77_19;
+static NODE *string__52b1d7d50d05f753;
 static void cont__77_20(void);
 static void cont__77_21(void);
 static void cont__77_22(void);
@@ -1381,14 +1381,14 @@ static void cont__77_41(void);
 static NODE *func__77_42;
 static void entry__77_42(void);
 static FRAME_INFO frame__77_42 = {9, {"return__1", "mod_name", "suffix", "sim_filenames", "c_buf", "c_filename", "do_compile_c", "o_filename", "c_source"}};
-static NODE *string__77_43;
+static NODE *string__2d7981f4e5f02b9a;
 static void cont__77_44(void);
 static void cont__77_45(void);
 static void cont__77_46(void);
 static NODE *func__77_47;
 static void entry__77_47(void);
 static FRAME_INFO frame__77_47 = {1, {"suffix"}};
-static NODE *string__77_48;
+static NODE *string__a85eb307b04e1ec9;
 static void cont__77_49(void);
 static NODE *func__77_50;
 static void entry__77_50(void);
@@ -1443,11 +1443,11 @@ static void cont__77_79(void);
 static NODE *func__77_80;
 static void entry__77_80(void);
 static FRAME_INFO frame__77_80 = {1, {"mod_name"}};
-static NODE *string__77_81;
-static NODE *string__77_82;
+static NODE *string__1c48d17af91ab023;
+static NODE *string__4594ae5504f56841;
 static void cont__77_83(void);
 static void cont__77_84(void);
-static NODE *string__77_85;
+static NODE *string__2d7981f4e6782baa;
 static void cont__77_86(void);
 static void cont__77_87(void);
 static void cont__77_88(void);
@@ -1532,7 +1532,7 @@ static FRAME_INFO frame__77_134 = {2, {"platforms", "dependency"}};
 static NODE *func__77_135;
 static void entry__77_135(void);
 static FRAME_INFO frame__77_135 = {2, {"plat", "dependency"}};
-static NODE *string__77_136;
+static NODE *string__2d7981f4e6082be6;
 static void cont__77_137(void);
 static void cont__77_138(void);
 static void cont__77_139(void);
@@ -1559,20 +1559,20 @@ static FRAME_INFO frame__80_1_show_file_list = {0, {}};
 static NODE *func__80_2;
 static void entry__80_2(void);
 static FRAME_INFO frame__80_2 = {1, {"path"}};
-static NODE *string__80_3;
+static NODE *string__21dcb95c2a4f4c6f;
 static void cont__80_4(void);
 static void cont__80_5(void);
 static NODE *func__80_6;
 static void entry__80_6(void);
 static FRAME_INFO frame__80_6 = {1, {"path"}};
-static NODE *string__80_7;
+static NODE *string__cae1527a63790ed8;
 static void cont__80_8(void);
 static void cont__80_9(void);
 static void cont__80_10(void);
-static NODE *string__80_11;
+static NODE *string__4c84a8f87d97d1a3;
 static void cont__80_12(void);
 static void cont__80_13(void);
-static NODE *string__80_14;
+static NODE *string__d2a77fcc4263ea03;
 static NODE *func__81_1_library_paths_and_file_list;
 static void entry__81_1_library_paths_and_file_list(void);
 static FRAME_INFO frame__81_1_library_paths_and_file_list = {4, {"library_paths", "object_files", "library_files", "paths"}};
@@ -1586,7 +1586,7 @@ static void cont__81_6(void);
 static NODE *func__81_7;
 static void entry__81_7(void);
 static FRAME_INFO frame__81_7 = {2, {"path", "library_paths"}};
-static NODE *string__81_8;
+static NODE *string__2d7981f4e6602b89;
 static void cont__81_9(void);
 static void cont__81_10(void);
 static void cont__81_11(void);
@@ -1594,7 +1594,7 @@ static NODE *func__81_12;
 static void entry__81_12(void);
 static FRAME_INFO frame__81_12 = {1, {"library_paths"}};
 static void cont__81_13(void);
-static NODE *string__81_14;
+static NODE *string__47d536100241702d;
 static void cont__81_15(void);
 static NODE *func__81_16;
 static void entry__81_16(void);
@@ -1609,19 +1609,19 @@ static NODE *func__81_21;
 static void entry__81_21(void);
 static FRAME_INFO frame__81_21 = {1, {"library"}};
 static void cont__81_22(void);
-static NODE *string__81_23;
-static NODE *string__81_24;
+static NODE *string__585ae883ea60d02f;
+static NODE *string__fa720c15db16ba8;
 static void cont__81_25(void);
 static NODE *func__81_26;
 static void entry__81_26(void);
 static FRAME_INFO frame__81_26 = {1, {"library"}};
-static NODE *string__81_27;
-static NODE *string__81_28;
+static NODE *string__ec1f556601f292b5;
+static NODE *string__9e0aed8b5d187d17;
 static void cont__81_29(void);
 static NODE *func__81_30;
 static void entry__81_30(void);
 static FRAME_INFO frame__81_30 = {1, {"library"}};
-static NODE *string__81_31;
+static NODE *string__2d7981f4e6602ba9;
 static void cont__81_32(void);
 static void cont__81_33(void);
 static NODE *func__81_34;
@@ -1688,13 +1688,13 @@ static void cont__82_24(void);
 static NODE *func__82_25;
 static void entry__82_25(void);
 static FRAME_INFO frame__82_25 = {1, {"declaration"}};
-static NODE *string__82_26;
+static NODE *string__b8540cde1593c09c;
 static void cont__82_27(void);
 static void cont__82_28(void);
 static NODE *func__82_29;
 static void entry__82_29(void);
 static FRAME_INFO frame__82_29 = {1, {"declaration"}};
-static NODE *string__82_30;
+static NODE *string__800a0c585ff0632;
 static void cont__82_31(void);
 static void cont__82_32(void);
 static void cont__82_33(void);
@@ -1716,7 +1716,7 @@ static void cont__82_42(void);
 static NODE *func__82_43;
 static void entry__82_43(void);
 static FRAME_INFO frame__82_43 = {2, {"declaration", "collect_declarations"}};
-static NODE *string__82_44;
+static NODE *string__ee0186bb316753e3;
 static void cont__82_45(void);
 static NODE *func__82_46;
 static void entry__82_46(void);
@@ -1735,7 +1735,7 @@ static void cont__82_53(void);
 static NODE *func__82_54;
 static void entry__82_54(void);
 static FRAME_INFO frame__82_54 = {0, {}};
-static NODE *string__82_55;
+static NODE *string__eca001441419c0da;
 static void cont__82_56(void);
 static NODE *func__82_57;
 static void entry__82_57(void);
@@ -1753,7 +1753,7 @@ static NODE *func__82_63;
 static void entry__82_63(void);
 static FRAME_INFO frame__82_63 = {2, {"collect_declarations", "source"}};
 static void cont__82_64(void);
-static NODE *string__82_65;
+static NODE *string__736c99bf90749400;
 static void cont__82_66(void);
 static void cont__82_67(void);
 static void cont__82_68(void);
@@ -1765,7 +1765,7 @@ static void cont__82_73(void);
 static NODE *func__82_74;
 static void entry__82_74(void);
 static FRAME_INFO frame__82_74 = {0, {}};
-static NODE *string__82_75;
+static NODE *string__868d47f2e5ba5079;
 static NODE *func__83_1_compile_exe;
 static void entry__83_1_compile_exe(void);
 static FRAME_INFO frame__83_1_compile_exe = {4, {"body", "return__1", "mod_filename", "mod_name"}};
@@ -1773,13 +1773,13 @@ static void cont__83_2(void);
 static NODE *func__83_3;
 static void entry__83_3(void);
 static FRAME_INFO frame__83_3 = {0, {}};
-static NODE *string__83_4;
+static NODE *string__ac6b0fa074ea65e7;
 static void cont__83_5(void);
 static void cont__83_6(void);
 static NODE *func__83_7;
 static void entry__83_7(void);
 static FRAME_INFO frame__83_7 = {0, {}};
-static NODE *string__83_8;
+static NODE *string__e365e96bee331e9c;
 static void cont__83_9(void);
 static void cont__83_10(void);
 static void cont__83_11(void);
@@ -1823,7 +1823,7 @@ static void cont__85_17(void);
 static NODE *func__85_18;
 static void entry__85_18(void);
 static FRAME_INFO frame__85_18 = {0, {}};
-static NODE *string__85_19;
+static NODE *string__b830f06b636224ab;
 static NODE *func__86_1_list_dependencies;
 static void entry__86_1_list_dependencies(void);
 static FRAME_INFO frame__86_1_list_dependencies = {1, {"prefix_path"}};
@@ -1853,7 +1853,7 @@ static FRAME_INFO frame__86_16 = {1, {"return__1"}};
 static NODE *func__86_17;
 static void entry__86_17(void);
 static FRAME_INFO frame__86_17 = {0, {}};
-static NODE *string__86_18;
+static NODE *string__7da4130a131d4ea3;
 static void cont__86_19(void);
 static void cont__86_20(void);
 static void cont__86_21(void);
@@ -1869,11 +1869,11 @@ static void entry__86_25(void);
 static FRAME_INFO frame__86_25 = {1, {"mod_filename"}};
 static void cont__86_26(void);
 static void cont__86_27(void);
-static NODE *string__86_28;
+static NODE *string__5aa0e0654e0a7d4d;
 static void cont__86_29(void);
-static NODE *string__86_30;
+static NODE *string__7490e2a4ce0a3d6d;
 static void cont__86_31(void);
-static NODE *string__86_32;
+static NODE *string__14e71717a54948b0;
 static void cont__86_33(void);
 static void cont__86_34(void);
 static NODE *func__86_35;
@@ -1887,21 +1887,21 @@ static FRAME_INFO frame__87_1_build_codeblocks_project = {0, {}};
 static NODE *func__87_2;
 static void entry__87_2(void);
 static FRAME_INFO frame__87_2 = {10, {"mod_filename", "mod_name", "codeblocks_path", "info", "basename", "prefix_path", "depth", "path_prefix", "cbp_filename", "buf"}};
-static NODE *string__87_3;
+static NODE *string__1ec9299aa0516bc0;
 static void cont__87_4(void);
 static void cont__87_5(void);
 static void cont__87_6(void);
 static NODE *func__87_7;
 static void entry__87_7(void);
 static FRAME_INFO frame__87_7 = {1, {"codeblocks_path"}};
-static NODE *string__87_8;
-static NODE *string__87_9;
+static NODE *string__3319ecea8934288e;
+static NODE *string__fb06ffd100386aab;
 static void cont__87_10(void);
 static void cont__87_11(void);
 static NODE *func__87_12;
 static void entry__87_12(void);
 static FRAME_INFO frame__87_12 = {1, {"codeblocks_path"}};
-static NODE *string__87_13;
+static NODE *string__334eb97199863420;
 static void cont__87_14(void);
 static void cont__87_15(void);
 static void cont__87_16(void);
@@ -1911,36 +1911,36 @@ static void cont__87_19(void);
 static void cont__87_20(void);
 static void cont__87_21(void);
 static void cont__87_22(void);
-static NODE *string__87_23;
+static NODE *string__fa733c15f596be3;
 static void cont__87_24(void);
-static NODE *string__87_25;
-static NODE *string__87_26;
+static NODE *string__578a5af303e9cce;
+static NODE *string__9e0ae98b5d707d49;
 static void cont__87_27(void);
 static void cont__87_28(void);
-static NODE *string__87_29;
-static NODE *string__87_30;
-static NODE *string__87_31;
+static NODE *string__ae2cb2959270f10e;
+static NODE *string__3a69827feeaedc87;
+static NODE *string__65fb167cf21c35a9;
 static void cont__87_32(void);
 static void cont__87_33(void);
 static NODE *func__87_34;
 static void entry__87_34(void);
 static FRAME_INFO frame__87_34 = {2, {"filename", "buf"}};
-static NODE *string__87_35;
-static NODE *string__87_36;
+static NODE *string__86909867946dc27b;
+static NODE *string__ca5af8c3e83c305d;
 static void cont__87_37(void);
 static void cont__87_38(void);
 static void cont__87_39(void);
 static void cont__87_40(void);
 static void cont__87_41(void);
 static void cont__87_42(void);
-static NODE *string__87_43;
-static NODE *string__87_44;
-static NODE *string__87_45;
-static NODE *string__87_46;
-static NODE *string__87_47;
-static NODE *string__87_48;
-static NODE *string__87_49;
-static NODE *string__87_50;
+static NODE *string__4f8ac82e5b683b6f;
+static NODE *string__6ec73fb9d26dad91;
+static NODE *string__62c73cb6d2cd6da9;
+static NODE *string__e224568f04fadefb;
+static NODE *string__29a08e6f8046de11;
+static NODE *string__97a58959c957d32c;
+static NODE *string__629c968402fadffb;
+static NODE *string__517e18f604196bbc;
 static void cont__87_51(void);
 static void cont__87_52(void);
 static NODE *func__87_53;
@@ -1949,22 +1949,22 @@ static FRAME_INFO frame__87_53 = {4, {"filename", "prefix_path", "buf", "path_pr
 static void cont__87_54(void);
 static void cont__87_55(void);
 static void cont__87_56(void);
-static NODE *string__87_57;
-static NODE *string__87_58;
+static NODE *string__5ce0e5ba1304a164;
+static NODE *string__48b865872b902196;
 static void cont__87_59(void);
 static void cont__87_60(void);
 static void cont__87_61(void);
-static NODE *string__87_62;
+static NODE *string__1d1cedd7cdd611c4;
 static void cont__87_63(void);
 static NODE *func__88_1_build_library;
 static void entry__88_1_build_library(void);
 static FRAME_INFO frame__88_1_build_library = {1, {"return__1"}};
-static NODE *string__88_2;
+static NODE *string__421f52c90112c2b9;
 static void cont__88_3(void);
 static NODE *func__88_4;
 static void entry__88_4(void);
 static FRAME_INFO frame__88_4 = {0, {}};
-static NODE *string__88_5;
+static NODE *string__c84d9037a41e8f73;
 static void cont__88_6(void);
 static NODE *func__88_7;
 static void entry__88_7(void);
@@ -1979,7 +1979,7 @@ static void cont__88_12(void);
 static NODE *func__88_13;
 static void entry__88_13(void);
 static FRAME_INFO frame__88_13 = {5, {"version", "version_filename", "so_version", "base_filename", "lib_filename"}};
-static NODE *string__88_14;
+static NODE *string__84ca78485aeb98e;
 static void cont__88_15(void);
 static void cont__88_16(void);
 static NODE *func__88_17;
@@ -1998,18 +1998,18 @@ static NODE *func__88_27;
 static void entry__88_27(void);
 static FRAME_INFO frame__88_27 = {2, {"base_filename", "version"}};
 static void cont__88_28(void);
-static NODE *string__88_29;
+static NODE *string__94340f9615d2e0d7;
 static void cont__88_30(void);
 static NODE *func__88_31;
 static void entry__88_31(void);
 static FRAME_INFO frame__88_31 = {2, {"base_filename", "version"}};
-static NODE *string__88_32;
+static NODE *string__9e0ae84b5d007d55;
 static void cont__88_33(void);
 static void cont__88_34(void);
 static NODE *func__88_35;
 static void entry__88_35(void);
 static FRAME_INFO frame__88_35 = {2, {"base_filename", "version"}};
-static NODE *string__88_36;
+static NODE *string__6a1f556781f212b5;
 static void cont__88_37(void);
 static void cont__88_38(void);
 static NODE *func__88_39;
@@ -2017,13 +2017,13 @@ static void entry__88_39(void);
 static FRAME_INFO frame__88_39 = {2, {"base_filename", "version"}};
 static void cont__88_40(void);
 static void cont__88_41(void);
-static NODE *string__88_42;
-static NODE *string__88_43;
+static NODE *string__561f538101f3c2b9;
+static NODE *string__7c1f538281f242b9;
 static void cont__88_44(void);
 static NODE *func__88_45;
 static void entry__88_45(void);
 static FRAME_INFO frame__88_45 = {1, {"lib_filename"}};
-static NODE *string__88_46;
+static NODE *string__822587b3f48532f5;
 static void cont__88_47(void);
 static void cont__88_48(void);
 static void cont__88_49(void);
@@ -2049,17 +2049,17 @@ static FRAME_INFO frame__88_60 = {3, {"base_filename", "so_version", "lib_filena
 static NODE *func__88_61;
 static void entry__88_61(void);
 static FRAME_INFO frame__88_61 = {0, {}};
-static NODE *string__88_62;
+static NODE *string__b9aef2a4efc3a1a8;
 static void cont__88_63(void);
 static void cont__88_64(void);
 static void cont__88_65(void);
 static NODE *func__88_66;
 static void entry__88_66(void);
 static FRAME_INFO frame__88_66 = {6, {"base_filename", "so_version", "lib_filename", "out", "err", "success"}};
-static NODE *string__88_67;
+static NODE *string__f5937b2655b3cd24;
 static void cont__88_68(void);
 static void cont__88_69(void);
-static NODE *string__88_70;
+static NODE *string__b130095b1592409e;
 static void cont__88_71(void);
 static NODE *func__88_72;
 static void entry__88_72(void);
@@ -2069,7 +2069,7 @@ static NODE *func__88_74;
 static void entry__88_74(void);
 static FRAME_INFO frame__88_74 = {4, {"lib_filename", "out", "err", "success"}};
 static void cont__88_75(void);
-static NODE *string__88_76;
+static NODE *string__7e1f542601d292fa;
 static void cont__88_77(void);
 static void cont__88_78(void);
 static NODE *func__88_79;
@@ -2079,11 +2079,11 @@ static void cont__88_80(void);
 static NODE *func__88_81;
 static void entry__88_81(void);
 static FRAME_INFO frame__88_81 = {6, {"base_filename", "so_version", "lib_filename", "out", "err", "success"}};
-static NODE *string__88_82;
+static NODE *string__33820b08e3b95a2a;
 static void cont__88_83(void);
 static void cont__88_84(void);
 static void cont__88_85(void);
-static NODE *string__88_86;
+static NODE *string__c6d9125d36413a91;
 static void cont__88_87(void);
 static NODE *func__88_88;
 static void entry__88_88(void);
@@ -2109,8 +2109,8 @@ static void cont__89_5(void);
 static NODE *func__89_6;
 static void entry__89_6(void);
 static FRAME_INFO frame__89_6 = {1, {"c_filename"}};
-static NODE *string__89_7;
-static NODE *string__89_8;
+static NODE *string__578a5af303e9cc3;
+static NODE *string__7ef24f7974bbce09;
 static void cont__89_9(void);
 static void cont__89_10(void);
 static void cont__89_11(void);
@@ -2128,7 +2128,7 @@ static FRAME_INFO frame__89_18 = {3, {"filename", "c_filename", "o_filename"}};
 static NODE *func__89_19;
 static void entry__89_19(void);
 static FRAME_INFO frame__89_19 = {1, {"filename"}};
-static NODE *string__89_20;
+static NODE *string__74150357c2230d49;
 static void cont__89_21(void);
 static void cont__89_22(void);
 static NODE *func__91_1_format_number;
@@ -2154,7 +2154,7 @@ static void entry__91_11(void);
 static FRAME_INFO frame__91_11 = {3, {"val", "n", "i"}};
 static void cont__91_12(void);
 static void cont__91_13(void);
-static NODE *string__91_14;
+static NODE *string__578a5af303e9cc1;
 static void cont__91_15(void);
 static void cont__91_16(void);
 static void cont__91_17(void);
@@ -2165,7 +2165,7 @@ static NODE *func__91_21;
 static void entry__91_21(void);
 static FRAME_INFO frame__91_21 = {3, {"val", "m", "ac"}};
 static void cont__91_22(void);
-static NODE *string__91_23;
+static NODE *string__578a5af303e9cd1;
 static void cont__91_24(void);
 static void cont__91_25(void);
 static NODE *func__91_26;
@@ -2195,13 +2195,13 @@ static void cont__92_8(void);
 static void cont__92_9(void);
 static void cont__92_10(void);
 static void cont__92_11(void);
-static NODE *string__92_12;
+static NODE *string__2d7981f4e6082bb6;
 static NODE *func__92_13;
 static void entry__92_13(void);
 static FRAME_INFO frame__92_13 = {2, {"description", "new_t"}};
 static void cont__92_14(void);
 static void cont__92_15(void);
-static NODE *string__92_16;
+static NODE *string__2d7981f4e6d82be5;
 static void cont__92_17(void);
 static void cont__92_18(void);
 static NODE *get__sim2c__write_timing_info(void) {
@@ -2218,7 +2218,7 @@ static void cont__93_4(void);
 static NODE *func__93_5;
 static void entry__93_5(void);
 static FRAME_INFO frame__93_5 = {1, {"mod_filename"}};
-static NODE *string__93_6;
+static NODE *string__9e0ae80b5da07d5c;
 static void cont__93_7(void);
 static NODE *func__93_8;
 static void entry__93_8(void);
@@ -2227,7 +2227,7 @@ static void cont__93_9(void);
 static NODE *func__93_10;
 static void entry__93_10(void);
 static FRAME_INFO frame__93_10 = {1, {"exe_filename"}};
-static NODE *string__93_11;
+static NODE *string__2f54d80c63c08867;
 static void cont__93_12(void);
 static void cont__93_13(void);
 static void cont__93_14(void);
@@ -2254,7 +2254,7 @@ static void cont__93_28(void);
 static NODE *func__93_29;
 static void entry__93_29(void);
 static FRAME_INFO frame__93_29 = {0, {}};
-static NODE *string__93_30;
+static NODE *string__b2077c434c011020;
 static void cont__93_31(void);
 static NODE *func__93_32;
 static void entry__93_32(void);
@@ -2270,13 +2270,13 @@ static void cont__93_38(void);
 static NODE *func__93_39;
 static void entry__93_39(void);
 static FRAME_INFO frame__93_39 = {1, {"c_filename"}};
-static NODE *string__93_40;
+static NODE *string__741f540901ca42b0;
 static void cont__93_41(void);
 static void cont__93_42(void);
 static NODE *func__93_43;
 static void entry__93_43(void);
 static FRAME_INFO frame__93_43 = {1, {"c_filename"}};
-static NODE *string__93_44;
+static NODE *string__768424e48173e522;
 static void cont__93_45(void);
 static NODE *func__93_46;
 static void entry__93_46(void);
@@ -2303,9 +2303,9 @@ static void cont__93_59(void);
 static NODE *func__93_60;
 static void entry__93_60(void);
 static FRAME_INFO frame__93_60 = {0, {}};
-static NODE *string__93_61;
-static NODE *string__93_62;
-static NODE *string__93_63;
+static NODE *string__953de9f4b96a8381;
+static NODE *string__933de8f439d2438a;
+static NODE *string__5e90e5234c539c5c;
 static void cont__93_64(void);
 static NODE *func__93_65;
 static void entry__93_65(void);
@@ -2338,7 +2338,7 @@ static void cont__93_80(void);
 static NODE *func__93_81;
 static void entry__93_81(void);
 static FRAME_INFO frame__93_81 = {1, {"libs_and_files"}};
-static NODE *string__93_82;
+static NODE *string__90bd5a08cc7284bc;
 static void cont__93_83(void);
 static void cont__93_84(void);
 static NODE *func__93_85;
@@ -2347,11 +2347,11 @@ static FRAME_INFO frame__93_85 = {5, {"libs_and_files", "exe_filename", "out", "
 static NODE *func__93_86;
 static void entry__93_86(void);
 static FRAME_INFO frame__93_86 = {0, {}};
-static NODE *string__93_87;
+static NODE *string__1c7944ac5cc9c4ce;
 static void cont__93_88(void);
-static NODE *string__93_89;
-static NODE *string__93_90;
-static NODE *string__93_91;
+static NODE *string__5aa0e0654e0a7d41;
+static NODE *string__7490e2a4ce0a3d61;
+static NODE *string__14e71717a54948bc;
 static void cont__93_92(void);
 static NODE *func__93_93;
 static void entry__93_93(void);
@@ -2363,14 +2363,14 @@ static FRAME_INFO frame__93_95 = {5, {"libs_and_files", "exe_filename", "out", "
 static NODE *func__93_96;
 static void entry__93_96(void);
 static FRAME_INFO frame__93_96 = {0, {}};
-static NODE *string__93_97;
+static NODE *string__dca31b2eba5c04a5;
 static void cont__93_98(void);
 static void cont__93_99(void);
 static void cont__93_100(void);
 static NODE *func__93_101;
 static void entry__93_101(void);
 static FRAME_INFO frame__93_101 = {0, {}};
-static NODE *string__93_102;
+static NODE *string__de26b034bd2c8693;
 static void cont__93_103(void);
 static NODE *func__93_104;
 static void entry__93_104(void);
@@ -2462,21 +2462,21 @@ static void cont__run__pretty_printer(void);
 static void cont__run__sim2c(void);
 static void cont__run__extractor(void);
 static void cont__run__runtime_definitions(void);
-static NODE *string__97_1;
+static NODE *string__a5542a556fe6f2ee;
 static void cont__97_2(void);
 static void cont__98_1(void);
 static void cont__99_1(void);
 static void cont__100_1(void);
-static NODE *string__101_1;
+static NODE *string__578a5af303e9ccf;
 static void cont__101_2(void);
 static void cont__102_1(void);
 static void cont__103_1(void);
 static void cont__103_2(void);
-static NODE *string__104_1;
+static NODE *string__5c5aea03ea80c025;
 static void cont__104_2(void);
-static NODE *string__105_1;
+static NODE *string__55d5804f0e895069;
 static void cont__105_2(void);
-static NODE *string__106_1;
+static NODE *string__2058710183abbfe4;
 static void cont__106_2(void);
 static void cont__107_1(void);
 static NODE *func__107_2;
@@ -2486,9 +2486,9 @@ static void cont__107_3(void);
 static NODE *func__107_4;
 static void entry__107_4(void);
 static FRAME_INFO frame__107_4 = {0, {}};
-static NODE *string__107_5;
+static NODE *string__15cc9b840ddb70d3;
 static void cont__107_6(void);
-static NODE *string__107_7;
+static NODE *string__28172d76bc76b9f2;
 static void cont__107_8(void);
 static void cont__107_9(void);
 static void cont__107_10(void);
@@ -2504,14 +2504,14 @@ static void cont__108_5(void);
 static void cont__108_6(void);
 static void cont__108_7(void);
 static void cont__108_8(void);
-static NODE *string__110_1;
+static NODE *string__545aefc3ea81102f;
 static void cont__110_2(void);
 static void cont__110_3(void);
 static void cont__110_4(void);
 static void cont__110_5(void);
-static NODE *string__110_6;
+static NODE *string__fa720015d496ba0;
 static void cont__110_7(void);
-static NODE *string__110_8;
+static NODE *string__fa725815d616ba2;
 static void cont__110_9(void);
 static void cont__110_10(void);
 static void cont__110_11(void);
@@ -2545,7 +2545,7 @@ static void cont__140_3(void);
 static NODE *func__140_4;
 static void entry__140_4(void);
 static FRAME_INFO frame__140_4 = {0, {}};
-static NODE *string__140_5;
+static NODE *string__8d3c5e4b22d2f22b;
 static void cont__140_6(void);
 static void cont__140_7(void);
 static NODE *func__140_8;
@@ -2554,118 +2554,118 @@ static FRAME_INFO frame__140_8 = {0, {}};
 static NODE *func__140_9;
 static void entry__140_9(void);
 static FRAME_INFO frame__140_9 = {0, {}};
-static NODE *string__140_10;
-static NODE *string__140_11;
+static NODE *string__2b680b9e2e4fa558;
+static NODE *string__8d1eb0934cb703aa;
 static NODE *func__140_12;
 static void entry__140_12(void);
 static FRAME_INFO frame__140_12 = {0, {}};
-static NODE *string__140_13;
-static NODE *string__140_14;
+static NODE *string__1124317d33023452;
+static NODE *string__d3c3199b9e37dd88;
 static NODE *func__140_15;
 static void entry__140_15(void);
 static FRAME_INFO frame__140_15 = {0, {}};
-static NODE *string__140_16;
-static NODE *string__140_17;
+static NODE *string__2eb9522bce550419;
+static NODE *string__31ed31d8e6f28138;
 static NODE *func__140_18;
 static void entry__140_18(void);
 static FRAME_INFO frame__140_18 = {0, {}};
-static NODE *string__140_19;
-static NODE *string__140_20;
+static NODE *string__23efc30ce16df2e;
+static NODE *string__c565f1870e113429;
 static NODE *func__140_21;
 static void entry__140_21(void);
 static FRAME_INFO frame__140_21 = {0, {}};
-static NODE *string__140_22;
-static NODE *string__140_23;
+static NODE *string__ae4408db97d25099;
+static NODE *string__2623b8ba9cf2f994;
 static NODE *func__140_24;
 static void entry__140_24(void);
 static FRAME_INFO frame__140_24 = {0, {}};
-static NODE *string__140_25;
-static NODE *string__140_26;
+static NODE *string__a7e97d93a221bbf6;
+static NODE *string__fa3ca2557b3c0271;
 static NODE *func__140_27;
 static void entry__140_27(void);
 static FRAME_INFO frame__140_27 = {0, {}};
-static NODE *string__140_28;
-static NODE *string__140_29;
+static NODE *string__c95e7978381b7632;
+static NODE *string__4cca41e5ff59895a;
 static NODE *func__140_30;
 static void entry__140_30(void);
 static FRAME_INFO frame__140_30 = {0, {}};
-static NODE *string__140_31;
-static NODE *string__140_32;
+static NODE *string__6e5ae943eae03031;
+static NODE *string__22ca0f65643a26b5;
 static NODE *func__140_33;
 static void entry__140_33(void);
 static FRAME_INFO frame__140_33 = {0, {}};
-static NODE *string__140_34;
-static NODE *string__140_35;
+static NODE *string__7c90ae5f04ed72b3;
+static NODE *string__ea6d59fa9dcad709;
 static NODE *func__140_36;
 static void entry__140_36(void);
 static FRAME_INFO frame__140_36 = {0, {}};
-static NODE *string__140_37;
-static NODE *string__140_38;
+static NODE *string__94300f9615cbf09d;
+static NODE *string__aa7c4ea56fedf95b;
 static NODE *func__140_39;
 static void entry__140_39(void);
 static FRAME_INFO frame__140_39 = {0, {}};
-static NODE *string__140_40;
-static NODE *string__140_41;
+static NODE *string__a8480d98152a1083;
+static NODE *string__10671df6f7523277;
 static NODE *func__140_42;
 static void entry__140_42(void);
 static FRAME_INFO frame__140_42 = {0, {}};
-static NODE *string__140_43;
-static NODE *string__140_44;
+static NODE *string__b65c0e101523e09f;
+static NODE *string__2ba4a5a9cdae43b8;
 static NODE *func__140_45;
 static void entry__140_45(void);
 static FRAME_INFO frame__140_45 = {0, {}};
-static NODE *string__140_46;
-static NODE *string__140_47;
+static NODE *string__405aeb83ea605030;
+static NODE *string__977692d258cc57f;
 static NODE *func__140_48;
 static void entry__140_48(void);
 static FRAME_INFO frame__140_48 = {0, {}};
-static NODE *string__140_49;
-static NODE *string__140_50;
+static NODE *string__d13d99340b731341;
+static NODE *string__d30c0a59c3d26b04;
 static NODE *func__140_51;
 static void entry__140_51(void);
 static FRAME_INFO frame__140_51 = {0, {}};
-static NODE *string__140_52;
-static NODE *string__140_53;
+static NODE *string__2b7008daa973b572;
+static NODE *string__99c92c9b20cfd38;
 static NODE *func__140_54;
 static void entry__140_54(void);
 static FRAME_INFO frame__140_54 = {0, {}};
-static NODE *string__140_55;
-static NODE *string__140_56;
+static NODE *string__7f0dce6ce0a2268e;
+static NODE *string__140146cb87bc0040;
 static NODE *func__140_57;
 static void entry__140_57(void);
 static FRAME_INFO frame__140_57 = {0, {}};
-static NODE *string__140_58;
-static NODE *string__140_59;
+static NODE *string__211e9dd763481194;
+static NODE *string__1214925be130f2c;
 static NODE *func__140_60;
 static void entry__140_60(void);
 static FRAME_INFO frame__140_60 = {0, {}};
-static NODE *string__140_61;
-static NODE *string__140_62;
+static NODE *string__984c0f9015dae09e;
+static NODE *string__6ce7f8f6c7e73eb4;
 static NODE *func__140_63;
 static void entry__140_63(void);
 static FRAME_INFO frame__140_63 = {0, {}};
-static NODE *string__140_64;
-static NODE *string__140_65;
+static NODE *string__749427e68da7a564;
+static NODE *string__93608261e3431133;
 static NODE *func__140_66;
 static void entry__140_66(void);
 static FRAME_INFO frame__140_66 = {0, {}};
-static NODE *string__140_67;
-static NODE *string__140_68;
+static NODE *string__5a1f534901f312b4;
+static NODE *string__b20e03a80d6db737;
 static NODE *func__140_69;
 static void entry__140_69(void);
 static FRAME_INFO frame__140_69 = {0, {}};
-static NODE *string__140_70;
-static NODE *string__140_71;
+static NODE *string__be440f9b95da309f;
+static NODE *string__6f1f4f6107c9cdea;
 static NODE *func__140_72;
 static void entry__140_72(void);
 static FRAME_INFO frame__140_72 = {0, {}};
-static NODE *string__140_73;
-static NODE *string__140_74;
+static NODE *string__72b0ad9004bdc085;
+static NODE *string__bb8770c27da8f42f;
 static NODE *func__140_75;
 static void entry__140_75(void);
 static FRAME_INFO frame__140_75 = {0, {}};
-static NODE *string__140_76;
-static NODE *string__140_77;
+static NODE *string__af5ae49d07a6e408;
+static NODE *string__c8a7274dc08e5785;
 static void cont__140_78(void);
 static void cont__140_79(void);
 static void cont__141_1(void);
@@ -2675,42 +2675,42 @@ static void entry__144_1(void);
 static FRAME_INFO frame__144_1 = {0, {}};
 static void cont__144_2(void);
 static void cont__149_1(void);
-static NODE *string__150_1;
-static NODE *string__150_2;
-static NODE *string__150_3;
-static NODE *string__150_4;
-static NODE *string__150_5;
-static NODE *string__150_6;
-static NODE *string__150_7;
-static NODE *string__150_8;
-static NODE *string__150_9;
-static NODE *string__150_10;
+static NODE *string__245aeb43eaacc03b;
+static NODE *string__e381a5286a12b5a7;
+static NODE *string__c9d1a7e66a0a17ac;
+static NODE *string__1abcc193f1dac47a;
+static NODE *string__d3e88c522110dabb;
+static NODE *string__65a7cd1120033166;
+static NODE *string__fa733015c516bfd;
+static NODE *string__465ae703eb84c014;
+static NODE *string__40ebeb253b72cf38;
+static NODE *string__edf2e5a02a882fc3;
 static void cont__150_11(void);
 static void cont__151_1(void);
-static NODE *string__151_2;
+static NODE *string__fa721815d316baf;
 static void cont__151_3(void);
 static NODE *func__151_4;
 static void entry__151_4(void);
 static FRAME_INFO frame__151_4 = {0, {}};
-static NODE *string__151_5;
+static NODE *string__ecde9da404625e23;
 static void cont__151_6(void);
 static void cont__151_7(void);
 static void cont__152_1(void);
-static NODE *string__152_2;
-static NODE *string__152_3;
+static NODE *string__f41f598c8327d2e5;
+static NODE *string__f41f598c830fd2e3;
 static void cont__152_4(void);
 static NODE *func__152_5;
 static void entry__152_5(void);
 static FRAME_INFO frame__152_5 = {0, {}};
-static NODE *string__152_6;
+static NODE *string__7e1f52a6019282e5;
 static void cont__152_7(void);
-static NODE *string__152_8;
+static NODE *string__70d94c874a06872f;
 static void cont__152_9(void);
 static void cont__152_10(void);
 static NODE *func__153_1;
 static void entry__153_1(void);
 static FRAME_INFO frame__153_1 = {1, {"path"}};
-static NODE *string__153_2;
+static NODE *string__2d7981f4e6602b8c;
 static void cont__153_3(void);
 static void cont__153_4(void);
 static void cont__153_5(void);
@@ -2732,8 +2732,8 @@ static void cont__175_1(void);
 static NODE *func__175_2;
 static void entry__175_2(void);
 static FRAME_INFO frame__175_2 = {0, {}};
-static NODE *string__175_3;
-static NODE *string__175_4;
+static NODE *string__9b6a42533552c66c;
+static NODE *string__79c06fde49ef2e97;
 static void cont__175_5(void);
 static void cont__175_6(void);
 static NODE *func__190_1;
@@ -4660,7 +4660,7 @@ static void cont__run__runtime_definitions(void) {
   // ...
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__97_1;
+  arguments->slots[0] = string__a5542a556fe6f2ee;
   result_count = 0;
   myself = get__copyright();
   func = myself->type;
@@ -4717,9 +4717,9 @@ static void cont__100_1(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = var._MAJOR;
-  arguments->slots[1] = string__101_1;
+  arguments->slots[1] = string__578a5af303e9ccf;
   arguments->slots[2] = var._MINOR;
-  arguments->slots[3] = string__101_1;
+  arguments->slots[3] = string__578a5af303e9ccf;
   arguments->slots[4] = var._REVISION;
   result_count = 1;
   myself = get__std__string();
@@ -4778,7 +4778,7 @@ static void cont__103_2(void) {
   // 101: extern $mkdir "mkdir" # would be nice to have one in the system library!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__104_1;
+  arguments->slots[0] = string__5c5aea03ea80c025;
   result_count = 1;
   myself = get__extern();
   func = myself->type;
@@ -4793,7 +4793,7 @@ static void cont__104_2(void) {
   // 102: $SIMLIBPATH environment("SIMLIBPATH")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__105_1;
+  arguments->slots[0] = string__55d5804f0e895069;
   result_count = 1;
   myself = get__environment();
   func = myself->type;
@@ -4808,7 +4808,7 @@ static void cont__105_2(void) {
   // 103: $SIMDATAPATH environment("SIMDATAPATH")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__106_1;
+  arguments->slots[0] = string__2058710183abbfe4;
   result_count = 1;
   myself = get__environment();
   func = myself->type;
@@ -4894,7 +4894,7 @@ static void entry__107_4(void) {
   // 111: "/usr/local/share/simplicity-@(VERSION)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__107_5;
+  arguments->slots[0] = string__15cc9b840ddb70d3;
   arguments->slots[1] = var._VERSION;
   result_count = 1;
   myself = get__std__string();
@@ -4910,7 +4910,7 @@ static void cont__107_6(void) {
   // 112: "/usr/share/simplicity-@(VERSION)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__107_7;
+  arguments->slots[0] = string__28172d76bc76b9f2;
   arguments->slots[1] = var._VERSION;
   result_count = 1;
   myself = get__std__string();
@@ -5032,7 +5032,7 @@ static void entry__108_4(void) {
   // 120: "/usr/local/share/simplicity-@(VERSION)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__107_5;
+  arguments->slots[0] = string__15cc9b840ddb70d3;
   arguments->slots[1] = var._VERSION;
   result_count = 1;
   myself = get__std__string();
@@ -5048,7 +5048,7 @@ static void cont__108_5(void) {
   // 121: "/usr/share/simplicity-@(VERSION)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__107_7;
+  arguments->slots[0] = string__28172d76bc76b9f2;
   arguments->slots[1] = var._VERSION;
   result_count = 1;
   myself = get__std__string();
@@ -5099,8 +5099,8 @@ static void cont__108_8(void) {
   // 127: "bsd" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_24;
-  arguments->slots[1] = string__110_1;
+  arguments->slots[0] = string__fa720c15db16ba8;
+  arguments->slots[1] = string__545aefc3ea81102f;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5115,8 +5115,8 @@ static void cont__110_2(void) {
   // 128: "cygwin" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__88_42;
-  arguments->slots[1] = string__110_1;
+  arguments->slots[0] = string__561f538101f3c2b9;
+  arguments->slots[1] = string__545aefc3ea81102f;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5131,8 +5131,8 @@ static void cont__110_3(void) {
   // 129: "darwin" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__88_43;
-  arguments->slots[1] = string__110_1;
+  arguments->slots[0] = string__7c1f538281f242b9;
+  arguments->slots[1] = string__545aefc3ea81102f;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5147,8 +5147,8 @@ static void cont__110_4(void) {
   // 130: "linux" = "posix"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_23;
-  arguments->slots[1] = string__110_1;
+  arguments->slots[0] = string__585ae883ea60d02f;
+  arguments->slots[1] = string__545aefc3ea81102f;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5163,8 +5163,8 @@ static void cont__110_5(void) {
   // 131: "posix" = "all"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__110_1;
-  arguments->slots[1] = string__110_6;
+  arguments->slots[0] = string__545aefc3ea81102f;
+  arguments->slots[1] = string__fa720015d496ba0;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5179,8 +5179,8 @@ static void cont__110_7(void) {
   // 132: "win" = "all"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__110_8;
-  arguments->slots[1] = string__110_6;
+  arguments->slots[0] = string__fa725815d616ba2;
+  arguments->slots[1] = string__fa720015d496ba0;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5195,7 +5195,7 @@ static void cont__110_9(void) {
   // 133: "all" = NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__110_6;
+  arguments->slots[0] = string__fa720015d496ba0;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -5592,7 +5592,7 @@ static void cont__139_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._action;
-  arguments->slots[1] = string__88_2;
+  arguments->slots[1] = string__421f52c90112c2b9;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -5667,7 +5667,7 @@ static void entry__140_4(void) {
   // 176: ... Error "Missing command line arguments!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__140_5;
+  arguments->slots[0] = string__8d3c5e4b22d2f22b;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -5758,8 +5758,8 @@ static void entry__140_9(void) {
   // 184:   do not compile; just check for syntax errors
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_10;
-  arguments->slots[1] = string__140_11;
+  arguments->slots[0] = string__2b680b9e2e4fa558;
+  arguments->slots[1] = string__8d1eb0934cb703aa;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5775,8 +5775,8 @@ static void entry__140_12(void) {
   // 187:   dump abstract syntax trees
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_13;
-  arguments->slots[1] = string__140_14;
+  arguments->slots[0] = string__1124317d33023452;
+  arguments->slots[1] = string__d3c3199b9e37dd88;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5792,8 +5792,8 @@ static void entry__140_15(void) {
   // 190:   do not compile; just pretty print the source file
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_16;
-  arguments->slots[1] = string__140_17;
+  arguments->slots[0] = string__2eb9522bce550419;
+  arguments->slots[1] = string__31ed31d8e6f28138;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5809,8 +5809,8 @@ static void entry__140_18(void) {
   // 193:   do not generate a C-file; just print the simplified source text
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_19;
-  arguments->slots[1] = string__140_20;
+  arguments->slots[0] = string__23efc30ce16df2e;
+  arguments->slots[1] = string__c565f1870e113429;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5826,8 +5826,8 @@ static void entry__140_21(void) {
   // 196:   print C source code for a single module
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_22;
-  arguments->slots[1] = string__140_23;
+  arguments->slots[0] = string__ae4408db97d25099;
+  arguments->slots[1] = string__2623b8ba9cf2f994;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5843,8 +5843,8 @@ static void entry__140_24(void) {
   // 199:   print running time for the individual compiler passes
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_25;
-  arguments->slots[1] = string__140_26;
+  arguments->slots[0] = string__a7e97d93a221bbf6;
+  arguments->slots[1] = string__fa3ca2557b3c0271;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5863,8 +5863,8 @@ static void entry__140_27(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__VALUED_OPTION();
-  arguments->slots[1] = string__140_28;
-  arguments->slots[2] = string__140_29;
+  arguments->slots[1] = string__c95e7978381b7632;
+  arguments->slots[2] = string__4cca41e5ff59895a;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5880,8 +5880,8 @@ static void entry__140_30(void) {
   // 209:   show brief error messages
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_31;
-  arguments->slots[1] = string__140_32;
+  arguments->slots[0] = string__6e5ae943eae03031;
+  arguments->slots[1] = string__22ca0f65643a26b5;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5897,8 +5897,8 @@ static void entry__140_33(void) {
   // 212:   show warning messages
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_34;
-  arguments->slots[1] = string__140_35;
+  arguments->slots[0] = string__7c90ae5f04ed72b3;
+  arguments->slots[1] = string__ea6d59fa9dcad709;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5914,8 +5914,8 @@ static void entry__140_36(void) {
   // 215:   inform about missing documentation
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_37;
-  arguments->slots[1] = string__140_38;
+  arguments->slots[0] = string__94300f9615cbf09d;
+  arguments->slots[1] = string__aa7c4ea56fedf95b;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5931,8 +5931,8 @@ static void entry__140_39(void) {
   // 218:   show a statistical summary
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_40;
-  arguments->slots[1] = string__140_41;
+  arguments->slots[0] = string__a8480d98152a1083;
+  arguments->slots[1] = string__10671df6f7523277;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5948,8 +5948,8 @@ static void entry__140_42(void) {
   // 221:   output verbose informations
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_43;
-  arguments->slots[1] = string__140_44;
+  arguments->slots[0] = string__b65c0e101523e09f;
+  arguments->slots[1] = string__2ba4a5a9cdae43b8;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5965,8 +5965,8 @@ static void entry__140_45(void) {
   // 224:   show C-compiler and linker calls
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_46;
-  arguments->slots[1] = string__140_47;
+  arguments->slots[0] = string__405aeb83ea605030;
+  arguments->slots[1] = string__977692d258cc57f;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5982,8 +5982,8 @@ static void entry__140_48(void) {
   // 227:   show internal debug messages of the Simplicity compiler
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_49;
-  arguments->slots[1] = string__140_50;
+  arguments->slots[0] = string__d13d99340b731341;
+  arguments->slots[1] = string__d30c0a59c3d26b04;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -5999,8 +5999,8 @@ static void entry__140_51(void) {
   // 232:   create Code::Blocks project
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_52;
-  arguments->slots[1] = string__140_53;
+  arguments->slots[0] = string__2b7008daa973b572;
+  arguments->slots[1] = string__99c92c9b20cfd38;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6016,8 +6016,8 @@ static void entry__140_54(void) {
   // 235:   extract documentation encoded as HTML
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_55;
-  arguments->slots[1] = string__140_56;
+  arguments->slots[0] = string__7f0dce6ce0a2268e;
+  arguments->slots[1] = string__140146cb87bc0040;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6033,8 +6033,8 @@ static void entry__140_57(void) {
   // 238:   list all dependencies
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_58;
-  arguments->slots[1] = string__140_59;
+  arguments->slots[0] = string__211e9dd763481194;
+  arguments->slots[1] = string__1214925be130f2c;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6050,8 +6050,8 @@ static void entry__140_60(void) {
   // 243:   rebuild all source files
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_61;
-  arguments->slots[1] = string__140_62;
+  arguments->slots[0] = string__984c0f9015dae09e;
+  arguments->slots[1] = string__6ce7f8f6c7e73eb4;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6067,8 +6067,8 @@ static void entry__140_63(void) {
   // 246:   do not rebuild meta files
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_64;
-  arguments->slots[1] = string__140_65;
+  arguments->slots[0] = string__749427e68da7a564;
+  arguments->slots[1] = string__93608261e3431133;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6084,8 +6084,8 @@ static void entry__140_66(void) {
   // 249:   create statically linked executable
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_67;
-  arguments->slots[1] = string__140_68;
+  arguments->slots[0] = string__5a1f534901f312b4;
+  arguments->slots[1] = string__b20e03a80d6db737;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6101,8 +6101,8 @@ static void entry__140_69(void) {
   // 252:   link with libprofiler
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__140_70;
-  arguments->slots[1] = string__140_71;
+  arguments->slots[0] = string__be440f9b95da309f;
+  arguments->slots[1] = string__6f1f4f6107c9cdea;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6119,8 +6119,8 @@ static void entry__140_72(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__std__MANDATORY_PARAMETER();
-  arguments->slots[1] = string__140_73;
-  arguments->slots[2] = string__140_74;
+  arguments->slots[1] = string__72b0ad9004bdc085;
+  arguments->slots[2] = string__bb8770c27da8f42f;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6137,8 +6137,8 @@ static void entry__140_75(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__std__SOME_PARAMETERS();
-  arguments->slots[1] = string__140_76;
-  arguments->slots[2] = string__140_77;
+  arguments->slots[1] = string__af5ae49d07a6e408;
+  arguments->slots[2] = string__c8a7274dc08e5785;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -6274,16 +6274,16 @@ static void cont__149_1(void) {
   // ...
   argument_count = 10;
   arguments = node_p;
-  arguments->slots[0] = string__150_1;
-  arguments->slots[1] = string__150_2;
-  arguments->slots[2] = string__150_3;
-  arguments->slots[3] = string__150_4;
-  arguments->slots[4] = string__150_5;
-  arguments->slots[5] = string__150_6;
-  arguments->slots[6] = string__150_7;
-  arguments->slots[7] = string__150_8;
-  arguments->slots[8] = string__150_9;
-  arguments->slots[9] = string__150_10;
+  arguments->slots[0] = string__245aeb43eaacc03b;
+  arguments->slots[1] = string__e381a5286a12b5a7;
+  arguments->slots[2] = string__c9d1a7e66a0a17ac;
+  arguments->slots[3] = string__1abcc193f1dac47a;
+  arguments->slots[4] = string__d3e88c522110dabb;
+  arguments->slots[5] = string__65a7cd1120033166;
+  arguments->slots[6] = string__fa733015c516bfd;
+  arguments->slots[7] = string__465ae703eb84c014;
+  arguments->slots[8] = string__40ebeb253b72cf38;
+  arguments->slots[9] = string__edf2e5a02a882fc3;
   result_count = 1;
   myself = get__list();
   func = myself->type;
@@ -6313,7 +6313,7 @@ static void cont__151_1(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
-  arguments->slots[1] = string__151_2;
+  arguments->slots[1] = string__fa721815d316baf;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -6347,7 +6347,7 @@ static void entry__151_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._cc_options;
-  arguments->slots[1] = string__151_5;
+  arguments->slots[1] = string__ecde9da404625e23;
   result_count = 1;
   myself = get__push();
   func = myself->type;
@@ -6387,8 +6387,8 @@ static void cont__152_1(void) {
   // 291: "x86_32", "x86_64"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__152_2;
-  arguments->slots[1] = string__152_3;
+  arguments->slots[0] = string__f41f598c8327d2e5;
+  arguments->slots[1] = string__f41f598c830fd2e3;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -6425,7 +6425,7 @@ static void entry__152_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._cc_options;
-  arguments->slots[1] = string__152_6;
+  arguments->slots[1] = string__7e1f52a6019282e5;
   result_count = 1;
   myself = get__push();
   func = myself->type;
@@ -6441,7 +6441,7 @@ static void cont__152_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._cc_options;
-  arguments->slots[1] = string__152_8;
+  arguments->slots[1] = string__70d94c874a06872f;
   result_count = 1;
   myself = get__push();
   func = myself->type;
@@ -6486,7 +6486,7 @@ static void entry__153_1(void) {
   // 296: ... "-I@(path)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__153_2;
+  arguments->slots[0] = string__2d7981f4e6602b8c;
   arguments->slots[1] = frame->slots[0] /* path */;
   result_count = 1;
   myself = get__std__string();
@@ -6734,9 +6734,9 @@ static void entry__175_2(void) {
   // 647:   Source file "@(main_filename)" does not exist!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__175_3;
+  arguments->slots[0] = string__9b6a42533552c66c;
   arguments->slots[1] = get__main_filename();
-  arguments->slots[2] = string__175_4;
+  arguments->slots[2] = string__79c06fde49ef2e97;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7444,9 +7444,9 @@ static void entry__70_20(void) {
   // 328:   Cannot resolve required library "@(libname)@quot;!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__70_21;
+  arguments->slots[0] = string__373a794ad67f2aca;
   arguments->slots[1] = frame->slots[0] /* libname */;
-  arguments->slots[2] = string__70_22;
+  arguments->slots[2] = string__2d7981f4e6182be4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7630,7 +7630,7 @@ static void entry__71_15(void) {
   // 349: ... some(".meta")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__71_16;
+  arguments->slots[0] = string__505aea43ea6cf036;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -7646,7 +7646,7 @@ static void cont__71_17(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -8111,7 +8111,7 @@ static void entry__71_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__has_suffix();
   func = myself->type;
@@ -8354,9 +8354,9 @@ static void entry__71_45_maybe_push_common(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* name */;
-  arguments->slots[1] = string__71_46;
+  arguments->slots[1] = string__578a5af303e9ccc;
   arguments->slots[2] = frame->slots[0] /* plat */;
-  arguments->slots[3] = string__71_42;
+  arguments->slots[3] = string__a9300e9315c23094;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -8508,9 +8508,9 @@ static void entry__71_57(void) {
   // 372:   The platform "@(platform)" is not supported!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__71_58;
+  arguments->slots[0] = string__bf5121a1ba54e344;
   arguments->slots[1] = frame->slots[0] /* platform */;
-  arguments->slots[2] = string__71_59;
+  arguments->slots[2] = string__b566882ea60ef100;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8761,7 +8761,7 @@ static void entry__71_41(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
-  arguments->slots[1] = string__71_42;
+  arguments->slots[1] = string__a9300e9315c23094;
   result_count = 1;
   myself = get__has_suffix();
   func = myself->type;
@@ -9234,9 +9234,9 @@ static void entry__74_4(void) {
   arguments = node_p;
   unfold(var._cpp_options);
   unfold(var._cc_options);
-  arguments->slots[argument_count++] = string__74_5;
+  arguments->slots[argument_count++] = string__2d7981f4e6602ba6;
   arguments->slots[argument_count++] = frame->slots[0] /* c_filename */;
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[1] /* o_filename */;
   result_count = 3;
   myself = var._CC;
@@ -9306,11 +9306,11 @@ static void cont__74_9(void) {
   // 404:   @(err.from_utf8)
   argument_count = 5;
   arguments = node_p;
-  arguments->slots[0] = string__74_10;
+  arguments->slots[0] = string__ca9b4802029a5965;
   arguments->slots[1] = frame->slots[0] /* c_filename */;
-  arguments->slots[2] = string__74_11;
+  arguments->slots[2] = string__578a5af303e9ceb;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
-  arguments->slots[4] = string__74_11;
+  arguments->slots[4] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -9474,7 +9474,7 @@ static void cont__75_4(void) {
   // 418: ... dup(".meta" meta_level)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__71_16;
+  arguments->slots[0] = string__505aea43ea6cf036;
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* meta_level */;
   result_count = 1;
   myself = get__dup();
@@ -9507,7 +9507,7 @@ static void cont__75_6(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* filename */;
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -9522,7 +9522,7 @@ static void cont__75_7(void) {
   // 420: ... dup(".meta" meta_level)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__71_16;
+  arguments->slots[0] = string__505aea43ea6cf036;
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* meta_level */;
   result_count = 1;
   myself = get__dup();
@@ -9540,7 +9540,7 @@ static void cont__75_8(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
   arguments->slots[1] = frame->slots[11] /* temp__1 */;
-  arguments->slots[2] = string__75_9;
+  arguments->slots[2] = string__2d7981f4e6782ba6;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -9571,7 +9571,7 @@ static void cont__75_11(void) {
   // 421: ... dup(".meta" meta_level-1)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__71_16;
+  arguments->slots[0] = string__505aea43ea6cf036;
   arguments->slots[1] = frame->slots[12] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -9589,7 +9589,7 @@ static void cont__75_12(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
   arguments->slots[1] = frame->slots[11] /* temp__1 */;
-  arguments->slots[2] = string__71_13;
+  arguments->slots[2] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -10148,7 +10148,7 @@ static void entry__75_55(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
-  arguments->slots[1] = string__75_56;
+  arguments->slots[1] = string__2d7981f4e6782bea;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -10228,7 +10228,7 @@ static void entry__75_37(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
-  arguments->slots[1] = string__75_46;
+  arguments->slots[1] = string__9c0afa8b5f187d19;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -10479,7 +10479,7 @@ static void cont__75_52(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* command */;
-  arguments->slots[1] = string__75_53;
+  arguments->slots[1] = string__a0ae90b5dc07d58;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -11079,7 +11079,7 @@ static void cont__76_31(void) {
   // 516: ... string("sim-" argument .truncate_from. '/')
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__76_32;
+  arguments->slots[0] = string__240aeb0b5d087d14;
   arguments->slots[1] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__string();
@@ -11493,7 +11493,7 @@ static void entry__76_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
-  arguments->slots[1] = string__75_56;
+  arguments->slots[1] = string__2d7981f4e6782bea;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -11593,7 +11593,7 @@ static void entry__76_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
-  arguments->slots[1] = string__75_46;
+  arguments->slots[1] = string__9c0afa8b5f187d19;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -11712,9 +11712,9 @@ static void cont__76_8(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* command */;
-  arguments->slots[1] = string__76_39;
+  arguments->slots[1] = string__984c0f90152bd09f;
   arguments->slots[2] = frame->slots[7] /* temp__1 */;
-  arguments->slots[3] = string__76_40;
+  arguments->slots[3] = string__1a0aeb0b5d107d52;
   arguments->slots[4] = frame->slots[8] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -12078,7 +12078,7 @@ static void cont__77_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* submodule_filename */;
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -12165,9 +12165,9 @@ static void entry__77_18(void) {
   // 547:   Failed to open file "@(sim_filename)"!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__77_19;
+  arguments->slots[0] = string__52b1d7d50d05f753;
   arguments->slots[1] = frame->slots[0] /* sim_filename */;
-  arguments->slots[2] = string__70_22;
+  arguments->slots[2] = string__2d7981f4e6182be4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -12307,7 +12307,7 @@ static void cont__77_29(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* mod_filename */;
   arguments->slots[1] = frame->slots[2] /* suffix */;
-  arguments->slots[2] = string__75_9;
+  arguments->slots[2] = string__2d7981f4e6782ba6;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -12759,7 +12759,7 @@ static void entry__77_42(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__47;
-  arguments->slots[1] = string__77_43;
+  arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -12775,7 +12775,7 @@ static void cont__77_44(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
-  arguments->slots[1] = string__77_43;
+  arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -12828,7 +12828,7 @@ static void entry__77_47(void) {
   // 565: ... ewriteln "build module " module_name suffix
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__77_48;
+  arguments->slots[0] = string__a85eb307b04e1ec9;
   arguments->slots[1] = get__module_name();
   arguments->slots[2] = frame->slots[0] /* suffix */;
   result_count = frame->caller_result_count;
@@ -13227,9 +13227,9 @@ static void entry__77_80(void) {
   // 591:   No source file(s) for module "@(mod_name)" found!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__77_81;
+  arguments->slots[0] = string__1c48d17af91ab023;
   arguments->slots[1] = frame->slots[0] /* mod_name */;
-  arguments->slots[2] = string__77_82;
+  arguments->slots[2] = string__4594ae5504f56841;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -13260,7 +13260,7 @@ static void cont__77_84(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__77_85;
+  arguments->slots[1] = string__2d7981f4e6782baa;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -13393,9 +13393,9 @@ static void entry__77_130(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* mod_filename */;
-  arguments->slots[1] = string__71_46;
+  arguments->slots[1] = string__578a5af303e9ccc;
   arguments->slots[2] = frame->slots[0] /* platform */;
-  arguments->slots[3] = string__75_9;
+  arguments->slots[3] = string__2d7981f4e6782ba6;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -13465,7 +13465,7 @@ static void entry__77_135(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* dependency */;
-  arguments->slots[1] = string__77_136;
+  arguments->slots[1] = string__2d7981f4e6082be6;
   arguments->slots[2] = frame->slots[0] /* plat */;
   result_count = 1;
   myself = get__write_to();
@@ -13928,7 +13928,7 @@ static void entry__77_96(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__75_9;
+  arguments->slots[1] = string__2d7981f4e6782ba6;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -14124,7 +14124,7 @@ static void cont__77_110(void) {
   // 612: string("-" platform)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__71_46;
+  arguments->slots[0] = string__578a5af303e9ccc;
   arguments->slots[1] = frame->slots[0] /* platform */;
   result_count = 1;
   myself = get__string();
@@ -14603,7 +14603,7 @@ static void entry__80_2(void) {
   // 651: $path environment("LD_LIBRARY_PATH")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__80_3;
+  arguments->slots[0] = string__21dcb95c2a4f4c6f;
   result_count = 1;
   myself = get__environment();
   func = myself->type;
@@ -14654,7 +14654,7 @@ static void entry__80_6(void) {
   // 652: ... "LD_LIBRARY_PATH=@(path)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__80_7;
+  arguments->slots[0] = string__cae1527a63790ed8;
   arguments->slots[1] = frame->slots[0] /* path */;
   result_count = 1;
   myself = get__std__string();
@@ -14699,7 +14699,7 @@ static void cont__80_10(void) {
   // 653: ewriteln "included object files: " serialize(objects)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__80_11;
+  arguments->slots[0] = string__4c84a8f87d97d1a3;
   arguments->slots[1] = frame->slots[1] /* temp__1 */;
   result_count = 0;
   myself = get__ewriteln();
@@ -14729,7 +14729,7 @@ static void cont__80_13(void) {
   // 654: ewriteln "needed libraries: " serialize(libraries)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__80_14;
+  arguments->slots[0] = string__d2a77fcc4263ea03;
   arguments->slots[1] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -14794,7 +14794,7 @@ static void cont__81_2(void) {
   // 661: $paths environment("LD_LIBRARY_PATH")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__80_3;
+  arguments->slots[0] = string__21dcb95c2a4f4c6f;
   result_count = 1;
   myself = get__environment();
   func = myself->type;
@@ -14848,7 +14848,7 @@ static void entry__81_7(void) {
   // 663: ... "-L@(path)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_8;
+  arguments->slots[0] = string__2d7981f4e6602b89;
   arguments->slots[1] = frame->slots[0] /* path */;
   result_count = 1;
   myself = get__std__string();
@@ -14966,7 +14966,7 @@ static void cont__81_13(void) {
   // 664: ... ewriteln "library paths: " serialize(library_paths)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_14;
+  arguments->slots[0] = string__47d536100241702d;
   arguments->slots[1] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -15073,7 +15073,7 @@ static void entry__81_19(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* library */;
-  arguments->slots[1] = string__76_32;
+  arguments->slots[1] = string__240aeb0b5d087d14;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -15145,8 +15145,8 @@ static void cont__81_22(void) {
   // 674: "linux", "bsd"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_23;
-  arguments->slots[1] = string__81_24;
+  arguments->slots[0] = string__585ae883ea60d02f;
+  arguments->slots[1] = string__fa720c15db16ba8;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -15189,9 +15189,9 @@ static void entry__81_26(void) {
   // 674: ... "-l:lib@(library).so.@(MAJOR)"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__81_27;
+  arguments->slots[0] = string__ec1f556601f292b5;
   arguments->slots[1] = frame->slots[0] /* library */;
-  arguments->slots[2] = string__81_28;
+  arguments->slots[2] = string__9e0aed8b5d187d17;
   arguments->slots[3] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -15224,9 +15224,9 @@ static void entry__81_30(void) {
   // 675: ... "-l@(library)-@(MAJOR)"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__81_31;
+  arguments->slots[0] = string__2d7981f4e6602ba9;
   arguments->slots[1] = frame->slots[0] /* library */;
-  arguments->slots[2] = string__71_46;
+  arguments->slots[2] = string__578a5af303e9ccc;
   arguments->slots[3] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -15354,9 +15354,9 @@ static void cont__81_38(void) {
   // 679: ... "-l:lib@(library .before. '.').so.@(library .behind. '.')"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__81_27;
+  arguments->slots[0] = string__ec1f556601f292b5;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__81_28;
+  arguments->slots[2] = string__9e0aed8b5d187d17;
   arguments->slots[3] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__std__string();
@@ -15390,7 +15390,7 @@ static void entry__81_40(void) {
   // 681: ... "-l@(library)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_31;
+  arguments->slots[0] = string__2d7981f4e6602ba9;
   arguments->slots[1] = frame->slots[0] /* library */;
   result_count = 1;
   myself = get__std__string();
@@ -15509,7 +15509,7 @@ static void entry__82_74(void) {
   // 725: ... write_timing_info "collecting imports"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__82_75;
+  arguments->slots[0] = string__868d47f2e5ba5079;
   result_count = frame->caller_result_count;
   myself = get__write_timing_info();
   func = myself->type;
@@ -15674,7 +15674,7 @@ static void entry__82_25(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
-  arguments->slots[1] = string__82_26;
+  arguments->slots[1] = string__b8540cde1593c09c;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -15725,7 +15725,7 @@ static void entry__82_29(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
-  arguments->slots[1] = string__82_30;
+  arguments->slots[1] = string__800a0c585ff0632;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -16022,7 +16022,7 @@ static void entry__82_38(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
-  arguments->slots[1] = string__82_30;
+  arguments->slots[1] = string__800a0c585ff0632;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -16078,7 +16078,7 @@ static void entry__82_43(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* declaration */;
-  arguments->slots[1] = string__82_44;
+  arguments->slots[1] = string__ee0186bb316753e3;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -16150,7 +16150,7 @@ static void entry__82_54(void) {
   // 715: ... write "IMPORT "
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__82_55;
+  arguments->slots[0] = string__eca001441419c0da;
   result_count = frame->caller_result_count;
   myself = get__write();
   func = myself->type;
@@ -16770,7 +16770,7 @@ static void cont__82_64(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
-  arguments->slots[1] = string__82_65;
+  arguments->slots[1] = string__736c99bf90749400;
   result_count = 1;
   myself = get__before();
   func = myself->type;
@@ -16948,7 +16948,7 @@ static void entry__83_3(void) {
   // 728: ... Error "Expected a source code file!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__83_4;
+  arguments->slots[0] = string__ac6b0fa074ea65e7;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -16963,7 +16963,7 @@ static void cont__83_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__has_suffix();
   func = myself->type;
@@ -16998,7 +16998,7 @@ static void entry__83_7(void) {
   // 731:   Expected ".sim" file extension in source filename!@
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__83_8;
+  arguments->slots[0] = string__e365e96bee331e9c;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -17013,7 +17013,7 @@ static void cont__83_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__without_suffix();
   func = myself->type;
@@ -17144,7 +17144,7 @@ static void entry__85_18(void) {
   // 750: ... write_timing_info "writing C-source"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__85_19;
+  arguments->slots[0] = string__b830f06b636224ab;
   result_count = frame->caller_result_count;
   myself = get__write_timing_info();
   func = myself->type;
@@ -17274,7 +17274,7 @@ static void entry__85_8(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__47;
-  arguments->slots[1] = string__77_43;
+  arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -17290,7 +17290,7 @@ static void cont__85_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
-  arguments->slots[1] = string__77_43;
+  arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -17825,7 +17825,7 @@ static void entry__86_17(void) {
   // 768: ... ewriteln "list dependencies for " main_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__86_18;
+  arguments->slots[0] = string__7da4130a131d4ea3;
   arguments->slots[1] = get__main_filename();
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -17935,7 +17935,7 @@ static void entry__86_25(void) {
   // 772: ... ewriteln "list dependencies for " mod_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__86_18;
+  arguments->slots[0] = string__7da4130a131d4ea3;
   arguments->slots[1] = frame->slots[0] /* mod_filename */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -17965,7 +17965,7 @@ static void cont__86_27(void) {
   // 774: writeln "runtime/linker.c"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__86_28;
+  arguments->slots[0] = string__5aa0e0654e0a7d4d;
   result_count = 0;
   myself = get__writeln();
   func = myself->type;
@@ -17979,7 +17979,7 @@ static void cont__86_29(void) {
   // 775: writeln "runtime/memory.c"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__86_30;
+  arguments->slots[0] = string__7490e2a4ce0a3d6d;
   result_count = 0;
   myself = get__writeln();
   func = myself->type;
@@ -17993,7 +17993,7 @@ static void cont__86_31(void) {
   // 776: writeln "runtime/debugger.c"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__86_32;
+  arguments->slots[0] = string__14e71717a54948b0;
   result_count = frame->caller_result_count;
   myself = get__writeln();
   func = myself->type;
@@ -18065,7 +18065,7 @@ static void entry__87_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__87_3;
+  arguments->slots[1] = string__1ec9299aa0516bc0;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -18136,9 +18136,9 @@ static void entry__87_7(void) {
   // 789:   The directory "@(codeblocks_path)" already exists!
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__87_8;
+  arguments->slots[0] = string__3319ecea8934288e;
   arguments->slots[1] = frame->slots[0] /* codeblocks_path */;
-  arguments->slots[2] = string__87_9;
+  arguments->slots[2] = string__fb06ffd100386aab;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -18189,7 +18189,7 @@ static void entry__87_12(void) {
   // 790: ... ewriteln "build Code::Blocks project in " codeblocks_path
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__87_13;
+  arguments->slots[0] = string__334eb97199863420;
   arguments->slots[1] = frame->slots[0] /* codeblocks_path */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -18265,7 +18265,7 @@ static void cont__87_18(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__1 */;
-  arguments->slots[1] = string__71_13;
+  arguments->slots[1] = string__9e0aed8b5d287d54;
   result_count = 1;
   myself = get__without_suffix();
   func = myself->type;
@@ -18326,7 +18326,7 @@ static void cont__87_22(void) {
   // 796: $path_prefix dup("../" depth)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__87_23;
+  arguments->slots[0] = string__fa733c15f596be3;
   arguments->slots[1] = frame->slots[6] /* depth */;
   result_count = 1;
   myself = get__dup();
@@ -18343,9 +18343,9 @@ static void cont__87_24(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* codeblocks_path */;
-  arguments->slots[1] = string__87_25;
+  arguments->slots[1] = string__578a5af303e9cce;
   arguments->slots[2] = frame->slots[4] /* basename */;
-  arguments->slots[3] = string__87_26;
+  arguments->slots[3] = string__9e0ae98b5d707d49;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -18386,11 +18386,11 @@ static void cont__87_28(void) {
   // ...
   argument_count = 5;
   arguments = node_p;
-  arguments->slots[0] = string__87_29;
+  arguments->slots[0] = string__ae2cb2959270f10e;
   arguments->slots[1] = frame->slots[4] /* basename */;
-  arguments->slots[2] = string__87_30;
+  arguments->slots[2] = string__3a69827feeaedc87;
   arguments->slots[3] = frame->slots[4] /* basename */;
-  arguments->slots[4] = string__87_31;
+  arguments->slots[4] = string__65fb167cf21c35a9;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -18461,9 +18461,9 @@ static void entry__87_34(void) {
   // 824:         <Add library="@(filename)" />
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__87_35;
+  arguments->slots[0] = string__86909867946dc27b;
   arguments->slots[1] = frame->slots[0] /* filename */;
-  arguments->slots[2] = string__87_36;
+  arguments->slots[2] = string__ca5af8c3e83c305d;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -18559,23 +18559,23 @@ static void cont__87_42(void) {
   // ...
   argument_count = 17;
   arguments = node_p;
-  arguments->slots[0] = string__87_43;
+  arguments->slots[0] = string__4f8ac82e5b683b6f;
   arguments->slots[1] = frame->slots[7] /* path_prefix */;
-  arguments->slots[2] = string__87_44;
+  arguments->slots[2] = string__6ec73fb9d26dad91;
   arguments->slots[3] = frame->slots[7] /* path_prefix */;
-  arguments->slots[4] = string__87_45;
+  arguments->slots[4] = string__62c73cb6d2cd6da9;
   arguments->slots[5] = frame->slots[7] /* path_prefix */;
-  arguments->slots[6] = string__87_46;
+  arguments->slots[6] = string__e224568f04fadefb;
   arguments->slots[7] = frame->slots[11] /* temp__2 */;
-  arguments->slots[8] = string__87_47;
+  arguments->slots[8] = string__29a08e6f8046de11;
   arguments->slots[9] = frame->slots[7] /* path_prefix */;
-  arguments->slots[10] = string__87_48;
+  arguments->slots[10] = string__97a58959c957d32c;
   arguments->slots[11] = frame->slots[12] /* temp__3 */;
-  arguments->slots[12] = string__87_47;
+  arguments->slots[12] = string__29a08e6f8046de11;
   arguments->slots[13] = frame->slots[7] /* path_prefix */;
-  arguments->slots[14] = string__87_49;
+  arguments->slots[14] = string__629c968402fadffb;
   arguments->slots[15] = frame->slots[13] /* temp__4 */;
-  arguments->slots[16] = string__87_50;
+  arguments->slots[16] = string__517e18f604196bbc;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -18710,12 +18710,12 @@ static void cont__87_56(void) {
   // 851:       </Unit>
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__87_57;
+  arguments->slots[0] = string__5ce0e5ba1304a164;
   arguments->slots[1] = frame->slots[3] /* path_prefix */;
   arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* filename */;
-  arguments->slots[3] = string__87_58;
+  arguments->slots[3] = string__48b865872b902196;
   arguments->slots[4] = frame->slots[5] /* temp__2 */;
-  arguments->slots[5] = string__87_50;
+  arguments->slots[5] = string__517e18f604196bbc;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -18769,7 +18769,7 @@ static void cont__87_61(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[9])->contents /* buf */;
-  arguments->slots[1] = string__87_62;
+  arguments->slots[1] = string__1d1cedd7cdd611c4;
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
@@ -18832,7 +18832,7 @@ static void entry__88_1_build_library(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._action;
-  arguments->slots[1] = string__88_2;
+  arguments->slots[1] = string__421f52c90112c2b9;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -18864,7 +18864,7 @@ static void entry__88_4(void) {
   // 862: ... Error "Cannot run a directory!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__88_5;
+  arguments->slots[0] = string__c84d9037a41e8f73;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -19050,10 +19050,10 @@ static void entry__88_66(void) {
   // 907: "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
   argument_count = 5;
   arguments = node_p;
-  arguments->slots[0] = string__88_67;
+  arguments->slots[0] = string__f5937b2655b3cd24;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = frame->slots[1] /* so_version */;
-  arguments->slots[3] = string__81_28;
+  arguments->slots[3] = string__9e0aed8b5d187d17;
   arguments->slots[4] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -19090,10 +19090,10 @@ static void cont__88_69(void) {
   argument_count = 0;
   arguments = node_p;
   unfold(var._ld_options);
-  arguments->slots[argument_count++] = string__88_70;
+  arguments->slots[argument_count++] = string__b130095b1592409e;
   arguments->slots[argument_count++] = frame->slots[6] /* temp__1 */;
   unfold(frame->slots[7] /* temp__2 */);
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
   myself = var._CC;
@@ -19158,7 +19158,7 @@ static void cont__88_75(void) {
   // 917: "-lsim-@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__88_76;
+  arguments->slots[0] = string__7e1f542601d292fa;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -19181,10 +19181,10 @@ static void cont__88_77(void) {
   argument_count = 0;
   arguments = node_p;
   unfold(var._ld_options);
-  arguments->slots[argument_count++] = string__88_70;
+  arguments->slots[argument_count++] = string__b130095b1592409e;
   unfold(frame->slots[4] /* temp__1 */);
   arguments->slots[argument_count++] = frame->slots[5] /* temp__2 */;
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
   myself = var._CC;
@@ -19240,12 +19240,12 @@ static void entry__88_81(void) {
   // 926:   -Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR).dylib@
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__88_82;
+  arguments->slots[0] = string__33820b08e3b95a2a;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = frame->slots[1] /* so_version */;
-  arguments->slots[3] = string__71_46;
+  arguments->slots[3] = string__578a5af303e9ccc;
   arguments->slots[4] = var._MAJOR;
-  arguments->slots[5] = string__88_36;
+  arguments->slots[5] = string__6a1f556781f212b5;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -19274,7 +19274,7 @@ static void cont__88_84(void) {
   // 928: "-lsim-@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__88_76;
+  arguments->slots[0] = string__7e1f542601d292fa;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -19299,11 +19299,11 @@ static void cont__88_85(void) {
   argument_count = 0;
   arguments = node_p;
   unfold(var._ld_options);
-  arguments->slots[argument_count++] = string__88_86;
+  arguments->slots[argument_count++] = string__c6d9125d36413a91;
   arguments->slots[argument_count++] = frame->slots[6] /* temp__1 */;
   unfold(frame->slots[7] /* temp__2 */);
   arguments->slots[argument_count++] = frame->slots[8] /* temp__3 */;
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
   myself = var._CC;
@@ -19374,9 +19374,9 @@ static void cont__88_91(void) {
   argument_count = 0;
   arguments = node_p;
   unfold(var._ld_options);
-  arguments->slots[argument_count++] = string__88_70;
+  arguments->slots[argument_count++] = string__b130095b1592409e;
   unfold(frame->slots[4] /* temp__1 */);
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
   myself = var._CC;
@@ -19442,7 +19442,7 @@ static void entry__88_61(void) {
   // 900: ... ewriteln "linking dynamic library"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__88_62;
+  arguments->slots[0] = string__b9aef2a4efc3a1a8;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -19470,8 +19470,8 @@ static void cont__88_64(void) {
   // 903: "linux", "bsd"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_23;
-  arguments->slots[1] = string__81_24;
+  arguments->slots[0] = string__585ae883ea60d02f;
+  arguments->slots[1] = string__fa720c15db16ba8;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -19540,9 +19540,9 @@ static void cont__88_65(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   arguments->slots[2] = frame->slots[5] /* temp__3 */;
-  arguments->slots[3] = string__88_42;
+  arguments->slots[3] = string__561f538101f3c2b9;
   arguments->slots[4] = frame->slots[6] /* temp__4 */;
-  arguments->slots[5] = string__88_43;
+  arguments->slots[5] = string__7c1f538281f242b9;
   arguments->slots[6] = frame->slots[7] /* temp__5 */;
   arguments->slots[7] = frame->slots[8] /* temp__6 */;
   result_count = frame->caller_result_count;
@@ -19672,7 +19672,7 @@ static void entry__88_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__main_filename();
-  arguments->slots[1] = string__88_14;
+  arguments->slots[1] = string__84ca78485aeb98e;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -19846,8 +19846,8 @@ static void cont__88_25(void) {
   // 881: "linux", "bsd"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_23;
-  arguments->slots[1] = string__81_24;
+  arguments->slots[0] = string__585ae883ea60d02f;
+  arguments->slots[1] = string__fa720c15db16ba8;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -19882,9 +19882,9 @@ static void cont__88_26(void) {
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
   arguments->slots[1] = frame->slots[6] /* temp__2 */;
   arguments->slots[2] = frame->slots[7] /* temp__3 */;
-  arguments->slots[3] = string__88_42;
+  arguments->slots[3] = string__561f538101f3c2b9;
   arguments->slots[4] = frame->slots[8] /* temp__4 */;
-  arguments->slots[5] = string__88_43;
+  arguments->slots[5] = string__7c1f538281f242b9;
   arguments->slots[6] = frame->slots[9] /* temp__5 */;
   arguments->slots[7] = frame->slots[10] /* temp__6 */;
   result_count = 1;
@@ -19906,7 +19906,7 @@ static void entry__88_27(void) {
   // 882: ... ".so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_28;
+  arguments->slots[0] = string__9e0aed8b5d187d17;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -19922,7 +19922,7 @@ static void cont__88_28(void) {
   // 882: ... string("libsim-" base_filename version ".so.@(MAJOR)")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__88_29;
+  arguments->slots[0] = string__94340f9615d2e0d7;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
@@ -19959,9 +19959,9 @@ static void entry__88_31(void) {
   // 884: ... "-@(MAJOR).dll"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__71_46;
+  arguments->slots[0] = string__578a5af303e9ccc;
   arguments->slots[1] = var._MAJOR;
-  arguments->slots[2] = string__88_32;
+  arguments->slots[2] = string__9e0ae84b5d007d55;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -19976,7 +19976,7 @@ static void cont__88_33(void) {
   // 884: ... string("libsim-" base_filename version "-@(MAJOR).dll")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__88_29;
+  arguments->slots[0] = string__94340f9615d2e0d7;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
@@ -20013,9 +20013,9 @@ static void entry__88_35(void) {
   // 886: ... "-@(MAJOR).dylib"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__71_46;
+  arguments->slots[0] = string__578a5af303e9ccc;
   arguments->slots[1] = var._MAJOR;
-  arguments->slots[2] = string__88_36;
+  arguments->slots[2] = string__6a1f556781f212b5;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -20030,7 +20030,7 @@ static void cont__88_37(void) {
   // 886: ... string("libsim-" base_filename version "-@(MAJOR).dylib")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__88_29;
+  arguments->slots[0] = string__94340f9615d2e0d7;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
@@ -20067,7 +20067,7 @@ static void entry__88_39(void) {
   // 887: ... ".so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_28;
+  arguments->slots[0] = string__9e0aed8b5d187d17;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -20083,7 +20083,7 @@ static void cont__88_40(void) {
   // 887: ... string("libsim-" base_filename version ".so.@(MAJOR)")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__88_29;
+  arguments->slots[0] = string__94340f9615d2e0d7;
   arguments->slots[1] = frame->slots[0] /* base_filename */;
   arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* version */;
   arguments->slots[3] = frame->slots[3] /* temp__2 */;
@@ -20136,7 +20136,7 @@ static void entry__88_45(void) {
   // 889: ... ewriteln "build library " lib_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__88_46;
+  arguments->slots[0] = string__822587b3f48532f5;
   arguments->slots[1] = frame->slots[0] /* lib_filename */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -20439,7 +20439,7 @@ static void entry__89_19(void) {
   // 954: ... "compiling runtime module @(filename)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__89_20;
+  arguments->slots[0] = string__74150357c2230d49;
   arguments->slots[1] = frame->slots[0] /* filename */;
   result_count = 1;
   myself = get__std__string();
@@ -20496,7 +20496,7 @@ static void entry__89_1_maybe_compile_c_file(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
-  arguments->slots[1] = string__75_9;
+  arguments->slots[1] = string__2d7981f4e6782ba6;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -20512,7 +20512,7 @@ static void cont__89_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
-  arguments->slots[1] = string__77_85;
+  arguments->slots[1] = string__2d7981f4e6782baa;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -20583,9 +20583,9 @@ static void entry__89_6(void) {
   // 947:   @quot;@(c_filename)" does not exist!
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__89_7;
+  arguments->slots[0] = string__578a5af303e9cc3;
   arguments->slots[1] = frame->slots[0] /* c_filename */;
-  arguments->slots[2] = string__89_8;
+  arguments->slots[2] = string__7ef24f7974bbce09;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -20984,7 +20984,7 @@ static void cont__91_13(void) {
   // 971: ... dup(" " n-(i-1))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__91_14;
+  arguments->slots[0] = string__578a5af303e9cc1;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -21245,7 +21245,7 @@ static void cont__91_22(void) {
   // 975: ... dup("0" m-ac)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__91_23;
+  arguments->slots[0] = string__578a5af303e9cd1;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -21499,7 +21499,7 @@ static void cont__92_8(void) {
   // 990: dup(" " 12-length_of(description))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__91_14;
+  arguments->slots[0] = string__578a5af303e9cc1;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -21561,7 +21561,7 @@ static void cont__92_11(void) {
   arguments->slots[3] = character__58;
   arguments->slots[4] = frame->slots[3] /* temp__1 */;
   arguments->slots[5] = frame->slots[6] /* temp__4 */;
-  arguments->slots[6] = string__92_12;
+  arguments->slots[6] = string__2d7981f4e6082bb6;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -21615,9 +21615,9 @@ static void cont__92_15(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* description */;
-  arguments->slots[1] = string__92_16;
+  arguments->slots[1] = string__2d7981f4e6d82be5;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
-  arguments->slots[3] = string__92_12;
+  arguments->slots[3] = string__2d7981f4e6082bb6;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -21722,7 +21722,7 @@ static void entry__93_119(void) {
   // 1092: ... string("./" exe_filename)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__75_56;
+  arguments->slots[0] = string__2d7981f4e6782bea;
   arguments->slots[1] = frame->slots[0] /* exe_filename */;
   result_count = 1;
   myself = get__string();
@@ -21807,7 +21807,7 @@ static void cont__93_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
-  arguments->slots[1] = string__88_42;
+  arguments->slots[1] = string__561f538101f3c2b9;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -21851,7 +21851,7 @@ static void entry__93_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__93_6;
+  arguments->slots[1] = string__9e0ae80b5da07d5c;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -21918,7 +21918,7 @@ static void entry__93_10(void) {
   // 1014: ... ewriteln "build executable " exe_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__93_11;
+  arguments->slots[0] = string__2f54d80c63c08867;
   arguments->slots[1] = frame->slots[0] /* exe_filename */;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -21934,7 +21934,7 @@ static void cont__93_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__75_9;
+  arguments->slots[1] = string__2d7981f4e6782ba6;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -21950,7 +21950,7 @@ static void cont__93_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
-  arguments->slots[1] = string__77_85;
+  arguments->slots[1] = string__2d7981f4e6782baa;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -22260,7 +22260,7 @@ static void entry__93_26(void) {
   // 1027: ... some(".meta")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__71_16;
+  arguments->slots[0] = string__505aea43ea6cf036;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -22308,7 +22308,7 @@ static void entry__93_29(void) {
   // 1028: ... ewriteln "build main module " module_name
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__93_30;
+  arguments->slots[0] = string__b2077c434c011020;
   arguments->slots[1] = get__module_name();
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
@@ -22456,7 +22456,7 @@ static void entry__93_39(void) {
   // 1032: ... write_timing_info "saving" c_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__93_40;
+  arguments->slots[0] = string__741f540901ca42b0;
   arguments->slots[1] = frame->slots[0] /* c_filename */;
   result_count = frame->caller_result_count;
   myself = get__write_timing_info();
@@ -22507,7 +22507,7 @@ static void entry__93_43(void) {
   // 1034: ... write_timing_info "compiling" c_filename
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__93_44;
+  arguments->slots[0] = string__768424e48173e522;
   arguments->slots[1] = frame->slots[0] /* c_filename */;
   result_count = frame->caller_result_count;
   myself = get__write_timing_info();
@@ -22751,9 +22751,9 @@ static void entry__93_60(void) {
   // 1049: "runtime/linker", "runtime/memory", "runtime/debugger"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__93_61;
-  arguments->slots[1] = string__93_62;
-  arguments->slots[2] = string__93_63;
+  arguments->slots[0] = string__953de9f4b96a8381;
+  arguments->slots[1] = string__933de8f439d2438a;
+  arguments->slots[2] = string__5e90e5234c539c5c;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -23151,7 +23151,7 @@ static void entry__93_86(void) {
   // 1066: ... ewriteln "linking static executable"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__93_87;
+  arguments->slots[0] = string__1c7944ac5cc9c4ce;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -23171,11 +23171,11 @@ static void cont__93_88(void) {
   // 1073:   exe_filename
   argument_count = 0;
   arguments = node_p;
-  arguments->slots[argument_count++] = string__93_89;
-  arguments->slots[argument_count++] = string__93_90;
-  arguments->slots[argument_count++] = string__93_91;
+  arguments->slots[argument_count++] = string__5aa0e0654e0a7d41;
+  arguments->slots[argument_count++] = string__7490e2a4ce0a3d61;
+  arguments->slots[argument_count++] = string__14e71717a54948bc;
   unfold(((CELL *)frame->slots[0])->contents /* libs_and_files */);
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
   myself = var._CC;
@@ -23245,7 +23245,7 @@ static void entry__93_96(void) {
   // 1076: ... ewriteln "linking executable"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__93_97;
+  arguments->slots[0] = string__dca31b2eba5c04a5;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -23273,8 +23273,8 @@ static void cont__93_99(void) {
   // 1081: "linux", "bsd"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__81_23;
-  arguments->slots[1] = string__81_24;
+  arguments->slots[0] = string__585ae883ea60d02f;
+  arguments->slots[1] = string__fa720c15db16ba8;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -23311,7 +23311,7 @@ static void entry__93_101(void) {
   // 1081: ... "-l:libsim.so.@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__93_102;
+  arguments->slots[0] = string__de26b034bd2c8693;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -23342,7 +23342,7 @@ static void entry__93_104(void) {
   // 1082: ... "-lsim-@(MAJOR)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__88_76;
+  arguments->slots[0] = string__7e1f542601d292fa;
   arguments->slots[1] = var._MAJOR;
   result_count = 1;
   myself = get__std__string();
@@ -23381,7 +23381,7 @@ static void cont__93_106(void) {
   arguments = node_p;
   unfold(((CELL *)frame->slots[0])->contents /* libs_and_files */);
   arguments->slots[argument_count++] = frame->slots[5] /* temp__1 */;
-  arguments->slots[argument_count++] = string__74_6;
+  arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
   myself = var._CC;
@@ -23464,7 +23464,7 @@ static void entry__93_81(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* libs_and_files */;
-  arguments->slots[1] = string__93_82;
+  arguments->slots[1] = string__90bd5a08cc7284bc;
   result_count = 1;
   myself = get__push();
   func = myself->type;
@@ -23589,7 +23589,7 @@ static void entry__93_113(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._action;
-  arguments->slots[1] = string__88_2;
+  arguments->slots[1] = string__421f52c90112c2b9;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -23898,285 +23898,375 @@ int main(int argc, char **argv) {
   func__70_8 = create_function(entry__70_8, 1);
   func__70_4 = create_function(entry__70_4, 1);
   func__70_3 = create_function(entry__70_3, 0);
-  string__70_21 = from_latin_1_string("Cannot resolve required library \042", 33);
-  string__70_22 = from_latin_1_string("\042!", 2);
+  string__373a794ad67f2aca = from_latin_1_string("Cannot resolve required library \042", 33);
+  string__2d7981f4e6182be4 = from_latin_1_string("\042!", 2);
   func__70_1_resolve_filename = create_function(entry__70_1_resolve_filename, 1);
-  string__71_13 = from_latin_1_string(".sim", 4);
-  string__71_16 = from_latin_1_string(".meta", 5);
-  string__71_42 = from_latin_1_string("-common", 7);
-  string__71_46 = from_latin_1_string("-", 1);
-  string__71_58 = from_latin_1_string("The platform \042", 14);
-  string__71_59 = from_latin_1_string("\042 is not supported!", 19);
+  string__9e0aed8b5d287d54 = from_latin_1_string(".sim", 4);
+  string__505aea43ea6cf036 = from_latin_1_string(".meta", 5);
+  string__a9300e9315c23094 = from_latin_1_string("-common", 7);
+  string__578a5af303e9ccc = from_latin_1_string("-", 1);
+  string__bf5121a1ba54e344 = from_latin_1_string("The platform \042", 14);
+  string__b566882ea60ef100 = from_latin_1_string("\042 is not supported!", 19);
   func__71_1_add_module_infos = create_function(entry__71_1_add_module_infos, 2);
   func__72_1_lookup = create_function(entry__72_1_lookup, 2);
   func__73_1_CC = create_function(entry__73_1_CC, -1);
   func__74_2 = create_function(entry__74_2, 0);
-  string__74_5 = from_latin_1_string("-c", 2);
-  string__74_6 = from_latin_1_string("-o", 2);
-  string__74_10 = from_latin_1_string("Failed to compile ", 18);
-  string__74_11 = from_latin_1_string("\012", 1);
+  string__2d7981f4e6602ba6 = from_latin_1_string("-c", 2);
+  string__2d7981f4e6602baa = from_latin_1_string("-o", 2);
+  string__ca9b4802029a5965 = from_latin_1_string("Failed to compile ", 18);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   func__74_1_compile_c = create_function(entry__74_1_compile_c, 2);
-  string__75_9 = from_latin_1_string(".c", 2);
-  string__75_46 = from_latin_1_string("/// ", 4);
-  string__75_53 = from_latin_1_string("data", 4);
-  string__75_56 = from_latin_1_string("./", 2);
+  string__2d7981f4e6782ba6 = from_latin_1_string(".c", 2);
+  string__9c0afa8b5f187d19 = from_latin_1_string("/// ", 4);
+  string__a0ae90b5dc07d58 = from_latin_1_string("data", 4);
+  string__2d7981f4e6782bea = from_latin_1_string("./", 2);
   func__75_1_compile_meta_module = create_function(entry__75_1_compile_meta_module, 3);
   func__76_24 = create_function(entry__76_24, 0);
   func__76_23 = create_function(entry__76_23, 0);
-  string__76_32 = from_latin_1_string("sim-", 4);
-  string__76_39 = from_latin_1_string("require", 7);
-  string__76_40 = from_latin_1_string("link", 4);
+  string__240aeb0b5d087d14 = from_latin_1_string("sim-", 4);
+  string__984c0f90152bd09f = from_latin_1_string("require", 7);
+  string__1a0aeb0b5d107d52 = from_latin_1_string("link", 4);
   func__76_1_build_dependencies = create_function(entry__76_1_build_dependencies, -1);
   func__77_9 = create_function(entry__77_9, 0);
-  string__77_19 = from_latin_1_string("Failed to open file \042", 21);
-  string__77_43 = from_latin_1_string("__", 2);
-  string__77_48 = from_latin_1_string("build module ", 13);
-  string__77_81 = from_latin_1_string("No source file(s) for module \042", 30);
-  string__77_82 = from_latin_1_string("\042 found!", 8);
-  string__77_85 = from_latin_1_string(".o", 2);
-  string__77_136 = from_latin_1_string(" #", 2);
+  string__52b1d7d50d05f753 = from_latin_1_string("Failed to open file \042", 21);
+  string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
+  string__a85eb307b04e1ec9 = from_latin_1_string("build module ", 13);
+  string__1c48d17af91ab023 = from_latin_1_string("No source file(s) for module \042", 30);
+  string__4594ae5504f56841 = from_latin_1_string("\042 found!", 8);
+  string__2d7981f4e6782baa = from_latin_1_string(".o", 2);
+  string__2d7981f4e6082be6 = from_latin_1_string(" #", 2);
   func__77_1_compile_module = create_function(entry__77_1_compile_module, 2);
   func__78_1_compile_modules = create_function(entry__78_1_compile_modules, 2);
-  string__80_3 = from_latin_1_string("LD_LIBRARY_PATH", 15);
-  string__80_7 = from_latin_1_string("LD_LIBRARY_PATH=", 16);
-  string__80_11 = from_latin_1_string("included object files: ", 23);
-  string__80_14 = from_latin_1_string("needed libraries: ", 18);
+  string__21dcb95c2a4f4c6f = from_latin_1_string("LD_LIBRARY_PATH", 15);
+  string__cae1527a63790ed8 = from_latin_1_string("LD_LIBRARY_PATH=", 16);
+  string__4c84a8f87d97d1a3 = from_latin_1_string("included object files: ", 23);
+  string__d2a77fcc4263ea03 = from_latin_1_string("needed libraries: ", 18);
   func__80_2 = create_function(entry__80_2, 0);
   func__80_1_show_file_list = create_function(entry__80_1_show_file_list, 0);
-  string__81_8 = from_latin_1_string("-L", 2);
-  string__81_14 = from_latin_1_string("library paths: ", 15);
-  string__81_23 = from_latin_1_string("linux", 5);
-  string__81_24 = from_latin_1_string("bsd", 3);
-  string__81_27 = from_latin_1_string("-l:lib", 6);
-  string__81_28 = from_latin_1_string(".so.", 4);
-  string__81_31 = from_latin_1_string("-l", 2);
+  string__2d7981f4e6602b89 = from_latin_1_string("-L", 2);
+  string__47d536100241702d = from_latin_1_string("library paths: ", 15);
+  string__585ae883ea60d02f = from_latin_1_string("linux", 5);
+  string__fa720c15db16ba8 = from_latin_1_string("bsd", 3);
+  string__ec1f556601f292b5 = from_latin_1_string("-l:lib", 6);
+  string__9e0aed8b5d187d17 = from_latin_1_string(".so.", 4);
+  string__2d7981f4e6602ba9 = from_latin_1_string("-l", 2);
   func__81_1_library_paths_and_file_list = create_function(entry__81_1_library_paths_and_file_list, 0);
-  string__82_26 = from_latin_1_string("typedef", 7);
-  string__82_30 = from_latin_1_string("REGISTER", 8);
-  string__82_44 = from_latin_1_string("typedef struct", 14);
-  string__82_55 = from_latin_1_string("IMPORT ", 7);
+  string__b8540cde1593c09c = from_latin_1_string("typedef", 7);
+  string__800a0c585ff0632 = from_latin_1_string("REGISTER", 8);
+  string__ee0186bb316753e3 = from_latin_1_string("typedef struct", 14);
+  string__eca001441419c0da = from_latin_1_string("IMPORT ", 7);
   func__82_54 = create_function(entry__82_54, 0);
-  string__82_65 = from_latin_1_string("// INSERT HERE //", 17);
-  string__82_75 = from_latin_1_string("collecting imports", 18);
+  string__736c99bf90749400 = from_latin_1_string("// INSERT HERE //", 17);
+  string__868d47f2e5ba5079 = from_latin_1_string("collecting imports", 18);
   func__82_74 = create_function(entry__82_74, 0);
   func__82_1_create_imports = create_function(entry__82_1_create_imports, 1);
-  string__83_4 = from_latin_1_string("Expected a source code file!", 28);
+  string__ac6b0fa074ea65e7 = from_latin_1_string("Expected a source code file!", 28);
   func__83_3 = create_function(entry__83_3, 0);
-  string__83_8 = from_latin_1_string("Expected \042.sim\042 file extension in source filename!", 50);
+  string__e365e96bee331e9c = from_latin_1_string("Expected \042.sim\042 file extension in source filename!", 50);
   func__83_7 = create_function(entry__83_7, 0);
   func__83_1_compile_exe = create_function(entry__83_1_compile_exe, 1);
   func__84_2 = create_function(entry__84_2, 2);
   func__84_1_dump_source_or_check = create_function(entry__84_1_dump_source_or_check, 0);
-  string__85_19 = from_latin_1_string("writing C-source", 16);
+  string__b830f06b636224ab = from_latin_1_string("writing C-source", 16);
   func__85_18 = create_function(entry__85_18, 0);
   func__85_2 = create_function(entry__85_2, 2);
   func__85_1_print_c = create_function(entry__85_1_print_c, 0);
   func__86_3 = create_function(entry__86_3, 2);
-  string__86_18 = from_latin_1_string("list dependencies for ", 22);
+  string__7da4130a131d4ea3 = from_latin_1_string("list dependencies for ", 22);
   func__86_17 = create_function(entry__86_17, 0);
   func__86_16 = create_function(entry__86_16, 0);
   func__86_24 = create_function(entry__86_24, 2);
-  string__86_28 = from_latin_1_string("runtime/linker.c", 16);
-  string__86_30 = from_latin_1_string("runtime/memory.c", 16);
-  string__86_32 = from_latin_1_string("runtime/debugger.c", 18);
+  string__5aa0e0654e0a7d4d = from_latin_1_string("runtime/linker.c", 16);
+  string__7490e2a4ce0a3d6d = from_latin_1_string("runtime/memory.c", 16);
+  string__14e71717a54948b0 = from_latin_1_string("runtime/debugger.c", 18);
   func__86_23 = create_function(entry__86_23, 0);
   func__86_1_list_dependencies = create_function(entry__86_1_list_dependencies, 0);
-  string__87_3 = from_latin_1_string(".codeblocks", 11);
-  string__87_8 = from_latin_1_string("The directory \042", 15);
-  string__87_9 = from_latin_1_string("\042 already exists!\012", 18);
-  string__87_13 = from_latin_1_string("build Code::Blocks project in ", 30);
-  string__87_23 = from_latin_1_string("../", 3);
-  string__87_25 = from_latin_1_string("/", 1);
-  string__87_26 = from_latin_1_string(".cbp", 4);
-  string__87_29 = from_latin_1_string("<?xml version=\0421.0\042 encoding=\042UTF-8\042 standalone=\042yes\042 ?>\012<CodeBlocks_project_file>\012  <FileVersion major=\0421\042 minor=\0426\042 />\012  <Project>\012    <Option title=\042", 152);
-  string__87_30 = from_latin_1_string("\042 />\012    <Option pch_mode=\0422\042 />\012    <Option compiler=c_compiler() />\012    <Build>\012      <Target title=\042debug\042>\012        <Option output=\042bin/debug/", 145);
-  string__87_31 = from_latin_1_string("\042 prefix_auto=\0421\042 extension_auto=\0421\042 />\012        <Option object_output=\042obj/debug/\042 />\012        <Option type=\0421\042 />\012        <Option compiler=c_compiler() />\012        <Compiler>\012          <Add option=\042-g\042 />\012        </Compiler>\012      </Target>\012    </Build>\012    <Linker>\012", 266);
-  string__87_35 = from_latin_1_string("      <Add library=\042", 20);
-  string__87_36 = from_latin_1_string("\042 />\012", 5);
-  string__87_43 = from_latin_1_string("\012    </Linker>\012    <Compiler>\012      <Add option=\042-Wall\042 />\012    </Compiler>\012    <Unit filename=\042", 95);
-  string__87_44 = from_latin_1_string("runtime/common.h\042 />\012    <Unit filename=\042", 41);
-  string__87_45 = from_latin_1_string("runtime/linker.h\042 />\012    <Unit filename=\042", 41);
-  string__87_46 = from_latin_1_string("runtime/memory.c\042>\012      <Option compilerVar=\042", 46);
-  string__87_47 = from_latin_1_string("\042 />\012    </Unit>\012    <Unit filename=\042", 37);
-  string__87_48 = from_latin_1_string("runtime/debugger.c\042>\012      <Option compilerVar=\042", 48);
-  string__87_49 = from_latin_1_string("runtime/linker.c\042>\012      <Option compilerVar=\042", 46);
-  string__87_50 = from_latin_1_string("\042 />\012    </Unit>\012", 17);
-  string__87_57 = from_latin_1_string("\012    <Unit filename=\042", 21);
-  string__87_58 = from_latin_1_string("\042>\012      <Option compilerVar=\042", 30);
-  string__87_62 = from_latin_1_string("    <Extensions>\012      <code_completion />\012      <debugger />\012    </Extensions>\012  </Project>\012</CodeBlocks_project_file>\012", 120);
+  string__1ec9299aa0516bc0 = from_latin_1_string(".codeblocks", 11);
+  string__3319ecea8934288e = from_latin_1_string("The directory \042", 15);
+  string__fb06ffd100386aab = from_latin_1_string("\042 already exists!\012", 18);
+  string__334eb97199863420 = from_latin_1_string("build Code::Blocks project in ", 30);
+  string__fa733c15f596be3 = from_latin_1_string("../", 3);
+  string__578a5af303e9cce = from_latin_1_string("/", 1);
+  string__9e0ae98b5d707d49 = from_latin_1_string(".cbp", 4);
+  string__ae2cb2959270f10e = from_latin_1_string(
+    "<?xml version=\0421.0\042 encoding=\042UTF-8\042 standalone=\042yes\042 ?>\n"
+    "<CodeBlocks_project_file>\n"
+    "  <FileVersion major=\0421\042 minor=\0426\042 />\n"
+    "  <Project>\n"
+    "    <Option title=\042",
+    152);
+  string__3a69827feeaedc87 = from_latin_1_string(
+    "\042 />\n"
+    "    <Option pch_mode=\0422\042 />\n"
+    "    <Option compiler=c_compiler() />\n"
+    "    <Build>\n"
+    "      <Target title=\042debug\042>\n"
+    "        <Option output=\042bin/debug/",
+    145);
+  string__65fb167cf21c35a9 = from_latin_1_string(
+    "\042 prefix_auto=\0421\042 extension_auto=\0421\042 />\n"
+    "        <Option object_output=\042obj/debug/\042 />\n"
+    "        <Option type=\0421\042 />\n"
+    "        <Option compiler=c_compiler() />\n"
+    "        <Compiler>\n"
+    "          <Add option=\042-g\042 />\n"
+    "        </Compiler>\n"
+    "      </Target>\n"
+    "    </Build>\n"
+    "    <Linker>\n",
+    266);
+  string__86909867946dc27b = from_latin_1_string("      <Add library=\042", 20);
+  string__ca5af8c3e83c305d = from_latin_1_string("\042 />\012", 5);
+  string__4f8ac82e5b683b6f = from_latin_1_string(
+    "\n"
+    "    </Linker>\n"
+    "    <Compiler>\n"
+    "      <Add option=\042-Wall\042 />\n"
+    "    </Compiler>\n"
+    "    <Unit filename=\042",
+    95);
+  string__6ec73fb9d26dad91 = from_latin_1_string(
+    "runtime/common.h\042 />\n"
+    "    <Unit filename=\042",
+    41);
+  string__62c73cb6d2cd6da9 = from_latin_1_string(
+    "runtime/linker.h\042 />\n"
+    "    <Unit filename=\042",
+    41);
+  string__e224568f04fadefb = from_latin_1_string(
+    "runtime/memory.c\042>\n"
+    "      <Option compilerVar=\042",
+    46);
+  string__29a08e6f8046de11 = from_latin_1_string(
+    "\042 />\n"
+    "    </Unit>\n"
+    "    <Unit filename=\042",
+    37);
+  string__97a58959c957d32c = from_latin_1_string(
+    "runtime/debugger.c\042>\n"
+    "      <Option compilerVar=\042",
+    48);
+  string__629c968402fadffb = from_latin_1_string(
+    "runtime/linker.c\042>\n"
+    "      <Option compilerVar=\042",
+    46);
+  string__517e18f604196bbc = from_latin_1_string(
+    "\042 />\n"
+    "    </Unit>\n",
+    17);
+  string__5ce0e5ba1304a164 = from_latin_1_string(
+    "\n"
+    "    <Unit filename=\042",
+    21);
+  string__48b865872b902196 = from_latin_1_string(
+    "\042>\n"
+    "      <Option compilerVar=\042",
+    30);
+  string__1d1cedd7cdd611c4 = from_latin_1_string(
+    "    <Extensions>\n"
+    "      <code_completion />\n"
+    "      <debugger />\n"
+    "    </Extensions>\n"
+    "  </Project>\n"
+    "</CodeBlocks_project_file>\n",
+    120);
   func__87_2 = create_function(entry__87_2, 2);
   func__87_1_build_codeblocks_project = create_function(entry__87_1_build_codeblocks_project, 0);
-  string__88_2 = from_latin_1_string("simrun", 6);
-  string__88_5 = from_latin_1_string("Cannot run a directory!", 23);
+  string__421f52c90112c2b9 = from_latin_1_string("simrun", 6);
+  string__c84d9037a41e8f73 = from_latin_1_string("Cannot run a directory!", 23);
   func__88_4 = create_function(entry__88_4, 0);
   func__88_7 = create_function(entry__88_7, 0);
-  string__88_14 = from_latin_1_string("/VERSION", 8);
-  string__88_29 = from_latin_1_string("libsim-", 7);
-  string__88_32 = from_latin_1_string(".dll", 4);
-  string__88_36 = from_latin_1_string(".dylib", 6);
-  string__88_42 = from_latin_1_string("cygwin", 6);
-  string__88_43 = from_latin_1_string("darwin", 6);
-  string__88_46 = from_latin_1_string("build library ", 14);
+  string__84ca78485aeb98e = from_latin_1_string("/VERSION", 8);
+  string__94340f9615d2e0d7 = from_latin_1_string("libsim-", 7);
+  string__9e0ae84b5d007d55 = from_latin_1_string(".dll", 4);
+  string__6a1f556781f212b5 = from_latin_1_string(".dylib", 6);
+  string__561f538101f3c2b9 = from_latin_1_string("cygwin", 6);
+  string__7c1f538281f242b9 = from_latin_1_string("darwin", 6);
+  string__822587b3f48532f5 = from_latin_1_string("build library ", 14);
   func__88_58 = create_function(entry__88_58, 0);
-  string__88_62 = from_latin_1_string("linking dynamic library", 23);
+  string__b9aef2a4efc3a1a8 = from_latin_1_string("linking dynamic library", 23);
   func__88_61 = create_function(entry__88_61, 0);
-  string__88_67 = from_latin_1_string("-Wl,-soname,libsim-", 19);
-  string__88_70 = from_latin_1_string("-shared", 7);
-  string__88_76 = from_latin_1_string("-lsim-", 6);
-  string__88_82 = from_latin_1_string("-Wl,-install_name,libsim-", 25);
-  string__88_86 = from_latin_1_string("-dynamiclib", 11);
+  string__f5937b2655b3cd24 = from_latin_1_string("-Wl,-soname,libsim-", 19);
+  string__b130095b1592409e = from_latin_1_string("-shared", 7);
+  string__7e1f542601d292fa = from_latin_1_string("-lsim-", 6);
+  string__33820b08e3b95a2a = from_latin_1_string("-Wl,-install_name,libsim-", 25);
+  string__c6d9125d36413a91 = from_latin_1_string("-dynamiclib", 11);
   func__88_13 = create_function(entry__88_13, 0);
   func__88_1_build_library = create_function(entry__88_1_build_library, 0);
-  string__89_7 = from_latin_1_string("\042", 1);
-  string__89_8 = from_latin_1_string("\042 does not exist!\012", 18);
-  string__89_20 = from_latin_1_string("compiling runtime module ", 25);
+  string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
+  string__7ef24f7974bbce09 = from_latin_1_string("\042 does not exist!\012", 18);
+  string__74150357c2230d49 = from_latin_1_string("compiling runtime module ", 25);
   func__89_1_maybe_compile_c_file = create_function(entry__89_1_maybe_compile_c_file, 1);
-  string__91_14 = from_latin_1_string(" ", 1);
-  string__91_23 = from_latin_1_string("0", 1);
+  string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
+  string__578a5af303e9cd1 = from_latin_1_string("0", 1);
   func__91_1_format_number = create_function(entry__91_1_format_number, -1);
-  string__92_12 = from_latin_1_string(" s", 2);
-  string__92_16 = from_latin_1_string(": ", 2);
+  string__2d7981f4e6082bb6 = from_latin_1_string(" s", 2);
+  string__2d7981f4e6d82be5 = from_latin_1_string(": ", 2);
   func__92_1_sim2c__write_timing_info = create_function(entry__92_1_sim2c__write_timing_info, -1);
-  string__93_6 = from_latin_1_string(".exe", 4);
-  string__93_11 = from_latin_1_string("build executable ", 17);
-  string__93_30 = from_latin_1_string("build main module ", 18);
+  string__9e0ae80b5da07d5c = from_latin_1_string(".exe", 4);
+  string__2f54d80c63c08867 = from_latin_1_string("build executable ", 17);
+  string__b2077c434c011020 = from_latin_1_string("build main module ", 18);
   func__93_29 = create_function(entry__93_29, 0);
   func__93_32 = create_function(entry__93_32, 0);
-  string__93_40 = from_latin_1_string("saving", 6);
-  string__93_44 = from_latin_1_string("compiling", 9);
-  string__93_61 = from_latin_1_string("runtime/linker", 14);
-  string__93_62 = from_latin_1_string("runtime/memory", 14);
-  string__93_63 = from_latin_1_string("runtime/debugger", 16);
+  string__741f540901ca42b0 = from_latin_1_string("saving", 6);
+  string__768424e48173e522 = from_latin_1_string("compiling", 9);
+  string__953de9f4b96a8381 = from_latin_1_string("runtime/linker", 14);
+  string__933de8f439d2438a = from_latin_1_string("runtime/memory", 14);
+  string__5e90e5234c539c5c = from_latin_1_string("runtime/debugger", 16);
   func__93_65 = create_function(entry__93_65, 1);
   func__93_60 = create_function(entry__93_60, 0);
   func__93_77 = create_function(entry__93_77, 0);
-  string__93_82 = from_latin_1_string("/usr/lib/libprofiler.so.0", 25);
-  string__93_87 = from_latin_1_string("linking static executable", 25);
+  string__90bd5a08cc7284bc = from_latin_1_string("/usr/lib/libprofiler.so.0", 25);
+  string__1c7944ac5cc9c4ce = from_latin_1_string("linking static executable", 25);
   func__93_86 = create_function(entry__93_86, 0);
-  string__93_89 = from_latin_1_string("runtime/linker.o", 16);
-  string__93_90 = from_latin_1_string("runtime/memory.o", 16);
-  string__93_91 = from_latin_1_string("runtime/debugger.o", 18);
-  string__93_97 = from_latin_1_string("linking executable", 18);
+  string__5aa0e0654e0a7d41 = from_latin_1_string("runtime/linker.o", 16);
+  string__7490e2a4ce0a3d61 = from_latin_1_string("runtime/memory.o", 16);
+  string__14e71717a54948bc = from_latin_1_string("runtime/debugger.o", 18);
+  string__dca31b2eba5c04a5 = from_latin_1_string("linking executable", 18);
   func__93_96 = create_function(entry__93_96, 0);
-  string__93_102 = from_latin_1_string("-l:libsim.so.", 13);
+  string__de26b034bd2c8693 = from_latin_1_string("-l:libsim.so.", 13);
   func__93_101 = create_function(entry__93_101, 0);
   func__93_104 = create_function(entry__93_104, 0);
   func__93_113 = create_function(entry__93_113, 0);
   func__93_2 = create_function(entry__93_2, 2);
   func__93_1_build_executable = create_function(entry__93_1_build_executable, 0);
-  string__97_1 = from_latin_1_string("Copyright (C) 2020 by\012Dipl.-Ing. Michael Niederle\012\012This program is free software; you can redistribute it and/or modify\012it under the terms of the GNU General Public License, version 2, or\012(at your option) version 3.\012\012This program is distributed in the hope that it will be useful,\012but WITHOUT ANY WARRANTY; without even the implied warranty of\012MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\012GNU General Public License for more details.\012\012For details of the GNU General Public License see the accompanying\012files GPLv2.txt and GLPv3.txt or\012http://www.gnu.org/licenses/gpl-2.0.html\012http://www.gnu.org/licenses/gpl-3.0.html\012or write to the\012Free Software Foundation, Inc.,\01251 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\012", 742);
-  string__101_1 = from_latin_1_string(".", 1);
-  string__104_1 = from_latin_1_string("mkdir", 5);
-  string__105_1 = from_latin_1_string("SIMLIBPATH", 10);
-  string__106_1 = from_latin_1_string("SIMDATAPATH", 11);
+  string__a5542a556fe6f2ee = from_latin_1_string(
+    "Copyright (C) 2020 by\n"
+    "Dipl.-Ing. Michael Niederle\n"
+    "\n"
+    "This program is free software; you can redistribute it and/or modify\n"
+    "it under the terms of the GNU General Public License, version 2, or\n"
+    "(at your option) version 3.\n"
+    "\n"
+    "This program is distributed in the hope that it will be useful,\n"
+    "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+    "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n"
+    "GNU General Public License for more details.\n"
+    "\n"
+    "For details of the GNU General Public License see the accompanying\n"
+    "files GPLv2.txt and GLPv3.txt or\n"
+    "http://www.gnu.org/licenses/gpl-2.0.html\n"
+    "http://www.gnu.org/licenses/gpl-3.0.html\n"
+    "or write to the\n"
+    "Free Software Foundation, Inc.,\n"
+    "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n",
+    742);
+  string__578a5af303e9ccf = from_latin_1_string(".", 1);
+  string__5c5aea03ea80c025 = from_latin_1_string("mkdir", 5);
+  string__55d5804f0e895069 = from_latin_1_string("SIMLIBPATH", 10);
+  string__2058710183abbfe4 = from_latin_1_string("SIMDATAPATH", 11);
   func__107_2 = create_function(entry__107_2, 0);
-  string__107_5 = from_latin_1_string("/usr/local/share/simplicity-", 28);
-  string__107_7 = from_latin_1_string("/usr/share/simplicity-", 22);
+  string__15cc9b840ddb70d3 = from_latin_1_string("/usr/local/share/simplicity-", 28);
+  string__28172d76bc76b9f2 = from_latin_1_string("/usr/share/simplicity-", 22);
   func__107_4 = create_function(entry__107_4, 0);
   func__108_2 = create_function(entry__108_2, 0);
   func__108_4 = create_function(entry__108_4, 0);
-  string__110_1 = from_latin_1_string("posix", 5);
-  string__110_6 = from_latin_1_string("all", 3);
-  string__110_8 = from_latin_1_string("win", 3);
+  string__545aefc3ea81102f = from_latin_1_string("posix", 5);
+  string__fa720015d496ba0 = from_latin_1_string("all", 3);
+  string__fa725815d616ba2 = from_latin_1_string("win", 3);
   func__112_1 = create_function(entry__112_1, 0);
-  string__140_5 = from_latin_1_string("Missing command line arguments!", 31);
+  string__8d3c5e4b22d2f22b = from_latin_1_string("Missing command line arguments!", 31);
   func__140_4 = create_function(entry__140_4, 0);
   func__140_2 = create_function(entry__140_2, 0);
-  string__140_10 = from_latin_1_string("check-only", 10);
-  string__140_11 = from_latin_1_string("do not compile; just check for syntax errors\012", 45);
+  string__2b680b9e2e4fa558 = from_latin_1_string("check-only", 10);
+  string__8d1eb0934cb703aa = from_latin_1_string("do not compile; just check for syntax errors\012", 45);
   func__140_9 = create_function(entry__140_9, 0);
-  string__140_13 = from_latin_1_string("dump-trees", 10);
-  string__140_14 = from_latin_1_string("dump abstract syntax trees\012", 27);
+  string__1124317d33023452 = from_latin_1_string("dump-trees", 10);
+  string__d3c3199b9e37dd88 = from_latin_1_string("dump abstract syntax trees\012", 27);
   func__140_12 = create_function(entry__140_12, 0);
-  string__140_16 = from_latin_1_string("pretty-print", 12);
-  string__140_17 = from_latin_1_string("do not compile; just pretty print the source file\012", 50);
+  string__2eb9522bce550419 = from_latin_1_string("pretty-print", 12);
+  string__31ed31d8e6f28138 = from_latin_1_string("do not compile; just pretty print the source file\012", 50);
   func__140_15 = create_function(entry__140_15, 0);
-  string__140_19 = from_latin_1_string("print-simplified-source", 23);
-  string__140_20 = from_latin_1_string("do not generate a C-file; just print the simplified source text\012", 64);
+  string__23efc30ce16df2e = from_latin_1_string("print-simplified-source", 23);
+  string__c565f1870e113429 = from_latin_1_string("do not generate a C-file; just print the simplified source text\012", 64);
   func__140_18 = create_function(entry__140_18, 0);
-  string__140_22 = from_latin_1_string("print-c", 7);
-  string__140_23 = from_latin_1_string("print C source code for a single module\012", 40);
+  string__ae4408db97d25099 = from_latin_1_string("print-c", 7);
+  string__2623b8ba9cf2f994 = from_latin_1_string("print C source code for a single module\012", 40);
   func__140_21 = create_function(entry__140_21, 0);
-  string__140_25 = from_latin_1_string("time-passes", 11);
-  string__140_26 = from_latin_1_string("print running time for the individual compiler passes\012", 54);
+  string__a7e97d93a221bbf6 = from_latin_1_string("time-passes", 11);
+  string__fa3ca2557b3c0271 = from_latin_1_string("print running time for the individual compiler passes\012", 54);
   func__140_24 = create_function(entry__140_24, 0);
-  string__140_28 = from_latin_1_string("module-prefix", 13);
-  string__140_29 = from_latin_1_string("needed to compile a single file within a subdirectory;\012if the subdirectories are nested use slashes to separate\012the directory names\012", 132);
+  string__c95e7978381b7632 = from_latin_1_string("module-prefix", 13);
+  string__4cca41e5ff59895a = from_latin_1_string(
+    "needed to compile a single file within a subdirectory;\n"
+    "if the subdirectories are nested use slashes to separate\n"
+    "the directory names\n",
+    132);
   func__140_27 = create_function(entry__140_27, 0);
-  string__140_31 = from_latin_1_string("brief", 5);
-  string__140_32 = from_latin_1_string("show brief error messages\012", 26);
+  string__6e5ae943eae03031 = from_latin_1_string("brief", 5);
+  string__22ca0f65643a26b5 = from_latin_1_string("show brief error messages\012", 26);
   func__140_30 = create_function(entry__140_30, 0);
-  string__140_34 = from_latin_1_string("warnings", 8);
-  string__140_35 = from_latin_1_string("show warning messages\012", 22);
+  string__7c90ae5f04ed72b3 = from_latin_1_string("warnings", 8);
+  string__ea6d59fa9dcad709 = from_latin_1_string("show warning messages\012", 22);
   func__140_33 = create_function(entry__140_33, 0);
-  string__140_37 = from_latin_1_string("missing", 7);
-  string__140_38 = from_latin_1_string("inform about missing documentation\012", 35);
+  string__94300f9615cbf09d = from_latin_1_string("missing", 7);
+  string__aa7c4ea56fedf95b = from_latin_1_string("inform about missing documentation\012", 35);
   func__140_36 = create_function(entry__140_36, 0);
-  string__140_40 = from_latin_1_string("summary", 7);
-  string__140_41 = from_latin_1_string("show a statistical summary\012", 27);
+  string__a8480d98152a1083 = from_latin_1_string("summary", 7);
+  string__10671df6f7523277 = from_latin_1_string("show a statistical summary\012", 27);
   func__140_39 = create_function(entry__140_39, 0);
-  string__140_43 = from_latin_1_string("verbose", 7);
-  string__140_44 = from_latin_1_string("output verbose informations\012", 28);
+  string__b65c0e101523e09f = from_latin_1_string("verbose", 7);
+  string__2ba4a5a9cdae43b8 = from_latin_1_string("output verbose informations\012", 28);
   func__140_42 = create_function(entry__140_42, 0);
-  string__140_46 = from_latin_1_string("debug", 5);
-  string__140_47 = from_latin_1_string("show C-compiler and linker calls\012", 33);
+  string__405aeb83ea605030 = from_latin_1_string("debug", 5);
+  string__977692d258cc57f = from_latin_1_string("show C-compiler and linker calls\012", 33);
   func__140_45 = create_function(entry__140_45, 0);
-  string__140_49 = from_latin_1_string("debug_compiler", 14);
-  string__140_50 = from_latin_1_string("show internal debug messages of the Simplicity compiler\012", 56);
+  string__d13d99340b731341 = from_latin_1_string("debug_compiler", 14);
+  string__d30c0a59c3d26b04 = from_latin_1_string("show internal debug messages of the Simplicity compiler\012", 56);
   func__140_48 = create_function(entry__140_48, 0);
-  string__140_52 = from_latin_1_string("codeblocks", 10);
-  string__140_53 = from_latin_1_string("create Code::Blocks project\012", 28);
+  string__2b7008daa973b572 = from_latin_1_string("codeblocks", 10);
+  string__99c92c9b20cfd38 = from_latin_1_string("create Code::Blocks project\012", 28);
   func__140_51 = create_function(entry__140_51, 0);
-  string__140_55 = from_latin_1_string("extract-documentation", 21);
-  string__140_56 = from_latin_1_string("extract documentation encoded as HTML\012", 38);
+  string__7f0dce6ce0a2268e = from_latin_1_string("extract-documentation", 21);
+  string__140146cb87bc0040 = from_latin_1_string("extract documentation encoded as HTML\012", 38);
   func__140_54 = create_function(entry__140_54, 0);
-  string__140_58 = from_latin_1_string("list-dependencies", 17);
-  string__140_59 = from_latin_1_string("list all dependencies\012", 22);
+  string__211e9dd763481194 = from_latin_1_string("list-dependencies", 17);
+  string__1214925be130f2c = from_latin_1_string("list all dependencies\012", 22);
   func__140_57 = create_function(entry__140_57, 0);
-  string__140_61 = from_latin_1_string("rebuild", 7);
-  string__140_62 = from_latin_1_string("rebuild all source files\012", 25);
+  string__984c0f9015dae09e = from_latin_1_string("rebuild", 7);
+  string__6ce7f8f6c7e73eb4 = from_latin_1_string("rebuild all source files\012", 25);
   func__140_60 = create_function(entry__140_60, 0);
-  string__140_64 = from_latin_1_string("omit-meta", 9);
-  string__140_65 = from_latin_1_string("do not rebuild meta files\012", 26);
+  string__749427e68da7a564 = from_latin_1_string("omit-meta", 9);
+  string__93608261e3431133 = from_latin_1_string("do not rebuild meta files\012", 26);
   func__140_63 = create_function(entry__140_63, 0);
-  string__140_67 = from_latin_1_string("static", 6);
-  string__140_68 = from_latin_1_string("create statically linked executable\012", 36);
+  string__5a1f534901f312b4 = from_latin_1_string("static", 6);
+  string__b20e03a80d6db737 = from_latin_1_string("create statically linked executable\012", 36);
   func__140_66 = create_function(entry__140_66, 0);
-  string__140_70 = from_latin_1_string("profile", 7);
-  string__140_71 = from_latin_1_string("link with libprofiler\012", 22);
+  string__be440f9b95da309f = from_latin_1_string("profile", 7);
+  string__6f1f4f6107c9cdea = from_latin_1_string("link with libprofiler\012", 22);
   func__140_69 = create_function(entry__140_69, 0);
-  string__140_73 = from_latin_1_string("filename", 8);
-  string__140_74 = from_latin_1_string("the name of the source file or directory to compile\012", 52);
+  string__72b0ad9004bdc085 = from_latin_1_string("filename", 8);
+  string__bb8770c27da8f42f = from_latin_1_string("the name of the source file or directory to compile\012", 52);
   func__140_72 = create_function(entry__140_72, 0);
-  string__140_76 = from_latin_1_string("additional_libraries", 20);
-  string__140_77 = from_latin_1_string("the names of additional libraries (used for --extract-documentation)\012", 69);
+  string__af5ae49d07a6e408 = from_latin_1_string("additional_libraries", 20);
+  string__c8a7274dc08e5785 = from_latin_1_string("the names of additional libraries (used for --extract-documentation)\012", 69);
   func__140_75 = create_function(entry__140_75, 0);
   func__140_8 = create_function(entry__140_8, 0);
   func__144_1 = create_function(entry__144_1, 0);
-  string__150_1 = from_latin_1_string("-Wall", 5);
-  string__150_2 = from_latin_1_string("-Wno-unused-function", 20);
-  string__150_3 = from_latin_1_string("-Wno-unused-variable", 20);
-  string__150_4 = from_latin_1_string("-Wno-parentheses", 16);
-  string__150_5 = from_latin_1_string("-Wno-switch", 11);
-  string__150_6 = from_latin_1_string("-Wno-trigraphs", 14);
-  string__150_7 = from_latin_1_string("-O1", 3);
-  string__150_8 = from_latin_1_string("-fPIC", 5);
-  string__150_9 = from_latin_1_string("-fno-stack-protector", 20);
-  string__150_10 = from_latin_1_string("-falign-functions=16", 20);
-  string__151_2 = from_latin_1_string("gcc", 3);
-  string__151_5 = from_latin_1_string("-Wno-maybe-uninitialized", 24);
+  string__245aeb43eaacc03b = from_latin_1_string("-Wall", 5);
+  string__e381a5286a12b5a7 = from_latin_1_string("-Wno-unused-function", 20);
+  string__c9d1a7e66a0a17ac = from_latin_1_string("-Wno-unused-variable", 20);
+  string__1abcc193f1dac47a = from_latin_1_string("-Wno-parentheses", 16);
+  string__d3e88c522110dabb = from_latin_1_string("-Wno-switch", 11);
+  string__65a7cd1120033166 = from_latin_1_string("-Wno-trigraphs", 14);
+  string__fa733015c516bfd = from_latin_1_string("-O1", 3);
+  string__465ae703eb84c014 = from_latin_1_string("-fPIC", 5);
+  string__40ebeb253b72cf38 = from_latin_1_string("-fno-stack-protector", 20);
+  string__edf2e5a02a882fc3 = from_latin_1_string("-falign-functions=16", 20);
+  string__fa721815d316baf = from_latin_1_string("gcc", 3);
+  string__ecde9da404625e23 = from_latin_1_string("-Wno-maybe-uninitialized", 24);
   func__151_4 = create_function(entry__151_4, 0);
-  string__152_2 = from_latin_1_string("x86_32", 6);
-  string__152_3 = from_latin_1_string("x86_64", 6);
-  string__152_6 = from_latin_1_string("-msse2", 6);
-  string__152_8 = from_latin_1_string("-mfpmath=sse", 12);
+  string__f41f598c8327d2e5 = from_latin_1_string("x86_32", 6);
+  string__f41f598c830fd2e3 = from_latin_1_string("x86_64", 6);
+  string__7e1f52a6019282e5 = from_latin_1_string("-msse2", 6);
+  string__70d94c874a06872f = from_latin_1_string("-mfpmath=sse", 12);
   func__152_5 = create_function(entry__152_5, 0);
-  string__153_2 = from_latin_1_string("-I", 2);
+  string__2d7981f4e6602b8c = from_latin_1_string("-I", 2);
   func__153_1 = create_function(entry__153_1, 1);
   func__155_3 = create_function(entry__155_3, 1);
   func__157_3 = create_function(entry__157_3, 1);
-  string__175_3 = from_latin_1_string("Source file \042", 13);
-  string__175_4 = from_latin_1_string("\042 does not exist!", 17);
+  string__9b6a42533552c66c = from_latin_1_string("Source file \042", 13);
+  string__79c06fde49ef2e97 = from_latin_1_string("\042 does not exist!", 17);
   func__175_2 = create_function(entry__175_2, 0);
   func__190_1 = create_function(entry__190_1, 0);
   func__191_4 = create_function(entry__191_4, 0);

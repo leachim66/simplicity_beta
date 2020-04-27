@@ -822,7 +822,7 @@ static NODE *func__39_14;
 static void entry__39_14(void);
 static FRAME_INFO frame__39_14 = {1, {"handler"}};
 static void cont__39_15(void);
-static NODE *string__39_16;
+static NODE *string__66e3787d9d72e485;
 static void cont__39_17(void);
 static NODE *func__39_18;
 static void entry__39_18(void);
@@ -4122,7 +4122,7 @@ static void cont__39_15(void) {
   // 424: raise "invalid continuation"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__39_16;
+  arguments->slots[0] = string__66e3787d9d72e485;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -4505,7 +4505,7 @@ static void cont__41_28(void) {
   // 452: raise "invalid continuation"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__39_16;
+  arguments->slots[0] = string__66e3787d9d72e485;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -5547,7 +5547,7 @@ EXPORT void phase_2__basic__event(void) {
   func__37_46 = create_function(entry__37_46, 0);
   func__37_1_get_low_level_events = create_function(entry__37_1_get_low_level_events, 1);
   func__38_1_get_event_handler = create_function(entry__38_1_get_event_handler, 1);
-  string__39_16 = from_latin_1_string("invalid continuation", 20);
+  string__66e3787d9d72e485 = from_latin_1_string("invalid continuation", 20);
   func__39_18 = create_function(entry__39_18, 0);
   func__39_1_std__get_event = create_function(entry__39_1_std__get_event, 0);
   func__41_5 = create_function(entry__41_5, 0);

@@ -105,6 +105,10 @@ $sim2c::indents_of (!)
 %%sim2c::current_continuation_info undefined
   # stores debug information about the current continuation function
 
+%%sim2c::string_literals undefined
+  #
+    a table that matches string hashes to string literals
+
 # vtable contents
 
 $sim2c::vtable_entries

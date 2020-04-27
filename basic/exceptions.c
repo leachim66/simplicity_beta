@@ -525,7 +525,7 @@ static void cont__19_2(void);
 static NODE *func__19_3;
 static void entry__19_3(void);
 static FRAME_INFO frame__19_3 = {1, {"args"}};
-static NODE *string__19_4;
+static NODE *string__1700c489be0fe827;
 static void cont__19_5(void);
 static void cont__19_6(void);
 static void cont__19_7(void);
@@ -601,7 +601,7 @@ static void cont__23_2(void);
 static NODE *func__23_3;
 static void entry__23_3(void);
 static FRAME_INFO frame__23_3 = {0, {}};
-static NODE *string__23_4;
+static NODE *string__5e987c4b4673459c;
 static void cont__23_5(void);
 static void cont__23_6(void);
 static void cont__23_7(void);
@@ -639,7 +639,7 @@ static void cont__23_28(void);
 static NODE *func__23_29;
 static void entry__23_29(void);
 static FRAME_INFO frame__23_29 = {0, {}};
-static NODE *string__23_30;
+static NODE *string__c905c4bfa057bb6c;
 static void cont__23_31(void);
 static void cont__23_32(void);
 static void cont__23_33(void);
@@ -2161,7 +2161,7 @@ static void entry__19_3(void) {
   // 174: ewrite "RUNTIME ERROR: "
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__19_4;
+  arguments->slots[0] = string__1700c489be0fe827;
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
@@ -2877,7 +2877,7 @@ static void entry__23_3(void) {
   // 227: raise "Attempt to retain a resource outside a transaction!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__23_4;
+  arguments->slots[0] = string__5e987c4b4673459c;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -3332,7 +3332,7 @@ static void entry__23_29(void) {
   // 239: raise "Attempt to retain an nonexistant resource!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__23_30;
+  arguments->slots[0] = string__c905c4bfa057bb6c;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -3509,15 +3509,15 @@ EXPORT void phase_2__basic__exceptions(void) {
   func__16_1_std__ErrorMessage = create_function(entry__16_1_std__ErrorMessage, -1);
   func__17_1_std__Error = create_function(entry__17_1_std__Error, -1);
   func__18_1_crash_dump = create_function(entry__18_1_crash_dump, 0);
-  string__19_4 = from_latin_1_string("RUNTIME ERROR: ", 15);
+  string__1700c489be0fe827 = from_latin_1_string("RUNTIME ERROR: ", 15);
   func__19_8 = create_function(entry__19_8, 0);
   func__19_1_RuntimeError = create_function(entry__19_1_RuntimeError, -1);
   func__21_18 = create_function(entry__21_18, -1);
   func__21_1_std__try = create_function(entry__21_1_std__try, -1);
   func__22_1_std__transaction = create_function(entry__22_1_std__transaction, 1);
-  string__23_4 = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
+  string__5e987c4b4673459c = from_latin_1_string("Attempt to retain a resource outside a transaction!", 51);
   func__23_3 = create_function(entry__23_3, 0);
-  string__23_30 = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
+  string__c905c4bfa057bb6c = from_latin_1_string("Attempt to retain an nonexistant resource!", 42);
   func__23_29 = create_function(entry__23_29, 0);
   func__23_1_std__retain = create_function(entry__23_1_std__retain, 1);
 }

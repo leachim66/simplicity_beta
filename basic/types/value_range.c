@@ -378,8 +378,8 @@ static void cont__13_8(void);
 static void cont__13_9(void);
 static void cont__13_10(void);
 static void cont__13_11(void);
-static NODE *string__13_12;
-static NODE *string__13_13;
+static NODE *string__d62119844f001643;
+static NODE *string__578a5af303e9ceb;
 static void cont__13_14(void);
 void run__basic__types__value_range(void);
 
@@ -1214,15 +1214,15 @@ static void cont__13_11(void) {
   // 146:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
   argument_count = 9;
   arguments = node_p;
-  arguments->slots[0] = string__13_12;
+  arguments->slots[0] = string__d62119844f001643;
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
   arguments->slots[2] = frame->slots[5] /* temp__4 */;
   arguments->slots[3] = frame->slots[7] /* temp__6 */;
-  arguments->slots[4] = string__13_13;
+  arguments->slots[4] = string__578a5af303e9ceb;
   arguments->slots[5] = frame->slots[8] /* temp__7 */;
   arguments->slots[6] = frame->slots[10] /* temp__9 */;
   arguments->slots[7] = frame->slots[12] /* temp__11 */;
-  arguments->slots[8] = string__13_13;
+  arguments->slots[8] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -1274,8 +1274,8 @@ EXPORT void phase_2__basic__types__value_range(void) {
   func__10_1_types__value_range_equal = create_function(entry__10_1_types__value_range_equal, 2);
   func__11_1_types__value_range_contains = create_function(entry__11_1_types__value_range_contains, 2);
   func__12_1_types__value_range_for_each = create_function(entry__12_1_types__value_range_for_each, 2);
-  string__13_12 = from_latin_1_string("value_range\012", 12);
-  string__13_13 = from_latin_1_string("\012", 1);
+  string__d62119844f001643 = from_latin_1_string("value_range\012", 12);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   func__13_1_types__value_range_serialize = create_function(entry__13_1_types__value_range_serialize, -1);
 }
 

@@ -637,7 +637,7 @@ static NODE *get__std__is_a_vowel(void) {
 static NODE *func__28_1_types__character_serialize;
 static void entry__28_1_types__character_serialize(void);
 static FRAME_INFO frame__28_1_types__character_serialize = {3, {"self", "indent", "buf"}};
-static NODE *string__28_2;
+static NODE *string__578a5af303e9cc6;
 static void cont__28_3(void);
 static NODE *func__28_4;
 static void entry__28_4(void);
@@ -664,7 +664,7 @@ static void entry__28_16(void);
 static FRAME_INFO frame__28_16 = {2, {"buf", "self"}};
 static void cont__28_17(void);
 static void cont__28_18(void);
-static NODE *string__28_19;
+static NODE *string__fa728415fa96bb4;
 static void cont__28_20(void);
 static void cont__28_21(void);
 static NODE *func__28_22;
@@ -3554,7 +3554,7 @@ static void entry__28_1_types__character_serialize(void) {
     case 1: frame->slots[1] /* indent */ = undefined;
   }
   // 360: $$buf "'"
-  ((CELL *)frame->slots[2])->contents /* buf */ = string__28_2;
+  ((CELL *)frame->slots[2])->contents /* buf */ = string__578a5af303e9cc6;
   // 363: self < ' '
   argument_count = 2;
   arguments = node_p;
@@ -3836,7 +3836,7 @@ static void cont__28_18(void) {
   // 369: ... string("@@0x" hex(self.to_integer) ';')
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__28_19;
+  arguments->slots[0] = string__fa728415fa96bb4;
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
   arguments->slots[2] = character__59;
   result_count = 1;
@@ -4016,8 +4016,8 @@ EXPORT void phase_2__basic__types__character(void) {
   func__27_3 = create_function(entry__27_3, 0);
   func__27_4 = create_function(entry__27_4, 0);
   func__27_1_std__is_a_vowel = create_function(entry__27_1_std__is_a_vowel, 1);
-  string__28_2 = from_latin_1_string("'", 1);
-  string__28_19 = from_latin_1_string("@0x", 3);
+  string__578a5af303e9cc6 = from_latin_1_string("'", 1);
+  string__fa728415fa96bb4 = from_latin_1_string("@0x", 3);
   func__28_1_types__character_serialize = create_function(entry__28_1_types__character_serialize, -1);
 }
 

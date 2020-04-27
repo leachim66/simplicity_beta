@@ -724,7 +724,7 @@ static void cont__30_6(void);
 static NODE *func__30_7;
 static void entry__30_7(void);
 static FRAME_INFO frame__30_7 = {0, {}};
-static NODE *string__35_1;
+static NODE *string__1160a298062c3c9e;
 static NODE *func__36_1_types__insert_order_table_new_empty_collection;
 static void entry__36_1_types__insert_order_table_new_empty_collection(void);
 static FRAME_INFO frame__36_1_types__insert_order_table_new_empty_collection = {1, {"self"}};
@@ -983,7 +983,7 @@ static void cont__45_14(void);
 static NODE *func__45_15;
 static void entry__45_15(void);
 static FRAME_INFO frame__45_15 = {0, {}};
-static NODE *string__45_16;
+static NODE *string__d2f4ba5cf0563ffa;
 static void cont__45_17(void);
 static NODE *func__46_1_types__insert_order_table_insert_behind;
 static void entry__46_1_types__insert_order_table_insert_behind(void);
@@ -1631,7 +1631,7 @@ EXPORT void run__basic__types__insert_order_table(void) {
   // 446: register_collection_serializer "insert_order_table" empty_insert_order_table
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__35_1;
+  arguments->slots[0] = string__1160a298062c3c9e;
   arguments->slots[1] = get__empty_insert_order_table();
   result_count = 0;
   myself = get__register_collection_serializer();
@@ -8282,7 +8282,7 @@ static void entry__45_15(void) {
   // 421: ... raise "Invalid tree insert operation!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__45_16;
+  arguments->slots[0] = string__d2f4ba5cf0563ffa;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -8621,7 +8621,7 @@ static void entry__46_15(void) {
   // 444: ... raise "Invalid tree insert operation!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__45_16;
+  arguments->slots[0] = string__d2f4ba5cf0563ffa;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -8703,7 +8703,7 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   func__29_1_types__insert_order_table_private__set_item = create_function(entry__29_1_types__insert_order_table_private__set_item, 3);
   func__30_7 = create_function(entry__30_7, 0);
   func__30_1_types__insert_order_table_private__get_item = create_function(entry__30_1_types__insert_order_table_private__get_item, 2);
-  string__35_1 = from_latin_1_string("insert_order_table", 18);
+  string__1160a298062c3c9e = from_latin_1_string("insert_order_table", 18);
   func__36_1_types__insert_order_table_new_empty_collection = create_function(entry__36_1_types__insert_order_table_new_empty_collection, 1);
   func__38_1_std__insert_order_table = create_function(entry__38_1_std__insert_order_table, -1);
   func__39_1_types__insert_order_table_for_each = create_function(entry__39_1_types__insert_order_table_for_each, 2);
@@ -8712,7 +8712,7 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   func__42_1_types__insert_order_table_update_each = create_function(entry__42_1_types__insert_order_table_update_each, 2);
   func__43_1_types__insert_order_table_update_each_from_to = create_function(entry__43_1_types__insert_order_table_update_each_from_to, 4);
   func__44_1_types__insert_order_table_update_each_from_down_to = create_function(entry__44_1_types__insert_order_table_update_each_from_down_to, 4);
-  string__45_16 = from_latin_1_string("Invalid tree insert operation!", 30);
+  string__d2f4ba5cf0563ffa = from_latin_1_string("Invalid tree insert operation!", 30);
   func__45_15 = create_function(entry__45_15, 0);
   func__45_1_types__insert_order_table_insert_before = create_function(entry__45_1_types__insert_order_table_insert_before, 4);
   func__46_15 = create_function(entry__46_15, 0);
@@ -8793,7 +8793,7 @@ EXPORT void phase_4__basic__types__insert_order_table(void) {
   define_attribute("types", "insert_order_table", poly_idx__first_of, get__undefined());
   define_attribute("types", "insert_order_table", poly_idx__last_of, get__undefined());
   define_attribute("types", "insert_order_table", poly_idx__length_of, number__0);
-  define_attribute("types", "insert_order_table", poly_idx__serialization_tag_of, string__35_1);
+  define_attribute("types", "insert_order_table", poly_idx__serialization_tag_of, string__1160a298062c3c9e);
   define_method("types", "insert_order_table", poly_idx__new_empty_collection, func__36_1_types__insert_order_table_new_empty_collection);
   define_method("types", "insert_order_table", poly_idx__for_each, func__39_1_types__insert_order_table_for_each);
   define_method("types", "insert_order_table", poly_idx__for_each_from_to, func__40_1_types__insert_order_table_for_each_from_to);

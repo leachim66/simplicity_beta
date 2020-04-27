@@ -570,9 +570,9 @@ static void cont__16_22(void);
 static NODE *func__16_23;
 static void entry__16_23(void);
 static FRAME_INFO frame__16_23 = {0, {}};
-static NODE *string__16_24;
+static NODE *string__3cace614246a32e7;
 static void cont__16_25(void);
-static NODE *string__19_1;
+static NODE *string__fc7b2c52bb6f74d9;
 static NODE *get__std__empty_key_order_set(void) {
   return var.std__empty_key_order_set;
 }
@@ -3175,7 +3175,7 @@ static void entry__16_23(void) {
   // 153: Error "Attempt to set a set element to a nonboolean value!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__16_24;
+  arguments->slots[0] = string__3cace614246a32e7;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -3506,9 +3506,9 @@ EXPORT void phase_2__basic__types__key_order_set(void) {
   func__13_1_get_item = create_function(entry__13_1_get_item, 2);
   func__14_1_add_item = create_function(entry__14_1_add_item, 2);
   func__15_1_remove_item = create_function(entry__15_1_remove_item, 2);
-  string__16_24 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
+  string__3cace614246a32e7 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__16_23 = create_function(entry__16_23, 0);
-  string__19_1 = from_latin_1_string("key_order_set", 13);
+  string__fc7b2c52bb6f74d9 = from_latin_1_string("key_order_set", 13);
   func__21_1_std__key_order_set = create_function(entry__21_1_std__key_order_set, -1);
   func__22_1_for_each_item = create_function(entry__22_1_for_each_item, 2);
   func__23_1_types__key_order_set_for_each = create_function(entry__23_1_types__key_order_set_for_each, 2);
@@ -3564,7 +3564,7 @@ EXPORT void phase_4__basic__types__key_order_set(void) {
   define_type_function("types", "key_order_set", entry__16_1_types__key_order_set_, -1);
   define_attribute("types", "key_order_set", poly_idx__tree_of, get__undefined());
   define_attribute("types", "key_order_set", poly_idx__length_of, number__0);
-  define_attribute("types", "key_order_set", poly_idx__serialization_tag_of, string__19_1);
+  define_attribute("types", "key_order_set", poly_idx__serialization_tag_of, string__fc7b2c52bb6f74d9);
   define_method("types", "key_order_set", poly_idx__for_each, func__23_1_types__key_order_set_for_each);
 }
 

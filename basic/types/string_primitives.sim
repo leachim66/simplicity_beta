@@ -585,6 +585,23 @@ $types::octet_string/hash
     RETURN_SINGLE_RESULT(from_uint32(hash))
   }
 
+$types::octet_string/hash2
+  #
+    returns a more expensive 64-bit-integer hash value
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *self = ARGUMENTS(0);
+    uint8_t *buf = self->octet_string.data->buffer+self->octet_string.offset;
+    long len = self->octet_string.length;
+    uint64_t hash = 0xd39c20af14b5e607L;
+    long i;
+    for (i = 0; i < len; ++i) {
+      hash = (hash << 19) | (hash >> 45);
+      hash ^= buf[i];
+    }
+    RETURN_SINGLE_RESULT(from_uint64(hash))
+  }
+
 $types::quad_octet_string/hash
   #
     returns a numerical hash value
@@ -609,6 +626,23 @@ $types::quad_octet_string/hash
     hash *= 234256597;
     hash ^= hash >> 22 | hash << 10;
     RETURN_SINGLE_RESULT(from_uint32(hash))
+  }
+
+$types::quad_octet_string/hash2
+  #
+    returns a more expensive 64-bit-integer hash value
+  {
+    CHECK_ARGUMENTS(1)
+    NODE *self = ARGUMENTS(0);
+    uint32_t *buf = self->quad_octet_string.data->buffer+self->quad_octet_string.offset;
+    long len = self->quad_octet_string.length;
+    uint64_t hash = 0xd39c20af14b5e607L;
+    long i;
+    for (i = 0; i < len; ++i) {
+      hash = (hash << 19) | (hash >> 45);
+      hash ^= buf[i];
+    }
+    RETURN_SINGLE_RESULT(from_uint64(hash))
   }
 
 $types::string/to_string:

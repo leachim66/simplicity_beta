@@ -985,15 +985,15 @@ static void entry__81_2(void);
 static FRAME_INFO frame__81_2 = {2, {"arg", "info"}};
 static void cont__81_3(void);
 static void cont__81_4(void);
-static NODE *string__81_5;
-static NODE *string__81_6;
+static NODE *string__fa730415fc16bec;
+static NODE *string__578a5af303e9ceb;
 static void cont__81_7(void);
 static void cont__81_8(void);
 static void cont__81_9(void);
 static void cont__81_10(void);
 static void cont__81_11(void);
-static NODE *string__81_12;
-static NODE *string__81_13;
+static NODE *string__64b427a840d3b445;
+static NODE *string__2d7981f4e6002bcf;
 static void cont__81_14(void);
 static NODE *get__std__raise_error(void) {
   return var.std__raise_error;
@@ -1200,7 +1200,7 @@ static void cont__130_3(void);
 static NODE *func__130_4;
 static void entry__130_4(void);
 static FRAME_INFO frame__130_4 = {1, {"filename"}};
-static NODE *string__130_5;
+static NODE *string__578a5af303e9cc3;
 static void cont__130_6(void);
 static NODE *func__130_7;
 static void entry__130_7(void);
@@ -1209,26 +1209,26 @@ static void cont__130_8(void);
 static NODE *func__130_9;
 static void entry__130_9(void);
 static FRAME_INFO frame__130_9 = {1, {"num"}};
-static NODE *string__130_10;
-static NODE *string__130_11;
+static NODE *string__431630d095799867;
+static NODE *string__578a5af303e9cdf;
 static void cont__130_12(void);
 static NODE *func__130_13;
 static void entry__130_13(void);
 static FRAME_INFO frame__130_13 = {0, {}};
-static NODE *string__130_14;
+static NODE *string__bb740f9b15cb80c4;
 static NODE *func__130_15;
 static void entry__130_15(void);
 static FRAME_INFO frame__130_15 = {0, {}};
-static NODE *string__130_16;
+static NODE *string__70d8a89c0475db9e;
 static NODE *func__130_17;
 static void entry__130_17(void);
 static FRAME_INFO frame__130_17 = {0, {}};
-static NODE *string__130_18;
+static NODE *string__64d8a95c0445db9e;
 static NODE *func__131_1_WriteError;
 static void entry__131_1_WriteError(void);
 static FRAME_INFO frame__131_1_WriteError = {1, {"fd"}};
 static void cont__131_2(void);
-static NODE *string__131_3;
+static NODE *string__8138f7c6e352b20e;
 static void cont__131_4(void);
 static NODE *func__132_1_types__file_descriptor_write_to;
 static void entry__132_1_types__file_descriptor_write_to(void);
@@ -1361,7 +1361,7 @@ static void cont__135_16(void);
 static NODE *func__135_17;
 static void entry__135_17(void);
 static FRAME_INFO frame__135_17 = {1, {"filename"}};
-static NODE *string__135_18;
+static NODE *string__52b15fd51e05f634;
 static void cont__135_19(void);
 static void cont__135_20(void);
 static void cont__135_21(void);
@@ -1386,7 +1386,7 @@ static void cont__138_7(void);
 static NODE *func__138_8;
 static void entry__138_8(void);
 static FRAME_INFO frame__138_8 = {0, {}};
-static NODE *string__138_9;
+static NODE *string__9f84c1967610d391;
 static NODE *func__138_10;
 static void entry__138_10(void);
 static FRAME_INFO frame__138_10 = {4, {"return", "fd", "request", "value"}};
@@ -1410,8 +1410,8 @@ static void cont__141_7(void);
 static NODE *func__141_8;
 static void entry__141_8(void);
 static FRAME_INFO frame__141_8 = {1, {"filename"}};
-static NODE *string__141_9;
-static NODE *string__141_10;
+static NODE *string__98599da1f95f3503;
+static NODE *string__fa730c15f216bc6;
 static void cont__141_11(void);
 static NODE *func__141_12;
 static void entry__141_12(void);
@@ -1468,8 +1468,8 @@ static void cont__148_4(void);
 static NODE *func__148_5;
 static void entry__148_5(void);
 static FRAME_INFO frame__148_5 = {1, {"path"}};
-static NODE *string__148_6;
-static NODE *string__148_7;
+static NODE *string__6e87e13bb5f5e5b7;
+static NODE *string__2d7981f4e6182be4;
 static void cont__148_8(void);
 static NODE *get__std__change_directory(void) {
   return var.std__change_directory;
@@ -1483,15 +1483,15 @@ static NODE *func__150_2_fail;
 static void entry__150_2_fail(void);
 static FRAME_INFO frame__150_2_fail = {3, {"mode", "do_create_parent_folders", "path"}};
 static void cont__150_3(void);
-static NODE *string__150_4;
+static NODE *string__2d7981f4e6882baa;
 static void cont__150_5(void);
-static NODE *string__150_6;
+static NODE *string__580ae28b5c407d7c;
 static void cont__150_7(void);
-static NODE *string__150_8;
+static NODE *string__f8c406421419e0a9;
 static void cont__150_9(void);
-static NODE *string__150_10;
+static NODE *string__220ae90b5dc07d51;
 static void cont__150_11(void);
-static NODE *string__150_12;
+static NODE *string__5c5aea03ea80c025;
 static NODE *func__150_13_create_parent_folders;
 static void entry__150_13_create_parent_folders(void);
 static FRAME_INFO frame__150_13_create_parent_folders = {4, {"partial_path", "create_parent_folders", "mode", "fail"}};
@@ -1543,7 +1543,7 @@ static void cont__151_4(void);
 static NODE *func__151_5;
 static void entry__151_5(void);
 static FRAME_INFO frame__151_5 = {1, {"path"}};
-static NODE *string__151_6;
+static NODE *string__99b484ebf32a2eca;
 static void cont__151_7(void);
 static NODE *get__std__create_directory(void) {
   return var.std__create_directory;
@@ -1556,7 +1556,7 @@ static NODE *func__152_3;
 static void entry__152_3(void);
 static FRAME_INFO frame__152_3 = {1, {"pathname"}};
 static void cont__152_4(void);
-static NODE *string__152_5;
+static NODE *string__578a5af303e9cce;
 static void cont__152_6(void);
 static void cont__152_7(void);
 static void cont__152_8(void);
@@ -1565,11 +1565,11 @@ static void entry__152_9(void);
 static FRAME_INFO frame__152_9 = {1, {"pathname"}};
 static void cont__152_10(void);
 static void cont__152_11(void);
-static NODE *string__152_12;
+static NODE *string__2d7981f4e6702bea;
 static void cont__152_13(void);
 static void cont__152_14(void);
 static void cont__152_15(void);
-static NODE *string__152_16;
+static NODE *string__fa733815f596be3;
 static void cont__152_17(void);
 static void cont__152_18(void);
 static NODE *func__152_19;
@@ -1581,7 +1581,7 @@ static FRAME_INFO frame__152_20 = {3, {"pathname", "break", "orig_pathname"}};
 static void cont__152_21(void);
 static void cont__152_22(void);
 static void cont__152_23(void);
-static NODE *string__152_24;
+static NODE *string__9c0afacb5f107d16;
 static void cont__152_25(void);
 static void cont__152_26(void);
 static void cont__152_27(void);
@@ -1686,8 +1686,8 @@ static void cont__171_9(void);
 static void cont__171_10(void);
 static void cont__171_11(void);
 static void cont__171_12(void);
-static NODE *string__171_13;
-static NODE *string__171_14;
+static NODE *string__578a5af303e9ccf;
+static NODE *string__2d7981f4e6782beb;
 static void cont__171_15(void);
 static NODE *func__171_16;
 static void entry__171_16(void);
@@ -1844,14 +1844,14 @@ static NODE *get__std__readln(void) {
 static NODE *func__192_1_std__load;
 static void entry__192_1_std__load(void);
 static FRAME_INFO frame__192_1_std__load = {1, {"filename"}};
-static NODE *string__192_2;
+static NODE *string__92241b5897c380d5;
 static void cont__192_3(void);
 static NODE *func__192_4;
 static void entry__192_4(void);
 static FRAME_INFO frame__192_4 = {2, {"filename", "buf"}};
-static NODE *string__192_5;
-static NODE *string__192_6;
-static NODE *string__192_7;
+static NODE *string__2d7981f4e6602bb4;
+static NODE *string__2d7981f4e6602b8a;
+static NODE *string__578a5af303e9ccc;
 static void cont__192_8(void);
 static NODE *func__192_9;
 static void entry__192_9(void);
@@ -1859,8 +1859,8 @@ static FRAME_INFO frame__192_9 = {1, {"buf"}};
 static NODE *func__192_10;
 static void entry__192_10(void);
 static FRAME_INFO frame__192_10 = {1, {"filename"}};
-static NODE *string__192_11;
-static NODE *string__192_12;
+static NODE *string__a622e2e97612a669;
+static NODE *string__fa730c15f616bed;
 static void cont__192_13(void);
 static NODE *func__192_14;
 static void entry__192_14(void);
@@ -1889,7 +1889,7 @@ static void cont__193_12(void);
 static NODE *get__std__save(void) {
   return var.std__save;
 }
-static NODE *string__196_1;
+static NODE *string__2c0ae88b5d487d4d;
 static void cont__196_2(void);
 void run__basic__io(void);
 
@@ -2908,7 +2908,7 @@ EXPORT void run__basic__io(void) {
   // 43: extern $wget "wget"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__196_1;
+  arguments->slots[0] = string__2c0ae88b5d487d4d;
   result_count = 1;
   myself = get__extern();
   func = myself->type;
@@ -2996,9 +2996,9 @@ static void cont__81_4(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  arguments->slots[1] = string__81_5;
+  arguments->slots[1] = string__fa730415fc16bec;
   arguments->slots[2] = frame->slots[4] /* temp__3 */;
-  arguments->slots[3] = string__81_6;
+  arguments->slots[3] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3070,9 +3070,9 @@ static void cont__81_11(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* cmd */;
-  arguments->slots[1] = string__81_12;
+  arguments->slots[1] = string__64b427a840d3b445;
   arguments->slots[2] = frame->slots[4] /* temp__2 */;
-  arguments->slots[3] = string__81_13;
+  arguments->slots[3] = string__2d7981f4e6002bcf;
   arguments->slots[4] = ((CELL *)frame->slots[2])->contents /* info */;
   result_count = 1;
   myself = get__std__string();
@@ -4452,9 +4452,9 @@ static void entry__130_9(void) {
   // 1533: ... "<file descriptor @(num)>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__130_10;
+  arguments->slots[0] = string__431630d095799867;
   arguments->slots[1] = frame->slots[0] /* num */;
-  arguments->slots[2] = string__130_11;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -4484,7 +4484,7 @@ static void entry__130_13(void) {
   // 1530: ... -> "<stdin>"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__130_14;
+  arguments->slots[0] = string__bb740f9b15cb80c4;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -4499,7 +4499,7 @@ static void entry__130_15(void) {
   // 1531: ... -> "<stdout>"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__130_16;
+  arguments->slots[0] = string__70d8a89c0475db9e;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -4514,7 +4514,7 @@ static void entry__130_17(void) {
   // 1532: ... -> "<stderr>"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__130_18;
+  arguments->slots[0] = string__64d8a95c0445db9e;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -4531,9 +4531,9 @@ static void entry__130_4(void) {
   // 1526: ... "@quot;@(filename)@quot;"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__130_5;
+  arguments->slots[0] = string__578a5af303e9cc3;
   arguments->slots[1] = frame->slots[0] /* filename */;
-  arguments->slots[2] = string__130_5;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -4697,7 +4697,7 @@ static void cont__131_2(void) {
   // 1536: ... "Writing to file @(file_description(fd))"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__131_3;
+  arguments->slots[0] = string__8138f7c6e352b20e;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
   result_count = 1;
   myself = get__std__string();
@@ -6146,9 +6146,9 @@ static void entry__135_17(void) {
   // 1649:   Failed to save file "@(filename)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__135_18;
+  arguments->slots[0] = string__52b15fd51e05f634;
   arguments->slots[1] = frame->slots[0] /* filename */;
-  arguments->slots[2] = string__130_5;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -6359,7 +6359,7 @@ static void entry__138_8(void) {
   // 1700:   IOCTL failed!
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__138_9;
+  arguments->slots[0] = string__9f84c1967610d391;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -6634,9 +6634,9 @@ static void entry__141_8(void) {
   // 1758:   Failed to delete file "@(filename)@quot;!
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__141_9;
+  arguments->slots[0] = string__98599da1f95f3503;
   arguments->slots[1] = frame->slots[0] /* filename */;
-  arguments->slots[2] = string__141_10;
+  arguments->slots[2] = string__fa730c15f216bc6;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7332,9 +7332,9 @@ static void entry__148_5(void) {
   // 2034:   Failed to change current directory to "@(path)@quot;!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__148_6;
+  arguments->slots[0] = string__6e87e13bb5f5e5b7;
   arguments->slots[1] = frame->slots[0] /* path */;
-  arguments->slots[2] = string__148_7;
+  arguments->slots[2] = string__2d7981f4e6182be4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7778,7 +7778,7 @@ static void cont__150_3(void) {
   // 2071: ... string("0o" oct(mode))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__150_4;
+  arguments->slots[0] = string__2d7981f4e6882baa;
   arguments->slots[1] = frame->slots[5] /* temp__3 */;
   result_count = 1;
   myself = get__string();
@@ -7794,7 +7794,7 @@ static void cont__150_5(void) {
   // 2071: "MODE" = string("0o" oct(mode))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__150_6;
+  arguments->slots[0] = string__580ae28b5c407d7c;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7810,7 +7810,7 @@ static void cont__150_7(void) {
   // 2072: "PARENTS" = do_create_parent_folders
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__150_8;
+  arguments->slots[0] = string__f8c406421419e0a9;
   arguments->slots[1] = frame->slots[1] /* do_create_parent_folders */;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7826,7 +7826,7 @@ static void cont__150_9(void) {
   // 2073: "path" = path
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__150_10;
+  arguments->slots[0] = string__220ae90b5dc07d51;
   arguments->slots[1] = ((CELL *)frame->slots[2])->contents /* path */;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -7846,7 +7846,7 @@ static void cont__150_11(void) {
   // 2073:   "path" = path
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__150_12;
+  arguments->slots[0] = string__5c5aea03ea80c025;
   arguments->slots[1] = frame->slots[3] /* temp__1 */;
   arguments->slots[2] = frame->slots[6] /* temp__4 */;
   arguments->slots[3] = frame->slots[7] /* temp__5 */;
@@ -8110,9 +8110,9 @@ static void entry__151_5(void) {
   // 2095:   Failed to create directory "@(path)@quot;!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__151_6;
+  arguments->slots[0] = string__99b484ebf32a2eca;
   arguments->slots[1] = frame->slots[0] /* path */;
-  arguments->slots[2] = string__148_7;
+  arguments->slots[2] = string__2d7981f4e6182be4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8283,7 +8283,7 @@ static void cont__152_4(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = string__152_5;
+  arguments->slots[1] = string__578a5af303e9cce;
   arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* pathname */;
   result_count = 1;
   myself = get__string();
@@ -8374,7 +8374,7 @@ static void cont__152_11(void) {
   // 2106: ... many("//")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__152_12;
+  arguments->slots[0] = string__2d7981f4e6702bea;
   result_count = 1;
   myself = get__many();
   func = myself->type;
@@ -8390,7 +8390,7 @@ static void cont__152_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__152_5;
+  arguments->slots[1] = string__578a5af303e9cce;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -8421,8 +8421,8 @@ static void cont__152_15(void) {
   // 2107: ... "/./" = "/"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__152_16;
-  arguments->slots[1] = string__152_5;
+  arguments->slots[0] = string__fa733815f596be3;
+  arguments->slots[1] = string__578a5af303e9cce;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -8568,7 +8568,7 @@ static void cont__152_23(void) {
   arguments = node_p;
   arguments->slots[0] = character__47;
   arguments->slots[1] = frame->slots[5] /* temp__3 */;
-  arguments->slots[2] = string__152_24;
+  arguments->slots[2] = string__9c0afacb5f107d16;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -8584,7 +8584,7 @@ static void cont__152_25(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
-  arguments->slots[1] = string__152_5;
+  arguments->slots[1] = string__578a5af303e9cce;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -8653,7 +8653,7 @@ static void cont__152_30(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pathname */;
-  arguments->slots[1] = string__152_5;
+  arguments->slots[1] = string__578a5af303e9cce;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -9053,7 +9053,7 @@ static void cont__167_3(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__152_5;
+  arguments->slots[1] = string__578a5af303e9cce;
   arguments->slots[2] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__string();
@@ -9504,8 +9504,8 @@ static void cont__171_12(void) {
   // 2331: ".", ".."
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__171_13;
-  arguments->slots[1] = string__171_14;
+  arguments->slots[0] = string__578a5af303e9ccf;
+  arguments->slots[1] = string__2d7981f4e6782beb;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -10102,7 +10102,7 @@ static void entry__187_1_std__writeln(void) {
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
-  arguments->slots[argument_count++] = string__81_6;
+  arguments->slots[argument_count++] = string__578a5af303e9ceb;
   result_count = frame->caller_result_count;
   myself = get__write();
   func = myself->type;
@@ -10164,7 +10164,7 @@ static void entry__189_1_std__ewriteln(void) {
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
-  arguments->slots[argument_count++] = string__81_6;
+  arguments->slots[argument_count++] = string__578a5af303e9ceb;
   result_count = frame->caller_result_count;
   myself = get__ewrite();
   func = myself->type;
@@ -10250,7 +10250,7 @@ static void cont__191_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* chr */;
-  arguments->slots[1] = string__81_6;
+  arguments->slots[1] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -10407,9 +10407,9 @@ static void entry__192_10(void) {
   // 2649:   Load error ("@(filename)@quot;)!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__192_11;
+  arguments->slots[0] = string__a622e2e97612a669;
   arguments->slots[1] = frame->slots[0] /* filename */;
-  arguments->slots[2] = string__192_12;
+  arguments->slots[2] = string__fa730c15f616bed;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -10445,9 +10445,9 @@ static void entry__192_4(void) {
   // 2647: ... wget($buf "-q" "-O" "-" filename)
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__192_5;
-  arguments->slots[1] = string__192_6;
-  arguments->slots[2] = string__192_7;
+  arguments->slots[0] = string__2d7981f4e6602bb4;
+  arguments->slots[1] = string__2d7981f4e6602b8a;
+  arguments->slots[2] = string__578a5af303e9ccc;
   arguments->slots[3] = frame->slots[0] /* filename */;
   result_count = 2;
   myself = var._wget;
@@ -10512,7 +10512,7 @@ static void entry__192_1_std__load(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
-  arguments->slots[1] = string__192_2;
+  arguments->slots[1] = string__92241b5897c380d5;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -10946,10 +10946,10 @@ EXPORT void phase_2__basic__io(void) {
   number__0x1000000 = from_uint32(16777216U);
   unique__std__MODE = register_unique_item("std__MODE");
   unique__std__PARENTS = register_unique_item("std__PARENTS");
-  string__81_5 = from_latin_1_string(" = ", 3);
-  string__81_6 = from_latin_1_string("\012", 1);
-  string__81_12 = from_latin_1_string(" failed: ", 9);
-  string__81_13 = from_latin_1_string("!\012", 2);
+  string__fa730415fc16bec = from_latin_1_string(" = ", 3);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
+  string__64b427a840d3b445 = from_latin_1_string(" failed: ", 9);
+  string__2d7981f4e6002bcf = from_latin_1_string("!\012", 2);
   func__81_1_std__raise_error = create_function(entry__81_1_std__raise_error, -1);
   func__82_1_std__check_error = create_function(entry__82_1_std__check_error, -1);
   func__83_1_std__errno = create_function(entry__83_1_std__errno, 0);
@@ -10986,33 +10986,33 @@ EXPORT void phase_2__basic__io(void) {
   func__127_1_types__file_descriptor_read_some_bytes_from = create_function(entry__127_1_types__file_descriptor_read_some_bytes_from, 2);
   func__128_1_types__file_descriptor_read_from = create_function(entry__128_1_types__file_descriptor_read_from, -1);
   func__129_1_types__file_descriptor_write_some_bytes_to = create_function(entry__129_1_types__file_descriptor_write_some_bytes_to, 2);
-  string__130_5 = from_latin_1_string("\042", 1);
-  string__130_10 = from_latin_1_string("<file descriptor ", 17);
-  string__130_11 = from_latin_1_string(">", 1);
-  string__130_14 = from_latin_1_string("<stdin>", 7);
+  string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
+  string__431630d095799867 = from_latin_1_string("<file descriptor ", 17);
+  string__578a5af303e9cdf = from_latin_1_string(">", 1);
+  string__bb740f9b15cb80c4 = from_latin_1_string("<stdin>", 7);
   func__130_13 = create_function(entry__130_13, 0);
-  string__130_16 = from_latin_1_string("<stdout>", 8);
+  string__70d8a89c0475db9e = from_latin_1_string("<stdout>", 8);
   func__130_15 = create_function(entry__130_15, 0);
-  string__130_18 = from_latin_1_string("<stderr>", 8);
+  string__64d8a95c0445db9e = from_latin_1_string("<stderr>", 8);
   func__130_17 = create_function(entry__130_17, 0);
   func__130_1_file_description = create_function(entry__130_1_file_description, 1);
-  string__131_3 = from_latin_1_string("Writing to file ", 16);
+  string__8138f7c6e352b20e = from_latin_1_string("Writing to file ", 16);
   func__131_1_WriteError = create_function(entry__131_1_WriteError, 1);
   func__132_1_types__file_descriptor_write_to = create_function(entry__132_1_types__file_descriptor_write_to, -1);
   func__133_1_std__atomic_write_to = create_function(entry__133_1_std__atomic_write_to, -1);
   func__134_15 = create_function(entry__134_15, 0);
   func__134_1_std__load_file = create_function(entry__134_1_std__load_file, 1);
-  string__135_18 = from_latin_1_string("Failed to save file \042", 21);
+  string__52b15fd51e05f634 = from_latin_1_string("Failed to save file \042", 21);
   func__135_1_std__save_file = create_function(entry__135_1_std__save_file, 2);
   func__136_1_types__file_descriptor_flush = create_function(entry__136_1_types__file_descriptor_flush, 1);
   func__137_1_ioctl_value = create_function(entry__137_1_ioctl_value, 3);
-  string__138_9 = from_latin_1_string("IOCTL failed!\012", 14);
+  string__9f84c1967610d391 = from_latin_1_string("IOCTL failed!\012", 14);
   func__138_8 = create_function(entry__138_8, 0);
   func__138_1_types__file_descriptor_std__ioctl = create_function(entry__138_1_types__file_descriptor_std__ioctl, -1);
   func__139_1_types__file_descriptor_std__get_terminal_size = create_function(entry__139_1_types__file_descriptor_std__get_terminal_size, 1);
   func__140_1_posix_unlink = create_function(entry__140_1_posix_unlink, 1);
-  string__141_9 = from_latin_1_string("Failed to delete file \042", 23);
-  string__141_10 = from_latin_1_string("\042!\012", 3);
+  string__98599da1f95f3503 = from_latin_1_string("Failed to delete file \042", 23);
+  string__fa730c15f216bc6 = from_latin_1_string("\042!\012", 3);
   func__141_1_std__delete_file = create_function(entry__141_1_std__delete_file, 1);
   func__142_1_wait_for_io_ready = create_function(entry__142_1_wait_for_io_ready, 4);
   func__143_1_std__get_pid = create_function(entry__143_1_std__get_pid, 0);
@@ -11020,24 +11020,24 @@ EXPORT void phase_2__basic__io(void) {
   func__145_1_std__wait_for_io = create_function(entry__145_1_std__wait_for_io, -1);
   func__146_1_std__current_path = create_function(entry__146_1_std__current_path, 0);
   func__147_1_std__chdir = create_function(entry__147_1_std__chdir, 1);
-  string__148_6 = from_latin_1_string("Failed to change current directory to \042", 39);
-  string__148_7 = from_latin_1_string("\042!", 2);
+  string__6e87e13bb5f5e5b7 = from_latin_1_string("Failed to change current directory to \042", 39);
+  string__2d7981f4e6182be4 = from_latin_1_string("\042!", 2);
   func__148_1_std__change_directory = create_function(entry__148_1_std__change_directory, 1);
   func__149_1_clib_mkdir = create_function(entry__149_1_clib_mkdir, 2);
-  string__150_4 = from_latin_1_string("0o", 2);
-  string__150_6 = from_latin_1_string("MODE", 4);
-  string__150_8 = from_latin_1_string("PARENTS", 7);
-  string__150_10 = from_latin_1_string("path", 4);
-  string__150_12 = from_latin_1_string("mkdir", 5);
+  string__2d7981f4e6882baa = from_latin_1_string("0o", 2);
+  string__580ae28b5c407d7c = from_latin_1_string("MODE", 4);
+  string__f8c406421419e0a9 = from_latin_1_string("PARENTS", 7);
+  string__220ae90b5dc07d51 = from_latin_1_string("path", 4);
+  string__5c5aea03ea80c025 = from_latin_1_string("mkdir", 5);
   func__150_22 = create_function(entry__150_22, 0);
   func__150_36 = create_function(entry__150_36, 0);
   func__150_1_std__mkdir = create_function(entry__150_1_std__mkdir, -1);
-  string__151_6 = from_latin_1_string("Failed to create directory \042", 28);
+  string__99b484ebf32a2eca = from_latin_1_string("Failed to create directory \042", 28);
   func__151_1_std__create_directory = create_function(entry__151_1_std__create_directory, -1);
-  string__152_5 = from_latin_1_string("/", 1);
-  string__152_12 = from_latin_1_string("//", 2);
-  string__152_16 = from_latin_1_string("/./", 3);
-  string__152_24 = from_latin_1_string("/../", 4);
+  string__578a5af303e9cce = from_latin_1_string("/", 1);
+  string__2d7981f4e6702bea = from_latin_1_string("//", 2);
+  string__fa733815f596be3 = from_latin_1_string("/./", 3);
+  string__9c0afacb5f107d16 = from_latin_1_string("/../", 4);
   func__152_1_std__fullname = create_function(entry__152_1_std__fullname, 1);
   func__161_1_std__opendir = create_function(entry__161_1_std__opendir, 1);
   func__162_1_types__DIR_close = create_function(entry__162_1_types__DIR_close, 1);
@@ -11049,8 +11049,8 @@ EXPORT void phase_2__basic__io(void) {
   func__168_1_types__dirent_is_a_directory = create_function(entry__168_1_types__dirent_is_a_directory, 1);
   func__169_1_types__dirent_is_a_regular_file = create_function(entry__169_1_types__dirent_is_a_regular_file, 1);
   func__170_1_types__dirent_is_a_link = create_function(entry__170_1_types__dirent_is_a_link, 1);
-  string__171_13 = from_latin_1_string(".", 1);
-  string__171_14 = from_latin_1_string("..", 2);
+  string__578a5af303e9ccf = from_latin_1_string(".", 1);
+  string__2d7981f4e6782beb = from_latin_1_string("..", 2);
   func__171_18 = create_function(entry__171_18, 0);
   func__171_23 = create_function(entry__171_23, 2);
   func__171_1_std__directory = create_function(entry__171_1_std__directory, -1);
@@ -11067,15 +11067,15 @@ EXPORT void phase_2__basic__io(void) {
   func__189_1_std__ewriteln = create_function(entry__189_1_std__ewriteln, -1);
   func__190_1_std__read = create_function(entry__190_1_std__read, 1);
   func__191_1_std__readln = create_function(entry__191_1_std__readln, 0);
-  string__192_2 = from_latin_1_string("http://", 7);
-  string__192_5 = from_latin_1_string("-q", 2);
-  string__192_6 = from_latin_1_string("-O", 2);
-  string__192_7 = from_latin_1_string("-", 1);
-  string__192_11 = from_latin_1_string("Load error (\042", 13);
-  string__192_12 = from_latin_1_string("\042)!", 3);
+  string__92241b5897c380d5 = from_latin_1_string("http://", 7);
+  string__2d7981f4e6602bb4 = from_latin_1_string("-q", 2);
+  string__2d7981f4e6602b8a = from_latin_1_string("-O", 2);
+  string__578a5af303e9ccc = from_latin_1_string("-", 1);
+  string__a622e2e97612a669 = from_latin_1_string("Load error (\042", 13);
+  string__fa730c15f616bed = from_latin_1_string("\042)!", 3);
   func__192_1_std__load = create_function(entry__192_1_std__load, 1);
   func__193_1_std__save = create_function(entry__193_1_std__save, -1);
-  string__196_1 = from_latin_1_string("wget", 4);
+  string__2c0ae88b5d487d4d = from_latin_1_string("wget", 4);
 }
 
 static int already_run_phase_3 = false;

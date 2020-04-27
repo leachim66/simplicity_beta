@@ -770,7 +770,7 @@ static void cont__133_4(void);
 static NODE *func__133_5;
 static void entry__133_5(void);
 static FRAME_INFO frame__133_5 = {2, {"return", "size"}};
-static NODE *string__133_6;
+static NODE *string__578a5af303e9cd1;
 static void cont__133_7(void);
 static NODE *func__133_8;
 static void entry__133_8(void);
@@ -5050,7 +5050,7 @@ static void entry__133_5(void) {
   // 2221: ... dup("0" size)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__133_6;
+  arguments->slots[0] = string__578a5af303e9cd1;
   arguments->slots[1] = frame->slots[1] /* size */;
   result_count = 1;
   myself = get__dup();
@@ -5084,7 +5084,7 @@ static void entry__133_8(void) {
   // 2223: return "0"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__133_6;
+  arguments->slots[0] = string__578a5af303e9cd1;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
   func = myself->type;
@@ -5332,7 +5332,7 @@ static void entry__133_19(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
   arguments->slots[1] = frame->slots[2] /* size */;
-  arguments->slots[2] = string__133_6;
+  arguments->slots[2] = string__578a5af303e9cd1;
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
@@ -5443,7 +5443,7 @@ static void entry__134_5(void) {
   // 2249: ... dup("0" size)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__133_6;
+  arguments->slots[0] = string__578a5af303e9cd1;
   arguments->slots[1] = frame->slots[1] /* size */;
   result_count = 1;
   myself = get__dup();
@@ -5477,7 +5477,7 @@ static void entry__134_7(void) {
   // 2251: return "0"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__133_6;
+  arguments->slots[0] = string__578a5af303e9cd1;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
   func = myself->type;
@@ -5725,7 +5725,7 @@ static void entry__134_18(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
   arguments->slots[1] = frame->slots[2] /* size */;
-  arguments->slots[2] = string__133_6;
+  arguments->slots[2] = string__578a5af303e9cd1;
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
@@ -5836,7 +5836,7 @@ static void entry__135_5(void) {
   // 2277: ... dup("0" size)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__133_6;
+  arguments->slots[0] = string__578a5af303e9cd1;
   arguments->slots[1] = frame->slots[1] /* size */;
   result_count = 1;
   myself = get__dup();
@@ -5870,7 +5870,7 @@ static void entry__135_7(void) {
   // 2279: return "0"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__133_6;
+  arguments->slots[0] = string__578a5af303e9cd1;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
   func = myself->type;
@@ -6263,7 +6263,7 @@ static void entry__135_25(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
   arguments->slots[1] = frame->slots[2] /* size */;
-  arguments->slots[2] = string__133_6;
+  arguments->slots[2] = string__578a5af303e9cd1;
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
@@ -6577,7 +6577,7 @@ EXPORT void phase_2__basic__types__number(void) {
   func__129_1_types__real_to_string = create_function(entry__129_1_types__real_to_string, 1);
   func__131_1_std__is_odd = create_function(entry__131_1_std__is_odd, 1);
   func__132_1_std__is_even = create_function(entry__132_1_std__is_even, 1);
-  string__133_6 = from_latin_1_string("0", 1);
+  string__578a5af303e9cd1 = from_latin_1_string("0", 1);
   func__133_1_std__bin = create_function(entry__133_1_std__bin, -1);
   func__134_1_std__oct = create_function(entry__134_1_std__oct, -1);
   func__135_1_std__hex = create_function(entry__135_1_std__hex, -1);

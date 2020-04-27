@@ -420,7 +420,7 @@ static void cont__21_6(void);
 static NODE *func__21_7;
 static void entry__21_7(void);
 static FRAME_INFO frame__21_7 = {0, {}};
-static NODE *string__21_8;
+static NODE *string__c07c3ed1b0a33d89;
 static void cont__21_9(void);
 static NODE *func__21_10;
 static void entry__21_10(void);
@@ -1881,7 +1881,7 @@ static void entry__21_7(void) {
   // 783: ... raise "Invalid arguments!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__21_8;
+  arguments->slots[0] = string__c07c3ed1b0a33d89;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -2310,7 +2310,7 @@ EXPORT void phase_2__basic__exec(void) {
   func__18_1_posix_pipe = create_function(entry__18_1_posix_pipe, -1);
   func__19_1_std__exec = create_function(entry__19_1_std__exec, -1);
   func__20_1_std__call = create_function(entry__20_1_std__call, -1);
-  string__21_8 = from_latin_1_string("Invalid arguments!", 18);
+  string__c07c3ed1b0a33d89 = from_latin_1_string("Invalid arguments!", 18);
   func__21_7 = create_function(entry__21_7, 0);
   func__21_10 = create_function(entry__21_10, 1);
   func__21_1_std__pipe = create_function(entry__21_1_std__pipe, -1);

@@ -293,6 +293,7 @@ static struct {
   NODE *std__length_of;
   NODE *std__type_of;
   NODE *std__hash;
+  NODE *std__hash2;
   NODE *std__push;
   NODE *std__pop;
   NODE *std__peek;
@@ -583,6 +584,11 @@ static int poly_idx__std__hash;
 static void type__std__hash(void);
 static NODE *get__std__hash(void) {
   return var.std__hash;
+}
+static int poly_idx__std__hash2;
+static void type__std__hash2(void);
+static NODE *get__std__hash2(void) {
+  return var.std__hash2;
 }
 static int poly_idx__std__push;
 static void type__std__push(void);
@@ -995,79 +1001,80 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__length_of, NULL, 465, 465, 2, 15},
   {type__std__type_of, NULL, 479, 479, 2, 13},
   {type__std__hash, NULL, 486, 486, 2, 10},
-  {type__std__push, NULL, 499, 499, 2, 10},
-  {type__std__pop, NULL, 507, 507, 2, 9},
-  {type__std__peek, NULL, 515, 515, 2, 10},
-  {type__std__drop, NULL, 523, 523, 2, 10},
-  {type__std__put, NULL, 531, 531, 2, 9},
-  {type__std__get, NULL, 539, 539, 2, 9},
-  {type__std__next, NULL, 547, 547, 2, 10},
-  {type__std__append, NULL, 553, 553, 2, 12},
-  {type__std__insert_before, NULL, 561, 561, 2, 19},
-  {type__std__insert_behind, NULL, 574, 574, 2, 19},
-  {type__std__first_index_of, NULL, 587, 587, 2, 20},
-  {type__std__last_index_of, NULL, 594, 594, 2, 19},
-  {type__std__delete_at, NULL, 601, 601, 2, 15},
-  {type__std__union, NULL, 610, 610, 2, 11},
-  {type__std__intersection, NULL, 616, 616, 2, 18},
-  {type__std__match_character, NULL, 622, 622, 2, 21},
-  {type__std__match_string, NULL, 630, 630, 2, 18},
-  {type__std__search_character, NULL, 638, 638, 2, 22},
-  {type__std__search_string, NULL, 646, 646, 2, 19},
-  {type__std__match, NULL, 654, 654, 2, 11},
-  {type__std__search, NULL, 663, 663, 2, 12},
-  {type__std__matches, NULL, 671, 671, 2, 13},
-  {type__std__contains, NULL, 679, 679, 2, 14},
-  {type__std__has_prefix, NULL, 687, 687, 2, 16},
-  {type__std__has_suffix, NULL, 693, 693, 2, 16},
-  {type__std__without_prefix, NULL, 701, 701, 2, 20},
-  {type__std__without_suffix, NULL, 716, 716, 2, 20},
-  {type__std__before, NULL, 731, 731, 2, 12},
-  {type__std__truncate_from, NULL, 750, 750, 2, 19},
-  {type__std__behind, NULL, 770, 770, 2, 12},
-  {type__std__truncate_until, NULL, 789, 789, 2, 20},
-  {type__std__from, NULL, 809, 809, 2, 10},
-  {type__std__truncate_before, NULL, 828, 828, 2, 21},
-  {type__std__until, NULL, 848, 848, 2, 11},
-  {type__std__truncate_behind, NULL, 867, 867, 2, 21},
-  {type__std__between, NULL, 887, 887, 2, 13},
-  {type__std__range, NULL, 908, 908, 2, 11},
-  {type__std__merge, NULL, 935, 935, 2, 11},
-  {type__std__sort, NULL, 941, 941, 2, 10},
-  {type__std__close, NULL, 947, 947, 2, 11},
-  {type__std__write_some_bytes_to, NULL, 954, 954, 2, 25},
-  {type__std__write_to, NULL, 962, 962, 2, 14},
-  {type__std__flush, NULL, 968, 968, 2, 11},
-  {type__std__read_some_bytes_from, NULL, 972, 972, 2, 26},
-  {type__std__read_from, NULL, 980, 980, 2, 15},
-  {type__std__key_of, NULL, 986, 986, 2, 12},
-  {type__std__value_of, NULL, 992, 992, 2, 14},
-  {type__std__keys_of, NULL, 998, 998, 2, 13},
-  {type__std__values_of, NULL, 1004, 1004, 2, 15},
-  {type__std__lower_bound_of, NULL, 1010, 1010, 2, 20},
-  {type__std__upper_bound_of, NULL, 1016, 1016, 2, 20},
-  {type__std__for_each_from_to, NULL, 1022, 1022, 2, 22},
-  {type__std__for_each_from_down_to, NULL, 1029, 1029, 2, 27},
-  {type__std__for_each, NULL, 1036, 1036, 2, 14},
-  {type__std__for_each_downwards, NULL, 1043, 1043, 2, 24},
-  {type__std__update_each_from_to, NULL, 1050, 1050, 2, 25},
-  {type__std__update_each_from_down_to, NULL, 1057, 1057, 2, 30},
-  {type__std__update_each, NULL, 1064, 1064, 2, 17},
-  {type__std__update_each_downwards, NULL, 1071, 1071, 2, 27},
-  {type__std__for_each_pair, NULL, 1078, 1078, 2, 19},
-  {type__std__new_empty_collection, NULL, 1086, 1086, 2, 26},
-  {type__std__filter, NULL, 1092, 1092, 2, 12},
-  {type__std__apply, NULL, 1098, 1098, 2, 11},
-  {type__std__map, NULL, 1106, 1106, 2, 9},
-  {type__std__dup, NULL, 1114, 1114, 2, 9},
-  {type__std__interleave, NULL, 1120, 1120, 2, 16},
-  {type__std__stop, NULL, 1124, 1124, 2, 10},
-  {type__std__get_file_descriptors, NULL, 1128, 1128, 2, 26},
-  {type__std__handle_requests, NULL, 1135, 1135, 2, 21},
-  {type__std__select, NULL, 1142, 1142, 2, 12},
-  {type__std__delete, NULL, 1148, 1148, 2, 12},
-  {type__std__update, NULL, 1154, 1154, 2, 12},
-  {type__std__call_command, NULL, 1160, 1160, 2, 18},
+  {type__std__hash2, NULL, 499, 499, 2, 11},
+  {type__std__push, NULL, 512, 512, 2, 10},
+  {type__std__pop, NULL, 520, 520, 2, 9},
+  {type__std__peek, NULL, 528, 528, 2, 10},
+  {type__std__drop, NULL, 536, 536, 2, 10},
+  {type__std__put, NULL, 544, 544, 2, 9},
+  {type__std__get, NULL, 552, 552, 2, 9},
+  {type__std__next, NULL, 560, 560, 2, 10},
+  {type__std__append, NULL, 566, 566, 2, 12},
+  {type__std__insert_before, NULL, 574, 574, 2, 19},
+  {type__std__insert_behind, NULL, 587, 587, 2, 19},
+  {type__std__first_index_of, NULL, 600, 600, 2, 20},
+  {type__std__last_index_of, NULL, 607, 607, 2, 19},
+  {type__std__delete_at, NULL, 614, 614, 2, 15},
+  {type__std__union, NULL, 623, 623, 2, 11},
+  {type__std__intersection, NULL, 629, 629, 2, 18},
+  {type__std__match_character, NULL, 635, 635, 2, 21},
+  {type__std__match_string, NULL, 643, 643, 2, 18},
+  {type__std__search_character, NULL, 651, 651, 2, 22},
+  {type__std__search_string, NULL, 659, 659, 2, 19},
+  {type__std__match, NULL, 667, 667, 2, 11},
+  {type__std__search, NULL, 676, 676, 2, 12},
+  {type__std__matches, NULL, 684, 684, 2, 13},
+  {type__std__contains, NULL, 692, 692, 2, 14},
+  {type__std__has_prefix, NULL, 700, 700, 2, 16},
+  {type__std__has_suffix, NULL, 706, 706, 2, 16},
+  {type__std__without_prefix, NULL, 714, 714, 2, 20},
+  {type__std__without_suffix, NULL, 729, 729, 2, 20},
+  {type__std__before, NULL, 744, 744, 2, 12},
+  {type__std__truncate_from, NULL, 763, 763, 2, 19},
+  {type__std__behind, NULL, 783, 783, 2, 12},
+  {type__std__truncate_until, NULL, 802, 802, 2, 20},
+  {type__std__from, NULL, 822, 822, 2, 10},
+  {type__std__truncate_before, NULL, 841, 841, 2, 21},
+  {type__std__until, NULL, 861, 861, 2, 11},
+  {type__std__truncate_behind, NULL, 880, 880, 2, 21},
+  {type__std__between, NULL, 900, 900, 2, 13},
+  {type__std__range, NULL, 921, 921, 2, 11},
+  {type__std__merge, NULL, 948, 948, 2, 11},
+  {type__std__sort, NULL, 954, 954, 2, 10},
+  {type__std__close, NULL, 960, 960, 2, 11},
+  {type__std__write_some_bytes_to, NULL, 967, 967, 2, 25},
+  {type__std__write_to, NULL, 975, 975, 2, 14},
+  {type__std__flush, NULL, 981, 981, 2, 11},
+  {type__std__read_some_bytes_from, NULL, 985, 985, 2, 26},
+  {type__std__read_from, NULL, 993, 993, 2, 15},
+  {type__std__key_of, NULL, 999, 999, 2, 12},
+  {type__std__value_of, NULL, 1005, 1005, 2, 14},
+  {type__std__keys_of, NULL, 1011, 1011, 2, 13},
+  {type__std__values_of, NULL, 1017, 1017, 2, 15},
+  {type__std__lower_bound_of, NULL, 1023, 1023, 2, 20},
+  {type__std__upper_bound_of, NULL, 1029, 1029, 2, 20},
+  {type__std__for_each_from_to, NULL, 1035, 1035, 2, 22},
+  {type__std__for_each_from_down_to, NULL, 1042, 1042, 2, 27},
+  {type__std__for_each, NULL, 1049, 1049, 2, 14},
+  {type__std__for_each_downwards, NULL, 1056, 1056, 2, 24},
+  {type__std__update_each_from_to, NULL, 1063, 1063, 2, 25},
+  {type__std__update_each_from_down_to, NULL, 1070, 1070, 2, 30},
+  {type__std__update_each, NULL, 1077, 1077, 2, 17},
+  {type__std__update_each_downwards, NULL, 1084, 1084, 2, 27},
+  {type__std__for_each_pair, NULL, 1091, 1091, 2, 19},
+  {type__std__new_empty_collection, NULL, 1099, 1099, 2, 26},
+  {type__std__filter, NULL, 1105, 1105, 2, 12},
+  {type__std__apply, NULL, 1111, 1111, 2, 11},
+  {type__std__map, NULL, 1119, 1119, 2, 9},
+  {type__std__dup, NULL, 1127, 1127, 2, 9},
+  {type__std__interleave, NULL, 1133, 1133, 2, 16},
+  {type__std__stop, NULL, 1137, 1137, 2, 10},
+  {type__std__get_file_descriptors, NULL, 1141, 1141, 2, 26},
+  {type__std__handle_requests, NULL, 1148, 1148, 2, 21},
+  {type__std__select, NULL, 1155, 1155, 2, 12},
+  {type__std__delete, NULL, 1161, 1161, 2, 12},
+  {type__std__update, NULL, 1167, 1167, 2, 12},
+  {type__std__call_command, NULL, 1173, 1173, 2, 18},
   {run__basic__polymorphic_functions, NULL, }
 };
 
@@ -2012,6 +2019,28 @@ static void type__std__hash(void) {
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
       set_attribute_value(temp->attributes, poly_idx__std__hash, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
+static void type__std__hash2(void) {
+  myself = get_attribute(arguments->slots[0], poly_idx__std__hash2);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__std__hash2, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -3711,6 +3740,7 @@ EXPORT void collect__basic__polymorphic_functions(void) {
   var.std__length_of = collect_node(var.std__length_of);
   var.std__type_of = collect_node(var.std__type_of);
   var.std__hash = collect_node(var.std__hash);
+  var.std__hash2 = collect_node(var.std__hash2);
   var.std__push = collect_node(var.std__push);
   var.std__pop = collect_node(var.std__pop);
   var.std__peek = collect_node(var.std__peek);
@@ -3835,6 +3865,7 @@ EXPORT void phase_1__basic__polymorphic_functions(void) {
   define_privileged_polymorphic_function("std", "length_of", get__std__length_of, 4, &var.std__length_of);
   define_polymorphic_function_with_setter("std", "type_of", get__std__type_of, &poly_idx__std__type_of, &var.std__type_of);
   define_polymorphic_function("std", "hash", get__std__hash, &poly_idx__std__hash, &var.std__hash);
+  define_polymorphic_function("std", "hash2", get__std__hash2, &poly_idx__std__hash2, &var.std__hash2);
   define_polymorphic_function("std", "push", get__std__push, &poly_idx__std__push, &var.std__push);
   define_polymorphic_function("std", "pop", get__std__pop, &poly_idx__std__pop, &var.std__pop);
   define_polymorphic_function("std", "peek", get__std__peek, &poly_idx__std__peek, &var.std__peek);
@@ -3983,6 +4014,7 @@ EXPORT void phase_5__basic__polymorphic_functions(void) {
   assign_value(&var.std__length_of, create_function(type__std__length_of, -1));
   assign_value(&var.std__type_of, create_function(type__std__type_of, -1));
   assign_value(&var.std__hash, create_function(type__std__hash, -1));
+  assign_value(&var.std__hash2, create_function(type__std__hash2, -1));
   assign_value(&var.std__push, create_function(type__std__push, -1));
   assign_value(&var.std__pop, create_function(type__std__pop, -1));
   assign_value(&var.std__peek, create_function(type__std__peek, -1));

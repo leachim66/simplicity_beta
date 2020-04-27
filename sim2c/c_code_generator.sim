@@ -1028,7 +1028,31 @@ $register_string: (str)
   $len length_of(str)
   if len == 0 (-> "empty_string"):
     inc &index
-    $name "string@(suffix)_@(index)"
+    $$name hash2(str).hex
+    $$stored string_literals(name)
+    if
+      stored.is_defined:
+	if stored != str:
+	  # there is a collision
+	  if stored.is_a_string:
+	    # convert a single string into a list containing this string
+	    !stored list(stored)
+	  do: (-> break)
+	    # search for string in the collision list
+	    for_each stored: (idx stored_str)
+	      if str == stored_str:
+		# if it's not the first add a collision suffix
+		if idx > 1: string &name '_' idx
+		break
+
+	    # add a new entry to the collision list
+
+	    push &stored str
+	    !string_literals(name) stored
+	    string &name '_' length_of(stored) # append the collision suffix
+      :
+	!string_literals(name) str
+    append "string__" &name # prepend the literal prefix
     write_to_declarations "static NODE *@(name);@nl;"
     if
       str.is_a_latin_1_string:

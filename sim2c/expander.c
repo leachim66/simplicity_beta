@@ -406,17 +406,17 @@ static void cont__3_13(void);
 static NODE *func__4_1_types__grammar_node_expand_statement;
 static void entry__4_1_types__grammar_node_expand_statement(void);
 static FRAME_INFO frame__4_1_types__grammar_node_expand_statement = {1, {"self"}};
-static NODE *string__4_2;
+static NODE *string__582ccfaf004aa58;
 static void cont__4_3(void);
 static NODE *func__5_1_types__grammar_node_expand_expression;
 static void entry__5_1_types__grammar_node_expand_expression(void);
 static FRAME_INFO frame__5_1_types__grammar_node_expand_expression = {1, {"self"}};
-static NODE *string__5_2;
+static NODE *string__4bcf31e55e19ce58;
 static void cont__5_3(void);
 static NODE *func__6_1_sim2c__body_expand_expression;
 static void entry__6_1_sim2c__body_expand_expression(void);
 static FRAME_INFO frame__6_1_sim2c__body_expand_expression = {1, {"self"}};
-static NODE *string__6_2;
+static NODE *string__c4e5f299bf2dab78;
 static void cont__6_3(void);
 static void cont__6_4(void);
 static NODE *func__6_5;
@@ -488,17 +488,17 @@ static void cont__8_18(void);
 static NODE *func__8_19;
 static void entry__8_19(void);
 static FRAME_INFO frame__8_19 = {1, {"functor"}};
-static NODE *string__8_20;
+static NODE *string__585ae843eae15024;
 static void cont__8_21(void);
 static NODE *func__8_22;
 static void entry__8_22(void);
 static FRAME_INFO frame__8_22 = {1, {"functor"}};
-static NODE *string__8_23;
+static NODE *string__1c0aeccb5d487d4b;
 static void cont__8_24(void);
 static NODE *func__8_25;
 static void entry__8_25(void);
 static FRAME_INFO frame__8_25 = {1, {"functor"}};
-static NODE *string__8_26;
+static NODE *string__220aea4b5dc87d4a;
 static void cont__8_27(void);
 static NODE *func__8_28;
 static void entry__8_28(void);
@@ -509,42 +509,42 @@ static void cont__8_31(void);
 static NODE *func__8_32;
 static void entry__8_32(void);
 static FRAME_INFO frame__8_32 = {1, {"functor"}};
-static NODE *string__8_33;
+static NODE *string__561f5607811a02b2;
 static void cont__8_34(void);
 static NODE *func__8_35;
 static void entry__8_35(void);
 static FRAME_INFO frame__8_35 = {1, {"functor"}};
-static NODE *string__8_36;
+static NODE *string__585ae883ea60c024;
 static void cont__8_37(void);
 static NODE *func__8_38;
 static void entry__8_38(void);
 static FRAME_INFO frame__8_38 = {1, {"functor"}};
-static NODE *string__8_39;
+static NODE *string__2d7c8951ae1884d5;
 static void cont__8_40(void);
 static NODE *func__8_41;
 static void entry__8_41(void);
 static FRAME_INFO frame__8_41 = {1, {"functor"}};
-static NODE *string__8_42;
+static NODE *string__528d708426488b90;
 static void cont__8_43(void);
 static NODE *func__8_44;
 static void entry__8_44(void);
 static FRAME_INFO frame__8_44 = {1, {"functor"}};
-static NODE *string__8_45;
+static NODE *string__cc0c0d9615cb809e;
 static void cont__8_46(void);
 static NODE *func__8_47;
 static void entry__8_47(void);
 static FRAME_INFO frame__8_47 = {1, {"functor"}};
-static NODE *string__8_48;
+static NODE *string__cc0c0bd615c38088;
 static void cont__8_49(void);
 static NODE *func__8_50;
 static void entry__8_50(void);
 static FRAME_INFO frame__8_50 = {1, {"functor"}};
-static NODE *string__8_51;
+static NODE *string__701f598181c2c2a5;
 static void cont__8_52(void);
 static NODE *func__8_53;
 static void entry__8_53(void);
 static FRAME_INFO frame__8_53 = {3, {"functor", "self", "do_insert_not"}};
-static NODE *string__8_54;
+static NODE *string__1a0ae80b5df87d4a;
 static void cont__8_55(void);
 static void cont__8_56(void);
 static void cont__8_57(void);
@@ -579,7 +579,7 @@ static void cont__8_79(void);
 static NODE *func__8_80;
 static void entry__8_80(void);
 static FRAME_INFO frame__8_80 = {1, {"functor"}};
-static NODE *string__8_81;
+static NODE *string__685aee43eac0403b;
 static void cont__8_82(void);
 static NODE *func__8_83;
 static void entry__8_83(void);
@@ -588,47 +588,47 @@ static void cont__8_84(void);
 static NODE *func__8_85;
 static void entry__8_85(void);
 static FRAME_INFO frame__8_85 = {2, {"functor", "make_right_argument_lazy"}};
-static NODE *string__8_86;
+static NODE *string__fa720015d596ba8;
 static void cont__8_87(void);
 static NODE *func__8_88;
 static void entry__8_88(void);
 static FRAME_INFO frame__8_88 = {2, {"functor", "make_right_argument_lazy"}};
-static NODE *string__8_89;
+static NODE *string__2d7981f4e4702bb7;
 static void cont__8_90(void);
 static NODE *func__8_91;
 static void entry__8_91(void);
 static FRAME_INFO frame__8_91 = {1, {"functor"}};
-static NODE *string__8_92;
+static NODE *string__2c93ac4233089e0;
 static void cont__8_93(void);
 static NODE *func__8_94;
 static void entry__8_94(void);
 static FRAME_INFO frame__8_94 = {1, {"functor"}};
-static NODE *string__8_95;
+static NODE *string__64d512703527e2ab;
 static void cont__8_96(void);
-static NODE *string__8_97;
-static NODE *string__8_98;
-static NODE *string__8_99;
-static NODE *string__8_100;
-static NODE *string__8_101;
-static NODE *string__8_102;
-static NODE *string__8_103;
-static NODE *string__8_104;
-static NODE *string__8_105;
-static NODE *string__8_106;
-static NODE *string__8_107;
-static NODE *string__8_108;
-static NODE *string__8_109;
-static NODE *string__8_110;
-static NODE *string__8_111;
-static NODE *string__8_112;
-static NODE *string__8_113;
-static NODE *string__8_114;
-static NODE *string__8_115;
+static NODE *string__578a5af303e9ccb;
+static NODE *string__578a5af303e9cce;
+static NODE *string__578a5af303e9cca;
+static NODE *string__578a5af303e9ccc;
+static NODE *string__2d7981f4e6e82bf9;
+static NODE *string__2d7981f4e6f82bfb;
+static NODE *string__578a5af303e9cc7;
+static NODE *string__578a5af303e9cbf;
+static NODE *string__578a5af303e9c9d;
+static NODE *string__2d7981f4e6e82bf8;
+static NODE *string__578a5af303e9cdd;
+static NODE *string__2d7981f4e6f82bf8;
+static NODE *string__578a5af303e9cdf;
+static NODE *string__2d7981f4e6e02bf8;
+static NODE *string__2d7981f4e6002bf8;
+static NODE *string__2d7981f4e6382be3;
+static NODE *string__2d7981f4e4e82bb9;
+static NODE *string__2d7981f4e6782beb;
+static NODE *string__578a5af303e9cdc;
 static void cont__8_116(void);
 static NODE *func__8_117;
 static void entry__8_117(void);
 static FRAME_INFO frame__8_117 = {1, {"self"}};
-static NODE *string__8_118;
+static NODE *string__fa723c15d516bb8;
 static void cont__8_119(void);
 static void cont__8_120(void);
 static void cont__8_121(void);
@@ -641,7 +641,7 @@ static NODE *get__sim2c__expand_operator_call(void) {
 static NODE *func__9_1_sim2c__function_call_expand_expression;
 static void entry__9_1_sim2c__function_call_expand_expression(void);
 static FRAME_INFO frame__9_1_sim2c__function_call_expand_expression = {1, {"self"}};
-static NODE *string__9_2;
+static NODE *string__2ae70e1058c2c0b7;
 static void cont__9_3(void);
 static void cont__9_4(void);
 static void cont__9_5(void);
@@ -656,7 +656,7 @@ static NODE *func__9_11;
 static void entry__9_11(void);
 static FRAME_INFO frame__9_11 = {1, {"functor"}};
 static void cont__9_12(void);
-static NODE *string__9_13;
+static NODE *string__578a5af303e9ccd;
 static void cont__9_14(void);
 static void cont__9_15(void);
 static NODE *func__9_16;
@@ -687,7 +687,7 @@ static void cont__9_32(void);
 static void cont__9_33(void);
 static void cont__9_34(void);
 static void cont__9_35(void);
-static NODE *string__9_36;
+static NODE *string__6480ae5e84ccc225;
 static void cont__9_37(void);
 static void cont__9_38(void);
 static NODE *func__9_39;
@@ -700,14 +700,14 @@ static void cont__9_43(void);
 static NODE *func__10_1_sim2c__attribute_value_pair_expand_expression;
 static void entry__10_1_sim2c__attribute_value_pair_expand_expression(void);
 static FRAME_INFO frame__10_1_sim2c__attribute_value_pair_expand_expression = {1, {"self"}};
-static NODE *string__10_2;
+static NODE *string__30246dda36d83a54;
 static void cont__10_3(void);
 static void cont__10_4(void);
 static void cont__10_5(void);
 static NODE *func__11_1_sim2c__attribute_function_pair_expand_expression;
 static void entry__11_1_sim2c__attribute_function_pair_expand_expression(void);
 static FRAME_INFO frame__11_1_sim2c__attribute_function_pair_expand_expression = {1, {"self"}};
-static NODE *string__11_2;
+static NODE *string__2c1ce19c26092926;
 static void cont__11_3(void);
 static void cont__11_4(void);
 static void cont__11_5(void);
@@ -1266,7 +1266,7 @@ static void entry__4_1_types__grammar_node_expand_statement(void) {
   // 49: show_compiler_debug_info "expand statement"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_2;
+  arguments->slots[0] = string__582ccfaf004aa58;
   result_count =
     frame->caller_result_count >= 1 ?
     frame->caller_result_count-1 : -1;
@@ -1297,7 +1297,7 @@ static void entry__5_1_types__grammar_node_expand_expression(void) {
   // 52: show_compiler_debug_info "expand expression"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__5_2;
+  arguments->slots[0] = string__4bcf31e55e19ce58;
   result_count =
     frame->caller_result_count >= 1 ?
     frame->caller_result_count-1 : -1;
@@ -1328,7 +1328,7 @@ static void entry__6_1_sim2c__body_expand_expression(void) {
   // 58: show_compiler_debug_info "expand body"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__6_2;
+  arguments->slots[0] = string__c4e5f299bf2dab78;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -1588,7 +1588,7 @@ static void entry__7_1_sim2c__call_expand_statement(void) {
   // 68: show_compiler_debug_info "expand statement"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__4_2;
+  arguments->slots[0] = string__582ccfaf004aa58;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -2246,7 +2246,7 @@ static void entry__8_117(void) {
   // 152: ... std_identifier("not")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_118;
+  arguments->slots[0] = string__fa723c15d516bb8;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2456,43 +2456,43 @@ static void cont__8_18(void) {
   argument_count = 39;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
-  arguments->slots[1] = string__8_97;
+  arguments->slots[1] = string__578a5af303e9ccb;
   arguments->slots[2] = frame->slots[5] /* temp__2 */;
-  arguments->slots[3] = string__8_98;
+  arguments->slots[3] = string__578a5af303e9cce;
   arguments->slots[4] = frame->slots[6] /* temp__3 */;
-  arguments->slots[5] = string__8_99;
+  arguments->slots[5] = string__578a5af303e9cca;
   arguments->slots[6] = frame->slots[7] /* temp__4 */;
-  arguments->slots[7] = string__8_100;
+  arguments->slots[7] = string__578a5af303e9ccc;
   arguments->slots[8] = frame->slots[8] /* temp__5 */;
-  arguments->slots[9] = string__8_101;
+  arguments->slots[9] = string__2d7981f4e6e82bf9;
   arguments->slots[10] = frame->slots[9] /* temp__6 */;
-  arguments->slots[11] = string__8_102;
+  arguments->slots[11] = string__2d7981f4e6f82bfb;
   arguments->slots[12] = frame->slots[10] /* temp__7 */;
-  arguments->slots[13] = string__8_103;
+  arguments->slots[13] = string__578a5af303e9cc7;
   arguments->slots[14] = frame->slots[11] /* temp__8 */;
-  arguments->slots[15] = string__8_104;
+  arguments->slots[15] = string__578a5af303e9cbf;
   arguments->slots[16] = frame->slots[12] /* temp__9 */;
-  arguments->slots[17] = string__8_105;
+  arguments->slots[17] = string__578a5af303e9c9d;
   arguments->slots[18] = frame->slots[13] /* temp__10 */;
-  arguments->slots[19] = string__8_106;
+  arguments->slots[19] = string__2d7981f4e6e82bf8;
   arguments->slots[20] = frame->slots[14] /* temp__11 */;
-  arguments->slots[21] = string__8_107;
+  arguments->slots[21] = string__578a5af303e9cdd;
   arguments->slots[22] = frame->slots[15] /* temp__12 */;
-  arguments->slots[23] = string__8_108;
+  arguments->slots[23] = string__2d7981f4e6f82bf8;
   arguments->slots[24] = frame->slots[16] /* temp__13 */;
-  arguments->slots[25] = string__8_109;
+  arguments->slots[25] = string__578a5af303e9cdf;
   arguments->slots[26] = frame->slots[17] /* temp__14 */;
-  arguments->slots[27] = string__8_110;
+  arguments->slots[27] = string__2d7981f4e6e02bf8;
   arguments->slots[28] = frame->slots[18] /* temp__15 */;
-  arguments->slots[29] = string__8_111;
+  arguments->slots[29] = string__2d7981f4e6002bf8;
   arguments->slots[30] = frame->slots[19] /* temp__16 */;
-  arguments->slots[31] = string__8_112;
+  arguments->slots[31] = string__2d7981f4e6382be3;
   arguments->slots[32] = frame->slots[20] /* temp__17 */;
-  arguments->slots[33] = string__8_113;
+  arguments->slots[33] = string__2d7981f4e4e82bb9;
   arguments->slots[34] = frame->slots[21] /* temp__18 */;
-  arguments->slots[35] = string__8_114;
+  arguments->slots[35] = string__2d7981f4e6782beb;
   arguments->slots[36] = frame->slots[22] /* temp__19 */;
-  arguments->slots[37] = string__8_115;
+  arguments->slots[37] = string__578a5af303e9cdc;
   arguments->slots[38] = frame->slots[23] /* temp__20 */;
   result_count = 0;
   myself = get__case();
@@ -2511,7 +2511,7 @@ static void entry__8_32(void) {
   // 108: !functor std_identifier("negate")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_33;
+  arguments->slots[0] = string__561f5607811a02b2;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2541,7 +2541,7 @@ static void entry__8_35(void) {
   // 110: !functor std_identifier("minus")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_36;
+  arguments->slots[0] = string__585ae883ea60c024;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2571,7 +2571,7 @@ static void entry__8_19(void) {
   // 100: !functor std_identifier("times")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_20;
+  arguments->slots[0] = string__585ae843eae15024;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2601,7 +2601,7 @@ static void entry__8_22(void) {
   // 102: !functor std_identifier("over")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_23;
+  arguments->slots[0] = string__1c0aeccb5d487d4b;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2631,7 +2631,7 @@ static void entry__8_25(void) {
   // 104: !functor std_identifier("plus")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_26;
+  arguments->slots[0] = string__220aea4b5dc87d4a;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2739,7 +2739,7 @@ static void entry__8_38(void) {
   // 112: !functor std_identifier("shift_left")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_39;
+  arguments->slots[0] = string__2d7c8951ae1884d5;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2769,7 +2769,7 @@ static void entry__8_41(void) {
   // 114: !functor std_identifier("shift_right")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_42;
+  arguments->slots[0] = string__528d708426488b90;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2799,7 +2799,7 @@ static void entry__8_44(void) {
   // 116: !functor std_identifier("bit_and")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_45;
+  arguments->slots[0] = string__cc0c0d9615cb809e;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2829,7 +2829,7 @@ static void entry__8_47(void) {
   // 118: !functor std_identifier("bit_xor")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_48;
+  arguments->slots[0] = string__cc0c0bd615c38088;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2859,7 +2859,7 @@ static void entry__8_50(void) {
   // 120: !functor std_identifier("bit_or")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_51;
+  arguments->slots[0] = string__701f598181c2c2a5;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -2893,7 +2893,7 @@ static void entry__8_53(void) {
   // 122: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_54;
+  arguments->slots[0] = string__1a0ae80b5df87d4a;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3080,7 +3080,7 @@ static void entry__8_65(void) {
   // 126: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_54;
+  arguments->slots[0] = string__1a0ae80b5df87d4a;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3112,7 +3112,7 @@ static void entry__8_67(void) {
   // 128: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_54;
+  arguments->slots[0] = string__1a0ae80b5df87d4a;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3146,7 +3146,7 @@ static void entry__8_69(void) {
   // 131: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_54;
+  arguments->slots[0] = string__1a0ae80b5df87d4a;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3331,7 +3331,7 @@ static void entry__8_80(void) {
   // 134: !functor std_identifier("equal")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_81;
+  arguments->slots[0] = string__685aee43eac0403b;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3363,7 +3363,7 @@ static void entry__8_83(void) {
   // 136: !functor std_identifier("equal")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_81;
+  arguments->slots[0] = string__685aee43eac0403b;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3397,7 +3397,7 @@ static void entry__8_85(void) {
   // 139: !functor std_identifier("and")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_86;
+  arguments->slots[0] = string__fa720015d596ba8;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3431,7 +3431,7 @@ static void entry__8_88(void) {
   // 142: !functor std_identifier("or")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_89;
+  arguments->slots[0] = string__2d7981f4e4702bb7;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3463,7 +3463,7 @@ static void entry__8_91(void) {
   // 145: !functor std_identifier("value_range")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_92;
+  arguments->slots[0] = string__2c93ac4233089e0;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3493,7 +3493,7 @@ static void entry__8_94(void) {
   // 147: !functor std_identifier("key_value_pair")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_95;
+  arguments->slots[0] = string__64d512703527e2ab;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -3575,7 +3575,7 @@ static void entry__9_1_sim2c__function_call_expand_expression(void) {
   // 159: show_compiler_debug_info "expand function call"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__9_2;
+  arguments->slots[0] = string__2ae70e1058c2c0b7;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -3916,7 +3916,7 @@ static void cont__9_26(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__9_13;
+  arguments->slots[1] = string__578a5af303e9ccd;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -3983,7 +3983,7 @@ static void cont__9_35(void) {
   // 175: !self.functor_of std_identifier("sequence")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__9_36;
+  arguments->slots[0] = string__6480ae5e84ccc225;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -4219,7 +4219,7 @@ static void cont__9_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__9_13;
+  arguments->slots[1] = string__578a5af303e9ccd;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -4304,7 +4304,7 @@ static void entry__10_1_sim2c__attribute_value_pair_expand_expression(void) {
   // 185: show_compiler_debug_info "expand attribute-value pair"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__10_2;
+  arguments->slots[0] = string__30246dda36d83a54;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -4372,7 +4372,7 @@ static void entry__11_1_sim2c__attribute_function_pair_expand_expression(void) {
   // 192: show_compiler_debug_info "expand attribute-function pair"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__11_2;
+  arguments->slots[0] = string__2c1ce19c26092926;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -4453,59 +4453,59 @@ EXPORT void phase_2__expander(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   func__3_1_expand_arguments = create_function(entry__3_1_expand_arguments, 1);
-  string__4_2 = from_latin_1_string("expand statement", 16);
+  string__582ccfaf004aa58 = from_latin_1_string("expand statement", 16);
   func__4_1_types__grammar_node_expand_statement = create_function(entry__4_1_types__grammar_node_expand_statement, 1);
-  string__5_2 = from_latin_1_string("expand expression", 17);
+  string__4bcf31e55e19ce58 = from_latin_1_string("expand expression", 17);
   func__5_1_types__grammar_node_expand_expression = create_function(entry__5_1_types__grammar_node_expand_expression, 1);
-  string__6_2 = from_latin_1_string("expand body", 11);
+  string__c4e5f299bf2dab78 = from_latin_1_string("expand body", 11);
   func__6_5 = create_function(entry__6_5, 1);
   func__6_14 = create_function(entry__6_14, 1);
   func__6_1_sim2c__body_expand_expression = create_function(entry__6_1_sim2c__body_expand_expression, 1);
   func__7_1_sim2c__call_expand_statement = create_function(entry__7_1_sim2c__call_expand_statement, 1);
-  string__8_20 = from_latin_1_string("times", 5);
-  string__8_23 = from_latin_1_string("over", 4);
-  string__8_26 = from_latin_1_string("plus", 4);
-  string__8_33 = from_latin_1_string("negate", 6);
-  string__8_36 = from_latin_1_string("minus", 5);
-  string__8_39 = from_latin_1_string("shift_left", 10);
-  string__8_42 = from_latin_1_string("shift_right", 11);
-  string__8_45 = from_latin_1_string("bit_and", 7);
-  string__8_48 = from_latin_1_string("bit_xor", 7);
-  string__8_51 = from_latin_1_string("bit_or", 6);
-  string__8_54 = from_latin_1_string("less", 4);
-  string__8_81 = from_latin_1_string("equal", 5);
-  string__8_86 = from_latin_1_string("and", 3);
-  string__8_89 = from_latin_1_string("or", 2);
-  string__8_92 = from_latin_1_string("value_range", 11);
-  string__8_95 = from_latin_1_string("key_value_pair", 14);
-  string__8_97 = from_latin_1_string("*", 1);
-  string__8_98 = from_latin_1_string("/", 1);
-  string__8_99 = from_latin_1_string("+", 1);
-  string__8_100 = from_latin_1_string("-", 1);
-  string__8_101 = from_latin_1_string("<<", 2);
-  string__8_102 = from_latin_1_string(">>", 2);
-  string__8_103 = from_latin_1_string("&", 1);
-  string__8_104 = from_latin_1_string("^", 1);
-  string__8_105 = from_latin_1_string("|", 1);
-  string__8_106 = from_latin_1_string("<=", 2);
-  string__8_107 = from_latin_1_string("<", 1);
-  string__8_108 = from_latin_1_string(">=", 2);
-  string__8_109 = from_latin_1_string(">", 1);
-  string__8_110 = from_latin_1_string("==", 2);
-  string__8_111 = from_latin_1_string("!=", 2);
-  string__8_112 = from_latin_1_string("&&", 2);
-  string__8_113 = from_latin_1_string("||", 2);
-  string__8_114 = from_latin_1_string("..", 2);
-  string__8_115 = from_latin_1_string("=", 1);
-  string__8_118 = from_latin_1_string("not", 3);
+  string__585ae843eae15024 = from_latin_1_string("times", 5);
+  string__1c0aeccb5d487d4b = from_latin_1_string("over", 4);
+  string__220aea4b5dc87d4a = from_latin_1_string("plus", 4);
+  string__561f5607811a02b2 = from_latin_1_string("negate", 6);
+  string__585ae883ea60c024 = from_latin_1_string("minus", 5);
+  string__2d7c8951ae1884d5 = from_latin_1_string("shift_left", 10);
+  string__528d708426488b90 = from_latin_1_string("shift_right", 11);
+  string__cc0c0d9615cb809e = from_latin_1_string("bit_and", 7);
+  string__cc0c0bd615c38088 = from_latin_1_string("bit_xor", 7);
+  string__701f598181c2c2a5 = from_latin_1_string("bit_or", 6);
+  string__1a0ae80b5df87d4a = from_latin_1_string("less", 4);
+  string__685aee43eac0403b = from_latin_1_string("equal", 5);
+  string__fa720015d596ba8 = from_latin_1_string("and", 3);
+  string__2d7981f4e4702bb7 = from_latin_1_string("or", 2);
+  string__2c93ac4233089e0 = from_latin_1_string("value_range", 11);
+  string__64d512703527e2ab = from_latin_1_string("key_value_pair", 14);
+  string__578a5af303e9ccb = from_latin_1_string("*", 1);
+  string__578a5af303e9cce = from_latin_1_string("/", 1);
+  string__578a5af303e9cca = from_latin_1_string("+", 1);
+  string__578a5af303e9ccc = from_latin_1_string("-", 1);
+  string__2d7981f4e6e82bf9 = from_latin_1_string("<<", 2);
+  string__2d7981f4e6f82bfb = from_latin_1_string(">>", 2);
+  string__578a5af303e9cc7 = from_latin_1_string("&", 1);
+  string__578a5af303e9cbf = from_latin_1_string("^", 1);
+  string__578a5af303e9c9d = from_latin_1_string("|", 1);
+  string__2d7981f4e6e82bf8 = from_latin_1_string("<=", 2);
+  string__578a5af303e9cdd = from_latin_1_string("<", 1);
+  string__2d7981f4e6f82bf8 = from_latin_1_string(">=", 2);
+  string__578a5af303e9cdf = from_latin_1_string(">", 1);
+  string__2d7981f4e6e02bf8 = from_latin_1_string("==", 2);
+  string__2d7981f4e6002bf8 = from_latin_1_string("!=", 2);
+  string__2d7981f4e6382be3 = from_latin_1_string("&&", 2);
+  string__2d7981f4e4e82bb9 = from_latin_1_string("||", 2);
+  string__2d7981f4e6782beb = from_latin_1_string("..", 2);
+  string__578a5af303e9cdc = from_latin_1_string("=", 1);
+  string__fa723c15d516bb8 = from_latin_1_string("not", 3);
   func__8_1_sim2c__expand_operator_call = create_function(entry__8_1_sim2c__expand_operator_call, 1);
-  string__9_2 = from_latin_1_string("expand function call", 20);
-  string__9_13 = from_latin_1_string(",", 1);
-  string__9_36 = from_latin_1_string("sequence", 8);
+  string__2ae70e1058c2c0b7 = from_latin_1_string("expand function call", 20);
+  string__578a5af303e9ccd = from_latin_1_string(",", 1);
+  string__6480ae5e84ccc225 = from_latin_1_string("sequence", 8);
   func__9_1_sim2c__function_call_expand_expression = create_function(entry__9_1_sim2c__function_call_expand_expression, 1);
-  string__10_2 = from_latin_1_string("expand attribute-value pair", 27);
+  string__30246dda36d83a54 = from_latin_1_string("expand attribute-value pair", 27);
   func__10_1_sim2c__attribute_value_pair_expand_expression = create_function(entry__10_1_sim2c__attribute_value_pair_expand_expression, 1);
-  string__11_2 = from_latin_1_string("expand attribute-function pair", 30);
+  string__2c1ce19c26092926 = from_latin_1_string("expand attribute-function pair", 30);
   func__11_1_sim2c__attribute_function_pair_expand_expression = create_function(entry__11_1_sim2c__attribute_function_pair_expand_expression, 1);
 }
 

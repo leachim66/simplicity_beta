@@ -703,29 +703,39 @@ static void set__sim2c__current_continuation_info(NODE *node) {
 static void define__sim2c__current_continuation_info(NODE *node) {
   define_dynamic_cell(dyna_idx__sim2c__current_continuation_info, node);
 }
+static int dyna_idx__sim2c__string_literals;
+static NODE *get__sim2c__string_literals(void) {
+  return get_dynamic_cell(dyna_idx__sim2c__string_literals);
+}
+static void set__sim2c__string_literals(NODE *node) {
+  set_dynamic_cell(dyna_idx__sim2c__string_literals, node);
+}
+static void define__sim2c__string_literals(NODE *node) {
+  define_dynamic_cell(dyna_idx__sim2c__string_literals, node);
+}
 static NODE *get__sim2c__vtable_entries(void) {
   return var.sim2c__vtable_entries;
 }
-static NODE *string__102_1;
-static NODE *string__102_2;
-static NODE *string__102_3;
-static NODE *string__102_4;
-static NODE *string__102_5;
-static NODE *string__102_6;
-static NODE *string__102_7;
-static NODE *string__102_8;
-static NODE *string__102_9;
-static NODE *string__102_10;
-static NODE *string__102_11;
-static NODE *string__102_12;
-static NODE *string__102_13;
-static NODE *string__102_14;
-static NODE *string__102_15;
-static NODE *string__102_16;
-static NODE *string__102_17;
-static NODE *string__102_18;
-static NODE *string__102_19;
-static void cont__102_20(void);
+static NODE *string__a0540e55151930c2;
+static NODE *string__72a8a8c9865d0296;
+static NODE *string__72a8a8c9864d0292;
+static NODE *string__72a8a8c986650294;
+static NODE *string__7ca8ae498474c298;
+static NODE *string__724c23a6148be573;
+static NODE *string__724c23a6149be577;
+static NODE *string__724c23a614b3e571;
+static NODE *string__3730b49a2bb3f253;
+static NODE *string__b6540e1515c13096;
+static NODE *string__261f540a81caa2a3;
+static NODE *string__aa540e1515c9309d;
+static NODE *string__444c262e96638520;
+static NODE *string__a4214b121078eb22;
+static NODE *string__464c27eb16a34536;
+static NODE *string__5af91691bb71fca7;
+static NODE *string__7e88296f0e7a3463;
+static NODE *string__541f558a01dab2b3;
+static NODE *string__ee216a04cf7d466f;
+static void cont__104_20(void);
 void run__shared_variables(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -733,8 +743,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__sim2c__text_of, NULL, 32, 32, 2, 15},
   {type__sim2c__source_of, NULL, 33, 33, 2, 17},
   {type__sim2c__indents_of, NULL, 34, 34, 2, 18},
-  {run__shared_variables, NULL, 110, 130, 1, 19},
-  {cont__102_20, NULL, }
+  {run__shared_variables, NULL, 114, 134, 1, 19},
+  {cont__104_20, NULL, }
 };
 
 union NODE {
@@ -959,44 +969,46 @@ EXPORT void run__shared_variables(void) {
   set__sim2c__used_string_literals(get__undefined());
   // 105: %%sim2c::current_continuation_info undefined
   set__sim2c__current_continuation_info(get__undefined());
-  // 110: $sim2c::vtable_entries
-  // 111:   list
-  // 112:     "to_int8"
-  // 113:     "to_int16"
-  // 114:     "to_int32"
-  // 115:     "to_int64"
-  // 116:     "to_uint8"
-  // 117:     "to_uint16"
-  // 118:     "to_uint32"
-  // 119:     "to_uint64"
+  // 108: %%sim2c::string_literals undefined
+  set__sim2c__string_literals(get__undefined());
+  // 114: $sim2c::vtable_entries
+  // 115:   list
+  // 116:     "to_int8"
+  // 117:     "to_int16"
+  // 118:     "to_int32"
+  // 119:     "to_int64"
+  // 120:     "to_uint8"
+  // 121:     "to_uint16"
+  // 122:     "to_uint32"
+  // 123:     "to_uint64"
   // ...
   argument_count = 19;
   arguments = node_p;
-  arguments->slots[0] = string__102_1;
-  arguments->slots[1] = string__102_2;
-  arguments->slots[2] = string__102_3;
-  arguments->slots[3] = string__102_4;
-  arguments->slots[4] = string__102_5;
-  arguments->slots[5] = string__102_6;
-  arguments->slots[6] = string__102_7;
-  arguments->slots[7] = string__102_8;
-  arguments->slots[8] = string__102_9;
-  arguments->slots[9] = string__102_10;
-  arguments->slots[10] = string__102_11;
-  arguments->slots[11] = string__102_12;
-  arguments->slots[12] = string__102_13;
-  arguments->slots[13] = string__102_14;
-  arguments->slots[14] = string__102_15;
-  arguments->slots[15] = string__102_16;
-  arguments->slots[16] = string__102_17;
-  arguments->slots[17] = string__102_18;
-  arguments->slots[18] = string__102_19;
+  arguments->slots[0] = string__a0540e55151930c2;
+  arguments->slots[1] = string__72a8a8c9865d0296;
+  arguments->slots[2] = string__72a8a8c9864d0292;
+  arguments->slots[3] = string__72a8a8c986650294;
+  arguments->slots[4] = string__7ca8ae498474c298;
+  arguments->slots[5] = string__724c23a6148be573;
+  arguments->slots[6] = string__724c23a6149be577;
+  arguments->slots[7] = string__724c23a614b3e571;
+  arguments->slots[8] = string__3730b49a2bb3f253;
+  arguments->slots[9] = string__b6540e1515c13096;
+  arguments->slots[10] = string__261f540a81caa2a3;
+  arguments->slots[11] = string__aa540e1515c9309d;
+  arguments->slots[12] = string__444c262e96638520;
+  arguments->slots[13] = string__a4214b121078eb22;
+  arguments->slots[14] = string__464c27eb16a34536;
+  arguments->slots[15] = string__5af91691bb71fca7;
+  arguments->slots[16] = string__7e88296f0e7a3463;
+  arguments->slots[17] = string__541f558a01dab2b3;
+  arguments->slots[18] = string__ee216a04cf7d466f;
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__102_20;
+  frame->cont = cont__104_20;
 }
-static void cont__102_20(void) {
+static void cont__104_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1031,25 +1043,25 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__shared_variables(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  string__102_1 = from_latin_1_string("to_int8", 7);
-  string__102_2 = from_latin_1_string("to_int16", 8);
-  string__102_3 = from_latin_1_string("to_int32", 8);
-  string__102_4 = from_latin_1_string("to_int64", 8);
-  string__102_5 = from_latin_1_string("to_uint8", 8);
-  string__102_6 = from_latin_1_string("to_uint16", 9);
-  string__102_7 = from_latin_1_string("to_uint32", 9);
-  string__102_8 = from_latin_1_string("to_uint64", 9);
-  string__102_9 = from_latin_1_string("to_uchar32", 10);
-  string__102_10 = from_latin_1_string("to_bool", 7);
-  string__102_11 = from_latin_1_string("to_int", 6);
-  string__102_12 = from_latin_1_string("to_long", 7);
-  string__102_13 = from_latin_1_string("to_double", 9);
-  string__102_14 = from_latin_1_string("to_c_string", 11);
-  string__102_15 = from_latin_1_string("to_octets", 9);
-  string__102_16 = from_latin_1_string("get_item_of", 11);
-  string__102_17 = from_latin_1_string("length_of", 9);
-  string__102_18 = from_latin_1_string("unfold", 6);
-  string__102_19 = from_latin_1_string("debug_string", 12);
+  string__a0540e55151930c2 = from_latin_1_string("to_int8", 7);
+  string__72a8a8c9865d0296 = from_latin_1_string("to_int16", 8);
+  string__72a8a8c9864d0292 = from_latin_1_string("to_int32", 8);
+  string__72a8a8c986650294 = from_latin_1_string("to_int64", 8);
+  string__7ca8ae498474c298 = from_latin_1_string("to_uint8", 8);
+  string__724c23a6148be573 = from_latin_1_string("to_uint16", 9);
+  string__724c23a6149be577 = from_latin_1_string("to_uint32", 9);
+  string__724c23a614b3e571 = from_latin_1_string("to_uint64", 9);
+  string__3730b49a2bb3f253 = from_latin_1_string("to_uchar32", 10);
+  string__b6540e1515c13096 = from_latin_1_string("to_bool", 7);
+  string__261f540a81caa2a3 = from_latin_1_string("to_int", 6);
+  string__aa540e1515c9309d = from_latin_1_string("to_long", 7);
+  string__444c262e96638520 = from_latin_1_string("to_double", 9);
+  string__a4214b121078eb22 = from_latin_1_string("to_c_string", 11);
+  string__464c27eb16a34536 = from_latin_1_string("to_octets", 9);
+  string__5af91691bb71fca7 = from_latin_1_string("get_item_of", 11);
+  string__7e88296f0e7a3463 = from_latin_1_string("length_of", 9);
+  string__541f558a01dab2b3 = from_latin_1_string("unfold", 6);
+  string__ee216a04cf7d466f = from_latin_1_string("debug_string", 12);
 }
 
 static int already_run_phase_3 = false;
@@ -1151,6 +1163,8 @@ EXPORT void phase_3__shared_variables(void) {
   define__sim2c__used_string_literals(undefined);
   define_multi_assign_dynamic("sim2c", "current_continuation_info", get__sim2c__current_continuation_info, set__sim2c__current_continuation_info, define__sim2c__current_continuation_info, &dyna_idx__sim2c__current_continuation_info);
   define__sim2c__current_continuation_info(undefined);
+  define_multi_assign_dynamic("sim2c", "string_literals", get__sim2c__string_literals, set__sim2c__string_literals, define__sim2c__string_literals, &dyna_idx__sim2c__string_literals);
+  define__sim2c__string_literals(undefined);
   define_single_assign_static("sim2c", "vtable_entries", get__sim2c__vtable_entries, &var.sim2c__vtable_entries);
 }
 

@@ -636,7 +636,7 @@ static NODE *func__23_1_types__key_order_table_private__get_item;
 static void entry__23_1_types__key_order_table_private__get_item(void);
 static FRAME_INFO frame__23_1_types__key_order_table_private__get_item = {2, {"self", "key"}};
 static void cont__23_2(void);
-static NODE *string__26_1;
+static NODE *string__d3dd33ff1dab64cb;
 static NODE *func__27_1_types__key_order_table_new_empty_collection;
 static void entry__27_1_types__key_order_table_new_empty_collection(void);
 static FRAME_INFO frame__27_1_types__key_order_table_new_empty_collection = {1, {"self"}};
@@ -1513,7 +1513,7 @@ EXPORT void run__basic__types__key_order_table(void) {
   // 387: register_collection_serializer "key_order_table" empty_key_order_table
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__26_1;
+  arguments->slots[0] = string__d3dd33ff1dab64cb;
   arguments->slots[1] = get__empty_key_order_table();
   result_count = 0;
   myself = get__register_collection_serializer();
@@ -8193,7 +8193,7 @@ EXPORT void phase_2__basic__types__key_order_table(void) {
   func__21_1_remove_item = create_function(entry__21_1_remove_item, 2);
   func__22_1_types__key_order_table_private__set_item = create_function(entry__22_1_types__key_order_table_private__set_item, 3);
   func__23_1_types__key_order_table_private__get_item = create_function(entry__23_1_types__key_order_table_private__get_item, 2);
-  string__26_1 = from_latin_1_string("key_order_table", 15);
+  string__d3dd33ff1dab64cb = from_latin_1_string("key_order_table", 15);
   func__27_1_types__key_order_table_new_empty_collection = create_function(entry__27_1_types__key_order_table_new_empty_collection, 1);
   func__29_1_std__key_order_table = create_function(entry__29_1_std__key_order_table, -1);
   func__30_1_for_each_item = create_function(entry__30_1_for_each_item, 2);
@@ -8275,7 +8275,7 @@ EXPORT void phase_4__basic__types__key_order_table(void) {
   define_method("types", "key_order_table", poly_idx__private__get_item, func__23_1_types__key_order_table_private__get_item);
   define_attribute("types", "key_order_table", poly_idx__tree_of, get__undefined());
   define_attribute("types", "key_order_table", poly_idx__length_of, number__0);
-  define_attribute("types", "key_order_table", poly_idx__serialization_tag_of, string__26_1);
+  define_attribute("types", "key_order_table", poly_idx__serialization_tag_of, string__d3dd33ff1dab64cb);
   define_method("types", "key_order_table", poly_idx__new_empty_collection, func__27_1_types__key_order_table_new_empty_collection);
   define_method("types", "key_order_table", poly_idx__for_each, func__31_1_types__key_order_table_for_each);
   define_method("types", "key_order_table", poly_idx__for_each_from_to, func__33_1_types__key_order_table_for_each_from_to);

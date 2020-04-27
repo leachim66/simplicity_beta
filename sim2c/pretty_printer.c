@@ -863,7 +863,7 @@ static NODE *get__sim2c__print_trees(void) {
 static NODE *func__29_1_line_start_remark_to_string;
 static void entry__29_1_line_start_remark_to_string(void);
 static FRAME_INFO frame__29_1_line_start_remark_to_string = {4, {"remark_lines", "indent", "buf", "indentation"}};
-static NODE *string__29_2;
+static NODE *string__578a5af303e9ceb;
 static void cont__29_3(void);
 static void cont__29_4(void);
 static void cont__29_5(void);
@@ -882,11 +882,11 @@ static void cont__30_2(void);
 static NODE *func__30_3;
 static void entry__30_3(void);
 static FRAME_INFO frame__30_3 = {0, {}};
-static NODE *string__30_4;
+static NODE *string__578a5af303e9cc2;
 static NODE *func__30_5;
 static void entry__30_5(void);
 static FRAME_INFO frame__30_5 = {0, {}};
-static NODE *string__30_6;
+static NODE *string__2d7981f4e6082be6;
 static void cont__30_7(void);
 static void cont__30_8(void);
 static void cont__30_9(void);
@@ -910,7 +910,7 @@ static void cont__30_22(void);
 static NODE *func__30_23;
 static void entry__30_23(void);
 static FRAME_INFO frame__30_23 = {1, {"str"}};
-static NODE *string__30_24;
+static NODE *string__578a5af303e9cdb;
 static void cont__30_25(void);
 static void cont__30_26(void);
 static void cont__30_27(void);
@@ -1002,13 +1002,13 @@ static void cont__33_4(void);
 static NODE *func__34_1_types__grammar_node_to_string;
 static void entry__34_1_types__grammar_node_to_string(void);
 static FRAME_INFO frame__34_1_types__grammar_node_to_string = {1, {"self"}};
-static NODE *string__34_2;
+static NODE *string__f45afcc3e835d069;
 static NODE *func__35_1_sim2c__require_instruction_to_string;
 static void entry__35_1_sim2c__require_instruction_to_string(void);
 static FRAME_INFO frame__35_1_sim2c__require_instruction_to_string = {1, {"self"}};
 static void cont__35_2(void);
-static NODE *string__35_3;
-static NODE *string__35_4;
+static NODE *string__7ca422245e2a26c5;
+static NODE *string__578a5af303e9cdf;
 static void cont__35_5(void);
 static void cont__35_6(void);
 static NODE *func__36_1_sim2c__namespace_instruction_to_string;
@@ -1021,8 +1021,8 @@ static void entry__36_4(void);
 static FRAME_INFO frame__36_4 = {1, {"self"}};
 static void cont__36_5(void);
 static void cont__36_6(void);
-static NODE *string__36_7;
-static NODE *string__36_8;
+static NODE *string__82c941922e20aab7;
+static NODE *string__fa730415fc16bec;
 static void cont__36_9(void);
 static NODE *func__36_10;
 static void entry__36_10(void);
@@ -1035,28 +1035,28 @@ static NODE *func__37_1_sim2c__using_instruction_to_string;
 static void entry__37_1_sim2c__using_instruction_to_string(void);
 static FRAME_INFO frame__37_1_sim2c__using_instruction_to_string = {1, {"self"}};
 static void cont__37_2(void);
-static NODE *string__37_3;
+static NODE *string__a1740e581583f0da;
 static void cont__37_4(void);
 static void cont__37_5(void);
 static NODE *func__38_1_sim2c__include_instruction_to_string;
 static void entry__38_1_sim2c__include_instruction_to_string(void);
 static FRAME_INFO frame__38_1_sim2c__include_instruction_to_string = {1, {"self"}};
 static void cont__38_2(void);
-static NODE *string__38_3;
+static NODE *string__448827ad5e2bb5a5;
 static void cont__38_4(void);
 static void cont__38_5(void);
 static NODE *func__39_1_sim2c__link_instruction_to_string;
 static void entry__39_1_sim2c__link_instruction_to_string(void);
 static FRAME_INFO frame__39_1_sim2c__link_instruction_to_string = {1, {"self"}};
 static void cont__39_2(void);
-static NODE *string__39_3;
+static NODE *string__4a1f55ee81e292f7;
 static void cont__39_4(void);
 static void cont__39_5(void);
 static NODE *func__40_1_sim2c__data_instruction_to_string;
 static void entry__40_1_sim2c__data_instruction_to_string(void);
 static FRAME_INFO frame__40_1_sim2c__data_instruction_to_string = {1, {"self"}};
 static void cont__40_2(void);
-static NODE *string__40_3;
+static NODE *string__5a1f536e81b212f7;
 static void cont__40_4(void);
 static void cont__40_5(void);
 static NODE *func__41_1_sim2c__remark_statement_to_string;
@@ -1192,7 +1192,7 @@ static void cont__42_35(void);
 static NODE *func__42_36_handle_simple_parameters;
 static void entry__42_36_handle_simple_parameters(void);
 static FRAME_INFO frame__42_36_handle_simple_parameters = {7, {"parameters", "remark_lines", "buf", "indent", "handle_complex_parameters", "parameter_text", "parameter_text_length"}};
-static NODE *string__42_37;
+static NODE *string__fa736c15f296be4;
 static NODE *func__42_38;
 static void entry__42_38(void);
 static FRAME_INFO frame__42_38 = {2, {"parameter", "parameter_text"}};
@@ -1245,7 +1245,7 @@ static void cont__42_68(void);
 static void cont__42_69(void);
 static void cont__42_70(void);
 static void cont__42_71(void);
-static NODE *string__42_72;
+static NODE *string__578a5af303e9cc9;
 static void cont__42_73(void);
 static NODE *func__42_74;
 static void entry__42_74(void);
@@ -1322,7 +1322,7 @@ static void cont__42_117(void);
 static NODE *func__42_118;
 static void entry__42_118(void);
 static FRAME_INFO frame__42_118 = {2, {"buf", "indentation"}};
-static NODE *string__42_119;
+static NODE *string__9e0afacb5f107d33;
 static void cont__42_120(void);
 static NODE *func__42_121;
 static void entry__42_121(void);
@@ -1640,7 +1640,7 @@ static void cont__45_69(void);
 static void cont__45_70(void);
 static void cont__45_71(void);
 static void cont__45_72(void);
-static NODE *string__45_73;
+static NODE *string__2d7981f4e6602bfb;
 static void cont__45_74(void);
 static NODE *func__45_75;
 static void entry__45_75(void);
@@ -1960,7 +1960,7 @@ static void cont__47_24(void);
 static NODE *func__47_25;
 static void entry__47_25(void);
 static FRAME_INFO frame__47_25 = {1, {"arguments"}};
-static NODE *string__47_26;
+static NODE *string__fa733015fd96bec;
 static void cont__47_27(void);
 static NODE *func__47_28;
 static void entry__47_28(void);
@@ -1980,7 +1980,7 @@ static void entry__47_37(void);
 static FRAME_INFO frame__47_37 = {2, {"functor", "arguments"}};
 static void cont__47_38(void);
 static void cont__47_39(void);
-static NODE *string__47_40;
+static NODE *string__2d7981f4e7582bcf;
 static void cont__47_41(void);
 static NODE *func__47_42;
 static void entry__47_42(void);
@@ -2206,7 +2206,7 @@ static FRAME_INFO frame__49_4 = {0, {}};
 static NODE *func__49_5;
 static void entry__49_5(void);
 static FRAME_INFO frame__49_5 = {0, {}};
-static NODE *string__49_6;
+static NODE *string__578a5af303e9cc5;
 static void cont__49_7(void);
 static void cont__49_8(void);
 static void cont__49_9(void);
@@ -2238,26 +2238,26 @@ static FRAME_INFO frame__50_4 = {0, {}};
 static NODE *func__50_5;
 static void entry__50_5(void);
 static FRAME_INFO frame__50_5 = {0, {}};
-static NODE *string__50_6;
+static NODE *string__578a5af303e9cc0;
 static NODE *func__50_7;
 static void entry__50_7(void);
 static FRAME_INFO frame__50_7 = {0, {}};
-static NODE *string__50_8;
+static NODE *string__578a5af303e9cc7;
 static NODE *func__50_9;
 static void entry__50_9(void);
 static FRAME_INFO frame__50_9 = {0, {}};
-static NODE *string__50_10;
+static NODE *string__2d7981f4e6282be1;
 static void cont__50_11(void);
 static void cont__50_12(void);
 static NODE *func__51_1_sim2c__define_dynamic_single_to_string;
 static void entry__51_1_sim2c__define_dynamic_single_to_string(void);
 static FRAME_INFO frame__51_1_sim2c__define_dynamic_single_to_string = {1, {"self"}};
-static NODE *string__51_2;
+static NODE *string__578a5af303e9cc4;
 static void cont__51_3(void);
 static NODE *func__52_1_sim2c__define_dynamic_multi_to_string;
 static void entry__52_1_sim2c__define_dynamic_multi_to_string(void);
 static FRAME_INFO frame__52_1_sim2c__define_dynamic_multi_to_string = {1, {"self"}};
-static NODE *string__52_2;
+static NODE *string__2d7981f4e6202be0;
 static void cont__52_3(void);
 static NODE *func__53_1_precedence_of;
 static void entry__53_1_precedence_of(void);
@@ -2464,8 +2464,8 @@ static void cont__55_94(void);
 static NODE *func__55_95;
 static void entry__55_95(void);
 static FRAME_INFO frame__55_95 = {4, {"self", "left", "functor_string", "right"}};
-static NODE *string__55_96;
-static NODE *string__55_97;
+static NODE *string__2d7981f4e6082beb;
+static NODE *string__2d7981f4e6782be5;
 static void cont__55_98(void);
 static void cont__55_99(void);
 static NODE *func__55_100;
@@ -2494,13 +2494,13 @@ static NODE *func__55_112;
 static void entry__55_112(void);
 static FRAME_INFO frame__55_112 = {2, {"functor", "arguments"}};
 static void cont__55_113(void);
-static NODE *string__55_114;
+static NODE *string__fa724815d896ba8;
 static void cont__55_115(void);
 static NODE *func__55_116;
 static void entry__55_116(void);
 static FRAME_INFO frame__55_116 = {2, {"functor", "arguments"}};
 static void cont__55_117(void);
-static NODE *string__55_118;
+static NODE *string__64d512703527e2ab;
 static void cont__55_119(void);
 static NODE *func__55_120;
 static void entry__55_120(void);
@@ -2528,7 +2528,7 @@ static void entry__55_133(void);
 static FRAME_INFO frame__55_133 = {1, {"arguments"}};
 static void cont__55_134(void);
 static void cont__55_135(void);
-static NODE *string__55_136;
+static NODE *string__2a0aedcb5dc87d5c;
 static void cont__55_137(void);
 static void cont__55_138(void);
 static void cont__55_139(void);
@@ -2541,7 +2541,7 @@ static NODE *func__55_145;
 static void entry__55_145(void);
 static FRAME_INFO frame__55_145 = {1, {"arguments"}};
 static void cont__55_146(void);
-static NODE *string__55_147;
+static NODE *string__2d7981f4e6602be8;
 static void cont__55_148(void);
 static NODE *func__55_149;
 static void entry__55_149(void);
@@ -2669,10 +2669,10 @@ static void cont__55_225(void);
 static NODE *func__55_226;
 static void entry__55_226(void);
 static FRAME_INFO frame__55_226 = {5, {"inline_functor", "functor_string", "total_width", "strings", "indent"}};
-static NODE *string__55_227;
-static NODE *string__55_228;
-static NODE *string__55_229;
-static NODE *string__55_230;
+static NODE *string__578a5af303e9cca;
+static NODE *string__578a5af303e9ccc;
+static NODE *string__578a5af303e9ccb;
+static NODE *string__578a5af303e9cce;
 static void cont__55_231(void);
 static NODE *func__55_232;
 static void entry__55_232(void);
@@ -2685,7 +2685,7 @@ static NODE *func__55_235;
 static void entry__55_235(void);
 static FRAME_INFO frame__55_235 = {1, {"functor_string"}};
 static void cont__55_236(void);
-static NODE *string__55_237;
+static NODE *string__578a5af303e9ccd;
 static void cont__55_238(void);
 static void cont__55_239(void);
 static void cont__55_240(void);
@@ -2727,7 +2727,7 @@ static FRAME_INFO frame__55_261 = {5, {"functor_string", "buf", "indent", "strin
 static NODE *func__55_262;
 static void entry__55_262(void);
 static FRAME_INFO frame__55_262 = {1, {"functor_string"}};
-static NODE *string__55_263;
+static NODE *string__6480ae5e84ccc225;
 static void cont__55_264(void);
 static void cont__55_265(void);
 static void cont__55_266(void);
@@ -2783,7 +2783,7 @@ static FRAME_INFO frame__57_19 = {0, {}};
 static NODE *func__57_20;
 static void entry__57_20(void);
 static FRAME_INFO frame__57_20 = {0, {}};
-static NODE *string__57_21;
+static NODE *string__578a5af303e9cc1;
 static void cont__57_22(void);
 static NODE *func__57_23;
 static void entry__57_23(void);
@@ -2870,12 +2870,12 @@ static NODE *func__63_7;
 static void entry__63_7(void);
 static FRAME_INFO frame__63_7 = {1, {"name"}};
 static void cont__63_8(void);
-static NODE *string__63_9;
+static NODE *string__2d7981f4e4002bb1;
 static NODE *func__63_10;
 static void entry__63_10(void);
 static FRAME_INFO frame__63_10 = {0, {}};
-static NODE *string__63_11;
-static NODE *string__63_12;
+static NODE *string__2d7981f4e5082b85;
+static NODE *string__fa720015d416bbc;
 static NODE *func__63_13;
 static void entry__63_13(void);
 static FRAME_INFO frame__63_13 = {0, {}};
@@ -2901,7 +2901,7 @@ static void entry__63_25(void);
 static FRAME_INFO frame__63_25 = {1, {"chr"}};
 static void cont__63_26(void);
 static void cont__63_27(void);
-static NODE *string__63_28;
+static NODE *string__fa728415fa96bb4;
 static void cont__63_29(void);
 static NODE *func__63_30;
 static void entry__63_30(void);
@@ -2929,7 +2929,7 @@ static NODE *func__65_8;
 static void entry__65_8(void);
 static FRAME_INFO frame__65_8 = {3, {"lines", "text", "return"}};
 static void cont__65_9(void);
-static NODE *string__65_10;
+static NODE *string__420aeacb5d007d02;
 static void cont__65_11(void);
 static void cont__65_12(void);
 static void cont__65_13(void);
@@ -2969,7 +2969,7 @@ static FRAME_INFO frame__65_32 = {4, {"part", "text", "s", "idx"}};
 static void cont__65_33(void);
 static void cont__65_34(void);
 static void cont__65_35(void);
-static NODE *string__65_36;
+static NODE *string__721f5590811b42ec;
 static void cont__65_37(void);
 static void cont__65_38(void);
 static NODE *func__65_39;
@@ -3247,7 +3247,7 @@ static void cont__66_125(void);
 static NODE *func__66_126;
 static void entry__66_126(void);
 static FRAME_INFO frame__66_126 = {1, {"lines"}};
-static NODE *string__66_127;
+static NODE *string__578a5af303e9ca1;
 static void cont__66_128(void);
 static void cont__66_129(void);
 static void cont__66_130(void);
@@ -3256,7 +3256,7 @@ static void cont__66_132(void);
 static NODE *func__66_133;
 static void entry__66_133(void);
 static FRAME_INFO frame__66_133 = {1, {"lines"}};
-static NODE *string__66_134;
+static NODE *string__2d7981f4e5082bfe;
 static void cont__66_135(void);
 static void cont__66_136(void);
 static void cont__66_137(void);
@@ -3265,7 +3265,7 @@ static void cont__66_139(void);
 static NODE *func__66_140;
 static void entry__66_140(void);
 static FRAME_INFO frame__66_140 = {1, {"buf"}};
-static NODE *string__66_141;
+static NODE *string__578a5af303e9cc3;
 static NODE *func__66_142;
 static void entry__66_142(void);
 static FRAME_INFO frame__66_142 = {2, {"buf", "indent"}};
@@ -3379,13 +3379,13 @@ static NODE *func__67_57;
 static void entry__67_57(void);
 static FRAME_INFO frame__67_57 = {3, {"return__1", "add_part", "argument"}};
 static void cont__67_58(void);
-static NODE *string__67_59;
+static NODE *string__2d7981f4e5082bed;
 static void cont__67_60(void);
 static void cont__67_61(void);
 static void cont__67_62(void);
 static void cont__67_63(void);
 static void cont__67_64(void);
-static NODE *string__67_65;
+static NODE *string__565ae803e8121017;
 static void cont__67_66(void);
 static NODE *func__67_67;
 static void entry__67_67(void);
@@ -3417,7 +3417,7 @@ static void cont__68_11(void);
 static NODE *func__69_1_sim2c__unique_item_to_string;
 static void entry__69_1_sim2c__unique_item_to_string(void);
 static FRAME_INFO frame__69_1_sim2c__unique_item_to_string = {1, {"self"}};
-static NODE *string__69_2;
+static NODE *string__578a5af303e9ccf;
 static NODE *func__70_1_sim2c__polymorphic_function_to_string;
 static void entry__70_1_sim2c__polymorphic_function_to_string(void);
 static FRAME_INFO frame__70_1_sim2c__polymorphic_function_to_string = {1, {"self"}};
@@ -3425,11 +3425,11 @@ static void cont__70_2(void);
 static NODE *func__70_3;
 static void entry__70_3(void);
 static FRAME_INFO frame__70_3 = {0, {}};
-static NODE *string__70_4;
+static NODE *string__fa732415f216be5;
 static NODE *func__70_5;
 static void entry__70_5(void);
 static FRAME_INFO frame__70_5 = {0, {}};
-static NODE *string__70_6;
+static NODE *string__2d7981f4e6482bec;
 static void cont__70_7(void);
 static NODE *func__71_1_sim2c__identifier_to_string;
 static void entry__71_1_sim2c__identifier_to_string(void);
@@ -3444,7 +3444,7 @@ static void entry__71_5(void);
 static FRAME_INFO frame__71_5 = {1, {"self"}};
 static void cont__71_6(void);
 static void cont__71_7(void);
-static NODE *string__71_8;
+static NODE *string__2d7981f4e6d82bff;
 static void cont__71_9(void);
 static NODE *func__71_10;
 static void entry__71_10(void);
@@ -3474,7 +3474,7 @@ static NODE *func__72_4;
 static void entry__72_4(void);
 static FRAME_INFO frame__72_4 = {0, {}};
 static void cont__72_5(void);
-static NODE *string__72_6;
+static NODE *string__2d7981f4e4d02bcf;
 static void cont__72_7(void);
 static NODE *func__72_8;
 static void entry__72_8(void);
@@ -3488,7 +3488,7 @@ static NODE *func__72_14;
 static void entry__72_14(void);
 static FRAME_INFO frame__72_14 = {3, {"buf", "indentation", "self"}};
 static void cont__72_15(void);
-static NODE *string__72_16;
+static NODE *string__4a1f55ee819ae2f7;
 static void cont__72_17(void);
 static void cont__72_18(void);
 static void cont__72_19(void);
@@ -3498,7 +3498,7 @@ static NODE *func__72_22;
 static void entry__72_22(void);
 static FRAME_INFO frame__72_22 = {3, {"buf", "indentation", "self"}};
 static void cont__72_23(void);
-static NODE *string__72_24;
+static NODE *string__5a1f552e8192b2f7;
 static void cont__72_25(void);
 static void cont__72_26(void);
 static void cont__72_27(void);
@@ -3508,7 +3508,7 @@ static NODE *func__72_30;
 static void entry__72_30(void);
 static FRAME_INFO frame__72_30 = {3, {"buf", "indentation", "self"}};
 static void cont__72_31(void);
-static NODE *string__72_32;
+static NODE *string__461f576e8192b2f7;
 static void cont__72_33(void);
 static void cont__72_34(void);
 static void cont__72_35(void);
@@ -3518,7 +3518,7 @@ static NODE *func__72_38;
 static void entry__72_38(void);
 static FRAME_INFO frame__72_38 = {3, {"buf", "indentation", "self"}};
 static void cont__72_39(void);
-static NODE *string__72_40;
+static NODE *string__6a1f526e819312f7;
 static void cont__72_41(void);
 static void cont__72_42(void);
 static void cont__72_43(void);
@@ -3528,7 +3528,7 @@ static NODE *func__72_46;
 static void entry__72_46(void);
 static FRAME_INFO frame__72_46 = {3, {"buf", "indentation", "self"}};
 static void cont__72_47(void);
-static NODE *string__72_48;
+static NODE *string__5a1f52ae819272f7;
 static void cont__72_49(void);
 static void cont__72_50(void);
 static void cont__72_51(void);
@@ -3538,7 +3538,7 @@ static NODE *func__72_54;
 static void entry__72_54(void);
 static FRAME_INFO frame__72_54 = {1, {"self"}};
 static void cont__72_55(void);
-static NODE *string__72_56;
+static NODE *string__545aebc3eac0d03b;
 static void cont__72_57(void);
 static void cont__72_58(void);
 static void cont__72_59(void);
@@ -3546,7 +3546,7 @@ static NODE *func__72_60;
 static void entry__72_60(void);
 static FRAME_INFO frame__72_60 = {3, {"buf", "indentation", "self"}};
 static void cont__72_61(void);
-static NODE *string__72_62;
+static NODE *string__ad7409db1592f0da;
 static void cont__72_63(void);
 static void cont__72_64(void);
 static void cont__72_65(void);
@@ -3554,7 +3554,7 @@ static void cont__72_66(void);
 static NODE *func__72_67;
 static void entry__72_67(void);
 static FRAME_INFO frame__72_67 = {3, {"argument", "buf", "indentation"}};
-static NODE *string__72_68;
+static NODE *string__3f7af391278ba7e1;
 static void cont__72_69(void);
 static void cont__72_70(void);
 static void cont__72_71(void);
@@ -3568,7 +3568,7 @@ static void cont__72_76(void);
 static NODE *func__72_77;
 static void entry__72_77(void);
 static FRAME_INFO frame__72_77 = {3, {"remark_line", "buf", "indentation"}};
-static NODE *string__72_78;
+static NODE *string__2d7981f4e6702bea;
 static void cont__72_79(void);
 static void cont__72_80(void);
 static void cont__72_81(void);
@@ -3595,7 +3595,7 @@ static void cont__72_95(void);
 static NODE *func__72_96;
 static void entry__72_96(void);
 static FRAME_INFO frame__72_96 = {0, {}};
-static NODE *string__72_97;
+static NODE *string__d65af883e8b9a02a;
 static void cont__93_1(void);
 static void cont__94_1(void);
 void run__pretty_printer(void);
@@ -6775,7 +6775,7 @@ static void entry__29_1_line_start_remark_to_string(void) {
     return;
   }
   // 206: $$buf "@nl;"
-  ((CELL *)frame->slots[2])->contents /* buf */ = string__29_2;
+  ((CELL *)frame->slots[2])->contents /* buf */ = string__578a5af303e9ceb;
   // 207: ... indent+2
   argument_count = 2;
   arguments = node_p;
@@ -7225,7 +7225,7 @@ static void entry__30_45(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* str */;
-  arguments->slots[1] = string__30_24;
+  arguments->slots[1] = string__578a5af303e9cdb;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -7402,7 +7402,7 @@ static void entry__30_23(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* str */;
-  arguments->slots[1] = string__30_24;
+  arguments->slots[1] = string__578a5af303e9cdb;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -7827,7 +7827,7 @@ static void entry__30_3(void) {
   // 226: ... -> "#"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__30_4;
+  arguments->slots[0] = string__578a5af303e9cc2;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -7842,7 +7842,7 @@ static void entry__30_5(void) {
   // 226: ... -> " #"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__30_6;
+  arguments->slots[0] = string__2d7981f4e6082be6;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -8413,7 +8413,7 @@ static void entry__34_1_types__grammar_node_to_string(void) {
   // 283: ... -> "<???>"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__34_2;
+  arguments->slots[0] = string__f45afcc3e835d069;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -8446,9 +8446,9 @@ static void cont__35_2(void) {
   // 290: ... "<require @(node::filename_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__35_3;
+  arguments->slots[0] = string__7ca422245e2a26c5;
   arguments->slots[1] = frame->slots[3] /* temp__3 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8584,11 +8584,11 @@ static void cont__36_6(void) {
   // 299: ... "<namespace @(namespace_alias_of(self)) = @(namespace_of(self))>"
   argument_count = 5;
   arguments = node_p;
-  arguments->slots[0] = string__36_7;
+  arguments->slots[0] = string__82c941922e20aab7;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__36_8;
+  arguments->slots[2] = string__fa730415fc16bec;
   arguments->slots[3] = frame->slots[3] /* temp__3 */;
-  arguments->slots[4] = string__35_4;
+  arguments->slots[4] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8635,9 +8635,9 @@ static void cont__36_11(void) {
   // 300: ... "<namespace @(namespace_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__36_7;
+  arguments->slots[0] = string__82c941922e20aab7;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8726,9 +8726,9 @@ static void cont__37_2(void) {
   // 304: ... "<using @(namespace_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__37_3;
+  arguments->slots[0] = string__a1740e581583f0da;
   arguments->slots[1] = frame->slots[3] /* temp__3 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8792,9 +8792,9 @@ static void cont__38_2(void) {
   // 308: ... "<include @(node::filename_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__38_3;
+  arguments->slots[0] = string__448827ad5e2bb5a5;
   arguments->slots[1] = frame->slots[3] /* temp__3 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8858,9 +8858,9 @@ static void cont__39_2(void) {
   // 312: ... "<link @(node::filename_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__39_3;
+  arguments->slots[0] = string__4a1f55ee81e292f7;
   arguments->slots[1] = frame->slots[3] /* temp__3 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -8924,9 +8924,9 @@ static void cont__40_2(void) {
   // 316: ... "<data @(node::filemask_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__40_3;
+  arguments->slots[0] = string__5a1f536e81b212f7;
   arguments->slots[1] = frame->slots[3] /* temp__3 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -10081,7 +10081,7 @@ static void cont__42_58(void) {
   // 390: !buf string("@nl;" spaces(indent) parameter_text)
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__29_2;
+  arguments->slots[0] = string__578a5af303e9ceb;
   arguments->slots[1] = frame->slots[3] /* temp__1 */;
   arguments->slots[2] = ((CELL *)frame->slots[2])->contents /* parameter_text */;
   result_count = 1;
@@ -10250,7 +10250,7 @@ static void entry__42_31(void) {
     return;
   }
   // 368: !buf ":"
-  ((CELL *)frame->slots[0])->contents /* buf */ = string__30_24;
+  ((CELL *)frame->slots[0])->contents /* buf */ = string__578a5af303e9cdb;
   argument_count = 0;
   arguments = node_p;
   frame = frame->caller_frame;
@@ -10286,7 +10286,7 @@ static void cont__42_33(void) {
   // 370: !buf string("@nl;" spaces(indent) ':')
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__29_2;
+  arguments->slots[0] = string__578a5af303e9ceb;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   arguments->slots[2] = character__58;
   result_count = 1;
@@ -10394,7 +10394,7 @@ static void entry__42_36_handle_simple_parameters(void) {
     return;
   }
   // 374: $$parameter_text ": ("
-  ((CELL *)frame->slots[5])->contents /* parameter_text */ = string__42_37;
+  ((CELL *)frame->slots[5])->contents /* parameter_text */ = string__fa736c15f296be4;
   // 376: ... : (parameter)
   // 377:   append &parameter_text parameter.to_string
   frame->slots[7] /* temp__1 */ = create_closure(entry__42_38, 1);
@@ -10824,7 +10824,7 @@ static void cont__42_71(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* buf */;
   arguments->slots[1] = frame->slots[6] /* temp__1 */;
-  arguments->slots[2] = string__42_72;
+  arguments->slots[2] = string__578a5af303e9cc9;
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
@@ -11772,7 +11772,7 @@ static void entry__42_118(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
   arguments->slots[1] = character__10;
   arguments->slots[2] = frame->slots[1] /* indentation */;
-  arguments->slots[3] = string__42_119;
+  arguments->slots[3] = string__9e0afacb5f107d33;
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
@@ -15727,7 +15727,7 @@ static void cont__45_72(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* str */;
-  arguments->slots[1] = string__45_73;
+  arguments->slots[1] = string__2d7981f4e6602bfb;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -16514,7 +16514,7 @@ static void entry__45_112(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* strings */;
-  arguments->slots[1] = string__29_2;
+  arguments->slots[1] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__push();
   func = myself->type;
@@ -16929,7 +16929,7 @@ static void entry__45_133(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* strings */;
-  arguments->slots[1] = string__29_2;
+  arguments->slots[1] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__put();
   func = myself->type;
@@ -17348,7 +17348,7 @@ static void entry__45_232(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* str */;
-  arguments->slots[1] = string__45_73;
+  arguments->slots[1] = string__2d7981f4e6602bfb;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -18189,7 +18189,7 @@ static void entry__45_212(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* str */;
-  arguments->slots[1] = string__45_73;
+  arguments->slots[1] = string__2d7981f4e6602bfb;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -19608,7 +19608,7 @@ static void entry__47_23(void) {
   // 725: ... string("->" arguments)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__45_73;
+  arguments->slots[0] = string__2d7981f4e6602bfb;
   arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* arguments */;
   result_count = 1;
   myself = get__string();
@@ -19641,7 +19641,7 @@ static void entry__47_25(void) {
   // 726: ... string("-> " arguments)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__47_26;
+  arguments->slots[0] = string__fa733015fd96bec;
   arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* arguments */;
   result_count = 1;
   myself = get__string();
@@ -19898,7 +19898,7 @@ static void cont__47_60(void) {
   // 751:   line_start_remark_to_string(remark_lines indent+2)
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__47_26;
+  arguments->slots[0] = string__fa733015fd96bec;
   arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* arguments */;
   arguments->slots[2] = frame->slots[4] /* temp__2 */;
   result_count = 1;
@@ -19938,7 +19938,7 @@ static void entry__47_62(void) {
   // 752: ... string("-> " arguments)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__47_26;
+  arguments->slots[0] = string__fa733015fd96bec;
   arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* arguments */;
   result_count = 1;
   myself = get__string();
@@ -19992,7 +19992,7 @@ static void entry__47_33(void) {
   // 734: $$functor add_remark_lines("->" remark_lines)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__45_73;
+  arguments->slots[0] = string__2d7981f4e6602bfb;
   arguments->slots[1] = frame->slots[0] /* remark_lines */;
   result_count = 1;
   myself = var._add_remark_lines;
@@ -20146,7 +20146,7 @@ static void cont__47_39(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
-  arguments->slots[1] = string__47_40;
+  arguments->slots[1] = string__2d7981f4e7582bcf;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -22004,7 +22004,7 @@ static void entry__48_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
-  arguments->slots[1] = string__47_26;
+  arguments->slots[1] = string__fa733015fd96bec;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -22195,7 +22195,7 @@ static void cont__48_24(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
-  arguments->slots[1] = string__36_8;
+  arguments->slots[1] = string__fa730415fc16bec;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
   result_count = 1;
   myself = get__write_to();
@@ -22606,7 +22606,7 @@ static void entry__49_5(void) {
   // 831: -> "$"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__49_6;
+  arguments->slots[0] = string__578a5af303e9cc5;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -22932,7 +22932,7 @@ static void entry__50_4(void) {
   // 851: -> "$"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__49_6;
+  arguments->slots[0] = string__578a5af303e9cc5;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -22947,7 +22947,7 @@ static void entry__50_5(void) {
   // 853: -> "!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__50_6;
+  arguments->slots[0] = string__578a5af303e9cc0;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -22962,7 +22962,7 @@ static void entry__50_7(void) {
   // 855: -> "&"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__50_8;
+  arguments->slots[0] = string__578a5af303e9cc7;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -22977,7 +22977,7 @@ static void entry__50_9(void) {
   // 856: -> "$$"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__50_10;
+  arguments->slots[0] = string__2d7981f4e6282be1;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -23025,7 +23025,7 @@ static void entry__51_1_sim2c__define_dynamic_single_to_string(void) {
   // 864: ... definition_to_string("%" self)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__51_2;
+  arguments->slots[0] = string__578a5af303e9cc4;
   arguments->slots[1] = frame->slots[0] /* self */;
   result_count = 1;
   myself = var._definition_to_string;
@@ -23059,7 +23059,7 @@ static void entry__52_1_sim2c__define_dynamic_multi_to_string(void) {
   // 870: ... definition_to_string("%%" self)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__52_2;
+  arguments->slots[0] = string__2d7981f4e6202be0;
   arguments->slots[1] = frame->slots[0] /* self */;
   result_count = 1;
   myself = var._definition_to_string;
@@ -25227,10 +25227,10 @@ static void entry__55_226(void) {
   // 1056: "+", "-", "*", "/"
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__55_227;
-  arguments->slots[1] = string__55_228;
-  arguments->slots[2] = string__55_229;
-  arguments->slots[3] = string__55_230;
+  arguments->slots[0] = string__578a5af303e9cca;
+  arguments->slots[1] = string__578a5af303e9ccc;
+  arguments->slots[2] = string__578a5af303e9ccb;
+  arguments->slots[3] = string__578a5af303e9cce;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -25261,7 +25261,7 @@ static void cont__55_231(void) {
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* functor_string */;
   arguments->slots[1] = frame->slots[5] /* temp__1 */;
   arguments->slots[2] = frame->slots[6] /* temp__2 */;
-  arguments->slots[3] = string__55_237;
+  arguments->slots[3] = string__578a5af303e9ccd;
   arguments->slots[4] = frame->slots[7] /* temp__3 */;
   arguments->slots[5] = frame->slots[8] /* temp__4 */;
   result_count = 1;
@@ -25919,7 +25919,7 @@ static void entry__55_261(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* functor_string */;
-  arguments->slots[1] = string__55_237;
+  arguments->slots[1] = string__578a5af303e9ccd;
   arguments->slots[2] = frame->slots[5] /* temp__1 */;
   result_count = 0;
   myself = get__case();
@@ -25936,7 +25936,7 @@ static void entry__55_262(void) {
     return;
   }
   // 1074: ... !functor_string "sequence"
-  ((CELL *)frame->slots[0])->contents /* functor_string */ = string__55_263;
+  ((CELL *)frame->slots[0])->contents /* functor_string */ = string__6480ae5e84ccc225;
   argument_count = 0;
   arguments = node_p;
   frame = frame->caller_frame;
@@ -26060,7 +26060,7 @@ static void cont__55_146(void) {
   // 996: ... "--@(arguments(1))"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__55_147;
+  arguments->slots[0] = string__2d7981f4e6602be8;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
   result_count = 1;
   myself = get__std__string();
@@ -26236,9 +26236,9 @@ static void entry__55_95(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* left */;
-  arguments->slots[1] = string__55_96;
+  arguments->slots[1] = string__2d7981f4e6082beb;
   arguments->slots[2] = ((CELL *)frame->slots[2])->contents /* functor_string */;
-  arguments->slots[3] = string__55_97;
+  arguments->slots[3] = string__2d7981f4e6782be5;
   arguments->slots[4] = ((CELL *)frame->slots[3])->contents /* right */;
   result_count = 1;
   myself = get__string();
@@ -26869,7 +26869,7 @@ static void cont__55_113(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
-  arguments->slots[1] = string__55_114;
+  arguments->slots[1] = string__fa724815d896ba8;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -26921,7 +26921,7 @@ static void cont__55_117(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
-  arguments->slots[1] = string__55_118;
+  arguments->slots[1] = string__64d512703527e2ab;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -27134,7 +27134,7 @@ static void cont__55_131(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
-  arguments->slots[1] = string__55_114;
+  arguments->slots[1] = string__fa724815d896ba8;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -27200,7 +27200,7 @@ static void cont__55_135(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__55_136;
+  arguments->slots[1] = string__2a0aedcb5dc87d5c;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -29192,7 +29192,7 @@ static void entry__57_20(void) {
   // 1104: ... -> " "
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__57_21;
+  arguments->slots[0] = string__578a5af303e9cc1;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -30106,7 +30106,7 @@ static void cont__63_27(void) {
   // 1160: ... string("@@0x" hex(chr.to_integer) ';')
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__63_28;
+  arguments->slots[0] = string__fa728415fa96bb4;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
   arguments->slots[2] = character__59;
   result_count = 1;
@@ -30204,7 +30204,7 @@ static void entry__63_10(void) {
   // 1156: ... -> "@@@@"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__63_11;
+  arguments->slots[0] = string__2d7981f4e5082b85;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -30219,7 +30219,7 @@ static void entry__63_13(void) {
   // 1156: ... -> "&"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__50_8;
+  arguments->slots[0] = string__578a5af303e9cc7;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -30239,9 +30239,9 @@ static void entry__63_6(void) {
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = string__63_9;
+  arguments->slots[1] = string__2d7981f4e4002bb1;
   arguments->slots[2] = func__63_10;
-  arguments->slots[3] = string__63_12;
+  arguments->slots[3] = string__fa720015d416bbc;
   arguments->slots[4] = func__63_13;
   arguments->slots[5] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
@@ -30778,7 +30778,7 @@ static void cont__65_9(void) {
   // 1185: ... dup("@@nl;" length_of(text))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__65_10;
+  arguments->slots[0] = string__420aeacb5d007d02;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -31126,7 +31126,7 @@ static void cont__65_35(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
-  arguments->slots[1] = string__65_36;
+  arguments->slots[1] = string__721f5590811b42ec;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -31285,7 +31285,7 @@ static void entry__65_25(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
-  arguments->slots[1] = string__65_10;
+  arguments->slots[1] = string__420aeacb5d007d02;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -31483,7 +31483,7 @@ static void cont__65_43(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
-  arguments->slots[1] = string__63_11;
+  arguments->slots[1] = string__2d7981f4e5082b85;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -34462,7 +34462,7 @@ static void entry__66_126(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
-  arguments->slots[1] = string__66_127;
+  arguments->slots[1] = string__578a5af303e9ca1;
   result_count = 1;
   myself = get__put();
   func = myself->type;
@@ -34563,7 +34563,7 @@ static void entry__66_133(void) {
     return;
   }
   // 1336: !lines(-1) "@@;"
-  frame->slots[1] /* temp__1 */ = string__66_134;
+  frame->slots[1] /* temp__1 */ = string__2d7981f4e5082bfe;
   // 1336: ... 1
   argument_count = 1;
   arguments = node_p;
@@ -34674,7 +34674,7 @@ static void entry__66_140(void) {
     return;
   }
   // 1341: !buf "@quot;"
-  ((CELL *)frame->slots[0])->contents /* buf */ = string__66_141;
+  ((CELL *)frame->slots[0])->contents /* buf */ = string__578a5af303e9cc3;
   argument_count = 0;
   arguments = node_p;
   frame = frame->caller_frame;
@@ -36366,7 +36366,7 @@ static void cont__67_58(void) {
   // 1417: ... string("@@(" argument.to_string ')')
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__67_59;
+  arguments->slots[0] = string__2d7981f4e5082bed;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   arguments->slots[2] = character__41;
   result_count = 1;
@@ -36493,7 +36493,7 @@ static void cont__67_64(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
-  arguments->slots[1] = string__67_65;
+  arguments->slots[1] = string__565ae803e8121017;
   result_count = 1;
   myself = get__has_suffix();
   func = myself->type;
@@ -36858,7 +36858,7 @@ static void entry__69_1_sim2c__unique_item_to_string(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
-  arguments->slots[1] = string__69_2;
+  arguments->slots[1] = string__578a5af303e9ccf;
   result_count = frame->caller_result_count;
   myself = var._add_remark;
   func = myself->type;
@@ -36908,7 +36908,7 @@ static void entry__70_3(void) {
   // 1440: ... -> "(!)"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__70_4;
+  arguments->slots[0] = string__fa732415f216be5;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -36923,7 +36923,7 @@ static void entry__70_5(void) {
   // 1440: ... -> "()"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__70_6;
+  arguments->slots[0] = string__2d7981f4e6482bec;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -37099,7 +37099,7 @@ static void cont__71_7(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = string__71_8;
+  arguments->slots[1] = string__2d7981f4e6d82bff;
   arguments->slots[2] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__string();
@@ -37323,7 +37323,7 @@ static void cont__72_5(void) {
   arguments = node_p;
   arguments->slots[0] = character__10;
   arguments->slots[1] = frame->slots[1] /* temp__2 */;
-  arguments->slots[2] = string__72_6;
+  arguments->slots[2] = string__2d7981f4e4d02bcf;
   result_count = 1;
   myself = get__string();
   func = myself->type;
@@ -37353,7 +37353,7 @@ static void entry__72_8(void) {
   // 1465: -> "{@nl;"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__72_6;
+  arguments->slots[0] = string__2d7981f4e4d02bcf;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -37470,9 +37470,9 @@ static void cont__72_15(void) {
   // 1470: ... "<kind @(kind_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_16;
+  arguments->slots[0] = string__4a1f55ee819ae2f7;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -37587,9 +37587,9 @@ static void cont__72_23(void) {
   // 1472: ... "<name @(identifier_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_24;
+  arguments->slots[0] = string__5a1f552e8192b2f7;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -37704,9 +37704,9 @@ static void cont__72_31(void) {
   // 1474: ... "<node @(node_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_32;
+  arguments->slots[0] = string__461f576e8192b2f7;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -37821,9 +37821,9 @@ static void cont__72_39(void) {
   // 1476: ... "<type @(node::type_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_40;
+  arguments->slots[0] = string__6a1f526e819312f7;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -37938,9 +37938,9 @@ static void cont__72_47(void) {
   // 1478: ... "<base @(base_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_48;
+  arguments->slots[0] = string__5a1f52ae819272f7;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -38050,7 +38050,7 @@ static void cont__72_55(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
-  arguments->slots[1] = string__72_56;
+  arguments->slots[1] = string__545aebc3eac0d03b;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -38136,9 +38136,9 @@ static void cont__72_61(void) {
   // 1480: ... "<scope @(scope_of(self))>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_62;
+  arguments->slots[0] = string__ad7409db1592f0da;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -38222,9 +38222,9 @@ static void entry__72_67(void) {
   // 1482: ... "<argument @(argument)>"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__72_68;
+  arguments->slots[0] = string__3f7af391278ba7e1;
   arguments->slots[1] = frame->slots[0] /* argument */;
-  arguments->slots[2] = string__35_4;
+  arguments->slots[2] = string__578a5af303e9cdf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -38329,7 +38329,7 @@ static void entry__72_77(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
   arguments->slots[1] = frame->slots[2] /* indentation */;
-  arguments->slots[2] = string__72_78;
+  arguments->slots[2] = string__2d7981f4e6702bea;
   arguments->slots[3] = frame->slots[0] /* remark_line */;
   result_count = 1;
   myself = get__writeln_to();
@@ -38680,7 +38680,7 @@ static void entry__72_96(void) {
   // 1460: ... -> "{...}"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__72_97;
+  arguments->slots[0] = string__d65af883e8b9a02a;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -38846,32 +38846,32 @@ EXPORT void phase_2__pretty_printer(void) {
   func__28_46 = create_function(entry__28_46, 1);
   func__28_6 = create_function(entry__28_6, 2);
   func__28_1_sim2c__print_trees = create_function(entry__28_1_sim2c__print_trees, 1);
-  string__29_2 = from_latin_1_string("\012", 1);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   func__29_1_line_start_remark_to_string = create_function(entry__29_1_line_start_remark_to_string, 2);
-  string__30_4 = from_latin_1_string("#", 1);
+  string__578a5af303e9cc2 = from_latin_1_string("#", 1);
   func__30_3 = create_function(entry__30_3, 0);
-  string__30_6 = from_latin_1_string(" #", 2);
+  string__2d7981f4e6082be6 = from_latin_1_string(" #", 2);
   func__30_5 = create_function(entry__30_5, 0);
-  string__30_24 = from_latin_1_string(":", 1);
+  string__578a5af303e9cdb = from_latin_1_string(":", 1);
   func__30_1_add_remark_lines = create_function(entry__30_1_add_remark_lines, -1);
   func__31_1_add_remark = create_function(entry__31_1_add_remark, 2);
   func__32_1_add_statement_remark = create_function(entry__32_1_add_statement_remark, 2);
   func__33_1_add_indented_remark = create_function(entry__33_1_add_indented_remark, 2);
-  string__34_2 = from_latin_1_string("<???>", 5);
+  string__f45afcc3e835d069 = from_latin_1_string("<???>", 5);
   func__34_1_types__grammar_node_to_string = create_function(entry__34_1_types__grammar_node_to_string, 1);
-  string__35_3 = from_latin_1_string("<require ", 9);
-  string__35_4 = from_latin_1_string(">", 1);
+  string__7ca422245e2a26c5 = from_latin_1_string("<require ", 9);
+  string__578a5af303e9cdf = from_latin_1_string(">", 1);
   func__35_1_sim2c__require_instruction_to_string = create_function(entry__35_1_sim2c__require_instruction_to_string, 1);
-  string__36_7 = from_latin_1_string("<namespace ", 11);
-  string__36_8 = from_latin_1_string(" = ", 3);
+  string__82c941922e20aab7 = from_latin_1_string("<namespace ", 11);
+  string__fa730415fc16bec = from_latin_1_string(" = ", 3);
   func__36_1_sim2c__namespace_instruction_to_string = create_function(entry__36_1_sim2c__namespace_instruction_to_string, 1);
-  string__37_3 = from_latin_1_string("<using ", 7);
+  string__a1740e581583f0da = from_latin_1_string("<using ", 7);
   func__37_1_sim2c__using_instruction_to_string = create_function(entry__37_1_sim2c__using_instruction_to_string, 1);
-  string__38_3 = from_latin_1_string("<include ", 9);
+  string__448827ad5e2bb5a5 = from_latin_1_string("<include ", 9);
   func__38_1_sim2c__include_instruction_to_string = create_function(entry__38_1_sim2c__include_instruction_to_string, 1);
-  string__39_3 = from_latin_1_string("<link ", 6);
+  string__4a1f55ee81e292f7 = from_latin_1_string("<link ", 6);
   func__39_1_sim2c__link_instruction_to_string = create_function(entry__39_1_sim2c__link_instruction_to_string, 1);
-  string__40_3 = from_latin_1_string("<data ", 6);
+  string__5a1f536e81b212f7 = from_latin_1_string("<data ", 6);
   func__40_1_sim2c__data_instruction_to_string = create_function(entry__40_1_sim2c__data_instruction_to_string, 1);
   func__41_6 = create_function(entry__41_6, 0);
   func__41_23 = create_function(entry__41_23, 0);
@@ -38879,21 +38879,24 @@ EXPORT void phase_2__pretty_printer(void) {
   func__41_29 = create_function(entry__41_29, 0);
   func__41_28 = create_function(entry__41_28, 0);
   func__41_1_sim2c__remark_statement_to_string = create_function(entry__41_1_sim2c__remark_statement_to_string, 1);
-  string__42_37 = from_latin_1_string(": (", 3);
-  string__42_72 = from_latin_1_string("(", 1);
+  string__fa736c15f296be4 = from_latin_1_string(": (", 3);
+  string__578a5af303e9cc9 = from_latin_1_string("(", 1);
   func__42_96 = create_function(entry__42_96, 1);
   func__42_108 = create_function(entry__42_108, 1);
-  string__42_119 = from_latin_1_string("...\012", 4);
+  string__9e0afacb5f107d33 = from_latin_1_string("...\012", 4);
   func__42_1_sim2c__body_to_string = create_function(entry__42_1_sim2c__body_to_string, 1);
   func__43_1_all_arguments_of = create_function(entry__43_1_all_arguments_of, 1);
   func__44_11 = create_function(entry__44_11, 0);
   func__44_1_argument_to_string = create_function(entry__44_1_argument_to_string, 1);
   func__45_38 = create_function(entry__45_38, 0);
-  string__45_73 = from_latin_1_string("->", 2);
+  string__2d7981f4e6602bfb = from_latin_1_string("->", 2);
   func__45_1_arguments_to_string = create_function(entry__45_1_arguments_to_string, 3);
   func__46_1_call_with_remark_to_string = create_function(entry__46_1_call_with_remark_to_string, 3);
-  string__47_26 = from_latin_1_string("-> ", 3);
-  string__47_40 = from_latin_1_string("\012\012", 2);
+  string__fa733015fd96bec = from_latin_1_string("-> ", 3);
+  string__2d7981f4e7582bcf = from_latin_1_string(
+    "\n"
+    "\n",
+    2);
   func__47_80 = create_function(entry__47_80, 0);
   func__47_83 = create_function(entry__47_83, 0);
   func__47_86 = create_function(entry__47_86, 0);
@@ -38902,20 +38905,20 @@ EXPORT void phase_2__pretty_printer(void) {
   func__47_1_sim2c__call_to_string = create_function(entry__47_1_sim2c__call_to_string, 1);
   func__48_1_definition_to_string = create_function(entry__48_1_definition_to_string, 2);
   func__49_4 = create_function(entry__49_4, 0);
-  string__49_6 = from_latin_1_string("$", 1);
+  string__578a5af303e9cc5 = from_latin_1_string("$", 1);
   func__49_5 = create_function(entry__49_5, 0);
   func__49_1_sim2c__define_static_single_to_string = create_function(entry__49_1_sim2c__define_static_single_to_string, 1);
   func__50_4 = create_function(entry__50_4, 0);
-  string__50_6 = from_latin_1_string("!", 1);
+  string__578a5af303e9cc0 = from_latin_1_string("!", 1);
   func__50_5 = create_function(entry__50_5, 0);
-  string__50_8 = from_latin_1_string("&", 1);
+  string__578a5af303e9cc7 = from_latin_1_string("&", 1);
   func__50_7 = create_function(entry__50_7, 0);
-  string__50_10 = from_latin_1_string("$$", 2);
+  string__2d7981f4e6282be1 = from_latin_1_string("$$", 2);
   func__50_9 = create_function(entry__50_9, 0);
   func__50_1_sim2c__define_static_multi_to_string = create_function(entry__50_1_sim2c__define_static_multi_to_string, 1);
-  string__51_2 = from_latin_1_string("%", 1);
+  string__578a5af303e9cc4 = from_latin_1_string("%", 1);
   func__51_1_sim2c__define_dynamic_single_to_string = create_function(entry__51_1_sim2c__define_dynamic_single_to_string, 1);
-  string__52_2 = from_latin_1_string("%%", 2);
+  string__2d7981f4e6202be0 = from_latin_1_string("%%", 2);
   func__52_1_sim2c__define_dynamic_multi_to_string = create_function(entry__52_1_sim2c__define_dynamic_multi_to_string, 1);
   func__53_17 = create_function(entry__53_17, 0);
   func__53_18 = create_function(entry__53_18, 0);
@@ -38924,22 +38927,22 @@ EXPORT void phase_2__pretty_printer(void) {
   func__54_15 = create_function(entry__54_15, 0);
   func__54_1_operator_of = create_function(entry__54_1_operator_of, 1);
   func__55_42 = create_function(entry__55_42, 0);
-  string__55_96 = from_latin_1_string(" .", 2);
-  string__55_97 = from_latin_1_string(". ", 2);
-  string__55_114 = from_latin_1_string("std", 3);
-  string__55_118 = from_latin_1_string("key_value_pair", 14);
-  string__55_136 = from_latin_1_string("true", 4);
-  string__55_147 = from_latin_1_string("--", 2);
-  string__55_227 = from_latin_1_string("+", 1);
-  string__55_228 = from_latin_1_string("-", 1);
-  string__55_229 = from_latin_1_string("*", 1);
-  string__55_230 = from_latin_1_string("/", 1);
-  string__55_237 = from_latin_1_string(",", 1);
-  string__55_263 = from_latin_1_string("sequence", 8);
+  string__2d7981f4e6082beb = from_latin_1_string(" .", 2);
+  string__2d7981f4e6782be5 = from_latin_1_string(". ", 2);
+  string__fa724815d896ba8 = from_latin_1_string("std", 3);
+  string__64d512703527e2ab = from_latin_1_string("key_value_pair", 14);
+  string__2a0aedcb5dc87d5c = from_latin_1_string("true", 4);
+  string__2d7981f4e6602be8 = from_latin_1_string("--", 2);
+  string__578a5af303e9cca = from_latin_1_string("+", 1);
+  string__578a5af303e9ccc = from_latin_1_string("-", 1);
+  string__578a5af303e9ccb = from_latin_1_string("*", 1);
+  string__578a5af303e9cce = from_latin_1_string("/", 1);
+  string__578a5af303e9ccd = from_latin_1_string(",", 1);
+  string__6480ae5e84ccc225 = from_latin_1_string("sequence", 8);
   func__55_1_sim2c__function_call_to_string = create_function(entry__55_1_sim2c__function_call_to_string, 1);
   func__56_1_sim2c__backquoted_to_string = create_function(entry__56_1_sim2c__backquoted_to_string, 1);
   func__57_19 = create_function(entry__57_19, 0);
-  string__57_21 = from_latin_1_string(" ", 1);
+  string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   func__57_20 = create_function(entry__57_20, 0);
   func__57_1_pair_to_string = create_function(entry__57_1_pair_to_string, 2);
   func__58_1_sim2c__attribute_value_pair_to_string = create_function(entry__58_1_sim2c__attribute_value_pair_to_string, 1);
@@ -38947,51 +38950,51 @@ EXPORT void phase_2__pretty_printer(void) {
   func__60_1_sim2c__numeric_literal_to_string = create_function(entry__60_1_sim2c__numeric_literal_to_string, 1);
   func__62_2 = create_function(entry__62_2, 2);
   func__62_1_create_character_table = create_function(entry__62_1_create_character_table, 0);
-  string__63_9 = from_latin_1_string("at", 2);
-  string__63_11 = from_latin_1_string("@@", 2);
+  string__2d7981f4e4002bb1 = from_latin_1_string("at", 2);
+  string__2d7981f4e5082b85 = from_latin_1_string("@@", 2);
   func__63_10 = create_function(entry__63_10, 0);
-  string__63_12 = from_latin_1_string("amp", 3);
+  string__fa720015d416bbc = from_latin_1_string("amp", 3);
   func__63_13 = create_function(entry__63_13, 0);
-  string__63_28 = from_latin_1_string("@0x", 3);
+  string__fa728415fa96bb4 = from_latin_1_string("@0x", 3);
   func__63_1_escaped_character = create_function(entry__63_1_escaped_character, 1);
   func__64_1_sim2c__character_literal_to_string = create_function(entry__64_1_sim2c__character_literal_to_string, 1);
-  string__65_10 = from_latin_1_string("@nl;", 4);
-  string__65_36 = from_latin_1_string("@quot;", 6);
+  string__420aeacb5d007d02 = from_latin_1_string("@nl;", 4);
+  string__721f5590811b42ec = from_latin_1_string("@quot;", 6);
   func__65_67 = create_function(entry__65_67, 0);
   func__65_68 = create_function(entry__65_68, 0);
   func__65_1_analyze_string_literal = create_function(entry__65_1_analyze_string_literal, 1);
   func__66_23 = create_function(entry__66_23, 0);
   func__66_24 = create_function(entry__66_24, 0);
-  string__66_127 = from_latin_1_string("@", 1);
-  string__66_134 = from_latin_1_string("@;", 2);
-  string__66_141 = from_latin_1_string("\042", 1);
+  string__578a5af303e9ca1 = from_latin_1_string("@", 1);
+  string__2d7981f4e5082bfe = from_latin_1_string("@;", 2);
+  string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   func__66_1_print_string_literal = create_function(entry__66_1_print_string_literal, 2);
-  string__67_59 = from_latin_1_string("@(", 2);
-  string__67_65 = from_latin_1_string("@nl;@", 5);
+  string__2d7981f4e5082bed = from_latin_1_string("@(", 2);
+  string__565ae803e8121017 = from_latin_1_string("@nl;@", 5);
   func__67_1_string_template_to_string = create_function(entry__67_1_string_template_to_string, 1);
   func__68_1_sim2c__string_literal_to_string = create_function(entry__68_1_sim2c__string_literal_to_string, 1);
-  string__69_2 = from_latin_1_string(".", 1);
+  string__578a5af303e9ccf = from_latin_1_string(".", 1);
   func__69_1_sim2c__unique_item_to_string = create_function(entry__69_1_sim2c__unique_item_to_string, 1);
-  string__70_4 = from_latin_1_string("(!)", 3);
+  string__fa732415f216be5 = from_latin_1_string("(!)", 3);
   func__70_3 = create_function(entry__70_3, 0);
-  string__70_6 = from_latin_1_string("()", 2);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   func__70_5 = create_function(entry__70_5, 0);
   func__70_1_sim2c__polymorphic_function_to_string = create_function(entry__70_1_sim2c__polymorphic_function_to_string, 1);
-  string__71_8 = from_latin_1_string("::", 2);
+  string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
   func__71_1_sim2c__identifier_to_string = create_function(entry__71_1_sim2c__identifier_to_string, 1);
-  string__72_6 = from_latin_1_string("{\012", 2);
+  string__2d7981f4e4d02bcf = from_latin_1_string("{\012", 2);
   func__72_4 = create_function(entry__72_4, 0);
   func__72_8 = create_function(entry__72_8, 0);
-  string__72_16 = from_latin_1_string("<kind ", 6);
-  string__72_24 = from_latin_1_string("<name ", 6);
-  string__72_32 = from_latin_1_string("<node ", 6);
-  string__72_40 = from_latin_1_string("<type ", 6);
-  string__72_48 = from_latin_1_string("<base ", 6);
-  string__72_56 = from_latin_1_string("local", 5);
-  string__72_62 = from_latin_1_string("<scope ", 7);
-  string__72_68 = from_latin_1_string("<argument ", 10);
-  string__72_78 = from_latin_1_string("//", 2);
-  string__72_97 = from_latin_1_string("{...}", 5);
+  string__4a1f55ee819ae2f7 = from_latin_1_string("<kind ", 6);
+  string__5a1f552e8192b2f7 = from_latin_1_string("<name ", 6);
+  string__461f576e8192b2f7 = from_latin_1_string("<node ", 6);
+  string__6a1f526e819312f7 = from_latin_1_string("<type ", 6);
+  string__5a1f52ae819272f7 = from_latin_1_string("<base ", 6);
+  string__545aebc3eac0d03b = from_latin_1_string("local", 5);
+  string__ad7409db1592f0da = from_latin_1_string("<scope ", 7);
+  string__3f7af391278ba7e1 = from_latin_1_string("<argument ", 10);
+  string__2d7981f4e6702bea = from_latin_1_string("//", 2);
+  string__d65af883e8b9a02a = from_latin_1_string("{...}", 5);
   func__72_96 = create_function(entry__72_96, 0);
   func__72_1_sim2c__c_code_to_string = create_function(entry__72_1_sim2c__c_code_to_string, 1);
 }

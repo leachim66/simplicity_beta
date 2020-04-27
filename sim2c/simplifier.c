@@ -558,7 +558,7 @@ static NODE *func__5_1_temporary_identifier;
 static void entry__5_1_temporary_identifier(void);
 static FRAME_INFO frame__5_1_temporary_identifier = {1, {"id"}};
 static void cont__5_2(void);
-static NODE *string__5_3;
+static NODE *string__421f524a80420288;
 static void cont__5_4(void);
 static NODE *func__6_1_simplify_arguments;
 static void entry__6_1_simplify_arguments(void);
@@ -676,8 +676,8 @@ static NODE *func__7_6;
 static void entry__7_6(void);
 static FRAME_INFO frame__7_6 = {2, {"info", "name"}};
 static void cont__7_7(void);
-static NODE *string__7_8;
-static NODE *string__7_9;
+static NODE *string__9ee981055a49a5fe;
+static NODE *string__578a5af303e9cc3;
 static void cont__7_10(void);
 static NODE *func__7_11;
 static void entry__7_11(void);
@@ -688,7 +688,7 @@ static NODE *func__7_14;
 static void entry__7_14(void);
 static FRAME_INFO frame__7_14 = {2, {"info", "name"}};
 static void cont__7_15(void);
-static NODE *string__7_16;
+static NODE *string__6b008858b3a1b4b2;
 static void cont__7_17(void);
 static NODE *func__7_18;
 static void entry__7_18(void);
@@ -699,7 +699,7 @@ static NODE *func__7_21;
 static void entry__7_21(void);
 static FRAME_INFO frame__7_21 = {2, {"info", "name"}};
 static void cont__7_22(void);
-static NODE *string__7_23;
+static NODE *string__2ddd7194c0185268;
 static void cont__7_24(void);
 static NODE *func__7_25;
 static void entry__7_25(void);
@@ -710,7 +710,7 @@ static NODE *func__7_28;
 static void entry__7_28(void);
 static FRAME_INFO frame__7_28 = {2, {"info", "name"}};
 static void cont__7_29(void);
-static NODE *string__7_30;
+static NODE *string__e971e37f901b36b;
 static void cont__7_31(void);
 static NODE *func__7_32;
 static void entry__7_32(void);
@@ -721,7 +721,7 @@ static NODE *func__7_35;
 static void entry__7_35(void);
 static FRAME_INFO frame__7_35 = {2, {"info", "name"}};
 static void cont__7_36(void);
-static NODE *string__7_37;
+static NODE *string__611f619f08c2e7ef;
 static void cont__7_38(void);
 static NODE *get__sim2c__check_usage(void) {
   return var.sim2c__check_usage;
@@ -729,18 +729,18 @@ static NODE *get__sim2c__check_usage(void) {
 static NODE *func__8_1_types__grammar_node_simplify_statement;
 static void entry__8_1_types__grammar_node_simplify_statement(void);
 static FRAME_INFO frame__8_1_types__grammar_node_simplify_statement = {1, {"self"}};
-static NODE *string__8_2;
+static NODE *string__4a1f5794bff5c237;
 static void cont__8_3(void);
 static void cont__8_4(void);
 static NODE *func__9_1_types__grammar_node_simplify_expression;
 static void entry__9_1_types__grammar_node_simplify_expression(void);
 static FRAME_INFO frame__9_1_types__grammar_node_simplify_expression = {1, {"self"}};
-static NODE *string__9_2;
+static NODE *string__5af95dddc656868;
 static void cont__9_3(void);
 static NODE *func__10_1_sim2c__body_simplify_expression;
 static void entry__10_1_sim2c__body_simplify_expression(void);
 static FRAME_INFO frame__10_1_sim2c__body_simplify_expression = {2, {"self", "all_defined_names"}};
-static NODE *string__10_2;
+static NODE *string__867252dcb87a57b1;
 static void cont__10_3(void);
 static void cont__10_4(void);
 static NODE *func__10_5;
@@ -752,8 +752,8 @@ static NODE *func__10_8;
 static void entry__10_8(void);
 static FRAME_INFO frame__10_8 = {2, {"info", "name"}};
 static void cont__10_9(void);
-static NODE *string__10_10;
-static NODE *string__10_11;
+static NODE *string__b18861f6a8c886ba;
+static NODE *string__ff65db3940410371;
 static void cont__10_12(void);
 static NODE *func__10_13;
 static void entry__10_13(void);
@@ -995,7 +995,7 @@ static void cont__12_18(void);
 static NODE *func__13_1_sim2c__call_simplify_statement;
 static void entry__13_1_sim2c__call_simplify_statement(void);
 static FRAME_INFO frame__13_1_sim2c__call_simplify_statement = {3, {"self", "return", "final_destinations"}};
-static NODE *string__13_2;
+static NODE *string__8629329e514f7a7a;
 static void cont__13_3(void);
 static void cont__13_4(void);
 static NODE *func__13_5;
@@ -1168,7 +1168,7 @@ static void cont__13_117(void);
 static NODE *func__14_1_sim2c__function_call_simplify_expression;
 static void entry__14_1_sim2c__function_call_simplify_expression(void);
 static FRAME_INFO frame__14_1_sim2c__function_call_simplify_expression = {2, {"self", "temp"}};
-static NODE *string__14_2;
+static NODE *string__95014404e5c0e88d;
 static void cont__14_3(void);
 static void cont__14_4(void);
 static void cont__14_5(void);
@@ -1182,19 +1182,19 @@ static void cont__14_12(void);
 static NODE *func__15_1_sim2c__attribute_value_pair_simplify_expression;
 static void entry__15_1_sim2c__attribute_value_pair_simplify_expression(void);
 static FRAME_INFO frame__15_1_sim2c__attribute_value_pair_simplify_expression = {2, {"self", "dummy_destinations"}};
-static NODE *string__15_2;
+static NODE *string__cced2f4d969d3d03;
 static void cont__15_3(void);
 static void cont__15_4(void);
 static NODE *func__16_1_sim2c__attribute_function_pair_simplify_expression;
 static void entry__16_1_sim2c__attribute_function_pair_simplify_expression(void);
 static FRAME_INFO frame__16_1_sim2c__attribute_function_pair_simplify_expression = {2, {"self", "dummy_destinations"}};
-static NODE *string__16_2;
+static NODE *string__83e573190949a328;
 static void cont__16_3(void);
 static void cont__16_4(void);
 static NODE *func__17_1_sim2c__c_code_simplify_statement;
 static void entry__17_1_sim2c__c_code_simplify_statement(void);
 static FRAME_INFO frame__17_1_sim2c__c_code_simplify_statement = {1, {"self"}};
-static NODE *string__17_2;
+static NODE *string__1095e9f11fb0974b;
 static void cont__17_3(void);
 static NODE *func__17_4;
 static void entry__17_4(void);
@@ -1234,15 +1234,15 @@ static void entry__17_25(void);
 static FRAME_INFO frame__17_25 = {1, {"name"}};
 static void cont__17_26(void);
 static void cont__17_27(void);
-static NODE *string__17_28;
-static NODE *string__17_29;
-static NODE *string__17_30;
+static NODE *string__7c1f530901a312a3;
+static NODE *string__1e0aea8b5d407d5c;
+static NODE *string__46c0af9104ada08e;
 static void cont__17_31(void);
 static void cont__17_32(void);
 static NODE *func__18_1_sim2c__c_body_simplify_expression;
 static void entry__18_1_sim2c__c_body_simplify_expression(void);
 static FRAME_INFO frame__18_1_sim2c__c_body_simplify_expression = {1, {"self"}};
-static NODE *string__18_2;
+static NODE *string__1295e9f11fb09757;
 static void cont__18_3(void);
 static NODE *func__18_4;
 static void entry__18_4(void);
@@ -1818,7 +1818,7 @@ static void cont__5_2(void) {
   // 38: ... "temp__@(temp_idx)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__5_3;
+  arguments->slots[0] = string__421f524a80420288;
   arguments->slots[1] = get__temp_idx();
   result_count = 1;
   myself = get__std__string();
@@ -3157,9 +3157,9 @@ static void cont__7_36(void) {
   // 122:   Invalid access to dynamic read-write variable "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_37;
+  arguments->slots[0] = string__611f619f08c2e7ef;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_9;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3212,9 +3212,9 @@ static void cont__7_29(void) {
   // 118:   Invalid access to dynamic read-only variable "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_30;
+  arguments->slots[0] = string__e971e37f901b36b;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_9;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3267,9 +3267,9 @@ static void cont__7_22(void) {
   // 114:   Invalid access to static read-write variable "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_23;
+  arguments->slots[0] = string__2ddd7194c0185268;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_9;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3322,9 +3322,9 @@ static void cont__7_15(void) {
   // 110:   Invalid access to read-only variable "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_16;
+  arguments->slots[0] = string__6b008858b3a1b4b2;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_9;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3377,9 +3377,9 @@ static void cont__7_7(void) {
   // 106:   Invalid access to polymorphic function "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_8;
+  arguments->slots[0] = string__9ee981055a49a5fe;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__7_9;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3794,7 +3794,7 @@ static void entry__8_1_types__grammar_node_simplify_statement(void) {
   // 128: show_compiler_debug_info "simplify statement (default)"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_2;
+  arguments->slots[0] = string__4a1f5794bff5c237;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -3839,7 +3839,7 @@ static void entry__9_1_types__grammar_node_simplify_expression(void) {
   // 132: show_compiler_debug_info "simplify expression (default)"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__9_2;
+  arguments->slots[0] = string__5af95dddc656868;
   result_count =
     frame->caller_result_count >= 1 ?
     frame->caller_result_count-1 : -1;
@@ -3872,7 +3872,7 @@ static void entry__10_1_sim2c__body_simplify_expression(void) {
   // 138: show_compiler_debug_info "simplify body"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__10_2;
+  arguments->slots[0] = string__867252dcb87a57b1;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -3959,9 +3959,9 @@ static void cont__10_9(void) {
   // 146:   or in a used namespace@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__10_10;
+  arguments->slots[0] = string__b18861f6a8c886ba;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__10_11;
+  arguments->slots[2] = string__ff65db3940410371;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7501,7 +7501,7 @@ static void entry__13_1_sim2c__call_simplify_statement(void) {
   // 322: show_compiler_debug_info "simplify statement"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__13_2;
+  arguments->slots[0] = string__8629329e514f7a7a;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -9817,7 +9817,7 @@ static void entry__14_1_sim2c__function_call_simplify_expression(void) {
   // 405: show_compiler_debug_info "simplify function call"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__14_2;
+  arguments->slots[0] = string__95014404e5c0e88d;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -10010,7 +10010,7 @@ static void entry__15_1_sim2c__attribute_value_pair_simplify_expression(void) {
   // 421: show_compiler_debug_info "simplify attribute-value pair"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__15_2;
+  arguments->slots[0] = string__cced2f4d969d3d03;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -10061,7 +10061,7 @@ static void entry__16_1_sim2c__attribute_function_pair_simplify_expression(void)
   // 429: show_compiler_debug_info "simplify attribute-function pair"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__16_2;
+  arguments->slots[0] = string__83e573190949a328;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -10109,7 +10109,7 @@ static void entry__17_1_sim2c__c_code_simplify_statement(void) {
   // 437: show_compiler_debug_info "simplify C-code"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__17_2;
+  arguments->slots[0] = string__1095e9f11fb0974b;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -10192,11 +10192,11 @@ static void cont__17_6(void) {
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = string__17_28;
+  arguments->slots[1] = string__7c1f530901a312a3;
   arguments->slots[2] = frame->slots[2] /* temp__2 */;
-  arguments->slots[3] = string__17_29;
+  arguments->slots[3] = string__1e0aea8b5d407d5c;
   arguments->slots[4] = frame->slots[3] /* temp__3 */;
-  arguments->slots[5] = string__17_30;
+  arguments->slots[5] = string__46c0af9104ada08e;
   arguments->slots[6] = frame->slots[4] /* temp__4 */;
   result_count = 0;
   myself = get__case();
@@ -10587,7 +10587,7 @@ static void entry__18_1_sim2c__c_body_simplify_expression(void) {
   // 456: show_compiler_debug_info "simplify C-body"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__18_2;
+  arguments->slots[0] = string__1295e9f11fb09757;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -10666,46 +10666,46 @@ EXPORT void phase_2__simplifier(void) {
   character__32 = from_uchar32(32);
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
-  string__5_3 = from_latin_1_string("temp__", 6);
+  string__421f524a80420288 = from_latin_1_string("temp__", 6);
   func__5_1_temporary_identifier = create_function(entry__5_1_temporary_identifier, 0);
   func__6_3 = create_function(entry__6_3, 1);
   func__6_1_simplify_arguments = create_function(entry__6_1_simplify_arguments, 1);
-  string__7_8 = from_latin_1_string("Invalid access to polymorphic function \042", 40);
-  string__7_9 = from_latin_1_string("\042", 1);
-  string__7_16 = from_latin_1_string("Invalid access to read-only variable \042", 38);
-  string__7_23 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
-  string__7_30 = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
-  string__7_37 = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
+  string__9ee981055a49a5fe = from_latin_1_string("Invalid access to polymorphic function \042", 40);
+  string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
+  string__6b008858b3a1b4b2 = from_latin_1_string("Invalid access to read-only variable \042", 38);
+  string__2ddd7194c0185268 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
+  string__e971e37f901b36b = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
+  string__611f619f08c2e7ef = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
   func__7_1_sim2c__check_usage = create_function(entry__7_1_sim2c__check_usage, 3);
-  string__8_2 = from_latin_1_string("simplify statement (default)", 28);
+  string__4a1f5794bff5c237 = from_latin_1_string("simplify statement (default)", 28);
   func__8_1_types__grammar_node_simplify_statement = create_function(entry__8_1_types__grammar_node_simplify_statement, 1);
-  string__9_2 = from_latin_1_string("simplify expression (default)", 29);
+  string__5af95dddc656868 = from_latin_1_string("simplify expression (default)", 29);
   func__9_1_types__grammar_node_simplify_expression = create_function(entry__9_1_types__grammar_node_simplify_expression, 1);
-  string__10_2 = from_latin_1_string("simplify body", 13);
-  string__10_10 = from_latin_1_string("An identifier named \042", 21);
-  string__10_11 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
+  string__867252dcb87a57b1 = from_latin_1_string("simplify body", 13);
+  string__b18861f6a8c886ba = from_latin_1_string("An identifier named \042", 21);
+  string__ff65db3940410371 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
   func__10_1_sim2c__body_simplify_expression = create_function(entry__10_1_sim2c__body_simplify_expression, 1);
   func__11_5 = create_function(entry__11_5, 1);
   func__11_45 = create_function(entry__11_45, 0);
   func__11_46 = create_function(entry__11_46, 0);
   func__11_1_do_store = create_function(entry__11_1_do_store, 5);
   func__12_1_store_result = create_function(entry__12_1_store_result, -1);
-  string__13_2 = from_latin_1_string("simplify statement", 18);
+  string__8629329e514f7a7a = from_latin_1_string("simplify statement", 18);
   func__13_89 = create_function(entry__13_89, 1);
   func__13_1_sim2c__call_simplify_statement = create_function(entry__13_1_sim2c__call_simplify_statement, 1);
-  string__14_2 = from_latin_1_string("simplify function call", 22);
+  string__95014404e5c0e88d = from_latin_1_string("simplify function call", 22);
   func__14_1_sim2c__function_call_simplify_expression = create_function(entry__14_1_sim2c__function_call_simplify_expression, 1);
-  string__15_2 = from_latin_1_string("simplify attribute-value pair", 29);
+  string__cced2f4d969d3d03 = from_latin_1_string("simplify attribute-value pair", 29);
   func__15_1_sim2c__attribute_value_pair_simplify_expression = create_function(entry__15_1_sim2c__attribute_value_pair_simplify_expression, 1);
-  string__16_2 = from_latin_1_string("simplify attribute-function pair", 32);
+  string__83e573190949a328 = from_latin_1_string("simplify attribute-function pair", 32);
   func__16_1_sim2c__attribute_function_pair_simplify_expression = create_function(entry__16_1_sim2c__attribute_function_pair_simplify_expression, 1);
-  string__17_2 = from_latin_1_string("simplify C-code", 15);
+  string__1095e9f11fb0974b = from_latin_1_string("simplify C-code", 15);
   func__17_4 = create_function(entry__17_4, 0);
-  string__17_28 = from_latin_1_string("struct", 6);
-  string__17_29 = from_latin_1_string("node", 4);
-  string__17_30 = from_latin_1_string("function", 8);
+  string__7c1f530901a312a3 = from_latin_1_string("struct", 6);
+  string__1e0aea8b5d407d5c = from_latin_1_string("node", 4);
+  string__46c0af9104ada08e = from_latin_1_string("function", 8);
   func__17_1_sim2c__c_code_simplify_statement = create_function(entry__17_1_sim2c__c_code_simplify_statement, 1);
-  string__18_2 = from_latin_1_string("simplify C-body", 15);
+  string__1295e9f11fb09757 = from_latin_1_string("simplify C-body", 15);
   func__18_4 = create_function(entry__18_4, 0);
   func__18_1_sim2c__c_body_simplify_expression = create_function(entry__18_1_sim2c__c_body_simplify_expression, 1);
 }

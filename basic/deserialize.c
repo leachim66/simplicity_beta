@@ -468,7 +468,7 @@ static void cont__7_6(void);
 static NODE *func__7_7;
 static void entry__7_7(void);
 static FRAME_INFO frame__7_7 = {7, {"text", "base_indent", "return", "prototype", "name", "attribute_setters", "obj"}};
-static NODE *string__7_8;
+static NODE *string__2d7981f4e6482bec;
 static void cont__7_9(void);
 static NODE *func__7_10;
 static void entry__7_10(void);
@@ -482,8 +482,8 @@ static void cont__7_16(void);
 static NODE *func__7_17;
 static void entry__7_17(void);
 static FRAME_INFO frame__7_17 = {1, {"name"}};
-static NODE *string__7_18;
-static NODE *string__7_19;
+static NODE *string__76acaf9d04f58520;
+static NODE *string__770b9b2c5bac96f5;
 static void cont__7_20(void);
 static void cont__7_21(void);
 static NODE *func__7_22;
@@ -522,8 +522,8 @@ static void cont__7_44(void);
 static NODE *func__7_45;
 static void entry__7_45(void);
 static FRAME_INFO frame__7_45 = {1, {"name"}};
-static NODE *string__7_46;
-static NODE *string__7_47;
+static NODE *string__deed742f6908f861;
+static NODE *string__dc7e95992fac4f0d;
 static void cont__7_48(void);
 static void cont__7_49(void);
 static void cont__7_50(void);
@@ -532,7 +532,7 @@ static void cont__7_52(void);
 static NODE *func__7_53;
 static void entry__7_53(void);
 static FRAME_INFO frame__7_53 = {1, {"name"}};
-static NODE *string__7_54;
+static NODE *string__d8ed73a1e9580be1;
 static void cont__7_55(void);
 static void cont__7_56(void);
 static void cont__7_57(void);
@@ -595,7 +595,7 @@ static void cont__8_32(void);
 static NODE *func__8_33;
 static void entry__8_33(void);
 static FRAME_INFO frame__8_33 = {0, {}};
-static NODE *string__8_34;
+static NODE *string__8d42cc379b749591;
 static void cont__8_35(void);
 static void cont__8_36(void);
 static void cont__8_37(void);
@@ -606,7 +606,7 @@ static void cont__8_39(void);
 static void cont__8_40(void);
 static void cont__8_41(void);
 static void cont__8_42(void);
-static NODE *string__8_43;
+static NODE *string__e4bd1ec7a051e115;
 static NODE *func__8_44;
 static void entry__8_44(void);
 static FRAME_INFO frame__8_44 = {4, {"text", "return", "n", "chr"}};
@@ -615,7 +615,7 @@ static void cont__8_46(void);
 static NODE *func__8_47;
 static void entry__8_47(void);
 static FRAME_INFO frame__8_47 = {0, {}};
-static NODE *string__8_48;
+static NODE *string__6ce496bd70576317;
 static void cont__8_49(void);
 static void cont__8_50(void);
 static void cont__8_51(void);
@@ -654,7 +654,7 @@ static void cont__8_75(void);
 static NODE *func__8_76;
 static void entry__8_76(void);
 static FRAME_INFO frame__8_76 = {0, {}};
-static NODE *string__8_77;
+static NODE *string__c08bfa6e27fae532;
 static void cont__8_78(void);
 static void cont__8_79(void);
 static void cont__8_80(void);
@@ -681,7 +681,7 @@ static void cont__8_94(void);
 static NODE *func__8_95;
 static void entry__8_95(void);
 static FRAME_INFO frame__8_95 = {0, {}};
-static NODE *string__8_96;
+static NODE *string__a7e8c0fdec6da36f;
 static void cont__8_97(void);
 static NODE *func__8_98;
 static void entry__8_98(void);
@@ -703,13 +703,13 @@ static void cont__8_108(void);
 static NODE *func__8_109;
 static void entry__8_109(void);
 static FRAME_INFO frame__8_109 = {1, {"tag"}};
-static NODE *string__8_110;
-static NODE *string__8_111;
+static NODE *string__8b7292a23e049581;
+static NODE *string__2d7981f4e6182be4;
 static void cont__8_112(void);
 static NODE *func__8_113;
 static void entry__8_113(void);
 static FRAME_INFO frame__8_113 = {0, {}};
-static NODE *string__8_114;
+static NODE *string__e89843a7c2547e3c;
 static void cont__8_115(void);
 static NODE *func__9_1_std__deserialize;
 static void entry__9_1_std__deserialize(void);
@@ -733,7 +733,7 @@ static void cont__10_4(void);
 static void cont__10_5(void);
 static void cont__10_6(void);
 static void cont__10_7(void);
-static NODE *string__11_1;
+static NODE *string__2d7981f4e6d82bff;
 static void cont__11_2(void);
 static void cont__11_3(void);
 static void cont__11_4(void);
@@ -1147,7 +1147,7 @@ static void cont__10_7(void) {
   // 37: ... "::", NAME
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__11_1;
+  arguments->slots[0] = string__2d7981f4e6d82bff;
   arguments->slots[1] = get__NAME();
   result_count = 1;
   myself = get__std__sequence();
@@ -2117,7 +2117,7 @@ static void entry__7_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
-  arguments->slots[1] = string__7_8;
+  arguments->slots[1] = string__2d7981f4e6482bec;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -2273,9 +2273,9 @@ static void entry__7_17(void) {
   // 115: ... "Invalid @(name) object encountered during deserialisation!"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_18;
+  arguments->slots[0] = string__76acaf9d04f58520;
   arguments->slots[1] = frame->slots[0] /* name */;
-  arguments->slots[2] = string__7_19;
+  arguments->slots[2] = string__770b9b2c5bac96f5;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2764,9 +2764,9 @@ static void entry__7_45(void) {
   // 124: ... "Encountered invalid @(name) component during deserialisation!"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_46;
+  arguments->slots[0] = string__deed742f6908f861;
   arguments->slots[1] = frame->slots[0] /* name */;
-  arguments->slots[2] = string__7_47;
+  arguments->slots[2] = string__dc7e95992fac4f0d;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2865,9 +2865,9 @@ static void entry__7_53(void) {
   // 128: ... "Encountered unknown @(name) component during deserialisation!"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7_54;
+  arguments->slots[0] = string__d8ed73a1e9580be1;
   arguments->slots[1] = frame->slots[0] /* name */;
-  arguments->slots[2] = string__7_47;
+  arguments->slots[2] = string__dc7e95992fac4f0d;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3605,7 +3605,7 @@ static void entry__8_76(void) {
   // 179:   "Invalid character escape encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_77;
+  arguments->slots[0] = string__c08bfa6e27fae532;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -3771,7 +3771,7 @@ static void entry__8_87(void) {
   // 184:   "Invalid character constant encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_48;
+  arguments->slots[0] = string__6ce496bd70576317;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -4377,7 +4377,7 @@ static void entry__8_33(void) {
   // 155: raise "Invalid string escape encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_34;
+  arguments->slots[0] = string__8d42cc379b749591;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -4571,7 +4571,7 @@ static void cont__8_42(void) {
   // 160: raise "Unterminated string encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_43;
+  arguments->slots[0] = string__e4bd1ec7a051e115;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -4644,7 +4644,7 @@ static void entry__8_47(void) {
   // 164: raise "Invalid character constant encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_48;
+  arguments->slots[0] = string__6ce496bd70576317;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -4861,9 +4861,9 @@ static void entry__8_109(void) {
   // 203:   No deserializer defined for "@(tag)@quot;!@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__8_110;
+  arguments->slots[0] = string__8b7292a23e049581;
   arguments->slots[1] = frame->slots[0] /* tag */;
-  arguments->slots[2] = string__8_111;
+  arguments->slots[2] = string__2d7981f4e6182be4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -4984,7 +4984,7 @@ static void entry__8_113(void) {
   // 205: raise "No valid tag found while attempting to deserialize text!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_114;
+  arguments->slots[0] = string__e89843a7c2547e3c;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -5057,7 +5057,7 @@ static void entry__8_95(void) {
   // 189: raise "Invalid numeric constant encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__8_96;
+  arguments->slots[0] = string__a7e8c0fdec6da36f;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -5313,31 +5313,31 @@ EXPORT void phase_2__basic__deserialize(void) {
   func__5_1_std__get_deserialization_indent = create_function(entry__5_1_std__get_deserialization_indent, 1);
   func__6_13 = create_function(entry__6_13, 0);
   func__6_1_std__deserialize_item = create_function(entry__6_1_std__deserialize_item, 2);
-  string__7_8 = from_latin_1_string("()", 2);
-  string__7_18 = from_latin_1_string("Invalid ", 8);
-  string__7_19 = from_latin_1_string(" object encountered during deserialisation!", 43);
-  string__7_46 = from_latin_1_string("Encountered invalid ", 20);
-  string__7_47 = from_latin_1_string(" component during deserialisation!", 34);
-  string__7_54 = from_latin_1_string("Encountered unknown ", 20);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
+  string__76acaf9d04f58520 = from_latin_1_string("Invalid ", 8);
+  string__770b9b2c5bac96f5 = from_latin_1_string(" object encountered during deserialisation!", 43);
+  string__deed742f6908f861 = from_latin_1_string("Encountered invalid ", 20);
+  string__dc7e95992fac4f0d = from_latin_1_string(" component during deserialisation!", 34);
+  string__d8ed73a1e9580be1 = from_latin_1_string("Encountered unknown ", 20);
   func__7_1_std__create_deserializer = create_function(entry__7_1_std__create_deserializer, -1);
-  string__8_34 = from_latin_1_string("Invalid string escape encountered during deserialization!", 57);
+  string__8d42cc379b749591 = from_latin_1_string("Invalid string escape encountered during deserialization!", 57);
   func__8_33 = create_function(entry__8_33, 0);
-  string__8_43 = from_latin_1_string("Unterminated string encountered during deserialization!", 55);
-  string__8_48 = from_latin_1_string("Invalid character constant encountered during deserialization!", 62);
+  string__e4bd1ec7a051e115 = from_latin_1_string("Unterminated string encountered during deserialization!", 55);
+  string__6ce496bd70576317 = from_latin_1_string("Invalid character constant encountered during deserialization!", 62);
   func__8_47 = create_function(entry__8_47, 0);
-  string__8_77 = from_latin_1_string("Invalid character escape encountered during deserialization!", 60);
+  string__c08bfa6e27fae532 = from_latin_1_string("Invalid character escape encountered during deserialization!", 60);
   func__8_76 = create_function(entry__8_76, 0);
   func__8_87 = create_function(entry__8_87, 0);
-  string__8_96 = from_latin_1_string("Invalid numeric constant encountered during deserialization!", 60);
+  string__a7e8c0fdec6da36f = from_latin_1_string("Invalid numeric constant encountered during deserialization!", 60);
   func__8_95 = create_function(entry__8_95, 0);
-  string__8_110 = from_latin_1_string("No deserializer defined for \042", 29);
-  string__8_111 = from_latin_1_string("\042!", 2);
-  string__8_114 = from_latin_1_string("No valid tag found while attempting to deserialize text!", 56);
+  string__8b7292a23e049581 = from_latin_1_string("No deserializer defined for \042", 29);
+  string__2d7981f4e6182be4 = from_latin_1_string("\042!", 2);
+  string__e89843a7c2547e3c = from_latin_1_string("No valid tag found while attempting to deserialize text!", 56);
   func__8_113 = create_function(entry__8_113, 0);
   func__8_1_deserialize_stream = create_function(entry__8_1_deserialize_stream, 2);
   func__9_5 = create_function(entry__9_5, 0);
   func__9_1_std__deserialize = create_function(entry__9_1_std__deserialize, 1);
-  string__11_1 = from_latin_1_string("::", 2);
+  string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
 }
 
 static int already_run_phase_3 = false;

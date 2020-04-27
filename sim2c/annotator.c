@@ -578,12 +578,12 @@ static void cont__5_4(void);
 static NODE *func__6_1_types__grammar_node_annotate_statement;
 static void entry__6_1_types__grammar_node_annotate_statement(void);
 static FRAME_INFO frame__6_1_types__grammar_node_annotate_statement = {1, {"self"}};
-static NODE *string__6_2;
+static NODE *string__8a2e321e316b06ed;
 static void cont__6_3(void);
 static NODE *func__7_1_types__grammar_node_annotate_expression;
 static void entry__7_1_types__grammar_node_annotate_expression(void);
 static FRAME_INFO frame__7_1_types__grammar_node_annotate_expression = {1, {"self"}};
-static NODE *string__7_2;
+static NODE *string__bce93a983bb5b33f;
 static void cont__7_3(void);
 static NODE *func__8_1_sim2c__check_definitions;
 static void entry__8_1_sim2c__check_definitions(void);
@@ -606,8 +606,8 @@ static void cont__8_10(void);
 static NODE *func__8_11;
 static void entry__8_11(void);
 static FRAME_INFO frame__8_11 = {2, {"identifier", "name"}};
-static NODE *string__8_12;
-static NODE *string__8_13;
+static NODE *string__1f20e521cf7a2a0e;
+static NODE *string__e573d863c40ad98e;
 static void cont__8_14(void);
 static NODE *func__8_15;
 static void entry__8_15(void);
@@ -629,7 +629,7 @@ static void cont__8_25(void);
 static NODE *func__8_26;
 static void entry__8_26(void);
 static FRAME_INFO frame__8_26 = {2, {"identifier", "name"}};
-static NODE *string__8_27;
+static NODE *string__6ef85e6a0d2c67a5;
 static void cont__8_28(void);
 static void cont__8_29(void);
 static NODE *func__8_30;
@@ -650,8 +650,8 @@ static NODE *func__8_38;
 static void entry__8_38(void);
 static FRAME_INFO frame__8_38 = {2, {"info", "name"}};
 static void cont__8_39(void);
-static NODE *string__8_40;
-static NODE *string__8_41;
+static NODE *string__fd0945f8c8a23329;
+static NODE *string__27789aef2dccadff;
 static void cont__8_42(void);
 static NODE *get__sim2c__check_definitions(void) {
   return var.sim2c__check_definitions;
@@ -659,7 +659,7 @@ static NODE *get__sim2c__check_definitions(void) {
 static NODE *func__9_1_sim2c__body_annotate_expression;
 static void entry__9_1_sim2c__body_annotate_expression(void);
 static FRAME_INFO frame__9_1_sim2c__body_annotate_expression = {2, {"self", "locally_assigned_names"}};
-static NODE *string__9_2;
+static NODE *string__463aabf2a07456b1;
 static void cont__9_3(void);
 static NODE *func__9_4;
 static void entry__9_4(void);
@@ -704,8 +704,8 @@ static NODE *func__9_29;
 static void entry__9_29(void);
 static FRAME_INFO frame__9_29 = {1, {"ident"}};
 static void cont__9_30(void);
-static NODE *string__9_31;
-static NODE *string__9_32;
+static NODE *string__c9348eff105534ce;
+static NODE *string__dcee629a9fc6e3f6;
 static void cont__9_33(void);
 static void cont__9_34(void);
 static void cont__9_35(void);
@@ -714,8 +714,8 @@ static void cont__9_37(void);
 static NODE *func__9_38;
 static void entry__9_38(void);
 static FRAME_INFO frame__9_38 = {2, {"ident", "name"}};
-static NODE *string__9_39;
-static NODE *string__9_40;
+static NODE *string__e3b540e1e08e3bc7;
+static NODE *string__578a5af303e9cc8;
 static void cont__9_41(void);
 static void cont__9_42(void);
 static void cont__9_43(void);
@@ -744,7 +744,7 @@ static void cont__9_59(void);
 static NODE *func__9_60;
 static void entry__9_60(void);
 static FRAME_INFO frame__9_60 = {2, {"self", "return"}};
-static NODE *string__9_61;
+static NODE *string__4a80ae5c052cc23f;
 static void cont__9_62(void);
 static void cont__9_63(void);
 static void cont__9_64(void);
@@ -816,10 +816,10 @@ static void cont__10_21(void);
 static void cont__10_22(void);
 static void cont__10_23(void);
 static void cont__10_24(void);
-static NODE *string__10_25;
-static NODE *string__10_26;
+static NODE *string__2d7981f4e6d82bff;
+static NODE *string__2d7981f4e5f02b9a;
 static void cont__10_27(void);
-static NODE *string__10_28;
+static NODE *string__578a5af303e9cbe;
 static void cont__10_29(void);
 static void cont__10_30(void);
 static void cont__10_31(void);
@@ -884,11 +884,11 @@ static void cont__10_75(void);
 static NODE *func__11_1_sim2c__c_code_annotate_statement;
 static void entry__11_1_sim2c__c_code_annotate_statement(void);
 static FRAME_INFO frame__11_1_sim2c__c_code_annotate_statement = {1, {"self"}};
-static NODE *string__11_2;
+static NODE *string__1315a9c10d8edccd;
 static void cont__11_3(void);
 static void cont__11_4(void);
-static NODE *string__11_5;
-static NODE *string__11_6;
+static NODE *string__2a0aef0b5de07d5c;
+static NODE *string__4c1f570701a272a3;
 static void cont__11_7(void);
 static NODE *func__11_8;
 static void entry__11_8(void);
@@ -906,7 +906,7 @@ static void cont__11_16(void);
 static NODE *func__12_1_sim2c__define_static_single_annotate_expression;
 static void entry__12_1_sim2c__define_static_single_annotate_expression(void);
 static FRAME_INFO frame__12_1_sim2c__define_static_single_annotate_expression = {1, {"self"}};
-static NODE *string__12_2;
+static NODE *string__da22f4fe83fda879;
 static void cont__12_3(void);
 static void cont__12_4(void);
 static void cont__12_5(void);
@@ -931,25 +931,25 @@ static void cont__12_17(void);
 static NODE *func__13_1_sim2c__define_static_multi_annotate_expression;
 static void entry__13_1_sim2c__define_static_multi_annotate_expression(void);
 static FRAME_INFO frame__13_1_sim2c__define_static_multi_annotate_expression = {1, {"self"}};
-static NODE *string__13_2;
+static NODE *string__8d039bc45e06307a;
 static void cont__13_3(void);
 static void cont__13_4(void);
 static NODE *func__14_1_sim2c__define_dynamic_single_annotate_expression;
 static void entry__14_1_sim2c__define_dynamic_single_annotate_expression(void);
 static FRAME_INFO frame__14_1_sim2c__define_dynamic_single_annotate_expression = {1, {"self"}};
-static NODE *string__14_2;
+static NODE *string__ff383df04998a917;
 static void cont__14_3(void);
 static void cont__14_4(void);
 static NODE *func__15_1_sim2c__define_dynamic_multi_annotate_expression;
 static void entry__15_1_sim2c__define_dynamic_multi_annotate_expression(void);
 static FRAME_INFO frame__15_1_sim2c__define_dynamic_multi_annotate_expression = {1, {"self"}};
-static NODE *string__15_2;
+static NODE *string__2d2e5f670727e936;
 static void cont__15_3(void);
 static void cont__15_4(void);
 static NODE *func__16_1_sim2c__function_call_annotate_expression;
 static void entry__16_1_sim2c__function_call_annotate_expression(void);
 static FRAME_INFO frame__16_1_sim2c__function_call_annotate_expression = {1, {"self"}};
-static NODE *string__16_2;
+static NODE *string__e5094206a209984d;
 static void cont__16_3(void);
 static void cont__16_4(void);
 static void cont__16_5(void);
@@ -966,7 +966,7 @@ static void cont__16_13(void);
 static NODE *func__17_1_sim2c__attribute_value_pair_annotate_expression;
 static void entry__17_1_sim2c__attribute_value_pair_annotate_expression(void);
 static FRAME_INFO frame__17_1_sim2c__attribute_value_pair_annotate_expression = {1, {"self"}};
-static NODE *string__17_2;
+static NODE *string__cdedef056fb3250d;
 static void cont__17_3(void);
 static void cont__17_4(void);
 static void cont__17_5(void);
@@ -975,7 +975,7 @@ static void cont__17_7(void);
 static NODE *func__18_1_sim2c__attribute_function_pair_annotate_expression;
 static void entry__18_1_sim2c__attribute_function_pair_annotate_expression(void);
 static FRAME_INFO frame__18_1_sim2c__attribute_function_pair_annotate_expression = {1, {"self"}};
-static NODE *string__18_2;
+static NODE *string__9fe7729998bbff18;
 static void cont__18_3(void);
 static void cont__18_4(void);
 static void cont__18_5(void);
@@ -990,7 +990,7 @@ static void cont__18_11(void);
 static NODE *func__19_1_sim2c__identifier_annotate_expression;
 static void entry__19_1_sim2c__identifier_annotate_expression(void);
 static FRAME_INFO frame__19_1_sim2c__identifier_annotate_expression = {1, {"self"}};
-static NODE *string__19_2;
+static NODE *string__d4853f208c1cb4ea;
 static void cont__19_3(void);
 static void cont__19_4(void);
 static NODE *func__19_5;
@@ -1035,8 +1035,8 @@ static void cont__19_27(void);
 static NODE *func__19_28;
 static void entry__19_28(void);
 static FRAME_INFO frame__19_28 = {2, {"self", "name"}};
-static NODE *string__19_29;
-static NODE *string__19_30;
+static NODE *string__94ba0bbafc65551;
+static NODE *string__578a5af303e9cc3;
 static void cont__19_31(void);
 static NODE *func__19_32;
 static void entry__19_32(void);
@@ -1992,7 +1992,7 @@ static void entry__6_1_types__grammar_node_annotate_statement(void) {
   // 58: show_compiler_debug_info "annotate statement"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__6_2;
+  arguments->slots[0] = string__8a2e321e316b06ed;
   result_count =
     frame->caller_result_count >= 1 ?
     frame->caller_result_count-1 : -1;
@@ -2023,7 +2023,7 @@ static void entry__7_1_types__grammar_node_annotate_expression(void) {
   // 61: show_compiler_debug_info "annotate expression"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__7_2;
+  arguments->slots[0] = string__bce93a983bb5b33f;
   result_count =
     frame->caller_result_count >= 1 ?
     frame->caller_result_count-1 : -1;
@@ -2073,9 +2073,9 @@ static void cont__8_39(void) {
   // 93:   used@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__8_40;
+  arguments->slots[0] = string__fd0945f8c8a23329;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__8_41;
+  arguments->slots[2] = string__27789aef2dccadff;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2315,9 +2315,9 @@ static void entry__8_26(void) {
   // 86:   but there is no actual assignment@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__8_12;
+  arguments->slots[0] = string__1f20e521cf7a2a0e;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__8_27;
+  arguments->slots[2] = string__6ef85e6a0d2c67a5;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2356,9 +2356,9 @@ static void entry__8_11(void) {
   // 76:   the identifier "@(name)" is defined but not used@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__8_12;
+  arguments->slots[0] = string__1f20e521cf7a2a0e;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__8_13;
+  arguments->slots[2] = string__e573d863c40ad98e;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -2833,7 +2833,7 @@ static void entry__9_1_sim2c__body_annotate_expression(void) {
   // 96: show_compiler_debug_info "annotate body"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__9_2;
+  arguments->slots[0] = string__463aabf2a07456b1;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -3470,9 +3470,9 @@ static void cont__9_30(void) {
   // 118:   in an inner scope@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__9_31;
+  arguments->slots[0] = string__c9348eff105534ce;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = string__9_32;
+  arguments->slots[2] = string__dcee629a9fc6e3f6;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3580,9 +3580,9 @@ static void entry__9_38(void) {
   // 123:   )@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__9_39;
+  arguments->slots[0] = string__e3b540e1e08e3bc7;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__9_40;
+  arguments->slots[2] = string__578a5af303e9cc8;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3738,7 +3738,7 @@ static void entry__9_60(void) {
   // 137: ... "return__@(index)"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__9_61;
+  arguments->slots[0] = string__4a80ae5c052cc23f;
   arguments->slots[1] = get__index();
   result_count = 1;
   myself = get__std__string();
@@ -4399,7 +4399,7 @@ static void entry__10_1_sim2c__call_annotate_statement(void) {
   // 158: show_compiler_debug_info "annotate statement"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__6_2;
+  arguments->slots[0] = string__8a2e321e316b06ed;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -4778,8 +4778,8 @@ static void cont__10_24(void) {
   // 168: "::" = "__"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__10_25;
-  arguments->slots[1] = string__10_26;
+  arguments->slots[0] = string__2d7981f4e6d82bff;
+  arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -4795,7 +4795,7 @@ static void cont__10_27(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__47;
-  arguments->slots[1] = string__10_28;
+  arguments->slots[1] = string__578a5af303e9cbe;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -4811,7 +4811,7 @@ static void cont__10_29(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
-  arguments->slots[1] = string__10_28;
+  arguments->slots[1] = string__578a5af303e9cbe;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5680,7 +5680,7 @@ static void entry__11_1_sim2c__c_code_annotate_statement(void) {
   // 195: show_compiler_debug_info "annotate C-code"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__11_2;
+  arguments->slots[0] = string__1315a9c10d8edccd;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -5709,8 +5709,8 @@ static void cont__11_4(void) {
   // 196: ... "type", "object"
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__11_5;
-  arguments->slots[1] = string__11_6;
+  arguments->slots[0] = string__2a0aef0b5de07d5c;
+  arguments->slots[1] = string__4c1f570701a272a3;
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
@@ -5908,7 +5908,7 @@ static void entry__12_1_sim2c__define_static_single_annotate_expression(void) {
   // 206: show_compiler_debug_info "annotate define static single"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__12_2;
+  arguments->slots[0] = string__da22f4fe83fda879;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6182,7 +6182,7 @@ static void entry__13_1_sim2c__define_static_multi_annotate_expression(void) {
   // 218: show_compiler_debug_info "annotate define static multi"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__13_2;
+  arguments->slots[0] = string__8d039bc45e06307a;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6228,7 +6228,7 @@ static void entry__14_1_sim2c__define_dynamic_single_annotate_expression(void) {
   // 225: show_compiler_debug_info "annotate define dynamic single"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__14_2;
+  arguments->slots[0] = string__ff383df04998a917;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6276,7 +6276,7 @@ static void entry__15_1_sim2c__define_dynamic_multi_annotate_expression(void) {
   // 233: show_compiler_debug_info "annotate define dynamic multi"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__15_2;
+  arguments->slots[0] = string__2d2e5f670727e936;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6324,7 +6324,7 @@ static void entry__16_1_sim2c__function_call_annotate_expression(void) {
   // 241: show_compiler_debug_info "annotate function call"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__16_2;
+  arguments->slots[0] = string__e5094206a209984d;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6537,7 +6537,7 @@ static void entry__17_1_sim2c__attribute_value_pair_annotate_expression(void) {
   // 251: show_compiler_debug_info "annotate attribute-value pair"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__17_2;
+  arguments->slots[0] = string__cdedef056fb3250d;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6643,7 +6643,7 @@ static void entry__18_1_sim2c__attribute_function_pair_annotate_expression(void)
   // 259: show_compiler_debug_info "annotate attribute-function pair"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__18_2;
+  arguments->slots[0] = string__9fe7729998bbff18;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
@@ -6811,7 +6811,7 @@ static void entry__19_1_sim2c__identifier_annotate_expression(void) {
   // 267: show_compiler_debug_info "annotate identifier " self
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__19_2;
+  arguments->slots[0] = string__d4853f208c1cb4ea;
   arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 0;
   myself = get__show_compiler_debug_info();
@@ -6932,9 +6932,9 @@ static void entry__19_45(void) {
   // 297:   Incompatible use of identifier "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__19_29;
+  arguments->slots[0] = string__94ba0bbafc65551;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__19_30;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7202,9 +7202,9 @@ static void entry__19_28(void) {
   // 286:   Incompatible use of identifier "@(name)@quot;@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__19_29;
+  arguments->slots[0] = string__94ba0bbafc65551;
   arguments->slots[1] = frame->slots[1] /* name */;
-  arguments->slots[2] = string__19_30;
+  arguments->slots[2] = string__578a5af303e9cc3;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7895,51 +7895,51 @@ EXPORT void phase_2__annotator(void) {
   func__4_1_annotate_output_arguments = create_function(entry__4_1_annotate_output_arguments, 1);
   func__5_2 = create_function(entry__5_2, 1);
   func__5_1_annotate_arguments = create_function(entry__5_1_annotate_arguments, 1);
-  string__6_2 = from_latin_1_string("annotate statement", 18);
+  string__8a2e321e316b06ed = from_latin_1_string("annotate statement", 18);
   func__6_1_types__grammar_node_annotate_statement = create_function(entry__6_1_types__grammar_node_annotate_statement, 1);
-  string__7_2 = from_latin_1_string("annotate expression", 19);
+  string__bce93a983bb5b33f = from_latin_1_string("annotate expression", 19);
   func__7_1_types__grammar_node_annotate_expression = create_function(entry__7_1_types__grammar_node_annotate_expression, 1);
-  string__8_12 = from_latin_1_string("the identifier \042", 16);
-  string__8_13 = from_latin_1_string("\042 is defined but not used", 25);
-  string__8_27 = from_latin_1_string("\042 is defined as a read-write variable, but there is no actual assignment", 72);
-  string__8_40 = from_latin_1_string("attempt to use the identifier \042", 31);
-  string__8_41 = from_latin_1_string("\042 that is marked as not being used", 34);
+  string__1f20e521cf7a2a0e = from_latin_1_string("the identifier \042", 16);
+  string__e573d863c40ad98e = from_latin_1_string("\042 is defined but not used", 25);
+  string__6ef85e6a0d2c67a5 = from_latin_1_string("\042 is defined as a read-write variable, but there is no actual assignment", 72);
+  string__fd0945f8c8a23329 = from_latin_1_string("attempt to use the identifier \042", 31);
+  string__27789aef2dccadff = from_latin_1_string("\042 that is marked as not being used", 34);
   func__8_1_sim2c__check_definitions = create_function(entry__8_1_sim2c__check_definitions, 2);
-  string__9_2 = from_latin_1_string("annotate body", 13);
+  string__463aabf2a07456b1 = from_latin_1_string("annotate body", 13);
   func__9_6 = create_function(entry__9_6, 1);
   func__9_19 = create_function(entry__9_19, 1);
-  string__9_31 = from_latin_1_string("attempt to define a namespaced entity (", 39);
-  string__9_32 = from_latin_1_string(") in an inner scope", 19);
-  string__9_39 = from_latin_1_string("Attempt to define a variable twice within a single scope (", 58);
-  string__9_40 = from_latin_1_string(")", 1);
-  string__9_61 = from_latin_1_string("return__", 8);
+  string__c9348eff105534ce = from_latin_1_string("attempt to define a namespaced entity (", 39);
+  string__dcee629a9fc6e3f6 = from_latin_1_string(") in an inner scope", 19);
+  string__e3b540e1e08e3bc7 = from_latin_1_string("Attempt to define a variable twice within a single scope (", 58);
+  string__578a5af303e9cc8 = from_latin_1_string(")", 1);
+  string__4a80ae5c052cc23f = from_latin_1_string("return__", 8);
   func__9_84 = create_function(entry__9_84, 1);
   func__9_1_sim2c__body_annotate_expression = create_function(entry__9_1_sim2c__body_annotate_expression, 1);
-  string__10_25 = from_latin_1_string("::", 2);
-  string__10_26 = from_latin_1_string("__", 2);
-  string__10_28 = from_latin_1_string("_", 1);
+  string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
+  string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
+  string__578a5af303e9cbe = from_latin_1_string("_", 1);
   func__10_1_sim2c__call_annotate_statement = create_function(entry__10_1_sim2c__call_annotate_statement, 1);
-  string__11_2 = from_latin_1_string("annotate C-code", 15);
-  string__11_5 = from_latin_1_string("type", 4);
-  string__11_6 = from_latin_1_string("object", 6);
+  string__1315a9c10d8edccd = from_latin_1_string("annotate C-code", 15);
+  string__2a0aef0b5de07d5c = from_latin_1_string("type", 4);
+  string__4c1f570701a272a3 = from_latin_1_string("object", 6);
   func__11_1_sim2c__c_code_annotate_statement = create_function(entry__11_1_sim2c__c_code_annotate_statement, 1);
-  string__12_2 = from_latin_1_string("annotate define static single", 29);
+  string__da22f4fe83fda879 = from_latin_1_string("annotate define static single", 29);
   func__12_1_sim2c__define_static_single_annotate_expression = create_function(entry__12_1_sim2c__define_static_single_annotate_expression, 1);
-  string__13_2 = from_latin_1_string("annotate define static multi", 28);
+  string__8d039bc45e06307a = from_latin_1_string("annotate define static multi", 28);
   func__13_1_sim2c__define_static_multi_annotate_expression = create_function(entry__13_1_sim2c__define_static_multi_annotate_expression, 1);
-  string__14_2 = from_latin_1_string("annotate define dynamic single", 30);
+  string__ff383df04998a917 = from_latin_1_string("annotate define dynamic single", 30);
   func__14_1_sim2c__define_dynamic_single_annotate_expression = create_function(entry__14_1_sim2c__define_dynamic_single_annotate_expression, 1);
-  string__15_2 = from_latin_1_string("annotate define dynamic multi", 29);
+  string__2d2e5f670727e936 = from_latin_1_string("annotate define dynamic multi", 29);
   func__15_1_sim2c__define_dynamic_multi_annotate_expression = create_function(entry__15_1_sim2c__define_dynamic_multi_annotate_expression, 1);
-  string__16_2 = from_latin_1_string("annotate function call", 22);
+  string__e5094206a209984d = from_latin_1_string("annotate function call", 22);
   func__16_1_sim2c__function_call_annotate_expression = create_function(entry__16_1_sim2c__function_call_annotate_expression, 1);
-  string__17_2 = from_latin_1_string("annotate attribute-value pair", 29);
+  string__cdedef056fb3250d = from_latin_1_string("annotate attribute-value pair", 29);
   func__17_1_sim2c__attribute_value_pair_annotate_expression = create_function(entry__17_1_sim2c__attribute_value_pair_annotate_expression, 1);
-  string__18_2 = from_latin_1_string("annotate attribute-function pair", 32);
+  string__9fe7729998bbff18 = from_latin_1_string("annotate attribute-function pair", 32);
   func__18_1_sim2c__attribute_function_pair_annotate_expression = create_function(entry__18_1_sim2c__attribute_function_pair_annotate_expression, 1);
-  string__19_2 = from_latin_1_string("annotate identifier ", 20);
-  string__19_29 = from_latin_1_string("Incompatible use of identifier \042", 32);
-  string__19_30 = from_latin_1_string("\042", 1);
+  string__d4853f208c1cb4ea = from_latin_1_string("annotate identifier ", 20);
+  string__94ba0bbafc65551 = from_latin_1_string("Incompatible use of identifier \042", 32);
+  string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   func__19_1_sim2c__identifier_annotate_expression = create_function(entry__19_1_sim2c__identifier_annotate_expression, 1);
 }
 

@@ -227,6 +227,7 @@ $sim2c::sim2c:
   %%sim2c::exported_names empty_key_order_table
   %%sim2c::needed_names empty_key_order_table
   %%sim2c::assigned_names empty_set
+  %%sim2c::string_literals empty_table
   %%sim2c::use_inline_c false # set, if an inline-C expression is encountered
   %%sim2c::defined_structs set("NODE")
   %%sim2c::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))

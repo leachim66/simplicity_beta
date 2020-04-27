@@ -295,8 +295,8 @@ static NODE *func__1_7;
 static void entry__1_7(void);
 static FRAME_INFO frame__1_7 = {4, {"attribute", "buf", "attribute_name", "text"}};
 static void cont__1_8(void);
-static NODE *string__1_9;
-static NODE *string__1_10;
+static NODE *string__fa73ac15f296bec;
+static NODE *string__578a5af303e9cdb;
 static void cont__1_11(void);
 static void cont__1_12(void);
 static NODE *func__1_13;
@@ -313,7 +313,7 @@ static void cont__1_19(void);
 static NODE *func__1_20;
 static void entry__1_20(void);
 static FRAME_INFO frame__1_20 = {1, {"buf"}};
-static NODE *string__1_21;
+static NODE *string__2d7981f4e6482bec;
 static void cont__1_22(void);
 static void cont__1_23(void);
 static NODE *get__std__serialize_object(void) {
@@ -560,9 +560,9 @@ static void cont__1_8(void) {
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
-  arguments->slots[1] = string__1_9;
+  arguments->slots[1] = string__fa73ac15f296bec;
   arguments->slots[2] = frame->slots[2] /* attribute_name */;
-  arguments->slots[3] = string__1_10;
+  arguments->slots[3] = string__578a5af303e9cdb;
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
@@ -761,7 +761,7 @@ static void entry__1_20(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
-  arguments->slots[1] = string__1_21;
+  arguments->slots[1] = string__2d7981f4e6482bec;
   result_count = 1;
   myself = get__append();
   func = myself->type;
@@ -812,9 +812,12 @@ EXPORT void phase_2__basic__serialize(void) {
   character__10 = from_uchar32(10);
   number__4 = from_uint32(4U);
   character__32 = from_uchar32(32);
-  string__1_9 = from_latin_1_string("\012  ", 3);
-  string__1_10 = from_latin_1_string(":", 1);
-  string__1_21 = from_latin_1_string("()", 2);
+  string__fa73ac15f296bec = from_latin_1_string(
+    "\n"
+    "  ",
+    3);
+  string__578a5af303e9cdb = from_latin_1_string(":", 1);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   func__1_1_std__serialize_object = create_function(entry__1_1_std__serialize_object, -1);
 }
 

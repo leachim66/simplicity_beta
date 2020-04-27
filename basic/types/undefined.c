@@ -275,7 +275,7 @@ static void entry__6_1_types__undefined_default_value(void);
 static FRAME_INFO frame__6_1_types__undefined_default_value = {2, {"self", "default"}};
 
 static long func__types__undefined___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *string__16_1;
+static NODE *string__7ca0252e172b1501;
 static NODE *func__16_2;
 static void entry__16_2(void);
 static FRAME_INFO frame__16_2 = {2, {"text", "base_indent"}};
@@ -335,7 +335,7 @@ EXPORT void run__basic__types__undefined(void) {
   // 80: register_deserializer "undefined": (text _base_indent) -> text undefined
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__16_1;
+  arguments->slots[0] = string__7ca0252e172b1501;
   arguments->slots[1] = func__16_2;
   result_count = 0;
   myself = get__register_deserializer();
@@ -492,7 +492,7 @@ EXPORT void phase_2__basic__types__undefined(void) {
   already_run_phase_2 = true;
   func__5_1_types__undefined_equal = create_function(entry__5_1_types__undefined_equal, 2);
   func__6_1_types__undefined_default_value = create_function(entry__6_1_types__undefined_default_value, 2);
-  string__16_1 = from_latin_1_string("undefined", 9);
+  string__7ca0252e172b1501 = from_latin_1_string("undefined", 9);
   func__16_2 = create_function(entry__16_2, 2);
 }
 

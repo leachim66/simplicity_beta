@@ -350,7 +350,7 @@ static void cont__3_3(void);
 static NODE *func__3_4;
 static void entry__3_4(void);
 static FRAME_INFO frame__3_4 = {2, {"return", "tag"}};
-static NODE *string__3_5;
+static NODE *string__2d7981f4e6482bec;
 static void cont__3_6(void);
 static void cont__3_7(void);
 static NODE *func__3_8;
@@ -383,7 +383,7 @@ static NODE *get__std__is_a_set(void) {
 static NODE *get__types__set(void) {
   return var.types__set;
 }
-static NODE *string__10_1;
+static NODE *string__fa724815d016bb8;
 static NODE *get__std__empty_set(void) {
   return var.std__empty_set;
 }
@@ -658,7 +658,7 @@ static void entry__3_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* tag */;
-  arguments->slots[1] = string__3_5;
+  arguments->slots[1] = string__2d7981f4e6482bec;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -1023,11 +1023,11 @@ EXPORT void phase_2__basic__types__set(void) {
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
   func__2_1_types__generic_set_union = create_function(entry__2_1_types__generic_set_union, 2);
-  string__3_5 = from_latin_1_string("()", 2);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   func__3_1_types__generic_set_serialize = create_function(entry__3_1_types__generic_set_serialize, -1);
   func__4_1_types__generic_set_is_empty = create_function(entry__4_1_types__generic_set_is_empty, 1);
   func__5_1_types__generic_set_to_list = create_function(entry__5_1_types__generic_set_to_list, 1);
-  string__10_1 = from_latin_1_string("set", 3);
+  string__fa724815d016bb8 = from_latin_1_string("set", 3);
   func__12_1_std__set = create_function(entry__12_1_std__set, -1);
 }
 
@@ -1077,7 +1077,7 @@ EXPORT void phase_4__basic__types__set(void) {
   define_method("types", "generic_set", poly_idx__to_list, func__5_1_types__generic_set_to_list);
   define_attribute("types", "object", poly_idx__is_a_set, get__false());
   define_attribute("types", "generic_set", poly_idx__is_a_set, get__true());
-  define_attribute("types", "set", poly_idx__serialization_tag_of, string__10_1);
+  define_attribute("types", "set", poly_idx__serialization_tag_of, string__fa724815d016bb8);
 }
 
 static int already_run_phase_5 = false;

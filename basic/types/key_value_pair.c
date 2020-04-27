@@ -320,8 +320,8 @@ static void cont__10_8(void);
 static void cont__10_9(void);
 static void cont__10_10(void);
 static void cont__10_11(void);
-static NODE *string__10_12;
-static NODE *string__10_13;
+static NODE *string__9381a93f155b26a2;
+static NODE *string__578a5af303e9ceb;
 static void cont__10_14(void);
 void run__basic__types__key_value_pair(void);
 
@@ -715,10 +715,10 @@ static void cont__10_11(void) {
   // 102:   @nl;@(spaces(indent+2))@(serialize(value_of(self) indent+4))@
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__10_12;
+  arguments->slots[0] = string__9381a93f155b26a2;
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
   arguments->slots[2] = frame->slots[5] /* temp__4 */;
-  arguments->slots[3] = string__10_13;
+  arguments->slots[3] = string__578a5af303e9ceb;
   arguments->slots[4] = frame->slots[8] /* temp__7 */;
   arguments->slots[5] = frame->slots[10] /* temp__9 */;
   result_count = 1;
@@ -770,8 +770,8 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   func__6_1_std__key_value_pair = create_function(entry__6_1_std__key_value_pair, 2);
   func__7_1_types__key_value_pair_key_of = create_function(entry__7_1_types__key_value_pair_key_of, 1);
   func__8_1_types__key_value_pair_value_of = create_function(entry__8_1_types__key_value_pair_value_of, 1);
-  string__10_12 = from_latin_1_string("key_value_pair\012", 15);
-  string__10_13 = from_latin_1_string("\012", 1);
+  string__9381a93f155b26a2 = from_latin_1_string("key_value_pair\012", 15);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   func__10_1_types__key_value_pair_serialize = create_function(entry__10_1_types__key_value_pair_serialize, -1);
 }
 

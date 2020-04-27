@@ -399,8 +399,8 @@ static void cont__10_23(void);
 static NODE *func__10_24;
 static void entry__10_24(void);
 static FRAME_INFO frame__10_24 = {0, {}};
-static NODE *string__10_25;
-static NODE *string__11_1;
+static NODE *string__3cace614246a32e7;
+static NODE *string__60153133ec65829c;
 static NODE *func__12_1_types__insert_order_set_is_empty;
 static void entry__12_1_types__insert_order_set_is_empty(void);
 static FRAME_INFO frame__12_1_types__insert_order_set_is_empty = {1, {"self"}};
@@ -1014,7 +1014,7 @@ static void entry__10_24(void) {
   // 66: Error "Attempt to set a set element to a nonboolean value!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__10_25;
+  arguments->slots[0] = string__3cace614246a32e7;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -1621,9 +1621,9 @@ EXPORT void phase_2__basic__types__insert_order_set(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   unique__NONE = register_unique_item("NONE");
-  string__10_25 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
+  string__3cace614246a32e7 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__10_24 = create_function(entry__10_24, 0);
-  string__11_1 = from_latin_1_string("insert_order_set", 16);
+  string__60153133ec65829c = from_latin_1_string("insert_order_set", 16);
   func__12_1_types__insert_order_set_is_empty = create_function(entry__12_1_types__insert_order_set_is_empty, 1);
   func__13_6 = create_function(entry__13_6, 0);
   func__13_1_types__insert_order_set_first_index_of = create_function(entry__13_1_types__insert_order_set_first_index_of, 1);
@@ -1682,7 +1682,7 @@ EXPORT void phase_4__basic__types__insert_order_set(void) {
   define_attribute("types", "insert_order_set", poly_idx__index_table_of, get__empty_table());
   define_attribute("types", "insert_order_set", poly_idx__keys_of, get__empty_list());
   define_type_function("types", "insert_order_set", entry__10_1_types__insert_order_set_, -1);
-  define_attribute("types", "insert_order_set", poly_idx__serialization_tag_of, string__11_1);
+  define_attribute("types", "insert_order_set", poly_idx__serialization_tag_of, string__60153133ec65829c);
   define_method("types", "insert_order_set", poly_idx__is_empty, func__12_1_types__insert_order_set_is_empty);
   define_method("types", "insert_order_set", poly_idx__first_index_of, func__13_1_types__insert_order_set_first_index_of);
   define_method("types", "insert_order_set", poly_idx__last_index_of, func__14_1_types__insert_order_set_last_index_of);

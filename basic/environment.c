@@ -328,7 +328,7 @@ static FRAME_INFO frame__15_3 = {2, {"myself", "key"}};
 static NODE *func__15_4;
 static void entry__15_4(void);
 static FRAME_INFO frame__15_4 = {3, {"key", "value", "myself"}};
-static NODE *string__15_5;
+static NODE *string__578a5af303e9cdc;
 static void cont__15_6(void);
 static void cont__15_7(void);
 static NODE *get__std__environment(void) {
@@ -818,7 +818,7 @@ static void entry__15_4(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
-  arguments->slots[1] = string__15_5;
+  arguments->slots[1] = string__578a5af303e9cdc;
   arguments->slots[2] = frame->slots[1] /* value */;
   result_count = 1;
   myself = get__std__string();
@@ -958,7 +958,7 @@ EXPORT void phase_2__basic__environment(void) {
   func__5_1_envc = create_function(entry__5_1_envc, 0);
   func__12_1_putenv = create_function(entry__12_1_putenv, 1);
   unique__NONE = register_unique_item("NONE");
-  string__15_5 = from_latin_1_string("=", 1);
+  string__578a5af303e9cdc = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
   func__27_2 = create_function(entry__27_2, 1);
 }

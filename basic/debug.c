@@ -316,7 +316,7 @@ static void entry__2_9(void);
 static FRAME_INFO frame__2_9 = {3, {"name", "expr", "depth"}};
 static void cont__2_10(void);
 static void cont__2_11(void);
-static NODE *string__2_12;
+static NODE *string__578a5af303e9cdb;
 static NODE *get__std__dump(void) {
   return var.std__dump;
 }
@@ -372,7 +372,7 @@ static void cont__7_8(void);
 static void cont__7_9(void);
 static void cont__7_10(void);
 static void cont__7_11(void);
-static NODE *string__7_12;
+static NODE *string__578a5af303e9cd1;
 static void cont__7_13(void);
 static void cont__7_14(void);
 static NODE *func__7_15;
@@ -382,12 +382,12 @@ static void cont__7_16(void);
 static void cont__7_17(void);
 static void cont__7_18(void);
 static void cont__7_19(void);
-static NODE *string__7_20;
+static NODE *string__578a5af303e9cc1;
 static void cont__7_21(void);
 static void cont__7_22(void);
-static NODE *string__7_23;
+static NODE *string__fa730415f296bec;
 static void cont__7_24(void);
-static NODE *string__7_25;
+static NODE *string__2d7981f4e6082be5;
 static void cont__7_26(void);
 static NODE *func__7_27;
 static void entry__7_27(void);
@@ -406,7 +406,7 @@ static FRAME_INFO frame__7_34 = {1, {"chr"}};
 static NODE *func__7_35;
 static void entry__7_35(void);
 static FRAME_INFO frame__7_35 = {0, {}};
-static NODE *string__7_36;
+static NODE *string__578a5af303e9ccf;
 static void cont__7_37(void);
 static void cont__7_38(void);
 static void cont__7_39(void);
@@ -612,7 +612,7 @@ static void cont__2_11(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = string__2_12;
+  arguments->slots[1] = string__578a5af303e9cdb;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__write();
@@ -803,7 +803,7 @@ static void cont__3_11(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = string__2_12;
+  arguments->slots[1] = string__578a5af303e9cdb;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__ewrite();
@@ -1108,7 +1108,7 @@ static void cont__7_11(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
   arguments->slots[1] = number__8;
-  arguments->slots[2] = string__7_12;
+  arguments->slots[2] = string__578a5af303e9cd1;
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
@@ -1124,7 +1124,7 @@ static void cont__7_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = string__2_12;
+  arguments->slots[1] = string__578a5af303e9cdb;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -1208,7 +1208,7 @@ static void cont__7_18(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
   arguments->slots[1] = number__2;
-  arguments->slots[2] = string__7_12;
+  arguments->slots[2] = string__578a5af303e9cd1;
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
@@ -1223,7 +1223,7 @@ static void cont__7_19(void) {
   // 175: ... write " " pad_left(hex(line(i).to_integer) 2 "0")
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__7_20;
+  arguments->slots[0] = string__578a5af303e9cc1;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__write();
@@ -1254,7 +1254,7 @@ static void cont__7_22(void) {
   // 176: ... dup("   " 16-n)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__7_23;
+  arguments->slots[0] = string__fa730415f296bec;
   arguments->slots[1] = frame->slots[6] /* temp__2 */;
   result_count = 1;
   myself = get__dup();
@@ -1271,7 +1271,7 @@ static void cont__7_24(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = string__7_25;
+  arguments->slots[1] = string__2d7981f4e6082be5;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -1335,7 +1335,7 @@ static void entry__7_35(void) {
   // 183: write "."
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__7_36;
+  arguments->slots[0] = string__578a5af303e9ccf;
   result_count = frame->caller_result_count;
   myself = get__write();
   func = myself->type;
@@ -1659,17 +1659,17 @@ EXPORT void phase_2__basic__debug(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   func__1_1_std__debug_string = create_function(entry__1_1_std__debug_string, -1);
-  string__2_12 = from_latin_1_string(":", 1);
+  string__578a5af303e9cdb = from_latin_1_string(":", 1);
   func__2_1_std__dump = create_function(entry__2_1_std__dump, -1);
   func__3_1_std__edump = create_function(entry__3_1_std__edump, -1);
   func__4_1_std__collect_garbage = create_function(entry__4_1_std__collect_garbage, 0);
   func__5_1_std__instruction_counter = create_function(entry__5_1_std__instruction_counter, 0);
   func__6_1_std__total_garbage_collections = create_function(entry__6_1_std__total_garbage_collections, 0);
-  string__7_12 = from_latin_1_string("0", 1);
-  string__7_20 = from_latin_1_string(" ", 1);
-  string__7_23 = from_latin_1_string("   ", 3);
-  string__7_25 = from_latin_1_string("  ", 2);
-  string__7_36 = from_latin_1_string(".", 1);
+  string__578a5af303e9cd1 = from_latin_1_string("0", 1);
+  string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
+  string__fa730415f296bec = from_latin_1_string("   ", 3);
+  string__2d7981f4e6082be5 = from_latin_1_string("  ", 2);
+  string__578a5af303e9ccf = from_latin_1_string(".", 1);
   func__7_35 = create_function(entry__7_35, 0);
   func__7_1_std__hexdump = create_function(entry__7_1_std__hexdump, 1);
 }

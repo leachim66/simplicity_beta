@@ -1083,7 +1083,7 @@ static const char *var_names[] = {
 static NODE *func__1_1_sim2c__std_identifier;
 static void entry__1_1_sim2c__std_identifier(void);
 static FRAME_INFO frame__1_1_sim2c__std_identifier = {1, {"name"}};
-static NODE *string__1_2;
+static NODE *string__fa724815d896ba8;
 static NODE *get__sim2c__std_identifier(void) {
   return var.sim2c__std_identifier;
 }
@@ -1136,7 +1136,7 @@ static FRAME_INFO frame__2_32 = {1, {"text"}};
 static void cont__2_33(void);
 static void cont__2_34(void);
 static void cont__2_35(void);
-static NODE *string__2_36;
+static NODE *string__ef94bdf606d19800;
 static void cont__2_37(void);
 static void cont__2_38(void);
 static NODE *func__2_39;
@@ -1158,37 +1158,37 @@ static NODE *func__2_50;
 static void entry__2_50(void);
 static FRAME_INFO frame__2_50 = {3, {"line_no", "n", "msg"}};
 static void cont__2_51(void);
-static NODE *string__2_52;
-static NODE *string__2_53;
-static NODE *string__2_54;
+static NODE *string__578a5af303e9cdb;
+static NODE *string__2d7981f4e6d82be5;
+static NODE *string__578a5af303e9ceb;
 static void cont__2_55(void);
 static NODE *func__2_56;
 static void entry__2_56(void);
 static FRAME_INFO frame__2_56 = {5, {"msg_type", "line_no", "msg", "line", "n"}};
-static NODE *string__2_57;
-static NODE *string__2_58;
-static NODE *string__2_59;
-static NODE *string__2_60;
-static NODE *string__2_61;
+static NODE *string__3c655ae2e30c5e7c;
+static NODE *string__3c082d0cc329b1a5;
+static NODE *string__6c6619488b29e163;
+static NODE *string__fa730c15ff96bc6;
+static NODE *string__2d7981f4e6002bcf;
 static void cont__2_62(void);
 static void cont__2_63(void);
 static void cont__2_64(void);
-static NODE *string__2_65;
+static NODE *string__578a5af303e9cc1;
 static void cont__2_66(void);
-static NODE *string__2_67;
+static NODE *string__578a5af303e9cbf;
 static NODE *func__3_1_sim2c__Warning;
 static void entry__3_1_sim2c__Warning(void);
 static FRAME_INFO frame__3_1_sim2c__Warning = {2, {"obj", "msg"}};
 static void cont__3_2(void);
 static void cont__3_3(void);
-static NODE *string__3_4;
+static NODE *string__eed8078214c9e0bd;
 static NODE *get__sim2c__Warning(void) {
   return var.sim2c__Warning;
 }
 static NODE *func__4_1_ExitWithSyntaxError;
 static void entry__4_1_ExitWithSyntaxError(void);
 static FRAME_INFO frame__4_1_ExitWithSyntaxError = {3, {"fragment", "offset", "msg"}};
-static NODE *string__4_2;
+static NODE *string__ae3c04ed6f185295;
 static void cont__4_3(void);
 static NODE *func__5_1_sim2c__SyntaxError;
 static void entry__5_1_sim2c__SyntaxError(void);
@@ -1231,29 +1231,29 @@ static FRAME_INFO frame__11_7 = {2, {"expression", "stream"}};
 static NODE *func__11_8;
 static void entry__11_8(void);
 static FRAME_INFO frame__11_8 = {1, {"stream"}};
-static NODE *string__11_9;
+static NODE *string__9a64e069c352dc6a;
 static NODE *func__11_10;
 static void entry__11_10(void);
 static FRAME_INFO frame__11_10 = {1, {"stream"}};
-static NODE *string__11_11;
+static NODE *string__927507b8d9967cca;
 static NODE *func__11_12;
 static void entry__11_12(void);
 static FRAME_INFO frame__11_12 = {1, {"stream"}};
-static NODE *string__11_13;
+static NODE *string__9be468e9e34a9c6a;
 static NODE *func__11_14;
 static void entry__11_14(void);
 static FRAME_INFO frame__11_14 = {1, {"stream"}};
-static NODE *string__11_15;
+static NODE *string__ab853eb411a7faea;
 static NODE *func__11_16;
 static void entry__11_16(void);
 static FRAME_INFO frame__11_16 = {2, {"stream", "expression"}};
-static NODE *string__11_17;
-static NODE *string__11_18;
+static NODE *string__578a5af303e9cc3;
+static NODE *string__33060513e6032545;
 static void cont__11_19(void);
 static NODE *func__11_20;
 static void entry__11_20(void);
 static FRAME_INFO frame__11_20 = {1, {"stream"}};
-static NODE *string__11_21;
+static NODE *string__4914d002f7e03078;
 static NODE *func__12_1_unexpected_input_error;
 static void entry__12_1_unexpected_input_error(void);
 static FRAME_INFO frame__12_1_unexpected_input_error = {1, {"expression"}};
@@ -1271,11 +1271,11 @@ static FRAME_INFO frame__15_1_print = {1, {"message"}};
 static NODE *func__17_1_dump_stream_grammar__match;
 static void entry__17_1_dump_stream_grammar__match(void);
 static FRAME_INFO frame__17_1_dump_stream_grammar__match = {2, {"self", "stream"}};
-static NODE *string__17_2;
+static NODE *string__8c16e735f8cebe3d;
 static void cont__17_3(void);
 static void cont__17_4(void);
 static void cont__17_5(void);
-static NODE *string__17_6;
+static NODE *string__881ef7b4fade9e7f;
 static void cont__17_7(void);
 static NODE *func__18_1_sim2c__strip;
 static void entry__18_1_sim2c__strip(void);
@@ -1367,7 +1367,7 @@ static NODE *func__20_1_dump_grammar__match;
 static void entry__20_1_dump_grammar__match(void);
 static FRAME_INFO frame__20_1_dump_grammar__match = {2, {"self", "stream"}};
 static void cont__20_2(void);
-static NODE *string__20_3;
+static NODE *string__665e06ec4dcad6be;
 static void cont__20_4(void);
 static NODE *func__22_1_dump3_grammar__match;
 static void entry__22_1_dump3_grammar__match(void);
@@ -1447,7 +1447,7 @@ static void cont__42_2(void);
 static NODE *func__42_3;
 static void entry__42_3(void);
 static FRAME_INFO frame__42_3 = {2, {"expression", "description"}};
-static NODE *string__42_4;
+static NODE *string__68d023a4c22b2461;
 static void cont__42_5(void);
 static void cont__42_6(void);
 static void cont__42_7(void);
@@ -1488,7 +1488,7 @@ static void cont__208_6(void);
 static NODE *func__208_7;
 static void entry__208_7(void);
 static FRAME_INFO frame__208_7 = {1, {"source"}};
-static NODE *string__208_8;
+static NODE *string__12eb1acbffa2ae01;
 static void cont__208_9(void);
 static NODE *get__sim2c__parse_meta_instruction(void) {
   return var.sim2c__parse_meta_instruction;
@@ -1508,57 +1508,57 @@ static void cont__209_8(void);
 static NODE *func__209_9;
 static void entry__209_9(void);
 static FRAME_INFO frame__209_9 = {1, {"source"}};
-static NODE *string__209_10;
+static NODE *string__482d004bd19ca8db;
 static NODE *func__209_11;
 static void entry__209_11(void);
 static FRAME_INFO frame__209_11 = {1, {"source"}};
-static NODE *string__209_12;
+static NODE *string__5278dd75c73e18e3;
 static void cont__209_13(void);
 static void cont__209_14(void);
-static NODE *string__209_15;
+static NODE *string__6ca8a8f604cd4188;
 static void cont__209_16(void);
 static void cont__209_17(void);
 static NODE *get__sim2c__parse_statement(void) {
   return var.sim2c__parse_statement;
 }
-static NODE *string__236_1;
+static NODE *string__578a5af303e9ccb;
 static void cont__236_2(void);
-static NODE *string__236_3;
+static NODE *string__578a5af303e9cce;
 static void cont__236_4(void);
-static NODE *string__236_5;
+static NODE *string__578a5af303e9cca;
 static void cont__236_6(void);
-static NODE *string__236_7;
+static NODE *string__578a5af303e9ccc;
 static void cont__236_8(void);
-static NODE *string__236_9;
+static NODE *string__2d7981f4e6e82bf9;
 static void cont__236_10(void);
-static NODE *string__236_11;
+static NODE *string__2d7981f4e6f82bfb;
 static void cont__236_12(void);
-static NODE *string__236_13;
+static NODE *string__578a5af303e9cc7;
 static void cont__236_14(void);
 static void cont__236_15(void);
-static NODE *string__236_16;
+static NODE *string__578a5af303e9c9d;
 static void cont__236_17(void);
-static NODE *string__236_18;
+static NODE *string__2d7981f4e6e82bf8;
 static void cont__236_19(void);
-static NODE *string__236_20;
+static NODE *string__578a5af303e9cdd;
 static void cont__236_21(void);
-static NODE *string__236_22;
+static NODE *string__2d7981f4e6f82bf8;
 static void cont__236_23(void);
-static NODE *string__236_24;
+static NODE *string__578a5af303e9cdf;
 static void cont__236_25(void);
-static NODE *string__236_26;
+static NODE *string__2d7981f4e6e02bf8;
 static void cont__236_27(void);
-static NODE *string__236_28;
+static NODE *string__2d7981f4e6002bf8;
 static void cont__236_29(void);
-static NODE *string__236_30;
+static NODE *string__2d7981f4e6382be3;
 static void cont__236_31(void);
-static NODE *string__236_32;
+static NODE *string__2d7981f4e4e82bb9;
 static void cont__236_33(void);
-static NODE *string__236_34;
+static NODE *string__2d7981f4e6782beb;
 static void cont__236_35(void);
-static NODE *string__236_36;
+static NODE *string__578a5af303e9ccd;
 static void cont__236_37(void);
-static NODE *string__236_38;
+static NODE *string__578a5af303e9cdc;
 static void cont__236_39(void);
 static void cont__236_40(void);
 static NODE *func__246_1;
@@ -1567,7 +1567,7 @@ static FRAME_INFO frame__246_1 = {2, {"node", "stream"}};
 static NODE *func__246_2;
 static void entry__246_2(void);
 static FRAME_INFO frame__246_2 = {1, {"stream"}};
-static NODE *string__246_3;
+static NODE *string__ccbf6d451aa8563f;
 static void cont__246_4(void);
 static void cont__246_5(void);
 static void cont__247_1(void);
@@ -1622,7 +1622,7 @@ static FRAME_INFO frame__264_3 = {1, {"node"}};
 static void cont__264_4(void);
 static void cont__264_5(void);
 static void cont__264_6(void);
-static NODE *string__264_7;
+static NODE *string__2d7981f4e6d82bff;
 static void cont__264_8(void);
 static void cont__264_9(void);
 static void cont__264_10(void);
@@ -1636,7 +1636,7 @@ static void cont__265_5(void);
 static NODE *func__265_6;
 static void entry__265_6(void);
 static FRAME_INFO frame__265_6 = {1, {"node"}};
-static NODE *string__265_7;
+static NODE *string__958c1dda41e5a79c;
 static void cont__265_8(void);
 static void cont__265_9(void);
 static void cont__265_10(void);
@@ -1649,7 +1649,7 @@ static void cont__266_2(void);
 static void cont__266_3(void);
 static void cont__266_4(void);
 static void cont__266_5(void);
-static NODE *string__267_1;
+static NODE *string__2d7981f4e6782bea;
 static void cont__267_2(void);
 static void cont__267_3(void);
 static void cont__267_4(void);
@@ -1665,13 +1665,13 @@ static void cont__268_6(void);
 static NODE *func__268_7;
 static void entry__268_7(void);
 static FRAME_INFO frame__268_7 = {2, {"stream", "filename"}};
-static NODE *string__268_8;
-static NODE *string__268_9;
+static NODE *string__92e1510f182d5769;
+static NODE *string__fd365ba9213c93f1;
 static void cont__268_10(void);
 static void cont__268_11(void);
 static void cont__268_12(void);
 static void cont__268_13(void);
-static NODE *string__268_14;
+static NODE *string__44dcaf9484448bc5;
 static void cont__268_15(void);
 static void cont__269_1(void);
 static void cont__269_2(void);
@@ -1692,8 +1692,8 @@ static void cont__269_12(void);
 static NODE *func__269_13;
 static void entry__269_13(void);
 static FRAME_INFO frame__269_13 = {2, {"stream", "namespace"}};
-static NODE *string__269_14;
-static NODE *string__269_15;
+static NODE *string__9159abe89634488c;
+static NODE *string__54767964cc2066c4;
 static void cont__269_16(void);
 static void cont__269_17(void);
 static void cont__269_18(void);
@@ -1707,12 +1707,12 @@ static void cont__269_23(void);
 static NODE *func__269_24;
 static void entry__269_24(void);
 static FRAME_INFO frame__269_24 = {2, {"stream", "alias"}};
-static NODE *string__269_25;
+static NODE *string__e13e5990aea4c8f3;
 static void cont__269_26(void);
 static void cont__269_27(void);
 static void cont__269_28(void);
 static void cont__269_29(void);
-static NODE *string__269_30;
+static NODE *string__1552f059283245c4;
 static void cont__269_31(void);
 static void cont__270_1(void);
 static void cont__270_2(void);
@@ -1724,16 +1724,16 @@ static void cont__270_5(void);
 static NODE *func__270_6;
 static void entry__270_6(void);
 static FRAME_INFO frame__270_6 = {2, {"stream", "namespace"}};
-static NODE *string__270_7;
+static NODE *string__1d0508008a8a40d8;
 static void cont__270_8(void);
 static void cont__270_9(void);
 static void cont__270_10(void);
 static void cont__270_11(void);
-static NODE *string__270_12;
+static NODE *string__7e1f542e81cb02b0;
 static void cont__270_13(void);
 static void cont__271_1(void);
 static void cont__271_2(void);
-static NODE *string__272_1;
+static NODE *string__fa733c15f596be3;
 static void cont__272_2(void);
 static void cont__272_3(void);
 static void cont__272_4(void);
@@ -1749,13 +1749,13 @@ static void cont__273_5(void);
 static NODE *func__273_6;
 static void entry__273_6(void);
 static FRAME_INFO frame__273_6 = {2, {"stream", "filename"}};
-static NODE *string__273_7;
-static NODE *string__273_8;
+static NODE *string__2c64b158ac2be503;
+static NODE *string__b0b6bb19371893f7;
 static void cont__273_9(void);
 static void cont__273_10(void);
 static void cont__273_11(void);
 static void cont__273_12(void);
-static NODE *string__273_13;
+static NODE *string__76b0a89104f5abc5;
 static void cont__273_14(void);
 static void cont__274_1(void);
 static void cont__274_2(void);
@@ -1767,13 +1767,13 @@ static void cont__274_5(void);
 static NODE *func__274_6;
 static void entry__274_6(void);
 static FRAME_INFO frame__274_6 = {2, {"stream", "filename"}};
-static NODE *string__274_7;
-static NODE *string__274_8;
+static NODE *string__a660d7293a5c47e8;
+static NODE *string__ad06d2ccd69d8e1;
 static void cont__274_9(void);
 static void cont__274_10(void);
 static void cont__274_11(void);
 static void cont__274_12(void);
-static NODE *string__274_13;
+static NODE *string__525ae943eabdd03c;
 static void cont__274_14(void);
 static void cont__275_1(void);
 static void cont__275_2(void);
@@ -1792,12 +1792,12 @@ static void cont__277_5(void);
 static NODE *func__277_6;
 static void entry__277_6(void);
 static FRAME_INFO frame__277_6 = {2, {"stream", "filemask"}};
-static NODE *string__277_7;
+static NODE *string__e720c6242e8cd532;
 static void cont__277_8(void);
 static void cont__277_9(void);
 static void cont__277_10(void);
 static void cont__277_11(void);
-static NODE *string__277_12;
+static NODE *string__425aeb43ea6dd036;
 static void cont__277_13(void);
 static void cont__278_1(void);
 static void cont__278_2(void);
@@ -1957,19 +1957,19 @@ static void cont__298_12(void);
 static void cont__299_1(void);
 static void cont__300_1(void);
 static void cont__300_2(void);
-static NODE *string__300_3;
+static NODE *string__2d7981f4e6882ba7;
 static void cont__300_4(void);
 static void cont__301_1(void);
 static void cont__302_1(void);
 static void cont__302_2(void);
-static NODE *string__302_3;
+static NODE *string__2d7981f4e6882baa;
 static void cont__302_4(void);
 static void cont__303_1(void);
 static void cont__303_2(void);
 static void cont__303_3(void);
 static void cont__304_1(void);
 static void cont__304_2(void);
-static NODE *string__304_3;
+static NODE *string__2d7981f4e6882bbd;
 static void cont__304_4(void);
 static void cont__305_1(void);
 static void cont__305_2(void);
@@ -1998,7 +1998,7 @@ static void cont__308_5(void);
 static NODE *func__308_6;
 static void entry__308_6(void);
 static FRAME_INFO frame__308_6 = {1, {"stream"}};
-static NODE *string__308_7;
+static NODE *string__dea962eab6ac8f23;
 static void cont__308_8(void);
 static void cont__308_9(void);
 static void cont__308_10(void);
@@ -2019,7 +2019,7 @@ static void cont__309_12(void);
 static void cont__309_13(void);
 static void cont__309_14(void);
 static void cont__309_15(void);
-static NODE *string__310_1;
+static NODE *string__4313674f4741806a;
 static void cont__310_2(void);
 static void cont__310_3(void);
 static void cont__311_1(void);
@@ -2035,7 +2035,7 @@ static void cont__313_3(void);
 static void cont__313_4(void);
 static void cont__313_5(void);
 static void cont__313_6(void);
-static NODE *string__313_7;
+static NODE *string__2d7981f4e5082bfe;
 static void cont__313_8(void);
 static NODE *func__314_1;
 static void entry__314_1(void);
@@ -2053,7 +2053,7 @@ static void cont__314_9(void);
 static void cont__314_10(void);
 static void cont__314_11(void);
 static void cont__314_12(void);
-static NODE *string__314_13;
+static NODE *string__2d7981f4e5082bed;
 static void cont__314_14(void);
 static NODE *func__315_1;
 static void entry__315_1(void);
@@ -2073,7 +2073,7 @@ static FRAME_INFO frame__315_9 = {1, {"node"}};
 static void cont__315_10(void);
 static void cont__315_11(void);
 static void cont__315_12(void);
-static NODE *string__315_13;
+static NODE *string__7c1f540901cb12b0;
 static void cont__315_14(void);
 static void cont__315_15(void);
 static void cont__315_16(void);
@@ -2114,7 +2114,7 @@ static void cont__319_8(void);
 static void cont__320_1(void);
 static void cont__320_2(void);
 static void cont__320_3(void);
-static NODE *string__321_1;
+static NODE *string__55df65a142fc9536;
 static void cont__321_2(void);
 static void cont__321_3(void);
 static void cont__321_4(void);
@@ -2123,16 +2123,16 @@ static void cont__321_6(void);
 static NODE *func__322_1;
 static void entry__322_1(void);
 static FRAME_INFO frame__322_1 = {1, {"node"}};
-static NODE *string__322_2;
+static NODE *string__64d512703527e2ab;
 static void cont__322_3(void);
-static NODE *string__322_4;
+static NODE *string__2a0aedcb5dc87d5c;
 static void cont__322_5(void);
 static void cont__322_6(void);
 static void cont__322_7(void);
 static void cont__322_8(void);
 static void cont__322_9(void);
 static void cont__322_10(void);
-static NODE *string__322_11;
+static NODE *string__2d7981f4e6602be8;
 static void cont__322_12(void);
 static NODE *func__323_1;
 static void entry__323_1(void);
@@ -2279,7 +2279,7 @@ static void cont__332_8(void);
 static void cont__332_9(void);
 static void cont__332_10(void);
 static void cont__333_1(void);
-static NODE *string__333_2;
+static NODE *string__395c5a51a203e553;
 static void cont__333_3(void);
 static void cont__334_1(void);
 static void cont__334_2(void);
@@ -2299,12 +2299,12 @@ static void cont__335_13(void);
 static void cont__336_1(void);
 static void cont__336_2(void);
 static void cont__337_1(void);
-static NODE *string__337_2;
+static NODE *string__2d7981f4e6282be1;
 static void cont__337_3(void);
 static void cont__338_1(void);
 static void cont__338_2(void);
 static void cont__339_1(void);
-static NODE *string__339_2;
+static NODE *string__2d7981f4e6202be0;
 static void cont__339_3(void);
 static NODE *func__340_1;
 static void entry__340_1(void);
@@ -2526,7 +2526,7 @@ static void cont__364_11(void);
 static NODE *func__364_12;
 static void entry__364_12(void);
 static FRAME_INFO frame__364_12 = {1, {"stream"}};
-static NODE *string__364_13;
+static NODE *string__733ccdbfc49ced05;
 static void cont__364_14(void);
 static void cont__364_15(void);
 static void cont__364_16(void);
@@ -2664,7 +2664,7 @@ static void cont__375_2(void);
 static void cont__375_3(void);
 static void cont__376_1(void);
 static void cont__376_2(void);
-static NODE *string__376_3;
+static NODE *string__2d7981f4e6602bfb;
 static void cont__376_4(void);
 static void cont__377_1(void);
 static void cont__377_2(void);
@@ -2703,7 +2703,7 @@ static void cont__380_8(void);
 static void cont__380_9(void);
 static void cont__380_10(void);
 static void cont__380_11(void);
-static NODE *string__380_12;
+static NODE *string__5ed2969d8211684f;
 static void cont__380_13(void);
 static void cont__380_14(void);
 static void cont__380_15(void);
@@ -2745,10 +2745,10 @@ static void cont__385_12(void);
 static void cont__385_13(void);
 static void cont__385_14(void);
 static void cont__386_1(void);
-static NODE *string__386_2;
+static NODE *string__2d7981f4e6482bec;
 static void cont__386_3(void);
 static void cont__387_1(void);
-static NODE *string__387_2;
+static NODE *string__fa732415f216be5;
 static void cont__387_3(void);
 static void cont__388_1(void);
 static void cont__388_2(void);
@@ -2767,7 +2767,7 @@ static void cont__389_9(void);
 static NODE *func__389_10;
 static void entry__389_10(void);
 static FRAME_INFO frame__389_10 = {1, {"node"}};
-static NODE *string__389_11;
+static NODE *string__b6a1aa36d1f3b32e;
 static void cont__389_12(void);
 static void cont__389_13(void);
 static void cont__389_14(void);
@@ -2786,7 +2786,7 @@ static void cont__389_26(void);
 static void cont__389_27(void);
 static void cont__390_1(void);
 static void cont__391_1(void);
-static NODE *string__391_2;
+static NODE *string__2d7981f4e6782bed;
 static void cont__391_3(void);
 static void cont__391_4(void);
 static void cont__391_5(void);
@@ -2819,7 +2819,7 @@ static void cont__397_4(void);
 static NODE *func__397_5;
 static void entry__397_5(void);
 static FRAME_INFO frame__397_5 = {1, {"node"}};
-static NODE *string__397_6;
+static NODE *string__a6b4597d46108e45;
 static void cont__397_7(void);
 static void cont__397_8(void);
 static void cont__397_9(void);
@@ -2835,7 +2835,7 @@ static void cont__398_7(void);
 static void cont__398_8(void);
 static void cont__398_9(void);
 static void cont__399_1(void);
-static NODE *string__399_2;
+static NODE *string__2d7981f4e5f02b9a;
 static void cont__399_3(void);
 static void cont__399_4(void);
 static void cont__399_5(void);
@@ -2848,50 +2848,50 @@ static void cont__400_3(void);
 static void cont__401_1(void);
 static void cont__401_2(void);
 static void cont__401_3(void);
-static NODE *string__401_4;
+static NODE *string__74dcac9584a4c074;
 static void cont__401_5(void);
 static void cont__402_1(void);
 static void cont__402_2(void);
 static void cont__402_3(void);
-static NODE *string__402_4;
+static NODE *string__60ae90b5df87d5c;
 static void cont__402_5(void);
 static void cont__403_1(void);
 static void cont__403_2(void);
 static void cont__403_3(void);
-static NODE *string__403_4;
+static NODE *string__140aeb0b5d107d5d;
 static void cont__403_5(void);
 static void cont__404_1(void);
 static void cont__404_2(void);
 static void cont__404_3(void);
-static NODE *string__404_4;
+static NODE *string__1e0ae90b5d087d5c;
 static void cont__404_5(void);
 static void cont__405_1(void);
 static void cont__405_2(void);
 static void cont__405_3(void);
-static NODE *string__405_4;
+static NODE *string__1e0aea8b5d407d5c;
 static void cont__405_5(void);
-static NODE *string__406_1;
-static NODE *string__406_2;
-static NODE *string__406_3;
-static NODE *string__406_4;
+static NODE *string__9a4c0f9815d2209f;
+static NODE *string__461f56c301b292bb;
+static NODE *string__545aebc3eac0d03b;
+static NODE *string__701f5702012bd2b9;
 static void cont__406_5(void);
 static void cont__406_6(void);
 static void cont__406_7(void);
 static void cont__406_8(void);
-static NODE *string__406_9;
+static NODE *string__4c5ae8c3ea492032;
 static void cont__406_10(void);
 static void cont__407_1(void);
 static void cont__407_2(void);
 static void cont__407_3(void);
-static NODE *string__407_4;
+static NODE *string__2a0aef0b5de07d5c;
 static void cont__407_5(void);
-static NODE *string__408_1;
+static NODE *string__399cfc434d66f26;
 static void cont__408_2(void);
 static void cont__408_3(void);
 static void cont__409_1(void);
 static void cont__409_2(void);
 static void cont__410_1(void);
-static NODE *string__411_1;
+static NODE *string__2d7981f4e6702bea;
 static void cont__411_2(void);
 static void cont__412_1(void);
 static void cont__412_2(void);
@@ -2915,7 +2915,7 @@ static void cont__414_10(void);
 static void cont__415_1(void);
 static void cont__415_2(void);
 static void cont__415_3(void);
-static NODE *string__416_1;
+static NODE *string__227de92deba39b6b;
 static void cont__416_2(void);
 static void cont__416_3(void);
 static void cont__416_4(void);
@@ -4414,7 +4414,7 @@ EXPORT void run__parser(void) {
   // 204: "*" = 14
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_1;
+  arguments->slots[0] = string__578a5af303e9ccb;
   arguments->slots[1] = number__14;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4430,7 +4430,7 @@ static void cont__236_2(void) {
   // 205: "/" = 14
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_3;
+  arguments->slots[0] = string__578a5af303e9cce;
   arguments->slots[1] = number__14;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4446,7 +4446,7 @@ static void cont__236_4(void) {
   // 206: "+" = 13
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_5;
+  arguments->slots[0] = string__578a5af303e9cca;
   arguments->slots[1] = number__13;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4462,7 +4462,7 @@ static void cont__236_6(void) {
   // 207: "-" = 13
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_7;
+  arguments->slots[0] = string__578a5af303e9ccc;
   arguments->slots[1] = number__13;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4478,7 +4478,7 @@ static void cont__236_8(void) {
   // 208: "<<" = 12
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_9;
+  arguments->slots[0] = string__2d7981f4e6e82bf9;
   arguments->slots[1] = number__12;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4494,7 +4494,7 @@ static void cont__236_10(void) {
   // 209: ">>" = 12
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_11;
+  arguments->slots[0] = string__2d7981f4e6f82bfb;
   arguments->slots[1] = number__12;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4510,7 +4510,7 @@ static void cont__236_12(void) {
   // 210: "&" = 11
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_13;
+  arguments->slots[0] = string__578a5af303e9cc7;
   arguments->slots[1] = number__11;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4526,7 +4526,7 @@ static void cont__236_14(void) {
   // 211: "^" = 10
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__2_67;
+  arguments->slots[0] = string__578a5af303e9cbf;
   arguments->slots[1] = number__10;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4542,7 +4542,7 @@ static void cont__236_15(void) {
   // 212: "|" = 9
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_16;
+  arguments->slots[0] = string__578a5af303e9c9d;
   arguments->slots[1] = number__9;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4558,7 +4558,7 @@ static void cont__236_17(void) {
   // 213: "<=" = 8
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_18;
+  arguments->slots[0] = string__2d7981f4e6e82bf8;
   arguments->slots[1] = number__8;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4574,7 +4574,7 @@ static void cont__236_19(void) {
   // 214: "<" = 8
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_20;
+  arguments->slots[0] = string__578a5af303e9cdd;
   arguments->slots[1] = number__8;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4590,7 +4590,7 @@ static void cont__236_21(void) {
   // 215: ">=" = 8
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_22;
+  arguments->slots[0] = string__2d7981f4e6f82bf8;
   arguments->slots[1] = number__8;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4606,7 +4606,7 @@ static void cont__236_23(void) {
   // 216: ">" = 8
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_24;
+  arguments->slots[0] = string__578a5af303e9cdf;
   arguments->slots[1] = number__8;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4622,7 +4622,7 @@ static void cont__236_25(void) {
   // 217: "==" = 7
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_26;
+  arguments->slots[0] = string__2d7981f4e6e02bf8;
   arguments->slots[1] = number__7;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4638,7 +4638,7 @@ static void cont__236_27(void) {
   // 218: "!=" = 7
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_28;
+  arguments->slots[0] = string__2d7981f4e6002bf8;
   arguments->slots[1] = number__7;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4654,7 +4654,7 @@ static void cont__236_29(void) {
   // 219: "&&" = 5
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_30;
+  arguments->slots[0] = string__2d7981f4e6382be3;
   arguments->slots[1] = number__5;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4670,7 +4670,7 @@ static void cont__236_31(void) {
   // 220: "||" = 4
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_32;
+  arguments->slots[0] = string__2d7981f4e4e82bb9;
   arguments->slots[1] = number__4;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4686,7 +4686,7 @@ static void cont__236_33(void) {
   // 221: ".." = 3
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_34;
+  arguments->slots[0] = string__2d7981f4e6782beb;
   arguments->slots[1] = number__3;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4702,7 +4702,7 @@ static void cont__236_35(void) {
   // 222: "," = 2
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_36;
+  arguments->slots[0] = string__578a5af303e9ccd;
   arguments->slots[1] = number__2;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4718,7 +4718,7 @@ static void cont__236_37(void) {
   // 223: "=" = 1
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_38;
+  arguments->slots[0] = string__578a5af303e9cdc;
   arguments->slots[1] = number__1;
   result_count = 1;
   myself = get__std__key_value_pair();
@@ -4833,7 +4833,7 @@ static void entry__246_2(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__246_3;
+  arguments->slots[1] = string__ccbf6d451aa8563f;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -5596,7 +5596,7 @@ static void cont__264_6(void) {
   // 345:   capture(name_of NAME)
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__264_7;
+  arguments->slots[0] = string__2d7981f4e6d82bff;
   arguments->slots[1] = frame->slots[4] /* temp__5 */;
   arguments->slots[2] = frame->slots[5] /* temp__6 */;
   result_count = 1;
@@ -5770,7 +5770,7 @@ static void entry__265_6(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* node */;
-  arguments->slots[1] = string__265_7;
+  arguments->slots[1] = string__958c1dda41e5a79c;
   result_count = frame->caller_result_count;
   myself = get__SyntaxError();
   func = myself->type;
@@ -5843,7 +5843,7 @@ static void cont__265_11(void) {
   // 362:   capture(name_of NAME)
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__264_7;
+  arguments->slots[0] = string__2d7981f4e6d82bff;
   arguments->slots[1] = frame->slots[5] /* temp__6 */;
   arguments->slots[2] = frame->slots[6] /* temp__7 */;
   result_count = 1;
@@ -5944,7 +5944,7 @@ static void cont__266_2(void) {
   // 370: expect("::")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__264_7;
+  arguments->slots[0] = string__2d7981f4e6d82bff;
   result_count = 1;
   myself = var._expect;
   func = myself->type;
@@ -6000,7 +6000,7 @@ static void cont__266_5(void) {
   // 376: ... optional("./")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__267_1;
+  arguments->slots[0] = string__2d7981f4e6782bea;
   result_count = 1;
   myself = get__optional();
   func = myself->type;
@@ -6015,7 +6015,7 @@ static void cont__267_2(void) {
   // 376: ... "/", NAME
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__236_3;
+  arguments->slots[0] = string__578a5af303e9cce;
   arguments->slots[1] = get__NAME();
   result_count = 1;
   myself = get__std__sequence();
@@ -6193,9 +6193,9 @@ static void entry__268_7(void) {
   // 392:   the module "@(filename)" is required twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__268_8;
+  arguments->slots[0] = string__92e1510f182d5769;
   arguments->slots[1] = frame->slots[1] /* filename */;
-  arguments->slots[2] = string__268_9;
+  arguments->slots[2] = string__fd365ba9213c93f1;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -6266,12 +6266,12 @@ static void cont__268_13(void) {
   // ...
   argument_count = 8;
   arguments = node_p;
-  arguments->slots[0] = string__268_14;
+  arguments->slots[0] = string__44dcaf9484448bc5;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   arguments->slots[2] = var._STORE_POSITION;
   arguments->slots[3] = var.sim2c__WHITESPACE;
   arguments->slots[4] = frame->slots[1] /* temp__2 */;
-  arguments->slots[5] = string__236_24;
+  arguments->slots[5] = string__578a5af303e9cdf;
   arguments->slots[6] = var._STORE_END_POSITION;
   arguments->slots[7] = frame->slots[2] /* temp__3 */;
   result_count = 1;
@@ -6319,7 +6319,7 @@ static void cont__269_2(void) {
   // 403: infix_operator("=")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__236_38;
+  arguments->slots[0] = string__578a5af303e9cdc;
   result_count = 1;
   myself = var._infix_operator;
   func = myself->type;
@@ -6539,9 +6539,9 @@ static void entry__269_24(void) {
   // 420:   the namespace alias "@(alias)" is defined twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__269_25;
+  arguments->slots[0] = string__e13e5990aea4c8f3;
   arguments->slots[1] = frame->slots[1] /* alias */;
-  arguments->slots[2] = string__269_15;
+  arguments->slots[2] = string__54767964cc2066c4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -6667,9 +6667,9 @@ static void entry__269_13(void) {
   // 414:   the namespace "@(namespace)" is defined twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__269_14;
+  arguments->slots[0] = string__9159abe89634488c;
   arguments->slots[1] = frame->slots[1] /* namespace */;
-  arguments->slots[2] = string__269_15;
+  arguments->slots[2] = string__54767964cc2066c4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -6784,12 +6784,12 @@ static void cont__269_29(void) {
   // ...
   argument_count = 7;
   arguments = node_p;
-  arguments->slots[0] = string__269_30;
+  arguments->slots[0] = string__1552f059283245c4;
   arguments->slots[1] = var.sim2c__WHITESPACE;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = frame->slots[1] /* temp__2 */;
   arguments->slots[4] = frame->slots[2] /* temp__3 */;
-  arguments->slots[5] = string__236_24;
+  arguments->slots[5] = string__578a5af303e9cdf;
   arguments->slots[6] = frame->slots[7] /* temp__8 */;
   result_count = 1;
   myself = get__sequence();
@@ -6920,9 +6920,9 @@ static void entry__270_6(void) {
   // 435:   the namespace "@(namespace)" is used twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__269_14;
+  arguments->slots[0] = string__9159abe89634488c;
   arguments->slots[1] = frame->slots[1] /* namespace */;
-  arguments->slots[2] = string__270_7;
+  arguments->slots[2] = string__1d0508008a8a40d8;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -6993,11 +6993,11 @@ static void cont__270_11(void) {
   // ...
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__270_12;
+  arguments->slots[0] = string__7e1f542e81cb02b0;
   arguments->slots[1] = var.sim2c__WHITESPACE;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = frame->slots[1] /* temp__2 */;
-  arguments->slots[4] = string__236_24;
+  arguments->slots[4] = string__578a5af303e9cdf;
   arguments->slots[5] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__sequence();
@@ -7046,7 +7046,7 @@ static void cont__271_2(void) {
   // 439: ... some("../")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__272_1;
+  arguments->slots[0] = string__fa733c15f596be3;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -7062,7 +7062,7 @@ static void cont__272_2(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__47;
-  arguments->slots[1] = string__267_1;
+  arguments->slots[1] = string__2d7981f4e6782bea;
   arguments->slots[2] = frame->slots[1] /* temp__2 */;
   result_count = 1;
   myself = get__alt();
@@ -7241,9 +7241,9 @@ static void entry__273_6(void) {
   // 453:   the file "@(filename)" is included twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__273_7;
+  arguments->slots[0] = string__2c64b158ac2be503;
   arguments->slots[1] = frame->slots[1] /* filename */;
-  arguments->slots[2] = string__273_8;
+  arguments->slots[2] = string__b0b6bb19371893f7;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7314,11 +7314,11 @@ static void cont__273_12(void) {
   // ...
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__273_13;
+  arguments->slots[0] = string__76b0a89104f5abc5;
   arguments->slots[1] = var.sim2c__WHITESPACE;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = frame->slots[1] /* temp__2 */;
-  arguments->slots[4] = string__236_24;
+  arguments->slots[4] = string__578a5af303e9cdf;
   arguments->slots[5] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__sequence();
@@ -7449,9 +7449,9 @@ static void entry__274_6(void) {
   // 468:   the library "@(filename)" is linked twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__274_7;
+  arguments->slots[0] = string__a660d7293a5c47e8;
   arguments->slots[1] = frame->slots[1] /* filename */;
-  arguments->slots[2] = string__274_8;
+  arguments->slots[2] = string__ad06d2ccd69d8e1;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7522,11 +7522,11 @@ static void cont__274_12(void) {
   // ...
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__274_13;
+  arguments->slots[0] = string__525ae943eabdd03c;
   arguments->slots[1] = var.sim2c__WHITESPACE;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = frame->slots[1] /* temp__2 */;
-  arguments->slots[4] = string__236_24;
+  arguments->slots[4] = string__578a5af303e9cdf;
   arguments->slots[5] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__sequence();
@@ -7577,7 +7577,7 @@ static void cont__275_2(void) {
   // 472: ... some("../")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__272_1;
+  arguments->slots[0] = string__fa733c15f596be3;
   result_count = 1;
   myself = get__some();
   func = myself->type;
@@ -7593,7 +7593,7 @@ static void cont__276_1(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__47;
-  arguments->slots[1] = string__267_1;
+  arguments->slots[1] = string__2d7981f4e6782bea;
   arguments->slots[2] = frame->slots[1] /* temp__2 */;
   result_count = 1;
   myself = get__alt();
@@ -7772,9 +7772,9 @@ static void entry__277_6(void) {
   // 486:   the data dependency "@(filemask)" is defined twice@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__277_7;
+  arguments->slots[0] = string__e720c6242e8cd532;
   arguments->slots[1] = frame->slots[1] /* filemask */;
-  arguments->slots[2] = string__269_15;
+  arguments->slots[2] = string__54767964cc2066c4;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -7845,11 +7845,11 @@ static void cont__277_11(void) {
   // ...
   argument_count = 6;
   arguments = node_p;
-  arguments->slots[0] = string__277_12;
+  arguments->slots[0] = string__425aeb43ea6dd036;
   arguments->slots[1] = var.sim2c__WHITESPACE;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = frame->slots[1] /* temp__2 */;
-  arguments->slots[4] = string__236_24;
+  arguments->slots[4] = string__578a5af303e9cdf;
   arguments->slots[5] = frame->slots[2] /* temp__3 */;
   result_count = 1;
   myself = get__sequence();
@@ -10243,7 +10243,7 @@ static void cont__300_2(void) {
   // 611: $BINARY_NUMBER "0b", interleaved(many(BINARY_DIGIT) '@apos;')
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__300_3;
+  arguments->slots[0] = string__2d7981f4e6882ba7;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -10306,7 +10306,7 @@ static void cont__302_2(void) {
   // 613: $OCTAL_NUMBER "0o", interleaved(many(OCTAL_DIGIT) '@apos;')
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__302_3;
+  arguments->slots[0] = string__2d7981f4e6882baa;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -10402,7 +10402,7 @@ static void cont__304_2(void) {
   // 615: $HEX_NUMBER "0x", interleaved(many(HEX_DIGIT) '@apos;')
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__304_3;
+  arguments->slots[0] = string__2d7981f4e6882bbd;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -10778,7 +10778,7 @@ static void entry__308_6(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__308_7;
+  arguments->slots[1] = string__dea962eab6ac8f23;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -10857,7 +10857,7 @@ static void cont__309_1(void) {
   // 659: "0b", many(BINARY_DIGIT)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__300_3;
+  arguments->slots[0] = string__2d7981f4e6882ba7;
   arguments->slots[1] = frame->slots[3] /* temp__4 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -10888,7 +10888,7 @@ static void cont__309_3(void) {
   // 660: "0o", many(OCTAL_DIGIT)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__302_3;
+  arguments->slots[0] = string__2d7981f4e6882baa;
   arguments->slots[1] = frame->slots[5] /* temp__6 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -10919,7 +10919,7 @@ static void cont__309_5(void) {
   // 661: "0x", many(HEX_DIGIT)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__304_3;
+  arguments->slots[0] = string__2d7981f4e6882bbd;
   arguments->slots[1] = frame->slots[7] /* temp__8 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -11107,7 +11107,7 @@ static void cont__309_15(void) {
   // 673: syntax_error("invalid special character")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__310_1;
+  arguments->slots[0] = string__4313674f4741806a;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -11348,7 +11348,7 @@ static void cont__313_6(void) {
   // 693:           push &node.node::text_of node::value_of(node)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__313_7;
+  arguments->slots[0] = string__2d7981f4e5082bfe;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__alt();
@@ -11591,7 +11591,7 @@ static void cont__314_12(void) {
   // 704:     expect(')')
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__314_13;
+  arguments->slots[0] = string__2d7981f4e5082bed;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   arguments->slots[2] = frame->slots[1] /* temp__2 */;
   arguments->slots[3] = frame->slots[3] /* temp__4 */;
@@ -11853,7 +11853,7 @@ static void cont__315_12(void) {
   // 714: ... std_identifier("string")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__315_13;
+  arguments->slots[0] = string__7c1f540901cb12b0;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -12511,7 +12511,7 @@ static void cont__320_3(void) {
   // 764: ... syntax_error("expression expected")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__321_1;
+  arguments->slots[0] = string__55df65a142fc9536;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -12618,7 +12618,7 @@ static void entry__322_1(void) {
   // 775: ... std_identifier("key_value_pair")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__322_2;
+  arguments->slots[0] = string__64d512703527e2ab;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -12633,7 +12633,7 @@ static void cont__322_3(void) {
   // 776: ... std_identifier("true")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__322_4;
+  arguments->slots[0] = string__2a0aedcb5dc87d5c;
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
@@ -12754,7 +12754,7 @@ static void cont__322_10(void) {
   // ...
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__322_11;
+  arguments->slots[0] = string__2d7981f4e6602be8;
   arguments->slots[1] = var._IDENTIFIER;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = var._STORE_END_POSITION;
@@ -12797,7 +12797,7 @@ static void entry__323_1(void) {
   {
     NODE *temp = clone_object_and_attributes(get__operator_symbol());
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__name_of, string__236_7);
+    set_attribute_value(temp->attributes, poly_idx__name_of, string__578a5af303e9ccc);
     frame->slots[2] /* temp__2 */ = temp;
 
   }
@@ -13002,21 +13002,21 @@ static void cont__325_3(void) {
   arguments->slots[1] = character__47;
   arguments->slots[2] = character__43;
   arguments->slots[3] = character__45;
-  arguments->slots[4] = string__236_9;
-  arguments->slots[5] = string__236_18;
-  arguments->slots[6] = string__236_20;
-  arguments->slots[7] = string__236_11;
-  arguments->slots[8] = string__236_22;
-  arguments->slots[9] = string__236_24;
-  arguments->slots[10] = string__236_30;
+  arguments->slots[4] = string__2d7981f4e6e82bf9;
+  arguments->slots[5] = string__2d7981f4e6e82bf8;
+  arguments->slots[6] = string__578a5af303e9cdd;
+  arguments->slots[7] = string__2d7981f4e6f82bfb;
+  arguments->slots[8] = string__2d7981f4e6f82bf8;
+  arguments->slots[9] = string__578a5af303e9cdf;
+  arguments->slots[10] = string__2d7981f4e6382be3;
   arguments->slots[11] = character__38;
   arguments->slots[12] = character__94;
-  arguments->slots[13] = string__236_32;
+  arguments->slots[13] = string__2d7981f4e4e82bb9;
   arguments->slots[14] = character__124;
-  arguments->slots[15] = string__236_26;
+  arguments->slots[15] = string__2d7981f4e6e02bf8;
   arguments->slots[16] = character__61;
-  arguments->slots[17] = string__236_28;
-  arguments->slots[18] = string__236_34;
+  arguments->slots[17] = string__2d7981f4e6002bf8;
+  arguments->slots[18] = string__2d7981f4e6782beb;
   result_count = 1;
   myself = get__alt();
   func = myself->type;
@@ -14825,7 +14825,7 @@ static void cont__333_1(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = string__333_2;
+  arguments->slots[1] = string__395c5a51a203e553;
   result_count = 1;
   myself = var._expect;
   func = myself->type;
@@ -15179,7 +15179,7 @@ static void cont__337_1(void) {
   // 945: $DEFINE_STATIC_MULTI "$$", set_node(define_static_multi), DEFINED_VARIABLE
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__337_2;
+  arguments->slots[0] = string__2d7981f4e6282be1;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   arguments->slots[2] = var._DEFINED_VARIABLE;
   result_count = 1;
@@ -15243,7 +15243,7 @@ static void cont__339_1(void) {
   // 947: $DEFINE_DYNAMIC_MULTI "%%", set_node(define_dynamic_multi), DEFINED_VARIABLE
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__339_2;
+  arguments->slots[0] = string__2d7981f4e6202be0;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   arguments->slots[2] = var._DEFINED_VARIABLE;
   result_count = 1;
@@ -18823,7 +18823,7 @@ static void entry__364_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__364_13;
+  arguments->slots[1] = string__733ccdbfc49ced05;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -21129,7 +21129,7 @@ static void cont__376_2(void) {
   // 1337:     PARAMETER_NAME
   argument_count = 5;
   arguments = node_p;
-  arguments->slots[0] = string__376_3;
+  arguments->slots[0] = string__2d7981f4e6602bfb;
   arguments->slots[1] = var.sim2c__WHITESPACE;
   arguments->slots[2] = frame->slots[0] /* temp__1 */;
   arguments->slots[3] = frame->slots[1] /* temp__2 */;
@@ -21781,7 +21781,7 @@ static void cont__380_11(void) {
   // 1388: ... syntax_error("statement expected")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__380_12;
+  arguments->slots[0] = string__5ed2969d8211684f;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -21831,7 +21831,7 @@ static void cont__380_15(void) {
   // 1389: syntax_error("statement expected")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__380_12;
+  arguments->slots[0] = string__5ed2969d8211684f;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -21893,7 +21893,7 @@ static void cont__380_18(void) {
   // 1390: syntax_error("statement expected")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__380_12;
+  arguments->slots[0] = string__5ed2969d8211684f;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -21990,7 +21990,7 @@ static void cont__380_22(void) {
   // 1395: followed_by("->")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__376_3;
+  arguments->slots[0] = string__2d7981f4e6602bfb;
   result_count = 1;
   myself = get__followed_by();
   func = myself->type;
@@ -22523,7 +22523,7 @@ static void cont__386_1(void) {
   // 1432:   "()", set_node(polymorphic_function)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__386_2;
+  arguments->slots[0] = string__2d7981f4e6482bec;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -22555,7 +22555,7 @@ static void cont__387_1(void) {
   // 1435:   "(!)", set_node(polymorphic_function_with_setter)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__387_2;
+  arguments->slots[0] = string__fa732415f216be5;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -22796,7 +22796,7 @@ static void entry__389_10(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* node */;
-  arguments->slots[1] = string__389_11;
+  arguments->slots[1] = string__b6a1aa36d1f3b32e;
   result_count = frame->caller_result_count;
   myself = get__SyntaxError();
   func = myself->type;
@@ -23150,7 +23150,7 @@ static void cont__391_1(void) {
   // 1474: ".(", span(result_count_of EXPRESSION), ')'
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__391_2;
+  arguments->slots[0] = string__2d7981f4e6782bed;
   arguments->slots[1] = frame->slots[1] /* temp__2 */;
   arguments->slots[2] = character__41;
   result_count = 1;
@@ -23659,7 +23659,7 @@ static void entry__397_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* node */;
-  arguments->slots[1] = string__397_6;
+  arguments->slots[1] = string__a6b4597d46108e45;
   result_count = frame->caller_result_count;
   myself = get__SyntaxError();
   func = myself->type;
@@ -23751,7 +23751,7 @@ static void cont__397_10(void) {
   // ...
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__376_3;
+  arguments->slots[0] = string__2d7981f4e6602bfb;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__sequence();
@@ -23830,7 +23830,7 @@ static void cont__398_4(void) {
   // 1532: syntax_error("statement expected")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__380_12;
+  arguments->slots[0] = string__5ed2969d8211684f;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -23933,7 +23933,7 @@ static void cont__399_1(void) {
   // 1538: ... "__", NAME
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__399_2;
+  arguments->slots[0] = string__2d7981f4e5f02b9a;
   arguments->slots[1] = get__NAME();
   result_count = 1;
   myself = get__std__sequence();
@@ -24127,7 +24127,7 @@ static void cont__401_3(void) {
   // 1545:     expect(sim2c::WHITESPACE, multi_capture(arguments_of C_EXPRESSION))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__401_4;
+  arguments->slots[0] = string__74dcac9584a4c074;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__sequence();
@@ -24191,7 +24191,7 @@ static void cont__402_3(void) {
   // 1548:   "base", expect(sim2c::WHITESPACE, span(base_of NAMESPACED_IDENTIFIER))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__402_4;
+  arguments->slots[0] = string__60ae90b5df87d5c;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -24254,7 +24254,7 @@ static void cont__403_3(void) {
   // 1550: $KIND_ANNOTATION "kind", expect(sim2c::WHITESPACE, capture(kind_of NAME))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__403_4;
+  arguments->slots[0] = string__140aeb0b5d107d5d;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -24320,7 +24320,7 @@ static void cont__404_3(void) {
   // 1555:     expect(sim2c::WHITESPACE, alt(BUILTIN_NAME DEFINED_VARIABLE_OR_ATTRIBUTE))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__404_4;
+  arguments->slots[0] = string__1e0ae90b5d087d5c;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__sequence();
@@ -24383,7 +24383,7 @@ static void cont__405_3(void) {
   // 1557: $NODE_ANNOTATION "node", expect(sim2c::WHITESPACE, capture(node_of NAME))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__405_4;
+  arguments->slots[0] = string__1e0aea8b5d407d5c;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -24399,10 +24399,10 @@ static void cont__405_5(void) {
   // 1565: ... alt("runtime" "global" "local" "extern")
   argument_count = 4;
   arguments = node_p;
-  arguments->slots[0] = string__406_1;
-  arguments->slots[1] = string__406_2;
-  arguments->slots[2] = string__406_3;
-  arguments->slots[3] = string__406_4;
+  arguments->slots[0] = string__9a4c0f9815d2209f;
+  arguments->slots[1] = string__461f56c301b292bb;
+  arguments->slots[2] = string__545aebc3eac0d03b;
+  arguments->slots[3] = string__701f5702012bd2b9;
   result_count = 1;
   myself = get__alt();
   func = myself->type;
@@ -24475,7 +24475,7 @@ static void cont__406_8(void) {
   // 1565:         capture(node::scope_of alt("runtime" "global" "local" "extern"))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__406_9;
+  arguments->slots[0] = string__4c5ae8c3ea492032;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__sequence();
@@ -24539,7 +24539,7 @@ static void cont__407_3(void) {
   // 1568:   "type", expect(sim2c::WHITESPACE, span(node::type_of NAMESPACED_IDENTIFIER))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__407_4;
+  arguments->slots[0] = string__2a0aef0b5de07d5c;
   arguments->slots[1] = frame->slots[0] /* temp__1 */;
   result_count = 1;
   myself = get__std__sequence();
@@ -24555,7 +24555,7 @@ static void cont__407_5(void) {
   // 1579: syntax_error("invalid annotation tag")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__408_1;
+  arguments->slots[0] = string__399cfc434d66f26;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -24649,7 +24649,7 @@ static void cont__410_1(void) {
   // 1583: $C_CODE_REMARK "//", REMARK_LINE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__411_1;
+  arguments->slots[0] = string__2d7981f4e6702bea;
   arguments->slots[1] = var._REMARK_LINE;
   result_count = 1;
   myself = get__std__sequence();
@@ -25022,7 +25022,7 @@ static void cont__415_3(void) {
   // 1609: syntax_error("top-level statement expected")
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__416_1;
+  arguments->slots[0] = string__227de92deba39b6b;
   result_count = 1;
   myself = var._syntax_error;
   func = myself->type;
@@ -25126,7 +25126,7 @@ static void entry__1_1_sim2c__std_identifier(void) {
   {
     NODE *temp = clone_object_and_attributes(get__identifier());
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__namespace_of, string__1_2);
+    set_attribute_value(temp->attributes, poly_idx__namespace_of, string__fa724815d896ba8);
     set_attribute_value(temp->attributes, poly_idx__name_of, frame->slots[0] /* name */);
     frame->slots[1] /* temp__1 */ = temp;
 
@@ -25172,13 +25172,13 @@ static void cont__2_51(void) {
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = get__module_name();
-  arguments->slots[1] = string__2_52;
+  arguments->slots[1] = string__578a5af303e9cdb;
   arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* line_no */;
-  arguments->slots[3] = string__2_52;
+  arguments->slots[3] = string__578a5af303e9cdb;
   arguments->slots[4] = frame->slots[4] /* temp__2 */;
-  arguments->slots[5] = string__2_53;
+  arguments->slots[5] = string__2d7981f4e6d82be5;
   arguments->slots[6] = ((CELL *)frame->slots[2])->contents /* msg */;
-  arguments->slots[7] = string__2_54;
+  arguments->slots[7] = string__578a5af303e9ceb;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -25221,15 +25221,15 @@ static void entry__2_56(void) {
   // 77:   @(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   argument_count = 9;
   arguments = node_p;
-  arguments->slots[0] = string__2_57;
+  arguments->slots[0] = string__3c655ae2e30c5e7c;
   arguments->slots[1] = frame->slots[0] /* msg_type */;
-  arguments->slots[2] = string__2_58;
+  arguments->slots[2] = string__3c082d0cc329b1a5;
   arguments->slots[3] = ((CELL *)frame->slots[1])->contents /* line_no */;
-  arguments->slots[4] = string__2_59;
+  arguments->slots[4] = string__6c6619488b29e163;
   arguments->slots[5] = get__module_name();
-  arguments->slots[6] = string__2_60;
+  arguments->slots[6] = string__fa730c15ff96bc6;
   arguments->slots[7] = ((CELL *)frame->slots[2])->contents /* msg */;
-  arguments->slots[8] = string__2_61;
+  arguments->slots[8] = string__2d7981f4e6002bcf;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -25274,7 +25274,7 @@ static void cont__2_64(void) {
   // 79: ... dup(" " n)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__2_65;
+  arguments->slots[0] = string__578a5af303e9cc1;
   arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* n */;
   result_count = 1;
   myself = get__dup();
@@ -25291,7 +25291,7 @@ static void cont__2_66(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = string__2_67;
+  arguments->slots[1] = string__578a5af303e9cbf;
   result_count = frame->caller_result_count;
   myself = get__ewriteln();
   func = myself->type;
@@ -25891,7 +25891,7 @@ static void cont__2_35(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__9;
-  arguments->slots[1] = string__2_36;
+  arguments->slots[1] = string__ef94bdf606d19800;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -26173,7 +26173,7 @@ static void cont__3_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
-  arguments->slots[2] = string__3_4;
+  arguments->slots[2] = string__eed8078214c9e0bd;
   arguments->slots[3] = frame->slots[1] /* msg */;
   result_count = frame->caller_result_count;
   myself = var._print_message;
@@ -26195,7 +26195,7 @@ static void entry__4_1_ExitWithSyntaxError(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fragment */;
   arguments->slots[1] = frame->slots[1] /* offset */;
-  arguments->slots[2] = string__4_2;
+  arguments->slots[2] = string__ae3c04ed6f185295;
   arguments->slots[3] = frame->slots[2] /* msg */;
   result_count = 0;
   myself = var._print_message;
@@ -26372,7 +26372,7 @@ static void entry__11_8(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__11_9;
+  arguments->slots[1] = string__9a64e069c352dc6a;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -26391,7 +26391,7 @@ static void entry__11_10(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__11_11;
+  arguments->slots[1] = string__927507b8d9967cca;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -26410,7 +26410,7 @@ static void entry__11_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__11_13;
+  arguments->slots[1] = string__9be468e9e34a9c6a;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -26429,7 +26429,7 @@ static void entry__11_14(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__11_15;
+  arguments->slots[1] = string__ab853eb411a7faea;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -26450,9 +26450,9 @@ static void entry__11_16(void) {
   // 122:   @quot;@(expression)" expected@
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__11_17;
+  arguments->slots[0] = string__578a5af303e9cc3;
   arguments->slots[1] = frame->slots[1] /* expression */;
-  arguments->slots[2] = string__11_18;
+  arguments->slots[2] = string__33060513e6032545;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -26543,7 +26543,7 @@ static void entry__11_20(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stream */;
-  arguments->slots[1] = string__11_21;
+  arguments->slots[1] = string__4914d002f7e03078;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -26782,7 +26782,7 @@ static void entry__17_1_dump_stream_grammar__match(void) {
   // 148: ewriteln "<<<<<<<<<<"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__17_2;
+  arguments->slots[0] = string__8c16e735f8cebe3d;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -26827,7 +26827,7 @@ static void cont__17_5(void) {
   // 150: ewriteln ">>>>>>>>>>"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__17_6;
+  arguments->slots[0] = string__881ef7b4fade9e7f;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -27886,7 +27886,7 @@ static void cont__20_2(void) {
   // 180: edump `strip(grammar::current_node)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__20_3;
+  arguments->slots[0] = string__665e06ec4dcad6be;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = 0;
   myself = get__edump();
@@ -27934,7 +27934,7 @@ static void cont__22_2(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__3;
-  arguments->slots[1] = string__20_3;
+  arguments->slots[1] = string__665e06ec4dcad6be;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
   result_count = 0;
   myself = get__edump();
@@ -27982,7 +27982,7 @@ static void cont__24_2(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__5;
-  arguments->slots[1] = string__20_3;
+  arguments->slots[1] = string__665e06ec4dcad6be;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
   result_count = 0;
   myself = get__edump();
@@ -28361,7 +28361,7 @@ static void entry__42_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* description */;
-  arguments->slots[1] = string__42_4;
+  arguments->slots[1] = string__68d023a4c22b2461;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -28737,7 +28737,7 @@ static void entry__208_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
-  arguments->slots[1] = string__208_8;
+  arguments->slots[1] = string__12eb1acbffa2ae01;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -28869,7 +28869,7 @@ static void entry__209_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
-  arguments->slots[1] = string__209_10;
+  arguments->slots[1] = string__482d004bd19ca8db;
   result_count = frame->caller_result_count;
   myself = var._ParseError;
   func = myself->type;
@@ -28958,7 +28958,7 @@ static void entry__209_11(void) {
   // 1631: ewriteln "________________________________________"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__209_12;
+  arguments->slots[0] = string__5278dd75c73e18e3;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -28986,7 +28986,7 @@ static void cont__209_14(void) {
   // 1633: ewriteln "no match"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__209_15;
+  arguments->slots[0] = string__6ca8a8f604cd4188;
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
@@ -29293,48 +29293,48 @@ EXPORT void phase_2__parser(void) {
   number__10 = from_uint32(10U);
   character__62 = from_uchar32(62);
   number__14 = from_uint32(14U);
-  string__1_2 = from_latin_1_string("std", 3);
+  string__fa724815d896ba8 = from_latin_1_string("std", 3);
   func__1_1_sim2c__std_identifier = create_function(entry__1_1_sim2c__std_identifier, 1);
-  string__2_36 = from_latin_1_string("        ", 8);
-  string__2_52 = from_latin_1_string(":", 1);
-  string__2_53 = from_latin_1_string(": ", 2);
-  string__2_54 = from_latin_1_string("\012", 1);
-  string__2_57 = from_latin_1_string("____________________________________\012", 37);
-  string__2_58 = from_latin_1_string(" IN LINE ", 9);
-  string__2_59 = from_latin_1_string(" OF FILE \042", 10);
-  string__2_60 = from_latin_1_string("\042:\012", 3);
-  string__2_61 = from_latin_1_string("!\012", 2);
-  string__2_65 = from_latin_1_string(" ", 1);
-  string__2_67 = from_latin_1_string("^", 1);
+  string__ef94bdf606d19800 = from_latin_1_string("        ", 8);
+  string__578a5af303e9cdb = from_latin_1_string(":", 1);
+  string__2d7981f4e6d82be5 = from_latin_1_string(": ", 2);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
+  string__3c655ae2e30c5e7c = from_latin_1_string("____________________________________\012", 37);
+  string__3c082d0cc329b1a5 = from_latin_1_string(" IN LINE ", 9);
+  string__6c6619488b29e163 = from_latin_1_string(" OF FILE \042", 10);
+  string__fa730c15ff96bc6 = from_latin_1_string("\042:\012", 3);
+  string__2d7981f4e6002bcf = from_latin_1_string("!\012", 2);
+  string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
+  string__578a5af303e9cbf = from_latin_1_string("^", 1);
   func__2_1_print_message = create_function(entry__2_1_print_message, 4);
-  string__3_4 = from_latin_1_string("WARNING", 7);
+  string__eed8078214c9e0bd = from_latin_1_string("WARNING", 7);
   func__3_1_sim2c__Warning = create_function(entry__3_1_sim2c__Warning, 2);
-  string__4_2 = from_latin_1_string("SYNTAX ERROR", 12);
+  string__ae3c04ed6f185295 = from_latin_1_string("SYNTAX ERROR", 12);
   func__4_1_ExitWithSyntaxError = create_function(entry__4_1_ExitWithSyntaxError, 3);
   func__5_1_sim2c__SyntaxError = create_function(entry__5_1_sim2c__SyntaxError, 2);
   func__6_1_ParseError = create_function(entry__6_1_ParseError, 2);
   func__8_1_types__syntax_error_grammar__match = create_function(entry__8_1_types__syntax_error_grammar__match, 2);
   func__9_1_syntax_error = create_function(entry__9_1_syntax_error, 1);
-  string__11_9 = from_latin_1_string("newline expected", 16);
-  string__11_11 = from_latin_1_string("indent expected", 15);
-  string__11_13 = from_latin_1_string("outdent expected", 16);
-  string__11_15 = from_latin_1_string("closing quotation mark expected", 31);
-  string__11_17 = from_latin_1_string("\042", 1);
-  string__11_18 = from_latin_1_string("\042 expected", 10);
-  string__11_21 = from_latin_1_string("unexpected input", 16);
+  string__9a64e069c352dc6a = from_latin_1_string("newline expected", 16);
+  string__927507b8d9967cca = from_latin_1_string("indent expected", 15);
+  string__9be468e9e34a9c6a = from_latin_1_string("outdent expected", 16);
+  string__ab853eb411a7faea = from_latin_1_string("closing quotation mark expected", 31);
+  string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
+  string__33060513e6032545 = from_latin_1_string("\042 expected", 10);
+  string__4914d002f7e03078 = from_latin_1_string("unexpected input", 16);
   func__11_1_types__unexpected_input_error_grammar__match = create_function(entry__11_1_types__unexpected_input_error_grammar__match, 2);
   func__12_1_unexpected_input_error = create_function(entry__12_1_unexpected_input_error, 1);
   func__14_1_types__print_grammar__match = create_function(entry__14_1_types__print_grammar__match, 2);
   func__15_1_print = create_function(entry__15_1_print, 1);
-  string__17_2 = from_latin_1_string("<<<<<<<<<<", 10);
-  string__17_6 = from_latin_1_string(">>>>>>>>>>", 10);
+  string__8c16e735f8cebe3d = from_latin_1_string("<<<<<<<<<<", 10);
+  string__881ef7b4fade9e7f = from_latin_1_string(">>>>>>>>>>", 10);
   func__17_1_dump_stream_grammar__match = create_function(entry__17_1_dump_stream_grammar__match, 2);
   func__18_18 = create_function(entry__18_18, 1);
   func__18_26 = create_function(entry__18_26, 1);
   func__18_34 = create_function(entry__18_34, 1);
   func__18_42 = create_function(entry__18_42, 1);
   func__18_1_sim2c__strip = create_function(entry__18_1_sim2c__strip, 1);
-  string__20_3 = from_latin_1_string("strip(grammar::current_node)", 28);
+  string__665e06ec4dcad6be = from_latin_1_string("strip(grammar::current_node)", 28);
   func__20_1_dump_grammar__match = create_function(entry__20_1_dump_grammar__match, 2);
   func__22_1_dump3_grammar__match = create_function(entry__22_1_dump3_grammar__match, 2);
   func__24_1_dump5_grammar__match = create_function(entry__24_1_dump5_grammar__match, 2);
@@ -29346,36 +29346,36 @@ EXPORT void phase_2__parser(void) {
   func__32_1_interleaved = create_function(entry__32_1_interleaved, 2);
   func__35_1_types__inline_grammar__match = create_function(entry__35_1_types__inline_grammar__match, 2);
   func__36_1_inline = create_function(entry__36_1_inline, 1);
-  string__42_4 = from_latin_1_string(" expected", 9);
+  string__68d023a4c22b2461 = from_latin_1_string(" expected", 9);
   func__42_1_expect = create_function(entry__42_1_expect, -1);
   func__45_1_sim2c__arguments_span = create_function(entry__45_1_sim2c__arguments_span, 1);
   func__46_1_sim2c__output_arguments_span = create_function(entry__46_1_sim2c__output_arguments_span, 1);
-  string__208_8 = from_latin_1_string("invalid meta instruction", 24);
+  string__12eb1acbffa2ae01 = from_latin_1_string("invalid meta instruction", 24);
   func__208_1_sim2c__parse_meta_instruction = create_function(entry__208_1_sim2c__parse_meta_instruction, 1);
-  string__209_10 = from_latin_1_string("superficious input at end of expression", 39);
-  string__209_12 = from_latin_1_string("________________________________________", 40);
-  string__209_15 = from_latin_1_string("no match", 8);
+  string__482d004bd19ca8db = from_latin_1_string("superficious input at end of expression", 39);
+  string__5278dd75c73e18e3 = from_latin_1_string("________________________________________", 40);
+  string__6ca8a8f604cd4188 = from_latin_1_string("no match", 8);
   func__209_1_sim2c__parse_statement = create_function(entry__209_1_sim2c__parse_statement, 1);
-  string__236_1 = from_latin_1_string("*", 1);
-  string__236_3 = from_latin_1_string("/", 1);
-  string__236_5 = from_latin_1_string("+", 1);
-  string__236_7 = from_latin_1_string("-", 1);
-  string__236_9 = from_latin_1_string("<<", 2);
-  string__236_11 = from_latin_1_string(">>", 2);
-  string__236_13 = from_latin_1_string("&", 1);
-  string__236_16 = from_latin_1_string("|", 1);
-  string__236_18 = from_latin_1_string("<=", 2);
-  string__236_20 = from_latin_1_string("<", 1);
-  string__236_22 = from_latin_1_string(">=", 2);
-  string__236_24 = from_latin_1_string(">", 1);
-  string__236_26 = from_latin_1_string("==", 2);
-  string__236_28 = from_latin_1_string("!=", 2);
-  string__236_30 = from_latin_1_string("&&", 2);
-  string__236_32 = from_latin_1_string("||", 2);
-  string__236_34 = from_latin_1_string("..", 2);
-  string__236_36 = from_latin_1_string(",", 1);
-  string__236_38 = from_latin_1_string("=", 1);
-  string__246_3 = from_latin_1_string("\042)\042 expected", 12);
+  string__578a5af303e9ccb = from_latin_1_string("*", 1);
+  string__578a5af303e9cce = from_latin_1_string("/", 1);
+  string__578a5af303e9cca = from_latin_1_string("+", 1);
+  string__578a5af303e9ccc = from_latin_1_string("-", 1);
+  string__2d7981f4e6e82bf9 = from_latin_1_string("<<", 2);
+  string__2d7981f4e6f82bfb = from_latin_1_string(">>", 2);
+  string__578a5af303e9cc7 = from_latin_1_string("&", 1);
+  string__578a5af303e9c9d = from_latin_1_string("|", 1);
+  string__2d7981f4e6e82bf8 = from_latin_1_string("<=", 2);
+  string__578a5af303e9cdd = from_latin_1_string("<", 1);
+  string__2d7981f4e6f82bf8 = from_latin_1_string(">=", 2);
+  string__578a5af303e9cdf = from_latin_1_string(">", 1);
+  string__2d7981f4e6e02bf8 = from_latin_1_string("==", 2);
+  string__2d7981f4e6002bf8 = from_latin_1_string("!=", 2);
+  string__2d7981f4e6382be3 = from_latin_1_string("&&", 2);
+  string__2d7981f4e4e82bb9 = from_latin_1_string("||", 2);
+  string__2d7981f4e6782beb = from_latin_1_string("..", 2);
+  string__578a5af303e9ccd = from_latin_1_string(",", 1);
+  string__578a5af303e9cdc = from_latin_1_string("=", 1);
+  string__ccbf6d451aa8563f = from_latin_1_string("\042)\042 expected", 12);
   func__246_1 = create_function(entry__246_1, 2);
   func__252_1 = create_function(entry__252_1, 1);
   func__253_1 = create_function(entry__253_1, 1);
@@ -29384,69 +29384,69 @@ EXPORT void phase_2__parser(void) {
   func__262_1 = create_function(entry__262_1, 2);
   func__263_1 = create_function(entry__263_1, 2);
   func__264_3 = create_function(entry__264_3, 1);
-  string__264_7 = from_latin_1_string("::", 2);
-  string__265_7 = from_latin_1_string("namespace must not start with an underscore", 43);
+  string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
+  string__958c1dda41e5a79c = from_latin_1_string("namespace must not start with an underscore", 43);
   func__265_4 = create_function(entry__265_4, 1);
-  string__267_1 = from_latin_1_string("./", 2);
-  string__268_8 = from_latin_1_string("the module \042", 12);
-  string__268_9 = from_latin_1_string("\042 is required twice", 19);
+  string__2d7981f4e6782bea = from_latin_1_string("./", 2);
+  string__92e1510f182d5769 = from_latin_1_string("the module \042", 12);
+  string__fd365ba9213c93f1 = from_latin_1_string("\042 is required twice", 19);
   func__268_3 = create_function(entry__268_3, 2);
-  string__268_14 = from_latin_1_string("<require", 8);
+  string__44dcaf9484448bc5 = from_latin_1_string("<require", 8);
   func__269_4 = create_function(entry__269_4, 1);
-  string__269_14 = from_latin_1_string("the namespace \042", 15);
-  string__269_15 = from_latin_1_string("\042 is defined twice", 18);
-  string__269_25 = from_latin_1_string("the namespace alias \042", 21);
+  string__9159abe89634488c = from_latin_1_string("the namespace \042", 15);
+  string__54767964cc2066c4 = from_latin_1_string("\042 is defined twice", 18);
+  string__e13e5990aea4c8f3 = from_latin_1_string("the namespace alias \042", 21);
   func__269_10 = create_function(entry__269_10, 2);
-  string__269_30 = from_latin_1_string("<namespace", 10);
-  string__270_7 = from_latin_1_string("\042 is used twice", 15);
+  string__1552f059283245c4 = from_latin_1_string("<namespace", 10);
+  string__1d0508008a8a40d8 = from_latin_1_string("\042 is used twice", 15);
   func__270_3 = create_function(entry__270_3, 2);
-  string__270_12 = from_latin_1_string("<using", 6);
-  string__272_1 = from_latin_1_string("../", 3);
-  string__273_7 = from_latin_1_string("the file \042", 10);
-  string__273_8 = from_latin_1_string("\042 is included twice", 19);
+  string__7e1f542e81cb02b0 = from_latin_1_string("<using", 6);
+  string__fa733c15f596be3 = from_latin_1_string("../", 3);
+  string__2c64b158ac2be503 = from_latin_1_string("the file \042", 10);
+  string__b0b6bb19371893f7 = from_latin_1_string("\042 is included twice", 19);
   func__273_3 = create_function(entry__273_3, 2);
-  string__273_13 = from_latin_1_string("<include", 8);
-  string__274_7 = from_latin_1_string("the library \042", 13);
-  string__274_8 = from_latin_1_string("\042 is linked twice", 17);
+  string__76b0a89104f5abc5 = from_latin_1_string("<include", 8);
+  string__a660d7293a5c47e8 = from_latin_1_string("the library \042", 13);
+  string__ad06d2ccd69d8e1 = from_latin_1_string("\042 is linked twice", 17);
   func__274_3 = create_function(entry__274_3, 2);
-  string__274_13 = from_latin_1_string("<link", 5);
-  string__277_7 = from_latin_1_string("the data dependency \042", 21);
+  string__525ae943eabdd03c = from_latin_1_string("<link", 5);
+  string__e720c6242e8cd532 = from_latin_1_string("the data dependency \042", 21);
   func__277_3 = create_function(entry__277_3, 2);
-  string__277_12 = from_latin_1_string("<data", 5);
+  string__425aeb43ea6dd036 = from_latin_1_string("<data", 5);
   func__284_1 = create_function(entry__284_1, 1);
   func__286_1 = create_function(entry__286_1, 1);
   func__287_1 = create_function(entry__287_1, 1);
   func__290_1 = create_function(entry__290_1, 1);
   func__291_1 = create_function(entry__291_1, 1);
-  string__300_3 = from_latin_1_string("0b", 2);
-  string__302_3 = from_latin_1_string("0o", 2);
-  string__304_3 = from_latin_1_string("0x", 2);
+  string__2d7981f4e6882ba7 = from_latin_1_string("0b", 2);
+  string__2d7981f4e6882baa = from_latin_1_string("0o", 2);
+  string__2d7981f4e6882bbd = from_latin_1_string("0x", 2);
   func__306_2 = create_function(entry__306_2, 1);
   func__307_1 = create_function(entry__307_1, 1);
-  string__308_7 = from_latin_1_string("invalid character name", 22);
+  string__dea962eab6ac8f23 = from_latin_1_string("invalid character name", 22);
   func__308_2 = create_function(entry__308_2, 2);
   func__309_10 = create_function(entry__309_10, 1);
-  string__310_1 = from_latin_1_string("invalid special character", 25);
+  string__4313674f4741806a = from_latin_1_string("invalid special character", 25);
   func__313_1 = create_function(entry__313_1, 1);
-  string__313_7 = from_latin_1_string("@;", 2);
+  string__2d7981f4e5082bfe = from_latin_1_string("@;", 2);
   func__314_1 = create_function(entry__314_1, 1);
-  string__314_13 = from_latin_1_string("@(", 2);
-  string__315_13 = from_latin_1_string("string", 6);
+  string__2d7981f4e5082bed = from_latin_1_string("@(", 2);
+  string__7c1f540901cb12b0 = from_latin_1_string("string", 6);
   func__315_1 = create_function(entry__315_1, 1);
   func__318_1 = create_function(entry__318_1, 1);
-  string__321_1 = from_latin_1_string("expression expected", 19);
-  string__322_2 = from_latin_1_string("key_value_pair", 14);
-  string__322_4 = from_latin_1_string("true", 4);
+  string__55df65a142fc9536 = from_latin_1_string("expression expected", 19);
+  string__64d512703527e2ab = from_latin_1_string("key_value_pair", 14);
+  string__2a0aedcb5dc87d5c = from_latin_1_string("true", 4);
   func__322_1 = create_function(entry__322_1, 1);
-  string__322_11 = from_latin_1_string("--", 2);
+  string__2d7981f4e6602be8 = from_latin_1_string("--", 2);
   func__323_1 = create_function(entry__323_1, 1);
   func__330_2 = create_function(entry__330_2, 1);
   func__331_13 = create_function(entry__331_13, 0);
   func__331_53 = create_function(entry__331_53, 0);
   func__331_1 = create_function(entry__331_1, 1);
-  string__333_2 = from_latin_1_string("identifier", 10);
-  string__337_2 = from_latin_1_string("$$", 2);
-  string__339_2 = from_latin_1_string("%%", 2);
+  string__395c5a51a203e553 = from_latin_1_string("identifier", 10);
+  string__2d7981f4e6282be1 = from_latin_1_string("$$", 2);
+  string__2d7981f4e6202be0 = from_latin_1_string("%%", 2);
   func__340_1 = create_function(entry__340_1, 1);
   func__348_1 = create_function(entry__348_1, 1);
   func__349_1 = create_function(entry__349_1, 1);
@@ -29455,34 +29455,34 @@ EXPORT void phase_2__parser(void) {
   func__361_1 = create_function(entry__361_1, 1);
   func__361_4 = create_function(entry__361_4, 1);
   func__364_3 = create_function(entry__364_3, 1);
-  string__364_13 = from_latin_1_string("too few arguments in multi-line expression", 42);
+  string__733ccdbfc49ced05 = from_latin_1_string("too few arguments in multi-line expression", 42);
   func__364_8 = create_function(entry__364_8, 2);
   func__365_10 = create_function(entry__365_10, 1);
   func__372_1 = create_function(entry__372_1, 1);
-  string__376_3 = from_latin_1_string("->", 2);
-  string__380_12 = from_latin_1_string("statement expected", 18);
-  string__386_2 = from_latin_1_string("()", 2);
-  string__387_2 = from_latin_1_string("(!)", 3);
-  string__389_11 = from_latin_1_string("invalid polymorphic function definition", 39);
+  string__2d7981f4e6602bfb = from_latin_1_string("->", 2);
+  string__5ed2969d8211684f = from_latin_1_string("statement expected", 18);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
+  string__fa732415f216be5 = from_latin_1_string("(!)", 3);
+  string__b6a1aa36d1f3b32e = from_latin_1_string("invalid polymorphic function definition", 39);
   func__389_5 = create_function(entry__389_5, 1);
-  string__391_2 = from_latin_1_string(".(", 2);
-  string__397_6 = from_latin_1_string("return statement needs at least one argument", 44);
+  string__2d7981f4e6782bed = from_latin_1_string(".(", 2);
+  string__a6b4597d46108e45 = from_latin_1_string("return statement needs at least one argument", 44);
   func__397_2 = create_function(entry__397_2, 1);
-  string__399_2 = from_latin_1_string("__", 2);
-  string__401_4 = from_latin_1_string("argument", 8);
-  string__402_4 = from_latin_1_string("base", 4);
-  string__403_4 = from_latin_1_string("kind", 4);
-  string__404_4 = from_latin_1_string("name", 4);
-  string__405_4 = from_latin_1_string("node", 4);
-  string__406_1 = from_latin_1_string("runtime", 7);
-  string__406_2 = from_latin_1_string("global", 6);
-  string__406_3 = from_latin_1_string("local", 5);
-  string__406_4 = from_latin_1_string("extern", 6);
-  string__406_9 = from_latin_1_string("scope", 5);
-  string__407_4 = from_latin_1_string("type", 4);
-  string__408_1 = from_latin_1_string("invalid annotation tag", 22);
-  string__411_1 = from_latin_1_string("//", 2);
-  string__416_1 = from_latin_1_string("top-level statement expected", 28);
+  string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
+  string__74dcac9584a4c074 = from_latin_1_string("argument", 8);
+  string__60ae90b5df87d5c = from_latin_1_string("base", 4);
+  string__140aeb0b5d107d5d = from_latin_1_string("kind", 4);
+  string__1e0ae90b5d087d5c = from_latin_1_string("name", 4);
+  string__1e0aea8b5d407d5c = from_latin_1_string("node", 4);
+  string__9a4c0f9815d2209f = from_latin_1_string("runtime", 7);
+  string__461f56c301b292bb = from_latin_1_string("global", 6);
+  string__545aebc3eac0d03b = from_latin_1_string("local", 5);
+  string__701f5702012bd2b9 = from_latin_1_string("extern", 6);
+  string__4c5ae8c3ea492032 = from_latin_1_string("scope", 5);
+  string__2a0aef0b5de07d5c = from_latin_1_string("type", 4);
+  string__399cfc434d66f26 = from_latin_1_string("invalid annotation tag", 22);
+  string__2d7981f4e6702bea = from_latin_1_string("//", 2);
+  string__227de92deba39b6b = from_latin_1_string("top-level statement expected", 28);
 }
 
 static int already_run_phase_3 = false;

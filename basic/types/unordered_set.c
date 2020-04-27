@@ -459,7 +459,7 @@ static FRAME_INFO frame__19_3 = {2, {"myself", "key"}};
 static NODE *func__19_4;
 static void entry__19_4(void);
 static FRAME_INFO frame__19_4 = {3, {"myself", "key", "value"}};
-static NODE *string__20_1;
+static NODE *string__7c2245b2b078163c;
 static NODE *func__21_1_types__unordered_set_new_empty_collection;
 static void entry__21_1_types__unordered_set_new_empty_collection(void);
 static FRAME_INFO frame__21_1_types__unordered_set_new_empty_collection = {1, {"self"}};
@@ -499,7 +499,7 @@ static void cont__25_4(void);
 static NODE *func__25_5;
 static void entry__25_5(void);
 static FRAME_INFO frame__25_5 = {0, {}};
-static NODE *string__25_6;
+static NODE *string__2bdb69f58c8fd6ea;
 static void cont__25_7(void);
 static NODE *func__25_8;
 static void entry__25_8(void);
@@ -678,7 +678,7 @@ EXPORT void run__basic__types__unordered_set(void) {
   // 1050: register_collection_serializer "unordered_set" empty_unordered_set
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__20_1;
+  arguments->slots[0] = string__7c2245b2b078163c;
   arguments->slots[1] = get__empty_unordered_set();
   result_count = 0;
   myself = get__register_collection_serializer();
@@ -2351,7 +2351,7 @@ static void entry__25_5(void) {
   // 937: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_6;
+  arguments->slots[0] = string__2bdb69f58c8fd6ea;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -2717,7 +2717,7 @@ static void entry__27_5(void) {
   // 980: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__25_6;
+  arguments->slots[0] = string__2bdb69f58c8fd6ea;
   result_count = frame->caller_result_count;
   myself = get__Error();
   func = myself->type;
@@ -2964,11 +2964,11 @@ EXPORT void phase_2__basic__types__unordered_set(void) {
   func__16_1_previous_key = create_function(entry__16_1_previous_key, 3);
   func__17_1_types__unordered_set_private__set_item = create_function(entry__17_1_types__unordered_set_private__set_item, 3);
   func__18_1_types__unordered_set_private__get_item = create_function(entry__18_1_types__unordered_set_private__get_item, 2);
-  string__20_1 = from_latin_1_string("unordered_set", 13);
+  string__7c2245b2b078163c = from_latin_1_string("unordered_set", 13);
   func__21_1_types__unordered_set_new_empty_collection = create_function(entry__21_1_types__unordered_set_new_empty_collection, 1);
   func__23_1_std__unordered_set = create_function(entry__23_1_std__unordered_set, -1);
   func__24_1_types__unordered_set_for_each = create_function(entry__24_1_types__unordered_set_for_each, 2);
-  string__25_6 = from_latin_1_string("Invalid index error!", 20);
+  string__2bdb69f58c8fd6ea = from_latin_1_string("Invalid index error!", 20);
   func__25_5 = create_function(entry__25_5, 0);
   func__25_1_types__unordered_set_for_each_from_to = create_function(entry__25_1_types__unordered_set_for_each_from_to, 4);
   func__26_1_types__unordered_set_for_each_downwards = create_function(entry__26_1_types__unordered_set_for_each_downwards, 2);
@@ -3025,7 +3025,7 @@ EXPORT void phase_4__basic__types__unordered_set(void) {
   define_method("types", "unordered_set", poly_idx__private__set_item, func__17_1_types__unordered_set_private__set_item);
   define_method("types", "unordered_set", poly_idx__private__get_item, func__18_1_types__unordered_set_private__get_item);
   define_type_function("types", "unordered_set", entry__19_1_types__unordered_set_, -1);
-  define_attribute("types", "unordered_set", poly_idx__serialization_tag_of, string__20_1);
+  define_attribute("types", "unordered_set", poly_idx__serialization_tag_of, string__7c2245b2b078163c);
   define_method("types", "unordered_set", poly_idx__new_empty_collection, func__21_1_types__unordered_set_new_empty_collection);
   define_method("types", "unordered_set", poly_idx__for_each, func__24_1_types__unordered_set_for_each);
   define_method("types", "unordered_set", poly_idx__for_each_from_to, func__25_1_types__unordered_set_for_each_from_to);

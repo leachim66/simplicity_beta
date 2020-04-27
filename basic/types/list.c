@@ -720,7 +720,7 @@ static void cont__31_3(void);
 static NODE *func__31_4;
 static void entry__31_4(void);
 static FRAME_INFO frame__31_4 = {0, {}};
-static NODE *string__31_5;
+static NODE *string__57ec57a17085427f;
 static void cont__31_6(void);
 static void cont__31_7(void);
 static void cont__31_8(void);
@@ -795,9 +795,9 @@ static void cont__34_2(void);
 static NODE *func__34_3;
 static void entry__34_3(void);
 static FRAME_INFO frame__34_3 = {1, {"return"}};
-static NODE *string__34_4;
+static NODE *string__7e1f534683fac2fe;
 static void cont__34_5(void);
-static NODE *string__34_6;
+static NODE *string__1a0aeb0b5df87d4d;
 static NODE *func__34_7;
 static void entry__34_7(void);
 static FRAME_INFO frame__34_7 = {3, {"item", "buf", "indent"}};
@@ -945,7 +945,7 @@ static void cont__41_4(void);
 static NODE *func__41_5;
 static void entry__41_5(void);
 static FRAME_INFO frame__41_5 = {0, {}};
-static NODE *string__41_6;
+static NODE *string__963fa2c6021831d1;
 static void cont__41_7(void);
 static void cont__41_8(void);
 static void cont__41_9(void);
@@ -1028,7 +1028,7 @@ static NODE *get__std__sequence(void) {
 static NODE *func__94_1;
 static void entry__94_1(void);
 static FRAME_INFO frame__94_1 = {4, {"text", "base_indent", "return", "obj"}};
-static NODE *string__94_2;
+static NODE *string__2d7981f4e6482bec;
 static void cont__94_3(void);
 static NODE *func__94_4;
 static void entry__94_4(void);
@@ -1042,7 +1042,7 @@ static void cont__94_10(void);
 static NODE *func__94_11;
 static void entry__94_11(void);
 static FRAME_INFO frame__94_11 = {0, {}};
-static NODE *string__94_12;
+static NODE *string__b53819e78eec080a;
 static void cont__94_13(void);
 static NODE *func__94_14;
 static void entry__94_14(void);
@@ -1544,7 +1544,7 @@ EXPORT void run__basic__types__list(void) {
   // ...
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = string__34_6;
+  arguments->slots[0] = string__1a0aeb0b5df87d4d;
   arguments->slots[1] = func__94_1;
   result_count = 0;
   myself = get__register_deserializer();
@@ -1569,7 +1569,7 @@ static void entry__94_1(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
-  arguments->slots[1] = string__94_2;
+  arguments->slots[1] = string__2d7981f4e6482bec;
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
@@ -1718,7 +1718,7 @@ static void entry__94_11(void) {
   // 757: raise "Invalid list object encountered during deserialisation!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__94_12;
+  arguments->slots[0] = string__b53819e78eec080a;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -5337,7 +5337,7 @@ static void entry__31_4(void) {
   // 517: ... raise "Attempt to get an element from an empty list!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__31_5;
+  arguments->slots[0] = string__57ec57a17085427f;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -6240,7 +6240,7 @@ static void entry__34_3(void) {
   // 565: ... return "list()"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__34_4;
+  arguments->slots[0] = string__7e1f534683fac2fe;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
   func = myself->type;
@@ -6252,7 +6252,7 @@ static void cont__34_5(void) {
     return;
   }
   // 566: $$buf "list"
-  ((CELL *)frame->slots[3])->contents /* buf */ = string__34_6;
+  ((CELL *)frame->slots[3])->contents /* buf */ = string__1a0aeb0b5df87d4d;
   // 567: ... : (item)
   // 568:   write_to &buf '@nl;' spaces(indent+2) serialize(item indent+2)
   frame->slots[4] /* temp__1 */ = create_closure(entry__34_7, 1);
@@ -7859,7 +7859,7 @@ static void entry__41_5(void) {
   // 689: ... raise "Negative argument for dup!"
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__41_6;
+  arguments->slots[0] = string__963fa2c6021831d1;
   result_count = frame->caller_result_count;
   myself = get__raise();
   func = myself->type;
@@ -8691,20 +8691,20 @@ EXPORT void phase_2__basic__types__list(void) {
   func__28_1_types__generic_list_for_each = create_function(entry__28_1_types__generic_list_for_each, -1);
   func__29_1_types__generic_list_update_each = create_function(entry__29_1_types__generic_list_update_each, 2);
   func__30_1_types__list_for_each_pair = create_function(entry__30_1_types__list_for_each_pair, 2);
-  string__31_5 = from_latin_1_string("Attempt to get an element from an empty list!", 45);
+  string__57ec57a17085427f = from_latin_1_string("Attempt to get an element from an empty list!", 45);
   func__31_4 = create_function(entry__31_4, 0);
   func__31_1_types__generic_list_get = create_function(entry__31_1_types__generic_list_get, 1);
   func__32_1_types__list_put = create_function(entry__32_1_types__list_put, 2);
   func__33_1_types__list_merge = create_function(entry__33_1_types__list_merge, -1);
-  string__34_4 = from_latin_1_string("list()", 6);
-  string__34_6 = from_latin_1_string("list", 4);
+  string__7e1f534683fac2fe = from_latin_1_string("list()", 6);
+  string__1a0aeb0b5df87d4d = from_latin_1_string("list", 4);
   func__34_1_types__list_serialize = create_function(entry__34_1_types__list_serialize, -1);
   func__35_1_types__list_sort = create_function(entry__35_1_types__list_sort, -1);
   func__37_1_types__list_new_empty_collection = create_function(entry__37_1_types__list_new_empty_collection, 1);
   func__38_1_types__generic_list_equal = create_function(entry__38_1_types__generic_list_equal, 2);
   func__39_1_types__generic_list_filter = create_function(entry__39_1_types__generic_list_filter, 2);
   func__40_1_types__generic_list_map = create_function(entry__40_1_types__generic_list_map, 2);
-  string__41_6 = from_latin_1_string("Negative argument for dup!", 26);
+  string__963fa2c6021831d1 = from_latin_1_string("Negative argument for dup!", 26);
   func__41_5 = create_function(entry__41_5, 0);
   func__41_15 = create_function(entry__41_15, 0);
   func__41_1_types__generic_list_dup = create_function(entry__41_1_types__generic_list_dup, 2);
@@ -8712,8 +8712,8 @@ EXPORT void phase_2__basic__types__list(void) {
   func__43_1_types__generic_list_contains = create_function(entry__43_1_types__generic_list_contains, 2);
   func__46_3 = create_function(entry__46_3, 2);
   func__46_1_std__sequence = create_function(entry__46_1_std__sequence, -1);
-  string__94_2 = from_latin_1_string("()", 2);
-  string__94_12 = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
+  string__2d7981f4e6482bec = from_latin_1_string("()", 2);
+  string__b53819e78eec080a = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
   func__94_11 = create_function(entry__94_11, 0);
   func__94_1 = create_function(entry__94_1, 2);
 }
