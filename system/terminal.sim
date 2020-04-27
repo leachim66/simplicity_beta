@@ -912,3 +912,28 @@ $std::colour_mixture:
       round(red/total_parts).to_integer
       round(green/total_parts).to_integer
       round(blue/total_parts).to_integer
+
+$std::rows_and_columns:
+  #
+    returns the number of rows and the width of the longest row in the text
+
+    Topic: Terminal, Strings
+  (
+    text # the text to measure
+  )
+  $$rows 0
+  $$longest 0
+  $$length 0
+  for_each text: (chr)
+    if
+      chr == '@nl;':
+	extend_to &longest length
+	inc &rows
+	!length 0
+      :
+	inc &length
+  if text(-1) != '@nl;':
+    extend_to &longest length
+    inc &rows
+  -> rows longest
+
