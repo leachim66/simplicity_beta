@@ -360,495 +360,495 @@ static NODE *get__types__character(void) {
 static NODE *create__types__character(uint32_t code);
 
 static uint32_t func__types__character___to_uchar32(NODE *node);
-static void entry__8_1_std__character(void);
-static NODE *func__8_1_std__character;
+static void entry__std__character_1(void);
+static NODE *func__std__character_1;
 static NODE *get__std__character(void) {
   return var.std__character;
 }
-static void entry__9_1_types__character_plus(void);
-static NODE *func__9_1_types__character_plus;
-static void entry__10_1_types__character_minus(void);
-static NODE *func__10_1_types__character_minus;
-static void entry__11_1_types__character_equal(void);
-static NODE *func__11_1_types__character_equal;
-static void entry__12_1_types__character_less(void);
-static NODE *func__12_1_types__character_less;
-static void entry__13_1_types__character_hash(void);
-static NODE *func__13_1_types__character_hash;
-static void entry__14_1_types__character_to_string(void);
-static NODE *func__14_1_types__character_to_string;
-static void entry__15_1_types__character_to_integer(void);
-static NODE *func__15_1_types__character_to_integer;
+static void entry__types__character__plus_1(void);
+static NODE *func__types__character__plus_1;
+static void entry__types__character__minus_1(void);
+static NODE *func__types__character__minus_1;
+static void entry__types__character__equal_1(void);
+static NODE *func__types__character__equal_1;
+static void entry__types__character__less_1(void);
+static NODE *func__types__character__less_1;
+static void entry__types__character__hash_1(void);
+static NODE *func__types__character__hash_1;
+static void entry__types__character__to_string_1(void);
+static NODE *func__types__character__to_string_1;
+static void entry__types__character__to_integer_1(void);
+static NODE *func__types__character__to_integer_1;
 
 static long func__types__character___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__17_1_std__is_a_whitespace_character;
-static void entry__17_1_std__is_a_whitespace_character(void);
-static FRAME_INFO frame__17_1_std__is_a_whitespace_character = {1, {"chr"}};
-static void cont__17_2(void);
-static NODE *func__17_3;
-static void entry__17_3(void);
-static FRAME_INFO frame__17_3 = {1, {"chr"}};
-static void cont__17_4(void);
-static NODE *func__17_5;
-static void entry__17_5(void);
-static FRAME_INFO frame__17_5 = {1, {"chr"}};
-static void cont__17_6(void);
-static NODE *func__17_7;
-static void entry__17_7(void);
-static FRAME_INFO frame__17_7 = {1, {"chr"}};
-static void cont__17_8(void);
-static void cont__17_9(void);
-static void cont__17_10(void);
-static void cont__17_11(void);
+static NODE *func__std__is_a_whitespace_character_1;
+static void entry__std__is_a_whitespace_character_1(void);
+static FRAME_INFO frame__std__is_a_whitespace_character_1 = {1, {"chr"}};
+static void cont__std__is_a_whitespace_character_2(void);
+static NODE *func__std__is_a_whitespace_character_3;
+static void entry__std__is_a_whitespace_character_3(void);
+static FRAME_INFO frame__std__is_a_whitespace_character_3 = {1, {"chr"}};
+static void cont__std__is_a_whitespace_character_4(void);
+static NODE *func__std__is_a_whitespace_character_5;
+static void entry__std__is_a_whitespace_character_5(void);
+static FRAME_INFO frame__std__is_a_whitespace_character_5 = {1, {"chr"}};
+static void cont__std__is_a_whitespace_character_6(void);
+static NODE *func__std__is_a_whitespace_character_7;
+static void entry__std__is_a_whitespace_character_7(void);
+static FRAME_INFO frame__std__is_a_whitespace_character_7 = {1, {"chr"}};
+static void cont__std__is_a_whitespace_character_8(void);
+static void cont__std__is_a_whitespace_character_9(void);
+static void cont__std__is_a_whitespace_character_10(void);
+static void cont__std__is_a_whitespace_character_11(void);
 static NODE *get__std__is_a_whitespace_character(void) {
   return var.std__is_a_whitespace_character;
 }
-static NODE *func__18_1_std__is_a_digit;
-static void entry__18_1_std__is_a_digit(void);
-static FRAME_INFO frame__18_1_std__is_a_digit = {1, {"chr"}};
-static void cont__18_2(void);
-static void cont__18_3(void);
-static NODE *func__18_4;
-static void entry__18_4(void);
-static FRAME_INFO frame__18_4 = {1, {"chr"}};
-static void cont__18_5(void);
-static void cont__18_6(void);
-static void cont__18_7(void);
+static NODE *func__std__is_a_digit_1;
+static void entry__std__is_a_digit_1(void);
+static FRAME_INFO frame__std__is_a_digit_1 = {1, {"chr"}};
+static void cont__std__is_a_digit_2(void);
+static void cont__std__is_a_digit_3(void);
+static NODE *func__std__is_a_digit_4;
+static void entry__std__is_a_digit_4(void);
+static FRAME_INFO frame__std__is_a_digit_4 = {1, {"chr"}};
+static void cont__std__is_a_digit_5(void);
+static void cont__std__is_a_digit_6(void);
+static void cont__std__is_a_digit_7(void);
 static NODE *get__std__is_a_digit(void) {
   return var.std__is_a_digit;
 }
-static NODE *func__19_1_std__is_a_letter;
-static void entry__19_1_std__is_a_letter(void);
-static FRAME_INFO frame__19_1_std__is_a_letter = {1, {"chr"}};
-static void cont__19_2(void);
-static void cont__19_3(void);
-static NODE *func__19_4;
-static void entry__19_4(void);
-static FRAME_INFO frame__19_4 = {1, {"chr"}};
-static void cont__19_5(void);
-static void cont__19_6(void);
-static void cont__19_7(void);
-static NODE *func__19_8;
-static void entry__19_8(void);
-static FRAME_INFO frame__19_8 = {1, {"chr"}};
-static void cont__19_9(void);
-static void cont__19_10(void);
-static NODE *func__19_11;
-static void entry__19_11(void);
-static FRAME_INFO frame__19_11 = {1, {"chr"}};
-static void cont__19_12(void);
-static void cont__19_13(void);
-static void cont__19_14(void);
-static void cont__19_15(void);
+static NODE *func__std__is_a_letter_1;
+static void entry__std__is_a_letter_1(void);
+static FRAME_INFO frame__std__is_a_letter_1 = {1, {"chr"}};
+static void cont__std__is_a_letter_2(void);
+static void cont__std__is_a_letter_3(void);
+static NODE *func__std__is_a_letter_4;
+static void entry__std__is_a_letter_4(void);
+static FRAME_INFO frame__std__is_a_letter_4 = {1, {"chr"}};
+static void cont__std__is_a_letter_5(void);
+static void cont__std__is_a_letter_6(void);
+static void cont__std__is_a_letter_7(void);
+static NODE *func__std__is_a_letter_8;
+static void entry__std__is_a_letter_8(void);
+static FRAME_INFO frame__std__is_a_letter_8 = {1, {"chr"}};
+static void cont__std__is_a_letter_9(void);
+static void cont__std__is_a_letter_10(void);
+static NODE *func__std__is_a_letter_11;
+static void entry__std__is_a_letter_11(void);
+static FRAME_INFO frame__std__is_a_letter_11 = {1, {"chr"}};
+static void cont__std__is_a_letter_12(void);
+static void cont__std__is_a_letter_13(void);
+static void cont__std__is_a_letter_14(void);
+static void cont__std__is_a_letter_15(void);
 static NODE *get__std__is_a_letter(void) {
   return var.std__is_a_letter;
 }
-static NODE *func__20_1_std__is_a_lower_case_letter;
-static void entry__20_1_std__is_a_lower_case_letter(void);
-static FRAME_INFO frame__20_1_std__is_a_lower_case_letter = {1, {"chr"}};
-static void cont__20_2(void);
-static void cont__20_3(void);
-static NODE *func__20_4;
-static void entry__20_4(void);
-static FRAME_INFO frame__20_4 = {1, {"chr"}};
-static void cont__20_5(void);
-static void cont__20_6(void);
-static void cont__20_7(void);
+static NODE *func__std__is_a_lower_case_letter_1;
+static void entry__std__is_a_lower_case_letter_1(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_1 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_2(void);
+static void cont__std__is_a_lower_case_letter_3(void);
+static NODE *func__std__is_a_lower_case_letter_4;
+static void entry__std__is_a_lower_case_letter_4(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_4 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_5(void);
+static void cont__std__is_a_lower_case_letter_6(void);
+static void cont__std__is_a_lower_case_letter_7(void);
 static NODE *get__std__is_a_lower_case_letter(void) {
   return var.std__is_a_lower_case_letter;
 }
-static NODE *func__21_1_std__is_an_upper_case_letter;
-static void entry__21_1_std__is_an_upper_case_letter(void);
-static FRAME_INFO frame__21_1_std__is_an_upper_case_letter = {1, {"chr"}};
-static void cont__21_2(void);
-static void cont__21_3(void);
-static NODE *func__21_4;
-static void entry__21_4(void);
-static FRAME_INFO frame__21_4 = {1, {"chr"}};
-static void cont__21_5(void);
-static void cont__21_6(void);
-static void cont__21_7(void);
+static NODE *func__std__is_an_upper_case_letter_1;
+static void entry__std__is_an_upper_case_letter_1(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_1 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_2(void);
+static void cont__std__is_an_upper_case_letter_3(void);
+static NODE *func__std__is_an_upper_case_letter_4;
+static void entry__std__is_an_upper_case_letter_4(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_4 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_5(void);
+static void cont__std__is_an_upper_case_letter_6(void);
+static void cont__std__is_an_upper_case_letter_7(void);
 static NODE *get__std__is_an_upper_case_letter(void) {
   return var.std__is_an_upper_case_letter;
 }
-static NODE *func__22_1_std__is_a_letter_character;
-static void entry__22_1_std__is_a_letter_character(void);
-static FRAME_INFO frame__22_1_std__is_a_letter_character = {1, {"chr"}};
-static void cont__22_2(void);
-static void cont__22_3(void);
-static NODE *func__22_4;
-static void entry__22_4(void);
-static FRAME_INFO frame__22_4 = {1, {"chr"}};
-static void cont__22_5(void);
-static void cont__22_6(void);
-static void cont__22_7(void);
-static NODE *func__22_8;
-static void entry__22_8(void);
-static FRAME_INFO frame__22_8 = {1, {"chr"}};
-static void cont__22_9(void);
-static void cont__22_10(void);
-static NODE *func__22_11;
-static void entry__22_11(void);
-static FRAME_INFO frame__22_11 = {1, {"chr"}};
-static void cont__22_12(void);
-static void cont__22_13(void);
-static void cont__22_14(void);
-static NODE *func__22_15;
-static void entry__22_15(void);
-static FRAME_INFO frame__22_15 = {1, {"chr"}};
-static void cont__22_16(void);
-static void cont__22_17(void);
-static NODE *func__22_18;
-static void entry__22_18(void);
-static FRAME_INFO frame__22_18 = {1, {"chr"}};
-static void cont__22_19(void);
-static void cont__22_20(void);
-static NODE *func__22_21;
-static void entry__22_21(void);
-static FRAME_INFO frame__22_21 = {1, {"chr"}};
-static void cont__22_22(void);
-static void cont__22_23(void);
-static NODE *func__22_24;
-static void entry__22_24(void);
-static FRAME_INFO frame__22_24 = {1, {"chr"}};
-static void cont__22_25(void);
-static void cont__22_26(void);
-static void cont__22_27(void);
-static void cont__22_28(void);
-static void cont__22_29(void);
-static void cont__22_30(void);
-static void cont__22_31(void);
+static NODE *func__std__is_a_letter_character_1;
+static void entry__std__is_a_letter_character_1(void);
+static FRAME_INFO frame__std__is_a_letter_character_1 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_2(void);
+static void cont__std__is_a_letter_character_3(void);
+static NODE *func__std__is_a_letter_character_4;
+static void entry__std__is_a_letter_character_4(void);
+static FRAME_INFO frame__std__is_a_letter_character_4 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_5(void);
+static void cont__std__is_a_letter_character_6(void);
+static void cont__std__is_a_letter_character_7(void);
+static NODE *func__std__is_a_letter_character_8;
+static void entry__std__is_a_letter_character_8(void);
+static FRAME_INFO frame__std__is_a_letter_character_8 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_9(void);
+static void cont__std__is_a_letter_character_10(void);
+static NODE *func__std__is_a_letter_character_11;
+static void entry__std__is_a_letter_character_11(void);
+static FRAME_INFO frame__std__is_a_letter_character_11 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_12(void);
+static void cont__std__is_a_letter_character_13(void);
+static void cont__std__is_a_letter_character_14(void);
+static NODE *func__std__is_a_letter_character_15;
+static void entry__std__is_a_letter_character_15(void);
+static FRAME_INFO frame__std__is_a_letter_character_15 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_16(void);
+static void cont__std__is_a_letter_character_17(void);
+static NODE *func__std__is_a_letter_character_18;
+static void entry__std__is_a_letter_character_18(void);
+static FRAME_INFO frame__std__is_a_letter_character_18 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_19(void);
+static void cont__std__is_a_letter_character_20(void);
+static NODE *func__std__is_a_letter_character_21;
+static void entry__std__is_a_letter_character_21(void);
+static FRAME_INFO frame__std__is_a_letter_character_21 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_22(void);
+static void cont__std__is_a_letter_character_23(void);
+static NODE *func__std__is_a_letter_character_24;
+static void entry__std__is_a_letter_character_24(void);
+static FRAME_INFO frame__std__is_a_letter_character_24 = {1, {"chr"}};
+static void cont__std__is_a_letter_character_25(void);
+static void cont__std__is_a_letter_character_26(void);
+static void cont__std__is_a_letter_character_27(void);
+static void cont__std__is_a_letter_character_28(void);
+static void cont__std__is_a_letter_character_29(void);
+static void cont__std__is_a_letter_character_30(void);
+static void cont__std__is_a_letter_character_31(void);
 static NODE *get__std__is_a_letter_character(void) {
   return var.std__is_a_letter_character;
 }
-static NODE *func__23_1_std__is_a_lower_case_letter_character;
-static void entry__23_1_std__is_a_lower_case_letter_character(void);
-static FRAME_INFO frame__23_1_std__is_a_lower_case_letter_character = {1, {"chr"}};
-static void cont__23_2(void);
-static void cont__23_3(void);
-static NODE *func__23_4;
-static void entry__23_4(void);
-static FRAME_INFO frame__23_4 = {1, {"chr"}};
-static void cont__23_5(void);
-static void cont__23_6(void);
-static void cont__23_7(void);
-static NODE *func__23_8;
-static void entry__23_8(void);
-static FRAME_INFO frame__23_8 = {1, {"chr"}};
-static void cont__23_9(void);
-static void cont__23_10(void);
-static NODE *func__23_11;
-static void entry__23_11(void);
-static FRAME_INFO frame__23_11 = {1, {"chr"}};
-static void cont__23_12(void);
-static void cont__23_13(void);
-static NODE *func__23_14;
-static void entry__23_14(void);
-static FRAME_INFO frame__23_14 = {1, {"chr"}};
-static void cont__23_15(void);
-static void cont__23_16(void);
-static NODE *func__23_17;
-static void entry__23_17(void);
-static FRAME_INFO frame__23_17 = {1, {"chr"}};
-static void cont__23_18(void);
-static void cont__23_19(void);
-static void cont__23_20(void);
-static void cont__23_21(void);
-static void cont__23_22(void);
-static void cont__23_23(void);
+static NODE *func__std__is_a_lower_case_letter_character_1;
+static void entry__std__is_a_lower_case_letter_character_1(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_character_1 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_character_2(void);
+static void cont__std__is_a_lower_case_letter_character_3(void);
+static NODE *func__std__is_a_lower_case_letter_character_4;
+static void entry__std__is_a_lower_case_letter_character_4(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_character_4 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_character_5(void);
+static void cont__std__is_a_lower_case_letter_character_6(void);
+static void cont__std__is_a_lower_case_letter_character_7(void);
+static NODE *func__std__is_a_lower_case_letter_character_8;
+static void entry__std__is_a_lower_case_letter_character_8(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_character_8 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_character_9(void);
+static void cont__std__is_a_lower_case_letter_character_10(void);
+static NODE *func__std__is_a_lower_case_letter_character_11;
+static void entry__std__is_a_lower_case_letter_character_11(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_character_11 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_character_12(void);
+static void cont__std__is_a_lower_case_letter_character_13(void);
+static NODE *func__std__is_a_lower_case_letter_character_14;
+static void entry__std__is_a_lower_case_letter_character_14(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_character_14 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_character_15(void);
+static void cont__std__is_a_lower_case_letter_character_16(void);
+static NODE *func__std__is_a_lower_case_letter_character_17;
+static void entry__std__is_a_lower_case_letter_character_17(void);
+static FRAME_INFO frame__std__is_a_lower_case_letter_character_17 = {1, {"chr"}};
+static void cont__std__is_a_lower_case_letter_character_18(void);
+static void cont__std__is_a_lower_case_letter_character_19(void);
+static void cont__std__is_a_lower_case_letter_character_20(void);
+static void cont__std__is_a_lower_case_letter_character_21(void);
+static void cont__std__is_a_lower_case_letter_character_22(void);
+static void cont__std__is_a_lower_case_letter_character_23(void);
 static NODE *get__std__is_a_lower_case_letter_character(void) {
   return var.std__is_a_lower_case_letter_character;
 }
-static NODE *func__24_1_std__is_an_upper_case_letter_character;
-static void entry__24_1_std__is_an_upper_case_letter_character(void);
-static FRAME_INFO frame__24_1_std__is_an_upper_case_letter_character = {1, {"chr"}};
-static void cont__24_2(void);
-static void cont__24_3(void);
-static NODE *func__24_4;
-static void entry__24_4(void);
-static FRAME_INFO frame__24_4 = {1, {"chr"}};
-static void cont__24_5(void);
-static void cont__24_6(void);
-static void cont__24_7(void);
-static NODE *func__24_8;
-static void entry__24_8(void);
-static FRAME_INFO frame__24_8 = {1, {"chr"}};
-static void cont__24_9(void);
-static void cont__24_10(void);
-static NODE *func__24_11;
-static void entry__24_11(void);
-static FRAME_INFO frame__24_11 = {1, {"chr"}};
-static void cont__24_12(void);
-static void cont__24_13(void);
-static NODE *func__24_14;
-static void entry__24_14(void);
-static FRAME_INFO frame__24_14 = {1, {"chr"}};
-static void cont__24_15(void);
-static void cont__24_16(void);
-static NODE *func__24_17;
-static void entry__24_17(void);
-static FRAME_INFO frame__24_17 = {1, {"chr"}};
-static void cont__24_18(void);
-static void cont__24_19(void);
-static void cont__24_20(void);
-static void cont__24_21(void);
-static void cont__24_22(void);
-static void cont__24_23(void);
+static NODE *func__std__is_an_upper_case_letter_character_1;
+static void entry__std__is_an_upper_case_letter_character_1(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_character_1 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_character_2(void);
+static void cont__std__is_an_upper_case_letter_character_3(void);
+static NODE *func__std__is_an_upper_case_letter_character_4;
+static void entry__std__is_an_upper_case_letter_character_4(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_character_4 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_character_5(void);
+static void cont__std__is_an_upper_case_letter_character_6(void);
+static void cont__std__is_an_upper_case_letter_character_7(void);
+static NODE *func__std__is_an_upper_case_letter_character_8;
+static void entry__std__is_an_upper_case_letter_character_8(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_character_8 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_character_9(void);
+static void cont__std__is_an_upper_case_letter_character_10(void);
+static NODE *func__std__is_an_upper_case_letter_character_11;
+static void entry__std__is_an_upper_case_letter_character_11(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_character_11 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_character_12(void);
+static void cont__std__is_an_upper_case_letter_character_13(void);
+static NODE *func__std__is_an_upper_case_letter_character_14;
+static void entry__std__is_an_upper_case_letter_character_14(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_character_14 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_character_15(void);
+static void cont__std__is_an_upper_case_letter_character_16(void);
+static NODE *func__std__is_an_upper_case_letter_character_17;
+static void entry__std__is_an_upper_case_letter_character_17(void);
+static FRAME_INFO frame__std__is_an_upper_case_letter_character_17 = {1, {"chr"}};
+static void cont__std__is_an_upper_case_letter_character_18(void);
+static void cont__std__is_an_upper_case_letter_character_19(void);
+static void cont__std__is_an_upper_case_letter_character_20(void);
+static void cont__std__is_an_upper_case_letter_character_21(void);
+static void cont__std__is_an_upper_case_letter_character_22(void);
+static void cont__std__is_an_upper_case_letter_character_23(void);
 static NODE *get__std__is_an_upper_case_letter_character(void) {
   return var.std__is_an_upper_case_letter_character;
 }
-static NODE *func__25_1_types__character_to_lower_case;
-static void entry__25_1_types__character_to_lower_case(void);
-static FRAME_INFO frame__25_1_types__character_to_lower_case = {2, {"chr", "return"}};
-static void cont__25_2(void);
-static NODE *func__25_3;
-static void entry__25_3(void);
-static FRAME_INFO frame__25_3 = {2, {"return", "chr"}};
-static void cont__25_4(void);
-static NODE *func__25_5;
-static void entry__25_5(void);
-static FRAME_INFO frame__25_5 = {2, {"return", "chr"}};
-static void cont__25_6(void);
-static NODE *func__26_1_types__character_to_upper_case;
-static void entry__26_1_types__character_to_upper_case(void);
-static FRAME_INFO frame__26_1_types__character_to_upper_case = {2, {"chr", "return"}};
-static void cont__26_2(void);
-static NODE *func__26_3;
-static void entry__26_3(void);
-static FRAME_INFO frame__26_3 = {2, {"return", "chr"}};
-static void cont__26_4(void);
-static NODE *func__26_5;
-static void entry__26_5(void);
-static FRAME_INFO frame__26_5 = {2, {"return", "chr"}};
-static void cont__26_6(void);
-static NODE *func__27_1_std__is_a_vowel;
-static void entry__27_1_std__is_a_vowel(void);
-static FRAME_INFO frame__27_1_std__is_a_vowel = {1, {"chr"}};
-static void cont__27_2(void);
-static NODE *func__27_3;
-static void entry__27_3(void);
-static FRAME_INFO frame__27_3 = {0, {}};
-static NODE *func__27_4;
-static void entry__27_4(void);
-static FRAME_INFO frame__27_4 = {0, {}};
+static NODE *func__types__character__to_lower_case_1;
+static void entry__types__character__to_lower_case_1(void);
+static FRAME_INFO frame__types__character__to_lower_case_1 = {2, {"chr", "return"}};
+static void cont__types__character__to_lower_case_2(void);
+static NODE *func__types__character__to_lower_case_3;
+static void entry__types__character__to_lower_case_3(void);
+static FRAME_INFO frame__types__character__to_lower_case_3 = {2, {"return", "chr"}};
+static void cont__types__character__to_lower_case_4(void);
+static NODE *func__types__character__to_lower_case_5;
+static void entry__types__character__to_lower_case_5(void);
+static FRAME_INFO frame__types__character__to_lower_case_5 = {2, {"return", "chr"}};
+static void cont__types__character__to_lower_case_6(void);
+static NODE *func__types__character__to_upper_case_1;
+static void entry__types__character__to_upper_case_1(void);
+static FRAME_INFO frame__types__character__to_upper_case_1 = {2, {"chr", "return"}};
+static void cont__types__character__to_upper_case_2(void);
+static NODE *func__types__character__to_upper_case_3;
+static void entry__types__character__to_upper_case_3(void);
+static FRAME_INFO frame__types__character__to_upper_case_3 = {2, {"return", "chr"}};
+static void cont__types__character__to_upper_case_4(void);
+static NODE *func__types__character__to_upper_case_5;
+static void entry__types__character__to_upper_case_5(void);
+static FRAME_INFO frame__types__character__to_upper_case_5 = {2, {"return", "chr"}};
+static void cont__types__character__to_upper_case_6(void);
+static NODE *func__std__is_a_vowel_1;
+static void entry__std__is_a_vowel_1(void);
+static FRAME_INFO frame__std__is_a_vowel_1 = {1, {"chr"}};
+static void cont__std__is_a_vowel_2(void);
+static NODE *func__std__is_a_vowel_3;
+static void entry__std__is_a_vowel_3(void);
+static FRAME_INFO frame__std__is_a_vowel_3 = {0, {}};
+static NODE *func__std__is_a_vowel_4;
+static void entry__std__is_a_vowel_4(void);
+static FRAME_INFO frame__std__is_a_vowel_4 = {0, {}};
 static NODE *get__std__is_a_vowel(void) {
   return var.std__is_a_vowel;
 }
-static NODE *func__28_1_types__character_serialize;
-static void entry__28_1_types__character_serialize(void);
-static FRAME_INFO frame__28_1_types__character_serialize = {3, {"self", "indent", "buf"}};
+static NODE *func__types__character__serialize_1;
+static void entry__types__character__serialize_1(void);
+static FRAME_INFO frame__types__character__serialize_1 = {3, {"self", "indent", "buf"}};
 static NODE *string__578a5af303e9cc6;
-static void cont__28_3(void);
-static NODE *func__28_4;
-static void entry__28_4(void);
-static FRAME_INFO frame__28_4 = {1, {"self"}};
-static void cont__28_5(void);
-static NODE *func__28_6;
-static void entry__28_6(void);
-static FRAME_INFO frame__28_6 = {1, {"self"}};
-static void cont__28_7(void);
-static NODE *func__28_8;
-static void entry__28_8(void);
-static FRAME_INFO frame__28_8 = {1, {"self"}};
-static void cont__28_9(void);
-static NODE *func__28_10;
-static void entry__28_10(void);
-static FRAME_INFO frame__28_10 = {1, {"self"}};
-static void cont__28_11(void);
-static void cont__28_12(void);
-static void cont__28_13(void);
-static void cont__28_14(void);
-static void cont__28_15(void);
-static NODE *func__28_16;
-static void entry__28_16(void);
-static FRAME_INFO frame__28_16 = {2, {"buf", "self"}};
-static void cont__28_17(void);
-static void cont__28_18(void);
+static void cont__types__character__serialize_3(void);
+static NODE *func__types__character__serialize_4;
+static void entry__types__character__serialize_4(void);
+static FRAME_INFO frame__types__character__serialize_4 = {1, {"self"}};
+static void cont__types__character__serialize_5(void);
+static NODE *func__types__character__serialize_6;
+static void entry__types__character__serialize_6(void);
+static FRAME_INFO frame__types__character__serialize_6 = {1, {"self"}};
+static void cont__types__character__serialize_7(void);
+static NODE *func__types__character__serialize_8;
+static void entry__types__character__serialize_8(void);
+static FRAME_INFO frame__types__character__serialize_8 = {1, {"self"}};
+static void cont__types__character__serialize_9(void);
+static NODE *func__types__character__serialize_10;
+static void entry__types__character__serialize_10(void);
+static FRAME_INFO frame__types__character__serialize_10 = {1, {"self"}};
+static void cont__types__character__serialize_11(void);
+static void cont__types__character__serialize_12(void);
+static void cont__types__character__serialize_13(void);
+static void cont__types__character__serialize_14(void);
+static void cont__types__character__serialize_15(void);
+static NODE *func__types__character__serialize_16;
+static void entry__types__character__serialize_16(void);
+static FRAME_INFO frame__types__character__serialize_16 = {2, {"buf", "self"}};
+static void cont__types__character__serialize_17(void);
+static void cont__types__character__serialize_18(void);
 static NODE *string__fa728415fa96bb4;
-static void cont__28_20(void);
-static void cont__28_21(void);
-static NODE *func__28_22;
-static void entry__28_22(void);
-static FRAME_INFO frame__28_22 = {2, {"buf", "self"}};
-static void cont__28_23(void);
-static void cont__28_24(void);
-static void cont__28_25(void);
+static void cont__types__character__serialize_20(void);
+static void cont__types__character__serialize_21(void);
+static NODE *func__types__character__serialize_22;
+static void entry__types__character__serialize_22(void);
+static FRAME_INFO frame__types__character__serialize_22 = {2, {"buf", "self"}};
+static void cont__types__character__serialize_23(void);
+static void cont__types__character__serialize_24(void);
+static void cont__types__character__serialize_25(void);
 void run__basic__types__character(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_character, NULL, 25, 25, 2, 20},
   {run__basic__types__character, NULL, },
-  {entry__8_1_std__character, NULL, 71, 75, 3, 2},
-  {entry__9_1_types__character_plus, NULL, 86, 91, 3, 2},
-  {entry__10_1_types__character_minus, NULL, 102, 113, 3, 2},
-  {entry__11_1_types__character_equal, NULL, 118, 124, 3, 2},
-  {entry__12_1_types__character_less, NULL, 129, 135, 3, 2},
-  {entry__13_1_types__character_hash, NULL, 140, 146, 3, 2},
-  {entry__14_1_types__character_to_string, NULL, 151, 160, 3, 2},
-  {entry__15_1_types__character_to_integer, NULL, 165, 168, 3, 2},
-  {entry__17_7, NULL, 201, 201, 54, 66},
-  {cont__17_8, &frame__17_7, 201, 201, 54, 66},
-  {entry__17_5, NULL, 201, 201, 37, 49},
-  {cont__17_6, &frame__17_5, 201, 201, 37, 66},
-  {cont__17_9, &frame__17_5, 201, 201, 37, 66},
-  {entry__17_3, NULL, 201, 201, 20, 32},
-  {cont__17_4, &frame__17_3, 201, 201, 20, 66},
-  {cont__17_10, &frame__17_3, 201, 201, 20, 66},
-  {entry__17_1_std__is_a_whitespace_character, NULL, 201, 201, 6, 15},
-  {cont__17_2, &frame__17_1_std__is_a_whitespace_character, 201, 201, 6, 66},
-  {cont__17_11, &frame__17_1_std__is_a_whitespace_character, 201, 201, 3, 66},
-  {entry__18_4, NULL, 211, 211, 20, 29},
-  {cont__18_5, &frame__18_4, 211, 211, 20, 29},
-  {cont__18_6, &frame__18_4, 211, 211, 20, 29},
-  {entry__18_1_std__is_a_digit, NULL, 211, 211, 6, 15},
-  {cont__18_2, &frame__18_1_std__is_a_digit, 211, 211, 6, 15},
-  {cont__18_3, &frame__18_1_std__is_a_digit, 211, 211, 6, 29},
-  {cont__18_7, &frame__18_1_std__is_a_digit, 211, 211, 3, 29},
-  {entry__19_4, NULL, 224, 224, 20, 29},
-  {cont__19_5, &frame__19_4, 224, 224, 20, 29},
-  {cont__19_6, &frame__19_4, 224, 224, 20, 29},
-  {entry__19_11, NULL, 224, 224, 48, 57},
-  {cont__19_12, &frame__19_11, 224, 224, 48, 57},
-  {cont__19_13, &frame__19_11, 224, 224, 48, 57},
-  {entry__19_8, NULL, 224, 224, 34, 43},
-  {cont__19_9, &frame__19_8, 224, 224, 34, 43},
-  {cont__19_10, &frame__19_8, 224, 224, 34, 57},
-  {cont__19_14, &frame__19_8, 224, 224, 34, 57},
-  {entry__19_1_std__is_a_letter, NULL, 224, 224, 6, 15},
-  {cont__19_2, &frame__19_1_std__is_a_letter, 224, 224, 6, 15},
-  {cont__19_3, &frame__19_1_std__is_a_letter, 224, 224, 6, 29},
-  {cont__19_7, &frame__19_1_std__is_a_letter, 224, 224, 6, 57},
-  {cont__19_15, &frame__19_1_std__is_a_letter, 224, 224, 3, 57},
-  {entry__20_4, NULL, 237, 237, 20, 29},
-  {cont__20_5, &frame__20_4, 237, 237, 20, 29},
-  {cont__20_6, &frame__20_4, 237, 237, 20, 29},
-  {entry__20_1_std__is_a_lower_case_letter, NULL, 237, 237, 6, 15},
-  {cont__20_2, &frame__20_1_std__is_a_lower_case_letter, 237, 237, 6, 15},
-  {cont__20_3, &frame__20_1_std__is_a_lower_case_letter, 237, 237, 6, 29},
-  {cont__20_7, &frame__20_1_std__is_a_lower_case_letter, 237, 237, 3, 29},
-  {entry__21_4, NULL, 250, 250, 20, 29},
-  {cont__21_5, &frame__21_4, 250, 250, 20, 29},
-  {cont__21_6, &frame__21_4, 250, 250, 20, 29},
-  {entry__21_1_std__is_an_upper_case_letter, NULL, 250, 250, 6, 15},
-  {cont__21_2, &frame__21_1_std__is_an_upper_case_letter, 250, 250, 6, 15},
-  {cont__21_3, &frame__21_1_std__is_an_upper_case_letter, 250, 250, 6, 29},
-  {cont__21_7, &frame__21_1_std__is_an_upper_case_letter, 250, 250, 3, 29},
-  {entry__22_4, NULL, 266, 266, 21, 30},
-  {cont__22_5, &frame__22_4, 266, 266, 21, 30},
-  {cont__22_6, &frame__22_4, 266, 266, 21, 30},
-  {entry__22_11, NULL, 267, 267, 21, 30},
-  {cont__22_12, &frame__22_11, 267, 267, 21, 30},
-  {cont__22_13, &frame__22_11, 267, 267, 21, 30},
-  {entry__22_24, NULL, 268, 268, 49, 58},
-  {cont__22_25, &frame__22_24, 268, 268, 49, 58},
-  {cont__22_26, &frame__22_24, 268, 268, 49, 58},
-  {entry__22_21, NULL, 268, 268, 35, 44},
-  {cont__22_22, &frame__22_21, 268, 268, 35, 44},
-  {cont__22_23, &frame__22_21, 268, 268, 35, 58},
-  {cont__22_27, &frame__22_21, 268, 268, 35, 58},
-  {entry__22_18, NULL, 268, 268, 21, 30},
-  {cont__22_19, &frame__22_18, 268, 268, 21, 30},
-  {cont__22_20, &frame__22_18, 268, 268, 21, 58},
-  {cont__22_28, &frame__22_18, 268, 268, 21, 58},
-  {entry__22_15, NULL, 268, 268, 7, 16},
-  {cont__22_16, &frame__22_15, 268, 268, 7, 16},
-  {cont__22_17, &frame__22_15, 268, 268, 7, 58},
-  {cont__22_29, &frame__22_15, 268, 268, 7, 58},
-  {entry__22_8, NULL, 267, 267, 7, 16},
-  {cont__22_9, &frame__22_8, 267, 267, 7, 16},
-  {cont__22_10, &frame__22_8, 267, 267, 7, 30},
-  {cont__22_14, &frame__22_8, 268, 268, 7, 58},
-  {cont__22_30, &frame__22_8, },
-  {entry__22_1_std__is_a_letter_character, NULL, 266, 266, 7, 16},
-  {cont__22_2, &frame__22_1_std__is_a_letter_character, 266, 266, 7, 16},
-  {cont__22_3, &frame__22_1_std__is_a_letter_character, 266, 266, 7, 30},
-  {cont__22_7, &frame__22_1_std__is_a_letter_character, },
-  {cont__22_31, &frame__22_1_std__is_a_letter_character, 264, 268, 3, 59},
-  {entry__23_4, NULL, 284, 284, 21, 30},
-  {cont__23_5, &frame__23_4, 284, 284, 21, 30},
-  {cont__23_6, &frame__23_4, 284, 284, 21, 30},
-  {entry__23_17, NULL, 285, 285, 49, 58},
-  {cont__23_18, &frame__23_17, 285, 285, 49, 58},
-  {cont__23_19, &frame__23_17, 285, 285, 49, 58},
-  {entry__23_14, NULL, 285, 285, 35, 44},
-  {cont__23_15, &frame__23_14, 285, 285, 35, 44},
-  {cont__23_16, &frame__23_14, 285, 285, 35, 58},
-  {cont__23_20, &frame__23_14, 285, 285, 35, 58},
-  {entry__23_11, NULL, 285, 285, 21, 30},
-  {cont__23_12, &frame__23_11, 285, 285, 21, 30},
-  {cont__23_13, &frame__23_11, 285, 285, 21, 58},
-  {cont__23_21, &frame__23_11, 285, 285, 21, 58},
-  {entry__23_8, NULL, 285, 285, 7, 16},
-  {cont__23_9, &frame__23_8, 285, 285, 7, 16},
-  {cont__23_10, &frame__23_8, 285, 285, 7, 58},
-  {cont__23_22, &frame__23_8, 285, 285, 7, 58},
-  {entry__23_1_std__is_a_lower_case_letter_character, NULL, 284, 284, 7, 16},
-  {cont__23_2, &frame__23_1_std__is_a_lower_case_letter_character, 284, 284, 7, 16},
-  {cont__23_3, &frame__23_1_std__is_a_lower_case_letter_character, 284, 284, 7, 30},
-  {cont__23_7, &frame__23_1_std__is_a_lower_case_letter_character, 283, 285, 5, 57},
-  {cont__23_23, &frame__23_1_std__is_a_lower_case_letter_character, 282, 285, 3, 59},
-  {entry__24_4, NULL, 301, 301, 21, 30},
-  {cont__24_5, &frame__24_4, 301, 301, 21, 30},
-  {cont__24_6, &frame__24_4, 301, 301, 21, 30},
-  {entry__24_17, NULL, 302, 302, 49, 58},
-  {cont__24_18, &frame__24_17, 302, 302, 49, 58},
-  {cont__24_19, &frame__24_17, 302, 302, 49, 58},
-  {entry__24_14, NULL, 302, 302, 35, 44},
-  {cont__24_15, &frame__24_14, 302, 302, 35, 44},
-  {cont__24_16, &frame__24_14, 302, 302, 35, 58},
-  {cont__24_20, &frame__24_14, 302, 302, 35, 58},
-  {entry__24_11, NULL, 302, 302, 21, 30},
-  {cont__24_12, &frame__24_11, 302, 302, 21, 30},
-  {cont__24_13, &frame__24_11, 302, 302, 21, 58},
-  {cont__24_21, &frame__24_11, 302, 302, 21, 58},
-  {entry__24_8, NULL, 302, 302, 7, 16},
-  {cont__24_9, &frame__24_8, 302, 302, 7, 16},
-  {cont__24_10, &frame__24_8, 302, 302, 7, 58},
-  {cont__24_22, &frame__24_8, 302, 302, 7, 58},
-  {entry__24_1_std__is_an_upper_case_letter_character, NULL, 301, 301, 7, 16},
-  {cont__24_2, &frame__24_1_std__is_an_upper_case_letter_character, 301, 301, 7, 16},
-  {cont__24_3, &frame__24_1_std__is_an_upper_case_letter_character, 301, 301, 7, 30},
-  {cont__24_7, &frame__24_1_std__is_an_upper_case_letter_character, 300, 302, 5, 57},
-  {cont__24_23, &frame__24_1_std__is_an_upper_case_letter_character, 299, 302, 3, 59},
-  {entry__25_3, NULL, 318, 318, 14, 21},
-  {cont__25_4, &frame__25_3, 318, 318, 7, 21},
-  {entry__25_5, NULL, 320, 320, 7, 16},
-  {entry__25_1_types__character_to_lower_case, NULL, 317, 317, 5, 41},
-  {cont__25_2, &frame__25_1_types__character_to_lower_case, 316, 320, 3, 17},
-  {cont__25_6, &frame__25_1_types__character_to_lower_case, 320, 320, 17, 17},
-  {entry__26_3, NULL, 336, 336, 14, 21},
-  {cont__26_4, &frame__26_3, 336, 336, 7, 21},
-  {entry__26_5, NULL, 338, 338, 7, 16},
-  {entry__26_1_types__character_to_upper_case, NULL, 335, 335, 5, 40},
-  {cont__26_2, &frame__26_1_types__character_to_upper_case, 334, 338, 3, 17},
-  {cont__26_6, &frame__26_1_types__character_to_upper_case, 338, 338, 17, 17},
-  {entry__27_3, NULL, 351, 351, 62, 68},
-  {entry__27_4, NULL, 351, 351, 71, 78},
-  {entry__27_1_std__is_a_vowel, NULL, 351, 351, 12, 59},
-  {cont__27_2, &frame__27_1_std__is_a_vowel, 351, 351, 3, 78},
-  {entry__28_10, NULL, 367, 367, 7, 22},
-  {cont__28_11, &frame__28_10, 367, 367, 7, 22},
-  {entry__28_8, NULL, 366, 366, 7, 22},
-  {cont__28_9, &frame__28_8, 367, 367, 7, 22},
-  {cont__28_12, &frame__28_8, },
-  {entry__28_6, NULL, 365, 365, 7, 18},
-  {cont__28_7, &frame__28_6, },
-  {cont__28_13, &frame__28_6, },
-  {entry__28_4, NULL, 364, 364, 7, 16},
-  {cont__28_5, &frame__28_4, },
-  {cont__28_14, &frame__28_4, },
-  {entry__28_16, NULL, 369, 369, 37, 51},
-  {cont__28_17, &frame__28_16, 369, 369, 33, 52},
-  {cont__28_18, &frame__28_16, 369, 369, 19, 57},
-  {cont__28_20, &frame__28_16, 369, 369, 7, 57},
-  {cont__28_21, &frame__28_16, 369, 369, 57, 57},
-  {entry__28_22, NULL, 371, 371, 7, 20},
-  {cont__28_23, &frame__28_22, 371, 371, 20, 20},
-  {entry__28_1_types__character_serialize, NULL, 363, 363, 7, 16},
-  {cont__28_3, &frame__28_1_types__character_serialize, },
-  {cont__28_15, &frame__28_1_types__character_serialize, 361, 371, 3, 21},
-  {cont__28_24, &frame__28_1_types__character_serialize, 372, 372, 6, 23},
-  {cont__28_25, &frame__28_1_types__character_serialize, 372, 372, 3, 23}
+  {entry__std__character_1, NULL, 71, 75, 3, 2},
+  {entry__types__character__plus_1, NULL, 86, 91, 3, 2},
+  {entry__types__character__minus_1, NULL, 102, 113, 3, 2},
+  {entry__types__character__equal_1, NULL, 118, 124, 3, 2},
+  {entry__types__character__less_1, NULL, 129, 135, 3, 2},
+  {entry__types__character__hash_1, NULL, 140, 146, 3, 2},
+  {entry__types__character__to_string_1, NULL, 151, 160, 3, 2},
+  {entry__types__character__to_integer_1, NULL, 165, 168, 3, 2},
+  {entry__std__is_a_whitespace_character_7, NULL, 201, 201, 54, 66},
+  {cont__std__is_a_whitespace_character_8, &frame__std__is_a_whitespace_character_7, 201, 201, 54, 66},
+  {entry__std__is_a_whitespace_character_5, NULL, 201, 201, 37, 49},
+  {cont__std__is_a_whitespace_character_6, &frame__std__is_a_whitespace_character_5, 201, 201, 37, 66},
+  {cont__std__is_a_whitespace_character_9, &frame__std__is_a_whitespace_character_5, 201, 201, 37, 66},
+  {entry__std__is_a_whitespace_character_3, NULL, 201, 201, 20, 32},
+  {cont__std__is_a_whitespace_character_4, &frame__std__is_a_whitespace_character_3, 201, 201, 20, 66},
+  {cont__std__is_a_whitespace_character_10, &frame__std__is_a_whitespace_character_3, 201, 201, 20, 66},
+  {entry__std__is_a_whitespace_character_1, NULL, 201, 201, 6, 15},
+  {cont__std__is_a_whitespace_character_2, &frame__std__is_a_whitespace_character_1, 201, 201, 6, 66},
+  {cont__std__is_a_whitespace_character_11, &frame__std__is_a_whitespace_character_1, 201, 201, 3, 66},
+  {entry__std__is_a_digit_4, NULL, 211, 211, 20, 29},
+  {cont__std__is_a_digit_5, &frame__std__is_a_digit_4, 211, 211, 20, 29},
+  {cont__std__is_a_digit_6, &frame__std__is_a_digit_4, 211, 211, 20, 29},
+  {entry__std__is_a_digit_1, NULL, 211, 211, 6, 15},
+  {cont__std__is_a_digit_2, &frame__std__is_a_digit_1, 211, 211, 6, 15},
+  {cont__std__is_a_digit_3, &frame__std__is_a_digit_1, 211, 211, 6, 29},
+  {cont__std__is_a_digit_7, &frame__std__is_a_digit_1, 211, 211, 3, 29},
+  {entry__std__is_a_letter_4, NULL, 224, 224, 20, 29},
+  {cont__std__is_a_letter_5, &frame__std__is_a_letter_4, 224, 224, 20, 29},
+  {cont__std__is_a_letter_6, &frame__std__is_a_letter_4, 224, 224, 20, 29},
+  {entry__std__is_a_letter_11, NULL, 224, 224, 48, 57},
+  {cont__std__is_a_letter_12, &frame__std__is_a_letter_11, 224, 224, 48, 57},
+  {cont__std__is_a_letter_13, &frame__std__is_a_letter_11, 224, 224, 48, 57},
+  {entry__std__is_a_letter_8, NULL, 224, 224, 34, 43},
+  {cont__std__is_a_letter_9, &frame__std__is_a_letter_8, 224, 224, 34, 43},
+  {cont__std__is_a_letter_10, &frame__std__is_a_letter_8, 224, 224, 34, 57},
+  {cont__std__is_a_letter_14, &frame__std__is_a_letter_8, 224, 224, 34, 57},
+  {entry__std__is_a_letter_1, NULL, 224, 224, 6, 15},
+  {cont__std__is_a_letter_2, &frame__std__is_a_letter_1, 224, 224, 6, 15},
+  {cont__std__is_a_letter_3, &frame__std__is_a_letter_1, 224, 224, 6, 29},
+  {cont__std__is_a_letter_7, &frame__std__is_a_letter_1, 224, 224, 6, 57},
+  {cont__std__is_a_letter_15, &frame__std__is_a_letter_1, 224, 224, 3, 57},
+  {entry__std__is_a_lower_case_letter_4, NULL, 237, 237, 20, 29},
+  {cont__std__is_a_lower_case_letter_5, &frame__std__is_a_lower_case_letter_4, 237, 237, 20, 29},
+  {cont__std__is_a_lower_case_letter_6, &frame__std__is_a_lower_case_letter_4, 237, 237, 20, 29},
+  {entry__std__is_a_lower_case_letter_1, NULL, 237, 237, 6, 15},
+  {cont__std__is_a_lower_case_letter_2, &frame__std__is_a_lower_case_letter_1, 237, 237, 6, 15},
+  {cont__std__is_a_lower_case_letter_3, &frame__std__is_a_lower_case_letter_1, 237, 237, 6, 29},
+  {cont__std__is_a_lower_case_letter_7, &frame__std__is_a_lower_case_letter_1, 237, 237, 3, 29},
+  {entry__std__is_an_upper_case_letter_4, NULL, 250, 250, 20, 29},
+  {cont__std__is_an_upper_case_letter_5, &frame__std__is_an_upper_case_letter_4, 250, 250, 20, 29},
+  {cont__std__is_an_upper_case_letter_6, &frame__std__is_an_upper_case_letter_4, 250, 250, 20, 29},
+  {entry__std__is_an_upper_case_letter_1, NULL, 250, 250, 6, 15},
+  {cont__std__is_an_upper_case_letter_2, &frame__std__is_an_upper_case_letter_1, 250, 250, 6, 15},
+  {cont__std__is_an_upper_case_letter_3, &frame__std__is_an_upper_case_letter_1, 250, 250, 6, 29},
+  {cont__std__is_an_upper_case_letter_7, &frame__std__is_an_upper_case_letter_1, 250, 250, 3, 29},
+  {entry__std__is_a_letter_character_4, NULL, 266, 266, 21, 30},
+  {cont__std__is_a_letter_character_5, &frame__std__is_a_letter_character_4, 266, 266, 21, 30},
+  {cont__std__is_a_letter_character_6, &frame__std__is_a_letter_character_4, 266, 266, 21, 30},
+  {entry__std__is_a_letter_character_11, NULL, 267, 267, 21, 30},
+  {cont__std__is_a_letter_character_12, &frame__std__is_a_letter_character_11, 267, 267, 21, 30},
+  {cont__std__is_a_letter_character_13, &frame__std__is_a_letter_character_11, 267, 267, 21, 30},
+  {entry__std__is_a_letter_character_24, NULL, 268, 268, 49, 58},
+  {cont__std__is_a_letter_character_25, &frame__std__is_a_letter_character_24, 268, 268, 49, 58},
+  {cont__std__is_a_letter_character_26, &frame__std__is_a_letter_character_24, 268, 268, 49, 58},
+  {entry__std__is_a_letter_character_21, NULL, 268, 268, 35, 44},
+  {cont__std__is_a_letter_character_22, &frame__std__is_a_letter_character_21, 268, 268, 35, 44},
+  {cont__std__is_a_letter_character_23, &frame__std__is_a_letter_character_21, 268, 268, 35, 58},
+  {cont__std__is_a_letter_character_27, &frame__std__is_a_letter_character_21, 268, 268, 35, 58},
+  {entry__std__is_a_letter_character_18, NULL, 268, 268, 21, 30},
+  {cont__std__is_a_letter_character_19, &frame__std__is_a_letter_character_18, 268, 268, 21, 30},
+  {cont__std__is_a_letter_character_20, &frame__std__is_a_letter_character_18, 268, 268, 21, 58},
+  {cont__std__is_a_letter_character_28, &frame__std__is_a_letter_character_18, 268, 268, 21, 58},
+  {entry__std__is_a_letter_character_15, NULL, 268, 268, 7, 16},
+  {cont__std__is_a_letter_character_16, &frame__std__is_a_letter_character_15, 268, 268, 7, 16},
+  {cont__std__is_a_letter_character_17, &frame__std__is_a_letter_character_15, 268, 268, 7, 58},
+  {cont__std__is_a_letter_character_29, &frame__std__is_a_letter_character_15, 268, 268, 7, 58},
+  {entry__std__is_a_letter_character_8, NULL, 267, 267, 7, 16},
+  {cont__std__is_a_letter_character_9, &frame__std__is_a_letter_character_8, 267, 267, 7, 16},
+  {cont__std__is_a_letter_character_10, &frame__std__is_a_letter_character_8, 267, 267, 7, 30},
+  {cont__std__is_a_letter_character_14, &frame__std__is_a_letter_character_8, 268, 268, 7, 58},
+  {cont__std__is_a_letter_character_30, &frame__std__is_a_letter_character_8, },
+  {entry__std__is_a_letter_character_1, NULL, 266, 266, 7, 16},
+  {cont__std__is_a_letter_character_2, &frame__std__is_a_letter_character_1, 266, 266, 7, 16},
+  {cont__std__is_a_letter_character_3, &frame__std__is_a_letter_character_1, 266, 266, 7, 30},
+  {cont__std__is_a_letter_character_7, &frame__std__is_a_letter_character_1, },
+  {cont__std__is_a_letter_character_31, &frame__std__is_a_letter_character_1, 264, 268, 3, 59},
+  {entry__std__is_a_lower_case_letter_character_4, NULL, 284, 284, 21, 30},
+  {cont__std__is_a_lower_case_letter_character_5, &frame__std__is_a_lower_case_letter_character_4, 284, 284, 21, 30},
+  {cont__std__is_a_lower_case_letter_character_6, &frame__std__is_a_lower_case_letter_character_4, 284, 284, 21, 30},
+  {entry__std__is_a_lower_case_letter_character_17, NULL, 285, 285, 49, 58},
+  {cont__std__is_a_lower_case_letter_character_18, &frame__std__is_a_lower_case_letter_character_17, 285, 285, 49, 58},
+  {cont__std__is_a_lower_case_letter_character_19, &frame__std__is_a_lower_case_letter_character_17, 285, 285, 49, 58},
+  {entry__std__is_a_lower_case_letter_character_14, NULL, 285, 285, 35, 44},
+  {cont__std__is_a_lower_case_letter_character_15, &frame__std__is_a_lower_case_letter_character_14, 285, 285, 35, 44},
+  {cont__std__is_a_lower_case_letter_character_16, &frame__std__is_a_lower_case_letter_character_14, 285, 285, 35, 58},
+  {cont__std__is_a_lower_case_letter_character_20, &frame__std__is_a_lower_case_letter_character_14, 285, 285, 35, 58},
+  {entry__std__is_a_lower_case_letter_character_11, NULL, 285, 285, 21, 30},
+  {cont__std__is_a_lower_case_letter_character_12, &frame__std__is_a_lower_case_letter_character_11, 285, 285, 21, 30},
+  {cont__std__is_a_lower_case_letter_character_13, &frame__std__is_a_lower_case_letter_character_11, 285, 285, 21, 58},
+  {cont__std__is_a_lower_case_letter_character_21, &frame__std__is_a_lower_case_letter_character_11, 285, 285, 21, 58},
+  {entry__std__is_a_lower_case_letter_character_8, NULL, 285, 285, 7, 16},
+  {cont__std__is_a_lower_case_letter_character_9, &frame__std__is_a_lower_case_letter_character_8, 285, 285, 7, 16},
+  {cont__std__is_a_lower_case_letter_character_10, &frame__std__is_a_lower_case_letter_character_8, 285, 285, 7, 58},
+  {cont__std__is_a_lower_case_letter_character_22, &frame__std__is_a_lower_case_letter_character_8, 285, 285, 7, 58},
+  {entry__std__is_a_lower_case_letter_character_1, NULL, 284, 284, 7, 16},
+  {cont__std__is_a_lower_case_letter_character_2, &frame__std__is_a_lower_case_letter_character_1, 284, 284, 7, 16},
+  {cont__std__is_a_lower_case_letter_character_3, &frame__std__is_a_lower_case_letter_character_1, 284, 284, 7, 30},
+  {cont__std__is_a_lower_case_letter_character_7, &frame__std__is_a_lower_case_letter_character_1, 283, 285, 5, 57},
+  {cont__std__is_a_lower_case_letter_character_23, &frame__std__is_a_lower_case_letter_character_1, 282, 285, 3, 59},
+  {entry__std__is_an_upper_case_letter_character_4, NULL, 301, 301, 21, 30},
+  {cont__std__is_an_upper_case_letter_character_5, &frame__std__is_an_upper_case_letter_character_4, 301, 301, 21, 30},
+  {cont__std__is_an_upper_case_letter_character_6, &frame__std__is_an_upper_case_letter_character_4, 301, 301, 21, 30},
+  {entry__std__is_an_upper_case_letter_character_17, NULL, 302, 302, 49, 58},
+  {cont__std__is_an_upper_case_letter_character_18, &frame__std__is_an_upper_case_letter_character_17, 302, 302, 49, 58},
+  {cont__std__is_an_upper_case_letter_character_19, &frame__std__is_an_upper_case_letter_character_17, 302, 302, 49, 58},
+  {entry__std__is_an_upper_case_letter_character_14, NULL, 302, 302, 35, 44},
+  {cont__std__is_an_upper_case_letter_character_15, &frame__std__is_an_upper_case_letter_character_14, 302, 302, 35, 44},
+  {cont__std__is_an_upper_case_letter_character_16, &frame__std__is_an_upper_case_letter_character_14, 302, 302, 35, 58},
+  {cont__std__is_an_upper_case_letter_character_20, &frame__std__is_an_upper_case_letter_character_14, 302, 302, 35, 58},
+  {entry__std__is_an_upper_case_letter_character_11, NULL, 302, 302, 21, 30},
+  {cont__std__is_an_upper_case_letter_character_12, &frame__std__is_an_upper_case_letter_character_11, 302, 302, 21, 30},
+  {cont__std__is_an_upper_case_letter_character_13, &frame__std__is_an_upper_case_letter_character_11, 302, 302, 21, 58},
+  {cont__std__is_an_upper_case_letter_character_21, &frame__std__is_an_upper_case_letter_character_11, 302, 302, 21, 58},
+  {entry__std__is_an_upper_case_letter_character_8, NULL, 302, 302, 7, 16},
+  {cont__std__is_an_upper_case_letter_character_9, &frame__std__is_an_upper_case_letter_character_8, 302, 302, 7, 16},
+  {cont__std__is_an_upper_case_letter_character_10, &frame__std__is_an_upper_case_letter_character_8, 302, 302, 7, 58},
+  {cont__std__is_an_upper_case_letter_character_22, &frame__std__is_an_upper_case_letter_character_8, 302, 302, 7, 58},
+  {entry__std__is_an_upper_case_letter_character_1, NULL, 301, 301, 7, 16},
+  {cont__std__is_an_upper_case_letter_character_2, &frame__std__is_an_upper_case_letter_character_1, 301, 301, 7, 16},
+  {cont__std__is_an_upper_case_letter_character_3, &frame__std__is_an_upper_case_letter_character_1, 301, 301, 7, 30},
+  {cont__std__is_an_upper_case_letter_character_7, &frame__std__is_an_upper_case_letter_character_1, 300, 302, 5, 57},
+  {cont__std__is_an_upper_case_letter_character_23, &frame__std__is_an_upper_case_letter_character_1, 299, 302, 3, 59},
+  {entry__types__character__to_lower_case_3, NULL, 318, 318, 14, 21},
+  {cont__types__character__to_lower_case_4, &frame__types__character__to_lower_case_3, 318, 318, 7, 21},
+  {entry__types__character__to_lower_case_5, NULL, 320, 320, 7, 16},
+  {entry__types__character__to_lower_case_1, NULL, 317, 317, 5, 41},
+  {cont__types__character__to_lower_case_2, &frame__types__character__to_lower_case_1, 316, 320, 3, 17},
+  {cont__types__character__to_lower_case_6, &frame__types__character__to_lower_case_1, 320, 320, 17, 17},
+  {entry__types__character__to_upper_case_3, NULL, 336, 336, 14, 21},
+  {cont__types__character__to_upper_case_4, &frame__types__character__to_upper_case_3, 336, 336, 7, 21},
+  {entry__types__character__to_upper_case_5, NULL, 338, 338, 7, 16},
+  {entry__types__character__to_upper_case_1, NULL, 335, 335, 5, 40},
+  {cont__types__character__to_upper_case_2, &frame__types__character__to_upper_case_1, 334, 338, 3, 17},
+  {cont__types__character__to_upper_case_6, &frame__types__character__to_upper_case_1, 338, 338, 17, 17},
+  {entry__std__is_a_vowel_3, NULL, 351, 351, 62, 68},
+  {entry__std__is_a_vowel_4, NULL, 351, 351, 71, 78},
+  {entry__std__is_a_vowel_1, NULL, 351, 351, 12, 59},
+  {cont__std__is_a_vowel_2, &frame__std__is_a_vowel_1, 351, 351, 3, 78},
+  {entry__types__character__serialize_10, NULL, 367, 367, 7, 22},
+  {cont__types__character__serialize_11, &frame__types__character__serialize_10, 367, 367, 7, 22},
+  {entry__types__character__serialize_8, NULL, 366, 366, 7, 22},
+  {cont__types__character__serialize_9, &frame__types__character__serialize_8, 367, 367, 7, 22},
+  {cont__types__character__serialize_12, &frame__types__character__serialize_8, },
+  {entry__types__character__serialize_6, NULL, 365, 365, 7, 18},
+  {cont__types__character__serialize_7, &frame__types__character__serialize_6, },
+  {cont__types__character__serialize_13, &frame__types__character__serialize_6, },
+  {entry__types__character__serialize_4, NULL, 364, 364, 7, 16},
+  {cont__types__character__serialize_5, &frame__types__character__serialize_4, },
+  {cont__types__character__serialize_14, &frame__types__character__serialize_4, },
+  {entry__types__character__serialize_16, NULL, 369, 369, 37, 51},
+  {cont__types__character__serialize_17, &frame__types__character__serialize_16, 369, 369, 33, 52},
+  {cont__types__character__serialize_18, &frame__types__character__serialize_16, 369, 369, 19, 57},
+  {cont__types__character__serialize_20, &frame__types__character__serialize_16, 369, 369, 7, 57},
+  {cont__types__character__serialize_21, &frame__types__character__serialize_16, 369, 369, 57, 57},
+  {entry__types__character__serialize_22, NULL, 371, 371, 7, 20},
+  {cont__types__character__serialize_23, &frame__types__character__serialize_22, 371, 371, 20, 20},
+  {entry__types__character__serialize_1, NULL, 363, 363, 7, 16},
+  {cont__types__character__serialize_3, &frame__types__character__serialize_1, },
+  {cont__types__character__serialize_15, &frame__types__character__serialize_1, 361, 371, 3, 21},
+  {cont__types__character__serialize_24, &frame__types__character__serialize_1, 372, 372, 6, 23},
+  {cont__types__character__serialize_25, &frame__types__character__serialize_1, 372, 372, 3, 23}
 };
 
 union NODE {
@@ -1012,7 +1012,7 @@ NODE *runtime__from_uchar32(uint32_t code) {
 static uint32_t func__types__character___to_uchar32(NODE *node) {
   return node->character.code;
 }
-static void entry__8_1_std__character(void) {
+static void entry__std__character_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1028,7 +1028,7 @@ static void entry__8_1_std__character(void) {
     return;
   }
 }
-static void entry__9_1_types__character_plus(void) {
+static void entry__types__character__plus_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1047,7 +1047,7 @@ static void entry__9_1_types__character_plus(void) {
     return;
   }
 }
-static void entry__10_1_types__character_minus(void) {
+static void entry__types__character__minus_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1079,7 +1079,7 @@ static void entry__10_1_types__character_minus(void) {
   }
   }
 }
-static void entry__11_1_types__character_equal(void) {
+static void entry__types__character__equal_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1104,7 +1104,7 @@ static void entry__11_1_types__character_equal(void) {
     return;
   }
 }
-static void entry__12_1_types__character_less(void) {
+static void entry__types__character__less_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1124,7 +1124,7 @@ static void entry__12_1_types__character_less(void) {
     invalid_arguments_error();
   }
 }
-static void entry__13_1_types__character_hash(void) {
+static void entry__types__character__hash_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1142,7 +1142,7 @@ static void entry__13_1_types__character_hash(void) {
     return;
   };
 }
-static void entry__14_1_types__character_to_string(void) {
+static void entry__types__character__to_string_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1171,7 +1171,7 @@ static void entry__14_1_types__character_to_string(void) {
   }
   }
 }
-static void entry__15_1_types__character_to_integer(void) {
+static void entry__types__character__to_integer_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1201,7 +1201,7 @@ static long func__types__character___debug_string(NODE *node, int indent, int ma
     return debug_print(indent, buf, "'@0x%x;'", node->character.code);
   }
 }
-static void entry__17_1_std__is_a_whitespace_character(void) {
+static void entry__std__is_a_whitespace_character_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -1217,16 +1217,16 @@ static void entry__17_1_std__is_a_whitespace_character(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__17_2;
+  frame->cont = cont__std__is_a_whitespace_character_2;
 }
-static void cont__17_2(void) {
+static void cont__std__is_a_whitespace_character_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 201: ... chr == '@nl;' || chr == '@cr;' || chr == '@ht;'
-  frame->slots[3] /* temp__3 */ = create_closure(entry__17_3, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__std__is_a_whitespace_character_3, 0);
   // 201: ... chr == ' ' || chr == '@nl;' || chr == '@cr;' || chr == '@ht;'
   argument_count = 2;
   arguments = node_p;
@@ -1235,9 +1235,9 @@ static void cont__17_2(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__17_11;
+  frame->cont = cont__std__is_a_whitespace_character_11;
 }
-static void entry__17_3(void) {
+static void entry__std__is_a_whitespace_character_3(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -1254,16 +1254,16 @@ static void entry__17_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__17_4;
+  frame->cont = cont__std__is_a_whitespace_character_4;
 }
-static void cont__17_4(void) {
+static void cont__std__is_a_whitespace_character_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 201: ... chr == '@cr;' || chr == '@ht;'
-  frame->slots[3] /* temp__3 */ = create_closure(entry__17_5, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__std__is_a_whitespace_character_5, 0);
   // 201: ... chr == '@nl;' || chr == '@cr;' || chr == '@ht;'
   argument_count = 2;
   arguments = node_p;
@@ -1272,9 +1272,9 @@ static void cont__17_4(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__17_10;
+  frame->cont = cont__std__is_a_whitespace_character_10;
 }
-static void entry__17_5(void) {
+static void entry__std__is_a_whitespace_character_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -1291,16 +1291,16 @@ static void entry__17_5(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__17_6;
+  frame->cont = cont__std__is_a_whitespace_character_6;
 }
-static void cont__17_6(void) {
+static void cont__std__is_a_whitespace_character_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 201: ... chr == '@ht;'
-  frame->slots[3] /* temp__3 */ = create_closure(entry__17_7, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__std__is_a_whitespace_character_7, 0);
   // 201: ... chr == '@cr;' || chr == '@ht;'
   argument_count = 2;
   arguments = node_p;
@@ -1309,9 +1309,9 @@ static void cont__17_6(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__17_9;
+  frame->cont = cont__std__is_a_whitespace_character_9;
 }
-static void entry__17_7(void) {
+static void entry__std__is_a_whitespace_character_7(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
@@ -1328,9 +1328,9 @@ static void entry__17_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__17_8;
+  frame->cont = cont__std__is_a_whitespace_character_8;
 }
-static void cont__17_8(void) {
+static void cont__std__is_a_whitespace_character_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1344,7 +1344,7 @@ static void cont__17_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__17_9(void) {
+static void cont__std__is_a_whitespace_character_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1358,7 +1358,7 @@ static void cont__17_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__17_10(void) {
+static void cont__std__is_a_whitespace_character_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1372,7 +1372,7 @@ static void cont__17_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__17_11(void) {
+static void cont__std__is_a_whitespace_character_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1386,7 +1386,7 @@ static void cont__17_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1_std__is_a_digit(void) {
+static void entry__std__is_a_digit_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -1402,9 +1402,9 @@ static void entry__18_1_std__is_a_digit(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__18_2;
+  frame->cont = cont__std__is_a_digit_2;
 }
-static void cont__18_2(void) {
+static void cont__std__is_a_digit_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1417,16 +1417,16 @@ static void cont__18_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__18_3;
+  frame->cont = cont__std__is_a_digit_3;
 }
-static void cont__18_3(void) {
+static void cont__std__is_a_digit_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 211: ... chr <= '9'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__18_4, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_digit_4, 0);
   // 211: ... chr >= '0' && chr <= '9'
   argument_count = 2;
   arguments = node_p;
@@ -1435,9 +1435,9 @@ static void cont__18_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__18_7;
+  frame->cont = cont__std__is_a_digit_7;
 }
-static void entry__18_4(void) {
+static void entry__std__is_a_digit_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -1454,9 +1454,9 @@ static void entry__18_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__18_5;
+  frame->cont = cont__std__is_a_digit_5;
 }
-static void cont__18_5(void) {
+static void cont__std__is_a_digit_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1469,9 +1469,9 @@ static void cont__18_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__18_6;
+  frame->cont = cont__std__is_a_digit_6;
 }
-static void cont__18_6(void) {
+static void cont__std__is_a_digit_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1485,7 +1485,7 @@ static void cont__18_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__18_7(void) {
+static void cont__std__is_a_digit_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1499,7 +1499,7 @@ static void cont__18_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_1_std__is_a_letter(void) {
+static void entry__std__is_a_letter_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
@@ -1515,9 +1515,9 @@ static void entry__19_1_std__is_a_letter(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_2;
+  frame->cont = cont__std__is_a_letter_2;
 }
-static void cont__19_2(void) {
+static void cont__std__is_a_letter_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1530,16 +1530,16 @@ static void cont__19_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_3;
+  frame->cont = cont__std__is_a_letter_3;
 }
-static void cont__19_3(void) {
+static void cont__std__is_a_letter_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 224: ... chr <= 'z'
-  frame->slots[5] /* temp__5 */ = create_closure(entry__19_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__std__is_a_letter_4, 0);
   // 224: ... chr >= 'a' && chr <= 'z'
   argument_count = 2;
   arguments = node_p;
@@ -1548,9 +1548,9 @@ static void cont__19_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__19_7;
+  frame->cont = cont__std__is_a_letter_7;
 }
-static void entry__19_4(void) {
+static void entry__std__is_a_letter_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -1567,9 +1567,9 @@ static void entry__19_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_5;
+  frame->cont = cont__std__is_a_letter_5;
 }
-static void cont__19_5(void) {
+static void cont__std__is_a_letter_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1582,9 +1582,9 @@ static void cont__19_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_6;
+  frame->cont = cont__std__is_a_letter_6;
 }
-static void cont__19_6(void) {
+static void cont__std__is_a_letter_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1598,14 +1598,14 @@ static void cont__19_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_7(void) {
+static void cont__std__is_a_letter_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 224: ... chr >= 'A' && chr <= 'Z'
-  frame->slots[6] /* temp__6 */ = create_closure(entry__19_8, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__std__is_a_letter_8, 0);
   // 224: ... chr >= 'a' && chr <= 'z' || chr >= 'A' && chr <= 'Z'
   argument_count = 2;
   arguments = node_p;
@@ -1614,9 +1614,9 @@ static void cont__19_7(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_15;
+  frame->cont = cont__std__is_a_letter_15;
 }
-static void entry__19_8(void) {
+static void entry__std__is_a_letter_8(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -1633,9 +1633,9 @@ static void entry__19_8(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_9;
+  frame->cont = cont__std__is_a_letter_9;
 }
-static void cont__19_9(void) {
+static void cont__std__is_a_letter_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1648,16 +1648,16 @@ static void cont__19_9(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_10;
+  frame->cont = cont__std__is_a_letter_10;
 }
-static void cont__19_10(void) {
+static void cont__std__is_a_letter_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 224: ... chr <= 'Z'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__19_11, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_letter_11, 0);
   // 224: ... chr >= 'A' && chr <= 'Z'
   argument_count = 2;
   arguments = node_p;
@@ -1666,9 +1666,9 @@ static void cont__19_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__19_14;
+  frame->cont = cont__std__is_a_letter_14;
 }
-static void entry__19_11(void) {
+static void entry__std__is_a_letter_11(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -1685,9 +1685,9 @@ static void entry__19_11(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_12;
+  frame->cont = cont__std__is_a_letter_12;
 }
-static void cont__19_12(void) {
+static void cont__std__is_a_letter_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1700,9 +1700,9 @@ static void cont__19_12(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_13;
+  frame->cont = cont__std__is_a_letter_13;
 }
-static void cont__19_13(void) {
+static void cont__std__is_a_letter_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1716,7 +1716,7 @@ static void cont__19_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_14(void) {
+static void cont__std__is_a_letter_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1730,7 +1730,7 @@ static void cont__19_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_15(void) {
+static void cont__std__is_a_letter_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1744,7 +1744,7 @@ static void cont__19_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__20_1_std__is_a_lower_case_letter(void) {
+static void entry__std__is_a_lower_case_letter_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -1760,9 +1760,9 @@ static void entry__20_1_std__is_a_lower_case_letter(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__20_2;
+  frame->cont = cont__std__is_a_lower_case_letter_2;
 }
-static void cont__20_2(void) {
+static void cont__std__is_a_lower_case_letter_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1775,16 +1775,16 @@ static void cont__20_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__20_3;
+  frame->cont = cont__std__is_a_lower_case_letter_3;
 }
-static void cont__20_3(void) {
+static void cont__std__is_a_lower_case_letter_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 237: ... chr <= 'z'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__20_4, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_lower_case_letter_4, 0);
   // 237: ... chr >= 'a' && chr <= 'z'
   argument_count = 2;
   arguments = node_p;
@@ -1793,9 +1793,9 @@ static void cont__20_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__20_7;
+  frame->cont = cont__std__is_a_lower_case_letter_7;
 }
-static void entry__20_4(void) {
+static void entry__std__is_a_lower_case_letter_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -1812,9 +1812,9 @@ static void entry__20_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__20_5;
+  frame->cont = cont__std__is_a_lower_case_letter_5;
 }
-static void cont__20_5(void) {
+static void cont__std__is_a_lower_case_letter_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1827,9 +1827,9 @@ static void cont__20_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__20_6;
+  frame->cont = cont__std__is_a_lower_case_letter_6;
 }
-static void cont__20_6(void) {
+static void cont__std__is_a_lower_case_letter_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1843,7 +1843,7 @@ static void cont__20_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__20_7(void) {
+static void cont__std__is_a_lower_case_letter_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1857,7 +1857,7 @@ static void cont__20_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1_std__is_an_upper_case_letter(void) {
+static void entry__std__is_an_upper_case_letter_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -1873,9 +1873,9 @@ static void entry__21_1_std__is_an_upper_case_letter(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__21_2;
+  frame->cont = cont__std__is_an_upper_case_letter_2;
 }
-static void cont__21_2(void) {
+static void cont__std__is_an_upper_case_letter_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1888,16 +1888,16 @@ static void cont__21_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__21_3;
+  frame->cont = cont__std__is_an_upper_case_letter_3;
 }
-static void cont__21_3(void) {
+static void cont__std__is_an_upper_case_letter_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 250: ... chr <= 'Z'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__21_4, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_an_upper_case_letter_4, 0);
   // 250: ... chr >= 'A' && chr <= 'Z'
   argument_count = 2;
   arguments = node_p;
@@ -1906,9 +1906,9 @@ static void cont__21_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__21_7;
+  frame->cont = cont__std__is_an_upper_case_letter_7;
 }
-static void entry__21_4(void) {
+static void entry__std__is_an_upper_case_letter_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -1925,9 +1925,9 @@ static void entry__21_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__21_5;
+  frame->cont = cont__std__is_an_upper_case_letter_5;
 }
-static void cont__21_5(void) {
+static void cont__std__is_an_upper_case_letter_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1940,9 +1940,9 @@ static void cont__21_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__21_6;
+  frame->cont = cont__std__is_an_upper_case_letter_6;
 }
-static void cont__21_6(void) {
+static void cont__std__is_an_upper_case_letter_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1956,7 +1956,7 @@ static void cont__21_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__21_7(void) {
+static void cont__std__is_an_upper_case_letter_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1970,7 +1970,7 @@ static void cont__21_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__22_1_std__is_a_letter_character(void) {
+static void entry__std__is_a_letter_character_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
@@ -1986,9 +1986,9 @@ static void entry__22_1_std__is_a_letter_character(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__22_2;
+  frame->cont = cont__std__is_a_letter_character_2;
 }
-static void cont__22_2(void) {
+static void cont__std__is_a_letter_character_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2001,16 +2001,16 @@ static void cont__22_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_3;
+  frame->cont = cont__std__is_a_letter_character_3;
 }
-static void cont__22_3(void) {
+static void cont__std__is_a_letter_character_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 266: ... chr <= 'z'
-  frame->slots[5] /* temp__5 */ = create_closure(entry__22_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__std__is_a_letter_character_4, 0);
   // 266: chr >= 'a' && chr <= 'z'
   argument_count = 2;
   arguments = node_p;
@@ -2019,9 +2019,9 @@ static void cont__22_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__22_7;
+  frame->cont = cont__std__is_a_letter_character_7;
 }
-static void entry__22_4(void) {
+static void entry__std__is_a_letter_character_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -2038,9 +2038,9 @@ static void entry__22_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__22_5;
+  frame->cont = cont__std__is_a_letter_character_5;
 }
-static void cont__22_5(void) {
+static void cont__std__is_a_letter_character_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2053,9 +2053,9 @@ static void cont__22_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_6;
+  frame->cont = cont__std__is_a_letter_character_6;
 }
-static void cont__22_6(void) {
+static void cont__std__is_a_letter_character_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2069,13 +2069,13 @@ static void cont__22_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_7(void) {
+static void cont__std__is_a_letter_character_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[6] /* temp__6 */ = create_closure(entry__22_8, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__std__is_a_letter_character_8, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2083,9 +2083,9 @@ static void cont__22_7(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__22_31;
+  frame->cont = cont__std__is_a_letter_character_31;
 }
-static void entry__22_8(void) {
+static void entry__std__is_a_letter_character_8(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
@@ -2102,9 +2102,9 @@ static void entry__22_8(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__22_9;
+  frame->cont = cont__std__is_a_letter_character_9;
 }
-static void cont__22_9(void) {
+static void cont__std__is_a_letter_character_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2117,16 +2117,16 @@ static void cont__22_9(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_10;
+  frame->cont = cont__std__is_a_letter_character_10;
 }
-static void cont__22_10(void) {
+static void cont__std__is_a_letter_character_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 267: ... chr <= 'Z'
-  frame->slots[5] /* temp__5 */ = create_closure(entry__22_11, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__std__is_a_letter_character_11, 0);
   // 267: chr >= 'A' && chr <= 'Z'
   argument_count = 2;
   arguments = node_p;
@@ -2135,9 +2135,9 @@ static void cont__22_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__22_14;
+  frame->cont = cont__std__is_a_letter_character_14;
 }
-static void entry__22_11(void) {
+static void entry__std__is_a_letter_character_11(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -2154,9 +2154,9 @@ static void entry__22_11(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__22_12;
+  frame->cont = cont__std__is_a_letter_character_12;
 }
-static void cont__22_12(void) {
+static void cont__std__is_a_letter_character_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2169,9 +2169,9 @@ static void cont__22_12(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_13;
+  frame->cont = cont__std__is_a_letter_character_13;
 }
-static void cont__22_13(void) {
+static void cont__std__is_a_letter_character_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2185,14 +2185,14 @@ static void cont__22_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_14(void) {
+static void cont__std__is_a_letter_character_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 268: chr >= 'À' && chr <= 'ÿ' && chr != '×' && chr != '÷'
-  frame->slots[6] /* temp__6 */ = create_closure(entry__22_15, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__std__is_a_letter_character_15, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2200,9 +2200,9 @@ static void cont__22_14(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__22_30;
+  frame->cont = cont__std__is_a_letter_character_30;
 }
-static void entry__22_15(void) {
+static void entry__std__is_a_letter_character_15(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2219,9 +2219,9 @@ static void entry__22_15(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__22_16;
+  frame->cont = cont__std__is_a_letter_character_16;
 }
-static void cont__22_16(void) {
+static void cont__std__is_a_letter_character_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2234,16 +2234,16 @@ static void cont__22_16(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_17;
+  frame->cont = cont__std__is_a_letter_character_17;
 }
-static void cont__22_17(void) {
+static void cont__std__is_a_letter_character_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 268: ... chr <= 'ÿ' && chr != '×' && chr != '÷'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__22_18, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_letter_character_18, 0);
   // 268: chr >= 'À' && chr <= 'ÿ' && chr != '×' && chr != '÷'
   argument_count = 2;
   arguments = node_p;
@@ -2252,9 +2252,9 @@ static void cont__22_17(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__22_29;
+  frame->cont = cont__std__is_a_letter_character_29;
 }
-static void entry__22_18(void) {
+static void entry__std__is_a_letter_character_18(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2271,9 +2271,9 @@ static void entry__22_18(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__22_19;
+  frame->cont = cont__std__is_a_letter_character_19;
 }
-static void cont__22_19(void) {
+static void cont__std__is_a_letter_character_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2286,16 +2286,16 @@ static void cont__22_19(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_20;
+  frame->cont = cont__std__is_a_letter_character_20;
 }
-static void cont__22_20(void) {
+static void cont__std__is_a_letter_character_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 268: ... chr != '×' && chr != '÷'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__22_21, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_letter_character_21, 0);
   // 268: ... chr <= 'ÿ' && chr != '×' && chr != '÷'
   argument_count = 2;
   arguments = node_p;
@@ -2304,9 +2304,9 @@ static void cont__22_20(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__22_28;
+  frame->cont = cont__std__is_a_letter_character_28;
 }
-static void entry__22_21(void) {
+static void entry__std__is_a_letter_character_21(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2323,9 +2323,9 @@ static void entry__22_21(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__22_22;
+  frame->cont = cont__std__is_a_letter_character_22;
 }
-static void cont__22_22(void) {
+static void cont__std__is_a_letter_character_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2338,16 +2338,16 @@ static void cont__22_22(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_23;
+  frame->cont = cont__std__is_a_letter_character_23;
 }
-static void cont__22_23(void) {
+static void cont__std__is_a_letter_character_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 268: ... chr != '÷'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__22_24, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_letter_character_24, 0);
   // 268: ... chr != '×' && chr != '÷'
   argument_count = 2;
   arguments = node_p;
@@ -2356,9 +2356,9 @@ static void cont__22_23(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__22_27;
+  frame->cont = cont__std__is_a_letter_character_27;
 }
-static void entry__22_24(void) {
+static void entry__std__is_a_letter_character_24(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -2375,9 +2375,9 @@ static void entry__22_24(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__22_25;
+  frame->cont = cont__std__is_a_letter_character_25;
 }
-static void cont__22_25(void) {
+static void cont__std__is_a_letter_character_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2390,9 +2390,9 @@ static void cont__22_25(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__22_26;
+  frame->cont = cont__std__is_a_letter_character_26;
 }
-static void cont__22_26(void) {
+static void cont__std__is_a_letter_character_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2406,7 +2406,7 @@ static void cont__22_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_27(void) {
+static void cont__std__is_a_letter_character_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2420,7 +2420,7 @@ static void cont__22_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_28(void) {
+static void cont__std__is_a_letter_character_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2434,7 +2434,7 @@ static void cont__22_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_29(void) {
+static void cont__std__is_a_letter_character_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2448,7 +2448,7 @@ static void cont__22_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_30(void) {
+static void cont__std__is_a_letter_character_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2461,7 +2461,7 @@ static void cont__22_30(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_31(void) {
+static void cont__std__is_a_letter_character_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2479,7 +2479,7 @@ static void cont__22_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__23_1_std__is_a_lower_case_letter_character(void) {
+static void entry__std__is_a_lower_case_letter_character_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
@@ -2495,9 +2495,9 @@ static void entry__23_1_std__is_a_lower_case_letter_character(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__23_2;
+  frame->cont = cont__std__is_a_lower_case_letter_character_2;
 }
-static void cont__23_2(void) {
+static void cont__std__is_a_lower_case_letter_character_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2510,16 +2510,16 @@ static void cont__23_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_3;
+  frame->cont = cont__std__is_a_lower_case_letter_character_3;
 }
-static void cont__23_3(void) {
+static void cont__std__is_a_lower_case_letter_character_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 284: ... chr <= 'z'
-  frame->slots[5] /* temp__5 */ = create_closure(entry__23_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__std__is_a_lower_case_letter_character_4, 0);
   // 284: chr >= 'a' && chr <= 'z'
   argument_count = 2;
   arguments = node_p;
@@ -2528,9 +2528,9 @@ static void cont__23_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__23_7;
+  frame->cont = cont__std__is_a_lower_case_letter_character_7;
 }
-static void entry__23_4(void) {
+static void entry__std__is_a_lower_case_letter_character_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -2547,9 +2547,9 @@ static void entry__23_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__23_5;
+  frame->cont = cont__std__is_a_lower_case_letter_character_5;
 }
-static void cont__23_5(void) {
+static void cont__std__is_a_lower_case_letter_character_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2562,9 +2562,9 @@ static void cont__23_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_6;
+  frame->cont = cont__std__is_a_lower_case_letter_character_6;
 }
-static void cont__23_6(void) {
+static void cont__std__is_a_lower_case_letter_character_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2578,14 +2578,14 @@ static void cont__23_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_7(void) {
+static void cont__std__is_a_lower_case_letter_character_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 285: chr >= 'à' && chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
-  frame->slots[6] /* temp__6 */ = create_closure(entry__23_8, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__std__is_a_lower_case_letter_character_8, 0);
   // 283: ||
   // 284:   chr >= 'a' && chr <= 'z'
   // 285:   chr >= 'à' && chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
@@ -2596,9 +2596,9 @@ static void cont__23_7(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__23_23;
+  frame->cont = cont__std__is_a_lower_case_letter_character_23;
 }
-static void entry__23_8(void) {
+static void entry__std__is_a_lower_case_letter_character_8(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2615,9 +2615,9 @@ static void entry__23_8(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__23_9;
+  frame->cont = cont__std__is_a_lower_case_letter_character_9;
 }
-static void cont__23_9(void) {
+static void cont__std__is_a_lower_case_letter_character_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2630,16 +2630,16 @@ static void cont__23_9(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_10;
+  frame->cont = cont__std__is_a_lower_case_letter_character_10;
 }
-static void cont__23_10(void) {
+static void cont__std__is_a_lower_case_letter_character_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 285: ... chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__23_11, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_lower_case_letter_character_11, 0);
   // 285: chr >= 'à' && chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
   argument_count = 2;
   arguments = node_p;
@@ -2648,9 +2648,9 @@ static void cont__23_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__23_22;
+  frame->cont = cont__std__is_a_lower_case_letter_character_22;
 }
-static void entry__23_11(void) {
+static void entry__std__is_a_lower_case_letter_character_11(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2667,9 +2667,9 @@ static void entry__23_11(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__23_12;
+  frame->cont = cont__std__is_a_lower_case_letter_character_12;
 }
-static void cont__23_12(void) {
+static void cont__std__is_a_lower_case_letter_character_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2682,16 +2682,16 @@ static void cont__23_12(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_13;
+  frame->cont = cont__std__is_a_lower_case_letter_character_13;
 }
-static void cont__23_13(void) {
+static void cont__std__is_a_lower_case_letter_character_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 285: ... chr != '÷' && chr != 'ÿ'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__23_14, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_lower_case_letter_character_14, 0);
   // 285: ... chr <= 'ÿ' && chr != '÷' && chr != 'ÿ'
   argument_count = 2;
   arguments = node_p;
@@ -2700,9 +2700,9 @@ static void cont__23_13(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__23_21;
+  frame->cont = cont__std__is_a_lower_case_letter_character_21;
 }
-static void entry__23_14(void) {
+static void entry__std__is_a_lower_case_letter_character_14(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2719,9 +2719,9 @@ static void entry__23_14(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__23_15;
+  frame->cont = cont__std__is_a_lower_case_letter_character_15;
 }
-static void cont__23_15(void) {
+static void cont__std__is_a_lower_case_letter_character_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2734,16 +2734,16 @@ static void cont__23_15(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_16;
+  frame->cont = cont__std__is_a_lower_case_letter_character_16;
 }
-static void cont__23_16(void) {
+static void cont__std__is_a_lower_case_letter_character_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 285: ... chr != 'ÿ'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__23_17, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_a_lower_case_letter_character_17, 0);
   // 285: ... chr != '÷' && chr != 'ÿ'
   argument_count = 2;
   arguments = node_p;
@@ -2752,9 +2752,9 @@ static void cont__23_16(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__23_20;
+  frame->cont = cont__std__is_a_lower_case_letter_character_20;
 }
-static void entry__23_17(void) {
+static void entry__std__is_a_lower_case_letter_character_17(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -2771,9 +2771,9 @@ static void entry__23_17(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__23_18;
+  frame->cont = cont__std__is_a_lower_case_letter_character_18;
 }
-static void cont__23_18(void) {
+static void cont__std__is_a_lower_case_letter_character_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2786,9 +2786,9 @@ static void cont__23_18(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_19;
+  frame->cont = cont__std__is_a_lower_case_letter_character_19;
 }
-static void cont__23_19(void) {
+static void cont__std__is_a_lower_case_letter_character_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2802,7 +2802,7 @@ static void cont__23_19(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_20(void) {
+static void cont__std__is_a_lower_case_letter_character_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2816,7 +2816,7 @@ static void cont__23_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_21(void) {
+static void cont__std__is_a_lower_case_letter_character_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2830,7 +2830,7 @@ static void cont__23_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_22(void) {
+static void cont__std__is_a_lower_case_letter_character_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2844,7 +2844,7 @@ static void cont__23_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_23(void) {
+static void cont__std__is_a_lower_case_letter_character_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2861,7 +2861,7 @@ static void cont__23_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1_std__is_an_upper_case_letter_character(void) {
+static void entry__std__is_an_upper_case_letter_character_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
@@ -2877,9 +2877,9 @@ static void entry__24_1_std__is_an_upper_case_letter_character(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__24_2;
+  frame->cont = cont__std__is_an_upper_case_letter_character_2;
 }
-static void cont__24_2(void) {
+static void cont__std__is_an_upper_case_letter_character_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2892,16 +2892,16 @@ static void cont__24_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_3;
+  frame->cont = cont__std__is_an_upper_case_letter_character_3;
 }
-static void cont__24_3(void) {
+static void cont__std__is_an_upper_case_letter_character_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 301: ... chr <= 'Z'
-  frame->slots[5] /* temp__5 */ = create_closure(entry__24_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__std__is_an_upper_case_letter_character_4, 0);
   // 301: chr >= 'A' && chr <= 'Z'
   argument_count = 2;
   arguments = node_p;
@@ -2910,9 +2910,9 @@ static void cont__24_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__24_7;
+  frame->cont = cont__std__is_an_upper_case_letter_character_7;
 }
-static void entry__24_4(void) {
+static void entry__std__is_an_upper_case_letter_character_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -2929,9 +2929,9 @@ static void entry__24_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__24_5;
+  frame->cont = cont__std__is_an_upper_case_letter_character_5;
 }
-static void cont__24_5(void) {
+static void cont__std__is_an_upper_case_letter_character_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2944,9 +2944,9 @@ static void cont__24_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_6;
+  frame->cont = cont__std__is_an_upper_case_letter_character_6;
 }
-static void cont__24_6(void) {
+static void cont__std__is_an_upper_case_letter_character_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2960,14 +2960,14 @@ static void cont__24_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__24_7(void) {
+static void cont__std__is_an_upper_case_letter_character_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 302: chr >= 'À' && chr <= 'ß' && chr != '×' && chr != 'ß'
-  frame->slots[6] /* temp__6 */ = create_closure(entry__24_8, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__std__is_an_upper_case_letter_character_8, 0);
   // 300: ||
   // 301:   chr >= 'A' && chr <= 'Z'
   // 302:   chr >= 'À' && chr <= 'ß' && chr != '×' && chr != 'ß'
@@ -2978,9 +2978,9 @@ static void cont__24_7(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__24_23;
+  frame->cont = cont__std__is_an_upper_case_letter_character_23;
 }
-static void entry__24_8(void) {
+static void entry__std__is_an_upper_case_letter_character_8(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -2997,9 +2997,9 @@ static void entry__24_8(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__24_9;
+  frame->cont = cont__std__is_an_upper_case_letter_character_9;
 }
-static void cont__24_9(void) {
+static void cont__std__is_an_upper_case_letter_character_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3012,16 +3012,16 @@ static void cont__24_9(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_10;
+  frame->cont = cont__std__is_an_upper_case_letter_character_10;
 }
-static void cont__24_10(void) {
+static void cont__std__is_an_upper_case_letter_character_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 302: ... chr <= 'ß' && chr != '×' && chr != 'ß'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__24_11, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_an_upper_case_letter_character_11, 0);
   // 302: chr >= 'À' && chr <= 'ß' && chr != '×' && chr != 'ß'
   argument_count = 2;
   arguments = node_p;
@@ -3030,9 +3030,9 @@ static void cont__24_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__24_22;
+  frame->cont = cont__std__is_an_upper_case_letter_character_22;
 }
-static void entry__24_11(void) {
+static void entry__std__is_an_upper_case_letter_character_11(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -3049,9 +3049,9 @@ static void entry__24_11(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__24_12;
+  frame->cont = cont__std__is_an_upper_case_letter_character_12;
 }
-static void cont__24_12(void) {
+static void cont__std__is_an_upper_case_letter_character_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3064,16 +3064,16 @@ static void cont__24_12(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_13;
+  frame->cont = cont__std__is_an_upper_case_letter_character_13;
 }
-static void cont__24_13(void) {
+static void cont__std__is_an_upper_case_letter_character_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 302: ... chr != '×' && chr != 'ß'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__24_14, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_an_upper_case_letter_character_14, 0);
   // 302: ... chr <= 'ß' && chr != '×' && chr != 'ß'
   argument_count = 2;
   arguments = node_p;
@@ -3082,9 +3082,9 @@ static void cont__24_13(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__24_21;
+  frame->cont = cont__std__is_an_upper_case_letter_character_21;
 }
-static void entry__24_14(void) {
+static void entry__std__is_an_upper_case_letter_character_14(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // chr: 0
@@ -3101,9 +3101,9 @@ static void entry__24_14(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__24_15;
+  frame->cont = cont__std__is_an_upper_case_letter_character_15;
 }
-static void cont__24_15(void) {
+static void cont__std__is_an_upper_case_letter_character_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3116,16 +3116,16 @@ static void cont__24_15(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_16;
+  frame->cont = cont__std__is_an_upper_case_letter_character_16;
 }
-static void cont__24_16(void) {
+static void cont__std__is_an_upper_case_letter_character_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 302: ... chr != 'ß'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__24_17, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__std__is_an_upper_case_letter_character_17, 0);
   // 302: ... chr != '×' && chr != 'ß'
   argument_count = 2;
   arguments = node_p;
@@ -3134,9 +3134,9 @@ static void cont__24_16(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__24_20;
+  frame->cont = cont__std__is_an_upper_case_letter_character_20;
 }
-static void entry__24_17(void) {
+static void entry__std__is_an_upper_case_letter_character_17(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // chr: 0
@@ -3153,9 +3153,9 @@ static void entry__24_17(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__24_18;
+  frame->cont = cont__std__is_an_upper_case_letter_character_18;
 }
-static void cont__24_18(void) {
+static void cont__std__is_an_upper_case_letter_character_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3168,9 +3168,9 @@ static void cont__24_18(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_19;
+  frame->cont = cont__std__is_an_upper_case_letter_character_19;
 }
-static void cont__24_19(void) {
+static void cont__std__is_an_upper_case_letter_character_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3184,7 +3184,7 @@ static void cont__24_19(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__24_20(void) {
+static void cont__std__is_an_upper_case_letter_character_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3198,7 +3198,7 @@ static void cont__24_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__24_21(void) {
+static void cont__std__is_an_upper_case_letter_character_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3212,7 +3212,7 @@ static void cont__24_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__24_22(void) {
+static void cont__std__is_an_upper_case_letter_character_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3226,7 +3226,7 @@ static void cont__24_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__24_23(void) {
+static void cont__std__is_an_upper_case_letter_character_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3243,7 +3243,7 @@ static void cont__24_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1_types__character_to_lower_case(void) {
+static void entry__types__character__to_lower_case_1(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // chr: 0
@@ -3260,9 +3260,9 @@ static void entry__25_1_types__character_to_lower_case(void) {
   result_count = 1;
   myself = get__is_an_upper_case_letter_character();
   func = myself->type;
-  frame->cont = cont__25_2;
+  frame->cont = cont__types__character__to_lower_case_2;
 }
-static void cont__25_2(void) {
+static void cont__types__character__to_lower_case_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3270,10 +3270,10 @@ static void cont__25_2(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 317: ... :
   // 318:   return chr+0x20
-  frame->slots[3] /* temp__2 */ = create_closure(entry__25_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__types__character__to_lower_case_3, 0);
   // 319: :
   // 320:   return chr
-  frame->slots[4] /* temp__3 */ = create_closure(entry__25_5, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__types__character__to_lower_case_5, 0);
   // 316: if
   // 317:   chr.is_an_upper_case_letter_character:
   // 318:     return chr+0x20
@@ -3287,9 +3287,9 @@ static void cont__25_2(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__25_6;
+  frame->cont = cont__types__character__to_lower_case_6;
 }
-static void entry__25_3(void) {
+static void entry__types__character__to_lower_case_3(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return: 0
@@ -3308,9 +3308,9 @@ static void entry__25_3(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__25_4;
+  frame->cont = cont__types__character__to_lower_case_4;
 }
-static void cont__25_4(void) {
+static void cont__types__character__to_lower_case_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3325,7 +3325,7 @@ static void cont__25_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__25_5(void) {
+static void entry__types__character__to_lower_case_5(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3345,12 +3345,12 @@ static void entry__25_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__25_6(void) {
+static void cont__types__character__to_lower_case_6(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__26_1_types__character_to_upper_case(void) {
+static void entry__types__character__to_upper_case_1(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // chr: 0
@@ -3367,9 +3367,9 @@ static void entry__26_1_types__character_to_upper_case(void) {
   result_count = 1;
   myself = get__is_a_lower_case_letter_character();
   func = myself->type;
-  frame->cont = cont__26_2;
+  frame->cont = cont__types__character__to_upper_case_2;
 }
-static void cont__26_2(void) {
+static void cont__types__character__to_upper_case_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3377,10 +3377,10 @@ static void cont__26_2(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 335: ... :
   // 336:   return chr-0x20
-  frame->slots[3] /* temp__2 */ = create_closure(entry__26_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__types__character__to_upper_case_3, 0);
   // 337: :
   // 338:   return chr
-  frame->slots[4] /* temp__3 */ = create_closure(entry__26_5, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__types__character__to_upper_case_5, 0);
   // 334: if
   // 335:   chr.is_a_lower_case_letter_character:
   // 336:     return chr-0x20
@@ -3394,9 +3394,9 @@ static void cont__26_2(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__26_6;
+  frame->cont = cont__types__character__to_upper_case_6;
 }
-static void entry__26_3(void) {
+static void entry__types__character__to_upper_case_3(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return: 0
@@ -3415,9 +3415,9 @@ static void entry__26_3(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__26_4;
+  frame->cont = cont__types__character__to_upper_case_4;
 }
-static void cont__26_4(void) {
+static void cont__types__character__to_upper_case_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3432,7 +3432,7 @@ static void cont__26_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__26_5(void) {
+static void entry__types__character__to_upper_case_5(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3452,12 +3452,12 @@ static void entry__26_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__26_6(void) {
+static void cont__types__character__to_upper_case_6(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__27_3(void) {
+static void entry__std__is_a_vowel_3(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3472,7 +3472,7 @@ static void entry__27_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_4(void) {
+static void entry__std__is_a_vowel_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3487,7 +3487,7 @@ static void entry__27_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1_std__is_a_vowel(void) {
+static void entry__std__is_a_vowel_1(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
@@ -3511,9 +3511,9 @@ static void entry__27_1_std__is_a_vowel(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__27_2;
+  frame->cont = cont__std__is_a_vowel_2;
 }
-static void cont__27_2(void) {
+static void cont__std__is_a_vowel_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3524,14 +3524,14 @@ static void cont__27_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
   arguments->slots[1] = frame->slots[1] /* temp__1 */;
-  arguments->slots[2] = func__27_3;
-  arguments->slots[3] = func__27_4;
+  arguments->slots[2] = func__std__is_a_vowel_3;
+  arguments->slots[3] = func__std__is_a_vowel_4;
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__28_1_types__character_serialize(void) {
+static void entry__types__character__serialize_1(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // self: 0
@@ -3563,15 +3563,15 @@ static void entry__28_1_types__character_serialize(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__28_3;
+  frame->cont = cont__types__character__serialize_3;
 }
-static void cont__28_3(void) {
+static void cont__types__character__serialize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  frame->slots[5] /* temp__3 */ = create_closure(entry__28_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__types__character__serialize_4, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -3579,9 +3579,9 @@ static void cont__28_3(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__28_15;
+  frame->cont = cont__types__character__serialize_15;
 }
-static void entry__28_4(void) {
+static void entry__types__character__serialize_4(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -3598,15 +3598,15 @@ static void entry__28_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__28_5;
+  frame->cont = cont__types__character__serialize_5;
 }
-static void cont__28_5(void) {
+static void cont__types__character__serialize_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[3] /* temp__3 */ = create_closure(entry__28_6, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__types__character__serialize_6, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3614,9 +3614,9 @@ static void cont__28_5(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__28_14;
+  frame->cont = cont__types__character__serialize_14;
 }
-static void entry__28_6(void) {
+static void entry__types__character__serialize_6(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -3633,15 +3633,15 @@ static void entry__28_6(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__28_7;
+  frame->cont = cont__types__character__serialize_7;
 }
-static void cont__28_7(void) {
+static void cont__types__character__serialize_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[3] /* temp__3 */ = create_closure(entry__28_8, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__types__character__serialize_8, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3649,9 +3649,9 @@ static void cont__28_7(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__28_13;
+  frame->cont = cont__types__character__serialize_13;
 }
-static void entry__28_8(void) {
+static void entry__types__character__serialize_8(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -3668,16 +3668,16 @@ static void entry__28_8(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__28_9;
+  frame->cont = cont__types__character__serialize_9;
 }
-static void cont__28_9(void) {
+static void cont__types__character__serialize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 367: self == '@apos;'
-  frame->slots[3] /* temp__3 */ = create_closure(entry__28_10, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__types__character__serialize_10, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3685,9 +3685,9 @@ static void cont__28_9(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__28_12;
+  frame->cont = cont__types__character__serialize_12;
 }
-static void entry__28_10(void) {
+static void entry__types__character__serialize_10(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -3704,9 +3704,9 @@ static void entry__28_10(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__28_11;
+  frame->cont = cont__types__character__serialize_11;
 }
-static void cont__28_11(void) {
+static void cont__types__character__serialize_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3720,7 +3720,7 @@ static void cont__28_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_12(void) {
+static void cont__types__character__serialize_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3733,7 +3733,7 @@ static void cont__28_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_13(void) {
+static void cont__types__character__serialize_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3746,7 +3746,7 @@ static void cont__28_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_14(void) {
+static void cont__types__character__serialize_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3759,7 +3759,7 @@ static void cont__28_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_15(void) {
+static void cont__types__character__serialize_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3767,10 +3767,10 @@ static void cont__28_15(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 368: :
   // 369:   append &buf string("@@0x" hex(self.to_integer) ';')
-  frame->slots[6] /* temp__4 */ = create_closure(entry__28_16, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__types__character__serialize_16, 0);
   // 370: :
   // 371:   push &buf self
-  frame->slots[7] /* temp__5 */ = create_closure(entry__28_22, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__types__character__serialize_22, 0);
   // 361: if
   // 362:   ||
   // 363:     self < ' '
@@ -3790,9 +3790,9 @@ static void cont__28_15(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__28_24;
+  frame->cont = cont__types__character__serialize_24;
 }
-static void entry__28_16(void) {
+static void entry__types__character__serialize_16(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // buf: 0
@@ -3810,9 +3810,9 @@ static void entry__28_16(void) {
   result_count = 1;
   myself = get__to_integer();
   func = myself->type;
-  frame->cont = cont__28_17;
+  frame->cont = cont__types__character__serialize_17;
 }
-static void cont__28_17(void) {
+static void cont__types__character__serialize_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3825,9 +3825,9 @@ static void cont__28_17(void) {
   result_count = 1;
   myself = get__hex();
   func = myself->type;
-  frame->cont = cont__28_18;
+  frame->cont = cont__types__character__serialize_18;
 }
-static void cont__28_18(void) {
+static void cont__types__character__serialize_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3842,9 +3842,9 @@ static void cont__28_18(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__28_20;
+  frame->cont = cont__types__character__serialize_20;
 }
-static void cont__28_20(void) {
+static void cont__types__character__serialize_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3858,9 +3858,9 @@ static void cont__28_20(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__28_21;
+  frame->cont = cont__types__character__serialize_21;
 }
-static void cont__28_21(void) {
+static void cont__types__character__serialize_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3872,7 +3872,7 @@ static void cont__28_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__28_22(void) {
+static void entry__types__character__serialize_22(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -3891,9 +3891,9 @@ static void entry__28_22(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__28_23;
+  frame->cont = cont__types__character__serialize_23;
 }
-static void cont__28_23(void) {
+static void cont__types__character__serialize_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3905,7 +3905,7 @@ static void cont__28_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_24(void) {
+static void cont__types__character__serialize_24(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3918,9 +3918,9 @@ static void cont__28_24(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__28_25;
+  frame->cont = cont__types__character__serialize_25;
 }
-static void cont__28_25(void) {
+static void cont__types__character__serialize_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3995,30 +3995,30 @@ EXPORT void phase_2__basic__types__character(void) {
   number__0x20 = from_uint32(32U);
   character__223 = from_uchar32(223);
   character__79 = from_uchar32(79);
-  func__8_1_std__character = create_function(entry__8_1_std__character, 1);
-  func__9_1_types__character_plus = create_function(entry__9_1_types__character_plus, 2);
-  func__10_1_types__character_minus = create_function(entry__10_1_types__character_minus, 2);
-  func__11_1_types__character_equal = create_function(entry__11_1_types__character_equal, 2);
-  func__12_1_types__character_less = create_function(entry__12_1_types__character_less, 2);
-  func__13_1_types__character_hash = create_function(entry__13_1_types__character_hash, 1);
-  func__14_1_types__character_to_string = create_function(entry__14_1_types__character_to_string, 1);
-  func__15_1_types__character_to_integer = create_function(entry__15_1_types__character_to_integer, 1);
-  func__17_1_std__is_a_whitespace_character = create_function(entry__17_1_std__is_a_whitespace_character, 1);
-  func__18_1_std__is_a_digit = create_function(entry__18_1_std__is_a_digit, 1);
-  func__19_1_std__is_a_letter = create_function(entry__19_1_std__is_a_letter, 1);
-  func__20_1_std__is_a_lower_case_letter = create_function(entry__20_1_std__is_a_lower_case_letter, 1);
-  func__21_1_std__is_an_upper_case_letter = create_function(entry__21_1_std__is_an_upper_case_letter, 1);
-  func__22_1_std__is_a_letter_character = create_function(entry__22_1_std__is_a_letter_character, 1);
-  func__23_1_std__is_a_lower_case_letter_character = create_function(entry__23_1_std__is_a_lower_case_letter_character, 1);
-  func__24_1_std__is_an_upper_case_letter_character = create_function(entry__24_1_std__is_an_upper_case_letter_character, 1);
-  func__25_1_types__character_to_lower_case = create_function(entry__25_1_types__character_to_lower_case, 1);
-  func__26_1_types__character_to_upper_case = create_function(entry__26_1_types__character_to_upper_case, 1);
-  func__27_3 = create_function(entry__27_3, 0);
-  func__27_4 = create_function(entry__27_4, 0);
-  func__27_1_std__is_a_vowel = create_function(entry__27_1_std__is_a_vowel, 1);
+  func__std__character_1 = create_function(entry__std__character_1, 1);
+  func__types__character__plus_1 = create_function(entry__types__character__plus_1, 2);
+  func__types__character__minus_1 = create_function(entry__types__character__minus_1, 2);
+  func__types__character__equal_1 = create_function(entry__types__character__equal_1, 2);
+  func__types__character__less_1 = create_function(entry__types__character__less_1, 2);
+  func__types__character__hash_1 = create_function(entry__types__character__hash_1, 1);
+  func__types__character__to_string_1 = create_function(entry__types__character__to_string_1, 1);
+  func__types__character__to_integer_1 = create_function(entry__types__character__to_integer_1, 1);
+  func__std__is_a_whitespace_character_1 = create_function(entry__std__is_a_whitespace_character_1, 1);
+  func__std__is_a_digit_1 = create_function(entry__std__is_a_digit_1, 1);
+  func__std__is_a_letter_1 = create_function(entry__std__is_a_letter_1, 1);
+  func__std__is_a_lower_case_letter_1 = create_function(entry__std__is_a_lower_case_letter_1, 1);
+  func__std__is_an_upper_case_letter_1 = create_function(entry__std__is_an_upper_case_letter_1, 1);
+  func__std__is_a_letter_character_1 = create_function(entry__std__is_a_letter_character_1, 1);
+  func__std__is_a_lower_case_letter_character_1 = create_function(entry__std__is_a_lower_case_letter_character_1, 1);
+  func__std__is_an_upper_case_letter_character_1 = create_function(entry__std__is_an_upper_case_letter_character_1, 1);
+  func__types__character__to_lower_case_1 = create_function(entry__types__character__to_lower_case_1, 1);
+  func__types__character__to_upper_case_1 = create_function(entry__types__character__to_upper_case_1, 1);
+  func__std__is_a_vowel_3 = create_function(entry__std__is_a_vowel_3, 0);
+  func__std__is_a_vowel_4 = create_function(entry__std__is_a_vowel_4, 0);
+  func__std__is_a_vowel_1 = create_function(entry__std__is_a_vowel_1, 1);
   string__578a5af303e9cc6 = from_latin_1_string("'", 1);
   string__fa728415fa96bb4 = from_latin_1_string("@0x", 3);
-  func__28_1_types__character_serialize = create_function(entry__28_1_types__character_serialize, -1);
+  func__types__character__serialize_1 = create_function(entry__types__character__serialize_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -4081,16 +4081,16 @@ EXPORT void phase_4__basic__types__character(void) {
   use_read_only("types", "object", &get__types__object, &get_value_or_future__types__object);
   define_attribute("types", "object", poly_idx__is_a_character, get__false());
   define_attribute("types", "character", poly_idx__is_a_character, get__true());
-  define_method("types", "character", poly_idx__plus, func__9_1_types__character_plus);
-  define_method("types", "character", poly_idx__minus, func__10_1_types__character_minus);
-  define_method("types", "character", poly_idx__equal, func__11_1_types__character_equal);
-  define_method("types", "character", poly_idx__less, func__12_1_types__character_less);
-  define_method("types", "character", poly_idx__hash, func__13_1_types__character_hash);
-  define_method("types", "character", poly_idx__to_string, func__14_1_types__character_to_string);
-  define_method("types", "character", poly_idx__to_integer, func__15_1_types__character_to_integer);
-  define_method("types", "character", poly_idx__to_lower_case, func__25_1_types__character_to_lower_case);
-  define_method("types", "character", poly_idx__to_upper_case, func__26_1_types__character_to_upper_case);
-  define_method("types", "character", poly_idx__serialize, func__28_1_types__character_serialize);
+  define_method("types", "character", poly_idx__plus, func__types__character__plus_1);
+  define_method("types", "character", poly_idx__minus, func__types__character__minus_1);
+  define_method("types", "character", poly_idx__equal, func__types__character__equal_1);
+  define_method("types", "character", poly_idx__less, func__types__character__less_1);
+  define_method("types", "character", poly_idx__hash, func__types__character__hash_1);
+  define_method("types", "character", poly_idx__to_string, func__types__character__to_string_1);
+  define_method("types", "character", poly_idx__to_integer, func__types__character__to_integer_1);
+  define_method("types", "character", poly_idx__to_lower_case, func__types__character__to_lower_case_1);
+  define_method("types", "character", poly_idx__to_upper_case, func__types__character__to_upper_case_1);
+  define_method("types", "character", poly_idx__serialize, func__types__character__serialize_1);
 }
 
 static int already_run_phase_5 = false;
@@ -4100,16 +4100,16 @@ EXPORT void phase_5__basic__types__character(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_character, create_function(type__std__is_a_character, -1));
   assign_value(&var.types__character, get__types__object());
-  assign_variable(&var.std__character, &func__8_1_std__character);
-  assign_variable(&var.std__is_a_whitespace_character, &func__17_1_std__is_a_whitespace_character);
-  assign_variable(&var.std__is_a_digit, &func__18_1_std__is_a_digit);
-  assign_variable(&var.std__is_a_letter, &func__19_1_std__is_a_letter);
-  assign_variable(&var.std__is_a_lower_case_letter, &func__20_1_std__is_a_lower_case_letter);
-  assign_variable(&var.std__is_an_upper_case_letter, &func__21_1_std__is_an_upper_case_letter);
-  assign_variable(&var.std__is_a_letter_character, &func__22_1_std__is_a_letter_character);
-  assign_variable(&var.std__is_a_lower_case_letter_character, &func__23_1_std__is_a_lower_case_letter_character);
-  assign_variable(&var.std__is_an_upper_case_letter_character, &func__24_1_std__is_an_upper_case_letter_character);
-  assign_variable(&var.std__is_a_vowel, &func__27_1_std__is_a_vowel);
+  assign_variable(&var.std__character, &func__std__character_1);
+  assign_variable(&var.std__is_a_whitespace_character, &func__std__is_a_whitespace_character_1);
+  assign_variable(&var.std__is_a_digit, &func__std__is_a_digit_1);
+  assign_variable(&var.std__is_a_letter, &func__std__is_a_letter_1);
+  assign_variable(&var.std__is_a_lower_case_letter, &func__std__is_a_lower_case_letter_1);
+  assign_variable(&var.std__is_an_upper_case_letter, &func__std__is_an_upper_case_letter_1);
+  assign_variable(&var.std__is_a_letter_character, &func__std__is_a_letter_character_1);
+  assign_variable(&var.std__is_a_lower_case_letter_character, &func__std__is_a_lower_case_letter_character_1);
+  assign_variable(&var.std__is_an_upper_case_letter_character, &func__std__is_an_upper_case_letter_character_1);
+  assign_variable(&var.std__is_a_vowel, &func__std__is_a_vowel_1);
 }
 
 static int already_run_phase_6 = false;

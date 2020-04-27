@@ -375,238 +375,238 @@ static void type__right_of(void);
 static NODE *get__types__key_order_set(void) {
   return var.types__key_order_set;
 }
-static NODE *func__12_1_fetch_first;
-static void entry__12_1_fetch_first(void);
-static FRAME_INFO frame__12_1_fetch_first = {3, {"myself", "return", "left"}};
-static void exit__12_1_fetch_first(void);
-static void cont__12_2(void);
-static void cont__12_3(void);
-static NODE *func__12_4;
-static void entry__12_4(void);
-static FRAME_INFO frame__12_4 = {4, {"left", "myself", "return", "key"}};
-static void cont__12_5(void);
-static NODE *func__12_6;
-static void entry__12_6(void);
-static FRAME_INFO frame__12_6 = {3, {"myself", "return", "key"}};
-static void cont__12_7(void);
-static void cont__12_8(void);
-static void cont__12_9(void);
-static NODE *func__13_1_get_item;
-static void entry__13_1_get_item(void);
-static FRAME_INFO frame__13_1_get_item = {4, {"myself", "key", "return", "my_key"}};
-static void cont__13_2(void);
-static NODE *func__13_3;
-static void entry__13_3(void);
-static FRAME_INFO frame__13_3 = {1, {"return"}};
-static void cont__13_4(void);
-static void cont__13_5(void);
-static NODE *func__13_6;
-static void entry__13_6(void);
-static FRAME_INFO frame__13_6 = {3, {"key", "my_key", "return"}};
-static void cont__13_7(void);
-static NODE *func__13_8;
-static void entry__13_8(void);
-static FRAME_INFO frame__13_8 = {1, {"return"}};
-static NODE *func__13_9;
-static void entry__13_9(void);
-static FRAME_INFO frame__13_9 = {4, {"key", "my_key", "return", "myself"}};
-static void cont__13_10(void);
-static NODE *func__13_11;
-static void entry__13_11(void);
-static FRAME_INFO frame__13_11 = {3, {"return", "myself", "key"}};
-static void cont__13_12(void);
-static void cont__13_13(void);
-static NODE *func__13_14;
-static void entry__13_14(void);
-static FRAME_INFO frame__13_14 = {4, {"my_key", "key", "return", "myself"}};
-static void cont__13_15(void);
-static NODE *func__13_16;
-static void entry__13_16(void);
-static FRAME_INFO frame__13_16 = {3, {"return", "myself", "key"}};
-static void cont__13_17(void);
-static void cont__13_18(void);
-static void cont__13_19(void);
-static NODE *func__14_1_add_item;
-static void entry__14_1_add_item(void);
-static FRAME_INFO frame__14_1_add_item = {4, {"myself", "key", "return", "my_key"}};
-static void cont__14_2(void);
-static NODE *func__14_3;
-static void entry__14_3(void);
-static FRAME_INFO frame__14_3 = {2, {"return", "key"}};
-static void cont__14_4(void);
-static void cont__14_5(void);
-static NODE *func__14_6;
-static void entry__14_6(void);
-static FRAME_INFO frame__14_6 = {3, {"key", "my_key", "return"}};
-static void cont__14_7(void);
-static NODE *func__14_8;
-static void entry__14_8(void);
-static FRAME_INFO frame__14_8 = {1, {"return"}};
-static NODE *func__14_9;
-static void entry__14_9(void);
-static FRAME_INFO frame__14_9 = {4, {"key", "my_key", "myself", "return"}};
-static void cont__14_10(void);
-static NODE *func__14_11;
-static void entry__14_11(void);
-static FRAME_INFO frame__14_11 = {4, {"myself", "key", "return", "left"}};
-static void cont__14_12(void);
-static void cont__14_13(void);
-static void cont__14_14(void);
-static NODE *func__14_15;
-static void entry__14_15(void);
-static FRAME_INFO frame__14_15 = {1, {"return"}};
-static void cont__14_16(void);
-static NODE *func__14_17;
-static void entry__14_17(void);
-static FRAME_INFO frame__14_17 = {4, {"my_key", "key", "myself", "return"}};
-static void cont__14_18(void);
-static NODE *func__14_19;
-static void entry__14_19(void);
-static FRAME_INFO frame__14_19 = {4, {"myself", "key", "return", "right"}};
-static void cont__14_20(void);
-static void cont__14_21(void);
-static void cont__14_22(void);
-static NODE *func__14_23;
-static void entry__14_23(void);
-static FRAME_INFO frame__14_23 = {1, {"return"}};
-static void cont__14_24(void);
-static void cont__14_25(void);
-static NODE *func__15_1_remove_item;
-static void entry__15_1_remove_item(void);
-static FRAME_INFO frame__15_1_remove_item = {4, {"myself", "key", "return", "my_key"}};
-static void cont__15_2(void);
-static NODE *func__15_3;
-static void entry__15_3(void);
-static FRAME_INFO frame__15_3 = {1, {"return"}};
-static void cont__15_4(void);
-static void cont__15_5(void);
-static NODE *func__15_6;
-static void entry__15_6(void);
-static FRAME_INFO frame__15_6 = {4, {"key", "my_key", "myself", "return"}};
-static void cont__15_7(void);
-static NODE *func__15_8;
-static void entry__15_8(void);
-static FRAME_INFO frame__15_8 = {4, {"myself", "return", "left", "right"}};
-static void cont__15_9(void);
-static void cont__15_10(void);
-static void cont__15_11(void);
-static NODE *func__15_12;
-static void entry__15_12(void);
-static FRAME_INFO frame__15_12 = {3, {"right", "return", "left"}};
-static void cont__15_13(void);
-static NODE *func__15_14;
-static void entry__15_14(void);
-static FRAME_INFO frame__15_14 = {4, {"right", "return", "left", "head"}};
-static void cont__15_15(void);
-static NODE *func__15_16;
-static void entry__15_16(void);
-static FRAME_INFO frame__15_16 = {2, {"return", "left"}};
-static NODE *func__15_17;
-static void entry__15_17(void);
-static FRAME_INFO frame__15_17 = {2, {"return", "right"}};
-static NODE *func__15_18;
-static void entry__15_18(void);
-static FRAME_INFO frame__15_18 = {4, {"key", "my_key", "myself", "return"}};
-static void cont__15_19(void);
-static NODE *func__15_20;
-static void entry__15_20(void);
-static FRAME_INFO frame__15_20 = {4, {"myself", "key", "return", "left"}};
-static void cont__15_21(void);
-static void cont__15_22(void);
-static void cont__15_23(void);
-static NODE *func__15_24;
-static void entry__15_24(void);
-static FRAME_INFO frame__15_24 = {1, {"return"}};
-static void cont__15_25(void);
-static NODE *func__15_26;
-static void entry__15_26(void);
-static FRAME_INFO frame__15_26 = {4, {"my_key", "key", "myself", "return"}};
-static void cont__15_27(void);
-static NODE *func__15_28;
-static void entry__15_28(void);
-static FRAME_INFO frame__15_28 = {4, {"myself", "key", "return", "right"}};
-static void cont__15_29(void);
-static void cont__15_30(void);
-static void cont__15_31(void);
-static NODE *func__15_32;
-static void entry__15_32(void);
-static FRAME_INFO frame__15_32 = {1, {"return"}};
-static void cont__15_33(void);
-static void cont__15_34(void);
-static NODE *func__16_1_types__key_order_set_;
-static void entry__16_1_types__key_order_set_(void);
-static FRAME_INFO frame__16_1_types__key_order_set_ = {4, {"key", "value", "myself", "return"}};
-static NODE *func__16_2;
-static void entry__16_2(void);
-static FRAME_INFO frame__16_2 = {3, {"return", "myself", "key"}};
-static void cont__16_3(void);
-static void cont__16_4(void);
-static NODE *func__16_5;
-static void entry__16_5(void);
-static FRAME_INFO frame__16_5 = {4, {"myself", "key", "return", "new_tree"}};
-static void cont__16_6(void);
-static void cont__16_7(void);
-static void cont__16_8(void);
-static void cont__16_9(void);
-static NODE *func__16_10;
-static void entry__16_10(void);
-static FRAME_INFO frame__16_10 = {2, {"myself", "new_tree"}};
-static void cont__16_11(void);
-static void cont__16_12(void);
-static void cont__16_13(void);
-static NODE *func__16_14;
-static void entry__16_14(void);
-static FRAME_INFO frame__16_14 = {4, {"myself", "key", "return", "new_tree"}};
-static void cont__16_15(void);
-static void cont__16_16(void);
-static void cont__16_17(void);
-static void cont__16_18(void);
-static NODE *func__16_19;
-static void entry__16_19(void);
-static FRAME_INFO frame__16_19 = {2, {"myself", "new_tree"}};
-static void cont__16_20(void);
-static void cont__16_21(void);
-static void cont__16_22(void);
-static NODE *func__16_23;
-static void entry__16_23(void);
-static FRAME_INFO frame__16_23 = {0, {}};
+static NODE *func__fetch_first_1;
+static void entry__fetch_first_1(void);
+static FRAME_INFO frame__fetch_first_1 = {3, {"myself", "return", "left"}};
+static void exit__fetch_first_1(void);
+static void cont__fetch_first_2(void);
+static void cont__fetch_first_3(void);
+static NODE *func__fetch_first_4;
+static void entry__fetch_first_4(void);
+static FRAME_INFO frame__fetch_first_4 = {4, {"left", "myself", "return", "key"}};
+static void cont__fetch_first_5(void);
+static NODE *func__fetch_first_6;
+static void entry__fetch_first_6(void);
+static FRAME_INFO frame__fetch_first_6 = {3, {"myself", "return", "key"}};
+static void cont__fetch_first_7(void);
+static void cont__fetch_first_8(void);
+static void cont__fetch_first_9(void);
+static NODE *func__get_item_1;
+static void entry__get_item_1(void);
+static FRAME_INFO frame__get_item_1 = {4, {"myself", "key", "return", "my_key"}};
+static void cont__get_item_2(void);
+static NODE *func__get_item_3;
+static void entry__get_item_3(void);
+static FRAME_INFO frame__get_item_3 = {1, {"return"}};
+static void cont__get_item_4(void);
+static void cont__get_item_5(void);
+static NODE *func__get_item_6;
+static void entry__get_item_6(void);
+static FRAME_INFO frame__get_item_6 = {3, {"key", "my_key", "return"}};
+static void cont__get_item_7(void);
+static NODE *func__get_item_8;
+static void entry__get_item_8(void);
+static FRAME_INFO frame__get_item_8 = {1, {"return"}};
+static NODE *func__get_item_9;
+static void entry__get_item_9(void);
+static FRAME_INFO frame__get_item_9 = {4, {"key", "my_key", "return", "myself"}};
+static void cont__get_item_10(void);
+static NODE *func__get_item_11;
+static void entry__get_item_11(void);
+static FRAME_INFO frame__get_item_11 = {3, {"return", "myself", "key"}};
+static void cont__get_item_12(void);
+static void cont__get_item_13(void);
+static NODE *func__get_item_14;
+static void entry__get_item_14(void);
+static FRAME_INFO frame__get_item_14 = {4, {"my_key", "key", "return", "myself"}};
+static void cont__get_item_15(void);
+static NODE *func__get_item_16;
+static void entry__get_item_16(void);
+static FRAME_INFO frame__get_item_16 = {3, {"return", "myself", "key"}};
+static void cont__get_item_17(void);
+static void cont__get_item_18(void);
+static void cont__get_item_19(void);
+static NODE *func__add_item_1;
+static void entry__add_item_1(void);
+static FRAME_INFO frame__add_item_1 = {4, {"myself", "key", "return", "my_key"}};
+static void cont__add_item_2(void);
+static NODE *func__add_item_3;
+static void entry__add_item_3(void);
+static FRAME_INFO frame__add_item_3 = {2, {"return", "key"}};
+static void cont__add_item_4(void);
+static void cont__add_item_5(void);
+static NODE *func__add_item_6;
+static void entry__add_item_6(void);
+static FRAME_INFO frame__add_item_6 = {3, {"key", "my_key", "return"}};
+static void cont__add_item_7(void);
+static NODE *func__add_item_8;
+static void entry__add_item_8(void);
+static FRAME_INFO frame__add_item_8 = {1, {"return"}};
+static NODE *func__add_item_9;
+static void entry__add_item_9(void);
+static FRAME_INFO frame__add_item_9 = {4, {"key", "my_key", "myself", "return"}};
+static void cont__add_item_10(void);
+static NODE *func__add_item_11;
+static void entry__add_item_11(void);
+static FRAME_INFO frame__add_item_11 = {4, {"myself", "key", "return", "left"}};
+static void cont__add_item_12(void);
+static void cont__add_item_13(void);
+static void cont__add_item_14(void);
+static NODE *func__add_item_15;
+static void entry__add_item_15(void);
+static FRAME_INFO frame__add_item_15 = {1, {"return"}};
+static void cont__add_item_16(void);
+static NODE *func__add_item_17;
+static void entry__add_item_17(void);
+static FRAME_INFO frame__add_item_17 = {4, {"my_key", "key", "myself", "return"}};
+static void cont__add_item_18(void);
+static NODE *func__add_item_19;
+static void entry__add_item_19(void);
+static FRAME_INFO frame__add_item_19 = {4, {"myself", "key", "return", "right"}};
+static void cont__add_item_20(void);
+static void cont__add_item_21(void);
+static void cont__add_item_22(void);
+static NODE *func__add_item_23;
+static void entry__add_item_23(void);
+static FRAME_INFO frame__add_item_23 = {1, {"return"}};
+static void cont__add_item_24(void);
+static void cont__add_item_25(void);
+static NODE *func__remove_item_1;
+static void entry__remove_item_1(void);
+static FRAME_INFO frame__remove_item_1 = {4, {"myself", "key", "return", "my_key"}};
+static void cont__remove_item_2(void);
+static NODE *func__remove_item_3;
+static void entry__remove_item_3(void);
+static FRAME_INFO frame__remove_item_3 = {1, {"return"}};
+static void cont__remove_item_4(void);
+static void cont__remove_item_5(void);
+static NODE *func__remove_item_6;
+static void entry__remove_item_6(void);
+static FRAME_INFO frame__remove_item_6 = {4, {"key", "my_key", "myself", "return"}};
+static void cont__remove_item_7(void);
+static NODE *func__remove_item_8;
+static void entry__remove_item_8(void);
+static FRAME_INFO frame__remove_item_8 = {4, {"myself", "return", "left", "right"}};
+static void cont__remove_item_9(void);
+static void cont__remove_item_10(void);
+static void cont__remove_item_11(void);
+static NODE *func__remove_item_12;
+static void entry__remove_item_12(void);
+static FRAME_INFO frame__remove_item_12 = {3, {"right", "return", "left"}};
+static void cont__remove_item_13(void);
+static NODE *func__remove_item_14;
+static void entry__remove_item_14(void);
+static FRAME_INFO frame__remove_item_14 = {4, {"right", "return", "left", "head"}};
+static void cont__remove_item_15(void);
+static NODE *func__remove_item_16;
+static void entry__remove_item_16(void);
+static FRAME_INFO frame__remove_item_16 = {2, {"return", "left"}};
+static NODE *func__remove_item_17;
+static void entry__remove_item_17(void);
+static FRAME_INFO frame__remove_item_17 = {2, {"return", "right"}};
+static NODE *func__remove_item_18;
+static void entry__remove_item_18(void);
+static FRAME_INFO frame__remove_item_18 = {4, {"key", "my_key", "myself", "return"}};
+static void cont__remove_item_19(void);
+static NODE *func__remove_item_20;
+static void entry__remove_item_20(void);
+static FRAME_INFO frame__remove_item_20 = {4, {"myself", "key", "return", "left"}};
+static void cont__remove_item_21(void);
+static void cont__remove_item_22(void);
+static void cont__remove_item_23(void);
+static NODE *func__remove_item_24;
+static void entry__remove_item_24(void);
+static FRAME_INFO frame__remove_item_24 = {1, {"return"}};
+static void cont__remove_item_25(void);
+static NODE *func__remove_item_26;
+static void entry__remove_item_26(void);
+static FRAME_INFO frame__remove_item_26 = {4, {"my_key", "key", "myself", "return"}};
+static void cont__remove_item_27(void);
+static NODE *func__remove_item_28;
+static void entry__remove_item_28(void);
+static FRAME_INFO frame__remove_item_28 = {4, {"myself", "key", "return", "right"}};
+static void cont__remove_item_29(void);
+static void cont__remove_item_30(void);
+static void cont__remove_item_31(void);
+static NODE *func__remove_item_32;
+static void entry__remove_item_32(void);
+static FRAME_INFO frame__remove_item_32 = {1, {"return"}};
+static void cont__remove_item_33(void);
+static void cont__remove_item_34(void);
+static NODE *func__types__key_order_set_1;
+static void entry__types__key_order_set_1(void);
+static FRAME_INFO frame__types__key_order_set_1 = {4, {"key", "value", "myself", "return"}};
+static NODE *func__types__key_order_set_2;
+static void entry__types__key_order_set_2(void);
+static FRAME_INFO frame__types__key_order_set_2 = {3, {"return", "myself", "key"}};
+static void cont__types__key_order_set_3(void);
+static void cont__types__key_order_set_4(void);
+static NODE *func__types__key_order_set_5;
+static void entry__types__key_order_set_5(void);
+static FRAME_INFO frame__types__key_order_set_5 = {4, {"myself", "key", "return", "new_tree"}};
+static void cont__types__key_order_set_6(void);
+static void cont__types__key_order_set_7(void);
+static void cont__types__key_order_set_8(void);
+static void cont__types__key_order_set_9(void);
+static NODE *func__types__key_order_set_10;
+static void entry__types__key_order_set_10(void);
+static FRAME_INFO frame__types__key_order_set_10 = {2, {"myself", "new_tree"}};
+static void cont__types__key_order_set_11(void);
+static void cont__types__key_order_set_12(void);
+static void cont__types__key_order_set_13(void);
+static NODE *func__types__key_order_set_14;
+static void entry__types__key_order_set_14(void);
+static FRAME_INFO frame__types__key_order_set_14 = {4, {"myself", "key", "return", "new_tree"}};
+static void cont__types__key_order_set_15(void);
+static void cont__types__key_order_set_16(void);
+static void cont__types__key_order_set_17(void);
+static void cont__types__key_order_set_18(void);
+static NODE *func__types__key_order_set_19;
+static void entry__types__key_order_set_19(void);
+static FRAME_INFO frame__types__key_order_set_19 = {2, {"myself", "new_tree"}};
+static void cont__types__key_order_set_20(void);
+static void cont__types__key_order_set_21(void);
+static void cont__types__key_order_set_22(void);
+static NODE *func__types__key_order_set_23;
+static void entry__types__key_order_set_23(void);
+static FRAME_INFO frame__types__key_order_set_23 = {0, {}};
 static NODE *string__3cace614246a32e7;
-static void cont__16_25(void);
+static void cont__types__key_order_set_25(void);
 static NODE *string__fc7b2c52bb6f74d9;
 static NODE *get__std__empty_key_order_set(void) {
   return var.std__empty_key_order_set;
 }
-static NODE *func__21_1_std__key_order_set;
-static void entry__21_1_std__key_order_set(void);
-static FRAME_INFO frame__21_1_std__key_order_set = {2, {"args", "tab"}};
-static NODE *func__21_2;
-static void entry__21_2(void);
-static FRAME_INFO frame__21_2 = {2, {"key", "tab"}};
-static void cont__21_3(void);
-static void cont__21_4(void);
+static NODE *func__std__key_order_set_1;
+static void entry__std__key_order_set_1(void);
+static FRAME_INFO frame__std__key_order_set_1 = {2, {"args", "tab"}};
+static NODE *func__std__key_order_set_2;
+static void entry__std__key_order_set_2(void);
+static FRAME_INFO frame__std__key_order_set_2 = {2, {"key", "tab"}};
+static void cont__std__key_order_set_3(void);
+static void cont__std__key_order_set_4(void);
 static NODE *get__std__key_order_set(void) {
   return var.std__key_order_set;
 }
-static NODE *func__22_1_for_each_item;
-static void entry__22_1_for_each_item(void);
-static FRAME_INFO frame__22_1_for_each_item = {2, {"myself", "body"}};
-static void cont__22_2(void);
-static NODE *func__22_3;
-static void entry__22_3(void);
-static FRAME_INFO frame__22_3 = {2, {"myself", "body"}};
-static void cont__22_4(void);
-static void cont__22_5(void);
-static void cont__22_6(void);
-static void cont__22_7(void);
-static void cont__22_8(void);
-static NODE *func__23_1_types__key_order_set_for_each;
-static void entry__23_1_types__key_order_set_for_each(void);
-static FRAME_INFO frame__23_1_types__key_order_set_for_each = {3, {"self", "body", "tree"}};
-static void cont__23_2(void);
-static void cont__23_3(void);
-static NODE *func__23_4;
-static void entry__23_4(void);
-static FRAME_INFO frame__23_4 = {2, {"tree", "body"}};
+static NODE *func__for_each_item_1;
+static void entry__for_each_item_1(void);
+static FRAME_INFO frame__for_each_item_1 = {2, {"myself", "body"}};
+static void cont__for_each_item_2(void);
+static NODE *func__for_each_item_3;
+static void entry__for_each_item_3(void);
+static FRAME_INFO frame__for_each_item_3 = {2, {"myself", "body"}};
+static void cont__for_each_item_4(void);
+static void cont__for_each_item_5(void);
+static void cont__for_each_item_6(void);
+static void cont__for_each_item_7(void);
+static void cont__for_each_item_8(void);
+static NODE *func__types__key_order_set__for_each_1;
+static void entry__types__key_order_set__for_each_1(void);
+static FRAME_INFO frame__types__key_order_set__for_each_1 = {3, {"self", "body", "tree"}};
+static void cont__types__key_order_set__for_each_2(void);
+static void cont__types__key_order_set__for_each_3(void);
+static NODE *func__types__key_order_set__for_each_4;
+static void entry__types__key_order_set__for_each_4(void);
+static FRAME_INFO frame__types__key_order_set__for_each_4 = {2, {"tree", "body"}};
 void run__basic__types__key_order_set(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -615,133 +615,133 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__left_of, NULL, 31, 31, 2, 8},
   {type__right_of, NULL, 32, 32, 2, 9},
   {run__basic__types__key_order_set, NULL, 40, 40, 1, 25},
-  {entry__12_4, NULL, 52, 52, 7, 29},
-  {cont__12_5, &frame__12_4, 54, 54, 7, 16},
-  {entry__12_6, NULL, 56, 56, 7, 25},
-  {cont__12_7, &frame__12_6, 57, 57, 7, 30},
-  {cont__12_8, &frame__12_6, 58, 58, 7, 16},
-  {entry__12_1_fetch_first, NULL, 49, 49, 3, 24},
-  {cont__12_2, &frame__12_1_fetch_first, 51, 51, 5, 19},
-  {cont__12_3, &frame__12_1_fetch_first, 50, 58, 3, 17},
-  {cont__12_9, &frame__12_1_fetch_first, 58, 58, 17, 17},
-  {entry__13_3, NULL, 66, 66, 27, 38},
-  {entry__13_8, NULL, 69, 69, 23, 33},
-  {entry__13_6, NULL, 69, 69, 8, 20},
-  {cont__13_7, &frame__13_6, 69, 69, 5, 33},
-  {entry__13_11, NULL, 70, 70, 38, 52},
-  {cont__13_12, &frame__13_11, 70, 70, 29, 57},
-  {cont__13_13, &frame__13_11, 70, 70, 22, 57},
-  {entry__13_9, NULL, 70, 70, 8, 19},
-  {cont__13_10, &frame__13_9, 70, 70, 5, 57},
-  {entry__13_16, NULL, 71, 71, 38, 53},
-  {cont__13_17, &frame__13_16, 71, 71, 29, 58},
-  {cont__13_18, &frame__13_16, 71, 71, 22, 58},
-  {entry__13_14, NULL, 71, 71, 8, 19},
-  {cont__13_15, &frame__13_14, 71, 71, 5, 58},
-  {entry__13_1_get_item, NULL, 66, 66, 6, 24},
-  {cont__13_2, &frame__13_1_get_item, 66, 66, 3, 38},
-  {cont__13_4, &frame__13_1_get_item, 67, 67, 3, 24},
-  {cont__13_5, &frame__13_1_get_item, 68, 71, 3, 58},
-  {cont__13_19, &frame__13_1_get_item, 71, 71, 58, 58},
-  {entry__14_3, NULL, 79, 79, 27, 56},
-  {entry__14_8, NULL, 82, 82, 23, 33},
-  {entry__14_6, NULL, 82, 82, 8, 20},
-  {cont__14_7, &frame__14_6, 82, 82, 5, 33},
-  {entry__14_15, NULL, 85, 85, 24, 50},
-  {entry__14_11, NULL, 84, 84, 22, 36},
-  {cont__14_12, &frame__14_11, 84, 84, 7, 41},
-  {cont__14_13, &frame__14_11, 85, 85, 10, 21},
-  {cont__14_14, &frame__14_11, 85, 85, 7, 50},
-  {cont__14_16, &frame__14_11, 87, 87, 7, 19},
-  {entry__14_9, NULL, 83, 83, 8, 19},
-  {cont__14_10, &frame__14_9, 83, 87, 5, 19},
-  {entry__14_23, NULL, 90, 90, 25, 51},
-  {entry__14_19, NULL, 89, 89, 23, 38},
-  {cont__14_20, &frame__14_19, 89, 89, 7, 43},
-  {cont__14_21, &frame__14_19, 90, 90, 10, 22},
-  {cont__14_22, &frame__14_19, 90, 90, 7, 51},
-  {cont__14_24, &frame__14_19, 92, 92, 7, 19},
-  {entry__14_17, NULL, 88, 88, 8, 19},
-  {cont__14_18, &frame__14_17, 88, 92, 5, 19},
-  {entry__14_1_add_item, NULL, 79, 79, 6, 24},
-  {cont__14_2, &frame__14_1_add_item, 79, 79, 3, 56},
-  {cont__14_4, &frame__14_1_add_item, 80, 80, 3, 24},
-  {cont__14_5, &frame__14_1_add_item, 81, 92, 3, 20},
-  {cont__14_25, &frame__14_1_add_item, 92, 92, 20, 20},
-  {entry__15_3, NULL, 100, 100, 27, 55},
-  {entry__15_14, NULL, 110, 110, 15, 39},
-  {cont__15_15, &frame__15_14, 111, 111, 15, 78},
-  {entry__15_16, NULL, 113, 113, 15, 25},
-  {entry__15_12, NULL, 109, 109, 13, 28},
-  {cont__15_13, &frame__15_12, 108, 113, 11, 26},
-  {entry__15_17, NULL, 115, 115, 11, 22},
-  {entry__15_8, NULL, 104, 104, 7, 27},
-  {cont__15_9, &frame__15_8, 105, 105, 7, 30},
-  {cont__15_10, &frame__15_8, 107, 107, 9, 23},
-  {cont__15_11, &frame__15_8, 106, 115, 7, 23},
-  {entry__15_6, NULL, 103, 103, 8, 20},
-  {cont__15_7, &frame__15_6, 103, 115, 5, 24},
-  {entry__15_24, NULL, 118, 118, 24, 52},
-  {entry__15_20, NULL, 117, 117, 25, 39},
-  {cont__15_21, &frame__15_20, 117, 117, 7, 44},
-  {cont__15_22, &frame__15_20, 118, 118, 10, 21},
-  {cont__15_23, &frame__15_20, 118, 118, 7, 52},
-  {cont__15_25, &frame__15_20, 120, 120, 7, 19},
-  {entry__15_18, NULL, 116, 116, 8, 19},
-  {cont__15_19, &frame__15_18, 116, 120, 5, 19},
-  {entry__15_32, NULL, 123, 123, 25, 53},
-  {entry__15_28, NULL, 122, 122, 26, 41},
-  {cont__15_29, &frame__15_28, 122, 122, 7, 46},
-  {cont__15_30, &frame__15_28, 123, 123, 10, 22},
-  {cont__15_31, &frame__15_28, 123, 123, 7, 53},
-  {cont__15_33, &frame__15_28, 125, 125, 7, 19},
-  {entry__15_26, NULL, 121, 121, 8, 19},
-  {cont__15_27, &frame__15_26, 121, 125, 5, 19},
-  {entry__15_1_remove_item, NULL, 100, 100, 6, 24},
-  {cont__15_2, &frame__15_1_remove_item, 100, 100, 3, 55},
-  {cont__15_4, &frame__15_1_remove_item, 101, 101, 3, 24},
-  {cont__15_5, &frame__15_1_remove_item, 102, 125, 3, 20},
-  {cont__15_34, &frame__15_1_remove_item, 125, 125, 20, 20},
-  {entry__16_2, NULL, 139, 139, 23, 37},
-  {cont__16_3, &frame__16_2, 139, 139, 14, 42},
-  {cont__16_4, &frame__16_2, 139, 139, 7, 42},
-  {entry__16_10, NULL, 144, 144, 14, 29},
-  {cont__16_11, &frame__16_10, 144, 144, 9, 29},
-  {cont__16_12, &frame__16_10, 144, 144, 29, 29},
-  {entry__16_5, NULL, 141, 141, 26, 40},
-  {cont__16_6, &frame__16_5, 141, 141, 7, 45},
-  {cont__16_7, &frame__16_5, 142, 142, 10, 25},
-  {cont__16_8, &frame__16_5, 142, 142, 10, 25},
-  {cont__16_9, &frame__16_5, 142, 144, 7, 29},
-  {cont__16_13, &frame__16_5, 145, 145, 7, 19},
-  {entry__16_19, NULL, 150, 150, 14, 29},
-  {cont__16_20, &frame__16_19, 150, 150, 9, 29},
-  {cont__16_21, &frame__16_19, 150, 150, 29, 29},
-  {entry__16_14, NULL, 147, 147, 29, 43},
-  {cont__16_15, &frame__16_14, 147, 147, 7, 48},
-  {cont__16_16, &frame__16_14, 148, 148, 10, 25},
-  {cont__16_17, &frame__16_14, 148, 148, 10, 25},
-  {cont__16_18, &frame__16_14, 148, 150, 7, 29},
-  {cont__16_22, &frame__16_14, 151, 151, 7, 19},
-  {entry__16_23, NULL, 153, 153, 7, 65},
-  {entry__16_1_types__key_order_set_, NULL, 136, 153, 3, 66},
-  {cont__16_25, &frame__16_1_types__key_order_set_, 153, 153, 66, 66},
-  {entry__21_2, NULL, 176, 176, 24, 32},
-  {cont__21_3, &frame__21_2, 176, 176, 37, 37},
-  {entry__21_1_std__key_order_set, NULL, 176, 176, 3, 37},
-  {cont__21_4, &frame__21_1_std__key_order_set, 177, 177, 3, 8},
-  {entry__22_3, NULL, 181, 181, 19, 33},
-  {cont__22_4, &frame__22_3, 181, 181, 5, 38},
-  {cont__22_5, &frame__22_3, 182, 182, 10, 23},
-  {cont__22_6, &frame__22_3, 182, 182, 5, 23},
-  {cont__22_7, &frame__22_3, 183, 183, 19, 34},
-  {cont__22_8, &frame__22_3, 183, 183, 5, 39},
-  {entry__22_1_for_each_item, NULL, 180, 180, 6, 22},
-  {cont__22_2, &frame__22_1_for_each_item, 180, 183, 3, 39},
-  {entry__23_4, NULL, 193, 193, 23, 45},
-  {entry__23_1_types__key_order_set_for_each, NULL, 192, 192, 3, 21},
-  {cont__23_2, &frame__23_1_types__key_order_set_for_each, 193, 193, 6, 20},
-  {cont__23_3, &frame__23_1_types__key_order_set_for_each, 193, 193, 3, 45}
+  {entry__fetch_first_4, NULL, 52, 52, 7, 29},
+  {cont__fetch_first_5, &frame__fetch_first_4, 54, 54, 7, 16},
+  {entry__fetch_first_6, NULL, 56, 56, 7, 25},
+  {cont__fetch_first_7, &frame__fetch_first_6, 57, 57, 7, 30},
+  {cont__fetch_first_8, &frame__fetch_first_6, 58, 58, 7, 16},
+  {entry__fetch_first_1, NULL, 49, 49, 3, 24},
+  {cont__fetch_first_2, &frame__fetch_first_1, 51, 51, 5, 19},
+  {cont__fetch_first_3, &frame__fetch_first_1, 50, 58, 3, 17},
+  {cont__fetch_first_9, &frame__fetch_first_1, 58, 58, 17, 17},
+  {entry__get_item_3, NULL, 66, 66, 27, 38},
+  {entry__get_item_8, NULL, 69, 69, 23, 33},
+  {entry__get_item_6, NULL, 69, 69, 8, 20},
+  {cont__get_item_7, &frame__get_item_6, 69, 69, 5, 33},
+  {entry__get_item_11, NULL, 70, 70, 38, 52},
+  {cont__get_item_12, &frame__get_item_11, 70, 70, 29, 57},
+  {cont__get_item_13, &frame__get_item_11, 70, 70, 22, 57},
+  {entry__get_item_9, NULL, 70, 70, 8, 19},
+  {cont__get_item_10, &frame__get_item_9, 70, 70, 5, 57},
+  {entry__get_item_16, NULL, 71, 71, 38, 53},
+  {cont__get_item_17, &frame__get_item_16, 71, 71, 29, 58},
+  {cont__get_item_18, &frame__get_item_16, 71, 71, 22, 58},
+  {entry__get_item_14, NULL, 71, 71, 8, 19},
+  {cont__get_item_15, &frame__get_item_14, 71, 71, 5, 58},
+  {entry__get_item_1, NULL, 66, 66, 6, 24},
+  {cont__get_item_2, &frame__get_item_1, 66, 66, 3, 38},
+  {cont__get_item_4, &frame__get_item_1, 67, 67, 3, 24},
+  {cont__get_item_5, &frame__get_item_1, 68, 71, 3, 58},
+  {cont__get_item_19, &frame__get_item_1, 71, 71, 58, 58},
+  {entry__add_item_3, NULL, 79, 79, 27, 56},
+  {entry__add_item_8, NULL, 82, 82, 23, 33},
+  {entry__add_item_6, NULL, 82, 82, 8, 20},
+  {cont__add_item_7, &frame__add_item_6, 82, 82, 5, 33},
+  {entry__add_item_15, NULL, 85, 85, 24, 50},
+  {entry__add_item_11, NULL, 84, 84, 22, 36},
+  {cont__add_item_12, &frame__add_item_11, 84, 84, 7, 41},
+  {cont__add_item_13, &frame__add_item_11, 85, 85, 10, 21},
+  {cont__add_item_14, &frame__add_item_11, 85, 85, 7, 50},
+  {cont__add_item_16, &frame__add_item_11, 87, 87, 7, 19},
+  {entry__add_item_9, NULL, 83, 83, 8, 19},
+  {cont__add_item_10, &frame__add_item_9, 83, 87, 5, 19},
+  {entry__add_item_23, NULL, 90, 90, 25, 51},
+  {entry__add_item_19, NULL, 89, 89, 23, 38},
+  {cont__add_item_20, &frame__add_item_19, 89, 89, 7, 43},
+  {cont__add_item_21, &frame__add_item_19, 90, 90, 10, 22},
+  {cont__add_item_22, &frame__add_item_19, 90, 90, 7, 51},
+  {cont__add_item_24, &frame__add_item_19, 92, 92, 7, 19},
+  {entry__add_item_17, NULL, 88, 88, 8, 19},
+  {cont__add_item_18, &frame__add_item_17, 88, 92, 5, 19},
+  {entry__add_item_1, NULL, 79, 79, 6, 24},
+  {cont__add_item_2, &frame__add_item_1, 79, 79, 3, 56},
+  {cont__add_item_4, &frame__add_item_1, 80, 80, 3, 24},
+  {cont__add_item_5, &frame__add_item_1, 81, 92, 3, 20},
+  {cont__add_item_25, &frame__add_item_1, 92, 92, 20, 20},
+  {entry__remove_item_3, NULL, 100, 100, 27, 55},
+  {entry__remove_item_14, NULL, 110, 110, 15, 39},
+  {cont__remove_item_15, &frame__remove_item_14, 111, 111, 15, 78},
+  {entry__remove_item_16, NULL, 113, 113, 15, 25},
+  {entry__remove_item_12, NULL, 109, 109, 13, 28},
+  {cont__remove_item_13, &frame__remove_item_12, 108, 113, 11, 26},
+  {entry__remove_item_17, NULL, 115, 115, 11, 22},
+  {entry__remove_item_8, NULL, 104, 104, 7, 27},
+  {cont__remove_item_9, &frame__remove_item_8, 105, 105, 7, 30},
+  {cont__remove_item_10, &frame__remove_item_8, 107, 107, 9, 23},
+  {cont__remove_item_11, &frame__remove_item_8, 106, 115, 7, 23},
+  {entry__remove_item_6, NULL, 103, 103, 8, 20},
+  {cont__remove_item_7, &frame__remove_item_6, 103, 115, 5, 24},
+  {entry__remove_item_24, NULL, 118, 118, 24, 52},
+  {entry__remove_item_20, NULL, 117, 117, 25, 39},
+  {cont__remove_item_21, &frame__remove_item_20, 117, 117, 7, 44},
+  {cont__remove_item_22, &frame__remove_item_20, 118, 118, 10, 21},
+  {cont__remove_item_23, &frame__remove_item_20, 118, 118, 7, 52},
+  {cont__remove_item_25, &frame__remove_item_20, 120, 120, 7, 19},
+  {entry__remove_item_18, NULL, 116, 116, 8, 19},
+  {cont__remove_item_19, &frame__remove_item_18, 116, 120, 5, 19},
+  {entry__remove_item_32, NULL, 123, 123, 25, 53},
+  {entry__remove_item_28, NULL, 122, 122, 26, 41},
+  {cont__remove_item_29, &frame__remove_item_28, 122, 122, 7, 46},
+  {cont__remove_item_30, &frame__remove_item_28, 123, 123, 10, 22},
+  {cont__remove_item_31, &frame__remove_item_28, 123, 123, 7, 53},
+  {cont__remove_item_33, &frame__remove_item_28, 125, 125, 7, 19},
+  {entry__remove_item_26, NULL, 121, 121, 8, 19},
+  {cont__remove_item_27, &frame__remove_item_26, 121, 125, 5, 19},
+  {entry__remove_item_1, NULL, 100, 100, 6, 24},
+  {cont__remove_item_2, &frame__remove_item_1, 100, 100, 3, 55},
+  {cont__remove_item_4, &frame__remove_item_1, 101, 101, 3, 24},
+  {cont__remove_item_5, &frame__remove_item_1, 102, 125, 3, 20},
+  {cont__remove_item_34, &frame__remove_item_1, 125, 125, 20, 20},
+  {entry__types__key_order_set_2, NULL, 139, 139, 23, 37},
+  {cont__types__key_order_set_3, &frame__types__key_order_set_2, 139, 139, 14, 42},
+  {cont__types__key_order_set_4, &frame__types__key_order_set_2, 139, 139, 7, 42},
+  {entry__types__key_order_set_10, NULL, 144, 144, 14, 29},
+  {cont__types__key_order_set_11, &frame__types__key_order_set_10, 144, 144, 9, 29},
+  {cont__types__key_order_set_12, &frame__types__key_order_set_10, 144, 144, 29, 29},
+  {entry__types__key_order_set_5, NULL, 141, 141, 26, 40},
+  {cont__types__key_order_set_6, &frame__types__key_order_set_5, 141, 141, 7, 45},
+  {cont__types__key_order_set_7, &frame__types__key_order_set_5, 142, 142, 10, 25},
+  {cont__types__key_order_set_8, &frame__types__key_order_set_5, 142, 142, 10, 25},
+  {cont__types__key_order_set_9, &frame__types__key_order_set_5, 142, 144, 7, 29},
+  {cont__types__key_order_set_13, &frame__types__key_order_set_5, 145, 145, 7, 19},
+  {entry__types__key_order_set_19, NULL, 150, 150, 14, 29},
+  {cont__types__key_order_set_20, &frame__types__key_order_set_19, 150, 150, 9, 29},
+  {cont__types__key_order_set_21, &frame__types__key_order_set_19, 150, 150, 29, 29},
+  {entry__types__key_order_set_14, NULL, 147, 147, 29, 43},
+  {cont__types__key_order_set_15, &frame__types__key_order_set_14, 147, 147, 7, 48},
+  {cont__types__key_order_set_16, &frame__types__key_order_set_14, 148, 148, 10, 25},
+  {cont__types__key_order_set_17, &frame__types__key_order_set_14, 148, 148, 10, 25},
+  {cont__types__key_order_set_18, &frame__types__key_order_set_14, 148, 150, 7, 29},
+  {cont__types__key_order_set_22, &frame__types__key_order_set_14, 151, 151, 7, 19},
+  {entry__types__key_order_set_23, NULL, 153, 153, 7, 65},
+  {entry__types__key_order_set_1, NULL, 136, 153, 3, 66},
+  {cont__types__key_order_set_25, &frame__types__key_order_set_1, 153, 153, 66, 66},
+  {entry__std__key_order_set_2, NULL, 176, 176, 24, 32},
+  {cont__std__key_order_set_3, &frame__std__key_order_set_2, 176, 176, 37, 37},
+  {entry__std__key_order_set_1, NULL, 176, 176, 3, 37},
+  {cont__std__key_order_set_4, &frame__std__key_order_set_1, 177, 177, 3, 8},
+  {entry__for_each_item_3, NULL, 181, 181, 19, 33},
+  {cont__for_each_item_4, &frame__for_each_item_3, 181, 181, 5, 38},
+  {cont__for_each_item_5, &frame__for_each_item_3, 182, 182, 10, 23},
+  {cont__for_each_item_6, &frame__for_each_item_3, 182, 182, 5, 23},
+  {cont__for_each_item_7, &frame__for_each_item_3, 183, 183, 19, 34},
+  {cont__for_each_item_8, &frame__for_each_item_3, 183, 183, 5, 39},
+  {entry__for_each_item_1, NULL, 180, 180, 6, 22},
+  {cont__for_each_item_2, &frame__for_each_item_1, 180, 183, 3, 39},
+  {entry__types__key_order_set__for_each_4, NULL, 193, 193, 23, 45},
+  {entry__types__key_order_set__for_each_1, NULL, 192, 192, 3, 21},
+  {cont__types__key_order_set__for_each_2, &frame__types__key_order_set__for_each_1, 193, 193, 6, 20},
+  {cont__types__key_order_set__for_each_3, &frame__types__key_order_set__for_each_1, 193, 193, 3, 45}
 };
 
 union NODE {
@@ -881,13 +881,13 @@ EXPORT void run__basic__types__key_order_set(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1_fetch_first(void) {
+static void entry__fetch_first_1(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // myself: 0
   // return: 1
   // left: 2
-  frame->slots[1] /* return */ = create_continuation_with_exit(exit__12_1_fetch_first);
+  frame->slots[1] /* return */ = create_continuation_with_exit(exit__fetch_first_1);
   frame->slots[2] /* left */ = create_cell();
   if (argument_count != 1) {
     invalid_arguments_error();
@@ -901,9 +901,9 @@ static void entry__12_1_fetch_first(void) {
   result_count = 1;
   myself = var._left_of;
   func = myself->type;
-  frame->cont = cont__12_2;
+  frame->cont = cont__fetch_first_2;
 }
-static void cont__12_2(void) {
+static void cont__fetch_first_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -916,9 +916,9 @@ static void cont__12_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__12_3;
+  frame->cont = cont__fetch_first_3;
 }
-static void cont__12_3(void) {
+static void cont__fetch_first_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -928,12 +928,12 @@ static void cont__12_3(void) {
   // 52:   $key fetch_first(&left)
   // 53:   !myself.left_of left
   // 54:   return key
-  frame->slots[4] /* temp__2 */ = create_closure(entry__12_4, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__fetch_first_4, 0);
   // 55: :
   // 56:   $key key_of(myself)
   // 57:   !myself right_of(myself)
   // 58:   return key
-  frame->slots[5] /* temp__3 */ = create_closure(entry__12_6, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__fetch_first_6, 0);
   // 50: if
   // 51:   left.is_defined:
   // 52:     $key fetch_first(&left)
@@ -953,9 +953,9 @@ static void cont__12_3(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__12_9;
+  frame->cont = cont__fetch_first_9;
 }
-static void entry__12_4(void) {
+static void entry__fetch_first_4(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // left: 0
@@ -977,9 +977,9 @@ static void entry__12_4(void) {
   result_count = 2;
   myself = var._fetch_first;
   func = myself->type;
-  frame->cont = cont__12_5;
+  frame->cont = cont__fetch_first_5;
 }
-static void cont__12_5(void) {
+static void cont__fetch_first_5(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -1007,7 +1007,7 @@ static void cont__12_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__12_6(void) {
+static void entry__fetch_first_6(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // myself: 0
@@ -1027,9 +1027,9 @@ static void entry__12_6(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__12_7;
+  frame->cont = cont__fetch_first_7;
 }
-static void cont__12_7(void) {
+static void cont__fetch_first_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1042,9 +1042,9 @@ static void cont__12_7(void) {
   result_count = 1;
   myself = var._right_of;
   func = myself->type;
-  frame->cont = cont__12_8;
+  frame->cont = cont__fetch_first_8;
 }
-static void cont__12_8(void) {
+static void cont__fetch_first_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1059,12 +1059,12 @@ static void cont__12_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__12_9(void) {
+static void cont__fetch_first_9(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__12_1_fetch_first(void) {
+static void exit__fetch_first_1(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -1074,7 +1074,7 @@ static void exit__12_1_fetch_first(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
   func = continuation_type_function;
 }
-static void entry__13_1_get_item(void) {
+static void entry__get_item_1(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -1094,16 +1094,16 @@ static void entry__13_1_get_item(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__13_2;
+  frame->cont = cont__get_item_2;
 }
-static void cont__13_2(void) {
+static void cont__get_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 66: ... : return false
-  frame->slots[5] /* temp__2 */ = create_closure(entry__13_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__get_item_3, 0);
   // 66: if myself.is_undefined: return false
   argument_count = 2;
   arguments = node_p;
@@ -1112,9 +1112,9 @@ static void cont__13_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__13_4;
+  frame->cont = cont__get_item_4;
 }
-static void entry__13_3(void) {
+static void entry__get_item_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -1132,7 +1132,7 @@ static void entry__13_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__13_4(void) {
+static void cont__get_item_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1144,20 +1144,20 @@ static void cont__13_4(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__13_5;
+  frame->cont = cont__get_item_5;
 }
-static void cont__13_5(void) {
+static void cont__get_item_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* my_key */, arguments->slots[0]);
   // 69: -> key == my_key: return true
-  frame->slots[4] /* temp__1 */ = create_closure(entry__13_6, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__get_item_6, 0);
   // 70: -> key < my_key: return get_item(left_of(myself) key)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__13_9, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__get_item_9, 0);
   // 71: -> key > my_key: return get_item(right_of(myself) key)
-  frame->slots[6] /* temp__3 */ = create_closure(entry__13_14, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__get_item_14, 0);
   // 68: cond
   // 69:   -> key == my_key: return true
   // 70:   -> key < my_key: return get_item(left_of(myself) key)
@@ -1170,9 +1170,9 @@ static void cont__13_5(void) {
   result_count = frame->caller_result_count;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__13_19;
+  frame->cont = cont__get_item_19;
 }
-static void entry__13_16(void) {
+static void entry__get_item_16(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // return: 0
@@ -1192,9 +1192,9 @@ static void entry__13_16(void) {
   result_count = 1;
   myself = var._right_of;
   func = myself->type;
-  frame->cont = cont__13_17;
+  frame->cont = cont__get_item_17;
 }
-static void cont__13_17(void) {
+static void cont__get_item_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1208,9 +1208,9 @@ static void cont__13_17(void) {
   result_count = 1;
   myself = var._get_item;
   func = myself->type;
-  frame->cont = cont__13_18;
+  frame->cont = cont__get_item_18;
 }
-static void cont__13_18(void) {
+static void cont__get_item_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1225,7 +1225,7 @@ static void cont__13_18(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_11(void) {
+static void entry__get_item_11(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // return: 0
@@ -1245,9 +1245,9 @@ static void entry__13_11(void) {
   result_count = 1;
   myself = var._left_of;
   func = myself->type;
-  frame->cont = cont__13_12;
+  frame->cont = cont__get_item_12;
 }
-static void cont__13_12(void) {
+static void cont__get_item_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1261,9 +1261,9 @@ static void cont__13_12(void) {
   result_count = 1;
   myself = var._get_item;
   func = myself->type;
-  frame->cont = cont__13_13;
+  frame->cont = cont__get_item_13;
 }
-static void cont__13_13(void) {
+static void cont__get_item_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1278,7 +1278,7 @@ static void cont__13_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_8(void) {
+static void entry__get_item_8(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -1296,7 +1296,7 @@ static void entry__13_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_6(void) {
+static void entry__get_item_6(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // key: 0
@@ -1317,16 +1317,16 @@ static void entry__13_6(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__13_7;
+  frame->cont = cont__get_item_7;
 }
-static void cont__13_7(void) {
+static void cont__get_item_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 69: ... : return true
-  frame->slots[4] /* temp__2 */ = create_closure(entry__13_8, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__get_item_8, 0);
   // 69: -> key == my_key: return true
   argument_count = 2;
   arguments = node_p;
@@ -1336,7 +1336,7 @@ static void cont__13_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_9(void) {
+static void entry__get_item_9(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // key: 0
@@ -1359,16 +1359,16 @@ static void entry__13_9(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__13_10;
+  frame->cont = cont__get_item_10;
 }
-static void cont__13_10(void) {
+static void cont__get_item_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 70: ... : return get_item(left_of(myself) key)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__13_11, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__get_item_11, 0);
   // 70: -> key < my_key: return get_item(left_of(myself) key)
   argument_count = 2;
   arguments = node_p;
@@ -1378,7 +1378,7 @@ static void cont__13_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_14(void) {
+static void entry__get_item_14(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // my_key: 0
@@ -1401,16 +1401,16 @@ static void entry__13_14(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__13_15;
+  frame->cont = cont__get_item_15;
 }
-static void cont__13_15(void) {
+static void cont__get_item_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 71: ... : return get_item(right_of(myself) key)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__13_16, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__get_item_16, 0);
   // 71: -> key > my_key: return get_item(right_of(myself) key)
   argument_count = 2;
   arguments = node_p;
@@ -1420,12 +1420,12 @@ static void cont__13_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__13_19(void) {
+static void cont__get_item_19(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1_add_item(void) {
+static void entry__add_item_1(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -1446,16 +1446,16 @@ static void entry__14_1_add_item(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__14_2;
+  frame->cont = cont__add_item_2;
 }
-static void cont__14_2(void) {
+static void cont__add_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 79: ... : return empty_node(.key_of key)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__14_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__add_item_3, 0);
   // 79: if myself.is_undefined: return empty_node(.key_of key)
   argument_count = 2;
   arguments = node_p;
@@ -1464,9 +1464,9 @@ static void cont__14_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__14_4;
+  frame->cont = cont__add_item_4;
 }
-static void entry__14_3(void) {
+static void entry__add_item_3(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return: 0
@@ -1494,7 +1494,7 @@ static void entry__14_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__14_4(void) {
+static void cont__add_item_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1506,28 +1506,28 @@ static void cont__14_4(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__14_5;
+  frame->cont = cont__add_item_5;
 }
-static void cont__14_5(void) {
+static void cont__add_item_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* my_key */, arguments->slots[0]);
   // 82: -> key == my_key: return NONE
-  frame->slots[4] /* temp__1 */ = create_closure(entry__14_6, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__add_item_6, 0);
   // 83: -> key < my_key:
   // 84:   $left add_item(left_of(myself) key)
   // 85:   if NONE == left: return NONE # nothing added
   // 86:   !myself.left_of left
   // 87:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__14_9, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__add_item_9, 0);
   // 88: -> key > my_key:
   // 89:   $right add_item(right_of(myself) key)
   // 90:   if NONE == right: return NONE # nothing added
   // 91:   !myself.right_of right
   // 92:   return myself
-  frame->slots[6] /* temp__3 */ = create_closure(entry__14_17, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__add_item_17, 0);
   // 81: cond
   // 82:   -> key == my_key: return NONE
   // 83:   -> key < my_key:
@@ -1547,9 +1547,9 @@ static void cont__14_5(void) {
   result_count = frame->caller_result_count;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__14_25;
+  frame->cont = cont__add_item_25;
 }
-static void entry__14_19(void) {
+static void entry__add_item_19(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // myself: 0
@@ -1571,9 +1571,9 @@ static void entry__14_19(void) {
   result_count = 1;
   myself = var._right_of;
   func = myself->type;
-  frame->cont = cont__14_20;
+  frame->cont = cont__add_item_20;
 }
-static void cont__14_20(void) {
+static void cont__add_item_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1587,9 +1587,9 @@ static void cont__14_20(void) {
   result_count = 1;
   myself = var._add_item;
   func = myself->type;
-  frame->cont = cont__14_21;
+  frame->cont = cont__add_item_21;
 }
-static void cont__14_21(void) {
+static void cont__add_item_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1603,16 +1603,16 @@ static void cont__14_21(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__14_22;
+  frame->cont = cont__add_item_22;
 }
-static void cont__14_22(void) {
+static void cont__add_item_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 90: ... : return NONE # nothing added
-  frame->slots[5] /* temp__2 */ = create_closure(entry__14_23, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__add_item_23, 0);
   // 90: if NONE == right: return NONE # nothing added
   argument_count = 2;
   arguments = node_p;
@@ -1621,9 +1621,9 @@ static void cont__14_22(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__14_24;
+  frame->cont = cont__add_item_24;
 }
-static void entry__14_23(void) {
+static void entry__add_item_23(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -1641,7 +1641,7 @@ static void entry__14_23(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__14_24(void) {
+static void cont__add_item_24(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1665,7 +1665,7 @@ static void cont__14_24(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__14_11(void) {
+static void entry__add_item_11(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // myself: 0
@@ -1687,9 +1687,9 @@ static void entry__14_11(void) {
   result_count = 1;
   myself = var._left_of;
   func = myself->type;
-  frame->cont = cont__14_12;
+  frame->cont = cont__add_item_12;
 }
-static void cont__14_12(void) {
+static void cont__add_item_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1703,9 +1703,9 @@ static void cont__14_12(void) {
   result_count = 1;
   myself = var._add_item;
   func = myself->type;
-  frame->cont = cont__14_13;
+  frame->cont = cont__add_item_13;
 }
-static void cont__14_13(void) {
+static void cont__add_item_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1719,16 +1719,16 @@ static void cont__14_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__14_14;
+  frame->cont = cont__add_item_14;
 }
-static void cont__14_14(void) {
+static void cont__add_item_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 85: ... : return NONE # nothing added
-  frame->slots[5] /* temp__2 */ = create_closure(entry__14_15, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__add_item_15, 0);
   // 85: if NONE == left: return NONE # nothing added
   argument_count = 2;
   arguments = node_p;
@@ -1737,9 +1737,9 @@ static void cont__14_14(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__14_16;
+  frame->cont = cont__add_item_16;
 }
-static void entry__14_15(void) {
+static void entry__add_item_15(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -1757,7 +1757,7 @@ static void entry__14_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__14_16(void) {
+static void cont__add_item_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1781,7 +1781,7 @@ static void cont__14_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__14_8(void) {
+static void entry__add_item_8(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -1799,7 +1799,7 @@ static void entry__14_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__14_6(void) {
+static void entry__add_item_6(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // key: 0
@@ -1820,16 +1820,16 @@ static void entry__14_6(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__14_7;
+  frame->cont = cont__add_item_7;
 }
-static void cont__14_7(void) {
+static void cont__add_item_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 82: ... : return NONE
-  frame->slots[4] /* temp__2 */ = create_closure(entry__14_8, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__add_item_8, 0);
   // 82: -> key == my_key: return NONE
   argument_count = 2;
   arguments = node_p;
@@ -1839,7 +1839,7 @@ static void cont__14_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_9(void) {
+static void entry__add_item_9(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // key: 0
@@ -1862,9 +1862,9 @@ static void entry__14_9(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__14_10;
+  frame->cont = cont__add_item_10;
 }
-static void cont__14_10(void) {
+static void cont__add_item_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1875,7 +1875,7 @@ static void cont__14_10(void) {
   // 85:   if NONE == left: return NONE # nothing added
   // 86:   !myself.left_of left
   // 87:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__14_11, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__add_item_11, 0);
   // 83: -> key < my_key:
   // 84:   $left add_item(left_of(myself) key)
   // 85:   if NONE == left: return NONE # nothing added
@@ -1889,7 +1889,7 @@ static void cont__14_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_17(void) {
+static void entry__add_item_17(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // my_key: 0
@@ -1912,9 +1912,9 @@ static void entry__14_17(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__14_18;
+  frame->cont = cont__add_item_18;
 }
-static void cont__14_18(void) {
+static void cont__add_item_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1925,7 +1925,7 @@ static void cont__14_18(void) {
   // 90:   if NONE == right: return NONE # nothing added
   // 91:   !myself.right_of right
   // 92:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__14_19, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__add_item_19, 0);
   // 88: -> key > my_key:
   // 89:   $right add_item(right_of(myself) key)
   // 90:   if NONE == right: return NONE # nothing added
@@ -1939,12 +1939,12 @@ static void cont__14_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__14_25(void) {
+static void cont__add_item_25(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1_remove_item(void) {
+static void entry__remove_item_1(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -1965,16 +1965,16 @@ static void entry__15_1_remove_item(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__15_2;
+  frame->cont = cont__remove_item_2;
 }
-static void cont__15_2(void) {
+static void cont__remove_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 100: ... : return NONE # nothing removed
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_3, 0);
   // 100: if myself.is_undefined: return NONE # nothing removed
   argument_count = 2;
   arguments = node_p;
@@ -1983,9 +1983,9 @@ static void cont__15_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__15_4;
+  frame->cont = cont__remove_item_4;
 }
-static void entry__15_3(void) {
+static void entry__remove_item_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -2003,7 +2003,7 @@ static void entry__15_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__15_4(void) {
+static void cont__remove_item_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2015,9 +2015,9 @@ static void cont__15_4(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__15_5;
+  frame->cont = cont__remove_item_5;
 }
-static void cont__15_5(void) {
+static void cont__remove_item_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2034,19 +2034,19 @@ static void cont__15_5(void) {
   // 111:           return types::object(.key_of head .left_of left .right_of right)
   // 112:         :
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__15_6, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__remove_item_6, 0);
   // 116: -> key < my_key:
   // 117:   $left remove_item(left_of(myself) key)
   // 118:   if NONE == left: return NONE # nothing removed
   // 119:   !myself.left_of left
   // 120:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_18, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_18, 0);
   // 121: -> key > my_key:
   // 122:   $right remove_item(right_of(myself) key)
   // 123:   if NONE == right: return NONE # nothing removed
   // 124:   !myself.right_of right
   // 125:   return myself
-  frame->slots[6] /* temp__3 */ = create_closure(entry__15_26, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__remove_item_26, 0);
   // 102: cond
   // 103:   -> key == my_key:
   // 104:     $left left_of(myself)
@@ -2066,9 +2066,9 @@ static void cont__15_5(void) {
   result_count = frame->caller_result_count;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__15_34;
+  frame->cont = cont__remove_item_34;
 }
-static void entry__15_28(void) {
+static void entry__remove_item_28(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // myself: 0
@@ -2090,9 +2090,9 @@ static void entry__15_28(void) {
   result_count = 1;
   myself = var._right_of;
   func = myself->type;
-  frame->cont = cont__15_29;
+  frame->cont = cont__remove_item_29;
 }
-static void cont__15_29(void) {
+static void cont__remove_item_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2106,9 +2106,9 @@ static void cont__15_29(void) {
   result_count = 1;
   myself = var._remove_item;
   func = myself->type;
-  frame->cont = cont__15_30;
+  frame->cont = cont__remove_item_30;
 }
-static void cont__15_30(void) {
+static void cont__remove_item_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2122,16 +2122,16 @@ static void cont__15_30(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__15_31;
+  frame->cont = cont__remove_item_31;
 }
-static void cont__15_31(void) {
+static void cont__remove_item_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 123: ... : return NONE # nothing removed
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_32, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_32, 0);
   // 123: if NONE == right: return NONE # nothing removed
   argument_count = 2;
   arguments = node_p;
@@ -2140,9 +2140,9 @@ static void cont__15_31(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__15_33;
+  frame->cont = cont__remove_item_33;
 }
-static void entry__15_32(void) {
+static void entry__remove_item_32(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -2160,7 +2160,7 @@ static void entry__15_32(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__15_33(void) {
+static void cont__remove_item_33(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2184,7 +2184,7 @@ static void cont__15_33(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_20(void) {
+static void entry__remove_item_20(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // myself: 0
@@ -2206,9 +2206,9 @@ static void entry__15_20(void) {
   result_count = 1;
   myself = var._left_of;
   func = myself->type;
-  frame->cont = cont__15_21;
+  frame->cont = cont__remove_item_21;
 }
-static void cont__15_21(void) {
+static void cont__remove_item_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2222,9 +2222,9 @@ static void cont__15_21(void) {
   result_count = 1;
   myself = var._remove_item;
   func = myself->type;
-  frame->cont = cont__15_22;
+  frame->cont = cont__remove_item_22;
 }
-static void cont__15_22(void) {
+static void cont__remove_item_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2238,16 +2238,16 @@ static void cont__15_22(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__15_23;
+  frame->cont = cont__remove_item_23;
 }
-static void cont__15_23(void) {
+static void cont__remove_item_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 118: ... : return NONE # nothing removed
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_24, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_24, 0);
   // 118: if NONE == left: return NONE # nothing removed
   argument_count = 2;
   arguments = node_p;
@@ -2256,9 +2256,9 @@ static void cont__15_23(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__15_25;
+  frame->cont = cont__remove_item_25;
 }
-static void entry__15_24(void) {
+static void entry__remove_item_24(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -2276,7 +2276,7 @@ static void entry__15_24(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__15_25(void) {
+static void cont__remove_item_25(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2300,7 +2300,7 @@ static void cont__15_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_14(void) {
+static void entry__remove_item_14(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // right: 0
@@ -2322,9 +2322,9 @@ static void entry__15_14(void) {
   result_count = 2;
   myself = var._fetch_first;
   func = myself->type;
-  frame->cont = cont__15_15;
+  frame->cont = cont__remove_item_15;
 }
-static void cont__15_15(void) {
+static void cont__remove_item_15(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2352,7 +2352,7 @@ static void cont__15_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_16(void) {
+static void entry__remove_item_16(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -2372,7 +2372,7 @@ static void entry__15_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_12(void) {
+static void entry__remove_item_12(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // right: 0
@@ -2392,9 +2392,9 @@ static void entry__15_12(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__15_13;
+  frame->cont = cont__remove_item_13;
 }
-static void cont__15_13(void) {
+static void cont__remove_item_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2403,10 +2403,10 @@ static void cont__15_13(void) {
   // 109: ... :
   // 110:   $head fetch_first(&right)
   // 111:   return types::object(.key_of head .left_of left .right_of right)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__15_14, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__remove_item_14, 0);
   // 112: :
   // 113:   return left
-  frame->slots[5] /* temp__3 */ = create_closure(entry__15_16, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__remove_item_16, 0);
   // 108: if
   // 109:   right.is_defined:
   // 110:     $head fetch_first(&right)
@@ -2423,7 +2423,7 @@ static void cont__15_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_17(void) {
+static void entry__remove_item_17(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -2443,7 +2443,7 @@ static void entry__15_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_8(void) {
+static void entry__remove_item_8(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // myself: 0
@@ -2465,9 +2465,9 @@ static void entry__15_8(void) {
   result_count = 1;
   myself = var._left_of;
   func = myself->type;
-  frame->cont = cont__15_9;
+  frame->cont = cont__remove_item_9;
 }
-static void cont__15_9(void) {
+static void cont__remove_item_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2480,9 +2480,9 @@ static void cont__15_9(void) {
   result_count = 1;
   myself = var._right_of;
   func = myself->type;
-  frame->cont = cont__15_10;
+  frame->cont = cont__remove_item_10;
 }
-static void cont__15_10(void) {
+static void cont__remove_item_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2495,9 +2495,9 @@ static void cont__15_10(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__15_11;
+  frame->cont = cont__remove_item_11;
 }
-static void cont__15_11(void) {
+static void cont__remove_item_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2510,10 +2510,10 @@ static void cont__15_11(void) {
   // 111:       return types::object(.key_of head .left_of left .right_of right)
   // 112:     :
   // 113:       return left
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_12, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_12, 0);
   // 114: :
   // 115:   return right
-  frame->slots[6] /* temp__3 */ = create_closure(entry__15_17, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__remove_item_17, 0);
   // 106: if
   // 107:   left.is_defined:
   // 108:     if
@@ -2534,7 +2534,7 @@ static void cont__15_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_6(void) {
+static void entry__remove_item_6(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // key: 0
@@ -2557,9 +2557,9 @@ static void entry__15_6(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__15_7;
+  frame->cont = cont__remove_item_7;
 }
-static void cont__15_7(void) {
+static void cont__remove_item_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2576,7 +2576,7 @@ static void cont__15_7(void) {
   // 111:           return types::object(.key_of head .left_of left .right_of right)
   // 112:         :
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_8, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_8, 0);
   // 103: -> key == my_key:
   // 104:   $left left_of(myself)
   // 105:   $$right right_of(myself)
@@ -2596,7 +2596,7 @@ static void cont__15_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_18(void) {
+static void entry__remove_item_18(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // key: 0
@@ -2619,9 +2619,9 @@ static void entry__15_18(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__15_19;
+  frame->cont = cont__remove_item_19;
 }
-static void cont__15_19(void) {
+static void cont__remove_item_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2632,7 +2632,7 @@ static void cont__15_19(void) {
   // 118:   if NONE == left: return NONE # nothing removed
   // 119:   !myself.left_of left
   // 120:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_20, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_20, 0);
   // 116: -> key < my_key:
   // 117:   $left remove_item(left_of(myself) key)
   // 118:   if NONE == left: return NONE # nothing removed
@@ -2646,7 +2646,7 @@ static void cont__15_19(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_26(void) {
+static void entry__remove_item_26(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // my_key: 0
@@ -2669,9 +2669,9 @@ static void entry__15_26(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__15_27;
+  frame->cont = cont__remove_item_27;
 }
-static void cont__15_27(void) {
+static void cont__remove_item_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2682,7 +2682,7 @@ static void cont__15_27(void) {
   // 123:   if NONE == right: return NONE # nothing removed
   // 124:   !myself.right_of right
   // 125:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__15_28, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__remove_item_28, 0);
   // 121: -> key > my_key:
   // 122:   $right remove_item(right_of(myself) key)
   // 123:   if NONE == right: return NONE # nothing removed
@@ -2696,12 +2696,12 @@ static void cont__15_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__15_34(void) {
+static void cont__remove_item_34(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1_types__key_order_set_(void) {
+static void entry__types__key_order_set_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // key: 0
@@ -2727,21 +2727,21 @@ static void entry__16_1_types__key_order_set_(void) {
   frame->slots[2] /* myself */ = create_cell_with_contents(myself);
   // 138: ... :
   // 139:   return get_item(tree_of(myself) key)
-  frame->slots[4] /* temp__1 */ = create_closure(entry__16_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__key_order_set_2, 0);
   // 140: ... :
   // 141:   $new_tree add_item(tree_of(myself) key)
   // 142:   if NONE != new_tree:
   // 143:     !myself.tree_of new_tree
   // 144:     inc &myself.length_of
   // 145:   return myself
-  frame->slots[5] /* temp__2 */ = create_closure(entry__16_5, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__key_order_set_5, 0);
   // 146: ... :
   // 147:   $new_tree remove_item(tree_of(myself) key)
   // 148:   if NONE != new_tree:
   // 149:     !myself.tree_of new_tree
   // 150:     dec &myself.length_of
   // 151:   return myself
-  frame->slots[6] /* temp__3 */ = create_closure(entry__16_14, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__key_order_set_14, 0);
   // 136: case
   // 137:   value
   // 138:   NONE:
@@ -2762,13 +2762,13 @@ static void entry__16_1_types__key_order_set_(void) {
   arguments->slots[4] = frame->slots[5] /* temp__2 */;
   arguments->slots[5] = get__false();
   arguments->slots[6] = frame->slots[6] /* temp__3 */;
-  arguments->slots[7] = func__16_23;
+  arguments->slots[7] = func__types__key_order_set_23;
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__16_25;
+  frame->cont = cont__types__key_order_set_25;
 }
-static void entry__16_2(void) {
+static void entry__types__key_order_set_2(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // return: 0
@@ -2788,9 +2788,9 @@ static void entry__16_2(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__16_3;
+  frame->cont = cont__types__key_order_set_3;
 }
-static void cont__16_3(void) {
+static void cont__types__key_order_set_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2804,9 +2804,9 @@ static void cont__16_3(void) {
   result_count = 1;
   myself = var._get_item;
   func = myself->type;
-  frame->cont = cont__16_4;
+  frame->cont = cont__types__key_order_set_4;
 }
-static void cont__16_4(void) {
+static void cont__types__key_order_set_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2821,7 +2821,7 @@ static void cont__16_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__16_5(void) {
+static void entry__types__key_order_set_5(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -2843,9 +2843,9 @@ static void entry__16_5(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__16_6;
+  frame->cont = cont__types__key_order_set_6;
 }
-static void cont__16_6(void) {
+static void cont__types__key_order_set_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2859,9 +2859,9 @@ static void cont__16_6(void) {
   result_count = 1;
   myself = var._add_item;
   func = myself->type;
-  frame->cont = cont__16_7;
+  frame->cont = cont__types__key_order_set_7;
 }
-static void cont__16_7(void) {
+static void cont__types__key_order_set_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2875,9 +2875,9 @@ static void cont__16_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__16_8;
+  frame->cont = cont__types__key_order_set_8;
 }
-static void cont__16_8(void) {
+static void cont__types__key_order_set_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2890,9 +2890,9 @@ static void cont__16_8(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__16_9;
+  frame->cont = cont__types__key_order_set_9;
 }
-static void cont__16_9(void) {
+static void cont__types__key_order_set_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2901,7 +2901,7 @@ static void cont__16_9(void) {
   // 142: ... :
   // 143:   !myself.tree_of new_tree
   // 144:   inc &myself.length_of
-  frame->slots[6] /* temp__3 */ = create_closure(entry__16_10, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__key_order_set_10, 0);
   // 142: if NONE != new_tree:
   // 143:   !myself.tree_of new_tree
   // 144:   inc &myself.length_of
@@ -2912,9 +2912,9 @@ static void cont__16_9(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__16_13;
+  frame->cont = cont__types__key_order_set_13;
 }
-static void entry__16_10(void) {
+static void entry__types__key_order_set_10(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // myself: 0
@@ -2942,9 +2942,9 @@ static void entry__16_10(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__16_11;
+  frame->cont = cont__types__key_order_set_11;
 }
-static void cont__16_11(void) {
+static void cont__types__key_order_set_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2957,9 +2957,9 @@ static void cont__16_11(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__16_12;
+  frame->cont = cont__types__key_order_set_12;
 }
-static void cont__16_12(void) {
+static void cont__types__key_order_set_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2979,7 +2979,7 @@ static void cont__16_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__16_13(void) {
+static void cont__types__key_order_set_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2993,7 +2993,7 @@ static void cont__16_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__16_14(void) {
+static void entry__types__key_order_set_14(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -3015,9 +3015,9 @@ static void entry__16_14(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__16_15;
+  frame->cont = cont__types__key_order_set_15;
 }
-static void cont__16_15(void) {
+static void cont__types__key_order_set_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3031,9 +3031,9 @@ static void cont__16_15(void) {
   result_count = 1;
   myself = var._remove_item;
   func = myself->type;
-  frame->cont = cont__16_16;
+  frame->cont = cont__types__key_order_set_16;
 }
-static void cont__16_16(void) {
+static void cont__types__key_order_set_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3047,9 +3047,9 @@ static void cont__16_16(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__16_17;
+  frame->cont = cont__types__key_order_set_17;
 }
-static void cont__16_17(void) {
+static void cont__types__key_order_set_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3062,9 +3062,9 @@ static void cont__16_17(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__16_18;
+  frame->cont = cont__types__key_order_set_18;
 }
-static void cont__16_18(void) {
+static void cont__types__key_order_set_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3073,7 +3073,7 @@ static void cont__16_18(void) {
   // 148: ... :
   // 149:   !myself.tree_of new_tree
   // 150:   dec &myself.length_of
-  frame->slots[6] /* temp__3 */ = create_closure(entry__16_19, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__key_order_set_19, 0);
   // 148: if NONE != new_tree:
   // 149:   !myself.tree_of new_tree
   // 150:   dec &myself.length_of
@@ -3084,9 +3084,9 @@ static void cont__16_18(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__16_22;
+  frame->cont = cont__types__key_order_set_22;
 }
-static void entry__16_19(void) {
+static void entry__types__key_order_set_19(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // myself: 0
@@ -3114,9 +3114,9 @@ static void entry__16_19(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__16_20;
+  frame->cont = cont__types__key_order_set_20;
 }
-static void cont__16_20(void) {
+static void cont__types__key_order_set_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3129,9 +3129,9 @@ static void cont__16_20(void) {
   result_count = 1;
   myself = get__dec();
   func = myself->type;
-  frame->cont = cont__16_21;
+  frame->cont = cont__types__key_order_set_21;
 }
-static void cont__16_21(void) {
+static void cont__types__key_order_set_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3151,7 +3151,7 @@ static void cont__16_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__16_22(void) {
+static void cont__types__key_order_set_22(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3165,7 +3165,7 @@ static void cont__16_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__16_23(void) {
+static void entry__types__key_order_set_23(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3181,12 +3181,12 @@ static void entry__16_23(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__16_25(void) {
+static void cont__types__key_order_set_25(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__21_1_std__key_order_set(void) {
+static void entry__std__key_order_set_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -3197,7 +3197,7 @@ static void entry__21_1_std__key_order_set(void) {
   // 175: $$tab types::key_order_set
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__key_order_set;
   // 176: ... : (key) !tab(key) true
-  frame->slots[2] /* temp__1 */ = create_closure(entry__21_2, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__key_order_set_2, 1);
   // 176: for_each args: (key) !tab(key) true
   argument_count = 2;
   arguments = node_p;
@@ -3206,9 +3206,9 @@ static void entry__21_1_std__key_order_set(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__21_4;
+  frame->cont = cont__std__key_order_set_4;
 }
-static void entry__21_2(void) {
+static void entry__std__key_order_set_2(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // key: 0
@@ -3228,9 +3228,9 @@ static void entry__21_2(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* tab */;
   func = myself->type;
-  frame->cont = cont__21_3;
+  frame->cont = cont__std__key_order_set_3;
 }
-static void cont__21_3(void) {
+static void cont__std__key_order_set_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3242,7 +3242,7 @@ static void cont__21_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__21_4(void) {
+static void cont__std__key_order_set_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3255,7 +3255,7 @@ static void cont__21_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__22_3(void) {
+static void entry__for_each_item_3(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // myself: 0
@@ -3273,9 +3273,9 @@ static void entry__22_3(void) {
   result_count = 1;
   myself = var._left_of;
   func = myself->type;
-  frame->cont = cont__22_4;
+  frame->cont = cont__for_each_item_4;
 }
-static void cont__22_4(void) {
+static void cont__for_each_item_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3289,9 +3289,9 @@ static void cont__22_4(void) {
   result_count = 0;
   myself = var._for_each_item;
   func = myself->type;
-  frame->cont = cont__22_5;
+  frame->cont = cont__for_each_item_5;
 }
-static void cont__22_5(void) {
+static void cont__for_each_item_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3303,9 +3303,9 @@ static void cont__22_5(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__22_6;
+  frame->cont = cont__for_each_item_6;
 }
-static void cont__22_6(void) {
+static void cont__for_each_item_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3318,9 +3318,9 @@ static void cont__22_6(void) {
   result_count = 0;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__22_7;
+  frame->cont = cont__for_each_item_7;
 }
-static void cont__22_7(void) {
+static void cont__for_each_item_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3332,9 +3332,9 @@ static void cont__22_7(void) {
   result_count = 1;
   myself = var._right_of;
   func = myself->type;
-  frame->cont = cont__22_8;
+  frame->cont = cont__for_each_item_8;
 }
-static void cont__22_8(void) {
+static void cont__for_each_item_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3350,7 +3350,7 @@ static void cont__22_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__22_1_for_each_item(void) {
+static void entry__for_each_item_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // myself: 0
@@ -3366,9 +3366,9 @@ static void entry__22_1_for_each_item(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__22_2;
+  frame->cont = cont__for_each_item_2;
 }
-static void cont__22_2(void) {
+static void cont__for_each_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3378,7 +3378,7 @@ static void cont__22_2(void) {
   // 181:   for_each_item left_of(myself) body
   // 182:   body key_of(myself)
   // 183:   for_each_item right_of(myself) body
-  frame->slots[3] /* temp__2 */ = create_closure(entry__22_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__for_each_item_3, 0);
   // 180: if myself.is_defined:
   // 181:   for_each_item left_of(myself) body
   // 182:   body key_of(myself)
@@ -3392,7 +3392,7 @@ static void cont__22_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__23_4(void) {
+static void entry__types__key_order_set__for_each_4(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // tree: 0
@@ -3413,7 +3413,7 @@ static void entry__23_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__23_1_types__key_order_set_for_each(void) {
+static void entry__types__key_order_set__for_each_1(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -3431,9 +3431,9 @@ static void entry__23_1_types__key_order_set_for_each(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__23_2;
+  frame->cont = cont__types__key_order_set__for_each_2;
 }
-static void cont__23_2(void) {
+static void cont__types__key_order_set__for_each_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3446,16 +3446,16 @@ static void cont__23_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__23_3;
+  frame->cont = cont__types__key_order_set__for_each_3;
 }
-static void cont__23_3(void) {
+static void cont__types__key_order_set__for_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 193: ... : for_each_item tree body
-  frame->slots[4] /* temp__2 */ = create_closure(entry__23_4, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__key_order_set__for_each_4, 0);
   // 193: if tree.is_defined: for_each_item tree body
   argument_count = 2;
   arguments = node_p;
@@ -3502,16 +3502,16 @@ EXPORT void phase_2__basic__types__key_order_set(void) {
   already_run_phase_2 = true;
   number__0 = from_uint32(0U);
   unique__NONE = register_unique_item("NONE");
-  func__12_1_fetch_first = create_function(entry__12_1_fetch_first, 1);
-  func__13_1_get_item = create_function(entry__13_1_get_item, 2);
-  func__14_1_add_item = create_function(entry__14_1_add_item, 2);
-  func__15_1_remove_item = create_function(entry__15_1_remove_item, 2);
+  func__fetch_first_1 = create_function(entry__fetch_first_1, 1);
+  func__get_item_1 = create_function(entry__get_item_1, 2);
+  func__add_item_1 = create_function(entry__add_item_1, 2);
+  func__remove_item_1 = create_function(entry__remove_item_1, 2);
   string__3cace614246a32e7 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
-  func__16_23 = create_function(entry__16_23, 0);
+  func__types__key_order_set_23 = create_function(entry__types__key_order_set_23, 0);
   string__fc7b2c52bb6f74d9 = from_latin_1_string("key_order_set", 13);
-  func__21_1_std__key_order_set = create_function(entry__21_1_std__key_order_set, -1);
-  func__22_1_for_each_item = create_function(entry__22_1_for_each_item, 2);
-  func__23_1_types__key_order_set_for_each = create_function(entry__23_1_types__key_order_set_for_each, 2);
+  func__std__key_order_set_1 = create_function(entry__std__key_order_set_1, -1);
+  func__for_each_item_1 = create_function(entry__for_each_item_1, 2);
+  func__types__key_order_set__for_each_1 = create_function(entry__types__key_order_set__for_each_1, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -3561,11 +3561,11 @@ EXPORT void phase_4__basic__types__key_order_set(void) {
   def_attribute(&var._empty_node, poly_idx__left_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
   update_start_p = node_p;
   def_attribute(&var._empty_node, poly_idx__right_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
-  define_type_function("types", "key_order_set", entry__16_1_types__key_order_set_, -1);
+  define_type_function("types", "key_order_set", entry__types__key_order_set_1, -1);
   define_attribute("types", "key_order_set", poly_idx__tree_of, get__undefined());
   define_attribute("types", "key_order_set", poly_idx__length_of, number__0);
   define_attribute("types", "key_order_set", poly_idx__serialization_tag_of, string__fc7b2c52bb6f74d9);
-  define_method("types", "key_order_set", poly_idx__for_each, func__23_1_types__key_order_set_for_each);
+  define_method("types", "key_order_set", poly_idx__for_each, func__types__key_order_set__for_each_1);
 }
 
 static int already_run_phase_5 = false;
@@ -3579,13 +3579,13 @@ EXPORT void phase_5__basic__types__key_order_set(void) {
   assign_value(&var._right_of, create_function(type__right_of, -1));
   assign_value(&var.types__key_order_set, get__types__generic_set());
   assign_value(&var._empty_node, get__types__object());
-  assign_variable(&var._fetch_first, &func__12_1_fetch_first);
-  assign_variable(&var._get_item, &func__13_1_get_item);
-  assign_variable(&var._add_item, &func__14_1_add_item);
-  assign_variable(&var._remove_item, &func__15_1_remove_item);
+  assign_variable(&var._fetch_first, &func__fetch_first_1);
+  assign_variable(&var._get_item, &func__get_item_1);
+  assign_variable(&var._add_item, &func__add_item_1);
+  assign_variable(&var._remove_item, &func__remove_item_1);
   assign_variable(&var.std__empty_key_order_set, &var.types__key_order_set);
-  assign_variable(&var.std__key_order_set, &func__21_1_std__key_order_set);
-  assign_variable(&var._for_each_item, &func__22_1_for_each_item);
+  assign_variable(&var.std__key_order_set, &func__std__key_order_set_1);
+  assign_variable(&var._for_each_item, &func__for_each_item_1);
 }
 
 static int already_run_phase_6 = false;

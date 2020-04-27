@@ -334,47 +334,47 @@ static const char *var_names[] = {
 static NODE *get__types__generic_set(void) {
   return var.types__generic_set;
 }
-static NODE *func__2_1_types__generic_set_union;
-static void entry__2_1_types__generic_set_union(void);
-static FRAME_INFO frame__2_1_types__generic_set_union = {2, {"left", "right"}};
-static NODE *func__2_2;
-static void entry__2_2(void);
-static FRAME_INFO frame__2_2 = {2, {"key", "left"}};
-static void cont__2_3(void);
-static void cont__2_4(void);
-static NODE *func__3_1_types__generic_set_serialize;
-static void entry__3_1_types__generic_set_serialize(void);
-static FRAME_INFO frame__3_1_types__generic_set_serialize = {5, {"self", "indent", "return", "tag", "buf"}};
-static void cont__3_2(void);
-static void cont__3_3(void);
-static NODE *func__3_4;
-static void entry__3_4(void);
-static FRAME_INFO frame__3_4 = {2, {"return", "tag"}};
+static NODE *func__types__generic_set__union_1;
+static void entry__types__generic_set__union_1(void);
+static FRAME_INFO frame__types__generic_set__union_1 = {2, {"left", "right"}};
+static NODE *func__types__generic_set__union_2;
+static void entry__types__generic_set__union_2(void);
+static FRAME_INFO frame__types__generic_set__union_2 = {2, {"key", "left"}};
+static void cont__types__generic_set__union_3(void);
+static void cont__types__generic_set__union_4(void);
+static NODE *func__types__generic_set__serialize_1;
+static void entry__types__generic_set__serialize_1(void);
+static FRAME_INFO frame__types__generic_set__serialize_1 = {5, {"self", "indent", "return", "tag", "buf"}};
+static void cont__types__generic_set__serialize_2(void);
+static void cont__types__generic_set__serialize_3(void);
+static NODE *func__types__generic_set__serialize_4;
+static void entry__types__generic_set__serialize_4(void);
+static FRAME_INFO frame__types__generic_set__serialize_4 = {2, {"return", "tag"}};
 static NODE *string__2d7981f4e6482bec;
-static void cont__3_6(void);
-static void cont__3_7(void);
-static NODE *func__3_8;
-static void entry__3_8(void);
-static FRAME_INFO frame__3_8 = {3, {"key", "buf", "indent"}};
-static void cont__3_9(void);
-static void cont__3_10(void);
-static void cont__3_11(void);
-static void cont__3_12(void);
-static void cont__3_13(void);
-static void cont__3_14(void);
-static NODE *func__4_1_types__generic_set_is_empty;
-static void entry__4_1_types__generic_set_is_empty(void);
-static FRAME_INFO frame__4_1_types__generic_set_is_empty = {1, {"self"}};
-static void cont__4_2(void);
-static void cont__4_3(void);
-static NODE *func__5_1_types__generic_set_to_list;
-static void entry__5_1_types__generic_set_to_list(void);
-static FRAME_INFO frame__5_1_types__generic_set_to_list = {2, {"self", "items"}};
-static NODE *func__5_2;
-static void entry__5_2(void);
-static FRAME_INFO frame__5_2 = {2, {"item", "items"}};
-static void cont__5_3(void);
-static void cont__5_4(void);
+static void cont__types__generic_set__serialize_6(void);
+static void cont__types__generic_set__serialize_7(void);
+static NODE *func__types__generic_set__serialize_8;
+static void entry__types__generic_set__serialize_8(void);
+static FRAME_INFO frame__types__generic_set__serialize_8 = {3, {"key", "buf", "indent"}};
+static void cont__types__generic_set__serialize_9(void);
+static void cont__types__generic_set__serialize_10(void);
+static void cont__types__generic_set__serialize_11(void);
+static void cont__types__generic_set__serialize_12(void);
+static void cont__types__generic_set__serialize_13(void);
+static void cont__types__generic_set__serialize_14(void);
+static NODE *func__types__generic_set__is_empty_1;
+static void entry__types__generic_set__is_empty_1(void);
+static FRAME_INFO frame__types__generic_set__is_empty_1 = {1, {"self"}};
+static void cont__types__generic_set__is_empty_2(void);
+static void cont__types__generic_set__is_empty_3(void);
+static NODE *func__types__generic_set__to_list_1;
+static void entry__types__generic_set__to_list_1(void);
+static FRAME_INFO frame__types__generic_set__to_list_1 = {2, {"self", "items"}};
+static NODE *func__types__generic_set__to_list_2;
+static void entry__types__generic_set__to_list_2(void);
+static FRAME_INFO frame__types__generic_set__to_list_2 = {2, {"item", "items"}};
+static void cont__types__generic_set__to_list_3(void);
+static void cont__types__generic_set__to_list_4(void);
 static int poly_idx__std__is_a_set;
 static void type__std__is_a_set(void);
 static NODE *get__std__is_a_set(void) {
@@ -387,14 +387,14 @@ static NODE *string__fa724815d016bb8;
 static NODE *get__std__empty_set(void) {
   return var.std__empty_set;
 }
-static NODE *func__12_1_std__set;
-static void entry__12_1_std__set(void);
-static FRAME_INFO frame__12_1_std__set = {2, {"args", "tab"}};
-static NODE *func__12_2;
-static void entry__12_2(void);
-static FRAME_INFO frame__12_2 = {2, {"key", "tab"}};
-static void cont__12_3(void);
-static void cont__12_4(void);
+static NODE *func__std__set_1;
+static void entry__std__set_1(void);
+static FRAME_INFO frame__std__set_1 = {2, {"args", "tab"}};
+static NODE *func__std__set_2;
+static void entry__std__set_2(void);
+static FRAME_INFO frame__std__set_2 = {2, {"key", "tab"}};
+static void cont__std__set_3(void);
+static void cont__std__set_4(void);
 static NODE *get__std__set(void) {
   return var.std__set;
 }
@@ -403,34 +403,34 @@ void run__basic__types__set(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_set, NULL, 69, 69, 2, 14},
   {run__basic__types__set, NULL, 77, 77, 1, 32},
-  {entry__2_2, NULL, 34, 34, 25, 34},
-  {cont__2_3, &frame__2_2, 34, 34, 39, 39},
-  {entry__2_1_types__generic_set_union, NULL, 34, 34, 3, 39},
-  {cont__2_4, &frame__2_1_types__generic_set_union, },
-  {entry__3_4, NULL, 45, 45, 28, 37},
-  {cont__3_6, &frame__3_4, 45, 45, 21, 37},
-  {entry__3_8, NULL, 48, 48, 33, 40},
-  {cont__3_9, &frame__3_8, 48, 48, 26, 41},
-  {cont__3_10, &frame__3_8, 48, 48, 57, 64},
-  {cont__3_11, &frame__3_8, 48, 48, 43, 65},
-  {cont__3_12, &frame__3_8, 48, 48, 5, 65},
-  {cont__3_13, &frame__3_8, 48, 48, 65, 65},
-  {entry__3_1_types__generic_set_serialize, NULL, 44, 44, 3, 33},
-  {cont__3_2, &frame__3_1_types__generic_set_serialize, 45, 45, 6, 18},
-  {cont__3_3, &frame__3_1_types__generic_set_serialize, 45, 45, 3, 37},
-  {cont__3_7, &frame__3_1_types__generic_set_serialize, 47, 48, 3, 65},
-  {cont__3_14, &frame__3_1_types__generic_set_serialize, 49, 49, 3, 8},
-  {entry__4_1_types__generic_set_is_empty, NULL, 57, 57, 6, 20},
-  {cont__4_2, &frame__4_1_types__generic_set_is_empty, 57, 57, 6, 25},
-  {cont__4_3, &frame__4_1_types__generic_set_is_empty, 57, 57, 3, 25},
-  {entry__5_2, NULL, 66, 66, 25, 40},
-  {cont__5_3, &frame__5_2, 66, 66, 40, 40},
-  {entry__5_1_types__generic_set_to_list, NULL, 66, 66, 3, 40},
-  {cont__5_4, &frame__5_1_types__generic_set_to_list, 67, 67, 3, 10},
-  {entry__12_2, NULL, 98, 98, 24, 32},
-  {cont__12_3, &frame__12_2, 98, 98, 37, 37},
-  {entry__12_1_std__set, NULL, 98, 98, 3, 37},
-  {cont__12_4, &frame__12_1_std__set, 99, 99, 3, 8}
+  {entry__types__generic_set__union_2, NULL, 34, 34, 25, 34},
+  {cont__types__generic_set__union_3, &frame__types__generic_set__union_2, 34, 34, 39, 39},
+  {entry__types__generic_set__union_1, NULL, 34, 34, 3, 39},
+  {cont__types__generic_set__union_4, &frame__types__generic_set__union_1, },
+  {entry__types__generic_set__serialize_4, NULL, 45, 45, 28, 37},
+  {cont__types__generic_set__serialize_6, &frame__types__generic_set__serialize_4, 45, 45, 21, 37},
+  {entry__types__generic_set__serialize_8, NULL, 48, 48, 33, 40},
+  {cont__types__generic_set__serialize_9, &frame__types__generic_set__serialize_8, 48, 48, 26, 41},
+  {cont__types__generic_set__serialize_10, &frame__types__generic_set__serialize_8, 48, 48, 57, 64},
+  {cont__types__generic_set__serialize_11, &frame__types__generic_set__serialize_8, 48, 48, 43, 65},
+  {cont__types__generic_set__serialize_12, &frame__types__generic_set__serialize_8, 48, 48, 5, 65},
+  {cont__types__generic_set__serialize_13, &frame__types__generic_set__serialize_8, 48, 48, 65, 65},
+  {entry__types__generic_set__serialize_1, NULL, 44, 44, 3, 33},
+  {cont__types__generic_set__serialize_2, &frame__types__generic_set__serialize_1, 45, 45, 6, 18},
+  {cont__types__generic_set__serialize_3, &frame__types__generic_set__serialize_1, 45, 45, 3, 37},
+  {cont__types__generic_set__serialize_7, &frame__types__generic_set__serialize_1, 47, 48, 3, 65},
+  {cont__types__generic_set__serialize_14, &frame__types__generic_set__serialize_1, 49, 49, 3, 8},
+  {entry__types__generic_set__is_empty_1, NULL, 57, 57, 6, 20},
+  {cont__types__generic_set__is_empty_2, &frame__types__generic_set__is_empty_1, 57, 57, 6, 25},
+  {cont__types__generic_set__is_empty_3, &frame__types__generic_set__is_empty_1, 57, 57, 3, 25},
+  {entry__types__generic_set__to_list_2, NULL, 66, 66, 25, 40},
+  {cont__types__generic_set__to_list_3, &frame__types__generic_set__to_list_2, 66, 66, 40, 40},
+  {entry__types__generic_set__to_list_1, NULL, 66, 66, 3, 40},
+  {cont__types__generic_set__to_list_4, &frame__types__generic_set__to_list_1, 67, 67, 3, 10},
+  {entry__std__set_2, NULL, 98, 98, 24, 32},
+  {cont__std__set_3, &frame__std__set_2, 98, 98, 37, 37},
+  {entry__std__set_1, NULL, 98, 98, 3, 37},
+  {cont__std__set_4, &frame__std__set_1, 99, 99, 3, 8}
 };
 
 union NODE {
@@ -506,7 +506,7 @@ EXPORT void run__basic__types__set(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__2_1_types__generic_set_union(void) {
+static void entry__types__generic_set__union_1(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -517,7 +517,7 @@ static void entry__2_1_types__generic_set_union(void) {
   }
   frame->slots[0] /* left */ = create_cell_with_contents(arguments->slots[0]);
   // 34: ... : (key) !left(key) true
-  frame->slots[2] /* temp__1 */ = create_closure(entry__2_2, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_set__union_2, 1);
   // 34: for_each right: (key) !left(key) true
   argument_count = 2;
   arguments = node_p;
@@ -528,9 +528,9 @@ static void entry__2_1_types__generic_set_union(void) {
     frame->caller_result_count-1 : -1;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__2_4;
+  frame->cont = cont__types__generic_set__union_4;
 }
-static void entry__2_2(void) {
+static void entry__types__generic_set__union_2(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // key: 0
@@ -550,9 +550,9 @@ static void entry__2_2(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* left */;
   func = myself->type;
-  frame->cont = cont__2_3;
+  frame->cont = cont__types__generic_set__union_3;
 }
-static void cont__2_3(void) {
+static void cont__types__generic_set__union_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -564,7 +564,7 @@ static void cont__2_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__2_4(void) {
+static void cont__types__generic_set__union_4(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -575,7 +575,7 @@ static void cont__2_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__3_1_types__generic_set_serialize(void) {
+static void entry__types__generic_set__serialize_1(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -608,9 +608,9 @@ static void entry__3_1_types__generic_set_serialize(void) {
   result_count = 1;
   myself = get__serialization_tag_of();
   func = myself->type;
-  frame->cont = cont__3_2;
+  frame->cont = cont__types__generic_set__serialize_2;
 }
-static void cont__3_2(void) {
+static void cont__types__generic_set__serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -623,16 +623,16 @@ static void cont__3_2(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__3_3;
+  frame->cont = cont__types__generic_set__serialize_3;
 }
-static void cont__3_3(void) {
+static void cont__types__generic_set__serialize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 45: ... : return "@(tag)()"
-  frame->slots[6] /* temp__2 */ = create_closure(entry__3_4, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__types__generic_set__serialize_4, 0);
   // 45: if self.is_empty: return "@(tag)()"
   argument_count = 2;
   arguments = node_p;
@@ -641,9 +641,9 @@ static void cont__3_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__3_7;
+  frame->cont = cont__types__generic_set__serialize_7;
 }
-static void entry__3_4(void) {
+static void entry__types__generic_set__serialize_4(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return: 0
@@ -662,9 +662,9 @@ static void entry__3_4(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__3_6;
+  frame->cont = cont__types__generic_set__serialize_6;
 }
-static void cont__3_6(void) {
+static void cont__types__generic_set__serialize_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -679,7 +679,7 @@ static void cont__3_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__3_7(void) {
+static void cont__types__generic_set__serialize_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -688,7 +688,7 @@ static void cont__3_7(void) {
   ((CELL *)frame->slots[4])->contents /* buf */ = frame->slots[3] /* tag */;
   // 47: ... : (key)
   // 48:   write_to &buf '@nl;' spaces(indent+2) serialize(key indent+2)
-  frame->slots[5] /* temp__1 */ = create_closure(entry__3_8, 1);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__generic_set__serialize_8, 1);
   // 47: for_each self: (key)
   // 48:   write_to &buf '@nl;' spaces(indent+2) serialize(key indent+2)
   argument_count = 2;
@@ -698,9 +698,9 @@ static void cont__3_7(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__3_14;
+  frame->cont = cont__types__generic_set__serialize_14;
 }
-static void entry__3_8(void) {
+static void entry__types__generic_set__serialize_8(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // key: 0
@@ -720,9 +720,9 @@ static void entry__3_8(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__3_9;
+  frame->cont = cont__types__generic_set__serialize_9;
 }
-static void cont__3_9(void) {
+static void cont__types__generic_set__serialize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -735,9 +735,9 @@ static void cont__3_9(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__3_10;
+  frame->cont = cont__types__generic_set__serialize_10;
 }
-static void cont__3_10(void) {
+static void cont__types__generic_set__serialize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -751,9 +751,9 @@ static void cont__3_10(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__3_11;
+  frame->cont = cont__types__generic_set__serialize_11;
 }
-static void cont__3_11(void) {
+static void cont__types__generic_set__serialize_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -767,9 +767,9 @@ static void cont__3_11(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__3_12;
+  frame->cont = cont__types__generic_set__serialize_12;
 }
-static void cont__3_12(void) {
+static void cont__types__generic_set__serialize_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -785,9 +785,9 @@ static void cont__3_12(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__3_13;
+  frame->cont = cont__types__generic_set__serialize_13;
 }
-static void cont__3_13(void) {
+static void cont__types__generic_set__serialize_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -799,7 +799,7 @@ static void cont__3_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__3_14(void) {
+static void cont__types__generic_set__serialize_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -812,7 +812,7 @@ static void cont__3_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1_types__generic_set_is_empty(void) {
+static void entry__types__generic_set__is_empty_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -827,9 +827,9 @@ static void entry__4_1_types__generic_set_is_empty(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__4_2;
+  frame->cont = cont__types__generic_set__is_empty_2;
 }
-static void cont__4_2(void) {
+static void cont__types__generic_set__is_empty_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -843,9 +843,9 @@ static void cont__4_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__4_3;
+  frame->cont = cont__types__generic_set__is_empty_3;
 }
-static void cont__4_3(void) {
+static void cont__types__generic_set__is_empty_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -859,7 +859,7 @@ static void cont__4_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1_types__generic_set_to_list(void) {
+static void entry__types__generic_set__to_list_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -872,7 +872,7 @@ static void entry__5_1_types__generic_set_to_list(void) {
   // 65: $$items empty_list
   ((CELL *)frame->slots[1])->contents /* items */ = get__empty_list();
   // 66: ... : (item) push &items item
-  frame->slots[2] /* temp__1 */ = create_closure(entry__5_2, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_set__to_list_2, 1);
   // 66: for_each self: (item) push &items item
   argument_count = 2;
   arguments = node_p;
@@ -881,9 +881,9 @@ static void entry__5_1_types__generic_set_to_list(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__5_4;
+  frame->cont = cont__types__generic_set__to_list_4;
 }
-static void entry__5_2(void) {
+static void entry__types__generic_set__to_list_2(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // item: 0
@@ -901,9 +901,9 @@ static void entry__5_2(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__5_3;
+  frame->cont = cont__types__generic_set__to_list_3;
 }
-static void cont__5_3(void) {
+static void cont__types__generic_set__to_list_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -915,7 +915,7 @@ static void cont__5_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__5_4(void) {
+static void cont__types__generic_set__to_list_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -928,7 +928,7 @@ static void cont__5_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1_std__set(void) {
+static void entry__std__set_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -939,7 +939,7 @@ static void entry__12_1_std__set(void) {
   // 97: $$tab types::set
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__set;
   // 98: ... : (key) !tab(key) true
-  frame->slots[2] /* temp__1 */ = create_closure(entry__12_2, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__set_2, 1);
   // 98: for_each args: (key) !tab(key) true
   argument_count = 2;
   arguments = node_p;
@@ -948,9 +948,9 @@ static void entry__12_1_std__set(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__12_4;
+  frame->cont = cont__std__set_4;
 }
-static void entry__12_2(void) {
+static void entry__std__set_2(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // key: 0
@@ -970,9 +970,9 @@ static void entry__12_2(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* tab */;
   func = myself->type;
-  frame->cont = cont__12_3;
+  frame->cont = cont__std__set_3;
 }
-static void cont__12_3(void) {
+static void cont__std__set_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -984,7 +984,7 @@ static void cont__12_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__12_4(void) {
+static void cont__std__set_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1022,13 +1022,13 @@ EXPORT void phase_2__basic__types__set(void) {
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
-  func__2_1_types__generic_set_union = create_function(entry__2_1_types__generic_set_union, 2);
+  func__types__generic_set__union_1 = create_function(entry__types__generic_set__union_1, 2);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
-  func__3_1_types__generic_set_serialize = create_function(entry__3_1_types__generic_set_serialize, -1);
-  func__4_1_types__generic_set_is_empty = create_function(entry__4_1_types__generic_set_is_empty, 1);
-  func__5_1_types__generic_set_to_list = create_function(entry__5_1_types__generic_set_to_list, 1);
+  func__types__generic_set__serialize_1 = create_function(entry__types__generic_set__serialize_1, -1);
+  func__types__generic_set__is_empty_1 = create_function(entry__types__generic_set__is_empty_1, 1);
+  func__types__generic_set__to_list_1 = create_function(entry__types__generic_set__to_list_1, 1);
   string__fa724815d016bb8 = from_latin_1_string("set", 3);
-  func__12_1_std__set = create_function(entry__12_1_std__set, -1);
+  func__std__set_1 = create_function(entry__std__set_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1071,10 +1071,10 @@ EXPORT void phase_4__basic__types__set(void) {
   use_read_only("types", "unordered_set", &get__types__unordered_set, &get_value_or_future__types__unordered_set);
   use_polymorphic_function(NULL, "union", &get__union, &poly_idx__union);
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
-  define_method("types", "generic_set", poly_idx__union, func__2_1_types__generic_set_union);
-  define_method("types", "generic_set", poly_idx__serialize, func__3_1_types__generic_set_serialize);
-  define_method("types", "generic_set", poly_idx__is_empty, func__4_1_types__generic_set_is_empty);
-  define_method("types", "generic_set", poly_idx__to_list, func__5_1_types__generic_set_to_list);
+  define_method("types", "generic_set", poly_idx__union, func__types__generic_set__union_1);
+  define_method("types", "generic_set", poly_idx__serialize, func__types__generic_set__serialize_1);
+  define_method("types", "generic_set", poly_idx__is_empty, func__types__generic_set__is_empty_1);
+  define_method("types", "generic_set", poly_idx__to_list, func__types__generic_set__to_list_1);
   define_attribute("types", "object", poly_idx__is_a_set, get__false());
   define_attribute("types", "generic_set", poly_idx__is_a_set, get__true());
   define_attribute("types", "set", poly_idx__serialization_tag_of, string__fa724815d016bb8);
@@ -1089,7 +1089,7 @@ EXPORT void phase_5__basic__types__set(void) {
   assign_value(&var.std__is_a_set, create_function(type__std__is_a_set, -1));
   assign_value(&var.types__set, get__types__unordered_set());
   assign_variable(&var.std__empty_set, &var.types__set);
-  assign_variable(&var.std__set, &func__12_1_std__set);
+  assign_variable(&var.std__set, &func__std__set_1);
 }
 
 static int already_run_phase_6 = false;

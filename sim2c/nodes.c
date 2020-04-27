@@ -1151,14 +1151,14 @@ static NODE *get__node__is_a_numeric_literal(void) {
 static NODE *get__sim2c__numeric_literal(void) {
   return var.sim2c__numeric_literal;
 }
-static NODE *func__208_1_sim2c__numeric_literal_mangled_name_of;
-static void entry__208_1_sim2c__numeric_literal_mangled_name_of(void);
-static FRAME_INFO frame__208_1_sim2c__numeric_literal_mangled_name_of = {1, {"self"}};
-static void cont__208_2(void);
+static NODE *func__sim2c__numeric_literal__mangled_name_of_1;
+static void entry__sim2c__numeric_literal__mangled_name_of_1(void);
+static FRAME_INFO frame__sim2c__numeric_literal__mangled_name_of_1 = {1, {"self"}};
+static void cont__sim2c__numeric_literal__mangled_name_of_2(void);
 static NODE *string__578a5af303e9cbe;
-static void cont__208_4(void);
-static void cont__208_5(void);
-static void cont__208_6(void);
+static void cont__sim2c__numeric_literal__mangled_name_of_4(void);
+static void cont__sim2c__numeric_literal__mangled_name_of_5(void);
+static void cont__sim2c__numeric_literal__mangled_name_of_6(void);
 static int poly_idx__node__is_a_character_literal;
 static void type__node__is_a_character_literal(void);
 static NODE *get__node__is_a_character_literal(void) {
@@ -1216,40 +1216,40 @@ static NODE *get__node__is_used_as_a_polymorphic_function(void) {
 static NODE *get__sim2c__identifier(void) {
   return var.sim2c__identifier;
 }
-static NODE *func__246_1_sim2c__identifier_full_name_of;
-static void entry__246_1_sim2c__identifier_full_name_of(void);
-static FRAME_INFO frame__246_1_sim2c__identifier_full_name_of = {1, {"self"}};
-static void cont__246_2(void);
-static void cont__246_3(void);
-static NODE *func__246_4;
-static void entry__246_4(void);
-static FRAME_INFO frame__246_4 = {1, {"self"}};
-static void cont__246_5(void);
+static NODE *func__sim2c__identifier__full_name_of_1;
+static void entry__sim2c__identifier__full_name_of_1(void);
+static FRAME_INFO frame__sim2c__identifier__full_name_of_1 = {1, {"self"}};
+static void cont__sim2c__identifier__full_name_of_2(void);
+static void cont__sim2c__identifier__full_name_of_3(void);
+static NODE *func__sim2c__identifier__full_name_of_4;
+static void entry__sim2c__identifier__full_name_of_4(void);
+static FRAME_INFO frame__sim2c__identifier__full_name_of_4 = {1, {"self"}};
+static void cont__sim2c__identifier__full_name_of_5(void);
 static NODE *string__2d7981f4e6d82bff;
-static void cont__246_7(void);
-static NODE *func__246_8;
-static void entry__246_8(void);
-static FRAME_INFO frame__246_8 = {0, {}};
-static void cont__246_9(void);
-static void cont__246_10(void);
-static void cont__246_11(void);
-static NODE *func__247_1_sim2c__identifier_mangled_name_of;
-static void entry__247_1_sim2c__identifier_mangled_name_of(void);
-static FRAME_INFO frame__247_1_sim2c__identifier_mangled_name_of = {1, {"self"}};
-static void cont__247_2(void);
-static void cont__247_3(void);
-static NODE *func__247_4;
-static void entry__247_4(void);
-static FRAME_INFO frame__247_4 = {1, {"self"}};
-static void cont__247_5(void);
+static void cont__sim2c__identifier__full_name_of_7(void);
+static NODE *func__sim2c__identifier__full_name_of_8;
+static void entry__sim2c__identifier__full_name_of_8(void);
+static FRAME_INFO frame__sim2c__identifier__full_name_of_8 = {0, {}};
+static void cont__sim2c__identifier__full_name_of_9(void);
+static void cont__sim2c__identifier__full_name_of_10(void);
+static void cont__sim2c__identifier__full_name_of_11(void);
+static NODE *func__sim2c__identifier__mangled_name_of_1;
+static void entry__sim2c__identifier__mangled_name_of_1(void);
+static FRAME_INFO frame__sim2c__identifier__mangled_name_of_1 = {1, {"self"}};
+static void cont__sim2c__identifier__mangled_name_of_2(void);
+static void cont__sim2c__identifier__mangled_name_of_3(void);
+static NODE *func__sim2c__identifier__mangled_name_of_4;
+static void entry__sim2c__identifier__mangled_name_of_4(void);
+static FRAME_INFO frame__sim2c__identifier__mangled_name_of_4 = {1, {"self"}};
+static void cont__sim2c__identifier__mangled_name_of_5(void);
 static NODE *string__2d7981f4e5f02b9a;
-static void cont__247_7(void);
-static NODE *func__247_8;
-static void entry__247_8(void);
-static FRAME_INFO frame__247_8 = {0, {}};
-static void cont__247_9(void);
-static void cont__247_10(void);
-static void cont__247_11(void);
+static void cont__sim2c__identifier__mangled_name_of_7(void);
+static NODE *func__sim2c__identifier__mangled_name_of_8;
+static void entry__sim2c__identifier__mangled_name_of_8(void);
+static FRAME_INFO frame__sim2c__identifier__mangled_name_of_8 = {0, {}};
+static void cont__sim2c__identifier__mangled_name_of_9(void);
+static void cont__sim2c__identifier__mangled_name_of_10(void);
+static void cont__sim2c__identifier__mangled_name_of_11(void);
 static int poly_idx__node__is_a_temporary;
 static void type__node__is_a_temporary(void);
 static NODE *get__node__is_a_temporary(void) {
@@ -1283,12 +1283,12 @@ static NODE *get__node__is_a_c_body(void) {
 static NODE *get__sim2c__c_body(void) {
   return var.sim2c__c_body;
 }
-static NODE *func__267_1_sim2c__is_a_parameter;
-static void entry__267_1_sim2c__is_a_parameter(void);
-static FRAME_INFO frame__267_1_sim2c__is_a_parameter = {1, {"self"}};
-static void cont__267_2(void);
-static void cont__267_3(void);
-static void cont__267_4(void);
+static NODE *func__sim2c__is_a_parameter_1;
+static void entry__sim2c__is_a_parameter_1(void);
+static FRAME_INFO frame__sim2c__is_a_parameter_1 = {1, {"self"}};
+static void cont__sim2c__is_a_parameter_2(void);
+static void cont__sim2c__is_a_parameter_3(void);
+static void cont__sim2c__is_a_parameter_4(void);
 static NODE *get__sim2c__is_a_parameter(void) {
   return var.sim2c__is_a_parameter;
 }
@@ -1391,35 +1391,35 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__node__is_c_code, NULL, 491, 491, 2, 16},
   {type__node__is_a_c_body, NULL, 502, 502, 2, 18},
   {run__nodes, NULL, 495, 495, 1, 34},
-  {entry__208_1_sim2c__numeric_literal_mangled_name_of, NULL, 376, 376, 18, 37},
-  {cont__208_2, &frame__208_1_sim2c__numeric_literal_mangled_name_of, 376, 376, 39, 47},
-  {cont__208_4, &frame__208_1_sim2c__numeric_literal_mangled_name_of, 376, 376, 49, 61},
-  {cont__208_5, &frame__208_1_sim2c__numeric_literal_mangled_name_of, 376, 376, 6, 62},
-  {cont__208_6, &frame__208_1_sim2c__numeric_literal_mangled_name_of, 376, 376, 3, 62},
-  {entry__246_4, NULL, 457, 457, 19, 36},
-  {cont__246_5, &frame__246_4, 457, 457, 12, 42},
-  {cont__246_7, &frame__246_4, 457, 457, 9, 42},
-  {entry__246_8, NULL, 458, 458, 9, 13},
-  {entry__246_1_sim2c__identifier_full_name_of, NULL, 456, 456, 9, 26},
-  {cont__246_2, &frame__246_1_sim2c__identifier_full_name_of, 456, 456, 9, 37},
-  {cont__246_3, &frame__246_1_sim2c__identifier_full_name_of, 455, 458, 7, 12},
-  {cont__246_9, &frame__246_1_sim2c__identifier_full_name_of, 459, 459, 7, 19},
-  {cont__246_10, &frame__246_1_sim2c__identifier_full_name_of, 454, 459, 5, 18},
-  {cont__246_11, &frame__246_1_sim2c__identifier_full_name_of, 453, 459, 3, 20},
-  {entry__247_4, NULL, 466, 466, 19, 36},
-  {cont__247_5, &frame__247_4, 466, 466, 12, 42},
-  {cont__247_7, &frame__247_4, 466, 466, 9, 42},
-  {entry__247_8, NULL, 467, 467, 9, 13},
-  {entry__247_1_sim2c__identifier_mangled_name_of, NULL, 465, 465, 9, 26},
-  {cont__247_2, &frame__247_1_sim2c__identifier_mangled_name_of, 465, 465, 9, 37},
-  {cont__247_3, &frame__247_1_sim2c__identifier_mangled_name_of, 464, 467, 7, 12},
-  {cont__247_9, &frame__247_1_sim2c__identifier_mangled_name_of, 468, 468, 7, 19},
-  {cont__247_10, &frame__247_1_sim2c__identifier_mangled_name_of, 463, 468, 5, 18},
-  {cont__247_11, &frame__247_1_sim2c__identifier_mangled_name_of, 462, 468, 3, 20},
-  {entry__267_1_sim2c__is_a_parameter, NULL, 512, 512, 35, 57},
-  {cont__267_2, &frame__267_1_sim2c__is_a_parameter, 512, 512, 35, 73},
-  {cont__267_3, &frame__267_1_sim2c__is_a_parameter, 512, 512, 35, 73},
-  {cont__267_4, &frame__267_1_sim2c__is_a_parameter, 512, 512, 32, 73}
+  {entry__sim2c__numeric_literal__mangled_name_of_1, NULL, 376, 376, 18, 37},
+  {cont__sim2c__numeric_literal__mangled_name_of_2, &frame__sim2c__numeric_literal__mangled_name_of_1, 376, 376, 39, 47},
+  {cont__sim2c__numeric_literal__mangled_name_of_4, &frame__sim2c__numeric_literal__mangled_name_of_1, 376, 376, 49, 61},
+  {cont__sim2c__numeric_literal__mangled_name_of_5, &frame__sim2c__numeric_literal__mangled_name_of_1, 376, 376, 6, 62},
+  {cont__sim2c__numeric_literal__mangled_name_of_6, &frame__sim2c__numeric_literal__mangled_name_of_1, 376, 376, 3, 62},
+  {entry__sim2c__identifier__full_name_of_4, NULL, 457, 457, 19, 36},
+  {cont__sim2c__identifier__full_name_of_5, &frame__sim2c__identifier__full_name_of_4, 457, 457, 12, 42},
+  {cont__sim2c__identifier__full_name_of_7, &frame__sim2c__identifier__full_name_of_4, 457, 457, 9, 42},
+  {entry__sim2c__identifier__full_name_of_8, NULL, 458, 458, 9, 13},
+  {entry__sim2c__identifier__full_name_of_1, NULL, 456, 456, 9, 26},
+  {cont__sim2c__identifier__full_name_of_2, &frame__sim2c__identifier__full_name_of_1, 456, 456, 9, 37},
+  {cont__sim2c__identifier__full_name_of_3, &frame__sim2c__identifier__full_name_of_1, 455, 458, 7, 12},
+  {cont__sim2c__identifier__full_name_of_9, &frame__sim2c__identifier__full_name_of_1, 459, 459, 7, 19},
+  {cont__sim2c__identifier__full_name_of_10, &frame__sim2c__identifier__full_name_of_1, 454, 459, 5, 18},
+  {cont__sim2c__identifier__full_name_of_11, &frame__sim2c__identifier__full_name_of_1, 453, 459, 3, 20},
+  {entry__sim2c__identifier__mangled_name_of_4, NULL, 466, 466, 19, 36},
+  {cont__sim2c__identifier__mangled_name_of_5, &frame__sim2c__identifier__mangled_name_of_4, 466, 466, 12, 42},
+  {cont__sim2c__identifier__mangled_name_of_7, &frame__sim2c__identifier__mangled_name_of_4, 466, 466, 9, 42},
+  {entry__sim2c__identifier__mangled_name_of_8, NULL, 467, 467, 9, 13},
+  {entry__sim2c__identifier__mangled_name_of_1, NULL, 465, 465, 9, 26},
+  {cont__sim2c__identifier__mangled_name_of_2, &frame__sim2c__identifier__mangled_name_of_1, 465, 465, 9, 37},
+  {cont__sim2c__identifier__mangled_name_of_3, &frame__sim2c__identifier__mangled_name_of_1, 464, 467, 7, 12},
+  {cont__sim2c__identifier__mangled_name_of_9, &frame__sim2c__identifier__mangled_name_of_1, 468, 468, 7, 19},
+  {cont__sim2c__identifier__mangled_name_of_10, &frame__sim2c__identifier__mangled_name_of_1, 463, 468, 5, 18},
+  {cont__sim2c__identifier__mangled_name_of_11, &frame__sim2c__identifier__mangled_name_of_1, 462, 468, 3, 20},
+  {entry__sim2c__is_a_parameter_1, NULL, 512, 512, 35, 57},
+  {cont__sim2c__is_a_parameter_2, &frame__sim2c__is_a_parameter_1, 512, 512, 35, 73},
+  {cont__sim2c__is_a_parameter_3, &frame__sim2c__is_a_parameter_1, 512, 512, 35, 73},
+  {cont__sim2c__is_a_parameter_4, &frame__sim2c__is_a_parameter_1, 512, 512, 32, 73}
 };
 
 union NODE {
@@ -3590,7 +3590,7 @@ EXPORT void run__nodes(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__208_1_sim2c__numeric_literal_mangled_name_of(void) {
+static void entry__sim2c__numeric_literal__mangled_name_of_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3605,9 +3605,9 @@ static void entry__208_1_sim2c__numeric_literal_mangled_name_of(void) {
   result_count = 1;
   myself = var.node__value_of;
   func = myself->type;
-  frame->cont = cont__208_2;
+  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_2;
 }
-static void cont__208_2(void) {
+static void cont__sim2c__numeric_literal__mangled_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3621,9 +3621,9 @@ static void cont__208_2(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__208_4;
+  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_4;
 }
-static void cont__208_4(void) {
+static void cont__sim2c__numeric_literal__mangled_name_of_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3637,9 +3637,9 @@ static void cont__208_4(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__208_5;
+  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_5;
 }
-static void cont__208_5(void) {
+static void cont__sim2c__numeric_literal__mangled_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3654,9 +3654,9 @@ static void cont__208_5(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__208_6;
+  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_6;
 }
-static void cont__208_6(void) {
+static void cont__sim2c__numeric_literal__mangled_name_of_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3670,7 +3670,7 @@ static void cont__208_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__246_1_sim2c__identifier_full_name_of(void) {
+static void entry__sim2c__identifier__full_name_of_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -3685,9 +3685,9 @@ static void entry__246_1_sim2c__identifier_full_name_of(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__246_2;
+  frame->cont = cont__sim2c__identifier__full_name_of_2;
 }
-static void cont__246_2(void) {
+static void cont__sim2c__identifier__full_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3700,16 +3700,16 @@ static void cont__246_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__246_3;
+  frame->cont = cont__sim2c__identifier__full_name_of_3;
 }
-static void cont__246_3(void) {
+static void cont__sim2c__identifier__full_name_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 457: -> string(namespace_of(self) "::")
-  frame->slots[5] /* temp__5 */ = create_closure(entry__246_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__identifier__full_name_of_4, 0);
   // 455: if
   // 456:   namespace_of(self).is_defined
   // 457:   -> string(namespace_of(self) "::")
@@ -3718,13 +3718,13 @@ static void cont__246_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   arguments->slots[1] = frame->slots[5] /* temp__5 */;
-  arguments->slots[2] = func__246_8;
+  arguments->slots[2] = func__sim2c__identifier__full_name_of_8;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__246_9;
+  frame->cont = cont__sim2c__identifier__full_name_of_9;
 }
-static void entry__246_4(void) {
+static void entry__sim2c__identifier__full_name_of_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -3740,9 +3740,9 @@ static void entry__246_4(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__246_5;
+  frame->cont = cont__sim2c__identifier__full_name_of_5;
 }
-static void cont__246_5(void) {
+static void cont__sim2c__identifier__full_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3756,9 +3756,9 @@ static void cont__246_5(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__246_7;
+  frame->cont = cont__sim2c__identifier__full_name_of_7;
 }
-static void cont__246_7(void) {
+static void cont__sim2c__identifier__full_name_of_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3772,7 +3772,7 @@ static void cont__246_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__246_8(void) {
+static void entry__sim2c__identifier__full_name_of_8(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3787,7 +3787,7 @@ static void entry__246_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__246_9(void) {
+static void cont__sim2c__identifier__full_name_of_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3800,9 +3800,9 @@ static void cont__246_9(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__246_10;
+  frame->cont = cont__sim2c__identifier__full_name_of_10;
 }
-static void cont__246_10(void) {
+static void cont__sim2c__identifier__full_name_of_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3821,9 +3821,9 @@ static void cont__246_10(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__246_11;
+  frame->cont = cont__sim2c__identifier__full_name_of_11;
 }
-static void cont__246_11(void) {
+static void cont__sim2c__identifier__full_name_of_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3843,7 +3843,7 @@ static void cont__246_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__247_1_sim2c__identifier_mangled_name_of(void) {
+static void entry__sim2c__identifier__mangled_name_of_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -3858,9 +3858,9 @@ static void entry__247_1_sim2c__identifier_mangled_name_of(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__247_2;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_2;
 }
-static void cont__247_2(void) {
+static void cont__sim2c__identifier__mangled_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3873,16 +3873,16 @@ static void cont__247_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__247_3;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_3;
 }
-static void cont__247_3(void) {
+static void cont__sim2c__identifier__mangled_name_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 466: -> string(namespace_of(self) "__")
-  frame->slots[5] /* temp__5 */ = create_closure(entry__247_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__identifier__mangled_name_of_4, 0);
   // 464: if
   // 465:   namespace_of(self).is_defined
   // 466:   -> string(namespace_of(self) "__")
@@ -3891,13 +3891,13 @@ static void cont__247_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   arguments->slots[1] = frame->slots[5] /* temp__5 */;
-  arguments->slots[2] = func__247_8;
+  arguments->slots[2] = func__sim2c__identifier__mangled_name_of_8;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__247_9;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_9;
 }
-static void entry__247_4(void) {
+static void entry__sim2c__identifier__mangled_name_of_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -3913,9 +3913,9 @@ static void entry__247_4(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__247_5;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_5;
 }
-static void cont__247_5(void) {
+static void cont__sim2c__identifier__mangled_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3929,9 +3929,9 @@ static void cont__247_5(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__247_7;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_7;
 }
-static void cont__247_7(void) {
+static void cont__sim2c__identifier__mangled_name_of_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3945,7 +3945,7 @@ static void cont__247_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__247_8(void) {
+static void entry__sim2c__identifier__mangled_name_of_8(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3960,7 +3960,7 @@ static void entry__247_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__247_9(void) {
+static void cont__sim2c__identifier__mangled_name_of_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3973,9 +3973,9 @@ static void cont__247_9(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__247_10;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_10;
 }
-static void cont__247_10(void) {
+static void cont__sim2c__identifier__mangled_name_of_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3994,9 +3994,9 @@ static void cont__247_10(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__247_11;
+  frame->cont = cont__sim2c__identifier__mangled_name_of_11;
 }
-static void cont__247_11(void) {
+static void cont__sim2c__identifier__mangled_name_of_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4016,7 +4016,7 @@ static void cont__247_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__267_1_sim2c__is_a_parameter(void) {
+static void entry__sim2c__is_a_parameter_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -4031,9 +4031,9 @@ static void entry__267_1_sim2c__is_a_parameter(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__267_2;
+  frame->cont = cont__sim2c__is_a_parameter_2;
 }
-static void cont__267_2(void) {
+static void cont__sim2c__is_a_parameter_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4047,9 +4047,9 @@ static void cont__267_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__267_3;
+  frame->cont = cont__sim2c__is_a_parameter_3;
 }
-static void cont__267_3(void) {
+static void cont__sim2c__is_a_parameter_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4062,9 +4062,9 @@ static void cont__267_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__267_4;
+  frame->cont = cont__sim2c__is_a_parameter_4;
 }
-static void cont__267_4(void) {
+static void cont__sim2c__is_a_parameter_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4358,16 +4358,16 @@ EXPORT void phase_2__nodes(void) {
   unique__sim2c__DYNAMIC_MULTI = register_unique_item("sim2c__DYNAMIC_MULTI");
   unique__sim2c__C_NODE = register_unique_item("sim2c__C_NODE");
   string__578a5af303e9cbe = from_latin_1_string("_", 1);
-  func__208_1_sim2c__numeric_literal_mangled_name_of = create_function(entry__208_1_sim2c__numeric_literal_mangled_name_of, 1);
+  func__sim2c__numeric_literal__mangled_name_of_1 = create_function(entry__sim2c__numeric_literal__mangled_name_of_1, 1);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
-  func__246_8 = create_function(entry__246_8, 0);
-  func__246_1_sim2c__identifier_full_name_of = create_function(entry__246_1_sim2c__identifier_full_name_of, 1);
+  func__sim2c__identifier__full_name_of_8 = create_function(entry__sim2c__identifier__full_name_of_8, 0);
+  func__sim2c__identifier__full_name_of_1 = create_function(entry__sim2c__identifier__full_name_of_1, 1);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
-  func__247_8 = create_function(entry__247_8, 0);
-  func__247_1_sim2c__identifier_mangled_name_of = create_function(entry__247_1_sim2c__identifier_mangled_name_of, 1);
+  func__sim2c__identifier__mangled_name_of_8 = create_function(entry__sim2c__identifier__mangled_name_of_8, 0);
+  func__sim2c__identifier__mangled_name_of_1 = create_function(entry__sim2c__identifier__mangled_name_of_1, 1);
   string__545aebc3eac0d03b = from_latin_1_string("local", 5);
-  func__267_1_sim2c__is_a_parameter = create_function(entry__267_1_sim2c__is_a_parameter, 1);
+  func__sim2c__is_a_parameter_1 = create_function(entry__sim2c__is_a_parameter_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4619,7 +4619,7 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("types", "grammar_node", poly_idx__is_a_numeric_literal, get__false());
   define_attribute("sim2c", "numeric_literal", poly_idx__is_a_numeric_literal, get__true());
   define_attribute("sim2c", "numeric_literal", poly_idx__is_a_constant, get__true());
-  define_method("sim2c", "numeric_literal", poly_idx__mangled_name_of, func__208_1_sim2c__numeric_literal_mangled_name_of);
+  define_method("sim2c", "numeric_literal", poly_idx__mangled_name_of, func__sim2c__numeric_literal__mangled_name_of_1);
   define_attribute("types", "grammar_node", poly_idx__is_a_character_literal, get__false());
   define_attribute("sim2c", "character_literal", poly_idx__is_a_character_literal, get__true());
   define_attribute("sim2c", "character_literal", poly_idx__is_a_constant, get__true());
@@ -4643,8 +4643,8 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("types", "grammar_node", poly_idx__is_a_destination, get__false());
   define_attribute("sim2c", "identifier", poly_idx__is_used_as_a_polymorphic_function, get__false());
   define_attribute("sim2c", "identifier", poly_idx__is_not_used, get__false());
-  define_method("sim2c", "identifier", poly_idx__full_name_of, func__246_1_sim2c__identifier_full_name_of);
-  define_method("sim2c", "identifier", poly_idx__mangled_name_of, func__247_1_sim2c__identifier_mangled_name_of);
+  define_method("sim2c", "identifier", poly_idx__full_name_of, func__sim2c__identifier__full_name_of_1);
+  define_method("sim2c", "identifier", poly_idx__mangled_name_of, func__sim2c__identifier__mangled_name_of_1);
   define_attribute("types", "grammar_node", poly_idx__is_a_temporary, get__false());
   define_attribute("sim2c", "temporary", poly_idx__is_a_temporary, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_operator_symbol, get__false());
@@ -4794,7 +4794,7 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.sim2c__c_code, get__types__grammar_node());
   assign_value(&var.node__is_a_c_body, create_function(type__node__is_a_c_body, -1));
   assign_variable(&var.sim2c__c_body, &var.sim2c__c_code);
-  assign_variable(&var.sim2c__is_a_parameter, &func__267_1_sim2c__is_a_parameter);
+  assign_variable(&var.sim2c__is_a_parameter, &func__sim2c__is_a_parameter_1);
 }
 
 static int already_run_phase_6 = false;

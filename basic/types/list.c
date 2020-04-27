@@ -454,574 +454,574 @@ static void func__types__list___unfold(NODE *list);
 static long func__types__list___length_of(NODE *node);
 
 static NODE *func__types__list___get_item_of(NODE *node, long idx);
-static NODE *func__14_1_types__list_to_list;
-static void entry__14_1_types__list_to_list(void);
-static FRAME_INFO frame__14_1_types__list_to_list = {1, {"self"}};
-static void entry__15_1_std__list(void);
-static NODE *func__15_1_std__list;
+static NODE *func__types__list__to_list_1;
+static void entry__types__list__to_list_1(void);
+static FRAME_INFO frame__types__list__to_list_1 = {1, {"self"}};
+static void entry__std__list_1(void);
+static NODE *func__std__list_1;
 static NODE *get__std__list(void) {
   return var.std__list;
 }
-static void entry__16_1_types__list_length_of(void);
-static NODE *func__16_1_types__list_length_of;
-static void entry__17_1_types__list_push(void);
-static NODE *func__17_1_types__list_push;
-static void entry__18_1_types__list_drop(void);
-static NODE *func__18_1_types__list_drop;
-static void entry__19_1_types__list_pop(void);
-static NODE *func__19_1_types__list_pop;
-static void entry__20_1_types__list_peek(void);
-static NODE *func__20_1_types__list_peek;
-static void entry__21_1_types__list_append(void);
-static NODE *func__21_1_types__list_append;
-static void entry__22_1_types__list_range(void);
-static NODE *func__22_1_types__list_range;
-static NODE *func__23_1_types__generic_list_delete_at;
-static void entry__23_1_types__generic_list_delete_at(void);
-static FRAME_INFO frame__23_1_types__generic_list_delete_at = {3, {"self", "idx", "count"}};
-static void cont__23_2(void);
-static void cont__23_3(void);
-static NODE *func__23_4;
-static void entry__23_4(void);
-static FRAME_INFO frame__23_4 = {3, {"self", "idx", "count"}};
-static void cont__23_5(void);
-static void cont__23_6(void);
-static void cont__23_7(void);
-static void cont__23_8(void);
-static void cont__23_9(void);
-static void cont__23_10(void);
-static void cont__23_11(void);
-static NODE *func__24_1_std__normalized_index;
-static void entry__24_1_std__normalized_index(void);
-static FRAME_INFO frame__24_1_std__normalized_index = {3, {"self", "idx", "return"}};
-static void cont__24_2(void);
-static void cont__24_3(void);
-static NODE *func__24_4;
-static void entry__24_4(void);
-static FRAME_INFO frame__24_4 = {2, {"return", "idx"}};
-static NODE *func__24_5;
-static void entry__24_5(void);
-static FRAME_INFO frame__24_5 = {3, {"return", "self", "idx"}};
-static void cont__24_6(void);
-static void cont__24_7(void);
-static void cont__24_8(void);
-static void cont__24_9(void);
+static void entry__types__list__length_of_1(void);
+static NODE *func__types__list__length_of_1;
+static void entry__types__list__push_1(void);
+static NODE *func__types__list__push_1;
+static void entry__types__list__drop_1(void);
+static NODE *func__types__list__drop_1;
+static void entry__types__list__pop_1(void);
+static NODE *func__types__list__pop_1;
+static void entry__types__list__peek_1(void);
+static NODE *func__types__list__peek_1;
+static void entry__types__list__append_1(void);
+static NODE *func__types__list__append_1;
+static void entry__types__list__range_1(void);
+static NODE *func__types__list__range_1;
+static NODE *func__types__generic_list__delete_at_1;
+static void entry__types__generic_list__delete_at_1(void);
+static FRAME_INFO frame__types__generic_list__delete_at_1 = {3, {"self", "idx", "count"}};
+static void cont__types__generic_list__delete_at_2(void);
+static void cont__types__generic_list__delete_at_3(void);
+static NODE *func__types__generic_list__delete_at_4;
+static void entry__types__generic_list__delete_at_4(void);
+static FRAME_INFO frame__types__generic_list__delete_at_4 = {3, {"self", "idx", "count"}};
+static void cont__types__generic_list__delete_at_5(void);
+static void cont__types__generic_list__delete_at_6(void);
+static void cont__types__generic_list__delete_at_7(void);
+static void cont__types__generic_list__delete_at_8(void);
+static void cont__types__generic_list__delete_at_9(void);
+static void cont__types__generic_list__delete_at_10(void);
+static void cont__types__generic_list__delete_at_11(void);
+static NODE *func__std__normalized_index_1;
+static void entry__std__normalized_index_1(void);
+static FRAME_INFO frame__std__normalized_index_1 = {3, {"self", "idx", "return"}};
+static void cont__std__normalized_index_2(void);
+static void cont__std__normalized_index_3(void);
+static NODE *func__std__normalized_index_4;
+static void entry__std__normalized_index_4(void);
+static FRAME_INFO frame__std__normalized_index_4 = {2, {"return", "idx"}};
+static NODE *func__std__normalized_index_5;
+static void entry__std__normalized_index_5(void);
+static FRAME_INFO frame__std__normalized_index_5 = {3, {"return", "self", "idx"}};
+static void cont__std__normalized_index_6(void);
+static void cont__std__normalized_index_7(void);
+static void cont__std__normalized_index_8(void);
+static void cont__std__normalized_index_9(void);
 static NODE *get__std__normalized_index(void) {
   return var.std__normalized_index;
 }
-static NODE *func__25_1_types__generic_list_is_empty;
-static void entry__25_1_types__generic_list_is_empty(void);
-static FRAME_INFO frame__25_1_types__generic_list_is_empty = {1, {"self"}};
-static void cont__25_2(void);
-static void cont__25_3(void);
-static NODE *func__26_1_types__generic_list_for_each_from_to;
-static void entry__26_1_types__generic_list_for_each_from_to(void);
-static FRAME_INFO frame__26_1_types__generic_list_for_each_from_to = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
-static void cont__26_2(void);
-static void cont__26_3(void);
-static NODE *func__26_4;
-static void entry__26_4(void);
-static FRAME_INFO frame__26_4 = {5, {"n", "i", "body", "self", "body2"}};
-static void cont__26_5(void);
-static void cont__26_6(void);
-static NODE *func__26_7;
-static void entry__26_7(void);
-static FRAME_INFO frame__26_7 = {5, {"body", "i", "self", "body2", "n"}};
-static void cont__26_8(void);
-static void cont__26_9(void);
-static NODE *func__26_10;
-static void entry__26_10(void);
-static FRAME_INFO frame__26_10 = {3, {"body", "i", "self"}};
-static void cont__26_11(void);
-static NODE *func__26_12;
-static void entry__26_12(void);
-static FRAME_INFO frame__26_12 = {3, {"body", "self", "i"}};
-static void cont__26_13(void);
-static void cont__26_14(void);
-static void cont__26_15(void);
-static NODE *func__26_16;
-static void entry__26_16(void);
-static FRAME_INFO frame__26_16 = {2, {"i", "n"}};
-static void cont__26_17(void);
-static void cont__26_18(void);
-static NODE *func__26_19;
-static void entry__26_19(void);
-static FRAME_INFO frame__26_19 = {1, {"body2"}};
-static void cont__26_20(void);
-static void cont__26_21(void);
-static NODE *func__27_1_types__generic_list_for_each_from_down_to;
-static void entry__27_1_types__generic_list_for_each_from_down_to(void);
-static FRAME_INFO frame__27_1_types__generic_list_for_each_from_down_to = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
-static void cont__27_2(void);
-static void cont__27_3(void);
-static NODE *func__27_4;
-static void entry__27_4(void);
-static FRAME_INFO frame__27_4 = {5, {"i", "n", "body", "self", "body2"}};
-static void cont__27_5(void);
-static void cont__27_6(void);
-static NODE *func__27_7;
-static void entry__27_7(void);
-static FRAME_INFO frame__27_7 = {5, {"body", "i", "self", "body2", "n"}};
-static void cont__27_8(void);
-static void cont__27_9(void);
-static NODE *func__27_10;
-static void entry__27_10(void);
-static FRAME_INFO frame__27_10 = {3, {"body", "i", "self"}};
-static void cont__27_11(void);
-static NODE *func__27_12;
-static void entry__27_12(void);
-static FRAME_INFO frame__27_12 = {3, {"body", "self", "i"}};
-static void cont__27_13(void);
-static void cont__27_14(void);
-static void cont__27_15(void);
-static NODE *func__27_16;
-static void entry__27_16(void);
-static FRAME_INFO frame__27_16 = {2, {"i", "n"}};
-static void cont__27_17(void);
-static void cont__27_18(void);
-static NODE *func__27_19;
-static void entry__27_19(void);
-static FRAME_INFO frame__27_19 = {1, {"body2"}};
-static void cont__27_20(void);
-static void cont__27_21(void);
-static NODE *func__28_1_types__generic_list_for_each;
-static void entry__28_1_types__generic_list_for_each(void);
-static FRAME_INFO frame__28_1_types__generic_list_for_each = {5, {"self", "body", "body2", "i", "n"}};
-static void cont__28_2(void);
-static void cont__28_3(void);
-static void cont__28_4(void);
-static NODE *func__28_5;
-static void entry__28_5(void);
-static FRAME_INFO frame__28_5 = {5, {"n", "i", "body", "self", "body2"}};
-static NODE *func__28_6;
-static void entry__28_6(void);
-static FRAME_INFO frame__28_6 = {5, {"n", "i", "body", "self", "body2"}};
-static void cont__28_7(void);
-static void cont__28_8(void);
-static NODE *func__28_9;
-static void entry__28_9(void);
-static FRAME_INFO frame__28_9 = {5, {"body", "i", "self", "body2", "n"}};
-static void cont__28_10(void);
-static void cont__28_11(void);
-static void cont__28_12(void);
-static NODE *func__28_13;
-static void entry__28_13(void);
-static FRAME_INFO frame__28_13 = {2, {"i", "n"}};
-static void cont__28_14(void);
-static void cont__28_15(void);
-static NODE *func__28_16;
-static void entry__28_16(void);
-static FRAME_INFO frame__28_16 = {1, {"body2"}};
-static void cont__28_17(void);
-static void cont__28_18(void);
-static NODE *func__28_19;
-static void entry__28_19(void);
-static FRAME_INFO frame__28_19 = {5, {"n", "i", "body", "self", "body2"}};
-static NODE *func__28_20;
-static void entry__28_20(void);
-static FRAME_INFO frame__28_20 = {5, {"n", "i", "body", "self", "body2"}};
-static void cont__28_21(void);
-static void cont__28_22(void);
-static NODE *func__28_23;
-static void entry__28_23(void);
-static FRAME_INFO frame__28_23 = {5, {"body", "self", "i", "body2", "n"}};
-static void cont__28_24(void);
-static void cont__28_25(void);
-static void cont__28_26(void);
-static NODE *func__28_27;
-static void entry__28_27(void);
-static FRAME_INFO frame__28_27 = {2, {"i", "n"}};
-static void cont__28_28(void);
-static void cont__28_29(void);
-static NODE *func__28_30;
-static void entry__28_30(void);
-static FRAME_INFO frame__28_30 = {1, {"body2"}};
-static void cont__28_31(void);
-static void cont__28_32(void);
-static NODE *func__29_1_types__generic_list_update_each;
-static void entry__29_1_types__generic_list_update_each(void);
-static FRAME_INFO frame__29_1_types__generic_list_update_each = {7, {"self", "body", "return", "update_item", "i", "n", "new_list"}};
-static NODE *func__29_2_update_item;
-static void entry__29_2_update_item(void);
-static FRAME_INFO frame__29_2_update_item = {3, {"new_item", "new_list", "i"}};
-static void cont__29_3(void);
-static NODE *func__29_4;
-static void entry__29_4(void);
-static FRAME_INFO frame__29_4 = {2, {"new_item", "new_list"}};
-static void cont__29_5(void);
-static NODE *func__29_6;
-static void entry__29_6(void);
-static FRAME_INFO frame__29_6 = {2, {"new_list", "new_item"}};
-static void cont__29_7(void);
-static NODE *func__29_8;
-static void entry__29_8(void);
-static FRAME_INFO frame__29_8 = {2, {"new_list", "new_item"}};
-static void cont__29_9(void);
-static void cont__29_10(void);
-static void cont__29_11(void);
-static void cont__29_12(void);
-static void cont__29_13(void);
-static void cont__29_14(void);
-static NODE *func__29_15;
-static void entry__29_15(void);
-static FRAME_INFO frame__29_15 = {5, {"n", "i", "update_item", "body", "self"}};
-static NODE *func__29_16;
-static void entry__29_16(void);
-static FRAME_INFO frame__29_16 = {5, {"n", "i", "update_item", "body", "self"}};
-static void cont__29_17(void);
-static void cont__29_18(void);
-static NODE *func__29_19;
-static void entry__29_19(void);
-static FRAME_INFO frame__29_19 = {4, {"update_item", "body", "i", "self"}};
-static void cont__29_20(void);
-static void cont__29_21(void);
-static NODE *func__29_22;
-static void entry__29_22(void);
-static FRAME_INFO frame__29_22 = {5, {"n", "i", "update_item", "body", "self"}};
-static NODE *func__29_23;
-static void entry__29_23(void);
-static FRAME_INFO frame__29_23 = {5, {"n", "i", "update_item", "body", "self"}};
-static void cont__29_24(void);
-static void cont__29_25(void);
-static NODE *func__29_26;
-static void entry__29_26(void);
-static FRAME_INFO frame__29_26 = {4, {"update_item", "body", "self", "i"}};
-static void cont__29_27(void);
-static void cont__29_28(void);
-static void cont__29_29(void);
-static void cont__29_30(void);
-static NODE *func__30_1_types__list_for_each_pair;
-static void entry__30_1_types__list_for_each_pair(void);
-static FRAME_INFO frame__30_1_types__list_for_each_pair = {4, {"self", "body", "i", "n"}};
-static void cont__30_2(void);
-static NODE *func__30_3;
-static void entry__30_3(void);
-static FRAME_INFO frame__30_3 = {4, {"i", "n", "body", "self"}};
-static void cont__30_4(void);
-static NODE *func__30_5;
-static void entry__30_5(void);
-static FRAME_INFO frame__30_5 = {3, {"body", "self", "i"}};
-static void cont__30_6(void);
-static void cont__30_7(void);
-static void cont__30_8(void);
-static void cont__30_9(void);
-static void cont__30_10(void);
-static void cont__30_11(void);
-static void cont__30_12(void);
-static NODE *func__30_13;
-static void entry__30_13(void);
-static FRAME_INFO frame__30_13 = {3, {"body", "self", "i"}};
-static void cont__30_14(void);
-static NODE *func__31_1_types__generic_list_get;
-static void entry__31_1_types__generic_list_get(void);
-static FRAME_INFO frame__31_1_types__generic_list_get = {1, {"self"}};
-static void cont__31_2(void);
-static void cont__31_3(void);
-static NODE *func__31_4;
-static void entry__31_4(void);
-static FRAME_INFO frame__31_4 = {0, {}};
+static NODE *func__types__generic_list__is_empty_1;
+static void entry__types__generic_list__is_empty_1(void);
+static FRAME_INFO frame__types__generic_list__is_empty_1 = {1, {"self"}};
+static void cont__types__generic_list__is_empty_2(void);
+static void cont__types__generic_list__is_empty_3(void);
+static NODE *func__types__generic_list__for_each_from_to_1;
+static void entry__types__generic_list__for_each_from_to_1(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_1 = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
+static void cont__types__generic_list__for_each_from_to_2(void);
+static void cont__types__generic_list__for_each_from_to_3(void);
+static NODE *func__types__generic_list__for_each_from_to_4;
+static void entry__types__generic_list__for_each_from_to_4(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_4 = {5, {"n", "i", "body", "self", "body2"}};
+static void cont__types__generic_list__for_each_from_to_5(void);
+static void cont__types__generic_list__for_each_from_to_6(void);
+static NODE *func__types__generic_list__for_each_from_to_7;
+static void entry__types__generic_list__for_each_from_to_7(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_7 = {5, {"body", "i", "self", "body2", "n"}};
+static void cont__types__generic_list__for_each_from_to_8(void);
+static void cont__types__generic_list__for_each_from_to_9(void);
+static NODE *func__types__generic_list__for_each_from_to_10;
+static void entry__types__generic_list__for_each_from_to_10(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_10 = {3, {"body", "i", "self"}};
+static void cont__types__generic_list__for_each_from_to_11(void);
+static NODE *func__types__generic_list__for_each_from_to_12;
+static void entry__types__generic_list__for_each_from_to_12(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_12 = {3, {"body", "self", "i"}};
+static void cont__types__generic_list__for_each_from_to_13(void);
+static void cont__types__generic_list__for_each_from_to_14(void);
+static void cont__types__generic_list__for_each_from_to_15(void);
+static NODE *func__types__generic_list__for_each_from_to_16;
+static void entry__types__generic_list__for_each_from_to_16(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_16 = {2, {"i", "n"}};
+static void cont__types__generic_list__for_each_from_to_17(void);
+static void cont__types__generic_list__for_each_from_to_18(void);
+static NODE *func__types__generic_list__for_each_from_to_19;
+static void entry__types__generic_list__for_each_from_to_19(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_to_19 = {1, {"body2"}};
+static void cont__types__generic_list__for_each_from_to_20(void);
+static void cont__types__generic_list__for_each_from_to_21(void);
+static NODE *func__types__generic_list__for_each_from_down_to_1;
+static void entry__types__generic_list__for_each_from_down_to_1(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_1 = {7, {"self", "first", "last", "body", "body2", "i", "n"}};
+static void cont__types__generic_list__for_each_from_down_to_2(void);
+static void cont__types__generic_list__for_each_from_down_to_3(void);
+static NODE *func__types__generic_list__for_each_from_down_to_4;
+static void entry__types__generic_list__for_each_from_down_to_4(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_4 = {5, {"i", "n", "body", "self", "body2"}};
+static void cont__types__generic_list__for_each_from_down_to_5(void);
+static void cont__types__generic_list__for_each_from_down_to_6(void);
+static NODE *func__types__generic_list__for_each_from_down_to_7;
+static void entry__types__generic_list__for_each_from_down_to_7(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_7 = {5, {"body", "i", "self", "body2", "n"}};
+static void cont__types__generic_list__for_each_from_down_to_8(void);
+static void cont__types__generic_list__for_each_from_down_to_9(void);
+static NODE *func__types__generic_list__for_each_from_down_to_10;
+static void entry__types__generic_list__for_each_from_down_to_10(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_10 = {3, {"body", "i", "self"}};
+static void cont__types__generic_list__for_each_from_down_to_11(void);
+static NODE *func__types__generic_list__for_each_from_down_to_12;
+static void entry__types__generic_list__for_each_from_down_to_12(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_12 = {3, {"body", "self", "i"}};
+static void cont__types__generic_list__for_each_from_down_to_13(void);
+static void cont__types__generic_list__for_each_from_down_to_14(void);
+static void cont__types__generic_list__for_each_from_down_to_15(void);
+static NODE *func__types__generic_list__for_each_from_down_to_16;
+static void entry__types__generic_list__for_each_from_down_to_16(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_16 = {2, {"i", "n"}};
+static void cont__types__generic_list__for_each_from_down_to_17(void);
+static void cont__types__generic_list__for_each_from_down_to_18(void);
+static NODE *func__types__generic_list__for_each_from_down_to_19;
+static void entry__types__generic_list__for_each_from_down_to_19(void);
+static FRAME_INFO frame__types__generic_list__for_each_from_down_to_19 = {1, {"body2"}};
+static void cont__types__generic_list__for_each_from_down_to_20(void);
+static void cont__types__generic_list__for_each_from_down_to_21(void);
+static NODE *func__types__generic_list__for_each_1;
+static void entry__types__generic_list__for_each_1(void);
+static FRAME_INFO frame__types__generic_list__for_each_1 = {5, {"self", "body", "body2", "i", "n"}};
+static void cont__types__generic_list__for_each_2(void);
+static void cont__types__generic_list__for_each_3(void);
+static void cont__types__generic_list__for_each_4(void);
+static NODE *func__types__generic_list__for_each_5;
+static void entry__types__generic_list__for_each_5(void);
+static FRAME_INFO frame__types__generic_list__for_each_5 = {5, {"n", "i", "body", "self", "body2"}};
+static NODE *func__types__generic_list__for_each_6;
+static void entry__types__generic_list__for_each_6(void);
+static FRAME_INFO frame__types__generic_list__for_each_6 = {5, {"n", "i", "body", "self", "body2"}};
+static void cont__types__generic_list__for_each_7(void);
+static void cont__types__generic_list__for_each_8(void);
+static NODE *func__types__generic_list__for_each_9;
+static void entry__types__generic_list__for_each_9(void);
+static FRAME_INFO frame__types__generic_list__for_each_9 = {5, {"body", "i", "self", "body2", "n"}};
+static void cont__types__generic_list__for_each_10(void);
+static void cont__types__generic_list__for_each_11(void);
+static void cont__types__generic_list__for_each_12(void);
+static NODE *func__types__generic_list__for_each_13;
+static void entry__types__generic_list__for_each_13(void);
+static FRAME_INFO frame__types__generic_list__for_each_13 = {2, {"i", "n"}};
+static void cont__types__generic_list__for_each_14(void);
+static void cont__types__generic_list__for_each_15(void);
+static NODE *func__types__generic_list__for_each_16;
+static void entry__types__generic_list__for_each_16(void);
+static FRAME_INFO frame__types__generic_list__for_each_16 = {1, {"body2"}};
+static void cont__types__generic_list__for_each_17(void);
+static void cont__types__generic_list__for_each_18(void);
+static NODE *func__types__generic_list__for_each_19;
+static void entry__types__generic_list__for_each_19(void);
+static FRAME_INFO frame__types__generic_list__for_each_19 = {5, {"n", "i", "body", "self", "body2"}};
+static NODE *func__types__generic_list__for_each_20;
+static void entry__types__generic_list__for_each_20(void);
+static FRAME_INFO frame__types__generic_list__for_each_20 = {5, {"n", "i", "body", "self", "body2"}};
+static void cont__types__generic_list__for_each_21(void);
+static void cont__types__generic_list__for_each_22(void);
+static NODE *func__types__generic_list__for_each_23;
+static void entry__types__generic_list__for_each_23(void);
+static FRAME_INFO frame__types__generic_list__for_each_23 = {5, {"body", "self", "i", "body2", "n"}};
+static void cont__types__generic_list__for_each_24(void);
+static void cont__types__generic_list__for_each_25(void);
+static void cont__types__generic_list__for_each_26(void);
+static NODE *func__types__generic_list__for_each_27;
+static void entry__types__generic_list__for_each_27(void);
+static FRAME_INFO frame__types__generic_list__for_each_27 = {2, {"i", "n"}};
+static void cont__types__generic_list__for_each_28(void);
+static void cont__types__generic_list__for_each_29(void);
+static NODE *func__types__generic_list__for_each_30;
+static void entry__types__generic_list__for_each_30(void);
+static FRAME_INFO frame__types__generic_list__for_each_30 = {1, {"body2"}};
+static void cont__types__generic_list__for_each_31(void);
+static void cont__types__generic_list__for_each_32(void);
+static NODE *func__types__generic_list__update_each_1;
+static void entry__types__generic_list__update_each_1(void);
+static FRAME_INFO frame__types__generic_list__update_each_1 = {7, {"self", "body", "return", "update_item", "i", "n", "new_list"}};
+static NODE *func__types__generic_list__update_each_2;
+static void entry__types__generic_list__update_each_2(void);
+static FRAME_INFO frame__types__generic_list__update_each_2 = {3, {"new_item", "new_list", "i"}};
+static void cont__types__generic_list__update_each_3(void);
+static NODE *func__types__generic_list__update_each_4;
+static void entry__types__generic_list__update_each_4(void);
+static FRAME_INFO frame__types__generic_list__update_each_4 = {2, {"new_item", "new_list"}};
+static void cont__types__generic_list__update_each_5(void);
+static NODE *func__types__generic_list__update_each_6;
+static void entry__types__generic_list__update_each_6(void);
+static FRAME_INFO frame__types__generic_list__update_each_6 = {2, {"new_list", "new_item"}};
+static void cont__types__generic_list__update_each_7(void);
+static NODE *func__types__generic_list__update_each_8;
+static void entry__types__generic_list__update_each_8(void);
+static FRAME_INFO frame__types__generic_list__update_each_8 = {2, {"new_list", "new_item"}};
+static void cont__types__generic_list__update_each_9(void);
+static void cont__types__generic_list__update_each_10(void);
+static void cont__types__generic_list__update_each_11(void);
+static void cont__types__generic_list__update_each_12(void);
+static void cont__types__generic_list__update_each_13(void);
+static void cont__types__generic_list__update_each_14(void);
+static NODE *func__types__generic_list__update_each_15;
+static void entry__types__generic_list__update_each_15(void);
+static FRAME_INFO frame__types__generic_list__update_each_15 = {5, {"n", "i", "update_item", "body", "self"}};
+static NODE *func__types__generic_list__update_each_16;
+static void entry__types__generic_list__update_each_16(void);
+static FRAME_INFO frame__types__generic_list__update_each_16 = {5, {"n", "i", "update_item", "body", "self"}};
+static void cont__types__generic_list__update_each_17(void);
+static void cont__types__generic_list__update_each_18(void);
+static NODE *func__types__generic_list__update_each_19;
+static void entry__types__generic_list__update_each_19(void);
+static FRAME_INFO frame__types__generic_list__update_each_19 = {4, {"update_item", "body", "i", "self"}};
+static void cont__types__generic_list__update_each_20(void);
+static void cont__types__generic_list__update_each_21(void);
+static NODE *func__types__generic_list__update_each_22;
+static void entry__types__generic_list__update_each_22(void);
+static FRAME_INFO frame__types__generic_list__update_each_22 = {5, {"n", "i", "update_item", "body", "self"}};
+static NODE *func__types__generic_list__update_each_23;
+static void entry__types__generic_list__update_each_23(void);
+static FRAME_INFO frame__types__generic_list__update_each_23 = {5, {"n", "i", "update_item", "body", "self"}};
+static void cont__types__generic_list__update_each_24(void);
+static void cont__types__generic_list__update_each_25(void);
+static NODE *func__types__generic_list__update_each_26;
+static void entry__types__generic_list__update_each_26(void);
+static FRAME_INFO frame__types__generic_list__update_each_26 = {4, {"update_item", "body", "self", "i"}};
+static void cont__types__generic_list__update_each_27(void);
+static void cont__types__generic_list__update_each_28(void);
+static void cont__types__generic_list__update_each_29(void);
+static void cont__types__generic_list__update_each_30(void);
+static NODE *func__types__list__for_each_pair_1;
+static void entry__types__list__for_each_pair_1(void);
+static FRAME_INFO frame__types__list__for_each_pair_1 = {4, {"self", "body", "i", "n"}};
+static void cont__types__list__for_each_pair_2(void);
+static NODE *func__types__list__for_each_pair_3;
+static void entry__types__list__for_each_pair_3(void);
+static FRAME_INFO frame__types__list__for_each_pair_3 = {4, {"i", "n", "body", "self"}};
+static void cont__types__list__for_each_pair_4(void);
+static NODE *func__types__list__for_each_pair_5;
+static void entry__types__list__for_each_pair_5(void);
+static FRAME_INFO frame__types__list__for_each_pair_5 = {3, {"body", "self", "i"}};
+static void cont__types__list__for_each_pair_6(void);
+static void cont__types__list__for_each_pair_7(void);
+static void cont__types__list__for_each_pair_8(void);
+static void cont__types__list__for_each_pair_9(void);
+static void cont__types__list__for_each_pair_10(void);
+static void cont__types__list__for_each_pair_11(void);
+static void cont__types__list__for_each_pair_12(void);
+static NODE *func__types__list__for_each_pair_13;
+static void entry__types__list__for_each_pair_13(void);
+static FRAME_INFO frame__types__list__for_each_pair_13 = {3, {"body", "self", "i"}};
+static void cont__types__list__for_each_pair_14(void);
+static NODE *func__types__generic_list__get_1;
+static void entry__types__generic_list__get_1(void);
+static FRAME_INFO frame__types__generic_list__get_1 = {1, {"self"}};
+static void cont__types__generic_list__get_2(void);
+static void cont__types__generic_list__get_3(void);
+static NODE *func__types__generic_list__get_4;
+static void entry__types__generic_list__get_4(void);
+static FRAME_INFO frame__types__generic_list__get_4 = {0, {}};
 static NODE *string__57ec57a17085427f;
-static void cont__31_6(void);
-static void cont__31_7(void);
-static void cont__31_8(void);
-static void cont__31_9(void);
-static NODE *func__32_1_types__list_put;
-static void entry__32_1_types__list_put(void);
-static FRAME_INFO frame__32_1_types__list_put = {2, {"self", "item"}};
-static void cont__32_2(void);
-static void cont__32_3(void);
-static NODE *func__33_1_types__list_merge;
-static void entry__33_1_types__list_merge(void);
-static FRAME_INFO frame__33_1_types__list_merge = {5, {"left", "right", "func", "return", "result"}};
-static void cont__33_2(void);
-static NODE *func__33_3;
-static void entry__33_3(void);
-static FRAME_INFO frame__33_3 = {5, {"left", "right", "func", "result", "return"}};
-static void cont__33_4(void);
-static void cont__33_5(void);
-static NODE *func__33_6;
-static void entry__33_6(void);
-static FRAME_INFO frame__33_6 = {5, {"right", "func", "left", "result", "return"}};
-static void cont__33_7(void);
-static void cont__33_8(void);
-static NODE *func__33_9;
-static void entry__33_9(void);
-static FRAME_INFO frame__33_9 = {4, {"func", "right", "left", "result"}};
-static void cont__33_10(void);
-static NODE *func__33_11;
-static void entry__33_11(void);
-static FRAME_INFO frame__33_11 = {2, {"right", "left"}};
-static void cont__33_12(void);
-static void cont__33_13(void);
-static void cont__33_14(void);
-static void cont__33_15(void);
-static void cont__33_16(void);
-static NODE *func__33_17;
-static void entry__33_17(void);
-static FRAME_INFO frame__33_17 = {3, {"func", "right", "left"}};
-static void cont__33_18(void);
-static NODE *func__33_19;
-static void entry__33_19(void);
-static FRAME_INFO frame__33_19 = {3, {"func", "right", "left"}};
-static void cont__33_20(void);
-static void cont__33_21(void);
-static void cont__33_22(void);
-static void cont__33_23(void);
-static void cont__33_24(void);
-static void cont__33_25(void);
-static NODE *func__33_26;
-static void entry__33_26(void);
-static FRAME_INFO frame__33_26 = {2, {"result", "left"}};
-static void cont__33_27(void);
-static void cont__33_28(void);
-static NODE *func__33_29;
-static void entry__33_29(void);
-static FRAME_INFO frame__33_29 = {2, {"result", "right"}};
-static void cont__33_30(void);
-static void cont__33_31(void);
-static NODE *func__33_32;
-static void entry__33_32(void);
-static FRAME_INFO frame__33_32 = {3, {"return", "result", "left"}};
-static void cont__33_33(void);
-static NODE *func__33_34;
-static void entry__33_34(void);
-static FRAME_INFO frame__33_34 = {3, {"return", "result", "right"}};
-static void cont__33_35(void);
-static void cont__33_36(void);
-static NODE *func__34_1_types__list_serialize;
-static void entry__34_1_types__list_serialize(void);
-static FRAME_INFO frame__34_1_types__list_serialize = {4, {"self", "indent", "return", "buf"}};
-static void cont__34_2(void);
-static NODE *func__34_3;
-static void entry__34_3(void);
-static FRAME_INFO frame__34_3 = {1, {"return"}};
+static void cont__types__generic_list__get_6(void);
+static void cont__types__generic_list__get_7(void);
+static void cont__types__generic_list__get_8(void);
+static void cont__types__generic_list__get_9(void);
+static NODE *func__types__list__put_1;
+static void entry__types__list__put_1(void);
+static FRAME_INFO frame__types__list__put_1 = {2, {"self", "item"}};
+static void cont__types__list__put_2(void);
+static void cont__types__list__put_3(void);
+static NODE *func__types__list__merge_1;
+static void entry__types__list__merge_1(void);
+static FRAME_INFO frame__types__list__merge_1 = {5, {"left", "right", "func", "return", "result"}};
+static void cont__types__list__merge_2(void);
+static NODE *func__types__list__merge_3;
+static void entry__types__list__merge_3(void);
+static FRAME_INFO frame__types__list__merge_3 = {5, {"left", "right", "func", "result", "return"}};
+static void cont__types__list__merge_4(void);
+static void cont__types__list__merge_5(void);
+static NODE *func__types__list__merge_6;
+static void entry__types__list__merge_6(void);
+static FRAME_INFO frame__types__list__merge_6 = {5, {"right", "func", "left", "result", "return"}};
+static void cont__types__list__merge_7(void);
+static void cont__types__list__merge_8(void);
+static NODE *func__types__list__merge_9;
+static void entry__types__list__merge_9(void);
+static FRAME_INFO frame__types__list__merge_9 = {4, {"func", "right", "left", "result"}};
+static void cont__types__list__merge_10(void);
+static NODE *func__types__list__merge_11;
+static void entry__types__list__merge_11(void);
+static FRAME_INFO frame__types__list__merge_11 = {2, {"right", "left"}};
+static void cont__types__list__merge_12(void);
+static void cont__types__list__merge_13(void);
+static void cont__types__list__merge_14(void);
+static void cont__types__list__merge_15(void);
+static void cont__types__list__merge_16(void);
+static NODE *func__types__list__merge_17;
+static void entry__types__list__merge_17(void);
+static FRAME_INFO frame__types__list__merge_17 = {3, {"func", "right", "left"}};
+static void cont__types__list__merge_18(void);
+static NODE *func__types__list__merge_19;
+static void entry__types__list__merge_19(void);
+static FRAME_INFO frame__types__list__merge_19 = {3, {"func", "right", "left"}};
+static void cont__types__list__merge_20(void);
+static void cont__types__list__merge_21(void);
+static void cont__types__list__merge_22(void);
+static void cont__types__list__merge_23(void);
+static void cont__types__list__merge_24(void);
+static void cont__types__list__merge_25(void);
+static NODE *func__types__list__merge_26;
+static void entry__types__list__merge_26(void);
+static FRAME_INFO frame__types__list__merge_26 = {2, {"result", "left"}};
+static void cont__types__list__merge_27(void);
+static void cont__types__list__merge_28(void);
+static NODE *func__types__list__merge_29;
+static void entry__types__list__merge_29(void);
+static FRAME_INFO frame__types__list__merge_29 = {2, {"result", "right"}};
+static void cont__types__list__merge_30(void);
+static void cont__types__list__merge_31(void);
+static NODE *func__types__list__merge_32;
+static void entry__types__list__merge_32(void);
+static FRAME_INFO frame__types__list__merge_32 = {3, {"return", "result", "left"}};
+static void cont__types__list__merge_33(void);
+static NODE *func__types__list__merge_34;
+static void entry__types__list__merge_34(void);
+static FRAME_INFO frame__types__list__merge_34 = {3, {"return", "result", "right"}};
+static void cont__types__list__merge_35(void);
+static void cont__types__list__merge_36(void);
+static NODE *func__types__list__serialize_1;
+static void entry__types__list__serialize_1(void);
+static FRAME_INFO frame__types__list__serialize_1 = {4, {"self", "indent", "return", "buf"}};
+static void cont__types__list__serialize_2(void);
+static NODE *func__types__list__serialize_3;
+static void entry__types__list__serialize_3(void);
+static FRAME_INFO frame__types__list__serialize_3 = {1, {"return"}};
 static NODE *string__7e1f534683fac2fe;
-static void cont__34_5(void);
+static void cont__types__list__serialize_5(void);
 static NODE *string__1a0aeb0b5df87d4d;
-static NODE *func__34_7;
-static void entry__34_7(void);
-static FRAME_INFO frame__34_7 = {3, {"item", "buf", "indent"}};
-static void cont__34_8(void);
-static void cont__34_9(void);
-static void cont__34_10(void);
-static void cont__34_11(void);
-static void cont__34_12(void);
-static void cont__34_13(void);
-static NODE *func__35_1_types__list_sort;
-static void entry__35_1_types__list_sort(void);
-static FRAME_INFO frame__35_1_types__list_sort = {4, {"self", "func", "return", "n"}};
-static void cont__35_2(void);
-static void cont__35_3(void);
-static NODE *func__35_4;
-static void entry__35_4(void);
-static FRAME_INFO frame__35_4 = {2, {"return", "self"}};
-static NODE *func__35_5;
-static void entry__35_5(void);
-static FRAME_INFO frame__35_5 = {3, {"func", "self", "return"}};
-static void cont__35_6(void);
-static NODE *func__35_7;
-static void entry__35_7(void);
-static FRAME_INFO frame__35_7 = {1, {"self"}};
-static void cont__35_8(void);
-static void cont__35_9(void);
-static void cont__35_10(void);
-static void cont__35_11(void);
-static void cont__35_12(void);
-static NODE *func__35_13;
-static void entry__35_13(void);
-static FRAME_INFO frame__35_13 = {2, {"func", "self"}};
-static void cont__35_14(void);
-static NODE *func__35_15;
-static void entry__35_15(void);
-static FRAME_INFO frame__35_15 = {2, {"func", "self"}};
-static void cont__35_16(void);
-static void cont__35_17(void);
-static void cont__35_18(void);
-static void cont__35_19(void);
-static void cont__35_20(void);
-static void cont__35_21(void);
-static NODE *func__35_22;
-static void entry__35_22(void);
-static FRAME_INFO frame__35_22 = {2, {"return", "self"}};
-static NODE *func__35_23;
-static void entry__35_23(void);
-static FRAME_INFO frame__35_23 = {2, {"return", "self"}};
-static void cont__35_24(void);
-static void cont__35_25(void);
-static void cont__35_26(void);
-static NODE *func__35_27;
-static void entry__35_27(void);
-static FRAME_INFO frame__35_27 = {5, {"n", "func", "return", "self", "m"}};
-static void cont__35_28(void);
-static void cont__35_29(void);
-static NODE *func__35_30;
-static void entry__35_30(void);
-static FRAME_INFO frame__35_30 = {4, {"return", "self", "m", "n"}};
-static void cont__35_31(void);
-static void cont__35_32(void);
-static void cont__35_33(void);
-static void cont__35_34(void);
-static void cont__35_35(void);
-static void cont__35_36(void);
-static NODE *func__35_37;
-static void entry__35_37(void);
-static FRAME_INFO frame__35_37 = {5, {"return", "self", "m", "func", "n"}};
-static void cont__35_38(void);
-static void cont__35_39(void);
-static void cont__35_40(void);
-static void cont__35_41(void);
-static void cont__35_42(void);
-static void cont__35_43(void);
-static void cont__35_44(void);
+static NODE *func__types__list__serialize_7;
+static void entry__types__list__serialize_7(void);
+static FRAME_INFO frame__types__list__serialize_7 = {3, {"item", "buf", "indent"}};
+static void cont__types__list__serialize_8(void);
+static void cont__types__list__serialize_9(void);
+static void cont__types__list__serialize_10(void);
+static void cont__types__list__serialize_11(void);
+static void cont__types__list__serialize_12(void);
+static void cont__types__list__serialize_13(void);
+static NODE *func__types__list__sort_1;
+static void entry__types__list__sort_1(void);
+static FRAME_INFO frame__types__list__sort_1 = {4, {"self", "func", "return", "n"}};
+static void cont__types__list__sort_2(void);
+static void cont__types__list__sort_3(void);
+static NODE *func__types__list__sort_4;
+static void entry__types__list__sort_4(void);
+static FRAME_INFO frame__types__list__sort_4 = {2, {"return", "self"}};
+static NODE *func__types__list__sort_5;
+static void entry__types__list__sort_5(void);
+static FRAME_INFO frame__types__list__sort_5 = {3, {"func", "self", "return"}};
+static void cont__types__list__sort_6(void);
+static NODE *func__types__list__sort_7;
+static void entry__types__list__sort_7(void);
+static FRAME_INFO frame__types__list__sort_7 = {1, {"self"}};
+static void cont__types__list__sort_8(void);
+static void cont__types__list__sort_9(void);
+static void cont__types__list__sort_10(void);
+static void cont__types__list__sort_11(void);
+static void cont__types__list__sort_12(void);
+static NODE *func__types__list__sort_13;
+static void entry__types__list__sort_13(void);
+static FRAME_INFO frame__types__list__sort_13 = {2, {"func", "self"}};
+static void cont__types__list__sort_14(void);
+static NODE *func__types__list__sort_15;
+static void entry__types__list__sort_15(void);
+static FRAME_INFO frame__types__list__sort_15 = {2, {"func", "self"}};
+static void cont__types__list__sort_16(void);
+static void cont__types__list__sort_17(void);
+static void cont__types__list__sort_18(void);
+static void cont__types__list__sort_19(void);
+static void cont__types__list__sort_20(void);
+static void cont__types__list__sort_21(void);
+static NODE *func__types__list__sort_22;
+static void entry__types__list__sort_22(void);
+static FRAME_INFO frame__types__list__sort_22 = {2, {"return", "self"}};
+static NODE *func__types__list__sort_23;
+static void entry__types__list__sort_23(void);
+static FRAME_INFO frame__types__list__sort_23 = {2, {"return", "self"}};
+static void cont__types__list__sort_24(void);
+static void cont__types__list__sort_25(void);
+static void cont__types__list__sort_26(void);
+static NODE *func__types__list__sort_27;
+static void entry__types__list__sort_27(void);
+static FRAME_INFO frame__types__list__sort_27 = {5, {"n", "func", "return", "self", "m"}};
+static void cont__types__list__sort_28(void);
+static void cont__types__list__sort_29(void);
+static NODE *func__types__list__sort_30;
+static void entry__types__list__sort_30(void);
+static FRAME_INFO frame__types__list__sort_30 = {4, {"return", "self", "m", "n"}};
+static void cont__types__list__sort_31(void);
+static void cont__types__list__sort_32(void);
+static void cont__types__list__sort_33(void);
+static void cont__types__list__sort_34(void);
+static void cont__types__list__sort_35(void);
+static void cont__types__list__sort_36(void);
+static NODE *func__types__list__sort_37;
+static void entry__types__list__sort_37(void);
+static FRAME_INFO frame__types__list__sort_37 = {5, {"return", "self", "m", "func", "n"}};
+static void cont__types__list__sort_38(void);
+static void cont__types__list__sort_39(void);
+static void cont__types__list__sort_40(void);
+static void cont__types__list__sort_41(void);
+static void cont__types__list__sort_42(void);
+static void cont__types__list__sort_43(void);
+static void cont__types__list__sort_44(void);
 
 static long func__types__list___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__37_1_types__list_new_empty_collection;
-static void entry__37_1_types__list_new_empty_collection(void);
-static FRAME_INFO frame__37_1_types__list_new_empty_collection = {1, {"self"}};
-static NODE *func__38_1_types__generic_list_equal;
-static void entry__38_1_types__generic_list_equal(void);
-static FRAME_INFO frame__38_1_types__generic_list_equal = {3, {"left", "right", "return"}};
-static void cont__38_2(void);
-static NODE *func__38_3;
-static void entry__38_3(void);
-static FRAME_INFO frame__38_3 = {1, {"right"}};
-static void cont__38_4(void);
-static void cont__38_5(void);
-static NODE *func__38_6;
-static void entry__38_6(void);
-static FRAME_INFO frame__38_6 = {1, {"return"}};
-static void cont__38_7(void);
-static void cont__38_8(void);
-static void cont__38_9(void);
-static void cont__38_10(void);
-static void cont__38_11(void);
-static NODE *func__38_12;
-static void entry__38_12(void);
-static FRAME_INFO frame__38_12 = {1, {"return"}};
-static void cont__38_13(void);
-static NODE *func__38_14;
-static void entry__38_14(void);
-static FRAME_INFO frame__38_14 = {4, {"idx", "item", "right", "return"}};
-static void cont__38_15(void);
-static void cont__38_16(void);
-static void cont__38_17(void);
-static NODE *func__38_18;
-static void entry__38_18(void);
-static FRAME_INFO frame__38_18 = {1, {"return"}};
-static void cont__38_19(void);
-static NODE *func__39_1_types__generic_list_filter;
-static void entry__39_1_types__generic_list_filter(void);
-static FRAME_INFO frame__39_1_types__generic_list_filter = {3, {"self", "test", "new_list"}};
-static void cont__39_2(void);
-static NODE *func__39_3;
-static void entry__39_3(void);
-static FRAME_INFO frame__39_3 = {3, {"item", "test", "new_list"}};
-static void cont__39_4(void);
-static NODE *func__39_5;
-static void entry__39_5(void);
-static FRAME_INFO frame__39_5 = {2, {"new_list", "item"}};
-static void cont__39_6(void);
-static void cont__39_7(void);
-static NODE *func__40_1_types__generic_list_map;
-static void entry__40_1_types__generic_list_map(void);
-static FRAME_INFO frame__40_1_types__generic_list_map = {3, {"self", "func", "new_list"}};
-static void cont__40_2(void);
-static NODE *func__40_3;
-static void entry__40_3(void);
-static FRAME_INFO frame__40_3 = {3, {"item", "new_list", "func"}};
-static void cont__40_4(void);
-static void cont__40_5(void);
-static void cont__40_6(void);
-static NODE *func__41_1_types__generic_list_dup;
-static void entry__41_1_types__generic_list_dup(void);
-static FRAME_INFO frame__41_1_types__generic_list_dup = {2, {"self", "n"}};
-static NODE *func__41_2;
-static void entry__41_2(void);
-static FRAME_INFO frame__41_2 = {1, {"self"}};
-static NODE *func__41_3;
-static void entry__41_3(void);
-static FRAME_INFO frame__41_3 = {3, {"n", "self", "result"}};
-static void cont__41_4(void);
-static NODE *func__41_5;
-static void entry__41_5(void);
-static FRAME_INFO frame__41_5 = {0, {}};
+static NODE *func__types__list__new_empty_collection_1;
+static void entry__types__list__new_empty_collection_1(void);
+static FRAME_INFO frame__types__list__new_empty_collection_1 = {1, {"self"}};
+static NODE *func__types__generic_list__equal_1;
+static void entry__types__generic_list__equal_1(void);
+static FRAME_INFO frame__types__generic_list__equal_1 = {3, {"left", "right", "return"}};
+static void cont__types__generic_list__equal_2(void);
+static NODE *func__types__generic_list__equal_3;
+static void entry__types__generic_list__equal_3(void);
+static FRAME_INFO frame__types__generic_list__equal_3 = {1, {"right"}};
+static void cont__types__generic_list__equal_4(void);
+static void cont__types__generic_list__equal_5(void);
+static NODE *func__types__generic_list__equal_6;
+static void entry__types__generic_list__equal_6(void);
+static FRAME_INFO frame__types__generic_list__equal_6 = {1, {"return"}};
+static void cont__types__generic_list__equal_7(void);
+static void cont__types__generic_list__equal_8(void);
+static void cont__types__generic_list__equal_9(void);
+static void cont__types__generic_list__equal_10(void);
+static void cont__types__generic_list__equal_11(void);
+static NODE *func__types__generic_list__equal_12;
+static void entry__types__generic_list__equal_12(void);
+static FRAME_INFO frame__types__generic_list__equal_12 = {1, {"return"}};
+static void cont__types__generic_list__equal_13(void);
+static NODE *func__types__generic_list__equal_14;
+static void entry__types__generic_list__equal_14(void);
+static FRAME_INFO frame__types__generic_list__equal_14 = {4, {"idx", "item", "right", "return"}};
+static void cont__types__generic_list__equal_15(void);
+static void cont__types__generic_list__equal_16(void);
+static void cont__types__generic_list__equal_17(void);
+static NODE *func__types__generic_list__equal_18;
+static void entry__types__generic_list__equal_18(void);
+static FRAME_INFO frame__types__generic_list__equal_18 = {1, {"return"}};
+static void cont__types__generic_list__equal_19(void);
+static NODE *func__types__generic_list__filter_1;
+static void entry__types__generic_list__filter_1(void);
+static FRAME_INFO frame__types__generic_list__filter_1 = {3, {"self", "test", "new_list"}};
+static void cont__types__generic_list__filter_2(void);
+static NODE *func__types__generic_list__filter_3;
+static void entry__types__generic_list__filter_3(void);
+static FRAME_INFO frame__types__generic_list__filter_3 = {3, {"item", "test", "new_list"}};
+static void cont__types__generic_list__filter_4(void);
+static NODE *func__types__generic_list__filter_5;
+static void entry__types__generic_list__filter_5(void);
+static FRAME_INFO frame__types__generic_list__filter_5 = {2, {"new_list", "item"}};
+static void cont__types__generic_list__filter_6(void);
+static void cont__types__generic_list__filter_7(void);
+static NODE *func__types__generic_list__map_1;
+static void entry__types__generic_list__map_1(void);
+static FRAME_INFO frame__types__generic_list__map_1 = {3, {"self", "func", "new_list"}};
+static void cont__types__generic_list__map_2(void);
+static NODE *func__types__generic_list__map_3;
+static void entry__types__generic_list__map_3(void);
+static FRAME_INFO frame__types__generic_list__map_3 = {3, {"item", "new_list", "func"}};
+static void cont__types__generic_list__map_4(void);
+static void cont__types__generic_list__map_5(void);
+static void cont__types__generic_list__map_6(void);
+static NODE *func__types__generic_list__dup_1;
+static void entry__types__generic_list__dup_1(void);
+static FRAME_INFO frame__types__generic_list__dup_1 = {2, {"self", "n"}};
+static NODE *func__types__generic_list__dup_2;
+static void entry__types__generic_list__dup_2(void);
+static FRAME_INFO frame__types__generic_list__dup_2 = {1, {"self"}};
+static NODE *func__types__generic_list__dup_3;
+static void entry__types__generic_list__dup_3(void);
+static FRAME_INFO frame__types__generic_list__dup_3 = {3, {"n", "self", "result"}};
+static void cont__types__generic_list__dup_4(void);
+static NODE *func__types__generic_list__dup_5;
+static void entry__types__generic_list__dup_5(void);
+static FRAME_INFO frame__types__generic_list__dup_5 = {0, {}};
 static NODE *string__963fa2c6021831d1;
-static void cont__41_7(void);
-static void cont__41_8(void);
-static void cont__41_9(void);
-static void cont__41_10(void);
-static void cont__41_11(void);
-static NODE *func__41_12;
-static void entry__41_12(void);
-static FRAME_INFO frame__41_12 = {2, {"result", "self"}};
-static void cont__41_13(void);
-static void cont__41_14(void);
-static NODE *func__41_15;
-static void entry__41_15(void);
-static FRAME_INFO frame__41_15 = {0, {}};
-static NODE *func__42_1_types__generic_list_interleave;
-static void entry__42_1_types__generic_list_interleave(void);
-static FRAME_INFO frame__42_1_types__generic_list_interleave = {3, {"lists", "n", "result"}};
-static void cont__42_2(void);
-static void cont__42_3(void);
-static void cont__42_4(void);
-static NODE *func__42_5;
-static void entry__42_5(void);
-static FRAME_INFO frame__42_5 = {3, {"i", "lists", "result"}};
-static NODE *func__42_6;
-static void entry__42_6(void);
-static FRAME_INFO frame__42_6 = {3, {"current_list", "result", "i"}};
-static void cont__42_7(void);
-static void cont__42_8(void);
-static void cont__42_9(void);
-static NODE *func__42_10;
-static void entry__42_10(void);
-static FRAME_INFO frame__42_10 = {3, {"current_list", "n", "result"}};
-static void cont__42_11(void);
-static void cont__42_12(void);
-static void cont__42_13(void);
-static NODE *func__42_14;
-static void entry__42_14(void);
-static FRAME_INFO frame__42_14 = {3, {"result", "current_list", "n"}};
-static void cont__42_15(void);
-static void cont__42_16(void);
-static void cont__42_17(void);
-static NODE *func__43_1_types__generic_list_contains;
-static void entry__43_1_types__generic_list_contains(void);
-static FRAME_INFO frame__43_1_types__generic_list_contains = {3, {"self", "item", "return"}};
-static NODE *func__43_2;
-static void entry__43_2(void);
-static FRAME_INFO frame__43_2 = {3, {"current_item", "item", "return"}};
-static void cont__43_3(void);
-static NODE *func__43_4;
-static void entry__43_4(void);
-static FRAME_INFO frame__43_4 = {1, {"return"}};
-static void cont__43_5(void);
+static void cont__types__generic_list__dup_7(void);
+static void cont__types__generic_list__dup_8(void);
+static void cont__types__generic_list__dup_9(void);
+static void cont__types__generic_list__dup_10(void);
+static void cont__types__generic_list__dup_11(void);
+static NODE *func__types__generic_list__dup_12;
+static void entry__types__generic_list__dup_12(void);
+static FRAME_INFO frame__types__generic_list__dup_12 = {2, {"result", "self"}};
+static void cont__types__generic_list__dup_13(void);
+static void cont__types__generic_list__dup_14(void);
+static NODE *func__types__generic_list__dup_15;
+static void entry__types__generic_list__dup_15(void);
+static FRAME_INFO frame__types__generic_list__dup_15 = {0, {}};
+static NODE *func__types__generic_list__interleave_1;
+static void entry__types__generic_list__interleave_1(void);
+static FRAME_INFO frame__types__generic_list__interleave_1 = {3, {"lists", "n", "result"}};
+static void cont__types__generic_list__interleave_2(void);
+static void cont__types__generic_list__interleave_3(void);
+static void cont__types__generic_list__interleave_4(void);
+static NODE *func__types__generic_list__interleave_5;
+static void entry__types__generic_list__interleave_5(void);
+static FRAME_INFO frame__types__generic_list__interleave_5 = {3, {"i", "lists", "result"}};
+static NODE *func__types__generic_list__interleave_6;
+static void entry__types__generic_list__interleave_6(void);
+static FRAME_INFO frame__types__generic_list__interleave_6 = {3, {"current_list", "result", "i"}};
+static void cont__types__generic_list__interleave_7(void);
+static void cont__types__generic_list__interleave_8(void);
+static void cont__types__generic_list__interleave_9(void);
+static NODE *func__types__generic_list__interleave_10;
+static void entry__types__generic_list__interleave_10(void);
+static FRAME_INFO frame__types__generic_list__interleave_10 = {3, {"current_list", "n", "result"}};
+static void cont__types__generic_list__interleave_11(void);
+static void cont__types__generic_list__interleave_12(void);
+static void cont__types__generic_list__interleave_13(void);
+static NODE *func__types__generic_list__interleave_14;
+static void entry__types__generic_list__interleave_14(void);
+static FRAME_INFO frame__types__generic_list__interleave_14 = {3, {"result", "current_list", "n"}};
+static void cont__types__generic_list__interleave_15(void);
+static void cont__types__generic_list__interleave_16(void);
+static void cont__types__generic_list__interleave_17(void);
+static NODE *func__types__generic_list__contains_1;
+static void entry__types__generic_list__contains_1(void);
+static FRAME_INFO frame__types__generic_list__contains_1 = {3, {"self", "item", "return"}};
+static NODE *func__types__generic_list__contains_2;
+static void entry__types__generic_list__contains_2(void);
+static FRAME_INFO frame__types__generic_list__contains_2 = {3, {"current_item", "item", "return"}};
+static void cont__types__generic_list__contains_3(void);
+static NODE *func__types__generic_list__contains_4;
+static void entry__types__generic_list__contains_4(void);
+static FRAME_INFO frame__types__generic_list__contains_4 = {1, {"return"}};
+static void cont__types__generic_list__contains_5(void);
 static int poly_idx__std__is_a_sequence;
 static void type__std__is_a_sequence(void);
 static NODE *get__std__is_a_sequence(void) {
   return var.std__is_a_sequence;
 }
-static NODE *func__46_1_std__sequence;
-static void entry__46_1_std__sequence(void);
-static FRAME_INFO frame__46_1_std__sequence = {1, {"items"}};
-static void cont__46_2(void);
-static NODE *func__46_3;
-static void entry__46_3(void);
-static FRAME_INFO frame__46_3 = {3, {"self", "element", "return"}};
-static NODE *func__46_4;
-static void entry__46_4(void);
-static FRAME_INFO frame__46_4 = {3, {"item", "element", "return"}};
-static void cont__46_5(void);
-static NODE *func__46_6;
-static void entry__46_6(void);
-static FRAME_INFO frame__46_6 = {2, {"item", "element"}};
-static void cont__46_7(void);
-static void cont__46_8(void);
-static NODE *func__46_9;
-static void entry__46_9(void);
-static FRAME_INFO frame__46_9 = {1, {"return"}};
-static void cont__46_10(void);
+static NODE *func__std__sequence_1;
+static void entry__std__sequence_1(void);
+static FRAME_INFO frame__std__sequence_1 = {1, {"items"}};
+static void cont__std__sequence_2(void);
+static NODE *func__std__sequence_3;
+static void entry__std__sequence_3(void);
+static FRAME_INFO frame__std__sequence_3 = {3, {"self", "element", "return"}};
+static NODE *func__std__sequence_4;
+static void entry__std__sequence_4(void);
+static FRAME_INFO frame__std__sequence_4 = {3, {"item", "element", "return"}};
+static void cont__std__sequence_5(void);
+static NODE *func__std__sequence_6;
+static void entry__std__sequence_6(void);
+static FRAME_INFO frame__std__sequence_6 = {2, {"item", "element"}};
+static void cont__std__sequence_7(void);
+static void cont__std__sequence_8(void);
+static NODE *func__std__sequence_9;
+static void entry__std__sequence_9(void);
+static FRAME_INFO frame__std__sequence_9 = {1, {"return"}};
+static void cont__std__sequence_10(void);
 static NODE *get__std__sequence(void) {
   return var.std__sequence;
 }
@@ -1078,337 +1078,337 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_sequence, NULL, 722, 722, 2, 19},
   {run__basic__types__list, NULL, 747, 764, 1, 45},
   {cont__94_32, NULL, },
-  {entry__14_1_types__list_to_list, NULL, 176, 176, 3, 9},
-  {entry__15_1_std__list, NULL, 181, 193, 3, 2},
-  {entry__16_1_types__list_length_of, NULL, 198, 201, 3, 2},
-  {entry__17_1_types__list_push, NULL, 206, 224, 3, 2},
-  {entry__18_1_types__list_drop, NULL, 229, 236, 3, 2},
-  {entry__19_1_types__list_pop, NULL, 241, 252, 3, 2},
-  {entry__20_1_types__list_peek, NULL, 257, 263, 3, 2},
-  {entry__21_1_types__list_append, NULL, 268, 293, 3, 2},
-  {entry__22_1_types__list_range, NULL, 298, 319, 3, 2},
-  {entry__23_4, NULL, 329, 329, 44, 48},
-  {cont__23_5, &frame__23_4, 329, 329, 31, 49},
-  {cont__23_6, &frame__23_4, 329, 329, 62, 70},
-  {cont__23_7, &frame__23_4, 329, 329, 73, 73},
-  {cont__23_8, &frame__23_4, 329, 329, 51, 74},
-  {cont__23_9, &frame__23_4, 329, 329, 18, 75},
-  {cont__23_10, &frame__23_4, 329, 329, 75, 75},
-  {entry__23_1_types__generic_list_delete_at, NULL, 329, 329, 6, 15},
-  {cont__23_2, &frame__23_1_types__generic_list_delete_at, 329, 329, 6, 15},
-  {cont__23_3, &frame__23_1_types__generic_list_delete_at, 329, 329, 3, 75},
-  {cont__23_11, &frame__23_1_types__generic_list_delete_at, },
-  {entry__24_4, NULL, 341, 341, 7, 16},
-  {entry__24_5, NULL, 343, 343, 14, 28},
-  {cont__24_6, &frame__24_5, 343, 343, 14, 30},
-  {cont__24_7, &frame__24_5, 343, 343, 14, 34},
-  {cont__24_8, &frame__24_5, 343, 343, 7, 34},
-  {entry__24_1_std__normalized_index, NULL, 340, 340, 5, 12},
-  {cont__24_2, &frame__24_1_std__normalized_index, 340, 340, 5, 12},
-  {cont__24_3, &frame__24_1_std__normalized_index, 339, 343, 3, 35},
-  {cont__24_9, &frame__24_1_std__normalized_index, 343, 343, 35, 35},
-  {entry__25_1_types__generic_list_is_empty, NULL, 351, 351, 6, 20},
-  {cont__25_2, &frame__25_1_types__generic_list_is_empty, 351, 351, 6, 25},
-  {cont__25_3, &frame__25_1_types__generic_list_is_empty, 351, 351, 3, 25},
-  {entry__26_10, NULL, 380, 380, 16, 22},
-  {cont__26_11, &frame__26_10, 380, 380, 9, 22},
-  {entry__26_12, NULL, 382, 382, 14, 20},
-  {cont__26_13, &frame__26_12, 382, 382, 9, 20},
-  {entry__26_16, NULL, 383, 383, 28, 32},
-  {cont__26_17, &frame__26_16, 383, 383, 28, 32},
-  {entry__26_19, NULL, 383, 383, 35, 39},
-  {entry__26_7, NULL, 379, 379, 7, 30},
-  {cont__26_8, &frame__26_7, 379, 379, 7, 35},
-  {cont__26_9, &frame__26_7, 378, 382, 5, 21},
-  {cont__26_14, &frame__26_7, 383, 383, 8, 23},
-  {cont__26_15, &frame__26_7, 383, 383, 8, 32},
-  {cont__26_18, &frame__26_7, 383, 383, 5, 39},
-  {cont__26_20, &frame__26_7, 384, 384, 5, 13},
-  {cont__26_21, &frame__26_7, 384, 384, 13, 13},
-  {entry__26_4, NULL, 377, 377, 12, 17},
-  {cont__26_5, &frame__26_4, 377, 377, 12, 17},
-  {cont__26_6, &frame__26_4, 377, 384, 9, 13},
-  {entry__26_1_types__generic_list_for_each_from_to, NULL, 375, 375, 3, 34},
-  {cont__26_2, &frame__26_1_types__generic_list_for_each_from_to, 376, 376, 3, 32},
-  {cont__26_3, &frame__26_1_types__generic_list_for_each_from_to, 377, 384, 3, 13},
-  {entry__27_10, NULL, 413, 413, 16, 22},
-  {cont__27_11, &frame__27_10, 413, 413, 9, 22},
-  {entry__27_12, NULL, 415, 415, 14, 20},
-  {cont__27_13, &frame__27_12, 415, 415, 9, 20},
-  {entry__27_16, NULL, 416, 416, 28, 32},
-  {cont__27_17, &frame__27_16, 416, 416, 28, 32},
-  {entry__27_19, NULL, 416, 416, 35, 39},
-  {entry__27_7, NULL, 412, 412, 7, 30},
-  {cont__27_8, &frame__27_7, 412, 412, 7, 35},
-  {cont__27_9, &frame__27_7, 411, 415, 5, 21},
-  {cont__27_14, &frame__27_7, 416, 416, 8, 23},
-  {cont__27_15, &frame__27_7, 416, 416, 8, 32},
-  {cont__27_18, &frame__27_7, 416, 416, 5, 39},
-  {cont__27_20, &frame__27_7, 417, 417, 5, 14},
-  {cont__27_21, &frame__27_7, 417, 417, 14, 14},
-  {entry__27_4, NULL, 410, 410, 12, 17},
-  {cont__27_5, &frame__27_4, 410, 410, 12, 17},
-  {cont__27_6, &frame__27_4, 410, 417, 9, 14},
-  {entry__27_1_types__generic_list_for_each_from_down_to, NULL, 408, 408, 3, 34},
-  {cont__27_2, &frame__27_1_types__generic_list_for_each_from_down_to, 409, 409, 3, 32},
-  {cont__27_3, &frame__27_1_types__generic_list_for_each_from_down_to, 410, 417, 3, 14},
-  {entry__28_13, NULL, 442, 442, 32, 36},
-  {cont__28_14, &frame__28_13, 442, 442, 32, 36},
-  {entry__28_16, NULL, 442, 442, 39, 43},
-  {entry__28_9, NULL, 441, 441, 16, 22},
-  {cont__28_10, &frame__28_9, 441, 441, 9, 22},
-  {cont__28_11, &frame__28_9, 442, 442, 12, 27},
-  {cont__28_12, &frame__28_9, 442, 442, 12, 36},
-  {cont__28_15, &frame__28_9, 442, 442, 9, 43},
-  {cont__28_17, &frame__28_9, 443, 443, 9, 17},
-  {cont__28_18, &frame__28_9, 443, 443, 17, 17},
-  {entry__28_6, NULL, 440, 440, 16, 21},
-  {cont__28_7, &frame__28_6, 440, 440, 16, 21},
-  {cont__28_8, &frame__28_6, 440, 443, 13, 17},
-  {entry__28_5, NULL, 440, 443, 7, 17},
-  {entry__28_27, NULL, 447, 447, 32, 36},
-  {cont__28_28, &frame__28_27, 447, 447, 32, 36},
-  {entry__28_30, NULL, 447, 447, 39, 43},
-  {entry__28_23, NULL, 446, 446, 14, 20},
-  {cont__28_24, &frame__28_23, 446, 446, 9, 20},
-  {cont__28_25, &frame__28_23, 447, 447, 12, 27},
-  {cont__28_26, &frame__28_23, 447, 447, 12, 36},
-  {cont__28_29, &frame__28_23, 447, 447, 9, 43},
-  {cont__28_31, &frame__28_23, 448, 448, 9, 17},
-  {cont__28_32, &frame__28_23, 448, 448, 17, 17},
-  {entry__28_20, NULL, 445, 445, 16, 21},
-  {cont__28_21, &frame__28_20, 445, 445, 16, 21},
-  {cont__28_22, &frame__28_20, 445, 448, 13, 17},
-  {entry__28_19, NULL, 445, 448, 7, 17},
-  {entry__28_1_types__generic_list_for_each, NULL, 437, 437, 3, 20},
-  {cont__28_2, &frame__28_1_types__generic_list_for_each, 439, 439, 5, 28},
-  {cont__28_3, &frame__28_1_types__generic_list_for_each, 439, 439, 5, 33},
-  {cont__28_4, &frame__28_1_types__generic_list_for_each, 438, 448, 3, 19},
-  {entry__29_6, NULL, 478, 478, 11, 35},
-  {cont__29_7, &frame__29_6, 478, 478, 35, 35},
-  {entry__29_8, NULL, 480, 480, 11, 33},
-  {cont__29_9, &frame__29_8, 480, 480, 33, 33},
-  {entry__29_4, NULL, 477, 477, 9, 30},
-  {cont__29_5, &frame__29_4, 476, 480, 7, 34},
-  {entry__29_2_update_item, NULL, 475, 475, 8, 26},
-  {cont__29_3, &frame__29_2_update_item, 475, 480, 5, 35},
-  {cont__29_10, &frame__29_2_update_item, 481, 481, 5, 13},
-  {cont__29_11, &frame__29_2_update_item, 481, 481, 13, 13},
-  {entry__29_19, NULL, 488, 488, 43, 49},
-  {cont__29_20, &frame__29_19, 488, 488, 36, 50},
-  {cont__29_21, &frame__29_19, 488, 488, 24, 50},
-  {entry__29_16, NULL, 488, 488, 16, 21},
-  {cont__29_17, &frame__29_16, 488, 488, 16, 21},
-  {cont__29_18, &frame__29_16, 488, 488, 13, 50},
-  {entry__29_15, NULL, 488, 488, 7, 50},
-  {entry__29_26, NULL, 490, 490, 41, 47},
-  {cont__29_27, &frame__29_26, 490, 490, 36, 48},
-  {cont__29_28, &frame__29_26, 490, 490, 24, 48},
-  {entry__29_23, NULL, 490, 490, 16, 21},
-  {cont__29_24, &frame__29_23, 490, 490, 16, 21},
-  {cont__29_25, &frame__29_23, 490, 490, 13, 48},
-  {entry__29_22, NULL, 490, 490, 7, 48},
-  {entry__29_1_types__generic_list_update_each, NULL, 484, 484, 3, 20},
-  {cont__29_12, &frame__29_1_types__generic_list_update_each, 487, 487, 5, 28},
-  {cont__29_13, &frame__29_1_types__generic_list_update_each, 487, 487, 5, 33},
-  {cont__29_14, &frame__29_1_types__generic_list_update_each, 486, 490, 3, 49},
-  {cont__29_29, &frame__29_1_types__generic_list_update_each, 491, 491, 3, 17},
-  {cont__29_30, &frame__29_1_types__generic_list_update_each, 491, 491, 17, 17},
-  {entry__30_5, NULL, 507, 507, 10, 16},
-  {cont__30_6, &frame__30_5, 507, 507, 23, 25},
-  {cont__30_7, &frame__30_5, 507, 507, 18, 26},
-  {cont__30_8, &frame__30_5, 507, 507, 5, 26},
-  {cont__30_9, &frame__30_5, 508, 508, 5, 13},
-  {cont__30_10, &frame__30_5, 508, 508, 13, 13},
-  {entry__30_3, NULL, 506, 506, 12, 16},
-  {cont__30_4, &frame__30_3, 506, 508, 9, 13},
-  {entry__30_13, NULL, 509, 509, 22, 28},
-  {cont__30_14, &frame__30_13, 509, 509, 17, 28},
-  {entry__30_1_types__list_for_each_pair, NULL, 505, 505, 3, 20},
-  {cont__30_2, &frame__30_1_types__list_for_each_pair, 506, 508, 3, 13},
-  {cont__30_11, &frame__30_1_types__list_for_each_pair, 509, 509, 6, 14},
-  {cont__30_12, &frame__30_1_types__list_for_each_pair, 509, 509, 3, 28},
-  {entry__31_4, NULL, 517, 517, 28, 80},
-  {entry__31_1_types__generic_list_get, NULL, 517, 517, 6, 20},
-  {cont__31_2, &frame__31_1_types__generic_list_get, 517, 517, 6, 25},
-  {cont__31_3, &frame__31_1_types__generic_list_get, 517, 517, 3, 80},
-  {cont__31_6, &frame__31_1_types__generic_list_get, 518, 518, 20, 20},
-  {cont__31_7, &frame__31_1_types__generic_list_get, 518, 518, 6, 21},
-  {cont__31_8, &frame__31_1_types__generic_list_get, 518, 518, 23, 29},
-  {cont__31_9, &frame__31_1_types__generic_list_get, 518, 518, 3, 29},
-  {entry__32_1_types__list_put, NULL, 527, 527, 13, 22},
-  {cont__32_2, &frame__32_1_types__list_put, 527, 527, 6, 28},
-  {cont__32_3, &frame__32_1_types__list_put, 527, 527, 3, 28},
-  {entry__33_11, NULL, 546, 546, 49, 56},
-  {cont__33_12, &frame__33_11, 546, 546, 38, 44},
-  {cont__33_13, &frame__33_11, 546, 546, 38, 56},
-  {cont__33_14, &frame__33_11, 546, 546, 38, 56},
-  {cont__33_15, &frame__33_11, 546, 546, 38, 56},
-  {entry__33_19, NULL, 547, 547, 45, 52},
-  {cont__33_20, &frame__33_19, 547, 547, 54, 60},
-  {cont__33_21, &frame__33_19, 547, 547, 40, 61},
-  {cont__33_22, &frame__33_19, 547, 547, 36, 62},
-  {cont__33_23, &frame__33_19, 547, 547, 36, 62},
-  {entry__33_17, NULL, 547, 547, 17, 31},
-  {cont__33_18, &frame__33_17, 547, 547, 17, 62},
-  {cont__33_24, &frame__33_17, 547, 547, 17, 62},
-  {entry__33_26, NULL, 549, 549, 30, 39},
-  {cont__33_27, &frame__33_26, 549, 549, 17, 39},
-  {cont__33_28, &frame__33_26, 549, 549, 39, 39},
-  {entry__33_29, NULL, 551, 551, 30, 40},
-  {cont__33_30, &frame__33_29, 551, 551, 17, 40},
-  {cont__33_31, &frame__33_29, 551, 551, 40, 40},
-  {entry__33_9, NULL, 546, 546, 17, 33},
-  {cont__33_10, &frame__33_9, 546, 546, 17, 56},
-  {cont__33_16, &frame__33_9, 545, 547, 15, 61},
-  {cont__33_25, &frame__33_9, 544, 551, 13, 41},
-  {entry__33_32, NULL, 553, 553, 20, 38},
-  {cont__33_33, &frame__33_32, 553, 553, 13, 38},
-  {entry__33_6, NULL, 543, 543, 11, 26},
-  {cont__33_7, &frame__33_6, 543, 543, 11, 30},
-  {cont__33_8, &frame__33_6, 542, 553, 9, 39},
-  {entry__33_34, NULL, 555, 555, 16, 35},
-  {cont__33_35, &frame__33_34, 555, 555, 9, 35},
-  {entry__33_3, NULL, 541, 541, 7, 21},
-  {cont__33_4, &frame__33_3, 541, 541, 7, 25},
-  {cont__33_5, &frame__33_3, 540, 555, 5, 36},
-  {entry__33_1_types__list_merge, NULL, 538, 538, 3, 17},
-  {cont__33_2, &frame__33_1_types__list_merge, 539, 555, 3, 37},
-  {cont__33_36, &frame__33_1_types__list_merge, 555, 555, 37, 37},
-  {entry__34_3, NULL, 565, 565, 21, 35},
-  {entry__34_7, NULL, 568, 568, 33, 40},
-  {cont__34_8, &frame__34_7, 568, 568, 26, 41},
-  {cont__34_9, &frame__34_7, 568, 568, 58, 65},
-  {cont__34_10, &frame__34_7, 568, 568, 43, 66},
-  {cont__34_11, &frame__34_7, 568, 568, 5, 66},
-  {cont__34_12, &frame__34_7, 568, 568, 66, 66},
-  {entry__34_1_types__list_serialize, NULL, 565, 565, 6, 18},
-  {cont__34_2, &frame__34_1_types__list_serialize, 565, 565, 3, 35},
-  {cont__34_5, &frame__34_1_types__list_serialize, 567, 568, 3, 66},
-  {cont__34_13, &frame__34_1_types__list_serialize, 569, 569, 3, 8},
-  {entry__35_4, NULL, 586, 586, 7, 17},
-  {entry__35_7, NULL, 590, 590, 43, 49},
-  {cont__35_8, &frame__35_7, 590, 590, 32, 38},
-  {cont__35_9, &frame__35_7, 590, 590, 32, 49},
-  {cont__35_10, &frame__35_7, 590, 590, 32, 49},
-  {cont__35_11, &frame__35_7, 590, 590, 32, 49},
-  {entry__35_15, NULL, 591, 591, 39, 45},
-  {cont__35_16, &frame__35_15, 591, 591, 47, 53},
-  {cont__35_17, &frame__35_15, 591, 591, 34, 54},
-  {cont__35_18, &frame__35_15, 591, 591, 30, 55},
-  {cont__35_19, &frame__35_15, 591, 591, 30, 55},
-  {entry__35_13, NULL, 591, 591, 11, 25},
-  {cont__35_14, &frame__35_13, 591, 591, 11, 55},
-  {cont__35_20, &frame__35_13, 591, 591, 11, 55},
-  {entry__35_22, NULL, 593, 593, 11, 21},
-  {entry__35_23, NULL, 595, 595, 23, 29},
-  {cont__35_24, &frame__35_23, 595, 595, 31, 37},
-  {cont__35_25, &frame__35_23, 595, 595, 18, 38},
-  {cont__35_26, &frame__35_23, 595, 595, 11, 38},
-  {entry__35_5, NULL, 590, 590, 11, 27},
-  {cont__35_6, &frame__35_5, 590, 590, 11, 49},
-  {cont__35_12, &frame__35_5, 589, 591, 9, 54},
-  {cont__35_21, &frame__35_5, 588, 595, 7, 39},
-  {entry__35_30, NULL, 600, 600, 29, 43},
-  {cont__35_31, &frame__35_30, 600, 600, 24, 44},
-  {cont__35_32, &frame__35_30, 600, 600, 62, 64},
-  {cont__35_33, &frame__35_30, 600, 600, 51, 67},
-  {cont__35_34, &frame__35_30, 600, 600, 46, 68},
-  {cont__35_35, &frame__35_30, 600, 600, 18, 69},
-  {cont__35_36, &frame__35_30, 600, 600, 11, 69},
-  {entry__35_37, NULL, 603, 603, 24, 38},
-  {cont__35_38, &frame__35_37, 603, 603, 19, 44},
-  {cont__35_39, &frame__35_37, 603, 603, 62, 64},
-  {cont__35_40, &frame__35_37, 603, 603, 51, 67},
-  {cont__35_41, &frame__35_37, 603, 603, 46, 73},
-  {cont__35_42, &frame__35_37, 603, 603, 13, 79},
-  {cont__35_43, &frame__35_37, 602, 603, 11, 79},
-  {entry__35_27, NULL, 597, 597, 7, 18},
-  {cont__35_28, &frame__35_27, 599, 599, 9, 25},
-  {cont__35_29, &frame__35_27, 598, 603, 7, 81},
-  {entry__35_1_types__list_sort, NULL, 582, 582, 3, 20},
-  {cont__35_2, &frame__35_1_types__list_sort, 585, 585, 5, 8},
-  {cont__35_3, &frame__35_1_types__list_sort, 583, 603, 3, 83},
-  {cont__35_44, &frame__35_1_types__list_sort, 603, 603, 83, 83},
-  {entry__37_1_types__list_new_empty_collection, NULL, 640, 640, 3, 16},
-  {entry__38_3, NULL, 652, 652, 30, 44},
-  {cont__38_4, &frame__38_3, 652, 652, 30, 44},
-  {entry__38_6, NULL, 652, 652, 47, 58},
-  {entry__38_12, NULL, 653, 653, 43, 54},
-  {entry__38_18, NULL, 654, 654, 52, 63},
-  {entry__38_14, NULL, 654, 654, 40, 49},
-  {cont__38_15, &frame__38_14, 654, 654, 32, 49},
-  {cont__38_16, &frame__38_14, 654, 654, 32, 49},
-  {cont__38_17, &frame__38_14, 654, 654, 29, 63},
-  {entry__38_1_types__generic_list_equal, NULL, 652, 652, 10, 25},
-  {cont__38_2, &frame__38_1_types__generic_list_equal, 652, 652, 10, 44},
-  {cont__38_5, &frame__38_1_types__generic_list_equal, 652, 652, 3, 58},
-  {cont__38_7, &frame__38_1_types__generic_list_equal, 653, 653, 6, 20},
-  {cont__38_8, &frame__38_1_types__generic_list_equal, 653, 653, 25, 40},
-  {cont__38_9, &frame__38_1_types__generic_list_equal, 653, 653, 6, 40},
-  {cont__38_10, &frame__38_1_types__generic_list_equal, 653, 653, 6, 40},
-  {cont__38_11, &frame__38_1_types__generic_list_equal, 653, 653, 3, 54},
-  {cont__38_13, &frame__38_1_types__generic_list_equal, 654, 654, 3, 63},
-  {cont__38_19, &frame__38_1_types__generic_list_equal, 655, 655, 3, 9},
-  {entry__39_5, NULL, 665, 665, 40, 58},
-  {cont__39_6, &frame__39_5, 665, 665, 58, 58},
-  {entry__39_3, NULL, 665, 665, 28, 37},
-  {cont__39_4, &frame__39_3, 665, 665, 25, 58},
-  {entry__39_1_types__generic_list_filter, NULL, 664, 664, 3, 39},
-  {cont__39_2, &frame__39_1_types__generic_list_filter, 665, 665, 3, 58},
-  {cont__39_7, &frame__39_1_types__generic_list_filter, 666, 666, 3, 13},
-  {entry__40_3, NULL, 678, 678, 40, 49},
-  {cont__40_4, &frame__40_3, 678, 678, 25, 49},
-  {cont__40_5, &frame__40_3, 678, 678, 49, 49},
-  {entry__40_1_types__generic_list_map, NULL, 677, 677, 3, 39},
-  {cont__40_2, &frame__40_1_types__generic_list_map, 678, 678, 3, 49},
-  {cont__40_6, &frame__40_1_types__generic_list_map, 679, 679, 3, 13},
-  {entry__41_2, NULL, 688, 688, 31, 37},
-  {entry__41_5, NULL, 689, 689, 15, 48},
-  {entry__41_12, NULL, 692, 692, 18, 36},
-  {cont__41_13, &frame__41_12, 692, 692, 36, 36},
-  {entry__41_3, NULL, 689, 689, 8, 12},
-  {cont__41_4, &frame__41_3, 689, 689, 5, 48},
-  {cont__41_7, &frame__41_3, 690, 690, 23, 31},
-  {cont__41_8, &frame__41_3, 690, 690, 5, 32},
-  {cont__41_9, &frame__41_3, 691, 691, 5, 25},
-  {cont__41_10, &frame__41_3, 692, 692, 8, 15},
-  {cont__41_11, &frame__41_3, 692, 692, 5, 36},
-  {cont__41_14, &frame__41_3, 693, 693, 5, 13},
-  {entry__41_15, NULL, 688, 688, 13, 25},
-  {entry__41_1_types__generic_list_dup, NULL, 688, 693, 3, 13},
-  {entry__42_6, NULL, 706, 706, 66, 80},
-  {cont__42_7, &frame__42_6, 706, 706, 53, 80},
-  {cont__42_8, &frame__42_6, 706, 706, 80, 80},
-  {entry__42_5, NULL, 706, 706, 22, 80},
-  {entry__42_14, NULL, 708, 708, 51, 65},
-  {cont__42_15, &frame__42_14, 708, 708, 38, 65},
-  {cont__42_16, &frame__42_14, 708, 708, 65, 65},
-  {entry__42_10, NULL, 708, 708, 8, 30},
-  {cont__42_11, &frame__42_10, 708, 708, 8, 35},
-  {cont__42_12, &frame__42_10, 708, 708, 8, 35},
-  {cont__42_13, &frame__42_10, 708, 708, 5, 65},
-  {entry__42_1_types__generic_list_interleave, NULL, 704, 704, 16, 23},
-  {cont__42_2, &frame__42_1_types__generic_list_interleave, 704, 704, 3, 24},
-  {cont__42_3, &frame__42_1_types__generic_list_interleave, 706, 706, 13, 15},
-  {cont__42_4, &frame__42_1_types__generic_list_interleave, 706, 706, 3, 80},
-  {cont__42_9, &frame__42_1_types__generic_list_interleave, 707, 708, 3, 65},
-  {cont__42_17, &frame__42_1_types__generic_list_interleave, 709, 709, 3, 11},
-  {entry__43_4, NULL, 719, 719, 58, 68},
-  {entry__43_2, NULL, 719, 719, 36, 55},
-  {cont__43_3, &frame__43_2, 719, 719, 33, 68},
-  {entry__43_1_types__generic_list_contains, NULL, 719, 719, 3, 68},
-  {cont__43_5, &frame__43_1_types__generic_list_contains, 720, 720, 3, 10},
-  {entry__46_6, NULL, 744, 744, 33, 55},
-  {cont__46_7, &frame__46_6, 744, 744, 33, 55},
-  {entry__46_9, NULL, 744, 744, 58, 68},
-  {entry__46_4, NULL, 744, 744, 14, 28},
-  {cont__46_5, &frame__46_4, 744, 744, 14, 55},
-  {cont__46_8, &frame__46_4, 744, 744, 11, 68},
-  {entry__46_3, NULL, 743, 744, 9, 68},
-  {cont__46_10, &frame__46_3, 745, 745, 9, 16},
-  {entry__46_1_std__sequence, NULL, 735, 735, 5, 16},
-  {cont__46_2, &frame__46_1_std__sequence, 734, 745, 3, 18},
+  {entry__types__list__to_list_1, NULL, 176, 176, 3, 9},
+  {entry__std__list_1, NULL, 181, 193, 3, 2},
+  {entry__types__list__length_of_1, NULL, 198, 201, 3, 2},
+  {entry__types__list__push_1, NULL, 206, 224, 3, 2},
+  {entry__types__list__drop_1, NULL, 229, 236, 3, 2},
+  {entry__types__list__pop_1, NULL, 241, 252, 3, 2},
+  {entry__types__list__peek_1, NULL, 257, 263, 3, 2},
+  {entry__types__list__append_1, NULL, 268, 293, 3, 2},
+  {entry__types__list__range_1, NULL, 298, 319, 3, 2},
+  {entry__types__generic_list__delete_at_4, NULL, 329, 329, 44, 48},
+  {cont__types__generic_list__delete_at_5, &frame__types__generic_list__delete_at_4, 329, 329, 31, 49},
+  {cont__types__generic_list__delete_at_6, &frame__types__generic_list__delete_at_4, 329, 329, 62, 70},
+  {cont__types__generic_list__delete_at_7, &frame__types__generic_list__delete_at_4, 329, 329, 73, 73},
+  {cont__types__generic_list__delete_at_8, &frame__types__generic_list__delete_at_4, 329, 329, 51, 74},
+  {cont__types__generic_list__delete_at_9, &frame__types__generic_list__delete_at_4, 329, 329, 18, 75},
+  {cont__types__generic_list__delete_at_10, &frame__types__generic_list__delete_at_4, 329, 329, 75, 75},
+  {entry__types__generic_list__delete_at_1, NULL, 329, 329, 6, 15},
+  {cont__types__generic_list__delete_at_2, &frame__types__generic_list__delete_at_1, 329, 329, 6, 15},
+  {cont__types__generic_list__delete_at_3, &frame__types__generic_list__delete_at_1, 329, 329, 3, 75},
+  {cont__types__generic_list__delete_at_11, &frame__types__generic_list__delete_at_1, },
+  {entry__std__normalized_index_4, NULL, 341, 341, 7, 16},
+  {entry__std__normalized_index_5, NULL, 343, 343, 14, 28},
+  {cont__std__normalized_index_6, &frame__std__normalized_index_5, 343, 343, 14, 30},
+  {cont__std__normalized_index_7, &frame__std__normalized_index_5, 343, 343, 14, 34},
+  {cont__std__normalized_index_8, &frame__std__normalized_index_5, 343, 343, 7, 34},
+  {entry__std__normalized_index_1, NULL, 340, 340, 5, 12},
+  {cont__std__normalized_index_2, &frame__std__normalized_index_1, 340, 340, 5, 12},
+  {cont__std__normalized_index_3, &frame__std__normalized_index_1, 339, 343, 3, 35},
+  {cont__std__normalized_index_9, &frame__std__normalized_index_1, 343, 343, 35, 35},
+  {entry__types__generic_list__is_empty_1, NULL, 351, 351, 6, 20},
+  {cont__types__generic_list__is_empty_2, &frame__types__generic_list__is_empty_1, 351, 351, 6, 25},
+  {cont__types__generic_list__is_empty_3, &frame__types__generic_list__is_empty_1, 351, 351, 3, 25},
+  {entry__types__generic_list__for_each_from_to_10, NULL, 380, 380, 16, 22},
+  {cont__types__generic_list__for_each_from_to_11, &frame__types__generic_list__for_each_from_to_10, 380, 380, 9, 22},
+  {entry__types__generic_list__for_each_from_to_12, NULL, 382, 382, 14, 20},
+  {cont__types__generic_list__for_each_from_to_13, &frame__types__generic_list__for_each_from_to_12, 382, 382, 9, 20},
+  {entry__types__generic_list__for_each_from_to_16, NULL, 383, 383, 28, 32},
+  {cont__types__generic_list__for_each_from_to_17, &frame__types__generic_list__for_each_from_to_16, 383, 383, 28, 32},
+  {entry__types__generic_list__for_each_from_to_19, NULL, 383, 383, 35, 39},
+  {entry__types__generic_list__for_each_from_to_7, NULL, 379, 379, 7, 30},
+  {cont__types__generic_list__for_each_from_to_8, &frame__types__generic_list__for_each_from_to_7, 379, 379, 7, 35},
+  {cont__types__generic_list__for_each_from_to_9, &frame__types__generic_list__for_each_from_to_7, 378, 382, 5, 21},
+  {cont__types__generic_list__for_each_from_to_14, &frame__types__generic_list__for_each_from_to_7, 383, 383, 8, 23},
+  {cont__types__generic_list__for_each_from_to_15, &frame__types__generic_list__for_each_from_to_7, 383, 383, 8, 32},
+  {cont__types__generic_list__for_each_from_to_18, &frame__types__generic_list__for_each_from_to_7, 383, 383, 5, 39},
+  {cont__types__generic_list__for_each_from_to_20, &frame__types__generic_list__for_each_from_to_7, 384, 384, 5, 13},
+  {cont__types__generic_list__for_each_from_to_21, &frame__types__generic_list__for_each_from_to_7, 384, 384, 13, 13},
+  {entry__types__generic_list__for_each_from_to_4, NULL, 377, 377, 12, 17},
+  {cont__types__generic_list__for_each_from_to_5, &frame__types__generic_list__for_each_from_to_4, 377, 377, 12, 17},
+  {cont__types__generic_list__for_each_from_to_6, &frame__types__generic_list__for_each_from_to_4, 377, 384, 9, 13},
+  {entry__types__generic_list__for_each_from_to_1, NULL, 375, 375, 3, 34},
+  {cont__types__generic_list__for_each_from_to_2, &frame__types__generic_list__for_each_from_to_1, 376, 376, 3, 32},
+  {cont__types__generic_list__for_each_from_to_3, &frame__types__generic_list__for_each_from_to_1, 377, 384, 3, 13},
+  {entry__types__generic_list__for_each_from_down_to_10, NULL, 413, 413, 16, 22},
+  {cont__types__generic_list__for_each_from_down_to_11, &frame__types__generic_list__for_each_from_down_to_10, 413, 413, 9, 22},
+  {entry__types__generic_list__for_each_from_down_to_12, NULL, 415, 415, 14, 20},
+  {cont__types__generic_list__for_each_from_down_to_13, &frame__types__generic_list__for_each_from_down_to_12, 415, 415, 9, 20},
+  {entry__types__generic_list__for_each_from_down_to_16, NULL, 416, 416, 28, 32},
+  {cont__types__generic_list__for_each_from_down_to_17, &frame__types__generic_list__for_each_from_down_to_16, 416, 416, 28, 32},
+  {entry__types__generic_list__for_each_from_down_to_19, NULL, 416, 416, 35, 39},
+  {entry__types__generic_list__for_each_from_down_to_7, NULL, 412, 412, 7, 30},
+  {cont__types__generic_list__for_each_from_down_to_8, &frame__types__generic_list__for_each_from_down_to_7, 412, 412, 7, 35},
+  {cont__types__generic_list__for_each_from_down_to_9, &frame__types__generic_list__for_each_from_down_to_7, 411, 415, 5, 21},
+  {cont__types__generic_list__for_each_from_down_to_14, &frame__types__generic_list__for_each_from_down_to_7, 416, 416, 8, 23},
+  {cont__types__generic_list__for_each_from_down_to_15, &frame__types__generic_list__for_each_from_down_to_7, 416, 416, 8, 32},
+  {cont__types__generic_list__for_each_from_down_to_18, &frame__types__generic_list__for_each_from_down_to_7, 416, 416, 5, 39},
+  {cont__types__generic_list__for_each_from_down_to_20, &frame__types__generic_list__for_each_from_down_to_7, 417, 417, 5, 14},
+  {cont__types__generic_list__for_each_from_down_to_21, &frame__types__generic_list__for_each_from_down_to_7, 417, 417, 14, 14},
+  {entry__types__generic_list__for_each_from_down_to_4, NULL, 410, 410, 12, 17},
+  {cont__types__generic_list__for_each_from_down_to_5, &frame__types__generic_list__for_each_from_down_to_4, 410, 410, 12, 17},
+  {cont__types__generic_list__for_each_from_down_to_6, &frame__types__generic_list__for_each_from_down_to_4, 410, 417, 9, 14},
+  {entry__types__generic_list__for_each_from_down_to_1, NULL, 408, 408, 3, 34},
+  {cont__types__generic_list__for_each_from_down_to_2, &frame__types__generic_list__for_each_from_down_to_1, 409, 409, 3, 32},
+  {cont__types__generic_list__for_each_from_down_to_3, &frame__types__generic_list__for_each_from_down_to_1, 410, 417, 3, 14},
+  {entry__types__generic_list__for_each_13, NULL, 442, 442, 32, 36},
+  {cont__types__generic_list__for_each_14, &frame__types__generic_list__for_each_13, 442, 442, 32, 36},
+  {entry__types__generic_list__for_each_16, NULL, 442, 442, 39, 43},
+  {entry__types__generic_list__for_each_9, NULL, 441, 441, 16, 22},
+  {cont__types__generic_list__for_each_10, &frame__types__generic_list__for_each_9, 441, 441, 9, 22},
+  {cont__types__generic_list__for_each_11, &frame__types__generic_list__for_each_9, 442, 442, 12, 27},
+  {cont__types__generic_list__for_each_12, &frame__types__generic_list__for_each_9, 442, 442, 12, 36},
+  {cont__types__generic_list__for_each_15, &frame__types__generic_list__for_each_9, 442, 442, 9, 43},
+  {cont__types__generic_list__for_each_17, &frame__types__generic_list__for_each_9, 443, 443, 9, 17},
+  {cont__types__generic_list__for_each_18, &frame__types__generic_list__for_each_9, 443, 443, 17, 17},
+  {entry__types__generic_list__for_each_6, NULL, 440, 440, 16, 21},
+  {cont__types__generic_list__for_each_7, &frame__types__generic_list__for_each_6, 440, 440, 16, 21},
+  {cont__types__generic_list__for_each_8, &frame__types__generic_list__for_each_6, 440, 443, 13, 17},
+  {entry__types__generic_list__for_each_5, NULL, 440, 443, 7, 17},
+  {entry__types__generic_list__for_each_27, NULL, 447, 447, 32, 36},
+  {cont__types__generic_list__for_each_28, &frame__types__generic_list__for_each_27, 447, 447, 32, 36},
+  {entry__types__generic_list__for_each_30, NULL, 447, 447, 39, 43},
+  {entry__types__generic_list__for_each_23, NULL, 446, 446, 14, 20},
+  {cont__types__generic_list__for_each_24, &frame__types__generic_list__for_each_23, 446, 446, 9, 20},
+  {cont__types__generic_list__for_each_25, &frame__types__generic_list__for_each_23, 447, 447, 12, 27},
+  {cont__types__generic_list__for_each_26, &frame__types__generic_list__for_each_23, 447, 447, 12, 36},
+  {cont__types__generic_list__for_each_29, &frame__types__generic_list__for_each_23, 447, 447, 9, 43},
+  {cont__types__generic_list__for_each_31, &frame__types__generic_list__for_each_23, 448, 448, 9, 17},
+  {cont__types__generic_list__for_each_32, &frame__types__generic_list__for_each_23, 448, 448, 17, 17},
+  {entry__types__generic_list__for_each_20, NULL, 445, 445, 16, 21},
+  {cont__types__generic_list__for_each_21, &frame__types__generic_list__for_each_20, 445, 445, 16, 21},
+  {cont__types__generic_list__for_each_22, &frame__types__generic_list__for_each_20, 445, 448, 13, 17},
+  {entry__types__generic_list__for_each_19, NULL, 445, 448, 7, 17},
+  {entry__types__generic_list__for_each_1, NULL, 437, 437, 3, 20},
+  {cont__types__generic_list__for_each_2, &frame__types__generic_list__for_each_1, 439, 439, 5, 28},
+  {cont__types__generic_list__for_each_3, &frame__types__generic_list__for_each_1, 439, 439, 5, 33},
+  {cont__types__generic_list__for_each_4, &frame__types__generic_list__for_each_1, 438, 448, 3, 19},
+  {entry__types__generic_list__update_each_6, NULL, 478, 478, 11, 35},
+  {cont__types__generic_list__update_each_7, &frame__types__generic_list__update_each_6, 478, 478, 35, 35},
+  {entry__types__generic_list__update_each_8, NULL, 480, 480, 11, 33},
+  {cont__types__generic_list__update_each_9, &frame__types__generic_list__update_each_8, 480, 480, 33, 33},
+  {entry__types__generic_list__update_each_4, NULL, 477, 477, 9, 30},
+  {cont__types__generic_list__update_each_5, &frame__types__generic_list__update_each_4, 476, 480, 7, 34},
+  {entry__types__generic_list__update_each_2, NULL, 475, 475, 8, 26},
+  {cont__types__generic_list__update_each_3, &frame__types__generic_list__update_each_2, 475, 480, 5, 35},
+  {cont__types__generic_list__update_each_10, &frame__types__generic_list__update_each_2, 481, 481, 5, 13},
+  {cont__types__generic_list__update_each_11, &frame__types__generic_list__update_each_2, 481, 481, 13, 13},
+  {entry__types__generic_list__update_each_19, NULL, 488, 488, 43, 49},
+  {cont__types__generic_list__update_each_20, &frame__types__generic_list__update_each_19, 488, 488, 36, 50},
+  {cont__types__generic_list__update_each_21, &frame__types__generic_list__update_each_19, 488, 488, 24, 50},
+  {entry__types__generic_list__update_each_16, NULL, 488, 488, 16, 21},
+  {cont__types__generic_list__update_each_17, &frame__types__generic_list__update_each_16, 488, 488, 16, 21},
+  {cont__types__generic_list__update_each_18, &frame__types__generic_list__update_each_16, 488, 488, 13, 50},
+  {entry__types__generic_list__update_each_15, NULL, 488, 488, 7, 50},
+  {entry__types__generic_list__update_each_26, NULL, 490, 490, 41, 47},
+  {cont__types__generic_list__update_each_27, &frame__types__generic_list__update_each_26, 490, 490, 36, 48},
+  {cont__types__generic_list__update_each_28, &frame__types__generic_list__update_each_26, 490, 490, 24, 48},
+  {entry__types__generic_list__update_each_23, NULL, 490, 490, 16, 21},
+  {cont__types__generic_list__update_each_24, &frame__types__generic_list__update_each_23, 490, 490, 16, 21},
+  {cont__types__generic_list__update_each_25, &frame__types__generic_list__update_each_23, 490, 490, 13, 48},
+  {entry__types__generic_list__update_each_22, NULL, 490, 490, 7, 48},
+  {entry__types__generic_list__update_each_1, NULL, 484, 484, 3, 20},
+  {cont__types__generic_list__update_each_12, &frame__types__generic_list__update_each_1, 487, 487, 5, 28},
+  {cont__types__generic_list__update_each_13, &frame__types__generic_list__update_each_1, 487, 487, 5, 33},
+  {cont__types__generic_list__update_each_14, &frame__types__generic_list__update_each_1, 486, 490, 3, 49},
+  {cont__types__generic_list__update_each_29, &frame__types__generic_list__update_each_1, 491, 491, 3, 17},
+  {cont__types__generic_list__update_each_30, &frame__types__generic_list__update_each_1, 491, 491, 17, 17},
+  {entry__types__list__for_each_pair_5, NULL, 507, 507, 10, 16},
+  {cont__types__list__for_each_pair_6, &frame__types__list__for_each_pair_5, 507, 507, 23, 25},
+  {cont__types__list__for_each_pair_7, &frame__types__list__for_each_pair_5, 507, 507, 18, 26},
+  {cont__types__list__for_each_pair_8, &frame__types__list__for_each_pair_5, 507, 507, 5, 26},
+  {cont__types__list__for_each_pair_9, &frame__types__list__for_each_pair_5, 508, 508, 5, 13},
+  {cont__types__list__for_each_pair_10, &frame__types__list__for_each_pair_5, 508, 508, 13, 13},
+  {entry__types__list__for_each_pair_3, NULL, 506, 506, 12, 16},
+  {cont__types__list__for_each_pair_4, &frame__types__list__for_each_pair_3, 506, 508, 9, 13},
+  {entry__types__list__for_each_pair_13, NULL, 509, 509, 22, 28},
+  {cont__types__list__for_each_pair_14, &frame__types__list__for_each_pair_13, 509, 509, 17, 28},
+  {entry__types__list__for_each_pair_1, NULL, 505, 505, 3, 20},
+  {cont__types__list__for_each_pair_2, &frame__types__list__for_each_pair_1, 506, 508, 3, 13},
+  {cont__types__list__for_each_pair_11, &frame__types__list__for_each_pair_1, 509, 509, 6, 14},
+  {cont__types__list__for_each_pair_12, &frame__types__list__for_each_pair_1, 509, 509, 3, 28},
+  {entry__types__generic_list__get_4, NULL, 517, 517, 28, 80},
+  {entry__types__generic_list__get_1, NULL, 517, 517, 6, 20},
+  {cont__types__generic_list__get_2, &frame__types__generic_list__get_1, 517, 517, 6, 25},
+  {cont__types__generic_list__get_3, &frame__types__generic_list__get_1, 517, 517, 3, 80},
+  {cont__types__generic_list__get_6, &frame__types__generic_list__get_1, 518, 518, 20, 20},
+  {cont__types__generic_list__get_7, &frame__types__generic_list__get_1, 518, 518, 6, 21},
+  {cont__types__generic_list__get_8, &frame__types__generic_list__get_1, 518, 518, 23, 29},
+  {cont__types__generic_list__get_9, &frame__types__generic_list__get_1, 518, 518, 3, 29},
+  {entry__types__list__put_1, NULL, 527, 527, 13, 22},
+  {cont__types__list__put_2, &frame__types__list__put_1, 527, 527, 6, 28},
+  {cont__types__list__put_3, &frame__types__list__put_1, 527, 527, 3, 28},
+  {entry__types__list__merge_11, NULL, 546, 546, 49, 56},
+  {cont__types__list__merge_12, &frame__types__list__merge_11, 546, 546, 38, 44},
+  {cont__types__list__merge_13, &frame__types__list__merge_11, 546, 546, 38, 56},
+  {cont__types__list__merge_14, &frame__types__list__merge_11, 546, 546, 38, 56},
+  {cont__types__list__merge_15, &frame__types__list__merge_11, 546, 546, 38, 56},
+  {entry__types__list__merge_19, NULL, 547, 547, 45, 52},
+  {cont__types__list__merge_20, &frame__types__list__merge_19, 547, 547, 54, 60},
+  {cont__types__list__merge_21, &frame__types__list__merge_19, 547, 547, 40, 61},
+  {cont__types__list__merge_22, &frame__types__list__merge_19, 547, 547, 36, 62},
+  {cont__types__list__merge_23, &frame__types__list__merge_19, 547, 547, 36, 62},
+  {entry__types__list__merge_17, NULL, 547, 547, 17, 31},
+  {cont__types__list__merge_18, &frame__types__list__merge_17, 547, 547, 17, 62},
+  {cont__types__list__merge_24, &frame__types__list__merge_17, 547, 547, 17, 62},
+  {entry__types__list__merge_26, NULL, 549, 549, 30, 39},
+  {cont__types__list__merge_27, &frame__types__list__merge_26, 549, 549, 17, 39},
+  {cont__types__list__merge_28, &frame__types__list__merge_26, 549, 549, 39, 39},
+  {entry__types__list__merge_29, NULL, 551, 551, 30, 40},
+  {cont__types__list__merge_30, &frame__types__list__merge_29, 551, 551, 17, 40},
+  {cont__types__list__merge_31, &frame__types__list__merge_29, 551, 551, 40, 40},
+  {entry__types__list__merge_9, NULL, 546, 546, 17, 33},
+  {cont__types__list__merge_10, &frame__types__list__merge_9, 546, 546, 17, 56},
+  {cont__types__list__merge_16, &frame__types__list__merge_9, 545, 547, 15, 61},
+  {cont__types__list__merge_25, &frame__types__list__merge_9, 544, 551, 13, 41},
+  {entry__types__list__merge_32, NULL, 553, 553, 20, 38},
+  {cont__types__list__merge_33, &frame__types__list__merge_32, 553, 553, 13, 38},
+  {entry__types__list__merge_6, NULL, 543, 543, 11, 26},
+  {cont__types__list__merge_7, &frame__types__list__merge_6, 543, 543, 11, 30},
+  {cont__types__list__merge_8, &frame__types__list__merge_6, 542, 553, 9, 39},
+  {entry__types__list__merge_34, NULL, 555, 555, 16, 35},
+  {cont__types__list__merge_35, &frame__types__list__merge_34, 555, 555, 9, 35},
+  {entry__types__list__merge_3, NULL, 541, 541, 7, 21},
+  {cont__types__list__merge_4, &frame__types__list__merge_3, 541, 541, 7, 25},
+  {cont__types__list__merge_5, &frame__types__list__merge_3, 540, 555, 5, 36},
+  {entry__types__list__merge_1, NULL, 538, 538, 3, 17},
+  {cont__types__list__merge_2, &frame__types__list__merge_1, 539, 555, 3, 37},
+  {cont__types__list__merge_36, &frame__types__list__merge_1, 555, 555, 37, 37},
+  {entry__types__list__serialize_3, NULL, 565, 565, 21, 35},
+  {entry__types__list__serialize_7, NULL, 568, 568, 33, 40},
+  {cont__types__list__serialize_8, &frame__types__list__serialize_7, 568, 568, 26, 41},
+  {cont__types__list__serialize_9, &frame__types__list__serialize_7, 568, 568, 58, 65},
+  {cont__types__list__serialize_10, &frame__types__list__serialize_7, 568, 568, 43, 66},
+  {cont__types__list__serialize_11, &frame__types__list__serialize_7, 568, 568, 5, 66},
+  {cont__types__list__serialize_12, &frame__types__list__serialize_7, 568, 568, 66, 66},
+  {entry__types__list__serialize_1, NULL, 565, 565, 6, 18},
+  {cont__types__list__serialize_2, &frame__types__list__serialize_1, 565, 565, 3, 35},
+  {cont__types__list__serialize_5, &frame__types__list__serialize_1, 567, 568, 3, 66},
+  {cont__types__list__serialize_13, &frame__types__list__serialize_1, 569, 569, 3, 8},
+  {entry__types__list__sort_4, NULL, 586, 586, 7, 17},
+  {entry__types__list__sort_7, NULL, 590, 590, 43, 49},
+  {cont__types__list__sort_8, &frame__types__list__sort_7, 590, 590, 32, 38},
+  {cont__types__list__sort_9, &frame__types__list__sort_7, 590, 590, 32, 49},
+  {cont__types__list__sort_10, &frame__types__list__sort_7, 590, 590, 32, 49},
+  {cont__types__list__sort_11, &frame__types__list__sort_7, 590, 590, 32, 49},
+  {entry__types__list__sort_15, NULL, 591, 591, 39, 45},
+  {cont__types__list__sort_16, &frame__types__list__sort_15, 591, 591, 47, 53},
+  {cont__types__list__sort_17, &frame__types__list__sort_15, 591, 591, 34, 54},
+  {cont__types__list__sort_18, &frame__types__list__sort_15, 591, 591, 30, 55},
+  {cont__types__list__sort_19, &frame__types__list__sort_15, 591, 591, 30, 55},
+  {entry__types__list__sort_13, NULL, 591, 591, 11, 25},
+  {cont__types__list__sort_14, &frame__types__list__sort_13, 591, 591, 11, 55},
+  {cont__types__list__sort_20, &frame__types__list__sort_13, 591, 591, 11, 55},
+  {entry__types__list__sort_22, NULL, 593, 593, 11, 21},
+  {entry__types__list__sort_23, NULL, 595, 595, 23, 29},
+  {cont__types__list__sort_24, &frame__types__list__sort_23, 595, 595, 31, 37},
+  {cont__types__list__sort_25, &frame__types__list__sort_23, 595, 595, 18, 38},
+  {cont__types__list__sort_26, &frame__types__list__sort_23, 595, 595, 11, 38},
+  {entry__types__list__sort_5, NULL, 590, 590, 11, 27},
+  {cont__types__list__sort_6, &frame__types__list__sort_5, 590, 590, 11, 49},
+  {cont__types__list__sort_12, &frame__types__list__sort_5, 589, 591, 9, 54},
+  {cont__types__list__sort_21, &frame__types__list__sort_5, 588, 595, 7, 39},
+  {entry__types__list__sort_30, NULL, 600, 600, 29, 43},
+  {cont__types__list__sort_31, &frame__types__list__sort_30, 600, 600, 24, 44},
+  {cont__types__list__sort_32, &frame__types__list__sort_30, 600, 600, 62, 64},
+  {cont__types__list__sort_33, &frame__types__list__sort_30, 600, 600, 51, 67},
+  {cont__types__list__sort_34, &frame__types__list__sort_30, 600, 600, 46, 68},
+  {cont__types__list__sort_35, &frame__types__list__sort_30, 600, 600, 18, 69},
+  {cont__types__list__sort_36, &frame__types__list__sort_30, 600, 600, 11, 69},
+  {entry__types__list__sort_37, NULL, 603, 603, 24, 38},
+  {cont__types__list__sort_38, &frame__types__list__sort_37, 603, 603, 19, 44},
+  {cont__types__list__sort_39, &frame__types__list__sort_37, 603, 603, 62, 64},
+  {cont__types__list__sort_40, &frame__types__list__sort_37, 603, 603, 51, 67},
+  {cont__types__list__sort_41, &frame__types__list__sort_37, 603, 603, 46, 73},
+  {cont__types__list__sort_42, &frame__types__list__sort_37, 603, 603, 13, 79},
+  {cont__types__list__sort_43, &frame__types__list__sort_37, 602, 603, 11, 79},
+  {entry__types__list__sort_27, NULL, 597, 597, 7, 18},
+  {cont__types__list__sort_28, &frame__types__list__sort_27, 599, 599, 9, 25},
+  {cont__types__list__sort_29, &frame__types__list__sort_27, 598, 603, 7, 81},
+  {entry__types__list__sort_1, NULL, 582, 582, 3, 20},
+  {cont__types__list__sort_2, &frame__types__list__sort_1, 585, 585, 5, 8},
+  {cont__types__list__sort_3, &frame__types__list__sort_1, 583, 603, 3, 83},
+  {cont__types__list__sort_44, &frame__types__list__sort_1, 603, 603, 83, 83},
+  {entry__types__list__new_empty_collection_1, NULL, 640, 640, 3, 16},
+  {entry__types__generic_list__equal_3, NULL, 652, 652, 30, 44},
+  {cont__types__generic_list__equal_4, &frame__types__generic_list__equal_3, 652, 652, 30, 44},
+  {entry__types__generic_list__equal_6, NULL, 652, 652, 47, 58},
+  {entry__types__generic_list__equal_12, NULL, 653, 653, 43, 54},
+  {entry__types__generic_list__equal_18, NULL, 654, 654, 52, 63},
+  {entry__types__generic_list__equal_14, NULL, 654, 654, 40, 49},
+  {cont__types__generic_list__equal_15, &frame__types__generic_list__equal_14, 654, 654, 32, 49},
+  {cont__types__generic_list__equal_16, &frame__types__generic_list__equal_14, 654, 654, 32, 49},
+  {cont__types__generic_list__equal_17, &frame__types__generic_list__equal_14, 654, 654, 29, 63},
+  {entry__types__generic_list__equal_1, NULL, 652, 652, 10, 25},
+  {cont__types__generic_list__equal_2, &frame__types__generic_list__equal_1, 652, 652, 10, 44},
+  {cont__types__generic_list__equal_5, &frame__types__generic_list__equal_1, 652, 652, 3, 58},
+  {cont__types__generic_list__equal_7, &frame__types__generic_list__equal_1, 653, 653, 6, 20},
+  {cont__types__generic_list__equal_8, &frame__types__generic_list__equal_1, 653, 653, 25, 40},
+  {cont__types__generic_list__equal_9, &frame__types__generic_list__equal_1, 653, 653, 6, 40},
+  {cont__types__generic_list__equal_10, &frame__types__generic_list__equal_1, 653, 653, 6, 40},
+  {cont__types__generic_list__equal_11, &frame__types__generic_list__equal_1, 653, 653, 3, 54},
+  {cont__types__generic_list__equal_13, &frame__types__generic_list__equal_1, 654, 654, 3, 63},
+  {cont__types__generic_list__equal_19, &frame__types__generic_list__equal_1, 655, 655, 3, 9},
+  {entry__types__generic_list__filter_5, NULL, 665, 665, 40, 58},
+  {cont__types__generic_list__filter_6, &frame__types__generic_list__filter_5, 665, 665, 58, 58},
+  {entry__types__generic_list__filter_3, NULL, 665, 665, 28, 37},
+  {cont__types__generic_list__filter_4, &frame__types__generic_list__filter_3, 665, 665, 25, 58},
+  {entry__types__generic_list__filter_1, NULL, 664, 664, 3, 39},
+  {cont__types__generic_list__filter_2, &frame__types__generic_list__filter_1, 665, 665, 3, 58},
+  {cont__types__generic_list__filter_7, &frame__types__generic_list__filter_1, 666, 666, 3, 13},
+  {entry__types__generic_list__map_3, NULL, 678, 678, 40, 49},
+  {cont__types__generic_list__map_4, &frame__types__generic_list__map_3, 678, 678, 25, 49},
+  {cont__types__generic_list__map_5, &frame__types__generic_list__map_3, 678, 678, 49, 49},
+  {entry__types__generic_list__map_1, NULL, 677, 677, 3, 39},
+  {cont__types__generic_list__map_2, &frame__types__generic_list__map_1, 678, 678, 3, 49},
+  {cont__types__generic_list__map_6, &frame__types__generic_list__map_1, 679, 679, 3, 13},
+  {entry__types__generic_list__dup_2, NULL, 688, 688, 31, 37},
+  {entry__types__generic_list__dup_5, NULL, 689, 689, 15, 48},
+  {entry__types__generic_list__dup_12, NULL, 692, 692, 18, 36},
+  {cont__types__generic_list__dup_13, &frame__types__generic_list__dup_12, 692, 692, 36, 36},
+  {entry__types__generic_list__dup_3, NULL, 689, 689, 8, 12},
+  {cont__types__generic_list__dup_4, &frame__types__generic_list__dup_3, 689, 689, 5, 48},
+  {cont__types__generic_list__dup_7, &frame__types__generic_list__dup_3, 690, 690, 23, 31},
+  {cont__types__generic_list__dup_8, &frame__types__generic_list__dup_3, 690, 690, 5, 32},
+  {cont__types__generic_list__dup_9, &frame__types__generic_list__dup_3, 691, 691, 5, 25},
+  {cont__types__generic_list__dup_10, &frame__types__generic_list__dup_3, 692, 692, 8, 15},
+  {cont__types__generic_list__dup_11, &frame__types__generic_list__dup_3, 692, 692, 5, 36},
+  {cont__types__generic_list__dup_14, &frame__types__generic_list__dup_3, 693, 693, 5, 13},
+  {entry__types__generic_list__dup_15, NULL, 688, 688, 13, 25},
+  {entry__types__generic_list__dup_1, NULL, 688, 693, 3, 13},
+  {entry__types__generic_list__interleave_6, NULL, 706, 706, 66, 80},
+  {cont__types__generic_list__interleave_7, &frame__types__generic_list__interleave_6, 706, 706, 53, 80},
+  {cont__types__generic_list__interleave_8, &frame__types__generic_list__interleave_6, 706, 706, 80, 80},
+  {entry__types__generic_list__interleave_5, NULL, 706, 706, 22, 80},
+  {entry__types__generic_list__interleave_14, NULL, 708, 708, 51, 65},
+  {cont__types__generic_list__interleave_15, &frame__types__generic_list__interleave_14, 708, 708, 38, 65},
+  {cont__types__generic_list__interleave_16, &frame__types__generic_list__interleave_14, 708, 708, 65, 65},
+  {entry__types__generic_list__interleave_10, NULL, 708, 708, 8, 30},
+  {cont__types__generic_list__interleave_11, &frame__types__generic_list__interleave_10, 708, 708, 8, 35},
+  {cont__types__generic_list__interleave_12, &frame__types__generic_list__interleave_10, 708, 708, 8, 35},
+  {cont__types__generic_list__interleave_13, &frame__types__generic_list__interleave_10, 708, 708, 5, 65},
+  {entry__types__generic_list__interleave_1, NULL, 704, 704, 16, 23},
+  {cont__types__generic_list__interleave_2, &frame__types__generic_list__interleave_1, 704, 704, 3, 24},
+  {cont__types__generic_list__interleave_3, &frame__types__generic_list__interleave_1, 706, 706, 13, 15},
+  {cont__types__generic_list__interleave_4, &frame__types__generic_list__interleave_1, 706, 706, 3, 80},
+  {cont__types__generic_list__interleave_9, &frame__types__generic_list__interleave_1, 707, 708, 3, 65},
+  {cont__types__generic_list__interleave_17, &frame__types__generic_list__interleave_1, 709, 709, 3, 11},
+  {entry__types__generic_list__contains_4, NULL, 719, 719, 58, 68},
+  {entry__types__generic_list__contains_2, NULL, 719, 719, 36, 55},
+  {cont__types__generic_list__contains_3, &frame__types__generic_list__contains_2, 719, 719, 33, 68},
+  {entry__types__generic_list__contains_1, NULL, 719, 719, 3, 68},
+  {cont__types__generic_list__contains_5, &frame__types__generic_list__contains_1, 720, 720, 3, 10},
+  {entry__std__sequence_6, NULL, 744, 744, 33, 55},
+  {cont__std__sequence_7, &frame__std__sequence_6, 744, 744, 33, 55},
+  {entry__std__sequence_9, NULL, 744, 744, 58, 68},
+  {entry__std__sequence_4, NULL, 744, 744, 14, 28},
+  {cont__std__sequence_5, &frame__std__sequence_4, 744, 744, 14, 55},
+  {cont__std__sequence_8, &frame__std__sequence_4, 744, 744, 11, 68},
+  {entry__std__sequence_3, NULL, 743, 744, 9, 68},
+  {cont__std__sequence_10, &frame__std__sequence_3, 745, 745, 9, 16},
+  {entry__std__sequence_1, NULL, 735, 735, 5, 16},
+  {cont__std__sequence_2, &frame__std__sequence_1, 734, 745, 3, 18},
   {entry__94_4, NULL, 755, 755, 51, 51},
   {cont__94_5, &frame__94_4, 755, 755, 37, 52},
   {cont__94_6, &frame__94_4, 755, 755, 30, 63},
@@ -2260,7 +2260,7 @@ static long func__types__list___length_of(NODE *node) {
 static NODE *func__types__list___get_item_of(NODE *node, long idx) {
   return node->list.data->items[idx];
 }
-static void entry__14_1_types__list_to_list(void) {
+static void entry__types__list__to_list_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -2276,7 +2276,7 @@ static void entry__14_1_types__list_to_list(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1_std__list(void) {
+static void entry__std__list_1(void) {
   if (argument_count < 0) {
     too_few_arguments_error();
     return;
@@ -2300,7 +2300,7 @@ static void entry__15_1_std__list(void) {
     return;
   }
 }
-static void entry__16_1_types__list_length_of(void) {
+static void entry__types__list__length_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2315,7 +2315,7 @@ static void entry__16_1_types__list_length_of(void) {
     return;
   }
 }
-static void entry__17_1_types__list_push(void) {
+static void entry__types__list__push_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -2345,7 +2345,7 @@ static void entry__17_1_types__list_push(void) {
     return;
   }
 }
-static void entry__18_1_types__list_drop(void) {
+static void entry__types__list__drop_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2366,7 +2366,7 @@ static void entry__18_1_types__list_drop(void) {
     return;
   }
 }
-static void entry__19_1_types__list_pop(void) {
+static void entry__types__list__pop_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2390,7 +2390,7 @@ static void entry__19_1_types__list_pop(void) {
     return;
   }
 }
-static void entry__20_1_types__list_peek(void) {
+static void entry__types__list__peek_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -2410,7 +2410,7 @@ static void entry__20_1_types__list_peek(void) {
     return;
   }
 }
-static void entry__21_1_types__list_append(void) {
+static void entry__types__list__append_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -2465,7 +2465,7 @@ static void entry__21_1_types__list_append(void) {
     return;
   }
 }
-static void entry__22_1_types__list_range(void) {
+static void entry__types__list__range_1(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -2520,7 +2520,7 @@ static void entry__22_1_types__list_range(void) {
     return;
   }
 }
-static void entry__23_1_types__generic_list_delete_at(void) {
+static void entry__types__generic_list__delete_at_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -2550,9 +2550,9 @@ static void entry__23_1_types__generic_list_delete_at(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__23_2;
+  frame->cont = cont__types__generic_list__delete_at_2;
 }
-static void cont__23_2(void) {
+static void cont__types__generic_list__delete_at_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2565,16 +2565,16 @@ static void cont__23_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__23_3;
+  frame->cont = cont__types__generic_list__delete_at_3;
 }
-static void cont__23_3(void) {
+static void cont__types__generic_list__delete_at_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 329: ... : !self append(range(self 1 idx-1) range(self idx+count -1))
-  frame->slots[5] /* temp__3 */ = create_closure(entry__23_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__types__generic_list__delete_at_4, 0);
   // 329: if count != 0: !self append(range(self 1 idx-1) range(self idx+count -1))
   argument_count = 2;
   arguments = node_p;
@@ -2585,9 +2585,9 @@ static void cont__23_3(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__23_11;
+  frame->cont = cont__types__generic_list__delete_at_11;
 }
-static void entry__23_4(void) {
+static void entry__types__generic_list__delete_at_4(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // self: 0
@@ -2608,9 +2608,9 @@ static void entry__23_4(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__23_5;
+  frame->cont = cont__types__generic_list__delete_at_5;
 }
-static void cont__23_5(void) {
+static void cont__types__generic_list__delete_at_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2625,9 +2625,9 @@ static void cont__23_5(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__23_6;
+  frame->cont = cont__types__generic_list__delete_at_6;
 }
-static void cont__23_6(void) {
+static void cont__types__generic_list__delete_at_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2641,9 +2641,9 @@ static void cont__23_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__23_7;
+  frame->cont = cont__types__generic_list__delete_at_7;
 }
-static void cont__23_7(void) {
+static void cont__types__generic_list__delete_at_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2656,9 +2656,9 @@ static void cont__23_7(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__23_8;
+  frame->cont = cont__types__generic_list__delete_at_8;
 }
-static void cont__23_8(void) {
+static void cont__types__generic_list__delete_at_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2673,9 +2673,9 @@ static void cont__23_8(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__23_9;
+  frame->cont = cont__types__generic_list__delete_at_9;
 }
-static void cont__23_9(void) {
+static void cont__types__generic_list__delete_at_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2689,9 +2689,9 @@ static void cont__23_9(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__23_10;
+  frame->cont = cont__types__generic_list__delete_at_10;
 }
-static void cont__23_10(void) {
+static void cont__types__generic_list__delete_at_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2703,7 +2703,7 @@ static void cont__23_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_11(void) {
+static void cont__types__generic_list__delete_at_11(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -2714,7 +2714,7 @@ static void cont__23_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1_std__normalized_index(void) {
+static void entry__std__normalized_index_1(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -2733,9 +2733,9 @@ static void entry__24_1_std__normalized_index(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__24_2;
+  frame->cont = cont__std__normalized_index_2;
 }
-static void cont__24_2(void) {
+static void cont__std__normalized_index_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2748,9 +2748,9 @@ static void cont__24_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__24_3;
+  frame->cont = cont__std__normalized_index_3;
 }
-static void cont__24_3(void) {
+static void cont__std__normalized_index_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2758,10 +2758,10 @@ static void cont__24_3(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 340: ... :
   // 341:   return idx
-  frame->slots[5] /* temp__3 */ = create_closure(entry__24_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__std__normalized_index_4, 0);
   // 342: :
   // 343:   return length_of(self)+1+idx
-  frame->slots[6] /* temp__4 */ = create_closure(entry__24_5, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__std__normalized_index_5, 0);
   // 339: if
   // 340:   idx >= 0:
   // 341:     return idx
@@ -2775,9 +2775,9 @@ static void cont__24_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__24_9;
+  frame->cont = cont__std__normalized_index_9;
 }
-static void entry__24_4(void) {
+static void entry__std__normalized_index_4(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -2797,7 +2797,7 @@ static void entry__24_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__24_5(void) {
+static void entry__std__normalized_index_5(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // return: 0
@@ -2817,9 +2817,9 @@ static void entry__24_5(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__24_6;
+  frame->cont = cont__std__normalized_index_6;
 }
-static void cont__24_6(void) {
+static void cont__std__normalized_index_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2833,9 +2833,9 @@ static void cont__24_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__24_7;
+  frame->cont = cont__std__normalized_index_7;
 }
-static void cont__24_7(void) {
+static void cont__std__normalized_index_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2849,9 +2849,9 @@ static void cont__24_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__24_8;
+  frame->cont = cont__std__normalized_index_8;
 }
-static void cont__24_8(void) {
+static void cont__std__normalized_index_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2866,12 +2866,12 @@ static void cont__24_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__24_9(void) {
+static void cont__std__normalized_index_9(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1_types__generic_list_is_empty(void) {
+static void entry__types__generic_list__is_empty_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -2886,9 +2886,9 @@ static void entry__25_1_types__generic_list_is_empty(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__25_2;
+  frame->cont = cont__types__generic_list__is_empty_2;
 }
-static void cont__25_2(void) {
+static void cont__types__generic_list__is_empty_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2902,9 +2902,9 @@ static void cont__25_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__25_3;
+  frame->cont = cont__types__generic_list__is_empty_3;
 }
-static void cont__25_3(void) {
+static void cont__types__generic_list__is_empty_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2918,7 +2918,7 @@ static void cont__25_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__26_7(void) {
+static void entry__types__generic_list__for_each_from_to_7(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // body: 0
@@ -2942,9 +2942,9 @@ static void entry__26_7(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__26_8;
+  frame->cont = cont__types__generic_list__for_each_from_to_8;
 }
-static void cont__26_8(void) {
+static void cont__types__generic_list__for_each_from_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2958,9 +2958,9 @@ static void cont__26_8(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__26_9;
+  frame->cont = cont__types__generic_list__for_each_from_to_9;
 }
-static void cont__26_9(void) {
+static void cont__types__generic_list__for_each_from_to_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2968,10 +2968,10 @@ static void cont__26_9(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 379: ... :
   // 380:   body i self(i)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__26_10, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_from_to_10, 0);
   // 381: :
   // 382:   body self(i)
-  frame->slots[8] /* temp__4 */ = create_closure(entry__26_12, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_from_to_12, 0);
   // 378: if
   // 379:   parameter_count_of(body) == 2:
   // 380:     body i self(i)
@@ -2985,9 +2985,9 @@ static void cont__26_9(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__26_14;
+  frame->cont = cont__types__generic_list__for_each_from_to_14;
 }
-static void entry__26_10(void) {
+static void entry__types__generic_list__for_each_from_to_10(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -3007,9 +3007,9 @@ static void entry__26_10(void) {
   result_count = 1;
   myself = frame->slots[2] /* self */;
   func = myself->type;
-  frame->cont = cont__26_11;
+  frame->cont = cont__types__generic_list__for_each_from_to_11;
 }
-static void cont__26_11(void) {
+static void cont__types__generic_list__for_each_from_to_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3025,7 +3025,7 @@ static void cont__26_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__26_12(void) {
+static void entry__types__generic_list__for_each_from_to_12(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -3045,9 +3045,9 @@ static void entry__26_12(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__26_13;
+  frame->cont = cont__types__generic_list__for_each_from_to_13;
 }
-static void cont__26_13(void) {
+static void cont__types__generic_list__for_each_from_to_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3062,7 +3062,7 @@ static void cont__26_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__26_14(void) {
+static void cont__types__generic_list__for_each_from_to_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3074,16 +3074,16 @@ static void cont__26_14(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__26_15;
+  frame->cont = cont__types__generic_list__for_each_from_to_15;
 }
-static void cont__26_15(void) {
+static void cont__types__generic_list__for_each_from_to_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
   // 383: ... i < n
-  frame->slots[7] /* temp__3 */ = create_closure(entry__26_16, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_from_to_16, 0);
   // 383: ... body2.is_defined && i < n
   argument_count = 2;
   arguments = node_p;
@@ -3092,9 +3092,9 @@ static void cont__26_15(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__26_18;
+  frame->cont = cont__types__generic_list__for_each_from_to_18;
 }
-static void entry__26_16(void) {
+static void entry__types__generic_list__for_each_from_to_16(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // i: 0
@@ -3113,9 +3113,9 @@ static void entry__26_16(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__26_17;
+  frame->cont = cont__types__generic_list__for_each_from_to_17;
 }
-static void cont__26_17(void) {
+static void cont__types__generic_list__for_each_from_to_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3129,14 +3129,14 @@ static void cont__26_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__26_18(void) {
+static void cont__types__generic_list__for_each_from_to_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 383: ... : body2
-  frame->slots[8] /* temp__4 */ = create_closure(entry__26_19, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_from_to_19, 0);
   // 383: if body2.is_defined && i < n: body2
   argument_count = 2;
   arguments = node_p;
@@ -3145,9 +3145,9 @@ static void cont__26_18(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__26_20;
+  frame->cont = cont__types__generic_list__for_each_from_to_20;
 }
-static void entry__26_19(void) {
+static void entry__types__generic_list__for_each_from_to_19(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body2: 0
@@ -3164,7 +3164,7 @@ static void entry__26_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__26_20(void) {
+static void cont__types__generic_list__for_each_from_to_20(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3177,9 +3177,9 @@ static void cont__26_20(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__26_21;
+  frame->cont = cont__types__generic_list__for_each_from_to_21;
 }
-static void cont__26_21(void) {
+static void cont__types__generic_list__for_each_from_to_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3191,7 +3191,7 @@ static void cont__26_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__26_4(void) {
+static void entry__types__generic_list__for_each_from_to_4(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // n: 0
@@ -3216,9 +3216,9 @@ static void entry__26_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__26_5;
+  frame->cont = cont__types__generic_list__for_each_from_to_5;
 }
-static void cont__26_5(void) {
+static void cont__types__generic_list__for_each_from_to_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3231,9 +3231,9 @@ static void cont__26_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__26_6;
+  frame->cont = cont__types__generic_list__for_each_from_to_6;
 }
-static void cont__26_6(void) {
+static void cont__types__generic_list__for_each_from_to_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3247,7 +3247,7 @@ static void cont__26_6(void) {
   // 382:       body self(i)
   // 383:   if body2.is_defined && i < n: body2
   // 384:   plus &i 1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__26_7, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_from_to_7, 0);
   // 377: ... -> i <= n:
   // 378:   if
   // 379:     parameter_count_of(body) == 2:
@@ -3264,7 +3264,7 @@ static void cont__26_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__26_1_types__generic_list_for_each_from_to(void) {
+static void entry__types__generic_list__for_each_from_to_1(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -3299,9 +3299,9 @@ static void entry__26_1_types__generic_list_for_each_from_to(void) {
   result_count = 1;
   myself = get__normalized_index();
   func = myself->type;
-  frame->cont = cont__26_2;
+  frame->cont = cont__types__generic_list__for_each_from_to_2;
 }
-static void cont__26_2(void) {
+static void cont__types__generic_list__for_each_from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3315,9 +3315,9 @@ static void cont__26_2(void) {
   result_count = 1;
   myself = get__normalized_index();
   func = myself->type;
-  frame->cont = cont__26_3;
+  frame->cont = cont__types__generic_list__for_each_from_to_3;
 }
-static void cont__26_3(void) {
+static void cont__types__generic_list__for_each_from_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3331,7 +3331,7 @@ static void cont__26_3(void) {
   // 382:       body self(i)
   // 383:   if body2.is_defined && i < n: body2
   // 384:   plus &i 1
-  frame->slots[7] /* temp__1 */ = create_closure(entry__26_4, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__types__generic_list__for_each_from_to_4, 0);
   // 377: while -> i <= n:
   // 378:   if
   // 379:     parameter_count_of(body) == 2:
@@ -3348,7 +3348,7 @@ static void cont__26_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__27_7(void) {
+static void entry__types__generic_list__for_each_from_down_to_7(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // body: 0
@@ -3372,9 +3372,9 @@ static void entry__27_7(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__27_8;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_8;
 }
-static void cont__27_8(void) {
+static void cont__types__generic_list__for_each_from_down_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3388,9 +3388,9 @@ static void cont__27_8(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_9;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_9;
 }
-static void cont__27_9(void) {
+static void cont__types__generic_list__for_each_from_down_to_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3398,10 +3398,10 @@ static void cont__27_9(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 412: ... :
   // 413:   body i self(i)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__27_10, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_from_down_to_10, 0);
   // 414: :
   // 415:   body self(i)
-  frame->slots[8] /* temp__4 */ = create_closure(entry__27_12, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_from_down_to_12, 0);
   // 411: if
   // 412:   parameter_count_of(body) == 2:
   // 413:     body i self(i)
@@ -3415,9 +3415,9 @@ static void cont__27_9(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_14;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_14;
 }
-static void entry__27_10(void) {
+static void entry__types__generic_list__for_each_from_down_to_10(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -3437,9 +3437,9 @@ static void entry__27_10(void) {
   result_count = 1;
   myself = frame->slots[2] /* self */;
   func = myself->type;
-  frame->cont = cont__27_11;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_11;
 }
-static void cont__27_11(void) {
+static void cont__types__generic_list__for_each_from_down_to_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3455,7 +3455,7 @@ static void cont__27_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__27_12(void) {
+static void entry__types__generic_list__for_each_from_down_to_12(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -3475,9 +3475,9 @@ static void entry__27_12(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__27_13;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_13;
 }
-static void cont__27_13(void) {
+static void cont__types__generic_list__for_each_from_down_to_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3492,7 +3492,7 @@ static void cont__27_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_14(void) {
+static void cont__types__generic_list__for_each_from_down_to_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3504,16 +3504,16 @@ static void cont__27_14(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__27_15;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_15;
 }
-static void cont__27_15(void) {
+static void cont__types__generic_list__for_each_from_down_to_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
   // 416: ... i < n
-  frame->slots[7] /* temp__3 */ = create_closure(entry__27_16, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_from_down_to_16, 0);
   // 416: ... body2.is_defined && i < n
   argument_count = 2;
   arguments = node_p;
@@ -3522,9 +3522,9 @@ static void cont__27_15(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__27_18;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_18;
 }
-static void entry__27_16(void) {
+static void entry__types__generic_list__for_each_from_down_to_16(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // i: 0
@@ -3543,9 +3543,9 @@ static void entry__27_16(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__27_17;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_17;
 }
-static void cont__27_17(void) {
+static void cont__types__generic_list__for_each_from_down_to_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3559,14 +3559,14 @@ static void cont__27_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__27_18(void) {
+static void cont__types__generic_list__for_each_from_down_to_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 416: ... : body2
-  frame->slots[8] /* temp__4 */ = create_closure(entry__27_19, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_from_down_to_19, 0);
   // 416: if body2.is_defined && i < n: body2
   argument_count = 2;
   arguments = node_p;
@@ -3575,9 +3575,9 @@ static void cont__27_18(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_20;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_20;
 }
-static void entry__27_19(void) {
+static void entry__types__generic_list__for_each_from_down_to_19(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body2: 0
@@ -3594,7 +3594,7 @@ static void entry__27_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_20(void) {
+static void cont__types__generic_list__for_each_from_down_to_20(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3607,9 +3607,9 @@ static void cont__27_20(void) {
   result_count = 1;
   myself = get__minus();
   func = myself->type;
-  frame->cont = cont__27_21;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_21;
 }
-static void cont__27_21(void) {
+static void cont__types__generic_list__for_each_from_down_to_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3621,7 +3621,7 @@ static void cont__27_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_4(void) {
+static void entry__types__generic_list__for_each_from_down_to_4(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // i: 0
@@ -3646,9 +3646,9 @@ static void entry__27_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__27_5;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_5;
 }
-static void cont__27_5(void) {
+static void cont__types__generic_list__for_each_from_down_to_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3661,9 +3661,9 @@ static void cont__27_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__27_6;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_6;
 }
-static void cont__27_6(void) {
+static void cont__types__generic_list__for_each_from_down_to_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3677,7 +3677,7 @@ static void cont__27_6(void) {
   // 415:       body self(i)
   // 416:   if body2.is_defined && i < n: body2
   // 417:   minus &i 1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__27_7, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_from_down_to_7, 0);
   // 410: ... -> i >= n:
   // 411:   if
   // 412:     parameter_count_of(body) == 2:
@@ -3694,7 +3694,7 @@ static void cont__27_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1_types__generic_list_for_each_from_down_to(void) {
+static void entry__types__generic_list__for_each_from_down_to_1(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -3729,9 +3729,9 @@ static void entry__27_1_types__generic_list_for_each_from_down_to(void) {
   result_count = 1;
   myself = get__normalized_index();
   func = myself->type;
-  frame->cont = cont__27_2;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_2;
 }
-static void cont__27_2(void) {
+static void cont__types__generic_list__for_each_from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3745,9 +3745,9 @@ static void cont__27_2(void) {
   result_count = 1;
   myself = get__normalized_index();
   func = myself->type;
-  frame->cont = cont__27_3;
+  frame->cont = cont__types__generic_list__for_each_from_down_to_3;
 }
-static void cont__27_3(void) {
+static void cont__types__generic_list__for_each_from_down_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3761,7 +3761,7 @@ static void cont__27_3(void) {
   // 415:       body self(i)
   // 416:   if body2.is_defined && i < n: body2
   // 417:   minus &i 1
-  frame->slots[7] /* temp__1 */ = create_closure(entry__27_4, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__types__generic_list__for_each_from_down_to_4, 0);
   // 410: while -> i >= n:
   // 411:   if
   // 412:     parameter_count_of(body) == 2:
@@ -3778,7 +3778,7 @@ static void cont__27_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__28_23(void) {
+static void entry__types__generic_list__for_each_23(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // body: 0
@@ -3802,9 +3802,9 @@ static void entry__28_23(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__28_24;
+  frame->cont = cont__types__generic_list__for_each_24;
 }
-static void cont__28_24(void) {
+static void cont__types__generic_list__for_each_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3817,9 +3817,9 @@ static void cont__28_24(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__28_25;
+  frame->cont = cont__types__generic_list__for_each_25;
 }
-static void cont__28_25(void) {
+static void cont__types__generic_list__for_each_25(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3831,16 +3831,16 @@ static void cont__28_25(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__28_26;
+  frame->cont = cont__types__generic_list__for_each_26;
 }
-static void cont__28_26(void) {
+static void cont__types__generic_list__for_each_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
   // 447: ... i < n
-  frame->slots[7] /* temp__3 */ = create_closure(entry__28_27, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_27, 0);
   // 447: ... body2.is_defined && i < n
   argument_count = 2;
   arguments = node_p;
@@ -3849,9 +3849,9 @@ static void cont__28_26(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__28_29;
+  frame->cont = cont__types__generic_list__for_each_29;
 }
-static void entry__28_27(void) {
+static void entry__types__generic_list__for_each_27(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // i: 0
@@ -3870,9 +3870,9 @@ static void entry__28_27(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__28_28;
+  frame->cont = cont__types__generic_list__for_each_28;
 }
-static void cont__28_28(void) {
+static void cont__types__generic_list__for_each_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3886,14 +3886,14 @@ static void cont__28_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_29(void) {
+static void cont__types__generic_list__for_each_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 447: ... : body2
-  frame->slots[8] /* temp__4 */ = create_closure(entry__28_30, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_30, 0);
   // 447: if body2.is_defined && i < n: body2
   argument_count = 2;
   arguments = node_p;
@@ -3902,9 +3902,9 @@ static void cont__28_29(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__28_31;
+  frame->cont = cont__types__generic_list__for_each_31;
 }
-static void entry__28_30(void) {
+static void entry__types__generic_list__for_each_30(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body2: 0
@@ -3921,7 +3921,7 @@ static void entry__28_30(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__28_31(void) {
+static void cont__types__generic_list__for_each_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3934,9 +3934,9 @@ static void cont__28_31(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__28_32;
+  frame->cont = cont__types__generic_list__for_each_32;
 }
-static void cont__28_32(void) {
+static void cont__types__generic_list__for_each_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3948,7 +3948,7 @@ static void cont__28_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__28_20(void) {
+static void entry__types__generic_list__for_each_20(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // n: 0
@@ -3973,9 +3973,9 @@ static void entry__28_20(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__28_21;
+  frame->cont = cont__types__generic_list__for_each_21;
 }
-static void cont__28_21(void) {
+static void cont__types__generic_list__for_each_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3988,9 +3988,9 @@ static void cont__28_21(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__28_22;
+  frame->cont = cont__types__generic_list__for_each_22;
 }
-static void cont__28_22(void) {
+static void cont__types__generic_list__for_each_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4000,7 +4000,7 @@ static void cont__28_22(void) {
   // 446:   body self(i)
   // 447:   if body2.is_defined && i < n: body2
   // 448:   plus &i 1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__28_23, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_23, 0);
   // 445: ... -> i <= n:
   // 446:   body self(i)
   // 447:   if body2.is_defined && i < n: body2
@@ -4013,7 +4013,7 @@ static void cont__28_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__28_9(void) {
+static void entry__types__generic_list__for_each_9(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // body: 0
@@ -4037,9 +4037,9 @@ static void entry__28_9(void) {
   result_count = 1;
   myself = frame->slots[2] /* self */;
   func = myself->type;
-  frame->cont = cont__28_10;
+  frame->cont = cont__types__generic_list__for_each_10;
 }
-static void cont__28_10(void) {
+static void cont__types__generic_list__for_each_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4053,9 +4053,9 @@ static void cont__28_10(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__28_11;
+  frame->cont = cont__types__generic_list__for_each_11;
 }
-static void cont__28_11(void) {
+static void cont__types__generic_list__for_each_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4067,16 +4067,16 @@ static void cont__28_11(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__28_12;
+  frame->cont = cont__types__generic_list__for_each_12;
 }
-static void cont__28_12(void) {
+static void cont__types__generic_list__for_each_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
   // 442: ... i < n
-  frame->slots[7] /* temp__3 */ = create_closure(entry__28_13, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_13, 0);
   // 442: ... body2.is_defined && i < n
   argument_count = 2;
   arguments = node_p;
@@ -4085,9 +4085,9 @@ static void cont__28_12(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__28_15;
+  frame->cont = cont__types__generic_list__for_each_15;
 }
-static void entry__28_13(void) {
+static void entry__types__generic_list__for_each_13(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // i: 0
@@ -4106,9 +4106,9 @@ static void entry__28_13(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__28_14;
+  frame->cont = cont__types__generic_list__for_each_14;
 }
-static void cont__28_14(void) {
+static void cont__types__generic_list__for_each_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4122,14 +4122,14 @@ static void cont__28_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_15(void) {
+static void cont__types__generic_list__for_each_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 442: ... : body2
-  frame->slots[8] /* temp__4 */ = create_closure(entry__28_16, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_16, 0);
   // 442: if body2.is_defined && i < n: body2
   argument_count = 2;
   arguments = node_p;
@@ -4138,9 +4138,9 @@ static void cont__28_15(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__28_17;
+  frame->cont = cont__types__generic_list__for_each_17;
 }
-static void entry__28_16(void) {
+static void entry__types__generic_list__for_each_16(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body2: 0
@@ -4157,7 +4157,7 @@ static void entry__28_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__28_17(void) {
+static void cont__types__generic_list__for_each_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4170,9 +4170,9 @@ static void cont__28_17(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__28_18;
+  frame->cont = cont__types__generic_list__for_each_18;
 }
-static void cont__28_18(void) {
+static void cont__types__generic_list__for_each_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4184,7 +4184,7 @@ static void cont__28_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__28_6(void) {
+static void entry__types__generic_list__for_each_6(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // n: 0
@@ -4209,9 +4209,9 @@ static void entry__28_6(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__28_7;
+  frame->cont = cont__types__generic_list__for_each_7;
 }
-static void cont__28_7(void) {
+static void cont__types__generic_list__for_each_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4224,9 +4224,9 @@ static void cont__28_7(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__28_8;
+  frame->cont = cont__types__generic_list__for_each_8;
 }
-static void cont__28_8(void) {
+static void cont__types__generic_list__for_each_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4236,7 +4236,7 @@ static void cont__28_8(void) {
   // 441:   body i self(i)
   // 442:   if body2.is_defined && i < n: body2
   // 443:   plus &i 1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__28_9, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_9, 0);
   // 440: ... -> i <= n:
   // 441:   body i self(i)
   // 442:   if body2.is_defined && i < n: body2
@@ -4249,7 +4249,7 @@ static void cont__28_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__28_5(void) {
+static void entry__types__generic_list__for_each_5(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // n: 0
@@ -4270,7 +4270,7 @@ static void entry__28_5(void) {
   // 441:   body i self(i)
   // 442:   if body2.is_defined && i < n: body2
   // 443:   plus &i 1
-  frame->slots[5] /* temp__1 */ = create_closure(entry__28_6, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__generic_list__for_each_6, 0);
   // 440: while -> i <= n:
   // 441:   body i self(i)
   // 442:   if body2.is_defined && i < n: body2
@@ -4283,7 +4283,7 @@ static void entry__28_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__28_19(void) {
+static void entry__types__generic_list__for_each_19(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // n: 0
@@ -4304,7 +4304,7 @@ static void entry__28_19(void) {
   // 446:   body self(i)
   // 447:   if body2.is_defined && i < n: body2
   // 448:   plus &i 1
-  frame->slots[5] /* temp__1 */ = create_closure(entry__28_20, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__generic_list__for_each_20, 0);
   // 445: while -> i <= n:
   // 446:   body self(i)
   // 447:   if body2.is_defined && i < n: body2
@@ -4317,7 +4317,7 @@ static void entry__28_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__28_1_types__generic_list_for_each(void) {
+static void entry__types__generic_list__for_each_1(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -4351,9 +4351,9 @@ static void entry__28_1_types__generic_list_for_each(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__28_2;
+  frame->cont = cont__types__generic_list__for_each_2;
 }
-static void cont__28_2(void) {
+static void cont__types__generic_list__for_each_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4366,9 +4366,9 @@ static void cont__28_2(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__28_3;
+  frame->cont = cont__types__generic_list__for_each_3;
 }
-static void cont__28_3(void) {
+static void cont__types__generic_list__for_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4382,9 +4382,9 @@ static void cont__28_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__28_4;
+  frame->cont = cont__types__generic_list__for_each_4;
 }
-static void cont__28_4(void) {
+static void cont__types__generic_list__for_each_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4395,13 +4395,13 @@ static void cont__28_4(void) {
   // 441:     body i self(i)
   // 442:     if body2.is_defined && i < n: body2
   // 443:     plus &i 1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__28_5, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__for_each_5, 0);
   // 444: :
   // 445:   while -> i <= n:
   // 446:     body self(i)
   // 447:     if body2.is_defined && i < n: body2
   // 448:     plus &i 1
-  frame->slots[8] /* temp__4 */ = create_closure(entry__28_19, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__generic_list__for_each_19, 0);
   // 438: if
   // 439:   parameter_count_of(body) == 2:
   // 440:     while -> i <= n:
@@ -4423,7 +4423,7 @@ static void cont__28_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__29_1_types__generic_list_update_each(void) {
+static void entry__types__generic_list__update_each_1(void) {
   allocate_initialized_frame_gc(3, 11);
   // slot allocations:
   // self: 0
@@ -4450,7 +4450,7 @@ static void entry__29_1_types__generic_list_update_each(void) {
   // 479:       :
   // 480:         push &new_list new_item
   // 481:   plus &i 1
-  frame->slots[7] /* temp__1 */ = create_closure(entry__29_2_update_item, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__types__generic_list__update_each_2, 1);
   // 474: $update_item: (new_item)
   // 475:   if new_item.is_defined:
   // 476:     if
@@ -4469,9 +4469,9 @@ static void entry__29_1_types__generic_list_update_each(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__29_12;
+  frame->cont = cont__types__generic_list__update_each_12;
 }
-static void entry__29_2_update_item(void) {
+static void entry__types__generic_list__update_each_2(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // new_item: 0
@@ -4490,9 +4490,9 @@ static void entry__29_2_update_item(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__29_3;
+  frame->cont = cont__types__generic_list__update_each_3;
 }
-static void cont__29_3(void) {
+static void cont__types__generic_list__update_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4504,7 +4504,7 @@ static void cont__29_3(void) {
   // 478:       append &new_list new_item
   // 479:     :
   // 480:       push &new_list new_item
-  frame->slots[4] /* temp__2 */ = create_closure(entry__29_4, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__update_each_4, 0);
   // 475: if new_item.is_defined:
   // 476:   if
   // 477:     new_item.is_a_sequence:
@@ -4518,9 +4518,9 @@ static void cont__29_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__29_10;
+  frame->cont = cont__types__generic_list__update_each_10;
 }
-static void entry__29_6(void) {
+static void entry__types__generic_list__update_each_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // new_list: 0
@@ -4539,9 +4539,9 @@ static void entry__29_6(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__29_7;
+  frame->cont = cont__types__generic_list__update_each_7;
 }
-static void cont__29_7(void) {
+static void cont__types__generic_list__update_each_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4553,7 +4553,7 @@ static void cont__29_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_8(void) {
+static void entry__types__generic_list__update_each_8(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // new_list: 0
@@ -4572,9 +4572,9 @@ static void entry__29_8(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__29_9;
+  frame->cont = cont__types__generic_list__update_each_9;
 }
-static void cont__29_9(void) {
+static void cont__types__generic_list__update_each_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4586,7 +4586,7 @@ static void cont__29_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_4(void) {
+static void entry__types__generic_list__update_each_4(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // new_item: 0
@@ -4604,9 +4604,9 @@ static void entry__29_4(void) {
   result_count = 1;
   myself = get__is_a_sequence();
   func = myself->type;
-  frame->cont = cont__29_5;
+  frame->cont = cont__types__generic_list__update_each_5;
 }
-static void cont__29_5(void) {
+static void cont__types__generic_list__update_each_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4614,10 +4614,10 @@ static void cont__29_5(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 477: ... :
   // 478:   append &new_list new_item
-  frame->slots[3] /* temp__2 */ = create_closure(entry__29_6, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__types__generic_list__update_each_6, 0);
   // 479: :
   // 480:   push &new_list new_item
-  frame->slots[4] /* temp__3 */ = create_closure(entry__29_8, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__types__generic_list__update_each_8, 0);
   // 476: if
   // 477:   new_item.is_a_sequence:
   // 478:     append &new_list new_item
@@ -4633,7 +4633,7 @@ static void cont__29_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__29_10(void) {
+static void cont__types__generic_list__update_each_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4646,9 +4646,9 @@ static void cont__29_10(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__29_11;
+  frame->cont = cont__types__generic_list__update_each_11;
 }
-static void cont__29_11(void) {
+static void cont__types__generic_list__update_each_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4660,7 +4660,7 @@ static void cont__29_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__29_12(void) {
+static void cont__types__generic_list__update_each_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4675,9 +4675,9 @@ static void cont__29_12(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__29_13;
+  frame->cont = cont__types__generic_list__update_each_13;
 }
-static void cont__29_13(void) {
+static void cont__types__generic_list__update_each_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4691,9 +4691,9 @@ static void cont__29_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__29_14;
+  frame->cont = cont__types__generic_list__update_each_14;
 }
-static void cont__29_14(void) {
+static void cont__types__generic_list__update_each_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4701,10 +4701,10 @@ static void cont__29_14(void) {
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 487: ... :
   // 488:   while -> i <= n: update_item body(i self(i))
-  frame->slots[9] /* temp__3 */ = create_closure(entry__29_15, 0);
+  frame->slots[9] /* temp__3 */ = create_closure(entry__types__generic_list__update_each_15, 0);
   // 489: :
   // 490:   while -> i <= n: update_item body(self(i))
-  frame->slots[10] /* temp__4 */ = create_closure(entry__29_22, 0);
+  frame->slots[10] /* temp__4 */ = create_closure(entry__types__generic_list__update_each_22, 0);
   // 486: if
   // 487:   parameter_count_of(body) == 2:
   // 488:     while -> i <= n: update_item body(i self(i))
@@ -4718,9 +4718,9 @@ static void cont__29_14(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__29_29;
+  frame->cont = cont__types__generic_list__update_each_29;
 }
-static void entry__29_26(void) {
+static void entry__types__generic_list__update_each_26(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // update_item: 0
@@ -4742,9 +4742,9 @@ static void entry__29_26(void) {
   result_count = 1;
   myself = frame->slots[2] /* self */;
   func = myself->type;
-  frame->cont = cont__29_27;
+  frame->cont = cont__types__generic_list__update_each_27;
 }
-static void cont__29_27(void) {
+static void cont__types__generic_list__update_each_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4757,9 +4757,9 @@ static void cont__29_27(void) {
   result_count = 1;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__29_28;
+  frame->cont = cont__types__generic_list__update_each_28;
 }
-static void cont__29_28(void) {
+static void cont__types__generic_list__update_each_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4774,7 +4774,7 @@ static void cont__29_28(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__29_23(void) {
+static void entry__types__generic_list__update_each_23(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // n: 0
@@ -4799,9 +4799,9 @@ static void entry__29_23(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__29_24;
+  frame->cont = cont__types__generic_list__update_each_24;
 }
-static void cont__29_24(void) {
+static void cont__types__generic_list__update_each_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4814,16 +4814,16 @@ static void cont__29_24(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__29_25;
+  frame->cont = cont__types__generic_list__update_each_25;
 }
-static void cont__29_25(void) {
+static void cont__types__generic_list__update_each_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 490: ... : update_item body(self(i))
-  frame->slots[7] /* temp__3 */ = create_closure(entry__29_26, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__update_each_26, 0);
   // 490: ... -> i <= n: update_item body(self(i))
   argument_count = 2;
   arguments = node_p;
@@ -4833,7 +4833,7 @@ static void cont__29_25(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_19(void) {
+static void entry__types__generic_list__update_each_19(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // update_item: 0
@@ -4855,9 +4855,9 @@ static void entry__29_19(void) {
   result_count = 1;
   myself = frame->slots[3] /* self */;
   func = myself->type;
-  frame->cont = cont__29_20;
+  frame->cont = cont__types__generic_list__update_each_20;
 }
-static void cont__29_20(void) {
+static void cont__types__generic_list__update_each_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4871,9 +4871,9 @@ static void cont__29_20(void) {
   result_count = 1;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__29_21;
+  frame->cont = cont__types__generic_list__update_each_21;
 }
-static void cont__29_21(void) {
+static void cont__types__generic_list__update_each_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4888,7 +4888,7 @@ static void cont__29_21(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__29_16(void) {
+static void entry__types__generic_list__update_each_16(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // n: 0
@@ -4913,9 +4913,9 @@ static void entry__29_16(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__29_17;
+  frame->cont = cont__types__generic_list__update_each_17;
 }
-static void cont__29_17(void) {
+static void cont__types__generic_list__update_each_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4928,16 +4928,16 @@ static void cont__29_17(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__29_18;
+  frame->cont = cont__types__generic_list__update_each_18;
 }
-static void cont__29_18(void) {
+static void cont__types__generic_list__update_each_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 488: ... : update_item body(i self(i))
-  frame->slots[7] /* temp__3 */ = create_closure(entry__29_19, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__generic_list__update_each_19, 0);
   // 488: ... -> i <= n: update_item body(i self(i))
   argument_count = 2;
   arguments = node_p;
@@ -4947,7 +4947,7 @@ static void cont__29_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__29_15(void) {
+static void entry__types__generic_list__update_each_15(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // n: 0
@@ -4965,7 +4965,7 @@ static void entry__29_15(void) {
     return;
   }
   // 488: ... -> i <= n: update_item body(i self(i))
-  frame->slots[5] /* temp__1 */ = create_closure(entry__29_16, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__generic_list__update_each_16, 0);
   // 488: while -> i <= n: update_item body(i self(i))
   argument_count = 1;
   arguments = node_p;
@@ -4975,7 +4975,7 @@ static void entry__29_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__29_22(void) {
+static void entry__types__generic_list__update_each_22(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // n: 0
@@ -4993,7 +4993,7 @@ static void entry__29_22(void) {
     return;
   }
   // 490: ... -> i <= n: update_item body(self(i))
-  frame->slots[5] /* temp__1 */ = create_closure(entry__29_23, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__generic_list__update_each_23, 0);
   // 490: while -> i <= n: update_item body(self(i))
   argument_count = 1;
   arguments = node_p;
@@ -5003,7 +5003,7 @@ static void entry__29_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__29_29(void) {
+static void cont__types__generic_list__update_each_29(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5015,14 +5015,14 @@ static void cont__29_29(void) {
   result_count = frame->caller_result_count;
   myself = frame->slots[2] /* return */;
   func = myself->type;
-  frame->cont = cont__29_30;
+  frame->cont = cont__types__generic_list__update_each_30;
 }
-static void cont__29_30(void) {
+static void cont__types__generic_list__update_each_30(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__30_13(void) {
+static void entry__types__list__for_each_pair_13(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -5042,9 +5042,9 @@ static void entry__30_13(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__30_14;
+  frame->cont = cont__types__list__for_each_pair_14;
 }
-static void cont__30_14(void) {
+static void cont__types__list__for_each_pair_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5059,7 +5059,7 @@ static void cont__30_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__30_1_types__list_for_each_pair(void) {
+static void entry__types__list__for_each_pair_1(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -5081,9 +5081,9 @@ static void entry__30_1_types__list_for_each_pair(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__30_2;
+  frame->cont = cont__types__list__for_each_pair_2;
 }
-static void cont__30_2(void) {
+static void cont__types__list__for_each_pair_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5092,7 +5092,7 @@ static void cont__30_2(void) {
   // 506: ... -> i < n:
   // 507:   body self(i) self(i+1)
   // 508:   plus &i 2
-  frame->slots[4] /* temp__1 */ = create_closure(entry__30_3, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__list__for_each_pair_3, 0);
   // 506: while -> i < n:
   // 507:   body self(i) self(i+1)
   // 508:   plus &i 2
@@ -5102,9 +5102,9 @@ static void cont__30_2(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__30_11;
+  frame->cont = cont__types__list__for_each_pair_11;
 }
-static void entry__30_5(void) {
+static void entry__types__list__for_each_pair_5(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // body: 0
@@ -5124,9 +5124,9 @@ static void entry__30_5(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__30_6;
+  frame->cont = cont__types__list__for_each_pair_6;
 }
-static void cont__30_6(void) {
+static void cont__types__list__for_each_pair_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5140,9 +5140,9 @@ static void cont__30_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__30_7;
+  frame->cont = cont__types__list__for_each_pair_7;
 }
-static void cont__30_7(void) {
+static void cont__types__list__for_each_pair_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5155,9 +5155,9 @@ static void cont__30_7(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__30_8;
+  frame->cont = cont__types__list__for_each_pair_8;
 }
-static void cont__30_8(void) {
+static void cont__types__list__for_each_pair_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5171,9 +5171,9 @@ static void cont__30_8(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__30_9;
+  frame->cont = cont__types__list__for_each_pair_9;
 }
-static void cont__30_9(void) {
+static void cont__types__list__for_each_pair_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5186,9 +5186,9 @@ static void cont__30_9(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__30_10;
+  frame->cont = cont__types__list__for_each_pair_10;
 }
-static void cont__30_10(void) {
+static void cont__types__list__for_each_pair_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5200,7 +5200,7 @@ static void cont__30_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__30_3(void) {
+static void entry__types__list__for_each_pair_3(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // i: 0
@@ -5223,9 +5223,9 @@ static void entry__30_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__30_4;
+  frame->cont = cont__types__list__for_each_pair_4;
 }
-static void cont__30_4(void) {
+static void cont__types__list__for_each_pair_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5234,7 +5234,7 @@ static void cont__30_4(void) {
   // 506: ... :
   // 507:   body self(i) self(i+1)
   // 508:   plus &i 2
-  frame->slots[5] /* temp__2 */ = create_closure(entry__30_5, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__list__for_each_pair_5, 0);
   // 506: ... -> i < n:
   // 507:   body self(i) self(i+1)
   // 508:   plus &i 2
@@ -5246,7 +5246,7 @@ static void cont__30_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__30_11(void) {
+static void cont__types__list__for_each_pair_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5258,16 +5258,16 @@ static void cont__30_11(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__30_12;
+  frame->cont = cont__types__list__for_each_pair_12;
 }
-static void cont__30_12(void) {
+static void cont__types__list__for_each_pair_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 509: ... : body self(i)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__30_13, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__list__for_each_pair_13, 0);
   // 509: if is_odd(n): body self(i)
   argument_count = 2;
   arguments = node_p;
@@ -5278,7 +5278,7 @@ static void cont__30_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__31_1_types__generic_list_get(void) {
+static void entry__types__generic_list__get_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -5293,9 +5293,9 @@ static void entry__31_1_types__generic_list_get(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__31_2;
+  frame->cont = cont__types__generic_list__get_2;
 }
-static void cont__31_2(void) {
+static void cont__types__generic_list__get_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5309,9 +5309,9 @@ static void cont__31_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__31_3;
+  frame->cont = cont__types__generic_list__get_3;
 }
-static void cont__31_3(void) {
+static void cont__types__generic_list__get_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5321,13 +5321,13 @@ static void cont__31_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__31_4;
+  arguments->slots[1] = func__types__generic_list__get_4;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__31_6;
+  frame->cont = cont__types__generic_list__get_6;
 }
-static void entry__31_4(void) {
+static void entry__types__generic_list__get_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -5343,7 +5343,7 @@ static void entry__31_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__31_6(void) {
+static void cont__types__generic_list__get_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5355,9 +5355,9 @@ static void cont__31_6(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__31_7;
+  frame->cont = cont__types__generic_list__get_7;
 }
-static void cont__31_7(void) {
+static void cont__types__generic_list__get_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5372,9 +5372,9 @@ static void cont__31_7(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__31_8;
+  frame->cont = cont__types__generic_list__get_8;
 }
-static void cont__31_8(void) {
+static void cont__types__generic_list__get_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5387,9 +5387,9 @@ static void cont__31_8(void) {
   result_count = 1;
   myself = frame->slots[0] /* self */;
   func = myself->type;
-  frame->cont = cont__31_9;
+  frame->cont = cont__types__generic_list__get_9;
 }
-static void cont__31_9(void) {
+static void cont__types__generic_list__get_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5404,7 +5404,7 @@ static void cont__31_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__32_1_types__list_put(void) {
+static void entry__types__list__put_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -5420,9 +5420,9 @@ static void entry__32_1_types__list_put(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__32_2;
+  frame->cont = cont__types__list__put_2;
 }
-static void cont__32_2(void) {
+static void cont__types__list__put_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5436,9 +5436,9 @@ static void cont__32_2(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__32_3;
+  frame->cont = cont__types__list__put_3;
 }
-static void cont__32_3(void) {
+static void cont__types__list__put_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5452,7 +5452,7 @@ static void cont__32_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__33_1_types__list_merge(void) {
+static void entry__types__list__merge_1(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // left: 0
@@ -5485,9 +5485,9 @@ static void entry__33_1_types__list_merge(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__33_2;
+  frame->cont = cont__types__list__merge_2;
 }
-static void cont__33_2(void) {
+static void cont__types__list__merge_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5504,7 +5504,7 @@ static void cont__33_2(void) {
   // 547:               func.is_defined && not(func(right(1) left(1)))
   // 548:             :
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__33_3, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__list__merge_3, 0);
   // 539: forever:
   // 540:   if
   // 541:     length_of(left) > 0:
@@ -5522,9 +5522,9 @@ static void cont__33_2(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__33_36;
+  frame->cont = cont__types__list__merge_36;
 }
-static void entry__33_26(void) {
+static void entry__types__list__merge_26(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // result: 0
@@ -5542,9 +5542,9 @@ static void entry__33_26(void) {
   result_count = 2;
   myself = get__get();
   func = myself->type;
-  frame->cont = cont__33_27;
+  frame->cont = cont__types__list__merge_27;
 }
-static void cont__33_27(void) {
+static void cont__types__list__merge_27(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -5559,9 +5559,9 @@ static void cont__33_27(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__33_28;
+  frame->cont = cont__types__list__merge_28;
 }
-static void cont__33_28(void) {
+static void cont__types__list__merge_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5573,7 +5573,7 @@ static void cont__33_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__33_29(void) {
+static void entry__types__list__merge_29(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // result: 0
@@ -5591,9 +5591,9 @@ static void entry__33_29(void) {
   result_count = 2;
   myself = get__get();
   func = myself->type;
-  frame->cont = cont__33_30;
+  frame->cont = cont__types__list__merge_30;
 }
-static void cont__33_30(void) {
+static void cont__types__list__merge_30(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -5608,9 +5608,9 @@ static void cont__33_30(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__33_31;
+  frame->cont = cont__types__list__merge_31;
 }
-static void cont__33_31(void) {
+static void cont__types__list__merge_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5622,7 +5622,7 @@ static void cont__33_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__33_9(void) {
+static void entry__types__list__merge_9(void) {
   allocate_initialized_frame_gc(4, 11);
   // slot allocations:
   // func: 0
@@ -5644,16 +5644,16 @@ static void entry__33_9(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__33_10;
+  frame->cont = cont__types__list__merge_10;
 }
-static void cont__33_10(void) {
+static void cont__types__list__merge_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
   // 546: ... left(1) <= right(1)
-  frame->slots[7] /* temp__4 */ = create_closure(entry__33_11, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__types__list__merge_11, 0);
   // 546: func.is_undefined && left(1) <= right(1)
   argument_count = 2;
   arguments = node_p;
@@ -5662,9 +5662,9 @@ static void cont__33_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__33_16;
+  frame->cont = cont__types__list__merge_16;
 }
-static void entry__33_11(void) {
+static void entry__types__list__merge_11(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // right: 0
@@ -5682,9 +5682,9 @@ static void entry__33_11(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* right */;
   func = myself->type;
-  frame->cont = cont__33_12;
+  frame->cont = cont__types__list__merge_12;
 }
-static void cont__33_12(void) {
+static void cont__types__list__merge_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5697,9 +5697,9 @@ static void cont__33_12(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* left */;
   func = myself->type;
-  frame->cont = cont__33_13;
+  frame->cont = cont__types__list__merge_13;
 }
-static void cont__33_13(void) {
+static void cont__types__list__merge_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5713,9 +5713,9 @@ static void cont__33_13(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__33_14;
+  frame->cont = cont__types__list__merge_14;
 }
-static void cont__33_14(void) {
+static void cont__types__list__merge_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5728,9 +5728,9 @@ static void cont__33_14(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__33_15;
+  frame->cont = cont__types__list__merge_15;
 }
-static void cont__33_15(void) {
+static void cont__types__list__merge_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5744,14 +5744,14 @@ static void cont__33_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__33_16(void) {
+static void cont__types__list__merge_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
   // 547: func.is_defined && not(func(right(1) left(1)))
-  frame->slots[8] /* temp__5 */ = create_closure(entry__33_17, 0);
+  frame->slots[8] /* temp__5 */ = create_closure(entry__types__list__merge_17, 0);
   // 545: ||
   // 546:   func.is_undefined && left(1) <= right(1)
   // 547:   func.is_defined && not(func(right(1) left(1)))
@@ -5762,9 +5762,9 @@ static void cont__33_16(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__33_25;
+  frame->cont = cont__types__list__merge_25;
 }
-static void entry__33_17(void) {
+static void entry__types__list__merge_17(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // func: 0
@@ -5784,16 +5784,16 @@ static void entry__33_17(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__33_18;
+  frame->cont = cont__types__list__merge_18;
 }
-static void cont__33_18(void) {
+static void cont__types__list__merge_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 547: ... not(func(right(1) left(1)))
-  frame->slots[5] /* temp__3 */ = create_closure(entry__33_19, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__types__list__merge_19, 0);
   // 547: func.is_defined && not(func(right(1) left(1)))
   argument_count = 2;
   arguments = node_p;
@@ -5802,9 +5802,9 @@ static void cont__33_18(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__33_24;
+  frame->cont = cont__types__list__merge_24;
 }
-static void entry__33_19(void) {
+static void entry__types__list__merge_19(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // func: 0
@@ -5824,9 +5824,9 @@ static void entry__33_19(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* right */;
   func = myself->type;
-  frame->cont = cont__33_20;
+  frame->cont = cont__types__list__merge_20;
 }
-static void cont__33_20(void) {
+static void cont__types__list__merge_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5839,9 +5839,9 @@ static void cont__33_20(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* left */;
   func = myself->type;
-  frame->cont = cont__33_21;
+  frame->cont = cont__types__list__merge_21;
 }
-static void cont__33_21(void) {
+static void cont__types__list__merge_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5855,9 +5855,9 @@ static void cont__33_21(void) {
   result_count = 1;
   myself = frame->slots[0] /* func */;
   func = myself->type;
-  frame->cont = cont__33_22;
+  frame->cont = cont__types__list__merge_22;
 }
-static void cont__33_22(void) {
+static void cont__types__list__merge_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5870,9 +5870,9 @@ static void cont__33_22(void) {
   result_count = 1;
   myself = get__not();
   func = myself->type;
-  frame->cont = cont__33_23;
+  frame->cont = cont__types__list__merge_23;
 }
-static void cont__33_23(void) {
+static void cont__types__list__merge_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5886,7 +5886,7 @@ static void cont__33_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__33_24(void) {
+static void cont__types__list__merge_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5900,7 +5900,7 @@ static void cont__33_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__33_25(void) {
+static void cont__types__list__merge_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5908,10 +5908,10 @@ static void cont__33_25(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 548: :
   // 549:   push &result get(&left)
-  frame->slots[9] /* temp__6 */ = create_closure(entry__33_26, 0);
+  frame->slots[9] /* temp__6 */ = create_closure(entry__types__list__merge_26, 0);
   // 550: :
   // 551:   push &result get(&right)
-  frame->slots[10] /* temp__7 */ = create_closure(entry__33_29, 0);
+  frame->slots[10] /* temp__7 */ = create_closure(entry__types__list__merge_29, 0);
   // 544: if
   // 545:   ||
   // 546:     func.is_undefined && left(1) <= right(1)
@@ -5930,7 +5930,7 @@ static void cont__33_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__33_32(void) {
+static void entry__types__list__merge_32(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // return: 0
@@ -5951,9 +5951,9 @@ static void entry__33_32(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__33_33;
+  frame->cont = cont__types__list__merge_33;
 }
-static void cont__33_33(void) {
+static void cont__types__list__merge_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5968,7 +5968,7 @@ static void cont__33_33(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__33_6(void) {
+static void entry__types__list__merge_6(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // right: 0
@@ -5992,9 +5992,9 @@ static void entry__33_6(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__33_7;
+  frame->cont = cont__types__list__merge_7;
 }
-static void cont__33_7(void) {
+static void cont__types__list__merge_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6008,9 +6008,9 @@ static void cont__33_7(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__33_8;
+  frame->cont = cont__types__list__merge_8;
 }
-static void cont__33_8(void) {
+static void cont__types__list__merge_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6025,10 +6025,10 @@ static void cont__33_8(void) {
   // 549:       push &result get(&left)
   // 550:     :
   // 551:       push &result get(&right)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__33_9, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__list__merge_9, 0);
   // 552: :
   // 553:   return append(result left)
-  frame->slots[8] /* temp__4 */ = create_closure(entry__33_32, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__list__merge_32, 0);
   // 542: if
   // 543:   length_of(right) > 0:
   // 544:     if
@@ -6050,7 +6050,7 @@ static void cont__33_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__33_34(void) {
+static void entry__types__list__merge_34(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // return: 0
@@ -6071,9 +6071,9 @@ static void entry__33_34(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__33_35;
+  frame->cont = cont__types__list__merge_35;
 }
-static void cont__33_35(void) {
+static void cont__types__list__merge_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6088,7 +6088,7 @@ static void cont__33_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__33_3(void) {
+static void entry__types__list__merge_3(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // left: 0
@@ -6112,9 +6112,9 @@ static void entry__33_3(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__33_4;
+  frame->cont = cont__types__list__merge_4;
 }
-static void cont__33_4(void) {
+static void cont__types__list__merge_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6128,9 +6128,9 @@ static void cont__33_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__33_5;
+  frame->cont = cont__types__list__merge_5;
 }
-static void cont__33_5(void) {
+static void cont__types__list__merge_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6147,10 +6147,10 @@ static void cont__33_5(void) {
   // 549:           push &result get(&left)
   // 550:         :
   // ...
-  frame->slots[7] /* temp__3 */ = create_closure(entry__33_6, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__list__merge_6, 0);
   // 554: :
   // 555:   return append(result right)
-  frame->slots[8] /* temp__4 */ = create_closure(entry__33_34, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__list__merge_34, 0);
   // 540: if
   // 541:   length_of(left) > 0:
   // 542:     if
@@ -6172,12 +6172,12 @@ static void cont__33_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__33_36(void) {
+static void cont__types__list__merge_36(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__34_1_types__list_serialize(void) {
+static void entry__types__list__serialize_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -6208,16 +6208,16 @@ static void entry__34_1_types__list_serialize(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__34_2;
+  frame->cont = cont__types__list__serialize_2;
 }
-static void cont__34_2(void) {
+static void cont__types__list__serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 565: ... : return "list()"
-  frame->slots[5] /* temp__2 */ = create_closure(entry__34_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__list__serialize_3, 0);
   // 565: if self.is_empty: return "list()"
   argument_count = 2;
   arguments = node_p;
@@ -6226,9 +6226,9 @@ static void cont__34_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__34_5;
+  frame->cont = cont__types__list__serialize_5;
 }
-static void entry__34_3(void) {
+static void entry__types__list__serialize_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -6246,7 +6246,7 @@ static void entry__34_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__34_5(void) {
+static void cont__types__list__serialize_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6255,7 +6255,7 @@ static void cont__34_5(void) {
   ((CELL *)frame->slots[3])->contents /* buf */ = string__1a0aeb0b5df87d4d;
   // 567: ... : (item)
   // 568:   write_to &buf '@nl;' spaces(indent+2) serialize(item indent+2)
-  frame->slots[4] /* temp__1 */ = create_closure(entry__34_7, 1);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__list__serialize_7, 1);
   // 567: for_each self: (item)
   // 568:   write_to &buf '@nl;' spaces(indent+2) serialize(item indent+2)
   argument_count = 2;
@@ -6265,9 +6265,9 @@ static void cont__34_5(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__34_13;
+  frame->cont = cont__types__list__serialize_13;
 }
-static void entry__34_7(void) {
+static void entry__types__list__serialize_7(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // item: 0
@@ -6287,9 +6287,9 @@ static void entry__34_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__34_8;
+  frame->cont = cont__types__list__serialize_8;
 }
-static void cont__34_8(void) {
+static void cont__types__list__serialize_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6302,9 +6302,9 @@ static void cont__34_8(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__34_9;
+  frame->cont = cont__types__list__serialize_9;
 }
-static void cont__34_9(void) {
+static void cont__types__list__serialize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6318,9 +6318,9 @@ static void cont__34_9(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__34_10;
+  frame->cont = cont__types__list__serialize_10;
 }
-static void cont__34_10(void) {
+static void cont__types__list__serialize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6334,9 +6334,9 @@ static void cont__34_10(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__34_11;
+  frame->cont = cont__types__list__serialize_11;
 }
-static void cont__34_11(void) {
+static void cont__types__list__serialize_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6352,9 +6352,9 @@ static void cont__34_11(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__34_12;
+  frame->cont = cont__types__list__serialize_12;
 }
-static void cont__34_12(void) {
+static void cont__types__list__serialize_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6366,7 +6366,7 @@ static void cont__34_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__34_13(void) {
+static void cont__types__list__serialize_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6379,7 +6379,7 @@ static void cont__34_13(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__35_1_types__list_sort(void) {
+static void entry__types__list__sort_1(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // self: 0
@@ -6410,9 +6410,9 @@ static void entry__35_1_types__list_sort(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__35_2;
+  frame->cont = cont__types__list__sort_2;
 }
-static void cont__35_2(void) {
+static void cont__types__list__sort_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6426,9 +6426,9 @@ static void cont__35_2(void) {
   result_count = 1;
   myself = var.std__sequence;
   func = myself->type;
-  frame->cont = cont__35_3;
+  frame->cont = cont__types__list__sort_3;
 }
-static void cont__35_3(void) {
+static void cont__types__list__sort_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6436,7 +6436,7 @@ static void cont__35_3(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 585: ... :
   // 586:   return self
-  frame->slots[5] /* temp__2 */ = create_closure(entry__35_4, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__list__sort_4, 0);
   // 587: ... :
   // 588:   if
   // 589:     ||
@@ -6446,7 +6446,7 @@ static void cont__35_3(void) {
   // 593:       return self
   // 594:     :
   // 595:       return list(self(2) self(1))
-  frame->slots[6] /* temp__3 */ = create_closure(entry__35_5, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__list__sort_5, 0);
   // 596: :
   // 597:   $m n .div. 2
   // 598:   if
@@ -6455,7 +6455,7 @@ static void cont__35_3(void) {
   // 601:     :
   // 602:       return
   // 603:         merge(sort(range(self 1 m) func) sort(range(self m+1 n) func) func)
-  frame->slots[7] /* temp__4 */ = create_closure(entry__35_27, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__types__list__sort_27, 0);
   // 583: case
   // 584:   n
   // 585:   0, 1:
@@ -6478,9 +6478,9 @@ static void cont__35_3(void) {
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__35_44;
+  frame->cont = cont__types__list__sort_44;
 }
-static void entry__35_30(void) {
+static void entry__types__list__sort_30(void) {
   allocate_initialized_frame_gc(4, 10);
   // slot allocations:
   // return: 0
@@ -6504,9 +6504,9 @@ static void entry__35_30(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__35_31;
+  frame->cont = cont__types__list__sort_31;
 }
-static void cont__35_31(void) {
+static void cont__types__list__sort_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6519,9 +6519,9 @@ static void cont__35_31(void) {
   result_count = 1;
   myself = get__sort();
   func = myself->type;
-  frame->cont = cont__35_32;
+  frame->cont = cont__types__list__sort_32;
 }
-static void cont__35_32(void) {
+static void cont__types__list__sort_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6535,9 +6535,9 @@ static void cont__35_32(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__35_33;
+  frame->cont = cont__types__list__sort_33;
 }
-static void cont__35_33(void) {
+static void cont__types__list__sort_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6552,9 +6552,9 @@ static void cont__35_33(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__35_34;
+  frame->cont = cont__types__list__sort_34;
 }
-static void cont__35_34(void) {
+static void cont__types__list__sort_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6567,9 +6567,9 @@ static void cont__35_34(void) {
   result_count = 1;
   myself = get__sort();
   func = myself->type;
-  frame->cont = cont__35_35;
+  frame->cont = cont__types__list__sort_35;
 }
-static void cont__35_35(void) {
+static void cont__types__list__sort_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6583,9 +6583,9 @@ static void cont__35_35(void) {
   result_count = 1;
   myself = get__merge();
   func = myself->type;
-  frame->cont = cont__35_36;
+  frame->cont = cont__types__list__sort_36;
 }
-static void cont__35_36(void) {
+static void cont__types__list__sort_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6600,7 +6600,7 @@ static void cont__35_36(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_37(void) {
+static void entry__types__list__sort_37(void) {
   allocate_initialized_frame_gc(5, 11);
   // slot allocations:
   // return: 0
@@ -6626,9 +6626,9 @@ static void entry__35_37(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__35_38;
+  frame->cont = cont__types__list__sort_38;
 }
-static void cont__35_38(void) {
+static void cont__types__list__sort_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6642,9 +6642,9 @@ static void cont__35_38(void) {
   result_count = 1;
   myself = get__sort();
   func = myself->type;
-  frame->cont = cont__35_39;
+  frame->cont = cont__types__list__sort_39;
 }
-static void cont__35_39(void) {
+static void cont__types__list__sort_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6658,9 +6658,9 @@ static void cont__35_39(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__35_40;
+  frame->cont = cont__types__list__sort_40;
 }
-static void cont__35_40(void) {
+static void cont__types__list__sort_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6675,9 +6675,9 @@ static void cont__35_40(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__35_41;
+  frame->cont = cont__types__list__sort_41;
 }
-static void cont__35_41(void) {
+static void cont__types__list__sort_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6691,9 +6691,9 @@ static void cont__35_41(void) {
   result_count = 1;
   myself = get__sort();
   func = myself->type;
-  frame->cont = cont__35_42;
+  frame->cont = cont__types__list__sort_42;
 }
-static void cont__35_42(void) {
+static void cont__types__list__sort_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6708,9 +6708,9 @@ static void cont__35_42(void) {
   result_count = 1;
   myself = get__merge();
   func = myself->type;
-  frame->cont = cont__35_43;
+  frame->cont = cont__types__list__sort_43;
 }
-static void cont__35_43(void) {
+static void cont__types__list__sort_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6726,7 +6726,7 @@ static void cont__35_43(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_22(void) {
+static void entry__types__list__sort_22(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -6746,7 +6746,7 @@ static void entry__35_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_23(void) {
+static void entry__types__list__sort_23(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // return: 0
@@ -6764,9 +6764,9 @@ static void entry__35_23(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__35_24;
+  frame->cont = cont__types__list__sort_24;
 }
-static void cont__35_24(void) {
+static void cont__types__list__sort_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6779,9 +6779,9 @@ static void cont__35_24(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__35_25;
+  frame->cont = cont__types__list__sort_25;
 }
-static void cont__35_25(void) {
+static void cont__types__list__sort_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6795,9 +6795,9 @@ static void cont__35_25(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__35_26;
+  frame->cont = cont__types__list__sort_26;
 }
-static void cont__35_26(void) {
+static void cont__types__list__sort_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6812,7 +6812,7 @@ static void cont__35_26(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_4(void) {
+static void entry__types__list__sort_4(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -6832,7 +6832,7 @@ static void entry__35_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_5(void) {
+static void entry__types__list__sort_5(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // func: 0
@@ -6852,16 +6852,16 @@ static void entry__35_5(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__35_6;
+  frame->cont = cont__types__list__sort_6;
 }
-static void cont__35_6(void) {
+static void cont__types__list__sort_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
   // 590: ... self(1) <= self(2)
-  frame->slots[6] /* temp__4 */ = create_closure(entry__35_7, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__types__list__sort_7, 0);
   // 590: func.is_undefined && self(1) <= self(2)
   argument_count = 2;
   arguments = node_p;
@@ -6870,9 +6870,9 @@ static void cont__35_6(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__35_12;
+  frame->cont = cont__types__list__sort_12;
 }
-static void entry__35_7(void) {
+static void entry__types__list__sort_7(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -6888,9 +6888,9 @@ static void entry__35_7(void) {
   result_count = 1;
   myself = frame->slots[0] /* self */;
   func = myself->type;
-  frame->cont = cont__35_8;
+  frame->cont = cont__types__list__sort_8;
 }
-static void cont__35_8(void) {
+static void cont__types__list__sort_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6903,9 +6903,9 @@ static void cont__35_8(void) {
   result_count = 1;
   myself = frame->slots[0] /* self */;
   func = myself->type;
-  frame->cont = cont__35_9;
+  frame->cont = cont__types__list__sort_9;
 }
-static void cont__35_9(void) {
+static void cont__types__list__sort_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6919,9 +6919,9 @@ static void cont__35_9(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__35_10;
+  frame->cont = cont__types__list__sort_10;
 }
-static void cont__35_10(void) {
+static void cont__types__list__sort_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6934,9 +6934,9 @@ static void cont__35_10(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__35_11;
+  frame->cont = cont__types__list__sort_11;
 }
-static void cont__35_11(void) {
+static void cont__types__list__sort_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6950,14 +6950,14 @@ static void cont__35_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__35_12(void) {
+static void cont__types__list__sort_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 591: func.is_defined && not(func(self(2) self(1)))
-  frame->slots[7] /* temp__5 */ = create_closure(entry__35_13, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__types__list__sort_13, 0);
   // 589: ||
   // 590:   func.is_undefined && self(1) <= self(2)
   // 591:   func.is_defined && not(func(self(2) self(1)))
@@ -6968,9 +6968,9 @@ static void cont__35_12(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__35_21;
+  frame->cont = cont__types__list__sort_21;
 }
-static void entry__35_13(void) {
+static void entry__types__list__sort_13(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // func: 0
@@ -6988,16 +6988,16 @@ static void entry__35_13(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__35_14;
+  frame->cont = cont__types__list__sort_14;
 }
-static void cont__35_14(void) {
+static void cont__types__list__sort_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 591: ... not(func(self(2) self(1)))
-  frame->slots[4] /* temp__3 */ = create_closure(entry__35_15, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__types__list__sort_15, 0);
   // 591: func.is_defined && not(func(self(2) self(1)))
   argument_count = 2;
   arguments = node_p;
@@ -7006,9 +7006,9 @@ static void cont__35_14(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__35_20;
+  frame->cont = cont__types__list__sort_20;
 }
-static void entry__35_15(void) {
+static void entry__types__list__sort_15(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // func: 0
@@ -7026,9 +7026,9 @@ static void entry__35_15(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__35_16;
+  frame->cont = cont__types__list__sort_16;
 }
-static void cont__35_16(void) {
+static void cont__types__list__sort_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7041,9 +7041,9 @@ static void cont__35_16(void) {
   result_count = 1;
   myself = frame->slots[1] /* self */;
   func = myself->type;
-  frame->cont = cont__35_17;
+  frame->cont = cont__types__list__sort_17;
 }
-static void cont__35_17(void) {
+static void cont__types__list__sort_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7057,9 +7057,9 @@ static void cont__35_17(void) {
   result_count = 1;
   myself = frame->slots[0] /* func */;
   func = myself->type;
-  frame->cont = cont__35_18;
+  frame->cont = cont__types__list__sort_18;
 }
-static void cont__35_18(void) {
+static void cont__types__list__sort_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7072,9 +7072,9 @@ static void cont__35_18(void) {
   result_count = 1;
   myself = get__not();
   func = myself->type;
-  frame->cont = cont__35_19;
+  frame->cont = cont__types__list__sort_19;
 }
-static void cont__35_19(void) {
+static void cont__types__list__sort_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7088,7 +7088,7 @@ static void cont__35_19(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__35_20(void) {
+static void cont__types__list__sort_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7102,7 +7102,7 @@ static void cont__35_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__35_21(void) {
+static void cont__types__list__sort_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7110,10 +7110,10 @@ static void cont__35_21(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 592: :
   // 593:   return self
-  frame->slots[8] /* temp__6 */ = create_closure(entry__35_22, 0);
+  frame->slots[8] /* temp__6 */ = create_closure(entry__types__list__sort_22, 0);
   // 594: :
   // 595:   return list(self(2) self(1))
-  frame->slots[9] /* temp__7 */ = create_closure(entry__35_23, 0);
+  frame->slots[9] /* temp__7 */ = create_closure(entry__types__list__sort_23, 0);
   // 588: if
   // 589:   ||
   // 590:     func.is_undefined && self(1) <= self(2)
@@ -7132,7 +7132,7 @@ static void cont__35_21(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__35_27(void) {
+static void entry__types__list__sort_27(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // n: 0
@@ -7157,9 +7157,9 @@ static void entry__35_27(void) {
   result_count = 1;
   myself = get__div();
   func = myself->type;
-  frame->cont = cont__35_28;
+  frame->cont = cont__types__list__sort_28;
 }
-static void cont__35_28(void) {
+static void cont__types__list__sort_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7172,9 +7172,9 @@ static void cont__35_28(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__35_29;
+  frame->cont = cont__types__list__sort_29;
 }
-static void cont__35_29(void) {
+static void cont__types__list__sort_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7182,11 +7182,11 @@ static void cont__35_29(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 599: ... :
   // 600:   return merge(sort(range(self 1 m)) sort(range(self m+1 n)))
-  frame->slots[6] /* temp__2 */ = create_closure(entry__35_30, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__types__list__sort_30, 0);
   // 601: :
   // 602:   return
   // 603:     merge(sort(range(self 1 m) func) sort(range(self m+1 n) func) func)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__35_37, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__list__sort_37, 0);
   // 598: if
   // 599:   func.is_undefined:
   // 600:     return merge(sort(range(self 1 m)) sort(range(self m+1 n)))
@@ -7203,7 +7203,7 @@ static void cont__35_29(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__35_44(void) {
+static void cont__types__list__sort_44(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -7233,7 +7233,7 @@ static long func__types__list___debug_string(NODE *node, int indent, int max_dep
     }
   }
 }
-static void entry__37_1_types__list_new_empty_collection(void) {
+static void entry__types__list__new_empty_collection_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -7249,7 +7249,7 @@ static void entry__37_1_types__list_new_empty_collection(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_1_types__generic_list_equal(void) {
+static void entry__types__generic_list__equal_1(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // left: 0
@@ -7267,16 +7267,16 @@ static void entry__38_1_types__generic_list_equal(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__38_2;
+  frame->cont = cont__types__generic_list__equal_2;
 }
-static void cont__38_2(void) {
+static void cont__types__generic_list__equal_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 652: ... right.is_a_list
-  frame->slots[5] /* temp__3 */ = create_closure(entry__38_3, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__types__generic_list__equal_3, 0);
   // 652: ... right.is_defined && right.is_a_list
   argument_count = 2;
   arguments = node_p;
@@ -7285,9 +7285,9 @@ static void cont__38_2(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__38_5;
+  frame->cont = cont__types__generic_list__equal_5;
 }
-static void entry__38_3(void) {
+static void entry__types__generic_list__equal_3(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // right: 0
@@ -7303,9 +7303,9 @@ static void entry__38_3(void) {
   result_count = 1;
   myself = get__is_a_list();
   func = myself->type;
-  frame->cont = cont__38_4;
+  frame->cont = cont__types__generic_list__equal_4;
 }
-static void cont__38_4(void) {
+static void cont__types__generic_list__equal_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7319,14 +7319,14 @@ static void cont__38_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_5(void) {
+static void cont__types__generic_list__equal_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 652: ... : return false
-  frame->slots[6] /* temp__4 */ = create_closure(entry__38_6, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__types__generic_list__equal_6, 0);
   // 652: unless right.is_defined && right.is_a_list: return false
   argument_count = 2;
   arguments = node_p;
@@ -7335,9 +7335,9 @@ static void cont__38_5(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__38_7;
+  frame->cont = cont__types__generic_list__equal_7;
 }
-static void entry__38_6(void) {
+static void entry__types__generic_list__equal_6(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -7355,7 +7355,7 @@ static void entry__38_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_7(void) {
+static void cont__types__generic_list__equal_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7367,9 +7367,9 @@ static void cont__38_7(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__38_8;
+  frame->cont = cont__types__generic_list__equal_8;
 }
-static void cont__38_8(void) {
+static void cont__types__generic_list__equal_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7382,9 +7382,9 @@ static void cont__38_8(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__38_9;
+  frame->cont = cont__types__generic_list__equal_9;
 }
-static void cont__38_9(void) {
+static void cont__types__generic_list__equal_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7398,9 +7398,9 @@ static void cont__38_9(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__38_10;
+  frame->cont = cont__types__generic_list__equal_10;
 }
-static void cont__38_10(void) {
+static void cont__types__generic_list__equal_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7413,16 +7413,16 @@ static void cont__38_10(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__38_11;
+  frame->cont = cont__types__generic_list__equal_11;
 }
-static void cont__38_11(void) {
+static void cont__types__generic_list__equal_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 653: ... : return false
-  frame->slots[7] /* temp__5 */ = create_closure(entry__38_12, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__types__generic_list__equal_12, 0);
   // 653: if length_of(left) != length_of(right): return false
   argument_count = 2;
   arguments = node_p;
@@ -7431,9 +7431,9 @@ static void cont__38_11(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_13;
+  frame->cont = cont__types__generic_list__equal_13;
 }
-static void entry__38_12(void) {
+static void entry__types__generic_list__equal_12(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -7451,13 +7451,13 @@ static void entry__38_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_13(void) {
+static void cont__types__generic_list__equal_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 654: ... : (idx item) if item != right(idx): return false
-  frame->slots[3] /* temp__1 */ = create_closure(entry__38_14, 2);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__equal_14, 2);
   // 654: for_each left: (idx item) if item != right(idx): return false
   argument_count = 2;
   arguments = node_p;
@@ -7466,9 +7466,9 @@ static void cont__38_13(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__38_19;
+  frame->cont = cont__types__generic_list__equal_19;
 }
-static void entry__38_18(void) {
+static void entry__types__generic_list__equal_18(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -7486,7 +7486,7 @@ static void entry__38_18(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_14(void) {
+static void entry__types__generic_list__equal_14(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // idx: 0
@@ -7506,9 +7506,9 @@ static void entry__38_14(void) {
   result_count = 1;
   myself = frame->slots[2] /* right */;
   func = myself->type;
-  frame->cont = cont__38_15;
+  frame->cont = cont__types__generic_list__equal_15;
 }
-static void cont__38_15(void) {
+static void cont__types__generic_list__equal_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7522,9 +7522,9 @@ static void cont__38_15(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__38_16;
+  frame->cont = cont__types__generic_list__equal_16;
 }
-static void cont__38_16(void) {
+static void cont__types__generic_list__equal_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7537,16 +7537,16 @@ static void cont__38_16(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__38_17;
+  frame->cont = cont__types__generic_list__equal_17;
 }
-static void cont__38_17(void) {
+static void cont__types__generic_list__equal_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 654: ... : return false
-  frame->slots[7] /* temp__4 */ = create_closure(entry__38_18, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__types__generic_list__equal_18, 0);
   // 654: ... if item != right(idx): return false
   argument_count = 2;
   arguments = node_p;
@@ -7557,7 +7557,7 @@ static void cont__38_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_19(void) {
+static void cont__types__generic_list__equal_19(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7570,7 +7570,7 @@ static void cont__38_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__39_1_types__generic_list_filter(void) {
+static void entry__types__generic_list__filter_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -7588,16 +7588,16 @@ static void entry__39_1_types__generic_list_filter(void) {
   result_count = 1;
   myself = get__new_empty_collection();
   func = myself->type;
-  frame->cont = cont__39_2;
+  frame->cont = cont__types__generic_list__filter_2;
 }
-static void cont__39_2(void) {
+static void cont__types__generic_list__filter_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[2])->contents /* new_list */ = arguments->slots[0];
   // 665: ... : (item) if test(item): push &new_list item
-  frame->slots[3] /* temp__1 */ = create_closure(entry__39_3, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__filter_3, 1);
   // 665: for_each self: (item) if test(item): push &new_list item
   argument_count = 2;
   arguments = node_p;
@@ -7606,9 +7606,9 @@ static void cont__39_2(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__39_7;
+  frame->cont = cont__types__generic_list__filter_7;
 }
-static void entry__39_5(void) {
+static void entry__types__generic_list__filter_5(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // new_list: 0
@@ -7627,9 +7627,9 @@ static void entry__39_5(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__39_6;
+  frame->cont = cont__types__generic_list__filter_6;
 }
-static void cont__39_6(void) {
+static void cont__types__generic_list__filter_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7641,7 +7641,7 @@ static void cont__39_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__39_3(void) {
+static void entry__types__generic_list__filter_3(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // item: 0
@@ -7660,16 +7660,16 @@ static void entry__39_3(void) {
   result_count = 1;
   myself = frame->slots[1] /* test */;
   func = myself->type;
-  frame->cont = cont__39_4;
+  frame->cont = cont__types__generic_list__filter_4;
 }
-static void cont__39_4(void) {
+static void cont__types__generic_list__filter_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 665: ... : push &new_list item
-  frame->slots[4] /* temp__2 */ = create_closure(entry__39_5, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__filter_5, 0);
   // 665: ... if test(item): push &new_list item
   argument_count = 2;
   arguments = node_p;
@@ -7680,7 +7680,7 @@ static void cont__39_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__39_7(void) {
+static void cont__types__generic_list__filter_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7693,7 +7693,7 @@ static void cont__39_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__40_1_types__generic_list_map(void) {
+static void entry__types__generic_list__map_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -7711,16 +7711,16 @@ static void entry__40_1_types__generic_list_map(void) {
   result_count = 1;
   myself = get__new_empty_collection();
   func = myself->type;
-  frame->cont = cont__40_2;
+  frame->cont = cont__types__generic_list__map_2;
 }
-static void cont__40_2(void) {
+static void cont__types__generic_list__map_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[2])->contents /* new_list */ = arguments->slots[0];
   // 678: ... : (item) push &new_list func(item)
-  frame->slots[3] /* temp__1 */ = create_closure(entry__40_3, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__map_3, 1);
   // 678: for_each self: (item) push &new_list func(item)
   argument_count = 2;
   arguments = node_p;
@@ -7729,9 +7729,9 @@ static void cont__40_2(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__40_6;
+  frame->cont = cont__types__generic_list__map_6;
 }
-static void entry__40_3(void) {
+static void entry__types__generic_list__map_3(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // item: 0
@@ -7750,9 +7750,9 @@ static void entry__40_3(void) {
   result_count = 1;
   myself = frame->slots[2] /* func */;
   func = myself->type;
-  frame->cont = cont__40_4;
+  frame->cont = cont__types__generic_list__map_4;
 }
-static void cont__40_4(void) {
+static void cont__types__generic_list__map_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7766,9 +7766,9 @@ static void cont__40_4(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__40_5;
+  frame->cont = cont__types__generic_list__map_5;
 }
-static void cont__40_5(void) {
+static void cont__types__generic_list__map_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7780,7 +7780,7 @@ static void cont__40_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__40_6(void) {
+static void cont__types__generic_list__map_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7793,7 +7793,7 @@ static void cont__40_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_2(void) {
+static void entry__types__generic_list__dup_2(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -7810,7 +7810,7 @@ static void entry__41_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_3(void) {
+static void entry__types__generic_list__dup_3(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // n: 0
@@ -7831,9 +7831,9 @@ static void entry__41_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__41_4;
+  frame->cont = cont__types__generic_list__dup_4;
 }
-static void cont__41_4(void) {
+static void cont__types__generic_list__dup_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7843,13 +7843,13 @@ static void cont__41_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
-  arguments->slots[1] = func__41_5;
+  arguments->slots[1] = func__types__generic_list__dup_5;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__41_7;
+  frame->cont = cont__types__generic_list__dup_7;
 }
-static void entry__41_5(void) {
+static void entry__types__generic_list__dup_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -7865,7 +7865,7 @@ static void entry__41_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__41_7(void) {
+static void cont__types__generic_list__dup_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7878,9 +7878,9 @@ static void cont__41_7(void) {
   result_count = 1;
   myself = get__div();
   func = myself->type;
-  frame->cont = cont__41_8;
+  frame->cont = cont__types__generic_list__dup_8;
 }
-static void cont__41_8(void) {
+static void cont__types__generic_list__dup_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7894,9 +7894,9 @@ static void cont__41_8(void) {
   result_count = 1;
   myself = get__dup();
   func = myself->type;
-  frame->cont = cont__41_9;
+  frame->cont = cont__types__generic_list__dup_9;
 }
-static void cont__41_9(void) {
+static void cont__types__generic_list__dup_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7910,9 +7910,9 @@ static void cont__41_9(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__41_10;
+  frame->cont = cont__types__generic_list__dup_10;
 }
-static void cont__41_10(void) {
+static void cont__types__generic_list__dup_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7925,16 +7925,16 @@ static void cont__41_10(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__41_11;
+  frame->cont = cont__types__generic_list__dup_11;
 }
-static void cont__41_11(void) {
+static void cont__types__generic_list__dup_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 692: ... : append &result self
-  frame->slots[4] /* temp__2 */ = create_closure(entry__41_12, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__dup_12, 0);
   // 692: if n.is_odd: append &result self
   argument_count = 2;
   arguments = node_p;
@@ -7943,9 +7943,9 @@ static void cont__41_11(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__41_14;
+  frame->cont = cont__types__generic_list__dup_14;
 }
-static void entry__41_12(void) {
+static void entry__types__generic_list__dup_12(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // result: 0
@@ -7964,9 +7964,9 @@ static void entry__41_12(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__41_13;
+  frame->cont = cont__types__generic_list__dup_13;
 }
-static void cont__41_13(void) {
+static void cont__types__generic_list__dup_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7978,7 +7978,7 @@ static void cont__41_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__41_14(void) {
+static void cont__types__generic_list__dup_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7991,7 +7991,7 @@ static void cont__41_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_15(void) {
+static void entry__types__generic_list__dup_15(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -8006,7 +8006,7 @@ static void entry__41_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__41_1_types__generic_list_dup(void) {
+static void entry__types__generic_list__dup_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -8016,14 +8016,14 @@ static void entry__41_1_types__generic_list_dup(void) {
     return;
   }
   // 688: ... -> self
-  frame->slots[2] /* temp__1 */ = create_closure(entry__41_2, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_list__dup_2, 0);
   // 688: ... :
   // 689:   if n < 0: raise "Negative argument for dup!"
   // 690:   $$result dup(self n .div. 2)
   // 691:   append &result result
   // 692:   if n.is_odd: append &result self
   // 693:   -> result
-  frame->slots[3] /* temp__2 */ = create_closure(entry__41_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__types__generic_list__dup_3, 0);
   // 688: case n 0 (-> empty_list) 1 (-> self):
   // 689:   if n < 0: raise "Negative argument for dup!"
   // 690:   $$result dup(self n .div. 2)
@@ -8034,7 +8034,7 @@ static void entry__41_1_types__generic_list_dup(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* n */;
   arguments->slots[1] = number__0;
-  arguments->slots[2] = func__41_15;
+  arguments->slots[2] = func__types__generic_list__dup_15;
   arguments->slots[3] = number__1;
   arguments->slots[4] = frame->slots[2] /* temp__1 */;
   arguments->slots[5] = frame->slots[3] /* temp__2 */;
@@ -8043,7 +8043,7 @@ static void entry__41_1_types__generic_list_dup(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__42_1_types__generic_list_interleave(void) {
+static void entry__types__generic_list__interleave_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
@@ -8060,9 +8060,9 @@ static void entry__42_1_types__generic_list_interleave(void) {
   result_count = 1;
   myself = frame->slots[0] /* lists */;
   func = myself->type;
-  frame->cont = cont__42_2;
+  frame->cont = cont__types__generic_list__interleave_2;
 }
-static void cont__42_2(void) {
+static void cont__types__generic_list__interleave_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8075,9 +8075,9 @@ static void cont__42_2(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__42_3;
+  frame->cont = cont__types__generic_list__interleave_3;
 }
-static void cont__42_3(void) {
+static void cont__types__generic_list__interleave_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8093,16 +8093,16 @@ static void cont__42_3(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__42_4;
+  frame->cont = cont__types__generic_list__interleave_4;
 }
-static void cont__42_4(void) {
+static void cont__types__generic_list__interleave_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 706: ... : (i) for_each lists: (current_list) push &result current_list(i)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__42_5, 1);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__interleave_5, 1);
   // 706: from_to 1 n-1: (i) for_each lists: (current_list) push &result current_list(i)
   argument_count = 3;
   arguments = node_p;
@@ -8112,9 +8112,9 @@ static void cont__42_4(void) {
   result_count = 0;
   myself = get__from_to();
   func = myself->type;
-  frame->cont = cont__42_9;
+  frame->cont = cont__types__generic_list__interleave_9;
 }
-static void entry__42_6(void) {
+static void entry__types__generic_list__interleave_6(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // current_list: 0
@@ -8133,9 +8133,9 @@ static void entry__42_6(void) {
   result_count = 1;
   myself = frame->slots[0] /* current_list */;
   func = myself->type;
-  frame->cont = cont__42_7;
+  frame->cont = cont__types__generic_list__interleave_7;
 }
-static void cont__42_7(void) {
+static void cont__types__generic_list__interleave_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8149,9 +8149,9 @@ static void cont__42_7(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__42_8;
+  frame->cont = cont__types__generic_list__interleave_8;
 }
-static void cont__42_8(void) {
+static void cont__types__generic_list__interleave_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8163,7 +8163,7 @@ static void cont__42_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__42_5(void) {
+static void entry__types__generic_list__interleave_5(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // i: 0
@@ -8176,7 +8176,7 @@ static void entry__42_5(void) {
     return;
   }
   // 706: ... : (current_list) push &result current_list(i)
-  frame->slots[3] /* temp__1 */ = create_closure(entry__42_6, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__interleave_6, 1);
   // 706: ... for_each lists: (current_list) push &result current_list(i)
   argument_count = 2;
   arguments = node_p;
@@ -8187,14 +8187,14 @@ static void entry__42_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__42_9(void) {
+static void cont__types__generic_list__interleave_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 707: ... : (current_list)
   // 708:   if length_of(current_list) >= n: push &result current_list(n)
-  frame->slots[3] /* temp__1 */ = create_closure(entry__42_10, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__interleave_10, 1);
   // 707: for_each lists: (current_list)
   // 708:   if length_of(current_list) >= n: push &result current_list(n)
   argument_count = 2;
@@ -8204,9 +8204,9 @@ static void cont__42_9(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__42_17;
+  frame->cont = cont__types__generic_list__interleave_17;
 }
-static void entry__42_14(void) {
+static void entry__types__generic_list__interleave_14(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // result: 0
@@ -8226,9 +8226,9 @@ static void entry__42_14(void) {
   result_count = 1;
   myself = frame->slots[1] /* current_list */;
   func = myself->type;
-  frame->cont = cont__42_15;
+  frame->cont = cont__types__generic_list__interleave_15;
 }
-static void cont__42_15(void) {
+static void cont__types__generic_list__interleave_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8242,9 +8242,9 @@ static void cont__42_15(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__42_16;
+  frame->cont = cont__types__generic_list__interleave_16;
 }
-static void cont__42_16(void) {
+static void cont__types__generic_list__interleave_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8256,7 +8256,7 @@ static void cont__42_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__42_10(void) {
+static void entry__types__generic_list__interleave_10(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // current_list: 0
@@ -8275,9 +8275,9 @@ static void entry__42_10(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__42_11;
+  frame->cont = cont__types__generic_list__interleave_11;
 }
-static void cont__42_11(void) {
+static void cont__types__generic_list__interleave_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8291,9 +8291,9 @@ static void cont__42_11(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__42_12;
+  frame->cont = cont__types__generic_list__interleave_12;
 }
-static void cont__42_12(void) {
+static void cont__types__generic_list__interleave_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8306,16 +8306,16 @@ static void cont__42_12(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__42_13;
+  frame->cont = cont__types__generic_list__interleave_13;
 }
-static void cont__42_13(void) {
+static void cont__types__generic_list__interleave_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 708: ... : push &result current_list(n)
-  frame->slots[6] /* temp__4 */ = create_closure(entry__42_14, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__types__generic_list__interleave_14, 0);
   // 708: if length_of(current_list) >= n: push &result current_list(n)
   argument_count = 2;
   arguments = node_p;
@@ -8326,7 +8326,7 @@ static void cont__42_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__42_17(void) {
+static void cont__types__generic_list__interleave_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8339,7 +8339,7 @@ static void cont__42_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__43_1_types__generic_list_contains(void) {
+static void entry__types__generic_list__contains_1(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
@@ -8351,7 +8351,7 @@ static void entry__43_1_types__generic_list_contains(void) {
     return;
   }
   // 719: ... : (current_item) if current_item == item: return true
-  frame->slots[3] /* temp__1 */ = create_closure(entry__43_2, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__contains_2, 1);
   // 719: for_each self: (current_item) if current_item == item: return true
   argument_count = 2;
   arguments = node_p;
@@ -8360,9 +8360,9 @@ static void entry__43_1_types__generic_list_contains(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__43_5;
+  frame->cont = cont__types__generic_list__contains_5;
 }
-static void entry__43_4(void) {
+static void entry__types__generic_list__contains_4(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -8380,7 +8380,7 @@ static void entry__43_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__43_2(void) {
+static void entry__types__generic_list__contains_2(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // current_item: 0
@@ -8400,16 +8400,16 @@ static void entry__43_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__43_3;
+  frame->cont = cont__types__generic_list__contains_3;
 }
-static void cont__43_3(void) {
+static void cont__types__generic_list__contains_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 719: ... : return true
-  frame->slots[4] /* temp__2 */ = create_closure(entry__43_4, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__contains_4, 0);
   // 719: ... if current_item == item: return true
   argument_count = 2;
   arguments = node_p;
@@ -8420,7 +8420,7 @@ static void cont__43_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__43_5(void) {
+static void cont__types__generic_list__contains_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8433,7 +8433,7 @@ static void cont__43_5(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__46_3(void) {
+static void entry__std__sequence_3(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
@@ -8446,7 +8446,7 @@ static void entry__46_3(void) {
   }
   // 743: ... : (item)
   // 744:   if item == element || item .contains. element: return true
-  frame->slots[3] /* temp__1 */ = create_closure(entry__46_4, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__std__sequence_4, 1);
   // 743: for_each self: (item)
   // 744:   if item == element || item .contains. element: return true
   argument_count = 2;
@@ -8456,9 +8456,9 @@ static void entry__46_3(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__46_10;
+  frame->cont = cont__std__sequence_10;
 }
-static void entry__46_9(void) {
+static void entry__std__sequence_9(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return: 0
@@ -8476,7 +8476,7 @@ static void entry__46_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__46_4(void) {
+static void entry__std__sequence_4(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // item: 0
@@ -8496,16 +8496,16 @@ static void entry__46_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__46_5;
+  frame->cont = cont__std__sequence_5;
 }
-static void cont__46_5(void) {
+static void cont__std__sequence_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 744: ... item .contains. element
-  frame->slots[5] /* temp__3 */ = create_closure(entry__46_6, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__std__sequence_6, 0);
   // 744: ... item == element || item .contains. element
   argument_count = 2;
   arguments = node_p;
@@ -8514,9 +8514,9 @@ static void cont__46_5(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__46_8;
+  frame->cont = cont__std__sequence_8;
 }
-static void entry__46_6(void) {
+static void entry__std__sequence_6(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // item: 0
@@ -8535,9 +8535,9 @@ static void entry__46_6(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__46_7;
+  frame->cont = cont__std__sequence_7;
 }
-static void cont__46_7(void) {
+static void cont__std__sequence_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8551,14 +8551,14 @@ static void cont__46_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__46_8(void) {
+static void cont__std__sequence_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 744: ... : return true
-  frame->slots[6] /* temp__4 */ = create_closure(entry__46_9, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__std__sequence_9, 0);
   // 744: if item == element || item .contains. element: return true
   argument_count = 2;
   arguments = node_p;
@@ -8569,7 +8569,7 @@ static void cont__46_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__46_10(void) {
+static void cont__std__sequence_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8582,7 +8582,7 @@ static void cont__46_10(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__46_1_std__sequence(void) {
+static void entry__std__sequence_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -8595,9 +8595,9 @@ static void entry__46_1_std__sequence(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__46_2;
+  frame->cont = cont__std__sequence_2;
 }
-static void cont__46_2(void) {
+static void cont__std__sequence_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8618,7 +8618,7 @@ static void cont__46_2(void) {
     NODE *temp = clone_object_and_attributes(frame->slots[2] /* temp__2 */);
     update_start_p = node_p;
     set_attribute_value(temp->attributes, poly_idx__is_a_sequence, get__true());
-    set_attribute(temp->attributes, poly_idx__contains, func__46_3);
+    set_attribute(temp->attributes, poly_idx__contains, func__std__sequence_3);
     frame->slots[1] /* temp__1 */ = temp;
 
   }
@@ -8674,44 +8674,44 @@ EXPORT void phase_2__basic__types__list(void) {
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__14_1_types__list_to_list = create_function(entry__14_1_types__list_to_list, 1);
-  func__15_1_std__list = create_function(entry__15_1_std__list, -1);
-  func__16_1_types__list_length_of = create_function(entry__16_1_types__list_length_of, 1);
-  func__17_1_types__list_push = create_function(entry__17_1_types__list_push, 2);
-  func__18_1_types__list_drop = create_function(entry__18_1_types__list_drop, 1);
-  func__19_1_types__list_pop = create_function(entry__19_1_types__list_pop, 1);
-  func__20_1_types__list_peek = create_function(entry__20_1_types__list_peek, 1);
-  func__21_1_types__list_append = create_function(entry__21_1_types__list_append, 2);
-  func__22_1_types__list_range = create_function(entry__22_1_types__list_range, 3);
-  func__23_1_types__generic_list_delete_at = create_function(entry__23_1_types__generic_list_delete_at, -1);
-  func__24_1_std__normalized_index = create_function(entry__24_1_std__normalized_index, 2);
-  func__25_1_types__generic_list_is_empty = create_function(entry__25_1_types__generic_list_is_empty, 1);
-  func__26_1_types__generic_list_for_each_from_to = create_function(entry__26_1_types__generic_list_for_each_from_to, -1);
-  func__27_1_types__generic_list_for_each_from_down_to = create_function(entry__27_1_types__generic_list_for_each_from_down_to, -1);
-  func__28_1_types__generic_list_for_each = create_function(entry__28_1_types__generic_list_for_each, -1);
-  func__29_1_types__generic_list_update_each = create_function(entry__29_1_types__generic_list_update_each, 2);
-  func__30_1_types__list_for_each_pair = create_function(entry__30_1_types__list_for_each_pair, 2);
+  func__types__list__to_list_1 = create_function(entry__types__list__to_list_1, 1);
+  func__std__list_1 = create_function(entry__std__list_1, -1);
+  func__types__list__length_of_1 = create_function(entry__types__list__length_of_1, 1);
+  func__types__list__push_1 = create_function(entry__types__list__push_1, 2);
+  func__types__list__drop_1 = create_function(entry__types__list__drop_1, 1);
+  func__types__list__pop_1 = create_function(entry__types__list__pop_1, 1);
+  func__types__list__peek_1 = create_function(entry__types__list__peek_1, 1);
+  func__types__list__append_1 = create_function(entry__types__list__append_1, 2);
+  func__types__list__range_1 = create_function(entry__types__list__range_1, 3);
+  func__types__generic_list__delete_at_1 = create_function(entry__types__generic_list__delete_at_1, -1);
+  func__std__normalized_index_1 = create_function(entry__std__normalized_index_1, 2);
+  func__types__generic_list__is_empty_1 = create_function(entry__types__generic_list__is_empty_1, 1);
+  func__types__generic_list__for_each_from_to_1 = create_function(entry__types__generic_list__for_each_from_to_1, -1);
+  func__types__generic_list__for_each_from_down_to_1 = create_function(entry__types__generic_list__for_each_from_down_to_1, -1);
+  func__types__generic_list__for_each_1 = create_function(entry__types__generic_list__for_each_1, -1);
+  func__types__generic_list__update_each_1 = create_function(entry__types__generic_list__update_each_1, 2);
+  func__types__list__for_each_pair_1 = create_function(entry__types__list__for_each_pair_1, 2);
   string__57ec57a17085427f = from_latin_1_string("Attempt to get an element from an empty list!", 45);
-  func__31_4 = create_function(entry__31_4, 0);
-  func__31_1_types__generic_list_get = create_function(entry__31_1_types__generic_list_get, 1);
-  func__32_1_types__list_put = create_function(entry__32_1_types__list_put, 2);
-  func__33_1_types__list_merge = create_function(entry__33_1_types__list_merge, -1);
+  func__types__generic_list__get_4 = create_function(entry__types__generic_list__get_4, 0);
+  func__types__generic_list__get_1 = create_function(entry__types__generic_list__get_1, 1);
+  func__types__list__put_1 = create_function(entry__types__list__put_1, 2);
+  func__types__list__merge_1 = create_function(entry__types__list__merge_1, -1);
   string__7e1f534683fac2fe = from_latin_1_string("list()", 6);
   string__1a0aeb0b5df87d4d = from_latin_1_string("list", 4);
-  func__34_1_types__list_serialize = create_function(entry__34_1_types__list_serialize, -1);
-  func__35_1_types__list_sort = create_function(entry__35_1_types__list_sort, -1);
-  func__37_1_types__list_new_empty_collection = create_function(entry__37_1_types__list_new_empty_collection, 1);
-  func__38_1_types__generic_list_equal = create_function(entry__38_1_types__generic_list_equal, 2);
-  func__39_1_types__generic_list_filter = create_function(entry__39_1_types__generic_list_filter, 2);
-  func__40_1_types__generic_list_map = create_function(entry__40_1_types__generic_list_map, 2);
+  func__types__list__serialize_1 = create_function(entry__types__list__serialize_1, -1);
+  func__types__list__sort_1 = create_function(entry__types__list__sort_1, -1);
+  func__types__list__new_empty_collection_1 = create_function(entry__types__list__new_empty_collection_1, 1);
+  func__types__generic_list__equal_1 = create_function(entry__types__generic_list__equal_1, 2);
+  func__types__generic_list__filter_1 = create_function(entry__types__generic_list__filter_1, 2);
+  func__types__generic_list__map_1 = create_function(entry__types__generic_list__map_1, 2);
   string__963fa2c6021831d1 = from_latin_1_string("Negative argument for dup!", 26);
-  func__41_5 = create_function(entry__41_5, 0);
-  func__41_15 = create_function(entry__41_15, 0);
-  func__41_1_types__generic_list_dup = create_function(entry__41_1_types__generic_list_dup, 2);
-  func__42_1_types__generic_list_interleave = create_function(entry__42_1_types__generic_list_interleave, -1);
-  func__43_1_types__generic_list_contains = create_function(entry__43_1_types__generic_list_contains, 2);
-  func__46_3 = create_function(entry__46_3, 2);
-  func__46_1_std__sequence = create_function(entry__46_1_std__sequence, -1);
+  func__types__generic_list__dup_5 = create_function(entry__types__generic_list__dup_5, 0);
+  func__types__generic_list__dup_15 = create_function(entry__types__generic_list__dup_15, 0);
+  func__types__generic_list__dup_1 = create_function(entry__types__generic_list__dup_1, 2);
+  func__types__generic_list__interleave_1 = create_function(entry__types__generic_list__interleave_1, -1);
+  func__types__generic_list__contains_1 = create_function(entry__types__generic_list__contains_1, 2);
+  func__std__sequence_3 = create_function(entry__std__sequence_3, 2);
+  func__std__sequence_1 = create_function(entry__std__sequence_1, -1);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   string__b53819e78eec080a = from_latin_1_string("Invalid list object encountered during deserialisation!", 55);
   func__94_11 = create_function(entry__94_11, 0);
@@ -8809,33 +8809,33 @@ EXPORT void phase_4__basic__types__list(void) {
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
   define_attribute("types", "object", poly_idx__is_a_list, get__false());
   define_attribute("types", "list", poly_idx__is_a_list, get__true());
-  define_method("types", "list", poly_idx__to_list, func__14_1_types__list_to_list);
-  define_method("types", "list", poly_idx__length_of, func__16_1_types__list_length_of);
-  define_method("types", "list", poly_idx__push, func__17_1_types__list_push);
-  define_method("types", "list", poly_idx__drop, func__18_1_types__list_drop);
-  define_method("types", "list", poly_idx__pop, func__19_1_types__list_pop);
-  define_method("types", "list", poly_idx__peek, func__20_1_types__list_peek);
-  define_method("types", "list", poly_idx__append, func__21_1_types__list_append);
-  define_method("types", "list", poly_idx__range, func__22_1_types__list_range);
-  define_method("types", "generic_list", poly_idx__delete_at, func__23_1_types__generic_list_delete_at);
-  define_method("types", "generic_list", poly_idx__is_empty, func__25_1_types__generic_list_is_empty);
-  define_method("types", "generic_list", poly_idx__for_each_from_to, func__26_1_types__generic_list_for_each_from_to);
-  define_method("types", "generic_list", poly_idx__for_each_from_down_to, func__27_1_types__generic_list_for_each_from_down_to);
-  define_method("types", "generic_list", poly_idx__for_each, func__28_1_types__generic_list_for_each);
-  define_method("types", "generic_list", poly_idx__update_each, func__29_1_types__generic_list_update_each);
-  define_method("types", "list", poly_idx__for_each_pair, func__30_1_types__list_for_each_pair);
-  define_method("types", "generic_list", poly_idx__get, func__31_1_types__generic_list_get);
-  define_method("types", "list", poly_idx__put, func__32_1_types__list_put);
-  define_method("types", "list", poly_idx__merge, func__33_1_types__list_merge);
-  define_method("types", "list", poly_idx__serialize, func__34_1_types__list_serialize);
-  define_method("types", "list", poly_idx__sort, func__35_1_types__list_sort);
-  define_method("types", "list", poly_idx__new_empty_collection, func__37_1_types__list_new_empty_collection);
-  define_method("types", "generic_list", poly_idx__equal, func__38_1_types__generic_list_equal);
-  define_method("types", "generic_list", poly_idx__filter, func__39_1_types__generic_list_filter);
-  define_method("types", "generic_list", poly_idx__map, func__40_1_types__generic_list_map);
-  define_method("types", "generic_list", poly_idx__dup, func__41_1_types__generic_list_dup);
-  define_method("types", "generic_list", poly_idx__interleave, func__42_1_types__generic_list_interleave);
-  define_method("types", "generic_list", poly_idx__contains, func__43_1_types__generic_list_contains);
+  define_method("types", "list", poly_idx__to_list, func__types__list__to_list_1);
+  define_method("types", "list", poly_idx__length_of, func__types__list__length_of_1);
+  define_method("types", "list", poly_idx__push, func__types__list__push_1);
+  define_method("types", "list", poly_idx__drop, func__types__list__drop_1);
+  define_method("types", "list", poly_idx__pop, func__types__list__pop_1);
+  define_method("types", "list", poly_idx__peek, func__types__list__peek_1);
+  define_method("types", "list", poly_idx__append, func__types__list__append_1);
+  define_method("types", "list", poly_idx__range, func__types__list__range_1);
+  define_method("types", "generic_list", poly_idx__delete_at, func__types__generic_list__delete_at_1);
+  define_method("types", "generic_list", poly_idx__is_empty, func__types__generic_list__is_empty_1);
+  define_method("types", "generic_list", poly_idx__for_each_from_to, func__types__generic_list__for_each_from_to_1);
+  define_method("types", "generic_list", poly_idx__for_each_from_down_to, func__types__generic_list__for_each_from_down_to_1);
+  define_method("types", "generic_list", poly_idx__for_each, func__types__generic_list__for_each_1);
+  define_method("types", "generic_list", poly_idx__update_each, func__types__generic_list__update_each_1);
+  define_method("types", "list", poly_idx__for_each_pair, func__types__list__for_each_pair_1);
+  define_method("types", "generic_list", poly_idx__get, func__types__generic_list__get_1);
+  define_method("types", "list", poly_idx__put, func__types__list__put_1);
+  define_method("types", "list", poly_idx__merge, func__types__list__merge_1);
+  define_method("types", "list", poly_idx__serialize, func__types__list__serialize_1);
+  define_method("types", "list", poly_idx__sort, func__types__list__sort_1);
+  define_method("types", "list", poly_idx__new_empty_collection, func__types__list__new_empty_collection_1);
+  define_method("types", "generic_list", poly_idx__equal, func__types__generic_list__equal_1);
+  define_method("types", "generic_list", poly_idx__filter, func__types__generic_list__filter_1);
+  define_method("types", "generic_list", poly_idx__map, func__types__generic_list__map_1);
+  define_method("types", "generic_list", poly_idx__dup, func__types__generic_list__dup_1);
+  define_method("types", "generic_list", poly_idx__interleave, func__types__generic_list__interleave_1);
+  define_method("types", "generic_list", poly_idx__contains, func__types__generic_list__contains_1);
   define_attribute("types", "object", poly_idx__is_a_sequence, get__false());
 }
 
@@ -8847,10 +8847,10 @@ EXPORT void phase_5__basic__types__list(void) {
   assign_value(&var.std__is_a_list, create_function(type__std__is_a_list, -1));
   assign_value(&var.types__generic_list, get__types__object());
   assign_variable(&var.types__list, &var.types__generic_list);
-  assign_variable(&var.std__list, &func__15_1_std__list);
-  assign_variable(&var.std__normalized_index, &func__24_1_std__normalized_index);
+  assign_variable(&var.std__list, &func__std__list_1);
+  assign_variable(&var.std__normalized_index, &func__std__normalized_index_1);
   assign_value(&var.std__is_a_sequence, create_function(type__std__is_a_sequence, -1));
-  assign_variable(&var.std__sequence, &func__46_1_std__sequence);
+  assign_variable(&var.std__sequence, &func__std__sequence_1);
 }
 
 static int already_run_phase_6 = false;

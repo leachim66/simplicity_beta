@@ -303,218 +303,218 @@ static const char *var_names[] = {
   "from_down_to_by_1",
   "from_down_to_by_2"
 };
-static NODE *func__1_1_std__from_to;
-static void entry__1_1_std__from_to(void);
-static FRAME_INFO frame__1_1_std__from_to = {4, {"first", "last", "body", "body2"}};
-static void cont__1_2(void);
-static NODE *func__1_3;
-static void entry__1_3(void);
-static FRAME_INFO frame__1_3 = {4, {"last", "first", "body", "body2"}};
-static void cont__1_4(void);
-static void cont__1_5(void);
-static NODE *func__1_6;
-static void entry__1_6(void);
-static FRAME_INFO frame__1_6 = {2, {"body", "first"}};
-static void cont__1_7(void);
-static void cont__1_8(void);
-static NODE *func__1_9;
-static void entry__1_9(void);
-static FRAME_INFO frame__1_9 = {3, {"first", "last", "body"}};
+static NODE *func__std__from_to_1;
+static void entry__std__from_to_1(void);
+static FRAME_INFO frame__std__from_to_1 = {4, {"first", "last", "body", "body2"}};
+static void cont__std__from_to_2(void);
+static NODE *func__std__from_to_3;
+static void entry__std__from_to_3(void);
+static FRAME_INFO frame__std__from_to_3 = {4, {"last", "first", "body", "body2"}};
+static void cont__std__from_to_4(void);
+static void cont__std__from_to_5(void);
+static NODE *func__std__from_to_6;
+static void entry__std__from_to_6(void);
+static FRAME_INFO frame__std__from_to_6 = {2, {"body", "first"}};
+static void cont__std__from_to_7(void);
+static void cont__std__from_to_8(void);
+static NODE *func__std__from_to_9;
+static void entry__std__from_to_9(void);
+static FRAME_INFO frame__std__from_to_9 = {3, {"first", "last", "body"}};
 static NODE *get__std__from_to(void) {
   return var.std__from_to;
 }
-static NODE *func__2_1_from_to_1;
-static void entry__2_1_from_to_1(void);
-static FRAME_INFO frame__2_1_from_to_1 = {3, {"s", "e", "body"}};
-static void cont__2_2(void);
-static void cont__2_3(void);
-static NODE *func__2_4;
-static void entry__2_4(void);
-static FRAME_INFO frame__2_4 = {3, {"body", "s", "e"}};
-static void cont__2_5(void);
-static void cont__2_6(void);
-static NODE *func__3_1_from_to_2;
-static void entry__3_1_from_to_2(void);
-static FRAME_INFO frame__3_1_from_to_2 = {4, {"s", "e", "body", "body2"}};
-static void cont__3_2(void);
-static void cont__3_3(void);
-static NODE *func__3_4;
-static void entry__3_4(void);
-static FRAME_INFO frame__3_4 = {4, {"body2", "body", "s", "e"}};
-static void cont__3_5(void);
-static void cont__3_6(void);
-static void cont__3_7(void);
-static NODE *func__4_1_std__from_to_by;
-static void entry__4_1_std__from_to_by(void);
-static FRAME_INFO frame__4_1_std__from_to_by = {5, {"first", "last", "step", "body", "body2"}};
-static void cont__4_2(void);
-static NODE *func__4_3;
-static void entry__4_3(void);
-static FRAME_INFO frame__4_3 = {5, {"last", "first", "body", "step", "body2"}};
-static void cont__4_4(void);
-static void cont__4_5(void);
-static NODE *func__4_6;
-static void entry__4_6(void);
-static FRAME_INFO frame__4_6 = {2, {"body", "first"}};
-static void cont__4_7(void);
-static void cont__4_8(void);
-static NODE *func__4_9;
-static void entry__4_9(void);
-static FRAME_INFO frame__4_9 = {4, {"first", "last", "step", "body"}};
+static NODE *func__from_to_1_1;
+static void entry__from_to_1_1(void);
+static FRAME_INFO frame__from_to_1_1 = {3, {"s", "e", "body"}};
+static void cont__from_to_1_2(void);
+static void cont__from_to_1_3(void);
+static NODE *func__from_to_1_4;
+static void entry__from_to_1_4(void);
+static FRAME_INFO frame__from_to_1_4 = {3, {"body", "s", "e"}};
+static void cont__from_to_1_5(void);
+static void cont__from_to_1_6(void);
+static NODE *func__from_to_2_1;
+static void entry__from_to_2_1(void);
+static FRAME_INFO frame__from_to_2_1 = {4, {"s", "e", "body", "body2"}};
+static void cont__from_to_2_2(void);
+static void cont__from_to_2_3(void);
+static NODE *func__from_to_2_4;
+static void entry__from_to_2_4(void);
+static FRAME_INFO frame__from_to_2_4 = {4, {"body2", "body", "s", "e"}};
+static void cont__from_to_2_5(void);
+static void cont__from_to_2_6(void);
+static void cont__from_to_2_7(void);
+static NODE *func__std__from_to_by_1;
+static void entry__std__from_to_by_1(void);
+static FRAME_INFO frame__std__from_to_by_1 = {5, {"first", "last", "step", "body", "body2"}};
+static void cont__std__from_to_by_2(void);
+static NODE *func__std__from_to_by_3;
+static void entry__std__from_to_by_3(void);
+static FRAME_INFO frame__std__from_to_by_3 = {5, {"last", "first", "body", "step", "body2"}};
+static void cont__std__from_to_by_4(void);
+static void cont__std__from_to_by_5(void);
+static NODE *func__std__from_to_by_6;
+static void entry__std__from_to_by_6(void);
+static FRAME_INFO frame__std__from_to_by_6 = {2, {"body", "first"}};
+static void cont__std__from_to_by_7(void);
+static void cont__std__from_to_by_8(void);
+static NODE *func__std__from_to_by_9;
+static void entry__std__from_to_by_9(void);
+static FRAME_INFO frame__std__from_to_by_9 = {4, {"first", "last", "step", "body"}};
 static NODE *get__std__from_to_by(void) {
   return var.std__from_to_by;
 }
-static NODE *func__5_1_from_to_by_1;
-static void entry__5_1_from_to_by_1(void);
-static FRAME_INFO frame__5_1_from_to_by_1 = {4, {"s", "e", "step", "body"}};
-static void cont__5_2(void);
-static void cont__5_3(void);
-static NODE *func__5_4;
-static void entry__5_4(void);
-static FRAME_INFO frame__5_4 = {4, {"body", "s", "step", "e"}};
-static void cont__5_5(void);
-static void cont__5_6(void);
-static NODE *func__6_1_from_to_by_2;
-static void entry__6_1_from_to_by_2(void);
-static FRAME_INFO frame__6_1_from_to_by_2 = {5, {"s", "e", "step", "body", "body2"}};
-static void cont__6_2(void);
-static void cont__6_3(void);
-static NODE *func__6_4;
-static void entry__6_4(void);
-static FRAME_INFO frame__6_4 = {5, {"body2", "body", "s", "step", "e"}};
-static void cont__6_5(void);
-static void cont__6_6(void);
-static void cont__6_7(void);
-static NODE *func__7_1_std__from_down_to;
-static void entry__7_1_std__from_down_to(void);
-static FRAME_INFO frame__7_1_std__from_down_to = {4, {"first", "last", "body", "body2"}};
-static void cont__7_2(void);
-static NODE *func__7_3;
-static void entry__7_3(void);
-static FRAME_INFO frame__7_3 = {4, {"first", "last", "body", "body2"}};
-static void cont__7_4(void);
-static void cont__7_5(void);
-static NODE *func__7_6;
-static void entry__7_6(void);
-static FRAME_INFO frame__7_6 = {2, {"body", "first"}};
-static void cont__7_7(void);
-static void cont__7_8(void);
-static NODE *func__7_9;
-static void entry__7_9(void);
-static FRAME_INFO frame__7_9 = {3, {"first", "last", "body"}};
+static NODE *func__from_to_by_1_1;
+static void entry__from_to_by_1_1(void);
+static FRAME_INFO frame__from_to_by_1_1 = {4, {"s", "e", "step", "body"}};
+static void cont__from_to_by_1_2(void);
+static void cont__from_to_by_1_3(void);
+static NODE *func__from_to_by_1_4;
+static void entry__from_to_by_1_4(void);
+static FRAME_INFO frame__from_to_by_1_4 = {4, {"body", "s", "step", "e"}};
+static void cont__from_to_by_1_5(void);
+static void cont__from_to_by_1_6(void);
+static NODE *func__from_to_by_2_1;
+static void entry__from_to_by_2_1(void);
+static FRAME_INFO frame__from_to_by_2_1 = {5, {"s", "e", "step", "body", "body2"}};
+static void cont__from_to_by_2_2(void);
+static void cont__from_to_by_2_3(void);
+static NODE *func__from_to_by_2_4;
+static void entry__from_to_by_2_4(void);
+static FRAME_INFO frame__from_to_by_2_4 = {5, {"body2", "body", "s", "step", "e"}};
+static void cont__from_to_by_2_5(void);
+static void cont__from_to_by_2_6(void);
+static void cont__from_to_by_2_7(void);
+static NODE *func__std__from_down_to_1;
+static void entry__std__from_down_to_1(void);
+static FRAME_INFO frame__std__from_down_to_1 = {4, {"first", "last", "body", "body2"}};
+static void cont__std__from_down_to_2(void);
+static NODE *func__std__from_down_to_3;
+static void entry__std__from_down_to_3(void);
+static FRAME_INFO frame__std__from_down_to_3 = {4, {"first", "last", "body", "body2"}};
+static void cont__std__from_down_to_4(void);
+static void cont__std__from_down_to_5(void);
+static NODE *func__std__from_down_to_6;
+static void entry__std__from_down_to_6(void);
+static FRAME_INFO frame__std__from_down_to_6 = {2, {"body", "first"}};
+static void cont__std__from_down_to_7(void);
+static void cont__std__from_down_to_8(void);
+static NODE *func__std__from_down_to_9;
+static void entry__std__from_down_to_9(void);
+static FRAME_INFO frame__std__from_down_to_9 = {3, {"first", "last", "body"}};
 static NODE *get__std__from_down_to(void) {
   return var.std__from_down_to;
 }
-static NODE *func__8_1_from_down_to_1;
-static void entry__8_1_from_down_to_1(void);
-static FRAME_INFO frame__8_1_from_down_to_1 = {3, {"s", "e", "body"}};
-static void cont__8_2(void);
-static void cont__8_3(void);
-static NODE *func__8_4;
-static void entry__8_4(void);
-static FRAME_INFO frame__8_4 = {3, {"body", "s", "e"}};
-static void cont__8_5(void);
-static void cont__8_6(void);
-static NODE *func__9_1_from_down_to_2;
-static void entry__9_1_from_down_to_2(void);
-static FRAME_INFO frame__9_1_from_down_to_2 = {4, {"s", "e", "body", "body2"}};
-static void cont__9_2(void);
-static void cont__9_3(void);
-static NODE *func__9_4;
-static void entry__9_4(void);
-static FRAME_INFO frame__9_4 = {4, {"body2", "body", "s", "e"}};
-static void cont__9_5(void);
-static void cont__9_6(void);
-static void cont__9_7(void);
-static NODE *func__10_1_std__from_down_to_by;
-static void entry__10_1_std__from_down_to_by(void);
-static FRAME_INFO frame__10_1_std__from_down_to_by = {5, {"first", "last", "step", "body", "body2"}};
-static void cont__10_2(void);
-static NODE *func__10_3;
-static void entry__10_3(void);
-static FRAME_INFO frame__10_3 = {5, {"first", "last", "body", "step", "body2"}};
-static void cont__10_4(void);
-static void cont__10_5(void);
-static NODE *func__10_6;
-static void entry__10_6(void);
-static FRAME_INFO frame__10_6 = {2, {"body", "first"}};
-static void cont__10_7(void);
-static void cont__10_8(void);
-static NODE *func__10_9;
-static void entry__10_9(void);
-static FRAME_INFO frame__10_9 = {4, {"first", "last", "step", "body"}};
+static NODE *func__from_down_to_1_1;
+static void entry__from_down_to_1_1(void);
+static FRAME_INFO frame__from_down_to_1_1 = {3, {"s", "e", "body"}};
+static void cont__from_down_to_1_2(void);
+static void cont__from_down_to_1_3(void);
+static NODE *func__from_down_to_1_4;
+static void entry__from_down_to_1_4(void);
+static FRAME_INFO frame__from_down_to_1_4 = {3, {"body", "s", "e"}};
+static void cont__from_down_to_1_5(void);
+static void cont__from_down_to_1_6(void);
+static NODE *func__from_down_to_2_1;
+static void entry__from_down_to_2_1(void);
+static FRAME_INFO frame__from_down_to_2_1 = {4, {"s", "e", "body", "body2"}};
+static void cont__from_down_to_2_2(void);
+static void cont__from_down_to_2_3(void);
+static NODE *func__from_down_to_2_4;
+static void entry__from_down_to_2_4(void);
+static FRAME_INFO frame__from_down_to_2_4 = {4, {"body2", "body", "s", "e"}};
+static void cont__from_down_to_2_5(void);
+static void cont__from_down_to_2_6(void);
+static void cont__from_down_to_2_7(void);
+static NODE *func__std__from_down_to_by_1;
+static void entry__std__from_down_to_by_1(void);
+static FRAME_INFO frame__std__from_down_to_by_1 = {5, {"first", "last", "step", "body", "body2"}};
+static void cont__std__from_down_to_by_2(void);
+static NODE *func__std__from_down_to_by_3;
+static void entry__std__from_down_to_by_3(void);
+static FRAME_INFO frame__std__from_down_to_by_3 = {5, {"first", "last", "body", "step", "body2"}};
+static void cont__std__from_down_to_by_4(void);
+static void cont__std__from_down_to_by_5(void);
+static NODE *func__std__from_down_to_by_6;
+static void entry__std__from_down_to_by_6(void);
+static FRAME_INFO frame__std__from_down_to_by_6 = {2, {"body", "first"}};
+static void cont__std__from_down_to_by_7(void);
+static void cont__std__from_down_to_by_8(void);
+static NODE *func__std__from_down_to_by_9;
+static void entry__std__from_down_to_by_9(void);
+static FRAME_INFO frame__std__from_down_to_by_9 = {4, {"first", "last", "step", "body"}};
 static NODE *get__std__from_down_to_by(void) {
   return var.std__from_down_to_by;
 }
-static NODE *func__11_1_from_down_to_by_1;
-static void entry__11_1_from_down_to_by_1(void);
-static FRAME_INFO frame__11_1_from_down_to_by_1 = {4, {"s", "e", "step", "body"}};
-static void cont__11_2(void);
-static void cont__11_3(void);
-static NODE *func__11_4;
-static void entry__11_4(void);
-static FRAME_INFO frame__11_4 = {4, {"body", "s", "step", "e"}};
-static void cont__11_5(void);
-static void cont__11_6(void);
-static NODE *func__12_1_from_down_to_by_2;
-static void entry__12_1_from_down_to_by_2(void);
-static FRAME_INFO frame__12_1_from_down_to_by_2 = {5, {"s", "e", "step", "body", "body2"}};
-static void cont__12_2(void);
-static void cont__12_3(void);
-static NODE *func__12_4;
-static void entry__12_4(void);
-static FRAME_INFO frame__12_4 = {5, {"body2", "body", "s", "step", "e"}};
-static void cont__12_5(void);
-static void cont__12_6(void);
-static void cont__12_7(void);
-static NODE *func__13_1_std__repeat;
-static void entry__13_1_std__repeat(void);
-static FRAME_INFO frame__13_1_std__repeat = {2, {"n", "body"}};
-static void cont__13_2(void);
-static void cont__13_3(void);
-static NODE *func__13_4;
-static void entry__13_4(void);
-static FRAME_INFO frame__13_4 = {2, {"body", "n"}};
-static void cont__13_5(void);
-static void cont__13_6(void);
+static NODE *func__from_down_to_by_1_1;
+static void entry__from_down_to_by_1_1(void);
+static FRAME_INFO frame__from_down_to_by_1_1 = {4, {"s", "e", "step", "body"}};
+static void cont__from_down_to_by_1_2(void);
+static void cont__from_down_to_by_1_3(void);
+static NODE *func__from_down_to_by_1_4;
+static void entry__from_down_to_by_1_4(void);
+static FRAME_INFO frame__from_down_to_by_1_4 = {4, {"body", "s", "step", "e"}};
+static void cont__from_down_to_by_1_5(void);
+static void cont__from_down_to_by_1_6(void);
+static NODE *func__from_down_to_by_2_1;
+static void entry__from_down_to_by_2_1(void);
+static FRAME_INFO frame__from_down_to_by_2_1 = {5, {"s", "e", "step", "body", "body2"}};
+static void cont__from_down_to_by_2_2(void);
+static void cont__from_down_to_by_2_3(void);
+static NODE *func__from_down_to_by_2_4;
+static void entry__from_down_to_by_2_4(void);
+static FRAME_INFO frame__from_down_to_by_2_4 = {5, {"body2", "body", "s", "step", "e"}};
+static void cont__from_down_to_by_2_5(void);
+static void cont__from_down_to_by_2_6(void);
+static void cont__from_down_to_by_2_7(void);
+static NODE *func__std__repeat_1;
+static void entry__std__repeat_1(void);
+static FRAME_INFO frame__std__repeat_1 = {2, {"n", "body"}};
+static void cont__std__repeat_2(void);
+static void cont__std__repeat_3(void);
+static NODE *func__std__repeat_4;
+static void entry__std__repeat_4(void);
+static FRAME_INFO frame__std__repeat_4 = {2, {"body", "n"}};
+static void cont__std__repeat_5(void);
+static void cont__std__repeat_6(void);
 static NODE *get__std__repeat(void) {
   return var.std__repeat;
 }
-static NODE *func__14_1_std__forever;
-static void entry__14_1_std__forever(void);
-static FRAME_INFO frame__14_1_std__forever = {1, {"body"}};
-static void cont__14_2(void);
+static NODE *func__std__forever_1;
+static void entry__std__forever_1(void);
+static FRAME_INFO frame__std__forever_1 = {1, {"body"}};
+static void cont__std__forever_2(void);
 static NODE *get__std__forever(void) {
   return var.std__forever;
 }
-static NODE *func__15_1_std__while;
-static void entry__15_1_std__while(void);
-static FRAME_INFO frame__15_1_std__while = {3, {"cond_and_body", "cond", "body"}};
-static void cont__15_2(void);
-static NODE *func__15_3;
-static void entry__15_3(void);
-static FRAME_INFO frame__15_3 = {2, {"body", "cond_and_body"}};
-static void cont__15_4(void);
+static NODE *func__std__while_1;
+static void entry__std__while_1(void);
+static FRAME_INFO frame__std__while_1 = {3, {"cond_and_body", "cond", "body"}};
+static void cont__std__while_2(void);
+static NODE *func__std__while_3;
+static void entry__std__while_3(void);
+static FRAME_INFO frame__std__while_3 = {2, {"body", "cond_and_body"}};
+static void cont__std__while_4(void);
 static NODE *get__std__while(void) {
   return var.std__while;
 }
-static NODE *func__16_1_std__do_while;
-static void entry__16_1_std__do_while(void);
-static FRAME_INFO frame__16_1_std__do_while = {1, {"body"}};
-static void cont__16_2(void);
-static NODE *func__16_3;
-static void entry__16_3(void);
-static FRAME_INFO frame__16_3 = {1, {"body"}};
+static NODE *func__std__do_while_1;
+static void entry__std__do_while_1(void);
+static FRAME_INFO frame__std__do_while_1 = {1, {"body"}};
+static void cont__std__do_while_2(void);
+static NODE *func__std__do_while_3;
+static void entry__std__do_while_3(void);
+static FRAME_INFO frame__std__do_while_3 = {1, {"body"}};
 static NODE *get__std__do_while(void) {
   return var.std__do_while;
 }
-static NODE *func__17_1_std__do_until;
-static void entry__17_1_std__do_until(void);
-static FRAME_INFO frame__17_1_std__do_until = {1, {"body"}};
-static void cont__17_2(void);
-static NODE *func__17_3;
-static void entry__17_3(void);
-static FRAME_INFO frame__17_3 = {1, {"body"}};
+static NODE *func__std__do_until_1;
+static void entry__std__do_until_1(void);
+static FRAME_INFO frame__std__do_until_1 = {1, {"body"}};
+static void cont__std__do_until_2(void);
+static NODE *func__std__do_until_3;
+static void entry__std__do_until_3(void);
+static FRAME_INFO frame__std__do_until_3 = {1, {"body"}};
 static NODE *get__std__do_until(void) {
   return var.std__do_until;
 }
@@ -522,112 +522,112 @@ void run__basic__loops(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__loops, NULL, },
-  {entry__1_6, NULL, 100, 100, 25, 34},
-  {entry__1_3, NULL, 100, 100, 10, 22},
-  {cont__1_4, &frame__1_3, 100, 100, 10, 22},
-  {cont__1_5, &frame__1_3, 100, 100, 7, 34},
-  {cont__1_7, &frame__1_3, 101, 101, 17, 23},
-  {cont__1_8, &frame__1_3, 101, 101, 7, 39},
-  {entry__1_9, NULL, 103, 103, 7, 31},
-  {entry__1_1_std__from_to, NULL, 99, 99, 5, 20},
-  {cont__1_2, &frame__1_1_std__from_to, 98, 103, 3, 32},
-  {entry__2_4, NULL, 107, 107, 5, 10},
-  {cont__2_5, &frame__2_4, 108, 108, 15, 17},
-  {cont__2_6, &frame__2_4, 108, 108, 5, 24},
-  {entry__2_1_from_to_1, NULL, 106, 106, 6, 11},
-  {cont__2_2, &frame__2_1_from_to_1, 106, 106, 6, 11},
-  {cont__2_3, &frame__2_1_from_to_1, 106, 108, 3, 24},
-  {entry__3_4, NULL, 112, 112, 5, 9},
-  {cont__3_5, &frame__3_4, 113, 113, 5, 10},
-  {cont__3_6, &frame__3_4, 114, 114, 15, 17},
-  {cont__3_7, &frame__3_4, 114, 114, 5, 30},
-  {entry__3_1_from_to_2, NULL, 111, 111, 6, 11},
-  {cont__3_2, &frame__3_1_from_to_2, 111, 111, 6, 11},
-  {cont__3_3, &frame__3_1_from_to_2, 111, 114, 3, 30},
-  {entry__4_6, NULL, 176, 176, 25, 34},
-  {entry__4_3, NULL, 176, 176, 10, 22},
-  {cont__4_4, &frame__4_3, 176, 176, 10, 22},
-  {cont__4_5, &frame__4_3, 176, 176, 7, 34},
-  {cont__4_7, &frame__4_3, 177, 177, 20, 29},
-  {cont__4_8, &frame__4_3, 177, 177, 7, 50},
-  {entry__4_9, NULL, 179, 179, 7, 39},
-  {entry__4_1_std__from_to_by, NULL, 175, 175, 5, 20},
-  {cont__4_2, &frame__4_1_std__from_to_by, 174, 179, 3, 40},
-  {entry__5_4, NULL, 183, 183, 5, 10},
-  {cont__5_5, &frame__5_4, 184, 184, 18, 23},
-  {cont__5_6, &frame__5_4, 184, 184, 5, 35},
-  {entry__5_1_from_to_by_1, NULL, 182, 182, 6, 11},
-  {cont__5_2, &frame__5_1_from_to_by_1, 182, 182, 6, 11},
-  {cont__5_3, &frame__5_1_from_to_by_1, 182, 184, 3, 35},
-  {entry__6_4, NULL, 188, 188, 5, 9},
-  {cont__6_5, &frame__6_4, 189, 189, 5, 10},
-  {cont__6_6, &frame__6_4, 190, 190, 18, 23},
-  {cont__6_7, &frame__6_4, 190, 190, 5, 41},
-  {entry__6_1_from_to_by_2, NULL, 187, 187, 6, 11},
-  {cont__6_2, &frame__6_1_from_to_by_2, 187, 187, 6, 11},
-  {cont__6_3, &frame__6_1_from_to_by_2, 187, 190, 3, 41},
-  {entry__7_6, NULL, 247, 247, 25, 34},
-  {entry__7_3, NULL, 247, 247, 10, 22},
-  {cont__7_4, &frame__7_3, 247, 247, 10, 22},
-  {cont__7_5, &frame__7_3, 247, 247, 7, 34},
-  {cont__7_7, &frame__7_3, 248, 248, 22, 28},
-  {cont__7_8, &frame__7_3, 248, 248, 7, 44},
-  {entry__7_9, NULL, 250, 250, 7, 36},
-  {entry__7_1_std__from_down_to, NULL, 246, 246, 5, 20},
-  {cont__7_2, &frame__7_1_std__from_down_to, 245, 250, 3, 37},
-  {entry__8_4, NULL, 254, 254, 5, 10},
-  {cont__8_5, &frame__8_4, 255, 255, 20, 22},
-  {cont__8_6, &frame__8_4, 255, 255, 5, 29},
-  {entry__8_1_from_down_to_1, NULL, 253, 253, 6, 11},
-  {cont__8_2, &frame__8_1_from_down_to_1, 253, 253, 6, 11},
-  {cont__8_3, &frame__8_1_from_down_to_1, 253, 255, 3, 29},
-  {entry__9_4, NULL, 259, 259, 5, 9},
-  {cont__9_5, &frame__9_4, 260, 260, 5, 10},
-  {cont__9_6, &frame__9_4, 261, 261, 15, 17},
-  {cont__9_7, &frame__9_4, 261, 261, 5, 30},
-  {entry__9_1_from_down_to_2, NULL, 258, 258, 6, 11},
-  {cont__9_2, &frame__9_1_from_down_to_2, 258, 258, 6, 11},
-  {cont__9_3, &frame__9_1_from_down_to_2, 258, 261, 3, 30},
-  {entry__10_6, NULL, 317, 317, 25, 34},
-  {entry__10_3, NULL, 317, 317, 10, 22},
-  {cont__10_4, &frame__10_3, 317, 317, 10, 22},
-  {cont__10_5, &frame__10_3, 317, 317, 7, 34},
-  {cont__10_7, &frame__10_3, 318, 318, 25, 34},
-  {cont__10_8, &frame__10_3, 318, 318, 7, 55},
-  {entry__10_9, NULL, 320, 320, 7, 44},
-  {entry__10_1_std__from_down_to_by, NULL, 316, 316, 5, 20},
-  {cont__10_2, &frame__10_1_std__from_down_to_by, 315, 320, 3, 45},
-  {entry__11_4, NULL, 324, 324, 5, 10},
-  {cont__11_5, &frame__11_4, 325, 325, 23, 28},
-  {cont__11_6, &frame__11_4, 325, 325, 5, 40},
-  {entry__11_1_from_down_to_by_1, NULL, 323, 323, 6, 11},
-  {cont__11_2, &frame__11_1_from_down_to_by_1, 323, 323, 6, 11},
-  {cont__11_3, &frame__11_1_from_down_to_by_1, 323, 325, 3, 40},
-  {entry__12_4, NULL, 329, 329, 5, 9},
-  {cont__12_5, &frame__12_4, 330, 330, 5, 10},
-  {cont__12_6, &frame__12_4, 331, 331, 23, 28},
-  {cont__12_7, &frame__12_4, 331, 331, 5, 46},
-  {entry__12_1_from_down_to_by_2, NULL, 328, 328, 6, 11},
-  {cont__12_2, &frame__12_1_from_down_to_by_2, 328, 328, 6, 11},
-  {cont__12_3, &frame__12_1_from_down_to_by_2, 328, 331, 3, 46},
-  {entry__13_4, NULL, 361, 361, 5, 8},
-  {cont__13_5, &frame__13_4, 362, 362, 12, 14},
-  {cont__13_6, &frame__13_4, 362, 362, 5, 19},
-  {entry__13_1_std__repeat, NULL, 360, 360, 6, 11},
-  {cont__13_2, &frame__13_1_std__repeat, 360, 360, 6, 11},
-  {cont__13_3, &frame__13_1_std__repeat, 360, 362, 3, 19},
-  {entry__14_1_std__forever, NULL, 402, 402, 3, 6},
-  {cont__14_2, &frame__14_1_std__forever, 403, 403, 3, 14},
-  {entry__15_3, NULL, 455, 455, 5, 8},
-  {cont__15_4, &frame__15_3, 456, 456, 5, 23},
-  {entry__15_1_std__while, NULL, 453, 453, 3, 27},
-  {cont__15_2, &frame__15_1_std__while, 454, 456, 3, 23},
-  {entry__16_3, NULL, 471, 471, 14, 26},
-  {entry__16_1_std__do_while, NULL, 471, 471, 6, 11},
-  {cont__16_2, &frame__16_1_std__do_while, 471, 471, 3, 26},
-  {entry__17_3, NULL, 486, 486, 18, 30},
-  {entry__17_1_std__do_until, NULL, 486, 486, 10, 15},
-  {cont__17_2, &frame__17_1_std__do_until, 486, 486, 3, 30}
+  {entry__std__from_to_6, NULL, 100, 100, 25, 34},
+  {entry__std__from_to_3, NULL, 100, 100, 10, 22},
+  {cont__std__from_to_4, &frame__std__from_to_3, 100, 100, 10, 22},
+  {cont__std__from_to_5, &frame__std__from_to_3, 100, 100, 7, 34},
+  {cont__std__from_to_7, &frame__std__from_to_3, 101, 101, 17, 23},
+  {cont__std__from_to_8, &frame__std__from_to_3, 101, 101, 7, 39},
+  {entry__std__from_to_9, NULL, 103, 103, 7, 31},
+  {entry__std__from_to_1, NULL, 99, 99, 5, 20},
+  {cont__std__from_to_2, &frame__std__from_to_1, 98, 103, 3, 32},
+  {entry__from_to_1_4, NULL, 107, 107, 5, 10},
+  {cont__from_to_1_5, &frame__from_to_1_4, 108, 108, 15, 17},
+  {cont__from_to_1_6, &frame__from_to_1_4, 108, 108, 5, 24},
+  {entry__from_to_1_1, NULL, 106, 106, 6, 11},
+  {cont__from_to_1_2, &frame__from_to_1_1, 106, 106, 6, 11},
+  {cont__from_to_1_3, &frame__from_to_1_1, 106, 108, 3, 24},
+  {entry__from_to_2_4, NULL, 112, 112, 5, 9},
+  {cont__from_to_2_5, &frame__from_to_2_4, 113, 113, 5, 10},
+  {cont__from_to_2_6, &frame__from_to_2_4, 114, 114, 15, 17},
+  {cont__from_to_2_7, &frame__from_to_2_4, 114, 114, 5, 30},
+  {entry__from_to_2_1, NULL, 111, 111, 6, 11},
+  {cont__from_to_2_2, &frame__from_to_2_1, 111, 111, 6, 11},
+  {cont__from_to_2_3, &frame__from_to_2_1, 111, 114, 3, 30},
+  {entry__std__from_to_by_6, NULL, 176, 176, 25, 34},
+  {entry__std__from_to_by_3, NULL, 176, 176, 10, 22},
+  {cont__std__from_to_by_4, &frame__std__from_to_by_3, 176, 176, 10, 22},
+  {cont__std__from_to_by_5, &frame__std__from_to_by_3, 176, 176, 7, 34},
+  {cont__std__from_to_by_7, &frame__std__from_to_by_3, 177, 177, 20, 29},
+  {cont__std__from_to_by_8, &frame__std__from_to_by_3, 177, 177, 7, 50},
+  {entry__std__from_to_by_9, NULL, 179, 179, 7, 39},
+  {entry__std__from_to_by_1, NULL, 175, 175, 5, 20},
+  {cont__std__from_to_by_2, &frame__std__from_to_by_1, 174, 179, 3, 40},
+  {entry__from_to_by_1_4, NULL, 183, 183, 5, 10},
+  {cont__from_to_by_1_5, &frame__from_to_by_1_4, 184, 184, 18, 23},
+  {cont__from_to_by_1_6, &frame__from_to_by_1_4, 184, 184, 5, 35},
+  {entry__from_to_by_1_1, NULL, 182, 182, 6, 11},
+  {cont__from_to_by_1_2, &frame__from_to_by_1_1, 182, 182, 6, 11},
+  {cont__from_to_by_1_3, &frame__from_to_by_1_1, 182, 184, 3, 35},
+  {entry__from_to_by_2_4, NULL, 188, 188, 5, 9},
+  {cont__from_to_by_2_5, &frame__from_to_by_2_4, 189, 189, 5, 10},
+  {cont__from_to_by_2_6, &frame__from_to_by_2_4, 190, 190, 18, 23},
+  {cont__from_to_by_2_7, &frame__from_to_by_2_4, 190, 190, 5, 41},
+  {entry__from_to_by_2_1, NULL, 187, 187, 6, 11},
+  {cont__from_to_by_2_2, &frame__from_to_by_2_1, 187, 187, 6, 11},
+  {cont__from_to_by_2_3, &frame__from_to_by_2_1, 187, 190, 3, 41},
+  {entry__std__from_down_to_6, NULL, 247, 247, 25, 34},
+  {entry__std__from_down_to_3, NULL, 247, 247, 10, 22},
+  {cont__std__from_down_to_4, &frame__std__from_down_to_3, 247, 247, 10, 22},
+  {cont__std__from_down_to_5, &frame__std__from_down_to_3, 247, 247, 7, 34},
+  {cont__std__from_down_to_7, &frame__std__from_down_to_3, 248, 248, 22, 28},
+  {cont__std__from_down_to_8, &frame__std__from_down_to_3, 248, 248, 7, 44},
+  {entry__std__from_down_to_9, NULL, 250, 250, 7, 36},
+  {entry__std__from_down_to_1, NULL, 246, 246, 5, 20},
+  {cont__std__from_down_to_2, &frame__std__from_down_to_1, 245, 250, 3, 37},
+  {entry__from_down_to_1_4, NULL, 254, 254, 5, 10},
+  {cont__from_down_to_1_5, &frame__from_down_to_1_4, 255, 255, 20, 22},
+  {cont__from_down_to_1_6, &frame__from_down_to_1_4, 255, 255, 5, 29},
+  {entry__from_down_to_1_1, NULL, 253, 253, 6, 11},
+  {cont__from_down_to_1_2, &frame__from_down_to_1_1, 253, 253, 6, 11},
+  {cont__from_down_to_1_3, &frame__from_down_to_1_1, 253, 255, 3, 29},
+  {entry__from_down_to_2_4, NULL, 259, 259, 5, 9},
+  {cont__from_down_to_2_5, &frame__from_down_to_2_4, 260, 260, 5, 10},
+  {cont__from_down_to_2_6, &frame__from_down_to_2_4, 261, 261, 15, 17},
+  {cont__from_down_to_2_7, &frame__from_down_to_2_4, 261, 261, 5, 30},
+  {entry__from_down_to_2_1, NULL, 258, 258, 6, 11},
+  {cont__from_down_to_2_2, &frame__from_down_to_2_1, 258, 258, 6, 11},
+  {cont__from_down_to_2_3, &frame__from_down_to_2_1, 258, 261, 3, 30},
+  {entry__std__from_down_to_by_6, NULL, 317, 317, 25, 34},
+  {entry__std__from_down_to_by_3, NULL, 317, 317, 10, 22},
+  {cont__std__from_down_to_by_4, &frame__std__from_down_to_by_3, 317, 317, 10, 22},
+  {cont__std__from_down_to_by_5, &frame__std__from_down_to_by_3, 317, 317, 7, 34},
+  {cont__std__from_down_to_by_7, &frame__std__from_down_to_by_3, 318, 318, 25, 34},
+  {cont__std__from_down_to_by_8, &frame__std__from_down_to_by_3, 318, 318, 7, 55},
+  {entry__std__from_down_to_by_9, NULL, 320, 320, 7, 44},
+  {entry__std__from_down_to_by_1, NULL, 316, 316, 5, 20},
+  {cont__std__from_down_to_by_2, &frame__std__from_down_to_by_1, 315, 320, 3, 45},
+  {entry__from_down_to_by_1_4, NULL, 324, 324, 5, 10},
+  {cont__from_down_to_by_1_5, &frame__from_down_to_by_1_4, 325, 325, 23, 28},
+  {cont__from_down_to_by_1_6, &frame__from_down_to_by_1_4, 325, 325, 5, 40},
+  {entry__from_down_to_by_1_1, NULL, 323, 323, 6, 11},
+  {cont__from_down_to_by_1_2, &frame__from_down_to_by_1_1, 323, 323, 6, 11},
+  {cont__from_down_to_by_1_3, &frame__from_down_to_by_1_1, 323, 325, 3, 40},
+  {entry__from_down_to_by_2_4, NULL, 329, 329, 5, 9},
+  {cont__from_down_to_by_2_5, &frame__from_down_to_by_2_4, 330, 330, 5, 10},
+  {cont__from_down_to_by_2_6, &frame__from_down_to_by_2_4, 331, 331, 23, 28},
+  {cont__from_down_to_by_2_7, &frame__from_down_to_by_2_4, 331, 331, 5, 46},
+  {entry__from_down_to_by_2_1, NULL, 328, 328, 6, 11},
+  {cont__from_down_to_by_2_2, &frame__from_down_to_by_2_1, 328, 328, 6, 11},
+  {cont__from_down_to_by_2_3, &frame__from_down_to_by_2_1, 328, 331, 3, 46},
+  {entry__std__repeat_4, NULL, 361, 361, 5, 8},
+  {cont__std__repeat_5, &frame__std__repeat_4, 362, 362, 12, 14},
+  {cont__std__repeat_6, &frame__std__repeat_4, 362, 362, 5, 19},
+  {entry__std__repeat_1, NULL, 360, 360, 6, 11},
+  {cont__std__repeat_2, &frame__std__repeat_1, 360, 360, 6, 11},
+  {cont__std__repeat_3, &frame__std__repeat_1, 360, 362, 3, 19},
+  {entry__std__forever_1, NULL, 402, 402, 3, 6},
+  {cont__std__forever_2, &frame__std__forever_1, 403, 403, 3, 14},
+  {entry__std__while_3, NULL, 455, 455, 5, 8},
+  {cont__std__while_4, &frame__std__while_3, 456, 456, 5, 23},
+  {entry__std__while_1, NULL, 453, 453, 3, 27},
+  {cont__std__while_2, &frame__std__while_1, 454, 456, 3, 23},
+  {entry__std__do_while_3, NULL, 471, 471, 14, 26},
+  {entry__std__do_while_1, NULL, 471, 471, 6, 11},
+  {cont__std__do_while_2, &frame__std__do_while_1, 471, 471, 3, 26},
+  {entry__std__do_until_3, NULL, 486, 486, 18, 30},
+  {entry__std__do_until_1, NULL, 486, 486, 10, 15},
+  {cont__std__do_until_2, &frame__std__do_until_1, 486, 486, 3, 30}
 };
 
 union NODE {
@@ -675,7 +675,7 @@ EXPORT void run__basic__loops(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_3(void) {
+static void entry__std__from_to_3(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // last: 0
@@ -698,9 +698,9 @@ static void entry__1_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__1_4;
+  frame->cont = cont__std__from_to_4;
 }
-static void cont__1_4(void) {
+static void cont__std__from_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -713,16 +713,16 @@ static void cont__1_4(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__1_5;
+  frame->cont = cont__std__from_to_5;
 }
-static void cont__1_5(void) {
+static void cont__std__from_to_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 100: ... : body first
-  frame->slots[6] /* temp__3 */ = create_closure(entry__1_6, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__std__from_to_6, 0);
   // 100: if first <= last: body first
   argument_count = 2;
   arguments = node_p;
@@ -731,9 +731,9 @@ static void cont__1_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__1_7;
+  frame->cont = cont__std__from_to_7;
 }
-static void entry__1_6(void) {
+static void entry__std__from_to_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -753,7 +753,7 @@ static void entry__1_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__1_7(void) {
+static void cont__std__from_to_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -766,9 +766,9 @@ static void cont__1_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__1_8;
+  frame->cont = cont__std__from_to_8;
 }
-static void cont__1_8(void) {
+static void cont__std__from_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -786,7 +786,7 @@ static void cont__1_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__1_9(void) {
+static void entry__std__from_to_9(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // first: 0
@@ -810,7 +810,7 @@ static void entry__1_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__1_1_std__from_to(void) {
+static void entry__std__from_to_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // first: 0
@@ -839,9 +839,9 @@ static void entry__1_1_std__from_to(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__1_2;
+  frame->cont = cont__std__from_to_2;
 }
-static void cont__1_2(void) {
+static void cont__std__from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -850,10 +850,10 @@ static void cont__1_2(void) {
   //  99: ... :
   // 100:   if first <= last: body first
   // 101:   from_to_2 first+1 last body body2
-  frame->slots[5] /* temp__2 */ = create_closure(entry__1_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__std__from_to_3, 0);
   // 102: :
   // 103:   from_to_1 first last body
-  frame->slots[6] /* temp__3 */ = create_closure(entry__1_9, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__std__from_to_9, 0);
   //  98: if
   //  99:   body2.is_defined:
   // 100:     if first <= last: body first
@@ -870,7 +870,7 @@ static void cont__1_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_4(void) {
+static void entry__from_to_1_4(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -890,9 +890,9 @@ static void entry__2_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__2_5;
+  frame->cont = cont__from_to_1_5;
 }
-static void cont__2_5(void) {
+static void cont__from_to_1_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -905,9 +905,9 @@ static void cont__2_5(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__2_6;
+  frame->cont = cont__from_to_1_6;
 }
-static void cont__2_6(void) {
+static void cont__from_to_1_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -924,7 +924,7 @@ static void cont__2_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_1_from_to_1(void) {
+static void entry__from_to_1_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // s: 0
@@ -942,9 +942,9 @@ static void entry__2_1_from_to_1(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__2_2;
+  frame->cont = cont__from_to_1_2;
 }
-static void cont__2_2(void) {
+static void cont__from_to_1_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -957,9 +957,9 @@ static void cont__2_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__2_3;
+  frame->cont = cont__from_to_1_3;
 }
-static void cont__2_3(void) {
+static void cont__from_to_1_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -968,7 +968,7 @@ static void cont__2_3(void) {
   // 106: ... :
   // 107:   body s
   // 108:   from_to_1 s+1 e body
-  frame->slots[5] /* temp__3 */ = create_closure(entry__2_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__from_to_1_4, 0);
   // 106: if s <= e:
   // 107:   body s
   // 108:   from_to_1 s+1 e body
@@ -981,7 +981,7 @@ static void cont__2_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_4(void) {
+static void entry__from_to_2_4(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // body2: 0
@@ -1002,9 +1002,9 @@ static void entry__3_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body2 */;
   func = myself->type;
-  frame->cont = cont__3_5;
+  frame->cont = cont__from_to_2_5;
 }
-static void cont__3_5(void) {
+static void cont__from_to_2_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1016,9 +1016,9 @@ static void cont__3_5(void) {
   result_count = 0;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__3_6;
+  frame->cont = cont__from_to_2_6;
 }
-static void cont__3_6(void) {
+static void cont__from_to_2_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1031,9 +1031,9 @@ static void cont__3_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__3_7;
+  frame->cont = cont__from_to_2_7;
 }
-static void cont__3_7(void) {
+static void cont__from_to_2_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1051,7 +1051,7 @@ static void cont__3_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_1_from_to_2(void) {
+static void entry__from_to_2_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // s: 0
@@ -1070,9 +1070,9 @@ static void entry__3_1_from_to_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__3_2;
+  frame->cont = cont__from_to_2_2;
 }
-static void cont__3_2(void) {
+static void cont__from_to_2_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1085,9 +1085,9 @@ static void cont__3_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__3_3;
+  frame->cont = cont__from_to_2_3;
 }
-static void cont__3_3(void) {
+static void cont__from_to_2_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1097,7 +1097,7 @@ static void cont__3_3(void) {
   // 112:   body2
   // 113:   body s
   // 114:   from_to_2 s+1 e body body2
-  frame->slots[6] /* temp__3 */ = create_closure(entry__3_4, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__from_to_2_4, 0);
   // 111: if s <= e:
   // 112:   body2
   // 113:   body s
@@ -1111,7 +1111,7 @@ static void cont__3_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_3(void) {
+static void entry__std__from_to_by_3(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // last: 0
@@ -1136,9 +1136,9 @@ static void entry__4_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_4;
+  frame->cont = cont__std__from_to_by_4;
 }
-static void cont__4_4(void) {
+static void cont__std__from_to_by_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1151,16 +1151,16 @@ static void cont__4_4(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__4_5;
+  frame->cont = cont__std__from_to_by_5;
 }
-static void cont__4_5(void) {
+static void cont__std__from_to_by_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 176: ... : body first
-  frame->slots[7] /* temp__3 */ = create_closure(entry__4_6, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__std__from_to_by_6, 0);
   // 176: if first <= last: body first
   argument_count = 2;
   arguments = node_p;
@@ -1169,9 +1169,9 @@ static void cont__4_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_7;
+  frame->cont = cont__std__from_to_by_7;
 }
-static void entry__4_6(void) {
+static void entry__std__from_to_by_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -1191,7 +1191,7 @@ static void entry__4_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_7(void) {
+static void cont__std__from_to_by_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1204,9 +1204,9 @@ static void cont__4_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__4_8;
+  frame->cont = cont__std__from_to_by_8;
 }
-static void cont__4_8(void) {
+static void cont__std__from_to_by_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1225,7 +1225,7 @@ static void cont__4_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_9(void) {
+static void entry__std__from_to_by_9(void) {
   allocate_initialized_frame_gc(4, 4);
   // slot allocations:
   // first: 0
@@ -1252,7 +1252,7 @@ static void entry__4_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1_std__from_to_by(void) {
+static void entry__std__from_to_by_1(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // first: 0
@@ -1282,9 +1282,9 @@ static void entry__4_1_std__from_to_by(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__4_2;
+  frame->cont = cont__std__from_to_by_2;
 }
-static void cont__4_2(void) {
+static void cont__std__from_to_by_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1293,10 +1293,10 @@ static void cont__4_2(void) {
   // 175: ... :
   // 176:   if first <= last: body first
   // 177:   from_to_by_2 first+step last step body body2
-  frame->slots[6] /* temp__2 */ = create_closure(entry__4_3, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__std__from_to_by_3, 0);
   // 178: :
   // 179:   from_to_by_1 first last step body
-  frame->slots[7] /* temp__3 */ = create_closure(entry__4_9, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__std__from_to_by_9, 0);
   // 174: if
   // 175:   body2.is_defined:
   // 176:     if first <= last: body first
@@ -1313,7 +1313,7 @@ static void cont__4_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_4(void) {
+static void entry__from_to_by_1_4(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // body: 0
@@ -1335,9 +1335,9 @@ static void entry__5_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__5_5;
+  frame->cont = cont__from_to_by_1_5;
 }
-static void cont__5_5(void) {
+static void cont__from_to_by_1_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1350,9 +1350,9 @@ static void cont__5_5(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__5_6;
+  frame->cont = cont__from_to_by_1_6;
 }
-static void cont__5_6(void) {
+static void cont__from_to_by_1_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1370,7 +1370,7 @@ static void cont__5_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_1_from_to_by_1(void) {
+static void entry__from_to_by_1_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // s: 0
@@ -1389,9 +1389,9 @@ static void entry__5_1_from_to_by_1(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__5_2;
+  frame->cont = cont__from_to_by_1_2;
 }
-static void cont__5_2(void) {
+static void cont__from_to_by_1_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1404,9 +1404,9 @@ static void cont__5_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__5_3;
+  frame->cont = cont__from_to_by_1_3;
 }
-static void cont__5_3(void) {
+static void cont__from_to_by_1_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1415,7 +1415,7 @@ static void cont__5_3(void) {
   // 182: ... :
   // 183:   body s
   // 184:   from_to_by_1 s+step e step body
-  frame->slots[6] /* temp__3 */ = create_closure(entry__5_4, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__from_to_by_1_4, 0);
   // 182: if s <= e:
   // 183:   body s
   // 184:   from_to_by_1 s+step e step body
@@ -1428,7 +1428,7 @@ static void cont__5_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__6_4(void) {
+static void entry__from_to_by_2_4(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // body2: 0
@@ -1451,9 +1451,9 @@ static void entry__6_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body2 */;
   func = myself->type;
-  frame->cont = cont__6_5;
+  frame->cont = cont__from_to_by_2_5;
 }
-static void cont__6_5(void) {
+static void cont__from_to_by_2_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1465,9 +1465,9 @@ static void cont__6_5(void) {
   result_count = 0;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__6_6;
+  frame->cont = cont__from_to_by_2_6;
 }
-static void cont__6_6(void) {
+static void cont__from_to_by_2_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1480,9 +1480,9 @@ static void cont__6_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__6_7;
+  frame->cont = cont__from_to_by_2_7;
 }
-static void cont__6_7(void) {
+static void cont__from_to_by_2_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1501,7 +1501,7 @@ static void cont__6_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__6_1_from_to_by_2(void) {
+static void entry__from_to_by_2_1(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // s: 0
@@ -1521,9 +1521,9 @@ static void entry__6_1_from_to_by_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__6_2;
+  frame->cont = cont__from_to_by_2_2;
 }
-static void cont__6_2(void) {
+static void cont__from_to_by_2_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1536,9 +1536,9 @@ static void cont__6_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__6_3;
+  frame->cont = cont__from_to_by_2_3;
 }
-static void cont__6_3(void) {
+static void cont__from_to_by_2_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1548,7 +1548,7 @@ static void cont__6_3(void) {
   // 188:   body2
   // 189:   body s
   // 190:   from_to_by_2 s+step e step body body2
-  frame->slots[7] /* temp__3 */ = create_closure(entry__6_4, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__from_to_by_2_4, 0);
   // 187: if s <= e:
   // 188:   body2
   // 189:   body s
@@ -1562,7 +1562,7 @@ static void cont__6_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_3(void) {
+static void entry__std__from_down_to_3(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // first: 0
@@ -1585,9 +1585,9 @@ static void entry__7_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__7_4;
+  frame->cont = cont__std__from_down_to_4;
 }
-static void cont__7_4(void) {
+static void cont__std__from_down_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1600,16 +1600,16 @@ static void cont__7_4(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__7_5;
+  frame->cont = cont__std__from_down_to_5;
 }
-static void cont__7_5(void) {
+static void cont__std__from_down_to_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 247: ... : body first
-  frame->slots[6] /* temp__3 */ = create_closure(entry__7_6, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__std__from_down_to_6, 0);
   // 247: if first >= last: body first
   argument_count = 2;
   arguments = node_p;
@@ -1618,9 +1618,9 @@ static void cont__7_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__7_7;
+  frame->cont = cont__std__from_down_to_7;
 }
-static void entry__7_6(void) {
+static void entry__std__from_down_to_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -1640,7 +1640,7 @@ static void entry__7_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__7_7(void) {
+static void cont__std__from_down_to_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1653,9 +1653,9 @@ static void cont__7_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__7_8;
+  frame->cont = cont__std__from_down_to_8;
 }
-static void cont__7_8(void) {
+static void cont__std__from_down_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1673,7 +1673,7 @@ static void cont__7_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_9(void) {
+static void entry__std__from_down_to_9(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // first: 0
@@ -1697,7 +1697,7 @@ static void entry__7_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_1_std__from_down_to(void) {
+static void entry__std__from_down_to_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // first: 0
@@ -1726,9 +1726,9 @@ static void entry__7_1_std__from_down_to(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__7_2;
+  frame->cont = cont__std__from_down_to_2;
 }
-static void cont__7_2(void) {
+static void cont__std__from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1737,10 +1737,10 @@ static void cont__7_2(void) {
   // 246: ... :
   // 247:   if first >= last: body first
   // 248:   from_down_to_2 first+1 last body body2
-  frame->slots[5] /* temp__2 */ = create_closure(entry__7_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__std__from_down_to_3, 0);
   // 249: :
   // 250:   from_down_to_1 first last body
-  frame->slots[6] /* temp__3 */ = create_closure(entry__7_9, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__std__from_down_to_9, 0);
   // 245: if
   // 246:   body2.is_defined:
   // 247:     if first >= last: body first
@@ -1757,7 +1757,7 @@ static void cont__7_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_4(void) {
+static void entry__from_down_to_1_4(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // body: 0
@@ -1777,9 +1777,9 @@ static void entry__8_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__8_5;
+  frame->cont = cont__from_down_to_1_5;
 }
-static void cont__8_5(void) {
+static void cont__from_down_to_1_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1792,9 +1792,9 @@ static void cont__8_5(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__8_6;
+  frame->cont = cont__from_down_to_1_6;
 }
-static void cont__8_6(void) {
+static void cont__from_down_to_1_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1811,7 +1811,7 @@ static void cont__8_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_1_from_down_to_1(void) {
+static void entry__from_down_to_1_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // s: 0
@@ -1829,9 +1829,9 @@ static void entry__8_1_from_down_to_1(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__8_2;
+  frame->cont = cont__from_down_to_1_2;
 }
-static void cont__8_2(void) {
+static void cont__from_down_to_1_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1844,9 +1844,9 @@ static void cont__8_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__8_3;
+  frame->cont = cont__from_down_to_1_3;
 }
-static void cont__8_3(void) {
+static void cont__from_down_to_1_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1855,7 +1855,7 @@ static void cont__8_3(void) {
   // 253: ... :
   // 254:   body s
   // 255:   from_down_to_1 s-1 e body
-  frame->slots[5] /* temp__3 */ = create_closure(entry__8_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__from_down_to_1_4, 0);
   // 253: if s >= e:
   // 254:   body s
   // 255:   from_down_to_1 s-1 e body
@@ -1868,7 +1868,7 @@ static void cont__8_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__9_4(void) {
+static void entry__from_down_to_2_4(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // body2: 0
@@ -1889,9 +1889,9 @@ static void entry__9_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body2 */;
   func = myself->type;
-  frame->cont = cont__9_5;
+  frame->cont = cont__from_down_to_2_5;
 }
-static void cont__9_5(void) {
+static void cont__from_down_to_2_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1903,9 +1903,9 @@ static void cont__9_5(void) {
   result_count = 0;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__9_6;
+  frame->cont = cont__from_down_to_2_6;
 }
-static void cont__9_6(void) {
+static void cont__from_down_to_2_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1918,9 +1918,9 @@ static void cont__9_6(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__9_7;
+  frame->cont = cont__from_down_to_2_7;
 }
-static void cont__9_7(void) {
+static void cont__from_down_to_2_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1938,7 +1938,7 @@ static void cont__9_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__9_1_from_down_to_2(void) {
+static void entry__from_down_to_2_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // s: 0
@@ -1957,9 +1957,9 @@ static void entry__9_1_from_down_to_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__9_2;
+  frame->cont = cont__from_down_to_2_2;
 }
-static void cont__9_2(void) {
+static void cont__from_down_to_2_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1972,9 +1972,9 @@ static void cont__9_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__9_3;
+  frame->cont = cont__from_down_to_2_3;
 }
-static void cont__9_3(void) {
+static void cont__from_down_to_2_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1984,7 +1984,7 @@ static void cont__9_3(void) {
   // 259:   body2
   // 260:   body s
   // 261:   from_to_2 s-1 e body body2
-  frame->slots[6] /* temp__3 */ = create_closure(entry__9_4, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__from_down_to_2_4, 0);
   // 258: if s >= e:
   // 259:   body2
   // 260:   body s
@@ -1998,7 +1998,7 @@ static void cont__9_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__10_3(void) {
+static void entry__std__from_down_to_by_3(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // first: 0
@@ -2023,9 +2023,9 @@ static void entry__10_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__10_4;
+  frame->cont = cont__std__from_down_to_by_4;
 }
-static void cont__10_4(void) {
+static void cont__std__from_down_to_by_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2038,16 +2038,16 @@ static void cont__10_4(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__10_5;
+  frame->cont = cont__std__from_down_to_by_5;
 }
-static void cont__10_5(void) {
+static void cont__std__from_down_to_by_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 317: ... : body first
-  frame->slots[7] /* temp__3 */ = create_closure(entry__10_6, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__std__from_down_to_by_6, 0);
   // 317: if first >= last: body first
   argument_count = 2;
   arguments = node_p;
@@ -2056,9 +2056,9 @@ static void cont__10_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__10_7;
+  frame->cont = cont__std__from_down_to_by_7;
 }
-static void entry__10_6(void) {
+static void entry__std__from_down_to_by_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -2078,7 +2078,7 @@ static void entry__10_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__10_7(void) {
+static void cont__std__from_down_to_by_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2091,9 +2091,9 @@ static void cont__10_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__10_8;
+  frame->cont = cont__std__from_down_to_by_8;
 }
-static void cont__10_8(void) {
+static void cont__std__from_down_to_by_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2112,7 +2112,7 @@ static void cont__10_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__10_9(void) {
+static void entry__std__from_down_to_by_9(void) {
   allocate_initialized_frame_gc(4, 4);
   // slot allocations:
   // first: 0
@@ -2139,7 +2139,7 @@ static void entry__10_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__10_1_std__from_down_to_by(void) {
+static void entry__std__from_down_to_by_1(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // first: 0
@@ -2169,9 +2169,9 @@ static void entry__10_1_std__from_down_to_by(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__10_2;
+  frame->cont = cont__std__from_down_to_by_2;
 }
-static void cont__10_2(void) {
+static void cont__std__from_down_to_by_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2180,10 +2180,10 @@ static void cont__10_2(void) {
   // 316: ... :
   // 317:   if first >= last: body first
   // 318:   from_down_to_by_2 first+step last step body body2
-  frame->slots[6] /* temp__2 */ = create_closure(entry__10_3, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__std__from_down_to_by_3, 0);
   // 319: :
   // 320:   from_down_to_by_1 first last step body
-  frame->slots[7] /* temp__3 */ = create_closure(entry__10_9, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__std__from_down_to_by_9, 0);
   // 315: if
   // 316:   body2.is_defined:
   // 317:     if first >= last: body first
@@ -2200,7 +2200,7 @@ static void cont__10_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__11_4(void) {
+static void entry__from_down_to_by_1_4(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // body: 0
@@ -2222,9 +2222,9 @@ static void entry__11_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__11_5;
+  frame->cont = cont__from_down_to_by_1_5;
 }
-static void cont__11_5(void) {
+static void cont__from_down_to_by_1_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2237,9 +2237,9 @@ static void cont__11_5(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__11_6;
+  frame->cont = cont__from_down_to_by_1_6;
 }
-static void cont__11_6(void) {
+static void cont__from_down_to_by_1_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2257,7 +2257,7 @@ static void cont__11_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__11_1_from_down_to_by_1(void) {
+static void entry__from_down_to_by_1_1(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // s: 0
@@ -2276,9 +2276,9 @@ static void entry__11_1_from_down_to_by_1(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__11_2;
+  frame->cont = cont__from_down_to_by_1_2;
 }
-static void cont__11_2(void) {
+static void cont__from_down_to_by_1_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2291,9 +2291,9 @@ static void cont__11_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__11_3;
+  frame->cont = cont__from_down_to_by_1_3;
 }
-static void cont__11_3(void) {
+static void cont__from_down_to_by_1_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2302,7 +2302,7 @@ static void cont__11_3(void) {
   // 323: ... :
   // 324:   body s
   // 325:   from_down_to_by_1 s-step e step body
-  frame->slots[6] /* temp__3 */ = create_closure(entry__11_4, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__from_down_to_by_1_4, 0);
   // 323: if s >= e:
   // 324:   body s
   // 325:   from_down_to_by_1 s-step e step body
@@ -2315,7 +2315,7 @@ static void cont__11_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__12_4(void) {
+static void entry__from_down_to_by_2_4(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // body2: 0
@@ -2338,9 +2338,9 @@ static void entry__12_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body2 */;
   func = myself->type;
-  frame->cont = cont__12_5;
+  frame->cont = cont__from_down_to_by_2_5;
 }
-static void cont__12_5(void) {
+static void cont__from_down_to_by_2_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2352,9 +2352,9 @@ static void cont__12_5(void) {
   result_count = 0;
   myself = frame->slots[1] /* body */;
   func = myself->type;
-  frame->cont = cont__12_6;
+  frame->cont = cont__from_down_to_by_2_6;
 }
-static void cont__12_6(void) {
+static void cont__from_down_to_by_2_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2367,9 +2367,9 @@ static void cont__12_6(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__12_7;
+  frame->cont = cont__from_down_to_by_2_7;
 }
-static void cont__12_7(void) {
+static void cont__from_down_to_by_2_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2388,7 +2388,7 @@ static void cont__12_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__12_1_from_down_to_by_2(void) {
+static void entry__from_down_to_by_2_1(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // s: 0
@@ -2408,9 +2408,9 @@ static void entry__12_1_from_down_to_by_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__12_2;
+  frame->cont = cont__from_down_to_by_2_2;
 }
-static void cont__12_2(void) {
+static void cont__from_down_to_by_2_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2423,9 +2423,9 @@ static void cont__12_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__12_3;
+  frame->cont = cont__from_down_to_by_2_3;
 }
-static void cont__12_3(void) {
+static void cont__from_down_to_by_2_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2435,7 +2435,7 @@ static void cont__12_3(void) {
   // 329:   body2
   // 330:   body s
   // 331:   from_down_to_by_2 s-step e step body body2
-  frame->slots[7] /* temp__3 */ = create_closure(entry__12_4, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__from_down_to_by_2_4, 0);
   // 328: if s >= e:
   // 329:   body2
   // 330:   body s
@@ -2449,7 +2449,7 @@ static void cont__12_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_4(void) {
+static void entry__std__repeat_4(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // body: 0
@@ -2466,9 +2466,9 @@ static void entry__13_4(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__13_5;
+  frame->cont = cont__std__repeat_5;
 }
-static void cont__13_5(void) {
+static void cont__std__repeat_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2481,9 +2481,9 @@ static void cont__13_5(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__13_6;
+  frame->cont = cont__std__repeat_6;
 }
-static void cont__13_6(void) {
+static void cont__std__repeat_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2499,7 +2499,7 @@ static void cont__13_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__13_1_std__repeat(void) {
+static void entry__std__repeat_1(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // n: 0
@@ -2516,9 +2516,9 @@ static void entry__13_1_std__repeat(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__13_2;
+  frame->cont = cont__std__repeat_2;
 }
-static void cont__13_2(void) {
+static void cont__std__repeat_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2531,9 +2531,9 @@ static void cont__13_2(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__13_3;
+  frame->cont = cont__std__repeat_3;
 }
-static void cont__13_3(void) {
+static void cont__std__repeat_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2542,7 +2542,7 @@ static void cont__13_3(void) {
   // 360: ... :
   // 361:   body
   // 362:   repeat n-1 body
-  frame->slots[4] /* temp__3 */ = create_closure(entry__13_4, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__std__repeat_4, 0);
   // 360: if n >= 1:
   // 361:   body
   // 362:   repeat n-1 body
@@ -2555,7 +2555,7 @@ static void cont__13_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__14_1_std__forever(void) {
+static void entry__std__forever_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body: 0
@@ -2569,9 +2569,9 @@ static void entry__14_1_std__forever(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__14_2;
+  frame->cont = cont__std__forever_2;
 }
-static void cont__14_2(void) {
+static void cont__std__forever_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2585,7 +2585,7 @@ static void cont__14_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_3(void) {
+static void entry__std__while_3(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -2602,9 +2602,9 @@ static void entry__15_3(void) {
   result_count = 0;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__15_4;
+  frame->cont = cont__std__while_4;
 }
-static void cont__15_4(void) {
+static void cont__std__while_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2618,7 +2618,7 @@ static void cont__15_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_1_std__while(void) {
+static void entry__std__while_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // cond_and_body: 0
@@ -2636,9 +2636,9 @@ static void entry__15_1_std__while(void) {
   result_count = 2;
   myself = frame->slots[0] /* cond_and_body */;
   func = myself->type;
-  frame->cont = cont__15_2;
+  frame->cont = cont__std__while_2;
 }
-static void cont__15_2(void) {
+static void cont__std__while_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2652,7 +2652,7 @@ static void cont__15_2(void) {
   // 454: ... :
   // 455:   body
   // 456:   while cond_and_body
-  frame->slots[3] /* temp__1 */ = create_closure(entry__15_3, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__std__while_3, 0);
   // 454: if cond:
   // 455:   body
   // 456:   while cond_and_body
@@ -2665,7 +2665,7 @@ static void cont__15_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__16_3(void) {
+static void entry__std__do_while_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body: 0
@@ -2683,7 +2683,7 @@ static void entry__16_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__16_1_std__do_while(void) {
+static void entry__std__do_while_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // body: 0
@@ -2697,16 +2697,16 @@ static void entry__16_1_std__do_while(void) {
   result_count = 1;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__16_2;
+  frame->cont = cont__std__do_while_2;
 }
-static void cont__16_2(void) {
+static void cont__std__do_while_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 471: ... : do_while body
-  frame->slots[2] /* temp__2 */ = create_closure(entry__16_3, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__std__do_while_3, 0);
   // 471: if body(): do_while body
   argument_count = 2;
   arguments = node_p;
@@ -2717,7 +2717,7 @@ static void cont__16_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__17_3(void) {
+static void entry__std__do_until_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body: 0
@@ -2735,7 +2735,7 @@ static void entry__17_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__17_1_std__do_until(void) {
+static void entry__std__do_until_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // body: 0
@@ -2749,16 +2749,16 @@ static void entry__17_1_std__do_until(void) {
   result_count = 1;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__17_2;
+  frame->cont = cont__std__do_until_2;
 }
-static void cont__17_2(void) {
+static void cont__std__do_until_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 486: ... : do_until body
-  frame->slots[2] /* temp__2 */ = create_closure(entry__17_3, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__std__do_until_3, 0);
   // 486: unless body(): do_until body
   argument_count = 2;
   arguments = node_p;
@@ -2803,23 +2803,23 @@ EXPORT void phase_2__basic__loops(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   number__1 = from_uint32(1U);
-  func__1_1_std__from_to = create_function(entry__1_1_std__from_to, -1);
-  func__2_1_from_to_1 = create_function(entry__2_1_from_to_1, 3);
-  func__3_1_from_to_2 = create_function(entry__3_1_from_to_2, 4);
-  func__4_1_std__from_to_by = create_function(entry__4_1_std__from_to_by, -1);
-  func__5_1_from_to_by_1 = create_function(entry__5_1_from_to_by_1, 4);
-  func__6_1_from_to_by_2 = create_function(entry__6_1_from_to_by_2, 5);
-  func__7_1_std__from_down_to = create_function(entry__7_1_std__from_down_to, -1);
-  func__8_1_from_down_to_1 = create_function(entry__8_1_from_down_to_1, 3);
-  func__9_1_from_down_to_2 = create_function(entry__9_1_from_down_to_2, 4);
-  func__10_1_std__from_down_to_by = create_function(entry__10_1_std__from_down_to_by, -1);
-  func__11_1_from_down_to_by_1 = create_function(entry__11_1_from_down_to_by_1, 4);
-  func__12_1_from_down_to_by_2 = create_function(entry__12_1_from_down_to_by_2, 5);
-  func__13_1_std__repeat = create_function(entry__13_1_std__repeat, 2);
-  func__14_1_std__forever = create_function(entry__14_1_std__forever, 1);
-  func__15_1_std__while = create_function(entry__15_1_std__while, 1);
-  func__16_1_std__do_while = create_function(entry__16_1_std__do_while, 1);
-  func__17_1_std__do_until = create_function(entry__17_1_std__do_until, 1);
+  func__std__from_to_1 = create_function(entry__std__from_to_1, -1);
+  func__from_to_1_1 = create_function(entry__from_to_1_1, 3);
+  func__from_to_2_1 = create_function(entry__from_to_2_1, 4);
+  func__std__from_to_by_1 = create_function(entry__std__from_to_by_1, -1);
+  func__from_to_by_1_1 = create_function(entry__from_to_by_1_1, 4);
+  func__from_to_by_2_1 = create_function(entry__from_to_by_2_1, 5);
+  func__std__from_down_to_1 = create_function(entry__std__from_down_to_1, -1);
+  func__from_down_to_1_1 = create_function(entry__from_down_to_1_1, 3);
+  func__from_down_to_2_1 = create_function(entry__from_down_to_2_1, 4);
+  func__std__from_down_to_by_1 = create_function(entry__std__from_down_to_by_1, -1);
+  func__from_down_to_by_1_1 = create_function(entry__from_down_to_by_1_1, 4);
+  func__from_down_to_by_2_1 = create_function(entry__from_down_to_by_2_1, 5);
+  func__std__repeat_1 = create_function(entry__std__repeat_1, 2);
+  func__std__forever_1 = create_function(entry__std__forever_1, 1);
+  func__std__while_1 = create_function(entry__std__while_1, 1);
+  func__std__do_while_1 = create_function(entry__std__do_while_1, 1);
+  func__std__do_until_1 = create_function(entry__std__do_until_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -2866,23 +2866,23 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__loops(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__from_to, &func__1_1_std__from_to);
-  assign_variable(&var._from_to_1, &func__2_1_from_to_1);
-  assign_variable(&var._from_to_2, &func__3_1_from_to_2);
-  assign_variable(&var.std__from_to_by, &func__4_1_std__from_to_by);
-  assign_variable(&var._from_to_by_1, &func__5_1_from_to_by_1);
-  assign_variable(&var._from_to_by_2, &func__6_1_from_to_by_2);
-  assign_variable(&var.std__from_down_to, &func__7_1_std__from_down_to);
-  assign_variable(&var._from_down_to_1, &func__8_1_from_down_to_1);
-  assign_variable(&var._from_down_to_2, &func__9_1_from_down_to_2);
-  assign_variable(&var.std__from_down_to_by, &func__10_1_std__from_down_to_by);
-  assign_variable(&var._from_down_to_by_1, &func__11_1_from_down_to_by_1);
-  assign_variable(&var._from_down_to_by_2, &func__12_1_from_down_to_by_2);
-  assign_variable(&var.std__repeat, &func__13_1_std__repeat);
-  assign_variable(&var.std__forever, &func__14_1_std__forever);
-  assign_variable(&var.std__while, &func__15_1_std__while);
-  assign_variable(&var.std__do_while, &func__16_1_std__do_while);
-  assign_variable(&var.std__do_until, &func__17_1_std__do_until);
+  assign_variable(&var.std__from_to, &func__std__from_to_1);
+  assign_variable(&var._from_to_1, &func__from_to_1_1);
+  assign_variable(&var._from_to_2, &func__from_to_2_1);
+  assign_variable(&var.std__from_to_by, &func__std__from_to_by_1);
+  assign_variable(&var._from_to_by_1, &func__from_to_by_1_1);
+  assign_variable(&var._from_to_by_2, &func__from_to_by_2_1);
+  assign_variable(&var.std__from_down_to, &func__std__from_down_to_1);
+  assign_variable(&var._from_down_to_1, &func__from_down_to_1_1);
+  assign_variable(&var._from_down_to_2, &func__from_down_to_2_1);
+  assign_variable(&var.std__from_down_to_by, &func__std__from_down_to_by_1);
+  assign_variable(&var._from_down_to_by_1, &func__from_down_to_by_1_1);
+  assign_variable(&var._from_down_to_by_2, &func__from_down_to_by_2_1);
+  assign_variable(&var.std__repeat, &func__std__repeat_1);
+  assign_variable(&var.std__forever, &func__std__forever_1);
+  assign_variable(&var.std__while, &func__std__while_1);
+  assign_variable(&var.std__do_while, &func__std__do_while_1);
+  assign_variable(&var.std__do_until, &func__std__do_until_1);
 }
 
 static int already_run_phase_6 = false;

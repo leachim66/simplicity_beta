@@ -394,78 +394,78 @@ static NODE *get__types__generic_table(void) {
   return var.types__generic_table;
 }
 static NODE *unique__NONE;
-static NODE *func__5_1_types__generic_table_;
-static void entry__5_1_types__generic_table_(void);
-static FRAME_INFO frame__5_1_types__generic_table_ = {3, {"key", "value", "myself"}};
-static void cont__5_2(void);
-static NODE *func__5_3;
-static void entry__5_3(void);
-static FRAME_INFO frame__5_3 = {2, {"myself", "key"}};
-static NODE *func__5_4;
-static void entry__5_4(void);
-static FRAME_INFO frame__5_4 = {3, {"myself", "key", "value"}};
-static NODE *func__6_1_types__generic_table_union;
-static void entry__6_1_types__generic_table_union(void);
-static FRAME_INFO frame__6_1_types__generic_table_union = {2, {"left", "right"}};
-static NODE *func__6_2;
-static void entry__6_2(void);
-static FRAME_INFO frame__6_2 = {3, {"key", "value", "left"}};
-static void cont__6_3(void);
-static void cont__6_4(void);
-static NODE *func__7_1_types__generic_table_map;
-static void entry__7_1_types__generic_table_map(void);
-static FRAME_INFO frame__7_1_types__generic_table_map = {3, {"self", "func", "new_table"}};
-static void cont__7_2(void);
-static NODE *func__7_3;
-static void entry__7_3(void);
-static FRAME_INFO frame__7_3 = {4, {"key", "value", "new_table", "func"}};
-static void cont__7_4(void);
-static void cont__7_5(void);
-static void cont__7_6(void);
-static NODE *func__8_1_types__generic_table_serialize;
-static void entry__8_1_types__generic_table_serialize(void);
-static FRAME_INFO frame__8_1_types__generic_table_serialize = {5, {"self", "indent", "return", "tag", "buf"}};
-static void cont__8_2(void);
-static void cont__8_3(void);
-static NODE *func__8_4;
-static void entry__8_4(void);
-static FRAME_INFO frame__8_4 = {2, {"return", "tag"}};
+static NODE *func__types__generic_table_1;
+static void entry__types__generic_table_1(void);
+static FRAME_INFO frame__types__generic_table_1 = {3, {"key", "value", "myself"}};
+static void cont__types__generic_table_2(void);
+static NODE *func__types__generic_table_3;
+static void entry__types__generic_table_3(void);
+static FRAME_INFO frame__types__generic_table_3 = {2, {"myself", "key"}};
+static NODE *func__types__generic_table_4;
+static void entry__types__generic_table_4(void);
+static FRAME_INFO frame__types__generic_table_4 = {3, {"myself", "key", "value"}};
+static NODE *func__types__generic_table__union_1;
+static void entry__types__generic_table__union_1(void);
+static FRAME_INFO frame__types__generic_table__union_1 = {2, {"left", "right"}};
+static NODE *func__types__generic_table__union_2;
+static void entry__types__generic_table__union_2(void);
+static FRAME_INFO frame__types__generic_table__union_2 = {3, {"key", "value", "left"}};
+static void cont__types__generic_table__union_3(void);
+static void cont__types__generic_table__union_4(void);
+static NODE *func__types__generic_table__map_1;
+static void entry__types__generic_table__map_1(void);
+static FRAME_INFO frame__types__generic_table__map_1 = {3, {"self", "func", "new_table"}};
+static void cont__types__generic_table__map_2(void);
+static NODE *func__types__generic_table__map_3;
+static void entry__types__generic_table__map_3(void);
+static FRAME_INFO frame__types__generic_table__map_3 = {4, {"key", "value", "new_table", "func"}};
+static void cont__types__generic_table__map_4(void);
+static void cont__types__generic_table__map_5(void);
+static void cont__types__generic_table__map_6(void);
+static NODE *func__types__generic_table__serialize_1;
+static void entry__types__generic_table__serialize_1(void);
+static FRAME_INFO frame__types__generic_table__serialize_1 = {5, {"self", "indent", "return", "tag", "buf"}};
+static void cont__types__generic_table__serialize_2(void);
+static void cont__types__generic_table__serialize_3(void);
+static NODE *func__types__generic_table__serialize_4;
+static void entry__types__generic_table__serialize_4(void);
+static FRAME_INFO frame__types__generic_table__serialize_4 = {2, {"return", "tag"}};
 static NODE *string__2d7981f4e6482bec;
-static void cont__8_6(void);
-static void cont__8_7(void);
-static NODE *func__8_8;
-static void entry__8_8(void);
-static FRAME_INFO frame__8_8 = {4, {"key", "value", "buf", "indent"}};
-static void cont__8_9(void);
-static void cont__8_10(void);
-static void cont__8_11(void);
-static void cont__8_12(void);
-static void cont__8_13(void);
-static void cont__8_14(void);
+static void cont__types__generic_table__serialize_6(void);
+static void cont__types__generic_table__serialize_7(void);
+static NODE *func__types__generic_table__serialize_8;
+static void entry__types__generic_table__serialize_8(void);
+static FRAME_INFO frame__types__generic_table__serialize_8 = {4, {"key", "value", "buf", "indent"}};
+static void cont__types__generic_table__serialize_9(void);
+static void cont__types__generic_table__serialize_10(void);
+static void cont__types__generic_table__serialize_11(void);
+static void cont__types__generic_table__serialize_12(void);
+static void cont__types__generic_table__serialize_13(void);
+static void cont__types__generic_table__serialize_14(void);
 static NODE *string__fa730415fc16bec;
-static void cont__8_16(void);
-static void cont__8_17(void);
-static NODE *func__9_1_types__generic_table_keys_of;
-static void entry__9_1_types__generic_table_keys_of(void);
-static FRAME_INFO frame__9_1_types__generic_table_keys_of = {2, {"self", "keys"}};
-static NODE *func__9_2;
-static void entry__9_2(void);
-static FRAME_INFO frame__9_2 = {3, {"key", "value", "keys"}};
-static void cont__9_3(void);
-static void cont__9_4(void);
-static NODE *func__10_1_types__generic_table_values_of;
-static void entry__10_1_types__generic_table_values_of(void);
-static FRAME_INFO frame__10_1_types__generic_table_values_of = {2, {"self", "values"}};
-static NODE *func__10_2;
-static void entry__10_2(void);
-static FRAME_INFO frame__10_2 = {3, {"key", "value", "values"}};
-static void cont__10_3(void);
-static void cont__10_4(void);
-static NODE *func__11_1_types__generic_table_is_empty;
-static void entry__11_1_types__generic_table_is_empty(void);
-static FRAME_INFO frame__11_1_types__generic_table_is_empty = {1, {"self"}};
-static void cont__11_2(void);
-static void cont__11_3(void);
+static void cont__types__generic_table__serialize_16(void);
+static void cont__types__generic_table__serialize_17(void);
+static NODE *func__types__generic_table__keys_of_1;
+static void entry__types__generic_table__keys_of_1(void);
+static FRAME_INFO frame__types__generic_table__keys_of_1 = {2, {"self", "keys"}};
+static NODE *func__types__generic_table__keys_of_2;
+static void entry__types__generic_table__keys_of_2(void);
+static FRAME_INFO frame__types__generic_table__keys_of_2 = {3, {"key", "value", "keys"}};
+static void cont__types__generic_table__keys_of_3(void);
+static void cont__types__generic_table__keys_of_4(void);
+static NODE *func__types__generic_table__values_of_1;
+static void entry__types__generic_table__values_of_1(void);
+static FRAME_INFO frame__types__generic_table__values_of_1 = {2, {"self", "values"}};
+static NODE *func__types__generic_table__values_of_2;
+static void entry__types__generic_table__values_of_2(void);
+static FRAME_INFO frame__types__generic_table__values_of_2 = {3, {"key", "value", "values"}};
+static void cont__types__generic_table__values_of_3(void);
+static void cont__types__generic_table__values_of_4(void);
+static NODE *func__types__generic_table__is_empty_1;
+static void entry__types__generic_table__is_empty_1(void);
+static FRAME_INFO frame__types__generic_table__is_empty_1 = {1, {"self"}};
+static void cont__types__generic_table__is_empty_2(void);
+static void cont__types__generic_table__is_empty_3(void);
 static int poly_idx__std__is_a_table;
 static void type__std__is_a_table(void);
 static NODE *get__std__is_a_table(void) {
@@ -478,99 +478,99 @@ static NODE *string__485aeb83eaa95032;
 static NODE *get__std__empty_table(void) {
   return var.std__empty_table;
 }
-static NODE *func__18_1_std__table;
-static void entry__18_1_std__table(void);
-static FRAME_INFO frame__18_1_std__table = {2, {"args", "tab"}};
-static NODE *func__18_2;
-static void entry__18_2(void);
-static FRAME_INFO frame__18_2 = {2, {"arg", "tab"}};
-static void cont__18_3(void);
-static void cont__18_4(void);
-static void cont__18_5(void);
-static void cont__18_6(void);
+static NODE *func__std__table_1;
+static void entry__std__table_1(void);
+static FRAME_INFO frame__std__table_1 = {2, {"args", "tab"}};
+static NODE *func__std__table_2;
+static void entry__std__table_2(void);
+static FRAME_INFO frame__std__table_2 = {2, {"arg", "tab"}};
+static void cont__std__table_3(void);
+static void cont__std__table_4(void);
+static void cont__std__table_5(void);
+static void cont__std__table_6(void);
 static NODE *get__std__table(void) {
   return var.std__table;
 }
-static NODE *func__19_1_std__register_collection_serializer;
-static void entry__19_1_std__register_collection_serializer(void);
-static FRAME_INFO frame__19_1_std__register_collection_serializer = {2, {"name", "empty_collection"}};
-static NODE *func__19_2;
-static void entry__19_2(void);
-static FRAME_INFO frame__19_2 = {7, {"text", "base_indent", "return", "name", "empty_collection", "invalid_table_error", "obj"}};
-static NODE *func__19_3_invalid_table_error;
-static void entry__19_3_invalid_table_error(void);
-static FRAME_INFO frame__19_3_invalid_table_error = {1, {"name"}};
+static NODE *func__std__register_collection_serializer_1;
+static void entry__std__register_collection_serializer_1(void);
+static FRAME_INFO frame__std__register_collection_serializer_1 = {2, {"name", "empty_collection"}};
+static NODE *func__std__register_collection_serializer_2;
+static void entry__std__register_collection_serializer_2(void);
+static FRAME_INFO frame__std__register_collection_serializer_2 = {7, {"text", "base_indent", "return", "name", "empty_collection", "invalid_table_error", "obj"}};
+static NODE *func__std__register_collection_serializer_3;
+static void entry__std__register_collection_serializer_3(void);
+static FRAME_INFO frame__std__register_collection_serializer_3 = {1, {"name"}};
 static NODE *string__76acaf9d04f58520;
 static NODE *string__770b9b2c5bac96f5;
-static void cont__19_6(void);
-static void cont__19_7(void);
-static NODE *func__19_8;
-static void entry__19_8(void);
-static FRAME_INFO frame__19_8 = {2, {"return", "text"}};
-static void cont__19_9(void);
-static void cont__19_10(void);
-static void cont__19_11(void);
-static void cont__19_12(void);
-static void cont__19_13(void);
-static void cont__19_14(void);
-static void cont__19_15(void);
-static NODE *func__19_16;
-static void entry__19_16(void);
-static FRAME_INFO frame__19_16 = {9, {"text", "return", "obj", "base_indent", "invalid_table_error", "remaining_text", "indent", "key", "value"}};
-static void cont__19_17(void);
-static void cont__19_18(void);
-static NODE *func__19_19;
-static void entry__19_19(void);
-static FRAME_INFO frame__19_19 = {1, {"text"}};
-static void cont__19_20(void);
-static void cont__19_21(void);
-static void cont__19_22(void);
-static void cont__19_23(void);
-static NODE *func__19_24;
-static void entry__19_24(void);
-static FRAME_INFO frame__19_24 = {3, {"return", "text", "obj"}};
-static void cont__19_25(void);
-static void cont__19_26(void);
-static void cont__19_27(void);
-static void cont__19_28(void);
-static NODE *func__19_29;
-static void entry__19_29(void);
-static FRAME_INFO frame__19_29 = {3, {"return", "text", "obj"}};
-static void cont__19_30(void);
-static void cont__19_31(void);
-static NODE *func__19_32;
-static void entry__19_32(void);
-static FRAME_INFO frame__19_32 = {1, {"text"}};
-static void cont__19_33(void);
-static void cont__19_34(void);
-static void cont__19_35(void);
-static NODE *func__19_36;
-static void entry__19_36(void);
-static FRAME_INFO frame__19_36 = {1, {"text"}};
-static void cont__19_37(void);
-static void cont__19_38(void);
-static void cont__19_39(void);
-static NODE *func__19_40;
-static void entry__19_40(void);
-static FRAME_INFO frame__19_40 = {1, {"text"}};
-static void cont__19_41(void);
-static void cont__19_42(void);
-static void cont__19_43(void);
-static void cont__19_44(void);
-static void cont__19_45(void);
-static NODE *func__19_46;
-static void entry__19_46(void);
-static FRAME_INFO frame__19_46 = {1, {"text"}};
-static void cont__19_47(void);
-static void cont__19_48(void);
-static void cont__19_49(void);
-static void cont__19_50(void);
-static void cont__19_51(void);
-static void cont__19_52(void);
-static void cont__19_53(void);
-static void cont__19_54(void);
-static void cont__19_55(void);
-static void cont__19_56(void);
+static void cont__std__register_collection_serializer_6(void);
+static void cont__std__register_collection_serializer_7(void);
+static NODE *func__std__register_collection_serializer_8;
+static void entry__std__register_collection_serializer_8(void);
+static FRAME_INFO frame__std__register_collection_serializer_8 = {2, {"return", "text"}};
+static void cont__std__register_collection_serializer_9(void);
+static void cont__std__register_collection_serializer_10(void);
+static void cont__std__register_collection_serializer_11(void);
+static void cont__std__register_collection_serializer_12(void);
+static void cont__std__register_collection_serializer_13(void);
+static void cont__std__register_collection_serializer_14(void);
+static void cont__std__register_collection_serializer_15(void);
+static NODE *func__std__register_collection_serializer_16;
+static void entry__std__register_collection_serializer_16(void);
+static FRAME_INFO frame__std__register_collection_serializer_16 = {9, {"text", "return", "obj", "base_indent", "invalid_table_error", "remaining_text", "indent", "key", "value"}};
+static void cont__std__register_collection_serializer_17(void);
+static void cont__std__register_collection_serializer_18(void);
+static NODE *func__std__register_collection_serializer_19;
+static void entry__std__register_collection_serializer_19(void);
+static FRAME_INFO frame__std__register_collection_serializer_19 = {1, {"text"}};
+static void cont__std__register_collection_serializer_20(void);
+static void cont__std__register_collection_serializer_21(void);
+static void cont__std__register_collection_serializer_22(void);
+static void cont__std__register_collection_serializer_23(void);
+static NODE *func__std__register_collection_serializer_24;
+static void entry__std__register_collection_serializer_24(void);
+static FRAME_INFO frame__std__register_collection_serializer_24 = {3, {"return", "text", "obj"}};
+static void cont__std__register_collection_serializer_25(void);
+static void cont__std__register_collection_serializer_26(void);
+static void cont__std__register_collection_serializer_27(void);
+static void cont__std__register_collection_serializer_28(void);
+static NODE *func__std__register_collection_serializer_29;
+static void entry__std__register_collection_serializer_29(void);
+static FRAME_INFO frame__std__register_collection_serializer_29 = {3, {"return", "text", "obj"}};
+static void cont__std__register_collection_serializer_30(void);
+static void cont__std__register_collection_serializer_31(void);
+static NODE *func__std__register_collection_serializer_32;
+static void entry__std__register_collection_serializer_32(void);
+static FRAME_INFO frame__std__register_collection_serializer_32 = {1, {"text"}};
+static void cont__std__register_collection_serializer_33(void);
+static void cont__std__register_collection_serializer_34(void);
+static void cont__std__register_collection_serializer_35(void);
+static NODE *func__std__register_collection_serializer_36;
+static void entry__std__register_collection_serializer_36(void);
+static FRAME_INFO frame__std__register_collection_serializer_36 = {1, {"text"}};
+static void cont__std__register_collection_serializer_37(void);
+static void cont__std__register_collection_serializer_38(void);
+static void cont__std__register_collection_serializer_39(void);
+static NODE *func__std__register_collection_serializer_40;
+static void entry__std__register_collection_serializer_40(void);
+static FRAME_INFO frame__std__register_collection_serializer_40 = {1, {"text"}};
+static void cont__std__register_collection_serializer_41(void);
+static void cont__std__register_collection_serializer_42(void);
+static void cont__std__register_collection_serializer_43(void);
+static void cont__std__register_collection_serializer_44(void);
+static void cont__std__register_collection_serializer_45(void);
+static NODE *func__std__register_collection_serializer_46;
+static void entry__std__register_collection_serializer_46(void);
+static FRAME_INFO frame__std__register_collection_serializer_46 = {1, {"text"}};
+static void cont__std__register_collection_serializer_47(void);
+static void cont__std__register_collection_serializer_48(void);
+static void cont__std__register_collection_serializer_49(void);
+static void cont__std__register_collection_serializer_50(void);
+static void cont__std__register_collection_serializer_51(void);
+static void cont__std__register_collection_serializer_52(void);
+static void cont__std__register_collection_serializer_53(void);
+static void cont__std__register_collection_serializer_54(void);
+static void cont__std__register_collection_serializer_55(void);
+static void cont__std__register_collection_serializer_56(void);
 static NODE *get__std__register_collection_serializer(void) {
   return var.std__register_collection_serializer;
 }
@@ -583,106 +583,106 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_table, NULL, 127, 127, 2, 16},
   {run__basic__types__table, NULL, 191, 191, 1, 50},
   {cont__40_1, NULL, },
-  {entry__5_3, NULL, 54, 54, 7, 34},
-  {entry__5_4, NULL, 56, 56, 7, 40},
-  {entry__5_1_types__generic_table_, NULL, 53, 53, 5, 17},
-  {cont__5_2, &frame__5_1_types__generic_table_, 52, 56, 3, 41},
-  {entry__6_2, NULL, 65, 65, 31, 40},
-  {cont__6_3, &frame__6_2, 65, 65, 46, 46},
-  {entry__6_1_types__generic_table_union, NULL, 65, 65, 3, 46},
-  {cont__6_4, &frame__6_1_types__generic_table_union, },
-  {entry__7_3, NULL, 75, 75, 30, 56},
-  {cont__7_4, &frame__7_3, 75, 75, 30, 44},
-  {cont__7_5, &frame__7_3, 75, 75, 56, 56},
-  {entry__7_1_types__generic_table_map, NULL, 74, 74, 3, 40},
-  {cont__7_2, &frame__7_1_types__generic_table_map, 75, 75, 3, 56},
-  {cont__7_6, &frame__7_1_types__generic_table_map, 76, 76, 3, 14},
-  {entry__8_4, NULL, 87, 87, 28, 37},
-  {cont__8_6, &frame__8_4, 87, 87, 21, 37},
-  {entry__8_8, NULL, 93, 93, 14, 21},
-  {cont__8_9, &frame__8_8, 93, 93, 7, 22},
-  {cont__8_10, &frame__8_8, 94, 94, 21, 28},
-  {cont__8_11, &frame__8_8, 94, 94, 7, 29},
-  {cont__8_12, &frame__8_8, 96, 96, 23, 30},
-  {cont__8_13, &frame__8_8, 96, 96, 7, 31},
-  {cont__8_14, &frame__8_8, 90, 96, 5, 31},
-  {cont__8_16, &frame__8_8, 96, 96, 32, 32},
-  {entry__8_1_types__generic_table_serialize, NULL, 86, 86, 3, 33},
-  {cont__8_2, &frame__8_1_types__generic_table_serialize, 87, 87, 6, 18},
-  {cont__8_3, &frame__8_1_types__generic_table_serialize, 87, 87, 3, 37},
-  {cont__8_7, &frame__8_1_types__generic_table_serialize, 89, 96, 3, 32},
-  {cont__8_17, &frame__8_1_types__generic_table_serialize, 97, 97, 3, 8},
-  {entry__9_2, NULL, 106, 106, 31, 44},
-  {cont__9_3, &frame__9_2, 106, 106, 44, 44},
-  {entry__9_1_types__generic_table_keys_of, NULL, 106, 106, 3, 44},
-  {cont__9_4, &frame__9_1_types__generic_table_keys_of, 107, 107, 3, 9},
-  {entry__10_2, NULL, 116, 116, 31, 48},
-  {cont__10_3, &frame__10_2, 116, 116, 48, 48},
-  {entry__10_1_types__generic_table_values_of, NULL, 116, 116, 3, 48},
-  {cont__10_4, &frame__10_1_types__generic_table_values_of, 117, 117, 3, 11},
-  {entry__11_1_types__generic_table_is_empty, NULL, 125, 125, 6, 20},
-  {cont__11_2, &frame__11_1_types__generic_table_is_empty, 125, 125, 6, 25},
-  {cont__11_3, &frame__11_1_types__generic_table_is_empty, 125, 125, 3, 25},
-  {entry__18_2, NULL, 157, 157, 24, 64},
-  {cont__18_3, &frame__18_2, 157, 157, 29, 44},
-  {cont__18_4, &frame__18_2, 157, 157, 24, 45},
-  {cont__18_5, &frame__18_2, 157, 157, 64, 64},
-  {entry__18_1_std__table, NULL, 157, 157, 3, 64},
-  {cont__18_6, &frame__18_1_std__table, 158, 158, 3, 8},
-  {entry__19_3_invalid_table_error, NULL, 174, 174, 13, 72},
-  {cont__19_6, &frame__19_3_invalid_table_error, 174, 174, 7, 72},
-  {entry__19_8, NULL, 176, 176, 53, 53},
-  {cont__19_9, &frame__19_8, 176, 176, 39, 54},
-  {cont__19_10, &frame__19_8, 176, 176, 32, 66},
-  {entry__19_19, NULL, 180, 180, 34, 40},
-  {cont__19_20, &frame__19_19, 180, 180, 34, 50},
-  {cont__19_21, &frame__19_19, 180, 180, 34, 50},
-  {cont__19_22, &frame__19_19, 180, 180, 34, 50},
-  {entry__19_24, NULL, 180, 180, 53, 67},
-  {entry__19_29, NULL, 182, 182, 33, 47},
-  {entry__19_36, NULL, 185, 185, 40, 46},
-  {cont__19_37, &frame__19_36, 185, 185, 40, 53},
-  {cont__19_38, &frame__19_36, 185, 185, 40, 53},
-  {entry__19_40, NULL, 185, 185, 71, 71},
-  {cont__19_41, &frame__19_40, 185, 185, 56, 71},
-  {cont__19_42, &frame__19_40, 185, 185, 71, 71},
-  {entry__19_32, NULL, 185, 185, 16, 30},
-  {cont__19_33, &frame__19_32, 185, 185, 16, 35},
-  {cont__19_34, &frame__19_32, 185, 185, 16, 35},
-  {cont__19_35, &frame__19_32, 185, 185, 16, 53},
-  {cont__19_39, &frame__19_32, 185, 185, 13, 71},
-  {entry__19_46, NULL, 186, 186, 34, 40},
-  {cont__19_47, &frame__19_46, 186, 186, 34, 47},
-  {cont__19_48, &frame__19_46, 186, 186, 34, 47},
-  {cont__19_49, &frame__19_46, 186, 186, 34, 47},
-  {entry__19_16, NULL, 180, 180, 10, 24},
-  {cont__19_17, &frame__19_16, 180, 180, 10, 29},
-  {cont__19_18, &frame__19_16, 180, 180, 10, 50},
-  {cont__19_23, &frame__19_16, 180, 180, 7, 67},
-  {cont__19_25, &frame__19_16, 181, 181, 7, 61},
-  {cont__19_26, &frame__19_16, 182, 182, 10, 30},
-  {cont__19_27, &frame__19_16, 182, 182, 10, 30},
-  {cont__19_28, &frame__19_16, 182, 182, 7, 47},
-  {cont__19_30, &frame__19_16, 184, 184, 7, 41},
-  {cont__19_31, &frame__19_16, 185, 185, 7, 71},
-  {cont__19_43, &frame__19_16, 186, 186, 10, 24},
-  {cont__19_44, &frame__19_16, 186, 186, 10, 29},
-  {cont__19_45, &frame__19_16, 186, 186, 10, 47},
-  {cont__19_50, &frame__19_16, 186, 186, 7, 67},
-  {cont__19_51, &frame__19_16, 187, 187, 22, 22},
-  {cont__19_52, &frame__19_16, 187, 187, 7, 22},
-  {cont__19_53, &frame__19_16, 188, 188, 7, 43},
-  {cont__19_54, &frame__19_16, 189, 189, 7, 15},
-  {cont__19_55, &frame__19_16, 189, 189, 21, 21},
-  {entry__19_2, NULL, 176, 176, 8, 29},
-  {cont__19_7, &frame__19_2, 176, 176, 5, 66},
-  {cont__19_11, &frame__19_2, 177, 177, 8, 14},
-  {cont__19_12, &frame__19_2, 177, 177, 8, 24},
-  {cont__19_13, &frame__19_2, 177, 177, 8, 24},
-  {cont__19_14, &frame__19_2, 177, 177, 5, 44},
-  {cont__19_15, &frame__19_2, 179, 189, 5, 21},
-  {cont__19_56, &frame__19_2, 189, 189, 21, 21},
-  {entry__19_1_std__register_collection_serializer, NULL, 167, 189, 3, 22}
+  {entry__types__generic_table_3, NULL, 54, 54, 7, 34},
+  {entry__types__generic_table_4, NULL, 56, 56, 7, 40},
+  {entry__types__generic_table_1, NULL, 53, 53, 5, 17},
+  {cont__types__generic_table_2, &frame__types__generic_table_1, 52, 56, 3, 41},
+  {entry__types__generic_table__union_2, NULL, 65, 65, 31, 40},
+  {cont__types__generic_table__union_3, &frame__types__generic_table__union_2, 65, 65, 46, 46},
+  {entry__types__generic_table__union_1, NULL, 65, 65, 3, 46},
+  {cont__types__generic_table__union_4, &frame__types__generic_table__union_1, },
+  {entry__types__generic_table__map_3, NULL, 75, 75, 30, 56},
+  {cont__types__generic_table__map_4, &frame__types__generic_table__map_3, 75, 75, 30, 44},
+  {cont__types__generic_table__map_5, &frame__types__generic_table__map_3, 75, 75, 56, 56},
+  {entry__types__generic_table__map_1, NULL, 74, 74, 3, 40},
+  {cont__types__generic_table__map_2, &frame__types__generic_table__map_1, 75, 75, 3, 56},
+  {cont__types__generic_table__map_6, &frame__types__generic_table__map_1, 76, 76, 3, 14},
+  {entry__types__generic_table__serialize_4, NULL, 87, 87, 28, 37},
+  {cont__types__generic_table__serialize_6, &frame__types__generic_table__serialize_4, 87, 87, 21, 37},
+  {entry__types__generic_table__serialize_8, NULL, 93, 93, 14, 21},
+  {cont__types__generic_table__serialize_9, &frame__types__generic_table__serialize_8, 93, 93, 7, 22},
+  {cont__types__generic_table__serialize_10, &frame__types__generic_table__serialize_8, 94, 94, 21, 28},
+  {cont__types__generic_table__serialize_11, &frame__types__generic_table__serialize_8, 94, 94, 7, 29},
+  {cont__types__generic_table__serialize_12, &frame__types__generic_table__serialize_8, 96, 96, 23, 30},
+  {cont__types__generic_table__serialize_13, &frame__types__generic_table__serialize_8, 96, 96, 7, 31},
+  {cont__types__generic_table__serialize_14, &frame__types__generic_table__serialize_8, 90, 96, 5, 31},
+  {cont__types__generic_table__serialize_16, &frame__types__generic_table__serialize_8, 96, 96, 32, 32},
+  {entry__types__generic_table__serialize_1, NULL, 86, 86, 3, 33},
+  {cont__types__generic_table__serialize_2, &frame__types__generic_table__serialize_1, 87, 87, 6, 18},
+  {cont__types__generic_table__serialize_3, &frame__types__generic_table__serialize_1, 87, 87, 3, 37},
+  {cont__types__generic_table__serialize_7, &frame__types__generic_table__serialize_1, 89, 96, 3, 32},
+  {cont__types__generic_table__serialize_17, &frame__types__generic_table__serialize_1, 97, 97, 3, 8},
+  {entry__types__generic_table__keys_of_2, NULL, 106, 106, 31, 44},
+  {cont__types__generic_table__keys_of_3, &frame__types__generic_table__keys_of_2, 106, 106, 44, 44},
+  {entry__types__generic_table__keys_of_1, NULL, 106, 106, 3, 44},
+  {cont__types__generic_table__keys_of_4, &frame__types__generic_table__keys_of_1, 107, 107, 3, 9},
+  {entry__types__generic_table__values_of_2, NULL, 116, 116, 31, 48},
+  {cont__types__generic_table__values_of_3, &frame__types__generic_table__values_of_2, 116, 116, 48, 48},
+  {entry__types__generic_table__values_of_1, NULL, 116, 116, 3, 48},
+  {cont__types__generic_table__values_of_4, &frame__types__generic_table__values_of_1, 117, 117, 3, 11},
+  {entry__types__generic_table__is_empty_1, NULL, 125, 125, 6, 20},
+  {cont__types__generic_table__is_empty_2, &frame__types__generic_table__is_empty_1, 125, 125, 6, 25},
+  {cont__types__generic_table__is_empty_3, &frame__types__generic_table__is_empty_1, 125, 125, 3, 25},
+  {entry__std__table_2, NULL, 157, 157, 24, 64},
+  {cont__std__table_3, &frame__std__table_2, 157, 157, 29, 44},
+  {cont__std__table_4, &frame__std__table_2, 157, 157, 24, 45},
+  {cont__std__table_5, &frame__std__table_2, 157, 157, 64, 64},
+  {entry__std__table_1, NULL, 157, 157, 3, 64},
+  {cont__std__table_6, &frame__std__table_1, 158, 158, 3, 8},
+  {entry__std__register_collection_serializer_3, NULL, 174, 174, 13, 72},
+  {cont__std__register_collection_serializer_6, &frame__std__register_collection_serializer_3, 174, 174, 7, 72},
+  {entry__std__register_collection_serializer_8, NULL, 176, 176, 53, 53},
+  {cont__std__register_collection_serializer_9, &frame__std__register_collection_serializer_8, 176, 176, 39, 54},
+  {cont__std__register_collection_serializer_10, &frame__std__register_collection_serializer_8, 176, 176, 32, 66},
+  {entry__std__register_collection_serializer_19, NULL, 180, 180, 34, 40},
+  {cont__std__register_collection_serializer_20, &frame__std__register_collection_serializer_19, 180, 180, 34, 50},
+  {cont__std__register_collection_serializer_21, &frame__std__register_collection_serializer_19, 180, 180, 34, 50},
+  {cont__std__register_collection_serializer_22, &frame__std__register_collection_serializer_19, 180, 180, 34, 50},
+  {entry__std__register_collection_serializer_24, NULL, 180, 180, 53, 67},
+  {entry__std__register_collection_serializer_29, NULL, 182, 182, 33, 47},
+  {entry__std__register_collection_serializer_36, NULL, 185, 185, 40, 46},
+  {cont__std__register_collection_serializer_37, &frame__std__register_collection_serializer_36, 185, 185, 40, 53},
+  {cont__std__register_collection_serializer_38, &frame__std__register_collection_serializer_36, 185, 185, 40, 53},
+  {entry__std__register_collection_serializer_40, NULL, 185, 185, 71, 71},
+  {cont__std__register_collection_serializer_41, &frame__std__register_collection_serializer_40, 185, 185, 56, 71},
+  {cont__std__register_collection_serializer_42, &frame__std__register_collection_serializer_40, 185, 185, 71, 71},
+  {entry__std__register_collection_serializer_32, NULL, 185, 185, 16, 30},
+  {cont__std__register_collection_serializer_33, &frame__std__register_collection_serializer_32, 185, 185, 16, 35},
+  {cont__std__register_collection_serializer_34, &frame__std__register_collection_serializer_32, 185, 185, 16, 35},
+  {cont__std__register_collection_serializer_35, &frame__std__register_collection_serializer_32, 185, 185, 16, 53},
+  {cont__std__register_collection_serializer_39, &frame__std__register_collection_serializer_32, 185, 185, 13, 71},
+  {entry__std__register_collection_serializer_46, NULL, 186, 186, 34, 40},
+  {cont__std__register_collection_serializer_47, &frame__std__register_collection_serializer_46, 186, 186, 34, 47},
+  {cont__std__register_collection_serializer_48, &frame__std__register_collection_serializer_46, 186, 186, 34, 47},
+  {cont__std__register_collection_serializer_49, &frame__std__register_collection_serializer_46, 186, 186, 34, 47},
+  {entry__std__register_collection_serializer_16, NULL, 180, 180, 10, 24},
+  {cont__std__register_collection_serializer_17, &frame__std__register_collection_serializer_16, 180, 180, 10, 29},
+  {cont__std__register_collection_serializer_18, &frame__std__register_collection_serializer_16, 180, 180, 10, 50},
+  {cont__std__register_collection_serializer_23, &frame__std__register_collection_serializer_16, 180, 180, 7, 67},
+  {cont__std__register_collection_serializer_25, &frame__std__register_collection_serializer_16, 181, 181, 7, 61},
+  {cont__std__register_collection_serializer_26, &frame__std__register_collection_serializer_16, 182, 182, 10, 30},
+  {cont__std__register_collection_serializer_27, &frame__std__register_collection_serializer_16, 182, 182, 10, 30},
+  {cont__std__register_collection_serializer_28, &frame__std__register_collection_serializer_16, 182, 182, 7, 47},
+  {cont__std__register_collection_serializer_30, &frame__std__register_collection_serializer_16, 184, 184, 7, 41},
+  {cont__std__register_collection_serializer_31, &frame__std__register_collection_serializer_16, 185, 185, 7, 71},
+  {cont__std__register_collection_serializer_43, &frame__std__register_collection_serializer_16, 186, 186, 10, 24},
+  {cont__std__register_collection_serializer_44, &frame__std__register_collection_serializer_16, 186, 186, 10, 29},
+  {cont__std__register_collection_serializer_45, &frame__std__register_collection_serializer_16, 186, 186, 10, 47},
+  {cont__std__register_collection_serializer_50, &frame__std__register_collection_serializer_16, 186, 186, 7, 67},
+  {cont__std__register_collection_serializer_51, &frame__std__register_collection_serializer_16, 187, 187, 22, 22},
+  {cont__std__register_collection_serializer_52, &frame__std__register_collection_serializer_16, 187, 187, 7, 22},
+  {cont__std__register_collection_serializer_53, &frame__std__register_collection_serializer_16, 188, 188, 7, 43},
+  {cont__std__register_collection_serializer_54, &frame__std__register_collection_serializer_16, 189, 189, 7, 15},
+  {cont__std__register_collection_serializer_55, &frame__std__register_collection_serializer_16, 189, 189, 21, 21},
+  {entry__std__register_collection_serializer_2, NULL, 176, 176, 8, 29},
+  {cont__std__register_collection_serializer_7, &frame__std__register_collection_serializer_2, 176, 176, 5, 66},
+  {cont__std__register_collection_serializer_11, &frame__std__register_collection_serializer_2, 177, 177, 8, 14},
+  {cont__std__register_collection_serializer_12, &frame__std__register_collection_serializer_2, 177, 177, 8, 24},
+  {cont__std__register_collection_serializer_13, &frame__std__register_collection_serializer_2, 177, 177, 8, 24},
+  {cont__std__register_collection_serializer_14, &frame__std__register_collection_serializer_2, 177, 177, 5, 44},
+  {cont__std__register_collection_serializer_15, &frame__std__register_collection_serializer_2, 179, 189, 5, 21},
+  {cont__std__register_collection_serializer_56, &frame__std__register_collection_serializer_2, 189, 189, 21, 21},
+  {entry__std__register_collection_serializer_1, NULL, 167, 189, 3, 22}
 };
 
 union NODE {
@@ -822,7 +822,7 @@ static void cont__40_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_3(void) {
+static void entry__types__generic_table_3(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // myself: 0
@@ -843,7 +843,7 @@ static void entry__5_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_4(void) {
+static void entry__types__generic_table_4(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // myself: 0
@@ -867,7 +867,7 @@ static void entry__5_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_1_types__generic_table_(void) {
+static void entry__types__generic_table_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -897,9 +897,9 @@ static void entry__5_1_types__generic_table_(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__5_2;
+  frame->cont = cont__types__generic_table_2;
 }
-static void cont__5_2(void) {
+static void cont__types__generic_table_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -907,10 +907,10 @@ static void cont__5_2(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 53: ... :
   // 54:   private::get_item myself key
-  frame->slots[4] /* temp__2 */ = create_closure(entry__5_3, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_table_3, 0);
   // 55: :
   // 56:   private::set_item myself key value
-  frame->slots[5] /* temp__3 */ = create_closure(entry__5_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__types__generic_table_4, 0);
   // 52: if
   // 53:   NONE == value:
   // 54:     private::get_item myself key
@@ -926,7 +926,7 @@ static void cont__5_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__6_1_types__generic_table_union(void) {
+static void entry__types__generic_table__union_1(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -937,7 +937,7 @@ static void entry__6_1_types__generic_table_union(void) {
   }
   frame->slots[0] /* left */ = create_cell_with_contents(arguments->slots[0]);
   // 65: ... : (key value) !left(key) value
-  frame->slots[2] /* temp__1 */ = create_closure(entry__6_2, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_table__union_2, 2);
   // 65: for_each right: (key value) !left(key) value
   argument_count = 2;
   arguments = node_p;
@@ -948,9 +948,9 @@ static void entry__6_1_types__generic_table_union(void) {
     frame->caller_result_count-1 : -1;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__6_4;
+  frame->cont = cont__types__generic_table__union_4;
 }
-static void entry__6_2(void) {
+static void entry__types__generic_table__union_2(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // key: 0
@@ -971,9 +971,9 @@ static void entry__6_2(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* left */;
   func = myself->type;
-  frame->cont = cont__6_3;
+  frame->cont = cont__types__generic_table__union_3;
 }
-static void cont__6_3(void) {
+static void cont__types__generic_table__union_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -985,7 +985,7 @@ static void cont__6_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__6_4(void) {
+static void cont__types__generic_table__union_4(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -996,7 +996,7 @@ static void cont__6_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_1_types__generic_table_map(void) {
+static void entry__types__generic_table__map_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -1014,16 +1014,16 @@ static void entry__7_1_types__generic_table_map(void) {
   result_count = 1;
   myself = get__new_empty_collection();
   func = myself->type;
-  frame->cont = cont__7_2;
+  frame->cont = cont__types__generic_table__map_2;
 }
-static void cont__7_2(void) {
+static void cont__types__generic_table__map_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[2])->contents /* new_table */ = arguments->slots[0];
   // 75: ... : (key value) !new_table(key) func(value)
-  frame->slots[3] /* temp__1 */ = create_closure(entry__7_3, 2);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_table__map_3, 2);
   // 75: for_each self: (key value) !new_table(key) func(value)
   argument_count = 2;
   arguments = node_p;
@@ -1032,9 +1032,9 @@ static void cont__7_2(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__7_6;
+  frame->cont = cont__types__generic_table__map_6;
 }
-static void entry__7_3(void) {
+static void entry__types__generic_table__map_3(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // key: 0
@@ -1054,9 +1054,9 @@ static void entry__7_3(void) {
   result_count = 1;
   myself = frame->slots[3] /* func */;
   func = myself->type;
-  frame->cont = cont__7_4;
+  frame->cont = cont__types__generic_table__map_4;
 }
-static void cont__7_4(void) {
+static void cont__types__generic_table__map_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1070,9 +1070,9 @@ static void cont__7_4(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* new_table */;
   func = myself->type;
-  frame->cont = cont__7_5;
+  frame->cont = cont__types__generic_table__map_5;
 }
-static void cont__7_5(void) {
+static void cont__types__generic_table__map_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1084,7 +1084,7 @@ static void cont__7_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__7_6(void) {
+static void cont__types__generic_table__map_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1097,7 +1097,7 @@ static void cont__7_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_1_types__generic_table_serialize(void) {
+static void entry__types__generic_table__serialize_1(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -1130,9 +1130,9 @@ static void entry__8_1_types__generic_table_serialize(void) {
   result_count = 1;
   myself = get__serialization_tag_of();
   func = myself->type;
-  frame->cont = cont__8_2;
+  frame->cont = cont__types__generic_table__serialize_2;
 }
-static void cont__8_2(void) {
+static void cont__types__generic_table__serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1145,16 +1145,16 @@ static void cont__8_2(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__8_3;
+  frame->cont = cont__types__generic_table__serialize_3;
 }
-static void cont__8_3(void) {
+static void cont__types__generic_table__serialize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 87: ... : return "@(tag)()"
-  frame->slots[6] /* temp__2 */ = create_closure(entry__8_4, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__types__generic_table__serialize_4, 0);
   // 87: if self.is_empty: return "@(tag)()"
   argument_count = 2;
   arguments = node_p;
@@ -1163,9 +1163,9 @@ static void cont__8_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__8_7;
+  frame->cont = cont__types__generic_table__serialize_7;
 }
-static void entry__8_4(void) {
+static void entry__types__generic_table__serialize_4(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return: 0
@@ -1184,9 +1184,9 @@ static void entry__8_4(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__8_6;
+  frame->cont = cont__types__generic_table__serialize_6;
 }
-static void cont__8_6(void) {
+static void cont__types__generic_table__serialize_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1201,7 +1201,7 @@ static void cont__8_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__8_7(void) {
+static void cont__types__generic_table__serialize_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1216,7 +1216,7 @@ static void cont__8_7(void) {
   // 94:     serialize(key indent+2)
   // 95:     " = "
   // 96:     serialize(value indent+4)
-  frame->slots[5] /* temp__1 */ = create_closure(entry__8_8, 2);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__generic_table__serialize_8, 2);
   // 89: for_each self: (key value)
   // 90:   write_to
   // 91:     &buf
@@ -1232,9 +1232,9 @@ static void cont__8_7(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__8_17;
+  frame->cont = cont__types__generic_table__serialize_17;
 }
-static void entry__8_8(void) {
+static void entry__types__generic_table__serialize_8(void) {
   allocate_initialized_frame_gc(4, 10);
   // slot allocations:
   // key: 0
@@ -1255,9 +1255,9 @@ static void entry__8_8(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__8_9;
+  frame->cont = cont__types__generic_table__serialize_9;
 }
-static void cont__8_9(void) {
+static void cont__types__generic_table__serialize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1270,9 +1270,9 @@ static void cont__8_9(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__8_10;
+  frame->cont = cont__types__generic_table__serialize_10;
 }
-static void cont__8_10(void) {
+static void cont__types__generic_table__serialize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1286,9 +1286,9 @@ static void cont__8_10(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__8_11;
+  frame->cont = cont__types__generic_table__serialize_11;
 }
-static void cont__8_11(void) {
+static void cont__types__generic_table__serialize_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1302,9 +1302,9 @@ static void cont__8_11(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__8_12;
+  frame->cont = cont__types__generic_table__serialize_12;
 }
-static void cont__8_12(void) {
+static void cont__types__generic_table__serialize_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1318,9 +1318,9 @@ static void cont__8_12(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__8_13;
+  frame->cont = cont__types__generic_table__serialize_13;
 }
-static void cont__8_13(void) {
+static void cont__types__generic_table__serialize_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1334,9 +1334,9 @@ static void cont__8_13(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__8_14;
+  frame->cont = cont__types__generic_table__serialize_14;
 }
-static void cont__8_14(void) {
+static void cont__types__generic_table__serialize_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1360,9 +1360,9 @@ static void cont__8_14(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__8_16;
+  frame->cont = cont__types__generic_table__serialize_16;
 }
-static void cont__8_16(void) {
+static void cont__types__generic_table__serialize_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1374,7 +1374,7 @@ static void cont__8_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__8_17(void) {
+static void cont__types__generic_table__serialize_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1387,7 +1387,7 @@ static void cont__8_17(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1_types__generic_table_keys_of(void) {
+static void entry__types__generic_table__keys_of_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1400,7 +1400,7 @@ static void entry__9_1_types__generic_table_keys_of(void) {
   // 105: $$keys empty_list
   ((CELL *)frame->slots[1])->contents /* keys */ = get__empty_list();
   // 106: ... : (key _value) push &keys key
-  frame->slots[2] /* temp__1 */ = create_closure(entry__9_2, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_table__keys_of_2, 2);
   // 106: for_each self: (key _value) push &keys key
   argument_count = 2;
   arguments = node_p;
@@ -1409,9 +1409,9 @@ static void entry__9_1_types__generic_table_keys_of(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__9_4;
+  frame->cont = cont__types__generic_table__keys_of_4;
 }
-static void entry__9_2(void) {
+static void entry__types__generic_table__keys_of_2(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // key: 0
@@ -1430,9 +1430,9 @@ static void entry__9_2(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__9_3;
+  frame->cont = cont__types__generic_table__keys_of_3;
 }
-static void cont__9_3(void) {
+static void cont__types__generic_table__keys_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1444,7 +1444,7 @@ static void cont__9_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_4(void) {
+static void cont__types__generic_table__keys_of_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1457,7 +1457,7 @@ static void cont__9_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1_types__generic_table_values_of(void) {
+static void entry__types__generic_table__values_of_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1470,7 +1470,7 @@ static void entry__10_1_types__generic_table_values_of(void) {
   // 115: $$values empty_list
   ((CELL *)frame->slots[1])->contents /* values */ = get__empty_list();
   // 116: ... : (_key value) push &values value
-  frame->slots[2] /* temp__1 */ = create_closure(entry__10_2, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_table__values_of_2, 2);
   // 116: for_each self: (_key value) push &values value
   argument_count = 2;
   arguments = node_p;
@@ -1479,9 +1479,9 @@ static void entry__10_1_types__generic_table_values_of(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__10_4;
+  frame->cont = cont__types__generic_table__values_of_4;
 }
-static void entry__10_2(void) {
+static void entry__types__generic_table__values_of_2(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // key: 0
@@ -1500,9 +1500,9 @@ static void entry__10_2(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__10_3;
+  frame->cont = cont__types__generic_table__values_of_3;
 }
-static void cont__10_3(void) {
+static void cont__types__generic_table__values_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1514,7 +1514,7 @@ static void cont__10_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__10_4(void) {
+static void cont__types__generic_table__values_of_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1527,7 +1527,7 @@ static void cont__10_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1_types__generic_table_is_empty(void) {
+static void entry__types__generic_table__is_empty_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1542,9 +1542,9 @@ static void entry__11_1_types__generic_table_is_empty(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__11_2;
+  frame->cont = cont__types__generic_table__is_empty_2;
 }
-static void cont__11_2(void) {
+static void cont__types__generic_table__is_empty_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1558,9 +1558,9 @@ static void cont__11_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__11_3;
+  frame->cont = cont__types__generic_table__is_empty_3;
 }
-static void cont__11_3(void) {
+static void cont__types__generic_table__is_empty_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1574,7 +1574,7 @@ static void cont__11_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1_std__table(void) {
+static void entry__std__table_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -1585,7 +1585,7 @@ static void entry__18_1_std__table(void) {
   // 156: $$tab types::table
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__table;
   // 157: ... : (arg) !tab(std::key_of(arg)) std::value_of(arg)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__18_2, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__table_2, 1);
   // 157: for_each args: (arg) !tab(std::key_of(arg)) std::value_of(arg)
   argument_count = 2;
   arguments = node_p;
@@ -1594,9 +1594,9 @@ static void entry__18_1_std__table(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__18_6;
+  frame->cont = cont__std__table_6;
 }
-static void entry__18_2(void) {
+static void entry__std__table_2(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // arg: 0
@@ -1613,9 +1613,9 @@ static void entry__18_2(void) {
   result_count = 1;
   myself = get__std__value_of();
   func = myself->type;
-  frame->cont = cont__18_3;
+  frame->cont = cont__std__table_3;
 }
-static void cont__18_3(void) {
+static void cont__std__table_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1628,9 +1628,9 @@ static void cont__18_3(void) {
   result_count = 1;
   myself = get__std__key_of();
   func = myself->type;
-  frame->cont = cont__18_4;
+  frame->cont = cont__std__table_4;
 }
-static void cont__18_4(void) {
+static void cont__std__table_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1644,9 +1644,9 @@ static void cont__18_4(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* tab */;
   func = myself->type;
-  frame->cont = cont__18_5;
+  frame->cont = cont__std__table_5;
 }
-static void cont__18_5(void) {
+static void cont__std__table_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1658,7 +1658,7 @@ static void cont__18_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__18_6(void) {
+static void cont__std__table_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1671,7 +1671,7 @@ static void cont__18_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_2(void) {
+static void entry__std__register_collection_serializer_2(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // text: 0
@@ -1693,7 +1693,7 @@ static void entry__19_2(void) {
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
   // 173: ... :
   // 174:   raise "Invalid @(name) object encountered during deserialisation!"
-  frame->slots[7] /* temp__1 */ = create_closure(entry__19_3_invalid_table_error, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__std__register_collection_serializer_3, 0);
   // 173: $invalid_table_error:
   // 174:   raise "Invalid @(name) object encountered during deserialisation!"
   initialize_future(frame->slots[5] /* invalid_table_error */, frame->slots[7] /* temp__1 */);
@@ -1705,9 +1705,9 @@ static void entry__19_2(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__19_7;
+  frame->cont = cont__std__register_collection_serializer_7;
 }
-static void entry__19_3_invalid_table_error(void) {
+static void entry__std__register_collection_serializer_3(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -1725,9 +1725,9 @@ static void entry__19_3_invalid_table_error(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__19_6;
+  frame->cont = cont__std__register_collection_serializer_6;
 }
-static void cont__19_6(void) {
+static void cont__std__register_collection_serializer_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1742,14 +1742,14 @@ static void cont__19_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_7(void) {
+static void cont__std__register_collection_serializer_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 176: ... : return range(text 3 -1) empty_table
-  frame->slots[8] /* temp__2 */ = create_closure(entry__19_8, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__std__register_collection_serializer_8, 0);
   // 176: if text .has_prefix. "()": return range(text 3 -1) empty_table
   argument_count = 2;
   arguments = node_p;
@@ -1758,9 +1758,9 @@ static void cont__19_7(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_11;
+  frame->cont = cont__std__register_collection_serializer_11;
 }
-static void entry__19_8(void) {
+static void entry__std__register_collection_serializer_8(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // return: 0
@@ -1778,9 +1778,9 @@ static void entry__19_8(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_9;
+  frame->cont = cont__std__register_collection_serializer_9;
 }
-static void cont__19_9(void) {
+static void cont__std__register_collection_serializer_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1795,9 +1795,9 @@ static void cont__19_9(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__19_10;
+  frame->cont = cont__std__register_collection_serializer_10;
 }
-static void cont__19_10(void) {
+static void cont__std__register_collection_serializer_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1813,7 +1813,7 @@ static void cont__19_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_11(void) {
+static void cont__std__register_collection_serializer_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1825,9 +1825,9 @@ static void cont__19_11(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_12;
+  frame->cont = cont__std__register_collection_serializer_12;
 }
-static void cont__19_12(void) {
+static void cont__std__register_collection_serializer_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1841,9 +1841,9 @@ static void cont__19_12(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_13;
+  frame->cont = cont__std__register_collection_serializer_13;
 }
-static void cont__19_13(void) {
+static void cont__std__register_collection_serializer_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1856,9 +1856,9 @@ static void cont__19_13(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_14;
+  frame->cont = cont__std__register_collection_serializer_14;
 }
-static void cont__19_14(void) {
+static void cont__std__register_collection_serializer_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1872,9 +1872,9 @@ static void cont__19_14(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_15;
+  frame->cont = cont__std__register_collection_serializer_15;
 }
-static void cont__19_15(void) {
+static void cont__std__register_collection_serializer_15(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1892,7 +1892,7 @@ static void cont__19_15(void) {
   // 187:   range &text 2 -1
   // 188:   $value deserialize_item(&text indent)
   // ...
-  frame->slots[7] /* temp__1 */ = create_closure(entry__19_16, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__std__register_collection_serializer_16, 0);
   // 179: forever:
   // 180:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
   // 181:   get_deserialization_indent $remaining_text $indent text
@@ -1910,9 +1910,9 @@ static void cont__19_15(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__19_56;
+  frame->cont = cont__std__register_collection_serializer_56;
 }
-static void entry__19_16(void) {
+static void entry__std__register_collection_serializer_16(void) {
   allocate_initialized_frame_gc(5, 14);
   // slot allocations:
   // text: 0
@@ -1944,9 +1944,9 @@ static void entry__19_16(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__19_17;
+  frame->cont = cont__std__register_collection_serializer_17;
 }
-static void cont__19_17(void) {
+static void cont__std__register_collection_serializer_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1960,16 +1960,16 @@ static void cont__19_17(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_18;
+  frame->cont = cont__std__register_collection_serializer_18;
 }
-static void cont__19_18(void) {
+static void cont__std__register_collection_serializer_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
   // 180: ... text(1) != '@nl;'
-  frame->slots[12] /* temp__4 */ = create_closure(entry__19_19, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__std__register_collection_serializer_19, 0);
   // 180: ... length_of(text) == 0 || text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
@@ -1978,9 +1978,9 @@ static void cont__19_18(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_23;
+  frame->cont = cont__std__register_collection_serializer_23;
 }
-static void entry__19_19(void) {
+static void entry__std__register_collection_serializer_19(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -1996,9 +1996,9 @@ static void entry__19_19(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_20;
+  frame->cont = cont__std__register_collection_serializer_20;
 }
-static void cont__19_20(void) {
+static void cont__std__register_collection_serializer_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2012,9 +2012,9 @@ static void cont__19_20(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_21;
+  frame->cont = cont__std__register_collection_serializer_21;
 }
-static void cont__19_21(void) {
+static void cont__std__register_collection_serializer_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2027,9 +2027,9 @@ static void cont__19_21(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_22;
+  frame->cont = cont__std__register_collection_serializer_22;
 }
-static void cont__19_22(void) {
+static void cont__std__register_collection_serializer_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2043,14 +2043,14 @@ static void cont__19_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_23(void) {
+static void cont__std__register_collection_serializer_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 180: ... : return text obj
-  frame->slots[13] /* temp__5 */ = create_closure(entry__19_24, 0);
+  frame->slots[13] /* temp__5 */ = create_closure(entry__std__register_collection_serializer_24, 0);
   // 180: if length_of(text) == 0 || text(1) != '@nl;': return text obj
   argument_count = 2;
   arguments = node_p;
@@ -2059,9 +2059,9 @@ static void cont__19_23(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_25;
+  frame->cont = cont__std__register_collection_serializer_25;
 }
-static void entry__19_24(void) {
+static void entry__std__register_collection_serializer_24(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return: 0
@@ -2084,7 +2084,7 @@ static void entry__19_24(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_25(void) {
+static void cont__std__register_collection_serializer_25(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2096,9 +2096,9 @@ static void cont__19_25(void) {
   result_count = 2;
   myself = get__get_deserialization_indent();
   func = myself->type;
-  frame->cont = cont__19_26;
+  frame->cont = cont__std__register_collection_serializer_26;
 }
-static void cont__19_26(void) {
+static void cont__std__register_collection_serializer_26(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2117,9 +2117,9 @@ static void cont__19_26(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_27;
+  frame->cont = cont__std__register_collection_serializer_27;
 }
-static void cont__19_27(void) {
+static void cont__std__register_collection_serializer_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2132,16 +2132,16 @@ static void cont__19_27(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_28;
+  frame->cont = cont__std__register_collection_serializer_28;
 }
-static void cont__19_28(void) {
+static void cont__std__register_collection_serializer_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 182: ... : return text obj
-  frame->slots[11] /* temp__3 */ = create_closure(entry__19_29, 0);
+  frame->slots[11] /* temp__3 */ = create_closure(entry__std__register_collection_serializer_29, 0);
   // 182: if indent <= base_indent: return text obj
   argument_count = 2;
   arguments = node_p;
@@ -2150,9 +2150,9 @@ static void cont__19_28(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_30;
+  frame->cont = cont__std__register_collection_serializer_30;
 }
-static void entry__19_29(void) {
+static void entry__std__register_collection_serializer_29(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return: 0
@@ -2175,7 +2175,7 @@ static void entry__19_29(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_30(void) {
+static void cont__std__register_collection_serializer_30(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2190,9 +2190,9 @@ static void cont__19_30(void) {
   result_count = 2;
   myself = get__deserialize_item();
   func = myself->type;
-  frame->cont = cont__19_31;
+  frame->cont = cont__std__register_collection_serializer_31;
 }
-static void cont__19_31(void) {
+static void cont__std__register_collection_serializer_31(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2202,7 +2202,7 @@ static void cont__19_31(void) {
   // 184: ... key
   initialize_future(frame->slots[7] /* key */, frame->slots[9] /* temp__1 */);
   // 185: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
-  frame->slots[9] /* temp__1 */ = create_closure(entry__19_32, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__std__register_collection_serializer_32, 0);
   // 185: while -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   argument_count = 1;
   arguments = node_p;
@@ -2210,9 +2210,9 @@ static void cont__19_31(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__19_43;
+  frame->cont = cont__std__register_collection_serializer_43;
 }
-static void entry__19_40(void) {
+static void entry__std__register_collection_serializer_40(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // text: 0
@@ -2228,9 +2228,9 @@ static void entry__19_40(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_41;
+  frame->cont = cont__std__register_collection_serializer_41;
 }
-static void cont__19_41(void) {
+static void cont__std__register_collection_serializer_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2245,9 +2245,9 @@ static void cont__19_41(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__19_42;
+  frame->cont = cont__std__register_collection_serializer_42;
 }
-static void cont__19_42(void) {
+static void cont__std__register_collection_serializer_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2259,7 +2259,7 @@ static void cont__19_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_32(void) {
+static void entry__std__register_collection_serializer_32(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // text: 0
@@ -2275,9 +2275,9 @@ static void entry__19_32(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__19_33;
+  frame->cont = cont__std__register_collection_serializer_33;
 }
-static void cont__19_33(void) {
+static void cont__std__register_collection_serializer_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2291,9 +2291,9 @@ static void cont__19_33(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__19_34;
+  frame->cont = cont__std__register_collection_serializer_34;
 }
-static void cont__19_34(void) {
+static void cont__std__register_collection_serializer_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2306,16 +2306,16 @@ static void cont__19_34(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_35;
+  frame->cont = cont__std__register_collection_serializer_35;
 }
-static void cont__19_35(void) {
+static void cont__std__register_collection_serializer_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 185: ... text(1) == ' '
-  frame->slots[5] /* temp__5 */ = create_closure(entry__19_36, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__std__register_collection_serializer_36, 0);
   // 185: ... length_of(text) >= 1 && text(1) == ' '
   argument_count = 2;
   arguments = node_p;
@@ -2324,9 +2324,9 @@ static void cont__19_35(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__19_39;
+  frame->cont = cont__std__register_collection_serializer_39;
 }
-static void entry__19_36(void) {
+static void entry__std__register_collection_serializer_36(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // text: 0
@@ -2342,9 +2342,9 @@ static void entry__19_36(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_37;
+  frame->cont = cont__std__register_collection_serializer_37;
 }
-static void cont__19_37(void) {
+static void cont__std__register_collection_serializer_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2358,9 +2358,9 @@ static void cont__19_37(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_38;
+  frame->cont = cont__std__register_collection_serializer_38;
 }
-static void cont__19_38(void) {
+static void cont__std__register_collection_serializer_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2374,14 +2374,14 @@ static void cont__19_38(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_39(void) {
+static void cont__std__register_collection_serializer_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 185: ... : range &text 2 -1
-  frame->slots[6] /* temp__6 */ = create_closure(entry__19_40, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__std__register_collection_serializer_40, 0);
   // 185: ... -> length_of(text) >= 1 && text(1) == ' ': range &text 2 -1
   argument_count = 2;
   arguments = node_p;
@@ -2391,7 +2391,7 @@ static void cont__19_39(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_43(void) {
+static void cont__std__register_collection_serializer_43(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2403,9 +2403,9 @@ static void cont__19_43(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__19_44;
+  frame->cont = cont__std__register_collection_serializer_44;
 }
-static void cont__19_44(void) {
+static void cont__std__register_collection_serializer_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2419,16 +2419,16 @@ static void cont__19_44(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_45;
+  frame->cont = cont__std__register_collection_serializer_45;
 }
-static void cont__19_45(void) {
+static void cont__std__register_collection_serializer_45(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
   // 186: ... text(1) != '='
-  frame->slots[12] /* temp__4 */ = create_closure(entry__19_46, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__std__register_collection_serializer_46, 0);
   // 186: ... length_of(text) == 0 || text(1) != '='
   argument_count = 2;
   arguments = node_p;
@@ -2437,9 +2437,9 @@ static void cont__19_45(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_50;
+  frame->cont = cont__std__register_collection_serializer_50;
 }
-static void entry__19_46(void) {
+static void entry__std__register_collection_serializer_46(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -2455,9 +2455,9 @@ static void entry__19_46(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* text */;
   func = myself->type;
-  frame->cont = cont__19_47;
+  frame->cont = cont__std__register_collection_serializer_47;
 }
-static void cont__19_47(void) {
+static void cont__std__register_collection_serializer_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2471,9 +2471,9 @@ static void cont__19_47(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_48;
+  frame->cont = cont__std__register_collection_serializer_48;
 }
-static void cont__19_48(void) {
+static void cont__std__register_collection_serializer_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2486,9 +2486,9 @@ static void cont__19_48(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__19_49;
+  frame->cont = cont__std__register_collection_serializer_49;
 }
-static void cont__19_49(void) {
+static void cont__std__register_collection_serializer_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2502,7 +2502,7 @@ static void cont__19_49(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_50(void) {
+static void cont__std__register_collection_serializer_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2516,9 +2516,9 @@ static void cont__19_50(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_51;
+  frame->cont = cont__std__register_collection_serializer_51;
 }
-static void cont__19_51(void) {
+static void cont__std__register_collection_serializer_51(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2530,9 +2530,9 @@ static void cont__19_51(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_52;
+  frame->cont = cont__std__register_collection_serializer_52;
 }
-static void cont__19_52(void) {
+static void cont__std__register_collection_serializer_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2547,9 +2547,9 @@ static void cont__19_52(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__19_53;
+  frame->cont = cont__std__register_collection_serializer_53;
 }
-static void cont__19_53(void) {
+static void cont__std__register_collection_serializer_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2563,9 +2563,9 @@ static void cont__19_53(void) {
   result_count = 2;
   myself = get__deserialize_item();
   func = myself->type;
-  frame->cont = cont__19_54;
+  frame->cont = cont__std__register_collection_serializer_54;
 }
-static void cont__19_54(void) {
+static void cont__std__register_collection_serializer_54(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2584,9 +2584,9 @@ static void cont__19_54(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* obj */;
   func = myself->type;
-  frame->cont = cont__19_55;
+  frame->cont = cont__std__register_collection_serializer_55;
 }
-static void cont__19_55(void) {
+static void cont__std__register_collection_serializer_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2598,12 +2598,12 @@ static void cont__19_55(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_56(void) {
+static void cont__std__register_collection_serializer_56(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__19_1_std__register_collection_serializer(void) {
+static void entry__std__register_collection_serializer_1(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -2623,7 +2623,7 @@ static void entry__19_1_std__register_collection_serializer(void) {
   // 175:   
   // 176:   if text .has_prefix. "()": return range(text 3 -1) empty_table
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__19_2, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__register_collection_serializer_2, 2);
   // 167: register_deserializer name:
   // 168:   (
   // 169:     $text
@@ -2681,19 +2681,19 @@ EXPORT void phase_2__basic__types__table(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   unique__NONE = register_unique_item("NONE");
-  func__6_1_types__generic_table_union = create_function(entry__6_1_types__generic_table_union, 2);
-  func__7_1_types__generic_table_map = create_function(entry__7_1_types__generic_table_map, 2);
+  func__types__generic_table__union_1 = create_function(entry__types__generic_table__union_1, 2);
+  func__types__generic_table__map_1 = create_function(entry__types__generic_table__map_1, 2);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   string__fa730415fc16bec = from_latin_1_string(" = ", 3);
-  func__8_1_types__generic_table_serialize = create_function(entry__8_1_types__generic_table_serialize, -1);
-  func__9_1_types__generic_table_keys_of = create_function(entry__9_1_types__generic_table_keys_of, 1);
-  func__10_1_types__generic_table_values_of = create_function(entry__10_1_types__generic_table_values_of, 1);
-  func__11_1_types__generic_table_is_empty = create_function(entry__11_1_types__generic_table_is_empty, 1);
+  func__types__generic_table__serialize_1 = create_function(entry__types__generic_table__serialize_1, -1);
+  func__types__generic_table__keys_of_1 = create_function(entry__types__generic_table__keys_of_1, 1);
+  func__types__generic_table__values_of_1 = create_function(entry__types__generic_table__values_of_1, 1);
+  func__types__generic_table__is_empty_1 = create_function(entry__types__generic_table__is_empty_1, 1);
   string__485aeb83eaa95032 = from_latin_1_string("table", 5);
-  func__18_1_std__table = create_function(entry__18_1_std__table, -1);
+  func__std__table_1 = create_function(entry__std__table_1, -1);
   string__76acaf9d04f58520 = from_latin_1_string("Invalid ", 8);
   string__770b9b2c5bac96f5 = from_latin_1_string(" object encountered during deserialisation!", 43);
-  func__19_1_std__register_collection_serializer = create_function(entry__19_1_std__register_collection_serializer, 2);
+  func__std__register_collection_serializer_1 = create_function(entry__std__register_collection_serializer_1, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -2758,13 +2758,13 @@ EXPORT void phase_4__basic__types__table(void) {
   use_polymorphic_function(NULL, "values_of", &get__values_of, &poly_idx__values_of);
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
-  define_type_function("types", "generic_table", entry__5_1_types__generic_table_, -1);
-  define_method("types", "generic_table", poly_idx__union, func__6_1_types__generic_table_union);
-  define_method("types", "generic_table", poly_idx__map, func__7_1_types__generic_table_map);
-  define_method("types", "generic_table", poly_idx__serialize, func__8_1_types__generic_table_serialize);
-  define_method("types", "generic_table", poly_idx__keys_of, func__9_1_types__generic_table_keys_of);
-  define_method("types", "generic_table", poly_idx__values_of, func__10_1_types__generic_table_values_of);
-  define_method("types", "generic_table", poly_idx__is_empty, func__11_1_types__generic_table_is_empty);
+  define_type_function("types", "generic_table", entry__types__generic_table_1, -1);
+  define_method("types", "generic_table", poly_idx__union, func__types__generic_table__union_1);
+  define_method("types", "generic_table", poly_idx__map, func__types__generic_table__map_1);
+  define_method("types", "generic_table", poly_idx__serialize, func__types__generic_table__serialize_1);
+  define_method("types", "generic_table", poly_idx__keys_of, func__types__generic_table__keys_of_1);
+  define_method("types", "generic_table", poly_idx__values_of, func__types__generic_table__values_of_1);
+  define_method("types", "generic_table", poly_idx__is_empty, func__types__generic_table__is_empty_1);
   define_attribute("types", "object", poly_idx__is_a_table, get__false());
   define_attribute("types", "generic_table", poly_idx__is_a_table, get__true());
   define_attribute("types", "table", poly_idx__serialization_tag_of, string__485aeb83eaa95032);
@@ -2781,8 +2781,8 @@ EXPORT void phase_5__basic__types__table(void) {
   assign_value(&var.std__is_a_table, create_function(type__std__is_a_table, -1));
   assign_value(&var.types__table, get__types__unordered_table());
   assign_variable(&var.std__empty_table, &var.types__table);
-  assign_variable(&var.std__table, &func__18_1_std__table);
-  assign_variable(&var.std__register_collection_serializer, &func__19_1_std__register_collection_serializer);
+  assign_variable(&var.std__table, &func__std__table_1);
+  assign_variable(&var.std__register_collection_serializer, &func__std__register_collection_serializer_1);
 }
 
 static int already_run_phase_6 = false;

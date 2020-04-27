@@ -405,258 +405,258 @@ static UNORDERED_TABLE_DATA *collect_unordered_table_data(
 );
 
 static void *collect_unordered_table(UNORDERED_TABLE *node);
-static void entry__11_1_insert_item(void);
-static NODE *func__11_1_insert_item;
-static void entry__12_1_retrieve_item(void);
-static NODE *func__12_1_retrieve_item;
+static void entry__insert_item_1(void);
+static NODE *func__insert_item_1;
+static void entry__retrieve_item_1(void);
+static NODE *func__retrieve_item_1;
 static NODE *get__types__unordered_table(void) {
   return var.types__unordered_table;
 }
 static NODE *create__types__unordered_table(long rev_no, UNORDERED_TABLE_DATA *data);
-static void entry__14_1_types__unordered_table_length_of(void);
-static NODE *func__14_1_types__unordered_table_length_of;
-static void entry__15_1_next_key_and_value(void);
-static NODE *func__15_1_next_key_and_value;
-static void entry__16_1_previous_key_and_value(void);
-static NODE *func__16_1_previous_key_and_value;
-static NODE *func__17_1_types__unordered_table_private__set_item;
-static void entry__17_1_types__unordered_table_private__set_item(void);
-static FRAME_INFO frame__17_1_types__unordered_table_private__set_item = {6, {"self", "key", "value", "return", "h", "cmp_key"}};
-static void cont__17_2(void);
-static NODE *func__17_3;
-static void entry__17_3(void);
-static FRAME_INFO frame__17_3 = {1, {"key"}};
-static void cont__17_4(void);
-static void cont__17_5(void);
-static NODE *func__17_6;
-static void entry__17_6(void);
-static FRAME_INFO frame__17_6 = {6, {"self", "cmp_key", "h", "key", "value", "return"}};
-static void cont__17_7(void);
-static void cont__17_8(void);
-static NODE *func__17_9;
-static void entry__17_9(void);
-static FRAME_INFO frame__17_9 = {2, {"return", "self"}};
-static void cont__17_10(void);
-static void cont__17_11(void);
-static NODE *func__17_12;
-static void entry__17_12(void);
-static FRAME_INFO frame__17_12 = {2, {"key", "cmp_key"}};
-static void cont__17_13(void);
-static NODE *func__18_1_types__unordered_table_private__get_item;
-static void entry__18_1_types__unordered_table_private__get_item(void);
-static FRAME_INFO frame__18_1_types__unordered_table_private__get_item = {5, {"self", "key", "return", "h", "cmp_key"}};
-static void cont__18_2(void);
-static NODE *func__18_3;
-static void entry__18_3(void);
-static FRAME_INFO frame__18_3 = {6, {"cmp_key", "self", "h", "key", "return", "retrieved_value"}};
-static void cont__18_4(void);
-static void cont__18_5(void);
-static NODE *func__18_6;
-static void entry__18_6(void);
-static FRAME_INFO frame__18_6 = {2, {"cmp_key", "key"}};
-static void cont__18_7(void);
-static void cont__18_8(void);
-static NODE *func__18_9;
-static void entry__18_9(void);
-static FRAME_INFO frame__18_9 = {2, {"return", "retrieved_value"}};
-static void cont__18_10(void);
-static NODE *func__19_1_types__unordered_table_;
-static void entry__19_1_types__unordered_table_(void);
-static FRAME_INFO frame__19_1_types__unordered_table_ = {3, {"key", "value", "myself"}};
-static void cont__19_2(void);
-static NODE *func__19_3;
-static void entry__19_3(void);
-static FRAME_INFO frame__19_3 = {2, {"myself", "key"}};
-static NODE *func__19_4;
-static void entry__19_4(void);
-static FRAME_INFO frame__19_4 = {3, {"myself", "key", "value"}};
+static void entry__types__unordered_table__length_of_1(void);
+static NODE *func__types__unordered_table__length_of_1;
+static void entry__next_key_and_value_1(void);
+static NODE *func__next_key_and_value_1;
+static void entry__previous_key_and_value_1(void);
+static NODE *func__previous_key_and_value_1;
+static NODE *func__types__unordered_table__private__set_item_1;
+static void entry__types__unordered_table__private__set_item_1(void);
+static FRAME_INFO frame__types__unordered_table__private__set_item_1 = {6, {"self", "key", "value", "return", "h", "cmp_key"}};
+static void cont__types__unordered_table__private__set_item_2(void);
+static NODE *func__types__unordered_table__private__set_item_3;
+static void entry__types__unordered_table__private__set_item_3(void);
+static FRAME_INFO frame__types__unordered_table__private__set_item_3 = {1, {"key"}};
+static void cont__types__unordered_table__private__set_item_4(void);
+static void cont__types__unordered_table__private__set_item_5(void);
+static NODE *func__types__unordered_table__private__set_item_6;
+static void entry__types__unordered_table__private__set_item_6(void);
+static FRAME_INFO frame__types__unordered_table__private__set_item_6 = {6, {"self", "cmp_key", "h", "key", "value", "return"}};
+static void cont__types__unordered_table__private__set_item_7(void);
+static void cont__types__unordered_table__private__set_item_8(void);
+static NODE *func__types__unordered_table__private__set_item_9;
+static void entry__types__unordered_table__private__set_item_9(void);
+static FRAME_INFO frame__types__unordered_table__private__set_item_9 = {2, {"return", "self"}};
+static void cont__types__unordered_table__private__set_item_10(void);
+static void cont__types__unordered_table__private__set_item_11(void);
+static NODE *func__types__unordered_table__private__set_item_12;
+static void entry__types__unordered_table__private__set_item_12(void);
+static FRAME_INFO frame__types__unordered_table__private__set_item_12 = {2, {"key", "cmp_key"}};
+static void cont__types__unordered_table__private__set_item_13(void);
+static NODE *func__types__unordered_table__private__get_item_1;
+static void entry__types__unordered_table__private__get_item_1(void);
+static FRAME_INFO frame__types__unordered_table__private__get_item_1 = {5, {"self", "key", "return", "h", "cmp_key"}};
+static void cont__types__unordered_table__private__get_item_2(void);
+static NODE *func__types__unordered_table__private__get_item_3;
+static void entry__types__unordered_table__private__get_item_3(void);
+static FRAME_INFO frame__types__unordered_table__private__get_item_3 = {6, {"cmp_key", "self", "h", "key", "return", "retrieved_value"}};
+static void cont__types__unordered_table__private__get_item_4(void);
+static void cont__types__unordered_table__private__get_item_5(void);
+static NODE *func__types__unordered_table__private__get_item_6;
+static void entry__types__unordered_table__private__get_item_6(void);
+static FRAME_INFO frame__types__unordered_table__private__get_item_6 = {2, {"cmp_key", "key"}};
+static void cont__types__unordered_table__private__get_item_7(void);
+static void cont__types__unordered_table__private__get_item_8(void);
+static NODE *func__types__unordered_table__private__get_item_9;
+static void entry__types__unordered_table__private__get_item_9(void);
+static FRAME_INFO frame__types__unordered_table__private__get_item_9 = {2, {"return", "retrieved_value"}};
+static void cont__types__unordered_table__private__get_item_10(void);
+static NODE *func__types__unordered_table_1;
+static void entry__types__unordered_table_1(void);
+static FRAME_INFO frame__types__unordered_table_1 = {3, {"key", "value", "myself"}};
+static void cont__types__unordered_table_2(void);
+static NODE *func__types__unordered_table_3;
+static void entry__types__unordered_table_3(void);
+static FRAME_INFO frame__types__unordered_table_3 = {2, {"myself", "key"}};
+static NODE *func__types__unordered_table_4;
+static void entry__types__unordered_table_4(void);
+static FRAME_INFO frame__types__unordered_table_4 = {3, {"myself", "key", "value"}};
 static NODE *string__16058a9f0bf11cc9;
-static NODE *func__21_1_types__unordered_table_new_empty_collection;
-static void entry__21_1_types__unordered_table_new_empty_collection(void);
-static FRAME_INFO frame__21_1_types__unordered_table_new_empty_collection = {1, {"self"}};
+static NODE *func__types__unordered_table__new_empty_collection_1;
+static void entry__types__unordered_table__new_empty_collection_1(void);
+static FRAME_INFO frame__types__unordered_table__new_empty_collection_1 = {1, {"self"}};
 static NODE *get__std__empty_unordered_table(void) {
   return var.std__empty_unordered_table;
 }
-static NODE *func__23_1_std__unordered_table;
-static void entry__23_1_std__unordered_table(void);
-static FRAME_INFO frame__23_1_std__unordered_table = {2, {"initializers", "tab"}};
-static NODE *func__23_2;
-static void entry__23_2(void);
-static FRAME_INFO frame__23_2 = {2, {"initializer", "tab"}};
-static void cont__23_3(void);
-static void cont__23_4(void);
-static void cont__23_5(void);
-static void cont__23_6(void);
+static NODE *func__std__unordered_table_1;
+static void entry__std__unordered_table_1(void);
+static FRAME_INFO frame__std__unordered_table_1 = {2, {"initializers", "tab"}};
+static NODE *func__std__unordered_table_2;
+static void entry__std__unordered_table_2(void);
+static FRAME_INFO frame__std__unordered_table_2 = {2, {"initializer", "tab"}};
+static void cont__std__unordered_table_3(void);
+static void cont__std__unordered_table_4(void);
+static void cont__std__unordered_table_5(void);
+static void cont__std__unordered_table_6(void);
 static NODE *get__std__unordered_table(void) {
   return var.std__unordered_table;
 }
-static NODE *func__24_1_types__unordered_table_for_each;
-static void entry__24_1_types__unordered_table_for_each(void);
-static FRAME_INFO frame__24_1_types__unordered_table_for_each = {4, {"self", "body", "return", "key"}};
-static NODE *func__24_2;
-static void entry__24_2(void);
-static FRAME_INFO frame__24_2 = {5, {"key", "self", "return", "body", "value"}};
-static void cont__24_3(void);
-static void cont__24_4(void);
-static void cont__24_5(void);
-static void cont__24_6(void);
-static void cont__24_7(void);
-static void cont__24_8(void);
-static NODE *func__24_9;
-static void entry__24_9(void);
-static FRAME_INFO frame__24_9 = {3, {"body", "key", "value"}};
-static NODE *func__24_10;
-static void entry__24_10(void);
-static FRAME_INFO frame__24_10 = {2, {"body", "value"}};
-static void cont__24_11(void);
-static NODE *func__25_1_types__unordered_table_for_each_from_to;
-static void entry__25_1_types__unordered_table_for_each_from_to(void);
-static FRAME_INFO frame__25_1_types__unordered_table_for_each_from_to = {8, {"self", "first", "last", "body", "return", "key", "value", "h"}};
-static void cont__25_2(void);
-static void cont__25_3(void);
-static void cont__25_4(void);
-static NODE *func__25_5;
-static void entry__25_5(void);
-static FRAME_INFO frame__25_5 = {0, {}};
+static NODE *func__types__unordered_table__for_each_1;
+static void entry__types__unordered_table__for_each_1(void);
+static FRAME_INFO frame__types__unordered_table__for_each_1 = {4, {"self", "body", "return", "key"}};
+static NODE *func__types__unordered_table__for_each_2;
+static void entry__types__unordered_table__for_each_2(void);
+static FRAME_INFO frame__types__unordered_table__for_each_2 = {5, {"key", "self", "return", "body", "value"}};
+static void cont__types__unordered_table__for_each_3(void);
+static void cont__types__unordered_table__for_each_4(void);
+static void cont__types__unordered_table__for_each_5(void);
+static void cont__types__unordered_table__for_each_6(void);
+static void cont__types__unordered_table__for_each_7(void);
+static void cont__types__unordered_table__for_each_8(void);
+static NODE *func__types__unordered_table__for_each_9;
+static void entry__types__unordered_table__for_each_9(void);
+static FRAME_INFO frame__types__unordered_table__for_each_9 = {3, {"body", "key", "value"}};
+static NODE *func__types__unordered_table__for_each_10;
+static void entry__types__unordered_table__for_each_10(void);
+static FRAME_INFO frame__types__unordered_table__for_each_10 = {2, {"body", "value"}};
+static void cont__types__unordered_table__for_each_11(void);
+static NODE *func__types__unordered_table__for_each_from_to_1;
+static void entry__types__unordered_table__for_each_from_to_1(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_to_1 = {8, {"self", "first", "last", "body", "return", "key", "value", "h"}};
+static void cont__types__unordered_table__for_each_from_to_2(void);
+static void cont__types__unordered_table__for_each_from_to_3(void);
+static void cont__types__unordered_table__for_each_from_to_4(void);
+static NODE *func__types__unordered_table__for_each_from_to_5;
+static void entry__types__unordered_table__for_each_from_to_5(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_to_5 = {0, {}};
 static NODE *string__2bdb69f58c8fd6ea;
-static void cont__25_7(void);
-static NODE *func__25_8;
-static void entry__25_8(void);
-static FRAME_INFO frame__25_8 = {6, {"body", "key", "value", "last", "return", "self"}};
-static void cont__25_9(void);
-static void cont__25_10(void);
-static NODE *func__25_11;
-static void entry__25_11(void);
-static FRAME_INFO frame__25_11 = {3, {"body", "key", "value"}};
-static NODE *func__25_12;
-static void entry__25_12(void);
-static FRAME_INFO frame__25_12 = {2, {"body", "value"}};
-static void cont__25_13(void);
-static void cont__25_14(void);
-static void cont__25_15(void);
-static void cont__25_16(void);
-static void cont__25_17(void);
-static void cont__25_18(void);
-static void cont__25_19(void);
-static NODE *func__26_1_types__unordered_table_for_each_downwards;
-static void entry__26_1_types__unordered_table_for_each_downwards(void);
-static FRAME_INFO frame__26_1_types__unordered_table_for_each_downwards = {4, {"self", "body", "return", "key"}};
-static NODE *func__26_2;
-static void entry__26_2(void);
-static FRAME_INFO frame__26_2 = {5, {"key", "self", "return", "body", "value"}};
-static void cont__26_3(void);
-static void cont__26_4(void);
-static void cont__26_5(void);
-static void cont__26_6(void);
-static void cont__26_7(void);
-static void cont__26_8(void);
-static NODE *func__26_9;
-static void entry__26_9(void);
-static FRAME_INFO frame__26_9 = {3, {"body", "key", "value"}};
-static NODE *func__26_10;
-static void entry__26_10(void);
-static FRAME_INFO frame__26_10 = {2, {"body", "value"}};
-static void cont__26_11(void);
-static NODE *func__27_1_types__unordered_table_for_each_from_down_to;
-static void entry__27_1_types__unordered_table_for_each_from_down_to(void);
-static FRAME_INFO frame__27_1_types__unordered_table_for_each_from_down_to = {8, {"self", "last", "first", "body", "return", "key", "value", "h"}};
-static void cont__27_2(void);
-static void cont__27_3(void);
-static void cont__27_4(void);
-static NODE *func__27_5;
-static void entry__27_5(void);
-static FRAME_INFO frame__27_5 = {0, {}};
-static void cont__27_6(void);
-static NODE *func__27_7;
-static void entry__27_7(void);
-static FRAME_INFO frame__27_7 = {6, {"body", "key", "value", "first", "return", "self"}};
-static void cont__27_8(void);
-static void cont__27_9(void);
-static NODE *func__27_10;
-static void entry__27_10(void);
-static FRAME_INFO frame__27_10 = {3, {"body", "key", "value"}};
-static NODE *func__27_11;
-static void entry__27_11(void);
-static FRAME_INFO frame__27_11 = {2, {"body", "value"}};
-static void cont__27_12(void);
-static void cont__27_13(void);
-static void cont__27_14(void);
-static void cont__27_15(void);
-static void cont__27_16(void);
-static void cont__27_17(void);
-static void cont__27_18(void);
-static NODE *func__28_1_types__unordered_table_update_each;
-static void entry__28_1_types__unordered_table_update_each(void);
-static FRAME_INFO frame__28_1_types__unordered_table_update_each = {4, {"self", "body", "return", "key"}};
-static void exit__28_1_types__unordered_table_update_each(void);
-static NODE *func__28_2;
-static void entry__28_2(void);
-static FRAME_INFO frame__28_2 = {5, {"key", "self", "return", "body", "value"}};
-static void cont__28_3(void);
-static void cont__28_4(void);
-static void cont__28_5(void);
-static void cont__28_6(void);
-static void cont__28_7(void);
-static void cont__28_8(void);
-static void cont__28_9(void);
-static NODE *func__29_1_types__unordered_table_update_each_from_to;
-static void entry__29_1_types__unordered_table_update_each_from_to(void);
-static FRAME_INFO frame__29_1_types__unordered_table_update_each_from_to = {8, {"self", "first", "last", "body", "return", "key", "value", "h"}};
-static void exit__29_1_types__unordered_table_update_each_from_to(void);
-static void cont__29_2(void);
-static void cont__29_3(void);
-static void cont__29_4(void);
-static NODE *func__29_5;
-static void entry__29_5(void);
-static FRAME_INFO frame__29_5 = {0, {}};
-static void cont__29_6(void);
-static NODE *func__29_7;
-static void entry__29_7(void);
-static FRAME_INFO frame__29_7 = {6, {"body", "value", "key", "self", "last", "return"}};
-static void cont__29_8(void);
-static void cont__29_9(void);
-static void cont__29_10(void);
-static void cont__29_11(void);
-static void cont__29_12(void);
-static void cont__29_13(void);
-static void cont__29_14(void);
-static void cont__29_15(void);
-static NODE *func__30_1_types__unordered_table_update_each_downwards;
-static void entry__30_1_types__unordered_table_update_each_downwards(void);
-static FRAME_INFO frame__30_1_types__unordered_table_update_each_downwards = {4, {"self", "body", "return", "key"}};
-static void exit__30_1_types__unordered_table_update_each_downwards(void);
-static NODE *func__30_2;
-static void entry__30_2(void);
-static FRAME_INFO frame__30_2 = {5, {"key", "self", "return", "body", "value"}};
-static void cont__30_3(void);
-static void cont__30_4(void);
-static void cont__30_5(void);
-static void cont__30_6(void);
-static void cont__30_7(void);
-static void cont__30_8(void);
-static void cont__30_9(void);
-static NODE *func__31_1_types__unordered_table_update_each_from_down_to;
-static void entry__31_1_types__unordered_table_update_each_from_down_to(void);
-static FRAME_INFO frame__31_1_types__unordered_table_update_each_from_down_to = {8, {"self", "last", "first", "body", "return", "key", "value", "h"}};
-static void exit__31_1_types__unordered_table_update_each_from_down_to(void);
-static void cont__31_2(void);
-static void cont__31_3(void);
-static void cont__31_4(void);
-static NODE *func__31_5;
-static void entry__31_5(void);
-static FRAME_INFO frame__31_5 = {0, {}};
-static void cont__31_6(void);
-static NODE *func__31_7;
-static void entry__31_7(void);
-static FRAME_INFO frame__31_7 = {6, {"body", "value", "key", "self", "first", "return"}};
-static void cont__31_8(void);
-static void cont__31_9(void);
-static void cont__31_10(void);
-static void cont__31_11(void);
-static void cont__31_12(void);
-static void cont__31_13(void);
-static void cont__31_14(void);
-static void cont__31_15(void);
+static void cont__types__unordered_table__for_each_from_to_7(void);
+static NODE *func__types__unordered_table__for_each_from_to_8;
+static void entry__types__unordered_table__for_each_from_to_8(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_to_8 = {6, {"body", "key", "value", "last", "return", "self"}};
+static void cont__types__unordered_table__for_each_from_to_9(void);
+static void cont__types__unordered_table__for_each_from_to_10(void);
+static NODE *func__types__unordered_table__for_each_from_to_11;
+static void entry__types__unordered_table__for_each_from_to_11(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_to_11 = {3, {"body", "key", "value"}};
+static NODE *func__types__unordered_table__for_each_from_to_12;
+static void entry__types__unordered_table__for_each_from_to_12(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_to_12 = {2, {"body", "value"}};
+static void cont__types__unordered_table__for_each_from_to_13(void);
+static void cont__types__unordered_table__for_each_from_to_14(void);
+static void cont__types__unordered_table__for_each_from_to_15(void);
+static void cont__types__unordered_table__for_each_from_to_16(void);
+static void cont__types__unordered_table__for_each_from_to_17(void);
+static void cont__types__unordered_table__for_each_from_to_18(void);
+static void cont__types__unordered_table__for_each_from_to_19(void);
+static NODE *func__types__unordered_table__for_each_downwards_1;
+static void entry__types__unordered_table__for_each_downwards_1(void);
+static FRAME_INFO frame__types__unordered_table__for_each_downwards_1 = {4, {"self", "body", "return", "key"}};
+static NODE *func__types__unordered_table__for_each_downwards_2;
+static void entry__types__unordered_table__for_each_downwards_2(void);
+static FRAME_INFO frame__types__unordered_table__for_each_downwards_2 = {5, {"key", "self", "return", "body", "value"}};
+static void cont__types__unordered_table__for_each_downwards_3(void);
+static void cont__types__unordered_table__for_each_downwards_4(void);
+static void cont__types__unordered_table__for_each_downwards_5(void);
+static void cont__types__unordered_table__for_each_downwards_6(void);
+static void cont__types__unordered_table__for_each_downwards_7(void);
+static void cont__types__unordered_table__for_each_downwards_8(void);
+static NODE *func__types__unordered_table__for_each_downwards_9;
+static void entry__types__unordered_table__for_each_downwards_9(void);
+static FRAME_INFO frame__types__unordered_table__for_each_downwards_9 = {3, {"body", "key", "value"}};
+static NODE *func__types__unordered_table__for_each_downwards_10;
+static void entry__types__unordered_table__for_each_downwards_10(void);
+static FRAME_INFO frame__types__unordered_table__for_each_downwards_10 = {2, {"body", "value"}};
+static void cont__types__unordered_table__for_each_downwards_11(void);
+static NODE *func__types__unordered_table__for_each_from_down_to_1;
+static void entry__types__unordered_table__for_each_from_down_to_1(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_down_to_1 = {8, {"self", "last", "first", "body", "return", "key", "value", "h"}};
+static void cont__types__unordered_table__for_each_from_down_to_2(void);
+static void cont__types__unordered_table__for_each_from_down_to_3(void);
+static void cont__types__unordered_table__for_each_from_down_to_4(void);
+static NODE *func__types__unordered_table__for_each_from_down_to_5;
+static void entry__types__unordered_table__for_each_from_down_to_5(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_down_to_5 = {0, {}};
+static void cont__types__unordered_table__for_each_from_down_to_6(void);
+static NODE *func__types__unordered_table__for_each_from_down_to_7;
+static void entry__types__unordered_table__for_each_from_down_to_7(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_down_to_7 = {6, {"body", "key", "value", "first", "return", "self"}};
+static void cont__types__unordered_table__for_each_from_down_to_8(void);
+static void cont__types__unordered_table__for_each_from_down_to_9(void);
+static NODE *func__types__unordered_table__for_each_from_down_to_10;
+static void entry__types__unordered_table__for_each_from_down_to_10(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_down_to_10 = {3, {"body", "key", "value"}};
+static NODE *func__types__unordered_table__for_each_from_down_to_11;
+static void entry__types__unordered_table__for_each_from_down_to_11(void);
+static FRAME_INFO frame__types__unordered_table__for_each_from_down_to_11 = {2, {"body", "value"}};
+static void cont__types__unordered_table__for_each_from_down_to_12(void);
+static void cont__types__unordered_table__for_each_from_down_to_13(void);
+static void cont__types__unordered_table__for_each_from_down_to_14(void);
+static void cont__types__unordered_table__for_each_from_down_to_15(void);
+static void cont__types__unordered_table__for_each_from_down_to_16(void);
+static void cont__types__unordered_table__for_each_from_down_to_17(void);
+static void cont__types__unordered_table__for_each_from_down_to_18(void);
+static NODE *func__types__unordered_table__update_each_1;
+static void entry__types__unordered_table__update_each_1(void);
+static FRAME_INFO frame__types__unordered_table__update_each_1 = {4, {"self", "body", "return", "key"}};
+static void exit__types__unordered_table__update_each_1(void);
+static NODE *func__types__unordered_table__update_each_2;
+static void entry__types__unordered_table__update_each_2(void);
+static FRAME_INFO frame__types__unordered_table__update_each_2 = {5, {"key", "self", "return", "body", "value"}};
+static void cont__types__unordered_table__update_each_3(void);
+static void cont__types__unordered_table__update_each_4(void);
+static void cont__types__unordered_table__update_each_5(void);
+static void cont__types__unordered_table__update_each_6(void);
+static void cont__types__unordered_table__update_each_7(void);
+static void cont__types__unordered_table__update_each_8(void);
+static void cont__types__unordered_table__update_each_9(void);
+static NODE *func__types__unordered_table__update_each_from_to_1;
+static void entry__types__unordered_table__update_each_from_to_1(void);
+static FRAME_INFO frame__types__unordered_table__update_each_from_to_1 = {8, {"self", "first", "last", "body", "return", "key", "value", "h"}};
+static void exit__types__unordered_table__update_each_from_to_1(void);
+static void cont__types__unordered_table__update_each_from_to_2(void);
+static void cont__types__unordered_table__update_each_from_to_3(void);
+static void cont__types__unordered_table__update_each_from_to_4(void);
+static NODE *func__types__unordered_table__update_each_from_to_5;
+static void entry__types__unordered_table__update_each_from_to_5(void);
+static FRAME_INFO frame__types__unordered_table__update_each_from_to_5 = {0, {}};
+static void cont__types__unordered_table__update_each_from_to_6(void);
+static NODE *func__types__unordered_table__update_each_from_to_7;
+static void entry__types__unordered_table__update_each_from_to_7(void);
+static FRAME_INFO frame__types__unordered_table__update_each_from_to_7 = {6, {"body", "value", "key", "self", "last", "return"}};
+static void cont__types__unordered_table__update_each_from_to_8(void);
+static void cont__types__unordered_table__update_each_from_to_9(void);
+static void cont__types__unordered_table__update_each_from_to_10(void);
+static void cont__types__unordered_table__update_each_from_to_11(void);
+static void cont__types__unordered_table__update_each_from_to_12(void);
+static void cont__types__unordered_table__update_each_from_to_13(void);
+static void cont__types__unordered_table__update_each_from_to_14(void);
+static void cont__types__unordered_table__update_each_from_to_15(void);
+static NODE *func__types__unordered_table__update_each_downwards_1;
+static void entry__types__unordered_table__update_each_downwards_1(void);
+static FRAME_INFO frame__types__unordered_table__update_each_downwards_1 = {4, {"self", "body", "return", "key"}};
+static void exit__types__unordered_table__update_each_downwards_1(void);
+static NODE *func__types__unordered_table__update_each_downwards_2;
+static void entry__types__unordered_table__update_each_downwards_2(void);
+static FRAME_INFO frame__types__unordered_table__update_each_downwards_2 = {5, {"key", "self", "return", "body", "value"}};
+static void cont__types__unordered_table__update_each_downwards_3(void);
+static void cont__types__unordered_table__update_each_downwards_4(void);
+static void cont__types__unordered_table__update_each_downwards_5(void);
+static void cont__types__unordered_table__update_each_downwards_6(void);
+static void cont__types__unordered_table__update_each_downwards_7(void);
+static void cont__types__unordered_table__update_each_downwards_8(void);
+static void cont__types__unordered_table__update_each_downwards_9(void);
+static NODE *func__types__unordered_table__update_each_from_down_to_1;
+static void entry__types__unordered_table__update_each_from_down_to_1(void);
+static FRAME_INFO frame__types__unordered_table__update_each_from_down_to_1 = {8, {"self", "last", "first", "body", "return", "key", "value", "h"}};
+static void exit__types__unordered_table__update_each_from_down_to_1(void);
+static void cont__types__unordered_table__update_each_from_down_to_2(void);
+static void cont__types__unordered_table__update_each_from_down_to_3(void);
+static void cont__types__unordered_table__update_each_from_down_to_4(void);
+static NODE *func__types__unordered_table__update_each_from_down_to_5;
+static void entry__types__unordered_table__update_each_from_down_to_5(void);
+static FRAME_INFO frame__types__unordered_table__update_each_from_down_to_5 = {0, {}};
+static void cont__types__unordered_table__update_each_from_down_to_6(void);
+static NODE *func__types__unordered_table__update_each_from_down_to_7;
+static void entry__types__unordered_table__update_each_from_down_to_7(void);
+static FRAME_INFO frame__types__unordered_table__update_each_from_down_to_7 = {6, {"body", "value", "key", "self", "first", "return"}};
+static void cont__types__unordered_table__update_each_from_down_to_8(void);
+static void cont__types__unordered_table__update_each_from_down_to_9(void);
+static void cont__types__unordered_table__update_each_from_down_to_10(void);
+static void cont__types__unordered_table__update_each_from_down_to_11(void);
+static void cont__types__unordered_table__update_each_from_down_to_12(void);
+static void cont__types__unordered_table__update_each_from_down_to_13(void);
+static void cont__types__unordered_table__update_each_from_down_to_14(void);
+static void cont__types__unordered_table__update_each_from_down_to_15(void);
 
 static long func__types__unordered_table___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static void cont__66_1(void);
@@ -665,151 +665,151 @@ void run__basic__types__unordered_table(void);
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__unordered_table, NULL, 1189, 1189, 1, 70},
   {cont__66_1, NULL, },
-  {entry__11_1_insert_item, NULL, 305, 541, 3, 2},
-  {entry__12_1_retrieve_item, NULL, 544, 617, 3, 2},
-  {entry__14_1_types__unordered_table_length_of, NULL, 636, 672, 3, 2},
-  {entry__15_1_next_key_and_value, NULL, 675, 742, 3, 2},
-  {entry__16_1_previous_key_and_value, NULL, 745, 806, 3, 2},
-  {entry__17_3, NULL, 817, 817, 37, 37},
-  {entry__17_9, NULL, 831, 831, 25, 35},
-  {entry__17_12, NULL, 833, 833, 72, 72},
-  {entry__17_6, NULL, 830, 830, 5, 42},
-  {cont__17_7, &frame__17_6, 831, 831, 8, 22},
-  {cont__17_8, &frame__17_6, 831, 831, 5, 35},
-  {cont__17_10, &frame__17_6, 832, 832, 8, 41},
-  {cont__17_11, &frame__17_6, 832, 833, 5, 72},
-  {entry__17_1_types__unordered_table_private__set_item, NULL, 817, 817, 6, 21},
-  {cont__17_2, &frame__17_1_types__unordered_table_private__set_item, 817, 817, 3, 37},
-  {cont__17_4, &frame__17_1_types__unordered_table_private__set_item, 818, 818, 3, 14},
-  {cont__17_5, &frame__17_1_types__unordered_table_private__set_item, 829, 833, 3, 73},
-  {cont__17_13, &frame__17_1_types__unordered_table_private__set_item, 833, 833, 73, 73},
-  {entry__18_6, NULL, 859, 859, 27, 60},
-  {cont__18_7, &frame__18_6, 859, 859, 27, 60},
-  {entry__18_9, NULL, 860, 860, 7, 28},
-  {entry__18_3, NULL, 854, 854, 5, 50},
-  {cont__18_4, &frame__18_3, 859, 859, 8, 22},
-  {cont__18_5, &frame__18_3, 859, 859, 8, 60},
-  {cont__18_8, &frame__18_3, 859, 860, 5, 28},
-  {entry__18_1_types__unordered_table_private__get_item, NULL, 843, 843, 3, 14},
-  {cont__18_2, &frame__18_1_types__unordered_table_private__get_item, 853, 866, 3, 52},
-  {cont__18_10, &frame__18_1_types__unordered_table_private__get_item, 866, 866, 52, 52},
-  {entry__19_3, NULL, 884, 884, 7, 34},
-  {entry__19_4, NULL, 886, 886, 7, 40},
-  {entry__19_1_types__unordered_table_, NULL, 883, 883, 5, 17},
-  {cont__19_2, &frame__19_1_types__unordered_table_, 882, 886, 3, 41},
-  {entry__21_1_types__unordered_table_new_empty_collection, NULL, 898, 898, 3, 27},
-  {entry__23_2, NULL, 919, 919, 5, 61},
-  {cont__23_3, &frame__23_2, 919, 919, 10, 33},
-  {cont__23_4, &frame__23_2, 919, 919, 5, 34},
-  {cont__23_5, &frame__23_2, 919, 919, 61, 61},
-  {entry__23_1_std__unordered_table, NULL, 918, 919, 3, 61},
-  {cont__23_6, &frame__23_1_std__unordered_table, 920, 920, 3, 8},
-  {entry__24_9, NULL, 941, 941, 9, 22},
-  {entry__24_10, NULL, 943, 943, 9, 18},
-  {entry__24_2, NULL, 937, 937, 29, 37},
-  {cont__24_3, &frame__24_2, 937, 937, 5, 49},
-  {cont__24_4, &frame__24_2, 938, 938, 8, 18},
-  {cont__24_5, &frame__24_2, 938, 938, 5, 25},
-  {cont__24_6, &frame__24_2, 940, 940, 7, 30},
-  {cont__24_7, &frame__24_2, 940, 940, 7, 35},
-  {cont__24_8, &frame__24_2, 939, 943, 5, 19},
-  {entry__24_1_types__unordered_table_for_each, NULL, 936, 943, 3, 20},
-  {cont__24_11, &frame__24_1_types__unordered_table_for_each, 943, 943, 20, 20},
-  {entry__25_5, NULL, 963, 963, 19, 46},
-  {entry__25_11, NULL, 967, 967, 9, 22},
-  {entry__25_12, NULL, 969, 969, 9, 18},
-  {entry__25_8, NULL, 966, 966, 7, 30},
-  {cont__25_9, &frame__25_8, 966, 966, 7, 35},
-  {cont__25_10, &frame__25_8, 965, 969, 5, 19},
-  {cont__25_13, &frame__25_8, 970, 970, 8, 18},
-  {cont__25_14, &frame__25_8, 970, 970, 5, 25},
-  {cont__25_15, &frame__25_8, 971, 971, 29, 37},
-  {cont__25_16, &frame__25_8, 971, 971, 5, 49},
-  {cont__25_17, &frame__25_8, 972, 972, 8, 18},
-  {cont__25_18, &frame__25_8, 972, 972, 5, 25},
-  {entry__25_1_types__unordered_table_for_each_from_to, NULL, 961, 961, 3, 14},
-  {cont__25_2, &frame__25_1_types__unordered_table_for_each_from_to, 962, 962, 3, 34},
-  {cont__25_3, &frame__25_1_types__unordered_table_for_each_from_to, 963, 963, 6, 16},
-  {cont__25_4, &frame__25_1_types__unordered_table_for_each_from_to, 963, 963, 3, 46},
-  {cont__25_7, &frame__25_1_types__unordered_table_for_each_from_to, 964, 972, 3, 25},
-  {cont__25_19, &frame__25_1_types__unordered_table_for_each_from_to, 972, 972, 25, 25},
-  {entry__26_9, NULL, 993, 993, 9, 22},
-  {entry__26_10, NULL, 995, 995, 9, 18},
-  {entry__26_2, NULL, 989, 989, 33, 41},
-  {cont__26_3, &frame__26_2, 989, 989, 5, 53},
-  {cont__26_4, &frame__26_2, 990, 990, 8, 18},
-  {cont__26_5, &frame__26_2, 990, 990, 5, 25},
-  {cont__26_6, &frame__26_2, 992, 992, 7, 30},
-  {cont__26_7, &frame__26_2, 992, 992, 7, 35},
-  {cont__26_8, &frame__26_2, 991, 995, 5, 19},
-  {entry__26_1_types__unordered_table_for_each_downwards, NULL, 988, 995, 3, 20},
-  {cont__26_11, &frame__26_1_types__unordered_table_for_each_downwards, 995, 995, 20, 20},
-  {entry__27_5, NULL, 1015, 1015, 19, 46},
-  {entry__27_10, NULL, 1019, 1019, 9, 22},
-  {entry__27_11, NULL, 1021, 1021, 9, 18},
-  {entry__27_7, NULL, 1018, 1018, 7, 30},
-  {cont__27_8, &frame__27_7, 1018, 1018, 7, 35},
-  {cont__27_9, &frame__27_7, 1017, 1021, 5, 19},
-  {cont__27_12, &frame__27_7, 1022, 1022, 8, 19},
-  {cont__27_13, &frame__27_7, 1022, 1022, 5, 26},
-  {cont__27_14, &frame__27_7, 1023, 1023, 33, 41},
-  {cont__27_15, &frame__27_7, 1023, 1023, 5, 53},
-  {cont__27_16, &frame__27_7, 1024, 1024, 8, 18},
-  {cont__27_17, &frame__27_7, 1024, 1024, 5, 25},
-  {entry__27_1_types__unordered_table_for_each_from_down_to, NULL, 1013, 1013, 3, 14},
-  {cont__27_2, &frame__27_1_types__unordered_table_for_each_from_down_to, 1014, 1014, 3, 34},
-  {cont__27_3, &frame__27_1_types__unordered_table_for_each_from_down_to, 1015, 1015, 6, 16},
-  {cont__27_4, &frame__27_1_types__unordered_table_for_each_from_down_to, 1015, 1015, 3, 46},
-  {cont__27_6, &frame__27_1_types__unordered_table_for_each_from_down_to, 1016, 1024, 3, 25},
-  {cont__27_18, &frame__27_1_types__unordered_table_for_each_from_down_to, 1024, 1024, 25, 25},
-  {entry__28_2, NULL, 1041, 1041, 29, 37},
-  {cont__28_3, &frame__28_2, 1041, 1041, 5, 50},
-  {cont__28_4, &frame__28_2, 1042, 1042, 8, 18},
-  {cont__28_5, &frame__28_2, 1042, 1042, 5, 25},
-  {cont__28_6, &frame__28_2, 1043, 1043, 5, 19},
-  {cont__28_7, &frame__28_2, 1044, 1044, 5, 14},
-  {cont__28_8, &frame__28_2, 1044, 1044, 20, 20},
-  {entry__28_1_types__unordered_table_update_each, NULL, 1040, 1044, 3, 20},
-  {cont__28_9, &frame__28_1_types__unordered_table_update_each, 1044, 1044, 20, 20},
-  {entry__29_5, NULL, 1064, 1064, 19, 46},
-  {entry__29_7, NULL, 1066, 1066, 5, 19},
-  {cont__29_8, &frame__29_7, 1067, 1067, 5, 14},
-  {cont__29_9, &frame__29_7, 1068, 1068, 8, 18},
-  {cont__29_10, &frame__29_7, 1068, 1068, 5, 25},
-  {cont__29_11, &frame__29_7, 1069, 1069, 29, 37},
-  {cont__29_12, &frame__29_7, 1069, 1069, 5, 49},
-  {cont__29_13, &frame__29_7, 1070, 1070, 8, 18},
-  {cont__29_14, &frame__29_7, 1070, 1070, 5, 25},
-  {entry__29_1_types__unordered_table_update_each_from_to, NULL, 1062, 1062, 3, 14},
-  {cont__29_2, &frame__29_1_types__unordered_table_update_each_from_to, 1063, 1063, 3, 34},
-  {cont__29_3, &frame__29_1_types__unordered_table_update_each_from_to, 1064, 1064, 6, 16},
-  {cont__29_4, &frame__29_1_types__unordered_table_update_each_from_to, 1064, 1064, 3, 46},
-  {cont__29_6, &frame__29_1_types__unordered_table_update_each_from_to, 1065, 1070, 3, 25},
-  {cont__29_15, &frame__29_1_types__unordered_table_update_each_from_to, 1070, 1070, 25, 25},
-  {entry__30_2, NULL, 1087, 1087, 33, 41},
-  {cont__30_3, &frame__30_2, 1087, 1087, 5, 54},
-  {cont__30_4, &frame__30_2, 1088, 1088, 8, 18},
-  {cont__30_5, &frame__30_2, 1088, 1088, 5, 25},
-  {cont__30_6, &frame__30_2, 1089, 1089, 5, 19},
-  {cont__30_7, &frame__30_2, 1090, 1090, 5, 14},
-  {cont__30_8, &frame__30_2, 1090, 1090, 20, 20},
-  {entry__30_1_types__unordered_table_update_each_downwards, NULL, 1086, 1090, 3, 20},
-  {cont__30_9, &frame__30_1_types__unordered_table_update_each_downwards, 1090, 1090, 20, 20},
-  {entry__31_5, NULL, 1110, 1110, 19, 46},
-  {entry__31_7, NULL, 1112, 1112, 5, 19},
-  {cont__31_8, &frame__31_7, 1113, 1113, 5, 14},
-  {cont__31_9, &frame__31_7, 1114, 1114, 8, 19},
-  {cont__31_10, &frame__31_7, 1114, 1114, 5, 26},
-  {cont__31_11, &frame__31_7, 1115, 1115, 33, 41},
-  {cont__31_12, &frame__31_7, 1115, 1115, 5, 53},
-  {cont__31_13, &frame__31_7, 1116, 1116, 8, 18},
-  {cont__31_14, &frame__31_7, 1116, 1116, 5, 25},
-  {entry__31_1_types__unordered_table_update_each_from_down_to, NULL, 1108, 1108, 3, 14},
-  {cont__31_2, &frame__31_1_types__unordered_table_update_each_from_down_to, 1109, 1109, 3, 34},
-  {cont__31_3, &frame__31_1_types__unordered_table_update_each_from_down_to, 1110, 1110, 6, 16},
-  {cont__31_4, &frame__31_1_types__unordered_table_update_each_from_down_to, 1110, 1110, 3, 46},
-  {cont__31_6, &frame__31_1_types__unordered_table_update_each_from_down_to, 1111, 1116, 3, 25},
-  {cont__31_15, &frame__31_1_types__unordered_table_update_each_from_down_to, 1116, 1116, 25, 25}
+  {entry__insert_item_1, NULL, 305, 541, 3, 2},
+  {entry__retrieve_item_1, NULL, 544, 617, 3, 2},
+  {entry__types__unordered_table__length_of_1, NULL, 636, 672, 3, 2},
+  {entry__next_key_and_value_1, NULL, 675, 742, 3, 2},
+  {entry__previous_key_and_value_1, NULL, 745, 806, 3, 2},
+  {entry__types__unordered_table__private__set_item_3, NULL, 817, 817, 37, 37},
+  {entry__types__unordered_table__private__set_item_9, NULL, 831, 831, 25, 35},
+  {entry__types__unordered_table__private__set_item_12, NULL, 833, 833, 72, 72},
+  {entry__types__unordered_table__private__set_item_6, NULL, 830, 830, 5, 42},
+  {cont__types__unordered_table__private__set_item_7, &frame__types__unordered_table__private__set_item_6, 831, 831, 8, 22},
+  {cont__types__unordered_table__private__set_item_8, &frame__types__unordered_table__private__set_item_6, 831, 831, 5, 35},
+  {cont__types__unordered_table__private__set_item_10, &frame__types__unordered_table__private__set_item_6, 832, 832, 8, 41},
+  {cont__types__unordered_table__private__set_item_11, &frame__types__unordered_table__private__set_item_6, 832, 833, 5, 72},
+  {entry__types__unordered_table__private__set_item_1, NULL, 817, 817, 6, 21},
+  {cont__types__unordered_table__private__set_item_2, &frame__types__unordered_table__private__set_item_1, 817, 817, 3, 37},
+  {cont__types__unordered_table__private__set_item_4, &frame__types__unordered_table__private__set_item_1, 818, 818, 3, 14},
+  {cont__types__unordered_table__private__set_item_5, &frame__types__unordered_table__private__set_item_1, 829, 833, 3, 73},
+  {cont__types__unordered_table__private__set_item_13, &frame__types__unordered_table__private__set_item_1, 833, 833, 73, 73},
+  {entry__types__unordered_table__private__get_item_6, NULL, 859, 859, 27, 60},
+  {cont__types__unordered_table__private__get_item_7, &frame__types__unordered_table__private__get_item_6, 859, 859, 27, 60},
+  {entry__types__unordered_table__private__get_item_9, NULL, 860, 860, 7, 28},
+  {entry__types__unordered_table__private__get_item_3, NULL, 854, 854, 5, 50},
+  {cont__types__unordered_table__private__get_item_4, &frame__types__unordered_table__private__get_item_3, 859, 859, 8, 22},
+  {cont__types__unordered_table__private__get_item_5, &frame__types__unordered_table__private__get_item_3, 859, 859, 8, 60},
+  {cont__types__unordered_table__private__get_item_8, &frame__types__unordered_table__private__get_item_3, 859, 860, 5, 28},
+  {entry__types__unordered_table__private__get_item_1, NULL, 843, 843, 3, 14},
+  {cont__types__unordered_table__private__get_item_2, &frame__types__unordered_table__private__get_item_1, 853, 866, 3, 52},
+  {cont__types__unordered_table__private__get_item_10, &frame__types__unordered_table__private__get_item_1, 866, 866, 52, 52},
+  {entry__types__unordered_table_3, NULL, 884, 884, 7, 34},
+  {entry__types__unordered_table_4, NULL, 886, 886, 7, 40},
+  {entry__types__unordered_table_1, NULL, 883, 883, 5, 17},
+  {cont__types__unordered_table_2, &frame__types__unordered_table_1, 882, 886, 3, 41},
+  {entry__types__unordered_table__new_empty_collection_1, NULL, 898, 898, 3, 27},
+  {entry__std__unordered_table_2, NULL, 919, 919, 5, 61},
+  {cont__std__unordered_table_3, &frame__std__unordered_table_2, 919, 919, 10, 33},
+  {cont__std__unordered_table_4, &frame__std__unordered_table_2, 919, 919, 5, 34},
+  {cont__std__unordered_table_5, &frame__std__unordered_table_2, 919, 919, 61, 61},
+  {entry__std__unordered_table_1, NULL, 918, 919, 3, 61},
+  {cont__std__unordered_table_6, &frame__std__unordered_table_1, 920, 920, 3, 8},
+  {entry__types__unordered_table__for_each_9, NULL, 941, 941, 9, 22},
+  {entry__types__unordered_table__for_each_10, NULL, 943, 943, 9, 18},
+  {entry__types__unordered_table__for_each_2, NULL, 937, 937, 29, 37},
+  {cont__types__unordered_table__for_each_3, &frame__types__unordered_table__for_each_2, 937, 937, 5, 49},
+  {cont__types__unordered_table__for_each_4, &frame__types__unordered_table__for_each_2, 938, 938, 8, 18},
+  {cont__types__unordered_table__for_each_5, &frame__types__unordered_table__for_each_2, 938, 938, 5, 25},
+  {cont__types__unordered_table__for_each_6, &frame__types__unordered_table__for_each_2, 940, 940, 7, 30},
+  {cont__types__unordered_table__for_each_7, &frame__types__unordered_table__for_each_2, 940, 940, 7, 35},
+  {cont__types__unordered_table__for_each_8, &frame__types__unordered_table__for_each_2, 939, 943, 5, 19},
+  {entry__types__unordered_table__for_each_1, NULL, 936, 943, 3, 20},
+  {cont__types__unordered_table__for_each_11, &frame__types__unordered_table__for_each_1, 943, 943, 20, 20},
+  {entry__types__unordered_table__for_each_from_to_5, NULL, 963, 963, 19, 46},
+  {entry__types__unordered_table__for_each_from_to_11, NULL, 967, 967, 9, 22},
+  {entry__types__unordered_table__for_each_from_to_12, NULL, 969, 969, 9, 18},
+  {entry__types__unordered_table__for_each_from_to_8, NULL, 966, 966, 7, 30},
+  {cont__types__unordered_table__for_each_from_to_9, &frame__types__unordered_table__for_each_from_to_8, 966, 966, 7, 35},
+  {cont__types__unordered_table__for_each_from_to_10, &frame__types__unordered_table__for_each_from_to_8, 965, 969, 5, 19},
+  {cont__types__unordered_table__for_each_from_to_13, &frame__types__unordered_table__for_each_from_to_8, 970, 970, 8, 18},
+  {cont__types__unordered_table__for_each_from_to_14, &frame__types__unordered_table__for_each_from_to_8, 970, 970, 5, 25},
+  {cont__types__unordered_table__for_each_from_to_15, &frame__types__unordered_table__for_each_from_to_8, 971, 971, 29, 37},
+  {cont__types__unordered_table__for_each_from_to_16, &frame__types__unordered_table__for_each_from_to_8, 971, 971, 5, 49},
+  {cont__types__unordered_table__for_each_from_to_17, &frame__types__unordered_table__for_each_from_to_8, 972, 972, 8, 18},
+  {cont__types__unordered_table__for_each_from_to_18, &frame__types__unordered_table__for_each_from_to_8, 972, 972, 5, 25},
+  {entry__types__unordered_table__for_each_from_to_1, NULL, 961, 961, 3, 14},
+  {cont__types__unordered_table__for_each_from_to_2, &frame__types__unordered_table__for_each_from_to_1, 962, 962, 3, 34},
+  {cont__types__unordered_table__for_each_from_to_3, &frame__types__unordered_table__for_each_from_to_1, 963, 963, 6, 16},
+  {cont__types__unordered_table__for_each_from_to_4, &frame__types__unordered_table__for_each_from_to_1, 963, 963, 3, 46},
+  {cont__types__unordered_table__for_each_from_to_7, &frame__types__unordered_table__for_each_from_to_1, 964, 972, 3, 25},
+  {cont__types__unordered_table__for_each_from_to_19, &frame__types__unordered_table__for_each_from_to_1, 972, 972, 25, 25},
+  {entry__types__unordered_table__for_each_downwards_9, NULL, 993, 993, 9, 22},
+  {entry__types__unordered_table__for_each_downwards_10, NULL, 995, 995, 9, 18},
+  {entry__types__unordered_table__for_each_downwards_2, NULL, 989, 989, 33, 41},
+  {cont__types__unordered_table__for_each_downwards_3, &frame__types__unordered_table__for_each_downwards_2, 989, 989, 5, 53},
+  {cont__types__unordered_table__for_each_downwards_4, &frame__types__unordered_table__for_each_downwards_2, 990, 990, 8, 18},
+  {cont__types__unordered_table__for_each_downwards_5, &frame__types__unordered_table__for_each_downwards_2, 990, 990, 5, 25},
+  {cont__types__unordered_table__for_each_downwards_6, &frame__types__unordered_table__for_each_downwards_2, 992, 992, 7, 30},
+  {cont__types__unordered_table__for_each_downwards_7, &frame__types__unordered_table__for_each_downwards_2, 992, 992, 7, 35},
+  {cont__types__unordered_table__for_each_downwards_8, &frame__types__unordered_table__for_each_downwards_2, 991, 995, 5, 19},
+  {entry__types__unordered_table__for_each_downwards_1, NULL, 988, 995, 3, 20},
+  {cont__types__unordered_table__for_each_downwards_11, &frame__types__unordered_table__for_each_downwards_1, 995, 995, 20, 20},
+  {entry__types__unordered_table__for_each_from_down_to_5, NULL, 1015, 1015, 19, 46},
+  {entry__types__unordered_table__for_each_from_down_to_10, NULL, 1019, 1019, 9, 22},
+  {entry__types__unordered_table__for_each_from_down_to_11, NULL, 1021, 1021, 9, 18},
+  {entry__types__unordered_table__for_each_from_down_to_7, NULL, 1018, 1018, 7, 30},
+  {cont__types__unordered_table__for_each_from_down_to_8, &frame__types__unordered_table__for_each_from_down_to_7, 1018, 1018, 7, 35},
+  {cont__types__unordered_table__for_each_from_down_to_9, &frame__types__unordered_table__for_each_from_down_to_7, 1017, 1021, 5, 19},
+  {cont__types__unordered_table__for_each_from_down_to_12, &frame__types__unordered_table__for_each_from_down_to_7, 1022, 1022, 8, 19},
+  {cont__types__unordered_table__for_each_from_down_to_13, &frame__types__unordered_table__for_each_from_down_to_7, 1022, 1022, 5, 26},
+  {cont__types__unordered_table__for_each_from_down_to_14, &frame__types__unordered_table__for_each_from_down_to_7, 1023, 1023, 33, 41},
+  {cont__types__unordered_table__for_each_from_down_to_15, &frame__types__unordered_table__for_each_from_down_to_7, 1023, 1023, 5, 53},
+  {cont__types__unordered_table__for_each_from_down_to_16, &frame__types__unordered_table__for_each_from_down_to_7, 1024, 1024, 8, 18},
+  {cont__types__unordered_table__for_each_from_down_to_17, &frame__types__unordered_table__for_each_from_down_to_7, 1024, 1024, 5, 25},
+  {entry__types__unordered_table__for_each_from_down_to_1, NULL, 1013, 1013, 3, 14},
+  {cont__types__unordered_table__for_each_from_down_to_2, &frame__types__unordered_table__for_each_from_down_to_1, 1014, 1014, 3, 34},
+  {cont__types__unordered_table__for_each_from_down_to_3, &frame__types__unordered_table__for_each_from_down_to_1, 1015, 1015, 6, 16},
+  {cont__types__unordered_table__for_each_from_down_to_4, &frame__types__unordered_table__for_each_from_down_to_1, 1015, 1015, 3, 46},
+  {cont__types__unordered_table__for_each_from_down_to_6, &frame__types__unordered_table__for_each_from_down_to_1, 1016, 1024, 3, 25},
+  {cont__types__unordered_table__for_each_from_down_to_18, &frame__types__unordered_table__for_each_from_down_to_1, 1024, 1024, 25, 25},
+  {entry__types__unordered_table__update_each_2, NULL, 1041, 1041, 29, 37},
+  {cont__types__unordered_table__update_each_3, &frame__types__unordered_table__update_each_2, 1041, 1041, 5, 50},
+  {cont__types__unordered_table__update_each_4, &frame__types__unordered_table__update_each_2, 1042, 1042, 8, 18},
+  {cont__types__unordered_table__update_each_5, &frame__types__unordered_table__update_each_2, 1042, 1042, 5, 25},
+  {cont__types__unordered_table__update_each_6, &frame__types__unordered_table__update_each_2, 1043, 1043, 5, 19},
+  {cont__types__unordered_table__update_each_7, &frame__types__unordered_table__update_each_2, 1044, 1044, 5, 14},
+  {cont__types__unordered_table__update_each_8, &frame__types__unordered_table__update_each_2, 1044, 1044, 20, 20},
+  {entry__types__unordered_table__update_each_1, NULL, 1040, 1044, 3, 20},
+  {cont__types__unordered_table__update_each_9, &frame__types__unordered_table__update_each_1, 1044, 1044, 20, 20},
+  {entry__types__unordered_table__update_each_from_to_5, NULL, 1064, 1064, 19, 46},
+  {entry__types__unordered_table__update_each_from_to_7, NULL, 1066, 1066, 5, 19},
+  {cont__types__unordered_table__update_each_from_to_8, &frame__types__unordered_table__update_each_from_to_7, 1067, 1067, 5, 14},
+  {cont__types__unordered_table__update_each_from_to_9, &frame__types__unordered_table__update_each_from_to_7, 1068, 1068, 8, 18},
+  {cont__types__unordered_table__update_each_from_to_10, &frame__types__unordered_table__update_each_from_to_7, 1068, 1068, 5, 25},
+  {cont__types__unordered_table__update_each_from_to_11, &frame__types__unordered_table__update_each_from_to_7, 1069, 1069, 29, 37},
+  {cont__types__unordered_table__update_each_from_to_12, &frame__types__unordered_table__update_each_from_to_7, 1069, 1069, 5, 49},
+  {cont__types__unordered_table__update_each_from_to_13, &frame__types__unordered_table__update_each_from_to_7, 1070, 1070, 8, 18},
+  {cont__types__unordered_table__update_each_from_to_14, &frame__types__unordered_table__update_each_from_to_7, 1070, 1070, 5, 25},
+  {entry__types__unordered_table__update_each_from_to_1, NULL, 1062, 1062, 3, 14},
+  {cont__types__unordered_table__update_each_from_to_2, &frame__types__unordered_table__update_each_from_to_1, 1063, 1063, 3, 34},
+  {cont__types__unordered_table__update_each_from_to_3, &frame__types__unordered_table__update_each_from_to_1, 1064, 1064, 6, 16},
+  {cont__types__unordered_table__update_each_from_to_4, &frame__types__unordered_table__update_each_from_to_1, 1064, 1064, 3, 46},
+  {cont__types__unordered_table__update_each_from_to_6, &frame__types__unordered_table__update_each_from_to_1, 1065, 1070, 3, 25},
+  {cont__types__unordered_table__update_each_from_to_15, &frame__types__unordered_table__update_each_from_to_1, 1070, 1070, 25, 25},
+  {entry__types__unordered_table__update_each_downwards_2, NULL, 1087, 1087, 33, 41},
+  {cont__types__unordered_table__update_each_downwards_3, &frame__types__unordered_table__update_each_downwards_2, 1087, 1087, 5, 54},
+  {cont__types__unordered_table__update_each_downwards_4, &frame__types__unordered_table__update_each_downwards_2, 1088, 1088, 8, 18},
+  {cont__types__unordered_table__update_each_downwards_5, &frame__types__unordered_table__update_each_downwards_2, 1088, 1088, 5, 25},
+  {cont__types__unordered_table__update_each_downwards_6, &frame__types__unordered_table__update_each_downwards_2, 1089, 1089, 5, 19},
+  {cont__types__unordered_table__update_each_downwards_7, &frame__types__unordered_table__update_each_downwards_2, 1090, 1090, 5, 14},
+  {cont__types__unordered_table__update_each_downwards_8, &frame__types__unordered_table__update_each_downwards_2, 1090, 1090, 20, 20},
+  {entry__types__unordered_table__update_each_downwards_1, NULL, 1086, 1090, 3, 20},
+  {cont__types__unordered_table__update_each_downwards_9, &frame__types__unordered_table__update_each_downwards_1, 1090, 1090, 20, 20},
+  {entry__types__unordered_table__update_each_from_down_to_5, NULL, 1110, 1110, 19, 46},
+  {entry__types__unordered_table__update_each_from_down_to_7, NULL, 1112, 1112, 5, 19},
+  {cont__types__unordered_table__update_each_from_down_to_8, &frame__types__unordered_table__update_each_from_down_to_7, 1113, 1113, 5, 14},
+  {cont__types__unordered_table__update_each_from_down_to_9, &frame__types__unordered_table__update_each_from_down_to_7, 1114, 1114, 8, 19},
+  {cont__types__unordered_table__update_each_from_down_to_10, &frame__types__unordered_table__update_each_from_down_to_7, 1114, 1114, 5, 26},
+  {cont__types__unordered_table__update_each_from_down_to_11, &frame__types__unordered_table__update_each_from_down_to_7, 1115, 1115, 33, 41},
+  {cont__types__unordered_table__update_each_from_down_to_12, &frame__types__unordered_table__update_each_from_down_to_7, 1115, 1115, 5, 53},
+  {cont__types__unordered_table__update_each_from_down_to_13, &frame__types__unordered_table__update_each_from_down_to_7, 1116, 1116, 8, 18},
+  {cont__types__unordered_table__update_each_from_down_to_14, &frame__types__unordered_table__update_each_from_down_to_7, 1116, 1116, 5, 25},
+  {entry__types__unordered_table__update_each_from_down_to_1, NULL, 1108, 1108, 3, 14},
+  {cont__types__unordered_table__update_each_from_down_to_2, &frame__types__unordered_table__update_each_from_down_to_1, 1109, 1109, 3, 34},
+  {cont__types__unordered_table__update_each_from_down_to_3, &frame__types__unordered_table__update_each_from_down_to_1, 1110, 1110, 6, 16},
+  {cont__types__unordered_table__update_each_from_down_to_4, &frame__types__unordered_table__update_each_from_down_to_1, 1110, 1110, 3, 46},
+  {cont__types__unordered_table__update_each_from_down_to_6, &frame__types__unordered_table__update_each_from_down_to_1, 1111, 1116, 3, 25},
+  {cont__types__unordered_table__update_each_from_down_to_15, &frame__types__unordered_table__update_each_from_down_to_1, 1116, 1116, 25, 25}
 };
 
 union NODE {
@@ -1076,7 +1076,7 @@ static void *collect_unordered_table(UNORDERED_TABLE *node) {
       node->data, node->rev_no, (REFERRED_REVISION *)&node->rev_no);
   return new_node;
 }
-static void entry__11_1_insert_item(void) {
+static void entry__insert_item_1(void) {
   if (argument_count != 5) {
     invalid_arguments_error();
     return;
@@ -1321,7 +1321,7 @@ static void entry__11_1_insert_item(void) {
     return;
   }
 }
-static void entry__12_1_retrieve_item(void) {
+static void entry__retrieve_item_1(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -1461,7 +1461,7 @@ static NODE *create__types__unordered_table(long rev_no, UNORDERED_TABLE_DATA *d
   node->unordered_table.data = data;
   return node;
 }
-static void entry__14_1_types__unordered_table_length_of(void) {
+static void entry__types__unordered_table__length_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1509,7 +1509,7 @@ static void entry__14_1_types__unordered_table_length_of(void) {
     return;
   }
 }
-static void entry__15_1_next_key_and_value(void) {
+static void entry__next_key_and_value_1(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -1587,7 +1587,7 @@ static void entry__15_1_next_key_and_value(void) {
     return;
   }
 }
-static void entry__16_1_previous_key_and_value(void) {
+static void entry__previous_key_and_value_1(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -1657,7 +1657,7 @@ static void entry__16_1_previous_key_and_value(void) {
     return;
   }
 }
-static void entry__17_1_types__unordered_table_private__set_item(void) {
+static void entry__types__unordered_table__private__set_item_1(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // self: 0
@@ -1682,16 +1682,16 @@ static void entry__17_1_types__unordered_table_private__set_item(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__17_2;
+  frame->cont = cont__types__unordered_table__private__set_item_2;
 }
-static void cont__17_2(void) {
+static void cont__types__unordered_table__private__set_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 817: ... : !key undefined
-  frame->slots[7] /* temp__2 */ = create_closure(entry__17_3, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__unordered_table__private__set_item_3, 0);
   // 817: if key.is_undefined: !key undefined
   argument_count = 2;
   arguments = node_p;
@@ -1700,9 +1700,9 @@ static void cont__17_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__17_4;
+  frame->cont = cont__types__unordered_table__private__set_item_4;
 }
-static void entry__17_3(void) {
+static void entry__types__unordered_table__private__set_item_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // key: 0
@@ -1719,7 +1719,7 @@ static void entry__17_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__17_4(void) {
+static void cont__types__unordered_table__private__set_item_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1731,9 +1731,9 @@ static void cont__17_4(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__17_5;
+  frame->cont = cont__types__unordered_table__private__set_item_5;
 }
-static void cont__17_5(void) {
+static void cont__types__unordered_table__private__set_item_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1746,7 +1746,7 @@ static void cont__17_5(void) {
   // 831:   if cmp_key == NONE: return self
   // 832:   if cmp_key .equal_type_and_value. key:
   // 833:     !key cmp_key # force the use of the already stored (and equal) key
-  frame->slots[6] /* temp__1 */ = create_closure(entry__17_6, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__types__unordered_table__private__set_item_6, 0);
   // 829: forever:
   // 830:   insert_item &self h &cmp_key key value
   // 831:   if cmp_key == NONE: return self
@@ -1758,9 +1758,9 @@ static void cont__17_5(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__17_13;
+  frame->cont = cont__types__unordered_table__private__set_item_13;
 }
-static void entry__17_12(void) {
+static void entry__types__unordered_table__private__set_item_12(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // key: 0
@@ -1779,7 +1779,7 @@ static void entry__17_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__17_6(void) {
+static void entry__types__unordered_table__private__set_item_6(void) {
   allocate_initialized_frame_gc(6, 8);
   // slot allocations:
   // self: 0
@@ -1809,9 +1809,9 @@ static void entry__17_6(void) {
   result_count = 2;
   myself = var._insert_item;
   func = myself->type;
-  frame->cont = cont__17_7;
+  frame->cont = cont__types__unordered_table__private__set_item_7;
 }
-static void cont__17_7(void) {
+static void cont__types__unordered_table__private__set_item_7(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -1826,16 +1826,16 @@ static void cont__17_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__17_8;
+  frame->cont = cont__types__unordered_table__private__set_item_8;
 }
-static void cont__17_8(void) {
+static void cont__types__unordered_table__private__set_item_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 831: ... : return self
-  frame->slots[7] /* temp__2 */ = create_closure(entry__17_9, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__unordered_table__private__set_item_9, 0);
   // 831: if cmp_key == NONE: return self
   argument_count = 2;
   arguments = node_p;
@@ -1844,9 +1844,9 @@ static void cont__17_8(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__17_10;
+  frame->cont = cont__types__unordered_table__private__set_item_10;
 }
-static void entry__17_9(void) {
+static void entry__types__unordered_table__private__set_item_9(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -1866,7 +1866,7 @@ static void entry__17_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__17_10(void) {
+static void cont__types__unordered_table__private__set_item_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1879,9 +1879,9 @@ static void cont__17_10(void) {
   result_count = 1;
   myself = get__equal_type_and_value();
   func = myself->type;
-  frame->cont = cont__17_11;
+  frame->cont = cont__types__unordered_table__private__set_item_11;
 }
-static void cont__17_11(void) {
+static void cont__types__unordered_table__private__set_item_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1889,7 +1889,7 @@ static void cont__17_11(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 832: ... :
   // 833:   !key cmp_key # force the use of the already stored (and equal) key
-  frame->slots[7] /* temp__2 */ = create_closure(entry__17_12, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__unordered_table__private__set_item_12, 0);
   // 832: if cmp_key .equal_type_and_value. key:
   // 833:   !key cmp_key # force the use of the already stored (and equal) key
   argument_count = 2;
@@ -1901,12 +1901,12 @@ static void cont__17_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__17_13(void) {
+static void cont__types__unordered_table__private__set_item_13(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1_types__unordered_table_private__get_item(void) {
+static void entry__types__unordered_table__private__get_item_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -1928,9 +1928,9 @@ static void entry__18_1_types__unordered_table_private__get_item(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__18_2;
+  frame->cont = cont__types__unordered_table__private__get_item_2;
 }
-static void cont__18_2(void) {
+static void cont__types__unordered_table__private__get_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1949,7 +1949,7 @@ static void cont__18_2(void) {
   // 861:   
   // 862:   #
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__18_3, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__types__unordered_table__private__get_item_3, 0);
   // 853: forever:
   // 854:   retrieve_item self h &cmp_key $retrieved_value
   // 855:   
@@ -1967,9 +1967,9 @@ static void cont__18_2(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__18_10;
+  frame->cont = cont__types__unordered_table__private__get_item_10;
 }
-static void entry__18_9(void) {
+static void entry__types__unordered_table__private__get_item_9(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -1989,7 +1989,7 @@ static void entry__18_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__18_3(void) {
+static void entry__types__unordered_table__private__get_item_3(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // cmp_key: 0
@@ -2017,9 +2017,9 @@ static void entry__18_3(void) {
   result_count = 2;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__18_4;
+  frame->cont = cont__types__unordered_table__private__get_item_4;
 }
-static void cont__18_4(void) {
+static void cont__types__unordered_table__private__get_item_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2036,16 +2036,16 @@ static void cont__18_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__18_5;
+  frame->cont = cont__types__unordered_table__private__get_item_5;
 }
-static void cont__18_5(void) {
+static void cont__types__unordered_table__private__get_item_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   // 859: ... cmp_key .equal_type_and_value. key
-  frame->slots[8] /* temp__3 */ = create_closure(entry__18_6, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__types__unordered_table__private__get_item_6, 0);
   // 859: ... cmp_key == NONE || cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
@@ -2054,9 +2054,9 @@ static void cont__18_5(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__18_8;
+  frame->cont = cont__types__unordered_table__private__get_item_8;
 }
-static void entry__18_6(void) {
+static void entry__types__unordered_table__private__get_item_6(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // cmp_key: 0
@@ -2075,9 +2075,9 @@ static void entry__18_6(void) {
   result_count = 1;
   myself = get__equal_type_and_value();
   func = myself->type;
-  frame->cont = cont__18_7;
+  frame->cont = cont__types__unordered_table__private__get_item_7;
 }
-static void cont__18_7(void) {
+static void cont__types__unordered_table__private__get_item_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2091,7 +2091,7 @@ static void cont__18_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__18_8(void) {
+static void cont__types__unordered_table__private__get_item_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2099,7 +2099,7 @@ static void cont__18_8(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 859: ... :
   // 860:   return retrieved_value
-  frame->slots[9] /* temp__4 */ = create_closure(entry__18_9, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__types__unordered_table__private__get_item_9, 0);
   // 859: if cmp_key == NONE || cmp_key .equal_type_and_value. key:
   // 860:   return retrieved_value
   argument_count = 2;
@@ -2111,12 +2111,12 @@ static void cont__18_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__18_10(void) {
+static void cont__types__unordered_table__private__get_item_10(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__19_3(void) {
+static void entry__types__unordered_table_3(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // myself: 0
@@ -2137,7 +2137,7 @@ static void entry__19_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_4(void) {
+static void entry__types__unordered_table_4(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // myself: 0
@@ -2161,7 +2161,7 @@ static void entry__19_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1_types__unordered_table_(void) {
+static void entry__types__unordered_table_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -2191,9 +2191,9 @@ static void entry__19_1_types__unordered_table_(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_2;
+  frame->cont = cont__types__unordered_table_2;
 }
-static void cont__19_2(void) {
+static void cont__types__unordered_table_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2201,10 +2201,10 @@ static void cont__19_2(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 883: ... :
   // 884:   private::get_item myself key
-  frame->slots[4] /* temp__2 */ = create_closure(entry__19_3, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__types__unordered_table_3, 0);
   // 885: :
   // 886:   private::set_item myself key value
-  frame->slots[5] /* temp__3 */ = create_closure(entry__19_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__types__unordered_table_4, 0);
   // 882: if
   // 883:   NONE == value:
   // 884:     private::get_item myself key
@@ -2220,7 +2220,7 @@ static void cont__19_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__21_1_types__unordered_table_new_empty_collection(void) {
+static void entry__types__unordered_table__new_empty_collection_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -2236,7 +2236,7 @@ static void entry__21_1_types__unordered_table_new_empty_collection(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__23_1_std__unordered_table(void) {
+static void entry__std__unordered_table_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -2248,7 +2248,7 @@ static void entry__23_1_std__unordered_table(void) {
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__unordered_table;
   // 918: ... : (initializer)
   // 919:   !tab(std::key_of(initializer)) std::value_of(initializer)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__23_2, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__unordered_table_2, 1);
   // 918: for_each initializers: (initializer)
   // 919:   !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 2;
@@ -2258,9 +2258,9 @@ static void entry__23_1_std__unordered_table(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__23_6;
+  frame->cont = cont__std__unordered_table_6;
 }
-static void entry__23_2(void) {
+static void entry__std__unordered_table_2(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // initializer: 0
@@ -2277,9 +2277,9 @@ static void entry__23_2(void) {
   result_count = 1;
   myself = get__std__value_of();
   func = myself->type;
-  frame->cont = cont__23_3;
+  frame->cont = cont__std__unordered_table_3;
 }
-static void cont__23_3(void) {
+static void cont__std__unordered_table_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2292,9 +2292,9 @@ static void cont__23_3(void) {
   result_count = 1;
   myself = get__std__key_of();
   func = myself->type;
-  frame->cont = cont__23_4;
+  frame->cont = cont__std__unordered_table_4;
 }
-static void cont__23_4(void) {
+static void cont__std__unordered_table_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2308,9 +2308,9 @@ static void cont__23_4(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* tab */;
   func = myself->type;
-  frame->cont = cont__23_5;
+  frame->cont = cont__std__unordered_table_5;
 }
-static void cont__23_5(void) {
+static void cont__std__unordered_table_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2322,7 +2322,7 @@ static void cont__23_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__23_6(void) {
+static void cont__std__unordered_table_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2335,7 +2335,7 @@ static void cont__23_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__24_1_types__unordered_table_for_each(void) {
+static void entry__types__unordered_table__for_each_1(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2358,7 +2358,7 @@ static void entry__24_1_types__unordered_table_for_each(void) {
   // 941:       body key value
   // 942:     :
   // 943:       body value
-  frame->slots[4] /* temp__1 */ = create_closure(entry__24_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_2, 0);
   // 936: forever:
   // 937:   next_key_and_value self hash(key) &key $value
   // 938:   if key == NONE return
@@ -2373,9 +2373,9 @@ static void entry__24_1_types__unordered_table_for_each(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__24_11;
+  frame->cont = cont__types__unordered_table__for_each_11;
 }
-static void entry__24_9(void) {
+static void entry__types__unordered_table__for_each_9(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // body: 0
@@ -2398,7 +2398,7 @@ static void entry__24_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__24_10(void) {
+static void entry__types__unordered_table__for_each_10(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -2418,7 +2418,7 @@ static void entry__24_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__24_2(void) {
+static void entry__types__unordered_table__for_each_2(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // key: 0
@@ -2442,9 +2442,9 @@ static void entry__24_2(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__24_3;
+  frame->cont = cont__types__unordered_table__for_each_3;
 }
-static void cont__24_3(void) {
+static void cont__types__unordered_table__for_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2459,9 +2459,9 @@ static void cont__24_3(void) {
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
-  frame->cont = cont__24_4;
+  frame->cont = cont__types__unordered_table__for_each_4;
 }
-static void cont__24_4(void) {
+static void cont__types__unordered_table__for_each_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2478,9 +2478,9 @@ static void cont__24_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__24_5;
+  frame->cont = cont__types__unordered_table__for_each_5;
 }
-static void cont__24_5(void) {
+static void cont__types__unordered_table__for_each_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2494,9 +2494,9 @@ static void cont__24_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__24_6;
+  frame->cont = cont__types__unordered_table__for_each_6;
 }
-static void cont__24_6(void) {
+static void cont__types__unordered_table__for_each_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2508,9 +2508,9 @@ static void cont__24_6(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__24_7;
+  frame->cont = cont__types__unordered_table__for_each_7;
 }
-static void cont__24_7(void) {
+static void cont__types__unordered_table__for_each_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2524,9 +2524,9 @@ static void cont__24_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__24_8;
+  frame->cont = cont__types__unordered_table__for_each_8;
 }
-static void cont__24_8(void) {
+static void cont__types__unordered_table__for_each_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2534,10 +2534,10 @@ static void cont__24_8(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 940: ... :
   // 941:   body key value
-  frame->slots[7] /* temp__3 */ = create_closure(entry__24_9, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_9, 0);
   // 942: :
   // 943:   body value
-  frame->slots[8] /* temp__4 */ = create_closure(entry__24_10, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_10, 0);
   // 939: if
   // 940:   parameter_count_of(body) == 2:
   // 941:     body key value
@@ -2553,12 +2553,12 @@ static void cont__24_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__24_11(void) {
+static void cont__types__unordered_table__for_each_11(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__25_1_types__unordered_table_for_each_from_to(void) {
+static void entry__types__unordered_table__for_each_from_to_1(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // self: 0
@@ -2588,9 +2588,9 @@ static void entry__25_1_types__unordered_table_for_each_from_to(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__25_2;
+  frame->cont = cont__types__unordered_table__for_each_from_to_2;
 }
-static void cont__25_2(void) {
+static void cont__types__unordered_table__for_each_from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2605,9 +2605,9 @@ static void cont__25_2(void) {
   result_count = 2;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__25_3;
+  frame->cont = cont__types__unordered_table__for_each_from_to_3;
 }
-static void cont__25_3(void) {
+static void cont__types__unordered_table__for_each_from_to_3(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2622,9 +2622,9 @@ static void cont__25_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__25_4;
+  frame->cont = cont__types__unordered_table__for_each_from_to_4;
 }
-static void cont__25_4(void) {
+static void cont__types__unordered_table__for_each_from_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2634,13 +2634,13 @@ static void cont__25_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
-  arguments->slots[1] = func__25_5;
+  arguments->slots[1] = func__types__unordered_table__for_each_from_to_5;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__25_7;
+  frame->cont = cont__types__unordered_table__for_each_from_to_7;
 }
-static void entry__25_5(void) {
+static void entry__types__unordered_table__for_each_from_to_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -2656,7 +2656,7 @@ static void entry__25_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__25_7(void) {
+static void cont__types__unordered_table__for_each_from_to_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2670,7 +2670,7 @@ static void cont__25_7(void) {
   // 970:   if key == last return
   // 971:   next_key_and_value self hash(key) &key !value
   // 972:   if key == NONE return
-  frame->slots[8] /* temp__1 */ = create_closure(entry__25_8, 0);
+  frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_from_to_8, 0);
   // 964: forever:
   // 965:   if
   // 966:     parameter_count_of(body) == 2:
@@ -2686,9 +2686,9 @@ static void cont__25_7(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__25_19;
+  frame->cont = cont__types__unordered_table__for_each_from_to_19;
 }
-static void entry__25_8(void) {
+static void entry__types__unordered_table__for_each_from_to_8(void) {
   allocate_initialized_frame_gc(6, 10);
   // slot allocations:
   // body: 0
@@ -2714,9 +2714,9 @@ static void entry__25_8(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__25_9;
+  frame->cont = cont__types__unordered_table__for_each_from_to_9;
 }
-static void cont__25_9(void) {
+static void cont__types__unordered_table__for_each_from_to_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2730,9 +2730,9 @@ static void cont__25_9(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__25_10;
+  frame->cont = cont__types__unordered_table__for_each_from_to_10;
 }
-static void cont__25_10(void) {
+static void cont__types__unordered_table__for_each_from_to_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2740,10 +2740,10 @@ static void cont__25_10(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 966: ... :
   // 967:   body key value
-  frame->slots[8] /* temp__3 */ = create_closure(entry__25_11, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_from_to_11, 0);
   // 968: :
   // 969:   body value
-  frame->slots[9] /* temp__4 */ = create_closure(entry__25_12, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_from_to_12, 0);
   // 965: if
   // 966:   parameter_count_of(body) == 2:
   // 967:     body key value
@@ -2757,9 +2757,9 @@ static void cont__25_10(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__25_13;
+  frame->cont = cont__types__unordered_table__for_each_from_to_13;
 }
-static void entry__25_11(void) {
+static void entry__types__unordered_table__for_each_from_to_11(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // body: 0
@@ -2782,7 +2782,7 @@ static void entry__25_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__25_12(void) {
+static void entry__types__unordered_table__for_each_from_to_12(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -2802,7 +2802,7 @@ static void entry__25_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__25_13(void) {
+static void cont__types__unordered_table__for_each_from_to_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2815,9 +2815,9 @@ static void cont__25_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__25_14;
+  frame->cont = cont__types__unordered_table__for_each_from_to_14;
 }
-static void cont__25_14(void) {
+static void cont__types__unordered_table__for_each_from_to_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2831,9 +2831,9 @@ static void cont__25_14(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__25_15;
+  frame->cont = cont__types__unordered_table__for_each_from_to_15;
 }
-static void cont__25_15(void) {
+static void cont__types__unordered_table__for_each_from_to_15(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2845,9 +2845,9 @@ static void cont__25_15(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__25_16;
+  frame->cont = cont__types__unordered_table__for_each_from_to_16;
 }
-static void cont__25_16(void) {
+static void cont__types__unordered_table__for_each_from_to_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2862,9 +2862,9 @@ static void cont__25_16(void) {
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
-  frame->cont = cont__25_17;
+  frame->cont = cont__types__unordered_table__for_each_from_to_17;
 }
-static void cont__25_17(void) {
+static void cont__types__unordered_table__for_each_from_to_17(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2879,9 +2879,9 @@ static void cont__25_17(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__25_18;
+  frame->cont = cont__types__unordered_table__for_each_from_to_18;
 }
-static void cont__25_18(void) {
+static void cont__types__unordered_table__for_each_from_to_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2897,12 +2897,12 @@ static void cont__25_18(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__25_19(void) {
+static void cont__types__unordered_table__for_each_from_to_19(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__26_1_types__unordered_table_for_each_downwards(void) {
+static void entry__types__unordered_table__for_each_downwards_1(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2925,7 +2925,7 @@ static void entry__26_1_types__unordered_table_for_each_downwards(void) {
   // 993:       body key value
   // 994:     :
   // 995:       body value
-  frame->slots[4] /* temp__1 */ = create_closure(entry__26_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_downwards_2, 0);
   // 988: forever:
   // 989:   previous_key_and_value self hash(key) &key $value
   // 990:   if key == NONE return
@@ -2940,9 +2940,9 @@ static void entry__26_1_types__unordered_table_for_each_downwards(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__26_11;
+  frame->cont = cont__types__unordered_table__for_each_downwards_11;
 }
-static void entry__26_9(void) {
+static void entry__types__unordered_table__for_each_downwards_9(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // body: 0
@@ -2965,7 +2965,7 @@ static void entry__26_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__26_10(void) {
+static void entry__types__unordered_table__for_each_downwards_10(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -2985,7 +2985,7 @@ static void entry__26_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__26_2(void) {
+static void entry__types__unordered_table__for_each_downwards_2(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // key: 0
@@ -3009,9 +3009,9 @@ static void entry__26_2(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__26_3;
+  frame->cont = cont__types__unordered_table__for_each_downwards_3;
 }
-static void cont__26_3(void) {
+static void cont__types__unordered_table__for_each_downwards_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3026,9 +3026,9 @@ static void cont__26_3(void) {
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
-  frame->cont = cont__26_4;
+  frame->cont = cont__types__unordered_table__for_each_downwards_4;
 }
-static void cont__26_4(void) {
+static void cont__types__unordered_table__for_each_downwards_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3045,9 +3045,9 @@ static void cont__26_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__26_5;
+  frame->cont = cont__types__unordered_table__for_each_downwards_5;
 }
-static void cont__26_5(void) {
+static void cont__types__unordered_table__for_each_downwards_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3061,9 +3061,9 @@ static void cont__26_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__26_6;
+  frame->cont = cont__types__unordered_table__for_each_downwards_6;
 }
-static void cont__26_6(void) {
+static void cont__types__unordered_table__for_each_downwards_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3075,9 +3075,9 @@ static void cont__26_6(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__26_7;
+  frame->cont = cont__types__unordered_table__for_each_downwards_7;
 }
-static void cont__26_7(void) {
+static void cont__types__unordered_table__for_each_downwards_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3091,9 +3091,9 @@ static void cont__26_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__26_8;
+  frame->cont = cont__types__unordered_table__for_each_downwards_8;
 }
-static void cont__26_8(void) {
+static void cont__types__unordered_table__for_each_downwards_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3101,10 +3101,10 @@ static void cont__26_8(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 992: ... :
   // 993:   body key value
-  frame->slots[7] /* temp__3 */ = create_closure(entry__26_9, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_downwards_9, 0);
   // 994: :
   // 995:   body value
-  frame->slots[8] /* temp__4 */ = create_closure(entry__26_10, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_downwards_10, 0);
   // 991: if
   // 992:   parameter_count_of(body) == 2:
   // 993:     body key value
@@ -3120,12 +3120,12 @@ static void cont__26_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__26_11(void) {
+static void cont__types__unordered_table__for_each_downwards_11(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__27_1_types__unordered_table_for_each_from_down_to(void) {
+static void entry__types__unordered_table__for_each_from_down_to_1(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // self: 0
@@ -3155,9 +3155,9 @@ static void entry__27_1_types__unordered_table_for_each_from_down_to(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__27_2;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_2;
 }
-static void cont__27_2(void) {
+static void cont__types__unordered_table__for_each_from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3172,9 +3172,9 @@ static void cont__27_2(void) {
   result_count = 2;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__27_3;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_3;
 }
-static void cont__27_3(void) {
+static void cont__types__unordered_table__for_each_from_down_to_3(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3189,9 +3189,9 @@ static void cont__27_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_4;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_4;
 }
-static void cont__27_4(void) {
+static void cont__types__unordered_table__for_each_from_down_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3201,13 +3201,13 @@ static void cont__27_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
-  arguments->slots[1] = func__27_5;
+  arguments->slots[1] = func__types__unordered_table__for_each_from_down_to_5;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_6;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_6;
 }
-static void entry__27_5(void) {
+static void entry__types__unordered_table__for_each_from_down_to_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3223,7 +3223,7 @@ static void entry__27_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_6(void) {
+static void cont__types__unordered_table__for_each_from_down_to_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3237,7 +3237,7 @@ static void cont__27_6(void) {
   // 1022:   if key == first return
   // 1023:   previous_key_and_value self hash(key) &key !value
   // 1024:   if key == NONE return
-  frame->slots[8] /* temp__1 */ = create_closure(entry__27_7, 0);
+  frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_from_down_to_7, 0);
   // 1016: forever:
   // 1017:   if
   // 1018:     parameter_count_of(body) == 2:
@@ -3253,9 +3253,9 @@ static void cont__27_6(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__27_18;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_18;
 }
-static void entry__27_7(void) {
+static void entry__types__unordered_table__for_each_from_down_to_7(void) {
   allocate_initialized_frame_gc(6, 10);
   // slot allocations:
   // body: 0
@@ -3281,9 +3281,9 @@ static void entry__27_7(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__27_8;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_8;
 }
-static void cont__27_8(void) {
+static void cont__types__unordered_table__for_each_from_down_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3297,9 +3297,9 @@ static void cont__27_8(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_9;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_9;
 }
-static void cont__27_9(void) {
+static void cont__types__unordered_table__for_each_from_down_to_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3307,10 +3307,10 @@ static void cont__27_9(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 1018: ... :
   // 1019:   body key value
-  frame->slots[8] /* temp__3 */ = create_closure(entry__27_10, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_from_down_to_10, 0);
   // 1020: :
   // 1021:   body value
-  frame->slots[9] /* temp__4 */ = create_closure(entry__27_11, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_from_down_to_11, 0);
   // 1017: if
   // 1018:   parameter_count_of(body) == 2:
   // 1019:     body key value
@@ -3324,9 +3324,9 @@ static void cont__27_9(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_12;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_12;
 }
-static void entry__27_10(void) {
+static void entry__types__unordered_table__for_each_from_down_to_10(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // body: 0
@@ -3349,7 +3349,7 @@ static void entry__27_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__27_11(void) {
+static void entry__types__unordered_table__for_each_from_down_to_11(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // body: 0
@@ -3369,7 +3369,7 @@ static void entry__27_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_12(void) {
+static void cont__types__unordered_table__for_each_from_down_to_12(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3382,9 +3382,9 @@ static void cont__27_12(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_13;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_13;
 }
-static void cont__27_13(void) {
+static void cont__types__unordered_table__for_each_from_down_to_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3398,9 +3398,9 @@ static void cont__27_13(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__27_14;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_14;
 }
-static void cont__27_14(void) {
+static void cont__types__unordered_table__for_each_from_down_to_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3412,9 +3412,9 @@ static void cont__27_14(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__27_15;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_15;
 }
-static void cont__27_15(void) {
+static void cont__types__unordered_table__for_each_from_down_to_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3429,9 +3429,9 @@ static void cont__27_15(void) {
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
-  frame->cont = cont__27_16;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_16;
 }
-static void cont__27_16(void) {
+static void cont__types__unordered_table__for_each_from_down_to_16(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3446,9 +3446,9 @@ static void cont__27_16(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__27_17;
+  frame->cont = cont__types__unordered_table__for_each_from_down_to_17;
 }
-static void cont__27_17(void) {
+static void cont__types__unordered_table__for_each_from_down_to_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3464,19 +3464,19 @@ static void cont__27_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__27_18(void) {
+static void cont__types__unordered_table__for_each_from_down_to_18(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__28_1_types__unordered_table_update_each(void) {
+static void entry__types__unordered_table__update_each_1(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
   // body: 1
   // return: 2
   // key: 3
-  frame->slots[2] /* return */ = create_continuation_with_exit(exit__28_1_types__unordered_table_update_each);
+  frame->slots[2] /* return */ = create_continuation_with_exit(exit__types__unordered_table__update_each_1);
   frame->slots[3] /* key */ = create_cell();
   if (argument_count != 2) {
     invalid_arguments_error();
@@ -3490,7 +3490,7 @@ static void entry__28_1_types__unordered_table_update_each(void) {
   // 1042:   if key == NONE return
   // 1043:   body key &value
   // 1044:   !self(key) value
-  frame->slots[4] /* temp__1 */ = create_closure(entry__28_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_2, 0);
   // 1040: forever:
   // 1041:   next_key_and_value self hash(key) &key $$value
   // 1042:   if key == NONE return
@@ -3504,9 +3504,9 @@ static void entry__28_1_types__unordered_table_update_each(void) {
     frame->caller_result_count-1 : -1;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__28_9;
+  frame->cont = cont__types__unordered_table__update_each_9;
 }
-static void entry__28_2(void) {
+static void entry__types__unordered_table__update_each_2(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // key: 0
@@ -3530,9 +3530,9 @@ static void entry__28_2(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__28_3;
+  frame->cont = cont__types__unordered_table__update_each_3;
 }
-static void cont__28_3(void) {
+static void cont__types__unordered_table__update_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3547,9 +3547,9 @@ static void cont__28_3(void) {
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
-  frame->cont = cont__28_4;
+  frame->cont = cont__types__unordered_table__update_each_4;
 }
-static void cont__28_4(void) {
+static void cont__types__unordered_table__update_each_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3564,9 +3564,9 @@ static void cont__28_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__28_5;
+  frame->cont = cont__types__unordered_table__update_each_5;
 }
-static void cont__28_5(void) {
+static void cont__types__unordered_table__update_each_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3580,9 +3580,9 @@ static void cont__28_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__28_6;
+  frame->cont = cont__types__unordered_table__update_each_6;
 }
-static void cont__28_6(void) {
+static void cont__types__unordered_table__update_each_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3595,9 +3595,9 @@ static void cont__28_6(void) {
   result_count = 1;
   myself = frame->slots[3] /* body */;
   func = myself->type;
-  frame->cont = cont__28_7;
+  frame->cont = cont__types__unordered_table__update_each_7;
 }
-static void cont__28_7(void) {
+static void cont__types__unordered_table__update_each_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3613,9 +3613,9 @@ static void cont__28_7(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* self */;
   func = myself->type;
-  frame->cont = cont__28_8;
+  frame->cont = cont__types__unordered_table__update_each_8;
 }
-static void cont__28_8(void) {
+static void cont__types__unordered_table__update_each_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3627,12 +3627,12 @@ static void cont__28_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__28_9(void) {
+static void cont__types__unordered_table__update_each_9(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__28_1_types__unordered_table_update_each(void) {
+static void exit__types__unordered_table__update_each_1(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -3642,7 +3642,7 @@ static void exit__28_1_types__unordered_table_update_each(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   func = continuation_type_function;
 }
-static void entry__29_1_types__unordered_table_update_each_from_to(void) {
+static void entry__types__unordered_table__update_each_from_to_1(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // self: 0
@@ -3653,7 +3653,7 @@ static void entry__29_1_types__unordered_table_update_each_from_to(void) {
   // key: 5
   // value: 6
   // h: 7
-  frame->slots[4] /* return */ = create_continuation_with_exit(exit__29_1_types__unordered_table_update_each_from_to);
+  frame->slots[4] /* return */ = create_continuation_with_exit(exit__types__unordered_table__update_each_from_to_1);
   frame->slots[5] /* key */ = create_cell();
   frame->slots[6] /* value */ = create_cell();
   frame->slots[7] /* h */ = create_future();
@@ -3673,9 +3673,9 @@ static void entry__29_1_types__unordered_table_update_each_from_to(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__29_2;
+  frame->cont = cont__types__unordered_table__update_each_from_to_2;
 }
-static void cont__29_2(void) {
+static void cont__types__unordered_table__update_each_from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3690,9 +3690,9 @@ static void cont__29_2(void) {
   result_count = 2;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__29_3;
+  frame->cont = cont__types__unordered_table__update_each_from_to_3;
 }
-static void cont__29_3(void) {
+static void cont__types__unordered_table__update_each_from_to_3(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3707,9 +3707,9 @@ static void cont__29_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__29_4;
+  frame->cont = cont__types__unordered_table__update_each_from_to_4;
 }
-static void cont__29_4(void) {
+static void cont__types__unordered_table__update_each_from_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3719,13 +3719,13 @@ static void cont__29_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
-  arguments->slots[1] = func__29_5;
+  arguments->slots[1] = func__types__unordered_table__update_each_from_to_5;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__29_6;
+  frame->cont = cont__types__unordered_table__update_each_from_to_6;
 }
-static void entry__29_5(void) {
+static void entry__types__unordered_table__update_each_from_to_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3741,7 +3741,7 @@ static void entry__29_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__29_6(void) {
+static void cont__types__unordered_table__update_each_from_to_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3752,7 +3752,7 @@ static void cont__29_6(void) {
   // 1068:   if key == last return
   // 1069:   next_key_and_value self hash(key) &key !value
   // 1070:   if key == NONE return
-  frame->slots[8] /* temp__1 */ = create_closure(entry__29_7, 0);
+  frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_from_to_7, 0);
   // 1065: forever:
   // 1066:   body key &value
   // 1067:   !self(key) value
@@ -3767,9 +3767,9 @@ static void cont__29_6(void) {
     frame->caller_result_count-1 : -1;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__29_15;
+  frame->cont = cont__types__unordered_table__update_each_from_to_15;
 }
-static void entry__29_7(void) {
+static void entry__types__unordered_table__update_each_from_to_7(void) {
   allocate_initialized_frame_gc(6, 7);
   // slot allocations:
   // body: 0
@@ -3796,9 +3796,9 @@ static void entry__29_7(void) {
   result_count = 1;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__29_8;
+  frame->cont = cont__types__unordered_table__update_each_from_to_8;
 }
-static void cont__29_8(void) {
+static void cont__types__unordered_table__update_each_from_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3814,9 +3814,9 @@ static void cont__29_8(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[3])->contents /* self */;
   func = myself->type;
-  frame->cont = cont__29_9;
+  frame->cont = cont__types__unordered_table__update_each_from_to_9;
 }
-static void cont__29_9(void) {
+static void cont__types__unordered_table__update_each_from_to_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3830,9 +3830,9 @@ static void cont__29_9(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__29_10;
+  frame->cont = cont__types__unordered_table__update_each_from_to_10;
 }
-static void cont__29_10(void) {
+static void cont__types__unordered_table__update_each_from_to_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3846,9 +3846,9 @@ static void cont__29_10(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__29_11;
+  frame->cont = cont__types__unordered_table__update_each_from_to_11;
 }
-static void cont__29_11(void) {
+static void cont__types__unordered_table__update_each_from_to_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3860,9 +3860,9 @@ static void cont__29_11(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__29_12;
+  frame->cont = cont__types__unordered_table__update_each_from_to_12;
 }
-static void cont__29_12(void) {
+static void cont__types__unordered_table__update_each_from_to_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3877,9 +3877,9 @@ static void cont__29_12(void) {
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
-  frame->cont = cont__29_13;
+  frame->cont = cont__types__unordered_table__update_each_from_to_13;
 }
-static void cont__29_13(void) {
+static void cont__types__unordered_table__update_each_from_to_13(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3894,9 +3894,9 @@ static void cont__29_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__29_14;
+  frame->cont = cont__types__unordered_table__update_each_from_to_14;
 }
-static void cont__29_14(void) {
+static void cont__types__unordered_table__update_each_from_to_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3912,12 +3912,12 @@ static void cont__29_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__29_15(void) {
+static void cont__types__unordered_table__update_each_from_to_15(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__29_1_types__unordered_table_update_each_from_to(void) {
+static void exit__types__unordered_table__update_each_from_to_1(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -3927,14 +3927,14 @@ static void exit__29_1_types__unordered_table_update_each_from_to(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   func = continuation_type_function;
 }
-static void entry__30_1_types__unordered_table_update_each_downwards(void) {
+static void entry__types__unordered_table__update_each_downwards_1(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
   // body: 1
   // return: 2
   // key: 3
-  frame->slots[2] /* return */ = create_continuation_with_exit(exit__30_1_types__unordered_table_update_each_downwards);
+  frame->slots[2] /* return */ = create_continuation_with_exit(exit__types__unordered_table__update_each_downwards_1);
   frame->slots[3] /* key */ = create_cell();
   if (argument_count != 2) {
     invalid_arguments_error();
@@ -3948,7 +3948,7 @@ static void entry__30_1_types__unordered_table_update_each_downwards(void) {
   // 1088:   if key == NONE return
   // 1089:   body key &value
   // 1090:   !self(key) value
-  frame->slots[4] /* temp__1 */ = create_closure(entry__30_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_downwards_2, 0);
   // 1086: forever:
   // 1087:   previous_key_and_value self hash(key) &key $$value
   // 1088:   if key == NONE return
@@ -3962,9 +3962,9 @@ static void entry__30_1_types__unordered_table_update_each_downwards(void) {
     frame->caller_result_count-1 : -1;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__30_9;
+  frame->cont = cont__types__unordered_table__update_each_downwards_9;
 }
-static void entry__30_2(void) {
+static void entry__types__unordered_table__update_each_downwards_2(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // key: 0
@@ -3988,9 +3988,9 @@ static void entry__30_2(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__30_3;
+  frame->cont = cont__types__unordered_table__update_each_downwards_3;
 }
-static void cont__30_3(void) {
+static void cont__types__unordered_table__update_each_downwards_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4005,9 +4005,9 @@ static void cont__30_3(void) {
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
-  frame->cont = cont__30_4;
+  frame->cont = cont__types__unordered_table__update_each_downwards_4;
 }
-static void cont__30_4(void) {
+static void cont__types__unordered_table__update_each_downwards_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -4022,9 +4022,9 @@ static void cont__30_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__30_5;
+  frame->cont = cont__types__unordered_table__update_each_downwards_5;
 }
-static void cont__30_5(void) {
+static void cont__types__unordered_table__update_each_downwards_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4038,9 +4038,9 @@ static void cont__30_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__30_6;
+  frame->cont = cont__types__unordered_table__update_each_downwards_6;
 }
-static void cont__30_6(void) {
+static void cont__types__unordered_table__update_each_downwards_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4053,9 +4053,9 @@ static void cont__30_6(void) {
   result_count = 1;
   myself = frame->slots[3] /* body */;
   func = myself->type;
-  frame->cont = cont__30_7;
+  frame->cont = cont__types__unordered_table__update_each_downwards_7;
 }
-static void cont__30_7(void) {
+static void cont__types__unordered_table__update_each_downwards_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4071,9 +4071,9 @@ static void cont__30_7(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* self */;
   func = myself->type;
-  frame->cont = cont__30_8;
+  frame->cont = cont__types__unordered_table__update_each_downwards_8;
 }
-static void cont__30_8(void) {
+static void cont__types__unordered_table__update_each_downwards_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4085,12 +4085,12 @@ static void cont__30_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__30_9(void) {
+static void cont__types__unordered_table__update_each_downwards_9(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__30_1_types__unordered_table_update_each_downwards(void) {
+static void exit__types__unordered_table__update_each_downwards_1(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -4100,7 +4100,7 @@ static void exit__30_1_types__unordered_table_update_each_downwards(void) {
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   func = continuation_type_function;
 }
-static void entry__31_1_types__unordered_table_update_each_from_down_to(void) {
+static void entry__types__unordered_table__update_each_from_down_to_1(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // self: 0
@@ -4111,7 +4111,7 @@ static void entry__31_1_types__unordered_table_update_each_from_down_to(void) {
   // key: 5
   // value: 6
   // h: 7
-  frame->slots[4] /* return */ = create_continuation_with_exit(exit__31_1_types__unordered_table_update_each_from_down_to);
+  frame->slots[4] /* return */ = create_continuation_with_exit(exit__types__unordered_table__update_each_from_down_to_1);
   frame->slots[5] /* key */ = create_cell();
   frame->slots[6] /* value */ = create_cell();
   frame->slots[7] /* h */ = create_future();
@@ -4131,9 +4131,9 @@ static void entry__31_1_types__unordered_table_update_each_from_down_to(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__31_2;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_2;
 }
-static void cont__31_2(void) {
+static void cont__types__unordered_table__update_each_from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4148,9 +4148,9 @@ static void cont__31_2(void) {
   result_count = 2;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__31_3;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_3;
 }
-static void cont__31_3(void) {
+static void cont__types__unordered_table__update_each_from_down_to_3(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -4165,9 +4165,9 @@ static void cont__31_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__31_4;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_4;
 }
-static void cont__31_4(void) {
+static void cont__types__unordered_table__update_each_from_down_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4177,13 +4177,13 @@ static void cont__31_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
-  arguments->slots[1] = func__31_5;
+  arguments->slots[1] = func__types__unordered_table__update_each_from_down_to_5;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__31_6;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_6;
 }
-static void entry__31_5(void) {
+static void entry__types__unordered_table__update_each_from_down_to_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -4199,7 +4199,7 @@ static void entry__31_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__31_6(void) {
+static void cont__types__unordered_table__update_each_from_down_to_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4210,7 +4210,7 @@ static void cont__31_6(void) {
   // 1114:   if key == first return
   // 1115:   previous_key_and_value self hash(key) &key !value
   // 1116:   if key == NONE return
-  frame->slots[8] /* temp__1 */ = create_closure(entry__31_7, 0);
+  frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_from_down_to_7, 0);
   // 1111: forever:
   // 1112:   body key &value
   // 1113:   !self(key) value
@@ -4225,9 +4225,9 @@ static void cont__31_6(void) {
     frame->caller_result_count-1 : -1;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__31_15;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_15;
 }
-static void entry__31_7(void) {
+static void entry__types__unordered_table__update_each_from_down_to_7(void) {
   allocate_initialized_frame_gc(6, 7);
   // slot allocations:
   // body: 0
@@ -4254,9 +4254,9 @@ static void entry__31_7(void) {
   result_count = 1;
   myself = frame->slots[0] /* body */;
   func = myself->type;
-  frame->cont = cont__31_8;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_8;
 }
-static void cont__31_8(void) {
+static void cont__types__unordered_table__update_each_from_down_to_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4272,9 +4272,9 @@ static void cont__31_8(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[3])->contents /* self */;
   func = myself->type;
-  frame->cont = cont__31_9;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_9;
 }
-static void cont__31_9(void) {
+static void cont__types__unordered_table__update_each_from_down_to_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4288,9 +4288,9 @@ static void cont__31_9(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__31_10;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_10;
 }
-static void cont__31_10(void) {
+static void cont__types__unordered_table__update_each_from_down_to_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4304,9 +4304,9 @@ static void cont__31_10(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__31_11;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_11;
 }
-static void cont__31_11(void) {
+static void cont__types__unordered_table__update_each_from_down_to_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4318,9 +4318,9 @@ static void cont__31_11(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__31_12;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_12;
 }
-static void cont__31_12(void) {
+static void cont__types__unordered_table__update_each_from_down_to_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4335,9 +4335,9 @@ static void cont__31_12(void) {
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
-  frame->cont = cont__31_13;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_13;
 }
-static void cont__31_13(void) {
+static void cont__types__unordered_table__update_each_from_down_to_13(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -4352,9 +4352,9 @@ static void cont__31_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__31_14;
+  frame->cont = cont__types__unordered_table__update_each_from_down_to_14;
 }
-static void cont__31_14(void) {
+static void cont__types__unordered_table__update_each_from_down_to_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4370,12 +4370,12 @@ static void cont__31_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__31_15(void) {
+static void cont__types__unordered_table__update_each_from_down_to_15(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__31_1_types__unordered_table_update_each_from_down_to(void) {
+static void exit__types__unordered_table__update_each_from_down_to_1(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i = argument_count;
   while (--i >= 0) {
@@ -4479,29 +4479,29 @@ EXPORT void phase_2__basic__types__unordered_table(void) {
   already_run_phase_2 = true;
   number__2 = from_uint32(2U);
   unique__NONE = register_unique_item("NONE");
-  func__11_1_insert_item = create_function(entry__11_1_insert_item, 5);
-  func__12_1_retrieve_item = create_function(entry__12_1_retrieve_item, 3);
-  func__14_1_types__unordered_table_length_of = create_function(entry__14_1_types__unordered_table_length_of, 1);
-  func__15_1_next_key_and_value = create_function(entry__15_1_next_key_and_value, 3);
-  func__16_1_previous_key_and_value = create_function(entry__16_1_previous_key_and_value, 3);
-  func__17_1_types__unordered_table_private__set_item = create_function(entry__17_1_types__unordered_table_private__set_item, 3);
-  func__18_1_types__unordered_table_private__get_item = create_function(entry__18_1_types__unordered_table_private__get_item, 2);
+  func__insert_item_1 = create_function(entry__insert_item_1, 5);
+  func__retrieve_item_1 = create_function(entry__retrieve_item_1, 3);
+  func__types__unordered_table__length_of_1 = create_function(entry__types__unordered_table__length_of_1, 1);
+  func__next_key_and_value_1 = create_function(entry__next_key_and_value_1, 3);
+  func__previous_key_and_value_1 = create_function(entry__previous_key_and_value_1, 3);
+  func__types__unordered_table__private__set_item_1 = create_function(entry__types__unordered_table__private__set_item_1, 3);
+  func__types__unordered_table__private__get_item_1 = create_function(entry__types__unordered_table__private__get_item_1, 2);
   string__16058a9f0bf11cc9 = from_latin_1_string("unordered_table", 15);
-  func__21_1_types__unordered_table_new_empty_collection = create_function(entry__21_1_types__unordered_table_new_empty_collection, 1);
-  func__23_1_std__unordered_table = create_function(entry__23_1_std__unordered_table, -1);
-  func__24_1_types__unordered_table_for_each = create_function(entry__24_1_types__unordered_table_for_each, 2);
+  func__types__unordered_table__new_empty_collection_1 = create_function(entry__types__unordered_table__new_empty_collection_1, 1);
+  func__std__unordered_table_1 = create_function(entry__std__unordered_table_1, -1);
+  func__types__unordered_table__for_each_1 = create_function(entry__types__unordered_table__for_each_1, 2);
   string__2bdb69f58c8fd6ea = from_latin_1_string("Invalid index error!", 20);
-  func__25_5 = create_function(entry__25_5, 0);
-  func__25_1_types__unordered_table_for_each_from_to = create_function(entry__25_1_types__unordered_table_for_each_from_to, 4);
-  func__26_1_types__unordered_table_for_each_downwards = create_function(entry__26_1_types__unordered_table_for_each_downwards, 2);
-  func__27_5 = create_function(entry__27_5, 0);
-  func__27_1_types__unordered_table_for_each_from_down_to = create_function(entry__27_1_types__unordered_table_for_each_from_down_to, 4);
-  func__28_1_types__unordered_table_update_each = create_function(entry__28_1_types__unordered_table_update_each, 2);
-  func__29_5 = create_function(entry__29_5, 0);
-  func__29_1_types__unordered_table_update_each_from_to = create_function(entry__29_1_types__unordered_table_update_each_from_to, 4);
-  func__30_1_types__unordered_table_update_each_downwards = create_function(entry__30_1_types__unordered_table_update_each_downwards, 2);
-  func__31_5 = create_function(entry__31_5, 0);
-  func__31_1_types__unordered_table_update_each_from_down_to = create_function(entry__31_1_types__unordered_table_update_each_from_down_to, 4);
+  func__types__unordered_table__for_each_from_to_5 = create_function(entry__types__unordered_table__for_each_from_to_5, 0);
+  func__types__unordered_table__for_each_from_to_1 = create_function(entry__types__unordered_table__for_each_from_to_1, 4);
+  func__types__unordered_table__for_each_downwards_1 = create_function(entry__types__unordered_table__for_each_downwards_1, 2);
+  func__types__unordered_table__for_each_from_down_to_5 = create_function(entry__types__unordered_table__for_each_from_down_to_5, 0);
+  func__types__unordered_table__for_each_from_down_to_1 = create_function(entry__types__unordered_table__for_each_from_down_to_1, 4);
+  func__types__unordered_table__update_each_1 = create_function(entry__types__unordered_table__update_each_1, 2);
+  func__types__unordered_table__update_each_from_to_5 = create_function(entry__types__unordered_table__update_each_from_to_5, 0);
+  func__types__unordered_table__update_each_from_to_1 = create_function(entry__types__unordered_table__update_each_from_to_1, 4);
+  func__types__unordered_table__update_each_downwards_1 = create_function(entry__types__unordered_table__update_each_downwards_1, 2);
+  func__types__unordered_table__update_each_from_down_to_5 = create_function(entry__types__unordered_table__update_each_from_down_to_5, 0);
+  func__types__unordered_table__update_each_from_down_to_1 = create_function(entry__types__unordered_table__update_each_from_down_to_1, 4);
 }
 
 static int already_run_phase_3 = false;
@@ -4553,20 +4553,20 @@ EXPORT void phase_4__basic__types__unordered_table(void) {
   use_polymorphic_function(NULL, "update_each_downwards", &get__update_each_downwards, &poly_idx__update_each_downwards);
   use_polymorphic_function(NULL, "update_each_from_down_to", &get__update_each_from_down_to, &poly_idx__update_each_from_down_to);
   use_polymorphic_function(NULL, "update_each_from_to", &get__update_each_from_to, &poly_idx__update_each_from_to);
-  define_method("types", "unordered_table", poly_idx__length_of, func__14_1_types__unordered_table_length_of);
-  define_method("types", "unordered_table", poly_idx__private__set_item, func__17_1_types__unordered_table_private__set_item);
-  define_method("types", "unordered_table", poly_idx__private__get_item, func__18_1_types__unordered_table_private__get_item);
-  define_type_function("types", "unordered_table", entry__19_1_types__unordered_table_, -1);
+  define_method("types", "unordered_table", poly_idx__length_of, func__types__unordered_table__length_of_1);
+  define_method("types", "unordered_table", poly_idx__private__set_item, func__types__unordered_table__private__set_item_1);
+  define_method("types", "unordered_table", poly_idx__private__get_item, func__types__unordered_table__private__get_item_1);
+  define_type_function("types", "unordered_table", entry__types__unordered_table_1, -1);
   define_attribute("types", "unordered_table", poly_idx__serialization_tag_of, string__16058a9f0bf11cc9);
-  define_method("types", "unordered_table", poly_idx__new_empty_collection, func__21_1_types__unordered_table_new_empty_collection);
-  define_method("types", "unordered_table", poly_idx__for_each, func__24_1_types__unordered_table_for_each);
-  define_method("types", "unordered_table", poly_idx__for_each_from_to, func__25_1_types__unordered_table_for_each_from_to);
-  define_method("types", "unordered_table", poly_idx__for_each_downwards, func__26_1_types__unordered_table_for_each_downwards);
-  define_method("types", "unordered_table", poly_idx__for_each_from_down_to, func__27_1_types__unordered_table_for_each_from_down_to);
-  define_method("types", "unordered_table", poly_idx__update_each, func__28_1_types__unordered_table_update_each);
-  define_method("types", "unordered_table", poly_idx__update_each_from_to, func__29_1_types__unordered_table_update_each_from_to);
-  define_method("types", "unordered_table", poly_idx__update_each_downwards, func__30_1_types__unordered_table_update_each_downwards);
-  define_method("types", "unordered_table", poly_idx__update_each_from_down_to, func__31_1_types__unordered_table_update_each_from_down_to);
+  define_method("types", "unordered_table", poly_idx__new_empty_collection, func__types__unordered_table__new_empty_collection_1);
+  define_method("types", "unordered_table", poly_idx__for_each, func__types__unordered_table__for_each_1);
+  define_method("types", "unordered_table", poly_idx__for_each_from_to, func__types__unordered_table__for_each_from_to_1);
+  define_method("types", "unordered_table", poly_idx__for_each_downwards, func__types__unordered_table__for_each_downwards_1);
+  define_method("types", "unordered_table", poly_idx__for_each_from_down_to, func__types__unordered_table__for_each_from_down_to_1);
+  define_method("types", "unordered_table", poly_idx__update_each, func__types__unordered_table__update_each_1);
+  define_method("types", "unordered_table", poly_idx__update_each_from_to, func__types__unordered_table__update_each_from_to_1);
+  define_method("types", "unordered_table", poly_idx__update_each_downwards, func__types__unordered_table__update_each_downwards_1);
+  define_method("types", "unordered_table", poly_idx__update_each_from_down_to, func__types__unordered_table__update_each_from_down_to_1);
 }
 
 static int already_run_phase_5 = false;
@@ -4574,13 +4574,13 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__unordered_table(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var._insert_item, &func__11_1_insert_item);
-  assign_variable(&var._retrieve_item, &func__12_1_retrieve_item);
+  assign_variable(&var._insert_item, &func__insert_item_1);
+  assign_variable(&var._retrieve_item, &func__retrieve_item_1);
   assign_value(&var.types__unordered_table, get__types__generic_table());
-  assign_variable(&var._next_key_and_value, &func__15_1_next_key_and_value);
-  assign_variable(&var._previous_key_and_value, &func__16_1_previous_key_and_value);
+  assign_variable(&var._next_key_and_value, &func__next_key_and_value_1);
+  assign_variable(&var._previous_key_and_value, &func__previous_key_and_value_1);
   assign_variable(&var.std__empty_unordered_table, &var.types__unordered_table);
-  assign_variable(&var.std__unordered_table, &func__23_1_std__unordered_table);
+  assign_variable(&var.std__unordered_table, &func__std__unordered_table_1);
 }
 
 static int already_run_phase_6 = false;

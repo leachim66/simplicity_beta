@@ -299,42 +299,42 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *func__1_1_sim2c__cut_into_fragments;
-static void entry__1_1_sim2c__cut_into_fragments(void);
-static FRAME_INFO frame__1_1_sim2c__cut_into_fragments = {5, {"buf", "fragments", "start_idx", "start_no", "no"}};
-static void cont__1_2(void);
-static NODE *func__1_3;
-static void entry__1_3(void);
-static FRAME_INFO frame__1_3 = {7, {"idx", "chr", "no", "buf", "fragments", "start_no", "start_idx"}};
-static void cont__1_4(void);
-static NODE *func__1_5;
-static void entry__1_5(void);
-static FRAME_INFO frame__1_5 = {6, {"no", "idx", "buf", "fragments", "start_no", "start_idx"}};
-static void cont__1_6(void);
-static void cont__1_7(void);
-static void cont__1_8(void);
-static NODE *func__1_9;
-static void entry__1_9(void);
-static FRAME_INFO frame__1_9 = {2, {"buf", "idx"}};
-static void cont__1_10(void);
-static void cont__1_11(void);
-static void cont__1_12(void);
-static NODE *func__1_13;
-static void entry__1_13(void);
-static FRAME_INFO frame__1_13 = {2, {"buf", "idx"}};
-static void cont__1_14(void);
-static void cont__1_15(void);
-static void cont__1_16(void);
-static void cont__1_17(void);
-static void cont__1_18(void);
-static void cont__1_19(void);
-static NODE *func__1_20;
-static void entry__1_20(void);
-static FRAME_INFO frame__1_20 = {6, {"fragments", "start_no", "buf", "start_idx", "idx", "no"}};
-static void cont__1_21(void);
-static void cont__1_22(void);
-static void cont__1_23(void);
-static void cont__1_24(void);
+static NODE *func__sim2c__cut_into_fragments_1;
+static void entry__sim2c__cut_into_fragments_1(void);
+static FRAME_INFO frame__sim2c__cut_into_fragments_1 = {5, {"buf", "fragments", "start_idx", "start_no", "no"}};
+static void cont__sim2c__cut_into_fragments_2(void);
+static NODE *func__sim2c__cut_into_fragments_3;
+static void entry__sim2c__cut_into_fragments_3(void);
+static FRAME_INFO frame__sim2c__cut_into_fragments_3 = {7, {"idx", "chr", "no", "buf", "fragments", "start_no", "start_idx"}};
+static void cont__sim2c__cut_into_fragments_4(void);
+static NODE *func__sim2c__cut_into_fragments_5;
+static void entry__sim2c__cut_into_fragments_5(void);
+static FRAME_INFO frame__sim2c__cut_into_fragments_5 = {6, {"no", "idx", "buf", "fragments", "start_no", "start_idx"}};
+static void cont__sim2c__cut_into_fragments_6(void);
+static void cont__sim2c__cut_into_fragments_7(void);
+static void cont__sim2c__cut_into_fragments_8(void);
+static NODE *func__sim2c__cut_into_fragments_9;
+static void entry__sim2c__cut_into_fragments_9(void);
+static FRAME_INFO frame__sim2c__cut_into_fragments_9 = {2, {"buf", "idx"}};
+static void cont__sim2c__cut_into_fragments_10(void);
+static void cont__sim2c__cut_into_fragments_11(void);
+static void cont__sim2c__cut_into_fragments_12(void);
+static NODE *func__sim2c__cut_into_fragments_13;
+static void entry__sim2c__cut_into_fragments_13(void);
+static FRAME_INFO frame__sim2c__cut_into_fragments_13 = {2, {"buf", "idx"}};
+static void cont__sim2c__cut_into_fragments_14(void);
+static void cont__sim2c__cut_into_fragments_15(void);
+static void cont__sim2c__cut_into_fragments_16(void);
+static void cont__sim2c__cut_into_fragments_17(void);
+static void cont__sim2c__cut_into_fragments_18(void);
+static void cont__sim2c__cut_into_fragments_19(void);
+static NODE *func__sim2c__cut_into_fragments_20;
+static void entry__sim2c__cut_into_fragments_20(void);
+static FRAME_INFO frame__sim2c__cut_into_fragments_20 = {6, {"fragments", "start_no", "buf", "start_idx", "idx", "no"}};
+static void cont__sim2c__cut_into_fragments_21(void);
+static void cont__sim2c__cut_into_fragments_22(void);
+static void cont__sim2c__cut_into_fragments_23(void);
+static void cont__sim2c__cut_into_fragments_24(void);
 static NODE *get__sim2c__cut_into_fragments(void) {
   return var.sim2c__cut_into_fragments;
 }
@@ -342,30 +342,30 @@ void run__fragments(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__fragments, NULL, },
-  {entry__1_13, NULL, 39, 39, 59, 63},
-  {cont__1_14, &frame__1_13, 39, 39, 55, 64},
-  {cont__1_15, &frame__1_13, 39, 39, 55, 71},
-  {cont__1_16, &frame__1_13, 39, 39, 55, 71},
-  {cont__1_17, &frame__1_13, 39, 39, 55, 71},
-  {entry__1_9, NULL, 39, 39, 39, 43},
-  {cont__1_10, &frame__1_9, 39, 39, 35, 44},
-  {cont__1_11, &frame__1_9, 39, 39, 35, 50},
-  {cont__1_12, &frame__1_9, 39, 39, 35, 71},
-  {cont__1_18, &frame__1_9, 39, 39, 35, 71},
-  {entry__1_20, NULL, 45, 45, 29, 52},
-  {cont__1_21, &frame__1_20, 40, 45, 9, 53},
-  {cont__1_22, &frame__1_20, 47, 47, 9, 24},
-  {cont__1_23, &frame__1_20, 47, 47, 24, 24},
-  {entry__1_5, NULL, 38, 38, 7, 13},
-  {cont__1_6, &frame__1_5, 39, 39, 17, 30},
-  {cont__1_7, &frame__1_5, 39, 39, 10, 30},
-  {cont__1_8, &frame__1_5, 39, 39, 10, 71},
-  {cont__1_19, &frame__1_5, 39, 47, 7, 24},
-  {entry__1_3, NULL, 37, 37, 8, 20},
-  {cont__1_4, &frame__1_3, 37, 47, 5, 25},
-  {entry__1_1_sim2c__cut_into_fragments, NULL, 32, 32, 3, 20},
-  {cont__1_2, &frame__1_1_sim2c__cut_into_fragments, 36, 47, 3, 26},
-  {cont__1_24, &frame__1_1_sim2c__cut_into_fragments, 48, 48, 3, 14}
+  {entry__sim2c__cut_into_fragments_13, NULL, 39, 39, 59, 63},
+  {cont__sim2c__cut_into_fragments_14, &frame__sim2c__cut_into_fragments_13, 39, 39, 55, 64},
+  {cont__sim2c__cut_into_fragments_15, &frame__sim2c__cut_into_fragments_13, 39, 39, 55, 71},
+  {cont__sim2c__cut_into_fragments_16, &frame__sim2c__cut_into_fragments_13, 39, 39, 55, 71},
+  {cont__sim2c__cut_into_fragments_17, &frame__sim2c__cut_into_fragments_13, 39, 39, 55, 71},
+  {entry__sim2c__cut_into_fragments_9, NULL, 39, 39, 39, 43},
+  {cont__sim2c__cut_into_fragments_10, &frame__sim2c__cut_into_fragments_9, 39, 39, 35, 44},
+  {cont__sim2c__cut_into_fragments_11, &frame__sim2c__cut_into_fragments_9, 39, 39, 35, 50},
+  {cont__sim2c__cut_into_fragments_12, &frame__sim2c__cut_into_fragments_9, 39, 39, 35, 71},
+  {cont__sim2c__cut_into_fragments_18, &frame__sim2c__cut_into_fragments_9, 39, 39, 35, 71},
+  {entry__sim2c__cut_into_fragments_20, NULL, 45, 45, 29, 52},
+  {cont__sim2c__cut_into_fragments_21, &frame__sim2c__cut_into_fragments_20, 40, 45, 9, 53},
+  {cont__sim2c__cut_into_fragments_22, &frame__sim2c__cut_into_fragments_20, 47, 47, 9, 24},
+  {cont__sim2c__cut_into_fragments_23, &frame__sim2c__cut_into_fragments_20, 47, 47, 24, 24},
+  {entry__sim2c__cut_into_fragments_5, NULL, 38, 38, 7, 13},
+  {cont__sim2c__cut_into_fragments_6, &frame__sim2c__cut_into_fragments_5, 39, 39, 17, 30},
+  {cont__sim2c__cut_into_fragments_7, &frame__sim2c__cut_into_fragments_5, 39, 39, 10, 30},
+  {cont__sim2c__cut_into_fragments_8, &frame__sim2c__cut_into_fragments_5, 39, 39, 10, 71},
+  {cont__sim2c__cut_into_fragments_19, &frame__sim2c__cut_into_fragments_5, 39, 47, 7, 24},
+  {entry__sim2c__cut_into_fragments_3, NULL, 37, 37, 8, 20},
+  {cont__sim2c__cut_into_fragments_4, &frame__sim2c__cut_into_fragments_3, 37, 47, 5, 25},
+  {entry__sim2c__cut_into_fragments_1, NULL, 32, 32, 3, 20},
+  {cont__sim2c__cut_into_fragments_2, &frame__sim2c__cut_into_fragments_1, 36, 47, 3, 26},
+  {cont__sim2c__cut_into_fragments_24, &frame__sim2c__cut_into_fragments_1, 48, 48, 3, 14}
 };
 
 union NODE {
@@ -418,7 +418,7 @@ EXPORT void run__fragments(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1_sim2c__cut_into_fragments(void) {
+static void entry__sim2c__cut_into_fragments_1(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // buf: 0
@@ -440,9 +440,9 @@ static void entry__1_1_sim2c__cut_into_fragments(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__1_2;
+  frame->cont = cont__sim2c__cut_into_fragments_2;
 }
-static void cont__1_2(void) {
+static void cont__sim2c__cut_into_fragments_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -465,7 +465,7 @@ static void cont__1_2(void) {
   // 44:           .line_no_of start_no
   // 45:           .sim2c::text_of range(buf start_idx idx)
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__1_3, 2);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__cut_into_fragments_3, 2);
   // 36: for_each buf: (idx chr)
   // 37:   if chr == '@nl;':
   // 38:     inc &no
@@ -484,9 +484,9 @@ static void cont__1_2(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__1_24;
+  frame->cont = cont__sim2c__cut_into_fragments_24;
 }
-static void entry__1_20(void) {
+static void entry__sim2c__cut_into_fragments_20(void) {
   allocate_initialized_frame_gc(6, 8);
   // slot allocations:
   // fragments: 0
@@ -514,9 +514,9 @@ static void entry__1_20(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__1_21;
+  frame->cont = cont__sim2c__cut_into_fragments_21;
 }
-static void cont__1_21(void) {
+static void cont__sim2c__cut_into_fragments_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -548,9 +548,9 @@ static void cont__1_21(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__1_22;
+  frame->cont = cont__sim2c__cut_into_fragments_22;
 }
-static void cont__1_22(void) {
+static void cont__sim2c__cut_into_fragments_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -566,9 +566,9 @@ static void cont__1_22(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__1_23;
+  frame->cont = cont__sim2c__cut_into_fragments_23;
 }
-static void cont__1_23(void) {
+static void cont__sim2c__cut_into_fragments_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -580,7 +580,7 @@ static void cont__1_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_5(void) {
+static void entry__sim2c__cut_into_fragments_5(void) {
   allocate_initialized_frame_gc(6, 11);
   // slot allocations:
   // no: 0
@@ -606,9 +606,9 @@ static void entry__1_5(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__1_6;
+  frame->cont = cont__sim2c__cut_into_fragments_6;
 }
-static void cont__1_6(void) {
+static void cont__sim2c__cut_into_fragments_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -621,9 +621,9 @@ static void cont__1_6(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__1_7;
+  frame->cont = cont__sim2c__cut_into_fragments_7;
 }
-static void cont__1_7(void) {
+static void cont__sim2c__cut_into_fragments_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -637,16 +637,16 @@ static void cont__1_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__1_8;
+  frame->cont = cont__sim2c__cut_into_fragments_8;
 }
-static void cont__1_8(void) {
+static void cont__sim2c__cut_into_fragments_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   // 39: ... buf(idx+1) > ' ' && buf(idx+1) != '}'
-  frame->slots[9] /* temp__4 */ = create_closure(entry__1_9, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__sim2c__cut_into_fragments_9, 0);
   // 39: ... idx == length_of(buf) || buf(idx+1) > ' ' && buf(idx+1) != '}'
   argument_count = 2;
   arguments = node_p;
@@ -655,9 +655,9 @@ static void cont__1_8(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__1_19;
+  frame->cont = cont__sim2c__cut_into_fragments_19;
 }
-static void entry__1_9(void) {
+static void entry__sim2c__cut_into_fragments_9(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // buf: 0
@@ -676,9 +676,9 @@ static void entry__1_9(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__1_10;
+  frame->cont = cont__sim2c__cut_into_fragments_10;
 }
-static void cont__1_10(void) {
+static void cont__sim2c__cut_into_fragments_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -691,9 +691,9 @@ static void cont__1_10(void) {
   result_count = 1;
   myself = frame->slots[0] /* buf */;
   func = myself->type;
-  frame->cont = cont__1_11;
+  frame->cont = cont__sim2c__cut_into_fragments_11;
 }
-static void cont__1_11(void) {
+static void cont__sim2c__cut_into_fragments_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -707,16 +707,16 @@ static void cont__1_11(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__1_12;
+  frame->cont = cont__sim2c__cut_into_fragments_12;
 }
-static void cont__1_12(void) {
+static void cont__sim2c__cut_into_fragments_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 39: ... buf(idx+1) != '}'
-  frame->slots[6] /* temp__5 */ = create_closure(entry__1_13, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__sim2c__cut_into_fragments_13, 0);
   // 39: ... buf(idx+1) > ' ' && buf(idx+1) != '}'
   argument_count = 2;
   arguments = node_p;
@@ -725,9 +725,9 @@ static void cont__1_12(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__1_18;
+  frame->cont = cont__sim2c__cut_into_fragments_18;
 }
-static void entry__1_13(void) {
+static void entry__sim2c__cut_into_fragments_13(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // buf: 0
@@ -746,9 +746,9 @@ static void entry__1_13(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__1_14;
+  frame->cont = cont__sim2c__cut_into_fragments_14;
 }
-static void cont__1_14(void) {
+static void cont__sim2c__cut_into_fragments_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -761,9 +761,9 @@ static void cont__1_14(void) {
   result_count = 1;
   myself = frame->slots[0] /* buf */;
   func = myself->type;
-  frame->cont = cont__1_15;
+  frame->cont = cont__sim2c__cut_into_fragments_15;
 }
-static void cont__1_15(void) {
+static void cont__sim2c__cut_into_fragments_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -777,9 +777,9 @@ static void cont__1_15(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__1_16;
+  frame->cont = cont__sim2c__cut_into_fragments_16;
 }
-static void cont__1_16(void) {
+static void cont__sim2c__cut_into_fragments_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -792,9 +792,9 @@ static void cont__1_16(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__1_17;
+  frame->cont = cont__sim2c__cut_into_fragments_17;
 }
-static void cont__1_17(void) {
+static void cont__sim2c__cut_into_fragments_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -808,7 +808,7 @@ static void cont__1_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__1_18(void) {
+static void cont__sim2c__cut_into_fragments_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -822,7 +822,7 @@ static void cont__1_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__1_19(void) {
+static void cont__sim2c__cut_into_fragments_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -837,7 +837,7 @@ static void cont__1_19(void) {
   // 45:       .sim2c::text_of range(buf start_idx idx)
   // 46:   !start_no no
   // 47:   !start_idx idx+1
-  frame->slots[10] /* temp__5 */ = create_closure(entry__1_20, 0);
+  frame->slots[10] /* temp__5 */ = create_closure(entry__sim2c__cut_into_fragments_20, 0);
   // 39: if idx == length_of(buf) || buf(idx+1) > ' ' && buf(idx+1) != '}':
   // 40:   push
   // 41:     &fragments
@@ -856,7 +856,7 @@ static void cont__1_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__1_3(void) {
+static void entry__sim2c__cut_into_fragments_3(void) {
   allocate_initialized_frame_gc(7, 9);
   // slot allocations:
   // idx: 0
@@ -883,9 +883,9 @@ static void entry__1_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__1_4;
+  frame->cont = cont__sim2c__cut_into_fragments_4;
 }
-static void cont__1_4(void) {
+static void cont__sim2c__cut_into_fragments_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -902,7 +902,7 @@ static void cont__1_4(void) {
   // 45:         .sim2c::text_of range(buf start_idx idx)
   // 46:     !start_no no
   // ...
-  frame->slots[8] /* temp__2 */ = create_closure(entry__1_5, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__sim2c__cut_into_fragments_5, 0);
   // 37: if chr == '@nl;':
   // 38:   inc &no
   // 39:   if idx == length_of(buf) || buf(idx+1) > ' ' && buf(idx+1) != '}':
@@ -923,7 +923,7 @@ static void cont__1_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__1_24(void) {
+static void cont__sim2c__cut_into_fragments_24(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -957,7 +957,7 @@ EXPORT void phase_2__fragments(void) {
   character__32 = from_uchar32(32);
   character__125 = from_uchar32(125);
   number__1 = from_uint32(1U);
-  func__1_1_sim2c__cut_into_fragments = create_function(entry__1_1_sim2c__cut_into_fragments, 1);
+  func__sim2c__cut_into_fragments_1 = create_function(entry__sim2c__cut_into_fragments_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1002,7 +1002,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__fragments(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.sim2c__cut_into_fragments, &func__1_1_sim2c__cut_into_fragments);
+  assign_variable(&var.sim2c__cut_into_fragments, &func__sim2c__cut_into_fragments_1);
 }
 
 static int already_run_phase_6 = false;

@@ -281,41 +281,41 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *func__1_1_std__serialize_object;
-static void entry__1_1_std__serialize_object(void);
-static FRAME_INFO frame__1_1_std__serialize_object = {5, {"tag", "prototype", "obj", "attributes", "buf"}};
-static NODE *func__1_2;
-static void entry__1_2(void);
-static FRAME_INFO frame__1_2 = {6, {"attribute_name", "attribute_getter", "obj", "prototype", "buf", "attribute"}};
-static void cont__1_3(void);
-static void cont__1_4(void);
-static void cont__1_5(void);
-static void cont__1_6(void);
-static NODE *func__1_7;
-static void entry__1_7(void);
-static FRAME_INFO frame__1_7 = {4, {"attribute", "buf", "attribute_name", "text"}};
-static void cont__1_8(void);
+static NODE *func__std__serialize_object_1;
+static void entry__std__serialize_object_1(void);
+static FRAME_INFO frame__std__serialize_object_1 = {5, {"tag", "prototype", "obj", "attributes", "buf"}};
+static NODE *func__std__serialize_object_2;
+static void entry__std__serialize_object_2(void);
+static FRAME_INFO frame__std__serialize_object_2 = {6, {"attribute_name", "attribute_getter", "obj", "prototype", "buf", "attribute"}};
+static void cont__std__serialize_object_3(void);
+static void cont__std__serialize_object_4(void);
+static void cont__std__serialize_object_5(void);
+static void cont__std__serialize_object_6(void);
+static NODE *func__std__serialize_object_7;
+static void entry__std__serialize_object_7(void);
+static FRAME_INFO frame__std__serialize_object_7 = {4, {"attribute", "buf", "attribute_name", "text"}};
+static void cont__std__serialize_object_8(void);
 static NODE *string__fa73ac15f296bec;
 static NODE *string__578a5af303e9cdb;
-static void cont__1_11(void);
-static void cont__1_12(void);
-static NODE *func__1_13;
-static void entry__1_13(void);
-static FRAME_INFO frame__1_13 = {2, {"buf", "text"}};
-static void cont__1_14(void);
-static void cont__1_15(void);
-static NODE *func__1_16;
-static void entry__1_16(void);
-static FRAME_INFO frame__1_16 = {2, {"buf", "text"}};
-static void cont__1_17(void);
-static void cont__1_18(void);
-static void cont__1_19(void);
-static NODE *func__1_20;
-static void entry__1_20(void);
-static FRAME_INFO frame__1_20 = {1, {"buf"}};
+static void cont__std__serialize_object_11(void);
+static void cont__std__serialize_object_12(void);
+static NODE *func__std__serialize_object_13;
+static void entry__std__serialize_object_13(void);
+static FRAME_INFO frame__std__serialize_object_13 = {2, {"buf", "text"}};
+static void cont__std__serialize_object_14(void);
+static void cont__std__serialize_object_15(void);
+static NODE *func__std__serialize_object_16;
+static void entry__std__serialize_object_16(void);
+static FRAME_INFO frame__std__serialize_object_16 = {2, {"buf", "text"}};
+static void cont__std__serialize_object_17(void);
+static void cont__std__serialize_object_18(void);
+static void cont__std__serialize_object_19(void);
+static NODE *func__std__serialize_object_20;
+static void entry__std__serialize_object_20(void);
+static FRAME_INFO frame__std__serialize_object_20 = {1, {"buf"}};
 static NODE *string__2d7981f4e6482bec;
-static void cont__1_22(void);
-static void cont__1_23(void);
+static void cont__std__serialize_object_22(void);
+static void cont__std__serialize_object_23(void);
 static NODE *get__std__serialize_object(void) {
   return var.std__serialize_object;
 }
@@ -323,26 +323,26 @@ void run__basic__serialize(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__serialize, NULL, },
-  {entry__1_13, NULL, 44, 44, 32, 47},
-  {cont__1_14, &frame__1_13, 44, 44, 11, 47},
-  {cont__1_15, &frame__1_13, 44, 44, 47, 47},
-  {entry__1_16, NULL, 46, 46, 11, 32},
-  {cont__1_17, &frame__1_16, 46, 46, 32, 32},
-  {entry__1_7, NULL, 40, 40, 7, 31},
-  {cont__1_8, &frame__1_7, 41, 41, 7, 47},
-  {cont__1_11, &frame__1_7, 43, 43, 9, 30},
-  {cont__1_12, &frame__1_7, 42, 46, 7, 33},
-  {entry__1_2, NULL, 38, 38, 5, 36},
-  {cont__1_3, &frame__1_2, 39, 39, 21, 47},
-  {cont__1_4, &frame__1_2, 39, 39, 8, 47},
-  {cont__1_5, &frame__1_2, 39, 39, 8, 47},
-  {cont__1_6, &frame__1_2, 39, 46, 5, 34},
-  {entry__1_20, NULL, 47, 47, 18, 33},
-  {cont__1_22, &frame__1_20, 47, 47, 33, 33},
-  {entry__1_1_std__serialize_object, NULL, 37, 46, 3, 35},
-  {cont__1_18, &frame__1_1_std__serialize_object, 47, 47, 6, 15},
-  {cont__1_19, &frame__1_1_std__serialize_object, 47, 47, 3, 33},
-  {cont__1_23, &frame__1_1_std__serialize_object, 48, 48, 3, 8}
+  {entry__std__serialize_object_13, NULL, 44, 44, 32, 47},
+  {cont__std__serialize_object_14, &frame__std__serialize_object_13, 44, 44, 11, 47},
+  {cont__std__serialize_object_15, &frame__std__serialize_object_13, 44, 44, 47, 47},
+  {entry__std__serialize_object_16, NULL, 46, 46, 11, 32},
+  {cont__std__serialize_object_17, &frame__std__serialize_object_16, 46, 46, 32, 32},
+  {entry__std__serialize_object_7, NULL, 40, 40, 7, 31},
+  {cont__std__serialize_object_8, &frame__std__serialize_object_7, 41, 41, 7, 47},
+  {cont__std__serialize_object_11, &frame__std__serialize_object_7, 43, 43, 9, 30},
+  {cont__std__serialize_object_12, &frame__std__serialize_object_7, 42, 46, 7, 33},
+  {entry__std__serialize_object_2, NULL, 38, 38, 5, 36},
+  {cont__std__serialize_object_3, &frame__std__serialize_object_2, 39, 39, 21, 47},
+  {cont__std__serialize_object_4, &frame__std__serialize_object_2, 39, 39, 8, 47},
+  {cont__std__serialize_object_5, &frame__std__serialize_object_2, 39, 39, 8, 47},
+  {cont__std__serialize_object_6, &frame__std__serialize_object_2, 39, 46, 5, 34},
+  {entry__std__serialize_object_20, NULL, 47, 47, 18, 33},
+  {cont__std__serialize_object_22, &frame__std__serialize_object_20, 47, 47, 33, 33},
+  {entry__std__serialize_object_1, NULL, 37, 46, 3, 35},
+  {cont__std__serialize_object_18, &frame__std__serialize_object_1, 47, 47, 6, 15},
+  {cont__std__serialize_object_19, &frame__std__serialize_object_1, 47, 47, 3, 33},
+  {cont__std__serialize_object_23, &frame__std__serialize_object_1, 48, 48, 3, 8}
 };
 
 union NODE {
@@ -392,7 +392,7 @@ EXPORT void run__basic__serialize(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1_std__serialize_object(void) {
+static void entry__std__serialize_object_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
@@ -422,7 +422,7 @@ static void entry__1_1_std__serialize_object(void) {
   // 44:         write_to &buf '@nl;' indented(4 text)
   // 45:       :
   // 46:         write_to &buf ' ' text
-  frame->slots[5] /* temp__1 */ = create_closure(entry__1_2, 2);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__std__serialize_object_2, 2);
   // 37: for_each_pair attributes: (attribute_name attribute_getter)
   // 38:   $attribute attribute_getter(obj)
   // 39:   if attribute != attribute_getter(prototype):
@@ -440,9 +440,9 @@ static void entry__1_1_std__serialize_object(void) {
   result_count = 0;
   myself = get__for_each_pair();
   func = myself->type;
-  frame->cont = cont__1_18;
+  frame->cont = cont__std__serialize_object_18;
 }
-static void entry__1_13(void) {
+static void entry__std__serialize_object_13(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // buf: 0
@@ -461,9 +461,9 @@ static void entry__1_13(void) {
   result_count = 1;
   myself = get__indented();
   func = myself->type;
-  frame->cont = cont__1_14;
+  frame->cont = cont__std__serialize_object_14;
 }
-static void cont__1_14(void) {
+static void cont__std__serialize_object_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -478,9 +478,9 @@ static void cont__1_14(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__1_15;
+  frame->cont = cont__std__serialize_object_15;
 }
-static void cont__1_15(void) {
+static void cont__std__serialize_object_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -492,7 +492,7 @@ static void cont__1_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_16(void) {
+static void entry__std__serialize_object_16(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -512,9 +512,9 @@ static void entry__1_16(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__1_17;
+  frame->cont = cont__std__serialize_object_17;
 }
-static void cont__1_17(void) {
+static void cont__std__serialize_object_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -526,7 +526,7 @@ static void cont__1_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_7(void) {
+static void entry__std__serialize_object_7(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // attribute: 0
@@ -548,9 +548,9 @@ static void entry__1_7(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__1_8;
+  frame->cont = cont__std__serialize_object_8;
 }
-static void cont__1_8(void) {
+static void cont__std__serialize_object_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -566,9 +566,9 @@ static void cont__1_8(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__1_11;
+  frame->cont = cont__std__serialize_object_11;
 }
-static void cont__1_11(void) {
+static void cont__std__serialize_object_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -582,9 +582,9 @@ static void cont__1_11(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__1_12;
+  frame->cont = cont__std__serialize_object_12;
 }
-static void cont__1_12(void) {
+static void cont__std__serialize_object_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -592,10 +592,10 @@ static void cont__1_12(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 43: ... :
   // 44:   write_to &buf '@nl;' indented(4 text)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__1_13, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__std__serialize_object_13, 0);
   // 45: :
   // 46:   write_to &buf ' ' text
-  frame->slots[6] /* temp__3 */ = create_closure(entry__1_16, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__std__serialize_object_16, 0);
   // 42: if
   // 43:   text .contains. '@nl;':
   // 44:     write_to &buf '@nl;' indented(4 text)
@@ -611,7 +611,7 @@ static void cont__1_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__1_2(void) {
+static void entry__std__serialize_object_2(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // attribute_name: 0
@@ -635,9 +635,9 @@ static void entry__1_2(void) {
   result_count = 1;
   myself = frame->slots[1] /* attribute_getter */;
   func = myself->type;
-  frame->cont = cont__1_3;
+  frame->cont = cont__std__serialize_object_3;
 }
-static void cont__1_3(void) {
+static void cont__std__serialize_object_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -650,9 +650,9 @@ static void cont__1_3(void) {
   result_count = 1;
   myself = frame->slots[1] /* attribute_getter */;
   func = myself->type;
-  frame->cont = cont__1_4;
+  frame->cont = cont__std__serialize_object_4;
 }
-static void cont__1_4(void) {
+static void cont__std__serialize_object_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -666,9 +666,9 @@ static void cont__1_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__1_5;
+  frame->cont = cont__std__serialize_object_5;
 }
-static void cont__1_5(void) {
+static void cont__std__serialize_object_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -681,9 +681,9 @@ static void cont__1_5(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__1_6;
+  frame->cont = cont__std__serialize_object_6;
 }
-static void cont__1_6(void) {
+static void cont__std__serialize_object_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -697,7 +697,7 @@ static void cont__1_6(void) {
   // 44:       write_to &buf '@nl;' indented(4 text)
   // 45:     :
   // 46:       write_to &buf ' ' text
-  frame->slots[9] /* temp__4 */ = create_closure(entry__1_7, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__std__serialize_object_7, 0);
   // 39: if attribute != attribute_getter(prototype):
   // 40:   $text attribute.serialize
   // 41:   write_to &buf "@nl;  " attribute_name ":"
@@ -715,7 +715,7 @@ static void cont__1_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__1_18(void) {
+static void cont__std__serialize_object_18(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -728,16 +728,16 @@ static void cont__1_18(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__1_19;
+  frame->cont = cont__std__serialize_object_19;
 }
-static void cont__1_19(void) {
+static void cont__std__serialize_object_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 47: ... : append &buf "()"
-  frame->slots[6] /* temp__2 */ = create_closure(entry__1_20, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__std__serialize_object_20, 0);
   // 47: if buf == tag: append &buf "()"
   argument_count = 2;
   arguments = node_p;
@@ -746,9 +746,9 @@ static void cont__1_19(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__1_23;
+  frame->cont = cont__std__serialize_object_23;
 }
-static void entry__1_20(void) {
+static void entry__std__serialize_object_20(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // buf: 0
@@ -765,9 +765,9 @@ static void entry__1_20(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__1_22;
+  frame->cont = cont__std__serialize_object_22;
 }
-static void cont__1_22(void) {
+static void cont__std__serialize_object_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -779,7 +779,7 @@ static void cont__1_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__1_23(void) {
+static void cont__std__serialize_object_23(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -818,7 +818,7 @@ EXPORT void phase_2__basic__serialize(void) {
     3);
   string__578a5af303e9cdb = from_latin_1_string(":", 1);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
-  func__1_1_std__serialize_object = create_function(entry__1_1_std__serialize_object, -1);
+  func__std__serialize_object_1 = create_function(entry__std__serialize_object_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -854,7 +854,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__serialize(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__serialize_object, &func__1_1_std__serialize_object);
+  assign_variable(&var.std__serialize_object, &func__std__serialize_object_1);
 }
 
 static int already_run_phase_6 = false;

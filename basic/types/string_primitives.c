@@ -452,267 +452,267 @@ static uint8_t *func__types__octet_string___to_octets(NODE *node, long *size_p);
 static long func__types__octet_string___length_of(NODE *node);
 
 static long func__types__quad_octet_string___length_of(NODE *node);
-static void entry__24_1_types__octet_string_length_of(void);
-static NODE *func__24_1_types__octet_string_length_of;
-static void entry__25_1_types__quad_octet_string_length_of(void);
-static NODE *func__25_1_types__quad_octet_string_length_of;
-static void entry__26_1_types__octet_string_equal(void);
-static NODE *func__26_1_types__octet_string_equal;
-static void entry__27_1_types__quad_octet_string_equal(void);
-static NODE *func__27_1_types__quad_octet_string_equal;
-static void entry__28_1_types__octet_string_count_character_occurrences(void);
-static NODE *func__28_1_types__octet_string_count_character_occurrences;
-static void entry__29_1_types__quad_octet_string_count_character_occurrences(void);
-static NODE *func__29_1_types__quad_octet_string_count_character_occurrences;
-static void entry__30_1_types__octet_string_less(void);
-static NODE *func__30_1_types__octet_string_less;
-static void entry__31_1_types__quad_octet_string_less(void);
-static NODE *func__31_1_types__quad_octet_string_less;
-static void entry__32_1_types__octet_string_hash(void);
-static NODE *func__32_1_types__octet_string_hash;
-static void entry__33_1_types__octet_string_hash2(void);
-static NODE *func__33_1_types__octet_string_hash2;
-static void entry__34_1_types__quad_octet_string_hash(void);
-static NODE *func__34_1_types__quad_octet_string_hash;
-static void entry__35_1_types__quad_octet_string_hash2(void);
-static NODE *func__35_1_types__quad_octet_string_hash2;
-static NODE *func__36_1_types__string_to_string;
-static void entry__36_1_types__string_to_string(void);
-static FRAME_INFO frame__36_1_types__string_to_string = {1, {"self"}};
-static NODE *func__37_1_types__string_serialize;
-static void entry__37_1_types__string_serialize(void);
-static FRAME_INFO frame__37_1_types__string_serialize = {4, {"self", "indent", "buf", "s"}};
+static void entry__types__octet_string__length_of_1(void);
+static NODE *func__types__octet_string__length_of_1;
+static void entry__types__quad_octet_string__length_of_1(void);
+static NODE *func__types__quad_octet_string__length_of_1;
+static void entry__types__octet_string__equal_1(void);
+static NODE *func__types__octet_string__equal_1;
+static void entry__types__quad_octet_string__equal_1(void);
+static NODE *func__types__quad_octet_string__equal_1;
+static void entry__types__octet_string__count_character_occurrences_1(void);
+static NODE *func__types__octet_string__count_character_occurrences_1;
+static void entry__types__quad_octet_string__count_character_occurrences_1(void);
+static NODE *func__types__quad_octet_string__count_character_occurrences_1;
+static void entry__types__octet_string__less_1(void);
+static NODE *func__types__octet_string__less_1;
+static void entry__types__quad_octet_string__less_1(void);
+static NODE *func__types__quad_octet_string__less_1;
+static void entry__types__octet_string__hash_1(void);
+static NODE *func__types__octet_string__hash_1;
+static void entry__types__octet_string__hash2_1(void);
+static NODE *func__types__octet_string__hash2_1;
+static void entry__types__quad_octet_string__hash_1(void);
+static NODE *func__types__quad_octet_string__hash_1;
+static void entry__types__quad_octet_string__hash2_1(void);
+static NODE *func__types__quad_octet_string__hash2_1;
+static NODE *func__types__string__to_string_1;
+static void entry__types__string__to_string_1(void);
+static FRAME_INFO frame__types__string__to_string_1 = {1, {"self"}};
+static NODE *func__types__string__serialize_1;
+static void entry__types__string__serialize_1(void);
+static FRAME_INFO frame__types__string__serialize_1 = {4, {"self", "indent", "buf", "s"}};
 static NODE *string__578a5af303e9cc3;
-static NODE *func__37_3;
-static void entry__37_3(void);
-static FRAME_INFO frame__37_3 = {5, {"idx", "chr", "buf", "self", "s"}};
-static void cont__37_4(void);
-static NODE *func__37_5;
-static void entry__37_5(void);
-static FRAME_INFO frame__37_5 = {1, {"chr"}};
-static void cont__37_6(void);
-static NODE *func__37_7;
-static void entry__37_7(void);
-static FRAME_INFO frame__37_7 = {1, {"chr"}};
-static void cont__37_8(void);
-static NODE *func__37_9;
-static void entry__37_9(void);
-static FRAME_INFO frame__37_9 = {1, {"chr"}};
-static void cont__37_10(void);
-static NODE *func__37_11;
-static void entry__37_11(void);
-static FRAME_INFO frame__37_11 = {1, {"chr"}};
-static void cont__37_12(void);
-static void cont__37_13(void);
-static void cont__37_14(void);
-static void cont__37_15(void);
-static void cont__37_16(void);
-static NODE *func__37_17;
-static void entry__37_17(void);
-static FRAME_INFO frame__37_17 = {5, {"buf", "self", "s", "idx", "chr"}};
-static void cont__37_18(void);
-static void cont__37_19(void);
-static void cont__37_20(void);
-static void cont__37_21(void);
-static void cont__37_22(void);
+static NODE *func__types__string__serialize_3;
+static void entry__types__string__serialize_3(void);
+static FRAME_INFO frame__types__string__serialize_3 = {5, {"idx", "chr", "buf", "self", "s"}};
+static void cont__types__string__serialize_4(void);
+static NODE *func__types__string__serialize_5;
+static void entry__types__string__serialize_5(void);
+static FRAME_INFO frame__types__string__serialize_5 = {1, {"chr"}};
+static void cont__types__string__serialize_6(void);
+static NODE *func__types__string__serialize_7;
+static void entry__types__string__serialize_7(void);
+static FRAME_INFO frame__types__string__serialize_7 = {1, {"chr"}};
+static void cont__types__string__serialize_8(void);
+static NODE *func__types__string__serialize_9;
+static void entry__types__string__serialize_9(void);
+static FRAME_INFO frame__types__string__serialize_9 = {1, {"chr"}};
+static void cont__types__string__serialize_10(void);
+static NODE *func__types__string__serialize_11;
+static void entry__types__string__serialize_11(void);
+static FRAME_INFO frame__types__string__serialize_11 = {1, {"chr"}};
+static void cont__types__string__serialize_12(void);
+static void cont__types__string__serialize_13(void);
+static void cont__types__string__serialize_14(void);
+static void cont__types__string__serialize_15(void);
+static void cont__types__string__serialize_16(void);
+static NODE *func__types__string__serialize_17;
+static void entry__types__string__serialize_17(void);
+static FRAME_INFO frame__types__string__serialize_17 = {5, {"buf", "self", "s", "idx", "chr"}};
+static void cont__types__string__serialize_18(void);
+static void cont__types__string__serialize_19(void);
+static void cont__types__string__serialize_20(void);
+static void cont__types__string__serialize_21(void);
+static void cont__types__string__serialize_22(void);
 static NODE *string__fa728415fa96bb4;
-static void cont__37_24(void);
-static void cont__37_25(void);
-static void cont__37_26(void);
-static void cont__37_27(void);
-static void cont__37_28(void);
-static void cont__37_29(void);
-static void cont__37_30(void);
-static void cont__37_31(void);
-static NODE *func__38_1_types__string_parse_integer;
-static void entry__38_1_types__string_parse_integer(void);
-static FRAME_INFO frame__38_1_types__string_parse_integer = {4, {"self", "return", "val", "negate"}};
-static void cont__38_2(void);
-static NODE *func__38_3;
-static void entry__38_3(void);
-static FRAME_INFO frame__38_3 = {2, {"self", "negate"}};
-static void cont__38_4(void);
-static void cont__38_5(void);
-static void cont__38_6(void);
-static NODE *func__38_7;
-static void entry__38_7(void);
-static FRAME_INFO frame__38_7 = {4, {"break", "self", "val", "return"}};
-static NODE *func__38_8;
-static void entry__38_8(void);
-static FRAME_INFO frame__38_8 = {4, {"self", "val", "return", "break"}};
+static void cont__types__string__serialize_24(void);
+static void cont__types__string__serialize_25(void);
+static void cont__types__string__serialize_26(void);
+static void cont__types__string__serialize_27(void);
+static void cont__types__string__serialize_28(void);
+static void cont__types__string__serialize_29(void);
+static void cont__types__string__serialize_30(void);
+static void cont__types__string__serialize_31(void);
+static NODE *func__types__string__parse_integer_1;
+static void entry__types__string__parse_integer_1(void);
+static FRAME_INFO frame__types__string__parse_integer_1 = {4, {"self", "return", "val", "negate"}};
+static void cont__types__string__parse_integer_2(void);
+static NODE *func__types__string__parse_integer_3;
+static void entry__types__string__parse_integer_3(void);
+static FRAME_INFO frame__types__string__parse_integer_3 = {2, {"self", "negate"}};
+static void cont__types__string__parse_integer_4(void);
+static void cont__types__string__parse_integer_5(void);
+static void cont__types__string__parse_integer_6(void);
+static NODE *func__types__string__parse_integer_7;
+static void entry__types__string__parse_integer_7(void);
+static FRAME_INFO frame__types__string__parse_integer_7 = {4, {"break", "self", "val", "return"}};
+static NODE *func__types__string__parse_integer_8;
+static void entry__types__string__parse_integer_8(void);
+static FRAME_INFO frame__types__string__parse_integer_8 = {4, {"self", "val", "return", "break"}};
 static NODE *string__2d7981f4e6882ba7;
-static void cont__38_10(void);
-static NODE *func__38_11;
-static void entry__38_11(void);
-static FRAME_INFO frame__38_11 = {4, {"self", "val", "return", "break"}};
-static void cont__38_12(void);
-static NODE *func__38_13;
-static void entry__38_13(void);
-static FRAME_INFO frame__38_13 = {6, {"idx", "chr", "val", "return", "self", "break"}};
-static void cont__38_14(void);
-static NODE *func__38_15;
-static void entry__38_15(void);
-static FRAME_INFO frame__38_15 = {2, {"val", "chr"}};
-static void cont__38_16(void);
-static void cont__38_17(void);
-static void cont__38_18(void);
-static NODE *func__38_19;
-static void entry__38_19(void);
-static FRAME_INFO frame__38_19 = {4, {"idx", "return", "self", "break"}};
-static void cont__38_20(void);
-static void cont__38_21(void);
-static NODE *func__38_22;
-static void entry__38_22(void);
-static FRAME_INFO frame__38_22 = {2, {"return", "self"}};
-static void cont__38_23(void);
-static void cont__38_24(void);
-static void cont__38_25(void);
-static NODE *func__38_26;
-static void entry__38_26(void);
-static FRAME_INFO frame__38_26 = {4, {"self", "val", "return", "break"}};
+static void cont__types__string__parse_integer_10(void);
+static NODE *func__types__string__parse_integer_11;
+static void entry__types__string__parse_integer_11(void);
+static FRAME_INFO frame__types__string__parse_integer_11 = {4, {"self", "val", "return", "break"}};
+static void cont__types__string__parse_integer_12(void);
+static NODE *func__types__string__parse_integer_13;
+static void entry__types__string__parse_integer_13(void);
+static FRAME_INFO frame__types__string__parse_integer_13 = {6, {"idx", "chr", "val", "return", "self", "break"}};
+static void cont__types__string__parse_integer_14(void);
+static NODE *func__types__string__parse_integer_15;
+static void entry__types__string__parse_integer_15(void);
+static FRAME_INFO frame__types__string__parse_integer_15 = {2, {"val", "chr"}};
+static void cont__types__string__parse_integer_16(void);
+static void cont__types__string__parse_integer_17(void);
+static void cont__types__string__parse_integer_18(void);
+static NODE *func__types__string__parse_integer_19;
+static void entry__types__string__parse_integer_19(void);
+static FRAME_INFO frame__types__string__parse_integer_19 = {4, {"idx", "return", "self", "break"}};
+static void cont__types__string__parse_integer_20(void);
+static void cont__types__string__parse_integer_21(void);
+static NODE *func__types__string__parse_integer_22;
+static void entry__types__string__parse_integer_22(void);
+static FRAME_INFO frame__types__string__parse_integer_22 = {2, {"return", "self"}};
+static void cont__types__string__parse_integer_23(void);
+static void cont__types__string__parse_integer_24(void);
+static void cont__types__string__parse_integer_25(void);
+static NODE *func__types__string__parse_integer_26;
+static void entry__types__string__parse_integer_26(void);
+static FRAME_INFO frame__types__string__parse_integer_26 = {4, {"self", "val", "return", "break"}};
 static NODE *string__2d7981f4e6882baa;
-static void cont__38_28(void);
-static NODE *func__38_29;
-static void entry__38_29(void);
-static FRAME_INFO frame__38_29 = {4, {"self", "val", "return", "break"}};
-static void cont__38_30(void);
-static NODE *func__38_31;
-static void entry__38_31(void);
-static FRAME_INFO frame__38_31 = {6, {"idx", "chr", "val", "return", "self", "break"}};
-static void cont__38_32(void);
-static NODE *func__38_33;
-static void entry__38_33(void);
-static FRAME_INFO frame__38_33 = {2, {"val", "chr"}};
-static void cont__38_34(void);
-static void cont__38_35(void);
-static void cont__38_36(void);
-static NODE *func__38_37;
-static void entry__38_37(void);
-static FRAME_INFO frame__38_37 = {4, {"idx", "return", "self", "break"}};
-static void cont__38_38(void);
-static void cont__38_39(void);
-static NODE *func__38_40;
-static void entry__38_40(void);
-static FRAME_INFO frame__38_40 = {2, {"return", "self"}};
-static void cont__38_41(void);
-static void cont__38_42(void);
-static void cont__38_43(void);
-static NODE *func__38_44;
-static void entry__38_44(void);
-static FRAME_INFO frame__38_44 = {4, {"self", "val", "return", "break"}};
+static void cont__types__string__parse_integer_28(void);
+static NODE *func__types__string__parse_integer_29;
+static void entry__types__string__parse_integer_29(void);
+static FRAME_INFO frame__types__string__parse_integer_29 = {4, {"self", "val", "return", "break"}};
+static void cont__types__string__parse_integer_30(void);
+static NODE *func__types__string__parse_integer_31;
+static void entry__types__string__parse_integer_31(void);
+static FRAME_INFO frame__types__string__parse_integer_31 = {6, {"idx", "chr", "val", "return", "self", "break"}};
+static void cont__types__string__parse_integer_32(void);
+static NODE *func__types__string__parse_integer_33;
+static void entry__types__string__parse_integer_33(void);
+static FRAME_INFO frame__types__string__parse_integer_33 = {2, {"val", "chr"}};
+static void cont__types__string__parse_integer_34(void);
+static void cont__types__string__parse_integer_35(void);
+static void cont__types__string__parse_integer_36(void);
+static NODE *func__types__string__parse_integer_37;
+static void entry__types__string__parse_integer_37(void);
+static FRAME_INFO frame__types__string__parse_integer_37 = {4, {"idx", "return", "self", "break"}};
+static void cont__types__string__parse_integer_38(void);
+static void cont__types__string__parse_integer_39(void);
+static NODE *func__types__string__parse_integer_40;
+static void entry__types__string__parse_integer_40(void);
+static FRAME_INFO frame__types__string__parse_integer_40 = {2, {"return", "self"}};
+static void cont__types__string__parse_integer_41(void);
+static void cont__types__string__parse_integer_42(void);
+static void cont__types__string__parse_integer_43(void);
+static NODE *func__types__string__parse_integer_44;
+static void entry__types__string__parse_integer_44(void);
+static FRAME_INFO frame__types__string__parse_integer_44 = {4, {"self", "val", "return", "break"}};
 static NODE *string__2d7981f4e6882bbd;
-static void cont__38_46(void);
-static NODE *func__38_47;
-static void entry__38_47(void);
-static FRAME_INFO frame__38_47 = {4, {"self", "val", "return", "break"}};
-static void cont__38_48(void);
-static NODE *func__38_49;
-static void entry__38_49(void);
-static FRAME_INFO frame__38_49 = {6, {"idx", "chr", "val", "return", "self", "break"}};
-static void cont__38_50(void);
-static NODE *func__38_51;
-static void entry__38_51(void);
-static FRAME_INFO frame__38_51 = {2, {"val", "chr"}};
-static void cont__38_52(void);
-static void cont__38_53(void);
-static void cont__38_54(void);
-static void cont__38_55(void);
-static NODE *func__38_56;
-static void entry__38_56(void);
-static FRAME_INFO frame__38_56 = {2, {"val", "chr"}};
-static void cont__38_57(void);
-static void cont__38_58(void);
-static void cont__38_59(void);
-static void cont__38_60(void);
-static void cont__38_61(void);
-static NODE *func__38_62;
-static void entry__38_62(void);
-static FRAME_INFO frame__38_62 = {2, {"val", "chr"}};
-static void cont__38_63(void);
-static void cont__38_64(void);
-static void cont__38_65(void);
-static void cont__38_66(void);
-static NODE *func__38_67;
-static void entry__38_67(void);
-static FRAME_INFO frame__38_67 = {4, {"idx", "return", "self", "break"}};
-static void cont__38_68(void);
-static void cont__38_69(void);
-static NODE *func__38_70;
-static void entry__38_70(void);
-static FRAME_INFO frame__38_70 = {2, {"return", "self"}};
-static void cont__38_71(void);
-static void cont__38_72(void);
-static void cont__38_73(void);
-static NODE *func__38_74;
-static void entry__38_74(void);
-static FRAME_INFO frame__38_74 = {4, {"self", "val", "return", "break"}};
-static NODE *func__38_75;
-static void entry__38_75(void);
-static FRAME_INFO frame__38_75 = {6, {"idx", "chr", "val", "return", "self", "break"}};
-static void cont__38_76(void);
-static NODE *func__38_77;
-static void entry__38_77(void);
-static FRAME_INFO frame__38_77 = {2, {"val", "chr"}};
-static void cont__38_78(void);
-static void cont__38_79(void);
-static void cont__38_80(void);
-static NODE *func__38_81;
-static void entry__38_81(void);
-static FRAME_INFO frame__38_81 = {4, {"idx", "return", "self", "break"}};
-static void cont__38_82(void);
-static void cont__38_83(void);
-static NODE *func__38_84;
-static void entry__38_84(void);
-static FRAME_INFO frame__38_84 = {2, {"return", "self"}};
-static void cont__38_85(void);
-static void cont__38_86(void);
-static void cont__38_87(void);
-static void cont__38_88(void);
-static void cont__38_89(void);
-static NODE *func__38_90;
-static void entry__38_90(void);
-static FRAME_INFO frame__38_90 = {1, {"val"}};
-static void cont__38_91(void);
-static NODE *func__38_92;
-static void entry__38_92(void);
-static FRAME_INFO frame__38_92 = {1, {"val"}};
-static void cont__38_93(void);
+static void cont__types__string__parse_integer_46(void);
+static NODE *func__types__string__parse_integer_47;
+static void entry__types__string__parse_integer_47(void);
+static FRAME_INFO frame__types__string__parse_integer_47 = {4, {"self", "val", "return", "break"}};
+static void cont__types__string__parse_integer_48(void);
+static NODE *func__types__string__parse_integer_49;
+static void entry__types__string__parse_integer_49(void);
+static FRAME_INFO frame__types__string__parse_integer_49 = {6, {"idx", "chr", "val", "return", "self", "break"}};
+static void cont__types__string__parse_integer_50(void);
+static NODE *func__types__string__parse_integer_51;
+static void entry__types__string__parse_integer_51(void);
+static FRAME_INFO frame__types__string__parse_integer_51 = {2, {"val", "chr"}};
+static void cont__types__string__parse_integer_52(void);
+static void cont__types__string__parse_integer_53(void);
+static void cont__types__string__parse_integer_54(void);
+static void cont__types__string__parse_integer_55(void);
+static NODE *func__types__string__parse_integer_56;
+static void entry__types__string__parse_integer_56(void);
+static FRAME_INFO frame__types__string__parse_integer_56 = {2, {"val", "chr"}};
+static void cont__types__string__parse_integer_57(void);
+static void cont__types__string__parse_integer_58(void);
+static void cont__types__string__parse_integer_59(void);
+static void cont__types__string__parse_integer_60(void);
+static void cont__types__string__parse_integer_61(void);
+static NODE *func__types__string__parse_integer_62;
+static void entry__types__string__parse_integer_62(void);
+static FRAME_INFO frame__types__string__parse_integer_62 = {2, {"val", "chr"}};
+static void cont__types__string__parse_integer_63(void);
+static void cont__types__string__parse_integer_64(void);
+static void cont__types__string__parse_integer_65(void);
+static void cont__types__string__parse_integer_66(void);
+static NODE *func__types__string__parse_integer_67;
+static void entry__types__string__parse_integer_67(void);
+static FRAME_INFO frame__types__string__parse_integer_67 = {4, {"idx", "return", "self", "break"}};
+static void cont__types__string__parse_integer_68(void);
+static void cont__types__string__parse_integer_69(void);
+static NODE *func__types__string__parse_integer_70;
+static void entry__types__string__parse_integer_70(void);
+static FRAME_INFO frame__types__string__parse_integer_70 = {2, {"return", "self"}};
+static void cont__types__string__parse_integer_71(void);
+static void cont__types__string__parse_integer_72(void);
+static void cont__types__string__parse_integer_73(void);
+static NODE *func__types__string__parse_integer_74;
+static void entry__types__string__parse_integer_74(void);
+static FRAME_INFO frame__types__string__parse_integer_74 = {4, {"self", "val", "return", "break"}};
+static NODE *func__types__string__parse_integer_75;
+static void entry__types__string__parse_integer_75(void);
+static FRAME_INFO frame__types__string__parse_integer_75 = {6, {"idx", "chr", "val", "return", "self", "break"}};
+static void cont__types__string__parse_integer_76(void);
+static NODE *func__types__string__parse_integer_77;
+static void entry__types__string__parse_integer_77(void);
+static FRAME_INFO frame__types__string__parse_integer_77 = {2, {"val", "chr"}};
+static void cont__types__string__parse_integer_78(void);
+static void cont__types__string__parse_integer_79(void);
+static void cont__types__string__parse_integer_80(void);
+static NODE *func__types__string__parse_integer_81;
+static void entry__types__string__parse_integer_81(void);
+static FRAME_INFO frame__types__string__parse_integer_81 = {4, {"idx", "return", "self", "break"}};
+static void cont__types__string__parse_integer_82(void);
+static void cont__types__string__parse_integer_83(void);
+static NODE *func__types__string__parse_integer_84;
+static void entry__types__string__parse_integer_84(void);
+static FRAME_INFO frame__types__string__parse_integer_84 = {2, {"return", "self"}};
+static void cont__types__string__parse_integer_85(void);
+static void cont__types__string__parse_integer_86(void);
+static void cont__types__string__parse_integer_87(void);
+static void cont__types__string__parse_integer_88(void);
+static void cont__types__string__parse_integer_89(void);
+static NODE *func__types__string__parse_integer_90;
+static void entry__types__string__parse_integer_90(void);
+static FRAME_INFO frame__types__string__parse_integer_90 = {1, {"val"}};
+static void cont__types__string__parse_integer_91(void);
+static NODE *func__types__string__parse_integer_92;
+static void entry__types__string__parse_integer_92(void);
+static FRAME_INFO frame__types__string__parse_integer_92 = {1, {"val"}};
+static void cont__types__string__parse_integer_93(void);
 
 static long func__types__octet_string___debug_string(NODE *node, int indent, int max_depth, char *buf);
 
 static long func__types__quad_octet_string___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static void entry__41_1_types__octet_string_push(void);
-static NODE *func__41_1_types__octet_string_push;
-static void entry__42_1_types__quad_octet_string_push(void);
-static NODE *func__42_1_types__quad_octet_string_push;
-static void entry__43_1_types__octet_string_append(void);
-static NODE *func__43_1_types__octet_string_append;
-static void entry__44_1_types__quad_octet_string_append(void);
-static NODE *func__44_1_types__quad_octet_string_append;
-static void entry__45_1_types__string_parse_real(void);
-static NODE *func__45_1_types__string_parse_real;
-static void entry__46_1_types__octet_string_range(void);
-static NODE *func__46_1_types__octet_string_range;
-static void entry__47_1_types__quad_octet_string_range(void);
-static NODE *func__47_1_types__quad_octet_string_range;
-static void entry__48_1_std__matches_file_pattern(void);
-static NODE *func__48_1_std__matches_file_pattern;
+static void entry__types__octet_string__push_1(void);
+static NODE *func__types__octet_string__push_1;
+static void entry__types__quad_octet_string__push_1(void);
+static NODE *func__types__quad_octet_string__push_1;
+static void entry__types__octet_string__append_1(void);
+static NODE *func__types__octet_string__append_1;
+static void entry__types__quad_octet_string__append_1(void);
+static NODE *func__types__quad_octet_string__append_1;
+static void entry__types__string__parse_real_1(void);
+static NODE *func__types__string__parse_real_1;
+static void entry__types__octet_string__range_1(void);
+static NODE *func__types__octet_string__range_1;
+static void entry__types__quad_octet_string__range_1(void);
+static NODE *func__types__quad_octet_string__range_1;
+static void entry__std__matches_file_pattern_1(void);
+static NODE *func__std__matches_file_pattern_1;
 static NODE *get__std__matches_file_pattern(void) {
   return var.std__matches_file_pattern;
 }
-static void entry__49_1_types__octet_string_is_a_latin_1_string(void);
-static NODE *func__49_1_types__octet_string_is_a_latin_1_string;
-static void entry__50_1_types__quad_octet_string_is_a_latin_1_string(void);
-static NODE *func__50_1_types__quad_octet_string_is_a_latin_1_string;
-static void entry__51_1_std__from_utf8(void);
-static NODE *func__51_1_std__from_utf8;
+static void entry__types__octet_string__is_a_latin_1_string_1(void);
+static NODE *func__types__octet_string__is_a_latin_1_string_1;
+static void entry__types__quad_octet_string__is_a_latin_1_string_1(void);
+static NODE *func__types__quad_octet_string__is_a_latin_1_string_1;
+static void entry__std__from_utf8_1(void);
+static NODE *func__std__from_utf8_1;
 static NODE *get__std__from_utf8(void) {
   return var.std__from_utf8;
 }
-static void entry__52_1_types__octet_string_to_utf8(void);
-static NODE *func__52_1_types__octet_string_to_utf8;
-static void entry__53_1_types__quad_octet_string_to_utf8(void);
-static NODE *func__53_1_types__quad_octet_string_to_utf8;
+static void entry__types__octet_string__to_utf8_1(void);
+static NODE *func__types__octet_string__to_utf8_1;
+static void entry__types__quad_octet_string__to_utf8_1(void);
+static NODE *func__types__quad_octet_string__to_utf8_1;
 void run__basic__types__string_primitives(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -721,151 +721,151 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__to_utf8, NULL, 35, 35, 2, 13},
   {type__std__is_a_latin_1_string, NULL, 39, 39, 2, 25},
   {run__basic__types__string_primitives, NULL, 43, 43, 1, 34},
-  {entry__24_1_types__octet_string_length_of, NULL, 351, 354, 3, 2},
-  {entry__25_1_types__quad_octet_string_length_of, NULL, 359, 362, 3, 2},
-  {entry__26_1_types__octet_string_equal, NULL, 367, 389, 3, 2},
-  {entry__27_1_types__quad_octet_string_equal, NULL, 394, 416, 3, 2},
-  {entry__28_1_types__octet_string_count_character_occurrences, NULL, 421, 433, 3, 2},
-  {entry__29_1_types__quad_octet_string_count_character_occurrences, NULL, 438, 450, 3, 2},
-  {entry__30_1_types__octet_string_less, NULL, 455, 505, 3, 2},
-  {entry__31_1_types__quad_octet_string_less, NULL, 510, 560, 3, 2},
-  {entry__32_1_types__octet_string_hash, NULL, 565, 586, 3, 2},
-  {entry__33_1_types__octet_string_hash2, NULL, 591, 603, 3, 2},
-  {entry__34_1_types__quad_octet_string_hash, NULL, 608, 629, 3, 2},
-  {entry__35_1_types__quad_octet_string_hash2, NULL, 634, 646, 3, 2},
-  {entry__36_1_types__string_to_string, NULL, 654, 654, 3, 9},
-  {entry__37_11, NULL, 672, 672, 9, 23},
-  {cont__37_12, &frame__37_11, 672, 672, 9, 23},
-  {entry__37_9, NULL, 671, 671, 9, 23},
-  {cont__37_10, &frame__37_9, 672, 672, 9, 23},
-  {cont__37_13, &frame__37_9, },
-  {entry__37_7, NULL, 670, 670, 9, 19},
-  {cont__37_8, &frame__37_7, },
-  {cont__37_14, &frame__37_7, },
-  {entry__37_5, NULL, 669, 669, 9, 17},
-  {cont__37_6, &frame__37_5, },
-  {cont__37_15, &frame__37_5, },
-  {entry__37_17, NULL, 674, 674, 34, 38},
-  {cont__37_18, &frame__37_17, 674, 674, 21, 39},
-  {cont__37_19, &frame__37_17, 674, 674, 9, 39},
-  {cont__37_20, &frame__37_17, 675, 675, 39, 52},
-  {cont__37_21, &frame__37_17, 675, 675, 35, 53},
-  {cont__37_22, &frame__37_17, 675, 675, 21, 58},
-  {cont__37_24, &frame__37_17, 675, 675, 9, 58},
-  {cont__37_25, &frame__37_17, 676, 676, 9, 16},
-  {cont__37_26, &frame__37_17, 676, 676, 16, 16},
-  {entry__37_3, NULL, 668, 668, 9, 17},
-  {cont__37_4, &frame__37_3, },
-  {cont__37_16, &frame__37_3, 666, 676, 5, 17},
-  {entry__37_1_types__string_serialize, NULL, 665, 676, 3, 18},
-  {cont__37_27, &frame__37_1_types__string_serialize, 677, 677, 29, 29},
-  {cont__37_28, &frame__37_1_types__string_serialize, 677, 677, 15, 30},
-  {cont__37_29, &frame__37_1_types__string_serialize, 677, 677, 3, 30},
-  {cont__37_30, &frame__37_1_types__string_serialize, 678, 678, 6, 23},
-  {cont__37_31, &frame__37_1_types__string_serialize, 678, 678, 3, 23},
-  {entry__38_3, NULL, 690, 690, 20, 20},
-  {cont__38_4, &frame__38_3, 690, 690, 5, 20},
-  {cont__38_5, &frame__38_3, 691, 691, 16, 16},
-  {entry__38_15, NULL, 699, 699, 21, 28},
-  {cont__38_16, &frame__38_15, 699, 699, 32, 38},
-  {cont__38_17, &frame__38_15, 699, 699, 15, 39},
-  {cont__38_18, &frame__38_15, 699, 699, 39, 39},
-  {entry__38_22, NULL, 701, 701, 28, 48},
-  {entry__38_19, NULL, 701, 701, 18, 25},
-  {cont__38_20, &frame__38_19, 701, 701, 18, 25},
-  {cont__38_21, &frame__38_19, 701, 701, 15, 48},
-  {cont__38_23, &frame__38_19, 702, 702, 32, 32},
-  {cont__38_24, &frame__38_19, 702, 702, 15, 32},
-  {cont__38_25, &frame__38_19, 703, 703, 15, 19},
-  {entry__38_13, NULL, 698, 698, 13, 22},
-  {cont__38_14, &frame__38_13, 696, 703, 11, 20},
-  {entry__38_11, NULL, 695, 695, 34, 34},
-  {cont__38_12, &frame__38_11, 695, 703, 9, 21},
-  {entry__38_8, NULL, 694, 694, 10, 31},
-  {cont__38_10, &frame__38_8, 694, 703, 7, 22},
-  {entry__38_33, NULL, 709, 709, 21, 28},
-  {cont__38_34, &frame__38_33, 709, 709, 32, 38},
-  {cont__38_35, &frame__38_33, 709, 709, 15, 39},
-  {cont__38_36, &frame__38_33, 709, 709, 39, 39},
-  {entry__38_40, NULL, 711, 711, 28, 48},
-  {entry__38_37, NULL, 711, 711, 18, 25},
-  {cont__38_38, &frame__38_37, 711, 711, 18, 25},
-  {cont__38_39, &frame__38_37, 711, 711, 15, 48},
-  {cont__38_41, &frame__38_37, 712, 712, 32, 32},
-  {cont__38_42, &frame__38_37, 712, 712, 15, 32},
-  {cont__38_43, &frame__38_37, 713, 713, 15, 19},
-  {entry__38_31, NULL, 708, 708, 13, 22},
-  {cont__38_32, &frame__38_31, 706, 713, 11, 20},
-  {entry__38_29, NULL, 705, 705, 34, 34},
-  {cont__38_30, &frame__38_29, 705, 713, 9, 21},
-  {entry__38_26, NULL, 704, 704, 10, 31},
-  {cont__38_28, &frame__38_26, 704, 713, 7, 22},
-  {entry__38_51, NULL, 719, 719, 21, 28},
-  {cont__38_52, &frame__38_51, 719, 719, 32, 38},
-  {cont__38_53, &frame__38_51, 719, 719, 15, 39},
-  {cont__38_54, &frame__38_51, 719, 719, 39, 39},
-  {entry__38_56, NULL, 721, 721, 21, 28},
-  {cont__38_57, &frame__38_56, 721, 721, 32, 38},
-  {cont__38_58, &frame__38_56, 721, 721, 21, 38},
-  {cont__38_59, &frame__38_56, 721, 721, 15, 42},
-  {cont__38_60, &frame__38_56, 721, 721, 42, 42},
-  {entry__38_62, NULL, 723, 723, 21, 28},
-  {cont__38_63, &frame__38_62, 723, 723, 32, 38},
-  {cont__38_64, &frame__38_62, 723, 723, 21, 38},
-  {cont__38_65, &frame__38_62, 723, 723, 15, 42},
-  {cont__38_66, &frame__38_62, 723, 723, 42, 42},
-  {entry__38_70, NULL, 725, 725, 28, 48},
-  {entry__38_67, NULL, 725, 725, 18, 25},
-  {cont__38_68, &frame__38_67, 725, 725, 18, 25},
-  {cont__38_69, &frame__38_67, 725, 725, 15, 48},
-  {cont__38_71, &frame__38_67, 726, 726, 32, 32},
-  {cont__38_72, &frame__38_67, 726, 726, 15, 32},
-  {cont__38_73, &frame__38_67, 727, 727, 15, 19},
-  {entry__38_49, NULL, 718, 718, 13, 22},
-  {cont__38_50, &frame__38_49, 720, 720, 13, 22},
-  {cont__38_55, &frame__38_49, 722, 722, 13, 22},
-  {cont__38_61, &frame__38_49, 716, 727, 11, 20},
-  {entry__38_47, NULL, 715, 715, 34, 34},
-  {cont__38_48, &frame__38_47, 715, 727, 9, 21},
-  {entry__38_44, NULL, 714, 714, 10, 31},
-  {cont__38_46, &frame__38_44, 714, 727, 7, 22},
-  {entry__38_77, NULL, 733, 733, 20, 25},
-  {cont__38_78, &frame__38_77, 733, 733, 28, 34},
-  {cont__38_79, &frame__38_77, 733, 733, 15, 35},
-  {cont__38_80, &frame__38_77, 733, 733, 35, 35},
-  {entry__38_84, NULL, 735, 735, 28, 48},
-  {entry__38_81, NULL, 735, 735, 18, 25},
-  {cont__38_82, &frame__38_81, 735, 735, 18, 25},
-  {cont__38_83, &frame__38_81, 735, 735, 15, 48},
-  {cont__38_85, &frame__38_81, 736, 736, 32, 32},
-  {cont__38_86, &frame__38_81, 736, 736, 15, 32},
-  {cont__38_87, &frame__38_81, 737, 737, 15, 19},
-  {entry__38_75, NULL, 732, 732, 13, 22},
-  {cont__38_76, &frame__38_75, 730, 737, 11, 20},
-  {entry__38_74, NULL, 729, 737, 9, 21},
-  {entry__38_7, NULL, 693, 737, 5, 23},
-  {cont__38_88, &frame__38_7, 738, 738, 12, 12},
-  {entry__38_90, NULL, 739, 739, 26, 28},
-  {cont__38_91, &frame__38_90, 739, 739, 22, 28},
-  {entry__38_92, NULL, 739, 739, 31, 36},
-  {entry__38_1_types__string_parse_integer, NULL, 689, 689, 6, 26},
-  {cont__38_2, &frame__38_1_types__string_parse_integer, 689, 691, 3, 16},
-  {cont__38_6, &frame__38_1_types__string_parse_integer, 692, 738, 3, 12},
-  {cont__38_89, &frame__38_1_types__string_parse_integer, 739, 739, 11, 37},
-  {cont__38_93, &frame__38_1_types__string_parse_integer, 739, 739, 3, 37},
-  {entry__41_1_types__octet_string_push, NULL, 812, 853, 3, 2},
-  {entry__42_1_types__quad_octet_string_push, NULL, 858, 884, 3, 2},
-  {entry__43_1_types__octet_string_append, NULL, 889, 933, 3, 2},
-  {entry__44_1_types__quad_octet_string_append, NULL, 938, 982, 3, 2},
-  {entry__45_1_types__string_parse_real, NULL, 987, 999, 3, 2},
-  {entry__46_1_types__octet_string_range, NULL, 1004, 1021, 3, 2},
-  {entry__47_1_types__quad_octet_string_range, NULL, 1026, 1058, 3, 2},
-  {entry__48_1_std__matches_file_pattern, NULL, 1063, 1071, 3, 2},
-  {entry__49_1_types__octet_string_is_a_latin_1_string, NULL, 1076, 1079, 3, 2},
-  {entry__50_1_types__quad_octet_string_is_a_latin_1_string, NULL, 1084, 1087, 3, 2},
-  {entry__51_1_std__from_utf8, NULL, 1092, 1187, 3, 2},
-  {entry__52_1_types__octet_string_to_utf8, NULL, 1192, 1221, 3, 2},
-  {entry__53_1_types__quad_octet_string_to_utf8, NULL, 1237, 1326, 3, 2}
+  {entry__types__octet_string__length_of_1, NULL, 351, 354, 3, 2},
+  {entry__types__quad_octet_string__length_of_1, NULL, 359, 362, 3, 2},
+  {entry__types__octet_string__equal_1, NULL, 367, 389, 3, 2},
+  {entry__types__quad_octet_string__equal_1, NULL, 394, 416, 3, 2},
+  {entry__types__octet_string__count_character_occurrences_1, NULL, 421, 433, 3, 2},
+  {entry__types__quad_octet_string__count_character_occurrences_1, NULL, 438, 450, 3, 2},
+  {entry__types__octet_string__less_1, NULL, 455, 505, 3, 2},
+  {entry__types__quad_octet_string__less_1, NULL, 510, 560, 3, 2},
+  {entry__types__octet_string__hash_1, NULL, 565, 586, 3, 2},
+  {entry__types__octet_string__hash2_1, NULL, 591, 603, 3, 2},
+  {entry__types__quad_octet_string__hash_1, NULL, 608, 629, 3, 2},
+  {entry__types__quad_octet_string__hash2_1, NULL, 634, 646, 3, 2},
+  {entry__types__string__to_string_1, NULL, 654, 654, 3, 9},
+  {entry__types__string__serialize_11, NULL, 672, 672, 9, 23},
+  {cont__types__string__serialize_12, &frame__types__string__serialize_11, 672, 672, 9, 23},
+  {entry__types__string__serialize_9, NULL, 671, 671, 9, 23},
+  {cont__types__string__serialize_10, &frame__types__string__serialize_9, 672, 672, 9, 23},
+  {cont__types__string__serialize_13, &frame__types__string__serialize_9, },
+  {entry__types__string__serialize_7, NULL, 670, 670, 9, 19},
+  {cont__types__string__serialize_8, &frame__types__string__serialize_7, },
+  {cont__types__string__serialize_14, &frame__types__string__serialize_7, },
+  {entry__types__string__serialize_5, NULL, 669, 669, 9, 17},
+  {cont__types__string__serialize_6, &frame__types__string__serialize_5, },
+  {cont__types__string__serialize_15, &frame__types__string__serialize_5, },
+  {entry__types__string__serialize_17, NULL, 674, 674, 34, 38},
+  {cont__types__string__serialize_18, &frame__types__string__serialize_17, 674, 674, 21, 39},
+  {cont__types__string__serialize_19, &frame__types__string__serialize_17, 674, 674, 9, 39},
+  {cont__types__string__serialize_20, &frame__types__string__serialize_17, 675, 675, 39, 52},
+  {cont__types__string__serialize_21, &frame__types__string__serialize_17, 675, 675, 35, 53},
+  {cont__types__string__serialize_22, &frame__types__string__serialize_17, 675, 675, 21, 58},
+  {cont__types__string__serialize_24, &frame__types__string__serialize_17, 675, 675, 9, 58},
+  {cont__types__string__serialize_25, &frame__types__string__serialize_17, 676, 676, 9, 16},
+  {cont__types__string__serialize_26, &frame__types__string__serialize_17, 676, 676, 16, 16},
+  {entry__types__string__serialize_3, NULL, 668, 668, 9, 17},
+  {cont__types__string__serialize_4, &frame__types__string__serialize_3, },
+  {cont__types__string__serialize_16, &frame__types__string__serialize_3, 666, 676, 5, 17},
+  {entry__types__string__serialize_1, NULL, 665, 676, 3, 18},
+  {cont__types__string__serialize_27, &frame__types__string__serialize_1, 677, 677, 29, 29},
+  {cont__types__string__serialize_28, &frame__types__string__serialize_1, 677, 677, 15, 30},
+  {cont__types__string__serialize_29, &frame__types__string__serialize_1, 677, 677, 3, 30},
+  {cont__types__string__serialize_30, &frame__types__string__serialize_1, 678, 678, 6, 23},
+  {cont__types__string__serialize_31, &frame__types__string__serialize_1, 678, 678, 3, 23},
+  {entry__types__string__parse_integer_3, NULL, 690, 690, 20, 20},
+  {cont__types__string__parse_integer_4, &frame__types__string__parse_integer_3, 690, 690, 5, 20},
+  {cont__types__string__parse_integer_5, &frame__types__string__parse_integer_3, 691, 691, 16, 16},
+  {entry__types__string__parse_integer_15, NULL, 699, 699, 21, 28},
+  {cont__types__string__parse_integer_16, &frame__types__string__parse_integer_15, 699, 699, 32, 38},
+  {cont__types__string__parse_integer_17, &frame__types__string__parse_integer_15, 699, 699, 15, 39},
+  {cont__types__string__parse_integer_18, &frame__types__string__parse_integer_15, 699, 699, 39, 39},
+  {entry__types__string__parse_integer_22, NULL, 701, 701, 28, 48},
+  {entry__types__string__parse_integer_19, NULL, 701, 701, 18, 25},
+  {cont__types__string__parse_integer_20, &frame__types__string__parse_integer_19, 701, 701, 18, 25},
+  {cont__types__string__parse_integer_21, &frame__types__string__parse_integer_19, 701, 701, 15, 48},
+  {cont__types__string__parse_integer_23, &frame__types__string__parse_integer_19, 702, 702, 32, 32},
+  {cont__types__string__parse_integer_24, &frame__types__string__parse_integer_19, 702, 702, 15, 32},
+  {cont__types__string__parse_integer_25, &frame__types__string__parse_integer_19, 703, 703, 15, 19},
+  {entry__types__string__parse_integer_13, NULL, 698, 698, 13, 22},
+  {cont__types__string__parse_integer_14, &frame__types__string__parse_integer_13, 696, 703, 11, 20},
+  {entry__types__string__parse_integer_11, NULL, 695, 695, 34, 34},
+  {cont__types__string__parse_integer_12, &frame__types__string__parse_integer_11, 695, 703, 9, 21},
+  {entry__types__string__parse_integer_8, NULL, 694, 694, 10, 31},
+  {cont__types__string__parse_integer_10, &frame__types__string__parse_integer_8, 694, 703, 7, 22},
+  {entry__types__string__parse_integer_33, NULL, 709, 709, 21, 28},
+  {cont__types__string__parse_integer_34, &frame__types__string__parse_integer_33, 709, 709, 32, 38},
+  {cont__types__string__parse_integer_35, &frame__types__string__parse_integer_33, 709, 709, 15, 39},
+  {cont__types__string__parse_integer_36, &frame__types__string__parse_integer_33, 709, 709, 39, 39},
+  {entry__types__string__parse_integer_40, NULL, 711, 711, 28, 48},
+  {entry__types__string__parse_integer_37, NULL, 711, 711, 18, 25},
+  {cont__types__string__parse_integer_38, &frame__types__string__parse_integer_37, 711, 711, 18, 25},
+  {cont__types__string__parse_integer_39, &frame__types__string__parse_integer_37, 711, 711, 15, 48},
+  {cont__types__string__parse_integer_41, &frame__types__string__parse_integer_37, 712, 712, 32, 32},
+  {cont__types__string__parse_integer_42, &frame__types__string__parse_integer_37, 712, 712, 15, 32},
+  {cont__types__string__parse_integer_43, &frame__types__string__parse_integer_37, 713, 713, 15, 19},
+  {entry__types__string__parse_integer_31, NULL, 708, 708, 13, 22},
+  {cont__types__string__parse_integer_32, &frame__types__string__parse_integer_31, 706, 713, 11, 20},
+  {entry__types__string__parse_integer_29, NULL, 705, 705, 34, 34},
+  {cont__types__string__parse_integer_30, &frame__types__string__parse_integer_29, 705, 713, 9, 21},
+  {entry__types__string__parse_integer_26, NULL, 704, 704, 10, 31},
+  {cont__types__string__parse_integer_28, &frame__types__string__parse_integer_26, 704, 713, 7, 22},
+  {entry__types__string__parse_integer_51, NULL, 719, 719, 21, 28},
+  {cont__types__string__parse_integer_52, &frame__types__string__parse_integer_51, 719, 719, 32, 38},
+  {cont__types__string__parse_integer_53, &frame__types__string__parse_integer_51, 719, 719, 15, 39},
+  {cont__types__string__parse_integer_54, &frame__types__string__parse_integer_51, 719, 719, 39, 39},
+  {entry__types__string__parse_integer_56, NULL, 721, 721, 21, 28},
+  {cont__types__string__parse_integer_57, &frame__types__string__parse_integer_56, 721, 721, 32, 38},
+  {cont__types__string__parse_integer_58, &frame__types__string__parse_integer_56, 721, 721, 21, 38},
+  {cont__types__string__parse_integer_59, &frame__types__string__parse_integer_56, 721, 721, 15, 42},
+  {cont__types__string__parse_integer_60, &frame__types__string__parse_integer_56, 721, 721, 42, 42},
+  {entry__types__string__parse_integer_62, NULL, 723, 723, 21, 28},
+  {cont__types__string__parse_integer_63, &frame__types__string__parse_integer_62, 723, 723, 32, 38},
+  {cont__types__string__parse_integer_64, &frame__types__string__parse_integer_62, 723, 723, 21, 38},
+  {cont__types__string__parse_integer_65, &frame__types__string__parse_integer_62, 723, 723, 15, 42},
+  {cont__types__string__parse_integer_66, &frame__types__string__parse_integer_62, 723, 723, 42, 42},
+  {entry__types__string__parse_integer_70, NULL, 725, 725, 28, 48},
+  {entry__types__string__parse_integer_67, NULL, 725, 725, 18, 25},
+  {cont__types__string__parse_integer_68, &frame__types__string__parse_integer_67, 725, 725, 18, 25},
+  {cont__types__string__parse_integer_69, &frame__types__string__parse_integer_67, 725, 725, 15, 48},
+  {cont__types__string__parse_integer_71, &frame__types__string__parse_integer_67, 726, 726, 32, 32},
+  {cont__types__string__parse_integer_72, &frame__types__string__parse_integer_67, 726, 726, 15, 32},
+  {cont__types__string__parse_integer_73, &frame__types__string__parse_integer_67, 727, 727, 15, 19},
+  {entry__types__string__parse_integer_49, NULL, 718, 718, 13, 22},
+  {cont__types__string__parse_integer_50, &frame__types__string__parse_integer_49, 720, 720, 13, 22},
+  {cont__types__string__parse_integer_55, &frame__types__string__parse_integer_49, 722, 722, 13, 22},
+  {cont__types__string__parse_integer_61, &frame__types__string__parse_integer_49, 716, 727, 11, 20},
+  {entry__types__string__parse_integer_47, NULL, 715, 715, 34, 34},
+  {cont__types__string__parse_integer_48, &frame__types__string__parse_integer_47, 715, 727, 9, 21},
+  {entry__types__string__parse_integer_44, NULL, 714, 714, 10, 31},
+  {cont__types__string__parse_integer_46, &frame__types__string__parse_integer_44, 714, 727, 7, 22},
+  {entry__types__string__parse_integer_77, NULL, 733, 733, 20, 25},
+  {cont__types__string__parse_integer_78, &frame__types__string__parse_integer_77, 733, 733, 28, 34},
+  {cont__types__string__parse_integer_79, &frame__types__string__parse_integer_77, 733, 733, 15, 35},
+  {cont__types__string__parse_integer_80, &frame__types__string__parse_integer_77, 733, 733, 35, 35},
+  {entry__types__string__parse_integer_84, NULL, 735, 735, 28, 48},
+  {entry__types__string__parse_integer_81, NULL, 735, 735, 18, 25},
+  {cont__types__string__parse_integer_82, &frame__types__string__parse_integer_81, 735, 735, 18, 25},
+  {cont__types__string__parse_integer_83, &frame__types__string__parse_integer_81, 735, 735, 15, 48},
+  {cont__types__string__parse_integer_85, &frame__types__string__parse_integer_81, 736, 736, 32, 32},
+  {cont__types__string__parse_integer_86, &frame__types__string__parse_integer_81, 736, 736, 15, 32},
+  {cont__types__string__parse_integer_87, &frame__types__string__parse_integer_81, 737, 737, 15, 19},
+  {entry__types__string__parse_integer_75, NULL, 732, 732, 13, 22},
+  {cont__types__string__parse_integer_76, &frame__types__string__parse_integer_75, 730, 737, 11, 20},
+  {entry__types__string__parse_integer_74, NULL, 729, 737, 9, 21},
+  {entry__types__string__parse_integer_7, NULL, 693, 737, 5, 23},
+  {cont__types__string__parse_integer_88, &frame__types__string__parse_integer_7, 738, 738, 12, 12},
+  {entry__types__string__parse_integer_90, NULL, 739, 739, 26, 28},
+  {cont__types__string__parse_integer_91, &frame__types__string__parse_integer_90, 739, 739, 22, 28},
+  {entry__types__string__parse_integer_92, NULL, 739, 739, 31, 36},
+  {entry__types__string__parse_integer_1, NULL, 689, 689, 6, 26},
+  {cont__types__string__parse_integer_2, &frame__types__string__parse_integer_1, 689, 691, 3, 16},
+  {cont__types__string__parse_integer_6, &frame__types__string__parse_integer_1, 692, 738, 3, 12},
+  {cont__types__string__parse_integer_89, &frame__types__string__parse_integer_1, 739, 739, 11, 37},
+  {cont__types__string__parse_integer_93, &frame__types__string__parse_integer_1, 739, 739, 3, 37},
+  {entry__types__octet_string__push_1, NULL, 812, 853, 3, 2},
+  {entry__types__quad_octet_string__push_1, NULL, 858, 884, 3, 2},
+  {entry__types__octet_string__append_1, NULL, 889, 933, 3, 2},
+  {entry__types__quad_octet_string__append_1, NULL, 938, 982, 3, 2},
+  {entry__types__string__parse_real_1, NULL, 987, 999, 3, 2},
+  {entry__types__octet_string__range_1, NULL, 1004, 1021, 3, 2},
+  {entry__types__quad_octet_string__range_1, NULL, 1026, 1058, 3, 2},
+  {entry__std__matches_file_pattern_1, NULL, 1063, 1071, 3, 2},
+  {entry__types__octet_string__is_a_latin_1_string_1, NULL, 1076, 1079, 3, 2},
+  {entry__types__quad_octet_string__is_a_latin_1_string_1, NULL, 1084, 1087, 3, 2},
+  {entry__std__from_utf8_1, NULL, 1092, 1187, 3, 2},
+  {entry__types__octet_string__to_utf8_1, NULL, 1192, 1221, 3, 2},
+  {entry__types__quad_octet_string__to_utf8_1, NULL, 1237, 1326, 3, 2}
 };
 
 union NODE {
@@ -1373,7 +1373,7 @@ static long func__types__octet_string___length_of(NODE *node) {
 static long func__types__quad_octet_string___length_of(NODE *node) {
   return node->quad_octet_string.length;
 }
-static void entry__24_1_types__octet_string_length_of(void) {
+static void entry__types__octet_string__length_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1388,7 +1388,7 @@ static void entry__24_1_types__octet_string_length_of(void) {
     return;
   }
 }
-static void entry__25_1_types__quad_octet_string_length_of(void) {
+static void entry__types__quad_octet_string__length_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1403,7 +1403,7 @@ static void entry__25_1_types__quad_octet_string_length_of(void) {
     return;
   }
 }
-static void entry__26_1_types__octet_string_equal(void) {
+static void entry__types__octet_string__equal_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1471,7 +1471,7 @@ static void entry__26_1_types__octet_string_equal(void) {
     return;
   }
 }
-static void entry__27_1_types__quad_octet_string_equal(void) {
+static void entry__types__quad_octet_string__equal_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1539,7 +1539,7 @@ static void entry__27_1_types__quad_octet_string_equal(void) {
     return;
   }
 }
-static void entry__28_1_types__octet_string_count_character_occurrences(void) {
+static void entry__types__octet_string__count_character_occurrences_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1563,7 +1563,7 @@ static void entry__28_1_types__octet_string_count_character_occurrences(void) {
     return;
   }
 }
-static void entry__29_1_types__quad_octet_string_count_character_occurrences(void) {
+static void entry__types__quad_octet_string__count_character_occurrences_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1587,7 +1587,7 @@ static void entry__29_1_types__quad_octet_string_count_character_occurrences(voi
     return;
   }
 }
-static void entry__30_1_types__octet_string_less(void) {
+static void entry__types__octet_string__less_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1713,7 +1713,7 @@ static void entry__30_1_types__octet_string_less(void) {
   }
   }
 }
-static void entry__31_1_types__quad_octet_string_less(void) {
+static void entry__types__quad_octet_string__less_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -1839,7 +1839,7 @@ static void entry__31_1_types__quad_octet_string_less(void) {
   }
   }
 }
-static void entry__32_1_types__octet_string_hash(void) {
+static void entry__types__octet_string__hash_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1872,7 +1872,7 @@ static void entry__32_1_types__octet_string_hash(void) {
     return;
   }
 }
-static void entry__33_1_types__octet_string_hash2(void) {
+static void entry__types__octet_string__hash2_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1896,7 +1896,7 @@ static void entry__33_1_types__octet_string_hash2(void) {
     return;
   }
 }
-static void entry__34_1_types__quad_octet_string_hash(void) {
+static void entry__types__quad_octet_string__hash_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1929,7 +1929,7 @@ static void entry__34_1_types__quad_octet_string_hash(void) {
     return;
   }
 }
-static void entry__35_1_types__quad_octet_string_hash2(void) {
+static void entry__types__quad_octet_string__hash2_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -1953,7 +1953,7 @@ static void entry__35_1_types__quad_octet_string_hash2(void) {
     return;
   }
 }
-static void entry__36_1_types__string_to_string(void) {
+static void entry__types__string__to_string_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -1969,7 +1969,7 @@ static void entry__36_1_types__string_to_string(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__37_1_types__string_serialize(void) {
+static void entry__types__string__serialize_1(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -2008,7 +2008,7 @@ static void entry__37_1_types__string_serialize(void) {
   // 673:     :
   // 674:       append &buf range(self s idx-1)
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__37_3, 2);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__string__serialize_3, 2);
   // 665: for_each self: (idx chr)
   // 666:   if
   // 667:     ||
@@ -2027,9 +2027,9 @@ static void entry__37_1_types__string_serialize(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__37_27;
+  frame->cont = cont__types__string__serialize_27;
 }
-static void entry__37_17(void) {
+static void entry__types__string__serialize_17(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // buf: 0
@@ -2054,9 +2054,9 @@ static void entry__37_17(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__37_18;
+  frame->cont = cont__types__string__serialize_18;
 }
-static void cont__37_18(void) {
+static void cont__types__string__serialize_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2071,9 +2071,9 @@ static void cont__37_18(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__37_19;
+  frame->cont = cont__types__string__serialize_19;
 }
-static void cont__37_19(void) {
+static void cont__types__string__serialize_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2087,9 +2087,9 @@ static void cont__37_19(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__37_20;
+  frame->cont = cont__types__string__serialize_20;
 }
-static void cont__37_20(void) {
+static void cont__types__string__serialize_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2102,9 +2102,9 @@ static void cont__37_20(void) {
   result_count = 1;
   myself = get__to_integer();
   func = myself->type;
-  frame->cont = cont__37_21;
+  frame->cont = cont__types__string__serialize_21;
 }
-static void cont__37_21(void) {
+static void cont__types__string__serialize_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2117,9 +2117,9 @@ static void cont__37_21(void) {
   result_count = 1;
   myself = get__hex();
   func = myself->type;
-  frame->cont = cont__37_22;
+  frame->cont = cont__types__string__serialize_22;
 }
-static void cont__37_22(void) {
+static void cont__types__string__serialize_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2134,9 +2134,9 @@ static void cont__37_22(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__37_24;
+  frame->cont = cont__types__string__serialize_24;
 }
-static void cont__37_24(void) {
+static void cont__types__string__serialize_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2150,9 +2150,9 @@ static void cont__37_24(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__37_25;
+  frame->cont = cont__types__string__serialize_25;
 }
-static void cont__37_25(void) {
+static void cont__types__string__serialize_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2166,9 +2166,9 @@ static void cont__37_25(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__37_26;
+  frame->cont = cont__types__string__serialize_26;
 }
-static void cont__37_26(void) {
+static void cont__types__string__serialize_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2180,7 +2180,7 @@ static void cont__37_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__37_3(void) {
+static void entry__types__string__serialize_3(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // idx: 0
@@ -2203,15 +2203,15 @@ static void entry__37_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__37_4;
+  frame->cont = cont__types__string__serialize_4;
 }
-static void cont__37_4(void) {
+static void cont__types__string__serialize_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  frame->slots[7] /* temp__3 */ = create_closure(entry__37_5, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__types__string__serialize_5, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -2219,9 +2219,9 @@ static void cont__37_4(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__37_16;
+  frame->cont = cont__types__string__serialize_16;
 }
-static void entry__37_5(void) {
+static void entry__types__string__serialize_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -2238,15 +2238,15 @@ static void entry__37_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__37_6;
+  frame->cont = cont__types__string__serialize_6;
 }
-static void cont__37_6(void) {
+static void cont__types__string__serialize_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[3] /* temp__3 */ = create_closure(entry__37_7, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__types__string__serialize_7, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2254,9 +2254,9 @@ static void cont__37_6(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__37_15;
+  frame->cont = cont__types__string__serialize_15;
 }
-static void entry__37_7(void) {
+static void entry__types__string__serialize_7(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -2273,15 +2273,15 @@ static void entry__37_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__37_8;
+  frame->cont = cont__types__string__serialize_8;
 }
-static void cont__37_8(void) {
+static void cont__types__string__serialize_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[3] /* temp__3 */ = create_closure(entry__37_9, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__types__string__serialize_9, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2289,9 +2289,9 @@ static void cont__37_8(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__37_14;
+  frame->cont = cont__types__string__serialize_14;
 }
-static void entry__37_9(void) {
+static void entry__types__string__serialize_9(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // chr: 0
@@ -2308,16 +2308,16 @@ static void entry__37_9(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__37_10;
+  frame->cont = cont__types__string__serialize_10;
 }
-static void cont__37_10(void) {
+static void cont__types__string__serialize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 672: chr == '@apos;'
-  frame->slots[3] /* temp__3 */ = create_closure(entry__37_11, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__types__string__serialize_11, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2325,9 +2325,9 @@ static void cont__37_10(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__37_13;
+  frame->cont = cont__types__string__serialize_13;
 }
-static void entry__37_11(void) {
+static void entry__types__string__serialize_11(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
@@ -2344,9 +2344,9 @@ static void entry__37_11(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__37_12;
+  frame->cont = cont__types__string__serialize_12;
 }
-static void cont__37_12(void) {
+static void cont__types__string__serialize_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2360,7 +2360,7 @@ static void cont__37_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__37_13(void) {
+static void cont__types__string__serialize_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2373,7 +2373,7 @@ static void cont__37_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__37_14(void) {
+static void cont__types__string__serialize_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2386,7 +2386,7 @@ static void cont__37_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__37_15(void) {
+static void cont__types__string__serialize_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2399,7 +2399,7 @@ static void cont__37_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__37_16(void) {
+static void cont__types__string__serialize_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2409,7 +2409,7 @@ static void cont__37_16(void) {
   // 674:   append &buf range(self s idx-1)
   // 675:   append &buf string("@@0x" hex(chr.to_integer) ';')
   // 676:   !s idx+1
-  frame->slots[8] /* temp__4 */ = create_closure(entry__37_17, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__types__string__serialize_17, 0);
   // 666: if
   // 667:   ||
   // 668:     chr < ' '
@@ -2430,7 +2430,7 @@ static void cont__37_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__37_27(void) {
+static void cont__types__string__serialize_27(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2442,9 +2442,9 @@ static void cont__37_27(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__37_28;
+  frame->cont = cont__types__string__serialize_28;
 }
-static void cont__37_28(void) {
+static void cont__types__string__serialize_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2459,9 +2459,9 @@ static void cont__37_28(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__37_29;
+  frame->cont = cont__types__string__serialize_29;
 }
-static void cont__37_29(void) {
+static void cont__types__string__serialize_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2475,9 +2475,9 @@ static void cont__37_29(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__37_30;
+  frame->cont = cont__types__string__serialize_30;
 }
-static void cont__37_30(void) {
+static void cont__types__string__serialize_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2491,9 +2491,9 @@ static void cont__37_30(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__37_31;
+  frame->cont = cont__types__string__serialize_31;
 }
-static void cont__37_31(void) {
+static void cont__types__string__serialize_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2507,7 +2507,7 @@ static void cont__37_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_1_types__string_parse_integer(void) {
+static void entry__types__string__parse_integer_1(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -2534,9 +2534,9 @@ static void entry__38_1_types__string_parse_integer(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__38_2;
+  frame->cont = cont__types__string__parse_integer_2;
 }
-static void cont__38_2(void) {
+static void cont__types__string__parse_integer_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2545,7 +2545,7 @@ static void cont__38_2(void) {
   // 689: ... :
   // 690:   range &self 2 -1
   // 691:   !negate true
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_3, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_3, 0);
   // 689: if self .has_prefix. '-':
   // 690:   range &self 2 -1
   // 691:   !negate true
@@ -2556,9 +2556,9 @@ static void cont__38_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_6;
+  frame->cont = cont__types__string__parse_integer_6;
 }
-static void entry__38_3(void) {
+static void entry__types__string__parse_integer_3(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -2576,9 +2576,9 @@ static void entry__38_3(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_4;
+  frame->cont = cont__types__string__parse_integer_4;
 }
-static void cont__38_4(void) {
+static void cont__types__string__parse_integer_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2593,9 +2593,9 @@ static void cont__38_4(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__38_5;
+  frame->cont = cont__types__string__parse_integer_5;
 }
-static void cont__38_5(void) {
+static void cont__types__string__parse_integer_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2609,7 +2609,7 @@ static void cont__38_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_6(void) {
+static void cont__types__string__parse_integer_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2625,7 +2625,7 @@ static void cont__38_6(void) {
   // 700:           :
   // 701:             if idx <= 3: return self undefined
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__38_7, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__string__parse_integer_7, 0);
   // 692: do: (-> break)
   // 693:   cond
   // 694:     -> self .has_prefix. "0b":
@@ -2643,9 +2643,9 @@ static void cont__38_6(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__38_89;
+  frame->cont = cont__types__string__parse_integer_89;
 }
-static void entry__38_7(void) {
+static void entry__types__string__parse_integer_7(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // break: 0
@@ -2670,7 +2670,7 @@ static void entry__38_7(void) {
   // 701:         if idx <= 3: return self undefined
   // 702:         range &self idx -1
   // 703:         break
-  frame->slots[4] /* temp__1 */ = create_closure(entry__38_8, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__string__parse_integer_8, 0);
   // 704: -> self .has_prefix. "0o":
   // 705:   for_each_from_to self 3 -1: (idx chr)
   // 706:     case
@@ -2681,7 +2681,7 @@ static void entry__38_7(void) {
   // 711:         if idx <= 3: return self undefined
   // 712:         range &self idx -1
   // 713:         break
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_26, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_26, 0);
   // 714: -> self .has_prefix. "0x":
   // 715:   for_each_from_to self 3 -1: (idx chr)
   // 716:     case
@@ -2693,7 +2693,7 @@ static void entry__38_7(void) {
   // 722:       'A' .. 'F':
   // 723:         !val (val << 4)+(chr-'A')+10
   // ...
-  frame->slots[6] /* temp__3 */ = create_closure(entry__38_44, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__string__parse_integer_44, 0);
   // 728: :
   // 729:   for_each self: (idx chr)
   // 730:     case
@@ -2704,7 +2704,7 @@ static void entry__38_7(void) {
   // 735:         if idx <= 1: return self undefined
   // 736:         range &self idx -1
   // 737:         break
-  frame->slots[7] /* temp__4 */ = create_closure(entry__38_74, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__types__string__parse_integer_74, 0);
   // 693: cond
   // 694:   -> self .has_prefix. "0b":
   // 695:     for_each_from_to self 3 -1: (idx chr)
@@ -2725,9 +2725,9 @@ static void entry__38_7(void) {
   result_count = 0;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__38_88;
+  frame->cont = cont__types__string__parse_integer_88;
 }
-static void entry__38_77(void) {
+static void entry__types__string__parse_integer_77(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // val: 0
@@ -2746,9 +2746,9 @@ static void entry__38_77(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__38_78;
+  frame->cont = cont__types__string__parse_integer_78;
 }
-static void cont__38_78(void) {
+static void cont__types__string__parse_integer_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2762,9 +2762,9 @@ static void cont__38_78(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__38_79;
+  frame->cont = cont__types__string__parse_integer_79;
 }
-static void cont__38_79(void) {
+static void cont__types__string__parse_integer_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2778,9 +2778,9 @@ static void cont__38_79(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_80;
+  frame->cont = cont__types__string__parse_integer_80;
 }
-static void cont__38_80(void) {
+static void cont__types__string__parse_integer_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2792,7 +2792,7 @@ static void cont__38_80(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_81(void) {
+static void entry__types__string__parse_integer_81(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // idx: 0
@@ -2815,9 +2815,9 @@ static void entry__38_81(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__38_82;
+  frame->cont = cont__types__string__parse_integer_82;
 }
-static void cont__38_82(void) {
+static void cont__types__string__parse_integer_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2830,16 +2830,16 @@ static void cont__38_82(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__38_83;
+  frame->cont = cont__types__string__parse_integer_83;
 }
-static void cont__38_83(void) {
+static void cont__types__string__parse_integer_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 735: ... : return self undefined
-  frame->slots[6] /* temp__3 */ = create_closure(entry__38_84, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__string__parse_integer_84, 0);
   // 735: if idx <= 1: return self undefined
   argument_count = 2;
   arguments = node_p;
@@ -2848,9 +2848,9 @@ static void cont__38_83(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_85;
+  frame->cont = cont__types__string__parse_integer_85;
 }
-static void entry__38_84(void) {
+static void entry__types__string__parse_integer_84(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -2871,7 +2871,7 @@ static void entry__38_84(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_85(void) {
+static void cont__types__string__parse_integer_85(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2883,9 +2883,9 @@ static void cont__38_85(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_86;
+  frame->cont = cont__types__string__parse_integer_86;
 }
-static void cont__38_86(void) {
+static void cont__types__string__parse_integer_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2900,9 +2900,9 @@ static void cont__38_86(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__38_87;
+  frame->cont = cont__types__string__parse_integer_87;
 }
-static void cont__38_87(void) {
+static void cont__types__string__parse_integer_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2916,7 +2916,7 @@ static void cont__38_87(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_75(void) {
+static void entry__types__string__parse_integer_75(void) {
   allocate_initialized_frame_gc(6, 9);
   // slot allocations:
   // idx: 0
@@ -2941,9 +2941,9 @@ static void entry__38_75(void) {
   result_count = 1;
   myself = get__std__value_range();
   func = myself->type;
-  frame->cont = cont__38_76;
+  frame->cont = cont__types__string__parse_integer_76;
 }
-static void cont__38_76(void) {
+static void cont__types__string__parse_integer_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2951,12 +2951,12 @@ static void cont__38_76(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 732: ... :
   // 733:   !val 10*val+(chr-'0')
-  frame->slots[7] /* temp__2 */ = create_closure(entry__38_77, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__string__parse_integer_77, 0);
   // 734: :
   // 735:   if idx <= 1: return self undefined
   // 736:   range &self idx -1
   // 737:   break
-  frame->slots[8] /* temp__3 */ = create_closure(entry__38_81, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__types__string__parse_integer_81, 0);
   // 730: case
   // 731:   chr
   // 732:   '0' .. '9':
@@ -2976,7 +2976,7 @@ static void cont__38_76(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_62(void) {
+static void entry__types__string__parse_integer_62(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // val: 0
@@ -2995,9 +2995,9 @@ static void entry__38_62(void) {
   result_count = 1;
   myself = get__std__shift_left();
   func = myself->type;
-  frame->cont = cont__38_63;
+  frame->cont = cont__types__string__parse_integer_63;
 }
-static void cont__38_63(void) {
+static void cont__types__string__parse_integer_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3011,9 +3011,9 @@ static void cont__38_63(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__38_64;
+  frame->cont = cont__types__string__parse_integer_64;
 }
-static void cont__38_64(void) {
+static void cont__types__string__parse_integer_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3027,9 +3027,9 @@ static void cont__38_64(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_65;
+  frame->cont = cont__types__string__parse_integer_65;
 }
-static void cont__38_65(void) {
+static void cont__types__string__parse_integer_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3043,9 +3043,9 @@ static void cont__38_65(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_66;
+  frame->cont = cont__types__string__parse_integer_66;
 }
-static void cont__38_66(void) {
+static void cont__types__string__parse_integer_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3057,7 +3057,7 @@ static void cont__38_66(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_67(void) {
+static void entry__types__string__parse_integer_67(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // idx: 0
@@ -3080,9 +3080,9 @@ static void entry__38_67(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__38_68;
+  frame->cont = cont__types__string__parse_integer_68;
 }
-static void cont__38_68(void) {
+static void cont__types__string__parse_integer_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3095,16 +3095,16 @@ static void cont__38_68(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__38_69;
+  frame->cont = cont__types__string__parse_integer_69;
 }
-static void cont__38_69(void) {
+static void cont__types__string__parse_integer_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 725: ... : return self undefined
-  frame->slots[6] /* temp__3 */ = create_closure(entry__38_70, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__string__parse_integer_70, 0);
   // 725: if idx <= 3: return self undefined
   argument_count = 2;
   arguments = node_p;
@@ -3113,9 +3113,9 @@ static void cont__38_69(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_71;
+  frame->cont = cont__types__string__parse_integer_71;
 }
-static void entry__38_70(void) {
+static void entry__types__string__parse_integer_70(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3136,7 +3136,7 @@ static void entry__38_70(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_71(void) {
+static void cont__types__string__parse_integer_71(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3148,9 +3148,9 @@ static void cont__38_71(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_72;
+  frame->cont = cont__types__string__parse_integer_72;
 }
-static void cont__38_72(void) {
+static void cont__types__string__parse_integer_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3165,9 +3165,9 @@ static void cont__38_72(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__38_73;
+  frame->cont = cont__types__string__parse_integer_73;
 }
-static void cont__38_73(void) {
+static void cont__types__string__parse_integer_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3181,7 +3181,7 @@ static void cont__38_73(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_49(void) {
+static void entry__types__string__parse_integer_49(void) {
   allocate_initialized_frame_gc(6, 13);
   // slot allocations:
   // idx: 0
@@ -3206,9 +3206,9 @@ static void entry__38_49(void) {
   result_count = 1;
   myself = get__std__value_range();
   func = myself->type;
-  frame->cont = cont__38_50;
+  frame->cont = cont__types__string__parse_integer_50;
 }
-static void cont__38_50(void) {
+static void cont__types__string__parse_integer_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3216,7 +3216,7 @@ static void cont__38_50(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 718: ... :
   // 719:   !val (val << 4)+(chr-'0')
-  frame->slots[7] /* temp__2 */ = create_closure(entry__38_51, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__string__parse_integer_51, 0);
   // 720: 'a' .. 'f'
   argument_count = 2;
   arguments = node_p;
@@ -3225,9 +3225,9 @@ static void cont__38_50(void) {
   result_count = 1;
   myself = get__std__value_range();
   func = myself->type;
-  frame->cont = cont__38_55;
+  frame->cont = cont__types__string__parse_integer_55;
 }
-static void entry__38_51(void) {
+static void entry__types__string__parse_integer_51(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // val: 0
@@ -3246,9 +3246,9 @@ static void entry__38_51(void) {
   result_count = 1;
   myself = get__std__shift_left();
   func = myself->type;
-  frame->cont = cont__38_52;
+  frame->cont = cont__types__string__parse_integer_52;
 }
-static void cont__38_52(void) {
+static void cont__types__string__parse_integer_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3262,9 +3262,9 @@ static void cont__38_52(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__38_53;
+  frame->cont = cont__types__string__parse_integer_53;
 }
-static void cont__38_53(void) {
+static void cont__types__string__parse_integer_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3278,9 +3278,9 @@ static void cont__38_53(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_54;
+  frame->cont = cont__types__string__parse_integer_54;
 }
-static void cont__38_54(void) {
+static void cont__types__string__parse_integer_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3292,7 +3292,7 @@ static void cont__38_54(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_55(void) {
+static void cont__types__string__parse_integer_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3300,7 +3300,7 @@ static void cont__38_55(void) {
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
   // 720: ... :
   // 721:   !val (val << 4)+(chr-'a')+10
-  frame->slots[9] /* temp__4 */ = create_closure(entry__38_56, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__types__string__parse_integer_56, 0);
   // 722: 'A' .. 'F'
   argument_count = 2;
   arguments = node_p;
@@ -3309,9 +3309,9 @@ static void cont__38_55(void) {
   result_count = 1;
   myself = get__std__value_range();
   func = myself->type;
-  frame->cont = cont__38_61;
+  frame->cont = cont__types__string__parse_integer_61;
 }
-static void entry__38_56(void) {
+static void entry__types__string__parse_integer_56(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // val: 0
@@ -3330,9 +3330,9 @@ static void entry__38_56(void) {
   result_count = 1;
   myself = get__std__shift_left();
   func = myself->type;
-  frame->cont = cont__38_57;
+  frame->cont = cont__types__string__parse_integer_57;
 }
-static void cont__38_57(void) {
+static void cont__types__string__parse_integer_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3346,9 +3346,9 @@ static void cont__38_57(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__38_58;
+  frame->cont = cont__types__string__parse_integer_58;
 }
-static void cont__38_58(void) {
+static void cont__types__string__parse_integer_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3362,9 +3362,9 @@ static void cont__38_58(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_59;
+  frame->cont = cont__types__string__parse_integer_59;
 }
-static void cont__38_59(void) {
+static void cont__types__string__parse_integer_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3378,9 +3378,9 @@ static void cont__38_59(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_60;
+  frame->cont = cont__types__string__parse_integer_60;
 }
-static void cont__38_60(void) {
+static void cont__types__string__parse_integer_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3392,7 +3392,7 @@ static void cont__38_60(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_61(void) {
+static void cont__types__string__parse_integer_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3400,12 +3400,12 @@ static void cont__38_61(void) {
   frame->slots[10] /* temp__5 */ = arguments->slots[0];
   // 722: ... :
   // 723:   !val (val << 4)+(chr-'A')+10
-  frame->slots[11] /* temp__6 */ = create_closure(entry__38_62, 0);
+  frame->slots[11] /* temp__6 */ = create_closure(entry__types__string__parse_integer_62, 0);
   // 724: :
   // 725:   if idx <= 3: return self undefined
   // 726:   range &self idx -1
   // 727:   break
-  frame->slots[12] /* temp__7 */ = create_closure(entry__38_67, 0);
+  frame->slots[12] /* temp__7 */ = create_closure(entry__types__string__parse_integer_67, 0);
   // 716: case
   // 717:   chr
   // 718:   '0' .. '9':
@@ -3432,7 +3432,7 @@ static void cont__38_61(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_47(void) {
+static void entry__types__string__parse_integer_47(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -3454,9 +3454,9 @@ static void entry__38_47(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_48;
+  frame->cont = cont__types__string__parse_integer_48;
 }
-static void cont__38_48(void) {
+static void cont__types__string__parse_integer_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3473,7 +3473,7 @@ static void cont__38_48(void) {
   // 723:       !val (val << 4)+(chr-'A')+10
   // 724:     :
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_49, 2);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_49, 2);
   // 715: for_each_from_to self 3 -1: (idx chr)
   // 716:   case
   // 717:     chr
@@ -3496,7 +3496,7 @@ static void cont__38_48(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_33(void) {
+static void entry__types__string__parse_integer_33(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // val: 0
@@ -3515,9 +3515,9 @@ static void entry__38_33(void) {
   result_count = 1;
   myself = get__std__shift_left();
   func = myself->type;
-  frame->cont = cont__38_34;
+  frame->cont = cont__types__string__parse_integer_34;
 }
-static void cont__38_34(void) {
+static void cont__types__string__parse_integer_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3531,9 +3531,9 @@ static void cont__38_34(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__38_35;
+  frame->cont = cont__types__string__parse_integer_35;
 }
-static void cont__38_35(void) {
+static void cont__types__string__parse_integer_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3547,9 +3547,9 @@ static void cont__38_35(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_36;
+  frame->cont = cont__types__string__parse_integer_36;
 }
-static void cont__38_36(void) {
+static void cont__types__string__parse_integer_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3561,7 +3561,7 @@ static void cont__38_36(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_37(void) {
+static void entry__types__string__parse_integer_37(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // idx: 0
@@ -3584,9 +3584,9 @@ static void entry__38_37(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__38_38;
+  frame->cont = cont__types__string__parse_integer_38;
 }
-static void cont__38_38(void) {
+static void cont__types__string__parse_integer_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3599,16 +3599,16 @@ static void cont__38_38(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__38_39;
+  frame->cont = cont__types__string__parse_integer_39;
 }
-static void cont__38_39(void) {
+static void cont__types__string__parse_integer_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 711: ... : return self undefined
-  frame->slots[6] /* temp__3 */ = create_closure(entry__38_40, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__string__parse_integer_40, 0);
   // 711: if idx <= 3: return self undefined
   argument_count = 2;
   arguments = node_p;
@@ -3617,9 +3617,9 @@ static void cont__38_39(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_41;
+  frame->cont = cont__types__string__parse_integer_41;
 }
-static void entry__38_40(void) {
+static void entry__types__string__parse_integer_40(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3640,7 +3640,7 @@ static void entry__38_40(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_41(void) {
+static void cont__types__string__parse_integer_41(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3652,9 +3652,9 @@ static void cont__38_41(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_42;
+  frame->cont = cont__types__string__parse_integer_42;
 }
-static void cont__38_42(void) {
+static void cont__types__string__parse_integer_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3669,9 +3669,9 @@ static void cont__38_42(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__38_43;
+  frame->cont = cont__types__string__parse_integer_43;
 }
-static void cont__38_43(void) {
+static void cont__types__string__parse_integer_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3685,7 +3685,7 @@ static void cont__38_43(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_31(void) {
+static void entry__types__string__parse_integer_31(void) {
   allocate_initialized_frame_gc(6, 9);
   // slot allocations:
   // idx: 0
@@ -3710,9 +3710,9 @@ static void entry__38_31(void) {
   result_count = 1;
   myself = get__std__value_range();
   func = myself->type;
-  frame->cont = cont__38_32;
+  frame->cont = cont__types__string__parse_integer_32;
 }
-static void cont__38_32(void) {
+static void cont__types__string__parse_integer_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3720,12 +3720,12 @@ static void cont__38_32(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 708: ... :
   // 709:   !val (val << 3)+(chr-'0')
-  frame->slots[7] /* temp__2 */ = create_closure(entry__38_33, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__string__parse_integer_33, 0);
   // 710: :
   // 711:   if idx <= 3: return self undefined
   // 712:   range &self idx -1
   // 713:   break
-  frame->slots[8] /* temp__3 */ = create_closure(entry__38_37, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__types__string__parse_integer_37, 0);
   // 706: case
   // 707:   chr
   // 708:   '0' .. '7':
@@ -3745,7 +3745,7 @@ static void cont__38_32(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_29(void) {
+static void entry__types__string__parse_integer_29(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -3767,9 +3767,9 @@ static void entry__38_29(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_30;
+  frame->cont = cont__types__string__parse_integer_30;
 }
-static void cont__38_30(void) {
+static void cont__types__string__parse_integer_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3784,7 +3784,7 @@ static void cont__38_30(void) {
   // 711:       if idx <= 3: return self undefined
   // 712:       range &self idx -1
   // 713:       break
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_31, 2);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_31, 2);
   // 705: for_each_from_to self 3 -1: (idx chr)
   // 706:   case
   // 707:     chr
@@ -3805,7 +3805,7 @@ static void cont__38_30(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_15(void) {
+static void entry__types__string__parse_integer_15(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // val: 0
@@ -3824,9 +3824,9 @@ static void entry__38_15(void) {
   result_count = 1;
   myself = get__std__shift_left();
   func = myself->type;
-  frame->cont = cont__38_16;
+  frame->cont = cont__types__string__parse_integer_16;
 }
-static void cont__38_16(void) {
+static void cont__types__string__parse_integer_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3840,9 +3840,9 @@ static void cont__38_16(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__38_17;
+  frame->cont = cont__types__string__parse_integer_17;
 }
-static void cont__38_17(void) {
+static void cont__types__string__parse_integer_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3856,9 +3856,9 @@ static void cont__38_17(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__38_18;
+  frame->cont = cont__types__string__parse_integer_18;
 }
-static void cont__38_18(void) {
+static void cont__types__string__parse_integer_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3870,7 +3870,7 @@ static void cont__38_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_19(void) {
+static void entry__types__string__parse_integer_19(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // idx: 0
@@ -3893,9 +3893,9 @@ static void entry__38_19(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__38_20;
+  frame->cont = cont__types__string__parse_integer_20;
 }
-static void cont__38_20(void) {
+static void cont__types__string__parse_integer_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3908,16 +3908,16 @@ static void cont__38_20(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__38_21;
+  frame->cont = cont__types__string__parse_integer_21;
 }
-static void cont__38_21(void) {
+static void cont__types__string__parse_integer_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 701: ... : return self undefined
-  frame->slots[6] /* temp__3 */ = create_closure(entry__38_22, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__string__parse_integer_22, 0);
   // 701: if idx <= 3: return self undefined
   argument_count = 2;
   arguments = node_p;
@@ -3926,9 +3926,9 @@ static void cont__38_21(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_23;
+  frame->cont = cont__types__string__parse_integer_23;
 }
-static void entry__38_22(void) {
+static void entry__types__string__parse_integer_22(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3949,7 +3949,7 @@ static void entry__38_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_23(void) {
+static void cont__types__string__parse_integer_23(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3961,9 +3961,9 @@ static void cont__38_23(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_24;
+  frame->cont = cont__types__string__parse_integer_24;
 }
-static void cont__38_24(void) {
+static void cont__types__string__parse_integer_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3978,9 +3978,9 @@ static void cont__38_24(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__38_25;
+  frame->cont = cont__types__string__parse_integer_25;
 }
-static void cont__38_25(void) {
+static void cont__types__string__parse_integer_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3994,7 +3994,7 @@ static void cont__38_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_13(void) {
+static void entry__types__string__parse_integer_13(void) {
   allocate_initialized_frame_gc(6, 9);
   // slot allocations:
   // idx: 0
@@ -4019,9 +4019,9 @@ static void entry__38_13(void) {
   result_count = 1;
   myself = get__std__value_range();
   func = myself->type;
-  frame->cont = cont__38_14;
+  frame->cont = cont__types__string__parse_integer_14;
 }
-static void cont__38_14(void) {
+static void cont__types__string__parse_integer_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4029,12 +4029,12 @@ static void cont__38_14(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 698: ... :
   // 699:   !val (val << 1)+(chr-'0')
-  frame->slots[7] /* temp__2 */ = create_closure(entry__38_15, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__types__string__parse_integer_15, 0);
   // 700: :
   // 701:   if idx <= 3: return self undefined
   // 702:   range &self idx -1
   // 703:   break
-  frame->slots[8] /* temp__3 */ = create_closure(entry__38_19, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__types__string__parse_integer_19, 0);
   // 696: case
   // 697:   chr
   // 698:   '0' .. '1':
@@ -4054,7 +4054,7 @@ static void cont__38_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_11(void) {
+static void entry__types__string__parse_integer_11(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -4076,9 +4076,9 @@ static void entry__38_11(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_12;
+  frame->cont = cont__types__string__parse_integer_12;
 }
-static void cont__38_12(void) {
+static void cont__types__string__parse_integer_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4093,7 +4093,7 @@ static void cont__38_12(void) {
   // 701:       if idx <= 3: return self undefined
   // 702:       range &self idx -1
   // 703:       break
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_13, 2);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_13, 2);
   // 695: for_each_from_to self 3 -1: (idx chr)
   // 696:   case
   // 697:     chr
@@ -4114,7 +4114,7 @@ static void cont__38_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__38_8(void) {
+static void entry__types__string__parse_integer_8(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -4137,9 +4137,9 @@ static void entry__38_8(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__38_10;
+  frame->cont = cont__types__string__parse_integer_10;
 }
-static void cont__38_10(void) {
+static void cont__types__string__parse_integer_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4155,7 +4155,7 @@ static void cont__38_10(void) {
   // 701:         if idx <= 3: return self undefined
   // 702:         range &self idx -1
   // 703:         break
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_11, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_11, 0);
   // 694: -> self .has_prefix. "0b":
   // 695:   for_each_from_to self 3 -1: (idx chr)
   // 696:     case
@@ -4174,7 +4174,7 @@ static void cont__38_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_26(void) {
+static void entry__types__string__parse_integer_26(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -4197,9 +4197,9 @@ static void entry__38_26(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__38_28;
+  frame->cont = cont__types__string__parse_integer_28;
 }
-static void cont__38_28(void) {
+static void cont__types__string__parse_integer_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4215,7 +4215,7 @@ static void cont__38_28(void) {
   // 711:         if idx <= 3: return self undefined
   // 712:         range &self idx -1
   // 713:         break
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_29, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_29, 0);
   // 704: -> self .has_prefix. "0o":
   // 705:   for_each_from_to self 3 -1: (idx chr)
   // 706:     case
@@ -4234,7 +4234,7 @@ static void cont__38_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_44(void) {
+static void entry__types__string__parse_integer_44(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -4257,9 +4257,9 @@ static void entry__38_44(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__38_46;
+  frame->cont = cont__types__string__parse_integer_46;
 }
-static void cont__38_46(void) {
+static void cont__types__string__parse_integer_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4276,7 +4276,7 @@ static void cont__38_46(void) {
   // 722:       'A' .. 'F':
   // 723:         !val (val << 4)+(chr-'A')+10
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_47, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_47, 0);
   // 714: -> self .has_prefix. "0x":
   // 715:   for_each_from_to self 3 -1: (idx chr)
   // 716:     case
@@ -4296,7 +4296,7 @@ static void cont__38_46(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_74(void) {
+static void entry__types__string__parse_integer_74(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // self: 0
@@ -4320,7 +4320,7 @@ static void entry__38_74(void) {
   // 735:       if idx <= 1: return self undefined
   // 736:       range &self idx -1
   // 737:       break
-  frame->slots[4] /* temp__1 */ = create_closure(entry__38_75, 2);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__types__string__parse_integer_75, 2);
   // 729: for_each self: (idx chr)
   // 730:   case
   // 731:     chr
@@ -4339,7 +4339,7 @@ static void entry__38_74(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__38_88(void) {
+static void cont__types__string__parse_integer_88(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4352,15 +4352,15 @@ static void cont__38_88(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_89(void) {
+static void cont__types__string__parse_integer_89(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 739: ... -> -val
-  frame->slots[5] /* temp__2 */ = create_closure(entry__38_90, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__types__string__parse_integer_90, 0);
   // 739: ... -> val
-  frame->slots[6] /* temp__3 */ = create_closure(entry__38_92, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__types__string__parse_integer_92, 0);
   // 739: ... if(negate (-> -val) -> val)
   argument_count = 3;
   arguments = node_p;
@@ -4370,9 +4370,9 @@ static void cont__38_89(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__38_93;
+  frame->cont = cont__types__string__parse_integer_93;
 }
-static void entry__38_90(void) {
+static void entry__types__string__parse_integer_90(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // val: 0
@@ -4388,9 +4388,9 @@ static void entry__38_90(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__38_91;
+  frame->cont = cont__types__string__parse_integer_91;
 }
-static void cont__38_91(void) {
+static void cont__types__string__parse_integer_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4404,7 +4404,7 @@ static void cont__38_91(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__38_92(void) {
+static void entry__types__string__parse_integer_92(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // val: 0
@@ -4421,7 +4421,7 @@ static void entry__38_92(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__38_93(void) {
+static void cont__types__string__parse_integer_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4496,7 +4496,7 @@ static long func__types__quad_octet_string___debug_string(NODE *node, int indent
   len += print(&buf, "\"\n");
   return len;
 }
-static void entry__41_1_types__octet_string_push(void) {
+static void entry__types__octet_string__push_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4557,7 +4557,7 @@ static void entry__41_1_types__octet_string_push(void) {
   }
   }
 }
-static void entry__42_1_types__quad_octet_string_push(void) {
+static void entry__types__quad_octet_string__push_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4595,7 +4595,7 @@ static void entry__42_1_types__quad_octet_string_push(void) {
     return;
   }
 }
-static void entry__43_1_types__octet_string_append(void) {
+static void entry__types__octet_string__append_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4685,7 +4685,7 @@ static void entry__43_1_types__octet_string_append(void) {
   }
   }
 }
-static void entry__44_1_types__quad_octet_string_append(void) {
+static void entry__types__quad_octet_string__append_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4759,7 +4759,7 @@ static void entry__44_1_types__quad_octet_string_append(void) {
   }
   }
 }
-static void entry__45_1_types__string_parse_real(void) {
+static void entry__types__string__parse_real_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4780,7 +4780,7 @@ static void entry__45_1_types__string_parse_real(void) {
     return;
   }
 }
-static void entry__46_1_types__octet_string_range(void) {
+static void entry__types__octet_string__range_1(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -4830,7 +4830,7 @@ static void entry__46_1_types__octet_string_range(void) {
     return;
   }
 }
-static void entry__47_1_types__quad_octet_string_range(void) {
+static void entry__types__quad_octet_string__range_1(void) {
   if (argument_count != 3) {
     invalid_arguments_error();
     return;
@@ -4903,7 +4903,7 @@ static void entry__47_1_types__quad_octet_string_range(void) {
     return;
   }
 }
-static void entry__48_1_std__matches_file_pattern(void) {
+static void entry__std__matches_file_pattern_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -4923,7 +4923,7 @@ static void entry__48_1_std__matches_file_pattern(void) {
     return;
   };
 }
-static void entry__49_1_types__octet_string_is_a_latin_1_string(void) {
+static void entry__types__octet_string__is_a_latin_1_string_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4937,7 +4937,7 @@ static void entry__49_1_types__octet_string_is_a_latin_1_string(void) {
     return;
   }
 }
-static void entry__50_1_types__quad_octet_string_is_a_latin_1_string(void) {
+static void entry__types__quad_octet_string__is_a_latin_1_string_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -4951,7 +4951,7 @@ static void entry__50_1_types__quad_octet_string_is_a_latin_1_string(void) {
     return;
   }
 }
-static void entry__51_1_std__from_utf8(void) {
+static void entry__std__from_utf8_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5072,7 +5072,7 @@ static void entry__51_1_std__from_utf8(void) {
   }
   }
 }
-static void entry__52_1_types__octet_string_to_utf8(void) {
+static void entry__types__octet_string__to_utf8_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5113,7 +5113,7 @@ static void entry__52_1_types__octet_string_to_utf8(void) {
     return;
   }
 }
-static void entry__53_1_types__quad_octet_string_to_utf8(void) {
+static void entry__types__quad_octet_string__to_utf8_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5270,39 +5270,39 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   character__49 = from_uchar32(49);
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
-  func__24_1_types__octet_string_length_of = create_function(entry__24_1_types__octet_string_length_of, 1);
-  func__25_1_types__quad_octet_string_length_of = create_function(entry__25_1_types__quad_octet_string_length_of, 1);
-  func__26_1_types__octet_string_equal = create_function(entry__26_1_types__octet_string_equal, 2);
-  func__27_1_types__quad_octet_string_equal = create_function(entry__27_1_types__quad_octet_string_equal, 2);
-  func__28_1_types__octet_string_count_character_occurrences = create_function(entry__28_1_types__octet_string_count_character_occurrences, 2);
-  func__29_1_types__quad_octet_string_count_character_occurrences = create_function(entry__29_1_types__quad_octet_string_count_character_occurrences, 2);
-  func__30_1_types__octet_string_less = create_function(entry__30_1_types__octet_string_less, 2);
-  func__31_1_types__quad_octet_string_less = create_function(entry__31_1_types__quad_octet_string_less, 2);
-  func__32_1_types__octet_string_hash = create_function(entry__32_1_types__octet_string_hash, 1);
-  func__33_1_types__octet_string_hash2 = create_function(entry__33_1_types__octet_string_hash2, 1);
-  func__34_1_types__quad_octet_string_hash = create_function(entry__34_1_types__quad_octet_string_hash, 1);
-  func__35_1_types__quad_octet_string_hash2 = create_function(entry__35_1_types__quad_octet_string_hash2, 1);
-  func__36_1_types__string_to_string = create_function(entry__36_1_types__string_to_string, 1);
+  func__types__octet_string__length_of_1 = create_function(entry__types__octet_string__length_of_1, 1);
+  func__types__quad_octet_string__length_of_1 = create_function(entry__types__quad_octet_string__length_of_1, 1);
+  func__types__octet_string__equal_1 = create_function(entry__types__octet_string__equal_1, 2);
+  func__types__quad_octet_string__equal_1 = create_function(entry__types__quad_octet_string__equal_1, 2);
+  func__types__octet_string__count_character_occurrences_1 = create_function(entry__types__octet_string__count_character_occurrences_1, 2);
+  func__types__quad_octet_string__count_character_occurrences_1 = create_function(entry__types__quad_octet_string__count_character_occurrences_1, 2);
+  func__types__octet_string__less_1 = create_function(entry__types__octet_string__less_1, 2);
+  func__types__quad_octet_string__less_1 = create_function(entry__types__quad_octet_string__less_1, 2);
+  func__types__octet_string__hash_1 = create_function(entry__types__octet_string__hash_1, 1);
+  func__types__octet_string__hash2_1 = create_function(entry__types__octet_string__hash2_1, 1);
+  func__types__quad_octet_string__hash_1 = create_function(entry__types__quad_octet_string__hash_1, 1);
+  func__types__quad_octet_string__hash2_1 = create_function(entry__types__quad_octet_string__hash2_1, 1);
+  func__types__string__to_string_1 = create_function(entry__types__string__to_string_1, 1);
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   string__fa728415fa96bb4 = from_latin_1_string("@0x", 3);
-  func__37_1_types__string_serialize = create_function(entry__37_1_types__string_serialize, -1);
+  func__types__string__serialize_1 = create_function(entry__types__string__serialize_1, -1);
   string__2d7981f4e6882ba7 = from_latin_1_string("0b", 2);
   string__2d7981f4e6882baa = from_latin_1_string("0o", 2);
   string__2d7981f4e6882bbd = from_latin_1_string("0x", 2);
-  func__38_1_types__string_parse_integer = create_function(entry__38_1_types__string_parse_integer, 1);
-  func__41_1_types__octet_string_push = create_function(entry__41_1_types__octet_string_push, 2);
-  func__42_1_types__quad_octet_string_push = create_function(entry__42_1_types__quad_octet_string_push, 2);
-  func__43_1_types__octet_string_append = create_function(entry__43_1_types__octet_string_append, 2);
-  func__44_1_types__quad_octet_string_append = create_function(entry__44_1_types__quad_octet_string_append, 2);
-  func__45_1_types__string_parse_real = create_function(entry__45_1_types__string_parse_real, 1);
-  func__46_1_types__octet_string_range = create_function(entry__46_1_types__octet_string_range, 3);
-  func__47_1_types__quad_octet_string_range = create_function(entry__47_1_types__quad_octet_string_range, 3);
-  func__48_1_std__matches_file_pattern = create_function(entry__48_1_std__matches_file_pattern, 2);
-  func__49_1_types__octet_string_is_a_latin_1_string = create_function(entry__49_1_types__octet_string_is_a_latin_1_string, 1);
-  func__50_1_types__quad_octet_string_is_a_latin_1_string = create_function(entry__50_1_types__quad_octet_string_is_a_latin_1_string, 1);
-  func__51_1_std__from_utf8 = create_function(entry__51_1_std__from_utf8, 1);
-  func__52_1_types__octet_string_to_utf8 = create_function(entry__52_1_types__octet_string_to_utf8, 1);
-  func__53_1_types__quad_octet_string_to_utf8 = create_function(entry__53_1_types__quad_octet_string_to_utf8, 1);
+  func__types__string__parse_integer_1 = create_function(entry__types__string__parse_integer_1, 1);
+  func__types__octet_string__push_1 = create_function(entry__types__octet_string__push_1, 2);
+  func__types__quad_octet_string__push_1 = create_function(entry__types__quad_octet_string__push_1, 2);
+  func__types__octet_string__append_1 = create_function(entry__types__octet_string__append_1, 2);
+  func__types__quad_octet_string__append_1 = create_function(entry__types__quad_octet_string__append_1, 2);
+  func__types__string__parse_real_1 = create_function(entry__types__string__parse_real_1, 1);
+  func__types__octet_string__range_1 = create_function(entry__types__octet_string__range_1, 3);
+  func__types__quad_octet_string__range_1 = create_function(entry__types__quad_octet_string__range_1, 3);
+  func__std__matches_file_pattern_1 = create_function(entry__std__matches_file_pattern_1, 2);
+  func__types__octet_string__is_a_latin_1_string_1 = create_function(entry__types__octet_string__is_a_latin_1_string_1, 1);
+  func__types__quad_octet_string__is_a_latin_1_string_1 = create_function(entry__types__quad_octet_string__is_a_latin_1_string_1, 1);
+  func__std__from_utf8_1 = create_function(entry__std__from_utf8_1, 1);
+  func__types__octet_string__to_utf8_1 = create_function(entry__types__octet_string__to_utf8_1, 1);
+  func__types__quad_octet_string__to_utf8_1 = create_function(entry__types__quad_octet_string__to_utf8_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -5373,32 +5373,32 @@ EXPORT void phase_4__basic__types__string_primitives(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   define_attribute("types", "object", poly_idx__is_a_string, get__false());
   define_attribute("types", "string", poly_idx__is_a_string, get__true());
-  define_method("types", "octet_string", poly_idx__length_of, func__24_1_types__octet_string_length_of);
-  define_method("types", "quad_octet_string", poly_idx__length_of, func__25_1_types__quad_octet_string_length_of);
-  define_method("types", "octet_string", poly_idx__equal, func__26_1_types__octet_string_equal);
-  define_method("types", "quad_octet_string", poly_idx__equal, func__27_1_types__quad_octet_string_equal);
-  define_method("types", "octet_string", poly_idx__count_character_occurrences, func__28_1_types__octet_string_count_character_occurrences);
-  define_method("types", "quad_octet_string", poly_idx__count_character_occurrences, func__29_1_types__quad_octet_string_count_character_occurrences);
-  define_method("types", "octet_string", poly_idx__less, func__30_1_types__octet_string_less);
-  define_method("types", "quad_octet_string", poly_idx__less, func__31_1_types__quad_octet_string_less);
-  define_method("types", "octet_string", poly_idx__hash, func__32_1_types__octet_string_hash);
-  define_method("types", "octet_string", poly_idx__hash2, func__33_1_types__octet_string_hash2);
-  define_method("types", "quad_octet_string", poly_idx__hash, func__34_1_types__quad_octet_string_hash);
-  define_method("types", "quad_octet_string", poly_idx__hash2, func__35_1_types__quad_octet_string_hash2);
-  define_method("types", "string", poly_idx__to_string, func__36_1_types__string_to_string);
-  define_method("types", "string", poly_idx__serialize, func__37_1_types__string_serialize);
-  define_method("types", "string", poly_idx__parse_integer, func__38_1_types__string_parse_integer);
-  define_method("types", "octet_string", poly_idx__push, func__41_1_types__octet_string_push);
-  define_method("types", "quad_octet_string", poly_idx__push, func__42_1_types__quad_octet_string_push);
-  define_method("types", "octet_string", poly_idx__append, func__43_1_types__octet_string_append);
-  define_method("types", "quad_octet_string", poly_idx__append, func__44_1_types__quad_octet_string_append);
-  define_method("types", "string", poly_idx__parse_real, func__45_1_types__string_parse_real);
-  define_method("types", "octet_string", poly_idx__range, func__46_1_types__octet_string_range);
-  define_method("types", "quad_octet_string", poly_idx__range, func__47_1_types__quad_octet_string_range);
-  define_method("types", "octet_string", poly_idx__is_a_latin_1_string, func__49_1_types__octet_string_is_a_latin_1_string);
-  define_method("types", "quad_octet_string", poly_idx__is_a_latin_1_string, func__50_1_types__quad_octet_string_is_a_latin_1_string);
-  define_method("types", "octet_string", poly_idx__to_utf8, func__52_1_types__octet_string_to_utf8);
-  define_method("types", "quad_octet_string", poly_idx__to_utf8, func__53_1_types__quad_octet_string_to_utf8);
+  define_method("types", "octet_string", poly_idx__length_of, func__types__octet_string__length_of_1);
+  define_method("types", "quad_octet_string", poly_idx__length_of, func__types__quad_octet_string__length_of_1);
+  define_method("types", "octet_string", poly_idx__equal, func__types__octet_string__equal_1);
+  define_method("types", "quad_octet_string", poly_idx__equal, func__types__quad_octet_string__equal_1);
+  define_method("types", "octet_string", poly_idx__count_character_occurrences, func__types__octet_string__count_character_occurrences_1);
+  define_method("types", "quad_octet_string", poly_idx__count_character_occurrences, func__types__quad_octet_string__count_character_occurrences_1);
+  define_method("types", "octet_string", poly_idx__less, func__types__octet_string__less_1);
+  define_method("types", "quad_octet_string", poly_idx__less, func__types__quad_octet_string__less_1);
+  define_method("types", "octet_string", poly_idx__hash, func__types__octet_string__hash_1);
+  define_method("types", "octet_string", poly_idx__hash2, func__types__octet_string__hash2_1);
+  define_method("types", "quad_octet_string", poly_idx__hash, func__types__quad_octet_string__hash_1);
+  define_method("types", "quad_octet_string", poly_idx__hash2, func__types__quad_octet_string__hash2_1);
+  define_method("types", "string", poly_idx__to_string, func__types__string__to_string_1);
+  define_method("types", "string", poly_idx__serialize, func__types__string__serialize_1);
+  define_method("types", "string", poly_idx__parse_integer, func__types__string__parse_integer_1);
+  define_method("types", "octet_string", poly_idx__push, func__types__octet_string__push_1);
+  define_method("types", "quad_octet_string", poly_idx__push, func__types__quad_octet_string__push_1);
+  define_method("types", "octet_string", poly_idx__append, func__types__octet_string__append_1);
+  define_method("types", "quad_octet_string", poly_idx__append, func__types__quad_octet_string__append_1);
+  define_method("types", "string", poly_idx__parse_real, func__types__string__parse_real_1);
+  define_method("types", "octet_string", poly_idx__range, func__types__octet_string__range_1);
+  define_method("types", "quad_octet_string", poly_idx__range, func__types__quad_octet_string__range_1);
+  define_method("types", "octet_string", poly_idx__is_a_latin_1_string, func__types__octet_string__is_a_latin_1_string_1);
+  define_method("types", "quad_octet_string", poly_idx__is_a_latin_1_string, func__types__quad_octet_string__is_a_latin_1_string_1);
+  define_method("types", "octet_string", poly_idx__to_utf8, func__types__octet_string__to_utf8_1);
+  define_method("types", "quad_octet_string", poly_idx__to_utf8, func__types__quad_octet_string__to_utf8_1);
 }
 
 static int already_run_phase_5 = false;
@@ -5413,8 +5413,8 @@ EXPORT void phase_5__basic__types__string_primitives(void) {
   assign_value(&var.types__string, get__types__generic_list());
   assign_variable(&var.types__octet_string, &var.types__string);
   assign_variable(&var.types__quad_octet_string, &var.types__string);
-  assign_variable(&var.std__matches_file_pattern, &func__48_1_std__matches_file_pattern);
-  assign_variable(&var.std__from_utf8, &func__51_1_std__from_utf8);
+  assign_variable(&var.std__matches_file_pattern, &func__std__matches_file_pattern_1);
+  assign_variable(&var.std__from_utf8, &func__std__from_utf8_1);
 }
 
 static int already_run_phase_6 = false;

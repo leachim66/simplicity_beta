@@ -296,53 +296,53 @@ static NODE *get__types__key_value_pair(void) {
   return var.types__key_value_pair;
 }
 static NODE *create__types__key_value_pair(NODE *key, NODE *value);
-static void entry__6_1_std__key_value_pair(void);
-static NODE *func__6_1_std__key_value_pair;
+static void entry__std__key_value_pair_1(void);
+static NODE *func__std__key_value_pair_1;
 static NODE *get__std__key_value_pair(void) {
   return var.std__key_value_pair;
 }
-static void entry__7_1_types__key_value_pair_key_of(void);
-static NODE *func__7_1_types__key_value_pair_key_of;
-static void entry__8_1_types__key_value_pair_value_of(void);
-static NODE *func__8_1_types__key_value_pair_value_of;
+static void entry__types__key_value_pair__key_of_1(void);
+static NODE *func__types__key_value_pair__key_of_1;
+static void entry__types__key_value_pair__value_of_1(void);
+static NODE *func__types__key_value_pair__value_of_1;
 
 static long func__types__key_value_pair___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__10_1_types__key_value_pair_serialize;
-static void entry__10_1_types__key_value_pair_serialize(void);
-static FRAME_INFO frame__10_1_types__key_value_pair_serialize = {2, {"self", "indent"}};
-static void cont__10_2(void);
-static void cont__10_3(void);
-static void cont__10_4(void);
-static void cont__10_5(void);
-static void cont__10_6(void);
-static void cont__10_7(void);
-static void cont__10_8(void);
-static void cont__10_9(void);
-static void cont__10_10(void);
-static void cont__10_11(void);
+static NODE *func__types__key_value_pair__serialize_1;
+static void entry__types__key_value_pair__serialize_1(void);
+static FRAME_INFO frame__types__key_value_pair__serialize_1 = {2, {"self", "indent"}};
+static void cont__types__key_value_pair__serialize_2(void);
+static void cont__types__key_value_pair__serialize_3(void);
+static void cont__types__key_value_pair__serialize_4(void);
+static void cont__types__key_value_pair__serialize_5(void);
+static void cont__types__key_value_pair__serialize_6(void);
+static void cont__types__key_value_pair__serialize_7(void);
+static void cont__types__key_value_pair__serialize_8(void);
+static void cont__types__key_value_pair__serialize_9(void);
+static void cont__types__key_value_pair__serialize_10(void);
+static void cont__types__key_value_pair__serialize_11(void);
 static NODE *string__9381a93f155b26a2;
 static NODE *string__578a5af303e9ceb;
-static void cont__10_14(void);
+static void cont__types__key_value_pair__serialize_14(void);
 void run__basic__types__key_value_pair(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_key_value_pair, NULL, 23, 23, 2, 25},
   {run__basic__types__key_value_pair, NULL, },
-  {entry__6_1_std__key_value_pair, NULL, 52, 55, 3, 2},
-  {entry__7_1_types__key_value_pair_key_of, NULL, 60, 63, 3, 2},
-  {entry__8_1_types__key_value_pair_value_of, NULL, 68, 71, 3, 2},
-  {entry__10_1_types__key_value_pair_serialize, NULL, 101, 101, 14, 21},
-  {cont__10_2, &frame__10_1_types__key_value_pair_serialize, 101, 101, 7, 22},
-  {cont__10_3, &frame__10_1_types__key_value_pair_serialize, 101, 101, 36, 47},
-  {cont__10_4, &frame__10_1_types__key_value_pair_serialize, 101, 101, 49, 56},
-  {cont__10_5, &frame__10_1_types__key_value_pair_serialize, 101, 101, 26, 57},
-  {cont__10_6, &frame__10_1_types__key_value_pair_serialize, 102, 102, 18, 25},
-  {cont__10_7, &frame__10_1_types__key_value_pair_serialize, 102, 102, 11, 26},
-  {cont__10_8, &frame__10_1_types__key_value_pair_serialize, 102, 102, 40, 53},
-  {cont__10_9, &frame__10_1_types__key_value_pair_serialize, 102, 102, 55, 62},
-  {cont__10_10, &frame__10_1_types__key_value_pair_serialize, 102, 102, 30, 63},
-  {cont__10_11, &frame__10_1_types__key_value_pair_serialize, 99, 102, 6, 65},
-  {cont__10_14, &frame__10_1_types__key_value_pair_serialize, 99, 102, 3, 65}
+  {entry__std__key_value_pair_1, NULL, 52, 55, 3, 2},
+  {entry__types__key_value_pair__key_of_1, NULL, 60, 63, 3, 2},
+  {entry__types__key_value_pair__value_of_1, NULL, 68, 71, 3, 2},
+  {entry__types__key_value_pair__serialize_1, NULL, 101, 101, 14, 21},
+  {cont__types__key_value_pair__serialize_2, &frame__types__key_value_pair__serialize_1, 101, 101, 7, 22},
+  {cont__types__key_value_pair__serialize_3, &frame__types__key_value_pair__serialize_1, 101, 101, 36, 47},
+  {cont__types__key_value_pair__serialize_4, &frame__types__key_value_pair__serialize_1, 101, 101, 49, 56},
+  {cont__types__key_value_pair__serialize_5, &frame__types__key_value_pair__serialize_1, 101, 101, 26, 57},
+  {cont__types__key_value_pair__serialize_6, &frame__types__key_value_pair__serialize_1, 102, 102, 18, 25},
+  {cont__types__key_value_pair__serialize_7, &frame__types__key_value_pair__serialize_1, 102, 102, 11, 26},
+  {cont__types__key_value_pair__serialize_8, &frame__types__key_value_pair__serialize_1, 102, 102, 40, 53},
+  {cont__types__key_value_pair__serialize_9, &frame__types__key_value_pair__serialize_1, 102, 102, 55, 62},
+  {cont__types__key_value_pair__serialize_10, &frame__types__key_value_pair__serialize_1, 102, 102, 30, 63},
+  {cont__types__key_value_pair__serialize_11, &frame__types__key_value_pair__serialize_1, 99, 102, 6, 65},
+  {cont__types__key_value_pair__serialize_14, &frame__types__key_value_pair__serialize_1, 99, 102, 3, 65}
 };
 
 union NODE {
@@ -473,7 +473,7 @@ static NODE *create__types__key_value_pair(NODE *key, NODE *value) {
   node->key_value_pair.value = value;
   return node;
 }
-static void entry__6_1_std__key_value_pair(void) {
+static void entry__std__key_value_pair_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -488,7 +488,7 @@ static void entry__6_1_std__key_value_pair(void) {
     return;
   }
 }
-static void entry__7_1_types__key_value_pair_key_of(void) {
+static void entry__types__key_value_pair__key_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -503,7 +503,7 @@ static void entry__7_1_types__key_value_pair_key_of(void) {
     return;
   }
 }
-static void entry__8_1_types__key_value_pair_value_of(void) {
+static void entry__types__key_value_pair__value_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -533,7 +533,7 @@ static long func__types__key_value_pair___debug_string(NODE *node, int indent, i
   n += len;
   return n;
 }
-static void entry__10_1_types__key_value_pair_serialize(void) {
+static void entry__types__key_value_pair__serialize_1(void) {
   allocate_initialized_frame_gc(2, 13);
   // slot allocations:
   // self: 0
@@ -561,9 +561,9 @@ static void entry__10_1_types__key_value_pair_serialize(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__10_2;
+  frame->cont = cont__types__key_value_pair__serialize_2;
 }
-static void cont__10_2(void) {
+static void cont__types__key_value_pair__serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -576,9 +576,9 @@ static void cont__10_2(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__10_3;
+  frame->cont = cont__types__key_value_pair__serialize_3;
 }
-static void cont__10_3(void) {
+static void cont__types__key_value_pair__serialize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -591,9 +591,9 @@ static void cont__10_3(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__10_4;
+  frame->cont = cont__types__key_value_pair__serialize_4;
 }
-static void cont__10_4(void) {
+static void cont__types__key_value_pair__serialize_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -607,9 +607,9 @@ static void cont__10_4(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__10_5;
+  frame->cont = cont__types__key_value_pair__serialize_5;
 }
-static void cont__10_5(void) {
+static void cont__types__key_value_pair__serialize_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -623,9 +623,9 @@ static void cont__10_5(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__10_6;
+  frame->cont = cont__types__key_value_pair__serialize_6;
 }
-static void cont__10_6(void) {
+static void cont__types__key_value_pair__serialize_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -639,9 +639,9 @@ static void cont__10_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__10_7;
+  frame->cont = cont__types__key_value_pair__serialize_7;
 }
-static void cont__10_7(void) {
+static void cont__types__key_value_pair__serialize_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -654,9 +654,9 @@ static void cont__10_7(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__10_8;
+  frame->cont = cont__types__key_value_pair__serialize_8;
 }
-static void cont__10_8(void) {
+static void cont__types__key_value_pair__serialize_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -669,9 +669,9 @@ static void cont__10_8(void) {
   result_count = 1;
   myself = get__value_of();
   func = myself->type;
-  frame->cont = cont__10_9;
+  frame->cont = cont__types__key_value_pair__serialize_9;
 }
-static void cont__10_9(void) {
+static void cont__types__key_value_pair__serialize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -685,9 +685,9 @@ static void cont__10_9(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__10_10;
+  frame->cont = cont__types__key_value_pair__serialize_10;
 }
-static void cont__10_10(void) {
+static void cont__types__key_value_pair__serialize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -701,9 +701,9 @@ static void cont__10_10(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__10_11;
+  frame->cont = cont__types__key_value_pair__serialize_11;
 }
-static void cont__10_11(void) {
+static void cont__types__key_value_pair__serialize_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -724,9 +724,9 @@ static void cont__10_11(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__10_14;
+  frame->cont = cont__types__key_value_pair__serialize_14;
 }
-static void cont__10_14(void) {
+static void cont__types__key_value_pair__serialize_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -767,12 +767,12 @@ EXPORT void phase_2__basic__types__key_value_pair(void) {
   number__0 = from_uint32(0U);
   number__4 = from_uint32(4U);
   number__2 = from_uint32(2U);
-  func__6_1_std__key_value_pair = create_function(entry__6_1_std__key_value_pair, 2);
-  func__7_1_types__key_value_pair_key_of = create_function(entry__7_1_types__key_value_pair_key_of, 1);
-  func__8_1_types__key_value_pair_value_of = create_function(entry__8_1_types__key_value_pair_value_of, 1);
+  func__std__key_value_pair_1 = create_function(entry__std__key_value_pair_1, 2);
+  func__types__key_value_pair__key_of_1 = create_function(entry__types__key_value_pair__key_of_1, 1);
+  func__types__key_value_pair__value_of_1 = create_function(entry__types__key_value_pair__value_of_1, 1);
   string__9381a93f155b26a2 = from_latin_1_string("key_value_pair\012", 15);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
-  func__10_1_types__key_value_pair_serialize = create_function(entry__10_1_types__key_value_pair_serialize, -1);
+  func__types__key_value_pair__serialize_1 = create_function(entry__types__key_value_pair__serialize_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -806,9 +806,9 @@ EXPORT void phase_4__basic__types__key_value_pair(void) {
   use_polymorphic_function(NULL, "value_of", &get__value_of, &poly_idx__value_of);
   define_attribute("types", "object", poly_idx__is_a_key_value_pair, get__false());
   define_attribute("types", "key_value_pair", poly_idx__is_a_key_value_pair, get__true());
-  define_method("types", "key_value_pair", poly_idx__key_of, func__7_1_types__key_value_pair_key_of);
-  define_method("types", "key_value_pair", poly_idx__value_of, func__8_1_types__key_value_pair_value_of);
-  define_method("types", "key_value_pair", poly_idx__serialize, func__10_1_types__key_value_pair_serialize);
+  define_method("types", "key_value_pair", poly_idx__key_of, func__types__key_value_pair__key_of_1);
+  define_method("types", "key_value_pair", poly_idx__value_of, func__types__key_value_pair__value_of_1);
+  define_method("types", "key_value_pair", poly_idx__serialize, func__types__key_value_pair__serialize_1);
 }
 
 static int already_run_phase_5 = false;
@@ -818,7 +818,7 @@ EXPORT void phase_5__basic__types__key_value_pair(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_key_value_pair, create_function(type__std__is_a_key_value_pair, -1));
   assign_value(&var.types__key_value_pair, get__types__object());
-  assign_variable(&var.std__key_value_pair, &func__6_1_std__key_value_pair);
+  assign_variable(&var.std__key_value_pair, &func__std__key_value_pair_1);
 }
 
 static int already_run_phase_6 = false;

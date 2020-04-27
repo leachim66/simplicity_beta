@@ -289,10 +289,10 @@ static NODE *get__types__unique_item(void) {
   return var.types__unique_item;
 }
 static NODE *create__types__unique_item(long id);
-static void entry__9_1_types__unique_item_equal(void);
-static NODE *func__9_1_types__unique_item_equal;
-static void entry__10_1_types__unique_item_hash(void);
-static NODE *func__10_1_types__unique_item_hash;
+static void entry__types__unique_item__equal_1(void);
+static NODE *func__types__unique_item__equal_1;
+static void entry__types__unique_item__hash_1(void);
+static NODE *func__types__unique_item__hash_1;
 
 static long func__types__unique_item___debug_string(NODE *node, int indent, int max_depth, char *buf);
 void run__basic__types__unique_item(void);
@@ -300,8 +300,8 @@ void run__basic__types__unique_item(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_unique_item, NULL, 23, 23, 2, 22},
   {run__basic__types__unique_item, NULL, },
-  {entry__9_1_types__unique_item_equal, NULL, 81, 87, 3, 2},
-  {entry__10_1_types__unique_item_hash, NULL, 92, 98, 3, 2}
+  {entry__types__unique_item__equal_1, NULL, 81, 87, 3, 2},
+  {entry__types__unique_item__hash_1, NULL, 92, 98, 3, 2}
 };
 
 union NODE {
@@ -444,7 +444,7 @@ NODE *runtime__register_unique_item(const char *name) {
   my_unique_item_names[unique_idx] = name;
   return create__types__unique_item(unique_idx++);
 }
-static void entry__9_1_types__unique_item_equal(void) {
+static void entry__types__unique_item__equal_1(void) {
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
@@ -468,7 +468,7 @@ static void entry__9_1_types__unique_item_equal(void) {
     return;
   }
 }
-static void entry__10_1_types__unique_item_hash(void) {
+static void entry__types__unique_item__hash_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -512,8 +512,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unique_item(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  func__9_1_types__unique_item_equal = create_function(entry__9_1_types__unique_item_equal, 2);
-  func__10_1_types__unique_item_hash = create_function(entry__10_1_types__unique_item_hash, 1);
+  func__types__unique_item__equal_1 = create_function(entry__types__unique_item__equal_1, 2);
+  func__types__unique_item__hash_1 = create_function(entry__types__unique_item__hash_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -542,8 +542,8 @@ EXPORT void phase_4__basic__types__unique_item(void) {
   use_read_only("types", "object", &get__types__object, &get_value_or_future__types__object);
   define_attribute("types", "object", poly_idx__is_a_unique_item, get__false());
   define_attribute("types", "unique_item", poly_idx__is_a_unique_item, get__true());
-  define_method("types", "unique_item", poly_idx__equal, func__9_1_types__unique_item_equal);
-  define_method("types", "unique_item", poly_idx__hash, func__10_1_types__unique_item_hash);
+  define_method("types", "unique_item", poly_idx__equal, func__types__unique_item__equal_1);
+  define_method("types", "unique_item", poly_idx__hash, func__types__unique_item__hash_1);
 }
 
 static int already_run_phase_5 = false;

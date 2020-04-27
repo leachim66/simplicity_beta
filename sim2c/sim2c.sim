@@ -561,7 +561,6 @@ $sim2c::sim2c:
   for_each all_definitions: (stmt_idx defs)
     %%sim2c::actions empty_list
     %%sim2c::delayed_code ""
-    %sim2c::suffix string("__" stmt_idx)
     %%sim2c::index 0
     collect_output $code:
       for_each defs: ($definition)
@@ -573,6 +572,12 @@ $sim2c::sim2c:
 	  definition.is_c_code:
 	    define_c_code definition
 	  :
+	    $$name mangled_name_of(identifier_of(definition))
+	    $attribute attribute_of(definition)
+	    if attribute.is_defined:
+	      append &name "__"
+	      append &name mangled_name_of(attribute)
+	    %sim2c::suffix string("__" name)
 	    if
 	      source.is_defined && source.is_a_polymorphic_function_constant:
 		define_polymorphic_function definition source.is_a_setter

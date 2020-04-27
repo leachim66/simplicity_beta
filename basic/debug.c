@@ -294,122 +294,122 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static void entry__1_1_std__debug_string(void);
-static NODE *func__1_1_std__debug_string;
+static void entry__std__debug_string_1(void);
+static NODE *func__std__debug_string_1;
 static NODE *get__std__debug_string(void) {
   return var.std__debug_string;
 }
-static NODE *func__2_1_std__dump;
-static void entry__2_1_std__dump(void);
-static FRAME_INFO frame__2_1_std__dump = {2, {"args", "depth"}};
-static void cont__2_2(void);
-static void cont__2_3(void);
-static NODE *func__2_4;
-static void entry__2_4(void);
-static FRAME_INFO frame__2_4 = {2, {"depth", "args"}};
-static void cont__2_5(void);
-static void cont__2_6(void);
-static void cont__2_7(void);
-static void cont__2_8(void);
-static NODE *func__2_9;
-static void entry__2_9(void);
-static FRAME_INFO frame__2_9 = {3, {"name", "expr", "depth"}};
-static void cont__2_10(void);
-static void cont__2_11(void);
+static NODE *func__std__dump_1;
+static void entry__std__dump_1(void);
+static FRAME_INFO frame__std__dump_1 = {2, {"args", "depth"}};
+static void cont__std__dump_2(void);
+static void cont__std__dump_3(void);
+static NODE *func__std__dump_4;
+static void entry__std__dump_4(void);
+static FRAME_INFO frame__std__dump_4 = {2, {"depth", "args"}};
+static void cont__std__dump_5(void);
+static void cont__std__dump_6(void);
+static void cont__std__dump_7(void);
+static void cont__std__dump_8(void);
+static NODE *func__std__dump_9;
+static void entry__std__dump_9(void);
+static FRAME_INFO frame__std__dump_9 = {3, {"name", "expr", "depth"}};
+static void cont__std__dump_10(void);
+static void cont__std__dump_11(void);
 static NODE *string__578a5af303e9cdb;
 static NODE *get__std__dump(void) {
   return var.std__dump;
 }
-static NODE *func__3_1_std__edump;
-static void entry__3_1_std__edump(void);
-static FRAME_INFO frame__3_1_std__edump = {2, {"args", "depth"}};
-static void cont__3_2(void);
-static void cont__3_3(void);
-static NODE *func__3_4;
-static void entry__3_4(void);
-static FRAME_INFO frame__3_4 = {2, {"depth", "args"}};
-static void cont__3_5(void);
-static void cont__3_6(void);
-static void cont__3_7(void);
-static void cont__3_8(void);
-static NODE *func__3_9;
-static void entry__3_9(void);
-static FRAME_INFO frame__3_9 = {3, {"name", "expr", "depth"}};
-static void cont__3_10(void);
-static void cont__3_11(void);
+static NODE *func__std__edump_1;
+static void entry__std__edump_1(void);
+static FRAME_INFO frame__std__edump_1 = {2, {"args", "depth"}};
+static void cont__std__edump_2(void);
+static void cont__std__edump_3(void);
+static NODE *func__std__edump_4;
+static void entry__std__edump_4(void);
+static FRAME_INFO frame__std__edump_4 = {2, {"depth", "args"}};
+static void cont__std__edump_5(void);
+static void cont__std__edump_6(void);
+static void cont__std__edump_7(void);
+static void cont__std__edump_8(void);
+static NODE *func__std__edump_9;
+static void entry__std__edump_9(void);
+static FRAME_INFO frame__std__edump_9 = {3, {"name", "expr", "depth"}};
+static void cont__std__edump_10(void);
+static void cont__std__edump_11(void);
 static NODE *get__std__edump(void) {
   return var.std__edump;
 }
-static void entry__4_1_std__collect_garbage(void);
-static NODE *func__4_1_std__collect_garbage;
+static void entry__std__collect_garbage_1(void);
+static NODE *func__std__collect_garbage_1;
 static NODE *get__std__collect_garbage(void) {
   return var.std__collect_garbage;
 }
-static void entry__5_1_std__instruction_counter(void);
-static NODE *func__5_1_std__instruction_counter;
+static void entry__std__instruction_counter_1(void);
+static NODE *func__std__instruction_counter_1;
 static NODE *get__std__instruction_counter(void) {
   return var.std__instruction_counter;
 }
-static void entry__6_1_std__total_garbage_collections(void);
-static NODE *func__6_1_std__total_garbage_collections;
+static void entry__std__total_garbage_collections_1(void);
+static NODE *func__std__total_garbage_collections_1;
 static NODE *get__std__total_garbage_collections(void) {
   return var.std__total_garbage_collections;
 }
-static NODE *func__7_1_std__hexdump;
-static void entry__7_1_std__hexdump(void);
-static FRAME_INFO frame__7_1_std__hexdump = {3, {"str", "len", "pos"}};
-static void cont__7_2(void);
-static NODE *func__7_3;
-static void entry__7_3(void);
-static FRAME_INFO frame__7_3 = {3, {"pos", "len", "str"}};
-static void cont__7_4(void);
-static NODE *func__7_5;
-static void entry__7_5(void);
-static FRAME_INFO frame__7_5 = {5, {"len", "pos", "str", "n", "line"}};
-static void cont__7_6(void);
-static void cont__7_7(void);
-static void cont__7_8(void);
-static void cont__7_9(void);
-static void cont__7_10(void);
-static void cont__7_11(void);
+static NODE *func__std__hexdump_1;
+static void entry__std__hexdump_1(void);
+static FRAME_INFO frame__std__hexdump_1 = {3, {"str", "len", "pos"}};
+static void cont__std__hexdump_2(void);
+static NODE *func__std__hexdump_3;
+static void entry__std__hexdump_3(void);
+static FRAME_INFO frame__std__hexdump_3 = {3, {"pos", "len", "str"}};
+static void cont__std__hexdump_4(void);
+static NODE *func__std__hexdump_5;
+static void entry__std__hexdump_5(void);
+static FRAME_INFO frame__std__hexdump_5 = {5, {"len", "pos", "str", "n", "line"}};
+static void cont__std__hexdump_6(void);
+static void cont__std__hexdump_7(void);
+static void cont__std__hexdump_8(void);
+static void cont__std__hexdump_9(void);
+static void cont__std__hexdump_10(void);
+static void cont__std__hexdump_11(void);
 static NODE *string__578a5af303e9cd1;
-static void cont__7_13(void);
-static void cont__7_14(void);
-static NODE *func__7_15;
-static void entry__7_15(void);
-static FRAME_INFO frame__7_15 = {2, {"i", "line"}};
-static void cont__7_16(void);
-static void cont__7_17(void);
-static void cont__7_18(void);
-static void cont__7_19(void);
+static void cont__std__hexdump_13(void);
+static void cont__std__hexdump_14(void);
+static NODE *func__std__hexdump_15;
+static void entry__std__hexdump_15(void);
+static FRAME_INFO frame__std__hexdump_15 = {2, {"i", "line"}};
+static void cont__std__hexdump_16(void);
+static void cont__std__hexdump_17(void);
+static void cont__std__hexdump_18(void);
+static void cont__std__hexdump_19(void);
 static NODE *string__578a5af303e9cc1;
-static void cont__7_21(void);
-static void cont__7_22(void);
+static void cont__std__hexdump_21(void);
+static void cont__std__hexdump_22(void);
 static NODE *string__fa730415f296bec;
-static void cont__7_24(void);
+static void cont__std__hexdump_24(void);
 static NODE *string__2d7981f4e6082be5;
-static void cont__7_26(void);
-static NODE *func__7_27;
-static void entry__7_27(void);
-static FRAME_INFO frame__7_27 = {3, {"i", "line", "chr"}};
-static void cont__7_28(void);
-static void cont__7_29(void);
-static void cont__7_30(void);
-static NODE *func__7_31;
-static void entry__7_31(void);
-static FRAME_INFO frame__7_31 = {1, {"chr"}};
-static void cont__7_32(void);
-static void cont__7_33(void);
-static NODE *func__7_34;
-static void entry__7_34(void);
-static FRAME_INFO frame__7_34 = {1, {"chr"}};
-static NODE *func__7_35;
-static void entry__7_35(void);
-static FRAME_INFO frame__7_35 = {0, {}};
+static void cont__std__hexdump_26(void);
+static NODE *func__std__hexdump_27;
+static void entry__std__hexdump_27(void);
+static FRAME_INFO frame__std__hexdump_27 = {3, {"i", "line", "chr"}};
+static void cont__std__hexdump_28(void);
+static void cont__std__hexdump_29(void);
+static void cont__std__hexdump_30(void);
+static NODE *func__std__hexdump_31;
+static void entry__std__hexdump_31(void);
+static FRAME_INFO frame__std__hexdump_31 = {1, {"chr"}};
+static void cont__std__hexdump_32(void);
+static void cont__std__hexdump_33(void);
+static NODE *func__std__hexdump_34;
+static void entry__std__hexdump_34(void);
+static FRAME_INFO frame__std__hexdump_34 = {1, {"chr"}};
+static NODE *func__std__hexdump_35;
+static void entry__std__hexdump_35(void);
+static FRAME_INFO frame__std__hexdump_35 = {0, {}};
 static NODE *string__578a5af303e9ccf;
-static void cont__7_37(void);
-static void cont__7_38(void);
-static void cont__7_39(void);
+static void cont__std__hexdump_37(void);
+static void cont__std__hexdump_38(void);
+static void cont__std__hexdump_39(void);
 static NODE *get__std__hexdump(void) {
   return var.std__hexdump;
 }
@@ -417,66 +417,66 @@ void run__basic__debug(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__debug, NULL, },
-  {entry__1_1_std__debug_string, NULL, 47, 66, 3, 2},
-  {entry__2_4, NULL, 89, 89, 5, 18},
-  {cont__2_5, &frame__2_4, 90, 90, 20, 20},
-  {cont__2_6, &frame__2_4, 90, 90, 5, 20},
-  {cont__2_7, &frame__2_4, 90, 90, 20, 20},
-  {entry__2_9, NULL, 91, 91, 69, 69},
-  {cont__2_10, &frame__2_9, 91, 91, 50, 76},
-  {cont__2_11, &frame__2_9, 91, 91, 35, 76},
-  {entry__2_1_std__dump, NULL, 88, 88, 6, 20},
-  {cont__2_2, &frame__2_1_std__dump, 88, 88, 6, 27},
-  {cont__2_3, &frame__2_1_std__dump, 88, 90, 3, 20},
-  {cont__2_8, &frame__2_1_std__dump, 91, 91, 3, 76},
-  {entry__3_4, NULL, 114, 114, 5, 18},
-  {cont__3_5, &frame__3_4, 115, 115, 20, 20},
-  {cont__3_6, &frame__3_4, 115, 115, 5, 20},
-  {cont__3_7, &frame__3_4, 115, 115, 20, 20},
-  {entry__3_9, NULL, 116, 116, 70, 70},
-  {cont__3_10, &frame__3_9, 116, 116, 51, 77},
-  {cont__3_11, &frame__3_9, 116, 116, 35, 77},
-  {entry__3_1_std__edump, NULL, 113, 113, 6, 20},
-  {cont__3_2, &frame__3_1_std__edump, 113, 113, 6, 27},
-  {cont__3_3, &frame__3_1_std__edump, 113, 115, 3, 20},
-  {cont__3_8, &frame__3_1_std__edump, 116, 116, 3, 77},
-  {entry__4_1_std__collect_garbage, NULL, 126, 130, 3, 2},
-  {entry__5_1_std__instruction_counter, NULL, 145, 148, 3, 2},
-  {entry__6_1_std__total_garbage_collections, NULL, 158, 161, 3, 2},
-  {entry__7_15, NULL, 175, 175, 45, 51},
-  {cont__7_16, &frame__7_15, 175, 175, 45, 62},
-  {cont__7_17, &frame__7_15, 175, 175, 41, 63},
-  {cont__7_18, &frame__7_15, 175, 175, 32, 70},
-  {cont__7_19, &frame__7_15, 175, 175, 22, 70},
-  {entry__7_31, NULL, 180, 180, 23, 35},
-  {cont__7_32, &frame__7_31, 180, 180, 23, 35},
-  {entry__7_34, NULL, 181, 181, 11, 19},
-  {entry__7_35, NULL, 183, 183, 11, 19},
-  {entry__7_27, NULL, 178, 178, 7, 18},
-  {cont__7_28, &frame__7_27, 180, 180, 9, 18},
-  {cont__7_29, &frame__7_27, 180, 180, 9, 18},
-  {cont__7_30, &frame__7_27, 180, 180, 9, 35},
-  {cont__7_33, &frame__7_27, 179, 183, 7, 20},
-  {entry__7_5, NULL, 172, 172, 12, 18},
-  {cont__7_6, &frame__7_5, 172, 172, 5, 22},
-  {cont__7_7, &frame__7_5, 173, 173, 21, 25},
-  {cont__7_8, &frame__7_5, 173, 173, 27, 31},
-  {cont__7_9, &frame__7_5, 173, 173, 5, 32},
-  {cont__7_10, &frame__7_5, 174, 174, 20, 27},
-  {cont__7_11, &frame__7_5, 174, 174, 11, 34},
-  {cont__7_13, &frame__7_5, 174, 174, 5, 38},
-  {cont__7_14, &frame__7_5, 175, 175, 5, 70},
-  {cont__7_21, &frame__7_5, 176, 176, 21, 24},
-  {cont__7_22, &frame__7_5, 176, 176, 11, 25},
-  {cont__7_24, &frame__7_5, 176, 176, 5, 30},
-  {cont__7_26, &frame__7_5, 177, 183, 5, 21},
-  {cont__7_37, &frame__7_5, 184, 184, 5, 11},
-  {cont__7_38, &frame__7_5, 185, 185, 5, 15},
-  {cont__7_39, &frame__7_5, 185, 185, 15, 15},
-  {entry__7_3, NULL, 171, 171, 12, 20},
-  {cont__7_4, &frame__7_3, 171, 185, 9, 15},
-  {entry__7_1_std__hexdump, NULL, 169, 169, 3, 21},
-  {cont__7_2, &frame__7_1_std__hexdump, 171, 185, 3, 15}
+  {entry__std__debug_string_1, NULL, 47, 66, 3, 2},
+  {entry__std__dump_4, NULL, 89, 89, 5, 18},
+  {cont__std__dump_5, &frame__std__dump_4, 90, 90, 20, 20},
+  {cont__std__dump_6, &frame__std__dump_4, 90, 90, 5, 20},
+  {cont__std__dump_7, &frame__std__dump_4, 90, 90, 20, 20},
+  {entry__std__dump_9, NULL, 91, 91, 69, 69},
+  {cont__std__dump_10, &frame__std__dump_9, 91, 91, 50, 76},
+  {cont__std__dump_11, &frame__std__dump_9, 91, 91, 35, 76},
+  {entry__std__dump_1, NULL, 88, 88, 6, 20},
+  {cont__std__dump_2, &frame__std__dump_1, 88, 88, 6, 27},
+  {cont__std__dump_3, &frame__std__dump_1, 88, 90, 3, 20},
+  {cont__std__dump_8, &frame__std__dump_1, 91, 91, 3, 76},
+  {entry__std__edump_4, NULL, 114, 114, 5, 18},
+  {cont__std__edump_5, &frame__std__edump_4, 115, 115, 20, 20},
+  {cont__std__edump_6, &frame__std__edump_4, 115, 115, 5, 20},
+  {cont__std__edump_7, &frame__std__edump_4, 115, 115, 20, 20},
+  {entry__std__edump_9, NULL, 116, 116, 70, 70},
+  {cont__std__edump_10, &frame__std__edump_9, 116, 116, 51, 77},
+  {cont__std__edump_11, &frame__std__edump_9, 116, 116, 35, 77},
+  {entry__std__edump_1, NULL, 113, 113, 6, 20},
+  {cont__std__edump_2, &frame__std__edump_1, 113, 113, 6, 27},
+  {cont__std__edump_3, &frame__std__edump_1, 113, 115, 3, 20},
+  {cont__std__edump_8, &frame__std__edump_1, 116, 116, 3, 77},
+  {entry__std__collect_garbage_1, NULL, 126, 130, 3, 2},
+  {entry__std__instruction_counter_1, NULL, 145, 148, 3, 2},
+  {entry__std__total_garbage_collections_1, NULL, 158, 161, 3, 2},
+  {entry__std__hexdump_15, NULL, 175, 175, 45, 51},
+  {cont__std__hexdump_16, &frame__std__hexdump_15, 175, 175, 45, 62},
+  {cont__std__hexdump_17, &frame__std__hexdump_15, 175, 175, 41, 63},
+  {cont__std__hexdump_18, &frame__std__hexdump_15, 175, 175, 32, 70},
+  {cont__std__hexdump_19, &frame__std__hexdump_15, 175, 175, 22, 70},
+  {entry__std__hexdump_31, NULL, 180, 180, 23, 35},
+  {cont__std__hexdump_32, &frame__std__hexdump_31, 180, 180, 23, 35},
+  {entry__std__hexdump_34, NULL, 181, 181, 11, 19},
+  {entry__std__hexdump_35, NULL, 183, 183, 11, 19},
+  {entry__std__hexdump_27, NULL, 178, 178, 7, 18},
+  {cont__std__hexdump_28, &frame__std__hexdump_27, 180, 180, 9, 18},
+  {cont__std__hexdump_29, &frame__std__hexdump_27, 180, 180, 9, 18},
+  {cont__std__hexdump_30, &frame__std__hexdump_27, 180, 180, 9, 35},
+  {cont__std__hexdump_33, &frame__std__hexdump_27, 179, 183, 7, 20},
+  {entry__std__hexdump_5, NULL, 172, 172, 12, 18},
+  {cont__std__hexdump_6, &frame__std__hexdump_5, 172, 172, 5, 22},
+  {cont__std__hexdump_7, &frame__std__hexdump_5, 173, 173, 21, 25},
+  {cont__std__hexdump_8, &frame__std__hexdump_5, 173, 173, 27, 31},
+  {cont__std__hexdump_9, &frame__std__hexdump_5, 173, 173, 5, 32},
+  {cont__std__hexdump_10, &frame__std__hexdump_5, 174, 174, 20, 27},
+  {cont__std__hexdump_11, &frame__std__hexdump_5, 174, 174, 11, 34},
+  {cont__std__hexdump_13, &frame__std__hexdump_5, 174, 174, 5, 38},
+  {cont__std__hexdump_14, &frame__std__hexdump_5, 175, 175, 5, 70},
+  {cont__std__hexdump_21, &frame__std__hexdump_5, 176, 176, 21, 24},
+  {cont__std__hexdump_22, &frame__std__hexdump_5, 176, 176, 11, 25},
+  {cont__std__hexdump_24, &frame__std__hexdump_5, 176, 176, 5, 30},
+  {cont__std__hexdump_26, &frame__std__hexdump_5, 177, 183, 5, 21},
+  {cont__std__hexdump_37, &frame__std__hexdump_5, 184, 184, 5, 11},
+  {cont__std__hexdump_38, &frame__std__hexdump_5, 185, 185, 5, 15},
+  {cont__std__hexdump_39, &frame__std__hexdump_5, 185, 185, 15, 15},
+  {entry__std__hexdump_3, NULL, 171, 171, 12, 20},
+  {cont__std__hexdump_4, &frame__std__hexdump_3, 171, 185, 9, 15},
+  {entry__std__hexdump_1, NULL, 169, 169, 3, 21},
+  {cont__std__hexdump_2, &frame__std__hexdump_1, 171, 185, 3, 15}
 };
 
 union NODE {
@@ -531,7 +531,7 @@ EXPORT void run__basic__debug(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1_std__debug_string(void) {
+static void entry__std__debug_string_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -565,7 +565,7 @@ static void entry__1_1_std__debug_string(void) {
     return;
   };
 }
-static void entry__2_9(void) {
+static void entry__std__dump_9(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // name: 0
@@ -583,9 +583,9 @@ static void entry__2_9(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__2_10;
+  frame->cont = cont__std__dump_10;
 }
-static void cont__2_10(void) {
+static void cont__std__dump_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -600,9 +600,9 @@ static void cont__2_10(void) {
   result_count = 1;
   myself = get__debug_string();
   func = myself->type;
-  frame->cont = cont__2_11;
+  frame->cont = cont__std__dump_11;
 }
-static void cont__2_11(void) {
+static void cont__std__dump_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -619,7 +619,7 @@ static void cont__2_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__2_1_std__dump(void) {
+static void entry__std__dump_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
@@ -636,9 +636,9 @@ static void entry__2_1_std__dump(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__2_2;
+  frame->cont = cont__std__dump_2;
 }
-static void cont__2_2(void) {
+static void cont__std__dump_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -651,9 +651,9 @@ static void cont__2_2(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__2_3;
+  frame->cont = cont__std__dump_3;
 }
-static void cont__2_3(void) {
+static void cont__std__dump_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -662,7 +662,7 @@ static void cont__2_3(void) {
   // 88: ... :
   // 89:   !depth args(1)
   // 90:   range &args 2 -1
-  frame->slots[4] /* temp__3 */ = create_closure(entry__2_4, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__std__dump_4, 0);
   // 88: if length_of(args).is_odd:
   // 89:   !depth args(1)
   // 90:   range &args 2 -1
@@ -673,9 +673,9 @@ static void cont__2_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__2_8;
+  frame->cont = cont__std__dump_8;
 }
-static void entry__2_4(void) {
+static void entry__std__dump_4(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // depth: 0
@@ -693,9 +693,9 @@ static void entry__2_4(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* args */;
   func = myself->type;
-  frame->cont = cont__2_5;
+  frame->cont = cont__std__dump_5;
 }
-static void cont__2_5(void) {
+static void cont__std__dump_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -708,9 +708,9 @@ static void cont__2_5(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__2_6;
+  frame->cont = cont__std__dump_6;
 }
-static void cont__2_6(void) {
+static void cont__std__dump_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -725,9 +725,9 @@ static void cont__2_6(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__2_7;
+  frame->cont = cont__std__dump_7;
 }
-static void cont__2_7(void) {
+static void cont__std__dump_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -739,13 +739,13 @@ static void cont__2_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__2_8(void) {
+static void cont__std__dump_8(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 91: ... : (name expr) write name ":" debug_string(expr -2 depth)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__2_9, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__dump_9, 2);
   // 91: for_each_pair args: (name expr) write name ":" debug_string(expr -2 depth)
   argument_count = 2;
   arguments = node_p;
@@ -756,7 +756,7 @@ static void cont__2_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_9(void) {
+static void entry__std__edump_9(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // name: 0
@@ -774,9 +774,9 @@ static void entry__3_9(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__3_10;
+  frame->cont = cont__std__edump_10;
 }
-static void cont__3_10(void) {
+static void cont__std__edump_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -791,9 +791,9 @@ static void cont__3_10(void) {
   result_count = 1;
   myself = get__debug_string();
   func = myself->type;
-  frame->cont = cont__3_11;
+  frame->cont = cont__std__edump_11;
 }
-static void cont__3_11(void) {
+static void cont__std__edump_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -810,7 +810,7 @@ static void cont__3_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__3_1_std__edump(void) {
+static void entry__std__edump_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
@@ -827,9 +827,9 @@ static void entry__3_1_std__edump(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__3_2;
+  frame->cont = cont__std__edump_2;
 }
-static void cont__3_2(void) {
+static void cont__std__edump_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -842,9 +842,9 @@ static void cont__3_2(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__3_3;
+  frame->cont = cont__std__edump_3;
 }
-static void cont__3_3(void) {
+static void cont__std__edump_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -853,7 +853,7 @@ static void cont__3_3(void) {
   // 113: ... :
   // 114:   !depth args(1)
   // 115:   range &args 2 -1
-  frame->slots[4] /* temp__3 */ = create_closure(entry__3_4, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__std__edump_4, 0);
   // 113: if length_of(args).is_odd:
   // 114:   !depth args(1)
   // 115:   range &args 2 -1
@@ -864,9 +864,9 @@ static void cont__3_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__3_8;
+  frame->cont = cont__std__edump_8;
 }
-static void entry__3_4(void) {
+static void entry__std__edump_4(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // depth: 0
@@ -884,9 +884,9 @@ static void entry__3_4(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* args */;
   func = myself->type;
-  frame->cont = cont__3_5;
+  frame->cont = cont__std__edump_5;
 }
-static void cont__3_5(void) {
+static void cont__std__edump_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -899,9 +899,9 @@ static void cont__3_5(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__3_6;
+  frame->cont = cont__std__edump_6;
 }
-static void cont__3_6(void) {
+static void cont__std__edump_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -916,9 +916,9 @@ static void cont__3_6(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__3_7;
+  frame->cont = cont__std__edump_7;
 }
-static void cont__3_7(void) {
+static void cont__std__edump_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -930,13 +930,13 @@ static void cont__3_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__3_8(void) {
+static void cont__std__edump_8(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 116: ... : (name expr) ewrite name ":" debug_string(expr -2 depth)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__3_9, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__edump_9, 2);
   // 116: for_each_pair args: (name expr) ewrite name ":" debug_string(expr -2 depth)
   argument_count = 2;
   arguments = node_p;
@@ -947,7 +947,7 @@ static void cont__3_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1_std__collect_garbage(void) {
+static void entry__std__collect_garbage_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -960,7 +960,7 @@ static void entry__4_1_std__collect_garbage(void) {
     return;
   }
 }
-static void entry__5_1_std__instruction_counter(void) {
+static void entry__std__instruction_counter_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -975,7 +975,7 @@ static void entry__5_1_std__instruction_counter(void) {
     return;
   }
 }
-static void entry__6_1_std__total_garbage_collections(void) {
+static void entry__std__total_garbage_collections_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -990,7 +990,7 @@ static void entry__6_1_std__total_garbage_collections(void) {
     return;
   }
 }
-static void entry__7_5(void) {
+static void entry__std__hexdump_5(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // len: 0
@@ -1015,9 +1015,9 @@ static void entry__7_5(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__7_6;
+  frame->cont = cont__std__hexdump_6;
 }
-static void cont__7_6(void) {
+static void cont__std__hexdump_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1031,9 +1031,9 @@ static void cont__7_6(void) {
   result_count = 1;
   myself = get__min();
   func = myself->type;
-  frame->cont = cont__7_7;
+  frame->cont = cont__std__hexdump_7;
 }
-static void cont__7_7(void) {
+static void cont__std__hexdump_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1047,9 +1047,9 @@ static void cont__7_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__7_8;
+  frame->cont = cont__std__hexdump_8;
 }
-static void cont__7_8(void) {
+static void cont__std__hexdump_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1063,9 +1063,9 @@ static void cont__7_8(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__7_9;
+  frame->cont = cont__std__hexdump_9;
 }
-static void cont__7_9(void) {
+static void cont__std__hexdump_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1080,9 +1080,9 @@ static void cont__7_9(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__7_10;
+  frame->cont = cont__std__hexdump_10;
 }
-static void cont__7_10(void) {
+static void cont__std__hexdump_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1095,9 +1095,9 @@ static void cont__7_10(void) {
   result_count = 1;
   myself = get__hex();
   func = myself->type;
-  frame->cont = cont__7_11;
+  frame->cont = cont__std__hexdump_11;
 }
-static void cont__7_11(void) {
+static void cont__std__hexdump_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1112,9 +1112,9 @@ static void cont__7_11(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__7_13;
+  frame->cont = cont__std__hexdump_13;
 }
-static void cont__7_13(void) {
+static void cont__std__hexdump_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1128,15 +1128,15 @@ static void cont__7_13(void) {
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__7_14;
+  frame->cont = cont__std__hexdump_14;
 }
-static void cont__7_14(void) {
+static void cont__std__hexdump_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 175: ... : (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
-  frame->slots[5] /* temp__1 */ = create_closure(entry__7_15, 1);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__std__hexdump_15, 1);
   // 175: from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
   argument_count = 3;
   arguments = node_p;
@@ -1146,9 +1146,9 @@ static void cont__7_14(void) {
   result_count = 0;
   myself = get__from_to();
   func = myself->type;
-  frame->cont = cont__7_21;
+  frame->cont = cont__std__hexdump_21;
 }
-static void entry__7_15(void) {
+static void entry__std__hexdump_15(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // i: 0
@@ -1165,9 +1165,9 @@ static void entry__7_15(void) {
   result_count = 1;
   myself = frame->slots[1] /* line */;
   func = myself->type;
-  frame->cont = cont__7_16;
+  frame->cont = cont__std__hexdump_16;
 }
-static void cont__7_16(void) {
+static void cont__std__hexdump_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1180,9 +1180,9 @@ static void cont__7_16(void) {
   result_count = 1;
   myself = get__to_integer();
   func = myself->type;
-  frame->cont = cont__7_17;
+  frame->cont = cont__std__hexdump_17;
 }
-static void cont__7_17(void) {
+static void cont__std__hexdump_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1195,9 +1195,9 @@ static void cont__7_17(void) {
   result_count = 1;
   myself = get__hex();
   func = myself->type;
-  frame->cont = cont__7_18;
+  frame->cont = cont__std__hexdump_18;
 }
-static void cont__7_18(void) {
+static void cont__std__hexdump_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1212,9 +1212,9 @@ static void cont__7_18(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__7_19;
+  frame->cont = cont__std__hexdump_19;
 }
-static void cont__7_19(void) {
+static void cont__std__hexdump_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1230,7 +1230,7 @@ static void cont__7_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__7_21(void) {
+static void cont__std__hexdump_21(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1243,9 +1243,9 @@ static void cont__7_21(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__7_22;
+  frame->cont = cont__std__hexdump_22;
 }
-static void cont__7_22(void) {
+static void cont__std__hexdump_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1259,9 +1259,9 @@ static void cont__7_22(void) {
   result_count = 1;
   myself = get__dup();
   func = myself->type;
-  frame->cont = cont__7_24;
+  frame->cont = cont__std__hexdump_24;
 }
-static void cont__7_24(void) {
+static void cont__std__hexdump_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1275,9 +1275,9 @@ static void cont__7_24(void) {
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__7_26;
+  frame->cont = cont__std__hexdump_26;
 }
-static void cont__7_26(void) {
+static void cont__std__hexdump_26(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1289,7 +1289,7 @@ static void cont__7_26(void) {
   // 181:       write chr
   // 182:     :
   // 183:       write "."
-  frame->slots[5] /* temp__1 */ = create_closure(entry__7_27, 1);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__std__hexdump_27, 1);
   // 177: from_to 1 n: (i)
   // 178:   $chr line(i)
   // 179:   if
@@ -1305,9 +1305,9 @@ static void cont__7_26(void) {
   result_count = 0;
   myself = get__from_to();
   func = myself->type;
-  frame->cont = cont__7_37;
+  frame->cont = cont__std__hexdump_37;
 }
-static void entry__7_34(void) {
+static void entry__std__hexdump_34(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // chr: 0
@@ -1325,7 +1325,7 @@ static void entry__7_34(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_35(void) {
+static void entry__std__hexdump_35(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1341,7 +1341,7 @@ static void entry__7_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_27(void) {
+static void entry__std__hexdump_27(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // i: 0
@@ -1360,9 +1360,9 @@ static void entry__7_27(void) {
   result_count = 1;
   myself = frame->slots[1] /* line */;
   func = myself->type;
-  frame->cont = cont__7_28;
+  frame->cont = cont__std__hexdump_28;
 }
-static void cont__7_28(void) {
+static void cont__std__hexdump_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1376,9 +1376,9 @@ static void cont__7_28(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__7_29;
+  frame->cont = cont__std__hexdump_29;
 }
-static void cont__7_29(void) {
+static void cont__std__hexdump_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1391,16 +1391,16 @@ static void cont__7_29(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__7_30;
+  frame->cont = cont__std__hexdump_30;
 }
-static void cont__7_30(void) {
+static void cont__std__hexdump_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 180: ... chr < '@del;'
-  frame->slots[6] /* temp__4 */ = create_closure(entry__7_31, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__std__hexdump_31, 0);
   // 180: chr >= ' ' && chr < '@del;'
   argument_count = 2;
   arguments = node_p;
@@ -1409,9 +1409,9 @@ static void cont__7_30(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__7_33;
+  frame->cont = cont__std__hexdump_33;
 }
-static void entry__7_31(void) {
+static void entry__std__hexdump_31(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
@@ -1428,9 +1428,9 @@ static void entry__7_31(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__7_32;
+  frame->cont = cont__std__hexdump_32;
 }
-static void cont__7_32(void) {
+static void cont__std__hexdump_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1444,7 +1444,7 @@ static void cont__7_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__7_33(void) {
+static void cont__std__hexdump_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1452,7 +1452,7 @@ static void cont__7_33(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 180: ... :
   // 181:   write chr
-  frame->slots[7] /* temp__5 */ = create_closure(entry__7_34, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__std__hexdump_34, 0);
   // 179: if
   // 180:   chr >= ' ' && chr < '@del;':
   // 181:     write chr
@@ -1462,13 +1462,13 @@ static void cont__7_33(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[7] /* temp__5 */;
-  arguments->slots[2] = func__7_35;
+  arguments->slots[2] = func__std__hexdump_35;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__7_37(void) {
+static void cont__std__hexdump_37(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1479,9 +1479,9 @@ static void cont__7_37(void) {
   result_count = 0;
   myself = get__writeln();
   func = myself->type;
-  frame->cont = cont__7_38;
+  frame->cont = cont__std__hexdump_38;
 }
-static void cont__7_38(void) {
+static void cont__std__hexdump_38(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1494,9 +1494,9 @@ static void cont__7_38(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__7_39;
+  frame->cont = cont__std__hexdump_39;
 }
-static void cont__7_39(void) {
+static void cont__std__hexdump_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1508,7 +1508,7 @@ static void cont__7_39(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_3(void) {
+static void entry__std__hexdump_3(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // pos: 0
@@ -1529,9 +1529,9 @@ static void entry__7_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__7_4;
+  frame->cont = cont__std__hexdump_4;
 }
-static void cont__7_4(void) {
+static void cont__std__hexdump_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1548,7 +1548,7 @@ static void cont__7_4(void) {
   // 179:     if
   // 180:       chr >= ' ' && chr < '@del;':
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__7_5, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__std__hexdump_5, 0);
   // 171: ... -> pos < len:
   // 172:   $n min(len-pos 16)
   // 173:   $line range(str pos+1 pos+n)
@@ -1568,7 +1568,7 @@ static void cont__7_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_1_std__hexdump(void) {
+static void entry__std__hexdump_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // str: 0
@@ -1587,9 +1587,9 @@ static void entry__7_1_std__hexdump(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__7_2;
+  frame->cont = cont__std__hexdump_2;
 }
-static void cont__7_2(void) {
+static void cont__std__hexdump_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1608,7 +1608,7 @@ static void cont__7_2(void) {
   // 179:     if
   // 180:       chr >= ' ' && chr < '@del;':
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__7_3, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__std__hexdump_3, 0);
   // 171: while -> pos < len:
   // 172:   $n min(len-pos 16)
   // 173:   $line range(str pos+1 pos+n)
@@ -1658,20 +1658,20 @@ EXPORT void phase_2__basic__debug(void) {
   character__127 = from_uchar32(127);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__1_1_std__debug_string = create_function(entry__1_1_std__debug_string, -1);
+  func__std__debug_string_1 = create_function(entry__std__debug_string_1, -1);
   string__578a5af303e9cdb = from_latin_1_string(":", 1);
-  func__2_1_std__dump = create_function(entry__2_1_std__dump, -1);
-  func__3_1_std__edump = create_function(entry__3_1_std__edump, -1);
-  func__4_1_std__collect_garbage = create_function(entry__4_1_std__collect_garbage, 0);
-  func__5_1_std__instruction_counter = create_function(entry__5_1_std__instruction_counter, 0);
-  func__6_1_std__total_garbage_collections = create_function(entry__6_1_std__total_garbage_collections, 0);
+  func__std__dump_1 = create_function(entry__std__dump_1, -1);
+  func__std__edump_1 = create_function(entry__std__edump_1, -1);
+  func__std__collect_garbage_1 = create_function(entry__std__collect_garbage_1, 0);
+  func__std__instruction_counter_1 = create_function(entry__std__instruction_counter_1, 0);
+  func__std__total_garbage_collections_1 = create_function(entry__std__total_garbage_collections_1, 0);
   string__578a5af303e9cd1 = from_latin_1_string("0", 1);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   string__fa730415f296bec = from_latin_1_string("   ", 3);
   string__2d7981f4e6082be5 = from_latin_1_string("  ", 2);
   string__578a5af303e9ccf = from_latin_1_string(".", 1);
-  func__7_35 = create_function(entry__7_35, 0);
-  func__7_1_std__hexdump = create_function(entry__7_1_std__hexdump, 1);
+  func__std__hexdump_35 = create_function(entry__std__hexdump_35, 0);
+  func__std__hexdump_1 = create_function(entry__std__hexdump_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -1727,13 +1727,13 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__debug(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__debug_string, &func__1_1_std__debug_string);
-  assign_variable(&var.std__dump, &func__2_1_std__dump);
-  assign_variable(&var.std__edump, &func__3_1_std__edump);
-  assign_variable(&var.std__collect_garbage, &func__4_1_std__collect_garbage);
-  assign_variable(&var.std__instruction_counter, &func__5_1_std__instruction_counter);
-  assign_variable(&var.std__total_garbage_collections, &func__6_1_std__total_garbage_collections);
-  assign_variable(&var.std__hexdump, &func__7_1_std__hexdump);
+  assign_variable(&var.std__debug_string, &func__std__debug_string_1);
+  assign_variable(&var.std__dump, &func__std__dump_1);
+  assign_variable(&var.std__edump, &func__std__edump_1);
+  assign_variable(&var.std__collect_garbage, &func__std__collect_garbage_1);
+  assign_variable(&var.std__instruction_counter, &func__std__instruction_counter_1);
+  assign_variable(&var.std__total_garbage_collections, &func__std__total_garbage_collections_1);
+  assign_variable(&var.std__hexdump, &func__std__hexdump_1);
 }
 
 static int already_run_phase_6 = false;

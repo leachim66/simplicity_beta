@@ -346,120 +346,120 @@ static NODE *get__std__SIGTERM(void) {
 static int close_fd(int *fd_p);
 
 static int dup2_fd(int src_fd, int dest_fd);
-static void entry__13_1_posix_exec(void);
-static NODE *func__13_1_posix_exec;
-static void entry__14_1_posix_launch(void);
-static NODE *func__14_1_posix_launch;
-static NODE *func__15_1_std__launch;
-static void entry__15_1_std__launch(void);
-static FRAME_INFO frame__15_1_std__launch = {2, {"args", "return"}};
-static void cont__15_2(void);
-static void cont__15_3(void);
-static NODE *func__15_4;
-static void entry__15_4(void);
-static FRAME_INFO frame__15_4 = {1, {"args"}};
-static NODE *func__15_5;
-static void entry__15_5(void);
-static FRAME_INFO frame__15_5 = {2, {"return", "args"}};
-static void cont__15_6(void);
-static NODE *func__15_7;
-static void entry__15_7(void);
-static FRAME_INFO frame__15_7 = {4, {"args", "return", "pid", "out"}};
-static void cont__15_8(void);
-static void cont__15_9(void);
-static NODE *func__15_10;
-static void entry__15_10(void);
-static FRAME_INFO frame__15_10 = {5, {"args", "return", "pid", "out", "in"}};
-static void cont__15_11(void);
-static void cont__15_12(void);
-static void cont__15_13(void);
-static NODE *func__15_14;
-static void entry__15_14(void);
-static FRAME_INFO frame__15_14 = {6, {"args", "return", "pid", "out", "in", "err"}};
-static void cont__15_15(void);
-static void cont__15_16(void);
-static void cont__15_17(void);
-static void cont__15_18(void);
-static void cont__15_19(void);
+static void entry__posix_exec_1(void);
+static NODE *func__posix_exec_1;
+static void entry__posix_launch_1(void);
+static NODE *func__posix_launch_1;
+static NODE *func__std__launch_1;
+static void entry__std__launch_1(void);
+static FRAME_INFO frame__std__launch_1 = {2, {"args", "return"}};
+static void cont__std__launch_2(void);
+static void cont__std__launch_3(void);
+static NODE *func__std__launch_4;
+static void entry__std__launch_4(void);
+static FRAME_INFO frame__std__launch_4 = {1, {"args"}};
+static NODE *func__std__launch_5;
+static void entry__std__launch_5(void);
+static FRAME_INFO frame__std__launch_5 = {2, {"return", "args"}};
+static void cont__std__launch_6(void);
+static NODE *func__std__launch_7;
+static void entry__std__launch_7(void);
+static FRAME_INFO frame__std__launch_7 = {4, {"args", "return", "pid", "out"}};
+static void cont__std__launch_8(void);
+static void cont__std__launch_9(void);
+static NODE *func__std__launch_10;
+static void entry__std__launch_10(void);
+static FRAME_INFO frame__std__launch_10 = {5, {"args", "return", "pid", "out", "in"}};
+static void cont__std__launch_11(void);
+static void cont__std__launch_12(void);
+static void cont__std__launch_13(void);
+static NODE *func__std__launch_14;
+static void entry__std__launch_14(void);
+static FRAME_INFO frame__std__launch_14 = {6, {"args", "return", "pid", "out", "in", "err"}};
+static void cont__std__launch_15(void);
+static void cont__std__launch_16(void);
+static void cont__std__launch_17(void);
+static void cont__std__launch_18(void);
+static void cont__std__launch_19(void);
 static NODE *get__std__launch(void) {
   return var.std__launch;
 }
-static void entry__16_1_posix_call(void);
-static NODE *func__16_1_posix_call;
-static void entry__17_1_std__kill(void);
-static NODE *func__17_1_std__kill;
+static void entry__posix_call_1(void);
+static NODE *func__posix_call_1;
+static void entry__std__kill_1(void);
+static NODE *func__std__kill_1;
 static NODE *get__std__kill(void) {
   return var.std__kill;
 }
-static void entry__18_1_posix_pipe(void);
-static NODE *func__18_1_posix_pipe;
-static NODE *func__19_1_std__exec;
-static void entry__19_1_std__exec(void);
-static FRAME_INFO frame__19_1_std__exec = {1, {"args"}};
-static void cont__19_2(void);
+static void entry__posix_pipe_1(void);
+static NODE *func__posix_pipe_1;
+static NODE *func__std__exec_1;
+static void entry__std__exec_1(void);
+static FRAME_INFO frame__std__exec_1 = {1, {"args"}};
+static void cont__std__exec_2(void);
 static NODE *get__std__exec(void) {
   return var.std__exec;
 }
-static NODE *func__20_1_std__call;
-static void entry__20_1_std__call(void);
-static FRAME_INFO frame__20_1_std__call = {1, {"args"}};
-static void cont__20_2(void);
+static NODE *func__std__call_1;
+static void entry__std__call_1(void);
+static FRAME_INFO frame__std__call_1 = {1, {"args"}};
+static void cont__std__call_2(void);
 static NODE *get__std__call(void) {
   return var.std__call;
 }
-static NODE *func__21_1_std__pipe;
-static void entry__21_1_std__pipe(void);
-static FRAME_INFO frame__21_1_std__pipe = {2, {"input", "cmds"}};
-static void cont__21_2(void);
-static NODE *func__21_3;
-static void entry__21_3(void);
-static FRAME_INFO frame__21_3 = {1, {"input"}};
-static void cont__21_4(void);
-static void cont__21_5(void);
-static void cont__21_6(void);
-static NODE *func__21_7;
-static void entry__21_7(void);
-static FRAME_INFO frame__21_7 = {0, {}};
+static NODE *func__std__pipe_1;
+static void entry__std__pipe_1(void);
+static FRAME_INFO frame__std__pipe_1 = {2, {"input", "cmds"}};
+static void cont__std__pipe_2(void);
+static NODE *func__std__pipe_3;
+static void entry__std__pipe_3(void);
+static FRAME_INFO frame__std__pipe_3 = {1, {"input"}};
+static void cont__std__pipe_4(void);
+static void cont__std__pipe_5(void);
+static void cont__std__pipe_6(void);
+static NODE *func__std__pipe_7;
+static void entry__std__pipe_7(void);
+static FRAME_INFO frame__std__pipe_7 = {0, {}};
 static NODE *string__c07c3ed1b0a33d89;
-static void cont__21_9(void);
-static NODE *func__21_10;
-static void entry__21_10(void);
-static FRAME_INFO frame__21_10 = {1, {"cmd"}};
-static void cont__21_11(void);
-static void cont__21_12(void);
+static void cont__std__pipe_9(void);
+static NODE *func__std__pipe_10;
+static void entry__std__pipe_10(void);
+static FRAME_INFO frame__std__pipe_10 = {1, {"cmd"}};
+static void cont__std__pipe_11(void);
+static void cont__std__pipe_12(void);
 static NODE *get__std__pipe(void) {
   return var.std__pipe;
 }
-static NODE *func__22_1_std__extern;
-static void entry__22_1_std__extern(void);
-static FRAME_INFO frame__22_1_std__extern = {3, {"options", "command", "do_trim"}};
-static void cont__22_2(void);
-static void cont__22_3(void);
-static NODE *func__22_4;
-static void entry__22_4(void);
-static FRAME_INFO frame__22_4 = {7, {"arguments", "return", "command", "do_trim", "out", "err", "ret"}};
-static void cont__22_5(void);
-static void cont__22_6(void);
-static NODE *func__22_7;
-static void entry__22_7(void);
-static FRAME_INFO frame__22_7 = {1, {"do_trim"}};
-static void cont__22_8(void);
-static NODE *func__22_9;
-static void entry__22_9(void);
-static FRAME_INFO frame__22_9 = {1, {"out"}};
-static void cont__22_10(void);
-static void cont__22_11(void);
-static void cont__22_12(void);
-static NODE *func__22_13;
-static void entry__22_13(void);
-static FRAME_INFO frame__22_13 = {1, {"out"}};
-static NODE *func__22_14;
-static void entry__22_14(void);
-static FRAME_INFO frame__22_14 = {2, {"out", "ret"}};
-static NODE *func__22_15;
-static void entry__22_15(void);
-static FRAME_INFO frame__22_15 = {3, {"out", "err", "ret"}};
-static void cont__22_16(void);
+static NODE *func__std__extern_1;
+static void entry__std__extern_1(void);
+static FRAME_INFO frame__std__extern_1 = {3, {"options", "command", "do_trim"}};
+static void cont__std__extern_2(void);
+static void cont__std__extern_3(void);
+static NODE *func__std__extern_4;
+static void entry__std__extern_4(void);
+static FRAME_INFO frame__std__extern_4 = {7, {"arguments", "return", "command", "do_trim", "out", "err", "ret"}};
+static void cont__std__extern_5(void);
+static void cont__std__extern_6(void);
+static NODE *func__std__extern_7;
+static void entry__std__extern_7(void);
+static FRAME_INFO frame__std__extern_7 = {1, {"do_trim"}};
+static void cont__std__extern_8(void);
+static NODE *func__std__extern_9;
+static void entry__std__extern_9(void);
+static FRAME_INFO frame__std__extern_9 = {1, {"out"}};
+static void cont__std__extern_10(void);
+static void cont__std__extern_11(void);
+static void cont__std__extern_12(void);
+static NODE *func__std__extern_13;
+static void entry__std__extern_13(void);
+static FRAME_INFO frame__std__extern_13 = {1, {"out"}};
+static NODE *func__std__extern_14;
+static void entry__std__extern_14(void);
+static FRAME_INFO frame__std__extern_14 = {2, {"out", "ret"}};
+static NODE *func__std__extern_15;
+static void entry__std__extern_15(void);
+static FRAME_INFO frame__std__extern_15 = {3, {"out", "err", "ret"}};
+static void cont__std__extern_16(void);
 static NODE *get__std__extern(void) {
   return var.std__extern;
 }
@@ -467,61 +467,61 @@ void run__basic__exec(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__exec, NULL, },
-  {entry__13_1_posix_exec, NULL, 72, 98, 3, 2},
-  {entry__14_1_posix_launch, NULL, 101, 211, 3, 2},
-  {entry__15_4, NULL, 224, 224, 7, 24},
-  {entry__15_5, NULL, 226, 226, 14, 32},
-  {cont__15_6, &frame__15_5, 226, 226, 7, 32},
-  {entry__15_7, NULL, 228, 228, 7, 34},
-  {cont__15_8, &frame__15_7, 229, 229, 18, 44},
-  {cont__15_9, &frame__15_7, 229, 229, 7, 44},
-  {entry__15_10, NULL, 231, 231, 7, 38},
-  {cont__15_11, &frame__15_10, 232, 232, 18, 44},
-  {cont__15_12, &frame__15_10, 232, 232, 46, 71},
-  {cont__15_13, &frame__15_10, 232, 232, 7, 71},
-  {entry__15_14, NULL, 234, 234, 7, 43},
-  {cont__15_15, &frame__15_14, 237, 237, 9, 35},
-  {cont__15_16, &frame__15_14, 238, 238, 9, 34},
-  {cont__15_17, &frame__15_14, 239, 239, 9, 35},
-  {cont__15_18, &frame__15_14, 235, 239, 7, 35},
-  {entry__15_1_std__launch, NULL, 220, 220, 3, 29},
-  {cont__15_2, &frame__15_1_std__launch, 222, 222, 5, 30},
-  {cont__15_3, &frame__15_1_std__launch, 221, 239, 3, 37},
-  {cont__15_19, &frame__15_1_std__launch, 239, 239, 37, 37},
-  {entry__16_1_posix_call, NULL, 242, 428, 3, 2},
-  {entry__17_1_std__kill, NULL, 433, 438, 3, 2},
-  {entry__18_1_posix_pipe, NULL, 441, 755, 3, 2},
-  {entry__19_1_std__exec, NULL, 763, 763, 3, 29},
-  {cont__19_2, &frame__19_1_std__exec, 764, 764, 3, 18},
-  {entry__20_1_std__call, NULL, 772, 772, 3, 29},
-  {cont__20_2, &frame__20_1_std__call, 773, 773, 3, 18},
-  {entry__21_3, NULL, 782, 782, 24, 39},
-  {cont__21_4, &frame__21_3, 782, 782, 39, 39},
-  {entry__21_7, NULL, 783, 783, 21, 46},
-  {entry__21_10, NULL, 784, 784, 29, 37},
-  {cont__21_11, &frame__21_10, 784, 784, 37, 37},
-  {entry__21_1_std__pipe, NULL, 782, 782, 6, 21},
-  {cont__21_2, &frame__21_1_std__pipe, 782, 782, 3, 39},
-  {cont__21_5, &frame__21_1_std__pipe, 783, 783, 6, 18},
-  {cont__21_6, &frame__21_1_std__pipe, 783, 783, 3, 46},
-  {cont__21_9, &frame__21_1_std__pipe, 784, 784, 3, 37},
-  {cont__21_12, &frame__21_1_std__pipe, 785, 785, 3, 24},
-  {entry__22_7, NULL, 797, 797, 26, 32},
-  {entry__22_9, NULL, 797, 797, 35, 43},
-  {cont__22_10, &frame__22_9, 797, 797, 43, 43},
-  {entry__22_13, NULL, 799, 799, 9, 14},
-  {entry__22_14, NULL, 800, 800, 9, 18},
-  {entry__22_15, NULL, 801, 801, 9, 22},
-  {entry__22_4, NULL, 796, 796, 5, 43},
-  {cont__22_5, &frame__22_4, 797, 797, 8, 21},
-  {cont__22_6, &frame__22_4, 797, 797, 8, 32},
-  {cont__22_8, &frame__22_4, 797, 797, 5, 43},
-  {cont__22_11, &frame__22_4, 798, 798, 10, 35},
-  {cont__22_12, &frame__22_4, 798, 801, 5, 22},
-  {cont__22_16, &frame__22_4, 801, 801, 22, 22},
-  {entry__22_1_std__extern, NULL, 794, 794, 27, 38},
-  {cont__22_2, &frame__22_1_std__extern, 794, 794, 3, 47},
-  {cont__22_3, &frame__22_1_std__extern, 795, 801, 3, 23}
+  {entry__posix_exec_1, NULL, 72, 98, 3, 2},
+  {entry__posix_launch_1, NULL, 101, 211, 3, 2},
+  {entry__std__launch_4, NULL, 224, 224, 7, 24},
+  {entry__std__launch_5, NULL, 226, 226, 14, 32},
+  {cont__std__launch_6, &frame__std__launch_5, 226, 226, 7, 32},
+  {entry__std__launch_7, NULL, 228, 228, 7, 34},
+  {cont__std__launch_8, &frame__std__launch_7, 229, 229, 18, 44},
+  {cont__std__launch_9, &frame__std__launch_7, 229, 229, 7, 44},
+  {entry__std__launch_10, NULL, 231, 231, 7, 38},
+  {cont__std__launch_11, &frame__std__launch_10, 232, 232, 18, 44},
+  {cont__std__launch_12, &frame__std__launch_10, 232, 232, 46, 71},
+  {cont__std__launch_13, &frame__std__launch_10, 232, 232, 7, 71},
+  {entry__std__launch_14, NULL, 234, 234, 7, 43},
+  {cont__std__launch_15, &frame__std__launch_14, 237, 237, 9, 35},
+  {cont__std__launch_16, &frame__std__launch_14, 238, 238, 9, 34},
+  {cont__std__launch_17, &frame__std__launch_14, 239, 239, 9, 35},
+  {cont__std__launch_18, &frame__std__launch_14, 235, 239, 7, 35},
+  {entry__std__launch_1, NULL, 220, 220, 3, 29},
+  {cont__std__launch_2, &frame__std__launch_1, 222, 222, 5, 30},
+  {cont__std__launch_3, &frame__std__launch_1, 221, 239, 3, 37},
+  {cont__std__launch_19, &frame__std__launch_1, 239, 239, 37, 37},
+  {entry__posix_call_1, NULL, 242, 428, 3, 2},
+  {entry__std__kill_1, NULL, 433, 438, 3, 2},
+  {entry__posix_pipe_1, NULL, 441, 755, 3, 2},
+  {entry__std__exec_1, NULL, 763, 763, 3, 29},
+  {cont__std__exec_2, &frame__std__exec_1, 764, 764, 3, 18},
+  {entry__std__call_1, NULL, 772, 772, 3, 29},
+  {cont__std__call_2, &frame__std__call_1, 773, 773, 3, 18},
+  {entry__std__pipe_3, NULL, 782, 782, 24, 39},
+  {cont__std__pipe_4, &frame__std__pipe_3, 782, 782, 39, 39},
+  {entry__std__pipe_7, NULL, 783, 783, 21, 46},
+  {entry__std__pipe_10, NULL, 784, 784, 29, 37},
+  {cont__std__pipe_11, &frame__std__pipe_10, 784, 784, 37, 37},
+  {entry__std__pipe_1, NULL, 782, 782, 6, 21},
+  {cont__std__pipe_2, &frame__std__pipe_1, 782, 782, 3, 39},
+  {cont__std__pipe_5, &frame__std__pipe_1, 783, 783, 6, 18},
+  {cont__std__pipe_6, &frame__std__pipe_1, 783, 783, 3, 46},
+  {cont__std__pipe_9, &frame__std__pipe_1, 784, 784, 3, 37},
+  {cont__std__pipe_12, &frame__std__pipe_1, 785, 785, 3, 24},
+  {entry__std__extern_7, NULL, 797, 797, 26, 32},
+  {entry__std__extern_9, NULL, 797, 797, 35, 43},
+  {cont__std__extern_10, &frame__std__extern_9, 797, 797, 43, 43},
+  {entry__std__extern_13, NULL, 799, 799, 9, 14},
+  {entry__std__extern_14, NULL, 800, 800, 9, 18},
+  {entry__std__extern_15, NULL, 801, 801, 9, 22},
+  {entry__std__extern_4, NULL, 796, 796, 5, 43},
+  {cont__std__extern_5, &frame__std__extern_4, 797, 797, 8, 21},
+  {cont__std__extern_6, &frame__std__extern_4, 797, 797, 8, 32},
+  {cont__std__extern_8, &frame__std__extern_4, 797, 797, 5, 43},
+  {cont__std__extern_11, &frame__std__extern_4, 798, 798, 10, 35},
+  {cont__std__extern_12, &frame__std__extern_4, 798, 801, 5, 22},
+  {cont__std__extern_16, &frame__std__extern_4, 801, 801, 22, 22},
+  {entry__std__extern_1, NULL, 794, 794, 27, 38},
+  {cont__std__extern_2, &frame__std__extern_1, 794, 794, 3, 47},
+  {cont__std__extern_3, &frame__std__extern_1, 795, 801, 3, 23}
 };
 
 union NODE {
@@ -600,7 +600,7 @@ static int dup2_fd(int src_fd, int dest_fd) {
   } while (err == -1 && errno == EINTR);
   return err;
 }
-static void entry__13_1_posix_exec(void) {
+static void entry__posix_exec_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -635,7 +635,7 @@ static void entry__13_1_posix_exec(void) {
     return;
   }
 }
-static void entry__14_1_posix_launch(void) {
+static void entry__posix_launch_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -765,7 +765,7 @@ static void entry__14_1_posix_launch(void) {
     return;
   }
 }
-static void entry__15_1_std__launch(void) {
+static void entry__std__launch_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
@@ -781,9 +781,9 @@ static void entry__15_1_std__launch(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__15_2;
+  frame->cont = cont__std__launch_2;
 }
-static void cont__15_2(void) {
+static void cont__std__launch_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -796,9 +796,9 @@ static void cont__15_2(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__15_3;
+  frame->cont = cont__std__launch_3;
 }
-static void cont__15_3(void) {
+static void cont__std__launch_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -806,18 +806,18 @@ static void cont__15_3(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 223: ... :
   // 224:   posix_launch args*
-  frame->slots[3] /* temp__2 */ = create_closure(entry__15_4, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__launch_4, 0);
   // 225: ... :
   // 226:   return posix_launch(args*)
-  frame->slots[4] /* temp__3 */ = create_closure(entry__15_5, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__std__launch_5, 0);
   // 227: ... :
   // 228:   posix_launch $pid $out args*
   // 229:   return pid create_file_descriptor(out)
-  frame->slots[5] /* temp__4 */ = create_closure(entry__15_7, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__std__launch_7, 0);
   // 230: ... :
   // 231:   posix_launch $pid $out $in args*
   // 232:   return pid create_file_descriptor(out) create_file_descriptor(in)
-  frame->slots[6] /* temp__5 */ = create_closure(entry__15_10, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__std__launch_10, 0);
   // 233: ... :
   // 234:   posix_launch $pid $out $in $err args*
   // 235:   return
@@ -825,7 +825,7 @@ static void cont__15_3(void) {
   // 237:     create_file_descriptor(out)
   // 238:     create_file_descriptor(in)
   // 239:     create_file_descriptor(err)
-  frame->slots[7] /* temp__6 */ = create_closure(entry__15_14, 0);
+  frame->slots[7] /* temp__6 */ = create_closure(entry__std__launch_14, 0);
   // 221: case
   // 222:   parameter_count_of(return)
   // 223:   0:
@@ -853,9 +853,9 @@ static void cont__15_3(void) {
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__15_19;
+  frame->cont = cont__std__launch_19;
 }
-static void entry__15_4(void) {
+static void entry__std__launch_4(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // args: 0
@@ -873,7 +873,7 @@ static void entry__15_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_5(void) {
+static void entry__std__launch_5(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return: 0
@@ -891,9 +891,9 @@ static void entry__15_5(void) {
   result_count = 1;
   myself = var._posix_launch;
   func = myself->type;
-  frame->cont = cont__15_6;
+  frame->cont = cont__std__launch_6;
 }
-static void cont__15_6(void) {
+static void cont__std__launch_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -908,7 +908,7 @@ static void cont__15_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_7(void) {
+static void entry__std__launch_7(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // args: 0
@@ -930,9 +930,9 @@ static void entry__15_7(void) {
   result_count = 2;
   myself = var._posix_launch;
   func = myself->type;
-  frame->cont = cont__15_8;
+  frame->cont = cont__std__launch_8;
 }
-static void cont__15_8(void) {
+static void cont__std__launch_8(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -950,9 +950,9 @@ static void cont__15_8(void) {
   result_count = 1;
   myself = get__create_file_descriptor();
   func = myself->type;
-  frame->cont = cont__15_9;
+  frame->cont = cont__std__launch_9;
 }
-static void cont__15_9(void) {
+static void cont__std__launch_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -968,7 +968,7 @@ static void cont__15_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_10(void) {
+static void entry__std__launch_10(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // args: 0
@@ -992,9 +992,9 @@ static void entry__15_10(void) {
   result_count = 3;
   myself = var._posix_launch;
   func = myself->type;
-  frame->cont = cont__15_11;
+  frame->cont = cont__std__launch_11;
 }
-static void cont__15_11(void) {
+static void cont__std__launch_11(void) {
   if (argument_count != 3) {
     invalid_results_error();
     return;
@@ -1015,9 +1015,9 @@ static void cont__15_11(void) {
   result_count = 1;
   myself = get__create_file_descriptor();
   func = myself->type;
-  frame->cont = cont__15_12;
+  frame->cont = cont__std__launch_12;
 }
-static void cont__15_12(void) {
+static void cont__std__launch_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1030,9 +1030,9 @@ static void cont__15_12(void) {
   result_count = 1;
   myself = get__create_file_descriptor();
   func = myself->type;
-  frame->cont = cont__15_13;
+  frame->cont = cont__std__launch_13;
 }
-static void cont__15_13(void) {
+static void cont__std__launch_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1049,7 +1049,7 @@ static void cont__15_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_14(void) {
+static void entry__std__launch_14(void) {
   allocate_initialized_frame_gc(2, 10);
   // slot allocations:
   // args: 0
@@ -1075,9 +1075,9 @@ static void entry__15_14(void) {
   result_count = 4;
   myself = var._posix_launch;
   func = myself->type;
-  frame->cont = cont__15_15;
+  frame->cont = cont__std__launch_15;
 }
-static void cont__15_15(void) {
+static void cont__std__launch_15(void) {
   if (argument_count != 4) {
     invalid_results_error();
     return;
@@ -1101,9 +1101,9 @@ static void cont__15_15(void) {
   result_count = 1;
   myself = get__create_file_descriptor();
   func = myself->type;
-  frame->cont = cont__15_16;
+  frame->cont = cont__std__launch_16;
 }
-static void cont__15_16(void) {
+static void cont__std__launch_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1116,9 +1116,9 @@ static void cont__15_16(void) {
   result_count = 1;
   myself = get__create_file_descriptor();
   func = myself->type;
-  frame->cont = cont__15_17;
+  frame->cont = cont__std__launch_17;
 }
-static void cont__15_17(void) {
+static void cont__std__launch_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1131,9 +1131,9 @@ static void cont__15_17(void) {
   result_count = 1;
   myself = get__create_file_descriptor();
   func = myself->type;
-  frame->cont = cont__15_18;
+  frame->cont = cont__std__launch_18;
 }
-static void cont__15_18(void) {
+static void cont__std__launch_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1155,12 +1155,12 @@ static void cont__15_18(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__15_19(void) {
+static void cont__std__launch_19(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1_posix_call(void) {
+static void entry__posix_call_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -1359,7 +1359,7 @@ static void entry__16_1_posix_call(void) {
     return;
   }
 }
-static void entry__17_1_std__kill(void) {
+static void entry__std__kill_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -1376,7 +1376,7 @@ static void entry__17_1_std__kill(void) {
     return;
   }
 }
-static void entry__18_1_posix_pipe(void) {
+static void entry__posix_pipe_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -1710,7 +1710,7 @@ static void entry__18_1_posix_pipe(void) {
     return;
   }
 }
-static void entry__19_1_std__exec(void) {
+static void entry__std__exec_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -1724,9 +1724,9 @@ static void entry__19_1_std__exec(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__19_2;
+  frame->cont = cont__std__exec_2;
 }
-static void cont__19_2(void) {
+static void cont__std__exec_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1741,7 +1741,7 @@ static void cont__19_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__20_1_std__call(void) {
+static void entry__std__call_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -1755,9 +1755,9 @@ static void entry__20_1_std__call(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__20_2;
+  frame->cont = cont__std__call_2;
 }
-static void cont__20_2(void) {
+static void cont__std__call_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1772,7 +1772,7 @@ static void cont__20_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__21_1_std__pipe(void) {
+static void entry__std__pipe_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -1791,16 +1791,16 @@ static void entry__21_1_std__pipe(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__21_2;
+  frame->cont = cont__std__pipe_2;
 }
-static void cont__21_2(void) {
+static void cont__std__pipe_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 782: ... : to_string &input
-  frame->slots[3] /* temp__2 */ = create_closure(entry__21_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__pipe_3, 0);
   // 782: if input.is_defined: to_string &input
   argument_count = 2;
   arguments = node_p;
@@ -1809,9 +1809,9 @@ static void cont__21_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__21_5;
+  frame->cont = cont__std__pipe_5;
 }
-static void entry__21_3(void) {
+static void entry__std__pipe_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // input: 0
@@ -1827,9 +1827,9 @@ static void entry__21_3(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__21_4;
+  frame->cont = cont__std__pipe_4;
 }
-static void cont__21_4(void) {
+static void cont__std__pipe_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1841,7 +1841,7 @@ static void cont__21_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__21_5(void) {
+static void cont__std__pipe_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1853,9 +1853,9 @@ static void cont__21_5(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__21_6;
+  frame->cont = cont__std__pipe_6;
 }
-static void cont__21_6(void) {
+static void cont__std__pipe_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1865,13 +1865,13 @@ static void cont__21_6(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = func__21_7;
+  arguments->slots[1] = func__std__pipe_7;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__21_9;
+  frame->cont = cont__std__pipe_9;
 }
-static void entry__21_7(void) {
+static void entry__std__pipe_7(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1887,7 +1887,7 @@ static void entry__21_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__21_9(void) {
+static void cont__std__pipe_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1896,13 +1896,13 @@ static void cont__21_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmds */;
-  arguments->slots[1] = func__21_10;
+  arguments->slots[1] = func__std__pipe_10;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__21_12;
+  frame->cont = cont__std__pipe_12;
 }
-static void entry__21_10(void) {
+static void entry__std__pipe_10(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // cmd: 0
@@ -1917,9 +1917,9 @@ static void entry__21_10(void) {
   result_count = -1;
   myself = ((CELL *)frame->slots[0])->contents /* cmd */;
   func = myself->type;
-  frame->cont = cont__21_11;
+  frame->cont = cont__std__pipe_11;
 }
-static void cont__21_11(void) {
+static void cont__std__pipe_11(void) {
   allocate_arguments();
   ((CELL *)frame->slots[0])->contents /* cmd */ = from_arguments(0, argument_count-0);
   argument_count = 1;
@@ -1929,7 +1929,7 @@ static void cont__21_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__21_12(void) {
+static void cont__std__pipe_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1945,7 +1945,7 @@ static void cont__21_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__22_4(void) {
+static void entry__std__extern_4(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 11);
   // slot allocations:
@@ -1971,9 +1971,9 @@ static void entry__22_4(void) {
   result_count = 3;
   myself = get__call();
   func = myself->type;
-  frame->cont = cont__22_5;
+  frame->cont = cont__std__extern_5;
 }
-static void cont__22_5(void) {
+static void cont__std__extern_5(void) {
   if (argument_count != 3) {
     invalid_results_error();
     return;
@@ -1992,16 +1992,16 @@ static void cont__22_5(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__22_6;
+  frame->cont = cont__std__extern_6;
 }
-static void cont__22_6(void) {
+static void cont__std__extern_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
   // 797: ... do_trim
-  frame->slots[9] /* temp__3 */ = create_closure(entry__22_7, 0);
+  frame->slots[9] /* temp__3 */ = create_closure(entry__std__extern_7, 0);
   // 797: ... out.is_defined && do_trim
   argument_count = 2;
   arguments = node_p;
@@ -2010,9 +2010,9 @@ static void cont__22_6(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__22_8;
+  frame->cont = cont__std__extern_8;
 }
-static void entry__22_7(void) {
+static void entry__std__extern_7(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // do_trim: 0
@@ -2029,14 +2029,14 @@ static void entry__22_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_8(void) {
+static void cont__std__extern_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 797: ... : trim &out
-  frame->slots[10] /* temp__4 */ = create_closure(entry__22_9, 0);
+  frame->slots[10] /* temp__4 */ = create_closure(entry__std__extern_9, 0);
   // 797: if out.is_defined && do_trim: trim &out
   argument_count = 2;
   arguments = node_p;
@@ -2045,9 +2045,9 @@ static void cont__22_8(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__22_11;
+  frame->cont = cont__std__extern_11;
 }
-static void entry__22_9(void) {
+static void entry__std__extern_9(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // out: 0
@@ -2063,9 +2063,9 @@ static void entry__22_9(void) {
   result_count = 1;
   myself = get__trim();
   func = myself->type;
-  frame->cont = cont__22_10;
+  frame->cont = cont__std__extern_10;
 }
-static void cont__22_10(void) {
+static void cont__std__extern_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2077,7 +2077,7 @@ static void cont__22_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_11(void) {
+static void cont__std__extern_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2089,20 +2089,20 @@ static void cont__22_11(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__22_12;
+  frame->cont = cont__std__extern_12;
 }
-static void cont__22_12(void) {
+static void cont__std__extern_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 799: ... -> out
-  frame->slots[8] /* temp__2 */ = create_closure(entry__22_13, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__std__extern_13, 0);
   // 800: ... -> out ret
-  frame->slots[9] /* temp__3 */ = create_closure(entry__22_14, 0);
+  frame->slots[9] /* temp__3 */ = create_closure(entry__std__extern_14, 0);
   // 801: ... -> out err ret
-  frame->slots[10] /* temp__4 */ = create_closure(entry__22_15, 0);
+  frame->slots[10] /* temp__4 */ = create_closure(entry__std__extern_15, 0);
   // 798: case parameter_count_of(return)
   // 799:   1 -> out
   // 800:   2 -> out ret
@@ -2119,9 +2119,9 @@ static void cont__22_12(void) {
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__22_16;
+  frame->cont = cont__std__extern_16;
 }
-static void entry__22_13(void) {
+static void entry__std__extern_13(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // out: 0
@@ -2138,7 +2138,7 @@ static void entry__22_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__22_14(void) {
+static void entry__std__extern_14(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // out: 0
@@ -2158,7 +2158,7 @@ static void entry__22_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__22_15(void) {
+static void entry__std__extern_15(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // out: 0
@@ -2181,12 +2181,12 @@ static void entry__22_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__22_16(void) {
+static void cont__std__extern_16(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__22_1_std__extern(void) {
+static void entry__std__extern_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -2208,9 +2208,9 @@ static void entry__22_1_std__extern(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__22_2;
+  frame->cont = cont__std__extern_2;
 }
-static void cont__22_2(void) {
+static void cont__std__extern_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2224,9 +2224,9 @@ static void cont__22_2(void) {
   result_count = 1;
   myself = get__extract_options();
   func = myself->type;
-  frame->cont = cont__22_3;
+  frame->cont = cont__std__extern_3;
 }
-static void cont__22_3(void) {
+static void cont__std__extern_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2239,7 +2239,7 @@ static void cont__22_3(void) {
   // 799:     1 -> out
   // 800:     2 -> out ret
   // 801:     3 -> out err ret
-  frame->slots[3] /* temp__1 */ = create_closure(entry__22_4, -1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__std__extern_4, -1);
   // 795: -> : (arguments* -> return)
   // 796:   call $$out $err $ret command arguments*
   // 797:   if out.is_defined && do_trim: trim &out
@@ -2302,19 +2302,19 @@ EXPORT void phase_2__basic__exec(void) {
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
   number__14 = from_uint32(14U);
-  func__13_1_posix_exec = create_function(entry__13_1_posix_exec, -1);
-  func__14_1_posix_launch = create_function(entry__14_1_posix_launch, -1);
-  func__15_1_std__launch = create_function(entry__15_1_std__launch, -1);
-  func__16_1_posix_call = create_function(entry__16_1_posix_call, -1);
-  func__17_1_std__kill = create_function(entry__17_1_std__kill, -1);
-  func__18_1_posix_pipe = create_function(entry__18_1_posix_pipe, -1);
-  func__19_1_std__exec = create_function(entry__19_1_std__exec, -1);
-  func__20_1_std__call = create_function(entry__20_1_std__call, -1);
+  func__posix_exec_1 = create_function(entry__posix_exec_1, -1);
+  func__posix_launch_1 = create_function(entry__posix_launch_1, -1);
+  func__std__launch_1 = create_function(entry__std__launch_1, -1);
+  func__posix_call_1 = create_function(entry__posix_call_1, -1);
+  func__std__kill_1 = create_function(entry__std__kill_1, -1);
+  func__posix_pipe_1 = create_function(entry__posix_pipe_1, -1);
+  func__std__exec_1 = create_function(entry__std__exec_1, -1);
+  func__std__call_1 = create_function(entry__std__call_1, -1);
   string__c07c3ed1b0a33d89 = from_latin_1_string("Invalid arguments!", 18);
-  func__21_7 = create_function(entry__21_7, 0);
-  func__21_10 = create_function(entry__21_10, 1);
-  func__21_1_std__pipe = create_function(entry__21_1_std__pipe, -1);
-  func__22_1_std__extern = create_function(entry__22_1_std__extern, -1);
+  func__std__pipe_7 = create_function(entry__std__pipe_7, 0);
+  func__std__pipe_10 = create_function(entry__std__pipe_10, 1);
+  func__std__pipe_1 = create_function(entry__std__pipe_1, -1);
+  func__std__extern_1 = create_function(entry__std__extern_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -2384,16 +2384,16 @@ EXPORT void phase_5__basic__exec(void) {
   assign_value(&var.std__SIGPIPE, number__13);
   assign_value(&var.std__SIGALRM, number__14);
   assign_value(&var.std__SIGTERM, number__15);
-  assign_variable(&var._posix_exec, &func__13_1_posix_exec);
-  assign_variable(&var._posix_launch, &func__14_1_posix_launch);
-  assign_variable(&var.std__launch, &func__15_1_std__launch);
-  assign_variable(&var._posix_call, &func__16_1_posix_call);
-  assign_variable(&var.std__kill, &func__17_1_std__kill);
-  assign_variable(&var._posix_pipe, &func__18_1_posix_pipe);
-  assign_variable(&var.std__exec, &func__19_1_std__exec);
-  assign_variable(&var.std__call, &func__20_1_std__call);
-  assign_variable(&var.std__pipe, &func__21_1_std__pipe);
-  assign_variable(&var.std__extern, &func__22_1_std__extern);
+  assign_variable(&var._posix_exec, &func__posix_exec_1);
+  assign_variable(&var._posix_launch, &func__posix_launch_1);
+  assign_variable(&var.std__launch, &func__std__launch_1);
+  assign_variable(&var._posix_call, &func__posix_call_1);
+  assign_variable(&var.std__kill, &func__std__kill_1);
+  assign_variable(&var._posix_pipe, &func__posix_pipe_1);
+  assign_variable(&var.std__exec, &func__std__exec_1);
+  assign_variable(&var.std__call, &func__std__call_1);
+  assign_variable(&var.std__pipe, &func__std__pipe_1);
+  assign_variable(&var.std__extern, &func__std__extern_1);
 }
 
 static int already_run_phase_6 = false;

@@ -156,7 +156,7 @@ $sim2c::body/annotate_expression: (&self)
 
 $sim2c::call/annotate_statement: (&self)
   show_compiler_debug_info "annotate statement"
-  if
+  #if
     &&
       self.is_an_assignment
       arguments_of(self)(1).is_a_body || arguments_of(self)(1).is_a_c_body

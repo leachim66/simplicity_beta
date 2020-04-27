@@ -334,436 +334,436 @@ static const char *var_names[] = {
   "atan3",
   "atan4"
 };
-static NODE *func__1_1_std__inc;
-static void entry__1_1_std__inc(void);
-static FRAME_INFO frame__1_1_std__inc = {1, {"var"}};
-static void cont__1_2(void);
+static NODE *func__std__inc_1;
+static void entry__std__inc_1(void);
+static FRAME_INFO frame__std__inc_1 = {1, {"var"}};
+static void cont__std__inc_2(void);
 static NODE *get__std__inc(void) {
   return var.std__inc;
 }
-static NODE *func__2_1_std__dec;
-static void entry__2_1_std__dec(void);
-static FRAME_INFO frame__2_1_std__dec = {1, {"var"}};
-static void cont__2_2(void);
+static NODE *func__std__dec_1;
+static void entry__std__dec_1(void);
+static FRAME_INFO frame__std__dec_1 = {1, {"var"}};
+static void cont__std__dec_2(void);
 static NODE *get__std__dec(void) {
   return var.std__dec;
 }
-static NODE *func__3_1_std__extend_to;
-static void entry__3_1_std__extend_to(void);
-static FRAME_INFO frame__3_1_std__extend_to = {2, {"var", "val"}};
-static void cont__3_2(void);
-static NODE *func__3_3;
-static void entry__3_3(void);
-static FRAME_INFO frame__3_3 = {2, {"var", "val"}};
-static void cont__3_4(void);
+static NODE *func__std__extend_to_1;
+static void entry__std__extend_to_1(void);
+static FRAME_INFO frame__std__extend_to_1 = {2, {"var", "val"}};
+static void cont__std__extend_to_2(void);
+static NODE *func__std__extend_to_3;
+static void entry__std__extend_to_3(void);
+static FRAME_INFO frame__std__extend_to_3 = {2, {"var", "val"}};
+static void cont__std__extend_to_4(void);
 static NODE *get__std__extend_to(void) {
   return var.std__extend_to;
 }
-static NODE *func__4_1_std__reduce_to;
-static void entry__4_1_std__reduce_to(void);
-static FRAME_INFO frame__4_1_std__reduce_to = {2, {"var", "val"}};
-static void cont__4_2(void);
-static NODE *func__4_3;
-static void entry__4_3(void);
-static FRAME_INFO frame__4_3 = {2, {"var", "val"}};
-static void cont__4_4(void);
+static NODE *func__std__reduce_to_1;
+static void entry__std__reduce_to_1(void);
+static FRAME_INFO frame__std__reduce_to_1 = {2, {"var", "val"}};
+static void cont__std__reduce_to_2(void);
+static NODE *func__std__reduce_to_3;
+static void entry__std__reduce_to_3(void);
+static FRAME_INFO frame__std__reduce_to_3 = {2, {"var", "val"}};
+static void cont__std__reduce_to_4(void);
 static NODE *get__std__reduce_to(void) {
   return var.std__reduce_to;
 }
-static NODE *func__5_1_std__abs;
-static void entry__5_1_std__abs(void);
-static FRAME_INFO frame__5_1_std__abs = {1, {"var"}};
-static void cont__5_2(void);
-static NODE *func__5_3;
-static void entry__5_3(void);
-static FRAME_INFO frame__5_3 = {1, {"var"}};
-static void cont__5_4(void);
-static void cont__5_5(void);
+static NODE *func__std__abs_1;
+static void entry__std__abs_1(void);
+static FRAME_INFO frame__std__abs_1 = {1, {"var"}};
+static void cont__std__abs_2(void);
+static NODE *func__std__abs_3;
+static void entry__std__abs_3(void);
+static FRAME_INFO frame__std__abs_3 = {1, {"var"}};
+static void cont__std__abs_4(void);
+static void cont__std__abs_5(void);
 static NODE *get__std__abs(void) {
   return var.std__abs;
 }
-static NODE *func__6_1_std__sgn;
-static void entry__6_1_std__sgn(void);
-static FRAME_INFO frame__6_1_std__sgn = {1, {"x"}};
-static NODE *func__6_2;
-static void entry__6_2(void);
-static FRAME_INFO frame__6_2 = {1, {"x"}};
-static void cont__6_3(void);
-static NODE *func__6_4;
-static void entry__6_4(void);
-static FRAME_INFO frame__6_4 = {0, {}};
-static NODE *func__6_5;
-static void entry__6_5(void);
-static FRAME_INFO frame__6_5 = {1, {"x"}};
-static void cont__6_6(void);
-static NODE *func__6_7;
-static void entry__6_7(void);
-static FRAME_INFO frame__6_7 = {0, {}};
-static void cont__6_8(void);
-static NODE *func__6_9;
-static void entry__6_9(void);
-static FRAME_INFO frame__6_9 = {0, {}};
-static NODE *func__6_10;
-static void entry__6_10(void);
-static FRAME_INFO frame__6_10 = {0, {}};
+static NODE *func__std__sgn_1;
+static void entry__std__sgn_1(void);
+static FRAME_INFO frame__std__sgn_1 = {1, {"x"}};
+static NODE *func__std__sgn_2;
+static void entry__std__sgn_2(void);
+static FRAME_INFO frame__std__sgn_2 = {1, {"x"}};
+static void cont__std__sgn_3(void);
+static NODE *func__std__sgn_4;
+static void entry__std__sgn_4(void);
+static FRAME_INFO frame__std__sgn_4 = {0, {}};
+static NODE *func__std__sgn_5;
+static void entry__std__sgn_5(void);
+static FRAME_INFO frame__std__sgn_5 = {1, {"x"}};
+static void cont__std__sgn_6(void);
+static NODE *func__std__sgn_7;
+static void entry__std__sgn_7(void);
+static FRAME_INFO frame__std__sgn_7 = {0, {}};
+static void cont__std__sgn_8(void);
+static NODE *func__std__sgn_9;
+static void entry__std__sgn_9(void);
+static FRAME_INFO frame__std__sgn_9 = {0, {}};
+static NODE *func__std__sgn_10;
+static void entry__std__sgn_10(void);
+static FRAME_INFO frame__std__sgn_10 = {0, {}};
 static NODE *get__std__sgn(void) {
   return var.std__sgn;
 }
-static NODE *func__7_1_std__sqr;
-static void entry__7_1_std__sqr(void);
-static FRAME_INFO frame__7_1_std__sqr = {1, {"var"}};
-static void cont__7_2(void);
+static NODE *func__std__sqr_1;
+static void entry__std__sqr_1(void);
+static FRAME_INFO frame__std__sqr_1 = {1, {"var"}};
+static void cont__std__sqr_2(void);
 static NODE *get__std__sqr(void) {
   return var.std__sqr;
 }
-static NODE *func__8_1_std__min;
-static void entry__8_1_std__min(void);
-static FRAME_INFO frame__8_1_std__min = {2, {"args", "result"}};
-static void cont__8_2(void);
-static void cont__8_3(void);
-static NODE *func__8_4;
-static void entry__8_4(void);
-static FRAME_INFO frame__8_4 = {2, {"arg", "result"}};
-static void cont__8_5(void);
-static NODE *func__8_6;
-static void entry__8_6(void);
-static FRAME_INFO frame__8_6 = {2, {"result", "arg"}};
-static void cont__8_7(void);
+static NODE *func__std__min_1;
+static void entry__std__min_1(void);
+static FRAME_INFO frame__std__min_1 = {2, {"args", "result"}};
+static void cont__std__min_2(void);
+static void cont__std__min_3(void);
+static NODE *func__std__min_4;
+static void entry__std__min_4(void);
+static FRAME_INFO frame__std__min_4 = {2, {"arg", "result"}};
+static void cont__std__min_5(void);
+static NODE *func__std__min_6;
+static void entry__std__min_6(void);
+static FRAME_INFO frame__std__min_6 = {2, {"result", "arg"}};
+static void cont__std__min_7(void);
 static NODE *get__std__min(void) {
   return var.std__min;
 }
-static NODE *func__9_1_std__max;
-static void entry__9_1_std__max(void);
-static FRAME_INFO frame__9_1_std__max = {2, {"args", "result"}};
-static void cont__9_2(void);
-static void cont__9_3(void);
-static NODE *func__9_4;
-static void entry__9_4(void);
-static FRAME_INFO frame__9_4 = {2, {"arg", "result"}};
-static void cont__9_5(void);
-static NODE *func__9_6;
-static void entry__9_6(void);
-static FRAME_INFO frame__9_6 = {2, {"result", "arg"}};
-static void cont__9_7(void);
+static NODE *func__std__max_1;
+static void entry__std__max_1(void);
+static FRAME_INFO frame__std__max_1 = {2, {"args", "result"}};
+static void cont__std__max_2(void);
+static void cont__std__max_3(void);
+static NODE *func__std__max_4;
+static void entry__std__max_4(void);
+static FRAME_INFO frame__std__max_4 = {2, {"arg", "result"}};
+static void cont__std__max_5(void);
+static NODE *func__std__max_6;
+static void entry__std__max_6(void);
+static FRAME_INFO frame__std__max_6 = {2, {"result", "arg"}};
+static void cont__std__max_7(void);
 static NODE *get__std__max(void) {
   return var.std__max;
 }
-static NODE *func__10_1_std__pow;
-static void entry__10_1_std__pow(void);
-static FRAME_INFO frame__10_1_std__pow = {2, {"x", "n"}};
-static NODE *func__10_2;
-static void entry__10_2(void);
-static FRAME_INFO frame__10_2 = {1, {"n"}};
-static void cont__10_3(void);
-static NODE *func__10_4;
-static void entry__10_4(void);
-static FRAME_INFO frame__10_4 = {0, {}};
-static NODE *func__10_5;
-static void entry__10_5(void);
-static FRAME_INFO frame__10_5 = {2, {"n", "x"}};
-static void cont__10_6(void);
-static NODE *func__10_7;
-static void entry__10_7(void);
-static FRAME_INFO frame__10_7 = {2, {"x", "n"}};
-static void cont__10_8(void);
-static void cont__10_9(void);
-static void cont__10_10(void);
-static void cont__10_11(void);
-static NODE *func__10_12;
-static void entry__10_12(void);
-static FRAME_INFO frame__10_12 = {2, {"x", "n"}};
-static NODE *func__10_13;
-static void entry__10_13(void);
-static FRAME_INFO frame__10_13 = {2, {"x", "n"}};
-static void cont__10_14(void);
-static void cont__10_15(void);
-static void cont__10_16(void);
+static NODE *func__std__pow_1;
+static void entry__std__pow_1(void);
+static FRAME_INFO frame__std__pow_1 = {2, {"x", "n"}};
+static NODE *func__std__pow_2;
+static void entry__std__pow_2(void);
+static FRAME_INFO frame__std__pow_2 = {1, {"n"}};
+static void cont__std__pow_3(void);
+static NODE *func__std__pow_4;
+static void entry__std__pow_4(void);
+static FRAME_INFO frame__std__pow_4 = {0, {}};
+static NODE *func__std__pow_5;
+static void entry__std__pow_5(void);
+static FRAME_INFO frame__std__pow_5 = {2, {"n", "x"}};
+static void cont__std__pow_6(void);
+static NODE *func__std__pow_7;
+static void entry__std__pow_7(void);
+static FRAME_INFO frame__std__pow_7 = {2, {"x", "n"}};
+static void cont__std__pow_8(void);
+static void cont__std__pow_9(void);
+static void cont__std__pow_10(void);
+static void cont__std__pow_11(void);
+static NODE *func__std__pow_12;
+static void entry__std__pow_12(void);
+static FRAME_INFO frame__std__pow_12 = {2, {"x", "n"}};
+static NODE *func__std__pow_13;
+static void entry__std__pow_13(void);
+static FRAME_INFO frame__std__pow_13 = {2, {"x", "n"}};
+static void cont__std__pow_14(void);
+static void cont__std__pow_15(void);
+static void cont__std__pow_16(void);
 static NODE *get__std__pow(void) {
   return var.std__pow;
 }
-static NODE *func__11_1_std__sqrt;
-static void entry__11_1_std__sqrt(void);
-static FRAME_INFO frame__11_1_std__sqrt = {3, {"x", "low", "high"}};
-static NODE *func__11_2;
-static void entry__11_2(void);
-static FRAME_INFO frame__11_2 = {4, {"high", "low", "x", "mid"}};
-static void cont__11_3(void);
-static void cont__11_4(void);
-static void cont__11_5(void);
-static void cont__11_6(void);
-static NODE *func__11_7;
-static void entry__11_7(void);
-static FRAME_INFO frame__11_7 = {2, {"high", "mid"}};
-static NODE *func__11_8;
-static void entry__11_8(void);
-static FRAME_INFO frame__11_8 = {2, {"low", "mid"}};
-static void cont__11_9(void);
+static NODE *func__std__sqrt_1;
+static void entry__std__sqrt_1(void);
+static FRAME_INFO frame__std__sqrt_1 = {3, {"x", "low", "high"}};
+static NODE *func__std__sqrt_2;
+static void entry__std__sqrt_2(void);
+static FRAME_INFO frame__std__sqrt_2 = {4, {"high", "low", "x", "mid"}};
+static void cont__std__sqrt_3(void);
+static void cont__std__sqrt_4(void);
+static void cont__std__sqrt_5(void);
+static void cont__std__sqrt_6(void);
+static NODE *func__std__sqrt_7;
+static void entry__std__sqrt_7(void);
+static FRAME_INFO frame__std__sqrt_7 = {2, {"high", "mid"}};
+static NODE *func__std__sqrt_8;
+static void entry__std__sqrt_8(void);
+static FRAME_INFO frame__std__sqrt_8 = {2, {"low", "mid"}};
+static void cont__std__sqrt_9(void);
 static NODE *get__std__sqrt(void) {
   return var.std__sqrt;
 }
 static NODE *get__std__PI(void) {
   return var.std__PI;
 }
-static NODE *func__13_1_std__sin;
-static void entry__13_1_std__sin(void);
-static FRAME_INFO frame__13_1_std__sin = {4, {"alpha", "p", "s", "t"}};
-static NODE *func__13_2;
-static void entry__13_2(void);
-static FRAME_INFO frame__13_2 = {4, {"t", "alpha", "p", "s"}};
-static void cont__13_3(void);
-static void cont__13_4(void);
-static void cont__13_5(void);
-static void cont__13_6(void);
-static void cont__13_7(void);
-static void cont__13_8(void);
-static void cont__13_9(void);
-static void cont__13_10(void);
-static void cont__13_11(void);
-static void cont__13_12(void);
-static void cont__13_13(void);
+static NODE *func__std__sin_1;
+static void entry__std__sin_1(void);
+static FRAME_INFO frame__std__sin_1 = {4, {"alpha", "p", "s", "t"}};
+static NODE *func__std__sin_2;
+static void entry__std__sin_2(void);
+static FRAME_INFO frame__std__sin_2 = {4, {"t", "alpha", "p", "s"}};
+static void cont__std__sin_3(void);
+static void cont__std__sin_4(void);
+static void cont__std__sin_5(void);
+static void cont__std__sin_6(void);
+static void cont__std__sin_7(void);
+static void cont__std__sin_8(void);
+static void cont__std__sin_9(void);
+static void cont__std__sin_10(void);
+static void cont__std__sin_11(void);
+static void cont__std__sin_12(void);
+static void cont__std__sin_13(void);
 static NODE *get__std__sin(void) {
   return var.std__sin;
 }
-static NODE *func__14_1_std__cos;
-static void entry__14_1_std__cos(void);
-static FRAME_INFO frame__14_1_std__cos = {4, {"alpha", "p", "s", "t"}};
-static NODE *func__14_2;
-static void entry__14_2(void);
-static FRAME_INFO frame__14_2 = {4, {"p", "t", "alpha", "s"}};
-static void cont__14_3(void);
-static void cont__14_4(void);
-static void cont__14_5(void);
-static void cont__14_6(void);
-static void cont__14_7(void);
-static void cont__14_8(void);
-static void cont__14_9(void);
-static void cont__14_10(void);
-static void cont__14_11(void);
-static void cont__14_12(void);
-static void cont__14_13(void);
+static NODE *func__std__cos_1;
+static void entry__std__cos_1(void);
+static FRAME_INFO frame__std__cos_1 = {4, {"alpha", "p", "s", "t"}};
+static NODE *func__std__cos_2;
+static void entry__std__cos_2(void);
+static FRAME_INFO frame__std__cos_2 = {4, {"p", "t", "alpha", "s"}};
+static void cont__std__cos_3(void);
+static void cont__std__cos_4(void);
+static void cont__std__cos_5(void);
+static void cont__std__cos_6(void);
+static void cont__std__cos_7(void);
+static void cont__std__cos_8(void);
+static void cont__std__cos_9(void);
+static void cont__std__cos_10(void);
+static void cont__std__cos_11(void);
+static void cont__std__cos_12(void);
+static void cont__std__cos_13(void);
 static NODE *get__std__cos(void) {
   return var.std__cos;
 }
-static NODE *func__15_1_std__tan;
-static void entry__15_1_std__tan(void);
-static FRAME_INFO frame__15_1_std__tan = {1, {"alpha"}};
-static void cont__15_2(void);
-static void cont__15_3(void);
-static void cont__15_4(void);
+static NODE *func__std__tan_1;
+static void entry__std__tan_1(void);
+static FRAME_INFO frame__std__tan_1 = {1, {"alpha"}};
+static void cont__std__tan_2(void);
+static void cont__std__tan_3(void);
+static void cont__std__tan_4(void);
 static NODE *get__std__tan(void) {
   return var.std__tan;
 }
-static NODE *func__16_1_std__atan;
-static void entry__16_1_std__atan(void);
-static FRAME_INFO frame__16_1_std__atan = {1, {"x"}};
-static void cont__16_2(void);
-static NODE *func__16_3;
-static void entry__16_3(void);
-static FRAME_INFO frame__16_3 = {1, {"x"}};
-static void cont__16_4(void);
-static NODE *func__16_5;
-static void entry__16_5(void);
-static FRAME_INFO frame__16_5 = {1, {"x"}};
-static void cont__16_6(void);
-static void cont__16_7(void);
-static void cont__16_8(void);
+static NODE *func__std__atan_1;
+static void entry__std__atan_1(void);
+static FRAME_INFO frame__std__atan_1 = {1, {"x"}};
+static void cont__std__atan_2(void);
+static NODE *func__std__atan_3;
+static void entry__std__atan_3(void);
+static FRAME_INFO frame__std__atan_3 = {1, {"x"}};
+static void cont__std__atan_4(void);
+static NODE *func__std__atan_5;
+static void entry__std__atan_5(void);
+static FRAME_INFO frame__std__atan_5 = {1, {"x"}};
+static void cont__std__atan_6(void);
+static void cont__std__atan_7(void);
+static void cont__std__atan_8(void);
 static NODE *get__std__atan(void) {
   return var.std__atan;
 }
-static NODE *func__17_1_atan2;
-static void entry__17_1_atan2(void);
-static FRAME_INFO frame__17_1_atan2 = {1, {"x"}};
-static void cont__17_2(void);
-static NODE *func__17_3;
-static void entry__17_3(void);
-static FRAME_INFO frame__17_3 = {1, {"x"}};
-static void cont__17_4(void);
-static void cont__17_5(void);
-static void cont__17_6(void);
-static void cont__17_7(void);
-static NODE *func__17_8;
-static void entry__17_8(void);
-static FRAME_INFO frame__17_8 = {1, {"x"}};
-static void cont__17_9(void);
-static NODE *func__18_1_atan3;
-static void entry__18_1_atan3(void);
-static FRAME_INFO frame__18_1_atan3 = {1, {"x"}};
-static void cont__18_2(void);
-static void cont__18_3(void);
-static void cont__18_4(void);
-static NODE *func__18_5;
-static void entry__18_5(void);
-static FRAME_INFO frame__18_5 = {1, {"x"}};
-static void cont__18_6(void);
-static void cont__18_7(void);
-static void cont__18_8(void);
-static void cont__18_9(void);
-static void cont__18_10(void);
-static void cont__18_11(void);
-static void cont__18_12(void);
-static void cont__18_13(void);
-static void cont__18_14(void);
-static NODE *func__18_15;
-static void entry__18_15(void);
-static FRAME_INFO frame__18_15 = {1, {"x"}};
-static void cont__18_16(void);
-static NODE *func__19_1_atan4;
-static void entry__19_1_atan4(void);
-static FRAME_INFO frame__19_1_atan4 = {4, {"x", "sum", "s", "p"}};
-static NODE *func__19_2;
-static void entry__19_2(void);
-static FRAME_INFO frame__19_2 = {5, {"i", "sum", "s", "p", "x"}};
-static void cont__19_3(void);
-static void cont__19_4(void);
-static void cont__19_5(void);
-static void cont__19_6(void);
-static void cont__19_7(void);
-static void cont__19_8(void);
-static void cont__19_9(void);
+static NODE *func__atan2_1;
+static void entry__atan2_1(void);
+static FRAME_INFO frame__atan2_1 = {1, {"x"}};
+static void cont__atan2_2(void);
+static NODE *func__atan2_3;
+static void entry__atan2_3(void);
+static FRAME_INFO frame__atan2_3 = {1, {"x"}};
+static void cont__atan2_4(void);
+static void cont__atan2_5(void);
+static void cont__atan2_6(void);
+static void cont__atan2_7(void);
+static NODE *func__atan2_8;
+static void entry__atan2_8(void);
+static FRAME_INFO frame__atan2_8 = {1, {"x"}};
+static void cont__atan2_9(void);
+static NODE *func__atan3_1;
+static void entry__atan3_1(void);
+static FRAME_INFO frame__atan3_1 = {1, {"x"}};
+static void cont__atan3_2(void);
+static void cont__atan3_3(void);
+static void cont__atan3_4(void);
+static NODE *func__atan3_5;
+static void entry__atan3_5(void);
+static FRAME_INFO frame__atan3_5 = {1, {"x"}};
+static void cont__atan3_6(void);
+static void cont__atan3_7(void);
+static void cont__atan3_8(void);
+static void cont__atan3_9(void);
+static void cont__atan3_10(void);
+static void cont__atan3_11(void);
+static void cont__atan3_12(void);
+static void cont__atan3_13(void);
+static void cont__atan3_14(void);
+static NODE *func__atan3_15;
+static void entry__atan3_15(void);
+static FRAME_INFO frame__atan3_15 = {1, {"x"}};
+static void cont__atan3_16(void);
+static NODE *func__atan4_1;
+static void entry__atan4_1(void);
+static FRAME_INFO frame__atan4_1 = {4, {"x", "sum", "s", "p"}};
+static NODE *func__atan4_2;
+static void entry__atan4_2(void);
+static FRAME_INFO frame__atan4_2 = {5, {"i", "sum", "s", "p", "x"}};
+static void cont__atan4_3(void);
+static void cont__atan4_4(void);
+static void cont__atan4_5(void);
+static void cont__atan4_6(void);
+static void cont__atan4_7(void);
+static void cont__atan4_8(void);
+static void cont__atan4_9(void);
 void run__basic__math(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__math, NULL, },
-  {entry__1_1_std__inc, NULL, 31, 31, 3, 13},
-  {cont__1_2, &frame__1_1_std__inc, 31, 31, 13, 13},
-  {entry__2_1_std__dec, NULL, 41, 41, 3, 14},
-  {cont__2_2, &frame__2_1_std__dec, 41, 41, 14, 14},
-  {entry__3_3, NULL, 52, 52, 24, 24},
-  {entry__3_1_std__extend_to, NULL, 52, 52, 6, 14},
-  {cont__3_2, &frame__3_1_std__extend_to, 52, 52, 3, 24},
-  {cont__3_4, &frame__3_1_std__extend_to, },
-  {entry__4_3, NULL, 63, 63, 24, 24},
-  {entry__4_1_std__reduce_to, NULL, 63, 63, 6, 14},
-  {cont__4_2, &frame__4_1_std__reduce_to, 63, 63, 3, 24},
-  {cont__4_4, &frame__4_1_std__reduce_to, },
-  {entry__5_3, NULL, 73, 73, 15, 25},
-  {cont__5_4, &frame__5_3, 73, 73, 25, 25},
-  {entry__5_1_std__abs, NULL, 73, 73, 6, 12},
-  {cont__5_2, &frame__5_1_std__abs, 73, 73, 3, 25},
-  {cont__5_5, &frame__5_1_std__abs, },
-  {entry__6_4, NULL, 89, 89, 18, 21},
-  {entry__6_2, NULL, 89, 89, 12, 16},
-  {cont__6_3, &frame__6_2, 89, 89, 9, 21},
-  {entry__6_7, NULL, 89, 89, 38, 38},
-  {cont__6_8, &frame__6_7, 89, 89, 34, 38},
-  {entry__6_5, NULL, 89, 89, 28, 32},
-  {cont__6_6, &frame__6_5, 89, 89, 25, 38},
-  {entry__6_10, NULL, 89, 89, 49, 52},
-  {entry__6_9, NULL, 89, 89, 41, 52},
-  {entry__6_1_std__sgn, NULL, 89, 89, 3, 52},
-  {entry__7_1_std__sqr, NULL, 99, 99, 6, 12},
-  {cont__7_2, &frame__7_1_std__sqr, 99, 99, 3, 12},
-  {entry__8_6, NULL, 110, 110, 64, 64},
-  {entry__8_4, NULL, 110, 110, 40, 51},
-  {cont__8_5, &frame__8_4, 110, 110, 37, 64},
-  {entry__8_1_std__min, NULL, 109, 109, 3, 18},
-  {cont__8_2, &frame__8_1_std__min, 110, 110, 28, 28},
-  {cont__8_3, &frame__8_1_std__min, 110, 110, 3, 64},
-  {cont__8_7, &frame__8_1_std__min, 111, 111, 3, 11},
-  {entry__9_6, NULL, 122, 122, 64, 64},
-  {entry__9_4, NULL, 122, 122, 40, 51},
-  {cont__9_5, &frame__9_4, 122, 122, 37, 64},
-  {entry__9_1_std__max, NULL, 121, 121, 3, 18},
-  {cont__9_2, &frame__9_1_std__max, 122, 122, 28, 28},
-  {cont__9_3, &frame__9_1_std__max, 122, 122, 3, 64},
-  {cont__9_7, &frame__9_1_std__max, 123, 123, 3, 11},
-  {entry__10_4, NULL, 137, 137, 15, 18},
-  {entry__10_2, NULL, 137, 137, 8, 13},
-  {cont__10_3, &frame__10_2, 137, 137, 5, 18},
-  {entry__10_7, NULL, 138, 138, 33, 38},
-  {cont__10_8, &frame__10_7, 138, 138, 27, 39},
-  {cont__10_9, &frame__10_7, 138, 138, 23, 40},
-  {cont__10_10, &frame__10_7, 138, 138, 21, 40},
-  {cont__10_11, &frame__10_7, 138, 138, 18, 40},
-  {entry__10_5, NULL, 138, 138, 8, 16},
-  {cont__10_6, &frame__10_5, 138, 138, 5, 40},
-  {entry__10_13, NULL, 139, 139, 26, 31},
-  {cont__10_14, &frame__10_13, 139, 139, 20, 32},
-  {cont__10_15, &frame__10_13, 139, 139, 16, 33},
-  {cont__10_16, &frame__10_13, 139, 139, 13, 33},
-  {entry__10_12, NULL, 139, 139, 5, 33},
-  {entry__10_1_std__pow, NULL, 136, 139, 3, 33},
-  {entry__11_7, NULL, 155, 155, 17, 17},
-  {entry__11_8, NULL, 157, 157, 16, 16},
-  {entry__11_2, NULL, 152, 152, 11, 18},
-  {cont__11_3, &frame__11_2, 152, 152, 5, 21},
-  {cont__11_4, &frame__11_2, 154, 154, 7, 14},
-  {cont__11_5, &frame__11_2, 154, 154, 7, 18},
-  {cont__11_6, &frame__11_2, 153, 157, 5, 17},
-  {entry__11_1_std__sqrt, NULL, 151, 157, 3, 18},
-  {cont__11_9, &frame__11_1_std__sqrt, 158, 158, 3, 8},
-  {entry__13_2, NULL, 176, 176, 9, 9},
-  {cont__13_3, &frame__13_2, 176, 176, 9, 15},
-  {cont__13_4, &frame__13_2, 176, 176, 9, 21},
-  {cont__13_5, &frame__13_2, 176, 176, 24, 26},
-  {cont__13_6, &frame__13_2, 176, 176, 29, 31},
-  {cont__13_7, &frame__13_2, 176, 176, 29, 33},
-  {cont__13_8, &frame__13_2, 176, 176, 24, 33},
-  {cont__13_9, &frame__13_2, 176, 176, 5, 35},
-  {cont__13_10, &frame__13_2, 177, 177, 5, 13},
-  {cont__13_11, &frame__13_2, 178, 178, 5, 10},
-  {cont__13_12, &frame__13_2, 178, 178, 10, 10},
-  {entry__13_1_std__sin, NULL, 175, 178, 3, 10},
-  {cont__13_13, &frame__13_1_std__sin, 179, 179, 3, 6},
-  {entry__14_2, NULL, 193, 193, 5, 10},
-  {cont__14_3, &frame__14_2, 194, 194, 9, 9},
-  {cont__14_4, &frame__14_2, 194, 194, 9, 15},
-  {cont__14_5, &frame__14_2, 194, 194, 9, 21},
-  {cont__14_6, &frame__14_2, 194, 194, 25, 27},
-  {cont__14_7, &frame__14_2, 194, 194, 25, 29},
-  {cont__14_8, &frame__14_2, 194, 194, 33, 35},
-  {cont__14_9, &frame__14_2, 194, 194, 25, 35},
-  {cont__14_10, &frame__14_2, 194, 194, 5, 37},
-  {cont__14_11, &frame__14_2, 195, 195, 5, 13},
-  {cont__14_12, &frame__14_2, 195, 195, 13, 13},
-  {entry__14_1_std__cos, NULL, 192, 195, 3, 13},
-  {cont__14_13, &frame__14_1_std__cos, 196, 196, 3, 6},
-  {entry__15_1_std__tan, NULL, 206, 206, 6, 15},
-  {cont__15_2, &frame__15_1_std__tan, 206, 206, 17, 26},
-  {cont__15_3, &frame__15_1_std__tan, 206, 206, 6, 26},
-  {cont__15_4, &frame__15_1_std__tan, 206, 206, 3, 26},
-  {entry__16_3, NULL, 216, 216, 16, 23},
-  {cont__16_4, &frame__16_3, 216, 216, 13, 23},
-  {entry__16_5, NULL, 216, 216, 37, 37},
-  {cont__16_6, &frame__16_5, 216, 216, 30, 38},
-  {cont__16_7, &frame__16_5, 216, 216, 30, 38},
-  {cont__16_8, &frame__16_5, 216, 216, 26, 38},
-  {entry__16_1_std__atan, NULL, 216, 216, 6, 10},
-  {cont__16_2, &frame__16_1_std__atan, 216, 216, 3, 38},
-  {entry__17_3, NULL, 218, 218, 26, 29},
-  {cont__17_4, &frame__17_3, 218, 218, 37, 39},
-  {cont__17_5, &frame__17_3, 218, 218, 31, 40},
-  {cont__17_6, &frame__17_3, 218, 218, 26, 40},
-  {cont__17_7, &frame__17_3, 218, 218, 23, 40},
-  {entry__17_8, NULL, 218, 218, 46, 53},
-  {cont__17_9, &frame__17_8, 218, 218, 43, 53},
-  {entry__17_1_atan2, NULL, 218, 218, 16, 20},
-  {cont__17_2, &frame__17_1_atan2, 218, 218, 13, 53},
-  {entry__18_5, NULL, 221, 221, 24, 27},
-  {cont__18_6, &frame__18_5, 221, 221, 36, 42},
-  {cont__18_7, &frame__18_5, 221, 221, 36, 44},
-  {cont__18_8, &frame__18_5, 221, 221, 36, 46},
-  {cont__18_9, &frame__18_5, 221, 221, 50, 56},
-  {cont__18_10, &frame__18_5, 221, 221, 50, 58},
-  {cont__18_11, &frame__18_5, 221, 221, 36, 58},
-  {cont__18_12, &frame__18_5, 221, 221, 29, 60},
-  {cont__18_13, &frame__18_5, 221, 221, 24, 60},
-  {cont__18_14, &frame__18_5, 221, 221, 21, 60},
-  {entry__18_15, NULL, 221, 221, 66, 73},
-  {cont__18_16, &frame__18_15, 221, 221, 63, 73},
-  {entry__18_1_atan3, NULL, 221, 221, 12, 18},
-  {cont__18_2, &frame__18_1_atan3, 221, 221, 10, 18},
-  {cont__18_3, &frame__18_1_atan3, 221, 221, 6, 18},
-  {cont__18_4, &frame__18_1_atan3, 221, 221, 3, 73},
-  {entry__19_2, NULL, 228, 228, 15, 17},
-  {cont__19_3, &frame__19_2, 228, 228, 15, 19},
-  {cont__19_4, &frame__19_2, 228, 228, 5, 19},
-  {cont__19_5, &frame__19_2, 229, 229, 8, 10},
-  {cont__19_6, &frame__19_2, 229, 229, 5, 12},
-  {cont__19_7, &frame__19_2, 230, 230, 5, 9},
-  {cont__19_8, &frame__19_2, 230, 230, 9, 9},
-  {entry__19_1_atan4, NULL, 227, 230, 3, 9},
-  {cont__19_9, &frame__19_1_atan4, 231, 231, 3, 8}
+  {entry__std__inc_1, NULL, 31, 31, 3, 13},
+  {cont__std__inc_2, &frame__std__inc_1, 31, 31, 13, 13},
+  {entry__std__dec_1, NULL, 41, 41, 3, 14},
+  {cont__std__dec_2, &frame__std__dec_1, 41, 41, 14, 14},
+  {entry__std__extend_to_3, NULL, 52, 52, 24, 24},
+  {entry__std__extend_to_1, NULL, 52, 52, 6, 14},
+  {cont__std__extend_to_2, &frame__std__extend_to_1, 52, 52, 3, 24},
+  {cont__std__extend_to_4, &frame__std__extend_to_1, },
+  {entry__std__reduce_to_3, NULL, 63, 63, 24, 24},
+  {entry__std__reduce_to_1, NULL, 63, 63, 6, 14},
+  {cont__std__reduce_to_2, &frame__std__reduce_to_1, 63, 63, 3, 24},
+  {cont__std__reduce_to_4, &frame__std__reduce_to_1, },
+  {entry__std__abs_3, NULL, 73, 73, 15, 25},
+  {cont__std__abs_4, &frame__std__abs_3, 73, 73, 25, 25},
+  {entry__std__abs_1, NULL, 73, 73, 6, 12},
+  {cont__std__abs_2, &frame__std__abs_1, 73, 73, 3, 25},
+  {cont__std__abs_5, &frame__std__abs_1, },
+  {entry__std__sgn_4, NULL, 89, 89, 18, 21},
+  {entry__std__sgn_2, NULL, 89, 89, 12, 16},
+  {cont__std__sgn_3, &frame__std__sgn_2, 89, 89, 9, 21},
+  {entry__std__sgn_7, NULL, 89, 89, 38, 38},
+  {cont__std__sgn_8, &frame__std__sgn_7, 89, 89, 34, 38},
+  {entry__std__sgn_5, NULL, 89, 89, 28, 32},
+  {cont__std__sgn_6, &frame__std__sgn_5, 89, 89, 25, 38},
+  {entry__std__sgn_10, NULL, 89, 89, 49, 52},
+  {entry__std__sgn_9, NULL, 89, 89, 41, 52},
+  {entry__std__sgn_1, NULL, 89, 89, 3, 52},
+  {entry__std__sqr_1, NULL, 99, 99, 6, 12},
+  {cont__std__sqr_2, &frame__std__sqr_1, 99, 99, 3, 12},
+  {entry__std__min_6, NULL, 110, 110, 64, 64},
+  {entry__std__min_4, NULL, 110, 110, 40, 51},
+  {cont__std__min_5, &frame__std__min_4, 110, 110, 37, 64},
+  {entry__std__min_1, NULL, 109, 109, 3, 18},
+  {cont__std__min_2, &frame__std__min_1, 110, 110, 28, 28},
+  {cont__std__min_3, &frame__std__min_1, 110, 110, 3, 64},
+  {cont__std__min_7, &frame__std__min_1, 111, 111, 3, 11},
+  {entry__std__max_6, NULL, 122, 122, 64, 64},
+  {entry__std__max_4, NULL, 122, 122, 40, 51},
+  {cont__std__max_5, &frame__std__max_4, 122, 122, 37, 64},
+  {entry__std__max_1, NULL, 121, 121, 3, 18},
+  {cont__std__max_2, &frame__std__max_1, 122, 122, 28, 28},
+  {cont__std__max_3, &frame__std__max_1, 122, 122, 3, 64},
+  {cont__std__max_7, &frame__std__max_1, 123, 123, 3, 11},
+  {entry__std__pow_4, NULL, 137, 137, 15, 18},
+  {entry__std__pow_2, NULL, 137, 137, 8, 13},
+  {cont__std__pow_3, &frame__std__pow_2, 137, 137, 5, 18},
+  {entry__std__pow_7, NULL, 138, 138, 33, 38},
+  {cont__std__pow_8, &frame__std__pow_7, 138, 138, 27, 39},
+  {cont__std__pow_9, &frame__std__pow_7, 138, 138, 23, 40},
+  {cont__std__pow_10, &frame__std__pow_7, 138, 138, 21, 40},
+  {cont__std__pow_11, &frame__std__pow_7, 138, 138, 18, 40},
+  {entry__std__pow_5, NULL, 138, 138, 8, 16},
+  {cont__std__pow_6, &frame__std__pow_5, 138, 138, 5, 40},
+  {entry__std__pow_13, NULL, 139, 139, 26, 31},
+  {cont__std__pow_14, &frame__std__pow_13, 139, 139, 20, 32},
+  {cont__std__pow_15, &frame__std__pow_13, 139, 139, 16, 33},
+  {cont__std__pow_16, &frame__std__pow_13, 139, 139, 13, 33},
+  {entry__std__pow_12, NULL, 139, 139, 5, 33},
+  {entry__std__pow_1, NULL, 136, 139, 3, 33},
+  {entry__std__sqrt_7, NULL, 155, 155, 17, 17},
+  {entry__std__sqrt_8, NULL, 157, 157, 16, 16},
+  {entry__std__sqrt_2, NULL, 152, 152, 11, 18},
+  {cont__std__sqrt_3, &frame__std__sqrt_2, 152, 152, 5, 21},
+  {cont__std__sqrt_4, &frame__std__sqrt_2, 154, 154, 7, 14},
+  {cont__std__sqrt_5, &frame__std__sqrt_2, 154, 154, 7, 18},
+  {cont__std__sqrt_6, &frame__std__sqrt_2, 153, 157, 5, 17},
+  {entry__std__sqrt_1, NULL, 151, 157, 3, 18},
+  {cont__std__sqrt_9, &frame__std__sqrt_1, 158, 158, 3, 8},
+  {entry__std__sin_2, NULL, 176, 176, 9, 9},
+  {cont__std__sin_3, &frame__std__sin_2, 176, 176, 9, 15},
+  {cont__std__sin_4, &frame__std__sin_2, 176, 176, 9, 21},
+  {cont__std__sin_5, &frame__std__sin_2, 176, 176, 24, 26},
+  {cont__std__sin_6, &frame__std__sin_2, 176, 176, 29, 31},
+  {cont__std__sin_7, &frame__std__sin_2, 176, 176, 29, 33},
+  {cont__std__sin_8, &frame__std__sin_2, 176, 176, 24, 33},
+  {cont__std__sin_9, &frame__std__sin_2, 176, 176, 5, 35},
+  {cont__std__sin_10, &frame__std__sin_2, 177, 177, 5, 13},
+  {cont__std__sin_11, &frame__std__sin_2, 178, 178, 5, 10},
+  {cont__std__sin_12, &frame__std__sin_2, 178, 178, 10, 10},
+  {entry__std__sin_1, NULL, 175, 178, 3, 10},
+  {cont__std__sin_13, &frame__std__sin_1, 179, 179, 3, 6},
+  {entry__std__cos_2, NULL, 193, 193, 5, 10},
+  {cont__std__cos_3, &frame__std__cos_2, 194, 194, 9, 9},
+  {cont__std__cos_4, &frame__std__cos_2, 194, 194, 9, 15},
+  {cont__std__cos_5, &frame__std__cos_2, 194, 194, 9, 21},
+  {cont__std__cos_6, &frame__std__cos_2, 194, 194, 25, 27},
+  {cont__std__cos_7, &frame__std__cos_2, 194, 194, 25, 29},
+  {cont__std__cos_8, &frame__std__cos_2, 194, 194, 33, 35},
+  {cont__std__cos_9, &frame__std__cos_2, 194, 194, 25, 35},
+  {cont__std__cos_10, &frame__std__cos_2, 194, 194, 5, 37},
+  {cont__std__cos_11, &frame__std__cos_2, 195, 195, 5, 13},
+  {cont__std__cos_12, &frame__std__cos_2, 195, 195, 13, 13},
+  {entry__std__cos_1, NULL, 192, 195, 3, 13},
+  {cont__std__cos_13, &frame__std__cos_1, 196, 196, 3, 6},
+  {entry__std__tan_1, NULL, 206, 206, 6, 15},
+  {cont__std__tan_2, &frame__std__tan_1, 206, 206, 17, 26},
+  {cont__std__tan_3, &frame__std__tan_1, 206, 206, 6, 26},
+  {cont__std__tan_4, &frame__std__tan_1, 206, 206, 3, 26},
+  {entry__std__atan_3, NULL, 216, 216, 16, 23},
+  {cont__std__atan_4, &frame__std__atan_3, 216, 216, 13, 23},
+  {entry__std__atan_5, NULL, 216, 216, 37, 37},
+  {cont__std__atan_6, &frame__std__atan_5, 216, 216, 30, 38},
+  {cont__std__atan_7, &frame__std__atan_5, 216, 216, 30, 38},
+  {cont__std__atan_8, &frame__std__atan_5, 216, 216, 26, 38},
+  {entry__std__atan_1, NULL, 216, 216, 6, 10},
+  {cont__std__atan_2, &frame__std__atan_1, 216, 216, 3, 38},
+  {entry__atan2_3, NULL, 218, 218, 26, 29},
+  {cont__atan2_4, &frame__atan2_3, 218, 218, 37, 39},
+  {cont__atan2_5, &frame__atan2_3, 218, 218, 31, 40},
+  {cont__atan2_6, &frame__atan2_3, 218, 218, 26, 40},
+  {cont__atan2_7, &frame__atan2_3, 218, 218, 23, 40},
+  {entry__atan2_8, NULL, 218, 218, 46, 53},
+  {cont__atan2_9, &frame__atan2_8, 218, 218, 43, 53},
+  {entry__atan2_1, NULL, 218, 218, 16, 20},
+  {cont__atan2_2, &frame__atan2_1, 218, 218, 13, 53},
+  {entry__atan3_5, NULL, 221, 221, 24, 27},
+  {cont__atan3_6, &frame__atan3_5, 221, 221, 36, 42},
+  {cont__atan3_7, &frame__atan3_5, 221, 221, 36, 44},
+  {cont__atan3_8, &frame__atan3_5, 221, 221, 36, 46},
+  {cont__atan3_9, &frame__atan3_5, 221, 221, 50, 56},
+  {cont__atan3_10, &frame__atan3_5, 221, 221, 50, 58},
+  {cont__atan3_11, &frame__atan3_5, 221, 221, 36, 58},
+  {cont__atan3_12, &frame__atan3_5, 221, 221, 29, 60},
+  {cont__atan3_13, &frame__atan3_5, 221, 221, 24, 60},
+  {cont__atan3_14, &frame__atan3_5, 221, 221, 21, 60},
+  {entry__atan3_15, NULL, 221, 221, 66, 73},
+  {cont__atan3_16, &frame__atan3_15, 221, 221, 63, 73},
+  {entry__atan3_1, NULL, 221, 221, 12, 18},
+  {cont__atan3_2, &frame__atan3_1, 221, 221, 10, 18},
+  {cont__atan3_3, &frame__atan3_1, 221, 221, 6, 18},
+  {cont__atan3_4, &frame__atan3_1, 221, 221, 3, 73},
+  {entry__atan4_2, NULL, 228, 228, 15, 17},
+  {cont__atan4_3, &frame__atan4_2, 228, 228, 15, 19},
+  {cont__atan4_4, &frame__atan4_2, 228, 228, 5, 19},
+  {cont__atan4_5, &frame__atan4_2, 229, 229, 8, 10},
+  {cont__atan4_6, &frame__atan4_2, 229, 229, 5, 12},
+  {cont__atan4_7, &frame__atan4_2, 230, 230, 5, 9},
+  {cont__atan4_8, &frame__atan4_2, 230, 230, 9, 9},
+  {entry__atan4_1, NULL, 227, 230, 3, 9},
+  {cont__atan4_9, &frame__atan4_1, 231, 231, 3, 8}
 };
 
 union NODE {
@@ -819,7 +819,7 @@ EXPORT void run__basic__math(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1_std__inc(void) {
+static void entry__std__inc_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // var: 0
@@ -836,9 +836,9 @@ static void entry__1_1_std__inc(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__1_2;
+  frame->cont = cont__std__inc_2;
 }
-static void cont__1_2(void) {
+static void cont__std__inc_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -851,7 +851,7 @@ static void cont__1_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__2_1_std__dec(void) {
+static void entry__std__dec_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // var: 0
@@ -868,9 +868,9 @@ static void entry__2_1_std__dec(void) {
   result_count = 1;
   myself = get__minus();
   func = myself->type;
-  frame->cont = cont__2_2;
+  frame->cont = cont__std__dec_2;
 }
-static void cont__2_2(void) {
+static void cont__std__dec_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -883,7 +883,7 @@ static void cont__2_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__3_1_std__extend_to(void) {
+static void entry__std__extend_to_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // var: 0
@@ -901,16 +901,16 @@ static void entry__3_1_std__extend_to(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__3_2;
+  frame->cont = cont__std__extend_to_2;
 }
-static void cont__3_2(void) {
+static void cont__std__extend_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 52: ... : !var val
-  frame->slots[3] /* temp__2 */ = create_closure(entry__3_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__extend_to_3, 0);
   // 52: if val > var: !var val
   argument_count = 2;
   arguments = node_p;
@@ -921,9 +921,9 @@ static void cont__3_2(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__3_4;
+  frame->cont = cont__std__extend_to_4;
 }
-static void entry__3_3(void) {
+static void entry__std__extend_to_3(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // var: 0
@@ -942,7 +942,7 @@ static void entry__3_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__3_4(void) {
+static void cont__std__extend_to_4(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -953,7 +953,7 @@ static void cont__3_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1_std__reduce_to(void) {
+static void entry__std__reduce_to_1(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // var: 0
@@ -971,16 +971,16 @@ static void entry__4_1_std__reduce_to(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__4_2;
+  frame->cont = cont__std__reduce_to_2;
 }
-static void cont__4_2(void) {
+static void cont__std__reduce_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 63: ... : !var val
-  frame->slots[3] /* temp__2 */ = create_closure(entry__4_3, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__reduce_to_3, 0);
   // 63: if val < var: !var val
   argument_count = 2;
   arguments = node_p;
@@ -991,9 +991,9 @@ static void cont__4_2(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_4;
+  frame->cont = cont__std__reduce_to_4;
 }
-static void entry__4_3(void) {
+static void entry__std__reduce_to_3(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // var: 0
@@ -1012,7 +1012,7 @@ static void entry__4_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_4(void) {
+static void cont__std__reduce_to_4(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1023,7 +1023,7 @@ static void cont__4_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1_std__abs(void) {
+static void entry__std__abs_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // var: 0
@@ -1040,16 +1040,16 @@ static void entry__5_1_std__abs(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__5_2;
+  frame->cont = cont__std__abs_2;
 }
-static void cont__5_2(void) {
+static void cont__std__abs_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 73: ... : negate &var
-  frame->slots[2] /* temp__2 */ = create_closure(entry__5_3, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__std__abs_3, 0);
   // 73: if var < 0: negate &var
   argument_count = 2;
   arguments = node_p;
@@ -1060,9 +1060,9 @@ static void cont__5_2(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__5_5;
+  frame->cont = cont__std__abs_5;
 }
-static void entry__5_3(void) {
+static void entry__std__abs_3(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // var: 0
@@ -1078,9 +1078,9 @@ static void entry__5_3(void) {
   result_count = 1;
   myself = get__negate();
   func = myself->type;
-  frame->cont = cont__5_4;
+  frame->cont = cont__std__abs_4;
 }
-static void cont__5_4(void) {
+static void cont__std__abs_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1092,7 +1092,7 @@ static void cont__5_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__5_5(void) {
+static void cont__std__abs_5(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1103,7 +1103,7 @@ static void cont__5_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_10(void) {
+static void entry__std__sgn_10(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1118,7 +1118,7 @@ static void entry__6_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_7(void) {
+static void entry__std__sgn_7(void) {
   allocate_initialized_frame_gc(0, 1);
   // slot allocations:
   if (argument_count != 0) {
@@ -1132,9 +1132,9 @@ static void entry__6_7(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__6_8;
+  frame->cont = cont__std__sgn_8;
 }
-static void cont__6_8(void) {
+static void cont__std__sgn_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1148,7 +1148,7 @@ static void cont__6_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_4(void) {
+static void entry__std__sgn_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1163,7 +1163,7 @@ static void entry__6_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_2(void) {
+static void entry__std__sgn_2(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // x: 0
@@ -1180,9 +1180,9 @@ static void entry__6_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__6_3;
+  frame->cont = cont__std__sgn_3;
 }
-static void cont__6_3(void) {
+static void cont__std__sgn_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1192,12 +1192,12 @@ static void cont__6_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__6_4;
+  arguments->slots[1] = func__std__sgn_4;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_5(void) {
+static void entry__std__sgn_5(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // x: 0
@@ -1214,9 +1214,9 @@ static void entry__6_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__6_6;
+  frame->cont = cont__std__sgn_6;
 }
-static void cont__6_6(void) {
+static void cont__std__sgn_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1226,12 +1226,12 @@ static void cont__6_6(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__6_7;
+  arguments->slots[1] = func__std__sgn_7;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_9(void) {
+static void entry__std__sgn_9(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1242,12 +1242,12 @@ static void entry__6_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__true();
-  arguments->slots[1] = func__6_10;
+  arguments->slots[1] = func__std__sgn_10;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1_std__sgn(void) {
+static void entry__std__sgn_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // x: 0
@@ -1256,21 +1256,21 @@ static void entry__6_1_std__sgn(void) {
     return;
   }
   // 89: ... -> x > 0 -> 1
-  frame->slots[1] /* temp__1 */ = create_closure(entry__6_2, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__std__sgn_2, 0);
   // 89: ... -> x < 0 -> -1
-  frame->slots[2] /* temp__2 */ = create_closure(entry__6_5, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__std__sgn_5, 0);
   // 89: cond (-> x > 0 -> 1) (-> x < 0 -> -1) -> true -> 0
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   arguments->slots[1] = frame->slots[2] /* temp__2 */;
-  arguments->slots[2] = func__6_9;
+  arguments->slots[2] = func__std__sgn_9;
   result_count = frame->caller_result_count;
   myself = get__cond();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__7_1_std__sqr(void) {
+static void entry__std__sqr_1(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // var: 0
@@ -1286,9 +1286,9 @@ static void entry__7_1_std__sqr(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__7_2;
+  frame->cont = cont__std__sqr_2;
 }
-static void cont__7_2(void) {
+static void cont__std__sqr_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1302,7 +1302,7 @@ static void cont__7_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_1_std__min(void) {
+static void entry__std__min_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
@@ -1317,9 +1317,9 @@ static void entry__8_1_std__min(void) {
   result_count = 1;
   myself = frame->slots[0] /* args */;
   func = myself->type;
-  frame->cont = cont__8_2;
+  frame->cont = cont__std__min_2;
 }
-static void cont__8_2(void) {
+static void cont__std__min_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1332,16 +1332,16 @@ static void cont__8_2(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__8_3;
+  frame->cont = cont__std__min_3;
 }
-static void cont__8_3(void) {
+static void cont__std__min_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 110: ... : (arg) if arg < result: !result arg
-  frame->slots[3] /* temp__2 */ = create_closure(entry__8_4, 1);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__min_4, 1);
   // 110: for_each_from_to args 2 -1: (arg) if arg < result: !result arg
   argument_count = 4;
   arguments = node_p;
@@ -1352,9 +1352,9 @@ static void cont__8_3(void) {
   result_count = 0;
   myself = get__for_each_from_to();
   func = myself->type;
-  frame->cont = cont__8_7;
+  frame->cont = cont__std__min_7;
 }
-static void entry__8_6(void) {
+static void entry__std__min_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // result: 0
@@ -1373,7 +1373,7 @@ static void entry__8_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_4(void) {
+static void entry__std__min_4(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // arg: 0
@@ -1391,16 +1391,16 @@ static void entry__8_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__8_5;
+  frame->cont = cont__std__min_5;
 }
-static void cont__8_5(void) {
+static void cont__std__min_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 110: ... : !result arg
-  frame->slots[3] /* temp__2 */ = create_closure(entry__8_6, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__min_6, 0);
   // 110: ... if arg < result: !result arg
   argument_count = 2;
   arguments = node_p;
@@ -1411,7 +1411,7 @@ static void cont__8_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__8_7(void) {
+static void cont__std__min_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1424,7 +1424,7 @@ static void cont__8_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1_std__max(void) {
+static void entry__std__max_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
@@ -1439,9 +1439,9 @@ static void entry__9_1_std__max(void) {
   result_count = 1;
   myself = frame->slots[0] /* args */;
   func = myself->type;
-  frame->cont = cont__9_2;
+  frame->cont = cont__std__max_2;
 }
-static void cont__9_2(void) {
+static void cont__std__max_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1454,16 +1454,16 @@ static void cont__9_2(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__9_3;
+  frame->cont = cont__std__max_3;
 }
-static void cont__9_3(void) {
+static void cont__std__max_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 122: ... : (arg) if arg > result: !result arg
-  frame->slots[3] /* temp__2 */ = create_closure(entry__9_4, 1);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__max_4, 1);
   // 122: for_each_from_to args 2 -1: (arg) if arg > result: !result arg
   argument_count = 4;
   arguments = node_p;
@@ -1474,9 +1474,9 @@ static void cont__9_3(void) {
   result_count = 0;
   myself = get__for_each_from_to();
   func = myself->type;
-  frame->cont = cont__9_7;
+  frame->cont = cont__std__max_7;
 }
-static void entry__9_6(void) {
+static void entry__std__max_6(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // result: 0
@@ -1495,7 +1495,7 @@ static void entry__9_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_4(void) {
+static void entry__std__max_4(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // arg: 0
@@ -1513,16 +1513,16 @@ static void entry__9_4(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__9_5;
+  frame->cont = cont__std__max_5;
 }
-static void cont__9_5(void) {
+static void cont__std__max_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 122: ... : !result arg
-  frame->slots[3] /* temp__2 */ = create_closure(entry__9_6, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__max_6, 0);
   // 122: ... if arg > result: !result arg
   argument_count = 2;
   arguments = node_p;
@@ -1533,7 +1533,7 @@ static void cont__9_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_7(void) {
+static void cont__std__max_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1546,7 +1546,7 @@ static void cont__9_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_13(void) {
+static void entry__std__pow_13(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // x: 0
@@ -1565,9 +1565,9 @@ static void entry__10_13(void) {
   result_count = 1;
   myself = get__std__shift_right();
   func = myself->type;
-  frame->cont = cont__10_14;
+  frame->cont = cont__std__pow_14;
 }
-static void cont__10_14(void) {
+static void cont__std__pow_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1581,9 +1581,9 @@ static void cont__10_14(void) {
   result_count = 1;
   myself = get__pow();
   func = myself->type;
-  frame->cont = cont__10_15;
+  frame->cont = cont__std__pow_15;
 }
-static void cont__10_15(void) {
+static void cont__std__pow_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1596,9 +1596,9 @@ static void cont__10_15(void) {
   result_count = 1;
   myself = get__sqr();
   func = myself->type;
-  frame->cont = cont__10_16;
+  frame->cont = cont__std__pow_16;
 }
-static void cont__10_16(void) {
+static void cont__std__pow_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1612,7 +1612,7 @@ static void cont__10_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_7(void) {
+static void entry__std__pow_7(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // x: 0
@@ -1631,9 +1631,9 @@ static void entry__10_7(void) {
   result_count = 1;
   myself = get__std__shift_right();
   func = myself->type;
-  frame->cont = cont__10_8;
+  frame->cont = cont__std__pow_8;
 }
-static void cont__10_8(void) {
+static void cont__std__pow_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1647,9 +1647,9 @@ static void cont__10_8(void) {
   result_count = 1;
   myself = get__pow();
   func = myself->type;
-  frame->cont = cont__10_9;
+  frame->cont = cont__std__pow_9;
 }
-static void cont__10_9(void) {
+static void cont__std__pow_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1662,9 +1662,9 @@ static void cont__10_9(void) {
   result_count = 1;
   myself = get__sqr();
   func = myself->type;
-  frame->cont = cont__10_10;
+  frame->cont = cont__std__pow_10;
 }
-static void cont__10_10(void) {
+static void cont__std__pow_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1678,9 +1678,9 @@ static void cont__10_10(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__10_11;
+  frame->cont = cont__std__pow_11;
 }
-static void cont__10_11(void) {
+static void cont__std__pow_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1694,7 +1694,7 @@ static void cont__10_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_4(void) {
+static void entry__std__pow_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -1709,7 +1709,7 @@ static void entry__10_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_2(void) {
+static void entry__std__pow_2(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // n: 0
@@ -1726,9 +1726,9 @@ static void entry__10_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__10_3;
+  frame->cont = cont__std__pow_3;
 }
-static void cont__10_3(void) {
+static void cont__std__pow_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1738,12 +1738,12 @@ static void cont__10_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__10_4;
+  arguments->slots[1] = func__std__pow_4;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_5(void) {
+static void entry__std__pow_5(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // n: 0
@@ -1761,16 +1761,16 @@ static void entry__10_5(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__10_6;
+  frame->cont = cont__std__pow_6;
 }
-static void cont__10_6(void) {
+static void cont__std__pow_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 138: ... -> x*sqr(pow(x n >> 1))
-  frame->slots[3] /* temp__2 */ = create_closure(entry__10_7, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__pow_7, 0);
   // 138: -> is_odd(n) -> x*sqr(pow(x n >> 1))
   argument_count = 2;
   arguments = node_p;
@@ -1780,7 +1780,7 @@ static void cont__10_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_12(void) {
+static void entry__std__pow_12(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // x: 0
@@ -1792,7 +1792,7 @@ static void entry__10_12(void) {
     return;
   }
   // 139: ... -> sqr(pow(x n >> 1))
-  frame->slots[2] /* temp__1 */ = create_closure(entry__10_13, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__pow_13, 0);
   // 139: -> true -> sqr(pow(x n >> 1))
   argument_count = 2;
   arguments = node_p;
@@ -1802,7 +1802,7 @@ static void entry__10_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1_std__pow(void) {
+static void entry__std__pow_1(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // x: 0
@@ -1812,11 +1812,11 @@ static void entry__10_1_std__pow(void) {
     return;
   }
   // 137: -> n == 0 -> 1
-  frame->slots[2] /* temp__1 */ = create_closure(entry__10_2, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__std__pow_2, 0);
   // 138: -> is_odd(n) -> x*sqr(pow(x n >> 1))
-  frame->slots[3] /* temp__2 */ = create_closure(entry__10_5, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__std__pow_5, 0);
   // 139: -> true -> sqr(pow(x n >> 1))
-  frame->slots[4] /* temp__3 */ = create_closure(entry__10_12, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__std__pow_12, 0);
   // 136: cond
   // 137:   -> n == 0 -> 1
   // 138:   -> is_odd(n) -> x*sqr(pow(x n >> 1))
@@ -1831,7 +1831,7 @@ static void entry__10_1_std__pow(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__11_1_std__sqrt(void) {
+static void entry__std__sqrt_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -1854,7 +1854,7 @@ static void entry__11_1_std__sqrt(void) {
   // 155:       !high mid
   // 156:     :
   // 157:       !low mid
-  frame->slots[3] /* temp__1 */ = create_closure(entry__11_2, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__std__sqrt_2, 0);
   // 151: repeat 50:
   // 152:   $mid (high+low)/2
   // 153:   if
@@ -1869,9 +1869,9 @@ static void entry__11_1_std__sqrt(void) {
   result_count = 0;
   myself = get__repeat();
   func = myself->type;
-  frame->cont = cont__11_9;
+  frame->cont = cont__std__sqrt_9;
 }
-static void entry__11_7(void) {
+static void entry__std__sqrt_7(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // high: 0
@@ -1890,7 +1890,7 @@ static void entry__11_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_8(void) {
+static void entry__std__sqrt_8(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // low: 0
@@ -1909,7 +1909,7 @@ static void entry__11_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_2(void) {
+static void entry__std__sqrt_2(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // high: 0
@@ -1932,9 +1932,9 @@ static void entry__11_2(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__11_3;
+  frame->cont = cont__std__sqrt_3;
 }
-static void cont__11_3(void) {
+static void cont__std__sqrt_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1948,9 +1948,9 @@ static void cont__11_3(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__11_4;
+  frame->cont = cont__std__sqrt_4;
 }
-static void cont__11_4(void) {
+static void cont__std__sqrt_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1963,9 +1963,9 @@ static void cont__11_4(void) {
   result_count = 1;
   myself = get__sqr();
   func = myself->type;
-  frame->cont = cont__11_5;
+  frame->cont = cont__std__sqrt_5;
 }
-static void cont__11_5(void) {
+static void cont__std__sqrt_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1979,9 +1979,9 @@ static void cont__11_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__11_6;
+  frame->cont = cont__std__sqrt_6;
 }
-static void cont__11_6(void) {
+static void cont__std__sqrt_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1989,10 +1989,10 @@ static void cont__11_6(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 154: ... :
   // 155:   !high mid
-  frame->slots[6] /* temp__3 */ = create_closure(entry__11_7, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__std__sqrt_7, 0);
   // 156: :
   // 157:   !low mid
-  frame->slots[7] /* temp__4 */ = create_closure(entry__11_8, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__std__sqrt_8, 0);
   // 153: if
   // 154:   sqr(mid) > x:
   // 155:     !high mid
@@ -2008,7 +2008,7 @@ static void cont__11_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__11_9(void) {
+static void cont__std__sqrt_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2021,7 +2021,7 @@ static void cont__11_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1_std__sin(void) {
+static void entry__std__sin_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // alpha: 0
@@ -2045,7 +2045,7 @@ static void entry__13_1_std__sin(void) {
   // 176:   !t -t*alpha*alpha/(2*p*(2*p+1))
   // 177:   plus &s t
   // 178:   inc &p
-  frame->slots[4] /* temp__1 */ = create_closure(entry__13_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__std__sin_2, 0);
   // 175: repeat 13:
   // 176:   !t -t*alpha*alpha/(2*p*(2*p+1))
   // 177:   plus &s t
@@ -2057,9 +2057,9 @@ static void entry__13_1_std__sin(void) {
   result_count = 0;
   myself = get__repeat();
   func = myself->type;
-  frame->cont = cont__13_13;
+  frame->cont = cont__std__sin_13;
 }
-static void entry__13_2(void) {
+static void entry__std__sin_2(void) {
   allocate_initialized_frame_gc(4, 11);
   // slot allocations:
   // t: 0
@@ -2081,9 +2081,9 @@ static void entry__13_2(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__13_3;
+  frame->cont = cont__std__sin_3;
 }
-static void cont__13_3(void) {
+static void cont__std__sin_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2097,9 +2097,9 @@ static void cont__13_3(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__13_4;
+  frame->cont = cont__std__sin_4;
 }
-static void cont__13_4(void) {
+static void cont__std__sin_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2113,9 +2113,9 @@ static void cont__13_4(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__13_5;
+  frame->cont = cont__std__sin_5;
 }
-static void cont__13_5(void) {
+static void cont__std__sin_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2129,9 +2129,9 @@ static void cont__13_5(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__13_6;
+  frame->cont = cont__std__sin_6;
 }
-static void cont__13_6(void) {
+static void cont__std__sin_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2145,9 +2145,9 @@ static void cont__13_6(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__13_7;
+  frame->cont = cont__std__sin_7;
 }
-static void cont__13_7(void) {
+static void cont__std__sin_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2161,9 +2161,9 @@ static void cont__13_7(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__13_8;
+  frame->cont = cont__std__sin_8;
 }
-static void cont__13_8(void) {
+static void cont__std__sin_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2177,9 +2177,9 @@ static void cont__13_8(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__13_9;
+  frame->cont = cont__std__sin_9;
 }
-static void cont__13_9(void) {
+static void cont__std__sin_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2193,9 +2193,9 @@ static void cont__13_9(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__13_10;
+  frame->cont = cont__std__sin_10;
 }
-static void cont__13_10(void) {
+static void cont__std__sin_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2209,9 +2209,9 @@ static void cont__13_10(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__13_11;
+  frame->cont = cont__std__sin_11;
 }
-static void cont__13_11(void) {
+static void cont__std__sin_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2224,9 +2224,9 @@ static void cont__13_11(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__13_12;
+  frame->cont = cont__std__sin_12;
 }
-static void cont__13_12(void) {
+static void cont__std__sin_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2238,7 +2238,7 @@ static void cont__13_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__13_13(void) {
+static void cont__std__sin_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2251,7 +2251,7 @@ static void cont__13_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1_std__cos(void) {
+static void entry__std__cos_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // alpha: 0
@@ -2275,7 +2275,7 @@ static void entry__14_1_std__cos(void) {
   // 193:   inc &p
   // 194:   !t -t*alpha*alpha/((2*p-1)*(2*p))
   // 195:   plus &s t
-  frame->slots[4] /* temp__1 */ = create_closure(entry__14_2, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__std__cos_2, 0);
   // 192: repeat 13:
   // 193:   inc &p
   // 194:   !t -t*alpha*alpha/((2*p-1)*(2*p))
@@ -2287,9 +2287,9 @@ static void entry__14_1_std__cos(void) {
   result_count = 0;
   myself = get__repeat();
   func = myself->type;
-  frame->cont = cont__14_13;
+  frame->cont = cont__std__cos_13;
 }
-static void entry__14_2(void) {
+static void entry__std__cos_2(void) {
   allocate_initialized_frame_gc(4, 11);
   // slot allocations:
   // p: 0
@@ -2311,9 +2311,9 @@ static void entry__14_2(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__14_3;
+  frame->cont = cont__std__cos_3;
 }
-static void cont__14_3(void) {
+static void cont__std__cos_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2326,9 +2326,9 @@ static void cont__14_3(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__14_4;
+  frame->cont = cont__std__cos_4;
 }
-static void cont__14_4(void) {
+static void cont__std__cos_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2342,9 +2342,9 @@ static void cont__14_4(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__14_5;
+  frame->cont = cont__std__cos_5;
 }
-static void cont__14_5(void) {
+static void cont__std__cos_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2358,9 +2358,9 @@ static void cont__14_5(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__14_6;
+  frame->cont = cont__std__cos_6;
 }
-static void cont__14_6(void) {
+static void cont__std__cos_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2374,9 +2374,9 @@ static void cont__14_6(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__14_7;
+  frame->cont = cont__std__cos_7;
 }
-static void cont__14_7(void) {
+static void cont__std__cos_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2390,9 +2390,9 @@ static void cont__14_7(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__14_8;
+  frame->cont = cont__std__cos_8;
 }
-static void cont__14_8(void) {
+static void cont__std__cos_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2406,9 +2406,9 @@ static void cont__14_8(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__14_9;
+  frame->cont = cont__std__cos_9;
 }
-static void cont__14_9(void) {
+static void cont__std__cos_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2422,9 +2422,9 @@ static void cont__14_9(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__14_10;
+  frame->cont = cont__std__cos_10;
 }
-static void cont__14_10(void) {
+static void cont__std__cos_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2438,9 +2438,9 @@ static void cont__14_10(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__14_11;
+  frame->cont = cont__std__cos_11;
 }
-static void cont__14_11(void) {
+static void cont__std__cos_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2454,9 +2454,9 @@ static void cont__14_11(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__14_12;
+  frame->cont = cont__std__cos_12;
 }
-static void cont__14_12(void) {
+static void cont__std__cos_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2468,7 +2468,7 @@ static void cont__14_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__14_13(void) {
+static void cont__std__cos_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2481,7 +2481,7 @@ static void cont__14_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1_std__tan(void) {
+static void entry__std__tan_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // alpha: 0
@@ -2496,9 +2496,9 @@ static void entry__15_1_std__tan(void) {
   result_count = 1;
   myself = get__sin();
   func = myself->type;
-  frame->cont = cont__15_2;
+  frame->cont = cont__std__tan_2;
 }
-static void cont__15_2(void) {
+static void cont__std__tan_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2511,9 +2511,9 @@ static void cont__15_2(void) {
   result_count = 1;
   myself = get__cos();
   func = myself->type;
-  frame->cont = cont__15_3;
+  frame->cont = cont__std__tan_3;
 }
-static void cont__15_3(void) {
+static void cont__std__tan_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2527,9 +2527,9 @@ static void cont__15_3(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__15_4;
+  frame->cont = cont__std__tan_4;
 }
-static void cont__15_4(void) {
+static void cont__std__tan_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2543,7 +2543,7 @@ static void cont__15_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_3(void) {
+static void entry__std__atan_3(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // x: 0
@@ -2559,9 +2559,9 @@ static void entry__16_3(void) {
   result_count = 1;
   myself = var._atan2;
   func = myself->type;
-  frame->cont = cont__16_4;
+  frame->cont = cont__std__atan_4;
 }
-static void cont__16_4(void) {
+static void cont__std__atan_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2575,7 +2575,7 @@ static void cont__16_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_5(void) {
+static void entry__std__atan_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -2591,9 +2591,9 @@ static void entry__16_5(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__16_6;
+  frame->cont = cont__std__atan_6;
 }
-static void cont__16_6(void) {
+static void cont__std__atan_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2606,9 +2606,9 @@ static void cont__16_6(void) {
   result_count = 1;
   myself = var._atan2;
   func = myself->type;
-  frame->cont = cont__16_7;
+  frame->cont = cont__std__atan_7;
 }
-static void cont__16_7(void) {
+static void cont__std__atan_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2621,9 +2621,9 @@ static void cont__16_7(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__16_8;
+  frame->cont = cont__std__atan_8;
 }
-static void cont__16_8(void) {
+static void cont__std__atan_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2637,7 +2637,7 @@ static void cont__16_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1_std__atan(void) {
+static void entry__std__atan_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -2653,18 +2653,18 @@ static void entry__16_1_std__atan(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__16_2;
+  frame->cont = cont__std__atan_2;
 }
-static void cont__16_2(void) {
+static void cont__std__atan_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 216: ... -> atan2(x)
-  frame->slots[2] /* temp__2 */ = create_closure(entry__16_3, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__std__atan_3, 0);
   // 216: ... -> -atan2(-x)
-  frame->slots[3] /* temp__3 */ = create_closure(entry__16_5, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__std__atan_5, 0);
   // 216: if x > 0 (-> atan2(x)) -> -atan2(-x)
   argument_count = 3;
   arguments = node_p;
@@ -2676,7 +2676,7 @@ static void cont__16_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__17_3(void) {
+static void entry__atan2_3(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // x: 0
@@ -2693,9 +2693,9 @@ static void entry__17_3(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__17_4;
+  frame->cont = cont__atan2_4;
 }
-static void cont__17_4(void) {
+static void cont__atan2_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2709,9 +2709,9 @@ static void cont__17_4(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__17_5;
+  frame->cont = cont__atan2_5;
 }
-static void cont__17_5(void) {
+static void cont__atan2_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2724,9 +2724,9 @@ static void cont__17_5(void) {
   result_count = 1;
   myself = var._atan3;
   func = myself->type;
-  frame->cont = cont__17_6;
+  frame->cont = cont__atan2_6;
 }
-static void cont__17_6(void) {
+static void cont__atan2_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2740,9 +2740,9 @@ static void cont__17_6(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__17_7;
+  frame->cont = cont__atan2_7;
 }
-static void cont__17_7(void) {
+static void cont__atan2_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2756,7 +2756,7 @@ static void cont__17_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__17_8(void) {
+static void entry__atan2_8(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // x: 0
@@ -2772,9 +2772,9 @@ static void entry__17_8(void) {
   result_count = 1;
   myself = var._atan3;
   func = myself->type;
-  frame->cont = cont__17_9;
+  frame->cont = cont__atan2_9;
 }
-static void cont__17_9(void) {
+static void cont__atan2_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2788,7 +2788,7 @@ static void cont__17_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__17_1_atan2(void) {
+static void entry__atan2_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // x: 0
@@ -2804,18 +2804,18 @@ static void entry__17_1_atan2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__17_2;
+  frame->cont = cont__atan2_2;
 }
-static void cont__17_2(void) {
+static void cont__atan2_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 218: ... -> PI/2-atan3(1/x)
-  frame->slots[2] /* temp__2 */ = create_closure(entry__17_3, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__atan2_3, 0);
   // 218: ... -> atan3(x)
-  frame->slots[3] /* temp__3 */ = create_closure(entry__17_8, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__atan2_8, 0);
   // 218: ... if x > 1 (-> PI/2-atan3(1/x)) -> atan3(x)
   argument_count = 3;
   arguments = node_p;
@@ -2827,7 +2827,7 @@ static void cont__17_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__18_5(void) {
+static void entry__atan3_5(void) {
   allocate_initialized_frame_gc(1, 10);
   // slot allocations:
   // x: 0
@@ -2844,9 +2844,9 @@ static void entry__18_5(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__18_6;
+  frame->cont = cont__atan3_6;
 }
-static void cont__18_6(void) {
+static void cont__atan3_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2859,9 +2859,9 @@ static void cont__18_6(void) {
   result_count = 1;
   myself = get__sqrt();
   func = myself->type;
-  frame->cont = cont__18_7;
+  frame->cont = cont__atan3_7;
 }
-static void cont__18_7(void) {
+static void cont__atan3_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2875,9 +2875,9 @@ static void cont__18_7(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__18_8;
+  frame->cont = cont__atan3_8;
 }
-static void cont__18_8(void) {
+static void cont__atan3_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2891,9 +2891,9 @@ static void cont__18_8(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__18_9;
+  frame->cont = cont__atan3_9;
 }
-static void cont__18_9(void) {
+static void cont__atan3_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2906,9 +2906,9 @@ static void cont__18_9(void) {
   result_count = 1;
   myself = get__sqrt();
   func = myself->type;
-  frame->cont = cont__18_10;
+  frame->cont = cont__atan3_10;
 }
-static void cont__18_10(void) {
+static void cont__atan3_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2922,9 +2922,9 @@ static void cont__18_10(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__18_11;
+  frame->cont = cont__atan3_11;
 }
-static void cont__18_11(void) {
+static void cont__atan3_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2938,9 +2938,9 @@ static void cont__18_11(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__18_12;
+  frame->cont = cont__atan3_12;
 }
-static void cont__18_12(void) {
+static void cont__atan3_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2953,9 +2953,9 @@ static void cont__18_12(void) {
   result_count = 1;
   myself = var._atan4;
   func = myself->type;
-  frame->cont = cont__18_13;
+  frame->cont = cont__atan3_13;
 }
-static void cont__18_13(void) {
+static void cont__atan3_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2969,9 +2969,9 @@ static void cont__18_13(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__18_14;
+  frame->cont = cont__atan3_14;
 }
-static void cont__18_14(void) {
+static void cont__atan3_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2985,7 +2985,7 @@ static void cont__18_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_15(void) {
+static void entry__atan3_15(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // x: 0
@@ -3001,9 +3001,9 @@ static void entry__18_15(void) {
   result_count = 1;
   myself = var._atan4;
   func = myself->type;
-  frame->cont = cont__18_16;
+  frame->cont = cont__atan3_16;
 }
-static void cont__18_16(void) {
+static void cont__atan3_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3017,7 +3017,7 @@ static void cont__18_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1_atan3(void) {
+static void entry__atan3_1(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // x: 0
@@ -3032,9 +3032,9 @@ static void entry__18_1_atan3(void) {
   result_count = 1;
   myself = get__sqrt();
   func = myself->type;
-  frame->cont = cont__18_2;
+  frame->cont = cont__atan3_2;
 }
-static void cont__18_2(void) {
+static void cont__atan3_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3048,9 +3048,9 @@ static void cont__18_2(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__18_3;
+  frame->cont = cont__atan3_3;
 }
-static void cont__18_3(void) {
+static void cont__atan3_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3064,18 +3064,18 @@ static void cont__18_3(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__18_4;
+  frame->cont = cont__atan3_4;
 }
-static void cont__18_4(void) {
+static void cont__atan3_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 221: ... -> PI/6+atan4((sqrt(3)*x-1)/(sqrt(3)+x))
-  frame->slots[4] /* temp__4 */ = create_closure(entry__18_5, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__atan3_5, 0);
   // 221: ... -> atan4(x)
-  frame->slots[5] /* temp__5 */ = create_closure(entry__18_15, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__atan3_15, 0);
   // 221: if x > 2-sqrt(3) (-> PI/6+atan4((sqrt(3)*x-1)/(sqrt(3)+x))) -> atan4(x)
   argument_count = 3;
   arguments = node_p;
@@ -3087,7 +3087,7 @@ static void cont__18_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_1_atan4(void) {
+static void entry__atan4_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // x: 0
@@ -3111,7 +3111,7 @@ static void entry__19_1_atan4(void) {
   // 228:   plus &sum s*p/i
   // 229:   !p p*x*x
   // 230:   !s -s
-  frame->slots[4] /* temp__1 */ = create_closure(entry__19_2, 1);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__atan4_2, 1);
   // 227: from_to_by 1 23 2: (i)
   // 228:   plus &sum s*p/i
   // 229:   !p p*x*x
@@ -3125,9 +3125,9 @@ static void entry__19_1_atan4(void) {
   result_count = 0;
   myself = get__from_to_by();
   func = myself->type;
-  frame->cont = cont__19_9;
+  frame->cont = cont__atan4_9;
 }
-static void entry__19_2(void) {
+static void entry__atan4_2(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // i: 0
@@ -3151,9 +3151,9 @@ static void entry__19_2(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__19_3;
+  frame->cont = cont__atan4_3;
 }
-static void cont__19_3(void) {
+static void cont__atan4_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3167,9 +3167,9 @@ static void cont__19_3(void) {
   result_count = 1;
   myself = get__std__over();
   func = myself->type;
-  frame->cont = cont__19_4;
+  frame->cont = cont__atan4_4;
 }
-static void cont__19_4(void) {
+static void cont__atan4_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3183,9 +3183,9 @@ static void cont__19_4(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__19_5;
+  frame->cont = cont__atan4_5;
 }
-static void cont__19_5(void) {
+static void cont__atan4_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3199,9 +3199,9 @@ static void cont__19_5(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__19_6;
+  frame->cont = cont__atan4_6;
 }
-static void cont__19_6(void) {
+static void cont__atan4_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3215,9 +3215,9 @@ static void cont__19_6(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__19_7;
+  frame->cont = cont__atan4_7;
 }
-static void cont__19_7(void) {
+static void cont__atan4_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3230,9 +3230,9 @@ static void cont__19_7(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__19_8;
+  frame->cont = cont__atan4_8;
 }
-static void cont__19_8(void) {
+static void cont__atan4_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3244,7 +3244,7 @@ static void cont__19_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_9(void) {
+static void cont__atan4_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3301,29 +3301,29 @@ EXPORT void phase_2__basic__math(void) {
   number__23 = from_uint32(23U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  func__1_1_std__inc = create_function(entry__1_1_std__inc, 1);
-  func__2_1_std__dec = create_function(entry__2_1_std__dec, 1);
-  func__3_1_std__extend_to = create_function(entry__3_1_std__extend_to, 2);
-  func__4_1_std__reduce_to = create_function(entry__4_1_std__reduce_to, 2);
-  func__5_1_std__abs = create_function(entry__5_1_std__abs, 1);
-  func__6_4 = create_function(entry__6_4, 0);
-  func__6_7 = create_function(entry__6_7, 0);
-  func__6_10 = create_function(entry__6_10, 0);
-  func__6_9 = create_function(entry__6_9, 0);
-  func__6_1_std__sgn = create_function(entry__6_1_std__sgn, 1);
-  func__7_1_std__sqr = create_function(entry__7_1_std__sqr, 1);
-  func__8_1_std__min = create_function(entry__8_1_std__min, -1);
-  func__9_1_std__max = create_function(entry__9_1_std__max, -1);
-  func__10_4 = create_function(entry__10_4, 0);
-  func__10_1_std__pow = create_function(entry__10_1_std__pow, 2);
-  func__11_1_std__sqrt = create_function(entry__11_1_std__sqrt, 1);
-  func__13_1_std__sin = create_function(entry__13_1_std__sin, 1);
-  func__14_1_std__cos = create_function(entry__14_1_std__cos, 1);
-  func__15_1_std__tan = create_function(entry__15_1_std__tan, 1);
-  func__16_1_std__atan = create_function(entry__16_1_std__atan, 1);
-  func__17_1_atan2 = create_function(entry__17_1_atan2, 1);
-  func__18_1_atan3 = create_function(entry__18_1_atan3, 1);
-  func__19_1_atan4 = create_function(entry__19_1_atan4, 1);
+  func__std__inc_1 = create_function(entry__std__inc_1, 1);
+  func__std__dec_1 = create_function(entry__std__dec_1, 1);
+  func__std__extend_to_1 = create_function(entry__std__extend_to_1, 2);
+  func__std__reduce_to_1 = create_function(entry__std__reduce_to_1, 2);
+  func__std__abs_1 = create_function(entry__std__abs_1, 1);
+  func__std__sgn_4 = create_function(entry__std__sgn_4, 0);
+  func__std__sgn_7 = create_function(entry__std__sgn_7, 0);
+  func__std__sgn_10 = create_function(entry__std__sgn_10, 0);
+  func__std__sgn_9 = create_function(entry__std__sgn_9, 0);
+  func__std__sgn_1 = create_function(entry__std__sgn_1, 1);
+  func__std__sqr_1 = create_function(entry__std__sqr_1, 1);
+  func__std__min_1 = create_function(entry__std__min_1, -1);
+  func__std__max_1 = create_function(entry__std__max_1, -1);
+  func__std__pow_4 = create_function(entry__std__pow_4, 0);
+  func__std__pow_1 = create_function(entry__std__pow_1, 2);
+  func__std__sqrt_1 = create_function(entry__std__sqrt_1, 1);
+  func__std__sin_1 = create_function(entry__std__sin_1, 1);
+  func__std__cos_1 = create_function(entry__std__cos_1, 1);
+  func__std__tan_1 = create_function(entry__std__tan_1, 1);
+  func__std__atan_1 = create_function(entry__std__atan_1, 1);
+  func__atan2_1 = create_function(entry__atan2_1, 1);
+  func__atan3_1 = create_function(entry__atan3_1, 1);
+  func__atan4_1 = create_function(entry__atan4_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3390,25 +3390,25 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__math(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__inc, &func__1_1_std__inc);
-  assign_variable(&var.std__dec, &func__2_1_std__dec);
-  assign_variable(&var.std__extend_to, &func__3_1_std__extend_to);
-  assign_variable(&var.std__reduce_to, &func__4_1_std__reduce_to);
-  assign_variable(&var.std__abs, &func__5_1_std__abs);
-  assign_variable(&var.std__sgn, &func__6_1_std__sgn);
-  assign_variable(&var.std__sqr, &func__7_1_std__sqr);
-  assign_variable(&var.std__min, &func__8_1_std__min);
-  assign_variable(&var.std__max, &func__9_1_std__max);
-  assign_variable(&var.std__pow, &func__10_1_std__pow);
-  assign_variable(&var.std__sqrt, &func__11_1_std__sqrt);
+  assign_variable(&var.std__inc, &func__std__inc_1);
+  assign_variable(&var.std__dec, &func__std__dec_1);
+  assign_variable(&var.std__extend_to, &func__std__extend_to_1);
+  assign_variable(&var.std__reduce_to, &func__std__reduce_to_1);
+  assign_variable(&var.std__abs, &func__std__abs_1);
+  assign_variable(&var.std__sgn, &func__std__sgn_1);
+  assign_variable(&var.std__sqr, &func__std__sqr_1);
+  assign_variable(&var.std__min, &func__std__min_1);
+  assign_variable(&var.std__max, &func__std__max_1);
+  assign_variable(&var.std__pow, &func__std__pow_1);
+  assign_variable(&var.std__sqrt, &func__std__sqrt_1);
   assign_value(&var.std__PI, number__3_1415926535897932);
-  assign_variable(&var.std__sin, &func__13_1_std__sin);
-  assign_variable(&var.std__cos, &func__14_1_std__cos);
-  assign_variable(&var.std__tan, &func__15_1_std__tan);
-  assign_variable(&var.std__atan, &func__16_1_std__atan);
-  assign_variable(&var._atan2, &func__17_1_atan2);
-  assign_variable(&var._atan3, &func__18_1_atan3);
-  assign_variable(&var._atan4, &func__19_1_atan4);
+  assign_variable(&var.std__sin, &func__std__sin_1);
+  assign_variable(&var.std__cos, &func__std__cos_1);
+  assign_variable(&var.std__tan, &func__std__tan_1);
+  assign_variable(&var.std__atan, &func__std__atan_1);
+  assign_variable(&var._atan2, &func__atan2_1);
+  assign_variable(&var._atan3, &func__atan3_1);
+  assign_variable(&var._atan4, &func__atan4_1);
 }
 
 static int already_run_phase_6 = false;

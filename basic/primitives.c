@@ -265,53 +265,53 @@ static void type__std__has_minimum_length(void);
 static NODE *get__std__has_minimum_length(void) {
   return var.std__has_minimum_length;
 }
-static NODE *func__2_1_types__object_has_minimum_length;
-static void entry__2_1_types__object_has_minimum_length(void);
-static FRAME_INFO frame__2_1_types__object_has_minimum_length = {2, {"self", "len"}};
-static void cont__2_2(void);
-static void cont__2_3(void);
-static void cont__2_4(void);
-static NODE *func__3_1_std__ignore;
-static void entry__3_1_std__ignore(void);
-static FRAME_INFO frame__3_1_std__ignore = {1, {"dummy"}};
+static NODE *func__types__object__has_minimum_length_1;
+static void entry__types__object__has_minimum_length_1(void);
+static FRAME_INFO frame__types__object__has_minimum_length_1 = {2, {"self", "len"}};
+static void cont__types__object__has_minimum_length_2(void);
+static void cont__types__object__has_minimum_length_3(void);
+static void cont__types__object__has_minimum_length_4(void);
+static NODE *func__std__ignore_1;
+static void entry__std__ignore_1(void);
+static FRAME_INFO frame__std__ignore_1 = {1, {"dummy"}};
 static NODE *get__std__ignore(void) {
   return var.std__ignore;
 }
-static NODE *func__4_1_std__writeln_to;
-static void entry__4_1_std__writeln_to(void);
-static FRAME_INFO frame__4_1_std__writeln_to = {2, {"file_handle", "arguments"}};
+static NODE *func__std__writeln_to_1;
+static void entry__std__writeln_to_1(void);
+static FRAME_INFO frame__std__writeln_to_1 = {2, {"file_handle", "arguments"}};
 static NODE *get__std__writeln_to(void) {
   return var.std__writeln_to;
 }
-static NODE *func__5_1_std__swap;
-static void entry__5_1_std__swap(void);
-static FRAME_INFO frame__5_1_std__swap = {2, {"left", "right"}};
+static NODE *func__std__swap_1;
+static void entry__std__swap_1(void);
+static FRAME_INFO frame__std__swap_1 = {2, {"left", "right"}};
 static NODE *get__std__swap(void) {
   return var.std__swap;
 }
-static void entry__6_1_std__pass(void);
-static NODE *func__6_1_std__pass;
+static void entry__std__pass_1(void);
+static NODE *func__std__pass_1;
 static NODE *get__std__pass(void) {
   return var.std__pass;
 }
-static NODE *func__7_1_std__eval;
-static void entry__7_1_std__eval(void);
-static FRAME_INFO frame__7_1_std__eval = {1, {"body"}};
+static NODE *func__std__eval_1;
+static void entry__std__eval_1(void);
+static FRAME_INFO frame__std__eval_1 = {1, {"body"}};
 static NODE *get__std__eval(void) {
   return var.std__eval;
 }
-static void entry__8_1_std__do(void);
-static NODE *func__8_1_std__do;
+static void entry__std__do_1(void);
+static NODE *func__std__do_1;
 static NODE *get__std__do(void) {
   return var.std__do;
 }
-static void entry__9_1_std__assign(void);
-static NODE *func__9_1_std__assign;
+static void entry__std__assign_1(void);
+static NODE *func__std__assign_1;
 static NODE *get__std__assign(void) {
   return var.std__assign;
 }
-static void entry__10_1_std__goto(void);
-static NODE *func__10_1_std__goto;
+static void entry__std__goto_1(void);
+static NODE *func__std__goto_1;
 static NODE *get__std__goto(void) {
   return var.std__goto;
 }
@@ -320,18 +320,18 @@ void run__basic__primitives(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__has_minimum_length, NULL, 23, 23, 2, 24},
   {run__basic__primitives, NULL, },
-  {entry__2_1_types__object_has_minimum_length, NULL, 52, 52, 8, 22},
-  {cont__2_2, &frame__2_1_types__object_has_minimum_length, 52, 52, 8, 29},
-  {cont__2_3, &frame__2_1_types__object_has_minimum_length, 52, 52, 8, 29},
-  {cont__2_4, &frame__2_1_types__object_has_minimum_length, 52, 52, 5, 29},
-  {entry__3_1_std__ignore, NULL, 60, 60, 3, 6},
-  {entry__4_1_std__writeln_to, NULL, 75, 75, 3, 40},
-  {entry__5_1_std__swap, NULL, 90, 90, 3, 15},
-  {entry__6_1_std__pass, NULL, 107, 110, 3, 2},
-  {entry__7_1_std__eval, NULL, 130, 130, 3, 6},
-  {entry__8_1_std__do, NULL, 154, 159, 3, 2},
-  {entry__9_1_std__assign, NULL, 196, 198, 3, 2},
-  {entry__10_1_std__goto, NULL, 210, 225, 3, 2}
+  {entry__types__object__has_minimum_length_1, NULL, 52, 52, 8, 22},
+  {cont__types__object__has_minimum_length_2, &frame__types__object__has_minimum_length_1, 52, 52, 8, 29},
+  {cont__types__object__has_minimum_length_3, &frame__types__object__has_minimum_length_1, 52, 52, 8, 29},
+  {cont__types__object__has_minimum_length_4, &frame__types__object__has_minimum_length_1, 52, 52, 5, 29},
+  {entry__std__ignore_1, NULL, 60, 60, 3, 6},
+  {entry__std__writeln_to_1, NULL, 75, 75, 3, 40},
+  {entry__std__swap_1, NULL, 90, 90, 3, 15},
+  {entry__std__pass_1, NULL, 107, 110, 3, 2},
+  {entry__std__eval_1, NULL, 130, 130, 3, 6},
+  {entry__std__do_1, NULL, 154, 159, 3, 2},
+  {entry__std__assign_1, NULL, 196, 198, 3, 2},
+  {entry__std__goto_1, NULL, 210, 225, 3, 2}
 };
 
 union NODE {
@@ -402,7 +402,7 @@ EXPORT void run__basic__primitives(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__2_1_types__object_has_minimum_length(void) {
+static void entry__types__object__has_minimum_length_1(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -418,9 +418,9 @@ static void entry__2_1_types__object_has_minimum_length(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__2_2;
+  frame->cont = cont__types__object__has_minimum_length_2;
 }
-static void cont__2_2(void) {
+static void cont__types__object__has_minimum_length_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -434,9 +434,9 @@ static void cont__2_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__2_3;
+  frame->cont = cont__types__object__has_minimum_length_3;
 }
-static void cont__2_3(void) {
+static void cont__types__object__has_minimum_length_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -449,9 +449,9 @@ static void cont__2_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__2_4;
+  frame->cont = cont__types__object__has_minimum_length_4;
 }
-static void cont__2_4(void) {
+static void cont__types__object__has_minimum_length_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -465,7 +465,7 @@ static void cont__2_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__3_1_std__ignore(void) {
+static void entry__std__ignore_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // dummy: 0
@@ -481,7 +481,7 @@ static void entry__3_1_std__ignore(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_1_std__writeln_to(void) {
+static void entry__std__writeln_to_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
@@ -504,7 +504,7 @@ static void entry__4_1_std__writeln_to(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__5_1_std__swap(void) {
+static void entry__std__swap_1(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // left: 0
@@ -522,7 +522,7 @@ static void entry__5_1_std__swap(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1_std__pass(void) {
+static void entry__std__pass_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -534,7 +534,7 @@ static void entry__6_1_std__pass(void) {
     return;
   }
 }
-static void entry__7_1_std__eval(void) {
+static void entry__std__eval_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // body: 0
@@ -550,7 +550,7 @@ static void entry__7_1_std__eval(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_1_std__do(void) {
+static void entry__std__do_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -563,14 +563,14 @@ static void entry__8_1_std__do(void) {
     return;
   }
 }
-static void entry__9_1_std__assign(void) {
+static void entry__std__assign_1(void) {
   {
     func = frame->cont;
     frame->cont = invalid_continuation;
     return;
   }
 }
-static void entry__10_1_std__goto(void) {
+static void entry__std__goto_1(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
@@ -620,15 +620,15 @@ EXPORT void phase_2__basic__primitives(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   character__10 = from_uchar32(10);
-  func__2_1_types__object_has_minimum_length = create_function(entry__2_1_types__object_has_minimum_length, 2);
-  func__3_1_std__ignore = create_function(entry__3_1_std__ignore, 1);
-  func__4_1_std__writeln_to = create_function(entry__4_1_std__writeln_to, -1);
-  func__5_1_std__swap = create_function(entry__5_1_std__swap, 2);
-  func__6_1_std__pass = create_function(entry__6_1_std__pass, 0);
-  func__7_1_std__eval = create_function(entry__7_1_std__eval, 1);
-  func__8_1_std__do = create_function(entry__8_1_std__do, 1);
-  func__9_1_std__assign = create_function(entry__9_1_std__assign, -1);
-  func__10_1_std__goto = create_function(entry__10_1_std__goto, -1);
+  func__types__object__has_minimum_length_1 = create_function(entry__types__object__has_minimum_length_1, 2);
+  func__std__ignore_1 = create_function(entry__std__ignore_1, 1);
+  func__std__writeln_to_1 = create_function(entry__std__writeln_to_1, -1);
+  func__std__swap_1 = create_function(entry__std__swap_1, 2);
+  func__std__pass_1 = create_function(entry__std__pass_1, 0);
+  func__std__eval_1 = create_function(entry__std__eval_1, 1);
+  func__std__do_1 = create_function(entry__std__do_1, 1);
+  func__std__assign_1 = create_function(entry__std__assign_1, -1);
+  func__std__goto_1 = create_function(entry__std__goto_1, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -662,7 +662,7 @@ EXPORT void phase_4__basic__primitives(void) {
   use_read_only("std", "not", &get__std__not, &get_value_or_future__std__not);
   use_read_only("types", "object", &get__types__object, &get_value_or_future__types__object);
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
-  define_method("types", "object", poly_idx__has_minimum_length, func__2_1_types__object_has_minimum_length);
+  define_method("types", "object", poly_idx__has_minimum_length, func__types__object__has_minimum_length_1);
 }
 
 static int already_run_phase_5 = false;
@@ -671,14 +671,14 @@ EXPORT void phase_5__basic__primitives(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_value(&var.std__has_minimum_length, create_function(type__std__has_minimum_length, -1));
-  assign_variable(&var.std__ignore, &func__3_1_std__ignore);
-  assign_variable(&var.std__writeln_to, &func__4_1_std__writeln_to);
-  assign_variable(&var.std__swap, &func__5_1_std__swap);
-  assign_variable(&var.std__pass, &func__6_1_std__pass);
-  assign_variable(&var.std__eval, &func__7_1_std__eval);
-  assign_variable(&var.std__do, &func__8_1_std__do);
-  assign_variable(&var.std__assign, &func__9_1_std__assign);
-  assign_variable(&var.std__goto, &func__10_1_std__goto);
+  assign_variable(&var.std__ignore, &func__std__ignore_1);
+  assign_variable(&var.std__writeln_to, &func__std__writeln_to_1);
+  assign_variable(&var.std__swap, &func__std__swap_1);
+  assign_variable(&var.std__pass, &func__std__pass_1);
+  assign_variable(&var.std__eval, &func__std__eval_1);
+  assign_variable(&var.std__do, &func__std__do_1);
+  assign_variable(&var.std__assign, &func__std__assign_1);
+  assign_variable(&var.std__goto, &func__std__goto_1);
 }
 
 static int already_run_phase_6 = false;

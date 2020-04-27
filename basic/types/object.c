@@ -278,9 +278,9 @@ static NODE *get__types__object(void) {
   return var.types__object;
 }
 static NODE *create__types__object();
-static NODE *func__4_1_types__object_default_value;
-static void entry__4_1_types__object_default_value(void);
-static FRAME_INFO frame__4_1_types__object_default_value = {2, {"self", "default"}};
+static NODE *func__types__object__default_value_1;
+static void entry__types__object__default_value_1(void);
+static FRAME_INFO frame__types__object__default_value_1 = {2, {"self", "default"}};
 
 int has_prefix(const char *str, const char *prefix)
 {
@@ -290,16 +290,16 @@ int has_prefix(const char *str, const char *prefix)
 }
 
 static long func__types__object___debug_string(NODE *node, int indent, int max_depth, char *buf);
-static NODE *func__7_1_types__object_serialize;
-static void entry__7_1_types__object_serialize(void);
-static FRAME_INFO frame__7_1_types__object_serialize = {2, {"self", "indent"}};
-static void cont__7_2(void);
-static NODE *func__8_1_types__object_equal_type_and_value;
-static void entry__8_1_types__object_equal_type_and_value(void);
-static FRAME_INFO frame__8_1_types__object_equal_type_and_value = {2, {"a", "b"}};
-static void cont__8_2(void);
-static void entry__9_1_std__current_address_of(void);
-static NODE *func__9_1_std__current_address_of;
+static NODE *func__types__object__serialize_1;
+static void entry__types__object__serialize_1(void);
+static FRAME_INFO frame__types__object__serialize_1 = {2, {"self", "indent"}};
+static void cont__types__object__serialize_2(void);
+static NODE *func__types__object__equal_type_and_value_1;
+static void entry__types__object__equal_type_and_value_1(void);
+static FRAME_INFO frame__types__object__equal_type_and_value_1 = {2, {"a", "b"}};
+static void cont__types__object__equal_type_and_value_2(void);
+static void entry__std__current_address_of_1(void);
+static NODE *func__std__current_address_of_1;
 static NODE *get__std__current_address_of(void) {
   return var.std__current_address_of;
 }
@@ -307,12 +307,12 @@ void run__basic__types__object(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__object, NULL, },
-  {entry__4_1_types__object_default_value, NULL, 50, 50, 3, 9},
-  {entry__7_1_types__object_serialize, NULL, 108, 108, 6, 19},
-  {cont__7_2, &frame__7_1_types__object_serialize, 108, 108, 3, 19},
-  {entry__8_1_types__object_equal_type_and_value, NULL, 117, 117, 6, 15},
-  {cont__8_2, &frame__8_1_types__object_equal_type_and_value, 117, 117, 3, 15},
-  {entry__9_1_std__current_address_of, NULL, 128, 131, 3, 2}
+  {entry__types__object__default_value_1, NULL, 50, 50, 3, 9},
+  {entry__types__object__serialize_1, NULL, 108, 108, 6, 19},
+  {cont__types__object__serialize_2, &frame__types__object__serialize_1, 108, 108, 3, 19},
+  {entry__types__object__equal_type_and_value_1, NULL, 117, 117, 6, 15},
+  {cont__types__object__equal_type_and_value_2, &frame__types__object__equal_type_and_value_1, 117, 117, 3, 15},
+  {entry__std__current_address_of_1, NULL, 128, 131, 3, 2}
 };
 
 union NODE {
@@ -409,7 +409,7 @@ SIMPLE_NODE types__object__node =
 static NODE *create__types__object() {
   return (NODE *)&types__object__node;
 }
-static void entry__4_1_types__object_default_value(void) {
+static void entry__types__object__default_value_1(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // self: 0
@@ -462,7 +462,7 @@ static long func__types__object___debug_string(NODE *node, int indent, int max_d
     return n;
   }
 }
-static void entry__7_1_types__object_serialize(void) {
+static void entry__types__object__serialize_1(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -489,9 +489,9 @@ static void entry__7_1_types__object_serialize(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__7_2;
+  frame->cont = cont__types__object__serialize_2;
 }
-static void cont__7_2(void) {
+static void cont__types__object__serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -505,7 +505,7 @@ static void cont__7_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_1_types__object_equal_type_and_value(void) {
+static void entry__types__object__equal_type_and_value_1(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // a: 0
@@ -522,9 +522,9 @@ static void entry__8_1_types__object_equal_type_and_value(void) {
   result_count = 1;
   myself = get__equal();
   func = myself->type;
-  frame->cont = cont__8_2;
+  frame->cont = cont__types__object__equal_type_and_value_2;
 }
-static void cont__8_2(void) {
+static void cont__types__object__equal_type_and_value_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -538,7 +538,7 @@ static void cont__8_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_1_std__current_address_of(void) {
+static void entry__std__current_address_of_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -572,10 +572,10 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__object(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  func__4_1_types__object_default_value = create_function(entry__4_1_types__object_default_value, 2);
-  func__7_1_types__object_serialize = create_function(entry__7_1_types__object_serialize, -1);
-  func__8_1_types__object_equal_type_and_value = create_function(entry__8_1_types__object_equal_type_and_value, 2);
-  func__9_1_std__current_address_of = create_function(entry__9_1_std__current_address_of, 1);
+  func__types__object__default_value_1 = create_function(entry__types__object__default_value_1, 2);
+  func__types__object__serialize_1 = create_function(entry__types__object__serialize_1, -1);
+  func__types__object__equal_type_and_value_1 = create_function(entry__types__object__equal_type_and_value_1, 2);
+  func__std__current_address_of_1 = create_function(entry__std__current_address_of_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -609,9 +609,9 @@ EXPORT void phase_4__basic__types__object(void) {
   use_read_only(NULL, "true", &get__true, &get_value_or_future__true);
   define_attribute("types", "object", poly_idx__is_defined, get__true());
   define_attribute("types", "object", poly_idx__is_undefined, get__false());
-  define_method("types", "object", poly_idx__default_value, func__4_1_types__object_default_value);
-  define_method("types", "object", poly_idx__serialize, func__7_1_types__object_serialize);
-  define_method("types", "object", poly_idx__equal_type_and_value, func__8_1_types__object_equal_type_and_value);
+  define_method("types", "object", poly_idx__default_value, func__types__object__default_value_1);
+  define_method("types", "object", poly_idx__serialize, func__types__object__serialize_1);
+  define_method("types", "object", poly_idx__equal_type_and_value, func__types__object__equal_type_and_value_1);
 }
 
 static int already_run_phase_5 = false;
@@ -619,7 +619,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__object(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__current_address_of, &func__9_1_std__current_address_of);
+  assign_variable(&var.std__current_address_of, &func__std__current_address_of_1);
 }
 
 static int already_run_phase_6 = false;

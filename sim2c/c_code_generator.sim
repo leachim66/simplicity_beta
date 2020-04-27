@@ -536,12 +536,7 @@ $sim2c::body/to_c:
   $parent_locals current_locals
   $is_an_inherited_shared_local is_a_shared_local
   inc &index
-  $body_name
-    if
-      name_of(self).is_defined
-      -> string('_' name_of(self))
-      -> ""
-  $body_suffix string(suffix '_' index body_name)
+  $body_suffix string(suffix '_' index)
   $$par_count undefined
   delayed:
     %level outer_level+1
@@ -1166,12 +1161,7 @@ $sim2c::identifier/to_c: (self)
 $sim2c::c_body/to_c: (self)
   show_compiler_debug_info "generate C-body"
   inc &index
-  $body_name
-    if
-      name_of(self).is_defined
-      -> string('_' name_of(self))
-      -> ""
-  $body_suffix string(suffix '_' index body_name)
+  $body_suffix string(suffix '_' index)
   $$continuation_info undefined
   if end_position_of(self).is_defined:
     compute_source_text_info !continuation_info self

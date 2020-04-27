@@ -298,39 +298,39 @@ static const char *var_names[] = {
   "NONE",
   "env_2"
 };
-static void entry__1_1_argv(void);
-static NODE *func__1_1_argv;
-static void entry__2_1_argc(void);
-static NODE *func__2_1_argc;
+static void entry__argv_1(void);
+static NODE *func__argv_1;
+static void entry__argc_1(void);
+static NODE *func__argc_1;
 
 extern char **environ;
 static int ENVC = 0;
-static void entry__4_1_envv(void);
-static NODE *func__4_1_envv;
-static void entry__5_1_envc(void);
-static NODE *func__5_1_envc;
+static void entry__envv_1(void);
+static NODE *func__envv_1;
+static void entry__envc_1(void);
+static NODE *func__envc_1;
 static NODE *get__std__program_name(void) {
   return var.std__program_name;
 }
 static NODE *get__std__command_line_arguments(void) {
   return var.std__command_line_arguments;
 }
-static void entry__12_1_putenv(void);
-static NODE *func__12_1_putenv;
+static void entry__putenv_1(void);
+static NODE *func__putenv_1;
 static NODE *unique__NONE;
-static NODE *func__15_1_env_2_;
-static void entry__15_1_env_2_(void);
-static FRAME_INFO frame__15_1_env_2_ = {3, {"key", "value", "myself"}};
-static void cont__15_2(void);
-static NODE *func__15_3;
-static void entry__15_3(void);
-static FRAME_INFO frame__15_3 = {2, {"myself", "key"}};
-static NODE *func__15_4;
-static void entry__15_4(void);
-static FRAME_INFO frame__15_4 = {3, {"key", "value", "myself"}};
+static NODE *func__env_2_1;
+static void entry__env_2_1(void);
+static FRAME_INFO frame__env_2_1 = {3, {"key", "value", "myself"}};
+static void cont__env_2_2(void);
+static NODE *func__env_2_3;
+static void entry__env_2_3(void);
+static FRAME_INFO frame__env_2_3 = {2, {"myself", "key"}};
+static NODE *func__env_2_4;
+static void entry__env_2_4(void);
+static FRAME_INFO frame__env_2_4 = {3, {"key", "value", "myself"}};
 static NODE *string__578a5af303e9cdc;
-static void cont__15_6(void);
-static void cont__15_7(void);
+static void cont__env_2_6(void);
+static void cont__env_2_7(void);
 static NODE *get__std__environment(void) {
   return var.std__environment;
 }
@@ -366,17 +366,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__24_6, NULL, 88, 88, 11, 16},
   {cont__27_1, NULL, 88, 90, 1, 43},
   {cont__27_8, NULL, 118, 118, 1, 24},
-  {entry__1_1_argv, NULL, 26, 31, 3, 2},
-  {entry__2_1_argc, NULL, 34, 37, 3, 2},
-  {entry__4_1_envv, NULL, 45, 56, 3, 2},
-  {entry__5_1_envc, NULL, 59, 67, 3, 2},
-  {entry__12_1_putenv, NULL, 93, 97, 3, 2},
-  {entry__15_3, NULL, 111, 111, 7, 34},
-  {entry__15_4, NULL, 115, 115, 14, 30},
-  {cont__15_6, &frame__15_4, 115, 115, 7, 30},
-  {cont__15_7, &frame__15_4, 116, 116, 7, 40},
-  {entry__15_1_env_2_, NULL, 110, 110, 5, 17},
-  {cont__15_2, &frame__15_1_env_2_, 109, 116, 3, 41},
+  {entry__argv_1, NULL, 26, 31, 3, 2},
+  {entry__argc_1, NULL, 34, 37, 3, 2},
+  {entry__envv_1, NULL, 45, 56, 3, 2},
+  {entry__envc_1, NULL, 59, 67, 3, 2},
+  {entry__putenv_1, NULL, 93, 97, 3, 2},
+  {entry__env_2_3, NULL, 111, 111, 7, 34},
+  {entry__env_2_4, NULL, 115, 115, 14, 30},
+  {cont__env_2_6, &frame__env_2_4, 115, 115, 7, 30},
+  {cont__env_2_7, &frame__env_2_4, 116, 116, 7, 40},
+  {entry__env_2_1, NULL, 110, 110, 5, 17},
+  {cont__env_2_2, &frame__env_2_1, 109, 116, 3, 41},
   {entry__24_3, NULL, 76, 76, 41, 47},
   {cont__24_4, &frame__24_3, 76, 76, 25, 47},
   {cont__24_5, &frame__24_3, 76, 76, 47, 47},
@@ -678,7 +678,7 @@ static void cont__27_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__1_1_argv(void) {
+static void entry__argv_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -697,7 +697,7 @@ static void entry__1_1_argv(void) {
     return;
   };
 }
-static void entry__2_1_argc(void) {
+static void entry__argc_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -712,7 +712,7 @@ static void entry__2_1_argc(void) {
     return;
   };
 }
-static void entry__4_1_envv(void) {
+static void entry__envv_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -742,7 +742,7 @@ static void entry__4_1_envv(void) {
     return;
   }
 }
-static void entry__5_1_envc(void) {
+static void entry__envc_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -767,7 +767,7 @@ static void entry__5_1_envc(void) {
     return;
   };
 }
-static void entry__12_1_putenv(void) {
+static void entry__putenv_1(void) {
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -780,7 +780,7 @@ static void entry__12_1_putenv(void) {
     return;
   }
 }
-static void entry__15_3(void) {
+static void entry__env_2_3(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // myself: 0
@@ -801,7 +801,7 @@ static void entry__15_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_4(void) {
+static void entry__env_2_4(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // key: 0
@@ -823,9 +823,9 @@ static void entry__15_4(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__15_6;
+  frame->cont = cont__env_2_6;
 }
-static void cont__15_6(void) {
+static void cont__env_2_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -838,9 +838,9 @@ static void cont__15_6(void) {
   result_count = 0;
   myself = var._putenv;
   func = myself->type;
-  frame->cont = cont__15_7;
+  frame->cont = cont__env_2_7;
 }
-static void cont__15_7(void) {
+static void cont__env_2_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -856,7 +856,7 @@ static void cont__15_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__15_1_env_2_(void) {
+static void entry__env_2_1(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -886,9 +886,9 @@ static void entry__15_1_env_2_(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__15_2;
+  frame->cont = cont__env_2_2;
 }
-static void cont__15_2(void) {
+static void cont__env_2_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -896,13 +896,13 @@ static void cont__15_2(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 110: ... :
   // 111:   private::get_item myself key
-  frame->slots[4] /* temp__2 */ = create_closure(entry__15_3, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__env_2_3, 0);
   // 112: :
   // 113:   #ewriteln key ": " value
   // 114:   
   // 115:   putenv "@(key)=@(value)"
   // 116:   private::set_item myself key value
-  frame->slots[5] /* temp__3 */ = create_closure(entry__15_4, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__env_2_4, 0);
   // 109: if
   // 110:   NONE == value:
   // 111:     private::get_item myself key
@@ -952,11 +952,11 @@ EXPORT void phase_2__basic__environment(void) {
   number__0 = from_uint32(0U);
   character__61 = from_uchar32(61);
   number__1 = from_uint32(1U);
-  func__1_1_argv = create_function(entry__1_1_argv, 1);
-  func__2_1_argc = create_function(entry__2_1_argc, 0);
-  func__4_1_envv = create_function(entry__4_1_envv, 1);
-  func__5_1_envc = create_function(entry__5_1_envc, 0);
-  func__12_1_putenv = create_function(entry__12_1_putenv, 1);
+  func__argv_1 = create_function(entry__argv_1, 1);
+  func__argc_1 = create_function(entry__argc_1, 0);
+  func__envv_1 = create_function(entry__envv_1, 1);
+  func__envc_1 = create_function(entry__envc_1, 0);
+  func__putenv_1 = create_function(entry__putenv_1, 1);
   unique__NONE = register_unique_item("NONE");
   string__578a5af303e9cdc = from_latin_1_string("=", 1);
   func__24_3 = create_function(entry__24_3, 1);
@@ -998,7 +998,7 @@ EXPORT void phase_4__basic__environment(void) {
   use_read_only("std", "minus", &get__std__minus, &get_value_or_future__std__minus);
   use_read_only("std", "string", &get__std__string, &get_value_or_future__std__string);
   update_start_p = node_p;
-  def_attribute(&var._env_2, -1, entry__15_1_env_2_);
+  def_attribute(&var._env_2, -1, entry__env_2_1);
 }
 
 static int already_run_phase_5 = false;
@@ -1006,11 +1006,11 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__environment(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var._argv, &func__1_1_argv);
-  assign_variable(&var._argc, &func__2_1_argc);
-  assign_variable(&var._envv, &func__4_1_envv);
-  assign_variable(&var._envc, &func__5_1_envc);
-  assign_variable(&var._putenv, &func__12_1_putenv);
+  assign_variable(&var._argv, &func__argv_1);
+  assign_variable(&var._argc, &func__argc_1);
+  assign_variable(&var._envv, &func__envv_1);
+  assign_variable(&var._envc, &func__envc_1);
+  assign_variable(&var._putenv, &func__putenv_1);
 }
 
 static int already_run_phase_6 = false;

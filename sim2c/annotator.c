@@ -212,7 +212,6 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
@@ -367,10 +366,6 @@ static NODE_GETTER get__inc;
 static NODE_GETTER get_value_or_future__inc;
 static NODE_GETTER get__index;
 static NODE_SETTER set__index;
-static NODE_GETTER get__is_a_body;
-static NODE_GETTER get_value_or_future__is_a_body;
-static NODE_GETTER get__is_a_c_body;
-static NODE_GETTER get_value_or_future__is_a_c_body;
 static NODE_GETTER get__is_a_definition;
 static NODE_GETTER get_value_or_future__is_a_definition;
 static NODE_GETTER get__is_a_destination;
@@ -383,8 +378,6 @@ static int poly_idx__is_a_single_assign_definition;
 static NODE_GETTER get__is_a_single_assign_definition;
 static NODE_GETTER get__is_a_unique_item_constant;
 static NODE_GETTER get_value_or_future__is_a_unique_item_constant;
-static NODE_GETTER get__is_an_assignment;
-static NODE_GETTER get_value_or_future__is_an_assignment;
 static NODE_GETTER get__is_an_attribute_access;
 static NODE_GETTER get_value_or_future__is_an_attribute_access;
 static NODE_GETTER get__is_an_operator_symbol;
@@ -421,10 +414,6 @@ static int poly_idx__parameters_of;
 static NODE_GETTER get__parameters_of;
 static NODE_GETTER get__push;
 static NODE_GETTER get_value_or_future__push;
-static NODE_GETTER get__range;
-static NODE_GETTER get_value_or_future__range;
-static NODE_GETTER get__replace_all;
-static NODE_GETTER get_value_or_future__replace_all;
 static int poly_idx__result_count_of;
 static NODE_GETTER get__result_count_of;
 static NODE_GETTER get__show_compiler_debug_info;
@@ -466,8 +455,6 @@ static NODE_GETTER get__std__and;
 static NODE_GETTER get_value_or_future__std__and;
 static NODE_GETTER get__std__equal;
 static NODE_GETTER get_value_or_future__std__equal;
-static NODE_GETTER get__std__key_value_pair;
-static NODE_GETTER get_value_or_future__std__key_value_pair;
 static NODE_GETTER get__std__negate;
 static NODE_GETTER get_value_or_future__std__negate;
 static NODE_GETTER get__std__not;
@@ -478,8 +465,6 @@ static NODE_GETTER get__std__sequence;
 static NODE_GETTER get_value_or_future__std__sequence;
 static NODE_GETTER get__std__string;
 static NODE_GETTER get_value_or_future__std__string;
-static NODE_GETTER get__to_string;
-static NODE_GETTER get_value_or_future__to_string;
 static NODE_GETTER get__true;
 static NODE_GETTER get_value_or_future__true;
 static NODE_GETTER get__types__grammar_node;
@@ -531,886 +516,815 @@ static void type__sim2c__annotate_expression(void);
 static NODE *get__sim2c__annotate_expression(void) {
   return var.sim2c__annotate_expression;
 }
-static NODE *func__4_1_annotate_output_arguments;
-static void entry__4_1_annotate_output_arguments(void);
-static FRAME_INFO frame__4_1_annotate_output_arguments = {1, {"arguments"}};
-static NODE *func__4_2;
-static void entry__4_2(void);
-static FRAME_INFO frame__4_2 = {1, {"argument"}};
-static void cont__4_3(void);
-static NODE *func__4_4;
-static void entry__4_4(void);
-static FRAME_INFO frame__4_4 = {2, {"argument", "destination"}};
-static void cont__4_5(void);
-static NODE *func__4_6;
-static void entry__4_6(void);
-static FRAME_INFO frame__4_6 = {2, {"destination", "name"}};
-static NODE *func__4_7;
-static void entry__4_7(void);
-static FRAME_INFO frame__4_7 = {1, {"destination"}};
-static void cont__4_8(void);
-static NODE *func__4_9;
-static void entry__4_9(void);
-static FRAME_INFO frame__4_9 = {1, {"destination"}};
-static void cont__4_10(void);
-static NODE *func__4_11;
-static void entry__4_11(void);
-static FRAME_INFO frame__4_11 = {1, {"destination"}};
-static void cont__4_12(void);
-static void cont__4_13(void);
-static NODE *func__4_14;
-static void entry__4_14(void);
-static FRAME_INFO frame__4_14 = {1, {"destination"}};
-static void cont__4_15(void);
-static void cont__4_16(void);
-static void cont__4_17(void);
-static void cont__4_18(void);
-static void cont__4_19(void);
-static void cont__4_20(void);
-static NODE *func__5_1_annotate_arguments;
-static void entry__5_1_annotate_arguments(void);
-static FRAME_INFO frame__5_1_annotate_arguments = {1, {"arguments"}};
-static NODE *func__5_2;
-static void entry__5_2(void);
-static FRAME_INFO frame__5_2 = {1, {"argument"}};
-static void cont__5_3(void);
-static void cont__5_4(void);
-static NODE *func__6_1_types__grammar_node_annotate_statement;
-static void entry__6_1_types__grammar_node_annotate_statement(void);
-static FRAME_INFO frame__6_1_types__grammar_node_annotate_statement = {1, {"self"}};
+static NODE *func__annotate_output_arguments_1;
+static void entry__annotate_output_arguments_1(void);
+static FRAME_INFO frame__annotate_output_arguments_1 = {1, {"arguments"}};
+static NODE *func__annotate_output_arguments_2;
+static void entry__annotate_output_arguments_2(void);
+static FRAME_INFO frame__annotate_output_arguments_2 = {1, {"argument"}};
+static void cont__annotate_output_arguments_3(void);
+static NODE *func__annotate_output_arguments_4;
+static void entry__annotate_output_arguments_4(void);
+static FRAME_INFO frame__annotate_output_arguments_4 = {2, {"argument", "destination"}};
+static void cont__annotate_output_arguments_5(void);
+static NODE *func__annotate_output_arguments_6;
+static void entry__annotate_output_arguments_6(void);
+static FRAME_INFO frame__annotate_output_arguments_6 = {2, {"destination", "name"}};
+static NODE *func__annotate_output_arguments_7;
+static void entry__annotate_output_arguments_7(void);
+static FRAME_INFO frame__annotate_output_arguments_7 = {1, {"destination"}};
+static void cont__annotate_output_arguments_8(void);
+static NODE *func__annotate_output_arguments_9;
+static void entry__annotate_output_arguments_9(void);
+static FRAME_INFO frame__annotate_output_arguments_9 = {1, {"destination"}};
+static void cont__annotate_output_arguments_10(void);
+static NODE *func__annotate_output_arguments_11;
+static void entry__annotate_output_arguments_11(void);
+static FRAME_INFO frame__annotate_output_arguments_11 = {1, {"destination"}};
+static void cont__annotate_output_arguments_12(void);
+static void cont__annotate_output_arguments_13(void);
+static NODE *func__annotate_output_arguments_14;
+static void entry__annotate_output_arguments_14(void);
+static FRAME_INFO frame__annotate_output_arguments_14 = {1, {"destination"}};
+static void cont__annotate_output_arguments_15(void);
+static void cont__annotate_output_arguments_16(void);
+static void cont__annotate_output_arguments_17(void);
+static void cont__annotate_output_arguments_18(void);
+static void cont__annotate_output_arguments_19(void);
+static void cont__annotate_output_arguments_20(void);
+static NODE *func__annotate_arguments_1;
+static void entry__annotate_arguments_1(void);
+static FRAME_INFO frame__annotate_arguments_1 = {1, {"arguments"}};
+static NODE *func__annotate_arguments_2;
+static void entry__annotate_arguments_2(void);
+static FRAME_INFO frame__annotate_arguments_2 = {1, {"argument"}};
+static void cont__annotate_arguments_3(void);
+static void cont__annotate_arguments_4(void);
+static NODE *func__types__grammar_node__annotate_statement_1;
+static void entry__types__grammar_node__annotate_statement_1(void);
+static FRAME_INFO frame__types__grammar_node__annotate_statement_1 = {1, {"self"}};
 static NODE *string__8a2e321e316b06ed;
-static void cont__6_3(void);
-static NODE *func__7_1_types__grammar_node_annotate_expression;
-static void entry__7_1_types__grammar_node_annotate_expression(void);
-static FRAME_INFO frame__7_1_types__grammar_node_annotate_expression = {1, {"self"}};
+static void cont__types__grammar_node__annotate_statement_3(void);
+static NODE *func__types__grammar_node__annotate_expression_1;
+static void entry__types__grammar_node__annotate_expression_1(void);
+static FRAME_INFO frame__types__grammar_node__annotate_expression_1 = {1, {"self"}};
 static NODE *string__bce93a983bb5b33f;
-static void cont__7_3(void);
-static NODE *func__8_1_sim2c__check_definitions;
-static void entry__8_1_sim2c__check_definitions(void);
-static FRAME_INFO frame__8_1_sim2c__check_definitions = {2, {"defined_names", "used_names"}};
-static NODE *func__8_2;
-static void entry__8_2(void);
-static FRAME_INFO frame__8_2 = {4, {"name", "info", "used_names", "identifier"}};
-static void cont__8_3(void);
-static void cont__8_4(void);
-static void cont__8_5(void);
-static NODE *func__8_6;
-static void entry__8_6(void);
-static FRAME_INFO frame__8_6 = {4, {"used_names", "name", "identifier", "info"}};
-static void cont__8_7(void);
-static void cont__8_8(void);
-static NODE *func__8_9;
-static void entry__8_9(void);
-static FRAME_INFO frame__8_9 = {2, {"identifier", "name"}};
-static void cont__8_10(void);
-static NODE *func__8_11;
-static void entry__8_11(void);
-static FRAME_INFO frame__8_11 = {2, {"identifier", "name"}};
+static void cont__types__grammar_node__annotate_expression_3(void);
+static NODE *func__sim2c__check_definitions_1;
+static void entry__sim2c__check_definitions_1(void);
+static FRAME_INFO frame__sim2c__check_definitions_1 = {2, {"defined_names", "used_names"}};
+static NODE *func__sim2c__check_definitions_2;
+static void entry__sim2c__check_definitions_2(void);
+static FRAME_INFO frame__sim2c__check_definitions_2 = {4, {"name", "info", "used_names", "identifier"}};
+static void cont__sim2c__check_definitions_3(void);
+static void cont__sim2c__check_definitions_4(void);
+static void cont__sim2c__check_definitions_5(void);
+static NODE *func__sim2c__check_definitions_6;
+static void entry__sim2c__check_definitions_6(void);
+static FRAME_INFO frame__sim2c__check_definitions_6 = {4, {"used_names", "name", "identifier", "info"}};
+static void cont__sim2c__check_definitions_7(void);
+static void cont__sim2c__check_definitions_8(void);
+static NODE *func__sim2c__check_definitions_9;
+static void entry__sim2c__check_definitions_9(void);
+static FRAME_INFO frame__sim2c__check_definitions_9 = {2, {"identifier", "name"}};
+static void cont__sim2c__check_definitions_10(void);
+static NODE *func__sim2c__check_definitions_11;
+static void entry__sim2c__check_definitions_11(void);
+static FRAME_INFO frame__sim2c__check_definitions_11 = {2, {"identifier", "name"}};
 static NODE *string__1f20e521cf7a2a0e;
 static NODE *string__e573d863c40ad98e;
-static void cont__8_14(void);
-static NODE *func__8_15;
-static void entry__8_15(void);
-static FRAME_INFO frame__8_15 = {3, {"info", "name", "identifier"}};
-static void cont__8_16(void);
-static NODE *func__8_17;
-static void entry__8_17(void);
-static FRAME_INFO frame__8_17 = {2, {"info", "name"}};
-static void cont__8_18(void);
-static void cont__8_19(void);
-static void cont__8_20(void);
-static NODE *func__8_21;
-static void entry__8_21(void);
-static FRAME_INFO frame__8_21 = {1, {"name"}};
-static void cont__8_22(void);
-static void cont__8_23(void);
-static void cont__8_24(void);
-static void cont__8_25(void);
-static NODE *func__8_26;
-static void entry__8_26(void);
-static FRAME_INFO frame__8_26 = {2, {"identifier", "name"}};
+static void cont__sim2c__check_definitions_14(void);
+static NODE *func__sim2c__check_definitions_15;
+static void entry__sim2c__check_definitions_15(void);
+static FRAME_INFO frame__sim2c__check_definitions_15 = {3, {"info", "name", "identifier"}};
+static void cont__sim2c__check_definitions_16(void);
+static NODE *func__sim2c__check_definitions_17;
+static void entry__sim2c__check_definitions_17(void);
+static FRAME_INFO frame__sim2c__check_definitions_17 = {2, {"info", "name"}};
+static void cont__sim2c__check_definitions_18(void);
+static void cont__sim2c__check_definitions_19(void);
+static void cont__sim2c__check_definitions_20(void);
+static NODE *func__sim2c__check_definitions_21;
+static void entry__sim2c__check_definitions_21(void);
+static FRAME_INFO frame__sim2c__check_definitions_21 = {1, {"name"}};
+static void cont__sim2c__check_definitions_22(void);
+static void cont__sim2c__check_definitions_23(void);
+static void cont__sim2c__check_definitions_24(void);
+static void cont__sim2c__check_definitions_25(void);
+static NODE *func__sim2c__check_definitions_26;
+static void entry__sim2c__check_definitions_26(void);
+static FRAME_INFO frame__sim2c__check_definitions_26 = {2, {"identifier", "name"}};
 static NODE *string__6ef85e6a0d2c67a5;
-static void cont__8_28(void);
-static void cont__8_29(void);
-static NODE *func__8_30;
-static void entry__8_30(void);
-static FRAME_INFO frame__8_30 = {4, {"name", "info", "defined_names", "defined_name"}};
-static void cont__8_31(void);
-static void cont__8_32(void);
-static NODE *func__8_33;
-static void entry__8_33(void);
-static FRAME_INFO frame__8_33 = {3, {"defined_name", "info", "name"}};
-static NODE *func__8_34;
-static void entry__8_34(void);
-static FRAME_INFO frame__8_34 = {1, {"defined_name"}};
-static void cont__8_35(void);
-static void cont__8_36(void);
-static void cont__8_37(void);
-static NODE *func__8_38;
-static void entry__8_38(void);
-static FRAME_INFO frame__8_38 = {2, {"info", "name"}};
-static void cont__8_39(void);
+static void cont__sim2c__check_definitions_28(void);
+static void cont__sim2c__check_definitions_29(void);
+static NODE *func__sim2c__check_definitions_30;
+static void entry__sim2c__check_definitions_30(void);
+static FRAME_INFO frame__sim2c__check_definitions_30 = {4, {"name", "info", "defined_names", "defined_name"}};
+static void cont__sim2c__check_definitions_31(void);
+static void cont__sim2c__check_definitions_32(void);
+static NODE *func__sim2c__check_definitions_33;
+static void entry__sim2c__check_definitions_33(void);
+static FRAME_INFO frame__sim2c__check_definitions_33 = {3, {"defined_name", "info", "name"}};
+static NODE *func__sim2c__check_definitions_34;
+static void entry__sim2c__check_definitions_34(void);
+static FRAME_INFO frame__sim2c__check_definitions_34 = {1, {"defined_name"}};
+static void cont__sim2c__check_definitions_35(void);
+static void cont__sim2c__check_definitions_36(void);
+static void cont__sim2c__check_definitions_37(void);
+static NODE *func__sim2c__check_definitions_38;
+static void entry__sim2c__check_definitions_38(void);
+static FRAME_INFO frame__sim2c__check_definitions_38 = {2, {"info", "name"}};
+static void cont__sim2c__check_definitions_39(void);
 static NODE *string__fd0945f8c8a23329;
 static NODE *string__27789aef2dccadff;
-static void cont__8_42(void);
+static void cont__sim2c__check_definitions_42(void);
 static NODE *get__sim2c__check_definitions(void) {
   return var.sim2c__check_definitions;
 }
-static NODE *func__9_1_sim2c__body_annotate_expression;
-static void entry__9_1_sim2c__body_annotate_expression(void);
-static FRAME_INFO frame__9_1_sim2c__body_annotate_expression = {2, {"self", "locally_assigned_names"}};
+static NODE *func__sim2c__body__annotate_expression_1;
+static void entry__sim2c__body__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_1 = {2, {"self", "locally_assigned_names"}};
 static NODE *string__463aabf2a07456b1;
-static void cont__9_3(void);
-static NODE *func__9_4;
-static void entry__9_4(void);
-static FRAME_INFO frame__9_4 = {4, {"return__1", "self", "locally_assigned_names", "local_definitions"}};
-static void cont__9_5(void);
-static NODE *func__9_6;
-static void entry__9_6(void);
-static FRAME_INFO frame__9_6 = {1, {"parameter"}};
-static void cont__9_7(void);
-static void cont__9_8(void);
-static NODE *func__9_9;
-static void entry__9_9(void);
-static FRAME_INFO frame__9_9 = {1, {"parameter"}};
-static void cont__9_10(void);
-static void cont__9_11(void);
-static void cont__9_12(void);
-static NODE *func__9_13;
-static void entry__9_13(void);
-static FRAME_INFO frame__9_13 = {1, {"parameter"}};
-static void cont__9_14(void);
-static void cont__9_15(void);
-static void cont__9_16(void);
-static void cont__9_17(void);
-static void cont__9_18(void);
-static NODE *func__9_19;
-static void entry__9_19(void);
-static FRAME_INFO frame__9_19 = {1, {"stmt"}};
-static void cont__9_20(void);
-static void cont__9_21(void);
-static NODE *func__9_22;
-static void entry__9_22(void);
-static FRAME_INFO frame__9_22 = {2, {"info", "local_definitions"}};
-static void cont__9_23(void);
-static void cont__9_24(void);
-static NODE *func__9_25;
-static void entry__9_25(void);
-static FRAME_INFO frame__9_25 = {4, {"info", "local_definitions", "ident", "name"}};
-static void cont__9_26(void);
-static void cont__9_27(void);
-static void cont__9_28(void);
-static NODE *func__9_29;
-static void entry__9_29(void);
-static FRAME_INFO frame__9_29 = {1, {"ident"}};
-static void cont__9_30(void);
+static void cont__sim2c__body__annotate_expression_3(void);
+static NODE *func__sim2c__body__annotate_expression_4;
+static void entry__sim2c__body__annotate_expression_4(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_4 = {4, {"return__1", "self", "locally_assigned_names", "local_definitions"}};
+static void cont__sim2c__body__annotate_expression_5(void);
+static NODE *func__sim2c__body__annotate_expression_6;
+static void entry__sim2c__body__annotate_expression_6(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_6 = {1, {"parameter"}};
+static void cont__sim2c__body__annotate_expression_7(void);
+static void cont__sim2c__body__annotate_expression_8(void);
+static NODE *func__sim2c__body__annotate_expression_9;
+static void entry__sim2c__body__annotate_expression_9(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_9 = {1, {"parameter"}};
+static void cont__sim2c__body__annotate_expression_10(void);
+static void cont__sim2c__body__annotate_expression_11(void);
+static void cont__sim2c__body__annotate_expression_12(void);
+static NODE *func__sim2c__body__annotate_expression_13;
+static void entry__sim2c__body__annotate_expression_13(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_13 = {1, {"parameter"}};
+static void cont__sim2c__body__annotate_expression_14(void);
+static void cont__sim2c__body__annotate_expression_15(void);
+static void cont__sim2c__body__annotate_expression_16(void);
+static void cont__sim2c__body__annotate_expression_17(void);
+static void cont__sim2c__body__annotate_expression_18(void);
+static NODE *func__sim2c__body__annotate_expression_19;
+static void entry__sim2c__body__annotate_expression_19(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_19 = {1, {"stmt"}};
+static void cont__sim2c__body__annotate_expression_20(void);
+static void cont__sim2c__body__annotate_expression_21(void);
+static NODE *func__sim2c__body__annotate_expression_22;
+static void entry__sim2c__body__annotate_expression_22(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_22 = {2, {"info", "local_definitions"}};
+static void cont__sim2c__body__annotate_expression_23(void);
+static void cont__sim2c__body__annotate_expression_24(void);
+static NODE *func__sim2c__body__annotate_expression_25;
+static void entry__sim2c__body__annotate_expression_25(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_25 = {4, {"info", "local_definitions", "ident", "name"}};
+static void cont__sim2c__body__annotate_expression_26(void);
+static void cont__sim2c__body__annotate_expression_27(void);
+static void cont__sim2c__body__annotate_expression_28(void);
+static NODE *func__sim2c__body__annotate_expression_29;
+static void entry__sim2c__body__annotate_expression_29(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_29 = {1, {"ident"}};
+static void cont__sim2c__body__annotate_expression_30(void);
 static NODE *string__c9348eff105534ce;
 static NODE *string__dcee629a9fc6e3f6;
-static void cont__9_33(void);
-static void cont__9_34(void);
-static void cont__9_35(void);
-static void cont__9_36(void);
-static void cont__9_37(void);
-static NODE *func__9_38;
-static void entry__9_38(void);
-static FRAME_INFO frame__9_38 = {2, {"ident", "name"}};
+static void cont__sim2c__body__annotate_expression_33(void);
+static void cont__sim2c__body__annotate_expression_34(void);
+static void cont__sim2c__body__annotate_expression_35(void);
+static void cont__sim2c__body__annotate_expression_36(void);
+static void cont__sim2c__body__annotate_expression_37(void);
+static NODE *func__sim2c__body__annotate_expression_38;
+static void entry__sim2c__body__annotate_expression_38(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_38 = {2, {"ident", "name"}};
 static NODE *string__e3b540e1e08e3bc7;
 static NODE *string__578a5af303e9cc8;
-static void cont__9_41(void);
-static void cont__9_42(void);
-static void cont__9_43(void);
-static void cont__9_44(void);
-static NODE *func__9_45;
-static void entry__9_45(void);
-static FRAME_INFO frame__9_45 = {1, {"info"}};
-static void cont__9_46(void);
-static void cont__9_47(void);
-static void cont__9_48(void);
-static void cont__9_49(void);
-static NODE *func__9_50;
-static void entry__9_50(void);
-static FRAME_INFO frame__9_50 = {2, {"self", "parameters"}};
-static void cont__9_51(void);
-static void cont__9_52(void);
-static NODE *func__9_53;
-static void entry__9_53(void);
-static FRAME_INFO frame__9_53 = {1, {"parameters"}};
-static void cont__9_54(void);
-static void cont__9_55(void);
-static void cont__9_56(void);
-static void cont__9_57(void);
-static void cont__9_58(void);
-static void cont__9_59(void);
-static NODE *func__9_60;
-static void entry__9_60(void);
-static FRAME_INFO frame__9_60 = {2, {"self", "return"}};
+static void cont__sim2c__body__annotate_expression_41(void);
+static void cont__sim2c__body__annotate_expression_42(void);
+static void cont__sim2c__body__annotate_expression_43(void);
+static void cont__sim2c__body__annotate_expression_44(void);
+static NODE *func__sim2c__body__annotate_expression_45;
+static void entry__sim2c__body__annotate_expression_45(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_45 = {1, {"info"}};
+static void cont__sim2c__body__annotate_expression_46(void);
+static void cont__sim2c__body__annotate_expression_47(void);
+static void cont__sim2c__body__annotate_expression_48(void);
+static void cont__sim2c__body__annotate_expression_49(void);
+static NODE *func__sim2c__body__annotate_expression_50;
+static void entry__sim2c__body__annotate_expression_50(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_50 = {2, {"self", "parameters"}};
+static void cont__sim2c__body__annotate_expression_51(void);
+static void cont__sim2c__body__annotate_expression_52(void);
+static NODE *func__sim2c__body__annotate_expression_53;
+static void entry__sim2c__body__annotate_expression_53(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_53 = {1, {"parameters"}};
+static void cont__sim2c__body__annotate_expression_54(void);
+static void cont__sim2c__body__annotate_expression_55(void);
+static void cont__sim2c__body__annotate_expression_56(void);
+static void cont__sim2c__body__annotate_expression_57(void);
+static void cont__sim2c__body__annotate_expression_58(void);
+static void cont__sim2c__body__annotate_expression_59(void);
+static NODE *func__sim2c__body__annotate_expression_60;
+static void entry__sim2c__body__annotate_expression_60(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_60 = {2, {"self", "return"}};
 static NODE *string__4a80ae5c052cc23f;
-static void cont__9_62(void);
-static void cont__9_63(void);
-static void cont__9_64(void);
-static void cont__9_65(void);
-static void cont__9_66(void);
-static NODE *func__9_67;
-static void entry__9_67(void);
-static FRAME_INFO frame__9_67 = {2, {"local_definitions", "locally_assigned_names"}};
-static void cont__9_68(void);
-static void cont__9_69(void);
-static void cont__9_70(void);
-static void cont__9_71(void);
-static NODE *func__9_72;
-static void entry__9_72(void);
-static FRAME_INFO frame__9_72 = {3, {"name", "info", "self"}};
-static void cont__9_73(void);
-static void cont__9_74(void);
-static void cont__9_75(void);
-static NODE *func__9_76;
-static void entry__9_76(void);
-static FRAME_INFO frame__9_76 = {3, {"name", "info", "updated_info"}};
-static void cont__9_77(void);
-static void cont__9_78(void);
-static void cont__9_79(void);
-static NODE *func__9_80;
-static void entry__9_80(void);
-static FRAME_INFO frame__9_80 = {2, {"name", "updated_info"}};
-static void cont__9_81(void);
-static void cont__9_82(void);
-static NODE *func__9_83;
-static void entry__9_83(void);
-static FRAME_INFO frame__9_83 = {1, {"locally_assigned_names"}};
-static NODE *func__9_84;
-static void entry__9_84(void);
-static FRAME_INFO frame__9_84 = {1, {"name"}};
-static void cont__9_85(void);
-static void cont__9_86(void);
-static NODE *func__10_1_sim2c__call_annotate_statement;
-static void entry__10_1_sim2c__call_annotate_statement(void);
-static FRAME_INFO frame__10_1_sim2c__call_annotate_statement = {1, {"self"}};
-static void cont__10_2(void);
-static void cont__10_3(void);
-static NODE *func__10_4;
-static void entry__10_4(void);
-static FRAME_INFO frame__10_4 = {1, {"self"}};
-static void cont__10_5(void);
-static void cont__10_6(void);
-static void cont__10_7(void);
-static NODE *func__10_8;
-static void entry__10_8(void);
-static FRAME_INFO frame__10_8 = {1, {"self"}};
-static void cont__10_9(void);
-static void cont__10_10(void);
-static void cont__10_11(void);
-static void cont__10_12(void);
-static NODE *func__10_13;
-static void entry__10_13(void);
-static FRAME_INFO frame__10_13 = {1, {"self"}};
-static void cont__10_14(void);
-static void cont__10_15(void);
-static void cont__10_16(void);
-static void cont__10_17(void);
-static void cont__10_18(void);
-static NODE *func__10_19;
-static void entry__10_19(void);
-static FRAME_INFO frame__10_19 = {1, {"self"}};
-static void cont__10_20(void);
-static void cont__10_21(void);
-static void cont__10_22(void);
-static void cont__10_23(void);
-static void cont__10_24(void);
-static NODE *string__2d7981f4e6d82bff;
-static NODE *string__2d7981f4e5f02b9a;
-static void cont__10_27(void);
-static NODE *string__578a5af303e9cbe;
-static void cont__10_29(void);
-static void cont__10_30(void);
-static void cont__10_31(void);
-static void cont__10_32(void);
-static void cont__10_33(void);
-static void cont__10_34(void);
-static void cont__10_35(void);
-static void cont__10_36(void);
-static void cont__10_37(void);
-static NODE *func__10_38;
-static void entry__10_38(void);
-static FRAME_INFO frame__10_38 = {1, {"self"}};
-static void cont__10_39(void);
-static void cont__10_40(void);
-static NODE *func__10_41;
-static void entry__10_41(void);
-static FRAME_INFO frame__10_41 = {1, {"self"}};
-static void cont__10_42(void);
-static void cont__10_43(void);
-static void cont__10_44(void);
-static void cont__10_45(void);
-static void cont__10_46(void);
-static NODE *func__10_47;
-static void entry__10_47(void);
-static FRAME_INFO frame__10_47 = {1, {"self"}};
-static void cont__10_48(void);
-static void cont__10_49(void);
-static void cont__10_50(void);
-static void cont__10_51(void);
-static void cont__10_52(void);
-static NODE *func__10_53;
-static void entry__10_53(void);
-static FRAME_INFO frame__10_53 = {1, {"self"}};
-static void cont__10_54(void);
-static void cont__10_55(void);
-static NODE *func__10_56;
-static void entry__10_56(void);
-static FRAME_INFO frame__10_56 = {2, {"self", "destination"}};
-static void cont__10_57(void);
-static void cont__10_58(void);
-static void cont__10_59(void);
-static NODE *func__10_60;
-static void entry__10_60(void);
-static FRAME_INFO frame__10_60 = {1, {"self"}};
-static void cont__10_61(void);
-static void cont__10_62(void);
-static void cont__10_63(void);
-static void cont__10_64(void);
-static NODE *func__10_65;
-static void entry__10_65(void);
-static FRAME_INFO frame__10_65 = {2, {"self", "destination"}};
-static void cont__10_66(void);
-static void cont__10_67(void);
-static void cont__10_68(void);
-static void cont__10_69(void);
-static void cont__10_70(void);
-static void cont__10_71(void);
-static void cont__10_72(void);
-static void cont__10_73(void);
-static void cont__10_74(void);
-static void cont__10_75(void);
-static NODE *func__11_1_sim2c__c_code_annotate_statement;
-static void entry__11_1_sim2c__c_code_annotate_statement(void);
-static FRAME_INFO frame__11_1_sim2c__c_code_annotate_statement = {1, {"self"}};
+static void cont__sim2c__body__annotate_expression_62(void);
+static void cont__sim2c__body__annotate_expression_63(void);
+static void cont__sim2c__body__annotate_expression_64(void);
+static void cont__sim2c__body__annotate_expression_65(void);
+static void cont__sim2c__body__annotate_expression_66(void);
+static NODE *func__sim2c__body__annotate_expression_67;
+static void entry__sim2c__body__annotate_expression_67(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_67 = {2, {"local_definitions", "locally_assigned_names"}};
+static void cont__sim2c__body__annotate_expression_68(void);
+static void cont__sim2c__body__annotate_expression_69(void);
+static void cont__sim2c__body__annotate_expression_70(void);
+static void cont__sim2c__body__annotate_expression_71(void);
+static NODE *func__sim2c__body__annotate_expression_72;
+static void entry__sim2c__body__annotate_expression_72(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_72 = {3, {"name", "info", "self"}};
+static void cont__sim2c__body__annotate_expression_73(void);
+static void cont__sim2c__body__annotate_expression_74(void);
+static void cont__sim2c__body__annotate_expression_75(void);
+static NODE *func__sim2c__body__annotate_expression_76;
+static void entry__sim2c__body__annotate_expression_76(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_76 = {3, {"name", "info", "updated_info"}};
+static void cont__sim2c__body__annotate_expression_77(void);
+static void cont__sim2c__body__annotate_expression_78(void);
+static void cont__sim2c__body__annotate_expression_79(void);
+static NODE *func__sim2c__body__annotate_expression_80;
+static void entry__sim2c__body__annotate_expression_80(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_80 = {2, {"name", "updated_info"}};
+static void cont__sim2c__body__annotate_expression_81(void);
+static void cont__sim2c__body__annotate_expression_82(void);
+static NODE *func__sim2c__body__annotate_expression_83;
+static void entry__sim2c__body__annotate_expression_83(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_83 = {1, {"locally_assigned_names"}};
+static NODE *func__sim2c__body__annotate_expression_84;
+static void entry__sim2c__body__annotate_expression_84(void);
+static FRAME_INFO frame__sim2c__body__annotate_expression_84 = {1, {"name"}};
+static void cont__sim2c__body__annotate_expression_85(void);
+static void cont__sim2c__body__annotate_expression_86(void);
+static NODE *func__sim2c__call__annotate_statement_1;
+static void entry__sim2c__call__annotate_statement_1(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_1 = {1, {"self"}};
+static void cont__sim2c__call__annotate_statement_2(void);
+static void cont__sim2c__call__annotate_statement_3(void);
+static void cont__sim2c__call__annotate_statement_4(void);
+static NODE *func__sim2c__call__annotate_statement_5;
+static void entry__sim2c__call__annotate_statement_5(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_5 = {1, {"self"}};
+static void cont__sim2c__call__annotate_statement_6(void);
+static void cont__sim2c__call__annotate_statement_7(void);
+static NODE *func__sim2c__call__annotate_statement_8;
+static void entry__sim2c__call__annotate_statement_8(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_8 = {1, {"self"}};
+static void cont__sim2c__call__annotate_statement_9(void);
+static void cont__sim2c__call__annotate_statement_10(void);
+static void cont__sim2c__call__annotate_statement_11(void);
+static void cont__sim2c__call__annotate_statement_12(void);
+static void cont__sim2c__call__annotate_statement_13(void);
+static NODE *func__sim2c__call__annotate_statement_14;
+static void entry__sim2c__call__annotate_statement_14(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_14 = {1, {"self"}};
+static void cont__sim2c__call__annotate_statement_15(void);
+static void cont__sim2c__call__annotate_statement_16(void);
+static void cont__sim2c__call__annotate_statement_17(void);
+static void cont__sim2c__call__annotate_statement_18(void);
+static void cont__sim2c__call__annotate_statement_19(void);
+static NODE *func__sim2c__call__annotate_statement_20;
+static void entry__sim2c__call__annotate_statement_20(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_20 = {1, {"self"}};
+static void cont__sim2c__call__annotate_statement_21(void);
+static void cont__sim2c__call__annotate_statement_22(void);
+static NODE *func__sim2c__call__annotate_statement_23;
+static void entry__sim2c__call__annotate_statement_23(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_23 = {2, {"self", "destination"}};
+static void cont__sim2c__call__annotate_statement_24(void);
+static void cont__sim2c__call__annotate_statement_25(void);
+static void cont__sim2c__call__annotate_statement_26(void);
+static NODE *func__sim2c__call__annotate_statement_27;
+static void entry__sim2c__call__annotate_statement_27(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_27 = {1, {"self"}};
+static void cont__sim2c__call__annotate_statement_28(void);
+static void cont__sim2c__call__annotate_statement_29(void);
+static void cont__sim2c__call__annotate_statement_30(void);
+static void cont__sim2c__call__annotate_statement_31(void);
+static NODE *func__sim2c__call__annotate_statement_32;
+static void entry__sim2c__call__annotate_statement_32(void);
+static FRAME_INFO frame__sim2c__call__annotate_statement_32 = {2, {"self", "destination"}};
+static void cont__sim2c__call__annotate_statement_33(void);
+static void cont__sim2c__call__annotate_statement_34(void);
+static void cont__sim2c__call__annotate_statement_35(void);
+static void cont__sim2c__call__annotate_statement_36(void);
+static void cont__sim2c__call__annotate_statement_37(void);
+static void cont__sim2c__call__annotate_statement_38(void);
+static void cont__sim2c__call__annotate_statement_39(void);
+static void cont__sim2c__call__annotate_statement_40(void);
+static void cont__sim2c__call__annotate_statement_41(void);
+static void cont__sim2c__call__annotate_statement_42(void);
+static NODE *func__sim2c__c_code__annotate_statement_1;
+static void entry__sim2c__c_code__annotate_statement_1(void);
+static FRAME_INFO frame__sim2c__c_code__annotate_statement_1 = {1, {"self"}};
 static NODE *string__1315a9c10d8edccd;
-static void cont__11_3(void);
-static void cont__11_4(void);
+static void cont__sim2c__c_code__annotate_statement_3(void);
+static void cont__sim2c__c_code__annotate_statement_4(void);
 static NODE *string__2a0aef0b5de07d5c;
 static NODE *string__4c1f570701a272a3;
-static void cont__11_7(void);
-static NODE *func__11_8;
-static void entry__11_8(void);
-static FRAME_INFO frame__11_8 = {1, {"self"}};
-static void cont__11_9(void);
-static void cont__11_10(void);
-static void cont__11_11(void);
-static void cont__11_12(void);
-static NODE *func__11_13;
-static void entry__11_13(void);
-static FRAME_INFO frame__11_13 = {1, {"self"}};
-static void cont__11_14(void);
-static void cont__11_15(void);
-static void cont__11_16(void);
-static NODE *func__12_1_sim2c__define_static_single_annotate_expression;
-static void entry__12_1_sim2c__define_static_single_annotate_expression(void);
-static FRAME_INFO frame__12_1_sim2c__define_static_single_annotate_expression = {1, {"self"}};
+static void cont__sim2c__c_code__annotate_statement_7(void);
+static NODE *func__sim2c__c_code__annotate_statement_8;
+static void entry__sim2c__c_code__annotate_statement_8(void);
+static FRAME_INFO frame__sim2c__c_code__annotate_statement_8 = {1, {"self"}};
+static void cont__sim2c__c_code__annotate_statement_9(void);
+static void cont__sim2c__c_code__annotate_statement_10(void);
+static void cont__sim2c__c_code__annotate_statement_11(void);
+static void cont__sim2c__c_code__annotate_statement_12(void);
+static NODE *func__sim2c__c_code__annotate_statement_13;
+static void entry__sim2c__c_code__annotate_statement_13(void);
+static FRAME_INFO frame__sim2c__c_code__annotate_statement_13 = {1, {"self"}};
+static void cont__sim2c__c_code__annotate_statement_14(void);
+static void cont__sim2c__c_code__annotate_statement_15(void);
+static void cont__sim2c__c_code__annotate_statement_16(void);
+static NODE *func__sim2c__define_static_single__annotate_expression_1;
+static void entry__sim2c__define_static_single__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__define_static_single__annotate_expression_1 = {1, {"self"}};
 static NODE *string__da22f4fe83fda879;
-static void cont__12_3(void);
-static void cont__12_4(void);
-static void cont__12_5(void);
-static NODE *func__12_6;
-static void entry__12_6(void);
-static FRAME_INFO frame__12_6 = {1, {"self"}};
-static void cont__12_7(void);
-static NODE *func__12_8;
-static void entry__12_8(void);
-static FRAME_INFO frame__12_8 = {1, {"self"}};
-static void cont__12_9(void);
-static void cont__12_10(void);
-static NODE *func__12_11;
-static void entry__12_11(void);
-static FRAME_INFO frame__12_11 = {1, {"self"}};
-static void cont__12_12(void);
-static void cont__12_13(void);
-static void cont__12_14(void);
-static void cont__12_15(void);
-static void cont__12_16(void);
-static void cont__12_17(void);
-static NODE *func__13_1_sim2c__define_static_multi_annotate_expression;
-static void entry__13_1_sim2c__define_static_multi_annotate_expression(void);
-static FRAME_INFO frame__13_1_sim2c__define_static_multi_annotate_expression = {1, {"self"}};
+static void cont__sim2c__define_static_single__annotate_expression_3(void);
+static void cont__sim2c__define_static_single__annotate_expression_4(void);
+static void cont__sim2c__define_static_single__annotate_expression_5(void);
+static NODE *func__sim2c__define_static_single__annotate_expression_6;
+static void entry__sim2c__define_static_single__annotate_expression_6(void);
+static FRAME_INFO frame__sim2c__define_static_single__annotate_expression_6 = {1, {"self"}};
+static void cont__sim2c__define_static_single__annotate_expression_7(void);
+static NODE *func__sim2c__define_static_single__annotate_expression_8;
+static void entry__sim2c__define_static_single__annotate_expression_8(void);
+static FRAME_INFO frame__sim2c__define_static_single__annotate_expression_8 = {1, {"self"}};
+static void cont__sim2c__define_static_single__annotate_expression_9(void);
+static void cont__sim2c__define_static_single__annotate_expression_10(void);
+static NODE *func__sim2c__define_static_single__annotate_expression_11;
+static void entry__sim2c__define_static_single__annotate_expression_11(void);
+static FRAME_INFO frame__sim2c__define_static_single__annotate_expression_11 = {1, {"self"}};
+static void cont__sim2c__define_static_single__annotate_expression_12(void);
+static void cont__sim2c__define_static_single__annotate_expression_13(void);
+static void cont__sim2c__define_static_single__annotate_expression_14(void);
+static void cont__sim2c__define_static_single__annotate_expression_15(void);
+static void cont__sim2c__define_static_single__annotate_expression_16(void);
+static void cont__sim2c__define_static_single__annotate_expression_17(void);
+static NODE *func__sim2c__define_static_multi__annotate_expression_1;
+static void entry__sim2c__define_static_multi__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__define_static_multi__annotate_expression_1 = {1, {"self"}};
 static NODE *string__8d039bc45e06307a;
-static void cont__13_3(void);
-static void cont__13_4(void);
-static NODE *func__14_1_sim2c__define_dynamic_single_annotate_expression;
-static void entry__14_1_sim2c__define_dynamic_single_annotate_expression(void);
-static FRAME_INFO frame__14_1_sim2c__define_dynamic_single_annotate_expression = {1, {"self"}};
+static void cont__sim2c__define_static_multi__annotate_expression_3(void);
+static void cont__sim2c__define_static_multi__annotate_expression_4(void);
+static NODE *func__sim2c__define_dynamic_single__annotate_expression_1;
+static void entry__sim2c__define_dynamic_single__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__define_dynamic_single__annotate_expression_1 = {1, {"self"}};
 static NODE *string__ff383df04998a917;
-static void cont__14_3(void);
-static void cont__14_4(void);
-static NODE *func__15_1_sim2c__define_dynamic_multi_annotate_expression;
-static void entry__15_1_sim2c__define_dynamic_multi_annotate_expression(void);
-static FRAME_INFO frame__15_1_sim2c__define_dynamic_multi_annotate_expression = {1, {"self"}};
+static void cont__sim2c__define_dynamic_single__annotate_expression_3(void);
+static void cont__sim2c__define_dynamic_single__annotate_expression_4(void);
+static NODE *func__sim2c__define_dynamic_multi__annotate_expression_1;
+static void entry__sim2c__define_dynamic_multi__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__define_dynamic_multi__annotate_expression_1 = {1, {"self"}};
 static NODE *string__2d2e5f670727e936;
-static void cont__15_3(void);
-static void cont__15_4(void);
-static NODE *func__16_1_sim2c__function_call_annotate_expression;
-static void entry__16_1_sim2c__function_call_annotate_expression(void);
-static FRAME_INFO frame__16_1_sim2c__function_call_annotate_expression = {1, {"self"}};
+static void cont__sim2c__define_dynamic_multi__annotate_expression_3(void);
+static void cont__sim2c__define_dynamic_multi__annotate_expression_4(void);
+static NODE *func__sim2c__function_call__annotate_expression_1;
+static void entry__sim2c__function_call__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__function_call__annotate_expression_1 = {1, {"self"}};
 static NODE *string__e5094206a209984d;
-static void cont__16_3(void);
-static void cont__16_4(void);
-static void cont__16_5(void);
-static NODE *func__16_6;
-static void entry__16_6(void);
-static FRAME_INFO frame__16_6 = {1, {"self"}};
-static void cont__16_7(void);
-static void cont__16_8(void);
-static void cont__16_9(void);
-static void cont__16_10(void);
-static void cont__16_11(void);
-static void cont__16_12(void);
-static void cont__16_13(void);
-static NODE *func__17_1_sim2c__attribute_value_pair_annotate_expression;
-static void entry__17_1_sim2c__attribute_value_pair_annotate_expression(void);
-static FRAME_INFO frame__17_1_sim2c__attribute_value_pair_annotate_expression = {1, {"self"}};
+static void cont__sim2c__function_call__annotate_expression_3(void);
+static void cont__sim2c__function_call__annotate_expression_4(void);
+static void cont__sim2c__function_call__annotate_expression_5(void);
+static NODE *func__sim2c__function_call__annotate_expression_6;
+static void entry__sim2c__function_call__annotate_expression_6(void);
+static FRAME_INFO frame__sim2c__function_call__annotate_expression_6 = {1, {"self"}};
+static void cont__sim2c__function_call__annotate_expression_7(void);
+static void cont__sim2c__function_call__annotate_expression_8(void);
+static void cont__sim2c__function_call__annotate_expression_9(void);
+static void cont__sim2c__function_call__annotate_expression_10(void);
+static void cont__sim2c__function_call__annotate_expression_11(void);
+static void cont__sim2c__function_call__annotate_expression_12(void);
+static void cont__sim2c__function_call__annotate_expression_13(void);
+static NODE *func__sim2c__attribute_value_pair__annotate_expression_1;
+static void entry__sim2c__attribute_value_pair__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__attribute_value_pair__annotate_expression_1 = {1, {"self"}};
 static NODE *string__cdedef056fb3250d;
-static void cont__17_3(void);
-static void cont__17_4(void);
-static void cont__17_5(void);
-static void cont__17_6(void);
-static void cont__17_7(void);
-static NODE *func__18_1_sim2c__attribute_function_pair_annotate_expression;
-static void entry__18_1_sim2c__attribute_function_pair_annotate_expression(void);
-static FRAME_INFO frame__18_1_sim2c__attribute_function_pair_annotate_expression = {1, {"self"}};
+static void cont__sim2c__attribute_value_pair__annotate_expression_3(void);
+static void cont__sim2c__attribute_value_pair__annotate_expression_4(void);
+static void cont__sim2c__attribute_value_pair__annotate_expression_5(void);
+static void cont__sim2c__attribute_value_pair__annotate_expression_6(void);
+static void cont__sim2c__attribute_value_pair__annotate_expression_7(void);
+static NODE *func__sim2c__attribute_function_pair__annotate_expression_1;
+static void entry__sim2c__attribute_function_pair__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__attribute_function_pair__annotate_expression_1 = {1, {"self"}};
 static NODE *string__9fe7729998bbff18;
-static void cont__18_3(void);
-static void cont__18_4(void);
-static void cont__18_5(void);
-static NODE *func__18_6;
-static void entry__18_6(void);
-static FRAME_INFO frame__18_6 = {1, {"self"}};
-static void cont__18_7(void);
-static void cont__18_8(void);
-static void cont__18_9(void);
-static void cont__18_10(void);
-static void cont__18_11(void);
-static NODE *func__19_1_sim2c__identifier_annotate_expression;
-static void entry__19_1_sim2c__identifier_annotate_expression(void);
-static FRAME_INFO frame__19_1_sim2c__identifier_annotate_expression = {1, {"self"}};
+static void cont__sim2c__attribute_function_pair__annotate_expression_3(void);
+static void cont__sim2c__attribute_function_pair__annotate_expression_4(void);
+static void cont__sim2c__attribute_function_pair__annotate_expression_5(void);
+static NODE *func__sim2c__attribute_function_pair__annotate_expression_6;
+static void entry__sim2c__attribute_function_pair__annotate_expression_6(void);
+static FRAME_INFO frame__sim2c__attribute_function_pair__annotate_expression_6 = {1, {"self"}};
+static void cont__sim2c__attribute_function_pair__annotate_expression_7(void);
+static void cont__sim2c__attribute_function_pair__annotate_expression_8(void);
+static void cont__sim2c__attribute_function_pair__annotate_expression_9(void);
+static void cont__sim2c__attribute_function_pair__annotate_expression_10(void);
+static void cont__sim2c__attribute_function_pair__annotate_expression_11(void);
+static NODE *func__sim2c__identifier__annotate_expression_1;
+static void entry__sim2c__identifier__annotate_expression_1(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_1 = {1, {"self"}};
 static NODE *string__d4853f208c1cb4ea;
-static void cont__19_3(void);
-static void cont__19_4(void);
-static NODE *func__19_5;
-static void entry__19_5(void);
-static FRAME_INFO frame__19_5 = {4, {"self", "namespace", "name", "info"}};
-static void cont__19_6(void);
-static void cont__19_7(void);
-static NODE *func__19_8;
-static void entry__19_8(void);
-static FRAME_INFO frame__19_8 = {3, {"namespace", "self", "mapped_namespace"}};
-static void cont__19_9(void);
-static void cont__19_10(void);
-static NODE *func__19_11;
-static void entry__19_11(void);
-static FRAME_INFO frame__19_11 = {2, {"self", "mapped_namespace"}};
-static void cont__19_12(void);
-static void cont__19_13(void);
-static void cont__19_14(void);
-static NODE *func__19_15;
-static void entry__19_15(void);
-static FRAME_INFO frame__19_15 = {3, {"self", "info", "name"}};
-static void cont__19_16(void);
-static NODE *func__19_17;
-static void entry__19_17(void);
-static FRAME_INFO frame__19_17 = {3, {"info", "name", "self"}};
-static void cont__19_18(void);
-static NODE *func__19_19;
-static void entry__19_19(void);
-static FRAME_INFO frame__19_19 = {1, {"info"}};
-static void cont__19_20(void);
-static void cont__19_21(void);
-static void cont__19_22(void);
-static NODE *func__19_23;
-static void entry__19_23(void);
-static FRAME_INFO frame__19_23 = {2, {"name", "self"}};
-static void cont__19_24(void);
-static NODE *func__19_25;
-static void entry__19_25(void);
-static FRAME_INFO frame__19_25 = {3, {"info", "self", "name"}};
-static void cont__19_26(void);
-static void cont__19_27(void);
-static NODE *func__19_28;
-static void entry__19_28(void);
-static FRAME_INFO frame__19_28 = {2, {"self", "name"}};
+static void cont__sim2c__identifier__annotate_expression_3(void);
+static void cont__sim2c__identifier__annotate_expression_4(void);
+static NODE *func__sim2c__identifier__annotate_expression_5;
+static void entry__sim2c__identifier__annotate_expression_5(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_5 = {4, {"self", "namespace", "name", "info"}};
+static void cont__sim2c__identifier__annotate_expression_6(void);
+static void cont__sim2c__identifier__annotate_expression_7(void);
+static NODE *func__sim2c__identifier__annotate_expression_8;
+static void entry__sim2c__identifier__annotate_expression_8(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_8 = {3, {"namespace", "self", "mapped_namespace"}};
+static void cont__sim2c__identifier__annotate_expression_9(void);
+static void cont__sim2c__identifier__annotate_expression_10(void);
+static NODE *func__sim2c__identifier__annotate_expression_11;
+static void entry__sim2c__identifier__annotate_expression_11(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_11 = {2, {"self", "mapped_namespace"}};
+static void cont__sim2c__identifier__annotate_expression_12(void);
+static void cont__sim2c__identifier__annotate_expression_13(void);
+static void cont__sim2c__identifier__annotate_expression_14(void);
+static NODE *func__sim2c__identifier__annotate_expression_15;
+static void entry__sim2c__identifier__annotate_expression_15(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_15 = {3, {"self", "info", "name"}};
+static void cont__sim2c__identifier__annotate_expression_16(void);
+static NODE *func__sim2c__identifier__annotate_expression_17;
+static void entry__sim2c__identifier__annotate_expression_17(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_17 = {3, {"info", "name", "self"}};
+static void cont__sim2c__identifier__annotate_expression_18(void);
+static NODE *func__sim2c__identifier__annotate_expression_19;
+static void entry__sim2c__identifier__annotate_expression_19(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_19 = {1, {"info"}};
+static void cont__sim2c__identifier__annotate_expression_20(void);
+static void cont__sim2c__identifier__annotate_expression_21(void);
+static void cont__sim2c__identifier__annotate_expression_22(void);
+static NODE *func__sim2c__identifier__annotate_expression_23;
+static void entry__sim2c__identifier__annotate_expression_23(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_23 = {2, {"name", "self"}};
+static void cont__sim2c__identifier__annotate_expression_24(void);
+static NODE *func__sim2c__identifier__annotate_expression_25;
+static void entry__sim2c__identifier__annotate_expression_25(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_25 = {3, {"info", "self", "name"}};
+static void cont__sim2c__identifier__annotate_expression_26(void);
+static void cont__sim2c__identifier__annotate_expression_27(void);
+static NODE *func__sim2c__identifier__annotate_expression_28;
+static void entry__sim2c__identifier__annotate_expression_28(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_28 = {2, {"self", "name"}};
 static NODE *string__94ba0bbafc65551;
 static NODE *string__578a5af303e9cc3;
-static void cont__19_31(void);
-static NODE *func__19_32;
-static void entry__19_32(void);
-static FRAME_INFO frame__19_32 = {3, {"self", "info", "name"}};
-static void cont__19_33(void);
-static NODE *func__19_34;
-static void entry__19_34(void);
-static FRAME_INFO frame__19_34 = {3, {"info", "name", "self"}};
-static void cont__19_35(void);
-static NODE *func__19_36;
-static void entry__19_36(void);
-static FRAME_INFO frame__19_36 = {1, {"info"}};
-static void cont__19_37(void);
-static void cont__19_38(void);
-static void cont__19_39(void);
-static NODE *func__19_40;
-static void entry__19_40(void);
-static FRAME_INFO frame__19_40 = {2, {"name", "self"}};
-static void cont__19_41(void);
-static NODE *func__19_42;
-static void entry__19_42(void);
-static FRAME_INFO frame__19_42 = {3, {"info", "self", "name"}};
-static void cont__19_43(void);
-static void cont__19_44(void);
-static NODE *func__19_45;
-static void entry__19_45(void);
-static FRAME_INFO frame__19_45 = {2, {"self", "name"}};
-static void cont__19_46(void);
-static NODE *func__19_47;
-static void entry__19_47(void);
-static FRAME_INFO frame__19_47 = {3, {"info", "name", "self"}};
-static void cont__19_48(void);
-static NODE *func__19_49;
-static void entry__19_49(void);
-static FRAME_INFO frame__19_49 = {2, {"name", "self"}};
-static void cont__19_50(void);
-static void cont__19_51(void);
+static void cont__sim2c__identifier__annotate_expression_31(void);
+static NODE *func__sim2c__identifier__annotate_expression_32;
+static void entry__sim2c__identifier__annotate_expression_32(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_32 = {3, {"self", "info", "name"}};
+static void cont__sim2c__identifier__annotate_expression_33(void);
+static NODE *func__sim2c__identifier__annotate_expression_34;
+static void entry__sim2c__identifier__annotate_expression_34(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_34 = {3, {"info", "name", "self"}};
+static void cont__sim2c__identifier__annotate_expression_35(void);
+static NODE *func__sim2c__identifier__annotate_expression_36;
+static void entry__sim2c__identifier__annotate_expression_36(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_36 = {1, {"info"}};
+static void cont__sim2c__identifier__annotate_expression_37(void);
+static void cont__sim2c__identifier__annotate_expression_38(void);
+static void cont__sim2c__identifier__annotate_expression_39(void);
+static NODE *func__sim2c__identifier__annotate_expression_40;
+static void entry__sim2c__identifier__annotate_expression_40(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_40 = {2, {"name", "self"}};
+static void cont__sim2c__identifier__annotate_expression_41(void);
+static NODE *func__sim2c__identifier__annotate_expression_42;
+static void entry__sim2c__identifier__annotate_expression_42(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_42 = {3, {"info", "self", "name"}};
+static void cont__sim2c__identifier__annotate_expression_43(void);
+static void cont__sim2c__identifier__annotate_expression_44(void);
+static NODE *func__sim2c__identifier__annotate_expression_45;
+static void entry__sim2c__identifier__annotate_expression_45(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_45 = {2, {"self", "name"}};
+static void cont__sim2c__identifier__annotate_expression_46(void);
+static NODE *func__sim2c__identifier__annotate_expression_47;
+static void entry__sim2c__identifier__annotate_expression_47(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_47 = {3, {"info", "name", "self"}};
+static void cont__sim2c__identifier__annotate_expression_48(void);
+static NODE *func__sim2c__identifier__annotate_expression_49;
+static void entry__sim2c__identifier__annotate_expression_49(void);
+static FRAME_INFO frame__sim2c__identifier__annotate_expression_49 = {2, {"name", "self"}};
+static void cont__sim2c__identifier__annotate_expression_50(void);
+static void cont__sim2c__identifier__annotate_expression_51(void);
 void run__annotator(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__sim2c__annotate_statement, NULL, 33, 33, 2, 26},
   {type__sim2c__annotate_expression, NULL, 34, 34, 2, 27},
   {run__annotator, NULL, 31, 31, 1, 28},
-  {entry__4_11, NULL, 45, 45, 28, 52},
-  {cont__4_12, &frame__4_11, 45, 45, 15, 55},
-  {cont__4_13, &frame__4_11, 45, 45, 55, 55},
-  {entry__4_14, NULL, 47, 47, 15, 50},
-  {cont__4_15, &frame__4_14, 47, 47, 50, 50},
-  {entry__4_9, NULL, 44, 44, 13, 46},
-  {cont__4_10, &frame__4_9, 43, 47, 11, 51},
-  {entry__4_7, NULL, 42, 42, 18, 47},
-  {cont__4_8, &frame__4_7, 42, 47, 15, 52},
-  {entry__4_6, NULL, 42, 47, 9, 52},
-  {cont__4_16, &frame__4_6, 48, 48, 9, 42},
-  {cont__4_17, &frame__4_6, 49, 49, 9, 29},
-  {cont__4_18, &frame__4_6, 49, 49, 34, 34},
-  {entry__4_4, NULL, 41, 41, 14, 40},
-  {cont__4_5, &frame__4_4, 41, 49, 7, 34},
-  {entry__4_2, NULL, 38, 38, 5, 33},
-  {cont__4_3, &frame__4_2, 39, 49, 5, 35},
-  {cont__4_19, &frame__4_2, },
-  {entry__4_1_annotate_output_arguments, NULL, 37, 49, 3, 36},
-  {cont__4_20, &frame__4_1_annotate_output_arguments, 49, 49, 37, 37},
-  {entry__5_2, NULL, 52, 52, 39, 67},
-  {cont__5_3, &frame__5_2, 52, 52, 67, 67},
-  {entry__5_1_annotate_arguments, NULL, 52, 52, 3, 67},
-  {cont__5_4, &frame__5_1_annotate_arguments, 52, 52, 67, 67},
-  {entry__6_1_types__grammar_node_annotate_statement, NULL, 58, 58, 3, 47},
-  {cont__6_3, &frame__6_1_types__grammar_node_annotate_statement, },
-  {entry__7_1_types__grammar_node_annotate_expression, NULL, 61, 61, 3, 48},
-  {cont__7_3, &frame__7_1_types__grammar_node_annotate_expression, },
-  {entry__8_11, NULL, 75, 76, 32, 63},
-  {cont__8_14, &frame__8_11, 75, 76, 13, 63},
-  {entry__8_9, NULL, 74, 74, 18, 39},
-  {cont__8_10, &frame__8_9, 74, 76, 11, 64},
-  {entry__8_21, NULL, 82, 82, 19, 38},
-  {cont__8_22, &frame__8_21, 82, 82, 15, 39},
-  {cont__8_23, &frame__8_21, 82, 82, 15, 39},
-  {entry__8_17, NULL, 81, 81, 15, 37},
-  {cont__8_18, &frame__8_17, 81, 81, 15, 57},
-  {cont__8_19, &frame__8_17, 81, 81, 15, 57},
-  {cont__8_20, &frame__8_17, 82, 82, 15, 39},
-  {cont__8_24, &frame__8_17, },
-  {entry__8_26, NULL, 84, 86, 34, 50},
-  {cont__8_28, &frame__8_26, 84, 86, 15, 50},
-  {entry__8_15, NULL, 80, 80, 15, 47},
-  {cont__8_16, &frame__8_15, },
-  {cont__8_25, &frame__8_15, 78, 86, 11, 52},
-  {entry__8_6, NULL, 73, 73, 9, 24},
-  {cont__8_7, &frame__8_6, 73, 73, 9, 37},
-  {cont__8_8, &frame__8_6, 72, 86, 7, 54},
-  {entry__8_2, NULL, 70, 70, 5, 35},
-  {cont__8_3, &frame__8_2, 71, 71, 12, 35},
-  {cont__8_4, &frame__8_2, 71, 71, 12, 46},
-  {cont__8_5, &frame__8_2, 71, 86, 5, 55},
-  {entry__8_34, NULL, 90, 90, 31, 57},
-  {cont__8_35, &frame__8_34, 90, 90, 31, 69},
-  {cont__8_36, &frame__8_34, 90, 90, 31, 69},
-  {entry__8_38, NULL, 91, 91, 17, 35},
-  {cont__8_39, &frame__8_38, 91, 93, 37, 15},
-  {cont__8_42, &frame__8_38, 91, 93, 9, 15},
-  {entry__8_33, NULL, 90, 90, 10, 69},
-  {cont__8_37, &frame__8_33, 90, 93, 7, 16},
-  {entry__8_30, NULL, 88, 88, 5, 37},
-  {cont__8_31, &frame__8_30, 89, 89, 8, 30},
-  {cont__8_32, &frame__8_30, 89, 93, 5, 17},
-  {entry__8_1_sim2c__check_definitions, NULL, 69, 86, 3, 56},
-  {cont__8_29, &frame__8_1_sim2c__check_definitions, 87, 93, 3, 18},
-  {entry__9_9, NULL, 106, 106, 42, 68},
-  {cont__9_10, &frame__9_9, 106, 106, 42, 79},
-  {cont__9_11, &frame__9_9, 106, 106, 42, 79},
-  {entry__9_13, NULL, 107, 107, 32, 57},
-  {cont__9_14, &frame__9_13, 107, 107, 11, 57},
-  {cont__9_15, &frame__9_13, 107, 107, 57, 57},
-  {entry__9_6, NULL, 104, 104, 7, 35},
-  {cont__9_7, &frame__9_6, 106, 106, 9, 37},
-  {cont__9_8, &frame__9_6, 106, 106, 9, 79},
-  {cont__9_12, &frame__9_6, 105, 107, 7, 58},
-  {cont__9_16, &frame__9_6, },
-  {entry__9_19, NULL, 108, 108, 46, 69},
-  {cont__9_20, &frame__9_19, 108, 108, 69, 69},
-  {entry__9_29, NULL, 117, 117, 56, 74},
-  {cont__9_30, &frame__9_29, 116, 118, 31, 32},
-  {cont__9_33, &frame__9_29, 116, 118, 13, 32},
-  {entry__9_38, NULL, 121, 123, 31, 16},
-  {cont__9_41, &frame__9_38, 121, 123, 13, 16},
-  {entry__9_25, NULL, 114, 114, 11, 36},
-  {cont__9_26, &frame__9_25, 115, 115, 14, 32},
-  {cont__9_27, &frame__9_25, 115, 115, 14, 43},
-  {cont__9_28, &frame__9_25, 115, 118, 11, 33},
-  {cont__9_34, &frame__9_25, 119, 119, 11, 30},
-  {cont__9_35, &frame__9_25, 120, 120, 14, 36},
-  {cont__9_36, &frame__9_25, 120, 120, 14, 47},
-  {cont__9_37, &frame__9_25, 120, 123, 11, 17},
-  {cont__9_42, &frame__9_25, 124, 124, 11, 34},
-  {cont__9_43, &frame__9_25, 124, 124, 39, 39},
-  {entry__9_45, NULL, 126, 126, 39, 57},
-  {cont__9_46, &frame__9_45, 126, 126, 23, 58},
-  {cont__9_47, &frame__9_45, 126, 126, 11, 59},
-  {cont__9_48, &frame__9_45, 126, 126, 64, 64},
-  {entry__9_22, NULL, 112, 112, 9, 30},
-  {cont__9_23, &frame__9_22, 113, 113, 9, 35},
-  {cont__9_24, &frame__9_22, 125, 125, 9, 37},
-  {cont__9_44, &frame__9_22, 111, 126, 7, 65},
-  {entry__9_53, NULL, 135, 135, 41, 41},
-  {cont__9_54, &frame__9_53, 135, 135, 29, 42},
-  {cont__9_55, &frame__9_53, 135, 135, 11, 43},
-  {cont__9_56, &frame__9_53, 135, 135, 11, 69},
-  {cont__9_57, &frame__9_53, 135, 135, 11, 69},
-  {cont__9_58, &frame__9_53, 135, 135, 11, 69},
-  {entry__9_60, NULL, 137, 137, 39, 56},
-  {cont__9_62, &frame__9_60, 138, 138, 11, 20},
-  {cont__9_63, &frame__9_60, 140, 140, 14, 31},
-  {cont__9_64, &frame__9_60, 139, 143, 11, 56},
-  {cont__9_65, &frame__9_60, 143, 143, 57, 57},
-  {entry__9_50, NULL, 131, 131, 7, 37},
-  {cont__9_51, &frame__9_50, 134, 134, 11, 29},
-  {cont__9_52, &frame__9_50, 133, 135, 9, 68},
-  {cont__9_59, &frame__9_50, 132, 143, 7, 58},
-  {entry__9_67, NULL, 145, 145, 7, 52},
-  {cont__9_68, &frame__9_67, 146, 146, 44, 44},
-  {entry__9_4, NULL, 103, 103, 18, 35},
-  {cont__9_5, &frame__9_4, 103, 107, 5, 59},
-  {cont__9_17, &frame__9_4, 108, 108, 18, 35},
-  {cont__9_18, &frame__9_4, 108, 108, 5, 69},
-  {cont__9_21, &frame__9_4, 110, 126, 5, 66},
-  {cont__9_49, &frame__9_4, 129, 143, 5, 59},
-  {cont__9_66, &frame__9_4, 144, 146, 5, 44},
-  {cont__9_69, &frame__9_4, 146, 146, 44, 44},
-  {entry__9_80, NULL, 150, 150, 35, 51},
-  {cont__9_81, &frame__9_80, 150, 150, 64, 64},
-  {entry__9_76, NULL, 149, 149, 38, 53},
-  {cont__9_77, &frame__9_76, 149, 149, 7, 59},
-  {cont__9_78, &frame__9_76, 150, 150, 10, 32},
-  {cont__9_79, &frame__9_76, 150, 150, 7, 64},
-  {entry__9_72, NULL, 148, 148, 12, 33},
-  {cont__9_73, &frame__9_72, 148, 148, 12, 39},
-  {cont__9_74, &frame__9_72, 148, 148, 12, 50},
-  {cont__9_75, &frame__9_72, 148, 150, 5, 64},
-  {entry__9_84, NULL, 152, 152, 45, 65},
-  {cont__9_85, &frame__9_84, 152, 152, 70, 70},
-  {entry__9_83, NULL, 152, 152, 5, 70},
-  {entry__9_1_sim2c__body_annotate_expression, NULL, 96, 96, 3, 42},
-  {cont__9_3, &frame__9_1_sim2c__body_annotate_expression, 98, 146, 3, 45},
-  {cont__9_70, &frame__9_1_sim2c__body_annotate_expression, 147, 147, 12, 30},
-  {cont__9_71, &frame__9_1_sim2c__body_annotate_expression, 147, 150, 3, 65},
-  {cont__9_82, &frame__9_1_sim2c__body_annotate_expression, 151, 152, 3, 70},
-  {cont__9_86, &frame__9_1_sim2c__body_annotate_expression, },
-  {entry__10_8, NULL, 162, 162, 42, 59},
-  {cont__10_9, &frame__10_8, 162, 162, 42, 62},
-  {cont__10_10, &frame__10_8, 162, 162, 42, 74},
-  {cont__10_11, &frame__10_8, 162, 162, 42, 74},
-  {entry__10_13, NULL, 163, 163, 7, 31},
-  {cont__10_14, &frame__10_13, 163, 163, 7, 34},
-  {cont__10_15, &frame__10_13, 163, 163, 7, 64},
-  {cont__10_16, &frame__10_13, 163, 163, 7, 64},
-  {entry__10_4, NULL, 162, 162, 7, 24},
-  {cont__10_5, &frame__10_4, 162, 162, 7, 27},
-  {cont__10_6, &frame__10_4, 162, 162, 7, 37},
-  {cont__10_7, &frame__10_4, 162, 162, 7, 74},
-  {cont__10_12, &frame__10_4, 163, 163, 7, 64},
-  {cont__10_17, &frame__10_4, },
-  {entry__10_19, NULL, 167, 167, 17, 41},
-  {cont__10_20, &frame__10_19, 167, 167, 17, 44},
-  {cont__10_21, &frame__10_19, 167, 167, 17, 54},
-  {cont__10_22, &frame__10_19, 167, 167, 59, 59},
-  {cont__10_23, &frame__10_19, 167, 167, 11, 60},
-  {cont__10_24, &frame__10_19, 168, 168, 11, 21},
-  {cont__10_27, &frame__10_19, 169, 169, 11, 19},
-  {cont__10_29, &frame__10_19, 170, 170, 11, 19},
-  {cont__10_30, &frame__10_19, 165, 170, 7, 20},
-  {cont__10_31, &frame__10_19, 165, 165, 8, 24},
-  {cont__10_32, &frame__10_19, 165, 165, 8, 27},
-  {cont__10_33, &frame__10_19, 165, 165, 7, 27},
-  {cont__10_34, &frame__10_19, 170, 170, 21, 21},
-  {entry__10_41, NULL, 174, 174, 30, 49},
-  {cont__10_42, &frame__10_41, 174, 174, 9, 49},
-  {cont__10_43, &frame__10_41, 174, 174, 49, 49},
-  {entry__10_47, NULL, 176, 176, 30, 49},
-  {cont__10_48, &frame__10_47, 176, 176, 9, 49},
-  {cont__10_49, &frame__10_47, 176, 176, 49, 49},
-  {entry__10_38, NULL, 173, 173, 10, 30},
-  {cont__10_39, &frame__10_38, 173, 173, 10, 41},
-  {cont__10_40, &frame__10_38, 173, 174, 7, 49},
-  {cont__10_44, &frame__10_38, 175, 175, 10, 30},
-  {cont__10_45, &frame__10_38, 175, 175, 10, 41},
-  {cont__10_46, &frame__10_38, 175, 176, 7, 49},
-  {cont__10_50, &frame__10_38, 177, 177, 28, 42},
-  {cont__10_51, &frame__10_38, 177, 177, 7, 42},
-  {cont__10_52, &frame__10_38, 177, 177, 42, 42},
-  {entry__10_60, NULL, 184, 184, 13, 30},
-  {cont__10_61, &frame__10_60, 184, 184, 13, 33},
-  {cont__10_62, &frame__10_60, 184, 184, 13, 59},
-  {cont__10_63, &frame__10_60, 184, 184, 13, 59},
-  {entry__10_65, NULL, 187, 187, 31, 56},
-  {cont__10_66, &frame__10_65, 186, 187, 13, 57},
-  {cont__10_67, &frame__10_65, 186, 186, 14, 30},
-  {cont__10_68, &frame__10_65, 186, 186, 14, 33},
-  {cont__10_69, &frame__10_65, 186, 186, 13, 33},
-  {cont__10_70, &frame__10_65, 187, 187, 58, 58},
-  {entry__10_56, NULL, 180, 180, 22, 46},
-  {cont__10_57, &frame__10_56, 180, 180, 9, 49},
-  {cont__10_58, &frame__10_56, 183, 183, 13, 39},
-  {cont__10_59, &frame__10_56, 182, 184, 11, 58},
-  {cont__10_64, &frame__10_56, 181, 187, 9, 59},
-  {entry__10_53, NULL, 179, 179, 14, 38},
-  {cont__10_54, &frame__10_53, 179, 179, 14, 47},
-  {cont__10_55, &frame__10_53, 179, 187, 7, 60},
-  {entry__10_1_sim2c__call_annotate_statement, NULL, 158, 158, 3, 47},
-  {cont__10_2, &frame__10_1_sim2c__call_annotate_statement, 161, 161, 7, 27},
-  {cont__10_3, &frame__10_1_sim2c__call_annotate_statement, },
-  {cont__10_18, &frame__10_1_sim2c__call_annotate_statement, 159, 170, 3, 22},
-  {cont__10_35, &frame__10_1_sim2c__call_annotate_statement, 172, 172, 5, 20},
-  {cont__10_36, &frame__10_1_sim2c__call_annotate_statement, 172, 172, 5, 31},
-  {cont__10_37, &frame__10_1_sim2c__call_annotate_statement, 171, 187, 3, 62},
-  {cont__10_71, &frame__10_1_sim2c__call_annotate_statement, 188, 188, 30, 53},
-  {cont__10_72, &frame__10_1_sim2c__call_annotate_statement, 188, 188, 3, 53},
-  {cont__10_73, &frame__10_1_sim2c__call_annotate_statement, 189, 189, 23, 39},
-  {cont__10_74, &frame__10_1_sim2c__call_annotate_statement, 189, 189, 3, 39},
-  {cont__10_75, &frame__10_1_sim2c__call_annotate_statement, 189, 189, 39, 39},
-  {entry__11_8, NULL, 197, 199, 5, 79},
-  {cont__11_9, &frame__11_8, 199, 199, 80, 80},
-  {entry__11_13, NULL, 200, 200, 53, 64},
-  {cont__11_14, &frame__11_13, 200, 200, 32, 64},
-  {cont__11_15, &frame__11_13, 200, 200, 64, 64},
-  {entry__11_1_sim2c__c_code_annotate_statement, NULL, 195, 195, 3, 44},
-  {cont__11_3, &frame__11_1_sim2c__c_code_annotate_statement, 196, 196, 8, 20},
-  {cont__11_4, &frame__11_1_sim2c__c_code_annotate_statement, 196, 196, 22, 37},
-  {cont__11_7, &frame__11_1_sim2c__c_code_annotate_statement, 196, 199, 3, 80},
-  {cont__11_10, &frame__11_1_sim2c__c_code_annotate_statement, 200, 200, 6, 18},
-  {cont__11_11, &frame__11_1_sim2c__c_code_annotate_statement, 200, 200, 6, 29},
-  {cont__11_12, &frame__11_1_sim2c__c_code_annotate_statement, 200, 200, 3, 64},
-  {cont__11_16, &frame__11_1_sim2c__c_code_annotate_statement, },
-  {entry__12_6, NULL, 209, 209, 7, 30},
-  {cont__12_7, &frame__12_6, 209, 209, 30, 30},
-  {entry__12_11, NULL, 211, 211, 62, 78},
-  {cont__12_12, &frame__12_11, 211, 211, 41, 78},
-  {cont__12_13, &frame__12_11, 211, 211, 78, 78},
-  {entry__12_8, NULL, 211, 211, 10, 27},
-  {cont__12_9, &frame__12_8, 211, 211, 10, 38},
-  {cont__12_10, &frame__12_8, 211, 211, 7, 78},
-  {cont__12_14, &frame__12_8, 212, 212, 28, 45},
-  {cont__12_15, &frame__12_8, 212, 212, 7, 45},
-  {cont__12_16, &frame__12_8, 212, 212, 45, 45},
-  {entry__12_1_sim2c__define_static_single_annotate_expression, NULL, 206, 206, 3, 58},
-  {cont__12_3, &frame__12_1_sim2c__define_static_single_annotate_expression, 208, 208, 5, 27},
-  {cont__12_4, &frame__12_1_sim2c__define_static_single_annotate_expression, 208, 208, 5, 35},
-  {cont__12_5, &frame__12_1_sim2c__define_static_single_annotate_expression, 207, 212, 3, 46},
-  {cont__12_17, &frame__12_1_sim2c__define_static_single_annotate_expression, },
-  {entry__13_1_sim2c__define_static_multi_annotate_expression, NULL, 218, 218, 3, 57},
-  {cont__13_3, &frame__13_1_sim2c__define_static_multi_annotate_expression, 219, 219, 3, 26},
-  {cont__13_4, &frame__13_1_sim2c__define_static_multi_annotate_expression, 219, 219, 26, 26},
-  {entry__14_1_sim2c__define_dynamic_single_annotate_expression, NULL, 225, 225, 3, 59},
-  {cont__14_3, &frame__14_1_sim2c__define_dynamic_single_annotate_expression, 227, 227, 3, 26},
-  {cont__14_4, &frame__14_1_sim2c__define_dynamic_single_annotate_expression, 227, 227, 26, 26},
-  {entry__15_1_sim2c__define_dynamic_multi_annotate_expression, NULL, 233, 233, 3, 58},
-  {cont__15_3, &frame__15_1_sim2c__define_dynamic_multi_annotate_expression, 235, 235, 3, 26},
-  {cont__15_4, &frame__15_1_sim2c__define_dynamic_multi_annotate_expression, 235, 235, 26, 26},
-  {entry__16_6, NULL, 243, 243, 26, 40},
-  {cont__16_7, &frame__16_6, 243, 243, 5, 40},
-  {cont__16_8, &frame__16_6, 244, 244, 32, 55},
-  {cont__16_9, &frame__16_6, 244, 244, 5, 55},
-  {cont__16_10, &frame__16_6, 245, 245, 25, 41},
-  {cont__16_11, &frame__16_6, 245, 245, 5, 41},
-  {cont__16_12, &frame__16_6, 245, 245, 41, 41},
-  {entry__16_1_sim2c__function_call_annotate_expression, NULL, 241, 241, 3, 51},
-  {cont__16_3, &frame__16_1_sim2c__function_call_annotate_expression, 242, 242, 6, 21},
-  {cont__16_4, &frame__16_1_sim2c__function_call_annotate_expression, 242, 242, 6, 32},
-  {cont__16_5, &frame__16_1_sim2c__function_call_annotate_expression, 242, 245, 3, 41},
-  {cont__16_13, &frame__16_1_sim2c__function_call_annotate_expression, },
-  {entry__17_1_sim2c__attribute_value_pair_annotate_expression, NULL, 251, 251, 3, 58},
-  {cont__17_3, &frame__17_1_sim2c__attribute_value_pair_annotate_expression, 252, 252, 24, 41},
-  {cont__17_4, &frame__17_1_sim2c__attribute_value_pair_annotate_expression, 252, 252, 3, 41},
-  {cont__17_5, &frame__17_1_sim2c__attribute_value_pair_annotate_expression, 253, 253, 23, 39},
-  {cont__17_6, &frame__17_1_sim2c__attribute_value_pair_annotate_expression, 253, 253, 3, 39},
-  {cont__17_7, &frame__17_1_sim2c__attribute_value_pair_annotate_expression, 253, 253, 39, 39},
-  {entry__18_6, NULL, 260, 260, 59, 76},
-  {cont__18_7, &frame__18_6, 260, 260, 38, 76},
-  {cont__18_8, &frame__18_6, 260, 260, 76, 76},
-  {entry__18_1_sim2c__attribute_function_pair_annotate_expression, NULL, 259, 259, 3, 61},
-  {cont__18_3, &frame__18_1_sim2c__attribute_function_pair_annotate_expression, 260, 260, 6, 24},
-  {cont__18_4, &frame__18_1_sim2c__attribute_function_pair_annotate_expression, 260, 260, 6, 35},
-  {cont__18_5, &frame__18_1_sim2c__attribute_function_pair_annotate_expression, 260, 260, 3, 76},
-  {cont__18_9, &frame__18_1_sim2c__attribute_function_pair_annotate_expression, 261, 261, 23, 39},
-  {cont__18_10, &frame__18_1_sim2c__attribute_function_pair_annotate_expression, 261, 261, 3, 39},
-  {cont__18_11, &frame__18_1_sim2c__attribute_function_pair_annotate_expression, 261, 261, 39, 39},
-  {entry__19_11, NULL, 272, 272, 73, 73},
-  {entry__19_8, NULL, 271, 271, 7, 53},
-  {cont__19_9, &frame__19_8, 272, 272, 10, 36},
-  {cont__19_10, &frame__19_8, 272, 272, 7, 73},
-  {entry__19_19, NULL, 278, 278, 32, 53},
-  {cont__19_20, &frame__19_19, 278, 278, 32, 70},
-  {cont__19_21, &frame__19_19, 278, 278, 32, 70},
-  {entry__19_23, NULL, 279, 279, 13, 29},
-  {cont__19_24, &frame__19_23, 282, 282, 48, 48},
-  {entry__19_28, NULL, 285, 286, 32, 62},
-  {cont__19_31, &frame__19_28, 285, 286, 15, 62},
-  {entry__19_25, NULL, 284, 284, 16, 37},
-  {cont__19_26, &frame__19_25, 284, 284, 16, 52},
-  {cont__19_27, &frame__19_25, 284, 286, 13, 63},
-  {entry__19_17, NULL, 278, 278, 11, 27},
-  {cont__19_18, &frame__19_17, 278, 278, 11, 70},
-  {cont__19_22, &frame__19_17, 277, 286, 9, 65},
-  {entry__19_15, NULL, 276, 276, 10, 30},
-  {cont__19_16, &frame__19_15, 276, 286, 7, 66},
-  {entry__19_36, NULL, 289, 289, 32, 53},
-  {cont__19_37, &frame__19_36, 289, 289, 32, 70},
-  {cont__19_38, &frame__19_36, 289, 289, 32, 70},
-  {entry__19_40, NULL, 290, 290, 13, 29},
-  {cont__19_41, &frame__19_40, 293, 293, 47, 47},
-  {entry__19_45, NULL, 296, 297, 32, 62},
-  {cont__19_46, &frame__19_45, 296, 297, 15, 62},
-  {entry__19_42, NULL, 295, 295, 20, 41},
-  {cont__19_43, &frame__19_42, 295, 295, 20, 56},
-  {cont__19_44, &frame__19_42, 295, 297, 13, 63},
-  {entry__19_34, NULL, 289, 289, 11, 27},
-  {cont__19_35, &frame__19_34, 289, 289, 11, 70},
-  {cont__19_39, &frame__19_34, 288, 297, 9, 65},
-  {entry__19_32, NULL, 287, 287, 10, 47},
-  {cont__19_33, &frame__19_32, 287, 297, 7, 66},
-  {entry__19_49, NULL, 300, 300, 11, 27},
-  {cont__19_50, &frame__19_49, 303, 303, 47, 47},
-  {entry__19_47, NULL, 299, 299, 12, 28},
-  {cont__19_48, &frame__19_47, 299, 303, 9, 47},
-  {entry__19_5, NULL, 269, 269, 5, 33},
-  {cont__19_6, &frame__19_5, 270, 270, 8, 27},
-  {cont__19_7, &frame__19_5, 270, 272, 5, 73},
-  {cont__19_12, &frame__19_5, 273, 273, 5, 31},
-  {cont__19_13, &frame__19_5, 274, 274, 5, 26},
-  {cont__19_14, &frame__19_5, 275, 303, 5, 49},
-  {entry__19_1_sim2c__identifier_annotate_expression, NULL, 267, 267, 3, 54},
-  {cont__19_3, &frame__19_1_sim2c__identifier_annotate_expression, 268, 268, 10, 35},
-  {cont__19_4, &frame__19_1_sim2c__identifier_annotate_expression, 268, 303, 3, 50},
-  {cont__19_51, &frame__19_1_sim2c__identifier_annotate_expression, }
+  {entry__annotate_output_arguments_11, NULL, 45, 45, 28, 52},
+  {cont__annotate_output_arguments_12, &frame__annotate_output_arguments_11, 45, 45, 15, 55},
+  {cont__annotate_output_arguments_13, &frame__annotate_output_arguments_11, 45, 45, 55, 55},
+  {entry__annotate_output_arguments_14, NULL, 47, 47, 15, 50},
+  {cont__annotate_output_arguments_15, &frame__annotate_output_arguments_14, 47, 47, 50, 50},
+  {entry__annotate_output_arguments_9, NULL, 44, 44, 13, 46},
+  {cont__annotate_output_arguments_10, &frame__annotate_output_arguments_9, 43, 47, 11, 51},
+  {entry__annotate_output_arguments_7, NULL, 42, 42, 18, 47},
+  {cont__annotate_output_arguments_8, &frame__annotate_output_arguments_7, 42, 47, 15, 52},
+  {entry__annotate_output_arguments_6, NULL, 42, 47, 9, 52},
+  {cont__annotate_output_arguments_16, &frame__annotate_output_arguments_6, 48, 48, 9, 42},
+  {cont__annotate_output_arguments_17, &frame__annotate_output_arguments_6, 49, 49, 9, 29},
+  {cont__annotate_output_arguments_18, &frame__annotate_output_arguments_6, 49, 49, 34, 34},
+  {entry__annotate_output_arguments_4, NULL, 41, 41, 14, 40},
+  {cont__annotate_output_arguments_5, &frame__annotate_output_arguments_4, 41, 49, 7, 34},
+  {entry__annotate_output_arguments_2, NULL, 38, 38, 5, 33},
+  {cont__annotate_output_arguments_3, &frame__annotate_output_arguments_2, 39, 49, 5, 35},
+  {cont__annotate_output_arguments_19, &frame__annotate_output_arguments_2, },
+  {entry__annotate_output_arguments_1, NULL, 37, 49, 3, 36},
+  {cont__annotate_output_arguments_20, &frame__annotate_output_arguments_1, 49, 49, 37, 37},
+  {entry__annotate_arguments_2, NULL, 52, 52, 39, 67},
+  {cont__annotate_arguments_3, &frame__annotate_arguments_2, 52, 52, 67, 67},
+  {entry__annotate_arguments_1, NULL, 52, 52, 3, 67},
+  {cont__annotate_arguments_4, &frame__annotate_arguments_1, 52, 52, 67, 67},
+  {entry__types__grammar_node__annotate_statement_1, NULL, 58, 58, 3, 47},
+  {cont__types__grammar_node__annotate_statement_3, &frame__types__grammar_node__annotate_statement_1, },
+  {entry__types__grammar_node__annotate_expression_1, NULL, 61, 61, 3, 48},
+  {cont__types__grammar_node__annotate_expression_3, &frame__types__grammar_node__annotate_expression_1, },
+  {entry__sim2c__check_definitions_11, NULL, 75, 76, 32, 63},
+  {cont__sim2c__check_definitions_14, &frame__sim2c__check_definitions_11, 75, 76, 13, 63},
+  {entry__sim2c__check_definitions_9, NULL, 74, 74, 18, 39},
+  {cont__sim2c__check_definitions_10, &frame__sim2c__check_definitions_9, 74, 76, 11, 64},
+  {entry__sim2c__check_definitions_21, NULL, 82, 82, 19, 38},
+  {cont__sim2c__check_definitions_22, &frame__sim2c__check_definitions_21, 82, 82, 15, 39},
+  {cont__sim2c__check_definitions_23, &frame__sim2c__check_definitions_21, 82, 82, 15, 39},
+  {entry__sim2c__check_definitions_17, NULL, 81, 81, 15, 37},
+  {cont__sim2c__check_definitions_18, &frame__sim2c__check_definitions_17, 81, 81, 15, 57},
+  {cont__sim2c__check_definitions_19, &frame__sim2c__check_definitions_17, 81, 81, 15, 57},
+  {cont__sim2c__check_definitions_20, &frame__sim2c__check_definitions_17, 82, 82, 15, 39},
+  {cont__sim2c__check_definitions_24, &frame__sim2c__check_definitions_17, },
+  {entry__sim2c__check_definitions_26, NULL, 84, 86, 34, 50},
+  {cont__sim2c__check_definitions_28, &frame__sim2c__check_definitions_26, 84, 86, 15, 50},
+  {entry__sim2c__check_definitions_15, NULL, 80, 80, 15, 47},
+  {cont__sim2c__check_definitions_16, &frame__sim2c__check_definitions_15, },
+  {cont__sim2c__check_definitions_25, &frame__sim2c__check_definitions_15, 78, 86, 11, 52},
+  {entry__sim2c__check_definitions_6, NULL, 73, 73, 9, 24},
+  {cont__sim2c__check_definitions_7, &frame__sim2c__check_definitions_6, 73, 73, 9, 37},
+  {cont__sim2c__check_definitions_8, &frame__sim2c__check_definitions_6, 72, 86, 7, 54},
+  {entry__sim2c__check_definitions_2, NULL, 70, 70, 5, 35},
+  {cont__sim2c__check_definitions_3, &frame__sim2c__check_definitions_2, 71, 71, 12, 35},
+  {cont__sim2c__check_definitions_4, &frame__sim2c__check_definitions_2, 71, 71, 12, 46},
+  {cont__sim2c__check_definitions_5, &frame__sim2c__check_definitions_2, 71, 86, 5, 55},
+  {entry__sim2c__check_definitions_34, NULL, 90, 90, 31, 57},
+  {cont__sim2c__check_definitions_35, &frame__sim2c__check_definitions_34, 90, 90, 31, 69},
+  {cont__sim2c__check_definitions_36, &frame__sim2c__check_definitions_34, 90, 90, 31, 69},
+  {entry__sim2c__check_definitions_38, NULL, 91, 91, 17, 35},
+  {cont__sim2c__check_definitions_39, &frame__sim2c__check_definitions_38, 91, 93, 37, 15},
+  {cont__sim2c__check_definitions_42, &frame__sim2c__check_definitions_38, 91, 93, 9, 15},
+  {entry__sim2c__check_definitions_33, NULL, 90, 90, 10, 69},
+  {cont__sim2c__check_definitions_37, &frame__sim2c__check_definitions_33, 90, 93, 7, 16},
+  {entry__sim2c__check_definitions_30, NULL, 88, 88, 5, 37},
+  {cont__sim2c__check_definitions_31, &frame__sim2c__check_definitions_30, 89, 89, 8, 30},
+  {cont__sim2c__check_definitions_32, &frame__sim2c__check_definitions_30, 89, 93, 5, 17},
+  {entry__sim2c__check_definitions_1, NULL, 69, 86, 3, 56},
+  {cont__sim2c__check_definitions_29, &frame__sim2c__check_definitions_1, 87, 93, 3, 18},
+  {entry__sim2c__body__annotate_expression_9, NULL, 106, 106, 42, 68},
+  {cont__sim2c__body__annotate_expression_10, &frame__sim2c__body__annotate_expression_9, 106, 106, 42, 79},
+  {cont__sim2c__body__annotate_expression_11, &frame__sim2c__body__annotate_expression_9, 106, 106, 42, 79},
+  {entry__sim2c__body__annotate_expression_13, NULL, 107, 107, 32, 57},
+  {cont__sim2c__body__annotate_expression_14, &frame__sim2c__body__annotate_expression_13, 107, 107, 11, 57},
+  {cont__sim2c__body__annotate_expression_15, &frame__sim2c__body__annotate_expression_13, 107, 107, 57, 57},
+  {entry__sim2c__body__annotate_expression_6, NULL, 104, 104, 7, 35},
+  {cont__sim2c__body__annotate_expression_7, &frame__sim2c__body__annotate_expression_6, 106, 106, 9, 37},
+  {cont__sim2c__body__annotate_expression_8, &frame__sim2c__body__annotate_expression_6, 106, 106, 9, 79},
+  {cont__sim2c__body__annotate_expression_12, &frame__sim2c__body__annotate_expression_6, 105, 107, 7, 58},
+  {cont__sim2c__body__annotate_expression_16, &frame__sim2c__body__annotate_expression_6, },
+  {entry__sim2c__body__annotate_expression_19, NULL, 108, 108, 46, 69},
+  {cont__sim2c__body__annotate_expression_20, &frame__sim2c__body__annotate_expression_19, 108, 108, 69, 69},
+  {entry__sim2c__body__annotate_expression_29, NULL, 117, 117, 56, 74},
+  {cont__sim2c__body__annotate_expression_30, &frame__sim2c__body__annotate_expression_29, 116, 118, 31, 32},
+  {cont__sim2c__body__annotate_expression_33, &frame__sim2c__body__annotate_expression_29, 116, 118, 13, 32},
+  {entry__sim2c__body__annotate_expression_38, NULL, 121, 123, 31, 16},
+  {cont__sim2c__body__annotate_expression_41, &frame__sim2c__body__annotate_expression_38, 121, 123, 13, 16},
+  {entry__sim2c__body__annotate_expression_25, NULL, 114, 114, 11, 36},
+  {cont__sim2c__body__annotate_expression_26, &frame__sim2c__body__annotate_expression_25, 115, 115, 14, 32},
+  {cont__sim2c__body__annotate_expression_27, &frame__sim2c__body__annotate_expression_25, 115, 115, 14, 43},
+  {cont__sim2c__body__annotate_expression_28, &frame__sim2c__body__annotate_expression_25, 115, 118, 11, 33},
+  {cont__sim2c__body__annotate_expression_34, &frame__sim2c__body__annotate_expression_25, 119, 119, 11, 30},
+  {cont__sim2c__body__annotate_expression_35, &frame__sim2c__body__annotate_expression_25, 120, 120, 14, 36},
+  {cont__sim2c__body__annotate_expression_36, &frame__sim2c__body__annotate_expression_25, 120, 120, 14, 47},
+  {cont__sim2c__body__annotate_expression_37, &frame__sim2c__body__annotate_expression_25, 120, 123, 11, 17},
+  {cont__sim2c__body__annotate_expression_42, &frame__sim2c__body__annotate_expression_25, 124, 124, 11, 34},
+  {cont__sim2c__body__annotate_expression_43, &frame__sim2c__body__annotate_expression_25, 124, 124, 39, 39},
+  {entry__sim2c__body__annotate_expression_45, NULL, 126, 126, 39, 57},
+  {cont__sim2c__body__annotate_expression_46, &frame__sim2c__body__annotate_expression_45, 126, 126, 23, 58},
+  {cont__sim2c__body__annotate_expression_47, &frame__sim2c__body__annotate_expression_45, 126, 126, 11, 59},
+  {cont__sim2c__body__annotate_expression_48, &frame__sim2c__body__annotate_expression_45, 126, 126, 64, 64},
+  {entry__sim2c__body__annotate_expression_22, NULL, 112, 112, 9, 30},
+  {cont__sim2c__body__annotate_expression_23, &frame__sim2c__body__annotate_expression_22, 113, 113, 9, 35},
+  {cont__sim2c__body__annotate_expression_24, &frame__sim2c__body__annotate_expression_22, 125, 125, 9, 37},
+  {cont__sim2c__body__annotate_expression_44, &frame__sim2c__body__annotate_expression_22, 111, 126, 7, 65},
+  {entry__sim2c__body__annotate_expression_53, NULL, 135, 135, 41, 41},
+  {cont__sim2c__body__annotate_expression_54, &frame__sim2c__body__annotate_expression_53, 135, 135, 29, 42},
+  {cont__sim2c__body__annotate_expression_55, &frame__sim2c__body__annotate_expression_53, 135, 135, 11, 43},
+  {cont__sim2c__body__annotate_expression_56, &frame__sim2c__body__annotate_expression_53, 135, 135, 11, 69},
+  {cont__sim2c__body__annotate_expression_57, &frame__sim2c__body__annotate_expression_53, 135, 135, 11, 69},
+  {cont__sim2c__body__annotate_expression_58, &frame__sim2c__body__annotate_expression_53, 135, 135, 11, 69},
+  {entry__sim2c__body__annotate_expression_60, NULL, 137, 137, 39, 56},
+  {cont__sim2c__body__annotate_expression_62, &frame__sim2c__body__annotate_expression_60, 138, 138, 11, 20},
+  {cont__sim2c__body__annotate_expression_63, &frame__sim2c__body__annotate_expression_60, 140, 140, 14, 31},
+  {cont__sim2c__body__annotate_expression_64, &frame__sim2c__body__annotate_expression_60, 139, 143, 11, 56},
+  {cont__sim2c__body__annotate_expression_65, &frame__sim2c__body__annotate_expression_60, 143, 143, 57, 57},
+  {entry__sim2c__body__annotate_expression_50, NULL, 131, 131, 7, 37},
+  {cont__sim2c__body__annotate_expression_51, &frame__sim2c__body__annotate_expression_50, 134, 134, 11, 29},
+  {cont__sim2c__body__annotate_expression_52, &frame__sim2c__body__annotate_expression_50, 133, 135, 9, 68},
+  {cont__sim2c__body__annotate_expression_59, &frame__sim2c__body__annotate_expression_50, 132, 143, 7, 58},
+  {entry__sim2c__body__annotate_expression_67, NULL, 145, 145, 7, 52},
+  {cont__sim2c__body__annotate_expression_68, &frame__sim2c__body__annotate_expression_67, 146, 146, 44, 44},
+  {entry__sim2c__body__annotate_expression_4, NULL, 103, 103, 18, 35},
+  {cont__sim2c__body__annotate_expression_5, &frame__sim2c__body__annotate_expression_4, 103, 107, 5, 59},
+  {cont__sim2c__body__annotate_expression_17, &frame__sim2c__body__annotate_expression_4, 108, 108, 18, 35},
+  {cont__sim2c__body__annotate_expression_18, &frame__sim2c__body__annotate_expression_4, 108, 108, 5, 69},
+  {cont__sim2c__body__annotate_expression_21, &frame__sim2c__body__annotate_expression_4, 110, 126, 5, 66},
+  {cont__sim2c__body__annotate_expression_49, &frame__sim2c__body__annotate_expression_4, 129, 143, 5, 59},
+  {cont__sim2c__body__annotate_expression_66, &frame__sim2c__body__annotate_expression_4, 144, 146, 5, 44},
+  {cont__sim2c__body__annotate_expression_69, &frame__sim2c__body__annotate_expression_4, 146, 146, 44, 44},
+  {entry__sim2c__body__annotate_expression_80, NULL, 150, 150, 35, 51},
+  {cont__sim2c__body__annotate_expression_81, &frame__sim2c__body__annotate_expression_80, 150, 150, 64, 64},
+  {entry__sim2c__body__annotate_expression_76, NULL, 149, 149, 38, 53},
+  {cont__sim2c__body__annotate_expression_77, &frame__sim2c__body__annotate_expression_76, 149, 149, 7, 59},
+  {cont__sim2c__body__annotate_expression_78, &frame__sim2c__body__annotate_expression_76, 150, 150, 10, 32},
+  {cont__sim2c__body__annotate_expression_79, &frame__sim2c__body__annotate_expression_76, 150, 150, 7, 64},
+  {entry__sim2c__body__annotate_expression_72, NULL, 148, 148, 12, 33},
+  {cont__sim2c__body__annotate_expression_73, &frame__sim2c__body__annotate_expression_72, 148, 148, 12, 39},
+  {cont__sim2c__body__annotate_expression_74, &frame__sim2c__body__annotate_expression_72, 148, 148, 12, 50},
+  {cont__sim2c__body__annotate_expression_75, &frame__sim2c__body__annotate_expression_72, 148, 150, 5, 64},
+  {entry__sim2c__body__annotate_expression_84, NULL, 152, 152, 45, 65},
+  {cont__sim2c__body__annotate_expression_85, &frame__sim2c__body__annotate_expression_84, 152, 152, 70, 70},
+  {entry__sim2c__body__annotate_expression_83, NULL, 152, 152, 5, 70},
+  {entry__sim2c__body__annotate_expression_1, NULL, 96, 96, 3, 42},
+  {cont__sim2c__body__annotate_expression_3, &frame__sim2c__body__annotate_expression_1, 98, 146, 3, 45},
+  {cont__sim2c__body__annotate_expression_70, &frame__sim2c__body__annotate_expression_1, 147, 147, 12, 30},
+  {cont__sim2c__body__annotate_expression_71, &frame__sim2c__body__annotate_expression_1, 147, 150, 3, 65},
+  {cont__sim2c__body__annotate_expression_82, &frame__sim2c__body__annotate_expression_1, 151, 152, 3, 70},
+  {cont__sim2c__body__annotate_expression_86, &frame__sim2c__body__annotate_expression_1, },
+  {entry__sim2c__call__annotate_statement_8, NULL, 174, 174, 30, 49},
+  {cont__sim2c__call__annotate_statement_9, &frame__sim2c__call__annotate_statement_8, 174, 174, 9, 49},
+  {cont__sim2c__call__annotate_statement_10, &frame__sim2c__call__annotate_statement_8, 174, 174, 49, 49},
+  {entry__sim2c__call__annotate_statement_14, NULL, 176, 176, 30, 49},
+  {cont__sim2c__call__annotate_statement_15, &frame__sim2c__call__annotate_statement_14, 176, 176, 9, 49},
+  {cont__sim2c__call__annotate_statement_16, &frame__sim2c__call__annotate_statement_14, 176, 176, 49, 49},
+  {entry__sim2c__call__annotate_statement_5, NULL, 173, 173, 10, 30},
+  {cont__sim2c__call__annotate_statement_6, &frame__sim2c__call__annotate_statement_5, 173, 173, 10, 41},
+  {cont__sim2c__call__annotate_statement_7, &frame__sim2c__call__annotate_statement_5, 173, 174, 7, 49},
+  {cont__sim2c__call__annotate_statement_11, &frame__sim2c__call__annotate_statement_5, 175, 175, 10, 30},
+  {cont__sim2c__call__annotate_statement_12, &frame__sim2c__call__annotate_statement_5, 175, 175, 10, 41},
+  {cont__sim2c__call__annotate_statement_13, &frame__sim2c__call__annotate_statement_5, 175, 176, 7, 49},
+  {cont__sim2c__call__annotate_statement_17, &frame__sim2c__call__annotate_statement_5, 177, 177, 28, 42},
+  {cont__sim2c__call__annotate_statement_18, &frame__sim2c__call__annotate_statement_5, 177, 177, 7, 42},
+  {cont__sim2c__call__annotate_statement_19, &frame__sim2c__call__annotate_statement_5, 177, 177, 42, 42},
+  {entry__sim2c__call__annotate_statement_27, NULL, 184, 184, 13, 30},
+  {cont__sim2c__call__annotate_statement_28, &frame__sim2c__call__annotate_statement_27, 184, 184, 13, 33},
+  {cont__sim2c__call__annotate_statement_29, &frame__sim2c__call__annotate_statement_27, 184, 184, 13, 59},
+  {cont__sim2c__call__annotate_statement_30, &frame__sim2c__call__annotate_statement_27, 184, 184, 13, 59},
+  {entry__sim2c__call__annotate_statement_32, NULL, 187, 187, 31, 56},
+  {cont__sim2c__call__annotate_statement_33, &frame__sim2c__call__annotate_statement_32, 186, 187, 13, 57},
+  {cont__sim2c__call__annotate_statement_34, &frame__sim2c__call__annotate_statement_32, 186, 186, 14, 30},
+  {cont__sim2c__call__annotate_statement_35, &frame__sim2c__call__annotate_statement_32, 186, 186, 14, 33},
+  {cont__sim2c__call__annotate_statement_36, &frame__sim2c__call__annotate_statement_32, 186, 186, 13, 33},
+  {cont__sim2c__call__annotate_statement_37, &frame__sim2c__call__annotate_statement_32, 187, 187, 58, 58},
+  {entry__sim2c__call__annotate_statement_23, NULL, 180, 180, 22, 46},
+  {cont__sim2c__call__annotate_statement_24, &frame__sim2c__call__annotate_statement_23, 180, 180, 9, 49},
+  {cont__sim2c__call__annotate_statement_25, &frame__sim2c__call__annotate_statement_23, 183, 183, 13, 39},
+  {cont__sim2c__call__annotate_statement_26, &frame__sim2c__call__annotate_statement_23, 182, 184, 11, 58},
+  {cont__sim2c__call__annotate_statement_31, &frame__sim2c__call__annotate_statement_23, 181, 187, 9, 59},
+  {entry__sim2c__call__annotate_statement_20, NULL, 179, 179, 14, 38},
+  {cont__sim2c__call__annotate_statement_21, &frame__sim2c__call__annotate_statement_20, 179, 179, 14, 47},
+  {cont__sim2c__call__annotate_statement_22, &frame__sim2c__call__annotate_statement_20, 179, 187, 7, 60},
+  {entry__sim2c__call__annotate_statement_1, NULL, 158, 158, 3, 47},
+  {cont__sim2c__call__annotate_statement_2, &frame__sim2c__call__annotate_statement_1, 172, 172, 5, 20},
+  {cont__sim2c__call__annotate_statement_3, &frame__sim2c__call__annotate_statement_1, 172, 172, 5, 31},
+  {cont__sim2c__call__annotate_statement_4, &frame__sim2c__call__annotate_statement_1, 171, 187, 3, 62},
+  {cont__sim2c__call__annotate_statement_38, &frame__sim2c__call__annotate_statement_1, 188, 188, 30, 53},
+  {cont__sim2c__call__annotate_statement_39, &frame__sim2c__call__annotate_statement_1, 188, 188, 3, 53},
+  {cont__sim2c__call__annotate_statement_40, &frame__sim2c__call__annotate_statement_1, 189, 189, 23, 39},
+  {cont__sim2c__call__annotate_statement_41, &frame__sim2c__call__annotate_statement_1, 189, 189, 3, 39},
+  {cont__sim2c__call__annotate_statement_42, &frame__sim2c__call__annotate_statement_1, 189, 189, 39, 39},
+  {entry__sim2c__c_code__annotate_statement_8, NULL, 197, 199, 5, 79},
+  {cont__sim2c__c_code__annotate_statement_9, &frame__sim2c__c_code__annotate_statement_8, 199, 199, 80, 80},
+  {entry__sim2c__c_code__annotate_statement_13, NULL, 200, 200, 53, 64},
+  {cont__sim2c__c_code__annotate_statement_14, &frame__sim2c__c_code__annotate_statement_13, 200, 200, 32, 64},
+  {cont__sim2c__c_code__annotate_statement_15, &frame__sim2c__c_code__annotate_statement_13, 200, 200, 64, 64},
+  {entry__sim2c__c_code__annotate_statement_1, NULL, 195, 195, 3, 44},
+  {cont__sim2c__c_code__annotate_statement_3, &frame__sim2c__c_code__annotate_statement_1, 196, 196, 8, 20},
+  {cont__sim2c__c_code__annotate_statement_4, &frame__sim2c__c_code__annotate_statement_1, 196, 196, 22, 37},
+  {cont__sim2c__c_code__annotate_statement_7, &frame__sim2c__c_code__annotate_statement_1, 196, 199, 3, 80},
+  {cont__sim2c__c_code__annotate_statement_10, &frame__sim2c__c_code__annotate_statement_1, 200, 200, 6, 18},
+  {cont__sim2c__c_code__annotate_statement_11, &frame__sim2c__c_code__annotate_statement_1, 200, 200, 6, 29},
+  {cont__sim2c__c_code__annotate_statement_12, &frame__sim2c__c_code__annotate_statement_1, 200, 200, 3, 64},
+  {cont__sim2c__c_code__annotate_statement_16, &frame__sim2c__c_code__annotate_statement_1, },
+  {entry__sim2c__define_static_single__annotate_expression_6, NULL, 209, 209, 7, 30},
+  {cont__sim2c__define_static_single__annotate_expression_7, &frame__sim2c__define_static_single__annotate_expression_6, 209, 209, 30, 30},
+  {entry__sim2c__define_static_single__annotate_expression_11, NULL, 211, 211, 62, 78},
+  {cont__sim2c__define_static_single__annotate_expression_12, &frame__sim2c__define_static_single__annotate_expression_11, 211, 211, 41, 78},
+  {cont__sim2c__define_static_single__annotate_expression_13, &frame__sim2c__define_static_single__annotate_expression_11, 211, 211, 78, 78},
+  {entry__sim2c__define_static_single__annotate_expression_8, NULL, 211, 211, 10, 27},
+  {cont__sim2c__define_static_single__annotate_expression_9, &frame__sim2c__define_static_single__annotate_expression_8, 211, 211, 10, 38},
+  {cont__sim2c__define_static_single__annotate_expression_10, &frame__sim2c__define_static_single__annotate_expression_8, 211, 211, 7, 78},
+  {cont__sim2c__define_static_single__annotate_expression_14, &frame__sim2c__define_static_single__annotate_expression_8, 212, 212, 28, 45},
+  {cont__sim2c__define_static_single__annotate_expression_15, &frame__sim2c__define_static_single__annotate_expression_8, 212, 212, 7, 45},
+  {cont__sim2c__define_static_single__annotate_expression_16, &frame__sim2c__define_static_single__annotate_expression_8, 212, 212, 45, 45},
+  {entry__sim2c__define_static_single__annotate_expression_1, NULL, 206, 206, 3, 58},
+  {cont__sim2c__define_static_single__annotate_expression_3, &frame__sim2c__define_static_single__annotate_expression_1, 208, 208, 5, 27},
+  {cont__sim2c__define_static_single__annotate_expression_4, &frame__sim2c__define_static_single__annotate_expression_1, 208, 208, 5, 35},
+  {cont__sim2c__define_static_single__annotate_expression_5, &frame__sim2c__define_static_single__annotate_expression_1, 207, 212, 3, 46},
+  {cont__sim2c__define_static_single__annotate_expression_17, &frame__sim2c__define_static_single__annotate_expression_1, },
+  {entry__sim2c__define_static_multi__annotate_expression_1, NULL, 218, 218, 3, 57},
+  {cont__sim2c__define_static_multi__annotate_expression_3, &frame__sim2c__define_static_multi__annotate_expression_1, 219, 219, 3, 26},
+  {cont__sim2c__define_static_multi__annotate_expression_4, &frame__sim2c__define_static_multi__annotate_expression_1, 219, 219, 26, 26},
+  {entry__sim2c__define_dynamic_single__annotate_expression_1, NULL, 225, 225, 3, 59},
+  {cont__sim2c__define_dynamic_single__annotate_expression_3, &frame__sim2c__define_dynamic_single__annotate_expression_1, 227, 227, 3, 26},
+  {cont__sim2c__define_dynamic_single__annotate_expression_4, &frame__sim2c__define_dynamic_single__annotate_expression_1, 227, 227, 26, 26},
+  {entry__sim2c__define_dynamic_multi__annotate_expression_1, NULL, 233, 233, 3, 58},
+  {cont__sim2c__define_dynamic_multi__annotate_expression_3, &frame__sim2c__define_dynamic_multi__annotate_expression_1, 235, 235, 3, 26},
+  {cont__sim2c__define_dynamic_multi__annotate_expression_4, &frame__sim2c__define_dynamic_multi__annotate_expression_1, 235, 235, 26, 26},
+  {entry__sim2c__function_call__annotate_expression_6, NULL, 243, 243, 26, 40},
+  {cont__sim2c__function_call__annotate_expression_7, &frame__sim2c__function_call__annotate_expression_6, 243, 243, 5, 40},
+  {cont__sim2c__function_call__annotate_expression_8, &frame__sim2c__function_call__annotate_expression_6, 244, 244, 32, 55},
+  {cont__sim2c__function_call__annotate_expression_9, &frame__sim2c__function_call__annotate_expression_6, 244, 244, 5, 55},
+  {cont__sim2c__function_call__annotate_expression_10, &frame__sim2c__function_call__annotate_expression_6, 245, 245, 25, 41},
+  {cont__sim2c__function_call__annotate_expression_11, &frame__sim2c__function_call__annotate_expression_6, 245, 245, 5, 41},
+  {cont__sim2c__function_call__annotate_expression_12, &frame__sim2c__function_call__annotate_expression_6, 245, 245, 41, 41},
+  {entry__sim2c__function_call__annotate_expression_1, NULL, 241, 241, 3, 51},
+  {cont__sim2c__function_call__annotate_expression_3, &frame__sim2c__function_call__annotate_expression_1, 242, 242, 6, 21},
+  {cont__sim2c__function_call__annotate_expression_4, &frame__sim2c__function_call__annotate_expression_1, 242, 242, 6, 32},
+  {cont__sim2c__function_call__annotate_expression_5, &frame__sim2c__function_call__annotate_expression_1, 242, 245, 3, 41},
+  {cont__sim2c__function_call__annotate_expression_13, &frame__sim2c__function_call__annotate_expression_1, },
+  {entry__sim2c__attribute_value_pair__annotate_expression_1, NULL, 251, 251, 3, 58},
+  {cont__sim2c__attribute_value_pair__annotate_expression_3, &frame__sim2c__attribute_value_pair__annotate_expression_1, 252, 252, 24, 41},
+  {cont__sim2c__attribute_value_pair__annotate_expression_4, &frame__sim2c__attribute_value_pair__annotate_expression_1, 252, 252, 3, 41},
+  {cont__sim2c__attribute_value_pair__annotate_expression_5, &frame__sim2c__attribute_value_pair__annotate_expression_1, 253, 253, 23, 39},
+  {cont__sim2c__attribute_value_pair__annotate_expression_6, &frame__sim2c__attribute_value_pair__annotate_expression_1, 253, 253, 3, 39},
+  {cont__sim2c__attribute_value_pair__annotate_expression_7, &frame__sim2c__attribute_value_pair__annotate_expression_1, 253, 253, 39, 39},
+  {entry__sim2c__attribute_function_pair__annotate_expression_6, NULL, 260, 260, 59, 76},
+  {cont__sim2c__attribute_function_pair__annotate_expression_7, &frame__sim2c__attribute_function_pair__annotate_expression_6, 260, 260, 38, 76},
+  {cont__sim2c__attribute_function_pair__annotate_expression_8, &frame__sim2c__attribute_function_pair__annotate_expression_6, 260, 260, 76, 76},
+  {entry__sim2c__attribute_function_pair__annotate_expression_1, NULL, 259, 259, 3, 61},
+  {cont__sim2c__attribute_function_pair__annotate_expression_3, &frame__sim2c__attribute_function_pair__annotate_expression_1, 260, 260, 6, 24},
+  {cont__sim2c__attribute_function_pair__annotate_expression_4, &frame__sim2c__attribute_function_pair__annotate_expression_1, 260, 260, 6, 35},
+  {cont__sim2c__attribute_function_pair__annotate_expression_5, &frame__sim2c__attribute_function_pair__annotate_expression_1, 260, 260, 3, 76},
+  {cont__sim2c__attribute_function_pair__annotate_expression_9, &frame__sim2c__attribute_function_pair__annotate_expression_1, 261, 261, 23, 39},
+  {cont__sim2c__attribute_function_pair__annotate_expression_10, &frame__sim2c__attribute_function_pair__annotate_expression_1, 261, 261, 3, 39},
+  {cont__sim2c__attribute_function_pair__annotate_expression_11, &frame__sim2c__attribute_function_pair__annotate_expression_1, 261, 261, 39, 39},
+  {entry__sim2c__identifier__annotate_expression_11, NULL, 272, 272, 73, 73},
+  {entry__sim2c__identifier__annotate_expression_8, NULL, 271, 271, 7, 53},
+  {cont__sim2c__identifier__annotate_expression_9, &frame__sim2c__identifier__annotate_expression_8, 272, 272, 10, 36},
+  {cont__sim2c__identifier__annotate_expression_10, &frame__sim2c__identifier__annotate_expression_8, 272, 272, 7, 73},
+  {entry__sim2c__identifier__annotate_expression_19, NULL, 278, 278, 32, 53},
+  {cont__sim2c__identifier__annotate_expression_20, &frame__sim2c__identifier__annotate_expression_19, 278, 278, 32, 70},
+  {cont__sim2c__identifier__annotate_expression_21, &frame__sim2c__identifier__annotate_expression_19, 278, 278, 32, 70},
+  {entry__sim2c__identifier__annotate_expression_23, NULL, 279, 279, 13, 29},
+  {cont__sim2c__identifier__annotate_expression_24, &frame__sim2c__identifier__annotate_expression_23, 282, 282, 48, 48},
+  {entry__sim2c__identifier__annotate_expression_28, NULL, 285, 286, 32, 62},
+  {cont__sim2c__identifier__annotate_expression_31, &frame__sim2c__identifier__annotate_expression_28, 285, 286, 15, 62},
+  {entry__sim2c__identifier__annotate_expression_25, NULL, 284, 284, 16, 37},
+  {cont__sim2c__identifier__annotate_expression_26, &frame__sim2c__identifier__annotate_expression_25, 284, 284, 16, 52},
+  {cont__sim2c__identifier__annotate_expression_27, &frame__sim2c__identifier__annotate_expression_25, 284, 286, 13, 63},
+  {entry__sim2c__identifier__annotate_expression_17, NULL, 278, 278, 11, 27},
+  {cont__sim2c__identifier__annotate_expression_18, &frame__sim2c__identifier__annotate_expression_17, 278, 278, 11, 70},
+  {cont__sim2c__identifier__annotate_expression_22, &frame__sim2c__identifier__annotate_expression_17, 277, 286, 9, 65},
+  {entry__sim2c__identifier__annotate_expression_15, NULL, 276, 276, 10, 30},
+  {cont__sim2c__identifier__annotate_expression_16, &frame__sim2c__identifier__annotate_expression_15, 276, 286, 7, 66},
+  {entry__sim2c__identifier__annotate_expression_36, NULL, 289, 289, 32, 53},
+  {cont__sim2c__identifier__annotate_expression_37, &frame__sim2c__identifier__annotate_expression_36, 289, 289, 32, 70},
+  {cont__sim2c__identifier__annotate_expression_38, &frame__sim2c__identifier__annotate_expression_36, 289, 289, 32, 70},
+  {entry__sim2c__identifier__annotate_expression_40, NULL, 290, 290, 13, 29},
+  {cont__sim2c__identifier__annotate_expression_41, &frame__sim2c__identifier__annotate_expression_40, 293, 293, 47, 47},
+  {entry__sim2c__identifier__annotate_expression_45, NULL, 296, 297, 32, 62},
+  {cont__sim2c__identifier__annotate_expression_46, &frame__sim2c__identifier__annotate_expression_45, 296, 297, 15, 62},
+  {entry__sim2c__identifier__annotate_expression_42, NULL, 295, 295, 20, 41},
+  {cont__sim2c__identifier__annotate_expression_43, &frame__sim2c__identifier__annotate_expression_42, 295, 295, 20, 56},
+  {cont__sim2c__identifier__annotate_expression_44, &frame__sim2c__identifier__annotate_expression_42, 295, 297, 13, 63},
+  {entry__sim2c__identifier__annotate_expression_34, NULL, 289, 289, 11, 27},
+  {cont__sim2c__identifier__annotate_expression_35, &frame__sim2c__identifier__annotate_expression_34, 289, 289, 11, 70},
+  {cont__sim2c__identifier__annotate_expression_39, &frame__sim2c__identifier__annotate_expression_34, 288, 297, 9, 65},
+  {entry__sim2c__identifier__annotate_expression_32, NULL, 287, 287, 10, 47},
+  {cont__sim2c__identifier__annotate_expression_33, &frame__sim2c__identifier__annotate_expression_32, 287, 297, 7, 66},
+  {entry__sim2c__identifier__annotate_expression_49, NULL, 300, 300, 11, 27},
+  {cont__sim2c__identifier__annotate_expression_50, &frame__sim2c__identifier__annotate_expression_49, 303, 303, 47, 47},
+  {entry__sim2c__identifier__annotate_expression_47, NULL, 299, 299, 12, 28},
+  {cont__sim2c__identifier__annotate_expression_48, &frame__sim2c__identifier__annotate_expression_47, 299, 303, 9, 47},
+  {entry__sim2c__identifier__annotate_expression_5, NULL, 269, 269, 5, 33},
+  {cont__sim2c__identifier__annotate_expression_6, &frame__sim2c__identifier__annotate_expression_5, 270, 270, 8, 27},
+  {cont__sim2c__identifier__annotate_expression_7, &frame__sim2c__identifier__annotate_expression_5, 270, 272, 5, 73},
+  {cont__sim2c__identifier__annotate_expression_12, &frame__sim2c__identifier__annotate_expression_5, 273, 273, 5, 31},
+  {cont__sim2c__identifier__annotate_expression_13, &frame__sim2c__identifier__annotate_expression_5, 274, 274, 5, 26},
+  {cont__sim2c__identifier__annotate_expression_14, &frame__sim2c__identifier__annotate_expression_5, 275, 303, 5, 49},
+  {entry__sim2c__identifier__annotate_expression_1, NULL, 267, 267, 3, 54},
+  {cont__sim2c__identifier__annotate_expression_3, &frame__sim2c__identifier__annotate_expression_1, 268, 268, 10, 35},
+  {cont__sim2c__identifier__annotate_expression_4, &frame__sim2c__identifier__annotate_expression_1, 268, 303, 3, 50},
+  {cont__sim2c__identifier__annotate_expression_51, &frame__sim2c__identifier__annotate_expression_1, }
 };
 
 union NODE {
@@ -1465,10 +1379,7 @@ static void type__sim2c__annotate_expression(void) {
     func = myself->type;
   }
 }
-static NODE *character__47;
 static NODE *number__1;
-static NODE *character__46;
-static NODE *number__2;
 
 static const char *used_namespaces[] = {
   "std",
@@ -1509,7 +1420,7 @@ EXPORT void run__annotator(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_1_annotate_output_arguments(void) {
+static void entry__annotate_output_arguments_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // arguments: 0
@@ -1532,13 +1443,13 @@ static void entry__4_1_annotate_output_arguments(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
-  arguments->slots[1] = func__4_2;
+  arguments->slots[1] = func__annotate_output_arguments_2;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__4_20;
+  frame->cont = cont__annotate_output_arguments_20;
 }
-static void entry__4_2(void) {
+static void entry__annotate_output_arguments_2(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // argument: 0
@@ -1554,9 +1465,9 @@ static void entry__4_2(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__4_3;
+  frame->cont = cont__annotate_output_arguments_3;
 }
-static void cont__4_3(void) {
+static void cont__annotate_output_arguments_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1573,7 +1484,7 @@ static void cont__4_3(void) {
   // 47:           !destination functor_of(destination)
   // 48:     $name mangled_name_of(destination)
   // ...
-  frame->slots[1] /* temp__1 */ = create_closure(entry__4_4, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__annotate_output_arguments_4, 0);
   // 39: if do_print_warnings:
   // 40:   $$destination argument
   // 41:   unless destination.is_a_definition:
@@ -1594,9 +1505,9 @@ static void cont__4_3(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__4_19;
+  frame->cont = cont__annotate_output_arguments_19;
 }
-static void entry__4_6(void) {
+static void entry__annotate_output_arguments_6(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // destination: 0
@@ -1613,7 +1524,7 @@ static void entry__4_6(void) {
   // 45:       !destination arguments_of(destination)(1)
   // 46:     :
   // 47:       !destination functor_of(destination)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__4_7, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__annotate_output_arguments_7, 0);
   // 42: while -> destination.is_a_function_call:
   // 43:   if
   // 44:     destination.is_an_attribute_access:
@@ -1626,9 +1537,9 @@ static void entry__4_6(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__4_16;
+  frame->cont = cont__annotate_output_arguments_16;
 }
-static void entry__4_11(void) {
+static void entry__annotate_output_arguments_11(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // destination: 0
@@ -1644,9 +1555,9 @@ static void entry__4_11(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__4_12;
+  frame->cont = cont__annotate_output_arguments_12;
 }
-static void cont__4_12(void) {
+static void cont__annotate_output_arguments_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1659,9 +1570,9 @@ static void cont__4_12(void) {
   result_count = 1;
   myself = frame->slots[1] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__4_13;
+  frame->cont = cont__annotate_output_arguments_13;
 }
-static void cont__4_13(void) {
+static void cont__annotate_output_arguments_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1673,7 +1584,7 @@ static void cont__4_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_14(void) {
+static void entry__annotate_output_arguments_14(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // destination: 0
@@ -1689,9 +1600,9 @@ static void entry__4_14(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__4_15;
+  frame->cont = cont__annotate_output_arguments_15;
 }
-static void cont__4_15(void) {
+static void cont__annotate_output_arguments_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1703,7 +1614,7 @@ static void cont__4_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_9(void) {
+static void entry__annotate_output_arguments_9(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // destination: 0
@@ -1719,9 +1630,9 @@ static void entry__4_9(void) {
   result_count = 1;
   myself = get__is_an_attribute_access();
   func = myself->type;
-  frame->cont = cont__4_10;
+  frame->cont = cont__annotate_output_arguments_10;
 }
-static void cont__4_10(void) {
+static void cont__annotate_output_arguments_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1729,10 +1640,10 @@ static void cont__4_10(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 44: ... :
   // 45:   !destination arguments_of(destination)(1)
-  frame->slots[2] /* temp__2 */ = create_closure(entry__4_11, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__annotate_output_arguments_11, 0);
   // 46: :
   // 47:   !destination functor_of(destination)
-  frame->slots[3] /* temp__3 */ = create_closure(entry__4_14, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__annotate_output_arguments_14, 0);
   // 43: if
   // 44:   destination.is_an_attribute_access:
   // 45:     !destination arguments_of(destination)(1)
@@ -1748,7 +1659,7 @@ static void cont__4_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__4_7(void) {
+static void entry__annotate_output_arguments_7(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // destination: 0
@@ -1764,9 +1675,9 @@ static void entry__4_7(void) {
   result_count = 1;
   myself = get__is_a_function_call();
   func = myself->type;
-  frame->cont = cont__4_8;
+  frame->cont = cont__annotate_output_arguments_8;
 }
-static void cont__4_8(void) {
+static void cont__annotate_output_arguments_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1778,7 +1689,7 @@ static void cont__4_8(void) {
   // 45:       !destination arguments_of(destination)(1)
   // 46:     :
   // 47:       !destination functor_of(destination)
-  frame->slots[2] /* temp__2 */ = create_closure(entry__4_9, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__annotate_output_arguments_9, 0);
   // 42: ... -> destination.is_a_function_call:
   // 43:   if
   // 44:     destination.is_an_attribute_access:
@@ -1793,7 +1704,7 @@ static void cont__4_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_16(void) {
+static void cont__annotate_output_arguments_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1805,9 +1716,9 @@ static void cont__4_16(void) {
   result_count = 1;
   myself = get__mangled_name_of();
   func = myself->type;
-  frame->cont = cont__4_17;
+  frame->cont = cont__annotate_output_arguments_17;
 }
-static void cont__4_17(void) {
+static void cont__annotate_output_arguments_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1823,9 +1734,9 @@ static void cont__4_17(void) {
   result_count = 1;
   myself = get__assigned_names();
   func = myself->type;
-  frame->cont = cont__4_18;
+  frame->cont = cont__annotate_output_arguments_18;
 }
-static void cont__4_18(void) {
+static void cont__annotate_output_arguments_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1837,7 +1748,7 @@ static void cont__4_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__4_4(void) {
+static void entry__annotate_output_arguments_4(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // argument: 0
@@ -1857,9 +1768,9 @@ static void entry__4_4(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__4_5;
+  frame->cont = cont__annotate_output_arguments_5;
 }
-static void cont__4_5(void) {
+static void cont__annotate_output_arguments_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1874,7 +1785,7 @@ static void cont__4_5(void) {
   // 47:         !destination functor_of(destination)
   // 48:   $name mangled_name_of(destination)
   // 49:   !assigned_names(name) true
-  frame->slots[3] /* temp__2 */ = create_closure(entry__4_6, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__annotate_output_arguments_6, 0);
   // 41: unless destination.is_a_definition:
   // 42:   while -> destination.is_a_function_call:
   // 43:     if
@@ -1893,7 +1804,7 @@ static void cont__4_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__4_19(void) {
+static void cont__annotate_output_arguments_19(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1904,7 +1815,7 @@ static void cont__4_19(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__4_20(void) {
+static void cont__annotate_output_arguments_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1917,7 +1828,7 @@ static void cont__4_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__5_1_annotate_arguments(void) {
+static void entry__annotate_arguments_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // arguments: 0
@@ -1930,13 +1841,13 @@ static void entry__5_1_annotate_arguments(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
-  arguments->slots[1] = func__5_2;
+  arguments->slots[1] = func__annotate_arguments_2;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__5_4;
+  frame->cont = cont__annotate_arguments_4;
 }
-static void entry__5_2(void) {
+static void entry__annotate_arguments_2(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // argument: 0
@@ -1952,9 +1863,9 @@ static void entry__5_2(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__5_3;
+  frame->cont = cont__annotate_arguments_3;
 }
-static void cont__5_3(void) {
+static void cont__annotate_arguments_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1967,7 +1878,7 @@ static void cont__5_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__5_4(void) {
+static void cont__annotate_arguments_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1980,7 +1891,7 @@ static void cont__5_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__6_1_types__grammar_node_annotate_statement(void) {
+static void entry__types__grammar_node__annotate_statement_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -1998,9 +1909,9 @@ static void entry__6_1_types__grammar_node_annotate_statement(void) {
     frame->caller_result_count-1 : -1;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__6_3;
+  frame->cont = cont__types__grammar_node__annotate_statement_3;
 }
-static void cont__6_3(void) {
+static void cont__types__grammar_node__annotate_statement_3(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -2011,7 +1922,7 @@ static void cont__6_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__7_1_types__grammar_node_annotate_expression(void) {
+static void entry__types__grammar_node__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -2029,9 +1940,9 @@ static void entry__7_1_types__grammar_node_annotate_expression(void) {
     frame->caller_result_count-1 : -1;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__7_3;
+  frame->cont = cont__types__grammar_node__annotate_expression_3;
 }
-static void cont__7_3(void) {
+static void cont__types__grammar_node__annotate_expression_3(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -2042,7 +1953,7 @@ static void cont__7_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__8_38(void) {
+static void entry__sim2c__check_definitions_38(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -2060,9 +1971,9 @@ static void entry__8_38(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__8_39;
+  frame->cont = cont__sim2c__check_definitions_39;
 }
-static void cont__8_39(void) {
+static void cont__sim2c__check_definitions_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2079,9 +1990,9 @@ static void cont__8_39(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__8_42;
+  frame->cont = cont__sim2c__check_definitions_42;
 }
-static void cont__8_42(void) {
+static void cont__sim2c__check_definitions_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2099,7 +2010,7 @@ static void cont__8_42(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_33(void) {
+static void entry__sim2c__check_definitions_33(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // defined_name: 0
@@ -2113,7 +2024,7 @@ static void entry__8_33(void) {
     return;
   }
   // 90: ... identifier_of(defined_name).is_not_used
-  frame->slots[4] /* temp__2 */ = create_closure(entry__8_34, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__check_definitions_34, 0);
   // 90: ... do_print_warnings && identifier_of(defined_name).is_not_used
   argument_count = 2;
   arguments = node_p;
@@ -2122,9 +2033,9 @@ static void entry__8_33(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__8_37;
+  frame->cont = cont__sim2c__check_definitions_37;
 }
-static void entry__8_34(void) {
+static void entry__sim2c__check_definitions_34(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // defined_name: 0
@@ -2140,9 +2051,9 @@ static void entry__8_34(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__8_35;
+  frame->cont = cont__sim2c__check_definitions_35;
 }
-static void cont__8_35(void) {
+static void cont__sim2c__check_definitions_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2155,9 +2066,9 @@ static void cont__8_35(void) {
   result_count = 1;
   myself = get__is_not_used();
   func = myself->type;
-  frame->cont = cont__8_36;
+  frame->cont = cont__sim2c__check_definitions_36;
 }
-static void cont__8_36(void) {
+static void cont__sim2c__check_definitions_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2171,7 +2082,7 @@ static void cont__8_36(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__8_37(void) {
+static void cont__sim2c__check_definitions_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2181,7 +2092,7 @@ static void cont__8_37(void) {
   // 91:   Warning identifier_of(info) "
   // 92:     attempt to use the identifier "@(name)" that is marked as not being @
   // 93:     used@
-  frame->slots[5] /* temp__3 */ = create_closure(entry__8_38, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__check_definitions_38, 0);
   // 90: if do_print_warnings && identifier_of(defined_name).is_not_used:
   // 91:   Warning identifier_of(info) "
   // 92:     attempt to use the identifier "@(name)" that is marked as not being @
@@ -2195,7 +2106,7 @@ static void cont__8_37(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_30(void) {
+static void entry__sim2c__check_definitions_30(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // name: 0
@@ -2215,9 +2126,9 @@ static void entry__8_30(void) {
   result_count = 1;
   myself = frame->slots[2] /* defined_names */;
   func = myself->type;
-  frame->cont = cont__8_31;
+  frame->cont = cont__sim2c__check_definitions_31;
 }
-static void cont__8_31(void) {
+static void cont__sim2c__check_definitions_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2230,9 +2141,9 @@ static void cont__8_31(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__8_32;
+  frame->cont = cont__sim2c__check_definitions_32;
 }
-static void cont__8_32(void) {
+static void cont__sim2c__check_definitions_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2243,7 +2154,7 @@ static void cont__8_32(void) {
   // 91:     Warning identifier_of(info) "
   // 92:       attempt to use the identifier "@(name)" that is marked as not being @
   // 93:       used@
-  frame->slots[5] /* temp__2 */ = create_closure(entry__8_33, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__check_definitions_33, 0);
   // 89: if defined_name.is_defined:
   // 90:   if do_print_warnings && identifier_of(defined_name).is_not_used:
   // 91:     Warning identifier_of(info) "
@@ -2258,7 +2169,7 @@ static void cont__8_32(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_1_sim2c__check_definitions(void) {
+static void entry__sim2c__check_definitions_1(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // defined_names: 0
@@ -2278,7 +2189,7 @@ static void entry__8_1_sim2c__check_definitions(void) {
   // 77:       :
   // 78:         if
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__8_2, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__check_definitions_2, 2);
   // 69: for_each defined_names: (name info)
   // 70:   $identifier identifier_of(info)
   // 71:   unless namespace_of(identifier).is_defined:
@@ -2297,9 +2208,9 @@ static void entry__8_1_sim2c__check_definitions(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__8_29;
+  frame->cont = cont__sim2c__check_definitions_29;
 }
-static void entry__8_26(void) {
+static void entry__sim2c__check_definitions_26(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // identifier: 0
@@ -2321,9 +2232,9 @@ static void entry__8_26(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__8_28;
+  frame->cont = cont__sim2c__check_definitions_28;
 }
-static void cont__8_28(void) {
+static void cont__sim2c__check_definitions_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2341,7 +2252,7 @@ static void cont__8_28(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_11(void) {
+static void entry__sim2c__check_definitions_11(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // identifier: 0
@@ -2362,9 +2273,9 @@ static void entry__8_11(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__8_14;
+  frame->cont = cont__sim2c__check_definitions_14;
 }
-static void cont__8_14(void) {
+static void cont__sim2c__check_definitions_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2381,7 +2292,7 @@ static void cont__8_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_9(void) {
+static void entry__sim2c__check_definitions_9(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // identifier: 0
@@ -2399,9 +2310,9 @@ static void entry__8_9(void) {
   result_count = 1;
   myself = get__is_not_used();
   func = myself->type;
-  frame->cont = cont__8_10;
+  frame->cont = cont__sim2c__check_definitions_10;
 }
-static void cont__8_10(void) {
+static void cont__sim2c__check_definitions_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2410,7 +2321,7 @@ static void cont__8_10(void) {
   // 74: ... :
   // 75:   Warning identifier "
   // 76:     the identifier "@(name)" is defined but not used@
-  frame->slots[3] /* temp__2 */ = create_closure(entry__8_11, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__check_definitions_11, 0);
   // 74: unless identifier.is_not_used:
   // 75:   Warning identifier "
   // 76:     the identifier "@(name)" is defined but not used@
@@ -2423,7 +2334,7 @@ static void cont__8_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_15(void) {
+static void entry__sim2c__check_definitions_15(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // info: 0
@@ -2443,15 +2354,15 @@ static void entry__8_15(void) {
   result_count = 1;
   myself = get__is_a_multi_assign_definition();
   func = myself->type;
-  frame->cont = cont__8_16;
+  frame->cont = cont__sim2c__check_definitions_16;
 }
-static void cont__8_16(void) {
+static void cont__sim2c__check_definitions_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  frame->slots[5] /* temp__3 */ = create_closure(entry__8_17, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__check_definitions_17, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -2459,9 +2370,9 @@ static void cont__8_16(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__8_25;
+  frame->cont = cont__sim2c__check_definitions_25;
 }
-static void entry__8_17(void) {
+static void entry__sim2c__check_definitions_17(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // info: 0
@@ -2479,9 +2390,9 @@ static void entry__8_17(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__8_18;
+  frame->cont = cont__sim2c__check_definitions_18;
 }
-static void cont__8_18(void) {
+static void cont__sim2c__check_definitions_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2495,9 +2406,9 @@ static void cont__8_18(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__8_19;
+  frame->cont = cont__sim2c__check_definitions_19;
 }
-static void cont__8_19(void) {
+static void cont__sim2c__check_definitions_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2510,16 +2421,16 @@ static void cont__8_19(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__8_20;
+  frame->cont = cont__sim2c__check_definitions_20;
 }
-static void cont__8_20(void) {
+static void cont__sim2c__check_definitions_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 82: not(assigned_names(name))
-  frame->slots[6] /* temp__5 */ = create_closure(entry__8_21, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__sim2c__check_definitions_21, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2527,9 +2438,9 @@ static void cont__8_20(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__8_24;
+  frame->cont = cont__sim2c__check_definitions_24;
 }
-static void entry__8_21(void) {
+static void entry__sim2c__check_definitions_21(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // name: 0
@@ -2545,9 +2456,9 @@ static void entry__8_21(void) {
   result_count = 1;
   myself = get__assigned_names();
   func = myself->type;
-  frame->cont = cont__8_22;
+  frame->cont = cont__sim2c__check_definitions_22;
 }
-static void cont__8_22(void) {
+static void cont__sim2c__check_definitions_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2560,9 +2471,9 @@ static void cont__8_22(void) {
   result_count = 1;
   myself = get__not();
   func = myself->type;
-  frame->cont = cont__8_23;
+  frame->cont = cont__sim2c__check_definitions_23;
 }
-static void cont__8_23(void) {
+static void cont__sim2c__check_definitions_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2576,7 +2487,7 @@ static void cont__8_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__8_24(void) {
+static void cont__sim2c__check_definitions_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2589,7 +2500,7 @@ static void cont__8_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__8_25(void) {
+static void cont__sim2c__check_definitions_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2599,7 +2510,7 @@ static void cont__8_25(void) {
   // 84:   Warning identifier "
   // 85:     the identifier "@(name)" is defined as a read-write variable, @
   // 86:     but there is no actual assignment@
-  frame->slots[6] /* temp__4 */ = create_closure(entry__8_26, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__check_definitions_26, 0);
   // 78: if
   // 79:   &&
   // 80:     info.is_a_multi_assign_definition
@@ -2618,7 +2529,7 @@ static void cont__8_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_6(void) {
+static void entry__sim2c__check_definitions_6(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // used_names: 0
@@ -2640,9 +2551,9 @@ static void entry__8_6(void) {
   result_count = 1;
   myself = frame->slots[0] /* used_names */;
   func = myself->type;
-  frame->cont = cont__8_7;
+  frame->cont = cont__sim2c__check_definitions_7;
 }
-static void cont__8_7(void) {
+static void cont__sim2c__check_definitions_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2655,9 +2566,9 @@ static void cont__8_7(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__8_8;
+  frame->cont = cont__sim2c__check_definitions_8;
 }
-static void cont__8_8(void) {
+static void cont__sim2c__check_definitions_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2667,7 +2578,7 @@ static void cont__8_8(void) {
   // 74:   unless identifier.is_not_used:
   // 75:     Warning identifier "
   // 76:       the identifier "@(name)" is defined but not used@
-  frame->slots[6] /* temp__3 */ = create_closure(entry__8_9, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__check_definitions_9, 0);
   // 77: :
   // 78:   if
   // 79:     &&
@@ -2678,7 +2589,7 @@ static void cont__8_8(void) {
   // 84:       Warning identifier "
   // 85:         the identifier "@(name)" is defined as a read-write variable, @
   // 86:         but there is no actual assignment@
-  frame->slots[7] /* temp__4 */ = create_closure(entry__8_15, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__check_definitions_15, 0);
   // 72: if
   // 73:   used_names(name).is_undefined:
   // 74:     unless identifier.is_not_used:
@@ -2700,7 +2611,7 @@ static void cont__8_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__8_2(void) {
+static void entry__sim2c__check_definitions_2(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // name: 0
@@ -2720,9 +2631,9 @@ static void entry__8_2(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__8_3;
+  frame->cont = cont__sim2c__check_definitions_3;
 }
-static void cont__8_3(void) {
+static void cont__sim2c__check_definitions_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2735,9 +2646,9 @@ static void cont__8_3(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__8_4;
+  frame->cont = cont__sim2c__check_definitions_4;
 }
-static void cont__8_4(void) {
+static void cont__sim2c__check_definitions_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2750,9 +2661,9 @@ static void cont__8_4(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__8_5;
+  frame->cont = cont__sim2c__check_definitions_5;
 }
-static void cont__8_5(void) {
+static void cont__sim2c__check_definitions_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2769,7 +2680,7 @@ static void cont__8_5(void) {
   // 79:         &&
   // 80:           info.is_a_multi_assign_definition
   // ...
-  frame->slots[6] /* temp__3 */ = create_closure(entry__8_6, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__check_definitions_6, 0);
   // 71: unless namespace_of(identifier).is_defined:
   // 72:   if
   // 73:     used_names(name).is_undefined:
@@ -2790,7 +2701,7 @@ static void cont__8_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__8_29(void) {
+static void cont__sim2c__check_definitions_29(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2802,7 +2713,7 @@ static void cont__8_29(void) {
   // 91:       Warning identifier_of(info) "
   // 92:         attempt to use the identifier "@(name)" that is marked as not being @
   // 93:         used@
-  frame->slots[2] /* temp__1 */ = create_closure(entry__8_30, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__check_definitions_30, 2);
   // 87: for_each used_names: (name info)
   // 88:   $defined_name defined_names(name)
   // 89:   if defined_name.is_defined:
@@ -2819,7 +2730,7 @@ static void cont__8_29(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__9_1_sim2c__body_annotate_expression(void) {
+static void entry__sim2c__body__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -2837,9 +2748,9 @@ static void entry__9_1_sim2c__body_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__9_3;
+  frame->cont = cont__sim2c__body__annotate_expression_3;
 }
-static void cont__9_3(void) {
+static void cont__sim2c__body__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2857,7 +2768,7 @@ static void cont__9_3(void) {
   // 106:       parameter.is_an_optional_item && default_value_of(parameter).is_defined:
   // 107:         annotate_expression &parameter.default_value_of
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__9_4, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__body__annotate_expression_4, 0);
   //  98: do:
   //  99:   %%sim2c::defined_names empty_list
   // 100:   %%sim2c::used_names empty_insert_order_table
@@ -2875,9 +2786,9 @@ static void cont__9_3(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__9_70;
+  frame->cont = cont__sim2c__body__annotate_expression_70;
 }
-static void entry__9_4(void) {
+static void entry__sim2c__body__annotate_expression_4(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // return__1: 0
@@ -2911,9 +2822,9 @@ static void entry__9_4(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__9_5;
+  frame->cont = cont__sim2c__body__annotate_expression_5;
 }
-static void cont__9_5(void) {
+static void cont__sim2c__body__annotate_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2927,13 +2838,13 @@ static void cont__9_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
-  arguments->slots[1] = func__9_6;
+  arguments->slots[1] = func__sim2c__body__annotate_expression_6;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__9_17;
+  frame->cont = cont__sim2c__body__annotate_expression_17;
 }
-static void entry__9_6(void) {
+static void entry__sim2c__body__annotate_expression_6(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // parameter: 0
@@ -2950,9 +2861,9 @@ static void entry__9_6(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__9_7;
+  frame->cont = cont__sim2c__body__annotate_expression_7;
 }
-static void cont__9_7(void) {
+static void cont__sim2c__body__annotate_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2965,16 +2876,16 @@ static void cont__9_7(void) {
   result_count = 1;
   myself = get__is_an_optional_item();
   func = myself->type;
-  frame->cont = cont__9_8;
+  frame->cont = cont__sim2c__body__annotate_expression_8;
 }
-static void cont__9_8(void) {
+static void cont__sim2c__body__annotate_expression_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 106: ... default_value_of(parameter).is_defined
-  frame->slots[3] /* temp__3 */ = create_closure(entry__9_9, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__body__annotate_expression_9, 0);
   // 106: parameter.is_an_optional_item && default_value_of(parameter).is_defined
   argument_count = 2;
   arguments = node_p;
@@ -2983,9 +2894,9 @@ static void cont__9_8(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__9_12;
+  frame->cont = cont__sim2c__body__annotate_expression_12;
 }
-static void entry__9_9(void) {
+static void entry__sim2c__body__annotate_expression_9(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // parameter: 0
@@ -3001,9 +2912,9 @@ static void entry__9_9(void) {
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__9_10;
+  frame->cont = cont__sim2c__body__annotate_expression_10;
 }
-static void cont__9_10(void) {
+static void cont__sim2c__body__annotate_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3016,9 +2927,9 @@ static void cont__9_10(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__9_11;
+  frame->cont = cont__sim2c__body__annotate_expression_11;
 }
-static void cont__9_11(void) {
+static void cont__sim2c__body__annotate_expression_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3032,7 +2943,7 @@ static void cont__9_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_12(void) {
+static void cont__sim2c__body__annotate_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3040,7 +2951,7 @@ static void cont__9_12(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 106: ... :
   // 107:   annotate_expression &parameter.default_value_of
-  frame->slots[4] /* temp__4 */ = create_closure(entry__9_13, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__body__annotate_expression_13, 0);
   // 105: if
   // 106:   parameter.is_an_optional_item && default_value_of(parameter).is_defined:
   // 107:     annotate_expression &parameter.default_value_of
@@ -3053,9 +2964,9 @@ static void cont__9_12(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_16;
+  frame->cont = cont__sim2c__body__annotate_expression_16;
 }
-static void entry__9_13(void) {
+static void entry__sim2c__body__annotate_expression_13(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // parameter: 0
@@ -3071,9 +2982,9 @@ static void entry__9_13(void) {
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__9_14;
+  frame->cont = cont__sim2c__body__annotate_expression_14;
 }
-static void cont__9_14(void) {
+static void cont__sim2c__body__annotate_expression_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3086,9 +2997,9 @@ static void cont__9_14(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__9_15;
+  frame->cont = cont__sim2c__body__annotate_expression_15;
 }
-static void cont__9_15(void) {
+static void cont__sim2c__body__annotate_expression_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3108,7 +3019,7 @@ static void cont__9_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_16(void) {
+static void cont__sim2c__body__annotate_expression_16(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -3119,7 +3030,7 @@ static void cont__9_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_17(void) {
+static void cont__sim2c__body__annotate_expression_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3140,9 +3051,9 @@ static void cont__9_17(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__9_18;
+  frame->cont = cont__sim2c__body__annotate_expression_18;
 }
-static void cont__9_18(void) {
+static void cont__sim2c__body__annotate_expression_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3152,13 +3063,13 @@ static void cont__9_18(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
-  arguments->slots[1] = func__9_19;
+  arguments->slots[1] = func__sim2c__body__annotate_expression_19;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__9_21;
+  frame->cont = cont__sim2c__body__annotate_expression_21;
 }
-static void entry__9_19(void) {
+static void entry__sim2c__body__annotate_expression_19(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // stmt: 0
@@ -3174,9 +3085,9 @@ static void entry__9_19(void) {
   result_count = 1;
   myself = get__annotate_statement();
   func = myself->type;
-  frame->cont = cont__9_20;
+  frame->cont = cont__sim2c__body__annotate_expression_20;
 }
-static void cont__9_20(void) {
+static void cont__sim2c__body__annotate_expression_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3189,7 +3100,7 @@ static void cont__9_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_21(void) {
+static void cont__sim2c__body__annotate_expression_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3216,7 +3127,7 @@ static void cont__9_21(void) {
   // 118:           in an inner scope@
   // 119:       $name name_of(ident)
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__9_22, 1);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__body__annotate_expression_22, 1);
   // 110: for_each defined_names: (info)
   // 111:   case
   // 112:     variable_kind_of(info)
@@ -3235,9 +3146,9 @@ static void cont__9_21(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__9_49;
+  frame->cont = cont__sim2c__body__annotate_expression_49;
 }
-static void entry__9_45(void) {
+static void entry__sim2c__body__annotate_expression_45(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // info: 0
@@ -3255,9 +3166,9 @@ static void entry__9_45(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__9_46;
+  frame->cont = cont__sim2c__body__annotate_expression_46;
 }
-static void cont__9_46(void) {
+static void cont__sim2c__body__annotate_expression_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3270,9 +3181,9 @@ static void cont__9_46(void) {
   result_count = 1;
   myself = get__mangled_name_of();
   func = myself->type;
-  frame->cont = cont__9_47;
+  frame->cont = cont__sim2c__body__annotate_expression_47;
 }
-static void cont__9_47(void) {
+static void cont__sim2c__body__annotate_expression_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3286,9 +3197,9 @@ static void cont__9_47(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__9_48;
+  frame->cont = cont__sim2c__body__annotate_expression_48;
 }
-static void cont__9_48(void) {
+static void cont__sim2c__body__annotate_expression_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3300,7 +3211,7 @@ static void cont__9_48(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_22(void) {
+static void entry__sim2c__body__annotate_expression_22(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // info: 0
@@ -3317,9 +3228,9 @@ static void entry__9_22(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__9_23;
+  frame->cont = cont__sim2c__body__annotate_expression_23;
 }
-static void cont__9_23(void) {
+static void cont__sim2c__body__annotate_expression_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3333,9 +3244,9 @@ static void cont__9_23(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__9_24;
+  frame->cont = cont__sim2c__body__annotate_expression_24;
 }
-static void cont__9_24(void) {
+static void cont__sim2c__body__annotate_expression_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3352,7 +3263,7 @@ static void cont__9_24(void) {
   // 121:     SyntaxError ident "
   // 122:       Attempt to define a variable twice within a single scope (@(name)@
   // ...
-  frame->slots[4] /* temp__3 */ = create_closure(entry__9_25, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__body__annotate_expression_25, 0);
   // 125: DYNAMIC_SINGLE, DYNAMIC_MULTI
   argument_count = 2;
   arguments = node_p;
@@ -3361,9 +3272,9 @@ static void cont__9_24(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__9_44;
+  frame->cont = cont__sim2c__body__annotate_expression_44;
 }
-static void entry__9_25(void) {
+static void entry__sim2c__body__annotate_expression_25(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // info: 0
@@ -3385,9 +3296,9 @@ static void entry__9_25(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__9_26;
+  frame->cont = cont__sim2c__body__annotate_expression_26;
 }
-static void cont__9_26(void) {
+static void cont__sim2c__body__annotate_expression_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3400,9 +3311,9 @@ static void cont__9_26(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__9_27;
+  frame->cont = cont__sim2c__body__annotate_expression_27;
 }
-static void cont__9_27(void) {
+static void cont__sim2c__body__annotate_expression_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3415,9 +3326,9 @@ static void cont__9_27(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__9_28;
+  frame->cont = cont__sim2c__body__annotate_expression_28;
 }
-static void cont__9_28(void) {
+static void cont__sim2c__body__annotate_expression_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3427,7 +3338,7 @@ static void cont__9_28(void) {
   // 116:   SyntaxError ident "
   // 117:     attempt to define a namespaced entity (@(full_name_of(ident))) @
   // 118:     in an inner scope@
-  frame->slots[6] /* temp__3 */ = create_closure(entry__9_29, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__body__annotate_expression_29, 0);
   // 115: if namespace_of(ident).is_defined:
   // 116:   SyntaxError ident "
   // 117:     attempt to define a namespaced entity (@(full_name_of(ident))) @
@@ -3439,9 +3350,9 @@ static void cont__9_28(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_34;
+  frame->cont = cont__sim2c__body__annotate_expression_34;
 }
-static void entry__9_29(void) {
+static void entry__sim2c__body__annotate_expression_29(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // ident: 0
@@ -3457,9 +3368,9 @@ static void entry__9_29(void) {
   result_count = 1;
   myself = get__full_name_of();
   func = myself->type;
-  frame->cont = cont__9_30;
+  frame->cont = cont__sim2c__body__annotate_expression_30;
 }
-static void cont__9_30(void) {
+static void cont__sim2c__body__annotate_expression_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3476,9 +3387,9 @@ static void cont__9_30(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__9_33;
+  frame->cont = cont__sim2c__body__annotate_expression_33;
 }
-static void cont__9_33(void) {
+static void cont__sim2c__body__annotate_expression_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3496,7 +3407,7 @@ static void cont__9_33(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_34(void) {
+static void cont__sim2c__body__annotate_expression_34(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3508,9 +3419,9 @@ static void cont__9_34(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__9_35;
+  frame->cont = cont__sim2c__body__annotate_expression_35;
 }
-static void cont__9_35(void) {
+static void cont__sim2c__body__annotate_expression_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3523,9 +3434,9 @@ static void cont__9_35(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* local_definitions */;
   func = myself->type;
-  frame->cont = cont__9_36;
+  frame->cont = cont__sim2c__body__annotate_expression_36;
 }
-static void cont__9_36(void) {
+static void cont__sim2c__body__annotate_expression_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3538,9 +3449,9 @@ static void cont__9_36(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__9_37;
+  frame->cont = cont__sim2c__body__annotate_expression_37;
 }
-static void cont__9_37(void) {
+static void cont__sim2c__body__annotate_expression_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3550,7 +3461,7 @@ static void cont__9_37(void) {
   // 121:   SyntaxError ident "
   // 122:     Attempt to define a variable twice within a single scope (@(name)@
   // 123:     )@
-  frame->slots[6] /* temp__3 */ = create_closure(entry__9_38, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__body__annotate_expression_38, 0);
   // 120: if local_definitions(name).is_defined:
   // 121:   SyntaxError ident "
   // 122:     Attempt to define a variable twice within a single scope (@(name)@
@@ -3562,9 +3473,9 @@ static void cont__9_37(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_42;
+  frame->cont = cont__sim2c__body__annotate_expression_42;
 }
-static void entry__9_38(void) {
+static void entry__sim2c__body__annotate_expression_38(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // ident: 0
@@ -3586,9 +3497,9 @@ static void entry__9_38(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__9_41;
+  frame->cont = cont__sim2c__body__annotate_expression_41;
 }
-static void cont__9_41(void) {
+static void cont__sim2c__body__annotate_expression_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3606,7 +3517,7 @@ static void cont__9_41(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_42(void) {
+static void cont__sim2c__body__annotate_expression_42(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3621,9 +3532,9 @@ static void cont__9_42(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* local_definitions */;
   func = myself->type;
-  frame->cont = cont__9_43;
+  frame->cont = cont__sim2c__body__annotate_expression_43;
 }
-static void cont__9_43(void) {
+static void cont__sim2c__body__annotate_expression_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3635,7 +3546,7 @@ static void cont__9_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_44(void) {
+static void cont__sim2c__body__annotate_expression_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3643,7 +3554,7 @@ static void cont__9_44(void) {
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
   // 125: ... :
   // 126:   !used_names(mangled_name_of(identifier_of(info))) info
-  frame->slots[6] /* temp__5 */ = create_closure(entry__9_45, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__sim2c__body__annotate_expression_45, 0);
   // 111: case
   // 112:   variable_kind_of(info)
   // 113:   STATIC_SINGLE, STATIC_MULTI:
@@ -3667,7 +3578,7 @@ static void cont__9_44(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_49(void) {
+static void cont__sim2c__body__annotate_expression_49(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3703,7 +3614,7 @@ static void cont__9_49(void) {
   // 137:       $return identifier(.name_of "return__@(index)")
   // 138:       inc &index
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__9_50, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__body__annotate_expression_50, 0);
   // 129: if defines_dynamics: # then add a continuation parameter if not present
   // 130:   !self.defines_a_dynamic true
   // 131:   $parameters parameters_of(self)
@@ -3722,9 +3633,9 @@ static void cont__9_49(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_66;
+  frame->cont = cont__sim2c__body__annotate_expression_66;
 }
-static void entry__9_60(void) {
+static void entry__sim2c__body__annotate_expression_60(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3743,9 +3654,9 @@ static void entry__9_60(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__9_62;
+  frame->cont = cont__sim2c__body__annotate_expression_62;
 }
-static void cont__9_62(void) {
+static void cont__sim2c__body__annotate_expression_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3766,9 +3677,9 @@ static void cont__9_62(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__9_63;
+  frame->cont = cont__sim2c__body__annotate_expression_63;
 }
-static void cont__9_63(void) {
+static void cont__sim2c__body__annotate_expression_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3781,9 +3692,9 @@ static void cont__9_63(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__9_64;
+  frame->cont = cont__sim2c__body__annotate_expression_64;
 }
-static void cont__9_64(void) {
+static void cont__sim2c__body__annotate_expression_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3812,9 +3723,9 @@ static void cont__9_64(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__9_65;
+  frame->cont = cont__sim2c__body__annotate_expression_65;
 }
-static void cont__9_65(void) {
+static void cont__sim2c__body__annotate_expression_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3834,7 +3745,7 @@ static void cont__9_65(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_50(void) {
+static void entry__sim2c__body__annotate_expression_50(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -3862,9 +3773,9 @@ static void entry__9_50(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__9_51;
+  frame->cont = cont__sim2c__body__annotate_expression_51;
 }
-static void cont__9_51(void) {
+static void cont__sim2c__body__annotate_expression_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3877,16 +3788,16 @@ static void cont__9_51(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__9_52;
+  frame->cont = cont__sim2c__body__annotate_expression_52;
 }
-static void cont__9_52(void) {
+static void cont__sim2c__body__annotate_expression_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 135: parameter_kind_of(parameters(-1)) != CONTINUATION_PARAMETER
-  frame->slots[4] /* temp__3 */ = create_closure(entry__9_53, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__body__annotate_expression_53, 0);
   // 133: ||
   // 134:   parameters.is_empty
   // 135:   parameter_kind_of(parameters(-1)) != CONTINUATION_PARAMETER
@@ -3897,9 +3808,9 @@ static void cont__9_52(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__9_59;
+  frame->cont = cont__sim2c__body__annotate_expression_59;
 }
-static void entry__9_53(void) {
+static void entry__sim2c__body__annotate_expression_53(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // parameters: 0
@@ -3915,9 +3826,9 @@ static void entry__9_53(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__9_54;
+  frame->cont = cont__sim2c__body__annotate_expression_54;
 }
-static void cont__9_54(void) {
+static void cont__sim2c__body__annotate_expression_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3930,9 +3841,9 @@ static void cont__9_54(void) {
   result_count = 1;
   myself = frame->slots[0] /* parameters */;
   func = myself->type;
-  frame->cont = cont__9_55;
+  frame->cont = cont__sim2c__body__annotate_expression_55;
 }
-static void cont__9_55(void) {
+static void cont__sim2c__body__annotate_expression_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3945,9 +3856,9 @@ static void cont__9_55(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__9_56;
+  frame->cont = cont__sim2c__body__annotate_expression_56;
 }
-static void cont__9_56(void) {
+static void cont__sim2c__body__annotate_expression_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3961,9 +3872,9 @@ static void cont__9_56(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__9_57;
+  frame->cont = cont__sim2c__body__annotate_expression_57;
 }
-static void cont__9_57(void) {
+static void cont__sim2c__body__annotate_expression_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3976,9 +3887,9 @@ static void cont__9_57(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__9_58;
+  frame->cont = cont__sim2c__body__annotate_expression_58;
 }
-static void cont__9_58(void) {
+static void cont__sim2c__body__annotate_expression_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3992,7 +3903,7 @@ static void cont__9_58(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_59(void) {
+static void cont__sim2c__body__annotate_expression_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4006,7 +3917,7 @@ static void cont__9_59(void) {
   // 141:     define_static_single
   // 142:       .identifier_of return
   // 143:       .parameter_kind_of CONTINUATION_PARAMETER
-  frame->slots[5] /* temp__4 */ = create_closure(entry__9_60, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__body__annotate_expression_60, 0);
   // 132: if
   // 133:   ||
   // 134:     parameters.is_empty
@@ -4027,7 +3938,7 @@ static void cont__9_59(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_66(void) {
+static void cont__sim2c__body__annotate_expression_66(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4035,7 +3946,7 @@ static void cont__9_66(void) {
   // 144: ... :
   // 145:   check_definitions local_definitions used_names
   // 146:   !locally_assigned_names assigned_names
-  frame->slots[4] /* temp__1 */ = create_closure(entry__9_67, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__body__annotate_expression_67, 0);
   // 144: if do_print_warnings:
   // 145:   check_definitions local_definitions used_names
   // 146:   !locally_assigned_names assigned_names
@@ -4046,9 +3957,9 @@ static void cont__9_66(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_69;
+  frame->cont = cont__sim2c__body__annotate_expression_69;
 }
-static void entry__9_67(void) {
+static void entry__sim2c__body__annotate_expression_67(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // local_definitions: 0
@@ -4067,9 +3978,9 @@ static void entry__9_67(void) {
   result_count = 0;
   myself = get__check_definitions();
   func = myself->type;
-  frame->cont = cont__9_68;
+  frame->cont = cont__sim2c__body__annotate_expression_68;
 }
-static void cont__9_68(void) {
+static void cont__sim2c__body__annotate_expression_68(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4082,12 +3993,12 @@ static void cont__9_68(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__9_69(void) {
+static void cont__sim2c__body__annotate_expression_69(void) {
   myself = frame->slots[0] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__9_70(void) {
+static void cont__sim2c__body__annotate_expression_70(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4099,9 +4010,9 @@ static void cont__9_70(void) {
   result_count = 1;
   myself = get__used_names_of();
   func = myself->type;
-  frame->cont = cont__9_71;
+  frame->cont = cont__sim2c__body__annotate_expression_71;
 }
-static void cont__9_71(void) {
+static void cont__sim2c__body__annotate_expression_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4111,7 +4022,7 @@ static void cont__9_71(void) {
   // 148:   unless defined_names_of(self)(name).is_defined:
   // 149:     $updated_info update_info(name used_names(name) info)
   // 150:     if updated_info.is_defined: !used_names(name) updated_info
-  frame->slots[3] /* temp__2 */ = create_closure(entry__9_72, 2);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__body__annotate_expression_72, 2);
   // 147: for_each used_names_of(self): (name info)
   // 148:   unless defined_names_of(self)(name).is_defined:
   // 149:     $updated_info update_info(name used_names(name) info)
@@ -4123,9 +4034,9 @@ static void cont__9_71(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__9_82;
+  frame->cont = cont__sim2c__body__annotate_expression_82;
 }
-static void entry__9_80(void) {
+static void entry__sim2c__body__annotate_expression_80(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -4146,9 +4057,9 @@ static void entry__9_80(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__9_81;
+  frame->cont = cont__sim2c__body__annotate_expression_81;
 }
-static void cont__9_81(void) {
+static void cont__sim2c__body__annotate_expression_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4160,7 +4071,7 @@ static void cont__9_81(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_76(void) {
+static void entry__sim2c__body__annotate_expression_76(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // name: 0
@@ -4180,9 +4091,9 @@ static void entry__9_76(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__9_77;
+  frame->cont = cont__sim2c__body__annotate_expression_77;
 }
-static void cont__9_77(void) {
+static void cont__sim2c__body__annotate_expression_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4197,9 +4108,9 @@ static void cont__9_77(void) {
   result_count = 1;
   myself = get__update_info();
   func = myself->type;
-  frame->cont = cont__9_78;
+  frame->cont = cont__sim2c__body__annotate_expression_78;
 }
-static void cont__9_78(void) {
+static void cont__sim2c__body__annotate_expression_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4212,16 +4123,16 @@ static void cont__9_78(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__9_79;
+  frame->cont = cont__sim2c__body__annotate_expression_79;
 }
-static void cont__9_79(void) {
+static void cont__sim2c__body__annotate_expression_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 150: ... : !used_names(name) updated_info
-  frame->slots[4] /* temp__2 */ = create_closure(entry__9_80, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__body__annotate_expression_80, 0);
   // 150: if updated_info.is_defined: !used_names(name) updated_info
   argument_count = 2;
   arguments = node_p;
@@ -4232,7 +4143,7 @@ static void cont__9_79(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__9_72(void) {
+static void entry__sim2c__body__annotate_expression_72(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // name: 0
@@ -4250,9 +4161,9 @@ static void entry__9_72(void) {
   result_count = 1;
   myself = get__defined_names_of();
   func = myself->type;
-  frame->cont = cont__9_73;
+  frame->cont = cont__sim2c__body__annotate_expression_73;
 }
-static void cont__9_73(void) {
+static void cont__sim2c__body__annotate_expression_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4265,9 +4176,9 @@ static void cont__9_73(void) {
   result_count = 1;
   myself = frame->slots[5] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__9_74;
+  frame->cont = cont__sim2c__body__annotate_expression_74;
 }
-static void cont__9_74(void) {
+static void cont__sim2c__body__annotate_expression_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4280,9 +4191,9 @@ static void cont__9_74(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__9_75;
+  frame->cont = cont__sim2c__body__annotate_expression_75;
 }
-static void cont__9_75(void) {
+static void cont__sim2c__body__annotate_expression_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4291,7 +4202,7 @@ static void cont__9_75(void) {
   // 148: ... :
   // 149:   $updated_info update_info(name used_names(name) info)
   // 150:   if updated_info.is_defined: !used_names(name) updated_info
-  frame->slots[6] /* temp__4 */ = create_closure(entry__9_76, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__body__annotate_expression_76, 0);
   // 148: unless defined_names_of(self)(name).is_defined:
   // 149:   $updated_info update_info(name used_names(name) info)
   // 150:   if updated_info.is_defined: !used_names(name) updated_info
@@ -4304,14 +4215,14 @@ static void cont__9_75(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_82(void) {
+static void cont__sim2c__body__annotate_expression_82(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 151: ... :
   // 152:   for_each locally_assigned_names: (name) !assigned_names(name) true
-  frame->slots[2] /* temp__1 */ = create_closure(entry__9_83, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__body__annotate_expression_83, 0);
   // 151: if do_print_warnings:
   // 152:   for_each locally_assigned_names: (name) !assigned_names(name) true
   argument_count = 2;
@@ -4323,9 +4234,9 @@ static void cont__9_82(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__9_86;
+  frame->cont = cont__sim2c__body__annotate_expression_86;
 }
-static void entry__9_84(void) {
+static void entry__sim2c__body__annotate_expression_84(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -4343,9 +4254,9 @@ static void entry__9_84(void) {
   result_count = 1;
   myself = get__assigned_names();
   func = myself->type;
-  frame->cont = cont__9_85;
+  frame->cont = cont__sim2c__body__annotate_expression_85;
 }
-static void cont__9_85(void) {
+static void cont__sim2c__body__annotate_expression_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4357,7 +4268,7 @@ static void cont__9_85(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__9_83(void) {
+static void entry__sim2c__body__annotate_expression_83(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // locally_assigned_names: 0
@@ -4370,13 +4281,13 @@ static void entry__9_83(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* locally_assigned_names */;
-  arguments->slots[1] = func__9_84;
+  arguments->slots[1] = func__sim2c__body__annotate_expression_84;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__9_86(void) {
+static void cont__sim2c__body__annotate_expression_86(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -4387,7 +4298,7 @@ static void cont__9_86(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_1_sim2c__call_annotate_statement(void) {
+static void entry__sim2c__call__annotate_statement_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -4403,518 +4314,9 @@ static void entry__10_1_sim2c__call_annotate_statement(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__10_2;
+  frame->cont = cont__sim2c__call__annotate_statement_2;
 }
-static void cont__10_2(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 161: self.is_an_assignment
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__is_an_assignment();
-  func = myself->type;
-  frame->cont = cont__10_3;
-}
-static void cont__10_3(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[3] /* temp__3 */ = create_closure(entry__10_4, 0);
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = frame->slots[3] /* temp__3 */;
-  result_count = 1;
-  myself = get__std__and();
-  func = myself->type;
-  frame->cont = cont__10_18;
-}
-static void entry__10_4(void) {
-  allocate_initialized_frame_gc(1, 8);
-  // slot allocations:
-  // self: 0
-  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 162: arguments_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__arguments_of();
-  func = myself->type;
-  frame->cont = cont__10_5;
-}
-static void cont__10_5(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[5] /* temp__5 */ = arguments->slots[0];
-  // 162: arguments_of(self)(1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  result_count = 1;
-  myself = frame->slots[5] /* temp__5 */;
-  func = myself->type;
-  frame->cont = cont__10_6;
-}
-static void cont__10_6(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 162: arguments_of(self)(1).is_a_body
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* temp__4 */;
-  result_count = 1;
-  myself = get__is_a_body();
-  func = myself->type;
-  frame->cont = cont__10_7;
-}
-static void cont__10_7(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 162: ... arguments_of(self)(1).is_a_c_body
-  frame->slots[6] /* temp__6 */ = create_closure(entry__10_8, 0);
-  // 162: arguments_of(self)(1).is_a_body || arguments_of(self)(1).is_a_c_body
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__3 */;
-  arguments->slots[1] = frame->slots[6] /* temp__6 */;
-  result_count = 1;
-  myself = get__std__or();
-  func = myself->type;
-  frame->cont = cont__10_12;
-}
-static void entry__10_8(void) {
-  allocate_initialized_frame_gc(1, 4);
-  // slot allocations:
-  // self: 0
-  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 162: ... arguments_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__arguments_of();
-  func = myself->type;
-  frame->cont = cont__10_9;
-}
-static void cont__10_9(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 162: ... arguments_of(self)(1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  result_count = 1;
-  myself = frame->slots[3] /* temp__3 */;
-  func = myself->type;
-  frame->cont = cont__10_10;
-}
-static void cont__10_10(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 162: ... arguments_of(self)(1).is_a_c_body
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  result_count = 1;
-  myself = get__is_a_c_body();
-  func = myself->type;
-  frame->cont = cont__10_11;
-}
-static void cont__10_11(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 162: ... arguments_of(self)(1).is_a_c_body
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void cont__10_12(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 163: output_arguments_of(self)(1).is_a_single_assign_definition
-  frame->slots[7] /* temp__7 */ = create_closure(entry__10_13, 0);
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = frame->slots[7] /* temp__7 */;
-  result_count = 1;
-  myself = get__std__and();
-  func = myself->type;
-  frame->cont = cont__10_17;
-}
-static void entry__10_13(void) {
-  allocate_initialized_frame_gc(1, 4);
-  // slot allocations:
-  // self: 0
-  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 163: output_arguments_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__output_arguments_of();
-  func = myself->type;
-  frame->cont = cont__10_14;
-}
-static void cont__10_14(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 163: output_arguments_of(self)(1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  result_count = 1;
-  myself = frame->slots[3] /* temp__3 */;
-  func = myself->type;
-  frame->cont = cont__10_15;
-}
-static void cont__10_15(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 163: output_arguments_of(self)(1).is_a_single_assign_definition
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  result_count = 1;
-  myself = get__is_a_single_assign_definition();
-  func = myself->type;
-  frame->cont = cont__10_16;
-}
-static void cont__10_16(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 163: output_arguments_of(self)(1).is_a_single_assign_definition
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void cont__10_17(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void cont__10_18(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 164: :
-  // 165:   !self.arguments_of(1).name_of
-  // 166:     replace_all
-  // 167:       range(output_arguments_of(self)(1).to_string 2 -1)
-  // 168:       "::" = "__"
-  // 169:       '/' = "_"
-  // 170:       '.' = "_"
-  frame->slots[4] /* temp__4 */ = create_closure(entry__10_19, 0);
-  // 159: if
-  // 160:   &&
-  // 161:     self.is_an_assignment
-  // 162:     arguments_of(self)(1).is_a_body || arguments_of(self)(1).is_a_c_body
-  // 163:     output_arguments_of(self)(1).is_a_single_assign_definition
-  // 164:   :
-  // 165:     !self.arguments_of(1).name_of
-  // 166:       replace_all
-  // 167:         range(output_arguments_of(self)(1).to_string 2 -1)
-  // 168:         "::" = "__"
-  // ...
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = frame->slots[4] /* temp__4 */;
-  result_count = 0;
-  myself = get__if();
-  func = myself->type;
-  frame->cont = cont__10_35;
-}
-static void entry__10_19(void) {
-  allocate_initialized_frame_gc(1, 12);
-  // slot allocations:
-  // self: 0
-  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 167: ... output_arguments_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__output_arguments_of();
-  func = myself->type;
-  frame->cont = cont__10_20;
-}
-static void cont__10_20(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 167: ... output_arguments_of(self)(1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  result_count = 1;
-  myself = frame->slots[4] /* temp__4 */;
-  func = myself->type;
-  frame->cont = cont__10_21;
-}
-static void cont__10_21(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 167: ... output_arguments_of(self)(1).to_string
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__3 */;
-  result_count = 1;
-  myself = get__to_string();
-  func = myself->type;
-  frame->cont = cont__10_22;
-}
-static void cont__10_22(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 167: ... 1
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  result_count = 1;
-  myself = get__std__negate();
-  func = myself->type;
-  frame->cont = cont__10_23;
-}
-static void cont__10_23(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[5] /* temp__5 */ = arguments->slots[0];
-  // 167: range(output_arguments_of(self)(1).to_string 2 -1)
-  argument_count = 3;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = number__2;
-  arguments->slots[2] = frame->slots[5] /* temp__5 */;
-  result_count = 1;
-  myself = get__range();
-  func = myself->type;
-  frame->cont = cont__10_24;
-}
-static void cont__10_24(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 168: "::" = "__"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = string__2d7981f4e6d82bff;
-  arguments->slots[1] = string__2d7981f4e5f02b9a;
-  result_count = 1;
-  myself = get__std__key_value_pair();
-  func = myself->type;
-  frame->cont = cont__10_27;
-}
-static void cont__10_27(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[6] /* temp__6 */ = arguments->slots[0];
-  // 169: '/' = "_"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = character__47;
-  arguments->slots[1] = string__578a5af303e9cbe;
-  result_count = 1;
-  myself = get__std__key_value_pair();
-  func = myself->type;
-  frame->cont = cont__10_29;
-}
-static void cont__10_29(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[7] /* temp__7 */ = arguments->slots[0];
-  // 170: '.' = "_"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = character__46;
-  arguments->slots[1] = string__578a5af303e9cbe;
-  result_count = 1;
-  myself = get__std__key_value_pair();
-  func = myself->type;
-  frame->cont = cont__10_30;
-}
-static void cont__10_30(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[8] /* temp__8 */ = arguments->slots[0];
-  // 165: !self.arguments_of(1).name_of
-  // 166:   replace_all
-  // 167:     range(output_arguments_of(self)(1).to_string 2 -1)
-  // 168:     "::" = "__"
-  // 169:     '/' = "_"
-  // 170:     '.' = "_"
-  argument_count = 4;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = frame->slots[6] /* temp__6 */;
-  arguments->slots[2] = frame->slots[7] /* temp__7 */;
-  arguments->slots[3] = frame->slots[8] /* temp__8 */;
-  result_count = 1;
-  myself = get__replace_all();
-  func = myself->type;
-  frame->cont = cont__10_31;
-}
-static void cont__10_31(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[9] /* temp__9 */ = arguments->slots[0];
-  // 165: ... self.arguments_of
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__arguments_of();
-  func = myself->type;
-  frame->cont = cont__10_32;
-}
-static void cont__10_32(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[10] /* temp__10 */ = arguments->slots[0];
-  // 165: ... self.arguments_of(1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  result_count = 1;
-  myself = frame->slots[10] /* temp__10 */;
-  func = myself->type;
-  frame->cont = cont__10_33;
-}
-static void cont__10_33(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[11] /* temp__11 */ = arguments->slots[0];
-  // 165: !self.arguments_of(1).name_of
-  {
-    NODE *temp = clone_object_and_attributes(frame->slots[11] /* temp__11 */);
-    update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__name_of, frame->slots[9] /* temp__9 */);
-    frame->slots[11] /* temp__11 */ = temp;
-
-  }
-  // 165: !self.arguments_of(1)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = number__1;
-  arguments->slots[1] = frame->slots[11] /* temp__11 */;
-  result_count = 1;
-  myself = frame->slots[10] /* temp__10 */;
-  func = myself->type;
-  frame->cont = cont__10_34;
-}
-static void cont__10_34(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[10] /* temp__10 */ = arguments->slots[0];
-  // 165: !self.arguments_of
-  {
-    NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
-    update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__arguments_of, frame->slots[10] /* temp__10 */);
-    ((CELL *)frame->slots[0])->contents /* self */ = temp;
-
-  }
-  argument_count = 0;
-  arguments = node_p;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void cont__10_35(void) {
+static void cont__sim2c__call__annotate_statement_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4926,9 +4328,9 @@ static void cont__10_35(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__10_36;
+  frame->cont = cont__sim2c__call__annotate_statement_3;
 }
-static void cont__10_36(void) {
+static void cont__sim2c__call__annotate_statement_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4941,9 +4343,9 @@ static void cont__10_36(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__10_37;
+  frame->cont = cont__sim2c__call__annotate_statement_4;
 }
-static void cont__10_37(void) {
+static void cont__sim2c__call__annotate_statement_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4955,7 +4357,7 @@ static void cont__10_37(void) {
   // 175:   if continuation_of(self).is_defined:
   // 176:     annotate_expression &self.continuation_of
   // 177:   annotate_expression &self.functor_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__10_38, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__annotate_statement_5, 0);
   // 178: :
   // 179:   unless output_arguments_of(self).is_empty:
   // 180:     $destination output_arguments_of(self)(1)
@@ -4966,7 +4368,7 @@ static void cont__10_37(void) {
   // 185:       :
   // 186:         !self.arguments_of(1).name_of
   // 187:           mangled_name_of(identifier_of(destination))
-  frame->slots[4] /* temp__4 */ = create_closure(entry__10_53, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__call__annotate_statement_20, 0);
   // 171: if
   // 172:   functor_of(self).is_defined:
   // 173:     if result_count_of(self).is_defined:
@@ -4986,9 +4388,9 @@ static void cont__10_37(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__10_71;
+  frame->cont = cont__sim2c__call__annotate_statement_38;
 }
-static void entry__10_65(void) {
+static void entry__sim2c__call__annotate_statement_32(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -5006,9 +4408,9 @@ static void entry__10_65(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__10_66;
+  frame->cont = cont__sim2c__call__annotate_statement_33;
 }
-static void cont__10_66(void) {
+static void cont__sim2c__call__annotate_statement_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5022,9 +4424,9 @@ static void cont__10_66(void) {
   result_count = 1;
   myself = get__mangled_name_of();
   func = myself->type;
-  frame->cont = cont__10_67;
+  frame->cont = cont__sim2c__call__annotate_statement_34;
 }
-static void cont__10_67(void) {
+static void cont__sim2c__call__annotate_statement_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5037,9 +4439,9 @@ static void cont__10_67(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__10_68;
+  frame->cont = cont__sim2c__call__annotate_statement_35;
 }
-static void cont__10_68(void) {
+static void cont__sim2c__call__annotate_statement_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5052,9 +4454,9 @@ static void cont__10_68(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__10_69;
+  frame->cont = cont__sim2c__call__annotate_statement_36;
 }
-static void cont__10_69(void) {
+static void cont__sim2c__call__annotate_statement_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5076,9 +4478,9 @@ static void cont__10_69(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__10_70;
+  frame->cont = cont__sim2c__call__annotate_statement_37;
 }
-static void cont__10_70(void) {
+static void cont__sim2c__call__annotate_statement_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5098,7 +4500,7 @@ static void cont__10_70(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_56(void) {
+static void entry__sim2c__call__annotate_statement_23(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -5116,9 +4518,9 @@ static void entry__10_56(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__10_57;
+  frame->cont = cont__sim2c__call__annotate_statement_24;
 }
-static void cont__10_57(void) {
+static void cont__sim2c__call__annotate_statement_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5131,9 +4533,9 @@ static void cont__10_57(void) {
   result_count = 1;
   myself = frame->slots[2] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__10_58;
+  frame->cont = cont__sim2c__call__annotate_statement_25;
 }
-static void cont__10_58(void) {
+static void cont__sim2c__call__annotate_statement_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5146,16 +4548,16 @@ static void cont__10_58(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__10_59;
+  frame->cont = cont__sim2c__call__annotate_statement_26;
 }
-static void cont__10_59(void) {
+static void cont__sim2c__call__annotate_statement_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 184: arguments_of(self)(1).is_a_unique_item_constant
-  frame->slots[4] /* temp__3 */ = create_closure(entry__10_60, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__call__annotate_statement_27, 0);
   // 182: &&
   // 183:   destination.is_a_definition
   // 184:   arguments_of(self)(1).is_a_unique_item_constant
@@ -5166,9 +4568,9 @@ static void cont__10_59(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__10_64;
+  frame->cont = cont__sim2c__call__annotate_statement_31;
 }
-static void entry__10_60(void) {
+static void entry__sim2c__call__annotate_statement_27(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -5184,9 +4586,9 @@ static void entry__10_60(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__10_61;
+  frame->cont = cont__sim2c__call__annotate_statement_28;
 }
-static void cont__10_61(void) {
+static void cont__sim2c__call__annotate_statement_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5199,9 +4601,9 @@ static void cont__10_61(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__10_62;
+  frame->cont = cont__sim2c__call__annotate_statement_29;
 }
-static void cont__10_62(void) {
+static void cont__sim2c__call__annotate_statement_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5214,9 +4616,9 @@ static void cont__10_62(void) {
   result_count = 1;
   myself = get__is_a_unique_item_constant();
   func = myself->type;
-  frame->cont = cont__10_63;
+  frame->cont = cont__sim2c__call__annotate_statement_30;
 }
-static void cont__10_63(void) {
+static void cont__sim2c__call__annotate_statement_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5230,7 +4632,7 @@ static void cont__10_63(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__10_64(void) {
+static void cont__sim2c__call__annotate_statement_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5239,7 +4641,7 @@ static void cont__10_64(void) {
   // 185: :
   // 186:   !self.arguments_of(1).name_of
   // 187:     mangled_name_of(identifier_of(destination))
-  frame->slots[5] /* temp__4 */ = create_closure(entry__10_65, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__call__annotate_statement_32, 0);
   // 181: if
   // 182:   &&
   // 183:     destination.is_a_definition
@@ -5256,7 +4658,7 @@ static void cont__10_64(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__10_38(void) {
+static void entry__sim2c__call__annotate_statement_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -5272,9 +4674,9 @@ static void entry__10_38(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__10_39;
+  frame->cont = cont__sim2c__call__annotate_statement_6;
 }
-static void cont__10_39(void) {
+static void cont__sim2c__call__annotate_statement_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5287,9 +4689,9 @@ static void cont__10_39(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__10_40;
+  frame->cont = cont__sim2c__call__annotate_statement_7;
 }
-static void cont__10_40(void) {
+static void cont__sim2c__call__annotate_statement_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5297,7 +4699,7 @@ static void cont__10_40(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 173: ... :
   // 174:   annotate_expression &self.result_count_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__10_41, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__annotate_statement_8, 0);
   // 173: if result_count_of(self).is_defined:
   // 174:   annotate_expression &self.result_count_of
   argument_count = 2;
@@ -5307,9 +4709,9 @@ static void cont__10_40(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__10_44;
+  frame->cont = cont__sim2c__call__annotate_statement_11;
 }
-static void entry__10_41(void) {
+static void entry__sim2c__call__annotate_statement_8(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -5325,9 +4727,9 @@ static void entry__10_41(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__10_42;
+  frame->cont = cont__sim2c__call__annotate_statement_9;
 }
-static void cont__10_42(void) {
+static void cont__sim2c__call__annotate_statement_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5340,9 +4742,9 @@ static void cont__10_42(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__10_43;
+  frame->cont = cont__sim2c__call__annotate_statement_10;
 }
-static void cont__10_43(void) {
+static void cont__sim2c__call__annotate_statement_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5362,7 +4764,7 @@ static void cont__10_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__10_44(void) {
+static void cont__sim2c__call__annotate_statement_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5374,9 +4776,9 @@ static void cont__10_44(void) {
   result_count = 1;
   myself = get__continuation_of();
   func = myself->type;
-  frame->cont = cont__10_45;
+  frame->cont = cont__sim2c__call__annotate_statement_12;
 }
-static void cont__10_45(void) {
+static void cont__sim2c__call__annotate_statement_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5389,9 +4791,9 @@ static void cont__10_45(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__10_46;
+  frame->cont = cont__sim2c__call__annotate_statement_13;
 }
-static void cont__10_46(void) {
+static void cont__sim2c__call__annotate_statement_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5399,7 +4801,7 @@ static void cont__10_46(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 175: ... :
   // 176:   annotate_expression &self.continuation_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__10_47, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__annotate_statement_14, 0);
   // 175: if continuation_of(self).is_defined:
   // 176:   annotate_expression &self.continuation_of
   argument_count = 2;
@@ -5409,9 +4811,9 @@ static void cont__10_46(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__10_50;
+  frame->cont = cont__sim2c__call__annotate_statement_17;
 }
-static void entry__10_47(void) {
+static void entry__sim2c__call__annotate_statement_14(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -5427,9 +4829,9 @@ static void entry__10_47(void) {
   result_count = 1;
   myself = get__continuation_of();
   func = myself->type;
-  frame->cont = cont__10_48;
+  frame->cont = cont__sim2c__call__annotate_statement_15;
 }
-static void cont__10_48(void) {
+static void cont__sim2c__call__annotate_statement_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5442,9 +4844,9 @@ static void cont__10_48(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__10_49;
+  frame->cont = cont__sim2c__call__annotate_statement_16;
 }
-static void cont__10_49(void) {
+static void cont__sim2c__call__annotate_statement_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5464,7 +4866,7 @@ static void cont__10_49(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__10_50(void) {
+static void cont__sim2c__call__annotate_statement_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5476,9 +4878,9 @@ static void cont__10_50(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__10_51;
+  frame->cont = cont__sim2c__call__annotate_statement_18;
 }
-static void cont__10_51(void) {
+static void cont__sim2c__call__annotate_statement_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5491,9 +4893,9 @@ static void cont__10_51(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__10_52;
+  frame->cont = cont__sim2c__call__annotate_statement_19;
 }
-static void cont__10_52(void) {
+static void cont__sim2c__call__annotate_statement_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5513,7 +4915,7 @@ static void cont__10_52(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__10_53(void) {
+static void entry__sim2c__call__annotate_statement_20(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -5529,9 +4931,9 @@ static void entry__10_53(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__10_54;
+  frame->cont = cont__sim2c__call__annotate_statement_21;
 }
-static void cont__10_54(void) {
+static void cont__sim2c__call__annotate_statement_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5544,9 +4946,9 @@ static void cont__10_54(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__10_55;
+  frame->cont = cont__sim2c__call__annotate_statement_22;
 }
-static void cont__10_55(void) {
+static void cont__sim2c__call__annotate_statement_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5561,7 +4963,7 @@ static void cont__10_55(void) {
   // 185:     :
   // 186:       !self.arguments_of(1).name_of
   // 187:         mangled_name_of(identifier_of(destination))
-  frame->slots[3] /* temp__3 */ = create_closure(entry__10_56, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__annotate_statement_23, 0);
   // 179: unless output_arguments_of(self).is_empty:
   // 180:   $destination output_arguments_of(self)(1)
   // 181:   if
@@ -5580,7 +4982,7 @@ static void cont__10_55(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__10_71(void) {
+static void cont__sim2c__call__annotate_statement_38(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5592,9 +4994,9 @@ static void cont__10_71(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__10_72;
+  frame->cont = cont__sim2c__call__annotate_statement_39;
 }
-static void cont__10_72(void) {
+static void cont__sim2c__call__annotate_statement_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5607,9 +5009,9 @@ static void cont__10_72(void) {
   result_count = 1;
   myself = var._annotate_output_arguments;
   func = myself->type;
-  frame->cont = cont__10_73;
+  frame->cont = cont__sim2c__call__annotate_statement_40;
 }
-static void cont__10_73(void) {
+static void cont__sim2c__call__annotate_statement_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5630,9 +5032,9 @@ static void cont__10_73(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__10_74;
+  frame->cont = cont__sim2c__call__annotate_statement_41;
 }
-static void cont__10_74(void) {
+static void cont__sim2c__call__annotate_statement_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5645,9 +5047,9 @@ static void cont__10_74(void) {
   result_count = 1;
   myself = var._annotate_arguments;
   func = myself->type;
-  frame->cont = cont__10_75;
+  frame->cont = cont__sim2c__call__annotate_statement_42;
 }
-static void cont__10_75(void) {
+static void cont__sim2c__call__annotate_statement_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5668,7 +5070,7 @@ static void cont__10_75(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__11_1_sim2c__c_code_annotate_statement(void) {
+static void entry__sim2c__c_code__annotate_statement_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -5684,9 +5086,9 @@ static void entry__11_1_sim2c__c_code_annotate_statement(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__11_3;
+  frame->cont = cont__sim2c__c_code__annotate_statement_3;
 }
-static void cont__11_3(void) {
+static void cont__sim2c__c_code__annotate_statement_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5698,9 +5100,9 @@ static void cont__11_3(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__11_4;
+  frame->cont = cont__sim2c__c_code__annotate_statement_4;
 }
-static void cont__11_4(void) {
+static void cont__sim2c__c_code__annotate_statement_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5714,9 +5116,9 @@ static void cont__11_4(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__11_7;
+  frame->cont = cont__sim2c__c_code__annotate_statement_7;
 }
-static void cont__11_7(void) {
+static void cont__sim2c__c_code__annotate_statement_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5726,7 +5128,7 @@ static void cont__11_7(void) {
   // 197:   push
   // 198:     &defined_names
   // 199:     self(.variable_kind_of STATIC_SINGLE .is_a_single_assign_definition true)
-  frame->slots[3] /* temp__3 */ = create_closure(entry__11_8, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__c_code__annotate_statement_8, 0);
   // 196: case kind_of(self) "type", "object":
   // 197:   push
   // 198:     &defined_names
@@ -5739,9 +5141,9 @@ static void cont__11_7(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__11_10;
+  frame->cont = cont__sim2c__c_code__annotate_statement_10;
 }
-static void entry__11_8(void) {
+static void entry__sim2c__c_code__annotate_statement_8(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -5769,9 +5171,9 @@ static void entry__11_8(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__11_9;
+  frame->cont = cont__sim2c__c_code__annotate_statement_9;
 }
-static void cont__11_9(void) {
+static void cont__sim2c__c_code__annotate_statement_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5783,7 +5185,7 @@ static void cont__11_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__11_10(void) {
+static void cont__sim2c__c_code__annotate_statement_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5795,9 +5197,9 @@ static void cont__11_10(void) {
   result_count = 1;
   myself = get__base_of();
   func = myself->type;
-  frame->cont = cont__11_11;
+  frame->cont = cont__sim2c__c_code__annotate_statement_11;
 }
-static void cont__11_11(void) {
+static void cont__sim2c__c_code__annotate_statement_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5810,16 +5212,16 @@ static void cont__11_11(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__11_12;
+  frame->cont = cont__sim2c__c_code__annotate_statement_12;
 }
-static void cont__11_12(void) {
+static void cont__sim2c__c_code__annotate_statement_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 200: ... : annotate_expression &self.base_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__11_13, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__c_code__annotate_statement_13, 0);
   // 200: if base_of(self).is_defined: annotate_expression &self.base_of
   argument_count = 2;
   arguments = node_p;
@@ -5830,9 +5232,9 @@ static void cont__11_12(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__11_16;
+  frame->cont = cont__sim2c__c_code__annotate_statement_16;
 }
-static void entry__11_13(void) {
+static void entry__sim2c__c_code__annotate_statement_13(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -5848,9 +5250,9 @@ static void entry__11_13(void) {
   result_count = 1;
   myself = get__base_of();
   func = myself->type;
-  frame->cont = cont__11_14;
+  frame->cont = cont__sim2c__c_code__annotate_statement_14;
 }
-static void cont__11_14(void) {
+static void cont__sim2c__c_code__annotate_statement_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5863,9 +5265,9 @@ static void cont__11_14(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__11_15;
+  frame->cont = cont__sim2c__c_code__annotate_statement_15;
 }
-static void cont__11_15(void) {
+static void cont__sim2c__c_code__annotate_statement_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5885,7 +5287,7 @@ static void cont__11_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__11_16(void) {
+static void cont__sim2c__c_code__annotate_statement_16(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -5896,7 +5298,7 @@ static void cont__11_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_1_sim2c__define_static_single_annotate_expression(void) {
+static void entry__sim2c__define_static_single__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -5912,9 +5314,9 @@ static void entry__12_1_sim2c__define_static_single_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__12_3;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_3;
 }
-static void cont__12_3(void) {
+static void cont__sim2c__define_static_single__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5926,9 +5328,9 @@ static void cont__12_3(void) {
   result_count = 1;
   myself = get__attribute_kind_of();
   func = myself->type;
-  frame->cont = cont__12_4;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_4;
 }
-static void cont__12_4(void) {
+static void cont__sim2c__define_static_single__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5942,9 +5344,9 @@ static void cont__12_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__12_5;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_5;
 }
-static void cont__12_5(void) {
+static void cont__sim2c__define_static_single__annotate_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5952,11 +5354,11 @@ static void cont__12_5(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 208: ... :
   // 209:   push &defined_names self
-  frame->slots[3] /* temp__3 */ = create_closure(entry__12_6, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__define_static_single__annotate_expression_6, 0);
   // 210: :
   // 211:   if attribute_of(self).is_defined: annotate_expression &self.attribute_of
   // 212:   annotate_expression &self.identifier_of
-  frame->slots[4] /* temp__4 */ = create_closure(entry__12_8, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__define_static_single__annotate_expression_8, 0);
   // 207: if
   // 208:   attribute_kind_of(self) == NONE:
   // 209:     push &defined_names self
@@ -5973,9 +5375,9 @@ static void cont__12_5(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__12_17;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_17;
 }
-static void entry__12_6(void) {
+static void entry__sim2c__define_static_single__annotate_expression_6(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -5992,9 +5394,9 @@ static void entry__12_6(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__12_7;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_7;
 }
-static void cont__12_7(void) {
+static void cont__sim2c__define_static_single__annotate_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6006,7 +5408,7 @@ static void cont__12_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__12_8(void) {
+static void entry__sim2c__define_static_single__annotate_expression_8(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -6022,9 +5424,9 @@ static void entry__12_8(void) {
   result_count = 1;
   myself = get__attribute_of();
   func = myself->type;
-  frame->cont = cont__12_9;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_9;
 }
-static void cont__12_9(void) {
+static void cont__sim2c__define_static_single__annotate_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6037,16 +5439,16 @@ static void cont__12_9(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__12_10;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_10;
 }
-static void cont__12_10(void) {
+static void cont__sim2c__define_static_single__annotate_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 211: ... : annotate_expression &self.attribute_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__12_11, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__define_static_single__annotate_expression_11, 0);
   // 211: if attribute_of(self).is_defined: annotate_expression &self.attribute_of
   argument_count = 2;
   arguments = node_p;
@@ -6055,9 +5457,9 @@ static void cont__12_10(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__12_14;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_14;
 }
-static void entry__12_11(void) {
+static void entry__sim2c__define_static_single__annotate_expression_11(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -6073,9 +5475,9 @@ static void entry__12_11(void) {
   result_count = 1;
   myself = get__attribute_of();
   func = myself->type;
-  frame->cont = cont__12_12;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_12;
 }
-static void cont__12_12(void) {
+static void cont__sim2c__define_static_single__annotate_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6088,9 +5490,9 @@ static void cont__12_12(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__12_13;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_13;
 }
-static void cont__12_13(void) {
+static void cont__sim2c__define_static_single__annotate_expression_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6110,7 +5512,7 @@ static void cont__12_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__12_14(void) {
+static void cont__sim2c__define_static_single__annotate_expression_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6122,9 +5524,9 @@ static void cont__12_14(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__12_15;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_15;
 }
-static void cont__12_15(void) {
+static void cont__sim2c__define_static_single__annotate_expression_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6137,9 +5539,9 @@ static void cont__12_15(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__12_16;
+  frame->cont = cont__sim2c__define_static_single__annotate_expression_16;
 }
-static void cont__12_16(void) {
+static void cont__sim2c__define_static_single__annotate_expression_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6159,7 +5561,7 @@ static void cont__12_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__12_17(void) {
+static void cont__sim2c__define_static_single__annotate_expression_17(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -6170,7 +5572,7 @@ static void cont__12_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__13_1_sim2c__define_static_multi_annotate_expression(void) {
+static void entry__sim2c__define_static_multi__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -6186,9 +5588,9 @@ static void entry__13_1_sim2c__define_static_multi_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__13_3;
+  frame->cont = cont__sim2c__define_static_multi__annotate_expression_3;
 }
-static void cont__13_3(void) {
+static void cont__sim2c__define_static_multi__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6201,9 +5603,9 @@ static void cont__13_3(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__13_4;
+  frame->cont = cont__sim2c__define_static_multi__annotate_expression_4;
 }
-static void cont__13_4(void) {
+static void cont__sim2c__define_static_multi__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6216,7 +5618,7 @@ static void cont__13_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__14_1_sim2c__define_dynamic_single_annotate_expression(void) {
+static void entry__sim2c__define_dynamic_single__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -6232,9 +5634,9 @@ static void entry__14_1_sim2c__define_dynamic_single_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__14_3;
+  frame->cont = cont__sim2c__define_dynamic_single__annotate_expression_3;
 }
-static void cont__14_3(void) {
+static void cont__sim2c__define_dynamic_single__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6249,9 +5651,9 @@ static void cont__14_3(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__14_4;
+  frame->cont = cont__sim2c__define_dynamic_single__annotate_expression_4;
 }
-static void cont__14_4(void) {
+static void cont__sim2c__define_dynamic_single__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6264,7 +5666,7 @@ static void cont__14_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__15_1_sim2c__define_dynamic_multi_annotate_expression(void) {
+static void entry__sim2c__define_dynamic_multi__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -6280,9 +5682,9 @@ static void entry__15_1_sim2c__define_dynamic_multi_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__15_3;
+  frame->cont = cont__sim2c__define_dynamic_multi__annotate_expression_3;
 }
-static void cont__15_3(void) {
+static void cont__sim2c__define_dynamic_multi__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6297,9 +5699,9 @@ static void cont__15_3(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__15_4;
+  frame->cont = cont__sim2c__define_dynamic_multi__annotate_expression_4;
 }
-static void cont__15_4(void) {
+static void cont__sim2c__define_dynamic_multi__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6312,7 +5714,7 @@ static void cont__15_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__16_1_sim2c__function_call_annotate_expression(void) {
+static void entry__sim2c__function_call__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -6328,9 +5730,9 @@ static void entry__16_1_sim2c__function_call_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__16_3;
+  frame->cont = cont__sim2c__function_call__annotate_expression_3;
 }
-static void cont__16_3(void) {
+static void cont__sim2c__function_call__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6342,9 +5744,9 @@ static void cont__16_3(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__16_4;
+  frame->cont = cont__sim2c__function_call__annotate_expression_4;
 }
-static void cont__16_4(void) {
+static void cont__sim2c__function_call__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6357,9 +5759,9 @@ static void cont__16_4(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__16_5;
+  frame->cont = cont__sim2c__function_call__annotate_expression_5;
 }
-static void cont__16_5(void) {
+static void cont__sim2c__function_call__annotate_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6369,7 +5771,7 @@ static void cont__16_5(void) {
   // 243:   annotate_expression &self.functor_of
   // 244:   annotate_output_arguments &self.output_arguments_of
   // 245:   annotate_arguments &self.arguments_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__16_6, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__function_call__annotate_expression_6, 0);
   // 242: if functor_of(self).is_defined:
   // 243:   annotate_expression &self.functor_of
   // 244:   annotate_output_arguments &self.output_arguments_of
@@ -6383,9 +5785,9 @@ static void cont__16_5(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__16_13;
+  frame->cont = cont__sim2c__function_call__annotate_expression_13;
 }
-static void entry__16_6(void) {
+static void entry__sim2c__function_call__annotate_expression_6(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -6401,9 +5803,9 @@ static void entry__16_6(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__16_7;
+  frame->cont = cont__sim2c__function_call__annotate_expression_7;
 }
-static void cont__16_7(void) {
+static void cont__sim2c__function_call__annotate_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6416,9 +5818,9 @@ static void cont__16_7(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__16_8;
+  frame->cont = cont__sim2c__function_call__annotate_expression_8;
 }
-static void cont__16_8(void) {
+static void cont__sim2c__function_call__annotate_expression_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6439,9 +5841,9 @@ static void cont__16_8(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__16_9;
+  frame->cont = cont__sim2c__function_call__annotate_expression_9;
 }
-static void cont__16_9(void) {
+static void cont__sim2c__function_call__annotate_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6454,9 +5856,9 @@ static void cont__16_9(void) {
   result_count = 1;
   myself = var._annotate_output_arguments;
   func = myself->type;
-  frame->cont = cont__16_10;
+  frame->cont = cont__sim2c__function_call__annotate_expression_10;
 }
-static void cont__16_10(void) {
+static void cont__sim2c__function_call__annotate_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6477,9 +5879,9 @@ static void cont__16_10(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__16_11;
+  frame->cont = cont__sim2c__function_call__annotate_expression_11;
 }
-static void cont__16_11(void) {
+static void cont__sim2c__function_call__annotate_expression_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6492,9 +5894,9 @@ static void cont__16_11(void) {
   result_count = 1;
   myself = var._annotate_arguments;
   func = myself->type;
-  frame->cont = cont__16_12;
+  frame->cont = cont__sim2c__function_call__annotate_expression_12;
 }
-static void cont__16_12(void) {
+static void cont__sim2c__function_call__annotate_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6514,7 +5916,7 @@ static void cont__16_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__16_13(void) {
+static void cont__sim2c__function_call__annotate_expression_13(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -6525,7 +5927,7 @@ static void cont__16_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__17_1_sim2c__attribute_value_pair_annotate_expression(void) {
+static void entry__sim2c__attribute_value_pair__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -6541,9 +5943,9 @@ static void entry__17_1_sim2c__attribute_value_pair_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__17_3;
+  frame->cont = cont__sim2c__attribute_value_pair__annotate_expression_3;
 }
-static void cont__17_3(void) {
+static void cont__sim2c__attribute_value_pair__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6555,9 +5957,9 @@ static void cont__17_3(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__17_4;
+  frame->cont = cont__sim2c__attribute_value_pair__annotate_expression_4;
 }
-static void cont__17_4(void) {
+static void cont__sim2c__attribute_value_pair__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6570,9 +5972,9 @@ static void cont__17_4(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__17_5;
+  frame->cont = cont__sim2c__attribute_value_pair__annotate_expression_5;
 }
-static void cont__17_5(void) {
+static void cont__sim2c__attribute_value_pair__annotate_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6593,9 +5995,9 @@ static void cont__17_5(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__17_6;
+  frame->cont = cont__sim2c__attribute_value_pair__annotate_expression_6;
 }
-static void cont__17_6(void) {
+static void cont__sim2c__attribute_value_pair__annotate_expression_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6608,9 +6010,9 @@ static void cont__17_6(void) {
   result_count = 1;
   myself = var._annotate_arguments;
   func = myself->type;
-  frame->cont = cont__17_7;
+  frame->cont = cont__sim2c__attribute_value_pair__annotate_expression_7;
 }
-static void cont__17_7(void) {
+static void cont__sim2c__attribute_value_pair__annotate_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6631,7 +6033,7 @@ static void cont__17_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__18_1_sim2c__attribute_function_pair_annotate_expression(void) {
+static void entry__sim2c__attribute_function_pair__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -6647,9 +6049,9 @@ static void entry__18_1_sim2c__attribute_function_pair_annotate_expression(void)
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__18_3;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_3;
 }
-static void cont__18_3(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6661,9 +6063,9 @@ static void cont__18_3(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__18_4;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_4;
 }
-static void cont__18_4(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6676,16 +6078,16 @@ static void cont__18_4(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__18_5;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_5;
 }
-static void cont__18_5(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 260: ... : annotate_expression &self.identifier_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__18_6, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__attribute_function_pair__annotate_expression_6, 0);
   // 260: if identifier_of(self).is_defined: annotate_expression &self.identifier_of
   argument_count = 2;
   arguments = node_p;
@@ -6694,9 +6096,9 @@ static void cont__18_5(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__18_9;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_9;
 }
-static void entry__18_6(void) {
+static void entry__sim2c__attribute_function_pair__annotate_expression_6(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -6712,9 +6114,9 @@ static void entry__18_6(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__18_7;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_7;
 }
-static void cont__18_7(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6727,9 +6129,9 @@ static void cont__18_7(void) {
   result_count = 1;
   myself = get__annotate_expression();
   func = myself->type;
-  frame->cont = cont__18_8;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_8;
 }
-static void cont__18_8(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6749,7 +6151,7 @@ static void cont__18_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__18_9(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6761,9 +6163,9 @@ static void cont__18_9(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__18_10;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_10;
 }
-static void cont__18_10(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6776,9 +6178,9 @@ static void cont__18_10(void) {
   result_count = 1;
   myself = var._annotate_arguments;
   func = myself->type;
-  frame->cont = cont__18_11;
+  frame->cont = cont__sim2c__attribute_function_pair__annotate_expression_11;
 }
-static void cont__18_11(void) {
+static void cont__sim2c__attribute_function_pair__annotate_expression_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6799,7 +6201,7 @@ static void cont__18_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_1_sim2c__identifier_annotate_expression(void) {
+static void entry__sim2c__identifier__annotate_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -6816,9 +6218,9 @@ static void entry__19_1_sim2c__identifier_annotate_expression(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__19_3;
+  frame->cont = cont__sim2c__identifier__annotate_expression_3;
 }
-static void cont__19_3(void) {
+static void cont__sim2c__identifier__annotate_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6830,9 +6232,9 @@ static void cont__19_3(void) {
   result_count = 1;
   myself = get__is_an_operator_symbol();
   func = myself->type;
-  frame->cont = cont__19_4;
+  frame->cont = cont__sim2c__identifier__annotate_expression_4;
 }
-static void cont__19_4(void) {
+static void cont__sim2c__identifier__annotate_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6849,7 +6251,7 @@ static void cont__19_4(void) {
   // 276:     -> self.is_a_destination:
   // 277:       if
   // ...
-  frame->slots[2] /* temp__2 */ = create_closure(entry__19_5, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_5, 0);
   // 268: unless self.is_an_operator_symbol:
   // 269:   $namespace namespace_of(self)
   // 270:   if namespace.is_defined:
@@ -6870,9 +6272,9 @@ static void cont__19_4(void) {
     frame->caller_result_count-1 : -1;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__19_51;
+  frame->cont = cont__sim2c__identifier__annotate_expression_51;
 }
-static void entry__19_49(void) {
+static void entry__sim2c__identifier__annotate_expression_49(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -6903,9 +6305,9 @@ static void entry__19_49(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__19_50;
+  frame->cont = cont__sim2c__identifier__annotate_expression_50;
 }
-static void cont__19_50(void) {
+static void cont__sim2c__identifier__annotate_expression_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6917,7 +6319,7 @@ static void cont__19_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_45(void) {
+static void entry__sim2c__identifier__annotate_expression_45(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -6938,9 +6340,9 @@ static void entry__19_45(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__19_46;
+  frame->cont = cont__sim2c__identifier__annotate_expression_46;
 }
-static void cont__19_46(void) {
+static void cont__sim2c__identifier__annotate_expression_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6957,7 +6359,7 @@ static void cont__19_46(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_40(void) {
+static void entry__sim2c__identifier__annotate_expression_40(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -6988,9 +6390,9 @@ static void entry__19_40(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__19_41;
+  frame->cont = cont__sim2c__identifier__annotate_expression_41;
 }
-static void cont__19_41(void) {
+static void cont__sim2c__identifier__annotate_expression_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7002,7 +6404,7 @@ static void cont__19_41(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_42(void) {
+static void entry__sim2c__identifier__annotate_expression_42(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // info: 0
@@ -7022,9 +6424,9 @@ static void entry__19_42(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__19_43;
+  frame->cont = cont__sim2c__identifier__annotate_expression_43;
 }
-static void cont__19_43(void) {
+static void cont__sim2c__identifier__annotate_expression_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7038,9 +6440,9 @@ static void cont__19_43(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_44;
+  frame->cont = cont__sim2c__identifier__annotate_expression_44;
 }
-static void cont__19_44(void) {
+static void cont__sim2c__identifier__annotate_expression_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7049,7 +6451,7 @@ static void cont__19_44(void) {
   // 295: ... :
   // 296:   SyntaxError self "
   // 297:     Incompatible use of identifier "@(name)@quot;@
-  frame->slots[5] /* temp__3 */ = create_closure(entry__19_45, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__identifier__annotate_expression_45, 0);
   // 295: unless variable_kind_of(info) == POLYMORPHIC:
   // 296:   SyntaxError self "
   // 297:     Incompatible use of identifier "@(name)@quot;@
@@ -7062,7 +6464,7 @@ static void cont__19_44(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_34(void) {
+static void entry__sim2c__identifier__annotate_expression_34(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // info: 0
@@ -7082,16 +6484,16 @@ static void entry__19_34(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__19_35;
+  frame->cont = cont__sim2c__identifier__annotate_expression_35;
 }
-static void cont__19_35(void) {
+static void cont__sim2c__identifier__annotate_expression_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 289: ... variable_kind_of(info) == STATIC_SINGLE
-  frame->slots[5] /* temp__3 */ = create_closure(entry__19_36, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__identifier__annotate_expression_36, 0);
   // 289: info.is_undefined || variable_kind_of(info) == STATIC_SINGLE
   argument_count = 2;
   arguments = node_p;
@@ -7100,9 +6502,9 @@ static void cont__19_35(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_39;
+  frame->cont = cont__sim2c__identifier__annotate_expression_39;
 }
-static void entry__19_36(void) {
+static void entry__sim2c__identifier__annotate_expression_36(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // info: 0
@@ -7118,9 +6520,9 @@ static void entry__19_36(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__19_37;
+  frame->cont = cont__sim2c__identifier__annotate_expression_37;
 }
-static void cont__19_37(void) {
+static void cont__sim2c__identifier__annotate_expression_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7134,9 +6536,9 @@ static void cont__19_37(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_38;
+  frame->cont = cont__sim2c__identifier__annotate_expression_38;
 }
-static void cont__19_38(void) {
+static void cont__sim2c__identifier__annotate_expression_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7150,7 +6552,7 @@ static void cont__19_38(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_39(void) {
+static void cont__sim2c__identifier__annotate_expression_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7161,12 +6563,12 @@ static void cont__19_39(void) {
   // 291:     types::grammar_node
   // 292:       .identifier_of self
   // 293:       .variable_kind_of POLYMORPHIC
-  frame->slots[6] /* temp__4 */ = create_closure(entry__19_40, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__identifier__annotate_expression_40, 0);
   // 294: :
   // 295:   unless variable_kind_of(info) == POLYMORPHIC:
   // 296:     SyntaxError self "
   // 297:       Incompatible use of identifier "@(name)@quot;@
-  frame->slots[7] /* temp__5 */ = create_closure(entry__19_42, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__sim2c__identifier__annotate_expression_42, 0);
   // 288: if
   // 289:   info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
   // 290:     !used_names(name)
@@ -7187,7 +6589,7 @@ static void cont__19_39(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_28(void) {
+static void entry__sim2c__identifier__annotate_expression_28(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -7208,9 +6610,9 @@ static void entry__19_28(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__19_31;
+  frame->cont = cont__sim2c__identifier__annotate_expression_31;
 }
-static void cont__19_31(void) {
+static void cont__sim2c__identifier__annotate_expression_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7227,7 +6629,7 @@ static void cont__19_31(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_23(void) {
+static void entry__sim2c__identifier__annotate_expression_23(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -7258,9 +6660,9 @@ static void entry__19_23(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__19_24;
+  frame->cont = cont__sim2c__identifier__annotate_expression_24;
 }
-static void cont__19_24(void) {
+static void cont__sim2c__identifier__annotate_expression_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7272,7 +6674,7 @@ static void cont__19_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_25(void) {
+static void entry__sim2c__identifier__annotate_expression_25(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // info: 0
@@ -7292,9 +6694,9 @@ static void entry__19_25(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__19_26;
+  frame->cont = cont__sim2c__identifier__annotate_expression_26;
 }
-static void cont__19_26(void) {
+static void cont__sim2c__identifier__annotate_expression_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7308,9 +6710,9 @@ static void cont__19_26(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_27;
+  frame->cont = cont__sim2c__identifier__annotate_expression_27;
 }
-static void cont__19_27(void) {
+static void cont__sim2c__identifier__annotate_expression_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7319,7 +6721,7 @@ static void cont__19_27(void) {
   // 284: ... :
   // 285:   SyntaxError self "
   // 286:     Incompatible use of identifier "@(name)@quot;@
-  frame->slots[5] /* temp__3 */ = create_closure(entry__19_28, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__identifier__annotate_expression_28, 0);
   // 284: if variable_kind_of(info) == POLYMORPHIC:
   // 285:   SyntaxError self "
   // 286:     Incompatible use of identifier "@(name)@quot;@
@@ -7332,7 +6734,7 @@ static void cont__19_27(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_17(void) {
+static void entry__sim2c__identifier__annotate_expression_17(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // info: 0
@@ -7352,16 +6754,16 @@ static void entry__19_17(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__19_18;
+  frame->cont = cont__sim2c__identifier__annotate_expression_18;
 }
-static void cont__19_18(void) {
+static void cont__sim2c__identifier__annotate_expression_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 278: ... variable_kind_of(info) == STATIC_SINGLE
-  frame->slots[5] /* temp__3 */ = create_closure(entry__19_19, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__identifier__annotate_expression_19, 0);
   // 278: info.is_undefined || variable_kind_of(info) == STATIC_SINGLE
   argument_count = 2;
   arguments = node_p;
@@ -7370,9 +6772,9 @@ static void cont__19_18(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__19_22;
+  frame->cont = cont__sim2c__identifier__annotate_expression_22;
 }
-static void entry__19_19(void) {
+static void entry__sim2c__identifier__annotate_expression_19(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // info: 0
@@ -7388,9 +6790,9 @@ static void entry__19_19(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__19_20;
+  frame->cont = cont__sim2c__identifier__annotate_expression_20;
 }
-static void cont__19_20(void) {
+static void cont__sim2c__identifier__annotate_expression_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7404,9 +6806,9 @@ static void cont__19_20(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__19_21;
+  frame->cont = cont__sim2c__identifier__annotate_expression_21;
 }
-static void cont__19_21(void) {
+static void cont__sim2c__identifier__annotate_expression_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7420,7 +6822,7 @@ static void cont__19_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__19_22(void) {
+static void cont__sim2c__identifier__annotate_expression_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7431,12 +6833,12 @@ static void cont__19_22(void) {
   // 280:     types::grammar_node
   // 281:       .identifier_of self
   // 282:       .variable_kind_of STATIC_MULTI
-  frame->slots[6] /* temp__4 */ = create_closure(entry__19_23, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__identifier__annotate_expression_23, 0);
   // 283: :
   // 284:   if variable_kind_of(info) == POLYMORPHIC:
   // 285:     SyntaxError self "
   // 286:       Incompatible use of identifier "@(name)@quot;@
-  frame->slots[7] /* temp__5 */ = create_closure(entry__19_25, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__sim2c__identifier__annotate_expression_25, 0);
   // 277: if
   // 278:   info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
   // 279:     !used_names(name)
@@ -7457,7 +6859,7 @@ static void cont__19_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_15(void) {
+static void entry__sim2c__identifier__annotate_expression_15(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -7477,9 +6879,9 @@ static void entry__19_15(void) {
   result_count = 1;
   myself = get__is_a_destination();
   func = myself->type;
-  frame->cont = cont__19_16;
+  frame->cont = cont__sim2c__identifier__annotate_expression_16;
 }
-static void cont__19_16(void) {
+static void cont__sim2c__identifier__annotate_expression_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7496,7 +6898,7 @@ static void cont__19_16(void) {
   // 284:       if variable_kind_of(info) == POLYMORPHIC:
   // 285:         SyntaxError self "
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__19_17, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_17, 0);
   // 276: -> self.is_a_destination:
   // 277:   if
   // 278:     info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
@@ -7516,7 +6918,7 @@ static void cont__19_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_32(void) {
+static void entry__sim2c__identifier__annotate_expression_32(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -7536,9 +6938,9 @@ static void entry__19_32(void) {
   result_count = 1;
   myself = get__is_used_as_a_polymorphic_function();
   func = myself->type;
-  frame->cont = cont__19_33;
+  frame->cont = cont__sim2c__identifier__annotate_expression_33;
 }
-static void cont__19_33(void) {
+static void cont__sim2c__identifier__annotate_expression_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7555,7 +6957,7 @@ static void cont__19_33(void) {
   // 295:       unless variable_kind_of(info) == POLYMORPHIC:
   // 296:         SyntaxError self "
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__19_34, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_34, 0);
   // 287: -> self.is_used_as_a_polymorphic_function:
   // 288:   if
   // 289:     info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
@@ -7575,7 +6977,7 @@ static void cont__19_33(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_47(void) {
+static void entry__sim2c__identifier__annotate_expression_47(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // info: 0
@@ -7595,9 +6997,9 @@ static void entry__19_47(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__19_48;
+  frame->cont = cont__sim2c__identifier__annotate_expression_48;
 }
-static void cont__19_48(void) {
+static void cont__sim2c__identifier__annotate_expression_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7608,7 +7010,7 @@ static void cont__19_48(void) {
   // 301:     types::grammar_node
   // 302:       .identifier_of self
   // 303:       .variable_kind_of STATIC_SINGLE
-  frame->slots[4] /* temp__2 */ = create_closure(entry__19_49, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_49, 0);
   // 299: if info.is_undefined:
   // 300:   !used_names(name)
   // 301:     types::grammar_node
@@ -7623,7 +7025,7 @@ static void cont__19_48(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__19_5(void) {
+static void entry__sim2c__identifier__annotate_expression_5(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -7645,9 +7047,9 @@ static void entry__19_5(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__19_6;
+  frame->cont = cont__sim2c__identifier__annotate_expression_6;
 }
-static void cont__19_6(void) {
+static void cont__sim2c__identifier__annotate_expression_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7660,9 +7062,9 @@ static void cont__19_6(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__19_7;
+  frame->cont = cont__sim2c__identifier__annotate_expression_7;
 }
-static void cont__19_7(void) {
+static void cont__sim2c__identifier__annotate_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7671,7 +7073,7 @@ static void cont__19_7(void) {
   // 270: ... :
   // 271:   $mapped_namespace namespace_mappings(namespace)
   // 272:   if mapped_namespace.is_defined: !self.namespace_of mapped_namespace
-  frame->slots[5] /* temp__2 */ = create_closure(entry__19_8, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_8, 0);
   // 270: if namespace.is_defined:
   // 271:   $mapped_namespace namespace_mappings(namespace)
   // 272:   if mapped_namespace.is_defined: !self.namespace_of mapped_namespace
@@ -7682,9 +7084,9 @@ static void cont__19_7(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__19_12;
+  frame->cont = cont__sim2c__identifier__annotate_expression_12;
 }
-static void entry__19_11(void) {
+static void entry__sim2c__identifier__annotate_expression_11(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -7711,7 +7113,7 @@ static void entry__19_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__19_8(void) {
+static void entry__sim2c__identifier__annotate_expression_8(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // namespace: 0
@@ -7731,9 +7133,9 @@ static void entry__19_8(void) {
   result_count = 1;
   myself = get__namespace_mappings();
   func = myself->type;
-  frame->cont = cont__19_9;
+  frame->cont = cont__sim2c__identifier__annotate_expression_9;
 }
-static void cont__19_9(void) {
+static void cont__sim2c__identifier__annotate_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7746,16 +7148,16 @@ static void cont__19_9(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__19_10;
+  frame->cont = cont__sim2c__identifier__annotate_expression_10;
 }
-static void cont__19_10(void) {
+static void cont__sim2c__identifier__annotate_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 272: ... : !self.namespace_of mapped_namespace
-  frame->slots[4] /* temp__2 */ = create_closure(entry__19_11, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_11, 0);
   // 272: if mapped_namespace.is_defined: !self.namespace_of mapped_namespace
   argument_count = 2;
   arguments = node_p;
@@ -7766,7 +7168,7 @@ static void cont__19_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_12(void) {
+static void cont__sim2c__identifier__annotate_expression_12(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7778,9 +7180,9 @@ static void cont__19_12(void) {
   result_count = 1;
   myself = get__mangled_name_of();
   func = myself->type;
-  frame->cont = cont__19_13;
+  frame->cont = cont__sim2c__identifier__annotate_expression_13;
 }
-static void cont__19_13(void) {
+static void cont__sim2c__identifier__annotate_expression_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7793,9 +7195,9 @@ static void cont__19_13(void) {
   result_count = 1;
   myself = get__used_names();
   func = myself->type;
-  frame->cont = cont__19_14;
+  frame->cont = cont__sim2c__identifier__annotate_expression_14;
 }
-static void cont__19_14(void) {
+static void cont__sim2c__identifier__annotate_expression_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7812,7 +7214,7 @@ static void cont__19_14(void) {
   // 284:       if variable_kind_of(info) == POLYMORPHIC:
   // 285:         SyntaxError self "
   // ...
-  frame->slots[4] /* temp__1 */ = create_closure(entry__19_15, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__identifier__annotate_expression_15, 0);
   // 287: -> self.is_used_as_a_polymorphic_function:
   // 288:   if
   // 289:     info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
@@ -7824,14 +7226,14 @@ static void cont__19_14(void) {
   // 295:       unless variable_kind_of(info) == POLYMORPHIC:
   // 296:         SyntaxError self "
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__19_32, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__identifier__annotate_expression_32, 0);
   // 298: :
   // 299:   if info.is_undefined:
   // 300:     !used_names(name)
   // 301:       types::grammar_node
   // 302:         .identifier_of self
   // 303:         .variable_kind_of STATIC_SINGLE
-  frame->slots[6] /* temp__3 */ = create_closure(entry__19_47, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__identifier__annotate_expression_47, 0);
   // 275: cond
   // 276:   -> self.is_a_destination:
   // 277:     if
@@ -7853,7 +7255,7 @@ static void cont__19_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__19_51(void) {
+static void cont__sim2c__identifier__annotate_expression_51(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -7887,60 +7289,54 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__annotator(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
-  character__47 = from_uchar32(47);
   number__1 = from_uint32(1U);
-  character__46 = from_uchar32(46);
-  number__2 = from_uint32(2U);
-  func__4_2 = create_function(entry__4_2, 1);
-  func__4_1_annotate_output_arguments = create_function(entry__4_1_annotate_output_arguments, 1);
-  func__5_2 = create_function(entry__5_2, 1);
-  func__5_1_annotate_arguments = create_function(entry__5_1_annotate_arguments, 1);
+  func__annotate_output_arguments_2 = create_function(entry__annotate_output_arguments_2, 1);
+  func__annotate_output_arguments_1 = create_function(entry__annotate_output_arguments_1, 1);
+  func__annotate_arguments_2 = create_function(entry__annotate_arguments_2, 1);
+  func__annotate_arguments_1 = create_function(entry__annotate_arguments_1, 1);
   string__8a2e321e316b06ed = from_latin_1_string("annotate statement", 18);
-  func__6_1_types__grammar_node_annotate_statement = create_function(entry__6_1_types__grammar_node_annotate_statement, 1);
+  func__types__grammar_node__annotate_statement_1 = create_function(entry__types__grammar_node__annotate_statement_1, 1);
   string__bce93a983bb5b33f = from_latin_1_string("annotate expression", 19);
-  func__7_1_types__grammar_node_annotate_expression = create_function(entry__7_1_types__grammar_node_annotate_expression, 1);
+  func__types__grammar_node__annotate_expression_1 = create_function(entry__types__grammar_node__annotate_expression_1, 1);
   string__1f20e521cf7a2a0e = from_latin_1_string("the identifier \042", 16);
   string__e573d863c40ad98e = from_latin_1_string("\042 is defined but not used", 25);
   string__6ef85e6a0d2c67a5 = from_latin_1_string("\042 is defined as a read-write variable, but there is no actual assignment", 72);
   string__fd0945f8c8a23329 = from_latin_1_string("attempt to use the identifier \042", 31);
   string__27789aef2dccadff = from_latin_1_string("\042 that is marked as not being used", 34);
-  func__8_1_sim2c__check_definitions = create_function(entry__8_1_sim2c__check_definitions, 2);
+  func__sim2c__check_definitions_1 = create_function(entry__sim2c__check_definitions_1, 2);
   string__463aabf2a07456b1 = from_latin_1_string("annotate body", 13);
-  func__9_6 = create_function(entry__9_6, 1);
-  func__9_19 = create_function(entry__9_19, 1);
+  func__sim2c__body__annotate_expression_6 = create_function(entry__sim2c__body__annotate_expression_6, 1);
+  func__sim2c__body__annotate_expression_19 = create_function(entry__sim2c__body__annotate_expression_19, 1);
   string__c9348eff105534ce = from_latin_1_string("attempt to define a namespaced entity (", 39);
   string__dcee629a9fc6e3f6 = from_latin_1_string(") in an inner scope", 19);
   string__e3b540e1e08e3bc7 = from_latin_1_string("Attempt to define a variable twice within a single scope (", 58);
   string__578a5af303e9cc8 = from_latin_1_string(")", 1);
   string__4a80ae5c052cc23f = from_latin_1_string("return__", 8);
-  func__9_84 = create_function(entry__9_84, 1);
-  func__9_1_sim2c__body_annotate_expression = create_function(entry__9_1_sim2c__body_annotate_expression, 1);
-  string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
-  string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
-  string__578a5af303e9cbe = from_latin_1_string("_", 1);
-  func__10_1_sim2c__call_annotate_statement = create_function(entry__10_1_sim2c__call_annotate_statement, 1);
+  func__sim2c__body__annotate_expression_84 = create_function(entry__sim2c__body__annotate_expression_84, 1);
+  func__sim2c__body__annotate_expression_1 = create_function(entry__sim2c__body__annotate_expression_1, 1);
+  func__sim2c__call__annotate_statement_1 = create_function(entry__sim2c__call__annotate_statement_1, 1);
   string__1315a9c10d8edccd = from_latin_1_string("annotate C-code", 15);
   string__2a0aef0b5de07d5c = from_latin_1_string("type", 4);
   string__4c1f570701a272a3 = from_latin_1_string("object", 6);
-  func__11_1_sim2c__c_code_annotate_statement = create_function(entry__11_1_sim2c__c_code_annotate_statement, 1);
+  func__sim2c__c_code__annotate_statement_1 = create_function(entry__sim2c__c_code__annotate_statement_1, 1);
   string__da22f4fe83fda879 = from_latin_1_string("annotate define static single", 29);
-  func__12_1_sim2c__define_static_single_annotate_expression = create_function(entry__12_1_sim2c__define_static_single_annotate_expression, 1);
+  func__sim2c__define_static_single__annotate_expression_1 = create_function(entry__sim2c__define_static_single__annotate_expression_1, 1);
   string__8d039bc45e06307a = from_latin_1_string("annotate define static multi", 28);
-  func__13_1_sim2c__define_static_multi_annotate_expression = create_function(entry__13_1_sim2c__define_static_multi_annotate_expression, 1);
+  func__sim2c__define_static_multi__annotate_expression_1 = create_function(entry__sim2c__define_static_multi__annotate_expression_1, 1);
   string__ff383df04998a917 = from_latin_1_string("annotate define dynamic single", 30);
-  func__14_1_sim2c__define_dynamic_single_annotate_expression = create_function(entry__14_1_sim2c__define_dynamic_single_annotate_expression, 1);
+  func__sim2c__define_dynamic_single__annotate_expression_1 = create_function(entry__sim2c__define_dynamic_single__annotate_expression_1, 1);
   string__2d2e5f670727e936 = from_latin_1_string("annotate define dynamic multi", 29);
-  func__15_1_sim2c__define_dynamic_multi_annotate_expression = create_function(entry__15_1_sim2c__define_dynamic_multi_annotate_expression, 1);
+  func__sim2c__define_dynamic_multi__annotate_expression_1 = create_function(entry__sim2c__define_dynamic_multi__annotate_expression_1, 1);
   string__e5094206a209984d = from_latin_1_string("annotate function call", 22);
-  func__16_1_sim2c__function_call_annotate_expression = create_function(entry__16_1_sim2c__function_call_annotate_expression, 1);
+  func__sim2c__function_call__annotate_expression_1 = create_function(entry__sim2c__function_call__annotate_expression_1, 1);
   string__cdedef056fb3250d = from_latin_1_string("annotate attribute-value pair", 29);
-  func__17_1_sim2c__attribute_value_pair_annotate_expression = create_function(entry__17_1_sim2c__attribute_value_pair_annotate_expression, 1);
+  func__sim2c__attribute_value_pair__annotate_expression_1 = create_function(entry__sim2c__attribute_value_pair__annotate_expression_1, 1);
   string__9fe7729998bbff18 = from_latin_1_string("annotate attribute-function pair", 32);
-  func__18_1_sim2c__attribute_function_pair_annotate_expression = create_function(entry__18_1_sim2c__attribute_function_pair_annotate_expression, 1);
+  func__sim2c__attribute_function_pair__annotate_expression_1 = create_function(entry__sim2c__attribute_function_pair__annotate_expression_1, 1);
   string__d4853f208c1cb4ea = from_latin_1_string("annotate identifier ", 20);
   string__94ba0bbafc65551 = from_latin_1_string("Incompatible use of identifier \042", 32);
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
-  func__19_1_sim2c__identifier_annotate_expression = create_function(entry__19_1_sim2c__identifier_annotate_expression, 1);
+  func__sim2c__identifier__annotate_expression_1 = create_function(entry__sim2c__identifier__annotate_expression_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -8002,15 +7398,12 @@ EXPORT void phase_4__annotator(void) {
   use_read_only(NULL, "if", &get__if, &get_value_or_future__if);
   use_read_only(NULL, "inc", &get__inc, &get_value_or_future__inc);
   use_read_write(NULL, "index", &get__index, &set__index);
-  use_read_only(NULL, "is_a_body", &get__is_a_body, &get_value_or_future__is_a_body);
-  use_read_only(NULL, "is_a_c_body", &get__is_a_c_body, &get_value_or_future__is_a_c_body);
   use_read_only(NULL, "is_a_definition", &get__is_a_definition, &get_value_or_future__is_a_definition);
   use_read_only(NULL, "is_a_destination", &get__is_a_destination, &get_value_or_future__is_a_destination);
   use_read_only(NULL, "is_a_function_call", &get__is_a_function_call, &get_value_or_future__is_a_function_call);
   use_read_only(NULL, "is_a_multi_assign_definition", &get__is_a_multi_assign_definition, &get_value_or_future__is_a_multi_assign_definition);
   use_polymorphic_function(NULL, "is_a_single_assign_definition", &get__is_a_single_assign_definition, &poly_idx__is_a_single_assign_definition);
   use_read_only(NULL, "is_a_unique_item_constant", &get__is_a_unique_item_constant, &get_value_or_future__is_a_unique_item_constant);
-  use_read_only(NULL, "is_an_assignment", &get__is_an_assignment, &get_value_or_future__is_an_assignment);
   use_read_only(NULL, "is_an_attribute_access", &get__is_an_attribute_access, &get_value_or_future__is_an_attribute_access);
   use_read_only(NULL, "is_an_operator_symbol", &get__is_an_operator_symbol, &get_value_or_future__is_an_operator_symbol);
   use_read_only(NULL, "is_an_optional_item", &get__is_an_optional_item, &get_value_or_future__is_an_optional_item);
@@ -8029,8 +7422,6 @@ EXPORT void phase_4__annotator(void) {
   use_polymorphic_function(NULL, "parameter_kind_of", &get__parameter_kind_of, &poly_idx__parameter_kind_of);
   use_polymorphic_function(NULL, "parameters_of", &get__parameters_of, &poly_idx__parameters_of);
   use_read_only(NULL, "push", &get__push, &get_value_or_future__push);
-  use_read_only(NULL, "range", &get__range, &get_value_or_future__range);
-  use_read_only(NULL, "replace_all", &get__replace_all, &get_value_or_future__replace_all);
   use_polymorphic_function(NULL, "result_count_of", &get__result_count_of, &poly_idx__result_count_of);
   use_read_only(NULL, "show_compiler_debug_info", &get__show_compiler_debug_info, &get_value_or_future__show_compiler_debug_info);
   use_multi_assign_dynamic("sim2c", "assigned_names", &get__sim2c__assigned_names, &set__sim2c__assigned_names, &define__sim2c__assigned_names);
@@ -8050,13 +7441,11 @@ EXPORT void phase_4__annotator(void) {
   use_polymorphic_function(NULL, "statements_of", &get__statements_of, &poly_idx__statements_of);
   use_read_only("std", "and", &get__std__and, &get_value_or_future__std__and);
   use_read_only("std", "equal", &get__std__equal, &get_value_or_future__std__equal);
-  use_read_only("std", "key_value_pair", &get__std__key_value_pair, &get_value_or_future__std__key_value_pair);
   use_read_only("std", "negate", &get__std__negate, &get_value_or_future__std__negate);
   use_read_only("std", "not", &get__std__not, &get_value_or_future__std__not);
   use_read_only("std", "or", &get__std__or, &get_value_or_future__std__or);
   use_read_only("std", "sequence", &get__std__sequence, &get_value_or_future__std__sequence);
   use_read_only("std", "string", &get__std__string, &get_value_or_future__std__string);
-  use_read_only(NULL, "to_string", &get__to_string, &get_value_or_future__to_string);
   use_read_only(NULL, "true", &get__true, &get_value_or_future__true);
   use_read_only("types", "grammar_node", &get__types__grammar_node, &get_value_or_future__types__grammar_node);
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
@@ -8067,19 +7456,19 @@ EXPORT void phase_4__annotator(void) {
   use_polymorphic_function(NULL, "used_names_of", &get__used_names_of, &poly_idx__used_names_of);
   use_polymorphic_function(NULL, "variable_kind_of", &get__variable_kind_of, &poly_idx__variable_kind_of);
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
-  define_method("types", "grammar_node", poly_idx__annotate_statement, func__6_1_types__grammar_node_annotate_statement);
-  define_method("types", "grammar_node", poly_idx__annotate_expression, func__7_1_types__grammar_node_annotate_expression);
-  define_method("sim2c", "body", poly_idx__annotate_expression, func__9_1_sim2c__body_annotate_expression);
-  define_method("sim2c", "call", poly_idx__annotate_statement, func__10_1_sim2c__call_annotate_statement);
-  define_method("sim2c", "c_code", poly_idx__annotate_statement, func__11_1_sim2c__c_code_annotate_statement);
-  define_method("sim2c", "define_static_single", poly_idx__annotate_expression, func__12_1_sim2c__define_static_single_annotate_expression);
-  define_method("sim2c", "define_static_multi", poly_idx__annotate_expression, func__13_1_sim2c__define_static_multi_annotate_expression);
-  define_method("sim2c", "define_dynamic_single", poly_idx__annotate_expression, func__14_1_sim2c__define_dynamic_single_annotate_expression);
-  define_method("sim2c", "define_dynamic_multi", poly_idx__annotate_expression, func__15_1_sim2c__define_dynamic_multi_annotate_expression);
-  define_method("sim2c", "function_call", poly_idx__annotate_expression, func__16_1_sim2c__function_call_annotate_expression);
-  define_method("sim2c", "attribute_value_pair", poly_idx__annotate_expression, func__17_1_sim2c__attribute_value_pair_annotate_expression);
-  define_method("sim2c", "attribute_function_pair", poly_idx__annotate_expression, func__18_1_sim2c__attribute_function_pair_annotate_expression);
-  define_method("sim2c", "identifier", poly_idx__annotate_expression, func__19_1_sim2c__identifier_annotate_expression);
+  define_method("types", "grammar_node", poly_idx__annotate_statement, func__types__grammar_node__annotate_statement_1);
+  define_method("types", "grammar_node", poly_idx__annotate_expression, func__types__grammar_node__annotate_expression_1);
+  define_method("sim2c", "body", poly_idx__annotate_expression, func__sim2c__body__annotate_expression_1);
+  define_method("sim2c", "call", poly_idx__annotate_statement, func__sim2c__call__annotate_statement_1);
+  define_method("sim2c", "c_code", poly_idx__annotate_statement, func__sim2c__c_code__annotate_statement_1);
+  define_method("sim2c", "define_static_single", poly_idx__annotate_expression, func__sim2c__define_static_single__annotate_expression_1);
+  define_method("sim2c", "define_static_multi", poly_idx__annotate_expression, func__sim2c__define_static_multi__annotate_expression_1);
+  define_method("sim2c", "define_dynamic_single", poly_idx__annotate_expression, func__sim2c__define_dynamic_single__annotate_expression_1);
+  define_method("sim2c", "define_dynamic_multi", poly_idx__annotate_expression, func__sim2c__define_dynamic_multi__annotate_expression_1);
+  define_method("sim2c", "function_call", poly_idx__annotate_expression, func__sim2c__function_call__annotate_expression_1);
+  define_method("sim2c", "attribute_value_pair", poly_idx__annotate_expression, func__sim2c__attribute_value_pair__annotate_expression_1);
+  define_method("sim2c", "attribute_function_pair", poly_idx__annotate_expression, func__sim2c__attribute_function_pair__annotate_expression_1);
+  define_method("sim2c", "identifier", poly_idx__annotate_expression, func__sim2c__identifier__annotate_expression_1);
 }
 
 static int already_run_phase_5 = false;
@@ -8089,9 +7478,9 @@ EXPORT void phase_5__annotator(void) {
   already_run_phase_5 = true;
   assign_value(&var.sim2c__annotate_statement, create_function(type__sim2c__annotate_statement, -1));
   assign_value(&var.sim2c__annotate_expression, create_function(type__sim2c__annotate_expression, -1));
-  assign_variable(&var._annotate_output_arguments, &func__4_1_annotate_output_arguments);
-  assign_variable(&var._annotate_arguments, &func__5_1_annotate_arguments);
-  assign_variable(&var.sim2c__check_definitions, &func__8_1_sim2c__check_definitions);
+  assign_variable(&var._annotate_output_arguments, &func__annotate_output_arguments_1);
+  assign_variable(&var._annotate_arguments, &func__annotate_arguments_1);
+  assign_variable(&var.sim2c__check_definitions, &func__sim2c__check_definitions_1);
 }
 
 static int already_run_phase_6 = false;
