@@ -278,6 +278,7 @@ echo "#define CC_$CC" >>runtime/platform.h
 echo "#define CC \"$CC\"" >>runtime/platform.h
 echo "#define CPPFLAGS \"$CPPFLAGS\"" >>runtime/platform.h
 echo "#define LDFLAGS \"$LDFLAGS\"" >>runtime/platform.h
+echo "#define PREFIX \"$PREFIX\"" >>runtime/platform.h
 
 INSTALLED_LIBRARIES=''
   # the set of libraries within MORE_LIBRARIES that is actually installed

@@ -102,23 +102,19 @@ extern $mkdir "mkdir" # would be nice to have one in the system library!
 $SIMLIBPATH environment("SIMLIBPATH")
 $SIMDATAPATH environment("SIMDATAPATH")
 
+$default_paths list(string(PREFIX() "/share/simplicity-@(VERSION)"))
+
 $simlibpaths
   if
-    SIMLIBPATH.is_defined
+    SIMLIBPATH.is_defined && SIMLIBPATH != ""
     -> split(SIMLIBPATH ':')
-    ->
-      list
-	"/usr/local/share/simplicity-@(VERSION)"
-	"/usr/share/simplicity-@(VERSION)"
+    -> default_paths
 
 $simdatapaths
   if
-    SIMDATAPATH.is_defined
+    SIMDATAPATH.is_defined && SIMDATAPATH != ""
     -> split(SIMDATAPATH ':')
-    ->
-      list
-	"/usr/local/share/simplicity-@(VERSION)"
-	"/usr/share/simplicity-@(VERSION)"
+    -> default_paths
 
 $NONE .
 
