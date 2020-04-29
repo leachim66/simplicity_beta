@@ -457,7 +457,7 @@ $types::generic_list/update_each:
     **Attention**: If the returned item equals <undefined> then the item is
     removed from the list!
 
-    **Attention**: if the returned item is a <types::sequence> then all the
+    **Attention**: if the returned item is a *sequence* then all the
     items of the sequence are inserted.
 
     If called with two arguments the first argument is the position no.

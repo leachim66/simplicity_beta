@@ -876,7 +876,7 @@ $std::colour_mixture:
 
     Topic: Terminal
 
-    See also: rgb_character
+    See also: rgb_character,
 	      red_component_of, green_component_of, blue_component_of
 
     Example:
