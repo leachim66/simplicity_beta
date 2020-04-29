@@ -7,25 +7,25 @@ $step: (msg args*)
 
 step
   "first self compilation"
-  "sim2c/simple"
+  "compiler/simple"
   "--static"
   "--rebuild"
-  "sim2c/simple.sim"
+  "compiler/simple.sim"
 step
   "second self compilation"
-  "sim2c/simple"
+  "compiler/simple"
   "--static"
   "--rebuild"
-  "sim2c/simple.sim"
-step "copying binaries" "cp" "sim2c/simple" "sim2c/simple.orig"
+  "compiler/simple.sim"
+step "copying binaries" "cp" "compiler/simple" "compiler/simple.orig"
 step
   "third self compilation"
-  "sim2c/simple"
+  "compiler/simple"
   "--static"
   "--rebuild"
-  "sim2c/simple.sim"
-step "comparison of binaries" "cmp" "sim2c/simple" "sim2c/simple.orig"
-step "installation of compiler" "sudo" "cp" "sim2c/simple" "/usr/local/bin/"
+  "compiler/simple.sim"
+step "comparison of binaries" "cmp" "compiler/simple" "compiler/simple.orig"
+step "installation of compiler" "sudo" "cp" "compiler/simple" "/usr/local/bin/"
 $libraries list("system" "readline" "curses" "platform")
 for_each libraries: (library)
   step "compilation of @(library)-library" "simple" "--rebuild" library

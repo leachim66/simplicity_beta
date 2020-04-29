@@ -1,3 +1,4 @@
 gd.h
+runtime/platform.h
 stdint.h
 stdlib.h

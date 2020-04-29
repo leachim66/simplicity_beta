@@ -72,5 +72,5 @@ $patch: (path license)
 		  updating @(fullname_of(entry)) ...
 		save fullname_of(entry) new_buf
 
-patch "sim2c" GPL
+patch "compiler" GPL
 patch "system" LGPL

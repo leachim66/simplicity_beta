@@ -1,6 +1,6 @@
 #!/usr/bin/env simrun
 
-extern $sim2c "./sim2c/simple"
+extern $simple "./compiler/simple"
 $$source_filenames empty_list
 $$destination_filenames empty_list
 
@@ -21,7 +21,7 @@ for_each source_filenames: (source_filename)
   $base_filename source_filename .without_prefix. source_path
   $destination_filename string(destination_path base_filename)
   write "printing original " base_filename " ... "
-  sim2c $out $err $successful "--pretty-print" source_filename
+  simple $out $err $successful "--pretty-print" source_filename
   if
     successful:
       writeln "success"
@@ -38,7 +38,7 @@ $$successful_reprints_count 0
 for_each destination_filenames: (destination_filename)
   $base_filename destination_filename .without_prefix. destination_path
   write "printing canonicalized " base_filename " ... "
-  sim2c $out $err $successful "--pretty-print" destination_filename
+  simple $out $err $successful "--pretty-print" destination_filename
   if
     successful:
       $orig load(destination_filename)

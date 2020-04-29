@@ -1,6 +1,6 @@
 #!/usr/bin/env simrun
 
-extern $sim2c "sim2c/simple"
+extern $simple "compiler/simple"
 $PATH "pretty_print_test_suite"
 $$prints 0
 $$successful_prints 0
@@ -34,7 +34,7 @@ $test:
     inc &total
     write "printing " filename " ... "
     if
-      sim2c($out $err "--pretty-print" string(PATH '/' filename)):
+      simple($out $err "--pretty-print" string(PATH '/' filename)):
 	inc &successful
 
 	$orig_filename

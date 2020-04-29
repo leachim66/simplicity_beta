@@ -1,4 +1,5 @@
 locale.h
 ncurses.h
+runtime/platform.h
 stdint.h
 stdlib.h

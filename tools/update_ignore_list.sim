@@ -2,8 +2,8 @@
 
 extern $simple "simple"
 load $buf ".bzrignore"
-$filenames simple("--list-dependencies" "sim2c/simple.sim")
-save "sim2c/simple.deps" filenames
+$filenames simple("--list-dependencies" "compiler/simple.sim")
+save "compiler/simple.deps" filenames
 save
   ".bzrignore"
   collect_output

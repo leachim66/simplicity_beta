@@ -1,6 +1,6 @@
 #!/usr/bin/env simrun
 
-extern $sim2c "sim2c/simple"
+extern $simple "compiler/simple"
 extern $cc c_compiler()
 !environment("LD_LIBRARY_PATH") "." # use the freshly built libraries
 $prefix_len length_of(current_path())
@@ -52,7 +52,7 @@ $compile:
 	      -> list("--module-prefix" prefix)
 	      -> empty_list
 
-	  sim2c $out $err $success "--print-c" options* filename
+	  simple $out $err $success "--print-c" options* filename
 	  if
 	    expect_failure:
 	      inc &total_syntax_error_checks
@@ -153,7 +153,7 @@ for_each entries: (name)
   writeln "generating program for " name " ..."
   if
     file_exists(object_filename):
-      sim2c $sg_out $sg_err $sg_success string(filename ".sim")
+      simple $sg_out $sg_err $sg_success string(filename ".sim")
       inc &attempted_program_builds
       if
 	sg_success:

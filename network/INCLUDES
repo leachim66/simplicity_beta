@@ -3,6 +3,7 @@ stdio.h
 sys/types.h
 sys/socket.h
 netdb.h
+runtime/platform.h
 stdlib.h
 errno.h
 setjmp.h

@@ -529,16 +529,16 @@ $std::program_parameters:
     program_parameters
       # the following options act on a single file only
 
-      $sim2c::do_check_only -> "check-only" "
+      $compiler::do_check_only -> "check-only" "
 	do not compile; just check for syntax errors
 
-      $sim2c::do_dump_trees -> "dump-trees" "
+      $compiler::do_dump_trees -> "dump-trees" "
 	dump abstract syntax trees
 
-      $sim2c::do_pretty_print -> "pretty-print" "
+      $compiler::do_pretty_print -> "pretty-print" "
 	do not compile; just pretty print the source file
 
-      $sim2c::do_print_simplified_source -> "print-simplified-source" "
+      $compiler::do_print_simplified_source -> "print-simplified-source" "
 	do not generate a C-file; just print the simplified source text
 
       $do_print_c -> "print-c" "
@@ -554,25 +554,25 @@ $std::program_parameters:
 
       # the following options change the diagnostic output
 
-      $sim2c::do_show_brief_messages -> "brief" "
+      $compiler::do_show_brief_messages -> "brief" "
 	show brief error messages
 
-      $sim2c::do_print_warnings -> "warnings" "
+      $compiler::do_print_warnings -> "warnings" "
 	show warning messages
 
-      $sim2c::do_print_missing -> "missing" "
+      $compiler::do_print_missing -> "missing" "
 	inform about missing documentation
 
-      $sim2c::do_print_summary -> "summary" "
+      $compiler::do_print_summary -> "summary" "
 	show a statistical summary
 
-      $sim2c::verbose -> "verbose" "
+      $compiler::verbose -> "verbose" "
 	output verbose informations
 
-      $sim2c::do_show_debug_infos -> "debug" "
+      $compiler::do_show_debug_infos -> "debug" "
 	show C-compiler and linker calls
 
-      $sim2c::do_show_compiler_debug_infos -> "debug_compiler" "
+      $compiler::do_show_compiler_debug_infos -> "debug_compiler" "
 	show internal debug messages of the Simplicity compiler
 
       # the following options create meta-informations

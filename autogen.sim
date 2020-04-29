@@ -22,7 +22,7 @@
 
 # update all dependency files, bootstrap information and version numbers
 
-extern $simple "sim2c/simple"
+extern $simple "compiler/simple"
 $WHITESPACE many(' ')
 
 $save_dependencies: (prefix c_files)
@@ -92,15 +92,15 @@ $save_dependencies: (prefix c_files)
   save "@(prefix)LIBRARIES" LIBRARIES
   save "@(prefix)INCLUDES" INCLUDES
 
-$$libraries empty_list
+$$libraries list("system")
 for_each_line load("configure"): (line)
   if
-    line .has_prefix. "BASIC_LIBRARIES=" || line .has_prefix. "MORE_LIBRARIES=":
+    line .has_prefix. "BASIC_LIBRARIES=" || line .has_prefix. "OPTIONAL_LIBRARIES=":
       append &libraries between(line '@apos;' '@apos;').split
 do:
-  $C_FILES simple("--list-dependencies" "sim2c/simple.sim")
-  save "sim2c/C_FILES" C_FILES
-  save_dependencies "sim2c/" C_FILES
+  $C_FILES simple("--list-dependencies" "compiler/simple.sim")
+  save "compiler/C_FILES" C_FILES
+  save_dependencies "compiler/" C_FILES
 for_each libraries: (library)
   $C_FILES simple("--list-dependencies" library)
   save_dependencies "@(library)/" C_FILES

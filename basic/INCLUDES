@@ -1,3 +1,4 @@
+runtime/platform.h
 stdint.h
 stdlib.h
 limits.h
@@ -26,4 +27,3 @@ sys/ioctl.h
 sys/stat.h
 sys/socket.h
 locale.h
-runtime/platform.h

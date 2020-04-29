@@ -158,10 +158,10 @@ STATIC_FILES='
   configure'
   # additional files belonging to this package
 
-DEPENDENCY_FILES='sim2c/C_FILES'
+DEPENDENCY_FILES='compiler/C_FILES'
   # these files describe the dependencies to foreign include and library files
 
-for LIBNAME in sim2c $LIBRARIES
+for LIBNAME in compiler $LIBRARIES
 do
   DEPENDENCY_FILES="$DEPENDENCY_FILES $LIBNAME/INCLUDES $LIBNAME/LIBRARIES"
 done
@@ -345,7 +345,7 @@ check_dependencies () {
   fi
 }
 
-check_dependencies sim2c 1
+check_dependencies compiler 1
 
 for LIBNAME in $BASIC_LIBRARIES
 do
@@ -455,7 +455,7 @@ echo
 
 echo
 printf 'DIST_DATA_FILES ='
-for LIBNAME in sim2c $LIBRARIES
+for LIBNAME in compiler $LIBRARIES
 do
   find $LIBNAME -type f -name "*.meta.sim" | \
   while read FILENAME
@@ -474,7 +474,7 @@ echo
 
 echo
 printf 'DIST_SIM_FILES ='
-for LIBNAME in sim2c $LIBRARIES
+for LIBNAME in compiler $LIBRARIES
 do
   find $LIBNAME -type f -name "*.sim" | \
   while read FILENAME
@@ -501,7 +501,7 @@ echo
 
 echo
 printf 'DIST_C_FILES ='
-cat sim2c/C_FILES | cut -d ' ' -f 1 |
+cat compiler/C_FILES | cut -d ' ' -f 1 |
 while read FILENAME
 do
   echo ' \'
@@ -533,7 +533,7 @@ echo
 
 echo
 printf 'simple_OBJECTS ='
-cat sim2c/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
+cat compiler/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
 while read FILENAME
 do
   BASENAME=${FILENAME%.c}
@@ -556,7 +556,7 @@ echo
 echo
 echo '.PHONY: clean'
 echo 'clean:'
-find sim2c -type f -name "*.meta.sim" | \
+find compiler -type f -name "*.meta.sim" | \
 while read FILENAME
 do
   BASENAME=${FILENAME%.meta.sim}
@@ -570,7 +570,7 @@ do
   while read FILENAME
   do
     C_FILENAME=${FILENAME%.sim}.c
-    if ! grep -q $C_FILENAME sim2c/C_FILES
+    if ! grep -q $C_FILENAME compiler/C_FILES
     then
       echo "${TAB}rm -f $C_FILENAME"
     fi
@@ -587,7 +587,7 @@ do
   done
 done
 echo "${TAB}rm -f runtime/*.o"
-echo "${TAB}rm -f sim2c/*.o"
+echo "${TAB}rm -f compiler/*.o"
 for LIBNAME in $ALL_LIBRARIES
 do
   find $LIBNAME -type d | LC_COLLATE=C sort | \
@@ -596,7 +596,7 @@ do
     echo "${TAB}rm -f $DIRNAME/*.o"
   done
 done
-echo "${TAB}rm -f sim2c/simple$EXE_EXTENSION"
+echo "${TAB}rm -f compiler/simple$EXE_EXTENSION"
 echo "${TAB}rm -f libsim$RUNTIME_DLL_EXTENSION"
 if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
@@ -622,7 +622,7 @@ echo
 echo '.PHONY: install'
 echo 'install: all'
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/bin/\""
-echo "${TAB}cp -f sim2c/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/simple-$RUNTIME_MAJOR_VERSION\""
+echo "${TAB}cp -f compiler/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/simple-$RUNTIME_MAJOR_VERSION\""
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simple"
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simrun-$RUNTIME_MAJOR_VERSION"
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simrun"
@@ -648,7 +648,7 @@ do
 done
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime\""
 echo "${TAB}cp runtime/*.h \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime/\""
-for LIBNAME in sim2c $ALL_LIBRARIES
+for LIBNAME in compiler $ALL_LIBRARIES
 do
   find $LIBNAME -type d | LC_COLLATE=C sort | \
   while read DIRNAME
@@ -693,7 +693,7 @@ do
 done
 echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime\"/*.h"
 echo "${TAB}rmdir \"\$(DESTDIR)$PREFIX/share/simplicity-$PACKAGE_VERSION/runtime\" || true"
-for LIBNAME in sim2c $ALL_LIBRARIES
+for LIBNAME in compiler $ALL_LIBRARIES
 do
   find $LIBNAME -depth -type d | LC_COLLATE=C sort -r | \
   while read DIRNAME
@@ -720,7 +720,7 @@ echo "runtime: libsim$RUNTIME_DLL_EXTENSION"
 
 echo
 echo '.PHONY: simple'
-echo "simple: sim2c/simple$EXE_EXTENSION"
+echo "simple: compiler/simple$EXE_EXTENSION"
 
 echo
 echo "libsim$RUNTIME_DLL_EXTENSION: \$(runtime_OBJECTS)"
@@ -737,8 +737,8 @@ then
 fi
 
 echo
-echo "sim2c/simple$EXE_EXTENSION: \$(simple_OBJECTS)"
-echo "${TAB}\$(CC)" $LDFLAGS "\$(simple_OBJECTS) \$(LIBRARIES)" $ADDITIONAL_LINK_OPTIONS $LIBS " -o sim2c/simple$EXE_EXTENSION"
+echo "compiler/simple$EXE_EXTENSION: \$(simple_OBJECTS)"
+echo "${TAB}\$(CC)" $LDFLAGS "\$(simple_OBJECTS) \$(LIBRARIES)" $ADDITIONAL_LINK_OPTIONS $LIBS " -o compiler/simple$EXE_EXTENSION"
 
 # generate make-targets for all libraries
 for LIBNAME in $BASIC_LIBRARIES
@@ -748,7 +748,7 @@ do
   echo "$LIBNAME: simple"
   echo "${TAB}LD_LIBRARY_PATH=`pwd`:\$\$LD_LIBRARY_PATH; \\"
   echo "${TAB}LD_LIBRARY_PATH=\$\${LD_LIBRARY_PATH%:}; \\"
-  echo "${TAB}SIMDATAPATH=. sim2c/simple $LIBNAME"
+  echo "${TAB}SIMDATAPATH=. compiler/simple $LIBNAME"
   VERSION=`cat $LIBNAME/VERSION`
   MAJOR_VERSION="${VERSION%%.*}"
   echo "${TAB}ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
@@ -765,7 +765,7 @@ do
   else
     echo "$LIBNAME: simple runtime $BASIC_LIBRARIES system"
   fi
-  echo "${TAB}PATH=`pwd`/sim2c:\$\$PATH; \\"
+  echo "${TAB}PATH=`pwd`/compiler:\$\$PATH; \\"
   echo "${TAB}LD_LIBRARY_PATH=`pwd`:\$\$LD_LIBRARY_PATH; \\"
   echo "${TAB}LD_LIBRARY_PATH=\$\${LD_LIBRARY_PATH%:}; \\"
   echo "${TAB}export LD_LIBRARY_PATH; \\"
@@ -778,7 +778,7 @@ do
   then
     echo "${TAB}PATH=`pwd`:\$\$PATH; \\"
   fi
-  echo "${TAB}SIMLIBPATH=. SIMDATAPATH=. sim2c/simple $LIBNAME"
+  echo "${TAB}SIMLIBPATH=. SIMDATAPATH=. compiler/simple $LIBNAME"
   VERSION=`cat $LIBNAME/VERSION`
   MAJOR_VERSION="${VERSION%%.*}"
   echo "${TAB}ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
@@ -787,7 +787,7 @@ done
 
 #generate make-targets for all bootstrap object files
 echo
-cat sim2c/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
+cat compiler/C_FILES | awk "/#$OS/ || !/#/" | cut -d ' ' -f 1 | \
 while read FILENAME
 do
   BASENAME=${FILENAME%.c}
