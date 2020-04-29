@@ -50,6 +50,8 @@ $std::get_terminal_size ()
   #
     retrieves the current width and height of the connected terminal
 
+    Topic: Terminal
+
 $std::device_of (!)
   #
     returns the device on which a file is stored

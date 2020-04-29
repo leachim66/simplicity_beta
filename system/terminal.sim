@@ -77,9 +77,10 @@ $types::screen types::object
 
     Topic: Terminal
 
-get_terminal_size STDIN_FILENO $terminal_width $terminal_height
-
 $log: (args*) if do_log: ewriteln args*
+
+$$terminal_width undefined
+$$terminal_height undefined
 
 $std::create_screen:
   #
@@ -733,6 +734,7 @@ $std::initialize_terminal
       text_colour? # the initial text colour
       background_colour? # the initial background colour
     )
+    get_terminal_size STDIN_FILENO !terminal_width !terminal_height
     create_screen !terminal INVALID_COLOUR INVALID_COLOUR
     create_screen !std::current_screen text_colour? background_colour?
 
