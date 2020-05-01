@@ -1144,26 +1144,37 @@ $create_character_table:
 
   !character_to_name(' ') undefined
 
-$escaped_character: (chr)
+$escaped_character:
   #
     convert to a character name or hex-encoded character if necessary;
     characters width codes >= 0x2b0 have glyphs that are hard to distinguish
-
-  unless character_to_name.is_defined create_character_table
-  $name character_to_name(chr)
+  (
+    chr
+    use_numerical_encoding = false
+  )
+  $numerical_encoding -> string("@@0x" hex(chr.to_integer) ';')
   if
-    name.is_defined:
-      case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
+    use_numerical_encoding
+    -> numerical_encoding()
     :
+      unless character_to_name.is_defined create_character_table
+      $name character_to_name(chr)
       if
-	chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
-	-> string("@@0x" hex(chr.to_integer) ';')
-	-> chr.to_string
+	name.is_defined:
+	  case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
+	:
+	  if
+	    chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
+	    -> numerical_encoding()
+	    -> chr.to_string
 
 $sim2c::character_literal/to_string: (self)
   add_remark
     self
-    string('@apos;' escaped_character(node::value_of(self)) '@apos;')
+    string
+      '@apos;'
+      escaped_character(node::value_of(self) self.is_in_numeric_notation)
+      '@apos;'
 
 ###
 # STRING LITERAL

@@ -85,6 +85,7 @@ $node::is_a_string_template ()
 $node::is_an_attribute_access ()
 $node::is_an_initialization ()
 $node::is_in_infix_notation ()
+$node::is_in_numeric_notation ()
 $node::is_mutable ()
 $node::is_not_used ()
 $node::kind_of (!)
@@ -384,6 +385,7 @@ $types::grammar_node.is_a_character_literal false
 $sim2c::character_literal.is_a_character_literal true
 $sim2c::character_literal types::grammar_node
 $sim2c::character_literal.is_a_constant true
+$sim2c::character_literal.is_in_numeric_notation false
 
 ###
 # STRING LITERAL

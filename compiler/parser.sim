@@ -663,7 +663,9 @@ $NUMERIC_CHARACTER
     ';'
     modify_node
       : (&node)
-	!node.node::value_of character(node::value_of(node).to_integer)
+	!node
+	  .node::value_of character(node::value_of(node).to_integer)
+	  .is_in_numeric_notation true
 
 $SPECIAL_CHARACTER
   alt
