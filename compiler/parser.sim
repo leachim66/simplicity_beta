@@ -409,16 +409,18 @@ $NAMESPACE
     inspect_node
       : (node stream)
 	$namespace namespace_of(node)
-	if defined_namespaces(namespace):
-	  ParseError stream "
-	    the namespace "@(namespace)" is defined twice@
-	!defined_namespaces(namespace) true
 	$alias namespace_alias_of(node)
-	if alias.is_defined:
-	  if namespace_mappings(alias).is_defined:
-	    ParseError stream "
-	      the namespace alias "@(alias)" is defined twice@
-	  !namespace_mappings(alias) namespace
+	if
+	  alias.is_defined:
+	    if namespace_mappings(alias).is_defined:
+	      ParseError stream "
+		the namespace alias "@(alias)" is defined twice@
+	    !namespace_mappings(alias) namespace
+	  :
+	    if defined_namespaces(namespace):
+	      ParseError stream "
+		the namespace "@(namespace)" is defined twice@
+	    !defined_namespaces(namespace) true
 
 $USING
   sequence

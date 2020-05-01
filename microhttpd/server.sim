@@ -25,6 +25,8 @@
 <require ./constants>
 <require ./to_key_code>
 
+<namespace microhttpd>
+
 <using std>
 <using gui>
 <using key>

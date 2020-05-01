@@ -1,3 +1,6 @@
+<namespace number_g68077f6l15rpxmt45h0wnc49>
+<namespace proto_number_g68077f6l15rpxmt45h0wnc49>
+
 {
   #define DIM_G68077F6L15RPXMT45H0WNC49(array) (sizeof(array) / sizeof *(array))
 }

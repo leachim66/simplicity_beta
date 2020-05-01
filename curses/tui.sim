@@ -23,6 +23,8 @@
 <require system/gui/gui>
 <require ./curses>
 
+<namespace curses>
+
 <using std>
 <using key>
 <using gui>
