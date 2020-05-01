@@ -210,15 +210,15 @@ IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void register_dynamic(int *id_p);
 IMPORT void define_single_assign_static(
@@ -10652,8 +10652,6 @@ EXPORT void phase_1__simplifier(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("sim2c", "simplify_statement", get__sim2c__simplify_statement, &poly_idx__sim2c__simplify_statement, &var.sim2c__simplify_statement);
-  define_polymorphic_function("sim2c", "simplify_expression", get__sim2c__simplify_expression, &poly_idx__sim2c__simplify_expression, &var.sim2c__simplify_expression);
 }
 
 static int already_run_phase_2 = false;
@@ -10661,11 +10659,14 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__simplifier(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("simplifier");
   number__0 = from_uint32(0U);
   character__40 = from_uchar32(40);
   character__32 = from_uchar32(32);
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
+  define_polymorphic_function("sim2c", "simplify_statement", get__sim2c__simplify_statement, &poly_idx__sim2c__simplify_statement, &var.sim2c__simplify_statement);
+  define_polymorphic_function("sim2c", "simplify_expression", get__sim2c__simplify_expression, &poly_idx__sim2c__simplify_expression, &var.sim2c__simplify_expression);
   string__421f524a80420288 = from_latin_1_string("temp__", 6);
   func__temporary_identifier_1 = create_function(entry__temporary_identifier_1, 0);
   func__simplify_arguments_3 = create_function(entry__simplify_arguments_3, 1);

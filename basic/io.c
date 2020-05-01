@@ -250,6 +250,10 @@ IMPORT void *allocate_large(long size);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
@@ -258,11 +262,7 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -10906,6 +10906,22 @@ EXPORT void phase_1__basic__io(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
+}
+
+static int already_run_phase_2 = false;
+
+EXPORT void phase_2__basic__io(void) {
+  if (already_run_phase_2) return;
+  already_run_phase_2 = true;
+  set_module("basic__io");
+  number__0o755 = from_uint32(493U);
+  character__47 = from_uchar32(47);
+  number__0 = from_uint32(0U);
+  number__1 = from_uint32(1U);
+  number__2 = from_uint32(2U);
+  number__0x1000000 = from_uint32(16777216U);
+  unique__std__MODE = register_unique_item("std__MODE");
+  unique__std__PARENTS = register_unique_item("std__PARENTS");
   define_polymorphic_function("std", "ioctl", get__std__ioctl, &poly_idx__std__ioctl, &var.std__ioctl);
   define_polymorphic_function("std", "get_terminal_size", get__std__get_terminal_size, &poly_idx__std__get_terminal_size, &var.std__get_terminal_size);
   define_polymorphic_function_with_setter("std", "device_of", get__std__device_of, &poly_idx__std__device_of, &var.std__device_of);
@@ -10931,21 +10947,6 @@ EXPORT void phase_1__basic__io(void) {
   define_polymorphic_function("std", "listen", get__std__listen, &poly_idx__std__listen, &var.std__listen);
   define_polymorphic_function("std", "accept", get__std__accept, &poly_idx__std__accept, &var.std__accept);
   define_polymorphic_function("std", "connect", get__std__connect, &poly_idx__std__connect, &var.std__connect);
-}
-
-static int already_run_phase_2 = false;
-
-EXPORT void phase_2__basic__io(void) {
-  if (already_run_phase_2) return;
-  already_run_phase_2 = true;
-  number__0o755 = from_uint32(493U);
-  character__47 = from_uchar32(47);
-  number__0 = from_uint32(0U);
-  number__1 = from_uint32(1U);
-  number__2 = from_uint32(2U);
-  number__0x1000000 = from_uint32(16777216U);
-  unique__std__MODE = register_unique_item("std__MODE");
-  unique__std__PARENTS = register_unique_item("std__PARENTS");
   string__fa730415fc16bec = from_latin_1_string(" = ", 3);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   string__64b427a840d3b445 = from_latin_1_string(" failed: ", 9);

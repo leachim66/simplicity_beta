@@ -210,15 +210,15 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -5503,13 +5503,6 @@ EXPORT void phase_1__basic__event(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function_with_setter("std", "file_descriptor_of", get__std__file_descriptor_of, &poly_idx__std__file_descriptor_of, &var.std__file_descriptor_of);
-  define_polymorphic_function_with_setter("std", "pid_of", get__std__pid_of, &poly_idx__std__pid_of, &var.std__pid_of);
-  define_polymorphic_function_with_setter("std", "status_of", get__std__status_of, &poly_idx__std__status_of, &var.std__status_of);
-  define_polymorphic_function_with_setter("std", "width_of", get__std__width_of, &poly_idx__std__width_of, &var.std__width_of);
-  define_polymorphic_function_with_setter("std", "height_of", get__std__height_of, &poly_idx__std__height_of, &var.std__height_of);
-  define_polymorphic_function_with_setter("std", "key_code_of", get__std__key_code_of, &poly_idx__std__key_code_of, &var.std__key_code_of);
-  define_polymorphic_function_with_setter("std", "target_of", get__std__target_of, &poly_idx__std__target_of, &var.std__target_of);
 }
 
 static int already_run_phase_2 = false;
@@ -5517,15 +5510,23 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__event(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__event");
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   unique__std__WRITE_TO = register_unique_item("std__WRITE_TO");
   unique__std__READ_FROM = register_unique_item("std__READ_FROM");
+  define_polymorphic_function_with_setter("std", "file_descriptor_of", get__std__file_descriptor_of, &poly_idx__std__file_descriptor_of, &var.std__file_descriptor_of);
   unique__std__TERMINATED = register_unique_item("std__TERMINATED");
+  define_polymorphic_function_with_setter("std", "pid_of", get__std__pid_of, &poly_idx__std__pid_of, &var.std__pid_of);
+  define_polymorphic_function_with_setter("std", "status_of", get__std__status_of, &poly_idx__std__status_of, &var.std__status_of);
   unique__std__TIMEOUT = register_unique_item("std__TIMEOUT");
   unique__std__SCREEN_SIZE_CHANGE = register_unique_item("std__SCREEN_SIZE_CHANGE");
+  define_polymorphic_function_with_setter("std", "width_of", get__std__width_of, &poly_idx__std__width_of, &var.std__width_of);
+  define_polymorphic_function_with_setter("std", "height_of", get__std__height_of, &poly_idx__std__height_of, &var.std__height_of);
   unique__std__KEY_PRESS = register_unique_item("std__KEY_PRESS");
+  define_polymorphic_function_with_setter("std", "key_code_of", get__std__key_code_of, &poly_idx__std__key_code_of, &var.std__key_code_of);
   unique__std__MOUSE_CLICK = register_unique_item("std__MOUSE_CLICK");
+  define_polymorphic_function_with_setter("std", "target_of", get__std__target_of, &poly_idx__std__target_of, &var.std__target_of);
   unique__std__PASTE = register_unique_item("std__PASTE");
   unique__std__MESSAGE = register_unique_item("std__MESSAGE");
   func__std__want_to_write_to_1 = create_function(entry__std__want_to_write_to_1, 1);

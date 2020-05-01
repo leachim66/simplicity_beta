@@ -195,6 +195,10 @@ IMPORT NODE *empty_string;
 IMPORT NODE *create_closure(FUNC type, int par_count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void define_namespace(const char *namespace);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
@@ -203,11 +207,8 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -1303,132 +1304,132 @@ static NODE *get__sim2c__is_a_parameter(void) {
 void run__nodes(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {type__node__argument_of, NULL, 56, 56, 2, 18},
-  {type__node__arguments_of, NULL, 57, 57, 2, 19},
-  {type__node__attribute_kind_of, NULL, 58, 58, 2, 24},
-  {type__node__attribute_of, NULL, 59, 59, 2, 19},
-  {type__node__base_of, NULL, 60, 60, 2, 14},
-  {type__node__default_value_of, NULL, 61, 61, 2, 23},
-  {type__node__defined_names_of, NULL, 62, 62, 2, 23},
-  {type__node__definitions_of, NULL, 63, 63, 2, 21},
-  {type__node__destination_of, NULL, 64, 64, 2, 21},
-  {type__node__end_position_of, NULL, 65, 65, 2, 22},
-  {type__node__enumeration_no_of, NULL, 66, 66, 2, 24},
-  {type__node__expression_of, NULL, 67, 67, 2, 20},
-  {type__node__filemask_of, NULL, 68, 68, 2, 18},
-  {type__node__filename_of, NULL, 69, 69, 2, 18},
-  {type__node__fragment_of, NULL, 70, 70, 2, 18},
-  {type__node__full_name_of, NULL, 71, 71, 2, 19},
-  {type__node__functor_of, NULL, 72, 72, 2, 17},
-  {type__node__identifier_of, NULL, 73, 73, 2, 20},
-  {type__node__inherited_names_of, NULL, 74, 74, 2, 25},
-  {type__node__is_a_constant, NULL, 75, 75, 2, 20},
-  {type__node__is_a_dynamic_definition, NULL, 76, 76, 2, 30},
-  {type__node__is_a_method_definition, NULL, 77, 77, 2, 29},
-  {type__node__is_a_multi_assign_definition, NULL, 78, 78, 2, 35},
-  {type__node__is_an_expanded_item, NULL, 79, 79, 2, 26},
-  {type__node__is_an_optional_item, NULL, 80, 80, 2, 26},
-  {type__node__is_a_setter, NULL, 81, 81, 2, 18},
-  {type__node__is_a_single_assign_definition, NULL, 82, 82, 2, 36},
-  {type__node__is_a_static_definition, NULL, 83, 83, 2, 29},
-  {type__node__is_a_string_template, NULL, 84, 84, 2, 27},
-  {type__node__is_an_attribute_access, NULL, 85, 85, 2, 29},
-  {type__node__is_an_initialization, NULL, 86, 86, 2, 27},
-  {type__node__is_in_infix_notation, NULL, 87, 87, 2, 27},
-  {type__node__is_in_numeric_notation, NULL, 88, 88, 2, 29},
-  {type__node__is_mutable, NULL, 89, 89, 2, 17},
-  {type__node__is_not_used, NULL, 90, 90, 2, 18},
-  {type__node__kind_of, NULL, 91, 91, 2, 14},
-  {type__node__last_line_end_specifier_of, NULL, 92, 92, 2, 33},
-  {type__node__line_end_specifier_of, NULL, 93, 93, 2, 28},
-  {type__node__lowest_precedence_of, NULL, 94, 94, 2, 27},
-  {type__node__mangled_name_of, NULL, 95, 95, 2, 22},
-  {type__node__max_length_of, NULL, 96, 96, 2, 20},
-  {type__node__message_of, NULL, 97, 97, 2, 17},
-  {type__node__name_of, NULL, 98, 98, 2, 14},
-  {type__node__namespace_of, NULL, 99, 99, 2, 19},
-  {type__node__namespace_alias_of, NULL, 100, 100, 2, 25},
-  {type__node__node_of, NULL, 101, 101, 2, 14},
-  {type__node__operators_of, NULL, 102, 102, 2, 19},
-  {type__node__output_arguments_of, NULL, 103, 103, 2, 26},
-  {type__node__parameter_kind_of, NULL, 104, 104, 2, 24},
-  {type__node__parameters_of, NULL, 105, 105, 2, 20},
-  {type__node__parent_of, NULL, 106, 106, 2, 16},
-  {type__node__result_count_of, NULL, 107, 107, 2, 22},
-  {type__node__continuation_of, NULL, 108, 108, 2, 22},
-  {type__node__source_position_of, NULL, 109, 109, 2, 25},
-  {type__node__temporary_count_of, NULL, 110, 110, 2, 25},
-  {type__node__remark_lines_of, NULL, 111, 111, 2, 22},
-  {type__node__remark_lines_behind_of, NULL, 112, 112, 2, 29},
-  {type__node__scope_of, NULL, 113, 113, 2, 15},
-  {type__node__section_of, NULL, 114, 114, 2, 17},
-  {type__node__statements_of, NULL, 115, 115, 2, 20},
-  {type__node__submodule_no_of, NULL, 116, 116, 2, 22},
-  {type__node__text_of, NULL, 117, 117, 2, 14},
-  {type__node__type_of, NULL, 118, 118, 2, 14},
-  {type__node__used_names_of, NULL, 119, 119, 2, 20},
-  {type__node__value_of, NULL, 120, 120, 2, 15},
-  {type__node__variable_kind_of, NULL, 121, 121, 2, 23},
-  {type__node__is_a_meta_instruction, NULL, 143, 143, 2, 28},
-  {type__node__is_a_remark, NULL, 182, 182, 2, 18},
-  {type__node__is_a_body, NULL, 191, 191, 2, 16},
-  {type__node__defines_a_dynamic, NULL, 196, 196, 2, 24},
-  {type__node__is_a_call, NULL, 217, 217, 2, 16},
-  {type__node__is_a_procedure_call, NULL, 228, 228, 2, 26},
-  {type__node__is_a_return, NULL, 237, 237, 2, 18},
-  {type__node__is_an_assignment, NULL, 246, 246, 2, 23},
-  {type__node__is_a_definition, NULL, 255, 255, 2, 22},
-  {type__node__is_a_static_single_definition, NULL, 266, 266, 2, 36},
-  {type__node__is_a_static_multi_definition, NULL, 278, 278, 2, 35},
-  {type__node__is_a_dynamic_single_definition, NULL, 290, 290, 2, 37},
-  {type__node__is_a_dynamic_multi_definition, NULL, 302, 302, 2, 36},
-  {type__node__is_a_function_call, NULL, 314, 314, 2, 25},
-  {type__node__is_an_expression, NULL, 330, 330, 2, 23},
-  {type__node__is_a_backquoted_expression, NULL, 341, 341, 2, 33},
-  {type__node__is_an_attribute_value_pair, NULL, 350, 350, 2, 33},
-  {type__node__is_an_attribute_function_pair, NULL, 360, 360, 2, 36},
-  {type__node__is_a_numeric_literal, NULL, 369, 369, 2, 27},
-  {type__node__is_a_character_literal, NULL, 382, 382, 2, 29},
-  {type__node__is_a_string_literal, NULL, 393, 393, 2, 26},
-  {type__node__is_a_unique_item_constant, NULL, 412, 412, 2, 32},
-  {type__node__is_a_polymorphic_function_constant, NULL, 422, 422, 2, 41},
-  {type__node__is_an_identifier, NULL, 439, 439, 2, 23},
-  {type__node__is_a_destination, NULL, 444, 444, 2, 23},
-  {type__node__is_used_as_a_polymorphic_function, NULL, 448, 448, 2, 40},
-  {type__node__is_a_temporary, NULL, 475, 475, 2, 21},
-  {type__node__is_an_operator_symbol, NULL, 484, 484, 2, 28},
-  {type__node__is_c_code, NULL, 493, 493, 2, 16},
-  {type__node__is_a_c_body, NULL, 504, 504, 2, 18},
-  {run__nodes, NULL, 497, 497, 1, 34},
-  {entry__sim2c__numeric_literal__mangled_name_of_1, NULL, 377, 377, 18, 37},
-  {cont__sim2c__numeric_literal__mangled_name_of_2, &frame__sim2c__numeric_literal__mangled_name_of_1, 377, 377, 39, 47},
-  {cont__sim2c__numeric_literal__mangled_name_of_4, &frame__sim2c__numeric_literal__mangled_name_of_1, 377, 377, 49, 61},
-  {cont__sim2c__numeric_literal__mangled_name_of_5, &frame__sim2c__numeric_literal__mangled_name_of_1, 377, 377, 6, 62},
-  {cont__sim2c__numeric_literal__mangled_name_of_6, &frame__sim2c__numeric_literal__mangled_name_of_1, 377, 377, 3, 62},
-  {entry__sim2c__identifier__full_name_of_4, NULL, 459, 459, 19, 36},
-  {cont__sim2c__identifier__full_name_of_5, &frame__sim2c__identifier__full_name_of_4, 459, 459, 12, 42},
-  {cont__sim2c__identifier__full_name_of_7, &frame__sim2c__identifier__full_name_of_4, 459, 459, 9, 42},
-  {entry__sim2c__identifier__full_name_of_8, NULL, 460, 460, 9, 13},
-  {entry__sim2c__identifier__full_name_of_1, NULL, 458, 458, 9, 26},
-  {cont__sim2c__identifier__full_name_of_2, &frame__sim2c__identifier__full_name_of_1, 458, 458, 9, 37},
-  {cont__sim2c__identifier__full_name_of_3, &frame__sim2c__identifier__full_name_of_1, 457, 460, 7, 12},
-  {cont__sim2c__identifier__full_name_of_9, &frame__sim2c__identifier__full_name_of_1, 461, 461, 7, 19},
-  {cont__sim2c__identifier__full_name_of_10, &frame__sim2c__identifier__full_name_of_1, 456, 461, 5, 18},
-  {cont__sim2c__identifier__full_name_of_11, &frame__sim2c__identifier__full_name_of_1, 455, 461, 3, 20},
-  {entry__sim2c__identifier__mangled_name_of_4, NULL, 468, 468, 19, 36},
-  {cont__sim2c__identifier__mangled_name_of_5, &frame__sim2c__identifier__mangled_name_of_4, 468, 468, 12, 42},
-  {cont__sim2c__identifier__mangled_name_of_7, &frame__sim2c__identifier__mangled_name_of_4, 468, 468, 9, 42},
-  {entry__sim2c__identifier__mangled_name_of_8, NULL, 469, 469, 9, 13},
-  {entry__sim2c__identifier__mangled_name_of_1, NULL, 467, 467, 9, 26},
-  {cont__sim2c__identifier__mangled_name_of_2, &frame__sim2c__identifier__mangled_name_of_1, 467, 467, 9, 37},
-  {cont__sim2c__identifier__mangled_name_of_3, &frame__sim2c__identifier__mangled_name_of_1, 466, 469, 7, 12},
-  {cont__sim2c__identifier__mangled_name_of_9, &frame__sim2c__identifier__mangled_name_of_1, 470, 470, 7, 19},
-  {cont__sim2c__identifier__mangled_name_of_10, &frame__sim2c__identifier__mangled_name_of_1, 465, 470, 5, 18},
-  {cont__sim2c__identifier__mangled_name_of_11, &frame__sim2c__identifier__mangled_name_of_1, 464, 470, 3, 20},
-  {entry__sim2c__is_a_parameter_1, NULL, 514, 514, 35, 57},
-  {cont__sim2c__is_a_parameter_2, &frame__sim2c__is_a_parameter_1, 514, 514, 35, 73},
-  {cont__sim2c__is_a_parameter_3, &frame__sim2c__is_a_parameter_1, 514, 514, 35, 73},
-  {cont__sim2c__is_a_parameter_4, &frame__sim2c__is_a_parameter_1, 514, 514, 32, 73}
+  {type__node__argument_of, NULL, 58, 58, 2, 18},
+  {type__node__arguments_of, NULL, 59, 59, 2, 19},
+  {type__node__attribute_kind_of, NULL, 60, 60, 2, 24},
+  {type__node__attribute_of, NULL, 61, 61, 2, 19},
+  {type__node__base_of, NULL, 62, 62, 2, 14},
+  {type__node__default_value_of, NULL, 63, 63, 2, 23},
+  {type__node__defined_names_of, NULL, 64, 64, 2, 23},
+  {type__node__definitions_of, NULL, 65, 65, 2, 21},
+  {type__node__destination_of, NULL, 66, 66, 2, 21},
+  {type__node__end_position_of, NULL, 67, 67, 2, 22},
+  {type__node__enumeration_no_of, NULL, 68, 68, 2, 24},
+  {type__node__expression_of, NULL, 69, 69, 2, 20},
+  {type__node__filemask_of, NULL, 70, 70, 2, 18},
+  {type__node__filename_of, NULL, 71, 71, 2, 18},
+  {type__node__fragment_of, NULL, 72, 72, 2, 18},
+  {type__node__full_name_of, NULL, 73, 73, 2, 19},
+  {type__node__functor_of, NULL, 74, 74, 2, 17},
+  {type__node__identifier_of, NULL, 75, 75, 2, 20},
+  {type__node__inherited_names_of, NULL, 76, 76, 2, 25},
+  {type__node__is_a_constant, NULL, 77, 77, 2, 20},
+  {type__node__is_a_dynamic_definition, NULL, 78, 78, 2, 30},
+  {type__node__is_a_method_definition, NULL, 79, 79, 2, 29},
+  {type__node__is_a_multi_assign_definition, NULL, 80, 80, 2, 35},
+  {type__node__is_an_expanded_item, NULL, 81, 81, 2, 26},
+  {type__node__is_an_optional_item, NULL, 82, 82, 2, 26},
+  {type__node__is_a_setter, NULL, 83, 83, 2, 18},
+  {type__node__is_a_single_assign_definition, NULL, 84, 84, 2, 36},
+  {type__node__is_a_static_definition, NULL, 85, 85, 2, 29},
+  {type__node__is_a_string_template, NULL, 86, 86, 2, 27},
+  {type__node__is_an_attribute_access, NULL, 87, 87, 2, 29},
+  {type__node__is_an_initialization, NULL, 88, 88, 2, 27},
+  {type__node__is_in_infix_notation, NULL, 89, 89, 2, 27},
+  {type__node__is_in_numeric_notation, NULL, 90, 90, 2, 29},
+  {type__node__is_mutable, NULL, 91, 91, 2, 17},
+  {type__node__is_not_used, NULL, 92, 92, 2, 18},
+  {type__node__kind_of, NULL, 93, 93, 2, 14},
+  {type__node__last_line_end_specifier_of, NULL, 94, 94, 2, 33},
+  {type__node__line_end_specifier_of, NULL, 95, 95, 2, 28},
+  {type__node__lowest_precedence_of, NULL, 96, 96, 2, 27},
+  {type__node__mangled_name_of, NULL, 97, 97, 2, 22},
+  {type__node__max_length_of, NULL, 98, 98, 2, 20},
+  {type__node__message_of, NULL, 99, 99, 2, 17},
+  {type__node__name_of, NULL, 100, 100, 2, 14},
+  {type__node__namespace_of, NULL, 101, 101, 2, 19},
+  {type__node__namespace_alias_of, NULL, 102, 102, 2, 25},
+  {type__node__node_of, NULL, 103, 103, 2, 14},
+  {type__node__operators_of, NULL, 104, 104, 2, 19},
+  {type__node__output_arguments_of, NULL, 105, 105, 2, 26},
+  {type__node__parameter_kind_of, NULL, 106, 106, 2, 24},
+  {type__node__parameters_of, NULL, 107, 107, 2, 20},
+  {type__node__parent_of, NULL, 108, 108, 2, 16},
+  {type__node__result_count_of, NULL, 109, 109, 2, 22},
+  {type__node__continuation_of, NULL, 110, 110, 2, 22},
+  {type__node__source_position_of, NULL, 111, 111, 2, 25},
+  {type__node__temporary_count_of, NULL, 112, 112, 2, 25},
+  {type__node__remark_lines_of, NULL, 113, 113, 2, 22},
+  {type__node__remark_lines_behind_of, NULL, 114, 114, 2, 29},
+  {type__node__scope_of, NULL, 115, 115, 2, 15},
+  {type__node__section_of, NULL, 116, 116, 2, 17},
+  {type__node__statements_of, NULL, 117, 117, 2, 20},
+  {type__node__submodule_no_of, NULL, 118, 118, 2, 22},
+  {type__node__text_of, NULL, 119, 119, 2, 14},
+  {type__node__type_of, NULL, 120, 120, 2, 14},
+  {type__node__used_names_of, NULL, 121, 121, 2, 20},
+  {type__node__value_of, NULL, 122, 122, 2, 15},
+  {type__node__variable_kind_of, NULL, 123, 123, 2, 23},
+  {type__node__is_a_meta_instruction, NULL, 145, 145, 2, 28},
+  {type__node__is_a_remark, NULL, 184, 184, 2, 18},
+  {type__node__is_a_body, NULL, 193, 193, 2, 16},
+  {type__node__defines_a_dynamic, NULL, 198, 198, 2, 24},
+  {type__node__is_a_call, NULL, 219, 219, 2, 16},
+  {type__node__is_a_procedure_call, NULL, 230, 230, 2, 26},
+  {type__node__is_a_return, NULL, 239, 239, 2, 18},
+  {type__node__is_an_assignment, NULL, 248, 248, 2, 23},
+  {type__node__is_a_definition, NULL, 257, 257, 2, 22},
+  {type__node__is_a_static_single_definition, NULL, 268, 268, 2, 36},
+  {type__node__is_a_static_multi_definition, NULL, 280, 280, 2, 35},
+  {type__node__is_a_dynamic_single_definition, NULL, 292, 292, 2, 37},
+  {type__node__is_a_dynamic_multi_definition, NULL, 304, 304, 2, 36},
+  {type__node__is_a_function_call, NULL, 316, 316, 2, 25},
+  {type__node__is_an_expression, NULL, 332, 332, 2, 23},
+  {type__node__is_a_backquoted_expression, NULL, 343, 343, 2, 33},
+  {type__node__is_an_attribute_value_pair, NULL, 352, 352, 2, 33},
+  {type__node__is_an_attribute_function_pair, NULL, 362, 362, 2, 36},
+  {type__node__is_a_numeric_literal, NULL, 371, 371, 2, 27},
+  {type__node__is_a_character_literal, NULL, 384, 384, 2, 29},
+  {type__node__is_a_string_literal, NULL, 395, 395, 2, 26},
+  {type__node__is_a_unique_item_constant, NULL, 414, 414, 2, 32},
+  {type__node__is_a_polymorphic_function_constant, NULL, 424, 424, 2, 41},
+  {type__node__is_an_identifier, NULL, 441, 441, 2, 23},
+  {type__node__is_a_destination, NULL, 446, 446, 2, 23},
+  {type__node__is_used_as_a_polymorphic_function, NULL, 450, 450, 2, 40},
+  {type__node__is_a_temporary, NULL, 477, 477, 2, 21},
+  {type__node__is_an_operator_symbol, NULL, 486, 486, 2, 28},
+  {type__node__is_c_code, NULL, 495, 495, 2, 16},
+  {type__node__is_a_c_body, NULL, 506, 506, 2, 18},
+  {run__nodes, NULL, 499, 499, 1, 34},
+  {entry__sim2c__numeric_literal__mangled_name_of_1, NULL, 379, 379, 18, 37},
+  {cont__sim2c__numeric_literal__mangled_name_of_2, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 39, 47},
+  {cont__sim2c__numeric_literal__mangled_name_of_4, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 49, 61},
+  {cont__sim2c__numeric_literal__mangled_name_of_5, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 6, 62},
+  {cont__sim2c__numeric_literal__mangled_name_of_6, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 3, 62},
+  {entry__sim2c__identifier__full_name_of_4, NULL, 461, 461, 19, 36},
+  {cont__sim2c__identifier__full_name_of_5, &frame__sim2c__identifier__full_name_of_4, 461, 461, 12, 42},
+  {cont__sim2c__identifier__full_name_of_7, &frame__sim2c__identifier__full_name_of_4, 461, 461, 9, 42},
+  {entry__sim2c__identifier__full_name_of_8, NULL, 462, 462, 9, 13},
+  {entry__sim2c__identifier__full_name_of_1, NULL, 460, 460, 9, 26},
+  {cont__sim2c__identifier__full_name_of_2, &frame__sim2c__identifier__full_name_of_1, 460, 460, 9, 37},
+  {cont__sim2c__identifier__full_name_of_3, &frame__sim2c__identifier__full_name_of_1, 459, 462, 7, 12},
+  {cont__sim2c__identifier__full_name_of_9, &frame__sim2c__identifier__full_name_of_1, 463, 463, 7, 19},
+  {cont__sim2c__identifier__full_name_of_10, &frame__sim2c__identifier__full_name_of_1, 458, 463, 5, 18},
+  {cont__sim2c__identifier__full_name_of_11, &frame__sim2c__identifier__full_name_of_1, 457, 463, 3, 20},
+  {entry__sim2c__identifier__mangled_name_of_4, NULL, 470, 470, 19, 36},
+  {cont__sim2c__identifier__mangled_name_of_5, &frame__sim2c__identifier__mangled_name_of_4, 470, 470, 12, 42},
+  {cont__sim2c__identifier__mangled_name_of_7, &frame__sim2c__identifier__mangled_name_of_4, 470, 470, 9, 42},
+  {entry__sim2c__identifier__mangled_name_of_8, NULL, 471, 471, 9, 13},
+  {entry__sim2c__identifier__mangled_name_of_1, NULL, 469, 469, 9, 26},
+  {cont__sim2c__identifier__mangled_name_of_2, &frame__sim2c__identifier__mangled_name_of_1, 469, 469, 9, 37},
+  {cont__sim2c__identifier__mangled_name_of_3, &frame__sim2c__identifier__mangled_name_of_1, 468, 471, 7, 12},
+  {cont__sim2c__identifier__mangled_name_of_9, &frame__sim2c__identifier__mangled_name_of_1, 472, 472, 7, 19},
+  {cont__sim2c__identifier__mangled_name_of_10, &frame__sim2c__identifier__mangled_name_of_1, 467, 472, 5, 18},
+  {cont__sim2c__identifier__mangled_name_of_11, &frame__sim2c__identifier__mangled_name_of_1, 466, 472, 3, 20},
+  {entry__sim2c__is_a_parameter_1, NULL, 516, 516, 35, 57},
+  {cont__sim2c__is_a_parameter_2, &frame__sim2c__is_a_parameter_1, 516, 516, 35, 73},
+  {cont__sim2c__is_a_parameter_3, &frame__sim2c__is_a_parameter_1, 516, 516, 35, 73},
+  {cont__sim2c__is_a_parameter_4, &frame__sim2c__is_a_parameter_1, 516, 516, 32, 73}
 };
 
 union NODE {
@@ -3587,35 +3588,35 @@ EXPORT void run__nodes(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 147: $sim2c::meta_instruction types::grammar_node
+  // 149: $sim2c::meta_instruction types::grammar_node
   initialize_maybe_future(var.sim2c__meta_instruction, get__types__grammar_node());
-  // 198: $sim2c::body types::grammar_node
+  // 200: $sim2c::body types::grammar_node
   initialize_maybe_future(var.sim2c__body, get__types__grammar_node());
-  // 212: $sim2c::statement types::grammar_node
+  // 214: $sim2c::statement types::grammar_node
   initialize_maybe_future(var.sim2c__statement, get__types__grammar_node());
-  // 259: $sim2c::definition types::grammar_node
+  // 261: $sim2c::definition types::grammar_node
   initialize_maybe_future(var.sim2c__definition, get__types__grammar_node());
-  // 318: $sim2c::function_call types::grammar_node
+  // 320: $sim2c::function_call types::grammar_node
   initialize_maybe_future(var.sim2c__function_call, get__types__grammar_node());
-  // 334: $sim2c::expression types::grammar_node
+  // 336: $sim2c::expression types::grammar_node
   initialize_maybe_future(var.sim2c__expression, get__types__grammar_node());
-  // 345: $sim2c::backquoted types::grammar_node
+  // 347: $sim2c::backquoted types::grammar_node
   initialize_maybe_future(var.sim2c__backquoted, get__types__grammar_node());
-  // 354: $sim2c::attribute_value_pair types::grammar_node
+  // 356: $sim2c::attribute_value_pair types::grammar_node
   initialize_maybe_future(var.sim2c__attribute_value_pair, get__types__grammar_node());
-  // 373: $sim2c::numeric_literal types::grammar_node
+  // 375: $sim2c::numeric_literal types::grammar_node
   initialize_maybe_future(var.sim2c__numeric_literal, get__types__grammar_node());
-  // 386: $sim2c::character_literal types::grammar_node
+  // 388: $sim2c::character_literal types::grammar_node
   initialize_maybe_future(var.sim2c__character_literal, get__types__grammar_node());
-  // 397: $sim2c::string_literal types::grammar_node
+  // 399: $sim2c::string_literal types::grammar_node
   initialize_maybe_future(var.sim2c__string_literal, get__types__grammar_node());
-  // 416: $sim2c::unique_item types::grammar_node
+  // 418: $sim2c::unique_item types::grammar_node
   initialize_maybe_future(var.sim2c__unique_item, get__types__grammar_node());
-  // 426: $sim2c::polymorphic_function types::grammar_node
+  // 428: $sim2c::polymorphic_function types::grammar_node
   initialize_maybe_future(var.sim2c__polymorphic_function, get__types__grammar_node());
-  // 452: $sim2c::identifier types::grammar_node
+  // 454: $sim2c::identifier types::grammar_node
   initialize_maybe_future(var.sim2c__identifier, get__types__grammar_node());
-  // 497: $sim2c::c_code types::grammar_node
+  // 499: $sim2c::c_code types::grammar_node
   initialize_maybe_future(var.sim2c__c_code, get__types__grammar_node());
   frame = frame->caller_frame;
   func = frame->cont;
@@ -3629,7 +3630,7 @@ static void entry__sim2c__numeric_literal__mangled_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 377: ... node::value_of(self)
+  // 379: ... node::value_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3644,7 +3645,7 @@ static void cont__sim2c__numeric_literal__mangled_name_of_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 377: ... '.' = "_"
+  // 379: ... '.' = "_"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
@@ -3660,7 +3661,7 @@ static void cont__sim2c__numeric_literal__mangled_name_of_4(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 377: ... '@apos;' = ""
+  // 379: ... '@apos;' = ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__39;
@@ -3676,7 +3677,7 @@ static void cont__sim2c__numeric_literal__mangled_name_of_5(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 377: ... replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+  // 379: ... replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3693,7 +3694,7 @@ static void cont__sim2c__numeric_literal__mangled_name_of_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 377: -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+  // 379: -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3709,7 +3710,7 @@ static void entry__sim2c__identifier__full_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 458: namespace_of(self)
+  // 460: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3724,7 +3725,7 @@ static void cont__sim2c__identifier__full_name_of_2(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 458: namespace_of(self).is_defined
+  // 460: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
@@ -3739,12 +3740,12 @@ static void cont__sim2c__identifier__full_name_of_3(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 459: -> string(namespace_of(self) "::")
+  // 461: -> string(namespace_of(self) "::")
   frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__identifier__full_name_of_4, 0);
-  // 457: if
-  // 458:   namespace_of(self).is_defined
-  // 459:   -> string(namespace_of(self) "::")
-  // 460:   -> ""
+  // 459: if
+  // 460:   namespace_of(self).is_defined
+  // 461:   -> string(namespace_of(self) "::")
+  // 462:   -> ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -3764,7 +3765,7 @@ static void entry__sim2c__identifier__full_name_of_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 459: ... namespace_of(self)
+  // 461: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3779,7 +3780,7 @@ static void cont__sim2c__identifier__full_name_of_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 459: ... string(namespace_of(self) "::")
+  // 461: ... string(namespace_of(self) "::")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3795,7 +3796,7 @@ static void cont__sim2c__identifier__full_name_of_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 459: -> string(namespace_of(self) "::")
+  // 461: -> string(namespace_of(self) "::")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3810,7 +3811,7 @@ static void entry__sim2c__identifier__full_name_of_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 460: -> ""
+  // 462: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3824,7 +3825,7 @@ static void cont__sim2c__identifier__full_name_of_9(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 461: name_of(self)
+  // 463: name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3839,12 +3840,12 @@ static void cont__sim2c__identifier__full_name_of_10(void) {
     return;
   }
   frame->slots[6] /* temp__6 */ = arguments->slots[0];
-  // 456: string
-  // 457:   if
-  // 458:     namespace_of(self).is_defined
-  // 459:     -> string(namespace_of(self) "::")
-  // 460:     -> ""
-  // 461:   name_of(self)
+  // 458: string
+  // 459:   if
+  // 460:     namespace_of(self).is_defined
+  // 461:     -> string(namespace_of(self) "::")
+  // 462:     -> ""
+  // 463:   name_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3860,13 +3861,13 @@ static void cont__sim2c__identifier__full_name_of_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 455: ->
-  // 456:   string
-  // 457:     if
-  // 458:       namespace_of(self).is_defined
-  // 459:       -> string(namespace_of(self) "::")
-  // 460:       -> ""
-  // 461:     name_of(self)
+  // 457: ->
+  // 458:   string
+  // 459:     if
+  // 460:       namespace_of(self).is_defined
+  // 461:       -> string(namespace_of(self) "::")
+  // 462:       -> ""
+  // 463:     name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3882,7 +3883,7 @@ static void entry__sim2c__identifier__mangled_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 467: namespace_of(self)
+  // 469: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3897,7 +3898,7 @@ static void cont__sim2c__identifier__mangled_name_of_2(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 467: namespace_of(self).is_defined
+  // 469: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
@@ -3912,12 +3913,12 @@ static void cont__sim2c__identifier__mangled_name_of_3(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 468: -> string(namespace_of(self) "__")
+  // 470: -> string(namespace_of(self) "__")
   frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__identifier__mangled_name_of_4, 0);
-  // 466: if
-  // 467:   namespace_of(self).is_defined
-  // 468:   -> string(namespace_of(self) "__")
-  // 469:   -> ""
+  // 468: if
+  // 469:   namespace_of(self).is_defined
+  // 470:   -> string(namespace_of(self) "__")
+  // 471:   -> ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -3937,7 +3938,7 @@ static void entry__sim2c__identifier__mangled_name_of_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 468: ... namespace_of(self)
+  // 470: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3952,7 +3953,7 @@ static void cont__sim2c__identifier__mangled_name_of_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 468: ... string(namespace_of(self) "__")
+  // 470: ... string(namespace_of(self) "__")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3968,7 +3969,7 @@ static void cont__sim2c__identifier__mangled_name_of_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 468: -> string(namespace_of(self) "__")
+  // 470: -> string(namespace_of(self) "__")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3983,7 +3984,7 @@ static void entry__sim2c__identifier__mangled_name_of_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 469: -> ""
+  // 471: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3997,7 +3998,7 @@ static void cont__sim2c__identifier__mangled_name_of_9(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 470: name_of(self)
+  // 472: name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4012,12 +4013,12 @@ static void cont__sim2c__identifier__mangled_name_of_10(void) {
     return;
   }
   frame->slots[6] /* temp__6 */ = arguments->slots[0];
-  // 465: string
-  // 466:   if
-  // 467:     namespace_of(self).is_defined
-  // 468:     -> string(namespace_of(self) "__")
-  // 469:     -> ""
-  // 470:   name_of(self)
+  // 467: string
+  // 468:   if
+  // 469:     namespace_of(self).is_defined
+  // 470:     -> string(namespace_of(self) "__")
+  // 471:     -> ""
+  // 472:   name_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4033,13 +4034,13 @@ static void cont__sim2c__identifier__mangled_name_of_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 464: ->
-  // 465:   string
-  // 466:     if
-  // 467:       namespace_of(self).is_defined
-  // 468:       -> string(namespace_of(self) "__")
-  // 469:       -> ""
-  // 470:     name_of(self)
+  // 466: ->
+  // 467:   string
+  // 468:     if
+  // 469:       namespace_of(self).is_defined
+  // 470:       -> string(namespace_of(self) "__")
+  // 471:       -> ""
+  // 472:     name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4055,7 +4056,7 @@ static void entry__sim2c__is_a_parameter_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 514: ... parameter_kind_of(self)
+  // 516: ... parameter_kind_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4070,7 +4071,7 @@ static void cont__sim2c__is_a_parameter_2(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 514: ... parameter_kind_of(self) != NO_PARAMETER
+  // 516: ... parameter_kind_of(self) != NO_PARAMETER
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -4086,7 +4087,7 @@ static void cont__sim2c__is_a_parameter_3(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 514: ... parameter_kind_of(self) != NO_PARAMETER
+  // 516: ... parameter_kind_of(self) != NO_PARAMETER
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4101,7 +4102,7 @@ static void cont__sim2c__is_a_parameter_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 514: ... -> parameter_kind_of(self) != NO_PARAMETER
+  // 516: ... -> parameter_kind_of(self) != NO_PARAMETER
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4268,6 +4269,34 @@ EXPORT void phase_1__nodes(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
+  define_namespace("node");
+}
+
+static int already_run_phase_2 = false;
+
+EXPORT void phase_2__nodes(void) {
+  if (already_run_phase_2) return;
+  already_run_phase_2 = true;
+  set_module("nodes");
+  character__39 = from_uchar32(39);
+  character__46 = from_uchar32(46);
+  unique__sim2c__NONE = register_unique_item("sim2c__NONE");
+  unique__sim2c__ATTRIBUTE_KIND = register_unique_item("sim2c__ATTRIBUTE_KIND");
+  unique__sim2c__METHOD_KIND = register_unique_item("sim2c__METHOD_KIND");
+  unique__sim2c__NO_PARAMETER = register_unique_item("sim2c__NO_PARAMETER");
+  unique__sim2c__IN_PARAMETER = register_unique_item("sim2c__IN_PARAMETER");
+  unique__sim2c__IN_OUT_PARAMETER = register_unique_item("sim2c__IN_OUT_PARAMETER");
+  unique__sim2c__OUT_PARAMETER = register_unique_item("sim2c__OUT_PARAMETER");
+  unique__sim2c__MYSELF_PARAMETER = register_unique_item("sim2c__MYSELF_PARAMETER");
+  unique__sim2c__CONTINUATION_PARAMETER = register_unique_item("sim2c__CONTINUATION_PARAMETER");
+  unique__sim2c__LEFT = register_unique_item("sim2c__LEFT");
+  unique__sim2c__RIGHT = register_unique_item("sim2c__RIGHT");
+  unique__sim2c__POLYMORPHIC = register_unique_item("sim2c__POLYMORPHIC");
+  unique__sim2c__STATIC_SINGLE = register_unique_item("sim2c__STATIC_SINGLE");
+  unique__sim2c__STATIC_MULTI = register_unique_item("sim2c__STATIC_MULTI");
+  unique__sim2c__DYNAMIC_SINGLE = register_unique_item("sim2c__DYNAMIC_SINGLE");
+  unique__sim2c__DYNAMIC_MULTI = register_unique_item("sim2c__DYNAMIC_MULTI");
+  unique__sim2c__C_NODE = register_unique_item("sim2c__C_NODE");
   define_polymorphic_function_with_setter("node", "argument_of", get__node__argument_of, &poly_idx__node__argument_of, &var.node__argument_of);
   define_polymorphic_function_with_setter("node", "arguments_of", get__node__arguments_of, &poly_idx__node__arguments_of, &var.node__arguments_of);
   define_polymorphic_function_with_setter("node", "attribute_kind_of", get__node__attribute_kind_of, &poly_idx__node__attribute_kind_of, &var.node__attribute_kind_of);
@@ -4353,53 +4382,27 @@ EXPORT void phase_1__nodes(void) {
   define_polymorphic_function("node", "is_an_attribute_value_pair", get__node__is_an_attribute_value_pair, &poly_idx__node__is_an_attribute_value_pair, &var.node__is_an_attribute_value_pair);
   define_polymorphic_function("node", "is_an_attribute_function_pair", get__node__is_an_attribute_function_pair, &poly_idx__node__is_an_attribute_function_pair, &var.node__is_an_attribute_function_pair);
   define_polymorphic_function("node", "is_a_numeric_literal", get__node__is_a_numeric_literal, &poly_idx__node__is_a_numeric_literal, &var.node__is_a_numeric_literal);
+  string__578a5af303e9cbe = from_latin_1_string("_", 1);
+  func__sim2c__numeric_literal__mangled_name_of_1 = create_function(entry__sim2c__numeric_literal__mangled_name_of_1, 1);
   define_polymorphic_function("node", "is_a_character_literal", get__node__is_a_character_literal, &poly_idx__node__is_a_character_literal, &var.node__is_a_character_literal);
   define_polymorphic_function("node", "is_a_string_literal", get__node__is_a_string_literal, &poly_idx__node__is_a_string_literal, &var.node__is_a_string_literal);
+  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   define_polymorphic_function("node", "is_a_unique_item_constant", get__node__is_a_unique_item_constant, &poly_idx__node__is_a_unique_item_constant, &var.node__is_a_unique_item_constant);
   define_polymorphic_function("node", "is_a_polymorphic_function_constant", get__node__is_a_polymorphic_function_constant, &poly_idx__node__is_a_polymorphic_function_constant, &var.node__is_a_polymorphic_function_constant);
   define_polymorphic_function("node", "is_an_identifier", get__node__is_an_identifier, &poly_idx__node__is_an_identifier, &var.node__is_an_identifier);
   define_polymorphic_function("node", "is_a_destination", get__node__is_a_destination, &poly_idx__node__is_a_destination, &var.node__is_a_destination);
   define_polymorphic_function("node", "is_used_as_a_polymorphic_function", get__node__is_used_as_a_polymorphic_function, &poly_idx__node__is_used_as_a_polymorphic_function, &var.node__is_used_as_a_polymorphic_function);
-  define_polymorphic_function("node", "is_a_temporary", get__node__is_a_temporary, &poly_idx__node__is_a_temporary, &var.node__is_a_temporary);
-  define_polymorphic_function("node", "is_an_operator_symbol", get__node__is_an_operator_symbol, &poly_idx__node__is_an_operator_symbol, &var.node__is_an_operator_symbol);
-  define_polymorphic_function("node", "is_c_code", get__node__is_c_code, &poly_idx__node__is_c_code, &var.node__is_c_code);
-  define_polymorphic_function("node", "is_a_c_body", get__node__is_a_c_body, &poly_idx__node__is_a_c_body, &var.node__is_a_c_body);
-}
-
-static int already_run_phase_2 = false;
-
-EXPORT void phase_2__nodes(void) {
-  if (already_run_phase_2) return;
-  already_run_phase_2 = true;
-  character__39 = from_uchar32(39);
-  character__46 = from_uchar32(46);
-  unique__sim2c__NONE = register_unique_item("sim2c__NONE");
-  unique__sim2c__ATTRIBUTE_KIND = register_unique_item("sim2c__ATTRIBUTE_KIND");
-  unique__sim2c__METHOD_KIND = register_unique_item("sim2c__METHOD_KIND");
-  unique__sim2c__NO_PARAMETER = register_unique_item("sim2c__NO_PARAMETER");
-  unique__sim2c__IN_PARAMETER = register_unique_item("sim2c__IN_PARAMETER");
-  unique__sim2c__IN_OUT_PARAMETER = register_unique_item("sim2c__IN_OUT_PARAMETER");
-  unique__sim2c__OUT_PARAMETER = register_unique_item("sim2c__OUT_PARAMETER");
-  unique__sim2c__MYSELF_PARAMETER = register_unique_item("sim2c__MYSELF_PARAMETER");
-  unique__sim2c__CONTINUATION_PARAMETER = register_unique_item("sim2c__CONTINUATION_PARAMETER");
-  unique__sim2c__LEFT = register_unique_item("sim2c__LEFT");
-  unique__sim2c__RIGHT = register_unique_item("sim2c__RIGHT");
-  unique__sim2c__POLYMORPHIC = register_unique_item("sim2c__POLYMORPHIC");
-  unique__sim2c__STATIC_SINGLE = register_unique_item("sim2c__STATIC_SINGLE");
-  unique__sim2c__STATIC_MULTI = register_unique_item("sim2c__STATIC_MULTI");
-  unique__sim2c__DYNAMIC_SINGLE = register_unique_item("sim2c__DYNAMIC_SINGLE");
-  unique__sim2c__DYNAMIC_MULTI = register_unique_item("sim2c__DYNAMIC_MULTI");
-  unique__sim2c__C_NODE = register_unique_item("sim2c__C_NODE");
-  string__578a5af303e9cbe = from_latin_1_string("_", 1);
-  func__sim2c__numeric_literal__mangled_name_of_1 = create_function(entry__sim2c__numeric_literal__mangled_name_of_1, 1);
-  string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
   func__sim2c__identifier__full_name_of_8 = create_function(entry__sim2c__identifier__full_name_of_8, 0);
   func__sim2c__identifier__full_name_of_1 = create_function(entry__sim2c__identifier__full_name_of_1, 1);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
   func__sim2c__identifier__mangled_name_of_8 = create_function(entry__sim2c__identifier__mangled_name_of_8, 0);
   func__sim2c__identifier__mangled_name_of_1 = create_function(entry__sim2c__identifier__mangled_name_of_1, 1);
+  define_polymorphic_function("node", "is_a_temporary", get__node__is_a_temporary, &poly_idx__node__is_a_temporary, &var.node__is_a_temporary);
+  define_polymorphic_function("node", "is_an_operator_symbol", get__node__is_an_operator_symbol, &poly_idx__node__is_an_operator_symbol, &var.node__is_an_operator_symbol);
+  define_polymorphic_function("node", "is_c_code", get__node__is_c_code, &poly_idx__node__is_c_code, &var.node__is_c_code);
   string__545aebc3eac0d03b = from_latin_1_string("local", 5);
+  define_polymorphic_function("node", "is_a_c_body", get__node__is_a_c_body, &poly_idx__node__is_a_c_body, &var.node__is_a_c_body);
   func__sim2c__is_a_parameter_1 = create_function(entry__sim2c__is_a_parameter_1, 1);
 }
 

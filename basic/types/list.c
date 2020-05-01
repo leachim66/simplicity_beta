@@ -200,16 +200,16 @@ IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void define_c_function(const char *name, void *func);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void define_c_function(const char *name, void *func);
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -8659,9 +8659,7 @@ EXPORT void phase_1__basic__types__list(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_list", get__std__is_a_list, &poly_idx__std__is_a_list, &var.std__is_a_list);
   define_c_function("from_arguments", runtime__from_arguments);
-  define_polymorphic_function("std", "is_a_sequence", get__std__is_a_sequence, &poly_idx__std__is_a_sequence, &var.std__is_a_sequence);
 }
 
 static int already_run_phase_2 = false;
@@ -8669,11 +8667,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__list(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__list");
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__3 = from_uint32(3U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  define_polymorphic_function("std", "is_a_list", get__std__is_a_list, &poly_idx__std__is_a_list, &var.std__is_a_list);
   func__types__list__to_list_1 = create_function(entry__types__list__to_list_1, 1);
   func__std__list_1 = create_function(entry__std__list_1, -1);
   func__types__list__length_of_1 = create_function(entry__types__list__length_of_1, 1);
@@ -8710,6 +8710,7 @@ EXPORT void phase_2__basic__types__list(void) {
   func__types__generic_list__dup_1 = create_function(entry__types__generic_list__dup_1, 2);
   func__types__generic_list__interleave_1 = create_function(entry__types__generic_list__interleave_1, -1);
   func__types__generic_list__contains_1 = create_function(entry__types__generic_list__contains_1, 2);
+  define_polymorphic_function("std", "is_a_sequence", get__std__is_a_sequence, &poly_idx__std__is_a_sequence, &var.std__is_a_sequence);
   func__std__sequence_3 = create_function(entry__std__sequence_3, 2);
   func__std__sequence_1 = create_function(entry__std__sequence_1, -1);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);

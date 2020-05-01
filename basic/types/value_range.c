@@ -180,14 +180,14 @@ IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -1258,7 +1258,6 @@ EXPORT void phase_1__basic__types__value_range(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_value_range", get__std__is_a_value_range, &poly_idx__std__is_a_value_range, &var.std__is_a_value_range);
 }
 
 static int already_run_phase_2 = false;
@@ -1266,8 +1265,10 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__value_range(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__value_range");
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
+  define_polymorphic_function("std", "is_a_value_range", get__std__is_a_value_range, &poly_idx__std__is_a_value_range, &var.std__is_a_value_range);
   func__std__value_range_1 = create_function(entry__std__value_range_1, 2);
   func__types__value_range__lower_bound_of_1 = create_function(entry__types__value_range__lower_bound_of_1, 1);
   func__types__value_range__upper_bound_of_1 = create_function(entry__types__value_range__upper_bound_of_1, 1);

@@ -200,12 +200,12 @@ IMPORT void invalid_results_error(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 typedef void (*NODE_SETTER)(NODE *);
 IMPORT void define_multi_assign_dynamic(
@@ -1032,10 +1032,6 @@ EXPORT void phase_1__shared_variables(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function_with_setter("sim2c", "line_no_of", get__sim2c__line_no_of, &poly_idx__sim2c__line_no_of, &var.sim2c__line_no_of);
-  define_polymorphic_function_with_setter("sim2c", "text_of", get__sim2c__text_of, &poly_idx__sim2c__text_of, &var.sim2c__text_of);
-  define_polymorphic_function_with_setter("sim2c", "source_of", get__sim2c__source_of, &poly_idx__sim2c__source_of, &var.sim2c__source_of);
-  define_polymorphic_function_with_setter("sim2c", "indents_of", get__sim2c__indents_of, &poly_idx__sim2c__indents_of, &var.sim2c__indents_of);
 }
 
 static int already_run_phase_2 = false;
@@ -1043,6 +1039,11 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__shared_variables(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("shared_variables");
+  define_polymorphic_function_with_setter("sim2c", "line_no_of", get__sim2c__line_no_of, &poly_idx__sim2c__line_no_of, &var.sim2c__line_no_of);
+  define_polymorphic_function_with_setter("sim2c", "text_of", get__sim2c__text_of, &poly_idx__sim2c__text_of, &var.sim2c__text_of);
+  define_polymorphic_function_with_setter("sim2c", "source_of", get__sim2c__source_of, &poly_idx__sim2c__source_of, &var.sim2c__source_of);
+  define_polymorphic_function_with_setter("sim2c", "indents_of", get__sim2c__indents_of, &poly_idx__sim2c__indents_of, &var.sim2c__indents_of);
   string__a0540e55151930c2 = from_latin_1_string("to_int8", 7);
   string__72a8a8c9865d0296 = from_latin_1_string("to_int16", 8);
   string__72a8a8c9864d0292 = from_latin_1_string("to_int32", 8);

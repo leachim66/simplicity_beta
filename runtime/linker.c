@@ -90,18 +90,6 @@ EXPORT void register_module_info(MODULE_INFO *info) {
   current_module_name = info->name;
 }
 
-static const char **current_namespaces;
-
-EXPORT void set_used_namespaces(const char **namespaces) {
-  current_namespaces = namespaces;
-  if (show_debug_info) {
-    fprintf(stderr, "set current namespaces:\n");
-    while (*namespaces) fprintf(stderr, "  %s\n", *namespaces++);
-  }
-}
-
-#define rol(val, shift) ((((unsigned)(val))<<(shift))|(((unsigned)(val))>>(32-(shift))))
-
 __attribute__ ((noreturn)) void unrecoverable_error(const char *msg, ...);
 
 void *allocate_linktime(size_t size) {
@@ -117,11 +105,79 @@ static void *reallocate_linktime(void *buf, size_t size) {
 }
 
 static void free_all_linktime_memory() {
+  // ???
 }
+
+static const char **defined_namespaces;
+static const char **namespace_module_names;
+static int namespace_table_size = 0;
+static int namespace_idx = 0;
+
+EXPORT void define_namespace(const char *namespace) {
+  // ATTENTION: maybe use a hashtable for storing defined namespaces!
+  if (show_debug_info) {
+    fprintf(stderr, "register namespace \"%s\"\n", namespace);
+  }
+  int idx;
+  for (idx = 0; idx < namespace_idx; ++idx) {
+    if (strcmp(defined_namespaces[idx], namespace) == 0) {
+      unrecoverable_error(
+	"The namespace \"%s\" was already defined in the module \"%s\"!",
+	namespace, namespace_module_names[idx]);
+    }
+  }
+  if (namespace_table_size == 0) {
+    namespace_table_size = namespace_idx+1;
+    defined_namespaces =
+      allocate_linktime(namespace_table_size*sizeof(const char *));
+    namespace_module_names =
+      allocate_linktime(namespace_table_size*sizeof(const char *));
+  } else if (namespace_idx >= namespace_table_size) {
+    namespace_table_size = 2*(namespace_idx+1);
+    defined_namespaces =
+      reallocate_linktime(
+	defined_namespaces,
+	namespace_table_size*sizeof(const char *));
+    namespace_module_names =
+      reallocate_linktime(
+	namespace_module_names, namespace_table_size*sizeof(const char *));
+  }
+  defined_namespaces[namespace_idx] = namespace;
+  namespace_module_names[namespace_idx] = current_module_name;
+  ++namespace_idx;
+}
+
+void check_namespace(const char *namespace) {
+  if (namespace) {
+    int idx;
+    for (idx = 0; idx < namespace_idx; ++idx) {
+      if (strcmp(defined_namespaces[idx], namespace) == 0) return;
+    }
+    unrecoverable_error(
+      "The namespace \"%s\" used from module \"%s\" is not defined in any module!",
+      namespace, current_module_name);
+  }
+}
+
+static const char **current_namespaces;
+
+EXPORT void set_used_namespaces(const char **namespaces) {
+  const char **p = namespaces;
+  const char *namespace;
+  while (namespace = *p++) check_namespace(namespace);
+  current_namespaces = namespaces;
+  if (show_debug_info) {
+    fprintf(stderr, "set current namespaces:\n");
+    while (*namespaces) fprintf(stderr, "  \"%s\"\n", *namespaces++);
+  }
+}
+
+#define rol(val, shift) ((((unsigned)(val))<<(shift))|(((unsigned)(val))>>(32-(shift))))
 
 static SYMBOL_ENTRY *define_symbol(
   VAR_TYPE type, const char *namespace, const char *name
 ) {
+  check_namespace(namespace);
   uint32_t h = 0;
   const char *p = name;
   while (*p) {
@@ -166,6 +222,7 @@ static SYMBOL_ENTRY *define_symbol(
 }
 
 static SYMBOL_ENTRY *find_symbol(const char *namespace, const char *name) {
+  check_namespace(namespace);
   uint32_t h = 0;
   const char *p = name;
   while (*p) {
@@ -237,6 +294,7 @@ static SYMBOL_ENTRY *find_symbol(const char *namespace, const char *name) {
 }
 
 SYMBOL_ENTRY *maybe_find_symbol(const char *namespace, const char *name) {
+  check_namespace(namespace);
   uint32_t h = 0;
   const char *p = name;
   while (*p) {

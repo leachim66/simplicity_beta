@@ -158,8 +158,8 @@ IMPORT int runtime_minor_version(void);
 IMPORT int runtime_revision(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
 typedef NODE *(*NODE_GETTER)(void);
 IMPORT void define_single_assign_static(
@@ -350,6 +350,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__runtime(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__runtime");
   func__std__runtime_major_version_1 = create_function(entry__std__runtime_major_version_1, 0);
   func__std__runtime_minor_version_1 = create_function(entry__std__runtime_minor_version_1, 0);
   func__std__runtime_revision_1 = create_function(entry__std__runtime_revision_1, 0);

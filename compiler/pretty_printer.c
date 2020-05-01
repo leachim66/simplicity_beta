@@ -217,13 +217,13 @@ IMPORT NODE *create_continuation_with_exit(FUNC exit_func);
 IMPORT void continuation_type_function(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void register_polymorphic_function(const char *name, int *id_p);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT void register_polymorphic_function(const char *name, int *id_p);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_dynamic(
@@ -38947,7 +38947,6 @@ EXPORT void phase_1__pretty_printer(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  register_polymorphic_function("_pretty_printer::needs_parenthesis", &poly_idx__needs_parenthesis);
 }
 
 static int already_run_phase_2 = false;
@@ -38955,6 +38954,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__pretty_printer(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("pretty_printer");
   character__9 = from_uchar32(9);
   number__6 = from_uint32(6U);
   character__35 = from_uchar32(35);
@@ -38993,6 +38993,7 @@ EXPORT void phase_2__pretty_printer(void) {
   number__20 = from_uint32(20U);
   character__42 = from_uchar32(42);
   character__128 = from_uchar32(128);
+  register_polymorphic_function("_pretty_printer::needs_parenthesis", &poly_idx__needs_parenthesis);
   unique__ALWAYS = register_unique_item("ALWAYS");
   unique__SHEBANG = register_unique_item("SHEBANG");
   unique__REMARK = register_unique_item("REMARK");

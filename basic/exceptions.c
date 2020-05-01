@@ -182,12 +182,12 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void register_dynamic(int *id_p);
 IMPORT void define_single_assign_static(
@@ -3482,8 +3482,6 @@ EXPORT void phase_1__basic__exceptions(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  register_polymorphic_function_with_setter("_basic__exceptions::resource_id_of", &poly_idx__resource_id_of);
-  register_polymorphic_function_with_setter("_basic__exceptions::retain_id_of", &poly_idx__retain_id_of);
 }
 
 static int already_run_phase_2 = false;
@@ -3491,10 +3489,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__exceptions(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__exceptions");
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  register_polymorphic_function_with_setter("_basic__exceptions::resource_id_of", &poly_idx__resource_id_of);
+  register_polymorphic_function_with_setter("_basic__exceptions::retain_id_of", &poly_idx__retain_id_of);
   func__std__register_resource_1 = create_function(entry__std__register_resource_1, 1);
   func__std__deregister_resource_1 = create_function(entry__std__deregister_resource_1, 1);
   func__cleanup_till_1 = create_function(entry__cleanup_till_1, 1);

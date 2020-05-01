@@ -206,14 +206,14 @@ IMPORT NODE *from_bool(int val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void define_c_function(const char *name, void *func);
+IMPORT NODE *from_uint32_string(const uint32_t *str, long len);
+IMPORT void set_module(const char *name);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void define_c_function(const char *name, void *func);
-IMPORT NODE *from_uint32_string(const uint32_t *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -5235,10 +5235,6 @@ EXPORT void phase_1__basic__types__string_primitives(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_string", get__std__is_a_string, &poly_idx__std__is_a_string, &var.std__is_a_string);
-  define_polymorphic_function("std", "count_character_occurrences", get__std__count_character_occurrences, &poly_idx__std__count_character_occurrences, &var.std__count_character_occurrences);
-  define_polymorphic_function("std", "to_utf8", get__std__to_utf8, &poly_idx__std__to_utf8, &var.std__to_utf8);
-  define_polymorphic_function("std", "is_a_latin_1_string", get__std__is_a_latin_1_string, &poly_idx__std__is_a_latin_1_string, &var.std__is_a_latin_1_string);
   define_c_function("from_latin_1_string", runtime__from_latin_1_string);
   define_c_function("from_uint32_string", runtime__from_uint32_string);
   define_c_function("from_c_string", runtime__from_c_string);
@@ -5249,6 +5245,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__string_primitives(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__string_primitives");
   character__57 = from_uchar32(57);
   character__55 = from_uchar32(55);
   character__65 = from_uchar32(65);
@@ -5270,6 +5267,10 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   character__49 = from_uchar32(49);
   number__2 = from_uint32(2U);
   number__10 = from_uint32(10U);
+  define_polymorphic_function("std", "is_a_string", get__std__is_a_string, &poly_idx__std__is_a_string, &var.std__is_a_string);
+  define_polymorphic_function("std", "count_character_occurrences", get__std__count_character_occurrences, &poly_idx__std__count_character_occurrences, &var.std__count_character_occurrences);
+  define_polymorphic_function("std", "to_utf8", get__std__to_utf8, &poly_idx__std__to_utf8, &var.std__to_utf8);
+  define_polymorphic_function("std", "is_a_latin_1_string", get__std__is_a_latin_1_string, &poly_idx__std__is_a_latin_1_string, &var.std__is_a_latin_1_string);
   func__types__octet_string__length_of_1 = create_function(entry__types__octet_string__length_of_1, 1);
   func__types__quad_octet_string__length_of_1 = create_function(entry__types__quad_octet_string__length_of_1, 1);
   func__types__octet_string__equal_1 = create_function(entry__types__octet_string__equal_1, 2);

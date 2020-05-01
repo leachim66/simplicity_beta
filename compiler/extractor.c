@@ -214,13 +214,13 @@ IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
+IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -23561,11 +23561,6 @@ EXPORT void phase_1__extractor(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  register_polymorphic_function_with_setter("_extractor::filename_of", &poly_idx__filename_of);
-  register_polymorphic_function_with_setter("_extractor::used_namespaces_of", &poly_idx__used_namespaces_of);
-  register_polymorphic_function_with_setter("_extractor::derived_types_of", &poly_idx__derived_types_of);
-  register_polymorphic_function_with_setter("_extractor::methods_of", &poly_idx__methods_of);
-  register_polymorphic_function_with_setter("_extractor::types_of", &poly_idx__types_of);
 }
 
 static int already_run_phase_2 = false;
@@ -23573,6 +23568,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__extractor(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("extractor");
   character__35 = from_uchar32(35);
   character__122 = from_uchar32(122);
   character__47 = from_uchar32(47);
@@ -23594,6 +23590,11 @@ EXPORT void phase_2__extractor(void) {
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
   character__62 = from_uchar32(62);
+  register_polymorphic_function_with_setter("_extractor::filename_of", &poly_idx__filename_of);
+  register_polymorphic_function_with_setter("_extractor::used_namespaces_of", &poly_idx__used_namespaces_of);
+  register_polymorphic_function_with_setter("_extractor::derived_types_of", &poly_idx__derived_types_of);
+  register_polymorphic_function_with_setter("_extractor::methods_of", &poly_idx__methods_of);
+  register_polymorphic_function_with_setter("_extractor::types_of", &poly_idx__types_of);
   unique__FUNCTION = register_unique_item("FUNCTION");
   unique__POLYMORPHIC_FUNCTION = register_unique_item("POLYMORPHIC_FUNCTION");
   unique__POLYMORPHIC_ATTRIBUTE = register_unique_item("POLYMORPHIC_ATTRIBUTE");

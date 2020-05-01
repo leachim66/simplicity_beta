@@ -208,15 +208,15 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void define_polymorphic_function(
-  const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
-  NODE **var_p
-);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
+IMPORT void define_polymorphic_function(
+  const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
+  NODE **var_p
+);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -1011,7 +1011,6 @@ EXPORT void phase_1__basic__types__set(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_set", get__std__is_a_set, &poly_idx__std__is_a_set, &var.std__is_a_set);
 }
 
 static int already_run_phase_2 = false;
@@ -1019,6 +1018,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__set");
   character__10 = from_uchar32(10);
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
@@ -1027,6 +1027,7 @@ EXPORT void phase_2__basic__types__set(void) {
   func__types__generic_set__serialize_1 = create_function(entry__types__generic_set__serialize_1, -1);
   func__types__generic_set__is_empty_1 = create_function(entry__types__generic_set__is_empty_1, 1);
   func__types__generic_set__to_list_1 = create_function(entry__types__generic_set__to_list_1, 1);
+  define_polymorphic_function("std", "is_a_set", get__std__is_a_set, &poly_idx__std__is_a_set, &var.std__is_a_set);
   string__fa724815d016bb8 = from_latin_1_string("set", 3);
   func__std__set_1 = create_function(entry__std__set_1, -1);
 }

@@ -182,8 +182,8 @@ IMPORT NODE *from_long(long val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -572,6 +572,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__object(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__object");
   func__types__object__default_value_1 = create_function(entry__types__object__default_value_1, 2);
   func__types__object__serialize_1 = create_function(entry__types__object__serialize_1, -1);
   func__types__object__equal_type_and_value_1 = create_function(entry__types__object__equal_type_and_value_1, 2);

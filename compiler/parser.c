@@ -215,12 +215,12 @@ IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void register_polymorphic_function(const char *name, int *id_p);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
+IMPORT void register_polymorphic_function(const char *name, int *id_p);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -29235,7 +29235,6 @@ EXPORT void phase_1__parser(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  register_polymorphic_function("_parser::original_remark_lines_of", &poly_idx__original_remark_lines_of);
 }
 
 static int already_run_phase_2 = false;
@@ -29243,6 +29242,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__parser(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("parser");
   character__9 = from_uchar32(9);
   character__35 = from_uchar32(35);
   number__6 = from_uint32(6U);
@@ -29357,6 +29357,7 @@ EXPORT void phase_2__parser(void) {
   func__expect_1 = create_function(entry__expect_1, -1);
   func__sim2c__arguments_span_1 = create_function(entry__sim2c__arguments_span_1, 1);
   func__sim2c__output_arguments_span_1 = create_function(entry__sim2c__output_arguments_span_1, 1);
+  register_polymorphic_function("_parser::original_remark_lines_of", &poly_idx__original_remark_lines_of);
   string__12eb1acbffa2ae01 = from_latin_1_string("invalid meta instruction", 24);
   func__sim2c__parse_meta_instruction_1 = create_function(entry__sim2c__parse_meta_instruction_1, 1);
   string__482d004bd19ca8db = from_latin_1_string("superficious input at end of expression", 39);

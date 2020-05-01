@@ -204,11 +204,11 @@ IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *empty_string;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -5292,6 +5292,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__deserialize(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__deserialize");
   character__9 = from_uchar32(9);
   character__57 = from_uchar32(57);
   character__10 = from_uchar32(10);

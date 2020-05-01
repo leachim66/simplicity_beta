@@ -904,6 +904,12 @@ $sim2c::sim2c:
   write "
     @
       register_module_info(&module_info);
+
+  for_each defined_namespaces: (namespace)
+    write "
+      @
+        define_namespace("@(namespace)");
+
   write generated_phase_1
   if
     is_main:
@@ -922,6 +928,9 @@ $sim2c::sim2c:
 	  already_run_phase_2 = true;
   for_each required_modules: (name _info)
     writeln "  phase_2__@(mangle_filename(name))();"
+  write "
+    @
+      set_module("@(module_name)");
   for_each used_literals: (name literal)
     write "  @(name) = "
     cond

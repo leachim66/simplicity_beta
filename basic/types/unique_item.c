@@ -178,14 +178,14 @@ IMPORT int debug_print(int indent, char *buf, const char *format, ...);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void define_c_function(const char *name, void *func);
+IMPORT NODE *register_unique_item(const char *name);
+IMPORT void set_module(const char *name);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void define_c_function(const char *name, void *func);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -503,7 +503,6 @@ EXPORT void phase_1__basic__types__unique_item(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_unique_item", get__std__is_a_unique_item, &poly_idx__std__is_a_unique_item, &var.std__is_a_unique_item);
   define_c_function("register_unique_item", runtime__register_unique_item);
 }
 
@@ -512,6 +511,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__unique_item(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__unique_item");
+  define_polymorphic_function("std", "is_a_unique_item", get__std__is_a_unique_item, &poly_idx__std__is_a_unique_item, &var.std__is_a_unique_item);
   func__types__unique_item__equal_1 = create_function(entry__types__unique_item__equal_1, 2);
   func__types__unique_item__hash_1 = create_function(entry__types__unique_item__hash_1, 1);
 }

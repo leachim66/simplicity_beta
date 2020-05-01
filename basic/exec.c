@@ -191,9 +191,9 @@ IMPORT void optional_item(NODE *item);
 IMPORT NODE *create_cell(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -2290,6 +2290,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__exec(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__exec");
   number__6 = from_uint32(6U);
   number__15 = from_uint32(15U);
   number__12 = from_uint32(12U);

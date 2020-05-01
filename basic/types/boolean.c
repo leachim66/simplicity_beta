@@ -178,14 +178,14 @@ IMPORT NODE *undefined;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void define_c_function(const char *name, void *func);
+IMPORT void set_module(const char *name);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -864,7 +864,6 @@ EXPORT void phase_1__basic__types__boolean(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_boolean", get__std__is_a_boolean, &poly_idx__std__is_a_boolean, &var.std__is_a_boolean);
   define_c_function("from_bool", runtime__from_bool);
 }
 
@@ -873,6 +872,8 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__boolean(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__boolean");
+  define_polymorphic_function("std", "is_a_boolean", get__std__is_a_boolean, &poly_idx__std__is_a_boolean, &var.std__is_a_boolean);
   string__2a0aedcb5dc87d5c = from_latin_1_string("true", 4);
   string__485ae803ea507032 = from_latin_1_string("false", 5);
   func__types__true__equal_1 = create_function(entry__types__true__equal_1, 2);

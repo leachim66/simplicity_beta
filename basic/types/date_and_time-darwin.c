@@ -191,15 +191,15 @@ IMPORT NODE *empty_string;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -1876,14 +1876,6 @@ EXPORT void phase_1__basic__types__date_and_time(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function_with_setter("std", "year_of", get__std__year_of, &poly_idx__std__year_of, &var.std__year_of);
-  define_polymorphic_function_with_setter("std", "month_of", get__std__month_of, &poly_idx__std__month_of, &var.std__month_of);
-  define_polymorphic_function_with_setter("std", "day_of", get__std__day_of, &poly_idx__std__day_of, &var.std__day_of);
-  define_polymorphic_function_with_setter("std", "day_of_week_of", get__std__day_of_week_of, &poly_idx__std__day_of_week_of, &var.std__day_of_week_of);
-  define_polymorphic_function_with_setter("std", "hour_of", get__std__hour_of, &poly_idx__std__hour_of, &var.std__hour_of);
-  define_polymorphic_function_with_setter("std", "minute_of", get__std__minute_of, &poly_idx__std__minute_of, &var.std__minute_of);
-  define_polymorphic_function_with_setter("std", "second_of", get__std__second_of, &poly_idx__std__second_of, &var.std__second_of);
-  define_polymorphic_function_with_setter("std", "time_shift_of", get__std__time_shift_of, &poly_idx__std__time_shift_of, &var.std__time_shift_of);
 }
 
 static int already_run_phase_2 = false;
@@ -1891,6 +1883,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__date_and_time(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__date_and_time");
   number__3600 = from_uint32(3600U);
   number__0 = from_uint32(0U);
   number__1000 = from_uint32(1000U);
@@ -1899,6 +1892,14 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
   func__std__current_time_1 = create_function(entry__std__current_time_1, 0);
+  define_polymorphic_function_with_setter("std", "year_of", get__std__year_of, &poly_idx__std__year_of, &var.std__year_of);
+  define_polymorphic_function_with_setter("std", "month_of", get__std__month_of, &poly_idx__std__month_of, &var.std__month_of);
+  define_polymorphic_function_with_setter("std", "day_of", get__std__day_of, &poly_idx__std__day_of, &var.std__day_of);
+  define_polymorphic_function_with_setter("std", "day_of_week_of", get__std__day_of_week_of, &poly_idx__std__day_of_week_of, &var.std__day_of_week_of);
+  define_polymorphic_function_with_setter("std", "hour_of", get__std__hour_of, &poly_idx__std__hour_of, &var.std__hour_of);
+  define_polymorphic_function_with_setter("std", "minute_of", get__std__minute_of, &poly_idx__std__minute_of, &var.std__minute_of);
+  define_polymorphic_function_with_setter("std", "second_of", get__std__second_of, &poly_idx__std__second_of, &var.std__second_of);
+  define_polymorphic_function_with_setter("std", "time_shift_of", get__std__time_shift_of, &poly_idx__std__time_shift_of, &var.std__time_shift_of);
   func__std__from_unix_time_1 = create_function(entry__std__from_unix_time_1, 1);
   func__std__date_and_time_1 = create_function(entry__std__date_and_time_1, 6);
   func__types__date_and_time__year_of_1 = create_function(entry__types__date_and_time__year_of_1, 1);

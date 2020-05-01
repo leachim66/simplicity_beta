@@ -193,14 +193,14 @@ typedef struct CELL {
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void define_c_function(const char *name, void *func);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT void set_module(const char *name);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void define_c_function(const char *name, void *func);
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -3956,7 +3956,6 @@ EXPORT void phase_1__basic__types__character(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_character", get__std__is_a_character, &poly_idx__std__is_a_character, &var.std__is_a_character);
   define_c_function("from_uchar32", runtime__from_uchar32);
 }
 
@@ -3965,6 +3964,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__character(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__character");
   character__224 = from_uchar32(224);
   character__9 = from_uchar32(9);
   character__90 = from_uchar32(90);
@@ -3995,6 +3995,7 @@ EXPORT void phase_2__basic__types__character(void) {
   number__0x20 = from_uint32(32U);
   character__223 = from_uchar32(223);
   character__79 = from_uchar32(79);
+  define_polymorphic_function("std", "is_a_character", get__std__is_a_character, &poly_idx__std__is_a_character, &var.std__is_a_character);
   func__std__character_1 = create_function(entry__std__character_1, 1);
   func__types__character__plus_1 = create_function(entry__types__character__plus_1, 2);
   func__types__character__minus_1 = create_function(entry__types__character__minus_1, 2);

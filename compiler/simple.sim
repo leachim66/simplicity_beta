@@ -64,6 +64,10 @@
 <require ./extractor>
 <require ./runtime_definitions>
 
+<namespace std>
+<namespace types>
+<namespace sim2c>
+
 <using std>
 <using sim2c>
 <using node>

@@ -210,16 +210,16 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
+IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -3489,10 +3489,6 @@ EXPORT void phase_1__basic__types__key_order_set(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_a_key_order_set", get__std__is_a_key_order_set, &poly_idx__std__is_a_key_order_set, &var.std__is_a_key_order_set);
-  register_polymorphic_function_with_setter("_basic__types__key_order_set::tree_of", &poly_idx__tree_of);
-  register_polymorphic_function_with_setter("_basic__types__key_order_set::left_of", &poly_idx__left_of);
-  register_polymorphic_function_with_setter("_basic__types__key_order_set::right_of", &poly_idx__right_of);
 }
 
 static int already_run_phase_2 = false;
@@ -3500,8 +3496,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__key_order_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__key_order_set");
   number__0 = from_uint32(0U);
+  define_polymorphic_function("std", "is_a_key_order_set", get__std__is_a_key_order_set, &poly_idx__std__is_a_key_order_set, &var.std__is_a_key_order_set);
   unique__NONE = register_unique_item("NONE");
+  register_polymorphic_function_with_setter("_basic__types__key_order_set::tree_of", &poly_idx__tree_of);
+  register_polymorphic_function_with_setter("_basic__types__key_order_set::left_of", &poly_idx__left_of);
+  register_polymorphic_function_with_setter("_basic__types__key_order_set::right_of", &poly_idx__right_of);
   func__fetch_first_1 = create_function(entry__fetch_first_1, 1);
   func__get_item_1 = create_function(entry__get_item_1, 2);
   func__add_item_1 = create_function(entry__add_item_1, 2);

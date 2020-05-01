@@ -208,16 +208,16 @@ IMPORT NODE *create_cell(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
+IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -1608,9 +1608,6 @@ EXPORT void phase_1__basic__types__insert_order_set(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "is_an_insert_order_set", get__std__is_an_insert_order_set, &poly_idx__std__is_an_insert_order_set, &var.std__is_an_insert_order_set);
-  register_polymorphic_function_with_setter("_basic__types__insert_order_set::index_table_of", &poly_idx__index_table_of);
-  register_polymorphic_function_with_setter("_basic__types__insert_order_set::keys_of", &poly_idx__keys_of);
 }
 
 static int already_run_phase_2 = false;
@@ -1618,9 +1615,13 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__insert_order_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__insert_order_set");
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  define_polymorphic_function("std", "is_an_insert_order_set", get__std__is_an_insert_order_set, &poly_idx__std__is_an_insert_order_set, &var.std__is_an_insert_order_set);
   unique__NONE = register_unique_item("NONE");
+  register_polymorphic_function_with_setter("_basic__types__insert_order_set::index_table_of", &poly_idx__index_table_of);
+  register_polymorphic_function_with_setter("_basic__types__insert_order_set::keys_of", &poly_idx__keys_of);
   string__3cace614246a32e7 = from_latin_1_string("Attempt to set a set element to a nonboolean value!", 51);
   func__types__insert_order_set_24 = create_function(entry__types__insert_order_set_24, 0);
   string__60153133ec65829c = from_latin_1_string("insert_order_set", 16);

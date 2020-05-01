@@ -210,11 +210,11 @@ IMPORT void optional_item(NODE *item);
 IMPORT void continuation_type_function(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -18836,6 +18836,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__types__string(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__types__string");
   character__506 = from_uchar32(506);
   character__343 = from_uchar32(343);
   character__338 = from_uchar32(338);

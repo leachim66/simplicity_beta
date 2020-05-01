@@ -208,14 +208,14 @@ IMPORT NODE *create_cell(void);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void register_dynamic(int *id_p);
 IMPORT void define_single_assign_static(
@@ -7280,8 +7280,6 @@ EXPORT void phase_1__annotator(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("sim2c", "annotate_statement", get__sim2c__annotate_statement, &poly_idx__sim2c__annotate_statement, &var.sim2c__annotate_statement);
-  define_polymorphic_function("sim2c", "annotate_expression", get__sim2c__annotate_expression, &poly_idx__sim2c__annotate_expression, &var.sim2c__annotate_expression);
 }
 
 static int already_run_phase_2 = false;
@@ -7289,7 +7287,10 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__annotator(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("annotator");
   number__1 = from_uint32(1U);
+  define_polymorphic_function("sim2c", "annotate_statement", get__sim2c__annotate_statement, &poly_idx__sim2c__annotate_statement, &var.sim2c__annotate_statement);
+  define_polymorphic_function("sim2c", "annotate_expression", get__sim2c__annotate_expression, &poly_idx__sim2c__annotate_expression, &var.sim2c__annotate_expression);
   func__annotate_output_arguments_2 = create_function(entry__annotate_output_arguments_2, 1);
   func__annotate_output_arguments_1 = create_function(entry__annotate_output_arguments_1, 1);
   func__annotate_arguments_2 = create_function(entry__annotate_arguments_2, 1);

@@ -1507,18 +1507,18 @@ $sim2c::define_polymorphic_function: (definition is_a_setter)
 	}
       if
 	id.is_defined:
-	  write_to_phase_1 "
+	  write_to_phase_2 "
 	    @
 	      define_privileged_polymorphic_function("@(namespace)", "@(name)@
 	    ", get__@(mangled_name), @(id), &@(var_entry(mangled_name)));
 	:
-	  write_to_phase_1 "
+	  write_to_phase_2 "
 	    @
 	      define_polymorphic_function@(with_setter())(@quot;@(namespace)", @
 	    "@(name)", get__@(mangled_name), &poly_idx__@(mangled_name), @
 	    &@(var_entry(mangled_name)));
     :
-      write_to_phase_1 "
+      write_to_phase_2 "
 	@
 	  register_polymorphic_function@(with_setter())(@quot;_@(module_name)@
 	::@(name)", &poly_idx__@(name));

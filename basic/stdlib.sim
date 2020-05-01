@@ -74,3 +74,6 @@
 <require ./types/value_order_table>
 <require ./types/value_range>
 <require ./meta/wrapper>
+
+<namespace std>
+<namespace types>

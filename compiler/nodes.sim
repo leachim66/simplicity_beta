@@ -23,6 +23,8 @@
   defines the prototypes for grammar nodes;
   defines polymorphic functions and unique items used in grammar nodes
 
+<namespace node>
+
 <using std>
 <using sim2c>
 <using node>

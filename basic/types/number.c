@@ -208,19 +208,19 @@ IMPORT NODE *from_long(long val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT void define_polymorphic_function(
-  const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
-  NODE **var_p
-);
 IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *from_int(int val);
 IMPORT NODE *from_int64(int64_t val);
 IMPORT NODE *from_uint64(uint64_t val);
 IMPORT NODE *from_digit_string(const char *str);
 IMPORT NODE *from_double(double val);
-IMPORT NODE *from_uchar32(unsigned int chr);
-IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_module(const char *name);
+IMPORT NODE *from_uchar32(unsigned int chr);
+IMPORT void define_polymorphic_function(
+  const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
+  NODE **var_p
+);
+IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
@@ -6481,6 +6481,30 @@ EXPORT void phase_1__basic__types__number(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
+  define_c_function("from_uint32", runtime__from_uint32);
+  define_c_function("from_int", runtime__from_int);
+  define_c_function("from_long", runtime__from_long);
+  define_c_function("from_int64", runtime__from_int64);
+  define_c_function("from_uint64", runtime__from_uint64);
+  define_c_function("from_digit_string", runtime__from_digit_string);
+  define_c_function("from_double", runtime__from_double);
+}
+
+static int already_run_phase_2 = false;
+
+EXPORT void phase_2__basic__types__number(void) {
+  if (already_run_phase_2) return;
+  already_run_phase_2 = true;
+  set_module("basic__types__number");
+  number__0 = from_uint32(0U);
+  number__3 = from_uint32(3U);
+  character__48 = from_uchar32(48);
+  number__4 = from_uint32(4U);
+  number__0x0f = from_uint32(15U);
+  character__97 = from_uchar32(97);
+  number__1 = from_uint32(1U);
+  number__10 = from_uint32(10U);
+  number__0x07 = from_uint32(7U);
   define_polymorphic_function("std", "integer_plus_me", get__std__integer_plus_me, &poly_idx__std__integer_plus_me, &var.std__integer_plus_me);
   define_polymorphic_function("std", "integer_minus_me", get__std__integer_minus_me, &poly_idx__std__integer_minus_me, &var.std__integer_minus_me);
   define_polymorphic_function("std", "integer_times_me", get__std__integer_times_me, &poly_idx__std__integer_times_me, &var.std__integer_times_me);
@@ -6496,29 +6520,6 @@ EXPORT void phase_1__basic__types__number(void) {
   define_polymorphic_function("std", "ceil", get__std__ceil, &poly_idx__std__ceil, &var.std__ceil);
   define_polymorphic_function("std", "round", get__std__round, &poly_idx__std__round, &var.std__round);
   define_polymorphic_function("std", "ln", get__std__ln, &poly_idx__std__ln, &var.std__ln);
-  define_c_function("from_uint32", runtime__from_uint32);
-  define_c_function("from_int", runtime__from_int);
-  define_c_function("from_long", runtime__from_long);
-  define_c_function("from_int64", runtime__from_int64);
-  define_c_function("from_uint64", runtime__from_uint64);
-  define_c_function("from_digit_string", runtime__from_digit_string);
-  define_c_function("from_double", runtime__from_double);
-}
-
-static int already_run_phase_2 = false;
-
-EXPORT void phase_2__basic__types__number(void) {
-  if (already_run_phase_2) return;
-  already_run_phase_2 = true;
-  number__0 = from_uint32(0U);
-  number__3 = from_uint32(3U);
-  character__48 = from_uchar32(48);
-  number__4 = from_uint32(4U);
-  number__0x0f = from_uint32(15U);
-  character__97 = from_uchar32(97);
-  number__1 = from_uint32(1U);
-  number__10 = from_uint32(10U);
-  number__0x07 = from_uint32(7U);
   func__types__positive_integer__negate_1 = create_function(entry__types__positive_integer__negate_1, 1);
   func__types__negative_integer__negate_1 = create_function(entry__types__negative_integer__negate_1, 1);
   func__types__positive_large_integer__negate_1 = create_function(entry__types__positive_large_integer__negate_1, 1);

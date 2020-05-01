@@ -205,11 +205,11 @@ IMPORT NODE *empty_string;
 IMPORT NODE *undefined;
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -3617,6 +3617,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__tokenizer(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("tokenizer");
   character__9 = from_uchar32(9);
   character__35 = from_uchar32(35);
   character__10 = from_uchar32(10);

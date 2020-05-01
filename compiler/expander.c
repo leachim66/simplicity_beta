@@ -202,14 +202,14 @@ IMPORT NODE *create_future(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -4441,8 +4441,6 @@ EXPORT void phase_1__expander(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("sim2c", "expand_statement", get__sim2c__expand_statement, &poly_idx__sim2c__expand_statement, &var.sim2c__expand_statement);
-  define_polymorphic_function("sim2c", "expand_expression", get__sim2c__expand_expression, &poly_idx__sim2c__expand_expression, &var.sim2c__expand_expression);
 }
 
 static int already_run_phase_2 = false;
@@ -4450,8 +4448,11 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__expander(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("expander");
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
+  define_polymorphic_function("sim2c", "expand_statement", get__sim2c__expand_statement, &poly_idx__sim2c__expand_statement, &var.sim2c__expand_statement);
+  define_polymorphic_function("sim2c", "expand_expression", get__sim2c__expand_expression, &poly_idx__sim2c__expand_expression, &var.sim2c__expand_expression);
   func__expand_arguments_1 = create_function(entry__expand_arguments_1, 1);
   string__582ccfaf004aa58 = from_latin_1_string("expand statement", 16);
   func__types__grammar_node__expand_statement_1 = create_function(entry__types__grammar_node__expand_statement_1, 1);

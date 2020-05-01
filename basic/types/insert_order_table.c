@@ -207,16 +207,16 @@ IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
-IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *register_unique_item(const char *name);
+IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
@@ -8671,7 +8671,20 @@ EXPORT void phase_1__basic__types__insert_order_table(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
+}
+
+static int already_run_phase_2 = false;
+
+EXPORT void phase_2__basic__types__insert_order_table(void) {
+  if (already_run_phase_2) return;
+  already_run_phase_2 = true;
+  set_module("basic__types__insert_order_table");
+  number__0 = from_uint32(0U);
+  number__2 = from_uint32(2U);
   define_polymorphic_function("std", "is_an_insert_order_table", get__std__is_an_insert_order_table, &poly_idx__std__is_an_insert_order_table, &var.std__is_an_insert_order_table);
+  unique__NONE = register_unique_item("NONE");
+  unique__INSERT = register_unique_item("INSERT");
+  unique__UPDATE = register_unique_item("UPDATE");
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::tree_of", &poly_idx__tree_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::first_of", &poly_idx__first_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::last_of", &poly_idx__last_of);
@@ -8681,18 +8694,6 @@ EXPORT void phase_1__basic__types__insert_order_table(void) {
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::right_of", &poly_idx__right_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::next_of", &poly_idx__next_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::previous_of", &poly_idx__previous_of);
-}
-
-static int already_run_phase_2 = false;
-
-EXPORT void phase_2__basic__types__insert_order_table(void) {
-  if (already_run_phase_2) return;
-  already_run_phase_2 = true;
-  number__0 = from_uint32(0U);
-  number__2 = from_uint32(2U);
-  unique__NONE = register_unique_item("NONE");
-  unique__INSERT = register_unique_item("INSERT");
-  unique__UPDATE = register_unique_item("UPDATE");
   func__remove_leftmost_1 = create_function(entry__remove_leftmost_1, 1);
   func__remove_rightmost_1 = create_function(entry__remove_rightmost_1, 1);
   func__fetch_first_1 = create_function(entry__fetch_first_1, 1);

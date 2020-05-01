@@ -1,5 +1,7 @@
 #!/usr/bin/env simple
 
+<namespace test>
+
 <using std>
 <using test>
 

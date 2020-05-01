@@ -180,8 +180,8 @@ REGISTER FRAME *frame ASM("r15");
 IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void set_module(const char *name);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 typedef NODE *(*NODE_GETTER)(void);
@@ -320,6 +320,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__options(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__options");
   unique__std__VERBOSE = register_unique_item("std__VERBOSE");
   unique__std__SORT = register_unique_item("std__SORT");
   unique__std__TRIM = register_unique_item("std__TRIM");

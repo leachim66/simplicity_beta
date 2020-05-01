@@ -165,13 +165,13 @@ IMPORT void too_few_arguments_error(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
+IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -611,7 +611,6 @@ EXPORT void phase_1__basic__primitives(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("std", "has_minimum_length", get__std__has_minimum_length, &poly_idx__std__has_minimum_length, &var.std__has_minimum_length);
 }
 
 static int already_run_phase_2 = false;
@@ -619,7 +618,9 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__basic__primitives(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("basic__primitives");
   character__10 = from_uchar32(10);
+  define_polymorphic_function("std", "has_minimum_length", get__std__has_minimum_length, &poly_idx__std__has_minimum_length, &var.std__has_minimum_length);
   func__types__object__has_minimum_length_1 = create_function(entry__types__object__has_minimum_length_1, 2);
   func__std__ignore_1 = create_function(entry__std__ignore_1, 1);
   func__std__writeln_to_1 = create_function(entry__std__writeln_to_1, -1);

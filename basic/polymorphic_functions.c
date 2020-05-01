@@ -189,6 +189,7 @@ typedef struct MODULE_INFO {
 IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 typedef NODE *(*NODE_GETTER)(void);
 IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
@@ -202,7 +203,6 @@ IMPORT void define_polymorphic_function_with_setter(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_function(FUNC func, int par_count);
@@ -3822,6 +3822,14 @@ EXPORT void phase_1__basic__polymorphic_functions(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
+}
+
+static int already_run_phase_2 = false;
+
+EXPORT void phase_2__basic__polymorphic_functions(void) {
+  if (already_run_phase_2) return;
+  already_run_phase_2 = true;
+  set_module("basic__polymorphic_functions");
   define_polymorphic_function("std", "plus", get__std__plus, &poly_idx__std__plus, &var.std__plus);
   define_polymorphic_function("std", "minus", get__std__minus, &poly_idx__std__minus, &var.std__minus);
   define_polymorphic_function("std", "times", get__std__times, &poly_idx__std__times, &var.std__times);
@@ -3939,13 +3947,6 @@ EXPORT void phase_1__basic__polymorphic_functions(void) {
   define_polymorphic_function("std", "delete", get__std__delete, &poly_idx__std__delete, &var.std__delete);
   define_polymorphic_function("std", "update", get__std__update, &poly_idx__std__update, &var.std__update);
   define_polymorphic_function("std", "call_command", get__std__call_command, &poly_idx__std__call_command, &var.std__call_command);
-}
-
-static int already_run_phase_2 = false;
-
-EXPORT void phase_2__basic__polymorphic_functions(void) {
-  if (already_run_phase_2) return;
-  already_run_phase_2 = true;
 }
 
 static int already_run_phase_3 = false;

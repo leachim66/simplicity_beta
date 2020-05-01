@@ -293,9 +293,9 @@ IMPORT void define_c_function(const char *name, void *func);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void set_attribute(ATTRIBUTES *attributes, int idx, void *attr);
 IMPORT void register_module_info(MODULE_INFO *info);
+IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT void set_module(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
@@ -32333,7 +32333,7 @@ static void cont__sim2c__define_polymorphic_function_48(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1510: write_to_phase_1 "
+  // 1510: write_to_phase_2 "
   // 1511:   @
   // 1512:     define_privileged_polymorphic_function("@(namespace)", "@(name)@
   // 1513:   ", get__@(mangled_name), @(id), &@(var_entry(mangled_name)));
@@ -32341,7 +32341,7 @@ static void cont__sim2c__define_polymorphic_function_48(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_1();
+  myself = get__write_to_phase_2();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -32420,7 +32420,7 @@ static void cont__sim2c__define_polymorphic_function_55(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1515: write_to_phase_1 "
+  // 1515: write_to_phase_2 "
   // 1516:   @
   // 1517:     define_polymorphic_function@(with_setter())(@quot;@(namespace)", @
   // 1518:   "@(name)", get__@(mangled_name), &poly_idx__@(mangled_name), @
@@ -32429,7 +32429,7 @@ static void cont__sim2c__define_polymorphic_function_55(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_1();
+  myself = get__write_to_phase_2();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -32509,13 +32509,13 @@ static void cont__sim2c__define_polymorphic_function_44(void) {
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 1509: ... :
-  // 1510:   write_to_phase_1 "
+  // 1510:   write_to_phase_2 "
   // 1511:     @
   // 1512:       define_privileged_polymorphic_function("@(namespace)", "@(name)@
   // 1513:     ", get__@(mangled_name), @(id), &@(var_entry(mangled_name)));
   frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__define_polymorphic_function_45, 0);
   // 1514: :
-  // 1515:   write_to_phase_1 "
+  // 1515:   write_to_phase_2 "
   // 1516:     @
   // 1517:       define_polymorphic_function@(with_setter())(@quot;@(namespace)", @
   // 1518:     "@(name)", get__@(mangled_name), &poly_idx__@(mangled_name), @
@@ -32523,12 +32523,12 @@ static void cont__sim2c__define_polymorphic_function_44(void) {
   frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__define_polymorphic_function_49, 0);
   // 1508: if
   // 1509:   id.is_defined:
-  // 1510:     write_to_phase_1 "
+  // 1510:     write_to_phase_2 "
   // 1511:       @
   // 1512:         define_privileged_polymorphic_function("@(namespace)", "@(name)@
   // 1513:       ", get__@(mangled_name), @(id), &@(var_entry(mangled_name)));
   // 1514:   :
-  // 1515:     write_to_phase_1 "
+  // 1515:     write_to_phase_2 "
   // 1516:       @
   // 1517:         define_polymorphic_function@(with_setter())(@quot;@(namespace)", @
   // ...
@@ -32593,7 +32593,7 @@ static void cont__sim2c__define_polymorphic_function_62(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1521: write_to_phase_1 "
+  // 1521: write_to_phase_2 "
   // 1522:   @
   // 1523:     register_polymorphic_function@(with_setter())(@quot;_@(module_name)@
   // 1524:   ::@(name)", &poly_idx__@(name));
@@ -32601,7 +32601,7 @@ static void cont__sim2c__define_polymorphic_function_62(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = get__write_to_phase_1();
+  myself = get__write_to_phase_2();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -33223,13 +33223,13 @@ static void cont__sim2c__define_polymorphic_function_40(void) {
   // 1507:     }
   // 1508:   if
   // 1509:     id.is_defined:
-  // 1510:       write_to_phase_1 "
+  // 1510:       write_to_phase_2 "
   // 1511:         @
   // 1512:           define_privileged_polymorphic_function("@(namespace)", "@(name)@
   // ...
   frame->slots[9] /* temp__2 */ = create_closure(entry__sim2c__define_polymorphic_function_41, 0);
   // 1520: :
-  // 1521:   write_to_phase_1 "
+  // 1521:   write_to_phase_2 "
   // 1522:     @
   // 1523:       register_polymorphic_function@(with_setter())(@quot;_@(module_name)@
   // 1524:     ::@(name)", &poly_idx__@(name));
@@ -33242,7 +33242,7 @@ static void cont__sim2c__define_polymorphic_function_40(void) {
   // 1507:       }
   // 1508:     if
   // 1509:       id.is_defined:
-  // 1510:         write_to_phase_1 "
+  // 1510:         write_to_phase_2 "
   // 1511:           @
   // ...
   argument_count = 3;
@@ -40283,7 +40283,6 @@ EXPORT void phase_1__c_code_generator(void) {
   if (already_run_phase_1) return;
   already_run_phase_1 = true;
   register_module_info(&module_info);
-  define_polymorphic_function("sim2c", "to_c", get__sim2c__to_c, &poly_idx__sim2c__to_c, &var.sim2c__to_c);
 }
 
 static int already_run_phase_2 = false;
@@ -40291,6 +40290,7 @@ static int already_run_phase_2 = false;
 EXPORT void phase_2__c_code_generator(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
+  set_module("c_code_generator");
   character__92 = from_uchar32(92);
   character__47 = from_uchar32(47);
   character__160 = from_uchar32(160);
@@ -40312,6 +40312,7 @@ EXPORT void phase_2__c_code_generator(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
+  define_polymorphic_function("sim2c", "to_c", get__sim2c__to_c, &poly_idx__sim2c__to_c, &var.sim2c__to_c);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
   func__var_name_1 = create_function(entry__var_name_1, 1);
   string__2e0ae90b5df07d17 = from_latin_1_string("var.", 4);
