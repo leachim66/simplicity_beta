@@ -23,6 +23,8 @@
 <require ./colours>
 <require ./widgets>
 
+<namespace gui>
+
 $gui::style_of (!)
   #
     the style of a widget

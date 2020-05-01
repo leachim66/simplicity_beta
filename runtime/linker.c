@@ -116,7 +116,7 @@ static int namespace_idx = 0;
 EXPORT void define_namespace(const char *namespace) {
   // ATTENTION: maybe use a hashtable for storing defined namespaces!
   if (show_debug_info) {
-    fprintf(stderr, "register namespace \"%s\"\n", namespace);
+    fprintf(stderr, "define namespace \"%s\"\n", namespace);
   }
   int idx;
   for (idx = 0; idx < namespace_idx; ++idx) {
