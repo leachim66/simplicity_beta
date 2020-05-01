@@ -25,13 +25,13 @@
   resolves namespace aliases
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
 %%defines_dynamics undefined
 
-$sim2c::annotate_statement ()
-$sim2c::annotate_expression ()
+$compiler::annotate_statement ()
+$compiler::annotate_expression ()
 
 $annotate_output_arguments: (&arguments)
   update_each &arguments: (&argument)
@@ -63,7 +63,7 @@ $types::grammar_node/annotate_expression: (&_self)
 ###
 # BODY
 
-$sim2c::check_definitions: (defined_names used_names)
+$compiler::check_definitions: (defined_names used_names)
   # create warnings for strangely used symbols
 
   for_each defined_names: (name info)
@@ -92,13 +92,13 @@ $sim2c::check_definitions: (defined_names used_names)
 	  attempt to use the identifier "@(name)" that is marked as not being @
 	  used@
 
-$sim2c::body/annotate_expression: (&self)
+$compiler::body/annotate_expression: (&self)
   show_compiler_debug_info "annotate body"
   $$locally_assigned_names undefined
   do:
-    %%sim2c::defined_names empty_list
-    %%sim2c::used_names empty_insert_order_table
-    %%sim2c::assigned_names empty_set
+    %%compiler::defined_names empty_list
+    %%compiler::used_names empty_insert_order_table
+    %%compiler::assigned_names empty_set
     %%defines_dynamics false
     update_each &self.parameters_of: (&parameter)
       push &defined_names parameter
@@ -154,7 +154,7 @@ $sim2c::body/annotate_expression: (&self)
 ###
 # CALL
 
-$sim2c::call/annotate_statement: (&self)
+$compiler::call/annotate_statement: (&self)
   show_compiler_debug_info "annotate statement"
   #if
     &&
@@ -191,7 +191,7 @@ $sim2c::call/annotate_statement: (&self)
 ###
 # C-CODE
 
-$sim2c::c_code/annotate_statement: (&self)
+$compiler::c_code/annotate_statement: (&self)
   show_compiler_debug_info "annotate C-code"
   case kind_of(self) "type", "object":
     push
@@ -202,7 +202,7 @@ $sim2c::c_code/annotate_statement: (&self)
 ###
 # DEFINE STATIC SINGLE
 
-$sim2c::define_static_single/annotate_expression: (&self)
+$compiler::define_static_single/annotate_expression: (&self)
   show_compiler_debug_info "annotate define static single"
   if
     attribute_kind_of(self) == NONE:
@@ -214,14 +214,14 @@ $sim2c::define_static_single/annotate_expression: (&self)
 ###
 # DEFINE STATIC MULTI
 
-$sim2c::define_static_multi/annotate_expression: (&self)
+$compiler::define_static_multi/annotate_expression: (&self)
   show_compiler_debug_info "annotate define static multi"
   push &defined_names self
 
 ###
 # DEFINE DYNAMIC SINGLE
 
-$sim2c::define_dynamic_single/annotate_expression: (&self)
+$compiler::define_dynamic_single/annotate_expression: (&self)
   show_compiler_debug_info "annotate define dynamic single"
   !defines_dynamics true
   push &defined_names self
@@ -229,7 +229,7 @@ $sim2c::define_dynamic_single/annotate_expression: (&self)
 ###
 # DEFINE DYNAMIC MULTI
 
-$sim2c::define_dynamic_multi/annotate_expression: (&self)
+$compiler::define_dynamic_multi/annotate_expression: (&self)
   show_compiler_debug_info "annotate define dynamic multi"
   !defines_dynamics true
   push &defined_names self
@@ -237,7 +237,7 @@ $sim2c::define_dynamic_multi/annotate_expression: (&self)
 ###
 # FUNCTION CALL
 
-$sim2c::function_call/annotate_expression: (&self)
+$compiler::function_call/annotate_expression: (&self)
   show_compiler_debug_info "annotate function call"
   if functor_of(self).is_defined:
     annotate_expression &self.functor_of
@@ -247,7 +247,7 @@ $sim2c::function_call/annotate_expression: (&self)
 ###
 # ATTRIBUTE VALUE PAIR
 
-$sim2c::attribute_value_pair/annotate_expression: (&self)
+$compiler::attribute_value_pair/annotate_expression: (&self)
   show_compiler_debug_info "annotate attribute-value pair"
   annotate_expression &self.identifier_of
   annotate_arguments &self.arguments_of
@@ -255,7 +255,7 @@ $sim2c::attribute_value_pair/annotate_expression: (&self)
 ###
 # ATTRIBUTE FUNCTION PAIR
 
-$sim2c::attribute_function_pair/annotate_expression: (&self)
+$compiler::attribute_function_pair/annotate_expression: (&self)
   show_compiler_debug_info "annotate attribute-function pair"
   if identifier_of(self).is_defined: annotate_expression &self.identifier_of
   annotate_arguments &self.arguments_of
@@ -263,7 +263,7 @@ $sim2c::attribute_function_pair/annotate_expression: (&self)
 ###
 # IDENTIFIER
 
-$sim2c::identifier/annotate_expression: (&self)
+$compiler::identifier/annotate_expression: (&self)
   show_compiler_debug_info "annotate identifier " self
   unless self.is_an_operator_symbol:
     $namespace namespace_of(self)

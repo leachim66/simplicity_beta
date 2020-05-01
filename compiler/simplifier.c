@@ -332,6 +332,23 @@ static NODE_GETTER get__case;
 static NODE_GETTER get_value_or_future__case;
 static NODE_GETTER get__check_usage;
 static NODE_GETTER get_value_or_future__check_usage;
+static NODE_GETTER get__compiler__attribute_function_pair;
+static NODE_GETTER get_value_or_future__compiler__attribute_function_pair;
+static NODE_GETTER get__compiler__attribute_value_pair;
+static NODE_GETTER get_value_or_future__compiler__attribute_value_pair;
+static NODE_GETTER get__compiler__body;
+static NODE_GETTER get_value_or_future__compiler__body;
+static NODE_GETTER get__compiler__c_body;
+static NODE_GETTER get_value_or_future__compiler__c_body;
+static NODE_GETTER get__compiler__c_code;
+static NODE_GETTER get_value_or_future__compiler__c_code;
+static NODE_GETTER get__compiler__call;
+static NODE_GETTER get_value_or_future__compiler__call;
+static NODE_GETTER get__compiler__function_call;
+static NODE_GETTER get_value_or_future__compiler__function_call;
+static NODE_GETTER get__compiler__temp_idx;
+static NODE_SETTER set__compiler__temp_idx;
+static NODE_SETTER define__compiler__temp_idx;
 static NODE_GETTER get__cond;
 static NODE_GETTER get_value_or_future__cond;
 static int poly_idx__continuation_of;
@@ -443,23 +460,6 @@ static int poly_idx__result_count_of;
 static NODE_GETTER get__result_count_of;
 static NODE_GETTER get__show_compiler_debug_info;
 static NODE_GETTER get_value_or_future__show_compiler_debug_info;
-static NODE_GETTER get__sim2c__attribute_function_pair;
-static NODE_GETTER get_value_or_future__sim2c__attribute_function_pair;
-static NODE_GETTER get__sim2c__attribute_value_pair;
-static NODE_GETTER get_value_or_future__sim2c__attribute_value_pair;
-static NODE_GETTER get__sim2c__body;
-static NODE_GETTER get_value_or_future__sim2c__body;
-static NODE_GETTER get__sim2c__c_body;
-static NODE_GETTER get_value_or_future__sim2c__c_body;
-static NODE_GETTER get__sim2c__c_code;
-static NODE_GETTER get_value_or_future__sim2c__c_code;
-static NODE_GETTER get__sim2c__call;
-static NODE_GETTER get_value_or_future__sim2c__call;
-static NODE_GETTER get__sim2c__function_call;
-static NODE_GETTER get_value_or_future__sim2c__function_call;
-static NODE_GETTER get__sim2c__temp_idx;
-static NODE_SETTER set__sim2c__temp_idx;
-static NODE_SETTER define__sim2c__temp_idx;
 static int poly_idx__simplify_expression;
 static NODE_GETTER get__simplify_expression;
 static int poly_idx__simplify_statement;
@@ -520,9 +520,9 @@ static struct {
   NODE *_simplify_arguments;
   NODE *_do_store;
   NODE *_store_result;
-  NODE *sim2c__simplify_statement;
-  NODE *sim2c__simplify_expression;
-  NODE *sim2c__check_usage;
+  NODE *compiler__simplify_statement;
+  NODE *compiler__simplify_expression;
+  NODE *compiler__check_usage;
 } var;
 static const char *var_names[] = {
   "temporary_identifier",
@@ -530,15 +530,15 @@ static const char *var_names[] = {
   "do_store",
   "store_result"
 };
-static int poly_idx__sim2c__simplify_statement;
-static void type__sim2c__simplify_statement(void);
-static NODE *get__sim2c__simplify_statement(void) {
-  return var.sim2c__simplify_statement;
+static int poly_idx__compiler__simplify_statement;
+static void type__compiler__simplify_statement(void);
+static NODE *get__compiler__simplify_statement(void) {
+  return var.compiler__simplify_statement;
 }
-static int poly_idx__sim2c__simplify_expression;
-static void type__sim2c__simplify_expression(void);
-static NODE *get__sim2c__simplify_expression(void) {
-  return var.sim2c__simplify_expression;
+static int poly_idx__compiler__simplify_expression;
+static void type__compiler__simplify_expression(void);
+static NODE *get__compiler__simplify_expression(void) {
+  return var.compiler__simplify_expression;
 }
 static int dyna_idx__defined_names;
 static NODE *get__defined_names(void) {
@@ -663,68 +663,68 @@ static void cont__simplify_arguments_54(void);
 static void cont__simplify_arguments_55(void);
 static void cont__simplify_arguments_56(void);
 static void cont__simplify_arguments_57(void);
-static NODE *func__sim2c__check_usage_1;
-static void entry__sim2c__check_usage_1(void);
-static FRAME_INFO frame__sim2c__check_usage_1 = {3, {"name", "definition", "info"}};
-static void cont__sim2c__check_usage_2(void);
-static NODE *func__sim2c__check_usage_3;
-static void entry__sim2c__check_usage_3(void);
-static FRAME_INFO frame__sim2c__check_usage_3 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_4(void);
-static void cont__sim2c__check_usage_5(void);
-static NODE *func__sim2c__check_usage_6;
-static void entry__sim2c__check_usage_6(void);
-static FRAME_INFO frame__sim2c__check_usage_6 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_7(void);
+static NODE *func__compiler__check_usage_1;
+static void entry__compiler__check_usage_1(void);
+static FRAME_INFO frame__compiler__check_usage_1 = {3, {"name", "definition", "info"}};
+static void cont__compiler__check_usage_2(void);
+static NODE *func__compiler__check_usage_3;
+static void entry__compiler__check_usage_3(void);
+static FRAME_INFO frame__compiler__check_usage_3 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_4(void);
+static void cont__compiler__check_usage_5(void);
+static NODE *func__compiler__check_usage_6;
+static void entry__compiler__check_usage_6(void);
+static FRAME_INFO frame__compiler__check_usage_6 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_7(void);
 static NODE *string__9ee981055a49a5fe;
 static NODE *string__578a5af303e9cc3;
-static void cont__sim2c__check_usage_10(void);
-static NODE *func__sim2c__check_usage_11;
-static void entry__sim2c__check_usage_11(void);
-static FRAME_INFO frame__sim2c__check_usage_11 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_12(void);
-static void cont__sim2c__check_usage_13(void);
-static NODE *func__sim2c__check_usage_14;
-static void entry__sim2c__check_usage_14(void);
-static FRAME_INFO frame__sim2c__check_usage_14 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_15(void);
+static void cont__compiler__check_usage_10(void);
+static NODE *func__compiler__check_usage_11;
+static void entry__compiler__check_usage_11(void);
+static FRAME_INFO frame__compiler__check_usage_11 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_12(void);
+static void cont__compiler__check_usage_13(void);
+static NODE *func__compiler__check_usage_14;
+static void entry__compiler__check_usage_14(void);
+static FRAME_INFO frame__compiler__check_usage_14 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_15(void);
 static NODE *string__6b008858b3a1b4b2;
-static void cont__sim2c__check_usage_17(void);
-static NODE *func__sim2c__check_usage_18;
-static void entry__sim2c__check_usage_18(void);
-static FRAME_INFO frame__sim2c__check_usage_18 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_19(void);
-static void cont__sim2c__check_usage_20(void);
-static NODE *func__sim2c__check_usage_21;
-static void entry__sim2c__check_usage_21(void);
-static FRAME_INFO frame__sim2c__check_usage_21 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_22(void);
+static void cont__compiler__check_usage_17(void);
+static NODE *func__compiler__check_usage_18;
+static void entry__compiler__check_usage_18(void);
+static FRAME_INFO frame__compiler__check_usage_18 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_19(void);
+static void cont__compiler__check_usage_20(void);
+static NODE *func__compiler__check_usage_21;
+static void entry__compiler__check_usage_21(void);
+static FRAME_INFO frame__compiler__check_usage_21 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_22(void);
 static NODE *string__2ddd7194c0185268;
-static void cont__sim2c__check_usage_24(void);
-static NODE *func__sim2c__check_usage_25;
-static void entry__sim2c__check_usage_25(void);
-static FRAME_INFO frame__sim2c__check_usage_25 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_26(void);
-static void cont__sim2c__check_usage_27(void);
-static NODE *func__sim2c__check_usage_28;
-static void entry__sim2c__check_usage_28(void);
-static FRAME_INFO frame__sim2c__check_usage_28 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_29(void);
+static void cont__compiler__check_usage_24(void);
+static NODE *func__compiler__check_usage_25;
+static void entry__compiler__check_usage_25(void);
+static FRAME_INFO frame__compiler__check_usage_25 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_26(void);
+static void cont__compiler__check_usage_27(void);
+static NODE *func__compiler__check_usage_28;
+static void entry__compiler__check_usage_28(void);
+static FRAME_INFO frame__compiler__check_usage_28 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_29(void);
 static NODE *string__e971e37f901b36b;
-static void cont__sim2c__check_usage_31(void);
-static NODE *func__sim2c__check_usage_32;
-static void entry__sim2c__check_usage_32(void);
-static FRAME_INFO frame__sim2c__check_usage_32 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_33(void);
-static void cont__sim2c__check_usage_34(void);
-static NODE *func__sim2c__check_usage_35;
-static void entry__sim2c__check_usage_35(void);
-static FRAME_INFO frame__sim2c__check_usage_35 = {2, {"info", "name"}};
-static void cont__sim2c__check_usage_36(void);
+static void cont__compiler__check_usage_31(void);
+static NODE *func__compiler__check_usage_32;
+static void entry__compiler__check_usage_32(void);
+static FRAME_INFO frame__compiler__check_usage_32 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_33(void);
+static void cont__compiler__check_usage_34(void);
+static NODE *func__compiler__check_usage_35;
+static void entry__compiler__check_usage_35(void);
+static FRAME_INFO frame__compiler__check_usage_35 = {2, {"info", "name"}};
+static void cont__compiler__check_usage_36(void);
 static NODE *string__611f619f08c2e7ef;
-static void cont__sim2c__check_usage_38(void);
-static NODE *get__sim2c__check_usage(void) {
-  return var.sim2c__check_usage;
+static void cont__compiler__check_usage_38(void);
+static NODE *get__compiler__check_usage(void) {
+  return var.compiler__check_usage;
 }
 static NODE *func__types__grammar_node__simplify_statement_1;
 static void entry__types__grammar_node__simplify_statement_1(void);
@@ -737,157 +737,157 @@ static void entry__types__grammar_node__simplify_expression_1(void);
 static FRAME_INFO frame__types__grammar_node__simplify_expression_1 = {1, {"self"}};
 static NODE *string__5af95dddc656868;
 static void cont__types__grammar_node__simplify_expression_3(void);
-static NODE *func__sim2c__body__simplify_expression_1;
-static void entry__sim2c__body__simplify_expression_1(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_1 = {2, {"self", "all_defined_names"}};
+static NODE *func__compiler__body__simplify_expression_1;
+static void entry__compiler__body__simplify_expression_1(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_1 = {2, {"self", "all_defined_names"}};
 static NODE *string__867252dcb87a57b1;
-static void cont__sim2c__body__simplify_expression_3(void);
-static void cont__sim2c__body__simplify_expression_4(void);
-static NODE *func__sim2c__body__simplify_expression_5;
-static void entry__sim2c__body__simplify_expression_5(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_5 = {4, {"name", "info", "all_defined_names", "outer_info"}};
-static void cont__sim2c__body__simplify_expression_6(void);
-static void cont__sim2c__body__simplify_expression_7(void);
-static NODE *func__sim2c__body__simplify_expression_8;
-static void entry__sim2c__body__simplify_expression_8(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_8 = {2, {"info", "name"}};
-static void cont__sim2c__body__simplify_expression_9(void);
+static void cont__compiler__body__simplify_expression_3(void);
+static void cont__compiler__body__simplify_expression_4(void);
+static NODE *func__compiler__body__simplify_expression_5;
+static void entry__compiler__body__simplify_expression_5(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_5 = {4, {"name", "info", "all_defined_names", "outer_info"}};
+static void cont__compiler__body__simplify_expression_6(void);
+static void cont__compiler__body__simplify_expression_7(void);
+static NODE *func__compiler__body__simplify_expression_8;
+static void entry__compiler__body__simplify_expression_8(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_8 = {2, {"info", "name"}};
+static void cont__compiler__body__simplify_expression_9(void);
 static NODE *string__b18861f6a8c886ba;
 static NODE *string__ff65db3940410371;
-static void cont__sim2c__body__simplify_expression_12(void);
-static NODE *func__sim2c__body__simplify_expression_13;
-static void entry__sim2c__body__simplify_expression_13(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_13 = {3, {"all_defined_names", "name", "info"}};
-static void cont__sim2c__body__simplify_expression_14(void);
-static void cont__sim2c__body__simplify_expression_15(void);
-static void cont__sim2c__body__simplify_expression_16(void);
-static NODE *func__sim2c__body__simplify_expression_17;
-static void entry__sim2c__body__simplify_expression_17(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_17 = {5, {"name", "info", "all_defined_names", "self", "definition"}};
-static void cont__sim2c__body__simplify_expression_18(void);
-static void cont__sim2c__body__simplify_expression_19(void);
-static NODE *func__sim2c__body__simplify_expression_20;
-static void entry__sim2c__body__simplify_expression_20(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_20 = {4, {"name", "definition", "info", "self"}};
-static void cont__sim2c__body__simplify_expression_21(void);
-static void cont__sim2c__body__simplify_expression_22(void);
-static void cont__sim2c__body__simplify_expression_23(void);
-static NODE *func__sim2c__body__simplify_expression_24;
-static void entry__sim2c__body__simplify_expression_24(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_24 = {1, {"name"}};
-static void cont__sim2c__body__simplify_expression_25(void);
-static void cont__sim2c__body__simplify_expression_26(void);
-static void cont__sim2c__body__simplify_expression_27(void);
-static NODE *func__sim2c__body__simplify_expression_28;
-static void entry__sim2c__body__simplify_expression_28(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_28 = {3, {"self", "name", "info"}};
-static void cont__sim2c__body__simplify_expression_29(void);
-static void cont__sim2c__body__simplify_expression_30(void);
-static void cont__sim2c__body__simplify_expression_31(void);
-static NODE *func__sim2c__body__simplify_expression_32;
-static void entry__sim2c__body__simplify_expression_32(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_32 = {4, {"return__4", "self", "all_defined_names", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_33(void);
-static void cont__sim2c__body__simplify_expression_34(void);
-static void cont__sim2c__body__simplify_expression_35(void);
-static NODE *func__sim2c__body__simplify_expression_36;
-static void entry__sim2c__body__simplify_expression_36(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_36 = {3, {"parameter", "max_temp_idx", "default_value"}};
-static void cont__sim2c__body__simplify_expression_37(void);
-static void cont__sim2c__body__simplify_expression_38(void);
-static NODE *func__sim2c__body__simplify_expression_39;
-static void entry__sim2c__body__simplify_expression_39(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_39 = {3, {"default_value", "parameter", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_40(void);
-static NODE *func__sim2c__body__simplify_expression_41;
-static void entry__sim2c__body__simplify_expression_41(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_41 = {5, {"return__1", "parameter", "default_value", "max_temp_idx", "identifier"}};
-static void cont__sim2c__body__simplify_expression_42(void);
-static void cont__sim2c__body__simplify_expression_43(void);
-static void cont__sim2c__body__simplify_expression_44(void);
-static void cont__sim2c__body__simplify_expression_45(void);
-static void cont__sim2c__body__simplify_expression_46(void);
-static void cont__sim2c__body__simplify_expression_47(void);
-static void cont__sim2c__body__simplify_expression_48(void);
-static void cont__sim2c__body__simplify_expression_49(void);
-static NODE *func__sim2c__body__simplify_expression_50;
-static void entry__sim2c__body__simplify_expression_50(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_50 = {2, {"default_value", "parameter"}};
-static void cont__sim2c__body__simplify_expression_51(void);
-static void cont__sim2c__body__simplify_expression_52(void);
-static void cont__sim2c__body__simplify_expression_53(void);
-static void cont__sim2c__body__simplify_expression_54(void);
-static NODE *func__sim2c__body__simplify_expression_55;
-static void entry__sim2c__body__simplify_expression_55(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_55 = {2, {"statement", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_56(void);
-static NODE *func__sim2c__body__simplify_expression_57;
-static void entry__sim2c__body__simplify_expression_57(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_57 = {2, {"statement", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_58(void);
-static NODE *func__sim2c__body__simplify_expression_59;
-static void entry__sim2c__body__simplify_expression_59(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_59 = {1, {"statement"}};
-static void cont__sim2c__body__simplify_expression_60(void);
-static void cont__sim2c__body__simplify_expression_61(void);
-static void cont__sim2c__body__simplify_expression_62(void);
-static NODE *func__sim2c__body__simplify_expression_63;
-static void entry__sim2c__body__simplify_expression_63(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_63 = {1, {"statement"}};
-static void cont__sim2c__body__simplify_expression_64(void);
-static void cont__sim2c__body__simplify_expression_65(void);
-static void cont__sim2c__body__simplify_expression_66(void);
-static void cont__sim2c__body__simplify_expression_67(void);
-static void cont__sim2c__body__simplify_expression_68(void);
-static NODE *func__sim2c__body__simplify_expression_69;
-static void entry__sim2c__body__simplify_expression_69(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_69 = {3, {"return__2", "statement", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_70(void);
-static void cont__sim2c__body__simplify_expression_71(void);
-static void cont__sim2c__body__simplify_expression_72(void);
-static void cont__sim2c__body__simplify_expression_73(void);
-static NODE *func__sim2c__body__simplify_expression_74;
-static void entry__sim2c__body__simplify_expression_74(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_74 = {2, {"statement", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_75(void);
-static NODE *func__sim2c__body__simplify_expression_76;
-static void entry__sim2c__body__simplify_expression_76(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_76 = {2, {"statement", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_77(void);
-static NODE *func__sim2c__body__simplify_expression_78;
-static void entry__sim2c__body__simplify_expression_78(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_78 = {1, {"statement"}};
-static void cont__sim2c__body__simplify_expression_79(void);
-static void cont__sim2c__body__simplify_expression_80(void);
-static void cont__sim2c__body__simplify_expression_81(void);
-static NODE *func__sim2c__body__simplify_expression_82;
-static void entry__sim2c__body__simplify_expression_82(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_82 = {1, {"statement"}};
-static void cont__sim2c__body__simplify_expression_83(void);
-static void cont__sim2c__body__simplify_expression_84(void);
-static void cont__sim2c__body__simplify_expression_85(void);
-static void cont__sim2c__body__simplify_expression_86(void);
-static void cont__sim2c__body__simplify_expression_87(void);
-static NODE *func__sim2c__body__simplify_expression_88;
-static void entry__sim2c__body__simplify_expression_88(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_88 = {3, {"return__3", "statement", "max_temp_idx"}};
-static void cont__sim2c__body__simplify_expression_89(void);
-static void cont__sim2c__body__simplify_expression_90(void);
-static void cont__sim2c__body__simplify_expression_91(void);
-static void cont__sim2c__body__simplify_expression_92(void);
-static void cont__sim2c__body__simplify_expression_93(void);
-static void cont__sim2c__body__simplify_expression_94(void);
-static NODE *func__sim2c__body__simplify_expression_95;
-static void entry__sim2c__body__simplify_expression_95(void);
-static FRAME_INFO frame__sim2c__body__simplify_expression_95 = {2, {"self", "temp"}};
-static void cont__sim2c__body__simplify_expression_96(void);
-static void cont__sim2c__body__simplify_expression_97(void);
-static void cont__sim2c__body__simplify_expression_98(void);
-static void cont__sim2c__body__simplify_expression_99(void);
-static void cont__sim2c__body__simplify_expression_100(void);
-static void cont__sim2c__body__simplify_expression_101(void);
-static void cont__sim2c__body__simplify_expression_102(void);
-static void cont__sim2c__body__simplify_expression_103(void);
+static void cont__compiler__body__simplify_expression_12(void);
+static NODE *func__compiler__body__simplify_expression_13;
+static void entry__compiler__body__simplify_expression_13(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_13 = {3, {"all_defined_names", "name", "info"}};
+static void cont__compiler__body__simplify_expression_14(void);
+static void cont__compiler__body__simplify_expression_15(void);
+static void cont__compiler__body__simplify_expression_16(void);
+static NODE *func__compiler__body__simplify_expression_17;
+static void entry__compiler__body__simplify_expression_17(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_17 = {5, {"name", "info", "all_defined_names", "self", "definition"}};
+static void cont__compiler__body__simplify_expression_18(void);
+static void cont__compiler__body__simplify_expression_19(void);
+static NODE *func__compiler__body__simplify_expression_20;
+static void entry__compiler__body__simplify_expression_20(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_20 = {4, {"name", "definition", "info", "self"}};
+static void cont__compiler__body__simplify_expression_21(void);
+static void cont__compiler__body__simplify_expression_22(void);
+static void cont__compiler__body__simplify_expression_23(void);
+static NODE *func__compiler__body__simplify_expression_24;
+static void entry__compiler__body__simplify_expression_24(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_24 = {1, {"name"}};
+static void cont__compiler__body__simplify_expression_25(void);
+static void cont__compiler__body__simplify_expression_26(void);
+static void cont__compiler__body__simplify_expression_27(void);
+static NODE *func__compiler__body__simplify_expression_28;
+static void entry__compiler__body__simplify_expression_28(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_28 = {3, {"self", "name", "info"}};
+static void cont__compiler__body__simplify_expression_29(void);
+static void cont__compiler__body__simplify_expression_30(void);
+static void cont__compiler__body__simplify_expression_31(void);
+static NODE *func__compiler__body__simplify_expression_32;
+static void entry__compiler__body__simplify_expression_32(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_32 = {4, {"return__4", "self", "all_defined_names", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_33(void);
+static void cont__compiler__body__simplify_expression_34(void);
+static void cont__compiler__body__simplify_expression_35(void);
+static NODE *func__compiler__body__simplify_expression_36;
+static void entry__compiler__body__simplify_expression_36(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_36 = {3, {"parameter", "max_temp_idx", "default_value"}};
+static void cont__compiler__body__simplify_expression_37(void);
+static void cont__compiler__body__simplify_expression_38(void);
+static NODE *func__compiler__body__simplify_expression_39;
+static void entry__compiler__body__simplify_expression_39(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_39 = {3, {"default_value", "parameter", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_40(void);
+static NODE *func__compiler__body__simplify_expression_41;
+static void entry__compiler__body__simplify_expression_41(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_41 = {5, {"return__1", "parameter", "default_value", "max_temp_idx", "identifier"}};
+static void cont__compiler__body__simplify_expression_42(void);
+static void cont__compiler__body__simplify_expression_43(void);
+static void cont__compiler__body__simplify_expression_44(void);
+static void cont__compiler__body__simplify_expression_45(void);
+static void cont__compiler__body__simplify_expression_46(void);
+static void cont__compiler__body__simplify_expression_47(void);
+static void cont__compiler__body__simplify_expression_48(void);
+static void cont__compiler__body__simplify_expression_49(void);
+static NODE *func__compiler__body__simplify_expression_50;
+static void entry__compiler__body__simplify_expression_50(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_50 = {2, {"default_value", "parameter"}};
+static void cont__compiler__body__simplify_expression_51(void);
+static void cont__compiler__body__simplify_expression_52(void);
+static void cont__compiler__body__simplify_expression_53(void);
+static void cont__compiler__body__simplify_expression_54(void);
+static NODE *func__compiler__body__simplify_expression_55;
+static void entry__compiler__body__simplify_expression_55(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_55 = {2, {"statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_56(void);
+static NODE *func__compiler__body__simplify_expression_57;
+static void entry__compiler__body__simplify_expression_57(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_57 = {2, {"statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_58(void);
+static NODE *func__compiler__body__simplify_expression_59;
+static void entry__compiler__body__simplify_expression_59(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_59 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_60(void);
+static void cont__compiler__body__simplify_expression_61(void);
+static void cont__compiler__body__simplify_expression_62(void);
+static NODE *func__compiler__body__simplify_expression_63;
+static void entry__compiler__body__simplify_expression_63(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_63 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_64(void);
+static void cont__compiler__body__simplify_expression_65(void);
+static void cont__compiler__body__simplify_expression_66(void);
+static void cont__compiler__body__simplify_expression_67(void);
+static void cont__compiler__body__simplify_expression_68(void);
+static NODE *func__compiler__body__simplify_expression_69;
+static void entry__compiler__body__simplify_expression_69(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_69 = {3, {"return__2", "statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_70(void);
+static void cont__compiler__body__simplify_expression_71(void);
+static void cont__compiler__body__simplify_expression_72(void);
+static void cont__compiler__body__simplify_expression_73(void);
+static NODE *func__compiler__body__simplify_expression_74;
+static void entry__compiler__body__simplify_expression_74(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_74 = {2, {"statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_75(void);
+static NODE *func__compiler__body__simplify_expression_76;
+static void entry__compiler__body__simplify_expression_76(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_76 = {2, {"statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_77(void);
+static NODE *func__compiler__body__simplify_expression_78;
+static void entry__compiler__body__simplify_expression_78(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_78 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_79(void);
+static void cont__compiler__body__simplify_expression_80(void);
+static void cont__compiler__body__simplify_expression_81(void);
+static NODE *func__compiler__body__simplify_expression_82;
+static void entry__compiler__body__simplify_expression_82(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_82 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_83(void);
+static void cont__compiler__body__simplify_expression_84(void);
+static void cont__compiler__body__simplify_expression_85(void);
+static void cont__compiler__body__simplify_expression_86(void);
+static void cont__compiler__body__simplify_expression_87(void);
+static NODE *func__compiler__body__simplify_expression_88;
+static void entry__compiler__body__simplify_expression_88(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_88 = {3, {"return__3", "statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_89(void);
+static void cont__compiler__body__simplify_expression_90(void);
+static void cont__compiler__body__simplify_expression_91(void);
+static void cont__compiler__body__simplify_expression_92(void);
+static void cont__compiler__body__simplify_expression_93(void);
+static void cont__compiler__body__simplify_expression_94(void);
+static NODE *func__compiler__body__simplify_expression_95;
+static void entry__compiler__body__simplify_expression_95(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_95 = {2, {"self", "temp"}};
+static void cont__compiler__body__simplify_expression_96(void);
+static void cont__compiler__body__simplify_expression_97(void);
+static void cont__compiler__body__simplify_expression_98(void);
+static void cont__compiler__body__simplify_expression_99(void);
+static void cont__compiler__body__simplify_expression_100(void);
+static void cont__compiler__body__simplify_expression_101(void);
+static void cont__compiler__body__simplify_expression_102(void);
+static void cont__compiler__body__simplify_expression_103(void);
 static NODE *func__do_store_1;
 static void entry__do_store_1(void);
 static FRAME_INFO frame__do_store_1 = {6, {"functor", "arguments", "result", "rest", "infos", "info"}};
@@ -992,267 +992,267 @@ static NODE *func__store_result_17;
 static void entry__store_result_17(void);
 static FRAME_INFO frame__store_result_17 = {5, {"functor", "result", "rest", "arguments", "infos"}};
 static void cont__store_result_18(void);
-static NODE *func__sim2c__call__simplify_statement_1;
-static void entry__sim2c__call__simplify_statement_1(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_1 = {3, {"self", "return", "final_destinations"}};
+static NODE *func__compiler__call__simplify_statement_1;
+static void entry__compiler__call__simplify_statement_1(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_1 = {3, {"self", "return", "final_destinations"}};
 static NODE *string__8629329e514f7a7a;
-static void cont__sim2c__call__simplify_statement_3(void);
-static void cont__sim2c__call__simplify_statement_4(void);
-static NODE *func__sim2c__call__simplify_statement_5;
-static void entry__sim2c__call__simplify_statement_5(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_5 = {1, {"self"}};
-static void cont__sim2c__call__simplify_statement_6(void);
-static void cont__sim2c__call__simplify_statement_7(void);
-static void cont__sim2c__call__simplify_statement_8(void);
-static void cont__sim2c__call__simplify_statement_9(void);
-static NODE *func__sim2c__call__simplify_statement_10;
-static void entry__sim2c__call__simplify_statement_10(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_10 = {2, {"self", "source"}};
-static void cont__sim2c__call__simplify_statement_11(void);
-static void cont__sim2c__call__simplify_statement_12(void);
-static void cont__sim2c__call__simplify_statement_13(void);
-static NODE *func__sim2c__call__simplify_statement_14;
-static void entry__sim2c__call__simplify_statement_14(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_14 = {2, {"self", "source"}};
-static void cont__sim2c__call__simplify_statement_15(void);
-static void cont__sim2c__call__simplify_statement_16(void);
-static void cont__sim2c__call__simplify_statement_17(void);
-static void cont__sim2c__call__simplify_statement_18(void);
-static void cont__sim2c__call__simplify_statement_19(void);
-static void cont__sim2c__call__simplify_statement_20(void);
-static void cont__sim2c__call__simplify_statement_21(void);
-static void cont__sim2c__call__simplify_statement_22(void);
-static void cont__sim2c__call__simplify_statement_23(void);
-static void cont__sim2c__call__simplify_statement_24(void);
-static void cont__sim2c__call__simplify_statement_25(void);
-static void cont__sim2c__call__simplify_statement_26(void);
-static void cont__sim2c__call__simplify_statement_27(void);
-static NODE *func__sim2c__call__simplify_statement_28;
-static void entry__sim2c__call__simplify_statement_28(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_28 = {1, {"self"}};
-static void cont__sim2c__call__simplify_statement_29(void);
-static void cont__sim2c__call__simplify_statement_30(void);
-static NODE *func__sim2c__call__simplify_statement_31;
-static void entry__sim2c__call__simplify_statement_31(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_31 = {1, {"self"}};
-static void cont__sim2c__call__simplify_statement_32(void);
-static void cont__sim2c__call__simplify_statement_33(void);
-static void cont__sim2c__call__simplify_statement_34(void);
-static void cont__sim2c__call__simplify_statement_35(void);
-static void cont__sim2c__call__simplify_statement_36(void);
-static NODE *func__sim2c__call__simplify_statement_37;
-static void entry__sim2c__call__simplify_statement_37(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_37 = {1, {"self"}};
-static void cont__sim2c__call__simplify_statement_38(void);
-static void cont__sim2c__call__simplify_statement_39(void);
-static void cont__sim2c__call__simplify_statement_40(void);
-static void cont__sim2c__call__simplify_statement_41(void);
-static void cont__sim2c__call__simplify_statement_42(void);
-static void cont__sim2c__call__simplify_statement_43(void);
-static void cont__sim2c__call__simplify_statement_44(void);
-static NODE *func__sim2c__call__simplify_statement_45;
-static void entry__sim2c__call__simplify_statement_45(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_45 = {3, {"self", "return", "destination"}};
-static void cont__sim2c__call__simplify_statement_46(void);
-static void cont__sim2c__call__simplify_statement_47(void);
-static void cont__sim2c__call__simplify_statement_48(void);
-static NODE *func__sim2c__call__simplify_statement_49;
-static void entry__sim2c__call__simplify_statement_49(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_49 = {3, {"destination", "self", "return"}};
-static void cont__sim2c__call__simplify_statement_50(void);
-static NODE *func__sim2c__call__simplify_statement_51;
-static void entry__sim2c__call__simplify_statement_51(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_51 = {4, {"self", "destination", "return", "source"}};
-static void cont__sim2c__call__simplify_statement_52(void);
-static void cont__sim2c__call__simplify_statement_53(void);
-static void cont__sim2c__call__simplify_statement_54(void);
-static void cont__sim2c__call__simplify_statement_55(void);
-static void cont__sim2c__call__simplify_statement_56(void);
-static NODE *func__sim2c__call__simplify_statement_57;
-static void entry__sim2c__call__simplify_statement_57(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_57 = {3, {"destination", "source", "return"}};
-static void cont__sim2c__call__simplify_statement_58(void);
-static void cont__sim2c__call__simplify_statement_59(void);
-static void cont__sim2c__call__simplify_statement_60(void);
-static NODE *func__sim2c__call__simplify_statement_61;
-static void entry__sim2c__call__simplify_statement_61(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_61 = {3, {"source", "destination", "return"}};
-static void cont__sim2c__call__simplify_statement_62(void);
-static NODE *func__sim2c__call__simplify_statement_63;
-static void entry__sim2c__call__simplify_statement_63(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_63 = {1, {"source"}};
-static void cont__sim2c__call__simplify_statement_64(void);
-static void cont__sim2c__call__simplify_statement_65(void);
-static NODE *func__sim2c__call__simplify_statement_66;
-static void entry__sim2c__call__simplify_statement_66(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_66 = {3, {"destination", "source", "return"}};
-static void cont__sim2c__call__simplify_statement_67(void);
-static void cont__sim2c__call__simplify_statement_68(void);
-static NODE *func__sim2c__call__simplify_statement_69;
-static void entry__sim2c__call__simplify_statement_69(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_69 = {3, {"source", "destination", "self"}};
-static void cont__sim2c__call__simplify_statement_70(void);
-static NODE *func__sim2c__call__simplify_statement_71;
-static void entry__sim2c__call__simplify_statement_71(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_71 = {3, {"destination", "source", "self"}};
-static void cont__sim2c__call__simplify_statement_72(void);
-static void cont__sim2c__call__simplify_statement_73(void);
-static void cont__sim2c__call__simplify_statement_74(void);
-static void cont__sim2c__call__simplify_statement_75(void);
-static void cont__sim2c__call__simplify_statement_76(void);
-static NODE *func__sim2c__call__simplify_statement_77;
-static void entry__sim2c__call__simplify_statement_77(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_77 = {2, {"destination", "self"}};
-static void cont__sim2c__call__simplify_statement_78(void);
-static void cont__sim2c__call__simplify_statement_79(void);
-static void cont__sim2c__call__simplify_statement_80(void);
-static void cont__sim2c__call__simplify_statement_81(void);
-static NODE *func__sim2c__call__simplify_statement_82;
-static void entry__sim2c__call__simplify_statement_82(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_82 = {2, {"destination", "self"}};
-static void cont__sim2c__call__simplify_statement_83(void);
-static void cont__sim2c__call__simplify_statement_84(void);
-static void cont__sim2c__call__simplify_statement_85(void);
-static void cont__sim2c__call__simplify_statement_86(void);
-static NODE *func__sim2c__call__simplify_statement_87;
-static void entry__sim2c__call__simplify_statement_87(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_87 = {1, {"self"}};
-static void cont__sim2c__call__simplify_statement_88(void);
-static NODE *func__sim2c__call__simplify_statement_89;
-static void entry__sim2c__call__simplify_statement_89(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_89 = {1, {"argument"}};
-static void cont__sim2c__call__simplify_statement_90(void);
-static NODE *func__sim2c__call__simplify_statement_91;
-static void entry__sim2c__call__simplify_statement_91(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_91 = {1, {"argument"}};
-static void cont__sim2c__call__simplify_statement_92(void);
-static void cont__sim2c__call__simplify_statement_93(void);
-static void cont__sim2c__call__simplify_statement_94(void);
-static void cont__sim2c__call__simplify_statement_95(void);
-static void cont__sim2c__call__simplify_statement_96(void);
-static void cont__sim2c__call__simplify_statement_97(void);
-static NODE *func__sim2c__call__simplify_statement_98;
-static void entry__sim2c__call__simplify_statement_98(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_98 = {2, {"final_destinations", "self"}};
-static NODE *func__sim2c__call__simplify_statement_99;
-static void entry__sim2c__call__simplify_statement_99(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_99 = {3, {"idx", "destination", "self"}};
-static void cont__sim2c__call__simplify_statement_100(void);
-static NODE *func__sim2c__call__simplify_statement_101;
-static void entry__sim2c__call__simplify_statement_101(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_101 = {4, {"self", "idx", "destination", "result"}};
-static void cont__sim2c__call__simplify_statement_102(void);
-static void cont__sim2c__call__simplify_statement_103(void);
-static void cont__sim2c__call__simplify_statement_104(void);
-static NODE *func__sim2c__call__simplify_statement_105;
-static void entry__sim2c__call__simplify_statement_105(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_105 = {2, {"destination", "result"}};
-static NODE *func__sim2c__call__simplify_statement_106;
-static void entry__sim2c__call__simplify_statement_106(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_106 = {3, {"destination", "result", "identifier"}};
-static void cont__sim2c__call__simplify_statement_107(void);
-static NODE *func__sim2c__call__simplify_statement_108;
-static void entry__sim2c__call__simplify_statement_108(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_108 = {1, {"destination"}};
-static NODE *func__sim2c__call__simplify_statement_109;
-static void entry__sim2c__call__simplify_statement_109(void);
-static FRAME_INFO frame__sim2c__call__simplify_statement_109 = {1, {"destination"}};
-static void cont__sim2c__call__simplify_statement_110(void);
-static void cont__sim2c__call__simplify_statement_111(void);
-static void cont__sim2c__call__simplify_statement_112(void);
-static void cont__sim2c__call__simplify_statement_113(void);
-static void cont__sim2c__call__simplify_statement_114(void);
-static void cont__sim2c__call__simplify_statement_115(void);
-static void cont__sim2c__call__simplify_statement_116(void);
-static void cont__sim2c__call__simplify_statement_117(void);
-static NODE *func__sim2c__function_call__simplify_expression_1;
-static void entry__sim2c__function_call__simplify_expression_1(void);
-static FRAME_INFO frame__sim2c__function_call__simplify_expression_1 = {2, {"self", "temp"}};
+static void cont__compiler__call__simplify_statement_3(void);
+static void cont__compiler__call__simplify_statement_4(void);
+static NODE *func__compiler__call__simplify_statement_5;
+static void entry__compiler__call__simplify_statement_5(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_5 = {1, {"self"}};
+static void cont__compiler__call__simplify_statement_6(void);
+static void cont__compiler__call__simplify_statement_7(void);
+static void cont__compiler__call__simplify_statement_8(void);
+static void cont__compiler__call__simplify_statement_9(void);
+static NODE *func__compiler__call__simplify_statement_10;
+static void entry__compiler__call__simplify_statement_10(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_10 = {2, {"self", "source"}};
+static void cont__compiler__call__simplify_statement_11(void);
+static void cont__compiler__call__simplify_statement_12(void);
+static void cont__compiler__call__simplify_statement_13(void);
+static NODE *func__compiler__call__simplify_statement_14;
+static void entry__compiler__call__simplify_statement_14(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_14 = {2, {"self", "source"}};
+static void cont__compiler__call__simplify_statement_15(void);
+static void cont__compiler__call__simplify_statement_16(void);
+static void cont__compiler__call__simplify_statement_17(void);
+static void cont__compiler__call__simplify_statement_18(void);
+static void cont__compiler__call__simplify_statement_19(void);
+static void cont__compiler__call__simplify_statement_20(void);
+static void cont__compiler__call__simplify_statement_21(void);
+static void cont__compiler__call__simplify_statement_22(void);
+static void cont__compiler__call__simplify_statement_23(void);
+static void cont__compiler__call__simplify_statement_24(void);
+static void cont__compiler__call__simplify_statement_25(void);
+static void cont__compiler__call__simplify_statement_26(void);
+static void cont__compiler__call__simplify_statement_27(void);
+static NODE *func__compiler__call__simplify_statement_28;
+static void entry__compiler__call__simplify_statement_28(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_28 = {1, {"self"}};
+static void cont__compiler__call__simplify_statement_29(void);
+static void cont__compiler__call__simplify_statement_30(void);
+static NODE *func__compiler__call__simplify_statement_31;
+static void entry__compiler__call__simplify_statement_31(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_31 = {1, {"self"}};
+static void cont__compiler__call__simplify_statement_32(void);
+static void cont__compiler__call__simplify_statement_33(void);
+static void cont__compiler__call__simplify_statement_34(void);
+static void cont__compiler__call__simplify_statement_35(void);
+static void cont__compiler__call__simplify_statement_36(void);
+static NODE *func__compiler__call__simplify_statement_37;
+static void entry__compiler__call__simplify_statement_37(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_37 = {1, {"self"}};
+static void cont__compiler__call__simplify_statement_38(void);
+static void cont__compiler__call__simplify_statement_39(void);
+static void cont__compiler__call__simplify_statement_40(void);
+static void cont__compiler__call__simplify_statement_41(void);
+static void cont__compiler__call__simplify_statement_42(void);
+static void cont__compiler__call__simplify_statement_43(void);
+static void cont__compiler__call__simplify_statement_44(void);
+static NODE *func__compiler__call__simplify_statement_45;
+static void entry__compiler__call__simplify_statement_45(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_45 = {3, {"self", "return", "destination"}};
+static void cont__compiler__call__simplify_statement_46(void);
+static void cont__compiler__call__simplify_statement_47(void);
+static void cont__compiler__call__simplify_statement_48(void);
+static NODE *func__compiler__call__simplify_statement_49;
+static void entry__compiler__call__simplify_statement_49(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_49 = {3, {"destination", "self", "return"}};
+static void cont__compiler__call__simplify_statement_50(void);
+static NODE *func__compiler__call__simplify_statement_51;
+static void entry__compiler__call__simplify_statement_51(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_51 = {4, {"self", "destination", "return", "source"}};
+static void cont__compiler__call__simplify_statement_52(void);
+static void cont__compiler__call__simplify_statement_53(void);
+static void cont__compiler__call__simplify_statement_54(void);
+static void cont__compiler__call__simplify_statement_55(void);
+static void cont__compiler__call__simplify_statement_56(void);
+static NODE *func__compiler__call__simplify_statement_57;
+static void entry__compiler__call__simplify_statement_57(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_57 = {3, {"destination", "source", "return"}};
+static void cont__compiler__call__simplify_statement_58(void);
+static void cont__compiler__call__simplify_statement_59(void);
+static void cont__compiler__call__simplify_statement_60(void);
+static NODE *func__compiler__call__simplify_statement_61;
+static void entry__compiler__call__simplify_statement_61(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_61 = {3, {"source", "destination", "return"}};
+static void cont__compiler__call__simplify_statement_62(void);
+static NODE *func__compiler__call__simplify_statement_63;
+static void entry__compiler__call__simplify_statement_63(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_63 = {1, {"source"}};
+static void cont__compiler__call__simplify_statement_64(void);
+static void cont__compiler__call__simplify_statement_65(void);
+static NODE *func__compiler__call__simplify_statement_66;
+static void entry__compiler__call__simplify_statement_66(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_66 = {3, {"destination", "source", "return"}};
+static void cont__compiler__call__simplify_statement_67(void);
+static void cont__compiler__call__simplify_statement_68(void);
+static NODE *func__compiler__call__simplify_statement_69;
+static void entry__compiler__call__simplify_statement_69(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_69 = {3, {"source", "destination", "self"}};
+static void cont__compiler__call__simplify_statement_70(void);
+static NODE *func__compiler__call__simplify_statement_71;
+static void entry__compiler__call__simplify_statement_71(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_71 = {3, {"destination", "source", "self"}};
+static void cont__compiler__call__simplify_statement_72(void);
+static void cont__compiler__call__simplify_statement_73(void);
+static void cont__compiler__call__simplify_statement_74(void);
+static void cont__compiler__call__simplify_statement_75(void);
+static void cont__compiler__call__simplify_statement_76(void);
+static NODE *func__compiler__call__simplify_statement_77;
+static void entry__compiler__call__simplify_statement_77(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_77 = {2, {"destination", "self"}};
+static void cont__compiler__call__simplify_statement_78(void);
+static void cont__compiler__call__simplify_statement_79(void);
+static void cont__compiler__call__simplify_statement_80(void);
+static void cont__compiler__call__simplify_statement_81(void);
+static NODE *func__compiler__call__simplify_statement_82;
+static void entry__compiler__call__simplify_statement_82(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_82 = {2, {"destination", "self"}};
+static void cont__compiler__call__simplify_statement_83(void);
+static void cont__compiler__call__simplify_statement_84(void);
+static void cont__compiler__call__simplify_statement_85(void);
+static void cont__compiler__call__simplify_statement_86(void);
+static NODE *func__compiler__call__simplify_statement_87;
+static void entry__compiler__call__simplify_statement_87(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_87 = {1, {"self"}};
+static void cont__compiler__call__simplify_statement_88(void);
+static NODE *func__compiler__call__simplify_statement_89;
+static void entry__compiler__call__simplify_statement_89(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_89 = {1, {"argument"}};
+static void cont__compiler__call__simplify_statement_90(void);
+static NODE *func__compiler__call__simplify_statement_91;
+static void entry__compiler__call__simplify_statement_91(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_91 = {1, {"argument"}};
+static void cont__compiler__call__simplify_statement_92(void);
+static void cont__compiler__call__simplify_statement_93(void);
+static void cont__compiler__call__simplify_statement_94(void);
+static void cont__compiler__call__simplify_statement_95(void);
+static void cont__compiler__call__simplify_statement_96(void);
+static void cont__compiler__call__simplify_statement_97(void);
+static NODE *func__compiler__call__simplify_statement_98;
+static void entry__compiler__call__simplify_statement_98(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_98 = {2, {"final_destinations", "self"}};
+static NODE *func__compiler__call__simplify_statement_99;
+static void entry__compiler__call__simplify_statement_99(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_99 = {3, {"idx", "destination", "self"}};
+static void cont__compiler__call__simplify_statement_100(void);
+static NODE *func__compiler__call__simplify_statement_101;
+static void entry__compiler__call__simplify_statement_101(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_101 = {4, {"self", "idx", "destination", "result"}};
+static void cont__compiler__call__simplify_statement_102(void);
+static void cont__compiler__call__simplify_statement_103(void);
+static void cont__compiler__call__simplify_statement_104(void);
+static NODE *func__compiler__call__simplify_statement_105;
+static void entry__compiler__call__simplify_statement_105(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_105 = {2, {"destination", "result"}};
+static NODE *func__compiler__call__simplify_statement_106;
+static void entry__compiler__call__simplify_statement_106(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_106 = {3, {"destination", "result", "identifier"}};
+static void cont__compiler__call__simplify_statement_107(void);
+static NODE *func__compiler__call__simplify_statement_108;
+static void entry__compiler__call__simplify_statement_108(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_108 = {1, {"destination"}};
+static NODE *func__compiler__call__simplify_statement_109;
+static void entry__compiler__call__simplify_statement_109(void);
+static FRAME_INFO frame__compiler__call__simplify_statement_109 = {1, {"destination"}};
+static void cont__compiler__call__simplify_statement_110(void);
+static void cont__compiler__call__simplify_statement_111(void);
+static void cont__compiler__call__simplify_statement_112(void);
+static void cont__compiler__call__simplify_statement_113(void);
+static void cont__compiler__call__simplify_statement_114(void);
+static void cont__compiler__call__simplify_statement_115(void);
+static void cont__compiler__call__simplify_statement_116(void);
+static void cont__compiler__call__simplify_statement_117(void);
+static NODE *func__compiler__function_call__simplify_expression_1;
+static void entry__compiler__function_call__simplify_expression_1(void);
+static FRAME_INFO frame__compiler__function_call__simplify_expression_1 = {2, {"self", "temp"}};
 static NODE *string__95014404e5c0e88d;
-static void cont__sim2c__function_call__simplify_expression_3(void);
-static void cont__sim2c__function_call__simplify_expression_4(void);
-static void cont__sim2c__function_call__simplify_expression_5(void);
-static void cont__sim2c__function_call__simplify_expression_6(void);
-static void cont__sim2c__function_call__simplify_expression_7(void);
-static void cont__sim2c__function_call__simplify_expression_8(void);
-static void cont__sim2c__function_call__simplify_expression_9(void);
-static void cont__sim2c__function_call__simplify_expression_10(void);
-static void cont__sim2c__function_call__simplify_expression_11(void);
-static void cont__sim2c__function_call__simplify_expression_12(void);
-static NODE *func__sim2c__attribute_value_pair__simplify_expression_1;
-static void entry__sim2c__attribute_value_pair__simplify_expression_1(void);
-static FRAME_INFO frame__sim2c__attribute_value_pair__simplify_expression_1 = {2, {"self", "dummy_destinations"}};
+static void cont__compiler__function_call__simplify_expression_3(void);
+static void cont__compiler__function_call__simplify_expression_4(void);
+static void cont__compiler__function_call__simplify_expression_5(void);
+static void cont__compiler__function_call__simplify_expression_6(void);
+static void cont__compiler__function_call__simplify_expression_7(void);
+static void cont__compiler__function_call__simplify_expression_8(void);
+static void cont__compiler__function_call__simplify_expression_9(void);
+static void cont__compiler__function_call__simplify_expression_10(void);
+static void cont__compiler__function_call__simplify_expression_11(void);
+static void cont__compiler__function_call__simplify_expression_12(void);
+static NODE *func__compiler__attribute_value_pair__simplify_expression_1;
+static void entry__compiler__attribute_value_pair__simplify_expression_1(void);
+static FRAME_INFO frame__compiler__attribute_value_pair__simplify_expression_1 = {2, {"self", "dummy_destinations"}};
 static NODE *string__cced2f4d969d3d03;
-static void cont__sim2c__attribute_value_pair__simplify_expression_3(void);
-static void cont__sim2c__attribute_value_pair__simplify_expression_4(void);
-static NODE *func__sim2c__attribute_function_pair__simplify_expression_1;
-static void entry__sim2c__attribute_function_pair__simplify_expression_1(void);
-static FRAME_INFO frame__sim2c__attribute_function_pair__simplify_expression_1 = {2, {"self", "dummy_destinations"}};
+static void cont__compiler__attribute_value_pair__simplify_expression_3(void);
+static void cont__compiler__attribute_value_pair__simplify_expression_4(void);
+static NODE *func__compiler__attribute_function_pair__simplify_expression_1;
+static void entry__compiler__attribute_function_pair__simplify_expression_1(void);
+static FRAME_INFO frame__compiler__attribute_function_pair__simplify_expression_1 = {2, {"self", "dummy_destinations"}};
 static NODE *string__83e573190949a328;
-static void cont__sim2c__attribute_function_pair__simplify_expression_3(void);
-static void cont__sim2c__attribute_function_pair__simplify_expression_4(void);
-static NODE *func__sim2c__c_code__simplify_statement_1;
-static void entry__sim2c__c_code__simplify_statement_1(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_1 = {1, {"self"}};
+static void cont__compiler__attribute_function_pair__simplify_expression_3(void);
+static void cont__compiler__attribute_function_pair__simplify_expression_4(void);
+static NODE *func__compiler__c_code__simplify_statement_1;
+static void entry__compiler__c_code__simplify_statement_1(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_1 = {1, {"self"}};
 static NODE *string__1095e9f11fb0974b;
-static void cont__sim2c__c_code__simplify_statement_3(void);
-static NODE *func__sim2c__c_code__simplify_statement_4;
-static void entry__sim2c__c_code__simplify_statement_4(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_4 = {0, {}};
-static void cont__sim2c__c_code__simplify_statement_5(void);
-static void cont__sim2c__c_code__simplify_statement_6(void);
-static NODE *func__sim2c__c_code__simplify_statement_7;
-static void entry__sim2c__c_code__simplify_statement_7(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_7 = {2, {"self", "name"}};
-static void cont__sim2c__c_code__simplify_statement_8(void);
-static void cont__sim2c__c_code__simplify_statement_9(void);
-static NODE *func__sim2c__c_code__simplify_statement_10;
-static void entry__sim2c__c_code__simplify_statement_10(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_10 = {1, {"name"}};
-static void cont__sim2c__c_code__simplify_statement_11(void);
-static void cont__sim2c__c_code__simplify_statement_12(void);
-static NODE *func__sim2c__c_code__simplify_statement_13;
-static void entry__sim2c__c_code__simplify_statement_13(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_13 = {2, {"self", "name"}};
-static void cont__sim2c__c_code__simplify_statement_14(void);
-static void cont__sim2c__c_code__simplify_statement_15(void);
-static NODE *func__sim2c__c_code__simplify_statement_16;
-static void entry__sim2c__c_code__simplify_statement_16(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_16 = {2, {"name", "self"}};
-static void cont__sim2c__c_code__simplify_statement_17(void);
-static void cont__sim2c__c_code__simplify_statement_18(void);
-static NODE *func__sim2c__c_code__simplify_statement_19;
-static void entry__sim2c__c_code__simplify_statement_19(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_19 = {2, {"self", "name"}};
-static void cont__sim2c__c_code__simplify_statement_20(void);
-static void cont__sim2c__c_code__simplify_statement_21(void);
-static void cont__sim2c__c_code__simplify_statement_22(void);
-static void cont__sim2c__c_code__simplify_statement_23(void);
-static void cont__sim2c__c_code__simplify_statement_24(void);
-static NODE *func__sim2c__c_code__simplify_statement_25;
-static void entry__sim2c__c_code__simplify_statement_25(void);
-static FRAME_INFO frame__sim2c__c_code__simplify_statement_25 = {1, {"name"}};
-static void cont__sim2c__c_code__simplify_statement_26(void);
-static void cont__sim2c__c_code__simplify_statement_27(void);
+static void cont__compiler__c_code__simplify_statement_3(void);
+static NODE *func__compiler__c_code__simplify_statement_4;
+static void entry__compiler__c_code__simplify_statement_4(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_4 = {0, {}};
+static void cont__compiler__c_code__simplify_statement_5(void);
+static void cont__compiler__c_code__simplify_statement_6(void);
+static NODE *func__compiler__c_code__simplify_statement_7;
+static void entry__compiler__c_code__simplify_statement_7(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_7 = {2, {"self", "name"}};
+static void cont__compiler__c_code__simplify_statement_8(void);
+static void cont__compiler__c_code__simplify_statement_9(void);
+static NODE *func__compiler__c_code__simplify_statement_10;
+static void entry__compiler__c_code__simplify_statement_10(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_10 = {1, {"name"}};
+static void cont__compiler__c_code__simplify_statement_11(void);
+static void cont__compiler__c_code__simplify_statement_12(void);
+static NODE *func__compiler__c_code__simplify_statement_13;
+static void entry__compiler__c_code__simplify_statement_13(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_13 = {2, {"self", "name"}};
+static void cont__compiler__c_code__simplify_statement_14(void);
+static void cont__compiler__c_code__simplify_statement_15(void);
+static NODE *func__compiler__c_code__simplify_statement_16;
+static void entry__compiler__c_code__simplify_statement_16(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_16 = {2, {"name", "self"}};
+static void cont__compiler__c_code__simplify_statement_17(void);
+static void cont__compiler__c_code__simplify_statement_18(void);
+static NODE *func__compiler__c_code__simplify_statement_19;
+static void entry__compiler__c_code__simplify_statement_19(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_19 = {2, {"self", "name"}};
+static void cont__compiler__c_code__simplify_statement_20(void);
+static void cont__compiler__c_code__simplify_statement_21(void);
+static void cont__compiler__c_code__simplify_statement_22(void);
+static void cont__compiler__c_code__simplify_statement_23(void);
+static void cont__compiler__c_code__simplify_statement_24(void);
+static NODE *func__compiler__c_code__simplify_statement_25;
+static void entry__compiler__c_code__simplify_statement_25(void);
+static FRAME_INFO frame__compiler__c_code__simplify_statement_25 = {1, {"name"}};
+static void cont__compiler__c_code__simplify_statement_26(void);
+static void cont__compiler__c_code__simplify_statement_27(void);
 static NODE *string__7c1f530901a312a3;
 static NODE *string__1e0aea8b5d407d5c;
 static NODE *string__46c0af9104ada08e;
-static void cont__sim2c__c_code__simplify_statement_31(void);
-static void cont__sim2c__c_code__simplify_statement_32(void);
-static NODE *func__sim2c__c_body__simplify_expression_1;
-static void entry__sim2c__c_body__simplify_expression_1(void);
-static FRAME_INFO frame__sim2c__c_body__simplify_expression_1 = {1, {"self"}};
+static void cont__compiler__c_code__simplify_statement_31(void);
+static void cont__compiler__c_code__simplify_statement_32(void);
+static NODE *func__compiler__c_body__simplify_expression_1;
+static void entry__compiler__c_body__simplify_expression_1(void);
+static FRAME_INFO frame__compiler__c_body__simplify_expression_1 = {1, {"self"}};
 static NODE *string__1295e9f11fb09757;
-static void cont__sim2c__c_body__simplify_expression_3(void);
-static NODE *func__sim2c__c_body__simplify_expression_4;
-static void entry__sim2c__c_body__simplify_expression_4(void);
-static FRAME_INFO frame__sim2c__c_body__simplify_expression_4 = {0, {}};
-static void cont__sim2c__c_body__simplify_expression_5(void);
+static void cont__compiler__c_body__simplify_expression_3(void);
+static NODE *func__compiler__c_body__simplify_expression_4;
+static void entry__compiler__c_body__simplify_expression_4(void);
+static FRAME_INFO frame__compiler__c_body__simplify_expression_4 = {0, {}};
+static void cont__compiler__c_body__simplify_expression_5(void);
 void run__simplifier(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {type__sim2c__simplify_statement, NULL, 30, 30, 2, 26},
-  {type__sim2c__simplify_expression, NULL, 31, 31, 2, 27},
+  {type__compiler__simplify_statement, NULL, 30, 30, 2, 29},
+  {type__compiler__simplify_expression, NULL, 31, 31, 2, 30},
   {run__simplifier, NULL, 34, 34, 1, 28},
   {entry__temporary_identifier_1, NULL, 37, 37, 3, 15},
   {cont__temporary_identifier_2, &frame__temporary_identifier_1, 38, 38, 26, 44},
@@ -1314,143 +1314,143 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__simplify_arguments_16, &frame__simplify_arguments_1, 62, 62, 6, 32},
   {cont__simplify_arguments_17, &frame__simplify_arguments_1, 62, 97, 3, 46},
   {cont__simplify_arguments_57, &frame__simplify_arguments_1, 98, 98, 3, 23},
-  {entry__sim2c__check_usage_6, NULL, 105, 105, 21, 39},
-  {cont__sim2c__check_usage_7, &frame__sim2c__check_usage_6, 105, 106, 41, 64},
-  {cont__sim2c__check_usage_10, &frame__sim2c__check_usage_6, 105, 106, 9, 64},
-  {entry__sim2c__check_usage_3, NULL, 104, 104, 12, 33},
-  {cont__sim2c__check_usage_4, &frame__sim2c__check_usage_3, 104, 104, 35, 77},
-  {cont__sim2c__check_usage_5, &frame__sim2c__check_usage_3, 104, 106, 7, 65},
-  {entry__sim2c__check_usage_14, NULL, 109, 109, 21, 39},
-  {cont__sim2c__check_usage_15, &frame__sim2c__check_usage_14, 109, 110, 41, 62},
-  {cont__sim2c__check_usage_17, &frame__sim2c__check_usage_14, 109, 110, 9, 62},
-  {entry__sim2c__check_usage_11, NULL, 108, 108, 12, 33},
-  {cont__sim2c__check_usage_12, &frame__sim2c__check_usage_11, 108, 108, 35, 90},
-  {cont__sim2c__check_usage_13, &frame__sim2c__check_usage_11, 108, 110, 7, 63},
-  {entry__sim2c__check_usage_21, NULL, 113, 113, 21, 39},
-  {cont__sim2c__check_usage_22, &frame__sim2c__check_usage_21, 113, 114, 41, 70},
-  {cont__sim2c__check_usage_24, &frame__sim2c__check_usage_21, 113, 114, 9, 70},
-  {entry__sim2c__check_usage_18, NULL, 112, 112, 12, 33},
-  {cont__sim2c__check_usage_19, &frame__sim2c__check_usage_18, 112, 112, 35, 76},
-  {cont__sim2c__check_usage_20, &frame__sim2c__check_usage_18, 112, 114, 7, 71},
-  {entry__sim2c__check_usage_28, NULL, 117, 117, 21, 39},
-  {cont__sim2c__check_usage_29, &frame__sim2c__check_usage_28, 117, 118, 41, 70},
-  {cont__sim2c__check_usage_31, &frame__sim2c__check_usage_28, 117, 118, 9, 70},
-  {entry__sim2c__check_usage_25, NULL, 116, 116, 12, 33},
-  {cont__sim2c__check_usage_26, &frame__sim2c__check_usage_25, 116, 116, 35, 87},
-  {cont__sim2c__check_usage_27, &frame__sim2c__check_usage_25, 116, 118, 7, 71},
-  {entry__sim2c__check_usage_35, NULL, 121, 121, 21, 39},
-  {cont__sim2c__check_usage_36, &frame__sim2c__check_usage_35, 121, 122, 41, 71},
-  {cont__sim2c__check_usage_38, &frame__sim2c__check_usage_35, 121, 122, 9, 71},
-  {entry__sim2c__check_usage_32, NULL, 120, 120, 12, 33},
-  {cont__sim2c__check_usage_33, &frame__sim2c__check_usage_32, 120, 120, 35, 74},
-  {cont__sim2c__check_usage_34, &frame__sim2c__check_usage_32, 120, 122, 7, 72},
-  {entry__sim2c__check_usage_1, NULL, 102, 102, 5, 32},
-  {cont__sim2c__check_usage_2, &frame__sim2c__check_usage_1, 101, 122, 3, 74},
+  {entry__compiler__check_usage_6, NULL, 105, 105, 21, 39},
+  {cont__compiler__check_usage_7, &frame__compiler__check_usage_6, 105, 106, 41, 64},
+  {cont__compiler__check_usage_10, &frame__compiler__check_usage_6, 105, 106, 9, 64},
+  {entry__compiler__check_usage_3, NULL, 104, 104, 12, 33},
+  {cont__compiler__check_usage_4, &frame__compiler__check_usage_3, 104, 104, 35, 77},
+  {cont__compiler__check_usage_5, &frame__compiler__check_usage_3, 104, 106, 7, 65},
+  {entry__compiler__check_usage_14, NULL, 109, 109, 21, 39},
+  {cont__compiler__check_usage_15, &frame__compiler__check_usage_14, 109, 110, 41, 62},
+  {cont__compiler__check_usage_17, &frame__compiler__check_usage_14, 109, 110, 9, 62},
+  {entry__compiler__check_usage_11, NULL, 108, 108, 12, 33},
+  {cont__compiler__check_usage_12, &frame__compiler__check_usage_11, 108, 108, 35, 90},
+  {cont__compiler__check_usage_13, &frame__compiler__check_usage_11, 108, 110, 7, 63},
+  {entry__compiler__check_usage_21, NULL, 113, 113, 21, 39},
+  {cont__compiler__check_usage_22, &frame__compiler__check_usage_21, 113, 114, 41, 70},
+  {cont__compiler__check_usage_24, &frame__compiler__check_usage_21, 113, 114, 9, 70},
+  {entry__compiler__check_usage_18, NULL, 112, 112, 12, 33},
+  {cont__compiler__check_usage_19, &frame__compiler__check_usage_18, 112, 112, 35, 76},
+  {cont__compiler__check_usage_20, &frame__compiler__check_usage_18, 112, 114, 7, 71},
+  {entry__compiler__check_usage_28, NULL, 117, 117, 21, 39},
+  {cont__compiler__check_usage_29, &frame__compiler__check_usage_28, 117, 118, 41, 70},
+  {cont__compiler__check_usage_31, &frame__compiler__check_usage_28, 117, 118, 9, 70},
+  {entry__compiler__check_usage_25, NULL, 116, 116, 12, 33},
+  {cont__compiler__check_usage_26, &frame__compiler__check_usage_25, 116, 116, 35, 87},
+  {cont__compiler__check_usage_27, &frame__compiler__check_usage_25, 116, 118, 7, 71},
+  {entry__compiler__check_usage_35, NULL, 121, 121, 21, 39},
+  {cont__compiler__check_usage_36, &frame__compiler__check_usage_35, 121, 122, 41, 71},
+  {cont__compiler__check_usage_38, &frame__compiler__check_usage_35, 121, 122, 9, 71},
+  {entry__compiler__check_usage_32, NULL, 120, 120, 12, 33},
+  {cont__compiler__check_usage_33, &frame__compiler__check_usage_32, 120, 120, 35, 74},
+  {cont__compiler__check_usage_34, &frame__compiler__check_usage_32, 120, 122, 7, 72},
+  {entry__compiler__check_usage_1, NULL, 102, 102, 5, 32},
+  {cont__compiler__check_usage_2, &frame__compiler__check_usage_1, 101, 122, 3, 74},
   {entry__types__grammar_node__simplify_statement_1, NULL, 128, 128, 3, 57},
   {cont__types__grammar_node__simplify_statement_3, &frame__types__grammar_node__simplify_statement_1, 129, 129, 3, 23},
   {cont__types__grammar_node__simplify_statement_4, &frame__types__grammar_node__simplify_statement_1, 129, 129, 23, 23},
   {entry__types__grammar_node__simplify_expression_1, NULL, 132, 132, 3, 58},
   {cont__types__grammar_node__simplify_expression_3, &frame__types__grammar_node__simplify_expression_1, },
-  {entry__sim2c__body__simplify_expression_8, NULL, 144, 144, 21, 39},
-  {cont__sim2c__body__simplify_expression_9, &frame__sim2c__body__simplify_expression_8, 144, 146, 41, 33},
-  {cont__sim2c__body__simplify_expression_12, &frame__sim2c__body__simplify_expression_8, 144, 146, 9, 33},
-  {entry__sim2c__body__simplify_expression_13, NULL, 148, 148, 9, 32},
-  {cont__sim2c__body__simplify_expression_14, &frame__sim2c__body__simplify_expression_13, 148, 148, 37, 37},
-  {entry__sim2c__body__simplify_expression_5, NULL, 141, 141, 5, 43},
-  {cont__sim2c__body__simplify_expression_6, &frame__sim2c__body__simplify_expression_5, 143, 143, 7, 27},
-  {cont__sim2c__body__simplify_expression_7, &frame__sim2c__body__simplify_expression_5, 142, 148, 5, 38},
-  {entry__sim2c__body__simplify_expression_24, NULL, 153, 153, 44, 64},
-  {cont__sim2c__body__simplify_expression_25, &frame__sim2c__body__simplify_expression_24, 153, 153, 44, 75},
-  {cont__sim2c__body__simplify_expression_26, &frame__sim2c__body__simplify_expression_24, 153, 153, 44, 75},
-  {entry__sim2c__body__simplify_expression_28, NULL, 154, 154, 10, 32},
-  {cont__sim2c__body__simplify_expression_29, &frame__sim2c__body__simplify_expression_28, 154, 154, 9, 38},
-  {cont__sim2c__body__simplify_expression_30, &frame__sim2c__body__simplify_expression_28, 154, 154, 43, 43},
-  {entry__sim2c__body__simplify_expression_20, NULL, 152, 152, 7, 38},
-  {cont__sim2c__body__simplify_expression_21, &frame__sim2c__body__simplify_expression_20, 153, 153, 10, 28},
-  {cont__sim2c__body__simplify_expression_22, &frame__sim2c__body__simplify_expression_20, 153, 153, 10, 39},
-  {cont__sim2c__body__simplify_expression_23, &frame__sim2c__body__simplify_expression_20, 153, 153, 10, 75},
-  {cont__sim2c__body__simplify_expression_27, &frame__sim2c__body__simplify_expression_20, 153, 154, 7, 43},
-  {entry__sim2c__body__simplify_expression_17, NULL, 150, 150, 5, 39},
-  {cont__sim2c__body__simplify_expression_18, &frame__sim2c__body__simplify_expression_17, 151, 151, 8, 28},
-  {cont__sim2c__body__simplify_expression_19, &frame__sim2c__body__simplify_expression_17, 151, 154, 5, 44},
-  {entry__sim2c__body__simplify_expression_41, NULL, 169, 169, 13, 48},
-  {cont__sim2c__body__simplify_expression_42, &frame__sim2c__body__simplify_expression_41, 172, 172, 38, 80},
-  {cont__sim2c__body__simplify_expression_43, &frame__sim2c__body__simplify_expression_41, 173, 173, 31, 49},
-  {cont__sim2c__body__simplify_expression_44, &frame__sim2c__body__simplify_expression_41, 174, 174, 30, 52},
-  {cont__sim2c__body__simplify_expression_45, &frame__sim2c__body__simplify_expression_41, 175, 175, 37, 66},
-  {cont__sim2c__body__simplify_expression_46, &frame__sim2c__body__simplify_expression_41, 176, 176, 34, 60},
-  {cont__sim2c__body__simplify_expression_47, &frame__sim2c__body__simplify_expression_41, 170, 176, 13, 61},
-  {cont__sim2c__body__simplify_expression_48, &frame__sim2c__body__simplify_expression_41, 177, 177, 13, 44},
-  {cont__sim2c__body__simplify_expression_49, &frame__sim2c__body__simplify_expression_41, 178, 178, 13, 36},
-  {entry__sim2c__body__simplify_expression_50, NULL, 180, 180, 13, 46},
-  {cont__sim2c__body__simplify_expression_51, &frame__sim2c__body__simplify_expression_50, 181, 181, 53, 53},
-  {entry__sim2c__body__simplify_expression_39, NULL, 166, 166, 11, 42},
-  {cont__sim2c__body__simplify_expression_40, &frame__sim2c__body__simplify_expression_39, 165, 181, 9, 54},
-  {entry__sim2c__body__simplify_expression_36, NULL, 163, 163, 7, 49},
-  {cont__sim2c__body__simplify_expression_37, &frame__sim2c__body__simplify_expression_36, 164, 164, 10, 33},
-  {cont__sim2c__body__simplify_expression_38, &frame__sim2c__body__simplify_expression_36, 164, 181, 7, 55},
-  {cont__sim2c__body__simplify_expression_52, &frame__sim2c__body__simplify_expression_36, },
-  {entry__sim2c__body__simplify_expression_63, NULL, 191, 191, 13, 35},
-  {cont__sim2c__body__simplify_expression_64, &frame__sim2c__body__simplify_expression_63, 191, 191, 13, 38},
-  {cont__sim2c__body__simplify_expression_65, &frame__sim2c__body__simplify_expression_63, 191, 191, 13, 52},
-  {cont__sim2c__body__simplify_expression_66, &frame__sim2c__body__simplify_expression_63, 191, 191, 13, 52},
-  {entry__sim2c__body__simplify_expression_59, NULL, 190, 190, 13, 42},
-  {cont__sim2c__body__simplify_expression_60, &frame__sim2c__body__simplify_expression_59, 190, 190, 13, 45},
-  {cont__sim2c__body__simplify_expression_61, &frame__sim2c__body__simplify_expression_59, 190, 190, 13, 75},
-  {cont__sim2c__body__simplify_expression_62, &frame__sim2c__body__simplify_expression_59, 191, 191, 13, 52},
-  {cont__sim2c__body__simplify_expression_67, &frame__sim2c__body__simplify_expression_59, },
-  {entry__sim2c__body__simplify_expression_69, NULL, 194, 194, 13, 40},
-  {cont__sim2c__body__simplify_expression_70, &frame__sim2c__body__simplify_expression_69, 195, 195, 13, 44},
-  {cont__sim2c__body__simplify_expression_71, &frame__sim2c__body__simplify_expression_69, },
-  {entry__sim2c__body__simplify_expression_57, NULL, 189, 189, 13, 38},
-  {cont__sim2c__body__simplify_expression_58, &frame__sim2c__body__simplify_expression_57, },
-  {cont__sim2c__body__simplify_expression_68, &frame__sim2c__body__simplify_expression_57, 187, 195, 9, 45},
-  {entry__sim2c__body__simplify_expression_55, NULL, 186, 186, 14, 34},
-  {cont__sim2c__body__simplify_expression_56, &frame__sim2c__body__simplify_expression_55, 186, 195, 7, 46},
-  {entry__sim2c__body__simplify_expression_82, NULL, 205, 205, 13, 35},
-  {cont__sim2c__body__simplify_expression_83, &frame__sim2c__body__simplify_expression_82, 205, 205, 13, 38},
-  {cont__sim2c__body__simplify_expression_84, &frame__sim2c__body__simplify_expression_82, 205, 205, 13, 52},
-  {cont__sim2c__body__simplify_expression_85, &frame__sim2c__body__simplify_expression_82, 205, 205, 13, 52},
-  {entry__sim2c__body__simplify_expression_78, NULL, 204, 204, 13, 42},
-  {cont__sim2c__body__simplify_expression_79, &frame__sim2c__body__simplify_expression_78, 204, 204, 13, 45},
-  {cont__sim2c__body__simplify_expression_80, &frame__sim2c__body__simplify_expression_78, 204, 204, 13, 75},
-  {cont__sim2c__body__simplify_expression_81, &frame__sim2c__body__simplify_expression_78, 205, 205, 13, 52},
-  {cont__sim2c__body__simplify_expression_86, &frame__sim2c__body__simplify_expression_78, },
-  {entry__sim2c__body__simplify_expression_88, NULL, 208, 208, 13, 40},
-  {cont__sim2c__body__simplify_expression_89, &frame__sim2c__body__simplify_expression_88, 209, 209, 13, 44},
-  {cont__sim2c__body__simplify_expression_90, &frame__sim2c__body__simplify_expression_88, },
-  {entry__sim2c__body__simplify_expression_76, NULL, 203, 203, 13, 38},
-  {cont__sim2c__body__simplify_expression_77, &frame__sim2c__body__simplify_expression_76, },
-  {cont__sim2c__body__simplify_expression_87, &frame__sim2c__body__simplify_expression_76, 201, 209, 9, 45},
-  {entry__sim2c__body__simplify_expression_74, NULL, 200, 200, 14, 34},
-  {cont__sim2c__body__simplify_expression_75, &frame__sim2c__body__simplify_expression_74, 200, 209, 7, 46},
-  {entry__sim2c__body__simplify_expression_32, NULL, 156, 156, 5, 41},
-  {cont__sim2c__body__simplify_expression_33, &frame__sim2c__body__simplify_expression_32, 157, 157, 5, 45},
-  {cont__sim2c__body__simplify_expression_34, &frame__sim2c__body__simplify_expression_32, 162, 162, 18, 35},
-  {cont__sim2c__body__simplify_expression_35, &frame__sim2c__body__simplify_expression_32, 162, 181, 5, 56},
-  {cont__sim2c__body__simplify_expression_53, &frame__sim2c__body__simplify_expression_32, 185, 185, 14, 32},
-  {cont__sim2c__body__simplify_expression_54, &frame__sim2c__body__simplify_expression_32, 185, 195, 5, 47},
-  {cont__sim2c__body__simplify_expression_72, &frame__sim2c__body__simplify_expression_32, 199, 199, 14, 32},
-  {cont__sim2c__body__simplify_expression_73, &frame__sim2c__body__simplify_expression_32, 199, 209, 5, 47},
-  {cont__sim2c__body__simplify_expression_91, &frame__sim2c__body__simplify_expression_32, 212, 212, 5, 28},
-  {entry__sim2c__body__simplify_expression_95, NULL, 218, 218, 5, 32},
-  {cont__sim2c__body__simplify_expression_96, &frame__sim2c__body__simplify_expression_95, 222, 222, 30, 39},
-  {cont__sim2c__body__simplify_expression_97, &frame__sim2c__body__simplify_expression_95, 223, 223, 23, 32},
-  {cont__sim2c__body__simplify_expression_98, &frame__sim2c__body__simplify_expression_95, 224, 224, 22, 38},
-  {cont__sim2c__body__simplify_expression_99, &frame__sim2c__body__simplify_expression_95, 225, 225, 29, 52},
-  {cont__sim2c__body__simplify_expression_100, &frame__sim2c__body__simplify_expression_95, 226, 226, 26, 46},
-  {cont__sim2c__body__simplify_expression_101, &frame__sim2c__body__simplify_expression_95, 219, 226, 5, 47},
-  {cont__sim2c__body__simplify_expression_102, &frame__sim2c__body__simplify_expression_95, 227, 227, 14, 14},
-  {entry__sim2c__body__simplify_expression_1, NULL, 138, 138, 3, 42},
-  {cont__sim2c__body__simplify_expression_3, &frame__sim2c__body__simplify_expression_1, 140, 140, 12, 33},
-  {cont__sim2c__body__simplify_expression_4, &frame__sim2c__body__simplify_expression_1, 140, 148, 3, 39},
-  {cont__sim2c__body__simplify_expression_15, &frame__sim2c__body__simplify_expression_1, 149, 149, 12, 30},
-  {cont__sim2c__body__simplify_expression_16, &frame__sim2c__body__simplify_expression_1, 149, 154, 3, 45},
-  {cont__sim2c__body__simplify_expression_31, &frame__sim2c__body__simplify_expression_1, 155, 212, 3, 41},
-  {cont__sim2c__body__simplify_expression_92, &frame__sim2c__body__simplify_expression_1, 213, 213, 10, 33},
-  {cont__sim2c__body__simplify_expression_93, &frame__sim2c__body__simplify_expression_1, 213, 213, 10, 42},
-  {cont__sim2c__body__simplify_expression_94, &frame__sim2c__body__simplify_expression_1, 213, 227, 3, 14},
-  {cont__sim2c__body__simplify_expression_103, &frame__sim2c__body__simplify_expression_1, },
+  {entry__compiler__body__simplify_expression_8, NULL, 144, 144, 21, 39},
+  {cont__compiler__body__simplify_expression_9, &frame__compiler__body__simplify_expression_8, 144, 146, 41, 33},
+  {cont__compiler__body__simplify_expression_12, &frame__compiler__body__simplify_expression_8, 144, 146, 9, 33},
+  {entry__compiler__body__simplify_expression_13, NULL, 148, 148, 9, 32},
+  {cont__compiler__body__simplify_expression_14, &frame__compiler__body__simplify_expression_13, 148, 148, 37, 37},
+  {entry__compiler__body__simplify_expression_5, NULL, 141, 141, 5, 43},
+  {cont__compiler__body__simplify_expression_6, &frame__compiler__body__simplify_expression_5, 143, 143, 7, 27},
+  {cont__compiler__body__simplify_expression_7, &frame__compiler__body__simplify_expression_5, 142, 148, 5, 38},
+  {entry__compiler__body__simplify_expression_24, NULL, 153, 153, 44, 64},
+  {cont__compiler__body__simplify_expression_25, &frame__compiler__body__simplify_expression_24, 153, 153, 44, 75},
+  {cont__compiler__body__simplify_expression_26, &frame__compiler__body__simplify_expression_24, 153, 153, 44, 75},
+  {entry__compiler__body__simplify_expression_28, NULL, 154, 154, 10, 32},
+  {cont__compiler__body__simplify_expression_29, &frame__compiler__body__simplify_expression_28, 154, 154, 9, 38},
+  {cont__compiler__body__simplify_expression_30, &frame__compiler__body__simplify_expression_28, 154, 154, 43, 43},
+  {entry__compiler__body__simplify_expression_20, NULL, 152, 152, 7, 38},
+  {cont__compiler__body__simplify_expression_21, &frame__compiler__body__simplify_expression_20, 153, 153, 10, 28},
+  {cont__compiler__body__simplify_expression_22, &frame__compiler__body__simplify_expression_20, 153, 153, 10, 39},
+  {cont__compiler__body__simplify_expression_23, &frame__compiler__body__simplify_expression_20, 153, 153, 10, 75},
+  {cont__compiler__body__simplify_expression_27, &frame__compiler__body__simplify_expression_20, 153, 154, 7, 43},
+  {entry__compiler__body__simplify_expression_17, NULL, 150, 150, 5, 39},
+  {cont__compiler__body__simplify_expression_18, &frame__compiler__body__simplify_expression_17, 151, 151, 8, 28},
+  {cont__compiler__body__simplify_expression_19, &frame__compiler__body__simplify_expression_17, 151, 154, 5, 44},
+  {entry__compiler__body__simplify_expression_41, NULL, 169, 169, 13, 48},
+  {cont__compiler__body__simplify_expression_42, &frame__compiler__body__simplify_expression_41, 172, 172, 38, 80},
+  {cont__compiler__body__simplify_expression_43, &frame__compiler__body__simplify_expression_41, 173, 173, 31, 49},
+  {cont__compiler__body__simplify_expression_44, &frame__compiler__body__simplify_expression_41, 174, 174, 30, 52},
+  {cont__compiler__body__simplify_expression_45, &frame__compiler__body__simplify_expression_41, 175, 175, 37, 66},
+  {cont__compiler__body__simplify_expression_46, &frame__compiler__body__simplify_expression_41, 176, 176, 34, 60},
+  {cont__compiler__body__simplify_expression_47, &frame__compiler__body__simplify_expression_41, 170, 176, 13, 61},
+  {cont__compiler__body__simplify_expression_48, &frame__compiler__body__simplify_expression_41, 177, 177, 13, 44},
+  {cont__compiler__body__simplify_expression_49, &frame__compiler__body__simplify_expression_41, 178, 178, 13, 36},
+  {entry__compiler__body__simplify_expression_50, NULL, 180, 180, 13, 46},
+  {cont__compiler__body__simplify_expression_51, &frame__compiler__body__simplify_expression_50, 181, 181, 53, 53},
+  {entry__compiler__body__simplify_expression_39, NULL, 166, 166, 11, 42},
+  {cont__compiler__body__simplify_expression_40, &frame__compiler__body__simplify_expression_39, 165, 181, 9, 54},
+  {entry__compiler__body__simplify_expression_36, NULL, 163, 163, 7, 49},
+  {cont__compiler__body__simplify_expression_37, &frame__compiler__body__simplify_expression_36, 164, 164, 10, 33},
+  {cont__compiler__body__simplify_expression_38, &frame__compiler__body__simplify_expression_36, 164, 181, 7, 55},
+  {cont__compiler__body__simplify_expression_52, &frame__compiler__body__simplify_expression_36, },
+  {entry__compiler__body__simplify_expression_63, NULL, 191, 191, 13, 35},
+  {cont__compiler__body__simplify_expression_64, &frame__compiler__body__simplify_expression_63, 191, 191, 13, 38},
+  {cont__compiler__body__simplify_expression_65, &frame__compiler__body__simplify_expression_63, 191, 191, 13, 52},
+  {cont__compiler__body__simplify_expression_66, &frame__compiler__body__simplify_expression_63, 191, 191, 13, 52},
+  {entry__compiler__body__simplify_expression_59, NULL, 190, 190, 13, 42},
+  {cont__compiler__body__simplify_expression_60, &frame__compiler__body__simplify_expression_59, 190, 190, 13, 45},
+  {cont__compiler__body__simplify_expression_61, &frame__compiler__body__simplify_expression_59, 190, 190, 13, 75},
+  {cont__compiler__body__simplify_expression_62, &frame__compiler__body__simplify_expression_59, 191, 191, 13, 52},
+  {cont__compiler__body__simplify_expression_67, &frame__compiler__body__simplify_expression_59, },
+  {entry__compiler__body__simplify_expression_69, NULL, 194, 194, 13, 40},
+  {cont__compiler__body__simplify_expression_70, &frame__compiler__body__simplify_expression_69, 195, 195, 13, 44},
+  {cont__compiler__body__simplify_expression_71, &frame__compiler__body__simplify_expression_69, },
+  {entry__compiler__body__simplify_expression_57, NULL, 189, 189, 13, 38},
+  {cont__compiler__body__simplify_expression_58, &frame__compiler__body__simplify_expression_57, },
+  {cont__compiler__body__simplify_expression_68, &frame__compiler__body__simplify_expression_57, 187, 195, 9, 45},
+  {entry__compiler__body__simplify_expression_55, NULL, 186, 186, 14, 34},
+  {cont__compiler__body__simplify_expression_56, &frame__compiler__body__simplify_expression_55, 186, 195, 7, 46},
+  {entry__compiler__body__simplify_expression_82, NULL, 205, 205, 13, 35},
+  {cont__compiler__body__simplify_expression_83, &frame__compiler__body__simplify_expression_82, 205, 205, 13, 38},
+  {cont__compiler__body__simplify_expression_84, &frame__compiler__body__simplify_expression_82, 205, 205, 13, 52},
+  {cont__compiler__body__simplify_expression_85, &frame__compiler__body__simplify_expression_82, 205, 205, 13, 52},
+  {entry__compiler__body__simplify_expression_78, NULL, 204, 204, 13, 42},
+  {cont__compiler__body__simplify_expression_79, &frame__compiler__body__simplify_expression_78, 204, 204, 13, 45},
+  {cont__compiler__body__simplify_expression_80, &frame__compiler__body__simplify_expression_78, 204, 204, 13, 75},
+  {cont__compiler__body__simplify_expression_81, &frame__compiler__body__simplify_expression_78, 205, 205, 13, 52},
+  {cont__compiler__body__simplify_expression_86, &frame__compiler__body__simplify_expression_78, },
+  {entry__compiler__body__simplify_expression_88, NULL, 208, 208, 13, 40},
+  {cont__compiler__body__simplify_expression_89, &frame__compiler__body__simplify_expression_88, 209, 209, 13, 44},
+  {cont__compiler__body__simplify_expression_90, &frame__compiler__body__simplify_expression_88, },
+  {entry__compiler__body__simplify_expression_76, NULL, 203, 203, 13, 38},
+  {cont__compiler__body__simplify_expression_77, &frame__compiler__body__simplify_expression_76, },
+  {cont__compiler__body__simplify_expression_87, &frame__compiler__body__simplify_expression_76, 201, 209, 9, 45},
+  {entry__compiler__body__simplify_expression_74, NULL, 200, 200, 14, 34},
+  {cont__compiler__body__simplify_expression_75, &frame__compiler__body__simplify_expression_74, 200, 209, 7, 46},
+  {entry__compiler__body__simplify_expression_32, NULL, 156, 156, 5, 41},
+  {cont__compiler__body__simplify_expression_33, &frame__compiler__body__simplify_expression_32, 157, 157, 5, 45},
+  {cont__compiler__body__simplify_expression_34, &frame__compiler__body__simplify_expression_32, 162, 162, 18, 35},
+  {cont__compiler__body__simplify_expression_35, &frame__compiler__body__simplify_expression_32, 162, 181, 5, 56},
+  {cont__compiler__body__simplify_expression_53, &frame__compiler__body__simplify_expression_32, 185, 185, 14, 32},
+  {cont__compiler__body__simplify_expression_54, &frame__compiler__body__simplify_expression_32, 185, 195, 5, 47},
+  {cont__compiler__body__simplify_expression_72, &frame__compiler__body__simplify_expression_32, 199, 199, 14, 32},
+  {cont__compiler__body__simplify_expression_73, &frame__compiler__body__simplify_expression_32, 199, 209, 5, 47},
+  {cont__compiler__body__simplify_expression_91, &frame__compiler__body__simplify_expression_32, 212, 212, 5, 28},
+  {entry__compiler__body__simplify_expression_95, NULL, 218, 218, 5, 32},
+  {cont__compiler__body__simplify_expression_96, &frame__compiler__body__simplify_expression_95, 222, 222, 30, 39},
+  {cont__compiler__body__simplify_expression_97, &frame__compiler__body__simplify_expression_95, 223, 223, 23, 32},
+  {cont__compiler__body__simplify_expression_98, &frame__compiler__body__simplify_expression_95, 224, 224, 22, 38},
+  {cont__compiler__body__simplify_expression_99, &frame__compiler__body__simplify_expression_95, 225, 225, 29, 52},
+  {cont__compiler__body__simplify_expression_100, &frame__compiler__body__simplify_expression_95, 226, 226, 26, 46},
+  {cont__compiler__body__simplify_expression_101, &frame__compiler__body__simplify_expression_95, 219, 226, 5, 47},
+  {cont__compiler__body__simplify_expression_102, &frame__compiler__body__simplify_expression_95, 227, 227, 14, 14},
+  {entry__compiler__body__simplify_expression_1, NULL, 138, 138, 3, 42},
+  {cont__compiler__body__simplify_expression_3, &frame__compiler__body__simplify_expression_1, 140, 140, 12, 33},
+  {cont__compiler__body__simplify_expression_4, &frame__compiler__body__simplify_expression_1, 140, 148, 3, 39},
+  {cont__compiler__body__simplify_expression_15, &frame__compiler__body__simplify_expression_1, 149, 149, 12, 30},
+  {cont__compiler__body__simplify_expression_16, &frame__compiler__body__simplify_expression_1, 149, 154, 3, 45},
+  {cont__compiler__body__simplify_expression_31, &frame__compiler__body__simplify_expression_1, 155, 212, 3, 41},
+  {cont__compiler__body__simplify_expression_92, &frame__compiler__body__simplify_expression_1, 213, 213, 10, 33},
+  {cont__compiler__body__simplify_expression_93, &frame__compiler__body__simplify_expression_1, 213, 213, 10, 42},
+  {cont__compiler__body__simplify_expression_94, &frame__compiler__body__simplify_expression_1, 213, 227, 3, 14},
+  {cont__compiler__body__simplify_expression_103, &frame__compiler__body__simplify_expression_1, },
   {entry__do_store_5, NULL, 236, 236, 43, 71},
   {cont__do_store_6, &frame__do_store_5, 236, 236, 71, 71},
   {entry__do_store_10, NULL, 238, 238, 9, 36},
@@ -1525,171 +1525,171 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__store_result_2, &frame__store_result_1, 301, 301, 3, 38},
   {cont__store_result_3, &frame__store_result_1, 303, 303, 5, 38},
   {cont__store_result_4, &frame__store_result_1, 302, 315, 3, 67},
-  {entry__sim2c__call__simplify_statement_5, NULL, 323, 323, 41, 58},
-  {cont__sim2c__call__simplify_statement_6, &frame__sim2c__call__simplify_statement_5, 323, 323, 31, 59},
-  {cont__sim2c__call__simplify_statement_7, &frame__sim2c__call__simplify_statement_5, 323, 323, 31, 64},
-  {cont__sim2c__call__simplify_statement_8, &frame__sim2c__call__simplify_statement_5, 323, 323, 31, 64},
-  {entry__sim2c__call__simplify_statement_14, NULL, 328, 328, 23, 40},
-  {cont__sim2c__call__simplify_statement_15, &frame__sim2c__call__simplify_statement_14, 330, 330, 18, 44},
-  {cont__sim2c__call__simplify_statement_16, &frame__sim2c__call__simplify_statement_14, 330, 330, 46, 70},
-  {cont__sim2c__call__simplify_statement_17, &frame__sim2c__call__simplify_statement_14, 330, 330, 46, 73},
-  {cont__sim2c__call__simplify_statement_18, &frame__sim2c__call__simplify_statement_14, 330, 330, 13, 74},
-  {cont__sim2c__call__simplify_statement_19, &frame__sim2c__call__simplify_statement_14, 331, 331, 25, 44},
-  {cont__sim2c__call__simplify_statement_20, &frame__sim2c__call__simplify_statement_14, 332, 332, 24, 40},
-  {cont__sim2c__call__simplify_statement_21, &frame__sim2c__call__simplify_statement_14, 333, 333, 31, 54},
-  {cont__sim2c__call__simplify_statement_22, &frame__sim2c__call__simplify_statement_14, 334, 334, 28, 48},
-  {cont__sim2c__call__simplify_statement_23, &frame__sim2c__call__simplify_statement_14, 334, 334, 50, 50},
-  {entry__sim2c__call__simplify_statement_10, NULL, 324, 324, 13, 30},
-  {cont__sim2c__call__simplify_statement_11, &frame__sim2c__call__simplify_statement_10, 324, 324, 5, 33},
-  {cont__sim2c__call__simplify_statement_12, &frame__sim2c__call__simplify_statement_10, 325, 325, 8, 32},
-  {cont__sim2c__call__simplify_statement_13, &frame__sim2c__call__simplify_statement_10, 325, 334, 5, 50},
-  {entry__sim2c__call__simplify_statement_31, NULL, 338, 338, 28, 47},
-  {cont__sim2c__call__simplify_statement_32, &frame__sim2c__call__simplify_statement_31, 338, 338, 7, 47},
-  {cont__sim2c__call__simplify_statement_33, &frame__sim2c__call__simplify_statement_31, 338, 338, 47, 47},
-  {entry__sim2c__call__simplify_statement_37, NULL, 340, 340, 28, 47},
-  {cont__sim2c__call__simplify_statement_38, &frame__sim2c__call__simplify_statement_37, 340, 340, 7, 47},
-  {cont__sim2c__call__simplify_statement_39, &frame__sim2c__call__simplify_statement_37, 340, 340, 47, 47},
-  {entry__sim2c__call__simplify_statement_28, NULL, 337, 337, 8, 28},
-  {cont__sim2c__call__simplify_statement_29, &frame__sim2c__call__simplify_statement_28, 337, 337, 8, 39},
-  {cont__sim2c__call__simplify_statement_30, &frame__sim2c__call__simplify_statement_28, 337, 338, 5, 47},
-  {cont__sim2c__call__simplify_statement_34, &frame__sim2c__call__simplify_statement_28, 339, 339, 8, 28},
-  {cont__sim2c__call__simplify_statement_35, &frame__sim2c__call__simplify_statement_28, 339, 339, 8, 39},
-  {cont__sim2c__call__simplify_statement_36, &frame__sim2c__call__simplify_statement_28, 339, 340, 5, 47},
-  {cont__sim2c__call__simplify_statement_40, &frame__sim2c__call__simplify_statement_28, 341, 341, 26, 40},
-  {cont__sim2c__call__simplify_statement_41, &frame__sim2c__call__simplify_statement_28, 341, 341, 5, 40},
-  {cont__sim2c__call__simplify_statement_42, &frame__sim2c__call__simplify_statement_28, 341, 341, 40, 40},
-  {entry__sim2c__call__simplify_statement_57, NULL, 350, 350, 33, 52},
-  {cont__sim2c__call__simplify_statement_58, &frame__sim2c__call__simplify_statement_57, 350, 350, 15, 52},
-  {cont__sim2c__call__simplify_statement_59, &frame__sim2c__call__simplify_statement_57, 351, 351, 15, 20},
-  {entry__sim2c__call__simplify_statement_63, NULL, 353, 353, 42, 64},
-  {cont__sim2c__call__simplify_statement_64, &frame__sim2c__call__simplify_statement_63, 353, 353, 42, 64},
-  {entry__sim2c__call__simplify_statement_66, NULL, 354, 354, 35, 54},
-  {cont__sim2c__call__simplify_statement_67, &frame__sim2c__call__simplify_statement_66, 354, 354, 17, 54},
-  {cont__sim2c__call__simplify_statement_68, &frame__sim2c__call__simplify_statement_66, 355, 355, 17, 22},
-  {entry__sim2c__call__simplify_statement_61, NULL, 353, 353, 18, 37},
-  {cont__sim2c__call__simplify_statement_62, &frame__sim2c__call__simplify_statement_61, 353, 353, 18, 64},
-  {cont__sim2c__call__simplify_statement_65, &frame__sim2c__call__simplify_statement_61, 353, 355, 15, 22},
-  {entry__sim2c__call__simplify_statement_71, NULL, 357, 357, 35, 54},
-  {cont__sim2c__call__simplify_statement_72, &frame__sim2c__call__simplify_statement_71, 357, 357, 17, 54},
-  {cont__sim2c__call__simplify_statement_73, &frame__sim2c__call__simplify_statement_71, 358, 358, 18, 41},
-  {cont__sim2c__call__simplify_statement_74, &frame__sim2c__call__simplify_statement_71, 358, 358, 18, 44},
-  {cont__sim2c__call__simplify_statement_75, &frame__sim2c__call__simplify_statement_71, 358, 358, 17, 44},
-  {cont__sim2c__call__simplify_statement_76, &frame__sim2c__call__simplify_statement_71, 358, 358, 70, 70},
-  {entry__sim2c__call__simplify_statement_69, NULL, 356, 356, 18, 41},
-  {cont__sim2c__call__simplify_statement_70, &frame__sim2c__call__simplify_statement_69, 356, 358, 15, 70},
-  {entry__sim2c__call__simplify_statement_77, NULL, 360, 360, 17, 45},
-  {cont__sim2c__call__simplify_statement_78, &frame__sim2c__call__simplify_statement_77, 361, 361, 18, 41},
-  {cont__sim2c__call__simplify_statement_79, &frame__sim2c__call__simplify_statement_77, 361, 361, 18, 44},
-  {cont__sim2c__call__simplify_statement_80, &frame__sim2c__call__simplify_statement_77, 361, 361, 17, 44},
-  {cont__sim2c__call__simplify_statement_81, &frame__sim2c__call__simplify_statement_77, 361, 361, 70, 70},
-  {entry__sim2c__call__simplify_statement_51, NULL, 348, 348, 21, 38},
-  {cont__sim2c__call__simplify_statement_52, &frame__sim2c__call__simplify_statement_51, 348, 348, 13, 41},
-  {cont__sim2c__call__simplify_statement_53, &frame__sim2c__call__simplify_statement_51, 349, 349, 16, 45},
-  {cont__sim2c__call__simplify_statement_54, &frame__sim2c__call__simplify_statement_51, 349, 349, 16, 53},
-  {cont__sim2c__call__simplify_statement_55, &frame__sim2c__call__simplify_statement_51, 349, 349, 16, 53},
-  {cont__sim2c__call__simplify_statement_56, &frame__sim2c__call__simplify_statement_51, 349, 351, 13, 20},
-  {cont__sim2c__call__simplify_statement_60, &frame__sim2c__call__simplify_statement_51, 352, 361, 13, 71},
-  {entry__sim2c__call__simplify_statement_82, NULL, 363, 363, 13, 41},
-  {cont__sim2c__call__simplify_statement_83, &frame__sim2c__call__simplify_statement_82, 364, 364, 14, 37},
-  {cont__sim2c__call__simplify_statement_84, &frame__sim2c__call__simplify_statement_82, 364, 364, 14, 40},
-  {cont__sim2c__call__simplify_statement_85, &frame__sim2c__call__simplify_statement_82, 364, 364, 13, 40},
-  {cont__sim2c__call__simplify_statement_86, &frame__sim2c__call__simplify_statement_82, 364, 364, 66, 66},
-  {entry__sim2c__call__simplify_statement_49, NULL, 347, 347, 11, 51},
-  {cont__sim2c__call__simplify_statement_50, &frame__sim2c__call__simplify_statement_49, 346, 364, 9, 67},
-  {entry__sim2c__call__simplify_statement_45, NULL, 344, 344, 20, 44},
-  {cont__sim2c__call__simplify_statement_46, &frame__sim2c__call__simplify_statement_45, 344, 344, 7, 47},
-  {cont__sim2c__call__simplify_statement_47, &frame__sim2c__call__simplify_statement_45, 345, 345, 10, 36},
-  {cont__sim2c__call__simplify_statement_48, &frame__sim2c__call__simplify_statement_45, 345, 364, 7, 68},
-  {entry__sim2c__call__simplify_statement_91, NULL, 368, 368, 11, 36},
-  {cont__sim2c__call__simplify_statement_92, &frame__sim2c__call__simplify_statement_91, 369, 369, 45, 45},
-  {entry__sim2c__call__simplify_statement_89, NULL, 367, 367, 12, 35},
-  {cont__sim2c__call__simplify_statement_90, &frame__sim2c__call__simplify_statement_89, 367, 369, 9, 45},
-  {cont__sim2c__call__simplify_statement_93, &frame__sim2c__call__simplify_statement_89, },
-  {entry__sim2c__call__simplify_statement_87, NULL, 366, 366, 20, 43},
-  {cont__sim2c__call__simplify_statement_88, &frame__sim2c__call__simplify_statement_87, 366, 369, 7, 46},
-  {cont__sim2c__call__simplify_statement_94, &frame__sim2c__call__simplify_statement_87, 369, 369, 47, 47},
-  {entry__sim2c__call__simplify_statement_105, NULL, 381, 381, 13, 43},
-  {entry__sim2c__call__simplify_statement_108, NULL, 390, 390, 17, 30},
-  {entry__sim2c__call__simplify_statement_109, NULL, 391, 391, 20, 45},
-  {cont__sim2c__call__simplify_statement_110, &frame__sim2c__call__simplify_statement_109, 391, 391, 17, 45},
-  {entry__sim2c__call__simplify_statement_106, NULL, 389, 389, 17, 44},
-  {cont__sim2c__call__simplify_statement_107, &frame__sim2c__call__simplify_statement_106, 387, 391, 13, 46},
-  {cont__sim2c__call__simplify_statement_111, &frame__sim2c__call__simplify_statement_106, 395, 395, 38, 54},
-  {cont__sim2c__call__simplify_statement_112, &frame__sim2c__call__simplify_statement_106, 396, 396, 31, 42},
-  {cont__sim2c__call__simplify_statement_113, &frame__sim2c__call__simplify_statement_106, 397, 397, 30, 52},
-  {cont__sim2c__call__simplify_statement_114, &frame__sim2c__call__simplify_statement_106, 398, 398, 37, 66},
-  {cont__sim2c__call__simplify_statement_115, &frame__sim2c__call__simplify_statement_106, 399, 399, 34, 60},
-  {cont__sim2c__call__simplify_statement_116, &frame__sim2c__call__simplify_statement_106, 393, 399, 13, 61},
-  {entry__sim2c__call__simplify_statement_101, NULL, 375, 375, 11, 35},
-  {cont__sim2c__call__simplify_statement_102, &frame__sim2c__call__simplify_statement_101, 375, 375, 11, 40},
-  {cont__sim2c__call__simplify_statement_103, &frame__sim2c__call__simplify_statement_101, 380, 380, 11, 40},
-  {cont__sim2c__call__simplify_statement_104, &frame__sim2c__call__simplify_statement_101, 379, 399, 9, 63},
-  {entry__sim2c__call__simplify_statement_99, NULL, 373, 373, 10, 31},
-  {cont__sim2c__call__simplify_statement_100, &frame__sim2c__call__simplify_statement_99, 373, 399, 7, 64},
-  {entry__sim2c__call__simplify_statement_98, NULL, 372, 399, 5, 65},
-  {entry__sim2c__call__simplify_statement_1, NULL, 322, 322, 3, 47},
-  {cont__sim2c__call__simplify_statement_3, &frame__sim2c__call__simplify_statement_1, 323, 323, 6, 26},
-  {cont__sim2c__call__simplify_statement_4, &frame__sim2c__call__simplify_statement_1, 323, 323, 6, 64},
-  {cont__sim2c__call__simplify_statement_9, &frame__sim2c__call__simplify_statement_1, 323, 334, 3, 51},
-  {cont__sim2c__call__simplify_statement_24, &frame__sim2c__call__simplify_statement_1, 335, 335, 3, 47},
-  {cont__sim2c__call__simplify_statement_25, &frame__sim2c__call__simplify_statement_1, 336, 336, 6, 21},
-  {cont__sim2c__call__simplify_statement_26, &frame__sim2c__call__simplify_statement_1, 336, 336, 6, 32},
-  {cont__sim2c__call__simplify_statement_27, &frame__sim2c__call__simplify_statement_1, 336, 341, 3, 40},
-  {cont__sim2c__call__simplify_statement_43, &frame__sim2c__call__simplify_statement_1, 343, 343, 5, 25},
-  {cont__sim2c__call__simplify_statement_44, &frame__sim2c__call__simplify_statement_1, 342, 369, 3, 48},
-  {cont__sim2c__call__simplify_statement_95, &frame__sim2c__call__simplify_statement_1, 370, 370, 3, 23},
-  {cont__sim2c__call__simplify_statement_96, &frame__sim2c__call__simplify_statement_1, 371, 371, 6, 34},
-  {cont__sim2c__call__simplify_statement_97, &frame__sim2c__call__simplify_statement_1, 371, 399, 3, 66},
-  {cont__sim2c__call__simplify_statement_117, &frame__sim2c__call__simplify_statement_1, 399, 399, 66, 66},
-  {entry__sim2c__function_call__simplify_expression_1, NULL, 405, 405, 3, 51},
-  {cont__sim2c__function_call__simplify_expression_3, &frame__sim2c__function_call__simplify_expression_1, 406, 406, 3, 30},
-  {cont__sim2c__function_call__simplify_expression_4, &frame__sim2c__function_call__simplify_expression_1, 409, 409, 19, 34},
-  {cont__sim2c__function_call__simplify_expression_5, &frame__sim2c__function_call__simplify_expression_1, 410, 410, 33, 57},
-  {cont__sim2c__function_call__simplify_expression_6, &frame__sim2c__function_call__simplify_expression_1, 410, 410, 28, 63},
-  {cont__sim2c__function_call__simplify_expression_7, &frame__sim2c__function_call__simplify_expression_1, 411, 411, 21, 38},
-  {cont__sim2c__function_call__simplify_expression_8, &frame__sim2c__function_call__simplify_expression_1, 412, 412, 20, 36},
-  {cont__sim2c__function_call__simplify_expression_9, &frame__sim2c__function_call__simplify_expression_1, 413, 413, 27, 50},
-  {cont__sim2c__function_call__simplify_expression_10, &frame__sim2c__function_call__simplify_expression_1, 414, 414, 24, 44},
-  {cont__sim2c__function_call__simplify_expression_11, &frame__sim2c__function_call__simplify_expression_1, 407, 414, 3, 45},
-  {cont__sim2c__function_call__simplify_expression_12, &frame__sim2c__function_call__simplify_expression_1, 415, 415, 3, 9},
-  {entry__sim2c__attribute_value_pair__simplify_expression_1, NULL, 421, 421, 3, 58},
-  {cont__sim2c__attribute_value_pair__simplify_expression_3, &frame__sim2c__attribute_value_pair__simplify_expression_1, 422, 423, 3, 47},
-  {cont__sim2c__attribute_value_pair__simplify_expression_4, &frame__sim2c__attribute_value_pair__simplify_expression_1, 423, 423, 48, 48},
-  {entry__sim2c__attribute_function_pair__simplify_expression_1, NULL, 429, 429, 3, 61},
-  {cont__sim2c__attribute_function_pair__simplify_expression_3, &frame__sim2c__attribute_function_pair__simplify_expression_1, 430, 431, 3, 47},
-  {cont__sim2c__attribute_function_pair__simplify_expression_4, &frame__sim2c__attribute_function_pair__simplify_expression_1, 431, 431, 48, 48},
-  {entry__sim2c__c_code__simplify_statement_4, NULL, 438, 438, 35, 35},
-  {entry__sim2c__c_code__simplify_statement_10, NULL, 443, 443, 22, 43},
-  {cont__sim2c__c_code__simplify_statement_11, &frame__sim2c__c_code__simplify_statement_10, 443, 443, 48, 48},
-  {entry__sim2c__c_code__simplify_statement_7, NULL, 442, 442, 21, 39},
-  {cont__sim2c__c_code__simplify_statement_8, &frame__sim2c__c_code__simplify_statement_7, 442, 442, 7, 40},
-  {cont__sim2c__c_code__simplify_statement_9, &frame__sim2c__c_code__simplify_statement_7, 443, 443, 7, 48},
-  {cont__sim2c__c_code__simplify_statement_12, &frame__sim2c__c_code__simplify_statement_7, 443, 443, 48, 48},
-  {entry__sim2c__c_code__simplify_statement_16, NULL, 446, 446, 22, 41},
-  {cont__sim2c__c_code__simplify_statement_17, &frame__sim2c__c_code__simplify_statement_16, 446, 446, 46, 46},
-  {entry__sim2c__c_code__simplify_statement_13, NULL, 445, 445, 21, 39},
-  {cont__sim2c__c_code__simplify_statement_14, &frame__sim2c__c_code__simplify_statement_13, 445, 445, 7, 40},
-  {cont__sim2c__c_code__simplify_statement_15, &frame__sim2c__c_code__simplify_statement_13, 446, 446, 7, 46},
-  {cont__sim2c__c_code__simplify_statement_18, &frame__sim2c__c_code__simplify_statement_13, 446, 446, 46, 46},
-  {entry__sim2c__c_code__simplify_statement_25, NULL, 449, 449, 22, 45},
-  {cont__sim2c__c_code__simplify_statement_26, &frame__sim2c__c_code__simplify_statement_25, 449, 449, 50, 50},
-  {entry__sim2c__c_code__simplify_statement_19, NULL, 448, 448, 20, 34},
-  {cont__sim2c__c_code__simplify_statement_20, &frame__sim2c__c_code__simplify_statement_19, 448, 448, 20, 47},
-  {cont__sim2c__c_code__simplify_statement_21, &frame__sim2c__c_code__simplify_statement_19, 448, 448, 49, 60},
-  {cont__sim2c__c_code__simplify_statement_22, &frame__sim2c__c_code__simplify_statement_19, 448, 448, 63, 63},
-  {cont__sim2c__c_code__simplify_statement_23, &frame__sim2c__c_code__simplify_statement_19, 448, 448, 7, 64},
-  {cont__sim2c__c_code__simplify_statement_24, &frame__sim2c__c_code__simplify_statement_19, 449, 449, 7, 50},
-  {cont__sim2c__c_code__simplify_statement_27, &frame__sim2c__c_code__simplify_statement_19, 449, 449, 50, 50},
-  {entry__sim2c__c_code__simplify_statement_1, NULL, 437, 437, 3, 44},
-  {cont__sim2c__c_code__simplify_statement_3, &frame__sim2c__c_code__simplify_statement_1, 438, 438, 3, 35},
-  {cont__sim2c__c_code__simplify_statement_5, &frame__sim2c__c_code__simplify_statement_1, 440, 440, 5, 17},
-  {cont__sim2c__c_code__simplify_statement_6, &frame__sim2c__c_code__simplify_statement_1, 439, 449, 3, 51},
-  {cont__sim2c__c_code__simplify_statement_31, &frame__sim2c__c_code__simplify_statement_1, 450, 450, 3, 24},
-  {cont__sim2c__c_code__simplify_statement_32, &frame__sim2c__c_code__simplify_statement_1, 450, 450, 24, 24},
-  {entry__sim2c__c_body__simplify_expression_4, NULL, 457, 457, 35, 35},
-  {entry__sim2c__c_body__simplify_expression_1, NULL, 456, 456, 3, 44},
-  {cont__sim2c__c_body__simplify_expression_3, &frame__sim2c__c_body__simplify_expression_1, 457, 457, 3, 35},
-  {cont__sim2c__c_body__simplify_expression_5, &frame__sim2c__c_body__simplify_expression_1, 457, 457, 35, 35}
+  {entry__compiler__call__simplify_statement_5, NULL, 323, 323, 41, 58},
+  {cont__compiler__call__simplify_statement_6, &frame__compiler__call__simplify_statement_5, 323, 323, 31, 59},
+  {cont__compiler__call__simplify_statement_7, &frame__compiler__call__simplify_statement_5, 323, 323, 31, 64},
+  {cont__compiler__call__simplify_statement_8, &frame__compiler__call__simplify_statement_5, 323, 323, 31, 64},
+  {entry__compiler__call__simplify_statement_14, NULL, 328, 328, 23, 40},
+  {cont__compiler__call__simplify_statement_15, &frame__compiler__call__simplify_statement_14, 330, 330, 18, 44},
+  {cont__compiler__call__simplify_statement_16, &frame__compiler__call__simplify_statement_14, 330, 330, 46, 70},
+  {cont__compiler__call__simplify_statement_17, &frame__compiler__call__simplify_statement_14, 330, 330, 46, 73},
+  {cont__compiler__call__simplify_statement_18, &frame__compiler__call__simplify_statement_14, 330, 330, 13, 74},
+  {cont__compiler__call__simplify_statement_19, &frame__compiler__call__simplify_statement_14, 331, 331, 25, 44},
+  {cont__compiler__call__simplify_statement_20, &frame__compiler__call__simplify_statement_14, 332, 332, 24, 40},
+  {cont__compiler__call__simplify_statement_21, &frame__compiler__call__simplify_statement_14, 333, 333, 31, 54},
+  {cont__compiler__call__simplify_statement_22, &frame__compiler__call__simplify_statement_14, 334, 334, 28, 48},
+  {cont__compiler__call__simplify_statement_23, &frame__compiler__call__simplify_statement_14, 334, 334, 50, 50},
+  {entry__compiler__call__simplify_statement_10, NULL, 324, 324, 13, 30},
+  {cont__compiler__call__simplify_statement_11, &frame__compiler__call__simplify_statement_10, 324, 324, 5, 33},
+  {cont__compiler__call__simplify_statement_12, &frame__compiler__call__simplify_statement_10, 325, 325, 8, 32},
+  {cont__compiler__call__simplify_statement_13, &frame__compiler__call__simplify_statement_10, 325, 334, 5, 50},
+  {entry__compiler__call__simplify_statement_31, NULL, 338, 338, 28, 47},
+  {cont__compiler__call__simplify_statement_32, &frame__compiler__call__simplify_statement_31, 338, 338, 7, 47},
+  {cont__compiler__call__simplify_statement_33, &frame__compiler__call__simplify_statement_31, 338, 338, 47, 47},
+  {entry__compiler__call__simplify_statement_37, NULL, 340, 340, 28, 47},
+  {cont__compiler__call__simplify_statement_38, &frame__compiler__call__simplify_statement_37, 340, 340, 7, 47},
+  {cont__compiler__call__simplify_statement_39, &frame__compiler__call__simplify_statement_37, 340, 340, 47, 47},
+  {entry__compiler__call__simplify_statement_28, NULL, 337, 337, 8, 28},
+  {cont__compiler__call__simplify_statement_29, &frame__compiler__call__simplify_statement_28, 337, 337, 8, 39},
+  {cont__compiler__call__simplify_statement_30, &frame__compiler__call__simplify_statement_28, 337, 338, 5, 47},
+  {cont__compiler__call__simplify_statement_34, &frame__compiler__call__simplify_statement_28, 339, 339, 8, 28},
+  {cont__compiler__call__simplify_statement_35, &frame__compiler__call__simplify_statement_28, 339, 339, 8, 39},
+  {cont__compiler__call__simplify_statement_36, &frame__compiler__call__simplify_statement_28, 339, 340, 5, 47},
+  {cont__compiler__call__simplify_statement_40, &frame__compiler__call__simplify_statement_28, 341, 341, 26, 40},
+  {cont__compiler__call__simplify_statement_41, &frame__compiler__call__simplify_statement_28, 341, 341, 5, 40},
+  {cont__compiler__call__simplify_statement_42, &frame__compiler__call__simplify_statement_28, 341, 341, 40, 40},
+  {entry__compiler__call__simplify_statement_57, NULL, 350, 350, 33, 52},
+  {cont__compiler__call__simplify_statement_58, &frame__compiler__call__simplify_statement_57, 350, 350, 15, 52},
+  {cont__compiler__call__simplify_statement_59, &frame__compiler__call__simplify_statement_57, 351, 351, 15, 20},
+  {entry__compiler__call__simplify_statement_63, NULL, 353, 353, 42, 64},
+  {cont__compiler__call__simplify_statement_64, &frame__compiler__call__simplify_statement_63, 353, 353, 42, 64},
+  {entry__compiler__call__simplify_statement_66, NULL, 354, 354, 35, 54},
+  {cont__compiler__call__simplify_statement_67, &frame__compiler__call__simplify_statement_66, 354, 354, 17, 54},
+  {cont__compiler__call__simplify_statement_68, &frame__compiler__call__simplify_statement_66, 355, 355, 17, 22},
+  {entry__compiler__call__simplify_statement_61, NULL, 353, 353, 18, 37},
+  {cont__compiler__call__simplify_statement_62, &frame__compiler__call__simplify_statement_61, 353, 353, 18, 64},
+  {cont__compiler__call__simplify_statement_65, &frame__compiler__call__simplify_statement_61, 353, 355, 15, 22},
+  {entry__compiler__call__simplify_statement_71, NULL, 357, 357, 35, 54},
+  {cont__compiler__call__simplify_statement_72, &frame__compiler__call__simplify_statement_71, 357, 357, 17, 54},
+  {cont__compiler__call__simplify_statement_73, &frame__compiler__call__simplify_statement_71, 358, 358, 18, 41},
+  {cont__compiler__call__simplify_statement_74, &frame__compiler__call__simplify_statement_71, 358, 358, 18, 44},
+  {cont__compiler__call__simplify_statement_75, &frame__compiler__call__simplify_statement_71, 358, 358, 17, 44},
+  {cont__compiler__call__simplify_statement_76, &frame__compiler__call__simplify_statement_71, 358, 358, 70, 70},
+  {entry__compiler__call__simplify_statement_69, NULL, 356, 356, 18, 41},
+  {cont__compiler__call__simplify_statement_70, &frame__compiler__call__simplify_statement_69, 356, 358, 15, 70},
+  {entry__compiler__call__simplify_statement_77, NULL, 360, 360, 17, 45},
+  {cont__compiler__call__simplify_statement_78, &frame__compiler__call__simplify_statement_77, 361, 361, 18, 41},
+  {cont__compiler__call__simplify_statement_79, &frame__compiler__call__simplify_statement_77, 361, 361, 18, 44},
+  {cont__compiler__call__simplify_statement_80, &frame__compiler__call__simplify_statement_77, 361, 361, 17, 44},
+  {cont__compiler__call__simplify_statement_81, &frame__compiler__call__simplify_statement_77, 361, 361, 70, 70},
+  {entry__compiler__call__simplify_statement_51, NULL, 348, 348, 21, 38},
+  {cont__compiler__call__simplify_statement_52, &frame__compiler__call__simplify_statement_51, 348, 348, 13, 41},
+  {cont__compiler__call__simplify_statement_53, &frame__compiler__call__simplify_statement_51, 349, 349, 16, 45},
+  {cont__compiler__call__simplify_statement_54, &frame__compiler__call__simplify_statement_51, 349, 349, 16, 53},
+  {cont__compiler__call__simplify_statement_55, &frame__compiler__call__simplify_statement_51, 349, 349, 16, 53},
+  {cont__compiler__call__simplify_statement_56, &frame__compiler__call__simplify_statement_51, 349, 351, 13, 20},
+  {cont__compiler__call__simplify_statement_60, &frame__compiler__call__simplify_statement_51, 352, 361, 13, 71},
+  {entry__compiler__call__simplify_statement_82, NULL, 363, 363, 13, 41},
+  {cont__compiler__call__simplify_statement_83, &frame__compiler__call__simplify_statement_82, 364, 364, 14, 37},
+  {cont__compiler__call__simplify_statement_84, &frame__compiler__call__simplify_statement_82, 364, 364, 14, 40},
+  {cont__compiler__call__simplify_statement_85, &frame__compiler__call__simplify_statement_82, 364, 364, 13, 40},
+  {cont__compiler__call__simplify_statement_86, &frame__compiler__call__simplify_statement_82, 364, 364, 66, 66},
+  {entry__compiler__call__simplify_statement_49, NULL, 347, 347, 11, 51},
+  {cont__compiler__call__simplify_statement_50, &frame__compiler__call__simplify_statement_49, 346, 364, 9, 67},
+  {entry__compiler__call__simplify_statement_45, NULL, 344, 344, 20, 44},
+  {cont__compiler__call__simplify_statement_46, &frame__compiler__call__simplify_statement_45, 344, 344, 7, 47},
+  {cont__compiler__call__simplify_statement_47, &frame__compiler__call__simplify_statement_45, 345, 345, 10, 36},
+  {cont__compiler__call__simplify_statement_48, &frame__compiler__call__simplify_statement_45, 345, 364, 7, 68},
+  {entry__compiler__call__simplify_statement_91, NULL, 368, 368, 11, 36},
+  {cont__compiler__call__simplify_statement_92, &frame__compiler__call__simplify_statement_91, 369, 369, 45, 45},
+  {entry__compiler__call__simplify_statement_89, NULL, 367, 367, 12, 35},
+  {cont__compiler__call__simplify_statement_90, &frame__compiler__call__simplify_statement_89, 367, 369, 9, 45},
+  {cont__compiler__call__simplify_statement_93, &frame__compiler__call__simplify_statement_89, },
+  {entry__compiler__call__simplify_statement_87, NULL, 366, 366, 20, 43},
+  {cont__compiler__call__simplify_statement_88, &frame__compiler__call__simplify_statement_87, 366, 369, 7, 46},
+  {cont__compiler__call__simplify_statement_94, &frame__compiler__call__simplify_statement_87, 369, 369, 47, 47},
+  {entry__compiler__call__simplify_statement_105, NULL, 381, 381, 13, 43},
+  {entry__compiler__call__simplify_statement_108, NULL, 390, 390, 17, 30},
+  {entry__compiler__call__simplify_statement_109, NULL, 391, 391, 20, 45},
+  {cont__compiler__call__simplify_statement_110, &frame__compiler__call__simplify_statement_109, 391, 391, 17, 45},
+  {entry__compiler__call__simplify_statement_106, NULL, 389, 389, 17, 44},
+  {cont__compiler__call__simplify_statement_107, &frame__compiler__call__simplify_statement_106, 387, 391, 13, 46},
+  {cont__compiler__call__simplify_statement_111, &frame__compiler__call__simplify_statement_106, 395, 395, 38, 54},
+  {cont__compiler__call__simplify_statement_112, &frame__compiler__call__simplify_statement_106, 396, 396, 31, 42},
+  {cont__compiler__call__simplify_statement_113, &frame__compiler__call__simplify_statement_106, 397, 397, 30, 52},
+  {cont__compiler__call__simplify_statement_114, &frame__compiler__call__simplify_statement_106, 398, 398, 37, 66},
+  {cont__compiler__call__simplify_statement_115, &frame__compiler__call__simplify_statement_106, 399, 399, 34, 60},
+  {cont__compiler__call__simplify_statement_116, &frame__compiler__call__simplify_statement_106, 393, 399, 13, 61},
+  {entry__compiler__call__simplify_statement_101, NULL, 375, 375, 11, 35},
+  {cont__compiler__call__simplify_statement_102, &frame__compiler__call__simplify_statement_101, 375, 375, 11, 40},
+  {cont__compiler__call__simplify_statement_103, &frame__compiler__call__simplify_statement_101, 380, 380, 11, 40},
+  {cont__compiler__call__simplify_statement_104, &frame__compiler__call__simplify_statement_101, 379, 399, 9, 63},
+  {entry__compiler__call__simplify_statement_99, NULL, 373, 373, 10, 31},
+  {cont__compiler__call__simplify_statement_100, &frame__compiler__call__simplify_statement_99, 373, 399, 7, 64},
+  {entry__compiler__call__simplify_statement_98, NULL, 372, 399, 5, 65},
+  {entry__compiler__call__simplify_statement_1, NULL, 322, 322, 3, 47},
+  {cont__compiler__call__simplify_statement_3, &frame__compiler__call__simplify_statement_1, 323, 323, 6, 26},
+  {cont__compiler__call__simplify_statement_4, &frame__compiler__call__simplify_statement_1, 323, 323, 6, 64},
+  {cont__compiler__call__simplify_statement_9, &frame__compiler__call__simplify_statement_1, 323, 334, 3, 51},
+  {cont__compiler__call__simplify_statement_24, &frame__compiler__call__simplify_statement_1, 335, 335, 3, 47},
+  {cont__compiler__call__simplify_statement_25, &frame__compiler__call__simplify_statement_1, 336, 336, 6, 21},
+  {cont__compiler__call__simplify_statement_26, &frame__compiler__call__simplify_statement_1, 336, 336, 6, 32},
+  {cont__compiler__call__simplify_statement_27, &frame__compiler__call__simplify_statement_1, 336, 341, 3, 40},
+  {cont__compiler__call__simplify_statement_43, &frame__compiler__call__simplify_statement_1, 343, 343, 5, 25},
+  {cont__compiler__call__simplify_statement_44, &frame__compiler__call__simplify_statement_1, 342, 369, 3, 48},
+  {cont__compiler__call__simplify_statement_95, &frame__compiler__call__simplify_statement_1, 370, 370, 3, 23},
+  {cont__compiler__call__simplify_statement_96, &frame__compiler__call__simplify_statement_1, 371, 371, 6, 34},
+  {cont__compiler__call__simplify_statement_97, &frame__compiler__call__simplify_statement_1, 371, 399, 3, 66},
+  {cont__compiler__call__simplify_statement_117, &frame__compiler__call__simplify_statement_1, 399, 399, 66, 66},
+  {entry__compiler__function_call__simplify_expression_1, NULL, 405, 405, 3, 51},
+  {cont__compiler__function_call__simplify_expression_3, &frame__compiler__function_call__simplify_expression_1, 406, 406, 3, 30},
+  {cont__compiler__function_call__simplify_expression_4, &frame__compiler__function_call__simplify_expression_1, 409, 409, 19, 34},
+  {cont__compiler__function_call__simplify_expression_5, &frame__compiler__function_call__simplify_expression_1, 410, 410, 33, 57},
+  {cont__compiler__function_call__simplify_expression_6, &frame__compiler__function_call__simplify_expression_1, 410, 410, 28, 63},
+  {cont__compiler__function_call__simplify_expression_7, &frame__compiler__function_call__simplify_expression_1, 411, 411, 21, 38},
+  {cont__compiler__function_call__simplify_expression_8, &frame__compiler__function_call__simplify_expression_1, 412, 412, 20, 36},
+  {cont__compiler__function_call__simplify_expression_9, &frame__compiler__function_call__simplify_expression_1, 413, 413, 27, 50},
+  {cont__compiler__function_call__simplify_expression_10, &frame__compiler__function_call__simplify_expression_1, 414, 414, 24, 44},
+  {cont__compiler__function_call__simplify_expression_11, &frame__compiler__function_call__simplify_expression_1, 407, 414, 3, 45},
+  {cont__compiler__function_call__simplify_expression_12, &frame__compiler__function_call__simplify_expression_1, 415, 415, 3, 9},
+  {entry__compiler__attribute_value_pair__simplify_expression_1, NULL, 421, 421, 3, 58},
+  {cont__compiler__attribute_value_pair__simplify_expression_3, &frame__compiler__attribute_value_pair__simplify_expression_1, 422, 423, 3, 47},
+  {cont__compiler__attribute_value_pair__simplify_expression_4, &frame__compiler__attribute_value_pair__simplify_expression_1, 423, 423, 48, 48},
+  {entry__compiler__attribute_function_pair__simplify_expression_1, NULL, 429, 429, 3, 61},
+  {cont__compiler__attribute_function_pair__simplify_expression_3, &frame__compiler__attribute_function_pair__simplify_expression_1, 430, 431, 3, 47},
+  {cont__compiler__attribute_function_pair__simplify_expression_4, &frame__compiler__attribute_function_pair__simplify_expression_1, 431, 431, 48, 48},
+  {entry__compiler__c_code__simplify_statement_4, NULL, 438, 438, 35, 35},
+  {entry__compiler__c_code__simplify_statement_10, NULL, 443, 443, 22, 43},
+  {cont__compiler__c_code__simplify_statement_11, &frame__compiler__c_code__simplify_statement_10, 443, 443, 48, 48},
+  {entry__compiler__c_code__simplify_statement_7, NULL, 442, 442, 21, 39},
+  {cont__compiler__c_code__simplify_statement_8, &frame__compiler__c_code__simplify_statement_7, 442, 442, 7, 40},
+  {cont__compiler__c_code__simplify_statement_9, &frame__compiler__c_code__simplify_statement_7, 443, 443, 7, 48},
+  {cont__compiler__c_code__simplify_statement_12, &frame__compiler__c_code__simplify_statement_7, 443, 443, 48, 48},
+  {entry__compiler__c_code__simplify_statement_16, NULL, 446, 446, 22, 41},
+  {cont__compiler__c_code__simplify_statement_17, &frame__compiler__c_code__simplify_statement_16, 446, 446, 46, 46},
+  {entry__compiler__c_code__simplify_statement_13, NULL, 445, 445, 21, 39},
+  {cont__compiler__c_code__simplify_statement_14, &frame__compiler__c_code__simplify_statement_13, 445, 445, 7, 40},
+  {cont__compiler__c_code__simplify_statement_15, &frame__compiler__c_code__simplify_statement_13, 446, 446, 7, 46},
+  {cont__compiler__c_code__simplify_statement_18, &frame__compiler__c_code__simplify_statement_13, 446, 446, 46, 46},
+  {entry__compiler__c_code__simplify_statement_25, NULL, 449, 449, 22, 45},
+  {cont__compiler__c_code__simplify_statement_26, &frame__compiler__c_code__simplify_statement_25, 449, 449, 50, 50},
+  {entry__compiler__c_code__simplify_statement_19, NULL, 448, 448, 20, 34},
+  {cont__compiler__c_code__simplify_statement_20, &frame__compiler__c_code__simplify_statement_19, 448, 448, 20, 47},
+  {cont__compiler__c_code__simplify_statement_21, &frame__compiler__c_code__simplify_statement_19, 448, 448, 49, 60},
+  {cont__compiler__c_code__simplify_statement_22, &frame__compiler__c_code__simplify_statement_19, 448, 448, 63, 63},
+  {cont__compiler__c_code__simplify_statement_23, &frame__compiler__c_code__simplify_statement_19, 448, 448, 7, 64},
+  {cont__compiler__c_code__simplify_statement_24, &frame__compiler__c_code__simplify_statement_19, 449, 449, 7, 50},
+  {cont__compiler__c_code__simplify_statement_27, &frame__compiler__c_code__simplify_statement_19, 449, 449, 50, 50},
+  {entry__compiler__c_code__simplify_statement_1, NULL, 437, 437, 3, 44},
+  {cont__compiler__c_code__simplify_statement_3, &frame__compiler__c_code__simplify_statement_1, 438, 438, 3, 35},
+  {cont__compiler__c_code__simplify_statement_5, &frame__compiler__c_code__simplify_statement_1, 440, 440, 5, 17},
+  {cont__compiler__c_code__simplify_statement_6, &frame__compiler__c_code__simplify_statement_1, 439, 449, 3, 51},
+  {cont__compiler__c_code__simplify_statement_31, &frame__compiler__c_code__simplify_statement_1, 450, 450, 3, 24},
+  {cont__compiler__c_code__simplify_statement_32, &frame__compiler__c_code__simplify_statement_1, 450, 450, 24, 24},
+  {entry__compiler__c_body__simplify_expression_4, NULL, 457, 457, 35, 35},
+  {entry__compiler__c_body__simplify_expression_1, NULL, 456, 456, 3, 44},
+  {cont__compiler__c_body__simplify_expression_3, &frame__compiler__c_body__simplify_expression_1, 457, 457, 3, 35},
+  {cont__compiler__c_body__simplify_expression_5, &frame__compiler__c_body__simplify_expression_1, 457, 457, 35, 35}
 };
 
 union NODE {
@@ -1700,15 +1700,15 @@ union NODE {
   CONTINUATION continuation;
   CLOSURE closure;
 };
-static void type__sim2c__simplify_statement(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__sim2c__simplify_statement);
+static void type__compiler__simplify_statement(void) {
+  myself = get_attribute(arguments->slots[0], poly_idx__compiler__simplify_statement);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
       if (argument_count != 2) invalid_arguments_error();
       NODE *attr = arguments->slots[1];
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__sim2c__simplify_statement, attr);
+      set_attribute_value(temp->attributes, poly_idx__compiler__simplify_statement, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -1722,15 +1722,15 @@ static void type__sim2c__simplify_statement(void) {
     func = myself->type;
   }
 }
-static void type__sim2c__simplify_expression(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__sim2c__simplify_expression);
+static void type__compiler__simplify_expression(void) {
+  myself = get_attribute(arguments->slots[0], poly_idx__compiler__simplify_expression);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
       if (argument_count != 2) invalid_arguments_error();
       NODE *attr = arguments->slots[1];
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__sim2c__simplify_expression, attr);
+      set_attribute_value(temp->attributes, poly_idx__compiler__simplify_expression, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -1752,7 +1752,7 @@ static NODE *character__42;
 
 static const char *used_namespaces[] = {
   "std",
-  "sim2c",
+  "compiler",
   "node",
   NULL
 };
@@ -3127,7 +3127,7 @@ static void cont__simplify_arguments_57(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__check_usage_35(void) {
+static void entry__compiler__check_usage_35(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3145,9 +3145,9 @@ static void entry__sim2c__check_usage_35(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_36;
+  frame->cont = cont__compiler__check_usage_36;
 }
-static void cont__sim2c__check_usage_36(void) {
+static void cont__compiler__check_usage_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3163,9 +3163,9 @@ static void cont__sim2c__check_usage_36(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_38;
+  frame->cont = cont__compiler__check_usage_38;
 }
-static void cont__sim2c__check_usage_38(void) {
+static void cont__compiler__check_usage_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3182,7 +3182,7 @@ static void cont__sim2c__check_usage_38(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_28(void) {
+static void entry__compiler__check_usage_28(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3200,9 +3200,9 @@ static void entry__sim2c__check_usage_28(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_29;
+  frame->cont = cont__compiler__check_usage_29;
 }
-static void cont__sim2c__check_usage_29(void) {
+static void cont__compiler__check_usage_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3218,9 +3218,9 @@ static void cont__sim2c__check_usage_29(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_31;
+  frame->cont = cont__compiler__check_usage_31;
 }
-static void cont__sim2c__check_usage_31(void) {
+static void cont__compiler__check_usage_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3237,7 +3237,7 @@ static void cont__sim2c__check_usage_31(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_21(void) {
+static void entry__compiler__check_usage_21(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3255,9 +3255,9 @@ static void entry__sim2c__check_usage_21(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_22;
+  frame->cont = cont__compiler__check_usage_22;
 }
-static void cont__sim2c__check_usage_22(void) {
+static void cont__compiler__check_usage_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3273,9 +3273,9 @@ static void cont__sim2c__check_usage_22(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_24;
+  frame->cont = cont__compiler__check_usage_24;
 }
-static void cont__sim2c__check_usage_24(void) {
+static void cont__compiler__check_usage_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3292,7 +3292,7 @@ static void cont__sim2c__check_usage_24(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_14(void) {
+static void entry__compiler__check_usage_14(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3310,9 +3310,9 @@ static void entry__sim2c__check_usage_14(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_15;
+  frame->cont = cont__compiler__check_usage_15;
 }
-static void cont__sim2c__check_usage_15(void) {
+static void cont__compiler__check_usage_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3328,9 +3328,9 @@ static void cont__sim2c__check_usage_15(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_17;
+  frame->cont = cont__compiler__check_usage_17;
 }
-static void cont__sim2c__check_usage_17(void) {
+static void cont__compiler__check_usage_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3347,7 +3347,7 @@ static void cont__sim2c__check_usage_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_6(void) {
+static void entry__compiler__check_usage_6(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3365,9 +3365,9 @@ static void entry__sim2c__check_usage_6(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_7;
+  frame->cont = cont__compiler__check_usage_7;
 }
-static void cont__sim2c__check_usage_7(void) {
+static void cont__compiler__check_usage_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3383,9 +3383,9 @@ static void cont__sim2c__check_usage_7(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_10;
+  frame->cont = cont__compiler__check_usage_10;
 }
-static void cont__sim2c__check_usage_10(void) {
+static void cont__compiler__check_usage_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3402,7 +3402,7 @@ static void cont__sim2c__check_usage_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_3(void) {
+static void entry__compiler__check_usage_3(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3420,9 +3420,9 @@ static void entry__sim2c__check_usage_3(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_4;
+  frame->cont = cont__compiler__check_usage_4;
 }
-static void cont__sim2c__check_usage_4(void) {
+static void cont__compiler__check_usage_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3437,9 +3437,9 @@ static void cont__sim2c__check_usage_4(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_5;
+  frame->cont = cont__compiler__check_usage_5;
 }
-static void cont__sim2c__check_usage_5(void) {
+static void cont__compiler__check_usage_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3448,7 +3448,7 @@ static void cont__sim2c__check_usage_5(void) {
   // 104: ... :
   // 105:   SyntaxError identifier_of(info) "
   // 106:     Invalid access to polymorphic function "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__check_usage_6, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__check_usage_6, 0);
   // 104: case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI:
   // 105:   SyntaxError identifier_of(info) "
   // 106:     Invalid access to polymorphic function "@(name)@quot;@
@@ -3462,7 +3462,7 @@ static void cont__sim2c__check_usage_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_11(void) {
+static void entry__compiler__check_usage_11(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3480,9 +3480,9 @@ static void entry__sim2c__check_usage_11(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_12;
+  frame->cont = cont__compiler__check_usage_12;
 }
-static void cont__sim2c__check_usage_12(void) {
+static void cont__compiler__check_usage_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3498,9 +3498,9 @@ static void cont__sim2c__check_usage_12(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_13;
+  frame->cont = cont__compiler__check_usage_13;
 }
-static void cont__sim2c__check_usage_13(void) {
+static void cont__compiler__check_usage_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3509,7 +3509,7 @@ static void cont__sim2c__check_usage_13(void) {
   // 108: ... :
   // 109:   SyntaxError identifier_of(info) "
   // 110:     Invalid access to read-only variable "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__check_usage_14, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__check_usage_14, 0);
   // 108: case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
   // 109:   SyntaxError identifier_of(info) "
   // 110:     Invalid access to read-only variable "@(name)@quot;@
@@ -3523,7 +3523,7 @@ static void cont__sim2c__check_usage_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_18(void) {
+static void entry__compiler__check_usage_18(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3541,9 +3541,9 @@ static void entry__sim2c__check_usage_18(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_19;
+  frame->cont = cont__compiler__check_usage_19;
 }
-static void cont__sim2c__check_usage_19(void) {
+static void cont__compiler__check_usage_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3558,9 +3558,9 @@ static void cont__sim2c__check_usage_19(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_20;
+  frame->cont = cont__compiler__check_usage_20;
 }
-static void cont__sim2c__check_usage_20(void) {
+static void cont__compiler__check_usage_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3569,7 +3569,7 @@ static void cont__sim2c__check_usage_20(void) {
   // 112: ... :
   // 113:   SyntaxError identifier_of(info) "
   // 114:     Invalid access to static read-write variable "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__check_usage_21, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__check_usage_21, 0);
   // 112: case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
   // 113:   SyntaxError identifier_of(info) "
   // 114:     Invalid access to static read-write variable "@(name)@quot;@
@@ -3583,7 +3583,7 @@ static void cont__sim2c__check_usage_20(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_25(void) {
+static void entry__compiler__check_usage_25(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3601,9 +3601,9 @@ static void entry__sim2c__check_usage_25(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_26;
+  frame->cont = cont__compiler__check_usage_26;
 }
-static void cont__sim2c__check_usage_26(void) {
+static void cont__compiler__check_usage_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3619,9 +3619,9 @@ static void cont__sim2c__check_usage_26(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_27;
+  frame->cont = cont__compiler__check_usage_27;
 }
-static void cont__sim2c__check_usage_27(void) {
+static void cont__compiler__check_usage_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3630,7 +3630,7 @@ static void cont__sim2c__check_usage_27(void) {
   // 116: ... :
   // 117:   SyntaxError identifier_of(info) "
   // 118:     Invalid access to dynamic read-only variable "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__check_usage_28, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__check_usage_28, 0);
   // 116: case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI, POLYMORPHIC:
   // 117:   SyntaxError identifier_of(info) "
   // 118:     Invalid access to dynamic read-only variable "@(name)@quot;@
@@ -3644,7 +3644,7 @@ static void cont__sim2c__check_usage_27(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_32(void) {
+static void entry__compiler__check_usage_32(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // info: 0
@@ -3662,9 +3662,9 @@ static void entry__sim2c__check_usage_32(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_33;
+  frame->cont = cont__compiler__check_usage_33;
 }
-static void cont__sim2c__check_usage_33(void) {
+static void cont__compiler__check_usage_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3679,9 +3679,9 @@ static void cont__sim2c__check_usage_33(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_34;
+  frame->cont = cont__compiler__check_usage_34;
 }
-static void cont__sim2c__check_usage_34(void) {
+static void cont__compiler__check_usage_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3690,7 +3690,7 @@ static void cont__sim2c__check_usage_34(void) {
   // 120: ... :
   // 121:   SyntaxError identifier_of(info) "
   // 122:     Invalid access to dynamic read-write variable "@(name)@quot;@
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__check_usage_35, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__check_usage_35, 0);
   // 120: case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE, POLYMORPHIC:
   // 121:   SyntaxError identifier_of(info) "
   // 122:     Invalid access to dynamic read-write variable "@(name)@quot;@
@@ -3704,7 +3704,7 @@ static void cont__sim2c__check_usage_34(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__check_usage_1(void) {
+static void entry__compiler__check_usage_1(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // name: 0
@@ -3721,9 +3721,9 @@ static void entry__sim2c__check_usage_1(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__check_usage_2;
+  frame->cont = cont__compiler__check_usage_2;
 }
-static void cont__sim2c__check_usage_2(void) {
+static void cont__compiler__check_usage_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3733,27 +3733,27 @@ static void cont__sim2c__check_usage_2(void) {
   // 104:   case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI:
   // 105:     SyntaxError identifier_of(info) "
   // 106:       Invalid access to polymorphic function "@(name)@quot;@
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__check_usage_3, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__check_usage_3, 0);
   // 107: ... :
   // 108:   case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
   // 109:     SyntaxError identifier_of(info) "
   // 110:       Invalid access to read-only variable "@(name)@quot;@
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__check_usage_11, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__check_usage_11, 0);
   // 111: ... :
   // 112:   case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
   // 113:     SyntaxError identifier_of(info) "
   // 114:       Invalid access to static read-write variable "@(name)@quot;@
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__check_usage_18, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__check_usage_18, 0);
   // 115: ... :
   // 116:   case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI, POLYMORPHIC:
   // 117:     SyntaxError identifier_of(info) "
   // 118:       Invalid access to dynamic read-only variable "@(name)@quot;@
-  frame->slots[7] /* temp__5 */ = create_closure(entry__sim2c__check_usage_25, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__check_usage_25, 0);
   // 119: ... :
   // 120:   case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE, POLYMORPHIC:
   // 121:     SyntaxError identifier_of(info) "
   // 122:       Invalid access to dynamic read-write variable "@(name)@quot;@
-  frame->slots[8] /* temp__6 */ = create_closure(entry__sim2c__check_usage_32, 0);
+  frame->slots[8] /* temp__6 */ = create_closure(entry__compiler__check_usage_32, 0);
   // 101: case
   // 102:   variable_kind_of(definition)
   // 103:   POLYMORPHIC:
@@ -3858,7 +3858,7 @@ static void cont__types__grammar_node__simplify_expression_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_1(void) {
+static void entry__compiler__body__simplify_expression_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3876,9 +3876,9 @@ static void entry__sim2c__body__simplify_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_3;
+  frame->cont = cont__compiler__body__simplify_expression_3;
 }
-static void cont__sim2c__body__simplify_expression_3(void) {
+static void cont__compiler__body__simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3892,9 +3892,9 @@ static void cont__sim2c__body__simplify_expression_3(void) {
   result_count = 1;
   myself = get__defined_names_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_4;
+  frame->cont = cont__compiler__body__simplify_expression_4;
 }
-static void cont__sim2c__body__simplify_expression_4(void) {
+static void cont__compiler__body__simplify_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3909,7 +3909,7 @@ static void cont__sim2c__body__simplify_expression_4(void) {
   // 146:         or in a used namespace@
   // 147:     :
   // 148:       !all_defined_names(name) info
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_5, 2);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_5, 2);
   // 140: for_each defined_names_of(self): (name info)
   // 141:   $outer_info already_defined_names(name)
   // 142:   if
@@ -3926,9 +3926,9 @@ static void cont__sim2c__body__simplify_expression_4(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_15;
+  frame->cont = cont__compiler__body__simplify_expression_15;
 }
-static void entry__sim2c__body__simplify_expression_8(void) {
+static void entry__compiler__body__simplify_expression_8(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3946,9 +3946,9 @@ static void entry__sim2c__body__simplify_expression_8(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_9;
+  frame->cont = cont__compiler__body__simplify_expression_9;
 }
-static void cont__sim2c__body__simplify_expression_9(void) {
+static void cont__compiler__body__simplify_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3965,9 +3965,9 @@ static void cont__sim2c__body__simplify_expression_9(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_12;
+  frame->cont = cont__compiler__body__simplify_expression_12;
 }
-static void cont__sim2c__body__simplify_expression_12(void) {
+static void cont__compiler__body__simplify_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3985,7 +3985,7 @@ static void cont__sim2c__body__simplify_expression_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__simplify_expression_13(void) {
+static void entry__compiler__body__simplify_expression_13(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // all_defined_names: 0
@@ -4008,9 +4008,9 @@ static void entry__sim2c__body__simplify_expression_13(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* all_defined_names */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_14;
+  frame->cont = cont__compiler__body__simplify_expression_14;
 }
-static void cont__sim2c__body__simplify_expression_14(void) {
+static void cont__compiler__body__simplify_expression_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4022,7 +4022,7 @@ static void cont__sim2c__body__simplify_expression_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_5(void) {
+static void entry__compiler__body__simplify_expression_5(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // name: 0
@@ -4042,9 +4042,9 @@ static void entry__sim2c__body__simplify_expression_5(void) {
   result_count = 1;
   myself = get__already_defined_names();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_6;
+  frame->cont = cont__compiler__body__simplify_expression_6;
 }
-static void cont__sim2c__body__simplify_expression_6(void) {
+static void cont__compiler__body__simplify_expression_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4057,9 +4057,9 @@ static void cont__sim2c__body__simplify_expression_6(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_7;
+  frame->cont = cont__compiler__body__simplify_expression_7;
 }
-static void cont__sim2c__body__simplify_expression_7(void) {
+static void cont__compiler__body__simplify_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4069,10 +4069,10 @@ static void cont__sim2c__body__simplify_expression_7(void) {
   // 144:   SyntaxError identifier_of(info) "
   // 145:     An identifier named "@(name)" was already defined in an outer scope @
   // 146:     or in a used namespace@
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_8, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_8, 0);
   // 147: :
   // 148:   !all_defined_names(name) info
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__body__simplify_expression_13, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_13, 0);
   // 142: if
   // 143:   outer_info.is_defined:
   // 144:     SyntaxError identifier_of(info) "
@@ -4090,7 +4090,7 @@ static void cont__sim2c__body__simplify_expression_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__simplify_expression_15(void) {
+static void cont__compiler__body__simplify_expression_15(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4102,9 +4102,9 @@ static void cont__sim2c__body__simplify_expression_15(void) {
   result_count = 1;
   myself = get__used_names_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_16;
+  frame->cont = cont__compiler__body__simplify_expression_16;
 }
-static void cont__sim2c__body__simplify_expression_16(void) {
+static void cont__compiler__body__simplify_expression_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4116,7 +4116,7 @@ static void cont__sim2c__body__simplify_expression_16(void) {
   // 152:     check_usage name definition info
   // 153:     if defined_names(name).is_defined || inherited_names(name).is_defined:
   // 154:       !self.inherited_names_of(name) info
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_17, 2);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_17, 2);
   // 149: for_each used_names_of(self): (name info)
   // 150:   $definition all_defined_names(name)
   // 151:   if definition.is_defined:
@@ -4130,9 +4130,9 @@ static void cont__sim2c__body__simplify_expression_16(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_31;
+  frame->cont = cont__compiler__body__simplify_expression_31;
 }
-static void entry__sim2c__body__simplify_expression_28(void) {
+static void entry__compiler__body__simplify_expression_28(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -4154,9 +4154,9 @@ static void entry__sim2c__body__simplify_expression_28(void) {
   result_count = 1;
   myself = get__inherited_names_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_29;
+  frame->cont = cont__compiler__body__simplify_expression_29;
 }
-static void cont__sim2c__body__simplify_expression_29(void) {
+static void cont__compiler__body__simplify_expression_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4170,9 +4170,9 @@ static void cont__sim2c__body__simplify_expression_29(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_30;
+  frame->cont = cont__compiler__body__simplify_expression_30;
 }
-static void cont__sim2c__body__simplify_expression_30(void) {
+static void cont__compiler__body__simplify_expression_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4192,7 +4192,7 @@ static void cont__sim2c__body__simplify_expression_30(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_20(void) {
+static void entry__compiler__body__simplify_expression_20(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // name: 0
@@ -4216,9 +4216,9 @@ static void entry__sim2c__body__simplify_expression_20(void) {
   result_count = 0;
   myself = get__check_usage();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_21;
+  frame->cont = cont__compiler__body__simplify_expression_21;
 }
-static void cont__sim2c__body__simplify_expression_21(void) {
+static void cont__compiler__body__simplify_expression_21(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4230,9 +4230,9 @@ static void cont__sim2c__body__simplify_expression_21(void) {
   result_count = 1;
   myself = get__defined_names();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_22;
+  frame->cont = cont__compiler__body__simplify_expression_22;
 }
-static void cont__sim2c__body__simplify_expression_22(void) {
+static void cont__compiler__body__simplify_expression_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4245,16 +4245,16 @@ static void cont__sim2c__body__simplify_expression_22(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_23;
+  frame->cont = cont__compiler__body__simplify_expression_23;
 }
-static void cont__sim2c__body__simplify_expression_23(void) {
+static void cont__compiler__body__simplify_expression_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
   // 153: ... inherited_names(name).is_defined
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__body__simplify_expression_24, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_24, 0);
   // 153: ... defined_names(name).is_defined || inherited_names(name).is_defined
   argument_count = 2;
   arguments = node_p;
@@ -4263,9 +4263,9 @@ static void cont__sim2c__body__simplify_expression_23(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_27;
+  frame->cont = cont__compiler__body__simplify_expression_27;
 }
-static void entry__sim2c__body__simplify_expression_24(void) {
+static void entry__compiler__body__simplify_expression_24(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // name: 0
@@ -4281,9 +4281,9 @@ static void entry__sim2c__body__simplify_expression_24(void) {
   result_count = 1;
   myself = get__inherited_names();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_25;
+  frame->cont = cont__compiler__body__simplify_expression_25;
 }
-static void cont__sim2c__body__simplify_expression_25(void) {
+static void cont__compiler__body__simplify_expression_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4296,9 +4296,9 @@ static void cont__sim2c__body__simplify_expression_25(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_26;
+  frame->cont = cont__compiler__body__simplify_expression_26;
 }
-static void cont__sim2c__body__simplify_expression_26(void) {
+static void cont__compiler__body__simplify_expression_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4312,7 +4312,7 @@ static void cont__sim2c__body__simplify_expression_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_27(void) {
+static void cont__compiler__body__simplify_expression_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4320,7 +4320,7 @@ static void cont__sim2c__body__simplify_expression_27(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 153: ... :
   // 154:   !self.inherited_names_of(name) info
-  frame->slots[8] /* temp__5 */ = create_closure(entry__sim2c__body__simplify_expression_28, 0);
+  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_28, 0);
   // 153: if defined_names(name).is_defined || inherited_names(name).is_defined:
   // 154:   !self.inherited_names_of(name) info
   argument_count = 2;
@@ -4332,7 +4332,7 @@ static void cont__sim2c__body__simplify_expression_27(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__simplify_expression_17(void) {
+static void entry__compiler__body__simplify_expression_17(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // name: 0
@@ -4354,9 +4354,9 @@ static void entry__sim2c__body__simplify_expression_17(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* all_defined_names */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_18;
+  frame->cont = cont__compiler__body__simplify_expression_18;
 }
-static void cont__sim2c__body__simplify_expression_18(void) {
+static void cont__compiler__body__simplify_expression_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4369,9 +4369,9 @@ static void cont__sim2c__body__simplify_expression_18(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_19;
+  frame->cont = cont__compiler__body__simplify_expression_19;
 }
-static void cont__sim2c__body__simplify_expression_19(void) {
+static void cont__compiler__body__simplify_expression_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4381,7 +4381,7 @@ static void cont__sim2c__body__simplify_expression_19(void) {
   // 152:   check_usage name definition info
   // 153:   if defined_names(name).is_defined || inherited_names(name).is_defined:
   // 154:     !self.inherited_names_of(name) info
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_20, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_20, 0);
   // 151: if definition.is_defined:
   // 152:   check_usage name definition info
   // 153:   if defined_names(name).is_defined || inherited_names(name).is_defined:
@@ -4395,7 +4395,7 @@ static void cont__sim2c__body__simplify_expression_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__simplify_expression_31(void) {
+static void cont__compiler__body__simplify_expression_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4411,7 +4411,7 @@ static void cont__sim2c__body__simplify_expression_31(void) {
   // 163:     $$default_value default_value_of(parameter)
   // 164:     if default_value.is_defined:
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__body__simplify_expression_32, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__body__simplify_expression_32, 0);
   // 155: do:
   // 156:   %defined_names defined_names_of(self)
   // 157:   %inherited_names inherited_names_of(self)
@@ -4429,9 +4429,9 @@ static void cont__sim2c__body__simplify_expression_31(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_92;
+  frame->cont = cont__compiler__body__simplify_expression_92;
 }
-static void entry__sim2c__body__simplify_expression_32(void) {
+static void entry__compiler__body__simplify_expression_32(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // return__4: 0
@@ -4459,9 +4459,9 @@ static void entry__sim2c__body__simplify_expression_32(void) {
   result_count = 1;
   myself = get__defined_names_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_33;
+  frame->cont = cont__compiler__body__simplify_expression_33;
 }
-static void cont__sim2c__body__simplify_expression_33(void) {
+static void cont__compiler__body__simplify_expression_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4474,9 +4474,9 @@ static void cont__sim2c__body__simplify_expression_33(void) {
   result_count = 1;
   myself = get__inherited_names_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_34;
+  frame->cont = cont__compiler__body__simplify_expression_34;
 }
-static void cont__sim2c__body__simplify_expression_34(void) {
+static void cont__compiler__body__simplify_expression_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4497,9 +4497,9 @@ static void cont__sim2c__body__simplify_expression_34(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_35;
+  frame->cont = cont__compiler__body__simplify_expression_35;
 }
-static void cont__sim2c__body__simplify_expression_35(void) {
+static void cont__compiler__body__simplify_expression_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4511,19 +4511,19 @@ static void cont__sim2c__body__simplify_expression_35(void) {
   // 165:     if
   // 166:       default_value.is_a_function_call:
   // 167:         %%statements empty_list
-  // 168:         %%sim2c::temp_idx 0
+  // 168:         %%compiler::temp_idx 0
   // 169:         $identifier identifier_of(parameter)
   // 170:         simplify_statement
   // 171:           assignment
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_36, 1);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_36, 1);
   // 162: update_each &self.parameters_of: (&parameter)
   // 163:   $$default_value default_value_of(parameter)
   // 164:   if default_value.is_defined:
   // 165:     if
   // 166:       default_value.is_a_function_call:
   // 167:         %%statements empty_list
-  // 168:         %%sim2c::temp_idx 0
+  // 168:         %%compiler::temp_idx 0
   // 169:         $identifier identifier_of(parameter)
   // 170:         simplify_statement
   // 171:           assignment
@@ -4535,9 +4535,9 @@ static void cont__sim2c__body__simplify_expression_35(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_53;
+  frame->cont = cont__compiler__body__simplify_expression_53;
 }
-static void entry__sim2c__body__simplify_expression_36(void) {
+static void entry__compiler__body__simplify_expression_36(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // parameter: 0
@@ -4557,9 +4557,9 @@ static void entry__sim2c__body__simplify_expression_36(void) {
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_37;
+  frame->cont = cont__compiler__body__simplify_expression_37;
 }
-static void cont__sim2c__body__simplify_expression_37(void) {
+static void cont__compiler__body__simplify_expression_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4572,9 +4572,9 @@ static void cont__sim2c__body__simplify_expression_37(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_38;
+  frame->cont = cont__compiler__body__simplify_expression_38;
 }
-static void cont__sim2c__body__simplify_expression_38(void) {
+static void cont__compiler__body__simplify_expression_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4584,19 +4584,19 @@ static void cont__sim2c__body__simplify_expression_38(void) {
   // 165:   if
   // 166:     default_value.is_a_function_call:
   // 167:       %%statements empty_list
-  // 168:       %%sim2c::temp_idx 0
+  // 168:       %%compiler::temp_idx 0
   // 169:       $identifier identifier_of(parameter)
   // 170:       simplify_statement
   // 171:         assignment
   // 172:           .output_arguments_of list(parameter(.is_an_optional_item false))
   // 173:           .arguments_of list(default_value)
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_39, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_39, 0);
   // 164: if default_value.is_defined:
   // 165:   if
   // 166:     default_value.is_a_function_call:
   // 167:       %%statements empty_list
-  // 168:       %%sim2c::temp_idx 0
+  // 168:       %%compiler::temp_idx 0
   // 169:       $identifier identifier_of(parameter)
   // 170:       simplify_statement
   // 171:         assignment
@@ -4612,9 +4612,9 @@ static void cont__sim2c__body__simplify_expression_38(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_52;
+  frame->cont = cont__compiler__body__simplify_expression_52;
 }
-static void entry__sim2c__body__simplify_expression_41(void) {
+static void entry__compiler__body__simplify_expression_41(void) {
   allocate_initialized_frame_gc(4, 12);
   // slot allocations:
   // return__1: 0
@@ -4627,7 +4627,7 @@ static void entry__sim2c__body__simplify_expression_41(void) {
   frame->slots[2] = myself->closure.frame->slots[0]; /* default_value */
   frame->slots[3] = myself->closure.frame->slots[2]; /* max_temp_idx */
   define__statements(undefined);
-  define__sim2c__temp_idx(undefined);
+  define__compiler__temp_idx(undefined);
   frame->slots[4] /* identifier */ = create_future();
   if (argument_count != 0) {
     invalid_arguments_error();
@@ -4635,8 +4635,8 @@ static void entry__sim2c__body__simplify_expression_41(void) {
   }
   // 167: %%statements empty_list
   set__statements(get__empty_list());
-  // 168: %%sim2c::temp_idx 0
-  set__sim2c__temp_idx(number__0);
+  // 168: %%compiler::temp_idx 0
+  set__compiler__temp_idx(number__0);
   // 169: $identifier identifier_of(parameter)
   argument_count = 1;
   arguments = node_p;
@@ -4644,9 +4644,9 @@ static void entry__sim2c__body__simplify_expression_41(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_42;
+  frame->cont = cont__compiler__body__simplify_expression_42;
 }
-static void cont__sim2c__body__simplify_expression_42(void) {
+static void cont__compiler__body__simplify_expression_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4667,9 +4667,9 @@ static void cont__sim2c__body__simplify_expression_42(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_43;
+  frame->cont = cont__compiler__body__simplify_expression_43;
 }
-static void cont__sim2c__body__simplify_expression_43(void) {
+static void cont__compiler__body__simplify_expression_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4682,9 +4682,9 @@ static void cont__sim2c__body__simplify_expression_43(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_44;
+  frame->cont = cont__compiler__body__simplify_expression_44;
 }
-static void cont__sim2c__body__simplify_expression_44(void) {
+static void cont__compiler__body__simplify_expression_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4697,9 +4697,9 @@ static void cont__sim2c__body__simplify_expression_44(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_45;
+  frame->cont = cont__compiler__body__simplify_expression_45;
 }
-static void cont__sim2c__body__simplify_expression_45(void) {
+static void cont__compiler__body__simplify_expression_45(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4712,9 +4712,9 @@ static void cont__sim2c__body__simplify_expression_45(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_46;
+  frame->cont = cont__compiler__body__simplify_expression_46;
 }
-static void cont__sim2c__body__simplify_expression_46(void) {
+static void cont__compiler__body__simplify_expression_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4727,9 +4727,9 @@ static void cont__sim2c__body__simplify_expression_46(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_47;
+  frame->cont = cont__compiler__body__simplify_expression_47;
 }
-static void cont__sim2c__body__simplify_expression_47(void) {
+static void cont__compiler__body__simplify_expression_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4765,9 +4765,9 @@ static void cont__sim2c__body__simplify_expression_47(void) {
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_48;
+  frame->cont = cont__compiler__body__simplify_expression_48;
 }
-static void cont__sim2c__body__simplify_expression_48(void) {
+static void cont__compiler__body__simplify_expression_48(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4780,9 +4780,9 @@ static void cont__sim2c__body__simplify_expression_48(void) {
   result_count = 1;
   myself = get__extend_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_49;
+  frame->cont = cont__compiler__body__simplify_expression_49;
 }
-static void cont__sim2c__body__simplify_expression_49(void) {
+static void cont__compiler__body__simplify_expression_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4804,7 +4804,7 @@ static void cont__sim2c__body__simplify_expression_49(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_50(void) {
+static void entry__compiler__body__simplify_expression_50(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // default_value: 0
@@ -4822,9 +4822,9 @@ static void entry__sim2c__body__simplify_expression_50(void) {
   result_count = 1;
   myself = get__simplify_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_51;
+  frame->cont = cont__compiler__body__simplify_expression_51;
 }
-static void cont__sim2c__body__simplify_expression_51(void) {
+static void cont__compiler__body__simplify_expression_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4846,7 +4846,7 @@ static void cont__sim2c__body__simplify_expression_51(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_39(void) {
+static void entry__compiler__body__simplify_expression_39(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // default_value: 0
@@ -4866,9 +4866,9 @@ static void entry__sim2c__body__simplify_expression_39(void) {
   result_count = 1;
   myself = get__is_a_function_call();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_40;
+  frame->cont = cont__compiler__body__simplify_expression_40;
 }
-static void cont__sim2c__body__simplify_expression_40(void) {
+static void cont__compiler__body__simplify_expression_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4876,7 +4876,7 @@ static void cont__sim2c__body__simplify_expression_40(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 166: ... :
   // 167:   %%statements empty_list
-  // 168:   %%sim2c::temp_idx 0
+  // 168:   %%compiler::temp_idx 0
   // 169:   $identifier identifier_of(parameter)
   // 170:   simplify_statement
   // 171:     assignment
@@ -4885,15 +4885,15 @@ static void cont__sim2c__body__simplify_expression_40(void) {
   // 174:       .fragment_of fragment_of(identifier)
   // 175:       .source_position_of source_position_of(identifier)
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_41, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_41, 0);
   // 179: :
   // 180:   simplify_expression &default_value
   // 181:   !parameter.default_value_of default_value
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__body__simplify_expression_50, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_50, 0);
   // 165: if
   // 166:   default_value.is_a_function_call:
   // 167:     %%statements empty_list
-  // 168:     %%sim2c::temp_idx 0
+  // 168:     %%compiler::temp_idx 0
   // 169:     $identifier identifier_of(parameter)
   // 170:     simplify_statement
   // 171:       assignment
@@ -4911,7 +4911,7 @@ static void cont__sim2c__body__simplify_expression_40(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__simplify_expression_52(void) {
+static void cont__compiler__body__simplify_expression_52(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -4922,7 +4922,7 @@ static void cont__sim2c__body__simplify_expression_52(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_53(void) {
+static void cont__compiler__body__simplify_expression_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4943,9 +4943,9 @@ static void cont__sim2c__body__simplify_expression_53(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_54;
+  frame->cont = cont__compiler__body__simplify_expression_54;
 }
-static void cont__sim2c__body__simplify_expression_54(void) {
+static void cont__compiler__body__simplify_expression_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4959,10 +4959,10 @@ static void cont__sim2c__body__simplify_expression_54(void) {
   // 190:         output_arguments_of(statement)(1).is_a_static_single_definition
   // 191:         arguments_of(statement)(1).is_a_constant
   // 192:       :
-  // 193:         %%sim2c::temp_idx 0
+  // 193:         %%compiler::temp_idx 0
   // 194:         simplify_statement statement
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_55, 1);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_55, 1);
   // 185: for_each statements_of(self): (statement)
   // 186:   unless statement.is_a_remark:
   // 187:     if
@@ -4971,7 +4971,7 @@ static void cont__sim2c__body__simplify_expression_54(void) {
   // 190:         output_arguments_of(statement)(1).is_a_static_single_definition
   // 191:         arguments_of(statement)(1).is_a_constant
   // 192:       :
-  // 193:         %%sim2c::temp_idx 0
+  // 193:         %%compiler::temp_idx 0
   // 194:         simplify_statement statement
   // ...
   argument_count = 2;
@@ -4981,9 +4981,9 @@ static void cont__sim2c__body__simplify_expression_54(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_72;
+  frame->cont = cont__compiler__body__simplify_expression_72;
 }
-static void entry__sim2c__body__simplify_expression_69(void) {
+static void entry__compiler__body__simplify_expression_69(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return__2: 0
@@ -4992,13 +4992,13 @@ static void entry__sim2c__body__simplify_expression_69(void) {
   frame->slots[0] /* return__2 */ = create_continuation();
   frame->slots[1] = myself->closure.frame->slots[0]; /* statement */
   frame->slots[2] = myself->closure.frame->slots[1]; /* max_temp_idx */
-  define__sim2c__temp_idx(undefined);
+  define__compiler__temp_idx(undefined);
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 193: %%sim2c::temp_idx 0
-  set__sim2c__temp_idx(number__0);
+  // 193: %%compiler::temp_idx 0
+  set__compiler__temp_idx(number__0);
   // 194: simplify_statement statement
   argument_count = 1;
   arguments = node_p;
@@ -5006,9 +5006,9 @@ static void entry__sim2c__body__simplify_expression_69(void) {
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_70;
+  frame->cont = cont__compiler__body__simplify_expression_70;
 }
-static void cont__sim2c__body__simplify_expression_70(void) {
+static void cont__compiler__body__simplify_expression_70(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5021,9 +5021,9 @@ static void cont__sim2c__body__simplify_expression_70(void) {
   result_count = 1;
   myself = get__extend_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_71;
+  frame->cont = cont__compiler__body__simplify_expression_71;
 }
-static void cont__sim2c__body__simplify_expression_71(void) {
+static void cont__compiler__body__simplify_expression_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5035,7 +5035,7 @@ static void cont__sim2c__body__simplify_expression_71(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_57(void) {
+static void entry__compiler__body__simplify_expression_57(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // statement: 0
@@ -5053,15 +5053,15 @@ static void entry__sim2c__body__simplify_expression_57(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_58;
+  frame->cont = cont__compiler__body__simplify_expression_58;
 }
-static void cont__sim2c__body__simplify_expression_58(void) {
+static void cont__compiler__body__simplify_expression_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__body__simplify_expression_59, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_59, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5069,9 +5069,9 @@ static void cont__sim2c__body__simplify_expression_58(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_68;
+  frame->cont = cont__compiler__body__simplify_expression_68;
 }
-static void entry__sim2c__body__simplify_expression_59(void) {
+static void entry__compiler__body__simplify_expression_59(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // statement: 0
@@ -5087,9 +5087,9 @@ static void entry__sim2c__body__simplify_expression_59(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_60;
+  frame->cont = cont__compiler__body__simplify_expression_60;
 }
-static void cont__sim2c__body__simplify_expression_60(void) {
+static void cont__compiler__body__simplify_expression_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5102,9 +5102,9 @@ static void cont__sim2c__body__simplify_expression_60(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_61;
+  frame->cont = cont__compiler__body__simplify_expression_61;
 }
-static void cont__sim2c__body__simplify_expression_61(void) {
+static void cont__compiler__body__simplify_expression_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5117,16 +5117,16 @@ static void cont__sim2c__body__simplify_expression_61(void) {
   result_count = 1;
   myself = get__is_a_static_single_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_62;
+  frame->cont = cont__compiler__body__simplify_expression_62;
 }
-static void cont__sim2c__body__simplify_expression_62(void) {
+static void cont__compiler__body__simplify_expression_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 191: arguments_of(statement)(1).is_a_constant
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__body__simplify_expression_63, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_63, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5134,9 +5134,9 @@ static void cont__sim2c__body__simplify_expression_62(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_67;
+  frame->cont = cont__compiler__body__simplify_expression_67;
 }
-static void entry__sim2c__body__simplify_expression_63(void) {
+static void entry__compiler__body__simplify_expression_63(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // statement: 0
@@ -5152,9 +5152,9 @@ static void entry__sim2c__body__simplify_expression_63(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_64;
+  frame->cont = cont__compiler__body__simplify_expression_64;
 }
-static void cont__sim2c__body__simplify_expression_64(void) {
+static void cont__compiler__body__simplify_expression_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5167,9 +5167,9 @@ static void cont__sim2c__body__simplify_expression_64(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_65;
+  frame->cont = cont__compiler__body__simplify_expression_65;
 }
-static void cont__sim2c__body__simplify_expression_65(void) {
+static void cont__compiler__body__simplify_expression_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5182,9 +5182,9 @@ static void cont__sim2c__body__simplify_expression_65(void) {
   result_count = 1;
   myself = get__is_a_constant();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_66;
+  frame->cont = cont__compiler__body__simplify_expression_66;
 }
-static void cont__sim2c__body__simplify_expression_66(void) {
+static void cont__compiler__body__simplify_expression_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5198,7 +5198,7 @@ static void cont__sim2c__body__simplify_expression_66(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_67(void) {
+static void cont__compiler__body__simplify_expression_67(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5211,24 +5211,24 @@ static void cont__sim2c__body__simplify_expression_67(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_68(void) {
+static void cont__compiler__body__simplify_expression_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 192: :
-  // 193:   %%sim2c::temp_idx 0
+  // 193:   %%compiler::temp_idx 0
   // 194:   simplify_statement statement
   // 195:   extend_to &max_temp_idx temp_idx
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__body__simplify_expression_69, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_69, 0);
   // 187: if
   // 188:   &&
   // 189:     statement.is_an_assignment
   // 190:     output_arguments_of(statement)(1).is_a_static_single_definition
   // 191:     arguments_of(statement)(1).is_a_constant
   // 192:   :
-  // 193:     %%sim2c::temp_idx 0
+  // 193:     %%compiler::temp_idx 0
   // 194:     simplify_statement statement
   // 195:     extend_to &max_temp_idx temp_idx
   argument_count = 2;
@@ -5240,7 +5240,7 @@ static void cont__sim2c__body__simplify_expression_68(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__simplify_expression_55(void) {
+static void entry__compiler__body__simplify_expression_55(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // statement: 0
@@ -5257,9 +5257,9 @@ static void entry__sim2c__body__simplify_expression_55(void) {
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_56;
+  frame->cont = cont__compiler__body__simplify_expression_56;
 }
-static void cont__sim2c__body__simplify_expression_56(void) {
+static void cont__compiler__body__simplify_expression_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5272,10 +5272,10 @@ static void cont__sim2c__body__simplify_expression_56(void) {
   // 190:       output_arguments_of(statement)(1).is_a_static_single_definition
   // 191:       arguments_of(statement)(1).is_a_constant
   // 192:     :
-  // 193:       %%sim2c::temp_idx 0
+  // 193:       %%compiler::temp_idx 0
   // 194:       simplify_statement statement
   // 195:       extend_to &max_temp_idx temp_idx
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_57, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_57, 0);
   // 186: unless statement.is_a_remark:
   // 187:   if
   // 188:     &&
@@ -5283,7 +5283,7 @@ static void cont__sim2c__body__simplify_expression_56(void) {
   // 190:       output_arguments_of(statement)(1).is_a_static_single_definition
   // 191:       arguments_of(statement)(1).is_a_constant
   // 192:     :
-  // 193:       %%sim2c::temp_idx 0
+  // 193:       %%compiler::temp_idx 0
   // 194:       simplify_statement statement
   // 195:       extend_to &max_temp_idx temp_idx
   argument_count = 2;
@@ -5295,7 +5295,7 @@ static void cont__sim2c__body__simplify_expression_56(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__simplify_expression_72(void) {
+static void cont__compiler__body__simplify_expression_72(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5307,9 +5307,9 @@ static void cont__sim2c__body__simplify_expression_72(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_73;
+  frame->cont = cont__compiler__body__simplify_expression_73;
 }
-static void cont__sim2c__body__simplify_expression_73(void) {
+static void cont__compiler__body__simplify_expression_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5323,10 +5323,10 @@ static void cont__sim2c__body__simplify_expression_73(void) {
   // 204:         output_arguments_of(statement)(1).is_a_static_single_definition
   // 205:         arguments_of(statement)(1).is_a_constant
   // 206:       :
-  // 207:         %%sim2c::temp_idx 0
+  // 207:         %%compiler::temp_idx 0
   // 208:         simplify_statement statement
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_74, 1);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_74, 1);
   // 199: for_each statements_of(self): (statement)
   // 200:   unless statement.is_a_remark:
   // 201:     unless
@@ -5335,7 +5335,7 @@ static void cont__sim2c__body__simplify_expression_73(void) {
   // 204:         output_arguments_of(statement)(1).is_a_static_single_definition
   // 205:         arguments_of(statement)(1).is_a_constant
   // 206:       :
-  // 207:         %%sim2c::temp_idx 0
+  // 207:         %%compiler::temp_idx 0
   // 208:         simplify_statement statement
   // ...
   argument_count = 2;
@@ -5345,9 +5345,9 @@ static void cont__sim2c__body__simplify_expression_73(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_91;
+  frame->cont = cont__compiler__body__simplify_expression_91;
 }
-static void entry__sim2c__body__simplify_expression_88(void) {
+static void entry__compiler__body__simplify_expression_88(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return__3: 0
@@ -5356,13 +5356,13 @@ static void entry__sim2c__body__simplify_expression_88(void) {
   frame->slots[0] /* return__3 */ = create_continuation();
   frame->slots[1] = myself->closure.frame->slots[0]; /* statement */
   frame->slots[2] = myself->closure.frame->slots[1]; /* max_temp_idx */
-  define__sim2c__temp_idx(undefined);
+  define__compiler__temp_idx(undefined);
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 207: %%sim2c::temp_idx 0
-  set__sim2c__temp_idx(number__0);
+  // 207: %%compiler::temp_idx 0
+  set__compiler__temp_idx(number__0);
   // 208: simplify_statement statement
   argument_count = 1;
   arguments = node_p;
@@ -5370,9 +5370,9 @@ static void entry__sim2c__body__simplify_expression_88(void) {
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_89;
+  frame->cont = cont__compiler__body__simplify_expression_89;
 }
-static void cont__sim2c__body__simplify_expression_89(void) {
+static void cont__compiler__body__simplify_expression_89(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5385,9 +5385,9 @@ static void cont__sim2c__body__simplify_expression_89(void) {
   result_count = 1;
   myself = get__extend_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_90;
+  frame->cont = cont__compiler__body__simplify_expression_90;
 }
-static void cont__sim2c__body__simplify_expression_90(void) {
+static void cont__compiler__body__simplify_expression_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5399,7 +5399,7 @@ static void cont__sim2c__body__simplify_expression_90(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__simplify_expression_76(void) {
+static void entry__compiler__body__simplify_expression_76(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // statement: 0
@@ -5417,15 +5417,15 @@ static void entry__sim2c__body__simplify_expression_76(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_77;
+  frame->cont = cont__compiler__body__simplify_expression_77;
 }
-static void cont__sim2c__body__simplify_expression_77(void) {
+static void cont__compiler__body__simplify_expression_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__body__simplify_expression_78, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_78, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5433,9 +5433,9 @@ static void cont__sim2c__body__simplify_expression_77(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_87;
+  frame->cont = cont__compiler__body__simplify_expression_87;
 }
-static void entry__sim2c__body__simplify_expression_78(void) {
+static void entry__compiler__body__simplify_expression_78(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // statement: 0
@@ -5451,9 +5451,9 @@ static void entry__sim2c__body__simplify_expression_78(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_79;
+  frame->cont = cont__compiler__body__simplify_expression_79;
 }
-static void cont__sim2c__body__simplify_expression_79(void) {
+static void cont__compiler__body__simplify_expression_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5466,9 +5466,9 @@ static void cont__sim2c__body__simplify_expression_79(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_80;
+  frame->cont = cont__compiler__body__simplify_expression_80;
 }
-static void cont__sim2c__body__simplify_expression_80(void) {
+static void cont__compiler__body__simplify_expression_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5481,16 +5481,16 @@ static void cont__sim2c__body__simplify_expression_80(void) {
   result_count = 1;
   myself = get__is_a_static_single_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_81;
+  frame->cont = cont__compiler__body__simplify_expression_81;
 }
-static void cont__sim2c__body__simplify_expression_81(void) {
+static void cont__compiler__body__simplify_expression_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 205: arguments_of(statement)(1).is_a_constant
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__body__simplify_expression_82, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_82, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5498,9 +5498,9 @@ static void cont__sim2c__body__simplify_expression_81(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_86;
+  frame->cont = cont__compiler__body__simplify_expression_86;
 }
-static void entry__sim2c__body__simplify_expression_82(void) {
+static void entry__compiler__body__simplify_expression_82(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // statement: 0
@@ -5516,9 +5516,9 @@ static void entry__sim2c__body__simplify_expression_82(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_83;
+  frame->cont = cont__compiler__body__simplify_expression_83;
 }
-static void cont__sim2c__body__simplify_expression_83(void) {
+static void cont__compiler__body__simplify_expression_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5531,9 +5531,9 @@ static void cont__sim2c__body__simplify_expression_83(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_84;
+  frame->cont = cont__compiler__body__simplify_expression_84;
 }
-static void cont__sim2c__body__simplify_expression_84(void) {
+static void cont__compiler__body__simplify_expression_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5546,9 +5546,9 @@ static void cont__sim2c__body__simplify_expression_84(void) {
   result_count = 1;
   myself = get__is_a_constant();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_85;
+  frame->cont = cont__compiler__body__simplify_expression_85;
 }
-static void cont__sim2c__body__simplify_expression_85(void) {
+static void cont__compiler__body__simplify_expression_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5562,7 +5562,7 @@ static void cont__sim2c__body__simplify_expression_85(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_86(void) {
+static void cont__compiler__body__simplify_expression_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5575,24 +5575,24 @@ static void cont__sim2c__body__simplify_expression_86(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_87(void) {
+static void cont__compiler__body__simplify_expression_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 206: :
-  // 207:   %%sim2c::temp_idx 0
+  // 207:   %%compiler::temp_idx 0
   // 208:   simplify_statement statement
   // 209:   extend_to &max_temp_idx temp_idx
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__body__simplify_expression_88, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_88, 0);
   // 201: unless
   // 202:   &&
   // 203:     statement.is_an_assignment
   // 204:     output_arguments_of(statement)(1).is_a_static_single_definition
   // 205:     arguments_of(statement)(1).is_a_constant
   // 206:   :
-  // 207:     %%sim2c::temp_idx 0
+  // 207:     %%compiler::temp_idx 0
   // 208:     simplify_statement statement
   // 209:     extend_to &max_temp_idx temp_idx
   argument_count = 2;
@@ -5604,7 +5604,7 @@ static void cont__sim2c__body__simplify_expression_87(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__simplify_expression_74(void) {
+static void entry__compiler__body__simplify_expression_74(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // statement: 0
@@ -5621,9 +5621,9 @@ static void entry__sim2c__body__simplify_expression_74(void) {
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_75;
+  frame->cont = cont__compiler__body__simplify_expression_75;
 }
-static void cont__sim2c__body__simplify_expression_75(void) {
+static void cont__compiler__body__simplify_expression_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5636,10 +5636,10 @@ static void cont__sim2c__body__simplify_expression_75(void) {
   // 204:       output_arguments_of(statement)(1).is_a_static_single_definition
   // 205:       arguments_of(statement)(1).is_a_constant
   // 206:     :
-  // 207:       %%sim2c::temp_idx 0
+  // 207:       %%compiler::temp_idx 0
   // 208:       simplify_statement statement
   // 209:       extend_to &max_temp_idx temp_idx
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__body__simplify_expression_76, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_76, 0);
   // 200: unless statement.is_a_remark:
   // 201:   unless
   // 202:     &&
@@ -5647,7 +5647,7 @@ static void cont__sim2c__body__simplify_expression_75(void) {
   // 204:       output_arguments_of(statement)(1).is_a_static_single_definition
   // 205:       arguments_of(statement)(1).is_a_constant
   // 206:     :
-  // 207:       %%sim2c::temp_idx 0
+  // 207:       %%compiler::temp_idx 0
   // 208:       simplify_statement statement
   // 209:       extend_to &max_temp_idx temp_idx
   argument_count = 2;
@@ -5659,7 +5659,7 @@ static void cont__sim2c__body__simplify_expression_75(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__simplify_expression_91(void) {
+static void cont__compiler__body__simplify_expression_91(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5700,7 +5700,7 @@ static void cont__sim2c__body__simplify_expression_91(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_92(void) {
+static void cont__compiler__body__simplify_expression_92(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5712,9 +5712,9 @@ static void cont__sim2c__body__simplify_expression_92(void) {
   result_count = 1;
   myself = get__inherited_names_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_93;
+  frame->cont = cont__compiler__body__simplify_expression_93;
 }
-static void cont__sim2c__body__simplify_expression_93(void) {
+static void cont__compiler__body__simplify_expression_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5727,9 +5727,9 @@ static void cont__sim2c__body__simplify_expression_93(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_94;
+  frame->cont = cont__compiler__body__simplify_expression_94;
 }
-static void cont__sim2c__body__simplify_expression_94(void) {
+static void cont__compiler__body__simplify_expression_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5746,7 +5746,7 @@ static void cont__sim2c__body__simplify_expression_94(void) {
   // 221:     assignment
   // 222:       .output_arguments_of list(temp)
   // ...
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__body__simplify_expression_95, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_95, 0);
   // 213: unless inherited_names_of(self).is_empty:
   // 214:   #
   // 215:     a closure must be created in a separate step because it is not really
@@ -5767,9 +5767,9 @@ static void cont__sim2c__body__simplify_expression_94(void) {
     frame->caller_result_count-1 : -1;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_103;
+  frame->cont = cont__compiler__body__simplify_expression_103;
 }
-static void entry__sim2c__body__simplify_expression_95(void) {
+static void entry__compiler__body__simplify_expression_95(void) {
   allocate_initialized_frame_gc(1, 8);
   // slot allocations:
   // self: 0
@@ -5786,9 +5786,9 @@ static void entry__sim2c__body__simplify_expression_95(void) {
   result_count = 1;
   myself = var._temporary_identifier;
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_96;
+  frame->cont = cont__compiler__body__simplify_expression_96;
 }
-static void cont__sim2c__body__simplify_expression_96(void) {
+static void cont__compiler__body__simplify_expression_96(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5801,9 +5801,9 @@ static void cont__sim2c__body__simplify_expression_96(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_97;
+  frame->cont = cont__compiler__body__simplify_expression_97;
 }
-static void cont__sim2c__body__simplify_expression_97(void) {
+static void cont__compiler__body__simplify_expression_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5816,9 +5816,9 @@ static void cont__sim2c__body__simplify_expression_97(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_98;
+  frame->cont = cont__compiler__body__simplify_expression_98;
 }
-static void cont__sim2c__body__simplify_expression_98(void) {
+static void cont__compiler__body__simplify_expression_98(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5831,9 +5831,9 @@ static void cont__sim2c__body__simplify_expression_98(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_99;
+  frame->cont = cont__compiler__body__simplify_expression_99;
 }
-static void cont__sim2c__body__simplify_expression_99(void) {
+static void cont__compiler__body__simplify_expression_99(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5846,9 +5846,9 @@ static void cont__sim2c__body__simplify_expression_99(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_100;
+  frame->cont = cont__compiler__body__simplify_expression_100;
 }
-static void cont__sim2c__body__simplify_expression_100(void) {
+static void cont__compiler__body__simplify_expression_100(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5861,9 +5861,9 @@ static void cont__sim2c__body__simplify_expression_100(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_101;
+  frame->cont = cont__compiler__body__simplify_expression_101;
 }
-static void cont__sim2c__body__simplify_expression_101(void) {
+static void cont__compiler__body__simplify_expression_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5901,9 +5901,9 @@ static void cont__sim2c__body__simplify_expression_101(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__body__simplify_expression_102;
+  frame->cont = cont__compiler__body__simplify_expression_102;
 }
-static void cont__sim2c__body__simplify_expression_102(void) {
+static void cont__compiler__body__simplify_expression_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5917,7 +5917,7 @@ static void cont__sim2c__body__simplify_expression_102(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__simplify_expression_103(void) {
+static void cont__compiler__body__simplify_expression_103(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -7485,7 +7485,7 @@ static void cont__store_result_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_1(void) {
+static void entry__compiler__call__simplify_statement_1(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -7505,9 +7505,9 @@ static void entry__sim2c__call__simplify_statement_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_3;
+  frame->cont = cont__compiler__call__simplify_statement_3;
 }
-static void cont__sim2c__call__simplify_statement_3(void) {
+static void cont__compiler__call__simplify_statement_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7519,16 +7519,16 @@ static void cont__sim2c__call__simplify_statement_3(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_4;
+  frame->cont = cont__compiler__call__simplify_statement_4;
 }
-static void cont__sim2c__call__simplify_statement_4(void) {
+static void cont__compiler__call__simplify_statement_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 323: ... length_of(arguments_of(self)) == 1
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_5, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_5, 0);
   // 323: ... self.is_an_assignment && length_of(arguments_of(self)) == 1
   argument_count = 2;
   arguments = node_p;
@@ -7537,9 +7537,9 @@ static void cont__sim2c__call__simplify_statement_4(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_9;
+  frame->cont = cont__compiler__call__simplify_statement_9;
 }
-static void entry__sim2c__call__simplify_statement_5(void) {
+static void entry__compiler__call__simplify_statement_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -7555,9 +7555,9 @@ static void entry__sim2c__call__simplify_statement_5(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_6;
+  frame->cont = cont__compiler__call__simplify_statement_6;
 }
-static void cont__sim2c__call__simplify_statement_6(void) {
+static void cont__compiler__call__simplify_statement_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7570,9 +7570,9 @@ static void cont__sim2c__call__simplify_statement_6(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_7;
+  frame->cont = cont__compiler__call__simplify_statement_7;
 }
-static void cont__sim2c__call__simplify_statement_7(void) {
+static void cont__compiler__call__simplify_statement_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7586,9 +7586,9 @@ static void cont__sim2c__call__simplify_statement_7(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_8;
+  frame->cont = cont__compiler__call__simplify_statement_8;
 }
-static void cont__sim2c__call__simplify_statement_8(void) {
+static void cont__compiler__call__simplify_statement_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7602,7 +7602,7 @@ static void cont__sim2c__call__simplify_statement_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_9(void) {
+static void cont__compiler__call__simplify_statement_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7619,7 +7619,7 @@ static void cont__sim2c__call__simplify_statement_9(void) {
   // 331:         .arguments_of arguments_of(source)
   // 332:         .fragment_of fragment_of(self)
   // ...
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__call__simplify_statement_10, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__call__simplify_statement_10, 0);
   // 323: if self.is_an_assignment && length_of(arguments_of(self)) == 1:
   // 324:   $source arguments_of(self)(1)
   // 325:   if source.is_a_function_call:
@@ -7638,9 +7638,9 @@ static void cont__sim2c__call__simplify_statement_9(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_24;
+  frame->cont = cont__compiler__call__simplify_statement_24;
 }
-static void entry__sim2c__call__simplify_statement_14(void) {
+static void entry__compiler__call__simplify_statement_14(void) {
   allocate_initialized_frame_gc(2, 11);
   // slot allocations:
   // self: 0
@@ -7658,9 +7658,9 @@ static void entry__sim2c__call__simplify_statement_14(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_15;
+  frame->cont = cont__compiler__call__simplify_statement_15;
 }
-static void cont__sim2c__call__simplify_statement_15(void) {
+static void cont__compiler__call__simplify_statement_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7673,9 +7673,9 @@ static void cont__sim2c__call__simplify_statement_15(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_16;
+  frame->cont = cont__compiler__call__simplify_statement_16;
 }
-static void cont__sim2c__call__simplify_statement_16(void) {
+static void cont__compiler__call__simplify_statement_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7688,9 +7688,9 @@ static void cont__sim2c__call__simplify_statement_16(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_17;
+  frame->cont = cont__compiler__call__simplify_statement_17;
 }
-static void cont__sim2c__call__simplify_statement_17(void) {
+static void cont__compiler__call__simplify_statement_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7703,9 +7703,9 @@ static void cont__sim2c__call__simplify_statement_17(void) {
   result_count = 1;
   myself = frame->slots[6] /* temp__5 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_18;
+  frame->cont = cont__compiler__call__simplify_statement_18;
 }
-static void cont__sim2c__call__simplify_statement_18(void) {
+static void cont__compiler__call__simplify_statement_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7719,9 +7719,9 @@ static void cont__sim2c__call__simplify_statement_18(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_19;
+  frame->cont = cont__compiler__call__simplify_statement_19;
 }
-static void cont__sim2c__call__simplify_statement_19(void) {
+static void cont__compiler__call__simplify_statement_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7734,9 +7734,9 @@ static void cont__sim2c__call__simplify_statement_19(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_20;
+  frame->cont = cont__compiler__call__simplify_statement_20;
 }
-static void cont__sim2c__call__simplify_statement_20(void) {
+static void cont__compiler__call__simplify_statement_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7749,9 +7749,9 @@ static void cont__sim2c__call__simplify_statement_20(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_21;
+  frame->cont = cont__compiler__call__simplify_statement_21;
 }
-static void cont__sim2c__call__simplify_statement_21(void) {
+static void cont__compiler__call__simplify_statement_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7764,9 +7764,9 @@ static void cont__sim2c__call__simplify_statement_21(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_22;
+  frame->cont = cont__compiler__call__simplify_statement_22;
 }
-static void cont__sim2c__call__simplify_statement_22(void) {
+static void cont__compiler__call__simplify_statement_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7779,9 +7779,9 @@ static void cont__sim2c__call__simplify_statement_22(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_23;
+  frame->cont = cont__compiler__call__simplify_statement_23;
 }
-static void cont__sim2c__call__simplify_statement_23(void) {
+static void cont__compiler__call__simplify_statement_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7814,7 +7814,7 @@ static void cont__sim2c__call__simplify_statement_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_10(void) {
+static void entry__compiler__call__simplify_statement_10(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -7832,9 +7832,9 @@ static void entry__sim2c__call__simplify_statement_10(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_11;
+  frame->cont = cont__compiler__call__simplify_statement_11;
 }
-static void cont__sim2c__call__simplify_statement_11(void) {
+static void cont__compiler__call__simplify_statement_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7847,9 +7847,9 @@ static void cont__sim2c__call__simplify_statement_11(void) {
   result_count = 1;
   myself = frame->slots[2] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_12;
+  frame->cont = cont__compiler__call__simplify_statement_12;
 }
-static void cont__sim2c__call__simplify_statement_12(void) {
+static void cont__compiler__call__simplify_statement_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7862,9 +7862,9 @@ static void cont__sim2c__call__simplify_statement_12(void) {
   result_count = 1;
   myself = get__is_a_function_call();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_13;
+  frame->cont = cont__compiler__call__simplify_statement_13;
 }
-static void cont__sim2c__call__simplify_statement_13(void) {
+static void cont__compiler__call__simplify_statement_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7880,7 +7880,7 @@ static void cont__sim2c__call__simplify_statement_13(void) {
   // 332:       .fragment_of fragment_of(self)
   // 333:       .source_position_of source_position_of(self)
   // 334:       .end_position_of end_position_of(self)
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_14, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_14, 0);
   // 325: if source.is_a_function_call:
   // 326:   !self
   // 327:     procedure_call
@@ -7900,7 +7900,7 @@ static void cont__sim2c__call__simplify_statement_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__call__simplify_statement_24(void) {
+static void cont__compiler__call__simplify_statement_24(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7912,9 +7912,9 @@ static void cont__sim2c__call__simplify_statement_24(void) {
   result_count = 2;
   myself = var._simplify_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_25;
+  frame->cont = cont__compiler__call__simplify_statement_25;
 }
-static void cont__sim2c__call__simplify_statement_25(void) {
+static void cont__compiler__call__simplify_statement_25(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -7930,9 +7930,9 @@ static void cont__sim2c__call__simplify_statement_25(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_26;
+  frame->cont = cont__compiler__call__simplify_statement_26;
 }
-static void cont__sim2c__call__simplify_statement_26(void) {
+static void cont__compiler__call__simplify_statement_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7945,9 +7945,9 @@ static void cont__sim2c__call__simplify_statement_26(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_27;
+  frame->cont = cont__compiler__call__simplify_statement_27;
 }
-static void cont__sim2c__call__simplify_statement_27(void) {
+static void cont__compiler__call__simplify_statement_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7959,7 +7959,7 @@ static void cont__sim2c__call__simplify_statement_27(void) {
   // 339:   if continuation_of(self).is_defined:
   // 340:     simplify_expression &self.continuation_of
   // 341:   simplify_expression &self.functor_of
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_28, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_28, 0);
   // 336: if functor_of(self).is_defined:
   // 337:   if result_count_of(self).is_defined:
   // 338:     simplify_expression &self.result_count_of
@@ -7973,9 +7973,9 @@ static void cont__sim2c__call__simplify_statement_27(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_43;
+  frame->cont = cont__compiler__call__simplify_statement_43;
 }
-static void entry__sim2c__call__simplify_statement_28(void) {
+static void entry__compiler__call__simplify_statement_28(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -7991,9 +7991,9 @@ static void entry__sim2c__call__simplify_statement_28(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_29;
+  frame->cont = cont__compiler__call__simplify_statement_29;
 }
-static void cont__sim2c__call__simplify_statement_29(void) {
+static void cont__compiler__call__simplify_statement_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8006,9 +8006,9 @@ static void cont__sim2c__call__simplify_statement_29(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_30;
+  frame->cont = cont__compiler__call__simplify_statement_30;
 }
-static void cont__sim2c__call__simplify_statement_30(void) {
+static void cont__compiler__call__simplify_statement_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8016,7 +8016,7 @@ static void cont__sim2c__call__simplify_statement_30(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 337: ... :
   // 338:   simplify_expression &self.result_count_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_31, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_31, 0);
   // 337: if result_count_of(self).is_defined:
   // 338:   simplify_expression &self.result_count_of
   argument_count = 2;
@@ -8026,9 +8026,9 @@ static void cont__sim2c__call__simplify_statement_30(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_34;
+  frame->cont = cont__compiler__call__simplify_statement_34;
 }
-static void entry__sim2c__call__simplify_statement_31(void) {
+static void entry__compiler__call__simplify_statement_31(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -8044,9 +8044,9 @@ static void entry__sim2c__call__simplify_statement_31(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_32;
+  frame->cont = cont__compiler__call__simplify_statement_32;
 }
-static void cont__sim2c__call__simplify_statement_32(void) {
+static void cont__compiler__call__simplify_statement_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8059,9 +8059,9 @@ static void cont__sim2c__call__simplify_statement_32(void) {
   result_count = 1;
   myself = get__simplify_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_33;
+  frame->cont = cont__compiler__call__simplify_statement_33;
 }
-static void cont__sim2c__call__simplify_statement_33(void) {
+static void cont__compiler__call__simplify_statement_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8081,7 +8081,7 @@ static void cont__sim2c__call__simplify_statement_33(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_34(void) {
+static void cont__compiler__call__simplify_statement_34(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8093,9 +8093,9 @@ static void cont__sim2c__call__simplify_statement_34(void) {
   result_count = 1;
   myself = get__continuation_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_35;
+  frame->cont = cont__compiler__call__simplify_statement_35;
 }
-static void cont__sim2c__call__simplify_statement_35(void) {
+static void cont__compiler__call__simplify_statement_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8108,9 +8108,9 @@ static void cont__sim2c__call__simplify_statement_35(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_36;
+  frame->cont = cont__compiler__call__simplify_statement_36;
 }
-static void cont__sim2c__call__simplify_statement_36(void) {
+static void cont__compiler__call__simplify_statement_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8118,7 +8118,7 @@ static void cont__sim2c__call__simplify_statement_36(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 339: ... :
   // 340:   simplify_expression &self.continuation_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_37, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_37, 0);
   // 339: if continuation_of(self).is_defined:
   // 340:   simplify_expression &self.continuation_of
   argument_count = 2;
@@ -8128,9 +8128,9 @@ static void cont__sim2c__call__simplify_statement_36(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_40;
+  frame->cont = cont__compiler__call__simplify_statement_40;
 }
-static void entry__sim2c__call__simplify_statement_37(void) {
+static void entry__compiler__call__simplify_statement_37(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -8146,9 +8146,9 @@ static void entry__sim2c__call__simplify_statement_37(void) {
   result_count = 1;
   myself = get__continuation_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_38;
+  frame->cont = cont__compiler__call__simplify_statement_38;
 }
-static void cont__sim2c__call__simplify_statement_38(void) {
+static void cont__compiler__call__simplify_statement_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8161,9 +8161,9 @@ static void cont__sim2c__call__simplify_statement_38(void) {
   result_count = 1;
   myself = get__simplify_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_39;
+  frame->cont = cont__compiler__call__simplify_statement_39;
 }
-static void cont__sim2c__call__simplify_statement_39(void) {
+static void cont__compiler__call__simplify_statement_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8183,7 +8183,7 @@ static void cont__sim2c__call__simplify_statement_39(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_40(void) {
+static void cont__compiler__call__simplify_statement_40(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8195,9 +8195,9 @@ static void cont__sim2c__call__simplify_statement_40(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_41;
+  frame->cont = cont__compiler__call__simplify_statement_41;
 }
-static void cont__sim2c__call__simplify_statement_41(void) {
+static void cont__compiler__call__simplify_statement_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8210,9 +8210,9 @@ static void cont__sim2c__call__simplify_statement_41(void) {
   result_count = 1;
   myself = get__simplify_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_42;
+  frame->cont = cont__compiler__call__simplify_statement_42;
 }
-static void cont__sim2c__call__simplify_statement_42(void) {
+static void cont__compiler__call__simplify_statement_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8232,7 +8232,7 @@ static void cont__sim2c__call__simplify_statement_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_43(void) {
+static void cont__compiler__call__simplify_statement_43(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8244,9 +8244,9 @@ static void cont__sim2c__call__simplify_statement_43(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_44;
+  frame->cont = cont__compiler__call__simplify_statement_44;
 }
-static void cont__sim2c__call__simplify_statement_44(void) {
+static void cont__compiler__call__simplify_statement_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8263,13 +8263,13 @@ static void cont__sim2c__call__simplify_statement_44(void) {
   // 351:           return
   // 352:         cond
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_45, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_45, 0);
   // 365: :
   // 366:   update_each &self.output_arguments_of: (&argument)
   // 367:     if argument.is_a_definition:
   // 368:       push &definitions argument
   // 369:       !argument.is_an_initialization true
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_87, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_87, 0);
   // 342: if
   // 343:   self.is_an_assignment:
   // 344:     $destination output_arguments_of(self)(1)
@@ -8289,9 +8289,9 @@ static void cont__sim2c__call__simplify_statement_44(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_95;
+  frame->cont = cont__compiler__call__simplify_statement_95;
 }
-static void entry__sim2c__call__simplify_statement_71(void) {
+static void entry__compiler__call__simplify_statement_71(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // destination: 0
@@ -8312,9 +8312,9 @@ static void entry__sim2c__call__simplify_statement_71(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_72;
+  frame->cont = cont__compiler__call__simplify_statement_72;
 }
-static void cont__sim2c__call__simplify_statement_72(void) {
+static void cont__compiler__call__simplify_statement_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8328,9 +8328,9 @@ static void cont__sim2c__call__simplify_statement_72(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_73;
+  frame->cont = cont__compiler__call__simplify_statement_73;
 }
-static void cont__sim2c__call__simplify_statement_73(void) {
+static void cont__compiler__call__simplify_statement_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8345,9 +8345,9 @@ static void cont__sim2c__call__simplify_statement_73(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_74;
+  frame->cont = cont__compiler__call__simplify_statement_74;
 }
-static void cont__sim2c__call__simplify_statement_74(void) {
+static void cont__compiler__call__simplify_statement_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8360,9 +8360,9 @@ static void cont__sim2c__call__simplify_statement_74(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_75;
+  frame->cont = cont__compiler__call__simplify_statement_75;
 }
-static void cont__sim2c__call__simplify_statement_75(void) {
+static void cont__compiler__call__simplify_statement_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8384,9 +8384,9 @@ static void cont__sim2c__call__simplify_statement_75(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_76;
+  frame->cont = cont__compiler__call__simplify_statement_76;
 }
-static void cont__sim2c__call__simplify_statement_76(void) {
+static void cont__compiler__call__simplify_statement_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8406,7 +8406,7 @@ static void cont__sim2c__call__simplify_statement_76(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_66(void) {
+static void entry__compiler__call__simplify_statement_66(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // destination: 0
@@ -8427,9 +8427,9 @@ static void entry__sim2c__call__simplify_statement_66(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_67;
+  frame->cont = cont__compiler__call__simplify_statement_67;
 }
-static void cont__sim2c__call__simplify_statement_67(void) {
+static void cont__compiler__call__simplify_statement_67(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8443,9 +8443,9 @@ static void cont__sim2c__call__simplify_statement_67(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_68;
+  frame->cont = cont__compiler__call__simplify_statement_68;
 }
-static void cont__sim2c__call__simplify_statement_68(void) {
+static void cont__compiler__call__simplify_statement_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8459,7 +8459,7 @@ static void cont__sim2c__call__simplify_statement_68(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_61(void) {
+static void entry__compiler__call__simplify_statement_61(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // source: 0
@@ -8479,16 +8479,16 @@ static void entry__sim2c__call__simplify_statement_61(void) {
   result_count = 1;
   myself = get__is_a_constant();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_62;
+  frame->cont = cont__compiler__call__simplify_statement_62;
 }
-static void cont__sim2c__call__simplify_statement_62(void) {
+static void cont__compiler__call__simplify_statement_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 353: ... source.is_single_assign
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_63, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_63, 0);
   // 353: ... source.is_a_constant || source.is_single_assign
   argument_count = 2;
   arguments = node_p;
@@ -8497,9 +8497,9 @@ static void cont__sim2c__call__simplify_statement_62(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_65;
+  frame->cont = cont__compiler__call__simplify_statement_65;
 }
-static void entry__sim2c__call__simplify_statement_63(void) {
+static void entry__compiler__call__simplify_statement_63(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // source: 0
@@ -8515,9 +8515,9 @@ static void entry__sim2c__call__simplify_statement_63(void) {
   result_count = 1;
   myself = get__is_single_assign();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_64;
+  frame->cont = cont__compiler__call__simplify_statement_64;
 }
-static void cont__sim2c__call__simplify_statement_64(void) {
+static void cont__compiler__call__simplify_statement_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8531,7 +8531,7 @@ static void cont__sim2c__call__simplify_statement_64(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_65(void) {
+static void cont__compiler__call__simplify_statement_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8540,7 +8540,7 @@ static void cont__sim2c__call__simplify_statement_65(void) {
   // 353: ... :
   // 354:   push &definitions destination = source
   // 355:   return
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__call__simplify_statement_66, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__call__simplify_statement_66, 0);
   // 353: -> source.is_a_constant || source.is_single_assign:
   // 354:   push &definitions destination = source
   // 355:   return
@@ -8552,7 +8552,7 @@ static void cont__sim2c__call__simplify_statement_65(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_69(void) {
+static void entry__compiler__call__simplify_statement_69(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // source: 0
@@ -8572,9 +8572,9 @@ static void entry__sim2c__call__simplify_statement_69(void) {
   result_count = 1;
   myself = get__might_be_constant();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_70;
+  frame->cont = cont__compiler__call__simplify_statement_70;
 }
-static void cont__sim2c__call__simplify_statement_70(void) {
+static void cont__compiler__call__simplify_statement_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8583,7 +8583,7 @@ static void cont__sim2c__call__simplify_statement_70(void) {
   // 356: ... :
   // 357:   push &definitions destination = source
   // 358:   !self.output_arguments_of(1).is_an_initialization true
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_71, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_71, 0);
   // 356: -> source.might_be_constant:
   // 357:   push &definitions destination = source
   // 358:   !self.output_arguments_of(1).is_an_initialization true
@@ -8595,7 +8595,7 @@ static void cont__sim2c__call__simplify_statement_70(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_77(void) {
+static void entry__compiler__call__simplify_statement_77(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // destination: 0
@@ -8614,9 +8614,9 @@ static void entry__sim2c__call__simplify_statement_77(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_78;
+  frame->cont = cont__compiler__call__simplify_statement_78;
 }
-static void cont__sim2c__call__simplify_statement_78(void) {
+static void cont__compiler__call__simplify_statement_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8631,9 +8631,9 @@ static void cont__sim2c__call__simplify_statement_78(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_79;
+  frame->cont = cont__compiler__call__simplify_statement_79;
 }
-static void cont__sim2c__call__simplify_statement_79(void) {
+static void cont__compiler__call__simplify_statement_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8646,9 +8646,9 @@ static void cont__sim2c__call__simplify_statement_79(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_80;
+  frame->cont = cont__compiler__call__simplify_statement_80;
 }
-static void cont__sim2c__call__simplify_statement_80(void) {
+static void cont__compiler__call__simplify_statement_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8670,9 +8670,9 @@ static void cont__sim2c__call__simplify_statement_80(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_81;
+  frame->cont = cont__compiler__call__simplify_statement_81;
 }
-static void cont__sim2c__call__simplify_statement_81(void) {
+static void cont__compiler__call__simplify_statement_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8692,7 +8692,7 @@ static void cont__sim2c__call__simplify_statement_81(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_51(void) {
+static void entry__compiler__call__simplify_statement_51(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // self: 0
@@ -8714,9 +8714,9 @@ static void entry__sim2c__call__simplify_statement_51(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_52;
+  frame->cont = cont__compiler__call__simplify_statement_52;
 }
-static void cont__sim2c__call__simplify_statement_52(void) {
+static void cont__compiler__call__simplify_statement_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8729,9 +8729,9 @@ static void cont__sim2c__call__simplify_statement_52(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_53;
+  frame->cont = cont__compiler__call__simplify_statement_53;
 }
-static void cont__sim2c__call__simplify_statement_53(void) {
+static void cont__compiler__call__simplify_statement_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8744,9 +8744,9 @@ static void cont__sim2c__call__simplify_statement_53(void) {
   result_count = 1;
   myself = get__attribute_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_54;
+  frame->cont = cont__compiler__call__simplify_statement_54;
 }
-static void cont__sim2c__call__simplify_statement_54(void) {
+static void cont__compiler__call__simplify_statement_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8760,9 +8760,9 @@ static void cont__sim2c__call__simplify_statement_54(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_55;
+  frame->cont = cont__compiler__call__simplify_statement_55;
 }
-static void cont__sim2c__call__simplify_statement_55(void) {
+static void cont__compiler__call__simplify_statement_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8775,9 +8775,9 @@ static void cont__sim2c__call__simplify_statement_55(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_56;
+  frame->cont = cont__compiler__call__simplify_statement_56;
 }
-static void cont__sim2c__call__simplify_statement_56(void) {
+static void cont__compiler__call__simplify_statement_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8786,7 +8786,7 @@ static void cont__sim2c__call__simplify_statement_56(void) {
   // 349: ... :
   // 350:   push &definitions destination = source
   // 351:   return
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__call__simplify_statement_57, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__call__simplify_statement_57, 0);
   // 349: if attribute_kind_of(destination) != NONE:
   // 350:   push &definitions destination = source
   // 351:   return
@@ -8797,9 +8797,9 @@ static void cont__sim2c__call__simplify_statement_56(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_60;
+  frame->cont = cont__compiler__call__simplify_statement_60;
 }
-static void entry__sim2c__call__simplify_statement_57(void) {
+static void entry__compiler__call__simplify_statement_57(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // destination: 0
@@ -8820,9 +8820,9 @@ static void entry__sim2c__call__simplify_statement_57(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_58;
+  frame->cont = cont__compiler__call__simplify_statement_58;
 }
-static void cont__sim2c__call__simplify_statement_58(void) {
+static void cont__compiler__call__simplify_statement_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8836,9 +8836,9 @@ static void cont__sim2c__call__simplify_statement_58(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_59;
+  frame->cont = cont__compiler__call__simplify_statement_59;
 }
-static void cont__sim2c__call__simplify_statement_59(void) {
+static void cont__compiler__call__simplify_statement_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8852,7 +8852,7 @@ static void cont__sim2c__call__simplify_statement_59(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__call__simplify_statement_60(void) {
+static void cont__compiler__call__simplify_statement_60(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8860,15 +8860,15 @@ static void cont__sim2c__call__simplify_statement_60(void) {
   // 353: -> source.is_a_constant || source.is_single_assign:
   // 354:   push &definitions destination = source
   // 355:   return
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__call__simplify_statement_61, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_61, 0);
   // 356: -> source.might_be_constant:
   // 357:   push &definitions destination = source
   // 358:   !self.output_arguments_of(1).is_an_initialization true
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_69, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_69, 0);
   // 359: :
   // 360:   push &definitions destination
   // 361:   !self.output_arguments_of(1).is_an_initialization true
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_77, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_77, 0);
   // 352: cond
   // 353:   -> source.is_a_constant || source.is_single_assign:
   // 354:     push &definitions destination = source
@@ -8889,7 +8889,7 @@ static void cont__sim2c__call__simplify_statement_60(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_82(void) {
+static void entry__compiler__call__simplify_statement_82(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // destination: 0
@@ -8908,9 +8908,9 @@ static void entry__sim2c__call__simplify_statement_82(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_83;
+  frame->cont = cont__compiler__call__simplify_statement_83;
 }
-static void cont__sim2c__call__simplify_statement_83(void) {
+static void cont__compiler__call__simplify_statement_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8925,9 +8925,9 @@ static void cont__sim2c__call__simplify_statement_83(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_84;
+  frame->cont = cont__compiler__call__simplify_statement_84;
 }
-static void cont__sim2c__call__simplify_statement_84(void) {
+static void cont__compiler__call__simplify_statement_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8940,9 +8940,9 @@ static void cont__sim2c__call__simplify_statement_84(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_85;
+  frame->cont = cont__compiler__call__simplify_statement_85;
 }
-static void cont__sim2c__call__simplify_statement_85(void) {
+static void cont__compiler__call__simplify_statement_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8964,9 +8964,9 @@ static void cont__sim2c__call__simplify_statement_85(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_86;
+  frame->cont = cont__compiler__call__simplify_statement_86;
 }
-static void cont__sim2c__call__simplify_statement_86(void) {
+static void cont__compiler__call__simplify_statement_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8986,7 +8986,7 @@ static void cont__sim2c__call__simplify_statement_86(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_49(void) {
+static void entry__compiler__call__simplify_statement_49(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // destination: 0
@@ -9006,9 +9006,9 @@ static void entry__sim2c__call__simplify_statement_49(void) {
   result_count = 1;
   myself = get__is_a_single_assign_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_50;
+  frame->cont = cont__compiler__call__simplify_statement_50;
 }
-static void cont__sim2c__call__simplify_statement_50(void) {
+static void cont__compiler__call__simplify_statement_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9025,11 +9025,11 @@ static void cont__sim2c__call__simplify_statement_50(void) {
   // 355:       return
   // 356:     -> source.might_be_constant:
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_51, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_51, 0);
   // 362: :
   // 363:   push &definitions destination
   // 364:   !self.output_arguments_of(1).is_an_initialization true
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_82, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_82, 0);
   // 346: if
   // 347:   destination.is_a_single_assign_definition:
   // 348:     $source arguments_of(self)(1)
@@ -9051,7 +9051,7 @@ static void cont__sim2c__call__simplify_statement_50(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_45(void) {
+static void entry__compiler__call__simplify_statement_45(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -9071,9 +9071,9 @@ static void entry__sim2c__call__simplify_statement_45(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_46;
+  frame->cont = cont__compiler__call__simplify_statement_46;
 }
-static void cont__sim2c__call__simplify_statement_46(void) {
+static void cont__compiler__call__simplify_statement_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9086,9 +9086,9 @@ static void cont__sim2c__call__simplify_statement_46(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_47;
+  frame->cont = cont__compiler__call__simplify_statement_47;
 }
-static void cont__sim2c__call__simplify_statement_47(void) {
+static void cont__compiler__call__simplify_statement_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9101,9 +9101,9 @@ static void cont__sim2c__call__simplify_statement_47(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_48;
+  frame->cont = cont__compiler__call__simplify_statement_48;
 }
-static void cont__sim2c__call__simplify_statement_48(void) {
+static void cont__compiler__call__simplify_statement_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9120,7 +9120,7 @@ static void cont__sim2c__call__simplify_statement_48(void) {
   // 353:         -> source.is_a_constant || source.is_single_assign:
   // 354:           push &definitions destination = source
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_49, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_49, 0);
   // 345: if destination.is_a_definition:
   // 346:   if
   // 347:     destination.is_a_single_assign_definition:
@@ -9141,7 +9141,7 @@ static void cont__sim2c__call__simplify_statement_48(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_87(void) {
+static void entry__compiler__call__simplify_statement_87(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -9157,9 +9157,9 @@ static void entry__sim2c__call__simplify_statement_87(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_88;
+  frame->cont = cont__compiler__call__simplify_statement_88;
 }
-static void cont__sim2c__call__simplify_statement_88(void) {
+static void cont__compiler__call__simplify_statement_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9172,13 +9172,13 @@ static void cont__sim2c__call__simplify_statement_88(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__call__simplify_statement_89;
+  arguments->slots[1] = func__compiler__call__simplify_statement_89;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_94;
+  frame->cont = cont__compiler__call__simplify_statement_94;
 }
-static void entry__sim2c__call__simplify_statement_89(void) {
+static void entry__compiler__call__simplify_statement_89(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // argument: 0
@@ -9194,9 +9194,9 @@ static void entry__sim2c__call__simplify_statement_89(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_90;
+  frame->cont = cont__compiler__call__simplify_statement_90;
 }
-static void cont__sim2c__call__simplify_statement_90(void) {
+static void cont__compiler__call__simplify_statement_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9205,7 +9205,7 @@ static void cont__sim2c__call__simplify_statement_90(void) {
   // 367: ... :
   // 368:   push &definitions argument
   // 369:   !argument.is_an_initialization true
-  frame->slots[2] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_91, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_91, 0);
   // 367: if argument.is_a_definition:
   // 368:   push &definitions argument
   // 369:   !argument.is_an_initialization true
@@ -9218,9 +9218,9 @@ static void cont__sim2c__call__simplify_statement_90(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_93;
+  frame->cont = cont__compiler__call__simplify_statement_93;
 }
-static void entry__sim2c__call__simplify_statement_91(void) {
+static void entry__compiler__call__simplify_statement_91(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // argument: 0
@@ -9237,9 +9237,9 @@ static void entry__sim2c__call__simplify_statement_91(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_92;
+  frame->cont = cont__compiler__call__simplify_statement_92;
 }
-static void cont__sim2c__call__simplify_statement_92(void) {
+static void cont__compiler__call__simplify_statement_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9261,7 +9261,7 @@ static void cont__sim2c__call__simplify_statement_92(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_93(void) {
+static void cont__compiler__call__simplify_statement_93(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -9272,7 +9272,7 @@ static void cont__sim2c__call__simplify_statement_93(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_94(void) {
+static void cont__compiler__call__simplify_statement_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9292,7 +9292,7 @@ static void cont__sim2c__call__simplify_statement_94(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_95(void) {
+static void cont__compiler__call__simplify_statement_95(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9305,9 +9305,9 @@ static void cont__sim2c__call__simplify_statement_95(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_96;
+  frame->cont = cont__compiler__call__simplify_statement_96;
 }
-static void cont__sim2c__call__simplify_statement_96(void) {
+static void cont__compiler__call__simplify_statement_96(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9320,9 +9320,9 @@ static void cont__sim2c__call__simplify_statement_96(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_97;
+  frame->cont = cont__compiler__call__simplify_statement_97;
 }
-static void cont__sim2c__call__simplify_statement_97(void) {
+static void cont__compiler__call__simplify_statement_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9339,7 +9339,7 @@ static void cont__sim2c__call__simplify_statement_97(void) {
   // 379:       if
   // 380:         destination.is_a_function_call:
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_98, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_98, 0);
   // 371: if final_destinations.is_defined:
   // 372:   for_each final_destinations: (idx destination)
   // 373:     if destination.is_defined:
@@ -9358,9 +9358,9 @@ static void cont__sim2c__call__simplify_statement_97(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_117;
+  frame->cont = cont__compiler__call__simplify_statement_117;
 }
-static void entry__sim2c__call__simplify_statement_105(void) {
+static void entry__compiler__call__simplify_statement_105(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // destination: 0
@@ -9381,7 +9381,7 @@ static void entry__sim2c__call__simplify_statement_105(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_106(void) {
+static void entry__compiler__call__simplify_statement_106(void) {
   allocate_initialized_frame_gc(2, 9);
   // slot allocations:
   // destination: 0
@@ -9401,18 +9401,18 @@ static void entry__sim2c__call__simplify_statement_106(void) {
   result_count = 1;
   myself = get__is_an_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_107;
+  frame->cont = cont__compiler__call__simplify_statement_107;
 }
-static void cont__sim2c__call__simplify_statement_107(void) {
+static void cont__compiler__call__simplify_statement_107(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 390: -> destination
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_108, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_108, 0);
   // 391: -> identifier_of(destination)
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_109, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_109, 0);
   // 387: $identifier
   // 388:   if
   // 389:     destination.is_an_identifier
@@ -9426,9 +9426,9 @@ static void cont__sim2c__call__simplify_statement_107(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_111;
+  frame->cont = cont__compiler__call__simplify_statement_111;
 }
-static void entry__sim2c__call__simplify_statement_108(void) {
+static void entry__compiler__call__simplify_statement_108(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // destination: 0
@@ -9445,7 +9445,7 @@ static void entry__sim2c__call__simplify_statement_108(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__simplify_statement_109(void) {
+static void entry__compiler__call__simplify_statement_109(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // destination: 0
@@ -9461,9 +9461,9 @@ static void entry__sim2c__call__simplify_statement_109(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_110;
+  frame->cont = cont__compiler__call__simplify_statement_110;
 }
-static void cont__sim2c__call__simplify_statement_110(void) {
+static void cont__compiler__call__simplify_statement_110(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9477,7 +9477,7 @@ static void cont__sim2c__call__simplify_statement_110(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__simplify_statement_111(void) {
+static void cont__compiler__call__simplify_statement_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9490,9 +9490,9 @@ static void cont__sim2c__call__simplify_statement_111(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_112;
+  frame->cont = cont__compiler__call__simplify_statement_112;
 }
-static void cont__sim2c__call__simplify_statement_112(void) {
+static void cont__compiler__call__simplify_statement_112(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9505,9 +9505,9 @@ static void cont__sim2c__call__simplify_statement_112(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_113;
+  frame->cont = cont__compiler__call__simplify_statement_113;
 }
-static void cont__sim2c__call__simplify_statement_113(void) {
+static void cont__compiler__call__simplify_statement_113(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9520,9 +9520,9 @@ static void cont__sim2c__call__simplify_statement_113(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_114;
+  frame->cont = cont__compiler__call__simplify_statement_114;
 }
-static void cont__sim2c__call__simplify_statement_114(void) {
+static void cont__compiler__call__simplify_statement_114(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9535,9 +9535,9 @@ static void cont__sim2c__call__simplify_statement_114(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_115;
+  frame->cont = cont__compiler__call__simplify_statement_115;
 }
-static void cont__sim2c__call__simplify_statement_115(void) {
+static void cont__compiler__call__simplify_statement_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9550,9 +9550,9 @@ static void cont__sim2c__call__simplify_statement_115(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_116;
+  frame->cont = cont__compiler__call__simplify_statement_116;
 }
-static void cont__sim2c__call__simplify_statement_116(void) {
+static void cont__compiler__call__simplify_statement_116(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9590,7 +9590,7 @@ static void cont__sim2c__call__simplify_statement_116(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_101(void) {
+static void entry__compiler__call__simplify_statement_101(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -9612,9 +9612,9 @@ static void entry__sim2c__call__simplify_statement_101(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_102;
+  frame->cont = cont__compiler__call__simplify_statement_102;
 }
-static void cont__sim2c__call__simplify_statement_102(void) {
+static void cont__compiler__call__simplify_statement_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9627,9 +9627,9 @@ static void cont__sim2c__call__simplify_statement_102(void) {
   result_count = 1;
   myself = frame->slots[5] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_103;
+  frame->cont = cont__compiler__call__simplify_statement_103;
 }
-static void cont__sim2c__call__simplify_statement_103(void) {
+static void cont__compiler__call__simplify_statement_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9654,9 +9654,9 @@ static void cont__sim2c__call__simplify_statement_103(void) {
   result_count = 1;
   myself = get__is_a_function_call();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_104;
+  frame->cont = cont__compiler__call__simplify_statement_104;
 }
-static void cont__sim2c__call__simplify_statement_104(void) {
+static void cont__compiler__call__simplify_statement_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9664,7 +9664,7 @@ static void cont__sim2c__call__simplify_statement_104(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 380: ... :
   // 381:   store_result destination result
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_105, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_105, 0);
   // 382: :
   // 383:   #
   // 384:     ATTENTION: strange - only two source code files have destinations
@@ -9676,7 +9676,7 @@ static void cont__sim2c__call__simplify_statement_104(void) {
   // 390:       -> destination
   // 391:       -> identifier_of(destination)
   // ...
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__call__simplify_statement_106, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_106, 0);
   // 379: if
   // 380:   destination.is_a_function_call:
   // 381:     store_result destination result
@@ -9698,7 +9698,7 @@ static void cont__sim2c__call__simplify_statement_104(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_99(void) {
+static void entry__compiler__call__simplify_statement_99(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // idx: 0
@@ -9716,9 +9716,9 @@ static void entry__sim2c__call__simplify_statement_99(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__simplify_statement_100;
+  frame->cont = cont__compiler__call__simplify_statement_100;
 }
-static void cont__sim2c__call__simplify_statement_100(void) {
+static void cont__compiler__call__simplify_statement_100(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9735,7 +9735,7 @@ static void cont__sim2c__call__simplify_statement_100(void) {
   // 381:       store_result destination result
   // 382:     :
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__simplify_statement_101, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_101, 0);
   // 373: if destination.is_defined:
   // 374:   $result
   // 375:     output_arguments_of(self)(idx)
@@ -9756,7 +9756,7 @@ static void cont__sim2c__call__simplify_statement_100(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__simplify_statement_98(void) {
+static void entry__compiler__call__simplify_statement_98(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // final_destinations: 0
@@ -9778,7 +9778,7 @@ static void entry__sim2c__call__simplify_statement_98(void) {
   // 380:       destination.is_a_function_call:
   // 381:         store_result destination result
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__call__simplify_statement_99, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_99, 2);
   // 372: for_each final_destinations: (idx destination)
   // 373:   if destination.is_defined:
   // 374:     $result
@@ -9799,12 +9799,12 @@ static void entry__sim2c__call__simplify_statement_98(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__call__simplify_statement_117(void) {
+static void cont__compiler__call__simplify_statement_117(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__simplify_expression_1(void) {
+static void entry__compiler__function_call__simplify_expression_1(void) {
   allocate_initialized_frame_gc(1, 10);
   // slot allocations:
   // self: 0
@@ -9821,9 +9821,9 @@ static void entry__sim2c__function_call__simplify_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_3;
+  frame->cont = cont__compiler__function_call__simplify_expression_3;
 }
-static void cont__sim2c__function_call__simplify_expression_3(void) {
+static void cont__compiler__function_call__simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9834,9 +9834,9 @@ static void cont__sim2c__function_call__simplify_expression_3(void) {
   result_count = 1;
   myself = var._temporary_identifier;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_4;
+  frame->cont = cont__compiler__function_call__simplify_expression_4;
 }
-static void cont__sim2c__function_call__simplify_expression_4(void) {
+static void cont__compiler__function_call__simplify_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9849,9 +9849,9 @@ static void cont__sim2c__function_call__simplify_expression_4(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_5;
+  frame->cont = cont__compiler__function_call__simplify_expression_5;
 }
-static void cont__sim2c__function_call__simplify_expression_5(void) {
+static void cont__compiler__function_call__simplify_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9864,9 +9864,9 @@ static void cont__sim2c__function_call__simplify_expression_5(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_6;
+  frame->cont = cont__compiler__function_call__simplify_expression_6;
 }
-static void cont__sim2c__function_call__simplify_expression_6(void) {
+static void cont__compiler__function_call__simplify_expression_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9880,9 +9880,9 @@ static void cont__sim2c__function_call__simplify_expression_6(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_7;
+  frame->cont = cont__compiler__function_call__simplify_expression_7;
 }
-static void cont__sim2c__function_call__simplify_expression_7(void) {
+static void cont__compiler__function_call__simplify_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9895,9 +9895,9 @@ static void cont__sim2c__function_call__simplify_expression_7(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_8;
+  frame->cont = cont__compiler__function_call__simplify_expression_8;
 }
-static void cont__sim2c__function_call__simplify_expression_8(void) {
+static void cont__compiler__function_call__simplify_expression_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9910,9 +9910,9 @@ static void cont__sim2c__function_call__simplify_expression_8(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_9;
+  frame->cont = cont__compiler__function_call__simplify_expression_9;
 }
-static void cont__sim2c__function_call__simplify_expression_9(void) {
+static void cont__compiler__function_call__simplify_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9925,9 +9925,9 @@ static void cont__sim2c__function_call__simplify_expression_9(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_10;
+  frame->cont = cont__compiler__function_call__simplify_expression_10;
 }
-static void cont__sim2c__function_call__simplify_expression_10(void) {
+static void cont__compiler__function_call__simplify_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9940,9 +9940,9 @@ static void cont__sim2c__function_call__simplify_expression_10(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_11;
+  frame->cont = cont__compiler__function_call__simplify_expression_11;
 }
-static void cont__sim2c__function_call__simplify_expression_11(void) {
+static void cont__compiler__function_call__simplify_expression_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9981,9 +9981,9 @@ static void cont__sim2c__function_call__simplify_expression_11(void) {
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__simplify_expression_12;
+  frame->cont = cont__compiler__function_call__simplify_expression_12;
 }
-static void cont__sim2c__function_call__simplify_expression_12(void) {
+static void cont__compiler__function_call__simplify_expression_12(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9996,7 +9996,7 @@ static void cont__sim2c__function_call__simplify_expression_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__attribute_value_pair__simplify_expression_1(void) {
+static void entry__compiler__attribute_value_pair__simplify_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10014,9 +10014,9 @@ static void entry__sim2c__attribute_value_pair__simplify_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_value_pair__simplify_expression_3;
+  frame->cont = cont__compiler__attribute_value_pair__simplify_expression_3;
 }
-static void cont__sim2c__attribute_value_pair__simplify_expression_3(void) {
+static void cont__compiler__attribute_value_pair__simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10029,9 +10029,9 @@ static void cont__sim2c__attribute_value_pair__simplify_expression_3(void) {
   result_count = 2;
   myself = var._simplify_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_value_pair__simplify_expression_4;
+  frame->cont = cont__compiler__attribute_value_pair__simplify_expression_4;
 }
-static void cont__sim2c__attribute_value_pair__simplify_expression_4(void) {
+static void cont__compiler__attribute_value_pair__simplify_expression_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -10047,7 +10047,7 @@ static void cont__sim2c__attribute_value_pair__simplify_expression_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__attribute_function_pair__simplify_expression_1(void) {
+static void entry__compiler__attribute_function_pair__simplify_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10065,9 +10065,9 @@ static void entry__sim2c__attribute_function_pair__simplify_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_function_pair__simplify_expression_3;
+  frame->cont = cont__compiler__attribute_function_pair__simplify_expression_3;
 }
-static void cont__sim2c__attribute_function_pair__simplify_expression_3(void) {
+static void cont__compiler__attribute_function_pair__simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10080,9 +10080,9 @@ static void cont__sim2c__attribute_function_pair__simplify_expression_3(void) {
   result_count = 2;
   myself = var._simplify_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_function_pair__simplify_expression_4;
+  frame->cont = cont__compiler__attribute_function_pair__simplify_expression_4;
 }
-static void cont__sim2c__attribute_function_pair__simplify_expression_4(void) {
+static void cont__compiler__attribute_function_pair__simplify_expression_4(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -10098,7 +10098,7 @@ static void cont__sim2c__attribute_function_pair__simplify_expression_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__simplify_statement_1(void) {
+static void entry__compiler__c_code__simplify_statement_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -10113,9 +10113,9 @@ static void entry__sim2c__c_code__simplify_statement_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_3;
+  frame->cont = cont__compiler__c_code__simplify_statement_3;
 }
-static void cont__sim2c__c_code__simplify_statement_3(void) {
+static void cont__compiler__c_code__simplify_statement_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10124,13 +10124,13 @@ static void cont__sim2c__c_code__simplify_statement_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
-  arguments->slots[1] = func__sim2c__c_code__simplify_statement_4;
+  arguments->slots[1] = func__compiler__c_code__simplify_statement_4;
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_5;
+  frame->cont = cont__compiler__c_code__simplify_statement_5;
 }
-static void entry__sim2c__c_code__simplify_statement_4(void) {
+static void entry__compiler__c_code__simplify_statement_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -10145,7 +10145,7 @@ static void entry__sim2c__c_code__simplify_statement_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__simplify_statement_5(void) {
+static void cont__compiler__c_code__simplify_statement_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10158,9 +10158,9 @@ static void cont__sim2c__c_code__simplify_statement_5(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_6;
+  frame->cont = cont__compiler__c_code__simplify_statement_6;
 }
-static void cont__sim2c__c_code__simplify_statement_6(void) {
+static void cont__compiler__c_code__simplify_statement_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10169,15 +10169,15 @@ static void cont__sim2c__c_code__simplify_statement_6(void) {
   // 441: ... :
   // 442:   $name name_of(identifier_of(self))
   // 443:   push &actions: !defined_structs(name) true
-  frame->slots[2] /* temp__2 */ = create_closure(entry__sim2c__c_code__simplify_statement_7, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__c_code__simplify_statement_7, 0);
   // 444: ... :
   // 445:   $name name_of(identifier_of(self))
   // 446:   push &actions: !defined_nodes(name) self
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__c_code__simplify_statement_13, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__c_code__simplify_statement_13, 0);
   // 447: ... :
   // 448:   $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
   // 449:   push &actions: !defined_functions(name) true
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__c_code__simplify_statement_19, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__c_code__simplify_statement_19, 0);
   // 439: case
   // 440:   kind_of(self)
   // 441:   "struct":
@@ -10201,9 +10201,9 @@ static void cont__sim2c__c_code__simplify_statement_6(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_31;
+  frame->cont = cont__compiler__c_code__simplify_statement_31;
 }
-static void entry__sim2c__c_code__simplify_statement_7(void) {
+static void entry__compiler__c_code__simplify_statement_7(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10221,9 +10221,9 @@ static void entry__sim2c__c_code__simplify_statement_7(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_8;
+  frame->cont = cont__compiler__c_code__simplify_statement_8;
 }
-static void cont__sim2c__c_code__simplify_statement_8(void) {
+static void cont__compiler__c_code__simplify_statement_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10236,16 +10236,16 @@ static void cont__sim2c__c_code__simplify_statement_8(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_9;
+  frame->cont = cont__compiler__c_code__simplify_statement_9;
 }
-static void cont__sim2c__c_code__simplify_statement_9(void) {
+static void cont__compiler__c_code__simplify_statement_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
   // 443: ... : !defined_structs(name) true
-  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__c_code__simplify_statement_10, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_10, 0);
   // 443: push &actions: !defined_structs(name) true
   argument_count = 2;
   arguments = node_p;
@@ -10254,9 +10254,9 @@ static void cont__sim2c__c_code__simplify_statement_9(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_12;
+  frame->cont = cont__compiler__c_code__simplify_statement_12;
 }
-static void entry__sim2c__c_code__simplify_statement_10(void) {
+static void entry__compiler__c_code__simplify_statement_10(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -10275,9 +10275,9 @@ static void entry__sim2c__c_code__simplify_statement_10(void) {
   result_count = 1;
   myself = get__defined_structs();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_11;
+  frame->cont = cont__compiler__c_code__simplify_statement_11;
 }
-static void cont__sim2c__c_code__simplify_statement_11(void) {
+static void cont__compiler__c_code__simplify_statement_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10289,7 +10289,7 @@ static void cont__sim2c__c_code__simplify_statement_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__simplify_statement_12(void) {
+static void cont__compiler__c_code__simplify_statement_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10301,7 +10301,7 @@ static void cont__sim2c__c_code__simplify_statement_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__simplify_statement_13(void) {
+static void entry__compiler__c_code__simplify_statement_13(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10319,9 +10319,9 @@ static void entry__sim2c__c_code__simplify_statement_13(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_14;
+  frame->cont = cont__compiler__c_code__simplify_statement_14;
 }
-static void cont__sim2c__c_code__simplify_statement_14(void) {
+static void cont__compiler__c_code__simplify_statement_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10334,16 +10334,16 @@ static void cont__sim2c__c_code__simplify_statement_14(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_15;
+  frame->cont = cont__compiler__c_code__simplify_statement_15;
 }
-static void cont__sim2c__c_code__simplify_statement_15(void) {
+static void cont__compiler__c_code__simplify_statement_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
   // 446: ... : !defined_nodes(name) self
-  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__c_code__simplify_statement_16, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_16, 0);
   // 446: push &actions: !defined_nodes(name) self
   argument_count = 2;
   arguments = node_p;
@@ -10352,9 +10352,9 @@ static void cont__sim2c__c_code__simplify_statement_15(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_18;
+  frame->cont = cont__compiler__c_code__simplify_statement_18;
 }
-static void entry__sim2c__c_code__simplify_statement_16(void) {
+static void entry__compiler__c_code__simplify_statement_16(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -10375,9 +10375,9 @@ static void entry__sim2c__c_code__simplify_statement_16(void) {
   result_count = 1;
   myself = get__defined_nodes();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_17;
+  frame->cont = cont__compiler__c_code__simplify_statement_17;
 }
-static void cont__sim2c__c_code__simplify_statement_17(void) {
+static void cont__compiler__c_code__simplify_statement_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10389,7 +10389,7 @@ static void cont__sim2c__c_code__simplify_statement_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__simplify_statement_18(void) {
+static void cont__compiler__c_code__simplify_statement_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10401,7 +10401,7 @@ static void cont__sim2c__c_code__simplify_statement_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__simplify_statement_19(void) {
+static void entry__compiler__c_code__simplify_statement_19(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -10419,9 +10419,9 @@ static void entry__sim2c__c_code__simplify_statement_19(void) {
   result_count = 1;
   myself = get__source_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_20;
+  frame->cont = cont__compiler__c_code__simplify_statement_20;
 }
-static void cont__sim2c__c_code__simplify_statement_20(void) {
+static void cont__compiler__c_code__simplify_statement_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10435,9 +10435,9 @@ static void cont__sim2c__c_code__simplify_statement_20(void) {
   result_count = 1;
   myself = get__before();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_21;
+  frame->cont = cont__compiler__c_code__simplify_statement_21;
 }
-static void cont__sim2c__c_code__simplify_statement_21(void) {
+static void cont__compiler__c_code__simplify_statement_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10451,9 +10451,9 @@ static void cont__sim2c__c_code__simplify_statement_21(void) {
   result_count = 1;
   myself = get__alt();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_22;
+  frame->cont = cont__compiler__c_code__simplify_statement_22;
 }
-static void cont__sim2c__c_code__simplify_statement_22(void) {
+static void cont__compiler__c_code__simplify_statement_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10466,9 +10466,9 @@ static void cont__sim2c__c_code__simplify_statement_22(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_23;
+  frame->cont = cont__compiler__c_code__simplify_statement_23;
 }
-static void cont__sim2c__c_code__simplify_statement_23(void) {
+static void cont__compiler__c_code__simplify_statement_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10483,16 +10483,16 @@ static void cont__sim2c__c_code__simplify_statement_23(void) {
   result_count = 1;
   myself = get__behind();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_24;
+  frame->cont = cont__compiler__c_code__simplify_statement_24;
 }
-static void cont__sim2c__c_code__simplify_statement_24(void) {
+static void cont__compiler__c_code__simplify_statement_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
   // 449: ... : !defined_functions(name) true
-  frame->slots[2] /* temp__1 */ = create_closure(entry__sim2c__c_code__simplify_statement_25, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_25, 0);
   // 449: push &actions: !defined_functions(name) true
   argument_count = 2;
   arguments = node_p;
@@ -10501,9 +10501,9 @@ static void cont__sim2c__c_code__simplify_statement_24(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_27;
+  frame->cont = cont__compiler__c_code__simplify_statement_27;
 }
-static void entry__sim2c__c_code__simplify_statement_25(void) {
+static void entry__compiler__c_code__simplify_statement_25(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -10522,9 +10522,9 @@ static void entry__sim2c__c_code__simplify_statement_25(void) {
   result_count = 1;
   myself = get__defined_functions();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_26;
+  frame->cont = cont__compiler__c_code__simplify_statement_26;
 }
-static void cont__sim2c__c_code__simplify_statement_26(void) {
+static void cont__compiler__c_code__simplify_statement_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10536,7 +10536,7 @@ static void cont__sim2c__c_code__simplify_statement_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__simplify_statement_27(void) {
+static void cont__compiler__c_code__simplify_statement_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10548,7 +10548,7 @@ static void cont__sim2c__c_code__simplify_statement_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__simplify_statement_31(void) {
+static void cont__compiler__c_code__simplify_statement_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10561,9 +10561,9 @@ static void cont__sim2c__c_code__simplify_statement_31(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__simplify_statement_32;
+  frame->cont = cont__compiler__c_code__simplify_statement_32;
 }
-static void cont__sim2c__c_code__simplify_statement_32(void) {
+static void cont__compiler__c_code__simplify_statement_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10575,7 +10575,7 @@ static void cont__sim2c__c_code__simplify_statement_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_body__simplify_expression_1(void) {
+static void entry__compiler__c_body__simplify_expression_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -10591,9 +10591,9 @@ static void entry__sim2c__c_body__simplify_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__c_body__simplify_expression_3;
+  frame->cont = cont__compiler__c_body__simplify_expression_3;
 }
-static void cont__sim2c__c_body__simplify_expression_3(void) {
+static void cont__compiler__c_body__simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10602,13 +10602,13 @@ static void cont__sim2c__c_body__simplify_expression_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
-  arguments->slots[1] = func__sim2c__c_body__simplify_expression_4;
+  arguments->slots[1] = func__compiler__c_body__simplify_expression_4;
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_body__simplify_expression_5;
+  frame->cont = cont__compiler__c_body__simplify_expression_5;
 }
-static void entry__sim2c__c_body__simplify_expression_4(void) {
+static void entry__compiler__c_body__simplify_expression_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -10623,7 +10623,7 @@ static void entry__sim2c__c_body__simplify_expression_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_body__simplify_expression_5(void) {
+static void cont__compiler__c_body__simplify_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10637,11 +10637,11 @@ static void cont__sim2c__c_body__simplify_expression_5(void) {
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__simplifier(void) {
-  var.sim2c__simplify_statement = collect_node(var.sim2c__simplify_statement);
-  var.sim2c__simplify_expression = collect_node(var.sim2c__simplify_expression);
+  var.compiler__simplify_statement = collect_node(var.compiler__simplify_statement);
+  var.compiler__simplify_expression = collect_node(var.compiler__simplify_expression);
   var._temporary_identifier = collect_node(var._temporary_identifier);
   var._simplify_arguments = collect_node(var._simplify_arguments);
-  var.sim2c__check_usage = collect_node(var.sim2c__check_usage);
+  var.compiler__check_usage = collect_node(var.compiler__check_usage);
   var._do_store = collect_node(var._do_store);
   var._store_result = collect_node(var._store_result);
 }
@@ -10665,8 +10665,8 @@ EXPORT void phase_2__simplifier(void) {
   character__32 = from_uchar32(32);
   number__1 = from_uint32(1U);
   character__42 = from_uchar32(42);
-  define_polymorphic_function("sim2c", "simplify_statement", get__sim2c__simplify_statement, &poly_idx__sim2c__simplify_statement, &var.sim2c__simplify_statement);
-  define_polymorphic_function("sim2c", "simplify_expression", get__sim2c__simplify_expression, &poly_idx__sim2c__simplify_expression, &var.sim2c__simplify_expression);
+  define_polymorphic_function("compiler", "simplify_statement", get__compiler__simplify_statement, &poly_idx__compiler__simplify_statement, &var.compiler__simplify_statement);
+  define_polymorphic_function("compiler", "simplify_expression", get__compiler__simplify_expression, &poly_idx__compiler__simplify_expression, &var.compiler__simplify_expression);
   string__421f524a80420288 = from_latin_1_string("temp__", 6);
   func__temporary_identifier_1 = create_function(entry__temporary_identifier_1, 0);
   func__simplify_arguments_3 = create_function(entry__simplify_arguments_3, 1);
@@ -10677,7 +10677,7 @@ EXPORT void phase_2__simplifier(void) {
   string__2ddd7194c0185268 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
   string__e971e37f901b36b = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
   string__611f619f08c2e7ef = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
-  func__sim2c__check_usage_1 = create_function(entry__sim2c__check_usage_1, 3);
+  func__compiler__check_usage_1 = create_function(entry__compiler__check_usage_1, 3);
   string__4a1f5794bff5c237 = from_latin_1_string("simplify statement (default)", 28);
   func__types__grammar_node__simplify_statement_1 = create_function(entry__types__grammar_node__simplify_statement_1, 1);
   string__5af95dddc656868 = from_latin_1_string("simplify expression (default)", 29);
@@ -10685,30 +10685,30 @@ EXPORT void phase_2__simplifier(void) {
   string__867252dcb87a57b1 = from_latin_1_string("simplify body", 13);
   string__b18861f6a8c886ba = from_latin_1_string("An identifier named \042", 21);
   string__ff65db3940410371 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
-  func__sim2c__body__simplify_expression_1 = create_function(entry__sim2c__body__simplify_expression_1, 1);
+  func__compiler__body__simplify_expression_1 = create_function(entry__compiler__body__simplify_expression_1, 1);
   func__do_store_5 = create_function(entry__do_store_5, 1);
   func__do_store_45 = create_function(entry__do_store_45, 0);
   func__do_store_46 = create_function(entry__do_store_46, 0);
   func__do_store_1 = create_function(entry__do_store_1, 5);
   func__store_result_1 = create_function(entry__store_result_1, -1);
   string__8629329e514f7a7a = from_latin_1_string("simplify statement", 18);
-  func__sim2c__call__simplify_statement_89 = create_function(entry__sim2c__call__simplify_statement_89, 1);
-  func__sim2c__call__simplify_statement_1 = create_function(entry__sim2c__call__simplify_statement_1, 1);
+  func__compiler__call__simplify_statement_89 = create_function(entry__compiler__call__simplify_statement_89, 1);
+  func__compiler__call__simplify_statement_1 = create_function(entry__compiler__call__simplify_statement_1, 1);
   string__95014404e5c0e88d = from_latin_1_string("simplify function call", 22);
-  func__sim2c__function_call__simplify_expression_1 = create_function(entry__sim2c__function_call__simplify_expression_1, 1);
+  func__compiler__function_call__simplify_expression_1 = create_function(entry__compiler__function_call__simplify_expression_1, 1);
   string__cced2f4d969d3d03 = from_latin_1_string("simplify attribute-value pair", 29);
-  func__sim2c__attribute_value_pair__simplify_expression_1 = create_function(entry__sim2c__attribute_value_pair__simplify_expression_1, 1);
+  func__compiler__attribute_value_pair__simplify_expression_1 = create_function(entry__compiler__attribute_value_pair__simplify_expression_1, 1);
   string__83e573190949a328 = from_latin_1_string("simplify attribute-function pair", 32);
-  func__sim2c__attribute_function_pair__simplify_expression_1 = create_function(entry__sim2c__attribute_function_pair__simplify_expression_1, 1);
+  func__compiler__attribute_function_pair__simplify_expression_1 = create_function(entry__compiler__attribute_function_pair__simplify_expression_1, 1);
   string__1095e9f11fb0974b = from_latin_1_string("simplify C-code", 15);
-  func__sim2c__c_code__simplify_statement_4 = create_function(entry__sim2c__c_code__simplify_statement_4, 0);
+  func__compiler__c_code__simplify_statement_4 = create_function(entry__compiler__c_code__simplify_statement_4, 0);
   string__7c1f530901a312a3 = from_latin_1_string("struct", 6);
   string__1e0aea8b5d407d5c = from_latin_1_string("node", 4);
   string__46c0af9104ada08e = from_latin_1_string("function", 8);
-  func__sim2c__c_code__simplify_statement_1 = create_function(entry__sim2c__c_code__simplify_statement_1, 1);
+  func__compiler__c_code__simplify_statement_1 = create_function(entry__compiler__c_code__simplify_statement_1, 1);
   string__1295e9f11fb09757 = from_latin_1_string("simplify C-body", 15);
-  func__sim2c__c_body__simplify_expression_4 = create_function(entry__sim2c__c_body__simplify_expression_4, 0);
-  func__sim2c__c_body__simplify_expression_1 = create_function(entry__sim2c__c_body__simplify_expression_1, 1);
+  func__compiler__c_body__simplify_expression_4 = create_function(entry__compiler__c_body__simplify_expression_4, 0);
+  func__compiler__c_body__simplify_expression_1 = create_function(entry__compiler__c_body__simplify_expression_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -10722,7 +10722,7 @@ EXPORT void phase_3__simplifier(void) {
   define__defined_names(create_future());
   register_dynamic(&dyna_idx__inherited_names);
   define__inherited_names(create_future());
-  define_single_assign_static("sim2c", "check_usage", get__sim2c__check_usage, &var.sim2c__check_usage);
+  define_single_assign_static("compiler", "check_usage", get__compiler__check_usage, &var.compiler__check_usage);
 }
 
 static int already_run_phase_4 = false;
@@ -10751,6 +10751,14 @@ EXPORT void phase_4__simplifier(void) {
   use_read_only(NULL, "behind", &get__behind, &get_value_or_future__behind);
   use_read_only(NULL, "case", &get__case, &get_value_or_future__case);
   use_read_only(NULL, "check_usage", &get__check_usage, &get_value_or_future__check_usage);
+  use_read_only("compiler", "attribute_function_pair", &get__compiler__attribute_function_pair, &get_value_or_future__compiler__attribute_function_pair);
+  use_read_only("compiler", "attribute_value_pair", &get__compiler__attribute_value_pair, &get_value_or_future__compiler__attribute_value_pair);
+  use_read_only("compiler", "body", &get__compiler__body, &get_value_or_future__compiler__body);
+  use_read_only("compiler", "c_body", &get__compiler__c_body, &get_value_or_future__compiler__c_body);
+  use_read_only("compiler", "c_code", &get__compiler__c_code, &get_value_or_future__compiler__c_code);
+  use_read_only("compiler", "call", &get__compiler__call, &get_value_or_future__compiler__call);
+  use_read_only("compiler", "function_call", &get__compiler__function_call, &get_value_or_future__compiler__function_call);
+  use_multi_assign_dynamic("compiler", "temp_idx", &get__compiler__temp_idx, &set__compiler__temp_idx, &define__compiler__temp_idx);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
   use_polymorphic_function(NULL, "continuation_of", &get__continuation_of, &poly_idx__continuation_of);
   use_polymorphic_function(NULL, "default_value_of", &get__default_value_of, &poly_idx__default_value_of);
@@ -10806,14 +10814,6 @@ EXPORT void phase_4__simplifier(void) {
   use_read_only(NULL, "push", &get__push, &get_value_or_future__push);
   use_polymorphic_function(NULL, "result_count_of", &get__result_count_of, &poly_idx__result_count_of);
   use_read_only(NULL, "show_compiler_debug_info", &get__show_compiler_debug_info, &get_value_or_future__show_compiler_debug_info);
-  use_read_only("sim2c", "attribute_function_pair", &get__sim2c__attribute_function_pair, &get_value_or_future__sim2c__attribute_function_pair);
-  use_read_only("sim2c", "attribute_value_pair", &get__sim2c__attribute_value_pair, &get_value_or_future__sim2c__attribute_value_pair);
-  use_read_only("sim2c", "body", &get__sim2c__body, &get_value_or_future__sim2c__body);
-  use_read_only("sim2c", "c_body", &get__sim2c__c_body, &get_value_or_future__sim2c__c_body);
-  use_read_only("sim2c", "c_code", &get__sim2c__c_code, &get_value_or_future__sim2c__c_code);
-  use_read_only("sim2c", "call", &get__sim2c__call, &get_value_or_future__sim2c__call);
-  use_read_only("sim2c", "function_call", &get__sim2c__function_call, &get_value_or_future__sim2c__function_call);
-  use_multi_assign_dynamic("sim2c", "temp_idx", &get__sim2c__temp_idx, &set__sim2c__temp_idx, &define__sim2c__temp_idx);
   use_polymorphic_function(NULL, "simplify_expression", &get__simplify_expression, &poly_idx__simplify_expression);
   use_polymorphic_function(NULL, "simplify_statement", &get__simplify_statement, &poly_idx__simplify_statement);
   use_read_only(NULL, "source_of", &get__source_of, &get_value_or_future__source_of);
@@ -10843,13 +10843,13 @@ EXPORT void phase_4__simplifier(void) {
   use_read_only(NULL, "variable_kind_of", &get__variable_kind_of, &get_value_or_future__variable_kind_of);
   define_method("types", "grammar_node", poly_idx__simplify_statement, func__types__grammar_node__simplify_statement_1);
   define_method("types", "grammar_node", poly_idx__simplify_expression, func__types__grammar_node__simplify_expression_1);
-  define_method("sim2c", "body", poly_idx__simplify_expression, func__sim2c__body__simplify_expression_1);
-  define_method("sim2c", "call", poly_idx__simplify_statement, func__sim2c__call__simplify_statement_1);
-  define_method("sim2c", "function_call", poly_idx__simplify_expression, func__sim2c__function_call__simplify_expression_1);
-  define_method("sim2c", "attribute_value_pair", poly_idx__simplify_expression, func__sim2c__attribute_value_pair__simplify_expression_1);
-  define_method("sim2c", "attribute_function_pair", poly_idx__simplify_expression, func__sim2c__attribute_function_pair__simplify_expression_1);
-  define_method("sim2c", "c_code", poly_idx__simplify_statement, func__sim2c__c_code__simplify_statement_1);
-  define_method("sim2c", "c_body", poly_idx__simplify_expression, func__sim2c__c_body__simplify_expression_1);
+  define_method("compiler", "body", poly_idx__simplify_expression, func__compiler__body__simplify_expression_1);
+  define_method("compiler", "call", poly_idx__simplify_statement, func__compiler__call__simplify_statement_1);
+  define_method("compiler", "function_call", poly_idx__simplify_expression, func__compiler__function_call__simplify_expression_1);
+  define_method("compiler", "attribute_value_pair", poly_idx__simplify_expression, func__compiler__attribute_value_pair__simplify_expression_1);
+  define_method("compiler", "attribute_function_pair", poly_idx__simplify_expression, func__compiler__attribute_function_pair__simplify_expression_1);
+  define_method("compiler", "c_code", poly_idx__simplify_statement, func__compiler__c_code__simplify_statement_1);
+  define_method("compiler", "c_body", poly_idx__simplify_expression, func__compiler__c_body__simplify_expression_1);
 }
 
 static int already_run_phase_5 = false;
@@ -10857,13 +10857,13 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__simplifier(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_value(&var.sim2c__simplify_statement, create_function(type__sim2c__simplify_statement, -1));
-  assign_value(&var.sim2c__simplify_expression, create_function(type__sim2c__simplify_expression, -1));
+  assign_value(&var.compiler__simplify_statement, create_function(type__compiler__simplify_statement, -1));
+  assign_value(&var.compiler__simplify_expression, create_function(type__compiler__simplify_expression, -1));
   maybe_initialize_future(get__defined_names(), get__empty_table());
   maybe_initialize_future(get__inherited_names(), get__empty_table());
   assign_variable(&var._temporary_identifier, &func__temporary_identifier_1);
   assign_variable(&var._simplify_arguments, &func__simplify_arguments_1);
-  assign_variable(&var.sim2c__check_usage, &func__sim2c__check_usage_1);
+  assign_variable(&var.compiler__check_usage, &func__compiler__check_usage_1);
   assign_variable(&var._do_store, &func__do_store_1);
   assign_variable(&var._store_result, &func__store_result_1);
 }

@@ -522,12 +522,12 @@ static NODE_GETTER get_value_or_future__std__key_value_pair;
 static NODE_GETTER get__table;
 static NODE_GETTER get_value_or_future__table;
 static struct {
-  NODE *sim2c__runtime_symbols;
+  NODE *compiler__runtime_symbols;
 } var;
 static const char *var_names[] = {
 };
-static NODE *get__sim2c__runtime_symbols(void) {
-  return var.sim2c__runtime_symbols;
+static NODE *get__compiler__runtime_symbols(void) {
+  return var.compiler__runtime_symbols;
 }
 static NODE *string__fa728015cb16b81;
 static NODE *string__8edd415ac72451d0;
@@ -5865,7 +5865,7 @@ static void cont__2_732(void) {
     return;
   }
   frame->slots[243] /* temp__244 */ = arguments->slots[0];
-  // 22: $sim2c::runtime_symbols
+  // 22: $compiler::runtime_symbols
   // 23:   table
   // 24:     "ASM" = "
   // 25:       #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
@@ -6132,13 +6132,13 @@ static void cont__2_733(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(var.sim2c__runtime_symbols, arguments->slots[0]);
+  initialize_future(var.compiler__runtime_symbols, arguments->slots[0]);
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__runtime_definitions(void) {
-  var.sim2c__runtime_symbols = collect_node(var.sim2c__runtime_symbols);
+  var.compiler__runtime_symbols = collect_node(var.compiler__runtime_symbols);
 }
 
 static int already_run_phase_1 = false;
@@ -6910,7 +6910,7 @@ EXPORT void phase_3__runtime_definitions(void) {
   already_run_phase_3 = true;
   set_module("runtime_definitions");
   set_used_namespaces(used_namespaces);
-  define_single_assign_static("sim2c", "runtime_symbols", get__sim2c__runtime_symbols, &var.sim2c__runtime_symbols);
+  define_single_assign_static("compiler", "runtime_symbols", get__compiler__runtime_symbols, &var.compiler__runtime_symbols);
 }
 
 static int already_run_phase_4 = false;

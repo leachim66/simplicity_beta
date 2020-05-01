@@ -23,11 +23,11 @@
   expand operator expressions into function calls
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
-$sim2c::expand_statement ()
-$sim2c::expand_expression ()
+$compiler::expand_statement ()
+$compiler::expand_expression ()
 
 $expand_arguments: (arguments)
   $$new_arguments empty_list
@@ -54,7 +54,7 @@ $types::grammar_node/expand_expression: (&_self)
 ###
 # BODY
 
-$sim2c::body/expand_expression: (&self)
+$compiler::body/expand_expression: (&self)
   show_compiler_debug_info "expand body"
   update_each &self.parameters_of: (&parameter)
     if default_value_of(parameter).is_defined:
@@ -64,7 +64,7 @@ $sim2c::body/expand_expression: (&self)
 ###
 # CALL
 
-$sim2c::call/expand_statement: (&self)
+$compiler::call/expand_statement: (&self)
   show_compiler_debug_info "expand statement"
   if functor_of(self).is_defined:
     if result_count_of(self).is_defined: expand_expression &self.result_count_of
@@ -75,7 +75,7 @@ $sim2c::call/expand_statement: (&self)
 ###
 # FUNCTION CALL
 
-$sim2c::expand_operator_call: (&self)
+$compiler::expand_operator_call: (&self)
   $make_right_argument_lazy:
     $right arguments_of(self)(2)
     !self.arguments_of(2)
@@ -155,7 +155,7 @@ $sim2c::expand_operator_call: (&self)
 	  .source_position_of source_position_of(self)
 	  .end_position_of end_position_of(self)
 
-$sim2c::function_call/expand_expression: (&self)
+$compiler::function_call/expand_expression: (&self)
   show_compiler_debug_info "expand function call"
 
   # type-functions construct function calls without a functor!!!
@@ -181,13 +181,13 @@ $sim2c::function_call/expand_expression: (&self)
 ###
 # ATTRIBUTE VALUE PAIR
 
-$sim2c::attribute_value_pair/expand_expression: (&self)
+$compiler::attribute_value_pair/expand_expression: (&self)
   show_compiler_debug_info "expand attribute-value pair"
   expand_arguments &self.arguments_of
 
 ###
 # ATTRIBUTE FUNCTION PAIR
 
-$sim2c::attribute_function_pair/expand_expression: (&self)
+$compiler::attribute_function_pair/expand_expression: (&self)
   show_compiler_debug_info "expand attribute-function pair"
   expand_arguments &self.arguments_of

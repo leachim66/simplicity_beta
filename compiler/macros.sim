@@ -23,7 +23,7 @@
   implements "macro replacement" for inline-C code
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
 $EVENT .
@@ -391,7 +391,7 @@ define_macro "IO_ERROR" "
     io_error();
   }@
 
-$sim2c::converted: ($code)
+$compiler::converted: ($code)
   %%event_name undefined
   %%event_kind undefined
   %%data_variables empty_list

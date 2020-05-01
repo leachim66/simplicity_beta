@@ -26,13 +26,13 @@
   newline
 
 <using std>
-<using sim2c>
+<using compiler>
 
-$sim2c::indent_marker '@soh;'
-$sim2c::outdent_marker '@stx;'
-$sim2c::newline '@nl;'
+$compiler::indent_marker '@soh;'
+$compiler::outdent_marker '@stx;'
+$compiler::newline '@nl;'
 
-$sim2c::tokenize: (&fragment)
+$compiler::tokenize: (&fragment)
   !fragment.indents_of empty_list
   $text text_of(fragment)
   $$i 1

@@ -23,7 +23,7 @@
   extracts documentation (as HTML-text) from remarks
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 <using html>
 
@@ -61,7 +61,7 @@ $PARAMETER_COUNT_OR_MYSELF
     '*'
     '?'
     sequence
-      alt('=' sim2c::WHITESPACE, '=', sim2c::WHITESPACE)
+      alt('=' compiler::WHITESPACE, '=', compiler::WHITESPACE)
       many(not_followed_by(':'), ANY_CHARACTER)
 
 $$path_prefix undefined
@@ -171,17 +171,17 @@ $extract_documentation_from_file: (filename)
   if buf(1) <= ' ': Error "Whitespace at start of source text!"
   if buf(-1) != newline: Error "Missing newline at end of source text!"
 
-  %sim2c::module_name
+  %compiler::module_name
     replace_all(filename .without_suffix. ".sim" '/' = "__")
       #filename .without_prefix. main_prefix .without_suffix. ".sim"
 
-  %%sim2c::required_modules empty_insert_order_table
-  %%sim2c::used_namespaces empty_insert_order_set
-  %%sim2c::defined_namespaces empty_insert_order_set
-  %%sim2c::namespace_mappings empty_insert_order_table
-  %%sim2c::included_files empty_insert_order_set
-  %%sim2c::linked_libraries empty_insert_order_set
-  %%sim2c::enumeration_count 0
+  %%compiler::required_modules empty_insert_order_table
+  %%compiler::used_namespaces empty_insert_order_set
+  %%compiler::defined_namespaces empty_insert_order_set
+  %%compiler::namespace_mappings empty_insert_order_table
+  %%compiler::included_files empty_insert_order_set
+  %%compiler::linked_libraries empty_insert_order_set
+  %%compiler::enumeration_count 0
   $$fragments cut_into_fragments(buf)
   update_each &fragments: (&fragment) tokenize &fragment
   $$trees empty_list
@@ -496,12 +496,12 @@ $create_info_page: (function_name info)
 		paragraph
 		sequence
 		  "Parameter"
-		  sim2c::WHITESPACE
+		  compiler::WHITESPACE
 		  NAME
 		  optional(PARAMETER_COUNT_OR_MYSELF)
 		  ':'
 	      :
-		$$parameter between(paragraph sim2c::WHITESPACE ':')
+		$$parameter between(paragraph compiler::WHITESPACE ':')
 		cond
 		  -> parameter .has_suffix. '?':
 		    !parameter string(range(parameter 1 -2) " (optional)")
@@ -522,12 +522,12 @@ $create_info_page: (function_name info)
 		paragraph
 		sequence
 		  "Returns"
-		  sim2c::WHITESPACE
+		  compiler::WHITESPACE
 		  NAME
 		  optional(PARAMETER_COUNT_OR_MYSELF)
 		  ':'
 	      :
-		$$return_value between(paragraph sim2c::WHITESPACE ':')
+		$$return_value between(paragraph compiler::WHITESPACE ':')
 		cond
 		  -> return_value .has_suffix. '?':
 		    !return_value string(range(return_value 1 -2) " (optional)")
@@ -717,7 +717,7 @@ $get_short_description: (name info)
   -> short_description
 
 
-$sim2c::extract_documentation: (paths)
+$compiler::extract_documentation: (paths)
   !path_prefix truncate_behind(paths(1) '/' -1)
   for_each paths: (path)
     extract_documentation_from_directory path

@@ -22,7 +22,7 @@
 #
   a list of character name entities
 
-$sim2c::character_names
+$compiler::character_names
   table
     "nul" = '@nul;'
     "soh" = '@soh;'

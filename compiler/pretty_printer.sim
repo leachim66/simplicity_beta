@@ -23,7 +23,7 @@
   prints a source code representation of an abstract syntax tree
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
 $needs_parenthesis ()
@@ -74,7 +74,7 @@ $FUNC .
 
   the returned string will never contain a trailing newline character
 
-%sim2c::hide_body_statements false
+%compiler::hide_body_statements false
   # replaces all statements of a body with a single ellipsis ("...")
 
 #
@@ -82,7 +82,7 @@ $FUNC .
   and return statements
 
 $UNLIMITED 999'999
-%sim2c::line_width 80
+%compiler::line_width 80
   #
     the maxiumm length for source code lines
     if set to <UNLIMITED> expressions *must* be printed inline!
@@ -162,7 +162,7 @@ $indentation_string: ($indent)
     minus &indent 8
   append indentation std::spaces(indent)
 
-$sim2c::print_trees: (trees)
+$compiler::print_trees: (trees)
   %spaces: (indent)
     #
       write an indentation marker at the start of each line;
@@ -285,11 +285,11 @@ $types::grammar_node/to_string: (_self) -> "<???>"
 ###
 # META INSTRUCTIONS
 
-$sim2c::require_instruction/to_string: (self)
+$compiler::require_instruction/to_string: (self)
   !statement_tag REQUIRE
   -> add_statement_remark(self "<require @(node::filename_of(self))>")
 
-$sim2c::namespace_instruction/to_string: (self)
+$compiler::namespace_instruction/to_string: (self)
   !statement_tag NAMESPACE
   ->
     add_remark
@@ -299,26 +299,26 @@ $sim2c::namespace_instruction/to_string: (self)
 	-> "<namespace @(namespace_alias_of(self)) = @(namespace_of(self))>"
 	-> "<namespace @(namespace_of(self))>"
 
-$sim2c::using_instruction/to_string: (self)
+$compiler::using_instruction/to_string: (self)
   !statement_tag USING
   -> add_statement_remark(self "<using @(namespace_of(self))>")
 
-$sim2c::include_instruction/to_string: (self)
+$compiler::include_instruction/to_string: (self)
   !statement_tag INCLUDE
   -> add_statement_remark(self "<include @(node::filename_of(self))>")
 
-$sim2c::link_instruction/to_string: (self)
+$compiler::link_instruction/to_string: (self)
   !statement_tag LINK
   -> add_statement_remark(self "<link @(node::filename_of(self))>")
 
-$sim2c::data_instruction/to_string: (self)
+$compiler::data_instruction/to_string: (self)
   !statement_tag DATA
   -> add_statement_remark(self "<data @(node::filemask_of(self))>")
 
 ###
 # REMARK STATEMENT
 
-$sim2c::remark_statement/to_string: (self)
+$compiler::remark_statement/to_string: (self)
   $remark_lines remark_lines_of(self)
   !statement_tag
     cond
@@ -342,7 +342,7 @@ $sim2c::remark_statement/to_string: (self)
 ###
 # BODY
 
-$sim2c::body/to_string: (self)
+$compiler::body/to_string: (self)
   # the <expression_indent> specfies the body's statements indentation level
 
   $$indent expression_indent
@@ -702,7 +702,7 @@ $call_with_remark_to_string: (functor $arguments remark_lines)
     !arguments string('@nl;' spaces(expression_indent) arguments)
   -> string(functor remark arguments)
 
-$sim2c::call/to_string: ($self)
+$compiler::call/to_string: ($self)
   $indent expression_indent
   $outer_line_end_expression_width line_end_expression_width
   if
@@ -822,7 +822,7 @@ $definition_to_string: (prefix definition)
 ###
 # DEFINE STATIC SINGLE
 
-$sim2c::define_static_single/to_string: (self)
+$compiler::define_static_single/to_string: (self)
   $prefix
     case
       parameter_kind_of(self)
@@ -843,7 +843,7 @@ $sim2c::define_static_single/to_string: (self)
 ###
 # DEFINE STATIC MULTI
 
-$sim2c::define_static_multi/to_string: (self)
+$compiler::define_static_multi/to_string: (self)
   $prefix
     case
       parameter_kind_of(self)
@@ -860,13 +860,13 @@ $sim2c::define_static_multi/to_string: (self)
 ###
 # DEFINE DYNAMIC SINGLE
 
-$sim2c::define_dynamic_single/to_string: (self)
+$compiler::define_dynamic_single/to_string: (self)
   add_indented_remark self definition_to_string("%" self)
 
 ###
 # DEFINE DYNAMIC MULTI
 
-$sim2c::define_dynamic_multi/to_string: (self)
+$compiler::define_dynamic_multi/to_string: (self)
   add_indented_remark self definition_to_string("%%" self)
 
 ###
@@ -894,7 +894,7 @@ $operator_of: (expr)
     -> functor_of(expr).to_string
     -> undefined
 
-$sim2c::function_call/to_string: (self)
+$compiler::function_call/to_string: (self)
   $indent expression_indent
 
   # Yes, there are function calls without a functor in the AST ...
@@ -1084,7 +1084,7 @@ $sim2c::function_call/to_string: (self)
 ###
 # BACKQUOTED
 
-$sim2c::backquoted/to_string: (self) -> string('`' node::text_of(self))
+$compiler::backquoted/to_string: (self) -> string('`' node::text_of(self))
 
 ###
 # ATTRIBUTE VALUE/FUNCTION PAIR
@@ -1121,14 +1121,14 @@ $pair_to_string: (self symbol)
 	  value
       -> true -> string(symbol identifier separator value)
 
-$sim2c::attribute_value_pair/to_string: (self) pair_to_string self '.'
+$compiler::attribute_value_pair/to_string: (self) pair_to_string self '.'
 
-$sim2c::attribute_function_pair/to_string: (self) pair_to_string self '/'
+$compiler::attribute_function_pair/to_string: (self) pair_to_string self '/'
 
 ###
 # NUMERIC LITERAL
 
-$sim2c::numeric_literal/to_string: (self) add_remark self node::value_of(self)
+$compiler::numeric_literal/to_string: (self) add_remark self node::value_of(self)
 
 ###
 # CHARACTER LITERAL
@@ -1168,7 +1168,7 @@ $escaped_character:
 	    -> numerical_encoding()
 	    -> chr.to_string
 
-$sim2c::character_literal/to_string: (self)
+$compiler::character_literal/to_string: (self)
   add_remark
     self
     string
@@ -1429,7 +1429,7 @@ $string_template_to_string: (self)
   if lines(-1) .has_suffix. "@@nl;@@": range &lines(-1) 1 -6 # remove nonsense
   print_string_literal lines template_is_inline
 
-$sim2c::string_literal/to_string: (self)
+$compiler::string_literal/to_string: (self)
   if
     remark_lines_of(self).is_empty:
       analyze_string_literal $lines $is_inline node::text_of(self)
@@ -1442,18 +1442,18 @@ $sim2c::string_literal/to_string: (self)
 ###
 # UNIQUE ITEM
 
-$sim2c::unique_item/to_string: (self) add_remark self "."
+$compiler::unique_item/to_string: (self) add_remark self "."
 
 ###
 # POLYMORPHIC FUNCTION
 
-$sim2c::polymorphic_function/to_string: (self)
+$compiler::polymorphic_function/to_string: (self)
   add_remark self if(self.is_a_setter (-> "(!)") -> "()")
 
 ###
 # IDENTIFIER
 
-$sim2c::identifier/to_string: (self)
+$compiler::identifier/to_string: (self)
   add_remark
     self
     cond
@@ -1466,7 +1466,7 @@ $sim2c::identifier/to_string: (self)
 ###
 # C-CODE
 
-$sim2c::c_code/to_string: (self)
+$compiler::c_code/to_string: (self)
   !statement_tag ALWAYS
   if hide_body_statements (-> "{...}"):
     $$buf

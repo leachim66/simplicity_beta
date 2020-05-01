@@ -33,7 +33,7 @@
 
 write "
   @(gpl_header("2020" "Dipl.-Ing. Michael Niederle"))
-  $sim2c::runtime_symbols
+  $compiler::runtime_symbols
     table
       "ASM" = "
         #if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)

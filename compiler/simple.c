@@ -305,13 +305,13 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void use_read_write(
-  const char *namespace, const char *name,
-  NODE_GETTER *getter, NODE_SETTER *setter
-);
 IMPORT void use_single_assign_dynamic(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_SETTER *definer
+);
+IMPORT void use_read_write(
+  const char *namespace, const char *name,
+  NODE_GETTER *getter, NODE_SETTER *setter
 );
 IMPORT void resolve_attributes(void);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
@@ -393,6 +393,8 @@ static NODE_GETTER get__collect_output;
 static NODE_GETTER get_value_or_future__collect_output;
 static NODE_GETTER get__command_line_arguments;
 static NODE_GETTER get_value_or_future__command_line_arguments;
+static NODE_GETTER get__compiler__module_name;
+static NODE_SETTER define__compiler__module_name;
 static NODE_GETTER get__cond;
 static NODE_GETTER get_value_or_future__cond;
 static NODE_GETTER get__contains;
@@ -547,8 +549,6 @@ static NODE_GETTER get__serialize;
 static NODE_GETTER get_value_or_future__serialize;
 static NODE_GETTER get__sim2c;
 static NODE_GETTER get_value_or_future__sim2c;
-static NODE_GETTER get__sim2c__module_name;
-static NODE_SETTER define__sim2c__module_name;
 static NODE_GETTER get__some;
 static NODE_GETTER get_value_or_future__some;
 static NODE_GETTER get__split;
@@ -691,21 +691,21 @@ static struct {
   NODE *_t;
   NODE *_format_number;
   NODE *_build_executable;
-  NODE *sim2c__do_dump_trees;
-  NODE *sim2c__do_pretty_print;
-  NODE *sim2c__do_print_simplified_source;
-  NODE *sim2c__do_show_debug_infos;
-  NODE *sim2c__do_show_compiler_debug_infos;
-  NODE *sim2c__do_check_only;
-  NODE *sim2c__do_show_brief_messages;
-  NODE *sim2c__do_print_warnings;
-  NODE *sim2c__do_print_missing;
-  NODE *sim2c__do_print_summary;
-  NODE *sim2c__verbose;
-  NODE *sim2c__do_extract_documentation;
-  NODE *sim2c__do_time_passes;
-  NODE *sim2c__show_compiler_debug_info;
-  NODE *sim2c__write_timing_info;
+  NODE *compiler__do_dump_trees;
+  NODE *compiler__do_pretty_print;
+  NODE *compiler__do_print_simplified_source;
+  NODE *compiler__do_show_debug_infos;
+  NODE *compiler__do_show_compiler_debug_infos;
+  NODE *compiler__do_check_only;
+  NODE *compiler__do_show_brief_messages;
+  NODE *compiler__do_print_warnings;
+  NODE *compiler__do_print_missing;
+  NODE *compiler__do_print_summary;
+  NODE *compiler__verbose;
+  NODE *compiler__do_extract_documentation;
+  NODE *compiler__do_time_passes;
+  NODE *compiler__show_compiler_debug_info;
+  NODE *compiler__write_timing_info;
 } var;
 static const char *var_names[] = {
   "MAJOR",
@@ -769,83 +769,83 @@ static const char *var_names[] = {
   "build_executable"
 };
 static NODE *unique__NONE;
-static NODE *get__sim2c__do_dump_trees(void) {
-  return var.sim2c__do_dump_trees;
+static NODE *get__compiler__do_dump_trees(void) {
+  return var.compiler__do_dump_trees;
 }
-static void set__sim2c__do_dump_trees(NODE *val) {
-  var.sim2c__do_dump_trees = val;
+static void set__compiler__do_dump_trees(NODE *val) {
+  var.compiler__do_dump_trees = val;
 }
-static NODE *get__sim2c__do_pretty_print(void) {
-  return var.sim2c__do_pretty_print;
+static NODE *get__compiler__do_pretty_print(void) {
+  return var.compiler__do_pretty_print;
 }
-static void set__sim2c__do_pretty_print(NODE *val) {
-  var.sim2c__do_pretty_print = val;
+static void set__compiler__do_pretty_print(NODE *val) {
+  var.compiler__do_pretty_print = val;
 }
-static NODE *get__sim2c__do_print_simplified_source(void) {
-  return var.sim2c__do_print_simplified_source;
+static NODE *get__compiler__do_print_simplified_source(void) {
+  return var.compiler__do_print_simplified_source;
 }
-static void set__sim2c__do_print_simplified_source(NODE *val) {
-  var.sim2c__do_print_simplified_source = val;
+static void set__compiler__do_print_simplified_source(NODE *val) {
+  var.compiler__do_print_simplified_source = val;
 }
-static NODE *get__sim2c__do_show_debug_infos(void) {
-  return var.sim2c__do_show_debug_infos;
+static NODE *get__compiler__do_show_debug_infos(void) {
+  return var.compiler__do_show_debug_infos;
 }
-static void set__sim2c__do_show_debug_infos(NODE *val) {
-  var.sim2c__do_show_debug_infos = val;
+static void set__compiler__do_show_debug_infos(NODE *val) {
+  var.compiler__do_show_debug_infos = val;
 }
-static NODE *get__sim2c__do_show_compiler_debug_infos(void) {
-  return var.sim2c__do_show_compiler_debug_infos;
+static NODE *get__compiler__do_show_compiler_debug_infos(void) {
+  return var.compiler__do_show_compiler_debug_infos;
 }
-static void set__sim2c__do_show_compiler_debug_infos(NODE *val) {
-  var.sim2c__do_show_compiler_debug_infos = val;
+static void set__compiler__do_show_compiler_debug_infos(NODE *val) {
+  var.compiler__do_show_compiler_debug_infos = val;
 }
-static NODE *get__sim2c__do_check_only(void) {
-  return var.sim2c__do_check_only;
+static NODE *get__compiler__do_check_only(void) {
+  return var.compiler__do_check_only;
 }
-static void set__sim2c__do_check_only(NODE *val) {
-  var.sim2c__do_check_only = val;
+static void set__compiler__do_check_only(NODE *val) {
+  var.compiler__do_check_only = val;
 }
-static NODE *get__sim2c__do_show_brief_messages(void) {
-  return var.sim2c__do_show_brief_messages;
+static NODE *get__compiler__do_show_brief_messages(void) {
+  return var.compiler__do_show_brief_messages;
 }
-static void set__sim2c__do_show_brief_messages(NODE *val) {
-  var.sim2c__do_show_brief_messages = val;
+static void set__compiler__do_show_brief_messages(NODE *val) {
+  var.compiler__do_show_brief_messages = val;
 }
-static NODE *get__sim2c__do_print_warnings(void) {
-  return var.sim2c__do_print_warnings;
+static NODE *get__compiler__do_print_warnings(void) {
+  return var.compiler__do_print_warnings;
 }
-static void set__sim2c__do_print_warnings(NODE *val) {
-  var.sim2c__do_print_warnings = val;
+static void set__compiler__do_print_warnings(NODE *val) {
+  var.compiler__do_print_warnings = val;
 }
-static NODE *get__sim2c__do_print_missing(void) {
-  return var.sim2c__do_print_missing;
+static NODE *get__compiler__do_print_missing(void) {
+  return var.compiler__do_print_missing;
 }
-static void set__sim2c__do_print_missing(NODE *val) {
-  var.sim2c__do_print_missing = val;
+static void set__compiler__do_print_missing(NODE *val) {
+  var.compiler__do_print_missing = val;
 }
-static NODE *get__sim2c__do_print_summary(void) {
-  return var.sim2c__do_print_summary;
+static NODE *get__compiler__do_print_summary(void) {
+  return var.compiler__do_print_summary;
 }
-static void set__sim2c__do_print_summary(NODE *val) {
-  var.sim2c__do_print_summary = val;
+static void set__compiler__do_print_summary(NODE *val) {
+  var.compiler__do_print_summary = val;
 }
-static NODE *get__sim2c__verbose(void) {
-  return var.sim2c__verbose;
+static NODE *get__compiler__verbose(void) {
+  return var.compiler__verbose;
 }
-static void set__sim2c__verbose(NODE *val) {
-  var.sim2c__verbose = val;
+static void set__compiler__verbose(NODE *val) {
+  var.compiler__verbose = val;
 }
-static NODE *get__sim2c__do_extract_documentation(void) {
-  return var.sim2c__do_extract_documentation;
+static NODE *get__compiler__do_extract_documentation(void) {
+  return var.compiler__do_extract_documentation;
 }
-static void set__sim2c__do_extract_documentation(NODE *val) {
-  var.sim2c__do_extract_documentation = val;
+static void set__compiler__do_extract_documentation(NODE *val) {
+  var.compiler__do_extract_documentation = val;
 }
-static NODE *get__sim2c__do_time_passes(void) {
-  return var.sim2c__do_time_passes;
+static NODE *get__compiler__do_time_passes(void) {
+  return var.compiler__do_time_passes;
 }
-static void set__sim2c__do_time_passes(NODE *val) {
-  var.sim2c__do_time_passes = val;
+static void set__compiler__do_time_passes(NODE *val) {
+  var.compiler__do_time_passes = val;
 }
 static int dyna_idx__main_filename;
 static NODE *get__main_filename(void) {
@@ -868,14 +868,14 @@ static NODE *get__do_build_static_executable(void) {
 static void define__do_build_static_executable(NODE *node) {
   define_dynamic_slot(dyna_idx__do_build_static_executable, node);
 }
-static NODE *func__sim2c__show_compiler_debug_info_1;
-static void entry__sim2c__show_compiler_debug_info_1(void);
-static FRAME_INFO frame__sim2c__show_compiler_debug_info_1 = {1, {"args"}};
-static NODE *func__sim2c__show_compiler_debug_info_2;
-static void entry__sim2c__show_compiler_debug_info_2(void);
-static FRAME_INFO frame__sim2c__show_compiler_debug_info_2 = {1, {"args"}};
-static NODE *get__sim2c__show_compiler_debug_info(void) {
-  return var.sim2c__show_compiler_debug_info;
+static NODE *func__compiler__show_compiler_debug_info_1;
+static void entry__compiler__show_compiler_debug_info_1(void);
+static FRAME_INFO frame__compiler__show_compiler_debug_info_1 = {1, {"args"}};
+static NODE *func__compiler__show_compiler_debug_info_2;
+static void entry__compiler__show_compiler_debug_info_2(void);
+static FRAME_INFO frame__compiler__show_compiler_debug_info_2 = {1, {"args"}};
+static NODE *get__compiler__show_compiler_debug_info(void) {
+  return var.compiler__show_compiler_debug_info;
 }
 static NODE *unique__EXE;
 static NODE *unique__LIB;
@@ -2185,32 +2185,32 @@ static void cont__format_number_30(void);
 static void cont__format_number_31(void);
 static void cont__format_number_32(void);
 static void cont__format_number_33(void);
-static NODE *func__sim2c__write_timing_info_1;
-static void entry__sim2c__write_timing_info_1(void);
-static FRAME_INFO frame__sim2c__write_timing_info_1 = {3, {"description", "filename", "new_t"}};
-static void cont__sim2c__write_timing_info_2(void);
-static void cont__sim2c__write_timing_info_3(void);
-static NODE *func__sim2c__write_timing_info_4;
-static void entry__sim2c__write_timing_info_4(void);
-static FRAME_INFO frame__sim2c__write_timing_info_4 = {3, {"filename", "description", "new_t"}};
-static void cont__sim2c__write_timing_info_5(void);
-static void cont__sim2c__write_timing_info_6(void);
-static void cont__sim2c__write_timing_info_7(void);
-static void cont__sim2c__write_timing_info_8(void);
-static void cont__sim2c__write_timing_info_9(void);
-static void cont__sim2c__write_timing_info_10(void);
-static void cont__sim2c__write_timing_info_11(void);
+static NODE *func__compiler__write_timing_info_1;
+static void entry__compiler__write_timing_info_1(void);
+static FRAME_INFO frame__compiler__write_timing_info_1 = {3, {"description", "filename", "new_t"}};
+static void cont__compiler__write_timing_info_2(void);
+static void cont__compiler__write_timing_info_3(void);
+static NODE *func__compiler__write_timing_info_4;
+static void entry__compiler__write_timing_info_4(void);
+static FRAME_INFO frame__compiler__write_timing_info_4 = {3, {"filename", "description", "new_t"}};
+static void cont__compiler__write_timing_info_5(void);
+static void cont__compiler__write_timing_info_6(void);
+static void cont__compiler__write_timing_info_7(void);
+static void cont__compiler__write_timing_info_8(void);
+static void cont__compiler__write_timing_info_9(void);
+static void cont__compiler__write_timing_info_10(void);
+static void cont__compiler__write_timing_info_11(void);
 static NODE *string__2d7981f4e6082bb6;
-static NODE *func__sim2c__write_timing_info_13;
-static void entry__sim2c__write_timing_info_13(void);
-static FRAME_INFO frame__sim2c__write_timing_info_13 = {2, {"description", "new_t"}};
-static void cont__sim2c__write_timing_info_14(void);
-static void cont__sim2c__write_timing_info_15(void);
+static NODE *func__compiler__write_timing_info_13;
+static void entry__compiler__write_timing_info_13(void);
+static FRAME_INFO frame__compiler__write_timing_info_13 = {2, {"description", "new_t"}};
+static void cont__compiler__write_timing_info_14(void);
+static void cont__compiler__write_timing_info_15(void);
 static NODE *string__2d7981f4e6d82be5;
-static void cont__sim2c__write_timing_info_17(void);
-static void cont__sim2c__write_timing_info_18(void);
-static NODE *get__sim2c__write_timing_info(void) {
-  return var.sim2c__write_timing_info;
+static void cont__compiler__write_timing_info_17(void);
+static void cont__compiler__write_timing_info_18(void);
+static NODE *get__compiler__write_timing_info(void) {
+  return var.compiler__write_timing_info;
 }
 static NODE *func__build_executable_1;
 static void entry__build_executable_1(void);
@@ -2906,8 +2906,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__192_3, NULL, 1098, 1110, 1, 18},
   {cont__193_13, NULL, },
   {cont__194_1, NULL, },
-  {entry__sim2c__show_compiler_debug_info_2, NULL, 266, 266, 36, 49},
-  {entry__sim2c__show_compiler_debug_info_1, NULL, 266, 266, 3, 49},
+  {entry__compiler__show_compiler_debug_info_2, NULL, 266, 266, 36, 49},
+  {entry__compiler__show_compiler_debug_info_1, NULL, 266, 266, 3, 49},
   {entry__resolve_filename_13, NULL, 323, 323, 37, 80},
   {cont__resolve_filename_14, &frame__resolve_filename_13, 323, 323, 37, 61},
   {cont__resolve_filename_15, &frame__resolve_filename_13, 323, 323, 80, 80},
@@ -3181,9 +3181,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compile_module_50, NULL, 566, 566, 35, 53},
   {entry__compile_module_52, NULL, 567, 567, 32, 54},
   {entry__compile_module_56, NULL, 569, 569, 26, 56},
-  {entry__compile_module_42, NULL, 564, 564, 50, 59},
-  {cont__compile_module_44, &frame__compile_module_42, 564, 564, 61, 70},
-  {cont__compile_module_45, &frame__compile_module_42, 564, 564, 9, 71},
+  {entry__compile_module_42, NULL, 564, 564, 53, 62},
+  {cont__compile_module_44, &frame__compile_module_42, 564, 564, 64, 73},
+  {cont__compile_module_45, &frame__compile_module_42, 564, 564, 9, 74},
   {cont__compile_module_46, &frame__compile_module_42, 565, 565, 9, 63},
   {cont__compile_module_49, &frame__compile_module_42, 566, 566, 9, 53},
   {cont__compile_module_51, &frame__compile_module_42, 567, 567, 9, 54},
@@ -3423,9 +3423,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__print_c_4, NULL, 744, 744, 41, 65},
   {cont__print_c_5, &frame__print_c_4, 744, 744, 34, 75},
   {cont__print_c_6, &frame__print_c_4, 744, 744, 75, 75},
-  {entry__print_c_8, NULL, 746, 746, 48, 57},
-  {cont__print_c_9, &frame__print_c_8, 746, 746, 59, 68},
-  {cont__print_c_10, &frame__print_c_8, 746, 746, 7, 69},
+  {entry__print_c_8, NULL, 746, 746, 51, 60},
+  {cont__print_c_9, &frame__print_c_8, 746, 746, 62, 71},
+  {cont__print_c_10, &frame__print_c_8, 746, 746, 7, 72},
   {cont__print_c_11, &frame__print_c_8, 747, 747, 13, 31},
   {cont__print_c_12, &frame__print_c_8, 747, 747, 7, 31},
   {cont__print_c_13, &frame__print_c_8, 747, 747, 31, 31},
@@ -3641,22 +3641,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__format_number_19, &frame__format_number_1, 974, 974, 5, 10},
   {cont__format_number_20, &frame__format_number_1, 973, 977, 3, 40},
   {cont__format_number_33, &frame__format_number_1, 978, 978, 3, 8},
-  {entry__sim2c__write_timing_info_4, NULL, 984, 984, 37, 37},
-  {cont__sim2c__write_timing_info_5, &frame__sim2c__write_timing_info_4, 984, 984, 7, 37},
-  {cont__sim2c__write_timing_info_6, &frame__sim2c__write_timing_info_4, 990, 990, 20, 41},
-  {cont__sim2c__write_timing_info_7, &frame__sim2c__write_timing_info_4, 990, 990, 17, 41},
-  {cont__sim2c__write_timing_info_8, &frame__sim2c__write_timing_info_4, 990, 990, 9, 42},
-  {cont__sim2c__write_timing_info_9, &frame__sim2c__write_timing_info_4, 991, 991, 23, 29},
-  {cont__sim2c__write_timing_info_10, &frame__sim2c__write_timing_info_4, 991, 991, 9, 34},
-  {cont__sim2c__write_timing_info_11, &frame__sim2c__write_timing_info_4, 985, 992, 7, 12},
-  {entry__sim2c__write_timing_info_13, NULL, 994, 994, 47, 53},
-  {cont__sim2c__write_timing_info_14, &frame__sim2c__write_timing_info_13, 994, 994, 33, 58},
-  {cont__sim2c__write_timing_info_15, &frame__sim2c__write_timing_info_13, 994, 994, 7, 63},
-  {entry__sim2c__write_timing_info_1, NULL, 981, 981, 3, 23},
-  {cont__sim2c__write_timing_info_2, &frame__sim2c__write_timing_info_1, 983, 983, 5, 23},
-  {cont__sim2c__write_timing_info_3, &frame__sim2c__write_timing_info_1, 982, 994, 3, 64},
-  {cont__sim2c__write_timing_info_17, &frame__sim2c__write_timing_info_1, 995, 995, 3, 19},
-  {cont__sim2c__write_timing_info_18, &frame__sim2c__write_timing_info_1, 995, 995, 19, 19},
+  {entry__compiler__write_timing_info_4, NULL, 984, 984, 37, 37},
+  {cont__compiler__write_timing_info_5, &frame__compiler__write_timing_info_4, 984, 984, 7, 37},
+  {cont__compiler__write_timing_info_6, &frame__compiler__write_timing_info_4, 990, 990, 20, 41},
+  {cont__compiler__write_timing_info_7, &frame__compiler__write_timing_info_4, 990, 990, 17, 41},
+  {cont__compiler__write_timing_info_8, &frame__compiler__write_timing_info_4, 990, 990, 9, 42},
+  {cont__compiler__write_timing_info_9, &frame__compiler__write_timing_info_4, 991, 991, 23, 29},
+  {cont__compiler__write_timing_info_10, &frame__compiler__write_timing_info_4, 991, 991, 9, 34},
+  {cont__compiler__write_timing_info_11, &frame__compiler__write_timing_info_4, 985, 992, 7, 12},
+  {entry__compiler__write_timing_info_13, NULL, 994, 994, 47, 53},
+  {cont__compiler__write_timing_info_14, &frame__compiler__write_timing_info_13, 994, 994, 33, 58},
+  {cont__compiler__write_timing_info_15, &frame__compiler__write_timing_info_13, 994, 994, 7, 63},
+  {entry__compiler__write_timing_info_1, NULL, 981, 981, 3, 23},
+  {cont__compiler__write_timing_info_2, &frame__compiler__write_timing_info_1, 983, 983, 5, 23},
+  {cont__compiler__write_timing_info_3, &frame__compiler__write_timing_info_1, 982, 994, 3, 64},
+  {cont__compiler__write_timing_info_17, &frame__compiler__write_timing_info_1, 995, 995, 3, 19},
+  {cont__compiler__write_timing_info_18, &frame__compiler__write_timing_info_1, 995, 995, 19, 19},
   {entry__build_executable_5, NULL, 1011, 1011, 12, 38},
   {cont__build_executable_7, &frame__build_executable_5, 1011, 1011, 9, 38},
   {entry__build_executable_8, NULL, 1012, 1012, 9, 23},
@@ -3674,8 +3674,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__build_executable_35, NULL, 1030, 1030, 32, 54},
   {entry__build_executable_39, NULL, 1032, 1032, 28, 64},
   {entry__build_executable_43, NULL, 1034, 1034, 28, 67},
-  {entry__build_executable_26, NULL, 1027, 1027, 55, 67},
-  {cont__build_executable_27, &frame__build_executable_26, 1027, 1027, 9, 67},
+  {entry__build_executable_26, NULL, 1027, 1027, 58, 70},
+  {cont__build_executable_27, &frame__build_executable_26, 1027, 1027, 9, 70},
   {cont__build_executable_28, &frame__build_executable_26, 1028, 1028, 9, 61},
   {cont__build_executable_31, &frame__build_executable_26, 1029, 1029, 9, 64},
   {cont__build_executable_34, &frame__build_executable_26, 1030, 1030, 9, 54},
@@ -3877,7 +3877,7 @@ static NODE *number__999;
 
 static const char *used_namespaces[] = {
   "std",
-  "sim2c",
+  "compiler",
   "node",
   NULL
 };
@@ -5591,32 +5591,32 @@ static void cont__114_13(void) {
   var._do_rebuild = get__false();
   // 151: $$do_omit_meta false
   var._do_omit_meta = get__false();
-  // 152: $$sim2c::do_dump_trees false
-  var.sim2c__do_dump_trees = get__false();
-  // 153: $$sim2c::do_pretty_print false
-  var.sim2c__do_pretty_print = get__false();
-  // 154: $$sim2c::do_print_simplified_source false
-  var.sim2c__do_print_simplified_source = get__false();
-  // 155: $$sim2c::do_show_debug_infos false
-  var.sim2c__do_show_debug_infos = get__false();
-  // 156: $$sim2c::do_show_compiler_debug_infos false
-  var.sim2c__do_show_compiler_debug_infos = get__false();
-  // 157: $$sim2c::do_check_only false
-  var.sim2c__do_check_only = get__false();
-  // 158: $$sim2c::do_show_brief_messages false
-  var.sim2c__do_show_brief_messages = get__false();
-  // 159: $$sim2c::do_print_warnings false
-  var.sim2c__do_print_warnings = get__false();
-  // 160: $$sim2c::do_print_missing false
-  var.sim2c__do_print_missing = get__false();
-  // 161: $$sim2c::do_print_summary false
-  var.sim2c__do_print_summary = get__false();
-  // 162: $$sim2c::verbose false
-  var.sim2c__verbose = get__false();
+  // 152: $$compiler::do_dump_trees false
+  var.compiler__do_dump_trees = get__false();
+  // 153: $$compiler::do_pretty_print false
+  var.compiler__do_pretty_print = get__false();
+  // 154: $$compiler::do_print_simplified_source false
+  var.compiler__do_print_simplified_source = get__false();
+  // 155: $$compiler::do_show_debug_infos false
+  var.compiler__do_show_debug_infos = get__false();
+  // 156: $$compiler::do_show_compiler_debug_infos false
+  var.compiler__do_show_compiler_debug_infos = get__false();
+  // 157: $$compiler::do_check_only false
+  var.compiler__do_check_only = get__false();
+  // 158: $$compiler::do_show_brief_messages false
+  var.compiler__do_show_brief_messages = get__false();
+  // 159: $$compiler::do_print_warnings false
+  var.compiler__do_print_warnings = get__false();
+  // 160: $$compiler::do_print_missing false
+  var.compiler__do_print_missing = get__false();
+  // 161: $$compiler::do_print_summary false
+  var.compiler__do_print_summary = get__false();
+  // 162: $$compiler::verbose false
+  var.compiler__verbose = get__false();
   // 163: $$do_print_c false
   var._do_print_c = get__false();
-  // 164: $$sim2c::do_extract_documentation false
-  var.sim2c__do_extract_documentation = get__false();
+  // 164: $$compiler::do_extract_documentation false
+  var.compiler__do_extract_documentation = get__false();
   // 165: $$do_build_codeblocks_project false
   var._do_build_codeblocks_project = get__false();
   // 166: $$do_list_dependencies false
@@ -5625,8 +5625,8 @@ static void cont__114_13(void) {
   var._do_build_static = get__false();
   // 168: $$do_link_profiler false
   var._do_link_profiler = get__false();
-  // 169: $$sim2c::do_time_passes false
-  var.sim2c__do_time_passes = get__false();
+  // 169: $$compiler::do_time_passes false
+  var.compiler__do_time_passes = get__false();
   // 170: $$module_prefix undefined
   var._module_prefix = get__undefined();
   // 171: $$input_filename undefined
@@ -5705,7 +5705,7 @@ static void cont__142_1(void) {
   // 179:     program_parameters
   // 180:       # the following options act on a single file only
   // 181:       
-  // 182:       !sim2c::do_check_only
+  // 182:       !compiler::do_check_only
   // 183:       -> "check-only" "
   // ...
   argument_count = 3;
@@ -5802,13 +5802,13 @@ static void entry__142_8(void) {
   // 179: program_parameters
   // 180:   # the following options act on a single file only
   // 181:   
-  // 182:   !sim2c::do_check_only
+  // 182:   !compiler::do_check_only
   // 183:   -> "check-only" "
   // 184:     do not compile; just check for syntax errors
-  // 185:   !sim2c::do_dump_trees
+  // 185:   !compiler::do_dump_trees
   // 186:   -> "dump-trees" "
   // 187:     dump abstract syntax trees
-  // 188:   !sim2c::do_pretty_print
+  // 188:   !compiler::do_pretty_print
   // ...
   argument_count = 23;
   arguments = node_p;
@@ -6241,20 +6241,20 @@ static void cont__142_78(void) {
     invalid_results_error();
     return;
   }
-  var.sim2c__do_check_only = arguments->slots[0];
-  var.sim2c__do_dump_trees = arguments->slots[1];
-  var.sim2c__do_pretty_print = arguments->slots[2];
-  var.sim2c__do_print_simplified_source = arguments->slots[3];
+  var.compiler__do_check_only = arguments->slots[0];
+  var.compiler__do_dump_trees = arguments->slots[1];
+  var.compiler__do_pretty_print = arguments->slots[2];
+  var.compiler__do_print_simplified_source = arguments->slots[3];
   var._do_print_c = arguments->slots[4];
   set__do_time_passes(arguments->slots[5]);
   var._module_prefix = arguments->slots[6];
-  var.sim2c__do_show_brief_messages = arguments->slots[7];
-  var.sim2c__do_print_warnings = arguments->slots[8];
-  var.sim2c__do_print_missing = arguments->slots[9];
-  var.sim2c__do_print_summary = arguments->slots[10];
-  var.sim2c__verbose = arguments->slots[11];
-  var.sim2c__do_show_debug_infos = arguments->slots[12];
-  var.sim2c__do_show_compiler_debug_infos = arguments->slots[13];
+  var.compiler__do_show_brief_messages = arguments->slots[7];
+  var.compiler__do_print_warnings = arguments->slots[8];
+  var.compiler__do_print_missing = arguments->slots[9];
+  var.compiler__do_print_summary = arguments->slots[10];
+  var.compiler__verbose = arguments->slots[11];
+  var.compiler__do_show_debug_infos = arguments->slots[12];
+  var.compiler__do_show_compiler_debug_infos = arguments->slots[13];
   var._do_build_codeblocks_project = arguments->slots[14];
   set__do_extract_documentation(arguments->slots[15]);
   var._do_list_dependencies = arguments->slots[16];
@@ -7132,7 +7132,7 @@ static void cont__194_1(void) {
   }
   terminate(0); // should never be reached
 }
-static void entry__sim2c__show_compiler_debug_info_2(void) {
+static void entry__compiler__show_compiler_debug_info_2(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // args: 0
@@ -7150,14 +7150,14 @@ static void entry__sim2c__show_compiler_debug_info_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__show_compiler_debug_info_1(void) {
+static void entry__compiler__show_compiler_debug_info_1(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // args: 0
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
   // 266: ... : ewriteln args*
-  frame->slots[1] /* temp__1 */ = create_closure(entry__sim2c__show_compiler_debug_info_2, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__show_compiler_debug_info_2, 0);
   // 266: if do_show_compiler_debug_infos: ewriteln args*
   argument_count = 2;
   arguments = node_p;
@@ -12596,7 +12596,7 @@ static void cont__compile_module_41(void) {
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
   // 563: :
-  // 564:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 564:   %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   // 565:   if verbose: ewriteln "build module " module_name suffix
   // 566:   collect_output $c_source: sim2c sim_filenames
   // 567:   collect_output !c_buf: create_imports c_source
@@ -12621,7 +12621,7 @@ static void cont__compile_module_41(void) {
   // 561:     c_info.is_undefined
   // 562:     modification_time > modification_time_of(c_info)
   // 563:   :
-  // 564:     %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 564:     %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   // 565:     if verbose: ewriteln "build module " module_name suffix
   // 566:     collect_output $c_source: sim2c sim_filenames
   // 567:     collect_output !c_buf: create_imports c_source
@@ -12842,7 +12842,7 @@ static void entry__compile_module_42(void) {
   frame->slots[5] = myself->closure.frame->slots[8]; /* c_filename */
   frame->slots[6] = myself->closure.frame->slots[1]; /* do_compile_c */
   frame->slots[7] = myself->closure.frame->slots[5]; /* o_filename */
-  define__sim2c__module_name(create_future());
+  define__compiler__module_name(create_future());
   frame->slots[8] /* c_source */ = create_future();
   if (argument_count != 0) {
     invalid_arguments_error();
@@ -12880,7 +12880,7 @@ static void cont__compile_module_45(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 564: %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 564: %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -12896,7 +12896,7 @@ static void cont__compile_module_46(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(get__sim2c__module_name(), arguments->slots[0]);
+  initialize_future(get__compiler__module_name(), arguments->slots[0]);
   // 565: ... : ewriteln "build module " module_name suffix
   frame->slots[9] /* temp__1 */ = create_closure(entry__compile_module_47, 0);
   // 565: if verbose: ewriteln "build module " module_name suffix
@@ -17172,14 +17172,14 @@ static void entry__dump_source_or_check_2(void) {
   // mod_name: 1
   // return__1: 2
   frame->slots[2] /* return__1 */ = create_continuation();
-  // _define %sim2c::module_name mod_name
-  define__sim2c__module_name(frame->slots[1] /* mod_name */);
+  // _define %compiler::module_name mod_name
+  define__compiler__module_name(frame->slots[1] /* mod_name */);
   if (argument_count != 2) {
     invalid_arguments_error();
     return;
   }
-  // 739: %sim2c::module_name mod_name
-  initialize_maybe_future(get__sim2c__module_name(), frame->slots[1] /* mod_name */);
+  // 739: %compiler::module_name mod_name
+  initialize_maybe_future(get__compiler__module_name(), frame->slots[1] /* mod_name */);
   // 740: ... list(main_filename)
   argument_count = 1;
   arguments = node_p;
@@ -17217,7 +17217,7 @@ static void entry__dump_source_or_check_1(void) {
     return;
   }
   // 738: compile_exe: (_mod_filename mod_name)
-  // 739:   %sim2c::module_name mod_name
+  // 739:   %compiler::module_name mod_name
   // 740:   sim2c list(main_filename)
   argument_count = 1;
   arguments = node_p;
@@ -17337,11 +17337,11 @@ static void cont__print_c_7(void) {
     return;
   }
   // 745: ... :
-  // 746:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 746:   %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   // 747:   sim2c list(main_filename)
   frame->slots[4] /* temp__1 */ = create_closure(entry__print_c_8, 0);
   // 745: collect_output $c_source:
-  // 746:   %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 746:   %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   // 747:   sim2c list(main_filename)
   argument_count = 1;
   arguments = node_p;
@@ -17358,7 +17358,7 @@ static void entry__print_c_8(void) {
   // mod_name: 1
   frame->slots[0] /* return__1 */ = create_continuation();
   frame->slots[1] = myself->closure.frame->slots[1]; /* mod_name */
-  define__sim2c__module_name(create_future());
+  define__compiler__module_name(create_future());
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -17395,7 +17395,7 @@ static void cont__print_c_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 746: %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 746: %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* mod_name */;
@@ -17411,7 +17411,7 @@ static void cont__print_c_11(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(get__sim2c__module_name(), arguments->slots[0]);
+  initialize_future(get__compiler__module_name(), arguments->slots[0]);
   // 747: ... list(main_filename)
   argument_count = 1;
   arguments = node_p;
@@ -17516,7 +17516,7 @@ static void entry__print_c_1(void) {
   // 743: compile_exe: (_mod_filename $mod_name)
   // 744:   if module_prefix.is_defined: append string(module_prefix '/') &mod_name
   // 745:   collect_output $c_source:
-  // 746:     %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+  // 746:     %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
   // 747:     sim2c list(main_filename)
   // 748:   collect_output $c_buf: create_imports c_source
   // 749:   write c_buf
@@ -21427,7 +21427,7 @@ static void cont__format_number_33(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__write_timing_info_1(void) {
+static void entry__compiler__write_timing_info_1(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // description: 0
@@ -21455,9 +21455,9 @@ static void entry__sim2c__write_timing_info_1(void) {
   result_count = 1;
   myself = get__current_time();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_2;
+  frame->cont = cont__compiler__write_timing_info_2;
 }
-static void cont__sim2c__write_timing_info_2(void) {
+static void cont__compiler__write_timing_info_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21470,9 +21470,9 @@ static void cont__sim2c__write_timing_info_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_3;
+  frame->cont = cont__compiler__write_timing_info_3;
 }
-static void cont__sim2c__write_timing_info_3(void) {
+static void cont__compiler__write_timing_info_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21488,10 +21488,10 @@ static void cont__sim2c__write_timing_info_3(void) {
   // 990:     dup(" " 12-length_of(description))
   // 991:     format_number(new_t-t 2 3)
   // 992:     " s"
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__write_timing_info_4, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__write_timing_info_4, 0);
   // 993: :
   // 994:   ewriteln description ": " format_number(new_t-t 0 3) " s"
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__write_timing_info_13, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__write_timing_info_13, 0);
   // 982: if
   // 983:   filename.is_defined:
   // 984:     truncate_until &filename '/' -1
@@ -21511,9 +21511,9 @@ static void cont__sim2c__write_timing_info_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_17;
+  frame->cont = cont__compiler__write_timing_info_17;
 }
-static void entry__sim2c__write_timing_info_4(void) {
+static void entry__compiler__write_timing_info_4(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // filename: 0
@@ -21533,9 +21533,9 @@ static void entry__sim2c__write_timing_info_4(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_5;
+  frame->cont = cont__compiler__write_timing_info_5;
 }
-static void cont__sim2c__write_timing_info_5(void) {
+static void cont__compiler__write_timing_info_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21550,9 +21550,9 @@ static void cont__sim2c__write_timing_info_5(void) {
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_6;
+  frame->cont = cont__compiler__write_timing_info_6;
 }
-static void cont__sim2c__write_timing_info_6(void) {
+static void cont__compiler__write_timing_info_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21565,9 +21565,9 @@ static void cont__sim2c__write_timing_info_6(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_7;
+  frame->cont = cont__compiler__write_timing_info_7;
 }
-static void cont__sim2c__write_timing_info_7(void) {
+static void cont__compiler__write_timing_info_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21581,9 +21581,9 @@ static void cont__sim2c__write_timing_info_7(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_8;
+  frame->cont = cont__compiler__write_timing_info_8;
 }
-static void cont__sim2c__write_timing_info_8(void) {
+static void cont__compiler__write_timing_info_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21597,9 +21597,9 @@ static void cont__sim2c__write_timing_info_8(void) {
   result_count = 1;
   myself = get__dup();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_9;
+  frame->cont = cont__compiler__write_timing_info_9;
 }
-static void cont__sim2c__write_timing_info_9(void) {
+static void cont__compiler__write_timing_info_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21613,9 +21613,9 @@ static void cont__sim2c__write_timing_info_9(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_10;
+  frame->cont = cont__compiler__write_timing_info_10;
 }
-static void cont__sim2c__write_timing_info_10(void) {
+static void cont__compiler__write_timing_info_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21630,9 +21630,9 @@ static void cont__sim2c__write_timing_info_10(void) {
   result_count = 1;
   myself = var._format_number;
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_11;
+  frame->cont = cont__compiler__write_timing_info_11;
 }
-static void cont__sim2c__write_timing_info_11(void) {
+static void cont__compiler__write_timing_info_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21660,7 +21660,7 @@ static void cont__sim2c__write_timing_info_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__write_timing_info_13(void) {
+static void entry__compiler__write_timing_info_13(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // description: 0
@@ -21679,9 +21679,9 @@ static void entry__sim2c__write_timing_info_13(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_14;
+  frame->cont = cont__compiler__write_timing_info_14;
 }
-static void cont__sim2c__write_timing_info_14(void) {
+static void cont__compiler__write_timing_info_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21696,9 +21696,9 @@ static void cont__sim2c__write_timing_info_14(void) {
   result_count = 1;
   myself = var._format_number;
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_15;
+  frame->cont = cont__compiler__write_timing_info_15;
 }
-static void cont__sim2c__write_timing_info_15(void) {
+static void cont__compiler__write_timing_info_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21716,7 +21716,7 @@ static void cont__sim2c__write_timing_info_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__write_timing_info_17(void) {
+static void cont__compiler__write_timing_info_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -21727,9 +21727,9 @@ static void cont__sim2c__write_timing_info_17(void) {
   result_count = 1;
   myself = get__current_time();
   func = myself->type;
-  frame->cont = cont__sim2c__write_timing_info_18;
+  frame->cont = cont__compiler__write_timing_info_18;
 }
-static void cont__sim2c__write_timing_info_18(void) {
+static void cont__compiler__write_timing_info_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22237,7 +22237,7 @@ static void cont__build_executable_25(void) {
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 1026: :
-  // 1027:   %sim2c::module_name mod_name .without_suffix. some(".meta")
+  // 1027:   %compiler::module_name mod_name .without_suffix. some(".meta")
   // 1028:   if verbose: ewriteln "build main module " module_name
   // 1029:   collect_output $c_source: sim2c list(main_filename) true
   // 1030:   collect_output !c_buf: create_imports c_source
@@ -22264,7 +22264,7 @@ static void cont__build_executable_25(void) {
   // 1024:     c_info.is_undefined
   // 1025:     modification_time_of(sim_info) > modification_time_of(c_info)
   // 1026:   :
-  // 1027:     %sim2c::module_name mod_name .without_suffix. some(".meta")
+  // 1027:     %compiler::module_name mod_name .without_suffix. some(".meta")
   // 1028:     if verbose: ewriteln "build main module " module_name
   // 1029:     collect_output $c_source: sim2c list(main_filename) true
   // 1030:     collect_output !c_buf: create_imports c_source
@@ -22344,7 +22344,7 @@ static void entry__build_executable_26(void) {
   frame->slots[2] = myself->closure.frame->slots[7]; /* c_buf */
   frame->slots[3] = myself->closure.frame->slots[3]; /* c_filename */
   frame->slots[4] = myself->closure.frame->slots[4]; /* o_filename */
-  define__sim2c__module_name(create_future());
+  define__compiler__module_name(create_future());
   frame->slots[5] /* c_source */ = create_future();
   if (argument_count != 0) {
     invalid_arguments_error();
@@ -22365,7 +22365,7 @@ static void cont__build_executable_27(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1027: %sim2c::module_name mod_name .without_suffix. some(".meta")
+  // 1027: %compiler::module_name mod_name .without_suffix. some(".meta")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* mod_name */;
@@ -22380,7 +22380,7 @@ static void cont__build_executable_28(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(get__sim2c__module_name(), arguments->slots[0]);
+  initialize_future(get__compiler__module_name(), arguments->slots[0]);
   // 1028: if verbose: ewriteln "build main module " module_name
   argument_count = 2;
   arguments = node_p;
@@ -23782,29 +23782,29 @@ EXPORT void collect__simple(void) {
   var._meta_levels = collect_node(var._meta_levels);
   var._do_rebuild = collect_node(var._do_rebuild);
   var._do_omit_meta = collect_node(var._do_omit_meta);
-  var.sim2c__do_dump_trees = collect_node(var.sim2c__do_dump_trees);
-  var.sim2c__do_pretty_print = collect_node(var.sim2c__do_pretty_print);
-  var.sim2c__do_print_simplified_source = collect_node(var.sim2c__do_print_simplified_source);
-  var.sim2c__do_show_debug_infos = collect_node(var.sim2c__do_show_debug_infos);
-  var.sim2c__do_show_compiler_debug_infos = collect_node(var.sim2c__do_show_compiler_debug_infos);
-  var.sim2c__do_check_only = collect_node(var.sim2c__do_check_only);
-  var.sim2c__do_show_brief_messages = collect_node(var.sim2c__do_show_brief_messages);
-  var.sim2c__do_print_warnings = collect_node(var.sim2c__do_print_warnings);
-  var.sim2c__do_print_missing = collect_node(var.sim2c__do_print_missing);
-  var.sim2c__do_print_summary = collect_node(var.sim2c__do_print_summary);
-  var.sim2c__verbose = collect_node(var.sim2c__verbose);
+  var.compiler__do_dump_trees = collect_node(var.compiler__do_dump_trees);
+  var.compiler__do_pretty_print = collect_node(var.compiler__do_pretty_print);
+  var.compiler__do_print_simplified_source = collect_node(var.compiler__do_print_simplified_source);
+  var.compiler__do_show_debug_infos = collect_node(var.compiler__do_show_debug_infos);
+  var.compiler__do_show_compiler_debug_infos = collect_node(var.compiler__do_show_compiler_debug_infos);
+  var.compiler__do_check_only = collect_node(var.compiler__do_check_only);
+  var.compiler__do_show_brief_messages = collect_node(var.compiler__do_show_brief_messages);
+  var.compiler__do_print_warnings = collect_node(var.compiler__do_print_warnings);
+  var.compiler__do_print_missing = collect_node(var.compiler__do_print_missing);
+  var.compiler__do_print_summary = collect_node(var.compiler__do_print_summary);
+  var.compiler__verbose = collect_node(var.compiler__verbose);
   var._do_print_c = collect_node(var._do_print_c);
-  var.sim2c__do_extract_documentation = collect_node(var.sim2c__do_extract_documentation);
+  var.compiler__do_extract_documentation = collect_node(var.compiler__do_extract_documentation);
   var._do_build_codeblocks_project = collect_node(var._do_build_codeblocks_project);
   var._do_list_dependencies = collect_node(var._do_list_dependencies);
   var._do_build_static = collect_node(var._do_build_static);
   var._do_link_profiler = collect_node(var._do_link_profiler);
-  var.sim2c__do_time_passes = collect_node(var.sim2c__do_time_passes);
+  var.compiler__do_time_passes = collect_node(var.compiler__do_time_passes);
   var._module_prefix = collect_node(var._module_prefix);
   var._input_filename = collect_node(var._input_filename);
   var._additional_libraries = collect_node(var._additional_libraries);
   var._action = collect_node(var._action);
-  var.sim2c__show_compiler_debug_info = collect_node(var.sim2c__show_compiler_debug_info);
+  var.compiler__show_compiler_debug_info = collect_node(var.compiler__show_compiler_debug_info);
   var._EXE = collect_node(var._EXE);
   var._LIB = collect_node(var._LIB);
   var._WHITESPACE = collect_node(var._WHITESPACE);
@@ -23835,7 +23835,7 @@ EXPORT void collect__simple(void) {
   var._maybe_compile_c_file = collect_node(var._maybe_compile_c_file);
   var._t = collect_node(var._t);
   var._format_number = collect_node(var._format_number);
-  var.sim2c__write_timing_info = collect_node(var.sim2c__write_timing_info);
+  var.compiler__write_timing_info = collect_node(var.compiler__write_timing_info);
   var._build_executable = collect_node(var._build_executable);
 }
 
@@ -23908,7 +23908,7 @@ int main(int argc, char **argv) {
   register_module_info(&module_info);
   define_namespace("std");
   define_namespace("types");
-  define_namespace("sim2c");
+  define_namespace("compiler");
 
   // initialization phase 2
   phase_2__basic__exceptions();
@@ -23990,7 +23990,7 @@ int main(int argc, char **argv) {
   number__2 = from_uint32(2U);
   number__999 = from_uint32(999U);
   unique__NONE = register_unique_item("NONE");
-  func__sim2c__show_compiler_debug_info_1 = create_function(entry__sim2c__show_compiler_debug_info_1, -1);
+  func__compiler__show_compiler_debug_info_1 = create_function(entry__compiler__show_compiler_debug_info_1, -1);
   unique__EXE = register_unique_item("EXE");
   unique__LIB = register_unique_item("LIB");
   func__resolve_filename_8 = create_function(entry__resolve_filename_8, 1);
@@ -24200,7 +24200,7 @@ int main(int argc, char **argv) {
   func__format_number_1 = create_function(entry__format_number_1, -1);
   string__2d7981f4e6082bb6 = from_latin_1_string(" s", 2);
   string__2d7981f4e6d82be5 = from_latin_1_string(": ", 2);
-  func__sim2c__write_timing_info_1 = create_function(entry__sim2c__write_timing_info_1, -1);
+  func__compiler__write_timing_info_1 = create_function(entry__compiler__write_timing_info_1, -1);
   string__9e0ae80b5da07d5c = from_latin_1_string(".exe", 4);
   string__2f54d80c63c08867 = from_latin_1_string("build executable ", 17);
   string__b2077c434c011020 = from_latin_1_string("build main module ", 18);
@@ -24455,19 +24455,19 @@ int main(int argc, char **argv) {
   var._simdatapaths = create_future();
   assign_value(&var._NONE, unique__NONE);
   var._supported_platforms = create_future();
-  define_multi_assign_static("sim2c", "do_dump_trees", get__sim2c__do_dump_trees, set__sim2c__do_dump_trees);
-  define_multi_assign_static("sim2c", "do_pretty_print", get__sim2c__do_pretty_print, set__sim2c__do_pretty_print);
-  define_multi_assign_static("sim2c", "do_print_simplified_source", get__sim2c__do_print_simplified_source, set__sim2c__do_print_simplified_source);
-  define_multi_assign_static("sim2c", "do_show_debug_infos", get__sim2c__do_show_debug_infos, set__sim2c__do_show_debug_infos);
-  define_multi_assign_static("sim2c", "do_show_compiler_debug_infos", get__sim2c__do_show_compiler_debug_infos, set__sim2c__do_show_compiler_debug_infos);
-  define_multi_assign_static("sim2c", "do_check_only", get__sim2c__do_check_only, set__sim2c__do_check_only);
-  define_multi_assign_static("sim2c", "do_show_brief_messages", get__sim2c__do_show_brief_messages, set__sim2c__do_show_brief_messages);
-  define_multi_assign_static("sim2c", "do_print_warnings", get__sim2c__do_print_warnings, set__sim2c__do_print_warnings);
-  define_multi_assign_static("sim2c", "do_print_missing", get__sim2c__do_print_missing, set__sim2c__do_print_missing);
-  define_multi_assign_static("sim2c", "do_print_summary", get__sim2c__do_print_summary, set__sim2c__do_print_summary);
-  define_multi_assign_static("sim2c", "verbose", get__sim2c__verbose, set__sim2c__verbose);
-  define_multi_assign_static("sim2c", "do_extract_documentation", get__sim2c__do_extract_documentation, set__sim2c__do_extract_documentation);
-  define_multi_assign_static("sim2c", "do_time_passes", get__sim2c__do_time_passes, set__sim2c__do_time_passes);
+  define_multi_assign_static("compiler", "do_dump_trees", get__compiler__do_dump_trees, set__compiler__do_dump_trees);
+  define_multi_assign_static("compiler", "do_pretty_print", get__compiler__do_pretty_print, set__compiler__do_pretty_print);
+  define_multi_assign_static("compiler", "do_print_simplified_source", get__compiler__do_print_simplified_source, set__compiler__do_print_simplified_source);
+  define_multi_assign_static("compiler", "do_show_debug_infos", get__compiler__do_show_debug_infos, set__compiler__do_show_debug_infos);
+  define_multi_assign_static("compiler", "do_show_compiler_debug_infos", get__compiler__do_show_compiler_debug_infos, set__compiler__do_show_compiler_debug_infos);
+  define_multi_assign_static("compiler", "do_check_only", get__compiler__do_check_only, set__compiler__do_check_only);
+  define_multi_assign_static("compiler", "do_show_brief_messages", get__compiler__do_show_brief_messages, set__compiler__do_show_brief_messages);
+  define_multi_assign_static("compiler", "do_print_warnings", get__compiler__do_print_warnings, set__compiler__do_print_warnings);
+  define_multi_assign_static("compiler", "do_print_missing", get__compiler__do_print_missing, set__compiler__do_print_missing);
+  define_multi_assign_static("compiler", "do_print_summary", get__compiler__do_print_summary, set__compiler__do_print_summary);
+  define_multi_assign_static("compiler", "verbose", get__compiler__verbose, set__compiler__verbose);
+  define_multi_assign_static("compiler", "do_extract_documentation", get__compiler__do_extract_documentation, set__compiler__do_extract_documentation);
+  define_multi_assign_static("compiler", "do_time_passes", get__compiler__do_time_passes, set__compiler__do_time_passes);
   var._action = create_future();
   register_dynamic(&dyna_idx__main_filename);
   define__main_filename(create_future());
@@ -24475,7 +24475,7 @@ int main(int argc, char **argv) {
   define__main_info(create_future());
   register_dynamic(&dyna_idx__do_build_static_executable);
   define__do_build_static_executable(create_future());
-  define_single_assign_static("sim2c", "show_compiler_debug_info", get__sim2c__show_compiler_debug_info, &var.sim2c__show_compiler_debug_info);
+  define_single_assign_static("compiler", "show_compiler_debug_info", get__compiler__show_compiler_debug_info, &var.compiler__show_compiler_debug_info);
   assign_value(&var._EXE, unique__EXE);
   assign_value(&var._LIB, unique__LIB);
   register_dynamic(&dyna_idx__mode);
@@ -24491,7 +24491,7 @@ int main(int argc, char **argv) {
   define__do_link(undefined);
   register_dynamic(&dyna_idx__last_modification_time);
   define__last_modification_time(undefined);
-  define_single_assign_static("sim2c", "write_timing_info", get__sim2c__write_timing_info, &var.sim2c__write_timing_info);
+  define_single_assign_static("compiler", "write_timing_info", get__compiler__write_timing_info, &var.compiler__write_timing_info);
 
   // initialization phase 4
 
@@ -24573,6 +24573,7 @@ int main(int argc, char **argv) {
   use_read_only(NULL, "change_directory", &get__change_directory, &get_value_or_future__change_directory);
   use_read_only(NULL, "collect_output", &get__collect_output, &get_value_or_future__collect_output);
   use_read_only(NULL, "command_line_arguments", &get__command_line_arguments, &get_value_or_future__command_line_arguments);
+  use_single_assign_dynamic("compiler", "module_name", &get__compiler__module_name, &define__compiler__module_name);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
   use_read_only(NULL, "contains", &get__contains, &get_value_or_future__contains);
   use_read_only(NULL, "copyright", &get__copyright, &get_value_or_future__copyright);
@@ -24650,7 +24651,6 @@ int main(int argc, char **argv) {
   use_read_only(NULL, "save", &get__save, &get_value_or_future__save);
   use_read_only(NULL, "serialize", &get__serialize, &get_value_or_future__serialize);
   use_read_only(NULL, "sim2c", &get__sim2c, &get_value_or_future__sim2c);
-  use_single_assign_dynamic("sim2c", "module_name", &get__sim2c__module_name, &define__sim2c__module_name);
   use_read_only(NULL, "some", &get__some, &get_value_or_future__some);
   use_read_only(NULL, "split", &get__split, &get_value_or_future__split);
   use_read_only(NULL, "stat", &get__stat, &get_value_or_future__stat);
@@ -24755,7 +24755,7 @@ int main(int argc, char **argv) {
   phase_5__sim2c();
   phase_5__extractor();
   phase_5__runtime_definitions();
-  assign_variable(&var.sim2c__show_compiler_debug_info, &func__sim2c__show_compiler_debug_info_1);
+  assign_variable(&var.compiler__show_compiler_debug_info, &func__compiler__show_compiler_debug_info_1);
   maybe_initialize_future(get__mode(), get__undefined());
   maybe_initialize_future(get__on_top_level(), get__true());
   assign_variable(&var._resolve_filename, &func__resolve_filename_1);
@@ -24778,7 +24778,7 @@ int main(int argc, char **argv) {
   assign_variable(&var._build_library, &func__build_library_1);
   assign_variable(&var._maybe_compile_c_file, &func__maybe_compile_c_file_1);
   assign_variable(&var._format_number, &func__format_number_1);
-  assign_variable(&var.sim2c__write_timing_info, &func__sim2c__write_timing_info_1);
+  assign_variable(&var.compiler__write_timing_info, &func__compiler__write_timing_info_1);
   assign_variable(&var._build_executable, &func__build_executable_1);
   initialize_function_attributes();
 

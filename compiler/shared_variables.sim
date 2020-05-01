@@ -23,95 +23,95 @@
   declares variables shared by multiple modules
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
 # polymorphic functions
 
-$sim2c::line_no_of (!)
-$sim2c::text_of (!)
-$sim2c::source_of (!)
-$sim2c::indents_of (!)
+$compiler::line_no_of (!)
+$compiler::text_of (!)
+$compiler::source_of (!)
+$compiler::indents_of (!)
 
 # meta-instructions
 
-%%sim2c::required_modules undefined # a table
-%%sim2c::used_namespaces undefined # a set
-%%sim2c::defined_namespaces undefined # a set
-%%sim2c::namespace_mappings undefined # a table
-%%sim2c::included_files undefined # a set
-%%sim2c::linked_libraries undefined # a set
-%%sim2c::dependent_data undefined # a set
+%%compiler::required_modules undefined # a table
+%%compiler::used_namespaces undefined # a set
+%%compiler::defined_namespaces undefined # a set
+%%compiler::namespace_mappings undefined # a table
+%%compiler::included_files undefined # a set
+%%compiler::linked_libraries undefined # a set
+%%compiler::dependent_data undefined # a set
 
 # parser helpers
 
-%%sim2c::enumeration_count undefined # an integer
+%%compiler::enumeration_count undefined # an integer
 
 # symbols
 
-%%sim2c::global_names undefined # module global names
-%%sim2c::exported_names undefined # first index: name; second index: namespace
-%%sim2c::needed_names undefined # contains all symbols that are imported
+%%compiler::global_names undefined # module global names
+%%compiler::exported_names undefined # first index: name; second index: namespace
+%%compiler::needed_names undefined # contains all symbols that are imported
 
 # inline-C
 
-%%sim2c::use_inline_c undefined
-%%sim2c::defined_structs undefined
-%%sim2c::defined_nodes undefined
-%%sim2c::defined_functions undefined
+%%compiler::use_inline_c undefined
+%%compiler::defined_structs undefined
+%%compiler::defined_nodes undefined
+%%compiler::defined_functions undefined
 
 # dynamic functions
 
-%sim2c::write_to_generated_collections undefined
-%sim2c::write_to_delayed_statements undefined
-%sim2c::use_identifier undefined
-%sim2c::write_to_declarations undefined
-%sim2c::write_to_top_level_variable_names undefined
-%sim2c::write_to_top_level_variable_declarations undefined
-%sim2c::write_to_global_variable_declarations undefined
-%sim2c::write_to_continuation_table undefined
-%sim2c::write_to_delayed_continuation_table undefined
-%sim2c::write_to_functions undefined
-%sim2c::write_to_phase_1 undefined
-%sim2c::write_to_phase_2 undefined
-%sim2c::write_to_phase_3 undefined
-%sim2c::write_to_phase_4 undefined
-%sim2c::write_to_phase_5 undefined
-%sim2c::write_to_phase_6 undefined
-%sim2c::use_literal undefined
+%compiler::write_to_generated_collections undefined
+%compiler::write_to_delayed_statements undefined
+%compiler::use_identifier undefined
+%compiler::write_to_declarations undefined
+%compiler::write_to_top_level_variable_names undefined
+%compiler::write_to_top_level_variable_declarations undefined
+%compiler::write_to_global_variable_declarations undefined
+%compiler::write_to_continuation_table undefined
+%compiler::write_to_delayed_continuation_table undefined
+%compiler::write_to_functions undefined
+%compiler::write_to_phase_1 undefined
+%compiler::write_to_phase_2 undefined
+%compiler::write_to_phase_3 undefined
+%compiler::write_to_phase_4 undefined
+%compiler::write_to_phase_5 undefined
+%compiler::write_to_phase_6 undefined
+%compiler::use_literal undefined
 
 # dynamic variables
 
-%sim2c::module_name undefined # the name of the current compilation unit
-%sim2c::submodule_no undefined
+%compiler::module_name undefined # the name of the current compilation unit
+%compiler::submodule_no undefined
   # the no. of the current submodule; starting with 0
-%%sim2c::index undefined # used for enumerating expanded source code items
-%%sim2c::definitions undefined # a list of key-value pairs
-%%sim2c::statements undefined # a list of statements
-%%sim2c::actions undefined # a list of deferred actions (closures)
-%%sim2c::temp_idx undefined
+%%compiler::index undefined # used for enumerating expanded source code items
+%%compiler::definitions undefined # a list of key-value pairs
+%%compiler::statements undefined # a list of statements
+%%compiler::actions undefined # a list of deferred actions (closures)
+%%compiler::temp_idx undefined
   # total count of already defined temporaries (initialized to 0)
-%sim2c::current_fragment undefined # used for generating error messages
-%sim2c::already_defined_names undefined
+%compiler::current_fragment undefined # used for generating error messages
+%compiler::already_defined_names undefined
   # names that must not be redefined as local symbols
-%%sim2c::defined_names undefined # used for collecting defined symbols
-%%sim2c::used_names undefined # used for collecting usages of symbols
-%%sim2c::assigned_names undefined
+%%compiler::defined_names undefined # used for collecting defined symbols
+%%compiler::used_names undefined # used for collecting usages of symbols
+%%compiler::assigned_names undefined
   #
     used for collecting assignments to symbols;
     only used for creating appropriate warning messages
-%%sim2c::used_string_literals undefined
+%%compiler::used_string_literals undefined
   # a a table that stores already defined string literals
-%%sim2c::current_continuation_info undefined
+%%compiler::current_continuation_info undefined
   # stores debug information about the current continuation function
 
-%%sim2c::string_literals undefined
+%%compiler::string_literals undefined
   #
     a table that matches string hashes to string literals
 
 # vtable contents
 
-$sim2c::vtable_entries
+$compiler::vtable_entries
   list
     "to_int8"
     "to_int16"

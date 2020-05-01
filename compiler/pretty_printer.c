@@ -337,6 +337,54 @@ static NODE_GETTER get__character;
 static NODE_GETTER get_value_or_future__character;
 static NODE_GETTER get__character_names;
 static NODE_GETTER get_value_or_future__character_names;
+static NODE_GETTER get__compiler__attribute_function_pair;
+static NODE_GETTER get_value_or_future__compiler__attribute_function_pair;
+static NODE_GETTER get__compiler__attribute_value_pair;
+static NODE_GETTER get_value_or_future__compiler__attribute_value_pair;
+static NODE_GETTER get__compiler__backquoted;
+static NODE_GETTER get_value_or_future__compiler__backquoted;
+static NODE_GETTER get__compiler__body;
+static NODE_GETTER get_value_or_future__compiler__body;
+static NODE_GETTER get__compiler__c_code;
+static NODE_GETTER get_value_or_future__compiler__c_code;
+static NODE_GETTER get__compiler__call;
+static NODE_GETTER get_value_or_future__compiler__call;
+static NODE_GETTER get__compiler__character_literal;
+static NODE_GETTER get_value_or_future__compiler__character_literal;
+static NODE_GETTER get__compiler__data_instruction;
+static NODE_GETTER get_value_or_future__compiler__data_instruction;
+static NODE_GETTER get__compiler__define_dynamic_multi;
+static NODE_GETTER get_value_or_future__compiler__define_dynamic_multi;
+static NODE_GETTER get__compiler__define_dynamic_single;
+static NODE_GETTER get_value_or_future__compiler__define_dynamic_single;
+static NODE_GETTER get__compiler__define_static_multi;
+static NODE_GETTER get_value_or_future__compiler__define_static_multi;
+static NODE_GETTER get__compiler__define_static_single;
+static NODE_GETTER get_value_or_future__compiler__define_static_single;
+static NODE_GETTER get__compiler__function_call;
+static NODE_GETTER get_value_or_future__compiler__function_call;
+static NODE_GETTER get__compiler__identifier;
+static NODE_GETTER get_value_or_future__compiler__identifier;
+static NODE_GETTER get__compiler__include_instruction;
+static NODE_GETTER get_value_or_future__compiler__include_instruction;
+static NODE_GETTER get__compiler__link_instruction;
+static NODE_GETTER get_value_or_future__compiler__link_instruction;
+static NODE_GETTER get__compiler__namespace_instruction;
+static NODE_GETTER get_value_or_future__compiler__namespace_instruction;
+static NODE_GETTER get__compiler__numeric_literal;
+static NODE_GETTER get_value_or_future__compiler__numeric_literal;
+static NODE_GETTER get__compiler__polymorphic_function;
+static NODE_GETTER get_value_or_future__compiler__polymorphic_function;
+static NODE_GETTER get__compiler__remark_statement;
+static NODE_GETTER get_value_or_future__compiler__remark_statement;
+static NODE_GETTER get__compiler__require_instruction;
+static NODE_GETTER get_value_or_future__compiler__require_instruction;
+static NODE_GETTER get__compiler__string_literal;
+static NODE_GETTER get_value_or_future__compiler__string_literal;
+static NODE_GETTER get__compiler__unique_item;
+static NODE_GETTER get_value_or_future__compiler__unique_item;
+static NODE_GETTER get__compiler__using_instruction;
+static NODE_GETTER get_value_or_future__compiler__using_instruction;
 static NODE_GETTER get__cond;
 static NODE_GETTER get_value_or_future__cond;
 static NODE_GETTER get__contains;
@@ -499,54 +547,6 @@ static NODE_GETTER get__remark_lines_of;
 static NODE_GETTER get_value_or_future__remark_lines_of;
 static NODE_GETTER get__scope_of;
 static NODE_GETTER get_value_or_future__scope_of;
-static NODE_GETTER get__sim2c__attribute_function_pair;
-static NODE_GETTER get_value_or_future__sim2c__attribute_function_pair;
-static NODE_GETTER get__sim2c__attribute_value_pair;
-static NODE_GETTER get_value_or_future__sim2c__attribute_value_pair;
-static NODE_GETTER get__sim2c__backquoted;
-static NODE_GETTER get_value_or_future__sim2c__backquoted;
-static NODE_GETTER get__sim2c__body;
-static NODE_GETTER get_value_or_future__sim2c__body;
-static NODE_GETTER get__sim2c__c_code;
-static NODE_GETTER get_value_or_future__sim2c__c_code;
-static NODE_GETTER get__sim2c__call;
-static NODE_GETTER get_value_or_future__sim2c__call;
-static NODE_GETTER get__sim2c__character_literal;
-static NODE_GETTER get_value_or_future__sim2c__character_literal;
-static NODE_GETTER get__sim2c__data_instruction;
-static NODE_GETTER get_value_or_future__sim2c__data_instruction;
-static NODE_GETTER get__sim2c__define_dynamic_multi;
-static NODE_GETTER get_value_or_future__sim2c__define_dynamic_multi;
-static NODE_GETTER get__sim2c__define_dynamic_single;
-static NODE_GETTER get_value_or_future__sim2c__define_dynamic_single;
-static NODE_GETTER get__sim2c__define_static_multi;
-static NODE_GETTER get_value_or_future__sim2c__define_static_multi;
-static NODE_GETTER get__sim2c__define_static_single;
-static NODE_GETTER get_value_or_future__sim2c__define_static_single;
-static NODE_GETTER get__sim2c__function_call;
-static NODE_GETTER get_value_or_future__sim2c__function_call;
-static NODE_GETTER get__sim2c__identifier;
-static NODE_GETTER get_value_or_future__sim2c__identifier;
-static NODE_GETTER get__sim2c__include_instruction;
-static NODE_GETTER get_value_or_future__sim2c__include_instruction;
-static NODE_GETTER get__sim2c__link_instruction;
-static NODE_GETTER get_value_or_future__sim2c__link_instruction;
-static NODE_GETTER get__sim2c__namespace_instruction;
-static NODE_GETTER get_value_or_future__sim2c__namespace_instruction;
-static NODE_GETTER get__sim2c__numeric_literal;
-static NODE_GETTER get_value_or_future__sim2c__numeric_literal;
-static NODE_GETTER get__sim2c__polymorphic_function;
-static NODE_GETTER get_value_or_future__sim2c__polymorphic_function;
-static NODE_GETTER get__sim2c__remark_statement;
-static NODE_GETTER get_value_or_future__sim2c__remark_statement;
-static NODE_GETTER get__sim2c__require_instruction;
-static NODE_GETTER get_value_or_future__sim2c__require_instruction;
-static NODE_GETTER get__sim2c__string_literal;
-static NODE_GETTER get_value_or_future__sim2c__string_literal;
-static NODE_GETTER get__sim2c__unique_item;
-static NODE_GETTER get_value_or_future__sim2c__unique_item;
-static NODE_GETTER get__sim2c__using_instruction;
-static NODE_GETTER get_value_or_future__sim2c__using_instruction;
 static NODE_GETTER get__some;
 static NODE_GETTER get_value_or_future__some;
 static NODE_GETTER get__source_of;
@@ -645,7 +645,7 @@ static struct {
   NODE *_analyze_string_literal;
   NODE *_print_string_literal;
   NODE *_string_template_to_string;
-  NODE *sim2c__print_trees;
+  NODE *compiler__print_trees;
 } var;
 static const char *var_names[] = {
   "needs_parenthesis",
@@ -704,19 +704,19 @@ static NODE *unique__POLYMORPHIC_FUNCTION;
 static NODE *unique__UNIQUE;
 static NODE *unique__PROC;
 static NODE *unique__FUNC;
-static int dyna_idx__sim2c__hide_body_statements;
-static NODE *get__sim2c__hide_body_statements(void) {
-  return get_dynamic_slot(dyna_idx__sim2c__hide_body_statements);
+static int dyna_idx__compiler__hide_body_statements;
+static NODE *get__compiler__hide_body_statements(void) {
+  return get_dynamic_slot(dyna_idx__compiler__hide_body_statements);
 }
-static void define__sim2c__hide_body_statements(NODE *node) {
-  define_dynamic_slot(dyna_idx__sim2c__hide_body_statements, node);
+static void define__compiler__hide_body_statements(NODE *node) {
+  define_dynamic_slot(dyna_idx__compiler__hide_body_statements, node);
 }
-static int dyna_idx__sim2c__line_width;
-static NODE *get__sim2c__line_width(void) {
-  return get_dynamic_slot(dyna_idx__sim2c__line_width);
+static int dyna_idx__compiler__line_width;
+static NODE *get__compiler__line_width(void) {
+  return get_dynamic_slot(dyna_idx__compiler__line_width);
 }
-static void define__sim2c__line_width(NODE *node) {
-  define_dynamic_slot(dyna_idx__sim2c__line_width, node);
+static void define__compiler__line_width(NODE *node) {
+  define_dynamic_slot(dyna_idx__compiler__line_width, node);
 }
 static int dyna_idx__expression_indent;
 static NODE *get__expression_indent(void) {
@@ -788,79 +788,79 @@ static void cont__indentation_string_6(void);
 static void cont__indentation_string_7(void);
 static void cont__indentation_string_8(void);
 static void cont__indentation_string_9(void);
-static NODE *func__sim2c__print_trees_1;
-static void entry__sim2c__print_trees_1(void);
-static FRAME_INFO frame__sim2c__print_trees_1 = {2, {"trees", "return__1"}};
-static NODE *func__sim2c__print_trees_2;
-static void entry__sim2c__print_trees_2(void);
-static FRAME_INFO frame__sim2c__print_trees_2 = {1, {"indent"}};
-static void cont__sim2c__print_trees_3(void);
-static void cont__sim2c__print_trees_4(void);
-static void cont__sim2c__print_trees_5(void);
-static NODE *func__sim2c__print_trees_6;
-static void entry__sim2c__print_trees_6(void);
-static FRAME_INFO frame__sim2c__print_trees_6 = {7, {"idx", "tree", "previous_statement_tag", "str", "lines", "add_line", "n"}};
-static NODE *func__sim2c__print_trees_7;
-static void entry__sim2c__print_trees_7(void);
-static FRAME_INFO frame__sim2c__print_trees_7 = {2, {"line", "lines"}};
-static void cont__sim2c__print_trees_8(void);
-static void cont__sim2c__print_trees_9(void);
-static NODE *func__sim2c__print_trees_10;
-static void entry__sim2c__print_trees_10(void);
-static FRAME_INFO frame__sim2c__print_trees_10 = {4, {"line", "lines", "indent", "text"}};
-static void cont__sim2c__print_trees_11(void);
-static void cont__sim2c__print_trees_12(void);
-static void cont__sim2c__print_trees_13(void);
-static void cont__sim2c__print_trees_14(void);
-static void cont__sim2c__print_trees_15(void);
-static void cont__sim2c__print_trees_16(void);
-static void cont__sim2c__print_trees_17(void);
-static void cont__sim2c__print_trees_18(void);
-static NODE *func__sim2c__print_trees_19;
-static void entry__sim2c__print_trees_19(void);
-static FRAME_INFO frame__sim2c__print_trees_19 = {1, {"lines"}};
-static void cont__sim2c__print_trees_20(void);
-static void cont__sim2c__print_trees_21(void);
-static void cont__sim2c__print_trees_22(void);
-static NODE *func__sim2c__print_trees_23;
-static void entry__sim2c__print_trees_23(void);
-static FRAME_INFO frame__sim2c__print_trees_23 = {1, {"previous_statement_tag"}};
-static void cont__sim2c__print_trees_24(void);
-static NODE *func__sim2c__print_trees_25;
-static void entry__sim2c__print_trees_25(void);
-static FRAME_INFO frame__sim2c__print_trees_25 = {1, {"previous_statement_tag"}};
-static void cont__sim2c__print_trees_26(void);
-static void cont__sim2c__print_trees_27(void);
-static void cont__sim2c__print_trees_28(void);
-static void cont__sim2c__print_trees_29(void);
-static NODE *func__sim2c__print_trees_30;
-static void entry__sim2c__print_trees_30(void);
-static FRAME_INFO frame__sim2c__print_trees_30 = {0, {}};
-static void cont__sim2c__print_trees_31(void);
-static void cont__sim2c__print_trees_32(void);
-static NODE *func__sim2c__print_trees_33;
-static void entry__sim2c__print_trees_33(void);
-static FRAME_INFO frame__sim2c__print_trees_33 = {4, {"i", "str", "add_line", "n"}};
-static void cont__sim2c__print_trees_34(void);
-static void cont__sim2c__print_trees_35(void);
-static NODE *func__sim2c__print_trees_36;
-static void entry__sim2c__print_trees_36(void);
-static FRAME_INFO frame__sim2c__print_trees_36 = {4, {"add_line", "str", "i", "n"}};
-static void cont__sim2c__print_trees_37(void);
-static void cont__sim2c__print_trees_38(void);
-static void cont__sim2c__print_trees_39(void);
-static void cont__sim2c__print_trees_40(void);
-static void cont__sim2c__print_trees_41(void);
-static void cont__sim2c__print_trees_42(void);
-static void cont__sim2c__print_trees_43(void);
-static void cont__sim2c__print_trees_44(void);
-static void cont__sim2c__print_trees_45(void);
-static NODE *func__sim2c__print_trees_46;
-static void entry__sim2c__print_trees_46(void);
-static FRAME_INFO frame__sim2c__print_trees_46 = {1, {"line"}};
-static void cont__sim2c__print_trees_47(void);
-static NODE *get__sim2c__print_trees(void) {
-  return var.sim2c__print_trees;
+static NODE *func__compiler__print_trees_1;
+static void entry__compiler__print_trees_1(void);
+static FRAME_INFO frame__compiler__print_trees_1 = {2, {"trees", "return__1"}};
+static NODE *func__compiler__print_trees_2;
+static void entry__compiler__print_trees_2(void);
+static FRAME_INFO frame__compiler__print_trees_2 = {1, {"indent"}};
+static void cont__compiler__print_trees_3(void);
+static void cont__compiler__print_trees_4(void);
+static void cont__compiler__print_trees_5(void);
+static NODE *func__compiler__print_trees_6;
+static void entry__compiler__print_trees_6(void);
+static FRAME_INFO frame__compiler__print_trees_6 = {7, {"idx", "tree", "previous_statement_tag", "str", "lines", "add_line", "n"}};
+static NODE *func__compiler__print_trees_7;
+static void entry__compiler__print_trees_7(void);
+static FRAME_INFO frame__compiler__print_trees_7 = {2, {"line", "lines"}};
+static void cont__compiler__print_trees_8(void);
+static void cont__compiler__print_trees_9(void);
+static NODE *func__compiler__print_trees_10;
+static void entry__compiler__print_trees_10(void);
+static FRAME_INFO frame__compiler__print_trees_10 = {4, {"line", "lines", "indent", "text"}};
+static void cont__compiler__print_trees_11(void);
+static void cont__compiler__print_trees_12(void);
+static void cont__compiler__print_trees_13(void);
+static void cont__compiler__print_trees_14(void);
+static void cont__compiler__print_trees_15(void);
+static void cont__compiler__print_trees_16(void);
+static void cont__compiler__print_trees_17(void);
+static void cont__compiler__print_trees_18(void);
+static NODE *func__compiler__print_trees_19;
+static void entry__compiler__print_trees_19(void);
+static FRAME_INFO frame__compiler__print_trees_19 = {1, {"lines"}};
+static void cont__compiler__print_trees_20(void);
+static void cont__compiler__print_trees_21(void);
+static void cont__compiler__print_trees_22(void);
+static NODE *func__compiler__print_trees_23;
+static void entry__compiler__print_trees_23(void);
+static FRAME_INFO frame__compiler__print_trees_23 = {1, {"previous_statement_tag"}};
+static void cont__compiler__print_trees_24(void);
+static NODE *func__compiler__print_trees_25;
+static void entry__compiler__print_trees_25(void);
+static FRAME_INFO frame__compiler__print_trees_25 = {1, {"previous_statement_tag"}};
+static void cont__compiler__print_trees_26(void);
+static void cont__compiler__print_trees_27(void);
+static void cont__compiler__print_trees_28(void);
+static void cont__compiler__print_trees_29(void);
+static NODE *func__compiler__print_trees_30;
+static void entry__compiler__print_trees_30(void);
+static FRAME_INFO frame__compiler__print_trees_30 = {0, {}};
+static void cont__compiler__print_trees_31(void);
+static void cont__compiler__print_trees_32(void);
+static NODE *func__compiler__print_trees_33;
+static void entry__compiler__print_trees_33(void);
+static FRAME_INFO frame__compiler__print_trees_33 = {4, {"i", "str", "add_line", "n"}};
+static void cont__compiler__print_trees_34(void);
+static void cont__compiler__print_trees_35(void);
+static NODE *func__compiler__print_trees_36;
+static void entry__compiler__print_trees_36(void);
+static FRAME_INFO frame__compiler__print_trees_36 = {4, {"add_line", "str", "i", "n"}};
+static void cont__compiler__print_trees_37(void);
+static void cont__compiler__print_trees_38(void);
+static void cont__compiler__print_trees_39(void);
+static void cont__compiler__print_trees_40(void);
+static void cont__compiler__print_trees_41(void);
+static void cont__compiler__print_trees_42(void);
+static void cont__compiler__print_trees_43(void);
+static void cont__compiler__print_trees_44(void);
+static void cont__compiler__print_trees_45(void);
+static NODE *func__compiler__print_trees_46;
+static void entry__compiler__print_trees_46(void);
+static FRAME_INFO frame__compiler__print_trees_46 = {1, {"line"}};
+static void cont__compiler__print_trees_47(void);
+static NODE *get__compiler__print_trees(void) {
+  return var.compiler__print_trees;
 }
 static NODE *func__line_start_remark_to_string_1;
 static void entry__line_start_remark_to_string_1(void);
@@ -1005,385 +1005,385 @@ static NODE *func__types__grammar_node__to_string_1;
 static void entry__types__grammar_node__to_string_1(void);
 static FRAME_INFO frame__types__grammar_node__to_string_1 = {1, {"self"}};
 static NODE *string__f45afcc3e835d069;
-static NODE *func__sim2c__require_instruction__to_string_1;
-static void entry__sim2c__require_instruction__to_string_1(void);
-static FRAME_INFO frame__sim2c__require_instruction__to_string_1 = {1, {"self"}};
-static void cont__sim2c__require_instruction__to_string_2(void);
+static NODE *func__compiler__require_instruction__to_string_1;
+static void entry__compiler__require_instruction__to_string_1(void);
+static FRAME_INFO frame__compiler__require_instruction__to_string_1 = {1, {"self"}};
+static void cont__compiler__require_instruction__to_string_2(void);
 static NODE *string__7ca422245e2a26c5;
 static NODE *string__578a5af303e9cdf;
-static void cont__sim2c__require_instruction__to_string_5(void);
-static void cont__sim2c__require_instruction__to_string_6(void);
-static NODE *func__sim2c__namespace_instruction__to_string_1;
-static void entry__sim2c__namespace_instruction__to_string_1(void);
-static FRAME_INFO frame__sim2c__namespace_instruction__to_string_1 = {1, {"self"}};
-static void cont__sim2c__namespace_instruction__to_string_2(void);
-static void cont__sim2c__namespace_instruction__to_string_3(void);
-static NODE *func__sim2c__namespace_instruction__to_string_4;
-static void entry__sim2c__namespace_instruction__to_string_4(void);
-static FRAME_INFO frame__sim2c__namespace_instruction__to_string_4 = {1, {"self"}};
-static void cont__sim2c__namespace_instruction__to_string_5(void);
-static void cont__sim2c__namespace_instruction__to_string_6(void);
+static void cont__compiler__require_instruction__to_string_5(void);
+static void cont__compiler__require_instruction__to_string_6(void);
+static NODE *func__compiler__namespace_instruction__to_string_1;
+static void entry__compiler__namespace_instruction__to_string_1(void);
+static FRAME_INFO frame__compiler__namespace_instruction__to_string_1 = {1, {"self"}};
+static void cont__compiler__namespace_instruction__to_string_2(void);
+static void cont__compiler__namespace_instruction__to_string_3(void);
+static NODE *func__compiler__namespace_instruction__to_string_4;
+static void entry__compiler__namespace_instruction__to_string_4(void);
+static FRAME_INFO frame__compiler__namespace_instruction__to_string_4 = {1, {"self"}};
+static void cont__compiler__namespace_instruction__to_string_5(void);
+static void cont__compiler__namespace_instruction__to_string_6(void);
 static NODE *string__82c941922e20aab7;
 static NODE *string__fa730415fc16bec;
-static void cont__sim2c__namespace_instruction__to_string_9(void);
-static NODE *func__sim2c__namespace_instruction__to_string_10;
-static void entry__sim2c__namespace_instruction__to_string_10(void);
-static FRAME_INFO frame__sim2c__namespace_instruction__to_string_10 = {1, {"self"}};
-static void cont__sim2c__namespace_instruction__to_string_11(void);
-static void cont__sim2c__namespace_instruction__to_string_12(void);
-static void cont__sim2c__namespace_instruction__to_string_13(void);
-static void cont__sim2c__namespace_instruction__to_string_14(void);
-static NODE *func__sim2c__using_instruction__to_string_1;
-static void entry__sim2c__using_instruction__to_string_1(void);
-static FRAME_INFO frame__sim2c__using_instruction__to_string_1 = {1, {"self"}};
-static void cont__sim2c__using_instruction__to_string_2(void);
+static void cont__compiler__namespace_instruction__to_string_9(void);
+static NODE *func__compiler__namespace_instruction__to_string_10;
+static void entry__compiler__namespace_instruction__to_string_10(void);
+static FRAME_INFO frame__compiler__namespace_instruction__to_string_10 = {1, {"self"}};
+static void cont__compiler__namespace_instruction__to_string_11(void);
+static void cont__compiler__namespace_instruction__to_string_12(void);
+static void cont__compiler__namespace_instruction__to_string_13(void);
+static void cont__compiler__namespace_instruction__to_string_14(void);
+static NODE *func__compiler__using_instruction__to_string_1;
+static void entry__compiler__using_instruction__to_string_1(void);
+static FRAME_INFO frame__compiler__using_instruction__to_string_1 = {1, {"self"}};
+static void cont__compiler__using_instruction__to_string_2(void);
 static NODE *string__a1740e581583f0da;
-static void cont__sim2c__using_instruction__to_string_4(void);
-static void cont__sim2c__using_instruction__to_string_5(void);
-static NODE *func__sim2c__include_instruction__to_string_1;
-static void entry__sim2c__include_instruction__to_string_1(void);
-static FRAME_INFO frame__sim2c__include_instruction__to_string_1 = {1, {"self"}};
-static void cont__sim2c__include_instruction__to_string_2(void);
+static void cont__compiler__using_instruction__to_string_4(void);
+static void cont__compiler__using_instruction__to_string_5(void);
+static NODE *func__compiler__include_instruction__to_string_1;
+static void entry__compiler__include_instruction__to_string_1(void);
+static FRAME_INFO frame__compiler__include_instruction__to_string_1 = {1, {"self"}};
+static void cont__compiler__include_instruction__to_string_2(void);
 static NODE *string__448827ad5e2bb5a5;
-static void cont__sim2c__include_instruction__to_string_4(void);
-static void cont__sim2c__include_instruction__to_string_5(void);
-static NODE *func__sim2c__link_instruction__to_string_1;
-static void entry__sim2c__link_instruction__to_string_1(void);
-static FRAME_INFO frame__sim2c__link_instruction__to_string_1 = {1, {"self"}};
-static void cont__sim2c__link_instruction__to_string_2(void);
+static void cont__compiler__include_instruction__to_string_4(void);
+static void cont__compiler__include_instruction__to_string_5(void);
+static NODE *func__compiler__link_instruction__to_string_1;
+static void entry__compiler__link_instruction__to_string_1(void);
+static FRAME_INFO frame__compiler__link_instruction__to_string_1 = {1, {"self"}};
+static void cont__compiler__link_instruction__to_string_2(void);
 static NODE *string__4a1f55ee81e292f7;
-static void cont__sim2c__link_instruction__to_string_4(void);
-static void cont__sim2c__link_instruction__to_string_5(void);
-static NODE *func__sim2c__data_instruction__to_string_1;
-static void entry__sim2c__data_instruction__to_string_1(void);
-static FRAME_INFO frame__sim2c__data_instruction__to_string_1 = {1, {"self"}};
-static void cont__sim2c__data_instruction__to_string_2(void);
+static void cont__compiler__link_instruction__to_string_4(void);
+static void cont__compiler__link_instruction__to_string_5(void);
+static NODE *func__compiler__data_instruction__to_string_1;
+static void entry__compiler__data_instruction__to_string_1(void);
+static FRAME_INFO frame__compiler__data_instruction__to_string_1 = {1, {"self"}};
+static void cont__compiler__data_instruction__to_string_2(void);
 static NODE *string__5a1f536e81b212f7;
-static void cont__sim2c__data_instruction__to_string_4(void);
-static void cont__sim2c__data_instruction__to_string_5(void);
-static NODE *func__sim2c__remark_statement__to_string_1;
-static void entry__sim2c__remark_statement__to_string_1(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_1 = {3, {"self", "remark_lines", "buf"}};
-static void cont__sim2c__remark_statement__to_string_2(void);
-static NODE *func__sim2c__remark_statement__to_string_3;
-static void entry__sim2c__remark_statement__to_string_3(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_3 = {1, {"remark_lines"}};
-static void cont__sim2c__remark_statement__to_string_4(void);
-static void cont__sim2c__remark_statement__to_string_5(void);
-static NODE *func__sim2c__remark_statement__to_string_6;
-static void entry__sim2c__remark_statement__to_string_6(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_6 = {0, {}};
-static NODE *func__sim2c__remark_statement__to_string_7;
-static void entry__sim2c__remark_statement__to_string_7(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_7 = {1, {"remark_lines"}};
-static void cont__sim2c__remark_statement__to_string_8(void);
-static void cont__sim2c__remark_statement__to_string_9(void);
-static void cont__sim2c__remark_statement__to_string_10(void);
-static NODE *func__sim2c__remark_statement__to_string_11;
-static void entry__sim2c__remark_statement__to_string_11(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_11 = {1, {"remark_lines"}};
-static void cont__sim2c__remark_statement__to_string_12(void);
-static void cont__sim2c__remark_statement__to_string_13(void);
-static void cont__sim2c__remark_statement__to_string_14(void);
-static void cont__sim2c__remark_statement__to_string_15(void);
-static NODE *func__sim2c__remark_statement__to_string_16;
-static void entry__sim2c__remark_statement__to_string_16(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_16 = {1, {"remark_lines"}};
-static void cont__sim2c__remark_statement__to_string_17(void);
-static void cont__sim2c__remark_statement__to_string_18(void);
-static void cont__sim2c__remark_statement__to_string_19(void);
-static void cont__sim2c__remark_statement__to_string_20(void);
-static void cont__sim2c__remark_statement__to_string_21(void);
-static void cont__sim2c__remark_statement__to_string_22(void);
-static NODE *func__sim2c__remark_statement__to_string_23;
-static void entry__sim2c__remark_statement__to_string_23(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_23 = {0, {}};
-static NODE *func__sim2c__remark_statement__to_string_24;
-static void entry__sim2c__remark_statement__to_string_24(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_24 = {1, {"remark_lines"}};
-static void cont__sim2c__remark_statement__to_string_25(void);
-static void cont__sim2c__remark_statement__to_string_26(void);
-static NODE *func__sim2c__remark_statement__to_string_27;
-static void entry__sim2c__remark_statement__to_string_27(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_27 = {0, {}};
-static NODE *func__sim2c__remark_statement__to_string_28;
-static void entry__sim2c__remark_statement__to_string_28(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_28 = {0, {}};
-static NODE *func__sim2c__remark_statement__to_string_29;
-static void entry__sim2c__remark_statement__to_string_29(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_29 = {0, {}};
-static void cont__sim2c__remark_statement__to_string_30(void);
-static void cont__sim2c__remark_statement__to_string_31(void);
-static void cont__sim2c__remark_statement__to_string_32(void);
-static void cont__sim2c__remark_statement__to_string_33(void);
-static void cont__sim2c__remark_statement__to_string_34(void);
-static NODE *func__sim2c__remark_statement__to_string_35;
-static void entry__sim2c__remark_statement__to_string_35(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_35 = {3, {"remark_lines", "buf", "indent"}};
-static void cont__sim2c__remark_statement__to_string_36(void);
-static void cont__sim2c__remark_statement__to_string_37(void);
-static NODE *func__sim2c__remark_statement__to_string_38;
-static void entry__sim2c__remark_statement__to_string_38(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_38 = {3, {"line", "buf", "indent"}};
-static void cont__sim2c__remark_statement__to_string_39(void);
-static void cont__sim2c__remark_statement__to_string_40(void);
-static void cont__sim2c__remark_statement__to_string_41(void);
-static NODE *func__sim2c__remark_statement__to_string_42;
-static void entry__sim2c__remark_statement__to_string_42(void);
-static FRAME_INFO frame__sim2c__remark_statement__to_string_42 = {3, {"buf", "indent", "line"}};
-static void cont__sim2c__remark_statement__to_string_43(void);
-static void cont__sim2c__remark_statement__to_string_44(void);
-static void cont__sim2c__remark_statement__to_string_45(void);
-static NODE *func__sim2c__body__to_string_1;
-static void entry__sim2c__body__to_string_1(void);
-static FRAME_INFO frame__sim2c__body__to_string_1 = {4, {"self", "indent", "remark_lines", "parameters"}};
-static void cont__sim2c__body__to_string_2(void);
-static void cont__sim2c__body__to_string_3(void);
-static void cont__sim2c__body__to_string_4(void);
-static void cont__sim2c__body__to_string_5(void);
-static NODE *func__sim2c__body__to_string_6;
-static void entry__sim2c__body__to_string_6(void);
-static FRAME_INFO frame__sim2c__body__to_string_6 = {1, {"self"}};
-static void cont__sim2c__body__to_string_7(void);
-static void cont__sim2c__body__to_string_8(void);
-static void cont__sim2c__body__to_string_9(void);
-static NODE *func__sim2c__body__to_string_10;
-static void entry__sim2c__body__to_string_10(void);
-static FRAME_INFO frame__sim2c__body__to_string_10 = {1, {"self"}};
-static void cont__sim2c__body__to_string_11(void);
-static void cont__sim2c__body__to_string_12(void);
-static void cont__sim2c__body__to_string_13(void);
-static void cont__sim2c__body__to_string_14(void);
-static void cont__sim2c__body__to_string_15(void);
-static NODE *func__sim2c__body__to_string_16;
-static void entry__sim2c__body__to_string_16(void);
-static FRAME_INFO frame__sim2c__body__to_string_16 = {3, {"self", "indent", "str"}};
-static void cont__sim2c__body__to_string_17(void);
-static void cont__sim2c__body__to_string_18(void);
-static void cont__sim2c__body__to_string_19(void);
-static void cont__sim2c__body__to_string_20(void);
-static NODE *func__sim2c__body__to_string_21;
-static void entry__sim2c__body__to_string_21(void);
-static FRAME_INFO frame__sim2c__body__to_string_21 = {1, {"str"}};
-static void cont__sim2c__body__to_string_22(void);
-static void cont__sim2c__body__to_string_23(void);
-static NODE *func__sim2c__body__to_string_24;
-static void entry__sim2c__body__to_string_24(void);
-static FRAME_INFO frame__sim2c__body__to_string_24 = {2, {"indent", "str"}};
-static void cont__sim2c__body__to_string_25(void);
-static void cont__sim2c__body__to_string_26(void);
-static NODE *func__sim2c__body__to_string_27;
-static void entry__sim2c__body__to_string_27(void);
-static FRAME_INFO frame__sim2c__body__to_string_27 = {1, {"str"}};
-static NODE *func__sim2c__body__to_string_28;
-static void entry__sim2c__body__to_string_28(void);
-static FRAME_INFO frame__sim2c__body__to_string_28 = {9, {"indent", "parameters", "remark_lines", "self", "buf", "check_for_line_end_expression", "handle_simple_parameters", "handle_complex_parameters", "outer_line_end_expression_width"}};
-static NODE *func__sim2c__body__to_string_29;
-static void entry__sim2c__body__to_string_29(void);
-static FRAME_INFO frame__sim2c__body__to_string_29 = {2, {"buf", "indent"}};
-static void cont__sim2c__body__to_string_30(void);
-static NODE *func__sim2c__body__to_string_31;
-static void entry__sim2c__body__to_string_31(void);
-static FRAME_INFO frame__sim2c__body__to_string_31 = {1, {"buf"}};
-static NODE *func__sim2c__body__to_string_32;
-static void entry__sim2c__body__to_string_32(void);
-static FRAME_INFO frame__sim2c__body__to_string_32 = {2, {"buf", "indent"}};
-static void cont__sim2c__body__to_string_33(void);
-static void cont__sim2c__body__to_string_34(void);
-static void cont__sim2c__body__to_string_35(void);
-static NODE *func__sim2c__body__to_string_36;
-static void entry__sim2c__body__to_string_36(void);
-static FRAME_INFO frame__sim2c__body__to_string_36 = {7, {"parameters", "remark_lines", "buf", "indent", "handle_complex_parameters", "parameter_text", "parameter_text_length"}};
+static void cont__compiler__data_instruction__to_string_4(void);
+static void cont__compiler__data_instruction__to_string_5(void);
+static NODE *func__compiler__remark_statement__to_string_1;
+static void entry__compiler__remark_statement__to_string_1(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_1 = {3, {"self", "remark_lines", "buf"}};
+static void cont__compiler__remark_statement__to_string_2(void);
+static NODE *func__compiler__remark_statement__to_string_3;
+static void entry__compiler__remark_statement__to_string_3(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_3 = {1, {"remark_lines"}};
+static void cont__compiler__remark_statement__to_string_4(void);
+static void cont__compiler__remark_statement__to_string_5(void);
+static NODE *func__compiler__remark_statement__to_string_6;
+static void entry__compiler__remark_statement__to_string_6(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_6 = {0, {}};
+static NODE *func__compiler__remark_statement__to_string_7;
+static void entry__compiler__remark_statement__to_string_7(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_7 = {1, {"remark_lines"}};
+static void cont__compiler__remark_statement__to_string_8(void);
+static void cont__compiler__remark_statement__to_string_9(void);
+static void cont__compiler__remark_statement__to_string_10(void);
+static NODE *func__compiler__remark_statement__to_string_11;
+static void entry__compiler__remark_statement__to_string_11(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_11 = {1, {"remark_lines"}};
+static void cont__compiler__remark_statement__to_string_12(void);
+static void cont__compiler__remark_statement__to_string_13(void);
+static void cont__compiler__remark_statement__to_string_14(void);
+static void cont__compiler__remark_statement__to_string_15(void);
+static NODE *func__compiler__remark_statement__to_string_16;
+static void entry__compiler__remark_statement__to_string_16(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_16 = {1, {"remark_lines"}};
+static void cont__compiler__remark_statement__to_string_17(void);
+static void cont__compiler__remark_statement__to_string_18(void);
+static void cont__compiler__remark_statement__to_string_19(void);
+static void cont__compiler__remark_statement__to_string_20(void);
+static void cont__compiler__remark_statement__to_string_21(void);
+static void cont__compiler__remark_statement__to_string_22(void);
+static NODE *func__compiler__remark_statement__to_string_23;
+static void entry__compiler__remark_statement__to_string_23(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_23 = {0, {}};
+static NODE *func__compiler__remark_statement__to_string_24;
+static void entry__compiler__remark_statement__to_string_24(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_24 = {1, {"remark_lines"}};
+static void cont__compiler__remark_statement__to_string_25(void);
+static void cont__compiler__remark_statement__to_string_26(void);
+static NODE *func__compiler__remark_statement__to_string_27;
+static void entry__compiler__remark_statement__to_string_27(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_27 = {0, {}};
+static NODE *func__compiler__remark_statement__to_string_28;
+static void entry__compiler__remark_statement__to_string_28(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_28 = {0, {}};
+static NODE *func__compiler__remark_statement__to_string_29;
+static void entry__compiler__remark_statement__to_string_29(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_29 = {0, {}};
+static void cont__compiler__remark_statement__to_string_30(void);
+static void cont__compiler__remark_statement__to_string_31(void);
+static void cont__compiler__remark_statement__to_string_32(void);
+static void cont__compiler__remark_statement__to_string_33(void);
+static void cont__compiler__remark_statement__to_string_34(void);
+static NODE *func__compiler__remark_statement__to_string_35;
+static void entry__compiler__remark_statement__to_string_35(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_35 = {3, {"remark_lines", "buf", "indent"}};
+static void cont__compiler__remark_statement__to_string_36(void);
+static void cont__compiler__remark_statement__to_string_37(void);
+static NODE *func__compiler__remark_statement__to_string_38;
+static void entry__compiler__remark_statement__to_string_38(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_38 = {3, {"line", "buf", "indent"}};
+static void cont__compiler__remark_statement__to_string_39(void);
+static void cont__compiler__remark_statement__to_string_40(void);
+static void cont__compiler__remark_statement__to_string_41(void);
+static NODE *func__compiler__remark_statement__to_string_42;
+static void entry__compiler__remark_statement__to_string_42(void);
+static FRAME_INFO frame__compiler__remark_statement__to_string_42 = {3, {"buf", "indent", "line"}};
+static void cont__compiler__remark_statement__to_string_43(void);
+static void cont__compiler__remark_statement__to_string_44(void);
+static void cont__compiler__remark_statement__to_string_45(void);
+static NODE *func__compiler__body__to_string_1;
+static void entry__compiler__body__to_string_1(void);
+static FRAME_INFO frame__compiler__body__to_string_1 = {4, {"self", "indent", "remark_lines", "parameters"}};
+static void cont__compiler__body__to_string_2(void);
+static void cont__compiler__body__to_string_3(void);
+static void cont__compiler__body__to_string_4(void);
+static void cont__compiler__body__to_string_5(void);
+static NODE *func__compiler__body__to_string_6;
+static void entry__compiler__body__to_string_6(void);
+static FRAME_INFO frame__compiler__body__to_string_6 = {1, {"self"}};
+static void cont__compiler__body__to_string_7(void);
+static void cont__compiler__body__to_string_8(void);
+static void cont__compiler__body__to_string_9(void);
+static NODE *func__compiler__body__to_string_10;
+static void entry__compiler__body__to_string_10(void);
+static FRAME_INFO frame__compiler__body__to_string_10 = {1, {"self"}};
+static void cont__compiler__body__to_string_11(void);
+static void cont__compiler__body__to_string_12(void);
+static void cont__compiler__body__to_string_13(void);
+static void cont__compiler__body__to_string_14(void);
+static void cont__compiler__body__to_string_15(void);
+static NODE *func__compiler__body__to_string_16;
+static void entry__compiler__body__to_string_16(void);
+static FRAME_INFO frame__compiler__body__to_string_16 = {3, {"self", "indent", "str"}};
+static void cont__compiler__body__to_string_17(void);
+static void cont__compiler__body__to_string_18(void);
+static void cont__compiler__body__to_string_19(void);
+static void cont__compiler__body__to_string_20(void);
+static NODE *func__compiler__body__to_string_21;
+static void entry__compiler__body__to_string_21(void);
+static FRAME_INFO frame__compiler__body__to_string_21 = {1, {"str"}};
+static void cont__compiler__body__to_string_22(void);
+static void cont__compiler__body__to_string_23(void);
+static NODE *func__compiler__body__to_string_24;
+static void entry__compiler__body__to_string_24(void);
+static FRAME_INFO frame__compiler__body__to_string_24 = {2, {"indent", "str"}};
+static void cont__compiler__body__to_string_25(void);
+static void cont__compiler__body__to_string_26(void);
+static NODE *func__compiler__body__to_string_27;
+static void entry__compiler__body__to_string_27(void);
+static FRAME_INFO frame__compiler__body__to_string_27 = {1, {"str"}};
+static NODE *func__compiler__body__to_string_28;
+static void entry__compiler__body__to_string_28(void);
+static FRAME_INFO frame__compiler__body__to_string_28 = {9, {"indent", "parameters", "remark_lines", "self", "buf", "check_for_line_end_expression", "handle_simple_parameters", "handle_complex_parameters", "outer_line_end_expression_width"}};
+static NODE *func__compiler__body__to_string_29;
+static void entry__compiler__body__to_string_29(void);
+static FRAME_INFO frame__compiler__body__to_string_29 = {2, {"buf", "indent"}};
+static void cont__compiler__body__to_string_30(void);
+static NODE *func__compiler__body__to_string_31;
+static void entry__compiler__body__to_string_31(void);
+static FRAME_INFO frame__compiler__body__to_string_31 = {1, {"buf"}};
+static NODE *func__compiler__body__to_string_32;
+static void entry__compiler__body__to_string_32(void);
+static FRAME_INFO frame__compiler__body__to_string_32 = {2, {"buf", "indent"}};
+static void cont__compiler__body__to_string_33(void);
+static void cont__compiler__body__to_string_34(void);
+static void cont__compiler__body__to_string_35(void);
+static NODE *func__compiler__body__to_string_36;
+static void entry__compiler__body__to_string_36(void);
+static FRAME_INFO frame__compiler__body__to_string_36 = {7, {"parameters", "remark_lines", "buf", "indent", "handle_complex_parameters", "parameter_text", "parameter_text_length"}};
 static NODE *string__fa736c15f296be4;
-static NODE *func__sim2c__body__to_string_38;
-static void entry__sim2c__body__to_string_38(void);
-static FRAME_INFO frame__sim2c__body__to_string_38 = {2, {"parameter", "parameter_text"}};
-static void cont__sim2c__body__to_string_39(void);
-static void cont__sim2c__body__to_string_40(void);
-static NODE *func__sim2c__body__to_string_41;
-static void entry__sim2c__body__to_string_41(void);
-static FRAME_INFO frame__sim2c__body__to_string_41 = {1, {"parameter_text"}};
-static void cont__sim2c__body__to_string_42(void);
-static void cont__sim2c__body__to_string_43(void);
-static void cont__sim2c__body__to_string_44(void);
-static void cont__sim2c__body__to_string_45(void);
-static NODE *func__sim2c__body__to_string_46;
-static void entry__sim2c__body__to_string_46(void);
-static FRAME_INFO frame__sim2c__body__to_string_46 = {2, {"parameter_text", "remark_lines"}};
-static void cont__sim2c__body__to_string_47(void);
-static void cont__sim2c__body__to_string_48(void);
-static void cont__sim2c__body__to_string_49(void);
-static void cont__sim2c__body__to_string_50(void);
-static void cont__sim2c__body__to_string_51(void);
-static NODE *func__sim2c__body__to_string_52;
-static void entry__sim2c__body__to_string_52(void);
-static FRAME_INFO frame__sim2c__body__to_string_52 = {2, {"buf", "parameter_text"}};
-static NODE *func__sim2c__body__to_string_53;
-static void entry__sim2c__body__to_string_53(void);
-static FRAME_INFO frame__sim2c__body__to_string_53 = {5, {"indent", "parameter_text_length", "buf", "parameter_text", "handle_complex_parameters"}};
-static void cont__sim2c__body__to_string_54(void);
-static void cont__sim2c__body__to_string_55(void);
-static void cont__sim2c__body__to_string_56(void);
-static NODE *func__sim2c__body__to_string_57;
-static void entry__sim2c__body__to_string_57(void);
-static FRAME_INFO frame__sim2c__body__to_string_57 = {3, {"buf", "indent", "parameter_text"}};
-static void cont__sim2c__body__to_string_58(void);
-static void cont__sim2c__body__to_string_59(void);
-static void cont__sim2c__body__to_string_60(void);
-static NODE *func__sim2c__body__to_string_61;
-static void entry__sim2c__body__to_string_61(void);
-static FRAME_INFO frame__sim2c__body__to_string_61 = {1, {"handle_complex_parameters"}};
-static NODE *func__sim2c__body__to_string_62;
-static void entry__sim2c__body__to_string_62(void);
-static FRAME_INFO frame__sim2c__body__to_string_62 = {6, {"check_for_line_end_expression", "indent", "remark_lines", "buf", "parameters", "parameter_indentation"}};
-static void cont__sim2c__body__to_string_63(void);
-static void cont__sim2c__body__to_string_64(void);
-static void cont__sim2c__body__to_string_65(void);
-static void cont__sim2c__body__to_string_66(void);
-static NODE *func__sim2c__body__to_string_67;
-static void entry__sim2c__body__to_string_67(void);
-static FRAME_INFO frame__sim2c__body__to_string_67 = {2, {"buf", "remark_lines"}};
-static void cont__sim2c__body__to_string_68(void);
-static void cont__sim2c__body__to_string_69(void);
-static void cont__sim2c__body__to_string_70(void);
-static void cont__sim2c__body__to_string_71(void);
+static NODE *func__compiler__body__to_string_38;
+static void entry__compiler__body__to_string_38(void);
+static FRAME_INFO frame__compiler__body__to_string_38 = {2, {"parameter", "parameter_text"}};
+static void cont__compiler__body__to_string_39(void);
+static void cont__compiler__body__to_string_40(void);
+static NODE *func__compiler__body__to_string_41;
+static void entry__compiler__body__to_string_41(void);
+static FRAME_INFO frame__compiler__body__to_string_41 = {1, {"parameter_text"}};
+static void cont__compiler__body__to_string_42(void);
+static void cont__compiler__body__to_string_43(void);
+static void cont__compiler__body__to_string_44(void);
+static void cont__compiler__body__to_string_45(void);
+static NODE *func__compiler__body__to_string_46;
+static void entry__compiler__body__to_string_46(void);
+static FRAME_INFO frame__compiler__body__to_string_46 = {2, {"parameter_text", "remark_lines"}};
+static void cont__compiler__body__to_string_47(void);
+static void cont__compiler__body__to_string_48(void);
+static void cont__compiler__body__to_string_49(void);
+static void cont__compiler__body__to_string_50(void);
+static void cont__compiler__body__to_string_51(void);
+static NODE *func__compiler__body__to_string_52;
+static void entry__compiler__body__to_string_52(void);
+static FRAME_INFO frame__compiler__body__to_string_52 = {2, {"buf", "parameter_text"}};
+static NODE *func__compiler__body__to_string_53;
+static void entry__compiler__body__to_string_53(void);
+static FRAME_INFO frame__compiler__body__to_string_53 = {5, {"indent", "parameter_text_length", "buf", "parameter_text", "handle_complex_parameters"}};
+static void cont__compiler__body__to_string_54(void);
+static void cont__compiler__body__to_string_55(void);
+static void cont__compiler__body__to_string_56(void);
+static NODE *func__compiler__body__to_string_57;
+static void entry__compiler__body__to_string_57(void);
+static FRAME_INFO frame__compiler__body__to_string_57 = {3, {"buf", "indent", "parameter_text"}};
+static void cont__compiler__body__to_string_58(void);
+static void cont__compiler__body__to_string_59(void);
+static void cont__compiler__body__to_string_60(void);
+static NODE *func__compiler__body__to_string_61;
+static void entry__compiler__body__to_string_61(void);
+static FRAME_INFO frame__compiler__body__to_string_61 = {1, {"handle_complex_parameters"}};
+static NODE *func__compiler__body__to_string_62;
+static void entry__compiler__body__to_string_62(void);
+static FRAME_INFO frame__compiler__body__to_string_62 = {6, {"check_for_line_end_expression", "indent", "remark_lines", "buf", "parameters", "parameter_indentation"}};
+static void cont__compiler__body__to_string_63(void);
+static void cont__compiler__body__to_string_64(void);
+static void cont__compiler__body__to_string_65(void);
+static void cont__compiler__body__to_string_66(void);
+static NODE *func__compiler__body__to_string_67;
+static void entry__compiler__body__to_string_67(void);
+static FRAME_INFO frame__compiler__body__to_string_67 = {2, {"buf", "remark_lines"}};
+static void cont__compiler__body__to_string_68(void);
+static void cont__compiler__body__to_string_69(void);
+static void cont__compiler__body__to_string_70(void);
+static void cont__compiler__body__to_string_71(void);
 static NODE *string__578a5af303e9cc9;
-static void cont__sim2c__body__to_string_73(void);
-static NODE *func__sim2c__body__to_string_74;
-static void entry__sim2c__body__to_string_74(void);
-static FRAME_INFO frame__sim2c__body__to_string_74 = {3, {"parameter", "buf", "parameter_indentation"}};
-static void cont__sim2c__body__to_string_75(void);
-static void cont__sim2c__body__to_string_76(void);
-static void cont__sim2c__body__to_string_77(void);
-static NODE *func__sim2c__body__to_string_78;
-static void entry__sim2c__body__to_string_78(void);
-static FRAME_INFO frame__sim2c__body__to_string_78 = {2, {"buf", "parameter"}};
-static void cont__sim2c__body__to_string_79(void);
-static NODE *func__sim2c__body__to_string_80;
-static void entry__sim2c__body__to_string_80(void);
-static FRAME_INFO frame__sim2c__body__to_string_80 = {3, {"buf", "parameter_indentation", "parameter"}};
-static void cont__sim2c__body__to_string_81(void);
-static void cont__sim2c__body__to_string_82(void);
-static void cont__sim2c__body__to_string_83(void);
-static void cont__sim2c__body__to_string_84(void);
-static void cont__sim2c__body__to_string_85(void);
-static void cont__sim2c__body__to_string_86(void);
-static NODE *func__sim2c__body__to_string_87;
-static void entry__sim2c__body__to_string_87(void);
-static FRAME_INFO frame__sim2c__body__to_string_87 = {3, {"check_for_line_end_expression", "remark_lines", "buf"}};
-static void cont__sim2c__body__to_string_88(void);
-static void cont__sim2c__body__to_string_89(void);
-static NODE *func__sim2c__body__to_string_90;
-static void entry__sim2c__body__to_string_90(void);
-static FRAME_INFO frame__sim2c__body__to_string_90 = {2, {"buf", "remark_lines"}};
-static void cont__sim2c__body__to_string_91(void);
-static NODE *func__sim2c__body__to_string_92;
-static void entry__sim2c__body__to_string_92(void);
-static FRAME_INFO frame__sim2c__body__to_string_92 = {4, {"parameters", "handle_simple_parameters", "handle_complex_parameters", "has_simple_parameters"}};
-static void cont__sim2c__body__to_string_93(void);
-static void cont__sim2c__body__to_string_94(void);
-static NODE *func__sim2c__body__to_string_95;
-static void entry__sim2c__body__to_string_95(void);
-static FRAME_INFO frame__sim2c__body__to_string_95 = {1, {"parameters"}};
-static NODE *func__sim2c__body__to_string_96;
-static void entry__sim2c__body__to_string_96(void);
-static FRAME_INFO frame__sim2c__body__to_string_96 = {1, {"parameter"}};
-static void cont__sim2c__body__to_string_97(void);
-static void cont__sim2c__body__to_string_98(void);
-static void cont__sim2c__body__to_string_99(void);
-static NODE *func__sim2c__body__to_string_100;
-static void entry__sim2c__body__to_string_100(void);
-static FRAME_INFO frame__sim2c__body__to_string_100 = {1, {"parameter"}};
-static void cont__sim2c__body__to_string_101(void);
-static void cont__sim2c__body__to_string_102(void);
-static void cont__sim2c__body__to_string_103(void);
-static void cont__sim2c__body__to_string_104(void);
-static void cont__sim2c__body__to_string_105(void);
-static void cont__sim2c__body__to_string_106(void);
-static NODE *func__sim2c__body__to_string_107;
-static void entry__sim2c__body__to_string_107(void);
-static FRAME_INFO frame__sim2c__body__to_string_107 = {1, {"parameters"}};
-static NODE *func__sim2c__body__to_string_108;
-static void entry__sim2c__body__to_string_108(void);
-static FRAME_INFO frame__sim2c__body__to_string_108 = {1, {"parameter"}};
-static void cont__sim2c__body__to_string_109(void);
-static void cont__sim2c__body__to_string_110(void);
-static void cont__sim2c__body__to_string_111(void);
-static void cont__sim2c__body__to_string_112(void);
-static NODE *func__sim2c__body__to_string_113;
-static void entry__sim2c__body__to_string_113(void);
-static FRAME_INFO frame__sim2c__body__to_string_113 = {1, {"handle_simple_parameters"}};
-static NODE *func__sim2c__body__to_string_114;
-static void entry__sim2c__body__to_string_114(void);
-static FRAME_INFO frame__sim2c__body__to_string_114 = {1, {"handle_complex_parameters"}};
-static void cont__sim2c__body__to_string_115(void);
-static NODE *func__sim2c__body__to_string_116;
-static void entry__sim2c__body__to_string_116(void);
-static FRAME_INFO frame__sim2c__body__to_string_116 = {6, {"return__2", "indent", "buf", "self", "outer_line_end_expression_width", "indentation"}};
-static void cont__sim2c__body__to_string_117(void);
-static NODE *func__sim2c__body__to_string_118;
-static void entry__sim2c__body__to_string_118(void);
-static FRAME_INFO frame__sim2c__body__to_string_118 = {2, {"buf", "indentation"}};
+static void cont__compiler__body__to_string_73(void);
+static NODE *func__compiler__body__to_string_74;
+static void entry__compiler__body__to_string_74(void);
+static FRAME_INFO frame__compiler__body__to_string_74 = {3, {"parameter", "buf", "parameter_indentation"}};
+static void cont__compiler__body__to_string_75(void);
+static void cont__compiler__body__to_string_76(void);
+static void cont__compiler__body__to_string_77(void);
+static NODE *func__compiler__body__to_string_78;
+static void entry__compiler__body__to_string_78(void);
+static FRAME_INFO frame__compiler__body__to_string_78 = {2, {"buf", "parameter"}};
+static void cont__compiler__body__to_string_79(void);
+static NODE *func__compiler__body__to_string_80;
+static void entry__compiler__body__to_string_80(void);
+static FRAME_INFO frame__compiler__body__to_string_80 = {3, {"buf", "parameter_indentation", "parameter"}};
+static void cont__compiler__body__to_string_81(void);
+static void cont__compiler__body__to_string_82(void);
+static void cont__compiler__body__to_string_83(void);
+static void cont__compiler__body__to_string_84(void);
+static void cont__compiler__body__to_string_85(void);
+static void cont__compiler__body__to_string_86(void);
+static NODE *func__compiler__body__to_string_87;
+static void entry__compiler__body__to_string_87(void);
+static FRAME_INFO frame__compiler__body__to_string_87 = {3, {"check_for_line_end_expression", "remark_lines", "buf"}};
+static void cont__compiler__body__to_string_88(void);
+static void cont__compiler__body__to_string_89(void);
+static NODE *func__compiler__body__to_string_90;
+static void entry__compiler__body__to_string_90(void);
+static FRAME_INFO frame__compiler__body__to_string_90 = {2, {"buf", "remark_lines"}};
+static void cont__compiler__body__to_string_91(void);
+static NODE *func__compiler__body__to_string_92;
+static void entry__compiler__body__to_string_92(void);
+static FRAME_INFO frame__compiler__body__to_string_92 = {4, {"parameters", "handle_simple_parameters", "handle_complex_parameters", "has_simple_parameters"}};
+static void cont__compiler__body__to_string_93(void);
+static void cont__compiler__body__to_string_94(void);
+static NODE *func__compiler__body__to_string_95;
+static void entry__compiler__body__to_string_95(void);
+static FRAME_INFO frame__compiler__body__to_string_95 = {1, {"parameters"}};
+static NODE *func__compiler__body__to_string_96;
+static void entry__compiler__body__to_string_96(void);
+static FRAME_INFO frame__compiler__body__to_string_96 = {1, {"parameter"}};
+static void cont__compiler__body__to_string_97(void);
+static void cont__compiler__body__to_string_98(void);
+static void cont__compiler__body__to_string_99(void);
+static NODE *func__compiler__body__to_string_100;
+static void entry__compiler__body__to_string_100(void);
+static FRAME_INFO frame__compiler__body__to_string_100 = {1, {"parameter"}};
+static void cont__compiler__body__to_string_101(void);
+static void cont__compiler__body__to_string_102(void);
+static void cont__compiler__body__to_string_103(void);
+static void cont__compiler__body__to_string_104(void);
+static void cont__compiler__body__to_string_105(void);
+static void cont__compiler__body__to_string_106(void);
+static NODE *func__compiler__body__to_string_107;
+static void entry__compiler__body__to_string_107(void);
+static FRAME_INFO frame__compiler__body__to_string_107 = {1, {"parameters"}};
+static NODE *func__compiler__body__to_string_108;
+static void entry__compiler__body__to_string_108(void);
+static FRAME_INFO frame__compiler__body__to_string_108 = {1, {"parameter"}};
+static void cont__compiler__body__to_string_109(void);
+static void cont__compiler__body__to_string_110(void);
+static void cont__compiler__body__to_string_111(void);
+static void cont__compiler__body__to_string_112(void);
+static NODE *func__compiler__body__to_string_113;
+static void entry__compiler__body__to_string_113(void);
+static FRAME_INFO frame__compiler__body__to_string_113 = {1, {"handle_simple_parameters"}};
+static NODE *func__compiler__body__to_string_114;
+static void entry__compiler__body__to_string_114(void);
+static FRAME_INFO frame__compiler__body__to_string_114 = {1, {"handle_complex_parameters"}};
+static void cont__compiler__body__to_string_115(void);
+static NODE *func__compiler__body__to_string_116;
+static void entry__compiler__body__to_string_116(void);
+static FRAME_INFO frame__compiler__body__to_string_116 = {6, {"return__2", "indent", "buf", "self", "outer_line_end_expression_width", "indentation"}};
+static void cont__compiler__body__to_string_117(void);
+static NODE *func__compiler__body__to_string_118;
+static void entry__compiler__body__to_string_118(void);
+static FRAME_INFO frame__compiler__body__to_string_118 = {2, {"buf", "indentation"}};
 static NODE *string__9e0afacb5f107d33;
-static void cont__sim2c__body__to_string_120(void);
-static NODE *func__sim2c__body__to_string_121;
-static void entry__sim2c__body__to_string_121(void);
-static FRAME_INFO frame__sim2c__body__to_string_121 = {7, {"return__1", "self", "buf", "outer_line_end_expression_width", "indentation", "statements", "n"}};
-static void cont__sim2c__body__to_string_122(void);
-static void cont__sim2c__body__to_string_123(void);
-static void cont__sim2c__body__to_string_124(void);
-static NODE *func__sim2c__body__to_string_125;
-static void entry__sim2c__body__to_string_125(void);
-static FRAME_INFO frame__sim2c__body__to_string_125 = {8, {"idx", "statement", "buf", "n", "outer_line_end_expression_width", "indentation", "previous_statement_tag", "str"}};
-static void cont__sim2c__body__to_string_126(void);
-static void cont__sim2c__body__to_string_127(void);
-static NODE *func__sim2c__body__to_string_128;
-static void entry__sim2c__body__to_string_128(void);
-static FRAME_INFO frame__sim2c__body__to_string_128 = {1, {"previous_statement_tag"}};
-static void cont__sim2c__body__to_string_129(void);
-static NODE *func__sim2c__body__to_string_130;
-static void entry__sim2c__body__to_string_130(void);
-static FRAME_INFO frame__sim2c__body__to_string_130 = {1, {"previous_statement_tag"}};
-static void cont__sim2c__body__to_string_131(void);
-static void cont__sim2c__body__to_string_132(void);
-static void cont__sim2c__body__to_string_133(void);
-static void cont__sim2c__body__to_string_134(void);
-static NODE *func__sim2c__body__to_string_135;
-static void entry__sim2c__body__to_string_135(void);
-static FRAME_INFO frame__sim2c__body__to_string_135 = {1, {"buf"}};
-static void cont__sim2c__body__to_string_136(void);
-static void cont__sim2c__body__to_string_137(void);
-static void cont__sim2c__body__to_string_138(void);
-static NODE *func__sim2c__body__to_string_139;
-static void entry__sim2c__body__to_string_139(void);
-static FRAME_INFO frame__sim2c__body__to_string_139 = {3, {"buf", "str", "outer_line_end_expression_width"}};
-static void cont__sim2c__body__to_string_140(void);
-static NODE *func__sim2c__body__to_string_141;
-static void entry__sim2c__body__to_string_141(void);
-static FRAME_INFO frame__sim2c__body__to_string_141 = {3, {"str", "outer_line_end_expression_width", "buf"}};
-static void cont__sim2c__body__to_string_142(void);
-static NODE *func__sim2c__body__to_string_143;
-static void entry__sim2c__body__to_string_143(void);
-static FRAME_INFO frame__sim2c__body__to_string_143 = {3, {"outer_line_end_expression_width", "buf", "str"}};
-static void cont__sim2c__body__to_string_144(void);
-static void cont__sim2c__body__to_string_145(void);
-static void cont__sim2c__body__to_string_146(void);
-static void cont__sim2c__body__to_string_147(void);
-static void cont__sim2c__body__to_string_148(void);
-static void cont__sim2c__body__to_string_149(void);
-static void cont__sim2c__body__to_string_150(void);
-static void cont__sim2c__body__to_string_151(void);
-static NODE *func__sim2c__body__to_string_152;
-static void entry__sim2c__body__to_string_152(void);
-static FRAME_INFO frame__sim2c__body__to_string_152 = {3, {"buf", "indentation", "str"}};
-static void cont__sim2c__body__to_string_153(void);
-static NODE *func__sim2c__body__to_string_154;
-static void entry__sim2c__body__to_string_154(void);
-static FRAME_INFO frame__sim2c__body__to_string_154 = {2, {"buf", "str"}};
-static void cont__sim2c__body__to_string_155(void);
-static void cont__sim2c__body__to_string_156(void);
-static void cont__sim2c__body__to_string_157(void);
-static void cont__sim2c__body__to_string_158(void);
+static void cont__compiler__body__to_string_120(void);
+static NODE *func__compiler__body__to_string_121;
+static void entry__compiler__body__to_string_121(void);
+static FRAME_INFO frame__compiler__body__to_string_121 = {7, {"return__1", "self", "buf", "outer_line_end_expression_width", "indentation", "statements", "n"}};
+static void cont__compiler__body__to_string_122(void);
+static void cont__compiler__body__to_string_123(void);
+static void cont__compiler__body__to_string_124(void);
+static NODE *func__compiler__body__to_string_125;
+static void entry__compiler__body__to_string_125(void);
+static FRAME_INFO frame__compiler__body__to_string_125 = {8, {"idx", "statement", "buf", "n", "outer_line_end_expression_width", "indentation", "previous_statement_tag", "str"}};
+static void cont__compiler__body__to_string_126(void);
+static void cont__compiler__body__to_string_127(void);
+static NODE *func__compiler__body__to_string_128;
+static void entry__compiler__body__to_string_128(void);
+static FRAME_INFO frame__compiler__body__to_string_128 = {1, {"previous_statement_tag"}};
+static void cont__compiler__body__to_string_129(void);
+static NODE *func__compiler__body__to_string_130;
+static void entry__compiler__body__to_string_130(void);
+static FRAME_INFO frame__compiler__body__to_string_130 = {1, {"previous_statement_tag"}};
+static void cont__compiler__body__to_string_131(void);
+static void cont__compiler__body__to_string_132(void);
+static void cont__compiler__body__to_string_133(void);
+static void cont__compiler__body__to_string_134(void);
+static NODE *func__compiler__body__to_string_135;
+static void entry__compiler__body__to_string_135(void);
+static FRAME_INFO frame__compiler__body__to_string_135 = {1, {"buf"}};
+static void cont__compiler__body__to_string_136(void);
+static void cont__compiler__body__to_string_137(void);
+static void cont__compiler__body__to_string_138(void);
+static NODE *func__compiler__body__to_string_139;
+static void entry__compiler__body__to_string_139(void);
+static FRAME_INFO frame__compiler__body__to_string_139 = {3, {"buf", "str", "outer_line_end_expression_width"}};
+static void cont__compiler__body__to_string_140(void);
+static NODE *func__compiler__body__to_string_141;
+static void entry__compiler__body__to_string_141(void);
+static FRAME_INFO frame__compiler__body__to_string_141 = {3, {"str", "outer_line_end_expression_width", "buf"}};
+static void cont__compiler__body__to_string_142(void);
+static NODE *func__compiler__body__to_string_143;
+static void entry__compiler__body__to_string_143(void);
+static FRAME_INFO frame__compiler__body__to_string_143 = {3, {"outer_line_end_expression_width", "buf", "str"}};
+static void cont__compiler__body__to_string_144(void);
+static void cont__compiler__body__to_string_145(void);
+static void cont__compiler__body__to_string_146(void);
+static void cont__compiler__body__to_string_147(void);
+static void cont__compiler__body__to_string_148(void);
+static void cont__compiler__body__to_string_149(void);
+static void cont__compiler__body__to_string_150(void);
+static void cont__compiler__body__to_string_151(void);
+static NODE *func__compiler__body__to_string_152;
+static void entry__compiler__body__to_string_152(void);
+static FRAME_INFO frame__compiler__body__to_string_152 = {3, {"buf", "indentation", "str"}};
+static void cont__compiler__body__to_string_153(void);
+static NODE *func__compiler__body__to_string_154;
+static void entry__compiler__body__to_string_154(void);
+static FRAME_INFO frame__compiler__body__to_string_154 = {2, {"buf", "str"}};
+static void cont__compiler__body__to_string_155(void);
+static void cont__compiler__body__to_string_156(void);
+static void cont__compiler__body__to_string_157(void);
+static void cont__compiler__body__to_string_158(void);
 static NODE *func__all_arguments_of_1;
 static void entry__all_arguments_of_1(void);
 static FRAME_INFO frame__all_arguments_of_1 = {5, {"self", "return", "output_arguments", "input_arguments", "all_arguments"}};
@@ -1919,232 +1919,232 @@ static void cont__call_with_remark_to_string_11(void);
 static void cont__call_with_remark_to_string_12(void);
 static void cont__call_with_remark_to_string_13(void);
 static void cont__call_with_remark_to_string_14(void);
-static NODE *func__sim2c__call__to_string_1;
-static void entry__sim2c__call__to_string_1(void);
-static FRAME_INFO frame__sim2c__call__to_string_1 = {3, {"self", "indent", "outer_line_end_expression_width"}};
-static void cont__sim2c__call__to_string_2(void);
-static NODE *func__sim2c__call__to_string_3;
-static void entry__sim2c__call__to_string_3(void);
-static FRAME_INFO frame__sim2c__call__to_string_3 = {6, {"return__2", "self", "outer_line_end_expression_width", "indent", "has_no_remarks", "arguments"}};
-static void cont__sim2c__call__to_string_4(void);
-static void cont__sim2c__call__to_string_5(void);
-static NODE *func__sim2c__call__to_string_6;
-static void entry__sim2c__call__to_string_6(void);
-static FRAME_INFO frame__sim2c__call__to_string_6 = {1, {"self"}};
-static void cont__sim2c__call__to_string_7(void);
-static void cont__sim2c__call__to_string_8(void);
-static void cont__sim2c__call__to_string_9(void);
-static void cont__sim2c__call__to_string_10(void);
-static NODE *func__sim2c__call__to_string_11;
-static void entry__sim2c__call__to_string_11(void);
-static FRAME_INFO frame__sim2c__call__to_string_11 = {1, {"has_no_remarks"}};
-static void cont__sim2c__call__to_string_12(void);
-static NODE *func__sim2c__call__to_string_13;
-static void entry__sim2c__call__to_string_13(void);
-static FRAME_INFO frame__sim2c__call__to_string_13 = {1, {"indent"}};
-static NODE *func__sim2c__call__to_string_14;
-static void entry__sim2c__call__to_string_14(void);
-static FRAME_INFO frame__sim2c__call__to_string_14 = {1, {"indent"}};
-static void cont__sim2c__call__to_string_15(void);
-static void cont__sim2c__call__to_string_16(void);
-static void cont__sim2c__call__to_string_17(void);
-static void cont__sim2c__call__to_string_18(void);
-static void cont__sim2c__call__to_string_19(void);
-static NODE *func__sim2c__call__to_string_20;
-static void entry__sim2c__call__to_string_20(void);
-static FRAME_INFO frame__sim2c__call__to_string_20 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_21(void);
-static void cont__sim2c__call__to_string_22(void);
-static NODE *func__sim2c__call__to_string_23;
-static void entry__sim2c__call__to_string_23(void);
-static FRAME_INFO frame__sim2c__call__to_string_23 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_24(void);
-static NODE *func__sim2c__call__to_string_25;
-static void entry__sim2c__call__to_string_25(void);
-static FRAME_INFO frame__sim2c__call__to_string_25 = {1, {"arguments"}};
+static NODE *func__compiler__call__to_string_1;
+static void entry__compiler__call__to_string_1(void);
+static FRAME_INFO frame__compiler__call__to_string_1 = {3, {"self", "indent", "outer_line_end_expression_width"}};
+static void cont__compiler__call__to_string_2(void);
+static NODE *func__compiler__call__to_string_3;
+static void entry__compiler__call__to_string_3(void);
+static FRAME_INFO frame__compiler__call__to_string_3 = {6, {"return__2", "self", "outer_line_end_expression_width", "indent", "has_no_remarks", "arguments"}};
+static void cont__compiler__call__to_string_4(void);
+static void cont__compiler__call__to_string_5(void);
+static NODE *func__compiler__call__to_string_6;
+static void entry__compiler__call__to_string_6(void);
+static FRAME_INFO frame__compiler__call__to_string_6 = {1, {"self"}};
+static void cont__compiler__call__to_string_7(void);
+static void cont__compiler__call__to_string_8(void);
+static void cont__compiler__call__to_string_9(void);
+static void cont__compiler__call__to_string_10(void);
+static NODE *func__compiler__call__to_string_11;
+static void entry__compiler__call__to_string_11(void);
+static FRAME_INFO frame__compiler__call__to_string_11 = {1, {"has_no_remarks"}};
+static void cont__compiler__call__to_string_12(void);
+static NODE *func__compiler__call__to_string_13;
+static void entry__compiler__call__to_string_13(void);
+static FRAME_INFO frame__compiler__call__to_string_13 = {1, {"indent"}};
+static NODE *func__compiler__call__to_string_14;
+static void entry__compiler__call__to_string_14(void);
+static FRAME_INFO frame__compiler__call__to_string_14 = {1, {"indent"}};
+static void cont__compiler__call__to_string_15(void);
+static void cont__compiler__call__to_string_16(void);
+static void cont__compiler__call__to_string_17(void);
+static void cont__compiler__call__to_string_18(void);
+static void cont__compiler__call__to_string_19(void);
+static NODE *func__compiler__call__to_string_20;
+static void entry__compiler__call__to_string_20(void);
+static FRAME_INFO frame__compiler__call__to_string_20 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_21(void);
+static void cont__compiler__call__to_string_22(void);
+static NODE *func__compiler__call__to_string_23;
+static void entry__compiler__call__to_string_23(void);
+static FRAME_INFO frame__compiler__call__to_string_23 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_24(void);
+static NODE *func__compiler__call__to_string_25;
+static void entry__compiler__call__to_string_25(void);
+static FRAME_INFO frame__compiler__call__to_string_25 = {1, {"arguments"}};
 static NODE *string__fa733015fd96bec;
-static void cont__sim2c__call__to_string_27(void);
-static NODE *func__sim2c__call__to_string_28;
-static void entry__sim2c__call__to_string_28(void);
-static FRAME_INFO frame__sim2c__call__to_string_28 = {5, {"return__1", "self", "indent", "arguments", "remark_lines"}};
-static void cont__sim2c__call__to_string_29(void);
-static void cont__sim2c__call__to_string_30(void);
-static void cont__sim2c__call__to_string_31(void);
-static void cont__sim2c__call__to_string_32(void);
-static NODE *func__sim2c__call__to_string_33;
-static void entry__sim2c__call__to_string_33(void);
-static FRAME_INFO frame__sim2c__call__to_string_33 = {3, {"remark_lines", "arguments", "functor"}};
-static void cont__sim2c__call__to_string_34(void);
-static void cont__sim2c__call__to_string_35(void);
-static void cont__sim2c__call__to_string_36(void);
-static NODE *func__sim2c__call__to_string_37;
-static void entry__sim2c__call__to_string_37(void);
-static FRAME_INFO frame__sim2c__call__to_string_37 = {2, {"functor", "arguments"}};
-static void cont__sim2c__call__to_string_38(void);
-static void cont__sim2c__call__to_string_39(void);
+static void cont__compiler__call__to_string_27(void);
+static NODE *func__compiler__call__to_string_28;
+static void entry__compiler__call__to_string_28(void);
+static FRAME_INFO frame__compiler__call__to_string_28 = {5, {"return__1", "self", "indent", "arguments", "remark_lines"}};
+static void cont__compiler__call__to_string_29(void);
+static void cont__compiler__call__to_string_30(void);
+static void cont__compiler__call__to_string_31(void);
+static void cont__compiler__call__to_string_32(void);
+static NODE *func__compiler__call__to_string_33;
+static void entry__compiler__call__to_string_33(void);
+static FRAME_INFO frame__compiler__call__to_string_33 = {3, {"remark_lines", "arguments", "functor"}};
+static void cont__compiler__call__to_string_34(void);
+static void cont__compiler__call__to_string_35(void);
+static void cont__compiler__call__to_string_36(void);
+static NODE *func__compiler__call__to_string_37;
+static void entry__compiler__call__to_string_37(void);
+static FRAME_INFO frame__compiler__call__to_string_37 = {2, {"functor", "arguments"}};
+static void cont__compiler__call__to_string_38(void);
+static void cont__compiler__call__to_string_39(void);
 static NODE *string__2d7981f4e7582bcf;
-static void cont__sim2c__call__to_string_41(void);
-static NODE *func__sim2c__call__to_string_42;
-static void entry__sim2c__call__to_string_42(void);
-static FRAME_INFO frame__sim2c__call__to_string_42 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_43(void);
-static void cont__sim2c__call__to_string_44(void);
-static void cont__sim2c__call__to_string_45(void);
-static void cont__sim2c__call__to_string_46(void);
-static void cont__sim2c__call__to_string_47(void);
-static NODE *func__sim2c__call__to_string_48;
-static void entry__sim2c__call__to_string_48(void);
-static FRAME_INFO frame__sim2c__call__to_string_48 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_49(void);
-static void cont__sim2c__call__to_string_50(void);
-static void cont__sim2c__call__to_string_51(void);
-static void cont__sim2c__call__to_string_52(void);
-static NODE *func__sim2c__call__to_string_53;
-static void entry__sim2c__call__to_string_53(void);
-static FRAME_INFO frame__sim2c__call__to_string_53 = {3, {"arguments", "remark_lines", "indent"}};
-static void cont__sim2c__call__to_string_54(void);
-static void cont__sim2c__call__to_string_55(void);
-static void cont__sim2c__call__to_string_56(void);
-static void cont__sim2c__call__to_string_57(void);
-static NODE *func__sim2c__call__to_string_58;
-static void entry__sim2c__call__to_string_58(void);
-static FRAME_INFO frame__sim2c__call__to_string_58 = {3, {"arguments", "remark_lines", "indent"}};
-static void cont__sim2c__call__to_string_59(void);
-static void cont__sim2c__call__to_string_60(void);
-static void cont__sim2c__call__to_string_61(void);
-static NODE *func__sim2c__call__to_string_62;
-static void entry__sim2c__call__to_string_62(void);
-static FRAME_INFO frame__sim2c__call__to_string_62 = {2, {"arguments", "remark_lines"}};
-static void cont__sim2c__call__to_string_63(void);
-static void cont__sim2c__call__to_string_64(void);
-static void cont__sim2c__call__to_string_65(void);
-static void cont__sim2c__call__to_string_66(void);
-static NODE *func__sim2c__call__to_string_67;
-static void entry__sim2c__call__to_string_67(void);
-static FRAME_INFO frame__sim2c__call__to_string_67 = {7, {"return__5", "indent", "self", "functor", "this_is_a_definition", "arguments", "remark_lines"}};
-static void cont__sim2c__call__to_string_68(void);
-static NODE *func__sim2c__call__to_string_69;
-static void entry__sim2c__call__to_string_69(void);
-static FRAME_INFO frame__sim2c__call__to_string_69 = {4, {"return__3", "self", "functor", "this_is_a_definition"}};
-static void cont__sim2c__call__to_string_70(void);
-static NODE *func__sim2c__call__to_string_71;
-static void entry__sim2c__call__to_string_71(void);
-static FRAME_INFO frame__sim2c__call__to_string_71 = {4, {"functor", "self", "this_is_a_definition", "source"}};
-static void cont__sim2c__call__to_string_72(void);
-static void cont__sim2c__call__to_string_73(void);
-static void cont__sim2c__call__to_string_74(void);
-static void cont__sim2c__call__to_string_75(void);
-static void cont__sim2c__call__to_string_76(void);
-static void cont__sim2c__call__to_string_77(void);
-static NODE *func__sim2c__call__to_string_78;
-static void entry__sim2c__call__to_string_78(void);
-static FRAME_INFO frame__sim2c__call__to_string_78 = {1, {"source"}};
-static void cont__sim2c__call__to_string_79(void);
-static NODE *func__sim2c__call__to_string_80;
-static void entry__sim2c__call__to_string_80(void);
-static FRAME_INFO frame__sim2c__call__to_string_80 = {0, {}};
-static NODE *func__sim2c__call__to_string_81;
-static void entry__sim2c__call__to_string_81(void);
-static FRAME_INFO frame__sim2c__call__to_string_81 = {1, {"source"}};
-static void cont__sim2c__call__to_string_82(void);
-static NODE *func__sim2c__call__to_string_83;
-static void entry__sim2c__call__to_string_83(void);
-static FRAME_INFO frame__sim2c__call__to_string_83 = {0, {}};
-static NODE *func__sim2c__call__to_string_84;
-static void entry__sim2c__call__to_string_84(void);
-static FRAME_INFO frame__sim2c__call__to_string_84 = {1, {"source"}};
-static void cont__sim2c__call__to_string_85(void);
-static NODE *func__sim2c__call__to_string_86;
-static void entry__sim2c__call__to_string_86(void);
-static FRAME_INFO frame__sim2c__call__to_string_86 = {0, {}};
-static NODE *func__sim2c__call__to_string_87;
-static void entry__sim2c__call__to_string_87(void);
-static FRAME_INFO frame__sim2c__call__to_string_87 = {2, {"functor", "self"}};
-static void cont__sim2c__call__to_string_88(void);
-static void cont__sim2c__call__to_string_89(void);
-static void cont__sim2c__call__to_string_90(void);
-static void cont__sim2c__call__to_string_91(void);
-static void cont__sim2c__call__to_string_92(void);
-static void cont__sim2c__call__to_string_93(void);
-static void cont__sim2c__call__to_string_94(void);
-static void cont__sim2c__call__to_string_95(void);
-static NODE *func__sim2c__call__to_string_96;
-static void entry__sim2c__call__to_string_96(void);
-static FRAME_INFO frame__sim2c__call__to_string_96 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_97(void);
-static void cont__sim2c__call__to_string_98(void);
-static NODE *func__sim2c__call__to_string_99;
-static void entry__sim2c__call__to_string_99(void);
-static FRAME_INFO frame__sim2c__call__to_string_99 = {0, {}};
-static void cont__sim2c__call__to_string_100(void);
-static void cont__sim2c__call__to_string_101(void);
-static void cont__sim2c__call__to_string_102(void);
-static void cont__sim2c__call__to_string_103(void);
-static void cont__sim2c__call__to_string_104(void);
-static NODE *func__sim2c__call__to_string_105;
-static void entry__sim2c__call__to_string_105(void);
-static FRAME_INFO frame__sim2c__call__to_string_105 = {2, {"arguments", "functor"}};
-static void cont__sim2c__call__to_string_106(void);
-static NODE *func__sim2c__call__to_string_107;
-static void entry__sim2c__call__to_string_107(void);
-static FRAME_INFO frame__sim2c__call__to_string_107 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_108(void);
-static void cont__sim2c__call__to_string_109(void);
-static NODE *func__sim2c__call__to_string_110;
-static void entry__sim2c__call__to_string_110(void);
-static FRAME_INFO frame__sim2c__call__to_string_110 = {1, {"arguments"}};
-static void cont__sim2c__call__to_string_111(void);
-static void cont__sim2c__call__to_string_112(void);
-static void cont__sim2c__call__to_string_113(void);
-static void cont__sim2c__call__to_string_114(void);
-static NODE *func__sim2c__call__to_string_115;
-static void entry__sim2c__call__to_string_115(void);
-static FRAME_INFO frame__sim2c__call__to_string_115 = {2, {"functor", "arguments"}};
-static void cont__sim2c__call__to_string_116(void);
-static NODE *func__sim2c__call__to_string_117;
-static void entry__sim2c__call__to_string_117(void);
-static FRAME_INFO frame__sim2c__call__to_string_117 = {2, {"functor", "arguments"}};
-static void cont__sim2c__call__to_string_118(void);
-static void cont__sim2c__call__to_string_119(void);
-static NODE *func__sim2c__call__to_string_120;
-static void entry__sim2c__call__to_string_120(void);
-static FRAME_INFO frame__sim2c__call__to_string_120 = {5, {"arguments", "functor", "remark_lines", "self", "indent"}};
-static NODE *func__sim2c__call__to_string_121;
-static void entry__sim2c__call__to_string_121(void);
-static FRAME_INFO frame__sim2c__call__to_string_121 = {3, {"arguments", "functor", "remark_lines"}};
-static void cont__sim2c__call__to_string_122(void);
-static NODE *func__sim2c__call__to_string_123;
-static void entry__sim2c__call__to_string_123(void);
-static FRAME_INFO frame__sim2c__call__to_string_123 = {3, {"functor", "remark_lines", "arguments"}};
-static void cont__sim2c__call__to_string_124(void);
-static void cont__sim2c__call__to_string_125(void);
-static NODE *func__sim2c__call__to_string_126;
-static void entry__sim2c__call__to_string_126(void);
-static FRAME_INFO frame__sim2c__call__to_string_126 = {4, {"arguments", "self", "functor", "remark_lines"}};
-static void cont__sim2c__call__to_string_127(void);
-static NODE *func__sim2c__call__to_string_128;
-static void entry__sim2c__call__to_string_128(void);
-static FRAME_INFO frame__sim2c__call__to_string_128 = {1, {"self"}};
-static void cont__sim2c__call__to_string_129(void);
-static NODE *func__sim2c__call__to_string_130;
-static void entry__sim2c__call__to_string_130(void);
-static FRAME_INFO frame__sim2c__call__to_string_130 = {1, {"argument"}};
-static void cont__sim2c__call__to_string_131(void);
-static void cont__sim2c__call__to_string_132(void);
-static void cont__sim2c__call__to_string_133(void);
-static NODE *func__sim2c__call__to_string_134;
-static void entry__sim2c__call__to_string_134(void);
-static FRAME_INFO frame__sim2c__call__to_string_134 = {3, {"functor", "arguments", "remark_lines"}};
-static void cont__sim2c__call__to_string_135(void);
-static NODE *func__sim2c__call__to_string_136;
-static void entry__sim2c__call__to_string_136(void);
-static FRAME_INFO frame__sim2c__call__to_string_136 = {4, {"indent", "functor", "arguments", "remark_lines"}};
-static NODE *func__sim2c__call__to_string_137;
-static void entry__sim2c__call__to_string_137(void);
-static FRAME_INFO frame__sim2c__call__to_string_137 = {5, {"return__4", "indent", "functor", "arguments", "remark_lines"}};
-static void cont__sim2c__call__to_string_138(void);
-static void cont__sim2c__call__to_string_139(void);
-static void cont__sim2c__call__to_string_140(void);
+static void cont__compiler__call__to_string_41(void);
+static NODE *func__compiler__call__to_string_42;
+static void entry__compiler__call__to_string_42(void);
+static FRAME_INFO frame__compiler__call__to_string_42 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_43(void);
+static void cont__compiler__call__to_string_44(void);
+static void cont__compiler__call__to_string_45(void);
+static void cont__compiler__call__to_string_46(void);
+static void cont__compiler__call__to_string_47(void);
+static NODE *func__compiler__call__to_string_48;
+static void entry__compiler__call__to_string_48(void);
+static FRAME_INFO frame__compiler__call__to_string_48 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_49(void);
+static void cont__compiler__call__to_string_50(void);
+static void cont__compiler__call__to_string_51(void);
+static void cont__compiler__call__to_string_52(void);
+static NODE *func__compiler__call__to_string_53;
+static void entry__compiler__call__to_string_53(void);
+static FRAME_INFO frame__compiler__call__to_string_53 = {3, {"arguments", "remark_lines", "indent"}};
+static void cont__compiler__call__to_string_54(void);
+static void cont__compiler__call__to_string_55(void);
+static void cont__compiler__call__to_string_56(void);
+static void cont__compiler__call__to_string_57(void);
+static NODE *func__compiler__call__to_string_58;
+static void entry__compiler__call__to_string_58(void);
+static FRAME_INFO frame__compiler__call__to_string_58 = {3, {"arguments", "remark_lines", "indent"}};
+static void cont__compiler__call__to_string_59(void);
+static void cont__compiler__call__to_string_60(void);
+static void cont__compiler__call__to_string_61(void);
+static NODE *func__compiler__call__to_string_62;
+static void entry__compiler__call__to_string_62(void);
+static FRAME_INFO frame__compiler__call__to_string_62 = {2, {"arguments", "remark_lines"}};
+static void cont__compiler__call__to_string_63(void);
+static void cont__compiler__call__to_string_64(void);
+static void cont__compiler__call__to_string_65(void);
+static void cont__compiler__call__to_string_66(void);
+static NODE *func__compiler__call__to_string_67;
+static void entry__compiler__call__to_string_67(void);
+static FRAME_INFO frame__compiler__call__to_string_67 = {7, {"return__5", "indent", "self", "functor", "this_is_a_definition", "arguments", "remark_lines"}};
+static void cont__compiler__call__to_string_68(void);
+static NODE *func__compiler__call__to_string_69;
+static void entry__compiler__call__to_string_69(void);
+static FRAME_INFO frame__compiler__call__to_string_69 = {4, {"return__3", "self", "functor", "this_is_a_definition"}};
+static void cont__compiler__call__to_string_70(void);
+static NODE *func__compiler__call__to_string_71;
+static void entry__compiler__call__to_string_71(void);
+static FRAME_INFO frame__compiler__call__to_string_71 = {4, {"functor", "self", "this_is_a_definition", "source"}};
+static void cont__compiler__call__to_string_72(void);
+static void cont__compiler__call__to_string_73(void);
+static void cont__compiler__call__to_string_74(void);
+static void cont__compiler__call__to_string_75(void);
+static void cont__compiler__call__to_string_76(void);
+static void cont__compiler__call__to_string_77(void);
+static NODE *func__compiler__call__to_string_78;
+static void entry__compiler__call__to_string_78(void);
+static FRAME_INFO frame__compiler__call__to_string_78 = {1, {"source"}};
+static void cont__compiler__call__to_string_79(void);
+static NODE *func__compiler__call__to_string_80;
+static void entry__compiler__call__to_string_80(void);
+static FRAME_INFO frame__compiler__call__to_string_80 = {0, {}};
+static NODE *func__compiler__call__to_string_81;
+static void entry__compiler__call__to_string_81(void);
+static FRAME_INFO frame__compiler__call__to_string_81 = {1, {"source"}};
+static void cont__compiler__call__to_string_82(void);
+static NODE *func__compiler__call__to_string_83;
+static void entry__compiler__call__to_string_83(void);
+static FRAME_INFO frame__compiler__call__to_string_83 = {0, {}};
+static NODE *func__compiler__call__to_string_84;
+static void entry__compiler__call__to_string_84(void);
+static FRAME_INFO frame__compiler__call__to_string_84 = {1, {"source"}};
+static void cont__compiler__call__to_string_85(void);
+static NODE *func__compiler__call__to_string_86;
+static void entry__compiler__call__to_string_86(void);
+static FRAME_INFO frame__compiler__call__to_string_86 = {0, {}};
+static NODE *func__compiler__call__to_string_87;
+static void entry__compiler__call__to_string_87(void);
+static FRAME_INFO frame__compiler__call__to_string_87 = {2, {"functor", "self"}};
+static void cont__compiler__call__to_string_88(void);
+static void cont__compiler__call__to_string_89(void);
+static void cont__compiler__call__to_string_90(void);
+static void cont__compiler__call__to_string_91(void);
+static void cont__compiler__call__to_string_92(void);
+static void cont__compiler__call__to_string_93(void);
+static void cont__compiler__call__to_string_94(void);
+static void cont__compiler__call__to_string_95(void);
+static NODE *func__compiler__call__to_string_96;
+static void entry__compiler__call__to_string_96(void);
+static FRAME_INFO frame__compiler__call__to_string_96 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_97(void);
+static void cont__compiler__call__to_string_98(void);
+static NODE *func__compiler__call__to_string_99;
+static void entry__compiler__call__to_string_99(void);
+static FRAME_INFO frame__compiler__call__to_string_99 = {0, {}};
+static void cont__compiler__call__to_string_100(void);
+static void cont__compiler__call__to_string_101(void);
+static void cont__compiler__call__to_string_102(void);
+static void cont__compiler__call__to_string_103(void);
+static void cont__compiler__call__to_string_104(void);
+static NODE *func__compiler__call__to_string_105;
+static void entry__compiler__call__to_string_105(void);
+static FRAME_INFO frame__compiler__call__to_string_105 = {2, {"arguments", "functor"}};
+static void cont__compiler__call__to_string_106(void);
+static NODE *func__compiler__call__to_string_107;
+static void entry__compiler__call__to_string_107(void);
+static FRAME_INFO frame__compiler__call__to_string_107 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_108(void);
+static void cont__compiler__call__to_string_109(void);
+static NODE *func__compiler__call__to_string_110;
+static void entry__compiler__call__to_string_110(void);
+static FRAME_INFO frame__compiler__call__to_string_110 = {1, {"arguments"}};
+static void cont__compiler__call__to_string_111(void);
+static void cont__compiler__call__to_string_112(void);
+static void cont__compiler__call__to_string_113(void);
+static void cont__compiler__call__to_string_114(void);
+static NODE *func__compiler__call__to_string_115;
+static void entry__compiler__call__to_string_115(void);
+static FRAME_INFO frame__compiler__call__to_string_115 = {2, {"functor", "arguments"}};
+static void cont__compiler__call__to_string_116(void);
+static NODE *func__compiler__call__to_string_117;
+static void entry__compiler__call__to_string_117(void);
+static FRAME_INFO frame__compiler__call__to_string_117 = {2, {"functor", "arguments"}};
+static void cont__compiler__call__to_string_118(void);
+static void cont__compiler__call__to_string_119(void);
+static NODE *func__compiler__call__to_string_120;
+static void entry__compiler__call__to_string_120(void);
+static FRAME_INFO frame__compiler__call__to_string_120 = {5, {"arguments", "functor", "remark_lines", "self", "indent"}};
+static NODE *func__compiler__call__to_string_121;
+static void entry__compiler__call__to_string_121(void);
+static FRAME_INFO frame__compiler__call__to_string_121 = {3, {"arguments", "functor", "remark_lines"}};
+static void cont__compiler__call__to_string_122(void);
+static NODE *func__compiler__call__to_string_123;
+static void entry__compiler__call__to_string_123(void);
+static FRAME_INFO frame__compiler__call__to_string_123 = {3, {"functor", "remark_lines", "arguments"}};
+static void cont__compiler__call__to_string_124(void);
+static void cont__compiler__call__to_string_125(void);
+static NODE *func__compiler__call__to_string_126;
+static void entry__compiler__call__to_string_126(void);
+static FRAME_INFO frame__compiler__call__to_string_126 = {4, {"arguments", "self", "functor", "remark_lines"}};
+static void cont__compiler__call__to_string_127(void);
+static NODE *func__compiler__call__to_string_128;
+static void entry__compiler__call__to_string_128(void);
+static FRAME_INFO frame__compiler__call__to_string_128 = {1, {"self"}};
+static void cont__compiler__call__to_string_129(void);
+static NODE *func__compiler__call__to_string_130;
+static void entry__compiler__call__to_string_130(void);
+static FRAME_INFO frame__compiler__call__to_string_130 = {1, {"argument"}};
+static void cont__compiler__call__to_string_131(void);
+static void cont__compiler__call__to_string_132(void);
+static void cont__compiler__call__to_string_133(void);
+static NODE *func__compiler__call__to_string_134;
+static void entry__compiler__call__to_string_134(void);
+static FRAME_INFO frame__compiler__call__to_string_134 = {3, {"functor", "arguments", "remark_lines"}};
+static void cont__compiler__call__to_string_135(void);
+static NODE *func__compiler__call__to_string_136;
+static void entry__compiler__call__to_string_136(void);
+static FRAME_INFO frame__compiler__call__to_string_136 = {4, {"indent", "functor", "arguments", "remark_lines"}};
+static NODE *func__compiler__call__to_string_137;
+static void entry__compiler__call__to_string_137(void);
+static FRAME_INFO frame__compiler__call__to_string_137 = {5, {"return__4", "indent", "functor", "arguments", "remark_lines"}};
+static void cont__compiler__call__to_string_138(void);
+static void cont__compiler__call__to_string_139(void);
+static void cont__compiler__call__to_string_140(void);
 static NODE *func__definition_to_string_1;
 static void entry__definition_to_string_1(void);
 static FRAME_INFO frame__definition_to_string_1 = {3, {"prefix", "definition", "buf"}};
@@ -2197,70 +2197,70 @@ static void entry__definition_to_string_30(void);
 static FRAME_INFO frame__definition_to_string_30 = {1, {"buf"}};
 static void cont__definition_to_string_31(void);
 static void cont__definition_to_string_32(void);
-static NODE *func__sim2c__define_static_single__to_string_1;
-static void entry__sim2c__define_static_single__to_string_1(void);
-static FRAME_INFO frame__sim2c__define_static_single__to_string_1 = {3, {"self", "prefix", "buf"}};
-static void cont__sim2c__define_static_single__to_string_2(void);
-static void cont__sim2c__define_static_single__to_string_3(void);
-static NODE *func__sim2c__define_static_single__to_string_4;
-static void entry__sim2c__define_static_single__to_string_4(void);
-static FRAME_INFO frame__sim2c__define_static_single__to_string_4 = {0, {}};
-static NODE *func__sim2c__define_static_single__to_string_5;
-static void entry__sim2c__define_static_single__to_string_5(void);
-static FRAME_INFO frame__sim2c__define_static_single__to_string_5 = {0, {}};
+static NODE *func__compiler__define_static_single__to_string_1;
+static void entry__compiler__define_static_single__to_string_1(void);
+static FRAME_INFO frame__compiler__define_static_single__to_string_1 = {3, {"self", "prefix", "buf"}};
+static void cont__compiler__define_static_single__to_string_2(void);
+static void cont__compiler__define_static_single__to_string_3(void);
+static NODE *func__compiler__define_static_single__to_string_4;
+static void entry__compiler__define_static_single__to_string_4(void);
+static FRAME_INFO frame__compiler__define_static_single__to_string_4 = {0, {}};
+static NODE *func__compiler__define_static_single__to_string_5;
+static void entry__compiler__define_static_single__to_string_5(void);
+static FRAME_INFO frame__compiler__define_static_single__to_string_5 = {0, {}};
 static NODE *string__578a5af303e9cc5;
-static void cont__sim2c__define_static_single__to_string_7(void);
-static void cont__sim2c__define_static_single__to_string_8(void);
-static void cont__sim2c__define_static_single__to_string_9(void);
-static NODE *func__sim2c__define_static_single__to_string_10;
-static void entry__sim2c__define_static_single__to_string_10(void);
-static FRAME_INFO frame__sim2c__define_static_single__to_string_10 = {2, {"buf", "self"}};
-static void cont__sim2c__define_static_single__to_string_11(void);
-static void cont__sim2c__define_static_single__to_string_12(void);
-static NODE *func__sim2c__define_static_single__to_string_13;
-static void entry__sim2c__define_static_single__to_string_13(void);
-static FRAME_INFO frame__sim2c__define_static_single__to_string_13 = {2, {"buf", "self"}};
-static void cont__sim2c__define_static_single__to_string_14(void);
-static void cont__sim2c__define_static_single__to_string_15(void);
-static void cont__sim2c__define_static_single__to_string_16(void);
-static NODE *func__sim2c__define_static_single__to_string_17;
-static void entry__sim2c__define_static_single__to_string_17(void);
-static FRAME_INFO frame__sim2c__define_static_single__to_string_17 = {2, {"buf", "self"}};
-static void cont__sim2c__define_static_single__to_string_18(void);
-static void cont__sim2c__define_static_single__to_string_19(void);
-static void cont__sim2c__define_static_single__to_string_20(void);
-static NODE *func__sim2c__define_static_multi__to_string_1;
-static void entry__sim2c__define_static_multi__to_string_1(void);
-static FRAME_INFO frame__sim2c__define_static_multi__to_string_1 = {2, {"self", "prefix"}};
-static void cont__sim2c__define_static_multi__to_string_2(void);
-static void cont__sim2c__define_static_multi__to_string_3(void);
-static NODE *func__sim2c__define_static_multi__to_string_4;
-static void entry__sim2c__define_static_multi__to_string_4(void);
-static FRAME_INFO frame__sim2c__define_static_multi__to_string_4 = {0, {}};
-static NODE *func__sim2c__define_static_multi__to_string_5;
-static void entry__sim2c__define_static_multi__to_string_5(void);
-static FRAME_INFO frame__sim2c__define_static_multi__to_string_5 = {0, {}};
+static void cont__compiler__define_static_single__to_string_7(void);
+static void cont__compiler__define_static_single__to_string_8(void);
+static void cont__compiler__define_static_single__to_string_9(void);
+static NODE *func__compiler__define_static_single__to_string_10;
+static void entry__compiler__define_static_single__to_string_10(void);
+static FRAME_INFO frame__compiler__define_static_single__to_string_10 = {2, {"buf", "self"}};
+static void cont__compiler__define_static_single__to_string_11(void);
+static void cont__compiler__define_static_single__to_string_12(void);
+static NODE *func__compiler__define_static_single__to_string_13;
+static void entry__compiler__define_static_single__to_string_13(void);
+static FRAME_INFO frame__compiler__define_static_single__to_string_13 = {2, {"buf", "self"}};
+static void cont__compiler__define_static_single__to_string_14(void);
+static void cont__compiler__define_static_single__to_string_15(void);
+static void cont__compiler__define_static_single__to_string_16(void);
+static NODE *func__compiler__define_static_single__to_string_17;
+static void entry__compiler__define_static_single__to_string_17(void);
+static FRAME_INFO frame__compiler__define_static_single__to_string_17 = {2, {"buf", "self"}};
+static void cont__compiler__define_static_single__to_string_18(void);
+static void cont__compiler__define_static_single__to_string_19(void);
+static void cont__compiler__define_static_single__to_string_20(void);
+static NODE *func__compiler__define_static_multi__to_string_1;
+static void entry__compiler__define_static_multi__to_string_1(void);
+static FRAME_INFO frame__compiler__define_static_multi__to_string_1 = {2, {"self", "prefix"}};
+static void cont__compiler__define_static_multi__to_string_2(void);
+static void cont__compiler__define_static_multi__to_string_3(void);
+static NODE *func__compiler__define_static_multi__to_string_4;
+static void entry__compiler__define_static_multi__to_string_4(void);
+static FRAME_INFO frame__compiler__define_static_multi__to_string_4 = {0, {}};
+static NODE *func__compiler__define_static_multi__to_string_5;
+static void entry__compiler__define_static_multi__to_string_5(void);
+static FRAME_INFO frame__compiler__define_static_multi__to_string_5 = {0, {}};
 static NODE *string__578a5af303e9cc0;
-static NODE *func__sim2c__define_static_multi__to_string_7;
-static void entry__sim2c__define_static_multi__to_string_7(void);
-static FRAME_INFO frame__sim2c__define_static_multi__to_string_7 = {0, {}};
+static NODE *func__compiler__define_static_multi__to_string_7;
+static void entry__compiler__define_static_multi__to_string_7(void);
+static FRAME_INFO frame__compiler__define_static_multi__to_string_7 = {0, {}};
 static NODE *string__578a5af303e9cc7;
-static NODE *func__sim2c__define_static_multi__to_string_9;
-static void entry__sim2c__define_static_multi__to_string_9(void);
-static FRAME_INFO frame__sim2c__define_static_multi__to_string_9 = {0, {}};
+static NODE *func__compiler__define_static_multi__to_string_9;
+static void entry__compiler__define_static_multi__to_string_9(void);
+static FRAME_INFO frame__compiler__define_static_multi__to_string_9 = {0, {}};
 static NODE *string__2d7981f4e6282be1;
-static void cont__sim2c__define_static_multi__to_string_11(void);
-static void cont__sim2c__define_static_multi__to_string_12(void);
-static NODE *func__sim2c__define_dynamic_single__to_string_1;
-static void entry__sim2c__define_dynamic_single__to_string_1(void);
-static FRAME_INFO frame__sim2c__define_dynamic_single__to_string_1 = {1, {"self"}};
+static void cont__compiler__define_static_multi__to_string_11(void);
+static void cont__compiler__define_static_multi__to_string_12(void);
+static NODE *func__compiler__define_dynamic_single__to_string_1;
+static void entry__compiler__define_dynamic_single__to_string_1(void);
+static FRAME_INFO frame__compiler__define_dynamic_single__to_string_1 = {1, {"self"}};
 static NODE *string__578a5af303e9cc4;
-static void cont__sim2c__define_dynamic_single__to_string_3(void);
-static NODE *func__sim2c__define_dynamic_multi__to_string_1;
-static void entry__sim2c__define_dynamic_multi__to_string_1(void);
-static FRAME_INFO frame__sim2c__define_dynamic_multi__to_string_1 = {1, {"self"}};
+static void cont__compiler__define_dynamic_single__to_string_3(void);
+static NODE *func__compiler__define_dynamic_multi__to_string_1;
+static void entry__compiler__define_dynamic_multi__to_string_1(void);
+static FRAME_INFO frame__compiler__define_dynamic_multi__to_string_1 = {1, {"self"}};
 static NODE *string__2d7981f4e6202be0;
-static void cont__sim2c__define_dynamic_multi__to_string_3(void);
+static void cont__compiler__define_dynamic_multi__to_string_3(void);
 static NODE *func__precedence_of_1;
 static void entry__precedence_of_1(void);
 static FRAME_INFO frame__precedence_of_1 = {1, {"expr"}};
@@ -2321,438 +2321,438 @@ static void cont__operator_of_14(void);
 static NODE *func__operator_of_15;
 static void entry__operator_of_15(void);
 static FRAME_INFO frame__operator_of_15 = {0, {}};
-static NODE *func__sim2c__function_call__to_string_1;
-static void entry__sim2c__function_call__to_string_1(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_1 = {6, {"self", "indent", "functor", "functor_string", "default_call", "arguments"}};
-static NODE *func__sim2c__function_call__to_string_2;
-static void entry__sim2c__function_call__to_string_2(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_2 = {6, {"return__3", "indent", "self", "functor_string", "arguments_string", "remark_lines"}};
-static void cont__sim2c__function_call__to_string_3(void);
-static void cont__sim2c__function_call__to_string_4(void);
-static void cont__sim2c__function_call__to_string_5(void);
-static void cont__sim2c__function_call__to_string_6(void);
-static void cont__sim2c__function_call__to_string_7(void);
-static void cont__sim2c__function_call__to_string_8(void);
-static void cont__sim2c__function_call__to_string_9(void);
-static void cont__sim2c__function_call__to_string_10(void);
-static void cont__sim2c__function_call__to_string_11(void);
-static void cont__sim2c__function_call__to_string_12(void);
-static void cont__sim2c__function_call__to_string_13(void);
-static NODE *func__sim2c__function_call__to_string_14;
-static void entry__sim2c__function_call__to_string_14(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_14 = {3, {"arguments_string", "indent", "functor_string"}};
-static void cont__sim2c__function_call__to_string_15(void);
-static NODE *func__sim2c__function_call__to_string_16;
-static void entry__sim2c__function_call__to_string_16(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_16 = {3, {"indent", "functor_string", "arguments_string"}};
-static void cont__sim2c__function_call__to_string_17(void);
-static void cont__sim2c__function_call__to_string_18(void);
-static NODE *func__sim2c__function_call__to_string_19;
-static void entry__sim2c__function_call__to_string_19(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_19 = {2, {"functor_string", "arguments_string"}};
-static void cont__sim2c__function_call__to_string_20(void);
-static NODE *func__sim2c__function_call__to_string_21;
-static void entry__sim2c__function_call__to_string_21(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_21 = {4, {"arguments_string", "remark_lines", "indent", "functor_string"}};
-static void cont__sim2c__function_call__to_string_22(void);
-static NODE *func__sim2c__function_call__to_string_23;
-static void entry__sim2c__function_call__to_string_23(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_23 = {5, {"remark_lines", "indent", "functor_string", "arguments_string", "remark"}};
-static void cont__sim2c__function_call__to_string_24(void);
-static void cont__sim2c__function_call__to_string_25(void);
-static void cont__sim2c__function_call__to_string_26(void);
-static NODE *func__sim2c__function_call__to_string_27;
-static void entry__sim2c__function_call__to_string_27(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_27 = {1, {"remark"}};
-static void cont__sim2c__function_call__to_string_28(void);
-static void cont__sim2c__function_call__to_string_29(void);
-static void cont__sim2c__function_call__to_string_30(void);
-static void cont__sim2c__function_call__to_string_31(void);
-static void cont__sim2c__function_call__to_string_32(void);
-static NODE *func__sim2c__function_call__to_string_33;
-static void entry__sim2c__function_call__to_string_33(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_33 = {5, {"return__2", "indent", "functor_string", "arguments_string", "remark_lines"}};
-static void cont__sim2c__function_call__to_string_34(void);
-static void cont__sim2c__function_call__to_string_35(void);
-static void cont__sim2c__function_call__to_string_36(void);
-static void cont__sim2c__function_call__to_string_37(void);
-static void cont__sim2c__function_call__to_string_38(void);
-static NODE *func__sim2c__function_call__to_string_39;
-static void entry__sim2c__function_call__to_string_39(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_39 = {2, {"return__1", "self"}};
-static void cont__sim2c__function_call__to_string_40(void);
-static void cont__sim2c__function_call__to_string_41(void);
-static NODE *func__sim2c__function_call__to_string_42;
-static void entry__sim2c__function_call__to_string_42(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_42 = {0, {}};
-static void cont__sim2c__function_call__to_string_43(void);
-static void cont__sim2c__function_call__to_string_44(void);
-static NODE *func__sim2c__function_call__to_string_45;
-static void entry__sim2c__function_call__to_string_45(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_45 = {3, {"self", "arguments", "functor_string"}};
-static void cont__sim2c__function_call__to_string_46(void);
-static NODE *func__sim2c__function_call__to_string_47;
-static void entry__sim2c__function_call__to_string_47(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_47 = {4, {"return__4", "arguments", "functor_string", "argument"}};
-static void cont__sim2c__function_call__to_string_48(void);
-static void cont__sim2c__function_call__to_string_49(void);
-static NODE *func__sim2c__function_call__to_string_50;
-static void entry__sim2c__function_call__to_string_50(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_50 = {2, {"argument", "functor_string"}};
-static void cont__sim2c__function_call__to_string_51(void);
-static NODE *func__sim2c__function_call__to_string_52;
-static void entry__sim2c__function_call__to_string_52(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_52 = {1, {"argument"}};
-static void cont__sim2c__function_call__to_string_53(void);
-static void cont__sim2c__function_call__to_string_54(void);
-static NODE *func__sim2c__function_call__to_string_55;
-static void entry__sim2c__function_call__to_string_55(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_55 = {3, {"self", "arguments", "functor_string"}};
-static void cont__sim2c__function_call__to_string_56(void);
-static NODE *func__sim2c__function_call__to_string_57;
-static void entry__sim2c__function_call__to_string_57(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_57 = {3, {"arguments", "functor_string", "argument"}};
-static void cont__sim2c__function_call__to_string_58(void);
-static void cont__sim2c__function_call__to_string_59(void);
-static void cont__sim2c__function_call__to_string_60(void);
-static NODE *func__sim2c__function_call__to_string_61;
-static void entry__sim2c__function_call__to_string_61(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_61 = {1, {"argument"}};
-static void cont__sim2c__function_call__to_string_62(void);
-static void cont__sim2c__function_call__to_string_63(void);
-static void cont__sim2c__function_call__to_string_64(void);
-static NODE *func__sim2c__function_call__to_string_65;
-static void entry__sim2c__function_call__to_string_65(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_65 = {5, {"functor_string", "self", "arguments", "default_call", "functor"}};
-static void cont__sim2c__function_call__to_string_66(void);
-static NODE *func__sim2c__function_call__to_string_67;
-static void entry__sim2c__function_call__to_string_67(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_67 = {5, {"self", "arguments", "functor_string", "default_call", "functor"}};
-static NODE *func__sim2c__function_call__to_string_68;
-static void entry__sim2c__function_call__to_string_68(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_68 = {4, {"self", "arguments", "functor_string", "default_call"}};
-static void cont__sim2c__function_call__to_string_69(void);
-static NODE *func__sim2c__function_call__to_string_70;
-static void entry__sim2c__function_call__to_string_70(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_70 = {9, {"arguments", "functor_string", "self", "default_call", "left_argument", "right_argument", "left", "right", "length"}};
-static void cont__sim2c__function_call__to_string_71(void);
-static void cont__sim2c__function_call__to_string_72(void);
-static void cont__sim2c__function_call__to_string_73(void);
-static void cont__sim2c__function_call__to_string_74(void);
-static void cont__sim2c__function_call__to_string_75(void);
-static void cont__sim2c__function_call__to_string_76(void);
-static NODE *func__sim2c__function_call__to_string_77;
-static void entry__sim2c__function_call__to_string_77(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_77 = {1, {"left"}};
-static void cont__sim2c__function_call__to_string_78(void);
-static void cont__sim2c__function_call__to_string_79(void);
-static void cont__sim2c__function_call__to_string_80(void);
-static void cont__sim2c__function_call__to_string_81(void);
-static void cont__sim2c__function_call__to_string_82(void);
-static NODE *func__sim2c__function_call__to_string_83;
-static void entry__sim2c__function_call__to_string_83(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_83 = {1, {"right"}};
-static void cont__sim2c__function_call__to_string_84(void);
-static void cont__sim2c__function_call__to_string_85(void);
-static void cont__sim2c__function_call__to_string_86(void);
-static void cont__sim2c__function_call__to_string_87(void);
-static void cont__sim2c__function_call__to_string_88(void);
-static void cont__sim2c__function_call__to_string_89(void);
-static void cont__sim2c__function_call__to_string_90(void);
-static void cont__sim2c__function_call__to_string_91(void);
-static void cont__sim2c__function_call__to_string_92(void);
-static void cont__sim2c__function_call__to_string_93(void);
-static void cont__sim2c__function_call__to_string_94(void);
-static NODE *func__sim2c__function_call__to_string_95;
-static void entry__sim2c__function_call__to_string_95(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_95 = {4, {"self", "left", "functor_string", "right"}};
+static NODE *func__compiler__function_call__to_string_1;
+static void entry__compiler__function_call__to_string_1(void);
+static FRAME_INFO frame__compiler__function_call__to_string_1 = {6, {"self", "indent", "functor", "functor_string", "default_call", "arguments"}};
+static NODE *func__compiler__function_call__to_string_2;
+static void entry__compiler__function_call__to_string_2(void);
+static FRAME_INFO frame__compiler__function_call__to_string_2 = {6, {"return__3", "indent", "self", "functor_string", "arguments_string", "remark_lines"}};
+static void cont__compiler__function_call__to_string_3(void);
+static void cont__compiler__function_call__to_string_4(void);
+static void cont__compiler__function_call__to_string_5(void);
+static void cont__compiler__function_call__to_string_6(void);
+static void cont__compiler__function_call__to_string_7(void);
+static void cont__compiler__function_call__to_string_8(void);
+static void cont__compiler__function_call__to_string_9(void);
+static void cont__compiler__function_call__to_string_10(void);
+static void cont__compiler__function_call__to_string_11(void);
+static void cont__compiler__function_call__to_string_12(void);
+static void cont__compiler__function_call__to_string_13(void);
+static NODE *func__compiler__function_call__to_string_14;
+static void entry__compiler__function_call__to_string_14(void);
+static FRAME_INFO frame__compiler__function_call__to_string_14 = {3, {"arguments_string", "indent", "functor_string"}};
+static void cont__compiler__function_call__to_string_15(void);
+static NODE *func__compiler__function_call__to_string_16;
+static void entry__compiler__function_call__to_string_16(void);
+static FRAME_INFO frame__compiler__function_call__to_string_16 = {3, {"indent", "functor_string", "arguments_string"}};
+static void cont__compiler__function_call__to_string_17(void);
+static void cont__compiler__function_call__to_string_18(void);
+static NODE *func__compiler__function_call__to_string_19;
+static void entry__compiler__function_call__to_string_19(void);
+static FRAME_INFO frame__compiler__function_call__to_string_19 = {2, {"functor_string", "arguments_string"}};
+static void cont__compiler__function_call__to_string_20(void);
+static NODE *func__compiler__function_call__to_string_21;
+static void entry__compiler__function_call__to_string_21(void);
+static FRAME_INFO frame__compiler__function_call__to_string_21 = {4, {"arguments_string", "remark_lines", "indent", "functor_string"}};
+static void cont__compiler__function_call__to_string_22(void);
+static NODE *func__compiler__function_call__to_string_23;
+static void entry__compiler__function_call__to_string_23(void);
+static FRAME_INFO frame__compiler__function_call__to_string_23 = {5, {"remark_lines", "indent", "functor_string", "arguments_string", "remark"}};
+static void cont__compiler__function_call__to_string_24(void);
+static void cont__compiler__function_call__to_string_25(void);
+static void cont__compiler__function_call__to_string_26(void);
+static NODE *func__compiler__function_call__to_string_27;
+static void entry__compiler__function_call__to_string_27(void);
+static FRAME_INFO frame__compiler__function_call__to_string_27 = {1, {"remark"}};
+static void cont__compiler__function_call__to_string_28(void);
+static void cont__compiler__function_call__to_string_29(void);
+static void cont__compiler__function_call__to_string_30(void);
+static void cont__compiler__function_call__to_string_31(void);
+static void cont__compiler__function_call__to_string_32(void);
+static NODE *func__compiler__function_call__to_string_33;
+static void entry__compiler__function_call__to_string_33(void);
+static FRAME_INFO frame__compiler__function_call__to_string_33 = {5, {"return__2", "indent", "functor_string", "arguments_string", "remark_lines"}};
+static void cont__compiler__function_call__to_string_34(void);
+static void cont__compiler__function_call__to_string_35(void);
+static void cont__compiler__function_call__to_string_36(void);
+static void cont__compiler__function_call__to_string_37(void);
+static void cont__compiler__function_call__to_string_38(void);
+static NODE *func__compiler__function_call__to_string_39;
+static void entry__compiler__function_call__to_string_39(void);
+static FRAME_INFO frame__compiler__function_call__to_string_39 = {2, {"return__1", "self"}};
+static void cont__compiler__function_call__to_string_40(void);
+static void cont__compiler__function_call__to_string_41(void);
+static NODE *func__compiler__function_call__to_string_42;
+static void entry__compiler__function_call__to_string_42(void);
+static FRAME_INFO frame__compiler__function_call__to_string_42 = {0, {}};
+static void cont__compiler__function_call__to_string_43(void);
+static void cont__compiler__function_call__to_string_44(void);
+static NODE *func__compiler__function_call__to_string_45;
+static void entry__compiler__function_call__to_string_45(void);
+static FRAME_INFO frame__compiler__function_call__to_string_45 = {3, {"self", "arguments", "functor_string"}};
+static void cont__compiler__function_call__to_string_46(void);
+static NODE *func__compiler__function_call__to_string_47;
+static void entry__compiler__function_call__to_string_47(void);
+static FRAME_INFO frame__compiler__function_call__to_string_47 = {4, {"return__4", "arguments", "functor_string", "argument"}};
+static void cont__compiler__function_call__to_string_48(void);
+static void cont__compiler__function_call__to_string_49(void);
+static NODE *func__compiler__function_call__to_string_50;
+static void entry__compiler__function_call__to_string_50(void);
+static FRAME_INFO frame__compiler__function_call__to_string_50 = {2, {"argument", "functor_string"}};
+static void cont__compiler__function_call__to_string_51(void);
+static NODE *func__compiler__function_call__to_string_52;
+static void entry__compiler__function_call__to_string_52(void);
+static FRAME_INFO frame__compiler__function_call__to_string_52 = {1, {"argument"}};
+static void cont__compiler__function_call__to_string_53(void);
+static void cont__compiler__function_call__to_string_54(void);
+static NODE *func__compiler__function_call__to_string_55;
+static void entry__compiler__function_call__to_string_55(void);
+static FRAME_INFO frame__compiler__function_call__to_string_55 = {3, {"self", "arguments", "functor_string"}};
+static void cont__compiler__function_call__to_string_56(void);
+static NODE *func__compiler__function_call__to_string_57;
+static void entry__compiler__function_call__to_string_57(void);
+static FRAME_INFO frame__compiler__function_call__to_string_57 = {3, {"arguments", "functor_string", "argument"}};
+static void cont__compiler__function_call__to_string_58(void);
+static void cont__compiler__function_call__to_string_59(void);
+static void cont__compiler__function_call__to_string_60(void);
+static NODE *func__compiler__function_call__to_string_61;
+static void entry__compiler__function_call__to_string_61(void);
+static FRAME_INFO frame__compiler__function_call__to_string_61 = {1, {"argument"}};
+static void cont__compiler__function_call__to_string_62(void);
+static void cont__compiler__function_call__to_string_63(void);
+static void cont__compiler__function_call__to_string_64(void);
+static NODE *func__compiler__function_call__to_string_65;
+static void entry__compiler__function_call__to_string_65(void);
+static FRAME_INFO frame__compiler__function_call__to_string_65 = {5, {"functor_string", "self", "arguments", "default_call", "functor"}};
+static void cont__compiler__function_call__to_string_66(void);
+static NODE *func__compiler__function_call__to_string_67;
+static void entry__compiler__function_call__to_string_67(void);
+static FRAME_INFO frame__compiler__function_call__to_string_67 = {5, {"self", "arguments", "functor_string", "default_call", "functor"}};
+static NODE *func__compiler__function_call__to_string_68;
+static void entry__compiler__function_call__to_string_68(void);
+static FRAME_INFO frame__compiler__function_call__to_string_68 = {4, {"self", "arguments", "functor_string", "default_call"}};
+static void cont__compiler__function_call__to_string_69(void);
+static NODE *func__compiler__function_call__to_string_70;
+static void entry__compiler__function_call__to_string_70(void);
+static FRAME_INFO frame__compiler__function_call__to_string_70 = {9, {"arguments", "functor_string", "self", "default_call", "left_argument", "right_argument", "left", "right", "length"}};
+static void cont__compiler__function_call__to_string_71(void);
+static void cont__compiler__function_call__to_string_72(void);
+static void cont__compiler__function_call__to_string_73(void);
+static void cont__compiler__function_call__to_string_74(void);
+static void cont__compiler__function_call__to_string_75(void);
+static void cont__compiler__function_call__to_string_76(void);
+static NODE *func__compiler__function_call__to_string_77;
+static void entry__compiler__function_call__to_string_77(void);
+static FRAME_INFO frame__compiler__function_call__to_string_77 = {1, {"left"}};
+static void cont__compiler__function_call__to_string_78(void);
+static void cont__compiler__function_call__to_string_79(void);
+static void cont__compiler__function_call__to_string_80(void);
+static void cont__compiler__function_call__to_string_81(void);
+static void cont__compiler__function_call__to_string_82(void);
+static NODE *func__compiler__function_call__to_string_83;
+static void entry__compiler__function_call__to_string_83(void);
+static FRAME_INFO frame__compiler__function_call__to_string_83 = {1, {"right"}};
+static void cont__compiler__function_call__to_string_84(void);
+static void cont__compiler__function_call__to_string_85(void);
+static void cont__compiler__function_call__to_string_86(void);
+static void cont__compiler__function_call__to_string_87(void);
+static void cont__compiler__function_call__to_string_88(void);
+static void cont__compiler__function_call__to_string_89(void);
+static void cont__compiler__function_call__to_string_90(void);
+static void cont__compiler__function_call__to_string_91(void);
+static void cont__compiler__function_call__to_string_92(void);
+static void cont__compiler__function_call__to_string_93(void);
+static void cont__compiler__function_call__to_string_94(void);
+static NODE *func__compiler__function_call__to_string_95;
+static void entry__compiler__function_call__to_string_95(void);
+static FRAME_INFO frame__compiler__function_call__to_string_95 = {4, {"self", "left", "functor_string", "right"}};
 static NODE *string__2d7981f4e6082beb;
 static NODE *string__2d7981f4e6782be5;
-static void cont__sim2c__function_call__to_string_98(void);
-static void cont__sim2c__function_call__to_string_99(void);
-static NODE *func__sim2c__function_call__to_string_100;
-static void entry__sim2c__function_call__to_string_100(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_100 = {1, {"self"}};
-static void cont__sim2c__function_call__to_string_101(void);
-static NODE *func__sim2c__function_call__to_string_102;
-static void entry__sim2c__function_call__to_string_102(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_102 = {1, {"self"}};
-static void cont__sim2c__function_call__to_string_103(void);
-static void cont__sim2c__function_call__to_string_104(void);
-static NODE *func__sim2c__function_call__to_string_105;
-static void entry__sim2c__function_call__to_string_105(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_105 = {1, {"self"}};
-static void cont__sim2c__function_call__to_string_106(void);
-static NODE *func__sim2c__function_call__to_string_107;
-static void entry__sim2c__function_call__to_string_107(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_107 = {2, {"return__5", "self"}};
-static void cont__sim2c__function_call__to_string_108(void);
-static void cont__sim2c__function_call__to_string_109(void);
-static NODE *func__sim2c__function_call__to_string_110;
-static void entry__sim2c__function_call__to_string_110(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_110 = {2, {"functor", "arguments"}};
-static void cont__sim2c__function_call__to_string_111(void);
-static NODE *func__sim2c__function_call__to_string_112;
-static void entry__sim2c__function_call__to_string_112(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_112 = {2, {"functor", "arguments"}};
-static void cont__sim2c__function_call__to_string_113(void);
+static void cont__compiler__function_call__to_string_98(void);
+static void cont__compiler__function_call__to_string_99(void);
+static NODE *func__compiler__function_call__to_string_100;
+static void entry__compiler__function_call__to_string_100(void);
+static FRAME_INFO frame__compiler__function_call__to_string_100 = {1, {"self"}};
+static void cont__compiler__function_call__to_string_101(void);
+static NODE *func__compiler__function_call__to_string_102;
+static void entry__compiler__function_call__to_string_102(void);
+static FRAME_INFO frame__compiler__function_call__to_string_102 = {1, {"self"}};
+static void cont__compiler__function_call__to_string_103(void);
+static void cont__compiler__function_call__to_string_104(void);
+static NODE *func__compiler__function_call__to_string_105;
+static void entry__compiler__function_call__to_string_105(void);
+static FRAME_INFO frame__compiler__function_call__to_string_105 = {1, {"self"}};
+static void cont__compiler__function_call__to_string_106(void);
+static NODE *func__compiler__function_call__to_string_107;
+static void entry__compiler__function_call__to_string_107(void);
+static FRAME_INFO frame__compiler__function_call__to_string_107 = {2, {"return__5", "self"}};
+static void cont__compiler__function_call__to_string_108(void);
+static void cont__compiler__function_call__to_string_109(void);
+static NODE *func__compiler__function_call__to_string_110;
+static void entry__compiler__function_call__to_string_110(void);
+static FRAME_INFO frame__compiler__function_call__to_string_110 = {2, {"functor", "arguments"}};
+static void cont__compiler__function_call__to_string_111(void);
+static NODE *func__compiler__function_call__to_string_112;
+static void entry__compiler__function_call__to_string_112(void);
+static FRAME_INFO frame__compiler__function_call__to_string_112 = {2, {"functor", "arguments"}};
+static void cont__compiler__function_call__to_string_113(void);
 static NODE *string__fa724815d896ba8;
-static void cont__sim2c__function_call__to_string_115(void);
-static NODE *func__sim2c__function_call__to_string_116;
-static void entry__sim2c__function_call__to_string_116(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_116 = {2, {"functor", "arguments"}};
-static void cont__sim2c__function_call__to_string_117(void);
+static void cont__compiler__function_call__to_string_115(void);
+static NODE *func__compiler__function_call__to_string_116;
+static void entry__compiler__function_call__to_string_116(void);
+static FRAME_INFO frame__compiler__function_call__to_string_116 = {2, {"functor", "arguments"}};
+static void cont__compiler__function_call__to_string_117(void);
 static NODE *string__64d512703527e2ab;
-static void cont__sim2c__function_call__to_string_119(void);
-static NODE *func__sim2c__function_call__to_string_120;
-static void entry__sim2c__function_call__to_string_120(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_120 = {1, {"arguments"}};
-static void cont__sim2c__function_call__to_string_121(void);
-static void cont__sim2c__function_call__to_string_122(void);
-static NODE *func__sim2c__function_call__to_string_123;
-static void entry__sim2c__function_call__to_string_123(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_123 = {1, {"arguments"}};
-static void cont__sim2c__function_call__to_string_124(void);
-static void cont__sim2c__function_call__to_string_125(void);
-static NODE *func__sim2c__function_call__to_string_126;
-static void entry__sim2c__function_call__to_string_126(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_126 = {1, {"arguments"}};
-static void cont__sim2c__function_call__to_string_127(void);
-static void cont__sim2c__function_call__to_string_128(void);
-static NODE *func__sim2c__function_call__to_string_129;
-static void entry__sim2c__function_call__to_string_129(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_129 = {1, {"arguments"}};
-static void cont__sim2c__function_call__to_string_130(void);
-static void cont__sim2c__function_call__to_string_131(void);
-static void cont__sim2c__function_call__to_string_132(void);
-static NODE *func__sim2c__function_call__to_string_133;
-static void entry__sim2c__function_call__to_string_133(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_133 = {1, {"arguments"}};
-static void cont__sim2c__function_call__to_string_134(void);
-static void cont__sim2c__function_call__to_string_135(void);
+static void cont__compiler__function_call__to_string_119(void);
+static NODE *func__compiler__function_call__to_string_120;
+static void entry__compiler__function_call__to_string_120(void);
+static FRAME_INFO frame__compiler__function_call__to_string_120 = {1, {"arguments"}};
+static void cont__compiler__function_call__to_string_121(void);
+static void cont__compiler__function_call__to_string_122(void);
+static NODE *func__compiler__function_call__to_string_123;
+static void entry__compiler__function_call__to_string_123(void);
+static FRAME_INFO frame__compiler__function_call__to_string_123 = {1, {"arguments"}};
+static void cont__compiler__function_call__to_string_124(void);
+static void cont__compiler__function_call__to_string_125(void);
+static NODE *func__compiler__function_call__to_string_126;
+static void entry__compiler__function_call__to_string_126(void);
+static FRAME_INFO frame__compiler__function_call__to_string_126 = {1, {"arguments"}};
+static void cont__compiler__function_call__to_string_127(void);
+static void cont__compiler__function_call__to_string_128(void);
+static NODE *func__compiler__function_call__to_string_129;
+static void entry__compiler__function_call__to_string_129(void);
+static FRAME_INFO frame__compiler__function_call__to_string_129 = {1, {"arguments"}};
+static void cont__compiler__function_call__to_string_130(void);
+static void cont__compiler__function_call__to_string_131(void);
+static void cont__compiler__function_call__to_string_132(void);
+static NODE *func__compiler__function_call__to_string_133;
+static void entry__compiler__function_call__to_string_133(void);
+static FRAME_INFO frame__compiler__function_call__to_string_133 = {1, {"arguments"}};
+static void cont__compiler__function_call__to_string_134(void);
+static void cont__compiler__function_call__to_string_135(void);
 static NODE *string__2a0aedcb5dc87d5c;
-static void cont__sim2c__function_call__to_string_137(void);
-static void cont__sim2c__function_call__to_string_138(void);
-static void cont__sim2c__function_call__to_string_139(void);
-static void cont__sim2c__function_call__to_string_140(void);
-static void cont__sim2c__function_call__to_string_141(void);
-static void cont__sim2c__function_call__to_string_142(void);
-static void cont__sim2c__function_call__to_string_143(void);
-static void cont__sim2c__function_call__to_string_144(void);
-static NODE *func__sim2c__function_call__to_string_145;
-static void entry__sim2c__function_call__to_string_145(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_145 = {1, {"arguments"}};
-static void cont__sim2c__function_call__to_string_146(void);
+static void cont__compiler__function_call__to_string_137(void);
+static void cont__compiler__function_call__to_string_138(void);
+static void cont__compiler__function_call__to_string_139(void);
+static void cont__compiler__function_call__to_string_140(void);
+static void cont__compiler__function_call__to_string_141(void);
+static void cont__compiler__function_call__to_string_142(void);
+static void cont__compiler__function_call__to_string_143(void);
+static void cont__compiler__function_call__to_string_144(void);
+static NODE *func__compiler__function_call__to_string_145;
+static void entry__compiler__function_call__to_string_145(void);
+static FRAME_INFO frame__compiler__function_call__to_string_145 = {1, {"arguments"}};
+static void cont__compiler__function_call__to_string_146(void);
 static NODE *string__2d7981f4e6602be8;
-static void cont__sim2c__function_call__to_string_148(void);
-static NODE *func__sim2c__function_call__to_string_149;
-static void entry__sim2c__function_call__to_string_149(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_149 = {1, {"default_call"}};
-static NODE *func__sim2c__function_call__to_string_150;
-static void entry__sim2c__function_call__to_string_150(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_150 = {3, {"indent", "arguments", "functor_string"}};
-static NODE *func__sim2c__function_call__to_string_151;
-static void entry__sim2c__function_call__to_string_151(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_151 = {4, {"return__7", "indent", "arguments", "functor_string"}};
-static void cont__sim2c__function_call__to_string_152(void);
-static void cont__sim2c__function_call__to_string_153(void);
-static void cont__sim2c__function_call__to_string_154(void);
-static NODE *func__sim2c__function_call__to_string_155;
-static void entry__sim2c__function_call__to_string_155(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_155 = {3, {"arguments", "functor_string", "argument"}};
-static void cont__sim2c__function_call__to_string_156(void);
-static void cont__sim2c__function_call__to_string_157(void);
-static void cont__sim2c__function_call__to_string_158(void);
-static NODE *func__sim2c__function_call__to_string_159;
-static void entry__sim2c__function_call__to_string_159(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_159 = {2, {"functor_string", "argument"}};
-static void cont__sim2c__function_call__to_string_160(void);
-static NODE *func__sim2c__function_call__to_string_161;
-static void entry__sim2c__function_call__to_string_161(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_161 = {2, {"functor_string", "argument"}};
-static void cont__sim2c__function_call__to_string_162(void);
-static NODE *func__sim2c__function_call__to_string_163;
-static void entry__sim2c__function_call__to_string_163(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_163 = {13, {"return__6", "functor_string", "arguments", "indent", "prec", "left", "right", "stringify_le", "stringify_lt", "strings", "inline_functor", "total_width", "buf"}};
-static NODE *func__sim2c__function_call__to_string_164;
-static void entry__sim2c__function_call__to_string_164(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_164 = {3, {"expr", "prec", "str"}};
-static void cont__sim2c__function_call__to_string_165(void);
-static void cont__sim2c__function_call__to_string_166(void);
-static void cont__sim2c__function_call__to_string_167(void);
-static void cont__sim2c__function_call__to_string_168(void);
-static NODE *func__sim2c__function_call__to_string_169;
-static void entry__sim2c__function_call__to_string_169(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_169 = {1, {"str"}};
-static NODE *func__sim2c__function_call__to_string_170;
-static void entry__sim2c__function_call__to_string_170(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_170 = {1, {"str"}};
-static NODE *func__sim2c__function_call__to_string_171;
-static void entry__sim2c__function_call__to_string_171(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_171 = {3, {"expr", "prec", "str"}};
-static void cont__sim2c__function_call__to_string_172(void);
-static void cont__sim2c__function_call__to_string_173(void);
-static void cont__sim2c__function_call__to_string_174(void);
-static NODE *func__sim2c__function_call__to_string_175;
-static void entry__sim2c__function_call__to_string_175(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_175 = {1, {"str"}};
-static NODE *func__sim2c__function_call__to_string_176;
-static void entry__sim2c__function_call__to_string_176(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_176 = {1, {"str"}};
-static void cont__sim2c__function_call__to_string_177(void);
-static void cont__sim2c__function_call__to_string_178(void);
-static void cont__sim2c__function_call__to_string_179(void);
-static void cont__sim2c__function_call__to_string_180(void);
-static NODE *func__sim2c__function_call__to_string_181;
-static void entry__sim2c__function_call__to_string_181(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_181 = {6, {"strings", "stringify_le", "right", "left", "functor_string", "stringify_lt"}};
-static void cont__sim2c__function_call__to_string_182(void);
-static void cont__sim2c__function_call__to_string_183(void);
-static NODE *func__sim2c__function_call__to_string_184;
-static void entry__sim2c__function_call__to_string_184(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_184 = {4, {"left", "functor_string", "strings", "stringify_le"}};
-static void cont__sim2c__function_call__to_string_185(void);
-static void cont__sim2c__function_call__to_string_186(void);
-static NODE *func__sim2c__function_call__to_string_187;
-static void entry__sim2c__function_call__to_string_187(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_187 = {4, {"left", "strings", "stringify_le", "left_operands"}};
-static void cont__sim2c__function_call__to_string_188(void);
-static void cont__sim2c__function_call__to_string_189(void);
-static void cont__sim2c__function_call__to_string_190(void);
-static void cont__sim2c__function_call__to_string_191(void);
-static void cont__sim2c__function_call__to_string_192(void);
-static void cont__sim2c__function_call__to_string_193(void);
-static void cont__sim2c__function_call__to_string_194(void);
-static void cont__sim2c__function_call__to_string_195(void);
-static NODE *func__sim2c__function_call__to_string_196;
-static void entry__sim2c__function_call__to_string_196(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_196 = {6, {"strings", "stringify_le", "left", "right", "functor_string", "stringify_lt"}};
-static void cont__sim2c__function_call__to_string_197(void);
-static void cont__sim2c__function_call__to_string_198(void);
-static NODE *func__sim2c__function_call__to_string_199;
-static void entry__sim2c__function_call__to_string_199(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_199 = {4, {"right", "functor_string", "strings", "stringify_le"}};
-static void cont__sim2c__function_call__to_string_200(void);
-static void cont__sim2c__function_call__to_string_201(void);
-static NODE *func__sim2c__function_call__to_string_202;
-static void entry__sim2c__function_call__to_string_202(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_202 = {4, {"right", "strings", "stringify_le", "right_operands"}};
-static void cont__sim2c__function_call__to_string_203(void);
-static void cont__sim2c__function_call__to_string_204(void);
-static void cont__sim2c__function_call__to_string_205(void);
-static void cont__sim2c__function_call__to_string_206(void);
-static void cont__sim2c__function_call__to_string_207(void);
-static void cont__sim2c__function_call__to_string_208(void);
-static void cont__sim2c__function_call__to_string_209(void);
-static void cont__sim2c__function_call__to_string_210(void);
-static void cont__sim2c__function_call__to_string_211(void);
-static NODE *func__sim2c__function_call__to_string_212;
-static void entry__sim2c__function_call__to_string_212(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_212 = {3, {"break", "strings", "total_width"}};
-static NODE *func__sim2c__function_call__to_string_213;
-static void entry__sim2c__function_call__to_string_213(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_213 = {3, {"str", "total_width", "break"}};
-static void cont__sim2c__function_call__to_string_214(void);
-static void cont__sim2c__function_call__to_string_215(void);
-static NODE *func__sim2c__function_call__to_string_216;
-static void entry__sim2c__function_call__to_string_216(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_216 = {2, {"total_width", "break"}};
-static void cont__sim2c__function_call__to_string_217(void);
-static void cont__sim2c__function_call__to_string_218(void);
-static void cont__sim2c__function_call__to_string_219(void);
-static void cont__sim2c__function_call__to_string_220(void);
-static NODE *func__sim2c__function_call__to_string_221;
-static void entry__sim2c__function_call__to_string_221(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_221 = {1, {"total_width"}};
-static void cont__sim2c__function_call__to_string_222(void);
-static void cont__sim2c__function_call__to_string_223(void);
-static void cont__sim2c__function_call__to_string_224(void);
-static void cont__sim2c__function_call__to_string_225(void);
-static NODE *func__sim2c__function_call__to_string_226;
-static void entry__sim2c__function_call__to_string_226(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_226 = {5, {"inline_functor", "functor_string", "total_width", "strings", "indent"}};
+static void cont__compiler__function_call__to_string_148(void);
+static NODE *func__compiler__function_call__to_string_149;
+static void entry__compiler__function_call__to_string_149(void);
+static FRAME_INFO frame__compiler__function_call__to_string_149 = {1, {"default_call"}};
+static NODE *func__compiler__function_call__to_string_150;
+static void entry__compiler__function_call__to_string_150(void);
+static FRAME_INFO frame__compiler__function_call__to_string_150 = {3, {"indent", "arguments", "functor_string"}};
+static NODE *func__compiler__function_call__to_string_151;
+static void entry__compiler__function_call__to_string_151(void);
+static FRAME_INFO frame__compiler__function_call__to_string_151 = {4, {"return__7", "indent", "arguments", "functor_string"}};
+static void cont__compiler__function_call__to_string_152(void);
+static void cont__compiler__function_call__to_string_153(void);
+static void cont__compiler__function_call__to_string_154(void);
+static NODE *func__compiler__function_call__to_string_155;
+static void entry__compiler__function_call__to_string_155(void);
+static FRAME_INFO frame__compiler__function_call__to_string_155 = {3, {"arguments", "functor_string", "argument"}};
+static void cont__compiler__function_call__to_string_156(void);
+static void cont__compiler__function_call__to_string_157(void);
+static void cont__compiler__function_call__to_string_158(void);
+static NODE *func__compiler__function_call__to_string_159;
+static void entry__compiler__function_call__to_string_159(void);
+static FRAME_INFO frame__compiler__function_call__to_string_159 = {2, {"functor_string", "argument"}};
+static void cont__compiler__function_call__to_string_160(void);
+static NODE *func__compiler__function_call__to_string_161;
+static void entry__compiler__function_call__to_string_161(void);
+static FRAME_INFO frame__compiler__function_call__to_string_161 = {2, {"functor_string", "argument"}};
+static void cont__compiler__function_call__to_string_162(void);
+static NODE *func__compiler__function_call__to_string_163;
+static void entry__compiler__function_call__to_string_163(void);
+static FRAME_INFO frame__compiler__function_call__to_string_163 = {13, {"return__6", "functor_string", "arguments", "indent", "prec", "left", "right", "stringify_le", "stringify_lt", "strings", "inline_functor", "total_width", "buf"}};
+static NODE *func__compiler__function_call__to_string_164;
+static void entry__compiler__function_call__to_string_164(void);
+static FRAME_INFO frame__compiler__function_call__to_string_164 = {3, {"expr", "prec", "str"}};
+static void cont__compiler__function_call__to_string_165(void);
+static void cont__compiler__function_call__to_string_166(void);
+static void cont__compiler__function_call__to_string_167(void);
+static void cont__compiler__function_call__to_string_168(void);
+static NODE *func__compiler__function_call__to_string_169;
+static void entry__compiler__function_call__to_string_169(void);
+static FRAME_INFO frame__compiler__function_call__to_string_169 = {1, {"str"}};
+static NODE *func__compiler__function_call__to_string_170;
+static void entry__compiler__function_call__to_string_170(void);
+static FRAME_INFO frame__compiler__function_call__to_string_170 = {1, {"str"}};
+static NODE *func__compiler__function_call__to_string_171;
+static void entry__compiler__function_call__to_string_171(void);
+static FRAME_INFO frame__compiler__function_call__to_string_171 = {3, {"expr", "prec", "str"}};
+static void cont__compiler__function_call__to_string_172(void);
+static void cont__compiler__function_call__to_string_173(void);
+static void cont__compiler__function_call__to_string_174(void);
+static NODE *func__compiler__function_call__to_string_175;
+static void entry__compiler__function_call__to_string_175(void);
+static FRAME_INFO frame__compiler__function_call__to_string_175 = {1, {"str"}};
+static NODE *func__compiler__function_call__to_string_176;
+static void entry__compiler__function_call__to_string_176(void);
+static FRAME_INFO frame__compiler__function_call__to_string_176 = {1, {"str"}};
+static void cont__compiler__function_call__to_string_177(void);
+static void cont__compiler__function_call__to_string_178(void);
+static void cont__compiler__function_call__to_string_179(void);
+static void cont__compiler__function_call__to_string_180(void);
+static NODE *func__compiler__function_call__to_string_181;
+static void entry__compiler__function_call__to_string_181(void);
+static FRAME_INFO frame__compiler__function_call__to_string_181 = {6, {"strings", "stringify_le", "right", "left", "functor_string", "stringify_lt"}};
+static void cont__compiler__function_call__to_string_182(void);
+static void cont__compiler__function_call__to_string_183(void);
+static NODE *func__compiler__function_call__to_string_184;
+static void entry__compiler__function_call__to_string_184(void);
+static FRAME_INFO frame__compiler__function_call__to_string_184 = {4, {"left", "functor_string", "strings", "stringify_le"}};
+static void cont__compiler__function_call__to_string_185(void);
+static void cont__compiler__function_call__to_string_186(void);
+static NODE *func__compiler__function_call__to_string_187;
+static void entry__compiler__function_call__to_string_187(void);
+static FRAME_INFO frame__compiler__function_call__to_string_187 = {4, {"left", "strings", "stringify_le", "left_operands"}};
+static void cont__compiler__function_call__to_string_188(void);
+static void cont__compiler__function_call__to_string_189(void);
+static void cont__compiler__function_call__to_string_190(void);
+static void cont__compiler__function_call__to_string_191(void);
+static void cont__compiler__function_call__to_string_192(void);
+static void cont__compiler__function_call__to_string_193(void);
+static void cont__compiler__function_call__to_string_194(void);
+static void cont__compiler__function_call__to_string_195(void);
+static NODE *func__compiler__function_call__to_string_196;
+static void entry__compiler__function_call__to_string_196(void);
+static FRAME_INFO frame__compiler__function_call__to_string_196 = {6, {"strings", "stringify_le", "left", "right", "functor_string", "stringify_lt"}};
+static void cont__compiler__function_call__to_string_197(void);
+static void cont__compiler__function_call__to_string_198(void);
+static NODE *func__compiler__function_call__to_string_199;
+static void entry__compiler__function_call__to_string_199(void);
+static FRAME_INFO frame__compiler__function_call__to_string_199 = {4, {"right", "functor_string", "strings", "stringify_le"}};
+static void cont__compiler__function_call__to_string_200(void);
+static void cont__compiler__function_call__to_string_201(void);
+static NODE *func__compiler__function_call__to_string_202;
+static void entry__compiler__function_call__to_string_202(void);
+static FRAME_INFO frame__compiler__function_call__to_string_202 = {4, {"right", "strings", "stringify_le", "right_operands"}};
+static void cont__compiler__function_call__to_string_203(void);
+static void cont__compiler__function_call__to_string_204(void);
+static void cont__compiler__function_call__to_string_205(void);
+static void cont__compiler__function_call__to_string_206(void);
+static void cont__compiler__function_call__to_string_207(void);
+static void cont__compiler__function_call__to_string_208(void);
+static void cont__compiler__function_call__to_string_209(void);
+static void cont__compiler__function_call__to_string_210(void);
+static void cont__compiler__function_call__to_string_211(void);
+static NODE *func__compiler__function_call__to_string_212;
+static void entry__compiler__function_call__to_string_212(void);
+static FRAME_INFO frame__compiler__function_call__to_string_212 = {3, {"break", "strings", "total_width"}};
+static NODE *func__compiler__function_call__to_string_213;
+static void entry__compiler__function_call__to_string_213(void);
+static FRAME_INFO frame__compiler__function_call__to_string_213 = {3, {"str", "total_width", "break"}};
+static void cont__compiler__function_call__to_string_214(void);
+static void cont__compiler__function_call__to_string_215(void);
+static NODE *func__compiler__function_call__to_string_216;
+static void entry__compiler__function_call__to_string_216(void);
+static FRAME_INFO frame__compiler__function_call__to_string_216 = {2, {"total_width", "break"}};
+static void cont__compiler__function_call__to_string_217(void);
+static void cont__compiler__function_call__to_string_218(void);
+static void cont__compiler__function_call__to_string_219(void);
+static void cont__compiler__function_call__to_string_220(void);
+static NODE *func__compiler__function_call__to_string_221;
+static void entry__compiler__function_call__to_string_221(void);
+static FRAME_INFO frame__compiler__function_call__to_string_221 = {1, {"total_width"}};
+static void cont__compiler__function_call__to_string_222(void);
+static void cont__compiler__function_call__to_string_223(void);
+static void cont__compiler__function_call__to_string_224(void);
+static void cont__compiler__function_call__to_string_225(void);
+static NODE *func__compiler__function_call__to_string_226;
+static void entry__compiler__function_call__to_string_226(void);
+static FRAME_INFO frame__compiler__function_call__to_string_226 = {5, {"inline_functor", "functor_string", "total_width", "strings", "indent"}};
 static NODE *string__578a5af303e9cca;
 static NODE *string__578a5af303e9ccc;
 static NODE *string__578a5af303e9ccb;
 static NODE *string__578a5af303e9cce;
-static void cont__sim2c__function_call__to_string_231(void);
-static NODE *func__sim2c__function_call__to_string_232;
-static void entry__sim2c__function_call__to_string_232(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_232 = {1, {"functor_string"}};
-static NODE *func__sim2c__function_call__to_string_233;
-static void entry__sim2c__function_call__to_string_233(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_233 = {1, {"functor_string"}};
-static void cont__sim2c__function_call__to_string_234(void);
-static NODE *func__sim2c__function_call__to_string_235;
-static void entry__sim2c__function_call__to_string_235(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_235 = {1, {"functor_string"}};
-static void cont__sim2c__function_call__to_string_236(void);
+static void cont__compiler__function_call__to_string_231(void);
+static NODE *func__compiler__function_call__to_string_232;
+static void entry__compiler__function_call__to_string_232(void);
+static FRAME_INFO frame__compiler__function_call__to_string_232 = {1, {"functor_string"}};
+static NODE *func__compiler__function_call__to_string_233;
+static void entry__compiler__function_call__to_string_233(void);
+static FRAME_INFO frame__compiler__function_call__to_string_233 = {1, {"functor_string"}};
+static void cont__compiler__function_call__to_string_234(void);
+static NODE *func__compiler__function_call__to_string_235;
+static void entry__compiler__function_call__to_string_235(void);
+static FRAME_INFO frame__compiler__function_call__to_string_235 = {1, {"functor_string"}};
+static void cont__compiler__function_call__to_string_236(void);
 static NODE *string__578a5af303e9ccd;
-static void cont__sim2c__function_call__to_string_238(void);
-static void cont__sim2c__function_call__to_string_239(void);
-static void cont__sim2c__function_call__to_string_240(void);
-static void cont__sim2c__function_call__to_string_241(void);
-static void cont__sim2c__function_call__to_string_242(void);
-static void cont__sim2c__function_call__to_string_243(void);
-static void cont__sim2c__function_call__to_string_244(void);
-static void cont__sim2c__function_call__to_string_245(void);
-static NODE *func__sim2c__function_call__to_string_246;
-static void entry__sim2c__function_call__to_string_246(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_246 = {1, {"total_width"}};
-static void cont__sim2c__function_call__to_string_247(void);
-static void cont__sim2c__function_call__to_string_248(void);
-static NODE *func__sim2c__function_call__to_string_249;
-static void entry__sim2c__function_call__to_string_249(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_249 = {3, {"strings", "buf", "inline_functor"}};
-static NODE *func__sim2c__function_call__to_string_250;
-static void entry__sim2c__function_call__to_string_250(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_250 = {2, {"str", "buf"}};
-static void cont__sim2c__function_call__to_string_251(void);
-static NODE *func__sim2c__function_call__to_string_252;
-static void entry__sim2c__function_call__to_string_252(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_252 = {1, {"buf"}};
-static void cont__sim2c__function_call__to_string_253(void);
-static void cont__sim2c__function_call__to_string_254(void);
-static void cont__sim2c__function_call__to_string_255(void);
-static void cont__sim2c__function_call__to_string_256(void);
-static NODE *func__sim2c__function_call__to_string_257;
-static void entry__sim2c__function_call__to_string_257(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_257 = {1, {"buf"}};
-static void cont__sim2c__function_call__to_string_258(void);
-static NODE *func__sim2c__function_call__to_string_259;
-static void entry__sim2c__function_call__to_string_259(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_259 = {2, {"buf", "inline_functor"}};
-static void cont__sim2c__function_call__to_string_260(void);
-static NODE *func__sim2c__function_call__to_string_261;
-static void entry__sim2c__function_call__to_string_261(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_261 = {5, {"functor_string", "buf", "indent", "strings", "indentation"}};
-static NODE *func__sim2c__function_call__to_string_262;
-static void entry__sim2c__function_call__to_string_262(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_262 = {1, {"functor_string"}};
+static void cont__compiler__function_call__to_string_238(void);
+static void cont__compiler__function_call__to_string_239(void);
+static void cont__compiler__function_call__to_string_240(void);
+static void cont__compiler__function_call__to_string_241(void);
+static void cont__compiler__function_call__to_string_242(void);
+static void cont__compiler__function_call__to_string_243(void);
+static void cont__compiler__function_call__to_string_244(void);
+static void cont__compiler__function_call__to_string_245(void);
+static NODE *func__compiler__function_call__to_string_246;
+static void entry__compiler__function_call__to_string_246(void);
+static FRAME_INFO frame__compiler__function_call__to_string_246 = {1, {"total_width"}};
+static void cont__compiler__function_call__to_string_247(void);
+static void cont__compiler__function_call__to_string_248(void);
+static NODE *func__compiler__function_call__to_string_249;
+static void entry__compiler__function_call__to_string_249(void);
+static FRAME_INFO frame__compiler__function_call__to_string_249 = {3, {"strings", "buf", "inline_functor"}};
+static NODE *func__compiler__function_call__to_string_250;
+static void entry__compiler__function_call__to_string_250(void);
+static FRAME_INFO frame__compiler__function_call__to_string_250 = {2, {"str", "buf"}};
+static void cont__compiler__function_call__to_string_251(void);
+static NODE *func__compiler__function_call__to_string_252;
+static void entry__compiler__function_call__to_string_252(void);
+static FRAME_INFO frame__compiler__function_call__to_string_252 = {1, {"buf"}};
+static void cont__compiler__function_call__to_string_253(void);
+static void cont__compiler__function_call__to_string_254(void);
+static void cont__compiler__function_call__to_string_255(void);
+static void cont__compiler__function_call__to_string_256(void);
+static NODE *func__compiler__function_call__to_string_257;
+static void entry__compiler__function_call__to_string_257(void);
+static FRAME_INFO frame__compiler__function_call__to_string_257 = {1, {"buf"}};
+static void cont__compiler__function_call__to_string_258(void);
+static NODE *func__compiler__function_call__to_string_259;
+static void entry__compiler__function_call__to_string_259(void);
+static FRAME_INFO frame__compiler__function_call__to_string_259 = {2, {"buf", "inline_functor"}};
+static void cont__compiler__function_call__to_string_260(void);
+static NODE *func__compiler__function_call__to_string_261;
+static void entry__compiler__function_call__to_string_261(void);
+static FRAME_INFO frame__compiler__function_call__to_string_261 = {5, {"functor_string", "buf", "indent", "strings", "indentation"}};
+static NODE *func__compiler__function_call__to_string_262;
+static void entry__compiler__function_call__to_string_262(void);
+static FRAME_INFO frame__compiler__function_call__to_string_262 = {1, {"functor_string"}};
 static NODE *string__6480ae5e84ccc225;
-static void cont__sim2c__function_call__to_string_264(void);
-static void cont__sim2c__function_call__to_string_265(void);
-static void cont__sim2c__function_call__to_string_266(void);
-static void cont__sim2c__function_call__to_string_267(void);
-static NODE *func__sim2c__function_call__to_string_268;
-static void entry__sim2c__function_call__to_string_268(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_268 = {3, {"str", "buf", "indentation"}};
-static void cont__sim2c__function_call__to_string_269(void);
-static void cont__sim2c__function_call__to_string_270(void);
-static NODE *func__sim2c__function_call__to_string_271;
-static void entry__sim2c__function_call__to_string_271(void);
-static FRAME_INFO frame__sim2c__function_call__to_string_271 = {2, {"buf", "indentation"}};
-static void cont__sim2c__function_call__to_string_272(void);
-static void cont__sim2c__function_call__to_string_273(void);
-static void cont__sim2c__function_call__to_string_274(void);
-static void cont__sim2c__function_call__to_string_275(void);
-static void cont__sim2c__function_call__to_string_276(void);
-static void cont__sim2c__function_call__to_string_277(void);
-static NODE *func__sim2c__backquoted__to_string_1;
-static void entry__sim2c__backquoted__to_string_1(void);
-static FRAME_INFO frame__sim2c__backquoted__to_string_1 = {1, {"self"}};
-static void cont__sim2c__backquoted__to_string_2(void);
-static void cont__sim2c__backquoted__to_string_3(void);
+static void cont__compiler__function_call__to_string_264(void);
+static void cont__compiler__function_call__to_string_265(void);
+static void cont__compiler__function_call__to_string_266(void);
+static void cont__compiler__function_call__to_string_267(void);
+static NODE *func__compiler__function_call__to_string_268;
+static void entry__compiler__function_call__to_string_268(void);
+static FRAME_INFO frame__compiler__function_call__to_string_268 = {3, {"str", "buf", "indentation"}};
+static void cont__compiler__function_call__to_string_269(void);
+static void cont__compiler__function_call__to_string_270(void);
+static NODE *func__compiler__function_call__to_string_271;
+static void entry__compiler__function_call__to_string_271(void);
+static FRAME_INFO frame__compiler__function_call__to_string_271 = {2, {"buf", "indentation"}};
+static void cont__compiler__function_call__to_string_272(void);
+static void cont__compiler__function_call__to_string_273(void);
+static void cont__compiler__function_call__to_string_274(void);
+static void cont__compiler__function_call__to_string_275(void);
+static void cont__compiler__function_call__to_string_276(void);
+static void cont__compiler__function_call__to_string_277(void);
+static NODE *func__compiler__backquoted__to_string_1;
+static void entry__compiler__backquoted__to_string_1(void);
+static FRAME_INFO frame__compiler__backquoted__to_string_1 = {1, {"self"}};
+static void cont__compiler__backquoted__to_string_2(void);
+static void cont__compiler__backquoted__to_string_3(void);
 static NODE *func__pair_to_string_1;
 static void entry__pair_to_string_1(void);
 static FRAME_INFO frame__pair_to_string_1 = {3, {"self", "symbol", "indent"}};
@@ -2830,16 +2830,16 @@ static void entry__pair_to_string_47(void);
 static FRAME_INFO frame__pair_to_string_47 = {4, {"symbol", "identifier", "separator", "value"}};
 static void cont__pair_to_string_48(void);
 static void cont__pair_to_string_49(void);
-static NODE *func__sim2c__attribute_value_pair__to_string_1;
-static void entry__sim2c__attribute_value_pair__to_string_1(void);
-static FRAME_INFO frame__sim2c__attribute_value_pair__to_string_1 = {1, {"self"}};
-static NODE *func__sim2c__attribute_function_pair__to_string_1;
-static void entry__sim2c__attribute_function_pair__to_string_1(void);
-static FRAME_INFO frame__sim2c__attribute_function_pair__to_string_1 = {1, {"self"}};
-static NODE *func__sim2c__numeric_literal__to_string_1;
-static void entry__sim2c__numeric_literal__to_string_1(void);
-static FRAME_INFO frame__sim2c__numeric_literal__to_string_1 = {1, {"self"}};
-static void cont__sim2c__numeric_literal__to_string_2(void);
+static NODE *func__compiler__attribute_value_pair__to_string_1;
+static void entry__compiler__attribute_value_pair__to_string_1(void);
+static FRAME_INFO frame__compiler__attribute_value_pair__to_string_1 = {1, {"self"}};
+static NODE *func__compiler__attribute_function_pair__to_string_1;
+static void entry__compiler__attribute_function_pair__to_string_1(void);
+static FRAME_INFO frame__compiler__attribute_function_pair__to_string_1 = {1, {"self"}};
+static NODE *func__compiler__numeric_literal__to_string_1;
+static void entry__compiler__numeric_literal__to_string_1(void);
+static FRAME_INFO frame__compiler__numeric_literal__to_string_1 = {1, {"self"}};
+static void cont__compiler__numeric_literal__to_string_2(void);
 static NODE *func__create_character_table_1;
 static void entry__create_character_table_1(void);
 static FRAME_INFO frame__create_character_table_1 = {0, {}};
@@ -2920,13 +2920,13 @@ static NODE *func__escaped_character_35;
 static void entry__escaped_character_35(void);
 static FRAME_INFO frame__escaped_character_35 = {1, {"chr"}};
 static void cont__escaped_character_36(void);
-static NODE *func__sim2c__character_literal__to_string_1;
-static void entry__sim2c__character_literal__to_string_1(void);
-static FRAME_INFO frame__sim2c__character_literal__to_string_1 = {1, {"self"}};
-static void cont__sim2c__character_literal__to_string_2(void);
-static void cont__sim2c__character_literal__to_string_3(void);
-static void cont__sim2c__character_literal__to_string_4(void);
-static void cont__sim2c__character_literal__to_string_5(void);
+static NODE *func__compiler__character_literal__to_string_1;
+static void entry__compiler__character_literal__to_string_1(void);
+static FRAME_INFO frame__compiler__character_literal__to_string_1 = {1, {"self"}};
+static void cont__compiler__character_literal__to_string_2(void);
+static void cont__compiler__character_literal__to_string_3(void);
+static void cont__compiler__character_literal__to_string_4(void);
+static void cont__compiler__character_literal__to_string_5(void);
 static NODE *func__analyze_string_literal_1;
 static void entry__analyze_string_literal_1(void);
 static FRAME_INFO frame__analyze_string_literal_1 = {7, {"text", "return", "lines", "is_inline", "use_single_line_form", "part", "s"}};
@@ -3411,204 +3411,204 @@ static void cont__string_template_to_string_71(void);
 static void cont__string_template_to_string_72(void);
 static void cont__string_template_to_string_73(void);
 static void cont__string_template_to_string_74(void);
-static NODE *func__sim2c__string_literal__to_string_1;
-static void entry__sim2c__string_literal__to_string_1(void);
-static FRAME_INFO frame__sim2c__string_literal__to_string_1 = {1, {"self"}};
-static void cont__sim2c__string_literal__to_string_2(void);
-static void cont__sim2c__string_literal__to_string_3(void);
-static NODE *func__sim2c__string_literal__to_string_4;
-static void entry__sim2c__string_literal__to_string_4(void);
-static FRAME_INFO frame__sim2c__string_literal__to_string_4 = {3, {"self", "lines", "is_inline"}};
-static void cont__sim2c__string_literal__to_string_5(void);
-static void cont__sim2c__string_literal__to_string_6(void);
-static NODE *func__sim2c__string_literal__to_string_7;
-static void entry__sim2c__string_literal__to_string_7(void);
-static FRAME_INFO frame__sim2c__string_literal__to_string_7 = {4, {"return__1", "self", "lines", "is_inline"}};
-static void cont__sim2c__string_literal__to_string_8(void);
-static void cont__sim2c__string_literal__to_string_9(void);
-static void cont__sim2c__string_literal__to_string_10(void);
-static void cont__sim2c__string_literal__to_string_11(void);
-static NODE *func__sim2c__unique_item__to_string_1;
-static void entry__sim2c__unique_item__to_string_1(void);
-static FRAME_INFO frame__sim2c__unique_item__to_string_1 = {1, {"self"}};
+static NODE *func__compiler__string_literal__to_string_1;
+static void entry__compiler__string_literal__to_string_1(void);
+static FRAME_INFO frame__compiler__string_literal__to_string_1 = {1, {"self"}};
+static void cont__compiler__string_literal__to_string_2(void);
+static void cont__compiler__string_literal__to_string_3(void);
+static NODE *func__compiler__string_literal__to_string_4;
+static void entry__compiler__string_literal__to_string_4(void);
+static FRAME_INFO frame__compiler__string_literal__to_string_4 = {3, {"self", "lines", "is_inline"}};
+static void cont__compiler__string_literal__to_string_5(void);
+static void cont__compiler__string_literal__to_string_6(void);
+static NODE *func__compiler__string_literal__to_string_7;
+static void entry__compiler__string_literal__to_string_7(void);
+static FRAME_INFO frame__compiler__string_literal__to_string_7 = {4, {"return__1", "self", "lines", "is_inline"}};
+static void cont__compiler__string_literal__to_string_8(void);
+static void cont__compiler__string_literal__to_string_9(void);
+static void cont__compiler__string_literal__to_string_10(void);
+static void cont__compiler__string_literal__to_string_11(void);
+static NODE *func__compiler__unique_item__to_string_1;
+static void entry__compiler__unique_item__to_string_1(void);
+static FRAME_INFO frame__compiler__unique_item__to_string_1 = {1, {"self"}};
 static NODE *string__578a5af303e9ccf;
-static NODE *func__sim2c__polymorphic_function__to_string_1;
-static void entry__sim2c__polymorphic_function__to_string_1(void);
-static FRAME_INFO frame__sim2c__polymorphic_function__to_string_1 = {1, {"self"}};
-static void cont__sim2c__polymorphic_function__to_string_2(void);
-static NODE *func__sim2c__polymorphic_function__to_string_3;
-static void entry__sim2c__polymorphic_function__to_string_3(void);
-static FRAME_INFO frame__sim2c__polymorphic_function__to_string_3 = {0, {}};
+static NODE *func__compiler__polymorphic_function__to_string_1;
+static void entry__compiler__polymorphic_function__to_string_1(void);
+static FRAME_INFO frame__compiler__polymorphic_function__to_string_1 = {1, {"self"}};
+static void cont__compiler__polymorphic_function__to_string_2(void);
+static NODE *func__compiler__polymorphic_function__to_string_3;
+static void entry__compiler__polymorphic_function__to_string_3(void);
+static FRAME_INFO frame__compiler__polymorphic_function__to_string_3 = {0, {}};
 static NODE *string__fa732415f216be5;
-static NODE *func__sim2c__polymorphic_function__to_string_5;
-static void entry__sim2c__polymorphic_function__to_string_5(void);
-static FRAME_INFO frame__sim2c__polymorphic_function__to_string_5 = {0, {}};
+static NODE *func__compiler__polymorphic_function__to_string_5;
+static void entry__compiler__polymorphic_function__to_string_5(void);
+static FRAME_INFO frame__compiler__polymorphic_function__to_string_5 = {0, {}};
 static NODE *string__2d7981f4e6482bec;
-static void cont__sim2c__polymorphic_function__to_string_7(void);
-static NODE *func__sim2c__identifier__to_string_1;
-static void entry__sim2c__identifier__to_string_1(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_1 = {1, {"self"}};
-static NODE *func__sim2c__identifier__to_string_2;
-static void entry__sim2c__identifier__to_string_2(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_2 = {1, {"self"}};
-static void cont__sim2c__identifier__to_string_3(void);
-static void cont__sim2c__identifier__to_string_4(void);
-static NODE *func__sim2c__identifier__to_string_5;
-static void entry__sim2c__identifier__to_string_5(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_5 = {1, {"self"}};
-static void cont__sim2c__identifier__to_string_6(void);
-static void cont__sim2c__identifier__to_string_7(void);
+static void cont__compiler__polymorphic_function__to_string_7(void);
+static NODE *func__compiler__identifier__to_string_1;
+static void entry__compiler__identifier__to_string_1(void);
+static FRAME_INFO frame__compiler__identifier__to_string_1 = {1, {"self"}};
+static NODE *func__compiler__identifier__to_string_2;
+static void entry__compiler__identifier__to_string_2(void);
+static FRAME_INFO frame__compiler__identifier__to_string_2 = {1, {"self"}};
+static void cont__compiler__identifier__to_string_3(void);
+static void cont__compiler__identifier__to_string_4(void);
+static NODE *func__compiler__identifier__to_string_5;
+static void entry__compiler__identifier__to_string_5(void);
+static FRAME_INFO frame__compiler__identifier__to_string_5 = {1, {"self"}};
+static void cont__compiler__identifier__to_string_6(void);
+static void cont__compiler__identifier__to_string_7(void);
 static NODE *string__2d7981f4e6d82bff;
-static void cont__sim2c__identifier__to_string_9(void);
-static NODE *func__sim2c__identifier__to_string_10;
-static void entry__sim2c__identifier__to_string_10(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_10 = {1, {"self"}};
-static void cont__sim2c__identifier__to_string_11(void);
-static NODE *func__sim2c__identifier__to_string_12;
-static void entry__sim2c__identifier__to_string_12(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_12 = {1, {"self"}};
-static void cont__sim2c__identifier__to_string_13(void);
-static void cont__sim2c__identifier__to_string_14(void);
-static NODE *func__sim2c__identifier__to_string_15;
-static void entry__sim2c__identifier__to_string_15(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_15 = {1, {"self"}};
-static NODE *func__sim2c__identifier__to_string_16;
-static void entry__sim2c__identifier__to_string_16(void);
-static FRAME_INFO frame__sim2c__identifier__to_string_16 = {1, {"self"}};
-static void cont__sim2c__identifier__to_string_17(void);
-static void cont__sim2c__identifier__to_string_18(void);
-static NODE *func__sim2c__c_code__to_string_1;
-static void entry__sim2c__c_code__to_string_1(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_1 = {1, {"self"}};
-static NODE *func__sim2c__c_code__to_string_2;
-static void entry__sim2c__c_code__to_string_2(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_2 = {4, {"self", "buf", "indent", "indentation"}};
-static void cont__sim2c__c_code__to_string_3(void);
-static NODE *func__sim2c__c_code__to_string_4;
-static void entry__sim2c__c_code__to_string_4(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_4 = {0, {}};
-static void cont__sim2c__c_code__to_string_5(void);
+static void cont__compiler__identifier__to_string_9(void);
+static NODE *func__compiler__identifier__to_string_10;
+static void entry__compiler__identifier__to_string_10(void);
+static FRAME_INFO frame__compiler__identifier__to_string_10 = {1, {"self"}};
+static void cont__compiler__identifier__to_string_11(void);
+static NODE *func__compiler__identifier__to_string_12;
+static void entry__compiler__identifier__to_string_12(void);
+static FRAME_INFO frame__compiler__identifier__to_string_12 = {1, {"self"}};
+static void cont__compiler__identifier__to_string_13(void);
+static void cont__compiler__identifier__to_string_14(void);
+static NODE *func__compiler__identifier__to_string_15;
+static void entry__compiler__identifier__to_string_15(void);
+static FRAME_INFO frame__compiler__identifier__to_string_15 = {1, {"self"}};
+static NODE *func__compiler__identifier__to_string_16;
+static void entry__compiler__identifier__to_string_16(void);
+static FRAME_INFO frame__compiler__identifier__to_string_16 = {1, {"self"}};
+static void cont__compiler__identifier__to_string_17(void);
+static void cont__compiler__identifier__to_string_18(void);
+static NODE *func__compiler__c_code__to_string_1;
+static void entry__compiler__c_code__to_string_1(void);
+static FRAME_INFO frame__compiler__c_code__to_string_1 = {1, {"self"}};
+static NODE *func__compiler__c_code__to_string_2;
+static void entry__compiler__c_code__to_string_2(void);
+static FRAME_INFO frame__compiler__c_code__to_string_2 = {4, {"self", "buf", "indent", "indentation"}};
+static void cont__compiler__c_code__to_string_3(void);
+static NODE *func__compiler__c_code__to_string_4;
+static void entry__compiler__c_code__to_string_4(void);
+static FRAME_INFO frame__compiler__c_code__to_string_4 = {0, {}};
+static void cont__compiler__c_code__to_string_5(void);
 static NODE *string__2d7981f4e4d02bcf;
-static void cont__sim2c__c_code__to_string_7(void);
-static NODE *func__sim2c__c_code__to_string_8;
-static void entry__sim2c__c_code__to_string_8(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_8 = {0, {}};
-static void cont__sim2c__c_code__to_string_9(void);
-static void cont__sim2c__c_code__to_string_10(void);
-static void cont__sim2c__c_code__to_string_11(void);
-static void cont__sim2c__c_code__to_string_12(void);
-static void cont__sim2c__c_code__to_string_13(void);
-static NODE *func__sim2c__c_code__to_string_14;
-static void entry__sim2c__c_code__to_string_14(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_14 = {3, {"buf", "indentation", "self"}};
-static void cont__sim2c__c_code__to_string_15(void);
+static void cont__compiler__c_code__to_string_7(void);
+static NODE *func__compiler__c_code__to_string_8;
+static void entry__compiler__c_code__to_string_8(void);
+static FRAME_INFO frame__compiler__c_code__to_string_8 = {0, {}};
+static void cont__compiler__c_code__to_string_9(void);
+static void cont__compiler__c_code__to_string_10(void);
+static void cont__compiler__c_code__to_string_11(void);
+static void cont__compiler__c_code__to_string_12(void);
+static void cont__compiler__c_code__to_string_13(void);
+static NODE *func__compiler__c_code__to_string_14;
+static void entry__compiler__c_code__to_string_14(void);
+static FRAME_INFO frame__compiler__c_code__to_string_14 = {3, {"buf", "indentation", "self"}};
+static void cont__compiler__c_code__to_string_15(void);
 static NODE *string__4a1f55ee819ae2f7;
-static void cont__sim2c__c_code__to_string_17(void);
-static void cont__sim2c__c_code__to_string_18(void);
-static void cont__sim2c__c_code__to_string_19(void);
-static void cont__sim2c__c_code__to_string_20(void);
-static void cont__sim2c__c_code__to_string_21(void);
-static NODE *func__sim2c__c_code__to_string_22;
-static void entry__sim2c__c_code__to_string_22(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_22 = {3, {"buf", "indentation", "self"}};
-static void cont__sim2c__c_code__to_string_23(void);
+static void cont__compiler__c_code__to_string_17(void);
+static void cont__compiler__c_code__to_string_18(void);
+static void cont__compiler__c_code__to_string_19(void);
+static void cont__compiler__c_code__to_string_20(void);
+static void cont__compiler__c_code__to_string_21(void);
+static NODE *func__compiler__c_code__to_string_22;
+static void entry__compiler__c_code__to_string_22(void);
+static FRAME_INFO frame__compiler__c_code__to_string_22 = {3, {"buf", "indentation", "self"}};
+static void cont__compiler__c_code__to_string_23(void);
 static NODE *string__5a1f552e8192b2f7;
-static void cont__sim2c__c_code__to_string_25(void);
-static void cont__sim2c__c_code__to_string_26(void);
-static void cont__sim2c__c_code__to_string_27(void);
-static void cont__sim2c__c_code__to_string_28(void);
-static void cont__sim2c__c_code__to_string_29(void);
-static NODE *func__sim2c__c_code__to_string_30;
-static void entry__sim2c__c_code__to_string_30(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_30 = {3, {"buf", "indentation", "self"}};
-static void cont__sim2c__c_code__to_string_31(void);
+static void cont__compiler__c_code__to_string_25(void);
+static void cont__compiler__c_code__to_string_26(void);
+static void cont__compiler__c_code__to_string_27(void);
+static void cont__compiler__c_code__to_string_28(void);
+static void cont__compiler__c_code__to_string_29(void);
+static NODE *func__compiler__c_code__to_string_30;
+static void entry__compiler__c_code__to_string_30(void);
+static FRAME_INFO frame__compiler__c_code__to_string_30 = {3, {"buf", "indentation", "self"}};
+static void cont__compiler__c_code__to_string_31(void);
 static NODE *string__461f576e8192b2f7;
-static void cont__sim2c__c_code__to_string_33(void);
-static void cont__sim2c__c_code__to_string_34(void);
-static void cont__sim2c__c_code__to_string_35(void);
-static void cont__sim2c__c_code__to_string_36(void);
-static void cont__sim2c__c_code__to_string_37(void);
-static NODE *func__sim2c__c_code__to_string_38;
-static void entry__sim2c__c_code__to_string_38(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_38 = {3, {"buf", "indentation", "self"}};
-static void cont__sim2c__c_code__to_string_39(void);
+static void cont__compiler__c_code__to_string_33(void);
+static void cont__compiler__c_code__to_string_34(void);
+static void cont__compiler__c_code__to_string_35(void);
+static void cont__compiler__c_code__to_string_36(void);
+static void cont__compiler__c_code__to_string_37(void);
+static NODE *func__compiler__c_code__to_string_38;
+static void entry__compiler__c_code__to_string_38(void);
+static FRAME_INFO frame__compiler__c_code__to_string_38 = {3, {"buf", "indentation", "self"}};
+static void cont__compiler__c_code__to_string_39(void);
 static NODE *string__6a1f526e819312f7;
-static void cont__sim2c__c_code__to_string_41(void);
-static void cont__sim2c__c_code__to_string_42(void);
-static void cont__sim2c__c_code__to_string_43(void);
-static void cont__sim2c__c_code__to_string_44(void);
-static void cont__sim2c__c_code__to_string_45(void);
-static NODE *func__sim2c__c_code__to_string_46;
-static void entry__sim2c__c_code__to_string_46(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_46 = {3, {"buf", "indentation", "self"}};
-static void cont__sim2c__c_code__to_string_47(void);
+static void cont__compiler__c_code__to_string_41(void);
+static void cont__compiler__c_code__to_string_42(void);
+static void cont__compiler__c_code__to_string_43(void);
+static void cont__compiler__c_code__to_string_44(void);
+static void cont__compiler__c_code__to_string_45(void);
+static NODE *func__compiler__c_code__to_string_46;
+static void entry__compiler__c_code__to_string_46(void);
+static FRAME_INFO frame__compiler__c_code__to_string_46 = {3, {"buf", "indentation", "self"}};
+static void cont__compiler__c_code__to_string_47(void);
 static NODE *string__5a1f52ae819272f7;
-static void cont__sim2c__c_code__to_string_49(void);
-static void cont__sim2c__c_code__to_string_50(void);
-static void cont__sim2c__c_code__to_string_51(void);
-static void cont__sim2c__c_code__to_string_52(void);
-static void cont__sim2c__c_code__to_string_53(void);
-static NODE *func__sim2c__c_code__to_string_54;
-static void entry__sim2c__c_code__to_string_54(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_54 = {1, {"self"}};
-static void cont__sim2c__c_code__to_string_55(void);
+static void cont__compiler__c_code__to_string_49(void);
+static void cont__compiler__c_code__to_string_50(void);
+static void cont__compiler__c_code__to_string_51(void);
+static void cont__compiler__c_code__to_string_52(void);
+static void cont__compiler__c_code__to_string_53(void);
+static NODE *func__compiler__c_code__to_string_54;
+static void entry__compiler__c_code__to_string_54(void);
+static FRAME_INFO frame__compiler__c_code__to_string_54 = {1, {"self"}};
+static void cont__compiler__c_code__to_string_55(void);
 static NODE *string__545aebc3eac0d03b;
-static void cont__sim2c__c_code__to_string_57(void);
-static void cont__sim2c__c_code__to_string_58(void);
-static void cont__sim2c__c_code__to_string_59(void);
-static NODE *func__sim2c__c_code__to_string_60;
-static void entry__sim2c__c_code__to_string_60(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_60 = {3, {"buf", "indentation", "self"}};
-static void cont__sim2c__c_code__to_string_61(void);
+static void cont__compiler__c_code__to_string_57(void);
+static void cont__compiler__c_code__to_string_58(void);
+static void cont__compiler__c_code__to_string_59(void);
+static NODE *func__compiler__c_code__to_string_60;
+static void entry__compiler__c_code__to_string_60(void);
+static FRAME_INFO frame__compiler__c_code__to_string_60 = {3, {"buf", "indentation", "self"}};
+static void cont__compiler__c_code__to_string_61(void);
 static NODE *string__ad7409db1592f0da;
-static void cont__sim2c__c_code__to_string_63(void);
-static void cont__sim2c__c_code__to_string_64(void);
-static void cont__sim2c__c_code__to_string_65(void);
-static void cont__sim2c__c_code__to_string_66(void);
-static NODE *func__sim2c__c_code__to_string_67;
-static void entry__sim2c__c_code__to_string_67(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_67 = {3, {"argument", "buf", "indentation"}};
+static void cont__compiler__c_code__to_string_63(void);
+static void cont__compiler__c_code__to_string_64(void);
+static void cont__compiler__c_code__to_string_65(void);
+static void cont__compiler__c_code__to_string_66(void);
+static NODE *func__compiler__c_code__to_string_67;
+static void entry__compiler__c_code__to_string_67(void);
+static FRAME_INFO frame__compiler__c_code__to_string_67 = {3, {"argument", "buf", "indentation"}};
 static NODE *string__3f7af391278ba7e1;
-static void cont__sim2c__c_code__to_string_69(void);
-static void cont__sim2c__c_code__to_string_70(void);
-static void cont__sim2c__c_code__to_string_71(void);
-static void cont__sim2c__c_code__to_string_72(void);
-static void cont__sim2c__c_code__to_string_73(void);
-static NODE *func__sim2c__c_code__to_string_74;
-static void entry__sim2c__c_code__to_string_74(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_74 = {3, {"buf", "self", "indentation"}};
-static void cont__sim2c__c_code__to_string_75(void);
-static void cont__sim2c__c_code__to_string_76(void);
-static NODE *func__sim2c__c_code__to_string_77;
-static void entry__sim2c__c_code__to_string_77(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_77 = {3, {"remark_line", "buf", "indentation"}};
+static void cont__compiler__c_code__to_string_69(void);
+static void cont__compiler__c_code__to_string_70(void);
+static void cont__compiler__c_code__to_string_71(void);
+static void cont__compiler__c_code__to_string_72(void);
+static void cont__compiler__c_code__to_string_73(void);
+static NODE *func__compiler__c_code__to_string_74;
+static void entry__compiler__c_code__to_string_74(void);
+static FRAME_INFO frame__compiler__c_code__to_string_74 = {3, {"buf", "self", "indentation"}};
+static void cont__compiler__c_code__to_string_75(void);
+static void cont__compiler__c_code__to_string_76(void);
+static NODE *func__compiler__c_code__to_string_77;
+static void entry__compiler__c_code__to_string_77(void);
+static FRAME_INFO frame__compiler__c_code__to_string_77 = {3, {"remark_line", "buf", "indentation"}};
 static NODE *string__2d7981f4e6702bea;
-static void cont__sim2c__c_code__to_string_79(void);
-static void cont__sim2c__c_code__to_string_80(void);
-static void cont__sim2c__c_code__to_string_81(void);
-static void cont__sim2c__c_code__to_string_82(void);
-static NODE *func__sim2c__c_code__to_string_83;
-static void entry__sim2c__c_code__to_string_83(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_83 = {3, {"buf", "self", "indentation"}};
-static void cont__sim2c__c_code__to_string_84(void);
-static void cont__sim2c__c_code__to_string_85(void);
-static NODE *func__sim2c__c_code__to_string_86;
-static void entry__sim2c__c_code__to_string_86(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_86 = {1, {"buf"}};
-static void cont__sim2c__c_code__to_string_87(void);
-static void cont__sim2c__c_code__to_string_88(void);
-static void cont__sim2c__c_code__to_string_89(void);
-static NODE *func__sim2c__c_code__to_string_90;
-static void entry__sim2c__c_code__to_string_90(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_90 = {3, {"line", "buf", "indentation"}};
-static void cont__sim2c__c_code__to_string_91(void);
-static void cont__sim2c__c_code__to_string_92(void);
-static void cont__sim2c__c_code__to_string_93(void);
-static void cont__sim2c__c_code__to_string_94(void);
-static void cont__sim2c__c_code__to_string_95(void);
-static NODE *func__sim2c__c_code__to_string_96;
-static void entry__sim2c__c_code__to_string_96(void);
-static FRAME_INFO frame__sim2c__c_code__to_string_96 = {0, {}};
+static void cont__compiler__c_code__to_string_79(void);
+static void cont__compiler__c_code__to_string_80(void);
+static void cont__compiler__c_code__to_string_81(void);
+static void cont__compiler__c_code__to_string_82(void);
+static NODE *func__compiler__c_code__to_string_83;
+static void entry__compiler__c_code__to_string_83(void);
+static FRAME_INFO frame__compiler__c_code__to_string_83 = {3, {"buf", "self", "indentation"}};
+static void cont__compiler__c_code__to_string_84(void);
+static void cont__compiler__c_code__to_string_85(void);
+static NODE *func__compiler__c_code__to_string_86;
+static void entry__compiler__c_code__to_string_86(void);
+static FRAME_INFO frame__compiler__c_code__to_string_86 = {1, {"buf"}};
+static void cont__compiler__c_code__to_string_87(void);
+static void cont__compiler__c_code__to_string_88(void);
+static void cont__compiler__c_code__to_string_89(void);
+static NODE *func__compiler__c_code__to_string_90;
+static void entry__compiler__c_code__to_string_90(void);
+static FRAME_INFO frame__compiler__c_code__to_string_90 = {3, {"line", "buf", "indentation"}};
+static void cont__compiler__c_code__to_string_91(void);
+static void cont__compiler__c_code__to_string_92(void);
+static void cont__compiler__c_code__to_string_93(void);
+static void cont__compiler__c_code__to_string_94(void);
+static void cont__compiler__c_code__to_string_95(void);
+static NODE *func__compiler__c_code__to_string_96;
+static void entry__compiler__c_code__to_string_96(void);
+static FRAME_INFO frame__compiler__c_code__to_string_96 = {0, {}};
 static NODE *string__d65af883e8b9a02a;
 static void cont__93_1(void);
 static void cont__94_1(void);
@@ -3642,53 +3642,53 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__indentation_string_1, NULL, 160, 162, 3, 19},
   {cont__indentation_string_8, &frame__indentation_string_1, 163, 163, 22, 40},
   {cont__indentation_string_9, &frame__indentation_string_1, 163, 163, 3, 40},
-  {entry__sim2c__print_trees_2, NULL, 171, 171, 35, 45},
-  {cont__sim2c__print_trees_3, &frame__sim2c__print_trees_2, 171, 171, 15, 45},
-  {cont__sim2c__print_trees_4, &frame__sim2c__print_trees_2, 171, 171, 8, 47},
-  {cont__sim2c__print_trees_5, &frame__sim2c__print_trees_2, 171, 171, 5, 47},
-  {entry__sim2c__print_trees_10, NULL, 188, 188, 22, 28},
-  {cont__sim2c__print_trees_11, &frame__sim2c__print_trees_10, 188, 188, 22, 47},
-  {cont__sim2c__print_trees_12, &frame__sim2c__print_trees_10, 188, 188, 11, 48},
-  {cont__sim2c__print_trees_13, &frame__sim2c__print_trees_10, 189, 189, 31, 31},
-  {cont__sim2c__print_trees_14, &frame__sim2c__print_trees_10, 189, 189, 11, 32},
-  {cont__sim2c__print_trees_15, &frame__sim2c__print_trees_10, 190, 190, 29, 54},
-  {cont__sim2c__print_trees_16, &frame__sim2c__print_trees_10, 190, 190, 22, 60},
-  {cont__sim2c__print_trees_17, &frame__sim2c__print_trees_10, 190, 190, 11, 60},
-  {cont__sim2c__print_trees_18, &frame__sim2c__print_trees_10, 190, 190, 60, 60},
-  {entry__sim2c__print_trees_19, NULL, 192, 192, 11, 23},
-  {cont__sim2c__print_trees_20, &frame__sim2c__print_trees_19, 192, 192, 23, 23},
-  {entry__sim2c__print_trees_7, NULL, 187, 187, 9, 23},
-  {cont__sim2c__print_trees_8, &frame__sim2c__print_trees_7, 187, 187, 9, 27},
-  {cont__sim2c__print_trees_9, &frame__sim2c__print_trees_7, 186, 192, 7, 24},
-  {entry__sim2c__print_trees_25, NULL, 180, 180, 36, 74},
-  {cont__sim2c__print_trees_26, &frame__sim2c__print_trees_25, 180, 180, 36, 74},
-  {cont__sim2c__print_trees_27, &frame__sim2c__print_trees_25, 180, 180, 36, 74},
-  {entry__sim2c__print_trees_23, NULL, 180, 180, 9, 31},
-  {cont__sim2c__print_trees_24, &frame__sim2c__print_trees_23, 180, 180, 9, 74},
-  {cont__sim2c__print_trees_28, &frame__sim2c__print_trees_23, 180, 180, 9, 74},
-  {entry__sim2c__print_trees_30, NULL, 182, 182, 9, 15},
-  {entry__sim2c__print_trees_36, NULL, 197, 197, 28, 30},
-  {cont__sim2c__print_trees_37, &frame__sim2c__print_trees_36, 197, 197, 18, 33},
-  {cont__sim2c__print_trees_38, &frame__sim2c__print_trees_36, 197, 197, 9, 33},
-  {cont__sim2c__print_trees_39, &frame__sim2c__print_trees_36, 198, 198, 9, 14},
-  {cont__sim2c__print_trees_40, &frame__sim2c__print_trees_36, 198, 198, 14, 14},
-  {entry__sim2c__print_trees_33, NULL, 196, 196, 10, 15},
-  {cont__sim2c__print_trees_34, &frame__sim2c__print_trees_33, 196, 196, 10, 25},
-  {cont__sim2c__print_trees_35, &frame__sim2c__print_trees_33, 196, 198, 7, 14},
-  {entry__sim2c__print_trees_46, NULL, 203, 203, 28, 39},
-  {entry__sim2c__print_trees_6, NULL, 176, 176, 5, 23},
-  {cont__sim2c__print_trees_21, &frame__sim2c__print_trees_6, 179, 179, 9, 15},
-  {cont__sim2c__print_trees_22, &frame__sim2c__print_trees_6, 178, 180, 7, 73},
-  {cont__sim2c__print_trees_29, &frame__sim2c__print_trees_6, 177, 182, 5, 16},
-  {cont__sim2c__print_trees_31, &frame__sim2c__print_trees_6, 194, 194, 5, 22},
-  {cont__sim2c__print_trees_32, &frame__sim2c__print_trees_6, 195, 198, 5, 15},
-  {cont__sim2c__print_trees_41, &frame__sim2c__print_trees_6, 201, 201, 9, 17},
-  {cont__sim2c__print_trees_42, &frame__sim2c__print_trees_6, 202, 202, 9, 22},
-  {cont__sim2c__print_trees_43, &frame__sim2c__print_trees_6, 200, 202, 7, 21},
-  {cont__sim2c__print_trees_44, &frame__sim2c__print_trees_6, 199, 202, 5, 23},
-  {cont__sim2c__print_trees_45, &frame__sim2c__print_trees_6, 203, 203, 5, 39},
-  {entry__sim2c__print_trees_1, NULL, 173, 203, 3, 39},
-  {cont__sim2c__print_trees_47, &frame__sim2c__print_trees_1, 203, 203, 39, 39},
+  {entry__compiler__print_trees_2, NULL, 171, 171, 35, 45},
+  {cont__compiler__print_trees_3, &frame__compiler__print_trees_2, 171, 171, 15, 45},
+  {cont__compiler__print_trees_4, &frame__compiler__print_trees_2, 171, 171, 8, 47},
+  {cont__compiler__print_trees_5, &frame__compiler__print_trees_2, 171, 171, 5, 47},
+  {entry__compiler__print_trees_10, NULL, 188, 188, 22, 28},
+  {cont__compiler__print_trees_11, &frame__compiler__print_trees_10, 188, 188, 22, 47},
+  {cont__compiler__print_trees_12, &frame__compiler__print_trees_10, 188, 188, 11, 48},
+  {cont__compiler__print_trees_13, &frame__compiler__print_trees_10, 189, 189, 31, 31},
+  {cont__compiler__print_trees_14, &frame__compiler__print_trees_10, 189, 189, 11, 32},
+  {cont__compiler__print_trees_15, &frame__compiler__print_trees_10, 190, 190, 29, 54},
+  {cont__compiler__print_trees_16, &frame__compiler__print_trees_10, 190, 190, 22, 60},
+  {cont__compiler__print_trees_17, &frame__compiler__print_trees_10, 190, 190, 11, 60},
+  {cont__compiler__print_trees_18, &frame__compiler__print_trees_10, 190, 190, 60, 60},
+  {entry__compiler__print_trees_19, NULL, 192, 192, 11, 23},
+  {cont__compiler__print_trees_20, &frame__compiler__print_trees_19, 192, 192, 23, 23},
+  {entry__compiler__print_trees_7, NULL, 187, 187, 9, 23},
+  {cont__compiler__print_trees_8, &frame__compiler__print_trees_7, 187, 187, 9, 27},
+  {cont__compiler__print_trees_9, &frame__compiler__print_trees_7, 186, 192, 7, 24},
+  {entry__compiler__print_trees_25, NULL, 180, 180, 36, 74},
+  {cont__compiler__print_trees_26, &frame__compiler__print_trees_25, 180, 180, 36, 74},
+  {cont__compiler__print_trees_27, &frame__compiler__print_trees_25, 180, 180, 36, 74},
+  {entry__compiler__print_trees_23, NULL, 180, 180, 9, 31},
+  {cont__compiler__print_trees_24, &frame__compiler__print_trees_23, 180, 180, 9, 74},
+  {cont__compiler__print_trees_28, &frame__compiler__print_trees_23, 180, 180, 9, 74},
+  {entry__compiler__print_trees_30, NULL, 182, 182, 9, 15},
+  {entry__compiler__print_trees_36, NULL, 197, 197, 28, 30},
+  {cont__compiler__print_trees_37, &frame__compiler__print_trees_36, 197, 197, 18, 33},
+  {cont__compiler__print_trees_38, &frame__compiler__print_trees_36, 197, 197, 9, 33},
+  {cont__compiler__print_trees_39, &frame__compiler__print_trees_36, 198, 198, 9, 14},
+  {cont__compiler__print_trees_40, &frame__compiler__print_trees_36, 198, 198, 14, 14},
+  {entry__compiler__print_trees_33, NULL, 196, 196, 10, 15},
+  {cont__compiler__print_trees_34, &frame__compiler__print_trees_33, 196, 196, 10, 25},
+  {cont__compiler__print_trees_35, &frame__compiler__print_trees_33, 196, 198, 7, 14},
+  {entry__compiler__print_trees_46, NULL, 203, 203, 28, 39},
+  {entry__compiler__print_trees_6, NULL, 176, 176, 5, 23},
+  {cont__compiler__print_trees_21, &frame__compiler__print_trees_6, 179, 179, 9, 15},
+  {cont__compiler__print_trees_22, &frame__compiler__print_trees_6, 178, 180, 7, 73},
+  {cont__compiler__print_trees_29, &frame__compiler__print_trees_6, 177, 182, 5, 16},
+  {cont__compiler__print_trees_31, &frame__compiler__print_trees_6, 194, 194, 5, 22},
+  {cont__compiler__print_trees_32, &frame__compiler__print_trees_6, 195, 198, 5, 15},
+  {cont__compiler__print_trees_41, &frame__compiler__print_trees_6, 201, 201, 9, 17},
+  {cont__compiler__print_trees_42, &frame__compiler__print_trees_6, 202, 202, 9, 22},
+  {cont__compiler__print_trees_43, &frame__compiler__print_trees_6, 200, 202, 7, 21},
+  {cont__compiler__print_trees_44, &frame__compiler__print_trees_6, 199, 202, 5, 23},
+  {cont__compiler__print_trees_45, &frame__compiler__print_trees_6, 203, 203, 5, 39},
+  {entry__compiler__print_trees_1, NULL, 173, 203, 3, 39},
+  {cont__compiler__print_trees_47, &frame__compiler__print_trees_1, 203, 203, 39, 39},
   {entry__line_start_remark_to_string_9, NULL, 210, 210, 5, 48},
   {cont__line_start_remark_to_string_10, &frame__line_start_remark_to_string_9, 210, 210, 48, 48},
   {entry__line_start_remark_to_string_1, NULL, 207, 207, 23, 30},
@@ -3775,238 +3775,238 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__add_indented_remark_4, &frame__add_indented_remark_2, 278, 278, 23, 23},
   {entry__add_indented_remark_1, NULL, 276, 278, 3, 23},
   {entry__types__grammar_node__to_string_1, NULL, 283, 283, 41, 50},
-  {entry__sim2c__require_instruction__to_string_1, NULL, 290, 290, 44, 66},
-  {cont__sim2c__require_instruction__to_string_2, &frame__sim2c__require_instruction__to_string_1, 290, 290, 32, 69},
-  {cont__sim2c__require_instruction__to_string_5, &frame__sim2c__require_instruction__to_string_1, 290, 290, 6, 70},
-  {cont__sim2c__require_instruction__to_string_6, &frame__sim2c__require_instruction__to_string_1, 290, 290, 3, 70},
-  {entry__sim2c__namespace_instruction__to_string_4, NULL, 299, 299, 26, 49},
-  {cont__sim2c__namespace_instruction__to_string_5, &frame__sim2c__namespace_instruction__to_string_4, 299, 299, 56, 73},
-  {cont__sim2c__namespace_instruction__to_string_6, &frame__sim2c__namespace_instruction__to_string_4, 299, 299, 12, 76},
-  {cont__sim2c__namespace_instruction__to_string_9, &frame__sim2c__namespace_instruction__to_string_4, 299, 299, 9, 76},
-  {entry__sim2c__namespace_instruction__to_string_10, NULL, 300, 300, 26, 43},
-  {cont__sim2c__namespace_instruction__to_string_11, &frame__sim2c__namespace_instruction__to_string_10, 300, 300, 12, 46},
-  {cont__sim2c__namespace_instruction__to_string_12, &frame__sim2c__namespace_instruction__to_string_10, 300, 300, 9, 46},
-  {entry__sim2c__namespace_instruction__to_string_1, NULL, 298, 298, 9, 32},
-  {cont__sim2c__namespace_instruction__to_string_2, &frame__sim2c__namespace_instruction__to_string_1, 298, 298, 9, 43},
-  {cont__sim2c__namespace_instruction__to_string_3, &frame__sim2c__namespace_instruction__to_string_1, 297, 300, 7, 45},
-  {cont__sim2c__namespace_instruction__to_string_13, &frame__sim2c__namespace_instruction__to_string_1, 295, 300, 5, 46},
-  {cont__sim2c__namespace_instruction__to_string_14, &frame__sim2c__namespace_instruction__to_string_1, 294, 300, 3, 48},
-  {entry__sim2c__using_instruction__to_string_1, NULL, 304, 304, 42, 59},
-  {cont__sim2c__using_instruction__to_string_2, &frame__sim2c__using_instruction__to_string_1, 304, 304, 32, 62},
-  {cont__sim2c__using_instruction__to_string_4, &frame__sim2c__using_instruction__to_string_1, 304, 304, 6, 63},
-  {cont__sim2c__using_instruction__to_string_5, &frame__sim2c__using_instruction__to_string_1, 304, 304, 3, 63},
-  {entry__sim2c__include_instruction__to_string_1, NULL, 308, 308, 44, 66},
-  {cont__sim2c__include_instruction__to_string_2, &frame__sim2c__include_instruction__to_string_1, 308, 308, 32, 69},
-  {cont__sim2c__include_instruction__to_string_4, &frame__sim2c__include_instruction__to_string_1, 308, 308, 6, 70},
-  {cont__sim2c__include_instruction__to_string_5, &frame__sim2c__include_instruction__to_string_1, 308, 308, 3, 70},
-  {entry__sim2c__link_instruction__to_string_1, NULL, 312, 312, 41, 63},
-  {cont__sim2c__link_instruction__to_string_2, &frame__sim2c__link_instruction__to_string_1, 312, 312, 32, 66},
-  {cont__sim2c__link_instruction__to_string_4, &frame__sim2c__link_instruction__to_string_1, 312, 312, 6, 67},
-  {cont__sim2c__link_instruction__to_string_5, &frame__sim2c__link_instruction__to_string_1, 312, 312, 3, 67},
-  {entry__sim2c__data_instruction__to_string_1, NULL, 316, 316, 41, 63},
-  {cont__sim2c__data_instruction__to_string_2, &frame__sim2c__data_instruction__to_string_1, 316, 316, 32, 66},
-  {cont__sim2c__data_instruction__to_string_4, &frame__sim2c__data_instruction__to_string_1, 316, 316, 6, 67},
-  {cont__sim2c__data_instruction__to_string_5, &frame__sim2c__data_instruction__to_string_1, 316, 316, 3, 67},
-  {entry__sim2c__remark_statement__to_string_6, NULL, 325, 325, 43, 52},
-  {entry__sim2c__remark_statement__to_string_3, NULL, 325, 325, 10, 24},
-  {cont__sim2c__remark_statement__to_string_4, &frame__sim2c__remark_statement__to_string_3, 325, 325, 10, 41},
-  {cont__sim2c__remark_statement__to_string_5, &frame__sim2c__remark_statement__to_string_3, 325, 325, 7, 52},
-  {entry__sim2c__remark_statement__to_string_16, NULL, 330, 330, 11, 25},
-  {cont__sim2c__remark_statement__to_string_17, &frame__sim2c__remark_statement__to_string_16, 330, 330, 11, 28},
-  {cont__sim2c__remark_statement__to_string_18, &frame__sim2c__remark_statement__to_string_16, 330, 330, 11, 35},
-  {cont__sim2c__remark_statement__to_string_19, &frame__sim2c__remark_statement__to_string_16, 330, 330, 11, 35},
-  {cont__sim2c__remark_statement__to_string_20, &frame__sim2c__remark_statement__to_string_16, 330, 330, 11, 35},
-  {entry__sim2c__remark_statement__to_string_11, NULL, 329, 329, 11, 25},
-  {cont__sim2c__remark_statement__to_string_12, &frame__sim2c__remark_statement__to_string_11, 329, 329, 11, 28},
-  {cont__sim2c__remark_statement__to_string_13, &frame__sim2c__remark_statement__to_string_11, 329, 329, 11, 35},
-  {cont__sim2c__remark_statement__to_string_14, &frame__sim2c__remark_statement__to_string_11, 329, 329, 11, 35},
-  {cont__sim2c__remark_statement__to_string_15, &frame__sim2c__remark_statement__to_string_11, 330, 330, 11, 35},
-  {cont__sim2c__remark_statement__to_string_21, &frame__sim2c__remark_statement__to_string_11, },
-  {entry__sim2c__remark_statement__to_string_23, NULL, 331, 331, 9, 25},
-  {entry__sim2c__remark_statement__to_string_7, NULL, 328, 328, 11, 25},
-  {cont__sim2c__remark_statement__to_string_8, &frame__sim2c__remark_statement__to_string_7, 328, 328, 11, 31},
-  {cont__sim2c__remark_statement__to_string_9, &frame__sim2c__remark_statement__to_string_7, 328, 328, 11, 31},
-  {cont__sim2c__remark_statement__to_string_10, &frame__sim2c__remark_statement__to_string_7, },
-  {cont__sim2c__remark_statement__to_string_22, &frame__sim2c__remark_statement__to_string_7, 326, 331, 7, 25},
-  {entry__sim2c__remark_statement__to_string_27, NULL, 332, 332, 39, 47},
-  {entry__sim2c__remark_statement__to_string_24, NULL, 332, 332, 10, 32},
-  {cont__sim2c__remark_statement__to_string_25, &frame__sim2c__remark_statement__to_string_24, 332, 332, 10, 37},
-  {cont__sim2c__remark_statement__to_string_26, &frame__sim2c__remark_statement__to_string_24, 332, 332, 7, 47},
-  {entry__sim2c__remark_statement__to_string_29, NULL, 333, 333, 15, 23},
-  {entry__sim2c__remark_statement__to_string_28, NULL, 333, 333, 7, 23},
-  {entry__sim2c__remark_statement__to_string_42, NULL, 339, 339, 36, 49},
-  {cont__sim2c__remark_statement__to_string_43, &frame__sim2c__remark_statement__to_string_42, 339, 339, 22, 54},
-  {cont__sim2c__remark_statement__to_string_44, &frame__sim2c__remark_statement__to_string_42, 339, 339, 54, 54},
-  {entry__sim2c__remark_statement__to_string_38, NULL, 338, 338, 7, 22},
-  {cont__sim2c__remark_statement__to_string_39, &frame__sim2c__remark_statement__to_string_38, 339, 339, 10, 19},
-  {cont__sim2c__remark_statement__to_string_40, &frame__sim2c__remark_statement__to_string_38, 339, 339, 10, 19},
-  {cont__sim2c__remark_statement__to_string_41, &frame__sim2c__remark_statement__to_string_38, 339, 339, 7, 54},
-  {entry__sim2c__remark_statement__to_string_35, NULL, 336, 336, 5, 31},
-  {cont__sim2c__remark_statement__to_string_36, &frame__sim2c__remark_statement__to_string_35, 337, 337, 38, 38},
-  {cont__sim2c__remark_statement__to_string_37, &frame__sim2c__remark_statement__to_string_35, 337, 339, 5, 54},
-  {entry__sim2c__remark_statement__to_string_1, NULL, 322, 322, 3, 37},
-  {cont__sim2c__remark_statement__to_string_2, &frame__sim2c__remark_statement__to_string_1, 323, 333, 3, 24},
-  {cont__sim2c__remark_statement__to_string_30, &frame__sim2c__remark_statement__to_string_1, 334, 334, 20, 34},
-  {cont__sim2c__remark_statement__to_string_31, &frame__sim2c__remark_statement__to_string_1, 334, 334, 3, 35},
-  {cont__sim2c__remark_statement__to_string_32, &frame__sim2c__remark_statement__to_string_1, 335, 335, 6, 28},
-  {cont__sim2c__remark_statement__to_string_33, &frame__sim2c__remark_statement__to_string_1, 335, 335, 6, 32},
-  {cont__sim2c__remark_statement__to_string_34, &frame__sim2c__remark_statement__to_string_1, 335, 339, 3, 55},
-  {cont__sim2c__remark_statement__to_string_45, &frame__sim2c__remark_statement__to_string_1, 340, 340, 3, 8},
-  {entry__sim2c__body__to_string_10, NULL, 355, 355, 7, 25},
-  {cont__sim2c__body__to_string_11, &frame__sim2c__body__to_string_10, 355, 355, 7, 28},
-  {cont__sim2c__body__to_string_12, &frame__sim2c__body__to_string_10, 355, 355, 7, 40},
-  {cont__sim2c__body__to_string_13, &frame__sim2c__body__to_string_10, 355, 355, 7, 40},
-  {entry__sim2c__body__to_string_6, NULL, 354, 354, 17, 35},
-  {cont__sim2c__body__to_string_7, &frame__sim2c__body__to_string_6, 354, 354, 7, 36},
-  {cont__sim2c__body__to_string_8, &frame__sim2c__body__to_string_6, 354, 354, 7, 41},
-  {cont__sim2c__body__to_string_9, &frame__sim2c__body__to_string_6, 355, 355, 7, 40},
-  {cont__sim2c__body__to_string_14, &frame__sim2c__body__to_string_6, },
-  {entry__sim2c__body__to_string_21, NULL, 359, 359, 43, 63},
-  {cont__sim2c__body__to_string_22, &frame__sim2c__body__to_string_21, 359, 359, 43, 63},
-  {entry__sim2c__body__to_string_24, NULL, 360, 360, 26, 39},
-  {cont__sim2c__body__to_string_25, &frame__sim2c__body__to_string_24, 360, 360, 12, 44},
-  {cont__sim2c__body__to_string_26, &frame__sim2c__body__to_string_24, 360, 360, 9, 44},
-  {entry__sim2c__body__to_string_27, NULL, 361, 361, 9, 14},
-  {entry__sim2c__body__to_string_16, NULL, 357, 357, 12, 30},
-  {cont__sim2c__body__to_string_17, &frame__sim2c__body__to_string_16, 357, 357, 12, 33},
-  {cont__sim2c__body__to_string_18, &frame__sim2c__body__to_string_16, 357, 357, 7, 43},
-  {cont__sim2c__body__to_string_19, &frame__sim2c__body__to_string_16, 359, 359, 9, 38},
-  {cont__sim2c__body__to_string_20, &frame__sim2c__body__to_string_16, 359, 359, 9, 63},
-  {cont__sim2c__body__to_string_23, &frame__sim2c__body__to_string_16, 358, 361, 7, 14},
-  {entry__sim2c__body__to_string_31, NULL, 368, 368, 20, 20},
-  {entry__sim2c__body__to_string_32, NULL, 370, 370, 32, 45},
-  {cont__sim2c__body__to_string_33, &frame__sim2c__body__to_string_32, 370, 370, 13, 50},
-  {cont__sim2c__body__to_string_34, &frame__sim2c__body__to_string_32, 371, 371, 13, 26},
-  {cont__sim2c__body__to_string_35, &frame__sim2c__body__to_string_32, 371, 371, 26, 26},
-  {entry__sim2c__body__to_string_29, NULL, 367, 367, 11, 39},
-  {cont__sim2c__body__to_string_30, &frame__sim2c__body__to_string_29, 366, 371, 9, 27},
-  {entry__sim2c__body__to_string_38, NULL, 377, 377, 36, 54},
-  {cont__sim2c__body__to_string_39, &frame__sim2c__body__to_string_38, 377, 377, 13, 54},
-  {cont__sim2c__body__to_string_40, &frame__sim2c__body__to_string_38, 377, 377, 54, 54},
-  {entry__sim2c__body__to_string_41, NULL, 379, 379, 13, 36},
-  {cont__sim2c__body__to_string_42, &frame__sim2c__body__to_string_41, 379, 379, 36, 36},
-  {entry__sim2c__body__to_string_46, NULL, 382, 382, 11, 60},
-  {cont__sim2c__body__to_string_47, &frame__sim2c__body__to_string_46, 382, 382, 60, 60},
-  {entry__sim2c__body__to_string_52, NULL, 386, 386, 31, 31},
-  {entry__sim2c__body__to_string_57, NULL, 390, 390, 36, 49},
-  {cont__sim2c__body__to_string_58, &frame__sim2c__body__to_string_57, 390, 390, 17, 65},
-  {cont__sim2c__body__to_string_59, &frame__sim2c__body__to_string_57, 391, 391, 17, 30},
-  {cont__sim2c__body__to_string_60, &frame__sim2c__body__to_string_57, 391, 391, 30, 30},
-  {entry__sim2c__body__to_string_61, NULL, 393, 393, 17, 41},
-  {entry__sim2c__body__to_string_53, NULL, 389, 389, 15, 42},
-  {cont__sim2c__body__to_string_54, &frame__sim2c__body__to_string_53, 389, 389, 15, 56},
-  {cont__sim2c__body__to_string_55, &frame__sim2c__body__to_string_53, 389, 389, 15, 56},
-  {cont__sim2c__body__to_string_56, &frame__sim2c__body__to_string_53, 388, 393, 13, 42},
-  {entry__sim2c__body__to_string_36, NULL, 375, 379, 9, 37},
-  {cont__sim2c__body__to_string_43, &frame__sim2c__body__to_string_36, 380, 380, 9, 32},
-  {cont__sim2c__body__to_string_44, &frame__sim2c__body__to_string_36, 381, 381, 16, 36},
-  {cont__sim2c__body__to_string_45, &frame__sim2c__body__to_string_36, 381, 382, 9, 60},
-  {cont__sim2c__body__to_string_48, &frame__sim2c__body__to_string_36, 383, 383, 9, 56},
-  {cont__sim2c__body__to_string_49, &frame__sim2c__body__to_string_36, 385, 385, 11, 60},
-  {cont__sim2c__body__to_string_50, &frame__sim2c__body__to_string_36, 385, 385, 11, 60},
-  {cont__sim2c__body__to_string_51, &frame__sim2c__body__to_string_36, 384, 393, 9, 44},
-  {entry__sim2c__body__to_string_67, NULL, 398, 398, 39, 72},
-  {cont__sim2c__body__to_string_68, &frame__sim2c__body__to_string_67, 398, 398, 72, 72},
-  {entry__sim2c__body__to_string_78, NULL, 405, 405, 15, 35},
-  {cont__sim2c__body__to_string_79, &frame__sim2c__body__to_string_78, 405, 405, 35, 35},
-  {entry__sim2c__body__to_string_80, NULL, 407, 407, 15, 66},
-  {cont__sim2c__body__to_string_81, &frame__sim2c__body__to_string_80, 407, 407, 66, 66},
-  {entry__sim2c__body__to_string_74, NULL, 402, 402, 11, 30},
-  {cont__sim2c__body__to_string_75, &frame__sim2c__body__to_string_74, 404, 404, 13, 24},
-  {cont__sim2c__body__to_string_76, &frame__sim2c__body__to_string_74, 404, 404, 13, 34},
-  {cont__sim2c__body__to_string_77, &frame__sim2c__body__to_string_74, 403, 407, 11, 67},
-  {entry__sim2c__body__to_string_62, NULL, 396, 396, 9, 37},
-  {cont__sim2c__body__to_string_63, &frame__sim2c__body__to_string_62, 397, 397, 39, 46},
-  {cont__sim2c__body__to_string_64, &frame__sim2c__body__to_string_62, 397, 397, 9, 47},
-  {cont__sim2c__body__to_string_65, &frame__sim2c__body__to_string_62, 398, 398, 16, 36},
-  {cont__sim2c__body__to_string_66, &frame__sim2c__body__to_string_62, 398, 398, 9, 72},
-  {cont__sim2c__body__to_string_69, &frame__sim2c__body__to_string_62, 399, 399, 9, 24},
-  {cont__sim2c__body__to_string_70, &frame__sim2c__body__to_string_62, 400, 400, 23, 36},
-  {cont__sim2c__body__to_string_71, &frame__sim2c__body__to_string_62, 400, 400, 9, 40},
-  {cont__sim2c__body__to_string_73, &frame__sim2c__body__to_string_62, 401, 407, 9, 68},
-  {cont__sim2c__body__to_string_82, &frame__sim2c__body__to_string_62, 408, 408, 30, 43},
-  {cont__sim2c__body__to_string_83, &frame__sim2c__body__to_string_62, 408, 408, 9, 47},
-  {cont__sim2c__body__to_string_84, &frame__sim2c__body__to_string_62, 408, 408, 47, 47},
-  {entry__sim2c__body__to_string_90, NULL, 413, 413, 41, 79},
-  {cont__sim2c__body__to_string_91, &frame__sim2c__body__to_string_90, 413, 413, 79, 79},
-  {entry__sim2c__body__to_string_87, NULL, 412, 412, 11, 39},
-  {cont__sim2c__body__to_string_88, &frame__sim2c__body__to_string_87, 413, 413, 18, 38},
-  {cont__sim2c__body__to_string_89, &frame__sim2c__body__to_string_87, 413, 413, 11, 79},
-  {entry__sim2c__body__to_string_100, NULL, 425, 425, 27, 53},
-  {cont__sim2c__body__to_string_101, &frame__sim2c__body__to_string_100, 425, 425, 27, 64},
-  {cont__sim2c__body__to_string_102, &frame__sim2c__body__to_string_100, 425, 425, 27, 64},
-  {entry__sim2c__body__to_string_96, NULL, 424, 424, 27, 54},
-  {cont__sim2c__body__to_string_97, &frame__sim2c__body__to_string_96, 424, 424, 27, 70},
-  {cont__sim2c__body__to_string_98, &frame__sim2c__body__to_string_96, 424, 424, 27, 70},
-  {cont__sim2c__body__to_string_99, &frame__sim2c__body__to_string_96, 423, 425, 25, 63},
-  {cont__sim2c__body__to_string_103, &frame__sim2c__body__to_string_96, 422, 425, 23, 65},
-  {entry__sim2c__body__to_string_95, NULL, 420, 425, 19, 66},
-  {cont__sim2c__body__to_string_104, &frame__sim2c__body__to_string_95, 419, 425, 17, 67},
-  {cont__sim2c__body__to_string_105, &frame__sim2c__body__to_string_95, 419, 425, 17, 67},
-  {entry__sim2c__body__to_string_108, NULL, 428, 428, 22, 47},
-  {cont__sim2c__body__to_string_109, &frame__sim2c__body__to_string_108, 428, 428, 22, 56},
-  {cont__sim2c__body__to_string_110, &frame__sim2c__body__to_string_108, 428, 428, 19, 56},
-  {entry__sim2c__body__to_string_107, NULL, 426, 428, 15, 56},
-  {cont__sim2c__body__to_string_111, &frame__sim2c__body__to_string_107, 426, 428, 15, 56},
-  {entry__sim2c__body__to_string_113, NULL, 432, 432, 15, 38},
-  {entry__sim2c__body__to_string_114, NULL, 434, 434, 15, 39},
-  {entry__sim2c__body__to_string_92, NULL, 418, 418, 17, 37},
-  {cont__sim2c__body__to_string_93, &frame__sim2c__body__to_string_92, 418, 418, 17, 42},
-  {cont__sim2c__body__to_string_94, &frame__sim2c__body__to_string_92, 417, 425, 15, 68},
-  {cont__sim2c__body__to_string_106, &frame__sim2c__body__to_string_92, 415, 428, 11, 59},
-  {cont__sim2c__body__to_string_112, &frame__sim2c__body__to_string_92, 430, 434, 11, 40},
-  {entry__sim2c__body__to_string_118, NULL, 441, 442, 13, 17},
-  {cont__sim2c__body__to_string_120, &frame__sim2c__body__to_string_118, 442, 442, 18, 18},
-  {entry__sim2c__body__to_string_130, NULL, 457, 457, 21, 59},
-  {cont__sim2c__body__to_string_131, &frame__sim2c__body__to_string_130, 457, 457, 21, 59},
-  {cont__sim2c__body__to_string_132, &frame__sim2c__body__to_string_130, 457, 457, 21, 59},
-  {entry__sim2c__body__to_string_128, NULL, 456, 456, 21, 43},
-  {cont__sim2c__body__to_string_129, &frame__sim2c__body__to_string_128, 455, 457, 19, 58},
-  {cont__sim2c__body__to_string_133, &frame__sim2c__body__to_string_128, 455, 457, 19, 58},
-  {entry__sim2c__body__to_string_135, NULL, 459, 459, 19, 33},
-  {cont__sim2c__body__to_string_136, &frame__sim2c__body__to_string_135, 459, 459, 33, 33},
-  {entry__sim2c__body__to_string_143, NULL, 466, 466, 21, 34},
-  {cont__sim2c__body__to_string_144, &frame__sim2c__body__to_string_143, 466, 466, 21, 36},
-  {cont__sim2c__body__to_string_145, &frame__sim2c__body__to_string_143, 466, 466, 38, 51},
-  {cont__sim2c__body__to_string_146, &frame__sim2c__body__to_string_143, 466, 466, 21, 51},
-  {cont__sim2c__body__to_string_147, &frame__sim2c__body__to_string_143, 465, 467, 19, 50},
-  {cont__sim2c__body__to_string_148, &frame__sim2c__body__to_string_143, 465, 467, 19, 50},
-  {entry__sim2c__body__to_string_141, NULL, 464, 464, 19, 39},
-  {cont__sim2c__body__to_string_142, &frame__sim2c__body__to_string_141, 465, 467, 19, 50},
-  {cont__sim2c__body__to_string_149, &frame__sim2c__body__to_string_141, },
-  {entry__sim2c__body__to_string_139, NULL, 463, 463, 19, 39},
-  {cont__sim2c__body__to_string_140, &frame__sim2c__body__to_string_139, },
-  {cont__sim2c__body__to_string_150, &frame__sim2c__body__to_string_139, },
-  {entry__sim2c__body__to_string_152, NULL, 469, 469, 19, 54},
-  {cont__sim2c__body__to_string_153, &frame__sim2c__body__to_string_152, 469, 469, 54, 54},
-  {entry__sim2c__body__to_string_154, NULL, 471, 471, 19, 39},
-  {cont__sim2c__body__to_string_155, &frame__sim2c__body__to_string_154, 471, 471, 39, 39},
-  {entry__sim2c__body__to_string_125, NULL, 451, 451, 15, 38},
-  {cont__sim2c__body__to_string_126, &frame__sim2c__body__to_string_125, 454, 454, 19, 25},
-  {cont__sim2c__body__to_string_127, &frame__sim2c__body__to_string_125, 453, 457, 17, 59},
-  {cont__sim2c__body__to_string_134, &frame__sim2c__body__to_string_125, 452, 459, 15, 34},
-  {cont__sim2c__body__to_string_137, &frame__sim2c__body__to_string_125, 462, 462, 19, 23},
-  {cont__sim2c__body__to_string_138, &frame__sim2c__body__to_string_125, },
-  {cont__sim2c__body__to_string_151, &frame__sim2c__body__to_string_125, 460, 471, 15, 40},
-  {entry__sim2c__body__to_string_121, NULL, 445, 445, 13, 43},
-  {cont__sim2c__body__to_string_122, &frame__sim2c__body__to_string_121, 446, 446, 13, 36},
-  {cont__sim2c__body__to_string_123, &frame__sim2c__body__to_string_121, 448, 448, 22, 40},
-  {cont__sim2c__body__to_string_124, &frame__sim2c__body__to_string_121, 448, 471, 13, 41},
-  {cont__sim2c__body__to_string_156, &frame__sim2c__body__to_string_121, 471, 471, 41, 41},
-  {entry__sim2c__body__to_string_116, NULL, 438, 438, 9, 35},
-  {cont__sim2c__body__to_string_117, &frame__sim2c__body__to_string_116, 439, 471, 9, 43},
-  {cont__sim2c__body__to_string_157, &frame__sim2c__body__to_string_116, 471, 471, 43, 43},
-  {entry__sim2c__body__to_string_28, NULL, 411, 411, 9, 29},
-  {cont__sim2c__body__to_string_85, &frame__sim2c__body__to_string_28, 411, 411, 9, 34},
-  {cont__sim2c__body__to_string_86, &frame__sim2c__body__to_string_28, 410, 434, 7, 42},
-  {cont__sim2c__body__to_string_115, &frame__sim2c__body__to_string_28, 436, 471, 7, 44},
-  {cont__sim2c__body__to_string_158, &frame__sim2c__body__to_string_28, 472, 472, 7, 12},
-  {entry__sim2c__body__to_string_1, NULL, 349, 349, 3, 37},
-  {cont__sim2c__body__to_string_2, &frame__sim2c__body__to_string_1, 350, 350, 3, 33},
-  {cont__sim2c__body__to_string_3, &frame__sim2c__body__to_string_1, 353, 353, 7, 27},
-  {cont__sim2c__body__to_string_4, &frame__sim2c__body__to_string_1, 353, 353, 7, 32},
-  {cont__sim2c__body__to_string_5, &frame__sim2c__body__to_string_1, },
-  {cont__sim2c__body__to_string_15, &frame__sim2c__body__to_string_1, 351, 472, 3, 13},
+  {entry__compiler__require_instruction__to_string_1, NULL, 290, 290, 44, 66},
+  {cont__compiler__require_instruction__to_string_2, &frame__compiler__require_instruction__to_string_1, 290, 290, 32, 69},
+  {cont__compiler__require_instruction__to_string_5, &frame__compiler__require_instruction__to_string_1, 290, 290, 6, 70},
+  {cont__compiler__require_instruction__to_string_6, &frame__compiler__require_instruction__to_string_1, 290, 290, 3, 70},
+  {entry__compiler__namespace_instruction__to_string_4, NULL, 299, 299, 26, 49},
+  {cont__compiler__namespace_instruction__to_string_5, &frame__compiler__namespace_instruction__to_string_4, 299, 299, 56, 73},
+  {cont__compiler__namespace_instruction__to_string_6, &frame__compiler__namespace_instruction__to_string_4, 299, 299, 12, 76},
+  {cont__compiler__namespace_instruction__to_string_9, &frame__compiler__namespace_instruction__to_string_4, 299, 299, 9, 76},
+  {entry__compiler__namespace_instruction__to_string_10, NULL, 300, 300, 26, 43},
+  {cont__compiler__namespace_instruction__to_string_11, &frame__compiler__namespace_instruction__to_string_10, 300, 300, 12, 46},
+  {cont__compiler__namespace_instruction__to_string_12, &frame__compiler__namespace_instruction__to_string_10, 300, 300, 9, 46},
+  {entry__compiler__namespace_instruction__to_string_1, NULL, 298, 298, 9, 32},
+  {cont__compiler__namespace_instruction__to_string_2, &frame__compiler__namespace_instruction__to_string_1, 298, 298, 9, 43},
+  {cont__compiler__namespace_instruction__to_string_3, &frame__compiler__namespace_instruction__to_string_1, 297, 300, 7, 45},
+  {cont__compiler__namespace_instruction__to_string_13, &frame__compiler__namespace_instruction__to_string_1, 295, 300, 5, 46},
+  {cont__compiler__namespace_instruction__to_string_14, &frame__compiler__namespace_instruction__to_string_1, 294, 300, 3, 48},
+  {entry__compiler__using_instruction__to_string_1, NULL, 304, 304, 42, 59},
+  {cont__compiler__using_instruction__to_string_2, &frame__compiler__using_instruction__to_string_1, 304, 304, 32, 62},
+  {cont__compiler__using_instruction__to_string_4, &frame__compiler__using_instruction__to_string_1, 304, 304, 6, 63},
+  {cont__compiler__using_instruction__to_string_5, &frame__compiler__using_instruction__to_string_1, 304, 304, 3, 63},
+  {entry__compiler__include_instruction__to_string_1, NULL, 308, 308, 44, 66},
+  {cont__compiler__include_instruction__to_string_2, &frame__compiler__include_instruction__to_string_1, 308, 308, 32, 69},
+  {cont__compiler__include_instruction__to_string_4, &frame__compiler__include_instruction__to_string_1, 308, 308, 6, 70},
+  {cont__compiler__include_instruction__to_string_5, &frame__compiler__include_instruction__to_string_1, 308, 308, 3, 70},
+  {entry__compiler__link_instruction__to_string_1, NULL, 312, 312, 41, 63},
+  {cont__compiler__link_instruction__to_string_2, &frame__compiler__link_instruction__to_string_1, 312, 312, 32, 66},
+  {cont__compiler__link_instruction__to_string_4, &frame__compiler__link_instruction__to_string_1, 312, 312, 6, 67},
+  {cont__compiler__link_instruction__to_string_5, &frame__compiler__link_instruction__to_string_1, 312, 312, 3, 67},
+  {entry__compiler__data_instruction__to_string_1, NULL, 316, 316, 41, 63},
+  {cont__compiler__data_instruction__to_string_2, &frame__compiler__data_instruction__to_string_1, 316, 316, 32, 66},
+  {cont__compiler__data_instruction__to_string_4, &frame__compiler__data_instruction__to_string_1, 316, 316, 6, 67},
+  {cont__compiler__data_instruction__to_string_5, &frame__compiler__data_instruction__to_string_1, 316, 316, 3, 67},
+  {entry__compiler__remark_statement__to_string_6, NULL, 325, 325, 43, 52},
+  {entry__compiler__remark_statement__to_string_3, NULL, 325, 325, 10, 24},
+  {cont__compiler__remark_statement__to_string_4, &frame__compiler__remark_statement__to_string_3, 325, 325, 10, 41},
+  {cont__compiler__remark_statement__to_string_5, &frame__compiler__remark_statement__to_string_3, 325, 325, 7, 52},
+  {entry__compiler__remark_statement__to_string_16, NULL, 330, 330, 11, 25},
+  {cont__compiler__remark_statement__to_string_17, &frame__compiler__remark_statement__to_string_16, 330, 330, 11, 28},
+  {cont__compiler__remark_statement__to_string_18, &frame__compiler__remark_statement__to_string_16, 330, 330, 11, 35},
+  {cont__compiler__remark_statement__to_string_19, &frame__compiler__remark_statement__to_string_16, 330, 330, 11, 35},
+  {cont__compiler__remark_statement__to_string_20, &frame__compiler__remark_statement__to_string_16, 330, 330, 11, 35},
+  {entry__compiler__remark_statement__to_string_11, NULL, 329, 329, 11, 25},
+  {cont__compiler__remark_statement__to_string_12, &frame__compiler__remark_statement__to_string_11, 329, 329, 11, 28},
+  {cont__compiler__remark_statement__to_string_13, &frame__compiler__remark_statement__to_string_11, 329, 329, 11, 35},
+  {cont__compiler__remark_statement__to_string_14, &frame__compiler__remark_statement__to_string_11, 329, 329, 11, 35},
+  {cont__compiler__remark_statement__to_string_15, &frame__compiler__remark_statement__to_string_11, 330, 330, 11, 35},
+  {cont__compiler__remark_statement__to_string_21, &frame__compiler__remark_statement__to_string_11, },
+  {entry__compiler__remark_statement__to_string_23, NULL, 331, 331, 9, 25},
+  {entry__compiler__remark_statement__to_string_7, NULL, 328, 328, 11, 25},
+  {cont__compiler__remark_statement__to_string_8, &frame__compiler__remark_statement__to_string_7, 328, 328, 11, 31},
+  {cont__compiler__remark_statement__to_string_9, &frame__compiler__remark_statement__to_string_7, 328, 328, 11, 31},
+  {cont__compiler__remark_statement__to_string_10, &frame__compiler__remark_statement__to_string_7, },
+  {cont__compiler__remark_statement__to_string_22, &frame__compiler__remark_statement__to_string_7, 326, 331, 7, 25},
+  {entry__compiler__remark_statement__to_string_27, NULL, 332, 332, 39, 47},
+  {entry__compiler__remark_statement__to_string_24, NULL, 332, 332, 10, 32},
+  {cont__compiler__remark_statement__to_string_25, &frame__compiler__remark_statement__to_string_24, 332, 332, 10, 37},
+  {cont__compiler__remark_statement__to_string_26, &frame__compiler__remark_statement__to_string_24, 332, 332, 7, 47},
+  {entry__compiler__remark_statement__to_string_29, NULL, 333, 333, 15, 23},
+  {entry__compiler__remark_statement__to_string_28, NULL, 333, 333, 7, 23},
+  {entry__compiler__remark_statement__to_string_42, NULL, 339, 339, 36, 49},
+  {cont__compiler__remark_statement__to_string_43, &frame__compiler__remark_statement__to_string_42, 339, 339, 22, 54},
+  {cont__compiler__remark_statement__to_string_44, &frame__compiler__remark_statement__to_string_42, 339, 339, 54, 54},
+  {entry__compiler__remark_statement__to_string_38, NULL, 338, 338, 7, 22},
+  {cont__compiler__remark_statement__to_string_39, &frame__compiler__remark_statement__to_string_38, 339, 339, 10, 19},
+  {cont__compiler__remark_statement__to_string_40, &frame__compiler__remark_statement__to_string_38, 339, 339, 10, 19},
+  {cont__compiler__remark_statement__to_string_41, &frame__compiler__remark_statement__to_string_38, 339, 339, 7, 54},
+  {entry__compiler__remark_statement__to_string_35, NULL, 336, 336, 5, 31},
+  {cont__compiler__remark_statement__to_string_36, &frame__compiler__remark_statement__to_string_35, 337, 337, 38, 38},
+  {cont__compiler__remark_statement__to_string_37, &frame__compiler__remark_statement__to_string_35, 337, 339, 5, 54},
+  {entry__compiler__remark_statement__to_string_1, NULL, 322, 322, 3, 37},
+  {cont__compiler__remark_statement__to_string_2, &frame__compiler__remark_statement__to_string_1, 323, 333, 3, 24},
+  {cont__compiler__remark_statement__to_string_30, &frame__compiler__remark_statement__to_string_1, 334, 334, 20, 34},
+  {cont__compiler__remark_statement__to_string_31, &frame__compiler__remark_statement__to_string_1, 334, 334, 3, 35},
+  {cont__compiler__remark_statement__to_string_32, &frame__compiler__remark_statement__to_string_1, 335, 335, 6, 28},
+  {cont__compiler__remark_statement__to_string_33, &frame__compiler__remark_statement__to_string_1, 335, 335, 6, 32},
+  {cont__compiler__remark_statement__to_string_34, &frame__compiler__remark_statement__to_string_1, 335, 339, 3, 55},
+  {cont__compiler__remark_statement__to_string_45, &frame__compiler__remark_statement__to_string_1, 340, 340, 3, 8},
+  {entry__compiler__body__to_string_10, NULL, 355, 355, 7, 25},
+  {cont__compiler__body__to_string_11, &frame__compiler__body__to_string_10, 355, 355, 7, 28},
+  {cont__compiler__body__to_string_12, &frame__compiler__body__to_string_10, 355, 355, 7, 40},
+  {cont__compiler__body__to_string_13, &frame__compiler__body__to_string_10, 355, 355, 7, 40},
+  {entry__compiler__body__to_string_6, NULL, 354, 354, 17, 35},
+  {cont__compiler__body__to_string_7, &frame__compiler__body__to_string_6, 354, 354, 7, 36},
+  {cont__compiler__body__to_string_8, &frame__compiler__body__to_string_6, 354, 354, 7, 41},
+  {cont__compiler__body__to_string_9, &frame__compiler__body__to_string_6, 355, 355, 7, 40},
+  {cont__compiler__body__to_string_14, &frame__compiler__body__to_string_6, },
+  {entry__compiler__body__to_string_21, NULL, 359, 359, 43, 63},
+  {cont__compiler__body__to_string_22, &frame__compiler__body__to_string_21, 359, 359, 43, 63},
+  {entry__compiler__body__to_string_24, NULL, 360, 360, 26, 39},
+  {cont__compiler__body__to_string_25, &frame__compiler__body__to_string_24, 360, 360, 12, 44},
+  {cont__compiler__body__to_string_26, &frame__compiler__body__to_string_24, 360, 360, 9, 44},
+  {entry__compiler__body__to_string_27, NULL, 361, 361, 9, 14},
+  {entry__compiler__body__to_string_16, NULL, 357, 357, 12, 30},
+  {cont__compiler__body__to_string_17, &frame__compiler__body__to_string_16, 357, 357, 12, 33},
+  {cont__compiler__body__to_string_18, &frame__compiler__body__to_string_16, 357, 357, 7, 43},
+  {cont__compiler__body__to_string_19, &frame__compiler__body__to_string_16, 359, 359, 9, 38},
+  {cont__compiler__body__to_string_20, &frame__compiler__body__to_string_16, 359, 359, 9, 63},
+  {cont__compiler__body__to_string_23, &frame__compiler__body__to_string_16, 358, 361, 7, 14},
+  {entry__compiler__body__to_string_31, NULL, 368, 368, 20, 20},
+  {entry__compiler__body__to_string_32, NULL, 370, 370, 32, 45},
+  {cont__compiler__body__to_string_33, &frame__compiler__body__to_string_32, 370, 370, 13, 50},
+  {cont__compiler__body__to_string_34, &frame__compiler__body__to_string_32, 371, 371, 13, 26},
+  {cont__compiler__body__to_string_35, &frame__compiler__body__to_string_32, 371, 371, 26, 26},
+  {entry__compiler__body__to_string_29, NULL, 367, 367, 11, 39},
+  {cont__compiler__body__to_string_30, &frame__compiler__body__to_string_29, 366, 371, 9, 27},
+  {entry__compiler__body__to_string_38, NULL, 377, 377, 36, 54},
+  {cont__compiler__body__to_string_39, &frame__compiler__body__to_string_38, 377, 377, 13, 54},
+  {cont__compiler__body__to_string_40, &frame__compiler__body__to_string_38, 377, 377, 54, 54},
+  {entry__compiler__body__to_string_41, NULL, 379, 379, 13, 36},
+  {cont__compiler__body__to_string_42, &frame__compiler__body__to_string_41, 379, 379, 36, 36},
+  {entry__compiler__body__to_string_46, NULL, 382, 382, 11, 60},
+  {cont__compiler__body__to_string_47, &frame__compiler__body__to_string_46, 382, 382, 60, 60},
+  {entry__compiler__body__to_string_52, NULL, 386, 386, 31, 31},
+  {entry__compiler__body__to_string_57, NULL, 390, 390, 36, 49},
+  {cont__compiler__body__to_string_58, &frame__compiler__body__to_string_57, 390, 390, 17, 65},
+  {cont__compiler__body__to_string_59, &frame__compiler__body__to_string_57, 391, 391, 17, 30},
+  {cont__compiler__body__to_string_60, &frame__compiler__body__to_string_57, 391, 391, 30, 30},
+  {entry__compiler__body__to_string_61, NULL, 393, 393, 17, 41},
+  {entry__compiler__body__to_string_53, NULL, 389, 389, 15, 42},
+  {cont__compiler__body__to_string_54, &frame__compiler__body__to_string_53, 389, 389, 15, 56},
+  {cont__compiler__body__to_string_55, &frame__compiler__body__to_string_53, 389, 389, 15, 56},
+  {cont__compiler__body__to_string_56, &frame__compiler__body__to_string_53, 388, 393, 13, 42},
+  {entry__compiler__body__to_string_36, NULL, 375, 379, 9, 37},
+  {cont__compiler__body__to_string_43, &frame__compiler__body__to_string_36, 380, 380, 9, 32},
+  {cont__compiler__body__to_string_44, &frame__compiler__body__to_string_36, 381, 381, 16, 36},
+  {cont__compiler__body__to_string_45, &frame__compiler__body__to_string_36, 381, 382, 9, 60},
+  {cont__compiler__body__to_string_48, &frame__compiler__body__to_string_36, 383, 383, 9, 56},
+  {cont__compiler__body__to_string_49, &frame__compiler__body__to_string_36, 385, 385, 11, 60},
+  {cont__compiler__body__to_string_50, &frame__compiler__body__to_string_36, 385, 385, 11, 60},
+  {cont__compiler__body__to_string_51, &frame__compiler__body__to_string_36, 384, 393, 9, 44},
+  {entry__compiler__body__to_string_67, NULL, 398, 398, 39, 72},
+  {cont__compiler__body__to_string_68, &frame__compiler__body__to_string_67, 398, 398, 72, 72},
+  {entry__compiler__body__to_string_78, NULL, 405, 405, 15, 35},
+  {cont__compiler__body__to_string_79, &frame__compiler__body__to_string_78, 405, 405, 35, 35},
+  {entry__compiler__body__to_string_80, NULL, 407, 407, 15, 66},
+  {cont__compiler__body__to_string_81, &frame__compiler__body__to_string_80, 407, 407, 66, 66},
+  {entry__compiler__body__to_string_74, NULL, 402, 402, 11, 30},
+  {cont__compiler__body__to_string_75, &frame__compiler__body__to_string_74, 404, 404, 13, 24},
+  {cont__compiler__body__to_string_76, &frame__compiler__body__to_string_74, 404, 404, 13, 34},
+  {cont__compiler__body__to_string_77, &frame__compiler__body__to_string_74, 403, 407, 11, 67},
+  {entry__compiler__body__to_string_62, NULL, 396, 396, 9, 37},
+  {cont__compiler__body__to_string_63, &frame__compiler__body__to_string_62, 397, 397, 39, 46},
+  {cont__compiler__body__to_string_64, &frame__compiler__body__to_string_62, 397, 397, 9, 47},
+  {cont__compiler__body__to_string_65, &frame__compiler__body__to_string_62, 398, 398, 16, 36},
+  {cont__compiler__body__to_string_66, &frame__compiler__body__to_string_62, 398, 398, 9, 72},
+  {cont__compiler__body__to_string_69, &frame__compiler__body__to_string_62, 399, 399, 9, 24},
+  {cont__compiler__body__to_string_70, &frame__compiler__body__to_string_62, 400, 400, 23, 36},
+  {cont__compiler__body__to_string_71, &frame__compiler__body__to_string_62, 400, 400, 9, 40},
+  {cont__compiler__body__to_string_73, &frame__compiler__body__to_string_62, 401, 407, 9, 68},
+  {cont__compiler__body__to_string_82, &frame__compiler__body__to_string_62, 408, 408, 30, 43},
+  {cont__compiler__body__to_string_83, &frame__compiler__body__to_string_62, 408, 408, 9, 47},
+  {cont__compiler__body__to_string_84, &frame__compiler__body__to_string_62, 408, 408, 47, 47},
+  {entry__compiler__body__to_string_90, NULL, 413, 413, 41, 79},
+  {cont__compiler__body__to_string_91, &frame__compiler__body__to_string_90, 413, 413, 79, 79},
+  {entry__compiler__body__to_string_87, NULL, 412, 412, 11, 39},
+  {cont__compiler__body__to_string_88, &frame__compiler__body__to_string_87, 413, 413, 18, 38},
+  {cont__compiler__body__to_string_89, &frame__compiler__body__to_string_87, 413, 413, 11, 79},
+  {entry__compiler__body__to_string_100, NULL, 425, 425, 27, 53},
+  {cont__compiler__body__to_string_101, &frame__compiler__body__to_string_100, 425, 425, 27, 64},
+  {cont__compiler__body__to_string_102, &frame__compiler__body__to_string_100, 425, 425, 27, 64},
+  {entry__compiler__body__to_string_96, NULL, 424, 424, 27, 54},
+  {cont__compiler__body__to_string_97, &frame__compiler__body__to_string_96, 424, 424, 27, 70},
+  {cont__compiler__body__to_string_98, &frame__compiler__body__to_string_96, 424, 424, 27, 70},
+  {cont__compiler__body__to_string_99, &frame__compiler__body__to_string_96, 423, 425, 25, 63},
+  {cont__compiler__body__to_string_103, &frame__compiler__body__to_string_96, 422, 425, 23, 65},
+  {entry__compiler__body__to_string_95, NULL, 420, 425, 19, 66},
+  {cont__compiler__body__to_string_104, &frame__compiler__body__to_string_95, 419, 425, 17, 67},
+  {cont__compiler__body__to_string_105, &frame__compiler__body__to_string_95, 419, 425, 17, 67},
+  {entry__compiler__body__to_string_108, NULL, 428, 428, 22, 47},
+  {cont__compiler__body__to_string_109, &frame__compiler__body__to_string_108, 428, 428, 22, 56},
+  {cont__compiler__body__to_string_110, &frame__compiler__body__to_string_108, 428, 428, 19, 56},
+  {entry__compiler__body__to_string_107, NULL, 426, 428, 15, 56},
+  {cont__compiler__body__to_string_111, &frame__compiler__body__to_string_107, 426, 428, 15, 56},
+  {entry__compiler__body__to_string_113, NULL, 432, 432, 15, 38},
+  {entry__compiler__body__to_string_114, NULL, 434, 434, 15, 39},
+  {entry__compiler__body__to_string_92, NULL, 418, 418, 17, 37},
+  {cont__compiler__body__to_string_93, &frame__compiler__body__to_string_92, 418, 418, 17, 42},
+  {cont__compiler__body__to_string_94, &frame__compiler__body__to_string_92, 417, 425, 15, 68},
+  {cont__compiler__body__to_string_106, &frame__compiler__body__to_string_92, 415, 428, 11, 59},
+  {cont__compiler__body__to_string_112, &frame__compiler__body__to_string_92, 430, 434, 11, 40},
+  {entry__compiler__body__to_string_118, NULL, 441, 442, 13, 17},
+  {cont__compiler__body__to_string_120, &frame__compiler__body__to_string_118, 442, 442, 18, 18},
+  {entry__compiler__body__to_string_130, NULL, 457, 457, 21, 59},
+  {cont__compiler__body__to_string_131, &frame__compiler__body__to_string_130, 457, 457, 21, 59},
+  {cont__compiler__body__to_string_132, &frame__compiler__body__to_string_130, 457, 457, 21, 59},
+  {entry__compiler__body__to_string_128, NULL, 456, 456, 21, 43},
+  {cont__compiler__body__to_string_129, &frame__compiler__body__to_string_128, 455, 457, 19, 58},
+  {cont__compiler__body__to_string_133, &frame__compiler__body__to_string_128, 455, 457, 19, 58},
+  {entry__compiler__body__to_string_135, NULL, 459, 459, 19, 33},
+  {cont__compiler__body__to_string_136, &frame__compiler__body__to_string_135, 459, 459, 33, 33},
+  {entry__compiler__body__to_string_143, NULL, 466, 466, 21, 34},
+  {cont__compiler__body__to_string_144, &frame__compiler__body__to_string_143, 466, 466, 21, 36},
+  {cont__compiler__body__to_string_145, &frame__compiler__body__to_string_143, 466, 466, 38, 51},
+  {cont__compiler__body__to_string_146, &frame__compiler__body__to_string_143, 466, 466, 21, 51},
+  {cont__compiler__body__to_string_147, &frame__compiler__body__to_string_143, 465, 467, 19, 50},
+  {cont__compiler__body__to_string_148, &frame__compiler__body__to_string_143, 465, 467, 19, 50},
+  {entry__compiler__body__to_string_141, NULL, 464, 464, 19, 39},
+  {cont__compiler__body__to_string_142, &frame__compiler__body__to_string_141, 465, 467, 19, 50},
+  {cont__compiler__body__to_string_149, &frame__compiler__body__to_string_141, },
+  {entry__compiler__body__to_string_139, NULL, 463, 463, 19, 39},
+  {cont__compiler__body__to_string_140, &frame__compiler__body__to_string_139, },
+  {cont__compiler__body__to_string_150, &frame__compiler__body__to_string_139, },
+  {entry__compiler__body__to_string_152, NULL, 469, 469, 19, 54},
+  {cont__compiler__body__to_string_153, &frame__compiler__body__to_string_152, 469, 469, 54, 54},
+  {entry__compiler__body__to_string_154, NULL, 471, 471, 19, 39},
+  {cont__compiler__body__to_string_155, &frame__compiler__body__to_string_154, 471, 471, 39, 39},
+  {entry__compiler__body__to_string_125, NULL, 451, 451, 15, 38},
+  {cont__compiler__body__to_string_126, &frame__compiler__body__to_string_125, 454, 454, 19, 25},
+  {cont__compiler__body__to_string_127, &frame__compiler__body__to_string_125, 453, 457, 17, 59},
+  {cont__compiler__body__to_string_134, &frame__compiler__body__to_string_125, 452, 459, 15, 34},
+  {cont__compiler__body__to_string_137, &frame__compiler__body__to_string_125, 462, 462, 19, 23},
+  {cont__compiler__body__to_string_138, &frame__compiler__body__to_string_125, },
+  {cont__compiler__body__to_string_151, &frame__compiler__body__to_string_125, 460, 471, 15, 40},
+  {entry__compiler__body__to_string_121, NULL, 445, 445, 13, 43},
+  {cont__compiler__body__to_string_122, &frame__compiler__body__to_string_121, 446, 446, 13, 36},
+  {cont__compiler__body__to_string_123, &frame__compiler__body__to_string_121, 448, 448, 22, 40},
+  {cont__compiler__body__to_string_124, &frame__compiler__body__to_string_121, 448, 471, 13, 41},
+  {cont__compiler__body__to_string_156, &frame__compiler__body__to_string_121, 471, 471, 41, 41},
+  {entry__compiler__body__to_string_116, NULL, 438, 438, 9, 35},
+  {cont__compiler__body__to_string_117, &frame__compiler__body__to_string_116, 439, 471, 9, 43},
+  {cont__compiler__body__to_string_157, &frame__compiler__body__to_string_116, 471, 471, 43, 43},
+  {entry__compiler__body__to_string_28, NULL, 411, 411, 9, 29},
+  {cont__compiler__body__to_string_85, &frame__compiler__body__to_string_28, 411, 411, 9, 34},
+  {cont__compiler__body__to_string_86, &frame__compiler__body__to_string_28, 410, 434, 7, 42},
+  {cont__compiler__body__to_string_115, &frame__compiler__body__to_string_28, 436, 471, 7, 44},
+  {cont__compiler__body__to_string_158, &frame__compiler__body__to_string_28, 472, 472, 7, 12},
+  {entry__compiler__body__to_string_1, NULL, 349, 349, 3, 37},
+  {cont__compiler__body__to_string_2, &frame__compiler__body__to_string_1, 350, 350, 3, 33},
+  {cont__compiler__body__to_string_3, &frame__compiler__body__to_string_1, 353, 353, 7, 27},
+  {cont__compiler__body__to_string_4, &frame__compiler__body__to_string_1, 353, 353, 7, 32},
+  {cont__compiler__body__to_string_5, &frame__compiler__body__to_string_1, },
+  {cont__compiler__body__to_string_15, &frame__compiler__body__to_string_1, 351, 472, 3, 13},
   {entry__all_arguments_of_4, NULL, 483, 483, 37, 59},
   {entry__all_arguments_of_18, NULL, 495, 495, 9, 48},
   {cont__all_arguments_of_19, &frame__all_arguments_of_18, 496, 496, 36, 36},
@@ -4355,144 +4355,144 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__call_with_remark_to_string_9, &frame__call_with_remark_to_string_1, 701, 702, 3, 65},
   {cont__call_with_remark_to_string_13, &frame__call_with_remark_to_string_1, 703, 703, 6, 37},
   {cont__call_with_remark_to_string_14, &frame__call_with_remark_to_string_1, 703, 703, 3, 37},
-  {entry__sim2c__call__to_string_6, NULL, 711, 711, 43, 70},
-  {cont__sim2c__call__to_string_7, &frame__sim2c__call__to_string_6, 711, 711, 43, 79},
-  {cont__sim2c__call__to_string_8, &frame__sim2c__call__to_string_6, 711, 711, 43, 79},
-  {entry__sim2c__call__to_string_11, NULL, 715, 715, 50, 63},
-  {entry__sim2c__call__to_string_13, NULL, 716, 716, 11, 19},
-  {entry__sim2c__call__to_string_14, NULL, 717, 717, 14, 21},
-  {cont__sim2c__call__to_string_15, &frame__sim2c__call__to_string_14, 717, 717, 11, 21},
-  {entry__sim2c__call__to_string_23, NULL, 725, 725, 16, 37},
-  {cont__sim2c__call__to_string_24, &frame__sim2c__call__to_string_23, 725, 725, 13, 37},
-  {entry__sim2c__call__to_string_25, NULL, 726, 726, 16, 38},
-  {cont__sim2c__call__to_string_27, &frame__sim2c__call__to_string_25, 726, 726, 13, 38},
-  {entry__sim2c__call__to_string_20, NULL, 724, 724, 13, 24},
-  {cont__sim2c__call__to_string_21, &frame__sim2c__call__to_string_20, 724, 724, 13, 34},
-  {cont__sim2c__call__to_string_22, &frame__sim2c__call__to_string_20, 723, 726, 11, 38},
-  {entry__sim2c__call__to_string_42, NULL, 740, 740, 75, 75},
-  {cont__sim2c__call__to_string_43, &frame__sim2c__call__to_string_42, 740, 740, 55, 75},
-  {cont__sim2c__call__to_string_44, &frame__sim2c__call__to_string_42, 740, 740, 75, 75},
-  {entry__sim2c__call__to_string_37, NULL, 739, 739, 40, 64},
-  {cont__sim2c__call__to_string_38, &frame__sim2c__call__to_string_37, 739, 739, 17, 73},
-  {cont__sim2c__call__to_string_39, &frame__sim2c__call__to_string_37, 740, 740, 20, 52},
-  {cont__sim2c__call__to_string_41, &frame__sim2c__call__to_string_37, 740, 740, 17, 75},
-  {entry__sim2c__call__to_string_48, NULL, 742, 742, 42, 66},
-  {cont__sim2c__call__to_string_49, &frame__sim2c__call__to_string_48, 742, 742, 17, 77},
-  {cont__sim2c__call__to_string_50, &frame__sim2c__call__to_string_48, 742, 742, 77, 77},
-  {entry__sim2c__call__to_string_33, NULL, 734, 734, 15, 59},
-  {cont__sim2c__call__to_string_34, &frame__sim2c__call__to_string_33, 738, 738, 22, 31},
-  {cont__sim2c__call__to_string_35, &frame__sim2c__call__to_string_33, 738, 738, 22, 41},
-  {cont__sim2c__call__to_string_36, &frame__sim2c__call__to_string_33, 738, 740, 15, 75},
-  {cont__sim2c__call__to_string_45, &frame__sim2c__call__to_string_33, 741, 741, 22, 33},
-  {cont__sim2c__call__to_string_46, &frame__sim2c__call__to_string_33, 741, 741, 22, 43},
-  {cont__sim2c__call__to_string_47, &frame__sim2c__call__to_string_33, 741, 742, 15, 77},
-  {cont__sim2c__call__to_string_51, &frame__sim2c__call__to_string_33, 743, 743, 18, 42},
-  {cont__sim2c__call__to_string_52, &frame__sim2c__call__to_string_33, 743, 743, 15, 42},
-  {entry__sim2c__call__to_string_58, NULL, 751, 751, 62, 69},
-  {cont__sim2c__call__to_string_59, &frame__sim2c__call__to_string_58, 751, 751, 21, 70},
-  {cont__sim2c__call__to_string_60, &frame__sim2c__call__to_string_58, 748, 751, 19, 69},
-  {cont__sim2c__call__to_string_61, &frame__sim2c__call__to_string_58, 747, 751, 17, 71},
-  {entry__sim2c__call__to_string_62, NULL, 752, 752, 37, 59},
-  {cont__sim2c__call__to_string_63, &frame__sim2c__call__to_string_62, 752, 752, 20, 78},
-  {cont__sim2c__call__to_string_64, &frame__sim2c__call__to_string_62, 752, 752, 17, 78},
-  {entry__sim2c__call__to_string_53, NULL, 746, 746, 19, 38},
-  {cont__sim2c__call__to_string_54, &frame__sim2c__call__to_string_53, 746, 746, 17, 38},
-  {cont__sim2c__call__to_string_55, &frame__sim2c__call__to_string_53, 746, 746, 17, 67},
-  {cont__sim2c__call__to_string_56, &frame__sim2c__call__to_string_53, 746, 746, 17, 67},
-  {cont__sim2c__call__to_string_57, &frame__sim2c__call__to_string_53, 745, 752, 15, 78},
-  {entry__sim2c__call__to_string_28, NULL, 729, 729, 20, 40},
-  {cont__sim2c__call__to_string_29, &frame__sim2c__call__to_string_28, 729, 729, 42, 69},
-  {cont__sim2c__call__to_string_30, &frame__sim2c__call__to_string_28, 728, 729, 11, 70},
-  {cont__sim2c__call__to_string_31, &frame__sim2c__call__to_string_28, 733, 733, 13, 39},
-  {cont__sim2c__call__to_string_32, &frame__sim2c__call__to_string_28, 732, 752, 11, 80},
-  {cont__sim2c__call__to_string_65, &frame__sim2c__call__to_string_28, 752, 752, 80, 80},
-  {entry__sim2c__call__to_string_3, NULL, 711, 711, 9, 29},
-  {cont__sim2c__call__to_string_4, &frame__sim2c__call__to_string_3, 711, 711, 9, 38},
-  {cont__sim2c__call__to_string_5, &frame__sim2c__call__to_string_3, 710, 711, 7, 79},
-  {cont__sim2c__call__to_string_9, &frame__sim2c__call__to_string_3, 715, 715, 11, 45},
-  {cont__sim2c__call__to_string_10, &frame__sim2c__call__to_string_3, 715, 715, 11, 63},
-  {cont__sim2c__call__to_string_12, &frame__sim2c__call__to_string_3, 713, 717, 7, 22},
-  {cont__sim2c__call__to_string_16, &frame__sim2c__call__to_string_3, 719, 719, 34, 50},
-  {cont__sim2c__call__to_string_17, &frame__sim2c__call__to_string_3, 719, 719, 7, 59},
-  {cont__sim2c__call__to_string_18, &frame__sim2c__call__to_string_3, 720, 720, 7, 74},
-  {cont__sim2c__call__to_string_19, &frame__sim2c__call__to_string_3, 721, 752, 7, 82},
-  {cont__sim2c__call__to_string_66, &frame__sim2c__call__to_string_3, 752, 752, 82, 82},
-  {entry__sim2c__call__to_string_80, NULL, 767, 767, 56, 56},
-  {entry__sim2c__call__to_string_78, NULL, 767, 767, 18, 33},
-  {cont__sim2c__call__to_string_79, &frame__sim2c__call__to_string_78, 767, 767, 15, 56},
-  {entry__sim2c__call__to_string_83, NULL, 768, 768, 72, 72},
-  {entry__sim2c__call__to_string_81, NULL, 768, 768, 18, 49},
-  {cont__sim2c__call__to_string_82, &frame__sim2c__call__to_string_81, 768, 768, 15, 72},
-  {entry__sim2c__call__to_string_86, NULL, 770, 770, 51, 51},
-  {entry__sim2c__call__to_string_84, NULL, 769, 769, 18, 58},
-  {cont__sim2c__call__to_string_85, &frame__sim2c__call__to_string_84, 769, 770, 15, 51},
-  {entry__sim2c__call__to_string_71, NULL, 761, 761, 22, 46},
-  {cont__sim2c__call__to_string_72, &frame__sim2c__call__to_string_71, 761, 761, 13, 49},
-  {cont__sim2c__call__to_string_73, &frame__sim2c__call__to_string_71, 762, 762, 13, 57},
-  {cont__sim2c__call__to_string_74, &frame__sim2c__call__to_string_71, 763, 763, 13, 39},
-  {cont__sim2c__call__to_string_75, &frame__sim2c__call__to_string_71, 765, 765, 21, 38},
-  {cont__sim2c__call__to_string_76, &frame__sim2c__call__to_string_71, 765, 765, 13, 41},
-  {cont__sim2c__call__to_string_77, &frame__sim2c__call__to_string_71, 766, 770, 13, 52},
-  {entry__sim2c__call__to_string_87, NULL, 772, 772, 22, 37},
-  {cont__sim2c__call__to_string_88, &frame__sim2c__call__to_string_87, 772, 772, 13, 47},
-  {cont__sim2c__call__to_string_89, &frame__sim2c__call__to_string_87, 772, 772, 47, 47},
-  {entry__sim2c__call__to_string_69, NULL, 760, 760, 11, 31},
-  {cont__sim2c__call__to_string_70, &frame__sim2c__call__to_string_69, 759, 772, 9, 48},
-  {cont__sim2c__call__to_string_90, &frame__sim2c__call__to_string_69, 772, 772, 48, 48},
-  {entry__sim2c__call__to_string_96, NULL, 775, 775, 34, 60},
-  {cont__sim2c__call__to_string_97, &frame__sim2c__call__to_string_96, 775, 775, 34, 60},
-  {entry__sim2c__call__to_string_99, NULL, 776, 776, 29, 29},
-  {entry__sim2c__call__to_string_110, NULL, 782, 782, 55, 66},
-  {cont__sim2c__call__to_string_111, &frame__sim2c__call__to_string_110, 782, 782, 55, 76},
-  {cont__sim2c__call__to_string_112, &frame__sim2c__call__to_string_110, 782, 782, 55, 76},
-  {entry__sim2c__call__to_string_107, NULL, 782, 782, 32, 43},
-  {cont__sim2c__call__to_string_108, &frame__sim2c__call__to_string_107, 782, 782, 32, 50},
-  {cont__sim2c__call__to_string_109, &frame__sim2c__call__to_string_107, 782, 782, 32, 76},
-  {cont__sim2c__call__to_string_113, &frame__sim2c__call__to_string_107, 782, 782, 32, 76},
-  {entry__sim2c__call__to_string_115, NULL, 783, 783, 16, 40},
-  {cont__sim2c__call__to_string_116, &frame__sim2c__call__to_string_115, 783, 783, 13, 40},
-  {entry__sim2c__call__to_string_117, NULL, 784, 784, 16, 44},
-  {cont__sim2c__call__to_string_118, &frame__sim2c__call__to_string_117, 784, 784, 13, 44},
-  {entry__sim2c__call__to_string_105, NULL, 782, 782, 13, 27},
-  {cont__sim2c__call__to_string_106, &frame__sim2c__call__to_string_105, 782, 782, 13, 76},
-  {cont__sim2c__call__to_string_114, &frame__sim2c__call__to_string_105, 781, 784, 11, 43},
-  {cont__sim2c__call__to_string_119, &frame__sim2c__call__to_string_105, 780, 784, 9, 45},
-  {entry__sim2c__call__to_string_123, NULL, 789, 789, 25, 67},
-  {cont__sim2c__call__to_string_124, &frame__sim2c__call__to_string_123, 789, 789, 18, 78},
-  {cont__sim2c__call__to_string_125, &frame__sim2c__call__to_string_123, 789, 789, 15, 78},
-  {entry__sim2c__call__to_string_121, NULL, 788, 788, 15, 29},
-  {cont__sim2c__call__to_string_122, &frame__sim2c__call__to_string_121, 787, 789, 13, 78},
-  {entry__sim2c__call__to_string_130, NULL, 795, 795, 24, 41},
-  {cont__sim2c__call__to_string_131, &frame__sim2c__call__to_string_130, 795, 795, 21, 41},
-  {entry__sim2c__call__to_string_128, NULL, 794, 794, 19, 36},
-  {cont__sim2c__call__to_string_129, &frame__sim2c__call__to_string_128, 793, 795, 17, 41},
-  {cont__sim2c__call__to_string_132, &frame__sim2c__call__to_string_128, 793, 795, 17, 41},
-  {entry__sim2c__call__to_string_134, NULL, 796, 796, 18, 75},
-  {cont__sim2c__call__to_string_135, &frame__sim2c__call__to_string_134, 796, 796, 15, 75},
-  {entry__sim2c__call__to_string_126, NULL, 792, 792, 17, 43},
-  {cont__sim2c__call__to_string_127, &frame__sim2c__call__to_string_126, 791, 795, 15, 42},
-  {cont__sim2c__call__to_string_133, &frame__sim2c__call__to_string_126, 790, 796, 13, 75},
-  {entry__sim2c__call__to_string_137, NULL, 801, 801, 19, 47},
-  {cont__sim2c__call__to_string_138, &frame__sim2c__call__to_string_137, 800, 803, 17, 21},
-  {cont__sim2c__call__to_string_139, &frame__sim2c__call__to_string_137, 799, 803, 15, 23},
-  {entry__sim2c__call__to_string_136, NULL, 797, 803, 13, 24},
-  {entry__sim2c__call__to_string_120, NULL, 786, 803, 11, 25},
-  {entry__sim2c__call__to_string_67, NULL, 754, 754, 7, 33},
-  {cont__sim2c__call__to_string_68, &frame__sim2c__call__to_string_67, 757, 772, 7, 49},
-  {cont__sim2c__call__to_string_91, &frame__sim2c__call__to_string_67, 773, 773, 34, 50},
-  {cont__sim2c__call__to_string_92, &frame__sim2c__call__to_string_67, 773, 773, 52, 69},
-  {cont__sim2c__call__to_string_93, &frame__sim2c__call__to_string_67, 773, 773, 7, 69},
-  {cont__sim2c__call__to_string_94, &frame__sim2c__call__to_string_67, 774, 774, 7, 73},
-  {cont__sim2c__call__to_string_95, &frame__sim2c__call__to_string_67, 775, 775, 10, 60},
-  {cont__sim2c__call__to_string_98, &frame__sim2c__call__to_string_67, 775, 776, 7, 29},
-  {cont__sim2c__call__to_string_100, &frame__sim2c__call__to_string_67, 777, 777, 28, 48},
-  {cont__sim2c__call__to_string_101, &frame__sim2c__call__to_string_67, 777, 777, 50, 77},
-  {cont__sim2c__call__to_string_102, &frame__sim2c__call__to_string_67, 777, 777, 7, 78},
-  {cont__sim2c__call__to_string_103, &frame__sim2c__call__to_string_67, 779, 779, 9, 29},
-  {cont__sim2c__call__to_string_104, &frame__sim2c__call__to_string_67, 778, 803, 7, 27},
-  {cont__sim2c__call__to_string_140, &frame__sim2c__call__to_string_67, 803, 803, 27, 27},
-  {entry__sim2c__call__to_string_1, NULL, 709, 709, 5, 20},
-  {cont__sim2c__call__to_string_2, &frame__sim2c__call__to_string_1, 708, 803, 3, 29},
+  {entry__compiler__call__to_string_6, NULL, 711, 711, 43, 70},
+  {cont__compiler__call__to_string_7, &frame__compiler__call__to_string_6, 711, 711, 43, 79},
+  {cont__compiler__call__to_string_8, &frame__compiler__call__to_string_6, 711, 711, 43, 79},
+  {entry__compiler__call__to_string_11, NULL, 715, 715, 50, 63},
+  {entry__compiler__call__to_string_13, NULL, 716, 716, 11, 19},
+  {entry__compiler__call__to_string_14, NULL, 717, 717, 14, 21},
+  {cont__compiler__call__to_string_15, &frame__compiler__call__to_string_14, 717, 717, 11, 21},
+  {entry__compiler__call__to_string_23, NULL, 725, 725, 16, 37},
+  {cont__compiler__call__to_string_24, &frame__compiler__call__to_string_23, 725, 725, 13, 37},
+  {entry__compiler__call__to_string_25, NULL, 726, 726, 16, 38},
+  {cont__compiler__call__to_string_27, &frame__compiler__call__to_string_25, 726, 726, 13, 38},
+  {entry__compiler__call__to_string_20, NULL, 724, 724, 13, 24},
+  {cont__compiler__call__to_string_21, &frame__compiler__call__to_string_20, 724, 724, 13, 34},
+  {cont__compiler__call__to_string_22, &frame__compiler__call__to_string_20, 723, 726, 11, 38},
+  {entry__compiler__call__to_string_42, NULL, 740, 740, 75, 75},
+  {cont__compiler__call__to_string_43, &frame__compiler__call__to_string_42, 740, 740, 55, 75},
+  {cont__compiler__call__to_string_44, &frame__compiler__call__to_string_42, 740, 740, 75, 75},
+  {entry__compiler__call__to_string_37, NULL, 739, 739, 40, 64},
+  {cont__compiler__call__to_string_38, &frame__compiler__call__to_string_37, 739, 739, 17, 73},
+  {cont__compiler__call__to_string_39, &frame__compiler__call__to_string_37, 740, 740, 20, 52},
+  {cont__compiler__call__to_string_41, &frame__compiler__call__to_string_37, 740, 740, 17, 75},
+  {entry__compiler__call__to_string_48, NULL, 742, 742, 42, 66},
+  {cont__compiler__call__to_string_49, &frame__compiler__call__to_string_48, 742, 742, 17, 77},
+  {cont__compiler__call__to_string_50, &frame__compiler__call__to_string_48, 742, 742, 77, 77},
+  {entry__compiler__call__to_string_33, NULL, 734, 734, 15, 59},
+  {cont__compiler__call__to_string_34, &frame__compiler__call__to_string_33, 738, 738, 22, 31},
+  {cont__compiler__call__to_string_35, &frame__compiler__call__to_string_33, 738, 738, 22, 41},
+  {cont__compiler__call__to_string_36, &frame__compiler__call__to_string_33, 738, 740, 15, 75},
+  {cont__compiler__call__to_string_45, &frame__compiler__call__to_string_33, 741, 741, 22, 33},
+  {cont__compiler__call__to_string_46, &frame__compiler__call__to_string_33, 741, 741, 22, 43},
+  {cont__compiler__call__to_string_47, &frame__compiler__call__to_string_33, 741, 742, 15, 77},
+  {cont__compiler__call__to_string_51, &frame__compiler__call__to_string_33, 743, 743, 18, 42},
+  {cont__compiler__call__to_string_52, &frame__compiler__call__to_string_33, 743, 743, 15, 42},
+  {entry__compiler__call__to_string_58, NULL, 751, 751, 62, 69},
+  {cont__compiler__call__to_string_59, &frame__compiler__call__to_string_58, 751, 751, 21, 70},
+  {cont__compiler__call__to_string_60, &frame__compiler__call__to_string_58, 748, 751, 19, 69},
+  {cont__compiler__call__to_string_61, &frame__compiler__call__to_string_58, 747, 751, 17, 71},
+  {entry__compiler__call__to_string_62, NULL, 752, 752, 37, 59},
+  {cont__compiler__call__to_string_63, &frame__compiler__call__to_string_62, 752, 752, 20, 78},
+  {cont__compiler__call__to_string_64, &frame__compiler__call__to_string_62, 752, 752, 17, 78},
+  {entry__compiler__call__to_string_53, NULL, 746, 746, 19, 38},
+  {cont__compiler__call__to_string_54, &frame__compiler__call__to_string_53, 746, 746, 17, 38},
+  {cont__compiler__call__to_string_55, &frame__compiler__call__to_string_53, 746, 746, 17, 67},
+  {cont__compiler__call__to_string_56, &frame__compiler__call__to_string_53, 746, 746, 17, 67},
+  {cont__compiler__call__to_string_57, &frame__compiler__call__to_string_53, 745, 752, 15, 78},
+  {entry__compiler__call__to_string_28, NULL, 729, 729, 20, 40},
+  {cont__compiler__call__to_string_29, &frame__compiler__call__to_string_28, 729, 729, 42, 69},
+  {cont__compiler__call__to_string_30, &frame__compiler__call__to_string_28, 728, 729, 11, 70},
+  {cont__compiler__call__to_string_31, &frame__compiler__call__to_string_28, 733, 733, 13, 39},
+  {cont__compiler__call__to_string_32, &frame__compiler__call__to_string_28, 732, 752, 11, 80},
+  {cont__compiler__call__to_string_65, &frame__compiler__call__to_string_28, 752, 752, 80, 80},
+  {entry__compiler__call__to_string_3, NULL, 711, 711, 9, 29},
+  {cont__compiler__call__to_string_4, &frame__compiler__call__to_string_3, 711, 711, 9, 38},
+  {cont__compiler__call__to_string_5, &frame__compiler__call__to_string_3, 710, 711, 7, 79},
+  {cont__compiler__call__to_string_9, &frame__compiler__call__to_string_3, 715, 715, 11, 45},
+  {cont__compiler__call__to_string_10, &frame__compiler__call__to_string_3, 715, 715, 11, 63},
+  {cont__compiler__call__to_string_12, &frame__compiler__call__to_string_3, 713, 717, 7, 22},
+  {cont__compiler__call__to_string_16, &frame__compiler__call__to_string_3, 719, 719, 34, 50},
+  {cont__compiler__call__to_string_17, &frame__compiler__call__to_string_3, 719, 719, 7, 59},
+  {cont__compiler__call__to_string_18, &frame__compiler__call__to_string_3, 720, 720, 7, 74},
+  {cont__compiler__call__to_string_19, &frame__compiler__call__to_string_3, 721, 752, 7, 82},
+  {cont__compiler__call__to_string_66, &frame__compiler__call__to_string_3, 752, 752, 82, 82},
+  {entry__compiler__call__to_string_80, NULL, 767, 767, 56, 56},
+  {entry__compiler__call__to_string_78, NULL, 767, 767, 18, 33},
+  {cont__compiler__call__to_string_79, &frame__compiler__call__to_string_78, 767, 767, 15, 56},
+  {entry__compiler__call__to_string_83, NULL, 768, 768, 72, 72},
+  {entry__compiler__call__to_string_81, NULL, 768, 768, 18, 49},
+  {cont__compiler__call__to_string_82, &frame__compiler__call__to_string_81, 768, 768, 15, 72},
+  {entry__compiler__call__to_string_86, NULL, 770, 770, 51, 51},
+  {entry__compiler__call__to_string_84, NULL, 769, 769, 18, 58},
+  {cont__compiler__call__to_string_85, &frame__compiler__call__to_string_84, 769, 770, 15, 51},
+  {entry__compiler__call__to_string_71, NULL, 761, 761, 22, 46},
+  {cont__compiler__call__to_string_72, &frame__compiler__call__to_string_71, 761, 761, 13, 49},
+  {cont__compiler__call__to_string_73, &frame__compiler__call__to_string_71, 762, 762, 13, 57},
+  {cont__compiler__call__to_string_74, &frame__compiler__call__to_string_71, 763, 763, 13, 39},
+  {cont__compiler__call__to_string_75, &frame__compiler__call__to_string_71, 765, 765, 21, 38},
+  {cont__compiler__call__to_string_76, &frame__compiler__call__to_string_71, 765, 765, 13, 41},
+  {cont__compiler__call__to_string_77, &frame__compiler__call__to_string_71, 766, 770, 13, 52},
+  {entry__compiler__call__to_string_87, NULL, 772, 772, 22, 37},
+  {cont__compiler__call__to_string_88, &frame__compiler__call__to_string_87, 772, 772, 13, 47},
+  {cont__compiler__call__to_string_89, &frame__compiler__call__to_string_87, 772, 772, 47, 47},
+  {entry__compiler__call__to_string_69, NULL, 760, 760, 11, 31},
+  {cont__compiler__call__to_string_70, &frame__compiler__call__to_string_69, 759, 772, 9, 48},
+  {cont__compiler__call__to_string_90, &frame__compiler__call__to_string_69, 772, 772, 48, 48},
+  {entry__compiler__call__to_string_96, NULL, 775, 775, 34, 60},
+  {cont__compiler__call__to_string_97, &frame__compiler__call__to_string_96, 775, 775, 34, 60},
+  {entry__compiler__call__to_string_99, NULL, 776, 776, 29, 29},
+  {entry__compiler__call__to_string_110, NULL, 782, 782, 55, 66},
+  {cont__compiler__call__to_string_111, &frame__compiler__call__to_string_110, 782, 782, 55, 76},
+  {cont__compiler__call__to_string_112, &frame__compiler__call__to_string_110, 782, 782, 55, 76},
+  {entry__compiler__call__to_string_107, NULL, 782, 782, 32, 43},
+  {cont__compiler__call__to_string_108, &frame__compiler__call__to_string_107, 782, 782, 32, 50},
+  {cont__compiler__call__to_string_109, &frame__compiler__call__to_string_107, 782, 782, 32, 76},
+  {cont__compiler__call__to_string_113, &frame__compiler__call__to_string_107, 782, 782, 32, 76},
+  {entry__compiler__call__to_string_115, NULL, 783, 783, 16, 40},
+  {cont__compiler__call__to_string_116, &frame__compiler__call__to_string_115, 783, 783, 13, 40},
+  {entry__compiler__call__to_string_117, NULL, 784, 784, 16, 44},
+  {cont__compiler__call__to_string_118, &frame__compiler__call__to_string_117, 784, 784, 13, 44},
+  {entry__compiler__call__to_string_105, NULL, 782, 782, 13, 27},
+  {cont__compiler__call__to_string_106, &frame__compiler__call__to_string_105, 782, 782, 13, 76},
+  {cont__compiler__call__to_string_114, &frame__compiler__call__to_string_105, 781, 784, 11, 43},
+  {cont__compiler__call__to_string_119, &frame__compiler__call__to_string_105, 780, 784, 9, 45},
+  {entry__compiler__call__to_string_123, NULL, 789, 789, 25, 67},
+  {cont__compiler__call__to_string_124, &frame__compiler__call__to_string_123, 789, 789, 18, 78},
+  {cont__compiler__call__to_string_125, &frame__compiler__call__to_string_123, 789, 789, 15, 78},
+  {entry__compiler__call__to_string_121, NULL, 788, 788, 15, 29},
+  {cont__compiler__call__to_string_122, &frame__compiler__call__to_string_121, 787, 789, 13, 78},
+  {entry__compiler__call__to_string_130, NULL, 795, 795, 24, 41},
+  {cont__compiler__call__to_string_131, &frame__compiler__call__to_string_130, 795, 795, 21, 41},
+  {entry__compiler__call__to_string_128, NULL, 794, 794, 19, 36},
+  {cont__compiler__call__to_string_129, &frame__compiler__call__to_string_128, 793, 795, 17, 41},
+  {cont__compiler__call__to_string_132, &frame__compiler__call__to_string_128, 793, 795, 17, 41},
+  {entry__compiler__call__to_string_134, NULL, 796, 796, 18, 75},
+  {cont__compiler__call__to_string_135, &frame__compiler__call__to_string_134, 796, 796, 15, 75},
+  {entry__compiler__call__to_string_126, NULL, 792, 792, 17, 43},
+  {cont__compiler__call__to_string_127, &frame__compiler__call__to_string_126, 791, 795, 15, 42},
+  {cont__compiler__call__to_string_133, &frame__compiler__call__to_string_126, 790, 796, 13, 75},
+  {entry__compiler__call__to_string_137, NULL, 801, 801, 19, 47},
+  {cont__compiler__call__to_string_138, &frame__compiler__call__to_string_137, 800, 803, 17, 21},
+  {cont__compiler__call__to_string_139, &frame__compiler__call__to_string_137, 799, 803, 15, 23},
+  {entry__compiler__call__to_string_136, NULL, 797, 803, 13, 24},
+  {entry__compiler__call__to_string_120, NULL, 786, 803, 11, 25},
+  {entry__compiler__call__to_string_67, NULL, 754, 754, 7, 33},
+  {cont__compiler__call__to_string_68, &frame__compiler__call__to_string_67, 757, 772, 7, 49},
+  {cont__compiler__call__to_string_91, &frame__compiler__call__to_string_67, 773, 773, 34, 50},
+  {cont__compiler__call__to_string_92, &frame__compiler__call__to_string_67, 773, 773, 52, 69},
+  {cont__compiler__call__to_string_93, &frame__compiler__call__to_string_67, 773, 773, 7, 69},
+  {cont__compiler__call__to_string_94, &frame__compiler__call__to_string_67, 774, 774, 7, 73},
+  {cont__compiler__call__to_string_95, &frame__compiler__call__to_string_67, 775, 775, 10, 60},
+  {cont__compiler__call__to_string_98, &frame__compiler__call__to_string_67, 775, 776, 7, 29},
+  {cont__compiler__call__to_string_100, &frame__compiler__call__to_string_67, 777, 777, 28, 48},
+  {cont__compiler__call__to_string_101, &frame__compiler__call__to_string_67, 777, 777, 50, 77},
+  {cont__compiler__call__to_string_102, &frame__compiler__call__to_string_67, 777, 777, 7, 78},
+  {cont__compiler__call__to_string_103, &frame__compiler__call__to_string_67, 779, 779, 9, 29},
+  {cont__compiler__call__to_string_104, &frame__compiler__call__to_string_67, 778, 803, 7, 27},
+  {cont__compiler__call__to_string_140, &frame__compiler__call__to_string_67, 803, 803, 27, 27},
+  {entry__compiler__call__to_string_1, NULL, 709, 709, 5, 20},
+  {cont__compiler__call__to_string_2, &frame__compiler__call__to_string_1, 708, 803, 3, 29},
   {entry__definition_to_string_4, NULL, 807, 807, 63, 79},
   {cont__definition_to_string_5, &frame__definition_to_string_4, 807, 807, 79, 79},
   {entry__definition_to_string_15, NULL, 811, 811, 59, 71},
@@ -4525,38 +4525,38 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__definition_to_string_10, &frame__definition_to_string_1, 810, 810, 6, 30},
   {cont__definition_to_string_11, &frame__definition_to_string_1, 810, 819, 3, 55},
   {cont__definition_to_string_32, &frame__definition_to_string_1, 820, 820, 3, 8},
-  {entry__sim2c__define_static_single__to_string_4, NULL, 830, 830, 7, 11},
-  {entry__sim2c__define_static_single__to_string_5, NULL, 831, 831, 7, 12},
-  {entry__sim2c__define_static_single__to_string_10, NULL, 837, 837, 25, 42},
-  {cont__sim2c__define_static_single__to_string_11, &frame__sim2c__define_static_single__to_string_10, 837, 837, 7, 42},
-  {cont__sim2c__define_static_single__to_string_12, &frame__sim2c__define_static_single__to_string_10, 837, 837, 42, 42},
-  {entry__sim2c__define_static_single__to_string_17, NULL, 840, 840, 55, 72},
-  {cont__sim2c__define_static_single__to_string_18, &frame__sim2c__define_static_single__to_string_17, 840, 840, 41, 72},
-  {cont__sim2c__define_static_single__to_string_19, &frame__sim2c__define_static_single__to_string_17, 840, 840, 72, 72},
-  {entry__sim2c__define_static_single__to_string_13, NULL, 839, 839, 7, 19},
-  {cont__sim2c__define_static_single__to_string_14, &frame__sim2c__define_static_single__to_string_13, 840, 840, 10, 27},
-  {cont__sim2c__define_static_single__to_string_15, &frame__sim2c__define_static_single__to_string_13, 840, 840, 10, 38},
-  {cont__sim2c__define_static_single__to_string_16, &frame__sim2c__define_static_single__to_string_13, 840, 840, 7, 72},
-  {entry__sim2c__define_static_single__to_string_1, NULL, 828, 828, 7, 29},
-  {cont__sim2c__define_static_single__to_string_2, &frame__sim2c__define_static_single__to_string_1, 829, 829, 7, 60},
-  {cont__sim2c__define_static_single__to_string_3, &frame__sim2c__define_static_single__to_string_1, 826, 831, 3, 13},
-  {cont__sim2c__define_static_single__to_string_7, &frame__sim2c__define_static_single__to_string_1, 833, 833, 3, 40},
-  {cont__sim2c__define_static_single__to_string_8, &frame__sim2c__define_static_single__to_string_1, 835, 835, 5, 27},
-  {cont__sim2c__define_static_single__to_string_9, &frame__sim2c__define_static_single__to_string_1, 834, 840, 3, 73},
-  {cont__sim2c__define_static_single__to_string_20, &frame__sim2c__define_static_single__to_string_1, 841, 841, 3, 30},
-  {entry__sim2c__define_static_multi__to_string_4, NULL, 851, 851, 7, 12},
-  {entry__sim2c__define_static_multi__to_string_5, NULL, 853, 853, 7, 12},
-  {entry__sim2c__define_static_multi__to_string_7, NULL, 855, 855, 7, 12},
-  {entry__sim2c__define_static_multi__to_string_9, NULL, 856, 856, 7, 13},
-  {entry__sim2c__define_static_multi__to_string_1, NULL, 849, 849, 7, 29},
-  {cont__sim2c__define_static_multi__to_string_2, &frame__sim2c__define_static_multi__to_string_1, 850, 850, 7, 60},
-  {cont__sim2c__define_static_multi__to_string_3, &frame__sim2c__define_static_multi__to_string_1, 847, 856, 3, 14},
-  {cont__sim2c__define_static_multi__to_string_11, &frame__sim2c__define_static_multi__to_string_1, 858, 858, 28, 60},
-  {cont__sim2c__define_static_multi__to_string_12, &frame__sim2c__define_static_multi__to_string_1, 858, 858, 3, 60},
-  {entry__sim2c__define_dynamic_single__to_string_1, NULL, 864, 864, 28, 57},
-  {cont__sim2c__define_dynamic_single__to_string_3, &frame__sim2c__define_dynamic_single__to_string_1, 864, 864, 3, 57},
-  {entry__sim2c__define_dynamic_multi__to_string_1, NULL, 870, 870, 28, 58},
-  {cont__sim2c__define_dynamic_multi__to_string_3, &frame__sim2c__define_dynamic_multi__to_string_1, 870, 870, 3, 58},
+  {entry__compiler__define_static_single__to_string_4, NULL, 830, 830, 7, 11},
+  {entry__compiler__define_static_single__to_string_5, NULL, 831, 831, 7, 12},
+  {entry__compiler__define_static_single__to_string_10, NULL, 837, 837, 25, 42},
+  {cont__compiler__define_static_single__to_string_11, &frame__compiler__define_static_single__to_string_10, 837, 837, 7, 42},
+  {cont__compiler__define_static_single__to_string_12, &frame__compiler__define_static_single__to_string_10, 837, 837, 42, 42},
+  {entry__compiler__define_static_single__to_string_17, NULL, 840, 840, 55, 72},
+  {cont__compiler__define_static_single__to_string_18, &frame__compiler__define_static_single__to_string_17, 840, 840, 41, 72},
+  {cont__compiler__define_static_single__to_string_19, &frame__compiler__define_static_single__to_string_17, 840, 840, 72, 72},
+  {entry__compiler__define_static_single__to_string_13, NULL, 839, 839, 7, 19},
+  {cont__compiler__define_static_single__to_string_14, &frame__compiler__define_static_single__to_string_13, 840, 840, 10, 27},
+  {cont__compiler__define_static_single__to_string_15, &frame__compiler__define_static_single__to_string_13, 840, 840, 10, 38},
+  {cont__compiler__define_static_single__to_string_16, &frame__compiler__define_static_single__to_string_13, 840, 840, 7, 72},
+  {entry__compiler__define_static_single__to_string_1, NULL, 828, 828, 7, 29},
+  {cont__compiler__define_static_single__to_string_2, &frame__compiler__define_static_single__to_string_1, 829, 829, 7, 60},
+  {cont__compiler__define_static_single__to_string_3, &frame__compiler__define_static_single__to_string_1, 826, 831, 3, 13},
+  {cont__compiler__define_static_single__to_string_7, &frame__compiler__define_static_single__to_string_1, 833, 833, 3, 40},
+  {cont__compiler__define_static_single__to_string_8, &frame__compiler__define_static_single__to_string_1, 835, 835, 5, 27},
+  {cont__compiler__define_static_single__to_string_9, &frame__compiler__define_static_single__to_string_1, 834, 840, 3, 73},
+  {cont__compiler__define_static_single__to_string_20, &frame__compiler__define_static_single__to_string_1, 841, 841, 3, 30},
+  {entry__compiler__define_static_multi__to_string_4, NULL, 851, 851, 7, 12},
+  {entry__compiler__define_static_multi__to_string_5, NULL, 853, 853, 7, 12},
+  {entry__compiler__define_static_multi__to_string_7, NULL, 855, 855, 7, 12},
+  {entry__compiler__define_static_multi__to_string_9, NULL, 856, 856, 7, 13},
+  {entry__compiler__define_static_multi__to_string_1, NULL, 849, 849, 7, 29},
+  {cont__compiler__define_static_multi__to_string_2, &frame__compiler__define_static_multi__to_string_1, 850, 850, 7, 60},
+  {cont__compiler__define_static_multi__to_string_3, &frame__compiler__define_static_multi__to_string_1, 847, 856, 3, 14},
+  {cont__compiler__define_static_multi__to_string_11, &frame__compiler__define_static_multi__to_string_1, 858, 858, 28, 60},
+  {cont__compiler__define_static_multi__to_string_12, &frame__compiler__define_static_multi__to_string_1, 858, 858, 3, 60},
+  {entry__compiler__define_dynamic_single__to_string_1, NULL, 864, 864, 28, 57},
+  {cont__compiler__define_dynamic_single__to_string_3, &frame__compiler__define_dynamic_single__to_string_1, 864, 864, 3, 57},
+  {entry__compiler__define_dynamic_multi__to_string_1, NULL, 870, 870, 28, 58},
+  {cont__compiler__define_dynamic_multi__to_string_3, &frame__compiler__define_dynamic_multi__to_string_1, 870, 870, 3, 58},
   {entry__precedence_of_3, NULL, 877, 877, 42, 59},
   {cont__precedence_of_4, &frame__precedence_of_3, 877, 877, 32, 60},
   {cont__precedence_of_5, &frame__precedence_of_3, 877, 877, 32, 65},
@@ -4591,274 +4591,274 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__operator_of_1, NULL, 891, 891, 7, 29},
   {cont__operator_of_2, &frame__operator_of_1, },
   {cont__operator_of_11, &frame__operator_of_1, 889, 895, 3, 16},
-  {entry__sim2c__function_call__to_string_16, NULL, 927, 927, 28, 41},
-  {cont__sim2c__function_call__to_string_17, &frame__sim2c__function_call__to_string_16, 927, 927, 14, 74},
-  {cont__sim2c__function_call__to_string_18, &frame__sim2c__function_call__to_string_16, 927, 927, 11, 74},
-  {entry__sim2c__function_call__to_string_19, NULL, 928, 928, 14, 60},
-  {cont__sim2c__function_call__to_string_20, &frame__sim2c__function_call__to_string_19, 928, 928, 11, 60},
-  {entry__sim2c__function_call__to_string_14, NULL, 926, 926, 11, 44},
-  {cont__sim2c__function_call__to_string_15, &frame__sim2c__function_call__to_string_14, 925, 928, 9, 60},
-  {entry__sim2c__function_call__to_string_27, NULL, 934, 934, 37, 61},
-  {cont__sim2c__function_call__to_string_28, &frame__sim2c__function_call__to_string_27, 934, 934, 15, 69},
-  {cont__sim2c__function_call__to_string_29, &frame__sim2c__function_call__to_string_27, 934, 934, 69, 69},
-  {entry__sim2c__function_call__to_string_23, NULL, 932, 932, 13, 54},
-  {cont__sim2c__function_call__to_string_24, &frame__sim2c__function_call__to_string_23, 933, 933, 20, 28},
-  {cont__sim2c__function_call__to_string_25, &frame__sim2c__function_call__to_string_23, 933, 933, 20, 38},
-  {cont__sim2c__function_call__to_string_26, &frame__sim2c__function_call__to_string_23, 933, 934, 13, 69},
-  {cont__sim2c__function_call__to_string_30, &frame__sim2c__function_call__to_string_23, 938, 938, 17, 30},
-  {cont__sim2c__function_call__to_string_31, &frame__sim2c__function_call__to_string_23, 936, 941, 15, 31},
-  {cont__sim2c__function_call__to_string_32, &frame__sim2c__function_call__to_string_23, 935, 941, 13, 33},
-  {entry__sim2c__function_call__to_string_33, NULL, 946, 946, 17, 63},
-  {cont__sim2c__function_call__to_string_34, &frame__sim2c__function_call__to_string_33, 945, 947, 15, 27},
-  {cont__sim2c__function_call__to_string_35, &frame__sim2c__function_call__to_string_33, 944, 947, 13, 29},
-  {entry__sim2c__function_call__to_string_21, NULL, 931, 931, 11, 44},
-  {cont__sim2c__function_call__to_string_22, &frame__sim2c__function_call__to_string_21, 930, 947, 9, 31},
-  {entry__sim2c__function_call__to_string_2, NULL, 912, 912, 5, 31},
-  {cont__sim2c__function_call__to_string_3, &frame__sim2c__function_call__to_string_2, 918, 918, 9, 25},
-  {cont__sim2c__function_call__to_string_4, &frame__sim2c__function_call__to_string_2, 918, 918, 27, 51},
-  {cont__sim2c__function_call__to_string_5, &frame__sim2c__function_call__to_string_2, 918, 918, 9, 51},
-  {cont__sim2c__function_call__to_string_6, &frame__sim2c__function_call__to_string_2, 918, 918, 9, 53},
-  {cont__sim2c__function_call__to_string_7, &frame__sim2c__function_call__to_string_2, 914, 918, 5, 54},
-  {cont__sim2c__function_call__to_string_8, &frame__sim2c__function_call__to_string_2, 921, 921, 14, 34},
-  {cont__sim2c__function_call__to_string_9, &frame__sim2c__function_call__to_string_2, 921, 921, 59, 74},
-  {cont__sim2c__function_call__to_string_10, &frame__sim2c__function_call__to_string_2, 921, 921, 36, 75},
-  {cont__sim2c__function_call__to_string_11, &frame__sim2c__function_call__to_string_2, 920, 921, 5, 76},
-  {cont__sim2c__function_call__to_string_12, &frame__sim2c__function_call__to_string_2, 924, 924, 7, 27},
-  {cont__sim2c__function_call__to_string_13, &frame__sim2c__function_call__to_string_2, 923, 947, 5, 33},
-  {cont__sim2c__function_call__to_string_36, &frame__sim2c__function_call__to_string_2, 947, 947, 33, 33},
-  {entry__sim2c__function_call__to_string_39, NULL, 908, 908, 19, 34},
-  {cont__sim2c__function_call__to_string_40, &frame__sim2c__function_call__to_string_39, 908, 908, 9, 34},
-  {cont__sim2c__function_call__to_string_41, &frame__sim2c__function_call__to_string_39, 908, 908, 34, 34},
-  {entry__sim2c__function_call__to_string_42, NULL, 909, 909, 7, 18},
-  {entry__sim2c__function_call__to_string_50, NULL, 956, 956, 12, 46},
-  {cont__sim2c__function_call__to_string_51, &frame__sim2c__function_call__to_string_50, 956, 956, 9, 46},
-  {entry__sim2c__function_call__to_string_52, NULL, 957, 957, 12, 31},
-  {cont__sim2c__function_call__to_string_53, &frame__sim2c__function_call__to_string_52, 957, 957, 9, 31},
-  {entry__sim2c__function_call__to_string_47, NULL, 953, 953, 7, 28},
-  {cont__sim2c__function_call__to_string_48, &frame__sim2c__function_call__to_string_47, 955, 955, 9, 33},
-  {cont__sim2c__function_call__to_string_49, &frame__sim2c__function_call__to_string_47, 954, 957, 7, 31},
-  {cont__sim2c__function_call__to_string_54, &frame__sim2c__function_call__to_string_47, 957, 957, 31, 31},
-  {entry__sim2c__function_call__to_string_45, NULL, 951, 951, 8, 34},
-  {cont__sim2c__function_call__to_string_46, &frame__sim2c__function_call__to_string_45, 951, 957, 5, 32},
-  {entry__sim2c__function_call__to_string_61, NULL, 961, 961, 9, 42},
-  {cont__sim2c__function_call__to_string_62, &frame__sim2c__function_call__to_string_61, 961, 961, 42, 42},
-  {entry__sim2c__function_call__to_string_57, NULL, 959, 959, 7, 29},
-  {cont__sim2c__function_call__to_string_58, &frame__sim2c__function_call__to_string_57, 960, 960, 10, 32},
-  {cont__sim2c__function_call__to_string_59, &frame__sim2c__function_call__to_string_57, 960, 960, 10, 53},
-  {cont__sim2c__function_call__to_string_60, &frame__sim2c__function_call__to_string_57, 960, 961, 7, 42},
-  {cont__sim2c__function_call__to_string_63, &frame__sim2c__function_call__to_string_57, 962, 962, 10, 44},
-  {cont__sim2c__function_call__to_string_64, &frame__sim2c__function_call__to_string_57, 962, 962, 7, 44},
-  {entry__sim2c__function_call__to_string_55, NULL, 958, 958, 8, 34},
-  {cont__sim2c__function_call__to_string_56, &frame__sim2c__function_call__to_string_55, 958, 962, 5, 44},
-  {entry__sim2c__function_call__to_string_77, NULL, 971, 971, 13, 38},
-  {cont__sim2c__function_call__to_string_78, &frame__sim2c__function_call__to_string_77, 971, 971, 38, 38},
-  {entry__sim2c__function_call__to_string_83, NULL, 973, 973, 13, 40},
-  {cont__sim2c__function_call__to_string_84, &frame__sim2c__function_call__to_string_83, 973, 973, 40, 40},
-  {entry__sim2c__function_call__to_string_95, NULL, 977, 977, 32, 74},
-  {cont__sim2c__function_call__to_string_98, &frame__sim2c__function_call__to_string_95, 977, 977, 16, 75},
-  {cont__sim2c__function_call__to_string_99, &frame__sim2c__function_call__to_string_95, 977, 977, 13, 75},
-  {entry__sim2c__function_call__to_string_70, NULL, 966, 966, 11, 37},
-  {cont__sim2c__function_call__to_string_71, &frame__sim2c__function_call__to_string_70, 967, 967, 11, 38},
-  {cont__sim2c__function_call__to_string_72, &frame__sim2c__function_call__to_string_70, 968, 968, 11, 40},
-  {cont__sim2c__function_call__to_string_73, &frame__sim2c__function_call__to_string_70, 969, 969, 11, 42},
-  {cont__sim2c__function_call__to_string_74, &frame__sim2c__function_call__to_string_70, 970, 970, 14, 41},
-  {cont__sim2c__function_call__to_string_75, &frame__sim2c__function_call__to_string_70, 970, 970, 14, 60},
-  {cont__sim2c__function_call__to_string_76, &frame__sim2c__function_call__to_string_70, 970, 971, 11, 38},
-  {cont__sim2c__function_call__to_string_79, &frame__sim2c__function_call__to_string_70, 972, 972, 14, 42},
-  {cont__sim2c__function_call__to_string_80, &frame__sim2c__function_call__to_string_70, 972, 972, 14, 62},
-  {cont__sim2c__function_call__to_string_81, &frame__sim2c__function_call__to_string_70, 972, 972, 14, 62},
-  {cont__sim2c__function_call__to_string_82, &frame__sim2c__function_call__to_string_70, 972, 973, 11, 40},
-  {cont__sim2c__function_call__to_string_85, &frame__sim2c__function_call__to_string_70, 974, 974, 19, 33},
-  {cont__sim2c__function_call__to_string_86, &frame__sim2c__function_call__to_string_70, 974, 974, 35, 59},
-  {cont__sim2c__function_call__to_string_87, &frame__sim2c__function_call__to_string_70, 974, 974, 19, 59},
-  {cont__sim2c__function_call__to_string_88, &frame__sim2c__function_call__to_string_70, 974, 974, 61, 76},
-  {cont__sim2c__function_call__to_string_89, &frame__sim2c__function_call__to_string_70, 974, 974, 19, 76},
-  {cont__sim2c__function_call__to_string_90, &frame__sim2c__function_call__to_string_70, 974, 974, 11, 78},
-  {cont__sim2c__function_call__to_string_91, &frame__sim2c__function_call__to_string_70, 976, 976, 13, 36},
-  {cont__sim2c__function_call__to_string_92, &frame__sim2c__function_call__to_string_70, 976, 976, 13, 50},
-  {cont__sim2c__function_call__to_string_93, &frame__sim2c__function_call__to_string_70, 976, 976, 13, 50},
-  {cont__sim2c__function_call__to_string_94, &frame__sim2c__function_call__to_string_70, 975, 978, 11, 24},
-  {entry__sim2c__function_call__to_string_68, NULL, 965, 965, 12, 36},
-  {cont__sim2c__function_call__to_string_69, &frame__sim2c__function_call__to_string_68, 965, 978, 9, 25},
-  {entry__sim2c__function_call__to_string_105, NULL, 982, 982, 16, 46},
-  {cont__sim2c__function_call__to_string_106, &frame__sim2c__function_call__to_string_105, 982, 982, 13, 46},
-  {entry__sim2c__function_call__to_string_107, NULL, 985, 985, 31, 61},
-  {cont__sim2c__function_call__to_string_108, &frame__sim2c__function_call__to_string_107, 985, 985, 15, 61},
-  {cont__sim2c__function_call__to_string_109, &frame__sim2c__function_call__to_string_107, 985, 985, 61, 61},
-  {entry__sim2c__function_call__to_string_102, NULL, 981, 981, 13, 33},
-  {cont__sim2c__function_call__to_string_103, &frame__sim2c__function_call__to_string_102, 981, 981, 13, 42},
-  {cont__sim2c__function_call__to_string_104, &frame__sim2c__function_call__to_string_102, 980, 985, 11, 62},
-  {entry__sim2c__function_call__to_string_100, NULL, 979, 979, 12, 36},
-  {cont__sim2c__function_call__to_string_101, &frame__sim2c__function_call__to_string_100, 979, 985, 9, 63},
-  {entry__sim2c__function_call__to_string_133, NULL, 995, 995, 21, 32},
-  {cont__sim2c__function_call__to_string_134, &frame__sim2c__function_call__to_string_133, 995, 995, 13, 33},
-  {cont__sim2c__function_call__to_string_135, &frame__sim2c__function_call__to_string_133, 995, 995, 13, 43},
-  {cont__sim2c__function_call__to_string_137, &frame__sim2c__function_call__to_string_133, 995, 995, 13, 43},
-  {entry__sim2c__function_call__to_string_129, NULL, 994, 994, 26, 37},
-  {cont__sim2c__function_call__to_string_130, &frame__sim2c__function_call__to_string_129, 994, 994, 13, 38},
-  {cont__sim2c__function_call__to_string_131, &frame__sim2c__function_call__to_string_129, 994, 994, 13, 47},
-  {cont__sim2c__function_call__to_string_132, &frame__sim2c__function_call__to_string_129, 995, 995, 13, 43},
-  {cont__sim2c__function_call__to_string_138, &frame__sim2c__function_call__to_string_129, },
-  {entry__sim2c__function_call__to_string_126, NULL, 993, 993, 13, 24},
-  {cont__sim2c__function_call__to_string_127, &frame__sim2c__function_call__to_string_126, 993, 993, 13, 41},
-  {cont__sim2c__function_call__to_string_128, &frame__sim2c__function_call__to_string_126, },
-  {cont__sim2c__function_call__to_string_139, &frame__sim2c__function_call__to_string_126, },
-  {entry__sim2c__function_call__to_string_123, NULL, 992, 992, 13, 24},
-  {cont__sim2c__function_call__to_string_124, &frame__sim2c__function_call__to_string_123, 992, 992, 13, 41},
-  {cont__sim2c__function_call__to_string_125, &frame__sim2c__function_call__to_string_123, },
-  {cont__sim2c__function_call__to_string_140, &frame__sim2c__function_call__to_string_123, },
-  {entry__sim2c__function_call__to_string_120, NULL, 991, 991, 13, 32},
-  {cont__sim2c__function_call__to_string_121, &frame__sim2c__function_call__to_string_120, 991, 991, 13, 37},
-  {cont__sim2c__function_call__to_string_122, &frame__sim2c__function_call__to_string_120, },
-  {cont__sim2c__function_call__to_string_141, &frame__sim2c__function_call__to_string_120, },
-  {entry__sim2c__function_call__to_string_116, NULL, 990, 990, 13, 28},
-  {cont__sim2c__function_call__to_string_117, &frame__sim2c__function_call__to_string_116, 990, 990, 13, 48},
-  {cont__sim2c__function_call__to_string_119, &frame__sim2c__function_call__to_string_116, },
-  {cont__sim2c__function_call__to_string_142, &frame__sim2c__function_call__to_string_116, },
-  {entry__sim2c__function_call__to_string_112, NULL, 989, 989, 13, 33},
-  {cont__sim2c__function_call__to_string_113, &frame__sim2c__function_call__to_string_112, 989, 989, 13, 42},
-  {cont__sim2c__function_call__to_string_115, &frame__sim2c__function_call__to_string_112, },
-  {cont__sim2c__function_call__to_string_143, &frame__sim2c__function_call__to_string_112, },
-  {entry__sim2c__function_call__to_string_145, NULL, 996, 996, 19, 30},
-  {cont__sim2c__function_call__to_string_146, &frame__sim2c__function_call__to_string_145, 996, 996, 14, 32},
-  {cont__sim2c__function_call__to_string_148, &frame__sim2c__function_call__to_string_145, 996, 996, 11, 32},
-  {entry__sim2c__function_call__to_string_110, NULL, 988, 988, 13, 36},
-  {cont__sim2c__function_call__to_string_111, &frame__sim2c__function_call__to_string_110, },
-  {cont__sim2c__function_call__to_string_144, &frame__sim2c__function_call__to_string_110, 986, 996, 9, 32},
-  {entry__sim2c__function_call__to_string_149, NULL, 997, 997, 9, 28},
-  {entry__sim2c__function_call__to_string_67, NULL, 964, 997, 7, 28},
-  {entry__sim2c__function_call__to_string_65, NULL, 963, 963, 8, 41},
-  {cont__sim2c__function_call__to_string_66, &frame__sim2c__function_call__to_string_65, 963, 997, 5, 29},
-  {entry__sim2c__function_call__to_string_159, NULL, 1005, 1005, 16, 54},
-  {cont__sim2c__function_call__to_string_160, &frame__sim2c__function_call__to_string_159, 1005, 1005, 13, 54},
-  {entry__sim2c__function_call__to_string_161, NULL, 1006, 1006, 16, 46},
-  {cont__sim2c__function_call__to_string_162, &frame__sim2c__function_call__to_string_161, 1006, 1006, 13, 46},
-  {entry__sim2c__function_call__to_string_155, NULL, 1002, 1002, 11, 32},
-  {cont__sim2c__function_call__to_string_156, &frame__sim2c__function_call__to_string_155, 1004, 1004, 13, 35},
-  {cont__sim2c__function_call__to_string_157, &frame__sim2c__function_call__to_string_155, 1004, 1004, 13, 56},
-  {cont__sim2c__function_call__to_string_158, &frame__sim2c__function_call__to_string_155, 1003, 1006, 11, 46},
-  {entry__sim2c__function_call__to_string_169, NULL, 1017, 1017, 15, 45},
-  {entry__sim2c__function_call__to_string_170, NULL, 1018, 1018, 15, 46},
-  {entry__sim2c__function_call__to_string_164, NULL, 1014, 1014, 13, 31},
-  {cont__sim2c__function_call__to_string_165, &frame__sim2c__function_call__to_string_164, 1016, 1016, 15, 33},
-  {cont__sim2c__function_call__to_string_166, &frame__sim2c__function_call__to_string_164, 1016, 1016, 15, 41},
-  {cont__sim2c__function_call__to_string_167, &frame__sim2c__function_call__to_string_164, 1016, 1016, 15, 41},
-  {cont__sim2c__function_call__to_string_168, &frame__sim2c__function_call__to_string_164, 1015, 1018, 13, 46},
-  {entry__sim2c__function_call__to_string_175, NULL, 1024, 1024, 15, 45},
-  {entry__sim2c__function_call__to_string_176, NULL, 1025, 1025, 15, 46},
-  {entry__sim2c__function_call__to_string_171, NULL, 1021, 1021, 13, 31},
-  {cont__sim2c__function_call__to_string_172, &frame__sim2c__function_call__to_string_171, 1023, 1023, 15, 33},
-  {cont__sim2c__function_call__to_string_173, &frame__sim2c__function_call__to_string_171, 1023, 1023, 15, 40},
-  {cont__sim2c__function_call__to_string_174, &frame__sim2c__function_call__to_string_171, 1022, 1025, 13, 46},
-  {entry__sim2c__function_call__to_string_187, NULL, 1032, 1032, 17, 49},
-  {cont__sim2c__function_call__to_string_188, &frame__sim2c__function_call__to_string_187, 1033, 1033, 43, 58},
-  {cont__sim2c__function_call__to_string_189, &frame__sim2c__function_call__to_string_187, 1033, 1033, 30, 59},
-  {cont__sim2c__function_call__to_string_190, &frame__sim2c__function_call__to_string_187, 1033, 1033, 17, 59},
-  {cont__sim2c__function_call__to_string_191, &frame__sim2c__function_call__to_string_187, 1034, 1034, 17, 38},
-  {cont__sim2c__function_call__to_string_192, &frame__sim2c__function_call__to_string_187, 1034, 1034, 38, 38},
-  {entry__sim2c__function_call__to_string_184, NULL, 1031, 1031, 24, 40},
-  {cont__sim2c__function_call__to_string_185, &frame__sim2c__function_call__to_string_184, 1031, 1031, 24, 58},
-  {cont__sim2c__function_call__to_string_186, &frame__sim2c__function_call__to_string_184, 1031, 1034, 21, 38},
-  {entry__sim2c__function_call__to_string_181, NULL, 1030, 1030, 28, 46},
-  {cont__sim2c__function_call__to_string_182, &frame__sim2c__function_call__to_string_181, 1030, 1030, 15, 46},
-  {cont__sim2c__function_call__to_string_183, &frame__sim2c__function_call__to_string_181, 1031, 1034, 15, 38},
-  {cont__sim2c__function_call__to_string_193, &frame__sim2c__function_call__to_string_181, 1035, 1035, 28, 45},
-  {cont__sim2c__function_call__to_string_194, &frame__sim2c__function_call__to_string_181, 1035, 1035, 15, 45},
-  {cont__sim2c__function_call__to_string_195, &frame__sim2c__function_call__to_string_181, 1035, 1035, 45, 45},
-  {entry__sim2c__function_call__to_string_202, NULL, 1039, 1039, 17, 51},
-  {cont__sim2c__function_call__to_string_203, &frame__sim2c__function_call__to_string_202, 1040, 1040, 44, 60},
-  {cont__sim2c__function_call__to_string_204, &frame__sim2c__function_call__to_string_202, 1040, 1040, 31, 61},
-  {cont__sim2c__function_call__to_string_205, &frame__sim2c__function_call__to_string_202, 1040, 1040, 17, 61},
-  {cont__sim2c__function_call__to_string_206, &frame__sim2c__function_call__to_string_202, 1041, 1041, 17, 40},
-  {cont__sim2c__function_call__to_string_207, &frame__sim2c__function_call__to_string_202, 1041, 1041, 40, 40},
-  {entry__sim2c__function_call__to_string_199, NULL, 1038, 1038, 24, 41},
-  {cont__sim2c__function_call__to_string_200, &frame__sim2c__function_call__to_string_199, 1038, 1038, 24, 59},
-  {cont__sim2c__function_call__to_string_201, &frame__sim2c__function_call__to_string_199, 1038, 1041, 21, 40},
-  {entry__sim2c__function_call__to_string_196, NULL, 1037, 1037, 29, 46},
-  {cont__sim2c__function_call__to_string_197, &frame__sim2c__function_call__to_string_196, 1037, 1037, 15, 46},
-  {cont__sim2c__function_call__to_string_198, &frame__sim2c__function_call__to_string_196, 1038, 1041, 15, 40},
-  {cont__sim2c__function_call__to_string_208, &frame__sim2c__function_call__to_string_196, 1042, 1042, 29, 47},
-  {cont__sim2c__function_call__to_string_209, &frame__sim2c__function_call__to_string_196, 1042, 1042, 15, 47},
-  {cont__sim2c__function_call__to_string_210, &frame__sim2c__function_call__to_string_196, 1042, 1042, 47, 47},
-  {entry__sim2c__function_call__to_string_216, NULL, 1049, 1049, 17, 21},
-  {entry__sim2c__function_call__to_string_221, NULL, 1051, 1051, 41, 59},
-  {cont__sim2c__function_call__to_string_222, &frame__sim2c__function_call__to_string_221, 1051, 1051, 59, 59},
-  {entry__sim2c__function_call__to_string_213, NULL, 1047, 1047, 18, 23},
-  {cont__sim2c__function_call__to_string_214, &frame__sim2c__function_call__to_string_213, 1047, 1047, 18, 33},
-  {cont__sim2c__function_call__to_string_215, &frame__sim2c__function_call__to_string_213, 1047, 1049, 15, 21},
-  {cont__sim2c__function_call__to_string_217, &frame__sim2c__function_call__to_string_213, 1050, 1050, 33, 46},
-  {cont__sim2c__function_call__to_string_218, &frame__sim2c__function_call__to_string_213, 1050, 1050, 15, 46},
-  {cont__sim2c__function_call__to_string_219, &frame__sim2c__function_call__to_string_213, 1051, 1051, 18, 38},
-  {cont__sim2c__function_call__to_string_220, &frame__sim2c__function_call__to_string_213, 1051, 1051, 15, 59},
-  {entry__sim2c__function_call__to_string_212, NULL, 1046, 1051, 13, 59},
-  {cont__sim2c__function_call__to_string_223, &frame__sim2c__function_call__to_string_212, 1051, 1051, 59, 59},
-  {entry__sim2c__function_call__to_string_232, NULL, 1057, 1057, 17, 33},
-  {entry__sim2c__function_call__to_string_233, NULL, 1059, 1059, 20, 45},
-  {cont__sim2c__function_call__to_string_234, &frame__sim2c__function_call__to_string_233, 1059, 1059, 17, 45},
-  {entry__sim2c__function_call__to_string_235, NULL, 1060, 1060, 20, 49},
-  {cont__sim2c__function_call__to_string_236, &frame__sim2c__function_call__to_string_235, 1060, 1060, 17, 49},
-  {entry__sim2c__function_call__to_string_246, NULL, 1062, 1062, 70, 70},
-  {entry__sim2c__function_call__to_string_226, NULL, 1056, 1056, 17, 34},
-  {cont__sim2c__function_call__to_string_231, &frame__sim2c__function_call__to_string_226, 1053, 1060, 13, 50},
-  {cont__sim2c__function_call__to_string_238, &frame__sim2c__function_call__to_string_226, 1061, 1061, 32, 49},
-  {cont__sim2c__function_call__to_string_239, &frame__sim2c__function_call__to_string_226, 1061, 1061, 32, 51},
-  {cont__sim2c__function_call__to_string_240, &frame__sim2c__function_call__to_string_226, 1061, 1061, 54, 78},
-  {cont__sim2c__function_call__to_string_241, &frame__sim2c__function_call__to_string_226, 1061, 1061, 32, 78},
-  {cont__sim2c__function_call__to_string_242, &frame__sim2c__function_call__to_string_226, 1061, 1061, 13, 78},
-  {cont__sim2c__function_call__to_string_243, &frame__sim2c__function_call__to_string_226, 1062, 1062, 16, 33},
-  {cont__sim2c__function_call__to_string_244, &frame__sim2c__function_call__to_string_226, 1062, 1062, 16, 46},
-  {cont__sim2c__function_call__to_string_245, &frame__sim2c__function_call__to_string_226, 1062, 1062, 13, 70},
-  {entry__sim2c__function_call__to_string_252, NULL, 1068, 1068, 45, 57},
-  {cont__sim2c__function_call__to_string_253, &frame__sim2c__function_call__to_string_252, 1068, 1068, 57, 57},
-  {entry__sim2c__function_call__to_string_257, NULL, 1070, 1070, 45, 57},
-  {cont__sim2c__function_call__to_string_258, &frame__sim2c__function_call__to_string_257, 1070, 1070, 57, 57},
-  {entry__sim2c__function_call__to_string_250, NULL, 1068, 1068, 22, 42},
-  {cont__sim2c__function_call__to_string_251, &frame__sim2c__function_call__to_string_250, 1068, 1068, 19, 57},
-  {cont__sim2c__function_call__to_string_254, &frame__sim2c__function_call__to_string_250, 1069, 1069, 19, 33},
-  {cont__sim2c__function_call__to_string_255, &frame__sim2c__function_call__to_string_250, 1070, 1070, 22, 42},
-  {cont__sim2c__function_call__to_string_256, &frame__sim2c__function_call__to_string_250, 1070, 1070, 19, 57},
-  {entry__sim2c__function_call__to_string_259, NULL, 1072, 1072, 19, 44},
-  {cont__sim2c__function_call__to_string_260, &frame__sim2c__function_call__to_string_259, 1072, 1072, 44, 44},
-  {entry__sim2c__function_call__to_string_249, NULL, 1066, 1072, 15, 45},
-  {entry__sim2c__function_call__to_string_262, NULL, 1074, 1074, 65, 65},
-  {entry__sim2c__function_call__to_string_271, NULL, 1079, 1079, 19, 34},
-  {cont__sim2c__function_call__to_string_272, &frame__sim2c__function_call__to_string_271, 1080, 1080, 19, 41},
-  {cont__sim2c__function_call__to_string_273, &frame__sim2c__function_call__to_string_271, 1080, 1080, 41, 41},
-  {entry__sim2c__function_call__to_string_268, NULL, 1078, 1078, 24, 29},
-  {cont__sim2c__function_call__to_string_269, &frame__sim2c__function_call__to_string_268, 1078, 1078, 24, 39},
-  {cont__sim2c__function_call__to_string_270, &frame__sim2c__function_call__to_string_268, 1078, 1080, 17, 41},
-  {cont__sim2c__function_call__to_string_274, &frame__sim2c__function_call__to_string_268, 1081, 1081, 17, 31},
-  {cont__sim2c__function_call__to_string_275, &frame__sim2c__function_call__to_string_268, 1081, 1081, 31, 31},
-  {entry__sim2c__function_call__to_string_261, NULL, 1074, 1074, 15, 65},
-  {cont__sim2c__function_call__to_string_264, &frame__sim2c__function_call__to_string_261, 1075, 1075, 15, 52},
-  {cont__sim2c__function_call__to_string_265, &frame__sim2c__function_call__to_string_261, 1076, 1076, 34, 47},
-  {cont__sim2c__function_call__to_string_266, &frame__sim2c__function_call__to_string_261, 1076, 1076, 15, 63},
-  {cont__sim2c__function_call__to_string_267, &frame__sim2c__function_call__to_string_261, 1077, 1081, 15, 31},
-  {entry__sim2c__function_call__to_string_163, NULL, 1009, 1009, 11, 42},
-  {cont__sim2c__function_call__to_string_177, &frame__sim2c__function_call__to_string_163, 1010, 1010, 11, 29},
-  {cont__sim2c__function_call__to_string_178, &frame__sim2c__function_call__to_string_163, 1011, 1011, 11, 30},
-  {cont__sim2c__function_call__to_string_179, &frame__sim2c__function_call__to_string_163, 1029, 1029, 13, 36},
-  {cont__sim2c__function_call__to_string_180, &frame__sim2c__function_call__to_string_163, 1028, 1042, 11, 48},
-  {cont__sim2c__function_call__to_string_211, &frame__sim2c__function_call__to_string_163, 1045, 1051, 11, 60},
-  {cont__sim2c__function_call__to_string_224, &frame__sim2c__function_call__to_string_163, 1052, 1052, 14, 35},
-  {cont__sim2c__function_call__to_string_225, &frame__sim2c__function_call__to_string_163, 1052, 1062, 11, 70},
-  {cont__sim2c__function_call__to_string_247, &frame__sim2c__function_call__to_string_163, 1065, 1065, 13, 34},
-  {cont__sim2c__function_call__to_string_248, &frame__sim2c__function_call__to_string_163, 1064, 1081, 11, 33},
-  {cont__sim2c__function_call__to_string_276, &frame__sim2c__function_call__to_string_163, 1082, 1082, 11, 16},
-  {entry__sim2c__function_call__to_string_151, NULL, 999, 999, 7, 33},
-  {cont__sim2c__function_call__to_string_152, &frame__sim2c__function_call__to_string_151, 1001, 1001, 9, 28},
-  {cont__sim2c__function_call__to_string_153, &frame__sim2c__function_call__to_string_151, 1001, 1001, 9, 33},
-  {cont__sim2c__function_call__to_string_154, &frame__sim2c__function_call__to_string_151, 1000, 1082, 7, 17},
-  {cont__sim2c__function_call__to_string_277, &frame__sim2c__function_call__to_string_151, 1082, 1082, 17, 17},
-  {entry__sim2c__function_call__to_string_150, NULL, 998, 1082, 5, 18},
-  {entry__sim2c__function_call__to_string_1, NULL, 902, 902, 3, 27},
-  {cont__sim2c__function_call__to_string_37, &frame__sim2c__function_call__to_string_1, 906, 906, 7, 24},
-  {cont__sim2c__function_call__to_string_38, &frame__sim2c__function_call__to_string_1, 904, 909, 3, 19},
-  {cont__sim2c__function_call__to_string_43, &frame__sim2c__function_call__to_string_1, 949, 949, 3, 31},
-  {cont__sim2c__function_call__to_string_44, &frame__sim2c__function_call__to_string_1, 950, 1082, 3, 19},
-  {entry__sim2c__backquoted__to_string_1, NULL, 1087, 1087, 52, 70},
-  {cont__sim2c__backquoted__to_string_2, &frame__sim2c__backquoted__to_string_1, 1087, 1087, 41, 71},
-  {cont__sim2c__backquoted__to_string_3, &frame__sim2c__backquoted__to_string_1, 1087, 1087, 38, 71},
+  {entry__compiler__function_call__to_string_16, NULL, 927, 927, 28, 41},
+  {cont__compiler__function_call__to_string_17, &frame__compiler__function_call__to_string_16, 927, 927, 14, 74},
+  {cont__compiler__function_call__to_string_18, &frame__compiler__function_call__to_string_16, 927, 927, 11, 74},
+  {entry__compiler__function_call__to_string_19, NULL, 928, 928, 14, 60},
+  {cont__compiler__function_call__to_string_20, &frame__compiler__function_call__to_string_19, 928, 928, 11, 60},
+  {entry__compiler__function_call__to_string_14, NULL, 926, 926, 11, 44},
+  {cont__compiler__function_call__to_string_15, &frame__compiler__function_call__to_string_14, 925, 928, 9, 60},
+  {entry__compiler__function_call__to_string_27, NULL, 934, 934, 37, 61},
+  {cont__compiler__function_call__to_string_28, &frame__compiler__function_call__to_string_27, 934, 934, 15, 69},
+  {cont__compiler__function_call__to_string_29, &frame__compiler__function_call__to_string_27, 934, 934, 69, 69},
+  {entry__compiler__function_call__to_string_23, NULL, 932, 932, 13, 54},
+  {cont__compiler__function_call__to_string_24, &frame__compiler__function_call__to_string_23, 933, 933, 20, 28},
+  {cont__compiler__function_call__to_string_25, &frame__compiler__function_call__to_string_23, 933, 933, 20, 38},
+  {cont__compiler__function_call__to_string_26, &frame__compiler__function_call__to_string_23, 933, 934, 13, 69},
+  {cont__compiler__function_call__to_string_30, &frame__compiler__function_call__to_string_23, 938, 938, 17, 30},
+  {cont__compiler__function_call__to_string_31, &frame__compiler__function_call__to_string_23, 936, 941, 15, 31},
+  {cont__compiler__function_call__to_string_32, &frame__compiler__function_call__to_string_23, 935, 941, 13, 33},
+  {entry__compiler__function_call__to_string_33, NULL, 946, 946, 17, 63},
+  {cont__compiler__function_call__to_string_34, &frame__compiler__function_call__to_string_33, 945, 947, 15, 27},
+  {cont__compiler__function_call__to_string_35, &frame__compiler__function_call__to_string_33, 944, 947, 13, 29},
+  {entry__compiler__function_call__to_string_21, NULL, 931, 931, 11, 44},
+  {cont__compiler__function_call__to_string_22, &frame__compiler__function_call__to_string_21, 930, 947, 9, 31},
+  {entry__compiler__function_call__to_string_2, NULL, 912, 912, 5, 31},
+  {cont__compiler__function_call__to_string_3, &frame__compiler__function_call__to_string_2, 918, 918, 9, 25},
+  {cont__compiler__function_call__to_string_4, &frame__compiler__function_call__to_string_2, 918, 918, 27, 51},
+  {cont__compiler__function_call__to_string_5, &frame__compiler__function_call__to_string_2, 918, 918, 9, 51},
+  {cont__compiler__function_call__to_string_6, &frame__compiler__function_call__to_string_2, 918, 918, 9, 53},
+  {cont__compiler__function_call__to_string_7, &frame__compiler__function_call__to_string_2, 914, 918, 5, 54},
+  {cont__compiler__function_call__to_string_8, &frame__compiler__function_call__to_string_2, 921, 921, 14, 34},
+  {cont__compiler__function_call__to_string_9, &frame__compiler__function_call__to_string_2, 921, 921, 59, 74},
+  {cont__compiler__function_call__to_string_10, &frame__compiler__function_call__to_string_2, 921, 921, 36, 75},
+  {cont__compiler__function_call__to_string_11, &frame__compiler__function_call__to_string_2, 920, 921, 5, 76},
+  {cont__compiler__function_call__to_string_12, &frame__compiler__function_call__to_string_2, 924, 924, 7, 27},
+  {cont__compiler__function_call__to_string_13, &frame__compiler__function_call__to_string_2, 923, 947, 5, 33},
+  {cont__compiler__function_call__to_string_36, &frame__compiler__function_call__to_string_2, 947, 947, 33, 33},
+  {entry__compiler__function_call__to_string_39, NULL, 908, 908, 19, 34},
+  {cont__compiler__function_call__to_string_40, &frame__compiler__function_call__to_string_39, 908, 908, 9, 34},
+  {cont__compiler__function_call__to_string_41, &frame__compiler__function_call__to_string_39, 908, 908, 34, 34},
+  {entry__compiler__function_call__to_string_42, NULL, 909, 909, 7, 18},
+  {entry__compiler__function_call__to_string_50, NULL, 956, 956, 12, 46},
+  {cont__compiler__function_call__to_string_51, &frame__compiler__function_call__to_string_50, 956, 956, 9, 46},
+  {entry__compiler__function_call__to_string_52, NULL, 957, 957, 12, 31},
+  {cont__compiler__function_call__to_string_53, &frame__compiler__function_call__to_string_52, 957, 957, 9, 31},
+  {entry__compiler__function_call__to_string_47, NULL, 953, 953, 7, 28},
+  {cont__compiler__function_call__to_string_48, &frame__compiler__function_call__to_string_47, 955, 955, 9, 33},
+  {cont__compiler__function_call__to_string_49, &frame__compiler__function_call__to_string_47, 954, 957, 7, 31},
+  {cont__compiler__function_call__to_string_54, &frame__compiler__function_call__to_string_47, 957, 957, 31, 31},
+  {entry__compiler__function_call__to_string_45, NULL, 951, 951, 8, 34},
+  {cont__compiler__function_call__to_string_46, &frame__compiler__function_call__to_string_45, 951, 957, 5, 32},
+  {entry__compiler__function_call__to_string_61, NULL, 961, 961, 9, 42},
+  {cont__compiler__function_call__to_string_62, &frame__compiler__function_call__to_string_61, 961, 961, 42, 42},
+  {entry__compiler__function_call__to_string_57, NULL, 959, 959, 7, 29},
+  {cont__compiler__function_call__to_string_58, &frame__compiler__function_call__to_string_57, 960, 960, 10, 32},
+  {cont__compiler__function_call__to_string_59, &frame__compiler__function_call__to_string_57, 960, 960, 10, 53},
+  {cont__compiler__function_call__to_string_60, &frame__compiler__function_call__to_string_57, 960, 961, 7, 42},
+  {cont__compiler__function_call__to_string_63, &frame__compiler__function_call__to_string_57, 962, 962, 10, 44},
+  {cont__compiler__function_call__to_string_64, &frame__compiler__function_call__to_string_57, 962, 962, 7, 44},
+  {entry__compiler__function_call__to_string_55, NULL, 958, 958, 8, 34},
+  {cont__compiler__function_call__to_string_56, &frame__compiler__function_call__to_string_55, 958, 962, 5, 44},
+  {entry__compiler__function_call__to_string_77, NULL, 971, 971, 13, 38},
+  {cont__compiler__function_call__to_string_78, &frame__compiler__function_call__to_string_77, 971, 971, 38, 38},
+  {entry__compiler__function_call__to_string_83, NULL, 973, 973, 13, 40},
+  {cont__compiler__function_call__to_string_84, &frame__compiler__function_call__to_string_83, 973, 973, 40, 40},
+  {entry__compiler__function_call__to_string_95, NULL, 977, 977, 32, 74},
+  {cont__compiler__function_call__to_string_98, &frame__compiler__function_call__to_string_95, 977, 977, 16, 75},
+  {cont__compiler__function_call__to_string_99, &frame__compiler__function_call__to_string_95, 977, 977, 13, 75},
+  {entry__compiler__function_call__to_string_70, NULL, 966, 966, 11, 37},
+  {cont__compiler__function_call__to_string_71, &frame__compiler__function_call__to_string_70, 967, 967, 11, 38},
+  {cont__compiler__function_call__to_string_72, &frame__compiler__function_call__to_string_70, 968, 968, 11, 40},
+  {cont__compiler__function_call__to_string_73, &frame__compiler__function_call__to_string_70, 969, 969, 11, 42},
+  {cont__compiler__function_call__to_string_74, &frame__compiler__function_call__to_string_70, 970, 970, 14, 41},
+  {cont__compiler__function_call__to_string_75, &frame__compiler__function_call__to_string_70, 970, 970, 14, 60},
+  {cont__compiler__function_call__to_string_76, &frame__compiler__function_call__to_string_70, 970, 971, 11, 38},
+  {cont__compiler__function_call__to_string_79, &frame__compiler__function_call__to_string_70, 972, 972, 14, 42},
+  {cont__compiler__function_call__to_string_80, &frame__compiler__function_call__to_string_70, 972, 972, 14, 62},
+  {cont__compiler__function_call__to_string_81, &frame__compiler__function_call__to_string_70, 972, 972, 14, 62},
+  {cont__compiler__function_call__to_string_82, &frame__compiler__function_call__to_string_70, 972, 973, 11, 40},
+  {cont__compiler__function_call__to_string_85, &frame__compiler__function_call__to_string_70, 974, 974, 19, 33},
+  {cont__compiler__function_call__to_string_86, &frame__compiler__function_call__to_string_70, 974, 974, 35, 59},
+  {cont__compiler__function_call__to_string_87, &frame__compiler__function_call__to_string_70, 974, 974, 19, 59},
+  {cont__compiler__function_call__to_string_88, &frame__compiler__function_call__to_string_70, 974, 974, 61, 76},
+  {cont__compiler__function_call__to_string_89, &frame__compiler__function_call__to_string_70, 974, 974, 19, 76},
+  {cont__compiler__function_call__to_string_90, &frame__compiler__function_call__to_string_70, 974, 974, 11, 78},
+  {cont__compiler__function_call__to_string_91, &frame__compiler__function_call__to_string_70, 976, 976, 13, 36},
+  {cont__compiler__function_call__to_string_92, &frame__compiler__function_call__to_string_70, 976, 976, 13, 50},
+  {cont__compiler__function_call__to_string_93, &frame__compiler__function_call__to_string_70, 976, 976, 13, 50},
+  {cont__compiler__function_call__to_string_94, &frame__compiler__function_call__to_string_70, 975, 978, 11, 24},
+  {entry__compiler__function_call__to_string_68, NULL, 965, 965, 12, 36},
+  {cont__compiler__function_call__to_string_69, &frame__compiler__function_call__to_string_68, 965, 978, 9, 25},
+  {entry__compiler__function_call__to_string_105, NULL, 982, 982, 16, 46},
+  {cont__compiler__function_call__to_string_106, &frame__compiler__function_call__to_string_105, 982, 982, 13, 46},
+  {entry__compiler__function_call__to_string_107, NULL, 985, 985, 31, 61},
+  {cont__compiler__function_call__to_string_108, &frame__compiler__function_call__to_string_107, 985, 985, 15, 61},
+  {cont__compiler__function_call__to_string_109, &frame__compiler__function_call__to_string_107, 985, 985, 61, 61},
+  {entry__compiler__function_call__to_string_102, NULL, 981, 981, 13, 33},
+  {cont__compiler__function_call__to_string_103, &frame__compiler__function_call__to_string_102, 981, 981, 13, 42},
+  {cont__compiler__function_call__to_string_104, &frame__compiler__function_call__to_string_102, 980, 985, 11, 62},
+  {entry__compiler__function_call__to_string_100, NULL, 979, 979, 12, 36},
+  {cont__compiler__function_call__to_string_101, &frame__compiler__function_call__to_string_100, 979, 985, 9, 63},
+  {entry__compiler__function_call__to_string_133, NULL, 995, 995, 21, 32},
+  {cont__compiler__function_call__to_string_134, &frame__compiler__function_call__to_string_133, 995, 995, 13, 33},
+  {cont__compiler__function_call__to_string_135, &frame__compiler__function_call__to_string_133, 995, 995, 13, 43},
+  {cont__compiler__function_call__to_string_137, &frame__compiler__function_call__to_string_133, 995, 995, 13, 43},
+  {entry__compiler__function_call__to_string_129, NULL, 994, 994, 26, 37},
+  {cont__compiler__function_call__to_string_130, &frame__compiler__function_call__to_string_129, 994, 994, 13, 38},
+  {cont__compiler__function_call__to_string_131, &frame__compiler__function_call__to_string_129, 994, 994, 13, 47},
+  {cont__compiler__function_call__to_string_132, &frame__compiler__function_call__to_string_129, 995, 995, 13, 43},
+  {cont__compiler__function_call__to_string_138, &frame__compiler__function_call__to_string_129, },
+  {entry__compiler__function_call__to_string_126, NULL, 993, 993, 13, 24},
+  {cont__compiler__function_call__to_string_127, &frame__compiler__function_call__to_string_126, 993, 993, 13, 41},
+  {cont__compiler__function_call__to_string_128, &frame__compiler__function_call__to_string_126, },
+  {cont__compiler__function_call__to_string_139, &frame__compiler__function_call__to_string_126, },
+  {entry__compiler__function_call__to_string_123, NULL, 992, 992, 13, 24},
+  {cont__compiler__function_call__to_string_124, &frame__compiler__function_call__to_string_123, 992, 992, 13, 41},
+  {cont__compiler__function_call__to_string_125, &frame__compiler__function_call__to_string_123, },
+  {cont__compiler__function_call__to_string_140, &frame__compiler__function_call__to_string_123, },
+  {entry__compiler__function_call__to_string_120, NULL, 991, 991, 13, 32},
+  {cont__compiler__function_call__to_string_121, &frame__compiler__function_call__to_string_120, 991, 991, 13, 37},
+  {cont__compiler__function_call__to_string_122, &frame__compiler__function_call__to_string_120, },
+  {cont__compiler__function_call__to_string_141, &frame__compiler__function_call__to_string_120, },
+  {entry__compiler__function_call__to_string_116, NULL, 990, 990, 13, 28},
+  {cont__compiler__function_call__to_string_117, &frame__compiler__function_call__to_string_116, 990, 990, 13, 48},
+  {cont__compiler__function_call__to_string_119, &frame__compiler__function_call__to_string_116, },
+  {cont__compiler__function_call__to_string_142, &frame__compiler__function_call__to_string_116, },
+  {entry__compiler__function_call__to_string_112, NULL, 989, 989, 13, 33},
+  {cont__compiler__function_call__to_string_113, &frame__compiler__function_call__to_string_112, 989, 989, 13, 42},
+  {cont__compiler__function_call__to_string_115, &frame__compiler__function_call__to_string_112, },
+  {cont__compiler__function_call__to_string_143, &frame__compiler__function_call__to_string_112, },
+  {entry__compiler__function_call__to_string_145, NULL, 996, 996, 19, 30},
+  {cont__compiler__function_call__to_string_146, &frame__compiler__function_call__to_string_145, 996, 996, 14, 32},
+  {cont__compiler__function_call__to_string_148, &frame__compiler__function_call__to_string_145, 996, 996, 11, 32},
+  {entry__compiler__function_call__to_string_110, NULL, 988, 988, 13, 36},
+  {cont__compiler__function_call__to_string_111, &frame__compiler__function_call__to_string_110, },
+  {cont__compiler__function_call__to_string_144, &frame__compiler__function_call__to_string_110, 986, 996, 9, 32},
+  {entry__compiler__function_call__to_string_149, NULL, 997, 997, 9, 28},
+  {entry__compiler__function_call__to_string_67, NULL, 964, 997, 7, 28},
+  {entry__compiler__function_call__to_string_65, NULL, 963, 963, 8, 41},
+  {cont__compiler__function_call__to_string_66, &frame__compiler__function_call__to_string_65, 963, 997, 5, 29},
+  {entry__compiler__function_call__to_string_159, NULL, 1005, 1005, 16, 54},
+  {cont__compiler__function_call__to_string_160, &frame__compiler__function_call__to_string_159, 1005, 1005, 13, 54},
+  {entry__compiler__function_call__to_string_161, NULL, 1006, 1006, 16, 46},
+  {cont__compiler__function_call__to_string_162, &frame__compiler__function_call__to_string_161, 1006, 1006, 13, 46},
+  {entry__compiler__function_call__to_string_155, NULL, 1002, 1002, 11, 32},
+  {cont__compiler__function_call__to_string_156, &frame__compiler__function_call__to_string_155, 1004, 1004, 13, 35},
+  {cont__compiler__function_call__to_string_157, &frame__compiler__function_call__to_string_155, 1004, 1004, 13, 56},
+  {cont__compiler__function_call__to_string_158, &frame__compiler__function_call__to_string_155, 1003, 1006, 11, 46},
+  {entry__compiler__function_call__to_string_169, NULL, 1017, 1017, 15, 45},
+  {entry__compiler__function_call__to_string_170, NULL, 1018, 1018, 15, 46},
+  {entry__compiler__function_call__to_string_164, NULL, 1014, 1014, 13, 31},
+  {cont__compiler__function_call__to_string_165, &frame__compiler__function_call__to_string_164, 1016, 1016, 15, 33},
+  {cont__compiler__function_call__to_string_166, &frame__compiler__function_call__to_string_164, 1016, 1016, 15, 41},
+  {cont__compiler__function_call__to_string_167, &frame__compiler__function_call__to_string_164, 1016, 1016, 15, 41},
+  {cont__compiler__function_call__to_string_168, &frame__compiler__function_call__to_string_164, 1015, 1018, 13, 46},
+  {entry__compiler__function_call__to_string_175, NULL, 1024, 1024, 15, 45},
+  {entry__compiler__function_call__to_string_176, NULL, 1025, 1025, 15, 46},
+  {entry__compiler__function_call__to_string_171, NULL, 1021, 1021, 13, 31},
+  {cont__compiler__function_call__to_string_172, &frame__compiler__function_call__to_string_171, 1023, 1023, 15, 33},
+  {cont__compiler__function_call__to_string_173, &frame__compiler__function_call__to_string_171, 1023, 1023, 15, 40},
+  {cont__compiler__function_call__to_string_174, &frame__compiler__function_call__to_string_171, 1022, 1025, 13, 46},
+  {entry__compiler__function_call__to_string_187, NULL, 1032, 1032, 17, 49},
+  {cont__compiler__function_call__to_string_188, &frame__compiler__function_call__to_string_187, 1033, 1033, 43, 58},
+  {cont__compiler__function_call__to_string_189, &frame__compiler__function_call__to_string_187, 1033, 1033, 30, 59},
+  {cont__compiler__function_call__to_string_190, &frame__compiler__function_call__to_string_187, 1033, 1033, 17, 59},
+  {cont__compiler__function_call__to_string_191, &frame__compiler__function_call__to_string_187, 1034, 1034, 17, 38},
+  {cont__compiler__function_call__to_string_192, &frame__compiler__function_call__to_string_187, 1034, 1034, 38, 38},
+  {entry__compiler__function_call__to_string_184, NULL, 1031, 1031, 24, 40},
+  {cont__compiler__function_call__to_string_185, &frame__compiler__function_call__to_string_184, 1031, 1031, 24, 58},
+  {cont__compiler__function_call__to_string_186, &frame__compiler__function_call__to_string_184, 1031, 1034, 21, 38},
+  {entry__compiler__function_call__to_string_181, NULL, 1030, 1030, 28, 46},
+  {cont__compiler__function_call__to_string_182, &frame__compiler__function_call__to_string_181, 1030, 1030, 15, 46},
+  {cont__compiler__function_call__to_string_183, &frame__compiler__function_call__to_string_181, 1031, 1034, 15, 38},
+  {cont__compiler__function_call__to_string_193, &frame__compiler__function_call__to_string_181, 1035, 1035, 28, 45},
+  {cont__compiler__function_call__to_string_194, &frame__compiler__function_call__to_string_181, 1035, 1035, 15, 45},
+  {cont__compiler__function_call__to_string_195, &frame__compiler__function_call__to_string_181, 1035, 1035, 45, 45},
+  {entry__compiler__function_call__to_string_202, NULL, 1039, 1039, 17, 51},
+  {cont__compiler__function_call__to_string_203, &frame__compiler__function_call__to_string_202, 1040, 1040, 44, 60},
+  {cont__compiler__function_call__to_string_204, &frame__compiler__function_call__to_string_202, 1040, 1040, 31, 61},
+  {cont__compiler__function_call__to_string_205, &frame__compiler__function_call__to_string_202, 1040, 1040, 17, 61},
+  {cont__compiler__function_call__to_string_206, &frame__compiler__function_call__to_string_202, 1041, 1041, 17, 40},
+  {cont__compiler__function_call__to_string_207, &frame__compiler__function_call__to_string_202, 1041, 1041, 40, 40},
+  {entry__compiler__function_call__to_string_199, NULL, 1038, 1038, 24, 41},
+  {cont__compiler__function_call__to_string_200, &frame__compiler__function_call__to_string_199, 1038, 1038, 24, 59},
+  {cont__compiler__function_call__to_string_201, &frame__compiler__function_call__to_string_199, 1038, 1041, 21, 40},
+  {entry__compiler__function_call__to_string_196, NULL, 1037, 1037, 29, 46},
+  {cont__compiler__function_call__to_string_197, &frame__compiler__function_call__to_string_196, 1037, 1037, 15, 46},
+  {cont__compiler__function_call__to_string_198, &frame__compiler__function_call__to_string_196, 1038, 1041, 15, 40},
+  {cont__compiler__function_call__to_string_208, &frame__compiler__function_call__to_string_196, 1042, 1042, 29, 47},
+  {cont__compiler__function_call__to_string_209, &frame__compiler__function_call__to_string_196, 1042, 1042, 15, 47},
+  {cont__compiler__function_call__to_string_210, &frame__compiler__function_call__to_string_196, 1042, 1042, 47, 47},
+  {entry__compiler__function_call__to_string_216, NULL, 1049, 1049, 17, 21},
+  {entry__compiler__function_call__to_string_221, NULL, 1051, 1051, 41, 59},
+  {cont__compiler__function_call__to_string_222, &frame__compiler__function_call__to_string_221, 1051, 1051, 59, 59},
+  {entry__compiler__function_call__to_string_213, NULL, 1047, 1047, 18, 23},
+  {cont__compiler__function_call__to_string_214, &frame__compiler__function_call__to_string_213, 1047, 1047, 18, 33},
+  {cont__compiler__function_call__to_string_215, &frame__compiler__function_call__to_string_213, 1047, 1049, 15, 21},
+  {cont__compiler__function_call__to_string_217, &frame__compiler__function_call__to_string_213, 1050, 1050, 33, 46},
+  {cont__compiler__function_call__to_string_218, &frame__compiler__function_call__to_string_213, 1050, 1050, 15, 46},
+  {cont__compiler__function_call__to_string_219, &frame__compiler__function_call__to_string_213, 1051, 1051, 18, 38},
+  {cont__compiler__function_call__to_string_220, &frame__compiler__function_call__to_string_213, 1051, 1051, 15, 59},
+  {entry__compiler__function_call__to_string_212, NULL, 1046, 1051, 13, 59},
+  {cont__compiler__function_call__to_string_223, &frame__compiler__function_call__to_string_212, 1051, 1051, 59, 59},
+  {entry__compiler__function_call__to_string_232, NULL, 1057, 1057, 17, 33},
+  {entry__compiler__function_call__to_string_233, NULL, 1059, 1059, 20, 45},
+  {cont__compiler__function_call__to_string_234, &frame__compiler__function_call__to_string_233, 1059, 1059, 17, 45},
+  {entry__compiler__function_call__to_string_235, NULL, 1060, 1060, 20, 49},
+  {cont__compiler__function_call__to_string_236, &frame__compiler__function_call__to_string_235, 1060, 1060, 17, 49},
+  {entry__compiler__function_call__to_string_246, NULL, 1062, 1062, 70, 70},
+  {entry__compiler__function_call__to_string_226, NULL, 1056, 1056, 17, 34},
+  {cont__compiler__function_call__to_string_231, &frame__compiler__function_call__to_string_226, 1053, 1060, 13, 50},
+  {cont__compiler__function_call__to_string_238, &frame__compiler__function_call__to_string_226, 1061, 1061, 32, 49},
+  {cont__compiler__function_call__to_string_239, &frame__compiler__function_call__to_string_226, 1061, 1061, 32, 51},
+  {cont__compiler__function_call__to_string_240, &frame__compiler__function_call__to_string_226, 1061, 1061, 54, 78},
+  {cont__compiler__function_call__to_string_241, &frame__compiler__function_call__to_string_226, 1061, 1061, 32, 78},
+  {cont__compiler__function_call__to_string_242, &frame__compiler__function_call__to_string_226, 1061, 1061, 13, 78},
+  {cont__compiler__function_call__to_string_243, &frame__compiler__function_call__to_string_226, 1062, 1062, 16, 33},
+  {cont__compiler__function_call__to_string_244, &frame__compiler__function_call__to_string_226, 1062, 1062, 16, 46},
+  {cont__compiler__function_call__to_string_245, &frame__compiler__function_call__to_string_226, 1062, 1062, 13, 70},
+  {entry__compiler__function_call__to_string_252, NULL, 1068, 1068, 45, 57},
+  {cont__compiler__function_call__to_string_253, &frame__compiler__function_call__to_string_252, 1068, 1068, 57, 57},
+  {entry__compiler__function_call__to_string_257, NULL, 1070, 1070, 45, 57},
+  {cont__compiler__function_call__to_string_258, &frame__compiler__function_call__to_string_257, 1070, 1070, 57, 57},
+  {entry__compiler__function_call__to_string_250, NULL, 1068, 1068, 22, 42},
+  {cont__compiler__function_call__to_string_251, &frame__compiler__function_call__to_string_250, 1068, 1068, 19, 57},
+  {cont__compiler__function_call__to_string_254, &frame__compiler__function_call__to_string_250, 1069, 1069, 19, 33},
+  {cont__compiler__function_call__to_string_255, &frame__compiler__function_call__to_string_250, 1070, 1070, 22, 42},
+  {cont__compiler__function_call__to_string_256, &frame__compiler__function_call__to_string_250, 1070, 1070, 19, 57},
+  {entry__compiler__function_call__to_string_259, NULL, 1072, 1072, 19, 44},
+  {cont__compiler__function_call__to_string_260, &frame__compiler__function_call__to_string_259, 1072, 1072, 44, 44},
+  {entry__compiler__function_call__to_string_249, NULL, 1066, 1072, 15, 45},
+  {entry__compiler__function_call__to_string_262, NULL, 1074, 1074, 65, 65},
+  {entry__compiler__function_call__to_string_271, NULL, 1079, 1079, 19, 34},
+  {cont__compiler__function_call__to_string_272, &frame__compiler__function_call__to_string_271, 1080, 1080, 19, 41},
+  {cont__compiler__function_call__to_string_273, &frame__compiler__function_call__to_string_271, 1080, 1080, 41, 41},
+  {entry__compiler__function_call__to_string_268, NULL, 1078, 1078, 24, 29},
+  {cont__compiler__function_call__to_string_269, &frame__compiler__function_call__to_string_268, 1078, 1078, 24, 39},
+  {cont__compiler__function_call__to_string_270, &frame__compiler__function_call__to_string_268, 1078, 1080, 17, 41},
+  {cont__compiler__function_call__to_string_274, &frame__compiler__function_call__to_string_268, 1081, 1081, 17, 31},
+  {cont__compiler__function_call__to_string_275, &frame__compiler__function_call__to_string_268, 1081, 1081, 31, 31},
+  {entry__compiler__function_call__to_string_261, NULL, 1074, 1074, 15, 65},
+  {cont__compiler__function_call__to_string_264, &frame__compiler__function_call__to_string_261, 1075, 1075, 15, 52},
+  {cont__compiler__function_call__to_string_265, &frame__compiler__function_call__to_string_261, 1076, 1076, 34, 47},
+  {cont__compiler__function_call__to_string_266, &frame__compiler__function_call__to_string_261, 1076, 1076, 15, 63},
+  {cont__compiler__function_call__to_string_267, &frame__compiler__function_call__to_string_261, 1077, 1081, 15, 31},
+  {entry__compiler__function_call__to_string_163, NULL, 1009, 1009, 11, 42},
+  {cont__compiler__function_call__to_string_177, &frame__compiler__function_call__to_string_163, 1010, 1010, 11, 29},
+  {cont__compiler__function_call__to_string_178, &frame__compiler__function_call__to_string_163, 1011, 1011, 11, 30},
+  {cont__compiler__function_call__to_string_179, &frame__compiler__function_call__to_string_163, 1029, 1029, 13, 36},
+  {cont__compiler__function_call__to_string_180, &frame__compiler__function_call__to_string_163, 1028, 1042, 11, 48},
+  {cont__compiler__function_call__to_string_211, &frame__compiler__function_call__to_string_163, 1045, 1051, 11, 60},
+  {cont__compiler__function_call__to_string_224, &frame__compiler__function_call__to_string_163, 1052, 1052, 14, 35},
+  {cont__compiler__function_call__to_string_225, &frame__compiler__function_call__to_string_163, 1052, 1062, 11, 70},
+  {cont__compiler__function_call__to_string_247, &frame__compiler__function_call__to_string_163, 1065, 1065, 13, 34},
+  {cont__compiler__function_call__to_string_248, &frame__compiler__function_call__to_string_163, 1064, 1081, 11, 33},
+  {cont__compiler__function_call__to_string_276, &frame__compiler__function_call__to_string_163, 1082, 1082, 11, 16},
+  {entry__compiler__function_call__to_string_151, NULL, 999, 999, 7, 33},
+  {cont__compiler__function_call__to_string_152, &frame__compiler__function_call__to_string_151, 1001, 1001, 9, 28},
+  {cont__compiler__function_call__to_string_153, &frame__compiler__function_call__to_string_151, 1001, 1001, 9, 33},
+  {cont__compiler__function_call__to_string_154, &frame__compiler__function_call__to_string_151, 1000, 1082, 7, 17},
+  {cont__compiler__function_call__to_string_277, &frame__compiler__function_call__to_string_151, 1082, 1082, 17, 17},
+  {entry__compiler__function_call__to_string_150, NULL, 998, 1082, 5, 18},
+  {entry__compiler__function_call__to_string_1, NULL, 902, 902, 3, 27},
+  {cont__compiler__function_call__to_string_37, &frame__compiler__function_call__to_string_1, 906, 906, 7, 24},
+  {cont__compiler__function_call__to_string_38, &frame__compiler__function_call__to_string_1, 904, 909, 3, 19},
+  {cont__compiler__function_call__to_string_43, &frame__compiler__function_call__to_string_1, 949, 949, 3, 31},
+  {cont__compiler__function_call__to_string_44, &frame__compiler__function_call__to_string_1, 950, 1082, 3, 19},
+  {entry__compiler__backquoted__to_string_1, NULL, 1087, 1087, 55, 73},
+  {cont__compiler__backquoted__to_string_2, &frame__compiler__backquoted__to_string_1, 1087, 1087, 44, 74},
+  {cont__compiler__backquoted__to_string_3, &frame__compiler__backquoted__to_string_1, 1087, 1087, 41, 74},
   {entry__pair_to_string_6, NULL, 1099, 1099, 9, 29},
   {cont__pair_to_string_7, &frame__pair_to_string_6, 1099, 1099, 29, 29},
   {entry__pair_to_string_8, NULL, 1101, 1101, 22, 22},
@@ -4907,10 +4907,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__pair_to_string_22, &frame__pair_to_string_2, 1105, 1122, 5, 58},
   {cont__pair_to_string_49, &frame__pair_to_string_2, 1122, 1122, 58, 58},
   {entry__pair_to_string_1, NULL, 1094, 1122, 3, 59},
-  {entry__sim2c__attribute_value_pair__to_string_1, NULL, 1124, 1124, 48, 70},
-  {entry__sim2c__attribute_function_pair__to_string_1, NULL, 1126, 1126, 51, 73},
-  {entry__sim2c__numeric_literal__to_string_1, NULL, 1131, 1131, 59, 78},
-  {cont__sim2c__numeric_literal__to_string_2, &frame__sim2c__numeric_literal__to_string_1, 1131, 1131, 43, 78},
+  {entry__compiler__attribute_value_pair__to_string_1, NULL, 1124, 1124, 51, 73},
+  {entry__compiler__attribute_function_pair__to_string_1, NULL, 1126, 1126, 54, 76},
+  {entry__compiler__numeric_literal__to_string_1, NULL, 1131, 1131, 62, 81},
+  {cont__compiler__numeric_literal__to_string_2, &frame__compiler__numeric_literal__to_string_1, 1131, 1131, 46, 81},
   {entry__create_character_table_4, NULL, 1141, 1141, 26, 40},
   {cont__create_character_table_5, &frame__create_character_table_4, 1141, 1141, 26, 40},
   {entry__create_character_table_7, NULL, 1141, 1141, 43, 65},
@@ -4953,11 +4953,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__escaped_character_12, &frame__escaped_character_9, 1163, 1163, 9, 23},
   {cont__escaped_character_13, &frame__escaped_character_9, 1162, 1169, 7, 30},
   {entry__escaped_character_1, NULL, 1156, 1169, 3, 32},
-  {entry__sim2c__character_literal__to_string_1, NULL, 1176, 1176, 25, 44},
-  {cont__sim2c__character_literal__to_string_2, &frame__sim2c__character_literal__to_string_1, 1176, 1176, 46, 72},
-  {cont__sim2c__character_literal__to_string_3, &frame__sim2c__character_literal__to_string_1, 1176, 1176, 7, 73},
-  {cont__sim2c__character_literal__to_string_4, &frame__sim2c__character_literal__to_string_1, 1174, 1177, 5, 13},
-  {cont__sim2c__character_literal__to_string_5, &frame__sim2c__character_literal__to_string_1, 1172, 1177, 3, 15},
+  {entry__compiler__character_literal__to_string_1, NULL, 1176, 1176, 25, 44},
+  {cont__compiler__character_literal__to_string_2, &frame__compiler__character_literal__to_string_1, 1176, 1176, 46, 72},
+  {cont__compiler__character_literal__to_string_3, &frame__compiler__character_literal__to_string_1, 1176, 1176, 7, 73},
+  {cont__compiler__character_literal__to_string_4, &frame__compiler__character_literal__to_string_1, 1174, 1177, 5, 13},
+  {cont__compiler__character_literal__to_string_5, &frame__compiler__character_literal__to_string_1, 1172, 1177, 3, 15},
   {entry__analyze_string_literal_3, NULL, 1191, 1191, 5, 19},
   {cont__analyze_string_literal_4, &frame__analyze_string_literal_3, 1192, 1192, 5, 10},
   {entry__analyze_string_literal_8, NULL, 1196, 1196, 29, 43},
@@ -5264,126 +5264,126 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__string_template_to_string_64, &frame__string_template_to_string_1, 1429, 1429, 6, 37},
   {cont__string_template_to_string_66, &frame__string_template_to_string_1, 1429, 1429, 3, 78},
   {cont__string_template_to_string_74, &frame__string_template_to_string_1, 1430, 1430, 3, 47},
-  {entry__sim2c__string_literal__to_string_4, NULL, 1435, 1435, 48, 66},
-  {cont__sim2c__string_literal__to_string_5, &frame__sim2c__string_literal__to_string_4, 1435, 1435, 7, 66},
-  {cont__sim2c__string_literal__to_string_6, &frame__sim2c__string_literal__to_string_4, 1436, 1436, 7, 42},
-  {entry__sim2c__string_literal__to_string_7, NULL, 1439, 1439, 48, 66},
-  {cont__sim2c__string_literal__to_string_8, &frame__sim2c__string_literal__to_string_7, 1439, 1439, 7, 66},
-  {cont__sim2c__string_literal__to_string_9, &frame__sim2c__string_literal__to_string_7, 1440, 1440, 23, 59},
-  {cont__sim2c__string_literal__to_string_10, &frame__sim2c__string_literal__to_string_7, 1440, 1440, 7, 59},
-  {cont__sim2c__string_literal__to_string_11, &frame__sim2c__string_literal__to_string_7, 1440, 1440, 59, 59},
-  {entry__sim2c__string_literal__to_string_1, NULL, 1434, 1434, 5, 25},
-  {cont__sim2c__string_literal__to_string_2, &frame__sim2c__string_literal__to_string_1, 1434, 1434, 5, 34},
-  {cont__sim2c__string_literal__to_string_3, &frame__sim2c__string_literal__to_string_1, 1433, 1440, 3, 60},
-  {entry__sim2c__unique_item__to_string_1, NULL, 1445, 1445, 39, 57},
-  {entry__sim2c__polymorphic_function__to_string_3, NULL, 1451, 1451, 40, 47},
-  {entry__sim2c__polymorphic_function__to_string_5, NULL, 1451, 1451, 50, 56},
-  {entry__sim2c__polymorphic_function__to_string_1, NULL, 1451, 1451, 22, 37},
-  {cont__sim2c__polymorphic_function__to_string_2, &frame__sim2c__polymorphic_function__to_string_1, 1451, 1451, 19, 57},
-  {cont__sim2c__polymorphic_function__to_string_7, &frame__sim2c__polymorphic_function__to_string_1, 1451, 1451, 3, 57},
-  {entry__sim2c__identifier__to_string_5, NULL, 1462, 1462, 19, 36},
-  {cont__sim2c__identifier__to_string_6, &frame__sim2c__identifier__to_string_5, 1462, 1462, 43, 55},
-  {cont__sim2c__identifier__to_string_7, &frame__sim2c__identifier__to_string_5, 1462, 1462, 12, 56},
-  {cont__sim2c__identifier__to_string_9, &frame__sim2c__identifier__to_string_5, 1462, 1462, 9, 56},
-  {entry__sim2c__identifier__to_string_2, NULL, 1461, 1461, 9, 26},
-  {cont__sim2c__identifier__to_string_3, &frame__sim2c__identifier__to_string_2, 1461, 1461, 9, 37},
-  {cont__sim2c__identifier__to_string_4, &frame__sim2c__identifier__to_string_2, 1460, 1462, 7, 56},
-  {entry__sim2c__identifier__to_string_12, NULL, 1463, 1463, 41, 53},
-  {cont__sim2c__identifier__to_string_13, &frame__sim2c__identifier__to_string_12, 1463, 1463, 30, 54},
-  {cont__sim2c__identifier__to_string_14, &frame__sim2c__identifier__to_string_12, 1463, 1463, 27, 54},
-  {entry__sim2c__identifier__to_string_10, NULL, 1463, 1463, 10, 25},
-  {cont__sim2c__identifier__to_string_11, &frame__sim2c__identifier__to_string_10, 1463, 1463, 7, 54},
-  {entry__sim2c__identifier__to_string_16, NULL, 1464, 1464, 18, 30},
-  {cont__sim2c__identifier__to_string_17, &frame__sim2c__identifier__to_string_16, 1464, 1464, 15, 30},
-  {entry__sim2c__identifier__to_string_15, NULL, 1464, 1464, 7, 30},
-  {entry__sim2c__identifier__to_string_1, NULL, 1459, 1464, 5, 29},
-  {cont__sim2c__identifier__to_string_18, &frame__sim2c__identifier__to_string_1, 1457, 1464, 3, 31},
-  {entry__sim2c__c_code__to_string_4, NULL, 1475, 1475, 26, 50},
-  {cont__sim2c__c_code__to_string_5, &frame__sim2c__c_code__to_string_4, 1475, 1475, 12, 59},
-  {cont__sim2c__c_code__to_string_7, &frame__sim2c__c_code__to_string_4, 1475, 1475, 9, 59},
-  {entry__sim2c__c_code__to_string_8, NULL, 1476, 1476, 9, 18},
-  {entry__sim2c__c_code__to_string_14, NULL, 1481, 1481, 44, 56},
-  {cont__sim2c__c_code__to_string_15, &frame__sim2c__c_code__to_string_14, 1481, 1481, 35, 59},
-  {cont__sim2c__c_code__to_string_17, &frame__sim2c__c_code__to_string_14, 1481, 1481, 7, 59},
-  {cont__sim2c__c_code__to_string_18, &frame__sim2c__c_code__to_string_14, 1481, 1481, 59, 59},
-  {entry__sim2c__c_code__to_string_22, NULL, 1483, 1483, 44, 62},
-  {cont__sim2c__c_code__to_string_23, &frame__sim2c__c_code__to_string_22, 1483, 1483, 35, 65},
-  {cont__sim2c__c_code__to_string_25, &frame__sim2c__c_code__to_string_22, 1483, 1483, 7, 65},
-  {cont__sim2c__c_code__to_string_26, &frame__sim2c__c_code__to_string_22, 1483, 1483, 65, 65},
-  {entry__sim2c__c_code__to_string_30, NULL, 1485, 1485, 44, 56},
-  {cont__sim2c__c_code__to_string_31, &frame__sim2c__c_code__to_string_30, 1485, 1485, 35, 59},
-  {cont__sim2c__c_code__to_string_33, &frame__sim2c__c_code__to_string_30, 1485, 1485, 7, 59},
-  {cont__sim2c__c_code__to_string_34, &frame__sim2c__c_code__to_string_30, 1485, 1485, 59, 59},
-  {entry__sim2c__c_code__to_string_38, NULL, 1487, 1487, 44, 62},
-  {cont__sim2c__c_code__to_string_39, &frame__sim2c__c_code__to_string_38, 1487, 1487, 35, 65},
-  {cont__sim2c__c_code__to_string_41, &frame__sim2c__c_code__to_string_38, 1487, 1487, 7, 65},
-  {cont__sim2c__c_code__to_string_42, &frame__sim2c__c_code__to_string_38, 1487, 1487, 65, 65},
-  {entry__sim2c__c_code__to_string_46, NULL, 1489, 1489, 44, 56},
-  {cont__sim2c__c_code__to_string_47, &frame__sim2c__c_code__to_string_46, 1489, 1489, 35, 59},
-  {cont__sim2c__c_code__to_string_49, &frame__sim2c__c_code__to_string_46, 1489, 1489, 7, 59},
-  {cont__sim2c__c_code__to_string_50, &frame__sim2c__c_code__to_string_46, 1489, 1489, 59, 59},
-  {entry__sim2c__c_code__to_string_54, NULL, 1490, 1490, 37, 50},
-  {cont__sim2c__c_code__to_string_55, &frame__sim2c__c_code__to_string_54, 1490, 1490, 37, 61},
-  {cont__sim2c__c_code__to_string_57, &frame__sim2c__c_code__to_string_54, 1490, 1490, 37, 61},
-  {cont__sim2c__c_code__to_string_58, &frame__sim2c__c_code__to_string_54, 1490, 1490, 37, 61},
-  {entry__sim2c__c_code__to_string_60, NULL, 1491, 1491, 45, 58},
-  {cont__sim2c__c_code__to_string_61, &frame__sim2c__c_code__to_string_60, 1491, 1491, 35, 61},
-  {cont__sim2c__c_code__to_string_63, &frame__sim2c__c_code__to_string_60, 1491, 1491, 7, 61},
-  {cont__sim2c__c_code__to_string_64, &frame__sim2c__c_code__to_string_60, 1491, 1491, 61, 61},
-  {entry__sim2c__c_code__to_string_67, NULL, 1493, 1493, 35, 58},
-  {cont__sim2c__c_code__to_string_69, &frame__sim2c__c_code__to_string_67, 1493, 1493, 7, 58},
-  {cont__sim2c__c_code__to_string_70, &frame__sim2c__c_code__to_string_67, 1493, 1493, 58, 58},
-  {entry__sim2c__c_code__to_string_77, NULL, 1497, 1497, 9, 52},
-  {cont__sim2c__c_code__to_string_79, &frame__sim2c__c_code__to_string_77, 1497, 1497, 52, 52},
-  {entry__sim2c__c_code__to_string_74, NULL, 1495, 1495, 7, 22},
-  {cont__sim2c__c_code__to_string_75, &frame__sim2c__c_code__to_string_74, 1496, 1496, 16, 36},
-  {cont__sim2c__c_code__to_string_76, &frame__sim2c__c_code__to_string_74, 1496, 1497, 7, 52},
-  {entry__sim2c__c_code__to_string_86, NULL, 1499, 1499, 30, 44},
-  {cont__sim2c__c_code__to_string_87, &frame__sim2c__c_code__to_string_86, 1499, 1499, 44, 44},
-  {entry__sim2c__c_code__to_string_90, NULL, 1500, 1500, 45, 76},
-  {cont__sim2c__c_code__to_string_91, &frame__sim2c__c_code__to_string_90, 1500, 1500, 76, 76},
-  {entry__sim2c__c_code__to_string_83, NULL, 1499, 1499, 10, 23},
-  {cont__sim2c__c_code__to_string_84, &frame__sim2c__c_code__to_string_83, 1499, 1499, 10, 27},
-  {cont__sim2c__c_code__to_string_85, &frame__sim2c__c_code__to_string_83, 1499, 1499, 7, 44},
-  {cont__sim2c__c_code__to_string_88, &frame__sim2c__c_code__to_string_83, 1500, 1500, 21, 35},
-  {cont__sim2c__c_code__to_string_89, &frame__sim2c__c_code__to_string_83, 1500, 1500, 7, 76},
-  {entry__sim2c__c_code__to_string_2, NULL, 1474, 1474, 9, 29},
-  {cont__sim2c__c_code__to_string_3, &frame__sim2c__c_code__to_string_2, 1472, 1476, 5, 19},
-  {cont__sim2c__c_code__to_string_9, &frame__sim2c__c_code__to_string_2, 1478, 1478, 5, 31},
-  {cont__sim2c__c_code__to_string_10, &frame__sim2c__c_code__to_string_2, 1479, 1479, 5, 31},
-  {cont__sim2c__c_code__to_string_11, &frame__sim2c__c_code__to_string_2, 1480, 1480, 8, 20},
-  {cont__sim2c__c_code__to_string_12, &frame__sim2c__c_code__to_string_2, 1480, 1480, 8, 31},
-  {cont__sim2c__c_code__to_string_13, &frame__sim2c__c_code__to_string_2, 1480, 1481, 5, 59},
-  {cont__sim2c__c_code__to_string_19, &frame__sim2c__c_code__to_string_2, 1482, 1482, 8, 26},
-  {cont__sim2c__c_code__to_string_20, &frame__sim2c__c_code__to_string_2, 1482, 1482, 8, 37},
-  {cont__sim2c__c_code__to_string_21, &frame__sim2c__c_code__to_string_2, 1482, 1483, 5, 65},
-  {cont__sim2c__c_code__to_string_27, &frame__sim2c__c_code__to_string_2, 1484, 1484, 8, 20},
-  {cont__sim2c__c_code__to_string_28, &frame__sim2c__c_code__to_string_2, 1484, 1484, 8, 31},
-  {cont__sim2c__c_code__to_string_29, &frame__sim2c__c_code__to_string_2, 1484, 1485, 5, 59},
-  {cont__sim2c__c_code__to_string_35, &frame__sim2c__c_code__to_string_2, 1486, 1486, 8, 26},
-  {cont__sim2c__c_code__to_string_36, &frame__sim2c__c_code__to_string_2, 1486, 1486, 8, 37},
-  {cont__sim2c__c_code__to_string_37, &frame__sim2c__c_code__to_string_2, 1486, 1487, 5, 65},
-  {cont__sim2c__c_code__to_string_43, &frame__sim2c__c_code__to_string_2, 1488, 1488, 8, 20},
-  {cont__sim2c__c_code__to_string_44, &frame__sim2c__c_code__to_string_2, 1488, 1488, 8, 31},
-  {cont__sim2c__c_code__to_string_45, &frame__sim2c__c_code__to_string_2, 1488, 1489, 5, 59},
-  {cont__sim2c__c_code__to_string_51, &frame__sim2c__c_code__to_string_2, 1490, 1490, 8, 21},
-  {cont__sim2c__c_code__to_string_52, &frame__sim2c__c_code__to_string_2, 1490, 1490, 8, 32},
-  {cont__sim2c__c_code__to_string_53, &frame__sim2c__c_code__to_string_2, 1490, 1490, 8, 61},
-  {cont__sim2c__c_code__to_string_59, &frame__sim2c__c_code__to_string_2, 1490, 1491, 5, 61},
-  {cont__sim2c__c_code__to_string_65, &frame__sim2c__c_code__to_string_2, 1492, 1492, 14, 31},
-  {cont__sim2c__c_code__to_string_66, &frame__sim2c__c_code__to_string_2, 1492, 1493, 5, 58},
-  {cont__sim2c__c_code__to_string_71, &frame__sim2c__c_code__to_string_2, 1494, 1494, 12, 32},
-  {cont__sim2c__c_code__to_string_72, &frame__sim2c__c_code__to_string_2, 1494, 1494, 12, 41},
-  {cont__sim2c__c_code__to_string_73, &frame__sim2c__c_code__to_string_2, 1494, 1497, 5, 53},
-  {cont__sim2c__c_code__to_string_80, &frame__sim2c__c_code__to_string_2, 1498, 1498, 8, 22},
-  {cont__sim2c__c_code__to_string_81, &frame__sim2c__c_code__to_string_2, 1498, 1498, 8, 33},
-  {cont__sim2c__c_code__to_string_82, &frame__sim2c__c_code__to_string_2, 1498, 1500, 5, 76},
-  {cont__sim2c__c_code__to_string_92, &frame__sim2c__c_code__to_string_2, 1501, 1501, 24, 48},
-  {cont__sim2c__c_code__to_string_93, &frame__sim2c__c_code__to_string_2, 1501, 1501, 17, 53},
-  {cont__sim2c__c_code__to_string_94, &frame__sim2c__c_code__to_string_2, 1501, 1501, 5, 53},
-  {cont__sim2c__c_code__to_string_95, &frame__sim2c__c_code__to_string_2, 1502, 1502, 5, 10},
-  {entry__sim2c__c_code__to_string_96, NULL, 1471, 1471, 28, 37},
-  {entry__sim2c__c_code__to_string_1, NULL, 1471, 1502, 3, 10}
+  {entry__compiler__string_literal__to_string_4, NULL, 1435, 1435, 48, 66},
+  {cont__compiler__string_literal__to_string_5, &frame__compiler__string_literal__to_string_4, 1435, 1435, 7, 66},
+  {cont__compiler__string_literal__to_string_6, &frame__compiler__string_literal__to_string_4, 1436, 1436, 7, 42},
+  {entry__compiler__string_literal__to_string_7, NULL, 1439, 1439, 48, 66},
+  {cont__compiler__string_literal__to_string_8, &frame__compiler__string_literal__to_string_7, 1439, 1439, 7, 66},
+  {cont__compiler__string_literal__to_string_9, &frame__compiler__string_literal__to_string_7, 1440, 1440, 23, 59},
+  {cont__compiler__string_literal__to_string_10, &frame__compiler__string_literal__to_string_7, 1440, 1440, 7, 59},
+  {cont__compiler__string_literal__to_string_11, &frame__compiler__string_literal__to_string_7, 1440, 1440, 59, 59},
+  {entry__compiler__string_literal__to_string_1, NULL, 1434, 1434, 5, 25},
+  {cont__compiler__string_literal__to_string_2, &frame__compiler__string_literal__to_string_1, 1434, 1434, 5, 34},
+  {cont__compiler__string_literal__to_string_3, &frame__compiler__string_literal__to_string_1, 1433, 1440, 3, 60},
+  {entry__compiler__unique_item__to_string_1, NULL, 1445, 1445, 42, 60},
+  {entry__compiler__polymorphic_function__to_string_3, NULL, 1451, 1451, 40, 47},
+  {entry__compiler__polymorphic_function__to_string_5, NULL, 1451, 1451, 50, 56},
+  {entry__compiler__polymorphic_function__to_string_1, NULL, 1451, 1451, 22, 37},
+  {cont__compiler__polymorphic_function__to_string_2, &frame__compiler__polymorphic_function__to_string_1, 1451, 1451, 19, 57},
+  {cont__compiler__polymorphic_function__to_string_7, &frame__compiler__polymorphic_function__to_string_1, 1451, 1451, 3, 57},
+  {entry__compiler__identifier__to_string_5, NULL, 1462, 1462, 19, 36},
+  {cont__compiler__identifier__to_string_6, &frame__compiler__identifier__to_string_5, 1462, 1462, 43, 55},
+  {cont__compiler__identifier__to_string_7, &frame__compiler__identifier__to_string_5, 1462, 1462, 12, 56},
+  {cont__compiler__identifier__to_string_9, &frame__compiler__identifier__to_string_5, 1462, 1462, 9, 56},
+  {entry__compiler__identifier__to_string_2, NULL, 1461, 1461, 9, 26},
+  {cont__compiler__identifier__to_string_3, &frame__compiler__identifier__to_string_2, 1461, 1461, 9, 37},
+  {cont__compiler__identifier__to_string_4, &frame__compiler__identifier__to_string_2, 1460, 1462, 7, 56},
+  {entry__compiler__identifier__to_string_12, NULL, 1463, 1463, 41, 53},
+  {cont__compiler__identifier__to_string_13, &frame__compiler__identifier__to_string_12, 1463, 1463, 30, 54},
+  {cont__compiler__identifier__to_string_14, &frame__compiler__identifier__to_string_12, 1463, 1463, 27, 54},
+  {entry__compiler__identifier__to_string_10, NULL, 1463, 1463, 10, 25},
+  {cont__compiler__identifier__to_string_11, &frame__compiler__identifier__to_string_10, 1463, 1463, 7, 54},
+  {entry__compiler__identifier__to_string_16, NULL, 1464, 1464, 18, 30},
+  {cont__compiler__identifier__to_string_17, &frame__compiler__identifier__to_string_16, 1464, 1464, 15, 30},
+  {entry__compiler__identifier__to_string_15, NULL, 1464, 1464, 7, 30},
+  {entry__compiler__identifier__to_string_1, NULL, 1459, 1464, 5, 29},
+  {cont__compiler__identifier__to_string_18, &frame__compiler__identifier__to_string_1, 1457, 1464, 3, 31},
+  {entry__compiler__c_code__to_string_4, NULL, 1475, 1475, 26, 50},
+  {cont__compiler__c_code__to_string_5, &frame__compiler__c_code__to_string_4, 1475, 1475, 12, 59},
+  {cont__compiler__c_code__to_string_7, &frame__compiler__c_code__to_string_4, 1475, 1475, 9, 59},
+  {entry__compiler__c_code__to_string_8, NULL, 1476, 1476, 9, 18},
+  {entry__compiler__c_code__to_string_14, NULL, 1481, 1481, 44, 56},
+  {cont__compiler__c_code__to_string_15, &frame__compiler__c_code__to_string_14, 1481, 1481, 35, 59},
+  {cont__compiler__c_code__to_string_17, &frame__compiler__c_code__to_string_14, 1481, 1481, 7, 59},
+  {cont__compiler__c_code__to_string_18, &frame__compiler__c_code__to_string_14, 1481, 1481, 59, 59},
+  {entry__compiler__c_code__to_string_22, NULL, 1483, 1483, 44, 62},
+  {cont__compiler__c_code__to_string_23, &frame__compiler__c_code__to_string_22, 1483, 1483, 35, 65},
+  {cont__compiler__c_code__to_string_25, &frame__compiler__c_code__to_string_22, 1483, 1483, 7, 65},
+  {cont__compiler__c_code__to_string_26, &frame__compiler__c_code__to_string_22, 1483, 1483, 65, 65},
+  {entry__compiler__c_code__to_string_30, NULL, 1485, 1485, 44, 56},
+  {cont__compiler__c_code__to_string_31, &frame__compiler__c_code__to_string_30, 1485, 1485, 35, 59},
+  {cont__compiler__c_code__to_string_33, &frame__compiler__c_code__to_string_30, 1485, 1485, 7, 59},
+  {cont__compiler__c_code__to_string_34, &frame__compiler__c_code__to_string_30, 1485, 1485, 59, 59},
+  {entry__compiler__c_code__to_string_38, NULL, 1487, 1487, 44, 62},
+  {cont__compiler__c_code__to_string_39, &frame__compiler__c_code__to_string_38, 1487, 1487, 35, 65},
+  {cont__compiler__c_code__to_string_41, &frame__compiler__c_code__to_string_38, 1487, 1487, 7, 65},
+  {cont__compiler__c_code__to_string_42, &frame__compiler__c_code__to_string_38, 1487, 1487, 65, 65},
+  {entry__compiler__c_code__to_string_46, NULL, 1489, 1489, 44, 56},
+  {cont__compiler__c_code__to_string_47, &frame__compiler__c_code__to_string_46, 1489, 1489, 35, 59},
+  {cont__compiler__c_code__to_string_49, &frame__compiler__c_code__to_string_46, 1489, 1489, 7, 59},
+  {cont__compiler__c_code__to_string_50, &frame__compiler__c_code__to_string_46, 1489, 1489, 59, 59},
+  {entry__compiler__c_code__to_string_54, NULL, 1490, 1490, 37, 50},
+  {cont__compiler__c_code__to_string_55, &frame__compiler__c_code__to_string_54, 1490, 1490, 37, 61},
+  {cont__compiler__c_code__to_string_57, &frame__compiler__c_code__to_string_54, 1490, 1490, 37, 61},
+  {cont__compiler__c_code__to_string_58, &frame__compiler__c_code__to_string_54, 1490, 1490, 37, 61},
+  {entry__compiler__c_code__to_string_60, NULL, 1491, 1491, 45, 58},
+  {cont__compiler__c_code__to_string_61, &frame__compiler__c_code__to_string_60, 1491, 1491, 35, 61},
+  {cont__compiler__c_code__to_string_63, &frame__compiler__c_code__to_string_60, 1491, 1491, 7, 61},
+  {cont__compiler__c_code__to_string_64, &frame__compiler__c_code__to_string_60, 1491, 1491, 61, 61},
+  {entry__compiler__c_code__to_string_67, NULL, 1493, 1493, 35, 58},
+  {cont__compiler__c_code__to_string_69, &frame__compiler__c_code__to_string_67, 1493, 1493, 7, 58},
+  {cont__compiler__c_code__to_string_70, &frame__compiler__c_code__to_string_67, 1493, 1493, 58, 58},
+  {entry__compiler__c_code__to_string_77, NULL, 1497, 1497, 9, 52},
+  {cont__compiler__c_code__to_string_79, &frame__compiler__c_code__to_string_77, 1497, 1497, 52, 52},
+  {entry__compiler__c_code__to_string_74, NULL, 1495, 1495, 7, 22},
+  {cont__compiler__c_code__to_string_75, &frame__compiler__c_code__to_string_74, 1496, 1496, 16, 36},
+  {cont__compiler__c_code__to_string_76, &frame__compiler__c_code__to_string_74, 1496, 1497, 7, 52},
+  {entry__compiler__c_code__to_string_86, NULL, 1499, 1499, 30, 44},
+  {cont__compiler__c_code__to_string_87, &frame__compiler__c_code__to_string_86, 1499, 1499, 44, 44},
+  {entry__compiler__c_code__to_string_90, NULL, 1500, 1500, 45, 76},
+  {cont__compiler__c_code__to_string_91, &frame__compiler__c_code__to_string_90, 1500, 1500, 76, 76},
+  {entry__compiler__c_code__to_string_83, NULL, 1499, 1499, 10, 23},
+  {cont__compiler__c_code__to_string_84, &frame__compiler__c_code__to_string_83, 1499, 1499, 10, 27},
+  {cont__compiler__c_code__to_string_85, &frame__compiler__c_code__to_string_83, 1499, 1499, 7, 44},
+  {cont__compiler__c_code__to_string_88, &frame__compiler__c_code__to_string_83, 1500, 1500, 21, 35},
+  {cont__compiler__c_code__to_string_89, &frame__compiler__c_code__to_string_83, 1500, 1500, 7, 76},
+  {entry__compiler__c_code__to_string_2, NULL, 1474, 1474, 9, 29},
+  {cont__compiler__c_code__to_string_3, &frame__compiler__c_code__to_string_2, 1472, 1476, 5, 19},
+  {cont__compiler__c_code__to_string_9, &frame__compiler__c_code__to_string_2, 1478, 1478, 5, 31},
+  {cont__compiler__c_code__to_string_10, &frame__compiler__c_code__to_string_2, 1479, 1479, 5, 31},
+  {cont__compiler__c_code__to_string_11, &frame__compiler__c_code__to_string_2, 1480, 1480, 8, 20},
+  {cont__compiler__c_code__to_string_12, &frame__compiler__c_code__to_string_2, 1480, 1480, 8, 31},
+  {cont__compiler__c_code__to_string_13, &frame__compiler__c_code__to_string_2, 1480, 1481, 5, 59},
+  {cont__compiler__c_code__to_string_19, &frame__compiler__c_code__to_string_2, 1482, 1482, 8, 26},
+  {cont__compiler__c_code__to_string_20, &frame__compiler__c_code__to_string_2, 1482, 1482, 8, 37},
+  {cont__compiler__c_code__to_string_21, &frame__compiler__c_code__to_string_2, 1482, 1483, 5, 65},
+  {cont__compiler__c_code__to_string_27, &frame__compiler__c_code__to_string_2, 1484, 1484, 8, 20},
+  {cont__compiler__c_code__to_string_28, &frame__compiler__c_code__to_string_2, 1484, 1484, 8, 31},
+  {cont__compiler__c_code__to_string_29, &frame__compiler__c_code__to_string_2, 1484, 1485, 5, 59},
+  {cont__compiler__c_code__to_string_35, &frame__compiler__c_code__to_string_2, 1486, 1486, 8, 26},
+  {cont__compiler__c_code__to_string_36, &frame__compiler__c_code__to_string_2, 1486, 1486, 8, 37},
+  {cont__compiler__c_code__to_string_37, &frame__compiler__c_code__to_string_2, 1486, 1487, 5, 65},
+  {cont__compiler__c_code__to_string_43, &frame__compiler__c_code__to_string_2, 1488, 1488, 8, 20},
+  {cont__compiler__c_code__to_string_44, &frame__compiler__c_code__to_string_2, 1488, 1488, 8, 31},
+  {cont__compiler__c_code__to_string_45, &frame__compiler__c_code__to_string_2, 1488, 1489, 5, 59},
+  {cont__compiler__c_code__to_string_51, &frame__compiler__c_code__to_string_2, 1490, 1490, 8, 21},
+  {cont__compiler__c_code__to_string_52, &frame__compiler__c_code__to_string_2, 1490, 1490, 8, 32},
+  {cont__compiler__c_code__to_string_53, &frame__compiler__c_code__to_string_2, 1490, 1490, 8, 61},
+  {cont__compiler__c_code__to_string_59, &frame__compiler__c_code__to_string_2, 1490, 1491, 5, 61},
+  {cont__compiler__c_code__to_string_65, &frame__compiler__c_code__to_string_2, 1492, 1492, 14, 31},
+  {cont__compiler__c_code__to_string_66, &frame__compiler__c_code__to_string_2, 1492, 1493, 5, 58},
+  {cont__compiler__c_code__to_string_71, &frame__compiler__c_code__to_string_2, 1494, 1494, 12, 32},
+  {cont__compiler__c_code__to_string_72, &frame__compiler__c_code__to_string_2, 1494, 1494, 12, 41},
+  {cont__compiler__c_code__to_string_73, &frame__compiler__c_code__to_string_2, 1494, 1497, 5, 53},
+  {cont__compiler__c_code__to_string_80, &frame__compiler__c_code__to_string_2, 1498, 1498, 8, 22},
+  {cont__compiler__c_code__to_string_81, &frame__compiler__c_code__to_string_2, 1498, 1498, 8, 33},
+  {cont__compiler__c_code__to_string_82, &frame__compiler__c_code__to_string_2, 1498, 1500, 5, 76},
+  {cont__compiler__c_code__to_string_92, &frame__compiler__c_code__to_string_2, 1501, 1501, 24, 48},
+  {cont__compiler__c_code__to_string_93, &frame__compiler__c_code__to_string_2, 1501, 1501, 17, 53},
+  {cont__compiler__c_code__to_string_94, &frame__compiler__c_code__to_string_2, 1501, 1501, 5, 53},
+  {cont__compiler__c_code__to_string_95, &frame__compiler__c_code__to_string_2, 1502, 1502, 5, 10},
+  {entry__compiler__c_code__to_string_96, NULL, 1471, 1471, 28, 37},
+  {entry__compiler__c_code__to_string_1, NULL, 1471, 1502, 3, 10}
 };
 
 union NODE {
@@ -5457,7 +5457,7 @@ static NODE *character__128;
 
 static const char *used_namespaces[] = {
   "std",
-  "sim2c",
+  "compiler",
   "node",
   NULL
 };
@@ -5488,8 +5488,8 @@ EXPORT void run__pretty_printer(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 77: %sim2c::hide_body_statements false
-  initialize_maybe_future(get__sim2c__hide_body_statements(), get__false());
+  // 77: %compiler::hide_body_statements false
+  initialize_maybe_future(get__compiler__hide_body_statements(), get__false());
   // 134: $INDENTATION_MARKER character(0x80)
   argument_count = 1;
   arguments = node_p;
@@ -5926,7 +5926,7 @@ static void cont__indentation_string_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__print_trees_1(void) {
+static void entry__compiler__print_trees_1(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // trees: 0
@@ -5938,7 +5938,7 @@ static void entry__sim2c__print_trees_1(void) {
   //   std::plus temp__2 INDENTATION_MARKER temp__3
   //   string temp__1 temp__2
   //   -> temp__1
-  define__spaces(func__sim2c__print_trees_2);
+  define__spaces(func__compiler__print_trees_2);
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -5957,13 +5957,13 @@ static void entry__sim2c__print_trees_1(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* trees */;
-  arguments->slots[1] = func__sim2c__print_trees_6;
+  arguments->slots[1] = func__compiler__print_trees_6;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_47;
+  frame->cont = cont__compiler__print_trees_47;
 }
-static void entry__sim2c__print_trees_46(void) {
+static void entry__compiler__print_trees_46(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // line: 0
@@ -5980,7 +5980,7 @@ static void entry__sim2c__print_trees_46(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__print_trees_2(void) {
+static void entry__compiler__print_trees_2(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // indent: 0
@@ -5996,9 +5996,9 @@ static void entry__sim2c__print_trees_2(void) {
   result_count = 1;
   myself = get__std__shift_right();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_3;
+  frame->cont = cont__compiler__print_trees_3;
 }
-static void cont__sim2c__print_trees_3(void) {
+static void cont__compiler__print_trees_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6012,9 +6012,9 @@ static void cont__sim2c__print_trees_3(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_4;
+  frame->cont = cont__compiler__print_trees_4;
 }
-static void cont__sim2c__print_trees_4(void) {
+static void cont__compiler__print_trees_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6027,9 +6027,9 @@ static void cont__sim2c__print_trees_4(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_5;
+  frame->cont = cont__compiler__print_trees_5;
 }
-static void cont__sim2c__print_trees_5(void) {
+static void cont__compiler__print_trees_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6043,7 +6043,7 @@ static void cont__sim2c__print_trees_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__print_trees_6(void) {
+static void entry__compiler__print_trees_6(void) {
   allocate_initialized_frame_gc(2, 10);
   // slot allocations:
   // idx: 0
@@ -6070,7 +6070,7 @@ static void entry__sim2c__print_trees_6(void) {
   // 190:       put &lines string(indentation_string(indent) text)
   // 191:     :
   // 192:       put &lines ""
-  frame->slots[7] /* temp__1 */ = create_closure(entry__sim2c__print_trees_7, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__print_trees_7, 1);
   // 185: $add_line: (line)
   // 186:   if
   // 187:     length_of(line) > 1:
@@ -6091,9 +6091,9 @@ static void entry__sim2c__print_trees_6(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_21;
+  frame->cont = cont__compiler__print_trees_21;
 }
-static void entry__sim2c__print_trees_10(void) {
+static void entry__compiler__print_trees_10(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // line: 0
@@ -6115,9 +6115,9 @@ static void entry__sim2c__print_trees_10(void) {
   result_count = 1;
   myself = frame->slots[0] /* line */;
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_11;
+  frame->cont = cont__compiler__print_trees_11;
 }
-static void cont__sim2c__print_trees_11(void) {
+static void cont__compiler__print_trees_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6131,9 +6131,9 @@ static void cont__sim2c__print_trees_11(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_12;
+  frame->cont = cont__compiler__print_trees_12;
 }
-static void cont__sim2c__print_trees_12(void) {
+static void cont__compiler__print_trees_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6147,9 +6147,9 @@ static void cont__sim2c__print_trees_12(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_13;
+  frame->cont = cont__compiler__print_trees_13;
 }
-static void cont__sim2c__print_trees_13(void) {
+static void cont__compiler__print_trees_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6162,9 +6162,9 @@ static void cont__sim2c__print_trees_13(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_14;
+  frame->cont = cont__compiler__print_trees_14;
 }
-static void cont__sim2c__print_trees_14(void) {
+static void cont__compiler__print_trees_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6179,9 +6179,9 @@ static void cont__sim2c__print_trees_14(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_15;
+  frame->cont = cont__compiler__print_trees_15;
 }
-static void cont__sim2c__print_trees_15(void) {
+static void cont__compiler__print_trees_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6194,9 +6194,9 @@ static void cont__sim2c__print_trees_15(void) {
   result_count = 1;
   myself = var._indentation_string;
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_16;
+  frame->cont = cont__compiler__print_trees_16;
 }
-static void cont__sim2c__print_trees_16(void) {
+static void cont__compiler__print_trees_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6210,9 +6210,9 @@ static void cont__sim2c__print_trees_16(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_17;
+  frame->cont = cont__compiler__print_trees_17;
 }
-static void cont__sim2c__print_trees_17(void) {
+static void cont__compiler__print_trees_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6226,9 +6226,9 @@ static void cont__sim2c__print_trees_17(void) {
   result_count = 1;
   myself = get__put();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_18;
+  frame->cont = cont__compiler__print_trees_18;
 }
-static void cont__sim2c__print_trees_18(void) {
+static void cont__compiler__print_trees_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6240,7 +6240,7 @@ static void cont__sim2c__print_trees_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__print_trees_19(void) {
+static void entry__compiler__print_trees_19(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // lines: 0
@@ -6257,9 +6257,9 @@ static void entry__sim2c__print_trees_19(void) {
   result_count = 1;
   myself = get__put();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_20;
+  frame->cont = cont__compiler__print_trees_20;
 }
-static void cont__sim2c__print_trees_20(void) {
+static void cont__compiler__print_trees_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6271,7 +6271,7 @@ static void cont__sim2c__print_trees_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__print_trees_7(void) {
+static void entry__compiler__print_trees_7(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // line: 0
@@ -6288,9 +6288,9 @@ static void entry__sim2c__print_trees_7(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_8;
+  frame->cont = cont__compiler__print_trees_8;
 }
-static void cont__sim2c__print_trees_8(void) {
+static void cont__compiler__print_trees_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6304,9 +6304,9 @@ static void cont__sim2c__print_trees_8(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_9;
+  frame->cont = cont__compiler__print_trees_9;
 }
-static void cont__sim2c__print_trees_9(void) {
+static void cont__compiler__print_trees_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6316,10 +6316,10 @@ static void cont__sim2c__print_trees_9(void) {
   // 188:   $indent 2*(line(1)-INDENTATION_MARKER)
   // 189:   $text range(line 2 -1)
   // 190:   put &lines string(indentation_string(indent) text)
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__print_trees_10, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__print_trees_10, 0);
   // 191: :
   // 192:   put &lines ""
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__print_trees_19, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__print_trees_19, 0);
   // 186: if
   // 187:   length_of(line) > 1:
   // 188:     $indent 2*(line(1)-INDENTATION_MARKER)
@@ -6337,7 +6337,7 @@ static void cont__sim2c__print_trees_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__print_trees_21(void) {
+static void cont__compiler__print_trees_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6351,16 +6351,16 @@ static void cont__sim2c__print_trees_21(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_22;
+  frame->cont = cont__compiler__print_trees_22;
 }
-static void cont__sim2c__print_trees_22(void) {
+static void cont__compiler__print_trees_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
   // 180: statement_tag == ALWAYS || previous_statement_tag != statement_tag
-  frame->slots[9] /* temp__3 */ = create_closure(entry__sim2c__print_trees_23, 0);
+  frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__print_trees_23, 0);
   // 178: &&
   // 179:   idx > 1
   // 180:   statement_tag == ALWAYS || previous_statement_tag != statement_tag
@@ -6371,9 +6371,9 @@ static void cont__sim2c__print_trees_22(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_29;
+  frame->cont = cont__compiler__print_trees_29;
 }
-static void entry__sim2c__print_trees_23(void) {
+static void entry__compiler__print_trees_23(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // previous_statement_tag: 0
@@ -6390,16 +6390,16 @@ static void entry__sim2c__print_trees_23(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_24;
+  frame->cont = cont__compiler__print_trees_24;
 }
-static void cont__sim2c__print_trees_24(void) {
+static void cont__compiler__print_trees_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 180: ... previous_statement_tag != statement_tag
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__print_trees_25, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__print_trees_25, 0);
   // 180: statement_tag == ALWAYS || previous_statement_tag != statement_tag
   argument_count = 2;
   arguments = node_p;
@@ -6408,9 +6408,9 @@ static void cont__sim2c__print_trees_24(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_28;
+  frame->cont = cont__compiler__print_trees_28;
 }
-static void entry__sim2c__print_trees_25(void) {
+static void entry__compiler__print_trees_25(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // previous_statement_tag: 0
@@ -6427,9 +6427,9 @@ static void entry__sim2c__print_trees_25(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_26;
+  frame->cont = cont__compiler__print_trees_26;
 }
-static void cont__sim2c__print_trees_26(void) {
+static void cont__compiler__print_trees_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6442,9 +6442,9 @@ static void cont__sim2c__print_trees_26(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_27;
+  frame->cont = cont__compiler__print_trees_27;
 }
-static void cont__sim2c__print_trees_27(void) {
+static void cont__compiler__print_trees_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6458,7 +6458,7 @@ static void cont__sim2c__print_trees_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__print_trees_28(void) {
+static void cont__compiler__print_trees_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6472,7 +6472,7 @@ static void cont__sim2c__print_trees_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__print_trees_29(void) {
+static void cont__compiler__print_trees_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6487,13 +6487,13 @@ static void cont__sim2c__print_trees_29(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__print_trees_30;
+  arguments->slots[1] = func__compiler__print_trees_30;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_31;
+  frame->cont = cont__compiler__print_trees_31;
 }
-static void entry__sim2c__print_trees_30(void) {
+static void entry__compiler__print_trees_30(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -6508,7 +6508,7 @@ static void entry__sim2c__print_trees_30(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__print_trees_31(void) {
+static void cont__compiler__print_trees_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6522,9 +6522,9 @@ static void cont__sim2c__print_trees_31(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_32;
+  frame->cont = cont__compiler__print_trees_32;
 }
-static void cont__sim2c__print_trees_32(void) {
+static void cont__compiler__print_trees_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6534,7 +6534,7 @@ static void cont__sim2c__print_trees_32(void) {
   // 196:   if str(i) == '@nl;':
   // 197:     add_line range(str i+1 n)
   // 198:     !n i-1
-  frame->slots[7] /* temp__1 */ = create_closure(entry__sim2c__print_trees_33, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__print_trees_33, 1);
   // 195: from_down_to n 1: (i)
   // 196:   if str(i) == '@nl;':
   // 197:     add_line range(str i+1 n)
@@ -6547,9 +6547,9 @@ static void cont__sim2c__print_trees_32(void) {
   result_count = 0;
   myself = get__from_down_to();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_41;
+  frame->cont = cont__compiler__print_trees_41;
 }
-static void entry__sim2c__print_trees_36(void) {
+static void entry__compiler__print_trees_36(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // add_line: 0
@@ -6572,9 +6572,9 @@ static void entry__sim2c__print_trees_36(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_37;
+  frame->cont = cont__compiler__print_trees_37;
 }
-static void cont__sim2c__print_trees_37(void) {
+static void cont__compiler__print_trees_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6589,9 +6589,9 @@ static void cont__sim2c__print_trees_37(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_38;
+  frame->cont = cont__compiler__print_trees_38;
 }
-static void cont__sim2c__print_trees_38(void) {
+static void cont__compiler__print_trees_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6604,9 +6604,9 @@ static void cont__sim2c__print_trees_38(void) {
   result_count = 0;
   myself = frame->slots[0] /* add_line */;
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_39;
+  frame->cont = cont__compiler__print_trees_39;
 }
-static void cont__sim2c__print_trees_39(void) {
+static void cont__compiler__print_trees_39(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6619,9 +6619,9 @@ static void cont__sim2c__print_trees_39(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_40;
+  frame->cont = cont__compiler__print_trees_40;
 }
-static void cont__sim2c__print_trees_40(void) {
+static void cont__compiler__print_trees_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6633,7 +6633,7 @@ static void cont__sim2c__print_trees_40(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__print_trees_33(void) {
+static void entry__compiler__print_trees_33(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // i: 0
@@ -6654,9 +6654,9 @@ static void entry__sim2c__print_trees_33(void) {
   result_count = 1;
   myself = frame->slots[1] /* str */;
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_34;
+  frame->cont = cont__compiler__print_trees_34;
 }
-static void cont__sim2c__print_trees_34(void) {
+static void cont__compiler__print_trees_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6670,9 +6670,9 @@ static void cont__sim2c__print_trees_34(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_35;
+  frame->cont = cont__compiler__print_trees_35;
 }
-static void cont__sim2c__print_trees_35(void) {
+static void cont__compiler__print_trees_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6681,7 +6681,7 @@ static void cont__sim2c__print_trees_35(void) {
   // 196: ... :
   // 197:   add_line range(str i+1 n)
   // 198:   !n i-1
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__print_trees_36, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__print_trees_36, 0);
   // 196: if str(i) == '@nl;':
   // 197:   add_line range(str i+1 n)
   // 198:   !n i-1
@@ -6694,7 +6694,7 @@ static void cont__sim2c__print_trees_35(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__print_trees_41(void) {
+static void cont__compiler__print_trees_41(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6706,9 +6706,9 @@ static void cont__sim2c__print_trees_41(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_42;
+  frame->cont = cont__compiler__print_trees_42;
 }
-static void cont__sim2c__print_trees_42(void) {
+static void cont__compiler__print_trees_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6723,9 +6723,9 @@ static void cont__sim2c__print_trees_42(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_43;
+  frame->cont = cont__compiler__print_trees_43;
 }
-static void cont__sim2c__print_trees_43(void) {
+static void cont__compiler__print_trees_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6741,9 +6741,9 @@ static void cont__sim2c__print_trees_43(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_44;
+  frame->cont = cont__compiler__print_trees_44;
 }
-static void cont__sim2c__print_trees_44(void) {
+static void cont__compiler__print_trees_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6759,9 +6759,9 @@ static void cont__sim2c__print_trees_44(void) {
   result_count = 0;
   myself = frame->slots[5] /* add_line */;
   func = myself->type;
-  frame->cont = cont__sim2c__print_trees_45;
+  frame->cont = cont__compiler__print_trees_45;
 }
-static void cont__sim2c__print_trees_45(void) {
+static void cont__compiler__print_trees_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6770,13 +6770,13 @@ static void cont__sim2c__print_trees_45(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* lines */;
-  arguments->slots[1] = func__sim2c__print_trees_46;
+  arguments->slots[1] = func__compiler__print_trees_46;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__print_trees_47(void) {
+static void cont__compiler__print_trees_47(void) {
   myself = frame->slots[1] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -8438,7 +8438,7 @@ static void entry__types__grammar_node__to_string_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__require_instruction__to_string_1(void) {
+static void entry__compiler__require_instruction__to_string_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -8455,9 +8455,9 @@ static void entry__sim2c__require_instruction__to_string_1(void) {
   result_count = 1;
   myself = get__node__filename_of();
   func = myself->type;
-  frame->cont = cont__sim2c__require_instruction__to_string_2;
+  frame->cont = cont__compiler__require_instruction__to_string_2;
 }
-static void cont__sim2c__require_instruction__to_string_2(void) {
+static void cont__compiler__require_instruction__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8472,9 +8472,9 @@ static void cont__sim2c__require_instruction__to_string_2(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__require_instruction__to_string_5;
+  frame->cont = cont__compiler__require_instruction__to_string_5;
 }
-static void cont__sim2c__require_instruction__to_string_5(void) {
+static void cont__compiler__require_instruction__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8488,9 +8488,9 @@ static void cont__sim2c__require_instruction__to_string_5(void) {
   result_count = 1;
   myself = var._add_statement_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__require_instruction__to_string_6;
+  frame->cont = cont__compiler__require_instruction__to_string_6;
 }
-static void cont__sim2c__require_instruction__to_string_6(void) {
+static void cont__compiler__require_instruction__to_string_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8504,7 +8504,7 @@ static void cont__sim2c__require_instruction__to_string_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__namespace_instruction__to_string_1(void) {
+static void entry__compiler__namespace_instruction__to_string_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -8521,9 +8521,9 @@ static void entry__sim2c__namespace_instruction__to_string_1(void) {
   result_count = 1;
   myself = get__namespace_alias_of();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_2;
+  frame->cont = cont__compiler__namespace_instruction__to_string_2;
 }
-static void cont__sim2c__namespace_instruction__to_string_2(void) {
+static void cont__compiler__namespace_instruction__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8536,18 +8536,18 @@ static void cont__sim2c__namespace_instruction__to_string_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_3;
+  frame->cont = cont__compiler__namespace_instruction__to_string_3;
 }
-static void cont__sim2c__namespace_instruction__to_string_3(void) {
+static void cont__compiler__namespace_instruction__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 299: -> "<namespace @(namespace_alias_of(self)) = @(namespace_of(self))>"
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__namespace_instruction__to_string_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__namespace_instruction__to_string_4, 0);
   // 300: -> "<namespace @(namespace_of(self))>"
-  frame->slots[6] /* temp__6 */ = create_closure(entry__sim2c__namespace_instruction__to_string_10, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__compiler__namespace_instruction__to_string_10, 0);
   // 297: if
   // 298:   namespace_alias_of(self).is_defined
   // 299:   -> "<namespace @(namespace_alias_of(self)) = @(namespace_of(self))>"
@@ -8560,9 +8560,9 @@ static void cont__sim2c__namespace_instruction__to_string_3(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_13;
+  frame->cont = cont__compiler__namespace_instruction__to_string_13;
 }
-static void entry__sim2c__namespace_instruction__to_string_4(void) {
+static void entry__compiler__namespace_instruction__to_string_4(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -8578,9 +8578,9 @@ static void entry__sim2c__namespace_instruction__to_string_4(void) {
   result_count = 1;
   myself = get__namespace_alias_of();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_5;
+  frame->cont = cont__compiler__namespace_instruction__to_string_5;
 }
-static void cont__sim2c__namespace_instruction__to_string_5(void) {
+static void cont__compiler__namespace_instruction__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8593,9 +8593,9 @@ static void cont__sim2c__namespace_instruction__to_string_5(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_6;
+  frame->cont = cont__compiler__namespace_instruction__to_string_6;
 }
-static void cont__sim2c__namespace_instruction__to_string_6(void) {
+static void cont__compiler__namespace_instruction__to_string_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8612,9 +8612,9 @@ static void cont__sim2c__namespace_instruction__to_string_6(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_9;
+  frame->cont = cont__compiler__namespace_instruction__to_string_9;
 }
-static void cont__sim2c__namespace_instruction__to_string_9(void) {
+static void cont__compiler__namespace_instruction__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8628,7 +8628,7 @@ static void cont__sim2c__namespace_instruction__to_string_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__namespace_instruction__to_string_10(void) {
+static void entry__compiler__namespace_instruction__to_string_10(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -8644,9 +8644,9 @@ static void entry__sim2c__namespace_instruction__to_string_10(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_11;
+  frame->cont = cont__compiler__namespace_instruction__to_string_11;
 }
-static void cont__sim2c__namespace_instruction__to_string_11(void) {
+static void cont__compiler__namespace_instruction__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8661,9 +8661,9 @@ static void cont__sim2c__namespace_instruction__to_string_11(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_12;
+  frame->cont = cont__compiler__namespace_instruction__to_string_12;
 }
-static void cont__sim2c__namespace_instruction__to_string_12(void) {
+static void cont__compiler__namespace_instruction__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8677,7 +8677,7 @@ static void cont__sim2c__namespace_instruction__to_string_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__namespace_instruction__to_string_13(void) {
+static void cont__compiler__namespace_instruction__to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8696,9 +8696,9 @@ static void cont__sim2c__namespace_instruction__to_string_13(void) {
   result_count = 1;
   myself = var._add_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__namespace_instruction__to_string_14;
+  frame->cont = cont__compiler__namespace_instruction__to_string_14;
 }
-static void cont__sim2c__namespace_instruction__to_string_14(void) {
+static void cont__compiler__namespace_instruction__to_string_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8718,7 +8718,7 @@ static void cont__sim2c__namespace_instruction__to_string_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__using_instruction__to_string_1(void) {
+static void entry__compiler__using_instruction__to_string_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -8735,9 +8735,9 @@ static void entry__sim2c__using_instruction__to_string_1(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__using_instruction__to_string_2;
+  frame->cont = cont__compiler__using_instruction__to_string_2;
 }
-static void cont__sim2c__using_instruction__to_string_2(void) {
+static void cont__compiler__using_instruction__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8752,9 +8752,9 @@ static void cont__sim2c__using_instruction__to_string_2(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__using_instruction__to_string_4;
+  frame->cont = cont__compiler__using_instruction__to_string_4;
 }
-static void cont__sim2c__using_instruction__to_string_4(void) {
+static void cont__compiler__using_instruction__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8768,9 +8768,9 @@ static void cont__sim2c__using_instruction__to_string_4(void) {
   result_count = 1;
   myself = var._add_statement_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__using_instruction__to_string_5;
+  frame->cont = cont__compiler__using_instruction__to_string_5;
 }
-static void cont__sim2c__using_instruction__to_string_5(void) {
+static void cont__compiler__using_instruction__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8784,7 +8784,7 @@ static void cont__sim2c__using_instruction__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__include_instruction__to_string_1(void) {
+static void entry__compiler__include_instruction__to_string_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -8801,9 +8801,9 @@ static void entry__sim2c__include_instruction__to_string_1(void) {
   result_count = 1;
   myself = get__node__filename_of();
   func = myself->type;
-  frame->cont = cont__sim2c__include_instruction__to_string_2;
+  frame->cont = cont__compiler__include_instruction__to_string_2;
 }
-static void cont__sim2c__include_instruction__to_string_2(void) {
+static void cont__compiler__include_instruction__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8818,9 +8818,9 @@ static void cont__sim2c__include_instruction__to_string_2(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__include_instruction__to_string_4;
+  frame->cont = cont__compiler__include_instruction__to_string_4;
 }
-static void cont__sim2c__include_instruction__to_string_4(void) {
+static void cont__compiler__include_instruction__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8834,9 +8834,9 @@ static void cont__sim2c__include_instruction__to_string_4(void) {
   result_count = 1;
   myself = var._add_statement_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__include_instruction__to_string_5;
+  frame->cont = cont__compiler__include_instruction__to_string_5;
 }
-static void cont__sim2c__include_instruction__to_string_5(void) {
+static void cont__compiler__include_instruction__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8850,7 +8850,7 @@ static void cont__sim2c__include_instruction__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__link_instruction__to_string_1(void) {
+static void entry__compiler__link_instruction__to_string_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -8867,9 +8867,9 @@ static void entry__sim2c__link_instruction__to_string_1(void) {
   result_count = 1;
   myself = get__node__filename_of();
   func = myself->type;
-  frame->cont = cont__sim2c__link_instruction__to_string_2;
+  frame->cont = cont__compiler__link_instruction__to_string_2;
 }
-static void cont__sim2c__link_instruction__to_string_2(void) {
+static void cont__compiler__link_instruction__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8884,9 +8884,9 @@ static void cont__sim2c__link_instruction__to_string_2(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__link_instruction__to_string_4;
+  frame->cont = cont__compiler__link_instruction__to_string_4;
 }
-static void cont__sim2c__link_instruction__to_string_4(void) {
+static void cont__compiler__link_instruction__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8900,9 +8900,9 @@ static void cont__sim2c__link_instruction__to_string_4(void) {
   result_count = 1;
   myself = var._add_statement_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__link_instruction__to_string_5;
+  frame->cont = cont__compiler__link_instruction__to_string_5;
 }
-static void cont__sim2c__link_instruction__to_string_5(void) {
+static void cont__compiler__link_instruction__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8916,7 +8916,7 @@ static void cont__sim2c__link_instruction__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__data_instruction__to_string_1(void) {
+static void entry__compiler__data_instruction__to_string_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -8933,9 +8933,9 @@ static void entry__sim2c__data_instruction__to_string_1(void) {
   result_count = 1;
   myself = get__node__filemask_of();
   func = myself->type;
-  frame->cont = cont__sim2c__data_instruction__to_string_2;
+  frame->cont = cont__compiler__data_instruction__to_string_2;
 }
-static void cont__sim2c__data_instruction__to_string_2(void) {
+static void cont__compiler__data_instruction__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8950,9 +8950,9 @@ static void cont__sim2c__data_instruction__to_string_2(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__data_instruction__to_string_4;
+  frame->cont = cont__compiler__data_instruction__to_string_4;
 }
-static void cont__sim2c__data_instruction__to_string_4(void) {
+static void cont__compiler__data_instruction__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8966,9 +8966,9 @@ static void cont__sim2c__data_instruction__to_string_4(void) {
   result_count = 1;
   myself = var._add_statement_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__data_instruction__to_string_5;
+  frame->cont = cont__compiler__data_instruction__to_string_5;
 }
-static void cont__sim2c__data_instruction__to_string_5(void) {
+static void cont__compiler__data_instruction__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8982,7 +8982,7 @@ static void cont__sim2c__data_instruction__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_1(void) {
+static void entry__compiler__remark_statement__to_string_1(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -9001,25 +9001,25 @@ static void entry__sim2c__remark_statement__to_string_1(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_2;
+  frame->cont = cont__compiler__remark_statement__to_string_2;
 }
-static void cont__sim2c__remark_statement__to_string_2(void) {
+static void cont__compiler__remark_statement__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[1] /* remark_lines */, arguments->slots[0]);
   // 325: -> remark_lines(1) .has_prefix. '!' -> SHEBANG
-  frame->slots[3] /* temp__1 */ = create_closure(entry__sim2c__remark_statement__to_string_3, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__remark_statement__to_string_3, 0);
   // 326: ->
   // 327:   &&
   // 328:     remark_lines(1) != ""
   // 329:     remark_lines(1)(1) != ' '
   // 330:     remark_lines(1)(1) != '#'
   // 331:   -> CODE_EXCLUSION
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__remark_statement__to_string_7, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__remark_statement__to_string_7, 0);
   // 332: -> length_of(remark_lines) == 1 -> REMARK
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__remark_statement__to_string_24, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__remark_statement__to_string_24, 0);
   // 323: !statement_tag
   // 324:   cond
   // 325:     -> remark_lines(1) .has_prefix. '!' -> SHEBANG
@@ -9036,13 +9036,13 @@ static void cont__sim2c__remark_statement__to_string_2(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   arguments->slots[2] = frame->slots[5] /* temp__3 */;
-  arguments->slots[3] = func__sim2c__remark_statement__to_string_28;
+  arguments->slots[3] = func__compiler__remark_statement__to_string_28;
   result_count = 1;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_30;
+  frame->cont = cont__compiler__remark_statement__to_string_30;
 }
-static void entry__sim2c__remark_statement__to_string_29(void) {
+static void entry__compiler__remark_statement__to_string_29(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -9057,7 +9057,7 @@ static void entry__sim2c__remark_statement__to_string_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_27(void) {
+static void entry__compiler__remark_statement__to_string_27(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -9072,7 +9072,7 @@ static void entry__sim2c__remark_statement__to_string_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_23(void) {
+static void entry__compiler__remark_statement__to_string_23(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -9087,7 +9087,7 @@ static void entry__sim2c__remark_statement__to_string_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_6(void) {
+static void entry__compiler__remark_statement__to_string_6(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -9102,7 +9102,7 @@ static void entry__sim2c__remark_statement__to_string_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_3(void) {
+static void entry__compiler__remark_statement__to_string_3(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // remark_lines: 0
@@ -9118,9 +9118,9 @@ static void entry__sim2c__remark_statement__to_string_3(void) {
   result_count = 1;
   myself = frame->slots[0] /* remark_lines */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_4;
+  frame->cont = cont__compiler__remark_statement__to_string_4;
 }
-static void cont__sim2c__remark_statement__to_string_4(void) {
+static void cont__compiler__remark_statement__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9134,9 +9134,9 @@ static void cont__sim2c__remark_statement__to_string_4(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_5;
+  frame->cont = cont__compiler__remark_statement__to_string_5;
 }
-static void cont__sim2c__remark_statement__to_string_5(void) {
+static void cont__compiler__remark_statement__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9146,12 +9146,12 @@ static void cont__sim2c__remark_statement__to_string_5(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__remark_statement__to_string_6;
+  arguments->slots[1] = func__compiler__remark_statement__to_string_6;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_7(void) {
+static void entry__compiler__remark_statement__to_string_7(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // remark_lines: 0
@@ -9167,9 +9167,9 @@ static void entry__sim2c__remark_statement__to_string_7(void) {
   result_count = 1;
   myself = frame->slots[0] /* remark_lines */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_8;
+  frame->cont = cont__compiler__remark_statement__to_string_8;
 }
-static void cont__sim2c__remark_statement__to_string_8(void) {
+static void cont__compiler__remark_statement__to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9183,9 +9183,9 @@ static void cont__sim2c__remark_statement__to_string_8(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_9;
+  frame->cont = cont__compiler__remark_statement__to_string_9;
 }
-static void cont__sim2c__remark_statement__to_string_9(void) {
+static void cont__compiler__remark_statement__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9198,15 +9198,15 @@ static void cont__sim2c__remark_statement__to_string_9(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_10;
+  frame->cont = cont__compiler__remark_statement__to_string_10;
 }
-static void cont__sim2c__remark_statement__to_string_10(void) {
+static void cont__compiler__remark_statement__to_string_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__remark_statement__to_string_11, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__remark_statement__to_string_11, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -9214,9 +9214,9 @@ static void cont__sim2c__remark_statement__to_string_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_22;
+  frame->cont = cont__compiler__remark_statement__to_string_22;
 }
-static void entry__sim2c__remark_statement__to_string_11(void) {
+static void entry__compiler__remark_statement__to_string_11(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // remark_lines: 0
@@ -9232,9 +9232,9 @@ static void entry__sim2c__remark_statement__to_string_11(void) {
   result_count = 1;
   myself = frame->slots[0] /* remark_lines */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_12;
+  frame->cont = cont__compiler__remark_statement__to_string_12;
 }
-static void cont__sim2c__remark_statement__to_string_12(void) {
+static void cont__compiler__remark_statement__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9247,9 +9247,9 @@ static void cont__sim2c__remark_statement__to_string_12(void) {
   result_count = 1;
   myself = frame->slots[5] /* temp__5 */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_13;
+  frame->cont = cont__compiler__remark_statement__to_string_13;
 }
-static void cont__sim2c__remark_statement__to_string_13(void) {
+static void cont__compiler__remark_statement__to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9263,9 +9263,9 @@ static void cont__sim2c__remark_statement__to_string_13(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_14;
+  frame->cont = cont__compiler__remark_statement__to_string_14;
 }
-static void cont__sim2c__remark_statement__to_string_14(void) {
+static void cont__compiler__remark_statement__to_string_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9278,16 +9278,16 @@ static void cont__sim2c__remark_statement__to_string_14(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_15;
+  frame->cont = cont__compiler__remark_statement__to_string_15;
 }
-static void cont__sim2c__remark_statement__to_string_15(void) {
+static void cont__compiler__remark_statement__to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 330: remark_lines(1)(1) != '#'
-  frame->slots[6] /* temp__6 */ = create_closure(entry__sim2c__remark_statement__to_string_16, 0);
+  frame->slots[6] /* temp__6 */ = create_closure(entry__compiler__remark_statement__to_string_16, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -9295,9 +9295,9 @@ static void cont__sim2c__remark_statement__to_string_15(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_21;
+  frame->cont = cont__compiler__remark_statement__to_string_21;
 }
-static void entry__sim2c__remark_statement__to_string_16(void) {
+static void entry__compiler__remark_statement__to_string_16(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // remark_lines: 0
@@ -9313,9 +9313,9 @@ static void entry__sim2c__remark_statement__to_string_16(void) {
   result_count = 1;
   myself = frame->slots[0] /* remark_lines */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_17;
+  frame->cont = cont__compiler__remark_statement__to_string_17;
 }
-static void cont__sim2c__remark_statement__to_string_17(void) {
+static void cont__compiler__remark_statement__to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9328,9 +9328,9 @@ static void cont__sim2c__remark_statement__to_string_17(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_18;
+  frame->cont = cont__compiler__remark_statement__to_string_18;
 }
-static void cont__sim2c__remark_statement__to_string_18(void) {
+static void cont__compiler__remark_statement__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9344,9 +9344,9 @@ static void cont__sim2c__remark_statement__to_string_18(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_19;
+  frame->cont = cont__compiler__remark_statement__to_string_19;
 }
-static void cont__sim2c__remark_statement__to_string_19(void) {
+static void cont__compiler__remark_statement__to_string_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9359,9 +9359,9 @@ static void cont__sim2c__remark_statement__to_string_19(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_20;
+  frame->cont = cont__compiler__remark_statement__to_string_20;
 }
-static void cont__sim2c__remark_statement__to_string_20(void) {
+static void cont__compiler__remark_statement__to_string_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9375,7 +9375,7 @@ static void cont__sim2c__remark_statement__to_string_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__remark_statement__to_string_21(void) {
+static void cont__compiler__remark_statement__to_string_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9388,7 +9388,7 @@ static void cont__sim2c__remark_statement__to_string_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__remark_statement__to_string_22(void) {
+static void cont__compiler__remark_statement__to_string_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9403,12 +9403,12 @@ static void cont__sim2c__remark_statement__to_string_22(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__remark_statement__to_string_23;
+  arguments->slots[1] = func__compiler__remark_statement__to_string_23;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_24(void) {
+static void entry__compiler__remark_statement__to_string_24(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // remark_lines: 0
@@ -9424,9 +9424,9 @@ static void entry__sim2c__remark_statement__to_string_24(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_25;
+  frame->cont = cont__compiler__remark_statement__to_string_25;
 }
-static void cont__sim2c__remark_statement__to_string_25(void) {
+static void cont__compiler__remark_statement__to_string_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9440,9 +9440,9 @@ static void cont__sim2c__remark_statement__to_string_25(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_26;
+  frame->cont = cont__compiler__remark_statement__to_string_26;
 }
-static void cont__sim2c__remark_statement__to_string_26(void) {
+static void cont__compiler__remark_statement__to_string_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9452,12 +9452,12 @@ static void cont__sim2c__remark_statement__to_string_26(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__remark_statement__to_string_27;
+  arguments->slots[1] = func__compiler__remark_statement__to_string_27;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_28(void) {
+static void entry__compiler__remark_statement__to_string_28(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -9468,12 +9468,12 @@ static void entry__sim2c__remark_statement__to_string_28(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__true();
-  arguments->slots[1] = func__sim2c__remark_statement__to_string_29;
+  arguments->slots[1] = func__compiler__remark_statement__to_string_29;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__remark_statement__to_string_30(void) {
+static void cont__compiler__remark_statement__to_string_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9486,9 +9486,9 @@ static void cont__sim2c__remark_statement__to_string_30(void) {
   result_count = 1;
   myself = frame->slots[1] /* remark_lines */;
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_31;
+  frame->cont = cont__compiler__remark_statement__to_string_31;
 }
-static void cont__sim2c__remark_statement__to_string_31(void) {
+static void cont__compiler__remark_statement__to_string_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9502,9 +9502,9 @@ static void cont__sim2c__remark_statement__to_string_31(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_32;
+  frame->cont = cont__compiler__remark_statement__to_string_32;
 }
-static void cont__sim2c__remark_statement__to_string_32(void) {
+static void cont__compiler__remark_statement__to_string_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9517,9 +9517,9 @@ static void cont__sim2c__remark_statement__to_string_32(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_33;
+  frame->cont = cont__compiler__remark_statement__to_string_33;
 }
-static void cont__sim2c__remark_statement__to_string_33(void) {
+static void cont__compiler__remark_statement__to_string_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9533,9 +9533,9 @@ static void cont__sim2c__remark_statement__to_string_33(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_34;
+  frame->cont = cont__compiler__remark_statement__to_string_34;
 }
-static void cont__sim2c__remark_statement__to_string_34(void) {
+static void cont__compiler__remark_statement__to_string_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9546,7 +9546,7 @@ static void cont__sim2c__remark_statement__to_string_34(void) {
   // 337:   for_each_from_to remark_lines 2 -1: (line)
   // 338:     push &buf '@nl;'
   // 339:     if line != "": write_to &buf spaces(indent) line
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__remark_statement__to_string_35, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__remark_statement__to_string_35, 0);
   // 335: if length_of(remark_lines) > 1:
   // 336:   $indent expression_indent+2
   // 337:   for_each_from_to remark_lines 2 -1: (line)
@@ -9559,9 +9559,9 @@ static void cont__sim2c__remark_statement__to_string_34(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_45;
+  frame->cont = cont__compiler__remark_statement__to_string_45;
 }
-static void entry__sim2c__remark_statement__to_string_42(void) {
+static void entry__compiler__remark_statement__to_string_42(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // buf: 0
@@ -9581,9 +9581,9 @@ static void entry__sim2c__remark_statement__to_string_42(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_43;
+  frame->cont = cont__compiler__remark_statement__to_string_43;
 }
-static void cont__sim2c__remark_statement__to_string_43(void) {
+static void cont__compiler__remark_statement__to_string_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9598,9 +9598,9 @@ static void cont__sim2c__remark_statement__to_string_43(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_44;
+  frame->cont = cont__compiler__remark_statement__to_string_44;
 }
-static void cont__sim2c__remark_statement__to_string_44(void) {
+static void cont__compiler__remark_statement__to_string_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9612,7 +9612,7 @@ static void cont__sim2c__remark_statement__to_string_44(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__remark_statement__to_string_38(void) {
+static void entry__compiler__remark_statement__to_string_38(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // line: 0
@@ -9632,9 +9632,9 @@ static void entry__sim2c__remark_statement__to_string_38(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_39;
+  frame->cont = cont__compiler__remark_statement__to_string_39;
 }
-static void cont__sim2c__remark_statement__to_string_39(void) {
+static void cont__compiler__remark_statement__to_string_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9648,9 +9648,9 @@ static void cont__sim2c__remark_statement__to_string_39(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_40;
+  frame->cont = cont__compiler__remark_statement__to_string_40;
 }
-static void cont__sim2c__remark_statement__to_string_40(void) {
+static void cont__compiler__remark_statement__to_string_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9663,16 +9663,16 @@ static void cont__sim2c__remark_statement__to_string_40(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_41;
+  frame->cont = cont__compiler__remark_statement__to_string_41;
 }
-static void cont__sim2c__remark_statement__to_string_41(void) {
+static void cont__compiler__remark_statement__to_string_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 339: ... : write_to &buf spaces(indent) line
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__remark_statement__to_string_42, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__remark_statement__to_string_42, 0);
   // 339: if line != "": write_to &buf spaces(indent) line
   argument_count = 2;
   arguments = node_p;
@@ -9683,7 +9683,7 @@ static void cont__sim2c__remark_statement__to_string_41(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__remark_statement__to_string_35(void) {
+static void entry__compiler__remark_statement__to_string_35(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // remark_lines: 0
@@ -9704,9 +9704,9 @@ static void entry__sim2c__remark_statement__to_string_35(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_36;
+  frame->cont = cont__compiler__remark_statement__to_string_36;
 }
-static void cont__sim2c__remark_statement__to_string_36(void) {
+static void cont__compiler__remark_statement__to_string_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9719,9 +9719,9 @@ static void cont__sim2c__remark_statement__to_string_36(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__sim2c__remark_statement__to_string_37;
+  frame->cont = cont__compiler__remark_statement__to_string_37;
 }
-static void cont__sim2c__remark_statement__to_string_37(void) {
+static void cont__compiler__remark_statement__to_string_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9730,7 +9730,7 @@ static void cont__sim2c__remark_statement__to_string_37(void) {
   // 337: ... : (line)
   // 338:   push &buf '@nl;'
   // 339:   if line != "": write_to &buf spaces(indent) line
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__remark_statement__to_string_38, 1);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__remark_statement__to_string_38, 1);
   // 337: for_each_from_to remark_lines 2 -1: (line)
   // 338:   push &buf '@nl;'
   // 339:   if line != "": write_to &buf spaces(indent) line
@@ -9745,7 +9745,7 @@ static void cont__sim2c__remark_statement__to_string_37(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__remark_statement__to_string_45(void) {
+static void cont__compiler__remark_statement__to_string_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9758,7 +9758,7 @@ static void cont__sim2c__remark_statement__to_string_45(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_24(void) {
+static void entry__compiler__body__to_string_24(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // indent: 0
@@ -9776,9 +9776,9 @@ static void entry__sim2c__body__to_string_24(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_25;
+  frame->cont = cont__compiler__body__to_string_25;
 }
-static void cont__sim2c__body__to_string_25(void) {
+static void cont__compiler__body__to_string_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9793,9 +9793,9 @@ static void cont__sim2c__body__to_string_25(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_26;
+  frame->cont = cont__compiler__body__to_string_26;
 }
-static void cont__sim2c__body__to_string_26(void) {
+static void cont__compiler__body__to_string_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9809,7 +9809,7 @@ static void cont__sim2c__body__to_string_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_27(void) {
+static void entry__compiler__body__to_string_27(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // str: 0
@@ -9826,7 +9826,7 @@ static void entry__sim2c__body__to_string_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_16(void) {
+static void entry__compiler__body__to_string_16(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // self: 0
@@ -9846,9 +9846,9 @@ static void entry__sim2c__body__to_string_16(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_17;
+  frame->cont = cont__compiler__body__to_string_17;
 }
-static void cont__sim2c__body__to_string_17(void) {
+static void cont__compiler__body__to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9861,9 +9861,9 @@ static void cont__sim2c__body__to_string_17(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_18;
+  frame->cont = cont__compiler__body__to_string_18;
 }
-static void cont__sim2c__body__to_string_18(void) {
+static void cont__compiler__body__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9876,9 +9876,9 @@ static void cont__sim2c__body__to_string_18(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_19;
+  frame->cont = cont__compiler__body__to_string_19;
 }
-static void cont__sim2c__body__to_string_19(void) {
+static void cont__compiler__body__to_string_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9892,16 +9892,16 @@ static void cont__sim2c__body__to_string_19(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_20;
+  frame->cont = cont__compiler__body__to_string_20;
 }
-static void cont__sim2c__body__to_string_20(void) {
+static void cont__compiler__body__to_string_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 359: ... str .contains. '@nl;'
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_21, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__to_string_21, 0);
   // 359: line_end_expression_width == 0 && str .contains. '@nl;'
   argument_count = 2;
   arguments = node_p;
@@ -9910,9 +9910,9 @@ static void cont__sim2c__body__to_string_20(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_23;
+  frame->cont = cont__compiler__body__to_string_23;
 }
-static void entry__sim2c__body__to_string_21(void) {
+static void entry__compiler__body__to_string_21(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // str: 0
@@ -9929,9 +9929,9 @@ static void entry__sim2c__body__to_string_21(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_22;
+  frame->cont = cont__compiler__body__to_string_22;
 }
-static void cont__sim2c__body__to_string_22(void) {
+static void cont__compiler__body__to_string_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9945,16 +9945,16 @@ static void cont__sim2c__body__to_string_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_23(void) {
+static void cont__compiler__body__to_string_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 360: -> string('@nl;' spaces(indent) str)
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_24, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__body__to_string_24, 0);
   // 361: -> str
-  frame->slots[7] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_27, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__body__to_string_27, 0);
   // 358: if
   // 359:   line_end_expression_width == 0 && str .contains. '@nl;'
   // 360:   -> string('@nl;' spaces(indent) str)
@@ -9969,7 +9969,7 @@ static void cont__sim2c__body__to_string_23(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_28(void) {
+static void entry__compiler__body__to_string_28(void) {
   allocate_initialized_frame_gc(4, 13);
   // slot allocations:
   // indent: 0
@@ -10002,7 +10002,7 @@ static void entry__sim2c__body__to_string_28(void) {
   // 369:     :
   // 370:       !buf string("@nl;" spaces(indent) ':')
   // 371:       plus &indent 2
-  frame->slots[9] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_29, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__body__to_string_29, 0);
   // 365: $check_for_line_end_expression:
   // 366:   if
   // 367:     line_end_expression_width > 0:
@@ -10022,7 +10022,7 @@ static void entry__sim2c__body__to_string_28(void) {
   // 381:   unless remark_lines.is_empty:
   // 382:     add_remark_lines &parameter_text remark_lines true
   // ...
-  frame->slots[9] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_36, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__body__to_string_36, 0);
   // 373: $handle_simple_parameters:
   // 374:   $$parameter_text ": ("
   // 375:   for_each
@@ -10046,7 +10046,7 @@ static void entry__sim2c__body__to_string_28(void) {
   // 403:     if
   // 404:       parameter(1) == '@nl;':
   // ...
-  frame->slots[9] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_62, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__body__to_string_62, 0);
   // 395: $handle_complex_parameters:
   // 396:   check_for_line_end_expression
   // 397:   $parameter_indentation spaces(indent+2)
@@ -10068,9 +10068,9 @@ static void entry__sim2c__body__to_string_28(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_85;
+  frame->cont = cont__compiler__body__to_string_85;
 }
-static void entry__sim2c__body__to_string_57(void) {
+static void entry__compiler__body__to_string_57(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // buf: 0
@@ -10090,9 +10090,9 @@ static void entry__sim2c__body__to_string_57(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_58;
+  frame->cont = cont__compiler__body__to_string_58;
 }
-static void cont__sim2c__body__to_string_58(void) {
+static void cont__compiler__body__to_string_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10107,9 +10107,9 @@ static void cont__sim2c__body__to_string_58(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_59;
+  frame->cont = cont__compiler__body__to_string_59;
 }
-static void cont__sim2c__body__to_string_59(void) {
+static void cont__compiler__body__to_string_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10123,9 +10123,9 @@ static void cont__sim2c__body__to_string_59(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_60;
+  frame->cont = cont__compiler__body__to_string_60;
 }
-static void cont__sim2c__body__to_string_60(void) {
+static void cont__compiler__body__to_string_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10137,7 +10137,7 @@ static void cont__sim2c__body__to_string_60(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_61(void) {
+static void entry__compiler__body__to_string_61(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // handle_complex_parameters: 0
@@ -10154,7 +10154,7 @@ static void entry__sim2c__body__to_string_61(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_52(void) {
+static void entry__compiler__body__to_string_52(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -10173,7 +10173,7 @@ static void entry__sim2c__body__to_string_52(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_53(void) {
+static void entry__compiler__body__to_string_53(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // indent: 0
@@ -10198,9 +10198,9 @@ static void entry__sim2c__body__to_string_53(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_54;
+  frame->cont = cont__compiler__body__to_string_54;
 }
-static void cont__sim2c__body__to_string_54(void) {
+static void cont__compiler__body__to_string_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10214,9 +10214,9 @@ static void cont__sim2c__body__to_string_54(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_55;
+  frame->cont = cont__compiler__body__to_string_55;
 }
-static void cont__sim2c__body__to_string_55(void) {
+static void cont__compiler__body__to_string_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10229,9 +10229,9 @@ static void cont__sim2c__body__to_string_55(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_56;
+  frame->cont = cont__compiler__body__to_string_56;
 }
-static void cont__sim2c__body__to_string_56(void) {
+static void cont__compiler__body__to_string_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10240,10 +10240,10 @@ static void cont__sim2c__body__to_string_56(void) {
   // 389: ... :
   // 390:   !buf string("@nl;" spaces(indent) parameter_text)
   // 391:   plus &indent 2
-  frame->slots[8] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_57, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__body__to_string_57, 0);
   // 392: :
   // 393:   handle_complex_parameters
-  frame->slots[9] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_61, 0);
+  frame->slots[9] /* temp__5 */ = create_closure(entry__compiler__body__to_string_61, 0);
   // 388: if
   // 389:   indent+parameter_text_length <= line_width:
   // 390:     !buf string("@nl;" spaces(indent) parameter_text)
@@ -10260,7 +10260,7 @@ static void cont__sim2c__body__to_string_56(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_31(void) {
+static void entry__compiler__body__to_string_31(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // buf: 0
@@ -10277,7 +10277,7 @@ static void entry__sim2c__body__to_string_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_32(void) {
+static void entry__compiler__body__to_string_32(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // buf: 0
@@ -10295,9 +10295,9 @@ static void entry__sim2c__body__to_string_32(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_33;
+  frame->cont = cont__compiler__body__to_string_33;
 }
-static void cont__sim2c__body__to_string_33(void) {
+static void cont__compiler__body__to_string_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10312,9 +10312,9 @@ static void cont__sim2c__body__to_string_33(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_34;
+  frame->cont = cont__compiler__body__to_string_34;
 }
-static void cont__sim2c__body__to_string_34(void) {
+static void cont__compiler__body__to_string_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10328,9 +10328,9 @@ static void cont__sim2c__body__to_string_34(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_35;
+  frame->cont = cont__compiler__body__to_string_35;
 }
-static void cont__sim2c__body__to_string_35(void) {
+static void cont__compiler__body__to_string_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10342,7 +10342,7 @@ static void cont__sim2c__body__to_string_35(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_29(void) {
+static void entry__compiler__body__to_string_29(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // buf: 0
@@ -10361,9 +10361,9 @@ static void entry__sim2c__body__to_string_29(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_30;
+  frame->cont = cont__compiler__body__to_string_30;
 }
-static void cont__sim2c__body__to_string_30(void) {
+static void cont__compiler__body__to_string_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10371,11 +10371,11 @@ static void cont__sim2c__body__to_string_30(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 367: ... :
   // 368:   !buf ":"
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_31, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__to_string_31, 0);
   // 369: :
   // 370:   !buf string("@nl;" spaces(indent) ':')
   // 371:   plus &indent 2
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_32, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__to_string_32, 0);
   // 366: if
   // 367:   line_end_expression_width > 0:
   // 368:     !buf ":"
@@ -10392,7 +10392,7 @@ static void cont__sim2c__body__to_string_30(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_36(void) {
+static void entry__compiler__body__to_string_36(void) {
   allocate_initialized_frame_gc(5, 11);
   // slot allocations:
   // parameters: 0
@@ -10417,10 +10417,10 @@ static void entry__sim2c__body__to_string_36(void) {
   ((CELL *)frame->slots[5])->contents /* parameter_text */ = string__fa736c15f296be4;
   // 376: ... : (parameter)
   // 377:   append &parameter_text parameter.to_string
-  frame->slots[7] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_38, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__body__to_string_38, 1);
   // 378: :
   // 379:   push &parameter_text ' '
-  frame->slots[8] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_41, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__body__to_string_41, 0);
   // 375: for_each
   // 376:   parameters: (parameter)
   // 377:     append &parameter_text parameter.to_string
@@ -10434,9 +10434,9 @@ static void entry__sim2c__body__to_string_36(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_43;
+  frame->cont = cont__compiler__body__to_string_43;
 }
-static void entry__sim2c__body__to_string_38(void) {
+static void entry__compiler__body__to_string_38(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // parameter: 0
@@ -10453,9 +10453,9 @@ static void entry__sim2c__body__to_string_38(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_39;
+  frame->cont = cont__compiler__body__to_string_39;
 }
-static void cont__sim2c__body__to_string_39(void) {
+static void cont__compiler__body__to_string_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10469,9 +10469,9 @@ static void cont__sim2c__body__to_string_39(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_40;
+  frame->cont = cont__compiler__body__to_string_40;
 }
-static void cont__sim2c__body__to_string_40(void) {
+static void cont__compiler__body__to_string_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10483,7 +10483,7 @@ static void cont__sim2c__body__to_string_40(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_41(void) {
+static void entry__compiler__body__to_string_41(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // parameter_text: 0
@@ -10500,9 +10500,9 @@ static void entry__sim2c__body__to_string_41(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_42;
+  frame->cont = cont__compiler__body__to_string_42;
 }
-static void cont__sim2c__body__to_string_42(void) {
+static void cont__compiler__body__to_string_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10514,7 +10514,7 @@ static void cont__sim2c__body__to_string_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_43(void) {
+static void cont__compiler__body__to_string_43(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10527,9 +10527,9 @@ static void cont__sim2c__body__to_string_43(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_44;
+  frame->cont = cont__compiler__body__to_string_44;
 }
-static void cont__sim2c__body__to_string_44(void) {
+static void cont__compiler__body__to_string_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10542,9 +10542,9 @@ static void cont__sim2c__body__to_string_44(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_45;
+  frame->cont = cont__compiler__body__to_string_45;
 }
-static void cont__sim2c__body__to_string_45(void) {
+static void cont__compiler__body__to_string_45(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10552,7 +10552,7 @@ static void cont__sim2c__body__to_string_45(void) {
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 381: ... :
   // 382:   add_remark_lines &parameter_text remark_lines true
-  frame->slots[8] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_46, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__body__to_string_46, 0);
   // 381: unless remark_lines.is_empty:
   // 382:   add_remark_lines &parameter_text remark_lines true
   argument_count = 2;
@@ -10562,9 +10562,9 @@ static void cont__sim2c__body__to_string_45(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_48;
+  frame->cont = cont__compiler__body__to_string_48;
 }
-static void entry__sim2c__body__to_string_46(void) {
+static void entry__compiler__body__to_string_46(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // parameter_text: 0
@@ -10584,9 +10584,9 @@ static void entry__sim2c__body__to_string_46(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_47;
+  frame->cont = cont__compiler__body__to_string_47;
 }
-static void cont__sim2c__body__to_string_47(void) {
+static void cont__compiler__body__to_string_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10598,7 +10598,7 @@ static void cont__sim2c__body__to_string_47(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_48(void) {
+static void cont__compiler__body__to_string_48(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10610,9 +10610,9 @@ static void cont__sim2c__body__to_string_48(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_49;
+  frame->cont = cont__compiler__body__to_string_49;
 }
-static void cont__sim2c__body__to_string_49(void) {
+static void cont__compiler__body__to_string_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10626,9 +10626,9 @@ static void cont__sim2c__body__to_string_49(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_50;
+  frame->cont = cont__compiler__body__to_string_50;
 }
-static void cont__sim2c__body__to_string_50(void) {
+static void cont__compiler__body__to_string_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10641,9 +10641,9 @@ static void cont__sim2c__body__to_string_50(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_51;
+  frame->cont = cont__compiler__body__to_string_51;
 }
-static void cont__sim2c__body__to_string_51(void) {
+static void cont__compiler__body__to_string_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10651,7 +10651,7 @@ static void cont__sim2c__body__to_string_51(void) {
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
   // 385: ... :
   // 386:   !buf parameter_text
-  frame->slots[9] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_52, 0);
+  frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__body__to_string_52, 0);
   // 387: :
   // 388:   if
   // 389:     indent+parameter_text_length <= line_width:
@@ -10659,7 +10659,7 @@ static void cont__sim2c__body__to_string_51(void) {
   // 391:       plus &indent 2
   // 392:     :
   // 393:       handle_complex_parameters
-  frame->slots[10] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_53, 0);
+  frame->slots[10] /* temp__4 */ = create_closure(entry__compiler__body__to_string_53, 0);
   // 384: if
   // 385:   parameter_text_length <= line_end_expression_width:
   // 386:     !buf parameter_text
@@ -10680,7 +10680,7 @@ static void cont__sim2c__body__to_string_51(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_62(void) {
+static void entry__compiler__body__to_string_62(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // check_for_line_end_expression: 0
@@ -10705,9 +10705,9 @@ static void entry__sim2c__body__to_string_62(void) {
   result_count = 0;
   myself = frame->slots[0] /* check_for_line_end_expression */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_63;
+  frame->cont = cont__compiler__body__to_string_63;
 }
-static void cont__sim2c__body__to_string_63(void) {
+static void cont__compiler__body__to_string_63(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10720,9 +10720,9 @@ static void cont__sim2c__body__to_string_63(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_64;
+  frame->cont = cont__compiler__body__to_string_64;
 }
-static void cont__sim2c__body__to_string_64(void) {
+static void cont__compiler__body__to_string_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10735,9 +10735,9 @@ static void cont__sim2c__body__to_string_64(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_65;
+  frame->cont = cont__compiler__body__to_string_65;
 }
-static void cont__sim2c__body__to_string_65(void) {
+static void cont__compiler__body__to_string_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10750,16 +10750,16 @@ static void cont__sim2c__body__to_string_65(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_66;
+  frame->cont = cont__compiler__body__to_string_66;
 }
-static void cont__sim2c__body__to_string_66(void) {
+static void cont__compiler__body__to_string_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 398: ... : add_remark_lines &buf remark_lines
-  frame->slots[7] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_67, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__body__to_string_67, 0);
   // 398: unless remark_lines.is_empty: add_remark_lines &buf remark_lines
   argument_count = 2;
   arguments = node_p;
@@ -10768,9 +10768,9 @@ static void cont__sim2c__body__to_string_66(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_69;
+  frame->cont = cont__compiler__body__to_string_69;
 }
-static void entry__sim2c__body__to_string_67(void) {
+static void entry__compiler__body__to_string_67(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -10789,9 +10789,9 @@ static void entry__sim2c__body__to_string_67(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_68;
+  frame->cont = cont__compiler__body__to_string_68;
 }
-static void cont__sim2c__body__to_string_68(void) {
+static void cont__compiler__body__to_string_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10803,7 +10803,7 @@ static void cont__sim2c__body__to_string_68(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_69(void) {
+static void cont__compiler__body__to_string_69(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10816,9 +10816,9 @@ static void cont__sim2c__body__to_string_69(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_70;
+  frame->cont = cont__compiler__body__to_string_70;
 }
-static void cont__sim2c__body__to_string_70(void) {
+static void cont__compiler__body__to_string_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10831,9 +10831,9 @@ static void cont__sim2c__body__to_string_70(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_71;
+  frame->cont = cont__compiler__body__to_string_71;
 }
-static void cont__sim2c__body__to_string_71(void) {
+static void cont__compiler__body__to_string_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10848,9 +10848,9 @@ static void cont__sim2c__body__to_string_71(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_73;
+  frame->cont = cont__compiler__body__to_string_73;
 }
-static void cont__sim2c__body__to_string_73(void) {
+static void cont__compiler__body__to_string_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10863,7 +10863,7 @@ static void cont__sim2c__body__to_string_73(void) {
   // 405:       append &buf parameter
   // 406:     :
   // 407:       write_to &buf '@nl;' parameter_indentation parameter
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_74, 1);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__body__to_string_74, 1);
   // 401: for_each parameters: ($parameter)
   // 402:   to_string &parameter
   // 403:   if
@@ -10878,9 +10878,9 @@ static void cont__sim2c__body__to_string_73(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_82;
+  frame->cont = cont__compiler__body__to_string_82;
 }
-static void entry__sim2c__body__to_string_78(void) {
+static void entry__compiler__body__to_string_78(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -10899,9 +10899,9 @@ static void entry__sim2c__body__to_string_78(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_79;
+  frame->cont = cont__compiler__body__to_string_79;
 }
-static void cont__sim2c__body__to_string_79(void) {
+static void cont__compiler__body__to_string_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10913,7 +10913,7 @@ static void cont__sim2c__body__to_string_79(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_80(void) {
+static void entry__compiler__body__to_string_80(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // buf: 0
@@ -10936,9 +10936,9 @@ static void entry__sim2c__body__to_string_80(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_81;
+  frame->cont = cont__compiler__body__to_string_81;
 }
-static void cont__sim2c__body__to_string_81(void) {
+static void cont__compiler__body__to_string_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10950,7 +10950,7 @@ static void cont__sim2c__body__to_string_81(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_74(void) {
+static void entry__compiler__body__to_string_74(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // parameter: 0
@@ -10970,9 +10970,9 @@ static void entry__sim2c__body__to_string_74(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_75;
+  frame->cont = cont__compiler__body__to_string_75;
 }
-static void cont__sim2c__body__to_string_75(void) {
+static void cont__compiler__body__to_string_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10985,9 +10985,9 @@ static void cont__sim2c__body__to_string_75(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* parameter */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_76;
+  frame->cont = cont__compiler__body__to_string_76;
 }
-static void cont__sim2c__body__to_string_76(void) {
+static void cont__compiler__body__to_string_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11001,9 +11001,9 @@ static void cont__sim2c__body__to_string_76(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_77;
+  frame->cont = cont__compiler__body__to_string_77;
 }
-static void cont__sim2c__body__to_string_77(void) {
+static void cont__compiler__body__to_string_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11011,10 +11011,10 @@ static void cont__sim2c__body__to_string_77(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 404: ... :
   // 405:   append &buf parameter
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_78, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__to_string_78, 0);
   // 406: :
   // 407:   write_to &buf '@nl;' parameter_indentation parameter
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_80, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__body__to_string_80, 0);
   // 403: if
   // 404:   parameter(1) == '@nl;':
   // 405:     append &buf parameter
@@ -11030,7 +11030,7 @@ static void cont__sim2c__body__to_string_77(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__to_string_82(void) {
+static void cont__compiler__body__to_string_82(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -11042,9 +11042,9 @@ static void cont__sim2c__body__to_string_82(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_83;
+  frame->cont = cont__compiler__body__to_string_83;
 }
-static void cont__sim2c__body__to_string_83(void) {
+static void cont__compiler__body__to_string_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11060,9 +11060,9 @@ static void cont__sim2c__body__to_string_83(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_84;
+  frame->cont = cont__compiler__body__to_string_84;
 }
-static void cont__sim2c__body__to_string_84(void) {
+static void cont__compiler__body__to_string_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11074,7 +11074,7 @@ static void cont__sim2c__body__to_string_84(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_85(void) {
+static void cont__compiler__body__to_string_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11088,9 +11088,9 @@ static void cont__sim2c__body__to_string_85(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_86;
+  frame->cont = cont__compiler__body__to_string_86;
 }
-static void cont__sim2c__body__to_string_86(void) {
+static void cont__compiler__body__to_string_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11099,7 +11099,7 @@ static void cont__sim2c__body__to_string_86(void) {
   // 411: ... :
   // 412:   check_for_line_end_expression
   // 413:   unless remark_lines.is_empty: add_remark_lines &buf remark_lines true
-  frame->slots[11] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_87, 0);
+  frame->slots[11] /* temp__3 */ = create_closure(entry__compiler__body__to_string_87, 0);
   // 414: :
   // 415:   $has_simple_parameters
   // 416:     &&
@@ -11111,7 +11111,7 @@ static void cont__sim2c__body__to_string_86(void) {
   // 422:               ->
   // 423:                 ||
   // ...
-  frame->slots[12] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_92, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__compiler__body__to_string_92, 0);
   // 410: if
   // 411:   length_of(parameters) == 0:
   // 412:     check_for_line_end_expression
@@ -11131,9 +11131,9 @@ static void cont__sim2c__body__to_string_86(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_115;
+  frame->cont = cont__compiler__body__to_string_115;
 }
-static void entry__sim2c__body__to_string_113(void) {
+static void entry__compiler__body__to_string_113(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // handle_simple_parameters: 0
@@ -11150,7 +11150,7 @@ static void entry__sim2c__body__to_string_113(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_114(void) {
+static void entry__compiler__body__to_string_114(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // handle_complex_parameters: 0
@@ -11167,7 +11167,7 @@ static void entry__sim2c__body__to_string_114(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_90(void) {
+static void entry__compiler__body__to_string_90(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -11187,9 +11187,9 @@ static void entry__sim2c__body__to_string_90(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_91;
+  frame->cont = cont__compiler__body__to_string_91;
 }
-static void cont__sim2c__body__to_string_91(void) {
+static void cont__compiler__body__to_string_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11201,7 +11201,7 @@ static void cont__sim2c__body__to_string_91(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_87(void) {
+static void entry__compiler__body__to_string_87(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // check_for_line_end_expression: 0
@@ -11220,9 +11220,9 @@ static void entry__sim2c__body__to_string_87(void) {
   result_count = 0;
   myself = frame->slots[0] /* check_for_line_end_expression */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_88;
+  frame->cont = cont__compiler__body__to_string_88;
 }
-static void cont__sim2c__body__to_string_88(void) {
+static void cont__compiler__body__to_string_88(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -11234,16 +11234,16 @@ static void cont__sim2c__body__to_string_88(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_89;
+  frame->cont = cont__compiler__body__to_string_89;
 }
-static void cont__sim2c__body__to_string_89(void) {
+static void cont__compiler__body__to_string_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 413: ... : add_remark_lines &buf remark_lines true
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_90, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__to_string_90, 0);
   // 413: unless remark_lines.is_empty: add_remark_lines &buf remark_lines true
   argument_count = 2;
   arguments = node_p;
@@ -11254,7 +11254,7 @@ static void cont__sim2c__body__to_string_89(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__body__to_string_92(void) {
+static void entry__compiler__body__to_string_92(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // parameters: 0
@@ -11276,9 +11276,9 @@ static void entry__sim2c__body__to_string_92(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_93;
+  frame->cont = cont__compiler__body__to_string_93;
 }
-static void cont__sim2c__body__to_string_93(void) {
+static void cont__compiler__body__to_string_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11292,9 +11292,9 @@ static void cont__sim2c__body__to_string_93(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_94;
+  frame->cont = cont__compiler__body__to_string_94;
 }
-static void cont__sim2c__body__to_string_94(void) {
+static void cont__compiler__body__to_string_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11307,7 +11307,7 @@ static void cont__sim2c__body__to_string_94(void) {
   // 423:         ||
   // 424:           parameter_kind_of(parameter) != IN_PARAMETER
   // 425:           default_value_of(parameter).is_defined
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_95, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__body__to_string_95, 0);
   // 417: ||
   // 418:   length_of(parameters) == 1
   // 419:   not
@@ -11324,9 +11324,9 @@ static void cont__sim2c__body__to_string_94(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_106;
+  frame->cont = cont__compiler__body__to_string_106;
 }
-static void entry__sim2c__body__to_string_95(void) {
+static void entry__compiler__body__to_string_95(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // parameters: 0
@@ -11344,13 +11344,13 @@ static void entry__sim2c__body__to_string_95(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* parameters */;
-  arguments->slots[1] = func__sim2c__body__to_string_96;
+  arguments->slots[1] = func__compiler__body__to_string_96;
   result_count = 1;
   myself = get__any_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_104;
+  frame->cont = cont__compiler__body__to_string_104;
 }
-static void entry__sim2c__body__to_string_96(void) {
+static void entry__compiler__body__to_string_96(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // parameter: 0
@@ -11365,9 +11365,9 @@ static void entry__sim2c__body__to_string_96(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_97;
+  frame->cont = cont__compiler__body__to_string_97;
 }
-static void cont__sim2c__body__to_string_97(void) {
+static void cont__compiler__body__to_string_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11381,9 +11381,9 @@ static void cont__sim2c__body__to_string_97(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_98;
+  frame->cont = cont__compiler__body__to_string_98;
 }
-static void cont__sim2c__body__to_string_98(void) {
+static void cont__compiler__body__to_string_98(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11396,16 +11396,16 @@ static void cont__sim2c__body__to_string_98(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_99;
+  frame->cont = cont__compiler__body__to_string_99;
 }
-static void cont__sim2c__body__to_string_99(void) {
+static void cont__compiler__body__to_string_99(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 425: default_value_of(parameter).is_defined
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_100, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__to_string_100, 0);
   // 423: ||
   // 424:   parameter_kind_of(parameter) != IN_PARAMETER
   // 425:   default_value_of(parameter).is_defined
@@ -11416,9 +11416,9 @@ static void cont__sim2c__body__to_string_99(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_103;
+  frame->cont = cont__compiler__body__to_string_103;
 }
-static void entry__sim2c__body__to_string_100(void) {
+static void entry__compiler__body__to_string_100(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // parameter: 0
@@ -11434,9 +11434,9 @@ static void entry__sim2c__body__to_string_100(void) {
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_101;
+  frame->cont = cont__compiler__body__to_string_101;
 }
-static void cont__sim2c__body__to_string_101(void) {
+static void cont__compiler__body__to_string_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11449,9 +11449,9 @@ static void cont__sim2c__body__to_string_101(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_102;
+  frame->cont = cont__compiler__body__to_string_102;
 }
-static void cont__sim2c__body__to_string_102(void) {
+static void cont__compiler__body__to_string_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11465,7 +11465,7 @@ static void cont__sim2c__body__to_string_102(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_103(void) {
+static void cont__compiler__body__to_string_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11482,7 +11482,7 @@ static void cont__sim2c__body__to_string_103(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_104(void) {
+static void cont__compiler__body__to_string_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11501,9 +11501,9 @@ static void cont__sim2c__body__to_string_104(void) {
   result_count = 1;
   myself = get__not();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_105;
+  frame->cont = cont__compiler__body__to_string_105;
 }
-static void cont__sim2c__body__to_string_105(void) {
+static void cont__compiler__body__to_string_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11523,7 +11523,7 @@ static void cont__sim2c__body__to_string_105(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_106(void) {
+static void cont__compiler__body__to_string_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11532,7 +11532,7 @@ static void cont__sim2c__body__to_string_106(void) {
   // 426: all_of
   // 427:   parameters: (parameter)
   // 428:     -> remark_lines_of(parameter).is_empty
-  frame->slots[8] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_107, 0);
+  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__body__to_string_107, 0);
   // 415: $has_simple_parameters
   // 416:   &&
   // 417:     ||
@@ -11551,9 +11551,9 @@ static void cont__sim2c__body__to_string_106(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_112;
+  frame->cont = cont__compiler__body__to_string_112;
 }
-static void entry__sim2c__body__to_string_107(void) {
+static void entry__compiler__body__to_string_107(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // parameters: 0
@@ -11568,13 +11568,13 @@ static void entry__sim2c__body__to_string_107(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* parameters */;
-  arguments->slots[1] = func__sim2c__body__to_string_108;
+  arguments->slots[1] = func__compiler__body__to_string_108;
   result_count = 1;
   myself = get__all_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_111;
+  frame->cont = cont__compiler__body__to_string_111;
 }
-static void entry__sim2c__body__to_string_108(void) {
+static void entry__compiler__body__to_string_108(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // parameter: 0
@@ -11589,9 +11589,9 @@ static void entry__sim2c__body__to_string_108(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_109;
+  frame->cont = cont__compiler__body__to_string_109;
 }
-static void cont__sim2c__body__to_string_109(void) {
+static void cont__compiler__body__to_string_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11604,9 +11604,9 @@ static void cont__sim2c__body__to_string_109(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_110;
+  frame->cont = cont__compiler__body__to_string_110;
 }
-static void cont__sim2c__body__to_string_110(void) {
+static void cont__compiler__body__to_string_110(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11620,7 +11620,7 @@ static void cont__sim2c__body__to_string_110(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_111(void) {
+static void cont__compiler__body__to_string_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11636,7 +11636,7 @@ static void cont__sim2c__body__to_string_111(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_112(void) {
+static void cont__compiler__body__to_string_112(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11644,10 +11644,10 @@ static void cont__sim2c__body__to_string_112(void) {
   initialize_future(frame->slots[3] /* has_simple_parameters */, arguments->slots[0]);
   // 431: ... :
   // 432:   handle_simple_parameters
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_113, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__body__to_string_113, 0);
   // 433: :
   // 434:   handle_complex_parameters
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_114, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__to_string_114, 0);
   // 430: if
   // 431:   has_simple_parameters:
   // 432:     handle_simple_parameters
@@ -11663,7 +11663,7 @@ static void cont__sim2c__body__to_string_112(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__to_string_115(void) {
+static void cont__compiler__body__to_string_115(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -11679,7 +11679,7 @@ static void cont__sim2c__body__to_string_115(void) {
   // 444:       %line_end_expression_width 0
   // 445:       $statements statements_of(self)
   // ...
-  frame->slots[9] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_116, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__body__to_string_116, 0);
   // 436: do:
   // 437:   %expression_indent indent
   // 438:   $indentation spaces(indent)
@@ -11697,9 +11697,9 @@ static void cont__sim2c__body__to_string_115(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_158;
+  frame->cont = cont__compiler__body__to_string_158;
 }
-static void entry__sim2c__body__to_string_116(void) {
+static void entry__compiler__body__to_string_116(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // return__2: 0
@@ -11729,9 +11729,9 @@ static void entry__sim2c__body__to_string_116(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_117;
+  frame->cont = cont__compiler__body__to_string_117;
 }
-static void cont__sim2c__body__to_string_117(void) {
+static void cont__compiler__body__to_string_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11740,7 +11740,7 @@ static void cont__sim2c__body__to_string_117(void) {
   // 440: ... :
   // 441:   write_to &buf '@nl;' indentation "
   // 442:     ...
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__body__to_string_118, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__body__to_string_118, 0);
   // 443: :
   // 444:   %line_end_expression_width 0
   // 445:   $statements statements_of(self)
@@ -11752,7 +11752,7 @@ static void cont__sim2c__body__to_string_117(void) {
   // 451:     $str statement.to_string
   // 452:     if
   // ...
-  frame->slots[7] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_121, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__body__to_string_121, 0);
   // 439: if
   // 440:   hide_body_statements:
   // 441:     write_to &buf '@nl;' indentation "
@@ -11772,9 +11772,9 @@ static void cont__sim2c__body__to_string_117(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_157;
+  frame->cont = cont__compiler__body__to_string_157;
 }
-static void entry__sim2c__body__to_string_118(void) {
+static void entry__compiler__body__to_string_118(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -11796,9 +11796,9 @@ static void entry__sim2c__body__to_string_118(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_120;
+  frame->cont = cont__compiler__body__to_string_120;
 }
-static void cont__sim2c__body__to_string_120(void) {
+static void cont__compiler__body__to_string_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11810,7 +11810,7 @@ static void cont__sim2c__body__to_string_120(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_121(void) {
+static void entry__compiler__body__to_string_121(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // return__1: 0
@@ -11841,9 +11841,9 @@ static void entry__sim2c__body__to_string_121(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_122;
+  frame->cont = cont__compiler__body__to_string_122;
 }
-static void cont__sim2c__body__to_string_122(void) {
+static void cont__compiler__body__to_string_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11856,9 +11856,9 @@ static void cont__sim2c__body__to_string_122(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_123;
+  frame->cont = cont__compiler__body__to_string_123;
 }
-static void cont__sim2c__body__to_string_123(void) {
+static void cont__compiler__body__to_string_123(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11873,9 +11873,9 @@ static void cont__sim2c__body__to_string_123(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_124;
+  frame->cont = cont__compiler__body__to_string_124;
 }
-static void cont__sim2c__body__to_string_124(void) {
+static void cont__compiler__body__to_string_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11892,7 +11892,7 @@ static void cont__sim2c__body__to_string_124(void) {
   // 456:         statement_tag == ALWAYS
   // 457:         previous_statement_tag != statement_tag
   // ...
-  frame->slots[8] /* temp__2 */ = create_closure(entry__sim2c__body__to_string_125, 2);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__body__to_string_125, 2);
   // 448: for_each statements_of(self): (idx statement)
   // 449:   $previous_statement_tag statement_tag
   // 450:   !statement_tag undefined
@@ -11911,9 +11911,9 @@ static void cont__sim2c__body__to_string_124(void) {
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_156;
+  frame->cont = cont__compiler__body__to_string_156;
 }
-static void entry__sim2c__body__to_string_152(void) {
+static void entry__compiler__body__to_string_152(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // buf: 0
@@ -11936,9 +11936,9 @@ static void entry__sim2c__body__to_string_152(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_153;
+  frame->cont = cont__compiler__body__to_string_153;
 }
-static void cont__sim2c__body__to_string_153(void) {
+static void cont__compiler__body__to_string_153(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11950,7 +11950,7 @@ static void cont__sim2c__body__to_string_153(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_154(void) {
+static void entry__compiler__body__to_string_154(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -11970,9 +11970,9 @@ static void entry__sim2c__body__to_string_154(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_155;
+  frame->cont = cont__compiler__body__to_string_155;
 }
-static void cont__sim2c__body__to_string_155(void) {
+static void cont__compiler__body__to_string_155(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11984,7 +11984,7 @@ static void cont__sim2c__body__to_string_155(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_125(void) {
+static void entry__compiler__body__to_string_125(void) {
   allocate_initialized_frame_gc(6, 13);
   // slot allocations:
   // idx: 0
@@ -12016,9 +12016,9 @@ static void entry__sim2c__body__to_string_125(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_126;
+  frame->cont = cont__compiler__body__to_string_126;
 }
-static void cont__sim2c__body__to_string_126(void) {
+static void cont__compiler__body__to_string_126(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12032,9 +12032,9 @@ static void cont__sim2c__body__to_string_126(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_127;
+  frame->cont = cont__compiler__body__to_string_127;
 }
-static void cont__sim2c__body__to_string_127(void) {
+static void cont__compiler__body__to_string_127(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12043,7 +12043,7 @@ static void cont__sim2c__body__to_string_127(void) {
   // 455: ||
   // 456:   statement_tag == ALWAYS
   // 457:   previous_statement_tag != statement_tag
-  frame->slots[10] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_128, 0);
+  frame->slots[10] /* temp__3 */ = create_closure(entry__compiler__body__to_string_128, 0);
   // 453: &&
   // 454:   idx > 1
   // 455:   ||
@@ -12056,9 +12056,9 @@ static void cont__sim2c__body__to_string_127(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_134;
+  frame->cont = cont__compiler__body__to_string_134;
 }
-static void entry__sim2c__body__to_string_128(void) {
+static void entry__compiler__body__to_string_128(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // previous_statement_tag: 0
@@ -12075,16 +12075,16 @@ static void entry__sim2c__body__to_string_128(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_129;
+  frame->cont = cont__compiler__body__to_string_129;
 }
-static void cont__sim2c__body__to_string_129(void) {
+static void cont__compiler__body__to_string_129(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 457: previous_statement_tag != statement_tag
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_130, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__body__to_string_130, 0);
   // 455: ||
   // 456:   statement_tag == ALWAYS
   // 457:   previous_statement_tag != statement_tag
@@ -12095,9 +12095,9 @@ static void cont__sim2c__body__to_string_129(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_133;
+  frame->cont = cont__compiler__body__to_string_133;
 }
-static void entry__sim2c__body__to_string_130(void) {
+static void entry__compiler__body__to_string_130(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // previous_statement_tag: 0
@@ -12114,9 +12114,9 @@ static void entry__sim2c__body__to_string_130(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_131;
+  frame->cont = cont__compiler__body__to_string_131;
 }
-static void cont__sim2c__body__to_string_131(void) {
+static void cont__compiler__body__to_string_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12129,9 +12129,9 @@ static void cont__sim2c__body__to_string_131(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_132;
+  frame->cont = cont__compiler__body__to_string_132;
 }
-static void cont__sim2c__body__to_string_132(void) {
+static void cont__compiler__body__to_string_132(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12145,7 +12145,7 @@ static void cont__sim2c__body__to_string_132(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_133(void) {
+static void cont__compiler__body__to_string_133(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12161,7 +12161,7 @@ static void cont__sim2c__body__to_string_133(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_134(void) {
+static void cont__compiler__body__to_string_134(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12169,7 +12169,7 @@ static void cont__sim2c__body__to_string_134(void) {
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
   // 458: :
   // 459:   writeln_to &buf
-  frame->slots[11] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_135, 0);
+  frame->slots[11] /* temp__4 */ = create_closure(entry__compiler__body__to_string_135, 0);
   // 452: if
   // 453:   &&
   // 454:     idx > 1
@@ -12185,9 +12185,9 @@ static void cont__sim2c__body__to_string_134(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_137;
+  frame->cont = cont__compiler__body__to_string_137;
 }
-static void entry__sim2c__body__to_string_135(void) {
+static void entry__compiler__body__to_string_135(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // buf: 0
@@ -12203,9 +12203,9 @@ static void entry__sim2c__body__to_string_135(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_136;
+  frame->cont = cont__compiler__body__to_string_136;
 }
-static void cont__sim2c__body__to_string_136(void) {
+static void cont__compiler__body__to_string_136(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12217,7 +12217,7 @@ static void cont__sim2c__body__to_string_136(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_137(void) {
+static void cont__compiler__body__to_string_137(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -12230,15 +12230,15 @@ static void cont__sim2c__body__to_string_137(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_138;
+  frame->cont = cont__compiler__body__to_string_138;
 }
-static void cont__sim2c__body__to_string_138(void) {
+static void cont__compiler__body__to_string_138(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__2 */ = arguments->slots[0];
-  frame->slots[10] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_139, 0);
+  frame->slots[10] /* temp__3 */ = create_closure(entry__compiler__body__to_string_139, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__2 */;
@@ -12246,9 +12246,9 @@ static void cont__sim2c__body__to_string_138(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_151;
+  frame->cont = cont__compiler__body__to_string_151;
 }
-static void entry__sim2c__body__to_string_139(void) {
+static void entry__compiler__body__to_string_139(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // buf: 0
@@ -12269,15 +12269,15 @@ static void entry__sim2c__body__to_string_139(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_140;
+  frame->cont = cont__compiler__body__to_string_140;
 }
-static void cont__sim2c__body__to_string_140(void) {
+static void cont__compiler__body__to_string_140(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_141, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__to_string_141, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -12285,9 +12285,9 @@ static void cont__sim2c__body__to_string_140(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_150;
+  frame->cont = cont__compiler__body__to_string_150;
 }
-static void entry__sim2c__body__to_string_141(void) {
+static void entry__compiler__body__to_string_141(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // str: 0
@@ -12308,9 +12308,9 @@ static void entry__sim2c__body__to_string_141(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_142;
+  frame->cont = cont__compiler__body__to_string_142;
 }
-static void cont__sim2c__body__to_string_142(void) {
+static void cont__compiler__body__to_string_142(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12319,7 +12319,7 @@ static void cont__sim2c__body__to_string_142(void) {
   // 465: >
   // 466:   length_of(buf)+1+length_of(str)
   // 467:   outer_line_end_expression_width
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__body__to_string_143, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__to_string_143, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -12327,9 +12327,9 @@ static void cont__sim2c__body__to_string_142(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_149;
+  frame->cont = cont__compiler__body__to_string_149;
 }
-static void entry__sim2c__body__to_string_143(void) {
+static void entry__compiler__body__to_string_143(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // outer_line_end_expression_width: 0
@@ -12349,9 +12349,9 @@ static void entry__sim2c__body__to_string_143(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_144;
+  frame->cont = cont__compiler__body__to_string_144;
 }
-static void cont__sim2c__body__to_string_144(void) {
+static void cont__compiler__body__to_string_144(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12365,9 +12365,9 @@ static void cont__sim2c__body__to_string_144(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_145;
+  frame->cont = cont__compiler__body__to_string_145;
 }
-static void cont__sim2c__body__to_string_145(void) {
+static void cont__compiler__body__to_string_145(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12380,9 +12380,9 @@ static void cont__sim2c__body__to_string_145(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_146;
+  frame->cont = cont__compiler__body__to_string_146;
 }
-static void cont__sim2c__body__to_string_146(void) {
+static void cont__compiler__body__to_string_146(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12396,9 +12396,9 @@ static void cont__sim2c__body__to_string_146(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_147;
+  frame->cont = cont__compiler__body__to_string_147;
 }
-static void cont__sim2c__body__to_string_147(void) {
+static void cont__compiler__body__to_string_147(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12414,9 +12414,9 @@ static void cont__sim2c__body__to_string_147(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_148;
+  frame->cont = cont__compiler__body__to_string_148;
 }
-static void cont__sim2c__body__to_string_148(void) {
+static void cont__compiler__body__to_string_148(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12432,7 +12432,7 @@ static void cont__sim2c__body__to_string_148(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_149(void) {
+static void cont__compiler__body__to_string_149(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12445,7 +12445,7 @@ static void cont__sim2c__body__to_string_149(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_150(void) {
+static void cont__compiler__body__to_string_150(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12458,7 +12458,7 @@ static void cont__sim2c__body__to_string_150(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_151(void) {
+static void cont__compiler__body__to_string_151(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12466,10 +12466,10 @@ static void cont__sim2c__body__to_string_151(void) {
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
   // 468: :
   // 469:   write_to &buf '@nl;' indentation str
-  frame->slots[11] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_152, 0);
+  frame->slots[11] /* temp__4 */ = create_closure(entry__compiler__body__to_string_152, 0);
   // 470: :
   // 471:   write_to &buf ' ' str
-  frame->slots[12] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_154, 0);
+  frame->slots[12] /* temp__5 */ = create_closure(entry__compiler__body__to_string_154, 0);
   // 460: if
   // 461:   ||
   // 462:     n > 1
@@ -12491,17 +12491,17 @@ static void cont__sim2c__body__to_string_151(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__body__to_string_156(void) {
+static void cont__compiler__body__to_string_156(void) {
   myself = frame->slots[0] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_157(void) {
+static void cont__compiler__body__to_string_157(void) {
   myself = frame->slots[0] /* return__2 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_158(void) {
+static void cont__compiler__body__to_string_158(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -12514,7 +12514,7 @@ static void cont__sim2c__body__to_string_158(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__to_string_1(void) {
+static void entry__compiler__body__to_string_1(void) {
   allocate_initialized_frame_gc(1, 10);
   // slot allocations:
   // self: 0
@@ -12537,9 +12537,9 @@ static void entry__sim2c__body__to_string_1(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_2;
+  frame->cont = cont__compiler__body__to_string_2;
 }
-static void cont__sim2c__body__to_string_2(void) {
+static void cont__compiler__body__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12552,9 +12552,9 @@ static void cont__sim2c__body__to_string_2(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_3;
+  frame->cont = cont__compiler__body__to_string_3;
 }
-static void cont__sim2c__body__to_string_3(void) {
+static void cont__compiler__body__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12567,9 +12567,9 @@ static void cont__sim2c__body__to_string_3(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_4;
+  frame->cont = cont__compiler__body__to_string_4;
 }
-static void cont__sim2c__body__to_string_4(void) {
+static void cont__compiler__body__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12583,15 +12583,15 @@ static void cont__sim2c__body__to_string_4(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_5;
+  frame->cont = cont__compiler__body__to_string_5;
 }
-static void cont__sim2c__body__to_string_5(void) {
+static void cont__compiler__body__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__body__to_string_6, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__body__to_string_6, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -12599,9 +12599,9 @@ static void cont__sim2c__body__to_string_5(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_15;
+  frame->cont = cont__compiler__body__to_string_15;
 }
-static void entry__sim2c__body__to_string_6(void) {
+static void entry__compiler__body__to_string_6(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -12617,9 +12617,9 @@ static void entry__sim2c__body__to_string_6(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_7;
+  frame->cont = cont__compiler__body__to_string_7;
 }
-static void cont__sim2c__body__to_string_7(void) {
+static void cont__compiler__body__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12632,9 +12632,9 @@ static void cont__sim2c__body__to_string_7(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_8;
+  frame->cont = cont__compiler__body__to_string_8;
 }
-static void cont__sim2c__body__to_string_8(void) {
+static void cont__compiler__body__to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12648,16 +12648,16 @@ static void cont__sim2c__body__to_string_8(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_9;
+  frame->cont = cont__compiler__body__to_string_9;
 }
-static void cont__sim2c__body__to_string_9(void) {
+static void cont__compiler__body__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 355: statements_of(self)(1).is_a_return
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_10, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__to_string_10, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -12665,9 +12665,9 @@ static void cont__sim2c__body__to_string_9(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_14;
+  frame->cont = cont__compiler__body__to_string_14;
 }
-static void entry__sim2c__body__to_string_10(void) {
+static void entry__compiler__body__to_string_10(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -12683,9 +12683,9 @@ static void entry__sim2c__body__to_string_10(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_11;
+  frame->cont = cont__compiler__body__to_string_11;
 }
-static void cont__sim2c__body__to_string_11(void) {
+static void cont__compiler__body__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12698,9 +12698,9 @@ static void cont__sim2c__body__to_string_11(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_12;
+  frame->cont = cont__compiler__body__to_string_12;
 }
-static void cont__sim2c__body__to_string_12(void) {
+static void cont__compiler__body__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12713,9 +12713,9 @@ static void cont__sim2c__body__to_string_12(void) {
   result_count = 1;
   myself = get__is_a_return();
   func = myself->type;
-  frame->cont = cont__sim2c__body__to_string_13;
+  frame->cont = cont__compiler__body__to_string_13;
 }
-static void cont__sim2c__body__to_string_13(void) {
+static void cont__compiler__body__to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12729,7 +12729,7 @@ static void cont__sim2c__body__to_string_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_14(void) {
+static void cont__compiler__body__to_string_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12742,7 +12742,7 @@ static void cont__sim2c__body__to_string_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__to_string_15(void) {
+static void cont__compiler__body__to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12754,7 +12754,7 @@ static void cont__sim2c__body__to_string_15(void) {
   // 359:     line_end_expression_width == 0 && str .contains. '@nl;'
   // 360:     -> string('@nl;' spaces(indent) str)
   // 361:     -> str
-  frame->slots[8] /* temp__5 */ = create_closure(entry__sim2c__body__to_string_16, 0);
+  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__body__to_string_16, 0);
   // 362: :
   // 363:   $$buf undefined
   // 364:   
@@ -12766,7 +12766,7 @@ static void cont__sim2c__body__to_string_15(void) {
   // 370:         !buf string("@nl;" spaces(indent) ':')
   // 371:         plus &indent 2
   // ...
-  frame->slots[9] /* temp__6 */ = create_closure(entry__sim2c__body__to_string_28, 0);
+  frame->slots[9] /* temp__6 */ = create_closure(entry__compiler__body__to_string_28, 0);
   // 351: if
   // 352:   &&
   // 353:     length_of(parameters) == 0
@@ -19285,7 +19285,7 @@ static void cont__call_with_remark_to_string_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_3(void) {
+static void entry__compiler__call__to_string_3(void) {
   allocate_initialized_frame_gc(4, 11);
   // slot allocations:
   // return__2: 0
@@ -19313,9 +19313,9 @@ static void entry__sim2c__call__to_string_3(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_4;
+  frame->cont = cont__compiler__call__to_string_4;
 }
-static void cont__sim2c__call__to_string_4(void) {
+static void cont__compiler__call__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19328,16 +19328,16 @@ static void cont__sim2c__call__to_string_4(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_5;
+  frame->cont = cont__compiler__call__to_string_5;
 }
-static void cont__sim2c__call__to_string_5(void) {
+static void cont__compiler__call__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 711: ... remark_lines_behind_of(self).is_empty
-  frame->slots[8] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_6, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__call__to_string_6, 0);
   // 710: $has_no_remarks
   // 711:   remark_lines_of(self).is_empty && remark_lines_behind_of(self).is_empty
   argument_count = 2;
@@ -19347,9 +19347,9 @@ static void cont__sim2c__call__to_string_5(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_9;
+  frame->cont = cont__compiler__call__to_string_9;
 }
-static void entry__sim2c__call__to_string_6(void) {
+static void entry__compiler__call__to_string_6(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -19365,9 +19365,9 @@ static void entry__sim2c__call__to_string_6(void) {
   result_count = 1;
   myself = get__remark_lines_behind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_7;
+  frame->cont = cont__compiler__call__to_string_7;
 }
-static void cont__sim2c__call__to_string_7(void) {
+static void cont__compiler__call__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19380,9 +19380,9 @@ static void cont__sim2c__call__to_string_7(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_8;
+  frame->cont = cont__compiler__call__to_string_8;
 }
-static void cont__sim2c__call__to_string_8(void) {
+static void cont__compiler__call__to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19396,7 +19396,7 @@ static void cont__sim2c__call__to_string_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_9(void) {
+static void cont__compiler__call__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19410,16 +19410,16 @@ static void cont__sim2c__call__to_string_9(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_10;
+  frame->cont = cont__compiler__call__to_string_10;
 }
-static void cont__sim2c__call__to_string_10(void) {
+static void cont__compiler__call__to_string_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   // 715: ... has_no_remarks
-  frame->slots[8] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_11, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__call__to_string_11, 0);
   // 715: outer_line_end_expression_width > 0 && has_no_remarks
   argument_count = 2;
   arguments = node_p;
@@ -19428,9 +19428,9 @@ static void cont__sim2c__call__to_string_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_12;
+  frame->cont = cont__compiler__call__to_string_12;
 }
-static void entry__sim2c__call__to_string_11(void) {
+static void entry__compiler__call__to_string_11(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // has_no_remarks: 0
@@ -19447,16 +19447,16 @@ static void entry__sim2c__call__to_string_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_12(void) {
+static void cont__compiler__call__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 716: -> indent
-  frame->slots[9] /* temp__4 */ = create_closure(entry__sim2c__call__to_string_13, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__compiler__call__to_string_13, 0);
   // 717: -> indent+2
-  frame->slots[10] /* temp__5 */ = create_closure(entry__sim2c__call__to_string_14, 0);
+  frame->slots[10] /* temp__5 */ = create_closure(entry__compiler__call__to_string_14, 0);
   // 713: %expression_indent
   // 714:   if
   // 715:     outer_line_end_expression_width > 0 && has_no_remarks
@@ -19470,9 +19470,9 @@ static void cont__sim2c__call__to_string_12(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_16;
+  frame->cont = cont__compiler__call__to_string_16;
 }
-static void entry__sim2c__call__to_string_13(void) {
+static void entry__compiler__call__to_string_13(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // indent: 0
@@ -19489,7 +19489,7 @@ static void entry__sim2c__call__to_string_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_14(void) {
+static void entry__compiler__call__to_string_14(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // indent: 0
@@ -19506,9 +19506,9 @@ static void entry__sim2c__call__to_string_14(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_15;
+  frame->cont = cont__compiler__call__to_string_15;
 }
-static void cont__sim2c__call__to_string_15(void) {
+static void cont__compiler__call__to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19522,7 +19522,7 @@ static void cont__sim2c__call__to_string_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_16(void) {
+static void cont__compiler__call__to_string_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19536,9 +19536,9 @@ static void cont__sim2c__call__to_string_16(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_17;
+  frame->cont = cont__compiler__call__to_string_17;
 }
-static void cont__sim2c__call__to_string_17(void) {
+static void cont__compiler__call__to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19552,9 +19552,9 @@ static void cont__sim2c__call__to_string_17(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_18;
+  frame->cont = cont__compiler__call__to_string_18;
 }
-static void cont__sim2c__call__to_string_18(void) {
+static void cont__compiler__call__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19569,9 +19569,9 @@ static void cont__sim2c__call__to_string_18(void) {
   result_count = 1;
   myself = var._arguments_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_19;
+  frame->cont = cont__compiler__call__to_string_19;
 }
-static void cont__sim2c__call__to_string_19(void) {
+static void cont__compiler__call__to_string_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19582,7 +19582,7 @@ static void cont__sim2c__call__to_string_19(void) {
   // 724:     arguments(1) == '@nl;'
   // 725:     -> string("->" arguments)
   // 726:     -> string("-> " arguments)
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__call__to_string_20, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__call__to_string_20, 0);
   // 727: :
   // 728:   $remark_lines
   // 729:     append(remark_lines_of(self) remark_lines_behind_of(self))
@@ -19594,7 +19594,7 @@ static void cont__sim2c__call__to_string_19(void) {
   // 735:       
   // 736:       # ATTENTION: some weird fixes!
   // ...
-  frame->slots[7] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_28, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__call__to_string_28, 0);
   // 721: if
   // 722:   has_no_remarks:
   // 723:     if
@@ -19614,9 +19614,9 @@ static void cont__sim2c__call__to_string_19(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_66;
+  frame->cont = cont__compiler__call__to_string_66;
 }
-static void entry__sim2c__call__to_string_23(void) {
+static void entry__compiler__call__to_string_23(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // arguments: 0
@@ -19633,9 +19633,9 @@ static void entry__sim2c__call__to_string_23(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_24;
+  frame->cont = cont__compiler__call__to_string_24;
 }
-static void cont__sim2c__call__to_string_24(void) {
+static void cont__compiler__call__to_string_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19649,7 +19649,7 @@ static void cont__sim2c__call__to_string_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_25(void) {
+static void entry__compiler__call__to_string_25(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // arguments: 0
@@ -19666,9 +19666,9 @@ static void entry__sim2c__call__to_string_25(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_27;
+  frame->cont = cont__compiler__call__to_string_27;
 }
-static void cont__sim2c__call__to_string_27(void) {
+static void cont__compiler__call__to_string_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19682,7 +19682,7 @@ static void cont__sim2c__call__to_string_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_20(void) {
+static void entry__compiler__call__to_string_20(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // arguments: 0
@@ -19698,9 +19698,9 @@ static void entry__sim2c__call__to_string_20(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_21;
+  frame->cont = cont__compiler__call__to_string_21;
 }
-static void cont__sim2c__call__to_string_21(void) {
+static void cont__compiler__call__to_string_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19714,18 +19714,18 @@ static void cont__sim2c__call__to_string_21(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_22;
+  frame->cont = cont__compiler__call__to_string_22;
 }
-static void cont__sim2c__call__to_string_22(void) {
+static void cont__compiler__call__to_string_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 725: -> string("->" arguments)
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_23, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__to_string_23, 0);
   // 726: -> string("-> " arguments)
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__call__to_string_25, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__call__to_string_25, 0);
   // 723: if
   // 724:   arguments(1) == '@nl;'
   // 725:   -> string("->" arguments)
@@ -19740,7 +19740,7 @@ static void cont__sim2c__call__to_string_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__to_string_28(void) {
+static void entry__compiler__call__to_string_28(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // return__1: 0
@@ -19766,9 +19766,9 @@ static void entry__sim2c__call__to_string_28(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_29;
+  frame->cont = cont__compiler__call__to_string_29;
 }
-static void cont__sim2c__call__to_string_29(void) {
+static void cont__compiler__call__to_string_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19781,9 +19781,9 @@ static void cont__sim2c__call__to_string_29(void) {
   result_count = 1;
   myself = get__remark_lines_behind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_30;
+  frame->cont = cont__compiler__call__to_string_30;
 }
-static void cont__sim2c__call__to_string_30(void) {
+static void cont__compiler__call__to_string_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19798,9 +19798,9 @@ static void cont__sim2c__call__to_string_30(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_31;
+  frame->cont = cont__compiler__call__to_string_31;
 }
-static void cont__sim2c__call__to_string_31(void) {
+static void cont__compiler__call__to_string_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19816,9 +19816,9 @@ static void cont__sim2c__call__to_string_31(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_32;
+  frame->cont = cont__compiler__call__to_string_32;
 }
-static void cont__sim2c__call__to_string_32(void) {
+static void cont__compiler__call__to_string_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19835,7 +19835,7 @@ static void cont__sim2c__call__to_string_32(void) {
   // 741:   unless arguments(1) == '@nl;':
   // 742:     !arguments string('@nl;' spaces(expression_indent) arguments)
   // ...
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_33, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__call__to_string_33, 0);
   // 744: :
   // 745:   if
   // 746:     3+length_of(arguments) <= line_end_expression_width
@@ -19845,7 +19845,7 @@ static void cont__sim2c__call__to_string_32(void) {
   // 750:         arguments
   // 751:         line_start_remark_to_string(remark_lines indent+2)
   // 752:     -> add_remark_lines(string("-> " arguments) remark_lines true)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_53, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__call__to_string_53, 0);
   // 732: if
   // 733:   arguments .contains. '@nl;':
   // 734:     $$functor add_remark_lines("->" remark_lines)
@@ -19865,9 +19865,9 @@ static void cont__sim2c__call__to_string_32(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_65;
+  frame->cont = cont__compiler__call__to_string_65;
 }
-static void entry__sim2c__call__to_string_58(void) {
+static void entry__compiler__call__to_string_58(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // arguments: 0
@@ -19888,9 +19888,9 @@ static void entry__sim2c__call__to_string_58(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_59;
+  frame->cont = cont__compiler__call__to_string_59;
 }
-static void cont__sim2c__call__to_string_59(void) {
+static void cont__compiler__call__to_string_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19904,9 +19904,9 @@ static void cont__sim2c__call__to_string_59(void) {
   result_count = 1;
   myself = var._line_start_remark_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_60;
+  frame->cont = cont__compiler__call__to_string_60;
 }
-static void cont__sim2c__call__to_string_60(void) {
+static void cont__compiler__call__to_string_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19924,9 +19924,9 @@ static void cont__sim2c__call__to_string_60(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_61;
+  frame->cont = cont__compiler__call__to_string_61;
 }
-static void cont__sim2c__call__to_string_61(void) {
+static void cont__compiler__call__to_string_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19944,7 +19944,7 @@ static void cont__sim2c__call__to_string_61(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_62(void) {
+static void entry__compiler__call__to_string_62(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // arguments: 0
@@ -19963,9 +19963,9 @@ static void entry__sim2c__call__to_string_62(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_63;
+  frame->cont = cont__compiler__call__to_string_63;
 }
-static void cont__sim2c__call__to_string_63(void) {
+static void cont__compiler__call__to_string_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19980,9 +19980,9 @@ static void cont__sim2c__call__to_string_63(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_64;
+  frame->cont = cont__compiler__call__to_string_64;
 }
-static void cont__sim2c__call__to_string_64(void) {
+static void cont__compiler__call__to_string_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -19996,7 +19996,7 @@ static void cont__sim2c__call__to_string_64(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_33(void) {
+static void entry__compiler__call__to_string_33(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // remark_lines: 0
@@ -20017,9 +20017,9 @@ static void entry__sim2c__call__to_string_33(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_34;
+  frame->cont = cont__compiler__call__to_string_34;
 }
-static void cont__sim2c__call__to_string_34(void) {
+static void cont__compiler__call__to_string_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20032,9 +20032,9 @@ static void cont__sim2c__call__to_string_34(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* functor */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_35;
+  frame->cont = cont__compiler__call__to_string_35;
 }
-static void cont__sim2c__call__to_string_35(void) {
+static void cont__compiler__call__to_string_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20048,9 +20048,9 @@ static void cont__sim2c__call__to_string_35(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_36;
+  frame->cont = cont__compiler__call__to_string_36;
 }
-static void cont__sim2c__call__to_string_36(void) {
+static void cont__compiler__call__to_string_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20059,7 +20059,7 @@ static void cont__sim2c__call__to_string_36(void) {
   // 738: ... :
   // 739:   !functor string('@nl;' spaces(expression_indent) functor)
   // 740:   if arguments .has_prefix. "@nl;@nl;": range &arguments 2 -1
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_37, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__to_string_37, 0);
   // 738: unless functor(1) == '@nl;':
   // 739:   !functor string('@nl;' spaces(expression_indent) functor)
   // 740:   if arguments .has_prefix. "@nl;@nl;": range &arguments 2 -1
@@ -20070,9 +20070,9 @@ static void cont__sim2c__call__to_string_36(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_45;
+  frame->cont = cont__compiler__call__to_string_45;
 }
-static void entry__sim2c__call__to_string_42(void) {
+static void entry__compiler__call__to_string_42(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // arguments: 0
@@ -20088,9 +20088,9 @@ static void entry__sim2c__call__to_string_42(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_43;
+  frame->cont = cont__compiler__call__to_string_43;
 }
-static void cont__sim2c__call__to_string_43(void) {
+static void cont__compiler__call__to_string_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20105,9 +20105,9 @@ static void cont__sim2c__call__to_string_43(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_44;
+  frame->cont = cont__compiler__call__to_string_44;
 }
-static void cont__sim2c__call__to_string_44(void) {
+static void cont__compiler__call__to_string_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20119,7 +20119,7 @@ static void cont__sim2c__call__to_string_44(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_37(void) {
+static void entry__compiler__call__to_string_37(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // functor: 0
@@ -20137,9 +20137,9 @@ static void entry__sim2c__call__to_string_37(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_38;
+  frame->cont = cont__compiler__call__to_string_38;
 }
-static void cont__sim2c__call__to_string_38(void) {
+static void cont__compiler__call__to_string_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20154,9 +20154,9 @@ static void cont__sim2c__call__to_string_38(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_39;
+  frame->cont = cont__compiler__call__to_string_39;
 }
-static void cont__sim2c__call__to_string_39(void) {
+static void cont__compiler__call__to_string_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20170,16 +20170,16 @@ static void cont__sim2c__call__to_string_39(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_41;
+  frame->cont = cont__compiler__call__to_string_41;
 }
-static void cont__sim2c__call__to_string_41(void) {
+static void cont__compiler__call__to_string_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 740: ... : range &arguments 2 -1
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_42, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__call__to_string_42, 0);
   // 740: if arguments .has_prefix. "@nl;@nl;": range &arguments 2 -1
   argument_count = 2;
   arguments = node_p;
@@ -20190,7 +20190,7 @@ static void cont__sim2c__call__to_string_41(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__call__to_string_45(void) {
+static void cont__compiler__call__to_string_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -20202,9 +20202,9 @@ static void cont__sim2c__call__to_string_45(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_46;
+  frame->cont = cont__compiler__call__to_string_46;
 }
-static void cont__sim2c__call__to_string_46(void) {
+static void cont__compiler__call__to_string_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20218,9 +20218,9 @@ static void cont__sim2c__call__to_string_46(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_47;
+  frame->cont = cont__compiler__call__to_string_47;
 }
-static void cont__sim2c__call__to_string_47(void) {
+static void cont__compiler__call__to_string_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20228,7 +20228,7 @@ static void cont__sim2c__call__to_string_47(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 741: ... :
   // 742:   !arguments string('@nl;' spaces(expression_indent) arguments)
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_48, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__to_string_48, 0);
   // 741: unless arguments(1) == '@nl;':
   // 742:   !arguments string('@nl;' spaces(expression_indent) arguments)
   argument_count = 2;
@@ -20238,9 +20238,9 @@ static void cont__sim2c__call__to_string_47(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_51;
+  frame->cont = cont__compiler__call__to_string_51;
 }
-static void entry__sim2c__call__to_string_48(void) {
+static void entry__compiler__call__to_string_48(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // arguments: 0
@@ -20256,9 +20256,9 @@ static void entry__sim2c__call__to_string_48(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_49;
+  frame->cont = cont__compiler__call__to_string_49;
 }
-static void cont__sim2c__call__to_string_49(void) {
+static void cont__compiler__call__to_string_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20273,9 +20273,9 @@ static void cont__sim2c__call__to_string_49(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_50;
+  frame->cont = cont__compiler__call__to_string_50;
 }
-static void cont__sim2c__call__to_string_50(void) {
+static void cont__compiler__call__to_string_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20287,7 +20287,7 @@ static void cont__sim2c__call__to_string_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_51(void) {
+static void cont__compiler__call__to_string_51(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -20300,9 +20300,9 @@ static void cont__sim2c__call__to_string_51(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_52;
+  frame->cont = cont__compiler__call__to_string_52;
 }
-static void cont__sim2c__call__to_string_52(void) {
+static void cont__compiler__call__to_string_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20316,7 +20316,7 @@ static void cont__sim2c__call__to_string_52(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_53(void) {
+static void entry__compiler__call__to_string_53(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // arguments: 0
@@ -20336,9 +20336,9 @@ static void entry__sim2c__call__to_string_53(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_54;
+  frame->cont = cont__compiler__call__to_string_54;
 }
-static void cont__sim2c__call__to_string_54(void) {
+static void cont__compiler__call__to_string_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20352,9 +20352,9 @@ static void cont__sim2c__call__to_string_54(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_55;
+  frame->cont = cont__compiler__call__to_string_55;
 }
-static void cont__sim2c__call__to_string_55(void) {
+static void cont__compiler__call__to_string_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20368,9 +20368,9 @@ static void cont__sim2c__call__to_string_55(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_56;
+  frame->cont = cont__compiler__call__to_string_56;
 }
-static void cont__sim2c__call__to_string_56(void) {
+static void cont__compiler__call__to_string_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20383,9 +20383,9 @@ static void cont__sim2c__call__to_string_56(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_57;
+  frame->cont = cont__compiler__call__to_string_57;
 }
-static void cont__sim2c__call__to_string_57(void) {
+static void cont__compiler__call__to_string_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20396,9 +20396,9 @@ static void cont__sim2c__call__to_string_57(void) {
   // 749:     "-> "
   // 750:     arguments
   // 751:     line_start_remark_to_string(remark_lines indent+2)
-  frame->slots[7] /* temp__5 */ = create_closure(entry__sim2c__call__to_string_58, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__call__to_string_58, 0);
   // 752: -> add_remark_lines(string("-> " arguments) remark_lines true)
-  frame->slots[8] /* temp__6 */ = create_closure(entry__sim2c__call__to_string_62, 0);
+  frame->slots[8] /* temp__6 */ = create_closure(entry__compiler__call__to_string_62, 0);
   // 745: if
   // 746:   3+length_of(arguments) <= line_end_expression_width
   // 747:   ->
@@ -20417,17 +20417,17 @@ static void cont__sim2c__call__to_string_57(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__call__to_string_65(void) {
+static void cont__compiler__call__to_string_65(void) {
   myself = frame->slots[0] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_66(void) {
+static void cont__compiler__call__to_string_66(void) {
   myself = frame->slots[0] /* return__2 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_67(void) {
+static void entry__compiler__call__to_string_67(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // return__5: 0
@@ -20458,9 +20458,9 @@ static void entry__sim2c__call__to_string_67(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_68;
+  frame->cont = cont__compiler__call__to_string_68;
 }
-static void cont__sim2c__call__to_string_68(void) {
+static void cont__compiler__call__to_string_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20481,7 +20481,7 @@ static void cont__sim2c__call__to_string_68(void) {
   // 765:       $source arguments_of(self)(1)
   // 766:       cond
   // ...
-  frame->slots[7] /* temp__1 */ = create_closure(entry__sim2c__call__to_string_69, 0);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__call__to_string_69, 0);
   // 757: do:
   // 758:   %line_width UNLIMITED # force inline output
   // 759:   if
@@ -20499,9 +20499,9 @@ static void cont__sim2c__call__to_string_68(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_91;
+  frame->cont = cont__compiler__call__to_string_91;
 }
-static void entry__sim2c__call__to_string_69(void) {
+static void entry__compiler__call__to_string_69(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // return__3: 0
@@ -20525,9 +20525,9 @@ static void entry__sim2c__call__to_string_69(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_70;
+  frame->cont = cont__compiler__call__to_string_70;
 }
-static void cont__sim2c__call__to_string_70(void) {
+static void cont__compiler__call__to_string_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20544,10 +20544,10 @@ static void cont__sim2c__call__to_string_70(void) {
   // 768:     -> source.is_a_unique_item_constant: !statement_tag UNIQUE
   // 769:     -> source.is_a_polymorphic_function_constant:
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_71, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__call__to_string_71, 0);
   // 771: :
   // 772:   !functor functor_of(self).to_string
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_87, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__to_string_87, 0);
   // 759: if
   // 760:   self.is_an_assignment:
   // 761:     !functor output_arguments_of(self)(1)
@@ -20567,9 +20567,9 @@ static void cont__sim2c__call__to_string_70(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_90;
+  frame->cont = cont__compiler__call__to_string_90;
 }
-static void entry__sim2c__call__to_string_86(void) {
+static void entry__compiler__call__to_string_86(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -20584,7 +20584,7 @@ static void entry__sim2c__call__to_string_86(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_83(void) {
+static void entry__compiler__call__to_string_83(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -20599,7 +20599,7 @@ static void entry__sim2c__call__to_string_83(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_80(void) {
+static void entry__compiler__call__to_string_80(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -20614,7 +20614,7 @@ static void entry__sim2c__call__to_string_80(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_78(void) {
+static void entry__compiler__call__to_string_78(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // source: 0
@@ -20630,9 +20630,9 @@ static void entry__sim2c__call__to_string_78(void) {
   result_count = 1;
   myself = get__is_a_body();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_79;
+  frame->cont = cont__compiler__call__to_string_79;
 }
-static void cont__sim2c__call__to_string_79(void) {
+static void cont__compiler__call__to_string_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20642,12 +20642,12 @@ static void cont__sim2c__call__to_string_79(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__call__to_string_80;
+  arguments->slots[1] = func__compiler__call__to_string_80;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_81(void) {
+static void entry__compiler__call__to_string_81(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // source: 0
@@ -20663,9 +20663,9 @@ static void entry__sim2c__call__to_string_81(void) {
   result_count = 1;
   myself = get__is_a_unique_item_constant();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_82;
+  frame->cont = cont__compiler__call__to_string_82;
 }
-static void cont__sim2c__call__to_string_82(void) {
+static void cont__compiler__call__to_string_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20675,12 +20675,12 @@ static void cont__sim2c__call__to_string_82(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__call__to_string_83;
+  arguments->slots[1] = func__compiler__call__to_string_83;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_84(void) {
+static void entry__compiler__call__to_string_84(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // source: 0
@@ -20696,9 +20696,9 @@ static void entry__sim2c__call__to_string_84(void) {
   result_count = 1;
   myself = get__is_a_polymorphic_function_constant();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_85;
+  frame->cont = cont__compiler__call__to_string_85;
 }
-static void cont__sim2c__call__to_string_85(void) {
+static void cont__compiler__call__to_string_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20709,12 +20709,12 @@ static void cont__sim2c__call__to_string_85(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__call__to_string_86;
+  arguments->slots[1] = func__compiler__call__to_string_86;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_71(void) {
+static void entry__compiler__call__to_string_71(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // functor: 0
@@ -20736,9 +20736,9 @@ static void entry__sim2c__call__to_string_71(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_72;
+  frame->cont = cont__compiler__call__to_string_72;
 }
-static void cont__sim2c__call__to_string_72(void) {
+static void cont__compiler__call__to_string_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20751,9 +20751,9 @@ static void cont__sim2c__call__to_string_72(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_73;
+  frame->cont = cont__compiler__call__to_string_73;
 }
-static void cont__sim2c__call__to_string_73(void) {
+static void cont__compiler__call__to_string_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20766,9 +20766,9 @@ static void cont__sim2c__call__to_string_73(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_74;
+  frame->cont = cont__compiler__call__to_string_74;
 }
-static void cont__sim2c__call__to_string_74(void) {
+static void cont__compiler__call__to_string_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20781,9 +20781,9 @@ static void cont__sim2c__call__to_string_74(void) {
   result_count = 1;
   myself = var._argument_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_75;
+  frame->cont = cont__compiler__call__to_string_75;
 }
-static void cont__sim2c__call__to_string_75(void) {
+static void cont__compiler__call__to_string_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20806,9 +20806,9 @@ static void cont__sim2c__call__to_string_75(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_76;
+  frame->cont = cont__compiler__call__to_string_76;
 }
-static void cont__sim2c__call__to_string_76(void) {
+static void cont__compiler__call__to_string_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20821,21 +20821,21 @@ static void cont__sim2c__call__to_string_76(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_77;
+  frame->cont = cont__compiler__call__to_string_77;
 }
-static void cont__sim2c__call__to_string_77(void) {
+static void cont__compiler__call__to_string_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* source */, arguments->slots[0]);
   // 767: -> source.is_a_body: !statement_tag ALWAYS
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__call__to_string_78, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__call__to_string_78, 0);
   // 768: -> source.is_a_unique_item_constant: !statement_tag UNIQUE
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_81, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__call__to_string_81, 0);
   // 769: -> source.is_a_polymorphic_function_constant:
   // 770:   !statement_tag POLYMORPHIC_FUNCTION
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_84, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__to_string_84, 0);
   // 766: cond
   // 767:   -> source.is_a_body: !statement_tag ALWAYS
   // 768:   -> source.is_a_unique_item_constant: !statement_tag UNIQUE
@@ -20851,7 +20851,7 @@ static void cont__sim2c__call__to_string_77(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__call__to_string_87(void) {
+static void entry__compiler__call__to_string_87(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // functor: 0
@@ -20869,9 +20869,9 @@ static void entry__sim2c__call__to_string_87(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_88;
+  frame->cont = cont__compiler__call__to_string_88;
 }
-static void cont__sim2c__call__to_string_88(void) {
+static void cont__compiler__call__to_string_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20884,9 +20884,9 @@ static void cont__sim2c__call__to_string_88(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_89;
+  frame->cont = cont__compiler__call__to_string_89;
 }
-static void cont__sim2c__call__to_string_89(void) {
+static void cont__compiler__call__to_string_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20898,12 +20898,12 @@ static void cont__sim2c__call__to_string_89(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_90(void) {
+static void cont__compiler__call__to_string_90(void) {
   myself = frame->slots[0] /* return__3 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_91(void) {
+static void cont__compiler__call__to_string_91(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -20916,9 +20916,9 @@ static void cont__sim2c__call__to_string_91(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_92;
+  frame->cont = cont__compiler__call__to_string_92;
 }
-static void cont__sim2c__call__to_string_92(void) {
+static void cont__compiler__call__to_string_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20931,9 +20931,9 @@ static void cont__sim2c__call__to_string_92(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_93;
+  frame->cont = cont__compiler__call__to_string_93;
 }
-static void cont__sim2c__call__to_string_93(void) {
+static void cont__compiler__call__to_string_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20947,9 +20947,9 @@ static void cont__sim2c__call__to_string_93(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_94;
+  frame->cont = cont__compiler__call__to_string_94;
 }
-static void cont__sim2c__call__to_string_94(void) {
+static void cont__compiler__call__to_string_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -20964,16 +20964,16 @@ static void cont__sim2c__call__to_string_94(void) {
   result_count = 1;
   myself = var._arguments_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_95;
+  frame->cont = cont__compiler__call__to_string_95;
 }
-static void cont__sim2c__call__to_string_95(void) {
+static void cont__compiler__call__to_string_95(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[5] /* arguments */, arguments->slots[0]);
   // 775: ... arguments .contains. '@nl;'
-  frame->slots[8] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_96, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__call__to_string_96, 0);
   // 775: ... this_is_a_definition && arguments .contains. '@nl;'
   argument_count = 2;
   arguments = node_p;
@@ -20982,9 +20982,9 @@ static void cont__sim2c__call__to_string_95(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_98;
+  frame->cont = cont__compiler__call__to_string_98;
 }
-static void entry__sim2c__call__to_string_96(void) {
+static void entry__compiler__call__to_string_96(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // arguments: 0
@@ -21001,9 +21001,9 @@ static void entry__sim2c__call__to_string_96(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_97;
+  frame->cont = cont__compiler__call__to_string_97;
 }
-static void cont__sim2c__call__to_string_97(void) {
+static void cont__compiler__call__to_string_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21017,7 +21017,7 @@ static void cont__sim2c__call__to_string_97(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_98(void) {
+static void cont__compiler__call__to_string_98(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21028,13 +21028,13 @@ static void cont__sim2c__call__to_string_98(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__call__to_string_99;
+  arguments->slots[1] = func__compiler__call__to_string_99;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_100;
+  frame->cont = cont__compiler__call__to_string_100;
 }
-static void entry__sim2c__call__to_string_99(void) {
+static void entry__compiler__call__to_string_99(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -21049,7 +21049,7 @@ static void entry__sim2c__call__to_string_99(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_100(void) {
+static void cont__compiler__call__to_string_100(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -21061,9 +21061,9 @@ static void cont__sim2c__call__to_string_100(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_101;
+  frame->cont = cont__compiler__call__to_string_101;
 }
-static void cont__sim2c__call__to_string_101(void) {
+static void cont__compiler__call__to_string_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21076,9 +21076,9 @@ static void cont__sim2c__call__to_string_101(void) {
   result_count = 1;
   myself = get__remark_lines_behind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_102;
+  frame->cont = cont__compiler__call__to_string_102;
 }
-static void cont__sim2c__call__to_string_102(void) {
+static void cont__compiler__call__to_string_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21092,9 +21092,9 @@ static void cont__sim2c__call__to_string_102(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_103;
+  frame->cont = cont__compiler__call__to_string_103;
 }
-static void cont__sim2c__call__to_string_103(void) {
+static void cont__compiler__call__to_string_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21107,9 +21107,9 @@ static void cont__sim2c__call__to_string_103(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_104;
+  frame->cont = cont__compiler__call__to_string_104;
 }
-static void cont__sim2c__call__to_string_104(void) {
+static void cont__compiler__call__to_string_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21120,7 +21120,7 @@ static void cont__sim2c__call__to_string_104(void) {
   // 782:     arguments == "" || arguments(1) == ':' || arguments(1) == '@nl;'
   // 783:     -> string(functor arguments)
   // 784:     -> string(functor ' ' arguments)
-  frame->slots[8] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_105, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__call__to_string_105, 0);
   // 785: :
   // 786:   cond
   // 787:     ->
@@ -21132,7 +21132,7 @@ static void cont__sim2c__call__to_string_104(void) {
   // 793:         any_of
   // 794:           arguments_of(self): (argument)
   // ...
-  frame->slots[9] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_120, 0);
+  frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__call__to_string_120, 0);
   // 778: if
   // 779:   remark_lines.is_empty
   // 780:   ->
@@ -21152,9 +21152,9 @@ static void cont__sim2c__call__to_string_104(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_140;
+  frame->cont = cont__compiler__call__to_string_140;
 }
-static void entry__sim2c__call__to_string_137(void) {
+static void entry__compiler__call__to_string_137(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // return__4: 0
@@ -21184,9 +21184,9 @@ static void entry__sim2c__call__to_string_137(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_138;
+  frame->cont = cont__compiler__call__to_string_138;
 }
-static void cont__sim2c__call__to_string_138(void) {
+static void cont__compiler__call__to_string_138(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21204,9 +21204,9 @@ static void cont__sim2c__call__to_string_138(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_139;
+  frame->cont = cont__compiler__call__to_string_139;
 }
-static void cont__sim2c__call__to_string_139(void) {
+static void cont__compiler__call__to_string_139(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21224,7 +21224,7 @@ static void cont__sim2c__call__to_string_139(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_134(void) {
+static void entry__compiler__call__to_string_134(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // functor: 0
@@ -21246,9 +21246,9 @@ static void entry__sim2c__call__to_string_134(void) {
   result_count = 1;
   myself = var._call_with_remark_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_135;
+  frame->cont = cont__compiler__call__to_string_135;
 }
-static void cont__sim2c__call__to_string_135(void) {
+static void cont__compiler__call__to_string_135(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21262,7 +21262,7 @@ static void cont__sim2c__call__to_string_135(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_123(void) {
+static void entry__compiler__call__to_string_123(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // functor: 0
@@ -21284,9 +21284,9 @@ static void entry__sim2c__call__to_string_123(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_124;
+  frame->cont = cont__compiler__call__to_string_124;
 }
-static void cont__sim2c__call__to_string_124(void) {
+static void cont__compiler__call__to_string_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21300,9 +21300,9 @@ static void cont__sim2c__call__to_string_124(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_125;
+  frame->cont = cont__compiler__call__to_string_125;
 }
-static void cont__sim2c__call__to_string_125(void) {
+static void cont__compiler__call__to_string_125(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21316,7 +21316,7 @@ static void cont__sim2c__call__to_string_125(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_121(void) {
+static void entry__compiler__call__to_string_121(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // arguments: 0
@@ -21337,16 +21337,16 @@ static void entry__sim2c__call__to_string_121(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_122;
+  frame->cont = cont__compiler__call__to_string_122;
 }
-static void cont__sim2c__call__to_string_122(void) {
+static void cont__compiler__call__to_string_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 789: -> string(add_remark_lines(functor remark_lines true) arguments)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_123, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__to_string_123, 0);
   // 787: ->
   // 788:   arguments == ""
   // 789:   -> string(add_remark_lines(functor remark_lines true) arguments)
@@ -21358,7 +21358,7 @@ static void cont__sim2c__call__to_string_122(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_126(void) {
+static void entry__compiler__call__to_string_126(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // arguments: 0
@@ -21381,9 +21381,9 @@ static void entry__sim2c__call__to_string_126(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_127;
+  frame->cont = cont__compiler__call__to_string_127;
 }
-static void cont__sim2c__call__to_string_127(void) {
+static void cont__compiler__call__to_string_127(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21392,7 +21392,7 @@ static void cont__sim2c__call__to_string_127(void) {
   // 793: any_of
   // 794:   arguments_of(self): (argument)
   // 795:     -> argument.is_a_body
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_128, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__to_string_128, 0);
   // 791: ||
   // 792:   arguments .contains. '@nl;'
   // 793:   any_of
@@ -21405,9 +21405,9 @@ static void cont__sim2c__call__to_string_127(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_133;
+  frame->cont = cont__compiler__call__to_string_133;
 }
-static void entry__sim2c__call__to_string_128(void) {
+static void entry__compiler__call__to_string_128(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -21423,9 +21423,9 @@ static void entry__sim2c__call__to_string_128(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_129;
+  frame->cont = cont__compiler__call__to_string_129;
 }
-static void cont__sim2c__call__to_string_129(void) {
+static void cont__compiler__call__to_string_129(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21437,13 +21437,13 @@ static void cont__sim2c__call__to_string_129(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = func__sim2c__call__to_string_130;
+  arguments->slots[1] = func__compiler__call__to_string_130;
   result_count = 1;
   myself = get__any_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_132;
+  frame->cont = cont__compiler__call__to_string_132;
 }
-static void entry__sim2c__call__to_string_130(void) {
+static void entry__compiler__call__to_string_130(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // argument: 0
@@ -21458,9 +21458,9 @@ static void entry__sim2c__call__to_string_130(void) {
   result_count = 1;
   myself = get__is_a_body();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_131;
+  frame->cont = cont__compiler__call__to_string_131;
 }
-static void cont__sim2c__call__to_string_131(void) {
+static void cont__compiler__call__to_string_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21474,7 +21474,7 @@ static void cont__sim2c__call__to_string_131(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_132(void) {
+static void cont__compiler__call__to_string_132(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21490,14 +21490,14 @@ static void cont__sim2c__call__to_string_132(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_133(void) {
+static void cont__compiler__call__to_string_133(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 796: -> call_with_remark_to_string(functor arguments remark_lines)
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__call__to_string_134, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__call__to_string_134, 0);
   // 790: ->
   // 791:   ||
   // 792:     arguments .contains. '@nl;'
@@ -21513,7 +21513,7 @@ static void cont__sim2c__call__to_string_133(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_136(void) {
+static void entry__compiler__call__to_string_136(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // indent: 0
@@ -21535,7 +21535,7 @@ static void entry__sim2c__call__to_string_136(void) {
   // 801:       string(functor ' ' arguments)
   // 802:       remark_lines
   // 803:       true
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__call__to_string_137, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__call__to_string_137, 0);
   // 797: -> true:
   // 798:   %expression_indent indent
   // 799:   ->
@@ -21551,7 +21551,7 @@ static void entry__sim2c__call__to_string_136(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_105(void) {
+static void entry__compiler__call__to_string_105(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // arguments: 0
@@ -21570,16 +21570,16 @@ static void entry__sim2c__call__to_string_105(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_106;
+  frame->cont = cont__compiler__call__to_string_106;
 }
-static void cont__sim2c__call__to_string_106(void) {
+static void cont__compiler__call__to_string_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
   // 782: ... arguments(1) == ':' || arguments(1) == '@nl;'
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__call__to_string_107, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__call__to_string_107, 0);
   // 782: arguments == "" || arguments(1) == ':' || arguments(1) == '@nl;'
   argument_count = 2;
   arguments = node_p;
@@ -21588,9 +21588,9 @@ static void cont__sim2c__call__to_string_106(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_114;
+  frame->cont = cont__compiler__call__to_string_114;
 }
-static void entry__sim2c__call__to_string_107(void) {
+static void entry__compiler__call__to_string_107(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // arguments: 0
@@ -21606,9 +21606,9 @@ static void entry__sim2c__call__to_string_107(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_108;
+  frame->cont = cont__compiler__call__to_string_108;
 }
-static void cont__sim2c__call__to_string_108(void) {
+static void cont__compiler__call__to_string_108(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21622,16 +21622,16 @@ static void cont__sim2c__call__to_string_108(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_109;
+  frame->cont = cont__compiler__call__to_string_109;
 }
-static void cont__sim2c__call__to_string_109(void) {
+static void cont__compiler__call__to_string_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 782: ... arguments(1) == '@nl;'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__call__to_string_110, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__call__to_string_110, 0);
   // 782: ... arguments(1) == ':' || arguments(1) == '@nl;'
   argument_count = 2;
   arguments = node_p;
@@ -21640,9 +21640,9 @@ static void cont__sim2c__call__to_string_109(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_113;
+  frame->cont = cont__compiler__call__to_string_113;
 }
-static void entry__sim2c__call__to_string_110(void) {
+static void entry__compiler__call__to_string_110(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // arguments: 0
@@ -21658,9 +21658,9 @@ static void entry__sim2c__call__to_string_110(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_111;
+  frame->cont = cont__compiler__call__to_string_111;
 }
-static void cont__sim2c__call__to_string_111(void) {
+static void cont__compiler__call__to_string_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21674,9 +21674,9 @@ static void cont__sim2c__call__to_string_111(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_112;
+  frame->cont = cont__compiler__call__to_string_112;
 }
-static void cont__sim2c__call__to_string_112(void) {
+static void cont__compiler__call__to_string_112(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21690,7 +21690,7 @@ static void cont__sim2c__call__to_string_112(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_113(void) {
+static void cont__compiler__call__to_string_113(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21704,16 +21704,16 @@ static void cont__sim2c__call__to_string_113(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_114(void) {
+static void cont__compiler__call__to_string_114(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 783: -> string(functor arguments)
-  frame->slots[6] /* temp__5 */ = create_closure(entry__sim2c__call__to_string_115, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__compiler__call__to_string_115, 0);
   // 784: -> string(functor ' ' arguments)
-  frame->slots[7] /* temp__6 */ = create_closure(entry__sim2c__call__to_string_117, 0);
+  frame->slots[7] /* temp__6 */ = create_closure(entry__compiler__call__to_string_117, 0);
   // 781: if
   // 782:   arguments == "" || arguments(1) == ':' || arguments(1) == '@nl;'
   // 783:   -> string(functor arguments)
@@ -21726,9 +21726,9 @@ static void cont__sim2c__call__to_string_114(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_119;
+  frame->cont = cont__compiler__call__to_string_119;
 }
-static void entry__sim2c__call__to_string_115(void) {
+static void entry__compiler__call__to_string_115(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // functor: 0
@@ -21747,9 +21747,9 @@ static void entry__sim2c__call__to_string_115(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_116;
+  frame->cont = cont__compiler__call__to_string_116;
 }
-static void cont__sim2c__call__to_string_116(void) {
+static void cont__compiler__call__to_string_116(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21763,7 +21763,7 @@ static void cont__sim2c__call__to_string_116(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_117(void) {
+static void entry__compiler__call__to_string_117(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // functor: 0
@@ -21783,9 +21783,9 @@ static void entry__sim2c__call__to_string_117(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_118;
+  frame->cont = cont__compiler__call__to_string_118;
 }
-static void cont__sim2c__call__to_string_118(void) {
+static void cont__compiler__call__to_string_118(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21799,7 +21799,7 @@ static void cont__sim2c__call__to_string_118(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__to_string_119(void) {
+static void cont__compiler__call__to_string_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21817,7 +21817,7 @@ static void cont__sim2c__call__to_string_119(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_120(void) {
+static void entry__compiler__call__to_string_120(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // arguments: 0
@@ -21837,7 +21837,7 @@ static void entry__sim2c__call__to_string_120(void) {
   // 787: ->
   // 788:   arguments == ""
   // 789:   -> string(add_remark_lines(functor remark_lines true) arguments)
-  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__call__to_string_121, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__call__to_string_121, 0);
   // 790: ->
   // 791:   ||
   // 792:     arguments .contains. '@nl;'
@@ -21845,7 +21845,7 @@ static void entry__sim2c__call__to_string_120(void) {
   // 794:       arguments_of(self): (argument)
   // 795:         -> argument.is_a_body
   // 796:   -> call_with_remark_to_string(functor arguments remark_lines)
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_126, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__call__to_string_126, 0);
   // 797: -> true:
   // 798:   %expression_indent indent
   // 799:   ->
@@ -21853,7 +21853,7 @@ static void entry__sim2c__call__to_string_120(void) {
   // 801:       string(functor ' ' arguments)
   // 802:       remark_lines
   // 803:       true
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_136, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__call__to_string_136, 0);
   // 786: cond
   // 787:   ->
   // 788:     arguments == ""
@@ -21875,12 +21875,12 @@ static void entry__sim2c__call__to_string_120(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__call__to_string_140(void) {
+static void cont__compiler__call__to_string_140(void) {
   myself = frame->slots[0] /* return__5 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__to_string_1(void) {
+static void entry__compiler__call__to_string_1(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -21902,9 +21902,9 @@ static void entry__sim2c__call__to_string_1(void) {
   result_count = 1;
   myself = get__is_a_return();
   func = myself->type;
-  frame->cont = cont__sim2c__call__to_string_2;
+  frame->cont = cont__compiler__call__to_string_2;
 }
-static void cont__sim2c__call__to_string_2(void) {
+static void cont__compiler__call__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -21921,7 +21921,7 @@ static void cont__sim2c__call__to_string_2(void) {
   // 717:       -> indent+2
   // 718:   
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__call__to_string_3, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__to_string_3, 0);
   // 753: :
   // 754:   %expression_indent indent+2
   // 755:   $$functor undefined
@@ -21933,7 +21933,7 @@ static void cont__sim2c__call__to_string_2(void) {
   // 761:         !functor output_arguments_of(self)(1)
   // 762:         !this_is_a_definition functor.is_a_definition
   // ...
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__call__to_string_67, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__to_string_67, 0);
   // 708: if
   // 709:   self.is_a_return:
   // 710:     $has_no_remarks
@@ -22540,7 +22540,7 @@ static void cont__definition_to_string_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_single__to_string_1(void) {
+static void entry__compiler__define_static_single__to_string_1(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -22559,9 +22559,9 @@ static void entry__sim2c__define_static_single__to_string_1(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_2;
+  frame->cont = cont__compiler__define_static_single__to_string_2;
 }
-static void cont__sim2c__define_static_single__to_string_2(void) {
+static void cont__compiler__define_static_single__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22576,9 +22576,9 @@ static void cont__sim2c__define_static_single__to_string_2(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_3;
+  frame->cont = cont__compiler__define_static_single__to_string_3;
 }
-static void cont__sim2c__define_static_single__to_string_3(void) {
+static void cont__compiler__define_static_single__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22594,14 +22594,14 @@ static void cont__sim2c__define_static_single__to_string_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
-  arguments->slots[2] = func__sim2c__define_static_single__to_string_4;
-  arguments->slots[3] = func__sim2c__define_static_single__to_string_5;
+  arguments->slots[2] = func__compiler__define_static_single__to_string_4;
+  arguments->slots[3] = func__compiler__define_static_single__to_string_5;
   result_count = 1;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_7;
+  frame->cont = cont__compiler__define_static_single__to_string_7;
 }
-static void entry__sim2c__define_static_single__to_string_4(void) {
+static void entry__compiler__define_static_single__to_string_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -22616,7 +22616,7 @@ static void entry__sim2c__define_static_single__to_string_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_single__to_string_5(void) {
+static void entry__compiler__define_static_single__to_string_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -22631,7 +22631,7 @@ static void entry__sim2c__define_static_single__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__define_static_single__to_string_7(void) {
+static void cont__compiler__define_static_single__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22645,9 +22645,9 @@ static void cont__sim2c__define_static_single__to_string_7(void) {
   result_count = 1;
   myself = var._definition_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_8;
+  frame->cont = cont__compiler__define_static_single__to_string_8;
 }
-static void cont__sim2c__define_static_single__to_string_8(void) {
+static void cont__compiler__define_static_single__to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22660,9 +22660,9 @@ static void cont__sim2c__define_static_single__to_string_8(void) {
   result_count = 1;
   myself = get__attribute_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_9;
+  frame->cont = cont__compiler__define_static_single__to_string_9;
 }
-static void cont__sim2c__define_static_single__to_string_9(void) {
+static void cont__compiler__define_static_single__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22670,11 +22670,11 @@ static void cont__sim2c__define_static_single__to_string_9(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 836: ... :
   // 837:   write_to &buf '.' attribute_of(self)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__define_static_single__to_string_10, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__define_static_single__to_string_10, 0);
   // 838: ... :
   // 839:   push &buf '/'
   // 840:   if attribute_of(self).is_defined: write_to &buf attribute_of(self)
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__define_static_single__to_string_13, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__define_static_single__to_string_13, 0);
   // 834: case
   // 835:   attribute_kind_of(self)
   // 836:   ATTRIBUTE_KIND:
@@ -22692,9 +22692,9 @@ static void cont__sim2c__define_static_single__to_string_9(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_20;
+  frame->cont = cont__compiler__define_static_single__to_string_20;
 }
-static void entry__sim2c__define_static_single__to_string_17(void) {
+static void entry__compiler__define_static_single__to_string_17(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // buf: 0
@@ -22712,9 +22712,9 @@ static void entry__sim2c__define_static_single__to_string_17(void) {
   result_count = 1;
   myself = get__attribute_of();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_18;
+  frame->cont = cont__compiler__define_static_single__to_string_18;
 }
-static void cont__sim2c__define_static_single__to_string_18(void) {
+static void cont__compiler__define_static_single__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22728,9 +22728,9 @@ static void cont__sim2c__define_static_single__to_string_18(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_19;
+  frame->cont = cont__compiler__define_static_single__to_string_19;
 }
-static void cont__sim2c__define_static_single__to_string_19(void) {
+static void cont__compiler__define_static_single__to_string_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22742,7 +22742,7 @@ static void cont__sim2c__define_static_single__to_string_19(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_single__to_string_10(void) {
+static void entry__compiler__define_static_single__to_string_10(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // buf: 0
@@ -22760,9 +22760,9 @@ static void entry__sim2c__define_static_single__to_string_10(void) {
   result_count = 1;
   myself = get__attribute_of();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_11;
+  frame->cont = cont__compiler__define_static_single__to_string_11;
 }
-static void cont__sim2c__define_static_single__to_string_11(void) {
+static void cont__compiler__define_static_single__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22777,9 +22777,9 @@ static void cont__sim2c__define_static_single__to_string_11(void) {
   result_count = 1;
   myself = get__write_to();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_12;
+  frame->cont = cont__compiler__define_static_single__to_string_12;
 }
-static void cont__sim2c__define_static_single__to_string_12(void) {
+static void cont__compiler__define_static_single__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22791,7 +22791,7 @@ static void cont__sim2c__define_static_single__to_string_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_single__to_string_13(void) {
+static void entry__compiler__define_static_single__to_string_13(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // buf: 0
@@ -22810,9 +22810,9 @@ static void entry__sim2c__define_static_single__to_string_13(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_14;
+  frame->cont = cont__compiler__define_static_single__to_string_14;
 }
-static void cont__sim2c__define_static_single__to_string_14(void) {
+static void cont__compiler__define_static_single__to_string_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22825,9 +22825,9 @@ static void cont__sim2c__define_static_single__to_string_14(void) {
   result_count = 1;
   myself = get__attribute_of();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_15;
+  frame->cont = cont__compiler__define_static_single__to_string_15;
 }
-static void cont__sim2c__define_static_single__to_string_15(void) {
+static void cont__compiler__define_static_single__to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22840,16 +22840,16 @@ static void cont__sim2c__define_static_single__to_string_15(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_single__to_string_16;
+  frame->cont = cont__compiler__define_static_single__to_string_16;
 }
-static void cont__sim2c__define_static_single__to_string_16(void) {
+static void cont__compiler__define_static_single__to_string_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 840: ... : write_to &buf attribute_of(self)
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__define_static_single__to_string_17, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__define_static_single__to_string_17, 0);
   // 840: if attribute_of(self).is_defined: write_to &buf attribute_of(self)
   argument_count = 2;
   arguments = node_p;
@@ -22860,7 +22860,7 @@ static void cont__sim2c__define_static_single__to_string_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__define_static_single__to_string_20(void) {
+static void cont__compiler__define_static_single__to_string_20(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -22875,7 +22875,7 @@ static void cont__sim2c__define_static_single__to_string_20(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__define_static_multi__to_string_1(void) {
+static void entry__compiler__define_static_multi__to_string_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -22892,9 +22892,9 @@ static void entry__sim2c__define_static_multi__to_string_1(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_multi__to_string_2;
+  frame->cont = cont__compiler__define_static_multi__to_string_2;
 }
-static void cont__sim2c__define_static_multi__to_string_2(void) {
+static void cont__compiler__define_static_multi__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22909,9 +22909,9 @@ static void cont__sim2c__define_static_multi__to_string_2(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_multi__to_string_3;
+  frame->cont = cont__compiler__define_static_multi__to_string_3;
 }
-static void cont__sim2c__define_static_multi__to_string_3(void) {
+static void cont__compiler__define_static_multi__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22931,18 +22931,18 @@ static void cont__sim2c__define_static_multi__to_string_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
-  arguments->slots[2] = func__sim2c__define_static_multi__to_string_4;
+  arguments->slots[2] = func__compiler__define_static_multi__to_string_4;
   arguments->slots[3] = get__OUT_PARAMETER();
-  arguments->slots[4] = func__sim2c__define_static_multi__to_string_5;
+  arguments->slots[4] = func__compiler__define_static_multi__to_string_5;
   arguments->slots[5] = get__IN_OUT_PARAMETER();
-  arguments->slots[6] = func__sim2c__define_static_multi__to_string_7;
-  arguments->slots[7] = func__sim2c__define_static_multi__to_string_9;
+  arguments->slots[6] = func__compiler__define_static_multi__to_string_7;
+  arguments->slots[7] = func__compiler__define_static_multi__to_string_9;
   result_count = 1;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_multi__to_string_11;
+  frame->cont = cont__compiler__define_static_multi__to_string_11;
 }
-static void entry__sim2c__define_static_multi__to_string_4(void) {
+static void entry__compiler__define_static_multi__to_string_4(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -22957,7 +22957,7 @@ static void entry__sim2c__define_static_multi__to_string_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_multi__to_string_5(void) {
+static void entry__compiler__define_static_multi__to_string_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -22972,7 +22972,7 @@ static void entry__sim2c__define_static_multi__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_multi__to_string_7(void) {
+static void entry__compiler__define_static_multi__to_string_7(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -22987,7 +22987,7 @@ static void entry__sim2c__define_static_multi__to_string_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__define_static_multi__to_string_9(void) {
+static void entry__compiler__define_static_multi__to_string_9(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -23002,7 +23002,7 @@ static void entry__sim2c__define_static_multi__to_string_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__define_static_multi__to_string_11(void) {
+static void cont__compiler__define_static_multi__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23016,9 +23016,9 @@ static void cont__sim2c__define_static_multi__to_string_11(void) {
   result_count = 1;
   myself = var._definition_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__define_static_multi__to_string_12;
+  frame->cont = cont__compiler__define_static_multi__to_string_12;
 }
-static void cont__sim2c__define_static_multi__to_string_12(void) {
+static void cont__compiler__define_static_multi__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23034,7 +23034,7 @@ static void cont__sim2c__define_static_multi__to_string_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__define_dynamic_single__to_string_1(void) {
+static void entry__compiler__define_dynamic_single__to_string_1(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -23050,9 +23050,9 @@ static void entry__sim2c__define_dynamic_single__to_string_1(void) {
   result_count = 1;
   myself = var._definition_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__define_dynamic_single__to_string_3;
+  frame->cont = cont__compiler__define_dynamic_single__to_string_3;
 }
-static void cont__sim2c__define_dynamic_single__to_string_3(void) {
+static void cont__compiler__define_dynamic_single__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23068,7 +23068,7 @@ static void cont__sim2c__define_dynamic_single__to_string_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__define_dynamic_multi__to_string_1(void) {
+static void entry__compiler__define_dynamic_multi__to_string_1(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -23084,9 +23084,9 @@ static void entry__sim2c__define_dynamic_multi__to_string_1(void) {
   result_count = 1;
   myself = var._definition_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__define_dynamic_multi__to_string_3;
+  frame->cont = cont__compiler__define_dynamic_multi__to_string_3;
 }
-static void cont__sim2c__define_dynamic_multi__to_string_3(void) {
+static void cont__compiler__define_dynamic_multi__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23693,7 +23693,7 @@ static void cont__operator_of_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_151(void) {
+static void entry__compiler__function_call__to_string_151(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // return__7: 0
@@ -23717,9 +23717,9 @@ static void entry__sim2c__function_call__to_string_151(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_152;
+  frame->cont = cont__compiler__function_call__to_string_152;
 }
-static void cont__sim2c__function_call__to_string_152(void) {
+static void cont__compiler__function_call__to_string_152(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23732,9 +23732,9 @@ static void cont__sim2c__function_call__to_string_152(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_153;
+  frame->cont = cont__compiler__function_call__to_string_153;
 }
-static void cont__sim2c__function_call__to_string_153(void) {
+static void cont__compiler__function_call__to_string_153(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23748,9 +23748,9 @@ static void cont__sim2c__function_call__to_string_153(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_154;
+  frame->cont = cont__compiler__function_call__to_string_154;
 }
-static void cont__sim2c__function_call__to_string_154(void) {
+static void cont__compiler__function_call__to_string_154(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23762,7 +23762,7 @@ static void cont__sim2c__function_call__to_string_154(void) {
   // 1004:     precedence_of(argument) < HIGHEST_PRECEDENCE
   // 1005:     -> string(functor_string '(' argument ')')
   // 1006:     -> string(functor_string argument)
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_155, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_155, 0);
   // 1007: :
   // 1008:   %line_end_expression_width 0
   // 1009:   $prec precedence(functor_string)
@@ -23774,7 +23774,7 @@ static void cont__sim2c__function_call__to_string_154(void) {
   // 1015:     if
   // 1016:       precedence_of(expr) <= prec
   // ...
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_163, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_163, 0);
   // 1000: if
   // 1001:   length_of(arguments) == 1:
   // 1002:     $argument arguments(1)
@@ -23794,9 +23794,9 @@ static void cont__sim2c__function_call__to_string_154(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_277;
+  frame->cont = cont__compiler__function_call__to_string_277;
 }
-static void entry__sim2c__function_call__to_string_159(void) {
+static void entry__compiler__function_call__to_string_159(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // functor_string: 0
@@ -23817,9 +23817,9 @@ static void entry__sim2c__function_call__to_string_159(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_160;
+  frame->cont = cont__compiler__function_call__to_string_160;
 }
-static void cont__sim2c__function_call__to_string_160(void) {
+static void cont__compiler__function_call__to_string_160(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23833,7 +23833,7 @@ static void cont__sim2c__function_call__to_string_160(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_161(void) {
+static void entry__compiler__function_call__to_string_161(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // functor_string: 0
@@ -23852,9 +23852,9 @@ static void entry__sim2c__function_call__to_string_161(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_162;
+  frame->cont = cont__compiler__function_call__to_string_162;
 }
-static void cont__sim2c__function_call__to_string_162(void) {
+static void cont__compiler__function_call__to_string_162(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23868,7 +23868,7 @@ static void cont__sim2c__function_call__to_string_162(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_155(void) {
+static void entry__compiler__function_call__to_string_155(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // arguments: 0
@@ -23888,9 +23888,9 @@ static void entry__sim2c__function_call__to_string_155(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_156;
+  frame->cont = cont__compiler__function_call__to_string_156;
 }
-static void cont__sim2c__function_call__to_string_156(void) {
+static void cont__compiler__function_call__to_string_156(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23903,9 +23903,9 @@ static void cont__sim2c__function_call__to_string_156(void) {
   result_count = 1;
   myself = var._precedence_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_157;
+  frame->cont = cont__compiler__function_call__to_string_157;
 }
-static void cont__sim2c__function_call__to_string_157(void) {
+static void cont__compiler__function_call__to_string_157(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23919,18 +23919,18 @@ static void cont__sim2c__function_call__to_string_157(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_158;
+  frame->cont = cont__compiler__function_call__to_string_158;
 }
-static void cont__sim2c__function_call__to_string_158(void) {
+static void cont__compiler__function_call__to_string_158(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1005: -> string(functor_string '(' argument ')')
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_159, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_159, 0);
   // 1006: -> string(functor_string argument)
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_161, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_161, 0);
   // 1003: if
   // 1004:   precedence_of(argument) < HIGHEST_PRECEDENCE
   // 1005:   -> string(functor_string '(' argument ')')
@@ -23945,7 +23945,7 @@ static void cont__sim2c__function_call__to_string_158(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_163(void) {
+static void entry__compiler__function_call__to_string_163(void) {
   allocate_initialized_frame_gc(4, 16);
   // slot allocations:
   // return__6: 0
@@ -23986,7 +23986,7 @@ static void entry__sim2c__function_call__to_string_163(void) {
   // 1016:     precedence_of(expr) <= prec
   // 1017:     -> str(.needs_parenthesis true)
   // 1018:     -> str(.needs_parenthesis false)
-  frame->slots[13] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_164, 1);
+  frame->slots[13] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_164, 1);
   // 1013: $stringify_le: (expr)
   // 1014:   $str expr.to_string
   // 1015:   if
@@ -24000,7 +24000,7 @@ static void entry__sim2c__function_call__to_string_163(void) {
   // 1023:     precedence_of(expr) < prec
   // 1024:     -> str(.needs_parenthesis true)
   // 1025:     -> str(.needs_parenthesis false)
-  frame->slots[13] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_171, 1);
+  frame->slots[13] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_171, 1);
   // 1020: $stringify_lt: (expr)
   // 1021:   $str expr.to_string
   // 1022:   if
@@ -24015,9 +24015,9 @@ static void entry__sim2c__function_call__to_string_163(void) {
   result_count = 1;
   myself = get__precedence();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_177;
+  frame->cont = cont__compiler__function_call__to_string_177;
 }
-static void entry__sim2c__function_call__to_string_175(void) {
+static void entry__compiler__function_call__to_string_175(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // str: 0
@@ -24042,7 +24042,7 @@ static void entry__sim2c__function_call__to_string_175(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_176(void) {
+static void entry__compiler__function_call__to_string_176(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // str: 0
@@ -24067,7 +24067,7 @@ static void entry__sim2c__function_call__to_string_176(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_169(void) {
+static void entry__compiler__function_call__to_string_169(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // str: 0
@@ -24092,7 +24092,7 @@ static void entry__sim2c__function_call__to_string_169(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_170(void) {
+static void entry__compiler__function_call__to_string_170(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // str: 0
@@ -24117,7 +24117,7 @@ static void entry__sim2c__function_call__to_string_170(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_164(void) {
+static void entry__compiler__function_call__to_string_164(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // expr: 0
@@ -24136,9 +24136,9 @@ static void entry__sim2c__function_call__to_string_164(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_165;
+  frame->cont = cont__compiler__function_call__to_string_165;
 }
-static void cont__sim2c__function_call__to_string_165(void) {
+static void cont__compiler__function_call__to_string_165(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24151,9 +24151,9 @@ static void cont__sim2c__function_call__to_string_165(void) {
   result_count = 1;
   myself = var._precedence_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_166;
+  frame->cont = cont__compiler__function_call__to_string_166;
 }
-static void cont__sim2c__function_call__to_string_166(void) {
+static void cont__compiler__function_call__to_string_166(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24167,9 +24167,9 @@ static void cont__sim2c__function_call__to_string_166(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_167;
+  frame->cont = cont__compiler__function_call__to_string_167;
 }
-static void cont__sim2c__function_call__to_string_167(void) {
+static void cont__compiler__function_call__to_string_167(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24182,18 +24182,18 @@ static void cont__sim2c__function_call__to_string_167(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_168;
+  frame->cont = cont__compiler__function_call__to_string_168;
 }
-static void cont__sim2c__function_call__to_string_168(void) {
+static void cont__compiler__function_call__to_string_168(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1017: -> str(.needs_parenthesis true)
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_169, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_169, 0);
   // 1018: -> str(.needs_parenthesis false)
-  frame->slots[7] /* temp__5 */ = create_closure(entry__sim2c__function_call__to_string_170, 0);
+  frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__function_call__to_string_170, 0);
   // 1015: if
   // 1016:   precedence_of(expr) <= prec
   // 1017:   -> str(.needs_parenthesis true)
@@ -24208,7 +24208,7 @@ static void cont__sim2c__function_call__to_string_168(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_171(void) {
+static void entry__compiler__function_call__to_string_171(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // expr: 0
@@ -24227,9 +24227,9 @@ static void entry__sim2c__function_call__to_string_171(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_172;
+  frame->cont = cont__compiler__function_call__to_string_172;
 }
-static void cont__sim2c__function_call__to_string_172(void) {
+static void cont__compiler__function_call__to_string_172(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24242,9 +24242,9 @@ static void cont__sim2c__function_call__to_string_172(void) {
   result_count = 1;
   myself = var._precedence_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_173;
+  frame->cont = cont__compiler__function_call__to_string_173;
 }
-static void cont__sim2c__function_call__to_string_173(void) {
+static void cont__compiler__function_call__to_string_173(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24258,18 +24258,18 @@ static void cont__sim2c__function_call__to_string_173(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_174;
+  frame->cont = cont__compiler__function_call__to_string_174;
 }
-static void cont__sim2c__function_call__to_string_174(void) {
+static void cont__compiler__function_call__to_string_174(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1024: -> str(.needs_parenthesis true)
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_175, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_175, 0);
   // 1025: -> str(.needs_parenthesis false)
-  frame->slots[6] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_176, 0);
+  frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_176, 0);
   // 1022: if
   // 1023:   precedence_of(expr) < prec
   // 1024:   -> str(.needs_parenthesis true)
@@ -24284,7 +24284,7 @@ static void cont__sim2c__function_call__to_string_174(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__to_string_177(void) {
+static void cont__compiler__function_call__to_string_177(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24297,9 +24297,9 @@ static void cont__sim2c__function_call__to_string_177(void) {
   result_count = 1;
   myself = frame->slots[2] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_178;
+  frame->cont = cont__compiler__function_call__to_string_178;
 }
-static void cont__sim2c__function_call__to_string_178(void) {
+static void cont__compiler__function_call__to_string_178(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24312,9 +24312,9 @@ static void cont__sim2c__function_call__to_string_178(void) {
   result_count = 1;
   myself = frame->slots[2] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_179;
+  frame->cont = cont__compiler__function_call__to_string_179;
 }
-static void cont__sim2c__function_call__to_string_179(void) {
+static void cont__compiler__function_call__to_string_179(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24329,9 +24329,9 @@ static void cont__sim2c__function_call__to_string_179(void) {
   result_count = 1;
   myself = get__is_left_associative();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_180;
+  frame->cont = cont__compiler__function_call__to_string_180;
 }
-static void cont__sim2c__function_call__to_string_180(void) {
+static void cont__compiler__function_call__to_string_180(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24344,7 +24344,7 @@ static void cont__sim2c__function_call__to_string_180(void) {
   // 1033:     put &strings stringify_le(left_operands(2))
   // 1034:     !left left_operands(1)
   // 1035:   put &strings stringify_lt(left)
-  frame->slots[14] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_181, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_181, 0);
   // 1036: : # no two right associative operatores have the same precedence
   // 1037:   push &strings stringify_le(left)
   // 1038:   while -> operator_of(right) == functor_string:
@@ -24352,7 +24352,7 @@ static void cont__sim2c__function_call__to_string_180(void) {
   // 1040:     push &strings stringify_le(right_operands(1))
   // 1041:     !right right_operands(2)
   // 1042:   push &strings stringify_lt(right)
-  frame->slots[15] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_196, 0);
+  frame->slots[15] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_196, 0);
   // 1028: if
   // 1029:   prec.is_left_associative:
   // 1030:     put &strings stringify_le(right)
@@ -24372,9 +24372,9 @@ static void cont__sim2c__function_call__to_string_180(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_211;
+  frame->cont = cont__compiler__function_call__to_string_211;
 }
-static void entry__sim2c__function_call__to_string_181(void) {
+static void entry__compiler__function_call__to_string_181(void) {
   allocate_initialized_frame_gc(6, 7);
   // slot allocations:
   // strings: 0
@@ -24400,9 +24400,9 @@ static void entry__sim2c__function_call__to_string_181(void) {
   result_count = 1;
   myself = frame->slots[1] /* stringify_le */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_182;
+  frame->cont = cont__compiler__function_call__to_string_182;
 }
-static void cont__sim2c__function_call__to_string_182(void) {
+static void cont__compiler__function_call__to_string_182(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24416,9 +24416,9 @@ static void cont__sim2c__function_call__to_string_182(void) {
   result_count = 1;
   myself = get__put();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_183;
+  frame->cont = cont__compiler__function_call__to_string_183;
 }
-static void cont__sim2c__function_call__to_string_183(void) {
+static void cont__compiler__function_call__to_string_183(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24428,7 +24428,7 @@ static void cont__sim2c__function_call__to_string_183(void) {
   // 1032:   $left_operands arguments_of(left)
   // 1033:   put &strings stringify_le(left_operands(2))
   // 1034:   !left left_operands(1)
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_184, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_184, 0);
   // 1031: while -> operator_of(left) == functor_string:
   // 1032:   $left_operands arguments_of(left)
   // 1033:   put &strings stringify_le(left_operands(2))
@@ -24439,9 +24439,9 @@ static void cont__sim2c__function_call__to_string_183(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_193;
+  frame->cont = cont__compiler__function_call__to_string_193;
 }
-static void entry__sim2c__function_call__to_string_187(void) {
+static void entry__compiler__function_call__to_string_187(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // left: 0
@@ -24463,9 +24463,9 @@ static void entry__sim2c__function_call__to_string_187(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_188;
+  frame->cont = cont__compiler__function_call__to_string_188;
 }
-static void cont__sim2c__function_call__to_string_188(void) {
+static void cont__compiler__function_call__to_string_188(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24478,9 +24478,9 @@ static void cont__sim2c__function_call__to_string_188(void) {
   result_count = 1;
   myself = frame->slots[3] /* left_operands */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_189;
+  frame->cont = cont__compiler__function_call__to_string_189;
 }
-static void cont__sim2c__function_call__to_string_189(void) {
+static void cont__compiler__function_call__to_string_189(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24493,9 +24493,9 @@ static void cont__sim2c__function_call__to_string_189(void) {
   result_count = 1;
   myself = frame->slots[2] /* stringify_le */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_190;
+  frame->cont = cont__compiler__function_call__to_string_190;
 }
-static void cont__sim2c__function_call__to_string_190(void) {
+static void cont__compiler__function_call__to_string_190(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24509,9 +24509,9 @@ static void cont__sim2c__function_call__to_string_190(void) {
   result_count = 1;
   myself = get__put();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_191;
+  frame->cont = cont__compiler__function_call__to_string_191;
 }
-static void cont__sim2c__function_call__to_string_191(void) {
+static void cont__compiler__function_call__to_string_191(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24524,9 +24524,9 @@ static void cont__sim2c__function_call__to_string_191(void) {
   result_count = 1;
   myself = frame->slots[3] /* left_operands */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_192;
+  frame->cont = cont__compiler__function_call__to_string_192;
 }
-static void cont__sim2c__function_call__to_string_192(void) {
+static void cont__compiler__function_call__to_string_192(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24538,7 +24538,7 @@ static void cont__sim2c__function_call__to_string_192(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_184(void) {
+static void entry__compiler__function_call__to_string_184(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // left: 0
@@ -24560,9 +24560,9 @@ static void entry__sim2c__function_call__to_string_184(void) {
   result_count = 1;
   myself = var._operator_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_185;
+  frame->cont = cont__compiler__function_call__to_string_185;
 }
-static void cont__sim2c__function_call__to_string_185(void) {
+static void cont__compiler__function_call__to_string_185(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24576,9 +24576,9 @@ static void cont__sim2c__function_call__to_string_185(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_186;
+  frame->cont = cont__compiler__function_call__to_string_186;
 }
-static void cont__sim2c__function_call__to_string_186(void) {
+static void cont__compiler__function_call__to_string_186(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24588,7 +24588,7 @@ static void cont__sim2c__function_call__to_string_186(void) {
   // 1032:   $left_operands arguments_of(left)
   // 1033:   put &strings stringify_le(left_operands(2))
   // 1034:   !left left_operands(1)
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_187, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_187, 0);
   // 1031: ... -> operator_of(left) == functor_string:
   // 1032:   $left_operands arguments_of(left)
   // 1033:   put &strings stringify_le(left_operands(2))
@@ -24601,7 +24601,7 @@ static void cont__sim2c__function_call__to_string_186(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_193(void) {
+static void cont__compiler__function_call__to_string_193(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -24613,9 +24613,9 @@ static void cont__sim2c__function_call__to_string_193(void) {
   result_count = 1;
   myself = frame->slots[5] /* stringify_lt */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_194;
+  frame->cont = cont__compiler__function_call__to_string_194;
 }
-static void cont__sim2c__function_call__to_string_194(void) {
+static void cont__compiler__function_call__to_string_194(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24629,9 +24629,9 @@ static void cont__sim2c__function_call__to_string_194(void) {
   result_count = 1;
   myself = get__put();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_195;
+  frame->cont = cont__compiler__function_call__to_string_195;
 }
-static void cont__sim2c__function_call__to_string_195(void) {
+static void cont__compiler__function_call__to_string_195(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24643,7 +24643,7 @@ static void cont__sim2c__function_call__to_string_195(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_196(void) {
+static void entry__compiler__function_call__to_string_196(void) {
   allocate_initialized_frame_gc(6, 7);
   // slot allocations:
   // strings: 0
@@ -24669,9 +24669,9 @@ static void entry__sim2c__function_call__to_string_196(void) {
   result_count = 1;
   myself = frame->slots[1] /* stringify_le */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_197;
+  frame->cont = cont__compiler__function_call__to_string_197;
 }
-static void cont__sim2c__function_call__to_string_197(void) {
+static void cont__compiler__function_call__to_string_197(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24685,9 +24685,9 @@ static void cont__sim2c__function_call__to_string_197(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_198;
+  frame->cont = cont__compiler__function_call__to_string_198;
 }
-static void cont__sim2c__function_call__to_string_198(void) {
+static void cont__compiler__function_call__to_string_198(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24697,7 +24697,7 @@ static void cont__sim2c__function_call__to_string_198(void) {
   // 1039:   $right_operands arguments_of(right)
   // 1040:   push &strings stringify_le(right_operands(1))
   // 1041:   !right right_operands(2)
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_199, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_199, 0);
   // 1038: while -> operator_of(right) == functor_string:
   // 1039:   $right_operands arguments_of(right)
   // 1040:   push &strings stringify_le(right_operands(1))
@@ -24708,9 +24708,9 @@ static void cont__sim2c__function_call__to_string_198(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_208;
+  frame->cont = cont__compiler__function_call__to_string_208;
 }
-static void entry__sim2c__function_call__to_string_202(void) {
+static void entry__compiler__function_call__to_string_202(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // right: 0
@@ -24732,9 +24732,9 @@ static void entry__sim2c__function_call__to_string_202(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_203;
+  frame->cont = cont__compiler__function_call__to_string_203;
 }
-static void cont__sim2c__function_call__to_string_203(void) {
+static void cont__compiler__function_call__to_string_203(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24747,9 +24747,9 @@ static void cont__sim2c__function_call__to_string_203(void) {
   result_count = 1;
   myself = frame->slots[3] /* right_operands */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_204;
+  frame->cont = cont__compiler__function_call__to_string_204;
 }
-static void cont__sim2c__function_call__to_string_204(void) {
+static void cont__compiler__function_call__to_string_204(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24762,9 +24762,9 @@ static void cont__sim2c__function_call__to_string_204(void) {
   result_count = 1;
   myself = frame->slots[2] /* stringify_le */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_205;
+  frame->cont = cont__compiler__function_call__to_string_205;
 }
-static void cont__sim2c__function_call__to_string_205(void) {
+static void cont__compiler__function_call__to_string_205(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24778,9 +24778,9 @@ static void cont__sim2c__function_call__to_string_205(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_206;
+  frame->cont = cont__compiler__function_call__to_string_206;
 }
-static void cont__sim2c__function_call__to_string_206(void) {
+static void cont__compiler__function_call__to_string_206(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24793,9 +24793,9 @@ static void cont__sim2c__function_call__to_string_206(void) {
   result_count = 1;
   myself = frame->slots[3] /* right_operands */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_207;
+  frame->cont = cont__compiler__function_call__to_string_207;
 }
-static void cont__sim2c__function_call__to_string_207(void) {
+static void cont__compiler__function_call__to_string_207(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24807,7 +24807,7 @@ static void cont__sim2c__function_call__to_string_207(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_199(void) {
+static void entry__compiler__function_call__to_string_199(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // right: 0
@@ -24829,9 +24829,9 @@ static void entry__sim2c__function_call__to_string_199(void) {
   result_count = 1;
   myself = var._operator_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_200;
+  frame->cont = cont__compiler__function_call__to_string_200;
 }
-static void cont__sim2c__function_call__to_string_200(void) {
+static void cont__compiler__function_call__to_string_200(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24845,9 +24845,9 @@ static void cont__sim2c__function_call__to_string_200(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_201;
+  frame->cont = cont__compiler__function_call__to_string_201;
 }
-static void cont__sim2c__function_call__to_string_201(void) {
+static void cont__compiler__function_call__to_string_201(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24857,7 +24857,7 @@ static void cont__sim2c__function_call__to_string_201(void) {
   // 1039:   $right_operands arguments_of(right)
   // 1040:   push &strings stringify_le(right_operands(1))
   // 1041:   !right right_operands(2)
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_202, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_202, 0);
   // 1038: ... -> operator_of(right) == functor_string:
   // 1039:   $right_operands arguments_of(right)
   // 1040:   push &strings stringify_le(right_operands(1))
@@ -24870,7 +24870,7 @@ static void cont__sim2c__function_call__to_string_201(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_208(void) {
+static void cont__compiler__function_call__to_string_208(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -24882,9 +24882,9 @@ static void cont__sim2c__function_call__to_string_208(void) {
   result_count = 1;
   myself = frame->slots[5] /* stringify_lt */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_209;
+  frame->cont = cont__compiler__function_call__to_string_209;
 }
-static void cont__sim2c__function_call__to_string_209(void) {
+static void cont__compiler__function_call__to_string_209(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24898,9 +24898,9 @@ static void cont__sim2c__function_call__to_string_209(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_210;
+  frame->cont = cont__compiler__function_call__to_string_210;
 }
-static void cont__sim2c__function_call__to_string_210(void) {
+static void cont__compiler__function_call__to_string_210(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24912,7 +24912,7 @@ static void cont__sim2c__function_call__to_string_210(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_211(void) {
+static void cont__compiler__function_call__to_string_211(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -24928,7 +24928,7 @@ static void cont__sim2c__function_call__to_string_211(void) {
   // 1049:       break
   // 1050:     plus &total_width length_of(str)
   // 1051:     if str.needs_parenthesis: plus &total_width 2
-  frame->slots[13] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_212, 0);
+  frame->slots[13] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_212, 0);
   // 1045: do: (-> break)
   // 1046:   for_each strings: (str)
   // 1047:     if str(1) == '@nl;':
@@ -24942,9 +24942,9 @@ static void cont__sim2c__function_call__to_string_211(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_224;
+  frame->cont = cont__compiler__function_call__to_string_224;
 }
-static void entry__sim2c__function_call__to_string_212(void) {
+static void entry__compiler__function_call__to_string_212(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // break: 0
@@ -24963,7 +24963,7 @@ static void entry__sim2c__function_call__to_string_212(void) {
   // 1049:     break
   // 1050:   plus &total_width length_of(str)
   // 1051:   if str.needs_parenthesis: plus &total_width 2
-  frame->slots[3] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_213, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_213, 1);
   // 1046: for_each strings: (str)
   // 1047:   if str(1) == '@nl;':
   // 1048:     !total_width undefined
@@ -24977,9 +24977,9 @@ static void entry__sim2c__function_call__to_string_212(void) {
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_223;
+  frame->cont = cont__compiler__function_call__to_string_223;
 }
-static void entry__sim2c__function_call__to_string_221(void) {
+static void entry__compiler__function_call__to_string_221(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_width: 0
@@ -24996,9 +24996,9 @@ static void entry__sim2c__function_call__to_string_221(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_222;
+  frame->cont = cont__compiler__function_call__to_string_222;
 }
-static void cont__sim2c__function_call__to_string_222(void) {
+static void cont__compiler__function_call__to_string_222(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25010,7 +25010,7 @@ static void cont__sim2c__function_call__to_string_222(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_213(void) {
+static void entry__compiler__function_call__to_string_213(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // str: 0
@@ -25029,9 +25029,9 @@ static void entry__sim2c__function_call__to_string_213(void) {
   result_count = 1;
   myself = frame->slots[0] /* str */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_214;
+  frame->cont = cont__compiler__function_call__to_string_214;
 }
-static void cont__sim2c__function_call__to_string_214(void) {
+static void cont__compiler__function_call__to_string_214(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25045,9 +25045,9 @@ static void cont__sim2c__function_call__to_string_214(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_215;
+  frame->cont = cont__compiler__function_call__to_string_215;
 }
-static void cont__sim2c__function_call__to_string_215(void) {
+static void cont__compiler__function_call__to_string_215(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25056,7 +25056,7 @@ static void cont__sim2c__function_call__to_string_215(void) {
   // 1047: ... :
   // 1048:   !total_width undefined
   // 1049:   break
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_216, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_216, 0);
   // 1047: if str(1) == '@nl;':
   // 1048:   !total_width undefined
   // 1049:   break
@@ -25067,9 +25067,9 @@ static void cont__sim2c__function_call__to_string_215(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_217;
+  frame->cont = cont__compiler__function_call__to_string_217;
 }
-static void entry__sim2c__function_call__to_string_216(void) {
+static void entry__compiler__function_call__to_string_216(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // total_width: 0
@@ -25090,7 +25090,7 @@ static void entry__sim2c__function_call__to_string_216(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__to_string_217(void) {
+static void cont__compiler__function_call__to_string_217(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -25102,9 +25102,9 @@ static void cont__sim2c__function_call__to_string_217(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_218;
+  frame->cont = cont__compiler__function_call__to_string_218;
 }
-static void cont__sim2c__function_call__to_string_218(void) {
+static void cont__compiler__function_call__to_string_218(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25118,9 +25118,9 @@ static void cont__sim2c__function_call__to_string_218(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_219;
+  frame->cont = cont__compiler__function_call__to_string_219;
 }
-static void cont__sim2c__function_call__to_string_219(void) {
+static void cont__compiler__function_call__to_string_219(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25133,16 +25133,16 @@ static void cont__sim2c__function_call__to_string_219(void) {
   result_count = 1;
   myself = var._needs_parenthesis;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_220;
+  frame->cont = cont__compiler__function_call__to_string_220;
 }
-static void cont__sim2c__function_call__to_string_220(void) {
+static void cont__compiler__function_call__to_string_220(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1051: ... : plus &total_width 2
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_221, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_221, 0);
   // 1051: if str.needs_parenthesis: plus &total_width 2
   argument_count = 2;
   arguments = node_p;
@@ -25153,12 +25153,12 @@ static void cont__sim2c__function_call__to_string_220(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__to_string_223(void) {
+static void cont__compiler__function_call__to_string_223(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_224(void) {
+static void cont__compiler__function_call__to_string_224(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -25170,9 +25170,9 @@ static void cont__sim2c__function_call__to_string_224(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_225;
+  frame->cont = cont__compiler__function_call__to_string_225;
 }
-static void cont__sim2c__function_call__to_string_225(void) {
+static void cont__compiler__function_call__to_string_225(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25189,7 +25189,7 @@ static void cont__sim2c__function_call__to_string_225(void) {
   // 1060:       -> string(' ' functor_string ' ')
   // 1061:   plus &total_width (length_of(strings)-1)*length_of(inline_functor)
   // ...
-  frame->slots[14] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_226, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_226, 0);
   // 1052: if total_width.is_defined:
   // 1053:   !inline_functor
   // 1054:     case
@@ -25208,9 +25208,9 @@ static void cont__sim2c__function_call__to_string_225(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_247;
+  frame->cont = cont__compiler__function_call__to_string_247;
 }
-static void entry__sim2c__function_call__to_string_246(void) {
+static void entry__compiler__function_call__to_string_246(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // total_width: 0
@@ -25227,7 +25227,7 @@ static void entry__sim2c__function_call__to_string_246(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_226(void) {
+static void entry__compiler__function_call__to_string_226(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // inline_functor: 0
@@ -25254,20 +25254,20 @@ static void entry__sim2c__function_call__to_string_226(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_231;
+  frame->cont = cont__compiler__function_call__to_string_231;
 }
-static void cont__sim2c__function_call__to_string_231(void) {
+static void cont__compiler__function_call__to_string_231(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 1057: -> functor_string
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_232, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_232, 0);
   // 1059: -> string(functor_string ' ')
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_233, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_233, 0);
   // 1060: -> string(' ' functor_string ' ')
-  frame->slots[8] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_235, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_235, 0);
   // 1053: !inline_functor
   // 1054:   case
   // 1055:     functor_string
@@ -25287,9 +25287,9 @@ static void cont__sim2c__function_call__to_string_231(void) {
   result_count = 1;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_238;
+  frame->cont = cont__compiler__function_call__to_string_238;
 }
-static void entry__sim2c__function_call__to_string_232(void) {
+static void entry__compiler__function_call__to_string_232(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor_string: 0
@@ -25306,7 +25306,7 @@ static void entry__sim2c__function_call__to_string_232(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_233(void) {
+static void entry__compiler__function_call__to_string_233(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // functor_string: 0
@@ -25323,9 +25323,9 @@ static void entry__sim2c__function_call__to_string_233(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_234;
+  frame->cont = cont__compiler__function_call__to_string_234;
 }
-static void cont__sim2c__function_call__to_string_234(void) {
+static void cont__compiler__function_call__to_string_234(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25339,7 +25339,7 @@ static void cont__sim2c__function_call__to_string_234(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_235(void) {
+static void entry__compiler__function_call__to_string_235(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // functor_string: 0
@@ -25357,9 +25357,9 @@ static void entry__sim2c__function_call__to_string_235(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_236;
+  frame->cont = cont__compiler__function_call__to_string_236;
 }
-static void cont__sim2c__function_call__to_string_236(void) {
+static void cont__compiler__function_call__to_string_236(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25373,7 +25373,7 @@ static void cont__sim2c__function_call__to_string_236(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_238(void) {
+static void cont__compiler__function_call__to_string_238(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25386,9 +25386,9 @@ static void cont__sim2c__function_call__to_string_238(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_239;
+  frame->cont = cont__compiler__function_call__to_string_239;
 }
-static void cont__sim2c__function_call__to_string_239(void) {
+static void cont__compiler__function_call__to_string_239(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25402,9 +25402,9 @@ static void cont__sim2c__function_call__to_string_239(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_240;
+  frame->cont = cont__compiler__function_call__to_string_240;
 }
-static void cont__sim2c__function_call__to_string_240(void) {
+static void cont__compiler__function_call__to_string_240(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25417,9 +25417,9 @@ static void cont__sim2c__function_call__to_string_240(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_241;
+  frame->cont = cont__compiler__function_call__to_string_241;
 }
-static void cont__sim2c__function_call__to_string_241(void) {
+static void cont__compiler__function_call__to_string_241(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25433,9 +25433,9 @@ static void cont__sim2c__function_call__to_string_241(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_242;
+  frame->cont = cont__compiler__function_call__to_string_242;
 }
-static void cont__sim2c__function_call__to_string_242(void) {
+static void cont__compiler__function_call__to_string_242(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25449,9 +25449,9 @@ static void cont__sim2c__function_call__to_string_242(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_243;
+  frame->cont = cont__compiler__function_call__to_string_243;
 }
-static void cont__sim2c__function_call__to_string_243(void) {
+static void cont__compiler__function_call__to_string_243(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25465,9 +25465,9 @@ static void cont__sim2c__function_call__to_string_243(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_244;
+  frame->cont = cont__compiler__function_call__to_string_244;
 }
-static void cont__sim2c__function_call__to_string_244(void) {
+static void cont__compiler__function_call__to_string_244(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25481,16 +25481,16 @@ static void cont__sim2c__function_call__to_string_244(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_245;
+  frame->cont = cont__compiler__function_call__to_string_245;
 }
-static void cont__sim2c__function_call__to_string_245(void) {
+static void cont__compiler__function_call__to_string_245(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 1062: ... : !total_width undefined
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_246, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_246, 0);
   // 1062: if indent+total_width > line_width: !total_width undefined
   argument_count = 2;
   arguments = node_p;
@@ -25501,7 +25501,7 @@ static void cont__sim2c__function_call__to_string_245(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__to_string_247(void) {
+static void cont__compiler__function_call__to_string_247(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -25515,9 +25515,9 @@ static void cont__sim2c__function_call__to_string_247(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_248;
+  frame->cont = cont__compiler__function_call__to_string_248;
 }
-static void cont__sim2c__function_call__to_string_248(void) {
+static void cont__compiler__function_call__to_string_248(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25531,7 +25531,7 @@ static void cont__sim2c__function_call__to_string_248(void) {
   // 1070:       if str.needs_parenthesis: push &buf ')'
   // 1071:     :
   // 1072:       append &buf inline_functor
-  frame->slots[14] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_249, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_249, 0);
   // 1073: : # multi-line
   // 1074:   case functor_string ",": !functor_string "sequence"
   // 1075:   $indentation spaces(expression_indent)
@@ -25541,7 +25541,7 @@ static void cont__sim2c__function_call__to_string_248(void) {
   // 1079:       push &buf '@nl;'
   // 1080:       append &buf indentation
   // 1081:     append &buf str
-  frame->slots[15] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_261, 0);
+  frame->slots[15] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_261, 0);
   // 1064: if
   // 1065:   total_width.is_defined: # inline
   // 1066:     for_each
@@ -25561,9 +25561,9 @@ static void cont__sim2c__function_call__to_string_248(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_276;
+  frame->cont = cont__compiler__function_call__to_string_276;
 }
-static void entry__sim2c__function_call__to_string_268(void) {
+static void entry__compiler__function_call__to_string_268(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // str: 0
@@ -25582,9 +25582,9 @@ static void entry__sim2c__function_call__to_string_268(void) {
   result_count = 1;
   myself = frame->slots[0] /* str */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_269;
+  frame->cont = cont__compiler__function_call__to_string_269;
 }
-static void cont__sim2c__function_call__to_string_269(void) {
+static void cont__compiler__function_call__to_string_269(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25598,9 +25598,9 @@ static void cont__sim2c__function_call__to_string_269(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_270;
+  frame->cont = cont__compiler__function_call__to_string_270;
 }
-static void cont__sim2c__function_call__to_string_270(void) {
+static void cont__compiler__function_call__to_string_270(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25609,7 +25609,7 @@ static void cont__sim2c__function_call__to_string_270(void) {
   // 1078: ... :
   // 1079:   push &buf '@nl;'
   // 1080:   append &buf indentation
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_271, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_271, 0);
   // 1078: unless str(1) == '@nl;':
   // 1079:   push &buf '@nl;'
   // 1080:   append &buf indentation
@@ -25620,9 +25620,9 @@ static void cont__sim2c__function_call__to_string_270(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_274;
+  frame->cont = cont__compiler__function_call__to_string_274;
 }
-static void entry__sim2c__function_call__to_string_271(void) {
+static void entry__compiler__function_call__to_string_271(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -25641,9 +25641,9 @@ static void entry__sim2c__function_call__to_string_271(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_272;
+  frame->cont = cont__compiler__function_call__to_string_272;
 }
-static void cont__sim2c__function_call__to_string_272(void) {
+static void cont__compiler__function_call__to_string_272(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25657,9 +25657,9 @@ static void cont__sim2c__function_call__to_string_272(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_273;
+  frame->cont = cont__compiler__function_call__to_string_273;
 }
-static void cont__sim2c__function_call__to_string_273(void) {
+static void cont__compiler__function_call__to_string_273(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25671,7 +25671,7 @@ static void cont__sim2c__function_call__to_string_273(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_274(void) {
+static void cont__compiler__function_call__to_string_274(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -25684,9 +25684,9 @@ static void cont__sim2c__function_call__to_string_274(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_275;
+  frame->cont = cont__compiler__function_call__to_string_275;
 }
-static void cont__sim2c__function_call__to_string_275(void) {
+static void cont__compiler__function_call__to_string_275(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25698,7 +25698,7 @@ static void cont__sim2c__function_call__to_string_275(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_257(void) {
+static void entry__compiler__function_call__to_string_257(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // buf: 0
@@ -25715,9 +25715,9 @@ static void entry__sim2c__function_call__to_string_257(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_258;
+  frame->cont = cont__compiler__function_call__to_string_258;
 }
-static void cont__sim2c__function_call__to_string_258(void) {
+static void cont__compiler__function_call__to_string_258(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25729,7 +25729,7 @@ static void cont__sim2c__function_call__to_string_258(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_250(void) {
+static void entry__compiler__function_call__to_string_250(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // str: 0
@@ -25746,16 +25746,16 @@ static void entry__sim2c__function_call__to_string_250(void) {
   result_count = 1;
   myself = var._needs_parenthesis;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_251;
+  frame->cont = cont__compiler__function_call__to_string_251;
 }
-static void cont__sim2c__function_call__to_string_251(void) {
+static void cont__compiler__function_call__to_string_251(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1068: ... : push &buf '('
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_252, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_252, 0);
   // 1068: if str.needs_parenthesis: push &buf '('
   argument_count = 2;
   arguments = node_p;
@@ -25764,9 +25764,9 @@ static void cont__sim2c__function_call__to_string_251(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_254;
+  frame->cont = cont__compiler__function_call__to_string_254;
 }
-static void entry__sim2c__function_call__to_string_252(void) {
+static void entry__compiler__function_call__to_string_252(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // buf: 0
@@ -25783,9 +25783,9 @@ static void entry__sim2c__function_call__to_string_252(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_253;
+  frame->cont = cont__compiler__function_call__to_string_253;
 }
-static void cont__sim2c__function_call__to_string_253(void) {
+static void cont__compiler__function_call__to_string_253(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25797,7 +25797,7 @@ static void cont__sim2c__function_call__to_string_253(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_254(void) {
+static void cont__compiler__function_call__to_string_254(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -25810,9 +25810,9 @@ static void cont__sim2c__function_call__to_string_254(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_255;
+  frame->cont = cont__compiler__function_call__to_string_255;
 }
-static void cont__sim2c__function_call__to_string_255(void) {
+static void cont__compiler__function_call__to_string_255(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25825,16 +25825,16 @@ static void cont__sim2c__function_call__to_string_255(void) {
   result_count = 1;
   myself = var._needs_parenthesis;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_256;
+  frame->cont = cont__compiler__function_call__to_string_256;
 }
-static void cont__sim2c__function_call__to_string_256(void) {
+static void cont__compiler__function_call__to_string_256(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 1070: ... : push &buf ')'
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_257, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_257, 0);
   // 1070: if str.needs_parenthesis: push &buf ')'
   argument_count = 2;
   arguments = node_p;
@@ -25845,7 +25845,7 @@ static void cont__sim2c__function_call__to_string_256(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_259(void) {
+static void entry__compiler__function_call__to_string_259(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // buf: 0
@@ -25864,9 +25864,9 @@ static void entry__sim2c__function_call__to_string_259(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_260;
+  frame->cont = cont__compiler__function_call__to_string_260;
 }
-static void cont__sim2c__function_call__to_string_260(void) {
+static void cont__compiler__function_call__to_string_260(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25878,7 +25878,7 @@ static void cont__sim2c__function_call__to_string_260(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_249(void) {
+static void entry__compiler__function_call__to_string_249(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // strings: 0
@@ -25895,10 +25895,10 @@ static void entry__sim2c__function_call__to_string_249(void) {
   // 1068:   if str.needs_parenthesis: push &buf '('
   // 1069:   append &buf str
   // 1070:   if str.needs_parenthesis: push &buf ')'
-  frame->slots[3] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_250, 1);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_250, 1);
   // 1071: :
   // 1072:   append &buf inline_functor
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_259, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_259, 0);
   // 1066: for_each
   // 1067:   strings: (str)
   // 1068:     if str.needs_parenthesis: push &buf '('
@@ -25916,7 +25916,7 @@ static void entry__sim2c__function_call__to_string_249(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_261(void) {
+static void entry__compiler__function_call__to_string_261(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // functor_string: 0
@@ -25934,7 +25934,7 @@ static void entry__sim2c__function_call__to_string_261(void) {
     return;
   }
   // 1074: ... : !functor_string "sequence"
-  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_262, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_262, 0);
   // 1074: case functor_string ",": !functor_string "sequence"
   argument_count = 3;
   arguments = node_p;
@@ -25944,9 +25944,9 @@ static void entry__sim2c__function_call__to_string_261(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_264;
+  frame->cont = cont__compiler__function_call__to_string_264;
 }
-static void entry__sim2c__function_call__to_string_262(void) {
+static void entry__compiler__function_call__to_string_262(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor_string: 0
@@ -25963,7 +25963,7 @@ static void entry__sim2c__function_call__to_string_262(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_264(void) {
+static void cont__compiler__function_call__to_string_264(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -25975,9 +25975,9 @@ static void cont__sim2c__function_call__to_string_264(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_265;
+  frame->cont = cont__compiler__function_call__to_string_265;
 }
-static void cont__sim2c__function_call__to_string_265(void) {
+static void cont__compiler__function_call__to_string_265(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -25990,9 +25990,9 @@ static void cont__sim2c__function_call__to_string_265(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_266;
+  frame->cont = cont__compiler__function_call__to_string_266;
 }
-static void cont__sim2c__function_call__to_string_266(void) {
+static void cont__compiler__function_call__to_string_266(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26007,9 +26007,9 @@ static void cont__sim2c__function_call__to_string_266(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_267;
+  frame->cont = cont__compiler__function_call__to_string_267;
 }
-static void cont__sim2c__function_call__to_string_267(void) {
+static void cont__compiler__function_call__to_string_267(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26020,7 +26020,7 @@ static void cont__sim2c__function_call__to_string_267(void) {
   // 1079:     push &buf '@nl;'
   // 1080:     append &buf indentation
   // 1081:   append &buf str
-  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_268, 1);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_268, 1);
   // 1077: for_each strings: (str)
   // 1078:   unless str(1) == '@nl;':
   // 1079:     push &buf '@nl;'
@@ -26035,7 +26035,7 @@ static void cont__sim2c__function_call__to_string_267(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__to_string_276(void) {
+static void cont__compiler__function_call__to_string_276(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -26048,12 +26048,12 @@ static void cont__sim2c__function_call__to_string_276(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_277(void) {
+static void cont__compiler__function_call__to_string_277(void) {
   myself = frame->slots[0] /* return__7 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_145(void) {
+static void entry__compiler__function_call__to_string_145(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // arguments: 0
@@ -26069,9 +26069,9 @@ static void entry__sim2c__function_call__to_string_145(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_146;
+  frame->cont = cont__compiler__function_call__to_string_146;
 }
-static void cont__sim2c__function_call__to_string_146(void) {
+static void cont__compiler__function_call__to_string_146(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26085,9 +26085,9 @@ static void cont__sim2c__function_call__to_string_146(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_148;
+  frame->cont = cont__compiler__function_call__to_string_148;
 }
-static void cont__sim2c__function_call__to_string_148(void) {
+static void cont__compiler__function_call__to_string_148(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26101,7 +26101,7 @@ static void cont__sim2c__function_call__to_string_148(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_105(void) {
+static void entry__compiler__function_call__to_string_105(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -26117,9 +26117,9 @@ static void entry__sim2c__function_call__to_string_105(void) {
   result_count = 1;
   myself = var._string_template_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_106;
+  frame->cont = cont__compiler__function_call__to_string_106;
 }
-static void cont__sim2c__function_call__to_string_106(void) {
+static void cont__compiler__function_call__to_string_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26133,7 +26133,7 @@ static void cont__sim2c__function_call__to_string_106(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_107(void) {
+static void entry__compiler__function_call__to_string_107(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return__5: 0
@@ -26153,9 +26153,9 @@ static void entry__sim2c__function_call__to_string_107(void) {
   result_count = 1;
   myself = var._string_template_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_108;
+  frame->cont = cont__compiler__function_call__to_string_108;
 }
-static void cont__sim2c__function_call__to_string_108(void) {
+static void cont__compiler__function_call__to_string_108(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26169,14 +26169,14 @@ static void cont__sim2c__function_call__to_string_108(void) {
   result_count = frame->caller_result_count;
   myself = var._add_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_109;
+  frame->cont = cont__compiler__function_call__to_string_109;
 }
-static void cont__sim2c__function_call__to_string_109(void) {
+static void cont__compiler__function_call__to_string_109(void) {
   myself = frame->slots[0] /* return__5 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_102(void) {
+static void entry__compiler__function_call__to_string_102(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -26192,9 +26192,9 @@ static void entry__sim2c__function_call__to_string_102(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_103;
+  frame->cont = cont__compiler__function_call__to_string_103;
 }
-static void cont__sim2c__function_call__to_string_103(void) {
+static void cont__compiler__function_call__to_string_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26207,20 +26207,20 @@ static void cont__sim2c__function_call__to_string_103(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_104;
+  frame->cont = cont__compiler__function_call__to_string_104;
 }
-static void cont__sim2c__function_call__to_string_104(void) {
+static void cont__compiler__function_call__to_string_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 982: -> string_template_to_string(self)
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_105, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_105, 0);
   // 983: :
   // 984:   %line_width UNLIMITED # force inline output
   // 985:   add_remark self string_template_to_string(self)
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_107, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_107, 0);
   // 980: if
   // 981:   remark_lines_of(self).is_empty
   // 982:   -> string_template_to_string(self)
@@ -26237,7 +26237,7 @@ static void cont__sim2c__function_call__to_string_104(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_95(void) {
+static void entry__compiler__function_call__to_string_95(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -26263,9 +26263,9 @@ static void entry__sim2c__function_call__to_string_95(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_98;
+  frame->cont = cont__compiler__function_call__to_string_98;
 }
-static void cont__sim2c__function_call__to_string_98(void) {
+static void cont__compiler__function_call__to_string_98(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26279,9 +26279,9 @@ static void cont__sim2c__function_call__to_string_98(void) {
   result_count = 1;
   myself = var._add_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_99;
+  frame->cont = cont__compiler__function_call__to_string_99;
 }
-static void cont__sim2c__function_call__to_string_99(void) {
+static void cont__compiler__function_call__to_string_99(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26295,7 +26295,7 @@ static void cont__sim2c__function_call__to_string_99(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_70(void) {
+static void entry__compiler__function_call__to_string_70(void) {
   allocate_initialized_frame_gc(4, 14);
   // slot allocations:
   // arguments: 0
@@ -26327,9 +26327,9 @@ static void entry__sim2c__function_call__to_string_70(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_71;
+  frame->cont = cont__compiler__function_call__to_string_71;
 }
-static void cont__sim2c__function_call__to_string_71(void) {
+static void cont__compiler__function_call__to_string_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26342,9 +26342,9 @@ static void cont__sim2c__function_call__to_string_71(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_72;
+  frame->cont = cont__compiler__function_call__to_string_72;
 }
-static void cont__sim2c__function_call__to_string_72(void) {
+static void cont__compiler__function_call__to_string_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26357,9 +26357,9 @@ static void cont__sim2c__function_call__to_string_72(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_73;
+  frame->cont = cont__compiler__function_call__to_string_73;
 }
-static void cont__sim2c__function_call__to_string_73(void) {
+static void cont__compiler__function_call__to_string_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26372,9 +26372,9 @@ static void cont__sim2c__function_call__to_string_73(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_74;
+  frame->cont = cont__compiler__function_call__to_string_74;
 }
-static void cont__sim2c__function_call__to_string_74(void) {
+static void cont__compiler__function_call__to_string_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26387,9 +26387,9 @@ static void cont__sim2c__function_call__to_string_74(void) {
   result_count = 1;
   myself = var._precedence_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_75;
+  frame->cont = cont__compiler__function_call__to_string_75;
 }
-static void cont__sim2c__function_call__to_string_75(void) {
+static void cont__compiler__function_call__to_string_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26403,9 +26403,9 @@ static void cont__sim2c__function_call__to_string_75(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_76;
+  frame->cont = cont__compiler__function_call__to_string_76;
 }
-static void cont__sim2c__function_call__to_string_76(void) {
+static void cont__compiler__function_call__to_string_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26413,7 +26413,7 @@ static void cont__sim2c__function_call__to_string_76(void) {
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 970: ... :
   // 971:   !left string('(' left ')')
-  frame->slots[11] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_77, 0);
+  frame->slots[11] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_77, 0);
   // 970: if precedence_of(left_argument) < INFIX_PRECEDENCE:
   // 971:   !left string('(' left ')')
   argument_count = 2;
@@ -26423,9 +26423,9 @@ static void cont__sim2c__function_call__to_string_76(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_79;
+  frame->cont = cont__compiler__function_call__to_string_79;
 }
-static void entry__sim2c__function_call__to_string_77(void) {
+static void entry__compiler__function_call__to_string_77(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // left: 0
@@ -26443,9 +26443,9 @@ static void entry__sim2c__function_call__to_string_77(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_78;
+  frame->cont = cont__compiler__function_call__to_string_78;
 }
-static void cont__sim2c__function_call__to_string_78(void) {
+static void cont__compiler__function_call__to_string_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26457,7 +26457,7 @@ static void cont__sim2c__function_call__to_string_78(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_79(void) {
+static void cont__compiler__function_call__to_string_79(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -26469,9 +26469,9 @@ static void cont__sim2c__function_call__to_string_79(void) {
   result_count = 1;
   myself = var._precedence_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_80;
+  frame->cont = cont__compiler__function_call__to_string_80;
 }
-static void cont__sim2c__function_call__to_string_80(void) {
+static void cont__compiler__function_call__to_string_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26485,9 +26485,9 @@ static void cont__sim2c__function_call__to_string_80(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_81;
+  frame->cont = cont__compiler__function_call__to_string_81;
 }
-static void cont__sim2c__function_call__to_string_81(void) {
+static void cont__compiler__function_call__to_string_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26500,9 +26500,9 @@ static void cont__sim2c__function_call__to_string_81(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_82;
+  frame->cont = cont__compiler__function_call__to_string_82;
 }
-static void cont__sim2c__function_call__to_string_82(void) {
+static void cont__compiler__function_call__to_string_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26510,7 +26510,7 @@ static void cont__sim2c__function_call__to_string_82(void) {
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 972: ... :
   // 973:   !right string('(' right ')')
-  frame->slots[12] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_83, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_83, 0);
   // 972: if precedence_of(right_argument) <= INFIX_PRECEDENCE:
   // 973:   !right string('(' right ')')
   argument_count = 2;
@@ -26520,9 +26520,9 @@ static void cont__sim2c__function_call__to_string_82(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_85;
+  frame->cont = cont__compiler__function_call__to_string_85;
 }
-static void entry__sim2c__function_call__to_string_83(void) {
+static void entry__compiler__function_call__to_string_83(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // right: 0
@@ -26540,9 +26540,9 @@ static void entry__sim2c__function_call__to_string_83(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_84;
+  frame->cont = cont__compiler__function_call__to_string_84;
 }
-static void cont__sim2c__function_call__to_string_84(void) {
+static void cont__compiler__function_call__to_string_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26554,7 +26554,7 @@ static void cont__sim2c__function_call__to_string_84(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_85(void) {
+static void cont__compiler__function_call__to_string_85(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -26566,9 +26566,9 @@ static void cont__sim2c__function_call__to_string_85(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_86;
+  frame->cont = cont__compiler__function_call__to_string_86;
 }
-static void cont__sim2c__function_call__to_string_86(void) {
+static void cont__compiler__function_call__to_string_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26581,9 +26581,9 @@ static void cont__sim2c__function_call__to_string_86(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_87;
+  frame->cont = cont__compiler__function_call__to_string_87;
 }
-static void cont__sim2c__function_call__to_string_87(void) {
+static void cont__compiler__function_call__to_string_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26597,9 +26597,9 @@ static void cont__sim2c__function_call__to_string_87(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_88;
+  frame->cont = cont__compiler__function_call__to_string_88;
 }
-static void cont__sim2c__function_call__to_string_88(void) {
+static void cont__compiler__function_call__to_string_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26612,9 +26612,9 @@ static void cont__sim2c__function_call__to_string_88(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_89;
+  frame->cont = cont__compiler__function_call__to_string_89;
 }
-static void cont__sim2c__function_call__to_string_89(void) {
+static void cont__compiler__function_call__to_string_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26628,9 +26628,9 @@ static void cont__sim2c__function_call__to_string_89(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_90;
+  frame->cont = cont__compiler__function_call__to_string_90;
 }
-static void cont__sim2c__function_call__to_string_90(void) {
+static void cont__compiler__function_call__to_string_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26644,9 +26644,9 @@ static void cont__sim2c__function_call__to_string_90(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_91;
+  frame->cont = cont__compiler__function_call__to_string_91;
 }
-static void cont__sim2c__function_call__to_string_91(void) {
+static void cont__compiler__function_call__to_string_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26660,9 +26660,9 @@ static void cont__sim2c__function_call__to_string_91(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_92;
+  frame->cont = cont__compiler__function_call__to_string_92;
 }
-static void cont__sim2c__function_call__to_string_92(void) {
+static void cont__compiler__function_call__to_string_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26676,9 +26676,9 @@ static void cont__sim2c__function_call__to_string_92(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_93;
+  frame->cont = cont__compiler__function_call__to_string_93;
 }
-static void cont__sim2c__function_call__to_string_93(void) {
+static void cont__compiler__function_call__to_string_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26691,16 +26691,16 @@ static void cont__sim2c__function_call__to_string_93(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_94;
+  frame->cont = cont__compiler__function_call__to_string_94;
 }
-static void cont__sim2c__function_call__to_string_94(void) {
+static void cont__compiler__function_call__to_string_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
   // 977: -> add_remark(self string(left " ." functor_string ". " right))
-  frame->slots[12] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_95, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_95, 0);
   // 975: if
   // 976:   expression_indent+length <= line_width
   // 977:   -> add_remark(self string(left " ." functor_string ". " right))
@@ -26715,7 +26715,7 @@ static void cont__sim2c__function_call__to_string_94(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_68(void) {
+static void entry__compiler__function_call__to_string_68(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // self: 0
@@ -26737,9 +26737,9 @@ static void entry__sim2c__function_call__to_string_68(void) {
   result_count = 1;
   myself = get__is_in_infix_notation();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_69;
+  frame->cont = cont__compiler__function_call__to_string_69;
 }
-static void cont__sim2c__function_call__to_string_69(void) {
+static void cont__compiler__function_call__to_string_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26756,7 +26756,7 @@ static void cont__sim2c__function_call__to_string_69(void) {
   // 973:     !right string('(' right ')')
   // 974:   $length length_of(left)+length_of(functor_string)+length_of(right)+4
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_70, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_70, 0);
   // 965: -> self.is_in_infix_notation:
   // 966:   $left_argument arguments(1)
   // 967:   $right_argument arguments(2)
@@ -26776,7 +26776,7 @@ static void cont__sim2c__function_call__to_string_69(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_100(void) {
+static void entry__compiler__function_call__to_string_100(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -26792,9 +26792,9 @@ static void entry__sim2c__function_call__to_string_100(void) {
   result_count = 1;
   myself = get__is_a_string_template();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_101;
+  frame->cont = cont__compiler__function_call__to_string_101;
 }
-static void cont__sim2c__function_call__to_string_101(void) {
+static void cont__compiler__function_call__to_string_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26807,7 +26807,7 @@ static void cont__sim2c__function_call__to_string_101(void) {
   // 983:     :
   // 984:       %line_width UNLIMITED # force inline output
   // 985:       add_remark self string_template_to_string(self)
-  frame->slots[2] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_102, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_102, 0);
   // 979: -> self.is_a_string_template:
   // 980:   if
   // 981:     remark_lines_of(self).is_empty
@@ -26823,7 +26823,7 @@ static void cont__sim2c__function_call__to_string_101(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_110(void) {
+static void entry__compiler__function_call__to_string_110(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // functor: 0
@@ -26841,15 +26841,15 @@ static void entry__sim2c__function_call__to_string_110(void) {
   result_count = 1;
   myself = get__is_an_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_111;
+  frame->cont = cont__compiler__function_call__to_string_111;
 }
-static void cont__sim2c__function_call__to_string_111(void) {
+static void cont__compiler__function_call__to_string_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_112, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_112, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -26857,9 +26857,9 @@ static void cont__sim2c__function_call__to_string_111(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_144;
+  frame->cont = cont__compiler__function_call__to_string_144;
 }
-static void entry__sim2c__function_call__to_string_112(void) {
+static void entry__compiler__function_call__to_string_112(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // functor: 0
@@ -26877,9 +26877,9 @@ static void entry__sim2c__function_call__to_string_112(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_113;
+  frame->cont = cont__compiler__function_call__to_string_113;
 }
-static void cont__sim2c__function_call__to_string_113(void) {
+static void cont__compiler__function_call__to_string_113(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26893,15 +26893,15 @@ static void cont__sim2c__function_call__to_string_113(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_115;
+  frame->cont = cont__compiler__function_call__to_string_115;
 }
-static void cont__sim2c__function_call__to_string_115(void) {
+static void cont__compiler__function_call__to_string_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_116, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_116, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -26909,9 +26909,9 @@ static void cont__sim2c__function_call__to_string_115(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_143;
+  frame->cont = cont__compiler__function_call__to_string_143;
 }
-static void entry__sim2c__function_call__to_string_116(void) {
+static void entry__compiler__function_call__to_string_116(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // functor: 0
@@ -26929,9 +26929,9 @@ static void entry__sim2c__function_call__to_string_116(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_117;
+  frame->cont = cont__compiler__function_call__to_string_117;
 }
-static void cont__sim2c__function_call__to_string_117(void) {
+static void cont__compiler__function_call__to_string_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26945,15 +26945,15 @@ static void cont__sim2c__function_call__to_string_117(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_119;
+  frame->cont = cont__compiler__function_call__to_string_119;
 }
-static void cont__sim2c__function_call__to_string_119(void) {
+static void cont__compiler__function_call__to_string_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_120, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_120, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -26961,9 +26961,9 @@ static void cont__sim2c__function_call__to_string_119(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_142;
+  frame->cont = cont__compiler__function_call__to_string_142;
 }
-static void entry__sim2c__function_call__to_string_120(void) {
+static void entry__compiler__function_call__to_string_120(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // arguments: 0
@@ -26979,9 +26979,9 @@ static void entry__sim2c__function_call__to_string_120(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_121;
+  frame->cont = cont__compiler__function_call__to_string_121;
 }
-static void cont__sim2c__function_call__to_string_121(void) {
+static void cont__compiler__function_call__to_string_121(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -26995,15 +26995,15 @@ static void cont__sim2c__function_call__to_string_121(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_122;
+  frame->cont = cont__compiler__function_call__to_string_122;
 }
-static void cont__sim2c__function_call__to_string_122(void) {
+static void cont__compiler__function_call__to_string_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_123, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_123, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -27011,9 +27011,9 @@ static void cont__sim2c__function_call__to_string_122(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_141;
+  frame->cont = cont__compiler__function_call__to_string_141;
 }
-static void entry__sim2c__function_call__to_string_123(void) {
+static void entry__compiler__function_call__to_string_123(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // arguments: 0
@@ -27029,9 +27029,9 @@ static void entry__sim2c__function_call__to_string_123(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_124;
+  frame->cont = cont__compiler__function_call__to_string_124;
 }
-static void cont__sim2c__function_call__to_string_124(void) {
+static void cont__compiler__function_call__to_string_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27044,15 +27044,15 @@ static void cont__sim2c__function_call__to_string_124(void) {
   result_count = 1;
   myself = get__is_an_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_125;
+  frame->cont = cont__compiler__function_call__to_string_125;
 }
-static void cont__sim2c__function_call__to_string_125(void) {
+static void cont__compiler__function_call__to_string_125(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_126, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_126, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -27060,9 +27060,9 @@ static void cont__sim2c__function_call__to_string_125(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_140;
+  frame->cont = cont__compiler__function_call__to_string_140;
 }
-static void entry__sim2c__function_call__to_string_126(void) {
+static void entry__compiler__function_call__to_string_126(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // arguments: 0
@@ -27078,9 +27078,9 @@ static void entry__sim2c__function_call__to_string_126(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_127;
+  frame->cont = cont__compiler__function_call__to_string_127;
 }
-static void cont__sim2c__function_call__to_string_127(void) {
+static void cont__compiler__function_call__to_string_127(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27093,15 +27093,15 @@ static void cont__sim2c__function_call__to_string_127(void) {
   result_count = 1;
   myself = get__is_an_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_128;
+  frame->cont = cont__compiler__function_call__to_string_128;
 }
-static void cont__sim2c__function_call__to_string_128(void) {
+static void cont__compiler__function_call__to_string_128(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_129, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_129, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -27109,9 +27109,9 @@ static void cont__sim2c__function_call__to_string_128(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_139;
+  frame->cont = cont__compiler__function_call__to_string_139;
 }
-static void entry__sim2c__function_call__to_string_129(void) {
+static void entry__compiler__function_call__to_string_129(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // arguments: 0
@@ -27127,9 +27127,9 @@ static void entry__sim2c__function_call__to_string_129(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_130;
+  frame->cont = cont__compiler__function_call__to_string_130;
 }
-static void cont__sim2c__function_call__to_string_130(void) {
+static void cont__compiler__function_call__to_string_130(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27142,9 +27142,9 @@ static void cont__sim2c__function_call__to_string_130(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_131;
+  frame->cont = cont__compiler__function_call__to_string_131;
 }
-static void cont__sim2c__function_call__to_string_131(void) {
+static void cont__compiler__function_call__to_string_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27158,16 +27158,16 @@ static void cont__sim2c__function_call__to_string_131(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_132;
+  frame->cont = cont__compiler__function_call__to_string_132;
 }
-static void cont__sim2c__function_call__to_string_132(void) {
+static void cont__compiler__function_call__to_string_132(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
   // 995: name_of(arguments(2)) == "true"
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__function_call__to_string_133, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__function_call__to_string_133, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -27175,9 +27175,9 @@ static void cont__sim2c__function_call__to_string_132(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_138;
+  frame->cont = cont__compiler__function_call__to_string_138;
 }
-static void entry__sim2c__function_call__to_string_133(void) {
+static void entry__compiler__function_call__to_string_133(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // arguments: 0
@@ -27193,9 +27193,9 @@ static void entry__sim2c__function_call__to_string_133(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_134;
+  frame->cont = cont__compiler__function_call__to_string_134;
 }
-static void cont__sim2c__function_call__to_string_134(void) {
+static void cont__compiler__function_call__to_string_134(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27208,9 +27208,9 @@ static void cont__sim2c__function_call__to_string_134(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_135;
+  frame->cont = cont__compiler__function_call__to_string_135;
 }
-static void cont__sim2c__function_call__to_string_135(void) {
+static void cont__compiler__function_call__to_string_135(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27224,9 +27224,9 @@ static void cont__sim2c__function_call__to_string_135(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_137;
+  frame->cont = cont__compiler__function_call__to_string_137;
 }
-static void cont__sim2c__function_call__to_string_137(void) {
+static void cont__compiler__function_call__to_string_137(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27240,7 +27240,7 @@ static void cont__sim2c__function_call__to_string_137(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_138(void) {
+static void cont__compiler__function_call__to_string_138(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27253,7 +27253,7 @@ static void cont__sim2c__function_call__to_string_138(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_139(void) {
+static void cont__compiler__function_call__to_string_139(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27266,7 +27266,7 @@ static void cont__sim2c__function_call__to_string_139(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_140(void) {
+static void cont__compiler__function_call__to_string_140(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27279,7 +27279,7 @@ static void cont__sim2c__function_call__to_string_140(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_141(void) {
+static void cont__compiler__function_call__to_string_141(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27292,7 +27292,7 @@ static void cont__sim2c__function_call__to_string_141(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_142(void) {
+static void cont__compiler__function_call__to_string_142(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27305,7 +27305,7 @@ static void cont__sim2c__function_call__to_string_142(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_143(void) {
+static void cont__compiler__function_call__to_string_143(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27318,14 +27318,14 @@ static void cont__sim2c__function_call__to_string_143(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_144(void) {
+static void cont__compiler__function_call__to_string_144(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 996: -> "--@(arguments(1))"
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_145, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_145, 0);
   // 986: ->
   // 987:   &&
   // 988:     functor.is_an_identifier
@@ -27345,7 +27345,7 @@ static void cont__sim2c__function_call__to_string_144(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_149(void) {
+static void entry__compiler__function_call__to_string_149(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // default_call: 0
@@ -27363,7 +27363,7 @@ static void entry__sim2c__function_call__to_string_149(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_67(void) {
+static void entry__compiler__function_call__to_string_67(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // self: 0
@@ -27391,7 +27391,7 @@ static void entry__sim2c__function_call__to_string_67(void) {
   // 973:     !right string('(' right ')')
   // 974:   $length length_of(left)+length_of(functor_string)+length_of(right)+4
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_68, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_68, 0);
   // 979: -> self.is_a_string_template:
   // 980:   if
   // 981:     remark_lines_of(self).is_empty
@@ -27399,7 +27399,7 @@ static void entry__sim2c__function_call__to_string_67(void) {
   // 983:     :
   // 984:       %line_width UNLIMITED # force inline output
   // 985:       add_remark self string_template_to_string(self)
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_100, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_100, 0);
   // 986: ->
   // 987:   &&
   // 988:     functor.is_an_identifier
@@ -27411,9 +27411,9 @@ static void entry__sim2c__function_call__to_string_67(void) {
   // 994:     namespace_of(arguments(2)) == "std"
   // 995:     name_of(arguments(2)) == "true"
   // ...
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_110, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_110, 0);
   // 997: -> true default_call
-  frame->slots[8] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_149, 0);
+  frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_149, 0);
   // 964: cond
   // 965:   -> self.is_in_infix_notation:
   // 966:     $left_argument arguments(1)
@@ -27436,7 +27436,7 @@ static void entry__sim2c__function_call__to_string_67(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_57(void) {
+static void entry__compiler__function_call__to_string_57(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // arguments: 0
@@ -27456,9 +27456,9 @@ static void entry__sim2c__function_call__to_string_57(void) {
   result_count = 1;
   myself = frame->slots[0] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_58;
+  frame->cont = cont__compiler__function_call__to_string_58;
 }
-static void cont__sim2c__function_call__to_string_58(void) {
+static void cont__compiler__function_call__to_string_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27471,9 +27471,9 @@ static void cont__sim2c__function_call__to_string_58(void) {
   result_count = 1;
   myself = var._precedence_of;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_59;
+  frame->cont = cont__compiler__function_call__to_string_59;
 }
-static void cont__sim2c__function_call__to_string_59(void) {
+static void cont__compiler__function_call__to_string_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27487,9 +27487,9 @@ static void cont__sim2c__function_call__to_string_59(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_60;
+  frame->cont = cont__compiler__function_call__to_string_60;
 }
-static void cont__sim2c__function_call__to_string_60(void) {
+static void cont__compiler__function_call__to_string_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27497,7 +27497,7 @@ static void cont__sim2c__function_call__to_string_60(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 960: ... :
   // 961:   !argument string('(' argument ')')
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_61, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_61, 0);
   // 960: if precedence_of(argument) < HIGHEST_PRECEDENCE:
   // 961:   !argument string('(' argument ')')
   argument_count = 2;
@@ -27507,9 +27507,9 @@ static void cont__sim2c__function_call__to_string_60(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_63;
+  frame->cont = cont__compiler__function_call__to_string_63;
 }
-static void entry__sim2c__function_call__to_string_61(void) {
+static void entry__compiler__function_call__to_string_61(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // argument: 0
@@ -27527,9 +27527,9 @@ static void entry__sim2c__function_call__to_string_61(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_62;
+  frame->cont = cont__compiler__function_call__to_string_62;
 }
-static void cont__sim2c__function_call__to_string_62(void) {
+static void cont__compiler__function_call__to_string_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27541,7 +27541,7 @@ static void cont__sim2c__function_call__to_string_62(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_63(void) {
+static void cont__compiler__function_call__to_string_63(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -27555,9 +27555,9 @@ static void cont__sim2c__function_call__to_string_63(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_64;
+  frame->cont = cont__compiler__function_call__to_string_64;
 }
-static void cont__sim2c__function_call__to_string_64(void) {
+static void cont__compiler__function_call__to_string_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27571,7 +27571,7 @@ static void cont__sim2c__function_call__to_string_64(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_47(void) {
+static void entry__compiler__function_call__to_string_47(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // return__4: 0
@@ -27595,9 +27595,9 @@ static void entry__sim2c__function_call__to_string_47(void) {
   result_count = 1;
   myself = frame->slots[1] /* arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_48;
+  frame->cont = cont__compiler__function_call__to_string_48;
 }
-static void cont__sim2c__function_call__to_string_48(void) {
+static void cont__compiler__function_call__to_string_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27610,18 +27610,18 @@ static void cont__sim2c__function_call__to_string_48(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_49;
+  frame->cont = cont__compiler__function_call__to_string_49;
 }
-static void cont__sim2c__function_call__to_string_49(void) {
+static void cont__compiler__function_call__to_string_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 956: -> string(argument '/' functor_string)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_50, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_50, 0);
   // 957: -> string(argument '/')
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_52, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_52, 0);
   // 954: if
   // 955:   functor_string.is_defined
   // 956:   -> string(argument '/' functor_string)
@@ -27634,9 +27634,9 @@ static void cont__sim2c__function_call__to_string_49(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_54;
+  frame->cont = cont__compiler__function_call__to_string_54;
 }
-static void entry__sim2c__function_call__to_string_50(void) {
+static void entry__compiler__function_call__to_string_50(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // argument: 0
@@ -27656,9 +27656,9 @@ static void entry__sim2c__function_call__to_string_50(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_51;
+  frame->cont = cont__compiler__function_call__to_string_51;
 }
-static void cont__sim2c__function_call__to_string_51(void) {
+static void cont__compiler__function_call__to_string_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27672,7 +27672,7 @@ static void cont__sim2c__function_call__to_string_51(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_52(void) {
+static void entry__compiler__function_call__to_string_52(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // argument: 0
@@ -27689,9 +27689,9 @@ static void entry__sim2c__function_call__to_string_52(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_53;
+  frame->cont = cont__compiler__function_call__to_string_53;
 }
-static void cont__sim2c__function_call__to_string_53(void) {
+static void cont__compiler__function_call__to_string_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27705,12 +27705,12 @@ static void cont__sim2c__function_call__to_string_53(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_54(void) {
+static void cont__compiler__function_call__to_string_54(void) {
   myself = frame->slots[0] /* return__4 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_45(void) {
+static void entry__compiler__function_call__to_string_45(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -27730,9 +27730,9 @@ static void entry__sim2c__function_call__to_string_45(void) {
   result_count = 1;
   myself = get__is_a_method_definition();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_46;
+  frame->cont = cont__compiler__function_call__to_string_46;
 }
-static void cont__sim2c__function_call__to_string_46(void) {
+static void cont__compiler__function_call__to_string_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27745,7 +27745,7 @@ static void cont__sim2c__function_call__to_string_46(void) {
   // 955:     functor_string.is_defined
   // 956:     -> string(argument '/' functor_string)
   // 957:     -> string(argument '/')
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_47, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_47, 0);
   // 951: -> self.is_a_method_definition:
   // 952:   %line_width UNLIMITED # force inline output
   // 953:   $argument arguments(1)
@@ -27761,7 +27761,7 @@ static void cont__sim2c__function_call__to_string_46(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_55(void) {
+static void entry__compiler__function_call__to_string_55(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -27781,9 +27781,9 @@ static void entry__sim2c__function_call__to_string_55(void) {
   result_count = 1;
   myself = get__is_an_attribute_access();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_56;
+  frame->cont = cont__compiler__function_call__to_string_56;
 }
-static void cont__sim2c__function_call__to_string_56(void) {
+static void cont__compiler__function_call__to_string_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27794,7 +27794,7 @@ static void cont__sim2c__function_call__to_string_56(void) {
   // 960:   if precedence_of(argument) < HIGHEST_PRECEDENCE:
   // 961:     !argument string('(' argument ')')
   // 962:   -> string(argument '.' functor_string)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_57, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_57, 0);
   // 958: -> self.is_an_attribute_access:
   // 959:   $$argument arguments(1)
   // 960:   if precedence_of(argument) < HIGHEST_PRECEDENCE:
@@ -27808,7 +27808,7 @@ static void cont__sim2c__function_call__to_string_56(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_65(void) {
+static void entry__compiler__function_call__to_string_65(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // functor_string: 0
@@ -27833,9 +27833,9 @@ static void entry__sim2c__function_call__to_string_65(void) {
   result_count = 1;
   myself = get__any_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_66;
+  frame->cont = cont__compiler__function_call__to_string_66;
 }
-static void cont__sim2c__function_call__to_string_66(void) {
+static void cont__compiler__function_call__to_string_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -27852,7 +27852,7 @@ static void cont__sim2c__function_call__to_string_66(void) {
   // 971:         !left string('(' left ')')
   // 972:       if precedence_of(right_argument) <= INFIX_PRECEDENCE:
   // ...
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_67, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_67, 0);
   // 963: -> any_of(functor_string is_a_letter):
   // 964:   cond
   // 965:     -> self.is_in_infix_notation:
@@ -27872,7 +27872,7 @@ static void cont__sim2c__function_call__to_string_66(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_150(void) {
+static void entry__compiler__function_call__to_string_150(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // indent: 0
@@ -27896,7 +27896,7 @@ static void entry__sim2c__function_call__to_string_150(void) {
   // 1006:         -> string(functor_string argument)
   // 1007:     :
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_151, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_151, 0);
   //  998: -> true: # operator symbols
   //  999:   %expression_indent indent+2
   // 1000:   if
@@ -27916,7 +27916,7 @@ static void entry__sim2c__function_call__to_string_150(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_1(void) {
+static void entry__compiler__function_call__to_string_1(void) {
   allocate_initialized_frame_gc(1, 10);
   // slot allocations:
   // self: 0
@@ -27946,7 +27946,7 @@ static void entry__sim2c__function_call__to_string_1(void) {
   // 919:   
   // 920:   $remark_lines
   // ...
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_2, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_2, 0);
   // 911: $default_call:
   // 912:   %expression_indent indent+2
   // 913:   
@@ -27966,9 +27966,9 @@ static void entry__sim2c__function_call__to_string_1(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_37;
+  frame->cont = cont__compiler__function_call__to_string_37;
 }
-static void entry__sim2c__function_call__to_string_2(void) {
+static void entry__compiler__function_call__to_string_2(void) {
   allocate_initialized_frame_gc(4, 10);
   // slot allocations:
   // return__3: 0
@@ -27996,9 +27996,9 @@ static void entry__sim2c__function_call__to_string_2(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_3;
+  frame->cont = cont__compiler__function_call__to_string_3;
 }
-static void cont__sim2c__function_call__to_string_3(void) {
+static void cont__compiler__function_call__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28012,9 +28012,9 @@ static void cont__sim2c__function_call__to_string_3(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_4;
+  frame->cont = cont__compiler__function_call__to_string_4;
 }
-static void cont__sim2c__function_call__to_string_4(void) {
+static void cont__compiler__function_call__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28027,9 +28027,9 @@ static void cont__sim2c__function_call__to_string_4(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_5;
+  frame->cont = cont__compiler__function_call__to_string_5;
 }
-static void cont__sim2c__function_call__to_string_5(void) {
+static void cont__compiler__function_call__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28043,9 +28043,9 @@ static void cont__sim2c__function_call__to_string_5(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_6;
+  frame->cont = cont__compiler__function_call__to_string_6;
 }
-static void cont__sim2c__function_call__to_string_6(void) {
+static void cont__compiler__function_call__to_string_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28059,9 +28059,9 @@ static void cont__sim2c__function_call__to_string_6(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_7;
+  frame->cont = cont__compiler__function_call__to_string_7;
 }
-static void cont__sim2c__function_call__to_string_7(void) {
+static void cont__compiler__function_call__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28080,9 +28080,9 @@ static void cont__sim2c__function_call__to_string_7(void) {
   result_count = 1;
   myself = var._arguments_to_string;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_8;
+  frame->cont = cont__compiler__function_call__to_string_8;
 }
-static void cont__sim2c__function_call__to_string_8(void) {
+static void cont__compiler__function_call__to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28095,9 +28095,9 @@ static void cont__sim2c__function_call__to_string_8(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_9;
+  frame->cont = cont__compiler__function_call__to_string_9;
 }
-static void cont__sim2c__function_call__to_string_9(void) {
+static void cont__compiler__function_call__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28110,9 +28110,9 @@ static void cont__sim2c__function_call__to_string_9(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_10;
+  frame->cont = cont__compiler__function_call__to_string_10;
 }
-static void cont__sim2c__function_call__to_string_10(void) {
+static void cont__compiler__function_call__to_string_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28125,9 +28125,9 @@ static void cont__sim2c__function_call__to_string_10(void) {
   result_count = 1;
   myself = get__remark_lines_behind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_11;
+  frame->cont = cont__compiler__function_call__to_string_11;
 }
-static void cont__sim2c__function_call__to_string_11(void) {
+static void cont__compiler__function_call__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28142,9 +28142,9 @@ static void cont__sim2c__function_call__to_string_11(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_12;
+  frame->cont = cont__compiler__function_call__to_string_12;
 }
-static void cont__sim2c__function_call__to_string_12(void) {
+static void cont__compiler__function_call__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28157,9 +28157,9 @@ static void cont__sim2c__function_call__to_string_12(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_13;
+  frame->cont = cont__compiler__function_call__to_string_13;
 }
-static void cont__sim2c__function_call__to_string_13(void) {
+static void cont__compiler__function_call__to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28170,7 +28170,7 @@ static void cont__sim2c__function_call__to_string_13(void) {
   // 926:     arguments_string .contains. '@nl;'
   // 927:     -> string('@nl;' spaces(indent) functor_string arguments_string)
   // 928:     -> string(functor_string '(' arguments_string ')')
-  frame->slots[7] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_14, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_14, 0);
   // 929: :
   // 930:   if
   // 931:     arguments_string .contains. '@nl;':
@@ -28182,7 +28182,7 @@ static void cont__sim2c__function_call__to_string_13(void) {
   // 937:           '@nl;'
   // 938:           spaces(indent)
   // ...
-  frame->slots[8] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_21, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_21, 0);
   // 923: if
   // 924:   remark_lines.is_empty:
   // 925:     if
@@ -28202,9 +28202,9 @@ static void cont__sim2c__function_call__to_string_13(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_36;
+  frame->cont = cont__compiler__function_call__to_string_36;
 }
-static void entry__sim2c__function_call__to_string_23(void) {
+static void entry__compiler__function_call__to_string_23(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // remark_lines: 0
@@ -28229,9 +28229,9 @@ static void entry__sim2c__function_call__to_string_23(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_24;
+  frame->cont = cont__compiler__function_call__to_string_24;
 }
-static void cont__sim2c__function_call__to_string_24(void) {
+static void cont__compiler__function_call__to_string_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28244,9 +28244,9 @@ static void cont__sim2c__function_call__to_string_24(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[4])->contents /* remark */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_25;
+  frame->cont = cont__compiler__function_call__to_string_25;
 }
-static void cont__sim2c__function_call__to_string_25(void) {
+static void cont__compiler__function_call__to_string_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28260,9 +28260,9 @@ static void cont__sim2c__function_call__to_string_25(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_26;
+  frame->cont = cont__compiler__function_call__to_string_26;
 }
-static void cont__sim2c__function_call__to_string_26(void) {
+static void cont__compiler__function_call__to_string_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28270,7 +28270,7 @@ static void cont__sim2c__function_call__to_string_26(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 933: ... :
   // 934:   !remark string('@nl;' spaces(expression_indent) remark)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_27, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_27, 0);
   // 933: unless remark(1) == '@nl;':
   // 934:   !remark string('@nl;' spaces(expression_indent) remark)
   argument_count = 2;
@@ -28280,9 +28280,9 @@ static void cont__sim2c__function_call__to_string_26(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_30;
+  frame->cont = cont__compiler__function_call__to_string_30;
 }
-static void entry__sim2c__function_call__to_string_27(void) {
+static void entry__compiler__function_call__to_string_27(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // remark: 0
@@ -28298,9 +28298,9 @@ static void entry__sim2c__function_call__to_string_27(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_28;
+  frame->cont = cont__compiler__function_call__to_string_28;
 }
-static void cont__sim2c__function_call__to_string_28(void) {
+static void cont__compiler__function_call__to_string_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28315,9 +28315,9 @@ static void cont__sim2c__function_call__to_string_28(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_29;
+  frame->cont = cont__compiler__function_call__to_string_29;
 }
-static void cont__sim2c__function_call__to_string_29(void) {
+static void cont__compiler__function_call__to_string_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28329,7 +28329,7 @@ static void cont__sim2c__function_call__to_string_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_30(void) {
+static void cont__compiler__function_call__to_string_30(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -28341,9 +28341,9 @@ static void cont__sim2c__function_call__to_string_30(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_31;
+  frame->cont = cont__compiler__function_call__to_string_31;
 }
-static void cont__sim2c__function_call__to_string_31(void) {
+static void cont__compiler__function_call__to_string_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28365,9 +28365,9 @@ static void cont__sim2c__function_call__to_string_31(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_32;
+  frame->cont = cont__compiler__function_call__to_string_32;
 }
-static void cont__sim2c__function_call__to_string_32(void) {
+static void cont__compiler__function_call__to_string_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28387,7 +28387,7 @@ static void cont__sim2c__function_call__to_string_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_33(void) {
+static void entry__compiler__function_call__to_string_33(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // return__2: 0
@@ -28418,9 +28418,9 @@ static void entry__sim2c__function_call__to_string_33(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_34;
+  frame->cont = cont__compiler__function_call__to_string_34;
 }
-static void cont__sim2c__function_call__to_string_34(void) {
+static void cont__compiler__function_call__to_string_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28436,9 +28436,9 @@ static void cont__sim2c__function_call__to_string_34(void) {
   result_count = 1;
   myself = var._add_remark_lines;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_35;
+  frame->cont = cont__compiler__function_call__to_string_35;
 }
-static void cont__sim2c__function_call__to_string_35(void) {
+static void cont__compiler__function_call__to_string_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28455,7 +28455,7 @@ static void cont__sim2c__function_call__to_string_35(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_16(void) {
+static void entry__compiler__function_call__to_string_16(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // indent: 0
@@ -28475,9 +28475,9 @@ static void entry__sim2c__function_call__to_string_16(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_17;
+  frame->cont = cont__compiler__function_call__to_string_17;
 }
-static void cont__sim2c__function_call__to_string_17(void) {
+static void cont__compiler__function_call__to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28493,9 +28493,9 @@ static void cont__sim2c__function_call__to_string_17(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_18;
+  frame->cont = cont__compiler__function_call__to_string_18;
 }
-static void cont__sim2c__function_call__to_string_18(void) {
+static void cont__compiler__function_call__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28509,7 +28509,7 @@ static void cont__sim2c__function_call__to_string_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_19(void) {
+static void entry__compiler__function_call__to_string_19(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // functor_string: 0
@@ -28530,9 +28530,9 @@ static void entry__sim2c__function_call__to_string_19(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_20;
+  frame->cont = cont__compiler__function_call__to_string_20;
 }
-static void cont__sim2c__function_call__to_string_20(void) {
+static void cont__compiler__function_call__to_string_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28546,7 +28546,7 @@ static void cont__sim2c__function_call__to_string_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_14(void) {
+static void entry__compiler__function_call__to_string_14(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // arguments_string: 0
@@ -28567,18 +28567,18 @@ static void entry__sim2c__function_call__to_string_14(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_15;
+  frame->cont = cont__compiler__function_call__to_string_15;
 }
-static void cont__sim2c__function_call__to_string_15(void) {
+static void cont__compiler__function_call__to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 927: -> string('@nl;' spaces(indent) functor_string arguments_string)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_16, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_16, 0);
   // 928: -> string(functor_string '(' arguments_string ')')
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_19, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_19, 0);
   // 925: if
   // 926:   arguments_string .contains. '@nl;'
   // 927:   -> string('@nl;' spaces(indent) functor_string arguments_string)
@@ -28593,7 +28593,7 @@ static void cont__sim2c__function_call__to_string_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__function_call__to_string_21(void) {
+static void entry__compiler__function_call__to_string_21(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // arguments_string: 0
@@ -28616,9 +28616,9 @@ static void entry__sim2c__function_call__to_string_21(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_22;
+  frame->cont = cont__compiler__function_call__to_string_22;
 }
-static void cont__sim2c__function_call__to_string_22(void) {
+static void cont__compiler__function_call__to_string_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28635,14 +28635,14 @@ static void cont__sim2c__function_call__to_string_22(void) {
   // 939:       functor_string
   // 940:       remark
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_23, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_23, 0);
   // 942: :
   // 943:   %expression_indent indent
   // 944:   ->
   // 945:     add_remark_lines
   // 946:       string(functor_string '(' arguments_string ')')
   // 947:       remark_lines
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_33, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_33, 0);
   // 930: if
   // 931:   arguments_string .contains. '@nl;':
   // 932:     $$remark add_remark_lines("" remark_lines)
@@ -28664,12 +28664,12 @@ static void cont__sim2c__function_call__to_string_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__to_string_36(void) {
+static void cont__compiler__function_call__to_string_36(void) {
   myself = frame->slots[0] /* return__3 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_37(void) {
+static void cont__compiler__function_call__to_string_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28682,9 +28682,9 @@ static void cont__sim2c__function_call__to_string_37(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_38;
+  frame->cont = cont__compiler__function_call__to_string_38;
 }
-static void cont__sim2c__function_call__to_string_38(void) {
+static void cont__compiler__function_call__to_string_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28693,7 +28693,7 @@ static void cont__sim2c__function_call__to_string_38(void) {
   // 906: ... :
   // 907:   %line_width UNLIMITED # force inline output
   // 908:   to_string functor_of(self)
-  frame->slots[7] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_39, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_39, 0);
   // 904: $$functor_string
   // 905:   if
   // 906:     functor.is_defined:
@@ -28704,13 +28704,13 @@ static void cont__sim2c__function_call__to_string_38(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
   arguments->slots[1] = frame->slots[7] /* temp__2 */;
-  arguments->slots[2] = func__sim2c__function_call__to_string_42;
+  arguments->slots[2] = func__compiler__function_call__to_string_42;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_43;
+  frame->cont = cont__compiler__function_call__to_string_43;
 }
-static void entry__sim2c__function_call__to_string_39(void) {
+static void entry__compiler__function_call__to_string_39(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // return__1: 0
@@ -28730,9 +28730,9 @@ static void entry__sim2c__function_call__to_string_39(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_40;
+  frame->cont = cont__compiler__function_call__to_string_40;
 }
-static void cont__sim2c__function_call__to_string_40(void) {
+static void cont__compiler__function_call__to_string_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28745,14 +28745,14 @@ static void cont__sim2c__function_call__to_string_40(void) {
   result_count = frame->caller_result_count;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_41;
+  frame->cont = cont__compiler__function_call__to_string_41;
 }
-static void cont__sim2c__function_call__to_string_41(void) {
+static void cont__compiler__function_call__to_string_41(void) {
   myself = frame->slots[0] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__to_string_42(void) {
+static void entry__compiler__function_call__to_string_42(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -28767,7 +28767,7 @@ static void entry__sim2c__function_call__to_string_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__to_string_43(void) {
+static void cont__compiler__function_call__to_string_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28780,9 +28780,9 @@ static void cont__sim2c__function_call__to_string_43(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__to_string_44;
+  frame->cont = cont__compiler__function_call__to_string_44;
 }
-static void cont__sim2c__function_call__to_string_44(void) {
+static void cont__compiler__function_call__to_string_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28795,13 +28795,13 @@ static void cont__sim2c__function_call__to_string_44(void) {
   // 955:     functor_string.is_defined
   // 956:     -> string(argument '/' functor_string)
   // 957:     -> string(argument '/')
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__function_call__to_string_45, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__function_call__to_string_45, 0);
   // 958: -> self.is_an_attribute_access:
   // 959:   $$argument arguments(1)
   // 960:   if precedence_of(argument) < HIGHEST_PRECEDENCE:
   // 961:     !argument string('(' argument ')')
   // 962:   -> string(argument '.' functor_string)
-  frame->slots[7] /* temp__2 */ = create_closure(entry__sim2c__function_call__to_string_55, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__function_call__to_string_55, 0);
   // 963: -> any_of(functor_string is_a_letter):
   // 964:   cond
   // 965:     -> self.is_in_infix_notation:
@@ -28813,7 +28813,7 @@ static void cont__sim2c__function_call__to_string_44(void) {
   // 971:         !left string('(' left ')')
   // 972:       if precedence_of(right_argument) <= INFIX_PRECEDENCE:
   // ...
-  frame->slots[8] /* temp__3 */ = create_closure(entry__sim2c__function_call__to_string_65, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__function_call__to_string_65, 0);
   //  998: -> true: # operator symbols
   //  999:   %expression_indent indent+2
   // 1000:   if
@@ -28825,7 +28825,7 @@ static void cont__sim2c__function_call__to_string_44(void) {
   // 1006:         -> string(functor_string argument)
   // 1007:     :
   // ...
-  frame->slots[9] /* temp__4 */ = create_closure(entry__sim2c__function_call__to_string_150, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__compiler__function_call__to_string_150, 0);
   // 950: cond
   // 951:   -> self.is_a_method_definition:
   // 952:     %line_width UNLIMITED # force inline output
@@ -28848,7 +28848,7 @@ static void cont__sim2c__function_call__to_string_44(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__backquoted__to_string_1(void) {
+static void entry__compiler__backquoted__to_string_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -28863,9 +28863,9 @@ static void entry__sim2c__backquoted__to_string_1(void) {
   result_count = 1;
   myself = get__node__text_of();
   func = myself->type;
-  frame->cont = cont__sim2c__backquoted__to_string_2;
+  frame->cont = cont__compiler__backquoted__to_string_2;
 }
-static void cont__sim2c__backquoted__to_string_2(void) {
+static void cont__compiler__backquoted__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -28879,9 +28879,9 @@ static void cont__sim2c__backquoted__to_string_2(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__backquoted__to_string_3;
+  frame->cont = cont__compiler__backquoted__to_string_3;
 }
-static void cont__sim2c__backquoted__to_string_3(void) {
+static void cont__compiler__backquoted__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -29843,7 +29843,7 @@ static void entry__pair_to_string_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__attribute_value_pair__to_string_1(void) {
+static void entry__compiler__attribute_value_pair__to_string_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -29861,7 +29861,7 @@ static void entry__sim2c__attribute_value_pair__to_string_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__attribute_function_pair__to_string_1(void) {
+static void entry__compiler__attribute_function_pair__to_string_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -29879,7 +29879,7 @@ static void entry__sim2c__attribute_function_pair__to_string_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__numeric_literal__to_string_1(void) {
+static void entry__compiler__numeric_literal__to_string_1(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -29894,9 +29894,9 @@ static void entry__sim2c__numeric_literal__to_string_1(void) {
   result_count = 1;
   myself = get__node__value_of();
   func = myself->type;
-  frame->cont = cont__sim2c__numeric_literal__to_string_2;
+  frame->cont = cont__compiler__numeric_literal__to_string_2;
 }
-static void cont__sim2c__numeric_literal__to_string_2(void) {
+static void cont__compiler__numeric_literal__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30684,7 +30684,7 @@ static void entry__escaped_character_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__character_literal__to_string_1(void) {
+static void entry__compiler__character_literal__to_string_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -30699,9 +30699,9 @@ static void entry__sim2c__character_literal__to_string_1(void) {
   result_count = 1;
   myself = get__node__value_of();
   func = myself->type;
-  frame->cont = cont__sim2c__character_literal__to_string_2;
+  frame->cont = cont__compiler__character_literal__to_string_2;
 }
-static void cont__sim2c__character_literal__to_string_2(void) {
+static void cont__compiler__character_literal__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30714,9 +30714,9 @@ static void cont__sim2c__character_literal__to_string_2(void) {
   result_count = 1;
   myself = get__is_in_numeric_notation();
   func = myself->type;
-  frame->cont = cont__sim2c__character_literal__to_string_3;
+  frame->cont = cont__compiler__character_literal__to_string_3;
 }
-static void cont__sim2c__character_literal__to_string_3(void) {
+static void cont__compiler__character_literal__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30730,9 +30730,9 @@ static void cont__sim2c__character_literal__to_string_3(void) {
   result_count = 1;
   myself = var._escaped_character;
   func = myself->type;
-  frame->cont = cont__sim2c__character_literal__to_string_4;
+  frame->cont = cont__compiler__character_literal__to_string_4;
 }
-static void cont__sim2c__character_literal__to_string_4(void) {
+static void cont__compiler__character_literal__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -30750,9 +30750,9 @@ static void cont__sim2c__character_literal__to_string_4(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__character_literal__to_string_5;
+  frame->cont = cont__compiler__character_literal__to_string_5;
 }
-static void cont__sim2c__character_literal__to_string_5(void) {
+static void cont__compiler__character_literal__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -36810,7 +36810,7 @@ static void cont__string_template_to_string_74(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__string_literal__to_string_4(void) {
+static void entry__compiler__string_literal__to_string_4(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -36830,9 +36830,9 @@ static void entry__sim2c__string_literal__to_string_4(void) {
   result_count = 1;
   myself = get__node__text_of();
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_5;
+  frame->cont = cont__compiler__string_literal__to_string_5;
 }
-static void cont__sim2c__string_literal__to_string_5(void) {
+static void cont__compiler__string_literal__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -36845,9 +36845,9 @@ static void cont__sim2c__string_literal__to_string_5(void) {
   result_count = 2;
   myself = var._analyze_string_literal;
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_6;
+  frame->cont = cont__compiler__string_literal__to_string_6;
 }
-static void cont__sim2c__string_literal__to_string_6(void) {
+static void cont__compiler__string_literal__to_string_6(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -36868,7 +36868,7 @@ static void cont__sim2c__string_literal__to_string_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__string_literal__to_string_7(void) {
+static void entry__compiler__string_literal__to_string_7(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // return__1: 0
@@ -36892,9 +36892,9 @@ static void entry__sim2c__string_literal__to_string_7(void) {
   result_count = 1;
   myself = get__node__text_of();
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_8;
+  frame->cont = cont__compiler__string_literal__to_string_8;
 }
-static void cont__sim2c__string_literal__to_string_8(void) {
+static void cont__compiler__string_literal__to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -36907,9 +36907,9 @@ static void cont__sim2c__string_literal__to_string_8(void) {
   result_count = 2;
   myself = var._analyze_string_literal;
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_9;
+  frame->cont = cont__compiler__string_literal__to_string_9;
 }
-static void cont__sim2c__string_literal__to_string_9(void) {
+static void cont__compiler__string_literal__to_string_9(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -36928,9 +36928,9 @@ static void cont__sim2c__string_literal__to_string_9(void) {
   result_count = 1;
   myself = var._print_string_literal;
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_10;
+  frame->cont = cont__compiler__string_literal__to_string_10;
 }
-static void cont__sim2c__string_literal__to_string_10(void) {
+static void cont__compiler__string_literal__to_string_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -36944,14 +36944,14 @@ static void cont__sim2c__string_literal__to_string_10(void) {
   result_count = frame->caller_result_count;
   myself = var._add_remark;
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_11;
+  frame->cont = cont__compiler__string_literal__to_string_11;
 }
-static void cont__sim2c__string_literal__to_string_11(void) {
+static void cont__compiler__string_literal__to_string_11(void) {
   myself = frame->slots[0] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__string_literal__to_string_1(void) {
+static void entry__compiler__string_literal__to_string_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -36966,9 +36966,9 @@ static void entry__sim2c__string_literal__to_string_1(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_2;
+  frame->cont = cont__compiler__string_literal__to_string_2;
 }
-static void cont__sim2c__string_literal__to_string_2(void) {
+static void cont__compiler__string_literal__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -36981,9 +36981,9 @@ static void cont__sim2c__string_literal__to_string_2(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__string_literal__to_string_3;
+  frame->cont = cont__compiler__string_literal__to_string_3;
 }
-static void cont__sim2c__string_literal__to_string_3(void) {
+static void cont__compiler__string_literal__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -36992,12 +36992,12 @@ static void cont__sim2c__string_literal__to_string_3(void) {
   // 1434: ... :
   // 1435:   analyze_string_literal $lines $is_inline node::text_of(self)
   // 1436:   print_string_literal lines is_inline
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__string_literal__to_string_4, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__string_literal__to_string_4, 0);
   // 1437: :
   // 1438:   %line_width UNLIMITED # force inline output
   // 1439:   analyze_string_literal $lines $is_inline node::text_of(self)
   // 1440:   add_remark self print_string_literal(lines is_inline)
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__string_literal__to_string_7, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__string_literal__to_string_7, 0);
   // 1433: if
   // 1434:   remark_lines_of(self).is_empty:
   // 1435:     analyze_string_literal $lines $is_inline node::text_of(self)
@@ -37016,7 +37016,7 @@ static void cont__sim2c__string_literal__to_string_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__unique_item__to_string_1(void) {
+static void entry__compiler__unique_item__to_string_1(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -37034,7 +37034,7 @@ static void entry__sim2c__unique_item__to_string_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__polymorphic_function__to_string_1(void) {
+static void entry__compiler__polymorphic_function__to_string_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -37049,9 +37049,9 @@ static void entry__sim2c__polymorphic_function__to_string_1(void) {
   result_count = 1;
   myself = get__is_a_setter();
   func = myself->type;
-  frame->cont = cont__sim2c__polymorphic_function__to_string_2;
+  frame->cont = cont__compiler__polymorphic_function__to_string_2;
 }
-static void cont__sim2c__polymorphic_function__to_string_2(void) {
+static void cont__compiler__polymorphic_function__to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37061,14 +37061,14 @@ static void cont__sim2c__polymorphic_function__to_string_2(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = func__sim2c__polymorphic_function__to_string_3;
-  arguments->slots[2] = func__sim2c__polymorphic_function__to_string_5;
+  arguments->slots[1] = func__compiler__polymorphic_function__to_string_3;
+  arguments->slots[2] = func__compiler__polymorphic_function__to_string_5;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__polymorphic_function__to_string_7;
+  frame->cont = cont__compiler__polymorphic_function__to_string_7;
 }
-static void entry__sim2c__polymorphic_function__to_string_3(void) {
+static void entry__compiler__polymorphic_function__to_string_3(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -37083,7 +37083,7 @@ static void entry__sim2c__polymorphic_function__to_string_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__polymorphic_function__to_string_5(void) {
+static void entry__compiler__polymorphic_function__to_string_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -37098,7 +37098,7 @@ static void entry__sim2c__polymorphic_function__to_string_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__polymorphic_function__to_string_7(void) {
+static void cont__compiler__polymorphic_function__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37114,7 +37114,7 @@ static void cont__sim2c__polymorphic_function__to_string_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__identifier__to_string_1(void) {
+static void entry__compiler__identifier__to_string_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -37125,11 +37125,11 @@ static void entry__sim2c__identifier__to_string_1(void) {
   // 1460: ->
   // 1461:   namespace_of(self).is_defined
   // 1462:   -> string(namespace_of(self) "::" name_of(self))
-  frame->slots[2] /* temp__2 */ = create_closure(entry__sim2c__identifier__to_string_2, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__identifier__to_string_2, 0);
   // 1463: -> self.is_not_used -> string('_' name_of(self))
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__identifier__to_string_10, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__identifier__to_string_10, 0);
   // 1464: -> true -> name_of(self)
-  frame->slots[4] /* temp__4 */ = create_closure(entry__sim2c__identifier__to_string_15, 0);
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__identifier__to_string_15, 0);
   // 1459: cond
   // 1460:   ->
   // 1461:     namespace_of(self).is_defined
@@ -37144,9 +37144,9 @@ static void entry__sim2c__identifier__to_string_1(void) {
   result_count = 1;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_18;
+  frame->cont = cont__compiler__identifier__to_string_18;
 }
-static void entry__sim2c__identifier__to_string_16(void) {
+static void entry__compiler__identifier__to_string_16(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -37162,9 +37162,9 @@ static void entry__sim2c__identifier__to_string_16(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_17;
+  frame->cont = cont__compiler__identifier__to_string_17;
 }
-static void cont__sim2c__identifier__to_string_17(void) {
+static void cont__compiler__identifier__to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37178,7 +37178,7 @@ static void cont__sim2c__identifier__to_string_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__to_string_12(void) {
+static void entry__compiler__identifier__to_string_12(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -37194,9 +37194,9 @@ static void entry__sim2c__identifier__to_string_12(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_13;
+  frame->cont = cont__compiler__identifier__to_string_13;
 }
-static void cont__sim2c__identifier__to_string_13(void) {
+static void cont__compiler__identifier__to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37210,9 +37210,9 @@ static void cont__sim2c__identifier__to_string_13(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_14;
+  frame->cont = cont__compiler__identifier__to_string_14;
 }
-static void cont__sim2c__identifier__to_string_14(void) {
+static void cont__compiler__identifier__to_string_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37226,7 +37226,7 @@ static void cont__sim2c__identifier__to_string_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__to_string_5(void) {
+static void entry__compiler__identifier__to_string_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -37242,9 +37242,9 @@ static void entry__sim2c__identifier__to_string_5(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_6;
+  frame->cont = cont__compiler__identifier__to_string_6;
 }
-static void cont__sim2c__identifier__to_string_6(void) {
+static void cont__compiler__identifier__to_string_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37257,9 +37257,9 @@ static void cont__sim2c__identifier__to_string_6(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_7;
+  frame->cont = cont__compiler__identifier__to_string_7;
 }
-static void cont__sim2c__identifier__to_string_7(void) {
+static void cont__compiler__identifier__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37274,9 +37274,9 @@ static void cont__sim2c__identifier__to_string_7(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_9;
+  frame->cont = cont__compiler__identifier__to_string_9;
 }
-static void cont__sim2c__identifier__to_string_9(void) {
+static void cont__compiler__identifier__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37290,7 +37290,7 @@ static void cont__sim2c__identifier__to_string_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__to_string_2(void) {
+static void entry__compiler__identifier__to_string_2(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -37306,9 +37306,9 @@ static void entry__sim2c__identifier__to_string_2(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_3;
+  frame->cont = cont__compiler__identifier__to_string_3;
 }
-static void cont__sim2c__identifier__to_string_3(void) {
+static void cont__compiler__identifier__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37321,16 +37321,16 @@ static void cont__sim2c__identifier__to_string_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_4;
+  frame->cont = cont__compiler__identifier__to_string_4;
 }
-static void cont__sim2c__identifier__to_string_4(void) {
+static void cont__compiler__identifier__to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 1462: -> string(namespace_of(self) "::" name_of(self))
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__identifier__to_string_5, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__identifier__to_string_5, 0);
   // 1460: ->
   // 1461:   namespace_of(self).is_defined
   // 1462:   -> string(namespace_of(self) "::" name_of(self))
@@ -37342,7 +37342,7 @@ static void cont__sim2c__identifier__to_string_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__to_string_10(void) {
+static void entry__compiler__identifier__to_string_10(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -37358,16 +37358,16 @@ static void entry__sim2c__identifier__to_string_10(void) {
   result_count = 1;
   myself = get__is_not_used();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__to_string_11;
+  frame->cont = cont__compiler__identifier__to_string_11;
 }
-static void cont__sim2c__identifier__to_string_11(void) {
+static void cont__compiler__identifier__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 1463: ... -> string('_' name_of(self))
-  frame->slots[2] /* temp__2 */ = create_closure(entry__sim2c__identifier__to_string_12, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__identifier__to_string_12, 0);
   // 1463: -> self.is_not_used -> string('_' name_of(self))
   argument_count = 2;
   arguments = node_p;
@@ -37377,7 +37377,7 @@ static void cont__sim2c__identifier__to_string_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__to_string_15(void) {
+static void entry__compiler__identifier__to_string_15(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -37387,7 +37387,7 @@ static void entry__sim2c__identifier__to_string_15(void) {
     return;
   }
   // 1464: ... -> name_of(self)
-  frame->slots[1] /* temp__1 */ = create_closure(entry__sim2c__identifier__to_string_16, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__identifier__to_string_16, 0);
   // 1464: -> true -> name_of(self)
   argument_count = 2;
   arguments = node_p;
@@ -37397,7 +37397,7 @@ static void entry__sim2c__identifier__to_string_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__identifier__to_string_18(void) {
+static void cont__compiler__identifier__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37420,7 +37420,7 @@ static void cont__sim2c__identifier__to_string_18(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__c_code__to_string_2(void) {
+static void entry__compiler__c_code__to_string_2(void) {
   allocate_initialized_frame_gc(1, 9);
   // slot allocations:
   // self: 0
@@ -37443,9 +37443,9 @@ static void entry__sim2c__c_code__to_string_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_3;
+  frame->cont = cont__compiler__c_code__to_string_3;
 }
-static void cont__sim2c__c_code__to_string_3(void) {
+static void cont__compiler__c_code__to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37459,14 +37459,14 @@ static void cont__sim2c__c_code__to_string_3(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__c_code__to_string_4;
-  arguments->slots[2] = func__sim2c__c_code__to_string_8;
+  arguments->slots[1] = func__compiler__c_code__to_string_4;
+  arguments->slots[2] = func__compiler__c_code__to_string_8;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_9;
+  frame->cont = cont__compiler__c_code__to_string_9;
 }
-static void entry__sim2c__c_code__to_string_4(void) {
+static void entry__compiler__c_code__to_string_4(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   if (argument_count != 0) {
@@ -37480,9 +37480,9 @@ static void entry__sim2c__c_code__to_string_4(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_5;
+  frame->cont = cont__compiler__c_code__to_string_5;
 }
-static void cont__sim2c__c_code__to_string_5(void) {
+static void cont__compiler__c_code__to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37497,9 +37497,9 @@ static void cont__sim2c__c_code__to_string_5(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_7;
+  frame->cont = cont__compiler__c_code__to_string_7;
 }
-static void cont__sim2c__c_code__to_string_7(void) {
+static void cont__compiler__c_code__to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37513,7 +37513,7 @@ static void cont__sim2c__c_code__to_string_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__to_string_8(void) {
+static void entry__compiler__c_code__to_string_8(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -37528,7 +37528,7 @@ static void entry__sim2c__c_code__to_string_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_9(void) {
+static void cont__compiler__c_code__to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37542,9 +37542,9 @@ static void cont__sim2c__c_code__to_string_9(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_10;
+  frame->cont = cont__compiler__c_code__to_string_10;
 }
-static void cont__sim2c__c_code__to_string_10(void) {
+static void cont__compiler__c_code__to_string_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37557,9 +37557,9 @@ static void cont__sim2c__c_code__to_string_10(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_11;
+  frame->cont = cont__compiler__c_code__to_string_11;
 }
-static void cont__sim2c__c_code__to_string_11(void) {
+static void cont__compiler__c_code__to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37572,9 +37572,9 @@ static void cont__sim2c__c_code__to_string_11(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_12;
+  frame->cont = cont__compiler__c_code__to_string_12;
 }
-static void cont__sim2c__c_code__to_string_12(void) {
+static void cont__compiler__c_code__to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37587,9 +37587,9 @@ static void cont__sim2c__c_code__to_string_12(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_13;
+  frame->cont = cont__compiler__c_code__to_string_13;
 }
-static void cont__sim2c__c_code__to_string_13(void) {
+static void cont__compiler__c_code__to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37597,7 +37597,7 @@ static void cont__sim2c__c_code__to_string_13(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1480: ... :
   // 1481:   writeln_to &buf indentation "<kind @(kind_of(self))>"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_14, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_14, 0);
   // 1480: if kind_of(self).is_defined:
   // 1481:   writeln_to &buf indentation "<kind @(kind_of(self))>"
   argument_count = 2;
@@ -37607,9 +37607,9 @@ static void cont__sim2c__c_code__to_string_13(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_19;
+  frame->cont = cont__compiler__c_code__to_string_19;
 }
-static void entry__sim2c__c_code__to_string_14(void) {
+static void entry__compiler__c_code__to_string_14(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -37629,9 +37629,9 @@ static void entry__sim2c__c_code__to_string_14(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_15;
+  frame->cont = cont__compiler__c_code__to_string_15;
 }
-static void cont__sim2c__c_code__to_string_15(void) {
+static void cont__compiler__c_code__to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37646,9 +37646,9 @@ static void cont__sim2c__c_code__to_string_15(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_17;
+  frame->cont = cont__compiler__c_code__to_string_17;
 }
-static void cont__sim2c__c_code__to_string_17(void) {
+static void cont__compiler__c_code__to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37663,9 +37663,9 @@ static void cont__sim2c__c_code__to_string_17(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_18;
+  frame->cont = cont__compiler__c_code__to_string_18;
 }
-static void cont__sim2c__c_code__to_string_18(void) {
+static void cont__compiler__c_code__to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37677,7 +37677,7 @@ static void cont__sim2c__c_code__to_string_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_19(void) {
+static void cont__compiler__c_code__to_string_19(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -37689,9 +37689,9 @@ static void cont__sim2c__c_code__to_string_19(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_20;
+  frame->cont = cont__compiler__c_code__to_string_20;
 }
-static void cont__sim2c__c_code__to_string_20(void) {
+static void cont__compiler__c_code__to_string_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37704,9 +37704,9 @@ static void cont__sim2c__c_code__to_string_20(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_21;
+  frame->cont = cont__compiler__c_code__to_string_21;
 }
-static void cont__sim2c__c_code__to_string_21(void) {
+static void cont__compiler__c_code__to_string_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37714,7 +37714,7 @@ static void cont__sim2c__c_code__to_string_21(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1482: ... :
   // 1483:   writeln_to &buf indentation "<name @(identifier_of(self))>"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_22, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_22, 0);
   // 1482: if identifier_of(self).is_defined:
   // 1483:   writeln_to &buf indentation "<name @(identifier_of(self))>"
   argument_count = 2;
@@ -37724,9 +37724,9 @@ static void cont__sim2c__c_code__to_string_21(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_27;
+  frame->cont = cont__compiler__c_code__to_string_27;
 }
-static void entry__sim2c__c_code__to_string_22(void) {
+static void entry__compiler__c_code__to_string_22(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -37746,9 +37746,9 @@ static void entry__sim2c__c_code__to_string_22(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_23;
+  frame->cont = cont__compiler__c_code__to_string_23;
 }
-static void cont__sim2c__c_code__to_string_23(void) {
+static void cont__compiler__c_code__to_string_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37763,9 +37763,9 @@ static void cont__sim2c__c_code__to_string_23(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_25;
+  frame->cont = cont__compiler__c_code__to_string_25;
 }
-static void cont__sim2c__c_code__to_string_25(void) {
+static void cont__compiler__c_code__to_string_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37780,9 +37780,9 @@ static void cont__sim2c__c_code__to_string_25(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_26;
+  frame->cont = cont__compiler__c_code__to_string_26;
 }
-static void cont__sim2c__c_code__to_string_26(void) {
+static void cont__compiler__c_code__to_string_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37794,7 +37794,7 @@ static void cont__sim2c__c_code__to_string_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_27(void) {
+static void cont__compiler__c_code__to_string_27(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -37806,9 +37806,9 @@ static void cont__sim2c__c_code__to_string_27(void) {
   result_count = 1;
   myself = get__node_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_28;
+  frame->cont = cont__compiler__c_code__to_string_28;
 }
-static void cont__sim2c__c_code__to_string_28(void) {
+static void cont__compiler__c_code__to_string_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37821,9 +37821,9 @@ static void cont__sim2c__c_code__to_string_28(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_29;
+  frame->cont = cont__compiler__c_code__to_string_29;
 }
-static void cont__sim2c__c_code__to_string_29(void) {
+static void cont__compiler__c_code__to_string_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37831,7 +37831,7 @@ static void cont__sim2c__c_code__to_string_29(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1484: ... :
   // 1485:   writeln_to &buf indentation "<node @(node_of(self))>"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_30, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_30, 0);
   // 1484: if node_of(self).is_defined:
   // 1485:   writeln_to &buf indentation "<node @(node_of(self))>"
   argument_count = 2;
@@ -37841,9 +37841,9 @@ static void cont__sim2c__c_code__to_string_29(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_35;
+  frame->cont = cont__compiler__c_code__to_string_35;
 }
-static void entry__sim2c__c_code__to_string_30(void) {
+static void entry__compiler__c_code__to_string_30(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -37863,9 +37863,9 @@ static void entry__sim2c__c_code__to_string_30(void) {
   result_count = 1;
   myself = get__node_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_31;
+  frame->cont = cont__compiler__c_code__to_string_31;
 }
-static void cont__sim2c__c_code__to_string_31(void) {
+static void cont__compiler__c_code__to_string_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37880,9 +37880,9 @@ static void cont__sim2c__c_code__to_string_31(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_33;
+  frame->cont = cont__compiler__c_code__to_string_33;
 }
-static void cont__sim2c__c_code__to_string_33(void) {
+static void cont__compiler__c_code__to_string_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37897,9 +37897,9 @@ static void cont__sim2c__c_code__to_string_33(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_34;
+  frame->cont = cont__compiler__c_code__to_string_34;
 }
-static void cont__sim2c__c_code__to_string_34(void) {
+static void cont__compiler__c_code__to_string_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37911,7 +37911,7 @@ static void cont__sim2c__c_code__to_string_34(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_35(void) {
+static void cont__compiler__c_code__to_string_35(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -37923,9 +37923,9 @@ static void cont__sim2c__c_code__to_string_35(void) {
   result_count = 1;
   myself = get__node__type_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_36;
+  frame->cont = cont__compiler__c_code__to_string_36;
 }
-static void cont__sim2c__c_code__to_string_36(void) {
+static void cont__compiler__c_code__to_string_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37938,9 +37938,9 @@ static void cont__sim2c__c_code__to_string_36(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_37;
+  frame->cont = cont__compiler__c_code__to_string_37;
 }
-static void cont__sim2c__c_code__to_string_37(void) {
+static void cont__compiler__c_code__to_string_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37948,7 +37948,7 @@ static void cont__sim2c__c_code__to_string_37(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1486: ... :
   // 1487:   writeln_to &buf indentation "<type @(node::type_of(self))>"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_38, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_38, 0);
   // 1486: if node::type_of(self).is_defined:
   // 1487:   writeln_to &buf indentation "<type @(node::type_of(self))>"
   argument_count = 2;
@@ -37958,9 +37958,9 @@ static void cont__sim2c__c_code__to_string_37(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_43;
+  frame->cont = cont__compiler__c_code__to_string_43;
 }
-static void entry__sim2c__c_code__to_string_38(void) {
+static void entry__compiler__c_code__to_string_38(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -37980,9 +37980,9 @@ static void entry__sim2c__c_code__to_string_38(void) {
   result_count = 1;
   myself = get__node__type_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_39;
+  frame->cont = cont__compiler__c_code__to_string_39;
 }
-static void cont__sim2c__c_code__to_string_39(void) {
+static void cont__compiler__c_code__to_string_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -37997,9 +37997,9 @@ static void cont__sim2c__c_code__to_string_39(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_41;
+  frame->cont = cont__compiler__c_code__to_string_41;
 }
-static void cont__sim2c__c_code__to_string_41(void) {
+static void cont__compiler__c_code__to_string_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38014,9 +38014,9 @@ static void cont__sim2c__c_code__to_string_41(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_42;
+  frame->cont = cont__compiler__c_code__to_string_42;
 }
-static void cont__sim2c__c_code__to_string_42(void) {
+static void cont__compiler__c_code__to_string_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38028,7 +38028,7 @@ static void cont__sim2c__c_code__to_string_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_43(void) {
+static void cont__compiler__c_code__to_string_43(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38040,9 +38040,9 @@ static void cont__sim2c__c_code__to_string_43(void) {
   result_count = 1;
   myself = get__base_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_44;
+  frame->cont = cont__compiler__c_code__to_string_44;
 }
-static void cont__sim2c__c_code__to_string_44(void) {
+static void cont__compiler__c_code__to_string_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38055,9 +38055,9 @@ static void cont__sim2c__c_code__to_string_44(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_45;
+  frame->cont = cont__compiler__c_code__to_string_45;
 }
-static void cont__sim2c__c_code__to_string_45(void) {
+static void cont__compiler__c_code__to_string_45(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38065,7 +38065,7 @@ static void cont__sim2c__c_code__to_string_45(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1488: ... :
   // 1489:   writeln_to &buf indentation "<base @(base_of(self))>"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_46, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_46, 0);
   // 1488: if base_of(self).is_defined:
   // 1489:   writeln_to &buf indentation "<base @(base_of(self))>"
   argument_count = 2;
@@ -38075,9 +38075,9 @@ static void cont__sim2c__c_code__to_string_45(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_51;
+  frame->cont = cont__compiler__c_code__to_string_51;
 }
-static void entry__sim2c__c_code__to_string_46(void) {
+static void entry__compiler__c_code__to_string_46(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -38097,9 +38097,9 @@ static void entry__sim2c__c_code__to_string_46(void) {
   result_count = 1;
   myself = get__base_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_47;
+  frame->cont = cont__compiler__c_code__to_string_47;
 }
-static void cont__sim2c__c_code__to_string_47(void) {
+static void cont__compiler__c_code__to_string_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38114,9 +38114,9 @@ static void cont__sim2c__c_code__to_string_47(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_49;
+  frame->cont = cont__compiler__c_code__to_string_49;
 }
-static void cont__sim2c__c_code__to_string_49(void) {
+static void cont__compiler__c_code__to_string_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38131,9 +38131,9 @@ static void cont__sim2c__c_code__to_string_49(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_50;
+  frame->cont = cont__compiler__c_code__to_string_50;
 }
-static void cont__sim2c__c_code__to_string_50(void) {
+static void cont__compiler__c_code__to_string_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38145,7 +38145,7 @@ static void cont__sim2c__c_code__to_string_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_51(void) {
+static void cont__compiler__c_code__to_string_51(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38157,9 +38157,9 @@ static void cont__sim2c__c_code__to_string_51(void) {
   result_count = 1;
   myself = get__scope_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_52;
+  frame->cont = cont__compiler__c_code__to_string_52;
 }
-static void cont__sim2c__c_code__to_string_52(void) {
+static void cont__compiler__c_code__to_string_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38172,16 +38172,16 @@ static void cont__sim2c__c_code__to_string_52(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_53;
+  frame->cont = cont__compiler__c_code__to_string_53;
 }
-static void cont__sim2c__c_code__to_string_53(void) {
+static void cont__compiler__c_code__to_string_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
   // 1490: ... scope_of(self) != "local"
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__c_code__to_string_54, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__c_code__to_string_54, 0);
   // 1490: ... scope_of(self).is_defined && scope_of(self) != "local"
   argument_count = 2;
   arguments = node_p;
@@ -38190,9 +38190,9 @@ static void cont__sim2c__c_code__to_string_53(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_59;
+  frame->cont = cont__compiler__c_code__to_string_59;
 }
-static void entry__sim2c__c_code__to_string_54(void) {
+static void entry__compiler__c_code__to_string_54(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -38208,9 +38208,9 @@ static void entry__sim2c__c_code__to_string_54(void) {
   result_count = 1;
   myself = get__scope_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_55;
+  frame->cont = cont__compiler__c_code__to_string_55;
 }
-static void cont__sim2c__c_code__to_string_55(void) {
+static void cont__compiler__c_code__to_string_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38224,9 +38224,9 @@ static void cont__sim2c__c_code__to_string_55(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_57;
+  frame->cont = cont__compiler__c_code__to_string_57;
 }
-static void cont__sim2c__c_code__to_string_57(void) {
+static void cont__compiler__c_code__to_string_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38239,9 +38239,9 @@ static void cont__sim2c__c_code__to_string_57(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_58;
+  frame->cont = cont__compiler__c_code__to_string_58;
 }
-static void cont__sim2c__c_code__to_string_58(void) {
+static void cont__compiler__c_code__to_string_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38255,7 +38255,7 @@ static void cont__sim2c__c_code__to_string_58(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_59(void) {
+static void cont__compiler__c_code__to_string_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38263,7 +38263,7 @@ static void cont__sim2c__c_code__to_string_59(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1490: ... :
   // 1491:   writeln_to &buf indentation "<scope @(scope_of(self))>"
-  frame->slots[8] /* temp__5 */ = create_closure(entry__sim2c__c_code__to_string_60, 0);
+  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__c_code__to_string_60, 0);
   // 1490: if scope_of(self).is_defined && scope_of(self) != "local":
   // 1491:   writeln_to &buf indentation "<scope @(scope_of(self))>"
   argument_count = 2;
@@ -38273,9 +38273,9 @@ static void cont__sim2c__c_code__to_string_59(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_65;
+  frame->cont = cont__compiler__c_code__to_string_65;
 }
-static void entry__sim2c__c_code__to_string_60(void) {
+static void entry__compiler__c_code__to_string_60(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -38295,9 +38295,9 @@ static void entry__sim2c__c_code__to_string_60(void) {
   result_count = 1;
   myself = get__scope_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_61;
+  frame->cont = cont__compiler__c_code__to_string_61;
 }
-static void cont__sim2c__c_code__to_string_61(void) {
+static void cont__compiler__c_code__to_string_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38312,9 +38312,9 @@ static void cont__sim2c__c_code__to_string_61(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_63;
+  frame->cont = cont__compiler__c_code__to_string_63;
 }
-static void cont__sim2c__c_code__to_string_63(void) {
+static void cont__compiler__c_code__to_string_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38329,9 +38329,9 @@ static void cont__sim2c__c_code__to_string_63(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_64;
+  frame->cont = cont__compiler__c_code__to_string_64;
 }
-static void cont__sim2c__c_code__to_string_64(void) {
+static void cont__compiler__c_code__to_string_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38343,7 +38343,7 @@ static void cont__sim2c__c_code__to_string_64(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_65(void) {
+static void cont__compiler__c_code__to_string_65(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38355,9 +38355,9 @@ static void cont__sim2c__c_code__to_string_65(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_66;
+  frame->cont = cont__compiler__c_code__to_string_66;
 }
-static void cont__sim2c__c_code__to_string_66(void) {
+static void cont__compiler__c_code__to_string_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38365,7 +38365,7 @@ static void cont__sim2c__c_code__to_string_66(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 1492: ... : (argument)
   // 1493:   writeln_to &buf indentation "<argument @(argument)>"
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__c_code__to_string_67, 1);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__c_code__to_string_67, 1);
   // 1492: for_each arguments_of(self): (argument)
   // 1493:   writeln_to &buf indentation "<argument @(argument)>"
   argument_count = 2;
@@ -38375,9 +38375,9 @@ static void cont__sim2c__c_code__to_string_66(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_71;
+  frame->cont = cont__compiler__c_code__to_string_71;
 }
-static void entry__sim2c__c_code__to_string_67(void) {
+static void entry__compiler__c_code__to_string_67(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // argument: 0
@@ -38398,9 +38398,9 @@ static void entry__sim2c__c_code__to_string_67(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_69;
+  frame->cont = cont__compiler__c_code__to_string_69;
 }
-static void cont__sim2c__c_code__to_string_69(void) {
+static void cont__compiler__c_code__to_string_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38415,9 +38415,9 @@ static void cont__sim2c__c_code__to_string_69(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_70;
+  frame->cont = cont__compiler__c_code__to_string_70;
 }
-static void cont__sim2c__c_code__to_string_70(void) {
+static void cont__compiler__c_code__to_string_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38429,7 +38429,7 @@ static void cont__sim2c__c_code__to_string_70(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_71(void) {
+static void cont__compiler__c_code__to_string_71(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38441,9 +38441,9 @@ static void cont__sim2c__c_code__to_string_71(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_72;
+  frame->cont = cont__compiler__c_code__to_string_72;
 }
-static void cont__sim2c__c_code__to_string_72(void) {
+static void cont__compiler__c_code__to_string_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38456,9 +38456,9 @@ static void cont__sim2c__c_code__to_string_72(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_73;
+  frame->cont = cont__compiler__c_code__to_string_73;
 }
-static void cont__sim2c__c_code__to_string_73(void) {
+static void cont__compiler__c_code__to_string_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38468,7 +38468,7 @@ static void cont__sim2c__c_code__to_string_73(void) {
   // 1495:   push &buf '@nl;'
   // 1496:   for_each remark_lines_of(self): (remark_line)
   // 1497:     writeln_to &buf indentation "//" remark_line
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_74, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_74, 0);
   // 1494: unless remark_lines_of(self).is_empty:
   // 1495:   push &buf '@nl;'
   // 1496:   for_each remark_lines_of(self): (remark_line)
@@ -38480,9 +38480,9 @@ static void cont__sim2c__c_code__to_string_73(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_80;
+  frame->cont = cont__compiler__c_code__to_string_80;
 }
-static void entry__sim2c__c_code__to_string_77(void) {
+static void entry__compiler__c_code__to_string_77(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // remark_line: 0
@@ -38504,9 +38504,9 @@ static void entry__sim2c__c_code__to_string_77(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_79;
+  frame->cont = cont__compiler__c_code__to_string_79;
 }
-static void cont__sim2c__c_code__to_string_79(void) {
+static void cont__compiler__c_code__to_string_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38518,7 +38518,7 @@ static void cont__sim2c__c_code__to_string_79(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__to_string_74(void) {
+static void entry__compiler__c_code__to_string_74(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // buf: 0
@@ -38539,9 +38539,9 @@ static void entry__sim2c__c_code__to_string_74(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_75;
+  frame->cont = cont__compiler__c_code__to_string_75;
 }
-static void cont__sim2c__c_code__to_string_75(void) {
+static void cont__compiler__c_code__to_string_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38554,9 +38554,9 @@ static void cont__sim2c__c_code__to_string_75(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_76;
+  frame->cont = cont__compiler__c_code__to_string_76;
 }
-static void cont__sim2c__c_code__to_string_76(void) {
+static void cont__compiler__c_code__to_string_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38564,7 +38564,7 @@ static void cont__sim2c__c_code__to_string_76(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1496: ... : (remark_line)
   // 1497:   writeln_to &buf indentation "//" remark_line
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__c_code__to_string_77, 1);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__c_code__to_string_77, 1);
   // 1496: for_each remark_lines_of(self): (remark_line)
   // 1497:   writeln_to &buf indentation "//" remark_line
   argument_count = 2;
@@ -38576,7 +38576,7 @@ static void cont__sim2c__c_code__to_string_76(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__c_code__to_string_80(void) {
+static void cont__compiler__c_code__to_string_80(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38588,9 +38588,9 @@ static void cont__sim2c__c_code__to_string_80(void) {
   result_count = 1;
   myself = get__source_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_81;
+  frame->cont = cont__compiler__c_code__to_string_81;
 }
-static void cont__sim2c__c_code__to_string_81(void) {
+static void cont__compiler__c_code__to_string_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38603,9 +38603,9 @@ static void cont__sim2c__c_code__to_string_81(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_82;
+  frame->cont = cont__compiler__c_code__to_string_82;
 }
-static void cont__sim2c__c_code__to_string_82(void) {
+static void cont__compiler__c_code__to_string_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38614,7 +38614,7 @@ static void cont__sim2c__c_code__to_string_82(void) {
   // 1498: ... :
   // 1499:   if length_of(buf) > 4: writeln_to &buf
   // 1500:   for_each_line source_of(self): (line) writeln_to &buf indentation line
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_83, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_83, 0);
   // 1498: if source_of(self).is_defined:
   // 1499:   if length_of(buf) > 4: writeln_to &buf
   // 1500:   for_each_line source_of(self): (line) writeln_to &buf indentation line
@@ -38625,9 +38625,9 @@ static void cont__sim2c__c_code__to_string_82(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_92;
+  frame->cont = cont__compiler__c_code__to_string_92;
 }
-static void entry__sim2c__c_code__to_string_90(void) {
+static void entry__compiler__c_code__to_string_90(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // line: 0
@@ -38648,9 +38648,9 @@ static void entry__sim2c__c_code__to_string_90(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_91;
+  frame->cont = cont__compiler__c_code__to_string_91;
 }
-static void cont__sim2c__c_code__to_string_91(void) {
+static void cont__compiler__c_code__to_string_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38662,7 +38662,7 @@ static void cont__sim2c__c_code__to_string_91(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__to_string_83(void) {
+static void entry__compiler__c_code__to_string_83(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // buf: 0
@@ -38682,9 +38682,9 @@ static void entry__sim2c__c_code__to_string_83(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_84;
+  frame->cont = cont__compiler__c_code__to_string_84;
 }
-static void cont__sim2c__c_code__to_string_84(void) {
+static void cont__compiler__c_code__to_string_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38698,16 +38698,16 @@ static void cont__sim2c__c_code__to_string_84(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_85;
+  frame->cont = cont__compiler__c_code__to_string_85;
 }
-static void cont__sim2c__c_code__to_string_85(void) {
+static void cont__compiler__c_code__to_string_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1499: ... : writeln_to &buf
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__c_code__to_string_86, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_86, 0);
   // 1499: if length_of(buf) > 4: writeln_to &buf
   argument_count = 2;
   arguments = node_p;
@@ -38716,9 +38716,9 @@ static void cont__sim2c__c_code__to_string_85(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_88;
+  frame->cont = cont__compiler__c_code__to_string_88;
 }
-static void entry__sim2c__c_code__to_string_86(void) {
+static void entry__compiler__c_code__to_string_86(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // buf: 0
@@ -38734,9 +38734,9 @@ static void entry__sim2c__c_code__to_string_86(void) {
   result_count = 1;
   myself = get__writeln_to();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_87;
+  frame->cont = cont__compiler__c_code__to_string_87;
 }
-static void cont__sim2c__c_code__to_string_87(void) {
+static void cont__compiler__c_code__to_string_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38748,7 +38748,7 @@ static void cont__sim2c__c_code__to_string_87(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__c_code__to_string_88(void) {
+static void cont__compiler__c_code__to_string_88(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38760,16 +38760,16 @@ static void cont__sim2c__c_code__to_string_88(void) {
   result_count = 1;
   myself = get__source_of();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_89;
+  frame->cont = cont__compiler__c_code__to_string_89;
 }
-static void cont__sim2c__c_code__to_string_89(void) {
+static void cont__compiler__c_code__to_string_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 1500: ... : (line) writeln_to &buf indentation line
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__c_code__to_string_90, 1);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__c_code__to_string_90, 1);
   // 1500: for_each_line source_of(self): (line) writeln_to &buf indentation line
   argument_count = 2;
   arguments = node_p;
@@ -38780,7 +38780,7 @@ static void cont__sim2c__c_code__to_string_89(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__c_code__to_string_92(void) {
+static void cont__compiler__c_code__to_string_92(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -38792,9 +38792,9 @@ static void cont__sim2c__c_code__to_string_92(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_93;
+  frame->cont = cont__compiler__c_code__to_string_93;
 }
-static void cont__sim2c__c_code__to_string_93(void) {
+static void cont__compiler__c_code__to_string_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38808,9 +38808,9 @@ static void cont__sim2c__c_code__to_string_93(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_94;
+  frame->cont = cont__compiler__c_code__to_string_94;
 }
-static void cont__sim2c__c_code__to_string_94(void) {
+static void cont__compiler__c_code__to_string_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38824,9 +38824,9 @@ static void cont__sim2c__c_code__to_string_94(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__c_code__to_string_95;
+  frame->cont = cont__compiler__c_code__to_string_95;
 }
-static void cont__sim2c__c_code__to_string_95(void) {
+static void cont__compiler__c_code__to_string_95(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -38840,7 +38840,7 @@ static void cont__sim2c__c_code__to_string_95(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__to_string_96(void) {
+static void entry__compiler__c_code__to_string_96(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -38855,7 +38855,7 @@ static void entry__sim2c__c_code__to_string_96(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__c_code__to_string_1(void) {
+static void entry__compiler__c_code__to_string_1(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // self: 0
@@ -38876,7 +38876,7 @@ static void entry__sim2c__c_code__to_string_1(void) {
   // 1479:   $indentation spaces(indent)
   // 1480:   if kind_of(self).is_defined:
   // ...
-  frame->slots[1] /* temp__1 */ = create_closure(entry__sim2c__c_code__to_string_2, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__c_code__to_string_2, 0);
   // 1471: if hide_body_statements (-> "{...}"):
   // 1472:   $$buf
   // 1473:     if
@@ -38891,7 +38891,7 @@ static void entry__sim2c__c_code__to_string_1(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__hide_body_statements();
-  arguments->slots[1] = func__sim2c__c_code__to_string_96;
+  arguments->slots[1] = func__compiler__c_code__to_string_96;
   arguments->slots[2] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
   myself = get__if();
@@ -38919,7 +38919,7 @@ EXPORT void collect__pretty_printer(void) {
   var._INDENTATION_MARKER_HIGH = collect_node(var._INDENTATION_MARKER_HIGH);
   var._INDENTATION = collect_node(var._INDENTATION);
   var._indentation_string = collect_node(var._indentation_string);
-  var.sim2c__print_trees = collect_node(var.sim2c__print_trees);
+  var.compiler__print_trees = collect_node(var.compiler__print_trees);
   var._line_start_remark_to_string = collect_node(var._line_start_remark_to_string);
   var._add_remark_lines = collect_node(var._add_remark_lines);
   var._add_remark = collect_node(var._add_remark);
@@ -39012,11 +39012,11 @@ EXPORT void phase_2__pretty_printer(void) {
   func__INDENTATION__grammar__match_14 = create_function(entry__INDENTATION__grammar__match_14, 0);
   func__INDENTATION__grammar__match_1 = create_function(entry__INDENTATION__grammar__match_1, 2);
   func__indentation_string_1 = create_function(entry__indentation_string_1, 1);
-  func__sim2c__print_trees_2 = create_function(entry__sim2c__print_trees_2, 1);
-  func__sim2c__print_trees_30 = create_function(entry__sim2c__print_trees_30, 0);
-  func__sim2c__print_trees_46 = create_function(entry__sim2c__print_trees_46, 1);
-  func__sim2c__print_trees_6 = create_function(entry__sim2c__print_trees_6, 2);
-  func__sim2c__print_trees_1 = create_function(entry__sim2c__print_trees_1, 1);
+  func__compiler__print_trees_2 = create_function(entry__compiler__print_trees_2, 1);
+  func__compiler__print_trees_30 = create_function(entry__compiler__print_trees_30, 0);
+  func__compiler__print_trees_46 = create_function(entry__compiler__print_trees_46, 1);
+  func__compiler__print_trees_6 = create_function(entry__compiler__print_trees_6, 2);
+  func__compiler__print_trees_1 = create_function(entry__compiler__print_trees_1, 1);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   func__line_start_remark_to_string_1 = create_function(entry__line_start_remark_to_string_1, 2);
   string__578a5af303e9cc2 = from_latin_1_string("#", 1);
@@ -39032,30 +39032,30 @@ EXPORT void phase_2__pretty_printer(void) {
   func__types__grammar_node__to_string_1 = create_function(entry__types__grammar_node__to_string_1, 1);
   string__7ca422245e2a26c5 = from_latin_1_string("<require ", 9);
   string__578a5af303e9cdf = from_latin_1_string(">", 1);
-  func__sim2c__require_instruction__to_string_1 = create_function(entry__sim2c__require_instruction__to_string_1, 1);
+  func__compiler__require_instruction__to_string_1 = create_function(entry__compiler__require_instruction__to_string_1, 1);
   string__82c941922e20aab7 = from_latin_1_string("<namespace ", 11);
   string__fa730415fc16bec = from_latin_1_string(" = ", 3);
-  func__sim2c__namespace_instruction__to_string_1 = create_function(entry__sim2c__namespace_instruction__to_string_1, 1);
+  func__compiler__namespace_instruction__to_string_1 = create_function(entry__compiler__namespace_instruction__to_string_1, 1);
   string__a1740e581583f0da = from_latin_1_string("<using ", 7);
-  func__sim2c__using_instruction__to_string_1 = create_function(entry__sim2c__using_instruction__to_string_1, 1);
+  func__compiler__using_instruction__to_string_1 = create_function(entry__compiler__using_instruction__to_string_1, 1);
   string__448827ad5e2bb5a5 = from_latin_1_string("<include ", 9);
-  func__sim2c__include_instruction__to_string_1 = create_function(entry__sim2c__include_instruction__to_string_1, 1);
+  func__compiler__include_instruction__to_string_1 = create_function(entry__compiler__include_instruction__to_string_1, 1);
   string__4a1f55ee81e292f7 = from_latin_1_string("<link ", 6);
-  func__sim2c__link_instruction__to_string_1 = create_function(entry__sim2c__link_instruction__to_string_1, 1);
+  func__compiler__link_instruction__to_string_1 = create_function(entry__compiler__link_instruction__to_string_1, 1);
   string__5a1f536e81b212f7 = from_latin_1_string("<data ", 6);
-  func__sim2c__data_instruction__to_string_1 = create_function(entry__sim2c__data_instruction__to_string_1, 1);
-  func__sim2c__remark_statement__to_string_6 = create_function(entry__sim2c__remark_statement__to_string_6, 0);
-  func__sim2c__remark_statement__to_string_23 = create_function(entry__sim2c__remark_statement__to_string_23, 0);
-  func__sim2c__remark_statement__to_string_27 = create_function(entry__sim2c__remark_statement__to_string_27, 0);
-  func__sim2c__remark_statement__to_string_29 = create_function(entry__sim2c__remark_statement__to_string_29, 0);
-  func__sim2c__remark_statement__to_string_28 = create_function(entry__sim2c__remark_statement__to_string_28, 0);
-  func__sim2c__remark_statement__to_string_1 = create_function(entry__sim2c__remark_statement__to_string_1, 1);
+  func__compiler__data_instruction__to_string_1 = create_function(entry__compiler__data_instruction__to_string_1, 1);
+  func__compiler__remark_statement__to_string_6 = create_function(entry__compiler__remark_statement__to_string_6, 0);
+  func__compiler__remark_statement__to_string_23 = create_function(entry__compiler__remark_statement__to_string_23, 0);
+  func__compiler__remark_statement__to_string_27 = create_function(entry__compiler__remark_statement__to_string_27, 0);
+  func__compiler__remark_statement__to_string_29 = create_function(entry__compiler__remark_statement__to_string_29, 0);
+  func__compiler__remark_statement__to_string_28 = create_function(entry__compiler__remark_statement__to_string_28, 0);
+  func__compiler__remark_statement__to_string_1 = create_function(entry__compiler__remark_statement__to_string_1, 1);
   string__fa736c15f296be4 = from_latin_1_string(": (", 3);
   string__578a5af303e9cc9 = from_latin_1_string("(", 1);
-  func__sim2c__body__to_string_96 = create_function(entry__sim2c__body__to_string_96, 1);
-  func__sim2c__body__to_string_108 = create_function(entry__sim2c__body__to_string_108, 1);
+  func__compiler__body__to_string_96 = create_function(entry__compiler__body__to_string_96, 1);
+  func__compiler__body__to_string_108 = create_function(entry__compiler__body__to_string_108, 1);
   string__9e0afacb5f107d33 = from_latin_1_string("...\012", 4);
-  func__sim2c__body__to_string_1 = create_function(entry__sim2c__body__to_string_1, 1);
+  func__compiler__body__to_string_1 = create_function(entry__compiler__body__to_string_1, 1);
   func__all_arguments_of_1 = create_function(entry__all_arguments_of_1, 1);
   func__argument_to_string_11 = create_function(entry__argument_to_string_11, 0);
   func__argument_to_string_1 = create_function(entry__argument_to_string_1, 1);
@@ -39068,36 +39068,36 @@ EXPORT void phase_2__pretty_printer(void) {
     "\n"
     "\n",
     2);
-  func__sim2c__call__to_string_80 = create_function(entry__sim2c__call__to_string_80, 0);
-  func__sim2c__call__to_string_83 = create_function(entry__sim2c__call__to_string_83, 0);
-  func__sim2c__call__to_string_86 = create_function(entry__sim2c__call__to_string_86, 0);
-  func__sim2c__call__to_string_99 = create_function(entry__sim2c__call__to_string_99, 0);
-  func__sim2c__call__to_string_130 = create_function(entry__sim2c__call__to_string_130, 1);
-  func__sim2c__call__to_string_1 = create_function(entry__sim2c__call__to_string_1, 1);
+  func__compiler__call__to_string_80 = create_function(entry__compiler__call__to_string_80, 0);
+  func__compiler__call__to_string_83 = create_function(entry__compiler__call__to_string_83, 0);
+  func__compiler__call__to_string_86 = create_function(entry__compiler__call__to_string_86, 0);
+  func__compiler__call__to_string_99 = create_function(entry__compiler__call__to_string_99, 0);
+  func__compiler__call__to_string_130 = create_function(entry__compiler__call__to_string_130, 1);
+  func__compiler__call__to_string_1 = create_function(entry__compiler__call__to_string_1, 1);
   func__definition_to_string_1 = create_function(entry__definition_to_string_1, 2);
-  func__sim2c__define_static_single__to_string_4 = create_function(entry__sim2c__define_static_single__to_string_4, 0);
+  func__compiler__define_static_single__to_string_4 = create_function(entry__compiler__define_static_single__to_string_4, 0);
   string__578a5af303e9cc5 = from_latin_1_string("$", 1);
-  func__sim2c__define_static_single__to_string_5 = create_function(entry__sim2c__define_static_single__to_string_5, 0);
-  func__sim2c__define_static_single__to_string_1 = create_function(entry__sim2c__define_static_single__to_string_1, 1);
-  func__sim2c__define_static_multi__to_string_4 = create_function(entry__sim2c__define_static_multi__to_string_4, 0);
+  func__compiler__define_static_single__to_string_5 = create_function(entry__compiler__define_static_single__to_string_5, 0);
+  func__compiler__define_static_single__to_string_1 = create_function(entry__compiler__define_static_single__to_string_1, 1);
+  func__compiler__define_static_multi__to_string_4 = create_function(entry__compiler__define_static_multi__to_string_4, 0);
   string__578a5af303e9cc0 = from_latin_1_string("!", 1);
-  func__sim2c__define_static_multi__to_string_5 = create_function(entry__sim2c__define_static_multi__to_string_5, 0);
+  func__compiler__define_static_multi__to_string_5 = create_function(entry__compiler__define_static_multi__to_string_5, 0);
   string__578a5af303e9cc7 = from_latin_1_string("&", 1);
-  func__sim2c__define_static_multi__to_string_7 = create_function(entry__sim2c__define_static_multi__to_string_7, 0);
+  func__compiler__define_static_multi__to_string_7 = create_function(entry__compiler__define_static_multi__to_string_7, 0);
   string__2d7981f4e6282be1 = from_latin_1_string("$$", 2);
-  func__sim2c__define_static_multi__to_string_9 = create_function(entry__sim2c__define_static_multi__to_string_9, 0);
-  func__sim2c__define_static_multi__to_string_1 = create_function(entry__sim2c__define_static_multi__to_string_1, 1);
+  func__compiler__define_static_multi__to_string_9 = create_function(entry__compiler__define_static_multi__to_string_9, 0);
+  func__compiler__define_static_multi__to_string_1 = create_function(entry__compiler__define_static_multi__to_string_1, 1);
   string__578a5af303e9cc4 = from_latin_1_string("%", 1);
-  func__sim2c__define_dynamic_single__to_string_1 = create_function(entry__sim2c__define_dynamic_single__to_string_1, 1);
+  func__compiler__define_dynamic_single__to_string_1 = create_function(entry__compiler__define_dynamic_single__to_string_1, 1);
   string__2d7981f4e6202be0 = from_latin_1_string("%%", 2);
-  func__sim2c__define_dynamic_multi__to_string_1 = create_function(entry__sim2c__define_dynamic_multi__to_string_1, 1);
+  func__compiler__define_dynamic_multi__to_string_1 = create_function(entry__compiler__define_dynamic_multi__to_string_1, 1);
   func__precedence_of_17 = create_function(entry__precedence_of_17, 0);
   func__precedence_of_18 = create_function(entry__precedence_of_18, 0);
   func__precedence_of_19 = create_function(entry__precedence_of_19, 0);
   func__precedence_of_1 = create_function(entry__precedence_of_1, 1);
   func__operator_of_15 = create_function(entry__operator_of_15, 0);
   func__operator_of_1 = create_function(entry__operator_of_1, 1);
-  func__sim2c__function_call__to_string_42 = create_function(entry__sim2c__function_call__to_string_42, 0);
+  func__compiler__function_call__to_string_42 = create_function(entry__compiler__function_call__to_string_42, 0);
   string__2d7981f4e6082beb = from_latin_1_string(" .", 2);
   string__2d7981f4e6782be5 = from_latin_1_string(". ", 2);
   string__fa724815d896ba8 = from_latin_1_string("std", 3);
@@ -39110,15 +39110,15 @@ EXPORT void phase_2__pretty_printer(void) {
   string__578a5af303e9cce = from_latin_1_string("/", 1);
   string__578a5af303e9ccd = from_latin_1_string(",", 1);
   string__6480ae5e84ccc225 = from_latin_1_string("sequence", 8);
-  func__sim2c__function_call__to_string_1 = create_function(entry__sim2c__function_call__to_string_1, 1);
-  func__sim2c__backquoted__to_string_1 = create_function(entry__sim2c__backquoted__to_string_1, 1);
+  func__compiler__function_call__to_string_1 = create_function(entry__compiler__function_call__to_string_1, 1);
+  func__compiler__backquoted__to_string_1 = create_function(entry__compiler__backquoted__to_string_1, 1);
   func__pair_to_string_19 = create_function(entry__pair_to_string_19, 0);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   func__pair_to_string_20 = create_function(entry__pair_to_string_20, 0);
   func__pair_to_string_1 = create_function(entry__pair_to_string_1, 2);
-  func__sim2c__attribute_value_pair__to_string_1 = create_function(entry__sim2c__attribute_value_pair__to_string_1, 1);
-  func__sim2c__attribute_function_pair__to_string_1 = create_function(entry__sim2c__attribute_function_pair__to_string_1, 1);
-  func__sim2c__numeric_literal__to_string_1 = create_function(entry__sim2c__numeric_literal__to_string_1, 1);
+  func__compiler__attribute_value_pair__to_string_1 = create_function(entry__compiler__attribute_value_pair__to_string_1, 1);
+  func__compiler__attribute_function_pair__to_string_1 = create_function(entry__compiler__attribute_function_pair__to_string_1, 1);
+  func__compiler__numeric_literal__to_string_1 = create_function(entry__compiler__numeric_literal__to_string_1, 1);
   func__create_character_table_2 = create_function(entry__create_character_table_2, 2);
   func__create_character_table_1 = create_function(entry__create_character_table_1, 0);
   string__fa728415fa96bb4 = from_latin_1_string("@0x", 3);
@@ -39128,7 +39128,7 @@ EXPORT void phase_2__pretty_printer(void) {
   string__fa720015d416bbc = from_latin_1_string("amp", 3);
   func__escaped_character_21 = create_function(entry__escaped_character_21, 0);
   func__escaped_character_1 = create_function(entry__escaped_character_1, -1);
-  func__sim2c__character_literal__to_string_1 = create_function(entry__sim2c__character_literal__to_string_1, 1);
+  func__compiler__character_literal__to_string_1 = create_function(entry__compiler__character_literal__to_string_1, 1);
   string__420aeacb5d007d02 = from_latin_1_string("@nl;", 4);
   string__721f5590811b42ec = from_latin_1_string("@quot;", 6);
   func__analyze_string_literal_67 = create_function(entry__analyze_string_literal_67, 0);
@@ -39143,19 +39143,19 @@ EXPORT void phase_2__pretty_printer(void) {
   string__2d7981f4e5082bed = from_latin_1_string("@(", 2);
   string__565ae803e8121017 = from_latin_1_string("@nl;@", 5);
   func__string_template_to_string_1 = create_function(entry__string_template_to_string_1, 1);
-  func__sim2c__string_literal__to_string_1 = create_function(entry__sim2c__string_literal__to_string_1, 1);
+  func__compiler__string_literal__to_string_1 = create_function(entry__compiler__string_literal__to_string_1, 1);
   string__578a5af303e9ccf = from_latin_1_string(".", 1);
-  func__sim2c__unique_item__to_string_1 = create_function(entry__sim2c__unique_item__to_string_1, 1);
+  func__compiler__unique_item__to_string_1 = create_function(entry__compiler__unique_item__to_string_1, 1);
   string__fa732415f216be5 = from_latin_1_string("(!)", 3);
-  func__sim2c__polymorphic_function__to_string_3 = create_function(entry__sim2c__polymorphic_function__to_string_3, 0);
+  func__compiler__polymorphic_function__to_string_3 = create_function(entry__compiler__polymorphic_function__to_string_3, 0);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
-  func__sim2c__polymorphic_function__to_string_5 = create_function(entry__sim2c__polymorphic_function__to_string_5, 0);
-  func__sim2c__polymorphic_function__to_string_1 = create_function(entry__sim2c__polymorphic_function__to_string_1, 1);
+  func__compiler__polymorphic_function__to_string_5 = create_function(entry__compiler__polymorphic_function__to_string_5, 0);
+  func__compiler__polymorphic_function__to_string_1 = create_function(entry__compiler__polymorphic_function__to_string_1, 1);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
-  func__sim2c__identifier__to_string_1 = create_function(entry__sim2c__identifier__to_string_1, 1);
+  func__compiler__identifier__to_string_1 = create_function(entry__compiler__identifier__to_string_1, 1);
   string__2d7981f4e4d02bcf = from_latin_1_string("{\012", 2);
-  func__sim2c__c_code__to_string_4 = create_function(entry__sim2c__c_code__to_string_4, 0);
-  func__sim2c__c_code__to_string_8 = create_function(entry__sim2c__c_code__to_string_8, 0);
+  func__compiler__c_code__to_string_4 = create_function(entry__compiler__c_code__to_string_4, 0);
+  func__compiler__c_code__to_string_8 = create_function(entry__compiler__c_code__to_string_8, 0);
   string__4a1f55ee819ae2f7 = from_latin_1_string("<kind ", 6);
   string__5a1f552e8192b2f7 = from_latin_1_string("<name ", 6);
   string__461f576e8192b2f7 = from_latin_1_string("<node ", 6);
@@ -39166,8 +39166,8 @@ EXPORT void phase_2__pretty_printer(void) {
   string__3f7af391278ba7e1 = from_latin_1_string("<argument ", 10);
   string__2d7981f4e6702bea = from_latin_1_string("//", 2);
   string__d65af883e8b9a02a = from_latin_1_string("{...}", 5);
-  func__sim2c__c_code__to_string_96 = create_function(entry__sim2c__c_code__to_string_96, 0);
-  func__sim2c__c_code__to_string_1 = create_function(entry__sim2c__c_code__to_string_1, 1);
+  func__compiler__c_code__to_string_96 = create_function(entry__compiler__c_code__to_string_96, 0);
+  func__compiler__c_code__to_string_1 = create_function(entry__compiler__c_code__to_string_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -39191,9 +39191,9 @@ EXPORT void phase_3__pretty_printer(void) {
   assign_value(&var._UNIQUE, unique__UNIQUE);
   assign_value(&var._PROC, unique__PROC);
   assign_value(&var._FUNC, unique__FUNC);
-  define_single_assign_dynamic("sim2c", "hide_body_statements", get__sim2c__hide_body_statements, define__sim2c__hide_body_statements, &dyna_idx__sim2c__hide_body_statements);
-  define__sim2c__hide_body_statements(create_future());
-  define_single_assign_dynamic("sim2c", "line_width", get__sim2c__line_width, define__sim2c__line_width, &dyna_idx__sim2c__line_width);
+  define_single_assign_dynamic("compiler", "hide_body_statements", get__compiler__hide_body_statements, define__compiler__hide_body_statements, &dyna_idx__compiler__hide_body_statements);
+  define__compiler__hide_body_statements(create_future());
+  define_single_assign_dynamic("compiler", "line_width", get__compiler__line_width, define__compiler__line_width, &dyna_idx__compiler__line_width);
   register_dynamic(&dyna_idx__expression_indent);
   register_dynamic(&dyna_idx__line_end_expression_width);
   var._INDENTATION_MARKER = create_future();
@@ -39202,7 +39202,7 @@ EXPORT void phase_3__pretty_printer(void) {
   define__statement_tag(undefined);
   register_dynamic(&dyna_idx__spaces);
   define__spaces(create_future());
-  define_single_assign_static("sim2c", "print_trees", get__sim2c__print_trees, &var.sim2c__print_trees);
+  define_single_assign_static("compiler", "print_trees", get__compiler__print_trees, &var.compiler__print_trees);
 }
 
 static int already_run_phase_4 = false;
@@ -39232,6 +39232,30 @@ EXPORT void phase_4__pretty_printer(void) {
   use_read_only(NULL, "case", &get__case, &get_value_or_future__case);
   use_read_only(NULL, "character", &get__character, &get_value_or_future__character);
   use_read_only(NULL, "character_names", &get__character_names, &get_value_or_future__character_names);
+  use_read_only("compiler", "attribute_function_pair", &get__compiler__attribute_function_pair, &get_value_or_future__compiler__attribute_function_pair);
+  use_read_only("compiler", "attribute_value_pair", &get__compiler__attribute_value_pair, &get_value_or_future__compiler__attribute_value_pair);
+  use_read_only("compiler", "backquoted", &get__compiler__backquoted, &get_value_or_future__compiler__backquoted);
+  use_read_only("compiler", "body", &get__compiler__body, &get_value_or_future__compiler__body);
+  use_read_only("compiler", "c_code", &get__compiler__c_code, &get_value_or_future__compiler__c_code);
+  use_read_only("compiler", "call", &get__compiler__call, &get_value_or_future__compiler__call);
+  use_read_only("compiler", "character_literal", &get__compiler__character_literal, &get_value_or_future__compiler__character_literal);
+  use_read_only("compiler", "data_instruction", &get__compiler__data_instruction, &get_value_or_future__compiler__data_instruction);
+  use_read_only("compiler", "define_dynamic_multi", &get__compiler__define_dynamic_multi, &get_value_or_future__compiler__define_dynamic_multi);
+  use_read_only("compiler", "define_dynamic_single", &get__compiler__define_dynamic_single, &get_value_or_future__compiler__define_dynamic_single);
+  use_read_only("compiler", "define_static_multi", &get__compiler__define_static_multi, &get_value_or_future__compiler__define_static_multi);
+  use_read_only("compiler", "define_static_single", &get__compiler__define_static_single, &get_value_or_future__compiler__define_static_single);
+  use_read_only("compiler", "function_call", &get__compiler__function_call, &get_value_or_future__compiler__function_call);
+  use_read_only("compiler", "identifier", &get__compiler__identifier, &get_value_or_future__compiler__identifier);
+  use_read_only("compiler", "include_instruction", &get__compiler__include_instruction, &get_value_or_future__compiler__include_instruction);
+  use_read_only("compiler", "link_instruction", &get__compiler__link_instruction, &get_value_or_future__compiler__link_instruction);
+  use_read_only("compiler", "namespace_instruction", &get__compiler__namespace_instruction, &get_value_or_future__compiler__namespace_instruction);
+  use_read_only("compiler", "numeric_literal", &get__compiler__numeric_literal, &get_value_or_future__compiler__numeric_literal);
+  use_read_only("compiler", "polymorphic_function", &get__compiler__polymorphic_function, &get_value_or_future__compiler__polymorphic_function);
+  use_read_only("compiler", "remark_statement", &get__compiler__remark_statement, &get_value_or_future__compiler__remark_statement);
+  use_read_only("compiler", "require_instruction", &get__compiler__require_instruction, &get_value_or_future__compiler__require_instruction);
+  use_read_only("compiler", "string_literal", &get__compiler__string_literal, &get_value_or_future__compiler__string_literal);
+  use_read_only("compiler", "unique_item", &get__compiler__unique_item, &get_value_or_future__compiler__unique_item);
+  use_read_only("compiler", "using_instruction", &get__compiler__using_instruction, &get_value_or_future__compiler__using_instruction);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
   use_read_only(NULL, "contains", &get__contains, &get_value_or_future__contains);
   use_read_only(NULL, "default_value_of", &get__default_value_of, &get_value_or_future__default_value_of);
@@ -39313,30 +39337,6 @@ EXPORT void phase_4__pretty_printer(void) {
   use_read_only(NULL, "remark_lines_behind_of", &get__remark_lines_behind_of, &get_value_or_future__remark_lines_behind_of);
   use_read_only(NULL, "remark_lines_of", &get__remark_lines_of, &get_value_or_future__remark_lines_of);
   use_read_only(NULL, "scope_of", &get__scope_of, &get_value_or_future__scope_of);
-  use_read_only("sim2c", "attribute_function_pair", &get__sim2c__attribute_function_pair, &get_value_or_future__sim2c__attribute_function_pair);
-  use_read_only("sim2c", "attribute_value_pair", &get__sim2c__attribute_value_pair, &get_value_or_future__sim2c__attribute_value_pair);
-  use_read_only("sim2c", "backquoted", &get__sim2c__backquoted, &get_value_or_future__sim2c__backquoted);
-  use_read_only("sim2c", "body", &get__sim2c__body, &get_value_or_future__sim2c__body);
-  use_read_only("sim2c", "c_code", &get__sim2c__c_code, &get_value_or_future__sim2c__c_code);
-  use_read_only("sim2c", "call", &get__sim2c__call, &get_value_or_future__sim2c__call);
-  use_read_only("sim2c", "character_literal", &get__sim2c__character_literal, &get_value_or_future__sim2c__character_literal);
-  use_read_only("sim2c", "data_instruction", &get__sim2c__data_instruction, &get_value_or_future__sim2c__data_instruction);
-  use_read_only("sim2c", "define_dynamic_multi", &get__sim2c__define_dynamic_multi, &get_value_or_future__sim2c__define_dynamic_multi);
-  use_read_only("sim2c", "define_dynamic_single", &get__sim2c__define_dynamic_single, &get_value_or_future__sim2c__define_dynamic_single);
-  use_read_only("sim2c", "define_static_multi", &get__sim2c__define_static_multi, &get_value_or_future__sim2c__define_static_multi);
-  use_read_only("sim2c", "define_static_single", &get__sim2c__define_static_single, &get_value_or_future__sim2c__define_static_single);
-  use_read_only("sim2c", "function_call", &get__sim2c__function_call, &get_value_or_future__sim2c__function_call);
-  use_read_only("sim2c", "identifier", &get__sim2c__identifier, &get_value_or_future__sim2c__identifier);
-  use_read_only("sim2c", "include_instruction", &get__sim2c__include_instruction, &get_value_or_future__sim2c__include_instruction);
-  use_read_only("sim2c", "link_instruction", &get__sim2c__link_instruction, &get_value_or_future__sim2c__link_instruction);
-  use_read_only("sim2c", "namespace_instruction", &get__sim2c__namespace_instruction, &get_value_or_future__sim2c__namespace_instruction);
-  use_read_only("sim2c", "numeric_literal", &get__sim2c__numeric_literal, &get_value_or_future__sim2c__numeric_literal);
-  use_read_only("sim2c", "polymorphic_function", &get__sim2c__polymorphic_function, &get_value_or_future__sim2c__polymorphic_function);
-  use_read_only("sim2c", "remark_statement", &get__sim2c__remark_statement, &get_value_or_future__sim2c__remark_statement);
-  use_read_only("sim2c", "require_instruction", &get__sim2c__require_instruction, &get_value_or_future__sim2c__require_instruction);
-  use_read_only("sim2c", "string_literal", &get__sim2c__string_literal, &get_value_or_future__sim2c__string_literal);
-  use_read_only("sim2c", "unique_item", &get__sim2c__unique_item, &get_value_or_future__sim2c__unique_item);
-  use_read_only("sim2c", "using_instruction", &get__sim2c__using_instruction, &get_value_or_future__sim2c__using_instruction);
   use_read_only(NULL, "some", &get__some, &get_value_or_future__some);
   use_read_only(NULL, "source_of", &get__source_of, &get_value_or_future__source_of);
   use_read_only(NULL, "statements_of", &get__statements_of, &get_value_or_future__statements_of);
@@ -39369,30 +39369,30 @@ EXPORT void phase_4__pretty_printer(void) {
   update_start_p = node_p;
   def_attribute(&var._INDENTATION, poly_idx__grammar__match, func__INDENTATION__grammar__match_1);
   define_method("types", "grammar_node", poly_idx__to_string, func__types__grammar_node__to_string_1);
-  define_method("sim2c", "require_instruction", poly_idx__to_string, func__sim2c__require_instruction__to_string_1);
-  define_method("sim2c", "namespace_instruction", poly_idx__to_string, func__sim2c__namespace_instruction__to_string_1);
-  define_method("sim2c", "using_instruction", poly_idx__to_string, func__sim2c__using_instruction__to_string_1);
-  define_method("sim2c", "include_instruction", poly_idx__to_string, func__sim2c__include_instruction__to_string_1);
-  define_method("sim2c", "link_instruction", poly_idx__to_string, func__sim2c__link_instruction__to_string_1);
-  define_method("sim2c", "data_instruction", poly_idx__to_string, func__sim2c__data_instruction__to_string_1);
-  define_method("sim2c", "remark_statement", poly_idx__to_string, func__sim2c__remark_statement__to_string_1);
-  define_method("sim2c", "body", poly_idx__to_string, func__sim2c__body__to_string_1);
-  define_method("sim2c", "call", poly_idx__to_string, func__sim2c__call__to_string_1);
-  define_method("sim2c", "define_static_single", poly_idx__to_string, func__sim2c__define_static_single__to_string_1);
-  define_method("sim2c", "define_static_multi", poly_idx__to_string, func__sim2c__define_static_multi__to_string_1);
-  define_method("sim2c", "define_dynamic_single", poly_idx__to_string, func__sim2c__define_dynamic_single__to_string_1);
-  define_method("sim2c", "define_dynamic_multi", poly_idx__to_string, func__sim2c__define_dynamic_multi__to_string_1);
-  define_method("sim2c", "function_call", poly_idx__to_string, func__sim2c__function_call__to_string_1);
-  define_method("sim2c", "backquoted", poly_idx__to_string, func__sim2c__backquoted__to_string_1);
-  define_method("sim2c", "attribute_value_pair", poly_idx__to_string, func__sim2c__attribute_value_pair__to_string_1);
-  define_method("sim2c", "attribute_function_pair", poly_idx__to_string, func__sim2c__attribute_function_pair__to_string_1);
-  define_method("sim2c", "numeric_literal", poly_idx__to_string, func__sim2c__numeric_literal__to_string_1);
-  define_method("sim2c", "character_literal", poly_idx__to_string, func__sim2c__character_literal__to_string_1);
-  define_method("sim2c", "string_literal", poly_idx__to_string, func__sim2c__string_literal__to_string_1);
-  define_method("sim2c", "unique_item", poly_idx__to_string, func__sim2c__unique_item__to_string_1);
-  define_method("sim2c", "polymorphic_function", poly_idx__to_string, func__sim2c__polymorphic_function__to_string_1);
-  define_method("sim2c", "identifier", poly_idx__to_string, func__sim2c__identifier__to_string_1);
-  define_method("sim2c", "c_code", poly_idx__to_string, func__sim2c__c_code__to_string_1);
+  define_method("compiler", "require_instruction", poly_idx__to_string, func__compiler__require_instruction__to_string_1);
+  define_method("compiler", "namespace_instruction", poly_idx__to_string, func__compiler__namespace_instruction__to_string_1);
+  define_method("compiler", "using_instruction", poly_idx__to_string, func__compiler__using_instruction__to_string_1);
+  define_method("compiler", "include_instruction", poly_idx__to_string, func__compiler__include_instruction__to_string_1);
+  define_method("compiler", "link_instruction", poly_idx__to_string, func__compiler__link_instruction__to_string_1);
+  define_method("compiler", "data_instruction", poly_idx__to_string, func__compiler__data_instruction__to_string_1);
+  define_method("compiler", "remark_statement", poly_idx__to_string, func__compiler__remark_statement__to_string_1);
+  define_method("compiler", "body", poly_idx__to_string, func__compiler__body__to_string_1);
+  define_method("compiler", "call", poly_idx__to_string, func__compiler__call__to_string_1);
+  define_method("compiler", "define_static_single", poly_idx__to_string, func__compiler__define_static_single__to_string_1);
+  define_method("compiler", "define_static_multi", poly_idx__to_string, func__compiler__define_static_multi__to_string_1);
+  define_method("compiler", "define_dynamic_single", poly_idx__to_string, func__compiler__define_dynamic_single__to_string_1);
+  define_method("compiler", "define_dynamic_multi", poly_idx__to_string, func__compiler__define_dynamic_multi__to_string_1);
+  define_method("compiler", "function_call", poly_idx__to_string, func__compiler__function_call__to_string_1);
+  define_method("compiler", "backquoted", poly_idx__to_string, func__compiler__backquoted__to_string_1);
+  define_method("compiler", "attribute_value_pair", poly_idx__to_string, func__compiler__attribute_value_pair__to_string_1);
+  define_method("compiler", "attribute_function_pair", poly_idx__to_string, func__compiler__attribute_function_pair__to_string_1);
+  define_method("compiler", "numeric_literal", poly_idx__to_string, func__compiler__numeric_literal__to_string_1);
+  define_method("compiler", "character_literal", poly_idx__to_string, func__compiler__character_literal__to_string_1);
+  define_method("compiler", "string_literal", poly_idx__to_string, func__compiler__string_literal__to_string_1);
+  define_method("compiler", "unique_item", poly_idx__to_string, func__compiler__unique_item__to_string_1);
+  define_method("compiler", "polymorphic_function", poly_idx__to_string, func__compiler__polymorphic_function__to_string_1);
+  define_method("compiler", "identifier", poly_idx__to_string, func__compiler__identifier__to_string_1);
+  define_method("compiler", "c_code", poly_idx__to_string, func__compiler__c_code__to_string_1);
 }
 
 static int already_run_phase_5 = false;
@@ -39401,15 +39401,15 @@ EXPORT void phase_5__pretty_printer(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_value(&var._needs_parenthesis, create_function(type__needs_parenthesis, -1));
-  maybe_initialize_future(get__sim2c__hide_body_statements(), get__false());
+  maybe_initialize_future(get__compiler__hide_body_statements(), get__false());
   assign_value(&var._UNLIMITED, number__999999);
-  define__sim2c__line_width(number__80);
+  define__compiler__line_width(number__80);
   define__expression_indent(number__0);
   define__line_end_expression_width(number__0);
   assign_value(&var._INDENTATION, get__types__grammar_object());
   maybe_initialize_future(get__spaces(), get__std__spaces());
   assign_variable(&var._indentation_string, &func__indentation_string_1);
-  assign_variable(&var.sim2c__print_trees, &func__sim2c__print_trees_1);
+  assign_variable(&var.compiler__print_trees, &func__compiler__print_trees_1);
   assign_variable(&var._line_start_remark_to_string, &func__line_start_remark_to_string_1);
   assign_variable(&var._add_remark_lines, &func__add_remark_lines_1);
   assign_variable(&var._add_remark, &func__add_remark_1);

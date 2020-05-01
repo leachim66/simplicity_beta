@@ -24,10 +24,10 @@
   builds "global" tables for required modules and used namespaces
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
-$sim2c::std_identifier: (name) -> identifier(.namespace_of "std" .name_of name)
+$compiler::std_identifier: (name) -> identifier(.namespace_of "std" .name_of name)
 
 #
   remarks are assigned to
@@ -49,7 +49,7 @@ $sim2c::std_identifier: (name) -> identifier(.namespace_of "std" .name_of name)
 # SYNTAX ERROR
 
 $print_message: (fragment offset msg_type $msg)
-  $$source sim2c::source_of(fragment)
+  $$source compiler::source_of(fragment)
   $pos length_of(source)-offset+1
   $$line_no line_no_of(fragment)
 
@@ -60,7 +60,7 @@ $print_message: (fragment offset msg_type $msg)
   if line_offset > 0: behind &source alt(newline indent_marker) line_offset
   $$n length_of(source)-offset
   while -> n > 0 && source(n) < ' ': dec &n
-  $text sim2c::text_of(fragment)
+  $text compiler::text_of(fragment)
   $rest if(line_offset > 0 (-> behind(text '@nl;' line_offset)) -> text)
   $line replace_all(rest .truncate_from. alt('@cr;' '@nl;') '@ht;' = "        ")
   do: (-> break)
@@ -78,14 +78,14 @@ $print_message: (fragment offset msg_type $msg)
       ewriteln line
       ewriteln dup(" " n) "^"
 
-$sim2c::Warning: (obj msg)
+$compiler::Warning: (obj msg)
   print_message fragment_of(obj) source_position_of(obj) "WARNING" msg
 
 $ExitWithSyntaxError: (fragment offset msg)
   print_message fragment offset "SYNTAX ERROR" msg
   exit 1
 
-$sim2c::SyntaxError: (obj msg)
+$compiler::SyntaxError: (obj msg)
   ExitWithSyntaxError fragment_of(obj) source_position_of(obj) msg
 
 $ParseError: (stream msg)
@@ -154,7 +154,7 @@ $dump_stream/grammar::match: (_self stream)
 # DUMP NODE
 # for debugging purposes
 
-$sim2c::strip: (&node)
+$compiler::strip: (&node)
   !node.fragment_of undefined
   !node.source_position_of undefined
   !node.end_position_of undefined
@@ -196,8 +196,8 @@ $dump5/grammar::match: (_self _stream)
 # GRAMMAR
 #####
 
-$sim2c::HIGHEST_PRECEDENCE 99
-$sim2c::INFIX_PRECEDENCE 6
+$compiler::HIGHEST_PRECEDENCE 99
+$compiler::INFIX_PRECEDENCE 6
 
 $precedence_table
   table
@@ -222,15 +222,15 @@ $precedence_table
     "," = 2
     "=" = 1
 
-$sim2c::precedence: (op)
+$compiler::precedence: (op)
   if op.is_a_string (-> precedence_table(op)) -> INFIX_PRECEDENCE
 
-$sim2c::is_left_associative: (prec) -> prec > 5
+$compiler::is_left_associative: (prec) -> prec > 5
 
 $is_right_associative: (prec) -> prec <= 5
 
 $infix_operator: (operator)
-  -> alt(operator sim2c::WHITESPACE, operator, sim2c::WHITESPACE)
+  -> alt(operator compiler::WHITESPACE, operator, compiler::WHITESPACE)
 
 $interleaved: (expression separator) -> expression, some(separator, expression)
 
@@ -281,14 +281,14 @@ $MAKE_A_DESTINATION
     : (&node)
       !node.is_a_destination true
 
-$sim2c::arguments_span: (expression)
+$compiler::arguments_span: (expression)
   -> multi_span(arguments_of expression, ENUMERATE)
 
-$sim2c::output_arguments_span: (expression)
+$compiler::output_arguments_span: (expression)
   -> multi_span(output_arguments_of expression, ENUMERATE, MAKE_A_DESTINATION)
 
-$sim2c::WHITESPACE many(' ')
-$SEPARATOR alt(sim2c::WHITESPACE followed_by(':'))
+$compiler::WHITESPACE many(' ')
+$SEPARATOR alt(compiler::WHITESPACE followed_by(':'))
 $NEWLINES many(NEWLINE)
 $NEXT_LINE ARGUMENT_LINE_END_REMARK, NEWLINES
 
@@ -380,7 +380,7 @@ $REQUIRE
     "<require"
     set_node(require_instruction)
     STORE_POSITION
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     capture(node::filename_of FILENAME)
     ">"
     STORE_END_POSITION
@@ -395,7 +395,7 @@ $REQUIRE
 $NAMESPACE
   sequence
     "<namespace"
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     set_node(namespace_instruction)
     capture(namespace_of NAME)
     optional
@@ -425,7 +425,7 @@ $NAMESPACE
 $USING
   sequence
     "<using"
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     set_node(using_instruction)
     capture(namespace_of NAME)
     ">"
@@ -443,7 +443,7 @@ $C_FILENAME alt('/' "./" some("../")), BASENAME, some('/', BASENAME)
 $INCLUDE
   sequence
     "<include"
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     set_node(include_instruction)
     capture(node::filename_of C_FILENAME)
     ">"
@@ -458,7 +458,7 @@ $INCLUDE
 $LINK
   sequence
     "<link"
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     set_node(link_instruction)
     capture(node::filename_of C_FILENAME)
     ">"
@@ -476,7 +476,7 @@ $FILEMASK alt('/' "./" some("../")), MASK, some('/', MASK)
 $DATA
   sequence
     "<data"
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     set_node(data_instruction)
     capture(node::filemask_of FILEMASK)
     ">"
@@ -522,12 +522,12 @@ $REMARK_BEHIND
 	      append &node.arguments_of(-1).remark_lines_behind_of remark_lines
 	  !node.remark_lines_of empty_list
 
-$LINE_END_REMARK optional(sim2c::WHITESPACE, HASHTAG, REMARK_LINE)
+$LINE_END_REMARK optional(compiler::WHITESPACE, HASHTAG, REMARK_LINE)
 
 $ARGUMENT_LINE_END_REMARK
   optional
     sequence
-      sim2c::WHITESPACE
+      compiler::WHITESPACE
       HASHTAG
       REMARK_LINE
       modify_node
@@ -552,7 +552,7 @@ $ARGUMENT_REMARK
 	    push &node.arguments_of(n).remark_lines_of remark_lines_of(node)(-1)
 	    range &node.remark_lines_of 1 -2
 
-$NEW_LINE_END_REMARK sim2c::WHITESPACE, HASHTAG, REMARK_LINE
+$NEW_LINE_END_REMARK compiler::WHITESPACE, HASHTAG, REMARK_LINE
 $NEXT_LINE_REMARK INDENT, REMARK
 
 ###
@@ -704,7 +704,7 @@ $STRING_INSERTION
 	if node::text_of(node) != "":
 	  push &node.arguments_of node(.arguments_of undefined)
 	!node.node::text_of ""
-    interleaved(arguments_span(EXPRESSION) sim2c::WHITESPACE)
+    interleaved(arguments_span(EXPRESSION) compiler::WHITESPACE)
     expect(')')
 
 $CHECK_INSERTIONS
@@ -834,15 +834,15 @@ $INFIX_OPERATOR_SYMBOL
 $SYMBOLIC_OPERATOR
   infix_operator(multi_capture(operators_of INFIX_OPERATOR_SYMBOL))
 
-$COMMA_OPERATOR multi_capture(operators_of ','), sim2c::WHITESPACE
+$COMMA_OPERATOR multi_capture(operators_of ','), compiler::WHITESPACE
 
 $NAMED_OPERATOR
   sequence
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     '.'
     multi_span(operators_of IDENTIFIER)
     '.'
-    expect(sim2c::WHITESPACE)
+    expect(compiler::WHITESPACE)
 
 $INFIX_OPERATOR
   sequence
@@ -1036,7 +1036,7 @@ $INLINE_ATTRIBUTE_VALUE_PAIR
 	sequence
 	  set_node(attribute_value_pair)
 	  span(identifier_of NAME_OF_POLYMORPHIC)
-	  sim2c::WHITESPACE
+	  compiler::WHITESPACE
 	  INPUT_ARGUMENT
     sequence
       '/'
@@ -1076,7 +1076,7 @@ $ATTRIBUTE_VALUE_PAIR
 	    SINGLE_INPUT_ARGUMENT
 
 $INLINE_ATTRIBUTE_VALUE_PAIRS
-  interleaved(INLINE_ATTRIBUTE_VALUE_PAIR sim2c::WHITESPACE)
+  interleaved(INLINE_ATTRIBUTE_VALUE_PAIR compiler::WHITESPACE)
 
 $INDENTED_ATTRIBUTE_VALUE_PAIRS
   INDENT, interleaved(ATTRIBUTE_VALUE_PAIR NEXT_LINE), expect(outdent_marker)
@@ -1177,7 +1177,7 @@ $MULTI_LINE_FUNCTION_CALL_OR_INDENTED_REMARK
   INDENT, some(NEWLINE), INDENTED_FUNCTION_CALL_OR_REMARK
 
 $ARGUMENT_EXPANSION
-  alt('?' '*', followed_by(alt(sim2c::WHITESPACE NEWLINE OUTDENT END_OF_TEXT)))
+  alt('?' '*', followed_by(alt(compiler::WHITESPACE NEWLINE OUTDENT END_OF_TEXT)))
 
 $MULTI_LINE_EXPRESSION
   sequence
@@ -1235,9 +1235,9 @@ $LINE_START_ARGUMENT
 	  sequence
 	    followed_by
 	      alt
-		optional(sim2c::WHITESPACE), INFIX_OPERATOR_SYMBOL
+		optional(compiler::WHITESPACE), INFIX_OPERATOR_SYMBOL
 		','
-		sim2c::WHITESPACE, '.'
+		compiler::WHITESPACE, '.'
 		NAME, '.'
 	    modify_node
 	      : (node)
@@ -1274,7 +1274,7 @@ $FIRST_LINE_START_ARGUMENTS
 
 $SINGLE_INPUT_ARGUMENT
   alt
-    sim2c::WHITESPACE, INPUT_ARGUMENT, LINE_END_REMARK
+    compiler::WHITESPACE, INPUT_ARGUMENT, LINE_END_REMARK
     SEPARATOR, LINE_END_EXPRESSION
     sequence
       LINE_END_REMARK
@@ -1335,7 +1335,7 @@ $MULTI_LINE_PARAMETER
 $CONTINUATION
   sequence
     "->"
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     set_node(define_static_single)
     set_field(parameter_kind_of CONTINUATION_PARAMETER)
     PARAMETER_NAME
@@ -1349,8 +1349,8 @@ $INLINE_PARAMETERS
     optional
       alt
 	sequence
-	  interleaved(multi_span(parameters_of PARAMETER) sim2c::WHITESPACE)
-	  optional(sim2c::WHITESPACE, multi_span(parameters_of CONTINUATION))
+	  interleaved(multi_span(parameters_of PARAMETER) compiler::WHITESPACE)
+	  optional(compiler::WHITESPACE, multi_span(parameters_of CONTINUATION))
 	multi_span(parameters_of CONTINUATION)
     expect(')')
 
@@ -1383,12 +1383,12 @@ $COMPLETE_BODY
 	  STATEMENTS
 	  expect(outdent_marker)
 	sequence
-	  optional(sim2c::WHITESPACE, INLINE_PARAMETERS)
+	  optional(compiler::WHITESPACE, INLINE_PARAMETERS)
 	  LINE_END_REMARK
 	  alt
 	    INDENT, optional(NEWLINES), STATEMENTS, expect(outdent_marker)
 	    sequence
-	      sim2c::WHITESPACE
+	      compiler::WHITESPACE
 	      alt(STATEMENT RETURN_STATEMENT syntax_error("statement expected"))
 	    syntax_error("statement expected")
 	syntax_error("statement expected")
@@ -1440,7 +1440,7 @@ $POLYMORPHIC_FUNCTION_WITH_SETTER
 
 $POLYMORPHIC_FUNCTION
   sequence
-    sim2c::WHITESPACE
+    compiler::WHITESPACE
     arguments_span
       alt(POLYMORPHIC_FUNCTION_WITHOUT_SETTER POLYMORPHIC_FUNCTION_WITH_SETTER)
     LINE_END_REMARK
@@ -1486,11 +1486,11 @@ $PROCEDURE_CALL
     optional(RESULT_COUNT_OR_CONTINUATION)
     alt
       sequence
-	sim2c::WHITESPACE
+	compiler::WHITESPACE
 	OUTPUT_ARGUMENT
 	alt
 	  sequence
-	    sim2c::WHITESPACE
+	    compiler::WHITESPACE
 	    INLINE_ATTRIBUTE_VALUE_PAIRS
 	    optional(INDENTED_ATTRIBUTE_VALUE_PAIRS)
 	  INDENTED_ATTRIBUTE_VALUE_PAIRS
@@ -1546,30 +1546,30 @@ $C_EXPRESSION many(not_followed_by('>'), ANY_CHARACTER)
 $ARGUMENT_ANNOTATION
   sequence
     "argument"
-    expect(sim2c::WHITESPACE, multi_capture(arguments_of C_EXPRESSION))
+    expect(compiler::WHITESPACE, multi_capture(arguments_of C_EXPRESSION))
 
 $BASE_ANNOTATION
-  "base", expect(sim2c::WHITESPACE, span(base_of NAMESPACED_IDENTIFIER))
+  "base", expect(compiler::WHITESPACE, span(base_of NAMESPACED_IDENTIFIER))
 
-$KIND_ANNOTATION "kind", expect(sim2c::WHITESPACE, capture(kind_of NAME))
+$KIND_ANNOTATION "kind", expect(compiler::WHITESPACE, capture(kind_of NAME))
 
 $NAME_ANNOTATION
   sequence
     "name"
-    expect(sim2c::WHITESPACE, alt(BUILTIN_NAME DEFINED_VARIABLE_OR_ATTRIBUTE))
+    expect(compiler::WHITESPACE, alt(BUILTIN_NAME DEFINED_VARIABLE_OR_ATTRIBUTE))
 
-$NODE_ANNOTATION "node", expect(sim2c::WHITESPACE, capture(node_of NAME))
+$NODE_ANNOTATION "node", expect(compiler::WHITESPACE, capture(node_of NAME))
 
 $SCOPE_ANNOTATION
   sequence
     "scope"
     expect
       sequence
-	sim2c::WHITESPACE
+	compiler::WHITESPACE
 	capture(node::scope_of alt("runtime" "global" "local" "extern"))
 
 $TYPE_ANNOTATION
-  "type", expect(sim2c::WHITESPACE, span(node::type_of NAMESPACED_IDENTIFIER))
+  "type", expect(compiler::WHITESPACE, span(node::type_of NAMESPACED_IDENTIFIER))
 
 $ANNOTATION_ITEM
   alt
@@ -1616,16 +1616,16 @@ $FRAGMENT
 ###
 # PARSER
 
-$sim2c::parse_meta_instruction: (fragment)
-  %sim2c::current_fragment fragment # used to generate meaningful error messages
-  $source sim2c::source_of(fragment)
+$compiler::parse_meta_instruction: (fragment)
+  %compiler::current_fragment fragment # used to generate meaningful error messages
+  $source compiler::source_of(fragment)
   match source META_FRAGMENT $len $cap
   if len != length_of(source): ParseError source "invalid meta instruction"
   -> cap
 
-$sim2c::parse_statement: (fragment)
-  %sim2c::current_fragment fragment # used to generate meaningful error messages
-  $source sim2c::source_of(fragment)
+$compiler::parse_statement: (fragment)
+  %compiler::current_fragment fragment # used to generate meaningful error messages
+  $source compiler::source_of(fragment)
   match source FRAGMENT $len $cap
   if
     len.is_defined:

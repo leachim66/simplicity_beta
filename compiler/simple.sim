@@ -66,10 +66,10 @@
 
 <namespace std>
 <namespace types>
-<namespace sim2c>
+<namespace compiler>
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
 copyright "
@@ -149,24 +149,24 @@ $$module_info empty_table
 $$meta_levels empty_table # 0 -> no meta files
 $$do_rebuild false
 $$do_omit_meta false
-$$sim2c::do_dump_trees false
-$$sim2c::do_pretty_print false
-$$sim2c::do_print_simplified_source false
-$$sim2c::do_show_debug_infos false
-$$sim2c::do_show_compiler_debug_infos false
-$$sim2c::do_check_only false
-$$sim2c::do_show_brief_messages false
-$$sim2c::do_print_warnings false
-$$sim2c::do_print_missing false
-$$sim2c::do_print_summary false
-$$sim2c::verbose false
+$$compiler::do_dump_trees false
+$$compiler::do_pretty_print false
+$$compiler::do_print_simplified_source false
+$$compiler::do_show_debug_infos false
+$$compiler::do_show_compiler_debug_infos false
+$$compiler::do_check_only false
+$$compiler::do_show_brief_messages false
+$$compiler::do_print_warnings false
+$$compiler::do_print_missing false
+$$compiler::do_print_summary false
+$$compiler::verbose false
 $$do_print_c false
-$$sim2c::do_extract_documentation false
+$$compiler::do_extract_documentation false
 $$do_build_codeblocks_project false
 $$do_list_dependencies false
 $$do_build_static false
 $$do_link_profiler false
-$$sim2c::do_time_passes false
+$$compiler::do_time_passes false
 $$module_prefix undefined
 $$input_filename undefined
 $$additional_libraries undefined
@@ -179,16 +179,16 @@ if
     program_parameters
       # the following options act on a single file only
 
-      !sim2c::do_check_only
+      !compiler::do_check_only
       -> "check-only" "
 	do not compile; just check for syntax errors
-      !sim2c::do_dump_trees
+      !compiler::do_dump_trees
       -> "dump-trees" "
 	dump abstract syntax trees
-      !sim2c::do_pretty_print
+      !compiler::do_pretty_print
       -> "pretty-print" "
 	do not compile; just pretty print the source file
-      !sim2c::do_print_simplified_source
+      !compiler::do_print_simplified_source
       -> "print-simplified-source" "
 	do not generate a C-file; just print the simplified source text
       !do_print_c
@@ -204,25 +204,25 @@ if
 	  the directory names
 
 	# the following options change the diagnostic output
-      !sim2c::do_show_brief_messages
+      !compiler::do_show_brief_messages
       -> "brief" "
 	show brief error messages
-      !sim2c::do_print_warnings
+      !compiler::do_print_warnings
       -> "warnings" "
 	show warning messages
-      !sim2c::do_print_missing
+      !compiler::do_print_missing
       -> "missing" "
 	inform about missing documentation
-      !sim2c::do_print_summary
+      !compiler::do_print_summary
       -> "summary" "
 	show a statistical summary
-      !sim2c::verbose
+      !compiler::verbose
       -> "verbose" "
 	output verbose informations
-      !sim2c::do_show_debug_infos
+      !compiler::do_show_debug_infos
       -> "debug" "
 	show C-compiler and linker calls
-      !sim2c::do_show_compiler_debug_infos:
+      !compiler::do_show_compiler_debug_infos:
 	-> "debug_compiler" "
 	  show internal debug messages of the Simplicity compiler
 
@@ -262,7 +262,7 @@ if
 %do_build_static_executable do_build_static
 if do_show_debug_infos: !verbose true
 
-$sim2c::show_compiler_debug_info: (args*)
+$compiler::show_compiler_debug_info: (args*)
   if do_show_compiler_debug_infos: ewriteln args*
 
 $EXE . # a file withing an executable
@@ -561,7 +561,7 @@ $compile_module:
 	c_info.is_undefined
 	modification_time > modification_time_of(c_info)
       :
-	%sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+	%compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
 	if verbose: ewriteln "build module " module_name suffix
 	collect_output $c_source: sim2c sim_filenames
 	collect_output !c_buf: create_imports c_source
@@ -736,14 +736,14 @@ $compile_exe: (body)
 
 $dump_source_or_check:
   compile_exe: (_mod_filename mod_name)
-    %sim2c::module_name mod_name
+    %compiler::module_name mod_name
     sim2c list(main_filename)
 
 $print_c:
   compile_exe: (_mod_filename $mod_name)
     if module_prefix.is_defined: append string(module_prefix '/') &mod_name
     collect_output $c_source:
-      %sim2c::module_name replace_all(mod_name '/' = "__" '.' = "__")
+      %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
       sim2c list(main_filename)
     collect_output $c_buf: create_imports c_source
     write c_buf
@@ -977,7 +977,7 @@ $format_number:
       if ac > m: range &val 1 -(ac-m+1)
   -> val
 
-$sim2c::write_timing_info: (description $filename?)
+$compiler::write_timing_info: (description $filename?)
   $new_t current_time()
   if
     filename.is_defined:
@@ -1024,7 +1024,7 @@ $build_executable:
 	c_info.is_undefined
 	modification_time_of(sim_info) > modification_time_of(c_info)
       :
-	%sim2c::module_name mod_name .without_suffix. some(".meta")
+	%compiler::module_name mod_name .without_suffix. some(".meta")
 	if verbose: ewriteln "build main module " module_name
 	collect_output $c_source: sim2c list(main_filename) true
 	collect_output !c_buf: create_imports c_source

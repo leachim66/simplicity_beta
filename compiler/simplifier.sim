@@ -24,11 +24,11 @@
   the generated syntax tree consists only of calls with simple arguments
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
-$sim2c::simplify_statement ()
-$sim2c::simplify_expression ()
+$compiler::simplify_statement ()
+$compiler::simplify_expression ()
 
 %defined_names empty_table
 %inherited_names empty_table
@@ -97,7 +97,7 @@ $simplify_arguments: (&self)
     !self.output_arguments_of output_arguments
   -> final_destinations
 
-$sim2c::check_usage: (name definition info)
+$compiler::check_usage: (name definition info)
   case
     variable_kind_of(definition)
     POLYMORPHIC:
@@ -134,7 +134,7 @@ $types::grammar_node/simplify_expression: (&_self)
 ###
 # BODY
 
-$sim2c::body/simplify_expression: (&self)
+$compiler::body/simplify_expression: (&self)
   show_compiler_debug_info "simplify body"
   $$all_defined_names already_defined_names
   for_each defined_names_of(self): (name info)
@@ -165,7 +165,7 @@ $sim2c::body/simplify_expression: (&self)
 	if
 	  default_value.is_a_function_call:
 	    %%statements empty_list
-	    %%sim2c::temp_idx 0
+	    %%compiler::temp_idx 0
 	    $identifier identifier_of(parameter)
 	    simplify_statement
 	      assignment
@@ -190,7 +190,7 @@ $sim2c::body/simplify_expression: (&self)
 	    output_arguments_of(statement)(1).is_a_static_single_definition
 	    arguments_of(statement)(1).is_a_constant
 	  :
-	    %%sim2c::temp_idx 0
+	    %%compiler::temp_idx 0
 	    simplify_statement statement
 	    extend_to &max_temp_idx temp_idx
 
@@ -204,7 +204,7 @@ $sim2c::body/simplify_expression: (&self)
 	    output_arguments_of(statement)(1).is_a_static_single_definition
 	    arguments_of(statement)(1).is_a_constant
 	  :
-	    %%sim2c::temp_idx 0
+	    %%compiler::temp_idx 0
 	    simplify_statement statement
 	    extend_to &max_temp_idx temp_idx
     !self.definitions_of definitions
@@ -314,7 +314,7 @@ $store_result:
 	:
 	  store_result functor result push(rest arguments) infos
 
-$sim2c::call/simplify_statement:
+$compiler::call/simplify_statement:
   (
     $self
     -> return
@@ -401,7 +401,7 @@ $sim2c::call/simplify_statement:
 ###
 # FUNCTION CALL
 
-$sim2c::function_call/simplify_expression: (self)
+$compiler::function_call/simplify_expression: (self)
   show_compiler_debug_info "simplify function call"
   $temp temporary_identifier()
   simplify_statement
@@ -417,7 +417,7 @@ $sim2c::function_call/simplify_expression: (self)
 ###
 # ATTRIBUTE VALUE PAIR
 
-$sim2c::attribute_value_pair/simplify_expression: (&self)
+$compiler::attribute_value_pair/simplify_expression: (&self)
   show_compiler_debug_info "simplify attribute-value pair"
   simplify_arguments &self $_dummy_destinations
     # There must not be any output arguments!!!
@@ -425,7 +425,7 @@ $sim2c::attribute_value_pair/simplify_expression: (&self)
 ###
 # ATTRIBUTE FUNCTION PAIR
 
-$sim2c::attribute_function_pair/simplify_expression: (&self)
+$compiler::attribute_function_pair/simplify_expression: (&self)
   show_compiler_debug_info "simplify attribute-function pair"
   simplify_arguments &self $_dummy_destinations
     # There must not be any output arguments!!!
@@ -433,7 +433,7 @@ $sim2c::attribute_function_pair/simplify_expression: (&self)
 ###
 # C-CODE
 
-$sim2c::c_code/simplify_statement: (self)
+$compiler::c_code/simplify_statement: (self)
   show_compiler_debug_info "simplify C-code"
   push &actions: !use_inline_c true
   case
@@ -452,6 +452,6 @@ $sim2c::c_code/simplify_statement: (self)
 ###
 # C-BODY
 
-$sim2c::c_body/simplify_expression: (&_self)
+$compiler::c_body/simplify_expression: (&_self)
   show_compiler_debug_info "simplify C-body"
   push &actions: !use_inline_c true

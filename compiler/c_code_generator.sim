@@ -26,18 +26,18 @@
   the "called" function
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
-$sim2c::to_c ()
+$compiler::to_c ()
 
-%sim2c::suffix undefined
+%compiler::suffix undefined
 %level 1
 %current_locals empty_table
 %current_frame undefined
 %is_a_shared_local empty_set
 %temporary_offset 0
-%%sim2c::delayed_code undefined
+%%compiler::delayed_code undefined
 
 $var_name: (name) if name .contains. "__" (-> name) -> string('_' name)
 
@@ -51,7 +51,7 @@ $insert_delayed:
 $delayed: (body)
   $$cont_tab_entries ""
   do:
-    %%sim2c::current_continuation_info undefined
+    %%compiler::current_continuation_info undefined
 
     %write_to_continuation_table: (args*) write_to &cont_tab_entries args*
 
@@ -59,7 +59,7 @@ $delayed: (body)
     append &delayed_code output
   write_to_delayed_continuation_table cont_tab_entries
 
-$sim2c::begin_continuation: (name)
+$compiler::begin_continuation: (name)
   write_to_declarations "
     static void @(name)(void);
   insert_delayed
@@ -69,7 +69,7 @@ $sim2c::begin_continuation: (name)
   write_to_continuation_table
     if(current_frame.is_defined (-> "&@(current_frame), ") -> "NULL, ")
 
-$sim2c::end_continuation:
+$compiler::end_continuation:
   if
     current_continuation_info.is_defined:
       write_to_continuation_table "@(current_continuation_info)},@nl;"
@@ -77,7 +77,7 @@ $sim2c::end_continuation:
     :
       write_to_continuation_table "},@nl;"
 
-$sim2c::next_continuation: (name)
+$compiler::next_continuation: (name)
   end_continuation
   begin_continuation name
 
@@ -160,7 +160,7 @@ $get_func_and_myself: (functor cont insertion_line?)
       func = myself->type;@(insertion(2))
   if cont != "frame->cont": write "  frame->cont = @(cont);@nl;"
 
-$sim2c::assignment_to_c:
+$compiler::assignment_to_c:
   (
     prefix = "  "
     destination
@@ -469,7 +469,7 @@ $compute_source_text_info:
 	    write chr
   -> continuation_info
 
-$sim2c::write_source_as_remark: (node)
+$compiler::write_source_as_remark: (node)
   if end_position_of(node).is_defined:
     compute_source_text_info !current_continuation_info node true
 
@@ -526,7 +526,7 @@ $types::grammar_node/to_c: (_self)
 ###
 # BODY
 
-$sim2c::body/to_c:
+$compiler::body/to_c:
   (
     self
     -> return
@@ -958,7 +958,7 @@ $sim2c::body/to_c:
 ###
 # DEFINITION
 
-$sim2c::definition/to_c:
+$compiler::definition/to_c:
   (
     self
     -> return
@@ -976,21 +976,21 @@ $sim2c::definition/to_c:
 ###
 # ATTRIBUTE VALUE PAIR
 
-$sim2c::attribute_value_pair/to_c: (self)
+$compiler::attribute_value_pair/to_c: (self)
   show_compiler_debug_info "generate attribute-value pair"
   -> generate_c_arguments(arguments_of(self))
 
 ###
 # ATTRIBUTE FUNCTION PAIR
 
-$sim2c::attribute_function_pair/to_c: (self)
+$compiler::attribute_function_pair/to_c: (self)
   show_compiler_debug_info "generate attribute-function pair"
   -> generate_c_arguments(arguments_of(self))
 
 ###
 # NUMERIC LITERAL
 
-$sim2c::numeric_literal/to_c: (self)
+$compiler::numeric_literal/to_c: (self)
   show_compiler_debug_info "generate numeric literal"
   $name "number__@(mangled_name_of(self))"
   use_literal name self
@@ -999,7 +999,7 @@ $sim2c::numeric_literal/to_c: (self)
 ###
 # CHARACTER LITERAL
 
-$sim2c::character_literal/to_c: (self)
+$compiler::character_literal/to_c: (self)
   show_compiler_debug_info "generate character literal"
   $name "character__@(node::value_of(self).to_integer)"
   use_literal name self
@@ -1095,7 +1095,7 @@ $register_string: (str)
 	  "  @(name) = from_uint32_string(@(name)_literal, @(len));@nl;"
     -> name
 
-$sim2c::string_literal/to_c: (self)
+$compiler::string_literal/to_c: (self)
   show_compiler_debug_info "generate string literal"
   $text node::text_of(self)
   $literal used_string_literals(text)
@@ -1110,7 +1110,7 @@ $sim2c::string_literal/to_c: (self)
 ###
 # UNIQUE ITEM
 
-$sim2c::unique_item/to_c: (self)
+$compiler::unique_item/to_c: (self)
   show_compiler_debug_info "generate unique item"
   $name string("unique__" name_of(self))
   $reg_name if(name_of(self).is_defined (-> name_of(self)) -> name)
@@ -1123,7 +1123,7 @@ $sim2c::unique_item/to_c: (self)
 ###
 # IDENTIFIER
 
-$sim2c::identifier/to_c: (self)
+$compiler::identifier/to_c: (self)
   show_compiler_debug_info "generate identifier " self
   $name mangled_name_of(self)
   cond
@@ -1158,7 +1158,7 @@ $sim2c::identifier/to_c: (self)
 ###
 # C-BODY
 
-$sim2c::c_body/to_c: (self)
+$compiler::c_body/to_c: (self)
   show_compiler_debug_info "generate C-body"
   inc &index
   $body_suffix string(suffix '_' index)
@@ -1193,7 +1193,7 @@ $extract_destination: (destination)
   $identifier identifier_of(destination)
   -> namespace_of(identifier) name_of(identifier) mangled_name_of(identifier)
 
-$sim2c::is_single_assign:
+$compiler::is_single_assign:
   (
     expr
     -> return
@@ -1213,7 +1213,7 @@ $sim2c::is_single_assign:
 
   -> info.is_defined && info.is_a_single_assign_definition
 
-$sim2c::might_be_constant:
+$compiler::might_be_constant:
   (
     expr
     -> return
@@ -1244,7 +1244,7 @@ $assign: (dest src)
     :
       write_to_phase_5 "  assign_value(&@(dest), @(src));@nl;"
 
-$sim2c::define_variable: (definition source)
+$compiler::define_variable: (definition source)
   extract_destination definition $namespace $name $mangled_name
   if definition.is_a_static_definition:
     write_to_generated_collections "
@@ -1402,7 +1402,7 @@ $sim2c::define_variable: (definition source)
 $namespace_argument: (namespace)
   if namespace.is_defined (-> "@quot;@(namespace)@quot;") -> "NULL"
 
-$sim2c::define_attribute: (definition source)
+$compiler::define_attribute: (definition source)
   extract_destination definition $namespace $name $mangled_name
   $attribute_name mangled_name_of(attribute_of(definition))
   $$src undefined
@@ -1429,7 +1429,7 @@ $sim2c::define_attribute: (definition source)
 	  def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
 	MAKE_ATTRIBUTE_VALUE(@(src)));
 
-$sim2c::define_method: (definition source)
+$compiler::define_method: (definition source)
   extract_destination definition $namespace $name $mangled_name
   $attribute_name mangled_name_of(attribute_of(definition))
   $$src undefined
@@ -1456,7 +1456,7 @@ $sim2c::define_method: (definition source)
 	  def_attribute(&@(var_entry(name)), poly_idx__@(attribute_name), @
 	@(src));
 
-$sim2c::define_type_function: (definition source)
+$compiler::define_type_function: (definition source)
   extract_destination definition $namespace $name $_mangled_name
   to_c source $entry $par_count
   if
@@ -1471,7 +1471,7 @@ $sim2c::define_type_function: (definition source)
 	  update_start_p = node_p;
 	  def_attribute(&@(var_entry(name)), -1, @(entry));
 
-$sim2c::define_polymorphic_function: (definition is_a_setter)
+$compiler::define_polymorphic_function: (definition is_a_setter)
   $with_setter: if is_a_setter (-> "_with_setter") -> ""
 
   extract_destination definition $namespace $name $mangled_name
@@ -1523,7 +1523,7 @@ $sim2c::define_polymorphic_function: (definition is_a_setter)
 	  register_polymorphic_function@(with_setter())(@quot;_@(module_name)@
 	::@(name)", &poly_idx__@(name));
 
-$sim2c::define_c_code: (self)
+$compiler::define_c_code: (self)
   show_compiler_debug_info "define C-code"
   delayed:
     $kind kind_of(self)
@@ -1850,7 +1850,7 @@ $assign_attributes: (destination source attributes)
       @(code)
       }
 
-$sim2c::generate_statement: (statement)
+$compiler::generate_statement: (statement)
   # not used for tail calls!
 
   if do_show_compiler_debug_infos:

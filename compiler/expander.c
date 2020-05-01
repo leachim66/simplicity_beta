@@ -277,6 +277,16 @@ static NODE_GETTER get__body;
 static NODE_GETTER get_value_or_future__body;
 static NODE_GETTER get__case;
 static NODE_GETTER get_value_or_future__case;
+static NODE_GETTER get__compiler__attribute_function_pair;
+static NODE_GETTER get_value_or_future__compiler__attribute_function_pair;
+static NODE_GETTER get__compiler__attribute_value_pair;
+static NODE_GETTER get_value_or_future__compiler__attribute_value_pair;
+static NODE_GETTER get__compiler__body;
+static NODE_GETTER get_value_or_future__compiler__body;
+static NODE_GETTER get__compiler__call;
+static NODE_GETTER get_value_or_future__compiler__call;
+static NODE_GETTER get__compiler__function_call;
+static NODE_GETTER get_value_or_future__compiler__function_call;
 static int poly_idx__default_value_of;
 static NODE_GETTER get__default_value_of;
 static NODE_GETTER get__empty_list;
@@ -331,16 +341,6 @@ static NODE_GETTER get__return_statement;
 static NODE_GETTER get_value_or_future__return_statement;
 static NODE_GETTER get__show_compiler_debug_info;
 static NODE_GETTER get_value_or_future__show_compiler_debug_info;
-static NODE_GETTER get__sim2c__attribute_function_pair;
-static NODE_GETTER get_value_or_future__sim2c__attribute_function_pair;
-static NODE_GETTER get__sim2c__attribute_value_pair;
-static NODE_GETTER get_value_or_future__sim2c__attribute_value_pair;
-static NODE_GETTER get__sim2c__body;
-static NODE_GETTER get_value_or_future__sim2c__body;
-static NODE_GETTER get__sim2c__call;
-static NODE_GETTER get_value_or_future__sim2c__call;
-static NODE_GETTER get__sim2c__function_call;
-static NODE_GETTER get_value_or_future__sim2c__function_call;
 static int poly_idx__source_position_of;
 static NODE_GETTER get__source_position_of;
 static int poly_idx__statements_of;
@@ -365,22 +365,22 @@ static NODE_GETTER get__while;
 static NODE_GETTER get_value_or_future__while;
 static struct {
   NODE *_expand_arguments;
-  NODE *sim2c__expand_statement;
-  NODE *sim2c__expand_expression;
-  NODE *sim2c__expand_operator_call;
+  NODE *compiler__expand_statement;
+  NODE *compiler__expand_expression;
+  NODE *compiler__expand_operator_call;
 } var;
 static const char *var_names[] = {
   "expand_arguments"
 };
-static int poly_idx__sim2c__expand_statement;
-static void type__sim2c__expand_statement(void);
-static NODE *get__sim2c__expand_statement(void) {
-  return var.sim2c__expand_statement;
+static int poly_idx__compiler__expand_statement;
+static void type__compiler__expand_statement(void);
+static NODE *get__compiler__expand_statement(void) {
+  return var.compiler__expand_statement;
 }
-static int poly_idx__sim2c__expand_expression;
-static void type__sim2c__expand_expression(void);
-static NODE *get__sim2c__expand_expression(void) {
-  return var.sim2c__expand_expression;
+static int poly_idx__compiler__expand_expression;
+static void type__compiler__expand_expression(void);
+static NODE *get__compiler__expand_expression(void) {
+  return var.compiler__expand_expression;
 }
 static NODE *func__expand_arguments_1;
 static void entry__expand_arguments_1(void);
@@ -413,198 +413,198 @@ static void entry__types__grammar_node__expand_expression_1(void);
 static FRAME_INFO frame__types__grammar_node__expand_expression_1 = {1, {"self"}};
 static NODE *string__4bcf31e55e19ce58;
 static void cont__types__grammar_node__expand_expression_3(void);
-static NODE *func__sim2c__body__expand_expression_1;
-static void entry__sim2c__body__expand_expression_1(void);
-static FRAME_INFO frame__sim2c__body__expand_expression_1 = {1, {"self"}};
+static NODE *func__compiler__body__expand_expression_1;
+static void entry__compiler__body__expand_expression_1(void);
+static FRAME_INFO frame__compiler__body__expand_expression_1 = {1, {"self"}};
 static NODE *string__c4e5f299bf2dab78;
-static void cont__sim2c__body__expand_expression_3(void);
-static void cont__sim2c__body__expand_expression_4(void);
-static NODE *func__sim2c__body__expand_expression_5;
-static void entry__sim2c__body__expand_expression_5(void);
-static FRAME_INFO frame__sim2c__body__expand_expression_5 = {1, {"parameter"}};
-static void cont__sim2c__body__expand_expression_6(void);
-static void cont__sim2c__body__expand_expression_7(void);
-static NODE *func__sim2c__body__expand_expression_8;
-static void entry__sim2c__body__expand_expression_8(void);
-static FRAME_INFO frame__sim2c__body__expand_expression_8 = {1, {"parameter"}};
-static void cont__sim2c__body__expand_expression_9(void);
-static void cont__sim2c__body__expand_expression_10(void);
-static void cont__sim2c__body__expand_expression_11(void);
-static void cont__sim2c__body__expand_expression_12(void);
-static void cont__sim2c__body__expand_expression_13(void);
-static NODE *func__sim2c__body__expand_expression_14;
-static void entry__sim2c__body__expand_expression_14(void);
-static FRAME_INFO frame__sim2c__body__expand_expression_14 = {1, {"stmt"}};
-static void cont__sim2c__body__expand_expression_15(void);
-static void cont__sim2c__body__expand_expression_16(void);
-static NODE *func__sim2c__call__expand_statement_1;
-static void entry__sim2c__call__expand_statement_1(void);
-static FRAME_INFO frame__sim2c__call__expand_statement_1 = {1, {"self"}};
-static void cont__sim2c__call__expand_statement_2(void);
-static void cont__sim2c__call__expand_statement_3(void);
-static void cont__sim2c__call__expand_statement_4(void);
-static NODE *func__sim2c__call__expand_statement_5;
-static void entry__sim2c__call__expand_statement_5(void);
-static FRAME_INFO frame__sim2c__call__expand_statement_5 = {1, {"self"}};
-static void cont__sim2c__call__expand_statement_6(void);
-static void cont__sim2c__call__expand_statement_7(void);
-static NODE *func__sim2c__call__expand_statement_8;
-static void entry__sim2c__call__expand_statement_8(void);
-static FRAME_INFO frame__sim2c__call__expand_statement_8 = {1, {"self"}};
-static void cont__sim2c__call__expand_statement_9(void);
-static void cont__sim2c__call__expand_statement_10(void);
-static void cont__sim2c__call__expand_statement_11(void);
-static void cont__sim2c__call__expand_statement_12(void);
-static void cont__sim2c__call__expand_statement_13(void);
-static void cont__sim2c__call__expand_statement_14(void);
-static void cont__sim2c__call__expand_statement_15(void);
-static void cont__sim2c__call__expand_statement_16(void);
-static void cont__sim2c__call__expand_statement_17(void);
-static void cont__sim2c__call__expand_statement_18(void);
-static NODE *func__sim2c__expand_operator_call_1;
-static void entry__sim2c__expand_operator_call_1(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_1 = {3, {"self", "make_right_argument_lazy", "functor"}};
-static NODE *func__sim2c__expand_operator_call_2;
-static void entry__sim2c__expand_operator_call_2(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_2 = {2, {"self", "right"}};
-static void cont__sim2c__expand_operator_call_3(void);
-static void cont__sim2c__expand_operator_call_4(void);
-static void cont__sim2c__expand_operator_call_5(void);
-static void cont__sim2c__expand_operator_call_6(void);
-static void cont__sim2c__expand_operator_call_7(void);
-static void cont__sim2c__expand_operator_call_8(void);
-static void cont__sim2c__expand_operator_call_9(void);
-static void cont__sim2c__expand_operator_call_10(void);
-static void cont__sim2c__expand_operator_call_11(void);
-static void cont__sim2c__expand_operator_call_12(void);
-static void cont__sim2c__expand_operator_call_13(void);
-static void cont__sim2c__expand_operator_call_14(void);
-static void cont__sim2c__expand_operator_call_15(void);
-static void cont__sim2c__expand_operator_call_16(void);
-static NODE *func__sim2c__expand_operator_call_17;
-static void entry__sim2c__expand_operator_call_17(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_17 = {4, {"functor", "self", "make_right_argument_lazy", "do_insert_not"}};
-static void cont__sim2c__expand_operator_call_18(void);
-static NODE *func__sim2c__expand_operator_call_19;
-static void entry__sim2c__expand_operator_call_19(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_19 = {1, {"functor"}};
+static void cont__compiler__body__expand_expression_3(void);
+static void cont__compiler__body__expand_expression_4(void);
+static NODE *func__compiler__body__expand_expression_5;
+static void entry__compiler__body__expand_expression_5(void);
+static FRAME_INFO frame__compiler__body__expand_expression_5 = {1, {"parameter"}};
+static void cont__compiler__body__expand_expression_6(void);
+static void cont__compiler__body__expand_expression_7(void);
+static NODE *func__compiler__body__expand_expression_8;
+static void entry__compiler__body__expand_expression_8(void);
+static FRAME_INFO frame__compiler__body__expand_expression_8 = {1, {"parameter"}};
+static void cont__compiler__body__expand_expression_9(void);
+static void cont__compiler__body__expand_expression_10(void);
+static void cont__compiler__body__expand_expression_11(void);
+static void cont__compiler__body__expand_expression_12(void);
+static void cont__compiler__body__expand_expression_13(void);
+static NODE *func__compiler__body__expand_expression_14;
+static void entry__compiler__body__expand_expression_14(void);
+static FRAME_INFO frame__compiler__body__expand_expression_14 = {1, {"stmt"}};
+static void cont__compiler__body__expand_expression_15(void);
+static void cont__compiler__body__expand_expression_16(void);
+static NODE *func__compiler__call__expand_statement_1;
+static void entry__compiler__call__expand_statement_1(void);
+static FRAME_INFO frame__compiler__call__expand_statement_1 = {1, {"self"}};
+static void cont__compiler__call__expand_statement_2(void);
+static void cont__compiler__call__expand_statement_3(void);
+static void cont__compiler__call__expand_statement_4(void);
+static NODE *func__compiler__call__expand_statement_5;
+static void entry__compiler__call__expand_statement_5(void);
+static FRAME_INFO frame__compiler__call__expand_statement_5 = {1, {"self"}};
+static void cont__compiler__call__expand_statement_6(void);
+static void cont__compiler__call__expand_statement_7(void);
+static NODE *func__compiler__call__expand_statement_8;
+static void entry__compiler__call__expand_statement_8(void);
+static FRAME_INFO frame__compiler__call__expand_statement_8 = {1, {"self"}};
+static void cont__compiler__call__expand_statement_9(void);
+static void cont__compiler__call__expand_statement_10(void);
+static void cont__compiler__call__expand_statement_11(void);
+static void cont__compiler__call__expand_statement_12(void);
+static void cont__compiler__call__expand_statement_13(void);
+static void cont__compiler__call__expand_statement_14(void);
+static void cont__compiler__call__expand_statement_15(void);
+static void cont__compiler__call__expand_statement_16(void);
+static void cont__compiler__call__expand_statement_17(void);
+static void cont__compiler__call__expand_statement_18(void);
+static NODE *func__compiler__expand_operator_call_1;
+static void entry__compiler__expand_operator_call_1(void);
+static FRAME_INFO frame__compiler__expand_operator_call_1 = {3, {"self", "make_right_argument_lazy", "functor"}};
+static NODE *func__compiler__expand_operator_call_2;
+static void entry__compiler__expand_operator_call_2(void);
+static FRAME_INFO frame__compiler__expand_operator_call_2 = {2, {"self", "right"}};
+static void cont__compiler__expand_operator_call_3(void);
+static void cont__compiler__expand_operator_call_4(void);
+static void cont__compiler__expand_operator_call_5(void);
+static void cont__compiler__expand_operator_call_6(void);
+static void cont__compiler__expand_operator_call_7(void);
+static void cont__compiler__expand_operator_call_8(void);
+static void cont__compiler__expand_operator_call_9(void);
+static void cont__compiler__expand_operator_call_10(void);
+static void cont__compiler__expand_operator_call_11(void);
+static void cont__compiler__expand_operator_call_12(void);
+static void cont__compiler__expand_operator_call_13(void);
+static void cont__compiler__expand_operator_call_14(void);
+static void cont__compiler__expand_operator_call_15(void);
+static void cont__compiler__expand_operator_call_16(void);
+static NODE *func__compiler__expand_operator_call_17;
+static void entry__compiler__expand_operator_call_17(void);
+static FRAME_INFO frame__compiler__expand_operator_call_17 = {4, {"functor", "self", "make_right_argument_lazy", "do_insert_not"}};
+static void cont__compiler__expand_operator_call_18(void);
+static NODE *func__compiler__expand_operator_call_19;
+static void entry__compiler__expand_operator_call_19(void);
+static FRAME_INFO frame__compiler__expand_operator_call_19 = {1, {"functor"}};
 static NODE *string__585ae843eae15024;
-static void cont__sim2c__expand_operator_call_21(void);
-static NODE *func__sim2c__expand_operator_call_22;
-static void entry__sim2c__expand_operator_call_22(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_22 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_21(void);
+static NODE *func__compiler__expand_operator_call_22;
+static void entry__compiler__expand_operator_call_22(void);
+static FRAME_INFO frame__compiler__expand_operator_call_22 = {1, {"functor"}};
 static NODE *string__1c0aeccb5d487d4b;
-static void cont__sim2c__expand_operator_call_24(void);
-static NODE *func__sim2c__expand_operator_call_25;
-static void entry__sim2c__expand_operator_call_25(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_25 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_24(void);
+static NODE *func__compiler__expand_operator_call_25;
+static void entry__compiler__expand_operator_call_25(void);
+static FRAME_INFO frame__compiler__expand_operator_call_25 = {1, {"functor"}};
 static NODE *string__220aea4b5dc87d4a;
-static void cont__sim2c__expand_operator_call_27(void);
-static NODE *func__sim2c__expand_operator_call_28;
-static void entry__sim2c__expand_operator_call_28(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_28 = {2, {"self", "functor"}};
-static void cont__sim2c__expand_operator_call_29(void);
-static void cont__sim2c__expand_operator_call_30(void);
-static void cont__sim2c__expand_operator_call_31(void);
-static NODE *func__sim2c__expand_operator_call_32;
-static void entry__sim2c__expand_operator_call_32(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_32 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_27(void);
+static NODE *func__compiler__expand_operator_call_28;
+static void entry__compiler__expand_operator_call_28(void);
+static FRAME_INFO frame__compiler__expand_operator_call_28 = {2, {"self", "functor"}};
+static void cont__compiler__expand_operator_call_29(void);
+static void cont__compiler__expand_operator_call_30(void);
+static void cont__compiler__expand_operator_call_31(void);
+static NODE *func__compiler__expand_operator_call_32;
+static void entry__compiler__expand_operator_call_32(void);
+static FRAME_INFO frame__compiler__expand_operator_call_32 = {1, {"functor"}};
 static NODE *string__561f5607811a02b2;
-static void cont__sim2c__expand_operator_call_34(void);
-static NODE *func__sim2c__expand_operator_call_35;
-static void entry__sim2c__expand_operator_call_35(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_35 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_34(void);
+static NODE *func__compiler__expand_operator_call_35;
+static void entry__compiler__expand_operator_call_35(void);
+static FRAME_INFO frame__compiler__expand_operator_call_35 = {1, {"functor"}};
 static NODE *string__585ae883ea60c024;
-static void cont__sim2c__expand_operator_call_37(void);
-static NODE *func__sim2c__expand_operator_call_38;
-static void entry__sim2c__expand_operator_call_38(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_38 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_37(void);
+static NODE *func__compiler__expand_operator_call_38;
+static void entry__compiler__expand_operator_call_38(void);
+static FRAME_INFO frame__compiler__expand_operator_call_38 = {1, {"functor"}};
 static NODE *string__2d7c8951ae1884d5;
-static void cont__sim2c__expand_operator_call_40(void);
-static NODE *func__sim2c__expand_operator_call_41;
-static void entry__sim2c__expand_operator_call_41(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_41 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_40(void);
+static NODE *func__compiler__expand_operator_call_41;
+static void entry__compiler__expand_operator_call_41(void);
+static FRAME_INFO frame__compiler__expand_operator_call_41 = {1, {"functor"}};
 static NODE *string__528d708426488b90;
-static void cont__sim2c__expand_operator_call_43(void);
-static NODE *func__sim2c__expand_operator_call_44;
-static void entry__sim2c__expand_operator_call_44(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_44 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_43(void);
+static NODE *func__compiler__expand_operator_call_44;
+static void entry__compiler__expand_operator_call_44(void);
+static FRAME_INFO frame__compiler__expand_operator_call_44 = {1, {"functor"}};
 static NODE *string__cc0c0d9615cb809e;
-static void cont__sim2c__expand_operator_call_46(void);
-static NODE *func__sim2c__expand_operator_call_47;
-static void entry__sim2c__expand_operator_call_47(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_47 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_46(void);
+static NODE *func__compiler__expand_operator_call_47;
+static void entry__compiler__expand_operator_call_47(void);
+static FRAME_INFO frame__compiler__expand_operator_call_47 = {1, {"functor"}};
 static NODE *string__cc0c0bd615c38088;
-static void cont__sim2c__expand_operator_call_49(void);
-static NODE *func__sim2c__expand_operator_call_50;
-static void entry__sim2c__expand_operator_call_50(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_50 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_49(void);
+static NODE *func__compiler__expand_operator_call_50;
+static void entry__compiler__expand_operator_call_50(void);
+static FRAME_INFO frame__compiler__expand_operator_call_50 = {1, {"functor"}};
 static NODE *string__701f598181c2c2a5;
-static void cont__sim2c__expand_operator_call_52(void);
-static NODE *func__sim2c__expand_operator_call_53;
-static void entry__sim2c__expand_operator_call_53(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_53 = {3, {"functor", "self", "do_insert_not"}};
+static void cont__compiler__expand_operator_call_52(void);
+static NODE *func__compiler__expand_operator_call_53;
+static void entry__compiler__expand_operator_call_53(void);
+static FRAME_INFO frame__compiler__expand_operator_call_53 = {3, {"functor", "self", "do_insert_not"}};
 static NODE *string__1a0ae80b5df87d4a;
-static void cont__sim2c__expand_operator_call_55(void);
-static void cont__sim2c__expand_operator_call_56(void);
-static void cont__sim2c__expand_operator_call_57(void);
-static void cont__sim2c__expand_operator_call_58(void);
-static void cont__sim2c__expand_operator_call_59(void);
-static void cont__sim2c__expand_operator_call_60(void);
-static void cont__sim2c__expand_operator_call_61(void);
-static void cont__sim2c__expand_operator_call_62(void);
-static void cont__sim2c__expand_operator_call_63(void);
-static void cont__sim2c__expand_operator_call_64(void);
-static NODE *func__sim2c__expand_operator_call_65;
-static void entry__sim2c__expand_operator_call_65(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_65 = {1, {"functor"}};
-static void cont__sim2c__expand_operator_call_66(void);
-static NODE *func__sim2c__expand_operator_call_67;
-static void entry__sim2c__expand_operator_call_67(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_67 = {2, {"functor", "do_insert_not"}};
-static void cont__sim2c__expand_operator_call_68(void);
-static NODE *func__sim2c__expand_operator_call_69;
-static void entry__sim2c__expand_operator_call_69(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_69 = {2, {"functor", "self"}};
-static void cont__sim2c__expand_operator_call_70(void);
-static void cont__sim2c__expand_operator_call_71(void);
-static void cont__sim2c__expand_operator_call_72(void);
-static void cont__sim2c__expand_operator_call_73(void);
-static void cont__sim2c__expand_operator_call_74(void);
-static void cont__sim2c__expand_operator_call_75(void);
-static void cont__sim2c__expand_operator_call_76(void);
-static void cont__sim2c__expand_operator_call_77(void);
-static void cont__sim2c__expand_operator_call_78(void);
-static void cont__sim2c__expand_operator_call_79(void);
-static NODE *func__sim2c__expand_operator_call_80;
-static void entry__sim2c__expand_operator_call_80(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_80 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_55(void);
+static void cont__compiler__expand_operator_call_56(void);
+static void cont__compiler__expand_operator_call_57(void);
+static void cont__compiler__expand_operator_call_58(void);
+static void cont__compiler__expand_operator_call_59(void);
+static void cont__compiler__expand_operator_call_60(void);
+static void cont__compiler__expand_operator_call_61(void);
+static void cont__compiler__expand_operator_call_62(void);
+static void cont__compiler__expand_operator_call_63(void);
+static void cont__compiler__expand_operator_call_64(void);
+static NODE *func__compiler__expand_operator_call_65;
+static void entry__compiler__expand_operator_call_65(void);
+static FRAME_INFO frame__compiler__expand_operator_call_65 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_66(void);
+static NODE *func__compiler__expand_operator_call_67;
+static void entry__compiler__expand_operator_call_67(void);
+static FRAME_INFO frame__compiler__expand_operator_call_67 = {2, {"functor", "do_insert_not"}};
+static void cont__compiler__expand_operator_call_68(void);
+static NODE *func__compiler__expand_operator_call_69;
+static void entry__compiler__expand_operator_call_69(void);
+static FRAME_INFO frame__compiler__expand_operator_call_69 = {2, {"functor", "self"}};
+static void cont__compiler__expand_operator_call_70(void);
+static void cont__compiler__expand_operator_call_71(void);
+static void cont__compiler__expand_operator_call_72(void);
+static void cont__compiler__expand_operator_call_73(void);
+static void cont__compiler__expand_operator_call_74(void);
+static void cont__compiler__expand_operator_call_75(void);
+static void cont__compiler__expand_operator_call_76(void);
+static void cont__compiler__expand_operator_call_77(void);
+static void cont__compiler__expand_operator_call_78(void);
+static void cont__compiler__expand_operator_call_79(void);
+static NODE *func__compiler__expand_operator_call_80;
+static void entry__compiler__expand_operator_call_80(void);
+static FRAME_INFO frame__compiler__expand_operator_call_80 = {1, {"functor"}};
 static NODE *string__685aee43eac0403b;
-static void cont__sim2c__expand_operator_call_82(void);
-static NODE *func__sim2c__expand_operator_call_83;
-static void entry__sim2c__expand_operator_call_83(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_83 = {2, {"functor", "do_insert_not"}};
-static void cont__sim2c__expand_operator_call_84(void);
-static NODE *func__sim2c__expand_operator_call_85;
-static void entry__sim2c__expand_operator_call_85(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_85 = {2, {"functor", "make_right_argument_lazy"}};
+static void cont__compiler__expand_operator_call_82(void);
+static NODE *func__compiler__expand_operator_call_83;
+static void entry__compiler__expand_operator_call_83(void);
+static FRAME_INFO frame__compiler__expand_operator_call_83 = {2, {"functor", "do_insert_not"}};
+static void cont__compiler__expand_operator_call_84(void);
+static NODE *func__compiler__expand_operator_call_85;
+static void entry__compiler__expand_operator_call_85(void);
+static FRAME_INFO frame__compiler__expand_operator_call_85 = {2, {"functor", "make_right_argument_lazy"}};
 static NODE *string__fa720015d596ba8;
-static void cont__sim2c__expand_operator_call_87(void);
-static NODE *func__sim2c__expand_operator_call_88;
-static void entry__sim2c__expand_operator_call_88(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_88 = {2, {"functor", "make_right_argument_lazy"}};
+static void cont__compiler__expand_operator_call_87(void);
+static NODE *func__compiler__expand_operator_call_88;
+static void entry__compiler__expand_operator_call_88(void);
+static FRAME_INFO frame__compiler__expand_operator_call_88 = {2, {"functor", "make_right_argument_lazy"}};
 static NODE *string__2d7981f4e4702bb7;
-static void cont__sim2c__expand_operator_call_90(void);
-static NODE *func__sim2c__expand_operator_call_91;
-static void entry__sim2c__expand_operator_call_91(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_91 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_90(void);
+static NODE *func__compiler__expand_operator_call_91;
+static void entry__compiler__expand_operator_call_91(void);
+static FRAME_INFO frame__compiler__expand_operator_call_91 = {1, {"functor"}};
 static NODE *string__2c93ac4233089e0;
-static void cont__sim2c__expand_operator_call_93(void);
-static NODE *func__sim2c__expand_operator_call_94;
-static void entry__sim2c__expand_operator_call_94(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_94 = {1, {"functor"}};
+static void cont__compiler__expand_operator_call_93(void);
+static NODE *func__compiler__expand_operator_call_94;
+static void entry__compiler__expand_operator_call_94(void);
+static FRAME_INFO frame__compiler__expand_operator_call_94 = {1, {"functor"}};
 static NODE *string__64d512703527e2ab;
-static void cont__sim2c__expand_operator_call_96(void);
+static void cont__compiler__expand_operator_call_96(void);
 static NODE *string__578a5af303e9ccb;
 static NODE *string__578a5af303e9cce;
 static NODE *string__578a5af303e9cca;
@@ -624,98 +624,98 @@ static NODE *string__2d7981f4e6382be3;
 static NODE *string__2d7981f4e4e82bb9;
 static NODE *string__2d7981f4e6782beb;
 static NODE *string__578a5af303e9cdc;
-static void cont__sim2c__expand_operator_call_116(void);
-static NODE *func__sim2c__expand_operator_call_117;
-static void entry__sim2c__expand_operator_call_117(void);
-static FRAME_INFO frame__sim2c__expand_operator_call_117 = {1, {"self"}};
+static void cont__compiler__expand_operator_call_116(void);
+static NODE *func__compiler__expand_operator_call_117;
+static void entry__compiler__expand_operator_call_117(void);
+static FRAME_INFO frame__compiler__expand_operator_call_117 = {1, {"self"}};
 static NODE *string__fa723c15d516bb8;
-static void cont__sim2c__expand_operator_call_119(void);
-static void cont__sim2c__expand_operator_call_120(void);
-static void cont__sim2c__expand_operator_call_121(void);
-static void cont__sim2c__expand_operator_call_122(void);
-static void cont__sim2c__expand_operator_call_123(void);
-static void cont__sim2c__expand_operator_call_124(void);
-static NODE *get__sim2c__expand_operator_call(void) {
-  return var.sim2c__expand_operator_call;
+static void cont__compiler__expand_operator_call_119(void);
+static void cont__compiler__expand_operator_call_120(void);
+static void cont__compiler__expand_operator_call_121(void);
+static void cont__compiler__expand_operator_call_122(void);
+static void cont__compiler__expand_operator_call_123(void);
+static void cont__compiler__expand_operator_call_124(void);
+static NODE *get__compiler__expand_operator_call(void) {
+  return var.compiler__expand_operator_call;
 }
-static NODE *func__sim2c__function_call__expand_expression_1;
-static void entry__sim2c__function_call__expand_expression_1(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_1 = {1, {"self"}};
+static NODE *func__compiler__function_call__expand_expression_1;
+static void entry__compiler__function_call__expand_expression_1(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_1 = {1, {"self"}};
 static NODE *string__2ae70e1058c2c0b7;
-static void cont__sim2c__function_call__expand_expression_3(void);
-static void cont__sim2c__function_call__expand_expression_4(void);
-static void cont__sim2c__function_call__expand_expression_5(void);
-static NODE *func__sim2c__function_call__expand_expression_6;
-static void entry__sim2c__function_call__expand_expression_6(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_6 = {2, {"self", "functor"}};
-static void cont__sim2c__function_call__expand_expression_7(void);
-static void cont__sim2c__function_call__expand_expression_8(void);
-static void cont__sim2c__function_call__expand_expression_9(void);
-static void cont__sim2c__function_call__expand_expression_10(void);
-static NODE *func__sim2c__function_call__expand_expression_11;
-static void entry__sim2c__function_call__expand_expression_11(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_11 = {1, {"functor"}};
-static void cont__sim2c__function_call__expand_expression_12(void);
+static void cont__compiler__function_call__expand_expression_3(void);
+static void cont__compiler__function_call__expand_expression_4(void);
+static void cont__compiler__function_call__expand_expression_5(void);
+static NODE *func__compiler__function_call__expand_expression_6;
+static void entry__compiler__function_call__expand_expression_6(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_6 = {2, {"self", "functor"}};
+static void cont__compiler__function_call__expand_expression_7(void);
+static void cont__compiler__function_call__expand_expression_8(void);
+static void cont__compiler__function_call__expand_expression_9(void);
+static void cont__compiler__function_call__expand_expression_10(void);
+static NODE *func__compiler__function_call__expand_expression_11;
+static void entry__compiler__function_call__expand_expression_11(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_11 = {1, {"functor"}};
+static void cont__compiler__function_call__expand_expression_12(void);
 static NODE *string__578a5af303e9ccd;
-static void cont__sim2c__function_call__expand_expression_14(void);
-static void cont__sim2c__function_call__expand_expression_15(void);
-static NODE *func__sim2c__function_call__expand_expression_16;
-static void entry__sim2c__function_call__expand_expression_16(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_16 = {3, {"self", "arguments", "right"}};
-static void cont__sim2c__function_call__expand_expression_17(void);
-static void cont__sim2c__function_call__expand_expression_18(void);
-static void cont__sim2c__function_call__expand_expression_19(void);
-static void cont__sim2c__function_call__expand_expression_20(void);
-static void cont__sim2c__function_call__expand_expression_21(void);
-static NODE *func__sim2c__function_call__expand_expression_22;
-static void entry__sim2c__function_call__expand_expression_22(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_22 = {2, {"right", "arguments"}};
-static void cont__sim2c__function_call__expand_expression_23(void);
-static NODE *func__sim2c__function_call__expand_expression_24;
-static void entry__sim2c__function_call__expand_expression_24(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_24 = {1, {"right"}};
-static void cont__sim2c__function_call__expand_expression_25(void);
-static void cont__sim2c__function_call__expand_expression_26(void);
-static void cont__sim2c__function_call__expand_expression_27(void);
-static void cont__sim2c__function_call__expand_expression_28(void);
-static NODE *func__sim2c__function_call__expand_expression_29;
-static void entry__sim2c__function_call__expand_expression_29(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_29 = {3, {"right", "arguments", "right_arguments"}};
-static void cont__sim2c__function_call__expand_expression_30(void);
-static void cont__sim2c__function_call__expand_expression_31(void);
-static void cont__sim2c__function_call__expand_expression_32(void);
-static void cont__sim2c__function_call__expand_expression_33(void);
-static void cont__sim2c__function_call__expand_expression_34(void);
-static void cont__sim2c__function_call__expand_expression_35(void);
+static void cont__compiler__function_call__expand_expression_14(void);
+static void cont__compiler__function_call__expand_expression_15(void);
+static NODE *func__compiler__function_call__expand_expression_16;
+static void entry__compiler__function_call__expand_expression_16(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_16 = {3, {"self", "arguments", "right"}};
+static void cont__compiler__function_call__expand_expression_17(void);
+static void cont__compiler__function_call__expand_expression_18(void);
+static void cont__compiler__function_call__expand_expression_19(void);
+static void cont__compiler__function_call__expand_expression_20(void);
+static void cont__compiler__function_call__expand_expression_21(void);
+static NODE *func__compiler__function_call__expand_expression_22;
+static void entry__compiler__function_call__expand_expression_22(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_22 = {2, {"right", "arguments"}};
+static void cont__compiler__function_call__expand_expression_23(void);
+static NODE *func__compiler__function_call__expand_expression_24;
+static void entry__compiler__function_call__expand_expression_24(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_24 = {1, {"right"}};
+static void cont__compiler__function_call__expand_expression_25(void);
+static void cont__compiler__function_call__expand_expression_26(void);
+static void cont__compiler__function_call__expand_expression_27(void);
+static void cont__compiler__function_call__expand_expression_28(void);
+static NODE *func__compiler__function_call__expand_expression_29;
+static void entry__compiler__function_call__expand_expression_29(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_29 = {3, {"right", "arguments", "right_arguments"}};
+static void cont__compiler__function_call__expand_expression_30(void);
+static void cont__compiler__function_call__expand_expression_31(void);
+static void cont__compiler__function_call__expand_expression_32(void);
+static void cont__compiler__function_call__expand_expression_33(void);
+static void cont__compiler__function_call__expand_expression_34(void);
+static void cont__compiler__function_call__expand_expression_35(void);
 static NODE *string__6480ae5e84ccc225;
-static void cont__sim2c__function_call__expand_expression_37(void);
-static void cont__sim2c__function_call__expand_expression_38(void);
-static NODE *func__sim2c__function_call__expand_expression_39;
-static void entry__sim2c__function_call__expand_expression_39(void);
-static FRAME_INFO frame__sim2c__function_call__expand_expression_39 = {1, {"self"}};
-static void cont__sim2c__function_call__expand_expression_40(void);
-static void cont__sim2c__function_call__expand_expression_41(void);
-static void cont__sim2c__function_call__expand_expression_42(void);
-static void cont__sim2c__function_call__expand_expression_43(void);
-static NODE *func__sim2c__attribute_value_pair__expand_expression_1;
-static void entry__sim2c__attribute_value_pair__expand_expression_1(void);
-static FRAME_INFO frame__sim2c__attribute_value_pair__expand_expression_1 = {1, {"self"}};
+static void cont__compiler__function_call__expand_expression_37(void);
+static void cont__compiler__function_call__expand_expression_38(void);
+static NODE *func__compiler__function_call__expand_expression_39;
+static void entry__compiler__function_call__expand_expression_39(void);
+static FRAME_INFO frame__compiler__function_call__expand_expression_39 = {1, {"self"}};
+static void cont__compiler__function_call__expand_expression_40(void);
+static void cont__compiler__function_call__expand_expression_41(void);
+static void cont__compiler__function_call__expand_expression_42(void);
+static void cont__compiler__function_call__expand_expression_43(void);
+static NODE *func__compiler__attribute_value_pair__expand_expression_1;
+static void entry__compiler__attribute_value_pair__expand_expression_1(void);
+static FRAME_INFO frame__compiler__attribute_value_pair__expand_expression_1 = {1, {"self"}};
 static NODE *string__30246dda36d83a54;
-static void cont__sim2c__attribute_value_pair__expand_expression_3(void);
-static void cont__sim2c__attribute_value_pair__expand_expression_4(void);
-static void cont__sim2c__attribute_value_pair__expand_expression_5(void);
-static NODE *func__sim2c__attribute_function_pair__expand_expression_1;
-static void entry__sim2c__attribute_function_pair__expand_expression_1(void);
-static FRAME_INFO frame__sim2c__attribute_function_pair__expand_expression_1 = {1, {"self"}};
+static void cont__compiler__attribute_value_pair__expand_expression_3(void);
+static void cont__compiler__attribute_value_pair__expand_expression_4(void);
+static void cont__compiler__attribute_value_pair__expand_expression_5(void);
+static NODE *func__compiler__attribute_function_pair__expand_expression_1;
+static void entry__compiler__attribute_function_pair__expand_expression_1(void);
+static FRAME_INFO frame__compiler__attribute_function_pair__expand_expression_1 = {1, {"self"}};
 static NODE *string__2c1ce19c26092926;
-static void cont__sim2c__attribute_function_pair__expand_expression_3(void);
-static void cont__sim2c__attribute_function_pair__expand_expression_4(void);
-static void cont__sim2c__attribute_function_pair__expand_expression_5(void);
+static void cont__compiler__attribute_function_pair__expand_expression_3(void);
+static void cont__compiler__attribute_function_pair__expand_expression_4(void);
+static void cont__compiler__attribute_function_pair__expand_expression_5(void);
 void run__expander(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {type__sim2c__expand_statement, NULL, 29, 29, 2, 24},
-  {type__sim2c__expand_expression, NULL, 30, 30, 2, 25},
+  {type__compiler__expand_statement, NULL, 29, 29, 2, 27},
+  {type__compiler__expand_expression, NULL, 30, 30, 2, 28},
   {run__expander, NULL, },
   {entry__expand_arguments_4, NULL, 39, 39, 41, 63},
   {cont__expand_arguments_5, &frame__expand_arguments_4, 37, 39, 9, 64},
@@ -734,175 +734,175 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__grammar_node__expand_statement_3, &frame__types__grammar_node__expand_statement_1, },
   {entry__types__grammar_node__expand_expression_1, NULL, 52, 52, 3, 46},
   {cont__types__grammar_node__expand_expression_3, &frame__types__grammar_node__expand_expression_1, },
-  {entry__sim2c__body__expand_expression_8, NULL, 61, 61, 26, 51},
-  {cont__sim2c__body__expand_expression_9, &frame__sim2c__body__expand_expression_8, 61, 61, 7, 51},
-  {cont__sim2c__body__expand_expression_10, &frame__sim2c__body__expand_expression_8, 61, 61, 51, 51},
-  {entry__sim2c__body__expand_expression_5, NULL, 60, 60, 8, 34},
-  {cont__sim2c__body__expand_expression_6, &frame__sim2c__body__expand_expression_5, 60, 60, 8, 45},
-  {cont__sim2c__body__expand_expression_7, &frame__sim2c__body__expand_expression_5, 60, 61, 5, 51},
-  {cont__sim2c__body__expand_expression_11, &frame__sim2c__body__expand_expression_5, },
-  {entry__sim2c__body__expand_expression_14, NULL, 62, 62, 44, 65},
-  {cont__sim2c__body__expand_expression_15, &frame__sim2c__body__expand_expression_14, 62, 62, 65, 65},
-  {entry__sim2c__body__expand_expression_1, NULL, 58, 58, 3, 40},
-  {cont__sim2c__body__expand_expression_3, &frame__sim2c__body__expand_expression_1, 59, 59, 16, 33},
-  {cont__sim2c__body__expand_expression_4, &frame__sim2c__body__expand_expression_1, 59, 61, 3, 52},
-  {cont__sim2c__body__expand_expression_12, &frame__sim2c__body__expand_expression_1, 62, 62, 16, 33},
-  {cont__sim2c__body__expand_expression_13, &frame__sim2c__body__expand_expression_1, 62, 62, 3, 65},
-  {cont__sim2c__body__expand_expression_16, &frame__sim2c__body__expand_expression_1, 62, 62, 65, 65},
-  {entry__sim2c__call__expand_statement_8, NULL, 70, 70, 61, 80},
-  {cont__sim2c__call__expand_statement_9, &frame__sim2c__call__expand_statement_8, 70, 70, 42, 80},
-  {cont__sim2c__call__expand_statement_10, &frame__sim2c__call__expand_statement_8, 70, 70, 80, 80},
-  {entry__sim2c__call__expand_statement_5, NULL, 70, 70, 8, 28},
-  {cont__sim2c__call__expand_statement_6, &frame__sim2c__call__expand_statement_5, 70, 70, 8, 39},
-  {cont__sim2c__call__expand_statement_7, &frame__sim2c__call__expand_statement_5, 70, 70, 5, 80},
-  {cont__sim2c__call__expand_statement_11, &frame__sim2c__call__expand_statement_5, 71, 71, 24, 38},
-  {cont__sim2c__call__expand_statement_12, &frame__sim2c__call__expand_statement_5, 71, 71, 5, 38},
-  {cont__sim2c__call__expand_statement_13, &frame__sim2c__call__expand_statement_5, 71, 71, 38, 38},
-  {entry__sim2c__call__expand_statement_1, NULL, 68, 68, 3, 45},
-  {cont__sim2c__call__expand_statement_2, &frame__sim2c__call__expand_statement_1, 69, 69, 6, 21},
-  {cont__sim2c__call__expand_statement_3, &frame__sim2c__call__expand_statement_1, 69, 69, 6, 32},
-  {cont__sim2c__call__expand_statement_4, &frame__sim2c__call__expand_statement_1, 69, 71, 3, 38},
-  {cont__sim2c__call__expand_statement_14, &frame__sim2c__call__expand_statement_1, 72, 72, 21, 37},
-  {cont__sim2c__call__expand_statement_15, &frame__sim2c__call__expand_statement_1, 72, 72, 3, 37},
-  {cont__sim2c__call__expand_statement_16, &frame__sim2c__call__expand_statement_1, 73, 73, 21, 44},
-  {cont__sim2c__call__expand_statement_17, &frame__sim2c__call__expand_statement_1, 73, 73, 3, 44},
-  {cont__sim2c__call__expand_statement_18, &frame__sim2c__call__expand_statement_1, 73, 73, 44, 44},
-  {entry__sim2c__expand_operator_call_2, NULL, 80, 80, 12, 29},
-  {cont__sim2c__expand_operator_call_3, &frame__sim2c__expand_operator_call_2, 80, 80, 5, 32},
-  {cont__sim2c__expand_operator_call_4, &frame__sim2c__expand_operator_call_2, 86, 86, 29, 39},
-  {cont__sim2c__expand_operator_call_5, &frame__sim2c__expand_operator_call_2, 87, 87, 28, 45},
-  {cont__sim2c__expand_operator_call_6, &frame__sim2c__expand_operator_call_2, 88, 88, 35, 59},
-  {cont__sim2c__expand_operator_call_7, &frame__sim2c__expand_operator_call_2, 89, 89, 32, 53},
-  {cont__sim2c__expand_operator_call_8, &frame__sim2c__expand_operator_call_2, 84, 89, 11, 53},
-  {cont__sim2c__expand_operator_call_9, &frame__sim2c__expand_operator_call_2, 90, 90, 22, 39},
-  {cont__sim2c__expand_operator_call_10, &frame__sim2c__expand_operator_call_2, 91, 91, 29, 53},
-  {cont__sim2c__expand_operator_call_11, &frame__sim2c__expand_operator_call_2, 92, 92, 26, 47},
-  {cont__sim2c__expand_operator_call_12, &frame__sim2c__expand_operator_call_2, 81, 81, 6, 22},
-  {cont__sim2c__expand_operator_call_13, &frame__sim2c__expand_operator_call_2, 81, 81, 5, 25},
-  {cont__sim2c__expand_operator_call_14, &frame__sim2c__expand_operator_call_2, 92, 92, 49, 49},
-  {entry__sim2c__expand_operator_call_19, NULL, 100, 100, 9, 40},
-  {cont__sim2c__expand_operator_call_21, &frame__sim2c__expand_operator_call_19, 100, 100, 40, 40},
-  {entry__sim2c__expand_operator_call_22, NULL, 102, 102, 9, 39},
-  {cont__sim2c__expand_operator_call_24, &frame__sim2c__expand_operator_call_22, 102, 102, 39, 39},
-  {entry__sim2c__expand_operator_call_25, NULL, 104, 104, 9, 39},
-  {cont__sim2c__expand_operator_call_27, &frame__sim2c__expand_operator_call_25, 104, 104, 39, 39},
-  {entry__sim2c__expand_operator_call_32, NULL, 108, 108, 13, 45},
-  {cont__sim2c__expand_operator_call_34, &frame__sim2c__expand_operator_call_32, 108, 108, 45, 45},
-  {entry__sim2c__expand_operator_call_35, NULL, 110, 110, 13, 44},
-  {cont__sim2c__expand_operator_call_37, &frame__sim2c__expand_operator_call_35, 110, 110, 44, 44},
-  {entry__sim2c__expand_operator_call_28, NULL, 107, 107, 21, 38},
-  {cont__sim2c__expand_operator_call_29, &frame__sim2c__expand_operator_call_28, 107, 107, 11, 39},
-  {cont__sim2c__expand_operator_call_30, &frame__sim2c__expand_operator_call_28, 107, 107, 11, 44},
-  {cont__sim2c__expand_operator_call_31, &frame__sim2c__expand_operator_call_28, 106, 110, 9, 45},
-  {entry__sim2c__expand_operator_call_38, NULL, 112, 112, 9, 45},
-  {cont__sim2c__expand_operator_call_40, &frame__sim2c__expand_operator_call_38, 112, 112, 45, 45},
-  {entry__sim2c__expand_operator_call_41, NULL, 114, 114, 9, 46},
-  {cont__sim2c__expand_operator_call_43, &frame__sim2c__expand_operator_call_41, 114, 114, 46, 46},
-  {entry__sim2c__expand_operator_call_44, NULL, 116, 116, 9, 42},
-  {cont__sim2c__expand_operator_call_46, &frame__sim2c__expand_operator_call_44, 116, 116, 42, 42},
-  {entry__sim2c__expand_operator_call_47, NULL, 118, 118, 9, 42},
-  {cont__sim2c__expand_operator_call_49, &frame__sim2c__expand_operator_call_47, 118, 118, 42, 42},
-  {entry__sim2c__expand_operator_call_50, NULL, 120, 120, 9, 41},
-  {cont__sim2c__expand_operator_call_52, &frame__sim2c__expand_operator_call_50, 120, 120, 41, 41},
-  {entry__sim2c__expand_operator_call_53, NULL, 122, 122, 9, 39},
-  {cont__sim2c__expand_operator_call_55, &frame__sim2c__expand_operator_call_53, 123, 123, 15, 31},
-  {cont__sim2c__expand_operator_call_56, &frame__sim2c__expand_operator_call_53, 123, 123, 15, 34},
-  {cont__sim2c__expand_operator_call_57, &frame__sim2c__expand_operator_call_53, 123, 123, 37, 53},
-  {cont__sim2c__expand_operator_call_58, &frame__sim2c__expand_operator_call_53, 123, 123, 37, 56},
-  {cont__sim2c__expand_operator_call_59, &frame__sim2c__expand_operator_call_53, 123, 123, 9, 56},
-  {cont__sim2c__expand_operator_call_60, &frame__sim2c__expand_operator_call_53, 123, 123, 15, 31},
-  {cont__sim2c__expand_operator_call_61, &frame__sim2c__expand_operator_call_53, 123, 123, 14, 34},
-  {cont__sim2c__expand_operator_call_62, &frame__sim2c__expand_operator_call_53, 123, 123, 37, 53},
-  {cont__sim2c__expand_operator_call_63, &frame__sim2c__expand_operator_call_53, 123, 123, 36, 56},
-  {cont__sim2c__expand_operator_call_64, &frame__sim2c__expand_operator_call_53, 124, 124, 27, 27},
-  {entry__sim2c__expand_operator_call_65, NULL, 126, 126, 9, 39},
-  {cont__sim2c__expand_operator_call_66, &frame__sim2c__expand_operator_call_65, 126, 126, 39, 39},
-  {entry__sim2c__expand_operator_call_67, NULL, 128, 128, 9, 39},
-  {cont__sim2c__expand_operator_call_68, &frame__sim2c__expand_operator_call_67, 129, 129, 27, 27},
-  {entry__sim2c__expand_operator_call_69, NULL, 131, 131, 9, 39},
-  {cont__sim2c__expand_operator_call_70, &frame__sim2c__expand_operator_call_69, 132, 132, 15, 31},
-  {cont__sim2c__expand_operator_call_71, &frame__sim2c__expand_operator_call_69, 132, 132, 15, 34},
-  {cont__sim2c__expand_operator_call_72, &frame__sim2c__expand_operator_call_69, 132, 132, 37, 53},
-  {cont__sim2c__expand_operator_call_73, &frame__sim2c__expand_operator_call_69, 132, 132, 37, 56},
-  {cont__sim2c__expand_operator_call_74, &frame__sim2c__expand_operator_call_69, 132, 132, 9, 56},
-  {cont__sim2c__expand_operator_call_75, &frame__sim2c__expand_operator_call_69, 132, 132, 15, 31},
-  {cont__sim2c__expand_operator_call_76, &frame__sim2c__expand_operator_call_69, 132, 132, 14, 34},
-  {cont__sim2c__expand_operator_call_77, &frame__sim2c__expand_operator_call_69, 132, 132, 37, 53},
-  {cont__sim2c__expand_operator_call_78, &frame__sim2c__expand_operator_call_69, 132, 132, 36, 56},
-  {cont__sim2c__expand_operator_call_79, &frame__sim2c__expand_operator_call_69, 132, 132, 56, 56},
-  {entry__sim2c__expand_operator_call_80, NULL, 134, 134, 9, 40},
-  {cont__sim2c__expand_operator_call_82, &frame__sim2c__expand_operator_call_80, 134, 134, 40, 40},
-  {entry__sim2c__expand_operator_call_83, NULL, 136, 136, 9, 40},
-  {cont__sim2c__expand_operator_call_84, &frame__sim2c__expand_operator_call_83, 137, 137, 27, 27},
-  {entry__sim2c__expand_operator_call_85, NULL, 139, 139, 9, 38},
-  {cont__sim2c__expand_operator_call_87, &frame__sim2c__expand_operator_call_85, 140, 140, 9, 32},
-  {entry__sim2c__expand_operator_call_88, NULL, 142, 142, 9, 37},
-  {cont__sim2c__expand_operator_call_90, &frame__sim2c__expand_operator_call_88, 143, 143, 9, 32},
-  {entry__sim2c__expand_operator_call_91, NULL, 145, 145, 9, 46},
-  {cont__sim2c__expand_operator_call_93, &frame__sim2c__expand_operator_call_91, 145, 145, 46, 46},
-  {entry__sim2c__expand_operator_call_94, NULL, 147, 147, 9, 49},
-  {cont__sim2c__expand_operator_call_96, &frame__sim2c__expand_operator_call_94, 147, 147, 49, 49},
-  {entry__sim2c__expand_operator_call_117, NULL, 152, 152, 23, 43},
-  {cont__sim2c__expand_operator_call_119, &frame__sim2c__expand_operator_call_117, 153, 153, 25, 34},
-  {cont__sim2c__expand_operator_call_120, &frame__sim2c__expand_operator_call_117, 154, 154, 24, 40},
-  {cont__sim2c__expand_operator_call_121, &frame__sim2c__expand_operator_call_117, 155, 155, 31, 54},
-  {cont__sim2c__expand_operator_call_122, &frame__sim2c__expand_operator_call_117, 156, 156, 28, 48},
-  {cont__sim2c__expand_operator_call_123, &frame__sim2c__expand_operator_call_117, 156, 156, 50, 50},
-  {entry__sim2c__expand_operator_call_17, NULL, 98, 98, 7, 22},
-  {cont__sim2c__expand_operator_call_18, &frame__sim2c__expand_operator_call_17, 97, 147, 5, 50},
-  {cont__sim2c__expand_operator_call_116, &frame__sim2c__expand_operator_call_17, 149, 156, 5, 50},
-  {entry__sim2c__expand_operator_call_1, NULL, 94, 94, 3, 28},
-  {cont__sim2c__expand_operator_call_15, &frame__sim2c__expand_operator_call_1, 95, 95, 6, 34},
-  {cont__sim2c__expand_operator_call_16, &frame__sim2c__expand_operator_call_1, 95, 156, 3, 51},
-  {cont__sim2c__expand_operator_call_124, &frame__sim2c__expand_operator_call_1, },
-  {entry__sim2c__function_call__expand_expression_11, NULL, 167, 167, 40, 55},
-  {cont__sim2c__function_call__expand_expression_12, &frame__sim2c__function_call__expand_expression_11, 167, 167, 40, 62},
-  {cont__sim2c__function_call__expand_expression_14, &frame__sim2c__function_call__expand_expression_11, 167, 167, 40, 62},
-  {entry__sim2c__function_call__expand_expression_24, NULL, 170, 170, 54, 70},
-  {cont__sim2c__function_call__expand_expression_25, &frame__sim2c__function_call__expand_expression_24, 170, 170, 46, 71},
-  {cont__sim2c__function_call__expand_expression_26, &frame__sim2c__function_call__expand_expression_24, 170, 170, 46, 78},
-  {cont__sim2c__function_call__expand_expression_27, &frame__sim2c__function_call__expand_expression_24, 170, 170, 46, 78},
-  {entry__sim2c__function_call__expand_expression_29, NULL, 171, 171, 11, 46},
-  {cont__sim2c__function_call__expand_expression_30, &frame__sim2c__function_call__expand_expression_29, 172, 172, 27, 44},
-  {cont__sim2c__function_call__expand_expression_31, &frame__sim2c__function_call__expand_expression_29, 172, 172, 11, 44},
-  {cont__sim2c__function_call__expand_expression_32, &frame__sim2c__function_call__expand_expression_29, 173, 173, 11, 35},
-  {cont__sim2c__function_call__expand_expression_33, &frame__sim2c__function_call__expand_expression_29, 173, 173, 35, 35},
-  {entry__sim2c__function_call__expand_expression_22, NULL, 170, 170, 18, 41},
-  {cont__sim2c__function_call__expand_expression_23, &frame__sim2c__function_call__expand_expression_22, 170, 170, 18, 78},
-  {cont__sim2c__function_call__expand_expression_28, &frame__sim2c__function_call__expand_expression_22, 170, 173, 15, 35},
-  {entry__sim2c__function_call__expand_expression_16, NULL, 168, 168, 26, 43},
-  {cont__sim2c__function_call__expand_expression_17, &frame__sim2c__function_call__expand_expression_16, 168, 168, 26, 46},
-  {cont__sim2c__function_call__expand_expression_18, &frame__sim2c__function_call__expand_expression_16, 168, 168, 9, 47},
-  {cont__sim2c__function_call__expand_expression_19, &frame__sim2c__function_call__expand_expression_16, 169, 169, 17, 34},
-  {cont__sim2c__function_call__expand_expression_20, &frame__sim2c__function_call__expand_expression_16, 169, 169, 9, 37},
-  {cont__sim2c__function_call__expand_expression_21, &frame__sim2c__function_call__expand_expression_16, 170, 173, 9, 35},
-  {cont__sim2c__function_call__expand_expression_34, &frame__sim2c__function_call__expand_expression_16, 174, 174, 9, 29},
-  {cont__sim2c__function_call__expand_expression_35, &frame__sim2c__function_call__expand_expression_16, 175, 175, 9, 51},
-  {cont__sim2c__function_call__expand_expression_37, &frame__sim2c__function_call__expand_expression_16, 176, 176, 9, 54},
-  {cont__sim2c__function_call__expand_expression_38, &frame__sim2c__function_call__expand_expression_16, 176, 176, 54, 54},
-  {entry__sim2c__function_call__expand_expression_39, NULL, 178, 178, 27, 43},
-  {cont__sim2c__function_call__expand_expression_40, &frame__sim2c__function_call__expand_expression_39, 178, 178, 9, 43},
-  {cont__sim2c__function_call__expand_expression_41, &frame__sim2c__function_call__expand_expression_39, 179, 179, 9, 34},
-  {cont__sim2c__function_call__expand_expression_42, &frame__sim2c__function_call__expand_expression_39, 179, 179, 34, 34},
-  {entry__sim2c__function_call__expand_expression_6, NULL, 164, 164, 24, 38},
-  {cont__sim2c__function_call__expand_expression_7, &frame__sim2c__function_call__expand_expression_6, 164, 164, 5, 38},
-  {cont__sim2c__function_call__expand_expression_8, &frame__sim2c__function_call__expand_expression_6, 165, 165, 5, 29},
-  {cont__sim2c__function_call__expand_expression_9, &frame__sim2c__function_call__expand_expression_6, 167, 167, 7, 35},
-  {cont__sim2c__function_call__expand_expression_10, &frame__sim2c__function_call__expand_expression_6, 167, 167, 7, 62},
-  {cont__sim2c__function_call__expand_expression_15, &frame__sim2c__function_call__expand_expression_6, 166, 179, 5, 35},
-  {entry__sim2c__function_call__expand_expression_1, NULL, 159, 159, 3, 49},
-  {cont__sim2c__function_call__expand_expression_3, &frame__sim2c__function_call__expand_expression_1, 163, 163, 6, 21},
-  {cont__sim2c__function_call__expand_expression_4, &frame__sim2c__function_call__expand_expression_1, 163, 163, 6, 32},
-  {cont__sim2c__function_call__expand_expression_5, &frame__sim2c__function_call__expand_expression_1, 163, 179, 3, 36},
-  {cont__sim2c__function_call__expand_expression_43, &frame__sim2c__function_call__expand_expression_1, },
-  {entry__sim2c__attribute_value_pair__expand_expression_1, NULL, 185, 185, 3, 56},
-  {cont__sim2c__attribute_value_pair__expand_expression_3, &frame__sim2c__attribute_value_pair__expand_expression_1, 186, 186, 21, 37},
-  {cont__sim2c__attribute_value_pair__expand_expression_4, &frame__sim2c__attribute_value_pair__expand_expression_1, 186, 186, 3, 37},
-  {cont__sim2c__attribute_value_pair__expand_expression_5, &frame__sim2c__attribute_value_pair__expand_expression_1, 186, 186, 37, 37},
-  {entry__sim2c__attribute_function_pair__expand_expression_1, NULL, 192, 192, 3, 59},
-  {cont__sim2c__attribute_function_pair__expand_expression_3, &frame__sim2c__attribute_function_pair__expand_expression_1, 193, 193, 21, 37},
-  {cont__sim2c__attribute_function_pair__expand_expression_4, &frame__sim2c__attribute_function_pair__expand_expression_1, 193, 193, 3, 37},
-  {cont__sim2c__attribute_function_pair__expand_expression_5, &frame__sim2c__attribute_function_pair__expand_expression_1, 193, 193, 37, 37}
+  {entry__compiler__body__expand_expression_8, NULL, 61, 61, 26, 51},
+  {cont__compiler__body__expand_expression_9, &frame__compiler__body__expand_expression_8, 61, 61, 7, 51},
+  {cont__compiler__body__expand_expression_10, &frame__compiler__body__expand_expression_8, 61, 61, 51, 51},
+  {entry__compiler__body__expand_expression_5, NULL, 60, 60, 8, 34},
+  {cont__compiler__body__expand_expression_6, &frame__compiler__body__expand_expression_5, 60, 60, 8, 45},
+  {cont__compiler__body__expand_expression_7, &frame__compiler__body__expand_expression_5, 60, 61, 5, 51},
+  {cont__compiler__body__expand_expression_11, &frame__compiler__body__expand_expression_5, },
+  {entry__compiler__body__expand_expression_14, NULL, 62, 62, 44, 65},
+  {cont__compiler__body__expand_expression_15, &frame__compiler__body__expand_expression_14, 62, 62, 65, 65},
+  {entry__compiler__body__expand_expression_1, NULL, 58, 58, 3, 40},
+  {cont__compiler__body__expand_expression_3, &frame__compiler__body__expand_expression_1, 59, 59, 16, 33},
+  {cont__compiler__body__expand_expression_4, &frame__compiler__body__expand_expression_1, 59, 61, 3, 52},
+  {cont__compiler__body__expand_expression_12, &frame__compiler__body__expand_expression_1, 62, 62, 16, 33},
+  {cont__compiler__body__expand_expression_13, &frame__compiler__body__expand_expression_1, 62, 62, 3, 65},
+  {cont__compiler__body__expand_expression_16, &frame__compiler__body__expand_expression_1, 62, 62, 65, 65},
+  {entry__compiler__call__expand_statement_8, NULL, 70, 70, 61, 80},
+  {cont__compiler__call__expand_statement_9, &frame__compiler__call__expand_statement_8, 70, 70, 42, 80},
+  {cont__compiler__call__expand_statement_10, &frame__compiler__call__expand_statement_8, 70, 70, 80, 80},
+  {entry__compiler__call__expand_statement_5, NULL, 70, 70, 8, 28},
+  {cont__compiler__call__expand_statement_6, &frame__compiler__call__expand_statement_5, 70, 70, 8, 39},
+  {cont__compiler__call__expand_statement_7, &frame__compiler__call__expand_statement_5, 70, 70, 5, 80},
+  {cont__compiler__call__expand_statement_11, &frame__compiler__call__expand_statement_5, 71, 71, 24, 38},
+  {cont__compiler__call__expand_statement_12, &frame__compiler__call__expand_statement_5, 71, 71, 5, 38},
+  {cont__compiler__call__expand_statement_13, &frame__compiler__call__expand_statement_5, 71, 71, 38, 38},
+  {entry__compiler__call__expand_statement_1, NULL, 68, 68, 3, 45},
+  {cont__compiler__call__expand_statement_2, &frame__compiler__call__expand_statement_1, 69, 69, 6, 21},
+  {cont__compiler__call__expand_statement_3, &frame__compiler__call__expand_statement_1, 69, 69, 6, 32},
+  {cont__compiler__call__expand_statement_4, &frame__compiler__call__expand_statement_1, 69, 71, 3, 38},
+  {cont__compiler__call__expand_statement_14, &frame__compiler__call__expand_statement_1, 72, 72, 21, 37},
+  {cont__compiler__call__expand_statement_15, &frame__compiler__call__expand_statement_1, 72, 72, 3, 37},
+  {cont__compiler__call__expand_statement_16, &frame__compiler__call__expand_statement_1, 73, 73, 21, 44},
+  {cont__compiler__call__expand_statement_17, &frame__compiler__call__expand_statement_1, 73, 73, 3, 44},
+  {cont__compiler__call__expand_statement_18, &frame__compiler__call__expand_statement_1, 73, 73, 44, 44},
+  {entry__compiler__expand_operator_call_2, NULL, 80, 80, 12, 29},
+  {cont__compiler__expand_operator_call_3, &frame__compiler__expand_operator_call_2, 80, 80, 5, 32},
+  {cont__compiler__expand_operator_call_4, &frame__compiler__expand_operator_call_2, 86, 86, 29, 39},
+  {cont__compiler__expand_operator_call_5, &frame__compiler__expand_operator_call_2, 87, 87, 28, 45},
+  {cont__compiler__expand_operator_call_6, &frame__compiler__expand_operator_call_2, 88, 88, 35, 59},
+  {cont__compiler__expand_operator_call_7, &frame__compiler__expand_operator_call_2, 89, 89, 32, 53},
+  {cont__compiler__expand_operator_call_8, &frame__compiler__expand_operator_call_2, 84, 89, 11, 53},
+  {cont__compiler__expand_operator_call_9, &frame__compiler__expand_operator_call_2, 90, 90, 22, 39},
+  {cont__compiler__expand_operator_call_10, &frame__compiler__expand_operator_call_2, 91, 91, 29, 53},
+  {cont__compiler__expand_operator_call_11, &frame__compiler__expand_operator_call_2, 92, 92, 26, 47},
+  {cont__compiler__expand_operator_call_12, &frame__compiler__expand_operator_call_2, 81, 81, 6, 22},
+  {cont__compiler__expand_operator_call_13, &frame__compiler__expand_operator_call_2, 81, 81, 5, 25},
+  {cont__compiler__expand_operator_call_14, &frame__compiler__expand_operator_call_2, 92, 92, 49, 49},
+  {entry__compiler__expand_operator_call_19, NULL, 100, 100, 9, 40},
+  {cont__compiler__expand_operator_call_21, &frame__compiler__expand_operator_call_19, 100, 100, 40, 40},
+  {entry__compiler__expand_operator_call_22, NULL, 102, 102, 9, 39},
+  {cont__compiler__expand_operator_call_24, &frame__compiler__expand_operator_call_22, 102, 102, 39, 39},
+  {entry__compiler__expand_operator_call_25, NULL, 104, 104, 9, 39},
+  {cont__compiler__expand_operator_call_27, &frame__compiler__expand_operator_call_25, 104, 104, 39, 39},
+  {entry__compiler__expand_operator_call_32, NULL, 108, 108, 13, 45},
+  {cont__compiler__expand_operator_call_34, &frame__compiler__expand_operator_call_32, 108, 108, 45, 45},
+  {entry__compiler__expand_operator_call_35, NULL, 110, 110, 13, 44},
+  {cont__compiler__expand_operator_call_37, &frame__compiler__expand_operator_call_35, 110, 110, 44, 44},
+  {entry__compiler__expand_operator_call_28, NULL, 107, 107, 21, 38},
+  {cont__compiler__expand_operator_call_29, &frame__compiler__expand_operator_call_28, 107, 107, 11, 39},
+  {cont__compiler__expand_operator_call_30, &frame__compiler__expand_operator_call_28, 107, 107, 11, 44},
+  {cont__compiler__expand_operator_call_31, &frame__compiler__expand_operator_call_28, 106, 110, 9, 45},
+  {entry__compiler__expand_operator_call_38, NULL, 112, 112, 9, 45},
+  {cont__compiler__expand_operator_call_40, &frame__compiler__expand_operator_call_38, 112, 112, 45, 45},
+  {entry__compiler__expand_operator_call_41, NULL, 114, 114, 9, 46},
+  {cont__compiler__expand_operator_call_43, &frame__compiler__expand_operator_call_41, 114, 114, 46, 46},
+  {entry__compiler__expand_operator_call_44, NULL, 116, 116, 9, 42},
+  {cont__compiler__expand_operator_call_46, &frame__compiler__expand_operator_call_44, 116, 116, 42, 42},
+  {entry__compiler__expand_operator_call_47, NULL, 118, 118, 9, 42},
+  {cont__compiler__expand_operator_call_49, &frame__compiler__expand_operator_call_47, 118, 118, 42, 42},
+  {entry__compiler__expand_operator_call_50, NULL, 120, 120, 9, 41},
+  {cont__compiler__expand_operator_call_52, &frame__compiler__expand_operator_call_50, 120, 120, 41, 41},
+  {entry__compiler__expand_operator_call_53, NULL, 122, 122, 9, 39},
+  {cont__compiler__expand_operator_call_55, &frame__compiler__expand_operator_call_53, 123, 123, 15, 31},
+  {cont__compiler__expand_operator_call_56, &frame__compiler__expand_operator_call_53, 123, 123, 15, 34},
+  {cont__compiler__expand_operator_call_57, &frame__compiler__expand_operator_call_53, 123, 123, 37, 53},
+  {cont__compiler__expand_operator_call_58, &frame__compiler__expand_operator_call_53, 123, 123, 37, 56},
+  {cont__compiler__expand_operator_call_59, &frame__compiler__expand_operator_call_53, 123, 123, 9, 56},
+  {cont__compiler__expand_operator_call_60, &frame__compiler__expand_operator_call_53, 123, 123, 15, 31},
+  {cont__compiler__expand_operator_call_61, &frame__compiler__expand_operator_call_53, 123, 123, 14, 34},
+  {cont__compiler__expand_operator_call_62, &frame__compiler__expand_operator_call_53, 123, 123, 37, 53},
+  {cont__compiler__expand_operator_call_63, &frame__compiler__expand_operator_call_53, 123, 123, 36, 56},
+  {cont__compiler__expand_operator_call_64, &frame__compiler__expand_operator_call_53, 124, 124, 27, 27},
+  {entry__compiler__expand_operator_call_65, NULL, 126, 126, 9, 39},
+  {cont__compiler__expand_operator_call_66, &frame__compiler__expand_operator_call_65, 126, 126, 39, 39},
+  {entry__compiler__expand_operator_call_67, NULL, 128, 128, 9, 39},
+  {cont__compiler__expand_operator_call_68, &frame__compiler__expand_operator_call_67, 129, 129, 27, 27},
+  {entry__compiler__expand_operator_call_69, NULL, 131, 131, 9, 39},
+  {cont__compiler__expand_operator_call_70, &frame__compiler__expand_operator_call_69, 132, 132, 15, 31},
+  {cont__compiler__expand_operator_call_71, &frame__compiler__expand_operator_call_69, 132, 132, 15, 34},
+  {cont__compiler__expand_operator_call_72, &frame__compiler__expand_operator_call_69, 132, 132, 37, 53},
+  {cont__compiler__expand_operator_call_73, &frame__compiler__expand_operator_call_69, 132, 132, 37, 56},
+  {cont__compiler__expand_operator_call_74, &frame__compiler__expand_operator_call_69, 132, 132, 9, 56},
+  {cont__compiler__expand_operator_call_75, &frame__compiler__expand_operator_call_69, 132, 132, 15, 31},
+  {cont__compiler__expand_operator_call_76, &frame__compiler__expand_operator_call_69, 132, 132, 14, 34},
+  {cont__compiler__expand_operator_call_77, &frame__compiler__expand_operator_call_69, 132, 132, 37, 53},
+  {cont__compiler__expand_operator_call_78, &frame__compiler__expand_operator_call_69, 132, 132, 36, 56},
+  {cont__compiler__expand_operator_call_79, &frame__compiler__expand_operator_call_69, 132, 132, 56, 56},
+  {entry__compiler__expand_operator_call_80, NULL, 134, 134, 9, 40},
+  {cont__compiler__expand_operator_call_82, &frame__compiler__expand_operator_call_80, 134, 134, 40, 40},
+  {entry__compiler__expand_operator_call_83, NULL, 136, 136, 9, 40},
+  {cont__compiler__expand_operator_call_84, &frame__compiler__expand_operator_call_83, 137, 137, 27, 27},
+  {entry__compiler__expand_operator_call_85, NULL, 139, 139, 9, 38},
+  {cont__compiler__expand_operator_call_87, &frame__compiler__expand_operator_call_85, 140, 140, 9, 32},
+  {entry__compiler__expand_operator_call_88, NULL, 142, 142, 9, 37},
+  {cont__compiler__expand_operator_call_90, &frame__compiler__expand_operator_call_88, 143, 143, 9, 32},
+  {entry__compiler__expand_operator_call_91, NULL, 145, 145, 9, 46},
+  {cont__compiler__expand_operator_call_93, &frame__compiler__expand_operator_call_91, 145, 145, 46, 46},
+  {entry__compiler__expand_operator_call_94, NULL, 147, 147, 9, 49},
+  {cont__compiler__expand_operator_call_96, &frame__compiler__expand_operator_call_94, 147, 147, 49, 49},
+  {entry__compiler__expand_operator_call_117, NULL, 152, 152, 23, 43},
+  {cont__compiler__expand_operator_call_119, &frame__compiler__expand_operator_call_117, 153, 153, 25, 34},
+  {cont__compiler__expand_operator_call_120, &frame__compiler__expand_operator_call_117, 154, 154, 24, 40},
+  {cont__compiler__expand_operator_call_121, &frame__compiler__expand_operator_call_117, 155, 155, 31, 54},
+  {cont__compiler__expand_operator_call_122, &frame__compiler__expand_operator_call_117, 156, 156, 28, 48},
+  {cont__compiler__expand_operator_call_123, &frame__compiler__expand_operator_call_117, 156, 156, 50, 50},
+  {entry__compiler__expand_operator_call_17, NULL, 98, 98, 7, 22},
+  {cont__compiler__expand_operator_call_18, &frame__compiler__expand_operator_call_17, 97, 147, 5, 50},
+  {cont__compiler__expand_operator_call_116, &frame__compiler__expand_operator_call_17, 149, 156, 5, 50},
+  {entry__compiler__expand_operator_call_1, NULL, 94, 94, 3, 28},
+  {cont__compiler__expand_operator_call_15, &frame__compiler__expand_operator_call_1, 95, 95, 6, 34},
+  {cont__compiler__expand_operator_call_16, &frame__compiler__expand_operator_call_1, 95, 156, 3, 51},
+  {cont__compiler__expand_operator_call_124, &frame__compiler__expand_operator_call_1, },
+  {entry__compiler__function_call__expand_expression_11, NULL, 167, 167, 40, 55},
+  {cont__compiler__function_call__expand_expression_12, &frame__compiler__function_call__expand_expression_11, 167, 167, 40, 62},
+  {cont__compiler__function_call__expand_expression_14, &frame__compiler__function_call__expand_expression_11, 167, 167, 40, 62},
+  {entry__compiler__function_call__expand_expression_24, NULL, 170, 170, 54, 70},
+  {cont__compiler__function_call__expand_expression_25, &frame__compiler__function_call__expand_expression_24, 170, 170, 46, 71},
+  {cont__compiler__function_call__expand_expression_26, &frame__compiler__function_call__expand_expression_24, 170, 170, 46, 78},
+  {cont__compiler__function_call__expand_expression_27, &frame__compiler__function_call__expand_expression_24, 170, 170, 46, 78},
+  {entry__compiler__function_call__expand_expression_29, NULL, 171, 171, 11, 46},
+  {cont__compiler__function_call__expand_expression_30, &frame__compiler__function_call__expand_expression_29, 172, 172, 27, 44},
+  {cont__compiler__function_call__expand_expression_31, &frame__compiler__function_call__expand_expression_29, 172, 172, 11, 44},
+  {cont__compiler__function_call__expand_expression_32, &frame__compiler__function_call__expand_expression_29, 173, 173, 11, 35},
+  {cont__compiler__function_call__expand_expression_33, &frame__compiler__function_call__expand_expression_29, 173, 173, 35, 35},
+  {entry__compiler__function_call__expand_expression_22, NULL, 170, 170, 18, 41},
+  {cont__compiler__function_call__expand_expression_23, &frame__compiler__function_call__expand_expression_22, 170, 170, 18, 78},
+  {cont__compiler__function_call__expand_expression_28, &frame__compiler__function_call__expand_expression_22, 170, 173, 15, 35},
+  {entry__compiler__function_call__expand_expression_16, NULL, 168, 168, 26, 43},
+  {cont__compiler__function_call__expand_expression_17, &frame__compiler__function_call__expand_expression_16, 168, 168, 26, 46},
+  {cont__compiler__function_call__expand_expression_18, &frame__compiler__function_call__expand_expression_16, 168, 168, 9, 47},
+  {cont__compiler__function_call__expand_expression_19, &frame__compiler__function_call__expand_expression_16, 169, 169, 17, 34},
+  {cont__compiler__function_call__expand_expression_20, &frame__compiler__function_call__expand_expression_16, 169, 169, 9, 37},
+  {cont__compiler__function_call__expand_expression_21, &frame__compiler__function_call__expand_expression_16, 170, 173, 9, 35},
+  {cont__compiler__function_call__expand_expression_34, &frame__compiler__function_call__expand_expression_16, 174, 174, 9, 29},
+  {cont__compiler__function_call__expand_expression_35, &frame__compiler__function_call__expand_expression_16, 175, 175, 9, 51},
+  {cont__compiler__function_call__expand_expression_37, &frame__compiler__function_call__expand_expression_16, 176, 176, 9, 54},
+  {cont__compiler__function_call__expand_expression_38, &frame__compiler__function_call__expand_expression_16, 176, 176, 54, 54},
+  {entry__compiler__function_call__expand_expression_39, NULL, 178, 178, 27, 43},
+  {cont__compiler__function_call__expand_expression_40, &frame__compiler__function_call__expand_expression_39, 178, 178, 9, 43},
+  {cont__compiler__function_call__expand_expression_41, &frame__compiler__function_call__expand_expression_39, 179, 179, 9, 34},
+  {cont__compiler__function_call__expand_expression_42, &frame__compiler__function_call__expand_expression_39, 179, 179, 34, 34},
+  {entry__compiler__function_call__expand_expression_6, NULL, 164, 164, 24, 38},
+  {cont__compiler__function_call__expand_expression_7, &frame__compiler__function_call__expand_expression_6, 164, 164, 5, 38},
+  {cont__compiler__function_call__expand_expression_8, &frame__compiler__function_call__expand_expression_6, 165, 165, 5, 29},
+  {cont__compiler__function_call__expand_expression_9, &frame__compiler__function_call__expand_expression_6, 167, 167, 7, 35},
+  {cont__compiler__function_call__expand_expression_10, &frame__compiler__function_call__expand_expression_6, 167, 167, 7, 62},
+  {cont__compiler__function_call__expand_expression_15, &frame__compiler__function_call__expand_expression_6, 166, 179, 5, 35},
+  {entry__compiler__function_call__expand_expression_1, NULL, 159, 159, 3, 49},
+  {cont__compiler__function_call__expand_expression_3, &frame__compiler__function_call__expand_expression_1, 163, 163, 6, 21},
+  {cont__compiler__function_call__expand_expression_4, &frame__compiler__function_call__expand_expression_1, 163, 163, 6, 32},
+  {cont__compiler__function_call__expand_expression_5, &frame__compiler__function_call__expand_expression_1, 163, 179, 3, 36},
+  {cont__compiler__function_call__expand_expression_43, &frame__compiler__function_call__expand_expression_1, },
+  {entry__compiler__attribute_value_pair__expand_expression_1, NULL, 185, 185, 3, 56},
+  {cont__compiler__attribute_value_pair__expand_expression_3, &frame__compiler__attribute_value_pair__expand_expression_1, 186, 186, 21, 37},
+  {cont__compiler__attribute_value_pair__expand_expression_4, &frame__compiler__attribute_value_pair__expand_expression_1, 186, 186, 3, 37},
+  {cont__compiler__attribute_value_pair__expand_expression_5, &frame__compiler__attribute_value_pair__expand_expression_1, 186, 186, 37, 37},
+  {entry__compiler__attribute_function_pair__expand_expression_1, NULL, 192, 192, 3, 59},
+  {cont__compiler__attribute_function_pair__expand_expression_3, &frame__compiler__attribute_function_pair__expand_expression_1, 193, 193, 21, 37},
+  {cont__compiler__attribute_function_pair__expand_expression_4, &frame__compiler__attribute_function_pair__expand_expression_1, 193, 193, 3, 37},
+  {cont__compiler__attribute_function_pair__expand_expression_5, &frame__compiler__attribute_function_pair__expand_expression_1, 193, 193, 37, 37}
 };
 
 union NODE {
@@ -913,15 +913,15 @@ union NODE {
   CONTINUATION continuation;
   CLOSURE closure;
 };
-static void type__sim2c__expand_statement(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__sim2c__expand_statement);
+static void type__compiler__expand_statement(void) {
+  myself = get_attribute(arguments->slots[0], poly_idx__compiler__expand_statement);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
       if (argument_count != 2) invalid_arguments_error();
       NODE *attr = arguments->slots[1];
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__sim2c__expand_statement, attr);
+      set_attribute_value(temp->attributes, poly_idx__compiler__expand_statement, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -935,15 +935,15 @@ static void type__sim2c__expand_statement(void) {
     func = myself->type;
   }
 }
-static void type__sim2c__expand_expression(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__sim2c__expand_expression);
+static void type__compiler__expand_expression(void) {
+  myself = get_attribute(arguments->slots[0], poly_idx__compiler__expand_expression);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
       if (argument_count != 2) invalid_arguments_error();
       NODE *attr = arguments->slots[1];
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__sim2c__expand_expression, attr);
+      set_attribute_value(temp->attributes, poly_idx__compiler__expand_expression, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -962,7 +962,7 @@ static NODE *number__2;
 
 static const char *used_namespaces[] = {
   "std",
-  "sim2c",
+  "compiler",
   "node",
   NULL
 };
@@ -1316,7 +1316,7 @@ static void cont__types__grammar_node__expand_expression_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__body__expand_expression_1(void) {
+static void entry__compiler__body__expand_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1332,9 +1332,9 @@ static void entry__sim2c__body__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_3;
+  frame->cont = cont__compiler__body__expand_expression_3;
 }
-static void cont__sim2c__body__expand_expression_3(void) {
+static void cont__compiler__body__expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1346,9 +1346,9 @@ static void cont__sim2c__body__expand_expression_3(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_4;
+  frame->cont = cont__compiler__body__expand_expression_4;
 }
-static void cont__sim2c__body__expand_expression_4(void) {
+static void cont__compiler__body__expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1360,13 +1360,13 @@ static void cont__sim2c__body__expand_expression_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__body__expand_expression_5;
+  arguments->slots[1] = func__compiler__body__expand_expression_5;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_12;
+  frame->cont = cont__compiler__body__expand_expression_12;
 }
-static void entry__sim2c__body__expand_expression_5(void) {
+static void entry__compiler__body__expand_expression_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // parameter: 0
@@ -1382,9 +1382,9 @@ static void entry__sim2c__body__expand_expression_5(void) {
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_6;
+  frame->cont = cont__compiler__body__expand_expression_6;
 }
-static void cont__sim2c__body__expand_expression_6(void) {
+static void cont__compiler__body__expand_expression_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1397,9 +1397,9 @@ static void cont__sim2c__body__expand_expression_6(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_7;
+  frame->cont = cont__compiler__body__expand_expression_7;
 }
-static void cont__sim2c__body__expand_expression_7(void) {
+static void cont__compiler__body__expand_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1407,7 +1407,7 @@ static void cont__sim2c__body__expand_expression_7(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 60: ... :
   // 61:   expand_expression &parameter.default_value_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__body__expand_expression_8, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__body__expand_expression_8, 0);
   // 60: if default_value_of(parameter).is_defined:
   // 61:   expand_expression &parameter.default_value_of
   argument_count = 2;
@@ -1419,9 +1419,9 @@ static void cont__sim2c__body__expand_expression_7(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_11;
+  frame->cont = cont__compiler__body__expand_expression_11;
 }
-static void entry__sim2c__body__expand_expression_8(void) {
+static void entry__compiler__body__expand_expression_8(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // parameter: 0
@@ -1437,9 +1437,9 @@ static void entry__sim2c__body__expand_expression_8(void) {
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_9;
+  frame->cont = cont__compiler__body__expand_expression_9;
 }
-static void cont__sim2c__body__expand_expression_9(void) {
+static void cont__compiler__body__expand_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1452,9 +1452,9 @@ static void cont__sim2c__body__expand_expression_9(void) {
   result_count = 1;
   myself = get__expand_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_10;
+  frame->cont = cont__compiler__body__expand_expression_10;
 }
-static void cont__sim2c__body__expand_expression_10(void) {
+static void cont__compiler__body__expand_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1474,7 +1474,7 @@ static void cont__sim2c__body__expand_expression_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__expand_expression_11(void) {
+static void cont__compiler__body__expand_expression_11(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1485,7 +1485,7 @@ static void cont__sim2c__body__expand_expression_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__expand_expression_12(void) {
+static void cont__compiler__body__expand_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1506,9 +1506,9 @@ static void cont__sim2c__body__expand_expression_12(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_13;
+  frame->cont = cont__compiler__body__expand_expression_13;
 }
-static void cont__sim2c__body__expand_expression_13(void) {
+static void cont__compiler__body__expand_expression_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1518,13 +1518,13 @@ static void cont__sim2c__body__expand_expression_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__sim2c__body__expand_expression_14;
+  arguments->slots[1] = func__compiler__body__expand_expression_14;
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_16;
+  frame->cont = cont__compiler__body__expand_expression_16;
 }
-static void entry__sim2c__body__expand_expression_14(void) {
+static void entry__compiler__body__expand_expression_14(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // stmt: 0
@@ -1540,9 +1540,9 @@ static void entry__sim2c__body__expand_expression_14(void) {
   result_count = 1;
   myself = get__expand_statement();
   func = myself->type;
-  frame->cont = cont__sim2c__body__expand_expression_15;
+  frame->cont = cont__compiler__body__expand_expression_15;
 }
-static void cont__sim2c__body__expand_expression_15(void) {
+static void cont__compiler__body__expand_expression_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1555,7 +1555,7 @@ static void cont__sim2c__body__expand_expression_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__body__expand_expression_16(void) {
+static void cont__compiler__body__expand_expression_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1576,7 +1576,7 @@ static void cont__sim2c__body__expand_expression_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__call__expand_statement_1(void) {
+static void entry__compiler__call__expand_statement_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -1592,9 +1592,9 @@ static void entry__sim2c__call__expand_statement_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_2;
+  frame->cont = cont__compiler__call__expand_statement_2;
 }
-static void cont__sim2c__call__expand_statement_2(void) {
+static void cont__compiler__call__expand_statement_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1606,9 +1606,9 @@ static void cont__sim2c__call__expand_statement_2(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_3;
+  frame->cont = cont__compiler__call__expand_statement_3;
 }
-static void cont__sim2c__call__expand_statement_3(void) {
+static void cont__compiler__call__expand_statement_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1621,9 +1621,9 @@ static void cont__sim2c__call__expand_statement_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_4;
+  frame->cont = cont__compiler__call__expand_statement_4;
 }
-static void cont__sim2c__call__expand_statement_4(void) {
+static void cont__compiler__call__expand_statement_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1632,7 +1632,7 @@ static void cont__sim2c__call__expand_statement_4(void) {
   // 69: ... :
   // 70:   if result_count_of(self).is_defined: expand_expression &self.result_count_of
   // 71:   expand_expression &self.functor_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__expand_statement_5, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__expand_statement_5, 0);
   // 69: if functor_of(self).is_defined:
   // 70:   if result_count_of(self).is_defined: expand_expression &self.result_count_of
   // 71:   expand_expression &self.functor_of
@@ -1643,9 +1643,9 @@ static void cont__sim2c__call__expand_statement_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_14;
+  frame->cont = cont__compiler__call__expand_statement_14;
 }
-static void entry__sim2c__call__expand_statement_5(void) {
+static void entry__compiler__call__expand_statement_5(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -1661,9 +1661,9 @@ static void entry__sim2c__call__expand_statement_5(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_6;
+  frame->cont = cont__compiler__call__expand_statement_6;
 }
-static void cont__sim2c__call__expand_statement_6(void) {
+static void cont__compiler__call__expand_statement_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1676,16 +1676,16 @@ static void cont__sim2c__call__expand_statement_6(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_7;
+  frame->cont = cont__compiler__call__expand_statement_7;
 }
-static void cont__sim2c__call__expand_statement_7(void) {
+static void cont__compiler__call__expand_statement_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 70: ... : expand_expression &self.result_count_of
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__call__expand_statement_8, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__expand_statement_8, 0);
   // 70: if result_count_of(self).is_defined: expand_expression &self.result_count_of
   argument_count = 2;
   arguments = node_p;
@@ -1694,9 +1694,9 @@ static void cont__sim2c__call__expand_statement_7(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_11;
+  frame->cont = cont__compiler__call__expand_statement_11;
 }
-static void entry__sim2c__call__expand_statement_8(void) {
+static void entry__compiler__call__expand_statement_8(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1712,9 +1712,9 @@ static void entry__sim2c__call__expand_statement_8(void) {
   result_count = 1;
   myself = get__result_count_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_9;
+  frame->cont = cont__compiler__call__expand_statement_9;
 }
-static void cont__sim2c__call__expand_statement_9(void) {
+static void cont__compiler__call__expand_statement_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1727,9 +1727,9 @@ static void cont__sim2c__call__expand_statement_9(void) {
   result_count = 1;
   myself = get__expand_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_10;
+  frame->cont = cont__compiler__call__expand_statement_10;
 }
-static void cont__sim2c__call__expand_statement_10(void) {
+static void cont__compiler__call__expand_statement_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1749,7 +1749,7 @@ static void cont__sim2c__call__expand_statement_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__expand_statement_11(void) {
+static void cont__compiler__call__expand_statement_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1761,9 +1761,9 @@ static void cont__sim2c__call__expand_statement_11(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_12;
+  frame->cont = cont__compiler__call__expand_statement_12;
 }
-static void cont__sim2c__call__expand_statement_12(void) {
+static void cont__compiler__call__expand_statement_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1776,9 +1776,9 @@ static void cont__sim2c__call__expand_statement_12(void) {
   result_count = 1;
   myself = get__expand_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_13;
+  frame->cont = cont__compiler__call__expand_statement_13;
 }
-static void cont__sim2c__call__expand_statement_13(void) {
+static void cont__compiler__call__expand_statement_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1798,7 +1798,7 @@ static void cont__sim2c__call__expand_statement_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__call__expand_statement_14(void) {
+static void cont__compiler__call__expand_statement_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1810,9 +1810,9 @@ static void cont__sim2c__call__expand_statement_14(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_15;
+  frame->cont = cont__compiler__call__expand_statement_15;
 }
-static void cont__sim2c__call__expand_statement_15(void) {
+static void cont__compiler__call__expand_statement_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1825,9 +1825,9 @@ static void cont__sim2c__call__expand_statement_15(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_16;
+  frame->cont = cont__compiler__call__expand_statement_16;
 }
-static void cont__sim2c__call__expand_statement_16(void) {
+static void cont__compiler__call__expand_statement_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1848,9 +1848,9 @@ static void cont__sim2c__call__expand_statement_16(void) {
   result_count = 1;
   myself = get__output_arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_17;
+  frame->cont = cont__compiler__call__expand_statement_17;
 }
-static void cont__sim2c__call__expand_statement_17(void) {
+static void cont__compiler__call__expand_statement_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1863,9 +1863,9 @@ static void cont__sim2c__call__expand_statement_17(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__call__expand_statement_18;
+  frame->cont = cont__compiler__call__expand_statement_18;
 }
-static void cont__sim2c__call__expand_statement_18(void) {
+static void cont__compiler__call__expand_statement_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1886,7 +1886,7 @@ static void cont__sim2c__call__expand_statement_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_1(void) {
+static void entry__compiler__expand_operator_call_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -1910,7 +1910,7 @@ static void entry__sim2c__expand_operator_call_1(void) {
   // 87:             .fragment_of fragment_of(right)
   // 88:             .source_position_of source_position_of(right)
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__sim2c__expand_operator_call_2, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__expand_operator_call_2, 0);
   // 79: $make_right_argument_lazy:
   // 80:   $right arguments_of(self)(2)
   // 81:   !self.arguments_of(2)
@@ -1930,9 +1930,9 @@ static void entry__sim2c__expand_operator_call_1(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_15;
+  frame->cont = cont__compiler__expand_operator_call_15;
 }
-static void entry__sim2c__expand_operator_call_2(void) {
+static void entry__compiler__expand_operator_call_2(void) {
   allocate_initialized_frame_gc(1, 13);
   // slot allocations:
   // self: 0
@@ -1950,9 +1950,9 @@ static void entry__sim2c__expand_operator_call_2(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_3;
+  frame->cont = cont__compiler__expand_operator_call_3;
 }
-static void cont__sim2c__expand_operator_call_3(void) {
+static void cont__compiler__expand_operator_call_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1965,9 +1965,9 @@ static void cont__sim2c__expand_operator_call_3(void) {
   result_count = 1;
   myself = frame->slots[2] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_4;
+  frame->cont = cont__compiler__expand_operator_call_4;
 }
-static void cont__sim2c__expand_operator_call_4(void) {
+static void cont__compiler__expand_operator_call_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1980,9 +1980,9 @@ static void cont__sim2c__expand_operator_call_4(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_5;
+  frame->cont = cont__compiler__expand_operator_call_5;
 }
-static void cont__sim2c__expand_operator_call_5(void) {
+static void cont__compiler__expand_operator_call_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1995,9 +1995,9 @@ static void cont__sim2c__expand_operator_call_5(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_6;
+  frame->cont = cont__compiler__expand_operator_call_6;
 }
-static void cont__sim2c__expand_operator_call_6(void) {
+static void cont__compiler__expand_operator_call_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2010,9 +2010,9 @@ static void cont__sim2c__expand_operator_call_6(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_7;
+  frame->cont = cont__compiler__expand_operator_call_7;
 }
-static void cont__sim2c__expand_operator_call_7(void) {
+static void cont__compiler__expand_operator_call_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2025,9 +2025,9 @@ static void cont__sim2c__expand_operator_call_7(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_8;
+  frame->cont = cont__compiler__expand_operator_call_8;
 }
-static void cont__sim2c__expand_operator_call_8(void) {
+static void cont__compiler__expand_operator_call_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2060,9 +2060,9 @@ static void cont__sim2c__expand_operator_call_8(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_9;
+  frame->cont = cont__compiler__expand_operator_call_9;
 }
-static void cont__sim2c__expand_operator_call_9(void) {
+static void cont__compiler__expand_operator_call_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2075,9 +2075,9 @@ static void cont__sim2c__expand_operator_call_9(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_10;
+  frame->cont = cont__compiler__expand_operator_call_10;
 }
-static void cont__sim2c__expand_operator_call_10(void) {
+static void cont__compiler__expand_operator_call_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2090,9 +2090,9 @@ static void cont__sim2c__expand_operator_call_10(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_11;
+  frame->cont = cont__compiler__expand_operator_call_11;
 }
-static void cont__sim2c__expand_operator_call_11(void) {
+static void cont__compiler__expand_operator_call_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2105,9 +2105,9 @@ static void cont__sim2c__expand_operator_call_11(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_12;
+  frame->cont = cont__compiler__expand_operator_call_12;
 }
-static void cont__sim2c__expand_operator_call_12(void) {
+static void cont__compiler__expand_operator_call_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2141,9 +2141,9 @@ static void cont__sim2c__expand_operator_call_12(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_13;
+  frame->cont = cont__compiler__expand_operator_call_13;
 }
-static void cont__sim2c__expand_operator_call_13(void) {
+static void cont__compiler__expand_operator_call_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2157,9 +2157,9 @@ static void cont__sim2c__expand_operator_call_13(void) {
   result_count = 1;
   myself = frame->slots[12] /* temp__11 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_14;
+  frame->cont = cont__compiler__expand_operator_call_14;
 }
-static void cont__sim2c__expand_operator_call_14(void) {
+static void cont__compiler__expand_operator_call_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2179,7 +2179,7 @@ static void cont__sim2c__expand_operator_call_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__expand_operator_call_15(void) {
+static void cont__compiler__expand_operator_call_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2192,9 +2192,9 @@ static void cont__sim2c__expand_operator_call_15(void) {
   result_count = 1;
   myself = get__is_an_operator_symbol();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_16;
+  frame->cont = cont__compiler__expand_operator_call_16;
 }
-static void cont__sim2c__expand_operator_call_16(void) {
+static void cont__compiler__expand_operator_call_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2211,7 +2211,7 @@ static void cont__sim2c__expand_operator_call_16(void) {
   // 103:     "+":
   // 104:       !functor std_identifier("plus")
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__sim2c__expand_operator_call_17, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__expand_operator_call_17, 0);
   //  95: if functor.is_an_operator_symbol:
   //  96:   $$do_insert_not false
   //  97:   case
@@ -2232,9 +2232,9 @@ static void cont__sim2c__expand_operator_call_16(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_124;
+  frame->cont = cont__compiler__expand_operator_call_124;
 }
-static void entry__sim2c__expand_operator_call_117(void) {
+static void entry__compiler__expand_operator_call_117(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // self: 0
@@ -2250,9 +2250,9 @@ static void entry__sim2c__expand_operator_call_117(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_119;
+  frame->cont = cont__compiler__expand_operator_call_119;
 }
-static void cont__sim2c__expand_operator_call_119(void) {
+static void cont__compiler__expand_operator_call_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2265,9 +2265,9 @@ static void cont__sim2c__expand_operator_call_119(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_120;
+  frame->cont = cont__compiler__expand_operator_call_120;
 }
-static void cont__sim2c__expand_operator_call_120(void) {
+static void cont__compiler__expand_operator_call_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2280,9 +2280,9 @@ static void cont__sim2c__expand_operator_call_120(void) {
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_121;
+  frame->cont = cont__compiler__expand_operator_call_121;
 }
-static void cont__sim2c__expand_operator_call_121(void) {
+static void cont__compiler__expand_operator_call_121(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2295,9 +2295,9 @@ static void cont__sim2c__expand_operator_call_121(void) {
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_122;
+  frame->cont = cont__compiler__expand_operator_call_122;
 }
-static void cont__sim2c__expand_operator_call_122(void) {
+static void cont__compiler__expand_operator_call_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2310,9 +2310,9 @@ static void cont__sim2c__expand_operator_call_122(void) {
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_123;
+  frame->cont = cont__compiler__expand_operator_call_123;
 }
-static void cont__sim2c__expand_operator_call_123(void) {
+static void cont__compiler__expand_operator_call_123(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2342,7 +2342,7 @@ static void cont__sim2c__expand_operator_call_123(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_17(void) {
+static void entry__compiler__expand_operator_call_17(void) {
   allocate_initialized_frame_gc(3, 24);
   // slot allocations:
   // functor: 0
@@ -2366,9 +2366,9 @@ static void entry__sim2c__expand_operator_call_17(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_18;
+  frame->cont = cont__compiler__expand_operator_call_18;
 }
-static void cont__sim2c__expand_operator_call_18(void) {
+static void cont__compiler__expand_operator_call_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2376,72 +2376,72 @@ static void cont__sim2c__expand_operator_call_18(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   //  99: ... :
   // 100:   !functor std_identifier("times")
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__expand_operator_call_19, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__expand_operator_call_19, 0);
   // 101: ... :
   // 102:   !functor std_identifier("over")
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__expand_operator_call_22, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__expand_operator_call_22, 0);
   // 103: ... :
   // 104:   !functor std_identifier("plus")
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__expand_operator_call_25, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__expand_operator_call_25, 0);
   // 105: ... :
   // 106:   if
   // 107:     length_of(arguments_of(self)) == 1:
   // 108:       !functor std_identifier("negate")
   // 109:     :
   // 110:       !functor std_identifier("minus")
-  frame->slots[8] /* temp__5 */ = create_closure(entry__sim2c__expand_operator_call_28, 0);
+  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__expand_operator_call_28, 0);
   // 111: ... :
   // 112:   !functor std_identifier("shift_left")
-  frame->slots[9] /* temp__6 */ = create_closure(entry__sim2c__expand_operator_call_38, 0);
+  frame->slots[9] /* temp__6 */ = create_closure(entry__compiler__expand_operator_call_38, 0);
   // 113: ... :
   // 114:   !functor std_identifier("shift_right")
-  frame->slots[10] /* temp__7 */ = create_closure(entry__sim2c__expand_operator_call_41, 0);
+  frame->slots[10] /* temp__7 */ = create_closure(entry__compiler__expand_operator_call_41, 0);
   // 115: ... :
   // 116:   !functor std_identifier("bit_and")
-  frame->slots[11] /* temp__8 */ = create_closure(entry__sim2c__expand_operator_call_44, 0);
+  frame->slots[11] /* temp__8 */ = create_closure(entry__compiler__expand_operator_call_44, 0);
   // 117: ... :
   // 118:   !functor std_identifier("bit_xor")
-  frame->slots[12] /* temp__9 */ = create_closure(entry__sim2c__expand_operator_call_47, 0);
+  frame->slots[12] /* temp__9 */ = create_closure(entry__compiler__expand_operator_call_47, 0);
   // 119: ... :
   // 120:   !functor std_identifier("bit_or")
-  frame->slots[13] /* temp__10 */ = create_closure(entry__sim2c__expand_operator_call_50, 0);
+  frame->slots[13] /* temp__10 */ = create_closure(entry__compiler__expand_operator_call_50, 0);
   // 121: ... :
   // 122:   !functor std_identifier("less")
   // 123:   swap &self.arguments_of(1) &self.arguments_of(2)
   // 124:   !do_insert_not true
-  frame->slots[14] /* temp__11 */ = create_closure(entry__sim2c__expand_operator_call_53, 0);
+  frame->slots[14] /* temp__11 */ = create_closure(entry__compiler__expand_operator_call_53, 0);
   // 125: ... :
   // 126:   !functor std_identifier("less")
-  frame->slots[15] /* temp__12 */ = create_closure(entry__sim2c__expand_operator_call_65, 0);
+  frame->slots[15] /* temp__12 */ = create_closure(entry__compiler__expand_operator_call_65, 0);
   // 127: ... :
   // 128:   !functor std_identifier("less")
   // 129:   !do_insert_not true
-  frame->slots[16] /* temp__13 */ = create_closure(entry__sim2c__expand_operator_call_67, 0);
+  frame->slots[16] /* temp__13 */ = create_closure(entry__compiler__expand_operator_call_67, 0);
   // 130: ... :
   // 131:   !functor std_identifier("less")
   // 132:   swap &self.arguments_of(1) &self.arguments_of(2)
-  frame->slots[17] /* temp__14 */ = create_closure(entry__sim2c__expand_operator_call_69, 0);
+  frame->slots[17] /* temp__14 */ = create_closure(entry__compiler__expand_operator_call_69, 0);
   // 133: ... :
   // 134:   !functor std_identifier("equal")
-  frame->slots[18] /* temp__15 */ = create_closure(entry__sim2c__expand_operator_call_80, 0);
+  frame->slots[18] /* temp__15 */ = create_closure(entry__compiler__expand_operator_call_80, 0);
   // 135: ... :
   // 136:   !functor std_identifier("equal")
   // 137:   !do_insert_not true
-  frame->slots[19] /* temp__16 */ = create_closure(entry__sim2c__expand_operator_call_83, 0);
+  frame->slots[19] /* temp__16 */ = create_closure(entry__compiler__expand_operator_call_83, 0);
   // 138: ... :
   // 139:   !functor std_identifier("and")
   // 140:   make_right_argument_lazy
-  frame->slots[20] /* temp__17 */ = create_closure(entry__sim2c__expand_operator_call_85, 0);
+  frame->slots[20] /* temp__17 */ = create_closure(entry__compiler__expand_operator_call_85, 0);
   // 141: ... :
   // 142:   !functor std_identifier("or")
   // 143:   make_right_argument_lazy
-  frame->slots[21] /* temp__18 */ = create_closure(entry__sim2c__expand_operator_call_88, 0);
+  frame->slots[21] /* temp__18 */ = create_closure(entry__compiler__expand_operator_call_88, 0);
   // 144: ... :
   // 145:   !functor std_identifier("value_range")
-  frame->slots[22] /* temp__19 */ = create_closure(entry__sim2c__expand_operator_call_91, 0);
+  frame->slots[22] /* temp__19 */ = create_closure(entry__compiler__expand_operator_call_91, 0);
   // 146: ... :
   // 147:   !functor std_identifier("key_value_pair")
-  frame->slots[23] /* temp__20 */ = create_closure(entry__sim2c__expand_operator_call_94, 0);
+  frame->slots[23] /* temp__20 */ = create_closure(entry__compiler__expand_operator_call_94, 0);
   //  97: case
   //  98:   name_of(functor)
   //  99:   "*":
@@ -2497,9 +2497,9 @@ static void cont__sim2c__expand_operator_call_18(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_116;
+  frame->cont = cont__compiler__expand_operator_call_116;
 }
-static void entry__sim2c__expand_operator_call_32(void) {
+static void entry__compiler__expand_operator_call_32(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2515,9 +2515,9 @@ static void entry__sim2c__expand_operator_call_32(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_34;
+  frame->cont = cont__compiler__expand_operator_call_34;
 }
-static void cont__sim2c__expand_operator_call_34(void) {
+static void cont__compiler__expand_operator_call_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2529,7 +2529,7 @@ static void cont__sim2c__expand_operator_call_34(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_35(void) {
+static void entry__compiler__expand_operator_call_35(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2545,9 +2545,9 @@ static void entry__sim2c__expand_operator_call_35(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_37;
+  frame->cont = cont__compiler__expand_operator_call_37;
 }
-static void cont__sim2c__expand_operator_call_37(void) {
+static void cont__compiler__expand_operator_call_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2559,7 +2559,7 @@ static void cont__sim2c__expand_operator_call_37(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_19(void) {
+static void entry__compiler__expand_operator_call_19(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2575,9 +2575,9 @@ static void entry__sim2c__expand_operator_call_19(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_21;
+  frame->cont = cont__compiler__expand_operator_call_21;
 }
-static void cont__sim2c__expand_operator_call_21(void) {
+static void cont__compiler__expand_operator_call_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2589,7 +2589,7 @@ static void cont__sim2c__expand_operator_call_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_22(void) {
+static void entry__compiler__expand_operator_call_22(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2605,9 +2605,9 @@ static void entry__sim2c__expand_operator_call_22(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_24;
+  frame->cont = cont__compiler__expand_operator_call_24;
 }
-static void cont__sim2c__expand_operator_call_24(void) {
+static void cont__compiler__expand_operator_call_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2619,7 +2619,7 @@ static void cont__sim2c__expand_operator_call_24(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_25(void) {
+static void entry__compiler__expand_operator_call_25(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2635,9 +2635,9 @@ static void entry__sim2c__expand_operator_call_25(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_27;
+  frame->cont = cont__compiler__expand_operator_call_27;
 }
-static void cont__sim2c__expand_operator_call_27(void) {
+static void cont__compiler__expand_operator_call_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2649,7 +2649,7 @@ static void cont__sim2c__expand_operator_call_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_28(void) {
+static void entry__compiler__expand_operator_call_28(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -2667,9 +2667,9 @@ static void entry__sim2c__expand_operator_call_28(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_29;
+  frame->cont = cont__compiler__expand_operator_call_29;
 }
-static void cont__sim2c__expand_operator_call_29(void) {
+static void cont__compiler__expand_operator_call_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2682,9 +2682,9 @@ static void cont__sim2c__expand_operator_call_29(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_30;
+  frame->cont = cont__compiler__expand_operator_call_30;
 }
-static void cont__sim2c__expand_operator_call_30(void) {
+static void cont__compiler__expand_operator_call_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2698,9 +2698,9 @@ static void cont__sim2c__expand_operator_call_30(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_31;
+  frame->cont = cont__compiler__expand_operator_call_31;
 }
-static void cont__sim2c__expand_operator_call_31(void) {
+static void cont__compiler__expand_operator_call_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2708,10 +2708,10 @@ static void cont__sim2c__expand_operator_call_31(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 107: ... :
   // 108:   !functor std_identifier("negate")
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__expand_operator_call_32, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__expand_operator_call_32, 0);
   // 109: :
   // 110:   !functor std_identifier("minus")
-  frame->slots[6] /* temp__5 */ = create_closure(entry__sim2c__expand_operator_call_35, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__compiler__expand_operator_call_35, 0);
   // 106: if
   // 107:   length_of(arguments_of(self)) == 1:
   // 108:     !functor std_identifier("negate")
@@ -2727,7 +2727,7 @@ static void cont__sim2c__expand_operator_call_31(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__expand_operator_call_38(void) {
+static void entry__compiler__expand_operator_call_38(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2743,9 +2743,9 @@ static void entry__sim2c__expand_operator_call_38(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_40;
+  frame->cont = cont__compiler__expand_operator_call_40;
 }
-static void cont__sim2c__expand_operator_call_40(void) {
+static void cont__compiler__expand_operator_call_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2757,7 +2757,7 @@ static void cont__sim2c__expand_operator_call_40(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_41(void) {
+static void entry__compiler__expand_operator_call_41(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2773,9 +2773,9 @@ static void entry__sim2c__expand_operator_call_41(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_43;
+  frame->cont = cont__compiler__expand_operator_call_43;
 }
-static void cont__sim2c__expand_operator_call_43(void) {
+static void cont__compiler__expand_operator_call_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2787,7 +2787,7 @@ static void cont__sim2c__expand_operator_call_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_44(void) {
+static void entry__compiler__expand_operator_call_44(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2803,9 +2803,9 @@ static void entry__sim2c__expand_operator_call_44(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_46;
+  frame->cont = cont__compiler__expand_operator_call_46;
 }
-static void cont__sim2c__expand_operator_call_46(void) {
+static void cont__compiler__expand_operator_call_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2817,7 +2817,7 @@ static void cont__sim2c__expand_operator_call_46(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_47(void) {
+static void entry__compiler__expand_operator_call_47(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2833,9 +2833,9 @@ static void entry__sim2c__expand_operator_call_47(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_49;
+  frame->cont = cont__compiler__expand_operator_call_49;
 }
-static void cont__sim2c__expand_operator_call_49(void) {
+static void cont__compiler__expand_operator_call_49(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2847,7 +2847,7 @@ static void cont__sim2c__expand_operator_call_49(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_50(void) {
+static void entry__compiler__expand_operator_call_50(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -2863,9 +2863,9 @@ static void entry__sim2c__expand_operator_call_50(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_52;
+  frame->cont = cont__compiler__expand_operator_call_52;
 }
-static void cont__sim2c__expand_operator_call_52(void) {
+static void cont__compiler__expand_operator_call_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2877,7 +2877,7 @@ static void cont__sim2c__expand_operator_call_52(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_53(void) {
+static void entry__compiler__expand_operator_call_53(void) {
   allocate_initialized_frame_gc(3, 11);
   // slot allocations:
   // functor: 0
@@ -2897,9 +2897,9 @@ static void entry__sim2c__expand_operator_call_53(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_55;
+  frame->cont = cont__compiler__expand_operator_call_55;
 }
-static void cont__sim2c__expand_operator_call_55(void) {
+static void cont__compiler__expand_operator_call_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2912,9 +2912,9 @@ static void cont__sim2c__expand_operator_call_55(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_56;
+  frame->cont = cont__compiler__expand_operator_call_56;
 }
-static void cont__sim2c__expand_operator_call_56(void) {
+static void cont__compiler__expand_operator_call_56(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2927,9 +2927,9 @@ static void cont__sim2c__expand_operator_call_56(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_57;
+  frame->cont = cont__compiler__expand_operator_call_57;
 }
-static void cont__sim2c__expand_operator_call_57(void) {
+static void cont__compiler__expand_operator_call_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2942,9 +2942,9 @@ static void cont__sim2c__expand_operator_call_57(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_58;
+  frame->cont = cont__compiler__expand_operator_call_58;
 }
-static void cont__sim2c__expand_operator_call_58(void) {
+static void cont__compiler__expand_operator_call_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2957,9 +2957,9 @@ static void cont__sim2c__expand_operator_call_58(void) {
   result_count = 1;
   myself = frame->slots[6] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_59;
+  frame->cont = cont__compiler__expand_operator_call_59;
 }
-static void cont__sim2c__expand_operator_call_59(void) {
+static void cont__compiler__expand_operator_call_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2973,9 +2973,9 @@ static void cont__sim2c__expand_operator_call_59(void) {
   result_count = 2;
   myself = get__swap();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_60;
+  frame->cont = cont__compiler__expand_operator_call_60;
 }
-static void cont__sim2c__expand_operator_call_60(void) {
+static void cont__compiler__expand_operator_call_60(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -2989,9 +2989,9 @@ static void cont__sim2c__expand_operator_call_60(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_61;
+  frame->cont = cont__compiler__expand_operator_call_61;
 }
-static void cont__sim2c__expand_operator_call_61(void) {
+static void cont__compiler__expand_operator_call_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3005,9 +3005,9 @@ static void cont__sim2c__expand_operator_call_61(void) {
   result_count = 1;
   myself = frame->slots[9] /* temp__7 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_62;
+  frame->cont = cont__compiler__expand_operator_call_62;
 }
-static void cont__sim2c__expand_operator_call_62(void) {
+static void cont__compiler__expand_operator_call_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3028,9 +3028,9 @@ static void cont__sim2c__expand_operator_call_62(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_63;
+  frame->cont = cont__compiler__expand_operator_call_63;
 }
-static void cont__sim2c__expand_operator_call_63(void) {
+static void cont__compiler__expand_operator_call_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3044,9 +3044,9 @@ static void cont__sim2c__expand_operator_call_63(void) {
   result_count = 1;
   myself = frame->slots[10] /* temp__8 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_64;
+  frame->cont = cont__compiler__expand_operator_call_64;
 }
-static void cont__sim2c__expand_operator_call_64(void) {
+static void cont__compiler__expand_operator_call_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3068,7 +3068,7 @@ static void cont__sim2c__expand_operator_call_64(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_65(void) {
+static void entry__compiler__expand_operator_call_65(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3084,9 +3084,9 @@ static void entry__sim2c__expand_operator_call_65(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_66;
+  frame->cont = cont__compiler__expand_operator_call_66;
 }
-static void cont__sim2c__expand_operator_call_66(void) {
+static void cont__compiler__expand_operator_call_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3098,7 +3098,7 @@ static void cont__sim2c__expand_operator_call_66(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_67(void) {
+static void entry__compiler__expand_operator_call_67(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3116,9 +3116,9 @@ static void entry__sim2c__expand_operator_call_67(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_68;
+  frame->cont = cont__compiler__expand_operator_call_68;
 }
-static void cont__sim2c__expand_operator_call_68(void) {
+static void cont__compiler__expand_operator_call_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3132,7 +3132,7 @@ static void cont__sim2c__expand_operator_call_68(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_69(void) {
+static void entry__compiler__expand_operator_call_69(void) {
   allocate_initialized_frame_gc(2, 10);
   // slot allocations:
   // functor: 0
@@ -3150,9 +3150,9 @@ static void entry__sim2c__expand_operator_call_69(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_70;
+  frame->cont = cont__compiler__expand_operator_call_70;
 }
-static void cont__sim2c__expand_operator_call_70(void) {
+static void cont__compiler__expand_operator_call_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3165,9 +3165,9 @@ static void cont__sim2c__expand_operator_call_70(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_71;
+  frame->cont = cont__compiler__expand_operator_call_71;
 }
-static void cont__sim2c__expand_operator_call_71(void) {
+static void cont__compiler__expand_operator_call_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3180,9 +3180,9 @@ static void cont__sim2c__expand_operator_call_71(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_72;
+  frame->cont = cont__compiler__expand_operator_call_72;
 }
-static void cont__sim2c__expand_operator_call_72(void) {
+static void cont__compiler__expand_operator_call_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3195,9 +3195,9 @@ static void cont__sim2c__expand_operator_call_72(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_73;
+  frame->cont = cont__compiler__expand_operator_call_73;
 }
-static void cont__sim2c__expand_operator_call_73(void) {
+static void cont__compiler__expand_operator_call_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3210,9 +3210,9 @@ static void cont__sim2c__expand_operator_call_73(void) {
   result_count = 1;
   myself = frame->slots[5] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_74;
+  frame->cont = cont__compiler__expand_operator_call_74;
 }
-static void cont__sim2c__expand_operator_call_74(void) {
+static void cont__compiler__expand_operator_call_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3226,9 +3226,9 @@ static void cont__sim2c__expand_operator_call_74(void) {
   result_count = 2;
   myself = get__swap();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_75;
+  frame->cont = cont__compiler__expand_operator_call_75;
 }
-static void cont__sim2c__expand_operator_call_75(void) {
+static void cont__compiler__expand_operator_call_75(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -3242,9 +3242,9 @@ static void cont__sim2c__expand_operator_call_75(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_76;
+  frame->cont = cont__compiler__expand_operator_call_76;
 }
-static void cont__sim2c__expand_operator_call_76(void) {
+static void cont__compiler__expand_operator_call_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3258,9 +3258,9 @@ static void cont__sim2c__expand_operator_call_76(void) {
   result_count = 1;
   myself = frame->slots[8] /* temp__7 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_77;
+  frame->cont = cont__compiler__expand_operator_call_77;
 }
-static void cont__sim2c__expand_operator_call_77(void) {
+static void cont__compiler__expand_operator_call_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3281,9 +3281,9 @@ static void cont__sim2c__expand_operator_call_77(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_78;
+  frame->cont = cont__compiler__expand_operator_call_78;
 }
-static void cont__sim2c__expand_operator_call_78(void) {
+static void cont__compiler__expand_operator_call_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3297,9 +3297,9 @@ static void cont__sim2c__expand_operator_call_78(void) {
   result_count = 1;
   myself = frame->slots[9] /* temp__8 */;
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_79;
+  frame->cont = cont__compiler__expand_operator_call_79;
 }
-static void cont__sim2c__expand_operator_call_79(void) {
+static void cont__compiler__expand_operator_call_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3319,7 +3319,7 @@ static void cont__sim2c__expand_operator_call_79(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_80(void) {
+static void entry__compiler__expand_operator_call_80(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3335,9 +3335,9 @@ static void entry__sim2c__expand_operator_call_80(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_82;
+  frame->cont = cont__compiler__expand_operator_call_82;
 }
-static void cont__sim2c__expand_operator_call_82(void) {
+static void cont__compiler__expand_operator_call_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3349,7 +3349,7 @@ static void cont__sim2c__expand_operator_call_82(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_83(void) {
+static void entry__compiler__expand_operator_call_83(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3367,9 +3367,9 @@ static void entry__sim2c__expand_operator_call_83(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_84;
+  frame->cont = cont__compiler__expand_operator_call_84;
 }
-static void cont__sim2c__expand_operator_call_84(void) {
+static void cont__compiler__expand_operator_call_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3383,7 +3383,7 @@ static void cont__sim2c__expand_operator_call_84(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_85(void) {
+static void entry__compiler__expand_operator_call_85(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3401,9 +3401,9 @@ static void entry__sim2c__expand_operator_call_85(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_87;
+  frame->cont = cont__compiler__expand_operator_call_87;
 }
-static void cont__sim2c__expand_operator_call_87(void) {
+static void cont__compiler__expand_operator_call_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3417,7 +3417,7 @@ static void cont__sim2c__expand_operator_call_87(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__expand_operator_call_88(void) {
+static void entry__compiler__expand_operator_call_88(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // functor: 0
@@ -3435,9 +3435,9 @@ static void entry__sim2c__expand_operator_call_88(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_90;
+  frame->cont = cont__compiler__expand_operator_call_90;
 }
-static void cont__sim2c__expand_operator_call_90(void) {
+static void cont__compiler__expand_operator_call_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3451,7 +3451,7 @@ static void cont__sim2c__expand_operator_call_90(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__expand_operator_call_91(void) {
+static void entry__compiler__expand_operator_call_91(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3467,9 +3467,9 @@ static void entry__sim2c__expand_operator_call_91(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_93;
+  frame->cont = cont__compiler__expand_operator_call_93;
 }
-static void cont__sim2c__expand_operator_call_93(void) {
+static void cont__compiler__expand_operator_call_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3481,7 +3481,7 @@ static void cont__sim2c__expand_operator_call_93(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__expand_operator_call_94(void) {
+static void entry__compiler__expand_operator_call_94(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // functor: 0
@@ -3497,9 +3497,9 @@ static void entry__sim2c__expand_operator_call_94(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__expand_operator_call_96;
+  frame->cont = cont__compiler__expand_operator_call_96;
 }
-static void cont__sim2c__expand_operator_call_96(void) {
+static void cont__compiler__expand_operator_call_96(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3511,7 +3511,7 @@ static void cont__sim2c__expand_operator_call_96(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__expand_operator_call_116(void) {
+static void cont__compiler__expand_operator_call_116(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3534,7 +3534,7 @@ static void cont__sim2c__expand_operator_call_116(void) {
   // 154:       .fragment_of fragment_of(self)
   // 155:       .source_position_of source_position_of(self)
   // 156:       .end_position_of end_position_of(self)
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__expand_operator_call_117, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__expand_operator_call_117, 0);
   // 149: if do_insert_not:
   // 150:   !self
   // 151:     function_call
@@ -3552,7 +3552,7 @@ static void cont__sim2c__expand_operator_call_116(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__expand_operator_call_124(void) {
+static void cont__compiler__expand_operator_call_124(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -3563,7 +3563,7 @@ static void cont__sim2c__expand_operator_call_124(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__expand_expression_1(void) {
+static void entry__compiler__function_call__expand_expression_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -3579,9 +3579,9 @@ static void entry__sim2c__function_call__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_3;
+  frame->cont = cont__compiler__function_call__expand_expression_3;
 }
-static void cont__sim2c__function_call__expand_expression_3(void) {
+static void cont__compiler__function_call__expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3593,9 +3593,9 @@ static void cont__sim2c__function_call__expand_expression_3(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_4;
+  frame->cont = cont__compiler__function_call__expand_expression_4;
 }
-static void cont__sim2c__function_call__expand_expression_4(void) {
+static void cont__compiler__function_call__expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3608,9 +3608,9 @@ static void cont__sim2c__function_call__expand_expression_4(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_5;
+  frame->cont = cont__compiler__function_call__expand_expression_5;
 }
-static void cont__sim2c__function_call__expand_expression_5(void) {
+static void cont__compiler__function_call__expand_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3627,7 +3627,7 @@ static void cont__sim2c__function_call__expand_expression_5(void) {
   // 171:         $right_arguments arguments_of(right)
   // 172:         push &arguments right_arguments(1)
   // ...
-  frame->slots[3] /* temp__3 */ = create_closure(entry__sim2c__function_call__expand_expression_6, 0);
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__function_call__expand_expression_6, 0);
   // 163: if functor_of(self).is_defined:
   // 164:   expand_expression &self.functor_of
   // 165:   $functor functor_of(self)
@@ -3648,9 +3648,9 @@ static void cont__sim2c__function_call__expand_expression_5(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_43;
+  frame->cont = cont__compiler__function_call__expand_expression_43;
 }
-static void entry__sim2c__function_call__expand_expression_16(void) {
+static void entry__compiler__function_call__expand_expression_16(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3670,9 +3670,9 @@ static void entry__sim2c__function_call__expand_expression_16(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_17;
+  frame->cont = cont__compiler__function_call__expand_expression_17;
 }
-static void cont__sim2c__function_call__expand_expression_17(void) {
+static void cont__compiler__function_call__expand_expression_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3685,9 +3685,9 @@ static void cont__sim2c__function_call__expand_expression_17(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_18;
+  frame->cont = cont__compiler__function_call__expand_expression_18;
 }
-static void cont__sim2c__function_call__expand_expression_18(void) {
+static void cont__compiler__function_call__expand_expression_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3700,9 +3700,9 @@ static void cont__sim2c__function_call__expand_expression_18(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_19;
+  frame->cont = cont__compiler__function_call__expand_expression_19;
 }
-static void cont__sim2c__function_call__expand_expression_19(void) {
+static void cont__compiler__function_call__expand_expression_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3715,9 +3715,9 @@ static void cont__sim2c__function_call__expand_expression_19(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_20;
+  frame->cont = cont__compiler__function_call__expand_expression_20;
 }
-static void cont__sim2c__function_call__expand_expression_20(void) {
+static void cont__compiler__function_call__expand_expression_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3730,9 +3730,9 @@ static void cont__sim2c__function_call__expand_expression_20(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_21;
+  frame->cont = cont__compiler__function_call__expand_expression_21;
 }
-static void cont__sim2c__function_call__expand_expression_21(void) {
+static void cont__compiler__function_call__expand_expression_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3742,7 +3742,7 @@ static void cont__sim2c__function_call__expand_expression_21(void) {
   // 171:   $right_arguments arguments_of(right)
   // 172:   push &arguments right_arguments(1)
   // 173:   !right right_arguments(2)
-  frame->slots[3] /* temp__1 */ = create_closure(entry__sim2c__function_call__expand_expression_22, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__function_call__expand_expression_22, 0);
   // 170: while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
   // 171:   $right_arguments arguments_of(right)
   // 172:   push &arguments right_arguments(1)
@@ -3753,9 +3753,9 @@ static void cont__sim2c__function_call__expand_expression_21(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_34;
+  frame->cont = cont__compiler__function_call__expand_expression_34;
 }
-static void entry__sim2c__function_call__expand_expression_29(void) {
+static void entry__compiler__function_call__expand_expression_29(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // right: 0
@@ -3775,9 +3775,9 @@ static void entry__sim2c__function_call__expand_expression_29(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_30;
+  frame->cont = cont__compiler__function_call__expand_expression_30;
 }
-static void cont__sim2c__function_call__expand_expression_30(void) {
+static void cont__compiler__function_call__expand_expression_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3790,9 +3790,9 @@ static void cont__sim2c__function_call__expand_expression_30(void) {
   result_count = 1;
   myself = frame->slots[2] /* right_arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_31;
+  frame->cont = cont__compiler__function_call__expand_expression_31;
 }
-static void cont__sim2c__function_call__expand_expression_31(void) {
+static void cont__compiler__function_call__expand_expression_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3806,9 +3806,9 @@ static void cont__sim2c__function_call__expand_expression_31(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_32;
+  frame->cont = cont__compiler__function_call__expand_expression_32;
 }
-static void cont__sim2c__function_call__expand_expression_32(void) {
+static void cont__compiler__function_call__expand_expression_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3821,9 +3821,9 @@ static void cont__sim2c__function_call__expand_expression_32(void) {
   result_count = 1;
   myself = frame->slots[2] /* right_arguments */;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_33;
+  frame->cont = cont__compiler__function_call__expand_expression_33;
 }
-static void cont__sim2c__function_call__expand_expression_33(void) {
+static void cont__compiler__function_call__expand_expression_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3835,7 +3835,7 @@ static void cont__sim2c__function_call__expand_expression_33(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__expand_expression_22(void) {
+static void entry__compiler__function_call__expand_expression_22(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // right: 0
@@ -3853,16 +3853,16 @@ static void entry__sim2c__function_call__expand_expression_22(void) {
   result_count = 1;
   myself = get__is_a_function_call();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_23;
+  frame->cont = cont__compiler__function_call__expand_expression_23;
 }
-static void cont__sim2c__function_call__expand_expression_23(void) {
+static void cont__compiler__function_call__expand_expression_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 170: ... name_of(functor_of(right)) == ","
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__function_call__expand_expression_24, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__function_call__expand_expression_24, 0);
   // 170: ... right.is_a_function_call && name_of(functor_of(right)) == ","
   argument_count = 2;
   arguments = node_p;
@@ -3871,9 +3871,9 @@ static void cont__sim2c__function_call__expand_expression_23(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_28;
+  frame->cont = cont__compiler__function_call__expand_expression_28;
 }
-static void entry__sim2c__function_call__expand_expression_24(void) {
+static void entry__compiler__function_call__expand_expression_24(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // right: 0
@@ -3889,9 +3889,9 @@ static void entry__sim2c__function_call__expand_expression_24(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_25;
+  frame->cont = cont__compiler__function_call__expand_expression_25;
 }
-static void cont__sim2c__function_call__expand_expression_25(void) {
+static void cont__compiler__function_call__expand_expression_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3904,9 +3904,9 @@ static void cont__sim2c__function_call__expand_expression_25(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_26;
+  frame->cont = cont__compiler__function_call__expand_expression_26;
 }
-static void cont__sim2c__function_call__expand_expression_26(void) {
+static void cont__compiler__function_call__expand_expression_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3920,9 +3920,9 @@ static void cont__sim2c__function_call__expand_expression_26(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_27;
+  frame->cont = cont__compiler__function_call__expand_expression_27;
 }
-static void cont__sim2c__function_call__expand_expression_27(void) {
+static void cont__compiler__function_call__expand_expression_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3936,7 +3936,7 @@ static void cont__sim2c__function_call__expand_expression_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__expand_expression_28(void) {
+static void cont__compiler__function_call__expand_expression_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3946,7 +3946,7 @@ static void cont__sim2c__function_call__expand_expression_28(void) {
   // 171:   $right_arguments arguments_of(right)
   // 172:   push &arguments right_arguments(1)
   // 173:   !right right_arguments(2)
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__function_call__expand_expression_29, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__expand_expression_29, 0);
   // 170: ... -> right.is_a_function_call && name_of(functor_of(right)) == ",":
   // 171:   $right_arguments arguments_of(right)
   // 172:   push &arguments right_arguments(1)
@@ -3959,7 +3959,7 @@ static void cont__sim2c__function_call__expand_expression_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__expand_expression_34(void) {
+static void cont__compiler__function_call__expand_expression_34(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3972,9 +3972,9 @@ static void cont__sim2c__function_call__expand_expression_34(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_35;
+  frame->cont = cont__compiler__function_call__expand_expression_35;
 }
-static void cont__sim2c__function_call__expand_expression_35(void) {
+static void cont__compiler__function_call__expand_expression_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3987,9 +3987,9 @@ static void cont__sim2c__function_call__expand_expression_35(void) {
   result_count = 1;
   myself = get__std_identifier();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_37;
+  frame->cont = cont__compiler__function_call__expand_expression_37;
 }
-static void cont__sim2c__function_call__expand_expression_37(void) {
+static void cont__compiler__function_call__expand_expression_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4010,9 +4010,9 @@ static void cont__sim2c__function_call__expand_expression_37(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_38;
+  frame->cont = cont__compiler__function_call__expand_expression_38;
 }
-static void cont__sim2c__function_call__expand_expression_38(void) {
+static void cont__compiler__function_call__expand_expression_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4032,7 +4032,7 @@ static void cont__sim2c__function_call__expand_expression_38(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__expand_expression_39(void) {
+static void entry__compiler__function_call__expand_expression_39(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -4048,9 +4048,9 @@ static void entry__sim2c__function_call__expand_expression_39(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_40;
+  frame->cont = cont__compiler__function_call__expand_expression_40;
 }
-static void cont__sim2c__function_call__expand_expression_40(void) {
+static void cont__compiler__function_call__expand_expression_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4063,9 +4063,9 @@ static void cont__sim2c__function_call__expand_expression_40(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_41;
+  frame->cont = cont__compiler__function_call__expand_expression_41;
 }
-static void cont__sim2c__function_call__expand_expression_41(void) {
+static void cont__compiler__function_call__expand_expression_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4086,9 +4086,9 @@ static void cont__sim2c__function_call__expand_expression_41(void) {
   result_count = 1;
   myself = get__expand_operator_call();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_42;
+  frame->cont = cont__compiler__function_call__expand_expression_42;
 }
-static void cont__sim2c__function_call__expand_expression_42(void) {
+static void cont__compiler__function_call__expand_expression_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4100,7 +4100,7 @@ static void cont__sim2c__function_call__expand_expression_42(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__function_call__expand_expression_6(void) {
+static void entry__compiler__function_call__expand_expression_6(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -4118,9 +4118,9 @@ static void entry__sim2c__function_call__expand_expression_6(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_7;
+  frame->cont = cont__compiler__function_call__expand_expression_7;
 }
-static void cont__sim2c__function_call__expand_expression_7(void) {
+static void cont__compiler__function_call__expand_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4133,9 +4133,9 @@ static void cont__sim2c__function_call__expand_expression_7(void) {
   result_count = 1;
   myself = get__expand_expression();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_8;
+  frame->cont = cont__compiler__function_call__expand_expression_8;
 }
-static void cont__sim2c__function_call__expand_expression_8(void) {
+static void cont__compiler__function_call__expand_expression_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4156,9 +4156,9 @@ static void cont__sim2c__function_call__expand_expression_8(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_9;
+  frame->cont = cont__compiler__function_call__expand_expression_9;
 }
-static void cont__sim2c__function_call__expand_expression_9(void) {
+static void cont__compiler__function_call__expand_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4171,16 +4171,16 @@ static void cont__sim2c__function_call__expand_expression_9(void) {
   result_count = 1;
   myself = get__is_an_operator_symbol();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_10;
+  frame->cont = cont__compiler__function_call__expand_expression_10;
 }
-static void cont__sim2c__function_call__expand_expression_10(void) {
+static void cont__compiler__function_call__expand_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 167: ... name_of(functor) == ","
-  frame->slots[4] /* temp__3 */ = create_closure(entry__sim2c__function_call__expand_expression_11, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__function_call__expand_expression_11, 0);
   // 167: functor.is_an_operator_symbol && name_of(functor) == ","
   argument_count = 2;
   arguments = node_p;
@@ -4189,9 +4189,9 @@ static void cont__sim2c__function_call__expand_expression_10(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_15;
+  frame->cont = cont__compiler__function_call__expand_expression_15;
 }
-static void entry__sim2c__function_call__expand_expression_11(void) {
+static void entry__compiler__function_call__expand_expression_11(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // functor: 0
@@ -4207,9 +4207,9 @@ static void entry__sim2c__function_call__expand_expression_11(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_12;
+  frame->cont = cont__compiler__function_call__expand_expression_12;
 }
-static void cont__sim2c__function_call__expand_expression_12(void) {
+static void cont__compiler__function_call__expand_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4223,9 +4223,9 @@ static void cont__sim2c__function_call__expand_expression_12(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__function_call__expand_expression_14;
+  frame->cont = cont__compiler__function_call__expand_expression_14;
 }
-static void cont__sim2c__function_call__expand_expression_14(void) {
+static void cont__compiler__function_call__expand_expression_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4239,7 +4239,7 @@ static void cont__sim2c__function_call__expand_expression_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__function_call__expand_expression_15(void) {
+static void cont__compiler__function_call__expand_expression_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4255,11 +4255,11 @@ static void cont__sim2c__function_call__expand_expression_15(void) {
   // 174:   push &arguments right
   // 175:   !self.functor_of std_identifier("sequence")
   // 176:   !self.arguments_of expand_arguments(arguments)
-  frame->slots[5] /* temp__4 */ = create_closure(entry__sim2c__function_call__expand_expression_16, 0);
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__expand_expression_16, 0);
   // 177: :
   // 178:   expand_arguments &self.arguments_of
   // 179:   expand_operator_call &self
-  frame->slots[6] /* temp__5 */ = create_closure(entry__sim2c__function_call__expand_expression_39, 0);
+  frame->slots[6] /* temp__5 */ = create_closure(entry__compiler__function_call__expand_expression_39, 0);
   // 166: if
   // 167:   functor.is_an_operator_symbol && name_of(functor) == ",":
   // 168:     $$arguments list(arguments_of(self)(1))
@@ -4281,7 +4281,7 @@ static void cont__sim2c__function_call__expand_expression_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__function_call__expand_expression_43(void) {
+static void cont__compiler__function_call__expand_expression_43(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -4292,7 +4292,7 @@ static void cont__sim2c__function_call__expand_expression_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__attribute_value_pair__expand_expression_1(void) {
+static void entry__compiler__attribute_value_pair__expand_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -4308,9 +4308,9 @@ static void entry__sim2c__attribute_value_pair__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_value_pair__expand_expression_3;
+  frame->cont = cont__compiler__attribute_value_pair__expand_expression_3;
 }
-static void cont__sim2c__attribute_value_pair__expand_expression_3(void) {
+static void cont__compiler__attribute_value_pair__expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4322,9 +4322,9 @@ static void cont__sim2c__attribute_value_pair__expand_expression_3(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_value_pair__expand_expression_4;
+  frame->cont = cont__compiler__attribute_value_pair__expand_expression_4;
 }
-static void cont__sim2c__attribute_value_pair__expand_expression_4(void) {
+static void cont__compiler__attribute_value_pair__expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4337,9 +4337,9 @@ static void cont__sim2c__attribute_value_pair__expand_expression_4(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_value_pair__expand_expression_5;
+  frame->cont = cont__compiler__attribute_value_pair__expand_expression_5;
 }
-static void cont__sim2c__attribute_value_pair__expand_expression_5(void) {
+static void cont__compiler__attribute_value_pair__expand_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4360,7 +4360,7 @@ static void cont__sim2c__attribute_value_pair__expand_expression_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__attribute_function_pair__expand_expression_1(void) {
+static void entry__compiler__attribute_function_pair__expand_expression_1(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -4376,9 +4376,9 @@ static void entry__sim2c__attribute_function_pair__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_function_pair__expand_expression_3;
+  frame->cont = cont__compiler__attribute_function_pair__expand_expression_3;
 }
-static void cont__sim2c__attribute_function_pair__expand_expression_3(void) {
+static void cont__compiler__attribute_function_pair__expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4390,9 +4390,9 @@ static void cont__sim2c__attribute_function_pair__expand_expression_3(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_function_pair__expand_expression_4;
+  frame->cont = cont__compiler__attribute_function_pair__expand_expression_4;
 }
-static void cont__sim2c__attribute_function_pair__expand_expression_4(void) {
+static void cont__compiler__attribute_function_pair__expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4405,9 +4405,9 @@ static void cont__sim2c__attribute_function_pair__expand_expression_4(void) {
   result_count = 1;
   myself = var._expand_arguments;
   func = myself->type;
-  frame->cont = cont__sim2c__attribute_function_pair__expand_expression_5;
+  frame->cont = cont__compiler__attribute_function_pair__expand_expression_5;
 }
-static void cont__sim2c__attribute_function_pair__expand_expression_5(void) {
+static void cont__compiler__attribute_function_pair__expand_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4429,10 +4429,10 @@ static void cont__sim2c__attribute_function_pair__expand_expression_5(void) {
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__expander(void) {
-  var.sim2c__expand_statement = collect_node(var.sim2c__expand_statement);
-  var.sim2c__expand_expression = collect_node(var.sim2c__expand_expression);
+  var.compiler__expand_statement = collect_node(var.compiler__expand_statement);
+  var.compiler__expand_expression = collect_node(var.compiler__expand_expression);
   var._expand_arguments = collect_node(var._expand_arguments);
-  var.sim2c__expand_operator_call = collect_node(var.sim2c__expand_operator_call);
+  var.compiler__expand_operator_call = collect_node(var.compiler__expand_operator_call);
 }
 
 static int already_run_phase_1 = false;
@@ -4451,18 +4451,18 @@ EXPORT void phase_2__expander(void) {
   set_module("expander");
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
-  define_polymorphic_function("sim2c", "expand_statement", get__sim2c__expand_statement, &poly_idx__sim2c__expand_statement, &var.sim2c__expand_statement);
-  define_polymorphic_function("sim2c", "expand_expression", get__sim2c__expand_expression, &poly_idx__sim2c__expand_expression, &var.sim2c__expand_expression);
+  define_polymorphic_function("compiler", "expand_statement", get__compiler__expand_statement, &poly_idx__compiler__expand_statement, &var.compiler__expand_statement);
+  define_polymorphic_function("compiler", "expand_expression", get__compiler__expand_expression, &poly_idx__compiler__expand_expression, &var.compiler__expand_expression);
   func__expand_arguments_1 = create_function(entry__expand_arguments_1, 1);
   string__582ccfaf004aa58 = from_latin_1_string("expand statement", 16);
   func__types__grammar_node__expand_statement_1 = create_function(entry__types__grammar_node__expand_statement_1, 1);
   string__4bcf31e55e19ce58 = from_latin_1_string("expand expression", 17);
   func__types__grammar_node__expand_expression_1 = create_function(entry__types__grammar_node__expand_expression_1, 1);
   string__c4e5f299bf2dab78 = from_latin_1_string("expand body", 11);
-  func__sim2c__body__expand_expression_5 = create_function(entry__sim2c__body__expand_expression_5, 1);
-  func__sim2c__body__expand_expression_14 = create_function(entry__sim2c__body__expand_expression_14, 1);
-  func__sim2c__body__expand_expression_1 = create_function(entry__sim2c__body__expand_expression_1, 1);
-  func__sim2c__call__expand_statement_1 = create_function(entry__sim2c__call__expand_statement_1, 1);
+  func__compiler__body__expand_expression_5 = create_function(entry__compiler__body__expand_expression_5, 1);
+  func__compiler__body__expand_expression_14 = create_function(entry__compiler__body__expand_expression_14, 1);
+  func__compiler__body__expand_expression_1 = create_function(entry__compiler__body__expand_expression_1, 1);
+  func__compiler__call__expand_statement_1 = create_function(entry__compiler__call__expand_statement_1, 1);
   string__585ae843eae15024 = from_latin_1_string("times", 5);
   string__1c0aeccb5d487d4b = from_latin_1_string("over", 4);
   string__220aea4b5dc87d4a = from_latin_1_string("plus", 4);
@@ -4499,15 +4499,15 @@ EXPORT void phase_2__expander(void) {
   string__2d7981f4e6782beb = from_latin_1_string("..", 2);
   string__578a5af303e9cdc = from_latin_1_string("=", 1);
   string__fa723c15d516bb8 = from_latin_1_string("not", 3);
-  func__sim2c__expand_operator_call_1 = create_function(entry__sim2c__expand_operator_call_1, 1);
+  func__compiler__expand_operator_call_1 = create_function(entry__compiler__expand_operator_call_1, 1);
   string__2ae70e1058c2c0b7 = from_latin_1_string("expand function call", 20);
   string__578a5af303e9ccd = from_latin_1_string(",", 1);
   string__6480ae5e84ccc225 = from_latin_1_string("sequence", 8);
-  func__sim2c__function_call__expand_expression_1 = create_function(entry__sim2c__function_call__expand_expression_1, 1);
+  func__compiler__function_call__expand_expression_1 = create_function(entry__compiler__function_call__expand_expression_1, 1);
   string__30246dda36d83a54 = from_latin_1_string("expand attribute-value pair", 27);
-  func__sim2c__attribute_value_pair__expand_expression_1 = create_function(entry__sim2c__attribute_value_pair__expand_expression_1, 1);
+  func__compiler__attribute_value_pair__expand_expression_1 = create_function(entry__compiler__attribute_value_pair__expand_expression_1, 1);
   string__2c1ce19c26092926 = from_latin_1_string("expand attribute-function pair", 30);
-  func__sim2c__attribute_function_pair__expand_expression_1 = create_function(entry__sim2c__attribute_function_pair__expand_expression_1, 1);
+  func__compiler__attribute_function_pair__expand_expression_1 = create_function(entry__compiler__attribute_function_pair__expand_expression_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4517,7 +4517,7 @@ EXPORT void phase_3__expander(void) {
   already_run_phase_3 = true;
   set_module("expander");
   set_used_namespaces(used_namespaces);
-  define_single_assign_static("sim2c", "expand_operator_call", get__sim2c__expand_operator_call, &var.sim2c__expand_operator_call);
+  define_single_assign_static("compiler", "expand_operator_call", get__compiler__expand_operator_call, &var.compiler__expand_operator_call);
 }
 
 static int already_run_phase_4 = false;
@@ -4530,6 +4530,11 @@ EXPORT void phase_4__expander(void) {
   use_polymorphic_function(NULL, "arguments_of", &get__arguments_of, &poly_idx__arguments_of);
   use_read_only(NULL, "body", &get__body, &get_value_or_future__body);
   use_read_only(NULL, "case", &get__case, &get_value_or_future__case);
+  use_read_only("compiler", "attribute_function_pair", &get__compiler__attribute_function_pair, &get_value_or_future__compiler__attribute_function_pair);
+  use_read_only("compiler", "attribute_value_pair", &get__compiler__attribute_value_pair, &get_value_or_future__compiler__attribute_value_pair);
+  use_read_only("compiler", "body", &get__compiler__body, &get_value_or_future__compiler__body);
+  use_read_only("compiler", "call", &get__compiler__call, &get_value_or_future__compiler__call);
+  use_read_only("compiler", "function_call", &get__compiler__function_call, &get_value_or_future__compiler__function_call);
   use_polymorphic_function(NULL, "default_value_of", &get__default_value_of, &poly_idx__default_value_of);
   use_read_only(NULL, "empty_list", &get__empty_list, &get_value_or_future__empty_list);
   use_polymorphic_function(NULL, "end_position_of", &get__end_position_of, &poly_idx__end_position_of);
@@ -4557,11 +4562,6 @@ EXPORT void phase_4__expander(void) {
   use_polymorphic_function(NULL, "result_count_of", &get__result_count_of, &poly_idx__result_count_of);
   use_read_only(NULL, "return_statement", &get__return_statement, &get_value_or_future__return_statement);
   use_read_only(NULL, "show_compiler_debug_info", &get__show_compiler_debug_info, &get_value_or_future__show_compiler_debug_info);
-  use_read_only("sim2c", "attribute_function_pair", &get__sim2c__attribute_function_pair, &get_value_or_future__sim2c__attribute_function_pair);
-  use_read_only("sim2c", "attribute_value_pair", &get__sim2c__attribute_value_pair, &get_value_or_future__sim2c__attribute_value_pair);
-  use_read_only("sim2c", "body", &get__sim2c__body, &get_value_or_future__sim2c__body);
-  use_read_only("sim2c", "call", &get__sim2c__call, &get_value_or_future__sim2c__call);
-  use_read_only("sim2c", "function_call", &get__sim2c__function_call, &get_value_or_future__sim2c__function_call);
   use_polymorphic_function(NULL, "source_position_of", &get__source_position_of, &poly_idx__source_position_of);
   use_polymorphic_function(NULL, "statements_of", &get__statements_of, &poly_idx__statements_of);
   use_read_only("std", "and", &get__std__and, &get_value_or_future__std__and);
@@ -4575,11 +4575,11 @@ EXPORT void phase_4__expander(void) {
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
   define_method("types", "grammar_node", poly_idx__expand_statement, func__types__grammar_node__expand_statement_1);
   define_method("types", "grammar_node", poly_idx__expand_expression, func__types__grammar_node__expand_expression_1);
-  define_method("sim2c", "body", poly_idx__expand_expression, func__sim2c__body__expand_expression_1);
-  define_method("sim2c", "call", poly_idx__expand_statement, func__sim2c__call__expand_statement_1);
-  define_method("sim2c", "function_call", poly_idx__expand_expression, func__sim2c__function_call__expand_expression_1);
-  define_method("sim2c", "attribute_value_pair", poly_idx__expand_expression, func__sim2c__attribute_value_pair__expand_expression_1);
-  define_method("sim2c", "attribute_function_pair", poly_idx__expand_expression, func__sim2c__attribute_function_pair__expand_expression_1);
+  define_method("compiler", "body", poly_idx__expand_expression, func__compiler__body__expand_expression_1);
+  define_method("compiler", "call", poly_idx__expand_statement, func__compiler__call__expand_statement_1);
+  define_method("compiler", "function_call", poly_idx__expand_expression, func__compiler__function_call__expand_expression_1);
+  define_method("compiler", "attribute_value_pair", poly_idx__expand_expression, func__compiler__attribute_value_pair__expand_expression_1);
+  define_method("compiler", "attribute_function_pair", poly_idx__expand_expression, func__compiler__attribute_function_pair__expand_expression_1);
 }
 
 static int already_run_phase_5 = false;
@@ -4587,10 +4587,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__expander(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_value(&var.sim2c__expand_statement, create_function(type__sim2c__expand_statement, -1));
-  assign_value(&var.sim2c__expand_expression, create_function(type__sim2c__expand_expression, -1));
+  assign_value(&var.compiler__expand_statement, create_function(type__compiler__expand_statement, -1));
+  assign_value(&var.compiler__expand_expression, create_function(type__compiler__expand_expression, -1));
   assign_variable(&var._expand_arguments, &func__expand_arguments_1);
-  assign_variable(&var.sim2c__expand_operator_call, &func__sim2c__expand_operator_call_1);
+  assign_variable(&var.compiler__expand_operator_call, &func__compiler__expand_operator_call_1);
 }
 
 static int already_run_phase_6 = false;

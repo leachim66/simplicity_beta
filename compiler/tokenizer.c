@@ -344,380 +344,380 @@ static NODE_GETTER get_value_or_future__undefined;
 static NODE_GETTER get__while;
 static NODE_GETTER get_value_or_future__while;
 static struct {
-  NODE *sim2c__indent_marker;
-  NODE *sim2c__outdent_marker;
-  NODE *sim2c__newline;
-  NODE *sim2c__tokenize;
+  NODE *compiler__indent_marker;
+  NODE *compiler__outdent_marker;
+  NODE *compiler__newline;
+  NODE *compiler__tokenize;
 } var;
 static const char *var_names[] = {
 };
-static NODE *get__sim2c__indent_marker(void) {
-  return var.sim2c__indent_marker;
+static NODE *get__compiler__indent_marker(void) {
+  return var.compiler__indent_marker;
 }
-static NODE *get__sim2c__outdent_marker(void) {
-  return var.sim2c__outdent_marker;
+static NODE *get__compiler__outdent_marker(void) {
+  return var.compiler__outdent_marker;
 }
-static NODE *get__sim2c__newline(void) {
-  return var.sim2c__newline;
+static NODE *get__compiler__newline(void) {
+  return var.compiler__newline;
 }
-static NODE *func__sim2c__tokenize_1;
-static void entry__sim2c__tokenize_1(void);
-static FRAME_INFO frame__sim2c__tokenize_1 = {11, {"fragment", "text", "i", "s", "new_text", "pending_newlines", "quote_count", "TokenizationError", "skip_line", "get_indent", "convert"}};
-static NODE *func__sim2c__tokenize_2;
-static void entry__sim2c__tokenize_2(void);
-static FRAME_INFO frame__sim2c__tokenize_2 = {5, {"msg", "fragment", "text", "i", "line_no"}};
-static void cont__sim2c__tokenize_3(void);
-static void cont__sim2c__tokenize_4(void);
-static void cont__sim2c__tokenize_5(void);
-static void cont__sim2c__tokenize_6(void);
-static void cont__sim2c__tokenize_7(void);
-static void cont__sim2c__tokenize_8(void);
-static void cont__sim2c__tokenize_9(void);
-static void cont__sim2c__tokenize_10(void);
+static NODE *func__compiler__tokenize_1;
+static void entry__compiler__tokenize_1(void);
+static FRAME_INFO frame__compiler__tokenize_1 = {11, {"fragment", "text", "i", "s", "new_text", "pending_newlines", "quote_count", "TokenizationError", "skip_line", "get_indent", "convert"}};
+static NODE *func__compiler__tokenize_2;
+static void entry__compiler__tokenize_2(void);
+static FRAME_INFO frame__compiler__tokenize_2 = {5, {"msg", "fragment", "text", "i", "line_no"}};
+static void cont__compiler__tokenize_3(void);
+static void cont__compiler__tokenize_4(void);
+static void cont__compiler__tokenize_5(void);
+static void cont__compiler__tokenize_6(void);
+static void cont__compiler__tokenize_7(void);
+static void cont__compiler__tokenize_8(void);
+static void cont__compiler__tokenize_9(void);
+static void cont__compiler__tokenize_10(void);
 static NODE *string__a18ab04649b43ca6;
 static NODE *string__6c6619488b29e163;
 static NODE *string__fa730c15ff96bc6;
 static NODE *string__2d7981f4e6002bcf;
-static void cont__sim2c__tokenize_15(void);
-static void cont__sim2c__tokenize_16(void);
-static NODE *func__sim2c__tokenize_17;
-static void entry__sim2c__tokenize_17(void);
-static FRAME_INFO frame__sim2c__tokenize_17 = {4, {"quote_count", "text", "i", "TokenizationError"}};
-static NODE *func__sim2c__tokenize_18;
-static void entry__sim2c__tokenize_18(void);
-static FRAME_INFO frame__sim2c__tokenize_18 = {4, {"text", "i", "quote_count", "TokenizationError"}};
-static void cont__sim2c__tokenize_19(void);
-static void cont__sim2c__tokenize_20(void);
-static void cont__sim2c__tokenize_21(void);
-static NODE *func__sim2c__tokenize_22;
-static void entry__sim2c__tokenize_22(void);
-static FRAME_INFO frame__sim2c__tokenize_22 = {4, {"text", "i", "quote_count", "TokenizationError"}};
-static void cont__sim2c__tokenize_23(void);
-static NODE *func__sim2c__tokenize_24;
-static void entry__sim2c__tokenize_24(void);
-static FRAME_INFO frame__sim2c__tokenize_24 = {1, {"quote_count"}};
-static void cont__sim2c__tokenize_25(void);
-static NODE *func__sim2c__tokenize_26;
-static void entry__sim2c__tokenize_26(void);
-static FRAME_INFO frame__sim2c__tokenize_26 = {1, {"TokenizationError"}};
+static void cont__compiler__tokenize_15(void);
+static void cont__compiler__tokenize_16(void);
+static NODE *func__compiler__tokenize_17;
+static void entry__compiler__tokenize_17(void);
+static FRAME_INFO frame__compiler__tokenize_17 = {4, {"quote_count", "text", "i", "TokenizationError"}};
+static NODE *func__compiler__tokenize_18;
+static void entry__compiler__tokenize_18(void);
+static FRAME_INFO frame__compiler__tokenize_18 = {4, {"text", "i", "quote_count", "TokenizationError"}};
+static void cont__compiler__tokenize_19(void);
+static void cont__compiler__tokenize_20(void);
+static void cont__compiler__tokenize_21(void);
+static NODE *func__compiler__tokenize_22;
+static void entry__compiler__tokenize_22(void);
+static FRAME_INFO frame__compiler__tokenize_22 = {4, {"text", "i", "quote_count", "TokenizationError"}};
+static void cont__compiler__tokenize_23(void);
+static NODE *func__compiler__tokenize_24;
+static void entry__compiler__tokenize_24(void);
+static FRAME_INFO frame__compiler__tokenize_24 = {1, {"quote_count"}};
+static void cont__compiler__tokenize_25(void);
+static NODE *func__compiler__tokenize_26;
+static void entry__compiler__tokenize_26(void);
+static FRAME_INFO frame__compiler__tokenize_26 = {1, {"TokenizationError"}};
 static NODE *string__dd17af2f619a6908;
-static void cont__sim2c__tokenize_28(void);
-static void cont__sim2c__tokenize_29(void);
-static NODE *func__sim2c__tokenize_30;
-static void entry__sim2c__tokenize_30(void);
-static FRAME_INFO frame__sim2c__tokenize_30 = {6, {"return", "pending_newlines", "i", "text", "TokenizationError", "indent"}};
-static NODE *func__sim2c__tokenize_31;
-static void entry__sim2c__tokenize_31(void);
-static FRAME_INFO frame__sim2c__tokenize_31 = {5, {"break", "i", "text", "return", "pending_newlines"}};
-static NODE *func__sim2c__tokenize_32;
-static void entry__sim2c__tokenize_32(void);
-static FRAME_INFO frame__sim2c__tokenize_32 = {5, {"i", "text", "return", "break", "pending_newlines"}};
-static void cont__sim2c__tokenize_33(void);
-static void cont__sim2c__tokenize_34(void);
-static NODE *func__sim2c__tokenize_35;
-static void entry__sim2c__tokenize_35(void);
-static FRAME_INFO frame__sim2c__tokenize_35 = {1, {"return"}};
-static void cont__sim2c__tokenize_36(void);
-static void cont__sim2c__tokenize_37(void);
-static void cont__sim2c__tokenize_38(void);
-static void cont__sim2c__tokenize_39(void);
-static void cont__sim2c__tokenize_40(void);
-static void cont__sim2c__tokenize_41(void);
-static void cont__sim2c__tokenize_42(void);
-static void cont__sim2c__tokenize_43(void);
-static void cont__sim2c__tokenize_44(void);
-static void cont__sim2c__tokenize_45(void);
-static NODE *func__sim2c__tokenize_46;
-static void entry__sim2c__tokenize_46(void);
-static FRAME_INFO frame__sim2c__tokenize_46 = {3, {"text", "i", "indent"}};
-static void cont__sim2c__tokenize_47(void);
-static void cont__sim2c__tokenize_48(void);
-static NODE *func__sim2c__tokenize_49;
-static void entry__sim2c__tokenize_49(void);
-static FRAME_INFO frame__sim2c__tokenize_49 = {2, {"i", "indent"}};
-static void cont__sim2c__tokenize_50(void);
-static void cont__sim2c__tokenize_51(void);
-static void cont__sim2c__tokenize_52(void);
-static NODE *func__sim2c__tokenize_53;
-static void entry__sim2c__tokenize_53(void);
-static FRAME_INFO frame__sim2c__tokenize_53 = {3, {"text", "i", "indent"}};
-static void cont__sim2c__tokenize_54(void);
-static void cont__sim2c__tokenize_55(void);
-static NODE *func__sim2c__tokenize_56;
-static void entry__sim2c__tokenize_56(void);
-static FRAME_INFO frame__sim2c__tokenize_56 = {2, {"i", "indent"}};
-static void cont__sim2c__tokenize_57(void);
-static void cont__sim2c__tokenize_58(void);
-static void cont__sim2c__tokenize_59(void);
-static void cont__sim2c__tokenize_60(void);
-static NODE *func__sim2c__tokenize_61;
-static void entry__sim2c__tokenize_61(void);
-static FRAME_INFO frame__sim2c__tokenize_61 = {2, {"text", "i"}};
-static void cont__sim2c__tokenize_62(void);
-static void cont__sim2c__tokenize_63(void);
-static void cont__sim2c__tokenize_64(void);
-static NODE *func__sim2c__tokenize_65;
-static void entry__sim2c__tokenize_65(void);
-static FRAME_INFO frame__sim2c__tokenize_65 = {1, {"TokenizationError"}};
+static void cont__compiler__tokenize_28(void);
+static void cont__compiler__tokenize_29(void);
+static NODE *func__compiler__tokenize_30;
+static void entry__compiler__tokenize_30(void);
+static FRAME_INFO frame__compiler__tokenize_30 = {6, {"return", "pending_newlines", "i", "text", "TokenizationError", "indent"}};
+static NODE *func__compiler__tokenize_31;
+static void entry__compiler__tokenize_31(void);
+static FRAME_INFO frame__compiler__tokenize_31 = {5, {"break", "i", "text", "return", "pending_newlines"}};
+static NODE *func__compiler__tokenize_32;
+static void entry__compiler__tokenize_32(void);
+static FRAME_INFO frame__compiler__tokenize_32 = {5, {"i", "text", "return", "break", "pending_newlines"}};
+static void cont__compiler__tokenize_33(void);
+static void cont__compiler__tokenize_34(void);
+static NODE *func__compiler__tokenize_35;
+static void entry__compiler__tokenize_35(void);
+static FRAME_INFO frame__compiler__tokenize_35 = {1, {"return"}};
+static void cont__compiler__tokenize_36(void);
+static void cont__compiler__tokenize_37(void);
+static void cont__compiler__tokenize_38(void);
+static void cont__compiler__tokenize_39(void);
+static void cont__compiler__tokenize_40(void);
+static void cont__compiler__tokenize_41(void);
+static void cont__compiler__tokenize_42(void);
+static void cont__compiler__tokenize_43(void);
+static void cont__compiler__tokenize_44(void);
+static void cont__compiler__tokenize_45(void);
+static NODE *func__compiler__tokenize_46;
+static void entry__compiler__tokenize_46(void);
+static FRAME_INFO frame__compiler__tokenize_46 = {3, {"text", "i", "indent"}};
+static void cont__compiler__tokenize_47(void);
+static void cont__compiler__tokenize_48(void);
+static NODE *func__compiler__tokenize_49;
+static void entry__compiler__tokenize_49(void);
+static FRAME_INFO frame__compiler__tokenize_49 = {2, {"i", "indent"}};
+static void cont__compiler__tokenize_50(void);
+static void cont__compiler__tokenize_51(void);
+static void cont__compiler__tokenize_52(void);
+static NODE *func__compiler__tokenize_53;
+static void entry__compiler__tokenize_53(void);
+static FRAME_INFO frame__compiler__tokenize_53 = {3, {"text", "i", "indent"}};
+static void cont__compiler__tokenize_54(void);
+static void cont__compiler__tokenize_55(void);
+static NODE *func__compiler__tokenize_56;
+static void entry__compiler__tokenize_56(void);
+static FRAME_INFO frame__compiler__tokenize_56 = {2, {"i", "indent"}};
+static void cont__compiler__tokenize_57(void);
+static void cont__compiler__tokenize_58(void);
+static void cont__compiler__tokenize_59(void);
+static void cont__compiler__tokenize_60(void);
+static NODE *func__compiler__tokenize_61;
+static void entry__compiler__tokenize_61(void);
+static FRAME_INFO frame__compiler__tokenize_61 = {2, {"text", "i"}};
+static void cont__compiler__tokenize_62(void);
+static void cont__compiler__tokenize_63(void);
+static void cont__compiler__tokenize_64(void);
+static NODE *func__compiler__tokenize_65;
+static void entry__compiler__tokenize_65(void);
+static FRAME_INFO frame__compiler__tokenize_65 = {1, {"TokenizationError"}};
 static NODE *string__97eea539018d4d4b;
-static void cont__sim2c__tokenize_67(void);
-static NODE *func__sim2c__tokenize_68;
-static void entry__sim2c__tokenize_68(void);
-static FRAME_INFO frame__sim2c__tokenize_68 = {13, {"current_indent", "return", "pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "convert", "TokenizationError"}};
-static NODE *func__sim2c__tokenize_69;
-static void entry__sim2c__tokenize_69(void);
-static FRAME_INFO frame__sim2c__tokenize_69 = {19, {"pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "current_indent", "convert", "TokenizationError", "return", "add_newline", "add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "indent"}};
-static NODE *func__sim2c__tokenize_70;
-static void entry__sim2c__tokenize_70(void);
-static FRAME_INFO frame__sim2c__tokenize_70 = {4, {"pending_newlines", "new_text", "fragment", "indent"}};
-static NODE *func__sim2c__tokenize_71;
-static void entry__sim2c__tokenize_71(void);
-static FRAME_INFO frame__sim2c__tokenize_71 = {3, {"new_text", "fragment", "indent"}};
-static void cont__sim2c__tokenize_72(void);
-static void cont__sim2c__tokenize_73(void);
-static void cont__sim2c__tokenize_74(void);
-static NODE *func__sim2c__tokenize_75;
-static void entry__sim2c__tokenize_75(void);
-static FRAME_INFO frame__sim2c__tokenize_75 = {5, {"new_text", "fragment", "indent", "pending_newlines", "add_newline"}};
-static void cont__sim2c__tokenize_76(void);
-static void cont__sim2c__tokenize_77(void);
-static void cont__sim2c__tokenize_78(void);
-static void cont__sim2c__tokenize_79(void);
-static void cont__sim2c__tokenize_80(void);
-static void cont__sim2c__tokenize_81(void);
-static void cont__sim2c__tokenize_82(void);
-static void cont__sim2c__tokenize_83(void);
-static void cont__sim2c__tokenize_84(void);
-static NODE *func__sim2c__tokenize_85;
-static void entry__sim2c__tokenize_85(void);
-static FRAME_INFO frame__sim2c__tokenize_85 = {2, {"text", "i"}};
-static void cont__sim2c__tokenize_86(void);
-static void cont__sim2c__tokenize_87(void);
-static void cont__sim2c__tokenize_88(void);
-static void cont__sim2c__tokenize_89(void);
-static void cont__sim2c__tokenize_90(void);
-static void cont__sim2c__tokenize_91(void);
-static void cont__sim2c__tokenize_92(void);
-static void cont__sim2c__tokenize_93(void);
-static void cont__sim2c__tokenize_94(void);
-static NODE *func__sim2c__tokenize_95;
-static void entry__sim2c__tokenize_95(void);
-static FRAME_INFO frame__sim2c__tokenize_95 = {15, {"add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "convert", "TokenizationError"}};
-static void cont__sim2c__tokenize_96(void);
-static NODE *func__sim2c__tokenize_97;
-static void entry__sim2c__tokenize_97(void);
-static FRAME_INFO frame__sim2c__tokenize_97 = {2, {"is_a_multi_line_string", "is_inline_C"}};
-static NODE *func__sim2c__tokenize_98;
-static void entry__sim2c__tokenize_98(void);
-static FRAME_INFO frame__sim2c__tokenize_98 = {1, {"is_inline_C"}};
-static void cont__sim2c__tokenize_99(void);
-static void cont__sim2c__tokenize_100(void);
-static NODE *func__sim2c__tokenize_101;
-static void entry__sim2c__tokenize_101(void);
-static FRAME_INFO frame__sim2c__tokenize_101 = {11, {"i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "rs", "least_indent"}};
-static NODE *func__sim2c__tokenize_102;
-static void entry__sim2c__tokenize_102(void);
-static FRAME_INFO frame__sim2c__tokenize_102 = {5, {"break", "skip_line", "get_indent", "current_indent", "least_indent"}};
-static NODE *func__sim2c__tokenize_103;
-static void entry__sim2c__tokenize_103(void);
-static FRAME_INFO frame__sim2c__tokenize_103 = {6, {"skip_line", "get_indent", "current_indent", "break", "least_indent", "next_indent"}};
-static void cont__sim2c__tokenize_104(void);
-static void cont__sim2c__tokenize_105(void);
-static void cont__sim2c__tokenize_106(void);
-static void cont__sim2c__tokenize_107(void);
-static void cont__sim2c__tokenize_108(void);
-static void cont__sim2c__tokenize_109(void);
-static void cont__sim2c__tokenize_110(void);
-static void cont__sim2c__tokenize_111(void);
-static NODE *func__sim2c__tokenize_112;
-static void entry__sim2c__tokenize_112(void);
-static FRAME_INFO frame__sim2c__tokenize_112 = {11, {"break", "skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "add_newline"}};
-static NODE *func__sim2c__tokenize_113;
-static void entry__sim2c__tokenize_113(void);
-static FRAME_INFO frame__sim2c__tokenize_113 = {11, {"skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "break", "add_newline"}};
-static void cont__sim2c__tokenize_114(void);
-static void cont__sim2c__tokenize_115(void);
-static NODE *func__sim2c__tokenize_116;
-static void entry__sim2c__tokenize_116(void);
-static FRAME_INFO frame__sim2c__tokenize_116 = {1, {"new_text"}};
-static void cont__sim2c__tokenize_117(void);
-static void cont__sim2c__tokenize_118(void);
-static void cont__sim2c__tokenize_119(void);
-static void cont__sim2c__tokenize_120(void);
-static void cont__sim2c__tokenize_121(void);
-static void cont__sim2c__tokenize_122(void);
-static void cont__sim2c__tokenize_123(void);
-static void cont__sim2c__tokenize_124(void);
-static void cont__sim2c__tokenize_125(void);
-static void cont__sim2c__tokenize_126(void);
-static void cont__sim2c__tokenize_127(void);
-static void cont__sim2c__tokenize_128(void);
-static NODE *func__sim2c__tokenize_129;
-static void entry__sim2c__tokenize_129(void);
-static FRAME_INFO frame__sim2c__tokenize_129 = {5, {"indent", "convert", "current_indent", "TokenizationError", "new_text"}};
-static void cont__sim2c__tokenize_130(void);
-static void cont__sim2c__tokenize_131(void);
-static NODE *func__sim2c__tokenize_132;
-static void entry__sim2c__tokenize_132(void);
-static FRAME_INFO frame__sim2c__tokenize_132 = {1, {"TokenizationError"}};
+static void cont__compiler__tokenize_67(void);
+static NODE *func__compiler__tokenize_68;
+static void entry__compiler__tokenize_68(void);
+static FRAME_INFO frame__compiler__tokenize_68 = {13, {"current_indent", "return", "pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "convert", "TokenizationError"}};
+static NODE *func__compiler__tokenize_69;
+static void entry__compiler__tokenize_69(void);
+static FRAME_INFO frame__compiler__tokenize_69 = {19, {"pending_newlines", "new_text", "fragment", "text", "i", "skip_line", "quote_count", "s", "get_indent", "current_indent", "convert", "TokenizationError", "return", "add_newline", "add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "indent"}};
+static NODE *func__compiler__tokenize_70;
+static void entry__compiler__tokenize_70(void);
+static FRAME_INFO frame__compiler__tokenize_70 = {4, {"pending_newlines", "new_text", "fragment", "indent"}};
+static NODE *func__compiler__tokenize_71;
+static void entry__compiler__tokenize_71(void);
+static FRAME_INFO frame__compiler__tokenize_71 = {3, {"new_text", "fragment", "indent"}};
+static void cont__compiler__tokenize_72(void);
+static void cont__compiler__tokenize_73(void);
+static void cont__compiler__tokenize_74(void);
+static NODE *func__compiler__tokenize_75;
+static void entry__compiler__tokenize_75(void);
+static FRAME_INFO frame__compiler__tokenize_75 = {5, {"new_text", "fragment", "indent", "pending_newlines", "add_newline"}};
+static void cont__compiler__tokenize_76(void);
+static void cont__compiler__tokenize_77(void);
+static void cont__compiler__tokenize_78(void);
+static void cont__compiler__tokenize_79(void);
+static void cont__compiler__tokenize_80(void);
+static void cont__compiler__tokenize_81(void);
+static void cont__compiler__tokenize_82(void);
+static void cont__compiler__tokenize_83(void);
+static void cont__compiler__tokenize_84(void);
+static NODE *func__compiler__tokenize_85;
+static void entry__compiler__tokenize_85(void);
+static FRAME_INFO frame__compiler__tokenize_85 = {2, {"text", "i"}};
+static void cont__compiler__tokenize_86(void);
+static void cont__compiler__tokenize_87(void);
+static void cont__compiler__tokenize_88(void);
+static void cont__compiler__tokenize_89(void);
+static void cont__compiler__tokenize_90(void);
+static void cont__compiler__tokenize_91(void);
+static void cont__compiler__tokenize_92(void);
+static void cont__compiler__tokenize_93(void);
+static void cont__compiler__tokenize_94(void);
+static NODE *func__compiler__tokenize_95;
+static void entry__compiler__tokenize_95(void);
+static FRAME_INFO frame__compiler__tokenize_95 = {15, {"add_indent", "is_a_remark", "is_a_multi_line_string", "is_inline_C", "i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "convert", "TokenizationError"}};
+static void cont__compiler__tokenize_96(void);
+static NODE *func__compiler__tokenize_97;
+static void entry__compiler__tokenize_97(void);
+static FRAME_INFO frame__compiler__tokenize_97 = {2, {"is_a_multi_line_string", "is_inline_C"}};
+static NODE *func__compiler__tokenize_98;
+static void entry__compiler__tokenize_98(void);
+static FRAME_INFO frame__compiler__tokenize_98 = {1, {"is_inline_C"}};
+static void cont__compiler__tokenize_99(void);
+static void cont__compiler__tokenize_100(void);
+static NODE *func__compiler__tokenize_101;
+static void entry__compiler__tokenize_101(void);
+static FRAME_INFO frame__compiler__tokenize_101 = {11, {"i", "indent", "skip_line", "get_indent", "current_indent", "new_text", "text", "s", "add_newline", "rs", "least_indent"}};
+static NODE *func__compiler__tokenize_102;
+static void entry__compiler__tokenize_102(void);
+static FRAME_INFO frame__compiler__tokenize_102 = {5, {"break", "skip_line", "get_indent", "current_indent", "least_indent"}};
+static NODE *func__compiler__tokenize_103;
+static void entry__compiler__tokenize_103(void);
+static FRAME_INFO frame__compiler__tokenize_103 = {6, {"skip_line", "get_indent", "current_indent", "break", "least_indent", "next_indent"}};
+static void cont__compiler__tokenize_104(void);
+static void cont__compiler__tokenize_105(void);
+static void cont__compiler__tokenize_106(void);
+static void cont__compiler__tokenize_107(void);
+static void cont__compiler__tokenize_108(void);
+static void cont__compiler__tokenize_109(void);
+static void cont__compiler__tokenize_110(void);
+static void cont__compiler__tokenize_111(void);
+static NODE *func__compiler__tokenize_112;
+static void entry__compiler__tokenize_112(void);
+static FRAME_INFO frame__compiler__tokenize_112 = {11, {"break", "skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "add_newline"}};
+static NODE *func__compiler__tokenize_113;
+static void entry__compiler__tokenize_113(void);
+static FRAME_INFO frame__compiler__tokenize_113 = {11, {"skip_line", "indent", "least_indent", "new_text", "text", "s", "i", "get_indent", "current_indent", "break", "add_newline"}};
+static void cont__compiler__tokenize_114(void);
+static void cont__compiler__tokenize_115(void);
+static NODE *func__compiler__tokenize_116;
+static void entry__compiler__tokenize_116(void);
+static FRAME_INFO frame__compiler__tokenize_116 = {1, {"new_text"}};
+static void cont__compiler__tokenize_117(void);
+static void cont__compiler__tokenize_118(void);
+static void cont__compiler__tokenize_119(void);
+static void cont__compiler__tokenize_120(void);
+static void cont__compiler__tokenize_121(void);
+static void cont__compiler__tokenize_122(void);
+static void cont__compiler__tokenize_123(void);
+static void cont__compiler__tokenize_124(void);
+static void cont__compiler__tokenize_125(void);
+static void cont__compiler__tokenize_126(void);
+static void cont__compiler__tokenize_127(void);
+static void cont__compiler__tokenize_128(void);
+static NODE *func__compiler__tokenize_129;
+static void entry__compiler__tokenize_129(void);
+static FRAME_INFO frame__compiler__tokenize_129 = {5, {"indent", "convert", "current_indent", "TokenizationError", "new_text"}};
+static void cont__compiler__tokenize_130(void);
+static void cont__compiler__tokenize_131(void);
+static NODE *func__compiler__tokenize_132;
+static void entry__compiler__tokenize_132(void);
+static FRAME_INFO frame__compiler__tokenize_132 = {1, {"TokenizationError"}};
 static NODE *string__f6816391653ef18d;
-static void cont__sim2c__tokenize_134(void);
-static void cont__sim2c__tokenize_135(void);
-static void cont__sim2c__tokenize_136(void);
-static void cont__sim2c__tokenize_137(void);
-static NODE *func__sim2c__tokenize_138;
-static void entry__sim2c__tokenize_138(void);
-static FRAME_INFO frame__sim2c__tokenize_138 = {2, {"return", "indent"}};
-static void cont__sim2c__tokenize_139(void);
-static void cont__sim2c__tokenize_140(void);
-static void cont__sim2c__tokenize_141(void);
-static void cont__sim2c__tokenize_142(void);
-static void cont__sim2c__tokenize_143(void);
-static void cont__sim2c__tokenize_144(void);
-static NODE *get__sim2c__tokenize(void) {
-  return var.sim2c__tokenize;
+static void cont__compiler__tokenize_134(void);
+static void cont__compiler__tokenize_135(void);
+static void cont__compiler__tokenize_136(void);
+static void cont__compiler__tokenize_137(void);
+static NODE *func__compiler__tokenize_138;
+static void entry__compiler__tokenize_138(void);
+static FRAME_INFO frame__compiler__tokenize_138 = {2, {"return", "indent"}};
+static void cont__compiler__tokenize_139(void);
+static void cont__compiler__tokenize_140(void);
+static void cont__compiler__tokenize_141(void);
+static void cont__compiler__tokenize_142(void);
+static void cont__compiler__tokenize_143(void);
+static void cont__compiler__tokenize_144(void);
+static NODE *get__compiler__tokenize(void) {
+  return var.compiler__tokenize;
 }
 void run__tokenizer(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__tokenizer, NULL, },
-  {entry__sim2c__tokenize_2, NULL, 45, 45, 5, 34},
-  {cont__sim2c__tokenize_3, &frame__sim2c__tokenize_2, 46, 46, 50, 52},
-  {cont__sim2c__tokenize_4, &frame__sim2c__tokenize_2, 46, 46, 37, 53},
-  {cont__sim2c__tokenize_5, &frame__sim2c__tokenize_2, 46, 46, 19, 62},
-  {cont__sim2c__tokenize_6, &frame__sim2c__tokenize_2, 46, 46, 5, 62},
-  {cont__sim2c__tokenize_7, &frame__sim2c__tokenize_2, 47, 47, 20, 25},
-  {cont__sim2c__tokenize_8, &frame__sim2c__tokenize_2, 47, 47, 5, 25},
-  {cont__sim2c__tokenize_9, &frame__sim2c__tokenize_2, 47, 47, 19, 25},
-  {cont__sim2c__tokenize_10, &frame__sim2c__tokenize_2, 48, 50, 12, 80},
-  {cont__sim2c__tokenize_15, &frame__sim2c__tokenize_2, 48, 50, 5, 80},
-  {cont__sim2c__tokenize_16, &frame__sim2c__tokenize_2, 51, 51, 5, 10},
-  {entry__sim2c__tokenize_24, NULL, 59, 59, 11, 26},
-  {cont__sim2c__tokenize_25, &frame__sim2c__tokenize_24, 59, 59, 26, 26},
-  {entry__sim2c__tokenize_26, NULL, 61, 61, 11, 70},
-  {entry__sim2c__tokenize_22, NULL, 57, 57, 9, 15},
-  {cont__sim2c__tokenize_23, &frame__sim2c__tokenize_22, 56, 61, 7, 71},
-  {cont__sim2c__tokenize_28, &frame__sim2c__tokenize_22, 62, 62, 7, 12},
-  {cont__sim2c__tokenize_29, &frame__sim2c__tokenize_22, 62, 62, 12, 12},
-  {entry__sim2c__tokenize_18, NULL, 55, 55, 14, 20},
-  {cont__sim2c__tokenize_19, &frame__sim2c__tokenize_18, 55, 55, 14, 31},
-  {cont__sim2c__tokenize_20, &frame__sim2c__tokenize_18, 55, 55, 14, 31},
-  {cont__sim2c__tokenize_21, &frame__sim2c__tokenize_18, 55, 62, 11, 12},
-  {entry__sim2c__tokenize_17, NULL, 55, 62, 5, 12},
-  {entry__sim2c__tokenize_35, NULL, 68, 68, 42, 42},
-  {cont__sim2c__tokenize_36, &frame__sim2c__tokenize_35, 68, 68, 34, 42},
-  {entry__sim2c__tokenize_32, NULL, 68, 68, 17, 31},
-  {cont__sim2c__tokenize_33, &frame__sim2c__tokenize_32, 68, 68, 12, 31},
-  {cont__sim2c__tokenize_34, &frame__sim2c__tokenize_32, 68, 68, 9, 42},
-  {cont__sim2c__tokenize_37, &frame__sim2c__tokenize_32, 69, 69, 12, 18},
-  {cont__sim2c__tokenize_38, &frame__sim2c__tokenize_32, 69, 69, 12, 29},
-  {cont__sim2c__tokenize_39, &frame__sim2c__tokenize_32, 69, 69, 12, 29},
-  {cont__sim2c__tokenize_40, &frame__sim2c__tokenize_32, 69, 69, 9, 35},
-  {cont__sim2c__tokenize_41, &frame__sim2c__tokenize_32, 70, 70, 9, 14},
-  {cont__sim2c__tokenize_42, &frame__sim2c__tokenize_32, 71, 71, 9, 29},
-  {cont__sim2c__tokenize_43, &frame__sim2c__tokenize_32, 71, 71, 29, 29},
-  {entry__sim2c__tokenize_31, NULL, 67, 71, 7, 29},
-  {cont__sim2c__tokenize_44, &frame__sim2c__tokenize_31, 71, 71, 29, 29},
-  {entry__sim2c__tokenize_49, NULL, 74, 74, 7, 12},
-  {cont__sim2c__tokenize_50, &frame__sim2c__tokenize_49, 75, 75, 7, 20},
-  {cont__sim2c__tokenize_51, &frame__sim2c__tokenize_49, 75, 75, 20, 20},
-  {entry__sim2c__tokenize_46, NULL, 73, 73, 14, 20},
-  {cont__sim2c__tokenize_47, &frame__sim2c__tokenize_46, 73, 73, 14, 30},
-  {cont__sim2c__tokenize_48, &frame__sim2c__tokenize_46, 73, 75, 11, 20},
-  {entry__sim2c__tokenize_56, NULL, 77, 77, 7, 12},
-  {cont__sim2c__tokenize_57, &frame__sim2c__tokenize_56, 78, 78, 7, 17},
-  {cont__sim2c__tokenize_58, &frame__sim2c__tokenize_56, 78, 78, 17, 17},
-  {entry__sim2c__tokenize_53, NULL, 76, 76, 14, 20},
-  {cont__sim2c__tokenize_54, &frame__sim2c__tokenize_53, 76, 76, 14, 27},
-  {cont__sim2c__tokenize_55, &frame__sim2c__tokenize_53, 76, 78, 11, 17},
-  {entry__sim2c__tokenize_61, NULL, 79, 79, 22, 28},
-  {cont__sim2c__tokenize_62, &frame__sim2c__tokenize_61, 79, 79, 22, 39},
-  {cont__sim2c__tokenize_63, &frame__sim2c__tokenize_61, 79, 79, 22, 39},
-  {entry__sim2c__tokenize_65, NULL, 80, 80, 7, 56},
-  {entry__sim2c__tokenize_30, NULL, 66, 71, 5, 30},
-  {cont__sim2c__tokenize_45, &frame__sim2c__tokenize_30, 73, 75, 5, 20},
-  {cont__sim2c__tokenize_52, &frame__sim2c__tokenize_30, 76, 78, 5, 17},
-  {cont__sim2c__tokenize_59, &frame__sim2c__tokenize_30, 79, 79, 8, 17},
-  {cont__sim2c__tokenize_60, &frame__sim2c__tokenize_30, 79, 79, 8, 39},
-  {cont__sim2c__tokenize_64, &frame__sim2c__tokenize_30, 79, 80, 5, 56},
-  {cont__sim2c__tokenize_67, &frame__sim2c__tokenize_30, 81, 81, 5, 13},
-  {entry__sim2c__tokenize_71, NULL, 91, 91, 11, 32},
-  {cont__sim2c__tokenize_72, &frame__sim2c__tokenize_71, 92, 92, 17, 35},
-  {cont__sim2c__tokenize_73, &frame__sim2c__tokenize_71, 92, 92, 11, 42},
-  {cont__sim2c__tokenize_74, &frame__sim2c__tokenize_71, 92, 92, 42, 42},
-  {entry__sim2c__tokenize_70, NULL, 90, 92, 9, 42},
-  {entry__sim2c__tokenize_75, NULL, 95, 95, 9, 36},
-  {cont__sim2c__tokenize_76, &frame__sim2c__tokenize_75, 96, 96, 15, 33},
-  {cont__sim2c__tokenize_77, &frame__sim2c__tokenize_75, 96, 96, 9, 40},
-  {cont__sim2c__tokenize_78, &frame__sim2c__tokenize_75, 97, 97, 9, 29},
-  {cont__sim2c__tokenize_79, &frame__sim2c__tokenize_75, 98, 98, 9, 19},
-  {entry__sim2c__tokenize_85, NULL, 103, 103, 34, 36},
-  {cont__sim2c__tokenize_86, &frame__sim2c__tokenize_85, 103, 103, 29, 37},
-  {cont__sim2c__tokenize_87, &frame__sim2c__tokenize_85, 103, 103, 29, 44},
-  {cont__sim2c__tokenize_88, &frame__sim2c__tokenize_85, 103, 103, 29, 44},
-  {entry__sim2c__tokenize_98, NULL, 110, 110, 52, 62},
-  {entry__sim2c__tokenize_97, NULL, 110, 110, 26, 62},
-  {cont__sim2c__tokenize_99, &frame__sim2c__tokenize_97, 110, 110, 26, 62},
-  {entry__sim2c__tokenize_103, NULL, 117, 117, 17, 25},
-  {cont__sim2c__tokenize_104, &frame__sim2c__tokenize_103, 118, 118, 17, 39},
-  {cont__sim2c__tokenize_105, &frame__sim2c__tokenize_103, 119, 119, 20, 48},
-  {cont__sim2c__tokenize_106, &frame__sim2c__tokenize_103, 119, 119, 20, 48},
-  {cont__sim2c__tokenize_107, &frame__sim2c__tokenize_103, 119, 119, 17, 54},
-  {cont__sim2c__tokenize_108, &frame__sim2c__tokenize_103, 120, 120, 17, 51},
-  {cont__sim2c__tokenize_109, &frame__sim2c__tokenize_103, 120, 120, 51, 51},
-  {entry__sim2c__tokenize_102, NULL, 116, 120, 15, 51},
-  {cont__sim2c__tokenize_110, &frame__sim2c__tokenize_102, 120, 120, 51, 51},
-  {entry__sim2c__tokenize_116, NULL, 125, 125, 45, 62},
-  {cont__sim2c__tokenize_117, &frame__sim2c__tokenize_116, 125, 125, 62, 62},
-  {entry__sim2c__tokenize_113, NULL, 124, 124, 17, 25},
-  {cont__sim2c__tokenize_114, &frame__sim2c__tokenize_113, 125, 125, 24, 42},
-  {cont__sim2c__tokenize_115, &frame__sim2c__tokenize_113, 125, 125, 17, 62},
-  {cont__sim2c__tokenize_118, &frame__sim2c__tokenize_113, 126, 126, 47, 49},
-  {cont__sim2c__tokenize_119, &frame__sim2c__tokenize_113, 126, 126, 34, 50},
-  {cont__sim2c__tokenize_120, &frame__sim2c__tokenize_113, 126, 126, 17, 50},
-  {cont__sim2c__tokenize_121, &frame__sim2c__tokenize_113, 127, 127, 17, 34},
-  {cont__sim2c__tokenize_122, &frame__sim2c__tokenize_113, 129, 129, 20, 43},
-  {cont__sim2c__tokenize_123, &frame__sim2c__tokenize_113, 129, 129, 20, 43},
-  {cont__sim2c__tokenize_124, &frame__sim2c__tokenize_113, 129, 129, 17, 49},
-  {cont__sim2c__tokenize_125, &frame__sim2c__tokenize_113, 130, 130, 17, 27},
-  {entry__sim2c__tokenize_112, NULL, 123, 130, 15, 27},
-  {cont__sim2c__tokenize_126, &frame__sim2c__tokenize_112, 130, 130, 27, 27},
-  {entry__sim2c__tokenize_101, NULL, 115, 120, 13, 52},
-  {cont__sim2c__tokenize_111, &frame__sim2c__tokenize_101, 122, 130, 13, 28},
-  {cont__sim2c__tokenize_127, &frame__sim2c__tokenize_101, 131, 131, 13, 41},
-  {cont__sim2c__tokenize_128, &frame__sim2c__tokenize_101, 131, 131, 41, 41},
-  {entry__sim2c__tokenize_132, NULL, 134, 134, 41, 79},
-  {entry__sim2c__tokenize_129, NULL, 133, 133, 13, 35},
-  {cont__sim2c__tokenize_130, &frame__sim2c__tokenize_129, 134, 134, 16, 38},
-  {cont__sim2c__tokenize_131, &frame__sim2c__tokenize_129, 134, 134, 13, 79},
-  {cont__sim2c__tokenize_134, &frame__sim2c__tokenize_129, 135, 135, 13, 41},
-  {cont__sim2c__tokenize_135, &frame__sim2c__tokenize_129, 135, 135, 41, 41},
-  {entry__sim2c__tokenize_95, NULL, 108, 108, 9, 18},
-  {cont__sim2c__tokenize_96, &frame__sim2c__tokenize_95, 110, 110, 11, 62},
-  {cont__sim2c__tokenize_100, &frame__sim2c__tokenize_95, 109, 135, 9, 42},
-  {entry__sim2c__tokenize_138, NULL, 136, 136, 35, 47},
-  {entry__sim2c__tokenize_69, NULL, 100, 100, 20, 26},
-  {cont__sim2c__tokenize_80, &frame__sim2c__tokenize_69, 100, 100, 7, 33},
-  {cont__sim2c__tokenize_81, &frame__sim2c__tokenize_69, 101, 101, 7, 15},
-  {cont__sim2c__tokenize_82, &frame__sim2c__tokenize_69, 102, 102, 7, 48},
-  {cont__sim2c__tokenize_83, &frame__sim2c__tokenize_69, 103, 103, 20, 24},
-  {cont__sim2c__tokenize_84, &frame__sim2c__tokenize_69, 103, 103, 7, 44},
-  {cont__sim2c__tokenize_89, &frame__sim2c__tokenize_69, 104, 104, 37, 39},
-  {cont__sim2c__tokenize_90, &frame__sim2c__tokenize_69, 104, 104, 24, 40},
-  {cont__sim2c__tokenize_91, &frame__sim2c__tokenize_69, 104, 104, 7, 40},
-  {cont__sim2c__tokenize_92, &frame__sim2c__tokenize_69, 105, 105, 7, 25},
-  {cont__sim2c__tokenize_93, &frame__sim2c__tokenize_69, 107, 107, 10, 32},
-  {cont__sim2c__tokenize_94, &frame__sim2c__tokenize_69, 107, 135, 7, 43},
-  {cont__sim2c__tokenize_136, &frame__sim2c__tokenize_69, 136, 136, 10, 32},
-  {cont__sim2c__tokenize_137, &frame__sim2c__tokenize_69, 136, 136, 7, 47},
-  {cont__sim2c__tokenize_139, &frame__sim2c__tokenize_69, 137, 137, 7, 17},
-  {entry__sim2c__tokenize_68, NULL, 88, 137, 5, 17},
-  {cont__sim2c__tokenize_140, &frame__sim2c__tokenize_68, 137, 137, 17, 17},
-  {entry__sim2c__tokenize_1, NULL, 37, 37, 3, 25},
-  {cont__sim2c__tokenize_141, &frame__sim2c__tokenize_1, 139, 139, 10, 19},
-  {cont__sim2c__tokenize_142, &frame__sim2c__tokenize_1, 139, 139, 3, 19},
-  {cont__sim2c__tokenize_143, &frame__sim2c__tokenize_1, 140, 140, 3, 24},
-  {cont__sim2c__tokenize_144, &frame__sim2c__tokenize_1, 141, 141, 30, 30}
+  {entry__compiler__tokenize_2, NULL, 45, 45, 5, 34},
+  {cont__compiler__tokenize_3, &frame__compiler__tokenize_2, 46, 46, 50, 52},
+  {cont__compiler__tokenize_4, &frame__compiler__tokenize_2, 46, 46, 37, 53},
+  {cont__compiler__tokenize_5, &frame__compiler__tokenize_2, 46, 46, 19, 62},
+  {cont__compiler__tokenize_6, &frame__compiler__tokenize_2, 46, 46, 5, 62},
+  {cont__compiler__tokenize_7, &frame__compiler__tokenize_2, 47, 47, 20, 25},
+  {cont__compiler__tokenize_8, &frame__compiler__tokenize_2, 47, 47, 5, 25},
+  {cont__compiler__tokenize_9, &frame__compiler__tokenize_2, 47, 47, 19, 25},
+  {cont__compiler__tokenize_10, &frame__compiler__tokenize_2, 48, 50, 12, 80},
+  {cont__compiler__tokenize_15, &frame__compiler__tokenize_2, 48, 50, 5, 80},
+  {cont__compiler__tokenize_16, &frame__compiler__tokenize_2, 51, 51, 5, 10},
+  {entry__compiler__tokenize_24, NULL, 59, 59, 11, 26},
+  {cont__compiler__tokenize_25, &frame__compiler__tokenize_24, 59, 59, 26, 26},
+  {entry__compiler__tokenize_26, NULL, 61, 61, 11, 70},
+  {entry__compiler__tokenize_22, NULL, 57, 57, 9, 15},
+  {cont__compiler__tokenize_23, &frame__compiler__tokenize_22, 56, 61, 7, 71},
+  {cont__compiler__tokenize_28, &frame__compiler__tokenize_22, 62, 62, 7, 12},
+  {cont__compiler__tokenize_29, &frame__compiler__tokenize_22, 62, 62, 12, 12},
+  {entry__compiler__tokenize_18, NULL, 55, 55, 14, 20},
+  {cont__compiler__tokenize_19, &frame__compiler__tokenize_18, 55, 55, 14, 31},
+  {cont__compiler__tokenize_20, &frame__compiler__tokenize_18, 55, 55, 14, 31},
+  {cont__compiler__tokenize_21, &frame__compiler__tokenize_18, 55, 62, 11, 12},
+  {entry__compiler__tokenize_17, NULL, 55, 62, 5, 12},
+  {entry__compiler__tokenize_35, NULL, 68, 68, 42, 42},
+  {cont__compiler__tokenize_36, &frame__compiler__tokenize_35, 68, 68, 34, 42},
+  {entry__compiler__tokenize_32, NULL, 68, 68, 17, 31},
+  {cont__compiler__tokenize_33, &frame__compiler__tokenize_32, 68, 68, 12, 31},
+  {cont__compiler__tokenize_34, &frame__compiler__tokenize_32, 68, 68, 9, 42},
+  {cont__compiler__tokenize_37, &frame__compiler__tokenize_32, 69, 69, 12, 18},
+  {cont__compiler__tokenize_38, &frame__compiler__tokenize_32, 69, 69, 12, 29},
+  {cont__compiler__tokenize_39, &frame__compiler__tokenize_32, 69, 69, 12, 29},
+  {cont__compiler__tokenize_40, &frame__compiler__tokenize_32, 69, 69, 9, 35},
+  {cont__compiler__tokenize_41, &frame__compiler__tokenize_32, 70, 70, 9, 14},
+  {cont__compiler__tokenize_42, &frame__compiler__tokenize_32, 71, 71, 9, 29},
+  {cont__compiler__tokenize_43, &frame__compiler__tokenize_32, 71, 71, 29, 29},
+  {entry__compiler__tokenize_31, NULL, 67, 71, 7, 29},
+  {cont__compiler__tokenize_44, &frame__compiler__tokenize_31, 71, 71, 29, 29},
+  {entry__compiler__tokenize_49, NULL, 74, 74, 7, 12},
+  {cont__compiler__tokenize_50, &frame__compiler__tokenize_49, 75, 75, 7, 20},
+  {cont__compiler__tokenize_51, &frame__compiler__tokenize_49, 75, 75, 20, 20},
+  {entry__compiler__tokenize_46, NULL, 73, 73, 14, 20},
+  {cont__compiler__tokenize_47, &frame__compiler__tokenize_46, 73, 73, 14, 30},
+  {cont__compiler__tokenize_48, &frame__compiler__tokenize_46, 73, 75, 11, 20},
+  {entry__compiler__tokenize_56, NULL, 77, 77, 7, 12},
+  {cont__compiler__tokenize_57, &frame__compiler__tokenize_56, 78, 78, 7, 17},
+  {cont__compiler__tokenize_58, &frame__compiler__tokenize_56, 78, 78, 17, 17},
+  {entry__compiler__tokenize_53, NULL, 76, 76, 14, 20},
+  {cont__compiler__tokenize_54, &frame__compiler__tokenize_53, 76, 76, 14, 27},
+  {cont__compiler__tokenize_55, &frame__compiler__tokenize_53, 76, 78, 11, 17},
+  {entry__compiler__tokenize_61, NULL, 79, 79, 22, 28},
+  {cont__compiler__tokenize_62, &frame__compiler__tokenize_61, 79, 79, 22, 39},
+  {cont__compiler__tokenize_63, &frame__compiler__tokenize_61, 79, 79, 22, 39},
+  {entry__compiler__tokenize_65, NULL, 80, 80, 7, 56},
+  {entry__compiler__tokenize_30, NULL, 66, 71, 5, 30},
+  {cont__compiler__tokenize_45, &frame__compiler__tokenize_30, 73, 75, 5, 20},
+  {cont__compiler__tokenize_52, &frame__compiler__tokenize_30, 76, 78, 5, 17},
+  {cont__compiler__tokenize_59, &frame__compiler__tokenize_30, 79, 79, 8, 17},
+  {cont__compiler__tokenize_60, &frame__compiler__tokenize_30, 79, 79, 8, 39},
+  {cont__compiler__tokenize_64, &frame__compiler__tokenize_30, 79, 80, 5, 56},
+  {cont__compiler__tokenize_67, &frame__compiler__tokenize_30, 81, 81, 5, 13},
+  {entry__compiler__tokenize_71, NULL, 91, 91, 11, 32},
+  {cont__compiler__tokenize_72, &frame__compiler__tokenize_71, 92, 92, 17, 35},
+  {cont__compiler__tokenize_73, &frame__compiler__tokenize_71, 92, 92, 11, 42},
+  {cont__compiler__tokenize_74, &frame__compiler__tokenize_71, 92, 92, 42, 42},
+  {entry__compiler__tokenize_70, NULL, 90, 92, 9, 42},
+  {entry__compiler__tokenize_75, NULL, 95, 95, 9, 36},
+  {cont__compiler__tokenize_76, &frame__compiler__tokenize_75, 96, 96, 15, 33},
+  {cont__compiler__tokenize_77, &frame__compiler__tokenize_75, 96, 96, 9, 40},
+  {cont__compiler__tokenize_78, &frame__compiler__tokenize_75, 97, 97, 9, 29},
+  {cont__compiler__tokenize_79, &frame__compiler__tokenize_75, 98, 98, 9, 19},
+  {entry__compiler__tokenize_85, NULL, 103, 103, 34, 36},
+  {cont__compiler__tokenize_86, &frame__compiler__tokenize_85, 103, 103, 29, 37},
+  {cont__compiler__tokenize_87, &frame__compiler__tokenize_85, 103, 103, 29, 44},
+  {cont__compiler__tokenize_88, &frame__compiler__tokenize_85, 103, 103, 29, 44},
+  {entry__compiler__tokenize_98, NULL, 110, 110, 52, 62},
+  {entry__compiler__tokenize_97, NULL, 110, 110, 26, 62},
+  {cont__compiler__tokenize_99, &frame__compiler__tokenize_97, 110, 110, 26, 62},
+  {entry__compiler__tokenize_103, NULL, 117, 117, 17, 25},
+  {cont__compiler__tokenize_104, &frame__compiler__tokenize_103, 118, 118, 17, 39},
+  {cont__compiler__tokenize_105, &frame__compiler__tokenize_103, 119, 119, 20, 48},
+  {cont__compiler__tokenize_106, &frame__compiler__tokenize_103, 119, 119, 20, 48},
+  {cont__compiler__tokenize_107, &frame__compiler__tokenize_103, 119, 119, 17, 54},
+  {cont__compiler__tokenize_108, &frame__compiler__tokenize_103, 120, 120, 17, 51},
+  {cont__compiler__tokenize_109, &frame__compiler__tokenize_103, 120, 120, 51, 51},
+  {entry__compiler__tokenize_102, NULL, 116, 120, 15, 51},
+  {cont__compiler__tokenize_110, &frame__compiler__tokenize_102, 120, 120, 51, 51},
+  {entry__compiler__tokenize_116, NULL, 125, 125, 45, 62},
+  {cont__compiler__tokenize_117, &frame__compiler__tokenize_116, 125, 125, 62, 62},
+  {entry__compiler__tokenize_113, NULL, 124, 124, 17, 25},
+  {cont__compiler__tokenize_114, &frame__compiler__tokenize_113, 125, 125, 24, 42},
+  {cont__compiler__tokenize_115, &frame__compiler__tokenize_113, 125, 125, 17, 62},
+  {cont__compiler__tokenize_118, &frame__compiler__tokenize_113, 126, 126, 47, 49},
+  {cont__compiler__tokenize_119, &frame__compiler__tokenize_113, 126, 126, 34, 50},
+  {cont__compiler__tokenize_120, &frame__compiler__tokenize_113, 126, 126, 17, 50},
+  {cont__compiler__tokenize_121, &frame__compiler__tokenize_113, 127, 127, 17, 34},
+  {cont__compiler__tokenize_122, &frame__compiler__tokenize_113, 129, 129, 20, 43},
+  {cont__compiler__tokenize_123, &frame__compiler__tokenize_113, 129, 129, 20, 43},
+  {cont__compiler__tokenize_124, &frame__compiler__tokenize_113, 129, 129, 17, 49},
+  {cont__compiler__tokenize_125, &frame__compiler__tokenize_113, 130, 130, 17, 27},
+  {entry__compiler__tokenize_112, NULL, 123, 130, 15, 27},
+  {cont__compiler__tokenize_126, &frame__compiler__tokenize_112, 130, 130, 27, 27},
+  {entry__compiler__tokenize_101, NULL, 115, 120, 13, 52},
+  {cont__compiler__tokenize_111, &frame__compiler__tokenize_101, 122, 130, 13, 28},
+  {cont__compiler__tokenize_127, &frame__compiler__tokenize_101, 131, 131, 13, 41},
+  {cont__compiler__tokenize_128, &frame__compiler__tokenize_101, 131, 131, 41, 41},
+  {entry__compiler__tokenize_132, NULL, 134, 134, 41, 79},
+  {entry__compiler__tokenize_129, NULL, 133, 133, 13, 35},
+  {cont__compiler__tokenize_130, &frame__compiler__tokenize_129, 134, 134, 16, 38},
+  {cont__compiler__tokenize_131, &frame__compiler__tokenize_129, 134, 134, 13, 79},
+  {cont__compiler__tokenize_134, &frame__compiler__tokenize_129, 135, 135, 13, 41},
+  {cont__compiler__tokenize_135, &frame__compiler__tokenize_129, 135, 135, 41, 41},
+  {entry__compiler__tokenize_95, NULL, 108, 108, 9, 18},
+  {cont__compiler__tokenize_96, &frame__compiler__tokenize_95, 110, 110, 11, 62},
+  {cont__compiler__tokenize_100, &frame__compiler__tokenize_95, 109, 135, 9, 42},
+  {entry__compiler__tokenize_138, NULL, 136, 136, 35, 47},
+  {entry__compiler__tokenize_69, NULL, 100, 100, 20, 26},
+  {cont__compiler__tokenize_80, &frame__compiler__tokenize_69, 100, 100, 7, 33},
+  {cont__compiler__tokenize_81, &frame__compiler__tokenize_69, 101, 101, 7, 15},
+  {cont__compiler__tokenize_82, &frame__compiler__tokenize_69, 102, 102, 7, 48},
+  {cont__compiler__tokenize_83, &frame__compiler__tokenize_69, 103, 103, 20, 24},
+  {cont__compiler__tokenize_84, &frame__compiler__tokenize_69, 103, 103, 7, 44},
+  {cont__compiler__tokenize_89, &frame__compiler__tokenize_69, 104, 104, 37, 39},
+  {cont__compiler__tokenize_90, &frame__compiler__tokenize_69, 104, 104, 24, 40},
+  {cont__compiler__tokenize_91, &frame__compiler__tokenize_69, 104, 104, 7, 40},
+  {cont__compiler__tokenize_92, &frame__compiler__tokenize_69, 105, 105, 7, 25},
+  {cont__compiler__tokenize_93, &frame__compiler__tokenize_69, 107, 107, 10, 32},
+  {cont__compiler__tokenize_94, &frame__compiler__tokenize_69, 107, 135, 7, 43},
+  {cont__compiler__tokenize_136, &frame__compiler__tokenize_69, 136, 136, 10, 32},
+  {cont__compiler__tokenize_137, &frame__compiler__tokenize_69, 136, 136, 7, 47},
+  {cont__compiler__tokenize_139, &frame__compiler__tokenize_69, 137, 137, 7, 17},
+  {entry__compiler__tokenize_68, NULL, 88, 137, 5, 17},
+  {cont__compiler__tokenize_140, &frame__compiler__tokenize_68, 137, 137, 17, 17},
+  {entry__compiler__tokenize_1, NULL, 37, 37, 3, 25},
+  {cont__compiler__tokenize_141, &frame__compiler__tokenize_1, 139, 139, 10, 19},
+  {cont__compiler__tokenize_142, &frame__compiler__tokenize_1, 139, 139, 3, 19},
+  {cont__compiler__tokenize_143, &frame__compiler__tokenize_1, 140, 140, 3, 24},
+  {cont__compiler__tokenize_144, &frame__compiler__tokenize_1, 141, 141, 30, 30}
 };
 
 union NODE {
@@ -742,7 +742,7 @@ static NODE *number__1;
 
 static const char *used_namespaces[] = {
   "std",
-  "sim2c",
+  "compiler",
   NULL
 };
 
@@ -776,7 +776,7 @@ EXPORT void run__tokenizer(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_1(void) {
+static void entry__compiler__tokenize_1(void) {
   allocate_initialized_frame_gc(1, 12);
   // slot allocations:
   // fragment: 0
@@ -813,7 +813,7 @@ static void entry__sim2c__tokenize_1(void) {
   // 49:     ____________________________________
   // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
   // 51:   exit 1
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_2, 1);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_2, 1);
   // 44: $TokenizationError: ($msg)
   // 45:   $$line_no line_no_of(fragment)
   // 46:   plus &line_no count_occurrences(range(text 1 i-1) newline)
@@ -833,7 +833,7 @@ static void entry__sim2c__tokenize_1(void) {
   // 60:       '@ht;':
   // 61:         TokenizationError "tabulator character within line detected"
   // 62:     inc &i
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_17, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_17, 0);
   // 53: $skip_line:
   // 54:   !quote_count 0
   // 55:   while -> text(i) != newline:
@@ -856,7 +856,7 @@ static void entry__sim2c__tokenize_1(void) {
   // 72:   $$indent 0
   // 73:   while -> text(i) == '@ht;':
   // ...
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_30, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_30, 0);
   // 64: $get_indent: (-> return)
   // 65:   !pending_newlines 0
   // 66:   do: (-> break)
@@ -880,7 +880,7 @@ static void entry__sim2c__tokenize_1(void) {
   // 91:         push &new_text newline
   // 92:         push &fragment.indents_of indent
   // ...
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_68, 1);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_68, 1);
   // 83: $convert:
   // 84:   (
   // 85:     current_indent
@@ -910,9 +910,9 @@ static void entry__sim2c__tokenize_1(void) {
   result_count = 1;
   myself = get__text_of();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_141;
+  frame->cont = cont__compiler__tokenize_141;
 }
-static void entry__sim2c__tokenize_22(void) {
+static void entry__compiler__tokenize_22(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // text: 0
@@ -934,9 +934,9 @@ static void entry__sim2c__tokenize_22(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_23;
+  frame->cont = cont__compiler__tokenize_23;
 }
-static void cont__sim2c__tokenize_23(void) {
+static void cont__compiler__tokenize_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -944,10 +944,10 @@ static void cont__sim2c__tokenize_23(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 58: ... :
   // 59:   inc &quote_count
-  frame->slots[5] /* temp__2 */ = create_closure(entry__sim2c__tokenize_24, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__tokenize_24, 0);
   // 60: ... :
   // 61:   TokenizationError "tabulator character within line detected"
-  frame->slots[6] /* temp__3 */ = create_closure(entry__sim2c__tokenize_26, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__tokenize_26, 0);
   // 56: case
   // 57:   text(i)
   // 58:   '@quot;':
@@ -964,9 +964,9 @@ static void cont__sim2c__tokenize_23(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_28;
+  frame->cont = cont__compiler__tokenize_28;
 }
-static void entry__sim2c__tokenize_24(void) {
+static void entry__compiler__tokenize_24(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // quote_count: 0
@@ -982,9 +982,9 @@ static void entry__sim2c__tokenize_24(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_25;
+  frame->cont = cont__compiler__tokenize_25;
 }
-static void cont__sim2c__tokenize_25(void) {
+static void cont__compiler__tokenize_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -996,7 +996,7 @@ static void cont__sim2c__tokenize_25(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_26(void) {
+static void entry__compiler__tokenize_26(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // TokenizationError: 0
@@ -1014,7 +1014,7 @@ static void entry__sim2c__tokenize_26(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_28(void) {
+static void cont__compiler__tokenize_28(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1026,9 +1026,9 @@ static void cont__sim2c__tokenize_28(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_29;
+  frame->cont = cont__compiler__tokenize_29;
 }
-static void cont__sim2c__tokenize_29(void) {
+static void cont__compiler__tokenize_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1040,7 +1040,7 @@ static void cont__sim2c__tokenize_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_18(void) {
+static void entry__compiler__tokenize_18(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // text: 0
@@ -1062,9 +1062,9 @@ static void entry__sim2c__tokenize_18(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_19;
+  frame->cont = cont__compiler__tokenize_19;
 }
-static void cont__sim2c__tokenize_19(void) {
+static void cont__compiler__tokenize_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1078,9 +1078,9 @@ static void cont__sim2c__tokenize_19(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_20;
+  frame->cont = cont__compiler__tokenize_20;
 }
-static void cont__sim2c__tokenize_20(void) {
+static void cont__compiler__tokenize_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1093,9 +1093,9 @@ static void cont__sim2c__tokenize_20(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_21;
+  frame->cont = cont__compiler__tokenize_21;
 }
-static void cont__sim2c__tokenize_21(void) {
+static void cont__compiler__tokenize_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1109,7 +1109,7 @@ static void cont__sim2c__tokenize_21(void) {
   // 60:     '@ht;':
   // 61:       TokenizationError "tabulator character within line detected"
   // 62:   inc &i
-  frame->slots[7] /* temp__4 */ = create_closure(entry__sim2c__tokenize_22, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__tokenize_22, 0);
   // 55: ... -> text(i) != newline:
   // 56:   case
   // 57:     text(i)
@@ -1126,7 +1126,7 @@ static void cont__sim2c__tokenize_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_2(void) {
+static void entry__compiler__tokenize_2(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // msg: 0
@@ -1150,9 +1150,9 @@ static void entry__sim2c__tokenize_2(void) {
   result_count = 1;
   myself = get__line_no_of();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_3;
+  frame->cont = cont__compiler__tokenize_3;
 }
-static void cont__sim2c__tokenize_3(void) {
+static void cont__compiler__tokenize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1166,9 +1166,9 @@ static void cont__sim2c__tokenize_3(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_4;
+  frame->cont = cont__compiler__tokenize_4;
 }
-static void cont__sim2c__tokenize_4(void) {
+static void cont__compiler__tokenize_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1183,9 +1183,9 @@ static void cont__sim2c__tokenize_4(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_5;
+  frame->cont = cont__compiler__tokenize_5;
 }
-static void cont__sim2c__tokenize_5(void) {
+static void cont__compiler__tokenize_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1199,9 +1199,9 @@ static void cont__sim2c__tokenize_5(void) {
   result_count = 1;
   myself = get__count_occurrences();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_6;
+  frame->cont = cont__compiler__tokenize_6;
 }
-static void cont__sim2c__tokenize_6(void) {
+static void cont__compiler__tokenize_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1215,9 +1215,9 @@ static void cont__sim2c__tokenize_6(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_7;
+  frame->cont = cont__compiler__tokenize_7;
 }
-static void cont__sim2c__tokenize_7(void) {
+static void cont__compiler__tokenize_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1230,9 +1230,9 @@ static void cont__sim2c__tokenize_7(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* msg */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_8;
+  frame->cont = cont__compiler__tokenize_8;
 }
-static void cont__sim2c__tokenize_8(void) {
+static void cont__compiler__tokenize_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1245,9 +1245,9 @@ static void cont__sim2c__tokenize_8(void) {
   result_count = 1;
   myself = get__to_upper_case();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_9;
+  frame->cont = cont__compiler__tokenize_9;
 }
-static void cont__sim2c__tokenize_9(void) {
+static void cont__compiler__tokenize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1261,9 +1261,9 @@ static void cont__sim2c__tokenize_9(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* msg */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_10;
+  frame->cont = cont__compiler__tokenize_10;
 }
-static void cont__sim2c__tokenize_10(void) {
+static void cont__compiler__tokenize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1284,9 +1284,9 @@ static void cont__sim2c__tokenize_10(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_15;
+  frame->cont = cont__compiler__tokenize_15;
 }
-static void cont__sim2c__tokenize_15(void) {
+static void cont__compiler__tokenize_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1301,9 +1301,9 @@ static void cont__sim2c__tokenize_15(void) {
   result_count = 0;
   myself = get__ewrite();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_16;
+  frame->cont = cont__compiler__tokenize_16;
 }
-static void cont__sim2c__tokenize_16(void) {
+static void cont__compiler__tokenize_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1317,7 +1317,7 @@ static void cont__sim2c__tokenize_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__tokenize_17(void) {
+static void entry__compiler__tokenize_17(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // quote_count: 0
@@ -1342,7 +1342,7 @@ static void entry__sim2c__tokenize_17(void) {
   // 60:     '@ht;':
   // 61:       TokenizationError "tabulator character within line detected"
   // 62:   inc &i
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__tokenize_18, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__tokenize_18, 0);
   // 55: while -> text(i) != newline:
   // 56:   case
   // 57:     text(i)
@@ -1359,7 +1359,7 @@ static void entry__sim2c__tokenize_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__tokenize_30(void) {
+static void entry__compiler__tokenize_30(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
   // return: 0
@@ -1386,7 +1386,7 @@ static void entry__sim2c__tokenize_30(void) {
   // 69:     if text(i) != newline break
   // 70:     inc &i
   // 71:     inc &pending_newlines
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__tokenize_31, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__tokenize_31, 0);
   // 66: do: (-> break)
   // 67:   forever:
   // 68:     if i == length_of(text): return -1
@@ -1399,9 +1399,9 @@ static void entry__sim2c__tokenize_30(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_45;
+  frame->cont = cont__compiler__tokenize_45;
 }
-static void entry__sim2c__tokenize_31(void) {
+static void entry__compiler__tokenize_31(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // break: 0
@@ -1423,7 +1423,7 @@ static void entry__sim2c__tokenize_31(void) {
   // 69:   if text(i) != newline break
   // 70:   inc &i
   // 71:   inc &pending_newlines
-  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__tokenize_32, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__tokenize_32, 0);
   // 67: forever:
   // 68:   if i == length_of(text): return -1
   // 69:   if text(i) != newline break
@@ -1435,9 +1435,9 @@ static void entry__sim2c__tokenize_31(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_44;
+  frame->cont = cont__compiler__tokenize_44;
 }
-static void entry__sim2c__tokenize_32(void) {
+static void entry__compiler__tokenize_32(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // i: 0
@@ -1461,9 +1461,9 @@ static void entry__sim2c__tokenize_32(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_33;
+  frame->cont = cont__compiler__tokenize_33;
 }
-static void cont__sim2c__tokenize_33(void) {
+static void cont__compiler__tokenize_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1477,16 +1477,16 @@ static void cont__sim2c__tokenize_33(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_34;
+  frame->cont = cont__compiler__tokenize_34;
 }
-static void cont__sim2c__tokenize_34(void) {
+static void cont__compiler__tokenize_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 68: ... : return -1
-  frame->slots[7] /* temp__3 */ = create_closure(entry__sim2c__tokenize_35, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__tokenize_35, 0);
   // 68: if i == length_of(text): return -1
   argument_count = 2;
   arguments = node_p;
@@ -1495,9 +1495,9 @@ static void cont__sim2c__tokenize_34(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_37;
+  frame->cont = cont__compiler__tokenize_37;
 }
-static void entry__sim2c__tokenize_35(void) {
+static void entry__compiler__tokenize_35(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return: 0
@@ -1513,9 +1513,9 @@ static void entry__sim2c__tokenize_35(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_36;
+  frame->cont = cont__compiler__tokenize_36;
 }
-static void cont__sim2c__tokenize_36(void) {
+static void cont__compiler__tokenize_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1530,7 +1530,7 @@ static void cont__sim2c__tokenize_36(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_37(void) {
+static void cont__compiler__tokenize_37(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1542,9 +1542,9 @@ static void cont__sim2c__tokenize_37(void) {
   result_count = 1;
   myself = frame->slots[1] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_38;
+  frame->cont = cont__compiler__tokenize_38;
 }
-static void cont__sim2c__tokenize_38(void) {
+static void cont__compiler__tokenize_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1558,9 +1558,9 @@ static void cont__sim2c__tokenize_38(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_39;
+  frame->cont = cont__compiler__tokenize_39;
 }
-static void cont__sim2c__tokenize_39(void) {
+static void cont__compiler__tokenize_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1573,9 +1573,9 @@ static void cont__sim2c__tokenize_39(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_40;
+  frame->cont = cont__compiler__tokenize_40;
 }
-static void cont__sim2c__tokenize_40(void) {
+static void cont__compiler__tokenize_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1589,9 +1589,9 @@ static void cont__sim2c__tokenize_40(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_41;
+  frame->cont = cont__compiler__tokenize_41;
 }
-static void cont__sim2c__tokenize_41(void) {
+static void cont__compiler__tokenize_41(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1603,9 +1603,9 @@ static void cont__sim2c__tokenize_41(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_42;
+  frame->cont = cont__compiler__tokenize_42;
 }
-static void cont__sim2c__tokenize_42(void) {
+static void cont__compiler__tokenize_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1618,9 +1618,9 @@ static void cont__sim2c__tokenize_42(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_43;
+  frame->cont = cont__compiler__tokenize_43;
 }
-static void cont__sim2c__tokenize_43(void) {
+static void cont__compiler__tokenize_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1632,12 +1632,12 @@ static void cont__sim2c__tokenize_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_44(void) {
+static void cont__compiler__tokenize_44(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_45(void) {
+static void cont__compiler__tokenize_45(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1647,7 +1647,7 @@ static void cont__sim2c__tokenize_45(void) {
   // 73: ... -> text(i) == '@ht;':
   // 74:   inc &i
   // 75:   plus &indent 8
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__tokenize_46, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__tokenize_46, 0);
   // 73: while -> text(i) == '@ht;':
   // 74:   inc &i
   // 75:   plus &indent 8
@@ -1657,9 +1657,9 @@ static void cont__sim2c__tokenize_45(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_52;
+  frame->cont = cont__compiler__tokenize_52;
 }
-static void entry__sim2c__tokenize_49(void) {
+static void entry__compiler__tokenize_49(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // i: 0
@@ -1677,9 +1677,9 @@ static void entry__sim2c__tokenize_49(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_50;
+  frame->cont = cont__compiler__tokenize_50;
 }
-static void cont__sim2c__tokenize_50(void) {
+static void cont__compiler__tokenize_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1693,9 +1693,9 @@ static void cont__sim2c__tokenize_50(void) {
   result_count = 1;
   myself = get__plus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_51;
+  frame->cont = cont__compiler__tokenize_51;
 }
-static void cont__sim2c__tokenize_51(void) {
+static void cont__compiler__tokenize_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1707,7 +1707,7 @@ static void cont__sim2c__tokenize_51(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_46(void) {
+static void entry__compiler__tokenize_46(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // text: 0
@@ -1727,9 +1727,9 @@ static void entry__sim2c__tokenize_46(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_47;
+  frame->cont = cont__compiler__tokenize_47;
 }
-static void cont__sim2c__tokenize_47(void) {
+static void cont__compiler__tokenize_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1743,9 +1743,9 @@ static void cont__sim2c__tokenize_47(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_48;
+  frame->cont = cont__compiler__tokenize_48;
 }
-static void cont__sim2c__tokenize_48(void) {
+static void cont__compiler__tokenize_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1754,7 +1754,7 @@ static void cont__sim2c__tokenize_48(void) {
   // 73: ... :
   // 74:   inc &i
   // 75:   plus &indent 8
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__tokenize_49, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__tokenize_49, 0);
   // 73: ... -> text(i) == '@ht;':
   // 74:   inc &i
   // 75:   plus &indent 8
@@ -1766,7 +1766,7 @@ static void cont__sim2c__tokenize_48(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_52(void) {
+static void cont__compiler__tokenize_52(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1774,7 +1774,7 @@ static void cont__sim2c__tokenize_52(void) {
   // 76: ... -> text(i) == ' ':
   // 77:   inc &i
   // 78:   inc &indent
-  frame->slots[6] /* temp__1 */ = create_closure(entry__sim2c__tokenize_53, 0);
+  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__tokenize_53, 0);
   // 76: while -> text(i) == ' ':
   // 77:   inc &i
   // 78:   inc &indent
@@ -1784,9 +1784,9 @@ static void cont__sim2c__tokenize_52(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_59;
+  frame->cont = cont__compiler__tokenize_59;
 }
-static void entry__sim2c__tokenize_56(void) {
+static void entry__compiler__tokenize_56(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // i: 0
@@ -1804,9 +1804,9 @@ static void entry__sim2c__tokenize_56(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_57;
+  frame->cont = cont__compiler__tokenize_57;
 }
-static void cont__sim2c__tokenize_57(void) {
+static void cont__compiler__tokenize_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1819,9 +1819,9 @@ static void cont__sim2c__tokenize_57(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_58;
+  frame->cont = cont__compiler__tokenize_58;
 }
-static void cont__sim2c__tokenize_58(void) {
+static void cont__compiler__tokenize_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1833,7 +1833,7 @@ static void cont__sim2c__tokenize_58(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_53(void) {
+static void entry__compiler__tokenize_53(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // text: 0
@@ -1853,9 +1853,9 @@ static void entry__sim2c__tokenize_53(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_54;
+  frame->cont = cont__compiler__tokenize_54;
 }
-static void cont__sim2c__tokenize_54(void) {
+static void cont__compiler__tokenize_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1869,9 +1869,9 @@ static void cont__sim2c__tokenize_54(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_55;
+  frame->cont = cont__compiler__tokenize_55;
 }
-static void cont__sim2c__tokenize_55(void) {
+static void cont__compiler__tokenize_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1880,7 +1880,7 @@ static void cont__sim2c__tokenize_55(void) {
   // 76: ... :
   // 77:   inc &i
   // 78:   inc &indent
-  frame->slots[5] /* temp__3 */ = create_closure(entry__sim2c__tokenize_56, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__tokenize_56, 0);
   // 76: ... -> text(i) == ' ':
   // 77:   inc &i
   // 78:   inc &indent
@@ -1892,7 +1892,7 @@ static void cont__sim2c__tokenize_55(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_59(void) {
+static void cont__compiler__tokenize_59(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1905,16 +1905,16 @@ static void cont__sim2c__tokenize_59(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_60;
+  frame->cont = cont__compiler__tokenize_60;
 }
-static void cont__sim2c__tokenize_60(void) {
+static void cont__compiler__tokenize_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
   // 79: ... text(i) == newline
-  frame->slots[8] /* temp__3 */ = create_closure(entry__sim2c__tokenize_61, 0);
+  frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__tokenize_61, 0);
   // 79: ... indent > 0 && text(i) == newline
   argument_count = 2;
   arguments = node_p;
@@ -1923,9 +1923,9 @@ static void cont__sim2c__tokenize_60(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_64;
+  frame->cont = cont__compiler__tokenize_64;
 }
-static void entry__sim2c__tokenize_61(void) {
+static void entry__compiler__tokenize_61(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // text: 0
@@ -1943,9 +1943,9 @@ static void entry__sim2c__tokenize_61(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_62;
+  frame->cont = cont__compiler__tokenize_62;
 }
-static void cont__sim2c__tokenize_62(void) {
+static void cont__compiler__tokenize_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1959,9 +1959,9 @@ static void cont__sim2c__tokenize_62(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_63;
+  frame->cont = cont__compiler__tokenize_63;
 }
-static void cont__sim2c__tokenize_63(void) {
+static void cont__compiler__tokenize_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1975,7 +1975,7 @@ static void cont__sim2c__tokenize_63(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_64(void) {
+static void cont__compiler__tokenize_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1983,7 +1983,7 @@ static void cont__sim2c__tokenize_64(void) {
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
   // 79: ... :
   // 80:   TokenizationError "empty line contains whitespace"
-  frame->slots[9] /* temp__4 */ = create_closure(entry__sim2c__tokenize_65, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__compiler__tokenize_65, 0);
   // 79: if indent > 0 && text(i) == newline:
   // 80:   TokenizationError "empty line contains whitespace"
   argument_count = 2;
@@ -1993,9 +1993,9 @@ static void cont__sim2c__tokenize_64(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_67;
+  frame->cont = cont__compiler__tokenize_67;
 }
-static void entry__sim2c__tokenize_65(void) {
+static void entry__compiler__tokenize_65(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // TokenizationError: 0
@@ -2013,7 +2013,7 @@ static void entry__sim2c__tokenize_65(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_67(void) {
+static void cont__compiler__tokenize_67(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2026,7 +2026,7 @@ static void cont__sim2c__tokenize_67(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_68(void) {
+static void entry__compiler__tokenize_68(void) {
   allocate_initialized_frame_gc(13, 14);
   // slot allocations:
   // current_indent: 0
@@ -2069,7 +2069,7 @@ static void entry__sim2c__tokenize_68(void) {
   // 96:     push &fragment.indents_of indent
   // 97:     dec &pending_newlines
   // ...
-  frame->slots[13] /* temp__1 */ = create_closure(entry__sim2c__tokenize_69, 0);
+  frame->slots[13] /* temp__1 */ = create_closure(entry__compiler__tokenize_69, 0);
   // 88: forever:
   // 89:   $add_newline:
   // 90:     repeat pending_newlines:
@@ -2087,9 +2087,9 @@ static void entry__sim2c__tokenize_68(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_140;
+  frame->cont = cont__compiler__tokenize_140;
 }
-static void entry__sim2c__tokenize_69(void) {
+static void entry__compiler__tokenize_69(void) {
   allocate_initialized_frame_gc(13, 21);
   // slot allocations:
   // pending_newlines: 0
@@ -2138,7 +2138,7 @@ static void entry__sim2c__tokenize_69(void) {
   // 90:   repeat pending_newlines:
   // 91:     push &new_text newline
   // 92:     push &fragment.indents_of indent
-  frame->slots[19] /* temp__1 */ = create_closure(entry__sim2c__tokenize_70, 0);
+  frame->slots[19] /* temp__1 */ = create_closure(entry__compiler__tokenize_70, 0);
   // 89: $add_newline:
   // 90:   repeat pending_newlines:
   // 91:     push &new_text newline
@@ -2149,7 +2149,7 @@ static void entry__sim2c__tokenize_69(void) {
   // 96:   push &fragment.indents_of indent
   // 97:   dec &pending_newlines
   // 98:   add_newline
-  frame->slots[19] /* temp__1 */ = create_closure(entry__sim2c__tokenize_75, 0);
+  frame->slots[19] /* temp__1 */ = create_closure(entry__compiler__tokenize_75, 0);
   // 94: $add_indent:
   // 95:   push &new_text indent_marker
   // 96:   push &fragment.indents_of indent
@@ -2163,9 +2163,9 @@ static void entry__sim2c__tokenize_69(void) {
   result_count = 1;
   myself = frame->slots[3] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_80;
+  frame->cont = cont__compiler__tokenize_80;
 }
-static void entry__sim2c__tokenize_71(void) {
+static void entry__compiler__tokenize_71(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // new_text: 0
@@ -2186,9 +2186,9 @@ static void entry__sim2c__tokenize_71(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_72;
+  frame->cont = cont__compiler__tokenize_72;
 }
-static void cont__sim2c__tokenize_72(void) {
+static void cont__compiler__tokenize_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2201,9 +2201,9 @@ static void cont__sim2c__tokenize_72(void) {
   result_count = 1;
   myself = get__indents_of();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_73;
+  frame->cont = cont__compiler__tokenize_73;
 }
-static void cont__sim2c__tokenize_73(void) {
+static void cont__compiler__tokenize_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2217,9 +2217,9 @@ static void cont__sim2c__tokenize_73(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_74;
+  frame->cont = cont__compiler__tokenize_74;
 }
-static void cont__sim2c__tokenize_74(void) {
+static void cont__compiler__tokenize_74(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2239,7 +2239,7 @@ static void cont__sim2c__tokenize_74(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_70(void) {
+static void entry__compiler__tokenize_70(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // pending_newlines: 0
@@ -2257,7 +2257,7 @@ static void entry__sim2c__tokenize_70(void) {
   // 90: ... :
   // 91:   push &new_text newline
   // 92:   push &fragment.indents_of indent
-  frame->slots[4] /* temp__1 */ = create_closure(entry__sim2c__tokenize_71, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__tokenize_71, 0);
   // 90: repeat pending_newlines:
   // 91:   push &new_text newline
   // 92:   push &fragment.indents_of indent
@@ -2270,7 +2270,7 @@ static void entry__sim2c__tokenize_70(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__sim2c__tokenize_75(void) {
+static void entry__compiler__tokenize_75(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // new_text: 0
@@ -2295,9 +2295,9 @@ static void entry__sim2c__tokenize_75(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_76;
+  frame->cont = cont__compiler__tokenize_76;
 }
-static void cont__sim2c__tokenize_76(void) {
+static void cont__compiler__tokenize_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2310,9 +2310,9 @@ static void cont__sim2c__tokenize_76(void) {
   result_count = 1;
   myself = get__indents_of();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_77;
+  frame->cont = cont__compiler__tokenize_77;
 }
-static void cont__sim2c__tokenize_77(void) {
+static void cont__compiler__tokenize_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2326,9 +2326,9 @@ static void cont__sim2c__tokenize_77(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_78;
+  frame->cont = cont__compiler__tokenize_78;
 }
-static void cont__sim2c__tokenize_78(void) {
+static void cont__compiler__tokenize_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2349,9 +2349,9 @@ static void cont__sim2c__tokenize_78(void) {
   result_count = 1;
   myself = get__dec();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_79;
+  frame->cont = cont__compiler__tokenize_79;
 }
-static void cont__sim2c__tokenize_79(void) {
+static void cont__compiler__tokenize_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2365,7 +2365,7 @@ static void cont__sim2c__tokenize_79(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_80(void) {
+static void cont__compiler__tokenize_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2379,9 +2379,9 @@ static void cont__sim2c__tokenize_80(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_81;
+  frame->cont = cont__compiler__tokenize_81;
 }
-static void cont__sim2c__tokenize_81(void) {
+static void cont__compiler__tokenize_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2393,9 +2393,9 @@ static void cont__sim2c__tokenize_81(void) {
   result_count = 0;
   myself = frame->slots[5] /* skip_line */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_82;
+  frame->cont = cont__compiler__tokenize_82;
 }
-static void cont__sim2c__tokenize_82(void) {
+static void cont__compiler__tokenize_82(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2407,9 +2407,9 @@ static void cont__sim2c__tokenize_82(void) {
   result_count = 1;
   myself = get__is_odd();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_83;
+  frame->cont = cont__compiler__tokenize_83;
 }
-static void cont__sim2c__tokenize_83(void) {
+static void cont__compiler__tokenize_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2423,16 +2423,16 @@ static void cont__sim2c__tokenize_83(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_84;
+  frame->cont = cont__compiler__tokenize_84;
 }
-static void cont__sim2c__tokenize_84(void) {
+static void cont__compiler__tokenize_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[19] /* temp__1 */ = arguments->slots[0];
   // 103: ... text(i-1) == '{'
-  frame->slots[20] /* temp__2 */ = create_closure(entry__sim2c__tokenize_85, 0);
+  frame->slots[20] /* temp__2 */ = create_closure(entry__compiler__tokenize_85, 0);
   // 103: $is_inline_C i > 1 && text(i-1) == '{'
   argument_count = 2;
   arguments = node_p;
@@ -2441,9 +2441,9 @@ static void cont__sim2c__tokenize_84(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_89;
+  frame->cont = cont__compiler__tokenize_89;
 }
-static void entry__sim2c__tokenize_85(void) {
+static void entry__compiler__tokenize_85(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // text: 0
@@ -2462,9 +2462,9 @@ static void entry__sim2c__tokenize_85(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_86;
+  frame->cont = cont__compiler__tokenize_86;
 }
-static void cont__sim2c__tokenize_86(void) {
+static void cont__compiler__tokenize_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2477,9 +2477,9 @@ static void cont__sim2c__tokenize_86(void) {
   result_count = 1;
   myself = frame->slots[0] /* text */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_87;
+  frame->cont = cont__compiler__tokenize_87;
 }
-static void cont__sim2c__tokenize_87(void) {
+static void cont__compiler__tokenize_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2493,9 +2493,9 @@ static void cont__sim2c__tokenize_87(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_88;
+  frame->cont = cont__compiler__tokenize_88;
 }
-static void cont__sim2c__tokenize_88(void) {
+static void cont__compiler__tokenize_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2509,7 +2509,7 @@ static void cont__sim2c__tokenize_88(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_89(void) {
+static void cont__compiler__tokenize_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2523,9 +2523,9 @@ static void cont__sim2c__tokenize_89(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_90;
+  frame->cont = cont__compiler__tokenize_90;
 }
-static void cont__sim2c__tokenize_90(void) {
+static void cont__compiler__tokenize_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2540,9 +2540,9 @@ static void cont__sim2c__tokenize_90(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_91;
+  frame->cont = cont__compiler__tokenize_91;
 }
-static void cont__sim2c__tokenize_91(void) {
+static void cont__compiler__tokenize_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2556,9 +2556,9 @@ static void cont__sim2c__tokenize_91(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_92;
+  frame->cont = cont__compiler__tokenize_92;
 }
-static void cont__sim2c__tokenize_92(void) {
+static void cont__compiler__tokenize_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2570,9 +2570,9 @@ static void cont__sim2c__tokenize_92(void) {
   result_count = 1;
   myself = frame->slots[8] /* get_indent */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_93;
+  frame->cont = cont__compiler__tokenize_93;
 }
-static void cont__sim2c__tokenize_93(void) {
+static void cont__compiler__tokenize_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2588,9 +2588,9 @@ static void cont__sim2c__tokenize_93(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_94;
+  frame->cont = cont__compiler__tokenize_94;
 }
-static void cont__sim2c__tokenize_94(void) {
+static void cont__compiler__tokenize_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2607,7 +2607,7 @@ static void cont__sim2c__tokenize_94(void) {
   // 115:       do: (-> break)
   // 116:         forever:
   // ...
-  frame->slots[20] /* temp__2 */ = create_closure(entry__sim2c__tokenize_95, 0);
+  frame->slots[20] /* temp__2 */ = create_closure(entry__compiler__tokenize_95, 0);
   // 107: if indent > current_indent:
   // 108:   add_indent
   // 109:   if
@@ -2626,9 +2626,9 @@ static void cont__sim2c__tokenize_94(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_136;
+  frame->cont = cont__compiler__tokenize_136;
 }
-static void entry__sim2c__tokenize_101(void) {
+static void entry__compiler__tokenize_101(void) {
   allocate_initialized_frame_gc(9, 12);
   // slot allocations:
   // i: 0
@@ -2668,7 +2668,7 @@ static void entry__sim2c__tokenize_101(void) {
   // 118:     get_indent $next_indent
   // 119:     if next_indent <= current_indent break
   // 120:     reduce_to &least_indent next_indent
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_102, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_102, 0);
   // 115: do: (-> break)
   // 116:   forever:
   // 117:     skip_line
@@ -2681,9 +2681,9 @@ static void entry__sim2c__tokenize_101(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_111;
+  frame->cont = cont__compiler__tokenize_111;
 }
-static void entry__sim2c__tokenize_102(void) {
+static void entry__compiler__tokenize_102(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // break: 0
@@ -2705,7 +2705,7 @@ static void entry__sim2c__tokenize_102(void) {
   // 118:   get_indent $next_indent
   // 119:   if next_indent <= current_indent break
   // 120:   reduce_to &least_indent next_indent
-  frame->slots[5] /* temp__1 */ = create_closure(entry__sim2c__tokenize_103, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__tokenize_103, 0);
   // 116: forever:
   // 117:   skip_line
   // 118:   get_indent $next_indent
@@ -2717,9 +2717,9 @@ static void entry__sim2c__tokenize_102(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_110;
+  frame->cont = cont__compiler__tokenize_110;
 }
-static void entry__sim2c__tokenize_103(void) {
+static void entry__compiler__tokenize_103(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // skip_line: 0
@@ -2744,9 +2744,9 @@ static void entry__sim2c__tokenize_103(void) {
   result_count = 0;
   myself = frame->slots[0] /* skip_line */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_104;
+  frame->cont = cont__compiler__tokenize_104;
 }
-static void cont__sim2c__tokenize_104(void) {
+static void cont__compiler__tokenize_104(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2757,9 +2757,9 @@ static void cont__sim2c__tokenize_104(void) {
   result_count = 1;
   myself = frame->slots[1] /* get_indent */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_105;
+  frame->cont = cont__compiler__tokenize_105;
 }
-static void cont__sim2c__tokenize_105(void) {
+static void cont__compiler__tokenize_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2773,9 +2773,9 @@ static void cont__sim2c__tokenize_105(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_106;
+  frame->cont = cont__compiler__tokenize_106;
 }
-static void cont__sim2c__tokenize_106(void) {
+static void cont__compiler__tokenize_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2788,9 +2788,9 @@ static void cont__sim2c__tokenize_106(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_107;
+  frame->cont = cont__compiler__tokenize_107;
 }
-static void cont__sim2c__tokenize_107(void) {
+static void cont__compiler__tokenize_107(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2804,9 +2804,9 @@ static void cont__sim2c__tokenize_107(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_108;
+  frame->cont = cont__compiler__tokenize_108;
 }
-static void cont__sim2c__tokenize_108(void) {
+static void cont__compiler__tokenize_108(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2819,9 +2819,9 @@ static void cont__sim2c__tokenize_108(void) {
   result_count = 1;
   myself = get__reduce_to();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_109;
+  frame->cont = cont__compiler__tokenize_109;
 }
-static void cont__sim2c__tokenize_109(void) {
+static void cont__compiler__tokenize_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2833,12 +2833,12 @@ static void cont__sim2c__tokenize_109(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_110(void) {
+static void cont__compiler__tokenize_110(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_111(void) {
+static void cont__compiler__tokenize_111(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2854,7 +2854,7 @@ static void cont__sim2c__tokenize_111(void) {
   // 128:     !s i
   // 129:     if indent <= current_indent break
   // 130:     add_newline
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_112, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_112, 0);
   // 122: do: (-> break)
   // 123:   forever:
   // 124:     skip_line
@@ -2870,9 +2870,9 @@ static void cont__sim2c__tokenize_111(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_127;
+  frame->cont = cont__compiler__tokenize_127;
 }
-static void entry__sim2c__tokenize_112(void) {
+static void entry__compiler__tokenize_112(void) {
   allocate_initialized_frame_gc(11, 12);
   // slot allocations:
   // break: 0
@@ -2909,7 +2909,7 @@ static void entry__sim2c__tokenize_112(void) {
   // 128:   !s i
   // 129:   if indent <= current_indent break
   // 130:   add_newline
-  frame->slots[11] /* temp__1 */ = create_closure(entry__sim2c__tokenize_113, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_113, 0);
   // 123: forever:
   // 124:   skip_line
   // 125:   repeat indent-least_indent: push &new_text ' '
@@ -2924,9 +2924,9 @@ static void entry__sim2c__tokenize_112(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_126;
+  frame->cont = cont__compiler__tokenize_126;
 }
-static void entry__sim2c__tokenize_113(void) {
+static void entry__compiler__tokenize_113(void) {
   allocate_initialized_frame_gc(11, 13);
   // slot allocations:
   // skip_line: 0
@@ -2961,9 +2961,9 @@ static void entry__sim2c__tokenize_113(void) {
   result_count = 0;
   myself = frame->slots[0] /* skip_line */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_114;
+  frame->cont = cont__compiler__tokenize_114;
 }
-static void cont__sim2c__tokenize_114(void) {
+static void cont__compiler__tokenize_114(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2976,16 +2976,16 @@ static void cont__sim2c__tokenize_114(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_115;
+  frame->cont = cont__compiler__tokenize_115;
 }
-static void cont__sim2c__tokenize_115(void) {
+static void cont__compiler__tokenize_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
   // 125: ... : push &new_text ' '
-  frame->slots[12] /* temp__2 */ = create_closure(entry__sim2c__tokenize_116, 0);
+  frame->slots[12] /* temp__2 */ = create_closure(entry__compiler__tokenize_116, 0);
   // 125: repeat indent-least_indent: push &new_text ' '
   argument_count = 2;
   arguments = node_p;
@@ -2994,9 +2994,9 @@ static void cont__sim2c__tokenize_115(void) {
   result_count = 0;
   myself = get__repeat();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_118;
+  frame->cont = cont__compiler__tokenize_118;
 }
-static void entry__sim2c__tokenize_116(void) {
+static void entry__compiler__tokenize_116(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // new_text: 0
@@ -3013,9 +3013,9 @@ static void entry__sim2c__tokenize_116(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_117;
+  frame->cont = cont__compiler__tokenize_117;
 }
-static void cont__sim2c__tokenize_117(void) {
+static void cont__compiler__tokenize_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3027,7 +3027,7 @@ static void cont__sim2c__tokenize_117(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_118(void) {
+static void cont__compiler__tokenize_118(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3040,9 +3040,9 @@ static void cont__sim2c__tokenize_118(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_119;
+  frame->cont = cont__compiler__tokenize_119;
 }
-static void cont__sim2c__tokenize_119(void) {
+static void cont__compiler__tokenize_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3057,9 +3057,9 @@ static void cont__sim2c__tokenize_119(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_120;
+  frame->cont = cont__compiler__tokenize_120;
 }
-static void cont__sim2c__tokenize_120(void) {
+static void cont__compiler__tokenize_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3073,9 +3073,9 @@ static void cont__sim2c__tokenize_120(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_121;
+  frame->cont = cont__compiler__tokenize_121;
 }
-static void cont__sim2c__tokenize_121(void) {
+static void cont__compiler__tokenize_121(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3087,9 +3087,9 @@ static void cont__sim2c__tokenize_121(void) {
   result_count = 1;
   myself = frame->slots[7] /* get_indent */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_122;
+  frame->cont = cont__compiler__tokenize_122;
 }
-static void cont__sim2c__tokenize_122(void) {
+static void cont__compiler__tokenize_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3105,9 +3105,9 @@ static void cont__sim2c__tokenize_122(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_123;
+  frame->cont = cont__compiler__tokenize_123;
 }
-static void cont__sim2c__tokenize_123(void) {
+static void cont__compiler__tokenize_123(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3120,9 +3120,9 @@ static void cont__sim2c__tokenize_123(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_124;
+  frame->cont = cont__compiler__tokenize_124;
 }
-static void cont__sim2c__tokenize_124(void) {
+static void cont__compiler__tokenize_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3136,9 +3136,9 @@ static void cont__sim2c__tokenize_124(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_125;
+  frame->cont = cont__compiler__tokenize_125;
 }
-static void cont__sim2c__tokenize_125(void) {
+static void cont__compiler__tokenize_125(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3151,12 +3151,12 @@ static void cont__sim2c__tokenize_125(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_126(void) {
+static void cont__compiler__tokenize_126(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_127(void) {
+static void cont__compiler__tokenize_127(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3169,9 +3169,9 @@ static void cont__sim2c__tokenize_127(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_128;
+  frame->cont = cont__compiler__tokenize_128;
 }
-static void cont__sim2c__tokenize_128(void) {
+static void cont__compiler__tokenize_128(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3183,7 +3183,7 @@ static void cont__sim2c__tokenize_128(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_129(void) {
+static void entry__compiler__tokenize_129(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // indent: 0
@@ -3207,9 +3207,9 @@ static void entry__sim2c__tokenize_129(void) {
   result_count = 1;
   myself = frame->slots[1] /* convert */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_130;
+  frame->cont = cont__compiler__tokenize_130;
 }
-static void cont__sim2c__tokenize_130(void) {
+static void cont__compiler__tokenize_130(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3223,16 +3223,16 @@ static void cont__sim2c__tokenize_130(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_131;
+  frame->cont = cont__compiler__tokenize_131;
 }
-static void cont__sim2c__tokenize_131(void) {
+static void cont__compiler__tokenize_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 134: ... : TokenizationError "invalid indentation"
-  frame->slots[6] /* temp__2 */ = create_closure(entry__sim2c__tokenize_132, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__tokenize_132, 0);
   // 134: if indent > current_indent: TokenizationError "invalid indentation"
   argument_count = 2;
   arguments = node_p;
@@ -3241,9 +3241,9 @@ static void cont__sim2c__tokenize_131(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_134;
+  frame->cont = cont__compiler__tokenize_134;
 }
-static void entry__sim2c__tokenize_132(void) {
+static void entry__compiler__tokenize_132(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // TokenizationError: 0
@@ -3261,7 +3261,7 @@ static void entry__sim2c__tokenize_132(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_134(void) {
+static void cont__compiler__tokenize_134(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3274,9 +3274,9 @@ static void cont__sim2c__tokenize_134(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_135;
+  frame->cont = cont__compiler__tokenize_135;
 }
-static void cont__sim2c__tokenize_135(void) {
+static void cont__compiler__tokenize_135(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3288,7 +3288,7 @@ static void cont__sim2c__tokenize_135(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__tokenize_95(void) {
+static void entry__compiler__tokenize_95(void) {
   allocate_initialized_frame_gc(15, 19);
   // slot allocations:
   // add_indent: 0
@@ -3331,15 +3331,15 @@ static void entry__sim2c__tokenize_95(void) {
   result_count = 0;
   myself = frame->slots[0] /* add_indent */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_96;
+  frame->cont = cont__compiler__tokenize_96;
 }
-static void cont__sim2c__tokenize_96(void) {
+static void cont__compiler__tokenize_96(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 110: ... is_a_multi_line_string || is_inline_C
-  frame->slots[16] /* temp__2 */ = create_closure(entry__sim2c__tokenize_97, 0);
+  frame->slots[16] /* temp__2 */ = create_closure(entry__compiler__tokenize_97, 0);
   // 110: is_a_remark || is_a_multi_line_string || is_inline_C
   argument_count = 2;
   arguments = node_p;
@@ -3348,9 +3348,9 @@ static void cont__sim2c__tokenize_96(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_100;
+  frame->cont = cont__compiler__tokenize_100;
 }
-static void entry__sim2c__tokenize_97(void) {
+static void entry__compiler__tokenize_97(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // is_a_multi_line_string: 0
@@ -3362,7 +3362,7 @@ static void entry__sim2c__tokenize_97(void) {
     return;
   }
   // 110: ... is_inline_C
-  frame->slots[3] /* temp__2 */ = create_closure(entry__sim2c__tokenize_98, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__tokenize_98, 0);
   // 110: ... is_a_multi_line_string || is_inline_C
   argument_count = 2;
   arguments = node_p;
@@ -3371,9 +3371,9 @@ static void entry__sim2c__tokenize_97(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_99;
+  frame->cont = cont__compiler__tokenize_99;
 }
-static void entry__sim2c__tokenize_98(void) {
+static void entry__compiler__tokenize_98(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // is_inline_C: 0
@@ -3390,7 +3390,7 @@ static void entry__sim2c__tokenize_98(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_99(void) {
+static void cont__compiler__tokenize_99(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3404,7 +3404,7 @@ static void cont__sim2c__tokenize_99(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_100(void) {
+static void cont__compiler__tokenize_100(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3421,12 +3421,12 @@ static void cont__sim2c__tokenize_100(void) {
   // 118:       get_indent $next_indent
   // 119:       if next_indent <= current_indent break
   // ...
-  frame->slots[17] /* temp__3 */ = create_closure(entry__sim2c__tokenize_101, 0);
+  frame->slots[17] /* temp__3 */ = create_closure(entry__compiler__tokenize_101, 0);
   // 132: :
   // 133:   !indent convert(indent)
   // 134:   if indent > current_indent: TokenizationError "invalid indentation"
   // 135:   push &new_text outdent_marker
-  frame->slots[18] /* temp__4 */ = create_closure(entry__sim2c__tokenize_129, 0);
+  frame->slots[18] /* temp__4 */ = create_closure(entry__compiler__tokenize_129, 0);
   // 109: if
   // 110:   is_a_remark || is_a_multi_line_string || is_inline_C:
   // 111:     # maybe irregular indentations
@@ -3448,7 +3448,7 @@ static void cont__sim2c__tokenize_100(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_136(void) {
+static void cont__compiler__tokenize_136(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3461,16 +3461,16 @@ static void cont__sim2c__tokenize_136(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_137;
+  frame->cont = cont__compiler__tokenize_137;
 }
-static void cont__sim2c__tokenize_137(void) {
+static void cont__compiler__tokenize_137(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[19] /* temp__1 */ = arguments->slots[0];
   // 136: ... : return indent
-  frame->slots[20] /* temp__2 */ = create_closure(entry__sim2c__tokenize_138, 0);
+  frame->slots[20] /* temp__2 */ = create_closure(entry__compiler__tokenize_138, 0);
   // 136: if indent < current_indent: return indent
   argument_count = 2;
   arguments = node_p;
@@ -3479,9 +3479,9 @@ static void cont__sim2c__tokenize_137(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_139;
+  frame->cont = cont__compiler__tokenize_139;
 }
-static void entry__sim2c__tokenize_138(void) {
+static void entry__compiler__tokenize_138(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // return: 0
@@ -3501,7 +3501,7 @@ static void entry__sim2c__tokenize_138(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_139(void) {
+static void cont__compiler__tokenize_139(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3514,12 +3514,12 @@ static void cont__sim2c__tokenize_139(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__sim2c__tokenize_140(void) {
+static void cont__compiler__tokenize_140(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__tokenize_141(void) {
+static void cont__compiler__tokenize_141(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3542,9 +3542,9 @@ static void cont__sim2c__tokenize_141(void) {
   result_count = 1;
   myself = frame->slots[10] /* convert */;
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_142;
+  frame->cont = cont__compiler__tokenize_142;
 }
-static void cont__sim2c__tokenize_142(void) {
+static void cont__compiler__tokenize_142(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3557,9 +3557,9 @@ static void cont__sim2c__tokenize_142(void) {
   result_count = 0;
   myself = get__ignore();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_143;
+  frame->cont = cont__compiler__tokenize_143;
 }
-static void cont__sim2c__tokenize_143(void) {
+static void cont__compiler__tokenize_143(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3572,9 +3572,9 @@ static void cont__sim2c__tokenize_143(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__sim2c__tokenize_144;
+  frame->cont = cont__compiler__tokenize_144;
 }
-static void cont__sim2c__tokenize_144(void) {
+static void cont__compiler__tokenize_144(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3598,10 +3598,10 @@ static void cont__sim2c__tokenize_144(void) {
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__tokenizer(void) {
-  var.sim2c__indent_marker = collect_node(var.sim2c__indent_marker);
-  var.sim2c__outdent_marker = collect_node(var.sim2c__outdent_marker);
-  var.sim2c__newline = collect_node(var.sim2c__newline);
-  var.sim2c__tokenize = collect_node(var.sim2c__tokenize);
+  var.compiler__indent_marker = collect_node(var.compiler__indent_marker);
+  var.compiler__outdent_marker = collect_node(var.compiler__outdent_marker);
+  var.compiler__newline = collect_node(var.compiler__newline);
+  var.compiler__tokenize = collect_node(var.compiler__tokenize);
 }
 
 static int already_run_phase_1 = false;
@@ -3639,7 +3639,7 @@ EXPORT void phase_2__tokenizer(void) {
   string__dd17af2f619a6908 = from_latin_1_string("tabulator character within line detected", 40);
   string__97eea539018d4d4b = from_latin_1_string("empty line contains whitespace", 30);
   string__f6816391653ef18d = from_latin_1_string("invalid indentation", 19);
-  func__sim2c__tokenize_1 = create_function(entry__sim2c__tokenize_1, 1);
+  func__compiler__tokenize_1 = create_function(entry__compiler__tokenize_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3649,10 +3649,10 @@ EXPORT void phase_3__tokenizer(void) {
   already_run_phase_3 = true;
   set_module("tokenizer");
   set_used_namespaces(used_namespaces);
-  define_single_assign_static("sim2c", "indent_marker", get__sim2c__indent_marker, &var.sim2c__indent_marker);
-  define_single_assign_static("sim2c", "outdent_marker", get__sim2c__outdent_marker, &var.sim2c__outdent_marker);
-  define_single_assign_static("sim2c", "newline", get__sim2c__newline, &var.sim2c__newline);
-  define_single_assign_static("sim2c", "tokenize", get__sim2c__tokenize, &var.sim2c__tokenize);
+  define_single_assign_static("compiler", "indent_marker", get__compiler__indent_marker, &var.compiler__indent_marker);
+  define_single_assign_static("compiler", "outdent_marker", get__compiler__outdent_marker, &var.compiler__outdent_marker);
+  define_single_assign_static("compiler", "newline", get__compiler__newline, &var.compiler__newline);
+  define_single_assign_static("compiler", "tokenize", get__compiler__tokenize, &var.compiler__tokenize);
 }
 
 static int already_run_phase_4 = false;
@@ -3707,10 +3707,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__tokenizer(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_value(&var.sim2c__indent_marker, character__1);
-  assign_value(&var.sim2c__outdent_marker, character__2);
-  assign_value(&var.sim2c__newline, character__10);
-  assign_variable(&var.sim2c__tokenize, &func__sim2c__tokenize_1);
+  assign_value(&var.compiler__indent_marker, character__1);
+  assign_value(&var.compiler__outdent_marker, character__2);
+  assign_value(&var.compiler__newline, character__10);
+  assign_variable(&var.compiler__tokenize, &func__compiler__tokenize_1);
 }
 
 static int already_run_phase_6 = false;

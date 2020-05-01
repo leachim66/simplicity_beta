@@ -23,10 +23,10 @@
   compiles a single source code file
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
-$sim2c::print_source: (source)
+$compiler::print_source: (source)
   for_each source: (chr)
     case
       chr
@@ -39,7 +39,7 @@ $sim2c::print_source: (source)
       :
 	write chr
 
-$sim2c::eprint_source: (source)
+$compiler::eprint_source: (source)
   for_each source: (chr)
     case
       chr
@@ -52,7 +52,7 @@ $sim2c::eprint_source: (source)
       :
 	ewrite chr
 
-$sim2c::privileged_polymorphic_functions
+$compiler::privileged_polymorphic_functions
   table
     "std__if" = 0
     "std__is_defined" = 1
@@ -62,7 +62,7 @@ $sim2c::privileged_polymorphic_functions
     "std__is_empty" = 5
     "std__unless" = 6
 
-$sim2c::generate_dispatcher_function: (name)
+$compiler::generate_dispatcher_function: (name)
   write_to_declarations "
     static void type__@(name)(void);
   write_to_functions "
@@ -119,7 +119,7 @@ $sim2c::generate_dispatcher_function: (name)
 
 $demangled: (name) -> replace_all(name "__" = "::")
 
-$sim2c::update_info:
+$compiler::update_info:
   (
     name
     curr_info
@@ -196,7 +196,7 @@ $sim2c::update_info:
     :
       return info
 
-$sim2c::sim2c:
+$compiler::sim2c:
   (
     filenames
       #
@@ -216,23 +216,23 @@ $sim2c::sim2c:
 	  !name range(name 3 -1)
     -> replace_all(name '/' = "__")
 
-  %%sim2c::required_modules empty_insert_order_table
-  %%sim2c::used_namespaces empty_insert_order_set
-  %%sim2c::defined_namespaces empty_insert_order_set
-  %%sim2c::namespace_mappings empty_insert_order_table
-  %%sim2c::included_files empty_insert_order_set
-  %%sim2c::linked_libraries empty_insert_order_set
-  %%sim2c::dependent_data empty_insert_order_set
-  %%sim2c::global_names empty_key_order_table
-  %%sim2c::exported_names empty_key_order_table
-  %%sim2c::needed_names empty_key_order_table
-  %%sim2c::assigned_names empty_set
-  %%sim2c::string_literals empty_table
-  %%sim2c::use_inline_c false # set, if an inline-C expression is encountered
-  %%sim2c::defined_structs set("NODE")
-  %%sim2c::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
-  %%sim2c::defined_functions empty_set
-  %%sim2c::enumeration_count 0
+  %%compiler::required_modules empty_insert_order_table
+  %%compiler::used_namespaces empty_insert_order_set
+  %%compiler::defined_namespaces empty_insert_order_set
+  %%compiler::namespace_mappings empty_insert_order_table
+  %%compiler::included_files empty_insert_order_set
+  %%compiler::linked_libraries empty_insert_order_set
+  %%compiler::dependent_data empty_insert_order_set
+  %%compiler::global_names empty_key_order_table
+  %%compiler::exported_names empty_key_order_table
+  %%compiler::needed_names empty_key_order_table
+  %%compiler::assigned_names empty_set
+  %%compiler::string_literals empty_table
+  %%compiler::use_inline_c false # set, if an inline-C expression is encountered
+  %%compiler::defined_structs set("NODE")
+  %%compiler::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
+  %%compiler::defined_functions empty_set
+  %%compiler::enumeration_count 0
   $$fragments empty_list
   $$trees empty_list
   $$all_defined_names empty_list
@@ -252,7 +252,7 @@ $sim2c::sim2c:
     if buf(1) <= ' ': Error "Whitespace at start of source text!"
     if buf(-1) != newline: Error "Missing newline at end of source text!"
     if buf .has_prefix. "#!": !is_main true
-    %sim2c::submodule_no no-1
+    %compiler::submodule_no no-1
     $$submodule_fragments cut_into_fragments(buf)
     if do_time_passes: write_timing_info "fragmenting" filename
     update_each &submodule_fragments: (&fragment) tokenize &fragment
@@ -287,16 +287,16 @@ $sim2c::sim2c:
   if is_main: # the main program should terminate cleanly
     push &trees procedure_call(.functor_of std_identifier("terminate"))
   update_each &trees: (&tree)
-    %%sim2c::index 1
+    %%compiler::index 1
     expand_statement &tree
   if do_time_passes: write_timing_info "expanding" filenames(1)
   update_each &trees: (&tree)
-    %%sim2c::defined_names empty_list
-    %%sim2c::used_names empty_insert_order_table
-    %%sim2c::index 1
+    %%compiler::defined_names empty_list
+    %%compiler::used_names empty_insert_order_table
+    %%compiler::index 1
     annotate_statement &tree
-    push &all_defined_names sim2c::defined_names
-    push &all_used_names sim2c::used_names
+    push &all_defined_names compiler::defined_names
+    push &all_used_names compiler::used_names
   if do_time_passes: write_timing_info "annotating" filenames(1)
   $$all_actions empty_list
 
@@ -366,8 +366,8 @@ $sim2c::sim2c:
   $$max_temp_idx 0
   for_each trees: (tree)
     unless tree.is_a_remark || tree.is_a_meta_instruction:
-      %%sim2c::temp_idx 0
-      %%sim2c::actions empty_list
+      %%compiler::temp_idx 0
+      %%compiler::actions empty_list
       %already_defined_names top_level_names
       %%definitions empty_list
       %%statements empty_list
@@ -489,79 +489,79 @@ $sim2c::sim2c:
   $$used_literals empty_table
   %%used_string_literals empty_table
 
-  %sim2c::write_to_declarations: (args*)
+  %compiler::write_to_declarations: (args*)
     $txt string(args*)
     push &actions: append &generated_declarations txt
 
-  %sim2c::write_to_top_level_variable_names: (args*)
+  %compiler::write_to_top_level_variable_names: (args*)
     $txt string(args*)
     push &actions: append &generated_top_level_variable_names txt
 
-  %sim2c::write_to_top_level_variable_declarations: (args*)
+  %compiler::write_to_top_level_variable_declarations: (args*)
     $txt string(args*)
     push &actions: append &generated_top_level_variable_declarations txt
 
-  %sim2c::write_to_global_variable_declarations: (args*)
+  %compiler::write_to_global_variable_declarations: (args*)
     $txt string(args*)
     push &actions: append &generated_global_variable_declarations txt
 
-  %sim2c::write_to_continuation_table: (args*)
+  %compiler::write_to_continuation_table: (args*)
     $txt string(args*)
     push &actions: append &generated_continuation_table txt
 
-  %sim2c::write_to_delayed_continuation_table: (args*)
+  %compiler::write_to_delayed_continuation_table: (args*)
     $txt string(args*)
     push &actions: append &generated_delayed_continuation_table txt
 
-  %sim2c::write_to_functions: (args*)
+  %compiler::write_to_functions: (args*)
     $txt string(args*)
     push &actions: append &generated_functions txt
 
-  %sim2c::write_to_phase_1: (args*)
+  %compiler::write_to_phase_1: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_1 txt
 
-  %sim2c::write_to_phase_2: (args*)
+  %compiler::write_to_phase_2: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_2 txt
 
-  %sim2c::write_to_phase_3: (args*)
+  %compiler::write_to_phase_3: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_3 txt
 
-  %sim2c::write_to_phase_4: (args*)
+  %compiler::write_to_phase_4: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_4 txt
 
-  %sim2c::write_to_phase_5: (args*)
+  %compiler::write_to_phase_5: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_5 txt
 
-  %sim2c::write_to_phase_6: (args*)
+  %compiler::write_to_phase_6: (args*)
     $txt string(args*)
     push &actions: append &generated_phase_6 txt
 
-  %sim2c::use_literal: (name literal)
+  %compiler::use_literal: (name literal)
     push &actions: !used_literals(name) literal
 
-  %sim2c::write_to_generated_collections: (args*)
+  %compiler::write_to_generated_collections: (args*)
     $txt string(args*)
     push &actions: append &generated_collections txt
 
-  %sim2c::write_to_delayed_statements: (args*)
+  %compiler::write_to_delayed_statements: (args*)
     $txt string(args*)
     push &actions: append &delayed_statements txt
 
-  %sim2c::use_identifier: (ident)
+  %compiler::use_identifier: (ident)
     if ident .has_prefix. "get__":
       $name range(ident 6 -1)
       need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
 
   show_compiler_debug_info "GENERATE DEFINITIONS"
   for_each all_definitions: (stmt_idx defs)
-    %%sim2c::actions empty_list
-    %%sim2c::delayed_code ""
-    %%sim2c::index 0
+    %%compiler::actions empty_list
+    %%compiler::delayed_code ""
+    %%compiler::index 0
     collect_output $code:
       for_each defs: ($definition)
 	$$source undefined
@@ -577,7 +577,7 @@ $sim2c::sim2c:
 	    if attribute.is_defined:
 	      append &name "__"
 	      append &name mangled_name_of(attribute)
-	    %sim2c::suffix string("__" name)
+	    %compiler::suffix string("__" name)
 	    if
 	      source.is_defined && source.is_a_polymorphic_function_constant:
 		define_polymorphic_function definition source.is_a_setter
@@ -598,10 +598,10 @@ $sim2c::sim2c:
     push &actions: append &generated_code code
     push &all_actions actions
   show_compiler_debug_info "GENERATE STATEMENTS"
-  %%sim2c::current_continuation_info undefined
+  %%compiler::current_continuation_info undefined
   do:
-    %%sim2c::actions empty_list
-    %%sim2c::delayed_code ""
+    %%compiler::actions empty_list
+    %%compiler::delayed_code ""
     collect_output $code:
       if
 	is_main:
@@ -633,16 +633,16 @@ $sim2c::sim2c:
     push &all_actions actions
   $def_count length_of(all_definitions)
   for_each all_statements: (stmt_idx stmts)
-    %%sim2c::actions empty_list
-    %%sim2c::delayed_code ""
-    %sim2c::suffix string("__" stmt_idx+def_count)
-    %%sim2c::index 0
+    %%compiler::actions empty_list
+    %%compiler::delayed_code ""
+    %compiler::suffix string("__" stmt_idx+def_count)
+    %%compiler::index 0
     collect_output $code: for_each stmts: (stmt) generate_statement stmt
     if delayed_code != "": write_to_delayed_statements delayed_code
     push &actions: append &generated_code code
     push &all_actions actions
   do:
-    %%sim2c::actions empty_list
+    %%compiler::actions empty_list
     collect_output $code:
       if
 	is_main:

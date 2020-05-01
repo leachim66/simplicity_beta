@@ -25,10 +25,10 @@
   line
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
-$sim2c::cut_into_fragments: (buf)
+$compiler::cut_into_fragments: (buf)
   $$fragments list()
   $$start_idx 1
   $$start_no 1
@@ -42,7 +42,7 @@ $sim2c::cut_into_fragments: (buf)
 	  types::object
 	    .submodule_no_of submodule_no
 	    .line_no_of start_no
-	    .sim2c::text_of range(buf start_idx idx)
+	    .compiler::text_of range(buf start_idx idx)
 	!start_no no
 	!start_idx idx+1
   -> fragments

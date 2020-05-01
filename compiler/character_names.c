@@ -249,12 +249,12 @@ static NODE_GETTER get_value_or_future__std__key_value_pair;
 static NODE_GETTER get__table;
 static NODE_GETTER get_value_or_future__table;
 static struct {
-  NODE *sim2c__character_names;
+  NODE *compiler__character_names;
 } var;
 static const char *var_names[] = {
 };
-static NODE *get__sim2c__character_names(void) {
-  return var.sim2c__character_names;
+static NODE *get__compiler__character_names(void) {
+  return var.compiler__character_names;
 }
 static NODE *string__fa723c15d816ba0;
 static void cont__2_2(void);
@@ -5822,7 +5822,7 @@ static void cont__2_552(void) {
     return;
   }
   frame->slots[275] /* temp__276 */ = arguments->slots[0];
-  // 25: $sim2c::character_names
+  // 25: $compiler::character_names
   // 26:   table
   // 27:     "nul" = '@nul;'
   // 28:     "soh" = '@soh;'
@@ -6121,13 +6121,13 @@ static void cont__2_553(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(var.sim2c__character_names, arguments->slots[0]);
+  initialize_future(var.compiler__character_names, arguments->slots[0]);
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__character_names(void) {
-  var.sim2c__character_names = collect_node(var.sim2c__character_names);
+  var.compiler__character_names = collect_node(var.compiler__character_names);
 }
 
 static int already_run_phase_1 = false;
@@ -6703,7 +6703,7 @@ EXPORT void phase_3__character_names(void) {
   already_run_phase_3 = true;
   set_module("character_names");
   set_used_namespaces(used_namespaces);
-  define_single_assign_static("sim2c", "character_names", get__sim2c__character_names, &var.sim2c__character_names);
+  define_single_assign_static("compiler", "character_names", get__compiler__character_names, &var.compiler__character_names);
 }
 
 static int already_run_phase_4 = false;

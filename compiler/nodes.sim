@@ -26,30 +26,30 @@
 <namespace node>
 
 <using std>
-<using sim2c>
+<using compiler>
 <using node>
 
 #####
 # UNIQUE ITEMS
 #####
 
-$sim2c::NONE .
-$sim2c::ATTRIBUTE_KIND .
-$sim2c::METHOD_KIND .
-$sim2c::NO_PARAMETER .
-$sim2c::IN_PARAMETER .
-$sim2c::IN_OUT_PARAMETER .
-$sim2c::OUT_PARAMETER .
-$sim2c::MYSELF_PARAMETER .
-$sim2c::CONTINUATION_PARAMETER .
-$sim2c::LEFT .
-$sim2c::RIGHT .
-$sim2c::POLYMORPHIC .
-$sim2c::STATIC_SINGLE .
-$sim2c::STATIC_MULTI .
-$sim2c::DYNAMIC_SINGLE .
-$sim2c::DYNAMIC_MULTI .
-$sim2c::C_NODE .
+$compiler::NONE .
+$compiler::ATTRIBUTE_KIND .
+$compiler::METHOD_KIND .
+$compiler::NO_PARAMETER .
+$compiler::IN_PARAMETER .
+$compiler::IN_OUT_PARAMETER .
+$compiler::OUT_PARAMETER .
+$compiler::MYSELF_PARAMETER .
+$compiler::CONTINUATION_PARAMETER .
+$compiler::LEFT .
+$compiler::RIGHT .
+$compiler::POLYMORPHIC .
+$compiler::STATIC_SINGLE .
+$compiler::STATIC_MULTI .
+$compiler::DYNAMIC_SINGLE .
+$compiler::DYNAMIC_MULTI .
+$compiler::C_NODE .
 
 #####
 # POLYMORPHIC FUNCTIONS
@@ -145,38 +145,38 @@ $types::grammar_node.is_an_optional_item false
 $node::is_a_meta_instruction ()
 
 $types::grammar_node.is_a_meta_instruction false
-$sim2c::meta_instruction.is_a_meta_instruction true
-$sim2c::meta_instruction types::grammar_node
+$compiler::meta_instruction.is_a_meta_instruction true
+$compiler::meta_instruction types::grammar_node
 
 ###
 # REQUIRE INSTRUCTION
 
-$sim2c::require_instruction sim2c::meta_instruction
+$compiler::require_instruction compiler::meta_instruction
 
 ###
 # NAMESPACE INSTRUCTION
 
-$sim2c::namespace_instruction sim2c::meta_instruction
+$compiler::namespace_instruction compiler::meta_instruction
 
 ###
 # USING INSTRUCTION
 
-$sim2c::using_instruction sim2c::meta_instruction
+$compiler::using_instruction compiler::meta_instruction
 
 ###
 # INCLUDE INSTRUCTION
 
-$sim2c::include_instruction sim2c::meta_instruction
+$compiler::include_instruction compiler::meta_instruction
 
 ###
 # LINK INSTRUCTION
 
-$sim2c::link_instruction sim2c::meta_instruction
+$compiler::link_instruction compiler::meta_instruction
 
 ###
 # DATA INSTRUCTION
 
-$sim2c::data_instruction sim2c::meta_instruction
+$compiler::data_instruction compiler::meta_instruction
 
 ###
 # REMARK_STATEMENT
@@ -184,8 +184,8 @@ $sim2c::data_instruction sim2c::meta_instruction
 $node::is_a_remark ()
 
 $types::grammar_node.is_a_remark false
-$sim2c::remark_statement.is_a_remark true
-$sim2c::remark_statement sim2c::statement
+$compiler::remark_statement.is_a_remark true
+$compiler::remark_statement compiler::statement
 
 ###
 # BODY
@@ -193,25 +193,25 @@ $sim2c::remark_statement sim2c::statement
 $node::is_a_body ()
 
 $types::grammar_node.is_a_body false
-$sim2c::body.is_a_body true
+$compiler::body.is_a_body true
 
 $node::defines_a_dynamic ()
 
-$sim2c::body types::grammar_node
-$sim2c::body.is_a_constant true
-$sim2c::body.defines_a_dynamic false
-$sim2c::body.definitions_of empty_list
-$sim2c::body.statements_of empty_list
-$sim2c::body.parameters_of empty_list
-$sim2c::body.defined_names_of types::insert_order_table
-$sim2c::body.inherited_names_of types::insert_order_table
-$sim2c::body.used_names_of types::insert_order_table
-$sim2c::body.arguments_of empty_list # for remarks!
+$compiler::body types::grammar_node
+$compiler::body.is_a_constant true
+$compiler::body.defines_a_dynamic false
+$compiler::body.definitions_of empty_list
+$compiler::body.statements_of empty_list
+$compiler::body.parameters_of empty_list
+$compiler::body.defined_names_of types::insert_order_table
+$compiler::body.inherited_names_of types::insert_order_table
+$compiler::body.used_names_of types::insert_order_table
+$compiler::body.arguments_of empty_list # for remarks!
 
 ###
 # STATEMENT
 
-$sim2c::statement types::grammar_node
+$compiler::statement types::grammar_node
 
 ###
 # CALL
@@ -219,19 +219,19 @@ $sim2c::statement types::grammar_node
 $node::is_a_call ()
 
 $types::grammar_node.is_a_call false
-$sim2c::call.is_a_call true
-$sim2c::call sim2c::statement
-$sim2c::call.output_arguments_of empty_list
-$sim2c::call.arguments_of empty_list
+$compiler::call.is_a_call true
+$compiler::call compiler::statement
+$compiler::call.output_arguments_of empty_list
+$compiler::call.arguments_of empty_list
 
 ###
 # PROCEDURE CALL
 
 $node::is_a_procedure_call ()
 
-$sim2c::call.is_a_procedure_call false
-$sim2c::procedure_call.is_a_procedure_call true
-$sim2c::procedure_call sim2c::call
+$compiler::call.is_a_procedure_call false
+$compiler::procedure_call.is_a_procedure_call true
+$compiler::procedure_call compiler::call
 
 ###
 # RETURN STATEMENT
@@ -239,17 +239,17 @@ $sim2c::procedure_call sim2c::call
 $node::is_a_return ()
 
 $types::grammar_node.is_a_return false
-$sim2c::return_statement.is_a_return true
-$sim2c::return_statement sim2c::call
+$compiler::return_statement.is_a_return true
+$compiler::return_statement compiler::call
 
 ###
 # ASSIGNMENT
 
 $node::is_an_assignment ()
 
-$sim2c::call.is_an_assignment false
-$sim2c::assignment.is_an_assignment true
-$sim2c::assignment sim2c::call
+$compiler::call.is_an_assignment false
+$compiler::assignment.is_an_assignment true
+$compiler::assignment compiler::call
 
 ###
 # DEFINITION
@@ -257,10 +257,10 @@ $sim2c::assignment sim2c::call
 $node::is_a_definition ()
 
 $types::grammar_node.is_a_definition false
-$sim2c::definition.is_a_definition true
-$sim2c::definition types::grammar_node
-$sim2c::definition.attribute_kind_of NONE
-$sim2c::definition.parameter_kind_of NO_PARAMETER
+$compiler::definition.is_a_definition true
+$compiler::definition types::grammar_node
+$compiler::definition.attribute_kind_of NONE
+$compiler::definition.parameter_kind_of NO_PARAMETER
 
 ###
 # DEFINE STATIC SINGLE
@@ -268,11 +268,11 @@ $sim2c::definition.parameter_kind_of NO_PARAMETER
 $node::is_a_static_single_definition ()
 
 $types::grammar_node.is_a_static_single_definition false
-$sim2c::define_static_single.is_a_static_single_definition true
-$sim2c::define_static_single sim2c::definition
-$sim2c::define_static_single.is_a_single_assign_definition true
-$sim2c::define_static_single.is_a_static_definition true
-$sim2c::define_static_single.variable_kind_of STATIC_SINGLE
+$compiler::define_static_single.is_a_static_single_definition true
+$compiler::define_static_single compiler::definition
+$compiler::define_static_single.is_a_single_assign_definition true
+$compiler::define_static_single.is_a_static_definition true
+$compiler::define_static_single.variable_kind_of STATIC_SINGLE
 
 ###
 # DEFINE STATIC MULTI
@@ -280,11 +280,11 @@ $sim2c::define_static_single.variable_kind_of STATIC_SINGLE
 $node::is_a_static_multi_definition ()
 
 $types::grammar_node.is_a_static_multi_definition false
-$sim2c::define_static_multi.is_a_static_multi_definition true
-$sim2c::define_static_multi sim2c::definition
-$sim2c::define_static_multi.is_a_multi_assign_definition true
-$sim2c::define_static_multi.is_a_static_definition true
-$sim2c::define_static_multi.variable_kind_of STATIC_MULTI
+$compiler::define_static_multi.is_a_static_multi_definition true
+$compiler::define_static_multi compiler::definition
+$compiler::define_static_multi.is_a_multi_assign_definition true
+$compiler::define_static_multi.is_a_static_definition true
+$compiler::define_static_multi.variable_kind_of STATIC_MULTI
 
 ###
 # DEFINE DYNAMIC SINGLE
@@ -292,11 +292,11 @@ $sim2c::define_static_multi.variable_kind_of STATIC_MULTI
 $node::is_a_dynamic_single_definition ()
 
 $types::grammar_node.is_a_dynamic_single_definition false
-$sim2c::define_dynamic_single.is_a_dynamic_single_definition true
-$sim2c::define_dynamic_single sim2c::definition
-$sim2c::define_dynamic_single.is_a_single_assign_definition true
-$sim2c::define_dynamic_single.is_a_dynamic_definition true
-$sim2c::define_dynamic_single.variable_kind_of DYNAMIC_SINGLE
+$compiler::define_dynamic_single.is_a_dynamic_single_definition true
+$compiler::define_dynamic_single compiler::definition
+$compiler::define_dynamic_single.is_a_single_assign_definition true
+$compiler::define_dynamic_single.is_a_dynamic_definition true
+$compiler::define_dynamic_single.variable_kind_of DYNAMIC_SINGLE
 
 ###
 # DEFINE DYNAMIC MULTI
@@ -304,11 +304,11 @@ $sim2c::define_dynamic_single.variable_kind_of DYNAMIC_SINGLE
 $node::is_a_dynamic_multi_definition ()
 
 $types::grammar_node.is_a_dynamic_multi_definition false
-$sim2c::define_dynamic_multi.is_a_dynamic_multi_definition true
-$sim2c::define_dynamic_multi sim2c::definition
-$sim2c::define_dynamic_multi.is_a_multi_assign_definition true
-$sim2c::define_dynamic_multi.is_a_dynamic_definition true
-$sim2c::define_dynamic_multi.variable_kind_of DYNAMIC_MULTI
+$compiler::define_dynamic_multi.is_a_dynamic_multi_definition true
+$compiler::define_dynamic_multi compiler::definition
+$compiler::define_dynamic_multi.is_a_multi_assign_definition true
+$compiler::define_dynamic_multi.is_a_dynamic_definition true
+$compiler::define_dynamic_multi.variable_kind_of DYNAMIC_MULTI
 
 ###
 # FUNCTION CALL
@@ -316,14 +316,14 @@ $sim2c::define_dynamic_multi.variable_kind_of DYNAMIC_MULTI
 $node::is_a_function_call ()
 
 $types::grammar_node.is_a_function_call false
-$sim2c::function_call.is_a_function_call true
-$sim2c::function_call types::grammar_node
-$sim2c::function_call.is_a_method_definition false
-$sim2c::function_call.is_an_attribute_access false
-$sim2c::function_call.is_in_infix_notation false
-$sim2c::function_call.is_a_string_template false
-$sim2c::function_call.arguments_of empty_list
-$sim2c::function_call.output_arguments_of empty_list
+$compiler::function_call.is_a_function_call true
+$compiler::function_call types::grammar_node
+$compiler::function_call.is_a_method_definition false
+$compiler::function_call.is_an_attribute_access false
+$compiler::function_call.is_in_infix_notation false
+$compiler::function_call.is_a_string_template false
+$compiler::function_call.arguments_of empty_list
+$compiler::function_call.output_arguments_of empty_list
 
 ###
 # EXPRESSION
@@ -332,10 +332,10 @@ $sim2c::function_call.output_arguments_of empty_list
 $node::is_an_expression ()
 
 $types::grammar_node.is_an_expression false
-$sim2c::expression.is_an_expression true
-$sim2c::expression types::grammar_node
-$sim2c::expression.arguments_of empty_list
-$sim2c::expression.operators_of empty_list
+$compiler::expression.is_an_expression true
+$compiler::expression types::grammar_node
+$compiler::expression.arguments_of empty_list
+$compiler::expression.operators_of empty_list
 
 ###
 # BACKQUOTED
@@ -343,8 +343,8 @@ $sim2c::expression.operators_of empty_list
 $node::is_a_backquoted_expression ()
 
 $types::grammar_node.is_a_backquoted_expression false
-$sim2c::backquoted.is_a_backquoted_expression true
-$sim2c::backquoted types::grammar_node
+$compiler::backquoted.is_a_backquoted_expression true
+$compiler::backquoted types::grammar_node
 
 ###
 # ATTRIBUTE VALUE PAIR
@@ -352,9 +352,9 @@ $sim2c::backquoted types::grammar_node
 $node::is_an_attribute_value_pair ()
 
 $types::grammar_node.is_an_attribute_value_pair false
-$sim2c::attribute_value_pair.is_an_attribute_value_pair true
-$sim2c::attribute_value_pair types::grammar_node
-$sim2c::attribute_value_pair.arguments_of empty_list
+$compiler::attribute_value_pair.is_an_attribute_value_pair true
+$compiler::attribute_value_pair types::grammar_node
+$compiler::attribute_value_pair.arguments_of empty_list
 
 ###
 # ATTRIBUTE FUNCTION PAIR
@@ -362,8 +362,8 @@ $sim2c::attribute_value_pair.arguments_of empty_list
 $node::is_an_attribute_function_pair ()
 
 $types::grammar_node.is_an_attribute_function_pair false
-$sim2c::attribute_function_pair.is_an_attribute_function_pair true
-$sim2c::attribute_function_pair sim2c::attribute_value_pair
+$compiler::attribute_function_pair.is_an_attribute_function_pair true
+$compiler::attribute_function_pair compiler::attribute_value_pair
 
 ###
 # NUMERIC LITERAL
@@ -371,11 +371,11 @@ $sim2c::attribute_function_pair sim2c::attribute_value_pair
 $node::is_a_numeric_literal ()
 
 $types::grammar_node.is_a_numeric_literal false
-$sim2c::numeric_literal.is_a_numeric_literal true
-$sim2c::numeric_literal types::grammar_node
-$sim2c::numeric_literal.is_a_constant true
+$compiler::numeric_literal.is_a_numeric_literal true
+$compiler::numeric_literal types::grammar_node
+$compiler::numeric_literal.is_a_constant true
 
-$sim2c::numeric_literal/mangled_name_of: (self)
+$compiler::numeric_literal/mangled_name_of: (self)
   -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
 
 ###
@@ -384,10 +384,10 @@ $sim2c::numeric_literal/mangled_name_of: (self)
 $node::is_a_character_literal ()
 
 $types::grammar_node.is_a_character_literal false
-$sim2c::character_literal.is_a_character_literal true
-$sim2c::character_literal types::grammar_node
-$sim2c::character_literal.is_a_constant true
-$sim2c::character_literal.is_in_numeric_notation false
+$compiler::character_literal.is_a_character_literal true
+$compiler::character_literal types::grammar_node
+$compiler::character_literal.is_a_constant true
+$compiler::character_literal.is_in_numeric_notation false
 
 ###
 # STRING LITERAL
@@ -395,18 +395,18 @@ $sim2c::character_literal.is_in_numeric_notation false
 $node::is_a_string_literal ()
 
 $types::grammar_node.is_a_string_literal false
-$sim2c::string_literal.is_a_string_literal true
-$sim2c::string_literal types::grammar_node
-$sim2c::string_literal.is_a_constant true
-$sim2c::string_literal.node::text_of ""
-$sim2c::string_literal.arguments_of empty_list
+$compiler::string_literal.is_a_string_literal true
+$compiler::string_literal types::grammar_node
+$compiler::string_literal.is_a_constant true
+$compiler::string_literal.node::text_of ""
+$compiler::string_literal.arguments_of empty_list
 
 ###
 # MULTI-LINE STRING
 
-$sim2c::multi_line_string sim2c::string_literal
-$sim2c::multi_line_string.node::line_end_specifier_of "@nl;"
-$sim2c::multi_line_string.node::last_line_end_specifier_of "@nl;"
+$compiler::multi_line_string compiler::string_literal
+$compiler::multi_line_string.node::line_end_specifier_of "@nl;"
+$compiler::multi_line_string.node::last_line_end_specifier_of "@nl;"
 
 ###
 # UNIQUE ITEM
@@ -414,9 +414,9 @@ $sim2c::multi_line_string.node::last_line_end_specifier_of "@nl;"
 $node::is_a_unique_item_constant ()
 
 $types::grammar_node.is_a_unique_item_constant false
-$sim2c::unique_item.is_a_unique_item_constant true
-$sim2c::unique_item types::grammar_node
-$sim2c::unique_item.is_a_constant true
+$compiler::unique_item.is_a_unique_item_constant true
+$compiler::unique_item types::grammar_node
+$compiler::unique_item.is_a_constant true
 
 ###
 # POLYMORPHIC FUNCTION
@@ -424,16 +424,16 @@ $sim2c::unique_item.is_a_constant true
 $node::is_a_polymorphic_function_constant ()
 
 $types::grammar_node.is_a_polymorphic_function_constant false
-$sim2c::polymorphic_function.is_a_polymorphic_function_constant true
-$sim2c::polymorphic_function types::grammar_node
-$sim2c::polymorphic_function.is_a_constant true
-$sim2c::polymorphic_function.is_a_setter false
+$compiler::polymorphic_function.is_a_polymorphic_function_constant true
+$compiler::polymorphic_function types::grammar_node
+$compiler::polymorphic_function.is_a_constant true
+$compiler::polymorphic_function.is_a_setter false
 
 ###
 # POLYMORPHIC FUNCTION WITH SETTER
 
-$sim2c::polymorphic_function_with_setter sim2c::polymorphic_function
-$sim2c::polymorphic_function_with_setter.is_a_setter true
+$compiler::polymorphic_function_with_setter compiler::polymorphic_function
+$compiler::polymorphic_function_with_setter.is_a_setter true
 
 ###
 # IDENTIFIER
@@ -441,7 +441,7 @@ $sim2c::polymorphic_function_with_setter.is_a_setter true
 $node::is_an_identifier ()
 
 $types::grammar_node.is_an_identifier false
-$sim2c::identifier.is_an_identifier true
+$compiler::identifier.is_an_identifier true
 
 $node::is_a_destination ()
 
@@ -449,11 +449,11 @@ $types::grammar_node.is_a_destination false
 
 $node::is_used_as_a_polymorphic_function ()
 
-$sim2c::identifier.is_used_as_a_polymorphic_function false
-$sim2c::identifier.is_not_used false
-$sim2c::identifier types::grammar_node
+$compiler::identifier.is_used_as_a_polymorphic_function false
+$compiler::identifier.is_not_used false
+$compiler::identifier types::grammar_node
 
-$sim2c::identifier/full_name_of: (self)
+$compiler::identifier/full_name_of: (self)
   ->
     string
       if
@@ -462,7 +462,7 @@ $sim2c::identifier/full_name_of: (self)
 	-> ""
       name_of(self)
 
-$sim2c::identifier/mangled_name_of: (self)
+$compiler::identifier/mangled_name_of: (self)
   ->
     string
       if
@@ -477,8 +477,8 @@ $sim2c::identifier/mangled_name_of: (self)
 $node::is_a_temporary ()
 
 $types::grammar_node.is_a_temporary false
-$sim2c::temporary.is_a_temporary true
-$sim2c::temporary sim2c::identifier
+$compiler::temporary.is_a_temporary true
+$compiler::temporary compiler::identifier
 
 ###
 # OPERATOR SYMBOL
@@ -486,8 +486,8 @@ $sim2c::temporary sim2c::identifier
 $node::is_an_operator_symbol ()
 
 $types::grammar_node.is_an_operator_symbol false
-$sim2c::operator_symbol.is_an_operator_symbol true
-$sim2c::operator_symbol sim2c::identifier
+$compiler::operator_symbol.is_an_operator_symbol true
+$compiler::operator_symbol compiler::identifier
 
 ###
 # C-CODE
@@ -495,10 +495,10 @@ $sim2c::operator_symbol sim2c::identifier
 $node::is_c_code ()
 
 $types::grammar_node.is_c_code false
-$sim2c::c_code.is_c_code true
-$sim2c::c_code types::grammar_node
-$sim2c::c_code.scope_of "local"
-$sim2c::c_code.arguments_of empty_list
+$compiler::c_code.is_c_code true
+$compiler::c_code types::grammar_node
+$compiler::c_code.scope_of "local"
+$compiler::c_code.arguments_of empty_list
 
 ###
 # C-BODY
@@ -506,11 +506,11 @@ $sim2c::c_code.arguments_of empty_list
 $node::is_a_c_body ()
 
 $types::grammar_node.is_a_c_body false
-$sim2c::c_body.is_a_c_body true
-$sim2c::c_body sim2c::c_code
-$sim2c::c_body.is_a_constant true
+$compiler::c_body.is_a_c_body true
+$compiler::c_body compiler::c_code
+$compiler::c_body.is_a_constant true
 
 ###
 # Test Functions
 
-$sim2c::is_a_parameter: (self) -> parameter_kind_of(self) != NO_PARAMETER
+$compiler::is_a_parameter: (self) -> parameter_kind_of(self) != NO_PARAMETER

@@ -439,23 +439,23 @@ static NODE_GETTER get__used_names_of;
 static int poly_idx__variable_kind_of;
 static NODE_GETTER get__variable_kind_of;
 static struct {
-  NODE *sim2c__NONE;
-  NODE *sim2c__ATTRIBUTE_KIND;
-  NODE *sim2c__METHOD_KIND;
-  NODE *sim2c__NO_PARAMETER;
-  NODE *sim2c__IN_PARAMETER;
-  NODE *sim2c__IN_OUT_PARAMETER;
-  NODE *sim2c__OUT_PARAMETER;
-  NODE *sim2c__MYSELF_PARAMETER;
-  NODE *sim2c__CONTINUATION_PARAMETER;
-  NODE *sim2c__LEFT;
-  NODE *sim2c__RIGHT;
-  NODE *sim2c__POLYMORPHIC;
-  NODE *sim2c__STATIC_SINGLE;
-  NODE *sim2c__STATIC_MULTI;
-  NODE *sim2c__DYNAMIC_SINGLE;
-  NODE *sim2c__DYNAMIC_MULTI;
-  NODE *sim2c__C_NODE;
+  NODE *compiler__NONE;
+  NODE *compiler__ATTRIBUTE_KIND;
+  NODE *compiler__METHOD_KIND;
+  NODE *compiler__NO_PARAMETER;
+  NODE *compiler__IN_PARAMETER;
+  NODE *compiler__IN_OUT_PARAMETER;
+  NODE *compiler__OUT_PARAMETER;
+  NODE *compiler__MYSELF_PARAMETER;
+  NODE *compiler__CONTINUATION_PARAMETER;
+  NODE *compiler__LEFT;
+  NODE *compiler__RIGHT;
+  NODE *compiler__POLYMORPHIC;
+  NODE *compiler__STATIC_SINGLE;
+  NODE *compiler__STATIC_MULTI;
+  NODE *compiler__DYNAMIC_SINGLE;
+  NODE *compiler__DYNAMIC_MULTI;
+  NODE *compiler__C_NODE;
   NODE *node__argument_of;
   NODE *node__arguments_of;
   NODE *node__attribute_kind_of;
@@ -523,142 +523,142 @@ static struct {
   NODE *node__value_of;
   NODE *node__variable_kind_of;
   NODE *node__is_a_meta_instruction;
-  NODE *sim2c__meta_instruction;
-  NODE *sim2c__require_instruction;
-  NODE *sim2c__namespace_instruction;
-  NODE *sim2c__using_instruction;
-  NODE *sim2c__include_instruction;
-  NODE *sim2c__link_instruction;
-  NODE *sim2c__data_instruction;
+  NODE *compiler__meta_instruction;
+  NODE *compiler__require_instruction;
+  NODE *compiler__namespace_instruction;
+  NODE *compiler__using_instruction;
+  NODE *compiler__include_instruction;
+  NODE *compiler__link_instruction;
+  NODE *compiler__data_instruction;
   NODE *node__is_a_remark;
-  NODE *sim2c__remark_statement;
+  NODE *compiler__remark_statement;
   NODE *node__is_a_body;
   NODE *node__defines_a_dynamic;
-  NODE *sim2c__body;
-  NODE *sim2c__statement;
+  NODE *compiler__body;
+  NODE *compiler__statement;
   NODE *node__is_a_call;
-  NODE *sim2c__call;
+  NODE *compiler__call;
   NODE *node__is_a_procedure_call;
-  NODE *sim2c__procedure_call;
+  NODE *compiler__procedure_call;
   NODE *node__is_a_return;
-  NODE *sim2c__return_statement;
+  NODE *compiler__return_statement;
   NODE *node__is_an_assignment;
-  NODE *sim2c__assignment;
+  NODE *compiler__assignment;
   NODE *node__is_a_definition;
-  NODE *sim2c__definition;
+  NODE *compiler__definition;
   NODE *node__is_a_static_single_definition;
-  NODE *sim2c__define_static_single;
+  NODE *compiler__define_static_single;
   NODE *node__is_a_static_multi_definition;
-  NODE *sim2c__define_static_multi;
+  NODE *compiler__define_static_multi;
   NODE *node__is_a_dynamic_single_definition;
-  NODE *sim2c__define_dynamic_single;
+  NODE *compiler__define_dynamic_single;
   NODE *node__is_a_dynamic_multi_definition;
-  NODE *sim2c__define_dynamic_multi;
+  NODE *compiler__define_dynamic_multi;
   NODE *node__is_a_function_call;
-  NODE *sim2c__function_call;
+  NODE *compiler__function_call;
   NODE *node__is_an_expression;
-  NODE *sim2c__expression;
+  NODE *compiler__expression;
   NODE *node__is_a_backquoted_expression;
-  NODE *sim2c__backquoted;
+  NODE *compiler__backquoted;
   NODE *node__is_an_attribute_value_pair;
-  NODE *sim2c__attribute_value_pair;
+  NODE *compiler__attribute_value_pair;
   NODE *node__is_an_attribute_function_pair;
-  NODE *sim2c__attribute_function_pair;
+  NODE *compiler__attribute_function_pair;
   NODE *node__is_a_numeric_literal;
-  NODE *sim2c__numeric_literal;
+  NODE *compiler__numeric_literal;
   NODE *node__is_a_character_literal;
-  NODE *sim2c__character_literal;
+  NODE *compiler__character_literal;
   NODE *node__is_a_string_literal;
-  NODE *sim2c__string_literal;
-  NODE *sim2c__multi_line_string;
+  NODE *compiler__string_literal;
+  NODE *compiler__multi_line_string;
   NODE *node__is_a_unique_item_constant;
-  NODE *sim2c__unique_item;
+  NODE *compiler__unique_item;
   NODE *node__is_a_polymorphic_function_constant;
-  NODE *sim2c__polymorphic_function;
-  NODE *sim2c__polymorphic_function_with_setter;
+  NODE *compiler__polymorphic_function;
+  NODE *compiler__polymorphic_function_with_setter;
   NODE *node__is_an_identifier;
   NODE *node__is_a_destination;
   NODE *node__is_used_as_a_polymorphic_function;
-  NODE *sim2c__identifier;
+  NODE *compiler__identifier;
   NODE *node__is_a_temporary;
-  NODE *sim2c__temporary;
+  NODE *compiler__temporary;
   NODE *node__is_an_operator_symbol;
-  NODE *sim2c__operator_symbol;
+  NODE *compiler__operator_symbol;
   NODE *node__is_c_code;
-  NODE *sim2c__c_code;
+  NODE *compiler__c_code;
   NODE *node__is_a_c_body;
-  NODE *sim2c__c_body;
-  NODE *sim2c__is_a_parameter;
+  NODE *compiler__c_body;
+  NODE *compiler__is_a_parameter;
 } var;
 static const char *var_names[] = {
 };
-static NODE *unique__sim2c__NONE;
-static NODE *get__sim2c__NONE(void) {
-  return var.sim2c__NONE;
+static NODE *unique__compiler__NONE;
+static NODE *get__compiler__NONE(void) {
+  return var.compiler__NONE;
 }
-static NODE *unique__sim2c__ATTRIBUTE_KIND;
-static NODE *get__sim2c__ATTRIBUTE_KIND(void) {
-  return var.sim2c__ATTRIBUTE_KIND;
+static NODE *unique__compiler__ATTRIBUTE_KIND;
+static NODE *get__compiler__ATTRIBUTE_KIND(void) {
+  return var.compiler__ATTRIBUTE_KIND;
 }
-static NODE *unique__sim2c__METHOD_KIND;
-static NODE *get__sim2c__METHOD_KIND(void) {
-  return var.sim2c__METHOD_KIND;
+static NODE *unique__compiler__METHOD_KIND;
+static NODE *get__compiler__METHOD_KIND(void) {
+  return var.compiler__METHOD_KIND;
 }
-static NODE *unique__sim2c__NO_PARAMETER;
-static NODE *get__sim2c__NO_PARAMETER(void) {
-  return var.sim2c__NO_PARAMETER;
+static NODE *unique__compiler__NO_PARAMETER;
+static NODE *get__compiler__NO_PARAMETER(void) {
+  return var.compiler__NO_PARAMETER;
 }
-static NODE *unique__sim2c__IN_PARAMETER;
-static NODE *get__sim2c__IN_PARAMETER(void) {
-  return var.sim2c__IN_PARAMETER;
+static NODE *unique__compiler__IN_PARAMETER;
+static NODE *get__compiler__IN_PARAMETER(void) {
+  return var.compiler__IN_PARAMETER;
 }
-static NODE *unique__sim2c__IN_OUT_PARAMETER;
-static NODE *get__sim2c__IN_OUT_PARAMETER(void) {
-  return var.sim2c__IN_OUT_PARAMETER;
+static NODE *unique__compiler__IN_OUT_PARAMETER;
+static NODE *get__compiler__IN_OUT_PARAMETER(void) {
+  return var.compiler__IN_OUT_PARAMETER;
 }
-static NODE *unique__sim2c__OUT_PARAMETER;
-static NODE *get__sim2c__OUT_PARAMETER(void) {
-  return var.sim2c__OUT_PARAMETER;
+static NODE *unique__compiler__OUT_PARAMETER;
+static NODE *get__compiler__OUT_PARAMETER(void) {
+  return var.compiler__OUT_PARAMETER;
 }
-static NODE *unique__sim2c__MYSELF_PARAMETER;
-static NODE *get__sim2c__MYSELF_PARAMETER(void) {
-  return var.sim2c__MYSELF_PARAMETER;
+static NODE *unique__compiler__MYSELF_PARAMETER;
+static NODE *get__compiler__MYSELF_PARAMETER(void) {
+  return var.compiler__MYSELF_PARAMETER;
 }
-static NODE *unique__sim2c__CONTINUATION_PARAMETER;
-static NODE *get__sim2c__CONTINUATION_PARAMETER(void) {
-  return var.sim2c__CONTINUATION_PARAMETER;
+static NODE *unique__compiler__CONTINUATION_PARAMETER;
+static NODE *get__compiler__CONTINUATION_PARAMETER(void) {
+  return var.compiler__CONTINUATION_PARAMETER;
 }
-static NODE *unique__sim2c__LEFT;
-static NODE *get__sim2c__LEFT(void) {
-  return var.sim2c__LEFT;
+static NODE *unique__compiler__LEFT;
+static NODE *get__compiler__LEFT(void) {
+  return var.compiler__LEFT;
 }
-static NODE *unique__sim2c__RIGHT;
-static NODE *get__sim2c__RIGHT(void) {
-  return var.sim2c__RIGHT;
+static NODE *unique__compiler__RIGHT;
+static NODE *get__compiler__RIGHT(void) {
+  return var.compiler__RIGHT;
 }
-static NODE *unique__sim2c__POLYMORPHIC;
-static NODE *get__sim2c__POLYMORPHIC(void) {
-  return var.sim2c__POLYMORPHIC;
+static NODE *unique__compiler__POLYMORPHIC;
+static NODE *get__compiler__POLYMORPHIC(void) {
+  return var.compiler__POLYMORPHIC;
 }
-static NODE *unique__sim2c__STATIC_SINGLE;
-static NODE *get__sim2c__STATIC_SINGLE(void) {
-  return var.sim2c__STATIC_SINGLE;
+static NODE *unique__compiler__STATIC_SINGLE;
+static NODE *get__compiler__STATIC_SINGLE(void) {
+  return var.compiler__STATIC_SINGLE;
 }
-static NODE *unique__sim2c__STATIC_MULTI;
-static NODE *get__sim2c__STATIC_MULTI(void) {
-  return var.sim2c__STATIC_MULTI;
+static NODE *unique__compiler__STATIC_MULTI;
+static NODE *get__compiler__STATIC_MULTI(void) {
+  return var.compiler__STATIC_MULTI;
 }
-static NODE *unique__sim2c__DYNAMIC_SINGLE;
-static NODE *get__sim2c__DYNAMIC_SINGLE(void) {
-  return var.sim2c__DYNAMIC_SINGLE;
+static NODE *unique__compiler__DYNAMIC_SINGLE;
+static NODE *get__compiler__DYNAMIC_SINGLE(void) {
+  return var.compiler__DYNAMIC_SINGLE;
 }
-static NODE *unique__sim2c__DYNAMIC_MULTI;
-static NODE *get__sim2c__DYNAMIC_MULTI(void) {
-  return var.sim2c__DYNAMIC_MULTI;
+static NODE *unique__compiler__DYNAMIC_MULTI;
+static NODE *get__compiler__DYNAMIC_MULTI(void) {
+  return var.compiler__DYNAMIC_MULTI;
 }
-static NODE *unique__sim2c__C_NODE;
-static NODE *get__sim2c__C_NODE(void) {
-  return var.sim2c__C_NODE;
+static NODE *unique__compiler__C_NODE;
+static NODE *get__compiler__C_NODE(void) {
+  return var.compiler__C_NODE;
 }
 static int poly_idx__node__argument_of;
 static void type__node__argument_of(void);
@@ -995,34 +995,34 @@ static void type__node__is_a_meta_instruction(void);
 static NODE *get__node__is_a_meta_instruction(void) {
   return var.node__is_a_meta_instruction;
 }
-static NODE *get__sim2c__meta_instruction(void) {
-  return var.sim2c__meta_instruction;
+static NODE *get__compiler__meta_instruction(void) {
+  return var.compiler__meta_instruction;
 }
-static NODE *get__sim2c__require_instruction(void) {
-  return var.sim2c__require_instruction;
+static NODE *get__compiler__require_instruction(void) {
+  return var.compiler__require_instruction;
 }
-static NODE *get__sim2c__namespace_instruction(void) {
-  return var.sim2c__namespace_instruction;
+static NODE *get__compiler__namespace_instruction(void) {
+  return var.compiler__namespace_instruction;
 }
-static NODE *get__sim2c__using_instruction(void) {
-  return var.sim2c__using_instruction;
+static NODE *get__compiler__using_instruction(void) {
+  return var.compiler__using_instruction;
 }
-static NODE *get__sim2c__include_instruction(void) {
-  return var.sim2c__include_instruction;
+static NODE *get__compiler__include_instruction(void) {
+  return var.compiler__include_instruction;
 }
-static NODE *get__sim2c__link_instruction(void) {
-  return var.sim2c__link_instruction;
+static NODE *get__compiler__link_instruction(void) {
+  return var.compiler__link_instruction;
 }
-static NODE *get__sim2c__data_instruction(void) {
-  return var.sim2c__data_instruction;
+static NODE *get__compiler__data_instruction(void) {
+  return var.compiler__data_instruction;
 }
 static int poly_idx__node__is_a_remark;
 static void type__node__is_a_remark(void);
 static NODE *get__node__is_a_remark(void) {
   return var.node__is_a_remark;
 }
-static NODE *get__sim2c__remark_statement(void) {
-  return var.sim2c__remark_statement;
+static NODE *get__compiler__remark_statement(void) {
+  return var.compiler__remark_statement;
 }
 static int poly_idx__node__is_a_body;
 static void type__node__is_a_body(void);
@@ -1034,158 +1034,158 @@ static void type__node__defines_a_dynamic(void);
 static NODE *get__node__defines_a_dynamic(void) {
   return var.node__defines_a_dynamic;
 }
-static NODE *get__sim2c__body(void) {
-  return var.sim2c__body;
+static NODE *get__compiler__body(void) {
+  return var.compiler__body;
 }
-static NODE *get__sim2c__statement(void) {
-  return var.sim2c__statement;
+static NODE *get__compiler__statement(void) {
+  return var.compiler__statement;
 }
 static int poly_idx__node__is_a_call;
 static void type__node__is_a_call(void);
 static NODE *get__node__is_a_call(void) {
   return var.node__is_a_call;
 }
-static NODE *get__sim2c__call(void) {
-  return var.sim2c__call;
+static NODE *get__compiler__call(void) {
+  return var.compiler__call;
 }
 static int poly_idx__node__is_a_procedure_call;
 static void type__node__is_a_procedure_call(void);
 static NODE *get__node__is_a_procedure_call(void) {
   return var.node__is_a_procedure_call;
 }
-static NODE *get__sim2c__procedure_call(void) {
-  return var.sim2c__procedure_call;
+static NODE *get__compiler__procedure_call(void) {
+  return var.compiler__procedure_call;
 }
 static int poly_idx__node__is_a_return;
 static void type__node__is_a_return(void);
 static NODE *get__node__is_a_return(void) {
   return var.node__is_a_return;
 }
-static NODE *get__sim2c__return_statement(void) {
-  return var.sim2c__return_statement;
+static NODE *get__compiler__return_statement(void) {
+  return var.compiler__return_statement;
 }
 static int poly_idx__node__is_an_assignment;
 static void type__node__is_an_assignment(void);
 static NODE *get__node__is_an_assignment(void) {
   return var.node__is_an_assignment;
 }
-static NODE *get__sim2c__assignment(void) {
-  return var.sim2c__assignment;
+static NODE *get__compiler__assignment(void) {
+  return var.compiler__assignment;
 }
 static int poly_idx__node__is_a_definition;
 static void type__node__is_a_definition(void);
 static NODE *get__node__is_a_definition(void) {
   return var.node__is_a_definition;
 }
-static NODE *get__sim2c__definition(void) {
-  return var.sim2c__definition;
+static NODE *get__compiler__definition(void) {
+  return var.compiler__definition;
 }
 static int poly_idx__node__is_a_static_single_definition;
 static void type__node__is_a_static_single_definition(void);
 static NODE *get__node__is_a_static_single_definition(void) {
   return var.node__is_a_static_single_definition;
 }
-static NODE *get__sim2c__define_static_single(void) {
-  return var.sim2c__define_static_single;
+static NODE *get__compiler__define_static_single(void) {
+  return var.compiler__define_static_single;
 }
 static int poly_idx__node__is_a_static_multi_definition;
 static void type__node__is_a_static_multi_definition(void);
 static NODE *get__node__is_a_static_multi_definition(void) {
   return var.node__is_a_static_multi_definition;
 }
-static NODE *get__sim2c__define_static_multi(void) {
-  return var.sim2c__define_static_multi;
+static NODE *get__compiler__define_static_multi(void) {
+  return var.compiler__define_static_multi;
 }
 static int poly_idx__node__is_a_dynamic_single_definition;
 static void type__node__is_a_dynamic_single_definition(void);
 static NODE *get__node__is_a_dynamic_single_definition(void) {
   return var.node__is_a_dynamic_single_definition;
 }
-static NODE *get__sim2c__define_dynamic_single(void) {
-  return var.sim2c__define_dynamic_single;
+static NODE *get__compiler__define_dynamic_single(void) {
+  return var.compiler__define_dynamic_single;
 }
 static int poly_idx__node__is_a_dynamic_multi_definition;
 static void type__node__is_a_dynamic_multi_definition(void);
 static NODE *get__node__is_a_dynamic_multi_definition(void) {
   return var.node__is_a_dynamic_multi_definition;
 }
-static NODE *get__sim2c__define_dynamic_multi(void) {
-  return var.sim2c__define_dynamic_multi;
+static NODE *get__compiler__define_dynamic_multi(void) {
+  return var.compiler__define_dynamic_multi;
 }
 static int poly_idx__node__is_a_function_call;
 static void type__node__is_a_function_call(void);
 static NODE *get__node__is_a_function_call(void) {
   return var.node__is_a_function_call;
 }
-static NODE *get__sim2c__function_call(void) {
-  return var.sim2c__function_call;
+static NODE *get__compiler__function_call(void) {
+  return var.compiler__function_call;
 }
 static int poly_idx__node__is_an_expression;
 static void type__node__is_an_expression(void);
 static NODE *get__node__is_an_expression(void) {
   return var.node__is_an_expression;
 }
-static NODE *get__sim2c__expression(void) {
-  return var.sim2c__expression;
+static NODE *get__compiler__expression(void) {
+  return var.compiler__expression;
 }
 static int poly_idx__node__is_a_backquoted_expression;
 static void type__node__is_a_backquoted_expression(void);
 static NODE *get__node__is_a_backquoted_expression(void) {
   return var.node__is_a_backquoted_expression;
 }
-static NODE *get__sim2c__backquoted(void) {
-  return var.sim2c__backquoted;
+static NODE *get__compiler__backquoted(void) {
+  return var.compiler__backquoted;
 }
 static int poly_idx__node__is_an_attribute_value_pair;
 static void type__node__is_an_attribute_value_pair(void);
 static NODE *get__node__is_an_attribute_value_pair(void) {
   return var.node__is_an_attribute_value_pair;
 }
-static NODE *get__sim2c__attribute_value_pair(void) {
-  return var.sim2c__attribute_value_pair;
+static NODE *get__compiler__attribute_value_pair(void) {
+  return var.compiler__attribute_value_pair;
 }
 static int poly_idx__node__is_an_attribute_function_pair;
 static void type__node__is_an_attribute_function_pair(void);
 static NODE *get__node__is_an_attribute_function_pair(void) {
   return var.node__is_an_attribute_function_pair;
 }
-static NODE *get__sim2c__attribute_function_pair(void) {
-  return var.sim2c__attribute_function_pair;
+static NODE *get__compiler__attribute_function_pair(void) {
+  return var.compiler__attribute_function_pair;
 }
 static int poly_idx__node__is_a_numeric_literal;
 static void type__node__is_a_numeric_literal(void);
 static NODE *get__node__is_a_numeric_literal(void) {
   return var.node__is_a_numeric_literal;
 }
-static NODE *get__sim2c__numeric_literal(void) {
-  return var.sim2c__numeric_literal;
+static NODE *get__compiler__numeric_literal(void) {
+  return var.compiler__numeric_literal;
 }
-static NODE *func__sim2c__numeric_literal__mangled_name_of_1;
-static void entry__sim2c__numeric_literal__mangled_name_of_1(void);
-static FRAME_INFO frame__sim2c__numeric_literal__mangled_name_of_1 = {1, {"self"}};
-static void cont__sim2c__numeric_literal__mangled_name_of_2(void);
+static NODE *func__compiler__numeric_literal__mangled_name_of_1;
+static void entry__compiler__numeric_literal__mangled_name_of_1(void);
+static FRAME_INFO frame__compiler__numeric_literal__mangled_name_of_1 = {1, {"self"}};
+static void cont__compiler__numeric_literal__mangled_name_of_2(void);
 static NODE *string__578a5af303e9cbe;
-static void cont__sim2c__numeric_literal__mangled_name_of_4(void);
-static void cont__sim2c__numeric_literal__mangled_name_of_5(void);
-static void cont__sim2c__numeric_literal__mangled_name_of_6(void);
+static void cont__compiler__numeric_literal__mangled_name_of_4(void);
+static void cont__compiler__numeric_literal__mangled_name_of_5(void);
+static void cont__compiler__numeric_literal__mangled_name_of_6(void);
 static int poly_idx__node__is_a_character_literal;
 static void type__node__is_a_character_literal(void);
 static NODE *get__node__is_a_character_literal(void) {
   return var.node__is_a_character_literal;
 }
-static NODE *get__sim2c__character_literal(void) {
-  return var.sim2c__character_literal;
+static NODE *get__compiler__character_literal(void) {
+  return var.compiler__character_literal;
 }
 static int poly_idx__node__is_a_string_literal;
 static void type__node__is_a_string_literal(void);
 static NODE *get__node__is_a_string_literal(void) {
   return var.node__is_a_string_literal;
 }
-static NODE *get__sim2c__string_literal(void) {
-  return var.sim2c__string_literal;
+static NODE *get__compiler__string_literal(void) {
+  return var.compiler__string_literal;
 }
-static NODE *get__sim2c__multi_line_string(void) {
-  return var.sim2c__multi_line_string;
+static NODE *get__compiler__multi_line_string(void) {
+  return var.compiler__multi_line_string;
 }
 static NODE *string__578a5af303e9ceb;
 static int poly_idx__node__is_a_unique_item_constant;
@@ -1193,19 +1193,19 @@ static void type__node__is_a_unique_item_constant(void);
 static NODE *get__node__is_a_unique_item_constant(void) {
   return var.node__is_a_unique_item_constant;
 }
-static NODE *get__sim2c__unique_item(void) {
-  return var.sim2c__unique_item;
+static NODE *get__compiler__unique_item(void) {
+  return var.compiler__unique_item;
 }
 static int poly_idx__node__is_a_polymorphic_function_constant;
 static void type__node__is_a_polymorphic_function_constant(void);
 static NODE *get__node__is_a_polymorphic_function_constant(void) {
   return var.node__is_a_polymorphic_function_constant;
 }
-static NODE *get__sim2c__polymorphic_function(void) {
-  return var.sim2c__polymorphic_function;
+static NODE *get__compiler__polymorphic_function(void) {
+  return var.compiler__polymorphic_function;
 }
-static NODE *get__sim2c__polymorphic_function_with_setter(void) {
-  return var.sim2c__polymorphic_function_with_setter;
+static NODE *get__compiler__polymorphic_function_with_setter(void) {
+  return var.compiler__polymorphic_function_with_setter;
 }
 static int poly_idx__node__is_an_identifier;
 static void type__node__is_an_identifier(void);
@@ -1222,66 +1222,66 @@ static void type__node__is_used_as_a_polymorphic_function(void);
 static NODE *get__node__is_used_as_a_polymorphic_function(void) {
   return var.node__is_used_as_a_polymorphic_function;
 }
-static NODE *get__sim2c__identifier(void) {
-  return var.sim2c__identifier;
+static NODE *get__compiler__identifier(void) {
+  return var.compiler__identifier;
 }
-static NODE *func__sim2c__identifier__full_name_of_1;
-static void entry__sim2c__identifier__full_name_of_1(void);
-static FRAME_INFO frame__sim2c__identifier__full_name_of_1 = {1, {"self"}};
-static void cont__sim2c__identifier__full_name_of_2(void);
-static void cont__sim2c__identifier__full_name_of_3(void);
-static NODE *func__sim2c__identifier__full_name_of_4;
-static void entry__sim2c__identifier__full_name_of_4(void);
-static FRAME_INFO frame__sim2c__identifier__full_name_of_4 = {1, {"self"}};
-static void cont__sim2c__identifier__full_name_of_5(void);
+static NODE *func__compiler__identifier__full_name_of_1;
+static void entry__compiler__identifier__full_name_of_1(void);
+static FRAME_INFO frame__compiler__identifier__full_name_of_1 = {1, {"self"}};
+static void cont__compiler__identifier__full_name_of_2(void);
+static void cont__compiler__identifier__full_name_of_3(void);
+static NODE *func__compiler__identifier__full_name_of_4;
+static void entry__compiler__identifier__full_name_of_4(void);
+static FRAME_INFO frame__compiler__identifier__full_name_of_4 = {1, {"self"}};
+static void cont__compiler__identifier__full_name_of_5(void);
 static NODE *string__2d7981f4e6d82bff;
-static void cont__sim2c__identifier__full_name_of_7(void);
-static NODE *func__sim2c__identifier__full_name_of_8;
-static void entry__sim2c__identifier__full_name_of_8(void);
-static FRAME_INFO frame__sim2c__identifier__full_name_of_8 = {0, {}};
-static void cont__sim2c__identifier__full_name_of_9(void);
-static void cont__sim2c__identifier__full_name_of_10(void);
-static void cont__sim2c__identifier__full_name_of_11(void);
-static NODE *func__sim2c__identifier__mangled_name_of_1;
-static void entry__sim2c__identifier__mangled_name_of_1(void);
-static FRAME_INFO frame__sim2c__identifier__mangled_name_of_1 = {1, {"self"}};
-static void cont__sim2c__identifier__mangled_name_of_2(void);
-static void cont__sim2c__identifier__mangled_name_of_3(void);
-static NODE *func__sim2c__identifier__mangled_name_of_4;
-static void entry__sim2c__identifier__mangled_name_of_4(void);
-static FRAME_INFO frame__sim2c__identifier__mangled_name_of_4 = {1, {"self"}};
-static void cont__sim2c__identifier__mangled_name_of_5(void);
+static void cont__compiler__identifier__full_name_of_7(void);
+static NODE *func__compiler__identifier__full_name_of_8;
+static void entry__compiler__identifier__full_name_of_8(void);
+static FRAME_INFO frame__compiler__identifier__full_name_of_8 = {0, {}};
+static void cont__compiler__identifier__full_name_of_9(void);
+static void cont__compiler__identifier__full_name_of_10(void);
+static void cont__compiler__identifier__full_name_of_11(void);
+static NODE *func__compiler__identifier__mangled_name_of_1;
+static void entry__compiler__identifier__mangled_name_of_1(void);
+static FRAME_INFO frame__compiler__identifier__mangled_name_of_1 = {1, {"self"}};
+static void cont__compiler__identifier__mangled_name_of_2(void);
+static void cont__compiler__identifier__mangled_name_of_3(void);
+static NODE *func__compiler__identifier__mangled_name_of_4;
+static void entry__compiler__identifier__mangled_name_of_4(void);
+static FRAME_INFO frame__compiler__identifier__mangled_name_of_4 = {1, {"self"}};
+static void cont__compiler__identifier__mangled_name_of_5(void);
 static NODE *string__2d7981f4e5f02b9a;
-static void cont__sim2c__identifier__mangled_name_of_7(void);
-static NODE *func__sim2c__identifier__mangled_name_of_8;
-static void entry__sim2c__identifier__mangled_name_of_8(void);
-static FRAME_INFO frame__sim2c__identifier__mangled_name_of_8 = {0, {}};
-static void cont__sim2c__identifier__mangled_name_of_9(void);
-static void cont__sim2c__identifier__mangled_name_of_10(void);
-static void cont__sim2c__identifier__mangled_name_of_11(void);
+static void cont__compiler__identifier__mangled_name_of_7(void);
+static NODE *func__compiler__identifier__mangled_name_of_8;
+static void entry__compiler__identifier__mangled_name_of_8(void);
+static FRAME_INFO frame__compiler__identifier__mangled_name_of_8 = {0, {}};
+static void cont__compiler__identifier__mangled_name_of_9(void);
+static void cont__compiler__identifier__mangled_name_of_10(void);
+static void cont__compiler__identifier__mangled_name_of_11(void);
 static int poly_idx__node__is_a_temporary;
 static void type__node__is_a_temporary(void);
 static NODE *get__node__is_a_temporary(void) {
   return var.node__is_a_temporary;
 }
-static NODE *get__sim2c__temporary(void) {
-  return var.sim2c__temporary;
+static NODE *get__compiler__temporary(void) {
+  return var.compiler__temporary;
 }
 static int poly_idx__node__is_an_operator_symbol;
 static void type__node__is_an_operator_symbol(void);
 static NODE *get__node__is_an_operator_symbol(void) {
   return var.node__is_an_operator_symbol;
 }
-static NODE *get__sim2c__operator_symbol(void) {
-  return var.sim2c__operator_symbol;
+static NODE *get__compiler__operator_symbol(void) {
+  return var.compiler__operator_symbol;
 }
 static int poly_idx__node__is_c_code;
 static void type__node__is_c_code(void);
 static NODE *get__node__is_c_code(void) {
   return var.node__is_c_code;
 }
-static NODE *get__sim2c__c_code(void) {
-  return var.sim2c__c_code;
+static NODE *get__compiler__c_code(void) {
+  return var.compiler__c_code;
 }
 static NODE *string__545aebc3eac0d03b;
 static int poly_idx__node__is_a_c_body;
@@ -1289,17 +1289,17 @@ static void type__node__is_a_c_body(void);
 static NODE *get__node__is_a_c_body(void) {
   return var.node__is_a_c_body;
 }
-static NODE *get__sim2c__c_body(void) {
-  return var.sim2c__c_body;
+static NODE *get__compiler__c_body(void) {
+  return var.compiler__c_body;
 }
-static NODE *func__sim2c__is_a_parameter_1;
-static void entry__sim2c__is_a_parameter_1(void);
-static FRAME_INFO frame__sim2c__is_a_parameter_1 = {1, {"self"}};
-static void cont__sim2c__is_a_parameter_2(void);
-static void cont__sim2c__is_a_parameter_3(void);
-static void cont__sim2c__is_a_parameter_4(void);
-static NODE *get__sim2c__is_a_parameter(void) {
-  return var.sim2c__is_a_parameter;
+static NODE *func__compiler__is_a_parameter_1;
+static void entry__compiler__is_a_parameter_1(void);
+static FRAME_INFO frame__compiler__is_a_parameter_1 = {1, {"self"}};
+static void cont__compiler__is_a_parameter_2(void);
+static void cont__compiler__is_a_parameter_3(void);
+static void cont__compiler__is_a_parameter_4(void);
+static NODE *get__compiler__is_a_parameter(void) {
+  return var.compiler__is_a_parameter;
 }
 void run__nodes(void);
 
@@ -1400,36 +1400,36 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__node__is_an_operator_symbol, NULL, 486, 486, 2, 28},
   {type__node__is_c_code, NULL, 495, 495, 2, 16},
   {type__node__is_a_c_body, NULL, 506, 506, 2, 18},
-  {run__nodes, NULL, 499, 499, 1, 34},
-  {entry__sim2c__numeric_literal__mangled_name_of_1, NULL, 379, 379, 18, 37},
-  {cont__sim2c__numeric_literal__mangled_name_of_2, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 39, 47},
-  {cont__sim2c__numeric_literal__mangled_name_of_4, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 49, 61},
-  {cont__sim2c__numeric_literal__mangled_name_of_5, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 6, 62},
-  {cont__sim2c__numeric_literal__mangled_name_of_6, &frame__sim2c__numeric_literal__mangled_name_of_1, 379, 379, 3, 62},
-  {entry__sim2c__identifier__full_name_of_4, NULL, 461, 461, 19, 36},
-  {cont__sim2c__identifier__full_name_of_5, &frame__sim2c__identifier__full_name_of_4, 461, 461, 12, 42},
-  {cont__sim2c__identifier__full_name_of_7, &frame__sim2c__identifier__full_name_of_4, 461, 461, 9, 42},
-  {entry__sim2c__identifier__full_name_of_8, NULL, 462, 462, 9, 13},
-  {entry__sim2c__identifier__full_name_of_1, NULL, 460, 460, 9, 26},
-  {cont__sim2c__identifier__full_name_of_2, &frame__sim2c__identifier__full_name_of_1, 460, 460, 9, 37},
-  {cont__sim2c__identifier__full_name_of_3, &frame__sim2c__identifier__full_name_of_1, 459, 462, 7, 12},
-  {cont__sim2c__identifier__full_name_of_9, &frame__sim2c__identifier__full_name_of_1, 463, 463, 7, 19},
-  {cont__sim2c__identifier__full_name_of_10, &frame__sim2c__identifier__full_name_of_1, 458, 463, 5, 18},
-  {cont__sim2c__identifier__full_name_of_11, &frame__sim2c__identifier__full_name_of_1, 457, 463, 3, 20},
-  {entry__sim2c__identifier__mangled_name_of_4, NULL, 470, 470, 19, 36},
-  {cont__sim2c__identifier__mangled_name_of_5, &frame__sim2c__identifier__mangled_name_of_4, 470, 470, 12, 42},
-  {cont__sim2c__identifier__mangled_name_of_7, &frame__sim2c__identifier__mangled_name_of_4, 470, 470, 9, 42},
-  {entry__sim2c__identifier__mangled_name_of_8, NULL, 471, 471, 9, 13},
-  {entry__sim2c__identifier__mangled_name_of_1, NULL, 469, 469, 9, 26},
-  {cont__sim2c__identifier__mangled_name_of_2, &frame__sim2c__identifier__mangled_name_of_1, 469, 469, 9, 37},
-  {cont__sim2c__identifier__mangled_name_of_3, &frame__sim2c__identifier__mangled_name_of_1, 468, 471, 7, 12},
-  {cont__sim2c__identifier__mangled_name_of_9, &frame__sim2c__identifier__mangled_name_of_1, 472, 472, 7, 19},
-  {cont__sim2c__identifier__mangled_name_of_10, &frame__sim2c__identifier__mangled_name_of_1, 467, 472, 5, 18},
-  {cont__sim2c__identifier__mangled_name_of_11, &frame__sim2c__identifier__mangled_name_of_1, 466, 472, 3, 20},
-  {entry__sim2c__is_a_parameter_1, NULL, 516, 516, 35, 57},
-  {cont__sim2c__is_a_parameter_2, &frame__sim2c__is_a_parameter_1, 516, 516, 35, 73},
-  {cont__sim2c__is_a_parameter_3, &frame__sim2c__is_a_parameter_1, 516, 516, 35, 73},
-  {cont__sim2c__is_a_parameter_4, &frame__sim2c__is_a_parameter_1, 516, 516, 32, 73}
+  {run__nodes, NULL, 499, 499, 1, 37},
+  {entry__compiler__numeric_literal__mangled_name_of_1, NULL, 379, 379, 18, 37},
+  {cont__compiler__numeric_literal__mangled_name_of_2, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 39, 47},
+  {cont__compiler__numeric_literal__mangled_name_of_4, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 49, 61},
+  {cont__compiler__numeric_literal__mangled_name_of_5, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 6, 62},
+  {cont__compiler__numeric_literal__mangled_name_of_6, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 3, 62},
+  {entry__compiler__identifier__full_name_of_4, NULL, 461, 461, 19, 36},
+  {cont__compiler__identifier__full_name_of_5, &frame__compiler__identifier__full_name_of_4, 461, 461, 12, 42},
+  {cont__compiler__identifier__full_name_of_7, &frame__compiler__identifier__full_name_of_4, 461, 461, 9, 42},
+  {entry__compiler__identifier__full_name_of_8, NULL, 462, 462, 9, 13},
+  {entry__compiler__identifier__full_name_of_1, NULL, 460, 460, 9, 26},
+  {cont__compiler__identifier__full_name_of_2, &frame__compiler__identifier__full_name_of_1, 460, 460, 9, 37},
+  {cont__compiler__identifier__full_name_of_3, &frame__compiler__identifier__full_name_of_1, 459, 462, 7, 12},
+  {cont__compiler__identifier__full_name_of_9, &frame__compiler__identifier__full_name_of_1, 463, 463, 7, 19},
+  {cont__compiler__identifier__full_name_of_10, &frame__compiler__identifier__full_name_of_1, 458, 463, 5, 18},
+  {cont__compiler__identifier__full_name_of_11, &frame__compiler__identifier__full_name_of_1, 457, 463, 3, 20},
+  {entry__compiler__identifier__mangled_name_of_4, NULL, 470, 470, 19, 36},
+  {cont__compiler__identifier__mangled_name_of_5, &frame__compiler__identifier__mangled_name_of_4, 470, 470, 12, 42},
+  {cont__compiler__identifier__mangled_name_of_7, &frame__compiler__identifier__mangled_name_of_4, 470, 470, 9, 42},
+  {entry__compiler__identifier__mangled_name_of_8, NULL, 471, 471, 9, 13},
+  {entry__compiler__identifier__mangled_name_of_1, NULL, 469, 469, 9, 26},
+  {cont__compiler__identifier__mangled_name_of_2, &frame__compiler__identifier__mangled_name_of_1, 469, 469, 9, 37},
+  {cont__compiler__identifier__mangled_name_of_3, &frame__compiler__identifier__mangled_name_of_1, 468, 471, 7, 12},
+  {cont__compiler__identifier__mangled_name_of_9, &frame__compiler__identifier__mangled_name_of_1, 472, 472, 7, 19},
+  {cont__compiler__identifier__mangled_name_of_10, &frame__compiler__identifier__mangled_name_of_1, 467, 472, 5, 18},
+  {cont__compiler__identifier__mangled_name_of_11, &frame__compiler__identifier__mangled_name_of_1, 466, 472, 3, 20},
+  {entry__compiler__is_a_parameter_1, NULL, 516, 516, 38, 60},
+  {cont__compiler__is_a_parameter_2, &frame__compiler__is_a_parameter_1, 516, 516, 38, 76},
+  {cont__compiler__is_a_parameter_3, &frame__compiler__is_a_parameter_1, 516, 516, 38, 76},
+  {cont__compiler__is_a_parameter_4, &frame__compiler__is_a_parameter_1, 516, 516, 35, 76}
 };
 
 union NODE {
@@ -3557,7 +3557,7 @@ static NODE *character__46;
 
 static const char *used_namespaces[] = {
   "std",
-  "sim2c",
+  "compiler",
   "node",
   NULL
 };
@@ -3588,41 +3588,41 @@ EXPORT void run__nodes(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 149: $sim2c::meta_instruction types::grammar_node
-  initialize_maybe_future(var.sim2c__meta_instruction, get__types__grammar_node());
-  // 200: $sim2c::body types::grammar_node
-  initialize_maybe_future(var.sim2c__body, get__types__grammar_node());
-  // 214: $sim2c::statement types::grammar_node
-  initialize_maybe_future(var.sim2c__statement, get__types__grammar_node());
-  // 261: $sim2c::definition types::grammar_node
-  initialize_maybe_future(var.sim2c__definition, get__types__grammar_node());
-  // 320: $sim2c::function_call types::grammar_node
-  initialize_maybe_future(var.sim2c__function_call, get__types__grammar_node());
-  // 336: $sim2c::expression types::grammar_node
-  initialize_maybe_future(var.sim2c__expression, get__types__grammar_node());
-  // 347: $sim2c::backquoted types::grammar_node
-  initialize_maybe_future(var.sim2c__backquoted, get__types__grammar_node());
-  // 356: $sim2c::attribute_value_pair types::grammar_node
-  initialize_maybe_future(var.sim2c__attribute_value_pair, get__types__grammar_node());
-  // 375: $sim2c::numeric_literal types::grammar_node
-  initialize_maybe_future(var.sim2c__numeric_literal, get__types__grammar_node());
-  // 388: $sim2c::character_literal types::grammar_node
-  initialize_maybe_future(var.sim2c__character_literal, get__types__grammar_node());
-  // 399: $sim2c::string_literal types::grammar_node
-  initialize_maybe_future(var.sim2c__string_literal, get__types__grammar_node());
-  // 418: $sim2c::unique_item types::grammar_node
-  initialize_maybe_future(var.sim2c__unique_item, get__types__grammar_node());
-  // 428: $sim2c::polymorphic_function types::grammar_node
-  initialize_maybe_future(var.sim2c__polymorphic_function, get__types__grammar_node());
-  // 454: $sim2c::identifier types::grammar_node
-  initialize_maybe_future(var.sim2c__identifier, get__types__grammar_node());
-  // 499: $sim2c::c_code types::grammar_node
-  initialize_maybe_future(var.sim2c__c_code, get__types__grammar_node());
+  // 149: $compiler::meta_instruction types::grammar_node
+  initialize_maybe_future(var.compiler__meta_instruction, get__types__grammar_node());
+  // 200: $compiler::body types::grammar_node
+  initialize_maybe_future(var.compiler__body, get__types__grammar_node());
+  // 214: $compiler::statement types::grammar_node
+  initialize_maybe_future(var.compiler__statement, get__types__grammar_node());
+  // 261: $compiler::definition types::grammar_node
+  initialize_maybe_future(var.compiler__definition, get__types__grammar_node());
+  // 320: $compiler::function_call types::grammar_node
+  initialize_maybe_future(var.compiler__function_call, get__types__grammar_node());
+  // 336: $compiler::expression types::grammar_node
+  initialize_maybe_future(var.compiler__expression, get__types__grammar_node());
+  // 347: $compiler::backquoted types::grammar_node
+  initialize_maybe_future(var.compiler__backquoted, get__types__grammar_node());
+  // 356: $compiler::attribute_value_pair types::grammar_node
+  initialize_maybe_future(var.compiler__attribute_value_pair, get__types__grammar_node());
+  // 375: $compiler::numeric_literal types::grammar_node
+  initialize_maybe_future(var.compiler__numeric_literal, get__types__grammar_node());
+  // 388: $compiler::character_literal types::grammar_node
+  initialize_maybe_future(var.compiler__character_literal, get__types__grammar_node());
+  // 399: $compiler::string_literal types::grammar_node
+  initialize_maybe_future(var.compiler__string_literal, get__types__grammar_node());
+  // 418: $compiler::unique_item types::grammar_node
+  initialize_maybe_future(var.compiler__unique_item, get__types__grammar_node());
+  // 428: $compiler::polymorphic_function types::grammar_node
+  initialize_maybe_future(var.compiler__polymorphic_function, get__types__grammar_node());
+  // 454: $compiler::identifier types::grammar_node
+  initialize_maybe_future(var.compiler__identifier, get__types__grammar_node());
+  // 499: $compiler::c_code types::grammar_node
+  initialize_maybe_future(var.compiler__c_code, get__types__grammar_node());
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__numeric_literal__mangled_name_of_1(void) {
+static void entry__compiler__numeric_literal__mangled_name_of_1(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3637,9 +3637,9 @@ static void entry__sim2c__numeric_literal__mangled_name_of_1(void) {
   result_count = 1;
   myself = var.node__value_of;
   func = myself->type;
-  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_2;
+  frame->cont = cont__compiler__numeric_literal__mangled_name_of_2;
 }
-static void cont__sim2c__numeric_literal__mangled_name_of_2(void) {
+static void cont__compiler__numeric_literal__mangled_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3653,9 +3653,9 @@ static void cont__sim2c__numeric_literal__mangled_name_of_2(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_4;
+  frame->cont = cont__compiler__numeric_literal__mangled_name_of_4;
 }
-static void cont__sim2c__numeric_literal__mangled_name_of_4(void) {
+static void cont__compiler__numeric_literal__mangled_name_of_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3669,9 +3669,9 @@ static void cont__sim2c__numeric_literal__mangled_name_of_4(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_5;
+  frame->cont = cont__compiler__numeric_literal__mangled_name_of_5;
 }
-static void cont__sim2c__numeric_literal__mangled_name_of_5(void) {
+static void cont__compiler__numeric_literal__mangled_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3686,9 +3686,9 @@ static void cont__sim2c__numeric_literal__mangled_name_of_5(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__sim2c__numeric_literal__mangled_name_of_6;
+  frame->cont = cont__compiler__numeric_literal__mangled_name_of_6;
 }
-static void cont__sim2c__numeric_literal__mangled_name_of_6(void) {
+static void cont__compiler__numeric_literal__mangled_name_of_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3702,7 +3702,7 @@ static void cont__sim2c__numeric_literal__mangled_name_of_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__full_name_of_1(void) {
+static void entry__compiler__identifier__full_name_of_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -3717,9 +3717,9 @@ static void entry__sim2c__identifier__full_name_of_1(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_2;
+  frame->cont = cont__compiler__identifier__full_name_of_2;
 }
-static void cont__sim2c__identifier__full_name_of_2(void) {
+static void cont__compiler__identifier__full_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3732,16 +3732,16 @@ static void cont__sim2c__identifier__full_name_of_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_3;
+  frame->cont = cont__compiler__identifier__full_name_of_3;
 }
-static void cont__sim2c__identifier__full_name_of_3(void) {
+static void cont__compiler__identifier__full_name_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 461: -> string(namespace_of(self) "::")
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__identifier__full_name_of_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__identifier__full_name_of_4, 0);
   // 459: if
   // 460:   namespace_of(self).is_defined
   // 461:   -> string(namespace_of(self) "::")
@@ -3750,13 +3750,13 @@ static void cont__sim2c__identifier__full_name_of_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   arguments->slots[1] = frame->slots[5] /* temp__5 */;
-  arguments->slots[2] = func__sim2c__identifier__full_name_of_8;
+  arguments->slots[2] = func__compiler__identifier__full_name_of_8;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_9;
+  frame->cont = cont__compiler__identifier__full_name_of_9;
 }
-static void entry__sim2c__identifier__full_name_of_4(void) {
+static void entry__compiler__identifier__full_name_of_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -3772,9 +3772,9 @@ static void entry__sim2c__identifier__full_name_of_4(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_5;
+  frame->cont = cont__compiler__identifier__full_name_of_5;
 }
-static void cont__sim2c__identifier__full_name_of_5(void) {
+static void cont__compiler__identifier__full_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3788,9 +3788,9 @@ static void cont__sim2c__identifier__full_name_of_5(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_7;
+  frame->cont = cont__compiler__identifier__full_name_of_7;
 }
-static void cont__sim2c__identifier__full_name_of_7(void) {
+static void cont__compiler__identifier__full_name_of_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3804,7 +3804,7 @@ static void cont__sim2c__identifier__full_name_of_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__full_name_of_8(void) {
+static void entry__compiler__identifier__full_name_of_8(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3819,7 +3819,7 @@ static void entry__sim2c__identifier__full_name_of_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__identifier__full_name_of_9(void) {
+static void cont__compiler__identifier__full_name_of_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3832,9 +3832,9 @@ static void cont__sim2c__identifier__full_name_of_9(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_10;
+  frame->cont = cont__compiler__identifier__full_name_of_10;
 }
-static void cont__sim2c__identifier__full_name_of_10(void) {
+static void cont__compiler__identifier__full_name_of_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3853,9 +3853,9 @@ static void cont__sim2c__identifier__full_name_of_10(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__full_name_of_11;
+  frame->cont = cont__compiler__identifier__full_name_of_11;
 }
-static void cont__sim2c__identifier__full_name_of_11(void) {
+static void cont__compiler__identifier__full_name_of_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3875,7 +3875,7 @@ static void cont__sim2c__identifier__full_name_of_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__mangled_name_of_1(void) {
+static void entry__compiler__identifier__mangled_name_of_1(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -3890,9 +3890,9 @@ static void entry__sim2c__identifier__mangled_name_of_1(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_2;
+  frame->cont = cont__compiler__identifier__mangled_name_of_2;
 }
-static void cont__sim2c__identifier__mangled_name_of_2(void) {
+static void cont__compiler__identifier__mangled_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3905,16 +3905,16 @@ static void cont__sim2c__identifier__mangled_name_of_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_3;
+  frame->cont = cont__compiler__identifier__mangled_name_of_3;
 }
-static void cont__sim2c__identifier__mangled_name_of_3(void) {
+static void cont__compiler__identifier__mangled_name_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
   // 470: -> string(namespace_of(self) "__")
-  frame->slots[5] /* temp__5 */ = create_closure(entry__sim2c__identifier__mangled_name_of_4, 0);
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__identifier__mangled_name_of_4, 0);
   // 468: if
   // 469:   namespace_of(self).is_defined
   // 470:   -> string(namespace_of(self) "__")
@@ -3923,13 +3923,13 @@ static void cont__sim2c__identifier__mangled_name_of_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   arguments->slots[1] = frame->slots[5] /* temp__5 */;
-  arguments->slots[2] = func__sim2c__identifier__mangled_name_of_8;
+  arguments->slots[2] = func__compiler__identifier__mangled_name_of_8;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_9;
+  frame->cont = cont__compiler__identifier__mangled_name_of_9;
 }
-static void entry__sim2c__identifier__mangled_name_of_4(void) {
+static void entry__compiler__identifier__mangled_name_of_4(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -3945,9 +3945,9 @@ static void entry__sim2c__identifier__mangled_name_of_4(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_5;
+  frame->cont = cont__compiler__identifier__mangled_name_of_5;
 }
-static void cont__sim2c__identifier__mangled_name_of_5(void) {
+static void cont__compiler__identifier__mangled_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3961,9 +3961,9 @@ static void cont__sim2c__identifier__mangled_name_of_5(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_7;
+  frame->cont = cont__compiler__identifier__mangled_name_of_7;
 }
-static void cont__sim2c__identifier__mangled_name_of_7(void) {
+static void cont__compiler__identifier__mangled_name_of_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3977,7 +3977,7 @@ static void cont__sim2c__identifier__mangled_name_of_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__identifier__mangled_name_of_8(void) {
+static void entry__compiler__identifier__mangled_name_of_8(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -3992,7 +3992,7 @@ static void entry__sim2c__identifier__mangled_name_of_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__sim2c__identifier__mangled_name_of_9(void) {
+static void cont__compiler__identifier__mangled_name_of_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4005,9 +4005,9 @@ static void cont__sim2c__identifier__mangled_name_of_9(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_10;
+  frame->cont = cont__compiler__identifier__mangled_name_of_10;
 }
-static void cont__sim2c__identifier__mangled_name_of_10(void) {
+static void cont__compiler__identifier__mangled_name_of_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4026,9 +4026,9 @@ static void cont__sim2c__identifier__mangled_name_of_10(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__sim2c__identifier__mangled_name_of_11;
+  frame->cont = cont__compiler__identifier__mangled_name_of_11;
 }
-static void cont__sim2c__identifier__mangled_name_of_11(void) {
+static void cont__compiler__identifier__mangled_name_of_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4048,7 +4048,7 @@ static void cont__sim2c__identifier__mangled_name_of_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__sim2c__is_a_parameter_1(void) {
+static void entry__compiler__is_a_parameter_1(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -4063,9 +4063,9 @@ static void entry__sim2c__is_a_parameter_1(void) {
   result_count = 1;
   myself = get__parameter_kind_of();
   func = myself->type;
-  frame->cont = cont__sim2c__is_a_parameter_2;
+  frame->cont = cont__compiler__is_a_parameter_2;
 }
-static void cont__sim2c__is_a_parameter_2(void) {
+static void cont__compiler__is_a_parameter_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4079,9 +4079,9 @@ static void cont__sim2c__is_a_parameter_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__sim2c__is_a_parameter_3;
+  frame->cont = cont__compiler__is_a_parameter_3;
 }
-static void cont__sim2c__is_a_parameter_3(void) {
+static void cont__compiler__is_a_parameter_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4094,9 +4094,9 @@ static void cont__sim2c__is_a_parameter_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__sim2c__is_a_parameter_4;
+  frame->cont = cont__compiler__is_a_parameter_4;
 }
-static void cont__sim2c__is_a_parameter_4(void) {
+static void cont__compiler__is_a_parameter_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4111,23 +4111,23 @@ static void cont__sim2c__is_a_parameter_4(void) {
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__nodes(void) {
-  var.sim2c__NONE = collect_node(var.sim2c__NONE);
-  var.sim2c__ATTRIBUTE_KIND = collect_node(var.sim2c__ATTRIBUTE_KIND);
-  var.sim2c__METHOD_KIND = collect_node(var.sim2c__METHOD_KIND);
-  var.sim2c__NO_PARAMETER = collect_node(var.sim2c__NO_PARAMETER);
-  var.sim2c__IN_PARAMETER = collect_node(var.sim2c__IN_PARAMETER);
-  var.sim2c__IN_OUT_PARAMETER = collect_node(var.sim2c__IN_OUT_PARAMETER);
-  var.sim2c__OUT_PARAMETER = collect_node(var.sim2c__OUT_PARAMETER);
-  var.sim2c__MYSELF_PARAMETER = collect_node(var.sim2c__MYSELF_PARAMETER);
-  var.sim2c__CONTINUATION_PARAMETER = collect_node(var.sim2c__CONTINUATION_PARAMETER);
-  var.sim2c__LEFT = collect_node(var.sim2c__LEFT);
-  var.sim2c__RIGHT = collect_node(var.sim2c__RIGHT);
-  var.sim2c__POLYMORPHIC = collect_node(var.sim2c__POLYMORPHIC);
-  var.sim2c__STATIC_SINGLE = collect_node(var.sim2c__STATIC_SINGLE);
-  var.sim2c__STATIC_MULTI = collect_node(var.sim2c__STATIC_MULTI);
-  var.sim2c__DYNAMIC_SINGLE = collect_node(var.sim2c__DYNAMIC_SINGLE);
-  var.sim2c__DYNAMIC_MULTI = collect_node(var.sim2c__DYNAMIC_MULTI);
-  var.sim2c__C_NODE = collect_node(var.sim2c__C_NODE);
+  var.compiler__NONE = collect_node(var.compiler__NONE);
+  var.compiler__ATTRIBUTE_KIND = collect_node(var.compiler__ATTRIBUTE_KIND);
+  var.compiler__METHOD_KIND = collect_node(var.compiler__METHOD_KIND);
+  var.compiler__NO_PARAMETER = collect_node(var.compiler__NO_PARAMETER);
+  var.compiler__IN_PARAMETER = collect_node(var.compiler__IN_PARAMETER);
+  var.compiler__IN_OUT_PARAMETER = collect_node(var.compiler__IN_OUT_PARAMETER);
+  var.compiler__OUT_PARAMETER = collect_node(var.compiler__OUT_PARAMETER);
+  var.compiler__MYSELF_PARAMETER = collect_node(var.compiler__MYSELF_PARAMETER);
+  var.compiler__CONTINUATION_PARAMETER = collect_node(var.compiler__CONTINUATION_PARAMETER);
+  var.compiler__LEFT = collect_node(var.compiler__LEFT);
+  var.compiler__RIGHT = collect_node(var.compiler__RIGHT);
+  var.compiler__POLYMORPHIC = collect_node(var.compiler__POLYMORPHIC);
+  var.compiler__STATIC_SINGLE = collect_node(var.compiler__STATIC_SINGLE);
+  var.compiler__STATIC_MULTI = collect_node(var.compiler__STATIC_MULTI);
+  var.compiler__DYNAMIC_SINGLE = collect_node(var.compiler__DYNAMIC_SINGLE);
+  var.compiler__DYNAMIC_MULTI = collect_node(var.compiler__DYNAMIC_MULTI);
+  var.compiler__C_NODE = collect_node(var.compiler__C_NODE);
   var.node__argument_of = collect_node(var.node__argument_of);
   var.node__arguments_of = collect_node(var.node__arguments_of);
   var.node__attribute_kind_of = collect_node(var.node__attribute_kind_of);
@@ -4195,72 +4195,72 @@ EXPORT void collect__nodes(void) {
   var.node__value_of = collect_node(var.node__value_of);
   var.node__variable_kind_of = collect_node(var.node__variable_kind_of);
   var.node__is_a_meta_instruction = collect_node(var.node__is_a_meta_instruction);
-  var.sim2c__meta_instruction = collect_node(var.sim2c__meta_instruction);
-  var.sim2c__require_instruction = collect_node(var.sim2c__require_instruction);
-  var.sim2c__namespace_instruction = collect_node(var.sim2c__namespace_instruction);
-  var.sim2c__using_instruction = collect_node(var.sim2c__using_instruction);
-  var.sim2c__include_instruction = collect_node(var.sim2c__include_instruction);
-  var.sim2c__link_instruction = collect_node(var.sim2c__link_instruction);
-  var.sim2c__data_instruction = collect_node(var.sim2c__data_instruction);
+  var.compiler__meta_instruction = collect_node(var.compiler__meta_instruction);
+  var.compiler__require_instruction = collect_node(var.compiler__require_instruction);
+  var.compiler__namespace_instruction = collect_node(var.compiler__namespace_instruction);
+  var.compiler__using_instruction = collect_node(var.compiler__using_instruction);
+  var.compiler__include_instruction = collect_node(var.compiler__include_instruction);
+  var.compiler__link_instruction = collect_node(var.compiler__link_instruction);
+  var.compiler__data_instruction = collect_node(var.compiler__data_instruction);
   var.node__is_a_remark = collect_node(var.node__is_a_remark);
-  var.sim2c__remark_statement = collect_node(var.sim2c__remark_statement);
+  var.compiler__remark_statement = collect_node(var.compiler__remark_statement);
   var.node__is_a_body = collect_node(var.node__is_a_body);
   var.node__defines_a_dynamic = collect_node(var.node__defines_a_dynamic);
-  var.sim2c__body = collect_node(var.sim2c__body);
-  var.sim2c__statement = collect_node(var.sim2c__statement);
+  var.compiler__body = collect_node(var.compiler__body);
+  var.compiler__statement = collect_node(var.compiler__statement);
   var.node__is_a_call = collect_node(var.node__is_a_call);
-  var.sim2c__call = collect_node(var.sim2c__call);
+  var.compiler__call = collect_node(var.compiler__call);
   var.node__is_a_procedure_call = collect_node(var.node__is_a_procedure_call);
-  var.sim2c__procedure_call = collect_node(var.sim2c__procedure_call);
+  var.compiler__procedure_call = collect_node(var.compiler__procedure_call);
   var.node__is_a_return = collect_node(var.node__is_a_return);
-  var.sim2c__return_statement = collect_node(var.sim2c__return_statement);
+  var.compiler__return_statement = collect_node(var.compiler__return_statement);
   var.node__is_an_assignment = collect_node(var.node__is_an_assignment);
-  var.sim2c__assignment = collect_node(var.sim2c__assignment);
+  var.compiler__assignment = collect_node(var.compiler__assignment);
   var.node__is_a_definition = collect_node(var.node__is_a_definition);
-  var.sim2c__definition = collect_node(var.sim2c__definition);
+  var.compiler__definition = collect_node(var.compiler__definition);
   var.node__is_a_static_single_definition = collect_node(var.node__is_a_static_single_definition);
-  var.sim2c__define_static_single = collect_node(var.sim2c__define_static_single);
+  var.compiler__define_static_single = collect_node(var.compiler__define_static_single);
   var.node__is_a_static_multi_definition = collect_node(var.node__is_a_static_multi_definition);
-  var.sim2c__define_static_multi = collect_node(var.sim2c__define_static_multi);
+  var.compiler__define_static_multi = collect_node(var.compiler__define_static_multi);
   var.node__is_a_dynamic_single_definition = collect_node(var.node__is_a_dynamic_single_definition);
-  var.sim2c__define_dynamic_single = collect_node(var.sim2c__define_dynamic_single);
+  var.compiler__define_dynamic_single = collect_node(var.compiler__define_dynamic_single);
   var.node__is_a_dynamic_multi_definition = collect_node(var.node__is_a_dynamic_multi_definition);
-  var.sim2c__define_dynamic_multi = collect_node(var.sim2c__define_dynamic_multi);
+  var.compiler__define_dynamic_multi = collect_node(var.compiler__define_dynamic_multi);
   var.node__is_a_function_call = collect_node(var.node__is_a_function_call);
-  var.sim2c__function_call = collect_node(var.sim2c__function_call);
+  var.compiler__function_call = collect_node(var.compiler__function_call);
   var.node__is_an_expression = collect_node(var.node__is_an_expression);
-  var.sim2c__expression = collect_node(var.sim2c__expression);
+  var.compiler__expression = collect_node(var.compiler__expression);
   var.node__is_a_backquoted_expression = collect_node(var.node__is_a_backquoted_expression);
-  var.sim2c__backquoted = collect_node(var.sim2c__backquoted);
+  var.compiler__backquoted = collect_node(var.compiler__backquoted);
   var.node__is_an_attribute_value_pair = collect_node(var.node__is_an_attribute_value_pair);
-  var.sim2c__attribute_value_pair = collect_node(var.sim2c__attribute_value_pair);
+  var.compiler__attribute_value_pair = collect_node(var.compiler__attribute_value_pair);
   var.node__is_an_attribute_function_pair = collect_node(var.node__is_an_attribute_function_pair);
-  var.sim2c__attribute_function_pair = collect_node(var.sim2c__attribute_function_pair);
+  var.compiler__attribute_function_pair = collect_node(var.compiler__attribute_function_pair);
   var.node__is_a_numeric_literal = collect_node(var.node__is_a_numeric_literal);
-  var.sim2c__numeric_literal = collect_node(var.sim2c__numeric_literal);
+  var.compiler__numeric_literal = collect_node(var.compiler__numeric_literal);
   var.node__is_a_character_literal = collect_node(var.node__is_a_character_literal);
-  var.sim2c__character_literal = collect_node(var.sim2c__character_literal);
+  var.compiler__character_literal = collect_node(var.compiler__character_literal);
   var.node__is_a_string_literal = collect_node(var.node__is_a_string_literal);
-  var.sim2c__string_literal = collect_node(var.sim2c__string_literal);
-  var.sim2c__multi_line_string = collect_node(var.sim2c__multi_line_string);
+  var.compiler__string_literal = collect_node(var.compiler__string_literal);
+  var.compiler__multi_line_string = collect_node(var.compiler__multi_line_string);
   var.node__is_a_unique_item_constant = collect_node(var.node__is_a_unique_item_constant);
-  var.sim2c__unique_item = collect_node(var.sim2c__unique_item);
+  var.compiler__unique_item = collect_node(var.compiler__unique_item);
   var.node__is_a_polymorphic_function_constant = collect_node(var.node__is_a_polymorphic_function_constant);
-  var.sim2c__polymorphic_function = collect_node(var.sim2c__polymorphic_function);
-  var.sim2c__polymorphic_function_with_setter = collect_node(var.sim2c__polymorphic_function_with_setter);
+  var.compiler__polymorphic_function = collect_node(var.compiler__polymorphic_function);
+  var.compiler__polymorphic_function_with_setter = collect_node(var.compiler__polymorphic_function_with_setter);
   var.node__is_an_identifier = collect_node(var.node__is_an_identifier);
   var.node__is_a_destination = collect_node(var.node__is_a_destination);
   var.node__is_used_as_a_polymorphic_function = collect_node(var.node__is_used_as_a_polymorphic_function);
-  var.sim2c__identifier = collect_node(var.sim2c__identifier);
+  var.compiler__identifier = collect_node(var.compiler__identifier);
   var.node__is_a_temporary = collect_node(var.node__is_a_temporary);
-  var.sim2c__temporary = collect_node(var.sim2c__temporary);
+  var.compiler__temporary = collect_node(var.compiler__temporary);
   var.node__is_an_operator_symbol = collect_node(var.node__is_an_operator_symbol);
-  var.sim2c__operator_symbol = collect_node(var.sim2c__operator_symbol);
+  var.compiler__operator_symbol = collect_node(var.compiler__operator_symbol);
   var.node__is_c_code = collect_node(var.node__is_c_code);
-  var.sim2c__c_code = collect_node(var.sim2c__c_code);
+  var.compiler__c_code = collect_node(var.compiler__c_code);
   var.node__is_a_c_body = collect_node(var.node__is_a_c_body);
-  var.sim2c__c_body = collect_node(var.sim2c__c_body);
-  var.sim2c__is_a_parameter = collect_node(var.sim2c__is_a_parameter);
+  var.compiler__c_body = collect_node(var.compiler__c_body);
+  var.compiler__is_a_parameter = collect_node(var.compiler__is_a_parameter);
 }
 
 static int already_run_phase_1 = false;
@@ -4280,23 +4280,23 @@ EXPORT void phase_2__nodes(void) {
   set_module("nodes");
   character__39 = from_uchar32(39);
   character__46 = from_uchar32(46);
-  unique__sim2c__NONE = register_unique_item("sim2c__NONE");
-  unique__sim2c__ATTRIBUTE_KIND = register_unique_item("sim2c__ATTRIBUTE_KIND");
-  unique__sim2c__METHOD_KIND = register_unique_item("sim2c__METHOD_KIND");
-  unique__sim2c__NO_PARAMETER = register_unique_item("sim2c__NO_PARAMETER");
-  unique__sim2c__IN_PARAMETER = register_unique_item("sim2c__IN_PARAMETER");
-  unique__sim2c__IN_OUT_PARAMETER = register_unique_item("sim2c__IN_OUT_PARAMETER");
-  unique__sim2c__OUT_PARAMETER = register_unique_item("sim2c__OUT_PARAMETER");
-  unique__sim2c__MYSELF_PARAMETER = register_unique_item("sim2c__MYSELF_PARAMETER");
-  unique__sim2c__CONTINUATION_PARAMETER = register_unique_item("sim2c__CONTINUATION_PARAMETER");
-  unique__sim2c__LEFT = register_unique_item("sim2c__LEFT");
-  unique__sim2c__RIGHT = register_unique_item("sim2c__RIGHT");
-  unique__sim2c__POLYMORPHIC = register_unique_item("sim2c__POLYMORPHIC");
-  unique__sim2c__STATIC_SINGLE = register_unique_item("sim2c__STATIC_SINGLE");
-  unique__sim2c__STATIC_MULTI = register_unique_item("sim2c__STATIC_MULTI");
-  unique__sim2c__DYNAMIC_SINGLE = register_unique_item("sim2c__DYNAMIC_SINGLE");
-  unique__sim2c__DYNAMIC_MULTI = register_unique_item("sim2c__DYNAMIC_MULTI");
-  unique__sim2c__C_NODE = register_unique_item("sim2c__C_NODE");
+  unique__compiler__NONE = register_unique_item("compiler__NONE");
+  unique__compiler__ATTRIBUTE_KIND = register_unique_item("compiler__ATTRIBUTE_KIND");
+  unique__compiler__METHOD_KIND = register_unique_item("compiler__METHOD_KIND");
+  unique__compiler__NO_PARAMETER = register_unique_item("compiler__NO_PARAMETER");
+  unique__compiler__IN_PARAMETER = register_unique_item("compiler__IN_PARAMETER");
+  unique__compiler__IN_OUT_PARAMETER = register_unique_item("compiler__IN_OUT_PARAMETER");
+  unique__compiler__OUT_PARAMETER = register_unique_item("compiler__OUT_PARAMETER");
+  unique__compiler__MYSELF_PARAMETER = register_unique_item("compiler__MYSELF_PARAMETER");
+  unique__compiler__CONTINUATION_PARAMETER = register_unique_item("compiler__CONTINUATION_PARAMETER");
+  unique__compiler__LEFT = register_unique_item("compiler__LEFT");
+  unique__compiler__RIGHT = register_unique_item("compiler__RIGHT");
+  unique__compiler__POLYMORPHIC = register_unique_item("compiler__POLYMORPHIC");
+  unique__compiler__STATIC_SINGLE = register_unique_item("compiler__STATIC_SINGLE");
+  unique__compiler__STATIC_MULTI = register_unique_item("compiler__STATIC_MULTI");
+  unique__compiler__DYNAMIC_SINGLE = register_unique_item("compiler__DYNAMIC_SINGLE");
+  unique__compiler__DYNAMIC_MULTI = register_unique_item("compiler__DYNAMIC_MULTI");
+  unique__compiler__C_NODE = register_unique_item("compiler__C_NODE");
   define_polymorphic_function_with_setter("node", "argument_of", get__node__argument_of, &poly_idx__node__argument_of, &var.node__argument_of);
   define_polymorphic_function_with_setter("node", "arguments_of", get__node__arguments_of, &poly_idx__node__arguments_of, &var.node__arguments_of);
   define_polymorphic_function_with_setter("node", "attribute_kind_of", get__node__attribute_kind_of, &poly_idx__node__attribute_kind_of, &var.node__attribute_kind_of);
@@ -4383,7 +4383,7 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_an_attribute_function_pair", get__node__is_an_attribute_function_pair, &poly_idx__node__is_an_attribute_function_pair, &var.node__is_an_attribute_function_pair);
   define_polymorphic_function("node", "is_a_numeric_literal", get__node__is_a_numeric_literal, &poly_idx__node__is_a_numeric_literal, &var.node__is_a_numeric_literal);
   string__578a5af303e9cbe = from_latin_1_string("_", 1);
-  func__sim2c__numeric_literal__mangled_name_of_1 = create_function(entry__sim2c__numeric_literal__mangled_name_of_1, 1);
+  func__compiler__numeric_literal__mangled_name_of_1 = create_function(entry__compiler__numeric_literal__mangled_name_of_1, 1);
   define_polymorphic_function("node", "is_a_character_literal", get__node__is_a_character_literal, &poly_idx__node__is_a_character_literal, &var.node__is_a_character_literal);
   define_polymorphic_function("node", "is_a_string_literal", get__node__is_a_string_literal, &poly_idx__node__is_a_string_literal, &var.node__is_a_string_literal);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
@@ -4393,17 +4393,17 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_a_destination", get__node__is_a_destination, &poly_idx__node__is_a_destination, &var.node__is_a_destination);
   define_polymorphic_function("node", "is_used_as_a_polymorphic_function", get__node__is_used_as_a_polymorphic_function, &poly_idx__node__is_used_as_a_polymorphic_function, &var.node__is_used_as_a_polymorphic_function);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
-  func__sim2c__identifier__full_name_of_8 = create_function(entry__sim2c__identifier__full_name_of_8, 0);
-  func__sim2c__identifier__full_name_of_1 = create_function(entry__sim2c__identifier__full_name_of_1, 1);
+  func__compiler__identifier__full_name_of_8 = create_function(entry__compiler__identifier__full_name_of_8, 0);
+  func__compiler__identifier__full_name_of_1 = create_function(entry__compiler__identifier__full_name_of_1, 1);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
-  func__sim2c__identifier__mangled_name_of_8 = create_function(entry__sim2c__identifier__mangled_name_of_8, 0);
-  func__sim2c__identifier__mangled_name_of_1 = create_function(entry__sim2c__identifier__mangled_name_of_1, 1);
+  func__compiler__identifier__mangled_name_of_8 = create_function(entry__compiler__identifier__mangled_name_of_8, 0);
+  func__compiler__identifier__mangled_name_of_1 = create_function(entry__compiler__identifier__mangled_name_of_1, 1);
   define_polymorphic_function("node", "is_a_temporary", get__node__is_a_temporary, &poly_idx__node__is_a_temporary, &var.node__is_a_temporary);
   define_polymorphic_function("node", "is_an_operator_symbol", get__node__is_an_operator_symbol, &poly_idx__node__is_an_operator_symbol, &var.node__is_an_operator_symbol);
   define_polymorphic_function("node", "is_c_code", get__node__is_c_code, &poly_idx__node__is_c_code, &var.node__is_c_code);
   string__545aebc3eac0d03b = from_latin_1_string("local", 5);
   define_polymorphic_function("node", "is_a_c_body", get__node__is_a_c_body, &poly_idx__node__is_a_c_body, &var.node__is_a_c_body);
-  func__sim2c__is_a_parameter_1 = create_function(entry__sim2c__is_a_parameter_1, 1);
+  func__compiler__is_a_parameter_1 = create_function(entry__compiler__is_a_parameter_1, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4413,77 +4413,77 @@ EXPORT void phase_3__nodes(void) {
   already_run_phase_3 = true;
   set_module("nodes");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.sim2c__NONE, unique__sim2c__NONE);
-  define_single_assign_static("sim2c", "NONE", get__sim2c__NONE, &var.sim2c__NONE);
-  assign_value(&var.sim2c__ATTRIBUTE_KIND, unique__sim2c__ATTRIBUTE_KIND);
-  define_single_assign_static("sim2c", "ATTRIBUTE_KIND", get__sim2c__ATTRIBUTE_KIND, &var.sim2c__ATTRIBUTE_KIND);
-  assign_value(&var.sim2c__METHOD_KIND, unique__sim2c__METHOD_KIND);
-  define_single_assign_static("sim2c", "METHOD_KIND", get__sim2c__METHOD_KIND, &var.sim2c__METHOD_KIND);
-  assign_value(&var.sim2c__NO_PARAMETER, unique__sim2c__NO_PARAMETER);
-  define_single_assign_static("sim2c", "NO_PARAMETER", get__sim2c__NO_PARAMETER, &var.sim2c__NO_PARAMETER);
-  assign_value(&var.sim2c__IN_PARAMETER, unique__sim2c__IN_PARAMETER);
-  define_single_assign_static("sim2c", "IN_PARAMETER", get__sim2c__IN_PARAMETER, &var.sim2c__IN_PARAMETER);
-  assign_value(&var.sim2c__IN_OUT_PARAMETER, unique__sim2c__IN_OUT_PARAMETER);
-  define_single_assign_static("sim2c", "IN_OUT_PARAMETER", get__sim2c__IN_OUT_PARAMETER, &var.sim2c__IN_OUT_PARAMETER);
-  assign_value(&var.sim2c__OUT_PARAMETER, unique__sim2c__OUT_PARAMETER);
-  define_single_assign_static("sim2c", "OUT_PARAMETER", get__sim2c__OUT_PARAMETER, &var.sim2c__OUT_PARAMETER);
-  assign_value(&var.sim2c__MYSELF_PARAMETER, unique__sim2c__MYSELF_PARAMETER);
-  define_single_assign_static("sim2c", "MYSELF_PARAMETER", get__sim2c__MYSELF_PARAMETER, &var.sim2c__MYSELF_PARAMETER);
-  assign_value(&var.sim2c__CONTINUATION_PARAMETER, unique__sim2c__CONTINUATION_PARAMETER);
-  define_single_assign_static("sim2c", "CONTINUATION_PARAMETER", get__sim2c__CONTINUATION_PARAMETER, &var.sim2c__CONTINUATION_PARAMETER);
-  assign_value(&var.sim2c__LEFT, unique__sim2c__LEFT);
-  define_single_assign_static("sim2c", "LEFT", get__sim2c__LEFT, &var.sim2c__LEFT);
-  assign_value(&var.sim2c__RIGHT, unique__sim2c__RIGHT);
-  define_single_assign_static("sim2c", "RIGHT", get__sim2c__RIGHT, &var.sim2c__RIGHT);
-  assign_value(&var.sim2c__POLYMORPHIC, unique__sim2c__POLYMORPHIC);
-  define_single_assign_static("sim2c", "POLYMORPHIC", get__sim2c__POLYMORPHIC, &var.sim2c__POLYMORPHIC);
-  assign_value(&var.sim2c__STATIC_SINGLE, unique__sim2c__STATIC_SINGLE);
-  define_single_assign_static("sim2c", "STATIC_SINGLE", get__sim2c__STATIC_SINGLE, &var.sim2c__STATIC_SINGLE);
-  assign_value(&var.sim2c__STATIC_MULTI, unique__sim2c__STATIC_MULTI);
-  define_single_assign_static("sim2c", "STATIC_MULTI", get__sim2c__STATIC_MULTI, &var.sim2c__STATIC_MULTI);
-  assign_value(&var.sim2c__DYNAMIC_SINGLE, unique__sim2c__DYNAMIC_SINGLE);
-  define_single_assign_static("sim2c", "DYNAMIC_SINGLE", get__sim2c__DYNAMIC_SINGLE, &var.sim2c__DYNAMIC_SINGLE);
-  assign_value(&var.sim2c__DYNAMIC_MULTI, unique__sim2c__DYNAMIC_MULTI);
-  define_single_assign_static("sim2c", "DYNAMIC_MULTI", get__sim2c__DYNAMIC_MULTI, &var.sim2c__DYNAMIC_MULTI);
-  assign_value(&var.sim2c__C_NODE, unique__sim2c__C_NODE);
-  define_single_assign_static("sim2c", "C_NODE", get__sim2c__C_NODE, &var.sim2c__C_NODE);
-  define_single_assign_static("sim2c", "meta_instruction", get__sim2c__meta_instruction, &var.sim2c__meta_instruction);
-  define_single_assign_static("sim2c", "require_instruction", get__sim2c__require_instruction, &var.sim2c__require_instruction);
-  define_single_assign_static("sim2c", "namespace_instruction", get__sim2c__namespace_instruction, &var.sim2c__namespace_instruction);
-  define_single_assign_static("sim2c", "using_instruction", get__sim2c__using_instruction, &var.sim2c__using_instruction);
-  define_single_assign_static("sim2c", "include_instruction", get__sim2c__include_instruction, &var.sim2c__include_instruction);
-  define_single_assign_static("sim2c", "link_instruction", get__sim2c__link_instruction, &var.sim2c__link_instruction);
-  define_single_assign_static("sim2c", "data_instruction", get__sim2c__data_instruction, &var.sim2c__data_instruction);
-  define_single_assign_static("sim2c", "remark_statement", get__sim2c__remark_statement, &var.sim2c__remark_statement);
-  define_single_assign_static("sim2c", "body", get__sim2c__body, &var.sim2c__body);
-  define_single_assign_static("sim2c", "statement", get__sim2c__statement, &var.sim2c__statement);
-  define_single_assign_static("sim2c", "call", get__sim2c__call, &var.sim2c__call);
-  define_single_assign_static("sim2c", "procedure_call", get__sim2c__procedure_call, &var.sim2c__procedure_call);
-  define_single_assign_static("sim2c", "return_statement", get__sim2c__return_statement, &var.sim2c__return_statement);
-  define_single_assign_static("sim2c", "assignment", get__sim2c__assignment, &var.sim2c__assignment);
-  define_single_assign_static("sim2c", "definition", get__sim2c__definition, &var.sim2c__definition);
-  define_single_assign_static("sim2c", "define_static_single", get__sim2c__define_static_single, &var.sim2c__define_static_single);
-  define_single_assign_static("sim2c", "define_static_multi", get__sim2c__define_static_multi, &var.sim2c__define_static_multi);
-  define_single_assign_static("sim2c", "define_dynamic_single", get__sim2c__define_dynamic_single, &var.sim2c__define_dynamic_single);
-  define_single_assign_static("sim2c", "define_dynamic_multi", get__sim2c__define_dynamic_multi, &var.sim2c__define_dynamic_multi);
-  define_single_assign_static("sim2c", "function_call", get__sim2c__function_call, &var.sim2c__function_call);
-  define_single_assign_static("sim2c", "expression", get__sim2c__expression, &var.sim2c__expression);
-  define_single_assign_static("sim2c", "backquoted", get__sim2c__backquoted, &var.sim2c__backquoted);
-  define_single_assign_static("sim2c", "attribute_value_pair", get__sim2c__attribute_value_pair, &var.sim2c__attribute_value_pair);
-  define_single_assign_static("sim2c", "attribute_function_pair", get__sim2c__attribute_function_pair, &var.sim2c__attribute_function_pair);
-  define_single_assign_static("sim2c", "numeric_literal", get__sim2c__numeric_literal, &var.sim2c__numeric_literal);
-  define_single_assign_static("sim2c", "character_literal", get__sim2c__character_literal, &var.sim2c__character_literal);
-  define_single_assign_static("sim2c", "string_literal", get__sim2c__string_literal, &var.sim2c__string_literal);
-  define_single_assign_static("sim2c", "multi_line_string", get__sim2c__multi_line_string, &var.sim2c__multi_line_string);
-  define_single_assign_static("sim2c", "unique_item", get__sim2c__unique_item, &var.sim2c__unique_item);
-  define_single_assign_static("sim2c", "polymorphic_function", get__sim2c__polymorphic_function, &var.sim2c__polymorphic_function);
-  define_single_assign_static("sim2c", "polymorphic_function_with_setter", get__sim2c__polymorphic_function_with_setter, &var.sim2c__polymorphic_function_with_setter);
-  define_single_assign_static("sim2c", "identifier", get__sim2c__identifier, &var.sim2c__identifier);
-  define_single_assign_static("sim2c", "temporary", get__sim2c__temporary, &var.sim2c__temporary);
-  define_single_assign_static("sim2c", "operator_symbol", get__sim2c__operator_symbol, &var.sim2c__operator_symbol);
-  define_single_assign_static("sim2c", "c_code", get__sim2c__c_code, &var.sim2c__c_code);
-  define_single_assign_static("sim2c", "c_body", get__sim2c__c_body, &var.sim2c__c_body);
-  define_single_assign_static("sim2c", "is_a_parameter", get__sim2c__is_a_parameter, &var.sim2c__is_a_parameter);
+  assign_value(&var.compiler__NONE, unique__compiler__NONE);
+  define_single_assign_static("compiler", "NONE", get__compiler__NONE, &var.compiler__NONE);
+  assign_value(&var.compiler__ATTRIBUTE_KIND, unique__compiler__ATTRIBUTE_KIND);
+  define_single_assign_static("compiler", "ATTRIBUTE_KIND", get__compiler__ATTRIBUTE_KIND, &var.compiler__ATTRIBUTE_KIND);
+  assign_value(&var.compiler__METHOD_KIND, unique__compiler__METHOD_KIND);
+  define_single_assign_static("compiler", "METHOD_KIND", get__compiler__METHOD_KIND, &var.compiler__METHOD_KIND);
+  assign_value(&var.compiler__NO_PARAMETER, unique__compiler__NO_PARAMETER);
+  define_single_assign_static("compiler", "NO_PARAMETER", get__compiler__NO_PARAMETER, &var.compiler__NO_PARAMETER);
+  assign_value(&var.compiler__IN_PARAMETER, unique__compiler__IN_PARAMETER);
+  define_single_assign_static("compiler", "IN_PARAMETER", get__compiler__IN_PARAMETER, &var.compiler__IN_PARAMETER);
+  assign_value(&var.compiler__IN_OUT_PARAMETER, unique__compiler__IN_OUT_PARAMETER);
+  define_single_assign_static("compiler", "IN_OUT_PARAMETER", get__compiler__IN_OUT_PARAMETER, &var.compiler__IN_OUT_PARAMETER);
+  assign_value(&var.compiler__OUT_PARAMETER, unique__compiler__OUT_PARAMETER);
+  define_single_assign_static("compiler", "OUT_PARAMETER", get__compiler__OUT_PARAMETER, &var.compiler__OUT_PARAMETER);
+  assign_value(&var.compiler__MYSELF_PARAMETER, unique__compiler__MYSELF_PARAMETER);
+  define_single_assign_static("compiler", "MYSELF_PARAMETER", get__compiler__MYSELF_PARAMETER, &var.compiler__MYSELF_PARAMETER);
+  assign_value(&var.compiler__CONTINUATION_PARAMETER, unique__compiler__CONTINUATION_PARAMETER);
+  define_single_assign_static("compiler", "CONTINUATION_PARAMETER", get__compiler__CONTINUATION_PARAMETER, &var.compiler__CONTINUATION_PARAMETER);
+  assign_value(&var.compiler__LEFT, unique__compiler__LEFT);
+  define_single_assign_static("compiler", "LEFT", get__compiler__LEFT, &var.compiler__LEFT);
+  assign_value(&var.compiler__RIGHT, unique__compiler__RIGHT);
+  define_single_assign_static("compiler", "RIGHT", get__compiler__RIGHT, &var.compiler__RIGHT);
+  assign_value(&var.compiler__POLYMORPHIC, unique__compiler__POLYMORPHIC);
+  define_single_assign_static("compiler", "POLYMORPHIC", get__compiler__POLYMORPHIC, &var.compiler__POLYMORPHIC);
+  assign_value(&var.compiler__STATIC_SINGLE, unique__compiler__STATIC_SINGLE);
+  define_single_assign_static("compiler", "STATIC_SINGLE", get__compiler__STATIC_SINGLE, &var.compiler__STATIC_SINGLE);
+  assign_value(&var.compiler__STATIC_MULTI, unique__compiler__STATIC_MULTI);
+  define_single_assign_static("compiler", "STATIC_MULTI", get__compiler__STATIC_MULTI, &var.compiler__STATIC_MULTI);
+  assign_value(&var.compiler__DYNAMIC_SINGLE, unique__compiler__DYNAMIC_SINGLE);
+  define_single_assign_static("compiler", "DYNAMIC_SINGLE", get__compiler__DYNAMIC_SINGLE, &var.compiler__DYNAMIC_SINGLE);
+  assign_value(&var.compiler__DYNAMIC_MULTI, unique__compiler__DYNAMIC_MULTI);
+  define_single_assign_static("compiler", "DYNAMIC_MULTI", get__compiler__DYNAMIC_MULTI, &var.compiler__DYNAMIC_MULTI);
+  assign_value(&var.compiler__C_NODE, unique__compiler__C_NODE);
+  define_single_assign_static("compiler", "C_NODE", get__compiler__C_NODE, &var.compiler__C_NODE);
+  define_single_assign_static("compiler", "meta_instruction", get__compiler__meta_instruction, &var.compiler__meta_instruction);
+  define_single_assign_static("compiler", "require_instruction", get__compiler__require_instruction, &var.compiler__require_instruction);
+  define_single_assign_static("compiler", "namespace_instruction", get__compiler__namespace_instruction, &var.compiler__namespace_instruction);
+  define_single_assign_static("compiler", "using_instruction", get__compiler__using_instruction, &var.compiler__using_instruction);
+  define_single_assign_static("compiler", "include_instruction", get__compiler__include_instruction, &var.compiler__include_instruction);
+  define_single_assign_static("compiler", "link_instruction", get__compiler__link_instruction, &var.compiler__link_instruction);
+  define_single_assign_static("compiler", "data_instruction", get__compiler__data_instruction, &var.compiler__data_instruction);
+  define_single_assign_static("compiler", "remark_statement", get__compiler__remark_statement, &var.compiler__remark_statement);
+  define_single_assign_static("compiler", "body", get__compiler__body, &var.compiler__body);
+  define_single_assign_static("compiler", "statement", get__compiler__statement, &var.compiler__statement);
+  define_single_assign_static("compiler", "call", get__compiler__call, &var.compiler__call);
+  define_single_assign_static("compiler", "procedure_call", get__compiler__procedure_call, &var.compiler__procedure_call);
+  define_single_assign_static("compiler", "return_statement", get__compiler__return_statement, &var.compiler__return_statement);
+  define_single_assign_static("compiler", "assignment", get__compiler__assignment, &var.compiler__assignment);
+  define_single_assign_static("compiler", "definition", get__compiler__definition, &var.compiler__definition);
+  define_single_assign_static("compiler", "define_static_single", get__compiler__define_static_single, &var.compiler__define_static_single);
+  define_single_assign_static("compiler", "define_static_multi", get__compiler__define_static_multi, &var.compiler__define_static_multi);
+  define_single_assign_static("compiler", "define_dynamic_single", get__compiler__define_dynamic_single, &var.compiler__define_dynamic_single);
+  define_single_assign_static("compiler", "define_dynamic_multi", get__compiler__define_dynamic_multi, &var.compiler__define_dynamic_multi);
+  define_single_assign_static("compiler", "function_call", get__compiler__function_call, &var.compiler__function_call);
+  define_single_assign_static("compiler", "expression", get__compiler__expression, &var.compiler__expression);
+  define_single_assign_static("compiler", "backquoted", get__compiler__backquoted, &var.compiler__backquoted);
+  define_single_assign_static("compiler", "attribute_value_pair", get__compiler__attribute_value_pair, &var.compiler__attribute_value_pair);
+  define_single_assign_static("compiler", "attribute_function_pair", get__compiler__attribute_function_pair, &var.compiler__attribute_function_pair);
+  define_single_assign_static("compiler", "numeric_literal", get__compiler__numeric_literal, &var.compiler__numeric_literal);
+  define_single_assign_static("compiler", "character_literal", get__compiler__character_literal, &var.compiler__character_literal);
+  define_single_assign_static("compiler", "string_literal", get__compiler__string_literal, &var.compiler__string_literal);
+  define_single_assign_static("compiler", "multi_line_string", get__compiler__multi_line_string, &var.compiler__multi_line_string);
+  define_single_assign_static("compiler", "unique_item", get__compiler__unique_item, &var.compiler__unique_item);
+  define_single_assign_static("compiler", "polymorphic_function", get__compiler__polymorphic_function, &var.compiler__polymorphic_function);
+  define_single_assign_static("compiler", "polymorphic_function_with_setter", get__compiler__polymorphic_function_with_setter, &var.compiler__polymorphic_function_with_setter);
+  define_single_assign_static("compiler", "identifier", get__compiler__identifier, &var.compiler__identifier);
+  define_single_assign_static("compiler", "temporary", get__compiler__temporary, &var.compiler__temporary);
+  define_single_assign_static("compiler", "operator_symbol", get__compiler__operator_symbol, &var.compiler__operator_symbol);
+  define_single_assign_static("compiler", "c_code", get__compiler__c_code, &var.compiler__c_code);
+  define_single_assign_static("compiler", "c_body", get__compiler__c_body, &var.compiler__c_body);
+  define_single_assign_static("compiler", "is_a_parameter", get__compiler__is_a_parameter, &var.compiler__is_a_parameter);
 }
 
 static int already_run_phase_4 = false;
@@ -4586,114 +4586,114 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("types", "grammar_node", poly_idx__is_an_expanded_item, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_an_optional_item, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_a_meta_instruction, get__false());
-  define_attribute("sim2c", "meta_instruction", poly_idx__is_a_meta_instruction, get__true());
+  define_attribute("compiler", "meta_instruction", poly_idx__is_a_meta_instruction, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_remark, get__false());
-  define_attribute("sim2c", "remark_statement", poly_idx__is_a_remark, get__true());
+  define_attribute("compiler", "remark_statement", poly_idx__is_a_remark, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_body, get__false());
-  define_attribute("sim2c", "body", poly_idx__is_a_body, get__true());
-  define_attribute("sim2c", "body", poly_idx__is_a_constant, get__true());
-  define_attribute("sim2c", "body", poly_idx__defines_a_dynamic, get__false());
-  define_attribute("sim2c", "body", poly_idx__definitions_of, get__empty_list());
-  define_attribute("sim2c", "body", poly_idx__statements_of, get__empty_list());
-  define_attribute("sim2c", "body", poly_idx__parameters_of, get__empty_list());
-  define_attribute("sim2c", "body", poly_idx__defined_names_of, get__types__insert_order_table());
-  define_attribute("sim2c", "body", poly_idx__inherited_names_of, get__types__insert_order_table());
-  define_attribute("sim2c", "body", poly_idx__used_names_of, get__types__insert_order_table());
-  define_attribute("sim2c", "body", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "body", poly_idx__is_a_body, get__true());
+  define_attribute("compiler", "body", poly_idx__is_a_constant, get__true());
+  define_attribute("compiler", "body", poly_idx__defines_a_dynamic, get__false());
+  define_attribute("compiler", "body", poly_idx__definitions_of, get__empty_list());
+  define_attribute("compiler", "body", poly_idx__statements_of, get__empty_list());
+  define_attribute("compiler", "body", poly_idx__parameters_of, get__empty_list());
+  define_attribute("compiler", "body", poly_idx__defined_names_of, get__types__insert_order_table());
+  define_attribute("compiler", "body", poly_idx__inherited_names_of, get__types__insert_order_table());
+  define_attribute("compiler", "body", poly_idx__used_names_of, get__types__insert_order_table());
+  define_attribute("compiler", "body", poly_idx__arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_a_call, get__false());
-  define_attribute("sim2c", "call", poly_idx__is_a_call, get__true());
-  define_attribute("sim2c", "call", poly_idx__output_arguments_of, get__empty_list());
-  define_attribute("sim2c", "call", poly_idx__arguments_of, get__empty_list());
-  define_attribute("sim2c", "call", poly_idx__is_a_procedure_call, get__false());
-  define_attribute("sim2c", "procedure_call", poly_idx__is_a_procedure_call, get__true());
+  define_attribute("compiler", "call", poly_idx__is_a_call, get__true());
+  define_attribute("compiler", "call", poly_idx__output_arguments_of, get__empty_list());
+  define_attribute("compiler", "call", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "call", poly_idx__is_a_procedure_call, get__false());
+  define_attribute("compiler", "procedure_call", poly_idx__is_a_procedure_call, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_return, get__false());
-  define_attribute("sim2c", "return_statement", poly_idx__is_a_return, get__true());
-  define_attribute("sim2c", "call", poly_idx__is_an_assignment, get__false());
-  define_attribute("sim2c", "assignment", poly_idx__is_an_assignment, get__true());
+  define_attribute("compiler", "return_statement", poly_idx__is_a_return, get__true());
+  define_attribute("compiler", "call", poly_idx__is_an_assignment, get__false());
+  define_attribute("compiler", "assignment", poly_idx__is_an_assignment, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_definition, get__false());
-  define_attribute("sim2c", "definition", poly_idx__is_a_definition, get__true());
-  define_attribute("sim2c", "definition", poly_idx__attribute_kind_of, get__NONE());
-  define_attribute("sim2c", "definition", poly_idx__parameter_kind_of, get__NO_PARAMETER());
+  define_attribute("compiler", "definition", poly_idx__is_a_definition, get__true());
+  define_attribute("compiler", "definition", poly_idx__attribute_kind_of, get__NONE());
+  define_attribute("compiler", "definition", poly_idx__parameter_kind_of, get__NO_PARAMETER());
   define_attribute("types", "grammar_node", poly_idx__is_a_static_single_definition, get__false());
-  define_attribute("sim2c", "define_static_single", poly_idx__is_a_static_single_definition, get__true());
-  define_attribute("sim2c", "define_static_single", poly_idx__is_a_single_assign_definition, get__true());
-  define_attribute("sim2c", "define_static_single", poly_idx__is_a_static_definition, get__true());
-  define_attribute("sim2c", "define_static_single", poly_idx__variable_kind_of, get__STATIC_SINGLE());
+  define_attribute("compiler", "define_static_single", poly_idx__is_a_static_single_definition, get__true());
+  define_attribute("compiler", "define_static_single", poly_idx__is_a_single_assign_definition, get__true());
+  define_attribute("compiler", "define_static_single", poly_idx__is_a_static_definition, get__true());
+  define_attribute("compiler", "define_static_single", poly_idx__variable_kind_of, get__STATIC_SINGLE());
   define_attribute("types", "grammar_node", poly_idx__is_a_static_multi_definition, get__false());
-  define_attribute("sim2c", "define_static_multi", poly_idx__is_a_static_multi_definition, get__true());
-  define_attribute("sim2c", "define_static_multi", poly_idx__is_a_multi_assign_definition, get__true());
-  define_attribute("sim2c", "define_static_multi", poly_idx__is_a_static_definition, get__true());
-  define_attribute("sim2c", "define_static_multi", poly_idx__variable_kind_of, get__STATIC_MULTI());
+  define_attribute("compiler", "define_static_multi", poly_idx__is_a_static_multi_definition, get__true());
+  define_attribute("compiler", "define_static_multi", poly_idx__is_a_multi_assign_definition, get__true());
+  define_attribute("compiler", "define_static_multi", poly_idx__is_a_static_definition, get__true());
+  define_attribute("compiler", "define_static_multi", poly_idx__variable_kind_of, get__STATIC_MULTI());
   define_attribute("types", "grammar_node", poly_idx__is_a_dynamic_single_definition, get__false());
-  define_attribute("sim2c", "define_dynamic_single", poly_idx__is_a_dynamic_single_definition, get__true());
-  define_attribute("sim2c", "define_dynamic_single", poly_idx__is_a_single_assign_definition, get__true());
-  define_attribute("sim2c", "define_dynamic_single", poly_idx__is_a_dynamic_definition, get__true());
-  define_attribute("sim2c", "define_dynamic_single", poly_idx__variable_kind_of, get__DYNAMIC_SINGLE());
+  define_attribute("compiler", "define_dynamic_single", poly_idx__is_a_dynamic_single_definition, get__true());
+  define_attribute("compiler", "define_dynamic_single", poly_idx__is_a_single_assign_definition, get__true());
+  define_attribute("compiler", "define_dynamic_single", poly_idx__is_a_dynamic_definition, get__true());
+  define_attribute("compiler", "define_dynamic_single", poly_idx__variable_kind_of, get__DYNAMIC_SINGLE());
   define_attribute("types", "grammar_node", poly_idx__is_a_dynamic_multi_definition, get__false());
-  define_attribute("sim2c", "define_dynamic_multi", poly_idx__is_a_dynamic_multi_definition, get__true());
-  define_attribute("sim2c", "define_dynamic_multi", poly_idx__is_a_multi_assign_definition, get__true());
-  define_attribute("sim2c", "define_dynamic_multi", poly_idx__is_a_dynamic_definition, get__true());
-  define_attribute("sim2c", "define_dynamic_multi", poly_idx__variable_kind_of, get__DYNAMIC_MULTI());
+  define_attribute("compiler", "define_dynamic_multi", poly_idx__is_a_dynamic_multi_definition, get__true());
+  define_attribute("compiler", "define_dynamic_multi", poly_idx__is_a_multi_assign_definition, get__true());
+  define_attribute("compiler", "define_dynamic_multi", poly_idx__is_a_dynamic_definition, get__true());
+  define_attribute("compiler", "define_dynamic_multi", poly_idx__variable_kind_of, get__DYNAMIC_MULTI());
   define_attribute("types", "grammar_node", poly_idx__is_a_function_call, get__false());
-  define_attribute("sim2c", "function_call", poly_idx__is_a_function_call, get__true());
-  define_attribute("sim2c", "function_call", poly_idx__is_a_method_definition, get__false());
-  define_attribute("sim2c", "function_call", poly_idx__is_an_attribute_access, get__false());
-  define_attribute("sim2c", "function_call", poly_idx__is_in_infix_notation, get__false());
-  define_attribute("sim2c", "function_call", poly_idx__is_a_string_template, get__false());
-  define_attribute("sim2c", "function_call", poly_idx__arguments_of, get__empty_list());
-  define_attribute("sim2c", "function_call", poly_idx__output_arguments_of, get__empty_list());
+  define_attribute("compiler", "function_call", poly_idx__is_a_function_call, get__true());
+  define_attribute("compiler", "function_call", poly_idx__is_a_method_definition, get__false());
+  define_attribute("compiler", "function_call", poly_idx__is_an_attribute_access, get__false());
+  define_attribute("compiler", "function_call", poly_idx__is_in_infix_notation, get__false());
+  define_attribute("compiler", "function_call", poly_idx__is_a_string_template, get__false());
+  define_attribute("compiler", "function_call", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "function_call", poly_idx__output_arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_an_expression, get__false());
-  define_attribute("sim2c", "expression", poly_idx__is_an_expression, get__true());
-  define_attribute("sim2c", "expression", poly_idx__arguments_of, get__empty_list());
-  define_attribute("sim2c", "expression", poly_idx__operators_of, get__empty_list());
+  define_attribute("compiler", "expression", poly_idx__is_an_expression, get__true());
+  define_attribute("compiler", "expression", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "expression", poly_idx__operators_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_a_backquoted_expression, get__false());
-  define_attribute("sim2c", "backquoted", poly_idx__is_a_backquoted_expression, get__true());
+  define_attribute("compiler", "backquoted", poly_idx__is_a_backquoted_expression, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_attribute_value_pair, get__false());
-  define_attribute("sim2c", "attribute_value_pair", poly_idx__is_an_attribute_value_pair, get__true());
-  define_attribute("sim2c", "attribute_value_pair", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "attribute_value_pair", poly_idx__is_an_attribute_value_pair, get__true());
+  define_attribute("compiler", "attribute_value_pair", poly_idx__arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_an_attribute_function_pair, get__false());
-  define_attribute("sim2c", "attribute_function_pair", poly_idx__is_an_attribute_function_pair, get__true());
+  define_attribute("compiler", "attribute_function_pair", poly_idx__is_an_attribute_function_pair, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_numeric_literal, get__false());
-  define_attribute("sim2c", "numeric_literal", poly_idx__is_a_numeric_literal, get__true());
-  define_attribute("sim2c", "numeric_literal", poly_idx__is_a_constant, get__true());
-  define_method("sim2c", "numeric_literal", poly_idx__mangled_name_of, func__sim2c__numeric_literal__mangled_name_of_1);
+  define_attribute("compiler", "numeric_literal", poly_idx__is_a_numeric_literal, get__true());
+  define_attribute("compiler", "numeric_literal", poly_idx__is_a_constant, get__true());
+  define_method("compiler", "numeric_literal", poly_idx__mangled_name_of, func__compiler__numeric_literal__mangled_name_of_1);
   define_attribute("types", "grammar_node", poly_idx__is_a_character_literal, get__false());
-  define_attribute("sim2c", "character_literal", poly_idx__is_a_character_literal, get__true());
-  define_attribute("sim2c", "character_literal", poly_idx__is_a_constant, get__true());
-  define_attribute("sim2c", "character_literal", poly_idx__is_in_numeric_notation, get__false());
+  define_attribute("compiler", "character_literal", poly_idx__is_a_character_literal, get__true());
+  define_attribute("compiler", "character_literal", poly_idx__is_a_constant, get__true());
+  define_attribute("compiler", "character_literal", poly_idx__is_in_numeric_notation, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_a_string_literal, get__false());
-  define_attribute("sim2c", "string_literal", poly_idx__is_a_string_literal, get__true());
-  define_attribute("sim2c", "string_literal", poly_idx__is_a_constant, get__true());
-  define_attribute("sim2c", "string_literal", poly_idx__node__text_of, empty_string);
-  define_attribute("sim2c", "string_literal", poly_idx__arguments_of, get__empty_list());
-  define_attribute("sim2c", "multi_line_string", poly_idx__node__line_end_specifier_of, string__578a5af303e9ceb);
-  define_attribute("sim2c", "multi_line_string", poly_idx__node__last_line_end_specifier_of, string__578a5af303e9ceb);
+  define_attribute("compiler", "string_literal", poly_idx__is_a_string_literal, get__true());
+  define_attribute("compiler", "string_literal", poly_idx__is_a_constant, get__true());
+  define_attribute("compiler", "string_literal", poly_idx__node__text_of, empty_string);
+  define_attribute("compiler", "string_literal", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "multi_line_string", poly_idx__node__line_end_specifier_of, string__578a5af303e9ceb);
+  define_attribute("compiler", "multi_line_string", poly_idx__node__last_line_end_specifier_of, string__578a5af303e9ceb);
   define_attribute("types", "grammar_node", poly_idx__is_a_unique_item_constant, get__false());
-  define_attribute("sim2c", "unique_item", poly_idx__is_a_unique_item_constant, get__true());
-  define_attribute("sim2c", "unique_item", poly_idx__is_a_constant, get__true());
+  define_attribute("compiler", "unique_item", poly_idx__is_a_unique_item_constant, get__true());
+  define_attribute("compiler", "unique_item", poly_idx__is_a_constant, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_polymorphic_function_constant, get__false());
-  define_attribute("sim2c", "polymorphic_function", poly_idx__is_a_polymorphic_function_constant, get__true());
-  define_attribute("sim2c", "polymorphic_function", poly_idx__is_a_constant, get__true());
-  define_attribute("sim2c", "polymorphic_function", poly_idx__is_a_setter, get__false());
-  define_attribute("sim2c", "polymorphic_function_with_setter", poly_idx__is_a_setter, get__true());
+  define_attribute("compiler", "polymorphic_function", poly_idx__is_a_polymorphic_function_constant, get__true());
+  define_attribute("compiler", "polymorphic_function", poly_idx__is_a_constant, get__true());
+  define_attribute("compiler", "polymorphic_function", poly_idx__is_a_setter, get__false());
+  define_attribute("compiler", "polymorphic_function_with_setter", poly_idx__is_a_setter, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_identifier, get__false());
-  define_attribute("sim2c", "identifier", poly_idx__is_an_identifier, get__true());
+  define_attribute("compiler", "identifier", poly_idx__is_an_identifier, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_destination, get__false());
-  define_attribute("sim2c", "identifier", poly_idx__is_used_as_a_polymorphic_function, get__false());
-  define_attribute("sim2c", "identifier", poly_idx__is_not_used, get__false());
-  define_method("sim2c", "identifier", poly_idx__full_name_of, func__sim2c__identifier__full_name_of_1);
-  define_method("sim2c", "identifier", poly_idx__mangled_name_of, func__sim2c__identifier__mangled_name_of_1);
+  define_attribute("compiler", "identifier", poly_idx__is_used_as_a_polymorphic_function, get__false());
+  define_attribute("compiler", "identifier", poly_idx__is_not_used, get__false());
+  define_method("compiler", "identifier", poly_idx__full_name_of, func__compiler__identifier__full_name_of_1);
+  define_method("compiler", "identifier", poly_idx__mangled_name_of, func__compiler__identifier__mangled_name_of_1);
   define_attribute("types", "grammar_node", poly_idx__is_a_temporary, get__false());
-  define_attribute("sim2c", "temporary", poly_idx__is_a_temporary, get__true());
+  define_attribute("compiler", "temporary", poly_idx__is_a_temporary, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_operator_symbol, get__false());
-  define_attribute("sim2c", "operator_symbol", poly_idx__is_an_operator_symbol, get__true());
+  define_attribute("compiler", "operator_symbol", poly_idx__is_an_operator_symbol, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_c_code, get__false());
-  define_attribute("sim2c", "c_code", poly_idx__is_c_code, get__true());
-  define_attribute("sim2c", "c_code", poly_idx__scope_of, string__545aebc3eac0d03b);
-  define_attribute("sim2c", "c_code", poly_idx__arguments_of, get__empty_list());
+  define_attribute("compiler", "c_code", poly_idx__is_c_code, get__true());
+  define_attribute("compiler", "c_code", poly_idx__scope_of, string__545aebc3eac0d03b);
+  define_attribute("compiler", "c_code", poly_idx__arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_a_c_body, get__false());
-  define_attribute("sim2c", "c_body", poly_idx__is_a_c_body, get__true());
-  define_attribute("sim2c", "c_body", poly_idx__is_a_constant, get__true());
+  define_attribute("compiler", "c_body", poly_idx__is_a_c_body, get__true());
+  define_attribute("compiler", "c_body", poly_idx__is_a_constant, get__true());
 }
 
 static int already_run_phase_5 = false;
@@ -4768,72 +4768,72 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.node__value_of, create_function(type__node__value_of, -1));
   assign_value(&var.node__variable_kind_of, create_function(type__node__variable_kind_of, -1));
   assign_value(&var.node__is_a_meta_instruction, create_function(type__node__is_a_meta_instruction, -1));
-  assign_value(&var.sim2c__meta_instruction, get__types__grammar_node());
-  assign_variable(&var.sim2c__require_instruction, &var.sim2c__meta_instruction);
-  assign_variable(&var.sim2c__namespace_instruction, &var.sim2c__meta_instruction);
-  assign_variable(&var.sim2c__using_instruction, &var.sim2c__meta_instruction);
-  assign_variable(&var.sim2c__include_instruction, &var.sim2c__meta_instruction);
-  assign_variable(&var.sim2c__link_instruction, &var.sim2c__meta_instruction);
-  assign_variable(&var.sim2c__data_instruction, &var.sim2c__meta_instruction);
+  assign_value(&var.compiler__meta_instruction, get__types__grammar_node());
+  assign_variable(&var.compiler__require_instruction, &var.compiler__meta_instruction);
+  assign_variable(&var.compiler__namespace_instruction, &var.compiler__meta_instruction);
+  assign_variable(&var.compiler__using_instruction, &var.compiler__meta_instruction);
+  assign_variable(&var.compiler__include_instruction, &var.compiler__meta_instruction);
+  assign_variable(&var.compiler__link_instruction, &var.compiler__meta_instruction);
+  assign_variable(&var.compiler__data_instruction, &var.compiler__meta_instruction);
   assign_value(&var.node__is_a_remark, create_function(type__node__is_a_remark, -1));
-  assign_variable(&var.sim2c__remark_statement, &var.sim2c__statement);
+  assign_variable(&var.compiler__remark_statement, &var.compiler__statement);
   assign_value(&var.node__is_a_body, create_function(type__node__is_a_body, -1));
   assign_value(&var.node__defines_a_dynamic, create_function(type__node__defines_a_dynamic, -1));
-  assign_value(&var.sim2c__body, get__types__grammar_node());
-  assign_value(&var.sim2c__statement, get__types__grammar_node());
+  assign_value(&var.compiler__body, get__types__grammar_node());
+  assign_value(&var.compiler__statement, get__types__grammar_node());
   assign_value(&var.node__is_a_call, create_function(type__node__is_a_call, -1));
-  assign_variable(&var.sim2c__call, &var.sim2c__statement);
+  assign_variable(&var.compiler__call, &var.compiler__statement);
   assign_value(&var.node__is_a_procedure_call, create_function(type__node__is_a_procedure_call, -1));
-  assign_variable(&var.sim2c__procedure_call, &var.sim2c__call);
+  assign_variable(&var.compiler__procedure_call, &var.compiler__call);
   assign_value(&var.node__is_a_return, create_function(type__node__is_a_return, -1));
-  assign_variable(&var.sim2c__return_statement, &var.sim2c__call);
+  assign_variable(&var.compiler__return_statement, &var.compiler__call);
   assign_value(&var.node__is_an_assignment, create_function(type__node__is_an_assignment, -1));
-  assign_variable(&var.sim2c__assignment, &var.sim2c__call);
+  assign_variable(&var.compiler__assignment, &var.compiler__call);
   assign_value(&var.node__is_a_definition, create_function(type__node__is_a_definition, -1));
-  assign_value(&var.sim2c__definition, get__types__grammar_node());
+  assign_value(&var.compiler__definition, get__types__grammar_node());
   assign_value(&var.node__is_a_static_single_definition, create_function(type__node__is_a_static_single_definition, -1));
-  assign_variable(&var.sim2c__define_static_single, &var.sim2c__definition);
+  assign_variable(&var.compiler__define_static_single, &var.compiler__definition);
   assign_value(&var.node__is_a_static_multi_definition, create_function(type__node__is_a_static_multi_definition, -1));
-  assign_variable(&var.sim2c__define_static_multi, &var.sim2c__definition);
+  assign_variable(&var.compiler__define_static_multi, &var.compiler__definition);
   assign_value(&var.node__is_a_dynamic_single_definition, create_function(type__node__is_a_dynamic_single_definition, -1));
-  assign_variable(&var.sim2c__define_dynamic_single, &var.sim2c__definition);
+  assign_variable(&var.compiler__define_dynamic_single, &var.compiler__definition);
   assign_value(&var.node__is_a_dynamic_multi_definition, create_function(type__node__is_a_dynamic_multi_definition, -1));
-  assign_variable(&var.sim2c__define_dynamic_multi, &var.sim2c__definition);
+  assign_variable(&var.compiler__define_dynamic_multi, &var.compiler__definition);
   assign_value(&var.node__is_a_function_call, create_function(type__node__is_a_function_call, -1));
-  assign_value(&var.sim2c__function_call, get__types__grammar_node());
+  assign_value(&var.compiler__function_call, get__types__grammar_node());
   assign_value(&var.node__is_an_expression, create_function(type__node__is_an_expression, -1));
-  assign_value(&var.sim2c__expression, get__types__grammar_node());
+  assign_value(&var.compiler__expression, get__types__grammar_node());
   assign_value(&var.node__is_a_backquoted_expression, create_function(type__node__is_a_backquoted_expression, -1));
-  assign_value(&var.sim2c__backquoted, get__types__grammar_node());
+  assign_value(&var.compiler__backquoted, get__types__grammar_node());
   assign_value(&var.node__is_an_attribute_value_pair, create_function(type__node__is_an_attribute_value_pair, -1));
-  assign_value(&var.sim2c__attribute_value_pair, get__types__grammar_node());
+  assign_value(&var.compiler__attribute_value_pair, get__types__grammar_node());
   assign_value(&var.node__is_an_attribute_function_pair, create_function(type__node__is_an_attribute_function_pair, -1));
-  assign_variable(&var.sim2c__attribute_function_pair, &var.sim2c__attribute_value_pair);
+  assign_variable(&var.compiler__attribute_function_pair, &var.compiler__attribute_value_pair);
   assign_value(&var.node__is_a_numeric_literal, create_function(type__node__is_a_numeric_literal, -1));
-  assign_value(&var.sim2c__numeric_literal, get__types__grammar_node());
+  assign_value(&var.compiler__numeric_literal, get__types__grammar_node());
   assign_value(&var.node__is_a_character_literal, create_function(type__node__is_a_character_literal, -1));
-  assign_value(&var.sim2c__character_literal, get__types__grammar_node());
+  assign_value(&var.compiler__character_literal, get__types__grammar_node());
   assign_value(&var.node__is_a_string_literal, create_function(type__node__is_a_string_literal, -1));
-  assign_value(&var.sim2c__string_literal, get__types__grammar_node());
-  assign_variable(&var.sim2c__multi_line_string, &var.sim2c__string_literal);
+  assign_value(&var.compiler__string_literal, get__types__grammar_node());
+  assign_variable(&var.compiler__multi_line_string, &var.compiler__string_literal);
   assign_value(&var.node__is_a_unique_item_constant, create_function(type__node__is_a_unique_item_constant, -1));
-  assign_value(&var.sim2c__unique_item, get__types__grammar_node());
+  assign_value(&var.compiler__unique_item, get__types__grammar_node());
   assign_value(&var.node__is_a_polymorphic_function_constant, create_function(type__node__is_a_polymorphic_function_constant, -1));
-  assign_value(&var.sim2c__polymorphic_function, get__types__grammar_node());
-  assign_variable(&var.sim2c__polymorphic_function_with_setter, &var.sim2c__polymorphic_function);
+  assign_value(&var.compiler__polymorphic_function, get__types__grammar_node());
+  assign_variable(&var.compiler__polymorphic_function_with_setter, &var.compiler__polymorphic_function);
   assign_value(&var.node__is_an_identifier, create_function(type__node__is_an_identifier, -1));
   assign_value(&var.node__is_a_destination, create_function(type__node__is_a_destination, -1));
   assign_value(&var.node__is_used_as_a_polymorphic_function, create_function(type__node__is_used_as_a_polymorphic_function, -1));
-  assign_value(&var.sim2c__identifier, get__types__grammar_node());
+  assign_value(&var.compiler__identifier, get__types__grammar_node());
   assign_value(&var.node__is_a_temporary, create_function(type__node__is_a_temporary, -1));
-  assign_variable(&var.sim2c__temporary, &var.sim2c__identifier);
+  assign_variable(&var.compiler__temporary, &var.compiler__identifier);
   assign_value(&var.node__is_an_operator_symbol, create_function(type__node__is_an_operator_symbol, -1));
-  assign_variable(&var.sim2c__operator_symbol, &var.sim2c__identifier);
+  assign_variable(&var.compiler__operator_symbol, &var.compiler__identifier);
   assign_value(&var.node__is_c_code, create_function(type__node__is_c_code, -1));
-  assign_value(&var.sim2c__c_code, get__types__grammar_node());
+  assign_value(&var.compiler__c_code, get__types__grammar_node());
   assign_value(&var.node__is_a_c_body, create_function(type__node__is_a_c_body, -1));
-  assign_variable(&var.sim2c__c_body, &var.sim2c__c_code);
-  assign_variable(&var.sim2c__is_a_parameter, &func__sim2c__is_a_parameter_1);
+  assign_variable(&var.compiler__c_body, &var.compiler__c_code);
+  assign_variable(&var.compiler__is_a_parameter, &func__compiler__is_a_parameter_1);
 }
 
 static int already_run_phase_6 = false;
