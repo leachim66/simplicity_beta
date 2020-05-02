@@ -381,13 +381,22 @@ $compiler::sim2c:
   !all_actions empty_list
   if do_time_passes: write_timing_info "simplifying" filenames(1)
   if do_print_simplified_source:
-    for_each all_definitions: (defs)
-      for_each defs: (def)
-	if
-	  def.is_a_key_value_pair:
-	    writeln "_define " key_of(def) ' ' std::value_of(def)
-	  :
-	    writeln "_define " def
+    for_each all_definitions
+      :
+	(
+	  defs
+	)
+	for_each defs: (def)
+	  if
+	    def.is_a_key_value_pair:
+	      writeln
+		assignment
+		  .output_arguments_of list(key_of(def))
+		  .arguments_of list(std::value_of(def))
+	    :
+	      writeln "_define " def
+      :
+	writeln
     for_each all_statements: (stmts) print_trees stmts
     terminate
 
