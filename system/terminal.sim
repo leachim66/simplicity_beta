@@ -613,6 +613,8 @@ $std::draw_line:
 	      :
 		!chr '@0x2524;'
 	    !chr '@0x253c;'
+	  '@0x253c;':
+	    !chr '@0x253c;'
 	!current_screen.characters_of(y)(x) chr
 	if current_text_colour.is_defined:
 	  !current_screen.text_colours_of(y)(x) current_text_colour
@@ -697,6 +699,8 @@ $std::draw_line:
 		!chr '@0x2524;'
 	      :
 		!chr '@0x253c;'
+	  '@0x253c;':
+	    !chr '@0x253c;'
 	!current_screen.characters_of(y)(x) chr
 	if current_text_colour.is_defined:
 	  !current_screen.text_colours_of(y)(x) current_text_colour

@@ -804,14 +804,14 @@ $build_codeblocks_project:
         <Project>
           <Option title="@(basename)" />
           <Option pch_mode="2" />
-          <Option compiler=c_compiler() />
+          <Option compiler="@(c_compiler())" />
           <Build>
             <Target title="debug">
               <Option output="bin/debug/@(basename)" prefix_auto="1" @
       extension_auto="1" />
               <Option object_output="obj/debug/" />
               <Option type="1" />
-              <Option compiler=c_compiler() />
+              <Option compiler="@(c_compiler())" />
               <Compiler>
                 <Add option="-g" />
               </Compiler>
@@ -828,17 +828,18 @@ $build_codeblocks_project:
           </Linker>
           <Compiler>
             <Add option="-Wall" />
+	    <Add directory=".." />
           </Compiler>
           <Unit filename="@(path_prefix)runtime/common.h" />
           <Unit filename="@(path_prefix)runtime/linker.h" />
           <Unit filename="@(path_prefix)runtime/memory.c">
-            <Option compilerVar="@(c_compiler())" />
+            <Option compilerVar="CC" />
           </Unit>
           <Unit filename="@(path_prefix)runtime/debugger.c">
-            <Option compilerVar="@(c_compiler())" />
+            <Option compilerVar="CC" />
           </Unit>
           <Unit filename="@(path_prefix)runtime/linker.c">
-            <Option compilerVar="@(c_compiler())" />
+            <Option compilerVar="CC" />
           </Unit>
     for_each c_sources: ($filename)
       without_prefix &filename prefix_path
@@ -847,7 +848,7 @@ $build_codeblocks_project:
 	@
 
 	    <Unit filename="@(path_prefix)@(filename)">
-	      <Option compilerVar="@(c_compiler())" />
+	      <Option compilerVar="CC" />
 	    </Unit>
     write_to &buf "
           <Extensions>
